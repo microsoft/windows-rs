@@ -67,7 +67,6 @@ impl ::windows_core::RuntimeType for IAdcControllerProvider {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAdcControllerProvider_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ChannelCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
@@ -97,7 +96,6 @@ impl ::windows_core::RuntimeType for IAdcProvider {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAdcProvider_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]

@@ -1,6 +1,5 @@
 ::windows_core::imp::com_interface!(IGameBarStatics, IGameBarStatics_Vtbl, 0x1db9a292_cc78_4173_be45_b61e67283ea7);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IGameBarStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub VisibilityChanged: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
@@ -12,7 +11,6 @@ pub struct IGameBarStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IGameChatMessageReceivedEventArgs, IGameChatMessageReceivedEventArgs_Vtbl, 0xa28201f1_3fb9_4e42_a403_7afce2023b1e);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IGameChatMessageReceivedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub AppId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -23,7 +21,6 @@ pub struct IGameChatMessageReceivedEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IGameChatOverlay, IGameChatOverlay_Vtbl, 0xfbc64865_f6fc_4a48_ae07_03ac6ed43704);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IGameChatOverlay_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub DesiredPosition: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut GameChatOverlayPosition) -> ::windows_core::HRESULT,
@@ -32,7 +29,6 @@ pub struct IGameChatOverlay_Vtbl {
 }
 ::windows_core::imp::com_interface!(IGameChatOverlayMessageSource, IGameChatOverlayMessageSource_Vtbl, 0x1e177397_59fb_4f4f_8e9a_80acf817743c);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IGameChatOverlayMessageSource_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub MessageReceived: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
@@ -41,14 +37,12 @@ pub struct IGameChatOverlayMessageSource_Vtbl {
 }
 ::windows_core::imp::com_interface!(IGameChatOverlayStatics, IGameChatOverlayStatics_Vtbl, 0x89acf614_7867_49f7_9687_25d9dbf444d1);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IGameChatOverlayStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetDefault: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IGameUIProviderActivatedEventArgs, IGameUIProviderActivatedEventArgs_Vtbl, 0xa7b3203e_caf7_4ded_bbd2_47de43bb6dd5);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IGameUIProviderActivatedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]

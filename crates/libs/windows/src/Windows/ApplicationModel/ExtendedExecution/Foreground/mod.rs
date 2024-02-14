@@ -1,13 +1,11 @@
 ::windows_core::imp::com_interface!(IExtendedExecutionForegroundRevokedEventArgs, IExtendedExecutionForegroundRevokedEventArgs_Vtbl, 0xb07cd940_9557_aea4_2c99_bdd56d9be461);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IExtendedExecutionForegroundRevokedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Reason: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ExtendedExecutionForegroundRevokedReason) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IExtendedExecutionForegroundSession, IExtendedExecutionForegroundSession_Vtbl, 0xfbf440e1_9d10_4201_b01e_c83275296f2e);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IExtendedExecutionForegroundSession_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Description: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,

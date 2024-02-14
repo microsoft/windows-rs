@@ -1,6 +1,5 @@
 ::windows_core::imp::com_interface!(IGameControllerProviderInfoStatics, IGameControllerProviderInfoStatics_Vtbl, 0x0be1e6c5_d9bd_44ee_8362_488b2e464bfb);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IGameControllerProviderInfoStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Gaming_Input_Custom")]

@@ -1,6 +1,5 @@
 ::windows_core::imp::com_interface!(ICoreFrameworkInputView, ICoreFrameworkInputView_Vtbl, 0xd77c94ae_46b8_5d4a_9489_8ddec3d639a6);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreFrameworkInputView_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub PrimaryViewAnimationStarting: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
@@ -10,7 +9,6 @@ pub struct ICoreFrameworkInputView_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICoreFrameworkInputViewAnimationStartingEventArgs, ICoreFrameworkInputViewAnimationStartingEventArgs_Vtbl, 0xc0ec901c_bba4_501b_ae8b_65c9e756a719);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreFrameworkInputViewAnimationStartingEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -22,7 +20,6 @@ pub struct ICoreFrameworkInputViewAnimationStartingEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICoreFrameworkInputViewOcclusionsChangedEventArgs, ICoreFrameworkInputViewOcclusionsChangedEventArgs_Vtbl, 0xf36f4949_c82c_53d1_a75d_2b2baf0d9b0d);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreFrameworkInputViewOcclusionsChangedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -33,7 +30,6 @@ pub struct ICoreFrameworkInputViewOcclusionsChangedEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICoreFrameworkInputViewStatics, ICoreFrameworkInputViewStatics_Vtbl, 0x6eebd9b6_eac2_5f8b_975f_772ee3e42eeb);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreFrameworkInputViewStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetForUIContext: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -41,7 +37,6 @@ pub struct ICoreFrameworkInputViewStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICoreInputView, ICoreInputView_Vtbl, 0xc770cd7a_7001_4c32_bf94_25c1f554cbf1);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreInputView_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub OcclusionsChanged: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
@@ -55,7 +50,6 @@ pub struct ICoreInputView_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICoreInputView2, ICoreInputView2_Vtbl, 0x0ed726c1_e09a_4ae8_aedf_dfa4857d1a01);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreInputView2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub XYFocusTransferringFromPrimaryView: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
@@ -66,7 +60,6 @@ pub struct ICoreInputView2_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICoreInputView3, ICoreInputView3_Vtbl, 0xbc941653_3ab9_4849_8f58_46e7f0353cfc);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreInputView3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub TryShow: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -75,7 +68,6 @@ pub struct ICoreInputView3_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICoreInputView4, ICoreInputView4_Vtbl, 0x002863d6_d9ef_57eb_8cef_77f6ce1b7ee7);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreInputView4_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub PrimaryViewShowing: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
@@ -85,7 +77,6 @@ pub struct ICoreInputView4_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICoreInputView5, ICoreInputView5_Vtbl, 0x136316e0_c6d5_5c57_811e_1ad8a99ba6ab);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreInputView5_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsKindSupported: unsafe extern "system" fn(*mut ::core::ffi::c_void, CoreInputViewKind, *mut bool) -> ::windows_core::HRESULT,
@@ -96,7 +87,6 @@ pub struct ICoreInputView5_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICoreInputViewAnimationStartingEventArgs, ICoreInputViewAnimationStartingEventArgs_Vtbl, 0xa9144af2_b55c_5ea1_b8ab_5340f3e94897);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreInputViewAnimationStartingEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -109,14 +99,12 @@ pub struct ICoreInputViewAnimationStartingEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICoreInputViewHidingEventArgs, ICoreInputViewHidingEventArgs_Vtbl, 0xeada47bd_bac5_5336_848d_41083584daad);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreInputViewHidingEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub TryCancel: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ICoreInputViewOcclusion, ICoreInputViewOcclusion_Vtbl, 0xcc36ce06_3865_4177_b5f5_8b65e0b9ce84);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreInputViewOcclusion_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub OccludingRect: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::super::Foundation::Rect) -> ::windows_core::HRESULT,
@@ -124,7 +112,6 @@ pub struct ICoreInputViewOcclusion_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICoreInputViewOcclusionsChangedEventArgs, ICoreInputViewOcclusionsChangedEventArgs_Vtbl, 0xbe1027e8_b3ee_4df7_9554_89cdc66082c2);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreInputViewOcclusionsChangedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -136,28 +123,24 @@ pub struct ICoreInputViewOcclusionsChangedEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICoreInputViewShowingEventArgs, ICoreInputViewShowingEventArgs_Vtbl, 0xca52261b_fb9e_5daf_a98c_262b8b76af50);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreInputViewShowingEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub TryCancel: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ICoreInputViewStatics, ICoreInputViewStatics_Vtbl, 0x7d9b97cd_edbe_49cf_a54f_337de052907f);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreInputViewStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetForCurrentView: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ICoreInputViewStatics2, ICoreInputViewStatics2_Vtbl, 0x7ebc0862_d049_4e52_87b0_1e90e98c49ed);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreInputViewStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetForUIContext: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ICoreInputViewTransferringXYFocusEventArgs, ICoreInputViewTransferringXYFocusEventArgs_Vtbl, 0x04de169f_ba02_4850_8b55_d82d03ba6d7f);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreInputViewTransferringXYFocusEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Origin: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::super::Foundation::Rect) -> ::windows_core::HRESULT,
@@ -169,7 +152,6 @@ pub struct ICoreInputViewTransferringXYFocusEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IUISettingsController, IUISettingsController_Vtbl, 0x78a51ac4_15c0_5a1b_a75b_acbf9cb8bb9e);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUISettingsController_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SetAdvancedEffectsEnabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, bool) -> ::windows_core::HRESULT,
@@ -180,7 +162,6 @@ pub struct IUISettingsController_Vtbl {
 }
 ::windows_core::imp::com_interface!(IUISettingsControllerStatics, IUISettingsControllerStatics_Vtbl, 0xeb3c68cc_c220_578c_8119_7db324ed26a6);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUISettingsControllerStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub RequestDefaultAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,

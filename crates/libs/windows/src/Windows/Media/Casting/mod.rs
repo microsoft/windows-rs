@@ -1,6 +1,5 @@
 ::windows_core::imp::com_interface!(ICastingConnection, ICastingConnection_Vtbl, 0xcd951653_c2f1_4498_8b78_5fb4cd3640dd);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICastingConnection_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub State: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut CastingConnectionState) -> ::windows_core::HRESULT,
@@ -16,7 +15,6 @@ pub struct ICastingConnection_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICastingConnectionErrorOccurredEventArgs, ICastingConnectionErrorOccurredEventArgs_Vtbl, 0xa7fb3c69_8719_4f00_81fb_961863c79a32);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICastingConnectionErrorOccurredEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ErrorStatus: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut CastingConnectionErrorStatus) -> ::windows_core::HRESULT,
@@ -24,7 +22,6 @@ pub struct ICastingConnectionErrorOccurredEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICastingDevice, ICastingDevice_Vtbl, 0xde721c83_4a43_4ad1_a6d2_2492a796c3f2);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICastingDevice_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Id: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -38,7 +35,6 @@ pub struct ICastingDevice_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICastingDevicePicker, ICastingDevicePicker_Vtbl, 0xdcd39924_0591_49be_aacb_4b82ee756a95);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICastingDevicePicker_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Filter: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -59,7 +55,6 @@ pub struct ICastingDevicePicker_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICastingDevicePickerFilter, ICastingDevicePickerFilter_Vtbl, 0xbe8c619c_b563_4354_ae33_9fdaad8c6291);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICastingDevicePickerFilter_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SupportsAudio: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -75,14 +70,12 @@ pub struct ICastingDevicePickerFilter_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICastingDeviceSelectedEventArgs, ICastingDeviceSelectedEventArgs_Vtbl, 0xdc439e86_dd57_4d0d_9400_af45e4fb3663);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICastingDeviceSelectedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SelectedCastingDevice: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ICastingDeviceStatics, ICastingDeviceStatics_Vtbl, 0xe7d958d7_4d13_4237_a365_4c4f6a4cfd2f);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICastingDeviceStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetDeviceSelector: unsafe extern "system" fn(*mut ::core::ffi::c_void, CastingPlaybackTypes, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -95,7 +88,6 @@ pub struct ICastingDeviceStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICastingSource, ICastingSource_Vtbl, 0xf429ea72_3467_47e6_a027_522923e9d727);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICastingSource_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub PreferredSourceUri: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,

@@ -2,7 +2,6 @@
 pub mod Provider;
 ::windows_core::imp::com_interface!(IFileOpenPicker, IFileOpenPicker_Vtbl, 0x2ca8278a_12c5_4c5f_8977_94547793c241);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IFileOpenPicker_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ViewMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut PickerViewMode) -> ::windows_core::HRESULT,
@@ -25,7 +24,6 @@ pub struct IFileOpenPicker_Vtbl {
 }
 ::windows_core::imp::com_interface!(IFileOpenPicker2, IFileOpenPicker2_Vtbl, 0x8ceb6cd2_b446_46f7_b265_90f8e55ad650);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IFileOpenPicker2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
@@ -43,7 +41,6 @@ pub struct IFileOpenPicker2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IFileOpenPicker3, IFileOpenPicker3_Vtbl, 0xd9a5c5b3_c5dc_5b98_bd80_a8d0ca0584d8);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IFileOpenPicker3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "System")]
@@ -53,7 +50,6 @@ pub struct IFileOpenPicker3_Vtbl {
 }
 ::windows_core::imp::com_interface!(IFileOpenPickerStatics, IFileOpenPickerStatics_Vtbl, 0x6821573b_2f02_4833_96d4_abbfad72b67b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IFileOpenPickerStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "deprecated")]
@@ -63,7 +59,6 @@ pub struct IFileOpenPickerStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IFileOpenPickerStatics2, IFileOpenPickerStatics2_Vtbl, 0xe8917415_eddd_5c98_b6f3_366fdfcad392);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IFileOpenPickerStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "System")]
@@ -73,14 +68,12 @@ pub struct IFileOpenPickerStatics2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IFileOpenPickerWithOperationId, IFileOpenPickerWithOperationId_Vtbl, 0x3f57b569_2522_4ca5_aa73_a15509f1fcbf);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IFileOpenPickerWithOperationId_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub PickSingleFileAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IFileSavePicker, IFileSavePicker_Vtbl, 0x3286ffcb_617f_4cc5_af6a_b3fdf29ad145);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IFileSavePicker_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SettingsIdentifier: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -103,7 +96,6 @@ pub struct IFileSavePicker_Vtbl {
 }
 ::windows_core::imp::com_interface!(IFileSavePicker2, IFileSavePicker2_Vtbl, 0x0ec313a2_d24b_449a_8197_e89104fd42cc);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IFileSavePicker2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -117,7 +109,6 @@ pub struct IFileSavePicker2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IFileSavePicker3, IFileSavePicker3_Vtbl, 0x698aec69_ba3c_4e51_bd90_4abcbbf4cfaf);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IFileSavePicker3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub EnterpriseId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -125,7 +116,6 @@ pub struct IFileSavePicker3_Vtbl {
 }
 ::windows_core::imp::com_interface!(IFileSavePicker4, IFileSavePicker4_Vtbl, 0xe7d83a5a_ddfa_5de0_8b70_c842c21988ec);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IFileSavePicker4_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "System")]
@@ -135,7 +125,6 @@ pub struct IFileSavePicker4_Vtbl {
 }
 ::windows_core::imp::com_interface!(IFileSavePickerStatics, IFileSavePickerStatics_Vtbl, 0x28e3cf9e_961c_5e2c_aed7_e64737f4ce37);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IFileSavePickerStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "System")]
@@ -145,7 +134,6 @@ pub struct IFileSavePickerStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IFolderPicker, IFolderPicker_Vtbl, 0x084f7799_f3fb_400a_99b1_7b4a772fd60d);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IFolderPicker_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ViewMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut PickerViewMode) -> ::windows_core::HRESULT,
@@ -164,7 +152,6 @@ pub struct IFolderPicker_Vtbl {
 }
 ::windows_core::imp::com_interface!(IFolderPicker2, IFolderPicker2_Vtbl, 0x8eb3ba97_dc85_4616_be94_9660881f2f5d);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IFolderPicker2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -178,7 +165,6 @@ pub struct IFolderPicker2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IFolderPicker3, IFolderPicker3_Vtbl, 0x673b1e29_d326_53c0_bd24_a25c714cee36);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IFolderPicker3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "System")]
@@ -188,7 +174,6 @@ pub struct IFolderPicker3_Vtbl {
 }
 ::windows_core::imp::com_interface!(IFolderPickerStatics, IFolderPickerStatics_Vtbl, 0x9be34740_7ca1_5942_a3c8_46f2551ecff3);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IFolderPickerStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "System")]

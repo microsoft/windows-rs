@@ -1,6 +1,5 @@
 ::windows_core::imp::com_interface!(IAdvertisingManagerForUser, IAdvertisingManagerForUser_Vtbl, 0x928bf3d0_cf7c_4ab0_a7dc_6dc5bcd44252);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAdvertisingManagerForUser_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub AdvertisingId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -8,21 +7,18 @@ pub struct IAdvertisingManagerForUser_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAdvertisingManagerStatics, IAdvertisingManagerStatics_Vtbl, 0xadd3468c_a273_48cb_b346_3544522d5581);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAdvertisingManagerStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub AdvertisingId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IAdvertisingManagerStatics2, IAdvertisingManagerStatics2_Vtbl, 0xdd0947af_1a6d_46b0_95bc_f3f9d6beb9fb);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAdvertisingManagerStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetForUser: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IAssignedAccessSettings, IAssignedAccessSettings_Vtbl, 0x1bc57f1c_e971_5757_b8e0_512f8b8c46d2);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAssignedAccessSettings_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsEnabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -31,7 +27,6 @@ pub struct IAssignedAccessSettings_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAssignedAccessSettingsStatics, IAssignedAccessSettingsStatics_Vtbl, 0x34a81d0d_8a29_5ef3_a7be_618e6ac3bd01);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAssignedAccessSettingsStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetDefault: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -39,7 +34,6 @@ pub struct IAssignedAccessSettingsStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IDiagnosticsSettings, IDiagnosticsSettings_Vtbl, 0xe5e9eccd_2711_44e0_973c_491d78048d24);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDiagnosticsSettings_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CanUseDiagnosticsToTailorExperiences: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -47,7 +41,6 @@ pub struct IDiagnosticsSettings_Vtbl {
 }
 ::windows_core::imp::com_interface!(IDiagnosticsSettingsStatics, IDiagnosticsSettingsStatics_Vtbl, 0x72d2e80f_5390_4793_990b_3ccc7d6ac9c8);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDiagnosticsSettingsStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetDefault: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -55,20 +48,17 @@ pub struct IDiagnosticsSettingsStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IFirstSignInSettings, IFirstSignInSettings_Vtbl, 0x3e945153_3a5e_452e_a601_f5baad2a4870);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IFirstSignInSettings_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
 }
 ::windows_core::imp::com_interface!(IFirstSignInSettingsStatics, IFirstSignInSettingsStatics_Vtbl, 0x1ce18f0f_1c41_4ea0_b7a2_6f0c1c7e8438);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IFirstSignInSettingsStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetDefault: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IGlobalizationPreferencesForUser, IGlobalizationPreferencesForUser_Vtbl, 0x150f0795_4f6e_40ba_a010_e27d81bda7f5);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IGlobalizationPreferencesForUser_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub User: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -96,7 +86,6 @@ pub struct IGlobalizationPreferencesForUser_Vtbl {
 }
 ::windows_core::imp::com_interface!(IGlobalizationPreferencesStatics, IGlobalizationPreferencesStatics_Vtbl, 0x01bf4326_ed37_4e96_b0e9_c1340d1ea158);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IGlobalizationPreferencesStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -123,7 +112,6 @@ pub struct IGlobalizationPreferencesStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IGlobalizationPreferencesStatics2, IGlobalizationPreferencesStatics2_Vtbl, 0xfcce85f1_4300_4cd0_9cac_1a8e7b7e18f4);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IGlobalizationPreferencesStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub TrySetHomeGeographicRegion: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut bool) -> ::windows_core::HRESULT,
@@ -134,14 +122,12 @@ pub struct IGlobalizationPreferencesStatics2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IGlobalizationPreferencesStatics3, IGlobalizationPreferencesStatics3_Vtbl, 0x1e059733_35f5_40d8_b9e8_aef3ef856fce);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IGlobalizationPreferencesStatics3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetForUser: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ILockScreenImageFeedStatics, ILockScreenImageFeedStatics_Vtbl, 0x2c0d73f6_03a9_41a6_9b01_495251ff51d5);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ILockScreenImageFeedStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub RequestSetImageFeedAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -149,7 +135,6 @@ pub struct ILockScreenImageFeedStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(ILockScreenStatics, ILockScreenStatics_Vtbl, 0x3ee9d3ad_b607_40ae_b426_7631d9821269);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ILockScreenStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub OriginalImageFile: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -170,7 +155,6 @@ pub struct ILockScreenStatics_Vtbl {
 ::windows_core::imp::com_interface!(IUserInformationStatics, IUserInformationStatics_Vtbl, 0x77f3a910_48fa_489c_934e_2ae85ba8f772);
 #[cfg(feature = "deprecated")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUserInformationStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "deprecated")]
@@ -236,7 +220,6 @@ pub struct IUserInformationStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IUserProfilePersonalizationSettings, IUserProfilePersonalizationSettings_Vtbl, 0x8ceddab4_7998_46d5_8dd3_184f1c5f9ab9);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUserProfilePersonalizationSettings_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage")]
@@ -250,7 +233,6 @@ pub struct IUserProfilePersonalizationSettings_Vtbl {
 }
 ::windows_core::imp::com_interface!(IUserProfilePersonalizationSettingsStatics, IUserProfilePersonalizationSettingsStatics_Vtbl, 0x91acb841_5037_454b_9883_bb772d08dd16);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUserProfilePersonalizationSettingsStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Current: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,

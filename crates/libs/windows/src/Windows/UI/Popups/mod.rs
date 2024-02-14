@@ -1,6 +1,5 @@
 ::windows_core::imp::com_interface!(IMessageDialog, IMessageDialog_Vtbl, 0x33f59b01_5325_43ab_9ab3_bdae440e4121);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMessageDialog_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Title: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -21,7 +20,6 @@ pub struct IMessageDialog_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMessageDialogFactory, IMessageDialogFactory_Vtbl, 0x2d161777_a66f_4ea5_bb87_793ffa4941f2);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMessageDialogFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -29,7 +27,6 @@ pub struct IMessageDialogFactory_Vtbl {
 }
 ::windows_core::imp::com_interface!(IPopupMenu, IPopupMenu_Vtbl, 0x4e9bc6dc_880d_47fc_a0a1_72b639e62559);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPopupMenu_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -87,7 +84,6 @@ impl ::windows_core::RuntimeType for IUICommand {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUICommand_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Label: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -99,7 +95,6 @@ pub struct IUICommand_Vtbl {
 }
 ::windows_core::imp::com_interface!(IUICommandFactory, IUICommandFactory_Vtbl, 0xa21a8189_26b0_4676_ae94_54041bc125e8);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUICommandFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -552,7 +547,6 @@ impl ::windows_core::RuntimeType for UICommandInvokedHandler {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct UICommandInvokedHandler_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,

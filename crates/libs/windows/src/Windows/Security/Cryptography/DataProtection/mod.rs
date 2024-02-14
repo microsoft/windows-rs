@@ -1,6 +1,5 @@
 ::windows_core::imp::com_interface!(IDataProtectionProvider, IDataProtectionProvider_Vtbl, 0x09639948_ed22_4270_bd1c_6d72c00f8787);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDataProtectionProvider_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -22,7 +21,6 @@ pub struct IDataProtectionProvider_Vtbl {
 }
 ::windows_core::imp::com_interface!(IDataProtectionProviderFactory, IDataProtectionProviderFactory_Vtbl, 0xadf33dac_4932_4cdf_ac41_7214333514ca);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDataProtectionProviderFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateOverloadExplicit: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,

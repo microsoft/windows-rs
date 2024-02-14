@@ -4,7 +4,6 @@ pub mod AppointmentsProvider;
 pub mod DataProvider;
 ::windows_core::imp::com_interface!(IAppointment, IAppointment_Vtbl, 0xdd002f2f_2bdd_4076_90a3_22c275312965);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppointment_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub StartTime: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::DateTime) -> ::windows_core::HRESULT,
@@ -38,7 +37,6 @@ pub struct IAppointment_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppointment2, IAppointment2_Vtbl, 0x5e85983c_540f_3452_9b5c_0dd7ad4c65a2);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppointment2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub LocalId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -64,7 +62,6 @@ pub struct IAppointment2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppointment3, IAppointment3_Vtbl, 0xbfcc45a9_8961_4991_934b_c48768e5a96c);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppointment3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ChangeNumber: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u64) -> ::windows_core::HRESULT,
@@ -75,7 +72,6 @@ pub struct IAppointment3_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppointmentCalendar, IAppointmentCalendar_Vtbl, 0x5273819d_8339_3d4f_a02f_64084452bb5d);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppointmentCalendar_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "UI")]
@@ -131,7 +127,6 @@ pub struct IAppointmentCalendar_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppointmentCalendar2, IAppointmentCalendar2_Vtbl, 0x18e7e422_2467_4e1c_a459_d8a29303d092);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppointmentCalendar2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SyncManager: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -168,14 +163,12 @@ pub struct IAppointmentCalendar2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppointmentCalendar3, IAppointmentCalendar3_Vtbl, 0xeb23d22b_a685_42ae_8495_b3119adb4167);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppointmentCalendar3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub RegisterSyncManagerAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IAppointmentCalendarSyncManager, IAppointmentCalendarSyncManager_Vtbl, 0x2b21b3a0_4aff_4392_bc5f_5645ffcffb17);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppointmentCalendarSyncManager_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut AppointmentCalendarSyncStatus) -> ::windows_core::HRESULT,
@@ -187,7 +180,6 @@ pub struct IAppointmentCalendarSyncManager_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppointmentCalendarSyncManager2, IAppointmentCalendarSyncManager2_Vtbl, 0x647528ad_0d29_4c7c_aaa7_bf996805537c);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppointmentCalendarSyncManager2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SetStatus: unsafe extern "system" fn(*mut ::core::ffi::c_void, AppointmentCalendarSyncStatus) -> ::windows_core::HRESULT,
@@ -196,7 +188,6 @@ pub struct IAppointmentCalendarSyncManager2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppointmentConflictResult, IAppointmentConflictResult_Vtbl, 0xd5cdf0be_2f2f_3b7d_af0a_a7e20f3a46e3);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppointmentConflictResult_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Type: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut AppointmentConflictType) -> ::windows_core::HRESULT,
@@ -204,7 +195,6 @@ pub struct IAppointmentConflictResult_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppointmentException, IAppointmentException_Vtbl, 0xa2076767_16f6_4bce_9f5a_8600b8019fcb);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppointmentException_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Appointment: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -216,7 +206,6 @@ pub struct IAppointmentException_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppointmentInvitee, IAppointmentInvitee_Vtbl, 0x13bf0796_9842_495b_b0e7_ef8f79c0701d);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppointmentInvitee_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Role: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut AppointmentParticipantRole) -> ::windows_core::HRESULT,
@@ -226,7 +215,6 @@ pub struct IAppointmentInvitee_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppointmentManagerForUser, IAppointmentManagerForUser_Vtbl, 0x70261423_73cc_4660_b318_b01365302a03);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppointmentManagerForUser_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ShowAddAppointmentAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, super::super::Foundation::Rect, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -264,7 +252,6 @@ pub struct IAppointmentManagerForUser_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppointmentManagerStatics, IAppointmentManagerStatics_Vtbl, 0x3a30fa01_5c40_499d_b33f_a43050f74fc4);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppointmentManagerStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ShowAddAppointmentAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, super::super::Foundation::Rect, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -294,7 +281,6 @@ pub struct IAppointmentManagerStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppointmentManagerStatics2, IAppointmentManagerStatics2_Vtbl, 0x0a81f60d_d04f_4034_af72_a36573b45ff0);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppointmentManagerStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ShowAppointmentDetailsAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -304,7 +290,6 @@ pub struct IAppointmentManagerStatics2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppointmentManagerStatics3, IAppointmentManagerStatics3_Vtbl, 0x2f9ae09c_b34c_4dc7_a35d_cafd88ae3ec6);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppointmentManagerStatics3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "System")]
@@ -342,7 +327,6 @@ impl ::windows_core::RuntimeType for IAppointmentParticipant {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppointmentParticipant_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub DisplayName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -352,7 +336,6 @@ pub struct IAppointmentParticipant_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppointmentPropertiesStatics, IAppointmentPropertiesStatics_Vtbl, 0x25141fe9_68ae_3aae_855f_bc4441caa234);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppointmentPropertiesStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Subject: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -384,7 +367,6 @@ pub struct IAppointmentPropertiesStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppointmentPropertiesStatics2, IAppointmentPropertiesStatics2_Vtbl, 0xdffc434b_b017_45dd_8af5_d163d10801bb);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppointmentPropertiesStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ChangeNumber: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -393,7 +375,6 @@ pub struct IAppointmentPropertiesStatics2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppointmentRecurrence, IAppointmentRecurrence_Vtbl, 0xd87b3e83_15a6_487b_b959_0c361e60e954);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppointmentRecurrence_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Unit: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut AppointmentRecurrenceUnit) -> ::windows_core::HRESULT,
@@ -415,7 +396,6 @@ pub struct IAppointmentRecurrence_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppointmentRecurrence2, IAppointmentRecurrence2_Vtbl, 0x3df3a2e0_05a7_4f50_9f86_b03f9436254d);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppointmentRecurrence2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub RecurrenceType: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut RecurrenceType) -> ::windows_core::HRESULT,
@@ -424,14 +404,12 @@ pub struct IAppointmentRecurrence2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppointmentRecurrence3, IAppointmentRecurrence3_Vtbl, 0x89ff96d9_da4d_4a17_8dd2_1cebc2b5ff9d);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppointmentRecurrence3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CalendarIdentifier: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IAppointmentStore, IAppointmentStore_Vtbl, 0xa461918c_7a47_4d96_96c9_15cd8a05a735);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppointmentStore_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ChangeTracker: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -479,7 +457,6 @@ pub struct IAppointmentStore_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppointmentStore2, IAppointmentStore2_Vtbl, 0x25c48c20_1c41_424f_8084_67c1cfe0a854);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppointmentStore2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub StoreChanged: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
@@ -488,14 +465,12 @@ pub struct IAppointmentStore2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppointmentStore3, IAppointmentStore3_Vtbl, 0x4251940b_b078_470a_9a40_c2e01761f72f);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppointmentStore3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetChangeTracker: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IAppointmentStoreChange, IAppointmentStoreChange_Vtbl, 0xa5a6e035_0a33_3654_8463_b543e90c3b79);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppointmentStoreChange_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Appointment: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -503,14 +478,12 @@ pub struct IAppointmentStoreChange_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppointmentStoreChange2, IAppointmentStoreChange2_Vtbl, 0xb37d0dce_5211_4402_a608_a96fe70b8ee2);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppointmentStoreChange2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub AppointmentCalendar: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IAppointmentStoreChangeReader, IAppointmentStoreChangeReader_Vtbl, 0x8b2409f1_65f3_42a0_961d_4c209bf30370);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppointmentStoreChangeReader_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -522,7 +495,6 @@ pub struct IAppointmentStoreChangeReader_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppointmentStoreChangeTracker, IAppointmentStoreChangeTracker_Vtbl, 0x1b25f4b1_8ece_4f17_93c8_e6412458fd5c);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppointmentStoreChangeTracker_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetChangeReader: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -531,34 +503,29 @@ pub struct IAppointmentStoreChangeTracker_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppointmentStoreChangeTracker2, IAppointmentStoreChangeTracker2_Vtbl, 0xb66aaf45_9542_4cf7_8550_eb370e0c08d3);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppointmentStoreChangeTracker2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsTracking: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IAppointmentStoreChangedDeferral, IAppointmentStoreChangedDeferral_Vtbl, 0x4cb82026_fedb_4bc3_9662_95a9befdf4df);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppointmentStoreChangedDeferral_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Complete: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IAppointmentStoreChangedEventArgs, IAppointmentStoreChangedEventArgs_Vtbl, 0x2285f8b9_0791_417e_bfea_cc6d41636c8c);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppointmentStoreChangedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetDeferral: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IAppointmentStoreNotificationTriggerDetails, IAppointmentStoreNotificationTriggerDetails_Vtbl, 0x9b33cb11_c301_421e_afef_047ecfa76adb);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppointmentStoreNotificationTriggerDetails_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
 }
 ::windows_core::imp::com_interface!(IFindAppointmentsOptions, IFindAppointmentsOptions_Vtbl, 0x55f7dc55_9942_3086_82b5_2cb29f64d5f5);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IFindAppointmentsOptions_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]

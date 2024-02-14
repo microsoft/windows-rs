@@ -20,7 +20,6 @@ impl ::windows_core::RuntimeType for IGpioControllerProvider {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IGpioControllerProvider_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub PinCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
@@ -102,7 +101,6 @@ impl ::windows_core::RuntimeType for IGpioPinProvider {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IGpioPinProvider_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ValueChanged: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
@@ -119,14 +117,12 @@ pub struct IGpioPinProvider_Vtbl {
 }
 ::windows_core::imp::com_interface!(IGpioPinProviderValueChangedEventArgs, IGpioPinProviderValueChangedEventArgs_Vtbl, 0x32a6d6f2_3d5b_44cd_8fbe_13a69f2edb24);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IGpioPinProviderValueChangedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Edge: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ProviderGpioPinEdge) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IGpioPinProviderValueChangedEventArgsFactory, IGpioPinProviderValueChangedEventArgsFactory_Vtbl, 0x3ecb0b59_568c_4392_b24a_8a59a902b1f1);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IGpioPinProviderValueChangedEventArgsFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut ::core::ffi::c_void, ProviderGpioPinEdge, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -147,7 +143,6 @@ impl ::windows_core::RuntimeType for IGpioProvider {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IGpioProvider_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]

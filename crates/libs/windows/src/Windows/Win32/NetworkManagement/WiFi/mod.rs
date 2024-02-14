@@ -532,7 +532,6 @@ impl IDot11AdHocInterface {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDot11AdHocInterface_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetDeviceSignature: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
@@ -553,7 +552,6 @@ impl IDot11AdHocInterfaceNotificationSink {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDot11AdHocInterfaceNotificationSink_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub OnConnectionStatusChange: unsafe extern "system" fn(*mut ::core::ffi::c_void, DOT11_ADHOC_NETWORK_CONNECTION_STATUS) -> ::windows_core::HRESULT,
@@ -593,7 +591,6 @@ impl IDot11AdHocManager {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDot11AdHocManager_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub CreateNetwork: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, ::windows_core::PCWSTR, i32, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -625,7 +622,6 @@ impl IDot11AdHocManagerNotificationSink {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDot11AdHocManagerNotificationSink_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub OnNetworkAdd: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -683,7 +679,6 @@ impl IDot11AdHocNetwork {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDot11AdHocNetwork_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetStatus: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut DOT11_ADHOC_NETWORK_CONNECTION_STATUS) -> ::windows_core::HRESULT,
@@ -710,7 +705,6 @@ impl IDot11AdHocNetworkNotificationSink {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDot11AdHocNetworkNotificationSink_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub OnStatusChange: unsafe extern "system" fn(*mut ::core::ffi::c_void, DOT11_ADHOC_NETWORK_CONNECTION_STATUS) -> ::windows_core::HRESULT,
@@ -727,7 +721,6 @@ impl IDot11AdHocSecuritySettings {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDot11AdHocSecuritySettings_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetDot11AuthAlgorithm: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut DOT11_ADHOC_AUTH_ALGORITHM) -> ::windows_core::HRESULT,
@@ -751,7 +744,6 @@ impl IEnumDot11AdHocInterfaces {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IEnumDot11AdHocInterfaces_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -777,7 +769,6 @@ impl IEnumDot11AdHocNetworks {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IEnumDot11AdHocNetworks_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -803,7 +794,6 @@ impl IEnumDot11AdHocSecuritySettings {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IEnumDot11AdHocSecuritySettings_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,

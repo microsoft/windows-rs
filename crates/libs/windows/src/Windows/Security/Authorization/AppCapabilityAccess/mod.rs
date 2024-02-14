@@ -1,6 +1,5 @@
 ::windows_core::imp::com_interface!(IAppCapability, IAppCapability_Vtbl, 0x4c49d915_8a2a_4295_9437_2df7c396aff4);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppCapability_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CapabilityName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -15,7 +14,6 @@ pub struct IAppCapability_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppCapability2, IAppCapability2_Vtbl, 0x11c7ccb6_c74f_50a3_b960_88008767d939);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppCapability2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub DisplayMessage: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -23,13 +21,11 @@ pub struct IAppCapability2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppCapabilityAccessChangedEventArgs, IAppCapabilityAccessChangedEventArgs_Vtbl, 0x0a578d15_bdd7_457e_8cca_6f53bd2e5944);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppCapabilityAccessChangedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
 }
 ::windows_core::imp::com_interface!(IAppCapabilityStatics, IAppCapabilityStatics_Vtbl, 0x7c353e2a_46ee_44e5_af3d_6ad3fc49bd22);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppCapabilityStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]

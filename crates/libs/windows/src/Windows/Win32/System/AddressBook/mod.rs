@@ -437,7 +437,6 @@ impl IABContainer {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IABContainer_Vtbl {
     pub base__: IMAPIContainer_Vtbl,
     pub CreateEntry: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const ENTRYID, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -558,7 +557,6 @@ impl IAddrBook {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAddrBook_Vtbl {
     pub base__: IMAPIProp_Vtbl,
     pub OpenEntry: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut ENTRYID, *mut ::windows_core::GUID, u32, *mut u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -647,7 +645,6 @@ impl IAttach {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAttach_Vtbl {
     pub base__: IMAPIProp_Vtbl,
 }
@@ -734,7 +731,6 @@ impl IDistList {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDistList_Vtbl {
     pub base__: IMAPIContainer_Vtbl,
     pub CreateEntry: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const ENTRYID, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -754,7 +750,6 @@ impl IMAPIAdviseSink {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMAPIAdviseSink_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -827,7 +822,6 @@ impl IMAPIContainer {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMAPIContainer_Vtbl {
     pub base__: IMAPIProp_Vtbl,
     pub GetContentsTable: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -857,7 +851,6 @@ impl IMAPIControl {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMAPIControl_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetLastError: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::HRESULT, u32, *mut *mut MAPIERROR) -> ::windows_core::HRESULT,
@@ -983,7 +976,6 @@ impl IMAPIFolder {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMAPIFolder_Vtbl {
     pub base__: IMAPIContainer_Vtbl,
     pub CreateMessage: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::GUID, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1018,7 +1010,6 @@ impl IMAPIProgress {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMAPIProgress_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Progress: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, u32) -> ::windows_core::HRESULT,
@@ -1073,7 +1064,6 @@ impl IMAPIProp {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMAPIProp_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetLastError: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::HRESULT, u32, *mut *mut MAPIERROR) -> ::windows_core::HRESULT,
@@ -1152,7 +1142,6 @@ impl IMAPIStatus {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMAPIStatus_Vtbl {
     pub base__: IMAPIProp_Vtbl,
     pub ValidateState: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, u32) -> ::windows_core::HRESULT,
@@ -1241,7 +1230,6 @@ impl IMAPITable {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMAPITable_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetLastError: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::HRESULT, u32, *mut *mut MAPIERROR) -> ::windows_core::HRESULT,
@@ -1326,7 +1314,6 @@ impl IMailUser {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMailUser_Vtbl {
     pub base__: IMAPIProp_Vtbl,
 }
@@ -1407,7 +1394,6 @@ impl IMessage {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMessage_Vtbl {
     pub base__: IMAPIProp_Vtbl,
     pub GetAttachmentTable: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1518,7 +1504,6 @@ impl IMsgStore {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMsgStore_Vtbl {
     pub base__: IMAPIProp_Vtbl,
     pub Advise: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const ENTRYID, u32, *mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -1584,7 +1569,6 @@ impl IProfSect {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IProfSect_Vtbl {
     pub base__: IMAPIProp_Vtbl,
 }
@@ -1646,7 +1630,6 @@ impl IPropData {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPropData_Vtbl {
     pub base__: IMAPIProp_Vtbl,
     pub HrSetObjAccess: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
@@ -1679,7 +1662,6 @@ impl IProviderAdmin {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IProviderAdmin_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetLastError: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::HRESULT, u32, *mut *mut MAPIERROR) -> ::windows_core::HRESULT,
@@ -1731,7 +1713,6 @@ impl ITableData {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITableData_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub HrGetView: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut SSortOrderSet, *mut CALLERRELEASE, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1776,7 +1757,6 @@ impl IWABExtInit {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWABExtInit_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut WABEXTDISPLAY) -> ::windows_core::HRESULT,
@@ -1864,7 +1844,6 @@ impl IWABObject {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWABObject_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetLastError: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::HRESULT, u32, *mut *mut MAPIERROR) -> ::windows_core::HRESULT,

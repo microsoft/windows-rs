@@ -1,6 +1,5 @@
 ::windows_core::imp::com_interface!(IPrintWorkflowBackgroundSession, IPrintWorkflowBackgroundSession_Vtbl, 0x5b7913ba_0c5e_528a_7458_86a46cbddc45);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPrintWorkflowBackgroundSession_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SetupRequested: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
@@ -12,7 +11,6 @@ pub struct IPrintWorkflowBackgroundSession_Vtbl {
 }
 ::windows_core::imp::com_interface!(IPrintWorkflowBackgroundSetupRequestedEventArgs, IPrintWorkflowBackgroundSetupRequestedEventArgs_Vtbl, 0x43e97342_1750_59c9_61fb_383748a20362);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPrintWorkflowBackgroundSetupRequestedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Graphics_Printing_PrintTicket")]
@@ -25,7 +23,6 @@ pub struct IPrintWorkflowBackgroundSetupRequestedEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IPrintWorkflowConfiguration, IPrintWorkflowConfiguration_Vtbl, 0xd0aac4ed_fd4b_5df5_4bb6_8d0d159ebe3f);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPrintWorkflowConfiguration_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SourceAppDisplayName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -34,14 +31,12 @@ pub struct IPrintWorkflowConfiguration_Vtbl {
 }
 ::windows_core::imp::com_interface!(IPrintWorkflowConfiguration2, IPrintWorkflowConfiguration2_Vtbl, 0xde350a50_a6d4_5be2_8b9a_09d3d39ea780);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPrintWorkflowConfiguration2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub AbortPrintFlow: unsafe extern "system" fn(*mut ::core::ffi::c_void, PrintWorkflowJobAbortReason) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IPrintWorkflowForegroundSession, IPrintWorkflowForegroundSession_Vtbl, 0xc79b63d0_f8ec_4ceb_953a_c8876157dd33);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPrintWorkflowForegroundSession_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SetupRequested: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
@@ -53,7 +48,6 @@ pub struct IPrintWorkflowForegroundSession_Vtbl {
 }
 ::windows_core::imp::com_interface!(IPrintWorkflowForegroundSetupRequestedEventArgs, IPrintWorkflowForegroundSetupRequestedEventArgs_Vtbl, 0xbbe38247_9c1b_4dd3_9b2b_c80468d941b3);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPrintWorkflowForegroundSetupRequestedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Graphics_Printing_PrintTicket")]
@@ -65,14 +59,12 @@ pub struct IPrintWorkflowForegroundSetupRequestedEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IPrintWorkflowJobActivatedEventArgs, IPrintWorkflowJobActivatedEventArgs_Vtbl, 0xd4bd5e6d_034e_5e00_a616_f961a033dcc8);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPrintWorkflowJobActivatedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Session: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IPrintWorkflowJobBackgroundSession, IPrintWorkflowJobBackgroundSession_Vtbl, 0xc5ec6ad8_20c9_5d51_8507_2734b46f96c5);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPrintWorkflowJobBackgroundSession_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut PrintWorkflowSessionStatus) -> ::windows_core::HRESULT,
@@ -84,7 +76,6 @@ pub struct IPrintWorkflowJobBackgroundSession_Vtbl {
 }
 ::windows_core::imp::com_interface!(IPrintWorkflowJobNotificationEventArgs, IPrintWorkflowJobNotificationEventArgs_Vtbl, 0x0ae16fba_5398_5eba_b472_978650186a9a);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPrintWorkflowJobNotificationEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Configuration: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -93,7 +84,6 @@ pub struct IPrintWorkflowJobNotificationEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IPrintWorkflowJobStartingEventArgs, IPrintWorkflowJobStartingEventArgs_Vtbl, 0xe3d99ba8_31ad_5e09_b0d7_601b97f161ad);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPrintWorkflowJobStartingEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Configuration: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -106,14 +96,12 @@ pub struct IPrintWorkflowJobStartingEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IPrintWorkflowJobTriggerDetails, IPrintWorkflowJobTriggerDetails_Vtbl, 0xff296129_60e2_51db_ba8c_e2ccddb516b9);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPrintWorkflowJobTriggerDetails_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub PrintWorkflowJobSession: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IPrintWorkflowJobUISession, IPrintWorkflowJobUISession_Vtbl, 0x00c8736b_7637_5687_a302_0f664d2aac65);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPrintWorkflowJobUISession_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut PrintWorkflowSessionStatus) -> ::windows_core::HRESULT,
@@ -125,13 +113,11 @@ pub struct IPrintWorkflowJobUISession_Vtbl {
 }
 ::windows_core::imp::com_interface!(IPrintWorkflowObjectModelSourceFileContent, IPrintWorkflowObjectModelSourceFileContent_Vtbl, 0xc36c8a6a_8a2a_419a_b3c3_2090e6bfab2f);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPrintWorkflowObjectModelSourceFileContent_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
 }
 ::windows_core::imp::com_interface!(IPrintWorkflowObjectModelSourceFileContentFactory, IPrintWorkflowObjectModelSourceFileContentFactory_Vtbl, 0x93b1b903_f013_56d6_b708_99ac2ccb12ee);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPrintWorkflowObjectModelSourceFileContentFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -141,13 +127,11 @@ pub struct IPrintWorkflowObjectModelSourceFileContentFactory_Vtbl {
 }
 ::windows_core::imp::com_interface!(IPrintWorkflowObjectModelTargetPackage, IPrintWorkflowObjectModelTargetPackage_Vtbl, 0x7d96bc74_9b54_4ca1_ad3a_979c3d44ddac);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPrintWorkflowObjectModelTargetPackage_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
 }
 ::windows_core::imp::com_interface!(IPrintWorkflowPdlConverter, IPrintWorkflowPdlConverter_Vtbl, 0x40604b62_0ae4_51f1_818f_731dc0b005ab);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPrintWorkflowPdlConverter_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(all(feature = "Graphics_Printing_PrintTicket", feature = "Storage_Streams"))]
@@ -157,7 +141,6 @@ pub struct IPrintWorkflowPdlConverter_Vtbl {
 }
 ::windows_core::imp::com_interface!(IPrintWorkflowPdlConverter2, IPrintWorkflowPdlConverter2_Vtbl, 0x854ceec1_7837_5b93_b7af_57a6998c2f71);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPrintWorkflowPdlConverter2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(all(feature = "Graphics_Printing_PrintTicket", feature = "Storage_Streams"))]
@@ -167,7 +150,6 @@ pub struct IPrintWorkflowPdlConverter2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IPrintWorkflowPdlDataAvailableEventArgs, IPrintWorkflowPdlDataAvailableEventArgs_Vtbl, 0xd4ad6b50_1547_5991_a0ef_e2ee20211518);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPrintWorkflowPdlDataAvailableEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Configuration: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -177,7 +159,6 @@ pub struct IPrintWorkflowPdlDataAvailableEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IPrintWorkflowPdlModificationRequestedEventArgs, IPrintWorkflowPdlModificationRequestedEventArgs_Vtbl, 0x1a339a61_2e13_5edd_a707_ceec61d7333b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPrintWorkflowPdlModificationRequestedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Configuration: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -198,7 +179,6 @@ pub struct IPrintWorkflowPdlModificationRequestedEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IPrintWorkflowPdlModificationRequestedEventArgs2, IPrintWorkflowPdlModificationRequestedEventArgs2_Vtbl, 0x8d692147_6c62_5e31_a0e7_d49f92c111c0);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPrintWorkflowPdlModificationRequestedEventArgs2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(all(feature = "Devices_Printers", feature = "Foundation_Collections"))]
@@ -212,7 +192,6 @@ pub struct IPrintWorkflowPdlModificationRequestedEventArgs2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IPrintWorkflowPdlSourceContent, IPrintWorkflowPdlSourceContent_Vtbl, 0x92f7fc41_32b8_56ab_845e_b1e68b3aedd5);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPrintWorkflowPdlSourceContent_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ContentType: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -227,7 +206,6 @@ pub struct IPrintWorkflowPdlSourceContent_Vtbl {
 }
 ::windows_core::imp::com_interface!(IPrintWorkflowPdlTargetStream, IPrintWorkflowPdlTargetStream_Vtbl, 0xa742dfe5_1ee3_52a9_9f9f_2e2043180fd1);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPrintWorkflowPdlTargetStream_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -238,7 +216,6 @@ pub struct IPrintWorkflowPdlTargetStream_Vtbl {
 }
 ::windows_core::imp::com_interface!(IPrintWorkflowPrinterJob, IPrintWorkflowPrinterJob_Vtbl, 0x12009f94_0d14_5443_bc09_250311ce570b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPrintWorkflowPrinterJob_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub JobId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
@@ -270,7 +247,6 @@ pub struct IPrintWorkflowPrinterJob_Vtbl {
 }
 ::windows_core::imp::com_interface!(IPrintWorkflowSourceContent, IPrintWorkflowSourceContent_Vtbl, 0x1a28c641_ceb1_4533_bb73_fbe63eefdb18);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPrintWorkflowSourceContent_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Graphics_Printing_PrintTicket")]
@@ -282,7 +258,6 @@ pub struct IPrintWorkflowSourceContent_Vtbl {
 }
 ::windows_core::imp::com_interface!(IPrintWorkflowSpoolStreamContent, IPrintWorkflowSpoolStreamContent_Vtbl, 0x72e55ece_e406_4b74_84e1_3ff3fdcdaf70);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPrintWorkflowSpoolStreamContent_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -292,7 +267,6 @@ pub struct IPrintWorkflowSpoolStreamContent_Vtbl {
 }
 ::windows_core::imp::com_interface!(IPrintWorkflowStreamTarget, IPrintWorkflowStreamTarget_Vtbl, 0xb23bba84_8565_488b_9839_1c9e7c7aa916);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPrintWorkflowStreamTarget_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -302,7 +276,6 @@ pub struct IPrintWorkflowStreamTarget_Vtbl {
 }
 ::windows_core::imp::com_interface!(IPrintWorkflowSubmittedEventArgs, IPrintWorkflowSubmittedEventArgs_Vtbl, 0x3add0a41_3794_5569_5c87_40e8ff720f83);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPrintWorkflowSubmittedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Operation: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -314,7 +287,6 @@ pub struct IPrintWorkflowSubmittedEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IPrintWorkflowSubmittedOperation, IPrintWorkflowSubmittedOperation_Vtbl, 0x2e4e6216_3be1_5f0f_5c81_a5a2bd4eab0e);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPrintWorkflowSubmittedOperation_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Complete: unsafe extern "system" fn(*mut ::core::ffi::c_void, PrintWorkflowSubmittedStatus) -> ::windows_core::HRESULT,
@@ -323,7 +295,6 @@ pub struct IPrintWorkflowSubmittedOperation_Vtbl {
 }
 ::windows_core::imp::com_interface!(IPrintWorkflowTarget, IPrintWorkflowTarget_Vtbl, 0x29da276c_0a73_5aed_4f3d_970d3251f057);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPrintWorkflowTarget_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub TargetAsStream: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -331,21 +302,18 @@ pub struct IPrintWorkflowTarget_Vtbl {
 }
 ::windows_core::imp::com_interface!(IPrintWorkflowTriggerDetails, IPrintWorkflowTriggerDetails_Vtbl, 0x5739d868_9d86_4052_b0cb_f310becd59bb);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPrintWorkflowTriggerDetails_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub PrintWorkflowSession: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IPrintWorkflowUIActivatedEventArgs, IPrintWorkflowUIActivatedEventArgs_Vtbl, 0xbc8a844d_09eb_5746_72a6_8dc8b5edbe9b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPrintWorkflowUIActivatedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub PrintWorkflowSession: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IPrintWorkflowUILauncher, IPrintWorkflowUILauncher_Vtbl, 0x64e9e22f_14cc_5828_96fb_39163fb6c378);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPrintWorkflowUILauncher_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsUILaunchEnabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -353,7 +321,6 @@ pub struct IPrintWorkflowUILauncher_Vtbl {
 }
 ::windows_core::imp::com_interface!(IPrintWorkflowXpsDataAvailableEventArgs, IPrintWorkflowXpsDataAvailableEventArgs_Vtbl, 0x4d11c331_54d1_434e_be0e_82c5fa58e5b2);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPrintWorkflowXpsDataAvailableEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Operation: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,

@@ -27,7 +27,6 @@ impl ::windows_core::RuntimeType for IActivatedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IActivatedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Kind: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ActivationKind) -> ::windows_core::HRESULT,
@@ -72,7 +71,6 @@ impl ::windows_core::RuntimeType for IActivatedEventArgsWithUser {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IActivatedEventArgsWithUser_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "System")]
@@ -117,7 +115,6 @@ impl ::windows_core::RuntimeType for IApplicationViewActivatedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IApplicationViewActivatedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CurrentlyShownApplicationViewId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
@@ -159,7 +156,6 @@ impl ::windows_core::RuntimeType for IAppointmentsProviderActivatedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppointmentsProviderActivatedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Verb: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -209,7 +205,6 @@ impl ::windows_core::RuntimeType for IAppointmentsProviderAddAppointmentActivate
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppointmentsProviderAddAppointmentActivatedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "ApplicationModel_Appointments_AppointmentsProvider")]
@@ -262,7 +257,6 @@ impl ::windows_core::RuntimeType for IAppointmentsProviderRemoveAppointmentActiv
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppointmentsProviderRemoveAppointmentActivatedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "ApplicationModel_Appointments_AppointmentsProvider")]
@@ -315,7 +309,6 @@ impl ::windows_core::RuntimeType for IAppointmentsProviderReplaceAppointmentActi
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppointmentsProviderReplaceAppointmentActivatedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "ApplicationModel_Appointments_AppointmentsProvider")]
@@ -381,7 +374,6 @@ impl ::windows_core::RuntimeType for IAppointmentsProviderShowAppointmentDetails
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub InstanceStartDate: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -439,7 +431,6 @@ impl ::windows_core::RuntimeType for IAppointmentsProviderShowTimeFrameActivated
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppointmentsProviderShowTimeFrameActivatedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub TimeToShow: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::DateTime) -> ::windows_core::HRESULT,
@@ -461,7 +452,6 @@ impl ::windows_core::RuntimeType for IBackgroundActivatedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBackgroundActivatedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "ApplicationModel_Background")]
@@ -506,7 +496,6 @@ impl ::windows_core::RuntimeType for IBarcodeScannerPreviewActivatedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBarcodeScannerPreviewActivatedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ConnectionId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -549,7 +538,6 @@ impl ::windows_core::RuntimeType for ICachedFileUpdaterActivatedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICachedFileUpdaterActivatedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Provider")]
@@ -601,7 +589,6 @@ impl ::windows_core::RuntimeType for ICameraSettingsActivatedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICameraSettingsActivatedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub VideoDeviceController: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -644,14 +631,12 @@ impl ::windows_core::RuntimeType for ICommandLineActivatedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICommandLineActivatedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Operation: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ICommandLineActivationOperation, ICommandLineActivationOperation_Vtbl, 0x994b2841_c59e_4f69_bcfd_b61ed4e622eb);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICommandLineActivationOperation_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Arguments: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -697,7 +682,6 @@ impl ::windows_core::RuntimeType for IContactActivatedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IContactActivatedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Verb: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -761,7 +745,6 @@ impl ::windows_core::RuntimeType for IContactCallActivatedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IContactCallActivatedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ServiceId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -824,7 +807,6 @@ impl ::windows_core::RuntimeType for IContactMapActivatedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IContactMapActivatedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "ApplicationModel_Contacts")]
@@ -895,7 +877,6 @@ impl ::windows_core::RuntimeType for IContactMessageActivatedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IContactMessageActivatedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ServiceId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -929,7 +910,6 @@ impl ::windows_core::RuntimeType for IContactPanelActivatedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IContactPanelActivatedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "ApplicationModel_Contacts")]
@@ -979,7 +959,6 @@ impl ::windows_core::RuntimeType for IContactPickerActivatedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IContactPickerActivatedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "ApplicationModel_Contacts_Provider")]
@@ -1046,7 +1025,6 @@ impl ::windows_core::RuntimeType for IContactPostActivatedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IContactPostActivatedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ServiceId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -1115,7 +1093,6 @@ impl ::windows_core::RuntimeType for IContactVideoCallActivatedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IContactVideoCallActivatedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ServiceId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -1162,7 +1139,6 @@ impl ::windows_core::RuntimeType for IContactsProviderActivatedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IContactsProviderActivatedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Verb: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -1205,7 +1181,6 @@ impl ::windows_core::RuntimeType for IContinuationActivatedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IContinuationActivatedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -1257,7 +1232,6 @@ impl ::windows_core::RuntimeType for IDeviceActivatedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDeviceActivatedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub DeviceInformationId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -1301,7 +1275,6 @@ impl ::windows_core::RuntimeType for IDevicePairingActivatedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDevicePairingActivatedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Devices_Enumeration")]
@@ -1360,7 +1333,6 @@ impl ::windows_core::RuntimeType for IDialReceiverActivatedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDialReceiverActivatedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub AppName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -1410,7 +1382,6 @@ impl ::windows_core::RuntimeType for IFileActivatedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IFileActivatedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage"))]
@@ -1456,7 +1427,6 @@ impl ::windows_core::RuntimeType for IFileActivatedEventArgsWithCallerPackageFam
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IFileActivatedEventArgsWithCallerPackageFamilyName_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CallerPackageFamilyName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -1514,7 +1484,6 @@ impl ::windows_core::RuntimeType for IFileActivatedEventArgsWithNeighboringFiles
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IFileActivatedEventArgsWithNeighboringFiles_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Search")]
@@ -1560,7 +1529,6 @@ impl ::windows_core::RuntimeType for IFileOpenPickerActivatedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IFileOpenPickerActivatedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Pickers_Provider")]
@@ -1583,7 +1551,6 @@ impl ::windows_core::RuntimeType for IFileOpenPickerActivatedEventArgs2 {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IFileOpenPickerActivatedEventArgs2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CallerPackageFamilyName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -1640,7 +1607,6 @@ impl ::windows_core::RuntimeType for IFileOpenPickerContinuationEventArgs {
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IFileOpenPickerContinuationEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage", feature = "deprecated"))]
@@ -1686,7 +1652,6 @@ impl ::windows_core::RuntimeType for IFileSavePickerActivatedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IFileSavePickerActivatedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Pickers_Provider")]
@@ -1716,7 +1681,6 @@ impl ::windows_core::RuntimeType for IFileSavePickerActivatedEventArgs2 {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IFileSavePickerActivatedEventArgs2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CallerPackageFamilyName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -1774,7 +1738,6 @@ impl ::windows_core::RuntimeType for IFileSavePickerContinuationEventArgs {
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IFileSavePickerContinuationEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(all(feature = "Storage", feature = "deprecated"))]
@@ -1834,7 +1797,6 @@ impl ::windows_core::RuntimeType for IFolderPickerContinuationEventArgs {
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IFolderPickerContinuationEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(all(feature = "Storage", feature = "deprecated"))]
@@ -1886,7 +1848,6 @@ impl ::windows_core::RuntimeType for ILaunchActivatedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ILaunchActivatedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Arguments: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -1943,7 +1904,6 @@ impl ::windows_core::RuntimeType for ILaunchActivatedEventArgs2 {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ILaunchActivatedEventArgs2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub TileActivatedInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1985,7 +1945,6 @@ impl ::windows_core::RuntimeType for ILockScreenActivatedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ILockScreenActivatedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Info: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -2042,7 +2001,6 @@ impl ::windows_core::RuntimeType for ILockScreenCallActivatedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ILockScreenCallActivatedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "ApplicationModel_Calls")]
@@ -2087,7 +2045,6 @@ impl ::windows_core::RuntimeType for IPhoneCallActivatedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPhoneCallActivatedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub LineId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
@@ -2129,7 +2086,6 @@ impl ::windows_core::RuntimeType for IPickerReturnedActivatedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPickerReturnedActivatedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub PickerOperationId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -2171,7 +2127,6 @@ impl ::windows_core::RuntimeType for IPrelaunchActivatedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPrelaunchActivatedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub PrelaunchActivated: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -2214,7 +2169,6 @@ impl ::windows_core::RuntimeType for IPrint3DWorkflowActivatedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPrint3DWorkflowActivatedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Devices_Printers_Extensions")]
@@ -2260,7 +2214,6 @@ impl ::windows_core::RuntimeType for IPrintTaskSettingsActivatedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPrintTaskSettingsActivatedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Devices_Printers_Extensions")]
@@ -2305,7 +2258,6 @@ impl ::windows_core::RuntimeType for IProtocolActivatedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IProtocolActivatedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Uri: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -2355,7 +2307,6 @@ impl ::windows_core::RuntimeType for IProtocolActivatedEventArgsWithCallerPackag
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CallerPackageFamilyName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -2402,7 +2353,6 @@ impl ::windows_core::RuntimeType for IProtocolForResultsActivatedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IProtocolForResultsActivatedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "System")]
@@ -2447,7 +2397,6 @@ impl ::windows_core::RuntimeType for IRestrictedLaunchActivatedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRestrictedLaunchActivatedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SharedContext: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -2496,7 +2445,6 @@ impl ::windows_core::RuntimeType for ISearchActivatedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISearchActivatedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub QueryText: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -2518,7 +2466,6 @@ impl ::windows_core::RuntimeType for ISearchActivatedEventArgsWithLinguisticDeta
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISearchActivatedEventArgsWithLinguisticDetails_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "ApplicationModel_Search")]
@@ -2564,7 +2511,6 @@ impl ::windows_core::RuntimeType for IShareTargetActivatedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IShareTargetActivatedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "ApplicationModel_DataTransfer_ShareTarget")]
@@ -2574,7 +2520,6 @@ pub struct IShareTargetActivatedEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISplashScreen, ISplashScreen_Vtbl, 0xca4d975c_d4d6_43f0_97c0_0833c6391c24);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISplashScreen_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ImageLocation: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::Rect) -> ::windows_core::HRESULT,
@@ -2618,14 +2563,12 @@ impl ::windows_core::RuntimeType for IStartupTaskActivatedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IStartupTaskActivatedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub TaskId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ITileActivatedInfo, ITileActivatedInfo_Vtbl, 0x80e4a3b1_3980_4f17_b738_89194e0b8f65);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITileActivatedInfo_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(all(feature = "Foundation_Collections", feature = "UI_Notifications"))]
@@ -2678,7 +2621,6 @@ impl ::windows_core::RuntimeType for IToastNotificationActivatedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IToastNotificationActivatedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Argument: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -2725,7 +2667,6 @@ impl ::windows_core::RuntimeType for IUserDataAccountProviderActivatedEventArgs 
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUserDataAccountProviderActivatedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "ApplicationModel_UserDataAccounts_Provider")]
@@ -2771,7 +2712,6 @@ impl ::windows_core::RuntimeType for IViewSwitcherProvider {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IViewSwitcherProvider_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "UI_ViewManagement")]
@@ -2817,7 +2757,6 @@ impl ::windows_core::RuntimeType for IVoiceCommandActivatedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVoiceCommandActivatedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Media_SpeechRecognition")]
@@ -2885,7 +2824,6 @@ impl ::windows_core::RuntimeType for IWalletActionActivatedEventArgs {
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWalletActionActivatedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "deprecated")]
@@ -2939,7 +2877,6 @@ impl ::windows_core::RuntimeType for IWebAccountProviderActivatedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWebAccountProviderActivatedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Security_Authentication_Web_Provider")]
@@ -2993,7 +2930,6 @@ impl ::windows_core::RuntimeType for IWebAuthenticationBrokerContinuationEventAr
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWebAuthenticationBrokerContinuationEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Security_Authentication_Web")]

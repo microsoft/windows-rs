@@ -35,7 +35,6 @@ impl IPrintDocumentPackageStatusEvent {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPrintDocumentPackageStatusEvent_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub PackageStatusUpdated: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const PrintDocumentPackageStatus) -> ::windows_core::HRESULT,
@@ -58,7 +57,6 @@ impl IPrintDocumentPackageTarget {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPrintDocumentPackageTarget_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetPackageTargetTypes: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32, *mut *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
@@ -81,7 +79,6 @@ impl IPrintDocumentPackageTarget2 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPrintDocumentPackageTarget2_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetIsTargetIppPrinter: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
@@ -103,7 +100,6 @@ impl IPrintDocumentPackageTargetFactory {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPrintDocumentPackageTargetFactory_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -122,7 +118,6 @@ impl IXpsPrintJob {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IXpsPrintJob_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Cancel: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -148,7 +143,6 @@ impl IXpsPrintJobStream {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IXpsPrintJobStream_Vtbl {
     pub base__: super::super::super::System::Com::ISequentialStream_Vtbl,
     pub Close: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,

@@ -2,7 +2,6 @@
 pub mod PlayReady;
 ::windows_core::imp::com_interface!(IComponentLoadFailedEventArgs, IComponentLoadFailedEventArgs_Vtbl, 0x95972e93_7746_417e_8495_f031bbc5862c);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IComponentLoadFailedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Information: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -10,14 +9,12 @@ pub struct IComponentLoadFailedEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IComponentRenewalStatics, IComponentRenewalStatics_Vtbl, 0x6ffbcd67_b795_48c5_8b7b_a7c4efe202e3);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IComponentRenewalStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub RenewSystemComponentsAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IHdcpSession, IHdcpSession_Vtbl, 0x718845e9_64d7_426d_809b_1be461941a2a);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IHdcpSession_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsEffectiveProtectionAtLeast: unsafe extern "system" fn(*mut ::core::ffi::c_void, HdcpProtection, *mut bool) -> ::windows_core::HRESULT,
@@ -28,7 +25,6 @@ pub struct IHdcpSession_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMediaProtectionManager, IMediaProtectionManager_Vtbl, 0x45694947_c741_434b_a79e_474c12d93d2f);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaProtectionManager_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ServiceRequested: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
@@ -44,7 +40,6 @@ pub struct IMediaProtectionManager_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMediaProtectionPMPServer, IMediaProtectionPMPServer_Vtbl, 0x0c111226_7b26_4d31_95bb_9c1b08ef7fc0);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaProtectionPMPServer_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -54,7 +49,6 @@ pub struct IMediaProtectionPMPServer_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMediaProtectionPMPServerFactory, IMediaProtectionPMPServerFactory_Vtbl, 0x602c8e5e_f7d2_487e_af91_dbc4252b2182);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaProtectionPMPServerFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -64,7 +58,6 @@ pub struct IMediaProtectionPMPServerFactory_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMediaProtectionServiceCompletion, IMediaProtectionServiceCompletion_Vtbl, 0x8b5cca18_cfd5_44ee_a2ed_df76010c14b5);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaProtectionServiceCompletion_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Complete: unsafe extern "system" fn(*mut ::core::ffi::c_void, bool) -> ::windows_core::HRESULT,
@@ -91,7 +84,6 @@ impl ::windows_core::RuntimeType for IMediaProtectionServiceRequest {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaProtectionServiceRequest_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ProtectionSystem: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
@@ -99,14 +91,12 @@ pub struct IMediaProtectionServiceRequest_Vtbl {
 }
 ::windows_core::imp::com_interface!(IProtectionCapabilities, IProtectionCapabilities_Vtbl, 0xc7ac5d7e_7480_4d29_a464_7bcd913dd8e4);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IProtectionCapabilities_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsTypeSupported: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut ProtectionCapabilityResult) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IRevocationAndRenewalInformation, IRevocationAndRenewalInformation_Vtbl, 0xf3a1937b_2501_439e_a6e7_6fc95e175fcf);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRevocationAndRenewalInformation_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -116,7 +106,6 @@ pub struct IRevocationAndRenewalInformation_Vtbl {
 }
 ::windows_core::imp::com_interface!(IRevocationAndRenewalItem, IRevocationAndRenewalItem_Vtbl, 0x3099c20c_3cf0_49ea_902d_caf32d2dde2c);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRevocationAndRenewalItem_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Reasons: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut RevocationAndRenewalReasons) -> ::windows_core::HRESULT,
@@ -127,7 +116,6 @@ pub struct IRevocationAndRenewalItem_Vtbl {
 }
 ::windows_core::imp::com_interface!(IServiceRequestedEventArgs, IServiceRequestedEventArgs_Vtbl, 0x34283baf_abb4_4fc1_bd89_93f106573a49);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IServiceRequestedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Request: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -135,7 +123,6 @@ pub struct IServiceRequestedEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IServiceRequestedEventArgs2, IServiceRequestedEventArgs2_Vtbl, 0x553c69d6_fafe_4128_8dfa_130e398a13a7);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IServiceRequestedEventArgs2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Media_Playback")]
@@ -774,7 +761,6 @@ impl ::windows_core::RuntimeType for ComponentLoadFailedEventHandler {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ComponentLoadFailedEventHandler_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -838,7 +824,6 @@ impl ::windows_core::RuntimeType for RebootNeededEventHandler {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct RebootNeededEventHandler_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -903,7 +888,6 @@ impl ::windows_core::RuntimeType for ServiceRequestedEventHandler {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ServiceRequestedEventHandler_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,

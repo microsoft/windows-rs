@@ -1,6 +1,5 @@
 ::windows_core::imp::com_interface!(IMicrosoftAccountMultiFactorAuthenticationManager, IMicrosoftAccountMultiFactorAuthenticationManager_Vtbl, 0x0fd340a5_f574_4320_a08e_0a19a82322aa);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMicrosoftAccountMultiFactorAuthenticationManager_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetOneTimePassCodeAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -22,14 +21,12 @@ pub struct IMicrosoftAccountMultiFactorAuthenticationManager_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMicrosoftAccountMultiFactorAuthenticatorStatics, IMicrosoftAccountMultiFactorAuthenticatorStatics_Vtbl, 0xd964c2e6_f446_4c71_8b79_6ea4024aa9b8);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMicrosoftAccountMultiFactorAuthenticatorStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Current: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IMicrosoftAccountMultiFactorGetSessionsResult, IMicrosoftAccountMultiFactorGetSessionsResult_Vtbl, 0x4e23a9a0_e9fa_497a_95de_6d5747bf974c);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMicrosoftAccountMultiFactorGetSessionsResult_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -40,7 +37,6 @@ pub struct IMicrosoftAccountMultiFactorGetSessionsResult_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMicrosoftAccountMultiFactorOneTimeCodedInfo, IMicrosoftAccountMultiFactorOneTimeCodedInfo_Vtbl, 0x82ba264b_d87c_4668_a976_40cfae547d08);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMicrosoftAccountMultiFactorOneTimeCodedInfo_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Code: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -50,7 +46,6 @@ pub struct IMicrosoftAccountMultiFactorOneTimeCodedInfo_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMicrosoftAccountMultiFactorSessionInfo, IMicrosoftAccountMultiFactorSessionInfo_Vtbl, 0x5f7eabb4_a278_4635_b765_b494eb260af4);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMicrosoftAccountMultiFactorSessionInfo_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub UserAccountId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -63,7 +58,6 @@ pub struct IMicrosoftAccountMultiFactorSessionInfo_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo, IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo_Vtbl, 0xaa7ec5fb_da3f_4088_a20d_5618afadb2e5);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]

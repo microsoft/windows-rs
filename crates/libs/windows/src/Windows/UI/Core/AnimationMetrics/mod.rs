@@ -1,6 +1,5 @@
 ::windows_core::imp::com_interface!(IAnimationDescription, IAnimationDescription_Vtbl, 0x7d11a549_be3d_41de_b081_05c149962f9b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAnimationDescription_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -14,14 +13,12 @@ pub struct IAnimationDescription_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAnimationDescriptionFactory, IAnimationDescriptionFactory_Vtbl, 0xc6e27abe_c1fb_48b5_9271_ecc70ac86ef0);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAnimationDescriptionFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut ::core::ffi::c_void, AnimationEffect, AnimationEffectTarget, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IOpacityAnimation, IOpacityAnimation_Vtbl, 0x803aabe5_ee7e_455f_84e9_2506afb8d2b4);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IOpacityAnimation_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub InitialOpacity: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -70,7 +67,6 @@ impl ::windows_core::RuntimeType for IPropertyAnimation {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPropertyAnimation_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Type: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut PropertyAnimationType) -> ::windows_core::HRESULT,
@@ -81,7 +77,6 @@ pub struct IPropertyAnimation_Vtbl {
 }
 ::windows_core::imp::com_interface!(IScaleAnimation, IScaleAnimation_Vtbl, 0x023552c7_71ab_428c_9c9f_d31780964995);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IScaleAnimation_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub InitialScaleX: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,

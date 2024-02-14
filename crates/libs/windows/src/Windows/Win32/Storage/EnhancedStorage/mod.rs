@@ -24,7 +24,6 @@ impl IEnhancedStorageACT {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IEnhancedStorageACT_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Authorize: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32) -> ::windows_core::HRESULT,
@@ -68,7 +67,6 @@ impl IEnhancedStorageACT2 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IEnhancedStorageACT2_Vtbl {
     pub base__: IEnhancedStorageACT_Vtbl,
     pub GetDeviceName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
@@ -119,7 +117,6 @@ impl IEnhancedStorageACT3 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IEnhancedStorageACT3_Vtbl {
     pub base__: IEnhancedStorageACT2_Vtbl,
     pub UnauthorizeEx: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
@@ -150,7 +147,6 @@ impl IEnhancedStorageSilo {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IEnhancedStorageSilo_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut SILO_INFO) -> ::windows_core::HRESULT,
@@ -178,7 +174,6 @@ impl IEnhancedStorageSiloAction {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IEnhancedStorageSiloAction_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
@@ -200,7 +195,6 @@ impl IEnumEnhancedStorageACT {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IEnumEnhancedStorageACT_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetACTs: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::option::Option<IEnhancedStorageACT>, *mut u32) -> ::windows_core::HRESULT,

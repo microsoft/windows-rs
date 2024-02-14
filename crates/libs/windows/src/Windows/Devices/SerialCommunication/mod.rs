@@ -1,20 +1,17 @@
 ::windows_core::imp::com_interface!(IErrorReceivedEventArgs, IErrorReceivedEventArgs_Vtbl, 0xfcc6bf59_1283_4d8a_bfdf_566b33ddb28f);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IErrorReceivedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Error: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut SerialError) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IPinChangedEventArgs, IPinChangedEventArgs_Vtbl, 0xa2bf1db0_fc9c_4607_93d0_fa5e8343ee22);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPinChangedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub PinChange: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut SerialPinChange) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ISerialDevice, ISerialDevice_Vtbl, 0xe187ccc6_2210_414f_b65a_f5553a03372a);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISerialDevice_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub BaudRate: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -59,7 +56,6 @@ pub struct ISerialDevice_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISerialDeviceStatics, ISerialDeviceStatics_Vtbl, 0x058c4a70_0836_4993_ae1a_b61ae3be056b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISerialDeviceStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetDeviceSelector: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,

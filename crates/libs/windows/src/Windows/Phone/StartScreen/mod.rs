@@ -1,6 +1,5 @@
 ::windows_core::imp::com_interface!(IDualSimTile, IDualSimTile_Vtbl, 0x143ab213_d05f_4041_a18c_3e3fcb75b41e);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDualSimTile_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SetDisplayName: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -12,7 +11,6 @@ pub struct IDualSimTile_Vtbl {
 }
 ::windows_core::imp::com_interface!(IDualSimTileStatics, IDualSimTileStatics_Vtbl, 0x50567c9e_c58f_4dc9_b6e8_fa6777eeeb37);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDualSimTileStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetTileForSim2: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -58,7 +56,6 @@ impl ::windows_core::RuntimeType for IToastNotificationManagerStatics3 {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IToastNotificationManagerStatics3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "UI_Notifications")]

@@ -75,7 +75,6 @@ impl IMXAttributes {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMXAttributes_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub addAttribute: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
@@ -146,7 +145,6 @@ impl IMXNamespaceManager {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMXNamespaceManager_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub putAllowOverride: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
@@ -187,7 +185,6 @@ impl IMXNamespacePrefixes {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMXNamespacePrefixes_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub get_item: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
@@ -212,7 +209,6 @@ impl IMXReaderControl {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMXReaderControl_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub abort: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -235,7 +231,6 @@ impl IMXSchemaDeclHandler {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMXSchemaDeclHandler_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -335,7 +330,6 @@ impl IMXWriter {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMXWriter_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub Setoutput: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
@@ -433,7 +427,6 @@ impl IMXXMLFilter {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMXXMLFilter_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub getFeature: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut super::super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
@@ -517,7 +510,6 @@ impl ISAXAttributes {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISAXAttributes_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub getLength: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
@@ -606,7 +598,6 @@ impl ISAXContentHandler {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISAXContentHandler_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub putDocumentLocator: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -643,7 +634,6 @@ impl ISAXDTDHandler {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISAXDTDHandler_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub notationDecl: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, i32, ::windows_core::PCWSTR, i32, ::windows_core::PCWSTR, i32) -> ::windows_core::HRESULT,
@@ -686,7 +676,6 @@ impl ISAXDeclHandler {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISAXDeclHandler_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub elementDecl: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, i32, ::windows_core::PCWSTR, i32) -> ::windows_core::HRESULT,
@@ -707,7 +696,6 @@ impl ISAXEntityResolver {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISAXEntityResolver_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub resolveEntity: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, ::windows_core::PCWSTR, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
@@ -738,7 +726,6 @@ impl ISAXErrorHandler {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISAXErrorHandler_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub error: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, ::windows_core::PCWSTR, ::windows_core::HRESULT) -> ::windows_core::HRESULT,
@@ -785,7 +772,6 @@ impl ISAXLexicalHandler {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISAXLexicalHandler_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub startDTD: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, i32, ::windows_core::PCWSTR, i32, ::windows_core::PCWSTR, i32) -> ::windows_core::HRESULT,
@@ -817,7 +803,6 @@ impl ISAXLocator {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISAXLocator_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub getColumnNumber: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
@@ -940,7 +925,6 @@ impl ISAXXMLFilter {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISAXXMLFilter_Vtbl {
     pub base__: ISAXXMLReader_Vtbl,
     pub getParent: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1051,7 +1035,6 @@ impl ISAXXMLReader {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISAXXMLReader_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub getFeature: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *mut super::super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
@@ -1158,7 +1141,6 @@ impl ISchema {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISchema_Vtbl {
     pub base__: ISchemaItem_Vtbl,
     pub targetNamespace: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
@@ -1251,7 +1233,6 @@ impl ISchemaAny {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISchemaAny_Vtbl {
     pub base__: ISchemaParticle_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -1328,7 +1309,6 @@ impl ISchemaAttribute {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISchemaAttribute_Vtbl {
     pub base__: ISchemaItem_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -1396,7 +1376,6 @@ impl ISchemaAttributeGroup {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISchemaAttributeGroup_Vtbl {
     pub base__: ISchemaItem_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -1551,7 +1530,6 @@ impl ISchemaComplexType {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISchemaComplexType_Vtbl {
     pub base__: ISchemaType_Vtbl,
     pub isAbstract: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
@@ -1668,7 +1646,6 @@ impl ISchemaElement {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISchemaElement_Vtbl {
     pub base__: ISchemaParticle_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -1751,7 +1728,6 @@ impl ISchemaIdentityConstraint {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISchemaIdentityConstraint_Vtbl {
     pub base__: ISchemaItem_Vtbl,
     pub selector: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
@@ -1806,7 +1782,6 @@ impl ISchemaItem {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISchemaItem_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub name: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
@@ -1862,7 +1837,6 @@ impl ISchemaItemCollection {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISchemaItemCollection_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -1935,7 +1909,6 @@ impl ISchemaModelGroup {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISchemaModelGroup_Vtbl {
     pub base__: ISchemaParticle_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -1993,7 +1966,6 @@ impl ISchemaNotation {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISchemaNotation_Vtbl {
     pub base__: ISchemaItem_Vtbl,
     pub systemIdentifier: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
@@ -2049,7 +2021,6 @@ impl ISchemaParticle {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISchemaParticle_Vtbl {
     pub base__: ISchemaItem_Vtbl,
     pub minOccurs: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
@@ -2076,7 +2047,6 @@ impl ISchemaStringCollection {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISchemaStringCollection_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub get_item: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
@@ -2199,7 +2169,6 @@ impl ISchemaType {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISchemaType_Vtbl {
     pub base__: ISchemaItem_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -2331,7 +2300,6 @@ impl IServerXMLHTTPRequest {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IServerXMLHTTPRequest_Vtbl {
     pub base__: IXMLHTTPRequest_Vtbl,
     pub setTimeouts: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, i32, i32, i32) -> ::windows_core::HRESULT,
@@ -2455,7 +2423,6 @@ impl IServerXMLHTTPRequest2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IServerXMLHTTPRequest2_Vtbl {
     pub base__: IServerXMLHTTPRequest_Vtbl,
     pub setProxy: unsafe extern "system" fn(*mut ::core::ffi::c_void, SXH_PROXY_SETTING, ::std::mem::MaybeUninit<::windows_core::VARIANT>, ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
@@ -2533,7 +2500,6 @@ impl IVBMXNamespaceManager {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVBMXNamespaceManager_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub SetallowOverride: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
@@ -2638,7 +2604,6 @@ impl IVBSAXAttributes {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVBSAXAttributes_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub length: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
@@ -2704,7 +2669,6 @@ impl IVBSAXContentHandler {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVBSAXContentHandler_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -2740,7 +2704,6 @@ impl IVBSAXDTDHandler {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVBSAXDTDHandler_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub notationDecl: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
@@ -2767,7 +2730,6 @@ impl IVBSAXDeclHandler {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVBSAXDeclHandler_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub elementDecl: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
@@ -2788,7 +2750,6 @@ impl IVBSAXEntityResolver {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVBSAXEntityResolver_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub resolveEntity: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
@@ -2823,7 +2784,6 @@ impl IVBSAXErrorHandler {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVBSAXErrorHandler_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -2869,7 +2829,6 @@ impl IVBSAXLexicalHandler {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVBSAXLexicalHandler_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub startDTD: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
@@ -2905,7 +2864,6 @@ impl IVBSAXLocator {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVBSAXLocator_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub columnNumber: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
@@ -2934,7 +2892,6 @@ impl IVBSAXXMLFilter {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVBSAXXMLFilter_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -3063,7 +3020,6 @@ impl IVBSAXXMLReader {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVBSAXXMLReader_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub getFeature: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut super::super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
@@ -3126,7 +3082,6 @@ impl IXMLAttribute {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IXMLAttribute_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub name: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
@@ -3354,7 +3309,6 @@ impl IXMLDOMAttribute {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IXMLDOMAttribute_Vtbl {
     pub base__: IXMLDOMNode_Vtbl,
     pub name: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
@@ -3613,7 +3567,6 @@ impl IXMLDOMCDATASection {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IXMLDOMCDATASection_Vtbl {
     pub base__: IXMLDOMText_Vtbl,
 }
@@ -3864,7 +3817,6 @@ impl IXMLDOMCharacterData {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IXMLDOMCharacterData_Vtbl {
     pub base__: IXMLDOMNode_Vtbl,
     pub data: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
@@ -4123,7 +4075,6 @@ impl IXMLDOMComment {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IXMLDOMComment_Vtbl {
     pub base__: IXMLDOMCharacterData_Vtbl,
 }
@@ -4539,7 +4490,6 @@ impl IXMLDOMDocument {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IXMLDOMDocument_Vtbl {
     pub base__: IXMLDOMNode_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -5070,7 +5020,6 @@ impl IXMLDOMDocument2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IXMLDOMDocument2_Vtbl {
     pub base__: IXMLDOMDocument_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -5549,7 +5498,6 @@ impl IXMLDOMDocument3 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IXMLDOMDocument3_Vtbl {
     pub base__: IXMLDOMDocument2_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -5769,7 +5717,6 @@ impl IXMLDOMDocumentFragment {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IXMLDOMDocumentFragment_Vtbl {
     pub base__: IXMLDOMNode_Vtbl,
 }
@@ -5995,7 +5942,6 @@ impl IXMLDOMDocumentType {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IXMLDOMDocumentType_Vtbl {
     pub base__: IXMLDOMNode_Vtbl,
     pub name: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
@@ -6275,7 +6221,6 @@ impl IXMLDOMElement {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IXMLDOMElement_Vtbl {
     pub base__: IXMLDOMNode_Vtbl,
     pub tagName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
@@ -6520,7 +6465,6 @@ impl IXMLDOMEntity {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IXMLDOMEntity_Vtbl {
     pub base__: IXMLDOMNode_Vtbl,
     pub publicId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
@@ -6735,7 +6679,6 @@ impl IXMLDOMEntityReference {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IXMLDOMEntityReference_Vtbl {
     pub base__: IXMLDOMNode_Vtbl,
 }
@@ -6756,7 +6699,6 @@ impl IXMLDOMImplementation {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IXMLDOMImplementation_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub hasFeature: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut super::super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
@@ -6833,7 +6775,6 @@ impl IXMLDOMNamedNodeMap {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IXMLDOMNamedNodeMap_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -7076,7 +7017,6 @@ impl IXMLDOMNode {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IXMLDOMNode_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub nodeName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
@@ -7200,7 +7140,6 @@ impl IXMLDOMNodeList {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IXMLDOMNodeList_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -7431,7 +7370,6 @@ impl IXMLDOMNotation {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IXMLDOMNotation_Vtbl {
     pub base__: IXMLDOMNode_Vtbl,
     pub publicId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
@@ -7474,7 +7412,6 @@ impl IXMLDOMParseError {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IXMLDOMParseError_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub errorCode: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
@@ -7539,7 +7476,6 @@ impl IXMLDOMParseError2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IXMLDOMParseError2_Vtbl {
     pub base__: IXMLDOMParseError_Vtbl,
     pub errorXPath: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
@@ -7580,7 +7516,6 @@ impl IXMLDOMParseErrorCollection {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IXMLDOMParseErrorCollection_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -7817,7 +7752,6 @@ impl IXMLDOMProcessingInstruction {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IXMLDOMProcessingInstruction_Vtbl {
     pub base__: IXMLDOMNode_Vtbl,
     pub target: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
@@ -7873,7 +7807,6 @@ impl IXMLDOMSchemaCollection {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IXMLDOMSchemaCollection_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub add: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
@@ -7968,7 +7901,6 @@ impl IXMLDOMSchemaCollection2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IXMLDOMSchemaCollection2_Vtbl {
     pub base__: IXMLDOMSchemaCollection_Vtbl,
     pub validate: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -8075,7 +8007,6 @@ impl IXMLDOMSelection {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IXMLDOMSelection_Vtbl {
     pub base__: IXMLDOMNodeList_Vtbl,
     pub expr: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
@@ -8360,7 +8291,6 @@ impl IXMLDOMText {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IXMLDOMText_Vtbl {
     pub base__: IXMLDOMCharacterData_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -8403,7 +8333,6 @@ impl IXMLDSOControl {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IXMLDSOControl_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -8493,7 +8422,6 @@ impl IXMLDocument {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IXMLDocument_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -8602,7 +8530,6 @@ impl IXMLDocument2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IXMLDocument2_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -8705,7 +8632,6 @@ impl IXMLElement {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IXMLElement_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub tagName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
@@ -8815,7 +8741,6 @@ impl IXMLElement2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IXMLElement2_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub tagName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
@@ -8876,7 +8801,6 @@ impl IXMLElementCollection {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IXMLElementCollection_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub Setlength: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
@@ -8895,7 +8819,6 @@ impl IXMLError {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IXMLError_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetErrorInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut XML_ERROR) -> ::windows_core::HRESULT,
@@ -8982,7 +8905,6 @@ impl IXMLHTTPRequest {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IXMLHTTPRequest_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub open: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::VARIANT>, ::std::mem::MaybeUninit<::windows_core::VARIANT>, ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
@@ -9072,7 +8994,6 @@ impl IXMLHTTPRequest2 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IXMLHTTPRequest2_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Open: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, ::windows_core::PCWSTR, *mut ::core::ffi::c_void, ::windows_core::PCWSTR, ::windows_core::PCWSTR, ::windows_core::PCWSTR, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
@@ -9133,7 +9054,6 @@ impl IXMLHTTPRequest2Callback {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IXMLHTTPRequest2Callback_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub OnRedirect: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
@@ -9220,7 +9140,6 @@ impl IXMLHTTPRequest3 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IXMLHTTPRequest3_Vtbl {
     pub base__: IXMLHTTPRequest2_Vtbl,
     pub SetClientCertificate: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const u8, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
@@ -9278,7 +9197,6 @@ impl IXMLHTTPRequest3Callback {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IXMLHTTPRequest3Callback_Vtbl {
     pub base__: IXMLHTTPRequest2Callback_Vtbl,
     pub OnServerCertificateReceived: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, u32, *const XHR_CERT) -> ::windows_core::HRESULT,
@@ -9365,7 +9283,6 @@ impl IXSLProcessor {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IXSLProcessor_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub Setinput: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
@@ -9418,7 +9335,6 @@ impl IXSLTemplate {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IXSLTemplate_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -9715,7 +9631,6 @@ impl IXTLRuntime {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IXTLRuntime_Vtbl {
     pub base__: IXMLDOMNode_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -9751,7 +9666,6 @@ pub struct IXTLRuntime_Vtbl {
 impl XMLDOMDocumentEvents {}
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct XMLDOMDocumentEvents_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
 }

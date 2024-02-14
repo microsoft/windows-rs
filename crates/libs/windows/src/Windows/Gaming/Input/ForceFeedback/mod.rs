@@ -1,6 +1,5 @@
 ::windows_core::imp::com_interface!(IConditionForceEffect, IConditionForceEffect_Vtbl, 0x32d1ea68_3695_4e69_85c0_cd1944189140);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IConditionForceEffect_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Kind: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ConditionForceEffectKind) -> ::windows_core::HRESULT,
@@ -11,14 +10,12 @@ pub struct IConditionForceEffect_Vtbl {
 }
 ::windows_core::imp::com_interface!(IConditionForceEffectFactory, IConditionForceEffectFactory_Vtbl, 0x91a99264_1810_4eb6_a773_bfd3b8cddbab);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IConditionForceEffectFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut ::core::ffi::c_void, ConditionForceEffectKind, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IConstantForceEffect, IConstantForceEffect_Vtbl, 0x9bfa0140_f3c7_415c_b068_0f068734bce0);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IConstantForceEffect_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Numerics")]
@@ -64,7 +61,6 @@ impl ::windows_core::RuntimeType for IForceFeedbackEffect {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IForceFeedbackEffect_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Gain: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f64) -> ::windows_core::HRESULT,
@@ -75,7 +71,6 @@ pub struct IForceFeedbackEffect_Vtbl {
 }
 ::windows_core::imp::com_interface!(IForceFeedbackMotor, IForceFeedbackMotor_Vtbl, 0x8d3d417c_a5ea_4516_8026_2b00f74ef6e5);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IForceFeedbackMotor_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub AreEffectsPaused: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -94,7 +89,6 @@ pub struct IForceFeedbackMotor_Vtbl {
 }
 ::windows_core::imp::com_interface!(IPeriodicForceEffect, IPeriodicForceEffect_Vtbl, 0x5c5138d7_fc75_4d52_9a0a_efe4cab5fe64);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPeriodicForceEffect_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Kind: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut PeriodicForceEffectKind) -> ::windows_core::HRESULT,
@@ -109,14 +103,12 @@ pub struct IPeriodicForceEffect_Vtbl {
 }
 ::windows_core::imp::com_interface!(IPeriodicForceEffectFactory, IPeriodicForceEffectFactory_Vtbl, 0x6f62eb1a_9851_477b_b318_35ecaa15070f);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPeriodicForceEffectFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut ::core::ffi::c_void, PeriodicForceEffectKind, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IRampForceEffect, IRampForceEffect_Vtbl, 0xf1f81259_1ca6_4080_b56d_b43f3354d052);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRampForceEffect_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Numerics")]

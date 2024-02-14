@@ -688,7 +688,6 @@ impl ICreateObject {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICreateObject_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub CreateObject: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -720,7 +719,6 @@ impl IDelayedPropertyStoreFactory {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDelayedPropertyStoreFactory_Vtbl {
     pub base__: IPropertyStoreFactory_Vtbl,
     pub GetDelayedPropertyStore: unsafe extern "system" fn(*mut ::core::ffi::c_void, GETPROPERTYSTOREFLAGS, u32, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -736,7 +734,6 @@ impl IInitializeWithFile {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IInitializeWithFile_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, u32) -> ::windows_core::HRESULT,
@@ -753,7 +750,6 @@ impl IInitializeWithStream {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IInitializeWithStream_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -787,7 +783,6 @@ impl INamedPropertyStore {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct INamedPropertyStore_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetNamedValue: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *mut ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>) -> ::windows_core::HRESULT,
@@ -806,7 +801,6 @@ impl IObjectWithPropertyKey {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IObjectWithPropertyKey_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub SetPropertyKey: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const PROPERTYKEY) -> ::windows_core::HRESULT,
@@ -829,7 +823,6 @@ impl IPersistSerializedPropStorage {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPersistSerializedPropStorage_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub SetFlags: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
@@ -860,7 +853,6 @@ impl IPersistSerializedPropStorage2 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPersistSerializedPropStorage2_Vtbl {
     pub base__: IPersistSerializedPropStorage_Vtbl,
     pub GetPropertyStorageSize: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -881,7 +873,6 @@ impl IPropertyChange {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPropertyChange_Vtbl {
     pub base__: IObjectWithPropertyKey_Vtbl,
     pub ApplyToPropVariant: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>, *mut ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>) -> ::windows_core::HRESULT,
@@ -926,7 +917,6 @@ impl IPropertyChangeArray {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPropertyChangeArray_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -1028,7 +1018,6 @@ impl IPropertyDescription {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPropertyDescription_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetPropertyKey: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut PROPERTYKEY) -> ::windows_core::HRESULT,
@@ -1151,7 +1140,6 @@ impl IPropertyDescription2 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPropertyDescription2_Vtbl {
     pub base__: IPropertyDescription_Vtbl,
     pub GetImageReferenceForValue: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
@@ -1261,7 +1249,6 @@ impl IPropertyDescriptionAliasInfo {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPropertyDescriptionAliasInfo_Vtbl {
     pub base__: IPropertyDescription_Vtbl,
     pub GetSortByAlias: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1283,7 +1270,6 @@ impl IPropertyDescriptionList {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPropertyDescriptionList_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -1388,7 +1374,6 @@ impl IPropertyDescriptionRelatedPropertyInfo {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPropertyDescriptionRelatedPropertyInfo_Vtbl {
     pub base__: IPropertyDescription_Vtbl,
     pub GetRelatedProperty: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1500,7 +1485,6 @@ impl IPropertyDescriptionSearchInfo {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPropertyDescriptionSearchInfo_Vtbl {
     pub base__: IPropertyDescription_Vtbl,
     pub GetSearchInfoFlags: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut PROPDESC_SEARCHINFO_FLAGS) -> ::windows_core::HRESULT,
@@ -1533,7 +1517,6 @@ impl IPropertyEnumType {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPropertyEnumType_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetEnumType: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut PROPENUMTYPE) -> ::windows_core::HRESULT,
@@ -1571,7 +1554,6 @@ impl IPropertyEnumType2 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPropertyEnumType2_Vtbl {
     pub base__: IPropertyEnumType_Vtbl,
     pub GetImageReference: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
@@ -1603,7 +1585,6 @@ impl IPropertyEnumTypeList {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPropertyEnumTypeList_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -1633,7 +1614,6 @@ impl IPropertyStore {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPropertyStore_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -1677,7 +1657,6 @@ impl IPropertyStoreCache {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPropertyStoreCache_Vtbl {
     pub base__: IPropertyStore_Vtbl,
     pub GetState: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const PROPERTYKEY, *mut PSC_STATE) -> ::windows_core::HRESULT,
@@ -1693,7 +1672,6 @@ impl IPropertyStoreCapabilities {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPropertyStoreCapabilities_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub IsPropertyWritable: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const PROPERTYKEY) -> ::windows_core::HRESULT,
@@ -1718,7 +1696,6 @@ impl IPropertyStoreFactory {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPropertyStoreFactory_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetPropertyStore: unsafe extern "system" fn(*mut ::core::ffi::c_void, GETPROPERTYSTOREFLAGS, *mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1781,7 +1758,6 @@ impl IPropertySystem {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPropertySystem_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetPropertyDescription: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const PROPERTYKEY, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1802,7 +1778,6 @@ impl IPropertySystemChangeNotify {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPropertySystemChangeNotify_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub SchemaRefreshed: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1841,7 +1816,6 @@ impl IPropertyUI {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPropertyUI_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub ParsePropertyName: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *mut ::windows_core::GUID, *mut u32, *mut u32) -> ::windows_core::HRESULT,

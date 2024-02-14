@@ -1,6 +1,5 @@
 ::windows_core::imp::com_interface!(IToastOcclusionManagerPreviewStatics, IToastOcclusionManagerPreviewStatics_Vtbl, 0x507e5c83_50f9_5412_8953_b65c18cfab12);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IToastOcclusionManagerPreviewStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SetToastWindowMargin: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::WindowId, f64) -> ::windows_core::HRESULT,

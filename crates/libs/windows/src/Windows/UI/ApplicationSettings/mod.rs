@@ -1,6 +1,5 @@
 ::windows_core::imp::com_interface!(IAccountsSettingsPane, IAccountsSettingsPane_Vtbl, 0x81ea942c_4f09_4406_a538_838d9b14b7e6);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAccountsSettingsPane_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub AccountCommandsRequested: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
@@ -8,7 +7,6 @@ pub struct IAccountsSettingsPane_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAccountsSettingsPaneCommandsRequestedEventArgs, IAccountsSettingsPaneCommandsRequestedEventArgs_Vtbl, 0x3b68c099_db19_45d0_9abf_95d3773c9330);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAccountsSettingsPaneCommandsRequestedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -33,7 +31,6 @@ pub struct IAccountsSettingsPaneCommandsRequestedEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAccountsSettingsPaneCommandsRequestedEventArgs2, IAccountsSettingsPaneCommandsRequestedEventArgs2_Vtbl, 0x362f7bad_4e37_4967_8c40_e78ee7a1e5bb);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAccountsSettingsPaneCommandsRequestedEventArgs2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "System")]
@@ -43,14 +40,12 @@ pub struct IAccountsSettingsPaneCommandsRequestedEventArgs2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAccountsSettingsPaneEventDeferral, IAccountsSettingsPaneEventDeferral_Vtbl, 0xcbf25d3f_e5ba_40ef_93da_65e096e5fb04);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAccountsSettingsPaneEventDeferral_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Complete: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IAccountsSettingsPaneStatics, IAccountsSettingsPaneStatics_Vtbl, 0x561f8b60_b0ec_4150_a8dc_208ee44b068a);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAccountsSettingsPaneStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetForCurrentView: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -58,7 +53,6 @@ pub struct IAccountsSettingsPaneStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAccountsSettingsPaneStatics2, IAccountsSettingsPaneStatics2_Vtbl, 0xd21df7c2_ce0d_484f_b8e8_e823c215765e);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAccountsSettingsPaneStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ShowManageAccountsAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -66,7 +60,6 @@ pub struct IAccountsSettingsPaneStatics2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAccountsSettingsPaneStatics3, IAccountsSettingsPaneStatics3_Vtbl, 0x08410458_a2ba_4c6f_b4ac_48f514331216);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAccountsSettingsPaneStatics3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "System")]
@@ -80,7 +73,6 @@ pub struct IAccountsSettingsPaneStatics3_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICredentialCommand, ICredentialCommand_Vtbl, 0xa5f665e6_6143_4a7a_a971_b017ba978ce2);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICredentialCommand_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Security_Credentials")]
@@ -91,7 +83,6 @@ pub struct ICredentialCommand_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICredentialCommandFactory, ICredentialCommandFactory_Vtbl, 0x27e88c17_bc3e_4b80_9495_4ed720e48a91);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICredentialCommandFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Security_Credentials")]
@@ -105,7 +96,6 @@ pub struct ICredentialCommandFactory_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISettingsCommandFactory, ISettingsCommandFactory_Vtbl, 0x68e15b33_1c83_433a_aa5a_ceeea5bd4764);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISettingsCommandFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "UI_Popups")]
@@ -115,7 +105,6 @@ pub struct ISettingsCommandFactory_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISettingsCommandStatics, ISettingsCommandStatics_Vtbl, 0x749ae954_2f69_4b17_8aba_d05ce5778e46);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISettingsCommandStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "UI_Popups")]
@@ -127,7 +116,6 @@ pub struct ISettingsCommandStatics_Vtbl {
 ::windows_core::imp::com_interface!(ISettingsPane, ISettingsPane_Vtbl, 0xb1cd0932_4570_4c69_8d38_89446561ace0);
 #[cfg(feature = "deprecated")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISettingsPane_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "deprecated")]
@@ -143,7 +131,6 @@ pub struct ISettingsPane_Vtbl {
 ::windows_core::imp::com_interface!(ISettingsPaneCommandsRequest, ISettingsPaneCommandsRequest_Vtbl, 0x44df23ae_5d6e_4068_a168_f47643182114);
 #[cfg(feature = "deprecated")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISettingsPaneCommandsRequest_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(all(feature = "Foundation_Collections", feature = "UI_Popups", feature = "deprecated"))]
@@ -155,7 +142,6 @@ pub struct ISettingsPaneCommandsRequest_Vtbl {
 ::windows_core::imp::com_interface!(ISettingsPaneCommandsRequestedEventArgs, ISettingsPaneCommandsRequestedEventArgs_Vtbl, 0x205f5d24_1b48_4629_a6ca_2fdfedafb75d);
 #[cfg(feature = "deprecated")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISettingsPaneCommandsRequestedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "deprecated")]
@@ -167,7 +153,6 @@ pub struct ISettingsPaneCommandsRequestedEventArgs_Vtbl {
 ::windows_core::imp::com_interface!(ISettingsPaneStatics, ISettingsPaneStatics_Vtbl, 0x1c6a52c5_ff19_471b_ba6b_f8f35694ad9a);
 #[cfg(feature = "deprecated")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISettingsPaneStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "deprecated")]
@@ -185,7 +170,6 @@ pub struct ISettingsPaneStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IWebAccountCommand, IWebAccountCommand_Vtbl, 0xcaa39398_9cfa_4246_b0c4_a913a3896541);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWebAccountCommand_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Security_Credentials")]
@@ -197,7 +181,6 @@ pub struct IWebAccountCommand_Vtbl {
 }
 ::windows_core::imp::com_interface!(IWebAccountCommandFactory, IWebAccountCommandFactory_Vtbl, 0xbfa6cdff_2f2d_42f5_81de_1d56bafc496d);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWebAccountCommandFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Security_Credentials")]
@@ -207,14 +190,12 @@ pub struct IWebAccountCommandFactory_Vtbl {
 }
 ::windows_core::imp::com_interface!(IWebAccountInvokedArgs, IWebAccountInvokedArgs_Vtbl, 0xe7abcc40_a1d8_4c5d_9a7f_1d34b2f90ad2);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWebAccountInvokedArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Action: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut WebAccountAction) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWebAccountProviderCommand, IWebAccountProviderCommand_Vtbl, 0xd69bdd9a_a0a6_4e9b_88dc_c71e757a3501);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWebAccountProviderCommand_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Security_Credentials")]
@@ -225,7 +206,6 @@ pub struct IWebAccountProviderCommand_Vtbl {
 }
 ::windows_core::imp::com_interface!(IWebAccountProviderCommandFactory, IWebAccountProviderCommandFactory_Vtbl, 0xd5658a1b_b176_4776_8469_a9d3ff0b3f59);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWebAccountProviderCommandFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Security_Credentials")]
@@ -971,7 +951,6 @@ impl ::windows_core::RuntimeType for CredentialCommandCredentialDeletedHandler {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct CredentialCommandCredentialDeletedHandler_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1036,7 +1015,6 @@ impl ::windows_core::RuntimeType for WebAccountCommandInvokedHandler {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct WebAccountCommandInvokedHandler_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1100,7 +1078,6 @@ impl ::windows_core::RuntimeType for WebAccountProviderCommandInvokedHandler {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct WebAccountProviderCommandInvokedHandler_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,

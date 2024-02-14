@@ -2,7 +2,6 @@
 pub mod SystemManufacturers;
 ::windows_core::imp::com_interface!(IAnalyticsInfoStatics, IAnalyticsInfoStatics_Vtbl, 0x1d5ee066_188d_5ba9_4387_acaeb0e7e305);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAnalyticsInfoStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub VersionInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -10,7 +9,6 @@ pub struct IAnalyticsInfoStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAnalyticsInfoStatics2, IAnalyticsInfoStatics2_Vtbl, 0x101704ea_a7f9_46d2_ab94_016865afdb25);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAnalyticsInfoStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -20,7 +18,6 @@ pub struct IAnalyticsInfoStatics2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAnalyticsVersionInfo, IAnalyticsVersionInfo_Vtbl, 0x926130b8_9955_4c74_bdc1_7cd0decf9b03);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAnalyticsVersionInfo_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub DeviceFamily: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -28,14 +25,12 @@ pub struct IAnalyticsVersionInfo_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAnalyticsVersionInfo2, IAnalyticsVersionInfo2_Vtbl, 0x76e915b1_ff36_407c_9f57_160d3e540747);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAnalyticsVersionInfo2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ProductName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IAppApplicabilityStatics, IAppApplicabilityStatics_Vtbl, 0x1664a082_0f38_5c99_83e4_48995970861c);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppApplicabilityStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -45,14 +40,12 @@ pub struct IAppApplicabilityStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IEducationSettingsStatics, IEducationSettingsStatics_Vtbl, 0xfc53f0ef_4d3e_4e13_9b23_505f4d091e92);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IEducationSettingsStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsEducationEnvironment: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IHardwareIdentificationStatics, IHardwareIdentificationStatics_Vtbl, 0x971260e0_f170_4a42_bd55_a900b212dae2);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IHardwareIdentificationStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -62,7 +55,6 @@ pub struct IHardwareIdentificationStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IHardwareToken, IHardwareToken_Vtbl, 0x28f6d4c0_fb12_40a4_8167_7f4e03d2724c);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IHardwareToken_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -80,7 +72,6 @@ pub struct IHardwareToken_Vtbl {
 }
 ::windows_core::imp::com_interface!(IKnownRetailInfoPropertiesStatics, IKnownRetailInfoPropertiesStatics_Vtbl, 0x99571178_500f_487e_8e75_29e551728712);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IKnownRetailInfoPropertiesStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub RetailAccessCode: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -108,7 +99,6 @@ pub struct IKnownRetailInfoPropertiesStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IPlatformDiagnosticsAndUsageDataSettingsStatics, IPlatformDiagnosticsAndUsageDataSettingsStatics_Vtbl, 0xb6e24c1b_7b1c_4b32_8c62_a66597ce723a);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPlatformDiagnosticsAndUsageDataSettingsStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CollectionLevel: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut PlatformDataCollectionLevel) -> ::windows_core::HRESULT,
@@ -118,7 +108,6 @@ pub struct IPlatformDiagnosticsAndUsageDataSettingsStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IRetailInfoStatics, IRetailInfoStatics_Vtbl, 0x0712c6b8_8b92_4f2a_8499_031f1798d6ef);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRetailInfoStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsDemoModeEnabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -129,21 +118,18 @@ pub struct IRetailInfoStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISharedModeSettingsStatics, ISharedModeSettingsStatics_Vtbl, 0x893df40e_cad6_4d50_8c49_6fcfc03edb29);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISharedModeSettingsStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsEnabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ISharedModeSettingsStatics2, ISharedModeSettingsStatics2_Vtbl, 0x608988a4_ccf1_4ee8_a5e2_fd6a1d0cfac8);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISharedModeSettingsStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ShouldAvoidLocalStorage: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ISmartAppControlPolicyStatics, ISmartAppControlPolicyStatics_Vtbl, 0x5ff8c75b_073e_5015_8d98_5ff224180a0b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISmartAppControlPolicyStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsEnabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -152,7 +138,6 @@ pub struct ISmartAppControlPolicyStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISystemIdentificationInfo, ISystemIdentificationInfo_Vtbl, 0x0c659e7d_c3c2_4d33_a2df_21bc41916eb3);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISystemIdentificationInfo_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -163,7 +148,6 @@ pub struct ISystemIdentificationInfo_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISystemIdentificationStatics, ISystemIdentificationStatics_Vtbl, 0x5581f42a_d3df_4d93_a37d_c41a616c6d01);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISystemIdentificationStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetSystemIdForPublisher: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -171,7 +155,6 @@ pub struct ISystemIdentificationStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISystemSetupInfoStatics, ISystemSetupInfoStatics_Vtbl, 0xb8366a4b_fb6a_4571_be0a_9a0f67954123);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISystemSetupInfoStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub OutOfBoxExperienceState: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut SystemOutOfBoxExperienceState) -> ::windows_core::HRESULT,
@@ -180,7 +163,6 @@ pub struct ISystemSetupInfoStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IUnsupportedAppRequirement, IUnsupportedAppRequirement_Vtbl, 0x6182445c_894b_5cbc_8976_a98e0a9b998d);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUnsupportedAppRequirement_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Requirement: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -188,7 +170,6 @@ pub struct IUnsupportedAppRequirement_Vtbl {
 }
 ::windows_core::imp::com_interface!(IWindowsIntegrityPolicyStatics, IWindowsIntegrityPolicyStatics_Vtbl, 0x7d1d81db_8d63_4789_9ea5_ddcf65a94f3c);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWindowsIntegrityPolicyStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsEnabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,

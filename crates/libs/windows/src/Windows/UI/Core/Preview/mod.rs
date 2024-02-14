@@ -1,12 +1,10 @@
 ::windows_core::imp::com_interface!(ICoreAppWindowPreview, ICoreAppWindowPreview_Vtbl, 0xa4f6e665_365e_5fde_87a5_9543c3a15aa8);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreAppWindowPreview_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
 }
 ::windows_core::imp::com_interface!(ICoreAppWindowPreviewStatics, ICoreAppWindowPreviewStatics_Vtbl, 0x33ac21be_423b_5db6_8a8e_4dc87353b75b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreAppWindowPreviewStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "UI_WindowManagement")]
@@ -16,7 +14,6 @@ pub struct ICoreAppWindowPreviewStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISystemNavigationCloseRequestedPreviewEventArgs, ISystemNavigationCloseRequestedPreviewEventArgs_Vtbl, 0x83d00de1_cbe5_4f31_8414_361da046518f);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISystemNavigationCloseRequestedPreviewEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Handled: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -25,7 +22,6 @@ pub struct ISystemNavigationCloseRequestedPreviewEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISystemNavigationManagerPreview, ISystemNavigationManagerPreview_Vtbl, 0xec5f0488_6425_4777_a536_cb5634427f0d);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISystemNavigationManagerPreview_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CloseRequested: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
@@ -33,7 +29,6 @@ pub struct ISystemNavigationManagerPreview_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISystemNavigationManagerPreviewStatics, ISystemNavigationManagerPreviewStatics_Vtbl, 0x0e971360_df74_4bce_84cb_bd1181ac0a71);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISystemNavigationManagerPreviewStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetForCurrentView: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,

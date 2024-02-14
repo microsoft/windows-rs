@@ -78,7 +78,6 @@ impl IRichEditOle {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRichEditOle_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Ole")]
@@ -183,7 +182,6 @@ impl IRichEditOleCallback {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRichEditOleCallback_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
@@ -229,7 +227,6 @@ impl IRicheditUiaOverrides {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRicheditUiaOverrides_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetPropertyOverrideValue: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
@@ -242,7 +239,6 @@ pub struct IRicheditUiaOverrides_Vtbl {
 impl ITextDisplays {}
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITextDisplays_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
 }
@@ -328,7 +324,6 @@ impl ITextDocument {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITextDocument_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub GetName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
@@ -626,7 +621,6 @@ impl ITextDocument2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITextDocument2_Vtbl {
     pub base__: ITextDocument_Vtbl,
     pub GetCaretType: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
@@ -880,7 +874,6 @@ impl ITextDocument2Old {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITextDocument2Old_Vtbl {
     pub base__: ITextDocument_Vtbl,
     pub AttachMsgFilter: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1131,7 +1124,6 @@ impl ITextFont {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITextFont_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -1582,7 +1574,6 @@ impl ITextFont2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITextFont2_Vtbl {
     pub base__: ITextFont_Vtbl,
     pub GetCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
@@ -1812,7 +1803,6 @@ impl ITextHost {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITextHost_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -2106,7 +2096,6 @@ impl ITextHost2 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITextHost2_Vtbl {
     pub base__: ITextHost_Vtbl,
     pub TxIsDoubleClickPending: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> super::super::super::Foundation::BOOL,
@@ -2317,7 +2306,6 @@ impl ITextPara {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITextPara_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -2629,7 +2617,6 @@ impl ITextPara2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITextPara2_Vtbl {
     pub base__: ITextPara_Vtbl,
     pub GetBorders: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -2895,7 +2882,6 @@ impl ITextRange {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITextRange_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub GetText: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
@@ -3430,7 +3416,6 @@ impl ITextRange2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITextRange2_Vtbl {
     pub base__: ITextSelection_Vtbl,
     pub GetCch: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
@@ -3676,7 +3661,6 @@ impl ITextRow {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITextRow_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub GetAlignment: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
@@ -4007,7 +3991,6 @@ impl ITextSelection {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITextSelection_Vtbl {
     pub base__: ITextRange_Vtbl,
     pub GetFlags: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
@@ -4471,7 +4454,6 @@ impl ITextSelection2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITextSelection2_Vtbl {
     pub base__: ITextRange2_Vtbl,
 }
@@ -4563,7 +4545,6 @@ impl ITextServices {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITextServices_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub TxSendMessage: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, super::super::super::Foundation::WPARAM, super::super::super::Foundation::LPARAM, *mut super::super::super::Foundation::LRESULT) -> ::windows_core::HRESULT,
@@ -4703,7 +4684,6 @@ impl ITextServices2 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITextServices2_Vtbl {
     pub base__: ITextServices_Vtbl,
     #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
@@ -4770,7 +4750,6 @@ impl ITextStory {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITextStory_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetActive: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
@@ -4811,7 +4790,6 @@ impl ITextStoryRanges {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITextStoryRanges_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub _NewEnum: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -4848,7 +4826,6 @@ impl ITextStoryRanges2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITextStoryRanges2_Vtbl {
     pub base__: ITextStoryRanges_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -4951,7 +4928,6 @@ impl ITextStrings {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITextStrings_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]

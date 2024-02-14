@@ -3429,7 +3429,6 @@ impl GdiplusAbort {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct GdiplusAbort_Vtbl {
     pub Abort: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
@@ -3447,7 +3446,6 @@ impl IImageBytes {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IImageBytes_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub CountBytes: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,

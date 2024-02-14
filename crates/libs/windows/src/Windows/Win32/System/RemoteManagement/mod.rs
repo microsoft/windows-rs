@@ -313,7 +313,6 @@ impl IWSMan {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWSMan_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -352,7 +351,6 @@ impl IWSManConnectionOptions {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWSManConnectionOptions_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub UserName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
@@ -394,7 +392,6 @@ impl IWSManConnectionOptionsEx {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWSManConnectionOptionsEx_Vtbl {
     pub base__: IWSManConnectionOptions_Vtbl,
     pub CertificateThumbprint: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
@@ -470,7 +467,6 @@ impl IWSManConnectionOptionsEx2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWSManConnectionOptionsEx2_Vtbl {
     pub base__: IWSManConnectionOptionsEx_Vtbl,
     pub SetProxy: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, i32, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
@@ -503,7 +499,6 @@ impl IWSManEnumerator {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWSManEnumerator_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub ReadItem: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
@@ -625,7 +620,6 @@ impl IWSManEx {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWSManEx_Vtbl {
     pub base__: IWSMan_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -771,7 +765,6 @@ impl IWSManEx2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWSManEx2_Vtbl {
     pub base__: IWSManEx_Vtbl,
     pub SessionFlagUseClientCertificate: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
@@ -923,7 +916,6 @@ impl IWSManEx3 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWSManEx3_Vtbl {
     pub base__: IWSManEx2_Vtbl,
     pub SessionFlagUTF16: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
@@ -952,7 +944,6 @@ impl IWSManInternal {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWSManInternal_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -1034,7 +1025,6 @@ impl IWSManResourceLocator {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWSManResourceLocator_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub SetResourceURI: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
@@ -1055,7 +1045,6 @@ pub struct IWSManResourceLocator_Vtbl {
 ::windows_core::imp::interface_hierarchy!(IWSManResourceLocatorInternal, ::windows_core::IUnknown);
 impl IWSManResourceLocatorInternal {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWSManResourceLocatorInternal_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
 }
@@ -1138,7 +1127,6 @@ impl IWSManSession {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWSManSession_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub Get: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::VARIANT>, i32, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,

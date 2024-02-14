@@ -1259,7 +1259,6 @@ impl IAVIEditStream {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAVIEditStream_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Cut: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32, *mut i32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1294,7 +1293,6 @@ impl IAVIFile {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAVIFile_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Info: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut AVIFILEINFOW, i32) -> ::windows_core::HRESULT,
@@ -1353,7 +1351,6 @@ impl IAVIPersistFile {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAVIPersistFile_Vtbl {
     pub base__: super::super::System::Com::IPersistFile_Vtbl,
     pub Reserved1: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1400,7 +1397,6 @@ impl IAVIStream {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAVIStream_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Create: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::LPARAM, super::super::Foundation::LPARAM) -> ::windows_core::HRESULT,
@@ -1426,7 +1422,6 @@ impl IAVIStreaming {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAVIStreaming_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Begin: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, i32, i32) -> ::windows_core::HRESULT,
@@ -1450,7 +1445,6 @@ impl IGetFrame {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IGetFrame_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetFrame: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> *mut ::core::ffi::c_void,

@@ -583,7 +583,6 @@ impl ITraceEvent {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITraceEvent_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Clone: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -624,7 +623,6 @@ impl ITraceEventCallback {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITraceEventCallback_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub OnBeginProcessTrace: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -684,7 +682,6 @@ impl ITraceRelogger {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITraceRelogger_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub AddLogfileTraceStream: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, *const ::core::ffi::c_void, *mut RELOGSTREAM_HANDLE) -> ::windows_core::HRESULT,

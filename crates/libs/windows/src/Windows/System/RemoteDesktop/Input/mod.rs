@@ -1,6 +1,5 @@
 ::windows_core::imp::com_interface!(IRemoteTextConnection, IRemoteTextConnection_Vtbl, 0x4e7bb02a_183e_5e66_b5e4_3e6e5c570cf1);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRemoteTextConnection_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsEnabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -11,7 +10,6 @@ pub struct IRemoteTextConnection_Vtbl {
 }
 ::windows_core::imp::com_interface!(IRemoteTextConnectionFactory, IRemoteTextConnectionFactory_Vtbl, 0x88e075c2_0cae_596c_850f_78d345cd728b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRemoteTextConnectionFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::GUID, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -141,7 +139,6 @@ impl ::windows_core::RuntimeType for RemoteTextConnectionDataHandler {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct RemoteTextConnectionDataHandler_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const u8, *mut bool) -> ::windows_core::HRESULT,

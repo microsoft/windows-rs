@@ -1,6 +1,5 @@
 ::windows_core::imp::com_interface!(IHolographicKeyboard, IHolographicKeyboard_Vtbl, 0x07dd0893_aa21_5e6f_a91b_11b2b3fd7be3);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IHolographicKeyboard_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
@@ -15,7 +14,6 @@ pub struct IHolographicKeyboard_Vtbl {
 }
 ::windows_core::imp::com_interface!(IHolographicKeyboardStatics, IHolographicKeyboardStatics_Vtbl, 0xb676c624_63d7_58cf_b06b_08baa032a23f);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IHolographicKeyboardStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetDefault: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,

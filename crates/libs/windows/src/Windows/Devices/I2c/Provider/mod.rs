@@ -16,7 +16,6 @@ impl ::windows_core::RuntimeType for II2cControllerProvider {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct II2cControllerProvider_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetDeviceProvider: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -74,7 +73,6 @@ impl ::windows_core::RuntimeType for II2cDeviceProvider {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct II2cDeviceProvider_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub DeviceId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -101,7 +99,6 @@ impl ::windows_core::RuntimeType for II2cProvider {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct II2cProvider_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -111,7 +108,6 @@ pub struct II2cProvider_Vtbl {
 }
 ::windows_core::imp::com_interface!(IProviderI2cConnectionSettings, IProviderI2cConnectionSettings_Vtbl, 0xe9db4e34_e510_44b7_809d_f2f85b555339);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IProviderI2cConnectionSettings_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SlaveAddress: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,

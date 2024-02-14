@@ -1,6 +1,5 @@
 ::windows_core::imp::com_interface!(IGameService, IGameService_Vtbl, 0x2e2d5098_48a9_4efc_afd6_8e6da09003fb);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IGameService_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ServiceUri: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -17,7 +16,6 @@ pub struct IGameService_Vtbl {
 }
 ::windows_core::imp::com_interface!(IGameService2, IGameService2_Vtbl, 0xd2364ef6_ea17_4be5_8d8a_c860885e051f);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IGameService2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub NotifyPartnerTokenExpired: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -25,7 +23,6 @@ pub struct IGameService2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IGameServicePropertyCollection, IGameServicePropertyCollection_Vtbl, 0x07e57fc8_debb_4609_9cc8_529d16bc2bd9);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IGameServicePropertyCollection_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetPropertyAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,

@@ -2,14 +2,12 @@
 pub mod UI;
 ::windows_core::imp::com_interface!(ICredentialFactory, ICredentialFactory_Vtbl, 0x54ef13a1_bf26_47b5_97dd_de779b7cad58);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICredentialFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreatePasswordCredential: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, ::std::mem::MaybeUninit<::windows_core::HSTRING>, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IKeyCredential, IKeyCredential_Vtbl, 0x9585ef8d_457b_4847_b11a_fa960bbdb138);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IKeyCredential_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Name: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -29,7 +27,6 @@ pub struct IKeyCredential_Vtbl {
 }
 ::windows_core::imp::com_interface!(IKeyCredentialAttestationResult, IKeyCredentialAttestationResult_Vtbl, 0x78aab3a1_a3c1_4103_b6cc_472c44171cbb);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IKeyCredentialAttestationResult_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -44,7 +41,6 @@ pub struct IKeyCredentialAttestationResult_Vtbl {
 }
 ::windows_core::imp::com_interface!(IKeyCredentialManagerStatics, IKeyCredentialManagerStatics_Vtbl, 0x6aac468b_0ef1_4ce0_8290_4106da6a63b5);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IKeyCredentialManagerStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsSupportedAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -55,7 +51,6 @@ pub struct IKeyCredentialManagerStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IKeyCredentialOperationResult, IKeyCredentialOperationResult_Vtbl, 0xf53786c1_5261_4cdd_976d_cc909ac71620);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IKeyCredentialOperationResult_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -66,7 +61,6 @@ pub struct IKeyCredentialOperationResult_Vtbl {
 }
 ::windows_core::imp::com_interface!(IKeyCredentialRetrievalResult, IKeyCredentialRetrievalResult_Vtbl, 0x58cd7703_8d87_4249_9b58_f6598cc9644e);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IKeyCredentialRetrievalResult_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Credential: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -74,7 +68,6 @@ pub struct IKeyCredentialRetrievalResult_Vtbl {
 }
 ::windows_core::imp::com_interface!(IPasswordCredential, IPasswordCredential_Vtbl, 0x6ab18989_c720_41a7_a6c1_feadb36329a0);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPasswordCredential_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Resource: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -91,7 +84,6 @@ pub struct IPasswordCredential_Vtbl {
 }
 ::windows_core::imp::com_interface!(IPasswordVault, IPasswordVault_Vtbl, 0x61fd2c0b_c8d4_48c1_a54f_bc5a64205af2);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPasswordVault_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Add: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -139,7 +131,6 @@ impl ::windows_core::RuntimeType for IWebAccount {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWebAccount_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub WebAccountProvider: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -148,7 +139,6 @@ pub struct IWebAccount_Vtbl {
 }
 ::windows_core::imp::com_interface!(IWebAccount2, IWebAccount2_Vtbl, 0x7b56d6f8_990b_4eb5_94a7_5621f3a8b824);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWebAccount2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Id: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -165,14 +155,12 @@ pub struct IWebAccount2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IWebAccountFactory, IWebAccountFactory_Vtbl, 0xac9afb39_1de9_4e92_b78f_0581a87f6e5c);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWebAccountFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateWebAccount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, WebAccountState, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWebAccountProvider, IWebAccountProvider_Vtbl, 0x29dcc8c3_7ab9_4a7c_a336_b942f9dbf7c7);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWebAccountProvider_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Id: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -184,7 +172,6 @@ pub struct IWebAccountProvider_Vtbl {
 }
 ::windows_core::imp::com_interface!(IWebAccountProvider2, IWebAccountProvider2_Vtbl, 0x4a01eb05_4e42_41d4_b518_e008a5163614);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWebAccountProvider2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub DisplayPurpose: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -192,7 +179,6 @@ pub struct IWebAccountProvider2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IWebAccountProvider3, IWebAccountProvider3_Vtbl, 0xda1c518b_970d_4d49_825c_f2706f8ca7fe);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWebAccountProvider3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "System")]
@@ -202,14 +188,12 @@ pub struct IWebAccountProvider3_Vtbl {
 }
 ::windows_core::imp::com_interface!(IWebAccountProvider4, IWebAccountProvider4_Vtbl, 0x718fd8db_e796_4210_b74e_84d29894b080);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWebAccountProvider4_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsSystemProvider: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWebAccountProviderFactory, IWebAccountProviderFactory_Vtbl, 0x1d767df1_e1e1_4b9a_a774_5c7c7e3bf371);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWebAccountProviderFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateWebAccountProvider: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,

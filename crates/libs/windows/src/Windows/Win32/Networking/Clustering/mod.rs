@@ -3513,7 +3513,6 @@ impl IGetClusterDataInfo {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IGetClusterDataInfo_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetClusterName: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut i32) -> ::windows_core::HRESULT,
@@ -3528,7 +3527,6 @@ impl IGetClusterGroupInfo {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IGetClusterGroupInfo_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetGroupHandle: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> HGROUP,
@@ -3541,7 +3539,6 @@ impl IGetClusterNetInterfaceInfo {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IGetClusterNetInterfaceInfo_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetNetInterfaceHandle: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> HNETINTERFACE,
@@ -3554,7 +3551,6 @@ impl IGetClusterNetworkInfo {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IGetClusterNetworkInfo_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetNetworkHandle: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> HNETWORK,
@@ -3567,7 +3563,6 @@ impl IGetClusterNodeInfo {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IGetClusterNodeInfo_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetNodeHandle: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> HNODE,
@@ -3583,7 +3578,6 @@ impl IGetClusterObjectInfo {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IGetClusterObjectInfo_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetObjectName: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut i32) -> ::windows_core::HRESULT,
@@ -3603,7 +3597,6 @@ impl IGetClusterResourceInfo {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IGetClusterResourceInfo_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetResourceHandle: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> HRESOURCE,
@@ -3629,7 +3622,6 @@ impl IGetClusterUIInfo {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IGetClusterUIInfo_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetClusterName: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut i32) -> ::windows_core::HRESULT,
@@ -3673,7 +3665,6 @@ impl ISClusApplication {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISClusApplication_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -3728,7 +3719,6 @@ impl ISClusCryptoKeys {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISClusCryptoKeys_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
@@ -3765,7 +3755,6 @@ impl ISClusDisk {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISClusDisk_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Signature: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
@@ -3804,7 +3793,6 @@ impl ISClusDisks {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISClusDisks_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
@@ -3860,7 +3848,6 @@ impl ISClusNetInterface {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISClusNetInterface_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -3915,7 +3902,6 @@ impl ISClusNetInterfaces {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISClusNetInterfaces_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
@@ -3987,7 +3973,6 @@ impl ISClusNetwork {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISClusNetwork_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -4048,7 +4033,6 @@ impl ISClusNetworkNetInterfaces {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISClusNetworkNetInterfaces_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
@@ -4087,7 +4071,6 @@ impl ISClusNetworks {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISClusNetworks_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
@@ -4167,7 +4150,6 @@ impl ISClusNode {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISClusNode_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -4234,7 +4216,6 @@ impl ISClusNodeNetInterfaces {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISClusNodeNetInterfaces_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
@@ -4273,7 +4254,6 @@ impl ISClusNodes {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISClusNodes_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
@@ -4321,7 +4301,6 @@ impl ISClusPartition {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISClusPartition_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Flags: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
@@ -4389,7 +4368,6 @@ impl ISClusPartitionEx {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISClusPartitionEx_Vtbl {
     pub base__: ISClusPartition_Vtbl,
     pub TotalSize: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
@@ -4423,7 +4401,6 @@ impl ISClusPartitions {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISClusPartitions_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
@@ -4496,7 +4473,6 @@ impl ISClusProperties {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISClusProperties_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
@@ -4586,7 +4562,6 @@ impl ISClusProperty {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISClusProperty_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Name: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
@@ -4654,7 +4629,6 @@ impl ISClusPropertyValue {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISClusPropertyValue_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Value: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
@@ -4707,7 +4681,6 @@ impl ISClusPropertyValueData {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISClusPropertyValueData_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
@@ -4756,7 +4729,6 @@ impl ISClusPropertyValues {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISClusPropertyValues_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
@@ -4784,7 +4756,6 @@ impl ISClusRefObject {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISClusRefObject_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Handle: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut usize) -> ::windows_core::HRESULT,
@@ -4828,7 +4799,6 @@ impl ISClusRegistryKeys {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISClusRegistryKeys_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
@@ -4894,7 +4864,6 @@ impl ISClusResDependencies {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISClusResDependencies_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
@@ -4971,7 +4940,6 @@ impl ISClusResDependents {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISClusResDependents_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
@@ -5085,7 +5053,6 @@ impl ISClusResGroup {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISClusResGroup_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -5184,7 +5151,6 @@ impl ISClusResGroupPreferredOwnerNodes {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISClusResGroupPreferredOwnerNodes_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
@@ -5249,7 +5215,6 @@ impl ISClusResGroupResources {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISClusResGroupResources_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
@@ -5307,7 +5272,6 @@ impl ISClusResGroups {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISClusResGroups_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
@@ -5368,7 +5332,6 @@ impl ISClusResPossibleOwnerNodes {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISClusResPossibleOwnerNodes_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
@@ -5441,7 +5404,6 @@ impl ISClusResType {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISClusResType_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -5507,7 +5469,6 @@ impl ISClusResTypePossibleOwnerNodes {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISClusResTypePossibleOwnerNodes_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
@@ -5561,7 +5522,6 @@ impl ISClusResTypeResources {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISClusResTypeResources_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
@@ -5621,7 +5581,6 @@ impl ISClusResTypes {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISClusResTypes_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
@@ -5805,7 +5764,6 @@ impl ISClusResource {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISClusResource_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -5939,7 +5897,6 @@ impl ISClusResources {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISClusResources_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
@@ -5980,7 +5937,6 @@ impl ISClusScsiAddress {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISClusScsiAddress_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub PortNumber: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
@@ -6037,7 +5993,6 @@ impl ISClusVersion {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISClusVersion_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Name: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
@@ -6164,7 +6119,6 @@ impl ISCluster {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISCluster_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -6259,7 +6213,6 @@ impl ISClusterNames {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISClusterNames_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
@@ -6295,7 +6248,6 @@ impl ISDomainNames {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISDomainNames_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
@@ -6315,7 +6267,6 @@ impl IWCContextMenuCallback {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWCContextMenuCallback_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub AddExtensionMenuItem: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>, u32, u32, u32) -> ::windows_core::HRESULT,
@@ -6328,7 +6279,6 @@ impl IWCPropertySheetCallback {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWCPropertySheetCallback_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub AddPropertySheetPage: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const i32) -> ::windows_core::HRESULT,
@@ -6347,7 +6297,6 @@ impl IWCWizard97Callback {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWCWizard97Callback_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub AddWizard97Page: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const i32) -> ::windows_core::HRESULT,
@@ -6367,7 +6316,6 @@ impl IWCWizardCallback {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWCWizardCallback_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub AddWizardPage: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const i32) -> ::windows_core::HRESULT,
@@ -6385,7 +6333,6 @@ impl IWEExtendContextMenu {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWEExtendContextMenu_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub AddContextMenuItems: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -6402,7 +6349,6 @@ impl IWEExtendPropertySheet {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWEExtendPropertySheet_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub CreatePropertySheetPages: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -6419,7 +6365,6 @@ impl IWEExtendWizard {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWEExtendWizard_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub CreateWizardPages: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -6436,7 +6381,6 @@ impl IWEExtendWizard97 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWEExtendWizard97_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub CreateWizard97Pages: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -6452,7 +6396,6 @@ impl IWEInvokeCommand {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWEInvokeCommand_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub InvokeCommand: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,

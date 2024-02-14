@@ -1,6 +1,5 @@
 ::windows_core::imp::com_interface!(IBluetoothLEAdvertisementPublisherTriggerDetails, IBluetoothLEAdvertisementPublisherTriggerDetails_Vtbl, 0x610eca86_3480_41c9_a918_7ddadf207e00);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBluetoothLEAdvertisementPublisherTriggerDetails_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Devices_Bluetooth_Advertisement")]
@@ -11,14 +10,12 @@ pub struct IBluetoothLEAdvertisementPublisherTriggerDetails_Vtbl {
 }
 ::windows_core::imp::com_interface!(IBluetoothLEAdvertisementPublisherTriggerDetails2, IBluetoothLEAdvertisementPublisherTriggerDetails2_Vtbl, 0xd4a3d025_c601_42d6_9829_4ccb3f5cd77f);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBluetoothLEAdvertisementPublisherTriggerDetails2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SelectedTransmitPowerLevelInDBm: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IBluetoothLEAdvertisementWatcherTriggerDetails, IBluetoothLEAdvertisementWatcherTriggerDetails_Vtbl, 0xa7db5ad7_2257_4e69_9784_fee645c1dce0);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBluetoothLEAdvertisementWatcherTriggerDetails_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Error: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::BluetoothError) -> ::windows_core::HRESULT,
@@ -30,7 +27,6 @@ pub struct IBluetoothLEAdvertisementWatcherTriggerDetails_Vtbl {
 }
 ::windows_core::imp::com_interface!(IGattCharacteristicNotificationTriggerDetails, IGattCharacteristicNotificationTriggerDetails_Vtbl, 0x9ba03b18_0fec_436a_93b1_f46c697532a2);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IGattCharacteristicNotificationTriggerDetails_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Devices_Bluetooth_GenericAttributeProfile")]
@@ -44,7 +40,6 @@ pub struct IGattCharacteristicNotificationTriggerDetails_Vtbl {
 }
 ::windows_core::imp::com_interface!(IGattCharacteristicNotificationTriggerDetails2, IGattCharacteristicNotificationTriggerDetails2_Vtbl, 0x727a50dc_949d_454a_b192_983467e3d50f);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IGattCharacteristicNotificationTriggerDetails2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Error: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::BluetoothError) -> ::windows_core::HRESULT,
@@ -56,7 +51,6 @@ pub struct IGattCharacteristicNotificationTriggerDetails2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IGattServiceProviderConnection, IGattServiceProviderConnection_Vtbl, 0x7fa1b9b9_2f13_40b5_9582_8eb78e98ef13);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IGattServiceProviderConnection_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub TriggerId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -68,7 +62,6 @@ pub struct IGattServiceProviderConnection_Vtbl {
 }
 ::windows_core::imp::com_interface!(IGattServiceProviderConnectionStatics, IGattServiceProviderConnectionStatics_Vtbl, 0x3d509f4b_0b0e_4466_b8cd_6ebdda1fa17d);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IGattServiceProviderConnectionStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -78,14 +71,12 @@ pub struct IGattServiceProviderConnectionStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IGattServiceProviderTriggerDetails, IGattServiceProviderTriggerDetails_Vtbl, 0xae8c0625_05ff_4afb_b16a_de95f3cf0158);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IGattServiceProviderTriggerDetails_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Connection: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IRfcommConnectionTriggerDetails, IRfcommConnectionTriggerDetails_Vtbl, 0xf922734d_2e3c_4efc_ab59_fc5cf96f97e3);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRfcommConnectionTriggerDetails_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Networking_Sockets")]
@@ -97,7 +88,6 @@ pub struct IRfcommConnectionTriggerDetails_Vtbl {
 }
 ::windows_core::imp::com_interface!(IRfcommInboundConnectionInformation, IRfcommInboundConnectionInformation_Vtbl, 0x6d3e75a8_5429_4059_92e3_1e8b65528707);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRfcommInboundConnectionInformation_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -121,7 +111,6 @@ pub struct IRfcommInboundConnectionInformation_Vtbl {
 }
 ::windows_core::imp::com_interface!(IRfcommOutboundConnectionInformation, IRfcommOutboundConnectionInformation_Vtbl, 0xb091227b_f434_4cb0_99b1_4ab8cedaedd7);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRfcommOutboundConnectionInformation_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Devices_Bluetooth_Rfcomm")]

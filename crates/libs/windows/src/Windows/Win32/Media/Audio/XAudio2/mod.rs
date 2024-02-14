@@ -65,7 +65,6 @@ impl IXAPO {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IXAPO_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetRegistrationProperties: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut XAPO_REGISTRATION_PROPERTIES) -> ::windows_core::HRESULT,
@@ -96,7 +95,6 @@ impl IXAPOHrtfParameters {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IXAPOHrtfParameters_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub SetSourcePosition: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const HrtfPosition) -> ::windows_core::HRESULT,
@@ -115,7 +113,6 @@ impl IXAPOParameters {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IXAPOParameters_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub SetParameters: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::core::ffi::c_void, u32),
@@ -168,7 +165,6 @@ impl IXAudio2 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IXAudio2_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub RegisterForCallbacks: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -195,7 +191,6 @@ impl IXAudio2EngineCallback {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IXAudio2EngineCallback_Vtbl {
     pub OnProcessingPassStart: unsafe extern "system" fn(*mut ::core::ffi::c_void),
     pub OnProcessingPassEnd: unsafe extern "system" fn(*mut ::core::ffi::c_void),
@@ -212,7 +207,6 @@ impl IXAudio2Extension {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IXAudio2Extension_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetProcessingQuantum: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32, *mut u32),
@@ -308,7 +302,6 @@ impl IXAudio2MasteringVoice {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IXAudio2MasteringVoice_Vtbl {
     pub base__: IXAudio2Voice_Vtbl,
     pub GetChannelMask: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -431,7 +424,6 @@ impl IXAudio2SourceVoice {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IXAudio2SourceVoice_Vtbl {
     pub base__: IXAudio2Voice_Vtbl,
     pub Start: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32) -> ::windows_core::HRESULT,
@@ -531,7 +523,6 @@ impl IXAudio2SubmixVoice {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IXAudio2SubmixVoice_Vtbl {
     pub base__: IXAudio2Voice_Vtbl,
 }
@@ -620,7 +611,6 @@ impl IXAudio2Voice {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IXAudio2Voice_Vtbl {
     pub GetVoiceDetails: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut XAUDIO2_VOICE_DETAILS),
     pub SetOutputVoices: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const XAUDIO2_VOICE_SENDS) -> ::windows_core::HRESULT,
@@ -667,7 +657,6 @@ impl IXAudio2VoiceCallback {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IXAudio2VoiceCallback_Vtbl {
     pub OnVoiceProcessingPassStart: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32),
     pub OnVoiceProcessingPassEnd: unsafe extern "system" fn(*mut ::core::ffi::c_void),

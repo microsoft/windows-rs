@@ -39,7 +39,6 @@ impl IEnumOfflineFilesItems {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IEnumOfflineFilesItems_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -65,7 +64,6 @@ impl IEnumOfflineFilesSettings {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IEnumOfflineFilesSettings_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -192,7 +190,6 @@ impl IOfflineFilesCache {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IOfflineFilesCache_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Synchronize: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::HWND, *const ::windows_core::PCWSTR, u32, super::super::Foundation::BOOL, u32, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *const ::windows_core::GUID) -> ::windows_core::HRESULT,
@@ -340,7 +337,6 @@ impl IOfflineFilesCache2 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IOfflineFilesCache2_Vtbl {
     pub base__: IOfflineFilesCache_Vtbl,
     pub RenameItemEx: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, ::windows_core::PCWSTR, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
@@ -373,7 +369,6 @@ impl IOfflineFilesChangeInfo {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IOfflineFilesChangeInfo_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub IsDirty: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
@@ -411,7 +406,6 @@ impl IOfflineFilesConnectionInfo {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IOfflineFilesConnectionInfo_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetConnectState: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut OFFLINEFILES_CONNECT_STATE, *mut OFFLINEFILES_OFFLINE_REASON) -> ::windows_core::HRESULT,
@@ -443,7 +437,6 @@ impl IOfflineFilesDirectoryItem {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IOfflineFilesDirectoryItem_Vtbl {
     pub base__: IOfflineFilesItem_Vtbl,
 }
@@ -460,7 +453,6 @@ impl IOfflineFilesDirtyInfo {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IOfflineFilesDirtyInfo_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub LocalDirtyByteCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i64) -> ::windows_core::HRESULT,
@@ -480,7 +472,6 @@ impl IOfflineFilesErrorInfo {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IOfflineFilesErrorInfo_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -627,7 +618,6 @@ impl IOfflineFilesEvents {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IOfflineFilesEvents_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub CacheMoved: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
@@ -821,7 +811,6 @@ impl IOfflineFilesEvents2 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IOfflineFilesEvents2_Vtbl {
     pub base__: IOfflineFilesEvents_Vtbl,
     pub ItemReconnectBegin: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1020,7 +1009,6 @@ impl IOfflineFilesEvents3 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IOfflineFilesEvents3_Vtbl {
     pub base__: IOfflineFilesEvents2_Vtbl,
     pub TransparentCacheItemNotify: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, OFFLINEFILES_EVENTS, OFFLINEFILES_ITEM_TYPE, super::super::Foundation::BOOL, super::super::Foundation::BOOL, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
@@ -1219,7 +1207,6 @@ impl IOfflineFilesEvents4 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IOfflineFilesEvents4_Vtbl {
     pub base__: IOfflineFilesEvents3_Vtbl,
     pub PrefetchCloseHandleBegin: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1239,7 +1226,6 @@ impl IOfflineFilesEventsFilter {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IOfflineFilesEventsFilter_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetPathFilter: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::PWSTR, *mut OFFLINEFILES_PATHFILTER_MATCH) -> ::windows_core::HRESULT,
@@ -1278,7 +1264,6 @@ impl IOfflineFilesFileItem {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IOfflineFilesFileItem_Vtbl {
     pub base__: IOfflineFilesItem_Vtbl,
     pub IsSparse: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
@@ -1300,7 +1285,6 @@ impl IOfflineFilesFileSysInfo {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IOfflineFilesFileSysInfo_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetAttributes: unsafe extern "system" fn(*mut ::core::ffi::c_void, OFFLINEFILES_ITEM_COPY, *mut u32) -> ::windows_core::HRESULT,
@@ -1316,7 +1300,6 @@ impl IOfflineFilesGhostInfo {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IOfflineFilesGhostInfo_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub IsGhosted: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
@@ -1345,7 +1328,6 @@ impl IOfflineFilesItem {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IOfflineFilesItem_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetItemType: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut OFFLINEFILES_ITEM_TYPE) -> ::windows_core::HRESULT,
@@ -1373,7 +1355,6 @@ impl IOfflineFilesItemContainer {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IOfflineFilesItemContainer_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub EnumItems: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1393,7 +1374,6 @@ impl IOfflineFilesItemFilter {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IOfflineFilesItemFilter_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetFilterFlags: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u64, *mut u64) -> ::windows_core::HRESULT,
@@ -1421,7 +1401,6 @@ impl IOfflineFilesPinInfo {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IOfflineFilesPinInfo_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub IsPinned: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
@@ -1455,7 +1434,6 @@ impl IOfflineFilesPinInfo2 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IOfflineFilesPinInfo2_Vtbl {
     pub base__: IOfflineFilesPinInfo_Vtbl,
     pub IsPartlyPinned: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
@@ -1476,7 +1454,6 @@ impl IOfflineFilesProgress {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IOfflineFilesProgress_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Begin: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
@@ -1507,7 +1484,6 @@ impl IOfflineFilesServerItem {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IOfflineFilesServerItem_Vtbl {
     pub base__: IOfflineFilesItem_Vtbl,
 }
@@ -1547,7 +1523,6 @@ impl IOfflineFilesSetting {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IOfflineFilesSetting_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
@@ -1577,7 +1552,6 @@ impl IOfflineFilesShareInfo {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IOfflineFilesShareInfo_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetShareItem: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1608,7 +1582,6 @@ impl IOfflineFilesShareItem {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IOfflineFilesShareItem_Vtbl {
     pub base__: IOfflineFilesItem_Vtbl,
 }
@@ -1642,7 +1615,6 @@ impl IOfflineFilesSimpleProgress {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IOfflineFilesSimpleProgress_Vtbl {
     pub base__: IOfflineFilesProgress_Vtbl,
     pub ItemBegin: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *mut OFFLINEFILES_OP_RESPONSE) -> ::windows_core::HRESULT,
@@ -1659,7 +1631,6 @@ impl IOfflineFilesSuspend {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IOfflineFilesSuspend_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub SuspendRoot: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
@@ -1672,7 +1643,6 @@ impl IOfflineFilesSuspendInfo {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IOfflineFilesSuspendInfo_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub IsSuspended: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::BOOL, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
@@ -1688,7 +1658,6 @@ impl IOfflineFilesSyncConflictHandler {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IOfflineFilesSyncConflictHandler_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub ResolveConflict: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, u32, OFFLINEFILES_SYNC_STATE, u32, *mut OFFLINEFILES_SYNC_CONFLICT_RESOLVE, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
@@ -1733,7 +1702,6 @@ impl IOfflineFilesSyncErrorInfo {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IOfflineFilesSyncErrorInfo_Vtbl {
     pub base__: IOfflineFilesErrorInfo_Vtbl,
     pub GetSyncOperation: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut OFFLINEFILES_SYNC_OPERATION) -> ::windows_core::HRESULT,
@@ -1760,7 +1728,6 @@ impl IOfflineFilesSyncErrorItemInfo {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IOfflineFilesSyncErrorItemInfo_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetFileAttributes: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -1798,7 +1765,6 @@ impl IOfflineFilesSyncProgress {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IOfflineFilesSyncProgress_Vtbl {
     pub base__: IOfflineFilesProgress_Vtbl,
     pub SyncItemBegin: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *mut OFFLINEFILES_OP_RESPONSE) -> ::windows_core::HRESULT,
@@ -1813,7 +1779,6 @@ impl IOfflineFilesTransparentCacheInfo {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IOfflineFilesTransparentCacheInfo_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub IsTransparentlyCached: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,

@@ -11,7 +11,6 @@ impl IDummyHICONIncluder {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDummyHICONIncluder_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -38,7 +37,6 @@ impl IThumbnailExtractor {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IThumbnailExtractor_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]

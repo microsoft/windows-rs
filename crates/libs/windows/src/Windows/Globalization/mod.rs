@@ -10,7 +10,6 @@ pub mod NumberFormatting;
 pub mod PhoneNumberFormatting;
 ::windows_core::imp::com_interface!(IApplicationLanguagesStatics, IApplicationLanguagesStatics_Vtbl, 0x75b40847_0a4c_4a92_9565_fd63c95f7aed);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IApplicationLanguagesStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub PrimaryLanguageOverride: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -26,7 +25,6 @@ pub struct IApplicationLanguagesStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IApplicationLanguagesStatics2, IApplicationLanguagesStatics2_Vtbl, 0x1df0de4f_072b_4d7b_8f06_cb2db40f2bb5);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IApplicationLanguagesStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(all(feature = "Foundation_Collections", feature = "System"))]
@@ -36,7 +34,6 @@ pub struct IApplicationLanguagesStatics2_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICalendar, ICalendar_Vtbl, 0xca30221d_86d9_40fb_a26b_d44eb7cf08ea);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICalendar_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Clone: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -143,7 +140,6 @@ pub struct ICalendar_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICalendarFactory, ICalendarFactory_Vtbl, 0x83f58412_e56b_4c75_a66e_0f63d57758a6);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICalendarFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -157,7 +153,6 @@ pub struct ICalendarFactory_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICalendarFactory2, ICalendarFactory2_Vtbl, 0xb44b378c_ca7e_4590_9e72_ea2bec1a5115);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICalendarFactory2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -167,7 +162,6 @@ pub struct ICalendarFactory2_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICalendarIdentifiersStatics, ICalendarIdentifiersStatics_Vtbl, 0x80653f68_2cb2_4c1f_b590_f0f52bf4fd1a);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICalendarIdentifiersStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Gregorian: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -182,14 +176,12 @@ pub struct ICalendarIdentifiersStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICalendarIdentifiersStatics2, ICalendarIdentifiersStatics2_Vtbl, 0x7df4d488_5fd0_42a7_95b5_7d98d823075f);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICalendarIdentifiersStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Persian: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ICalendarIdentifiersStatics3, ICalendarIdentifiersStatics3_Vtbl, 0x2c225423_1fad_40c0_9334_a8eb90db04f5);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICalendarIdentifiersStatics3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ChineseLunar: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -200,7 +192,6 @@ pub struct ICalendarIdentifiersStatics3_Vtbl {
 }
 ::windows_core::imp::com_interface!(IClockIdentifiersStatics, IClockIdentifiersStatics_Vtbl, 0x523805bb_12ec_4f83_bc31_b1b4376b0808);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IClockIdentifiersStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub TwelveHour: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -208,7 +199,6 @@ pub struct IClockIdentifiersStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICurrencyAmount, ICurrencyAmount_Vtbl, 0x74b49942_eb75_443a_95b3_7d723f56f93c);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICurrencyAmount_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Amount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -216,14 +206,12 @@ pub struct ICurrencyAmount_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICurrencyAmountFactory, ICurrencyAmountFactory_Vtbl, 0x48d7168f_ef3b_4aee_a6a1_4b036fe03ff0);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICurrencyAmountFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ICurrencyIdentifiersStatics, ICurrencyIdentifiersStatics_Vtbl, 0x9f1d091b_d586_4913_9b6a_a9bd2dc12874);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICurrencyIdentifiersStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub AED: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -386,14 +374,12 @@ pub struct ICurrencyIdentifiersStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICurrencyIdentifiersStatics2, ICurrencyIdentifiersStatics2_Vtbl, 0x1814797f_c3b2_4c33_9591_980011950d37);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICurrencyIdentifiersStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub BYN: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ICurrencyIdentifiersStatics3, ICurrencyIdentifiersStatics3_Vtbl, 0x4fb23bfa_ed25_4f4d_857f_237f1748c21c);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICurrencyIdentifiersStatics3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub MRU: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -403,7 +389,6 @@ pub struct ICurrencyIdentifiersStatics3_Vtbl {
 }
 ::windows_core::imp::com_interface!(IGeographicRegion, IGeographicRegion_Vtbl, 0x01e9a621_4a64_4ed9_954f_9edeb07bd903);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IGeographicRegion_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Code: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -419,21 +404,18 @@ pub struct IGeographicRegion_Vtbl {
 }
 ::windows_core::imp::com_interface!(IGeographicRegionFactory, IGeographicRegionFactory_Vtbl, 0x53425270_77b4_426b_859f_81e19d512546);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IGeographicRegionFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateGeographicRegion: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IGeographicRegionStatics, IGeographicRegionStatics_Vtbl, 0x29e28974_7ad9_4ef4_8799_b3b44fadec08);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IGeographicRegionStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsSupported: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut bool) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IJapanesePhoneme, IJapanesePhoneme_Vtbl, 0x2f6a9300_e85b_43e6_897d_5d82f862df21);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IJapanesePhoneme_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub DisplayText: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -442,7 +424,6 @@ pub struct IJapanesePhoneme_Vtbl {
 }
 ::windows_core::imp::com_interface!(IJapanesePhoneticAnalyzerStatics, IJapanesePhoneticAnalyzerStatics_Vtbl, 0x88ab9e90_93de_41b2_b4d5_8edb227fd1c2);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IJapanesePhoneticAnalyzerStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -456,7 +437,6 @@ pub struct IJapanesePhoneticAnalyzerStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(ILanguage, ILanguage_Vtbl, 0xea79a752_f7c2_4265_b1bd_c4dec4e4f080);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ILanguage_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub LanguageTag: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -466,21 +446,18 @@ pub struct ILanguage_Vtbl {
 }
 ::windows_core::imp::com_interface!(ILanguage2, ILanguage2_Vtbl, 0x6a47e5b5_d94d_4886_a404_a5a5b9d5b494);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ILanguage2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub LayoutDirection: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut LanguageLayoutDirection) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ILanguage3, ILanguage3_Vtbl, 0xc6af3d10_641a_5ba4_bb43_5e12aed75954);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ILanguage3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub AbbreviatedName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ILanguageExtensionSubtags, ILanguageExtensionSubtags_Vtbl, 0x7d7daf45_368d_4364_852b_dec927037b85);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ILanguageExtensionSubtags_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -490,14 +467,12 @@ pub struct ILanguageExtensionSubtags_Vtbl {
 }
 ::windows_core::imp::com_interface!(ILanguageFactory, ILanguageFactory_Vtbl, 0x9b0252ac_0c27_44f8_b792_9793fb66c63e);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ILanguageFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateLanguage: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ILanguageStatics, ILanguageStatics_Vtbl, 0xb23cd557_0865_46d4_89b8_d59be8990f0d);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ILanguageStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsWellFormed: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut bool) -> ::windows_core::HRESULT,
@@ -505,14 +480,12 @@ pub struct ILanguageStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(ILanguageStatics2, ILanguageStatics2_Vtbl, 0x30199f6e_914b_4b2a_9d6e_e3b0e27dbe4f);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ILanguageStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub TrySetInputMethodLanguageTag: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut bool) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ILanguageStatics3, ILanguageStatics3_Vtbl, 0xd15ecb5a_71de_5752_9542_fac5b4f27261);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ILanguageStatics3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -522,7 +495,6 @@ pub struct ILanguageStatics3_Vtbl {
 }
 ::windows_core::imp::com_interface!(INumeralSystemIdentifiersStatics, INumeralSystemIdentifiersStatics_Vtbl, 0xa5c662c3_68c9_4d3d_b765_972029e21dec);
 #[repr(C)]
-#[doc(hidden)]
 pub struct INumeralSystemIdentifiersStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Arab: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -564,7 +536,6 @@ pub struct INumeralSystemIdentifiersStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(INumeralSystemIdentifiersStatics2, INumeralSystemIdentifiersStatics2_Vtbl, 0x7f003228_9ddb_4a34_9104_0260c091a7c7);
 #[repr(C)]
-#[doc(hidden)]
 pub struct INumeralSystemIdentifiersStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Brah: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -582,7 +553,6 @@ pub struct INumeralSystemIdentifiersStatics2_Vtbl {
 }
 ::windows_core::imp::com_interface!(ITimeZoneOnCalendar, ITimeZoneOnCalendar_Vtbl, 0xbb3c25e5_46cf_4317_a3f5_02621ad54478);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITimeZoneOnCalendar_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetTimeZone: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,

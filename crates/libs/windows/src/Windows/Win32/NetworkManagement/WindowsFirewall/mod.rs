@@ -163,7 +163,6 @@ impl IDynamicPortMapping {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDynamicPortMapping_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub ExternalIPAddress: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
@@ -226,7 +225,6 @@ impl IDynamicPortMappingCollection {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDynamicPortMappingCollection_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub _NewEnum: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -259,7 +257,6 @@ impl IEnumNetConnection {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IEnumNetConnection_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -285,7 +282,6 @@ impl IEnumNetSharingEveryConnection {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IEnumNetSharingEveryConnection_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>, *mut u32) -> ::windows_core::HRESULT,
@@ -311,7 +307,6 @@ impl IEnumNetSharingPortMapping {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IEnumNetSharingPortMapping_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>, *mut u32) -> ::windows_core::HRESULT,
@@ -337,7 +332,6 @@ impl IEnumNetSharingPrivateConnection {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IEnumNetSharingPrivateConnection_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>, *mut u32) -> ::windows_core::HRESULT,
@@ -363,7 +357,6 @@ impl IEnumNetSharingPublicConnection {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IEnumNetSharingPublicConnection_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>, *mut u32) -> ::windows_core::HRESULT,
@@ -392,7 +385,6 @@ impl INATEventManager {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct INATEventManager_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub SetExternalIPAddressCallback: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -409,7 +401,6 @@ impl INATExternalIPAddressCallback {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct INATExternalIPAddressCallback_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub NewExternalIPAddress: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
@@ -422,7 +413,6 @@ impl INATNumberOfEntriesCallback {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct INATNumberOfEntriesCallback_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub NewNumberOfEntries: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
@@ -462,7 +452,6 @@ impl INetConnection {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct INetConnection_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Connect: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -496,7 +485,6 @@ impl INetConnectionConnectUi {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct INetConnectionConnectUi_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub SetConnection: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -512,7 +500,6 @@ impl INetConnectionManager {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct INetConnectionManager_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub EnumConnections: unsafe extern "system" fn(*mut ::core::ffi::c_void, NETCONMGR_ENUM_FLAGS, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -550,7 +537,6 @@ impl INetConnectionProps {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct INetConnectionProps_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Guid: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
@@ -623,7 +609,6 @@ impl INetFwAuthorizedApplication {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct INetFwAuthorizedApplication_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Name: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
@@ -677,7 +662,6 @@ impl INetFwAuthorizedApplications {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct INetFwAuthorizedApplications_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
@@ -801,7 +785,6 @@ impl INetFwIcmpSettings {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct INetFwIcmpSettings_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub AllowOutboundDestinationUnreachable: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
@@ -859,7 +842,6 @@ impl INetFwMgr {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct INetFwMgr_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -942,7 +924,6 @@ impl INetFwOpenPort {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct INetFwOpenPort_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Name: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
@@ -993,7 +974,6 @@ impl INetFwOpenPorts {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct INetFwOpenPorts_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
@@ -1027,7 +1007,6 @@ impl INetFwPolicy {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct INetFwPolicy_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -1154,7 +1133,6 @@ impl INetFwPolicy2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct INetFwPolicy2_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub CurrentProfileTypes: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
@@ -1219,7 +1197,6 @@ impl INetFwProduct {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct INetFwProduct_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub RuleCategories: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
@@ -1258,7 +1235,6 @@ impl INetFwProducts {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct INetFwProducts_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
@@ -1350,7 +1326,6 @@ impl INetFwProfile {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct INetFwProfile_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Type: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut NET_FW_PROFILE_TYPE) -> ::windows_core::HRESULT,
@@ -1426,7 +1401,6 @@ impl INetFwRemoteAdminSettings {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct INetFwRemoteAdminSettings_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub IpVersion: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut NET_FW_IP_VERSION) -> ::windows_core::HRESULT,
@@ -1615,7 +1589,6 @@ impl INetFwRule {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct INetFwRule_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Name: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
@@ -1839,7 +1812,6 @@ impl INetFwRule2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct INetFwRule2_Vtbl {
     pub base__: INetFwRule_Vtbl,
     pub EdgeTraversalOptions: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
@@ -2086,7 +2058,6 @@ impl INetFwRule3 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct INetFwRule3_Vtbl {
     pub base__: INetFwRule2_Vtbl,
     pub LocalAppPackageId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
@@ -2140,7 +2111,6 @@ impl INetFwRules {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct INetFwRules_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
@@ -2215,7 +2185,6 @@ impl INetFwService {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct INetFwService_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Name: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
@@ -2265,7 +2234,6 @@ impl INetFwServiceRestriction {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct INetFwServiceRestriction_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub RestrictService: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>, super::super::Foundation::VARIANT_BOOL, super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
@@ -2297,7 +2265,6 @@ impl INetFwServices {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct INetFwServices_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
@@ -2361,7 +2328,6 @@ impl INetSharingConfiguration {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct INetSharingConfiguration_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub SharingEnabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
@@ -2401,7 +2367,6 @@ impl INetSharingEveryConnectionCollection {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct INetSharingEveryConnectionCollection_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub _NewEnum: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -2451,7 +2416,6 @@ impl INetSharingManager {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct INetSharingManager_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub SharingInstalled: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
@@ -2499,7 +2463,6 @@ impl INetSharingPortMapping {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct INetSharingPortMapping_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Disable: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -2527,7 +2490,6 @@ impl INetSharingPortMappingCollection {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct INetSharingPortMappingCollection_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub _NewEnum: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -2574,7 +2536,6 @@ impl INetSharingPortMappingProps {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct INetSharingPortMappingProps_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Name: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
@@ -2603,7 +2564,6 @@ impl INetSharingPrivateConnectionCollection {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct INetSharingPrivateConnectionCollection_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub _NewEnum: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -2626,7 +2586,6 @@ impl INetSharingPublicConnectionCollection {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct INetSharingPublicConnectionCollection_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub _NewEnum: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -2690,7 +2649,6 @@ impl IStaticPortMapping {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IStaticPortMapping_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub ExternalIPAddress: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
@@ -2747,7 +2705,6 @@ impl IStaticPortMappingCollection {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IStaticPortMappingCollection_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub _NewEnum: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -2786,7 +2743,6 @@ impl IUPnPNAT {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUPnPNAT_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]

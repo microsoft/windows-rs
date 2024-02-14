@@ -10,7 +10,6 @@ impl IWindowsDevicesAllJoynBusAttachmentFactoryInterop {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWindowsDevicesAllJoynBusAttachmentFactoryInterop_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateFromWin32Handle: unsafe extern "system" fn(*mut ::core::ffi::c_void, u64, u8, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -24,7 +23,6 @@ impl IWindowsDevicesAllJoynBusAttachmentInterop {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWindowsDevicesAllJoynBusAttachmentInterop_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Win32Handle: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u64) -> ::windows_core::HRESULT,
@@ -41,7 +39,6 @@ impl IWindowsDevicesAllJoynBusObjectFactoryInterop {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWindowsDevicesAllJoynBusObjectFactoryInterop_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateFromWin32Handle: unsafe extern "system" fn(*mut ::core::ffi::c_void, u64, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -61,7 +58,6 @@ impl IWindowsDevicesAllJoynBusObjectInterop {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWindowsDevicesAllJoynBusObjectInterop_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub AddPropertyGetHandler: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, isize) -> ::windows_core::HRESULT,

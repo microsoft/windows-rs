@@ -85,7 +85,6 @@ impl IReferenceClock {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IReferenceClock_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetTime: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i64) -> ::windows_core::HRESULT,
@@ -119,7 +118,6 @@ impl IReferenceClock2 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IReferenceClock2_Vtbl {
     pub base__: IReferenceClock_Vtbl,
 }
@@ -135,7 +133,6 @@ impl IReferenceClockTimerControl {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IReferenceClockTimerControl_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub SetDefaultTimerResolution: unsafe extern "system" fn(*mut ::core::ffi::c_void, i64) -> ::windows_core::HRESULT,

@@ -2,7 +2,6 @@
 pub mod Provider;
 ::windows_core::imp::com_interface!(ISpiBusInfo, ISpiBusInfo_Vtbl, 0x9929444a_54f2_48c6_b952_9c32fc02c669);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISpiBusInfo_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ChipSelectLineCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
@@ -15,7 +14,6 @@ pub struct ISpiBusInfo_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISpiConnectionSettings, ISpiConnectionSettings_Vtbl, 0x5283a37f_f935_4b9f_a7a7_3a7890afa5ce);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISpiConnectionSettings_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ChipSelectLine: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
@@ -31,21 +29,18 @@ pub struct ISpiConnectionSettings_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISpiConnectionSettingsFactory, ISpiConnectionSettingsFactory_Vtbl, 0xff99081e_10c4_44b7_9fea_a748b5a46f31);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISpiConnectionSettingsFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ISpiController, ISpiController_Vtbl, 0xa8d3c829_9895_4159_a934_8741f1ee6d27);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISpiController_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetDevice: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ISpiControllerStatics, ISpiControllerStatics_Vtbl, 0x0d5229e2_138b_4e48_b964_4f2f79b9c5a2);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISpiControllerStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetDefaultAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -56,7 +51,6 @@ pub struct ISpiControllerStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISpiDevice, ISpiDevice_Vtbl, 0x05d5356d_11b6_4d39_84d5_95dfb4c9f2ce);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISpiDevice_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub DeviceId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -105,7 +99,6 @@ impl ::windows_core::RuntimeType for ISpiDeviceStatics {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISpiDeviceStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetDeviceSelector: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,

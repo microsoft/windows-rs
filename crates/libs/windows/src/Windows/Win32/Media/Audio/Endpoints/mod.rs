@@ -6,7 +6,6 @@ impl IAudioEndpointFormatControl {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAudioEndpointFormatControl_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub ResetToDefault: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
@@ -23,7 +22,6 @@ impl IAudioEndpointLastBufferControl {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAudioEndpointLastBufferControl_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub IsLastBufferControlSupported: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> super::super::super::Foundation::BOOL,
@@ -45,7 +43,6 @@ impl IAudioEndpointOffloadStreamMeter {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAudioEndpointOffloadStreamMeter_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetMeterChannelCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -63,7 +60,6 @@ impl IAudioEndpointOffloadStreamMute {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAudioEndpointOffloadStreamMute_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub SetMute: unsafe extern "system" fn(*mut ::core::ffi::c_void, u8) -> ::windows_core::HRESULT,
@@ -86,7 +82,6 @@ impl IAudioEndpointOffloadStreamVolume {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAudioEndpointOffloadStreamVolume_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetVolumeChannelCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -171,7 +166,6 @@ impl IAudioEndpointVolume {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAudioEndpointVolume_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub RegisterControlChangeNotify: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -201,7 +195,6 @@ impl IAudioEndpointVolumeCallback {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAudioEndpointVolumeCallback_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub OnNotify: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::AUDIO_VOLUME_NOTIFICATION_DATA) -> ::windows_core::HRESULT,
@@ -284,7 +277,6 @@ impl IAudioEndpointVolumeEx {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAudioEndpointVolumeEx_Vtbl {
     pub base__: IAudioEndpointVolume_Vtbl,
     pub GetVolumeRangeChannel: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut f32, *mut f32, *mut f32) -> ::windows_core::HRESULT,
@@ -304,7 +296,6 @@ impl IAudioLfxControl {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAudioLfxControl_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub SetLocalEffectsState: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
@@ -330,7 +321,6 @@ impl IAudioMeterInformation {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAudioMeterInformation_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetPeakValue: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f32) -> ::windows_core::HRESULT,
@@ -377,7 +367,6 @@ impl IHardwareAudioEngineBase {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IHardwareAudioEngineBase_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetAvailableOffloadConnectorCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, u32, *mut u32) -> ::windows_core::HRESULT,

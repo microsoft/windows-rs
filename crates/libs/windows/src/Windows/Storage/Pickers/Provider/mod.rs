@@ -1,6 +1,5 @@
 ::windows_core::imp::com_interface!(IFileOpenPickerUI, IFileOpenPickerUI_Vtbl, 0xdda45a10_f9d4_40c4_8af5_c5b6b5a61d1d);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IFileOpenPickerUI_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub AddFile: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut ::core::ffi::c_void, *mut AddFileResult) -> ::windows_core::HRESULT,
@@ -30,7 +29,6 @@ pub struct IFileOpenPickerUI_Vtbl {
 ::windows_core::imp::com_interface!(IFileRemovedEventArgs, IFileRemovedEventArgs_Vtbl, 0x13043da7_7fca_4c2b_9eca_6890f9f00185);
 #[cfg(feature = "deprecated")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IFileRemovedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "deprecated")]
@@ -40,7 +38,6 @@ pub struct IFileRemovedEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IFileSavePickerUI, IFileSavePickerUI_Vtbl, 0x9656c1e7_3e56_43cc_8a39_33c73d9d542b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IFileSavePickerUI_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Title: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -59,14 +56,12 @@ pub struct IFileSavePickerUI_Vtbl {
 }
 ::windows_core::imp::com_interface!(IPickerClosingDeferral, IPickerClosingDeferral_Vtbl, 0x7af7f71e_1a67_4a31_ae80_e907708a619b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPickerClosingDeferral_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Complete: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IPickerClosingEventArgs, IPickerClosingEventArgs_Vtbl, 0x7e59f224_b332_4f12_8b9f_a8c2f06b32cd);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPickerClosingEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ClosingOperation: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -74,7 +69,6 @@ pub struct IPickerClosingEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IPickerClosingOperation, IPickerClosingOperation_Vtbl, 0x4ce9fb84_beee_4e39_a773_fc5f0eae328d);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPickerClosingOperation_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetDeferral: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -82,7 +76,6 @@ pub struct IPickerClosingOperation_Vtbl {
 }
 ::windows_core::imp::com_interface!(ITargetFileRequest, ITargetFileRequest_Vtbl, 0x42bd3355_7f88_478b_8e81_690b20340678);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITargetFileRequest_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub TargetFile: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -91,14 +84,12 @@ pub struct ITargetFileRequest_Vtbl {
 }
 ::windows_core::imp::com_interface!(ITargetFileRequestDeferral, ITargetFileRequestDeferral_Vtbl, 0x4aee9d91_bf15_4da9_95f6_f6b7d558225b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITargetFileRequestDeferral_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Complete: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ITargetFileRequestedEventArgs, ITargetFileRequestedEventArgs_Vtbl, 0xb163dbc1_1b51_4c89_a591_0fd40b3c57c9);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITargetFileRequestedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Request: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,

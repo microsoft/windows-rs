@@ -1,6 +1,5 @@
 ::windows_core::imp::com_interface!(ISceneBoundingBox, ISceneBoundingBox_Vtbl, 0x5d8ffc70_c618_4083_8251_9962593114aa);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISceneBoundingBox_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Numerics")]
@@ -26,50 +25,42 @@ pub struct ISceneBoundingBox_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISceneComponent, ISceneComponent_Vtbl, 0xae20fc96_226c_44bd_95cb_dd5ed9ebe9a5);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISceneComponent_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ComponentType: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut SceneComponentType) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ISceneComponentCollection, ISceneComponentCollection_Vtbl, 0xc483791c_5f46_45e4_b666_a3d2259f9b2e);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISceneComponentCollection_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
 }
 ::windows_core::imp::com_interface!(ISceneComponentFactory, ISceneComponentFactory_Vtbl, 0x5fbc5574_ddd8_5889_ab5b_d8fa716e7c9e);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISceneComponentFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
 }
 ::windows_core::imp::com_interface!(ISceneMaterial, ISceneMaterial_Vtbl, 0x8ca74b7c_30df_4e07_9490_37875af1a123);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISceneMaterial_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
 }
 ::windows_core::imp::com_interface!(ISceneMaterialFactory, ISceneMaterialFactory_Vtbl, 0x67536c19_a707_5254_a495_7fdc799893b9);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISceneMaterialFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
 }
 ::windows_core::imp::com_interface!(ISceneMaterialInput, ISceneMaterialInput_Vtbl, 0x422a1642_1ef1_485c_97e9_ae6f95ad812f);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISceneMaterialInput_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
 }
 ::windows_core::imp::com_interface!(ISceneMaterialInputFactory, ISceneMaterialInputFactory_Vtbl, 0xa88feb74_7d0a_5e4c_a748_1015af9ca74f);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISceneMaterialInputFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
 }
 ::windows_core::imp::com_interface!(ISceneMesh, ISceneMesh_Vtbl, 0xee9a1530_1155_4c0c_92bd_40020cf78347);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISceneMesh_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Bounds: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -88,13 +79,11 @@ pub struct ISceneMesh_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISceneMeshMaterialAttributeMap, ISceneMeshMaterialAttributeMap_Vtbl, 0xce843171_3d43_4855_aa69_31ff988d049d);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISceneMeshMaterialAttributeMap_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
 }
 ::windows_core::imp::com_interface!(ISceneMeshRendererComponent, ISceneMeshRendererComponent_Vtbl, 0x9929f7e3_6364_477e_98fe_74ed9fd4c2de);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISceneMeshRendererComponent_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Material: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -105,21 +94,18 @@ pub struct ISceneMeshRendererComponent_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISceneMeshRendererComponentStatics, ISceneMeshRendererComponentStatics_Vtbl, 0x4954f37a_4459_4521_bd6e_2b38b8d711ea);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISceneMeshRendererComponentStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ISceneMeshStatics, ISceneMeshStatics_Vtbl, 0x8412316c_7b57_473f_966b_81dc277b1751);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISceneMeshStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ISceneMetallicRoughnessMaterial, ISceneMetallicRoughnessMaterial_Vtbl, 0xc1d91446_799c_429e_a4e4_5da645f18e61);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISceneMetallicRoughnessMaterial_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub BaseColorInput: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -141,14 +127,12 @@ pub struct ISceneMetallicRoughnessMaterial_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISceneMetallicRoughnessMaterialStatics, ISceneMetallicRoughnessMaterialStatics_Vtbl, 0x3bddca50_6d9d_4531_8dc4_b27e3e49b7ab);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISceneMetallicRoughnessMaterialStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ISceneModelTransform, ISceneModelTransform_Vtbl, 0xc05576c2_32b1_4269_980d_b98537100ae4);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISceneModelTransform_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Numerics")]
@@ -190,7 +174,6 @@ pub struct ISceneModelTransform_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISceneNode, ISceneNode_Vtbl, 0xacf2c247_f307_4581_9c41_af2e29c3b016);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISceneNode_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -207,32 +190,27 @@ pub struct ISceneNode_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISceneNodeCollection, ISceneNodeCollection_Vtbl, 0x29ada101_2dd9_4332_be63_60d2cf4269f2);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISceneNodeCollection_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
 }
 ::windows_core::imp::com_interface!(ISceneNodeStatics, ISceneNodeStatics_Vtbl, 0x579a0faa_be9d_4210_908c_93d15feed0b7);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISceneNodeStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ISceneObject, ISceneObject_Vtbl, 0x1e94249b_0f1b_49eb_a819_877d8450005b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISceneObject_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
 }
 ::windows_core::imp::com_interface!(ISceneObjectFactory, ISceneObjectFactory_Vtbl, 0x14fe799a_33e4_52ef_956c_44229d21f2c1);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISceneObjectFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
 }
 ::windows_core::imp::com_interface!(IScenePbrMaterial, IScenePbrMaterial_Vtbl, 0xaab6ebbe_d680_46df_8294_b6800a9f95e7);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IScenePbrMaterial_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub AlphaCutoff: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f32) -> ::windows_core::HRESULT,
@@ -262,25 +240,21 @@ pub struct IScenePbrMaterial_Vtbl {
 }
 ::windows_core::imp::com_interface!(IScenePbrMaterialFactory, IScenePbrMaterialFactory_Vtbl, 0x2e3f3dfe_0b85_5727_b5be_b7d3cbac37fa);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IScenePbrMaterialFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
 }
 ::windows_core::imp::com_interface!(ISceneRendererComponent, ISceneRendererComponent_Vtbl, 0xf1acb857_cf4f_4025_9b25_a2d1944cf507);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISceneRendererComponent_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
 }
 ::windows_core::imp::com_interface!(ISceneRendererComponentFactory, ISceneRendererComponentFactory_Vtbl, 0x1db6ed6c_aa2c_5967_9035_56352dc69658);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISceneRendererComponentFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
 }
 ::windows_core::imp::com_interface!(ISceneSurfaceMaterialInput, ISceneSurfaceMaterialInput_Vtbl, 0x9937da5c_a9ca_4cfc_b3aa_088356518742);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISceneSurfaceMaterialInput_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub BitmapInterpolationMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::CompositionBitmapInterpolationMode) -> ::windows_core::HRESULT,
@@ -294,14 +268,12 @@ pub struct ISceneSurfaceMaterialInput_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISceneSurfaceMaterialInputStatics, ISceneSurfaceMaterialInputStatics_Vtbl, 0x5a2394d3_6429_4589_bbcf_b84f4f3cfbfe);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISceneSurfaceMaterialInputStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ISceneVisual, ISceneVisual_Vtbl, 0x8e672c1e_d734_47b1_be14_3d694ffa4301);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISceneVisual_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Root: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -309,7 +281,6 @@ pub struct ISceneVisual_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISceneVisualStatics, ISceneVisualStatics_Vtbl, 0xb8347e9a_50aa_4527_8d34_de4cb8ea88b4);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISceneVisualStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,

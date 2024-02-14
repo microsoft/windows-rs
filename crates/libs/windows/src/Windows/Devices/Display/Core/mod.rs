@@ -1,6 +1,5 @@
 ::windows_core::imp::com_interface!(IDisplayAdapter, IDisplayAdapter_Vtbl, 0xa56f5287_f000_5f2e_b5ac_3783a2b69af5);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDisplayAdapter_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Graphics")]
@@ -20,7 +19,6 @@ pub struct IDisplayAdapter_Vtbl {
 }
 ::windows_core::imp::com_interface!(IDisplayAdapterStatics, IDisplayAdapterStatics_Vtbl, 0x1dac3cda_481f_5469_8470_82c4ba680a28);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDisplayAdapterStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Graphics")]
@@ -30,7 +28,6 @@ pub struct IDisplayAdapterStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IDisplayDevice, IDisplayDevice_Vtbl, 0xa4c9b62c_335f_5731_8cb4_c1ccd4731070);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDisplayDevice_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateScanoutSource: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -43,7 +40,6 @@ pub struct IDisplayDevice_Vtbl {
 }
 ::windows_core::imp::com_interface!(IDisplayDevice2, IDisplayDevice2_Vtbl, 0x3fefe50c_0940_54bd_a02f_f9c7a536ad60);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDisplayDevice2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(all(feature = "Foundation_Collections", feature = "Graphics"))]
@@ -53,13 +49,11 @@ pub struct IDisplayDevice2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IDisplayFence, IDisplayFence_Vtbl, 0x04dcf9ef_3406_5700_8fec_77eba4c5a74b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDisplayFence_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
 }
 ::windows_core::imp::com_interface!(IDisplayManager, IDisplayManager_Vtbl, 0x4ed9245b_15ec_56e2_9072_7fe5084a31a7);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDisplayManager_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -99,7 +93,6 @@ pub struct IDisplayManager_Vtbl {
 }
 ::windows_core::imp::com_interface!(IDisplayManagerChangedEventArgs, IDisplayManagerChangedEventArgs_Vtbl, 0x6abfa285_6cca_5731_bcdc_42e5d2f5c50f);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDisplayManagerChangedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Handled: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -108,7 +101,6 @@ pub struct IDisplayManagerChangedEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IDisplayManagerDisabledEventArgs, IDisplayManagerDisabledEventArgs_Vtbl, 0x8726dde4_6793_5973_a11f_5ffbc93fdb90);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDisplayManagerDisabledEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Handled: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -117,7 +109,6 @@ pub struct IDisplayManagerDisabledEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IDisplayManagerEnabledEventArgs, IDisplayManagerEnabledEventArgs_Vtbl, 0xf0cf3f6f_42fa_59a2_b297_26e1713de848);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDisplayManagerEnabledEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Handled: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -126,7 +117,6 @@ pub struct IDisplayManagerEnabledEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IDisplayManagerPathsFailedOrInvalidatedEventArgs, IDisplayManagerPathsFailedOrInvalidatedEventArgs_Vtbl, 0x03a65659_1dec_5c15_b2a2_8fe9129869fe);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDisplayManagerPathsFailedOrInvalidatedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Handled: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -135,7 +125,6 @@ pub struct IDisplayManagerPathsFailedOrInvalidatedEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IDisplayManagerResultWithState, IDisplayManagerResultWithState_Vtbl, 0x8e656aa6_6614_54be_bfef_4994547f7be1);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDisplayManagerResultWithState_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ErrorCode: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut DisplayManagerResult) -> ::windows_core::HRESULT,
@@ -144,14 +133,12 @@ pub struct IDisplayManagerResultWithState_Vtbl {
 }
 ::windows_core::imp::com_interface!(IDisplayManagerStatics, IDisplayManagerStatics_Vtbl, 0x2b6b9446_b999_5535_9d69_53f092c780a1);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDisplayManagerStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut ::core::ffi::c_void, DisplayManagerOptions, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDisplayModeInfo, IDisplayModeInfo_Vtbl, 0x48d513a0_f79b_5a74_a05e_da821f470868);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDisplayModeInfo_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Graphics")]
@@ -181,7 +168,6 @@ pub struct IDisplayModeInfo_Vtbl {
 }
 ::windows_core::imp::com_interface!(IDisplayModeInfo2, IDisplayModeInfo2_Vtbl, 0xc86fa386_0ddb_5473_bfb0_4b7807b5f909);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDisplayModeInfo2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Numerics")]
@@ -191,7 +177,6 @@ pub struct IDisplayModeInfo2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IDisplayPath, IDisplayPath_Vtbl, 0xb3dfd64a_7460_5cde_811b_d5ae9f3d9f84);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDisplayPath_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub View: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -251,7 +236,6 @@ pub struct IDisplayPath_Vtbl {
 }
 ::windows_core::imp::com_interface!(IDisplayPath2, IDisplayPath2_Vtbl, 0xf32459c5_e994_570b_9ec8_ef42c35a8547);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDisplayPath2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Numerics")]
@@ -265,7 +249,6 @@ pub struct IDisplayPath2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IDisplayPrimaryDescription, IDisplayPrimaryDescription_Vtbl, 0x872591d2_d533_50ff_a85e_06696194b77c);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDisplayPrimaryDescription_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Width: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -290,7 +273,6 @@ pub struct IDisplayPrimaryDescription_Vtbl {
 }
 ::windows_core::imp::com_interface!(IDisplayPrimaryDescriptionFactory, IDisplayPrimaryDescriptionFactory_Vtbl, 0x1a6aff7b_3637_5c46_b479_76d576216e65);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDisplayPrimaryDescriptionFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
@@ -300,7 +282,6 @@ pub struct IDisplayPrimaryDescriptionFactory_Vtbl {
 }
 ::windows_core::imp::com_interface!(IDisplayPrimaryDescriptionStatics, IDisplayPrimaryDescriptionStatics_Vtbl, 0xe60e4cfb_36c9_56dd_8fa1_6ff8c4e0ff07);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDisplayPrimaryDescriptionStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_DirectX_Direct3D11"))]
@@ -310,13 +291,11 @@ pub struct IDisplayPrimaryDescriptionStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IDisplayScanout, IDisplayScanout_Vtbl, 0xe3051828_1ba5_50e7_8a39_bb1fd2f4f8b9);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDisplayScanout_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
 }
 ::windows_core::imp::com_interface!(IDisplaySource, IDisplaySource_Vtbl, 0xecd15fc1_eadc_51bc_971d_3bc628db2dd4);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDisplaySource_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Graphics")]
@@ -331,7 +310,6 @@ pub struct IDisplaySource_Vtbl {
 }
 ::windows_core::imp::com_interface!(IDisplaySource2, IDisplaySource2_Vtbl, 0x71e18952_b321_5af4_bfe8_03fbea31e40d);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDisplaySource2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut DisplaySourceStatus) -> ::windows_core::HRESULT,
@@ -340,7 +318,6 @@ pub struct IDisplaySource2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IDisplayState, IDisplayState_Vtbl, 0x08129321_11b5_5cb2_99f8_e90b479a8a1d);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDisplayState_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsReadOnly: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -369,7 +346,6 @@ pub struct IDisplayState_Vtbl {
 }
 ::windows_core::imp::com_interface!(IDisplayStateOperationResult, IDisplayStateOperationResult_Vtbl, 0xfcadbfdf_dc27_5638_b7f2_ebdfa4f7ea93);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDisplayStateOperationResult_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut DisplayStateOperationStatus) -> ::windows_core::HRESULT,
@@ -377,13 +353,11 @@ pub struct IDisplayStateOperationResult_Vtbl {
 }
 ::windows_core::imp::com_interface!(IDisplaySurface, IDisplaySurface_Vtbl, 0x594f6cc6_139a_56d6_a4b1_15fe2cb76adb);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDisplaySurface_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
 }
 ::windows_core::imp::com_interface!(IDisplayTarget, IDisplayTarget_Vtbl, 0xaec57c6f_47b4_546b_987c_e73fa791fe3a);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDisplayTarget_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Adapter: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -406,7 +380,6 @@ pub struct IDisplayTarget_Vtbl {
 }
 ::windows_core::imp::com_interface!(IDisplayTask, IDisplayTask_Vtbl, 0x5e087448_135b_5bb0_bf63_637f84227c7a);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDisplayTask_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SetScanout: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -414,14 +387,12 @@ pub struct IDisplayTask_Vtbl {
 }
 ::windows_core::imp::com_interface!(IDisplayTask2, IDisplayTask2_Vtbl, 0x0957ea19_bd55_55de_9267_c97b61e71c37);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDisplayTask2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SetSignal: unsafe extern "system" fn(*mut ::core::ffi::c_void, DisplayTaskSignalKind, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDisplayTaskPool, IDisplayTaskPool_Vtbl, 0xc676253d_237d_5548_aafa_3e517fefef1c);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDisplayTaskPool_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateTask: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -432,14 +403,12 @@ pub struct IDisplayTaskPool_Vtbl {
 }
 ::windows_core::imp::com_interface!(IDisplayTaskPool2, IDisplayTaskPool2_Vtbl, 0x46b879b6_5d17_5955_a872_eb38003db586);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDisplayTaskPool2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub TryExecuteTask: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDisplayTaskResult, IDisplayTaskResult_Vtbl, 0x6fbc7d67_f9b1_55e0_9d88_d3a5197a3f59);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDisplayTaskResult_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub PresentStatus: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut DisplayPresentStatus) -> ::windows_core::HRESULT,
@@ -448,7 +417,6 @@ pub struct IDisplayTaskResult_Vtbl {
 }
 ::windows_core::imp::com_interface!(IDisplayView, IDisplayView_Vtbl, 0xb0c98ca1_b759_5b59_b1ad_f0786aa9e53d);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDisplayView_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -471,7 +439,6 @@ pub struct IDisplayView_Vtbl {
 }
 ::windows_core::imp::com_interface!(IDisplayWireFormat, IDisplayWireFormat_Vtbl, 0x1acc967d_872c_5a38_bbb9_1d4872b76255);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDisplayWireFormat_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub PixelEncoding: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut DisplayWireFormatPixelEncoding) -> ::windows_core::HRESULT,
@@ -486,14 +453,12 @@ pub struct IDisplayWireFormat_Vtbl {
 }
 ::windows_core::imp::com_interface!(IDisplayWireFormatFactory, IDisplayWireFormatFactory_Vtbl, 0xb2efc8d5_09d6_55e6_ad22_9014b3d25229);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDisplayWireFormatFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut ::core::ffi::c_void, DisplayWireFormatPixelEncoding, i32, DisplayWireFormatColorSpace, DisplayWireFormatEotf, DisplayWireFormatHdrMetadata, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDisplayWireFormatStatics, IDisplayWireFormatStatics_Vtbl, 0xc575a22d_c3e6_5f7a_bdfb_87c6ab8661d5);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDisplayWireFormatStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]

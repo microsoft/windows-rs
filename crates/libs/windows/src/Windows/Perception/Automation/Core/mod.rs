@@ -1,6 +1,5 @@
 ::windows_core::imp::com_interface!(ICorePerceptionAutomationStatics, ICorePerceptionAutomationStatics_Vtbl, 0x0bb04541_4ce2_4923_9a76_8187ecc59112);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICorePerceptionAutomationStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SetActivationFactoryProvider: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,

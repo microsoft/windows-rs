@@ -1,6 +1,5 @@
 ::windows_core::imp::com_interface!(IAttributedNetworkUsage, IAttributedNetworkUsage_Vtbl, 0xf769b039_eca2_45eb_ade1_b0368b756c49);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAttributedNetworkUsage_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub BytesSent: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u64) -> ::windows_core::HRESULT,
@@ -14,7 +13,6 @@ pub struct IAttributedNetworkUsage_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICellularApnContext, ICellularApnContext_Vtbl, 0x6fa529f4_effd_4542_9ab2_705bbf94943a);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICellularApnContext_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ProviderId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -32,7 +30,6 @@ pub struct ICellularApnContext_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICellularApnContext2, ICellularApnContext2_Vtbl, 0x76b0eb1a_ac49_4350_b1e5_dc4763bc69c7);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICellularApnContext2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ProfileName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -40,7 +37,6 @@ pub struct ICellularApnContext2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IConnectionCost, IConnectionCost_Vtbl, 0xbad7d829_3416_4b10_a202_bac0b075bdae);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IConnectionCost_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub NetworkCostType: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut NetworkCostType) -> ::windows_core::HRESULT,
@@ -50,14 +46,12 @@ pub struct IConnectionCost_Vtbl {
 }
 ::windows_core::imp::com_interface!(IConnectionCost2, IConnectionCost2_Vtbl, 0x8e113a05_e209_4549_bb25_5e0db691cb05);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IConnectionCost2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub BackgroundDataUsageRestricted: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IConnectionProfile, IConnectionProfile_Vtbl, 0x71ba143c_598e_49d0_84eb_8febaedcc195);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IConnectionProfile_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ProfileName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -81,7 +75,6 @@ pub struct IConnectionProfile_Vtbl {
 }
 ::windows_core::imp::com_interface!(IConnectionProfile2, IConnectionProfile2_Vtbl, 0xe2045145_4c9f_400c_9150_7ec7d6e2888a);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IConnectionProfile2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsWwanConnectionProfile: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -102,7 +95,6 @@ pub struct IConnectionProfile2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IConnectionProfile3, IConnectionProfile3_Vtbl, 0x578c2528_4cd9_4161_8045_201cfd5b115c);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IConnectionProfile3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -112,7 +104,6 @@ pub struct IConnectionProfile3_Vtbl {
 }
 ::windows_core::imp::com_interface!(IConnectionProfile4, IConnectionProfile4_Vtbl, 0x7a2d42cd_81e0_4ae6_abed_ab9ca13eb714);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IConnectionProfile4_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -122,7 +113,6 @@ pub struct IConnectionProfile4_Vtbl {
 }
 ::windows_core::imp::com_interface!(IConnectionProfile5, IConnectionProfile5_Vtbl, 0x85361ec7_9c73_4be0_8f14_578eec71ee0e);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IConnectionProfile5_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CanDelete: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -130,14 +120,12 @@ pub struct IConnectionProfile5_Vtbl {
 }
 ::windows_core::imp::com_interface!(IConnectionProfile6, IConnectionProfile6_Vtbl, 0xdc27dfe2_7a6f_5d0e_9589_2fe2e5b6f9aa);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IConnectionProfile6_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsDomainAuthenticatedBy: unsafe extern "system" fn(*mut ::core::ffi::c_void, DomainAuthenticationKind, *mut bool) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IConnectionProfileFilter, IConnectionProfileFilter_Vtbl, 0x204c7cc8_bd2d_4e8d_a4b3_455ec337388a);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IConnectionProfileFilter_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SetIsConnected: unsafe extern "system" fn(*mut ::core::ffi::c_void, bool) -> ::windows_core::HRESULT,
@@ -153,7 +141,6 @@ pub struct IConnectionProfileFilter_Vtbl {
 }
 ::windows_core::imp::com_interface!(IConnectionProfileFilter2, IConnectionProfileFilter2_Vtbl, 0xcd068ee1_c3fc_4fad_9ddc_593faa4b7885);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IConnectionProfileFilter2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SetIsRoaming: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -169,7 +156,6 @@ pub struct IConnectionProfileFilter2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IConnectionProfileFilter3, IConnectionProfileFilter3_Vtbl, 0x0aaa09c0_5014_447c_8809_aee4cb0af94a);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IConnectionProfileFilter3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SetPurposeGuid: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -177,14 +163,12 @@ pub struct IConnectionProfileFilter3_Vtbl {
 }
 ::windows_core::imp::com_interface!(IConnectionSession, IConnectionSession_Vtbl, 0xff905d4c_f83b_41b0_8a0c_1462d9c56b73);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IConnectionSession_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ConnectionProfile: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IConnectivityInterval, IConnectivityInterval_Vtbl, 0x4faa3fff_6746_4824_a964_eed8e87f8709);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IConnectivityInterval_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub StartTime: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::DateTime) -> ::windows_core::HRESULT,
@@ -192,7 +176,6 @@ pub struct IConnectivityInterval_Vtbl {
 }
 ::windows_core::imp::com_interface!(IConnectivityManagerStatics, IConnectivityManagerStatics_Vtbl, 0x5120d4b1_4fb1_48b0_afc9_42e0092a8164);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IConnectivityManagerStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub AcquireConnectionAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -201,7 +184,6 @@ pub struct IConnectivityManagerStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IDataPlanStatus, IDataPlanStatus_Vtbl, 0x977a8b8c_3885_40f3_8851_42cd2bd568bb);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDataPlanStatus_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub DataPlanUsage: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -213,7 +195,6 @@ pub struct IDataPlanStatus_Vtbl {
 }
 ::windows_core::imp::com_interface!(IDataPlanUsage, IDataPlanUsage_Vtbl, 0xb921492d_3b44_47ff_b361_be59e69ed1b0);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDataPlanUsage_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub MegabytesUsed: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -223,7 +204,6 @@ pub struct IDataPlanUsage_Vtbl {
 ::windows_core::imp::com_interface!(IDataUsage, IDataUsage_Vtbl, 0xc1431dd3_b146_4d39_b959_0c69b096c512);
 #[cfg(feature = "deprecated")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDataUsage_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "deprecated")]
@@ -237,7 +217,6 @@ pub struct IDataUsage_Vtbl {
 }
 ::windows_core::imp::com_interface!(IIPInformation, IIPInformation_Vtbl, 0xd85145e0_138f_47d7_9b3a_36bb488cef33);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IIPInformation_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub NetworkAdapter: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -245,7 +224,6 @@ pub struct IIPInformation_Vtbl {
 }
 ::windows_core::imp::com_interface!(ILanIdentifier, ILanIdentifier_Vtbl, 0x48aa53aa_1108_4546_a6cb_9a74da4b7ba0);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ILanIdentifier_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub InfrastructureId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -254,7 +232,6 @@ pub struct ILanIdentifier_Vtbl {
 }
 ::windows_core::imp::com_interface!(ILanIdentifierData, ILanIdentifierData_Vtbl, 0xa74e83c3_d639_45be_a36a_c4e4aeaf6d9b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ILanIdentifierData_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Type: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -265,7 +242,6 @@ pub struct ILanIdentifierData_Vtbl {
 }
 ::windows_core::imp::com_interface!(INetworkAdapter, INetworkAdapter_Vtbl, 0x3b542e03_5388_496c_a8a3_affd39aec2e6);
 #[repr(C)]
-#[doc(hidden)]
 pub struct INetworkAdapter_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub OutboundMaxBitsPerSecond: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u64) -> ::windows_core::HRESULT,
@@ -277,7 +253,6 @@ pub struct INetworkAdapter_Vtbl {
 }
 ::windows_core::imp::com_interface!(INetworkInformationStatics, INetworkInformationStatics_Vtbl, 0x5074f851_950d_4165_9c15_365619481eea);
 #[repr(C)]
-#[doc(hidden)]
 pub struct INetworkInformationStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -303,7 +278,6 @@ pub struct INetworkInformationStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(INetworkInformationStatics2, INetworkInformationStatics2_Vtbl, 0x459ced14_2832_49b6_ba6e_e265f04786a8);
 #[repr(C)]
-#[doc(hidden)]
 pub struct INetworkInformationStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -313,7 +287,6 @@ pub struct INetworkInformationStatics2_Vtbl {
 }
 ::windows_core::imp::com_interface!(INetworkItem, INetworkItem_Vtbl, 0x01bc4d39_f5e0_4567_a28c_42080c831b2b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct INetworkItem_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub NetworkId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
@@ -321,7 +294,6 @@ pub struct INetworkItem_Vtbl {
 }
 ::windows_core::imp::com_interface!(INetworkSecuritySettings, INetworkSecuritySettings_Vtbl, 0x7ca07e8d_917b_4b5f_b84d_28f7a5ac5402);
 #[repr(C)]
-#[doc(hidden)]
 pub struct INetworkSecuritySettings_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub NetworkAuthenticationType: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut NetworkAuthenticationType) -> ::windows_core::HRESULT,
@@ -329,7 +301,6 @@ pub struct INetworkSecuritySettings_Vtbl {
 }
 ::windows_core::imp::com_interface!(INetworkStateChangeEventDetails, INetworkStateChangeEventDetails_Vtbl, 0x1f0cf333_d7a6_44dd_a4e9_687c476b903d);
 #[repr(C)]
-#[doc(hidden)]
 pub struct INetworkStateChangeEventDetails_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub HasNewInternetConnectionProfile: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -341,7 +312,6 @@ pub struct INetworkStateChangeEventDetails_Vtbl {
 }
 ::windows_core::imp::com_interface!(INetworkStateChangeEventDetails2, INetworkStateChangeEventDetails2_Vtbl, 0xd643c0e8_30d3_4f6a_ad47_6a1873ceb3c1);
 #[repr(C)]
-#[doc(hidden)]
 pub struct INetworkStateChangeEventDetails2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub HasNewTetheringOperationalState: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -349,7 +319,6 @@ pub struct INetworkStateChangeEventDetails2_Vtbl {
 }
 ::windows_core::imp::com_interface!(INetworkUsage, INetworkUsage_Vtbl, 0x49da8fce_9985_4927_bf5b_072b5c65f8d9);
 #[repr(C)]
-#[doc(hidden)]
 pub struct INetworkUsage_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub BytesSent: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u64) -> ::windows_core::HRESULT,
@@ -358,7 +327,6 @@ pub struct INetworkUsage_Vtbl {
 }
 ::windows_core::imp::com_interface!(IProviderNetworkUsage, IProviderNetworkUsage_Vtbl, 0x5ec69e04_7931_48c8_b8f3_46300fa42728);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IProviderNetworkUsage_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub BytesSent: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u64) -> ::windows_core::HRESULT,
@@ -367,7 +335,6 @@ pub struct IProviderNetworkUsage_Vtbl {
 }
 ::windows_core::imp::com_interface!(IProxyConfiguration, IProxyConfiguration_Vtbl, 0xef3a60b4_9004_4dd6_b7d8_b3e502f4aad0);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IProxyConfiguration_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -378,7 +345,6 @@ pub struct IProxyConfiguration_Vtbl {
 }
 ::windows_core::imp::com_interface!(IRoutePolicy, IRoutePolicy_Vtbl, 0x11abc4ac_0fc7_42e4_8742_569923b1ca11);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRoutePolicy_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ConnectionProfile: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -387,21 +353,18 @@ pub struct IRoutePolicy_Vtbl {
 }
 ::windows_core::imp::com_interface!(IRoutePolicyFactory, IRoutePolicyFactory_Vtbl, 0x36027933_a18e_4db5_a697_f58fa7364e44);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRoutePolicyFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateRoutePolicy: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, super::DomainNameType, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWlanConnectionProfileDetails, IWlanConnectionProfileDetails_Vtbl, 0x562098cb_b35a_4bf1_a884_b7557e88ff86);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWlanConnectionProfileDetails_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetConnectedSsid: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWwanConnectionProfileDetails, IWwanConnectionProfileDetails_Vtbl, 0x0e4da8fe_835f_4df3_82fd_df556ebc09ef);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWwanConnectionProfileDetails_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub HomeProviderId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -411,7 +374,6 @@ pub struct IWwanConnectionProfileDetails_Vtbl {
 }
 ::windows_core::imp::com_interface!(IWwanConnectionProfileDetails2, IWwanConnectionProfileDetails2_Vtbl, 0x7a754ede_a1ed_48b2_8e92_b460033d52e2);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWwanConnectionProfileDetails2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IPKind: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut WwanNetworkIPKind) -> ::windows_core::HRESULT,
@@ -2347,7 +2309,6 @@ impl ::windows_core::RuntimeType for NetworkStatusChangedEventHandler {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct NetworkStatusChangedEventHandler_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,

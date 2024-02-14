@@ -85,7 +85,6 @@ impl IChannelCredentials {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IChannelCredentials_Vtbl {
     pub base__: super::IDispatch_Vtbl,
     pub SetWindowsCredential: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>, i32, super::super::super::Foundation::BOOL) -> ::windows_core::HRESULT,

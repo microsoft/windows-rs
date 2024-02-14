@@ -20,7 +20,6 @@ impl IEnumWIA_DEV_CAPS {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IEnumWIA_DEV_CAPS_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut WIA_DEV_CAP, *mut u32) -> ::windows_core::HRESULT,
@@ -51,7 +50,6 @@ impl IEnumWIA_DEV_INFO {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IEnumWIA_DEV_INFO_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -82,7 +80,6 @@ impl IEnumWIA_FORMAT_INFO {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IEnumWIA_FORMAT_INFO_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut WIA_FORMAT_INFO, *mut u32) -> ::windows_core::HRESULT,
@@ -113,7 +110,6 @@ impl IEnumWiaItem {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IEnumWiaItem_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -144,7 +140,6 @@ impl IEnumWiaItem2 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IEnumWiaItem2_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -168,7 +163,6 @@ impl IWiaAppErrorHandler {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWiaAppErrorHandler_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetWindow: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::HWND) -> ::windows_core::HRESULT,
@@ -182,7 +176,6 @@ impl IWiaDataCallback {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWiaDataCallback_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub BandedDataCallback: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, i32, i32, i32, i32, i32, i32, *mut u8) -> ::windows_core::HRESULT,
@@ -215,7 +208,6 @@ impl IWiaDataTransfer {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWiaDataTransfer_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
@@ -296,7 +288,6 @@ impl IWiaDevMgr {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWiaDevMgr_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub EnumDeviceInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -374,7 +365,6 @@ impl IWiaDevMgr2 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWiaDevMgr2_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub EnumDeviceInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -449,7 +439,6 @@ impl IWiaDrvItem {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWiaDrvItem_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetItemFlags: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
@@ -485,7 +474,6 @@ impl IWiaErrorHandler {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWiaErrorHandler_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub ReportStatus: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, super::super::Foundation::HWND, *mut ::core::ffi::c_void, ::windows_core::HRESULT, i32) -> ::windows_core::HRESULT,
@@ -505,7 +493,6 @@ impl IWiaEventCallback {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWiaEventCallback_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub ImageEventCallback: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>, u32, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut u32, u32) -> ::windows_core::HRESULT,
@@ -542,7 +529,6 @@ impl IWiaImageFilter {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWiaImageFilter_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub InitializeFilter: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -623,7 +609,6 @@ impl IWiaItem {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWiaItem_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetItemType: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
@@ -722,7 +707,6 @@ impl IWiaItem2 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWiaItem2_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub CreateChildItem: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, i32, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -757,7 +741,6 @@ impl IWiaItemExtras {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWiaItemExtras_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetExtendedErrorInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
@@ -781,7 +764,6 @@ impl IWiaLog {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWiaLog_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub InitializeLog: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
@@ -814,7 +796,6 @@ impl IWiaLogEx {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWiaLogEx_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub InitializeLogEx: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const u8) -> ::windows_core::HRESULT,
@@ -898,7 +879,6 @@ impl IWiaMiniDrv {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWiaMiniDrv_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub drvInitializeWia: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const u8, i32, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
@@ -933,7 +913,6 @@ impl IWiaMiniDrvCallBack {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWiaMiniDrvCallBack_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub MiniDrvCallback: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, i32, i32, i32, i32, *const MINIDRV_TRANSFER_CONTEXT, i32) -> ::windows_core::HRESULT,
@@ -955,7 +934,6 @@ impl IWiaMiniDrvTransferCallback {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWiaMiniDrvTransferCallback_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -972,7 +950,6 @@ impl IWiaNotifyDevMgr {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWiaNotifyDevMgr_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub NewDeviceArrival: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1002,7 +979,6 @@ impl IWiaPreview {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWiaPreview_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetNewPreview: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1076,7 +1052,6 @@ impl IWiaPropertyStorage {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWiaPropertyStorage_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
@@ -1133,7 +1108,6 @@ impl IWiaSegmentationFilter {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWiaSegmentationFilter_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -1167,7 +1141,6 @@ impl IWiaTransfer {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWiaTransfer_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Download: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1195,7 +1168,6 @@ impl IWiaTransferCallback {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWiaTransferCallback_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub TransferCallback: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, *const WiaTransferParams) -> ::windows_core::HRESULT,
@@ -1226,7 +1198,6 @@ impl IWiaUIExtension {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWiaUIExtension_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub DeviceDialog: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const DEVICEDIALOGDATA) -> ::windows_core::HRESULT,
@@ -1254,7 +1225,6 @@ impl IWiaUIExtension2 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWiaUIExtension2_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub DeviceDialog: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const DEVICEDIALOGDATA2) -> ::windows_core::HRESULT,
@@ -1337,7 +1307,6 @@ impl IWiaVideo {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWiaVideo_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub PreviewVisible: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,

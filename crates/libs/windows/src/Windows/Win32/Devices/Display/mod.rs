@@ -796,7 +796,6 @@ impl ICloneViewHelper {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICloneViewHelper_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetConnectedIDs: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *mut u32, *mut u32, u32) -> ::windows_core::HRESULT,
@@ -841,7 +840,6 @@ impl IViewHelper {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IViewHelper_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetConnectedIDs: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *mut u32, *mut u32, u32) -> ::windows_core::HRESULT,

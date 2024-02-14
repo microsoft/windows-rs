@@ -1,6 +1,5 @@
 ::windows_core::imp::com_interface!(IDevicePortalConnection, IDevicePortalConnection_Vtbl, 0x0f447f51_1198_4da1_8d54_bdef393e09b6);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDevicePortalConnection_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Closed: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
@@ -10,14 +9,12 @@ pub struct IDevicePortalConnection_Vtbl {
 }
 ::windows_core::imp::com_interface!(IDevicePortalConnectionClosedEventArgs, IDevicePortalConnectionClosedEventArgs_Vtbl, 0xfcf70e38_7032_428c_9f50_945c15a9f0cb);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDevicePortalConnectionClosedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Reason: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut DevicePortalConnectionClosedReason) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDevicePortalConnectionRequestReceivedEventArgs, IDevicePortalConnectionRequestReceivedEventArgs_Vtbl, 0x64dae045_6fda_4459_9ebd_ecce22e38559);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDevicePortalConnectionRequestReceivedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Web_Http")]
@@ -31,7 +28,6 @@ pub struct IDevicePortalConnectionRequestReceivedEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IDevicePortalConnectionStatics, IDevicePortalConnectionStatics_Vtbl, 0x4bbe31e7_e9b9_4645_8fed_a53eea0edbd6);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDevicePortalConnectionStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "ApplicationModel_AppService")]
@@ -41,7 +37,6 @@ pub struct IDevicePortalConnectionStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IDevicePortalWebSocketConnection, IDevicePortalWebSocketConnection_Vtbl, 0x67657920_d65a_42f0_aef4_787808098b7b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDevicePortalWebSocketConnection_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(all(feature = "Networking_Sockets", feature = "Web_Http"))]
@@ -67,7 +62,6 @@ pub struct IDevicePortalWebSocketConnection_Vtbl {
 }
 ::windows_core::imp::com_interface!(IDevicePortalWebSocketConnectionRequestReceivedEventArgs, IDevicePortalWebSocketConnectionRequestReceivedEventArgs_Vtbl, 0x79fdcaba_175c_4739_9f74_dda797c35b3f);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDevicePortalWebSocketConnectionRequestReceivedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsWebSocketUpgradeRequest: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,

@@ -2,7 +2,6 @@
 pub mod Provisioning;
 ::windows_core::imp::com_interface!(IContactAddress, IContactAddress_Vtbl, 0x5f24f927_94a9_44a2_a155_2d0b37d1dccd);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IContactAddress_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Country: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -18,7 +17,6 @@ pub struct IContactAddress_Vtbl {
 }
 ::windows_core::imp::com_interface!(IContactChangeRecord, IContactChangeRecord_Vtbl, 0xb9d3f78f_513b_4742_be00_cc5c5c236b04);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IContactChangeRecord_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ChangeType: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ContactChangeType) -> ::windows_core::HRESULT,
@@ -140,7 +138,6 @@ impl ::windows_core::RuntimeType for IContactInformation {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IContactInformation_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub DisplayName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -197,7 +194,6 @@ impl ::windows_core::RuntimeType for IContactInformation2 {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IContactInformation2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub DisplayPictureDate: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::DateTime) -> ::windows_core::HRESULT,
@@ -205,7 +201,6 @@ pub struct IContactInformation2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IContactInformationStatics, IContactInformationStatics_Vtbl, 0x0f67bb29_03d0_4be6_b2a5_fb13859f1202);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IContactInformationStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -215,7 +210,6 @@ pub struct IContactInformationStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IContactQueryOptions, IContactQueryOptions_Vtbl, 0x580cab76_3f31_46c1_9a50_424a53dacae3);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IContactQueryOptions_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -227,7 +221,6 @@ pub struct IContactQueryOptions_Vtbl {
 }
 ::windows_core::imp::com_interface!(IContactQueryResult, IContactQueryResult_Vtbl, 0xc03db722_ecdb_4700_857e_3e786426b04b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IContactQueryResult_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetContactCountAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -243,7 +236,6 @@ pub struct IContactQueryResult_Vtbl {
 }
 ::windows_core::imp::com_interface!(IContactStore, IContactStore_Vtbl, 0xb2cd6fef_2bfd_4fad_8552_4e698097e8eb);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IContactStore_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub FindContactByRemoteIdAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -268,14 +260,12 @@ pub struct IContactStore_Vtbl {
 }
 ::windows_core::imp::com_interface!(IContactStore2, IContactStore2_Vtbl, 0x65f1b64f_d653_43a7_b236_b30c0f4d7269);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IContactStore2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateMeContactAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IContactStoreStatics, IContactStoreStatics_Vtbl, 0xa804fe22_4beb_44cc_a572_67a5b92e8567);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IContactStoreStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateOrOpenAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -283,7 +273,6 @@ pub struct IContactStoreStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IKnownContactPropertiesStatics, IKnownContactPropertiesStatics_Vtbl, 0xd5812b01_2ced_4ee6_b1d6_094bf88ef0b6);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IKnownContactPropertiesStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub DisplayName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -324,7 +313,6 @@ pub struct IKnownContactPropertiesStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IStoredContact, IStoredContact_Vtbl, 0xb070b7b1_263d_4e71_abe7_591d2466570e);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IStoredContact_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Store: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -340,7 +328,6 @@ pub struct IStoredContact_Vtbl {
 }
 ::windows_core::imp::com_interface!(IStoredContactFactory, IStoredContactFactory_Vtbl, 0x49ede921_c225_4fd9_89c5_cecc2c8a4b79);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IStoredContactFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateStoredContact: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,

@@ -15,7 +15,6 @@ impl ID3DBlob {
 unsafe impl ::core::marker::Send for ID3DBlob {}
 unsafe impl ::core::marker::Sync for ID3DBlob {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3DBlob_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetBufferPointer: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> *mut ::core::ffi::c_void,
@@ -35,7 +34,6 @@ impl ID3DDestructionNotifier {
 unsafe impl ::core::marker::Send for ID3DDestructionNotifier {}
 unsafe impl ::core::marker::Sync for ID3DDestructionNotifier {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3DDestructionNotifier_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub RegisterDestructionCallback: unsafe extern "system" fn(*mut ::core::ffi::c_void, PFN_DESTRUCTION_CALLBACK, *const ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -56,7 +54,6 @@ impl ID3DInclude {
 unsafe impl ::core::marker::Send for ID3DInclude {}
 unsafe impl ::core::marker::Sync for ID3DInclude {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3DInclude_Vtbl {
     pub Open: unsafe extern "system" fn(*mut ::core::ffi::c_void, D3D_INCLUDE_TYPE, ::windows_core::PCSTR, *const ::core::ffi::c_void, *mut *mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
     pub Close: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::core::ffi::c_void) -> ::windows_core::HRESULT,

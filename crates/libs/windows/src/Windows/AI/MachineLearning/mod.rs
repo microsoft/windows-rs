@@ -1,6 +1,5 @@
 ::windows_core::imp::com_interface!(IImageFeatureDescriptor, IImageFeatureDescriptor_Vtbl, 0x365585a5_171a_4a2a_985f_265159d3895a);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IImageFeatureDescriptor_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Graphics_Imaging")]
@@ -16,14 +15,12 @@ pub struct IImageFeatureDescriptor_Vtbl {
 }
 ::windows_core::imp::com_interface!(IImageFeatureDescriptor2, IImageFeatureDescriptor2_Vtbl, 0x2b27cca7_d533_5862_bb98_1611b155b0e1);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IImageFeatureDescriptor2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub PixelRange: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut LearningModelPixelRange) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IImageFeatureValue, IImageFeatureValue_Vtbl, 0xf0414fd9_c9aa_4405_b7fb_94f87c8a3037);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IImageFeatureValue_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Media")]
@@ -33,7 +30,6 @@ pub struct IImageFeatureValue_Vtbl {
 }
 ::windows_core::imp::com_interface!(IImageFeatureValueStatics, IImageFeatureValueStatics_Vtbl, 0x1bc317fd_23cb_4610_b085_c8e1c87ebaa0);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IImageFeatureValueStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Media")]
@@ -43,7 +39,6 @@ pub struct IImageFeatureValueStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(ILearningModel, ILearningModel_Vtbl, 0x5b8e4920_489f_4e86_9128_265a327b78fa);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ILearningModel_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Author: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -66,7 +61,6 @@ pub struct ILearningModel_Vtbl {
 }
 ::windows_core::imp::com_interface!(ILearningModelBinding, ILearningModelBinding_Vtbl, 0xea312f20_168f_4f8c_94fe_2e7ac31b4aa8);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ILearningModelBinding_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Bind: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -78,14 +72,12 @@ pub struct ILearningModelBinding_Vtbl {
 }
 ::windows_core::imp::com_interface!(ILearningModelBindingFactory, ILearningModelBindingFactory_Vtbl, 0xc95f7a7a_e788_475e_8917_23aa381faf0b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ILearningModelBindingFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateFromSession: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ILearningModelDevice, ILearningModelDevice_Vtbl, 0xf5c2c8fe_3f56_4a8c_ac5f_fdb92d8b8252);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ILearningModelDevice_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Graphics")]
@@ -99,14 +91,12 @@ pub struct ILearningModelDevice_Vtbl {
 }
 ::windows_core::imp::com_interface!(ILearningModelDeviceFactory, ILearningModelDeviceFactory_Vtbl, 0x9cffd74d_b1e5_4f20_80ad_0a56690db06b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ILearningModelDeviceFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut ::core::ffi::c_void, LearningModelDeviceKind, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ILearningModelDeviceStatics, ILearningModelDeviceStatics_Vtbl, 0x49f32107_a8bf_42bb_92c7_10b12dc5d21f);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ILearningModelDeviceStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
@@ -116,7 +106,6 @@ pub struct ILearningModelDeviceStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(ILearningModelEvaluationResult, ILearningModelEvaluationResult_Vtbl, 0xb2f9bfcd_960e_49c0_8593_eb190ae3eee2);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ILearningModelEvaluationResult_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CorrelationId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -163,7 +152,6 @@ impl ::windows_core::RuntimeType for ILearningModelFeatureDescriptor {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ILearningModelFeatureDescriptor_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Name: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -186,7 +174,6 @@ impl ::windows_core::RuntimeType for ILearningModelFeatureValue {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ILearningModelFeatureValue_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Kind: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut LearningModelFeatureKind) -> ::windows_core::HRESULT,
@@ -198,13 +185,11 @@ impl ::windows_core::RuntimeType for ILearningModelOperatorProvider {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ILearningModelOperatorProvider_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
 }
 ::windows_core::imp::com_interface!(ILearningModelSession, ILearningModelSession_Vtbl, 0x8e58f8f6_b787_4c11_90f0_7129aeca74a9);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ILearningModelSession_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Model: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -226,7 +211,6 @@ pub struct ILearningModelSession_Vtbl {
 }
 ::windows_core::imp::com_interface!(ILearningModelSessionFactory, ILearningModelSessionFactory_Vtbl, 0x0f6b881d_1c9b_47b6_bfe0_f1cf62a67579);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ILearningModelSessionFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateFromModel: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -234,14 +218,12 @@ pub struct ILearningModelSessionFactory_Vtbl {
 }
 ::windows_core::imp::com_interface!(ILearningModelSessionFactory2, ILearningModelSessionFactory2_Vtbl, 0x4e5c88bf_0a1f_5fec_ade0_2fd91e4ef29b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ILearningModelSessionFactory2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateFromModelOnDeviceWithSessionOptions: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ILearningModelSessionOptions, ILearningModelSessionOptions_Vtbl, 0xb8f63fa1_134d_5133_8cff_3a5c3c263beb);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ILearningModelSessionOptions_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub BatchSizeOverride: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -249,7 +231,6 @@ pub struct ILearningModelSessionOptions_Vtbl {
 }
 ::windows_core::imp::com_interface!(ILearningModelSessionOptions2, ILearningModelSessionOptions2_Vtbl, 0x6fcd1dc4_175f_5bd2_8de5_2f2006a25adf);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ILearningModelSessionOptions2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CloseModelOnSessionCreation: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -257,14 +238,12 @@ pub struct ILearningModelSessionOptions2_Vtbl {
 }
 ::windows_core::imp::com_interface!(ILearningModelSessionOptions3, ILearningModelSessionOptions3_Vtbl, 0x58e15cee_d8c2_56fc_92e8_76d751081086);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ILearningModelSessionOptions3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub OverrideNamedDimension: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ILearningModelStatics, ILearningModelStatics_Vtbl, 0xe3b977e8_6952_4e47_8ef4_1f7f07897c6d);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ILearningModelStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage")]
@@ -296,7 +275,6 @@ pub struct ILearningModelStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMapFeatureDescriptor, IMapFeatureDescriptor_Vtbl, 0x530424bd_a257_436d_9e60_c2981f7cc5c4);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMapFeatureDescriptor_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub KeyKind: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut TensorKind) -> ::windows_core::HRESULT,
@@ -304,7 +282,6 @@ pub struct IMapFeatureDescriptor_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISequenceFeatureDescriptor, ISequenceFeatureDescriptor_Vtbl, 0x84f6945a_562b_4d62_a851_739aced96668);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISequenceFeatureDescriptor_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ElementDescriptor: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -340,7 +317,6 @@ impl ::windows_core::RuntimeType for ITensor {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITensor_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub TensorKind: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut TensorKind) -> ::windows_core::HRESULT,
@@ -351,7 +327,6 @@ pub struct ITensor_Vtbl {
 }
 ::windows_core::imp::com_interface!(ITensorBoolean, ITensorBoolean_Vtbl, 0x50f311ed_29e9_4a5c_a44d_8fc512584eed);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITensorBoolean_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -361,7 +336,6 @@ pub struct ITensorBoolean_Vtbl {
 }
 ::windows_core::imp::com_interface!(ITensorBooleanStatics, ITensorBooleanStatics_Vtbl, 0x2796862c_2357_49a7_b476_d0aa3dfe6866);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITensorBooleanStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -380,7 +354,6 @@ pub struct ITensorBooleanStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(ITensorBooleanStatics2, ITensorBooleanStatics2_Vtbl, 0xa3a4a501_6a2d_52d7_b04b_c435baee0115);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITensorBooleanStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateFromShapeArrayAndDataArray: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const i64, u32, *const bool, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -391,7 +364,6 @@ pub struct ITensorBooleanStatics2_Vtbl {
 }
 ::windows_core::imp::com_interface!(ITensorDouble, ITensorDouble_Vtbl, 0x91e41252_7a8f_4f0e_a28f_9637ffc8a3d0);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITensorDouble_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -401,7 +373,6 @@ pub struct ITensorDouble_Vtbl {
 }
 ::windows_core::imp::com_interface!(ITensorDoubleStatics, ITensorDoubleStatics_Vtbl, 0xa86693c5_9538_44e7_a3ca_5df374a5a70c);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITensorDoubleStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -420,7 +391,6 @@ pub struct ITensorDoubleStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(ITensorDoubleStatics2, ITensorDoubleStatics2_Vtbl, 0x93a570de_5e9a_5094_85c8_592c655e68ac);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITensorDoubleStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateFromShapeArrayAndDataArray: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const i64, u32, *const f64, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -431,7 +401,6 @@ pub struct ITensorDoubleStatics2_Vtbl {
 }
 ::windows_core::imp::com_interface!(ITensorFeatureDescriptor, ITensorFeatureDescriptor_Vtbl, 0x74455c80_946a_4310_a19c_ee0af028fce4);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITensorFeatureDescriptor_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub TensorKind: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut TensorKind) -> ::windows_core::HRESULT,
@@ -442,7 +411,6 @@ pub struct ITensorFeatureDescriptor_Vtbl {
 }
 ::windows_core::imp::com_interface!(ITensorFloat, ITensorFloat_Vtbl, 0xf2282d82_aa02_42c8_a0c8_df1efc9676e1);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITensorFloat_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -452,7 +420,6 @@ pub struct ITensorFloat_Vtbl {
 }
 ::windows_core::imp::com_interface!(ITensorFloat16Bit, ITensorFloat16Bit_Vtbl, 0x0ab994fc_5b89_4c3c_b5e4_5282a5316c0a);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITensorFloat16Bit_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -462,7 +429,6 @@ pub struct ITensorFloat16Bit_Vtbl {
 }
 ::windows_core::imp::com_interface!(ITensorFloat16BitStatics, ITensorFloat16BitStatics_Vtbl, 0xa52db6f5_318a_44d4_820b_0cdc7054a84a);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITensorFloat16BitStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -481,7 +447,6 @@ pub struct ITensorFloat16BitStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(ITensorFloat16BitStatics2, ITensorFloat16BitStatics2_Vtbl, 0x68545726_2dc7_51bf_b470_0b344cc2a1bc);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITensorFloat16BitStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateFromShapeArrayAndDataArray: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const i64, u32, *const f32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -492,7 +457,6 @@ pub struct ITensorFloat16BitStatics2_Vtbl {
 }
 ::windows_core::imp::com_interface!(ITensorFloatStatics, ITensorFloatStatics_Vtbl, 0xdbcd395b_3ba3_452f_b10d_3c135e573fa9);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITensorFloatStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -511,7 +475,6 @@ pub struct ITensorFloatStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(ITensorFloatStatics2, ITensorFloatStatics2_Vtbl, 0x24610bc1_5e44_5713_b281_8f4ad4d555e8);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITensorFloatStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateFromShapeArrayAndDataArray: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const i64, u32, *const f32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -522,7 +485,6 @@ pub struct ITensorFloatStatics2_Vtbl {
 }
 ::windows_core::imp::com_interface!(ITensorInt16Bit, ITensorInt16Bit_Vtbl, 0x98a32d39_e6d6_44af_8afa_baebc44dc020);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITensorInt16Bit_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -532,7 +494,6 @@ pub struct ITensorInt16Bit_Vtbl {
 }
 ::windows_core::imp::com_interface!(ITensorInt16BitStatics, ITensorInt16BitStatics_Vtbl, 0x98646293_266e_4b1a_821f_e60d70898b91);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITensorInt16BitStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -551,7 +512,6 @@ pub struct ITensorInt16BitStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(ITensorInt16BitStatics2, ITensorInt16BitStatics2_Vtbl, 0x0cd70cf4_696c_5e5f_95d8_5ebf9670148b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITensorInt16BitStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateFromShapeArrayAndDataArray: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const i64, u32, *const i16, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -562,7 +522,6 @@ pub struct ITensorInt16BitStatics2_Vtbl {
 }
 ::windows_core::imp::com_interface!(ITensorInt32Bit, ITensorInt32Bit_Vtbl, 0x2c0c28d3_207c_4486_a7d2_884522c5e589);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITensorInt32Bit_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -572,7 +531,6 @@ pub struct ITensorInt32Bit_Vtbl {
 }
 ::windows_core::imp::com_interface!(ITensorInt32BitStatics, ITensorInt32BitStatics_Vtbl, 0x6539864b_52fa_4e35_907c_834cac417b50);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITensorInt32BitStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -591,7 +549,6 @@ pub struct ITensorInt32BitStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(ITensorInt32BitStatics2, ITensorInt32BitStatics2_Vtbl, 0x7c4b079a_e956_5ce0_a3bd_157d9d79b5ec);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITensorInt32BitStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateFromShapeArrayAndDataArray: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const i64, u32, *const i32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -602,7 +559,6 @@ pub struct ITensorInt32BitStatics2_Vtbl {
 }
 ::windows_core::imp::com_interface!(ITensorInt64Bit, ITensorInt64Bit_Vtbl, 0x499665ba_1fa2_45ad_af25_a0bd9bda4c87);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITensorInt64Bit_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -612,7 +568,6 @@ pub struct ITensorInt64Bit_Vtbl {
 }
 ::windows_core::imp::com_interface!(ITensorInt64BitStatics, ITensorInt64BitStatics_Vtbl, 0x9648ad9d_1198_4d74_9517_783ab62b9cc2);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITensorInt64BitStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -631,7 +586,6 @@ pub struct ITensorInt64BitStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(ITensorInt64BitStatics2, ITensorInt64BitStatics2_Vtbl, 0x6d3d9dcb_ff40_5ec2_89fe_084e2b6bc6db);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITensorInt64BitStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateFromShapeArrayAndDataArray: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const i64, u32, *const i64, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -642,7 +596,6 @@ pub struct ITensorInt64BitStatics2_Vtbl {
 }
 ::windows_core::imp::com_interface!(ITensorInt8Bit, ITensorInt8Bit_Vtbl, 0xcddd97c5_ffd8_4fef_aefb_30e1a485b2ee);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITensorInt8Bit_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -652,7 +605,6 @@ pub struct ITensorInt8Bit_Vtbl {
 }
 ::windows_core::imp::com_interface!(ITensorInt8BitStatics, ITensorInt8BitStatics_Vtbl, 0xb1a12284_095c_4c76_a661_ac4cee1f3e8b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITensorInt8BitStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -671,7 +623,6 @@ pub struct ITensorInt8BitStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(ITensorInt8BitStatics2, ITensorInt8BitStatics2_Vtbl, 0xc0d59637_c468_56fb_9535_c052bdb93dc0);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITensorInt8BitStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateFromShapeArrayAndDataArray: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const i64, u32, *const u8, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -682,7 +633,6 @@ pub struct ITensorInt8BitStatics2_Vtbl {
 }
 ::windows_core::imp::com_interface!(ITensorString, ITensorString_Vtbl, 0x582335c8_bdb1_4610_bc75_35e9cbf009b7);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITensorString_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -692,7 +642,6 @@ pub struct ITensorString_Vtbl {
 }
 ::windows_core::imp::com_interface!(ITensorStringStatics, ITensorStringStatics_Vtbl, 0x83623324_cf26_4f17_a2d4_20ef8d097d53);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITensorStringStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -711,14 +660,12 @@ pub struct ITensorStringStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(ITensorStringStatics2, ITensorStringStatics2_Vtbl, 0x9e355ed0_c8e2_5254_9137_0193a3668fd8);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITensorStringStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateFromShapeArrayAndDataArray: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const i64, u32, *const ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ITensorUInt16Bit, ITensorUInt16Bit_Vtbl, 0x68140f4b_23c0_42f3_81f6_a891c011bc3f);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITensorUInt16Bit_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -728,7 +675,6 @@ pub struct ITensorUInt16Bit_Vtbl {
 }
 ::windows_core::imp::com_interface!(ITensorUInt16BitStatics, ITensorUInt16BitStatics_Vtbl, 0x5df745dd_028a_481a_a27c_c7e6435e52dd);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITensorUInt16BitStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -747,7 +693,6 @@ pub struct ITensorUInt16BitStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(ITensorUInt16BitStatics2, ITensorUInt16BitStatics2_Vtbl, 0x8af40c64_d69f_5315_9348_490877bbd642);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITensorUInt16BitStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateFromShapeArrayAndDataArray: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const i64, u32, *const u16, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -758,7 +703,6 @@ pub struct ITensorUInt16BitStatics2_Vtbl {
 }
 ::windows_core::imp::com_interface!(ITensorUInt32Bit, ITensorUInt32Bit_Vtbl, 0xd8c9c2ff_7511_45a3_bfac_c38f370d2237);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITensorUInt32Bit_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -768,7 +712,6 @@ pub struct ITensorUInt32Bit_Vtbl {
 }
 ::windows_core::imp::com_interface!(ITensorUInt32BitStatics, ITensorUInt32BitStatics_Vtbl, 0x417c3837_e773_4378_8e7f_0cc33dbea697);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITensorUInt32BitStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -787,7 +730,6 @@ pub struct ITensorUInt32BitStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(ITensorUInt32BitStatics2, ITensorUInt32BitStatics2_Vtbl, 0xef1a1f1c_314e_569d_b496_5c8447d20cd2);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITensorUInt32BitStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateFromShapeArrayAndDataArray: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const i64, u32, *const u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -798,7 +740,6 @@ pub struct ITensorUInt32BitStatics2_Vtbl {
 }
 ::windows_core::imp::com_interface!(ITensorUInt64Bit, ITensorUInt64Bit_Vtbl, 0x2e70ffad_04bf_4825_839a_82baef8c7886);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITensorUInt64Bit_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -808,7 +749,6 @@ pub struct ITensorUInt64Bit_Vtbl {
 }
 ::windows_core::imp::com_interface!(ITensorUInt64BitStatics, ITensorUInt64BitStatics_Vtbl, 0x7a7e20eb_242f_47cb_a9c6_f602ecfbfee4);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITensorUInt64BitStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -827,7 +767,6 @@ pub struct ITensorUInt64BitStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(ITensorUInt64BitStatics2, ITensorUInt64BitStatics2_Vtbl, 0x085a687d_67e1_5b1e_b232_4fabe9ca20b3);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITensorUInt64BitStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateFromShapeArrayAndDataArray: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const i64, u32, *const u64, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -838,7 +777,6 @@ pub struct ITensorUInt64BitStatics2_Vtbl {
 }
 ::windows_core::imp::com_interface!(ITensorUInt8Bit, ITensorUInt8Bit_Vtbl, 0x58e1ae27_622b_48e3_be22_d867aed1daac);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITensorUInt8Bit_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -848,7 +786,6 @@ pub struct ITensorUInt8Bit_Vtbl {
 }
 ::windows_core::imp::com_interface!(ITensorUInt8BitStatics, ITensorUInt8BitStatics_Vtbl, 0x05f67583_bc24_4220_8a41_2dcd8c5ed33c);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITensorUInt8BitStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -867,7 +804,6 @@ pub struct ITensorUInt8BitStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(ITensorUInt8BitStatics2, ITensorUInt8BitStatics2_Vtbl, 0x2ba042d6_373e_5a3a_a2fc_a6c41bd52789);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITensorUInt8BitStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateFromShapeArrayAndDataArray: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const i64, u32, *const u8, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,

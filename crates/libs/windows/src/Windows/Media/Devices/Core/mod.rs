@@ -1,6 +1,5 @@
 ::windows_core::imp::com_interface!(ICameraIntrinsics, ICameraIntrinsics_Vtbl, 0x0aa6ed32_6589_49da_afde_594270ca0aac);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICameraIntrinsics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Numerics")]
@@ -40,7 +39,6 @@ pub struct ICameraIntrinsics_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICameraIntrinsics2, ICameraIntrinsics2_Vtbl, 0x0cdaa447_0798_4b4d_839f_c5ec414db27a);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICameraIntrinsics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Numerics")]
@@ -54,7 +52,6 @@ pub struct ICameraIntrinsics2_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICameraIntrinsicsFactory, ICameraIntrinsicsFactory_Vtbl, 0xc0ddc486_2132_4a34_a659_9bfe2a055712);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICameraIntrinsicsFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Numerics")]
@@ -64,7 +61,6 @@ pub struct ICameraIntrinsicsFactory_Vtbl {
 }
 ::windows_core::imp::com_interface!(IDepthCorrelatedCoordinateMapper, IDepthCorrelatedCoordinateMapper_Vtbl, 0xf95d89fb_8af0_4cb0_926d_696866e5046a);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDepthCorrelatedCoordinateMapper_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
@@ -86,7 +82,6 @@ pub struct IDepthCorrelatedCoordinateMapper_Vtbl {
 }
 ::windows_core::imp::com_interface!(IFrameControlCapabilities, IFrameControlCapabilities_Vtbl, 0xa8ffae60_4e9e_4377_a789_e24c4ae7e544);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IFrameControlCapabilities_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Exposure: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -97,14 +92,12 @@ pub struct IFrameControlCapabilities_Vtbl {
 }
 ::windows_core::imp::com_interface!(IFrameControlCapabilities2, IFrameControlCapabilities2_Vtbl, 0xce9b0464_4730_440f_bd3e_efe8a8f230a8);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IFrameControlCapabilities2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Flash: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IFrameController, IFrameController_Vtbl, 0xc16459d9_baef_4052_9177_48aff2af7522);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IFrameController_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ExposureControl: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -116,14 +109,12 @@ pub struct IFrameController_Vtbl {
 }
 ::windows_core::imp::com_interface!(IFrameController2, IFrameController2_Vtbl, 0x00d3bc75_d87c_485b_8a09_5c358568b427);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IFrameController2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub FlashControl: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IFrameExposureCapabilities, IFrameExposureCapabilities_Vtbl, 0xbdbe9ce3_3985_4e72_97c2_0590d61307a1);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IFrameExposureCapabilities_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Supported: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -133,7 +124,6 @@ pub struct IFrameExposureCapabilities_Vtbl {
 }
 ::windows_core::imp::com_interface!(IFrameExposureCompensationCapabilities, IFrameExposureCompensationCapabilities_Vtbl, 0xb988a823_8065_41ee_b04f_722265954500);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IFrameExposureCompensationCapabilities_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Supported: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -143,7 +133,6 @@ pub struct IFrameExposureCompensationCapabilities_Vtbl {
 }
 ::windows_core::imp::com_interface!(IFrameExposureCompensationControl, IFrameExposureCompensationControl_Vtbl, 0xe95896c9_f7f9_48ca_8591_a26531cb1578);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IFrameExposureCompensationControl_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Value: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -151,7 +140,6 @@ pub struct IFrameExposureCompensationControl_Vtbl {
 }
 ::windows_core::imp::com_interface!(IFrameExposureControl, IFrameExposureControl_Vtbl, 0xb1605a61_ffaf_4752_b621_f5b6f117f432);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IFrameExposureControl_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Auto: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -161,7 +149,6 @@ pub struct IFrameExposureControl_Vtbl {
 }
 ::windows_core::imp::com_interface!(IFrameFlashCapabilities, IFrameFlashCapabilities_Vtbl, 0xbb9341a2_5ebe_4f62_8223_0e2b05bfbbd0);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IFrameFlashCapabilities_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Supported: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -170,7 +157,6 @@ pub struct IFrameFlashCapabilities_Vtbl {
 }
 ::windows_core::imp::com_interface!(IFrameFlashControl, IFrameFlashControl_Vtbl, 0x75d5f6c7_bd45_4fab_9375_45ac04b332c2);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IFrameFlashControl_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Mode: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut FrameFlashMode) -> ::windows_core::HRESULT,
@@ -184,7 +170,6 @@ pub struct IFrameFlashControl_Vtbl {
 }
 ::windows_core::imp::com_interface!(IFrameFocusCapabilities, IFrameFocusCapabilities_Vtbl, 0x7b25cd58_01c0_4065_9c40_c1a721425c1a);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IFrameFocusCapabilities_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Supported: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -194,7 +179,6 @@ pub struct IFrameFocusCapabilities_Vtbl {
 }
 ::windows_core::imp::com_interface!(IFrameFocusControl, IFrameFocusControl_Vtbl, 0x272df1d0_d912_4214_a67b_e38a8d48d8c6);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IFrameFocusControl_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Value: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -202,7 +186,6 @@ pub struct IFrameFocusControl_Vtbl {
 }
 ::windows_core::imp::com_interface!(IFrameIsoSpeedCapabilities, IFrameIsoSpeedCapabilities_Vtbl, 0x16bdff61_6df6_4ac9_b92a_9f6ecd1ad2fa);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IFrameIsoSpeedCapabilities_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Supported: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -212,7 +195,6 @@ pub struct IFrameIsoSpeedCapabilities_Vtbl {
 }
 ::windows_core::imp::com_interface!(IFrameIsoSpeedControl, IFrameIsoSpeedControl_Vtbl, 0x1a03efed_786a_4c75_a557_7ab9a85f588c);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IFrameIsoSpeedControl_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Auto: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -222,7 +204,6 @@ pub struct IFrameIsoSpeedControl_Vtbl {
 }
 ::windows_core::imp::com_interface!(IVariablePhotoSequenceController, IVariablePhotoSequenceController_Vtbl, 0x7fbff880_ed8c_43fd_a7c3_b35809e4229a);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVariablePhotoSequenceController_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Supported: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,

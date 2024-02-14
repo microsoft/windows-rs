@@ -2906,7 +2906,6 @@ impl IAssemblyCache {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAssemblyCache_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub UninstallAssembly: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, ::windows_core::PCWSTR, *mut FUSION_INSTALL_REFERENCE, *mut IASSEMBLYCACHE_UNINSTALL_DISPOSITION) -> ::windows_core::HRESULT,
@@ -2933,7 +2932,6 @@ impl IAssemblyCacheItem {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAssemblyCacheItem_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -2984,7 +2982,6 @@ impl IAssemblyName {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAssemblyName_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub SetProperty: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
@@ -3016,7 +3013,6 @@ impl IEnumMsmDependency {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IEnumMsmDependency_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -3046,7 +3042,6 @@ impl IEnumMsmError {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IEnumMsmError_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -3075,7 +3070,6 @@ impl IEnumMsmString {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IEnumMsmString_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut u32) -> ::windows_core::HRESULT,
@@ -3104,7 +3098,6 @@ impl IMsmDependencies {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMsmDependencies_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -3132,7 +3125,6 @@ impl IMsmDependency {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMsmDependency_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub Module: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
@@ -3173,7 +3165,6 @@ impl IMsmError {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMsmError_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub Type: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut msmErrorType) -> ::windows_core::HRESULT,
@@ -3211,7 +3202,6 @@ impl IMsmErrors {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMsmErrors_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -3235,7 +3225,6 @@ impl IMsmGetFiles {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMsmGetFiles_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -3323,7 +3312,6 @@ impl IMsmMerge {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMsmMerge_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub OpenDatabase: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
@@ -3365,7 +3353,6 @@ impl IMsmStrings {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMsmStrings_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub get_Item: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
@@ -3601,7 +3588,6 @@ impl IPMApplicationInfo {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPMApplicationInfo_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub ProductID: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
@@ -3669,7 +3655,6 @@ impl IPMApplicationInfoEnumerator {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPMApplicationInfoEnumerator_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -3733,7 +3718,6 @@ impl IPMBackgroundServiceAgentInfo {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPMBackgroundServiceAgentInfo_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub ProductID: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
@@ -3760,7 +3744,6 @@ impl IPMBackgroundServiceAgentInfoEnumerator {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPMBackgroundServiceAgentInfoEnumerator_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -3792,7 +3775,6 @@ impl IPMBackgroundWorkerInfo {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPMBackgroundWorkerInfo_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub ProductID: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
@@ -3811,7 +3793,6 @@ impl IPMBackgroundWorkerInfoEnumerator {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPMBackgroundWorkerInfoEnumerator_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -3973,7 +3954,6 @@ impl IPMDeploymentManager {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPMDeploymentManager_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub ReportDownloadBegin: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::GUID) -> ::windows_core::HRESULT,
@@ -4105,7 +4085,6 @@ impl IPMEnumerationManager {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPMEnumerationManager_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub get_AllApplications: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void, PM_ENUM_FILTER) -> ::windows_core::HRESULT,
@@ -4136,7 +4115,6 @@ impl IPMExtensionCachedFileUpdaterInfo {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPMExtensionCachedFileUpdaterInfo_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub SupportsUpdates: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
@@ -4149,7 +4127,6 @@ impl IPMExtensionContractInfo {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPMExtensionContractInfo_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub get_InvocationInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
@@ -4186,7 +4163,6 @@ impl IPMExtensionFileExtensionInfo {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPMExtensionFileExtensionInfo_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Name: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
@@ -4209,7 +4185,6 @@ impl IPMExtensionFileOpenPickerInfo {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPMExtensionFileOpenPickerInfo_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub get_AllFileTypes: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32, *mut *mut ::windows_core::BSTR) -> ::windows_core::HRESULT,
@@ -4227,7 +4202,6 @@ impl IPMExtensionFileSavePickerInfo {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPMExtensionFileSavePickerInfo_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub get_AllFileTypes: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32, *mut *mut ::windows_core::BSTR) -> ::windows_core::HRESULT,
@@ -4257,7 +4231,6 @@ impl IPMExtensionInfo {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPMExtensionInfo_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub SupplierPID: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
@@ -4276,7 +4249,6 @@ impl IPMExtensionInfoEnumerator {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPMExtensionInfoEnumerator_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -4292,7 +4264,6 @@ impl IPMExtensionProtocolInfo {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPMExtensionProtocolInfo_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Protocol: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
@@ -4313,7 +4284,6 @@ impl IPMExtensionShareTargetInfo {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPMExtensionShareTargetInfo_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub get_AllFileTypes: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32, *mut *mut ::windows_core::BSTR) -> ::windows_core::HRESULT,
@@ -4410,7 +4380,6 @@ impl IPMLiveTileJobInfo {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPMLiveTileJobInfo_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub ProductID: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
@@ -4447,7 +4416,6 @@ impl IPMLiveTileJobInfoEnumerator {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPMLiveTileJobInfoEnumerator_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -4532,7 +4500,6 @@ impl IPMTaskInfo {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPMTaskInfo_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub ProductID: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
@@ -4566,7 +4533,6 @@ impl IPMTaskInfoEnumerator {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPMTaskInfoEnumerator_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -4677,7 +4643,6 @@ impl IPMTileInfo {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPMTileInfo_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub ProductID: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
@@ -4714,7 +4679,6 @@ impl IPMTileInfoEnumerator {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPMTileInfoEnumerator_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -4728,7 +4692,6 @@ impl IPMTilePropertyEnumerator {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPMTilePropertyEnumerator_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -4751,7 +4714,6 @@ impl IPMTilePropertyInfo {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPMTilePropertyInfo_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub PropertyID: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -4793,7 +4755,6 @@ impl IValidate {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IValidate_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub OpenDatabase: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,

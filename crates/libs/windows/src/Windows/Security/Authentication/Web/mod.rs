@@ -4,7 +4,6 @@ pub mod Core;
 pub mod Provider;
 ::windows_core::imp::com_interface!(IWebAuthenticationBrokerStatics, IWebAuthenticationBrokerStatics_Vtbl, 0x2f149f1a_e673_40b5_bc22_201a6864a37b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWebAuthenticationBrokerStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub AuthenticateWithCallbackUriAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, WebAuthenticationOptions, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -13,7 +12,6 @@ pub struct IWebAuthenticationBrokerStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IWebAuthenticationBrokerStatics2, IWebAuthenticationBrokerStatics2_Vtbl, 0x73cdfb9e_14e7_41da_a971_aaf4410b621e);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWebAuthenticationBrokerStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub AuthenticateAndContinue: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -27,7 +25,6 @@ pub struct IWebAuthenticationBrokerStatics2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IWebAuthenticationResult, IWebAuthenticationResult_Vtbl, 0x64002b4b_ede9_470a_a5cd_0323faf6e262);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWebAuthenticationResult_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ResponseData: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,

@@ -255,7 +255,6 @@ impl IWSDAddress {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWSDAddress_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Serialize: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PWSTR, u32, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
@@ -273,7 +272,6 @@ impl IWSDAsyncCallback {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWSDAsyncCallback_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub AsyncOperationComplete: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -313,7 +311,6 @@ impl IWSDAsyncResult {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWSDAsyncResult_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub SetCallback: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -328,7 +325,6 @@ pub struct IWSDAsyncResult_Vtbl {
 ::windows_core::imp::interface_hierarchy!(IWSDAttachment, ::windows_core::IUnknown);
 impl IWSDAttachment {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWSDAttachment_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
 }
@@ -402,7 +398,6 @@ impl IWSDDeviceHost {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWSDDeviceHost_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Init: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *mut ::core::ffi::c_void, *const *mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
@@ -430,7 +425,6 @@ impl IWSDDeviceHostNotify {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWSDDeviceHostNotify_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetService: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -491,7 +485,6 @@ impl IWSDDeviceProxy {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWSDDeviceProxy_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Init: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *mut ::core::ffi::c_void, ::windows_core::PCWSTR, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -541,7 +534,6 @@ impl IWSDEndpointProxy {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWSDEndpointProxy_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub SendOneWayRequest: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::core::ffi::c_void, *const WSD_OPERATION) -> ::windows_core::HRESULT,
@@ -575,7 +567,6 @@ impl IWSDEventingStatus {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWSDEventingStatus_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub SubscriptionRenewed: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR),
@@ -642,7 +633,6 @@ impl IWSDHttpAddress {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWSDHttpAddress_Vtbl {
     pub base__: IWSDTransportAddress_Vtbl,
     pub GetSecure: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -663,7 +653,6 @@ impl IWSDHttpAuthParameters {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWSDHttpAuthParameters_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetClientAccessToken: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::HANDLE) -> ::windows_core::HRESULT,
@@ -741,7 +730,6 @@ impl IWSDHttpMessageParameters {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWSDHttpMessageParameters_Vtbl {
     pub base__: IWSDMessageParameters_Vtbl,
     pub SetInboundHttpHeaders: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
@@ -765,7 +753,6 @@ impl IWSDInboundAttachment {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWSDInboundAttachment_Vtbl {
     pub base__: IWSDAttachment_Vtbl,
     pub Read: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u8, u32, *mut u32) -> ::windows_core::HRESULT,
@@ -800,7 +787,6 @@ impl IWSDMessageParameters {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWSDMessageParameters_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetLocalAddress: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -818,7 +804,6 @@ impl IWSDMetadataExchange {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWSDMetadataExchange_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetMetadata: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut WSD_METADATA_SECTION_LIST) -> ::windows_core::HRESULT,
@@ -838,7 +823,6 @@ impl IWSDOutboundAttachment {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWSDOutboundAttachment_Vtbl {
     pub base__: IWSDAttachment_Vtbl,
     pub Write: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const u8, u32, *mut u32) -> ::windows_core::HRESULT,
@@ -859,7 +843,6 @@ impl IWSDSSLClientCertificate {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWSDSSLClientCertificate_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Security_Cryptography")]
@@ -885,7 +868,6 @@ impl IWSDScopeMatchingRule {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWSDScopeMatchingRule_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetScopeRule: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
@@ -908,7 +890,6 @@ impl IWSDServiceMessaging {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWSDServiceMessaging_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub SendResponse: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::core::ffi::c_void, *const WSD_OPERATION, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -957,7 +938,6 @@ impl IWSDServiceProxy {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWSDServiceProxy_Vtbl {
     pub base__: IWSDMetadataExchange_Vtbl,
     pub BeginGetMetadata: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1083,7 +1063,6 @@ impl IWSDServiceProxyEventing {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWSDServiceProxyEventing_Vtbl {
     pub base__: IWSDServiceProxy_Vtbl,
     pub SubscribeToMultipleOperations: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const WSD_OPERATION, u32, *mut ::core::ffi::c_void, *const WSD_EVENTING_EXPIRES, *const WSDXML_ELEMENT, *mut *mut WSD_EVENTING_EXPIRES, *mut *mut WSDXML_ELEMENT) -> ::windows_core::HRESULT,
@@ -1121,7 +1100,6 @@ impl IWSDSignatureProperty {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWSDSignatureProperty_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub IsMessageSigned: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
@@ -1171,7 +1149,6 @@ impl IWSDTransportAddress {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWSDTransportAddress_Vtbl {
     pub base__: IWSDAddress_Vtbl,
     pub GetPort: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u16) -> ::windows_core::HRESULT,
@@ -1259,7 +1236,6 @@ impl IWSDUdpAddress {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWSDUdpAddress_Vtbl {
     pub base__: IWSDTransportAddress_Vtbl,
     #[cfg(feature = "Win32_Networking_WinSock")]
@@ -1314,7 +1290,6 @@ impl IWSDUdpMessageParameters {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWSDUdpMessageParameters_Vtbl {
     pub base__: IWSDMessageParameters_Vtbl,
     pub SetRetransmitParams: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const WSDUdpRetransmitParams) -> ::windows_core::HRESULT,
@@ -1345,7 +1320,6 @@ impl IWSDXMLContext {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWSDXMLContext_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub AddNamespace: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, ::windows_core::PCWSTR, *mut *mut WSDXML_NAMESPACE) -> ::windows_core::HRESULT,
@@ -1401,7 +1375,6 @@ impl IWSDiscoveredService {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWSDiscoveredService_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetEndpointReference: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut WSD_ENDPOINT_REFERENCE) -> ::windows_core::HRESULT,
@@ -1458,7 +1431,6 @@ impl IWSDiscoveryProvider {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWSDiscoveryProvider_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub SetAddressFamily: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
@@ -1498,7 +1470,6 @@ impl IWSDiscoveryProviderNotify {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWSDiscoveryProviderNotify_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Add: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1647,7 +1618,6 @@ impl IWSDiscoveryPublisher {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWSDiscoveryPublisher_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub SetAddressFamily: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
@@ -1681,7 +1651,6 @@ impl IWSDiscoveryPublisherNotify {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWSDiscoveryPublisherNotify_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub ProbeHandler: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const WSD_SOAP_MESSAGE, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,

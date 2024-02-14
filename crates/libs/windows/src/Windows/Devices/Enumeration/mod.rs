@@ -2,21 +2,18 @@
 pub mod Pnp;
 ::windows_core::imp::com_interface!(IDeviceAccessChangedEventArgs, IDeviceAccessChangedEventArgs_Vtbl, 0xdeda0bcc_4f9d_4f58_9dba_a9bc800408d5);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDeviceAccessChangedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut DeviceAccessStatus) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDeviceAccessChangedEventArgs2, IDeviceAccessChangedEventArgs2_Vtbl, 0x82523262_934b_4b30_a178_adc39f2f2be3);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDeviceAccessChangedEventArgs2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Id: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDeviceAccessInformation, IDeviceAccessInformation_Vtbl, 0x0baa9a73_6de5_4915_8ddd_9a0554a6f545);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDeviceAccessInformation_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub AccessChanged: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
@@ -25,7 +22,6 @@ pub struct IDeviceAccessInformation_Vtbl {
 }
 ::windows_core::imp::com_interface!(IDeviceAccessInformationStatics, IDeviceAccessInformationStatics_Vtbl, 0x574bd3d3_5f30_45cd_8a94_724fe5973084);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDeviceAccessInformationStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateFromId: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -34,21 +30,18 @@ pub struct IDeviceAccessInformationStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IDeviceConnectionChangeTriggerDetails, IDeviceConnectionChangeTriggerDetails_Vtbl, 0xb8578c0c_bbc1_484b_bffa_7b31dcc200b2);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDeviceConnectionChangeTriggerDetails_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub DeviceId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDeviceDisconnectButtonClickedEventArgs, IDeviceDisconnectButtonClickedEventArgs_Vtbl, 0x8e44b56d_f902_4a00_b536_f37992e6a2a7);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDeviceDisconnectButtonClickedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Device: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDeviceInformation, IDeviceInformation_Vtbl, 0xaba0fb95_4398_489d_8e44_e6130927011f);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDeviceInformation_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Id: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -72,7 +65,6 @@ pub struct IDeviceInformation_Vtbl {
 }
 ::windows_core::imp::com_interface!(IDeviceInformation2, IDeviceInformation2_Vtbl, 0xf156a638_7997_48d9_a10c_269d46533f48);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDeviceInformation2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Kind: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut DeviceInformationKind) -> ::windows_core::HRESULT,
@@ -80,7 +72,6 @@ pub struct IDeviceInformation2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IDeviceInformationCustomPairing, IDeviceInformationCustomPairing_Vtbl, 0x85138c02_4ee6_4914_8370_107a39144c0e);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDeviceInformationCustomPairing_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub PairAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, DevicePairingKinds, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -91,7 +82,6 @@ pub struct IDeviceInformationCustomPairing_Vtbl {
 }
 ::windows_core::imp::com_interface!(IDeviceInformationPairing, IDeviceInformationPairing_Vtbl, 0x2c4769f5_f684_40d5_8469_e8dbaab70485);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDeviceInformationPairing_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsPaired: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -101,7 +91,6 @@ pub struct IDeviceInformationPairing_Vtbl {
 }
 ::windows_core::imp::com_interface!(IDeviceInformationPairing2, IDeviceInformationPairing2_Vtbl, 0xf68612fd_0aee_4328_85cc_1c742bb1790d);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDeviceInformationPairing2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ProtectionLevel: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut DevicePairingProtectionLevel) -> ::windows_core::HRESULT,
@@ -111,21 +100,18 @@ pub struct IDeviceInformationPairing2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IDeviceInformationPairingStatics, IDeviceInformationPairingStatics_Vtbl, 0xe915c408_36d4_49a1_bf13_514173799b6b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDeviceInformationPairingStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub TryRegisterForAllInboundPairingRequests: unsafe extern "system" fn(*mut ::core::ffi::c_void, DevicePairingKinds, *mut bool) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDeviceInformationPairingStatics2, IDeviceInformationPairingStatics2_Vtbl, 0x04de5372_b7b7_476b_a74f_c5836a704d98);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDeviceInformationPairingStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub TryRegisterForAllInboundPairingRequestsWithProtectionLevel: unsafe extern "system" fn(*mut ::core::ffi::c_void, DevicePairingKinds, DevicePairingProtectionLevel, *mut bool) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDeviceInformationStatics, IDeviceInformationStatics_Vtbl, 0xc17f100e_3a46_4a78_8013_769dc9b97390);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDeviceInformationStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateFromIdAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -159,7 +145,6 @@ pub struct IDeviceInformationStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IDeviceInformationStatics2, IDeviceInformationStatics2_Vtbl, 0x493b4f34_a84f_45fd_9167_15d1cb1bd1f9);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDeviceInformationStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetAqsFilterFromDeviceClass: unsafe extern "system" fn(*mut ::core::ffi::c_void, DeviceClass, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -178,7 +163,6 @@ pub struct IDeviceInformationStatics2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IDeviceInformationUpdate, IDeviceInformationUpdate_Vtbl, 0x8f315305_d972_44b7_a37e_9e822c78213b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDeviceInformationUpdate_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Id: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -189,14 +173,12 @@ pub struct IDeviceInformationUpdate_Vtbl {
 }
 ::windows_core::imp::com_interface!(IDeviceInformationUpdate2, IDeviceInformationUpdate2_Vtbl, 0x5d9d148c_a873_485e_baa6_aa620788e3cc);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDeviceInformationUpdate2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Kind: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut DeviceInformationKind) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDevicePairingRequestedEventArgs, IDevicePairingRequestedEventArgs_Vtbl, 0xf717fc56_de6b_487f_8376_0180aca69963);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDevicePairingRequestedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub DeviceInformation: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -208,7 +190,6 @@ pub struct IDevicePairingRequestedEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IDevicePairingRequestedEventArgs2, IDevicePairingRequestedEventArgs2_Vtbl, 0xc83752d9_e4d3_4db0_a360_a105e437dbdc);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDevicePairingRequestedEventArgs2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Security_Credentials")]
@@ -218,7 +199,6 @@ pub struct IDevicePairingRequestedEventArgs2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IDevicePairingResult, IDevicePairingResult_Vtbl, 0x072b02bf_dd95_4025_9b37_de51adba37b7);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDevicePairingResult_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut DevicePairingResultStatus) -> ::windows_core::HRESULT,
@@ -231,13 +211,11 @@ impl ::windows_core::RuntimeType for IDevicePairingSettings {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDevicePairingSettings_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
 }
 ::windows_core::imp::com_interface!(IDevicePicker, IDevicePicker_Vtbl, 0x84997aa2_034a_4440_8813_7d0bd479bf5a);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDevicePicker_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Filter: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -267,7 +245,6 @@ pub struct IDevicePicker_Vtbl {
 }
 ::windows_core::imp::com_interface!(IDevicePickerAppearance, IDevicePickerAppearance_Vtbl, 0xe69a12c6_e627_4ed8_9b6c_460af445e56d);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDevicePickerAppearance_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Title: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -323,7 +300,6 @@ pub struct IDevicePickerAppearance_Vtbl {
 }
 ::windows_core::imp::com_interface!(IDevicePickerFilter, IDevicePickerFilter_Vtbl, 0x91db92a2_57cb_48f1_9b59_a59b7a1f02a2);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDevicePickerFilter_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -337,21 +313,18 @@ pub struct IDevicePickerFilter_Vtbl {
 }
 ::windows_core::imp::com_interface!(IDeviceSelectedEventArgs, IDeviceSelectedEventArgs_Vtbl, 0x269edade_1d2f_4940_8402_4156b81d3c77);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDeviceSelectedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SelectedDevice: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDeviceUnpairingResult, IDeviceUnpairingResult_Vtbl, 0x66f44ad3_79d9_444b_92cf_a92ef72571c7);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDeviceUnpairingResult_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut DeviceUnpairingResultStatus) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDeviceWatcher, IDeviceWatcher_Vtbl, 0xc9eab97d_8f6b_4f96_a9f4_abc814e22271);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDeviceWatcher_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Added: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
@@ -370,7 +343,6 @@ pub struct IDeviceWatcher_Vtbl {
 }
 ::windows_core::imp::com_interface!(IDeviceWatcher2, IDeviceWatcher2_Vtbl, 0xff08456e_ed14_49e9_9a69_8117c54ae971);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDeviceWatcher2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(all(feature = "ApplicationModel_Background", feature = "Foundation_Collections"))]
@@ -380,7 +352,6 @@ pub struct IDeviceWatcher2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IDeviceWatcherEvent, IDeviceWatcherEvent_Vtbl, 0x74aa9c0b_1dbd_47fd_b635_3cc556d0ff8b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDeviceWatcherEvent_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Kind: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut DeviceWatcherEventKind) -> ::windows_core::HRESULT,
@@ -389,7 +360,6 @@ pub struct IDeviceWatcherEvent_Vtbl {
 }
 ::windows_core::imp::com_interface!(IDeviceWatcherTriggerDetails, IDeviceWatcherTriggerDetails_Vtbl, 0x38808119_4cb7_4e57_a56d_776d07cbfef9);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDeviceWatcherTriggerDetails_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -399,7 +369,6 @@ pub struct IDeviceWatcherTriggerDetails_Vtbl {
 }
 ::windows_core::imp::com_interface!(IEnclosureLocation, IEnclosureLocation_Vtbl, 0x42340a27_5810_459c_aabb_c65e1f813ecf);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IEnclosureLocation_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub InDock: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -408,7 +377,6 @@ pub struct IEnclosureLocation_Vtbl {
 }
 ::windows_core::imp::com_interface!(IEnclosureLocation2, IEnclosureLocation2_Vtbl, 0x2885995b_e07d_485d_8a9e_bdf29aef4f66);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IEnclosureLocation2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub RotationAngleInDegreesClockwise: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,

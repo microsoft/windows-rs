@@ -2,7 +2,6 @@
 pub mod Core;
 ::windows_core::imp::com_interface!(IThreadPoolStatics, IThreadPoolStatics_Vtbl, 0xb6bf67dd_84bd_44f8_ac1c_93ebcb9dba91);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IThreadPoolStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub RunAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -11,7 +10,6 @@ pub struct IThreadPoolStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IThreadPoolTimer, IThreadPoolTimer_Vtbl, 0x594ebe78_55ea_4a88_a50d_3402ae1f9cf2);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IThreadPoolTimer_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Period: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
@@ -20,7 +18,6 @@ pub struct IThreadPoolTimer_Vtbl {
 }
 ::windows_core::imp::com_interface!(IThreadPoolTimerStatics, IThreadPoolTimerStatics_Vtbl, 0x1a8a9d02_e482_461b_b8c7_8efad1cce590);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IThreadPoolTimerStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreatePeriodicTimer: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, super::super::Foundation::TimeSpan, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -274,7 +271,6 @@ impl ::windows_core::RuntimeType for TimerDestroyedHandler {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct TimerDestroyedHandler_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -338,7 +334,6 @@ impl ::windows_core::RuntimeType for TimerElapsedHandler {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct TimerElapsedHandler_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -402,7 +397,6 @@ impl ::windows_core::RuntimeType for WorkItemHandler {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct WorkItemHandler_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,

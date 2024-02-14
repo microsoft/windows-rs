@@ -1,6 +1,5 @@
 ::windows_core::imp::com_interface!(IAdaptiveMediaSource, IAdaptiveMediaSource_Vtbl, 0x4c7332ef_d39f_4396_b4d9_043957a7c964);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAdaptiveMediaSource_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsLive: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -35,14 +34,12 @@ pub struct IAdaptiveMediaSource_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAdaptiveMediaSource2, IAdaptiveMediaSource2_Vtbl, 0x17890342_6760_4bb9_a58a_f7aa98b08c0e);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAdaptiveMediaSource2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub AdvancedSettings: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IAdaptiveMediaSource3, IAdaptiveMediaSource3_Vtbl, 0xba7023fd_c334_461b_a36e_c99f54f7174a);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAdaptiveMediaSource3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub MinLiveOffset: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -54,7 +51,6 @@ pub struct IAdaptiveMediaSource3_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAdaptiveMediaSourceAdvancedSettings, IAdaptiveMediaSourceAdvancedSettings_Vtbl, 0x55db1680_1aeb_47dc_aa08_9a11610ba45a);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAdaptiveMediaSourceAdvancedSettings_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub AllSegmentsIndependent: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -66,7 +62,6 @@ pub struct IAdaptiveMediaSourceAdvancedSettings_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAdaptiveMediaSourceCorrelatedTimes, IAdaptiveMediaSourceCorrelatedTimes_Vtbl, 0x05108787_e032_48e1_ab8d_002b0b3051df);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAdaptiveMediaSourceCorrelatedTimes_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Position: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -75,7 +70,6 @@ pub struct IAdaptiveMediaSourceCorrelatedTimes_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAdaptiveMediaSourceCreationResult, IAdaptiveMediaSourceCreationResult_Vtbl, 0x4686b6b2_800f_4e31_9093_76d4782013e7);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAdaptiveMediaSourceCreationResult_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut AdaptiveMediaSourceCreationStatus) -> ::windows_core::HRESULT,
@@ -87,14 +81,12 @@ pub struct IAdaptiveMediaSourceCreationResult_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAdaptiveMediaSourceCreationResult2, IAdaptiveMediaSourceCreationResult2_Vtbl, 0x1c3243bf_1c44_404b_a201_df45ac7898e8);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAdaptiveMediaSourceCreationResult2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ExtendedError: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::HRESULT) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IAdaptiveMediaSourceDiagnosticAvailableEventArgs, IAdaptiveMediaSourceDiagnosticAvailableEventArgs_Vtbl, 0x3af64f06_6d9c_494a_b7a9_b3a5dee6ad68);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAdaptiveMediaSourceDiagnosticAvailableEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub DiagnosticType: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut AdaptiveMediaSourceDiagnosticType) -> ::windows_core::HRESULT,
@@ -109,14 +101,12 @@ pub struct IAdaptiveMediaSourceDiagnosticAvailableEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAdaptiveMediaSourceDiagnosticAvailableEventArgs2, IAdaptiveMediaSourceDiagnosticAvailableEventArgs2_Vtbl, 0x8c6dd857_16a5_4d9f_810e_00bd901b3ef9);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAdaptiveMediaSourceDiagnosticAvailableEventArgs2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ExtendedError: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::HRESULT) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IAdaptiveMediaSourceDiagnosticAvailableEventArgs3, IAdaptiveMediaSourceDiagnosticAvailableEventArgs3_Vtbl, 0xc3650cd5_daeb_4103_84da_68769ad513ff);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAdaptiveMediaSourceDiagnosticAvailableEventArgs3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ResourceDuration: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -124,7 +114,6 @@ pub struct IAdaptiveMediaSourceDiagnosticAvailableEventArgs3_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAdaptiveMediaSourceDiagnostics, IAdaptiveMediaSourceDiagnostics_Vtbl, 0x9b24ee68_962e_448c_aebf_b29b56098e23);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAdaptiveMediaSourceDiagnostics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub DiagnosticAvailable: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
@@ -132,7 +121,6 @@ pub struct IAdaptiveMediaSourceDiagnostics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAdaptiveMediaSourceDownloadBitrateChangedEventArgs, IAdaptiveMediaSourceDownloadBitrateChangedEventArgs_Vtbl, 0x670c0a44_e04e_4eff_816a_17399f78f4ba);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAdaptiveMediaSourceDownloadBitrateChangedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub OldValue: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -140,14 +128,12 @@ pub struct IAdaptiveMediaSourceDownloadBitrateChangedEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAdaptiveMediaSourceDownloadBitrateChangedEventArgs2, IAdaptiveMediaSourceDownloadBitrateChangedEventArgs2_Vtbl, 0xf3f1f444_96ae_4de0_b540_2b3246e6968c);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAdaptiveMediaSourceDownloadBitrateChangedEventArgs2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Reason: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut AdaptiveMediaSourceDownloadBitrateChangedReason) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IAdaptiveMediaSourceDownloadCompletedEventArgs, IAdaptiveMediaSourceDownloadCompletedEventArgs_Vtbl, 0x19240dc3_5b37_4a1a_8970_d621cb6ca83b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAdaptiveMediaSourceDownloadCompletedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ResourceType: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut AdaptiveMediaSourceResourceType) -> ::windows_core::HRESULT,
@@ -161,7 +147,6 @@ pub struct IAdaptiveMediaSourceDownloadCompletedEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAdaptiveMediaSourceDownloadCompletedEventArgs2, IAdaptiveMediaSourceDownloadCompletedEventArgs2_Vtbl, 0x704744c4_964a_40e4_af95_9177dd6dfa00);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAdaptiveMediaSourceDownloadCompletedEventArgs2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub RequestId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
@@ -170,7 +155,6 @@ pub struct IAdaptiveMediaSourceDownloadCompletedEventArgs2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAdaptiveMediaSourceDownloadCompletedEventArgs3, IAdaptiveMediaSourceDownloadCompletedEventArgs3_Vtbl, 0x0f8a8bd1_93b2_47c6_badc_8be2c8f7f6e8);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAdaptiveMediaSourceDownloadCompletedEventArgs3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ResourceDuration: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -178,7 +162,6 @@ pub struct IAdaptiveMediaSourceDownloadCompletedEventArgs3_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAdaptiveMediaSourceDownloadFailedEventArgs, IAdaptiveMediaSourceDownloadFailedEventArgs_Vtbl, 0x37739048_f4ab_40a4_b135_c6dfd8bd7ff1);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAdaptiveMediaSourceDownloadFailedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ResourceType: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut AdaptiveMediaSourceResourceType) -> ::windows_core::HRESULT,
@@ -192,7 +175,6 @@ pub struct IAdaptiveMediaSourceDownloadFailedEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAdaptiveMediaSourceDownloadFailedEventArgs2, IAdaptiveMediaSourceDownloadFailedEventArgs2_Vtbl, 0x70919568_967c_4986_90c5_c6fc4b31e2d8);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAdaptiveMediaSourceDownloadFailedEventArgs2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub RequestId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
@@ -202,7 +184,6 @@ pub struct IAdaptiveMediaSourceDownloadFailedEventArgs2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAdaptiveMediaSourceDownloadFailedEventArgs3, IAdaptiveMediaSourceDownloadFailedEventArgs3_Vtbl, 0xd0354549_1132_4a10_915a_c2211b5b9409);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAdaptiveMediaSourceDownloadFailedEventArgs3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ResourceDuration: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -210,14 +191,12 @@ pub struct IAdaptiveMediaSourceDownloadFailedEventArgs3_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAdaptiveMediaSourceDownloadRequestedDeferral, IAdaptiveMediaSourceDownloadRequestedDeferral_Vtbl, 0x05c68f64_fa20_4dbd_9821_4bf4c9bf77ab);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAdaptiveMediaSourceDownloadRequestedDeferral_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Complete: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IAdaptiveMediaSourceDownloadRequestedEventArgs, IAdaptiveMediaSourceDownloadRequestedEventArgs_Vtbl, 0xc83fdffd_44a9_47a2_bf96_03398b4bfaaf);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAdaptiveMediaSourceDownloadRequestedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ResourceType: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut AdaptiveMediaSourceResourceType) -> ::windows_core::HRESULT,
@@ -229,7 +208,6 @@ pub struct IAdaptiveMediaSourceDownloadRequestedEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAdaptiveMediaSourceDownloadRequestedEventArgs2, IAdaptiveMediaSourceDownloadRequestedEventArgs2_Vtbl, 0xb37d8bfe_aa44_4d82_825b_611de3bcfecb);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAdaptiveMediaSourceDownloadRequestedEventArgs2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub RequestId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
@@ -237,7 +215,6 @@ pub struct IAdaptiveMediaSourceDownloadRequestedEventArgs2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAdaptiveMediaSourceDownloadRequestedEventArgs3, IAdaptiveMediaSourceDownloadRequestedEventArgs3_Vtbl, 0x333c50fd_4f62_4481_ab44_1e47b0574225);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAdaptiveMediaSourceDownloadRequestedEventArgs3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ResourceDuration: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -245,7 +222,6 @@ pub struct IAdaptiveMediaSourceDownloadRequestedEventArgs3_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAdaptiveMediaSourceDownloadResult, IAdaptiveMediaSourceDownloadResult_Vtbl, 0xf4afdc73_bcee_4a6a_9f0a_fec41e2339b0);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAdaptiveMediaSourceDownloadResult_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ResourceUri: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -273,7 +249,6 @@ pub struct IAdaptiveMediaSourceDownloadResult_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAdaptiveMediaSourceDownloadResult2, IAdaptiveMediaSourceDownloadResult2_Vtbl, 0x15552cb7_7b80_4ac4_8660_a4b97f7c70f0);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAdaptiveMediaSourceDownloadResult2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ResourceByteRangeOffset: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -283,7 +258,6 @@ pub struct IAdaptiveMediaSourceDownloadResult2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAdaptiveMediaSourceDownloadStatistics, IAdaptiveMediaSourceDownloadStatistics_Vtbl, 0xa306cefb_e96a_4dff_a9b8_1ae08c01ae98);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAdaptiveMediaSourceDownloadStatistics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ContentBytesReceivedCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u64) -> ::windows_core::HRESULT,
@@ -293,7 +267,6 @@ pub struct IAdaptiveMediaSourceDownloadStatistics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAdaptiveMediaSourcePlaybackBitrateChangedEventArgs, IAdaptiveMediaSourcePlaybackBitrateChangedEventArgs_Vtbl, 0x23a29f6d_7dda_4a51_87a9_6fa8c5b292be);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAdaptiveMediaSourcePlaybackBitrateChangedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub OldValue: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -302,7 +275,6 @@ pub struct IAdaptiveMediaSourcePlaybackBitrateChangedEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAdaptiveMediaSourceStatics, IAdaptiveMediaSourceStatics_Vtbl, 0x50a6bd5d_66ef_4cd3_9579_9e660507dc3f);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAdaptiveMediaSourceStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsContentTypeSupported: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut bool) -> ::windows_core::HRESULT,

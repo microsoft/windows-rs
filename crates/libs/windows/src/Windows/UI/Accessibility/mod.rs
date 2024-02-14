@@ -1,6 +1,5 @@
 ::windows_core::imp::com_interface!(IScreenReaderPositionChangedEventArgs, IScreenReaderPositionChangedEventArgs_Vtbl, 0x557eb5e5_54d0_5ccd_9fc5_ed33357f8a9f);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IScreenReaderPositionChangedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ScreenPositionInRawPixels: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::Rect) -> ::windows_core::HRESULT,
@@ -8,7 +7,6 @@ pub struct IScreenReaderPositionChangedEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IScreenReaderService, IScreenReaderService_Vtbl, 0x19475427_eac0_50d3_bdd9_9b487a226256);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IScreenReaderService_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CurrentScreenReaderPosition: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,

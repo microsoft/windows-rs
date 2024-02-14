@@ -4,7 +4,6 @@ pub mod Geofencing;
 pub mod Provider;
 ::windows_core::imp::com_interface!(ICivicAddress, ICivicAddress_Vtbl, 0xa8567a1a_64f4_4d48_bcea_f6b008eca34c);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICivicAddress_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Country: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -15,7 +14,6 @@ pub struct ICivicAddress_Vtbl {
 }
 ::windows_core::imp::com_interface!(IGeoboundingBox, IGeoboundingBox_Vtbl, 0x0896c80b_274f_43da_9a06_cbfcdaeb4ec2);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IGeoboundingBox_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub NorthwestCorner: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut BasicGeoposition) -> ::windows_core::HRESULT,
@@ -26,7 +24,6 @@ pub struct IGeoboundingBox_Vtbl {
 }
 ::windows_core::imp::com_interface!(IGeoboundingBoxFactory, IGeoboundingBoxFactory_Vtbl, 0x4dfba589_0411_4abc_b3b5_5bbccb57d98c);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IGeoboundingBoxFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut ::core::ffi::c_void, BasicGeoposition, BasicGeoposition, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -35,7 +32,6 @@ pub struct IGeoboundingBoxFactory_Vtbl {
 }
 ::windows_core::imp::com_interface!(IGeoboundingBoxStatics, IGeoboundingBoxStatics_Vtbl, 0x67b80708_e61a_4cd0_841b_93233792b5ca);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IGeoboundingBoxStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -53,7 +49,6 @@ pub struct IGeoboundingBoxStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IGeocircle, IGeocircle_Vtbl, 0x39e45843_a7f9_4e63_92a7_ba0c28d124b1);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IGeocircle_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Center: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut BasicGeoposition) -> ::windows_core::HRESULT,
@@ -61,7 +56,6 @@ pub struct IGeocircle_Vtbl {
 }
 ::windows_core::imp::com_interface!(IGeocircleFactory, IGeocircleFactory_Vtbl, 0xafd6531f_72b1_4f7d_87cc_4ed4c9849c05);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IGeocircleFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut ::core::ffi::c_void, BasicGeoposition, f64, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -70,7 +64,6 @@ pub struct IGeocircleFactory_Vtbl {
 }
 ::windows_core::imp::com_interface!(IGeocoordinate, IGeocoordinate_Vtbl, 0xee21a3aa_976a_4c70_803d_083ea55bcbc4);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IGeocoordinate_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "deprecated")]
@@ -93,7 +86,6 @@ pub struct IGeocoordinate_Vtbl {
 }
 ::windows_core::imp::com_interface!(IGeocoordinateSatelliteData, IGeocoordinateSatelliteData_Vtbl, 0xc32a74d9_2608_474c_912c_06dd490f4af7);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IGeocoordinateSatelliteData_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub PositionDilutionOfPrecision: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -102,7 +94,6 @@ pub struct IGeocoordinateSatelliteData_Vtbl {
 }
 ::windows_core::imp::com_interface!(IGeocoordinateSatelliteData2, IGeocoordinateSatelliteData2_Vtbl, 0x761c8cfd_a19d_5a51_80f5_71676115483e);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IGeocoordinateSatelliteData2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GeometricDilutionOfPrecision: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -110,14 +101,12 @@ pub struct IGeocoordinateSatelliteData2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IGeocoordinateWithPoint, IGeocoordinateWithPoint_Vtbl, 0xfeea0525_d22c_4d46_b527_0b96066fc7db);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IGeocoordinateWithPoint_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Point: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IGeocoordinateWithPositionData, IGeocoordinateWithPositionData_Vtbl, 0x95e634be_dbd6_40ac_b8f2_a65c0340d9a6);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IGeocoordinateWithPositionData_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub PositionSource: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut PositionSource) -> ::windows_core::HRESULT,
@@ -125,21 +114,18 @@ pub struct IGeocoordinateWithPositionData_Vtbl {
 }
 ::windows_core::imp::com_interface!(IGeocoordinateWithPositionSourceTimestamp, IGeocoordinateWithPositionSourceTimestamp_Vtbl, 0x8543fc02_c9f1_4610_afe0_8bc3a6a87036);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IGeocoordinateWithPositionSourceTimestamp_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub PositionSourceTimestamp: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IGeocoordinateWithRemoteSource, IGeocoordinateWithRemoteSource_Vtbl, 0x397cebd7_ee38_5f3b_8900_c4a7bc9cf953);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IGeocoordinateWithRemoteSource_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsRemoteSource: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IGeolocator, IGeolocator_Vtbl, 0xa9c3bf62_4524_4989_8aa9_de019d2e551f);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IGeolocator_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub DesiredAccuracy: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut PositionAccuracy) -> ::windows_core::HRESULT,
@@ -158,14 +144,12 @@ pub struct IGeolocator_Vtbl {
 }
 ::windows_core::imp::com_interface!(IGeolocator2, IGeolocator2_Vtbl, 0xd1b42e6d_8891_43b4_ad36_27c6fe9a97b1);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IGeolocator2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub AllowFallbackToConsentlessPositions: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IGeolocatorStatics, IGeolocatorStatics_Vtbl, 0x9a8e7571_2df5_4591_9f87_eb5fd894e9b7);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IGeolocatorStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub RequestAccessAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -180,7 +164,6 @@ pub struct IGeolocatorStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IGeolocatorStatics2, IGeolocatorStatics2_Vtbl, 0x993011a2_fa1c_4631_a71d_0dbeb1250d9c);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IGeolocatorStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsDefaultGeopositionRecommended: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -189,7 +172,6 @@ pub struct IGeolocatorStatics2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IGeolocatorWithScalarAccuracy, IGeolocatorWithScalarAccuracy_Vtbl, 0x96f5d3c1_b80f_460a_994d_a96c47a51aa4);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IGeolocatorWithScalarAccuracy_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub DesiredAccuracyInMeters: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -197,7 +179,6 @@ pub struct IGeolocatorWithScalarAccuracy_Vtbl {
 }
 ::windows_core::imp::com_interface!(IGeopath, IGeopath_Vtbl, 0xe53fd7b9_2da4_4714_a652_de8593289898);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IGeopath_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -207,7 +188,6 @@ pub struct IGeopath_Vtbl {
 }
 ::windows_core::imp::com_interface!(IGeopathFactory, IGeopathFactory_Vtbl, 0x27bea9c8_c7e7_4359_9b9b_fca3e05ef593);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IGeopathFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -225,14 +205,12 @@ pub struct IGeopathFactory_Vtbl {
 }
 ::windows_core::imp::com_interface!(IGeopoint, IGeopoint_Vtbl, 0x6bfa00eb_e56e_49bb_9caf_cbaa78a8bcef);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IGeopoint_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Position: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut BasicGeoposition) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IGeopointFactory, IGeopointFactory_Vtbl, 0xdb6b8d33_76bd_4e30_8af7_a844dc37b7a0);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IGeopointFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut ::core::ffi::c_void, BasicGeoposition, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -241,7 +219,6 @@ pub struct IGeopointFactory_Vtbl {
 }
 ::windows_core::imp::com_interface!(IGeoposition, IGeoposition_Vtbl, 0xc18d0454_7d41_4ff7_a957_9dffb4ef7f5b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IGeoposition_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Coordinate: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -249,7 +226,6 @@ pub struct IGeoposition_Vtbl {
 }
 ::windows_core::imp::com_interface!(IGeoposition2, IGeoposition2_Vtbl, 0x7f62f697_8671_4b0d_86f8_474a8496187c);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IGeoposition2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub VenueData: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -283,7 +259,6 @@ impl ::windows_core::RuntimeType for IGeoshape {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IGeoshape_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GeoshapeType: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut GeoshapeType) -> ::windows_core::HRESULT,
@@ -292,7 +267,6 @@ pub struct IGeoshape_Vtbl {
 }
 ::windows_core::imp::com_interface!(IGeovisit, IGeovisit_Vtbl, 0xb1877a76_9ef6_41ab_a0dd_793ece76e2de);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IGeovisit_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Position: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -301,7 +275,6 @@ pub struct IGeovisit_Vtbl {
 }
 ::windows_core::imp::com_interface!(IGeovisitMonitor, IGeovisitMonitor_Vtbl, 0x80118aaf_5944_4591_83c1_396647f54f2c);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IGeovisitMonitor_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub MonitoringScope: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut VisitMonitoringScope) -> ::windows_core::HRESULT,
@@ -312,21 +285,18 @@ pub struct IGeovisitMonitor_Vtbl {
 }
 ::windows_core::imp::com_interface!(IGeovisitMonitorStatics, IGeovisitMonitorStatics_Vtbl, 0xbcf976a7_bbf2_4cdd_95cf_554c82edfb87);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IGeovisitMonitorStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetLastReportAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IGeovisitStateChangedEventArgs, IGeovisitStateChangedEventArgs_Vtbl, 0xceb4d1ff_8b53_4968_beed_4cecd029ce15);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IGeovisitStateChangedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Visit: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IGeovisitTriggerDetails, IGeovisitTriggerDetails_Vtbl, 0xea770d9e_d1c9_454b_99b7_b2f8cdd2482f);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IGeovisitTriggerDetails_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -336,21 +306,18 @@ pub struct IGeovisitTriggerDetails_Vtbl {
 }
 ::windows_core::imp::com_interface!(IPositionChangedEventArgs, IPositionChangedEventArgs_Vtbl, 0x37859ce5_9d1e_46c5_bf3b_6ad8cac1a093);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPositionChangedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Position: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IStatusChangedEventArgs, IStatusChangedEventArgs_Vtbl, 0x3453d2da_8c93_4111_a205_9aecfc9be5c0);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IStatusChangedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut PositionStatus) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IVenueData, IVenueData_Vtbl, 0x66f39187_60e3_4b2f_b527_4f53f1c3c677);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVenueData_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Id: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,

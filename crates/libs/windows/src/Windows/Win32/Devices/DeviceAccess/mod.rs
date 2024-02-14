@@ -28,7 +28,6 @@ impl ICreateDeviceAccessAsync {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICreateDeviceAccessAsync_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Cancel: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -63,7 +62,6 @@ impl IDeviceIoControl {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDeviceIoControl_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub DeviceIoControlSync: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const u8, u32, *mut u8, u32, *mut u32) -> ::windows_core::HRESULT,
@@ -78,7 +76,6 @@ impl IDeviceRequestCompletionCallback {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDeviceRequestCompletionCallback_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::HRESULT, u32) -> ::windows_core::HRESULT,

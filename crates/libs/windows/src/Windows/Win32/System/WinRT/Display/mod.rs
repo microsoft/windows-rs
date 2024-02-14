@@ -18,7 +18,6 @@ impl IDisplayDeviceInterop {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDisplayDeviceInterop_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Security")]
@@ -40,7 +39,6 @@ impl IDisplayPathInterop {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDisplayPathInterop_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub CreateSourcePresentationHandle: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::super::Foundation::HANDLE) -> ::windows_core::HRESULT,

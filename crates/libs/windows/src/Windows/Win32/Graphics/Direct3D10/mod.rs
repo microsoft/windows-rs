@@ -261,7 +261,6 @@ impl ID3D10Asynchronous {
 unsafe impl ::core::marker::Send for ID3D10Asynchronous {}
 unsafe impl ::core::marker::Sync for ID3D10Asynchronous {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D10Asynchronous_Vtbl {
     pub base__: ID3D10DeviceChild_Vtbl,
     pub Begin: unsafe extern "system" fn(*mut ::core::ffi::c_void),
@@ -296,7 +295,6 @@ impl ID3D10BlendState {
 unsafe impl ::core::marker::Send for ID3D10BlendState {}
 unsafe impl ::core::marker::Sync for ID3D10BlendState {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D10BlendState_Vtbl {
     pub base__: ID3D10DeviceChild_Vtbl,
     pub GetDesc: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut D3D10_BLEND_DESC),
@@ -331,7 +329,6 @@ impl ID3D10BlendState1 {
 unsafe impl ::core::marker::Send for ID3D10BlendState1 {}
 unsafe impl ::core::marker::Sync for ID3D10BlendState1 {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D10BlendState1_Vtbl {
     pub base__: ID3D10BlendState_Vtbl,
     pub GetDesc1: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut D3D10_BLEND_DESC1),
@@ -380,7 +377,6 @@ impl ID3D10Buffer {
 unsafe impl ::core::marker::Send for ID3D10Buffer {}
 unsafe impl ::core::marker::Sync for ID3D10Buffer {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D10Buffer_Vtbl {
     pub base__: ID3D10Resource_Vtbl,
     pub Map: unsafe extern "system" fn(*mut ::core::ffi::c_void, D3D10_MAP, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -428,7 +424,6 @@ impl ID3D10Counter {
 unsafe impl ::core::marker::Send for ID3D10Counter {}
 unsafe impl ::core::marker::Sync for ID3D10Counter {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D10Counter_Vtbl {
     pub base__: ID3D10Asynchronous_Vtbl,
     pub GetDesc: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut D3D10_COUNTER_DESC),
@@ -467,7 +462,6 @@ impl ID3D10Debug {
 unsafe impl ::core::marker::Send for ID3D10Debug {}
 unsafe impl ::core::marker::Sync for ID3D10Debug {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D10Debug_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub SetFeatureMask: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
@@ -511,7 +505,6 @@ impl ID3D10DepthStencilState {
 unsafe impl ::core::marker::Send for ID3D10DepthStencilState {}
 unsafe impl ::core::marker::Sync for ID3D10DepthStencilState {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D10DepthStencilState_Vtbl {
     pub base__: ID3D10DeviceChild_Vtbl,
     pub GetDesc: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut D3D10_DEPTH_STENCIL_DESC),
@@ -549,7 +542,6 @@ impl ID3D10DepthStencilView {
 unsafe impl ::core::marker::Send for ID3D10DepthStencilView {}
 unsafe impl ::core::marker::Sync for ID3D10DepthStencilView {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D10DepthStencilView_Vtbl {
     pub base__: ID3D10View_Vtbl,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -952,7 +944,6 @@ impl ID3D10Device {
 unsafe impl ::core::marker::Send for ID3D10Device {}
 unsafe impl ::core::marker::Sync for ID3D10Device {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D10Device_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub VSSetConstantBuffers: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, *const *mut ::core::ffi::c_void),
@@ -1501,7 +1492,6 @@ impl ID3D10Device1 {
 unsafe impl ::core::marker::Send for ID3D10Device1 {}
 unsafe impl ::core::marker::Sync for ID3D10Device1 {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D10Device1_Vtbl {
     pub base__: ID3D10Device_Vtbl,
     #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -1535,7 +1525,6 @@ impl ID3D10DeviceChild {
 unsafe impl ::core::marker::Send for ID3D10DeviceChild {}
 unsafe impl ::core::marker::Sync for ID3D10DeviceChild {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D10DeviceChild_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetDevice: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void),
@@ -1602,7 +1591,6 @@ impl ID3D10Effect {
 unsafe impl ::core::marker::Send for ID3D10Effect {}
 unsafe impl ::core::marker::Sync for ID3D10Effect {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D10Effect_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub IsValid: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> super::super::Foundation::BOOL,
@@ -1717,7 +1705,6 @@ impl ID3D10EffectBlendVariable {
 unsafe impl ::core::marker::Send for ID3D10EffectBlendVariable {}
 unsafe impl ::core::marker::Sync for ID3D10EffectBlendVariable {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D10EffectBlendVariable_Vtbl {
     pub base__: ID3D10EffectVariable_Vtbl,
     pub GetBlendState: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1834,7 +1821,6 @@ impl ID3D10EffectConstantBuffer {
 unsafe impl ::core::marker::Send for ID3D10EffectConstantBuffer {}
 unsafe impl ::core::marker::Sync for ID3D10EffectConstantBuffer {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D10EffectConstantBuffer_Vtbl {
     pub base__: ID3D10EffectVariable_Vtbl,
     pub SetConstantBuffer: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1940,7 +1926,6 @@ impl ID3D10EffectDepthStencilVariable {
 unsafe impl ::core::marker::Send for ID3D10EffectDepthStencilVariable {}
 unsafe impl ::core::marker::Sync for ID3D10EffectDepthStencilVariable {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D10EffectDepthStencilVariable_Vtbl {
     pub base__: ID3D10EffectVariable_Vtbl,
     pub GetDepthStencilState: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -2053,7 +2038,6 @@ impl ID3D10EffectDepthStencilViewVariable {
 unsafe impl ::core::marker::Send for ID3D10EffectDepthStencilViewVariable {}
 unsafe impl ::core::marker::Sync for ID3D10EffectDepthStencilViewVariable {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D10EffectDepthStencilViewVariable_Vtbl {
     pub base__: ID3D10EffectVariable_Vtbl,
     pub SetDepthStencil: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -2176,7 +2160,6 @@ impl ID3D10EffectMatrixVariable {
 unsafe impl ::core::marker::Send for ID3D10EffectMatrixVariable {}
 unsafe impl ::core::marker::Sync for ID3D10EffectMatrixVariable {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D10EffectMatrixVariable_Vtbl {
     pub base__: ID3D10EffectVariable_Vtbl,
     pub SetMatrix: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f32) -> ::windows_core::HRESULT,
@@ -2224,7 +2207,6 @@ impl ID3D10EffectPass {
 unsafe impl ::core::marker::Send for ID3D10EffectPass {}
 unsafe impl ::core::marker::Sync for ID3D10EffectPass {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D10EffectPass_Vtbl {
     pub IsValid: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> super::super::Foundation::BOOL,
     pub GetDesc: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut D3D10_PASS_DESC) -> ::windows_core::HRESULT,
@@ -2246,7 +2228,6 @@ impl ID3D10EffectPool {
 unsafe impl ::core::marker::Send for ID3D10EffectPool {}
 unsafe impl ::core::marker::Sync for ID3D10EffectPool {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D10EffectPool_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub AsEffect: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::core::option::Option<ID3D10Effect>,
@@ -2349,7 +2330,6 @@ impl ID3D10EffectRasterizerVariable {
 unsafe impl ::core::marker::Send for ID3D10EffectRasterizerVariable {}
 unsafe impl ::core::marker::Sync for ID3D10EffectRasterizerVariable {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D10EffectRasterizerVariable_Vtbl {
     pub base__: ID3D10EffectVariable_Vtbl,
     pub GetRasterizerState: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -2462,7 +2442,6 @@ impl ID3D10EffectRenderTargetViewVariable {
 unsafe impl ::core::marker::Send for ID3D10EffectRenderTargetViewVariable {}
 unsafe impl ::core::marker::Sync for ID3D10EffectRenderTargetViewVariable {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D10EffectRenderTargetViewVariable_Vtbl {
     pub base__: ID3D10EffectVariable_Vtbl,
     pub SetRenderTarget: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -2568,7 +2547,6 @@ impl ID3D10EffectSamplerVariable {
 unsafe impl ::core::marker::Send for ID3D10EffectSamplerVariable {}
 unsafe impl ::core::marker::Sync for ID3D10EffectSamplerVariable {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D10EffectSamplerVariable_Vtbl {
     pub base__: ID3D10EffectVariable_Vtbl,
     pub GetSampler: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -2707,7 +2685,6 @@ impl ID3D10EffectScalarVariable {
 unsafe impl ::core::marker::Send for ID3D10EffectScalarVariable {}
 unsafe impl ::core::marker::Sync for ID3D10EffectScalarVariable {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D10EffectScalarVariable_Vtbl {
     pub base__: ID3D10EffectVariable_Vtbl,
     pub SetFloat: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32) -> ::windows_core::HRESULT,
@@ -2830,7 +2807,6 @@ impl ID3D10EffectShaderResourceVariable {
 unsafe impl ::core::marker::Send for ID3D10EffectShaderResourceVariable {}
 unsafe impl ::core::marker::Sync for ID3D10EffectShaderResourceVariable {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D10EffectShaderResourceVariable_Vtbl {
     pub base__: ID3D10EffectVariable_Vtbl,
     pub SetResource: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -2952,7 +2928,6 @@ impl ID3D10EffectShaderVariable {
 unsafe impl ::core::marker::Send for ID3D10EffectShaderVariable {}
 unsafe impl ::core::marker::Sync for ID3D10EffectShaderVariable {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D10EffectShaderVariable_Vtbl {
     pub base__: ID3D10EffectVariable_Vtbl,
     pub GetShaderDesc: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut D3D10_EFFECT_SHADER_DESC) -> ::windows_core::HRESULT,
@@ -3066,7 +3041,6 @@ impl ID3D10EffectStringVariable {
 unsafe impl ::core::marker::Send for ID3D10EffectStringVariable {}
 unsafe impl ::core::marker::Sync for ID3D10EffectStringVariable {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D10EffectStringVariable_Vtbl {
     pub base__: ID3D10EffectVariable_Vtbl,
     pub GetString: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::PCSTR) -> ::windows_core::HRESULT,
@@ -3105,7 +3079,6 @@ impl ID3D10EffectTechnique {
 unsafe impl ::core::marker::Send for ID3D10EffectTechnique {}
 unsafe impl ::core::marker::Sync for ID3D10EffectTechnique {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D10EffectTechnique_Vtbl {
     pub IsValid: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> super::super::Foundation::BOOL,
     pub GetDesc: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut D3D10_TECHNIQUE_DESC) -> ::windows_core::HRESULT,
@@ -3149,7 +3122,6 @@ impl ID3D10EffectType {
 unsafe impl ::core::marker::Send for ID3D10EffectType {}
 unsafe impl ::core::marker::Sync for ID3D10EffectType {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D10EffectType_Vtbl {
     pub IsValid: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> super::super::Foundation::BOOL,
     #[cfg(feature = "Win32_Graphics_Direct3D")]
@@ -3252,7 +3224,6 @@ impl ID3D10EffectVariable {
 unsafe impl ::core::marker::Send for ID3D10EffectVariable {}
 unsafe impl ::core::marker::Sync for ID3D10EffectVariable {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D10EffectVariable_Vtbl {
     pub IsValid: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> super::super::Foundation::BOOL,
     pub GetType: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::core::option::Option<ID3D10EffectType>,
@@ -3407,7 +3378,6 @@ impl ID3D10EffectVectorVariable {
 unsafe impl ::core::marker::Send for ID3D10EffectVectorVariable {}
 unsafe impl ::core::marker::Sync for ID3D10EffectVectorVariable {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D10EffectVectorVariable_Vtbl {
     pub base__: ID3D10EffectVariable_Vtbl,
     pub SetBoolVector: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
@@ -3447,7 +3417,6 @@ impl ID3D10GeometryShader {
 unsafe impl ::core::marker::Send for ID3D10GeometryShader {}
 unsafe impl ::core::marker::Sync for ID3D10GeometryShader {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D10GeometryShader_Vtbl {
     pub base__: ID3D10DeviceChild_Vtbl,
 }
@@ -3581,7 +3550,6 @@ impl ID3D10InfoQueue {
 unsafe impl ::core::marker::Send for ID3D10InfoQueue {}
 unsafe impl ::core::marker::Sync for ID3D10InfoQueue {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D10InfoQueue_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub SetMessageCountLimit: unsafe extern "system" fn(*mut ::core::ffi::c_void, u64) -> ::windows_core::HRESULT,
@@ -3644,7 +3612,6 @@ impl ID3D10InputLayout {
 unsafe impl ::core::marker::Send for ID3D10InputLayout {}
 unsafe impl ::core::marker::Sync for ID3D10InputLayout {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D10InputLayout_Vtbl {
     pub base__: ID3D10DeviceChild_Vtbl,
 }
@@ -3670,7 +3637,6 @@ impl ID3D10Multithread {
 unsafe impl ::core::marker::Send for ID3D10Multithread {}
 unsafe impl ::core::marker::Sync for ID3D10Multithread {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D10Multithread_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Enter: unsafe extern "system" fn(*mut ::core::ffi::c_void),
@@ -3702,7 +3668,6 @@ impl ID3D10PixelShader {
 unsafe impl ::core::marker::Send for ID3D10PixelShader {}
 unsafe impl ::core::marker::Sync for ID3D10PixelShader {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D10PixelShader_Vtbl {
     pub base__: ID3D10DeviceChild_Vtbl,
 }
@@ -3747,7 +3712,6 @@ impl ID3D10Predicate {
 unsafe impl ::core::marker::Send for ID3D10Predicate {}
 unsafe impl ::core::marker::Sync for ID3D10Predicate {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D10Predicate_Vtbl {
     pub base__: ID3D10Query_Vtbl,
 }
@@ -3792,7 +3756,6 @@ impl ID3D10Query {
 unsafe impl ::core::marker::Send for ID3D10Query {}
 unsafe impl ::core::marker::Sync for ID3D10Query {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D10Query_Vtbl {
     pub base__: ID3D10Asynchronous_Vtbl,
     pub GetDesc: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut D3D10_QUERY_DESC),
@@ -3824,7 +3787,6 @@ impl ID3D10RasterizerState {
 unsafe impl ::core::marker::Send for ID3D10RasterizerState {}
 unsafe impl ::core::marker::Sync for ID3D10RasterizerState {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D10RasterizerState_Vtbl {
     pub base__: ID3D10DeviceChild_Vtbl,
     pub GetDesc: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut D3D10_RASTERIZER_DESC),
@@ -3862,7 +3824,6 @@ impl ID3D10RenderTargetView {
 unsafe impl ::core::marker::Send for ID3D10RenderTargetView {}
 unsafe impl ::core::marker::Sync for ID3D10RenderTargetView {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D10RenderTargetView_Vtbl {
     pub base__: ID3D10View_Vtbl,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -3905,7 +3866,6 @@ impl ID3D10Resource {
 unsafe impl ::core::marker::Send for ID3D10Resource {}
 unsafe impl ::core::marker::Sync for ID3D10Resource {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D10Resource_Vtbl {
     pub base__: ID3D10DeviceChild_Vtbl,
     pub GetType: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut D3D10_RESOURCE_DIMENSION),
@@ -3939,7 +3899,6 @@ impl ID3D10SamplerState {
 unsafe impl ::core::marker::Send for ID3D10SamplerState {}
 unsafe impl ::core::marker::Sync for ID3D10SamplerState {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D10SamplerState_Vtbl {
     pub base__: ID3D10DeviceChild_Vtbl,
     pub GetDesc: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut D3D10_SAMPLER_DESC),
@@ -3976,7 +3935,6 @@ impl ID3D10ShaderReflection {
 unsafe impl ::core::marker::Send for ID3D10ShaderReflection {}
 unsafe impl ::core::marker::Sync for ID3D10ShaderReflection {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D10ShaderReflection_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Graphics_Direct3D")]
@@ -4072,7 +4030,6 @@ impl ID3D10ShaderReflection1 {
 unsafe impl ::core::marker::Send for ID3D10ShaderReflection1 {}
 unsafe impl ::core::marker::Sync for ID3D10ShaderReflection1 {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D10ShaderReflection1_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Graphics_Direct3D")]
@@ -4128,7 +4085,6 @@ impl ID3D10ShaderReflectionConstantBuffer {
 unsafe impl ::core::marker::Send for ID3D10ShaderReflectionConstantBuffer {}
 unsafe impl ::core::marker::Sync for ID3D10ShaderReflectionConstantBuffer {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D10ShaderReflectionConstantBuffer_Vtbl {
     #[cfg(feature = "Win32_Graphics_Direct3D")]
     pub GetDesc: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut D3D10_SHADER_BUFFER_DESC) -> ::windows_core::HRESULT,
@@ -4159,7 +4115,6 @@ impl ID3D10ShaderReflectionType {
 unsafe impl ::core::marker::Send for ID3D10ShaderReflectionType {}
 unsafe impl ::core::marker::Sync for ID3D10ShaderReflectionType {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D10ShaderReflectionType_Vtbl {
     #[cfg(feature = "Win32_Graphics_Direct3D")]
     pub GetDesc: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut D3D10_SHADER_TYPE_DESC) -> ::windows_core::HRESULT,
@@ -4181,7 +4136,6 @@ impl ID3D10ShaderReflectionVariable {
 unsafe impl ::core::marker::Send for ID3D10ShaderReflectionVariable {}
 unsafe impl ::core::marker::Sync for ID3D10ShaderReflectionVariable {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D10ShaderReflectionVariable_Vtbl {
     pub GetDesc: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut D3D10_SHADER_VARIABLE_DESC) -> ::windows_core::HRESULT,
     pub GetType: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::core::option::Option<ID3D10ShaderReflectionType>,
@@ -4219,7 +4173,6 @@ impl ID3D10ShaderResourceView {
 unsafe impl ::core::marker::Send for ID3D10ShaderResourceView {}
 unsafe impl ::core::marker::Sync for ID3D10ShaderResourceView {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D10ShaderResourceView_Vtbl {
     pub base__: ID3D10View_Vtbl,
     #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -4264,7 +4217,6 @@ impl ID3D10ShaderResourceView1 {
 unsafe impl ::core::marker::Send for ID3D10ShaderResourceView1 {}
 unsafe impl ::core::marker::Sync for ID3D10ShaderResourceView1 {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D10ShaderResourceView1_Vtbl {
     pub base__: ID3D10ShaderResourceView_Vtbl,
     #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -4292,7 +4244,6 @@ impl ID3D10StateBlock {
 unsafe impl ::core::marker::Send for ID3D10StateBlock {}
 unsafe impl ::core::marker::Sync for ID3D10StateBlock {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D10StateBlock_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Capture: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -4316,7 +4267,6 @@ impl ID3D10SwitchToRef {
 unsafe impl ::core::marker::Send for ID3D10SwitchToRef {}
 unsafe impl ::core::marker::Sync for ID3D10SwitchToRef {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D10SwitchToRef_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub SetUseRef: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::BOOL) -> super::super::Foundation::BOOL,
@@ -4367,7 +4317,6 @@ impl ID3D10Texture1D {
 unsafe impl ::core::marker::Send for ID3D10Texture1D {}
 unsafe impl ::core::marker::Sync for ID3D10Texture1D {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D10Texture1D_Vtbl {
     pub base__: ID3D10Resource_Vtbl,
     pub Map: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, D3D10_MAP, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -4423,7 +4372,6 @@ impl ID3D10Texture2D {
 unsafe impl ::core::marker::Send for ID3D10Texture2D {}
 unsafe impl ::core::marker::Sync for ID3D10Texture2D {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D10Texture2D_Vtbl {
     pub base__: ID3D10Resource_Vtbl,
     pub Map: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, D3D10_MAP, u32, *mut D3D10_MAPPED_TEXTURE2D) -> ::windows_core::HRESULT,
@@ -4479,7 +4427,6 @@ impl ID3D10Texture3D {
 unsafe impl ::core::marker::Send for ID3D10Texture3D {}
 unsafe impl ::core::marker::Sync for ID3D10Texture3D {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D10Texture3D_Vtbl {
     pub base__: ID3D10Resource_Vtbl,
     pub Map: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, D3D10_MAP, u32, *mut D3D10_MAPPED_TEXTURE3D) -> ::windows_core::HRESULT,
@@ -4513,7 +4460,6 @@ impl ID3D10VertexShader {
 unsafe impl ::core::marker::Send for ID3D10VertexShader {}
 unsafe impl ::core::marker::Sync for ID3D10VertexShader {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D10VertexShader_Vtbl {
     pub base__: ID3D10DeviceChild_Vtbl,
 }
@@ -4546,7 +4492,6 @@ impl ID3D10View {
 unsafe impl ::core::marker::Send for ID3D10View {}
 unsafe impl ::core::marker::Sync for ID3D10View {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D10View_Vtbl {
     pub base__: ID3D10DeviceChild_Vtbl,
     pub GetResource: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void),

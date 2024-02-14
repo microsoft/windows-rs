@@ -1,6 +1,5 @@
 ::windows_core::imp::com_interface!(IOfflineMapPackage, IOfflineMapPackage_Vtbl, 0xa797673b_a5b5_4144_b525_e68c8862664b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IOfflineMapPackage_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut OfflineMapPackageStatus) -> ::windows_core::HRESULT,
@@ -13,7 +12,6 @@ pub struct IOfflineMapPackage_Vtbl {
 }
 ::windows_core::imp::com_interface!(IOfflineMapPackageQueryResult, IOfflineMapPackageQueryResult_Vtbl, 0x55585411_39e1_4e41_a4e1_5f4872bee199);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IOfflineMapPackageQueryResult_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut OfflineMapPackageQueryStatus) -> ::windows_core::HRESULT,
@@ -24,14 +22,12 @@ pub struct IOfflineMapPackageQueryResult_Vtbl {
 }
 ::windows_core::imp::com_interface!(IOfflineMapPackageStartDownloadResult, IOfflineMapPackageStartDownloadResult_Vtbl, 0xd965b918_d4d6_4afe_9378_3ec71ef11c3d);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IOfflineMapPackageStartDownloadResult_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut OfflineMapPackageStartDownloadStatus) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IOfflineMapPackageStatics, IOfflineMapPackageStatics_Vtbl, 0x185e7922_a831_4ab0_941f_6998fa929285);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IOfflineMapPackageStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Devices_Geolocation")]

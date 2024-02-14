@@ -1,6 +1,5 @@
 ::windows_core::imp::com_interface!(IBasicProperties, IBasicProperties_Vtbl, 0xd05d55db_785e_4a66_be02_9beec58aea81);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBasicProperties_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Size: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u64) -> ::windows_core::HRESULT,
@@ -9,7 +8,6 @@ pub struct IBasicProperties_Vtbl {
 }
 ::windows_core::imp::com_interface!(IDocumentProperties, IDocumentProperties_Vtbl, 0x7eab19bc_1821_4923_b4a9_0aea404d0070);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDocumentProperties_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -27,7 +25,6 @@ pub struct IDocumentProperties_Vtbl {
 }
 ::windows_core::imp::com_interface!(IGeotagHelperStatics, IGeotagHelperStatics_Vtbl, 0x41493244_2524_4655_86a6_ed16f5fc716b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IGeotagHelperStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Devices_Geolocation")]
@@ -45,7 +42,6 @@ pub struct IGeotagHelperStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IImageProperties, IImageProperties_Vtbl, 0x523c9424_fcff_4275_afee_ecdb9ab47973);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IImageProperties_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Rating: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -74,7 +70,6 @@ pub struct IImageProperties_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMusicProperties, IMusicProperties_Vtbl, 0xbc8aab62_66ec_419a_bc5d_ca65a4cb46da);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMusicProperties_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Album: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -120,7 +115,6 @@ pub struct IMusicProperties_Vtbl {
 }
 ::windows_core::imp::com_interface!(IStorageItemContentProperties, IStorageItemContentProperties_Vtbl, 0x05294bad_bc38_48bf_85d7_770e0e2ae0ba);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IStorageItemContentProperties_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetMusicPropertiesAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -165,7 +159,6 @@ impl ::windows_core::RuntimeType for IStorageItemExtraProperties {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IStorageItemExtraProperties_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -180,7 +173,6 @@ pub struct IStorageItemExtraProperties_Vtbl {
 }
 ::windows_core::imp::com_interface!(IThumbnailProperties, IThumbnailProperties_Vtbl, 0x693dd42f_dbe7_49b5_b3b3_2893ac5d3423);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IThumbnailProperties_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub OriginalWidth: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -190,7 +182,6 @@ pub struct IThumbnailProperties_Vtbl {
 }
 ::windows_core::imp::com_interface!(IVideoProperties, IVideoProperties_Vtbl, 0x719ae507_68de_4db8_97de_49998c059f2f);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVideoProperties_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Rating: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,

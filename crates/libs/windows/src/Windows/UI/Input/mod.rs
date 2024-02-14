@@ -8,19 +8,16 @@ pub mod Preview;
 pub mod Spatial;
 ::windows_core::imp::com_interface!(IAttachableInputObject, IAttachableInputObject_Vtbl, 0x9b822734_a3c1_542a_b2f4_0e32b773fb07);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAttachableInputObject_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
 }
 ::windows_core::imp::com_interface!(IAttachableInputObjectFactory, IAttachableInputObjectFactory_Vtbl, 0xa4c54c4e_42bc_58fa_a640_ea1516f4c06b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAttachableInputObjectFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
 }
 ::windows_core::imp::com_interface!(ICrossSlidingEventArgs, ICrossSlidingEventArgs_Vtbl, 0xe9374738_6f88_41d9_8720_78e08e398349);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICrossSlidingEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Devices_Input")]
@@ -32,14 +29,12 @@ pub struct ICrossSlidingEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICrossSlidingEventArgs2, ICrossSlidingEventArgs2_Vtbl, 0xeefb7d48_c070_59f3_8dab_bcaf621d8687);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICrossSlidingEventArgs2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ContactCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDraggingEventArgs, IDraggingEventArgs_Vtbl, 0x1c905384_083c_4bd3_b559_179cddeb33ec);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDraggingEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Devices_Input")]
@@ -51,14 +46,12 @@ pub struct IDraggingEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IDraggingEventArgs2, IDraggingEventArgs2_Vtbl, 0x71efdbf9_382a_55ca_b4b9_008123c1bf1a);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDraggingEventArgs2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ContactCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IEdgeGesture, IEdgeGesture_Vtbl, 0x580d5292_2ab1_49aa_a7f0_33bd3f8df9f1);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IEdgeGesture_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Starting: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
@@ -70,21 +63,18 @@ pub struct IEdgeGesture_Vtbl {
 }
 ::windows_core::imp::com_interface!(IEdgeGestureEventArgs, IEdgeGestureEventArgs_Vtbl, 0x44fa4a24_2d09_42e1_8b5e_368208796a4c);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IEdgeGestureEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Kind: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut EdgeGestureKind) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IEdgeGestureStatics, IEdgeGestureStatics_Vtbl, 0xbc6a8519_18ee_4043_9839_4fc584d60a14);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IEdgeGestureStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetForCurrentView: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IGestureRecognizer, IGestureRecognizer_Vtbl, 0xb47a37bf_3d6b_4f88_83e8_6dcb4012ffb0);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IGestureRecognizer_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GestureSettings: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut GestureSettings) -> ::windows_core::HRESULT,
@@ -151,7 +141,6 @@ pub struct IGestureRecognizer_Vtbl {
 }
 ::windows_core::imp::com_interface!(IGestureRecognizer2, IGestureRecognizer2_Vtbl, 0xd646097f_6ef7_5746_8ba8_8ff2206e6f3b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IGestureRecognizer2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub TapMinContactCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -173,7 +162,6 @@ pub struct IGestureRecognizer2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IHoldingEventArgs, IHoldingEventArgs_Vtbl, 0x2bf755c5_e799_41b4_bb40_242f40959b71);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IHoldingEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Devices_Input")]
@@ -185,7 +173,6 @@ pub struct IHoldingEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IHoldingEventArgs2, IHoldingEventArgs2_Vtbl, 0x141da9ea_4c79_5674_afea_493fdeb91f19);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IHoldingEventArgs2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ContactCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -193,7 +180,6 @@ pub struct IHoldingEventArgs2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IInputActivationListener, IInputActivationListener_Vtbl, 0x5d6d4ed2_28c7_5ae3_aa74_c918a9f243ca);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IInputActivationListener_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub State: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut InputActivationState) -> ::windows_core::HRESULT,
@@ -202,14 +188,12 @@ pub struct IInputActivationListener_Vtbl {
 }
 ::windows_core::imp::com_interface!(IInputActivationListenerActivationChangedEventArgs, IInputActivationListenerActivationChangedEventArgs_Vtbl, 0x7699b465_1dcf_5791_b4b9_6cafbeed2056);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IInputActivationListenerActivationChangedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub State: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut InputActivationState) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IKeyboardDeliveryInterceptor, IKeyboardDeliveryInterceptor_Vtbl, 0xb4baf068_8f49_446c_8db5_8c0ffe85cc9e);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IKeyboardDeliveryInterceptor_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsInterceptionEnabledWhenInForeground: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -227,14 +211,12 @@ pub struct IKeyboardDeliveryInterceptor_Vtbl {
 }
 ::windows_core::imp::com_interface!(IKeyboardDeliveryInterceptorStatics, IKeyboardDeliveryInterceptorStatics_Vtbl, 0xf9f63ba2_ceba_4755_8a7e_14c0ffecd239);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IKeyboardDeliveryInterceptorStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetForCurrentView: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IManipulationCompletedEventArgs, IManipulationCompletedEventArgs_Vtbl, 0xb34ab22b_d19b_46ff_9f38_dec7754bb9e7);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IManipulationCompletedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Devices_Input")]
@@ -247,7 +229,6 @@ pub struct IManipulationCompletedEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IManipulationCompletedEventArgs2, IManipulationCompletedEventArgs2_Vtbl, 0xf0c0dce7_30a9_5b96_886f_6560a85e4757);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IManipulationCompletedEventArgs2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ContactCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -255,7 +236,6 @@ pub struct IManipulationCompletedEventArgs2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IManipulationInertiaStartingEventArgs, IManipulationInertiaStartingEventArgs_Vtbl, 0xdd37a898_26bf_467a_9ce5_ccf3fb11371e);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IManipulationInertiaStartingEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Devices_Input")]
@@ -269,14 +249,12 @@ pub struct IManipulationInertiaStartingEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IManipulationInertiaStartingEventArgs2, IManipulationInertiaStartingEventArgs2_Vtbl, 0xc25409b8_f9fa_5a45_bd97_dcbbb2201860);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IManipulationInertiaStartingEventArgs2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ContactCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IManipulationStartedEventArgs, IManipulationStartedEventArgs_Vtbl, 0xddec873e_cfce_4932_8c1d_3c3d011a34c0);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IManipulationStartedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Devices_Input")]
@@ -288,14 +266,12 @@ pub struct IManipulationStartedEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IManipulationStartedEventArgs2, IManipulationStartedEventArgs2_Vtbl, 0x2da3db4e_e583_5055_afaa_16fd986531a6);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IManipulationStartedEventArgs2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ContactCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IManipulationUpdatedEventArgs, IManipulationUpdatedEventArgs_Vtbl, 0xcb354ce5_abb8_4f9f_b3ce_8181aa61ad82);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IManipulationUpdatedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Devices_Input")]
@@ -309,7 +285,6 @@ pub struct IManipulationUpdatedEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IManipulationUpdatedEventArgs2, IManipulationUpdatedEventArgs2_Vtbl, 0xf3dfb96a_3306_5903_a1c5_ff9757a8689e);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IManipulationUpdatedEventArgs2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ContactCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -317,7 +292,6 @@ pub struct IManipulationUpdatedEventArgs2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMouseWheelParameters, IMouseWheelParameters_Vtbl, 0xead0ca44_9ded_4037_8149_5e4cc2564468);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMouseWheelParameters_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CharTranslation: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::Point) -> ::windows_core::HRESULT,
@@ -331,7 +305,6 @@ pub struct IMouseWheelParameters_Vtbl {
 }
 ::windows_core::imp::com_interface!(IPointerPoint, IPointerPoint_Vtbl, 0xe995317d_7296_42d9_8233_c5be73b74a4a);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPointerPoint_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Devices_Input")]
@@ -348,7 +321,6 @@ pub struct IPointerPoint_Vtbl {
 }
 ::windows_core::imp::com_interface!(IPointerPointProperties, IPointerPointProperties_Vtbl, 0xc79d8a4b_c163_4ee7_803f_67ce79f9972d);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPointerPointProperties_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Pressure: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f32) -> ::windows_core::HRESULT,
@@ -378,14 +350,12 @@ pub struct IPointerPointProperties_Vtbl {
 }
 ::windows_core::imp::com_interface!(IPointerPointProperties2, IPointerPointProperties2_Vtbl, 0x22c3433a_c83b_41c0_a296_5e232d64d6af);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPointerPointProperties2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ZDistance: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IPointerPointStatics, IPointerPointStatics_Vtbl, 0xa506638d_2a1a_413e_bc75_9f38381cc069);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPointerPointStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetCurrentPoint: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -428,7 +398,6 @@ impl ::windows_core::RuntimeType for IPointerPointTransform {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPointerPointTransform_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Inverse: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -437,7 +406,6 @@ pub struct IPointerPointTransform_Vtbl {
 }
 ::windows_core::imp::com_interface!(IPointerVisualizationSettings, IPointerVisualizationSettings_Vtbl, 0x4d1e6461_84f7_499d_bd91_2a36e2b7aaa2);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPointerVisualizationSettings_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SetIsContactFeedbackEnabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, bool) -> ::windows_core::HRESULT,
@@ -447,14 +415,12 @@ pub struct IPointerVisualizationSettings_Vtbl {
 }
 ::windows_core::imp::com_interface!(IPointerVisualizationSettingsStatics, IPointerVisualizationSettingsStatics_Vtbl, 0x68870edb_165b_4214_b4f3_584eca8c8a69);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPointerVisualizationSettingsStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetForCurrentView: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IRadialController, IRadialController_Vtbl, 0x3055d1c8_df51_43d4_b23b_0e1037467a09);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRadialController_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Menu: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -479,7 +445,6 @@ pub struct IRadialController_Vtbl {
 }
 ::windows_core::imp::com_interface!(IRadialController2, IRadialController2_Vtbl, 0x3d577eff_4cee_11e6_b535_001bdc06ab3b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRadialController2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ButtonPressed: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
@@ -491,14 +456,12 @@ pub struct IRadialController2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IRadialControllerButtonClickedEventArgs, IRadialControllerButtonClickedEventArgs_Vtbl, 0x206aa438_e651_11e5_bf62_2c27d7404e85);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRadialControllerButtonClickedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Contact: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IRadialControllerButtonClickedEventArgs2, IRadialControllerButtonClickedEventArgs2_Vtbl, 0x3d577ef3_3cee_11e6_b535_001bdc06ab3b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRadialControllerButtonClickedEventArgs2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Devices_Haptics")]
@@ -508,7 +471,6 @@ pub struct IRadialControllerButtonClickedEventArgs2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IRadialControllerButtonHoldingEventArgs, IRadialControllerButtonHoldingEventArgs_Vtbl, 0x3d577eee_3cee_11e6_b535_001bdc06ab3b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRadialControllerButtonHoldingEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Contact: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -519,7 +481,6 @@ pub struct IRadialControllerButtonHoldingEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IRadialControllerButtonPressedEventArgs, IRadialControllerButtonPressedEventArgs_Vtbl, 0x3d577eed_4cee_11e6_b535_001bdc06ab3b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRadialControllerButtonPressedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Contact: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -530,7 +491,6 @@ pub struct IRadialControllerButtonPressedEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IRadialControllerButtonReleasedEventArgs, IRadialControllerButtonReleasedEventArgs_Vtbl, 0x3d577eef_3cee_11e6_b535_001bdc06ab3b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRadialControllerButtonReleasedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Contact: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -541,7 +501,6 @@ pub struct IRadialControllerButtonReleasedEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IRadialControllerConfiguration, IRadialControllerConfiguration_Vtbl, 0xa6b79ecb_6a52_4430_910c_56370a9d6b42);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRadialControllerConfiguration_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -553,7 +512,6 @@ pub struct IRadialControllerConfiguration_Vtbl {
 }
 ::windows_core::imp::com_interface!(IRadialControllerConfiguration2, IRadialControllerConfiguration2_Vtbl, 0x3d577ef7_3cee_11e6_b535_001bdc06ab3b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRadialControllerConfiguration2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SetActiveControllerWhenMenuIsSuppressed: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -563,14 +521,12 @@ pub struct IRadialControllerConfiguration2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IRadialControllerConfigurationStatics, IRadialControllerConfigurationStatics_Vtbl, 0x79b6b0e5_069a_4486_a99d_8db772b9642f);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRadialControllerConfigurationStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetForCurrentView: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IRadialControllerConfigurationStatics2, IRadialControllerConfigurationStatics2_Vtbl, 0x53e08b17_e205_48d3_9caf_80ff47c4d7c7);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRadialControllerConfigurationStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SetAppController: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -580,14 +536,12 @@ pub struct IRadialControllerConfigurationStatics2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IRadialControllerControlAcquiredEventArgs, IRadialControllerControlAcquiredEventArgs_Vtbl, 0x206aa439_e651_11e5_bf62_2c27d7404e85);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRadialControllerControlAcquiredEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Contact: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IRadialControllerControlAcquiredEventArgs2, IRadialControllerControlAcquiredEventArgs2_Vtbl, 0x3d577ef4_3cee_11e6_b535_001bdc06ab3b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRadialControllerControlAcquiredEventArgs2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsButtonPressed: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -598,7 +552,6 @@ pub struct IRadialControllerControlAcquiredEventArgs2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IRadialControllerMenu, IRadialControllerMenu_Vtbl, 0x8506b35d_f640_4412_aba0_bad077e5ea8a);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRadialControllerMenu_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -613,7 +566,6 @@ pub struct IRadialControllerMenu_Vtbl {
 }
 ::windows_core::imp::com_interface!(IRadialControllerMenuItem, IRadialControllerMenuItem_Vtbl, 0xc80fc98d_ad0b_4c9c_8f2f_136a2373a6ba);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRadialControllerMenuItem_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub DisplayText: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -624,7 +576,6 @@ pub struct IRadialControllerMenuItem_Vtbl {
 }
 ::windows_core::imp::com_interface!(IRadialControllerMenuItemStatics, IRadialControllerMenuItemStatics_Vtbl, 0x249e0887_d842_4524_9df8_e0d647edc887);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRadialControllerMenuItemStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -635,7 +586,6 @@ pub struct IRadialControllerMenuItemStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IRadialControllerMenuItemStatics2, IRadialControllerMenuItemStatics2_Vtbl, 0x0cbb70be_7e3e_48bd_be04_2c7fcaa9c1ff);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRadialControllerMenuItemStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateFromFontGlyph: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, ::std::mem::MaybeUninit<::windows_core::HSTRING>, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -643,7 +593,6 @@ pub struct IRadialControllerMenuItemStatics2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IRadialControllerRotationChangedEventArgs, IRadialControllerRotationChangedEventArgs_Vtbl, 0x206aa435_e651_11e5_bf62_2c27d7404e85);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRadialControllerRotationChangedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub RotationDeltaInDegrees: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f64) -> ::windows_core::HRESULT,
@@ -651,7 +600,6 @@ pub struct IRadialControllerRotationChangedEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IRadialControllerRotationChangedEventArgs2, IRadialControllerRotationChangedEventArgs2_Vtbl, 0x3d577eec_4cee_11e6_b535_001bdc06ab3b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRadialControllerRotationChangedEventArgs2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsButtonPressed: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -662,7 +610,6 @@ pub struct IRadialControllerRotationChangedEventArgs2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IRadialControllerScreenContact, IRadialControllerScreenContact_Vtbl, 0x206aa434_e651_11e5_bf62_2c27d7404e85);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRadialControllerScreenContact_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Bounds: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::Rect) -> ::windows_core::HRESULT,
@@ -670,14 +617,12 @@ pub struct IRadialControllerScreenContact_Vtbl {
 }
 ::windows_core::imp::com_interface!(IRadialControllerScreenContactContinuedEventArgs, IRadialControllerScreenContactContinuedEventArgs_Vtbl, 0x206aa437_e651_11e5_bf62_2c27d7404e85);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRadialControllerScreenContactContinuedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Contact: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IRadialControllerScreenContactContinuedEventArgs2, IRadialControllerScreenContactContinuedEventArgs2_Vtbl, 0x3d577ef1_3cee_11e6_b535_001bdc06ab3b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRadialControllerScreenContactContinuedEventArgs2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsButtonPressed: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -688,7 +633,6 @@ pub struct IRadialControllerScreenContactContinuedEventArgs2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IRadialControllerScreenContactEndedEventArgs, IRadialControllerScreenContactEndedEventArgs_Vtbl, 0x3d577ef2_3cee_11e6_b535_001bdc06ab3b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRadialControllerScreenContactEndedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsButtonPressed: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -699,14 +643,12 @@ pub struct IRadialControllerScreenContactEndedEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IRadialControllerScreenContactStartedEventArgs, IRadialControllerScreenContactStartedEventArgs_Vtbl, 0x206aa436_e651_11e5_bf62_2c27d7404e85);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRadialControllerScreenContactStartedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Contact: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IRadialControllerScreenContactStartedEventArgs2, IRadialControllerScreenContactStartedEventArgs2_Vtbl, 0x3d577ef0_3cee_11e6_b535_001bdc06ab3b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRadialControllerScreenContactStartedEventArgs2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsButtonPressed: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -717,7 +659,6 @@ pub struct IRadialControllerScreenContactStartedEventArgs2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IRadialControllerStatics, IRadialControllerStatics_Vtbl, 0xfaded0b7_b84c_4894_87aa_8f25aa5f288b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRadialControllerStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsSupported: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -725,7 +666,6 @@ pub struct IRadialControllerStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IRightTappedEventArgs, IRightTappedEventArgs_Vtbl, 0x4cbf40bd_af7a_4a36_9476_b1dce141709a);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRightTappedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Devices_Input")]
@@ -736,14 +676,12 @@ pub struct IRightTappedEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IRightTappedEventArgs2, IRightTappedEventArgs2_Vtbl, 0x61c7b7bb_9f57_5857_a33c_c58c3dfa959e);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRightTappedEventArgs2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ContactCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ISystemButtonEventController, ISystemButtonEventController_Vtbl, 0x59b893a9_73bc_52b5_ba41_82511b2cb46c);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISystemButtonEventController_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SystemFunctionButtonPressed: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
@@ -757,7 +695,6 @@ pub struct ISystemButtonEventController_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISystemButtonEventControllerStatics, ISystemButtonEventControllerStatics_Vtbl, 0x632fb07b_20bd_5e15_af4a_00dbf2064ffa);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISystemButtonEventControllerStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "System")]
@@ -767,7 +704,6 @@ pub struct ISystemButtonEventControllerStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISystemFunctionButtonEventArgs, ISystemFunctionButtonEventArgs_Vtbl, 0x4833896f_80d1_5dd6_92a7_62a508ffef5a);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISystemFunctionButtonEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Timestamp: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u64) -> ::windows_core::HRESULT,
@@ -776,7 +712,6 @@ pub struct ISystemFunctionButtonEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISystemFunctionLockChangedEventArgs, ISystemFunctionLockChangedEventArgs_Vtbl, 0xcd040608_fcf9_585c_beab_f1d2eaf364ab);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISystemFunctionLockChangedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Timestamp: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u64) -> ::windows_core::HRESULT,
@@ -786,7 +721,6 @@ pub struct ISystemFunctionLockChangedEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISystemFunctionLockIndicatorChangedEventArgs, ISystemFunctionLockIndicatorChangedEventArgs_Vtbl, 0xb212b94e_7a6f_58ae_b304_bae61d0371b9);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISystemFunctionLockIndicatorChangedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Timestamp: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u64) -> ::windows_core::HRESULT,
@@ -796,7 +730,6 @@ pub struct ISystemFunctionLockIndicatorChangedEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(ITappedEventArgs, ITappedEventArgs_Vtbl, 0xcfa126e4_253a_4c3c_953b_395c37aed309);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITappedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Devices_Input")]
@@ -808,7 +741,6 @@ pub struct ITappedEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(ITappedEventArgs2, ITappedEventArgs2_Vtbl, 0x294388f2_177e_51d5_be56_ee0866fa968c);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITappedEventArgs2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ContactCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,

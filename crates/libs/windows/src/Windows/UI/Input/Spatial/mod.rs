@@ -1,6 +1,5 @@
 ::windows_core::imp::com_interface!(ISpatialGestureRecognizer, ISpatialGestureRecognizer_Vtbl, 0x71605bcc_0c35_4673_adbd_cc04caa6ef45);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISpatialGestureRecognizer_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub RecognitionStarted: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
@@ -38,28 +37,24 @@ pub struct ISpatialGestureRecognizer_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISpatialGestureRecognizerFactory, ISpatialGestureRecognizerFactory_Vtbl, 0x77214186_57b9_3150_8382_698b24e264d0);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISpatialGestureRecognizerFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut ::core::ffi::c_void, SpatialGestureSettings, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ISpatialHoldCanceledEventArgs, ISpatialHoldCanceledEventArgs_Vtbl, 0x5dfcb667_4caa_4093_8c35_b601a839f31b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISpatialHoldCanceledEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub InteractionSourceKind: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut SpatialInteractionSourceKind) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ISpatialHoldCompletedEventArgs, ISpatialHoldCompletedEventArgs_Vtbl, 0x3f64470b_4cfd_43da_8dc4_e64552173971);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISpatialHoldCompletedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub InteractionSourceKind: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut SpatialInteractionSourceKind) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ISpatialHoldStartedEventArgs, ISpatialHoldStartedEventArgs_Vtbl, 0x8e343d79_acb6_4144_8615_2cfba8a3cb3f);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISpatialHoldStartedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub InteractionSourceKind: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut SpatialInteractionSourceKind) -> ::windows_core::HRESULT,
@@ -70,14 +65,12 @@ pub struct ISpatialHoldStartedEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISpatialInteraction, ISpatialInteraction_Vtbl, 0xfc967639_88e6_4646_9112_4344aaec9dfa);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISpatialInteraction_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SourceState: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ISpatialInteractionController, ISpatialInteractionController_Vtbl, 0x5f0e5ba3_0954_4e97_86c5_e7f30b114dfd);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISpatialInteractionController_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub HasTouchpad: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -92,7 +85,6 @@ pub struct ISpatialInteractionController_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISpatialInteractionController2, ISpatialInteractionController2_Vtbl, 0x35b6d924_c7a2_49b7_b72e_5436b2fb8f9c);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISpatialInteractionController2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -102,7 +94,6 @@ pub struct ISpatialInteractionController2_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISpatialInteractionController3, ISpatialInteractionController3_Vtbl, 0x628466a0_9d91_4a0b_888d_165e670a8cd5);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISpatialInteractionController3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Devices_Power")]
@@ -112,7 +103,6 @@ pub struct ISpatialInteractionController3_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISpatialInteractionControllerProperties, ISpatialInteractionControllerProperties_Vtbl, 0x61056fb1_7ba9_4e35_b93f_9272cba9b28b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISpatialInteractionControllerProperties_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsTouchpadTouched: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -125,7 +115,6 @@ pub struct ISpatialInteractionControllerProperties_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISpatialInteractionDetectedEventArgs, ISpatialInteractionDetectedEventArgs_Vtbl, 0x075878e4_5961_3b41_9dfb_cea5d89cc38a);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISpatialInteractionDetectedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub InteractionSourceKind: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut SpatialInteractionSourceKind) -> ::windows_core::HRESULT,
@@ -137,14 +126,12 @@ pub struct ISpatialInteractionDetectedEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISpatialInteractionDetectedEventArgs2, ISpatialInteractionDetectedEventArgs2_Vtbl, 0x7b263e93_5f13_419c_97d5_834678266aa6);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISpatialInteractionDetectedEventArgs2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub InteractionSource: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ISpatialInteractionManager, ISpatialInteractionManager_Vtbl, 0x32a64ea8_a15a_3995_b8bd_80513cb5adef);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISpatialInteractionManager_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SourceDetected: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
@@ -166,21 +153,18 @@ pub struct ISpatialInteractionManager_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISpatialInteractionManagerStatics, ISpatialInteractionManagerStatics_Vtbl, 0x00e31fa6_8ca2_30bf_91fe_d9cb4a008990);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISpatialInteractionManagerStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetForCurrentView: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ISpatialInteractionManagerStatics2, ISpatialInteractionManagerStatics2_Vtbl, 0x93f16c52_b88a_5929_8d7c_48cb948b081c);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISpatialInteractionManagerStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsSourceKindSupported: unsafe extern "system" fn(*mut ::core::ffi::c_void, SpatialInteractionSourceKind, *mut bool) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ISpatialInteractionSource, ISpatialInteractionSource_Vtbl, 0xfb5433ba_b0b3_3148_9f3b_e9f5de568f5d);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISpatialInteractionSource_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Id: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -188,7 +172,6 @@ pub struct ISpatialInteractionSource_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISpatialInteractionSource2, ISpatialInteractionSource2_Vtbl, 0xe4c5b70c_0470_4028_88c0_a0eb44d34efe);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISpatialInteractionSource2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsPointingSupported: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -202,14 +185,12 @@ pub struct ISpatialInteractionSource2_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISpatialInteractionSource3, ISpatialInteractionSource3_Vtbl, 0x0406d9f9_9afd_44f9_85dc_700023a962e3);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISpatialInteractionSource3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Handedness: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut SpatialInteractionSourceHandedness) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ISpatialInteractionSource4, ISpatialInteractionSource4_Vtbl, 0x0073bc4d_df66_5a91_a2ba_cea3e5c58a19);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISpatialInteractionSource4_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Perception_People")]
@@ -223,21 +204,18 @@ pub struct ISpatialInteractionSource4_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISpatialInteractionSourceEventArgs, ISpatialInteractionSourceEventArgs_Vtbl, 0x23b786cf_ec23_3979_b27c_eb0e12feb7c7);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISpatialInteractionSourceEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub State: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ISpatialInteractionSourceEventArgs2, ISpatialInteractionSourceEventArgs2_Vtbl, 0xd8b4b467_e648_4d52_ab49_e0d227199f63);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISpatialInteractionSourceEventArgs2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub PressKind: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut SpatialInteractionPressKind) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ISpatialInteractionSourceLocation, ISpatialInteractionSourceLocation_Vtbl, 0xea4696c4_7e8b_30ca_bcc5_c77189cea30a);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISpatialInteractionSourceLocation_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Numerics")]
@@ -251,7 +229,6 @@ pub struct ISpatialInteractionSourceLocation_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISpatialInteractionSourceLocation2, ISpatialInteractionSourceLocation2_Vtbl, 0x4c671045_3917_40fc_a9ac_31c9cf5ff91b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISpatialInteractionSourceLocation2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Numerics")]
@@ -261,7 +238,6 @@ pub struct ISpatialInteractionSourceLocation2_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISpatialInteractionSourceLocation3, ISpatialInteractionSourceLocation3_Vtbl, 0x6702e65e_e915_4cfb_9c1b_0538efc86687);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISpatialInteractionSourceLocation3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub PositionAccuracy: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut SpatialInteractionSourcePositionAccuracy) -> ::windows_core::HRESULT,
@@ -273,7 +249,6 @@ pub struct ISpatialInteractionSourceLocation3_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISpatialInteractionSourceProperties, ISpatialInteractionSourceProperties_Vtbl, 0x05604542_3ef7_3222_9f53_63c9cb7e3bc7);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISpatialInteractionSourceProperties_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
@@ -288,7 +263,6 @@ pub struct ISpatialInteractionSourceProperties_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISpatialInteractionSourceState, ISpatialInteractionSourceState_Vtbl, 0xd5c475ef_4b63_37ec_98b9_9fc652b9d2f2);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISpatialInteractionSourceState_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Source: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -305,7 +279,6 @@ pub struct ISpatialInteractionSourceState_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISpatialInteractionSourceState2, ISpatialInteractionSourceState2_Vtbl, 0x45f6d0bd_1773_492e_9ba3_8ac1cbe77c08);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISpatialInteractionSourceState2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsSelectPressed: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -316,7 +289,6 @@ pub struct ISpatialInteractionSourceState2_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISpatialInteractionSourceState3, ISpatialInteractionSourceState3_Vtbl, 0xf2f00bc2_bd2b_4a01_a8fb_323e0158527c);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISpatialInteractionSourceState3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Perception_People")]
@@ -326,14 +298,12 @@ pub struct ISpatialInteractionSourceState3_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISpatialManipulationCanceledEventArgs, ISpatialManipulationCanceledEventArgs_Vtbl, 0x2d40d1cb_e7da_4220_b0bf_819301674780);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISpatialManipulationCanceledEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub InteractionSourceKind: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut SpatialInteractionSourceKind) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ISpatialManipulationCompletedEventArgs, ISpatialManipulationCompletedEventArgs_Vtbl, 0x05086802_f301_4343_9250_2fbaa5f87a37);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISpatialManipulationCompletedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub InteractionSourceKind: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut SpatialInteractionSourceKind) -> ::windows_core::HRESULT,
@@ -344,7 +314,6 @@ pub struct ISpatialManipulationCompletedEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISpatialManipulationDelta, ISpatialManipulationDelta_Vtbl, 0xa7ec967a_d123_3a81_a15b_992923dcbe91);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISpatialManipulationDelta_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Numerics")]
@@ -354,7 +323,6 @@ pub struct ISpatialManipulationDelta_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISpatialManipulationStartedEventArgs, ISpatialManipulationStartedEventArgs_Vtbl, 0xa1d6bbce_42a5_377b_ada6_d28e3d384737);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISpatialManipulationStartedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub InteractionSourceKind: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut SpatialInteractionSourceKind) -> ::windows_core::HRESULT,
@@ -365,7 +333,6 @@ pub struct ISpatialManipulationStartedEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISpatialManipulationUpdatedEventArgs, ISpatialManipulationUpdatedEventArgs_Vtbl, 0x5f230b9b_60c6_4dc6_bdc9_9f4a6f15fe49);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISpatialManipulationUpdatedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub InteractionSourceKind: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut SpatialInteractionSourceKind) -> ::windows_core::HRESULT,
@@ -376,14 +343,12 @@ pub struct ISpatialManipulationUpdatedEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISpatialNavigationCanceledEventArgs, ISpatialNavigationCanceledEventArgs_Vtbl, 0xce503edc_e8a5_46f0_92d4_3c122b35112a);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISpatialNavigationCanceledEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub InteractionSourceKind: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut SpatialInteractionSourceKind) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ISpatialNavigationCompletedEventArgs, ISpatialNavigationCompletedEventArgs_Vtbl, 0x012e80b7_af3b_42c2_9e41_baaa0e721f3a);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISpatialNavigationCompletedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub InteractionSourceKind: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut SpatialInteractionSourceKind) -> ::windows_core::HRESULT,
@@ -394,7 +359,6 @@ pub struct ISpatialNavigationCompletedEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISpatialNavigationStartedEventArgs, ISpatialNavigationStartedEventArgs_Vtbl, 0x754a348a_fb64_4656_8ebd_9deecaafe475);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISpatialNavigationStartedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub InteractionSourceKind: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut SpatialInteractionSourceKind) -> ::windows_core::HRESULT,
@@ -408,7 +372,6 @@ pub struct ISpatialNavigationStartedEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISpatialNavigationUpdatedEventArgs, ISpatialNavigationUpdatedEventArgs_Vtbl, 0x9b713fd7_839d_4a74_8732_45466fc044b5);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISpatialNavigationUpdatedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub InteractionSourceKind: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut SpatialInteractionSourceKind) -> ::windows_core::HRESULT,
@@ -419,7 +382,6 @@ pub struct ISpatialNavigationUpdatedEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISpatialPointerInteractionSourcePose, ISpatialPointerInteractionSourcePose_Vtbl, 0xa7104307_2c2b_4d3a_92a7_80ced7c4a0d0);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISpatialPointerInteractionSourcePose_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Numerics")]
@@ -437,7 +399,6 @@ pub struct ISpatialPointerInteractionSourcePose_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISpatialPointerInteractionSourcePose2, ISpatialPointerInteractionSourcePose2_Vtbl, 0xeccd86b8_52db_469f_9e3f_80c47f74bce9);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISpatialPointerInteractionSourcePose2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Numerics")]
@@ -448,7 +409,6 @@ pub struct ISpatialPointerInteractionSourcePose2_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISpatialPointerPose, ISpatialPointerPose_Vtbl, 0x6953a42e_c17e_357d_97a1_7269d0ed2d10);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISpatialPointerPose_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Perception")]
@@ -462,14 +422,12 @@ pub struct ISpatialPointerPose_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISpatialPointerPose2, ISpatialPointerPose2_Vtbl, 0x9d202b17_954e_4e0c_96d1_b6790b6fc2fd);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISpatialPointerPose2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub TryGetInteractionSourcePose: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ISpatialPointerPose3, ISpatialPointerPose3_Vtbl, 0x6342f3f0_ec49_5b4b_b8d1_d16cbb16be84);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISpatialPointerPose3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Perception_People")]
@@ -480,7 +438,6 @@ pub struct ISpatialPointerPose3_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISpatialPointerPoseStatics, ISpatialPointerPoseStatics_Vtbl, 0xa25591a9_aca1_3ee0_9816_785cfb2e3fb8);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISpatialPointerPoseStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Perception_Spatial")]
@@ -490,14 +447,12 @@ pub struct ISpatialPointerPoseStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISpatialRecognitionEndedEventArgs, ISpatialRecognitionEndedEventArgs_Vtbl, 0x0e35f5cb_3f75_43f3_ac81_d1dc2df9b1fb);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISpatialRecognitionEndedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub InteractionSourceKind: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut SpatialInteractionSourceKind) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ISpatialRecognitionStartedEventArgs, ISpatialRecognitionStartedEventArgs_Vtbl, 0x24da128f_0008_4a6d_aa50_2a76f9cfb264);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISpatialRecognitionStartedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub InteractionSourceKind: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut SpatialInteractionSourceKind) -> ::windows_core::HRESULT,
@@ -509,7 +464,6 @@ pub struct ISpatialRecognitionStartedEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISpatialTappedEventArgs, ISpatialTappedEventArgs_Vtbl, 0x296d83de_f444_4aa1_b2bf_9dc88d567da6);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISpatialTappedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub InteractionSourceKind: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut SpatialInteractionSourceKind) -> ::windows_core::HRESULT,

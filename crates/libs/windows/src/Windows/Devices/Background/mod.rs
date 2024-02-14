@@ -1,6 +1,5 @@
 ::windows_core::imp::com_interface!(IDeviceServicingDetails, IDeviceServicingDetails_Vtbl, 0x4aabee29_2344_4ac4_8527_4a8ef6905645);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDeviceServicingDetails_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub DeviceId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -9,7 +8,6 @@ pub struct IDeviceServicingDetails_Vtbl {
 }
 ::windows_core::imp::com_interface!(IDeviceUseDetails, IDeviceUseDetails_Vtbl, 0x7d565141_557e_4154_b994_e4f7a11fb323);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDeviceUseDetails_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub DeviceId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,

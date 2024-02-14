@@ -13,7 +13,6 @@ impl ISideShowBulkCapabilities {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISideShowBulkCapabilities_Vtbl {
     pub base__: ISideShowCapabilities_Vtbl,
     pub GetCapabilities: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -27,7 +26,6 @@ impl ISideShowCapabilities {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISideShowCapabilities_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -48,7 +46,6 @@ impl ISideShowCapabilitiesCollection {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISideShowCapabilitiesCollection_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -73,7 +70,6 @@ impl ISideShowContent {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISideShowContent_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetContent: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut u32, *mut *mut u8) -> ::windows_core::HRESULT,
@@ -107,7 +103,6 @@ impl ISideShowContentManager {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISideShowContentManager_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Add: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -143,7 +138,6 @@ impl ISideShowEvents {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISideShowEvents_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub ContentMissing: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -173,7 +167,6 @@ impl ISideShowKeyCollection {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISideShowKeyCollection_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -239,7 +232,6 @@ impl ISideShowNotification {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISideShowNotification_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub NotificationId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -276,7 +268,6 @@ impl ISideShowNotificationManager {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISideShowNotificationManager_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Show: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -303,7 +294,6 @@ impl ISideShowPropVariantCollection {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISideShowPropVariantCollection_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Add: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>) -> ::windows_core::HRESULT,
@@ -325,7 +315,6 @@ impl ISideShowSession {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISideShowSession_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub RegisterContent: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,

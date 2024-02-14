@@ -1,6 +1,5 @@
 ::windows_core::imp::com_interface!(ICoreIncrementalInkStroke, ICoreIncrementalInkStroke_Vtbl, 0xfda015d3_9d66_4f7d_a57f_cc70b9cfaa76);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreIncrementalInkStroke_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -17,7 +16,6 @@ pub struct ICoreIncrementalInkStroke_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICoreIncrementalInkStrokeFactory, ICoreIncrementalInkStrokeFactory_Vtbl, 0xd7c59f46_8da8_4f70_9751_e53bb6df4596);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreIncrementalInkStrokeFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Numerics")]
@@ -27,7 +25,6 @@ pub struct ICoreIncrementalInkStrokeFactory_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICoreInkIndependentInputSource, ICoreInkIndependentInputSource_Vtbl, 0x39b38da9_7639_4499_a5b5_191d00e35b16);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreInkIndependentInputSource_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "UI_Core")]
@@ -69,7 +66,6 @@ pub struct ICoreInkIndependentInputSource_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICoreInkIndependentInputSource2, ICoreInkIndependentInputSource2_Vtbl, 0x2846b012_0b59_5bb9_a3c5_becb7cf03a33);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreInkIndependentInputSource2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "UI_Core")]
@@ -83,14 +79,12 @@ pub struct ICoreInkIndependentInputSource2_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICoreInkIndependentInputSourceStatics, ICoreInkIndependentInputSourceStatics_Vtbl, 0x73e6011b_80c0_4dfb_9b66_10ba7f3f9c84);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreInkIndependentInputSourceStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ICoreInkPresenterHost, ICoreInkPresenterHost_Vtbl, 0x396e89e6_7d55_4617_9e58_68c70c9169b9);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreInkPresenterHost_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub InkPresenter: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -105,7 +99,6 @@ pub struct ICoreInkPresenterHost_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICoreWetStrokeUpdateEventArgs, ICoreWetStrokeUpdateEventArgs_Vtbl, 0xfb07d14c_3380_457a_a987_991357896c1b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWetStrokeUpdateEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -118,7 +111,6 @@ pub struct ICoreWetStrokeUpdateEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICoreWetStrokeUpdateSource, ICoreWetStrokeUpdateSource_Vtbl, 0x1f718e22_ee52_4e00_8209_4c3e5b21a3cc);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWetStrokeUpdateSource_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub WetStrokeStarting: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
@@ -135,7 +127,6 @@ pub struct ICoreWetStrokeUpdateSource_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICoreWetStrokeUpdateSourceStatics, ICoreWetStrokeUpdateSourceStatics_Vtbl, 0x3dad9cba_1d3d_46ae_ab9d_8647486c6f90);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWetStrokeUpdateSourceStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,

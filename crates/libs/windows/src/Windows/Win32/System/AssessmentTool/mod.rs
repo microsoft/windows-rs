@@ -165,7 +165,6 @@ impl IAccessibleWinSAT {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Accessibility"))]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAccessibleWinSAT_Vtbl {
     pub base__: super::super::UI::Accessibility::IAccessible_Vtbl,
     pub SetAccessiblityData: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, ::windows_core::PCWSTR, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
@@ -193,7 +192,6 @@ impl IInitiateWinSATAssessment {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IInitiateWinSATAssessment_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub InitiateAssessment: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *mut ::core::ffi::c_void, super::super::Foundation::HWND) -> ::windows_core::HRESULT,
@@ -221,7 +219,6 @@ impl IProvideWinSATAssessmentInfo {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IProvideWinSATAssessmentInfo_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub Score: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f32) -> ::windows_core::HRESULT,
@@ -258,7 +255,6 @@ impl IProvideWinSATResultsInfo {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IProvideWinSATResultsInfo_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -280,7 +276,6 @@ impl IProvideWinSATVisuals {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IProvideWinSATVisuals_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -306,7 +301,6 @@ impl IQueryAllWinSATAssessments {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IQueryAllWinSATAssessments_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
@@ -323,7 +317,6 @@ impl IQueryOEMWinSATCustomization {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IQueryOEMWinSATCustomization_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetOEMPrePopulationInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut WINSAT_OEM_CUSTOMIZATION_STATE) -> ::windows_core::HRESULT,
@@ -351,7 +344,6 @@ impl IQueryRecentWinSATAssessment {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IQueryRecentWinSATAssessment_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
@@ -380,7 +372,6 @@ impl IWinSATInitiateEvents {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWinSATInitiateEvents_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub WinSATComplete: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::HRESULT, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,

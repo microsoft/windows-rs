@@ -1,6 +1,5 @@
 ::windows_core::imp::com_interface!(IDisplayRequest, IDisplayRequest_Vtbl, 0xe5732044_f49f_4b60_8dd4_5e7e3a632ac0);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDisplayRequest_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub RequestActive: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,

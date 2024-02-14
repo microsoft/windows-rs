@@ -1,6 +1,5 @@
 ::windows_core::imp::com_interface!(IBackgroundAudioTrack, IBackgroundAudioTrack_Vtbl, 0x4b91b3bd_9e21_4266_a9c2_67dd011a2357);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBackgroundAudioTrack_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub TrimTimeFromStart: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
@@ -29,7 +28,6 @@ pub struct IBackgroundAudioTrack_Vtbl {
 }
 ::windows_core::imp::com_interface!(IBackgroundAudioTrackStatics, IBackgroundAudioTrackStatics_Vtbl, 0xd9b1c0d7_d018_42a8_a559_cb4d9e97e664);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBackgroundAudioTrackStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateFromEmbeddedAudioTrack: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -40,7 +38,6 @@ pub struct IBackgroundAudioTrackStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IEmbeddedAudioTrack, IEmbeddedAudioTrack_Vtbl, 0x55ee5a7a_2d30_3fba_a190_4f1a6454f88f);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IEmbeddedAudioTrack_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Media_MediaProperties")]
@@ -50,7 +47,6 @@ pub struct IEmbeddedAudioTrack_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMediaClip, IMediaClip_Vtbl, 0x53f25366_5fba_3ea4_8693_24761811140a);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaClip_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub TrimTimeFromStart: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
@@ -89,7 +85,6 @@ pub struct IMediaClip_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMediaClipStatics, IMediaClipStatics_Vtbl, 0xfa402b68_928f_43c4_bc6e_783a1a359656);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaClipStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "UI")]
@@ -107,7 +102,6 @@ pub struct IMediaClipStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMediaClipStatics2, IMediaClipStatics2_Vtbl, 0x5b1dd7b3_854e_4d9b_877d_4774a556cd12);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaClipStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
@@ -117,7 +111,6 @@ pub struct IMediaClipStatics2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMediaComposition, IMediaComposition_Vtbl, 0x2e06e605_dc71_41d6_b837_2d2bc14a2947);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaComposition_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Duration: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
@@ -177,7 +170,6 @@ pub struct IMediaComposition_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMediaComposition2, IMediaComposition2_Vtbl, 0xa59e5372_2366_492c_bec8_e6dfba6d0281);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaComposition2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -187,7 +179,6 @@ pub struct IMediaComposition2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMediaCompositionStatics, IMediaCompositionStatics_Vtbl, 0x87a08f04_e32a_45ce_8f66_a30df0766224);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaCompositionStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage")]
@@ -197,7 +188,6 @@ pub struct IMediaCompositionStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMediaOverlay, IMediaOverlay_Vtbl, 0xa902ae5d_7869_4830_8ab1_94dc01c05fa4);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaOverlay_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Position: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::Rect) -> ::windows_core::HRESULT,
@@ -213,7 +203,6 @@ pub struct IMediaOverlay_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMediaOverlayFactory, IMediaOverlayFactory_Vtbl, 0xb584828a_6188_4f8f_a2e0_aa552d598e18);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaOverlayFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -221,7 +210,6 @@ pub struct IMediaOverlayFactory_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMediaOverlayLayer, IMediaOverlayLayer_Vtbl, 0xa6d9ba57_eeda_46c6_bbe5_e398c84168ac);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaOverlayLayer_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Clone: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -236,7 +224,6 @@ pub struct IMediaOverlayLayer_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMediaOverlayLayerFactory, IMediaOverlayLayerFactory_Vtbl, 0x947cb473_a39e_4362_abbf_9f8b5070a062);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaOverlayLayerFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Media_Effects")]

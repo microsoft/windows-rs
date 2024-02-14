@@ -9,7 +9,6 @@ impl IDedupBackupSupport {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDedupBackupSupport_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub RestoreFiles: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut ::core::ffi::c_void, u32, *mut ::windows_core::HRESULT) -> ::windows_core::HRESULT,
@@ -35,7 +34,6 @@ impl IDedupChunkLibrary {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDedupChunkLibrary_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub InitializeForPushBuffers: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -100,7 +98,6 @@ impl IDedupDataPort {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDedupDataPort_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetStatus: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut DedupDataPortVolumeStatus, *mut u32) -> ::windows_core::HRESULT,
@@ -144,7 +141,6 @@ impl IDedupDataPortManager {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDedupDataPortManager_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetConfiguration: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32, *mut u32, *mut DedupChunkingAlgorithm, *mut DedupHashingAlgorithm, *mut DedupCompressionAlgorithm) -> ::windows_core::HRESULT,
@@ -168,7 +164,6 @@ impl IDedupIterateChunksHash32 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDedupIterateChunksHash32_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub PushBuffer: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const u8, u32) -> ::windows_core::HRESULT,
@@ -196,7 +191,6 @@ impl IDedupReadFileCallback {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDedupReadFileCallback_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub ReadBackupFile: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, i64, u32, *mut u8, *mut u32, u32) -> ::windows_core::HRESULT,

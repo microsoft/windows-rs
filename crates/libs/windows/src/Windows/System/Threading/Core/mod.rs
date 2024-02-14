@@ -1,13 +1,11 @@
 ::windows_core::imp::com_interface!(IPreallocatedWorkItem, IPreallocatedWorkItem_Vtbl, 0xb6daa9fc_bc5b_401a_a8b2_6e754d14daa6);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPreallocatedWorkItem_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub RunAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IPreallocatedWorkItemFactory, IPreallocatedWorkItemFactory_Vtbl, 0xe3d32b45_dfea_469b_82c5_f6e3cefdeafb);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPreallocatedWorkItemFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateWorkItem: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -16,7 +14,6 @@ pub struct IPreallocatedWorkItemFactory_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISignalNotifier, ISignalNotifier_Vtbl, 0x14285e06_63a7_4713_b6d9_62f64b56fb8b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISignalNotifier_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Enable: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -24,7 +21,6 @@ pub struct ISignalNotifier_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISignalNotifierStatics, ISignalNotifierStatics_Vtbl, 0x1c4e4566_8400_46d3_a115_7d0c0dfc9f62);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISignalNotifierStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub AttachToEvent: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -215,7 +211,6 @@ impl ::windows_core::RuntimeType for SignalHandler {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct SignalHandler_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, bool) -> ::windows_core::HRESULT,

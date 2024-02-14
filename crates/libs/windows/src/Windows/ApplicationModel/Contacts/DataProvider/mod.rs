@@ -1,6 +1,5 @@
 ::windows_core::imp::com_interface!(IContactDataProviderConnection, IContactDataProviderConnection_Vtbl, 0x1a398a52_8c9d_4d6f_a4e0_111e9a125a30);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IContactDataProviderConnection_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SyncRequested: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
@@ -11,7 +10,6 @@ pub struct IContactDataProviderConnection_Vtbl {
 }
 ::windows_core::imp::com_interface!(IContactDataProviderConnection2, IContactDataProviderConnection2_Vtbl, 0xa1d327b0_196c_4bfd_8f0f_c68d67f249d3);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IContactDataProviderConnection2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateOrUpdateContactRequested: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
@@ -21,14 +19,12 @@ pub struct IContactDataProviderConnection2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IContactDataProviderTriggerDetails, IContactDataProviderTriggerDetails_Vtbl, 0x527104be_3c62_43c8_9ae7_db531685cd99);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IContactDataProviderTriggerDetails_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Connection: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IContactListCreateOrUpdateContactRequest, IContactListCreateOrUpdateContactRequest_Vtbl, 0xb4af411f_c849_47d0_b119_91cf605b2f2a);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IContactListCreateOrUpdateContactRequest_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ContactListId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -38,7 +34,6 @@ pub struct IContactListCreateOrUpdateContactRequest_Vtbl {
 }
 ::windows_core::imp::com_interface!(IContactListCreateOrUpdateContactRequestEventArgs, IContactListCreateOrUpdateContactRequestEventArgs_Vtbl, 0x851c1690_1a51_4b0c_aeef_1240ac5bed75);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IContactListCreateOrUpdateContactRequestEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Request: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -46,7 +41,6 @@ pub struct IContactListCreateOrUpdateContactRequestEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IContactListDeleteContactRequest, IContactListDeleteContactRequest_Vtbl, 0x5e114687_ce03_4de5_8557_9ccf552d472a);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IContactListDeleteContactRequest_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ContactListId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -56,7 +50,6 @@ pub struct IContactListDeleteContactRequest_Vtbl {
 }
 ::windows_core::imp::com_interface!(IContactListDeleteContactRequestEventArgs, IContactListDeleteContactRequestEventArgs_Vtbl, 0xb22054a1_e8fa_4db5_9389_2d12ee7d15ee);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IContactListDeleteContactRequestEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Request: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -64,7 +57,6 @@ pub struct IContactListDeleteContactRequestEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IContactListServerSearchReadBatchRequest, IContactListServerSearchReadBatchRequest_Vtbl, 0xba776a97_4030_4925_9fb4_143b295e653b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IContactListServerSearchReadBatchRequest_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SessionId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -77,7 +69,6 @@ pub struct IContactListServerSearchReadBatchRequest_Vtbl {
 }
 ::windows_core::imp::com_interface!(IContactListServerSearchReadBatchRequestEventArgs, IContactListServerSearchReadBatchRequestEventArgs_Vtbl, 0x1a27e87b_69d7_4e4e_8042_861cba61471e);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IContactListServerSearchReadBatchRequestEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Request: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -85,7 +76,6 @@ pub struct IContactListServerSearchReadBatchRequestEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IContactListSyncManagerSyncRequest, IContactListSyncManagerSyncRequest_Vtbl, 0x3c0e57a4_c4e7_4970_9a8f_9a66a2bb6c1a);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IContactListSyncManagerSyncRequest_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ContactListId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -94,7 +84,6 @@ pub struct IContactListSyncManagerSyncRequest_Vtbl {
 }
 ::windows_core::imp::com_interface!(IContactListSyncManagerSyncRequestEventArgs, IContactListSyncManagerSyncRequestEventArgs_Vtbl, 0x158e4dac_446d_4f10_afc2_02683ec533a6);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IContactListSyncManagerSyncRequestEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Request: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,

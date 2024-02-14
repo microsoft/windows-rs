@@ -1,6 +1,5 @@
 ::windows_core::imp::com_interface!(IMediaTranscoder, IMediaTranscoder_Vtbl, 0x190c99d2_a0aa_4d34_86bc_eed1b12c2f5b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaTranscoder_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SetTrimStartTime: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
@@ -33,7 +32,6 @@ pub struct IMediaTranscoder_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMediaTranscoder2, IMediaTranscoder2_Vtbl, 0x40531d74_35e0_4f04_8574_ca8bc4e5a082);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaTranscoder2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(all(feature = "Media_Core", feature = "Media_MediaProperties", feature = "Storage_Streams"))]
@@ -45,7 +43,6 @@ pub struct IMediaTranscoder2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IPrepareTranscodeResult, IPrepareTranscodeResult_Vtbl, 0x05f25dce_994f_4a34_9d68_97ccce1730d6);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPrepareTranscodeResult_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CanTranscode: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,

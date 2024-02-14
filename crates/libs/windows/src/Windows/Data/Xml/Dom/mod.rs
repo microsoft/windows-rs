@@ -1,6 +1,5 @@
 ::windows_core::imp::com_interface!(IDtdEntity, IDtdEntity_Vtbl, 0x6a0b5ffc_63b4_480f_9e6a_8a92816aade4);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDtdEntity_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub PublicId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -9,7 +8,6 @@ pub struct IDtdEntity_Vtbl {
 }
 ::windows_core::imp::com_interface!(IDtdNotation, IDtdNotation_Vtbl, 0x8cb4e04d_6d46_4edb_ab73_df83c51ad397);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDtdNotation_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub PublicId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -17,7 +15,6 @@ pub struct IDtdNotation_Vtbl {
 }
 ::windows_core::imp::com_interface!(IXmlAttribute, IXmlAttribute_Vtbl, 0xac144aa4_b4f1_4db6_b206_8a22c308db0a);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IXmlAttribute_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Name: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -27,7 +24,6 @@ pub struct IXmlAttribute_Vtbl {
 }
 ::windows_core::imp::com_interface!(IXmlCDataSection, IXmlCDataSection_Vtbl, 0x4d04b46f_c8bd_45b4_8899_0400d7c2c60f);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IXmlCDataSection_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
 }
@@ -305,7 +301,6 @@ impl ::windows_core::RuntimeType for IXmlCharacterData {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IXmlCharacterData_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Data: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -319,13 +314,11 @@ pub struct IXmlCharacterData_Vtbl {
 }
 ::windows_core::imp::com_interface!(IXmlComment, IXmlComment_Vtbl, 0xbca474d5_b61f_4611_9cac_2e92e3476d47);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IXmlComment_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
 }
 ::windows_core::imp::com_interface!(IXmlDocument, IXmlDocument_Vtbl, 0xf7f3a506_1e87_42d6_bcfb_b8c809fa5494);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IXmlDocument_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Doctype: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -348,13 +341,11 @@ pub struct IXmlDocument_Vtbl {
 }
 ::windows_core::imp::com_interface!(IXmlDocumentFragment, IXmlDocumentFragment_Vtbl, 0xe2ea6a96_0c21_44a5_8bc9_9e4a262708ec);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IXmlDocumentFragment_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
 }
 ::windows_core::imp::com_interface!(IXmlDocumentIO, IXmlDocumentIO_Vtbl, 0x6cd0e74e_ee65_4489_9ebf_ca43e87ba637);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IXmlDocumentIO_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub LoadXml: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -366,7 +357,6 @@ pub struct IXmlDocumentIO_Vtbl {
 }
 ::windows_core::imp::com_interface!(IXmlDocumentIO2, IXmlDocumentIO2_Vtbl, 0x5d034661_7bd8_4ad5_9ebf_81e6347263b1);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IXmlDocumentIO2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -380,7 +370,6 @@ pub struct IXmlDocumentIO2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IXmlDocumentStatics, IXmlDocumentStatics_Vtbl, 0x5543d254_d757_4b79_9539_232b18f50bf1);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IXmlDocumentStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub LoadFromUriAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -396,7 +385,6 @@ pub struct IXmlDocumentStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IXmlDocumentType, IXmlDocumentType_Vtbl, 0xf7342425_9781_4964_8e94_9b1c6dfc9bc7);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IXmlDocumentType_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Name: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -405,14 +393,12 @@ pub struct IXmlDocumentType_Vtbl {
 }
 ::windows_core::imp::com_interface!(IXmlDomImplementation, IXmlDomImplementation_Vtbl, 0x6de58132_f11d_4fbb_8cc6_583cba93112f);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IXmlDomImplementation_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub HasFeature: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IXmlElement, IXmlElement_Vtbl, 0x2dfb8a1f_6b10_4ef8_9f83_efcce8faec37);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IXmlElement_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub TagName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -431,13 +417,11 @@ pub struct IXmlElement_Vtbl {
 }
 ::windows_core::imp::com_interface!(IXmlEntityReference, IXmlEntityReference_Vtbl, 0x2e2f47bc_c3d0_4ccf_bb86_0ab8c36a61cf);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IXmlEntityReference_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
 }
 ::windows_core::imp::com_interface!(IXmlLoadSettings, IXmlLoadSettings_Vtbl, 0x58aa07a8_fed6_46f7_b4c5_fb1ba72108d6);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IXmlLoadSettings_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub MaxElementDepth: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -453,7 +437,6 @@ pub struct IXmlLoadSettings_Vtbl {
 }
 ::windows_core::imp::com_interface!(IXmlNamedNodeMap, IXmlNamedNodeMap_Vtbl, 0xb3a69eb0_aab0_4b82_a6fa_b1453f7c021b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IXmlNamedNodeMap_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Length: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -698,7 +681,6 @@ impl ::windows_core::RuntimeType for IXmlNode {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IXmlNode_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub NodeValue: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -727,7 +709,6 @@ pub struct IXmlNode_Vtbl {
 }
 ::windows_core::imp::com_interface!(IXmlNodeList, IXmlNodeList_Vtbl, 0x8c60ad77_83a4_4ec1_9c54_7ba429e13da6);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IXmlNodeList_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Length: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -775,7 +756,6 @@ impl ::windows_core::RuntimeType for IXmlNodeSelector {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IXmlNodeSelector_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SelectSingleNode: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -809,7 +789,6 @@ impl ::windows_core::RuntimeType for IXmlNodeSerializer {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IXmlNodeSerializer_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetXml: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -818,7 +797,6 @@ pub struct IXmlNodeSerializer_Vtbl {
 }
 ::windows_core::imp::com_interface!(IXmlProcessingInstruction, IXmlProcessingInstruction_Vtbl, 0x2707fd1e_1e92_4ece_b6f4_26f069078ddc);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IXmlProcessingInstruction_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Target: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -1106,7 +1084,6 @@ impl ::windows_core::RuntimeType for IXmlText {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IXmlText_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SplitText: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,

@@ -1,6 +1,5 @@
 ::windows_core::imp::com_interface!(INamedPolicyData, INamedPolicyData_Vtbl, 0x38dcb198_95ac_4077_a643_8078cae26400);
 #[repr(C)]
-#[doc(hidden)]
 pub struct INamedPolicyData_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Area: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -25,7 +24,6 @@ pub struct INamedPolicyData_Vtbl {
 }
 ::windows_core::imp::com_interface!(INamedPolicyStatics, INamedPolicyStatics_Vtbl, 0x7f793be7_76c4_4058_8cad_67662cd05f0d);
 #[repr(C)]
-#[doc(hidden)]
 pub struct INamedPolicyStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetPolicyFromPath: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,

@@ -1,6 +1,5 @@
 ::windows_core::imp::com_interface!(IHdmiDisplayInformation, IHdmiDisplayInformation_Vtbl, 0x130b3c0a_f565_476e_abd5_ea05aee74c69);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IHdmiDisplayInformation_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -17,14 +16,12 @@ pub struct IHdmiDisplayInformation_Vtbl {
 }
 ::windows_core::imp::com_interface!(IHdmiDisplayInformationStatics, IHdmiDisplayInformationStatics_Vtbl, 0x6ce6b260_f42a_4a15_914c_7b8e2a5a65df);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IHdmiDisplayInformationStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetForCurrentView: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IHdmiDisplayMode, IHdmiDisplayMode_Vtbl, 0x0c06d5ad_1b90_4f51_9981_ef5a1c0ddf66);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IHdmiDisplayMode_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ResolutionWidthInRawPixels: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -41,7 +38,6 @@ pub struct IHdmiDisplayMode_Vtbl {
 }
 ::windows_core::imp::com_interface!(IHdmiDisplayMode2, IHdmiDisplayMode2_Vtbl, 0x07cd4e9f_4b3c_42b8_84e7_895368718af2);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IHdmiDisplayMode2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsDolbyVisionLowLatencySupported: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,

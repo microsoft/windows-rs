@@ -429,7 +429,6 @@ impl IWinHttpRequest {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWinHttpRequest_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub SetProxy: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, ::std::mem::MaybeUninit<::windows_core::VARIANT>, ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
@@ -476,7 +475,6 @@ impl IWinHttpRequestEvents {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWinHttpRequestEvents_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub OnResponseStart: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, ::std::mem::MaybeUninit<::windows_core::BSTR>),

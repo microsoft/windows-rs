@@ -4,7 +4,6 @@ pub mod Preview;
 pub mod Surfaces;
 ::windows_core::imp::com_interface!(ISpatialAnchor, ISpatialAnchor_Vtbl, 0x0529e5ce_1d34_3702_bcec_eabff578a869);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISpatialAnchor_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CoordinateSystem: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -14,14 +13,12 @@ pub struct ISpatialAnchor_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISpatialAnchor2, ISpatialAnchor2_Vtbl, 0xed17c908_a695_4cf6_92fd_97263ba71047);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISpatialAnchor2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub RemovedByUser: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ISpatialAnchorExportSufficiency, ISpatialAnchorExportSufficiency_Vtbl, 0x77c25b2b_3409_4088_b91b_fdfd05d1648f);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISpatialAnchorExportSufficiency_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsMinimallySufficient: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -30,7 +27,6 @@ pub struct ISpatialAnchorExportSufficiency_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISpatialAnchorExporter, ISpatialAnchorExporter_Vtbl, 0x9a2a4338_24fb_4269_89c5_88304aeef20f);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISpatialAnchorExporter_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetAnchorExportSufficiencyAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, SpatialAnchorExportPurpose, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -41,7 +37,6 @@ pub struct ISpatialAnchorExporter_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISpatialAnchorExporterStatics, ISpatialAnchorExporterStatics_Vtbl, 0xed2507b8_2475_439c_85ff_7fed341fdc88);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISpatialAnchorExporterStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetDefault: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -49,14 +44,12 @@ pub struct ISpatialAnchorExporterStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISpatialAnchorManagerStatics, ISpatialAnchorManagerStatics_Vtbl, 0x88e30eab_f3b7_420b_b086_8a80c07d910d);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISpatialAnchorManagerStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub RequestStoreAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ISpatialAnchorRawCoordinateSystemAdjustedEventArgs, ISpatialAnchorRawCoordinateSystemAdjustedEventArgs_Vtbl, 0xa1e81eb8_56c7_3117_a2e4_81e0fcf28e00);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISpatialAnchorRawCoordinateSystemAdjustedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Numerics")]
@@ -66,7 +59,6 @@ pub struct ISpatialAnchorRawCoordinateSystemAdjustedEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISpatialAnchorStatics, ISpatialAnchorStatics_Vtbl, 0xa9928642_0174_311c_ae79_0e5107669f16);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISpatialAnchorStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub TryCreateRelativeTo: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -81,7 +73,6 @@ pub struct ISpatialAnchorStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISpatialAnchorStore, ISpatialAnchorStore_Vtbl, 0xb0bc3636_486a_3cb0_9e6f_1245165c4db6);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISpatialAnchorStore_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -96,7 +87,6 @@ pub struct ISpatialAnchorStore_Vtbl {
 ::windows_core::imp::com_interface!(ISpatialAnchorTransferManagerStatics, ISpatialAnchorTransferManagerStatics_Vtbl, 0x03bbf9b9_12d8_4bce_8835_c5df3ac0adab);
 #[cfg(feature = "deprecated")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISpatialAnchorTransferManagerStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "deprecated"))]
@@ -114,13 +104,11 @@ pub struct ISpatialAnchorTransferManagerStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISpatialBoundingVolume, ISpatialBoundingVolume_Vtbl, 0xfb2065da_68c3_33df_b7af_4c787207999c);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISpatialBoundingVolume_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
 }
 ::windows_core::imp::com_interface!(ISpatialBoundingVolumeStatics, ISpatialBoundingVolumeStatics_Vtbl, 0x05889117_b3e1_36d8_b017_566181a5b196);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISpatialBoundingVolumeStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Numerics")]
@@ -142,7 +130,6 @@ pub struct ISpatialBoundingVolumeStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISpatialCoordinateSystem, ISpatialCoordinateSystem_Vtbl, 0x69ebca4b_60a3_3586_a653_59a7bd676d07);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISpatialCoordinateSystem_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Numerics")]
@@ -152,7 +139,6 @@ pub struct ISpatialCoordinateSystem_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISpatialEntity, ISpatialEntity_Vtbl, 0x166de955_e1eb_454c_ba08_e6c0668ddc65);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISpatialEntity_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Id: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -164,14 +150,12 @@ pub struct ISpatialEntity_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISpatialEntityAddedEventArgs, ISpatialEntityAddedEventArgs_Vtbl, 0xa397f49b_156a_4707_ac2c_d31d570ed399);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISpatialEntityAddedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Entity: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ISpatialEntityFactory, ISpatialEntityFactory_Vtbl, 0xe1f1e325_349f_4225_a2f3_4b01c15fe056);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISpatialEntityFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateWithSpatialAnchor: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -182,14 +166,12 @@ pub struct ISpatialEntityFactory_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISpatialEntityRemovedEventArgs, ISpatialEntityRemovedEventArgs_Vtbl, 0x91741800_536d_4e9f_abf6_415b5444d651);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISpatialEntityRemovedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Entity: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ISpatialEntityStore, ISpatialEntityStore_Vtbl, 0x329788ba_e513_4f06_889d_1be30ecf43e6);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISpatialEntityStore_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SaveAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -198,7 +180,6 @@ pub struct ISpatialEntityStore_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISpatialEntityStoreStatics, ISpatialEntityStoreStatics_Vtbl, 0x6b4b389e_7c50_4e92_8a62_4d1d4b7ccd3e);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISpatialEntityStoreStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsSupported: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -209,14 +190,12 @@ pub struct ISpatialEntityStoreStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISpatialEntityUpdatedEventArgs, ISpatialEntityUpdatedEventArgs_Vtbl, 0xe5671766_627b_43cb_a49f_b3be6d47deed);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISpatialEntityUpdatedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Entity: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ISpatialEntityWatcher, ISpatialEntityWatcher_Vtbl, 0xb3b85fa0_6d5e_4bbc_805d_5fe5b9ba1959);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISpatialEntityWatcher_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut SpatialEntityWatcherStatus) -> ::windows_core::HRESULT,
@@ -233,7 +212,6 @@ pub struct ISpatialEntityWatcher_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISpatialLocation, ISpatialLocation_Vtbl, 0x1d81d29d_24a1_37d5_8fa1_39b4f9ad67e2);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISpatialLocation_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Numerics")]
@@ -263,7 +241,6 @@ pub struct ISpatialLocation_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISpatialLocation2, ISpatialLocation2_Vtbl, 0x117f2416_38a7_4a18_b404_ab8fabe1d78b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISpatialLocation2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Numerics")]
@@ -277,7 +254,6 @@ pub struct ISpatialLocation2_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISpatialLocator, ISpatialLocator_Vtbl, 0xf6478925_9e0c_3bb6_997e_b64ecca24cf4);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISpatialLocator_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Locatability: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut SpatialLocatability) -> ::windows_core::HRESULT,
@@ -315,7 +291,6 @@ pub struct ISpatialLocator_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISpatialLocatorAttachedFrameOfReference, ISpatialLocatorAttachedFrameOfReference_Vtbl, 0xe1774ef6_1f4f_499c_9625_ef5e6ed7a048);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISpatialLocatorAttachedFrameOfReference_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Numerics")]
@@ -340,7 +315,6 @@ pub struct ISpatialLocatorAttachedFrameOfReference_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISpatialLocatorPositionalTrackingDeactivatingEventArgs, ISpatialLocatorPositionalTrackingDeactivatingEventArgs_Vtbl, 0xb8a84063_e3f4_368b_9061_9ea9d1d6cc16);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISpatialLocatorPositionalTrackingDeactivatingEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Canceled: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -348,14 +322,12 @@ pub struct ISpatialLocatorPositionalTrackingDeactivatingEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISpatialLocatorStatics, ISpatialLocatorStatics_Vtbl, 0xb76e3340_a7c2_361b_bb82_56e93b89b1bb);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISpatialLocatorStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetDefault: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ISpatialStageFrameOfReference, ISpatialStageFrameOfReference_Vtbl, 0x7a8a3464_ad0d_4590_ab86_33062b674926);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISpatialStageFrameOfReference_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CoordinateSystem: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -369,7 +341,6 @@ pub struct ISpatialStageFrameOfReference_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISpatialStageFrameOfReferenceStatics, ISpatialStageFrameOfReferenceStatics_Vtbl, 0xf78d5c4d_a0a4_499c_8d91_a8c965d40654);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISpatialStageFrameOfReferenceStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Current: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -379,7 +350,6 @@ pub struct ISpatialStageFrameOfReferenceStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISpatialStationaryFrameOfReference, ISpatialStationaryFrameOfReference_Vtbl, 0x09dbccb9_bcf8_3e7f_be7e_7edccbb178a8);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISpatialStationaryFrameOfReference_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CoordinateSystem: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,

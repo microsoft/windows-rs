@@ -1,6 +1,5 @@
 ::windows_core::imp::com_interface!(IRadio, IRadio_Vtbl, 0x252118df_b33e_416a_875f_1cf38ae2d83e);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRadio_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SetStateAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, RadioState, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -12,7 +11,6 @@ pub struct IRadio_Vtbl {
 }
 ::windows_core::imp::com_interface!(IRadioStatics, IRadioStatics_Vtbl, 0x5fb6a12e_67cb_46ae_aae9_65919f86eff4);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRadioStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]

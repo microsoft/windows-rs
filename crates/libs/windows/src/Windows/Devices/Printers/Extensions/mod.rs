@@ -1,6 +1,5 @@
 ::windows_core::imp::com_interface!(IPrint3DWorkflow, IPrint3DWorkflow_Vtbl, 0xc56f74bd_3669_4a66_ab42_c8151930cd34);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPrint3DWorkflow_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub DeviceID: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -12,7 +11,6 @@ pub struct IPrint3DWorkflow_Vtbl {
 }
 ::windows_core::imp::com_interface!(IPrint3DWorkflow2, IPrint3DWorkflow2_Vtbl, 0xa2a6c54f_8ac1_4918_9741_e34f3004239e);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPrint3DWorkflow2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub PrinterChanged: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
@@ -20,7 +18,6 @@ pub struct IPrint3DWorkflow2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IPrint3DWorkflowPrintRequestedEventArgs, IPrint3DWorkflowPrintRequestedEventArgs_Vtbl, 0x19f8c858_5ac8_4b55_8a5f_e61567dafb4d);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPrint3DWorkflowPrintRequestedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut Print3DWorkflowStatus) -> ::windows_core::HRESULT,
@@ -30,21 +27,18 @@ pub struct IPrint3DWorkflowPrintRequestedEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IPrint3DWorkflowPrinterChangedEventArgs, IPrint3DWorkflowPrinterChangedEventArgs_Vtbl, 0x45226402_95fc_4847_93b3_134dbf5c60f7);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPrint3DWorkflowPrinterChangedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub NewDeviceId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IPrintExtensionContextStatic, IPrintExtensionContextStatic_Vtbl, 0xe70d9fc1_ff79_4aa4_8c9b_0c93aedfde8a);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPrintExtensionContextStatic_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub FromDeviceId: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IPrintNotificationEventDetails, IPrintNotificationEventDetails_Vtbl, 0xe00e4c8a_4828_4da1_8bb8_8672df8515e7);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPrintNotificationEventDetails_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub PrinterName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -53,7 +47,6 @@ pub struct IPrintNotificationEventDetails_Vtbl {
 }
 ::windows_core::imp::com_interface!(IPrintTaskConfiguration, IPrintTaskConfiguration_Vtbl, 0xe3c22451_3aa4_4885_9240_311f5f8fbe9d);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPrintTaskConfiguration_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub PrinterExtensionContext: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -62,7 +55,6 @@ pub struct IPrintTaskConfiguration_Vtbl {
 }
 ::windows_core::imp::com_interface!(IPrintTaskConfigurationSaveRequest, IPrintTaskConfigurationSaveRequest_Vtbl, 0xeeaf2fcb_621e_4b62_ac77_b281cce08d60);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPrintTaskConfigurationSaveRequest_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Cancel: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -72,14 +64,12 @@ pub struct IPrintTaskConfigurationSaveRequest_Vtbl {
 }
 ::windows_core::imp::com_interface!(IPrintTaskConfigurationSaveRequestedDeferral, IPrintTaskConfigurationSaveRequestedDeferral_Vtbl, 0xe959d568_f729_44a4_871d_bd0628696a33);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPrintTaskConfigurationSaveRequestedDeferral_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Complete: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IPrintTaskConfigurationSaveRequestedEventArgs, IPrintTaskConfigurationSaveRequestedEventArgs_Vtbl, 0xe06c2879_0d61_4938_91d0_96a45bee8479);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPrintTaskConfigurationSaveRequestedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Request: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,

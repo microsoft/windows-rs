@@ -2,7 +2,6 @@
 pub mod Core;
 ::windows_core::imp::com_interface!(IDisplayMonitor, IDisplayMonitor_Vtbl, 0x1f6b15d4_1d01_4c51_87e2_6f954a772b59);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDisplayMonitor_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub DeviceId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -34,14 +33,12 @@ pub struct IDisplayMonitor_Vtbl {
 }
 ::windows_core::imp::com_interface!(IDisplayMonitor2, IDisplayMonitor2_Vtbl, 0x023018e6_cb23_5830_96df_a7bf6e602577);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDisplayMonitor2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsDolbyVisionSupportedInHdrMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDisplayMonitorStatics, IDisplayMonitorStatics_Vtbl, 0x6eae698f_a228_4c05_821d_b695d667de8e);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDisplayMonitorStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetDeviceSelector: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,

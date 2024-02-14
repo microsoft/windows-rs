@@ -1,6 +1,5 @@
 ::windows_core::imp::com_interface!(IControlChannelTrigger, IControlChannelTrigger_Vtbl, 0x7d1431a7_ee96_40e8_a199_8703cd969ec3);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IControlChannelTrigger_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ControlChannelTriggerId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -23,7 +22,6 @@ pub struct IControlChannelTrigger_Vtbl {
 }
 ::windows_core::imp::com_interface!(IControlChannelTrigger2, IControlChannelTrigger2_Vtbl, 0xaf00d237_51be_4514_9725_3556e1879580);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IControlChannelTrigger2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsWakeFromLowPowerSupported: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -43,14 +41,12 @@ impl ::windows_core::RuntimeType for IControlChannelTriggerEventDetails {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IControlChannelTriggerEventDetails_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ControlChannelTrigger: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IControlChannelTriggerFactory, IControlChannelTriggerFactory_Vtbl, 0xda4b7cf0_8d71_446f_88c3_b95184a2d6cd);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IControlChannelTriggerFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateControlChannelTrigger: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -85,7 +81,6 @@ impl ::windows_core::RuntimeType for IControlChannelTriggerResetEventDetails {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IControlChannelTriggerResetEventDetails_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ResetReason: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ControlChannelTriggerResetReason) -> ::windows_core::HRESULT,
@@ -94,7 +89,6 @@ pub struct IControlChannelTriggerResetEventDetails_Vtbl {
 }
 ::windows_core::imp::com_interface!(IDatagramSocket, IDatagramSocket_Vtbl, 0x7fe25bbb_c3bc_4677_8446_ca28a465a3af);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDatagramSocket_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Control: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -121,7 +115,6 @@ pub struct IDatagramSocket_Vtbl {
 }
 ::windows_core::imp::com_interface!(IDatagramSocket2, IDatagramSocket2_Vtbl, 0xd83ba354_9a9d_4185_a20a_1424c9c2a7cd);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDatagramSocket2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Networking_Connectivity")]
@@ -131,7 +124,6 @@ pub struct IDatagramSocket2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IDatagramSocket3, IDatagramSocket3_Vtbl, 0x37544f09_ab92_4306_9ac1_0c381283d9c6);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDatagramSocket3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CancelIOAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -143,7 +135,6 @@ pub struct IDatagramSocket3_Vtbl {
 }
 ::windows_core::imp::com_interface!(IDatagramSocketControl, IDatagramSocketControl_Vtbl, 0x52ac3f2e_349a_4135_bb58_b79b2647d390);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDatagramSocketControl_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub QualityOfService: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut SocketQualityOfService) -> ::windows_core::HRESULT,
@@ -153,7 +144,6 @@ pub struct IDatagramSocketControl_Vtbl {
 }
 ::windows_core::imp::com_interface!(IDatagramSocketControl2, IDatagramSocketControl2_Vtbl, 0x33ead5c2_979c_4415_82a1_3cfaf646c192);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDatagramSocketControl2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub InboundBufferSizeInBytes: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -163,7 +153,6 @@ pub struct IDatagramSocketControl2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IDatagramSocketControl3, IDatagramSocketControl3_Vtbl, 0xd4eb8256_1f6d_4598_9b57_d42a001df349);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDatagramSocketControl3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub MulticastOnly: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -171,7 +160,6 @@ pub struct IDatagramSocketControl3_Vtbl {
 }
 ::windows_core::imp::com_interface!(IDatagramSocketInformation, IDatagramSocketInformation_Vtbl, 0x5f1a569a_55fb_48cd_9706_7a974f7b1585);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDatagramSocketInformation_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub LocalAddress: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -181,7 +169,6 @@ pub struct IDatagramSocketInformation_Vtbl {
 }
 ::windows_core::imp::com_interface!(IDatagramSocketMessageReceivedEventArgs, IDatagramSocketMessageReceivedEventArgs_Vtbl, 0x9e2ddca2_1712_4ce4_b179_8c652c6d107e);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDatagramSocketMessageReceivedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub RemoteAddress: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -198,7 +185,6 @@ pub struct IDatagramSocketMessageReceivedEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IDatagramSocketStatics, IDatagramSocketStatics_Vtbl, 0xe9c62aee_1494_4a21_bb7e_8589fc751d9d);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDatagramSocketStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -212,7 +198,6 @@ pub struct IDatagramSocketStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMessageWebSocket, IMessageWebSocket_Vtbl, 0x33727d08_34d5_4746_ad7b_8dde5bc2ef88);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMessageWebSocket_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Control: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -222,7 +207,6 @@ pub struct IMessageWebSocket_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMessageWebSocket2, IMessageWebSocket2_Vtbl, 0xbed0cee7_f9c8_440a_9ad5_737281d9742e);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMessageWebSocket2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ServerCustomValidationRequested: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
@@ -230,7 +214,6 @@ pub struct IMessageWebSocket2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMessageWebSocket3, IMessageWebSocket3_Vtbl, 0x59d9defb_71af_4349_8487_911fcf681597);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMessageWebSocket3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -244,7 +227,6 @@ pub struct IMessageWebSocket3_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMessageWebSocketControl, IMessageWebSocketControl_Vtbl, 0x8118388a_c629_4f0a_80fb_81fc05538862);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMessageWebSocketControl_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub MaxMessageSize: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -254,7 +236,6 @@ pub struct IMessageWebSocketControl_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMessageWebSocketControl2, IMessageWebSocketControl2_Vtbl, 0xe30fd791_080c_400a_a712_27dfa9e744d8);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMessageWebSocketControl2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub DesiredUnsolicitedPongInterval: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
@@ -273,7 +254,6 @@ pub struct IMessageWebSocketControl2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMessageWebSocketMessageReceivedEventArgs, IMessageWebSocketMessageReceivedEventArgs_Vtbl, 0x478c22ac_4c4b_42ed_9ed7_1ef9f94fa3d5);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMessageWebSocketMessageReceivedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub MessageType: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut SocketMessageType) -> ::windows_core::HRESULT,
@@ -288,14 +268,12 @@ pub struct IMessageWebSocketMessageReceivedEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMessageWebSocketMessageReceivedEventArgs2, IMessageWebSocketMessageReceivedEventArgs2_Vtbl, 0x89ce06fd_dd6f_4a07_87f9_f9eb4d89d83d);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMessageWebSocketMessageReceivedEventArgs2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsMessageComplete: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IServerMessageWebSocket, IServerMessageWebSocket_Vtbl, 0xe3ac9240_813b_5efd_7e11_ae2305fc77f1);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IServerMessageWebSocket_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub MessageReceived: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
@@ -312,7 +290,6 @@ pub struct IServerMessageWebSocket_Vtbl {
 }
 ::windows_core::imp::com_interface!(IServerMessageWebSocketControl, IServerMessageWebSocketControl_Vtbl, 0x69c2f051_1c1f_587a_4519_2181610192b7);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IServerMessageWebSocketControl_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub MessageType: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut SocketMessageType) -> ::windows_core::HRESULT,
@@ -320,7 +297,6 @@ pub struct IServerMessageWebSocketControl_Vtbl {
 }
 ::windows_core::imp::com_interface!(IServerMessageWebSocketInformation, IServerMessageWebSocketInformation_Vtbl, 0xfc32b45f_4448_5505_6cc9_09afa8915f5d);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IServerMessageWebSocketInformation_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub BandwidthStatistics: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut BandwidthStatistics) -> ::windows_core::HRESULT,
@@ -329,7 +305,6 @@ pub struct IServerMessageWebSocketInformation_Vtbl {
 }
 ::windows_core::imp::com_interface!(IServerStreamWebSocket, IServerStreamWebSocket_Vtbl, 0x2ced5bbf_74f6_55e4_79df_9132680dfee8);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IServerStreamWebSocket_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Information: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -347,7 +322,6 @@ pub struct IServerStreamWebSocket_Vtbl {
 }
 ::windows_core::imp::com_interface!(IServerStreamWebSocketInformation, IServerStreamWebSocketInformation_Vtbl, 0xfc32b45f_4448_5505_6cc9_09aba8915f5d);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IServerStreamWebSocketInformation_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub BandwidthStatistics: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut BandwidthStatistics) -> ::windows_core::HRESULT,
@@ -356,7 +330,6 @@ pub struct IServerStreamWebSocketInformation_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISocketActivityContext, ISocketActivityContext_Vtbl, 0x43b04d64_4c85_4396_a637_1d973f6ebd49);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISocketActivityContext_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -366,7 +339,6 @@ pub struct ISocketActivityContext_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISocketActivityContextFactory, ISocketActivityContextFactory_Vtbl, 0xb99fc3c3_088c_4388_83ae_2525138e049a);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISocketActivityContextFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -376,7 +348,6 @@ pub struct ISocketActivityContextFactory_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISocketActivityInformation, ISocketActivityInformation_Vtbl, 0x8d8a42e4_a87e_4b74_9968_185b2511defe);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISocketActivityInformation_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub TaskId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
@@ -389,7 +360,6 @@ pub struct ISocketActivityInformation_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISocketActivityInformationStatics, ISocketActivityInformationStatics_Vtbl, 0x8570b47a_7e7d_4736_8041_1327a6543c56);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISocketActivityInformationStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -399,7 +369,6 @@ pub struct ISocketActivityInformationStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISocketActivityTriggerDetails, ISocketActivityTriggerDetails_Vtbl, 0x45f406a7_fc9f_4f81_acad_355fef51e67b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISocketActivityTriggerDetails_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Reason: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut SocketActivityTriggerReason) -> ::windows_core::HRESULT,
@@ -407,14 +376,12 @@ pub struct ISocketActivityTriggerDetails_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISocketErrorStatics, ISocketErrorStatics_Vtbl, 0x828337f4_7d56_4d8e_b7b4_a07dd7c1bca9);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISocketErrorStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetStatus: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, *mut SocketErrorStatus) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IStreamSocket, IStreamSocket_Vtbl, 0x69a22cf3_fc7b_4857_af38_f6e7de6a5b49);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IStreamSocket_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Control: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -435,7 +402,6 @@ pub struct IStreamSocket_Vtbl {
 }
 ::windows_core::imp::com_interface!(IStreamSocket2, IStreamSocket2_Vtbl, 0x29d0e575_f314_4d09_adf0_0fbd967fbd9f);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IStreamSocket2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Networking_Connectivity")]
@@ -445,7 +411,6 @@ pub struct IStreamSocket2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IStreamSocket3, IStreamSocket3_Vtbl, 0x3f430b00_9d28_4854_bac3_2301941ec223);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IStreamSocket3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CancelIOAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -457,7 +422,6 @@ pub struct IStreamSocket3_Vtbl {
 }
 ::windows_core::imp::com_interface!(IStreamSocketControl, IStreamSocketControl_Vtbl, 0xfe25adf1_92ab_4af3_9992_0f4c85e36cc4);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IStreamSocketControl_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub NoDelay: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -473,7 +437,6 @@ pub struct IStreamSocketControl_Vtbl {
 }
 ::windows_core::imp::com_interface!(IStreamSocketControl2, IStreamSocketControl2_Vtbl, 0xc2d09a56_060f_44c1_b8e2_1fbf60bd62c5);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IStreamSocketControl2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
@@ -483,7 +446,6 @@ pub struct IStreamSocketControl2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IStreamSocketControl3, IStreamSocketControl3_Vtbl, 0xc56a444c_4e74_403e_894c_b31cae5c7342);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IStreamSocketControl3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SerializeConnectionAttempts: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -499,7 +461,6 @@ pub struct IStreamSocketControl3_Vtbl {
 }
 ::windows_core::imp::com_interface!(IStreamSocketControl4, IStreamSocketControl4_Vtbl, 0x964e2b3d_ec27_4888_b3ce_c74b418423ad);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IStreamSocketControl4_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub MinProtectionLevel: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut SocketProtectionLevel) -> ::windows_core::HRESULT,
@@ -507,7 +468,6 @@ pub struct IStreamSocketControl4_Vtbl {
 }
 ::windows_core::imp::com_interface!(IStreamSocketInformation, IStreamSocketInformation_Vtbl, 0x3b80ae30_5e68_4205_88f0_dc85d2e25ded);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IStreamSocketInformation_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub LocalAddress: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -526,7 +486,6 @@ pub struct IStreamSocketInformation_Vtbl {
 }
 ::windows_core::imp::com_interface!(IStreamSocketInformation2, IStreamSocketInformation2_Vtbl, 0x12c28452_4bdc_4ee4_976a_cf130e9d92e3);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IStreamSocketInformation2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ServerCertificateErrorSeverity: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut SocketSslErrorSeverity) -> ::windows_core::HRESULT,
@@ -545,7 +504,6 @@ pub struct IStreamSocketInformation2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IStreamSocketListener, IStreamSocketListener_Vtbl, 0xff513437_df9f_4df0_bf82_0ec5d7b35aae);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IStreamSocketListener_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Control: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -557,7 +515,6 @@ pub struct IStreamSocketListener_Vtbl {
 }
 ::windows_core::imp::com_interface!(IStreamSocketListener2, IStreamSocketListener2_Vtbl, 0x658dc13e_bb3e_4458_b232_ed1088694b98);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IStreamSocketListener2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub BindServiceNameWithProtectionLevelAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, SocketProtectionLevel, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -568,7 +525,6 @@ pub struct IStreamSocketListener2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IStreamSocketListener3, IStreamSocketListener3_Vtbl, 0x4798201c_bdf8_4919_8542_28d450e74507);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IStreamSocketListener3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CancelIOAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -579,14 +535,12 @@ pub struct IStreamSocketListener3_Vtbl {
 }
 ::windows_core::imp::com_interface!(IStreamSocketListenerConnectionReceivedEventArgs, IStreamSocketListenerConnectionReceivedEventArgs_Vtbl, 0x0c472ea9_373f_447b_85b1_ddd4548803ba);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IStreamSocketListenerConnectionReceivedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Socket: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IStreamSocketListenerControl, IStreamSocketListenerControl_Vtbl, 0x20d8c576_8d8a_4dba_9722_a16c4d984980);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IStreamSocketListenerControl_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub QualityOfService: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut SocketQualityOfService) -> ::windows_core::HRESULT,
@@ -594,7 +548,6 @@ pub struct IStreamSocketListenerControl_Vtbl {
 }
 ::windows_core::imp::com_interface!(IStreamSocketListenerControl2, IStreamSocketListenerControl2_Vtbl, 0x948bb665_2c3e_404b_b8b0_8eb249a2b0a1);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IStreamSocketListenerControl2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub NoDelay: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -608,14 +561,12 @@ pub struct IStreamSocketListenerControl2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IStreamSocketListenerInformation, IStreamSocketListenerInformation_Vtbl, 0xe62ba82f_a63a_430b_bf62_29e93e5633b4);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IStreamSocketListenerInformation_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub LocalPort: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IStreamSocketStatics, IStreamSocketStatics_Vtbl, 0xa420bc4a_6e2e_4af5_b556_355ae0cd4f29);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IStreamSocketStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -629,7 +580,6 @@ pub struct IStreamSocketStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IStreamWebSocket, IStreamWebSocket_Vtbl, 0xbd4a49d8_b289_45bb_97eb_c7525205a843);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IStreamWebSocket_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Control: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -641,7 +591,6 @@ pub struct IStreamWebSocket_Vtbl {
 }
 ::windows_core::imp::com_interface!(IStreamWebSocket2, IStreamWebSocket2_Vtbl, 0xaa4d08cb_93f5_4678_8236_57cce5417ed5);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IStreamWebSocket2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ServerCustomValidationRequested: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
@@ -649,7 +598,6 @@ pub struct IStreamWebSocket2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IStreamWebSocketControl, IStreamWebSocketControl_Vtbl, 0xb4f478b1_a45a_48db_953a_645b7d964c07);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IStreamWebSocketControl_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub NoDelay: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -657,7 +605,6 @@ pub struct IStreamWebSocketControl_Vtbl {
 }
 ::windows_core::imp::com_interface!(IStreamWebSocketControl2, IStreamWebSocketControl2_Vtbl, 0x215d9f7e_fa58_40da_9f11_a48dafe95037);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IStreamWebSocketControl2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub DesiredUnsolicitedPongInterval: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
@@ -725,7 +672,6 @@ impl ::windows_core::RuntimeType for IWebSocket {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWebSocket_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -740,7 +686,6 @@ pub struct IWebSocket_Vtbl {
 }
 ::windows_core::imp::com_interface!(IWebSocketClosedEventArgs, IWebSocketClosedEventArgs_Vtbl, 0xceb78d07_d0a8_4703_a091_c8c2c0915bc3);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWebSocketClosedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Code: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u16) -> ::windows_core::HRESULT,
@@ -805,7 +750,6 @@ impl ::windows_core::RuntimeType for IWebSocketControl {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWebSocketControl_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub OutboundBufferSizeInBytes: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -899,7 +843,6 @@ impl ::windows_core::RuntimeType for IWebSocketControl2 {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWebSocketControl2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
@@ -909,7 +852,6 @@ pub struct IWebSocketControl2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IWebSocketErrorStatics, IWebSocketErrorStatics_Vtbl, 0x27cdf35b_1f61_4709_8e02_61283ada4e9d);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWebSocketErrorStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Web")]
@@ -946,7 +888,6 @@ impl ::windows_core::RuntimeType for IWebSocketInformation {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWebSocketInformation_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub LocalAddress: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1014,7 +955,6 @@ impl ::windows_core::RuntimeType for IWebSocketInformation2 {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWebSocketInformation2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Security_Cryptography_Certificates")]
@@ -1033,7 +973,6 @@ pub struct IWebSocketInformation2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IWebSocketServerCustomValidationRequestedEventArgs, IWebSocketServerCustomValidationRequestedEventArgs_Vtbl, 0xffeffe48_022a_4ab7_8b36_e10af4640e6b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWebSocketServerCustomValidationRequestedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Security_Cryptography_Certificates")]

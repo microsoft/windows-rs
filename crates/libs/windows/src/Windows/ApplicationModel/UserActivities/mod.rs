@@ -2,7 +2,6 @@
 pub mod Core;
 ::windows_core::imp::com_interface!(IUserActivity, IUserActivity_Vtbl, 0xfc103e9e_2cab_4d36_aea2_b4bb556cef0f);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUserActivity_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub State: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut UserActivityState) -> ::windows_core::HRESULT,
@@ -23,14 +22,12 @@ pub struct IUserActivity_Vtbl {
 }
 ::windows_core::imp::com_interface!(IUserActivity2, IUserActivity2_Vtbl, 0x9dc40c62_08c4_47ac_aa9c_2bb2221c55fd);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUserActivity2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ToJson: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IUserActivity3, IUserActivity3_Vtbl, 0xe7697744_e1a2_5147_8e06_55f1eeef271c);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUserActivity3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsRoamable: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -38,7 +35,6 @@ pub struct IUserActivity3_Vtbl {
 }
 ::windows_core::imp::com_interface!(IUserActivityAttribution, IUserActivityAttribution_Vtbl, 0x34a5c8b5_86dd_4aec_a491_6a4faea5d22e);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUserActivityAttribution_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IconUri: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -50,14 +46,12 @@ pub struct IUserActivityAttribution_Vtbl {
 }
 ::windows_core::imp::com_interface!(IUserActivityAttributionFactory, IUserActivityAttributionFactory_Vtbl, 0xe62bd252_c566_4f42_9974_916c4d76377e);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUserActivityAttributionFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateWithUri: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IUserActivityChannel, IUserActivityChannel_Vtbl, 0xbac0f8b8_a0e4_483b_b948_9cbabd06070c);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUserActivityChannel_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetOrCreateUserActivityAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -66,7 +60,6 @@ pub struct IUserActivityChannel_Vtbl {
 }
 ::windows_core::imp::com_interface!(IUserActivityChannel2, IUserActivityChannel2_Vtbl, 0x1698e35b_eb7e_4ea0_bf17_a459e8be706c);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUserActivityChannel2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -80,14 +73,12 @@ pub struct IUserActivityChannel2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IUserActivityChannelStatics, IUserActivityChannelStatics_Vtbl, 0xc8c005ab_198d_4d80_abb2_c9775ec4a729);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUserActivityChannelStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetDefault: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IUserActivityChannelStatics2, IUserActivityChannelStatics2_Vtbl, 0x8e87de30_aa4f_4624_9ad0_d40f3ba0317c);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUserActivityChannelStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub DisableAutoSessionCreation: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -98,7 +89,6 @@ pub struct IUserActivityChannelStatics2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IUserActivityChannelStatics3, IUserActivityChannelStatics3_Vtbl, 0x53bc4ddb_bbdf_5984_802a_5305874e205c);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUserActivityChannelStatics3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "System")]
@@ -121,35 +111,30 @@ impl ::windows_core::RuntimeType for IUserActivityContentInfo {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUserActivityContentInfo_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ToJson: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IUserActivityContentInfoStatics, IUserActivityContentInfoStatics_Vtbl, 0x9988c34b_0386_4bc9_968a_8200b004144f);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUserActivityContentInfoStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub FromJson: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IUserActivityFactory, IUserActivityFactory_Vtbl, 0x7c385758_361d_4a67_8a3b_34ca2978f9a3);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUserActivityFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateWithActivityId: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IUserActivityRequest, IUserActivityRequest_Vtbl, 0xa0ef6355_cf35_4ff0_8833_50cb4b72e06d);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUserActivityRequest_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SetUserActivity: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IUserActivityRequestManager, IUserActivityRequestManager_Vtbl, 0x0c30be4e_903d_48d6_82d4_4043ed57791b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUserActivityRequestManager_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub UserActivityRequested: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
@@ -157,14 +142,12 @@ pub struct IUserActivityRequestManager_Vtbl {
 }
 ::windows_core::imp::com_interface!(IUserActivityRequestManagerStatics, IUserActivityRequestManagerStatics_Vtbl, 0xc0392df1_224a_432c_81e5_0c76b4c4cefa);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUserActivityRequestManagerStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetForCurrentView: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IUserActivityRequestedEventArgs, IUserActivityRequestedEventArgs_Vtbl, 0xa4cc7a4c_8229_4cfd_a3bc_c61d318575a4);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUserActivityRequestedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Request: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -172,14 +155,12 @@ pub struct IUserActivityRequestedEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IUserActivitySession, IUserActivitySession_Vtbl, 0xae434d78_24fa_44a3_ad48_6eda61aa1924);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUserActivitySession_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ActivityId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IUserActivitySessionHistoryItem, IUserActivitySessionHistoryItem_Vtbl, 0xe8d59bd3_3e5d_49fd_98d7_6da97521e255);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUserActivitySessionHistoryItem_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub UserActivity: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -188,7 +169,6 @@ pub struct IUserActivitySessionHistoryItem_Vtbl {
 }
 ::windows_core::imp::com_interface!(IUserActivityStatics, IUserActivityStatics_Vtbl, 0x8c8fd333_0e09_47f6_9ac7_95cf5c39367b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUserActivityStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub TryParseFromJson: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -203,7 +183,6 @@ pub struct IUserActivityStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IUserActivityVisualElements, IUserActivityVisualElements_Vtbl, 0x94757513_262f_49ef_bbbf_9b75d2e85250);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUserActivityVisualElements_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub DisplayText: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -231,7 +210,6 @@ pub struct IUserActivityVisualElements_Vtbl {
 }
 ::windows_core::imp::com_interface!(IUserActivityVisualElements2, IUserActivityVisualElements2_Vtbl, 0xcaae7fc7_3eef_4359_825c_9d51b9220de3);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUserActivityVisualElements2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub AttributionDisplayText: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,

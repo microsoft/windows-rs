@@ -1,6 +1,5 @@
 ::windows_core::imp::com_interface!(ILicenseManagerStatics, ILicenseManagerStatics_Vtbl, 0xb5ac3ae0_da47_4f20_9a23_09182c9476ff);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ILicenseManagerStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -14,14 +13,12 @@ pub struct ILicenseManagerStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(ILicenseManagerStatics2, ILicenseManagerStatics2_Vtbl, 0xab2ec47b_1f79_4480_b87e_2c499e601ba3);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ILicenseManagerStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub RefreshLicensesAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, LicenseRefreshOption, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ILicenseSatisfactionInfo, ILicenseSatisfactionInfo_Vtbl, 0x3ccbb08f_db31_48d5_8384_fa17c81474e2);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ILicenseSatisfactionInfo_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SatisfiedByDevice: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -34,7 +31,6 @@ pub struct ILicenseSatisfactionInfo_Vtbl {
 }
 ::windows_core::imp::com_interface!(ILicenseSatisfactionResult, ILicenseSatisfactionResult_Vtbl, 0x3c674f73_3c87_4ee1_8201_f428359bd3af);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ILicenseSatisfactionResult_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]

@@ -4,7 +4,6 @@ pub mod Core;
 pub mod Frames;
 ::windows_core::imp::com_interface!(IAdvancedCapturedPhoto, IAdvancedCapturedPhoto_Vtbl, 0xf072728b_b292_4491_9d41_99807a550bbf);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAdvancedCapturedPhoto_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Frame: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -16,14 +15,12 @@ pub struct IAdvancedCapturedPhoto_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAdvancedCapturedPhoto2, IAdvancedCapturedPhoto2_Vtbl, 0x18cf6cd8_cffe_42d8_8104_017bb318f4a1);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAdvancedCapturedPhoto2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub FrameBoundsRelativeToReferencePhoto: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IAdvancedPhotoCapture, IAdvancedPhotoCapture_Vtbl, 0x83ffaafa_6667_44dc_973c_a6bce596aa0f);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAdvancedPhotoCapture_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CaptureAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -36,7 +33,6 @@ pub struct IAdvancedPhotoCapture_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppBroadcastBackgroundService, IAppBroadcastBackgroundService_Vtbl, 0xbad1e72a_fa94_46f9_95fc_d71511cda70b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppBroadcastBackgroundService_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SetPlugInState: unsafe extern "system" fn(*mut ::core::ffi::c_void, AppBroadcastPlugInState) -> ::windows_core::HRESULT,
@@ -56,7 +52,6 @@ pub struct IAppBroadcastBackgroundService_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppBroadcastBackgroundService2, IAppBroadcastBackgroundService2_Vtbl, 0xfc8ccbbf_5549_4b87_959f_23ca401fd473);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppBroadcastBackgroundService2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SetBroadcastTitle: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -73,7 +68,6 @@ pub struct IAppBroadcastBackgroundService2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppBroadcastBackgroundServiceSignInInfo, IAppBroadcastBackgroundServiceSignInInfo_Vtbl, 0x5e735275_88c8_4eca_89ba_4825985db880);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppBroadcastBackgroundServiceSignInInfo_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SignInState: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut AppBroadcastSignInState) -> ::windows_core::HRESULT,
@@ -92,7 +86,6 @@ pub struct IAppBroadcastBackgroundServiceSignInInfo_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppBroadcastBackgroundServiceSignInInfo2, IAppBroadcastBackgroundServiceSignInInfo2_Vtbl, 0x9104285c_62cf_4a3c_a7ee_aeb507404645);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppBroadcastBackgroundServiceSignInInfo2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub UserNameChanged: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
@@ -100,7 +93,6 @@ pub struct IAppBroadcastBackgroundServiceSignInInfo2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppBroadcastBackgroundServiceStreamInfo, IAppBroadcastBackgroundServiceStreamInfo_Vtbl, 0x31dc02bc_990a_4904_aa96_fe364381f136);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppBroadcastBackgroundServiceStreamInfo_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub StreamState: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut AppBroadcastStreamState) -> ::windows_core::HRESULT,
@@ -120,14 +112,12 @@ pub struct IAppBroadcastBackgroundServiceStreamInfo_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppBroadcastBackgroundServiceStreamInfo2, IAppBroadcastBackgroundServiceStreamInfo2_Vtbl, 0xbd1e9f6d_94dc_4fce_9541_a9f129596334);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppBroadcastBackgroundServiceStreamInfo2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ReportProblemWithStream: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IAppBroadcastCameraCaptureStateChangedEventArgs, IAppBroadcastCameraCaptureStateChangedEventArgs_Vtbl, 0x1e334cd0_b882_4b88_8692_05999aceb70f);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppBroadcastCameraCaptureStateChangedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub State: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut AppBroadcastCameraCaptureState) -> ::windows_core::HRESULT,
@@ -135,7 +125,6 @@ pub struct IAppBroadcastCameraCaptureStateChangedEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppBroadcastGlobalSettings, IAppBroadcastGlobalSettings_Vtbl, 0xb2cb27a5_70fc_4e17_80bd_6ba0fd3ff3a0);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppBroadcastGlobalSettings_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsBroadcastEnabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -165,7 +154,6 @@ pub struct IAppBroadcastGlobalSettings_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppBroadcastHeartbeatRequestedEventArgs, IAppBroadcastHeartbeatRequestedEventArgs_Vtbl, 0xcea54283_ee51_4dbf_9472_79a9ed4e2165);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppBroadcastHeartbeatRequestedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SetHandled: unsafe extern "system" fn(*mut ::core::ffi::c_void, bool) -> ::windows_core::HRESULT,
@@ -173,7 +161,6 @@ pub struct IAppBroadcastHeartbeatRequestedEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppBroadcastManagerStatics, IAppBroadcastManagerStatics_Vtbl, 0x364e018b_1e4e_411f_ab3e_92959844c156);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppBroadcastManagerStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetGlobalSettings: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -183,7 +170,6 @@ pub struct IAppBroadcastManagerStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppBroadcastMicrophoneCaptureStateChangedEventArgs, IAppBroadcastMicrophoneCaptureStateChangedEventArgs_Vtbl, 0xa86ad5e9_9440_4908_9d09_65b7e315d795);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppBroadcastMicrophoneCaptureStateChangedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub State: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut AppBroadcastMicrophoneCaptureState) -> ::windows_core::HRESULT,
@@ -191,7 +177,6 @@ pub struct IAppBroadcastMicrophoneCaptureStateChangedEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppBroadcastPlugIn, IAppBroadcastPlugIn_Vtbl, 0x520c1e66_6513_4574_ac54_23b79729615b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppBroadcastPlugIn_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub AppId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -204,7 +189,6 @@ pub struct IAppBroadcastPlugIn_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppBroadcastPlugInManager, IAppBroadcastPlugInManager_Vtbl, 0xe550d979_27a1_49a7_bbf4_d7a9e9d07668);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppBroadcastPlugInManager_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsBroadcastProviderAvailable: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -217,7 +201,6 @@ pub struct IAppBroadcastPlugInManager_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppBroadcastPlugInManagerStatics, IAppBroadcastPlugInManagerStatics_Vtbl, 0xf2645c20_5c76_4cdc_9364_82fe9eb6534d);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppBroadcastPlugInManagerStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetDefault: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -228,14 +211,12 @@ pub struct IAppBroadcastPlugInManagerStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppBroadcastPlugInStateChangedEventArgs, IAppBroadcastPlugInStateChangedEventArgs_Vtbl, 0x4881d0f2_abc5_4fc6_84b0_89370bb47212);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppBroadcastPlugInStateChangedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub PlugInState: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut AppBroadcastPlugInState) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IAppBroadcastPreview, IAppBroadcastPreview_Vtbl, 0x14b60f5a_6e4a_4b80_a14f_67ee77d153e7);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppBroadcastPreview_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub StopPreview: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -247,7 +228,6 @@ pub struct IAppBroadcastPreview_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppBroadcastPreviewStateChangedEventArgs, IAppBroadcastPreviewStateChangedEventArgs_Vtbl, 0x5a57f2de_8dea_4e86_90ad_03fc26b9653c);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppBroadcastPreviewStateChangedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub PreviewState: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut AppBroadcastPreviewState) -> ::windows_core::HRESULT,
@@ -255,7 +235,6 @@ pub struct IAppBroadcastPreviewStateChangedEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppBroadcastPreviewStreamReader, IAppBroadcastPreviewStreamReader_Vtbl, 0x92228d50_db3f_40a8_8cd4_f4e371ddab37);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppBroadcastPreviewStreamReader_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub VideoWidth: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -275,7 +254,6 @@ pub struct IAppBroadcastPreviewStreamReader_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppBroadcastPreviewStreamVideoFrame, IAppBroadcastPreviewStreamVideoFrame_Vtbl, 0x010fbea1_94fe_4499_b8c0_8d244279fb12);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppBroadcastPreviewStreamVideoFrame_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub VideoHeader: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -286,7 +264,6 @@ pub struct IAppBroadcastPreviewStreamVideoFrame_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppBroadcastPreviewStreamVideoHeader, IAppBroadcastPreviewStreamVideoHeader_Vtbl, 0x8bef6113_da84_4499_a7ab_87118cb4a157);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppBroadcastPreviewStreamVideoHeader_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub AbsoluteTimestamp: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::DateTime) -> ::windows_core::HRESULT,
@@ -296,7 +273,6 @@ pub struct IAppBroadcastPreviewStreamVideoHeader_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppBroadcastProviderSettings, IAppBroadcastProviderSettings_Vtbl, 0xc30bdf62_9948_458f_ad50_aa06ec03da08);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppBroadcastProviderSettings_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SetDefaultBroadcastTitle: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -316,7 +292,6 @@ pub struct IAppBroadcastProviderSettings_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppBroadcastServices, IAppBroadcastServices_Vtbl, 0x8660b4d6_969b_4e3c_ac3a_8b042ee4ee63);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppBroadcastServices_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CaptureTargetType: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut AppBroadcastCaptureTargetType) -> ::windows_core::HRESULT,
@@ -337,7 +312,6 @@ pub struct IAppBroadcastServices_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppBroadcastSignInStateChangedEventArgs, IAppBroadcastSignInStateChangedEventArgs_Vtbl, 0x02b692a4_5919_4a9e_8d5e_c9bb0dd3377a);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppBroadcastSignInStateChangedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SignInState: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut AppBroadcastSignInState) -> ::windows_core::HRESULT,
@@ -345,7 +319,6 @@ pub struct IAppBroadcastSignInStateChangedEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppBroadcastState, IAppBroadcastState_Vtbl, 0xee08056d_8099_4ddd_922e_c56dac58abfb);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppBroadcastState_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsCaptureTargetRunning: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -392,7 +365,6 @@ pub struct IAppBroadcastState_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppBroadcastStreamAudioFrame, IAppBroadcastStreamAudioFrame_Vtbl, 0xefab4ac8_21ba_453f_8bb7_5e938a2e9a74);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppBroadcastStreamAudioFrame_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub AudioHeader: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -403,7 +375,6 @@ pub struct IAppBroadcastStreamAudioFrame_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppBroadcastStreamAudioHeader, IAppBroadcastStreamAudioHeader_Vtbl, 0xbf21a570_6b78_4216_9f07_5aff5256f1b7);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppBroadcastStreamAudioHeader_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub AbsoluteTimestamp: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::DateTime) -> ::windows_core::HRESULT,
@@ -414,7 +385,6 @@ pub struct IAppBroadcastStreamAudioHeader_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppBroadcastStreamReader, IAppBroadcastStreamReader_Vtbl, 0xb338bcf9_3364_4460_b5f1_3cc2796a8aa2);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppBroadcastStreamReader_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub AudioChannels: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -436,14 +406,12 @@ pub struct IAppBroadcastStreamReader_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppBroadcastStreamStateChangedEventArgs, IAppBroadcastStreamStateChangedEventArgs_Vtbl, 0x5108a733_d008_4a89_93be_58aed961374e);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppBroadcastStreamStateChangedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub StreamState: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut AppBroadcastStreamState) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IAppBroadcastStreamVideoFrame, IAppBroadcastStreamVideoFrame_Vtbl, 0x0f97cf2b_c9e4_4e88_8194_d814cbd585d8);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppBroadcastStreamVideoFrame_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub VideoHeader: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -454,7 +422,6 @@ pub struct IAppBroadcastStreamVideoFrame_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppBroadcastStreamVideoHeader, IAppBroadcastStreamVideoHeader_Vtbl, 0x0b9ebece_7e32_432d_8ca2_36bf10b9f462);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppBroadcastStreamVideoHeader_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub AbsoluteTimestamp: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::DateTime) -> ::windows_core::HRESULT,
@@ -466,21 +433,18 @@ pub struct IAppBroadcastStreamVideoHeader_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppBroadcastTriggerDetails, IAppBroadcastTriggerDetails_Vtbl, 0xdeebab35_ec5e_4d8f_b1c0_5da6e8c75638);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppBroadcastTriggerDetails_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub BackgroundService: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IAppBroadcastViewerCountChangedEventArgs, IAppBroadcastViewerCountChangedEventArgs_Vtbl, 0xe6e11825_5401_4ade_8bd2_c14ecee6807d);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppBroadcastViewerCountChangedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ViewerCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IAppCapture, IAppCapture_Vtbl, 0x9749d453_a29a_45ed_8f29_22d09942cff7);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppCapture_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsCapturingAudio: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -490,7 +454,6 @@ pub struct IAppCapture_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppCaptureAlternateShortcutKeys, IAppCaptureAlternateShortcutKeys_Vtbl, 0x19e8e0ef_236c_40f9_b38f_9b7dd65d1ccc);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppCaptureAlternateShortcutKeys_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "System")]
@@ -576,7 +539,6 @@ pub struct IAppCaptureAlternateShortcutKeys_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppCaptureAlternateShortcutKeys2, IAppCaptureAlternateShortcutKeys2_Vtbl, 0xc3669090_dd17_47f0_95e5_ce42286cf338);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppCaptureAlternateShortcutKeys2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "System")]
@@ -598,7 +560,6 @@ pub struct IAppCaptureAlternateShortcutKeys2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppCaptureAlternateShortcutKeys3, IAppCaptureAlternateShortcutKeys3_Vtbl, 0x7b81448c_418e_469c_a49a_45b597c826b6);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppCaptureAlternateShortcutKeys3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "System")]
@@ -636,14 +597,12 @@ pub struct IAppCaptureAlternateShortcutKeys3_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppCaptureDurationGeneratedEventArgs, IAppCaptureDurationGeneratedEventArgs_Vtbl, 0xc1f5563b_ffa1_44c9_975f_27fbeb553b35);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppCaptureDurationGeneratedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Duration: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IAppCaptureFileGeneratedEventArgs, IAppCaptureFileGeneratedEventArgs_Vtbl, 0x4189fbf4_465e_45bf_907f_165b3fb23758);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppCaptureFileGeneratedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage")]
@@ -653,7 +612,6 @@ pub struct IAppCaptureFileGeneratedEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppCaptureManagerStatics, IAppCaptureManagerStatics_Vtbl, 0x7d9e3ea7_6282_4735_8d4e_aa45f90f6723);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppCaptureManagerStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetCurrentSettings: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -661,7 +619,6 @@ pub struct IAppCaptureManagerStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppCaptureMetadataWriter, IAppCaptureMetadataWriter_Vtbl, 0xe0ce4877_9aaf_46b4_ad31_6a60b441c780);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppCaptureMetadataWriter_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub AddStringEvent: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, ::std::mem::MaybeUninit<::windows_core::HSTRING>, AppCaptureMetadataPriority) -> ::windows_core::HRESULT,
@@ -678,7 +635,6 @@ pub struct IAppCaptureMetadataWriter_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppCaptureMicrophoneCaptureStateChangedEventArgs, IAppCaptureMicrophoneCaptureStateChangedEventArgs_Vtbl, 0x324d249e_45bc_4c35_bc35_e469fc7a69e0);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppCaptureMicrophoneCaptureStateChangedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub State: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut AppCaptureMicrophoneCaptureState) -> ::windows_core::HRESULT,
@@ -686,7 +642,6 @@ pub struct IAppCaptureMicrophoneCaptureStateChangedEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppCaptureRecordOperation, IAppCaptureRecordOperation_Vtbl, 0xc66020a9_1538_495c_9bbb_2ba870ec5861);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppCaptureRecordOperation_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub StopRecording: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -707,7 +662,6 @@ pub struct IAppCaptureRecordOperation_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppCaptureRecordingStateChangedEventArgs, IAppCaptureRecordingStateChangedEventArgs_Vtbl, 0x24fc8712_e305_490d_b415_6b1c9049736b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppCaptureRecordingStateChangedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub State: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut AppCaptureRecordingState) -> ::windows_core::HRESULT,
@@ -715,7 +669,6 @@ pub struct IAppCaptureRecordingStateChangedEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppCaptureServices, IAppCaptureServices_Vtbl, 0x44fec0b5_34f5_4f18_ae8c_b9123abbfc0d);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppCaptureServices_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Record: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -725,7 +678,6 @@ pub struct IAppCaptureServices_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppCaptureSettings, IAppCaptureSettings_Vtbl, 0x14683a86_8807_48d3_883a_970ee4532a39);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppCaptureSettings_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage")]
@@ -779,7 +731,6 @@ pub struct IAppCaptureSettings_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppCaptureSettings2, IAppCaptureSettings2_Vtbl, 0xfcb8cee7_e26b_476f_9b1a_ec342d2a8fde);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppCaptureSettings2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsGpuConstrained: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -787,7 +738,6 @@ pub struct IAppCaptureSettings2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppCaptureSettings3, IAppCaptureSettings3_Vtbl, 0xa93502fe_88c2_42d6_aaaa_40feffd75aec);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppCaptureSettings3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SetIsMicrophoneCaptureEnabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, bool) -> ::windows_core::HRESULT,
@@ -795,7 +745,6 @@ pub struct IAppCaptureSettings3_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppCaptureSettings4, IAppCaptureSettings4_Vtbl, 0x07c2774c_1a81_482f_a244_049d95f25b0b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppCaptureSettings4_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SetIsMicrophoneCaptureEnabledByDefault: unsafe extern "system" fn(*mut ::core::ffi::c_void, bool) -> ::windows_core::HRESULT,
@@ -809,7 +758,6 @@ pub struct IAppCaptureSettings4_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppCaptureSettings5, IAppCaptureSettings5_Vtbl, 0x18894522_b0e8_4ba0_8f13_3eaa5fa4013b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppCaptureSettings5_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SetIsEchoCancellationEnabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, bool) -> ::windows_core::HRESULT,
@@ -819,7 +767,6 @@ pub struct IAppCaptureSettings5_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppCaptureState, IAppCaptureState_Vtbl, 0x73134372_d4eb_44ce_9538_465f506ac4ea);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppCaptureState_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsTargetRunning: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -836,21 +783,18 @@ pub struct IAppCaptureState_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppCaptureStatics, IAppCaptureStatics_Vtbl, 0xf922dd6c_0a7e_4e74_8b20_9c1f902d08a1);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppCaptureStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetForCurrentView: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IAppCaptureStatics2, IAppCaptureStatics2_Vtbl, 0xb2d881d4_836c_4da4_afd7_facc041e1cf3);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppCaptureStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SetAllowedAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, bool, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ICameraCaptureUI, ICameraCaptureUI_Vtbl, 0x48587540_6f93_4bb4_b8f3_e89e48948c91);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICameraCaptureUI_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub PhotoSettings: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -862,7 +806,6 @@ pub struct ICameraCaptureUI_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICameraCaptureUIPhotoCaptureSettings, ICameraCaptureUIPhotoCaptureSettings_Vtbl, 0xb9f5be97_3472_46a8_8a9e_04ce42ccc97d);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICameraCaptureUIPhotoCaptureSettings_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Format: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut CameraCaptureUIPhotoFormat) -> ::windows_core::HRESULT,
@@ -878,7 +821,6 @@ pub struct ICameraCaptureUIPhotoCaptureSettings_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICameraCaptureUIVideoCaptureSettings, ICameraCaptureUIVideoCaptureSettings_Vtbl, 0x64e92d1f_a28d_425a_b84f_e568335ff24e);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICameraCaptureUIVideoCaptureSettings_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Format: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut CameraCaptureUIVideoFormat) -> ::windows_core::HRESULT,
@@ -892,14 +834,12 @@ pub struct ICameraCaptureUIVideoCaptureSettings_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICameraOptionsUIStatics, ICameraOptionsUIStatics_Vtbl, 0x3b0d5e34_3906_4b7d_946c_7bde844499ae);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICameraOptionsUIStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Show: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ICapturedFrame, ICapturedFrame_Vtbl, 0x1dd2de1f_571b_44d8_8e80_a08a1578766e);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICapturedFrame_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Width: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -907,7 +847,6 @@ pub struct ICapturedFrame_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICapturedFrame2, ICapturedFrame2_Vtbl, 0x543fa6d1_bd78_4866_adda_24314bc65dea);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICapturedFrame2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ControlValues: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -918,7 +857,6 @@ pub struct ICapturedFrame2_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICapturedFrameControlValues, ICapturedFrameControlValues_Vtbl, 0x90c65b7f_4e0d_4ca4_882d_7a144fed0a90);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICapturedFrameControlValues_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Exposure: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -936,7 +874,6 @@ pub struct ICapturedFrameControlValues_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICapturedFrameControlValues2, ICapturedFrameControlValues2_Vtbl, 0x500b2b88_06d2_4aa7_a7db_d37af73321d8);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICapturedFrameControlValues2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Media_Devices")]
@@ -953,7 +890,6 @@ pub struct ICapturedFrameControlValues2_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICapturedFrameWithSoftwareBitmap, ICapturedFrameWithSoftwareBitmap_Vtbl, 0xb58e8b6e_8503_49b5_9e86_897d26a3ff3d);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICapturedFrameWithSoftwareBitmap_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Graphics_Imaging")]
@@ -963,7 +899,6 @@ pub struct ICapturedFrameWithSoftwareBitmap_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICapturedPhoto, ICapturedPhoto_Vtbl, 0xb0ce7e5a_cfcc_4d6c_8ad1_0869208aca16);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICapturedPhoto_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Frame: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -971,7 +906,6 @@ pub struct ICapturedPhoto_Vtbl {
 }
 ::windows_core::imp::com_interface!(IGameBarServices, IGameBarServices_Vtbl, 0x2dbead57_50a6_499e_8c6c_d330a7311796);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IGameBarServices_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub TargetCapturePolicy: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut GameBarTargetCapturePolicy) -> ::windows_core::HRESULT,
@@ -986,7 +920,6 @@ pub struct IGameBarServices_Vtbl {
 }
 ::windows_core::imp::com_interface!(IGameBarServicesCommandEventArgs, IGameBarServicesCommandEventArgs_Vtbl, 0xa74226b2_f176_4fcf_8fbb_cf698b2eb8e0);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IGameBarServicesCommandEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Command: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut GameBarCommand) -> ::windows_core::HRESULT,
@@ -994,7 +927,6 @@ pub struct IGameBarServicesCommandEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IGameBarServicesManager, IGameBarServicesManager_Vtbl, 0x3a4b9cfa_7f8b_4c60_9dbb_0bcd262dffc6);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IGameBarServicesManager_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GameBarServicesCreated: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
@@ -1002,21 +934,18 @@ pub struct IGameBarServicesManager_Vtbl {
 }
 ::windows_core::imp::com_interface!(IGameBarServicesManagerGameBarServicesCreatedEventArgs, IGameBarServicesManagerGameBarServicesCreatedEventArgs_Vtbl, 0xededbd9c_143e_49a3_a5ea_0b1995c8d46e);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IGameBarServicesManagerGameBarServicesCreatedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GameBarServices: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IGameBarServicesManagerStatics, IGameBarServicesManagerStatics_Vtbl, 0x34c1b616_ff25_4792_98f2_d3753f15ac13);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IGameBarServicesManagerStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetDefault: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IGameBarServicesTargetInfo, IGameBarServicesTargetInfo_Vtbl, 0xb4202f92_1611_4e05_b6ef_dfd737ae33b0);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IGameBarServicesTargetInfo_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub DisplayName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -1026,7 +955,6 @@ pub struct IGameBarServicesTargetInfo_Vtbl {
 }
 ::windows_core::imp::com_interface!(ILowLagMediaRecording, ILowLagMediaRecording_Vtbl, 0x41c8baf7_ff3f_49f0_a477_f195e3ce5108);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ILowLagMediaRecording_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub StartAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1035,7 +963,6 @@ pub struct ILowLagMediaRecording_Vtbl {
 }
 ::windows_core::imp::com_interface!(ILowLagMediaRecording2, ILowLagMediaRecording2_Vtbl, 0x6369c758_5644_41e2_97af_8ef56a25e225);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ILowLagMediaRecording2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Media_Devices")]
@@ -1046,7 +973,6 @@ pub struct ILowLagMediaRecording2_Vtbl {
 }
 ::windows_core::imp::com_interface!(ILowLagMediaRecording3, ILowLagMediaRecording3_Vtbl, 0x5c33ab12_48f7_47da_b41e_90880a5fe0ec);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ILowLagMediaRecording3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Media_Devices")]
@@ -1057,7 +983,6 @@ pub struct ILowLagMediaRecording3_Vtbl {
 }
 ::windows_core::imp::com_interface!(ILowLagPhotoCapture, ILowLagPhotoCapture_Vtbl, 0xa37251b7_6b44_473d_8f24_f703d6c0ec44);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ILowLagPhotoCapture_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CaptureAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1065,7 +990,6 @@ pub struct ILowLagPhotoCapture_Vtbl {
 }
 ::windows_core::imp::com_interface!(ILowLagPhotoSequenceCapture, ILowLagPhotoSequenceCapture_Vtbl, 0x7cc346bb_b9a9_4c91_8ffa_287e9c668669);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ILowLagPhotoSequenceCapture_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub StartAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1076,7 +1000,6 @@ pub struct ILowLagPhotoSequenceCapture_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMediaCapture, IMediaCapture_Vtbl, 0xc61afbb4_fb10_4a34_ac18_ca80d9c8e7ee);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaCapture_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub InitializeAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1135,7 +1058,6 @@ pub struct IMediaCapture_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMediaCapture2, IMediaCapture2_Vtbl, 0x9cc68260_7da1_4043_b652_21b8878daff9);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaCapture2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(all(feature = "Media_MediaProperties", feature = "Storage"))]
@@ -1169,7 +1091,6 @@ pub struct IMediaCapture2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMediaCapture3, IMediaCapture3_Vtbl, 0xd4136f30_1564_466e_bc0a_af94e02ab016);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaCapture3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(all(feature = "Media_Capture_Core", feature = "Media_MediaProperties"))]
@@ -1183,7 +1104,6 @@ pub struct IMediaCapture3_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMediaCapture4, IMediaCapture4_Vtbl, 0xbacd6fd6_fb08_4947_aea2_ce14eff0ce13);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaCapture4_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Media_Effects")]
@@ -1217,7 +1137,6 @@ pub struct IMediaCapture4_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMediaCapture5, IMediaCapture5_Vtbl, 0xda787c22_3a9b_4720_a71e_97900a316e5a);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaCapture5_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub RemoveEffectAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1245,7 +1164,6 @@ pub struct IMediaCapture5_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMediaCapture6, IMediaCapture6_Vtbl, 0x228948bd_4b20_4bb1_9fd6_a583212a1012);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaCapture6_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CaptureDeviceExclusiveControlStatusChanged: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
@@ -1257,7 +1175,6 @@ pub struct IMediaCapture6_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMediaCapture7, IMediaCapture7_Vtbl, 0x9169f102_8888_541a_95bc_24e4d462542a);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaCapture7_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "UI_WindowManagement")]
@@ -1267,7 +1184,6 @@ pub struct IMediaCapture7_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMediaCaptureDeviceExclusiveControlStatusChangedEventArgs, IMediaCaptureDeviceExclusiveControlStatusChangedEventArgs_Vtbl, 0x9d2f920d_a588_43c6_89d6_5ad322af006a);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaCaptureDeviceExclusiveControlStatusChangedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub DeviceId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -1275,7 +1191,6 @@ pub struct IMediaCaptureDeviceExclusiveControlStatusChangedEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMediaCaptureFailedEventArgs, IMediaCaptureFailedEventArgs_Vtbl, 0x80fde3f4_54c4_42c0_8d19_cea1a87ca18b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaCaptureFailedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Message: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -1283,7 +1198,6 @@ pub struct IMediaCaptureFailedEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMediaCaptureFocusChangedEventArgs, IMediaCaptureFocusChangedEventArgs_Vtbl, 0x81e1bc7f_2277_493e_abee_d3f44ff98c04);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaCaptureFocusChangedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Media_Devices")]
@@ -1293,7 +1207,6 @@ pub struct IMediaCaptureFocusChangedEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMediaCaptureInitializationSettings, IMediaCaptureInitializationSettings_Vtbl, 0x9782ba70_ea65_4900_9356_8ca887726884);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaCaptureInitializationSettings_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SetAudioDeviceId: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -1307,7 +1220,6 @@ pub struct IMediaCaptureInitializationSettings_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMediaCaptureInitializationSettings2, IMediaCaptureInitializationSettings2_Vtbl, 0x404e0626_c9dc_43e9_aee4_e6bf1b57b44c);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaCaptureInitializationSettings2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SetMediaCategory: unsafe extern "system" fn(*mut ::core::ffi::c_void, MediaCategory) -> ::windows_core::HRESULT,
@@ -1317,7 +1229,6 @@ pub struct IMediaCaptureInitializationSettings2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMediaCaptureInitializationSettings3, IMediaCaptureInitializationSettings3_Vtbl, 0x4160519d_be48_4730_8104_0cf6e9e97948);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaCaptureInitializationSettings3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Media_Core")]
@@ -1339,7 +1250,6 @@ pub struct IMediaCaptureInitializationSettings3_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMediaCaptureInitializationSettings4, IMediaCaptureInitializationSettings4_Vtbl, 0xf502a537_4cb7_4d28_95ed_4f9f012e0518);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaCaptureInitializationSettings4_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub VideoProfile: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1353,7 +1263,6 @@ pub struct IMediaCaptureInitializationSettings4_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMediaCaptureInitializationSettings5, IMediaCaptureInitializationSettings5_Vtbl, 0xd5a2e3b8_2626_4e94_b7b3_5308a0f64b1a);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaCaptureInitializationSettings5_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Media_Capture_Frames")]
@@ -1371,7 +1280,6 @@ pub struct IMediaCaptureInitializationSettings5_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMediaCaptureInitializationSettings6, IMediaCaptureInitializationSettings6_Vtbl, 0xb2e26b47_3db1_4d33_ab63_0ffa09056585);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaCaptureInitializationSettings6_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub AlwaysPlaySystemShutterSound: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -1379,7 +1287,6 @@ pub struct IMediaCaptureInitializationSettings6_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMediaCaptureInitializationSettings7, IMediaCaptureInitializationSettings7_Vtbl, 0x41546967_f58a_5d82_9ef4_ed572fb5e34e);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaCaptureInitializationSettings7_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Security_Credentials")]
@@ -1395,7 +1302,6 @@ pub struct IMediaCaptureInitializationSettings7_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMediaCapturePauseResult, IMediaCapturePauseResult_Vtbl, 0xaec47ca3_4477_4b04_a06f_2c1c5182fe9d);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaCapturePauseResult_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub LastFrame: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1403,7 +1309,6 @@ pub struct IMediaCapturePauseResult_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMediaCaptureRelativePanelWatcher, IMediaCaptureRelativePanelWatcher_Vtbl, 0x7d896566_04be_5b89_b30e_bd34a9f12db0);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaCaptureRelativePanelWatcher_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Devices_Enumeration")]
@@ -1417,7 +1322,6 @@ pub struct IMediaCaptureRelativePanelWatcher_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMediaCaptureSettings, IMediaCaptureSettings_Vtbl, 0x1d83aafe_6d45_4477_8dc4_ac5bc01c4091);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaCaptureSettings_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub AudioDeviceId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -1428,7 +1332,6 @@ pub struct IMediaCaptureSettings_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMediaCaptureSettings2, IMediaCaptureSettings2_Vtbl, 0x6f9e7cfb_fa9f_4b13_9cbe_5ab94f1f3493);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaCaptureSettings2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ConcurrentRecordAndPhotoSupported: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -1442,7 +1345,6 @@ pub struct IMediaCaptureSettings2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMediaCaptureSettings3, IMediaCaptureSettings3_Vtbl, 0x303c67c2_8058_4b1b_b877_8c2ef3528440);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaCaptureSettings3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
@@ -1452,7 +1354,6 @@ pub struct IMediaCaptureSettings3_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMediaCaptureStatics, IMediaCaptureStatics_Vtbl, 0xacef81ff_99ed_4645_965e_1925cfc63834);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaCaptureStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsVideoProfileSupported: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut bool) -> ::windows_core::HRESULT,
@@ -1471,7 +1372,6 @@ pub struct IMediaCaptureStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMediaCaptureStopResult, IMediaCaptureStopResult_Vtbl, 0xf9db6a2a_a092_4ad1_97d4_f201f9d082db);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaCaptureStopResult_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub LastFrame: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1479,7 +1379,6 @@ pub struct IMediaCaptureStopResult_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMediaCaptureVideoPreview, IMediaCaptureVideoPreview_Vtbl, 0x27727073_549e_447f_a20a_4f03c479d8c0);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaCaptureVideoPreview_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub StartPreviewAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1495,7 +1394,6 @@ pub struct IMediaCaptureVideoPreview_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMediaCaptureVideoProfile, IMediaCaptureVideoProfile_Vtbl, 0x21a073bf_a3ee_4ecf_9ef6_50b0bc4e1305);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaCaptureVideoProfile_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Id: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -1519,7 +1417,6 @@ pub struct IMediaCaptureVideoProfile_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMediaCaptureVideoProfile2, IMediaCaptureVideoProfile2_Vtbl, 0x97ddc95f_94ce_468f_9316_fc5bc2638f6b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaCaptureVideoProfile2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Capture_Frames"))]
@@ -1533,7 +1430,6 @@ pub struct IMediaCaptureVideoProfile2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMediaCaptureVideoProfileMediaDescription, IMediaCaptureVideoProfileMediaDescription_Vtbl, 0x8012afef_b691_49ff_83f2_c1e76eaaea1b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaCaptureVideoProfileMediaDescription_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Width: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -1550,7 +1446,6 @@ pub struct IMediaCaptureVideoProfileMediaDescription_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMediaCaptureVideoProfileMediaDescription2, IMediaCaptureVideoProfileMediaDescription2_Vtbl, 0xc6a6ef13_322d_413a_b85a_68a88e02f4e9);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaCaptureVideoProfileMediaDescription2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Subtype: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -1561,7 +1456,6 @@ pub struct IMediaCaptureVideoProfileMediaDescription2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IOptionalReferencePhotoCapturedEventArgs, IOptionalReferencePhotoCapturedEventArgs_Vtbl, 0x470f88b3_1e6d_4051_9c8b_f1d85af047b7);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IOptionalReferencePhotoCapturedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Frame: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1569,7 +1463,6 @@ pub struct IOptionalReferencePhotoCapturedEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IPhotoCapturedEventArgs, IPhotoCapturedEventArgs_Vtbl, 0x373bfbc1_984e_4ff0_bf85_1c00aabc5a45);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPhotoCapturedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Frame: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1578,7 +1471,6 @@ pub struct IPhotoCapturedEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IPhotoConfirmationCapturedEventArgs, IPhotoConfirmationCapturedEventArgs_Vtbl, 0xab473672_c28a_4827_8f8d_3636d3beb51e);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPhotoConfirmationCapturedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Frame: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1586,7 +1478,6 @@ pub struct IPhotoConfirmationCapturedEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IScreenCapture, IScreenCapture_Vtbl, 0x89179ef7_cd12_4e0e_a6d4_5b3de98b2e9b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IScreenCapture_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Media_Core")]
@@ -1604,14 +1495,12 @@ pub struct IScreenCapture_Vtbl {
 }
 ::windows_core::imp::com_interface!(IScreenCaptureStatics, IScreenCaptureStatics_Vtbl, 0xc898c3b0_c8a5_11e2_8b8b_0800200c9a66);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IScreenCaptureStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetForCurrentView: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ISourceSuspensionChangedEventArgs, ISourceSuspensionChangedEventArgs_Vtbl, 0x2ece7b5e_d49b_4394_bc32_f97d6cedec1c);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISourceSuspensionChangedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsAudioSuspended: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -1619,7 +1508,6 @@ pub struct ISourceSuspensionChangedEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IVideoStreamConfiguration, IVideoStreamConfiguration_Vtbl, 0xd8770a6f_4390_4b5e_ad3e_0f8af0963490);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVideoStreamConfiguration_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Media_MediaProperties")]
@@ -8162,7 +8050,6 @@ impl ::windows_core::RuntimeType for MediaCaptureFailedEventHandler {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct MediaCaptureFailedEventHandler_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -8226,7 +8113,6 @@ impl ::windows_core::RuntimeType for RecordLimitationExceededEventHandler {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct RecordLimitationExceededEventHandler_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
