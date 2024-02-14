@@ -54,10 +54,7 @@ fn set_error_info() -> Result<()> {
 fn suppressed_error_info() -> Result<()> {
     unsafe { RoSetErrorReportingFlags(RO_ERROR_REPORTING_SUPPRESSSETERRORINFO.0 as u32)? };
 
-    assert_eq!(
-        Error::new(E_FAIL, "message").message(),
-        "Unspecified error"
-    );
+    assert_eq!(Error::new(E_FAIL, "message").message(), "Unspecified error");
 
     unsafe { RoSetErrorReportingFlags(RO_ERROR_REPORTING_USESETERRORINFO.0 as u32)? };
 
