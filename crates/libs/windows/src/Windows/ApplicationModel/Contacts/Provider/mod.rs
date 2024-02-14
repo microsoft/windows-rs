@@ -1,6 +1,5 @@
 ::windows_core::imp::com_interface!(IContactPickerUI, IContactPickerUI_Vtbl, 0xe2cc1366_cf66_43c4_a96a_a5a112db4746);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IContactPickerUI_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "deprecated")]
@@ -19,7 +18,6 @@ pub struct IContactPickerUI_Vtbl {
 }
 ::windows_core::imp::com_interface!(IContactPickerUI2, IContactPickerUI2_Vtbl, 0x6e449e28_7b25_4999_9b0b_875400a1e8c8);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IContactPickerUI2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub AddContact: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut AddContactResult) -> ::windows_core::HRESULT,
@@ -30,7 +28,6 @@ pub struct IContactPickerUI2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IContactRemovedEventArgs, IContactRemovedEventArgs_Vtbl, 0x6f354338_3302_4d13_ad8d_adcc0ff9e47c);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IContactRemovedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Id: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,

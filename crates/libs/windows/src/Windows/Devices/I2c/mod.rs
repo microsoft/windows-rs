@@ -2,7 +2,6 @@
 pub mod Provider;
 ::windows_core::imp::com_interface!(II2cConnectionSettings, II2cConnectionSettings_Vtbl, 0xf2db1307_ab6f_4639_a767_54536dc3460f);
 #[repr(C)]
-#[doc(hidden)]
 pub struct II2cConnectionSettings_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SlaveAddress: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
@@ -14,21 +13,18 @@ pub struct II2cConnectionSettings_Vtbl {
 }
 ::windows_core::imp::com_interface!(II2cConnectionSettingsFactory, II2cConnectionSettingsFactory_Vtbl, 0x81b586b3_9693_41b1_a243_ded4f6e66926);
 #[repr(C)]
-#[doc(hidden)]
 pub struct II2cConnectionSettingsFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(II2cController, II2cController_Vtbl, 0xc48ab1b2_87a0_4166_8e3e_b4b8f97cd729);
 #[repr(C)]
-#[doc(hidden)]
 pub struct II2cController_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetDevice: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(II2cControllerStatics, II2cControllerStatics_Vtbl, 0x40fc0365_5f05_4e7e_84bd_100db8e0aec5);
 #[repr(C)]
-#[doc(hidden)]
 pub struct II2cControllerStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(all(feature = "Devices_I2c_Provider", feature = "Foundation_Collections"))]
@@ -39,7 +35,6 @@ pub struct II2cControllerStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(II2cDevice, II2cDevice_Vtbl, 0x8636c136_b9c5_4f70_9449_cc46dc6f57eb);
 #[repr(C)]
-#[doc(hidden)]
 pub struct II2cDevice_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub DeviceId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -83,7 +78,6 @@ impl ::windows_core::RuntimeType for II2cDeviceStatics {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct II2cDeviceStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetDeviceSelector: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,

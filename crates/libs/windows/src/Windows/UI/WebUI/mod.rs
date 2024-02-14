@@ -2,7 +2,6 @@
 pub mod Core;
 ::windows_core::imp::com_interface!(IActivatedDeferral, IActivatedDeferral_Vtbl, 0xc3bd1978_a431_49d8_a76a_395a4e03dcf3);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IActivatedDeferral_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Complete: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -22,21 +21,18 @@ impl ::windows_core::RuntimeType for IActivatedEventArgsDeferral {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IActivatedEventArgsDeferral_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ActivatedOperation: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IActivatedOperation, IActivatedOperation_Vtbl, 0xb6a0b4bc_c6ca_42fd_9818_71904e45fed7);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IActivatedOperation_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetDeferral: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IHtmlPrintDocumentSource, IHtmlPrintDocumentSource_Vtbl, 0xcea6469a_0e05_467a_abc9_36ec1d4cdcb6);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IHtmlPrintDocumentSource_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Content: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut PrintContent) -> ::windows_core::HRESULT,
@@ -60,7 +56,6 @@ pub struct IHtmlPrintDocumentSource_Vtbl {
 }
 ::windows_core::imp::com_interface!(INewWebUIViewCreatedEventArgs, INewWebUIViewCreatedEventArgs_Vtbl, 0xe8e1b216_be2b_4c9e_85e7_083143ec4be7);
 #[repr(C)]
-#[doc(hidden)]
 pub struct INewWebUIViewCreatedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub WebUIView: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -73,7 +68,6 @@ pub struct INewWebUIViewCreatedEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IWebUIActivationStatics, IWebUIActivationStatics_Vtbl, 0x351b86bd_43b3_482b_85db_35d87b517ad9);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWebUIActivationStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -93,7 +87,6 @@ pub struct IWebUIActivationStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IWebUIActivationStatics2, IWebUIActivationStatics2_Vtbl, 0xc8e88696_4d78_4aa4_8f06_2a9eadc6c40a);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWebUIActivationStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "ApplicationModel")]
@@ -110,7 +103,6 @@ pub struct IWebUIActivationStatics2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IWebUIActivationStatics3, IWebUIActivationStatics3_Vtbl, 0x91abb686_1af5_4445_b49f_9459f40fc8de);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWebUIActivationStatics3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "ApplicationModel_Core")]
@@ -124,7 +116,6 @@ pub struct IWebUIActivationStatics3_Vtbl {
 }
 ::windows_core::imp::com_interface!(IWebUIActivationStatics4, IWebUIActivationStatics4_Vtbl, 0x5e391429_183f_478d_8a25_67f80d03935b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWebUIActivationStatics4_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub NewWebUIViewCreated: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
@@ -154,7 +145,6 @@ impl ::windows_core::RuntimeType for IWebUIBackgroundTaskInstance {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWebUIBackgroundTaskInstance_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Succeeded: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -162,14 +152,12 @@ pub struct IWebUIBackgroundTaskInstance_Vtbl {
 }
 ::windows_core::imp::com_interface!(IWebUIBackgroundTaskInstanceStatics, IWebUIBackgroundTaskInstanceStatics_Vtbl, 0x9c7a5291_19ae_4ca3_b94b_fe4ec744a740);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWebUIBackgroundTaskInstanceStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Current: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWebUINavigatedDeferral, IWebUINavigatedDeferral_Vtbl, 0xd804204d_831f_46e2_b432_3afce211f962);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWebUINavigatedDeferral_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Complete: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -189,21 +177,18 @@ impl ::windows_core::RuntimeType for IWebUINavigatedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWebUINavigatedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub NavigatedOperation: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWebUINavigatedOperation, IWebUINavigatedOperation_Vtbl, 0x7a965f08_8182_4a89_ab67_8492e8750d4b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWebUINavigatedOperation_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetDeferral: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWebUIView, IWebUIView_Vtbl, 0x6783f64f_52da_4fd7_be69_8ef6284b423c);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWebUIView_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ApplicationViewId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
@@ -219,7 +204,6 @@ pub struct IWebUIView_Vtbl {
 }
 ::windows_core::imp::com_interface!(IWebUIViewStatics, IWebUIViewStatics_Vtbl, 0xb591e668_8e59_44f9_8803_1b24c9149d30);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWebUIViewStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -5165,7 +5149,6 @@ impl ::windows_core::RuntimeType for ActivatedEventHandler {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct ActivatedEventHandler_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -5240,7 +5223,6 @@ impl ::windows_core::RuntimeType for BackgroundActivatedEventHandler {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct BackgroundActivatedEventHandler_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -5315,7 +5297,6 @@ impl ::windows_core::RuntimeType for EnteredBackgroundEventHandler {
 }
 #[cfg(feature = "ApplicationModel")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct EnteredBackgroundEventHandler_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "ApplicationModel")]
@@ -5390,7 +5371,6 @@ impl ::windows_core::RuntimeType for LeavingBackgroundEventHandler {
 }
 #[cfg(feature = "ApplicationModel")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct LeavingBackgroundEventHandler_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "ApplicationModel")]
@@ -5458,7 +5438,6 @@ impl ::windows_core::RuntimeType for NavigatedEventHandler {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct NavigatedEventHandler_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -5522,7 +5501,6 @@ impl ::windows_core::RuntimeType for ResumingEventHandler {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ResumingEventHandler_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -5594,7 +5572,6 @@ impl ::windows_core::RuntimeType for SuspendingEventHandler {
 }
 #[cfg(feature = "ApplicationModel")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct SuspendingEventHandler_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "ApplicationModel")]

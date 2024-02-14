@@ -1,6 +1,5 @@
 ::windows_core::imp::com_interface!(IApiInformationStatics, IApiInformationStatics_Vtbl, 0x997439fe_f681_4a11_b416_c13a47e8ba36);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IApiInformationStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsTypePresent: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut bool) -> ::windows_core::HRESULT,

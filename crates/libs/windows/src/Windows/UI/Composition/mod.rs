@@ -12,7 +12,6 @@ pub mod Interactions;
 pub mod Scenes;
 ::windows_core::imp::com_interface!(IAmbientLight, IAmbientLight_Vtbl, 0xa48130a1_b7c4_46f7_b9bf_daf43a44e6ee);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAmbientLight_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Color: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::Color) -> ::windows_core::HRESULT,
@@ -20,7 +19,6 @@ pub struct IAmbientLight_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAmbientLight2, IAmbientLight2_Vtbl, 0x3b64a6bf_5f97_4c94_86e5_042dd386b27d);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAmbientLight2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Intensity: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f32) -> ::windows_core::HRESULT,
@@ -28,7 +26,6 @@ pub struct IAmbientLight2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAnimationController, IAnimationController_Vtbl, 0xc934efd2_0722_4f5f_a4e2_9510f3d43bf7);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAnimationController_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub PlaybackRate: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f32) -> ::windows_core::HRESULT,
@@ -42,7 +39,6 @@ pub struct IAnimationController_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAnimationControllerStatics, IAnimationControllerStatics_Vtbl, 0xe71164df_651b_4800_b9e5_6a3bcfed3365);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAnimationControllerStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub MaxPlaybackRate: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f32) -> ::windows_core::HRESULT,
@@ -63,14 +59,12 @@ impl ::windows_core::RuntimeType for IAnimationObject {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAnimationObject_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub PopulatePropertyInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IAnimationPropertyInfo, IAnimationPropertyInfo_Vtbl, 0xf4716f05_ed77_4e3c_b328_5c3985b3738f);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAnimationPropertyInfo_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub AccessMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut AnimationPropertyAccessMode) -> ::windows_core::HRESULT,
@@ -78,7 +72,6 @@ pub struct IAnimationPropertyInfo_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAnimationPropertyInfo2, IAnimationPropertyInfo2_Vtbl, 0x591720b4_7472_5218_8b39_dffe615ae6da);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAnimationPropertyInfo2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetResolvedCompositionObject: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -86,7 +79,6 @@ pub struct IAnimationPropertyInfo2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IBackEasingFunction, IBackEasingFunction_Vtbl, 0xb8560da4_5e3c_545d_b263_7987a2bd27cb);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBackEasingFunction_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Mode: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut CompositionEasingFunctionMode) -> ::windows_core::HRESULT,
@@ -94,14 +86,12 @@ pub struct IBackEasingFunction_Vtbl {
 }
 ::windows_core::imp::com_interface!(IBooleanKeyFrameAnimation, IBooleanKeyFrameAnimation_Vtbl, 0x95e23a08_d1f4_4972_9770_3efe68d82e14);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBooleanKeyFrameAnimation_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub InsertKeyFrame: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32, bool) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IBounceEasingFunction, IBounceEasingFunction_Vtbl, 0xe7fdb44b_aad5_5174_9421_eef8b75a6a43);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBounceEasingFunction_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Mode: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut CompositionEasingFunctionMode) -> ::windows_core::HRESULT,
@@ -110,7 +100,6 @@ pub struct IBounceEasingFunction_Vtbl {
 }
 ::windows_core::imp::com_interface!(IBounceScalarNaturalMotionAnimation, IBounceScalarNaturalMotionAnimation_Vtbl, 0xbaa30dcc_a633_4618_9b06_7f7c72c87cff);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBounceScalarNaturalMotionAnimation_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Acceleration: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f32) -> ::windows_core::HRESULT,
@@ -120,7 +109,6 @@ pub struct IBounceScalarNaturalMotionAnimation_Vtbl {
 }
 ::windows_core::imp::com_interface!(IBounceVector2NaturalMotionAnimation, IBounceVector2NaturalMotionAnimation_Vtbl, 0xda344196_2154_4b3c_88aa_47361204eccd);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBounceVector2NaturalMotionAnimation_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Acceleration: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f32) -> ::windows_core::HRESULT,
@@ -130,7 +118,6 @@ pub struct IBounceVector2NaturalMotionAnimation_Vtbl {
 }
 ::windows_core::imp::com_interface!(IBounceVector3NaturalMotionAnimation, IBounceVector3NaturalMotionAnimation_Vtbl, 0x47dabc31_10d3_4518_86f1_09caf742d113);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBounceVector3NaturalMotionAnimation_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Acceleration: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f32) -> ::windows_core::HRESULT,
@@ -140,14 +127,12 @@ pub struct IBounceVector3NaturalMotionAnimation_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICircleEasingFunction, ICircleEasingFunction_Vtbl, 0x1e07222a_6f82_5a28_8748_2e92fc46ee2b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICircleEasingFunction_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Mode: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut CompositionEasingFunctionMode) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IColorKeyFrameAnimation, IColorKeyFrameAnimation_Vtbl, 0x93adb5e9_8e05_4593_84a3_dca152781e56);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IColorKeyFrameAnimation_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub InterpolationColorSpace: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut CompositionColorSpace) -> ::windows_core::HRESULT,
@@ -157,7 +142,6 @@ pub struct IColorKeyFrameAnimation_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICompositionAnimation, ICompositionAnimation_Vtbl, 0x464c4c2c_1caa_4061_9b40_e13fde1503ca);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositionAnimation_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ClearAllParameters: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -192,7 +176,6 @@ pub struct ICompositionAnimation_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICompositionAnimation2, ICompositionAnimation2_Vtbl, 0x369b603e_a80f_4948_93e3_ed23fb38c6cb);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositionAnimation2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SetBooleanParameter: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, bool) -> ::windows_core::HRESULT,
@@ -201,7 +184,6 @@ pub struct ICompositionAnimation2_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICompositionAnimation3, ICompositionAnimation3_Vtbl, 0xd51e030d_7da4_4bd7_bc2d_f4517529f43a);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositionAnimation3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -211,7 +193,6 @@ pub struct ICompositionAnimation3_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICompositionAnimation4, ICompositionAnimation4_Vtbl, 0x770137be_76bc_4e23_bfed_fe9cc20f6ec9);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositionAnimation4_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SetExpressionReferenceParameter: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -223,19 +204,16 @@ impl ::windows_core::RuntimeType for ICompositionAnimationBase {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositionAnimationBase_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
 }
 ::windows_core::imp::com_interface!(ICompositionAnimationFactory, ICompositionAnimationFactory_Vtbl, 0x10f6c4fb_6e51_4c25_bbd3_586a9bec3ef4);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositionAnimationFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
 }
 ::windows_core::imp::com_interface!(ICompositionAnimationGroup, ICompositionAnimationGroup_Vtbl, 0x5e7cc90c_cd14_4e07_8a55_c72527aabdac);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositionAnimationGroup_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Count: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
@@ -245,31 +223,26 @@ pub struct ICompositionAnimationGroup_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICompositionBackdropBrush, ICompositionBackdropBrush_Vtbl, 0xc5acae58_3898_499e_8d7f_224e91286a5d);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositionBackdropBrush_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
 }
 ::windows_core::imp::com_interface!(ICompositionBatchCompletedEventArgs, ICompositionBatchCompletedEventArgs_Vtbl, 0x0d00dad0_9464_450a_a562_2e2698b0a812);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositionBatchCompletedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
 }
 ::windows_core::imp::com_interface!(ICompositionBrush, ICompositionBrush_Vtbl, 0xab0d7608_30c0_40e9_b568_b60a6bd1fb46);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositionBrush_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
 }
 ::windows_core::imp::com_interface!(ICompositionBrushFactory, ICompositionBrushFactory_Vtbl, 0xda53fb4c_4650_47c4_ad76_765379607ed6);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositionBrushFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
 }
 ::windows_core::imp::com_interface!(ICompositionCapabilities, ICompositionCapabilities_Vtbl, 0x8253353e_b517_48bc_b1e8_4b3561a2e181);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositionCapabilities_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub AreEffectsSupported: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -279,20 +252,17 @@ pub struct ICompositionCapabilities_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICompositionCapabilitiesStatics, ICompositionCapabilitiesStatics_Vtbl, 0xf7b7a86e_6416_49e5_8ddf_afe949e20562);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositionCapabilitiesStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetForCurrentView: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ICompositionClip, ICompositionClip_Vtbl, 0x1ccd2a52_cfc7_4ace_9983_146bb8eb6a3c);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositionClip_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
 }
 ::windows_core::imp::com_interface!(ICompositionClip2, ICompositionClip2_Vtbl, 0x5893e069_3516_40e1_89e0_5ba924927235);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositionClip2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Numerics")]
@@ -342,13 +312,11 @@ pub struct ICompositionClip2_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICompositionClipFactory, ICompositionClipFactory_Vtbl, 0xb9484caf_20c7_4aed_ac4a_9c78ba1302cf);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositionClipFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
 }
 ::windows_core::imp::com_interface!(ICompositionColorBrush, ICompositionColorBrush_Vtbl, 0x2b264c5e_bf35_4831_8642_cf70c20fff2f);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositionColorBrush_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Color: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::Color) -> ::windows_core::HRESULT,
@@ -356,7 +324,6 @@ pub struct ICompositionColorBrush_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICompositionColorGradientStop, ICompositionColorGradientStop_Vtbl, 0x6f00ca92_c801_4e41_9a8f_a53e20f57778);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositionColorGradientStop_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Color: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::Color) -> ::windows_core::HRESULT,
@@ -366,13 +333,11 @@ pub struct ICompositionColorGradientStop_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICompositionColorGradientStopCollection, ICompositionColorGradientStopCollection_Vtbl, 0x9f1d20ec_7b04_4b1d_90bc_9fa32c0cfd26);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositionColorGradientStopCollection_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
 }
 ::windows_core::imp::com_interface!(ICompositionCommitBatch, ICompositionCommitBatch_Vtbl, 0x0d00dad0_ca07_4400_8c8e_cb5db08559cc);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositionCommitBatch_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsActive: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -382,7 +347,6 @@ pub struct ICompositionCommitBatch_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICompositionContainerShape, ICompositionContainerShape_Vtbl, 0x4f5e859b_2e5b_44a8_982c_aa0f69c16059);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositionContainerShape_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -392,7 +356,6 @@ pub struct ICompositionContainerShape_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICompositionDrawingSurface, ICompositionDrawingSurface_Vtbl, 0xa166c300_fad0_4d11_9e67_e433162ff49e);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositionDrawingSurface_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Graphics_DirectX")]
@@ -407,7 +370,6 @@ pub struct ICompositionDrawingSurface_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICompositionDrawingSurface2, ICompositionDrawingSurface2_Vtbl, 0xfad0e88b_e354_44e8_8e3d_c4880d5a213f);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositionDrawingSurface2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Graphics")]
@@ -437,25 +399,21 @@ pub struct ICompositionDrawingSurface2_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICompositionDrawingSurfaceFactory, ICompositionDrawingSurfaceFactory_Vtbl, 0x9497b00a_312d_46b9_9db3_412fd79464c8);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositionDrawingSurfaceFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
 }
 ::windows_core::imp::com_interface!(ICompositionEasingFunction, ICompositionEasingFunction_Vtbl, 0x5145e356_bf79_4ea8_8cc2_6b5b472e6c9a);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositionEasingFunction_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
 }
 ::windows_core::imp::com_interface!(ICompositionEasingFunctionFactory, ICompositionEasingFunctionFactory_Vtbl, 0x60840774_3da0_4949_8200_7206c00190a0);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositionEasingFunctionFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
 }
 ::windows_core::imp::com_interface!(ICompositionEasingFunctionStatics, ICompositionEasingFunctionStatics_Vtbl, 0x17a766b6_2936_53ea_b5af_c642f4a61083);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositionEasingFunctionStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Numerics")]
@@ -475,7 +433,6 @@ pub struct ICompositionEasingFunctionStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICompositionEffectBrush, ICompositionEffectBrush_Vtbl, 0xbf7f795e_83cc_44bf_a447_3e3c071789ec);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositionEffectBrush_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetSourceParameter: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -483,7 +440,6 @@ pub struct ICompositionEffectBrush_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICompositionEffectFactory, ICompositionEffectFactory_Vtbl, 0xbe5624af_ba7e_4510_9850_41c0b4ff74df);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositionEffectFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateBrush: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -492,21 +448,18 @@ pub struct ICompositionEffectFactory_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICompositionEffectSourceParameter, ICompositionEffectSourceParameter_Vtbl, 0x858ab13a_3292_4e4e_b3bb_2b6c6544a6ee);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositionEffectSourceParameter_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Name: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ICompositionEffectSourceParameterFactory, ICompositionEffectSourceParameterFactory_Vtbl, 0xb3d9f276_aba3_4724_acf3_d0397464db1c);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositionEffectSourceParameterFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ICompositionEllipseGeometry, ICompositionEllipseGeometry_Vtbl, 0x4801f884_f6ad_4b93_afa9_897b64e57b1f);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositionEllipseGeometry_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Numerics")]
@@ -528,7 +481,6 @@ pub struct ICompositionEllipseGeometry_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICompositionGeometricClip, ICompositionGeometricClip_Vtbl, 0xc840b581_81c9_4444_a2c1_ccaece3a50e5);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositionGeometricClip_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Geometry: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -538,7 +490,6 @@ pub struct ICompositionGeometricClip_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICompositionGeometry, ICompositionGeometry_Vtbl, 0xe985217c_6a17_4207_abd8_5fd3dd612a9d);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositionGeometry_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub TrimEnd: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f32) -> ::windows_core::HRESULT,
@@ -550,13 +501,11 @@ pub struct ICompositionGeometry_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICompositionGeometryFactory, ICompositionGeometryFactory_Vtbl, 0xbffebfe1_8c25_480b_9f56_fed6b288055d);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositionGeometryFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
 }
 ::windows_core::imp::com_interface!(ICompositionGradientBrush, ICompositionGradientBrush_Vtbl, 0x1d9709e0_ffc6_4c0e_a9ab_34144d4c9098);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositionGradientBrush_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Numerics")]
@@ -611,7 +560,6 @@ pub struct ICompositionGradientBrush_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICompositionGradientBrush2, ICompositionGradientBrush2_Vtbl, 0x899dd5a1_b4c7_4b33_a1b6_264addc26d10);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositionGradientBrush2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub MappingMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut CompositionMappingMode) -> ::windows_core::HRESULT,
@@ -619,13 +567,11 @@ pub struct ICompositionGradientBrush2_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICompositionGradientBrushFactory, ICompositionGradientBrushFactory_Vtbl, 0x56d765d7_f189_48c9_9c8d_94daf1bec010);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositionGradientBrushFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
 }
 ::windows_core::imp::com_interface!(ICompositionGraphicsDevice, ICompositionGraphicsDevice_Vtbl, 0xfb22c6e1_80a2_4667_9936_dbeaf6eefe95);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositionGraphicsDevice_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Graphics_DirectX")]
@@ -637,7 +583,6 @@ pub struct ICompositionGraphicsDevice_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICompositionGraphicsDevice2, ICompositionGraphicsDevice2_Vtbl, 0x0fb8bdf6_c0f0_4bcc_9fb8_084982490d7d);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositionGraphicsDevice2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Graphics_DirectX")]
@@ -651,7 +596,6 @@ pub struct ICompositionGraphicsDevice2_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICompositionGraphicsDevice3, ICompositionGraphicsDevice3_Vtbl, 0x37f67514_d3ef_49d1_b69d_0d8eabeb3626);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositionGraphicsDevice3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Graphics_DirectX")]
@@ -662,7 +606,6 @@ pub struct ICompositionGraphicsDevice3_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICompositionGraphicsDevice4, ICompositionGraphicsDevice4_Vtbl, 0x5a73bff9_a97f_4cf5_ba46_98ef358e71b1);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositionGraphicsDevice4_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Graphics_DirectX")]
@@ -672,21 +615,18 @@ pub struct ICompositionGraphicsDevice4_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICompositionLight, ICompositionLight_Vtbl, 0x41a6d7c2_2e5d_4bc1_b09e_8f0a03e3d8d3);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositionLight_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Targets: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ICompositionLight2, ICompositionLight2_Vtbl, 0xa7bcda72_f35d_425d_9b98_23f4205f6669);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositionLight2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ExclusionsFromTargets: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ICompositionLight3, ICompositionLight3_Vtbl, 0x4b0b00e4_df07_4959_b7a4_4f7e4233f838);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositionLight3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsEnabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -694,13 +634,11 @@ pub struct ICompositionLight3_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICompositionLightFactory, ICompositionLightFactory_Vtbl, 0x069cf306_da3c_4b44_838a_5e03d51ace55);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositionLightFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
 }
 ::windows_core::imp::com_interface!(ICompositionLineGeometry, ICompositionLineGeometry_Vtbl, 0xdd7615a4_0c9a_4b67_8dce_440a5bf9cdec);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositionLineGeometry_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Numerics")]
@@ -722,7 +660,6 @@ pub struct ICompositionLineGeometry_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICompositionLinearGradientBrush, ICompositionLinearGradientBrush_Vtbl, 0x983bc519_a9db_413c_a2d8_2a9056fc525e);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositionLinearGradientBrush_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Numerics")]
@@ -744,7 +681,6 @@ pub struct ICompositionLinearGradientBrush_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICompositionMaskBrush, ICompositionMaskBrush_Vtbl, 0x522cf09e_be6b_4f41_be49_f9226d471b4a);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositionMaskBrush_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Mask: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -754,7 +690,6 @@ pub struct ICompositionMaskBrush_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICompositionMipmapSurface, ICompositionMipmapSurface_Vtbl, 0x4863675c_cf4a_4b1c_9ece_c5ec0c2b2fe6);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositionMipmapSurface_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub LevelCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -774,7 +709,6 @@ pub struct ICompositionMipmapSurface_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICompositionNineGridBrush, ICompositionNineGridBrush_Vtbl, 0xf25154e4_bc8c_4be7_b80f_8685b83c0186);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositionNineGridBrush_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub BottomInset: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f32) -> ::windows_core::HRESULT,
@@ -804,7 +738,6 @@ pub struct ICompositionNineGridBrush_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICompositionObject, ICompositionObject_Vtbl, 0xbcb4ad45_7609_4550_934f_16002a68fded);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositionObject_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Compositor: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -818,7 +751,6 @@ pub struct ICompositionObject_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICompositionObject2, ICompositionObject2_Vtbl, 0xef874ea1_5cff_4b68_9e30_a1519d08ba03);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositionObject2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Comment: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -830,7 +762,6 @@ pub struct ICompositionObject2_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICompositionObject3, ICompositionObject3_Vtbl, 0x4bc27925_dacd_4cf2_98b1_986b76e7ebe6);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositionObject3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "System")]
@@ -840,27 +771,23 @@ pub struct ICompositionObject3_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICompositionObject4, ICompositionObject4_Vtbl, 0x0bb3784c_346b_4a7c_966b_7310966553d5);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositionObject4_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub TryGetAnimationController: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ICompositionObject5, ICompositionObject5_Vtbl, 0x1d7f391b_a130_5265_a62b_60b8e668965a);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositionObject5_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub StartAnimationWithController: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ICompositionObjectFactory, ICompositionObjectFactory_Vtbl, 0x51205c5e_558a_4f2a_8d39_37bfe1e20ddd);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositionObjectFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
 }
 ::windows_core::imp::com_interface!(ICompositionObjectStatics, ICompositionObjectStatics_Vtbl, 0xc1ed052f_1ba2_44ba_a904_6a882a0a5adb);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositionObjectStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub StartAnimationWithIAnimationObject: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -868,13 +795,11 @@ pub struct ICompositionObjectStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICompositionPath, ICompositionPath_Vtbl, 0x66da1d5f_2e10_4f22_8a06_0a8151919e60);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositionPath_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
 }
 ::windows_core::imp::com_interface!(ICompositionPathFactory, ICompositionPathFactory_Vtbl, 0x9c1e8c6a_0f33_4751_9437_eb3fb9d3ab07);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositionPathFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Graphics")]
@@ -884,7 +809,6 @@ pub struct ICompositionPathFactory_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICompositionPathGeometry, ICompositionPathGeometry_Vtbl, 0x0b6a417e_2c77_4c23_af5e_6304c147bb61);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositionPathGeometry_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Path: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -892,7 +816,6 @@ pub struct ICompositionPathGeometry_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICompositionProjectedShadow, ICompositionProjectedShadow_Vtbl, 0x285b8e72_4328_523f_bcf2_5557c52c3b25);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositionProjectedShadow_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub BlurRadiusMultiplier: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f32) -> ::windows_core::HRESULT,
@@ -908,7 +831,6 @@ pub struct ICompositionProjectedShadow_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICompositionProjectedShadowCaster, ICompositionProjectedShadowCaster_Vtbl, 0xb1d7d426_1e36_5a62_be56_a16112fdd148);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositionProjectedShadowCaster_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Brush: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -918,7 +840,6 @@ pub struct ICompositionProjectedShadowCaster_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICompositionProjectedShadowCasterCollection, ICompositionProjectedShadowCasterCollection_Vtbl, 0xd2525c0c_e07f_58a3_ac91_37f73ee91740);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositionProjectedShadowCasterCollection_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Count: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
@@ -931,14 +852,12 @@ pub struct ICompositionProjectedShadowCasterCollection_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICompositionProjectedShadowCasterCollectionStatics, ICompositionProjectedShadowCasterCollectionStatics_Vtbl, 0x56fbb136_e94f_5299_ab5b_6e15e38bd899);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositionProjectedShadowCasterCollectionStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub MaxRespectedCasters: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ICompositionProjectedShadowReceiver, ICompositionProjectedShadowReceiver_Vtbl, 0x1377985a_6a49_536a_9be4_a96a8e5298a9);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositionProjectedShadowReceiver_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ReceivingVisual: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -946,7 +865,6 @@ pub struct ICompositionProjectedShadowReceiver_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICompositionProjectedShadowReceiverUnorderedCollection, ICompositionProjectedShadowReceiverUnorderedCollection_Vtbl, 0x02b3e3b7_27d2_599f_ac4b_ab787cdde6fd);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositionProjectedShadowReceiverUnorderedCollection_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Add: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -956,7 +874,6 @@ pub struct ICompositionProjectedShadowReceiverUnorderedCollection_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICompositionPropertySet, ICompositionPropertySet_Vtbl, 0xc9d6d202_5f67_4453_9117_9eadd430d3c2);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositionPropertySet_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub InsertColor: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, super::Color) -> ::windows_core::HRESULT,
@@ -1014,7 +931,6 @@ pub struct ICompositionPropertySet_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICompositionPropertySet2, ICompositionPropertySet2_Vtbl, 0xde80731e_a211_4455_8880_7d0f3f6a44fd);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositionPropertySet2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub InsertBoolean: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, bool) -> ::windows_core::HRESULT,
@@ -1022,7 +938,6 @@ pub struct ICompositionPropertySet2_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICompositionRadialGradientBrush, ICompositionRadialGradientBrush_Vtbl, 0x3d3b50c5_e3fa_4ce2_b9fc_3ee12561788f);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositionRadialGradientBrush_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Numerics")]
@@ -1052,7 +967,6 @@ pub struct ICompositionRadialGradientBrush_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICompositionRectangleGeometry, ICompositionRectangleGeometry_Vtbl, 0x0cd51428_5356_4246_aecf_7a0b76975400);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositionRectangleGeometry_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Numerics")]
@@ -1074,7 +988,6 @@ pub struct ICompositionRectangleGeometry_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICompositionRoundedRectangleGeometry, ICompositionRoundedRectangleGeometry_Vtbl, 0x8770c822_1d50_4b8b_b013_7c9a0e46935f);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositionRoundedRectangleGeometry_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Numerics")]
@@ -1104,7 +1017,6 @@ pub struct ICompositionRoundedRectangleGeometry_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICompositionScopedBatch, ICompositionScopedBatch_Vtbl, 0x0d00dad0_fb07_46fd_8c72_6280d1a3d1dd);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositionScopedBatch_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsActive: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -1117,19 +1029,16 @@ pub struct ICompositionScopedBatch_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICompositionShadow, ICompositionShadow_Vtbl, 0x329e52e2_4335_49cc_b14a_37782d10f0c4);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositionShadow_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
 }
 ::windows_core::imp::com_interface!(ICompositionShadowFactory, ICompositionShadowFactory_Vtbl, 0x221f492f_dcba_4b91_999e_1dc217a01530);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositionShadowFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
 }
 ::windows_core::imp::com_interface!(ICompositionShape, ICompositionShape_Vtbl, 0xb47ce2f7_9a88_42c4_9e87_2e500ca8688c);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositionShape_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Numerics")]
@@ -1171,13 +1080,11 @@ pub struct ICompositionShape_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICompositionShapeFactory, ICompositionShapeFactory_Vtbl, 0x1dfc36d0_b05a_44ef_82b0_12118bcd4cd0);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositionShapeFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
 }
 ::windows_core::imp::com_interface!(ICompositionSpriteShape, ICompositionSpriteShape_Vtbl, 0x401b61bb_0007_4363_b1f3_6bcc003fb83e);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositionSpriteShape_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub FillBrush: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1229,7 +1136,6 @@ impl ::windows_core::RuntimeType for ICompositionSupportsSystemBackdrop {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositionSupportsSystemBackdrop_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SystemBackdrop: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1242,13 +1148,11 @@ impl ::windows_core::RuntimeType for ICompositionSurface {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositionSurface_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
 }
 ::windows_core::imp::com_interface!(ICompositionSurfaceBrush, ICompositionSurfaceBrush_Vtbl, 0xad016d79_1e4c_4c0d_9c29_83338c87c162);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositionSurfaceBrush_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub BitmapInterpolationMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut CompositionBitmapInterpolationMode) -> ::windows_core::HRESULT,
@@ -1264,7 +1168,6 @@ pub struct ICompositionSurfaceBrush_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICompositionSurfaceBrush2, ICompositionSurfaceBrush2_Vtbl, 0xd27174d5_64f5_4692_9dc7_71b61d7e5880);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositionSurfaceBrush2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Numerics")]
@@ -1314,7 +1217,6 @@ pub struct ICompositionSurfaceBrush2_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICompositionSurfaceBrush3, ICompositionSurfaceBrush3_Vtbl, 0x550bb289_1fe0_42e5_8195_1eefa87ff08e);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositionSurfaceBrush3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SnapToPixels: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -1335,14 +1237,12 @@ impl ::windows_core::RuntimeType for ICompositionSurfaceFacade {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositionSurfaceFacade_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetRealSurface: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ICompositionTarget, ICompositionTarget_Vtbl, 0xa1bea8ba_d726_4663_8129_6b5e7927ffa6);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositionTarget_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Root: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1350,13 +1250,11 @@ pub struct ICompositionTarget_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICompositionTargetFactory, ICompositionTargetFactory_Vtbl, 0x93cd9d2b_8516_4b14_a8ce_f49e2119ec42);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositionTargetFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
 }
 ::windows_core::imp::com_interface!(ICompositionTexture, ICompositionTexture_Vtbl, 0x347d03a0_1c0a_4c0b_b232_8570b2b1a4ea);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositionTexture_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Graphics")]
@@ -1386,25 +1284,21 @@ pub struct ICompositionTexture_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICompositionTextureFactory, ICompositionTextureFactory_Vtbl, 0x09d9523d_471c_5ab5_b053_b568ee46ebfb);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositionTextureFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
 }
 ::windows_core::imp::com_interface!(ICompositionTransform, ICompositionTransform_Vtbl, 0x7cd54529_fbed_4112_abc5_185906dd927c);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositionTransform_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
 }
 ::windows_core::imp::com_interface!(ICompositionTransformFactory, ICompositionTransformFactory_Vtbl, 0xaaaeca26_c149_517a_8f72_6bff7a65ce08);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositionTransformFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
 }
 ::windows_core::imp::com_interface!(ICompositionViewBox, ICompositionViewBox_Vtbl, 0xb440bf07_068f_4537_84c6_4ecbe019e1f4);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositionViewBox_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub HorizontalAlignmentRatio: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f32) -> ::windows_core::HRESULT,
@@ -1432,7 +1326,6 @@ pub struct ICompositionViewBox_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICompositionVirtualDrawingSurface, ICompositionVirtualDrawingSurface_Vtbl, 0xa9c384db_8740_4f94_8b9d_b68521e7863d);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositionVirtualDrawingSurface_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Graphics")]
@@ -1442,13 +1335,11 @@ pub struct ICompositionVirtualDrawingSurface_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICompositionVirtualDrawingSurfaceFactory, ICompositionVirtualDrawingSurfaceFactory_Vtbl, 0x6766106c_d56b_4a49_b1df_5076a0620768);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositionVirtualDrawingSurfaceFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
 }
 ::windows_core::imp::com_interface!(ICompositionVisualSurface, ICompositionVisualSurface_Vtbl, 0xb224d803_4f6e_4a3f_8cae_3dc1cda74fc6);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositionVisualSurface_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SourceVisual: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1472,7 +1363,6 @@ pub struct ICompositionVisualSurface_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICompositor, ICompositor_Vtbl, 0xb403ca50_7f8c_4e83_985f_cc45060036d8);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositor_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateColorKeyFrameAnimation: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1511,7 +1401,6 @@ pub struct ICompositor_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICompositor2, ICompositor2_Vtbl, 0x735081dc_5e24_45da_a38f_e32cc349a9a0);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositor2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateAmbientLight: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1530,14 +1419,12 @@ pub struct ICompositor2_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICompositor3, ICompositor3_Vtbl, 0xc9dd8ef0_6eb1_4e3c_a658_675d9c64d4ab);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositor3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateHostBackdropBrush: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ICompositor4, ICompositor4_Vtbl, 0xae47e78a_7910_4425_a482_a05b758adce9);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositor4_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateColorGradientStop: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1549,7 +1436,6 @@ pub struct ICompositor4_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICompositor5, ICompositor5_Vtbl, 0x48ea31ad_7fcd_4076_a79c_90cc4b852c9b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositor5_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Comment: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -1575,7 +1461,6 @@ pub struct ICompositor5_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICompositor6, ICompositor6_Vtbl, 0x7a38b2bd_cec8_4eeb_830f_d8d07aedebc3);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositor6_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateGeometricClip: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1586,7 +1471,6 @@ pub struct ICompositor6_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICompositor7, ICompositor7_Vtbl, 0xd3483fad_9a12_53ba_bfc8_88b7ff7977c6);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositor7_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "System")]
@@ -1603,14 +1487,12 @@ pub struct ICompositor7_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICompositor8, ICompositor8_Vtbl, 0x9a0bdee2_fe7b_5f62_a366_9cf8effe2112);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositor8_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateAnimationController: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ICompositorStatics, ICompositorStatics_Vtbl, 0x080db93e_121e_4d97_8b74_1dfcf91987ea);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositorStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub MaxGlobalPlaybackRate: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f32) -> ::windows_core::HRESULT,
@@ -1618,14 +1500,12 @@ pub struct ICompositorStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICompositorWithBlurredWallpaperBackdropBrush, ICompositorWithBlurredWallpaperBackdropBrush_Vtbl, 0x0d8fb190_f122_5b8d_9fdd_543b0d8eb7f3);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositorWithBlurredWallpaperBackdropBrush_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub TryCreateBlurredWallpaperBackdropBrush: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ICompositorWithProjectedShadow, ICompositorWithProjectedShadow_Vtbl, 0xa2e6330e_8a60_5a38_bb85_b44ea901677c);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositorWithProjectedShadow_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateProjectedShadowCaster: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1634,34 +1514,29 @@ pub struct ICompositorWithProjectedShadow_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICompositorWithRadialGradient, ICompositorWithRadialGradient_Vtbl, 0x98b9c1a7_8e71_4b53_b4a8_69ba5d19dc5b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositorWithRadialGradient_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateRadialGradientBrush: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ICompositorWithVisualSurface, ICompositorWithVisualSurface_Vtbl, 0xcfa1658b_0123_4551_8891_89bdcc40322b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositorWithVisualSurface_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateVisualSurface: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IContainerVisual, IContainerVisual_Vtbl, 0x02f6bc74_ed20_4773_afe6_d49b4a93db32);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IContainerVisual_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Children: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IContainerVisualFactory, IContainerVisualFactory_Vtbl, 0x0363a65b_c7da_4d9a_95f4_69b5c8df670b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IContainerVisualFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
 }
 ::windows_core::imp::com_interface!(ICubicBezierEasingFunction, ICubicBezierEasingFunction_Vtbl, 0x32350666_c1e8_44f9_96b8_c98acf0ae698);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICubicBezierEasingFunction_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Numerics")]
@@ -1675,7 +1550,6 @@ pub struct ICubicBezierEasingFunction_Vtbl {
 }
 ::windows_core::imp::com_interface!(IDelegatedInkTrailVisual, IDelegatedInkTrailVisual_Vtbl, 0x856e60b1_e1ab_5b23_8e3d_d513f221c998);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDelegatedInkTrailVisual_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub AddTrailPoints: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const InkTrailPoint, *mut u32) -> ::windows_core::HRESULT,
@@ -1685,7 +1559,6 @@ pub struct IDelegatedInkTrailVisual_Vtbl {
 }
 ::windows_core::imp::com_interface!(IDelegatedInkTrailVisualStatics, IDelegatedInkTrailVisualStatics_Vtbl, 0x0daf6bd5_42c6_555c_9267_e0ac663af836);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDelegatedInkTrailVisualStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1693,7 +1566,6 @@ pub struct IDelegatedInkTrailVisualStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IDistantLight, IDistantLight_Vtbl, 0x318cfafc_5ce3_4b55_ab5d_07a00353ac99);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDistantLight_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Color: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::Color) -> ::windows_core::HRESULT,
@@ -1711,7 +1583,6 @@ pub struct IDistantLight_Vtbl {
 }
 ::windows_core::imp::com_interface!(IDistantLight2, IDistantLight2_Vtbl, 0xdbcdaa1c_294b_48d7_b60e_76df64aa392b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDistantLight2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Intensity: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f32) -> ::windows_core::HRESULT,
@@ -1719,7 +1590,6 @@ pub struct IDistantLight2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IDropShadow, IDropShadow_Vtbl, 0xcb977c07_a154_4851_85e7_a8924c84fad8);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDropShadow_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub BlurRadius: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f32) -> ::windows_core::HRESULT,
@@ -1741,7 +1611,6 @@ pub struct IDropShadow_Vtbl {
 }
 ::windows_core::imp::com_interface!(IDropShadow2, IDropShadow2_Vtbl, 0x6c4218bc_15b9_4c2d_8d4a_0767df11977a);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDropShadow2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SourcePolicy: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut CompositionDropShadowSourcePolicy) -> ::windows_core::HRESULT,
@@ -1749,7 +1618,6 @@ pub struct IDropShadow2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IElasticEasingFunction, IElasticEasingFunction_Vtbl, 0x66de6285_054e_5594_8475_c22cb51f1bd5);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IElasticEasingFunction_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Mode: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut CompositionEasingFunctionMode) -> ::windows_core::HRESULT,
@@ -1758,7 +1626,6 @@ pub struct IElasticEasingFunction_Vtbl {
 }
 ::windows_core::imp::com_interface!(IExponentialEasingFunction, IExponentialEasingFunction_Vtbl, 0x6f7d1a51_98d2_5638_a34a_00486554c750);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IExponentialEasingFunction_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Mode: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut CompositionEasingFunctionMode) -> ::windows_core::HRESULT,
@@ -1766,7 +1633,6 @@ pub struct IExponentialEasingFunction_Vtbl {
 }
 ::windows_core::imp::com_interface!(IExpressionAnimation, IExpressionAnimation_Vtbl, 0x6acc5431_7d3d_4bf3_abb6_f44bdc4888c1);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IExpressionAnimation_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Expression: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -1774,13 +1640,11 @@ pub struct IExpressionAnimation_Vtbl {
 }
 ::windows_core::imp::com_interface!(IImplicitAnimationCollection, IImplicitAnimationCollection_Vtbl, 0x0598a3ff_0a92_4c9d_a427_b25519250dbf);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IImplicitAnimationCollection_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
 }
 ::windows_core::imp::com_interface!(IInsetClip, IInsetClip_Vtbl, 0x1e73e647_84c7_477a_b474_5880e0442e15);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IInsetClip_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub BottomInset: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f32) -> ::windows_core::HRESULT,
@@ -1794,7 +1658,6 @@ pub struct IInsetClip_Vtbl {
 }
 ::windows_core::imp::com_interface!(IKeyFrameAnimation, IKeyFrameAnimation_Vtbl, 0x126e7f22_3ae9_4540_9a8a_deae8a4a4a84);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IKeyFrameAnimation_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub DelayTime: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
@@ -1813,7 +1676,6 @@ pub struct IKeyFrameAnimation_Vtbl {
 }
 ::windows_core::imp::com_interface!(IKeyFrameAnimation2, IKeyFrameAnimation2_Vtbl, 0xf4b488bb_2940_4ec0_a41a_eb6d801a2f18);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IKeyFrameAnimation2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Direction: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut AnimationDirection) -> ::windows_core::HRESULT,
@@ -1821,7 +1683,6 @@ pub struct IKeyFrameAnimation2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IKeyFrameAnimation3, IKeyFrameAnimation3_Vtbl, 0x845bf0b4_d8de_462f_8753_c80d43c6ff5a);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IKeyFrameAnimation3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub DelayBehavior: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut AnimationDelayBehavior) -> ::windows_core::HRESULT,
@@ -1829,13 +1690,11 @@ pub struct IKeyFrameAnimation3_Vtbl {
 }
 ::windows_core::imp::com_interface!(IKeyFrameAnimationFactory, IKeyFrameAnimationFactory_Vtbl, 0xbf0803f8_712a_4fc1_8c87_970859ed8d2e);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IKeyFrameAnimationFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
 }
 ::windows_core::imp::com_interface!(ILayerVisual, ILayerVisual_Vtbl, 0xaf843985_0444_4887_8e83_b40b253f822c);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ILayerVisual_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Effect: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1843,7 +1702,6 @@ pub struct ILayerVisual_Vtbl {
 }
 ::windows_core::imp::com_interface!(ILayerVisual2, ILayerVisual2_Vtbl, 0x98f9aeeb_6f23_49f1_90b1_1f59a14fbce3);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ILayerVisual2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Shadow: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1851,13 +1709,11 @@ pub struct ILayerVisual2_Vtbl {
 }
 ::windows_core::imp::com_interface!(ILinearEasingFunction, ILinearEasingFunction_Vtbl, 0x9400975a_c7a6_46b3_acf7_1a268a0a117d);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ILinearEasingFunction_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
 }
 ::windows_core::imp::com_interface!(INaturalMotionAnimation, INaturalMotionAnimation_Vtbl, 0x438de12d_769b_4821_a949_284a6547e873);
 #[repr(C)]
-#[doc(hidden)]
 pub struct INaturalMotionAnimation_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub DelayBehavior: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut AnimationDelayBehavior) -> ::windows_core::HRESULT,
@@ -1869,13 +1725,11 @@ pub struct INaturalMotionAnimation_Vtbl {
 }
 ::windows_core::imp::com_interface!(INaturalMotionAnimationFactory, INaturalMotionAnimationFactory_Vtbl, 0xf53acb06_cf6a_4387_a3fe_5221f3e7e0e0);
 #[repr(C)]
-#[doc(hidden)]
 pub struct INaturalMotionAnimationFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
 }
 ::windows_core::imp::com_interface!(IPathKeyFrameAnimation, IPathKeyFrameAnimation_Vtbl, 0x9d0d18c9_1576_4b3f_be60_1d5031f5e71b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPathKeyFrameAnimation_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub InsertKeyFrame: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1883,7 +1737,6 @@ pub struct IPathKeyFrameAnimation_Vtbl {
 }
 ::windows_core::imp::com_interface!(IPointLight, IPointLight_Vtbl, 0xb18545b3_0c5a_4ab0_bedc_4f3546948272);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPointLight_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Color: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::Color) -> ::windows_core::HRESULT,
@@ -1907,7 +1760,6 @@ pub struct IPointLight_Vtbl {
 }
 ::windows_core::imp::com_interface!(IPointLight2, IPointLight2_Vtbl, 0xefe98f2c_0678_4f69_b164_a810d995bcb7);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPointLight2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Intensity: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f32) -> ::windows_core::HRESULT,
@@ -1915,7 +1767,6 @@ pub struct IPointLight2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IPointLight3, IPointLight3_Vtbl, 0x4c0a8367_d4e9_468a_87ae_7ba43ab29485);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPointLight3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub MinAttenuationCutoff: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f32) -> ::windows_core::HRESULT,
@@ -1925,7 +1776,6 @@ pub struct IPointLight3_Vtbl {
 }
 ::windows_core::imp::com_interface!(IPowerEasingFunction, IPowerEasingFunction_Vtbl, 0xc3ff53d6_138b_5815_891a_b7f615ccc563);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPowerEasingFunction_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Mode: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut CompositionEasingFunctionMode) -> ::windows_core::HRESULT,
@@ -1933,7 +1783,6 @@ pub struct IPowerEasingFunction_Vtbl {
 }
 ::windows_core::imp::com_interface!(IQuaternionKeyFrameAnimation, IQuaternionKeyFrameAnimation_Vtbl, 0x404e5835_ecf6_4240_8520_671279cf36bc);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IQuaternionKeyFrameAnimation_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Numerics")]
@@ -1947,7 +1796,6 @@ pub struct IQuaternionKeyFrameAnimation_Vtbl {
 }
 ::windows_core::imp::com_interface!(IRectangleClip, IRectangleClip_Vtbl, 0xb3e7549e_00b4_5b53_8be8_353f6c433101);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRectangleClip_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Bottom: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f32) -> ::windows_core::HRESULT,
@@ -1993,7 +1841,6 @@ pub struct IRectangleClip_Vtbl {
 }
 ::windows_core::imp::com_interface!(IRedirectVisual, IRedirectVisual_Vtbl, 0x8cc6e340_8b75_5422_b06f_09ffe9f8617e);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRedirectVisual_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Source: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -2001,14 +1848,12 @@ pub struct IRedirectVisual_Vtbl {
 }
 ::windows_core::imp::com_interface!(IRenderingDeviceReplacedEventArgs, IRenderingDeviceReplacedEventArgs_Vtbl, 0x3a31ac7d_28bf_4e7a_8524_71679d480f38);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRenderingDeviceReplacedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GraphicsDevice: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IScalarKeyFrameAnimation, IScalarKeyFrameAnimation_Vtbl, 0xae288fa9_252c_4b95_a725_bf85e38000a1);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IScalarKeyFrameAnimation_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub InsertKeyFrame: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32, f32) -> ::windows_core::HRESULT,
@@ -2016,7 +1861,6 @@ pub struct IScalarKeyFrameAnimation_Vtbl {
 }
 ::windows_core::imp::com_interface!(IScalarNaturalMotionAnimation, IScalarNaturalMotionAnimation_Vtbl, 0x94a94581_bf92_495b_b5bd_d2c659430737);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IScalarNaturalMotionAnimation_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub FinalValue: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -2028,13 +1872,11 @@ pub struct IScalarNaturalMotionAnimation_Vtbl {
 }
 ::windows_core::imp::com_interface!(IScalarNaturalMotionAnimationFactory, IScalarNaturalMotionAnimationFactory_Vtbl, 0x835aa4fc_671c_41dd_af48_ae8def8b1529);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IScalarNaturalMotionAnimationFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
 }
 ::windows_core::imp::com_interface!(IShapeVisual, IShapeVisual_Vtbl, 0xf2bd13c3_ba7e_4b0f_9126_ffb7536b8176);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IShapeVisual_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -2046,14 +1888,12 @@ pub struct IShapeVisual_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISineEasingFunction, ISineEasingFunction_Vtbl, 0xf1b518bf_9563_5474_bd13_44b2df4b1d58);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISineEasingFunction_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Mode: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut CompositionEasingFunctionMode) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ISpotLight, ISpotLight_Vtbl, 0x5a9fe273_44a1_4f95_a422_8fa5116bdb44);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISpotLight_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ConstantAttenuation: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f32) -> ::windows_core::HRESULT,
@@ -2095,7 +1935,6 @@ pub struct ISpotLight_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISpotLight2, ISpotLight2_Vtbl, 0x64ee615e_0686_4dea_a9e8_bc3a8c701459);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISpotLight2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub InnerConeIntensity: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f32) -> ::windows_core::HRESULT,
@@ -2105,7 +1944,6 @@ pub struct ISpotLight2_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISpotLight3, ISpotLight3_Vtbl, 0xe4d03eea_131f_480e_859e_b82705b74360);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISpotLight3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub MinAttenuationCutoff: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f32) -> ::windows_core::HRESULT,
@@ -2115,7 +1953,6 @@ pub struct ISpotLight3_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISpringScalarNaturalMotionAnimation, ISpringScalarNaturalMotionAnimation_Vtbl, 0x0572a95f_37f9_4fbe_b87b_5cd03a89501c);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISpringScalarNaturalMotionAnimation_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub DampingRatio: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f32) -> ::windows_core::HRESULT,
@@ -2125,7 +1962,6 @@ pub struct ISpringScalarNaturalMotionAnimation_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISpringVector2NaturalMotionAnimation, ISpringVector2NaturalMotionAnimation_Vtbl, 0x23f494b5_ee73_4f0f_a423_402b946df4b3);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISpringVector2NaturalMotionAnimation_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub DampingRatio: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f32) -> ::windows_core::HRESULT,
@@ -2135,7 +1971,6 @@ pub struct ISpringVector2NaturalMotionAnimation_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISpringVector3NaturalMotionAnimation, ISpringVector3NaturalMotionAnimation_Vtbl, 0x6c8749df_d57b_4794_8e2d_cecb11e194e5);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISpringVector3NaturalMotionAnimation_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub DampingRatio: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f32) -> ::windows_core::HRESULT,
@@ -2145,7 +1980,6 @@ pub struct ISpringVector3NaturalMotionAnimation_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISpriteVisual, ISpriteVisual_Vtbl, 0x08e05581_1ad1_4f97_9757_402d76e4233b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISpriteVisual_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Brush: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -2153,7 +1987,6 @@ pub struct ISpriteVisual_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISpriteVisual2, ISpriteVisual2_Vtbl, 0x588c9664_997a_4850_91fe_53cb58f81ce9);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISpriteVisual2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Shadow: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -2161,7 +1994,6 @@ pub struct ISpriteVisual2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IStepEasingFunction, IStepEasingFunction_Vtbl, 0xd0caa74b_560c_4a0b_a5f6_206ca8c3ecd6);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IStepEasingFunction_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub FinalStep: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
@@ -2177,7 +2009,6 @@ pub struct IStepEasingFunction_Vtbl {
 }
 ::windows_core::imp::com_interface!(IVector2KeyFrameAnimation, IVector2KeyFrameAnimation_Vtbl, 0xdf414515_4e29_4f11_b55e_bf2a6eb36294);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVector2KeyFrameAnimation_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Numerics")]
@@ -2191,7 +2022,6 @@ pub struct IVector2KeyFrameAnimation_Vtbl {
 }
 ::windows_core::imp::com_interface!(IVector2NaturalMotionAnimation, IVector2NaturalMotionAnimation_Vtbl, 0x0f3e0b7d_e512_479d_a00c_77c93a30a395);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVector2NaturalMotionAnimation_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Numerics")]
@@ -2221,13 +2051,11 @@ pub struct IVector2NaturalMotionAnimation_Vtbl {
 }
 ::windows_core::imp::com_interface!(IVector2NaturalMotionAnimationFactory, IVector2NaturalMotionAnimationFactory_Vtbl, 0x8c74ff61_0761_48a2_bddb_6afcc52b89d8);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVector2NaturalMotionAnimationFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
 }
 ::windows_core::imp::com_interface!(IVector3KeyFrameAnimation, IVector3KeyFrameAnimation_Vtbl, 0xc8039daa_a281_43c2_a73d_b68e3c533c40);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVector3KeyFrameAnimation_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Numerics")]
@@ -2241,7 +2069,6 @@ pub struct IVector3KeyFrameAnimation_Vtbl {
 }
 ::windows_core::imp::com_interface!(IVector3NaturalMotionAnimation, IVector3NaturalMotionAnimation_Vtbl, 0x9c17042c_e2ca_45ad_969e_4e78b7b9ad41);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVector3NaturalMotionAnimation_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Numerics")]
@@ -2271,13 +2098,11 @@ pub struct IVector3NaturalMotionAnimation_Vtbl {
 }
 ::windows_core::imp::com_interface!(IVector3NaturalMotionAnimationFactory, IVector3NaturalMotionAnimationFactory_Vtbl, 0x21a81d2f_0880_457b_ac87_b609018c876d);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVector3NaturalMotionAnimationFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
 }
 ::windows_core::imp::com_interface!(IVector4KeyFrameAnimation, IVector4KeyFrameAnimation_Vtbl, 0x2457945b_addd_4385_9606_b6a3d5e4e1b9);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVector4KeyFrameAnimation_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Numerics")]
@@ -2291,7 +2116,6 @@ pub struct IVector4KeyFrameAnimation_Vtbl {
 }
 ::windows_core::imp::com_interface!(IVisual, IVisual_Vtbl, 0x117e202d_a859_4c89_873b_c2aa566788e3);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVisual_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Numerics")]
@@ -2378,7 +2202,6 @@ pub struct IVisual_Vtbl {
 }
 ::windows_core::imp::com_interface!(IVisual2, IVisual2_Vtbl, 0x3052b611_56c3_4c3e_8bf3_f6e1ad473f06);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVisual2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ParentForTransform: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -2402,7 +2225,6 @@ pub struct IVisual2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IVisual3, IVisual3_Vtbl, 0x30be580d_f4b6_4ab7_80dd_3738cbac9f2c);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVisual3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsHitTestVisible: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -2410,7 +2232,6 @@ pub struct IVisual3_Vtbl {
 }
 ::windows_core::imp::com_interface!(IVisual4, IVisual4_Vtbl, 0x9476bf11_e24b_5bf9_9ebe_6274109b2711);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVisual4_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsPixelSnappingEnabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -2418,7 +2239,6 @@ pub struct IVisual4_Vtbl {
 }
 ::windows_core::imp::com_interface!(IVisualCollection, IVisualCollection_Vtbl, 0x8b745505_fd3e_4a98_84a8_e949468c6bcb);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVisualCollection_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Count: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
@@ -2436,7 +2256,6 @@ impl ::windows_core::RuntimeType for IVisualElement {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVisualElement_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
 }
@@ -2455,20 +2274,17 @@ impl ::windows_core::RuntimeType for IVisualElement2 {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVisualElement2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetVisualInternal: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IVisualFactory, IVisualFactory_Vtbl, 0xad0ff93e_b502_4eb5_87b4_9a38a71d0137);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVisualFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
 }
 ::windows_core::imp::com_interface!(IVisualUnorderedCollection, IVisualUnorderedCollection_Vtbl, 0x338faa70_54c8_40a7_8029_c9ceeb0aa250);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVisualUnorderedCollection_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Count: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,

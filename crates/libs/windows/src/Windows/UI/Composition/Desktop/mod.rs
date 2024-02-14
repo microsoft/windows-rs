@@ -1,6 +1,5 @@
 ::windows_core::imp::com_interface!(IDesktopWindowTarget, IDesktopWindowTarget_Vtbl, 0x6329d6ca_3366_490e_9db3_25312929ac51);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDesktopWindowTarget_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsTopmost: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,

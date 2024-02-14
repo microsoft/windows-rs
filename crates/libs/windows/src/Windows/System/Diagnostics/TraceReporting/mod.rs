@@ -1,6 +1,5 @@
 ::windows_core::imp::com_interface!(IPlatformDiagnosticActionsStatics, IPlatformDiagnosticActionsStatics_Vtbl, 0xc1145cfa_9292_4267_890a_9ea3ed072312);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPlatformDiagnosticActionsStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsScenarioEnabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::GUID, *mut bool) -> ::windows_core::HRESULT,
@@ -23,7 +22,6 @@ pub struct IPlatformDiagnosticActionsStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IPlatformDiagnosticTraceInfo, IPlatformDiagnosticTraceInfo_Vtbl, 0xf870ed97_d597_4bf7_88dc_cf5c7dc2a1d2);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPlatformDiagnosticTraceInfo_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ScenarioId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
@@ -35,7 +33,6 @@ pub struct IPlatformDiagnosticTraceInfo_Vtbl {
 }
 ::windows_core::imp::com_interface!(IPlatformDiagnosticTraceRuntimeInfo, IPlatformDiagnosticTraceRuntimeInfo_Vtbl, 0x3d4d5e2d_01d8_4768_8554_1eb1ca610986);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPlatformDiagnosticTraceRuntimeInfo_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub RuntimeFileTime: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i64) -> ::windows_core::HRESULT,

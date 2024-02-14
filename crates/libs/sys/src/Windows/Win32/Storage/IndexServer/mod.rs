@@ -1,6 +1,6 @@
-::windows_targets::link!("query.dll" "system" fn BindIFilterFromStorage(pstg : * mut::core::ffi::c_void, punkouter : ::windows_sys::core::IUnknown, ppiunk : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("query.dll" "system" fn BindIFilterFromStream(pstm : * mut::core::ffi::c_void, punkouter : ::windows_sys::core::IUnknown, ppiunk : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("query.dll" "system" fn LoadIFilter(pwcspath : ::windows_sys::core::PCWSTR, punkouter : ::windows_sys::core::IUnknown, ppiunk : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("query.dll" "system" fn BindIFilterFromStorage(pstg : * mut::core::ffi::c_void, punkouter : * mut::core::ffi::c_void, ppiunk : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("query.dll" "system" fn BindIFilterFromStream(pstm : * mut::core::ffi::c_void, punkouter : * mut::core::ffi::c_void, ppiunk : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("query.dll" "system" fn LoadIFilter(pwcspath : ::windows_sys::core::PCWSTR, punkouter : * mut::core::ffi::c_void, ppiunk : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("query.dll" "system" fn LoadIFilterEx(pwcspath : ::windows_sys::core::PCWSTR, dwflags : u32, riid : *const ::windows_sys::core::GUID, ppiunk : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 pub const CHUNK_EOC: CHUNK_BREAKTYPE = 4i32;
 pub const CHUNK_EOP: CHUNK_BREAKTYPE = 3i32;

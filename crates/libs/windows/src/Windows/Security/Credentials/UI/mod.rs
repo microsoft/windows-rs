@@ -1,6 +1,5 @@
 ::windows_core::imp::com_interface!(ICredentialPickerOptions, ICredentialPickerOptions_Vtbl, 0x965a0b4c_95fa_467f_992b_0b22e5859bf6);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICredentialPickerOptions_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SetCaption: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -32,7 +31,6 @@ pub struct ICredentialPickerOptions_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICredentialPickerResults, ICredentialPickerResults_Vtbl, 0x1948f99a_cc30_410c_9c38_cc0884c5b3d7);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICredentialPickerResults_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ErrorCode: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -48,7 +46,6 @@ pub struct ICredentialPickerResults_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICredentialPickerStatics, ICredentialPickerStatics_Vtbl, 0xaa3a5c73_c9ea_4782_99fb_e6d7e938e12d);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICredentialPickerStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub PickWithOptionsAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -57,7 +54,6 @@ pub struct ICredentialPickerStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IUserConsentVerifierStatics, IUserConsentVerifierStatics_Vtbl, 0xaf4f3f91_564c_4ddc_b8b5_973447627c65);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUserConsentVerifierStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CheckAvailabilityAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,

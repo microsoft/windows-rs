@@ -13,7 +13,6 @@
     0xe09cb12b_b13c_5139_8c99_6140bf80deb9
 );
 #[repr(C)]
-#[doc(hidden)]
 pub struct IJsonValidator_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Validate: unsafe extern "system" fn(
@@ -28,7 +27,6 @@ pub struct IJsonValidator_Vtbl {
     0x1cf4464e_ae9e_55d5_9539_0af4d8fc35aa
 );
 #[repr(C)]
-#[doc(hidden)]
 pub struct IJsonValidatorFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(

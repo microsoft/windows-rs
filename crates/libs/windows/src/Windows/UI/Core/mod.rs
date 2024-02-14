@@ -4,7 +4,6 @@ pub mod AnimationMetrics;
 pub mod Preview;
 ::windows_core::imp::com_interface!(IAcceleratorKeyEventArgs, IAcceleratorKeyEventArgs_Vtbl, 0xff1c4c4a_9287_470b_836e_9086e3126ade);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAcceleratorKeyEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub EventType: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut CoreAcceleratorKeyEventType) -> ::windows_core::HRESULT,
@@ -16,14 +15,12 @@ pub struct IAcceleratorKeyEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAcceleratorKeyEventArgs2, IAcceleratorKeyEventArgs2_Vtbl, 0xd300a9f6_2f7e_4873_a555_166e596ee1c5);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAcceleratorKeyEventArgs2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub DeviceId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IAutomationProviderRequestedEventArgs, IAutomationProviderRequestedEventArgs_Vtbl, 0x961ff258_21bf_4b42_a298_fa479d4c52e2);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAutomationProviderRequestedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub AutomationProvider: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -31,7 +28,6 @@ pub struct IAutomationProviderRequestedEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IBackRequestedEventArgs, IBackRequestedEventArgs_Vtbl, 0xd603d28a_e411_4a4e_ba41_6a327a8675bc);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBackRequestedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Handled: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -39,7 +35,6 @@ pub struct IBackRequestedEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICharacterReceivedEventArgs, ICharacterReceivedEventArgs_Vtbl, 0xc584659f_99b2_4bcc_bd33_04e63f42902e);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICharacterReceivedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub KeyCode: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -47,7 +42,6 @@ pub struct ICharacterReceivedEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IClosestInteractiveBoundsRequestedEventArgs, IClosestInteractiveBoundsRequestedEventArgs_Vtbl, 0x347c11d7_f6f8_40e3_b29f_ae50d3e86486);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IClosestInteractiveBoundsRequestedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub PointerPosition: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::Point) -> ::windows_core::HRESULT,
@@ -77,7 +71,6 @@ impl ::windows_core::RuntimeType for ICoreAcceleratorKeys {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreAcceleratorKeys_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub AcceleratorKeyActivated: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
@@ -85,7 +78,6 @@ pub struct ICoreAcceleratorKeys_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICoreClosestInteractiveBoundsRequested, ICoreClosestInteractiveBoundsRequested_Vtbl, 0xf303043a_e8bf_4e8e_ae69_c9dadd57a114);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreClosestInteractiveBoundsRequested_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ClosestInteractiveBoundsRequested: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
@@ -93,7 +85,6 @@ pub struct ICoreClosestInteractiveBoundsRequested_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICoreComponentFocusable, ICoreComponentFocusable_Vtbl, 0x52f96fa3_8742_4411_ae69_79a85f29ac8b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreComponentFocusable_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub HasFocus: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -104,7 +95,6 @@ pub struct ICoreComponentFocusable_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICoreCursor, ICoreCursor_Vtbl, 0x96893acf_111d_442c_8a77_b87992f8e2d6);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreCursor_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Id: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -112,14 +102,12 @@ pub struct ICoreCursor_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICoreCursorFactory, ICoreCursorFactory_Vtbl, 0xf6359621_a79d_4ed3_8c32_a9ef9d6b76a4);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreCursorFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateCursor: unsafe extern "system" fn(*mut ::core::ffi::c_void, CoreCursorType, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ICoreDispatcher, ICoreDispatcher_Vtbl, 0x60db2fa8_b705_4fde_a7d6_ebbb1891d39e);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreDispatcher_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub HasThreadAccess: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -129,7 +117,6 @@ pub struct ICoreDispatcher_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICoreDispatcher2, ICoreDispatcher2_Vtbl, 0x6f5e63c7_e3aa_4eae_b0e0_dcf321ca4b2f);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreDispatcher2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub TryRunAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, CoreDispatcherPriority, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -137,7 +124,6 @@ pub struct ICoreDispatcher2_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICoreDispatcherWithTaskPriority, ICoreDispatcherWithTaskPriority_Vtbl, 0xbafaecad_484d_41be_ba80_1d58c65263ea);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreDispatcherWithTaskPriority_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CurrentPriority: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut CoreDispatcherPriority) -> ::windows_core::HRESULT,
@@ -148,7 +134,6 @@ pub struct ICoreDispatcherWithTaskPriority_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICoreIndependentInputSourceController, ICoreIndependentInputSourceController_Vtbl, 0x0963261c_84fe_578a_83ca_6425309ccde4);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreIndependentInputSourceController_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsTransparentForUncontrolledInput: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -161,7 +146,6 @@ pub struct ICoreIndependentInputSourceController_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICoreIndependentInputSourceControllerStatics, ICoreIndependentInputSourceControllerStatics_Vtbl, 0x3edc4e20_9a8a_5691_8586_fca4cb57526d);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreIndependentInputSourceControllerStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "UI_Composition")]
@@ -213,7 +197,6 @@ impl ::windows_core::RuntimeType for ICoreInputSourceBase {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreInputSourceBase_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Dispatcher: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -224,7 +207,6 @@ pub struct ICoreInputSourceBase_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICoreKeyboardInputSource, ICoreKeyboardInputSource_Vtbl, 0x231c9088_e469_4df1_b208_6e490d71cb90);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreKeyboardInputSource_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "System")]
@@ -240,7 +222,6 @@ pub struct ICoreKeyboardInputSource_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICoreKeyboardInputSource2, ICoreKeyboardInputSource2_Vtbl, 0xfa24cb94_f963_47a5_8778_207c482b0afd);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreKeyboardInputSource2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetCurrentKeyEventDeviceId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -387,7 +368,6 @@ impl ::windows_core::RuntimeType for ICorePointerInputSource {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICorePointerInputSource_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ReleasePointerCapture: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -562,7 +542,6 @@ impl ::windows_core::RuntimeType for ICorePointerInputSource2 {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICorePointerInputSource2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "System")]
@@ -620,7 +599,6 @@ impl ::windows_core::RuntimeType for ICorePointerRedirector {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICorePointerRedirector_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub PointerRoutedAway: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
@@ -632,7 +610,6 @@ pub struct ICorePointerRedirector_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICoreTouchHitTesting, ICoreTouchHitTesting_Vtbl, 0xb1d8a289_3acf_4124_9fa3_ea8aba353c21);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreTouchHitTesting_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub TouchHitTesting: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
@@ -995,7 +972,6 @@ impl ::windows_core::RuntimeType for ICoreWindow {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWindow_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub AutomationHostProvider: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1062,14 +1038,12 @@ pub struct ICoreWindow_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICoreWindow2, ICoreWindow2_Vtbl, 0x7c2b1b85_6917_4361_9c02_0d9e3a420b95);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWindow2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SetPointerPosition: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::Point) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ICoreWindow3, ICoreWindow3_Vtbl, 0x32c20dd8_faef_4375_a2ab_32640e4815c7);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWindow3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ClosestInteractiveBoundsRequested: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
@@ -1078,7 +1052,6 @@ pub struct ICoreWindow3_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICoreWindow4, ICoreWindow4_Vtbl, 0x35caf0d0_47f0_436c_af97_0dd88f6f5f02);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWindow4_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ResizeStarted: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
@@ -1088,7 +1061,6 @@ pub struct ICoreWindow4_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICoreWindow5, ICoreWindow5_Vtbl, 0x4b4ae1e1_2e6d_4eaa_bda1_1c5cc1bee141);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWindow5_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "System")]
@@ -1099,7 +1071,6 @@ pub struct ICoreWindow5_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICoreWindowDialog, ICoreWindowDialog_Vtbl, 0xe7392ce0_c78d_427e_8b2c_01ff420c69d5);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWindowDialog_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Showing: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
@@ -1133,7 +1104,6 @@ pub struct ICoreWindowDialog_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICoreWindowDialogFactory, ICoreWindowDialogFactory_Vtbl, 0xcfb2a855_1c59_4b13_b1e5_16e29805f7c4);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWindowDialogFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateWithTitle: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1157,7 +1127,6 @@ impl ::windows_core::RuntimeType for ICoreWindowEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWindowEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Handled: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -1165,7 +1134,6 @@ pub struct ICoreWindowEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICoreWindowFlyout, ICoreWindowFlyout_Vtbl, 0xe89d854d_2050_40bb_b344_f6f355eeb314);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWindowFlyout_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Showing: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
@@ -1197,7 +1165,6 @@ pub struct ICoreWindowFlyout_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICoreWindowFlyoutFactory, ICoreWindowFlyoutFactory_Vtbl, 0xdec4c6c4_93e8_4f7c_be27_cefaa1af68a7);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWindowFlyoutFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::Point, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1205,21 +1172,18 @@ pub struct ICoreWindowFlyoutFactory_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICoreWindowPopupShowingEventArgs, ICoreWindowPopupShowingEventArgs_Vtbl, 0x26155fa2_5ba5_4ea4_a3b4_2dc7d63c8e26);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWindowPopupShowingEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SetDesiredSize: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::Size) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ICoreWindowResizeManager, ICoreWindowResizeManager_Vtbl, 0xb8f0b925_b350_48b3_a198_5c1a84700243);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWindowResizeManager_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub NotifyLayoutCompleted: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ICoreWindowResizeManagerLayoutCapability, ICoreWindowResizeManagerLayoutCapability_Vtbl, 0xbb74f27b_a544_4301_80e6_0ae033ef4536);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWindowResizeManagerLayoutCapability_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SetShouldWaitForLayoutCompletion: unsafe extern "system" fn(*mut ::core::ffi::c_void, bool) -> ::windows_core::HRESULT,
@@ -1227,28 +1191,24 @@ pub struct ICoreWindowResizeManagerLayoutCapability_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICoreWindowResizeManagerStatics, ICoreWindowResizeManagerStatics_Vtbl, 0xae4a9045_6d70_49db_8e68_46ffbd17d38d);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWindowResizeManagerStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetForCurrentView: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ICoreWindowStatic, ICoreWindowStatic_Vtbl, 0x4d239005_3c2a_41b1_9022_536bb9cf93b1);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWindowStatic_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetForCurrentThread: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ICoreWindowWithContext, ICoreWindowWithContext_Vtbl, 0x9ac40241_3575_4c3b_af66_e8c529d4d06c);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWindowWithContext_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub UIContext: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IIdleDispatchedHandlerArgs, IIdleDispatchedHandlerArgs_Vtbl, 0x98bb6a24_dc1c_43cb_b4ed_d1c0eb2391f3);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IIdleDispatchedHandlerArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsDispatcherIdle: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -1268,21 +1228,18 @@ impl ::windows_core::RuntimeType for IInitializeWithCoreWindow {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IInitializeWithCoreWindow_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IInputEnabledEventArgs, IInputEnabledEventArgs_Vtbl, 0x80371d4f_2fd8_4c24_aa86_3163a87b4e5a);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IInputEnabledEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub InputEnabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IKeyEventArgs, IKeyEventArgs_Vtbl, 0x5ff5e930_2544_4a17_bd78_1f2fdebb106b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IKeyEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "System")]
@@ -1293,14 +1250,12 @@ pub struct IKeyEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IKeyEventArgs2, IKeyEventArgs2_Vtbl, 0x583add98_0790_4571_9b12_645ef9d79e42);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IKeyEventArgs2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub DeviceId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IPointerEventArgs, IPointerEventArgs_Vtbl, 0x920d9cb1_a5fc_4a21_8c09_49dfe6ffe25f);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPointerEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "UI_Input")]
@@ -1318,7 +1273,6 @@ pub struct IPointerEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISystemNavigationManager, ISystemNavigationManager_Vtbl, 0x93023118_cf50_42a6_9706_69107fa122e1);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISystemNavigationManager_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub BackRequested: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
@@ -1326,7 +1280,6 @@ pub struct ISystemNavigationManager_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISystemNavigationManager2, ISystemNavigationManager2_Vtbl, 0x8c510401_67be_49ae_9509_671c1e54a389);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISystemNavigationManager2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub AppViewBackButtonVisibility: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut AppViewBackButtonVisibility) -> ::windows_core::HRESULT,
@@ -1334,14 +1287,12 @@ pub struct ISystemNavigationManager2_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISystemNavigationManagerStatics, ISystemNavigationManagerStatics_Vtbl, 0xdc52b5ce_bee0_4305_8c54_68228ed683b5);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISystemNavigationManagerStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetForCurrentView: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ITouchHitTestingEventArgs, ITouchHitTestingEventArgs_Vtbl, 0x22f3b823_0b7c_424e_9df7_33d4f962931b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITouchHitTestingEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ProximityEvaluation: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut CoreProximityEvaluation) -> ::windows_core::HRESULT,
@@ -1353,21 +1304,18 @@ pub struct ITouchHitTestingEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IVisibilityChangedEventArgs, IVisibilityChangedEventArgs_Vtbl, 0xbf9918ea_d801_4564_a495_b1e84f8ad085);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVisibilityChangedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Visible: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWindowActivatedEventArgs, IWindowActivatedEventArgs_Vtbl, 0x179d65e7_4658_4cb6_aa13_41d094ea255e);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWindowActivatedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub WindowActivationState: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut CoreWindowActivationState) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWindowSizeChangedEventArgs, IWindowSizeChangedEventArgs_Vtbl, 0x5a200ec7_0426_47dc_b86c_6f475915e451);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWindowSizeChangedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Size: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::Size) -> ::windows_core::HRESULT,
@@ -4120,7 +4068,6 @@ impl ::windows_core::RuntimeType for DispatchedHandler {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct DispatchedHandler_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -4184,7 +4131,6 @@ impl ::windows_core::RuntimeType for IdleDispatchedHandler {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IdleDispatchedHandler_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,

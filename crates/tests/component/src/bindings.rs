@@ -34,7 +34,6 @@ pub mod Nested {
             ::windows_core::imp::ConstBuffer::for_interface::<Self>();
     }
     #[repr(C)]
-    #[doc(hidden)]
     pub struct IThing_Vtbl {
         pub base__: ::windows_core::IInspectable_Vtbl,
         pub Method: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -74,7 +73,6 @@ pub mod Nested {
 }
 ::windows_core::imp::com_interface!(IClass, IClass_Vtbl, 0x97540591_1323_59c0_9ae0_f510cae62e54);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IClass_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Property:
@@ -407,7 +405,6 @@ impl ::windows_core::RuntimeType for Callback {
         ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct Callback_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(

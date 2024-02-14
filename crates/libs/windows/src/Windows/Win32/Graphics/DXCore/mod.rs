@@ -47,7 +47,6 @@ impl IDXCoreAdapter {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDXCoreAdapter_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub IsValid: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> bool,
@@ -93,7 +92,6 @@ impl IDXCoreAdapterFactory {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDXCoreAdapterFactory_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub CreateAdapterList: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const ::windows_core::GUID, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -133,7 +131,6 @@ impl IDXCoreAdapterList {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDXCoreAdapterList_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetAdapter: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,

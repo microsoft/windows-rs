@@ -221,7 +221,6 @@ impl IActionOnCLREvent {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IActionOnCLREvent_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub OnEvent: unsafe extern "system" fn(*mut ::core::ffi::c_void, EClrEvent, *const ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -234,7 +233,6 @@ impl IApartmentCallback {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IApartmentCallback_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub DoCallback: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, usize) -> ::windows_core::HRESULT,
@@ -250,7 +248,6 @@ impl IAppDomainBinding {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppDomainBinding_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub OnAppDomain: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -269,7 +266,6 @@ impl ICLRAppDomainResourceMonitor {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICLRAppDomainResourceMonitor_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetCurrentAllocated: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut u64) -> ::windows_core::HRESULT,
@@ -329,7 +325,6 @@ impl ICLRAssemblyIdentityManager {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICLRAssemblyIdentityManager_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetCLRAssemblyReferenceList: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::PCWSTR, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -363,7 +358,6 @@ impl ICLRAssemblyReferenceList {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICLRAssemblyReferenceList_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub IsStringAssemblyReferenceInList: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
@@ -384,7 +378,6 @@ impl ICLRControl {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICLRControl_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetCLRManager: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -423,7 +416,6 @@ impl ICLRDebugManager {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICLRDebugManager_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub BeginConnection: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
@@ -458,7 +450,6 @@ impl ICLRDebugging {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICLRDebugging_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub OpenVirtualProcess: unsafe extern "system" fn(*mut ::core::ffi::c_void, u64, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *const CLR_DEBUGGING_VERSION, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void, *mut CLR_DEBUGGING_VERSION, *mut CLR_DEBUGGING_PROCESS_FLAGS) -> ::windows_core::HRESULT,
@@ -476,7 +467,6 @@ impl ICLRDebuggingLibraryProvider {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICLRDebuggingLibraryProvider_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub ProvideLibrary: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, u32, u32, *mut super::super::Foundation::HMODULE) -> ::windows_core::HRESULT,
@@ -496,7 +486,6 @@ impl ICLRDomainManager {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICLRDomainManager_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub SetAppDomainManagerType: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, ::windows_core::PCWSTR, EInitializeNewDomainFlags) -> ::windows_core::HRESULT,
@@ -516,7 +505,6 @@ impl ICLRErrorReportingManager {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICLRErrorReportingManager_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetBucketParametersForCurrentException: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut BucketParameters) -> ::windows_core::HRESULT,
@@ -537,7 +525,6 @@ impl ICLRGCManager {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICLRGCManager_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Collect: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
@@ -561,7 +548,6 @@ impl ICLRGCManager2 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICLRGCManager2_Vtbl {
     pub base__: ICLRGCManager_Vtbl,
     pub SetGCStartupLimitsEx: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, usize) -> ::windows_core::HRESULT,
@@ -584,7 +570,6 @@ impl ICLRHostBindingPolicyManager {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICLRHostBindingPolicyManager_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub ModifyApplicationPolicy: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, ::windows_core::PCWSTR, *const u8, u32, u32, *mut u8, *mut u32) -> ::windows_core::HRESULT,
@@ -601,7 +586,6 @@ impl ICLRHostProtectionManager {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICLRHostProtectionManager_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub SetProtectedCategories: unsafe extern "system" fn(*mut ::core::ffi::c_void, EApiCategories) -> ::windows_core::HRESULT,
@@ -615,7 +599,6 @@ impl ICLRIoCompletionManager {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICLRIoCompletionManager_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub OnComplete: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, *const ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -628,7 +611,6 @@ impl ICLRMemoryNotificationCallback {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICLRMemoryNotificationCallback_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub OnMemoryNotification: unsafe extern "system" fn(*mut ::core::ffi::c_void, EMemoryAvailable) -> ::windows_core::HRESULT,
@@ -678,7 +660,6 @@ impl ICLRMetaHost {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICLRMetaHost_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetRuntime: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -710,7 +691,6 @@ impl ICLRMetaHostPolicy {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICLRMetaHostPolicy_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -735,7 +715,6 @@ impl ICLROnEventManager {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICLROnEventManager_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub RegisterActionOnEvent: unsafe extern "system" fn(*mut ::core::ffi::c_void, EClrEvent, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -764,7 +743,6 @@ impl ICLRPolicyManager {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICLRPolicyManager_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub SetDefaultAction: unsafe extern "system" fn(*mut ::core::ffi::c_void, EClrOperation, EPolicyAction) -> ::windows_core::HRESULT,
@@ -782,7 +760,6 @@ impl ICLRProbingAssemblyEnum {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICLRProbingAssemblyEnum_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Get: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, ::windows_core::PWSTR, *mut u32) -> ::windows_core::HRESULT,
@@ -798,7 +775,6 @@ impl ICLRProfiling {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICLRProfiling_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub AttachProfiler: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, *const ::windows_core::GUID, ::windows_core::PCWSTR, *const ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
@@ -811,7 +787,6 @@ impl ICLRReferenceAssemblyEnum {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICLRReferenceAssemblyEnum_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Get: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, ::windows_core::PWSTR, *mut u32) -> ::windows_core::HRESULT,
@@ -867,7 +842,6 @@ impl ICLRRuntimeHost {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICLRRuntimeHost_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Start: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -941,7 +915,6 @@ impl ICLRRuntimeInfo {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICLRRuntimeInfo_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetVersionString: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PWSTR, *mut u32) -> ::windows_core::HRESULT,
@@ -1100,7 +1073,6 @@ impl ICLRStrongName {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICLRStrongName_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetHashFromAssemblyFile: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCSTR, *mut u32, *mut u8, u32, *mut u32) -> ::windows_core::HRESULT,
@@ -1148,7 +1120,6 @@ impl ICLRStrongName2 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICLRStrongName2_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub StrongNameGetPublicKeyEx: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *const u8, u32, *mut *mut u8, *mut u32, u32, u32) -> ::windows_core::HRESULT,
@@ -1177,7 +1148,6 @@ impl ICLRStrongName3 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICLRStrongName3_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub StrongNameDigestGenerate: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *mut *mut u8, *mut u32, u32) -> ::windows_core::HRESULT,
@@ -1204,7 +1174,6 @@ impl ICLRSyncManager {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICLRSyncManager_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetMonitorOwner: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1259,7 +1228,6 @@ impl ICLRTask {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICLRTask_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub SwitchIn: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::HANDLE) -> ::windows_core::HRESULT,
@@ -1327,7 +1295,6 @@ impl ICLRTask2 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICLRTask2_Vtbl {
     pub base__: ICLRTask_Vtbl,
     pub BeginPreventAsyncAbort: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1356,7 +1323,6 @@ impl ICLRTaskManager {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICLRTaskManager_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub CreateTask: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1376,7 +1342,6 @@ impl ICatalogServices {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICatalogServices_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Autodone: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1408,7 +1373,6 @@ impl ICorConfiguration {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICorConfiguration_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub SetGCThreadControl: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1504,7 +1468,6 @@ impl ICorRuntimeHost {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICorRuntimeHost_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub CreateLogicalThreadState: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1598,7 +1561,6 @@ impl ICorThreadpool {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICorThreadpool_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Threading")]
@@ -1637,7 +1599,6 @@ impl IDebuggerInfo {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDebuggerInfo_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub IsDebuggerAttached: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
@@ -1656,7 +1617,6 @@ impl IDebuggerThreadControl {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDebuggerThreadControl_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub ThreadIsBlockingForDebugger: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1683,7 +1643,6 @@ impl IGCHost {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IGCHost_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub SetGCStartupLimits: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32) -> ::windows_core::HRESULT,
@@ -1715,7 +1674,6 @@ impl IGCHost2 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IGCHost2_Vtbl {
     pub base__: IGCHost_Vtbl,
     pub SetGCStartupLimitsEx: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, usize) -> ::windows_core::HRESULT,
@@ -1728,7 +1686,6 @@ impl IGCHostControl {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IGCHostControl_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub RequestVirtualMemLimit: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, *mut usize) -> ::windows_core::HRESULT,
@@ -1747,7 +1704,6 @@ impl IGCThreadControl {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IGCThreadControl_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub ThreadIsBlockingForSuspension: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1767,7 +1723,6 @@ impl IHostAssemblyManager {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IHostAssemblyManager_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetNonHostStoreAssemblies: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1786,7 +1741,6 @@ impl IHostAssemblyStore {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IHostAssemblyStore_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -1809,7 +1763,6 @@ impl IHostAutoEvent {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IHostAutoEvent_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Wait: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32) -> ::windows_core::HRESULT,
@@ -1829,7 +1782,6 @@ impl IHostControl {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IHostControl_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetHostManager: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1853,7 +1805,6 @@ impl IHostCrst {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IHostCrst_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Enter: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
@@ -1875,7 +1826,6 @@ impl IHostGCManager {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IHostGCManager_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub ThreadIsBlockingForSuspension: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1935,7 +1885,6 @@ impl IHostIoCompletionManager {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IHostIoCompletionManager_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub CreateIoCompletionPort: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::HANDLE) -> ::windows_core::HRESULT,
@@ -1964,7 +1913,6 @@ impl IHostMalloc {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IHostMalloc_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Alloc: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, EMemoryCriticalLevel, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1985,7 +1933,6 @@ impl IHostManualEvent {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IHostManualEvent_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Wait: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32) -> ::windows_core::HRESULT,
@@ -2032,7 +1979,6 @@ impl IHostMemoryManager {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IHostMemoryManager_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub CreateMalloc: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -2060,7 +2006,6 @@ impl IHostPolicyManager {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IHostPolicyManager_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub OnDefaultAction: unsafe extern "system" fn(*mut ::core::ffi::c_void, EClrOperation, EPolicyAction) -> ::windows_core::HRESULT,
@@ -2076,7 +2021,6 @@ impl IHostSecurityContext {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IHostSecurityContext_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Capture: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -2118,7 +2062,6 @@ impl IHostSecurityManager {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IHostSecurityManager_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub ImpersonateLoggedOnUser: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::HANDLE) -> ::windows_core::HRESULT,
@@ -2140,7 +2083,6 @@ impl IHostSemaphore {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IHostSemaphore_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Wait: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32) -> ::windows_core::HRESULT,
@@ -2195,7 +2137,6 @@ impl IHostSyncManager {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IHostSyncManager_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub SetCLRSyncManager: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -2235,7 +2176,6 @@ impl IHostTask {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IHostTask_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Start: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -2312,7 +2252,6 @@ impl IHostTaskManager {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IHostTaskManager_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetCurrentTask: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -2364,7 +2303,6 @@ impl IHostThreadpoolManager {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IHostThreadpoolManager_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Threading")]
@@ -2389,7 +2327,6 @@ impl IManagedObject {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IManagedObject_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetSerializedBuffer: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
@@ -2404,7 +2341,6 @@ impl IObjectHandle {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IObjectHandle_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Unwrap: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
@@ -2442,7 +2378,6 @@ impl ITypeName {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITypeName_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetNameCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -2501,7 +2436,6 @@ impl ITypeNameBuilder {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITypeNameBuilder_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub OpenGenericArguments: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -2533,7 +2467,6 @@ impl ITypeNameFactory {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITypeNameFactory_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub ParseTypeName: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *mut u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,

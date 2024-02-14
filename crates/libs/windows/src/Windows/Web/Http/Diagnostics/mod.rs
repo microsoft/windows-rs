@@ -1,6 +1,5 @@
 ::windows_core::imp::com_interface!(IHttpDiagnosticProvider, IHttpDiagnosticProvider_Vtbl, 0xbd811501_a056_4d39_b174_833b7b03b02c);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IHttpDiagnosticProvider_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Start: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -14,7 +13,6 @@ pub struct IHttpDiagnosticProvider_Vtbl {
 }
 ::windows_core::imp::com_interface!(IHttpDiagnosticProviderRequestResponseCompletedEventArgs, IHttpDiagnosticProviderRequestResponseCompletedEventArgs_Vtbl, 0x735f98ee_94f6_4532_b26e_61e1b1e4efd4);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IHttpDiagnosticProviderRequestResponseCompletedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ActivityId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
@@ -30,7 +28,6 @@ pub struct IHttpDiagnosticProviderRequestResponseCompletedEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IHttpDiagnosticProviderRequestResponseTimestamps, IHttpDiagnosticProviderRequestResponseTimestamps_Vtbl, 0xe0afde10_55cf_4c01_91d4_a20557d849f0);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IHttpDiagnosticProviderRequestResponseTimestamps_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CacheCheckedTimestamp: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -45,7 +42,6 @@ pub struct IHttpDiagnosticProviderRequestResponseTimestamps_Vtbl {
 }
 ::windows_core::imp::com_interface!(IHttpDiagnosticProviderRequestSentEventArgs, IHttpDiagnosticProviderRequestSentEventArgs_Vtbl, 0x3f5196d0_4c1f_4ebe_a57a_06930771c50d);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IHttpDiagnosticProviderRequestSentEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Timestamp: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::super::Foundation::DateTime) -> ::windows_core::HRESULT,
@@ -61,7 +57,6 @@ pub struct IHttpDiagnosticProviderRequestSentEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IHttpDiagnosticProviderResponseReceivedEventArgs, IHttpDiagnosticProviderResponseReceivedEventArgs_Vtbl, 0xa0a2566c_ab5f_4d66_bb2d_084cf41635d0);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IHttpDiagnosticProviderResponseReceivedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Timestamp: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::super::Foundation::DateTime) -> ::windows_core::HRESULT,
@@ -70,7 +65,6 @@ pub struct IHttpDiagnosticProviderResponseReceivedEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IHttpDiagnosticProviderStatics, IHttpDiagnosticProviderStatics_Vtbl, 0x5b824ec1_6a6c_47cc_afec_1e86bc26053b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IHttpDiagnosticProviderStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "System_Diagnostics")]
@@ -80,7 +74,6 @@ pub struct IHttpDiagnosticProviderStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IHttpDiagnosticSourceLocation, IHttpDiagnosticSourceLocation_Vtbl, 0x54a9d260_8860_423f_b6fa_d77716f647a7);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IHttpDiagnosticSourceLocation_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SourceUri: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,

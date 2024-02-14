@@ -1,6 +1,5 @@
 ::windows_core::imp::com_interface!(IEnterprise, IEnterprise_Vtbl, 0x96592f8d_856c_4426_a947_b06307718078);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IEnterprise_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Id: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
@@ -12,7 +11,6 @@ pub struct IEnterprise_Vtbl {
 }
 ::windows_core::imp::com_interface!(IEnterpriseEnrollmentManager, IEnterpriseEnrollmentManager_Vtbl, 0x20f9f390_2c69_41d8_88e6_e4b3884026cb);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IEnterpriseEnrollmentManager_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -26,7 +24,6 @@ pub struct IEnterpriseEnrollmentManager_Vtbl {
 }
 ::windows_core::imp::com_interface!(IEnterpriseEnrollmentResult, IEnterpriseEnrollmentResult_Vtbl, 0x9ff71ce6_90db_4342_b326_1729aa91301c);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IEnterpriseEnrollmentResult_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub EnrolledEnterprise: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -34,7 +31,6 @@ pub struct IEnterpriseEnrollmentResult_Vtbl {
 }
 ::windows_core::imp::com_interface!(IInstallationManagerStatics, IInstallationManagerStatics_Vtbl, 0x929aa738_8d49_42ac_80c9_b4ad793c43f2);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IInstallationManagerStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub AddPackageAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -54,7 +50,6 @@ pub struct IInstallationManagerStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IInstallationManagerStatics2, IInstallationManagerStatics2_Vtbl, 0x7c6c2cbd_fa4a_4c8e_ab97_d959452f19e5);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IInstallationManagerStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Management_Deployment")]
@@ -72,7 +67,6 @@ pub struct IInstallationManagerStatics2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IPackageInstallResult, IPackageInstallResult_Vtbl, 0x33e8eed5_0f7e_4473_967c_7d6e1c0e7de1);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPackageInstallResult_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ProductId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -83,7 +77,6 @@ pub struct IPackageInstallResult_Vtbl {
 }
 ::windows_core::imp::com_interface!(IPackageInstallResult2, IPackageInstallResult2_Vtbl, 0x7149d909_3ff9_41ed_a717_2bc65ffc61d2);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPackageInstallResult2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ErrorText: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,

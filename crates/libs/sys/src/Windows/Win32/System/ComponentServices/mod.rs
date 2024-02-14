@@ -1,13 +1,13 @@
-::windows_targets::link!("comsvcs.dll" "system" fn CoCreateActivity(piunknown : ::windows_sys::core::IUnknown, riid : *const ::windows_sys::core::GUID, ppobj : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("comsvcs.dll" "system" fn CoEnterServiceDomain(pconfigobject : ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("comsvcs.dll" "system" fn CoCreateActivity(piunknown : * mut::core::ffi::c_void, riid : *const ::windows_sys::core::GUID, ppobj : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("comsvcs.dll" "system" fn CoEnterServiceDomain(pconfigobject : * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_targets::link!("ole32.dll" "system" fn CoGetDefaultContext(apttype : super::Com:: APTTYPE, riid : *const ::windows_sys::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("comsvcs.dll" "system" fn CoLeaveServiceDomain(punkstatus : ::windows_sys::core::IUnknown));
+::windows_targets::link!("comsvcs.dll" "system" fn CoLeaveServiceDomain(punkstatus : * mut::core::ffi::c_void));
 ::windows_targets::link!("mtxdm.dll" "cdecl" fn GetDispenserManager(param0 : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("comsvcs.dll" "system" fn GetManagedExtensions(dwexts : *mut u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("comsvcs.dll" "system" fn MTSCreateActivity(riid : *const ::windows_sys::core::GUID, ppobj : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("comsvcs.dll" "cdecl" fn RecycleSurrogate(lreasoncode : i32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("comsvcs.dll" "cdecl" fn SafeRef(rid : *const ::windows_sys::core::GUID, punk : ::windows_sys::core::IUnknown) -> *mut ::core::ffi::c_void);
+::windows_targets::link!("comsvcs.dll" "cdecl" fn SafeRef(rid : *const ::windows_sys::core::GUID, punk : * mut::core::ffi::c_void) -> *mut ::core::ffi::c_void);
 pub const APPTYPE_LIBRARY: COMPLUS_APPTYPE = 0i32;
 pub const APPTYPE_SERVER: COMPLUS_APPTYPE = 1i32;
 pub const APPTYPE_SWC: COMPLUS_APPTYPE = 2i32;

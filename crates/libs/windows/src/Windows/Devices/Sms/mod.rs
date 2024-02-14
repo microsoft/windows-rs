@@ -1,6 +1,5 @@
 ::windows_core::imp::com_interface!(ISmsAppMessage, ISmsAppMessage_Vtbl, 0xe8bb8494_d3a0_4a0a_86d7_291033a8cf54);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISmsAppMessage_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Timestamp: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::DateTime) -> ::windows_core::HRESULT,
@@ -87,7 +86,6 @@ impl ::windows_core::RuntimeType for ISmsBinaryMessage {
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISmsBinaryMessage_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "deprecated")]
@@ -109,7 +107,6 @@ pub struct ISmsBinaryMessage_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISmsBroadcastMessage, ISmsBroadcastMessage_Vtbl, 0x75aebbf1_e4b7_4874_a09c_2956e592f957);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISmsBroadcastMessage_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Timestamp: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::DateTime) -> ::windows_core::HRESULT,
@@ -222,7 +219,6 @@ impl ::windows_core::RuntimeType for ISmsDevice {
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISmsDevice_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "deprecated")]
@@ -268,7 +264,6 @@ pub struct ISmsDevice_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISmsDevice2, ISmsDevice2_Vtbl, 0xbd8a5c13_e522_46cb_b8d5_9ead30fb6c47);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISmsDevice2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SmscAddress: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -285,7 +280,6 @@ pub struct ISmsDevice2_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISmsDevice2Statics, ISmsDevice2Statics_Vtbl, 0x65c78325_1031_491e_8fb6_ef9991afe363);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISmsDevice2Statics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetDeviceSelector: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -297,7 +291,6 @@ pub struct ISmsDevice2Statics_Vtbl {
 ::windows_core::imp::com_interface!(ISmsDeviceMessageStore, ISmsDeviceMessageStore_Vtbl, 0x9889f253_f188_4427_8d54_ce0c2423c5c1);
 #[cfg(feature = "deprecated")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISmsDeviceMessageStore_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "deprecated")]
@@ -325,7 +318,6 @@ pub struct ISmsDeviceMessageStore_Vtbl {
 ::windows_core::imp::com_interface!(ISmsDeviceStatics, ISmsDeviceStatics_Vtbl, 0xf88d07ea_d815_4dd1_a234_4520ce4604a4);
 #[cfg(feature = "deprecated")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISmsDeviceStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "deprecated")]
@@ -345,7 +337,6 @@ pub struct ISmsDeviceStatics_Vtbl {
 ::windows_core::imp::com_interface!(ISmsDeviceStatics2, ISmsDeviceStatics2_Vtbl, 0x2ca11c87_0873_4caf_8a7d_bd471e8586d1);
 #[cfg(feature = "deprecated")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISmsDeviceStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "deprecated")]
@@ -355,7 +346,6 @@ pub struct ISmsDeviceStatics2_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISmsFilterRule, ISmsFilterRule_Vtbl, 0x40e32fae_b049_4fbc_afe9_e2a610eff55c);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISmsFilterRule_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub MessageType: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut SmsMessageType) -> ::windows_core::HRESULT,
@@ -408,14 +398,12 @@ pub struct ISmsFilterRule_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISmsFilterRuleFactory, ISmsFilterRuleFactory_Vtbl, 0x00c36508_6296_4f29_9aad_8920ceba3ce8);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISmsFilterRuleFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateFilterRule: unsafe extern "system" fn(*mut ::core::ffi::c_void, SmsMessageType, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ISmsFilterRules, ISmsFilterRules_Vtbl, 0x4e47eafb_79cd_4881_9894_55a4135b23fa);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISmsFilterRules_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ActionType: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut SmsFilterActionType) -> ::windows_core::HRESULT,
@@ -426,7 +414,6 @@ pub struct ISmsFilterRules_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISmsFilterRulesFactory, ISmsFilterRulesFactory_Vtbl, 0xa09924ed_6e2e_4530_9fde_465d02eed00e);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISmsFilterRulesFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateFilterRules: unsafe extern "system" fn(*mut ::core::ffi::c_void, SmsFilterActionType, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -453,7 +440,6 @@ impl ::windows_core::RuntimeType for ISmsMessage {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISmsMessage_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Id: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -502,7 +488,6 @@ impl ::windows_core::RuntimeType for ISmsMessageBase {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISmsMessageBase_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub MessageType: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut SmsMessageType) -> ::windows_core::HRESULT,
@@ -515,7 +500,6 @@ pub struct ISmsMessageBase_Vtbl {
 ::windows_core::imp::com_interface!(ISmsMessageReceivedEventArgs, ISmsMessageReceivedEventArgs_Vtbl, 0x08e80a98_b8e5_41c1_a3d8_d3abfae22675);
 #[cfg(feature = "deprecated")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISmsMessageReceivedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "deprecated")]
@@ -529,7 +513,6 @@ pub struct ISmsMessageReceivedEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISmsMessageReceivedTriggerDetails, ISmsMessageReceivedTriggerDetails_Vtbl, 0x2bcfcbd4_2657_4128_ad5f_e3877132bdb1);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISmsMessageReceivedTriggerDetails_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub MessageType: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut SmsMessageType) -> ::windows_core::HRESULT,
@@ -544,7 +527,6 @@ pub struct ISmsMessageReceivedTriggerDetails_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISmsMessageRegistration, ISmsMessageRegistration_Vtbl, 0x1720503e_f34f_446b_83b3_0ff19923b409);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISmsMessageRegistration_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Id: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -554,7 +536,6 @@ pub struct ISmsMessageRegistration_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISmsMessageRegistrationStatics, ISmsMessageRegistrationStatics_Vtbl, 0x63a05464_2898_4778_a03c_6f994907d63a);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISmsMessageRegistrationStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -567,7 +548,6 @@ pub struct ISmsMessageRegistrationStatics_Vtbl {
 ::windows_core::imp::com_interface!(ISmsReceivedEventDetails, ISmsReceivedEventDetails_Vtbl, 0x5bb50f15_e46d_4c82_847d_5a0304c1d53d);
 #[cfg(feature = "deprecated")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISmsReceivedEventDetails_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "deprecated")]
@@ -583,7 +563,6 @@ pub struct ISmsReceivedEventDetails_Vtbl {
 ::windows_core::imp::com_interface!(ISmsReceivedEventDetails2, ISmsReceivedEventDetails2_Vtbl, 0x40e05c86_a7b4_4771_9ae7_0b5ffb12c03a);
 #[cfg(feature = "deprecated")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISmsReceivedEventDetails2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "deprecated")]
@@ -597,7 +576,6 @@ pub struct ISmsReceivedEventDetails2_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISmsSendMessageResult, ISmsSendMessageResult_Vtbl, 0xdb139af2_78c9_4feb_9622_452328088d62);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISmsSendMessageResult_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsSuccessful: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -613,7 +591,6 @@ pub struct ISmsSendMessageResult_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISmsStatusMessage, ISmsStatusMessage_Vtbl, 0xe6d28342_b70b_4677_9379_c9783fdff8f4);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISmsStatusMessage_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub To: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -745,7 +722,6 @@ impl ::windows_core::RuntimeType for ISmsTextMessage {
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISmsTextMessage_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "deprecated")]
@@ -803,7 +779,6 @@ pub struct ISmsTextMessage_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISmsTextMessage2, ISmsTextMessage2_Vtbl, 0x22a0d893_4555_4755_b5a1_e7fd84955f8d);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISmsTextMessage2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Timestamp: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::DateTime) -> ::windows_core::HRESULT,
@@ -827,7 +802,6 @@ pub struct ISmsTextMessage2_Vtbl {
 ::windows_core::imp::com_interface!(ISmsTextMessageStatics, ISmsTextMessageStatics_Vtbl, 0x7f68c5ed_3ccc_47a3_8c55_380d3b010892);
 #[cfg(feature = "deprecated")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISmsTextMessageStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "deprecated")]
@@ -841,7 +815,6 @@ pub struct ISmsTextMessageStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISmsVoicemailMessage, ISmsVoicemailMessage_Vtbl, 0x271aa0a6_95b1_44ff_bcb8_b8fdd7e08bc3);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISmsVoicemailMessage_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Timestamp: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::DateTime) -> ::windows_core::HRESULT,
@@ -851,7 +824,6 @@ pub struct ISmsVoicemailMessage_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISmsWapMessage, ISmsWapMessage_Vtbl, 0xcd937743_7a55_4d3b_9021_f22e022d09c5);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISmsWapMessage_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Timestamp: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::DateTime) -> ::windows_core::HRESULT,
@@ -3686,7 +3658,6 @@ impl ::windows_core::RuntimeType for SmsDeviceStatusChangedEventHandler {
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct SmsDeviceStatusChangedEventHandler_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "deprecated")]
@@ -3761,7 +3732,6 @@ impl ::windows_core::RuntimeType for SmsMessageReceivedEventHandler {
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct SmsMessageReceivedEventHandler_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "deprecated")]

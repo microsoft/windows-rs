@@ -230,7 +230,6 @@ impl ::core::clone::Clone for IDLDESC {
 pub type IDLFLAGS = u16;
 pub type IMPLTYPEFLAGS = i32;
 pub type INVOKEKIND = i32;
-pub type IUnknown = *mut ::core::ffi::c_void;
 pub type LPEXCEPFINO_DEFERRED_FILLIN =
     ::core::option::Option<unsafe extern "system" fn(pexcepinfo: *mut EXCEPINFO) -> HRESULT>;
 #[repr(C)]
@@ -429,7 +428,7 @@ pub union VARIANT_0_0_0 {
     pub cyVal: CY,
     pub date: f64,
     pub bstrVal: BSTR,
-    pub punkVal: IUnknown,
+    pub punkVal: *mut ::core::ffi::c_void,
     pub pdispVal: *mut ::core::ffi::c_void,
     pub parray: *mut SAFEARRAY,
     pub pbVal: *mut u8,
@@ -444,7 +443,7 @@ pub union VARIANT_0_0_0 {
     pub pcyVal: *mut CY,
     pub pdate: *mut f64,
     pub pbstrVal: *mut BSTR,
-    pub ppunkVal: *mut IUnknown,
+    pub ppunkVal: *mut *mut ::core::ffi::c_void,
     pub ppdispVal: *mut *mut ::core::ffi::c_void,
     pub pparray: *mut *mut SAFEARRAY,
     pub pvarVal: *mut VARIANT,

@@ -13,7 +13,6 @@ impl ::windows_core::RuntimeType for IAdaptiveCard {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAdaptiveCard_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ToJson: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -33,14 +32,12 @@ impl ::windows_core::RuntimeType for IAdaptiveCardBuilderStatics {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAdaptiveCardBuilderStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateAdaptiveCardFromJson: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IFocusSession, IFocusSession_Vtbl, 0x069fbab8_0e84_5f2f_8614_9b6544326277);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IFocusSession_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Id: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -48,7 +45,6 @@ pub struct IFocusSession_Vtbl {
 }
 ::windows_core::imp::com_interface!(IFocusSessionManager, IFocusSessionManager_Vtbl, 0xe7ffbaa9_d8be_5dbf_bac6_49364842e37e);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IFocusSessionManager_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsFocusActive: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -61,7 +57,6 @@ pub struct IFocusSessionManager_Vtbl {
 }
 ::windows_core::imp::com_interface!(IFocusSessionManagerStatics, IFocusSessionManagerStatics_Vtbl, 0x834df764_cb9a_5d0a_aa9f_73df4f249395);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IFocusSessionManagerStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetDefault: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -69,7 +64,6 @@ pub struct IFocusSessionManagerStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISecurityAppManager, ISecurityAppManager_Vtbl, 0x96ac500c_aed4_561d_bde8_953520343a2d);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISecurityAppManager_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Register: unsafe extern "system" fn(*mut ::core::ffi::c_void, SecurityAppKind, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut ::core::ffi::c_void, bool, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
@@ -78,7 +72,6 @@ pub struct ISecurityAppManager_Vtbl {
 }
 ::windows_core::imp::com_interface!(IShareWindowCommandEventArgs, IShareWindowCommandEventArgs_Vtbl, 0x4578dc09_a523_5756_a995_e4feb991fff0);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IShareWindowCommandEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub WindowId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::WindowId) -> ::windows_core::HRESULT,
@@ -87,7 +80,6 @@ pub struct IShareWindowCommandEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IShareWindowCommandSource, IShareWindowCommandSource_Vtbl, 0xcb3b7ae3_6b9c_561e_bccc_61e68e0abfef);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IShareWindowCommandSource_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Start: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -100,14 +92,12 @@ pub struct IShareWindowCommandSource_Vtbl {
 }
 ::windows_core::imp::com_interface!(IShareWindowCommandSourceStatics, IShareWindowCommandSourceStatics_Vtbl, 0xb0eb6656_9cac_517c_b6c7_8ef715084295);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IShareWindowCommandSourceStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetForCurrentView: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ITaskbarManager, ITaskbarManager_Vtbl, 0x87490a19_1ad9_49f4_b2e8_86738dc5ac40);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITaskbarManager_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsSupported: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -125,7 +115,6 @@ pub struct ITaskbarManager_Vtbl {
 }
 ::windows_core::imp::com_interface!(ITaskbarManager2, ITaskbarManager2_Vtbl, 0x79f0a06e_7b02_4911_918c_dee0bbd20ba4);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITaskbarManager2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsSecondaryTilePinnedAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -137,20 +126,17 @@ pub struct ITaskbarManager2_Vtbl {
 }
 ::windows_core::imp::com_interface!(ITaskbarManagerDesktopAppSupportStatics, ITaskbarManagerDesktopAppSupportStatics_Vtbl, 0xcdfefd63_e879_4134_b9a7_8283f05f9480);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITaskbarManagerDesktopAppSupportStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
 }
 ::windows_core::imp::com_interface!(ITaskbarManagerStatics, ITaskbarManagerStatics_Vtbl, 0xdb32ab74_de52_4fe6_b7b6_95ff9f8395df);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITaskbarManagerStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetDefault: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWindowTab, IWindowTab_Vtbl, 0x551e776a_7928_4d60_bdd9_672b5a5758eb);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWindowTab_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Tag: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -167,21 +153,18 @@ pub struct IWindowTab_Vtbl {
 }
 ::windows_core::imp::com_interface!(IWindowTabCloseRequestedEventArgs, IWindowTabCloseRequestedEventArgs_Vtbl, 0x477282e9_eec4_5882_9889_2dd64d0f9fb6);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWindowTabCloseRequestedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Tab: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWindowTabCollection, IWindowTabCollection_Vtbl, 0xaccd0d6c_ed07_519a_8c33_17e02e7e9b0f);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWindowTabCollection_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub MoveTab: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWindowTabGroup, IWindowTabGroup_Vtbl, 0xa9c2c4fe_6cfe_449c_8b57_5756771abe56);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWindowTabGroup_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Title: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -191,13 +174,11 @@ pub struct IWindowTabGroup_Vtbl {
 }
 ::windows_core::imp::com_interface!(IWindowTabIcon, IWindowTabIcon_Vtbl, 0xf92f398f_3669_4d0c_a183_14ddae6f6538);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWindowTabIcon_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
 }
 ::windows_core::imp::com_interface!(IWindowTabIconStatics, IWindowTabIconStatics_Vtbl, 0x2e18d95e_2cbb_4084_af0c_36ee1c2d54b1);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWindowTabIconStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateFromFontGlyph: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -209,7 +190,6 @@ pub struct IWindowTabIconStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IWindowTabManager, IWindowTabManager_Vtbl, 0x97b3c697_f43a_43e7_b3a2_e889a9835599);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWindowTabManager_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Tabs: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -225,7 +205,6 @@ pub struct IWindowTabManager_Vtbl {
 }
 ::windows_core::imp::com_interface!(IWindowTabManagerStatics, IWindowTabManagerStatics_Vtbl, 0x76755668_45f0_4e0b_8172_4e6d9d0f87bd);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWindowTabManagerStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetForWindow: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::WindowId, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -234,14 +213,12 @@ pub struct IWindowTabManagerStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IWindowTabSwitchRequestedEventArgs, IWindowTabSwitchRequestedEventArgs_Vtbl, 0x7cbc421a_58a4_568b_a351_f8a947a5aad8);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWindowTabSwitchRequestedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Tab: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWindowTabTearOutRequestedEventArgs, IWindowTabTearOutRequestedEventArgs_Vtbl, 0x17d66659_5005_5ece_99af_566306e73642);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWindowTabTearOutRequestedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Tab: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -251,7 +228,6 @@ pub struct IWindowTabTearOutRequestedEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IWindowTabThumbnailRequestedEventArgs, IWindowTabThumbnailRequestedEventArgs_Vtbl, 0x2d558e54_9c4e_5abc_ab72_3350fb4937a0);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWindowTabThumbnailRequestedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Tab: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,

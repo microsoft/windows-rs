@@ -1,6 +1,5 @@
 ::windows_core::imp::com_interface!(IAppServiceCatalogStatics, IAppServiceCatalogStatics_Vtbl, 0xef0d2507_d132_4c85_8395_3c31d5a1e941);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppServiceCatalogStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -10,14 +9,12 @@ pub struct IAppServiceCatalogStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppServiceClosedEventArgs, IAppServiceClosedEventArgs_Vtbl, 0xde6016f6_cb03_4d35_ac8d_cc6303239731);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppServiceClosedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut AppServiceClosedStatus) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IAppServiceConnection, IAppServiceConnection_Vtbl, 0x9dd474a2_871f_4d52_89a9_9e090531bd27);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppServiceConnection_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub AppServiceName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -36,7 +33,6 @@ pub struct IAppServiceConnection_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppServiceConnection2, IAppServiceConnection2_Vtbl, 0x8bdfcd5f_2302_4fbd_8061_52511c2f8bf9);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppServiceConnection2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "System_RemoteSystems")]
@@ -54,7 +50,6 @@ pub struct IAppServiceConnection2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppServiceConnectionStatics, IAppServiceConnectionStatics_Vtbl, 0xadc56ce9_d408_5673_8637_827a4b274168);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppServiceConnectionStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(all(feature = "Foundation_Collections", feature = "System_RemoteSystems"))]
@@ -64,14 +59,12 @@ pub struct IAppServiceConnectionStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppServiceDeferral, IAppServiceDeferral_Vtbl, 0x7e1b5322_eab0_4248_ae04_fdf93838e472);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppServiceDeferral_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Complete: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IAppServiceRequest, IAppServiceRequest_Vtbl, 0x20e58d9d_18de_4b01_80ba_90a76204e3c8);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppServiceRequest_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -85,7 +78,6 @@ pub struct IAppServiceRequest_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppServiceRequestReceivedEventArgs, IAppServiceRequestReceivedEventArgs_Vtbl, 0x6e122360_ff65_44ae_9e45_857fe4180681);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppServiceRequestReceivedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Request: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -93,7 +85,6 @@ pub struct IAppServiceRequestReceivedEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppServiceResponse, IAppServiceResponse_Vtbl, 0x8d503cec_9aa3_4e68_9559_9de63e372ce4);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppServiceResponse_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -104,7 +95,6 @@ pub struct IAppServiceResponse_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppServiceTriggerDetails, IAppServiceTriggerDetails_Vtbl, 0x88a2dcac_ad28_41b8_80bb_bdf1b2169e19);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppServiceTriggerDetails_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Name: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -113,28 +103,24 @@ pub struct IAppServiceTriggerDetails_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppServiceTriggerDetails2, IAppServiceTriggerDetails2_Vtbl, 0xe83d54b2_28cc_43f2_b465_c0482e59e2dc);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppServiceTriggerDetails2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsRemoteSystemConnection: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IAppServiceTriggerDetails3, IAppServiceTriggerDetails3_Vtbl, 0xfbd71e21_7939_4e68_9e3c_7780147aabb6);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppServiceTriggerDetails3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CheckCallerForCapabilityAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IAppServiceTriggerDetails4, IAppServiceTriggerDetails4_Vtbl, 0x1185b180_8861_5e30_ab55_1cf4d08bbf6d);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppServiceTriggerDetails4_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CallerRemoteConnectionToken: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IStatelessAppServiceResponse, IStatelessAppServiceResponse_Vtbl, 0x43754af7_a9ec_52fe_82e7_939b68dc9388);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IStatelessAppServiceResponse_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]

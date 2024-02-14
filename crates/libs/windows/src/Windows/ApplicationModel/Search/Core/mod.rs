@@ -1,12 +1,10 @@
 ::windows_core::imp::com_interface!(IRequestingFocusOnKeyboardInputEventArgs, IRequestingFocusOnKeyboardInputEventArgs_Vtbl, 0xa1195f27_b1a7_41a2_879d_6a68687e5985);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRequestingFocusOnKeyboardInputEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
 }
 ::windows_core::imp::com_interface!(ISearchSuggestion, ISearchSuggestion_Vtbl, 0x5b5554b0_1527_437b_95c5_8d18d2b8af55);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISearchSuggestion_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Kind: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut SearchSuggestionKind) -> ::windows_core::HRESULT,
@@ -21,7 +19,6 @@ pub struct ISearchSuggestion_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISearchSuggestionManager, ISearchSuggestionManager_Vtbl, 0x3f0c50a1_cb9d_497b_b500_3c04ac959ad2);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISearchSuggestionManager_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SearchHistoryEnabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -46,7 +43,6 @@ pub struct ISearchSuggestionManager_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISearchSuggestionsRequestedEventArgs, ISearchSuggestionsRequestedEventArgs_Vtbl, 0x6fd519e5_9e7e_4ab4_8be3_c76b1bd4344a);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISearchSuggestionsRequestedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub QueryText: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,

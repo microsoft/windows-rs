@@ -1,6 +1,5 @@
 ::windows_core::imp::com_interface!(ISystemUpdateItem, ISystemUpdateItem_Vtbl, 0x779740eb_5624_519e_a8e2_09e9173b3fb7);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISystemUpdateItem_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub State: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut SystemUpdateItemState) -> ::windows_core::HRESULT,
@@ -14,7 +13,6 @@ pub struct ISystemUpdateItem_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISystemUpdateLastErrorInfo, ISystemUpdateLastErrorInfo_Vtbl, 0x7ee887f7_8a44_5b6e_bd07_7aece4116ea9);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISystemUpdateLastErrorInfo_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub State: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut SystemUpdateManagerState) -> ::windows_core::HRESULT,
@@ -23,7 +21,6 @@ pub struct ISystemUpdateLastErrorInfo_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISystemUpdateManagerStatics, ISystemUpdateManagerStatics_Vtbl, 0xb2d3fcef_2971_51be_b41a_8bd703bb701a);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISystemUpdateManagerStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsSupported: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,

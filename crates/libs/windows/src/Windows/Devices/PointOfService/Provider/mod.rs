@@ -1,6 +1,5 @@
 ::windows_core::imp::com_interface!(IBarcodeScannerDisableScannerRequest, IBarcodeScannerDisableScannerRequest_Vtbl, 0x88ecf7c0_37b9_4275_8e77_c8e52ae5a9c8);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBarcodeScannerDisableScannerRequest_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ReportCompletedAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -8,7 +7,6 @@ pub struct IBarcodeScannerDisableScannerRequest_Vtbl {
 }
 ::windows_core::imp::com_interface!(IBarcodeScannerDisableScannerRequest2, IBarcodeScannerDisableScannerRequest2_Vtbl, 0xccdfe625_65c3_4ccc_b457_f39c7a9ea60d);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBarcodeScannerDisableScannerRequest2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ReportFailedWithFailedReasonAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -16,7 +14,6 @@ pub struct IBarcodeScannerDisableScannerRequest2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IBarcodeScannerDisableScannerRequestEventArgs, IBarcodeScannerDisableScannerRequestEventArgs_Vtbl, 0x7006e142_e802_46f5_b604_352a15ce9232);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBarcodeScannerDisableScannerRequestEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Request: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -24,7 +21,6 @@ pub struct IBarcodeScannerDisableScannerRequestEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IBarcodeScannerEnableScannerRequest, IBarcodeScannerEnableScannerRequest_Vtbl, 0xc0b3e9ba_816a_452b_bd77_b7e453ec446d);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBarcodeScannerEnableScannerRequest_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ReportCompletedAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -32,7 +28,6 @@ pub struct IBarcodeScannerEnableScannerRequest_Vtbl {
 }
 ::windows_core::imp::com_interface!(IBarcodeScannerEnableScannerRequest2, IBarcodeScannerEnableScannerRequest2_Vtbl, 0x71a4f2a8_9905_41ac_9121_b645916a84a1);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBarcodeScannerEnableScannerRequest2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ReportFailedWithFailedReasonAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -40,7 +35,6 @@ pub struct IBarcodeScannerEnableScannerRequest2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IBarcodeScannerEnableScannerRequestEventArgs, IBarcodeScannerEnableScannerRequestEventArgs_Vtbl, 0x956c9419_7b4e_4451_8c41_8e10cfbc5b41);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBarcodeScannerEnableScannerRequestEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Request: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -48,7 +42,6 @@ pub struct IBarcodeScannerEnableScannerRequestEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IBarcodeScannerFrameReader, IBarcodeScannerFrameReader_Vtbl, 0xdbc72b07_64c3_482b_93c8_65fb33c22208);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBarcodeScannerFrameReader_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub StartAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -60,14 +53,12 @@ pub struct IBarcodeScannerFrameReader_Vtbl {
 }
 ::windows_core::imp::com_interface!(IBarcodeScannerFrameReaderFrameArrivedEventArgs, IBarcodeScannerFrameReaderFrameArrivedEventArgs_Vtbl, 0xb0bbd604_54fd_436d_8629_712e787223dd);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBarcodeScannerFrameReaderFrameArrivedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetDeferral: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IBarcodeScannerGetSymbologyAttributesRequest, IBarcodeScannerGetSymbologyAttributesRequest_Vtbl, 0x9774c46a_58e4_4c5f_b8e9_e41467632700);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBarcodeScannerGetSymbologyAttributesRequest_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Symbology: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -76,7 +67,6 @@ pub struct IBarcodeScannerGetSymbologyAttributesRequest_Vtbl {
 }
 ::windows_core::imp::com_interface!(IBarcodeScannerGetSymbologyAttributesRequest2, IBarcodeScannerGetSymbologyAttributesRequest2_Vtbl, 0x6a6a2b13_75a8_49fb_b852_bfb93d760af7);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBarcodeScannerGetSymbologyAttributesRequest2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ReportFailedWithFailedReasonAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -84,7 +74,6 @@ pub struct IBarcodeScannerGetSymbologyAttributesRequest2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IBarcodeScannerGetSymbologyAttributesRequestEventArgs, IBarcodeScannerGetSymbologyAttributesRequestEventArgs_Vtbl, 0x7f89de3e_fb5d_493c_b402_356b24d574a6);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBarcodeScannerGetSymbologyAttributesRequestEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Request: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -92,7 +81,6 @@ pub struct IBarcodeScannerGetSymbologyAttributesRequestEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IBarcodeScannerHideVideoPreviewRequest, IBarcodeScannerHideVideoPreviewRequest_Vtbl, 0xfa4ebe7f_6670_40e1_b90b_bb10d8d425fa);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBarcodeScannerHideVideoPreviewRequest_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ReportCompletedAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -100,7 +88,6 @@ pub struct IBarcodeScannerHideVideoPreviewRequest_Vtbl {
 }
 ::windows_core::imp::com_interface!(IBarcodeScannerHideVideoPreviewRequest2, IBarcodeScannerHideVideoPreviewRequest2_Vtbl, 0x7e28435d_9814_431d_a2f2_d6248c5ad4b5);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBarcodeScannerHideVideoPreviewRequest2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ReportFailedWithFailedReasonAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -108,7 +95,6 @@ pub struct IBarcodeScannerHideVideoPreviewRequest2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IBarcodeScannerHideVideoPreviewRequestEventArgs, IBarcodeScannerHideVideoPreviewRequestEventArgs_Vtbl, 0x16a281fc_d6be_4bc7_9df1_33741f3eadea);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBarcodeScannerHideVideoPreviewRequestEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Request: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -116,7 +102,6 @@ pub struct IBarcodeScannerHideVideoPreviewRequestEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IBarcodeScannerProviderConnection, IBarcodeScannerProviderConnection_Vtbl, 0xb44acbed_0b3a_4fa3_86c5_491ea30780eb);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBarcodeScannerProviderConnection_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Id: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -155,7 +140,6 @@ pub struct IBarcodeScannerProviderConnection_Vtbl {
 }
 ::windows_core::imp::com_interface!(IBarcodeScannerProviderConnection2, IBarcodeScannerProviderConnection2_Vtbl, 0xbe9b53cd_1134_418c_a06b_04423a73f3d7);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBarcodeScannerProviderConnection2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateFrameReaderAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -170,14 +154,12 @@ pub struct IBarcodeScannerProviderConnection2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IBarcodeScannerProviderTriggerDetails, IBarcodeScannerProviderTriggerDetails_Vtbl, 0x50856d82_24e3_48ce_99c7_70aac1cbc9f7);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBarcodeScannerProviderTriggerDetails_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Connection: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IBarcodeScannerSetActiveSymbologiesRequest, IBarcodeScannerSetActiveSymbologiesRequest_Vtbl, 0xdb3f32b9_f7da_41a1_9f79_07bcd95f0bdf);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBarcodeScannerSetActiveSymbologiesRequest_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -189,7 +171,6 @@ pub struct IBarcodeScannerSetActiveSymbologiesRequest_Vtbl {
 }
 ::windows_core::imp::com_interface!(IBarcodeScannerSetActiveSymbologiesRequest2, IBarcodeScannerSetActiveSymbologiesRequest2_Vtbl, 0xf5ff6edf_fa9a_4749_b11b_e8fccb75bc6b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBarcodeScannerSetActiveSymbologiesRequest2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ReportFailedWithFailedReasonAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -197,7 +178,6 @@ pub struct IBarcodeScannerSetActiveSymbologiesRequest2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IBarcodeScannerSetActiveSymbologiesRequestEventArgs, IBarcodeScannerSetActiveSymbologiesRequestEventArgs_Vtbl, 0x06305afa_7bf6_4d52_801a_330272f60ae1);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBarcodeScannerSetActiveSymbologiesRequestEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Request: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -205,7 +185,6 @@ pub struct IBarcodeScannerSetActiveSymbologiesRequestEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IBarcodeScannerSetSymbologyAttributesRequest, IBarcodeScannerSetSymbologyAttributesRequest_Vtbl, 0x32fb814f_a37f_48b0_acea_dce1480f12ae);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBarcodeScannerSetSymbologyAttributesRequest_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Symbology: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -215,7 +194,6 @@ pub struct IBarcodeScannerSetSymbologyAttributesRequest_Vtbl {
 }
 ::windows_core::imp::com_interface!(IBarcodeScannerSetSymbologyAttributesRequest2, IBarcodeScannerSetSymbologyAttributesRequest2_Vtbl, 0xdffbbfc1_dba8_4b77_be1e_b56cd72f65b3);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBarcodeScannerSetSymbologyAttributesRequest2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ReportFailedWithFailedReasonAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -223,7 +201,6 @@ pub struct IBarcodeScannerSetSymbologyAttributesRequest2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IBarcodeScannerSetSymbologyAttributesRequestEventArgs, IBarcodeScannerSetSymbologyAttributesRequestEventArgs_Vtbl, 0xb2b89809_9824_47d4_85bd_d0077baa7bd2);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBarcodeScannerSetSymbologyAttributesRequestEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Request: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -231,7 +208,6 @@ pub struct IBarcodeScannerSetSymbologyAttributesRequestEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IBarcodeScannerStartSoftwareTriggerRequest, IBarcodeScannerStartSoftwareTriggerRequest_Vtbl, 0xe3fa7b27_ff62_4454_af4a_cb6144a3e3f7);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBarcodeScannerStartSoftwareTriggerRequest_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ReportCompletedAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -239,7 +215,6 @@ pub struct IBarcodeScannerStartSoftwareTriggerRequest_Vtbl {
 }
 ::windows_core::imp::com_interface!(IBarcodeScannerStartSoftwareTriggerRequest2, IBarcodeScannerStartSoftwareTriggerRequest2_Vtbl, 0xeb72a25c_6658_4765_a68e_327482653deb);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBarcodeScannerStartSoftwareTriggerRequest2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ReportFailedWithFailedReasonAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -247,7 +222,6 @@ pub struct IBarcodeScannerStartSoftwareTriggerRequest2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IBarcodeScannerStartSoftwareTriggerRequestEventArgs, IBarcodeScannerStartSoftwareTriggerRequestEventArgs_Vtbl, 0x2305d843_c88f_4f3b_8c3b_d3df071051ec);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBarcodeScannerStartSoftwareTriggerRequestEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Request: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -255,7 +229,6 @@ pub struct IBarcodeScannerStartSoftwareTriggerRequestEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IBarcodeScannerStopSoftwareTriggerRequest, IBarcodeScannerStopSoftwareTriggerRequest_Vtbl, 0x6f9faf35_e287_4ca8_b70d_5a91d694f668);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBarcodeScannerStopSoftwareTriggerRequest_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ReportCompletedAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -263,7 +236,6 @@ pub struct IBarcodeScannerStopSoftwareTriggerRequest_Vtbl {
 }
 ::windows_core::imp::com_interface!(IBarcodeScannerStopSoftwareTriggerRequest2, IBarcodeScannerStopSoftwareTriggerRequest2_Vtbl, 0xcb57c5dd_fe50_49f8_a0b4_bdc230814da2);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBarcodeScannerStopSoftwareTriggerRequest2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ReportFailedWithFailedReasonAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -271,7 +243,6 @@ pub struct IBarcodeScannerStopSoftwareTriggerRequest2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IBarcodeScannerStopSoftwareTriggerRequestEventArgs, IBarcodeScannerStopSoftwareTriggerRequestEventArgs_Vtbl, 0xeac34450_4eb7_481a_9273_147a273b99b8);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBarcodeScannerStopSoftwareTriggerRequestEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Request: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -279,7 +250,6 @@ pub struct IBarcodeScannerStopSoftwareTriggerRequestEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IBarcodeScannerVideoFrame, IBarcodeScannerVideoFrame_Vtbl, 0x7e585248_9df7_4121_a175_801d8000112e);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBarcodeScannerVideoFrame_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Graphics_Imaging")]
@@ -295,7 +265,6 @@ pub struct IBarcodeScannerVideoFrame_Vtbl {
 }
 ::windows_core::imp::com_interface!(IBarcodeSymbologyAttributesBuilder, IBarcodeSymbologyAttributesBuilder_Vtbl, 0xc57b0cbf_e4f5_40b9_84cf_e63fbaea42b4);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBarcodeSymbologyAttributesBuilder_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsCheckDigitValidationSupported: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,

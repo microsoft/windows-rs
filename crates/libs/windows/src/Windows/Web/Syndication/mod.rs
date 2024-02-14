@@ -1,6 +1,5 @@
 ::windows_core::imp::com_interface!(ISyndicationAttribute, ISyndicationAttribute_Vtbl, 0x71e8f969_526e_4001_9a91_e84f83161ab1);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISyndicationAttribute_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Name: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -12,14 +11,12 @@ pub struct ISyndicationAttribute_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISyndicationAttributeFactory, ISyndicationAttributeFactory_Vtbl, 0x624f1599_ed3e_420f_be86_640414886e4b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISyndicationAttributeFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateSyndicationAttribute: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, ::std::mem::MaybeUninit<::windows_core::HSTRING>, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ISyndicationCategory, ISyndicationCategory_Vtbl, 0x8715626f_0cba_4a7f_89ff_ecb5281423b6);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISyndicationCategory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Label: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -31,7 +28,6 @@ pub struct ISyndicationCategory_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISyndicationCategoryFactory, ISyndicationCategoryFactory_Vtbl, 0xab42802f_49e0_4525_8ab2_ab45c02528ff);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISyndicationCategoryFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateSyndicationCategory: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -124,7 +120,6 @@ impl ::windows_core::RuntimeType for ISyndicationClient {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISyndicationClient_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Security_Credentials")]
@@ -154,7 +149,6 @@ pub struct ISyndicationClient_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISyndicationClientFactory, ISyndicationClientFactory_Vtbl, 0x2ec4b32c_a79b_4114_b29a_05dffbafb9a4);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISyndicationClientFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Security_Credentials")]
@@ -164,7 +158,6 @@ pub struct ISyndicationClientFactory_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISyndicationContent, ISyndicationContent_Vtbl, 0x4641fefe_0e55_40d0_b8d0_6a2ccba9fc7c);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISyndicationContent_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SourceUri: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -172,7 +165,6 @@ pub struct ISyndicationContent_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISyndicationContentFactory, ISyndicationContentFactory_Vtbl, 0x3d2fbb93_9520_4173_9388_7e2df324a8a0);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISyndicationContentFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateSyndicationContent: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, SyndicationTextType, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -180,14 +172,12 @@ pub struct ISyndicationContentFactory_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISyndicationErrorStatics, ISyndicationErrorStatics_Vtbl, 0x1fbb2361_45c7_4833_8aa0_be5f3b58a7f4);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISyndicationErrorStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetStatus: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, *mut SyndicationErrorStatus) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ISyndicationFeed, ISyndicationFeed_Vtbl, 0x7ffe3cd2_5b66_4d62_8403_1bc10d910d6b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISyndicationFeed_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -239,14 +229,12 @@ pub struct ISyndicationFeed_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISyndicationFeedFactory, ISyndicationFeedFactory_Vtbl, 0x23472232_8be9_48b7_8934_6205131d9357);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISyndicationFeedFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateSyndicationFeed: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ISyndicationGenerator, ISyndicationGenerator_Vtbl, 0x9768b379_fb2b_4f6d_b41c_088a5868825c);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISyndicationGenerator_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Text: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -258,14 +246,12 @@ pub struct ISyndicationGenerator_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISyndicationGeneratorFactory, ISyndicationGeneratorFactory_Vtbl, 0xa34083e3_1e26_4dbc_ba9d_1ab84beff97b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISyndicationGeneratorFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateSyndicationGenerator: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ISyndicationItem, ISyndicationItem_Vtbl, 0x548db883_c384_45c1_8ae8_a378c4ec486c);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISyndicationItem_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -314,14 +300,12 @@ pub struct ISyndicationItem_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISyndicationItemFactory, ISyndicationItemFactory_Vtbl, 0x251d434f_7db8_487a_85e4_10d191e66ebb);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISyndicationItemFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateSyndicationItem: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ISyndicationLink, ISyndicationLink_Vtbl, 0x27553abd_a10e_41b5_86bd_9759086eb0c5);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISyndicationLink_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Length: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -339,7 +323,6 @@ pub struct ISyndicationLink_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISyndicationLinkFactory, ISyndicationLinkFactory_Vtbl, 0x5ed863d4_5535_48ac_98d4_c190995080b3);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISyndicationLinkFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateSyndicationLink: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -435,7 +418,6 @@ impl ::windows_core::RuntimeType for ISyndicationNode {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISyndicationNode_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub NodeName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -463,14 +445,12 @@ pub struct ISyndicationNode_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISyndicationNodeFactory, ISyndicationNodeFactory_Vtbl, 0x12902188_4acb_49a8_b777_a5eb92e18a79);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISyndicationNodeFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateSyndicationNode: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, ::std::mem::MaybeUninit<::windows_core::HSTRING>, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ISyndicationPerson, ISyndicationPerson_Vtbl, 0xfa1ee5da_a7c6_4517_a096_0143faf29327);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISyndicationPerson_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Email: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -482,7 +462,6 @@ pub struct ISyndicationPerson_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISyndicationPersonFactory, ISyndicationPersonFactory_Vtbl, 0xdcf4886d_229d_4b58_a49b_f3d2f0f5c99f);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISyndicationPersonFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateSyndicationPerson: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -617,7 +596,6 @@ impl ::windows_core::RuntimeType for ISyndicationText {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISyndicationText_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Text: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -635,7 +613,6 @@ pub struct ISyndicationText_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISyndicationTextFactory, ISyndicationTextFactory_Vtbl, 0xee7342f7_11c6_4b25_ab62_e596bd162946);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISyndicationTextFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateSyndicationText: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,

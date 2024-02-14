@@ -848,7 +848,6 @@ impl AsyncIAdviseSink {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct AsyncIAdviseSink_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
@@ -913,7 +912,6 @@ impl AsyncIAdviseSink2 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct AsyncIAdviseSink2_Vtbl {
     pub base__: AsyncIAdviseSink_Vtbl,
     pub Begin_OnLinkSrcChange: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void),
@@ -930,7 +928,6 @@ impl AsyncIMultiQI {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct AsyncIMultiQI_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Begin_QueryMultipleInterfaces: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut MULTI_QI) -> ::windows_core::HRESULT,
@@ -953,7 +950,6 @@ impl AsyncIPipeByte {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct AsyncIPipeByte_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Begin_Pull: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
@@ -978,7 +974,6 @@ impl AsyncIPipeDouble {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct AsyncIPipeDouble_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Begin_Pull: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
@@ -1003,7 +998,6 @@ impl AsyncIPipeLong {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct AsyncIPipeLong_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Begin_Pull: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
@@ -1034,7 +1028,6 @@ impl AsyncIUnknown {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct AsyncIUnknown_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Begin_QueryInterface: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID) -> ::windows_core::HRESULT,
@@ -1053,7 +1046,6 @@ impl IActivationFilter {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IActivationFilter_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub HandleActivation: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const ::windows_core::GUID, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
@@ -1072,7 +1064,6 @@ impl IAddrExclusionControl {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAddrExclusionControl_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetCurrentAddrExclusionList: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1089,7 +1080,6 @@ impl IAddrTrackingControl {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAddrTrackingControl_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub EnableCOMDynamicAddrTracking: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1119,7 +1109,6 @@ impl IAdviseSink {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAdviseSink_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
@@ -1161,7 +1150,6 @@ impl IAdviseSink2 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAdviseSink2_Vtbl {
     pub base__: IAdviseSink_Vtbl,
     pub OnLinkSrcChange: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void),
@@ -1170,7 +1158,6 @@ pub struct IAdviseSink2_Vtbl {
 ::windows_core::imp::interface_hierarchy!(IAgileObject, ::windows_core::IUnknown);
 impl IAgileObject {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAgileObject_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
 }
@@ -1189,7 +1176,6 @@ impl IAsyncManager {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAsyncManager_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub CompleteCall: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::HRESULT) -> ::windows_core::HRESULT,
@@ -1232,7 +1218,6 @@ impl IAsyncRpcChannelBuffer {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAsyncRpcChannelBuffer_Vtbl {
     pub base__: IRpcChannelBuffer2_Vtbl,
     pub Send: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut RPCOLEMESSAGE, *mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -1247,7 +1232,6 @@ impl IAuthenticate {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAuthenticate_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Authenticate: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::HWND, *mut ::windows_core::PWSTR, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
@@ -1263,7 +1247,6 @@ impl IAuthenticateEx {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAuthenticateEx_Vtbl {
     pub base__: IAuthenticate_Vtbl,
     pub AuthenticateEx: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::HWND, *mut ::windows_core::PWSTR, *mut ::windows_core::PWSTR, *const AUTHENTICATEINFO) -> ::windows_core::HRESULT,
@@ -1322,7 +1305,6 @@ impl IBindCtx {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBindCtx_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub RegisterObjectBound: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1364,7 +1346,6 @@ impl IBindHost {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBindHost_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub CreateMoniker: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
@@ -1415,7 +1396,6 @@ impl IBindStatusCallback {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBindStatusCallback_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub OnStartBinding: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1481,7 +1461,6 @@ impl IBindStatusCallbackEx {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBindStatusCallbackEx_Vtbl {
     pub base__: IBindStatusCallback_Vtbl,
     #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
@@ -1513,7 +1492,6 @@ impl IBinding {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBinding_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Abort: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1534,7 +1512,6 @@ impl IBlockingLock {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBlockingLock_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Lock: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
@@ -1552,7 +1529,6 @@ impl ICallFactory {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICallFactory_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub CreateCall: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1568,7 +1544,6 @@ impl ICancelMethodCalls {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICancelMethodCalls_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Cancel: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
@@ -1602,7 +1577,6 @@ impl ICatInformation {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICatInformation_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub EnumCategories: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1635,7 +1609,6 @@ impl ICatRegister {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICatRegister_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub RegisterCategories: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const CATEGORYINFO) -> ::windows_core::HRESULT,
@@ -1672,7 +1645,6 @@ impl IChannelHook {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IChannelHook_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub ClientGetSize: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *const ::windows_core::GUID, *mut u32),
@@ -1694,7 +1666,6 @@ impl IClassActivator {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IClassActivator_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetClassObject: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, u32, u32, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1718,7 +1689,6 @@ impl IClassFactory {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IClassFactory_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1749,7 +1719,6 @@ impl IClientSecurity {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IClientSecurity_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub QueryBlanket: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut u32, *mut u32, *mut *mut u16, *mut RPC_C_AUTHN_LEVEL, *mut RPC_C_IMP_LEVEL, *mut *mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -1776,7 +1745,6 @@ impl IComThreadingInfo {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IComThreadingInfo_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetCurrentApartmentType: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut APTTYPE) -> ::windows_core::HRESULT,
@@ -1811,7 +1779,6 @@ impl IConnectionPoint {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IConnectionPoint_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetConnectionInterface: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
@@ -1833,7 +1800,6 @@ impl IConnectionPointContainer {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IConnectionPointContainer_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub EnumConnectionPoints: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1860,7 +1826,6 @@ impl IContext {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IContext_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub SetProperty: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, u32, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1879,7 +1844,6 @@ impl IContextCallback {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IContextCallback_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub ContextCallback: unsafe extern "system" fn(*mut ::core::ffi::c_void, PFNCONTEXTCALL, *const ComCallData, *const ::windows_core::GUID, i32, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1910,7 +1874,6 @@ impl IDataAdviseHolder {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDataAdviseHolder_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Advise: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *const FORMATETC, u32, *mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -1963,7 +1926,6 @@ impl IDataObject {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDataObject_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
@@ -2004,7 +1966,6 @@ impl IDispatch {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDispatch_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetTypeInfoCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -2030,7 +1991,6 @@ impl IEnumCATEGORYINFO {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IEnumCATEGORYINFO_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut CATEGORYINFO, *mut u32) -> ::windows_core::HRESULT,
@@ -2056,7 +2016,6 @@ impl IEnumConnectionPoints {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IEnumConnectionPoints_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -2082,7 +2041,6 @@ impl IEnumConnections {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IEnumConnections_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut CONNECTDATA, *mut u32) -> ::windows_core::HRESULT,
@@ -2112,7 +2070,6 @@ impl IEnumContextProps {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IEnumContextProps_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut ContextProperty, *mut u32) -> ::windows_core::HRESULT,
@@ -2139,7 +2096,6 @@ impl IEnumFORMATETC {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IEnumFORMATETC_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut FORMATETC, *mut u32) -> ::windows_core::HRESULT,
@@ -2165,7 +2121,6 @@ impl IEnumGUID {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IEnumGUID_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut ::windows_core::GUID, *mut u32) -> ::windows_core::HRESULT,
@@ -2191,7 +2146,6 @@ impl IEnumMoniker {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IEnumMoniker_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -2217,7 +2171,6 @@ impl IEnumSTATDATA {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IEnumSTATDATA_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut STATDATA, *mut u32) -> ::windows_core::HRESULT,
@@ -2243,7 +2196,6 @@ impl IEnumString {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IEnumString_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut ::windows_core::PWSTR, *mut u32) -> ::windows_core::HRESULT,
@@ -2269,7 +2221,6 @@ impl IEnumUnknown {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IEnumUnknown_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -2302,7 +2253,6 @@ impl IErrorInfo {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IErrorInfo_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetGUID: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
@@ -2322,7 +2272,6 @@ impl IErrorLog {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IErrorLog_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub AddError: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *const EXCEPINFO) -> ::windows_core::HRESULT,
@@ -2341,7 +2290,6 @@ impl IExternalConnection {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IExternalConnection_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub AddConnection: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32) -> u32,
@@ -2351,7 +2299,6 @@ pub struct IExternalConnection_Vtbl {
 ::windows_core::imp::interface_hierarchy!(IFastRundown, ::windows_core::IUnknown);
 impl IFastRundown {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct IFastRundown_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
 }
@@ -2363,7 +2310,6 @@ impl IForegroundTransfer {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IForegroundTransfer_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub AllowForegroundTransfer: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -2386,7 +2332,6 @@ impl IGlobalInterfaceTable {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IGlobalInterfaceTable_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub RegisterInterfaceInGlobal: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut u32) -> ::windows_core::HRESULT,
@@ -2405,7 +2350,6 @@ impl IGlobalOptions {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IGlobalOptions_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Set: unsafe extern "system" fn(*mut ::core::ffi::c_void, GLOBALOPT_PROPERTIES, usize) -> ::windows_core::HRESULT,
@@ -2428,7 +2372,6 @@ impl IInitializeSpy {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IInitializeSpy_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub PreInitialize: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32) -> ::windows_core::HRESULT,
@@ -2444,7 +2387,6 @@ impl IInternalUnknown {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IInternalUnknown_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub QueryInternalInterface: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -2476,7 +2418,6 @@ impl IMachineGlobalObjectTable {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMachineGlobalObjectTable_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub RegisterObject: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, ::windows_core::PCWSTR, *mut ::core::ffi::c_void, *mut MachineGlobalObjectTableRegistrationToken) -> ::windows_core::HRESULT,
@@ -2506,7 +2447,6 @@ impl IMalloc {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMalloc_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Alloc: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize) -> *mut ::core::ffi::c_void,
@@ -2581,7 +2521,6 @@ impl IMallocSpy {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMallocSpy_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub PreAlloc: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize) -> usize,
@@ -2725,7 +2664,6 @@ impl IMoniker {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMoniker_Vtbl {
     pub base__: IPersistStream_Vtbl,
     pub BindToObject: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -2752,7 +2690,6 @@ impl IMultiQI {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMultiQI_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub QueryMultipleInterfaces: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut MULTI_QI) -> ::windows_core::HRESULT,
@@ -2761,7 +2698,6 @@ pub struct IMultiQI_Vtbl {
 ::windows_core::imp::interface_hierarchy!(INoMarshal, ::windows_core::IUnknown);
 impl INoMarshal {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct INoMarshal_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
 }
@@ -2786,7 +2722,6 @@ impl IOplockStorage {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IOplockStorage_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub CreateStorageEx: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, u32, u32, u32, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -2810,7 +2745,6 @@ impl IPSFactoryBuffer {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPSFactoryBuffer_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub CreateProxy: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -2825,7 +2759,6 @@ impl IPersist {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPersist_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetClassID: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
@@ -2865,7 +2798,6 @@ impl IPersistFile {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPersistFile_Vtbl {
     pub base__: IPersist_Vtbl,
     pub IsDirty: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -2902,7 +2834,6 @@ impl IPersistMemory {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPersistMemory_Vtbl {
     pub base__: IPersist_Vtbl,
     pub IsDirty: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -2940,7 +2871,6 @@ impl IPersistStream {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPersistStream_Vtbl {
     pub base__: IPersist_Vtbl,
     pub IsDirty: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -2980,7 +2910,6 @@ impl IPersistStreamInit {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPersistStreamInit_Vtbl {
     pub base__: IPersist_Vtbl,
     pub IsDirty: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -3000,7 +2929,6 @@ impl IPipeByte {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPipeByte_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Pull: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u8, u32, *mut u32) -> ::windows_core::HRESULT,
@@ -3017,7 +2945,6 @@ impl IPipeDouble {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPipeDouble_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Pull: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f64, u32, *mut u32) -> ::windows_core::HRESULT,
@@ -3034,7 +2961,6 @@ impl IPipeLong {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPipeLong_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Pull: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32, u32, *mut u32) -> ::windows_core::HRESULT,
@@ -3048,7 +2974,6 @@ impl IProcessInitControl {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IProcessInitControl_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub ResetInitializerTimeout: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
@@ -3064,7 +2989,6 @@ impl IProcessLock {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IProcessLock_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub AddRefOnProcess: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> u32,
@@ -3082,7 +3006,6 @@ impl IProgressNotify {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IProgressNotify_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub OnProgress: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, super::super::Foundation::BOOL, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
@@ -3095,7 +3018,6 @@ impl IROTData {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IROTData_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetComparisonData: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u8, u32, *mut u32) -> ::windows_core::HRESULT,
@@ -3111,7 +3033,6 @@ impl IReleaseMarshalBuffers {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IReleaseMarshalBuffers_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub ReleaseMarshalBuffer: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut RPCOLEMESSAGE, u32, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -3136,7 +3057,6 @@ impl IRpcChannelBuffer {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRpcChannelBuffer_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetBuffer: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut RPCOLEMESSAGE, *const ::windows_core::GUID) -> ::windows_core::HRESULT,
@@ -3169,7 +3089,6 @@ impl IRpcChannelBuffer2 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRpcChannelBuffer2_Vtbl {
     pub base__: IRpcChannelBuffer_Vtbl,
     pub GetProtocolVersion: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -3223,7 +3142,6 @@ impl IRpcChannelBuffer3 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRpcChannelBuffer3_Vtbl {
     pub base__: IRpcChannelBuffer2_Vtbl,
     pub Send: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut RPCOLEMESSAGE, *mut u32) -> ::windows_core::HRESULT,
@@ -3247,7 +3165,6 @@ impl IRpcHelper {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRpcHelper_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetDCOMProtocolVersion: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -3271,7 +3188,6 @@ impl IRpcOptions {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRpcOptions_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Set: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, RPCOPT_PROPERTIES, usize) -> ::windows_core::HRESULT,
@@ -3291,7 +3207,6 @@ impl IRpcProxyBuffer {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRpcProxyBuffer_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Connect: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -3329,7 +3244,6 @@ impl IRpcStubBuffer {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRpcStubBuffer_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Connect: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -3348,7 +3262,6 @@ impl IRpcSyntaxNegotiate {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRpcSyntaxNegotiate_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub NegotiateSyntax: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut RPCOLEMESSAGE) -> ::windows_core::HRESULT,
@@ -3384,7 +3297,6 @@ impl IRunnableObject {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRunnableObject_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetRunningClass: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
@@ -3436,7 +3348,6 @@ impl IRunningObjectTable {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRunningObjectTable_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Register: unsafe extern "system" fn(*mut ::core::ffi::c_void, ROT_FLAGS, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -3458,7 +3369,6 @@ impl ISequentialStream {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISequentialStream_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Read: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, *mut u32) -> ::windows_core::HRESULT,
@@ -3481,7 +3391,6 @@ impl IServerSecurity {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IServerSecurity_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub QueryBlanket: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32, *mut u32, *mut *mut u16, *mut u32, *mut u32, *mut *mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -3501,7 +3410,6 @@ impl IServiceProvider {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IServiceProvider_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub QueryService: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -3515,7 +3423,6 @@ impl IStdMarshalInfo {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IStdMarshalInfo_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetClassForHandler: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const ::core::ffi::c_void, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
@@ -3562,7 +3469,6 @@ impl IStream {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IStream_Vtbl {
     pub base__: ISequentialStream_Vtbl,
     pub Seek: unsafe extern "system" fn(*mut ::core::ffi::c_void, i64, STREAM_SEEK, *mut u64) -> ::windows_core::HRESULT,
@@ -3579,7 +3485,6 @@ pub struct IStream_Vtbl {
 ::windows_core::imp::interface_hierarchy!(ISupportAllowLowerTrustActivation, ::windows_core::IUnknown);
 impl ISupportAllowLowerTrustActivation {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISupportAllowLowerTrustActivation_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
 }
@@ -3591,7 +3496,6 @@ impl ISupportErrorInfo {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISupportErrorInfo_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub InterfaceSupportsErrorInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID) -> ::windows_core::HRESULT,
@@ -3607,7 +3511,6 @@ impl ISurrogate {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISurrogate_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub LoadDllServer: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID) -> ::windows_core::HRESULT,
@@ -3637,7 +3540,6 @@ impl ISurrogateService {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISurrogateService_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Init: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut ::core::ffi::c_void, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
@@ -3660,7 +3562,6 @@ impl ISynchronize {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISynchronize_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Wait: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32) -> ::windows_core::HRESULT,
@@ -3682,7 +3583,6 @@ impl ISynchronizeContainer {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISynchronizeContainer_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub AddSynchronize: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -3700,7 +3600,6 @@ impl ISynchronizeEvent {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISynchronizeEvent_Vtbl {
     pub base__: ISynchronizeHandle_Vtbl,
     pub SetEventHandle: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const super::super::Foundation::HANDLE) -> ::windows_core::HRESULT,
@@ -3714,7 +3613,6 @@ impl ISynchronizeHandle {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISynchronizeHandle_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetHandle: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::HANDLE) -> ::windows_core::HRESULT,
@@ -3736,7 +3634,6 @@ impl ISynchronizeMutex {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISynchronizeMutex_Vtbl {
     pub base__: ISynchronize_Vtbl,
     pub ReleaseMutex: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -3749,7 +3646,6 @@ impl ITimeAndNoticeControl {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITimeAndNoticeControl_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub SuppressChanges: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32) -> ::windows_core::HRESULT,
@@ -3772,7 +3668,6 @@ impl ITypeComp {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITypeComp_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -3862,7 +3757,6 @@ impl ITypeInfo {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITypeInfo_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -4043,7 +3937,6 @@ impl ITypeInfo2 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITypeInfo2_Vtbl {
     pub base__: ITypeInfo_Vtbl,
     pub GetTypeKind: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut TYPEKIND) -> ::windows_core::HRESULT,
@@ -4102,7 +3995,6 @@ impl ITypeLib {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITypeLib_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetTypeInfoCount: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> u32,
@@ -4170,7 +4062,6 @@ impl ITypeLib2 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITypeLib2_Vtbl {
     pub base__: ITypeLib_Vtbl,
     pub GetCustData: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
@@ -4215,7 +4106,6 @@ impl ITypeLibRegistration {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITypeLibRegistration_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetGuid: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
@@ -4236,7 +4126,6 @@ impl ITypeLibRegistrationReader {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITypeLibRegistrationReader_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub EnumTypeLibRegistrations: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -4346,7 +4235,6 @@ impl IUri {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUri_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetPropertyBSTR: unsafe extern "system" fn(*mut ::core::ffi::c_void, Uri_PROPERTY, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, u32) -> ::windows_core::HRESULT,
@@ -4481,7 +4369,6 @@ impl IUriBuilder {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUriBuilder_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub CreateUriSimple: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, usize, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -4522,7 +4409,6 @@ impl IUrlMon {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUrlMon_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub AsyncGetClassBits: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, ::windows_core::PCWSTR, ::windows_core::PCWSTR, u32, u32, ::windows_core::PCWSTR, *mut ::core::ffi::c_void, u32, *const ::windows_core::GUID, u32) -> ::windows_core::HRESULT,
@@ -4542,7 +4428,6 @@ impl IWaitMultiple {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWaitMultiple_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub WaitMultiple: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,

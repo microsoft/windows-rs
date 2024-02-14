@@ -1,6 +1,5 @@
 ::windows_core::imp::com_interface!(IMdmAllowPolicyStatics, IMdmAllowPolicyStatics_Vtbl, 0xc39709e7_741c_41f2_a4b6_314c31502586);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMdmAllowPolicyStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsBrowserAllowed: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -10,14 +9,12 @@ pub struct IMdmAllowPolicyStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMdmPolicyStatics2, IMdmPolicyStatics2_Vtbl, 0xc99c7526_03d4_49f9_a993_43efccd265c4);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMdmPolicyStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetMessagingSyncPolicy: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut MessagingSyncPolicy) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWorkplaceSettingsStatics, IWorkplaceSettingsStatics_Vtbl, 0xe4676ffd_2d92_4c08_bad4_f6590b54a6d3);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWorkplaceSettingsStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsMicrosoftAccountOptional: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,

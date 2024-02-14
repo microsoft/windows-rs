@@ -10,8 +10,8 @@
 #[cfg(feature = "Win32_System_Threading")]
 ::windows_targets::link!("mscoree.dll" "system" fn CorLaunchApplication(dwclickoncehost : HOST_TYPE, pwzappfullname : ::windows_sys::core::PCWSTR, dwmanifestpaths : u32, ppwzmanifestpaths : *const ::windows_sys::core::PCWSTR, dwactivationdata : u32, ppwzactivationdata : *const ::windows_sys::core::PCWSTR, lpprocessinformation : *mut super::Threading:: PROCESS_INFORMATION) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("mscoree.dll" "system" fn CorMarkThreadInThreadPool());
-::windows_targets::link!("mscoree.dll" "system" fn CreateDebuggingInterfaceFromVersion(idebuggerversion : i32, szdebuggeeversion : ::windows_sys::core::PCWSTR, ppcordb : *mut ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("mscoree.dll" "system" fn GetCLRIdentityManager(riid : *const ::windows_sys::core::GUID, ppmanager : *mut ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("mscoree.dll" "system" fn CreateDebuggingInterfaceFromVersion(idebuggerversion : i32, szdebuggeeversion : ::windows_sys::core::PCWSTR, ppcordb : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("mscoree.dll" "system" fn GetCLRIdentityManager(riid : *const ::windows_sys::core::GUID, ppmanager : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("mscoree.dll" "system" fn GetCORRequiredVersion(pbuffer : ::windows_sys::core::PWSTR, cchbuffer : u32, dwlength : *mut u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("mscoree.dll" "system" fn GetCORSystemDirectory(pbuffer : ::windows_sys::core::PWSTR, cchbuffer : u32, dwlength : *mut u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("mscoree.dll" "system" fn GetCORVersion(pbbuffer : ::windows_sys::core::PWSTR, cchbuffer : u32, dwlength : *mut u32) -> ::windows_sys::core::HRESULT);

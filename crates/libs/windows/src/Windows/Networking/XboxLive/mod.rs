@@ -1,6 +1,5 @@
 ::windows_core::imp::com_interface!(IXboxLiveDeviceAddress, IXboxLiveDeviceAddress_Vtbl, 0xf5bbd279_3c86_4b57_a31a_b9462408fd01);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IXboxLiveDeviceAddress_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SnapshotChanged: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
@@ -18,7 +17,6 @@ pub struct IXboxLiveDeviceAddress_Vtbl {
 }
 ::windows_core::imp::com_interface!(IXboxLiveDeviceAddressStatics, IXboxLiveDeviceAddressStatics_Vtbl, 0x5954a819_4a79_4931_827c_7f503e963263);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IXboxLiveDeviceAddressStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateFromSnapshotBase64: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -32,7 +30,6 @@ pub struct IXboxLiveDeviceAddressStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IXboxLiveEndpointPair, IXboxLiveEndpointPair_Vtbl, 0x1e9a839b_813e_44e0_b87f_c87a093475e4);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IXboxLiveEndpointPair_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub StateChanged: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
@@ -50,7 +47,6 @@ pub struct IXboxLiveEndpointPair_Vtbl {
 }
 ::windows_core::imp::com_interface!(IXboxLiveEndpointPairCreationResult, IXboxLiveEndpointPairCreationResult_Vtbl, 0xd9a8bb95_2aab_4d1e_9794_33ecc0dcf0fe);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IXboxLiveEndpointPairCreationResult_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub DeviceAddress: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -60,7 +56,6 @@ pub struct IXboxLiveEndpointPairCreationResult_Vtbl {
 }
 ::windows_core::imp::com_interface!(IXboxLiveEndpointPairStateChangedEventArgs, IXboxLiveEndpointPairStateChangedEventArgs_Vtbl, 0x592e3b55_de08_44e7_ac3b_b9b9a169583a);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IXboxLiveEndpointPairStateChangedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub OldState: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut XboxLiveEndpointPairState) -> ::windows_core::HRESULT,
@@ -68,7 +63,6 @@ pub struct IXboxLiveEndpointPairStateChangedEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IXboxLiveEndpointPairStatics, IXboxLiveEndpointPairStatics_Vtbl, 0x64316b30_217a_4243_8ee1_6729281d27db);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IXboxLiveEndpointPairStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub FindEndpointPairBySocketAddressBytes: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const u8, u32, *const u8, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -76,7 +70,6 @@ pub struct IXboxLiveEndpointPairStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IXboxLiveEndpointPairTemplate, IXboxLiveEndpointPairTemplate_Vtbl, 0x6b286ecf_3457_40ce_b9a1_c0cfe0213ea7);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IXboxLiveEndpointPairTemplate_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub InboundEndpointPairCreated: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
@@ -98,7 +91,6 @@ pub struct IXboxLiveEndpointPairTemplate_Vtbl {
 }
 ::windows_core::imp::com_interface!(IXboxLiveEndpointPairTemplateStatics, IXboxLiveEndpointPairTemplateStatics_Vtbl, 0x1e13137b_737b_4a23_bc64_0870f75655ba);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IXboxLiveEndpointPairTemplateStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetTemplateByName: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -109,14 +101,12 @@ pub struct IXboxLiveEndpointPairTemplateStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IXboxLiveInboundEndpointPairCreatedEventArgs, IXboxLiveInboundEndpointPairCreatedEventArgs_Vtbl, 0xdc183b62_22ba_48d2_80de_c23968bd198b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IXboxLiveInboundEndpointPairCreatedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub EndpointPair: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IXboxLiveQualityOfServiceMeasurement, IXboxLiveQualityOfServiceMeasurement_Vtbl, 0x4d682bce_a5d6_47e6_a236_cfde5fbdf2ed);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IXboxLiveQualityOfServiceMeasurement_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub MeasureAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -156,7 +146,6 @@ pub struct IXboxLiveQualityOfServiceMeasurement_Vtbl {
 }
 ::windows_core::imp::com_interface!(IXboxLiveQualityOfServiceMeasurementStatics, IXboxLiveQualityOfServiceMeasurementStatics_Vtbl, 0x6e352dca_23cf_440a_b077_5e30857a8234);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IXboxLiveQualityOfServiceMeasurementStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub PublishPrivatePayloadBytes: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const u8) -> ::windows_core::HRESULT,
@@ -179,7 +168,6 @@ pub struct IXboxLiveQualityOfServiceMeasurementStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IXboxLiveQualityOfServiceMetricResult, IXboxLiveQualityOfServiceMetricResult_Vtbl, 0xaeec53d1_3561_4782_b0cf_d3ae29d9fa87);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IXboxLiveQualityOfServiceMetricResult_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut XboxLiveQualityOfServiceMeasurementStatus) -> ::windows_core::HRESULT,
@@ -189,7 +177,6 @@ pub struct IXboxLiveQualityOfServiceMetricResult_Vtbl {
 }
 ::windows_core::imp::com_interface!(IXboxLiveQualityOfServicePrivatePayloadResult, IXboxLiveQualityOfServicePrivatePayloadResult_Vtbl, 0x5a6302ae_6f38_41c0_9fcc_ea6cb978cafc);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IXboxLiveQualityOfServicePrivatePayloadResult_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut XboxLiveQualityOfServiceMeasurementStatus) -> ::windows_core::HRESULT,

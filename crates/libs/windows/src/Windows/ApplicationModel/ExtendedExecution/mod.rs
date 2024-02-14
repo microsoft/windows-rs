@@ -2,14 +2,12 @@
 pub mod Foreground;
 ::windows_core::imp::com_interface!(IExtendedExecutionRevokedEventArgs, IExtendedExecutionRevokedEventArgs_Vtbl, 0xbfbc9f16_63b5_4c0b_aad6_828af5373ec3);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IExtendedExecutionRevokedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Reason: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ExtendedExecutionRevokedReason) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IExtendedExecutionSession, IExtendedExecutionSession_Vtbl, 0xaf908a2d_118b_48f1_9308_0c4fc41e200f);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IExtendedExecutionSession_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Reason: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ExtendedExecutionReason) -> ::windows_core::HRESULT,

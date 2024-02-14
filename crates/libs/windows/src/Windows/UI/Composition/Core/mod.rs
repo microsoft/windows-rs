@@ -1,6 +1,5 @@
 ::windows_core::imp::com_interface!(ICompositorController, ICompositorController_Vtbl, 0x2d75f35a_70a7_4395_ba2d_cef0b18399f9);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositorController_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Compositor: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,

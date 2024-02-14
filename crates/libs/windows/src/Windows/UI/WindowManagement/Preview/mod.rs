@@ -1,12 +1,10 @@
 ::windows_core::imp::com_interface!(IWindowManagementPreview, IWindowManagementPreview_Vtbl, 0x4ef55b0d_561d_513c_a67c_2c02b69cef41);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWindowManagementPreview_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
 }
 ::windows_core::imp::com_interface!(IWindowManagementPreviewStatics, IWindowManagementPreviewStatics_Vtbl, 0x0f9725c6_c004_5a23_8fd2_8d092ce2704a);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWindowManagementPreviewStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SetPreferredMinSize: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, super::super::super::Foundation::Size) -> ::windows_core::HRESULT,

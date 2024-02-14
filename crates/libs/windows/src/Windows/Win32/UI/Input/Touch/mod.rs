@@ -254,7 +254,6 @@ impl IInertiaProcessor {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IInertiaProcessor_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub InitialOriginX: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f32) -> ::windows_core::HRESULT,
@@ -384,7 +383,6 @@ impl IManipulationProcessor {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IManipulationProcessor_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub SupportedManipulations: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut MANIPULATION_PROCESSOR_MANIPULATIONS) -> ::windows_core::HRESULT,
@@ -423,7 +421,6 @@ impl _IManipulationEvents {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct _IManipulationEvents_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub ManipulationStarted: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32, f32) -> ::windows_core::HRESULT,

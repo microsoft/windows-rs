@@ -2,7 +2,6 @@
 pub mod Core;
 ::windows_core::imp::com_interface!(IEnterpriseKeyCredentialRegistrationInfo, IEnterpriseKeyCredentialRegistrationInfo_Vtbl, 0x38321acc_672b_4823_b603_6b3c753daf97);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IEnterpriseKeyCredentialRegistrationInfo_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub TenantId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -13,7 +12,6 @@ pub struct IEnterpriseKeyCredentialRegistrationInfo_Vtbl {
 }
 ::windows_core::imp::com_interface!(IEnterpriseKeyCredentialRegistrationManager, IEnterpriseKeyCredentialRegistrationManager_Vtbl, 0x83f3be3f_a25f_4cba_bb8e_bdc32d03c297);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IEnterpriseKeyCredentialRegistrationManager_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -23,7 +21,6 @@ pub struct IEnterpriseKeyCredentialRegistrationManager_Vtbl {
 }
 ::windows_core::imp::com_interface!(IEnterpriseKeyCredentialRegistrationManagerStatics, IEnterpriseKeyCredentialRegistrationManagerStatics_Vtbl, 0x77b85e9e_acf4_4bc0_bac2_40bb46efbb3f);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IEnterpriseKeyCredentialRegistrationManagerStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Current: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,

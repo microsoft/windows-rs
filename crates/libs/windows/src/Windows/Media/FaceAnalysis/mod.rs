@@ -1,6 +1,5 @@
 ::windows_core::imp::com_interface!(IDetectedFace, IDetectedFace_Vtbl, 0x8200d454_66bc_34df_9410_e89400195414);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDetectedFace_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Graphics_Imaging")]
@@ -10,7 +9,6 @@ pub struct IDetectedFace_Vtbl {
 }
 ::windows_core::imp::com_interface!(IFaceDetector, IFaceDetector_Vtbl, 0x16b672dc_fe6f_3117_8d95_c3f04d51630c);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IFaceDetector_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_Imaging"))]
@@ -40,7 +38,6 @@ pub struct IFaceDetector_Vtbl {
 }
 ::windows_core::imp::com_interface!(IFaceDetectorStatics, IFaceDetectorStatics_Vtbl, 0xbc042d67_9047_33f6_881b_6746c1b218b8);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IFaceDetectorStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -56,7 +53,6 @@ pub struct IFaceDetectorStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IFaceTracker, IFaceTracker_Vtbl, 0x6ba67d8c_a841_4420_93e6_2420a1884fcf);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IFaceTracker_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -82,7 +78,6 @@ pub struct IFaceTracker_Vtbl {
 }
 ::windows_core::imp::com_interface!(IFaceTrackerStatics, IFaceTrackerStatics_Vtbl, 0xe9629198_1801_3fa5_932e_31d767af6c4d);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IFaceTrackerStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,

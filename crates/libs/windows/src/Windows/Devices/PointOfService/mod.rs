@@ -2,7 +2,6 @@
 pub mod Provider;
 ::windows_core::imp::com_interface!(IBarcodeScanner, IBarcodeScanner_Vtbl, 0xbea33e06_b264_4f03_a9c1_45b20f01134f);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBarcodeScanner_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub DeviceId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -28,14 +27,12 @@ pub struct IBarcodeScanner_Vtbl {
 }
 ::windows_core::imp::com_interface!(IBarcodeScanner2, IBarcodeScanner2_Vtbl, 0x89215167_8cee_436d_89ab_8dfb43bb4286);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBarcodeScanner2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub VideoDeviceId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IBarcodeScannerCapabilities, IBarcodeScannerCapabilities_Vtbl, 0xc60691e4_f2c8_4420_a307_b12ef6622857);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBarcodeScannerCapabilities_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub PowerReportingType: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut UnifiedPosPowerReportingType) -> ::windows_core::HRESULT,
@@ -45,28 +42,24 @@ pub struct IBarcodeScannerCapabilities_Vtbl {
 }
 ::windows_core::imp::com_interface!(IBarcodeScannerCapabilities1, IBarcodeScannerCapabilities1_Vtbl, 0x8e5ab3e9_0e2c_472f_a1cc_ee8054b6a684);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBarcodeScannerCapabilities1_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsSoftwareTriggerSupported: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IBarcodeScannerCapabilities2, IBarcodeScannerCapabilities2_Vtbl, 0xf211cfec_e1a1_4ea8_9abc_92b1596270ab);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBarcodeScannerCapabilities2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsVideoPreviewSupported: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IBarcodeScannerDataReceivedEventArgs, IBarcodeScannerDataReceivedEventArgs_Vtbl, 0x4234a7e2_ed97_467d_ad2b_01e44313a929);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBarcodeScannerDataReceivedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Report: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IBarcodeScannerErrorOccurredEventArgs, IBarcodeScannerErrorOccurredEventArgs_Vtbl, 0x2cd2602f_cf3a_4002_a75a_c5ec468f0a20);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBarcodeScannerErrorOccurredEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub PartialInputData: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -75,7 +68,6 @@ pub struct IBarcodeScannerErrorOccurredEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IBarcodeScannerImagePreviewReceivedEventArgs, IBarcodeScannerImagePreviewReceivedEventArgs_Vtbl, 0xf3b7de85_6e8b_434e_9f58_06ef26bc4baf);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBarcodeScannerImagePreviewReceivedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -85,7 +77,6 @@ pub struct IBarcodeScannerImagePreviewReceivedEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IBarcodeScannerReport, IBarcodeScannerReport_Vtbl, 0x5ce4d8b0_a489_4b96_86c4_f0bf8a37753d);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBarcodeScannerReport_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ScanDataType: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -100,7 +91,6 @@ pub struct IBarcodeScannerReport_Vtbl {
 }
 ::windows_core::imp::com_interface!(IBarcodeScannerReportFactory, IBarcodeScannerReportFactory_Vtbl, 0xa2547326_2013_457c_8963_49c15dca78ce);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBarcodeScannerReportFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -110,7 +100,6 @@ pub struct IBarcodeScannerReportFactory_Vtbl {
 }
 ::windows_core::imp::com_interface!(IBarcodeScannerStatics, IBarcodeScannerStatics_Vtbl, 0x5d115f6f_da49_41e8_8c8c_f0cb62a9c4fc);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBarcodeScannerStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetDefaultAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -119,14 +108,12 @@ pub struct IBarcodeScannerStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IBarcodeScannerStatics2, IBarcodeScannerStatics2_Vtbl, 0xb8652473_a36f_4007_b1d0_279ebe92a656);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBarcodeScannerStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetDeviceSelectorWithConnectionTypes: unsafe extern "system" fn(*mut ::core::ffi::c_void, PosConnectionTypes, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IBarcodeScannerStatusUpdatedEventArgs, IBarcodeScannerStatusUpdatedEventArgs_Vtbl, 0x355d8586_9c43_462b_a91a_816dc97f452c);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBarcodeScannerStatusUpdatedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut BarcodeScannerStatus) -> ::windows_core::HRESULT,
@@ -134,7 +121,6 @@ pub struct IBarcodeScannerStatusUpdatedEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IBarcodeSymbologiesStatics, IBarcodeSymbologiesStatics_Vtbl, 0xca8549bb_06d2_43f4_a44b_c620679fd8d0);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBarcodeSymbologiesStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Unknown: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -234,14 +220,12 @@ pub struct IBarcodeSymbologiesStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IBarcodeSymbologiesStatics2, IBarcodeSymbologiesStatics2_Vtbl, 0x8b7518f4_99d0_40bf_9424_b91d6dd4c6e0);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBarcodeSymbologiesStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Gs1DWCode: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IBarcodeSymbologyAttributes, IBarcodeSymbologyAttributes_Vtbl, 0x66413a78_ab7a_4ada_8ece_936014b2ead7);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBarcodeSymbologyAttributes_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsCheckDigitValidationEnabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -260,7 +244,6 @@ pub struct IBarcodeSymbologyAttributes_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICashDrawer, ICashDrawer_Vtbl, 0x9f88f5c8_de54_4aee_a890_920bcbfe30fc);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICashDrawer_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub DeviceId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -279,7 +262,6 @@ pub struct ICashDrawer_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICashDrawerCapabilities, ICashDrawerCapabilities_Vtbl, 0x0bc6de0b_e8e7_4b1f_b1d1_3e501ad08247);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICashDrawerCapabilities_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub PowerReportingType: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut UnifiedPosPowerReportingType) -> ::windows_core::HRESULT,
@@ -291,7 +273,6 @@ pub struct ICashDrawerCapabilities_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICashDrawerCloseAlarm, ICashDrawerCloseAlarm_Vtbl, 0x6bf88cc7_6f63_430e_ab3b_95d75ffbe87f);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICashDrawerCloseAlarm_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SetAlarmTimeout: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
@@ -308,7 +289,6 @@ pub struct ICashDrawerCloseAlarm_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICashDrawerEventSource, ICashDrawerEventSource_Vtbl, 0xe006e46c_f2f9_442f_8dd6_06c10a4227ba);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICashDrawerEventSource_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub DrawerClosed: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
@@ -331,14 +311,12 @@ impl ::windows_core::RuntimeType for ICashDrawerEventSourceEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICashDrawerEventSourceEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CashDrawer: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ICashDrawerStatics, ICashDrawerStatics_Vtbl, 0xdfa0955a_d437_4fff_b547_dda969a4f883);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICashDrawerStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetDefaultAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -347,14 +325,12 @@ pub struct ICashDrawerStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICashDrawerStatics2, ICashDrawerStatics2_Vtbl, 0x3e818121_8c42_40e8_9c0e_40297048104c);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICashDrawerStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetDeviceSelectorWithConnectionTypes: unsafe extern "system" fn(*mut ::core::ffi::c_void, PosConnectionTypes, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ICashDrawerStatus, ICashDrawerStatus_Vtbl, 0x6bbd78bf_dca1_4e06_99eb_5af6a5aec108);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICashDrawerStatus_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub StatusKind: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut CashDrawerStatusKind) -> ::windows_core::HRESULT,
@@ -362,14 +338,12 @@ pub struct ICashDrawerStatus_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICashDrawerStatusUpdatedEventArgs, ICashDrawerStatusUpdatedEventArgs_Vtbl, 0x30aae98a_0d70_459c_9553_87e124c52488);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICashDrawerStatusUpdatedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IClaimedBarcodeScanner, IClaimedBarcodeScanner_Vtbl, 0x4a63b49c_8fa4_4332_bb26_945d11d81e0f);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IClaimedBarcodeScanner_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub DeviceId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -409,7 +383,6 @@ pub struct IClaimedBarcodeScanner_Vtbl {
 }
 ::windows_core::imp::com_interface!(IClaimedBarcodeScanner1, IClaimedBarcodeScanner1_Vtbl, 0xf61aad0c_8551_42b4_998c_970c20210a22);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IClaimedBarcodeScanner1_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub StartSoftwareTriggerAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -417,7 +390,6 @@ pub struct IClaimedBarcodeScanner1_Vtbl {
 }
 ::windows_core::imp::com_interface!(IClaimedBarcodeScanner2, IClaimedBarcodeScanner2_Vtbl, 0xe3b59e8c_2d8b_4f70_8af3_3448bedd5fe2);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IClaimedBarcodeScanner2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetSymbologyAttributesAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -425,7 +397,6 @@ pub struct IClaimedBarcodeScanner2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IClaimedBarcodeScanner3, IClaimedBarcodeScanner3_Vtbl, 0xe6ceb430_712e_45fc_8b86_cd55f5aef79d);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IClaimedBarcodeScanner3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ShowVideoPreviewAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -435,7 +406,6 @@ pub struct IClaimedBarcodeScanner3_Vtbl {
 }
 ::windows_core::imp::com_interface!(IClaimedBarcodeScanner4, IClaimedBarcodeScanner4_Vtbl, 0x5d501f97_376a_41a8_a230_2f37c1949dde);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IClaimedBarcodeScanner4_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Closed: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
@@ -443,13 +413,11 @@ pub struct IClaimedBarcodeScanner4_Vtbl {
 }
 ::windows_core::imp::com_interface!(IClaimedBarcodeScannerClosedEventArgs, IClaimedBarcodeScannerClosedEventArgs_Vtbl, 0xcf7d5489_a22c_4c65_a901_88d77d833954);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IClaimedBarcodeScannerClosedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
 }
 ::windows_core::imp::com_interface!(IClaimedCashDrawer, IClaimedCashDrawer_Vtbl, 0xca3f99af_abb8_42c1_8a84_5c66512f5a75);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IClaimedCashDrawer_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub DeviceId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -473,7 +441,6 @@ pub struct IClaimedCashDrawer_Vtbl {
 }
 ::windows_core::imp::com_interface!(IClaimedCashDrawer2, IClaimedCashDrawer2_Vtbl, 0x9cbab5a2_de42_4d5b_b0c1_9b57a2ba89c3);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IClaimedCashDrawer2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Closed: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
@@ -481,20 +448,17 @@ pub struct IClaimedCashDrawer2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IClaimedCashDrawerClosedEventArgs, IClaimedCashDrawerClosedEventArgs_Vtbl, 0xcc573f33_3f34_4c5c_baae_deadf16cd7fa);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IClaimedCashDrawerClosedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
 }
 ::windows_core::imp::com_interface!(IClaimedJournalPrinter, IClaimedJournalPrinter_Vtbl, 0x67ea0630_517d_487f_9fdf_d2e0a0a264a5);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IClaimedJournalPrinter_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateJob: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IClaimedLineDisplay, IClaimedLineDisplay_Vtbl, 0x120ac970_9a75_4acf_aae7_09972bcf8794);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IClaimedLineDisplay_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub DeviceId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -511,7 +475,6 @@ pub struct IClaimedLineDisplay_Vtbl {
 }
 ::windows_core::imp::com_interface!(IClaimedLineDisplay2, IClaimedLineDisplay2_Vtbl, 0xa31c75ed_41f5_4e76_a074_795e47a46e97);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IClaimedLineDisplay2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -552,7 +515,6 @@ pub struct IClaimedLineDisplay2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IClaimedLineDisplay3, IClaimedLineDisplay3_Vtbl, 0x642ecd92_e9d4_4ecc_af75_329c274cd18f);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IClaimedLineDisplay3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Closed: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
@@ -560,13 +522,11 @@ pub struct IClaimedLineDisplay3_Vtbl {
 }
 ::windows_core::imp::com_interface!(IClaimedLineDisplayClosedEventArgs, IClaimedLineDisplayClosedEventArgs_Vtbl, 0xf915f364_d3d5_4f10_b511_90939edfacd8);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IClaimedLineDisplayClosedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
 }
 ::windows_core::imp::com_interface!(IClaimedLineDisplayStatics, IClaimedLineDisplayStatics_Vtbl, 0x78ca98fb_8b6b_4973_86f0_3e570c351825);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IClaimedLineDisplayStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub FromIdAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -575,7 +535,6 @@ pub struct IClaimedLineDisplayStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IClaimedMagneticStripeReader, IClaimedMagneticStripeReader_Vtbl, 0x475ca8f3_9417_48bc_b9d7_4163a7844c02);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IClaimedMagneticStripeReader_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub DeviceId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -623,7 +582,6 @@ pub struct IClaimedMagneticStripeReader_Vtbl {
 }
 ::windows_core::imp::com_interface!(IClaimedMagneticStripeReader2, IClaimedMagneticStripeReader2_Vtbl, 0x236fafdf_e2dc_4d7d_9c78_060df2bf2928);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IClaimedMagneticStripeReader2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Closed: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
@@ -631,13 +589,11 @@ pub struct IClaimedMagneticStripeReader2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IClaimedMagneticStripeReaderClosedEventArgs, IClaimedMagneticStripeReaderClosedEventArgs_Vtbl, 0x14ada93a_adcd_4c80_acda_c3eaed2647e1);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IClaimedMagneticStripeReaderClosedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
 }
 ::windows_core::imp::com_interface!(IClaimedPosPrinter, IClaimedPosPrinter_Vtbl, 0x6d64ce0c_e03e_4b14_a38e_c28c34b86353);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IClaimedPosPrinter_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub DeviceId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -668,7 +624,6 @@ pub struct IClaimedPosPrinter_Vtbl {
 }
 ::windows_core::imp::com_interface!(IClaimedPosPrinter2, IClaimedPosPrinter2_Vtbl, 0x5bf7a3d5_5198_437a_82df_589993fa77e1);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IClaimedPosPrinter2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Closed: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
@@ -676,13 +631,11 @@ pub struct IClaimedPosPrinter2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IClaimedPosPrinterClosedEventArgs, IClaimedPosPrinterClosedEventArgs_Vtbl, 0xe2b7a27b_4d40_471d_92ed_63375b18c788);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IClaimedPosPrinterClosedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
 }
 ::windows_core::imp::com_interface!(IClaimedReceiptPrinter, IClaimedReceiptPrinter_Vtbl, 0x9ad27a74_dd61_4ee2_9837_5b5d72d538b9);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IClaimedReceiptPrinter_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SidewaysMaxLines: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -694,7 +647,6 @@ pub struct IClaimedReceiptPrinter_Vtbl {
 }
 ::windows_core::imp::com_interface!(IClaimedSlipPrinter, IClaimedSlipPrinter_Vtbl, 0xbd5deff2_af90_4e8a_b77b_e3ae9ca63a7f);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IClaimedSlipPrinter_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SidewaysMaxLines: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -837,7 +789,6 @@ impl ::windows_core::RuntimeType for ICommonClaimedPosPrinterStation {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICommonClaimedPosPrinterStation_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SetCharactersPerLine: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
@@ -960,7 +911,6 @@ impl ::windows_core::RuntimeType for ICommonPosPrintStationCapabilities {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICommonPosPrintStationCapabilities_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsPrinterPresent: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -1146,7 +1096,6 @@ impl ::windows_core::RuntimeType for ICommonReceiptSlipCapabilities {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICommonReceiptSlipCapabilities_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsBarcodeSupported: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -1167,7 +1116,6 @@ pub struct ICommonReceiptSlipCapabilities_Vtbl {
 }
 ::windows_core::imp::com_interface!(IJournalPrintJob, IJournalPrintJob_Vtbl, 0x9f4f2864_f3f0_55d0_8c39_74cc91783eed);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IJournalPrintJob_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Print: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1176,13 +1124,11 @@ pub struct IJournalPrintJob_Vtbl {
 }
 ::windows_core::imp::com_interface!(IJournalPrinterCapabilities, IJournalPrinterCapabilities_Vtbl, 0x3b5ccc43_e047_4463_bb58_17b5ba1d8056);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IJournalPrinterCapabilities_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
 }
 ::windows_core::imp::com_interface!(IJournalPrinterCapabilities2, IJournalPrinterCapabilities2_Vtbl, 0x03b0b645_33b8_533b_baaa_a4389283ab0a);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IJournalPrinterCapabilities2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsReverseVideoSupported: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -1194,7 +1140,6 @@ pub struct IJournalPrinterCapabilities2_Vtbl {
 }
 ::windows_core::imp::com_interface!(ILineDisplay, ILineDisplay_Vtbl, 0x24f5df4e_3c99_44e2_b73f_e51be3637a8c);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ILineDisplay_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub DeviceId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -1208,14 +1153,12 @@ pub struct ILineDisplay_Vtbl {
 }
 ::windows_core::imp::com_interface!(ILineDisplay2, ILineDisplay2_Vtbl, 0xc296a628_ef44_40f3_bd1c_b04c6a5cdc7d);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ILineDisplay2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CheckPowerStatusAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ILineDisplayAttributes, ILineDisplayAttributes_Vtbl, 0xc17de99c_229a_4c14_a6f1_b4e4b1fead92);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ILineDisplayAttributes_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsPowerNotifyEnabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -1235,7 +1178,6 @@ pub struct ILineDisplayAttributes_Vtbl {
 }
 ::windows_core::imp::com_interface!(ILineDisplayCapabilities, ILineDisplayCapabilities_Vtbl, 0x5a15b5d1_8dc5_4b9c_9172_303e47b70c55);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ILineDisplayCapabilities_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsStatisticsReportingSupported: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -1259,7 +1201,6 @@ pub struct ILineDisplayCapabilities_Vtbl {
 }
 ::windows_core::imp::com_interface!(ILineDisplayCursor, ILineDisplayCursor_Vtbl, 0xecdffc45_754a_4e3b_ab2b_151181085605);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ILineDisplayCursor_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CanCustomize: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -1274,7 +1215,6 @@ pub struct ILineDisplayCursor_Vtbl {
 }
 ::windows_core::imp::com_interface!(ILineDisplayCursorAttributes, ILineDisplayCursorAttributes_Vtbl, 0x4e2d54fe_4ffd_4190_aae1_ce285f20c896);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ILineDisplayCursorAttributes_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsBlinkEnabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -1288,7 +1228,6 @@ pub struct ILineDisplayCursorAttributes_Vtbl {
 }
 ::windows_core::imp::com_interface!(ILineDisplayCustomGlyphs, ILineDisplayCustomGlyphs_Vtbl, 0x2257f63c_f263_44f1_a1a0_e750a6a0ec54);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ILineDisplayCustomGlyphs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SizeInPixels: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::Size) -> ::windows_core::HRESULT,
@@ -1303,7 +1242,6 @@ pub struct ILineDisplayCustomGlyphs_Vtbl {
 }
 ::windows_core::imp::com_interface!(ILineDisplayMarquee, ILineDisplayMarquee_Vtbl, 0xa3d33e3e_f46a_4b7a_bc21_53eb3b57f8b4);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ILineDisplayMarquee_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Format: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut LineDisplayMarqueeFormat) -> ::windows_core::HRESULT,
@@ -1317,7 +1255,6 @@ pub struct ILineDisplayMarquee_Vtbl {
 }
 ::windows_core::imp::com_interface!(ILineDisplayStatics, ILineDisplayStatics_Vtbl, 0x022dc0b6_11b0_4690_9547_0b39c5af2114);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ILineDisplayStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub FromIdAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1327,14 +1264,12 @@ pub struct ILineDisplayStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(ILineDisplayStatics2, ILineDisplayStatics2_Vtbl, 0x600c3f1c_77ab_4968_a7de_c02ff169f2cc);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ILineDisplayStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub StatisticsCategorySelector: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ILineDisplayStatisticsCategorySelector, ILineDisplayStatisticsCategorySelector_Vtbl, 0xb521c46b_9274_4d24_94f3_b6017b832444);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ILineDisplayStatisticsCategorySelector_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub AllStatistics: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -1343,14 +1278,12 @@ pub struct ILineDisplayStatisticsCategorySelector_Vtbl {
 }
 ::windows_core::imp::com_interface!(ILineDisplayStatusUpdatedEventArgs, ILineDisplayStatusUpdatedEventArgs_Vtbl, 0xddd57c1a_86fb_4eba_93d1_6f5eda52b752);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ILineDisplayStatusUpdatedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut LineDisplayPowerStatus) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ILineDisplayStoredBitmap, ILineDisplayStoredBitmap_Vtbl, 0xf621515b_d81e_43ba_bf1b_bcfa3c785ba0);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ILineDisplayStoredBitmap_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub EscapeSequence: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -1358,7 +1291,6 @@ pub struct ILineDisplayStoredBitmap_Vtbl {
 }
 ::windows_core::imp::com_interface!(ILineDisplayWindow, ILineDisplayWindow_Vtbl, 0xd21feef4_2364_4be5_bee1_851680af4964);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ILineDisplayWindow_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SizeInCharacters: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::Size) -> ::windows_core::HRESULT,
@@ -1373,7 +1305,6 @@ pub struct ILineDisplayWindow_Vtbl {
 }
 ::windows_core::imp::com_interface!(ILineDisplayWindow2, ILineDisplayWindow2_Vtbl, 0xa95ce2e6_bdd8_4365_8e11_de94de8dff02);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ILineDisplayWindow2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Cursor: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1403,7 +1334,6 @@ pub struct ILineDisplayWindow2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMagneticStripeReader, IMagneticStripeReader_Vtbl, 0x1a92b015_47c3_468a_9333_0c6517574883);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMagneticStripeReader_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub DeviceId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -1422,7 +1352,6 @@ pub struct IMagneticStripeReader_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMagneticStripeReaderAamvaCardDataReceivedEventArgs, IMagneticStripeReaderAamvaCardDataReceivedEventArgs_Vtbl, 0x0a4bbd51_c316_4910_87f3_7a62ba862d31);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMagneticStripeReaderAamvaCardDataReceivedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Report: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1447,7 +1376,6 @@ pub struct IMagneticStripeReaderAamvaCardDataReceivedEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMagneticStripeReaderBankCardDataReceivedEventArgs, IMagneticStripeReaderBankCardDataReceivedEventArgs_Vtbl, 0x2e958823_a31a_4763_882c_23725e39b08e);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMagneticStripeReaderBankCardDataReceivedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Report: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1462,7 +1390,6 @@ pub struct IMagneticStripeReaderBankCardDataReceivedEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMagneticStripeReaderCapabilities, IMagneticStripeReaderCapabilities_Vtbl, 0x7128809c_c440_44a2_a467_469175d02896);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMagneticStripeReaderCapabilities_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CardAuthentication: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -1479,7 +1406,6 @@ pub struct IMagneticStripeReaderCapabilities_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMagneticStripeReaderCardTypesStatics, IMagneticStripeReaderCardTypesStatics_Vtbl, 0x528f2c5d_2986_474f_8454_7ccd05928d5f);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMagneticStripeReaderCardTypesStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Unknown: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -1489,7 +1415,6 @@ pub struct IMagneticStripeReaderCardTypesStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMagneticStripeReaderEncryptionAlgorithmsStatics, IMagneticStripeReaderEncryptionAlgorithmsStatics_Vtbl, 0x53b57350_c3db_4754_9c00_41392374a109);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMagneticStripeReaderEncryptionAlgorithmsStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub None: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -1498,7 +1423,6 @@ pub struct IMagneticStripeReaderEncryptionAlgorithmsStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMagneticStripeReaderErrorOccurredEventArgs, IMagneticStripeReaderErrorOccurredEventArgs_Vtbl, 0x1fedf95d_2c84_41ad_b778_f2356a789ab1);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMagneticStripeReaderErrorOccurredEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Track1Status: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut MagneticStripeReaderTrackErrorType) -> ::windows_core::HRESULT,
@@ -1510,7 +1434,6 @@ pub struct IMagneticStripeReaderErrorOccurredEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMagneticStripeReaderReport, IMagneticStripeReaderReport_Vtbl, 0x6a5b6047_99b0_4188_bef1_eddf79f78fe6);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMagneticStripeReaderReport_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CardType: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -1534,7 +1457,6 @@ pub struct IMagneticStripeReaderReport_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMagneticStripeReaderStatics, IMagneticStripeReaderStatics_Vtbl, 0xc45fab4a_efd7_4760_a5ce_15b0e47e94eb);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMagneticStripeReaderStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetDefaultAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1543,14 +1465,12 @@ pub struct IMagneticStripeReaderStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMagneticStripeReaderStatics2, IMagneticStripeReaderStatics2_Vtbl, 0x8cadc362_d667_48fa_86bc_f5ae1189262b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMagneticStripeReaderStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetDeviceSelectorWithConnectionTypes: unsafe extern "system" fn(*mut ::core::ffi::c_void, PosConnectionTypes, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IMagneticStripeReaderStatusUpdatedEventArgs, IMagneticStripeReaderStatusUpdatedEventArgs_Vtbl, 0x09cc6bb0_3262_401d_9e8a_e80d6358906b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMagneticStripeReaderStatusUpdatedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut MagneticStripeReaderStatus) -> ::windows_core::HRESULT,
@@ -1558,7 +1478,6 @@ pub struct IMagneticStripeReaderStatusUpdatedEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMagneticStripeReaderTrackData, IMagneticStripeReaderTrackData_Vtbl, 0x104cf671_4a9d_446e_abc5_20402307ba36);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMagneticStripeReaderTrackData_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -1576,14 +1495,12 @@ pub struct IMagneticStripeReaderTrackData_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMagneticStripeReaderVendorSpecificCardDataReceivedEventArgs, IMagneticStripeReaderVendorSpecificCardDataReceivedEventArgs_Vtbl, 0xaf0a5514_59cc_4a60_99e8_99a53dace5aa);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMagneticStripeReaderVendorSpecificCardDataReceivedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Report: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IPosPrinter, IPosPrinter_Vtbl, 0x2a03c10e_9a19_4a01_994f_12dfad6adcbf);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPosPrinter_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub DeviceId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -1608,7 +1525,6 @@ pub struct IPosPrinter_Vtbl {
 }
 ::windows_core::imp::com_interface!(IPosPrinter2, IPosPrinter2_Vtbl, 0x248475e8_8b98_5517_8e48_760e86f68987);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPosPrinter2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -1619,7 +1535,6 @@ pub struct IPosPrinter2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IPosPrinterCapabilities, IPosPrinterCapabilities_Vtbl, 0xcde95721_4380_4985_adc5_39db30cd93bc);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPosPrinterCapabilities_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub PowerReportingType: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut UnifiedPosPowerReportingType) -> ::windows_core::HRESULT,
@@ -1635,7 +1550,6 @@ pub struct IPosPrinterCapabilities_Vtbl {
 }
 ::windows_core::imp::com_interface!(IPosPrinterCharacterSetIdsStatics, IPosPrinterCharacterSetIdsStatics_Vtbl, 0x5c709eff_709a_4fe7_b215_06a748a38b39);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPosPrinterCharacterSetIdsStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Utf16LE: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -1644,7 +1558,6 @@ pub struct IPosPrinterCharacterSetIdsStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IPosPrinterFontProperty, IPosPrinterFontProperty_Vtbl, 0xa7f4e93a_f8ac_5f04_84d2_29b16d8a633c);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPosPrinterFontProperty_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub TypeFace: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -1681,7 +1594,6 @@ impl ::windows_core::RuntimeType for IPosPrinterJob {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPosPrinterJob_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Print: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -1691,7 +1603,6 @@ pub struct IPosPrinterJob_Vtbl {
 }
 ::windows_core::imp::com_interface!(IPosPrinterPrintOptions, IPosPrinterPrintOptions_Vtbl, 0x0a2e16fd_1d02_5a58_9d59_bfcde76fde86);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPosPrinterPrintOptions_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub TypeFace: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -1723,13 +1634,11 @@ pub struct IPosPrinterPrintOptions_Vtbl {
 }
 ::windows_core::imp::com_interface!(IPosPrinterReleaseDeviceRequestedEventArgs, IPosPrinterReleaseDeviceRequestedEventArgs_Vtbl, 0x2bcba359_1cef_40b2_9ecb_f927f856ae3c);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPosPrinterReleaseDeviceRequestedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
 }
 ::windows_core::imp::com_interface!(IPosPrinterStatics, IPosPrinterStatics_Vtbl, 0x8ce0d4ea_132f_4cdf_a64a_2d0d7c96a85b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPosPrinterStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetDefaultAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1738,14 +1647,12 @@ pub struct IPosPrinterStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IPosPrinterStatics2, IPosPrinterStatics2_Vtbl, 0xeecd2c1c_b0d0_42e7_b137_b89b16244d41);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPosPrinterStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetDeviceSelectorWithConnectionTypes: unsafe extern "system" fn(*mut ::core::ffi::c_void, PosConnectionTypes, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IPosPrinterStatus, IPosPrinterStatus_Vtbl, 0xd1f0c730_da40_4328_bf76_5156fa33b747);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPosPrinterStatus_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub StatusKind: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut PosPrinterStatusKind) -> ::windows_core::HRESULT,
@@ -1753,7 +1660,6 @@ pub struct IPosPrinterStatus_Vtbl {
 }
 ::windows_core::imp::com_interface!(IPosPrinterStatusUpdatedEventArgs, IPosPrinterStatusUpdatedEventArgs_Vtbl, 0x2edb87df_13a6_428d_ba81_b0e7c3e5a3cd);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPosPrinterStatusUpdatedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1878,7 +1784,6 @@ impl ::windows_core::RuntimeType for IReceiptOrSlipJob {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IReceiptOrSlipJob_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SetBarcodeRotation: unsafe extern "system" fn(*mut ::core::ffi::c_void, PosPrinterRotation) -> ::windows_core::HRESULT,
@@ -1923,7 +1828,6 @@ pub struct IReceiptOrSlipJob_Vtbl {
 }
 ::windows_core::imp::com_interface!(IReceiptPrintJob, IReceiptPrintJob_Vtbl, 0xaa96066e_acad_4b79_9d0f_c0cfc08dc77b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IReceiptPrintJob_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub MarkFeed: unsafe extern "system" fn(*mut ::core::ffi::c_void, PosPrinterMarkFeedKind) -> ::windows_core::HRESULT,
@@ -1932,7 +1836,6 @@ pub struct IReceiptPrintJob_Vtbl {
 }
 ::windows_core::imp::com_interface!(IReceiptPrintJob2, IReceiptPrintJob2_Vtbl, 0x0cbc12e3_9e29_5179_bcd8_1811d3b9a10e);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IReceiptPrintJob2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub StampPaper: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1942,7 +1845,6 @@ pub struct IReceiptPrintJob2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IReceiptPrinterCapabilities, IReceiptPrinterCapabilities_Vtbl, 0xb8f0b58f_51a8_43fc_9bd5_8de272a6415b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IReceiptPrinterCapabilities_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CanCutPaper: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -1951,7 +1853,6 @@ pub struct IReceiptPrinterCapabilities_Vtbl {
 }
 ::windows_core::imp::com_interface!(IReceiptPrinterCapabilities2, IReceiptPrinterCapabilities2_Vtbl, 0x20030638_8a2c_55ac_9a7b_7576d8869e99);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IReceiptPrinterCapabilities2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsReverseVideoSupported: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -1963,7 +1864,6 @@ pub struct IReceiptPrinterCapabilities2_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISlipPrintJob, ISlipPrintJob_Vtbl, 0x5d88f95d_6131_5a4b_b7d5_8ef2da7b4165);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISlipPrintJob_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Print: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1972,7 +1872,6 @@ pub struct ISlipPrintJob_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISlipPrinterCapabilities, ISlipPrinterCapabilities_Vtbl, 0x99b16399_488c_4157_8ac2_9f57f708d3db);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISlipPrinterCapabilities_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsFullLengthSupported: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -1980,7 +1879,6 @@ pub struct ISlipPrinterCapabilities_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISlipPrinterCapabilities2, ISlipPrinterCapabilities2_Vtbl, 0x6ff89671_2d1a_5000_87c2_b0851bfdf07e);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISlipPrinterCapabilities2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsReverseVideoSupported: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -1992,7 +1890,6 @@ pub struct ISlipPrinterCapabilities2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IUnifiedPosErrorData, IUnifiedPosErrorData_Vtbl, 0x2b998c3a_555c_4889_8ed8_c599bb3a712a);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUnifiedPosErrorData_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Message: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -2002,7 +1899,6 @@ pub struct IUnifiedPosErrorData_Vtbl {
 }
 ::windows_core::imp::com_interface!(IUnifiedPosErrorDataFactory, IUnifiedPosErrorDataFactory_Vtbl, 0x4b982551_1ffe_451b_a368_63e0ce465f5a);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUnifiedPosErrorDataFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, UnifiedPosErrorSeverity, UnifiedPosErrorReason, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,

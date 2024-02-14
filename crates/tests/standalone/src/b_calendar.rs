@@ -1352,7 +1352,6 @@ impl ::windows_core::RuntimeType for DayOfWeek {
     0xca30221d_86d9_40fb_a26b_d44eb7cf08ea
 );
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICalendar_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Clone: unsafe extern "system" fn(
@@ -1651,7 +1650,6 @@ pub struct ICalendar_Vtbl {
     0x83f58412_e56b_4c75_a66e_0f63d57758a6
 );
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICalendarFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateCalendarDefaultCalendarAndClock: unsafe extern "system" fn(
@@ -1674,7 +1672,6 @@ pub struct ICalendarFactory_Vtbl {
     0xb44b378c_ca7e_4590_9e72_ea2bec1a5115
 );
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICalendarFactory2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateCalendarWithTimeZone: unsafe extern "system" fn(
@@ -1742,7 +1739,6 @@ unsafe impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::Interface 
         ::windows_core::GUID::from_signature(<Self as ::windows_core::RuntimeType>::SIGNATURE);
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IIterable_Vtbl<T>
 where
     T: ::windows_core::RuntimeType + 'static,
@@ -1844,7 +1840,6 @@ unsafe impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::Interface 
         ::windows_core::GUID::from_signature(<Self as ::windows_core::RuntimeType>::SIGNATURE);
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IIterator_Vtbl<T>
 where
     T: ::windows_core::RuntimeType + 'static,
@@ -1872,7 +1867,6 @@ where
     0xbb3c25e5_46cf_4317_a3f5_02621ad54478
 );
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITimeZoneOnCalendar_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetTimeZone: unsafe extern "system" fn(
@@ -2034,7 +2028,6 @@ unsafe impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::Interface 
         ::windows_core::GUID::from_signature(<Self as ::windows_core::RuntimeType>::SIGNATURE);
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVectorView_Vtbl<T>
 where
     T: ::windows_core::RuntimeType + 'static,

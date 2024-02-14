@@ -1,6 +1,5 @@
 ::windows_core::imp::com_interface!(IJsonArray, IJsonArray_Vtbl, 0x08c1ddb6_0cbd_4a9a_b5d3_2f852dc37e81);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IJsonArray_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetObjectAt: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -11,7 +10,6 @@ pub struct IJsonArray_Vtbl {
 }
 ::windows_core::imp::com_interface!(IJsonArrayStatics, IJsonArrayStatics_Vtbl, 0xdb1434a9_e164_499f_93e2_8a8f49bb90ba);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IJsonArrayStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Parse: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -19,14 +17,12 @@ pub struct IJsonArrayStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IJsonErrorStatics2, IJsonErrorStatics2_Vtbl, 0x404030da_87d0_436c_83ab_fc7b12c0cc26);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IJsonErrorStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetJsonStatus: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, *mut JsonErrorStatus) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IJsonObject, IJsonObject_Vtbl, 0x064e24dd_29c2_4f83_9ac1_9ee11578beb3);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IJsonObject_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetNamedValue: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -39,7 +35,6 @@ pub struct IJsonObject_Vtbl {
 }
 ::windows_core::imp::com_interface!(IJsonObjectStatics, IJsonObjectStatics_Vtbl, 0x2289f159_54de_45d8_abcc_22603fa066a0);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IJsonObjectStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Parse: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -47,7 +42,6 @@ pub struct IJsonObjectStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IJsonObjectWithDefaultValues, IJsonObjectWithDefaultValues_Vtbl, 0xd960d2a2_b7f0_4f00_8e44_d82cf415ea13);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IJsonObjectWithDefaultValues_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetNamedValueOrDefault: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -114,7 +108,6 @@ impl ::windows_core::RuntimeType for IJsonValue {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IJsonValue_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ValueType: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut JsonValueType) -> ::windows_core::HRESULT,
@@ -127,7 +120,6 @@ pub struct IJsonValue_Vtbl {
 }
 ::windows_core::imp::com_interface!(IJsonValueStatics, IJsonValueStatics_Vtbl, 0x5f6b544a_2f53_48e1_91a3_f78b50a6345c);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IJsonValueStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Parse: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -138,7 +130,6 @@ pub struct IJsonValueStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IJsonValueStatics2, IJsonValueStatics2_Vtbl, 0x1d9ecbe4_3fe8_4335_8392_93d8e36865f0);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IJsonValueStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateNullValue: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,

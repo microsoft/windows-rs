@@ -24,7 +24,6 @@ impl IAsynchronousDataRetriever {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAsynchronousDataRetriever_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetIdParameters: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ID_PARAMETERS) -> ::windows_core::HRESULT,
@@ -71,7 +70,6 @@ impl IChangeConflict {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IChangeConflict_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetDestinationProviderConflictingChange: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -97,7 +95,6 @@ impl IChangeUnitException {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IChangeUnitException_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetItemId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u8, *mut u32) -> ::windows_core::HRESULT,
@@ -121,7 +118,6 @@ impl IChangeUnitListFilterInfo {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IChangeUnitListFilterInfo_Vtbl {
     pub base__: ISyncFilterInfo_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const *const u8, u32) -> ::windows_core::HRESULT,
@@ -139,7 +135,6 @@ impl IClockVector {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IClockVector_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetClockVectorElements: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -156,7 +151,6 @@ impl IClockVectorElement {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IClockVectorElement_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetReplicaKey: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -180,7 +174,6 @@ impl ICombinedFilterInfo {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICombinedFilterInfo_Vtbl {
     pub base__: ISyncFilterInfo_Vtbl,
     pub GetFilterCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -240,7 +233,6 @@ impl IConstraintConflict {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IConstraintConflict_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetDestinationProviderConflictingChange: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -264,7 +256,6 @@ impl IConstructReplicaKeyMap {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IConstructReplicaKeyMap_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub FindOrAddReplica: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const u8, *mut u32) -> ::windows_core::HRESULT,
@@ -289,7 +280,6 @@ impl ICoreFragment {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreFragment_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub NextColumn: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u8, *mut u32) -> ::windows_core::HRESULT,
@@ -309,7 +299,6 @@ impl ICoreFragmentInspector {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreFragmentInspector_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub NextCoreFragments: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -327,7 +316,6 @@ impl ICustomFilterInfo {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICustomFilterInfo_Vtbl {
     pub base__: ISyncFilterInfo_Vtbl,
     pub GetSyncFilter: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -346,7 +334,6 @@ impl IDataRetrieverCallback {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDataRetrieverCallback_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub LoadChangeDataComplete: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -370,7 +357,6 @@ impl IEnumChangeUnitExceptions {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IEnumChangeUnitExceptions_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -396,7 +382,6 @@ impl IEnumClockVector {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IEnumClockVector_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -422,7 +407,6 @@ impl IEnumFeedClockVector {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IEnumFeedClockVector_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -438,7 +422,6 @@ impl IEnumItemIds {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IEnumItemIds_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u8, *mut u32) -> ::windows_core::HRESULT,
@@ -461,7 +444,6 @@ impl IEnumRangeExceptions {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IEnumRangeExceptions_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -487,7 +469,6 @@ impl IEnumSingleItemExceptions {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IEnumSingleItemExceptions_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -513,7 +494,6 @@ impl IEnumSyncChangeUnits {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IEnumSyncChangeUnits_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -539,7 +519,6 @@ impl IEnumSyncChanges {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IEnumSyncChanges_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -566,7 +545,6 @@ impl IEnumSyncProviderConfigUIInfos {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IEnumSyncProviderConfigUIInfos_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -596,7 +574,6 @@ impl IEnumSyncProviderInfos {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IEnumSyncProviderInfos_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -624,7 +601,6 @@ impl IFeedClockVector {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IFeedClockVector_Vtbl {
     pub base__: IClockVector_Vtbl,
     pub GetUpdateCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -647,7 +623,6 @@ impl IFeedClockVectorElement {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IFeedClockVectorElement_Vtbl {
     pub base__: IClockVectorElement_Vtbl,
     pub GetSyncTime: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut SYNC_TIME) -> ::windows_core::HRESULT,
@@ -674,7 +649,6 @@ impl IFilterKeyMap {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IFilterKeyMap_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -693,7 +667,6 @@ impl IFilterRequestCallback {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IFilterRequestCallback_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub RequestFilter: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, FILTERING_TYPE) -> ::windows_core::HRESULT,
@@ -715,7 +688,6 @@ impl IFilterTrackingProvider {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IFilterTrackingProvider_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub SpecifyTrackedFilters: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -732,7 +704,6 @@ impl IFilterTrackingRequestCallback {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IFilterTrackingRequestCallback_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub RequestTrackedFilter: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -748,7 +719,6 @@ impl IFilterTrackingSyncChangeBuilder {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IFilterTrackingSyncChangeBuilder_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub AddFilterChange: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const SYNC_FILTER_CHANGE) -> ::windows_core::HRESULT,
@@ -858,7 +828,6 @@ impl IForgottenKnowledge {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IForgottenKnowledge_Vtbl {
     pub base__: ISyncKnowledge_Vtbl,
     pub ForgetToVersion: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *const SYNC_VERSION) -> ::windows_core::HRESULT,
@@ -914,7 +883,6 @@ impl IKnowledgeSyncProvider {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IKnowledgeSyncProvider_Vtbl {
     pub base__: ISyncProvider_Vtbl,
     pub BeginSession: unsafe extern "system" fn(*mut ::core::ffi::c_void, SYNC_PROVIDER_ROLE, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -947,7 +915,6 @@ impl ILoadChangeContext {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ILoadChangeContext_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetSyncChange: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -965,7 +932,6 @@ impl IProviderConverter {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IProviderConverter_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -984,7 +950,6 @@ impl IRangeException {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRangeException_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetClosedRangeStart: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u8, *mut u32) -> ::windows_core::HRESULT,
@@ -1015,7 +980,6 @@ impl IRecoverableError {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRecoverableError_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetStage: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut SYNC_PROGRESS_STAGE) -> ::windows_core::HRESULT,
@@ -1048,7 +1012,6 @@ impl IRecoverableErrorData {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRecoverableErrorData_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
@@ -1074,7 +1037,6 @@ impl IRegisteredSyncProvider {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRegisteredSyncProvider_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -1098,7 +1060,6 @@ impl IReplicaKeyMap {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IReplicaKeyMap_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub LookupReplicaKey: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const u8, *mut u32) -> ::windows_core::HRESULT,
@@ -1116,7 +1077,6 @@ impl IRequestFilteredSync {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRequestFilteredSync_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub SpecifyFilter: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1132,7 +1092,6 @@ impl ISingleItemException {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISingleItemException_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetItemId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u8, *mut u32) -> ::windows_core::HRESULT,
@@ -1149,7 +1108,6 @@ impl ISupportFilteredSync {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISupportFilteredSync_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub AddFilter: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, FILTERING_TYPE) -> ::windows_core::HRESULT,
@@ -1165,7 +1123,6 @@ impl ISupportLastWriteTime {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISupportLastWriteTime_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetItemChangeTime: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const u8, *mut u64) -> ::windows_core::HRESULT,
@@ -1200,7 +1157,6 @@ impl ISyncCallback {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISyncCallback_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub OnProgress: unsafe extern "system" fn(*mut ::core::ffi::c_void, SYNC_PROVIDER_ROLE, SYNC_PROGRESS_STAGE, u32, u32) -> ::windows_core::HRESULT,
@@ -1244,7 +1200,6 @@ impl ISyncCallback2 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISyncCallback2_Vtbl {
     pub base__: ISyncCallback_Vtbl,
     pub OnChangeApplied: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32) -> ::windows_core::HRESULT,
@@ -1288,7 +1243,6 @@ impl ISyncChange {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISyncChange_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetOwnerReplicaId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u8, *mut u32) -> ::windows_core::HRESULT,
@@ -1374,7 +1328,6 @@ impl ISyncChangeBatch {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISyncChangeBatch_Vtbl {
     pub base__: ISyncChangeBatchBase_Vtbl,
     pub BeginUnorderedGroup: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1464,7 +1417,6 @@ impl ISyncChangeBatch2 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISyncChangeBatch2_Vtbl {
     pub base__: ISyncChangeBatch_Vtbl,
     pub AddMergeTombstoneMetadataToGroup: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const u8, *const u8, *const u8, *const SYNC_VERSION, *const SYNC_VERSION, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1489,7 +1441,6 @@ impl ISyncChangeBatchAdvanced {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISyncChangeBatchAdvanced_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetFilterInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1552,7 +1503,6 @@ impl ISyncChangeBatchBase {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISyncChangeBatchBase_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetChangeEnumerator: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1628,7 +1578,6 @@ impl ISyncChangeBatchBase2 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISyncChangeBatchBase2_Vtbl {
     pub base__: ISyncChangeBatchBase_Vtbl,
     pub SerializeWithOptions: unsafe extern "system" fn(*mut ::core::ffi::c_void, SYNC_SERIALIZATION_VERSION, u32, *mut u8, *mut u32) -> ::windows_core::HRESULT,
@@ -1694,7 +1643,6 @@ impl ISyncChangeBatchWithFilterKeyMap {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISyncChangeBatchWithFilterKeyMap_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetFilterKeyMap: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1778,7 +1726,6 @@ impl ISyncChangeBatchWithPrerequisite {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISyncChangeBatchWithPrerequisite_Vtbl {
     pub base__: ISyncChangeBatchBase_Vtbl,
     pub SetPrerequisiteKnowledge: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1793,7 +1740,6 @@ impl ISyncChangeBuilder {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISyncChangeBuilder_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub AddChangeUnitMetadata: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const u8, *const SYNC_VERSION) -> ::windows_core::HRESULT,
@@ -1813,7 +1759,6 @@ impl ISyncChangeUnit {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISyncChangeUnit_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetItemChange: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1878,7 +1823,6 @@ impl ISyncChangeWithFilterKeyMap {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISyncChangeWithFilterKeyMap_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetFilterCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -1907,7 +1851,6 @@ impl ISyncChangeWithPrerequisite {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISyncChangeWithPrerequisite_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetPrerequisiteKnowledge: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1924,7 +1867,6 @@ impl ISyncConstraintCallback {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISyncConstraintCallback_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub OnConstraintConflict: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1966,7 +1908,6 @@ impl ISyncDataConverter {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISyncDataConverter_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub ConvertDataRetrieverFromProviderFormat: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1988,7 +1929,6 @@ impl ISyncFilter {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISyncFilter_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub IsIdentical: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -2003,7 +1943,6 @@ impl ISyncFilterDeserializer {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISyncFilterDeserializer_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub DeserializeSyncFilter: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const u8, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -2016,7 +1955,6 @@ impl ISyncFilterInfo {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISyncFilterInfo_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Serialize: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u8, *mut u32) -> ::windows_core::HRESULT,
@@ -2032,7 +1970,6 @@ impl ISyncFilterInfo2 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISyncFilterInfo2_Vtbl {
     pub base__: ISyncFilterInfo_Vtbl,
     pub GetFlags: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -2050,7 +1987,6 @@ impl ISyncFullEnumerationChange {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISyncFullEnumerationChange_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetLearnedKnowledgeAfterRecoveryComplete: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -2121,7 +2057,6 @@ impl ISyncFullEnumerationChangeBatch {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISyncFullEnumerationChangeBatch_Vtbl {
     pub base__: ISyncChangeBatchBase_Vtbl,
     pub GetLearnedKnowledgeAfterRecoveryComplete: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -2197,7 +2132,6 @@ impl ISyncFullEnumerationChangeBatch2 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISyncFullEnumerationChangeBatch2_Vtbl {
     pub base__: ISyncFullEnumerationChangeBatch_Vtbl,
     pub AddMergeTombstoneMetadataToGroup: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const u8, *const u8, *const u8, *const SYNC_VERSION, *const SYNC_VERSION, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -2300,7 +2234,6 @@ impl ISyncKnowledge {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISyncKnowledge_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetOwnerReplicaId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u8, *mut u32) -> ::windows_core::HRESULT,
@@ -2494,7 +2427,6 @@ impl ISyncKnowledge2 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISyncKnowledge2_Vtbl {
     pub base__: ISyncKnowledge_Vtbl,
     pub GetIdParameters: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ID_PARAMETERS) -> ::windows_core::HRESULT,
@@ -2520,7 +2452,6 @@ impl ISyncMergeTombstoneChange {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISyncMergeTombstoneChange_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetWinnerItemId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u8, *mut u32) -> ::windows_core::HRESULT,
@@ -2533,7 +2464,6 @@ impl ISyncProvider {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISyncProvider_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetIdParameters: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ID_PARAMETERS) -> ::windows_core::HRESULT,
@@ -2573,7 +2503,6 @@ impl ISyncProviderConfigUI {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISyncProviderConfigUI_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -2628,7 +2557,6 @@ impl ISyncProviderConfigUIInfo {
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISyncProviderConfigUIInfo_Vtbl {
     pub base__: super::super::UI::Shell::PropertiesSystem::IPropertyStore_Vtbl,
     pub GetSyncProviderConfigUI: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -2668,7 +2596,6 @@ impl ISyncProviderInfo {
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISyncProviderInfo_Vtbl {
     pub base__: super::super::UI::Shell::PropertiesSystem::IPropertyStore_Vtbl,
     pub GetSyncProvider: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -2748,7 +2675,6 @@ impl ISyncProviderRegistration {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISyncProviderRegistration_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -2796,7 +2722,6 @@ impl ISyncRegistrationChange {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISyncRegistrationChange_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetEvent: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut SYNC_REGISTRATION_EVENT) -> ::windows_core::HRESULT,
@@ -2811,7 +2736,6 @@ impl ISyncSessionExtendedErrorInfo {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISyncSessionExtendedErrorInfo_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetSyncProviderWithError: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -2842,7 +2766,6 @@ impl ISyncSessionState {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISyncSessionState_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub IsCanceled: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
@@ -2888,7 +2811,6 @@ impl ISyncSessionState2 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISyncSessionState2_Vtbl {
     pub base__: ISyncSessionState_Vtbl,
     pub SetProviderWithError: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
@@ -2909,7 +2831,6 @@ impl ISynchronousDataRetriever {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISynchronousDataRetriever_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetIdParameters: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ID_PARAMETERS) -> ::windows_core::HRESULT,

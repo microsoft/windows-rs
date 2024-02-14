@@ -49,7 +49,6 @@ unsafe impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::Interface 
         ::windows_core::GUID::from_signature(<Self as ::windows_core::RuntimeType>::SIGNATURE);
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IIterable_Vtbl<T>
 where
     T: ::windows_core::RuntimeType + 'static,
@@ -125,7 +124,6 @@ unsafe impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::Interface 
         ::windows_core::GUID::from_signature(<Self as ::windows_core::RuntimeType>::SIGNATURE);
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IIterator_Vtbl<T>
 where
     T: ::windows_core::RuntimeType + 'static,
@@ -207,7 +205,6 @@ unsafe impl<K: ::windows_core::RuntimeType + 'static, V: ::windows_core::Runtime
         ::windows_core::GUID::from_signature(<Self as ::windows_core::RuntimeType>::SIGNATURE);
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IKeyValuePair_Vtbl<K, V>
 where
     K: ::windows_core::RuntimeType + 'static,
@@ -332,7 +329,6 @@ unsafe impl<K: ::windows_core::RuntimeType + 'static, V: ::windows_core::Runtime
         ::windows_core::GUID::from_signature(<Self as ::windows_core::RuntimeType>::SIGNATURE);
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMapView_Vtbl<K, V>
 where
     K: ::windows_core::RuntimeType + 'static,

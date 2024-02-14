@@ -1,6 +1,5 @@
 ::windows_core::imp::com_interface!(IActivationSignalDetectionConfiguration, IActivationSignalDetectionConfiguration_Vtbl, 0x40d8be16_5217_581c_9ab2_ce9b2f2e8e00);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IActivationSignalDetectionConfiguration_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SignalId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -48,7 +47,6 @@ pub struct IActivationSignalDetectionConfiguration_Vtbl {
 }
 ::windows_core::imp::com_interface!(IActivationSignalDetectionConfiguration2, IActivationSignalDetectionConfiguration2_Vtbl, 0x71d9b022_562c_57ce_a78b_8b4ff0145bab);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IActivationSignalDetectionConfiguration2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -65,7 +63,6 @@ pub struct IActivationSignalDetectionConfiguration2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IActivationSignalDetectionConfigurationCreationResult, IActivationSignalDetectionConfigurationCreationResult_Vtbl, 0x4c89bc1b_8d12_5e48_a71c_7f6bc1cd66e0);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IActivationSignalDetectionConfigurationCreationResult_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ActivationSignalDetectionConfigurationCreationStatus) -> ::windows_core::HRESULT,
@@ -73,7 +70,6 @@ pub struct IActivationSignalDetectionConfigurationCreationResult_Vtbl {
 }
 ::windows_core::imp::com_interface!(IActivationSignalDetector, IActivationSignalDetector_Vtbl, 0xb5bf345f_a4d0_5b2b_8e65_b3c55ee756ff);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IActivationSignalDetector_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ProviderId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -116,7 +112,6 @@ pub struct IActivationSignalDetector_Vtbl {
 }
 ::windows_core::imp::com_interface!(IActivationSignalDetector2, IActivationSignalDetector2_Vtbl, 0xc7e2490a_baa5_59d2_85d1_ba42f7cf78c9);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IActivationSignalDetector2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -135,7 +130,6 @@ pub struct IActivationSignalDetector2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IConversationalAgentDetectorManager, IConversationalAgentDetectorManager_Vtbl, 0xde94fbb0_597a_5df8_8cfb_9dbb583ba3ff);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IConversationalAgentDetectorManager_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -157,7 +151,6 @@ pub struct IConversationalAgentDetectorManager_Vtbl {
 }
 ::windows_core::imp::com_interface!(IConversationalAgentDetectorManager2, IConversationalAgentDetectorManager2_Vtbl, 0x84610f31_d7f3_52fe_9311_c9eb4e3eb30a);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IConversationalAgentDetectorManager2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetActivationSignalDetectorFromId: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -165,14 +158,12 @@ pub struct IConversationalAgentDetectorManager2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IConversationalAgentDetectorManagerStatics, IConversationalAgentDetectorManagerStatics_Vtbl, 0x36a8d283_fa0e_5693_8489_0fb2f0ab40d3);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IConversationalAgentDetectorManagerStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Default: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IConversationalAgentSession, IConversationalAgentSession_Vtbl, 0xdaaae09a_b7ba_57e5_ad13_df520f9b6fa7);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IConversationalAgentSession_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SessionInterrupted: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
@@ -224,7 +215,6 @@ pub struct IConversationalAgentSession_Vtbl {
 }
 ::windows_core::imp::com_interface!(IConversationalAgentSession2, IConversationalAgentSession2_Vtbl, 0xa7a9fbf9_ac78_57ff_9596_acc7a1c9a607);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IConversationalAgentSession2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub RequestActivationAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, ConversationalAgentActivationKind, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -242,13 +232,11 @@ pub struct IConversationalAgentSession2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IConversationalAgentSessionInterruptedEventArgs, IConversationalAgentSessionInterruptedEventArgs_Vtbl, 0x9766591f_f63d_5d3e_9bf2_bd0760552686);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IConversationalAgentSessionInterruptedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
 }
 ::windows_core::imp::com_interface!(IConversationalAgentSessionStatics, IConversationalAgentSessionStatics_Vtbl, 0xa005166e_e954_576e_be04_11b8ed10f37b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IConversationalAgentSessionStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetCurrentSessionAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -256,7 +244,6 @@ pub struct IConversationalAgentSessionStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IConversationalAgentSignal, IConversationalAgentSignal_Vtbl, 0x20ed25f7_b120_51f2_8603_265d6a47f232);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IConversationalAgentSignal_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsSignalVerificationRequired: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -274,7 +261,6 @@ pub struct IConversationalAgentSignal_Vtbl {
 }
 ::windows_core::imp::com_interface!(IConversationalAgentSignal2, IConversationalAgentSignal2_Vtbl, 0xd0cc7ba9_9a7b_5c34_880e_b6146c904ecb);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IConversationalAgentSignal2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub DetectorId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -282,27 +268,23 @@ pub struct IConversationalAgentSignal2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IConversationalAgentSignalDetectedEventArgs, IConversationalAgentSignalDetectedEventArgs_Vtbl, 0x4d57eb8f_f88a_599b_91d3_d604876708bc);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IConversationalAgentSignalDetectedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
 }
 ::windows_core::imp::com_interface!(IConversationalAgentSystemStateChangedEventArgs, IConversationalAgentSystemStateChangedEventArgs_Vtbl, 0x1c2c6e3e_2785_59a7_8e71_38adeef79928);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IConversationalAgentSystemStateChangedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SystemStateChangeType: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ConversationalAgentSystemStateChangeType) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDetectionConfigurationAvailabilityChangedEventArgs, IDetectionConfigurationAvailabilityChangedEventArgs_Vtbl, 0x5129c9fb_4be8_5f14_af2b_88d62b1b4462);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDetectionConfigurationAvailabilityChangedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Kind: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut DetectionConfigurationAvailabilityChangeKind) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDetectionConfigurationAvailabilityInfo, IDetectionConfigurationAvailabilityInfo_Vtbl, 0xb5affeb0_40f0_5398_b838_91979c2c6208);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDetectionConfigurationAvailabilityInfo_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsEnabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -312,7 +294,6 @@ pub struct IDetectionConfigurationAvailabilityInfo_Vtbl {
 }
 ::windows_core::imp::com_interface!(IDetectionConfigurationAvailabilityInfo2, IDetectionConfigurationAvailabilityInfo2_Vtbl, 0x30e06433_38b3_5c4b_84c3_62b6e685b2ff);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDetectionConfigurationAvailabilityInfo2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]

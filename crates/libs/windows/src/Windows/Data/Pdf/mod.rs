@@ -1,6 +1,5 @@
 ::windows_core::imp::com_interface!(IPdfDocument, IPdfDocument_Vtbl, 0xac7ebedd_80fa_4089_846e_81b77ff5a86c);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPdfDocument_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetPage: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -9,7 +8,6 @@ pub struct IPdfDocument_Vtbl {
 }
 ::windows_core::imp::com_interface!(IPdfDocumentStatics, IPdfDocumentStatics_Vtbl, 0x433a0b5f_c007_4788_90f2_08143d922599);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPdfDocumentStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage")]
@@ -31,7 +29,6 @@ pub struct IPdfDocumentStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IPdfPage, IPdfPage_Vtbl, 0x9db4b0c8_5320_4cfc_ad76_493fdad0e594);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPdfPage_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -51,7 +48,6 @@ pub struct IPdfPage_Vtbl {
 }
 ::windows_core::imp::com_interface!(IPdfPageDimensions, IPdfPageDimensions_Vtbl, 0x22170471_313e_44e8_835d_63a3e7624a10);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPdfPageDimensions_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub MediaBox: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::Rect) -> ::windows_core::HRESULT,
@@ -62,7 +58,6 @@ pub struct IPdfPageDimensions_Vtbl {
 }
 ::windows_core::imp::com_interface!(IPdfPageRenderOptions, IPdfPageRenderOptions_Vtbl, 0x3c98056f_b7cf_4c29_9a04_52d90267f425);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPdfPageRenderOptions_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SourceRect: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::Rect) -> ::windows_core::HRESULT,

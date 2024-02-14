@@ -5318,9 +5318,9 @@ impl ::core::clone::Clone for DBFAILUREINFO {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct DBIMPLICITSESSION {
-    pub pUnkOuter: ::windows_sys::core::IUnknown,
+    pub pUnkOuter: *mut ::core::ffi::c_void,
     pub piid: *mut ::windows_sys::core::GUID,
-    pub pSession: ::windows_sys::core::IUnknown,
+    pub pSession: *mut ::core::ffi::c_void,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::marker::Copy for DBIMPLICITSESSION {}
@@ -5333,9 +5333,9 @@ impl ::core::clone::Clone for DBIMPLICITSESSION {
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
 pub struct DBIMPLICITSESSION {
-    pub pUnkOuter: ::windows_sys::core::IUnknown,
+    pub pUnkOuter: *mut ::core::ffi::c_void,
     pub piid: *mut ::windows_sys::core::GUID,
-    pub pSession: ::windows_sys::core::IUnknown,
+    pub pSession: *mut ::core::ffi::c_void,
 }
 #[cfg(target_arch = "x86")]
 impl ::core::marker::Copy for DBIMPLICITSESSION {}
@@ -6250,7 +6250,7 @@ pub struct RMTPACK {
     pub cIDISPATCH: u32,
     pub rgIDISPATCH: *mut *mut ::core::ffi::c_void,
     pub cIUNKNOWN: u32,
-    pub rgIUNKNOWN: *mut ::windows_sys::core::IUnknown,
+    pub rgIUNKNOWN: *mut *mut ::core::ffi::c_void,
     pub cPROPVARIANT: u32,
     pub rgPROPVARIANT: *mut super::Com::StructuredStorage::PROPVARIANT,
     pub cArray: u32,
@@ -6279,7 +6279,7 @@ pub struct RMTPACK {
     pub cIDISPATCH: u32,
     pub rgIDISPATCH: *mut *mut ::core::ffi::c_void,
     pub cIUNKNOWN: u32,
-    pub rgIUNKNOWN: *mut ::windows_sys::core::IUnknown,
+    pub rgIUNKNOWN: *mut *mut ::core::ffi::c_void,
     pub cPROPVARIANT: u32,
     pub rgPROPVARIANT: *mut super::Com::StructuredStorage::PROPVARIANT,
     pub cArray: u32,
@@ -6614,7 +6614,7 @@ impl ::core::clone::Clone for SSVARIANT_0 {
 #[cfg(feature = "Win32_System_Com")]
 pub struct SSVARIANT_0_0 {
     pub dbobj: DBOBJECT,
-    pub pUnk: ::windows_sys::core::IUnknown,
+    pub pUnk: *mut ::core::ffi::c_void,
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for SSVARIANT_0_0 {}

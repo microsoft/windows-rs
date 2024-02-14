@@ -14,7 +14,6 @@ impl IItemEnumerator {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IItemEnumerator_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Current: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
@@ -67,7 +66,6 @@ impl ISettingsContext {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISettingsContext_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -170,7 +168,6 @@ impl ISettingsEngine {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISettingsEngine_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetNamespaces: unsafe extern "system" fn(*mut ::core::ffi::c_void, WcmNamespaceEnumerationFlags, *const ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -219,7 +216,6 @@ impl ISettingsIdentity {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISettingsIdentity_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetAttribute: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::core::ffi::c_void, ::windows_core::PCWSTR, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
@@ -334,7 +330,6 @@ impl ISettingsItem {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISettingsItem_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
@@ -407,7 +402,6 @@ impl ISettingsNamespace {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISettingsNamespace_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetIdentity: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -447,7 +441,6 @@ impl ISettingsResult {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISettingsResult_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetDescription: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
@@ -580,7 +573,6 @@ impl ITargetInfo {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITargetInfo_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetTargetMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut WcmTargetMode) -> ::windows_core::HRESULT,

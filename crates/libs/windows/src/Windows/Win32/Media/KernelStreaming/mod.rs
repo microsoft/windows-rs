@@ -122,7 +122,6 @@ impl IKsAggregateControl {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IKsAggregateControl_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub KsAddAggregate: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID) -> ::windows_core::HRESULT,
@@ -145,7 +144,6 @@ impl IKsAllocator {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IKsAllocator_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub KsGetAllocatorHandle: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> super::super::Foundation::HANDLE,
@@ -188,7 +186,6 @@ impl IKsAllocatorEx {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IKsAllocatorEx_Vtbl {
     pub base__: IKsAllocator_Vtbl,
     pub KsGetProperties: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> *mut ALLOCATOR_PROPERTIES_EX,
@@ -237,7 +234,6 @@ impl IKsClockPropertySet {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IKsClockPropertySet_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub KsGetTime: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i64) -> ::windows_core::HRESULT,
@@ -265,7 +261,6 @@ impl IKsControl {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IKsControl_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub KsProperty: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const KSIDENTIFIER, u32, *mut ::core::ffi::c_void, u32, *mut u32) -> ::windows_core::HRESULT,
@@ -284,7 +279,6 @@ impl IKsDataTypeCompletion {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IKsDataTypeCompletion_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Media_MediaFoundation")]
@@ -323,7 +317,6 @@ impl IKsDataTypeHandler {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IKsDataTypeHandler_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Media_DirectShow")]
@@ -353,7 +346,6 @@ impl IKsFormatSupport {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IKsFormatSupport_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub IsFormatSupported: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut KSDATAFORMAT, u32, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
@@ -380,7 +372,6 @@ impl IKsInterfaceHandler {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IKsInterfaceHandler_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub KsSetPin: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -399,7 +390,6 @@ impl IKsJackContainerId {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IKsJackContainerId_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetJackContainerId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
@@ -416,7 +406,6 @@ impl IKsJackDescription {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IKsJackDescription_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetJackCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -435,7 +424,6 @@ impl IKsJackDescription2 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IKsJackDescription2_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetJackCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -454,7 +442,6 @@ impl IKsJackDescription3 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IKsJackDescription3_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetJackCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -468,7 +455,6 @@ impl IKsJackSinkInformation {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IKsJackSinkInformation_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetJackSinkInformation: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut KSJACK_SINK_INFORMATION) -> ::windows_core::HRESULT,
@@ -484,7 +470,6 @@ impl IKsNodeControl {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IKsNodeControl_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub SetNodeId: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
@@ -498,7 +483,6 @@ impl IKsNotifyEvent {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IKsNotifyEvent_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub KsNotifyEvent: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, usize, usize) -> ::windows_core::HRESULT,
@@ -511,7 +495,6 @@ impl IKsObject {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IKsObject_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub KsGetObjectHandle: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> super::super::Foundation::HANDLE,
@@ -571,7 +554,6 @@ impl IKsPin {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IKsPin_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub KsQueryMediums: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut KSMULTIPLE_ITEM) -> ::windows_core::HRESULT,
@@ -659,7 +641,6 @@ impl IKsPinEx {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IKsPinEx_Vtbl {
     pub base__: IKsPin_Vtbl,
     #[cfg(feature = "Win32_Media_DirectShow")]
@@ -676,7 +657,6 @@ impl IKsPinFactory {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IKsPinFactory_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub KsPinFactory: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -725,7 +705,6 @@ impl IKsPinPipe {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IKsPinPipe_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub KsGetPinFramingCache: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut KSALLOCATOR_FRAMING_EX, *mut FRAMING_PROP, FRAMING_CACHE_OPS) -> ::windows_core::HRESULT,
@@ -758,7 +737,6 @@ impl IKsPropertySet {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IKsPropertySet_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Set: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, u32, *const ::core::ffi::c_void, u32, *const ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
@@ -779,7 +757,6 @@ impl IKsQualityForwarder {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IKsQualityForwarder_Vtbl {
     pub base__: IKsObject_Vtbl,
     pub KsFlushClient: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void),
@@ -795,7 +772,6 @@ impl IKsTopology {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IKsTopology_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub CreateNodeInstance: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, u32, *mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -835,7 +811,6 @@ impl IKsTopologyInfo {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IKsTopologyInfo_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub NumCategories: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,

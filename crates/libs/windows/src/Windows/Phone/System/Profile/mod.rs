@@ -2,7 +2,6 @@
 ::windows_core::imp::com_interface!(IRetailModeStatics, IRetailModeStatics_Vtbl, 0xd7ded029_fdda_43e7_93fb_e53ab6e89ec3);
 #[cfg(feature = "deprecated")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRetailModeStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "deprecated")]

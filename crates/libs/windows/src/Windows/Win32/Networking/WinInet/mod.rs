@@ -2150,7 +2150,6 @@ impl IDialBranding {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDialBranding_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
@@ -2199,7 +2198,6 @@ impl IDialEngine {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDialEngine_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -2218,7 +2216,6 @@ impl IDialEventSink {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDialEventSink_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub OnEvent: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32) -> ::windows_core::HRESULT,
@@ -2234,7 +2231,6 @@ impl IProofOfPossessionCookieInfoManager {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IProofOfPossessionCookieInfoManager_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetCookieInfoForUri: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *mut u32, *mut *mut ProofOfPossessionCookieInfo) -> ::windows_core::HRESULT,
@@ -2251,7 +2247,6 @@ impl IProofOfPossessionCookieInfoManager2 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IProofOfPossessionCookieInfoManager2_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetCookieInfoWithUriForAccount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, ::windows_core::PCWSTR, *mut u32, *mut *mut ProofOfPossessionCookieInfo) -> ::windows_core::HRESULT,

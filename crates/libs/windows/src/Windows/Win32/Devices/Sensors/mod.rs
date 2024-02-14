@@ -250,7 +250,6 @@ impl ILocationPermissions {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ILocationPermissions_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetGlobalLocationPermission: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
@@ -332,7 +331,6 @@ impl ISensor {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISensor_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetID: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
@@ -397,7 +395,6 @@ impl ISensorCollection {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISensorCollection_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetAt: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -429,7 +426,6 @@ impl ISensorDataReport {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISensorDataReport_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetTimestamp: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::SYSTEMTIME) -> ::windows_core::HRESULT,
@@ -471,7 +467,6 @@ impl ISensorEvents {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISensorEvents_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub OnStateChanged: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, SensorState) -> ::windows_core::HRESULT,
@@ -513,7 +508,6 @@ impl ISensorManager {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISensorManager_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetSensorsByCategory: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -533,7 +527,6 @@ impl ISensorManagerEvents {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISensorManagerEvents_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub OnSensorEnter: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, SensorState) -> ::windows_core::HRESULT,

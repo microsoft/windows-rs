@@ -1,6 +1,5 @@
 ::windows_core::imp::com_interface!(IClosedCaptionPropertiesStatics, IClosedCaptionPropertiesStatics_Vtbl, 0x10aa1f84_cc30_4141_b503_5272289e0c20);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IClosedCaptionPropertiesStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub FontColor: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ClosedCaptionColor) -> ::windows_core::HRESULT,
@@ -27,7 +26,6 @@ pub struct IClosedCaptionPropertiesStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IClosedCaptionPropertiesStatics2, IClosedCaptionPropertiesStatics2_Vtbl, 0x9de26870_37de_4197_8845_9a48dc5ac317);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IClosedCaptionPropertiesStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub PropertiesChanged: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,

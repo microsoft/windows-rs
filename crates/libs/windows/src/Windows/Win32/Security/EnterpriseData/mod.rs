@@ -114,7 +114,6 @@ impl IProtectionPolicyManagerInterop {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IProtectionPolicyManagerInterop_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub RequestAccessForWindowAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::HWND, ::std::mem::MaybeUninit<::windows_core::HSTRING>, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -169,7 +168,6 @@ impl IProtectionPolicyManagerInterop2 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IProtectionPolicyManagerInterop2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub RequestAccessForAppWithWindowAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::HWND, ::std::mem::MaybeUninit<::windows_core::HSTRING>, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -241,7 +239,6 @@ impl IProtectionPolicyManagerInterop3 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IProtectionPolicyManagerInterop3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub RequestAccessWithBehaviorForWindowAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::HWND, ::std::mem::MaybeUninit<::windows_core::HSTRING>, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, u32, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,

@@ -1,6 +1,5 @@
 ::windows_core::imp::com_interface!(IAddAppointmentOperation, IAddAppointmentOperation_Vtbl, 0xec4a9af3_620d_4c69_add7_9794e918081f);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAddAppointmentOperation_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub AppointmentInformation: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -12,7 +11,6 @@ pub struct IAddAppointmentOperation_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppointmentsProviderLaunchActionVerbsStatics, IAppointmentsProviderLaunchActionVerbsStatics_Vtbl, 0x36dbba28_9e2e_49c6_8ef7_3ab7a5dcc8b8);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppointmentsProviderLaunchActionVerbsStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub AddAppointment: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -22,14 +20,12 @@ pub struct IAppointmentsProviderLaunchActionVerbsStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppointmentsProviderLaunchActionVerbsStatics2, IAppointmentsProviderLaunchActionVerbsStatics2_Vtbl, 0xef9049a4_af21_473c_88dc_76cd89f60ca5);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppointmentsProviderLaunchActionVerbsStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ShowAppointmentDetails: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IRemoveAppointmentOperation, IRemoveAppointmentOperation_Vtbl, 0x08b66aba_fe33_46cd_a50c_a8ffb3260537);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRemoveAppointmentOperation_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub AppointmentId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -42,7 +38,6 @@ pub struct IRemoveAppointmentOperation_Vtbl {
 }
 ::windows_core::imp::com_interface!(IReplaceAppointmentOperation, IReplaceAppointmentOperation_Vtbl, 0xf4903d9b_9e61_4de2_a732_2687c07d1de8);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IReplaceAppointmentOperation_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub AppointmentId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,

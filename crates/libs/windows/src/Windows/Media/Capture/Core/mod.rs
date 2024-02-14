@@ -1,6 +1,5 @@
 ::windows_core::imp::com_interface!(IVariablePhotoCapturedEventArgs, IVariablePhotoCapturedEventArgs_Vtbl, 0xd1eb4c5c_1b53_4e4a_8b5c_db7887ac949b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVariablePhotoCapturedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Frame: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -10,7 +9,6 @@ pub struct IVariablePhotoCapturedEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IVariablePhotoSequenceCapture, IVariablePhotoSequenceCapture_Vtbl, 0xd0112d1d_031e_4041_a6d6_bd742476a8ee);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVariablePhotoSequenceCapture_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub StartAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -23,7 +21,6 @@ pub struct IVariablePhotoSequenceCapture_Vtbl {
 }
 ::windows_core::imp::com_interface!(IVariablePhotoSequenceCapture2, IVariablePhotoSequenceCapture2_Vtbl, 0xfe2c62bc_50b0_43e3_917c_e3b92798942f);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVariablePhotoSequenceCapture2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub UpdateSettingsAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,

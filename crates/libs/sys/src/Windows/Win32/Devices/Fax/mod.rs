@@ -60,7 +60,7 @@
 ::windows_targets::link!("winfax.dll" "system" fn FaxStartPrintJobW(printername : ::windows_sys::core::PCWSTR, printinfo : *const FAX_PRINT_INFOW, faxjobid : *mut u32, faxcontextinfo : *mut FAX_CONTEXT_INFOW) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("winfax.dll" "system" fn FaxUnregisterServiceProviderW(deviceprovider : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("fxsutility.dll" "system" fn SendToFaxRecipient(sndmode : SendToMode, lpfilename : ::windows_sys::core::PCWSTR) -> u32);
-::windows_targets::link!("sti.dll" "system" fn StiCreateInstanceW(hinst : super::super::Foundation:: HINSTANCE, dwver : u32, ppsti : *mut * mut::core::ffi::c_void, punkouter : ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("sti.dll" "system" fn StiCreateInstanceW(hinst : super::super::Foundation:: HINSTANCE, dwver : u32, ppsti : *mut * mut::core::ffi::c_void, punkouter : * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 pub const CF_MSFAXSRV_DEVICE_ID: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("FAXSRV_DeviceID");
 pub const CF_MSFAXSRV_FSP_GUID: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("FAXSRV_FSPGuid");
 pub const CF_MSFAXSRV_ROUTEEXT_NAME: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("FAXSRV_RoutingExtName");

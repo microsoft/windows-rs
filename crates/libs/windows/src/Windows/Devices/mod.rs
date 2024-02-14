@@ -104,7 +104,6 @@ impl ::windows_core::RuntimeType for ILowLevelDevicesAggregateProvider {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ILowLevelDevicesAggregateProvider_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Devices_Adc_Provider")]
@@ -130,7 +129,6 @@ pub struct ILowLevelDevicesAggregateProvider_Vtbl {
 }
 ::windows_core::imp::com_interface!(ILowLevelDevicesAggregateProviderFactory, ILowLevelDevicesAggregateProviderFactory_Vtbl, 0x9ac4aaf6_3473_465e_96d5_36281a2c57af);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ILowLevelDevicesAggregateProviderFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(all(feature = "Devices_Adc_Provider", feature = "Devices_Gpio_Provider", feature = "Devices_I2c_Provider", feature = "Devices_Pwm_Provider", feature = "Devices_Spi_Provider"))]
@@ -140,13 +138,11 @@ pub struct ILowLevelDevicesAggregateProviderFactory_Vtbl {
 }
 ::windows_core::imp::com_interface!(ILowLevelDevicesController, ILowLevelDevicesController_Vtbl, 0x2ec23dd4_179b_45de_9b39_3ae02527de52);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ILowLevelDevicesController_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
 }
 ::windows_core::imp::com_interface!(ILowLevelDevicesControllerStatics, ILowLevelDevicesControllerStatics_Vtbl, 0x093e926a_fccb_4394_a697_19de637c2db3);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ILowLevelDevicesControllerStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub DefaultProvider: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,

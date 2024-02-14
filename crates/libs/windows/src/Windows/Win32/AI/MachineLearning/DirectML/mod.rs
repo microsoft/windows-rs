@@ -64,7 +64,6 @@ impl IDMLBindingTable {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDMLBindingTable_Vtbl {
     pub base__: IDMLDeviceChild_Vtbl,
     pub BindInputs: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const DML_BINDING_DESC),
@@ -115,7 +114,6 @@ impl IDMLCommandRecorder {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDMLCommandRecorder_Vtbl {
     pub base__: IDMLDeviceChild_Vtbl,
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -158,7 +156,6 @@ impl IDMLCompiledOperator {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDMLCompiledOperator_Vtbl {
     pub base__: IDMLDispatchable_Vtbl,
 }
@@ -173,7 +170,6 @@ impl IDMLDebugDevice {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDMLDebugDevice_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub SetMuteDebugOutput: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::super::Foundation::BOOL),
@@ -255,7 +251,6 @@ impl IDMLDevice {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDMLDevice_Vtbl {
     pub base__: IDMLObject_Vtbl,
     pub CheckFeatureSupport: unsafe extern "system" fn(*mut ::core::ffi::c_void, DML_FEATURE, u32, *const ::core::ffi::c_void, u32, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -355,7 +350,6 @@ impl IDMLDevice1 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDMLDevice1_Vtbl {
     pub base__: IDMLDevice_Vtbl,
     pub CompileGraph: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const DML_GRAPH_DESC, DML_EXECUTION_FLAGS, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -390,7 +384,6 @@ impl IDMLDeviceChild {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDMLDeviceChild_Vtbl {
     pub base__: IDMLObject_Vtbl,
     pub GetDevice: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -430,7 +423,6 @@ impl IDMLDispatchable {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDMLDispatchable_Vtbl {
     pub base__: IDMLPageable_Vtbl,
     pub GetBindingProperties: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut DML_BINDING_PROPERTIES),
@@ -458,7 +450,6 @@ impl IDMLObject {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDMLObject_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetPrivateData: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut u32, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -496,7 +487,6 @@ impl IDMLOperator {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDMLOperator_Vtbl {
     pub base__: IDMLDeviceChild_Vtbl,
 }
@@ -538,7 +528,6 @@ impl IDMLOperatorInitializer {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDMLOperatorInitializer_Vtbl {
     pub base__: IDMLDispatchable_Vtbl,
     pub Reset: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -573,7 +562,6 @@ impl IDMLPageable {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDMLPageable_Vtbl {
     pub base__: IDMLDeviceChild_Vtbl,
 }

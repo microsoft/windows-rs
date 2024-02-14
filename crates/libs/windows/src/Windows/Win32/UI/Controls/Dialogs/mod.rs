@@ -134,7 +134,6 @@ impl IPrintDialogCallback {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPrintDialogCallback_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub InitDone: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -156,7 +155,6 @@ impl IPrintDialogServices {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPrintDialogServices_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Graphics_Gdi")]

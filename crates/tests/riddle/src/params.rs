@@ -198,7 +198,6 @@ impl ::windows_core::RuntimeType for IParams {
         ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IParams_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Nothing: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,

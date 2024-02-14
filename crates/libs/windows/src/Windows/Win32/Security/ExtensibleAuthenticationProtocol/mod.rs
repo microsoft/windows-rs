@@ -221,7 +221,6 @@ impl IAccountingProviderConfig {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAccountingProviderConfig_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *mut usize) -> ::windows_core::HRESULT,
@@ -257,7 +256,6 @@ impl IAuthenticationProviderConfig {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAuthenticationProviderConfig_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *mut usize) -> ::windows_core::HRESULT,
@@ -299,7 +297,6 @@ impl IEAPProviderConfig {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IEAPProviderConfig_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, u32, *mut usize) -> ::windows_core::HRESULT,
@@ -350,7 +347,6 @@ impl IEAPProviderConfig2 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IEAPProviderConfig2_Vtbl {
     pub base__: IEAPProviderConfig_Vtbl,
     pub ServerInvokeConfigUI2: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, usize, super::super::Foundation::HWND, *const u8, u32, *mut *mut u8, *mut u32) -> ::windows_core::HRESULT,
@@ -404,7 +400,6 @@ impl IEAPProviderConfig3 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IEAPProviderConfig3_Vtbl {
     pub base__: IEAPProviderConfig2_Vtbl,
     pub ServerInvokeCertificateConfigUI: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, usize, super::super::Foundation::HWND, *const u8, u32, *mut *mut u8, *mut u32, usize) -> ::windows_core::HRESULT,
@@ -430,7 +425,6 @@ impl IRouterProtocolConfig {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRouterProtocolConfig_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub AddProtocol: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, u32, u32, super::super::Foundation::HWND, u32, *mut ::core::ffi::c_void, usize) -> ::windows_core::HRESULT,

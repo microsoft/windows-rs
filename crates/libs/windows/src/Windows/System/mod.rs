@@ -22,7 +22,6 @@ pub mod Update;
 pub mod UserProfile;
 ::windows_core::imp::com_interface!(IAppActivationResult, IAppActivationResult_Vtbl, 0x6b528900_f46e_4eb0_aa6c_38af557cf9ed);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppActivationResult_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ExtendedError: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::HRESULT) -> ::windows_core::HRESULT,
@@ -30,7 +29,6 @@ pub struct IAppActivationResult_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppDiagnosticInfo, IAppDiagnosticInfo_Vtbl, 0xe348a69a_8889_4ca3_be07_d5ffff5f0804);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppDiagnosticInfo_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "ApplicationModel")]
@@ -40,7 +38,6 @@ pub struct IAppDiagnosticInfo_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppDiagnosticInfo2, IAppDiagnosticInfo2_Vtbl, 0xdf46fbd7_191a_446c_9473_8fbc2374a354);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppDiagnosticInfo2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -51,14 +48,12 @@ pub struct IAppDiagnosticInfo2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppDiagnosticInfo3, IAppDiagnosticInfo3_Vtbl, 0xc895c63d_dd61_4c65_babd_81a10b4f9815);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppDiagnosticInfo3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub LaunchAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IAppDiagnosticInfoStatics, IAppDiagnosticInfoStatics_Vtbl, 0xce6925bf_10ca_40c8_a9ca_c5c96501866e);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppDiagnosticInfoStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -68,7 +63,6 @@ pub struct IAppDiagnosticInfoStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppDiagnosticInfoStatics2, IAppDiagnosticInfoStatics2_Vtbl, 0x05b24b86_1000_4c90_bb9f_7235071c50fe);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppDiagnosticInfoStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateWatcher: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -88,7 +82,6 @@ pub struct IAppDiagnosticInfoStatics2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppDiagnosticInfoWatcher, IAppDiagnosticInfoWatcher_Vtbl, 0x75575070_01d3_489a_9325_52f9cc6ede0a);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppDiagnosticInfoWatcher_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Added: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
@@ -105,21 +98,18 @@ pub struct IAppDiagnosticInfoWatcher_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppDiagnosticInfoWatcherEventArgs, IAppDiagnosticInfoWatcherEventArgs_Vtbl, 0x7017c716_e1da_4c65_99df_046dff5be71a);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppDiagnosticInfoWatcherEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub AppDiagnosticInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IAppExecutionStateChangeResult, IAppExecutionStateChangeResult_Vtbl, 0x6f039bf0_f91b_4df8_ae77_3033ccb69114);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppExecutionStateChangeResult_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ExtendedError: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::HRESULT) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IAppMemoryReport, IAppMemoryReport_Vtbl, 0x6d65339b_4d6f_45bc_9c5e_e49b3ff2758d);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppMemoryReport_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub PrivateCommitUsage: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u64) -> ::windows_core::HRESULT,
@@ -129,14 +119,12 @@ pub struct IAppMemoryReport_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppMemoryReport2, IAppMemoryReport2_Vtbl, 0x5f7f3738_51b7_42dc_b7ed_79ba46d28857);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppMemoryReport2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ExpectedTotalCommitLimit: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u64) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IAppMemoryUsageLimitChangingEventArgs, IAppMemoryUsageLimitChangingEventArgs_Vtbl, 0x79f86664_feca_4da5_9e40_2bc63efdc979);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppMemoryUsageLimitChangingEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub OldLimit: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u64) -> ::windows_core::HRESULT,
@@ -144,7 +132,6 @@ pub struct IAppMemoryUsageLimitChangingEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppResourceGroupBackgroundTaskReport, IAppResourceGroupBackgroundTaskReport_Vtbl, 0x2566e74e_b05d_40c2_9dc1_1a4f039ea120);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppResourceGroupBackgroundTaskReport_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub TaskId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
@@ -154,7 +141,6 @@ pub struct IAppResourceGroupBackgroundTaskReport_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppResourceGroupInfo, IAppResourceGroupInfo_Vtbl, 0xb913f77a_e807_49f4_845e_7b8bdcfe8ee7);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppResourceGroupInfo_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub InstanceId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
@@ -172,7 +158,6 @@ pub struct IAppResourceGroupInfo_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppResourceGroupInfo2, IAppResourceGroupInfo2_Vtbl, 0xee9b236d_d305_4d6b_92f7_6afdad72dedc);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppResourceGroupInfo2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub StartSuspendAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -181,7 +166,6 @@ pub struct IAppResourceGroupInfo2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppResourceGroupInfoWatcher, IAppResourceGroupInfoWatcher_Vtbl, 0xd9b0a0fd_6e5a_4c72_8b17_09fec4a212bd);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppResourceGroupInfoWatcher_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Added: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
@@ -200,7 +184,6 @@ pub struct IAppResourceGroupInfoWatcher_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppResourceGroupInfoWatcherEventArgs, IAppResourceGroupInfoWatcherEventArgs_Vtbl, 0x7a787637_6302_4d2f_bf89_1c12d0b2a6b9);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppResourceGroupInfoWatcherEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -211,7 +194,6 @@ pub struct IAppResourceGroupInfoWatcherEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppResourceGroupInfoWatcherExecutionStateChangedEventArgs, IAppResourceGroupInfoWatcherExecutionStateChangedEventArgs_Vtbl, 0x1bdbedd7_fee6_4fd4_98dd_e92a2cc299f3);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppResourceGroupInfoWatcherExecutionStateChangedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -222,7 +204,6 @@ pub struct IAppResourceGroupInfoWatcherExecutionStateChangedEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppResourceGroupMemoryReport, IAppResourceGroupMemoryReport_Vtbl, 0x2c8c06b1_7db1_4c51_a225_7fae2d49e431);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppResourceGroupMemoryReport_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CommitUsageLimit: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u64) -> ::windows_core::HRESULT,
@@ -232,7 +213,6 @@ pub struct IAppResourceGroupMemoryReport_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppResourceGroupStateReport, IAppResourceGroupStateReport_Vtbl, 0x52849f18_2f70_4236_ab40_d04db0c7b931);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppResourceGroupStateReport_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ExecutionState: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut AppResourceGroupExecutionState) -> ::windows_core::HRESULT,
@@ -240,7 +220,6 @@ pub struct IAppResourceGroupStateReport_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppUriHandlerHost, IAppUriHandlerHost_Vtbl, 0x5d50cac5_92d2_5409_b56f_7f73e10ea4c3);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppUriHandlerHost_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Name: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -248,7 +227,6 @@ pub struct IAppUriHandlerHost_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppUriHandlerHost2, IAppUriHandlerHost2_Vtbl, 0x3a0bee95_29e4_51bf_8095_a3c068e3c72a);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppUriHandlerHost2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsEnabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -256,14 +234,12 @@ pub struct IAppUriHandlerHost2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppUriHandlerHostFactory, IAppUriHandlerHostFactory_Vtbl, 0x257c3c96_ce04_5f98_96bb_3ebd3e9275bb);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppUriHandlerHostFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IAppUriHandlerRegistration, IAppUriHandlerRegistration_Vtbl, 0x6f73aeb1_4569_5c3f_9ba0_99123eea32c3);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppUriHandlerRegistration_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Name: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -279,7 +255,6 @@ pub struct IAppUriHandlerRegistration_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppUriHandlerRegistration2, IAppUriHandlerRegistration2_Vtbl, 0xd54dac97_cb39_5f1f_883e_01853730bd6d);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppUriHandlerRegistration2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -294,7 +269,6 @@ pub struct IAppUriHandlerRegistration2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppUriHandlerRegistrationManager, IAppUriHandlerRegistrationManager_Vtbl, 0xe62c9a52_ac94_5750_ac1b_6cfb6f250263);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppUriHandlerRegistrationManager_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub User: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -302,14 +276,12 @@ pub struct IAppUriHandlerRegistrationManager_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppUriHandlerRegistrationManager2, IAppUriHandlerRegistrationManager2_Vtbl, 0xbddfcaf1_b51a_5e69_aefd_7088d9f2b123);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppUriHandlerRegistrationManager2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub PackageFamilyName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IAppUriHandlerRegistrationManagerStatics, IAppUriHandlerRegistrationManagerStatics_Vtbl, 0xd5cedd9f_5729_5b76_a1d4_0285f295c124);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppUriHandlerRegistrationManagerStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetDefault: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -317,7 +289,6 @@ pub struct IAppUriHandlerRegistrationManagerStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppUriHandlerRegistrationManagerStatics2, IAppUriHandlerRegistrationManagerStatics2_Vtbl, 0x14f78379_6890_5080_90a7_98824a7f079e);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppUriHandlerRegistrationManagerStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetForPackage: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -325,14 +296,12 @@ pub struct IAppUriHandlerRegistrationManagerStatics2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IDateTimeSettingsStatics, IDateTimeSettingsStatics_Vtbl, 0x5d2150d1_47ee_48ab_a52b_9f1954278d82);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDateTimeSettingsStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SetSystemDateTime: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::Foundation::DateTime) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDispatcherQueue, IDispatcherQueue_Vtbl, 0x603e88e4_a338_4ffe_a457_a5cfb9ceb899);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDispatcherQueue_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateTimer: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -345,14 +314,12 @@ pub struct IDispatcherQueue_Vtbl {
 }
 ::windows_core::imp::com_interface!(IDispatcherQueue2, IDispatcherQueue2_Vtbl, 0xc822c647_30ef_506e_bd1e_a647ae6675ff);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDispatcherQueue2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub HasThreadAccess: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDispatcherQueueController, IDispatcherQueueController_Vtbl, 0x22f34e66_50db_4e36_a98d_61c01b384d20);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDispatcherQueueController_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub DispatcherQueue: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -360,28 +327,24 @@ pub struct IDispatcherQueueController_Vtbl {
 }
 ::windows_core::imp::com_interface!(IDispatcherQueueControllerStatics, IDispatcherQueueControllerStatics_Vtbl, 0x0a6c98e0_5198_49a2_a313_3f70d1f13c27);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDispatcherQueueControllerStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateOnDedicatedThread: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDispatcherQueueShutdownStartingEventArgs, IDispatcherQueueShutdownStartingEventArgs_Vtbl, 0xc4724c4c_ff97_40c0_a226_cc0aaa545e89);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDispatcherQueueShutdownStartingEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetDeferral: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDispatcherQueueStatics, IDispatcherQueueStatics_Vtbl, 0xa96d83d7_9371_4517_9245_d0824ac12c74);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDispatcherQueueStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetForCurrentThread: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDispatcherQueueTimer, IDispatcherQueueTimer_Vtbl, 0x5feabb1d_a31c_4727_b1ac_37454649d56a);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDispatcherQueueTimer_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Interval: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
@@ -396,7 +359,6 @@ pub struct IDispatcherQueueTimer_Vtbl {
 }
 ::windows_core::imp::com_interface!(IFolderLauncherOptions, IFolderLauncherOptions_Vtbl, 0xbb91c27d_6b87_432a_bd04_776c6f5fb2ab);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IFolderLauncherOptions_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage"))]
@@ -406,7 +368,6 @@ pub struct IFolderLauncherOptions_Vtbl {
 }
 ::windows_core::imp::com_interface!(IKnownUserPropertiesStatics, IKnownUserPropertiesStatics_Vtbl, 0x7755911a_70c5_48e5_b637_5ba3441e4ee4);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IKnownUserPropertiesStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub DisplayName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -421,14 +382,12 @@ pub struct IKnownUserPropertiesStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IKnownUserPropertiesStatics2, IKnownUserPropertiesStatics2_Vtbl, 0x5b450782_f620_577e_b1b3_dd56644d79b1);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IKnownUserPropertiesStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub AgeEnforcementRegion: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ILaunchUriResult, ILaunchUriResult_Vtbl, 0xec27a8df_f6d5_45ca_913a_70a40c5c8221);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ILaunchUriResult_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut LaunchUriStatus) -> ::windows_core::HRESULT,
@@ -439,7 +398,6 @@ pub struct ILaunchUriResult_Vtbl {
 }
 ::windows_core::imp::com_interface!(ILauncherOptions, ILauncherOptions_Vtbl, 0xbafa21d8_b071_4cd8_853e_341203e557d3);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ILauncherOptions_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub TreatAsUntrusted: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -458,7 +416,6 @@ pub struct ILauncherOptions_Vtbl {
 }
 ::windows_core::imp::com_interface!(ILauncherOptions2, ILauncherOptions2_Vtbl, 0x3ba08eb4_6e40_4dce_a1a3_2f53950afb49);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ILauncherOptions2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub TargetApplicationPackageFamilyName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -474,7 +431,6 @@ pub struct ILauncherOptions2_Vtbl {
 }
 ::windows_core::imp::com_interface!(ILauncherOptions3, ILauncherOptions3_Vtbl, 0xf0770655_4b63_4e3a_9107_4e687841923a);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ILauncherOptions3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IgnoreAppUriHandlers: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -482,7 +438,6 @@ pub struct ILauncherOptions3_Vtbl {
 }
 ::windows_core::imp::com_interface!(ILauncherOptions4, ILauncherOptions4_Vtbl, 0xef6fd10e_e6fb_4814_a44e_57e8b9d9a01b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ILauncherOptions4_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub LimitPickerToCurrentAppAndAppUriHandlers: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -490,7 +445,6 @@ pub struct ILauncherOptions4_Vtbl {
 }
 ::windows_core::imp::com_interface!(ILauncherStatics, ILauncherStatics_Vtbl, 0x277151c3_9e3e_42f6_91a4_5dfdeb232451);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ILauncherStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage")]
@@ -506,7 +460,6 @@ pub struct ILauncherStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(ILauncherStatics2, ILauncherStatics2_Vtbl, 0x59ba2fbb_24cb_4c02_a4c4_8294569d54f1);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ILauncherStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub LaunchUriForResultsAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -543,7 +496,6 @@ pub struct ILauncherStatics2_Vtbl {
 }
 ::windows_core::imp::com_interface!(ILauncherStatics3, ILauncherStatics3_Vtbl, 0x234261a8_9db3_4683_aa42_dc6f51d33847);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ILauncherStatics3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage")]
@@ -557,7 +509,6 @@ pub struct ILauncherStatics3_Vtbl {
 }
 ::windows_core::imp::com_interface!(ILauncherStatics4, ILauncherStatics4_Vtbl, 0xb9ec819f_b5a5_41c6_b3b3_dd1b3178bcf2);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ILauncherStatics4_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub QueryAppUriSupportAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -580,7 +531,6 @@ pub struct ILauncherStatics4_Vtbl {
 }
 ::windows_core::imp::com_interface!(ILauncherStatics5, ILauncherStatics5_Vtbl, 0x5b24ef84_d895_5fea_9153_1ac49aed9ba9);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ILauncherStatics5_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub LaunchFolderPathAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -590,7 +540,6 @@ pub struct ILauncherStatics5_Vtbl {
 }
 ::windows_core::imp::com_interface!(ILauncherUIOptions, ILauncherUIOptions_Vtbl, 0x1b25da6e_8aa6_41e9_8251_4165f5985f49);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ILauncherUIOptions_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub InvocationPoint: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -627,7 +576,6 @@ impl ::windows_core::RuntimeType for ILauncherViewOptions {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ILauncherViewOptions_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "UI_ViewManagement")]
@@ -641,7 +589,6 @@ pub struct ILauncherViewOptions_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMemoryManagerStatics, IMemoryManagerStatics_Vtbl, 0x5c6c279c_d7ca_4779_9188_4057219ce64c);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMemoryManagerStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub AppMemoryUsage: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u64) -> ::windows_core::HRESULT,
@@ -656,7 +603,6 @@ pub struct IMemoryManagerStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMemoryManagerStatics2, IMemoryManagerStatics2_Vtbl, 0x6eee351f_6d62_423f_9479_b01f9c9f7669);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMemoryManagerStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetAppMemoryReport: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -664,21 +610,18 @@ pub struct IMemoryManagerStatics2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMemoryManagerStatics3, IMemoryManagerStatics3_Vtbl, 0x149b59ce_92ad_4e35_89eb_50dfb4c0d91c);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMemoryManagerStatics3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub TrySetAppMemoryUsageLimit: unsafe extern "system" fn(*mut ::core::ffi::c_void, u64, *mut bool) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IMemoryManagerStatics4, IMemoryManagerStatics4_Vtbl, 0xc5a94828_e84e_4886_8a0d_44b3190e3b72);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMemoryManagerStatics4_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ExpectedAppMemoryUsageLimit: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u64) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IProcessLauncherOptions, IProcessLauncherOptions_Vtbl, 0x3080b9cf_f444_4a83_beaf_a549a0f3229c);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IProcessLauncherOptions_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -710,14 +653,12 @@ pub struct IProcessLauncherOptions_Vtbl {
 }
 ::windows_core::imp::com_interface!(IProcessLauncherResult, IProcessLauncherResult_Vtbl, 0x544c8934_86d8_4991_8e75_ece8a43b6b6d);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IProcessLauncherResult_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ExitCode: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IProcessLauncherStatics, IProcessLauncherStatics_Vtbl, 0x33ab66e7_2d0e_448b_a6a0_c13c3836d09c);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IProcessLauncherStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub RunToCompletionAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -725,7 +666,6 @@ pub struct IProcessLauncherStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IProcessMemoryReport, IProcessMemoryReport_Vtbl, 0x087305a8_9b70_4782_8741_3a982b6ce5e4);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IProcessMemoryReport_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub PrivateWorkingSetUsage: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u64) -> ::windows_core::HRESULT,
@@ -733,7 +673,6 @@ pub struct IProcessMemoryReport_Vtbl {
 }
 ::windows_core::imp::com_interface!(IProtocolForResultsOperation, IProtocolForResultsOperation_Vtbl, 0xd581293a_6de9_4d28_9378_f86782e182bb);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IProtocolForResultsOperation_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -743,7 +682,6 @@ pub struct IProtocolForResultsOperation_Vtbl {
 }
 ::windows_core::imp::com_interface!(IRemoteLauncherOptions, IRemoteLauncherOptions_Vtbl, 0x9e3a2788_2891_4cdf_a2d6_9dff7d02e693);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRemoteLauncherOptions_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub FallbackUri: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -755,7 +693,6 @@ pub struct IRemoteLauncherOptions_Vtbl {
 }
 ::windows_core::imp::com_interface!(IRemoteLauncherStatics, IRemoteLauncherStatics_Vtbl, 0xd7db7a93_a30c_48b7_9f21_051026a4e517);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRemoteLauncherStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "System_RemoteSystems")]
@@ -773,7 +710,6 @@ pub struct IRemoteLauncherStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IShutdownManagerStatics, IShutdownManagerStatics_Vtbl, 0x72e247ed_dd5b_4d6c_b1d0_c57a7bbb5f94);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IShutdownManagerStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub BeginShutdown: unsafe extern "system" fn(*mut ::core::ffi::c_void, ShutdownKind, super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
@@ -781,7 +717,6 @@ pub struct IShutdownManagerStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IShutdownManagerStatics2, IShutdownManagerStatics2_Vtbl, 0x0f69a02f_9c34_43c7_a8c3_70b30a7f7504);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IShutdownManagerStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsPowerStateSupported: unsafe extern "system" fn(*mut ::core::ffi::c_void, PowerState, *mut bool) -> ::windows_core::HRESULT,
@@ -790,7 +725,6 @@ pub struct IShutdownManagerStatics2_Vtbl {
 }
 ::windows_core::imp::com_interface!(ITimeZoneSettingsStatics, ITimeZoneSettingsStatics_Vtbl, 0x9b3b2bea_a101_41ae_9fbd_028728bab73d);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITimeZoneSettingsStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CurrentTimeZoneDisplayName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -803,14 +737,12 @@ pub struct ITimeZoneSettingsStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(ITimeZoneSettingsStatics2, ITimeZoneSettingsStatics2_Vtbl, 0x555c0db8_39a8_49fa_b4f6_a2c7fc2842ec);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITimeZoneSettingsStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub AutoUpdateTimeZoneAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::Foundation::TimeSpan, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IUser, IUser_Vtbl, 0xdf9a26c6_e746_4bcd_b5d4_120103c4209b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUser_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub NonRoamableId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -828,21 +760,18 @@ pub struct IUser_Vtbl {
 }
 ::windows_core::imp::com_interface!(IUser2, IUser2_Vtbl, 0x98ba5628_a6e3_518e_89d9_d3b2b1991a10);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUser2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CheckUserAgeConsentGroupAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, UserAgeConsentGroup, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IUserAuthenticationStatusChangeDeferral, IUserAuthenticationStatusChangeDeferral_Vtbl, 0x88b59568_bb30_42fb_a270_e9902e40efa7);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUserAuthenticationStatusChangeDeferral_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Complete: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IUserAuthenticationStatusChangingEventArgs, IUserAuthenticationStatusChangingEventArgs_Vtbl, 0x8c030f28_a711_4c1e_ab48_04179c15938f);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUserAuthenticationStatusChangingEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetDeferral: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -852,14 +781,12 @@ pub struct IUserAuthenticationStatusChangingEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IUserChangedEventArgs, IUserChangedEventArgs_Vtbl, 0x086459dc_18c6_48db_bc99_724fb9203ccc);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUserChangedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub User: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IUserChangedEventArgs2, IUserChangedEventArgs2_Vtbl, 0x6b2ccb44_6f01_560c_97ad_fc7f32ec581f);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUserChangedEventArgs2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -869,7 +796,6 @@ pub struct IUserChangedEventArgs2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IUserDeviceAssociationChangedEventArgs, IUserDeviceAssociationChangedEventArgs_Vtbl, 0xbd1f6f6c_bb5d_4d7b_a5f0_c8cd11a38d42);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUserDeviceAssociationChangedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub DeviceId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -878,7 +804,6 @@ pub struct IUserDeviceAssociationChangedEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IUserDeviceAssociationStatics, IUserDeviceAssociationStatics_Vtbl, 0x7e491e14_f85a_4c07_8da9_7fe3d0542343);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUserDeviceAssociationStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub FindUserFromDeviceId: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -887,7 +812,6 @@ pub struct IUserDeviceAssociationStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IUserPicker, IUserPicker_Vtbl, 0x7d548008_f1e3_4a6c_8ddc_a9bb0f488aed);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUserPicker_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub AllowGuestAccounts: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -898,14 +822,12 @@ pub struct IUserPicker_Vtbl {
 }
 ::windows_core::imp::com_interface!(IUserPickerStatics, IUserPickerStatics_Vtbl, 0xde3290dc_7e73_4df6_a1ae_4d7eca82b40d);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUserPickerStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsSupported: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IUserStatics, IUserStatics_Vtbl, 0x155eb23b_242a_45e0_a2e9_3171fc6a7fdd);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUserStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateWatcher: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -925,14 +847,12 @@ pub struct IUserStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IUserStatics2, IUserStatics2_Vtbl, 0x74a37e11_2eb5_4487_b0d5_2c6790e013e9);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUserStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetDefault: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IUserWatcher, IUserWatcher_Vtbl, 0x155eb23b_242a_45e0_a2e9_3171fc6a7fbb);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUserWatcher_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut UserWatcherStatus) -> ::windows_core::HRESULT,
@@ -4541,7 +4461,6 @@ impl ::windows_core::RuntimeType for DispatcherQueueHandler {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct DispatcherQueueHandler_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,

@@ -31,7 +31,6 @@ impl IAutomaticUpdates {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAutomaticUpdates_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub DetectNow: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -83,7 +82,6 @@ impl IAutomaticUpdates2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAutomaticUpdates2_Vtbl {
     pub base__: IAutomaticUpdates_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -108,7 +106,6 @@ impl IAutomaticUpdatesResults {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAutomaticUpdatesResults_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub LastSearchSuccessDate: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
@@ -158,7 +155,6 @@ impl IAutomaticUpdatesSettings {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAutomaticUpdatesSettings_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub NotificationLevel: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut AutomaticUpdatesNotificationLevel) -> ::windows_core::HRESULT,
@@ -230,7 +226,6 @@ impl IAutomaticUpdatesSettings2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAutomaticUpdatesSettings2_Vtbl {
     pub base__: IAutomaticUpdatesSettings_Vtbl,
     pub IncludeRecommendedUpdates: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
@@ -315,7 +310,6 @@ impl IAutomaticUpdatesSettings3 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAutomaticUpdatesSettings3_Vtbl {
     pub base__: IAutomaticUpdatesSettings2_Vtbl,
     pub NonAdministratorsElevated: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
@@ -372,7 +366,6 @@ impl ICategory {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICategory_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub Name: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
@@ -419,7 +412,6 @@ impl ICategoryCollection {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICategoryCollection_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -442,7 +434,6 @@ impl IDownloadCompletedCallback {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDownloadCompletedCallback_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -458,7 +449,6 @@ pub struct IDownloadCompletedCallback_Vtbl {
 impl IDownloadCompletedCallbackArgs {}
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDownloadCompletedCallbackArgs_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
 }
@@ -495,7 +485,6 @@ impl IDownloadJob {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDownloadJob_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub AsyncState: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
@@ -557,7 +546,6 @@ impl IDownloadProgress {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDownloadProgress_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub CurrentUpdateBytesDownloaded: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::DECIMAL) -> ::windows_core::HRESULT,
@@ -586,7 +574,6 @@ impl IDownloadProgressChangedCallback {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDownloadProgressChangedCallback_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -608,7 +595,6 @@ impl IDownloadProgressChangedCallbackArgs {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDownloadProgressChangedCallbackArgs_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -638,7 +624,6 @@ impl IDownloadResult {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDownloadResult_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub HResult: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
@@ -673,7 +658,6 @@ impl IImageInformation {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IImageInformation_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub AltText: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
@@ -698,7 +682,6 @@ impl IInstallationAgent {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IInstallationAgent_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -731,7 +714,6 @@ impl IInstallationBehavior {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IInstallationBehavior_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub CanRequestUserInput: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
@@ -752,7 +734,6 @@ impl IInstallationCompletedCallback {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IInstallationCompletedCallback_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -768,7 +749,6 @@ pub struct IInstallationCompletedCallback_Vtbl {
 impl IInstallationCompletedCallbackArgs {}
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IInstallationCompletedCallbackArgs_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
 }
@@ -805,7 +785,6 @@ impl IInstallationJob {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IInstallationJob_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub AsyncState: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
@@ -847,7 +826,6 @@ impl IInstallationProgress {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IInstallationProgress_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub CurrentUpdateIndex: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
@@ -871,7 +849,6 @@ impl IInstallationProgressChangedCallback {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IInstallationProgressChangedCallback_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -893,7 +870,6 @@ impl IInstallationProgressChangedCallbackArgs {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IInstallationProgressChangedCallbackArgs_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -927,7 +903,6 @@ impl IInstallationResult {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IInstallationResult_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub HResult: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
@@ -963,7 +938,6 @@ impl IInvalidProductLicenseException {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IInvalidProductLicenseException_Vtbl {
     pub base__: IUpdateException_Vtbl,
     pub Product: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
@@ -981,7 +955,6 @@ impl ISearchCompletedCallback {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISearchCompletedCallback_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -997,7 +970,6 @@ pub struct ISearchCompletedCallback_Vtbl {
 impl ISearchCompletedCallbackArgs {}
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISearchCompletedCallbackArgs_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
 }
@@ -1024,7 +996,6 @@ impl ISearchJob {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISearchJob_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub AsyncState: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
@@ -1060,7 +1031,6 @@ impl ISearchResult {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISearchResult_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub ResultCode: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut OperationResultCode) -> ::windows_core::HRESULT,
@@ -1132,7 +1102,6 @@ impl IStringCollection {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IStringCollection_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub get_Item: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
@@ -1166,7 +1135,6 @@ impl ISystemInformation {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISystemInformation_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub OemHardwareSupportLink: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
@@ -1378,7 +1346,6 @@ impl IUpdate {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUpdate_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub Title: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
@@ -1692,7 +1659,6 @@ impl IUpdate2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUpdate2_Vtbl {
     pub base__: IUpdate_Vtbl,
     pub RebootRequired: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
@@ -1936,7 +1902,6 @@ impl IUpdate3 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUpdate3_Vtbl {
     pub base__: IUpdate2_Vtbl,
     pub BrowseOnly: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
@@ -2175,7 +2140,6 @@ impl IUpdate4 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUpdate4_Vtbl {
     pub base__: IUpdate3_Vtbl,
     pub PerUser: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
@@ -2422,7 +2386,6 @@ impl IUpdate5 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUpdate5_Vtbl {
     pub base__: IUpdate4_Vtbl,
     pub AutoSelection: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut AutoSelectionMode) -> ::windows_core::HRESULT,
@@ -2487,7 +2450,6 @@ impl IUpdateCollection {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUpdateCollection_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -2529,7 +2491,6 @@ impl IUpdateDownloadContent {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUpdateDownloadContent_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub DownloadUrl: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
@@ -2551,7 +2512,6 @@ impl IUpdateDownloadContent2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUpdateDownloadContent2_Vtbl {
     pub base__: IUpdateDownloadContent_Vtbl,
     pub IsDeltaCompressedContent: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
@@ -2578,7 +2538,6 @@ impl IUpdateDownloadContentCollection {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUpdateDownloadContentCollection_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -2605,7 +2564,6 @@ impl IUpdateDownloadResult {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUpdateDownloadResult_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub HResult: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
@@ -2682,7 +2640,6 @@ impl IUpdateDownloader {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUpdateDownloader_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub ClientApplicationID: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
@@ -2733,7 +2690,6 @@ impl IUpdateException {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUpdateException_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub Message: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
@@ -2762,7 +2718,6 @@ impl IUpdateExceptionCollection {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUpdateExceptionCollection_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -2839,7 +2794,6 @@ impl IUpdateHistoryEntry {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUpdateHistoryEntry_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub Operation: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut UpdateOperation) -> ::windows_core::HRESULT,
@@ -2935,7 +2889,6 @@ impl IUpdateHistoryEntry2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUpdateHistoryEntry2_Vtbl {
     pub base__: IUpdateHistoryEntry_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -2965,7 +2918,6 @@ impl IUpdateHistoryEntryCollection {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUpdateHistoryEntryCollection_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -2992,7 +2944,6 @@ impl IUpdateIdentity {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUpdateIdentity_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub RevisionNumber: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
@@ -3019,7 +2970,6 @@ impl IUpdateInstallationResult {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUpdateInstallationResult_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub HResult: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
@@ -3159,7 +3109,6 @@ impl IUpdateInstaller {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUpdateInstaller_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub ClientApplicationID: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
@@ -3354,7 +3303,6 @@ impl IUpdateInstaller2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUpdateInstaller2_Vtbl {
     pub base__: IUpdateInstaller_Vtbl,
     pub ForceQuiet: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
@@ -3513,7 +3461,6 @@ impl IUpdateInstaller3 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUpdateInstaller3_Vtbl {
     pub base__: IUpdateInstaller2_Vtbl,
     pub AttemptCloseAppsIfNecessary: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
@@ -3675,7 +3622,6 @@ impl IUpdateInstaller4 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUpdateInstaller4_Vtbl {
     pub base__: IUpdateInstaller3_Vtbl,
     pub Commit: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
@@ -3688,7 +3634,6 @@ impl IUpdateLockdown {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUpdateLockdown_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub LockDown: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
@@ -3801,7 +3746,6 @@ impl IUpdateSearcher {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUpdateSearcher_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub CanAutomaticallyUpgradeService: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
@@ -3953,7 +3897,6 @@ impl IUpdateSearcher2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUpdateSearcher2_Vtbl {
     pub base__: IUpdateSearcher_Vtbl,
     pub IgnoreDownloadPriority: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
@@ -4084,7 +4027,6 @@ impl IUpdateSearcher3 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUpdateSearcher3_Vtbl {
     pub base__: IUpdateSearcher2_Vtbl,
     pub SearchScope: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut SearchScope) -> ::windows_core::HRESULT,
@@ -4152,7 +4094,6 @@ impl IUpdateService {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUpdateService_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub Name: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
@@ -4238,7 +4179,6 @@ impl IUpdateService2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUpdateService2_Vtbl {
     pub base__: IUpdateService_Vtbl,
     pub IsDefaultAUService: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
@@ -4265,7 +4205,6 @@ impl IUpdateServiceCollection {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUpdateServiceCollection_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -4332,7 +4271,6 @@ impl IUpdateServiceManager {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUpdateServiceManager_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -4436,7 +4374,6 @@ impl IUpdateServiceManager2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUpdateServiceManager2_Vtbl {
     pub base__: IUpdateServiceManager_Vtbl,
     pub ClientApplicationID: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
@@ -4476,7 +4413,6 @@ impl IUpdateServiceRegistration {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUpdateServiceRegistration_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub RegistrationState: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut UpdateServiceRegistrationState) -> ::windows_core::HRESULT,
@@ -4537,7 +4473,6 @@ impl IUpdateSession {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUpdateSession_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub ClientApplicationID: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
@@ -4621,7 +4556,6 @@ impl IUpdateSession2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUpdateSession2_Vtbl {
     pub base__: IUpdateSession_Vtbl,
     pub UserLocale: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -4697,7 +4631,6 @@ impl IUpdateSession3 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUpdateSession3_Vtbl {
     pub base__: IUpdateSession2_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -4794,7 +4727,6 @@ impl IWebProxy {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWebProxy_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub Address: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
@@ -5056,7 +4988,6 @@ impl IWindowsDriverUpdate {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWindowsDriverUpdate_Vtbl {
     pub base__: IUpdate_Vtbl,
     pub DriverClass: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
@@ -5326,7 +5257,6 @@ impl IWindowsDriverUpdate2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWindowsDriverUpdate2_Vtbl {
     pub base__: IWindowsDriverUpdate_Vtbl,
     pub RebootRequired: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
@@ -5602,7 +5532,6 @@ impl IWindowsDriverUpdate3 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWindowsDriverUpdate3_Vtbl {
     pub base__: IWindowsDriverUpdate2_Vtbl,
     pub BrowseOnly: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
@@ -5878,7 +5807,6 @@ impl IWindowsDriverUpdate4 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWindowsDriverUpdate4_Vtbl {
     pub base__: IWindowsDriverUpdate3_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -6166,7 +6094,6 @@ impl IWindowsDriverUpdate5 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWindowsDriverUpdate5_Vtbl {
     pub base__: IWindowsDriverUpdate4_Vtbl,
     pub AutoSelection: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut AutoSelectionMode) -> ::windows_core::HRESULT,
@@ -6213,7 +6140,6 @@ impl IWindowsDriverUpdateEntry {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWindowsDriverUpdateEntry_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub DriverClass: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
@@ -6247,7 +6173,6 @@ impl IWindowsDriverUpdateEntryCollection {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWindowsDriverUpdateEntryCollection_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -6273,7 +6198,6 @@ impl IWindowsUpdateAgentInfo {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWindowsUpdateAgentInfo_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub GetInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::VARIANT>, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,

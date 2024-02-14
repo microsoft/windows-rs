@@ -2,7 +2,6 @@
 pub mod InstallControl;
 ::windows_core::imp::com_interface!(IDeliveryOptimizationSettings, IDeliveryOptimizationSettings_Vtbl, 0x1810fda0_e853_565e_b874_7a8a7b9a0e0f);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDeliveryOptimizationSettings_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub DownloadMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut DeliveryOptimizationDownloadMode) -> ::windows_core::HRESULT,
@@ -10,14 +9,12 @@ pub struct IDeliveryOptimizationSettings_Vtbl {
 }
 ::windows_core::imp::com_interface!(IDeliveryOptimizationSettingsStatics, IDeliveryOptimizationSettingsStatics_Vtbl, 0x5c817caf_aed5_5999_b4c9_8c60898bc4f3);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDeliveryOptimizationSettingsStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetCurrentSettings: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IStoreConfigurationStatics, IStoreConfigurationStatics_Vtbl, 0x728f7fc0_8628_42ec_84a2_07780eb44d8b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IStoreConfigurationStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SetSystemConfiguration: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, ::std::mem::MaybeUninit<::windows_core::HSTRING>, super::super::super::Foundation::DateTime, ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -32,7 +29,6 @@ pub struct IStoreConfigurationStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IStoreConfigurationStatics2, IStoreConfigurationStatics2_Vtbl, 0x657c4595_c8b7_4fe9_9f4c_4d71027d347e);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IStoreConfigurationStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub PurchasePromptingPolicy: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -40,7 +36,6 @@ pub struct IStoreConfigurationStatics2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IStoreConfigurationStatics3, IStoreConfigurationStatics3_Vtbl, 0x6d45f57c_f144_4cb5_9d3f_4eb05e30b6d3);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IStoreConfigurationStatics3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub HasStoreWebAccount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -71,7 +66,6 @@ pub struct IStoreConfigurationStatics3_Vtbl {
 }
 ::windows_core::imp::com_interface!(IStoreConfigurationStatics4, IStoreConfigurationStatics4_Vtbl, 0x20ff56d2_4ee3_4cf0_9b12_552c03310f75);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IStoreConfigurationStatics4_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetStoreWebAccountId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -97,7 +91,6 @@ pub struct IStoreConfigurationStatics4_Vtbl {
 }
 ::windows_core::imp::com_interface!(IStoreConfigurationStatics5, IStoreConfigurationStatics5_Vtbl, 0xf7613191_8fa9_49db_822b_0160e7e4e5c5);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IStoreConfigurationStatics5_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsPinToDesktopSupported: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -111,7 +104,6 @@ pub struct IStoreConfigurationStatics5_Vtbl {
 }
 ::windows_core::imp::com_interface!(IStoreHardwareManufacturerInfo, IStoreHardwareManufacturerInfo_Vtbl, 0xf292dc08_c654_43ac_a21f_34801c9d3388);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IStoreHardwareManufacturerInfo_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub HardwareManufacturerId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -121,7 +113,6 @@ pub struct IStoreHardwareManufacturerInfo_Vtbl {
 }
 ::windows_core::imp::com_interface!(IStorePreview, IStorePreview_Vtbl, 0x8a157241_840e_49a9_bc01_5d5b01fbc8e9);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IStorePreview_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub RequestProductPurchaseByProductIdAndSkuIdAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -132,7 +123,6 @@ pub struct IStorePreview_Vtbl {
 }
 ::windows_core::imp::com_interface!(IStorePreviewProductInfo, IStorePreviewProductInfo_Vtbl, 0x1937dbb3_6c01_4c9d_85cd_5babaac2b351);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IStorePreviewProductInfo_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ProductId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -146,14 +136,12 @@ pub struct IStorePreviewProductInfo_Vtbl {
 }
 ::windows_core::imp::com_interface!(IStorePreviewPurchaseResults, IStorePreviewPurchaseResults_Vtbl, 0xb0daaed1_d6c5_4e53_a043_fba0d8e61231);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IStorePreviewPurchaseResults_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ProductPurchaseStatus: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut StorePreviewProductPurchaseStatus) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IStorePreviewSkuInfo, IStorePreviewSkuInfo_Vtbl, 0x81fd76e2_0b26_48d9_98ce_27461c669d6c);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IStorePreviewSkuInfo_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ProductId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -168,7 +156,6 @@ pub struct IStorePreviewSkuInfo_Vtbl {
 }
 ::windows_core::imp::com_interface!(IWebAuthenticationCoreManagerHelper, IWebAuthenticationCoreManagerHelper_Vtbl, 0x06a50525_e715_4123_9276_9d6f865ba55f);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWebAuthenticationCoreManagerHelper_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(all(feature = "Security_Authentication_Web_Core", feature = "UI_Xaml"))]

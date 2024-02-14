@@ -1,6 +1,5 @@
 ::windows_core::imp::com_interface!(IAppRecordingManager, IAppRecordingManager_Vtbl, 0xe7e26076_a044_48e2_a512_3094d574c7cc);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppRecordingManager_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetStatus: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -23,14 +22,12 @@ pub struct IAppRecordingManager_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppRecordingManagerStatics, IAppRecordingManagerStatics_Vtbl, 0x50e709f7_38ce_4bd3_9db2_e72bbe9de11d);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppRecordingManagerStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetDefault: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IAppRecordingResult, IAppRecordingResult_Vtbl, 0x3a900864_c66d_46f9_b2d9_5bc2dad070d7);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppRecordingResult_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Succeeded: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -40,7 +37,6 @@ pub struct IAppRecordingResult_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppRecordingSaveScreenshotResult, IAppRecordingSaveScreenshotResult_Vtbl, 0x9c5b8d0a_0abb_4457_aaee_24f9c12ec778);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppRecordingSaveScreenshotResult_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Succeeded: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -52,7 +48,6 @@ pub struct IAppRecordingSaveScreenshotResult_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppRecordingSavedScreenshotInfo, IAppRecordingSavedScreenshotInfo_Vtbl, 0x9b642d0a_189a_4d00_bf25_e1bb1249d594);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppRecordingSavedScreenshotInfo_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage")]
@@ -63,7 +58,6 @@ pub struct IAppRecordingSavedScreenshotInfo_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppRecordingStatus, IAppRecordingStatus_Vtbl, 0x1d0cc82c_bc18_4b8a_a6ef_127efab3b5d9);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppRecordingStatus_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CanRecord: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -73,7 +67,6 @@ pub struct IAppRecordingStatus_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppRecordingStatusDetails, IAppRecordingStatusDetails_Vtbl, 0xb538a9b0_14ed_4412_ac45_6d672c9c9949);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppRecordingStatusDetails_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsAnyAppBroadcasting: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,

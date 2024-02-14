@@ -83,7 +83,6 @@ impl IDXGIAdapter {
 unsafe impl ::core::marker::Send for IDXGIAdapter {}
 unsafe impl ::core::marker::Sync for IDXGIAdapter {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDXGIAdapter_Vtbl {
     pub base__: IDXGIObject_Vtbl,
     pub EnumOutputs: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -130,7 +129,6 @@ impl IDXGIAdapter1 {
 unsafe impl ::core::marker::Send for IDXGIAdapter1 {}
 unsafe impl ::core::marker::Sync for IDXGIAdapter1 {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDXGIAdapter1_Vtbl {
     pub base__: IDXGIAdapter_Vtbl,
     pub GetDesc1: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut DXGI_ADAPTER_DESC1) -> ::windows_core::HRESULT,
@@ -178,7 +176,6 @@ impl IDXGIAdapter2 {
 unsafe impl ::core::marker::Send for IDXGIAdapter2 {}
 unsafe impl ::core::marker::Sync for IDXGIAdapter2 {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDXGIAdapter2_Vtbl {
     pub base__: IDXGIAdapter1_Vtbl,
     pub GetDesc2: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut DXGI_ADAPTER_DESC2) -> ::windows_core::HRESULT,
@@ -252,7 +249,6 @@ impl IDXGIAdapter3 {
 unsafe impl ::core::marker::Send for IDXGIAdapter3 {}
 unsafe impl ::core::marker::Sync for IDXGIAdapter3 {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDXGIAdapter3_Vtbl {
     pub base__: IDXGIAdapter2_Vtbl,
     pub RegisterHardwareContentProtectionTeardownStatusEvent: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::HANDLE, *mut u32) -> ::windows_core::HRESULT,
@@ -334,7 +330,6 @@ impl IDXGIAdapter4 {
 unsafe impl ::core::marker::Send for IDXGIAdapter4 {}
 unsafe impl ::core::marker::Sync for IDXGIAdapter4 {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDXGIAdapter4_Vtbl {
     pub base__: IDXGIAdapter3_Vtbl,
     pub GetDesc3: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut DXGI_ADAPTER_DESC3) -> ::windows_core::HRESULT,
@@ -349,7 +344,6 @@ impl IDXGIDebug {
 unsafe impl ::core::marker::Send for IDXGIDebug {}
 unsafe impl ::core::marker::Sync for IDXGIDebug {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDXGIDebug_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub ReportLiveObjects: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::GUID, DXGI_DEBUG_RLO_FLAGS) -> ::windows_core::HRESULT,
@@ -373,7 +367,6 @@ impl IDXGIDebug1 {
 unsafe impl ::core::marker::Send for IDXGIDebug1 {}
 unsafe impl ::core::marker::Sync for IDXGIDebug1 {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDXGIDebug1_Vtbl {
     pub base__: IDXGIDebug_Vtbl,
     pub EnableLeakTrackingForThread: unsafe extern "system" fn(*mut ::core::ffi::c_void),
@@ -416,7 +409,6 @@ impl IDXGIDecodeSwapChain {
 unsafe impl ::core::marker::Send for IDXGIDecodeSwapChain {}
 unsafe impl ::core::marker::Sync for IDXGIDecodeSwapChain {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDXGIDecodeSwapChain_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub PresentBuffer: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, u32) -> ::windows_core::HRESULT,
@@ -473,7 +465,6 @@ impl IDXGIDevice {
 unsafe impl ::core::marker::Send for IDXGIDevice {}
 unsafe impl ::core::marker::Sync for IDXGIDevice {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDXGIDevice_Vtbl {
     pub base__: IDXGIObject_Vtbl,
     pub GetAdapter: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -536,7 +527,6 @@ impl IDXGIDevice1 {
 unsafe impl ::core::marker::Send for IDXGIDevice1 {}
 unsafe impl ::core::marker::Sync for IDXGIDevice1 {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDXGIDevice1_Vtbl {
     pub base__: IDXGIDevice_Vtbl,
     pub SetMaximumFrameLatency: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
@@ -605,7 +595,6 @@ impl IDXGIDevice2 {
 unsafe impl ::core::marker::Send for IDXGIDevice2 {}
 unsafe impl ::core::marker::Sync for IDXGIDevice2 {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDXGIDevice2_Vtbl {
     pub base__: IDXGIDevice1_Vtbl,
     pub OfferResources: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const *mut ::core::ffi::c_void, DXGI_OFFER_RESOURCE_PRIORITY) -> ::windows_core::HRESULT,
@@ -678,7 +667,6 @@ impl IDXGIDevice3 {
 unsafe impl ::core::marker::Send for IDXGIDevice3 {}
 unsafe impl ::core::marker::Sync for IDXGIDevice3 {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDXGIDevice3_Vtbl {
     pub base__: IDXGIDevice2_Vtbl,
     pub Trim: unsafe extern "system" fn(*mut ::core::ffi::c_void),
@@ -755,7 +743,6 @@ impl IDXGIDevice4 {
 unsafe impl ::core::marker::Send for IDXGIDevice4 {}
 unsafe impl ::core::marker::Sync for IDXGIDevice4 {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDXGIDevice4_Vtbl {
     pub base__: IDXGIDevice3_Vtbl,
     pub OfferResources1: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const *mut ::core::ffi::c_void, DXGI_OFFER_RESOURCE_PRIORITY, u32) -> ::windows_core::HRESULT,
@@ -794,7 +781,6 @@ impl IDXGIDeviceSubObject {
 unsafe impl ::core::marker::Send for IDXGIDeviceSubObject {}
 unsafe impl ::core::marker::Sync for IDXGIDeviceSubObject {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDXGIDeviceSubObject_Vtbl {
     pub base__: IDXGIObject_Vtbl,
     pub GetDevice: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -815,7 +801,6 @@ impl IDXGIDisplayControl {
 unsafe impl ::core::marker::Send for IDXGIDisplayControl {}
 unsafe impl ::core::marker::Sync for IDXGIDisplayControl {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDXGIDisplayControl_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub IsStereoEnabled: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> super::super::Foundation::BOOL,
@@ -875,7 +860,6 @@ impl IDXGIFactory {
 unsafe impl ::core::marker::Send for IDXGIFactory {}
 unsafe impl ::core::marker::Sync for IDXGIFactory {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDXGIFactory_Vtbl {
     pub base__: IDXGIObject_Vtbl,
     pub EnumAdapters: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -948,7 +932,6 @@ impl IDXGIFactory1 {
 unsafe impl ::core::marker::Send for IDXGIFactory1 {}
 unsafe impl ::core::marker::Sync for IDXGIFactory1 {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDXGIFactory1_Vtbl {
     pub base__: IDXGIFactory_Vtbl,
     pub EnumAdapters1: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1088,7 +1071,6 @@ impl IDXGIFactory2 {
 unsafe impl ::core::marker::Send for IDXGIFactory2 {}
 unsafe impl ::core::marker::Sync for IDXGIFactory2 {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDXGIFactory2_Vtbl {
     pub base__: IDXGIFactory1_Vtbl,
     pub IsWindowedStereoEnabled: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> super::super::Foundation::BOOL,
@@ -1249,7 +1231,6 @@ impl IDXGIFactory3 {
 unsafe impl ::core::marker::Send for IDXGIFactory3 {}
 unsafe impl ::core::marker::Sync for IDXGIFactory3 {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDXGIFactory3_Vtbl {
     pub base__: IDXGIFactory2_Vtbl,
     pub GetCreationFlags: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> u32,
@@ -1405,7 +1386,6 @@ impl IDXGIFactory4 {
 unsafe impl ::core::marker::Send for IDXGIFactory4 {}
 unsafe impl ::core::marker::Sync for IDXGIFactory4 {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDXGIFactory4_Vtbl {
     pub base__: IDXGIFactory3_Vtbl,
     pub EnumAdapterByLuid: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::LUID, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1565,7 +1545,6 @@ impl IDXGIFactory5 {
 unsafe impl ::core::marker::Send for IDXGIFactory5 {}
 unsafe impl ::core::marker::Sync for IDXGIFactory5 {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDXGIFactory5_Vtbl {
     pub base__: IDXGIFactory4_Vtbl,
     pub CheckFeatureSupport: unsafe extern "system" fn(*mut ::core::ffi::c_void, DXGI_FEATURE, *mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
@@ -1731,7 +1710,6 @@ impl IDXGIFactory6 {
 unsafe impl ::core::marker::Send for IDXGIFactory6 {}
 unsafe impl ::core::marker::Sync for IDXGIFactory6 {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDXGIFactory6_Vtbl {
     pub base__: IDXGIFactory5_Vtbl,
     pub EnumAdapterByGpuPreference: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, DXGI_GPU_PREFERENCE, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1907,7 +1885,6 @@ impl IDXGIFactory7 {
 unsafe impl ::core::marker::Send for IDXGIFactory7 {}
 unsafe impl ::core::marker::Sync for IDXGIFactory7 {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDXGIFactory7_Vtbl {
     pub base__: IDXGIFactory6_Vtbl,
     pub RegisterAdaptersChangedEvent: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::HANDLE, *mut u32) -> ::windows_core::HRESULT,
@@ -1940,7 +1917,6 @@ impl IDXGIFactoryMedia {
 unsafe impl ::core::marker::Send for IDXGIFactoryMedia {}
 unsafe impl ::core::marker::Sync for IDXGIFactoryMedia {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDXGIFactoryMedia_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -2085,7 +2061,6 @@ impl IDXGIInfoQueue {
 unsafe impl ::core::marker::Send for IDXGIInfoQueue {}
 unsafe impl ::core::marker::Sync for IDXGIInfoQueue {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDXGIInfoQueue_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub SetMessageCountLimit: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::GUID, u64) -> ::windows_core::HRESULT,
@@ -2165,7 +2140,6 @@ impl IDXGIKeyedMutex {
 unsafe impl ::core::marker::Send for IDXGIKeyedMutex {}
 unsafe impl ::core::marker::Sync for IDXGIKeyedMutex {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDXGIKeyedMutex_Vtbl {
     pub base__: IDXGIDeviceSubObject_Vtbl,
     pub AcquireSync: unsafe extern "system" fn(*mut ::core::ffi::c_void, u64, u32) -> ::windows_core::HRESULT,
@@ -2197,7 +2171,6 @@ impl IDXGIObject {
 unsafe impl ::core::marker::Send for IDXGIObject {}
 unsafe impl ::core::marker::Sync for IDXGIObject {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDXGIObject_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub SetPrivateData: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, u32, *const ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -2286,7 +2259,6 @@ impl IDXGIOutput {
 unsafe impl ::core::marker::Send for IDXGIOutput {}
 unsafe impl ::core::marker::Sync for IDXGIOutput {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDXGIOutput_Vtbl {
     pub base__: IDXGIObject_Vtbl,
     #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
@@ -2425,7 +2397,6 @@ impl IDXGIOutput1 {
 unsafe impl ::core::marker::Send for IDXGIOutput1 {}
 unsafe impl ::core::marker::Sync for IDXGIOutput1 {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDXGIOutput1_Vtbl {
     pub base__: IDXGIOutput_Vtbl,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -2547,7 +2518,6 @@ impl IDXGIOutput2 {
 unsafe impl ::core::marker::Send for IDXGIOutput2 {}
 unsafe impl ::core::marker::Sync for IDXGIOutput2 {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDXGIOutput2_Vtbl {
     pub base__: IDXGIOutput1_Vtbl,
     pub SupportsOverlays: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> super::super::Foundation::BOOL,
@@ -2668,7 +2638,6 @@ impl IDXGIOutput3 {
 unsafe impl ::core::marker::Send for IDXGIOutput3 {}
 unsafe impl ::core::marker::Sync for IDXGIOutput3 {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDXGIOutput3_Vtbl {
     pub base__: IDXGIOutput2_Vtbl,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -2800,7 +2769,6 @@ impl IDXGIOutput4 {
 unsafe impl ::core::marker::Send for IDXGIOutput4 {}
 unsafe impl ::core::marker::Sync for IDXGIOutput4 {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDXGIOutput4_Vtbl {
     pub base__: IDXGIOutput3_Vtbl,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -2940,7 +2908,6 @@ impl IDXGIOutput5 {
 unsafe impl ::core::marker::Send for IDXGIOutput5 {}
 unsafe impl ::core::marker::Sync for IDXGIOutput5 {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDXGIOutput5_Vtbl {
     pub base__: IDXGIOutput4_Vtbl,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -3088,7 +3055,6 @@ impl IDXGIOutput6 {
 unsafe impl ::core::marker::Send for IDXGIOutput6 {}
 unsafe impl ::core::marker::Sync for IDXGIOutput6 {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDXGIOutput6_Vtbl {
     pub base__: IDXGIOutput5_Vtbl,
     #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
@@ -3149,7 +3115,6 @@ impl IDXGIOutputDuplication {
 unsafe impl ::core::marker::Send for IDXGIOutputDuplication {}
 unsafe impl ::core::marker::Sync for IDXGIOutputDuplication {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDXGIOutputDuplication_Vtbl {
     pub base__: IDXGIObject_Vtbl,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -3212,7 +3177,6 @@ impl IDXGIResource {
 unsafe impl ::core::marker::Send for IDXGIResource {}
 unsafe impl ::core::marker::Sync for IDXGIResource {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDXGIResource_Vtbl {
     pub base__: IDXGIDeviceSubObject_Vtbl,
     pub GetSharedHandle: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::HANDLE) -> ::windows_core::HRESULT,
@@ -3280,7 +3244,6 @@ impl IDXGIResource1 {
 unsafe impl ::core::marker::Send for IDXGIResource1 {}
 unsafe impl ::core::marker::Sync for IDXGIResource1 {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDXGIResource1_Vtbl {
     pub base__: IDXGIResource_Vtbl,
     pub CreateSubresourceSurface: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -3332,7 +3295,6 @@ impl IDXGISurface {
 unsafe impl ::core::marker::Send for IDXGISurface {}
 unsafe impl ::core::marker::Sync for IDXGISurface {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDXGISurface_Vtbl {
     pub base__: IDXGIDeviceSubObject_Vtbl,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -3396,7 +3358,6 @@ impl IDXGISurface1 {
 unsafe impl ::core::marker::Send for IDXGISurface1 {}
 unsafe impl ::core::marker::Sync for IDXGISurface1 {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDXGISurface1_Vtbl {
     pub base__: IDXGISurface_Vtbl,
     #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -3466,7 +3427,6 @@ impl IDXGISurface2 {
 unsafe impl ::core::marker::Send for IDXGISurface2 {}
 unsafe impl ::core::marker::Sync for IDXGISurface2 {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDXGISurface2_Vtbl {
     pub base__: IDXGISurface1_Vtbl,
     pub GetResource: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -3547,7 +3507,6 @@ impl IDXGISwapChain {
 unsafe impl ::core::marker::Send for IDXGISwapChain {}
 unsafe impl ::core::marker::Sync for IDXGISwapChain {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDXGISwapChain_Vtbl {
     pub base__: IDXGIDeviceSubObject_Vtbl,
     pub Present: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32) -> ::windows_core::HRESULT,
@@ -3691,7 +3650,6 @@ impl IDXGISwapChain1 {
 unsafe impl ::core::marker::Send for IDXGISwapChain1 {}
 unsafe impl ::core::marker::Sync for IDXGISwapChain1 {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDXGISwapChain1_Vtbl {
     pub base__: IDXGISwapChain_Vtbl,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -3861,7 +3819,6 @@ impl IDXGISwapChain2 {
 unsafe impl ::core::marker::Send for IDXGISwapChain2 {}
 unsafe impl ::core::marker::Sync for IDXGISwapChain2 {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDXGISwapChain2_Vtbl {
     pub base__: IDXGISwapChain1_Vtbl,
     pub SetSourceSize: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32) -> ::windows_core::HRESULT,
@@ -4031,7 +3988,6 @@ impl IDXGISwapChain3 {
 unsafe impl ::core::marker::Send for IDXGISwapChain3 {}
 unsafe impl ::core::marker::Sync for IDXGISwapChain3 {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDXGISwapChain3_Vtbl {
     pub base__: IDXGISwapChain2_Vtbl,
     pub GetCurrentBackBufferIndex: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> u32,
@@ -4210,7 +4166,6 @@ impl IDXGISwapChain4 {
 unsafe impl ::core::marker::Send for IDXGISwapChain4 {}
 unsafe impl ::core::marker::Sync for IDXGISwapChain4 {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDXGISwapChain4_Vtbl {
     pub base__: IDXGISwapChain3_Vtbl,
     pub SetHDRMetaData: unsafe extern "system" fn(*mut ::core::ffi::c_void, DXGI_HDR_METADATA_TYPE, u32, *const ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -4231,7 +4186,6 @@ impl IDXGISwapChainMedia {
 unsafe impl ::core::marker::Send for IDXGISwapChainMedia {}
 unsafe impl ::core::marker::Sync for IDXGISwapChainMedia {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDXGISwapChainMedia_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetFrameStatisticsMedia: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut DXGI_FRAME_STATISTICS_MEDIA) -> ::windows_core::HRESULT,
@@ -4249,7 +4203,6 @@ impl IDXGraphicsAnalysis {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDXGraphicsAnalysis_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub BeginCapture: unsafe extern "system" fn(*mut ::core::ffi::c_void),

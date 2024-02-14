@@ -156,7 +156,7 @@ fn gen_win_delegate(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
 
     tokens.combine(&writer.interface_trait(def, generics, &ident, &constraints, &features, true));
     tokens.combine(&writer.interface_winrt_trait(def, generics, &ident, &constraints, &phantoms, &features));
-    tokens.combine(&writer.interface_vtbl(def, generics, &ident, &constraints, &features));
+    tokens.combine(&writer.interface_vtbl(def, generics, &constraints, &features));
     tokens
 }
 

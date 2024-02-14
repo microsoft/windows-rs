@@ -4,7 +4,6 @@ pub mod DragDrop;
 pub mod ShareTarget;
 ::windows_core::imp::com_interface!(IClipboardContentOptions, IClipboardContentOptions_Vtbl, 0xe888a98c_ad4b_5447_a056_ab3556276d2b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IClipboardContentOptions_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsRoamable: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -22,13 +21,11 @@ pub struct IClipboardContentOptions_Vtbl {
 }
 ::windows_core::imp::com_interface!(IClipboardHistoryChangedEventArgs, IClipboardHistoryChangedEventArgs_Vtbl, 0xc0be453f_8ea2_53ce_9aba_8d2212573452);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IClipboardHistoryChangedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
 }
 ::windows_core::imp::com_interface!(IClipboardHistoryItem, IClipboardHistoryItem_Vtbl, 0x0173bd8a_afff_5c50_ab92_3d19f481ec58);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IClipboardHistoryItem_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Id: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -37,7 +34,6 @@ pub struct IClipboardHistoryItem_Vtbl {
 }
 ::windows_core::imp::com_interface!(IClipboardHistoryItemsResult, IClipboardHistoryItemsResult_Vtbl, 0xe6dfdee6_0ee2_52e3_852b_f295db65939a);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IClipboardHistoryItemsResult_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ClipboardHistoryItemsResultStatus) -> ::windows_core::HRESULT,
@@ -48,7 +44,6 @@ pub struct IClipboardHistoryItemsResult_Vtbl {
 }
 ::windows_core::imp::com_interface!(IClipboardStatics, IClipboardStatics_Vtbl, 0xc627e291_34e2_4963_8eed_93cbb0ea3d70);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IClipboardStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetContent: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -60,7 +55,6 @@ pub struct IClipboardStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IClipboardStatics2, IClipboardStatics2_Vtbl, 0xd2ac1b6a_d29f_554b_b303_f0452345fe02);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IClipboardStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetHistoryItemsAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -79,7 +73,6 @@ pub struct IClipboardStatics2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IDataPackage, IDataPackage_Vtbl, 0x61ebf5c7_efea_4346_9554_981d7e198ffe);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDataPackage_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetView: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -118,7 +111,6 @@ pub struct IDataPackage_Vtbl {
 }
 ::windows_core::imp::com_interface!(IDataPackage2, IDataPackage2_Vtbl, 0x041c1fe9_2409_45e1_a538_4c53eeee04a7);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDataPackage2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SetApplicationLink: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -126,7 +118,6 @@ pub struct IDataPackage2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IDataPackage3, IDataPackage3_Vtbl, 0x88f31f5d_787b_4d32_965a_a9838105a056);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDataPackage3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ShareCompleted: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
@@ -134,7 +125,6 @@ pub struct IDataPackage3_Vtbl {
 }
 ::windows_core::imp::com_interface!(IDataPackage4, IDataPackage4_Vtbl, 0x13a24ec8_9382_536f_852a_3045e1b29a3b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDataPackage4_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ShareCanceled: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
@@ -142,7 +132,6 @@ pub struct IDataPackage4_Vtbl {
 }
 ::windows_core::imp::com_interface!(IDataPackagePropertySet, IDataPackagePropertySet_Vtbl, 0xcd1c93eb_4c4c_443a_a8d3_f5c241e91689);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDataPackagePropertySet_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Title: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -168,7 +157,6 @@ pub struct IDataPackagePropertySet_Vtbl {
 }
 ::windows_core::imp::com_interface!(IDataPackagePropertySet2, IDataPackagePropertySet2_Vtbl, 0xeb505d4a_9800_46aa_b181_7b6f0f2b919a);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDataPackagePropertySet2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ContentSourceWebLink: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -196,7 +184,6 @@ pub struct IDataPackagePropertySet2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IDataPackagePropertySet3, IDataPackagePropertySet3_Vtbl, 0x9e87fd9b_5205_401b_874a_455653bd39e8);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDataPackagePropertySet3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub EnterpriseId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -204,7 +191,6 @@ pub struct IDataPackagePropertySet3_Vtbl {
 }
 ::windows_core::imp::com_interface!(IDataPackagePropertySet4, IDataPackagePropertySet4_Vtbl, 0x6390ebf5_1739_4c74_b22f_865fab5e8545);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDataPackagePropertySet4_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ContentSourceUserActivityJson: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -212,7 +198,6 @@ pub struct IDataPackagePropertySet4_Vtbl {
 }
 ::windows_core::imp::com_interface!(IDataPackagePropertySetView, IDataPackagePropertySetView_Vtbl, 0xb94cec01_0c1a_4c57_be55_75d01289735d);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDataPackagePropertySetView_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Title: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -230,7 +215,6 @@ pub struct IDataPackagePropertySetView_Vtbl {
 }
 ::windows_core::imp::com_interface!(IDataPackagePropertySetView2, IDataPackagePropertySetView2_Vtbl, 0x6054509b_8ebe_4feb_9c1e_75e69de54b84);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDataPackagePropertySetView2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub PackageFamilyName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -247,28 +231,24 @@ pub struct IDataPackagePropertySetView2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IDataPackagePropertySetView3, IDataPackagePropertySetView3_Vtbl, 0xdb764ce5_d174_495c_84fc_1a51f6ab45d7);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDataPackagePropertySetView3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub EnterpriseId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDataPackagePropertySetView4, IDataPackagePropertySetView4_Vtbl, 0x4474c80d_d16f_40ae_9580_6f8562b94235);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDataPackagePropertySetView4_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ContentSourceUserActivityJson: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDataPackagePropertySetView5, IDataPackagePropertySetView5_Vtbl, 0x6f0a9445_3760_50bb_8523_c4202ded7d78);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDataPackagePropertySetView5_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsFromRoamingClipboard: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDataPackageView, IDataPackageView_Vtbl, 0x7b840471_5900_4d85_a90b_10cb85fe3552);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDataPackageView_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Properties: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -303,7 +283,6 @@ pub struct IDataPackageView_Vtbl {
 }
 ::windows_core::imp::com_interface!(IDataPackageView2, IDataPackageView2_Vtbl, 0x40ecba95_2450_4c1d_b6b4_ed45463dee9c);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDataPackageView2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetApplicationLinkAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -311,7 +290,6 @@ pub struct IDataPackageView2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IDataPackageView3, IDataPackageView3_Vtbl, 0xd37771a8_ddad_4288_8428_d1cae394128b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDataPackageView3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Security_EnterpriseData")]
@@ -329,21 +307,18 @@ pub struct IDataPackageView3_Vtbl {
 }
 ::windows_core::imp::com_interface!(IDataPackageView4, IDataPackageView4_Vtbl, 0xdfe96f1f_e042_4433_a09f_26d6ffda8b85);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDataPackageView4_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SetAcceptedFormatId: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDataProviderDeferral, IDataProviderDeferral_Vtbl, 0xc2cf2373_2d26_43d9_b69d_dcb86d03f6da);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDataProviderDeferral_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Complete: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDataProviderRequest, IDataProviderRequest_Vtbl, 0xebbc7157_d3c8_47da_acde_f82388d5f716);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDataProviderRequest_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub FormatId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -353,7 +328,6 @@ pub struct IDataProviderRequest_Vtbl {
 }
 ::windows_core::imp::com_interface!(IDataRequest, IDataRequest_Vtbl, 0x4341ae3b_fc12_4e53_8c02_ac714c415a27);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDataRequest_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Data: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -364,21 +338,18 @@ pub struct IDataRequest_Vtbl {
 }
 ::windows_core::imp::com_interface!(IDataRequestDeferral, IDataRequestDeferral_Vtbl, 0x6dc4b89f_0386_4263_87c1_ed7dce30890e);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDataRequestDeferral_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Complete: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDataRequestedEventArgs, IDataRequestedEventArgs_Vtbl, 0xcb8ba807_6ac5_43c9_8ac5_9ba232163182);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDataRequestedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Request: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDataTransferManager, IDataTransferManager_Vtbl, 0xa5caee9b_8708_49d1_8d36_67d25a8da00c);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDataTransferManager_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub DataRequested: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
@@ -388,7 +359,6 @@ pub struct IDataTransferManager_Vtbl {
 }
 ::windows_core::imp::com_interface!(IDataTransferManager2, IDataTransferManager2_Vtbl, 0x30ae7d71_8ba8_4c02_8e3f_ddb23b388715);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDataTransferManager2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ShareProvidersRequested: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
@@ -396,7 +366,6 @@ pub struct IDataTransferManager2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IDataTransferManagerStatics, IDataTransferManagerStatics_Vtbl, 0xa9da01aa_e00e_4cfe_aa44_2dd932dca3d8);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDataTransferManagerStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ShowShareUI: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -404,21 +373,18 @@ pub struct IDataTransferManagerStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IDataTransferManagerStatics2, IDataTransferManagerStatics2_Vtbl, 0xc54ec2ec_9f97_4d63_9868_395e271ad8f5);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDataTransferManagerStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsSupported: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDataTransferManagerStatics3, IDataTransferManagerStatics3_Vtbl, 0x05845473_6c82_4f5c_ac23_62e458361fac);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDataTransferManagerStatics3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ShowShareUIWithOptions: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IHtmlFormatHelperStatics, IHtmlFormatHelperStatics_Vtbl, 0xe22e7749_dd70_446f_aefc_61cee59f655e);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IHtmlFormatHelperStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetStaticFragment: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -426,28 +392,24 @@ pub struct IHtmlFormatHelperStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IOperationCompletedEventArgs, IOperationCompletedEventArgs_Vtbl, 0xe7af329d_051d_4fab_b1a9_47fd77f70a41);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IOperationCompletedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Operation: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut DataPackageOperation) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IOperationCompletedEventArgs2, IOperationCompletedEventArgs2_Vtbl, 0x858fa073_1e19_4105_b2f7_c8478808d562);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IOperationCompletedEventArgs2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub AcceptedFormatId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IShareCompletedEventArgs, IShareCompletedEventArgs_Vtbl, 0x4574c442_f913_4f60_9df7_cc4060ab1916);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IShareCompletedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ShareTarget: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IShareProvider, IShareProvider_Vtbl, 0x2fabe026_443e_4cda_af25_8d81070efd80);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IShareProvider_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Title: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -464,7 +426,6 @@ pub struct IShareProvider_Vtbl {
 }
 ::windows_core::imp::com_interface!(IShareProviderFactory, IShareProviderFactory_Vtbl, 0x172a174c_e79e_4f6d_b07d_128f469e0296);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IShareProviderFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(all(feature = "Storage_Streams", feature = "UI"))]
@@ -474,7 +435,6 @@ pub struct IShareProviderFactory_Vtbl {
 }
 ::windows_core::imp::com_interface!(IShareProviderOperation, IShareProviderOperation_Vtbl, 0x19cef937_d435_4179_b6af_14e0492b69f6);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IShareProviderOperation_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Data: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -483,7 +443,6 @@ pub struct IShareProviderOperation_Vtbl {
 }
 ::windows_core::imp::com_interface!(IShareProvidersRequestedEventArgs, IShareProvidersRequestedEventArgs_Vtbl, 0xf888f356_a3f8_4fce_85e4_8826e63be799);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IShareProvidersRequestedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -495,7 +454,6 @@ pub struct IShareProvidersRequestedEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IShareTargetInfo, IShareTargetInfo_Vtbl, 0x385be607_c6e8_4114_b294_28f3bb6f9904);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IShareTargetInfo_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub AppUserModelId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -503,7 +461,6 @@ pub struct IShareTargetInfo_Vtbl {
 }
 ::windows_core::imp::com_interface!(IShareUIOptions, IShareUIOptions_Vtbl, 0x72fa8a80_342f_4d90_9551_2ae04e37680c);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IShareUIOptions_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Theme: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ShareUITheme) -> ::windows_core::HRESULT,
@@ -513,7 +470,6 @@ pub struct IShareUIOptions_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISharedStorageAccessManagerStatics, ISharedStorageAccessManagerStatics_Vtbl, 0xc6132ada_34b1_4849_bd5f_d09fee3158c5);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISharedStorageAccessManagerStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage")]
@@ -528,7 +484,6 @@ pub struct ISharedStorageAccessManagerStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IStandardDataFormatsStatics, IStandardDataFormatsStatics_Vtbl, 0x7ed681a1_a880_40c9_b4ed_0bee1e15f549);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IStandardDataFormatsStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Text: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -543,7 +498,6 @@ pub struct IStandardDataFormatsStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IStandardDataFormatsStatics2, IStandardDataFormatsStatics2_Vtbl, 0x42a254f4_9d76_42e8_861b_47c25dd0cf71);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IStandardDataFormatsStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub WebLink: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -551,14 +505,12 @@ pub struct IStandardDataFormatsStatics2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IStandardDataFormatsStatics3, IStandardDataFormatsStatics3_Vtbl, 0x3b57b069_01d4_474c_8b5f_bc8e27f38b21);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IStandardDataFormatsStatics3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub UserActivityJsonArray: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ITargetApplicationChosenEventArgs, ITargetApplicationChosenEventArgs_Vtbl, 0xca6fb8ac_2987_4ee3_9c54_d8afbcb86c1d);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITargetApplicationChosenEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ApplicationName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -2497,7 +2449,6 @@ impl ::windows_core::RuntimeType for DataProviderHandler {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct DataProviderHandler_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -2561,7 +2512,6 @@ impl ::windows_core::RuntimeType for ShareProviderHandler {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ShareProviderHandler_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,

@@ -1,6 +1,5 @@
 ::windows_core::imp::com_interface!(IWebAccountClientView, IWebAccountClientView_Vtbl, 0xe7bd66ba_0bc7_4c66_bfd4_65d3082cbca8);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWebAccountClientView_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ApplicationCallbackUri: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -9,7 +8,6 @@ pub struct IWebAccountClientView_Vtbl {
 }
 ::windows_core::imp::com_interface!(IWebAccountClientViewFactory, IWebAccountClientViewFactory_Vtbl, 0x616d16a4_de22_4855_a326_06cebf2a3f23);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWebAccountClientViewFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut ::core::ffi::c_void, WebAccountClientViewType, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -17,7 +15,6 @@ pub struct IWebAccountClientViewFactory_Vtbl {
 }
 ::windows_core::imp::com_interface!(IWebAccountManagerStatics, IWebAccountManagerStatics_Vtbl, 0xb2e8e1a6_d49a_4032_84bf_1a2847747bf1);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWebAccountManagerStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(all(feature = "Foundation_Collections", feature = "Security_Credentials"))]
@@ -63,14 +60,12 @@ pub struct IWebAccountManagerStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IWebAccountManagerStatics2, IWebAccountManagerStatics2_Vtbl, 0x68a7a829_2d5f_4653_8bb0_bd2fa6bd2d87);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWebAccountManagerStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub PullCookiesAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWebAccountManagerStatics3, IWebAccountManagerStatics3_Vtbl, 0xdd4523a6_8a4f_4aa2_b15e_03f550af1359);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWebAccountManagerStatics3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(all(feature = "Foundation_Collections", feature = "Security_Credentials", feature = "System"))]
@@ -92,7 +87,6 @@ pub struct IWebAccountManagerStatics3_Vtbl {
 }
 ::windows_core::imp::com_interface!(IWebAccountManagerStatics4, IWebAccountManagerStatics4_Vtbl, 0x59ebc2d2_f7db_412f_bc3f_f2fea04430b4);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWebAccountManagerStatics4_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub InvalidateAppCacheForAllAccountsAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -103,7 +97,6 @@ pub struct IWebAccountManagerStatics4_Vtbl {
 }
 ::windows_core::imp::com_interface!(IWebAccountMapManagerStatics, IWebAccountMapManagerStatics_Vtbl, 0xe8fa446f_3a1b_48a4_8e90_1e59ca6f54db);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWebAccountMapManagerStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(all(feature = "Foundation_Collections", feature = "Security_Credentials"))]
@@ -125,7 +118,6 @@ pub struct IWebAccountMapManagerStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IWebAccountProviderAddAccountOperation, IWebAccountProviderAddAccountOperation_Vtbl, 0x73ebdccf_4378_4c79_9335_a5d7ab81594e);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWebAccountProviderAddAccountOperation_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ReportCompleted: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -150,7 +142,6 @@ impl ::windows_core::RuntimeType for IWebAccountProviderBaseReportOperation {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWebAccountProviderBaseReportOperation_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ReportCompleted: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -161,7 +152,6 @@ pub struct IWebAccountProviderBaseReportOperation_Vtbl {
 }
 ::windows_core::imp::com_interface!(IWebAccountProviderDeleteAccountOperation, IWebAccountProviderDeleteAccountOperation_Vtbl, 0x0abb48b8_9e01_49c9_a355_7d48caf7d6ca);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWebAccountProviderDeleteAccountOperation_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Security_Credentials")]
@@ -171,7 +161,6 @@ pub struct IWebAccountProviderDeleteAccountOperation_Vtbl {
 }
 ::windows_core::imp::com_interface!(IWebAccountProviderManageAccountOperation, IWebAccountProviderManageAccountOperation_Vtbl, 0xed20dc5c_d21b_463e_a9b7_c1fd0edae978);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWebAccountProviderManageAccountOperation_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Security_Credentials")]
@@ -195,14 +184,12 @@ impl ::windows_core::RuntimeType for IWebAccountProviderOperation {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWebAccountProviderOperation_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Kind: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut WebAccountProviderOperationKind) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWebAccountProviderRetrieveCookiesOperation, IWebAccountProviderRetrieveCookiesOperation_Vtbl, 0x5a040441_0fa3_4ab1_a01c_20b110358594);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWebAccountProviderRetrieveCookiesOperation_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Context: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -216,7 +203,6 @@ pub struct IWebAccountProviderRetrieveCookiesOperation_Vtbl {
 }
 ::windows_core::imp::com_interface!(IWebAccountProviderSignOutAccountOperation, IWebAccountProviderSignOutAccountOperation_Vtbl, 0xb890e21d_0c55_47bc_8c72_04a6fc7cac07);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWebAccountProviderSignOutAccountOperation_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Security_Credentials")]
@@ -259,7 +245,6 @@ impl ::windows_core::RuntimeType for IWebAccountProviderSilentReportOperation {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWebAccountProviderSilentReportOperation_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ReportUserInteractionRequired: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -283,7 +268,6 @@ impl ::windows_core::RuntimeType for IWebAccountProviderTokenObjects {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWebAccountProviderTokenObjects_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Operation: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -312,7 +296,6 @@ impl ::windows_core::RuntimeType for IWebAccountProviderTokenObjects2 {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWebAccountProviderTokenObjects2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "System")]
@@ -362,7 +345,6 @@ impl ::windows_core::RuntimeType for IWebAccountProviderTokenOperation {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWebAccountProviderTokenOperation_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ProviderRequest: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -398,14 +380,12 @@ impl ::windows_core::RuntimeType for IWebAccountProviderUIReportOperation {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWebAccountProviderUIReportOperation_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ReportUserCanceled: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWebAccountScopeManagerStatics, IWebAccountScopeManagerStatics_Vtbl, 0x5c6ce37c_12b2_423a_bf3d_85b8d7e53656);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWebAccountScopeManagerStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(all(feature = "Foundation_Collections", feature = "Security_Credentials"))]
@@ -423,7 +403,6 @@ pub struct IWebAccountScopeManagerStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IWebProviderTokenRequest, IWebProviderTokenRequest_Vtbl, 0x1e18778b_8805_454b_9f11_468d2af1095a);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWebProviderTokenRequest_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Security_Authentication_Web_Core")]
@@ -443,7 +422,6 @@ pub struct IWebProviderTokenRequest_Vtbl {
 }
 ::windows_core::imp::com_interface!(IWebProviderTokenRequest2, IWebProviderTokenRequest2_Vtbl, 0xb5d72e4c_10b1_4aa6_88b1_0b6c9e0c1e46);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWebProviderTokenRequest2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -453,7 +431,6 @@ pub struct IWebProviderTokenRequest2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IWebProviderTokenRequest3, IWebProviderTokenRequest3_Vtbl, 0x1b2716aa_4289_446e_9256_dafb6f66a51e);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWebProviderTokenRequest3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ApplicationPackageFamilyName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -462,7 +439,6 @@ pub struct IWebProviderTokenRequest3_Vtbl {
 }
 ::windows_core::imp::com_interface!(IWebProviderTokenResponse, IWebProviderTokenResponse_Vtbl, 0xef213793_ef55_4186_b7ce_8cb2e7f9849e);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWebProviderTokenResponse_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Security_Authentication_Web_Core")]
@@ -472,7 +448,6 @@ pub struct IWebProviderTokenResponse_Vtbl {
 }
 ::windows_core::imp::com_interface!(IWebProviderTokenResponseFactory, IWebProviderTokenResponseFactory_Vtbl, 0xfa49d99a_25ba_4077_9cfa_9db4dea7b71a);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWebProviderTokenResponseFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Security_Authentication_Web_Core")]

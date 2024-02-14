@@ -1,6 +1,5 @@
 ::windows_core::imp::com_interface!(IWebViewControlAcceleratorKeyPressedEventArgs, IWebViewControlAcceleratorKeyPressedEventArgs_Vtbl, 0x77a2a53e_7c74_437d_a290_3ac0d8cd5655);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWebViewControlAcceleratorKeyPressedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "UI_Core")]
@@ -21,14 +20,12 @@ pub struct IWebViewControlAcceleratorKeyPressedEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IWebViewControlMoveFocusRequestedEventArgs, IWebViewControlMoveFocusRequestedEventArgs_Vtbl, 0x6b2a340d_4bd0_405e_b7c1_1e72a492f446);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWebViewControlMoveFocusRequestedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Reason: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut WebViewControlMoveFocusReason) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWebViewControlProcess, IWebViewControlProcess_Vtbl, 0x02c723ec_98d6_424a_b63e_c6136c36a0f2);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWebViewControlProcess_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ProcessId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -45,14 +42,12 @@ pub struct IWebViewControlProcess_Vtbl {
 }
 ::windows_core::imp::com_interface!(IWebViewControlProcessFactory, IWebViewControlProcessFactory_Vtbl, 0x47b65cf9_a2d2_453c_b097_f6779d4b8e02);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWebViewControlProcessFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateWithOptions: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWebViewControlProcessOptions, IWebViewControlProcessOptions_Vtbl, 0x1cca72a7_3bd6_4826_8261_6c8189505d89);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWebViewControlProcessOptions_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SetEnterpriseId: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -62,7 +57,6 @@ pub struct IWebViewControlProcessOptions_Vtbl {
 }
 ::windows_core::imp::com_interface!(IWebViewControlSite, IWebViewControlSite_Vtbl, 0x133f47c6_12dc_4898_bd47_04967de648ba);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWebViewControlSite_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Process: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -81,7 +75,6 @@ pub struct IWebViewControlSite_Vtbl {
 }
 ::windows_core::imp::com_interface!(IWebViewControlSite2, IWebViewControlSite2_Vtbl, 0xd13b2e3f_48ee_4730_8243_d2ed0c05606a);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWebViewControlSite2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GotFocus: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,

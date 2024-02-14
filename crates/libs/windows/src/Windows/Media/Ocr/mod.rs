@@ -1,6 +1,5 @@
 ::windows_core::imp::com_interface!(IOcrEngine, IOcrEngine_Vtbl, 0x5a14bc41_5b76_3140_b680_8825562683ac);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IOcrEngine_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Graphics_Imaging")]
@@ -14,7 +13,6 @@ pub struct IOcrEngine_Vtbl {
 }
 ::windows_core::imp::com_interface!(IOcrEngineStatics, IOcrEngineStatics_Vtbl, 0x5bffa85a_3384_3540_9940_699120d428a8);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IOcrEngineStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub MaxImageDimension: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -34,7 +32,6 @@ pub struct IOcrEngineStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IOcrLine, IOcrLine_Vtbl, 0x0043a16f_e31f_3a24_899c_d444bd088124);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IOcrLine_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -45,7 +42,6 @@ pub struct IOcrLine_Vtbl {
 }
 ::windows_core::imp::com_interface!(IOcrResult, IOcrResult_Vtbl, 0x9bd235b2_175b_3d6a_92e2_388c206e2f63);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IOcrResult_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -57,7 +53,6 @@ pub struct IOcrResult_Vtbl {
 }
 ::windows_core::imp::com_interface!(IOcrWord, IOcrWord_Vtbl, 0x3c2a477a_5cd9_3525_ba2a_23d1e0a68a1d);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IOcrWord_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub BoundingRect: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::Rect) -> ::windows_core::HRESULT,

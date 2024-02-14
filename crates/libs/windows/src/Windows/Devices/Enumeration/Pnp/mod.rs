@@ -1,6 +1,5 @@
 ::windows_core::imp::com_interface!(IPnpObject, IPnpObject_Vtbl, 0x95c66258_733b_4a8f_93a3_db078ac870c1);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPnpObject_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Type: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut PnpObjectType) -> ::windows_core::HRESULT,
@@ -13,7 +12,6 @@ pub struct IPnpObject_Vtbl {
 }
 ::windows_core::imp::com_interface!(IPnpObjectStatics, IPnpObjectStatics_Vtbl, 0xb3c32a3d_d168_4660_bbf3_a733b14b6e01);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPnpObjectStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -39,7 +37,6 @@ pub struct IPnpObjectStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IPnpObjectUpdate, IPnpObjectUpdate_Vtbl, 0x6f59e812_001e_4844_bcc6_432886856a17);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPnpObjectUpdate_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Type: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut PnpObjectType) -> ::windows_core::HRESULT,
@@ -51,7 +48,6 @@ pub struct IPnpObjectUpdate_Vtbl {
 }
 ::windows_core::imp::com_interface!(IPnpObjectWatcher, IPnpObjectWatcher_Vtbl, 0x83c95ca8_4772_4a7a_aca8_e48c42a89c44);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPnpObjectWatcher_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Added: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,

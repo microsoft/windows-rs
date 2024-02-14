@@ -1,6 +1,5 @@
 ::windows_core::imp::com_interface!(IContentRestrictionsBrowsePolicy, IContentRestrictionsBrowsePolicy_Vtbl, 0x8c0133a4_442e_461a_8757_fad2f5bd37e4);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IContentRestrictionsBrowsePolicy_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GeographicRegion: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -9,7 +8,6 @@ pub struct IContentRestrictionsBrowsePolicy_Vtbl {
 }
 ::windows_core::imp::com_interface!(IRatedContentDescription, IRatedContentDescription_Vtbl, 0x694866df_66b2_4dc3_96b1_f090eedee255);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRatedContentDescription_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Id: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -37,14 +35,12 @@ pub struct IRatedContentDescription_Vtbl {
 }
 ::windows_core::imp::com_interface!(IRatedContentDescriptionFactory, IRatedContentDescriptionFactory_Vtbl, 0x2e38df62_9b90_4fa6_89c1_4b8d2ffb3573);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRatedContentDescriptionFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, ::std::mem::MaybeUninit<::windows_core::HSTRING>, RatedContentCategory, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IRatedContentRestrictions, IRatedContentRestrictions_Vtbl, 0x3f7f23cb_ba07_4401_a49d_8b9222205723);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRatedContentRestrictions_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetBrowsePolicyAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -55,7 +51,6 @@ pub struct IRatedContentRestrictions_Vtbl {
 }
 ::windows_core::imp::com_interface!(IRatedContentRestrictionsFactory, IRatedContentRestrictionsFactory_Vtbl, 0xfb4b2996_c3bd_4910_9619_97cfd0694d56);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRatedContentRestrictionsFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateWithMaxAgeRating: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,

@@ -1,6 +1,5 @@
 ::windows_core::imp::com_interface!(IWiFiAdapter, IWiFiAdapter_Vtbl, 0xa6c4e423_3d75_43a4_b9de_11e26b72d9b0);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWiFiAdapter_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Networking_Connectivity")]
@@ -24,7 +23,6 @@ pub struct IWiFiAdapter_Vtbl {
 }
 ::windows_core::imp::com_interface!(IWiFiAdapter2, IWiFiAdapter2_Vtbl, 0x5bc4501d_81e4_453d_9430_1fcafbadd6b6);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWiFiAdapter2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetWpsConfigurationAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -35,7 +33,6 @@ pub struct IWiFiAdapter2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IWiFiAdapterStatics, IWiFiAdapterStatics_Vtbl, 0xda25fddd_d24c_43e3_aabd_c4659f730f99);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWiFiAdapterStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -48,7 +45,6 @@ pub struct IWiFiAdapterStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IWiFiAvailableNetwork, IWiFiAvailableNetwork_Vtbl, 0x26e96246_183e_4704_9826_71b4a2f0f668);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWiFiAvailableNetwork_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Uptime: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
@@ -68,14 +64,12 @@ pub struct IWiFiAvailableNetwork_Vtbl {
 }
 ::windows_core::imp::com_interface!(IWiFiConnectionResult, IWiFiConnectionResult_Vtbl, 0x143bdfd9_c37d_40be_a5c8_857bce85a931);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWiFiConnectionResult_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ConnectionStatus: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut WiFiConnectionStatus) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWiFiNetworkReport, IWiFiNetworkReport_Vtbl, 0x9524ded2_5911_445e_8194_be4f1a704895);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWiFiNetworkReport_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Timestamp: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::DateTime) -> ::windows_core::HRESULT,
@@ -86,7 +80,6 @@ pub struct IWiFiNetworkReport_Vtbl {
 }
 ::windows_core::imp::com_interface!(IWiFiOnDemandHotspotConnectTriggerDetails, IWiFiOnDemandHotspotConnectTriggerDetails_Vtbl, 0xa268eb58_68f5_59cf_8d38_35bf44b097ef);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWiFiOnDemandHotspotConnectTriggerDetails_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub RequestedNetwork: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -96,14 +89,12 @@ pub struct IWiFiOnDemandHotspotConnectTriggerDetails_Vtbl {
 }
 ::windows_core::imp::com_interface!(IWiFiOnDemandHotspotConnectionResult, IWiFiOnDemandHotspotConnectionResult_Vtbl, 0x911794a1_6c82_5de3_8a4a_f9ff22a4957a);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWiFiOnDemandHotspotConnectionResult_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut WiFiOnDemandHotspotConnectStatus) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWiFiOnDemandHotspotNetwork, IWiFiOnDemandHotspotNetwork_Vtbl, 0x18dc7115_a04e_507c_bbaf_b78369d29fa7);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWiFiOnDemandHotspotNetwork_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetProperties: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -112,7 +103,6 @@ pub struct IWiFiOnDemandHotspotNetwork_Vtbl {
 }
 ::windows_core::imp::com_interface!(IWiFiOnDemandHotspotNetworkProperties, IWiFiOnDemandHotspotNetworkProperties_Vtbl, 0xc810a1f2_c81d_5852_be50_e4bd4d81e98d);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWiFiOnDemandHotspotNetworkProperties_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub DisplayName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -138,14 +128,12 @@ pub struct IWiFiOnDemandHotspotNetworkProperties_Vtbl {
 }
 ::windows_core::imp::com_interface!(IWiFiOnDemandHotspotNetworkStatics, IWiFiOnDemandHotspotNetworkStatics_Vtbl, 0x00f5b8ac_80e7_5054_871c_8739f374e3c9);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWiFiOnDemandHotspotNetworkStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetOrCreateById: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWiFiWpsConfigurationResult, IWiFiWpsConfigurationResult_Vtbl, 0x67b49871_17ee_42d1_b14f_5a11f1226fb5);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWiFiWpsConfigurationResult_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut WiFiWpsConfigurationStatus) -> ::windows_core::HRESULT,

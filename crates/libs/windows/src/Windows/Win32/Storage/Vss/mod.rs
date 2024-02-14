@@ -22,7 +22,6 @@ impl IVssAdmin {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVssAdmin_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub RegisterProvider: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::GUID, ::windows_core::GUID, *const u16, VSS_PROVIDER_TYPE, *const u16, ::windows_core::GUID) -> ::windows_core::HRESULT,
@@ -59,7 +58,6 @@ impl IVssAdminEx {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVssAdminEx_Vtbl {
     pub base__: IVssAdmin_Vtbl,
     pub GetProviderCapability: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::GUID, *mut u64) -> ::windows_core::HRESULT,
@@ -80,7 +78,6 @@ impl IVssAsync {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVssAsync_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Cancel: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -248,7 +245,6 @@ impl IVssComponent {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVssComponent_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetLogicalPath: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
@@ -482,7 +478,6 @@ impl IVssComponentEx {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVssComponentEx_Vtbl {
     pub base__: IVssComponent_Vtbl,
     pub SetPrepareForBackupFailureMsg: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
@@ -694,7 +689,6 @@ impl IVssComponentEx2 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVssComponentEx2_Vtbl {
     pub base__: IVssComponentEx_Vtbl,
     pub SetFailure: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::HRESULT, ::windows_core::HRESULT, ::windows_core::PCWSTR, u32) -> ::windows_core::HRESULT,
@@ -753,7 +747,6 @@ impl IVssCreateExpressWriterMetadata {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVssCreateExpressWriterMetadata_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub AddExcludeFiles: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, ::windows_core::PCWSTR, u8) -> ::windows_core::HRESULT,
@@ -854,7 +847,6 @@ impl IVssCreateWriterMetadata {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVssCreateWriterMetadata_Vtbl {
     pub AddIncludeFiles: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, ::windows_core::PCWSTR, u8, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
     pub AddExcludeFiles: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, ::windows_core::PCWSTR, u8) -> ::windows_core::HRESULT,
@@ -899,7 +891,6 @@ impl IVssDifferentialSoftwareSnapshotMgmt {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVssDifferentialSoftwareSnapshotMgmt_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub AddDiffArea: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const u16, *const u16, i64) -> ::windows_core::HRESULT,
@@ -952,7 +943,6 @@ impl IVssDifferentialSoftwareSnapshotMgmt2 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVssDifferentialSoftwareSnapshotMgmt2_Vtbl {
     pub base__: IVssDifferentialSoftwareSnapshotMgmt_Vtbl,
     pub ChangeDiffAreaMaximumSizeEx: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const u16, *const u16, i64, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
@@ -1018,7 +1008,6 @@ impl IVssDifferentialSoftwareSnapshotMgmt3 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVssDifferentialSoftwareSnapshotMgmt3_Vtbl {
     pub base__: IVssDifferentialSoftwareSnapshotMgmt2_Vtbl,
     pub SetVolumeProtectLevel: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const u16, VSS_PROTECTION_LEVEL) -> ::windows_core::HRESULT,
@@ -1044,7 +1033,6 @@ impl IVssEnumMgmtObject {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVssEnumMgmtObject_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut VSS_MGMT_OBJECT_PROP, *mut u32) -> ::windows_core::HRESULT,
@@ -1069,7 +1057,6 @@ impl IVssEnumObject {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVssEnumObject_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut VSS_OBJECT_PROP, *mut u32) -> ::windows_core::HRESULT,
@@ -1101,7 +1088,6 @@ impl IVssExpressWriter {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVssExpressWriter_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub CreateMetadata: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::GUID, ::windows_core::PCWSTR, VSS_USAGE_TYPE, u32, u32, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1146,7 +1132,6 @@ impl IVssFileShareSnapshotProvider {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVssFileShareSnapshotProvider_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub SetContext: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
@@ -1187,7 +1172,6 @@ impl IVssHardwareSnapshotProvider {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVssHardwareSnapshotProvider_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Storage_VirtualDiskService")]
@@ -1261,7 +1245,6 @@ impl IVssHardwareSnapshotProviderEx {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVssHardwareSnapshotProviderEx_Vtbl {
     pub base__: IVssHardwareSnapshotProvider_Vtbl,
     pub GetProviderCapabilities: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u64) -> ::windows_core::HRESULT,
@@ -1304,7 +1287,6 @@ impl IVssProviderCreateSnapshotSet {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVssProviderCreateSnapshotSet_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub EndPrepareSnapshots: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::GUID) -> ::windows_core::HRESULT,
@@ -1332,7 +1314,6 @@ impl IVssProviderNotifications {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVssProviderNotifications_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub OnLoad: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1355,7 +1336,6 @@ impl IVssSnapshotMgmt {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVssSnapshotMgmt_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetProviderMgmtInterface: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::GUID, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1371,7 +1351,6 @@ impl IVssSnapshotMgmt2 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVssSnapshotMgmt2_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetMinDiffAreaSize: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i64) -> ::windows_core::HRESULT,
@@ -1420,7 +1399,6 @@ impl IVssSoftwareSnapshotProvider {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVssSoftwareSnapshotProvider_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub SetContext: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
@@ -1448,7 +1426,6 @@ impl IVssWMDependency {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVssWMDependency_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetWriterId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
@@ -1480,7 +1457,6 @@ impl IVssWMFiledesc {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVssWMFiledesc_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetPath: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
@@ -1503,7 +1479,6 @@ impl IVssWriterComponents {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVssWriterComponents_Vtbl {
     pub GetComponentCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
     pub GetWriterInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::GUID, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,

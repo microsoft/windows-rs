@@ -2,7 +2,6 @@
 pub mod Provider;
 ::windows_core::imp::com_interface!(IPaymentAddress, IPaymentAddress_Vtbl, 0x5f2264e9_6f3a_4166_a018_0a0b06bb32b5);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPaymentAddress_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Country: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -40,21 +39,18 @@ pub struct IPaymentAddress_Vtbl {
 }
 ::windows_core::imp::com_interface!(IPaymentCanMakePaymentResult, IPaymentCanMakePaymentResult_Vtbl, 0x7696fe55_d5d3_4d3d_b345_45591759c510);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPaymentCanMakePaymentResult_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut PaymentCanMakePaymentResultStatus) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IPaymentCanMakePaymentResultFactory, IPaymentCanMakePaymentResultFactory_Vtbl, 0xbbdcaa3e_7d49_4f69_aa53_2a0f8164b7c9);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPaymentCanMakePaymentResultFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut ::core::ffi::c_void, PaymentCanMakePaymentResultStatus, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IPaymentCurrencyAmount, IPaymentCurrencyAmount_Vtbl, 0xe3a3e9e0_b41f_4987_bdcb_071331f2daa4);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPaymentCurrencyAmount_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Currency: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -66,7 +62,6 @@ pub struct IPaymentCurrencyAmount_Vtbl {
 }
 ::windows_core::imp::com_interface!(IPaymentCurrencyAmountFactory, IPaymentCurrencyAmountFactory_Vtbl, 0x3257d338_140c_4575_8535_f773178c09a7);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPaymentCurrencyAmountFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -74,7 +69,6 @@ pub struct IPaymentCurrencyAmountFactory_Vtbl {
 }
 ::windows_core::imp::com_interface!(IPaymentDetails, IPaymentDetails_Vtbl, 0x53bb2d7d_e0eb_4053_8eae_ce7c48e02945);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPaymentDetails_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Total: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -106,7 +100,6 @@ pub struct IPaymentDetails_Vtbl {
 }
 ::windows_core::imp::com_interface!(IPaymentDetailsFactory, IPaymentDetailsFactory_Vtbl, 0xcfe8afee_c0ea_4ca1_8bc7_6de67b1f3763);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPaymentDetailsFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -117,7 +110,6 @@ pub struct IPaymentDetailsFactory_Vtbl {
 }
 ::windows_core::imp::com_interface!(IPaymentDetailsModifier, IPaymentDetailsModifier_Vtbl, 0xbe1c7d65_4323_41d7_b305_dfcb765f69de);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPaymentDetailsModifier_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub JsonData: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -133,7 +125,6 @@ pub struct IPaymentDetailsModifier_Vtbl {
 }
 ::windows_core::imp::com_interface!(IPaymentDetailsModifierFactory, IPaymentDetailsModifierFactory_Vtbl, 0x79005286_54de_429c_9e4f_5dce6e10ebce);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPaymentDetailsModifierFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -151,7 +142,6 @@ pub struct IPaymentDetailsModifierFactory_Vtbl {
 }
 ::windows_core::imp::com_interface!(IPaymentItem, IPaymentItem_Vtbl, 0x685ac88b_79b2_4b76_9e03_a876223dfe72);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPaymentItem_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Label: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -163,14 +153,12 @@ pub struct IPaymentItem_Vtbl {
 }
 ::windows_core::imp::com_interface!(IPaymentItemFactory, IPaymentItemFactory_Vtbl, 0xc6ab7ad8_2503_4d1d_a778_02b2e5927b2c);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPaymentItemFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IPaymentMediator, IPaymentMediator_Vtbl, 0xfb0ee829_ec0c_449a_83da_7ae3073365a2);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPaymentMediator_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -182,14 +170,12 @@ pub struct IPaymentMediator_Vtbl {
 }
 ::windows_core::imp::com_interface!(IPaymentMediator2, IPaymentMediator2_Vtbl, 0xceef98f1_e407_4128_8e73_d93d5f822786);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPaymentMediator2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CanMakePaymentAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IPaymentMerchantInfo, IPaymentMerchantInfo_Vtbl, 0x63445050_0e94_4ed6_aacb_e6012bd327a7);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPaymentMerchantInfo_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub PackageFullName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -197,14 +183,12 @@ pub struct IPaymentMerchantInfo_Vtbl {
 }
 ::windows_core::imp::com_interface!(IPaymentMerchantInfoFactory, IPaymentMerchantInfoFactory_Vtbl, 0x9e89ced3_ccb7_4167_a8ec_e10ae96dbcd1);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPaymentMerchantInfoFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IPaymentMethodData, IPaymentMethodData_Vtbl, 0xd1d3caf4_de98_4129_b1b7_c3ad86237bf4);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPaymentMethodData_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -215,7 +199,6 @@ pub struct IPaymentMethodData_Vtbl {
 }
 ::windows_core::imp::com_interface!(IPaymentMethodDataFactory, IPaymentMethodDataFactory_Vtbl, 0x8addd27f_9baa_4a82_8342_a8210992a36b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPaymentMethodDataFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -229,7 +212,6 @@ pub struct IPaymentMethodDataFactory_Vtbl {
 }
 ::windows_core::imp::com_interface!(IPaymentOptions, IPaymentOptions_Vtbl, 0xaaa30854_1f2b_4365_8251_01b58915a5bc);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPaymentOptions_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub RequestPayerEmail: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut PaymentOptionPresence) -> ::windows_core::HRESULT,
@@ -245,7 +227,6 @@ pub struct IPaymentOptions_Vtbl {
 }
 ::windows_core::imp::com_interface!(IPaymentRequest, IPaymentRequest_Vtbl, 0xb74942e1_ed7b_47eb_bc08_78cc5d6896b6);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPaymentRequest_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub MerchantInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -258,14 +239,12 @@ pub struct IPaymentRequest_Vtbl {
 }
 ::windows_core::imp::com_interface!(IPaymentRequest2, IPaymentRequest2_Vtbl, 0xb63ccfb5_5998_493e_a04c_67048a50f141);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPaymentRequest2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Id: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IPaymentRequestChangedArgs, IPaymentRequestChangedArgs_Vtbl, 0xc6145e44_cd8b_4be4_b555_27c99194c0c5);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPaymentRequestChangedArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ChangeKind: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut PaymentRequestChangeKind) -> ::windows_core::HRESULT,
@@ -275,7 +254,6 @@ pub struct IPaymentRequestChangedArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IPaymentRequestChangedResult, IPaymentRequestChangedResult_Vtbl, 0xdf699e5c_16c4_47ad_9401_8440ec0757db);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPaymentRequestChangedResult_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ChangeAcceptedByMerchant: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -287,7 +265,6 @@ pub struct IPaymentRequestChangedResult_Vtbl {
 }
 ::windows_core::imp::com_interface!(IPaymentRequestChangedResultFactory, IPaymentRequestChangedResultFactory_Vtbl, 0x08740f56_1d33_4431_814b_67ea24bf21db);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPaymentRequestChangedResultFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut ::core::ffi::c_void, bool, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -295,7 +272,6 @@ pub struct IPaymentRequestChangedResultFactory_Vtbl {
 }
 ::windows_core::imp::com_interface!(IPaymentRequestFactory, IPaymentRequestFactory_Vtbl, 0x3e8a79dc_6b74_42d3_b103_f0de35fb1848);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPaymentRequestFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -313,7 +289,6 @@ pub struct IPaymentRequestFactory_Vtbl {
 }
 ::windows_core::imp::com_interface!(IPaymentRequestFactory2, IPaymentRequestFactory2_Vtbl, 0xe6ce1325_a506_4372_b7ef_1a031d5662d1);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPaymentRequestFactory2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -323,7 +298,6 @@ pub struct IPaymentRequestFactory2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IPaymentRequestSubmitResult, IPaymentRequestSubmitResult_Vtbl, 0x7b9c3912_30f2_4e90_b249_8ce7d78ffe56);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPaymentRequestSubmitResult_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut PaymentRequestStatus) -> ::windows_core::HRESULT,
@@ -331,7 +305,6 @@ pub struct IPaymentRequestSubmitResult_Vtbl {
 }
 ::windows_core::imp::com_interface!(IPaymentResponse, IPaymentResponse_Vtbl, 0xe1389457_8bd2_4888_9fa8_97985545108e);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPaymentResponse_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub PaymentToken: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -344,7 +317,6 @@ pub struct IPaymentResponse_Vtbl {
 }
 ::windows_core::imp::com_interface!(IPaymentShippingOption, IPaymentShippingOption_Vtbl, 0x13372ada_9753_4574_8966_93145a76c7f9);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPaymentShippingOption_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Label: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -358,7 +330,6 @@ pub struct IPaymentShippingOption_Vtbl {
 }
 ::windows_core::imp::com_interface!(IPaymentShippingOptionFactory, IPaymentShippingOptionFactory_Vtbl, 0x5de5f917_b2d7_446b_9d73_6123fbca3bc6);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPaymentShippingOptionFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -367,7 +338,6 @@ pub struct IPaymentShippingOptionFactory_Vtbl {
 }
 ::windows_core::imp::com_interface!(IPaymentToken, IPaymentToken_Vtbl, 0xbbcac013_ccd0_41f2_b2a1_0a2e4b5dce25);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPaymentToken_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub PaymentMethodId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -375,7 +345,6 @@ pub struct IPaymentToken_Vtbl {
 }
 ::windows_core::imp::com_interface!(IPaymentTokenFactory, IPaymentTokenFactory_Vtbl, 0x988cd7aa_4753_4904_8373_dd7b08b995c1);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPaymentTokenFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1822,7 +1791,6 @@ impl ::windows_core::RuntimeType for PaymentRequestChangedHandler {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct PaymentRequestChangedHandler_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,

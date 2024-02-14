@@ -2,7 +2,6 @@
 ::windows_core::imp::com_interface!(IBackgroundMediaPlayerStatics, IBackgroundMediaPlayerStatics_Vtbl, 0x856ddbc1_55f7_471f_a0f2_68ac4c904592);
 #[cfg(feature = "deprecated")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBackgroundMediaPlayerStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "deprecated")]
@@ -44,7 +43,6 @@ pub struct IBackgroundMediaPlayerStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICurrentMediaPlaybackItemChangedEventArgs, ICurrentMediaPlaybackItemChangedEventArgs_Vtbl, 0x1743a892_5c43_4a15_967a_572d2d0f26c6);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICurrentMediaPlaybackItemChangedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub NewItem: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -52,14 +50,12 @@ pub struct ICurrentMediaPlaybackItemChangedEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICurrentMediaPlaybackItemChangedEventArgs2, ICurrentMediaPlaybackItemChangedEventArgs2_Vtbl, 0x1d80a51e_996e_40a9_be48_e66ec90b2b7d);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICurrentMediaPlaybackItemChangedEventArgs2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Reason: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut MediaPlaybackItemChangedReason) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IMediaBreak, IMediaBreak_Vtbl, 0x714be270_0def_4ebc_a489_6b34930e1558);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaBreak_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub PlaybackList: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -74,14 +70,12 @@ pub struct IMediaBreak_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMediaBreakEndedEventArgs, IMediaBreakEndedEventArgs_Vtbl, 0x32b93276_1c5d_4fee_8732_236dc3a88580);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaBreakEndedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub MediaBreak: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IMediaBreakFactory, IMediaBreakFactory_Vtbl, 0x4516e002_18e0_4079_8b5f_d33495c15d2e);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaBreakFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut ::core::ffi::c_void, MediaBreakInsertionMethod, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -89,7 +83,6 @@ pub struct IMediaBreakFactory_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMediaBreakManager, IMediaBreakManager_Vtbl, 0xa854ddb1_feb4_4d9b_9d97_0fdbe58e5e39);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaBreakManager_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub BreaksSeekedOver: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
@@ -107,7 +100,6 @@ pub struct IMediaBreakManager_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMediaBreakSchedule, IMediaBreakSchedule_Vtbl, 0xa19a5813_98b6_41d8_83da_f971d22b7bba);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaBreakSchedule_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ScheduleChanged: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
@@ -126,7 +118,6 @@ pub struct IMediaBreakSchedule_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMediaBreakSeekedOverEventArgs, IMediaBreakSeekedOverEventArgs_Vtbl, 0xe5aa6746_0606_4492_b9d3_c3c8fde0a4ea);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaBreakSeekedOverEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -138,14 +129,12 @@ pub struct IMediaBreakSeekedOverEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMediaBreakSkippedEventArgs, IMediaBreakSkippedEventArgs_Vtbl, 0x6ee94c05_2f54_4a3e_a3ab_24c3b270b4a3);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaBreakSkippedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub MediaBreak: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IMediaBreakStartedEventArgs, IMediaBreakStartedEventArgs_Vtbl, 0xa87efe71_dfd4_454a_956e_0a4a648395f8);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaBreakStartedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub MediaBreak: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -179,7 +168,6 @@ impl ::windows_core::RuntimeType for IMediaEnginePlaybackSource {
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaEnginePlaybackSource_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "deprecated")]
@@ -193,7 +181,6 @@ pub struct IMediaEnginePlaybackSource_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMediaItemDisplayProperties, IMediaItemDisplayProperties_Vtbl, 0x1e3c1b48_7097_4384_a217_c1291dfa8c16);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaItemDisplayProperties_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Type: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::MediaPlaybackType) -> ::windows_core::HRESULT,
@@ -212,7 +199,6 @@ pub struct IMediaItemDisplayProperties_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMediaPlaybackCommandManager, IMediaPlaybackCommandManager_Vtbl, 0x5acee5a6_5cb6_4a5a_8521_cc86b1c1ed37);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaPlaybackCommandManager_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsEnabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -251,7 +237,6 @@ pub struct IMediaPlaybackCommandManager_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs, IMediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs_Vtbl, 0x3d6f4f23_5230_4411_a0e9_bad94c2a045c);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Handled: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -261,7 +246,6 @@ pub struct IMediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMediaPlaybackCommandManagerCommandBehavior, IMediaPlaybackCommandManagerCommandBehavior_Vtbl, 0x786c1e78_ce78_4a10_afd6_843fcbb90c2e);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaPlaybackCommandManagerCommandBehavior_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CommandManager: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -273,7 +257,6 @@ pub struct IMediaPlaybackCommandManagerCommandBehavior_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMediaPlaybackCommandManagerFastForwardReceivedEventArgs, IMediaPlaybackCommandManagerFastForwardReceivedEventArgs_Vtbl, 0x30f064d9_b491_4d0a_bc21_3098bd1332e9);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaPlaybackCommandManagerFastForwardReceivedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Handled: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -282,7 +265,6 @@ pub struct IMediaPlaybackCommandManagerFastForwardReceivedEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMediaPlaybackCommandManagerNextReceivedEventArgs, IMediaPlaybackCommandManagerNextReceivedEventArgs_Vtbl, 0xe1504433_a2b0_45d4_b9de_5f42ac14a839);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaPlaybackCommandManagerNextReceivedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Handled: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -291,7 +273,6 @@ pub struct IMediaPlaybackCommandManagerNextReceivedEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMediaPlaybackCommandManagerPauseReceivedEventArgs, IMediaPlaybackCommandManagerPauseReceivedEventArgs_Vtbl, 0x5ceccd1c_c25c_4221_b16c_c3c98ce012d6);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaPlaybackCommandManagerPauseReceivedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Handled: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -300,7 +281,6 @@ pub struct IMediaPlaybackCommandManagerPauseReceivedEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMediaPlaybackCommandManagerPlayReceivedEventArgs, IMediaPlaybackCommandManagerPlayReceivedEventArgs_Vtbl, 0x9af0004e_578b_4c56_a006_16159d888a48);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaPlaybackCommandManagerPlayReceivedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Handled: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -309,7 +289,6 @@ pub struct IMediaPlaybackCommandManagerPlayReceivedEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMediaPlaybackCommandManagerPositionReceivedEventArgs, IMediaPlaybackCommandManagerPositionReceivedEventArgs_Vtbl, 0x5591a754_d627_4bdd_a90d_86a015b24902);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaPlaybackCommandManagerPositionReceivedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Handled: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -319,7 +298,6 @@ pub struct IMediaPlaybackCommandManagerPositionReceivedEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMediaPlaybackCommandManagerPreviousReceivedEventArgs, IMediaPlaybackCommandManagerPreviousReceivedEventArgs_Vtbl, 0x525e3081_4632_4f76_99b1_d771623f6287);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaPlaybackCommandManagerPreviousReceivedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Handled: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -328,7 +306,6 @@ pub struct IMediaPlaybackCommandManagerPreviousReceivedEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMediaPlaybackCommandManagerRateReceivedEventArgs, IMediaPlaybackCommandManagerRateReceivedEventArgs_Vtbl, 0x18ea3939_4a16_4169_8b05_3eb9f5ff78eb);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaPlaybackCommandManagerRateReceivedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Handled: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -338,7 +315,6 @@ pub struct IMediaPlaybackCommandManagerRateReceivedEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMediaPlaybackCommandManagerRewindReceivedEventArgs, IMediaPlaybackCommandManagerRewindReceivedEventArgs_Vtbl, 0x9f085947_a3c0_425d_aaef_97ba7898b141);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaPlaybackCommandManagerRewindReceivedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Handled: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -347,7 +323,6 @@ pub struct IMediaPlaybackCommandManagerRewindReceivedEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMediaPlaybackCommandManagerShuffleReceivedEventArgs, IMediaPlaybackCommandManagerShuffleReceivedEventArgs_Vtbl, 0x50a05cef_63ee_4a96_b7b5_fee08b9ff90c);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaPlaybackCommandManagerShuffleReceivedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Handled: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -357,7 +332,6 @@ pub struct IMediaPlaybackCommandManagerShuffleReceivedEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMediaPlaybackItem, IMediaPlaybackItem_Vtbl, 0x047097d2_e4af_48ab_b283_6929e674ece2);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaPlaybackItem_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -394,7 +368,6 @@ pub struct IMediaPlaybackItem_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMediaPlaybackItem2, IMediaPlaybackItem2_Vtbl, 0xd859d171_d7ef_4b81_ac1f_f40493cbb091);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaPlaybackItem2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub BreakSchedule: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -407,7 +380,6 @@ pub struct IMediaPlaybackItem2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMediaPlaybackItem3, IMediaPlaybackItem3_Vtbl, 0x0d328220_b80a_4d09_9ff8_f87094a1c831);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaPlaybackItem3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsDisabledInPlaybackList: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -418,7 +390,6 @@ pub struct IMediaPlaybackItem3_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMediaPlaybackItemError, IMediaPlaybackItemError_Vtbl, 0x69fbef2b_dcd6_4df9_a450_dbf4c6f1c2c2);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaPlaybackItemError_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ErrorCode: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut MediaPlaybackItemErrorCode) -> ::windows_core::HRESULT,
@@ -426,7 +397,6 @@ pub struct IMediaPlaybackItemError_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMediaPlaybackItemFactory, IMediaPlaybackItemFactory_Vtbl, 0x7133fce1_1769_4ff9_a7c1_38d2c4d42360);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaPlaybackItemFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Media_Core")]
@@ -436,7 +406,6 @@ pub struct IMediaPlaybackItemFactory_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMediaPlaybackItemFactory2, IMediaPlaybackItemFactory2_Vtbl, 0xd77cdf3a_b947_4972_b35d_adfb931a71e6);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaPlaybackItemFactory2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Media_Core")]
@@ -450,7 +419,6 @@ pub struct IMediaPlaybackItemFactory2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMediaPlaybackItemFailedEventArgs, IMediaPlaybackItemFailedEventArgs_Vtbl, 0x7703134a_e9a7_47c3_862c_c656d30683d4);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaPlaybackItemFailedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Item: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -458,14 +426,12 @@ pub struct IMediaPlaybackItemFailedEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMediaPlaybackItemOpenedEventArgs, IMediaPlaybackItemOpenedEventArgs_Vtbl, 0xcbd9bd82_3037_4fbe_ae8f_39fc39edf4ef);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaPlaybackItemOpenedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Item: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IMediaPlaybackItemStatics, IMediaPlaybackItemStatics_Vtbl, 0x4b1be7f4_4345_403c_8a67_f5de91df4c86);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaPlaybackItemStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Media_Core")]
@@ -475,7 +441,6 @@ pub struct IMediaPlaybackItemStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMediaPlaybackList, IMediaPlaybackList_Vtbl, 0x7f77ee9c_dc42_4e26_a98d_7850df8ec925);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaPlaybackList_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ItemFailed: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
@@ -500,7 +465,6 @@ pub struct IMediaPlaybackList_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMediaPlaybackList2, IMediaPlaybackList2_Vtbl, 0x0e09b478_600a_4274_a14b_0b6723d0f48b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaPlaybackList2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub MaxPrefetchTime: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -518,7 +482,6 @@ pub struct IMediaPlaybackList2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMediaPlaybackList3, IMediaPlaybackList3_Vtbl, 0xdd24bba9_bc47_4463_aa90_c18b7e5ffde1);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaPlaybackList3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub MaxPlayedItemsToKeepOpen: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -526,7 +489,6 @@ pub struct IMediaPlaybackList3_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMediaPlaybackSession, IMediaPlaybackSession_Vtbl, 0xc32b683d_0407_41ba_8946_8b345a5a5435);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaPlaybackSession_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub PlaybackStateChanged: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
@@ -576,7 +538,6 @@ pub struct IMediaPlaybackSession_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMediaPlaybackSession2, IMediaPlaybackSession2_Vtbl, 0xf8ba7c79_1fc8_4097_ad70_c0fa18cc0050);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaPlaybackSession2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub BufferedRangesChanged: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
@@ -606,7 +567,6 @@ pub struct IMediaPlaybackSession2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMediaPlaybackSession3, IMediaPlaybackSession3_Vtbl, 0x7ba2b41a_a3e2_405f_b77b_a4812c238b66);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaPlaybackSession3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Media_MediaProperties")]
@@ -621,14 +581,12 @@ pub struct IMediaPlaybackSession3_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMediaPlaybackSessionBufferingStartedEventArgs, IMediaPlaybackSessionBufferingStartedEventArgs_Vtbl, 0xcd6aafed_74e2_43b5_b115_76236c33791a);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaPlaybackSessionBufferingStartedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsPlaybackInterruption: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IMediaPlaybackSessionOutputDegradationPolicyState, IMediaPlaybackSessionOutputDegradationPolicyState_Vtbl, 0x558e727d_f633_49f9_965a_abaa1db709be);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaPlaybackSessionOutputDegradationPolicyState_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub VideoConstrictionReason: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut MediaPlaybackSessionVideoConstrictionReason) -> ::windows_core::HRESULT,
@@ -640,13 +598,11 @@ impl ::windows_core::RuntimeType for IMediaPlaybackSource {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaPlaybackSource_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
 }
 ::windows_core::imp::com_interface!(IMediaPlaybackSphericalVideoProjection, IMediaPlaybackSphericalVideoProjection_Vtbl, 0xd405b37c_6f0e_4661_b8ee_d487ba9752d5);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaPlaybackSphericalVideoProjection_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsEnabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -674,7 +630,6 @@ pub struct IMediaPlaybackSphericalVideoProjection_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMediaPlaybackTimedMetadataTrackList, IMediaPlaybackTimedMetadataTrackList_Vtbl, 0x72b41319_bbfb_46a3_9372_9c9c744b9438);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaPlaybackTimedMetadataTrackList_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
@@ -687,7 +642,6 @@ pub struct IMediaPlaybackTimedMetadataTrackList_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMediaPlayer, IMediaPlayer_Vtbl, 0x381a83cb_6fff_499b_8d64_2885dfc1249e);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaPlayer_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub AutoPlay: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -807,7 +761,6 @@ pub struct IMediaPlayer_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMediaPlayer2, IMediaPlayer2_Vtbl, 0x3c841218_2123_4fc5_9082_2f883f77bdf5);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaPlayer2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SystemMediaTransportControls: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -818,7 +771,6 @@ pub struct IMediaPlayer2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMediaPlayer3, IMediaPlayer3_Vtbl, 0xee0660da_031b_4feb_bd9b_92e0a0a8d299);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaPlayer3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsMutedChanged: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
@@ -855,7 +807,6 @@ pub struct IMediaPlayer3_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMediaPlayer4, IMediaPlayer4_Vtbl, 0x80035db0_7448_4770_afcf_2a57450914c5);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaPlayer4_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SetSurfaceSize: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::Size) -> ::windows_core::HRESULT,
@@ -866,7 +817,6 @@ pub struct IMediaPlayer4_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMediaPlayer5, IMediaPlayer5_Vtbl, 0xcfe537fd_f86a_4446_bf4d_c8e792b7b4b3);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaPlayer5_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub VideoFrameAvailable: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
@@ -888,7 +838,6 @@ pub struct IMediaPlayer5_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMediaPlayer6, IMediaPlayer6_Vtbl, 0xe0caa086_ae65_414c_b010_8bc55f00e692);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaPlayer6_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SubtitleFrameChanged: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
@@ -904,7 +853,6 @@ pub struct IMediaPlayer6_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMediaPlayer7, IMediaPlayer7_Vtbl, 0x5d1dc478_4500_4531_b3f4_777a71491f7f);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaPlayer7_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Media_Audio")]
@@ -914,7 +862,6 @@ pub struct IMediaPlayer7_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMediaPlayerDataReceivedEventArgs, IMediaPlayerDataReceivedEventArgs_Vtbl, 0xc75a9405_c801_412a_835b_83fc0e622a8e);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaPlayerDataReceivedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -924,7 +871,6 @@ pub struct IMediaPlayerDataReceivedEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMediaPlayerEffects, IMediaPlayerEffects_Vtbl, 0x85a1deda_cab6_4cc0_8be3_6035f4de2591);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaPlayerEffects_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -935,7 +881,6 @@ pub struct IMediaPlayerEffects_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMediaPlayerEffects2, IMediaPlayerEffects2_Vtbl, 0xfa419a79_1bbe_46c5_ae1f_8ee69fb3c2c7);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaPlayerEffects2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -945,7 +890,6 @@ pub struct IMediaPlayerEffects2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMediaPlayerFailedEventArgs, IMediaPlayerFailedEventArgs_Vtbl, 0x2744e9b9_a7e3_4f16_bac4_7914ebc08301);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaPlayerFailedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Error: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut MediaPlayerError) -> ::windows_core::HRESULT,
@@ -954,14 +898,12 @@ pub struct IMediaPlayerFailedEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMediaPlayerRateChangedEventArgs, IMediaPlayerRateChangedEventArgs_Vtbl, 0x40600d58_3b61_4bb2_989f_fc65608b6cab);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaPlayerRateChangedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub NewRate: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f64) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IMediaPlayerSource, IMediaPlayerSource_Vtbl, 0xbd4f8897_1423_4c3e_82c5_0fb1af94f715);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaPlayerSource_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Media_Protection")]
@@ -987,7 +929,6 @@ pub struct IMediaPlayerSource_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMediaPlayerSource2, IMediaPlayerSource2_Vtbl, 0x82449b9f_7322_4c0b_b03b_3e69a48260c5);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaPlayerSource2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Source: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -995,7 +936,6 @@ pub struct IMediaPlayerSource2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMediaPlayerSurface, IMediaPlayerSurface_Vtbl, 0x0ed653bc_b736_49c3_830b_764a3845313a);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaPlayerSurface_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "UI_Composition")]
@@ -1010,7 +950,6 @@ pub struct IMediaPlayerSurface_Vtbl {
 }
 ::windows_core::imp::com_interface!(IPlaybackMediaMarker, IPlaybackMediaMarker_Vtbl, 0xc4d22f5c_3c1c_4444_b6b9_778b0422d41a);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPlaybackMediaMarker_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Time: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
@@ -1019,7 +958,6 @@ pub struct IPlaybackMediaMarker_Vtbl {
 }
 ::windows_core::imp::com_interface!(IPlaybackMediaMarkerFactory, IPlaybackMediaMarkerFactory_Vtbl, 0x8c530a78_e0ae_4e1a_a8c8_e23f982a937b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPlaybackMediaMarkerFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateFromTime: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::TimeSpan, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1027,14 +965,12 @@ pub struct IPlaybackMediaMarkerFactory_Vtbl {
 }
 ::windows_core::imp::com_interface!(IPlaybackMediaMarkerReachedEventArgs, IPlaybackMediaMarkerReachedEventArgs_Vtbl, 0x578cd1b9_90e2_4e60_abc4_8740b01f6196);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPlaybackMediaMarkerReachedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub PlaybackMediaMarker: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IPlaybackMediaMarkerSequence, IPlaybackMediaMarkerSequence_Vtbl, 0xf2810cee_638b_46cf_8817_1d111fe9d8c4);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPlaybackMediaMarkerSequence_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Size: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -1043,7 +979,6 @@ pub struct IPlaybackMediaMarkerSequence_Vtbl {
 }
 ::windows_core::imp::com_interface!(ITimedMetadataPresentationModeChangedEventArgs, ITimedMetadataPresentationModeChangedEventArgs_Vtbl, 0xd1636099_65df_45ae_8cef_dc0b53fdc2bb);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITimedMetadataPresentationModeChangedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Media_Core")]

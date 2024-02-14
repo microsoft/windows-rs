@@ -1,6 +1,5 @@
 ::windows_core::imp::com_interface!(IAudioRoutingManager, IAudioRoutingManager_Vtbl, 0x79340d20_71cc_4526_9f29_fc8d2486418b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAudioRoutingManager_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetAudioEndpoint: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut AudioRoutingEndpoint) -> ::windows_core::HRESULT,
@@ -11,7 +10,6 @@ pub struct IAudioRoutingManager_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAudioRoutingManagerStatics, IAudioRoutingManagerStatics_Vtbl, 0x977fb2a4_5590_4a6f_adde_6a3d0ad58250);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAudioRoutingManagerStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetDefault: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,

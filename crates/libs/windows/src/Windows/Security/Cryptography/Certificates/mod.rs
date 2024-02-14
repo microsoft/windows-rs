@@ -1,6 +1,5 @@
 ::windows_core::imp::com_interface!(ICertificate, ICertificate_Vtbl, 0x333f740c_04d8_43b3_b278_8c5fcc9be5a0);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICertificate_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -33,7 +32,6 @@ pub struct ICertificate_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICertificate2, ICertificate2_Vtbl, 0x17b8374c_8a25_4d96_a492_8fc29ac4fda6);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICertificate2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsSecurityDeviceBound: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -45,7 +43,6 @@ pub struct ICertificate2_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICertificate3, ICertificate3_Vtbl, 0xbe51a966_ae5f_4652_ace7_c6d7e7724cf3);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICertificate3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsPerUser: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -54,7 +51,6 @@ pub struct ICertificate3_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICertificateChain, ICertificateChain_Vtbl, 0x20bf5385_3691_4501_a62c_fd97278b31ee);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICertificateChain_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Validate: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ChainValidationResult) -> ::windows_core::HRESULT,
@@ -66,7 +62,6 @@ pub struct ICertificateChain_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICertificateEnrollmentManagerStatics, ICertificateEnrollmentManagerStatics_Vtbl, 0x8846ef3f_a986_48fb_9fd7_9aec06935bf1);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICertificateEnrollmentManagerStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateRequestAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -75,7 +70,6 @@ pub struct ICertificateEnrollmentManagerStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICertificateEnrollmentManagerStatics2, ICertificateEnrollmentManagerStatics2_Vtbl, 0xdc5b1c33_6429_4014_999c_5d9735802d1d);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICertificateEnrollmentManagerStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub UserCertificateEnrollmentManager: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -83,14 +77,12 @@ pub struct ICertificateEnrollmentManagerStatics2_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICertificateEnrollmentManagerStatics3, ICertificateEnrollmentManagerStatics3_Vtbl, 0xfdec82be_617c_425a_b72d_398b26ac7264);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICertificateEnrollmentManagerStatics3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ImportPfxDataToKspWithParametersAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ICertificateExtension, ICertificateExtension_Vtbl, 0x84cf0656_a9e6_454d_8e45_2ea7c4bcd53b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICertificateExtension_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ObjectId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -103,7 +95,6 @@ pub struct ICertificateExtension_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICertificateFactory, ICertificateFactory_Vtbl, 0x17b4221c_4baf_44a2_9608_04fb62b16942);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICertificateFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -113,7 +104,6 @@ pub struct ICertificateFactory_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICertificateKeyUsages, ICertificateKeyUsages_Vtbl, 0x6ac6206f_e1cf_486a_b485_a69c83e46fd1);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICertificateKeyUsages_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub EncipherOnly: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -135,7 +125,6 @@ pub struct ICertificateKeyUsages_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICertificateQuery, ICertificateQuery_Vtbl, 0x5b082a31_a728_4916_b5ee_ffcb8acf2417);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICertificateQuery_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -153,7 +142,6 @@ pub struct ICertificateQuery_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICertificateQuery2, ICertificateQuery2_Vtbl, 0x935a0af7_0bd9_4f75_b8c2_e27a7f74eecd);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICertificateQuery2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IncludeDuplicates: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -165,7 +153,6 @@ pub struct ICertificateQuery2_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICertificateRequestProperties, ICertificateRequestProperties_Vtbl, 0x487e84f6_94e2_4dce_8833_1a700a37a29a);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICertificateRequestProperties_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Subject: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -189,7 +176,6 @@ pub struct ICertificateRequestProperties_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICertificateRequestProperties2, ICertificateRequestProperties2_Vtbl, 0x3da0c954_d73f_4ff3_a0a6_0677c0ada05b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICertificateRequestProperties2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SmartcardReaderName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -201,7 +187,6 @@ pub struct ICertificateRequestProperties2_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICertificateRequestProperties3, ICertificateRequestProperties3_Vtbl, 0xe687f616_734d_46b1_9d4c_6edfdbfc845b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICertificateRequestProperties3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CurveName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -217,7 +202,6 @@ pub struct ICertificateRequestProperties3_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICertificateRequestProperties4, ICertificateRequestProperties4_Vtbl, 0x4e429ad2_1c61_4fea_b8fe_135fb19cdce4);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICertificateRequestProperties4_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -232,7 +216,6 @@ pub struct ICertificateRequestProperties4_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICertificateStore, ICertificateStore_Vtbl, 0xb0bff720_344e_4331_af14_a7f7a7ebc93a);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICertificateStore_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Add: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -240,14 +223,12 @@ pub struct ICertificateStore_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICertificateStore2, ICertificateStore2_Vtbl, 0xc7e68e4a_417d_4d1a_babd_15687e549974);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICertificateStore2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Name: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ICertificateStoresStatics, ICertificateStoresStatics_Vtbl, 0xfbecc739_c6fe_4de7_99cf_74c3e596e032);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICertificateStoresStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -264,14 +245,12 @@ pub struct ICertificateStoresStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICertificateStoresStatics2, ICertificateStoresStatics2_Vtbl, 0xfa900b79_a0d4_4b8c_bc55_c0a37eb141ed);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICertificateStoresStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetUserStoreByName: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IChainBuildingParameters, IChainBuildingParameters_Vtbl, 0x422ba922_7c8d_47b7_b59b_b12703733ac3);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IChainBuildingParameters_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -295,7 +274,6 @@ pub struct IChainBuildingParameters_Vtbl {
 }
 ::windows_core::imp::com_interface!(IChainValidationParameters, IChainValidationParameters_Vtbl, 0xc4743b4a_7eb0_4b56_a040_b9c8e655ddf3);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IChainValidationParameters_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CertificateChainPolicy: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut CertificateChainPolicy) -> ::windows_core::HRESULT,
@@ -311,7 +289,6 @@ pub struct IChainValidationParameters_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICmsAttachedSignature, ICmsAttachedSignature_Vtbl, 0x61899d9d_3757_4ecb_bddc_0ca357d7a936);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICmsAttachedSignature_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -327,7 +304,6 @@ pub struct ICmsAttachedSignature_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICmsAttachedSignatureFactory, ICmsAttachedSignatureFactory_Vtbl, 0xd0c8fc15_f757_4c64_a362_52cc1c77cffb);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICmsAttachedSignatureFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -337,7 +313,6 @@ pub struct ICmsAttachedSignatureFactory_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICmsAttachedSignatureStatics, ICmsAttachedSignatureStatics_Vtbl, 0x87989c8e_b0ad_498d_a7f5_78b59bce4b36);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICmsAttachedSignatureStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
@@ -347,7 +322,6 @@ pub struct ICmsAttachedSignatureStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICmsDetachedSignature, ICmsDetachedSignature_Vtbl, 0x0f1ef154_f65e_4536_8339_5944081db2ca);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICmsDetachedSignature_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -365,7 +339,6 @@ pub struct ICmsDetachedSignature_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICmsDetachedSignatureFactory, ICmsDetachedSignatureFactory_Vtbl, 0xc4ab3503_ae7f_4387_ad19_00f150e48ebb);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICmsDetachedSignatureFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -375,7 +348,6 @@ pub struct ICmsDetachedSignatureFactory_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICmsDetachedSignatureStatics, ICmsDetachedSignatureStatics_Vtbl, 0x3d114cfd_bf9b_4682_9be6_91f57c053808);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICmsDetachedSignatureStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
@@ -385,7 +357,6 @@ pub struct ICmsDetachedSignatureStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICmsSignerInfo, ICmsSignerInfo_Vtbl, 0x50d020db_1d2f_4c1a_b5c5_d0188ff91f47);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICmsSignerInfo_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Certificate: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -396,7 +367,6 @@ pub struct ICmsSignerInfo_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICmsTimestampInfo, ICmsTimestampInfo_Vtbl, 0x2f5f00f2_2c18_4f88_8435_c534086076f5);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICmsTimestampInfo_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SigningCertificate: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -408,7 +378,6 @@ pub struct ICmsTimestampInfo_Vtbl {
 }
 ::windows_core::imp::com_interface!(IKeyAlgorithmNamesStatics, IKeyAlgorithmNamesStatics_Vtbl, 0x479065d7_7ac7_4581_8c3b_d07027140448);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IKeyAlgorithmNamesStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Rsa: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -422,7 +391,6 @@ pub struct IKeyAlgorithmNamesStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IKeyAlgorithmNamesStatics2, IKeyAlgorithmNamesStatics2_Vtbl, 0xc99b5686_e1fd_4a4a_893d_a26f33dd8bb4);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IKeyAlgorithmNamesStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Ecdsa: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -430,7 +398,6 @@ pub struct IKeyAlgorithmNamesStatics2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IKeyAttestationHelperStatics, IKeyAttestationHelperStatics_Vtbl, 0x1648e246_f644_4326_88be_3af102d30e0c);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IKeyAttestationHelperStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub DecryptTpmAttestationCredentialAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -438,14 +405,12 @@ pub struct IKeyAttestationHelperStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IKeyAttestationHelperStatics2, IKeyAttestationHelperStatics2_Vtbl, 0x9c590b2c_a6c6_4a5e_9e64_e85d5279df97);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IKeyAttestationHelperStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub DecryptTpmAttestationCredentialWithContainerNameAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IKeyStorageProviderNamesStatics, IKeyStorageProviderNamesStatics_Vtbl, 0xaf186ae0_5529_4602_bd94_0aab91957b5c);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IKeyStorageProviderNamesStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SoftwareKeyStorageProvider: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -454,14 +419,12 @@ pub struct IKeyStorageProviderNamesStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IKeyStorageProviderNamesStatics2, IKeyStorageProviderNamesStatics2_Vtbl, 0x262d743d_9c2e_41cc_8812_c4d971dd7c60);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IKeyStorageProviderNamesStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub PassportKeyStorageProvider: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IPfxImportParameters, IPfxImportParameters_Vtbl, 0x680d3511_9a08_47c8_864a_2edd4d8eb46c);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPfxImportParameters_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Exportable: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ExportOption) -> ::windows_core::HRESULT,
@@ -481,7 +444,6 @@ pub struct IPfxImportParameters_Vtbl {
 }
 ::windows_core::imp::com_interface!(IStandardCertificateStoreNamesStatics, IStandardCertificateStoreNamesStatics_Vtbl, 0x0c154adb_a496_41f8_8fe5_9e96f36efbf8);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IStandardCertificateStoreNamesStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Personal: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -490,7 +452,6 @@ pub struct IStandardCertificateStoreNamesStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISubjectAlternativeNameInfo, ISubjectAlternativeNameInfo_Vtbl, 0x582859f1_569d_4c20_be7b_4e1c9a0bc52b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISubjectAlternativeNameInfo_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -520,7 +481,6 @@ pub struct ISubjectAlternativeNameInfo_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISubjectAlternativeNameInfo2, ISubjectAlternativeNameInfo2_Vtbl, 0x437a78c6_1c51_41ea_b34a_3d654398a370);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISubjectAlternativeNameInfo2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -551,7 +511,6 @@ pub struct ISubjectAlternativeNameInfo2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IUserCertificateEnrollmentManager, IUserCertificateEnrollmentManager_Vtbl, 0x96313718_22e1_4819_b20b_ab46a6eca06e);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUserCertificateEnrollmentManager_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateRequestAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -561,14 +520,12 @@ pub struct IUserCertificateEnrollmentManager_Vtbl {
 }
 ::windows_core::imp::com_interface!(IUserCertificateEnrollmentManager2, IUserCertificateEnrollmentManager2_Vtbl, 0x0dad9cb1_65de_492a_b86d_fc5c482c3747);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUserCertificateEnrollmentManager2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ImportPfxDataToKspWithParametersAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IUserCertificateStore, IUserCertificateStore_Vtbl, 0xc9fb1d83_789f_4b4e_9180_045a757aac6d);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUserCertificateStore_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub RequestAddAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,

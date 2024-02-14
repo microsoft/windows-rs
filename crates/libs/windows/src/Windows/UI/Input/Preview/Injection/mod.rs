@@ -1,6 +1,5 @@
 ::windows_core::imp::com_interface!(IInjectedInputGamepadInfo, IInjectedInputGamepadInfo_Vtbl, 0x20ae9a3f_df11_4572_a9ab_d75b8a5e48ad);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IInjectedInputGamepadInfo_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Gaming_Input")]
@@ -26,7 +25,6 @@ pub struct IInjectedInputGamepadInfo_Vtbl {
 }
 ::windows_core::imp::com_interface!(IInjectedInputGamepadInfoFactory, IInjectedInputGamepadInfoFactory_Vtbl, 0x59596876_6c39_4ec4_8b2a_29ef7de18aca);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IInjectedInputGamepadInfoFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Gaming_Input")]
@@ -36,7 +34,6 @@ pub struct IInjectedInputGamepadInfoFactory_Vtbl {
 }
 ::windows_core::imp::com_interface!(IInjectedInputKeyboardInfo, IInjectedInputKeyboardInfo_Vtbl, 0x4b46d140_2b6a_5ffa_7eae_bd077b052acd);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IInjectedInputKeyboardInfo_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub KeyOptions: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut InjectedInputKeyOptions) -> ::windows_core::HRESULT,
@@ -48,7 +45,6 @@ pub struct IInjectedInputKeyboardInfo_Vtbl {
 }
 ::windows_core::imp::com_interface!(IInjectedInputMouseInfo, IInjectedInputMouseInfo_Vtbl, 0x96f56e6b_e47a_5cf4_418d_8a5fb9670c7d);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IInjectedInputMouseInfo_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub MouseOptions: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut InjectedInputMouseOptions) -> ::windows_core::HRESULT,
@@ -64,7 +60,6 @@ pub struct IInjectedInputMouseInfo_Vtbl {
 }
 ::windows_core::imp::com_interface!(IInjectedInputPenInfo, IInjectedInputPenInfo_Vtbl, 0x6b40ad03_ca1e_5527_7e02_2828540bb1d4);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IInjectedInputPenInfo_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub PointerInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut InjectedInputPointerInfo) -> ::windows_core::HRESULT,
@@ -84,7 +79,6 @@ pub struct IInjectedInputPenInfo_Vtbl {
 }
 ::windows_core::imp::com_interface!(IInjectedInputTouchInfo, IInjectedInputTouchInfo_Vtbl, 0x224fd1df_43e8_5ef5_510a_69ca8c9b4c28);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IInjectedInputTouchInfo_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Contact: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut InjectedInputRectangle) -> ::windows_core::HRESULT,
@@ -100,7 +94,6 @@ pub struct IInjectedInputTouchInfo_Vtbl {
 }
 ::windows_core::imp::com_interface!(IInputInjector, IInputInjector_Vtbl, 0x8ec26f84_0b02_4bd2_ad7a_3d4658be3e18);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IInputInjector_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -124,7 +117,6 @@ pub struct IInputInjector_Vtbl {
 }
 ::windows_core::imp::com_interface!(IInputInjector2, IInputInjector2_Vtbl, 0x8e7a905d_1453_43a7_9bcb_06d6d7b305f7);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IInputInjector2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub InitializeGamepadInjection: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -133,14 +125,12 @@ pub struct IInputInjector2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IInputInjectorStatics, IInputInjectorStatics_Vtbl, 0xdeae6943_7402_4141_a5c6_0c01aa57b16a);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IInputInjectorStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub TryCreate: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IInputInjectorStatics2, IInputInjectorStatics2_Vtbl, 0xa4db38fb_dd8c_414f_95ea_f87ef4c0ae6c);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IInputInjectorStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub TryCreateForAppBroadcastOnly: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,

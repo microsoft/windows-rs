@@ -7,7 +7,6 @@ impl ICorProfilerAssemblyReferenceProvider {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICorProfilerAssemblyReferenceProvider_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_WinRT_Metadata")]
@@ -250,7 +249,6 @@ impl ICorProfilerCallback {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICorProfilerCallback_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -655,7 +653,6 @@ impl ICorProfilerCallback10 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICorProfilerCallback10_Vtbl {
     pub base__: ICorProfilerCallback9_Vtbl,
     pub EventPipeEventDelivered: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, u32, u32, u32, *const u8, u32, *const u8, *const ::windows_core::GUID, *const ::windows_core::GUID, usize, u32, *const usize) -> ::windows_core::HRESULT,
@@ -996,7 +993,6 @@ impl ICorProfilerCallback11 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICorProfilerCallback11_Vtbl {
     pub base__: ICorProfilerCallback10_Vtbl,
     pub LoadAsNotificationOnly: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
@@ -1260,7 +1256,6 @@ impl ICorProfilerCallback2 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICorProfilerCallback2_Vtbl {
     pub base__: ICorProfilerCallback_Vtbl,
     pub ThreadNameChanged: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, u32, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
@@ -1543,7 +1538,6 @@ impl ICorProfilerCallback3 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICorProfilerCallback3_Vtbl {
     pub base__: ICorProfilerCallback2_Vtbl,
     pub InitializeForAttach: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *const ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
@@ -1848,7 +1842,6 @@ impl ICorProfilerCallback4 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICorProfilerCallback4_Vtbl {
     pub base__: ICorProfilerCallback3_Vtbl,
     pub ReJITCompilationStarted: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, usize, super::super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
@@ -2159,7 +2152,6 @@ impl ICorProfilerCallback5 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICorProfilerCallback5_Vtbl {
     pub base__: ICorProfilerCallback4_Vtbl,
     pub ConditionalWeakTableElementReferences: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const usize, *const usize, *const usize) -> ::windows_core::HRESULT,
@@ -2472,7 +2464,6 @@ impl ICorProfilerCallback6 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICorProfilerCallback6_Vtbl {
     pub base__: ICorProfilerCallback5_Vtbl,
     pub GetAssemblyReferences: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -2788,7 +2779,6 @@ impl ICorProfilerCallback7 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICorProfilerCallback7_Vtbl {
     pub base__: ICorProfilerCallback6_Vtbl,
     pub ModuleInMemorySymbolsUpdated: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize) -> ::windows_core::HRESULT,
@@ -3116,7 +3106,6 @@ impl ICorProfilerCallback8 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICorProfilerCallback8_Vtbl {
     pub base__: ICorProfilerCallback7_Vtbl,
     pub DynamicMethodJITCompilationStarted: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, super::super::super::Foundation::BOOL, *const u8, u32) -> ::windows_core::HRESULT,
@@ -3448,7 +3437,6 @@ impl ICorProfilerCallback9 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICorProfilerCallback9_Vtbl {
     pub base__: ICorProfilerCallback8_Vtbl,
     pub DynamicMethodUnloaded: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize) -> ::windows_core::HRESULT,
@@ -3467,7 +3455,6 @@ impl ICorProfilerFunctionControl {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICorProfilerFunctionControl_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub SetCodegenFlags: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
@@ -3496,7 +3483,6 @@ impl ICorProfilerFunctionEnum {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICorProfilerFunctionEnum_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Skip: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
@@ -3631,7 +3617,6 @@ impl ICorProfilerInfo {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICorProfilerInfo_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetClassFromObject: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, *mut usize) -> ::windows_core::HRESULT,
@@ -4003,7 +3988,6 @@ impl ICorProfilerInfo10 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICorProfilerInfo10_Vtbl {
     pub base__: ICorProfilerInfo9_Vtbl,
     pub EnumerateObjectReferences: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, ObjectReferenceCallback, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -4358,7 +4342,6 @@ impl ICorProfilerInfo11 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICorProfilerInfo11_Vtbl {
     pub base__: ICorProfilerInfo10_Vtbl,
     pub GetEnvironmentVariableA: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, u32, *mut u32, ::windows_core::PWSTR) -> ::windows_core::HRESULT,
@@ -4743,7 +4726,6 @@ impl ICorProfilerInfo12 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICorProfilerInfo12_Vtbl {
     pub base__: ICorProfilerInfo11_Vtbl,
     pub EventPipeStartSession: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const COR_PRF_EVENTPIPE_PROVIDER_CONFIG, super::super::super::Foundation::BOOL, *mut u64) -> ::windows_core::HRESULT,
@@ -5143,7 +5125,6 @@ impl ICorProfilerInfo13 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICorProfilerInfo13_Vtbl {
     pub base__: ICorProfilerInfo12_Vtbl,
     pub CreateHandle: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, COR_PRF_HANDLE_TYPE, *mut *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -5553,7 +5534,6 @@ impl ICorProfilerInfo14 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICorProfilerInfo14_Vtbl {
     pub base__: ICorProfilerInfo13_Vtbl,
     pub EnumerateNonGCObjects: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -5758,7 +5738,6 @@ impl ICorProfilerInfo2 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICorProfilerInfo2_Vtbl {
     pub base__: ICorProfilerInfo_Vtbl,
     pub DoStackSnapshot: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, *const StackSnapshotCallback, u32, *const ::core::ffi::c_void, *const u8, u32) -> ::windows_core::HRESULT,
@@ -6029,7 +6008,6 @@ impl ICorProfilerInfo3 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICorProfilerInfo3_Vtbl {
     pub base__: ICorProfilerInfo2_Vtbl,
     pub EnumJITedFunctions: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -6323,7 +6301,6 @@ impl ICorProfilerInfo4 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICorProfilerInfo4_Vtbl {
     pub base__: ICorProfilerInfo3_Vtbl,
     pub EnumThreads: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -6619,7 +6596,6 @@ impl ICorProfilerInfo5 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICorProfilerInfo5_Vtbl {
     pub base__: ICorProfilerInfo4_Vtbl,
     pub GetEventMask2: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32, *mut u32) -> ::windows_core::HRESULT,
@@ -6910,7 +6886,6 @@ impl ICorProfilerInfo6 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICorProfilerInfo6_Vtbl {
     pub base__: ICorProfilerInfo5_Vtbl,
     pub EnumNgenModuleMethodsInliningThisMethod: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, usize, u32, *mut super::super::super::Foundation::BOOL, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -7210,7 +7185,6 @@ impl ICorProfilerInfo7 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICorProfilerInfo7_Vtbl {
     pub base__: ICorProfilerInfo6_Vtbl,
     pub ApplyMetaData: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize) -> ::windows_core::HRESULT,
@@ -7522,7 +7496,6 @@ impl ICorProfilerInfo8 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICorProfilerInfo8_Vtbl {
     pub base__: ICorProfilerInfo7_Vtbl,
     pub IsFunctionDynamic: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, *mut super::super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
@@ -7843,7 +7816,6 @@ impl ICorProfilerInfo9 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICorProfilerInfo9_Vtbl {
     pub base__: ICorProfilerInfo8_Vtbl,
     pub GetNativeCodeStartAddresses: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, usize, u32, *mut u32, *mut usize) -> ::windows_core::HRESULT,
@@ -7872,7 +7844,6 @@ impl ICorProfilerMethodEnum {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICorProfilerMethodEnum_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Skip: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
@@ -7903,7 +7874,6 @@ impl ICorProfilerModuleEnum {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICorProfilerModuleEnum_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Skip: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
@@ -7934,7 +7904,6 @@ impl ICorProfilerObjectEnum {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICorProfilerObjectEnum_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Skip: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
@@ -7965,7 +7934,6 @@ impl ICorProfilerThreadEnum {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICorProfilerThreadEnum_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Skip: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
@@ -7982,7 +7950,6 @@ impl IMethodMalloc {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMethodMalloc_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Alloc: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> *mut ::core::ffi::c_void,

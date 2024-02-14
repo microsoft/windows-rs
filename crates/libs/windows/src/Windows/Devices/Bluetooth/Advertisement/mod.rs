@@ -1,6 +1,5 @@
 ::windows_core::imp::com_interface!(IBluetoothLEAdvertisement, IBluetoothLEAdvertisement_Vtbl, 0x066fb2b7_33d1_4e7d_8367_cf81d0f79653);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBluetoothLEAdvertisement_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Flags: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -30,7 +29,6 @@ pub struct IBluetoothLEAdvertisement_Vtbl {
 }
 ::windows_core::imp::com_interface!(IBluetoothLEAdvertisementBytePattern, IBluetoothLEAdvertisementBytePattern_Vtbl, 0xfbfad7f2_b9c5_4a08_bc51_502f8ef68a79);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBluetoothLEAdvertisementBytePattern_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub DataType: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u8) -> ::windows_core::HRESULT,
@@ -48,7 +46,6 @@ pub struct IBluetoothLEAdvertisementBytePattern_Vtbl {
 }
 ::windows_core::imp::com_interface!(IBluetoothLEAdvertisementBytePatternFactory, IBluetoothLEAdvertisementBytePatternFactory_Vtbl, 0xc2e24d73_fd5c_4ec3_be2a_9ca6fa11b7bd);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBluetoothLEAdvertisementBytePatternFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -58,7 +55,6 @@ pub struct IBluetoothLEAdvertisementBytePatternFactory_Vtbl {
 }
 ::windows_core::imp::com_interface!(IBluetoothLEAdvertisementDataSection, IBluetoothLEAdvertisementDataSection_Vtbl, 0xd7213314_3a43_40f9_b6f0_92bfefc34ae3);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBluetoothLEAdvertisementDataSection_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub DataType: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u8) -> ::windows_core::HRESULT,
@@ -74,7 +70,6 @@ pub struct IBluetoothLEAdvertisementDataSection_Vtbl {
 }
 ::windows_core::imp::com_interface!(IBluetoothLEAdvertisementDataSectionFactory, IBluetoothLEAdvertisementDataSectionFactory_Vtbl, 0xe7a40942_a845_4045_bf7e_3e9971db8a6b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBluetoothLEAdvertisementDataSectionFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -84,7 +79,6 @@ pub struct IBluetoothLEAdvertisementDataSectionFactory_Vtbl {
 }
 ::windows_core::imp::com_interface!(IBluetoothLEAdvertisementDataTypesStatics, IBluetoothLEAdvertisementDataTypesStatics_Vtbl, 0x3bb6472f_0606_434b_a76e_74159f0684d3);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBluetoothLEAdvertisementDataTypesStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Flags: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u8) -> ::windows_core::HRESULT,
@@ -112,7 +106,6 @@ pub struct IBluetoothLEAdvertisementDataTypesStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IBluetoothLEAdvertisementFilter, IBluetoothLEAdvertisementFilter_Vtbl, 0x131eb0d3_d04e_47b1_837e_49405bf6f80f);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBluetoothLEAdvertisementFilter_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Advertisement: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -124,7 +117,6 @@ pub struct IBluetoothLEAdvertisementFilter_Vtbl {
 }
 ::windows_core::imp::com_interface!(IBluetoothLEAdvertisementPublisher, IBluetoothLEAdvertisementPublisher_Vtbl, 0xcde820f9_d9fa_43d6_a264_ddd8b7da8b78);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBluetoothLEAdvertisementPublisher_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut BluetoothLEAdvertisementPublisherStatus) -> ::windows_core::HRESULT,
@@ -136,7 +128,6 @@ pub struct IBluetoothLEAdvertisementPublisher_Vtbl {
 }
 ::windows_core::imp::com_interface!(IBluetoothLEAdvertisementPublisher2, IBluetoothLEAdvertisementPublisher2_Vtbl, 0xfbdb545e_56f1_510f_a434_217fbd9e7bd2);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBluetoothLEAdvertisementPublisher2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub PreferredTransmitPowerLevelInDBm: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -150,14 +141,12 @@ pub struct IBluetoothLEAdvertisementPublisher2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IBluetoothLEAdvertisementPublisherFactory, IBluetoothLEAdvertisementPublisherFactory_Vtbl, 0x5c5f065e_b863_4981_a1af_1c544d8b0c0d);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBluetoothLEAdvertisementPublisherFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IBluetoothLEAdvertisementPublisherStatusChangedEventArgs, IBluetoothLEAdvertisementPublisherStatusChangedEventArgs_Vtbl, 0x09c2bd9f_2dff_4b23_86ee_0d14fb94aeae);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBluetoothLEAdvertisementPublisherStatusChangedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut BluetoothLEAdvertisementPublisherStatus) -> ::windows_core::HRESULT,
@@ -165,14 +154,12 @@ pub struct IBluetoothLEAdvertisementPublisherStatusChangedEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IBluetoothLEAdvertisementPublisherStatusChangedEventArgs2, IBluetoothLEAdvertisementPublisherStatusChangedEventArgs2_Vtbl, 0x8f62790e_dc88_5c8b_b34e_10b321850f88);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBluetoothLEAdvertisementPublisherStatusChangedEventArgs2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SelectedTransmitPowerLevelInDBm: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IBluetoothLEAdvertisementReceivedEventArgs, IBluetoothLEAdvertisementReceivedEventArgs_Vtbl, 0x27987ddf_e596_41be_8d43_9e6731d4a913);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBluetoothLEAdvertisementReceivedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub RawSignalStrengthInDBm: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i16) -> ::windows_core::HRESULT,
@@ -183,7 +170,6 @@ pub struct IBluetoothLEAdvertisementReceivedEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IBluetoothLEAdvertisementReceivedEventArgs2, IBluetoothLEAdvertisementReceivedEventArgs2_Vtbl, 0x12d9c87b_0399_5f0e_a348_53b02b6b162e);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBluetoothLEAdvertisementReceivedEventArgs2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub BluetoothAddressType: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::BluetoothAddressType) -> ::windows_core::HRESULT,
@@ -196,7 +182,6 @@ pub struct IBluetoothLEAdvertisementReceivedEventArgs2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IBluetoothLEAdvertisementWatcher, IBluetoothLEAdvertisementWatcher_Vtbl, 0xa6ac336f_f3d3_4297_8d6c_c81ea6623f40);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBluetoothLEAdvertisementWatcher_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub MinSamplingInterval: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
@@ -219,7 +204,6 @@ pub struct IBluetoothLEAdvertisementWatcher_Vtbl {
 }
 ::windows_core::imp::com_interface!(IBluetoothLEAdvertisementWatcher2, IBluetoothLEAdvertisementWatcher2_Vtbl, 0x01bf26bc_b164_5805_90a3_e8a7997ff225);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBluetoothLEAdvertisementWatcher2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub AllowExtendedAdvertisements: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -227,21 +211,18 @@ pub struct IBluetoothLEAdvertisementWatcher2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IBluetoothLEAdvertisementWatcherFactory, IBluetoothLEAdvertisementWatcherFactory_Vtbl, 0x9aaf2d56_39ac_453e_b32a_85c657e017f1);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBluetoothLEAdvertisementWatcherFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IBluetoothLEAdvertisementWatcherStoppedEventArgs, IBluetoothLEAdvertisementWatcherStoppedEventArgs_Vtbl, 0xdd40f84d_e7b9_43e3_9c04_0685d085fd8c);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBluetoothLEAdvertisementWatcherStoppedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Error: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::BluetoothError) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IBluetoothLEManufacturerData, IBluetoothLEManufacturerData_Vtbl, 0x912dba18_6963_4533_b061_4694dafb34e5);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBluetoothLEManufacturerData_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CompanyId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u16) -> ::windows_core::HRESULT,
@@ -257,7 +238,6 @@ pub struct IBluetoothLEManufacturerData_Vtbl {
 }
 ::windows_core::imp::com_interface!(IBluetoothLEManufacturerDataFactory, IBluetoothLEManufacturerDataFactory_Vtbl, 0xc09b39f8_319a_441e_8de5_66a81e877a6c);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBluetoothLEManufacturerDataFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]

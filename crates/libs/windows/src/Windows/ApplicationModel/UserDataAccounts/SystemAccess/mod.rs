@@ -1,6 +1,5 @@
 ::windows_core::imp::com_interface!(IDeviceAccountConfiguration, IDeviceAccountConfiguration_Vtbl, 0xad0123a3_fbdc_4d1b_be43_5a27ea4a1b63);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDeviceAccountConfiguration_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub AccountName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -38,7 +37,6 @@ pub struct IDeviceAccountConfiguration_Vtbl {
 }
 ::windows_core::imp::com_interface!(IDeviceAccountConfiguration2, IDeviceAccountConfiguration2_Vtbl, 0xf2b2e5a6_728d_4a4a_8945_2bf8580136de);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDeviceAccountConfiguration2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Security_Credentials")]
@@ -112,7 +110,6 @@ pub struct IDeviceAccountConfiguration2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IUserDataAccountSystemAccessManagerStatics, IUserDataAccountSystemAccessManagerStatics_Vtbl, 0x9d6b11b9_cbe5_45f5_822b_c267b81dbdb6);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUserDataAccountSystemAccessManagerStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -122,7 +119,6 @@ pub struct IUserDataAccountSystemAccessManagerStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IUserDataAccountSystemAccessManagerStatics2, IUserDataAccountSystemAccessManagerStatics2_Vtbl, 0x943f854d_4b4e_439f_83d3_979b27c05ac7);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUserDataAccountSystemAccessManagerStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SuppressLocalAccountWithAccountAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,

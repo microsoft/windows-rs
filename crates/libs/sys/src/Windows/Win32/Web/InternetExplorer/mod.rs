@@ -3,8 +3,8 @@
 #[cfg(feature = "Win32_Graphics_Gdi")]
 ::windows_targets::link!("imgutil.dll" "system" fn CreateDDrawSurfaceOnDIB(hbmdib : super::super::Graphics::Gdi:: HBITMAP, ppsurface : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("imgutil.dll" "system" fn CreateMIMEMap(ppmap : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("imgutil.dll" "system" fn DecodeImage(pstream : * mut::core::ffi::c_void, pmap : * mut::core::ffi::c_void, peventsink : ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("imgutil.dll" "system" fn DecodeImageEx(pstream : * mut::core::ffi::c_void, pmap : * mut::core::ffi::c_void, peventsink : ::windows_sys::core::IUnknown, pszmimetypeparam : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("imgutil.dll" "system" fn DecodeImage(pstream : * mut::core::ffi::c_void, pmap : * mut::core::ffi::c_void, peventsink : * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("imgutil.dll" "system" fn DecodeImageEx(pstream : * mut::core::ffi::c_void, pmap : * mut::core::ffi::c_void, peventsink : * mut::core::ffi::c_void, pszmimetypeparam : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Graphics_Gdi")]
 ::windows_targets::link!("imgutil.dll" "system" fn DitherTo8(pdestbits : *mut u8, ndestpitch : i32, psrcbits : *mut u8, nsrcpitch : i32, bfidsrc : *const ::windows_sys::core::GUID, prgbdestcolors : *mut super::super::Graphics::Gdi:: RGBQUAD, prgbsrccolors : *mut super::super::Graphics::Gdi:: RGBQUAD, pbdestinvmap : *mut u8, x : i32, y : i32, cx : i32, cy : i32, ldesttrans : i32, lsrctrans : i32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("imgutil.dll" "system" fn GetMaxMIMEIDBytes(pnmaxbytes : *mut u32) -> ::windows_sys::core::HRESULT);

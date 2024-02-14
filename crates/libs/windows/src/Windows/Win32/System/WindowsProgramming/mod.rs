@@ -1707,7 +1707,6 @@ impl ICameraUIControl {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICameraUIControl_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Show: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, CameraUIControlMode, CameraUIControlLinearSelectionMode, CameraUIControlCaptureMode, CameraUIControlPhotoFormat, CameraUIControlVideoFormat, super::super::Foundation::BOOL, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1748,7 +1747,6 @@ impl ICameraUIControlEventCallback {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICameraUIControlEventCallback_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub OnStartupComplete: unsafe extern "system" fn(*mut ::core::ffi::c_void),
@@ -1772,7 +1770,6 @@ impl IClipServiceNotificationHelper {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IClipServiceNotificationHelper_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub ShowToast: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
@@ -1786,7 +1783,6 @@ impl IContainerActivationHelper {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IContainerActivationHelper_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub CanActivateClientVM: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
@@ -1799,7 +1795,6 @@ impl IDefaultBrowserSyncSettings {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDefaultBrowserSyncSettings_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub IsEnabled: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> super::super::Foundation::BOOL,
@@ -1812,7 +1807,6 @@ impl IDeleteBrowsingHistory {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDeleteBrowsingHistory_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub DeleteBrowsingHistory: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
@@ -1841,7 +1835,6 @@ impl IEditionUpgradeBroker {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IEditionUpgradeBroker_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Ole")]
@@ -1878,7 +1871,6 @@ impl IEditionUpgradeHelper {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IEditionUpgradeHelper_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub CanUpgrade: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
@@ -1899,7 +1891,6 @@ impl IFClipNotificationHelper {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IFClipNotificationHelper_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub ShowSystemDialog: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
@@ -1913,7 +1904,6 @@ impl IWindowsLockModeHelper {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWindowsLockModeHelper_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetSMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,

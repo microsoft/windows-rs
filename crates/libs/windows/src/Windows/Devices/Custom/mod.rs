@@ -1,6 +1,5 @@
 ::windows_core::imp::com_interface!(ICustomDevice, ICustomDevice_Vtbl, 0xdd30251f_c48b_43bd_bcb1_dec88f15143e);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICustomDevice_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -22,7 +21,6 @@ pub struct ICustomDevice_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICustomDeviceStatics, ICustomDeviceStatics_Vtbl, 0xc8220312_ef4c_46b1_a58e_eeb308dc8917);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICustomDeviceStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetDeviceSelector: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::GUID, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -71,7 +69,6 @@ impl ::windows_core::RuntimeType for IIOControlCode {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IIOControlCode_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub AccessMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut IOControlAccessMode) -> ::windows_core::HRESULT,
@@ -82,14 +79,12 @@ pub struct IIOControlCode_Vtbl {
 }
 ::windows_core::imp::com_interface!(IIOControlCodeFactory, IIOControlCodeFactory_Vtbl, 0x856a7cf0_4c11_44ae_afc6_b8d4a212788f);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IIOControlCodeFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateIOControlCode: unsafe extern "system" fn(*mut ::core::ffi::c_void, u16, u16, IOControlAccessMode, IOControlBufferingMethod, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IKnownDeviceTypesStatics, IKnownDeviceTypesStatics_Vtbl, 0xee5479c2_5448_45da_ad1b_24948c239094);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IKnownDeviceTypesStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Unknown: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u16) -> ::windows_core::HRESULT,

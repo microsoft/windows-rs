@@ -1,6 +1,5 @@
 ::windows_core::imp::com_interface!(IEyesPose, IEyesPose_Vtbl, 0x682a9b23_8a1e_5b86_a060_906ffacb62a4);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IEyesPose_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsCalibrationValid: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -12,7 +11,6 @@ pub struct IEyesPose_Vtbl {
 }
 ::windows_core::imp::com_interface!(IEyesPoseStatics, IEyesPoseStatics_Vtbl, 0x1cff7413_b21f_54c0_80c1_e60d994ca58c);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IEyesPoseStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsSupported: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -23,7 +21,6 @@ pub struct IEyesPoseStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IHandMeshObserver, IHandMeshObserver_Vtbl, 0x85ae30cb_6fc3_55c4_a7b4_29e33896ca69);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IHandMeshObserver_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "UI_Input_Spatial")]
@@ -40,7 +37,6 @@ pub struct IHandMeshObserver_Vtbl {
 }
 ::windows_core::imp::com_interface!(IHandMeshVertexState, IHandMeshVertexState_Vtbl, 0x046c5fef_1d8b_55de_ab2c_1cd424886d8f);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IHandMeshVertexState_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Perception_Spatial")]
@@ -55,7 +51,6 @@ pub struct IHandMeshVertexState_Vtbl {
 }
 ::windows_core::imp::com_interface!(IHandPose, IHandPose_Vtbl, 0x4d98e79a_bb08_5d09_91de_df0dd3fae46c);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IHandPose_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
@@ -77,7 +72,6 @@ pub struct IHandPose_Vtbl {
 }
 ::windows_core::imp::com_interface!(IHeadPose, IHeadPose_Vtbl, 0x7f5ac5a5_49db_379f_9429_32a2faf34fa6);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IHeadPose_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Numerics")]

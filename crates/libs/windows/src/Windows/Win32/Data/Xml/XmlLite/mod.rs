@@ -153,7 +153,6 @@ impl IXmlReader {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IXmlReader_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub SetInput: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -194,7 +193,6 @@ impl IXmlResolver {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IXmlResolver_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub ResolveUri: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, ::windows_core::PCWSTR, ::windows_core::PCWSTR, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -362,7 +360,6 @@ impl IXmlWriter {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IXmlWriter_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub SetOutput: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -537,7 +534,6 @@ impl IXmlWriterLite {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IXmlWriterLite_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub SetOutput: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,

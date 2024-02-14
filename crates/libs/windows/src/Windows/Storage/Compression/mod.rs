@@ -1,6 +1,5 @@
 ::windows_core::imp::com_interface!(ICompressor, ICompressor_Vtbl, 0x0ac3645a_57ac_4ee1_b702_84d39d5424e0);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompressor_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub FinishAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -11,7 +10,6 @@ pub struct ICompressor_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICompressorFactory, ICompressorFactory_Vtbl, 0x5f3d96a4_2cfb_442c_a8ba_d7d11b039da0);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompressorFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -25,7 +23,6 @@ pub struct ICompressorFactory_Vtbl {
 }
 ::windows_core::imp::com_interface!(IDecompressor, IDecompressor_Vtbl, 0xb883fe46_d68a_4c8b_ada0_4ee813fc5283);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDecompressor_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -35,7 +32,6 @@ pub struct IDecompressor_Vtbl {
 }
 ::windows_core::imp::com_interface!(IDecompressorFactory, IDecompressorFactory_Vtbl, 0x5337e252_1da2_42e1_8834_0379d28d742f);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDecompressorFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]

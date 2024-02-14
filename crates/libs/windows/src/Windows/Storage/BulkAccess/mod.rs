@@ -1,6 +1,5 @@
 ::windows_core::imp::com_interface!(IFileInformationFactory, IFileInformationFactory_Vtbl, 0x401d88be_960f_4d6d_a7d0_1a3861e76c83);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IFileInformationFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -33,7 +32,6 @@ pub struct IFileInformationFactory_Vtbl {
 }
 ::windows_core::imp::com_interface!(IFileInformationFactoryFactory, IFileInformationFactoryFactory_Vtbl, 0x84ea0e7d_e4a2_4f00_8afa_af5e0f826bd5);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IFileInformationFactoryFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Search"))]
@@ -137,7 +135,6 @@ impl ::windows_core::RuntimeType for IStorageItemInformation {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IStorageItemInformation_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_FileProperties")]

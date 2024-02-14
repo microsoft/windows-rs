@@ -1,6 +1,5 @@
 ::windows_core::imp::com_interface!(IUserNotificationListener, IUserNotificationListener_Vtbl, 0x62553e41_8a06_4cef_8215_6033a5be4b03);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUserNotificationListener_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub RequestAccessAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -17,7 +16,6 @@ pub struct IUserNotificationListener_Vtbl {
 }
 ::windows_core::imp::com_interface!(IUserNotificationListenerStatics, IUserNotificationListenerStatics_Vtbl, 0xff6123cf_4386_4aa3_b73d_b804e5b63b23);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUserNotificationListenerStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Current: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,

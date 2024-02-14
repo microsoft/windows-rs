@@ -30,7 +30,6 @@ impl ::windows_core::RuntimeType for ICustomGameControllerFactory {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICustomGameControllerFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateGameController: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -39,7 +38,6 @@ pub struct ICustomGameControllerFactory_Vtbl {
 }
 ::windows_core::imp::com_interface!(IGameControllerFactoryManagerStatics, IGameControllerFactoryManagerStatics_Vtbl, 0x36cb66e3_d0a1_4986_a24c_40b137deba9e);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IGameControllerFactoryManagerStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub RegisterCustomFactoryForGipInterface: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, ::windows_core::GUID) -> ::windows_core::HRESULT,
@@ -48,7 +46,6 @@ pub struct IGameControllerFactoryManagerStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IGameControllerFactoryManagerStatics2, IGameControllerFactoryManagerStatics2_Vtbl, 0xeace5644_19df_4115_b32a_2793e2aea3bb);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IGameControllerFactoryManagerStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub TryGetFactoryControllerFromGameController: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -69,7 +66,6 @@ impl ::windows_core::RuntimeType for IGameControllerInputSink {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IGameControllerInputSink_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub OnInputResumed: unsafe extern "system" fn(*mut ::core::ffi::c_void, u64) -> ::windows_core::HRESULT,
@@ -118,7 +114,6 @@ impl ::windows_core::RuntimeType for IGameControllerProvider {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IGameControllerProvider_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub FirmwareVersionInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut GameControllerVersionInfo) -> ::windows_core::HRESULT,
@@ -129,7 +124,6 @@ pub struct IGameControllerProvider_Vtbl {
 }
 ::windows_core::imp::com_interface!(IGipFirmwareUpdateResult, IGipFirmwareUpdateResult_Vtbl, 0x6b794d32_8553_4292_8e03_e16651a2f8bc);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IGipFirmwareUpdateResult_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ExtendedErrorCode: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -161,7 +155,6 @@ impl ::windows_core::RuntimeType for IGipGameControllerInputSink {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IGipGameControllerInputSink_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub OnKeyReceived: unsafe extern "system" fn(*mut ::core::ffi::c_void, u64, u8, bool) -> ::windows_core::HRESULT,
@@ -169,7 +162,6 @@ pub struct IGipGameControllerInputSink_Vtbl {
 }
 ::windows_core::imp::com_interface!(IGipGameControllerProvider, IGipGameControllerProvider_Vtbl, 0xdbcf1e19_1af5_45a8_bf02_a0ee50c823fc);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IGipGameControllerProvider_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SendMessage: unsafe extern "system" fn(*mut ::core::ffi::c_void, GipMessageClass, u8, u32, *const u8) -> ::windows_core::HRESULT,
@@ -200,14 +192,12 @@ impl ::windows_core::RuntimeType for IHidGameControllerInputSink {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IHidGameControllerInputSink_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub OnInputReportReceived: unsafe extern "system" fn(*mut ::core::ffi::c_void, u64, u8, u32, *const u8) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IHidGameControllerProvider, IHidGameControllerProvider_Vtbl, 0x95ce3af4_abf0_4b68_a081_3b7de73ff0e7);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IHidGameControllerProvider_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub UsageId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u16) -> ::windows_core::HRESULT,
@@ -237,14 +227,12 @@ impl ::windows_core::RuntimeType for IXusbGameControllerInputSink {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IXusbGameControllerInputSink_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub OnInputReceived: unsafe extern "system" fn(*mut ::core::ffi::c_void, u64, u8, u32, *const u8) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IXusbGameControllerProvider, IXusbGameControllerProvider_Vtbl, 0x6e2971eb_0efb_48b4_808b_837643b2f216);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IXusbGameControllerProvider_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SetVibration: unsafe extern "system" fn(*mut ::core::ffi::c_void, f64, f64) -> ::windows_core::HRESULT,

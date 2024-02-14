@@ -2,7 +2,6 @@
 pub mod Provider;
 ::windows_core::imp::com_interface!(IAdcChannel, IAdcChannel_Vtbl, 0x040bf414_2588_4a56_abef_73a260acc60a);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAdcChannel_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Controller: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -11,7 +10,6 @@ pub struct IAdcChannel_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAdcController, IAdcController_Vtbl, 0x2a76e4b0_a896_4219_86b6_ea8cdce98f56);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAdcController_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ChannelCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
@@ -25,7 +23,6 @@ pub struct IAdcController_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAdcControllerStatics, IAdcControllerStatics_Vtbl, 0xcce98e0c_01f8_4891_bc3b_be53ef279ca4);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAdcControllerStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(all(feature = "Devices_Adc_Provider", feature = "Foundation_Collections"))]
@@ -35,7 +32,6 @@ pub struct IAdcControllerStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAdcControllerStatics2, IAdcControllerStatics2_Vtbl, 0xa2b93b1d_977b_4f5a_a5fe_a6abaffe6484);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAdcControllerStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetDefaultAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,

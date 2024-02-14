@@ -1,6 +1,5 @@
 ::windows_core::imp::com_interface!(ILanguageFont, ILanguageFont_Vtbl, 0xb12e5c3a_b76d_459b_beeb_901151cd77d1);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ILanguageFont_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub FontFamily: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -20,7 +19,6 @@ pub struct ILanguageFont_Vtbl {
 }
 ::windows_core::imp::com_interface!(ILanguageFontGroup, ILanguageFontGroup_Vtbl, 0xf33a7fc3_3a5c_4aea_b9ff_b39fb242f7f6);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ILanguageFontGroup_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub UITextFont: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -37,7 +35,6 @@ pub struct ILanguageFontGroup_Vtbl {
 }
 ::windows_core::imp::com_interface!(ILanguageFontGroupFactory, ILanguageFontGroupFactory_Vtbl, 0xfcaeac67_4e77_49c7_b856_dde934fc735b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ILanguageFontGroupFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateLanguageFontGroup: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,

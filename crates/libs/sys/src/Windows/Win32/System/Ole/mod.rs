@@ -6,7 +6,7 @@
 ::windows_targets::link!("oleaut32.dll" "system" fn CreateDispTypeInfo(pidata : *mut INTERFACEDATA, lcid : u32, pptinfo : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("oleaut32.dll" "system" fn CreateErrorInfo(pperrinfo : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("ole32.dll" "system" fn CreateOleAdviseHolder(ppoaholder : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("oleaut32.dll" "system" fn CreateStdDispatch(punkouter : ::windows_sys::core::IUnknown, pvthis : *mut ::core::ffi::c_void, ptinfo : * mut::core::ffi::c_void, ppunkstddisp : *mut ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("oleaut32.dll" "system" fn CreateStdDispatch(punkouter : * mut::core::ffi::c_void, pvthis : *mut ::core::ffi::c_void, ptinfo : * mut::core::ffi::c_void, ppunkstddisp : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_targets::link!("oleaut32.dll" "system" fn CreateTypeLib(syskind : super::Com:: SYSKIND, szfile : ::windows_sys::core::PCWSTR, ppctlib : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
@@ -19,7 +19,7 @@
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 ::windows_targets::link!("oleaut32.dll" "system" fn DispInvoke(_this : *mut ::core::ffi::c_void, ptinfo : * mut::core::ffi::c_void, dispidmember : i32, wflags : u16, pparams : *mut super::Com:: DISPPARAMS, pvarresult : *mut super::Variant:: VARIANT, pexcepinfo : *mut super::Com:: EXCEPINFO, puargerr : *mut u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("ole32.dll" "system" fn DoDragDrop(pdataobj : * mut::core::ffi::c_void, pdropsource : * mut::core::ffi::c_void, dwokeffects : DROPEFFECT, pdweffect : *mut DROPEFFECT) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("oleaut32.dll" "system" fn GetActiveObject(rclsid : *const ::windows_sys::core::GUID, pvreserved : *mut ::core::ffi::c_void, ppunk : *mut ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("oleaut32.dll" "system" fn GetActiveObject(rclsid : *const ::windows_sys::core::GUID, pvreserved : *mut ::core::ffi::c_void, ppunk : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("oleaut32.dll" "system" fn GetAltMonthNames(lcid : u32, prgp : *mut *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("oleaut32.dll" "system" fn GetRecordInfoFromGuids(rguidtypelib : *const ::windows_sys::core::GUID, uvermajor : u32, uverminor : u32, lcid : u32, rguidtypeinfo : *const ::windows_sys::core::GUID, pprecinfo : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("oleaut32.dll" "system" fn GetRecordInfoFromTypeInfo(ptypeinfo : * mut::core::ffi::c_void, pprecinfo : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
@@ -57,8 +57,8 @@
 ::windows_targets::link!("ole32.dll" "system" fn OleConvertOLESTREAMToIStorageEx2(polestm : *const super::Com::StructuredStorage:: OLESTREAM, pstg : * mut::core::ffi::c_void, pcfformat : *mut u16, plwwidth : *mut i32, plheight : *mut i32, pdwsize : *mut u32, pmedium : *mut super::Com:: STGMEDIUM, opt : u32, pvcallbackcontext : *const ::core::ffi::c_void, pqueryconvertolelinkcallback : OLESTREAMQUERYCONVERTOLELINKCALLBACK) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_targets::link!("ole32.dll" "system" fn OleCreate(rclsid : *const ::windows_sys::core::GUID, riid : *const ::windows_sys::core::GUID, renderopt : u32, pformatetc : *const super::Com:: FORMATETC, pclientsite : * mut::core::ffi::c_void, pstg : * mut::core::ffi::c_void, ppvobj : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("ole32.dll" "system" fn OleCreateDefaultHandler(clsid : *const ::windows_sys::core::GUID, punkouter : ::windows_sys::core::IUnknown, riid : *const ::windows_sys::core::GUID, lplpobj : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("ole32.dll" "system" fn OleCreateEmbeddingHelper(clsid : *const ::windows_sys::core::GUID, punkouter : ::windows_sys::core::IUnknown, flags : EMBDHLP_FLAGS, pcf : * mut::core::ffi::c_void, riid : *const ::windows_sys::core::GUID, lplpobj : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("ole32.dll" "system" fn OleCreateDefaultHandler(clsid : *const ::windows_sys::core::GUID, punkouter : * mut::core::ffi::c_void, riid : *const ::windows_sys::core::GUID, lplpobj : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("ole32.dll" "system" fn OleCreateEmbeddingHelper(clsid : *const ::windows_sys::core::GUID, punkouter : * mut::core::ffi::c_void, flags : EMBDHLP_FLAGS, pcf : * mut::core::ffi::c_void, riid : *const ::windows_sys::core::GUID, lplpobj : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_targets::link!("ole32.dll" "system" fn OleCreateEx(rclsid : *const ::windows_sys::core::GUID, riid : *const ::windows_sys::core::GUID, dwflags : OLECREATE, renderopt : u32, cformats : u32, rgadvf : *const u32, rgformatetc : *const super::Com:: FORMATETC, lpadvisesink : * mut::core::ffi::c_void, rgdwconnection : *mut u32, pclientsite : * mut::core::ffi::c_void, pstg : * mut::core::ffi::c_void, ppvobj : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
@@ -87,14 +87,14 @@
 ::windows_targets::link!("ole32.dll" "system" fn OleCreateMenuDescriptor(hmenucombined : super::super::UI::WindowsAndMessaging:: HMENU, lpmenuwidths : *const OLEMENUGROUPWIDTHS) -> isize);
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 ::windows_targets::link!("oleaut32.dll" "system" fn OleCreatePictureIndirect(lppictdesc : *const PICTDESC, riid : *const ::windows_sys::core::GUID, fown : super::super::Foundation:: BOOL, lplpvobj : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("oleaut32.dll" "system" fn OleCreatePropertyFrame(hwndowner : super::super::Foundation:: HWND, x : u32, y : u32, lpszcaption : ::windows_sys::core::PCWSTR, cobjects : u32, ppunk : *const ::windows_sys::core::IUnknown, cpages : u32, ppageclsid : *const ::windows_sys::core::GUID, lcid : u32, dwreserved : u32, pvreserved : *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("oleaut32.dll" "system" fn OleCreatePropertyFrame(hwndowner : super::super::Foundation:: HWND, x : u32, y : u32, lpszcaption : ::windows_sys::core::PCWSTR, cobjects : u32, ppunk : *const * mut::core::ffi::c_void, cpages : u32, ppageclsid : *const ::windows_sys::core::GUID, lcid : u32, dwreserved : u32, pvreserved : *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("oleaut32.dll" "system" fn OleCreatePropertyFrameIndirect(lpparams : *const OCPFIPARAMS) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_targets::link!("ole32.dll" "system" fn OleCreateStaticFromData(psrcdataobj : * mut::core::ffi::c_void, iid : *const ::windows_sys::core::GUID, renderopt : u32, pformatetc : *const super::Com:: FORMATETC, pclientsite : * mut::core::ffi::c_void, pstg : * mut::core::ffi::c_void, ppvobj : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("ole32.dll" "system" fn OleDestroyMenuDescriptor(holemenu : isize) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("ole32.dll" "system" fn OleDoAutoConvert(pstg : * mut::core::ffi::c_void, pclsidnew : *mut ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("ole32.dll" "system" fn OleDraw(punknown : ::windows_sys::core::IUnknown, dwaspect : u32, hdcdraw : super::super::Graphics::Gdi:: HDC, lprcbounds : *const super::super::Foundation:: RECT) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("ole32.dll" "system" fn OleDraw(punknown : * mut::core::ffi::c_void, dwaspect : u32, hdcdraw : super::super::Graphics::Gdi:: HDC, lprcbounds : *const super::super::Foundation:: RECT) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Memory")]
 ::windows_targets::link!("ole32.dll" "system" fn OleDuplicateData(hsrc : super::super::Foundation:: HANDLE, cfformat : CLIPBOARD_FORMAT, uiflags : super::Memory:: GLOBAL_ALLOC_FLAGS) -> super::super::Foundation:: HANDLE);
 ::windows_targets::link!("ole32.dll" "system" fn OleFlushClipboard() -> ::windows_sys::core::HRESULT);
@@ -116,24 +116,24 @@
 ::windows_targets::link!("oleaut32.dll" "system" fn OleLoadPictureFile(varfilename : super::Variant:: VARIANT, lplpdisppicture : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 ::windows_targets::link!("oleaut32.dll" "system" fn OleLoadPictureFileEx(varfilename : super::Variant:: VARIANT, xsizedesired : u32, ysizedesired : u32, dwflags : LOAD_PICTURE_FLAGS, lplpdisppicture : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("oleaut32.dll" "system" fn OleLoadPicturePath(szurlorpath : ::windows_sys::core::PCWSTR, punkcaller : ::windows_sys::core::IUnknown, dwreserved : u32, clrreserved : u32, riid : *const ::windows_sys::core::GUID, ppvret : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("ole32.dll" "system" fn OleLockRunning(punknown : ::windows_sys::core::IUnknown, flock : super::super::Foundation:: BOOL, flastunlockcloses : super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("oleaut32.dll" "system" fn OleLoadPicturePath(szurlorpath : ::windows_sys::core::PCWSTR, punkcaller : * mut::core::ffi::c_void, dwreserved : u32, clrreserved : u32, riid : *const ::windows_sys::core::GUID, ppvret : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("ole32.dll" "system" fn OleLockRunning(punknown : * mut::core::ffi::c_void, flock : super::super::Foundation:: BOOL, flastunlockcloses : super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 ::windows_targets::link!("ole32.dll" "system" fn OleMetafilePictFromIconAndLabel(hicon : super::super::UI::WindowsAndMessaging:: HICON, lpszlabel : ::windows_sys::core::PCWSTR, lpszsourcefile : ::windows_sys::core::PCWSTR, iiconindex : u32) -> super::super::Foundation:: HGLOBAL);
-::windows_targets::link!("ole32.dll" "system" fn OleNoteObjectVisible(punknown : ::windows_sys::core::IUnknown, fvisible : super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("ole32.dll" "system" fn OleNoteObjectVisible(punknown : * mut::core::ffi::c_void, fvisible : super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("ole32.dll" "system" fn OleQueryCreateFromData(psrcdataobject : * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("ole32.dll" "system" fn OleQueryLinkFromData(psrcdataobject : * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("ole32.dll" "system" fn OleRegEnumFormatEtc(clsid : *const ::windows_sys::core::GUID, dwdirection : u32, ppenum : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("ole32.dll" "system" fn OleRegEnumVerbs(clsid : *const ::windows_sys::core::GUID, ppenum : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("ole32.dll" "system" fn OleRegGetMiscStatus(clsid : *const ::windows_sys::core::GUID, dwaspect : u32, pdwstatus : *mut u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("ole32.dll" "system" fn OleRegGetUserType(clsid : *const ::windows_sys::core::GUID, dwformoftype : u32, pszusertype : *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("ole32.dll" "system" fn OleRun(punknown : ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("ole32.dll" "system" fn OleRun(punknown : * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("ole32.dll" "system" fn OleSave(pps : * mut::core::ffi::c_void, pstg : * mut::core::ffi::c_void, fsameasload : super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("oleaut32.dll" "system" fn OleSavePictureFile(lpdisppicture : * mut::core::ffi::c_void, bstrfilename : ::windows_sys::core::BSTR) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("ole32.dll" "system" fn OleSaveToStream(ppstm : * mut::core::ffi::c_void, pstm : * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("ole32.dll" "system" fn OleSetAutoConvert(clsidold : *const ::windows_sys::core::GUID, clsidnew : *const ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("ole32.dll" "system" fn OleSetClipboard(pdataobj : * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("ole32.dll" "system" fn OleSetContainedObject(punknown : ::windows_sys::core::IUnknown, fcontained : super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("ole32.dll" "system" fn OleSetContainedObject(punknown : * mut::core::ffi::c_void, fcontained : super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("ole32.dll" "system" fn OleSetMenuDescriptor(holemenu : isize, hwndframe : super::super::Foundation:: HWND, hwndactiveobject : super::super::Foundation:: HWND, lpframe : * mut::core::ffi::c_void, lpactiveobj : * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 ::windows_targets::link!("ole32.dll" "system" fn OleTranslateAccelerator(lpframe : * mut::core::ffi::c_void, lpframeinfo : *const OLEINPLACEFRAMEINFO, lpmsg : *const super::super::UI::WindowsAndMessaging:: MSG) -> ::windows_sys::core::HRESULT);
@@ -176,7 +176,7 @@
 ::windows_targets::link!("oledlg.dll" "system" fn OleUIUpdateLinksW(lpoleuilinkcntr : * mut::core::ffi::c_void, hwndparent : super::super::Foundation:: HWND, lpsztitle : ::windows_sys::core::PCWSTR, clinks : i32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("ole32.dll" "system" fn OleUninitialize());
 ::windows_targets::link!("oleaut32.dll" "system" fn QueryPathOfRegTypeLib(guid : *const ::windows_sys::core::GUID, wmaj : u16, wmin : u16, lcid : u32, lpbstrpathname : *mut ::windows_sys::core::BSTR) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("oleaut32.dll" "system" fn RegisterActiveObject(punk : ::windows_sys::core::IUnknown, rclsid : *const ::windows_sys::core::GUID, dwflags : ACTIVEOBJECT_FLAGS, pdwregister : *mut u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("oleaut32.dll" "system" fn RegisterActiveObject(punk : * mut::core::ffi::c_void, rclsid : *const ::windows_sys::core::GUID, dwflags : ACTIVEOBJECT_FLAGS, pdwregister : *mut u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("ole32.dll" "system" fn RegisterDragDrop(hwnd : super::super::Foundation:: HWND, pdroptarget : * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("oleaut32.dll" "system" fn RegisterTypeLib(ptlib : * mut::core::ffi::c_void, szfullpath : ::windows_sys::core::PCWSTR, szhelpdir : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("oleaut32.dll" "system" fn RegisterTypeLibForUser(ptlib : * mut::core::ffi::c_void, szfullpath : ::windows_sys::core::PCWSTR, szhelpdir : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT);
@@ -1780,7 +1780,7 @@ impl ::core::clone::Clone for CAUUID {
 }
 #[repr(C)]
 pub struct CLEANLOCALSTORAGE {
-    pub pInterface: ::windows_sys::core::IUnknown,
+    pub pInterface: *mut ::core::ffi::c_void,
     pub pStorage: *mut ::core::ffi::c_void,
     pub flags: u32,
 }
@@ -1935,7 +1935,7 @@ pub struct OCPFIPARAMS {
     pub y: i32,
     pub lpszCaption: ::windows_sys::core::PCWSTR,
     pub cObjects: u32,
-    pub lplpUnk: *mut ::windows_sys::core::IUnknown,
+    pub lplpUnk: *mut *mut ::core::ffi::c_void,
     pub cPages: u32,
     pub lpPages: *mut ::windows_sys::core::GUID,
     pub lcid: u32,
@@ -2777,7 +2777,7 @@ pub struct QACONTAINER {
     pub pClientSite: *mut ::core::ffi::c_void,
     pub pAdviseSink: *mut ::core::ffi::c_void,
     pub pPropertyNotifySink: *mut ::core::ffi::c_void,
-    pub pUnkEventSink: ::windows_sys::core::IUnknown,
+    pub pUnkEventSink: *mut ::core::ffi::c_void,
     pub dwAmbientFlags: u32,
     pub colorFore: u32,
     pub colorBack: u32,
@@ -2888,7 +2888,7 @@ impl ::core::clone::Clone for SAFEARR_DISPATCH {
 #[repr(C)]
 pub struct SAFEARR_HAVEIID {
     pub Size: u32,
-    pub apUnknown: *mut ::windows_sys::core::IUnknown,
+    pub apUnknown: *mut *mut ::core::ffi::c_void,
     pub iid: ::windows_sys::core::GUID,
 }
 impl ::core::marker::Copy for SAFEARR_HAVEIID {}
@@ -2900,7 +2900,7 @@ impl ::core::clone::Clone for SAFEARR_HAVEIID {
 #[repr(C)]
 pub struct SAFEARR_UNKNOWN {
     pub Size: u32,
-    pub apUnknown: *mut ::windows_sys::core::IUnknown,
+    pub apUnknown: *mut *mut ::core::ffi::c_void,
 }
 impl ::core::marker::Copy for SAFEARR_UNKNOWN {}
 impl ::core::clone::Clone for SAFEARR_UNKNOWN {
@@ -2997,7 +2997,7 @@ pub union _wireVARIANT_0 {
     pub cyVal: super::Com::CY,
     pub date: f64,
     pub bstrVal: *mut super::Com::FLAGGED_WORD_BLOB,
-    pub punkVal: ::windows_sys::core::IUnknown,
+    pub punkVal: *mut ::core::ffi::c_void,
     pub pdispVal: *mut ::core::ffi::c_void,
     pub parray: *mut *mut _wireSAFEARRAY,
     pub brecVal: *mut _wireBRECORD,
@@ -3012,7 +3012,7 @@ pub union _wireVARIANT_0 {
     pub pcyVal: *mut super::Com::CY,
     pub pdate: *mut f64,
     pub pbstrVal: *mut *mut super::Com::FLAGGED_WORD_BLOB,
-    pub ppunkVal: *mut ::windows_sys::core::IUnknown,
+    pub ppunkVal: *mut *mut ::core::ffi::c_void,
     pub ppdispVal: *mut *mut ::core::ffi::c_void,
     pub pparray: *mut *mut *mut _wireSAFEARRAY,
     pub pvarVal: *mut *mut _wireVARIANT,

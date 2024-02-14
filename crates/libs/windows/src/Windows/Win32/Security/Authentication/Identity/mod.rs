@@ -1550,7 +1550,6 @@ impl ICcgDomainAuthCredentials {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICcgDomainAuthCredentials_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetPasswordCredentials: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *mut ::windows_core::PWSTR, *mut ::windows_core::PWSTR, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,

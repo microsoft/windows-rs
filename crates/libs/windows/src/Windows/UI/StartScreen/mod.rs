@@ -1,6 +1,5 @@
 ::windows_core::imp::com_interface!(IJumpList, IJumpList_Vtbl, 0xb0234c3e_cd6f_4cb6_a611_61fd505f3ed1);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IJumpList_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -13,7 +12,6 @@ pub struct IJumpList_Vtbl {
 }
 ::windows_core::imp::com_interface!(IJumpListItem, IJumpListItem_Vtbl, 0x7adb6717_8b5d_4820_995b_9b418dbe48b0);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IJumpListItem_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Kind: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut JumpListItemKind) -> ::windows_core::HRESULT,
@@ -30,7 +28,6 @@ pub struct IJumpListItem_Vtbl {
 }
 ::windows_core::imp::com_interface!(IJumpListItemStatics, IJumpListItemStatics_Vtbl, 0xf1bfc4e8_c7aa_49cb_8dde_ecfccd7ad7e4);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IJumpListItemStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateWithArguments: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -38,7 +35,6 @@ pub struct IJumpListItemStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IJumpListStatics, IJumpListStatics_Vtbl, 0xa7e0c681_e67e_4b74_8250_3f322c4d92c3);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IJumpListStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub LoadCurrentAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -46,7 +42,6 @@ pub struct IJumpListStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISecondaryTile, ISecondaryTile_Vtbl, 0x9e9e51e0_2bb5_4bc0_bb8d_42b23abcc88d);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISecondaryTile_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SetTileId: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -133,7 +128,6 @@ pub struct ISecondaryTile_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISecondaryTile2, ISecondaryTile2_Vtbl, 0xb2f6cc35_3250_4990_923c_294ab4b694dd);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISecondaryTile2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SetPhoneticName: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -146,7 +140,6 @@ pub struct ISecondaryTile2_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISecondaryTileFactory, ISecondaryTileFactory_Vtbl, 0x57f52ca0_51bc_4abf_8ebf_627a0398b05a);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISecondaryTileFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "deprecated")]
@@ -161,14 +154,12 @@ pub struct ISecondaryTileFactory_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISecondaryTileFactory2, ISecondaryTileFactory2_Vtbl, 0x274b8a3b_522d_448e_9eb2_d0672ab345c8);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISecondaryTileFactory2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateMinimalTile: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, ::std::mem::MaybeUninit<::windows_core::HSTRING>, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut ::core::ffi::c_void, TileSize, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ISecondaryTileStatics, ISecondaryTileStatics_Vtbl, 0x99908dae_d051_4676_87fe_9ec242d83c74);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISecondaryTileStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Exists: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut bool) -> ::windows_core::HRESULT,
@@ -187,7 +178,6 @@ pub struct ISecondaryTileStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISecondaryTileVisualElements, ISecondaryTileVisualElements_Vtbl, 0x1d8df333_815e_413f_9f50_a81da70a96b2);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISecondaryTileVisualElements_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "deprecated")]
@@ -225,7 +215,6 @@ pub struct ISecondaryTileVisualElements_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISecondaryTileVisualElements2, ISecondaryTileVisualElements2_Vtbl, 0xfd2e31d0_57dc_4794_8ecf_5682f5f3e6ef);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISecondaryTileVisualElements2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SetSquare71x71Logo: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -233,7 +222,6 @@ pub struct ISecondaryTileVisualElements2_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISecondaryTileVisualElements3, ISecondaryTileVisualElements3_Vtbl, 0x56b55ad6_d15c_40f4_81e7_57ffd8f8a4e9);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISecondaryTileVisualElements3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SetSquare44x44Logo: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -241,14 +229,12 @@ pub struct ISecondaryTileVisualElements3_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISecondaryTileVisualElements4, ISecondaryTileVisualElements4_Vtbl, 0x66566117_b544_40d2_8d12_74d4ec24d04c);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISecondaryTileVisualElements4_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub MixedRealityModel: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IStartScreenManager, IStartScreenManager_Vtbl, 0x4a1dcbcb_26e9_4eb4_8933_859eb6ecdb29);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IStartScreenManager_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "System")]
@@ -270,7 +256,6 @@ pub struct IStartScreenManager_Vtbl {
 }
 ::windows_core::imp::com_interface!(IStartScreenManager2, IStartScreenManager2_Vtbl, 0x08a716b6_316b_4ad9_acb8_fe9cf00bd608);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IStartScreenManager2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ContainsSecondaryTileAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -278,7 +263,6 @@ pub struct IStartScreenManager2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IStartScreenManagerStatics, IStartScreenManagerStatics_Vtbl, 0x7865ef0f_b585_464e_8993_34e8f8738d48);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IStartScreenManagerStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetDefault: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -289,7 +273,6 @@ pub struct IStartScreenManagerStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(ITileMixedRealityModel, ITileMixedRealityModel_Vtbl, 0xb0764e5b_887d_4242_9a19_3d0a4ea78031);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITileMixedRealityModel_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SetUri: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -305,7 +288,6 @@ pub struct ITileMixedRealityModel_Vtbl {
 }
 ::windows_core::imp::com_interface!(ITileMixedRealityModel2, ITileMixedRealityModel2_Vtbl, 0x439470b2_d7c5_410b_8319_9486a27b6c67);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITileMixedRealityModel2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SetActivationBehavior: unsafe extern "system" fn(*mut ::core::ffi::c_void, TileMixedRealityModelActivationBehavior) -> ::windows_core::HRESULT,
@@ -313,7 +295,6 @@ pub struct ITileMixedRealityModel2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IVisualElementsRequest, IVisualElementsRequest_Vtbl, 0xc138333a_9308_4072_88cc_d068db347c68);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVisualElementsRequest_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub VisualElements: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -326,14 +307,12 @@ pub struct IVisualElementsRequest_Vtbl {
 }
 ::windows_core::imp::com_interface!(IVisualElementsRequestDeferral, IVisualElementsRequestDeferral_Vtbl, 0xa1656eb0_0126_4357_8204_bd82bb2a046d);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVisualElementsRequestDeferral_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Complete: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IVisualElementsRequestedEventArgs, IVisualElementsRequestedEventArgs_Vtbl, 0x7b6fc982_3a0d_4ece_af96_cd17e1b00b2d);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVisualElementsRequestedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Request: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,

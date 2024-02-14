@@ -6,7 +6,6 @@
 impl DRendezvousSessionEvents {}
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct DRendezvousSessionEvents_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
 }
@@ -21,7 +20,6 @@ impl IRendezvousApplication {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRendezvousApplication_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub SetRendezvousSession: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -55,7 +53,6 @@ impl IRendezvousSession {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRendezvousSession_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub State: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut RENDEZVOUS_SESSION_STATE) -> ::windows_core::HRESULT,

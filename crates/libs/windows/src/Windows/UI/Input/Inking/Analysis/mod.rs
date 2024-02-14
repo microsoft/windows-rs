@@ -1,13 +1,11 @@
 ::windows_core::imp::com_interface!(IInkAnalysisInkBullet, IInkAnalysisInkBullet_Vtbl, 0xee049368_6110_4136_95f9_ee809fc20030);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IInkAnalysisInkBullet_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub RecognizedText: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IInkAnalysisInkDrawing, IInkAnalysisInkDrawing_Vtbl, 0x6a85ed1f_1fe4_4e15_898c_8e112377e021);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IInkAnalysisInkDrawing_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub DrawingKind: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut InkAnalysisDrawingKind) -> ::windows_core::HRESULT,
@@ -19,7 +17,6 @@ pub struct IInkAnalysisInkDrawing_Vtbl {
 }
 ::windows_core::imp::com_interface!(IInkAnalysisInkWord, IInkAnalysisInkWord_Vtbl, 0x4bd228ad_83af_4034_8f3b_f8687dfff436);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IInkAnalysisInkWord_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub RecognizedText: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -30,7 +27,6 @@ pub struct IInkAnalysisInkWord_Vtbl {
 }
 ::windows_core::imp::com_interface!(IInkAnalysisLine, IInkAnalysisLine_Vtbl, 0xa06d048d_2b8d_4754_ad5a_d0871193a956);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IInkAnalysisLine_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub RecognizedText: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -38,7 +34,6 @@ pub struct IInkAnalysisLine_Vtbl {
 }
 ::windows_core::imp::com_interface!(IInkAnalysisListItem, IInkAnalysisListItem_Vtbl, 0xb4e3c23f_c4c3_4c3a_a1a6_9d85547ee586);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IInkAnalysisListItem_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub RecognizedText: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -103,7 +98,6 @@ impl ::windows_core::RuntimeType for IInkAnalysisNode {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IInkAnalysisNode_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Id: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -125,21 +119,18 @@ pub struct IInkAnalysisNode_Vtbl {
 }
 ::windows_core::imp::com_interface!(IInkAnalysisParagraph, IInkAnalysisParagraph_Vtbl, 0xd9ad045c_0cd1_4dd4_a68b_eb1f12b3d727);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IInkAnalysisParagraph_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub RecognizedText: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IInkAnalysisResult, IInkAnalysisResult_Vtbl, 0x8948ba79_a243_4aa3_a294_1f98bd0ff580);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IInkAnalysisResult_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut InkAnalysisStatus) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IInkAnalysisRoot, IInkAnalysisRoot_Vtbl, 0x3fb6a3c4_2fde_4061_8502_a90f32545b84);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IInkAnalysisRoot_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub RecognizedText: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -150,14 +141,12 @@ pub struct IInkAnalysisRoot_Vtbl {
 }
 ::windows_core::imp::com_interface!(IInkAnalysisWritingRegion, IInkAnalysisWritingRegion_Vtbl, 0xdd6d6231_bd16_4663_b5ae_941d3043ef5b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IInkAnalysisWritingRegion_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub RecognizedText: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IInkAnalyzer, IInkAnalyzer_Vtbl, 0xf12b8f95_0866_4dc5_8c77_f88614dfe38c);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IInkAnalyzer_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub AnalysisRoot: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -192,7 +181,6 @@ impl ::windows_core::RuntimeType for IInkAnalyzerFactory {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IInkAnalyzerFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateAnalyzer: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,

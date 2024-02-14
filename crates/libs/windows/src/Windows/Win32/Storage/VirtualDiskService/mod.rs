@@ -16,7 +16,6 @@ impl IEnumVdsObject {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IEnumVdsObject_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -40,7 +39,6 @@ impl IVdsAdmin {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVdsAdmin_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub RegisterProvider: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::GUID, ::windows_core::GUID, ::windows_core::PCWSTR, VDS_PROVIDER_TYPE, ::windows_core::PCWSTR, ::windows_core::PCWSTR, ::windows_core::GUID) -> ::windows_core::HRESULT,
@@ -99,7 +97,6 @@ impl IVdsAdvancedDisk {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVdsAdvancedDisk_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetPartitionProperties: unsafe extern "system" fn(*mut ::core::ffi::c_void, u64, *mut VDS_PARTITION_PROP) -> ::windows_core::HRESULT,
@@ -124,7 +121,6 @@ impl IVdsAdvancedDisk2 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVdsAdvancedDisk2_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub ChangePartitionType: unsafe extern "system" fn(*mut ::core::ffi::c_void, u64, super::super::Foundation::BOOL, *const CHANGE_PARTITION_TYPE_PARAMETERS) -> ::windows_core::HRESULT,
@@ -141,7 +137,6 @@ impl IVdsAdvancedDisk3 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVdsAdvancedDisk3_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetProperties: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut VDS_ADVANCEDDISK_PROP) -> ::windows_core::HRESULT,
@@ -155,7 +150,6 @@ impl IVdsAdviseSink {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVdsAdviseSink_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub OnNotify: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, *const VDS_NOTIFICATION) -> ::windows_core::HRESULT,
@@ -174,7 +168,6 @@ impl IVdsAsync {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVdsAsync_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Cancel: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -212,7 +205,6 @@ impl IVdsController {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVdsController_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetProperties: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut VDS_CONTROLLER_PROP) -> ::windows_core::HRESULT,
@@ -233,7 +225,6 @@ impl IVdsControllerControllerPort {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVdsControllerControllerPort_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub QueryControllerPorts: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -260,7 +251,6 @@ impl IVdsControllerPort {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVdsControllerPort_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetProperties: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut VDS_PORT_PROP) -> ::windows_core::HRESULT,
@@ -278,7 +268,6 @@ impl IVdsCreatePartitionEx {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVdsCreatePartitionEx_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub CreatePartitionEx: unsafe extern "system" fn(*mut ::core::ffi::c_void, u64, u64, u32, *const CREATE_PARTITION_PARAMETERS, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -310,7 +299,6 @@ impl IVdsDisk {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVdsDisk_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetProperties: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut VDS_DISK_PROP) -> ::windows_core::HRESULT,
@@ -332,7 +320,6 @@ impl IVdsDisk2 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVdsDisk2_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub SetSANMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
@@ -348,7 +335,6 @@ impl IVdsDisk3 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVdsDisk3_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetProperties2: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut VDS_DISK_PROP2) -> ::windows_core::HRESULT,
@@ -365,7 +351,6 @@ impl IVdsDiskOnline {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVdsDiskOnline_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Online: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -397,7 +382,6 @@ impl IVdsDiskPartitionMF {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVdsDiskPartitionMF_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetPartitionFileSystemProperties: unsafe extern "system" fn(*mut ::core::ffi::c_void, u64, *mut VDS_FILE_SYSTEM_PROP) -> ::windows_core::HRESULT,
@@ -418,7 +402,6 @@ impl IVdsDiskPartitionMF2 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVdsDiskPartitionMF2_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub FormatPartitionEx2: unsafe extern "system" fn(*mut ::core::ffi::c_void, u64, ::windows_core::PCWSTR, u16, u32, ::windows_core::PCWSTR, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -447,7 +430,6 @@ impl IVdsDrive {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVdsDrive_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetProperties: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut VDS_DRIVE_PROP) -> ::windows_core::HRESULT,
@@ -465,7 +447,6 @@ impl IVdsDrive2 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVdsDrive2_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetProperties2: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut VDS_DRIVE_PROP2) -> ::windows_core::HRESULT,
@@ -481,7 +462,6 @@ impl IVdsHbaPort {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVdsHbaPort_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetProperties: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut VDS_HBAPORT_PROP) -> ::windows_core::HRESULT,
@@ -502,7 +482,6 @@ impl IVdsHwProvider {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVdsHwProvider_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub QuerySubSystems: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -521,7 +500,6 @@ impl IVdsHwProviderPrivate {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVdsHwProviderPrivate_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub QueryIfCreatedLun: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *const VDS_LUN_INFORMATION, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
@@ -534,7 +512,6 @@ impl IVdsHwProviderPrivateMpio {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVdsHwProviderPrivateMpio_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub SetAllPathStatusesFromHbaPort: unsafe extern "system" fn(*mut ::core::ffi::c_void, VDS_HBAPORT_PROP, VDS_PATH_STATUS) -> ::windows_core::HRESULT,
@@ -559,7 +536,6 @@ impl IVdsHwProviderStoragePools {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVdsHwProviderStoragePools_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub QueryStoragePools: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u64, *const VDS_POOL_ATTRIBUTES, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -575,7 +551,6 @@ impl IVdsHwProviderType {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVdsHwProviderType_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetProviderType: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut VDS_HWPROVIDER_TYPE) -> ::windows_core::HRESULT,
@@ -589,7 +564,6 @@ impl IVdsHwProviderType2 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVdsHwProviderType2_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetProviderType2: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut VDS_HWPROVIDER_TYPE) -> ::windows_core::HRESULT,
@@ -618,7 +592,6 @@ impl IVdsIscsiInitiatorAdapter {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVdsIscsiInitiatorAdapter_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetProperties: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut VDS_ISCSI_INITIATOR_ADAPTER_PROP) -> ::windows_core::HRESULT,
@@ -648,7 +621,6 @@ impl IVdsIscsiInitiatorPortal {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVdsIscsiInitiatorPortal_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetProperties: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut VDS_ISCSI_INITIATOR_PORTAL_PROP) -> ::windows_core::HRESULT,
@@ -686,7 +658,6 @@ impl IVdsIscsiPortal {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVdsIscsiPortal_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetProperties: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut VDS_ISCSI_PORTAL_PROP) -> ::windows_core::HRESULT,
@@ -725,7 +696,6 @@ impl IVdsIscsiPortalGroup {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVdsIscsiPortalGroup_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetProperties: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut VDS_ISCSI_PORTALGROUP_PROP) -> ::windows_core::HRESULT,
@@ -743,7 +713,6 @@ impl IVdsIscsiPortalLocal {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVdsIscsiPortalLocal_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub SetIpsecSecurityLocal: unsafe extern "system" fn(*mut ::core::ffi::c_void, u64, *const VDS_ISCSI_IPSEC_KEY) -> ::windows_core::HRESULT,
@@ -797,7 +766,6 @@ impl IVdsIscsiTarget {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVdsIscsiTarget_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetProperties: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut VDS_ISCSI_TARGET_PROP) -> ::windows_core::HRESULT,
@@ -879,7 +847,6 @@ impl IVdsLun {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVdsLun_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetProperties: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut VDS_LUN_PROP) -> ::windows_core::HRESULT,
@@ -911,7 +878,6 @@ impl IVdsLun2 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVdsLun2_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub QueryHints2: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut VDS_HINTS2) -> ::windows_core::HRESULT,
@@ -929,7 +895,6 @@ impl IVdsLunControllerPorts {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVdsLunControllerPorts_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub AssociateControllerPorts: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, i32, *const ::windows_core::GUID, i32) -> ::windows_core::HRESULT,
@@ -947,7 +912,6 @@ impl IVdsLunIscsi {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVdsLunIscsi_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub AssociateTargets: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, i32) -> ::windows_core::HRESULT,
@@ -971,7 +935,6 @@ impl IVdsLunMpio {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVdsLunMpio_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetPathInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut VDS_PATH_INFO, *mut i32) -> ::windows_core::HRESULT,
@@ -990,7 +953,6 @@ impl IVdsLunNaming {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVdsLunNaming_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub SetFriendlyName: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
@@ -1004,7 +966,6 @@ impl IVdsLunNumber {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVdsLunNumber_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetLunNumber: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -1030,7 +991,6 @@ impl IVdsLunPlex {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVdsLunPlex_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetProperties: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut VDS_LUN_PLEX_PROP) -> ::windows_core::HRESULT,
@@ -1053,7 +1013,6 @@ impl IVdsMaintenance {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVdsMaintenance_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub StartMaintenance: unsafe extern "system" fn(*mut ::core::ffi::c_void, VDS_MAINTENANCE_OPERATION) -> ::windows_core::HRESULT,
@@ -1096,7 +1055,6 @@ impl IVdsOpenVDisk {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVdsOpenVDisk_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Storage_Vhd")]
@@ -1172,7 +1130,6 @@ impl IVdsPack {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVdsPack_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetProperties: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut VDS_PACK_PROP) -> ::windows_core::HRESULT,
@@ -1195,7 +1152,6 @@ impl IVdsPack2 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVdsPack2_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub CreateVolume2: unsafe extern "system" fn(*mut ::core::ffi::c_void, VDS_VOLUME_TYPE, *const VDS_INPUT_DISK, i32, u32, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1208,7 +1164,6 @@ impl IVdsProvider {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVdsProvider_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetProperties: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut VDS_PROVIDER_PROP) -> ::windows_core::HRESULT,
@@ -1235,7 +1190,6 @@ impl IVdsProviderPrivate {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVdsProviderPrivate_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetObject: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::GUID, VDS_OBJECT_TYPE, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1251,7 +1205,6 @@ impl IVdsProviderSupport {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVdsProviderSupport_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetVersionSupport: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -1267,7 +1220,6 @@ impl IVdsRemovable {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVdsRemovable_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub QueryMedia: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1338,7 +1290,6 @@ impl IVdsService {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVdsService_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub IsServiceReady: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1368,7 +1319,6 @@ impl IVdsServiceHba {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVdsServiceHba_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub QueryHbaPorts: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1384,7 +1334,6 @@ impl IVdsServiceInitialization {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVdsServiceInitialization_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
@@ -1417,7 +1366,6 @@ impl IVdsServiceIscsi {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVdsServiceIscsi_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetInitiatorName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
@@ -1440,7 +1388,6 @@ impl IVdsServiceLoader {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVdsServiceLoader_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub LoadService: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1457,7 +1404,6 @@ impl IVdsServiceSAN {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVdsServiceSAN_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetSANPolicy: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut VDS_SAN_POLICY) -> ::windows_core::HRESULT,
@@ -1475,7 +1421,6 @@ impl IVdsServiceSw {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVdsServiceSw_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetDiskObject: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1495,7 +1440,6 @@ impl IVdsServiceUninstallDisk {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVdsServiceUninstallDisk_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetDiskIdFromLunInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const VDS_LUN_INFORMATION, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
@@ -1527,7 +1471,6 @@ impl IVdsStoragePool {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVdsStoragePool_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetProvider: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1588,7 +1531,6 @@ impl IVdsSubSystem {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVdsSubSystem_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetProperties: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut VDS_SUB_SYSTEM_PROP) -> ::windows_core::HRESULT,
@@ -1627,7 +1569,6 @@ impl IVdsSubSystem2 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVdsSubSystem2_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetProperties2: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut VDS_SUB_SYSTEM_PROP2) -> ::windows_core::HRESULT,
@@ -1650,7 +1591,6 @@ impl IVdsSubSystemImportTarget {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVdsSubSystemImportTarget_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetImportTarget: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
@@ -1665,7 +1605,6 @@ impl IVdsSubSystemInterconnect {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVdsSubSystemInterconnect_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetSupportedInterconnects: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -1694,7 +1633,6 @@ impl IVdsSubSystemIscsi {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVdsSubSystemIscsi_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub QueryTargets: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1713,7 +1651,6 @@ impl IVdsSubSystemNaming {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVdsSubSystemNaming_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub SetFriendlyName: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
@@ -1731,7 +1668,6 @@ impl IVdsSwProvider {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVdsSwProvider_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub QueryPacks: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1759,7 +1695,6 @@ impl IVdsVDisk {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVdsVDisk_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Storage_Vhd")]
@@ -1811,7 +1746,6 @@ impl IVdsVdProvider {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVdsVdProvider_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub QueryVDisks: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1877,7 +1811,6 @@ impl IVdsVolume {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVdsVolume_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetProperties: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut VDS_VOLUME_PROP) -> ::windows_core::HRESULT,
@@ -1900,7 +1833,6 @@ impl IVdsVolume2 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVdsVolume2_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetProperties2: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut VDS_VOLUME_PROP2) -> ::windows_core::HRESULT,
@@ -1958,7 +1890,6 @@ impl IVdsVolumeMF {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVdsVolumeMF_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetFileSystemProperties: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut VDS_FILE_SYSTEM_PROP) -> ::windows_core::HRESULT,
@@ -1995,7 +1926,6 @@ impl IVdsVolumeMF2 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVdsVolumeMF2_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetFileSystemTypeName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
@@ -2021,7 +1951,6 @@ impl IVdsVolumeMF3 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVdsVolumeMF3_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub QueryVolumeGuidPathnames: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::windows_core::PWSTR, *mut u32) -> ::windows_core::HRESULT,
@@ -2036,7 +1965,6 @@ impl IVdsVolumeOnline {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVdsVolumeOnline_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Online: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -2060,7 +1988,6 @@ impl IVdsVolumePlex {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVdsVolumePlex_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetProperties: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut VDS_VOLUME_PLEX_PROP) -> ::windows_core::HRESULT,
@@ -2081,7 +2008,6 @@ impl IVdsVolumeShrink {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVdsVolumeShrink_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub QueryMaxReclaimableBytes: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u64) -> ::windows_core::HRESULT,

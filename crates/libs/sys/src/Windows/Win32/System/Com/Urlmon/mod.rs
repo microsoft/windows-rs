@@ -37,12 +37,12 @@
 ::windows_targets::link!("urlmon.dll" "system" fn GetClassURL(szurl : ::windows_sys::core::PCWSTR, pclsid : *mut ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("urlmon.dll" "system" fn GetComponentIDFromCLSSPEC(pclassspec : *const super:: uCLSSPEC, ppszcomponentid : *mut ::windows_sys::core::PSTR) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("urlmon.dll" "system" fn GetSoftwareUpdateInfo(szdistunit : ::windows_sys::core::PCWSTR, psdi : *mut SOFTDISTINFO) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("urlmon.dll" "system" fn HlinkGoBack(punk : ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("urlmon.dll" "system" fn HlinkGoForward(punk : ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("urlmon.dll" "system" fn HlinkNavigateMoniker(punk : ::windows_sys::core::IUnknown, pmktarget : * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("urlmon.dll" "system" fn HlinkNavigateString(punk : ::windows_sys::core::IUnknown, sztarget : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("urlmon.dll" "system" fn HlinkSimpleNavigateToMoniker(pmktarget : * mut::core::ffi::c_void, szlocation : ::windows_sys::core::PCWSTR, sztargetframename : ::windows_sys::core::PCWSTR, punk : ::windows_sys::core::IUnknown, pbc : * mut::core::ffi::c_void, param5 : * mut::core::ffi::c_void, grfhlnf : u32, dwreserved : u32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("urlmon.dll" "system" fn HlinkSimpleNavigateToString(sztarget : ::windows_sys::core::PCWSTR, szlocation : ::windows_sys::core::PCWSTR, sztargetframename : ::windows_sys::core::PCWSTR, punk : ::windows_sys::core::IUnknown, pbc : * mut::core::ffi::c_void, param5 : * mut::core::ffi::c_void, grfhlnf : u32, dwreserved : u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("urlmon.dll" "system" fn HlinkGoBack(punk : * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("urlmon.dll" "system" fn HlinkGoForward(punk : * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("urlmon.dll" "system" fn HlinkNavigateMoniker(punk : * mut::core::ffi::c_void, pmktarget : * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("urlmon.dll" "system" fn HlinkNavigateString(punk : * mut::core::ffi::c_void, sztarget : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("urlmon.dll" "system" fn HlinkSimpleNavigateToMoniker(pmktarget : * mut::core::ffi::c_void, szlocation : ::windows_sys::core::PCWSTR, sztargetframename : ::windows_sys::core::PCWSTR, punk : * mut::core::ffi::c_void, pbc : * mut::core::ffi::c_void, param5 : * mut::core::ffi::c_void, grfhlnf : u32, dwreserved : u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("urlmon.dll" "system" fn HlinkSimpleNavigateToString(sztarget : ::windows_sys::core::PCWSTR, szlocation : ::windows_sys::core::PCWSTR, sztargetframename : ::windows_sys::core::PCWSTR, punk : * mut::core::ffi::c_void, pbc : * mut::core::ffi::c_void, param5 : * mut::core::ffi::c_void, grfhlnf : u32, dwreserved : u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("urlmon.dll" "system" fn IEGetUserPrivateNamespaceName() -> ::windows_sys::core::PWSTR);
 ::windows_targets::link!("urlmon.dll" "system" fn IEInstallScope(pdwscope : *mut u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("urlmon.dll" "system" fn IsAsyncMoniker(pmk : * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
@@ -61,16 +61,16 @@
 ::windows_targets::link!("urlmon.dll" "system" fn RevokeFormatEnumerator(pbc : * mut::core::ffi::c_void, pefetc : * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("urlmon.dll" "system" fn SetAccessForIEAppContainer(hobject : super::super::super::Foundation:: HANDLE, ieobjecttype : IEObjectType, dwaccessmask : u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("urlmon.dll" "system" fn SetSoftwareUpdateAdvertisementState(szdistunit : ::windows_sys::core::PCWSTR, dwadstate : u32, dwadvertisedversionms : u32, dwadvertisedversionls : u32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("urlmon.dll" "system" fn URLDownloadToCacheFileA(param0 : ::windows_sys::core::IUnknown, param1 : ::windows_sys::core::PCSTR, param2 : ::windows_sys::core::PSTR, cchfilename : u32, param4 : u32, param5 : * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("urlmon.dll" "system" fn URLDownloadToCacheFileW(param0 : ::windows_sys::core::IUnknown, param1 : ::windows_sys::core::PCWSTR, param2 : ::windows_sys::core::PWSTR, cchfilename : u32, param4 : u32, param5 : * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("urlmon.dll" "system" fn URLDownloadToFileA(param0 : ::windows_sys::core::IUnknown, param1 : ::windows_sys::core::PCSTR, param2 : ::windows_sys::core::PCSTR, param3 : u32, param4 : * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("urlmon.dll" "system" fn URLDownloadToFileW(param0 : ::windows_sys::core::IUnknown, param1 : ::windows_sys::core::PCWSTR, param2 : ::windows_sys::core::PCWSTR, param3 : u32, param4 : * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("urlmon.dll" "system" fn URLOpenBlockingStreamA(param0 : ::windows_sys::core::IUnknown, param1 : ::windows_sys::core::PCSTR, param2 : *mut * mut::core::ffi::c_void, param3 : u32, param4 : * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("urlmon.dll" "system" fn URLOpenBlockingStreamW(param0 : ::windows_sys::core::IUnknown, param1 : ::windows_sys::core::PCWSTR, param2 : *mut * mut::core::ffi::c_void, param3 : u32, param4 : * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("urlmon.dll" "system" fn URLOpenPullStreamA(param0 : ::windows_sys::core::IUnknown, param1 : ::windows_sys::core::PCSTR, param2 : u32, param3 : * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("urlmon.dll" "system" fn URLOpenPullStreamW(param0 : ::windows_sys::core::IUnknown, param1 : ::windows_sys::core::PCWSTR, param2 : u32, param3 : * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("urlmon.dll" "system" fn URLOpenStreamA(param0 : ::windows_sys::core::IUnknown, param1 : ::windows_sys::core::PCSTR, param2 : u32, param3 : * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("urlmon.dll" "system" fn URLOpenStreamW(param0 : ::windows_sys::core::IUnknown, param1 : ::windows_sys::core::PCWSTR, param2 : u32, param3 : * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("urlmon.dll" "system" fn URLDownloadToCacheFileA(param0 : * mut::core::ffi::c_void, param1 : ::windows_sys::core::PCSTR, param2 : ::windows_sys::core::PSTR, cchfilename : u32, param4 : u32, param5 : * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("urlmon.dll" "system" fn URLDownloadToCacheFileW(param0 : * mut::core::ffi::c_void, param1 : ::windows_sys::core::PCWSTR, param2 : ::windows_sys::core::PWSTR, cchfilename : u32, param4 : u32, param5 : * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("urlmon.dll" "system" fn URLDownloadToFileA(param0 : * mut::core::ffi::c_void, param1 : ::windows_sys::core::PCSTR, param2 : ::windows_sys::core::PCSTR, param3 : u32, param4 : * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("urlmon.dll" "system" fn URLDownloadToFileW(param0 : * mut::core::ffi::c_void, param1 : ::windows_sys::core::PCWSTR, param2 : ::windows_sys::core::PCWSTR, param3 : u32, param4 : * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("urlmon.dll" "system" fn URLOpenBlockingStreamA(param0 : * mut::core::ffi::c_void, param1 : ::windows_sys::core::PCSTR, param2 : *mut * mut::core::ffi::c_void, param3 : u32, param4 : * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("urlmon.dll" "system" fn URLOpenBlockingStreamW(param0 : * mut::core::ffi::c_void, param1 : ::windows_sys::core::PCWSTR, param2 : *mut * mut::core::ffi::c_void, param3 : u32, param4 : * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("urlmon.dll" "system" fn URLOpenPullStreamA(param0 : * mut::core::ffi::c_void, param1 : ::windows_sys::core::PCSTR, param2 : u32, param3 : * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("urlmon.dll" "system" fn URLOpenPullStreamW(param0 : * mut::core::ffi::c_void, param1 : ::windows_sys::core::PCWSTR, param2 : u32, param3 : * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("urlmon.dll" "system" fn URLOpenStreamA(param0 : * mut::core::ffi::c_void, param1 : ::windows_sys::core::PCSTR, param2 : u32, param3 : * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("urlmon.dll" "system" fn URLOpenStreamW(param0 : * mut::core::ffi::c_void, param1 : ::windows_sys::core::PCWSTR, param2 : u32, param3 : * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("urlmon.dll" "system" fn UrlMkGetSessionOption(dwoption : u32, pbuffer : *mut ::core::ffi::c_void, dwbufferlength : u32, pdwbufferlengthout : *mut u32, dwreserved : u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("urlmon.dll" "system" fn UrlMkSetSessionOption(dwoption : u32, pbuffer : *const ::core::ffi::c_void, dwbufferlength : u32, dwreserved : u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("urlmon.dll" "system" fn WriteHitLogging(lplogginginfo : *const HIT_LOGGING_INFO) -> super::super::super::Foundation:: BOOL);
@@ -795,7 +795,7 @@ impl ::core::clone::Clone for CODEBASEHOLD {
 #[repr(C)]
 pub struct CONFIRMSAFETY {
     pub clsid: ::windows_sys::core::GUID,
-    pub pUnk: ::windows_sys::core::IUnknown,
+    pub pUnk: *mut ::core::ffi::c_void,
     pub dwFlags: u32,
 }
 impl ::core::marker::Copy for CONFIRMSAFETY {}
@@ -849,7 +849,7 @@ pub struct PROTOCOLFILTERDATA {
     pub cbSize: u32,
     pub pProtocolSink: *mut ::core::ffi::c_void,
     pub pProtocol: *mut ::core::ffi::c_void,
-    pub pUnk: ::windows_sys::core::IUnknown,
+    pub pUnk: *mut ::core::ffi::c_void,
     pub dwFilterFlags: u32,
 }
 impl ::core::marker::Copy for PROTOCOLFILTERDATA {}
@@ -894,7 +894,7 @@ pub struct RemBINDINFO {
     pub dwCodePage: u32,
     pub securityAttributes: REMSECURITY_ATTRIBUTES,
     pub iid: ::windows_sys::core::GUID,
-    pub pUnk: ::windows_sys::core::IUnknown,
+    pub pUnk: *mut ::core::ffi::c_void,
     pub dwReserved: u32,
 }
 impl ::core::marker::Copy for RemBINDINFO {}
@@ -943,7 +943,7 @@ impl ::core::clone::Clone for SOFTDISTINFO {
 pub struct StartParam {
     pub iid: ::windows_sys::core::GUID,
     pub pIBindCtx: *mut ::core::ffi::c_void,
-    pub pItf: ::windows_sys::core::IUnknown,
+    pub pItf: *mut ::core::ffi::c_void,
 }
 impl ::core::marker::Copy for StartParam {}
 impl ::core::clone::Clone for StartParam {

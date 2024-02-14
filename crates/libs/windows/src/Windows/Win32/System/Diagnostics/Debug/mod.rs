@@ -2638,7 +2638,6 @@ impl IDebugExtendedProperty {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDebugExtendedProperty_Vtbl {
     pub base__: IDebugProperty_Vtbl,
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
@@ -2672,7 +2671,6 @@ impl IDebugProperty {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDebugProperty_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetPropertyInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, *mut DebugPropertyInfo) -> ::windows_core::HRESULT,
@@ -2690,7 +2688,6 @@ impl IDebugPropertyEnumType_All {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDebugPropertyEnumType_All_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
@@ -2704,7 +2701,6 @@ impl IDebugPropertyEnumType_Arguments {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDebugPropertyEnumType_Arguments_Vtbl {
     pub base__: IDebugPropertyEnumType_All_Vtbl,
 }
@@ -2717,7 +2713,6 @@ impl IDebugPropertyEnumType_Locals {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDebugPropertyEnumType_Locals_Vtbl {
     pub base__: IDebugPropertyEnumType_All_Vtbl,
 }
@@ -2730,7 +2725,6 @@ impl IDebugPropertyEnumType_LocalsPlusArgs {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDebugPropertyEnumType_LocalsPlusArgs_Vtbl {
     pub base__: IDebugPropertyEnumType_All_Vtbl,
 }
@@ -2743,7 +2737,6 @@ impl IDebugPropertyEnumType_Registers {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDebugPropertyEnumType_Registers_Vtbl {
     pub base__: IDebugPropertyEnumType_All_Vtbl,
 }
@@ -2770,7 +2763,6 @@ impl IEnumDebugExtendedPropertyInfo {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IEnumDebugExtendedPropertyInfo_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
@@ -2804,7 +2796,6 @@ impl IEnumDebugPropertyInfo {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IEnumDebugPropertyInfo_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut DebugPropertyInfo, *mut u32) -> ::windows_core::HRESULT,
@@ -2824,7 +2815,6 @@ impl IObjectSafety {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IObjectSafety_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetInterfaceSafetyOptions: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut u32, *mut u32) -> ::windows_core::HRESULT,
@@ -2850,7 +2840,6 @@ impl IPerPropertyBrowsing2 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPerPropertyBrowsing2_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetDisplayString: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,

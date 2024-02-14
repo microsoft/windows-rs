@@ -1,6 +1,5 @@
 ::windows_core::imp::com_interface!(IBattery, IBattery_Vtbl, 0xbc894fc6_0072_47c8_8b5d_614aaa7a437e);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBattery_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub DeviceId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -10,7 +9,6 @@ pub struct IBattery_Vtbl {
 }
 ::windows_core::imp::com_interface!(IBatteryReport, IBatteryReport_Vtbl, 0xc9858c3a_4e13_420a_a8d0_24f18f395401);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBatteryReport_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ChargeRateInMilliwatts: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -24,7 +22,6 @@ pub struct IBatteryReport_Vtbl {
 }
 ::windows_core::imp::com_interface!(IBatteryStatics, IBatteryStatics_Vtbl, 0x79cd72b6_9e5e_4452_bea6_dfcd541e597f);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBatteryStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub AggregateBattery: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,

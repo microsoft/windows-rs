@@ -2,7 +2,6 @@
 pub mod Effects;
 ::windows_core::imp::com_interface!(ILamp, ILamp_Vtbl, 0x047d5b9a_ea45_4b2b_b1a2_14dff00bde7b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ILamp_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub DeviceId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -24,7 +23,6 @@ pub struct ILamp_Vtbl {
 }
 ::windows_core::imp::com_interface!(ILampArray, ILampArray_Vtbl, 0x7ace9787_c8a0_4e95_a1e0_d58676538649);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ILampArray_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub DeviceId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -89,7 +87,6 @@ pub struct ILampArray_Vtbl {
 }
 ::windows_core::imp::com_interface!(ILampArray2, ILampArray2_Vtbl, 0x050c181f_60a8_4711_a1af_1b1b4c658ea2);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ILampArray2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsAvailable: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -98,7 +95,6 @@ pub struct ILampArray2_Vtbl {
 }
 ::windows_core::imp::com_interface!(ILampArrayStatics, ILampArrayStatics_Vtbl, 0x7bb8c98d_5fc1_452d_bb1f_4ad410d398ff);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ILampArrayStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetDeviceSelector: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -106,14 +102,12 @@ pub struct ILampArrayStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(ILampAvailabilityChangedEventArgs, ILampAvailabilityChangedEventArgs_Vtbl, 0x4f6e3ded_07a2_499d_9260_67e304532ba4);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ILampAvailabilityChangedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsAvailable: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ILampInfo, ILampInfo_Vtbl, 0x30bb521c_0acf_49da_8c10_150b9cf62713);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ILampInfo_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Index: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
@@ -138,7 +132,6 @@ pub struct ILampInfo_Vtbl {
 }
 ::windows_core::imp::com_interface!(ILampStatics, ILampStatics_Vtbl, 0xa822416c_8885_401e_b821_8e8b38a8e8ec);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ILampStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetDeviceSelector: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,

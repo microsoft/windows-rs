@@ -1,6 +1,5 @@
 ::windows_core::imp::com_interface!(IAlternateWordForm, IAlternateWordForm_Vtbl, 0x47396c1e_51b9_4207_9146_248e636a1d1d);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAlternateWordForm_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SourceTextSegment: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut TextSegment) -> ::windows_core::HRESULT,
@@ -9,7 +8,6 @@ pub struct IAlternateWordForm_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISelectableWordSegment, ISelectableWordSegment_Vtbl, 0x916a4cb7_8aa7_4c78_b374_5dedb752e60b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISelectableWordSegment_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Text: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -17,7 +15,6 @@ pub struct ISelectableWordSegment_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISelectableWordsSegmenter, ISelectableWordsSegmenter_Vtbl, 0xf6dc31e7_4b13_45c5_8897_7d71269e085d);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISelectableWordsSegmenter_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ResolvedLanguage: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -33,14 +30,12 @@ pub struct ISelectableWordsSegmenter_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISelectableWordsSegmenterFactory, ISelectableWordsSegmenterFactory_Vtbl, 0x8c7a7648_6057_4339_bc70_f210010a4150);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISelectableWordsSegmenterFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateWithLanguage: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ISemanticTextQuery, ISemanticTextQuery_Vtbl, 0x6a1cab51_1fb2_4909_80b8_35731a2b3e7f);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISemanticTextQuery_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -54,7 +49,6 @@ pub struct ISemanticTextQuery_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISemanticTextQueryFactory, ISemanticTextQueryFactory_Vtbl, 0x238c0503_f995_4587_8777_a2b7d80acfef);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISemanticTextQueryFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -62,7 +56,6 @@ pub struct ISemanticTextQueryFactory_Vtbl {
 }
 ::windows_core::imp::com_interface!(ITextConversionGenerator, ITextConversionGenerator_Vtbl, 0x03606a5e_2aa9_4ab6_af8b_a562b63a8992);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITextConversionGenerator_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ResolvedLanguage: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -78,14 +71,12 @@ pub struct ITextConversionGenerator_Vtbl {
 }
 ::windows_core::imp::com_interface!(ITextConversionGeneratorFactory, ITextConversionGeneratorFactory_Vtbl, 0xfcaa3781_3083_49ab_be15_56dfbbb74d6f);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITextConversionGeneratorFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ITextPhoneme, ITextPhoneme_Vtbl, 0x9362a40a_9b7a_4569_94cf_d84f2f38cf9b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITextPhoneme_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub DisplayText: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -93,7 +84,6 @@ pub struct ITextPhoneme_Vtbl {
 }
 ::windows_core::imp::com_interface!(ITextPredictionGenerator, ITextPredictionGenerator_Vtbl, 0x5eacab07_abf1_4cb6_9d9e_326f2b468756);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITextPredictionGenerator_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ResolvedLanguage: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -109,7 +99,6 @@ pub struct ITextPredictionGenerator_Vtbl {
 }
 ::windows_core::imp::com_interface!(ITextPredictionGenerator2, ITextPredictionGenerator2_Vtbl, 0xb84723b8_2c77_486a_900a_a3453eedc15d);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITextPredictionGenerator2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -131,14 +120,12 @@ pub struct ITextPredictionGenerator2_Vtbl {
 }
 ::windows_core::imp::com_interface!(ITextPredictionGeneratorFactory, ITextPredictionGeneratorFactory_Vtbl, 0x7257b416_8ba2_4751_9d30_9d85435653a2);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITextPredictionGeneratorFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ITextReverseConversionGenerator, ITextReverseConversionGenerator_Vtbl, 0x51e7f514_9c51_4d86_ae1b_b498fbad8313);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITextReverseConversionGenerator_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ResolvedLanguage: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -147,7 +134,6 @@ pub struct ITextReverseConversionGenerator_Vtbl {
 }
 ::windows_core::imp::com_interface!(ITextReverseConversionGenerator2, ITextReverseConversionGenerator2_Vtbl, 0x1aafd2ec_85d6_46fd_828a_3a4830fa6e18);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITextReverseConversionGenerator2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -157,14 +143,12 @@ pub struct ITextReverseConversionGenerator2_Vtbl {
 }
 ::windows_core::imp::com_interface!(ITextReverseConversionGeneratorFactory, ITextReverseConversionGeneratorFactory_Vtbl, 0x63bed326_1fda_41f6_89d5_23ddea3c729a);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITextReverseConversionGeneratorFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IUnicodeCharactersStatics, IUnicodeCharactersStatics_Vtbl, 0x97909e87_9291_4f91_b6c8_b6e359d7a7fb);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUnicodeCharactersStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetCodepointFromSurrogatePair: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, *mut u32) -> ::windows_core::HRESULT,
@@ -187,7 +171,6 @@ pub struct IUnicodeCharactersStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IWordSegment, IWordSegment_Vtbl, 0xd2d4ba6d_987c_4cc0_b6bd_d49a11b38f9a);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWordSegment_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Text: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -199,7 +182,6 @@ pub struct IWordSegment_Vtbl {
 }
 ::windows_core::imp::com_interface!(IWordsSegmenter, IWordsSegmenter_Vtbl, 0x86b4d4d1_b2fe_4e34_a81d_66640300454f);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWordsSegmenter_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ResolvedLanguage: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -215,7 +197,6 @@ pub struct IWordsSegmenter_Vtbl {
 }
 ::windows_core::imp::com_interface!(IWordsSegmenterFactory, IWordsSegmenterFactory_Vtbl, 0xe6977274_fc35_455c_8bfb_6d7f4653ca97);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWordsSegmenterFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateWithLanguage: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1092,7 +1073,6 @@ impl ::windows_core::RuntimeType for SelectableWordSegmentsTokenizingHandler {
 }
 #[cfg(feature = "Foundation_Collections")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct SelectableWordSegmentsTokenizingHandler_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -1167,7 +1147,6 @@ impl ::windows_core::RuntimeType for WordSegmentsTokenizingHandler {
 }
 #[cfg(feature = "Foundation_Collections")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct WordSegmentsTokenizingHandler_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Foundation_Collections")]

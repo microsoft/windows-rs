@@ -2,7 +2,6 @@
 pub mod Provider;
 ::windows_core::imp::com_interface!(IPwmController, IPwmController_Vtbl, 0xc45f5c85_d2e8_42cf_9bd6_cf5ed029e6a7);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPwmController_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub PinCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
@@ -14,7 +13,6 @@ pub struct IPwmController_Vtbl {
 }
 ::windows_core::imp::com_interface!(IPwmControllerStatics, IPwmControllerStatics_Vtbl, 0x4263bda1_8946_4404_bd48_81dd124af4d9);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPwmControllerStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(all(feature = "Devices_Pwm_Provider", feature = "Foundation_Collections"))]
@@ -24,14 +22,12 @@ pub struct IPwmControllerStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IPwmControllerStatics2, IPwmControllerStatics2_Vtbl, 0x44fc5b1f_f119_4bdd_97ad_f76ef986736d);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPwmControllerStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetDefaultAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IPwmControllerStatics3, IPwmControllerStatics3_Vtbl, 0xb2581871_0229_4344_ae3f_9b7cd0e66b94);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPwmControllerStatics3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetDeviceSelector: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -40,7 +36,6 @@ pub struct IPwmControllerStatics3_Vtbl {
 }
 ::windows_core::imp::com_interface!(IPwmPin, IPwmPin_Vtbl, 0x22972dc8_c6cf_4821_b7f9_c6454fb6af79);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPwmPin_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Controller: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,

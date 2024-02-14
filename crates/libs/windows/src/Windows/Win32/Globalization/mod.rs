@@ -7066,7 +7066,6 @@ impl IComprehensiveSpellCheckProvider {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IComprehensiveSpellCheckProvider_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub ComprehensiveCheck: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -7088,7 +7087,6 @@ impl IEnumCodePage {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IEnumCodePage_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Clone: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -7113,7 +7111,6 @@ impl IEnumRfc1766 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IEnumRfc1766_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Clone: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -7138,7 +7135,6 @@ impl IEnumScript {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IEnumScript_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Clone: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -7154,7 +7150,6 @@ impl IEnumSpellingError {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IEnumSpellingError_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -7179,7 +7174,6 @@ impl IMLangCodePages {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMLangCodePages_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetCharCodePages: unsafe extern "system" fn(*mut ::core::ffi::c_void, u16, *mut u32) -> ::windows_core::HRESULT,
@@ -7222,7 +7216,6 @@ impl IMLangConvertCharset {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMLangConvertCharset_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, u32) -> ::windows_core::HRESULT,
@@ -7279,7 +7272,6 @@ impl IMLangFontLink {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMLangFontLink_Vtbl {
     pub base__: IMLangCodePages_Vtbl,
     #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -7355,7 +7347,6 @@ impl IMLangFontLink2 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMLangFontLink2_Vtbl {
     pub base__: IMLangCodePages_Vtbl,
     #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -7395,7 +7386,6 @@ impl IMLangLineBreakConsole {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMLangLineBreakConsole_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub BreakLineML: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, i32, i32, i32, i32, *mut i32, *mut i32) -> ::windows_core::HRESULT,
@@ -7428,7 +7418,6 @@ impl IMLangString {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMLangString_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Sync: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::Foundation::BOOL) -> ::windows_core::HRESULT,
@@ -7489,7 +7478,6 @@ impl IMLangStringAStr {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMLangStringAStr_Vtbl {
     pub base__: IMLangString_Vtbl,
     pub SetAStr: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, i32, u32, ::windows_core::PCSTR, i32, *mut i32, *mut i32) -> ::windows_core::HRESULT,
@@ -7524,7 +7512,6 @@ impl IMLangStringBufA {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMLangStringBufA_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetStatus: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32, *mut i32) -> ::windows_core::HRESULT,
@@ -7556,7 +7543,6 @@ impl IMLangStringBufW {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMLangStringBufW_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetStatus: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32, *mut i32) -> ::windows_core::HRESULT,
@@ -7618,7 +7604,6 @@ impl IMLangStringWStr {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMLangStringWStr_Vtbl {
     pub base__: IMLangString_Vtbl,
     pub SetWStr: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, i32, ::windows_core::PCWSTR, i32, *mut i32, *mut i32) -> ::windows_core::HRESULT,
@@ -7698,7 +7683,6 @@ impl IMultiLanguage {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMultiLanguage_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetNumberOfCodePageInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -7850,7 +7834,6 @@ impl IMultiLanguage2 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMultiLanguage2_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetNumberOfCodePageInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -8034,7 +8017,6 @@ impl IMultiLanguage3 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMultiLanguage3_Vtbl {
     pub base__: IMultiLanguage2_Vtbl,
     pub DetectOutboundCodePage: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, ::windows_core::PCWSTR, u32, *const u32, u32, *mut u32, *mut u32, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
@@ -8065,7 +8047,6 @@ impl IOptionDescription {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IOptionDescription_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Id: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
@@ -8140,7 +8121,6 @@ impl ISpellCheckProvider {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISpellCheckProvider_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub LanguageTag: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
@@ -8187,7 +8167,6 @@ impl ISpellCheckProviderFactory {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISpellCheckProviderFactory_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -8284,7 +8263,6 @@ impl ISpellChecker {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISpellChecker_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub LanguageTag: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
@@ -8401,7 +8379,6 @@ impl ISpellChecker2 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISpellChecker2_Vtbl {
     pub base__: ISpellChecker_Vtbl,
     pub Remove: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
@@ -8417,7 +8394,6 @@ impl ISpellCheckerChangedEventHandler {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISpellCheckerChangedEventHandler_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -8446,7 +8422,6 @@ impl ISpellCheckerFactory {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISpellCheckerFactory_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -8477,7 +8452,6 @@ impl ISpellingError {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISpellingError_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub StartIndex: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -8504,7 +8478,6 @@ impl IUserDictionariesRegistrar {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUserDictionariesRegistrar_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub RegisterUserDictionary: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,

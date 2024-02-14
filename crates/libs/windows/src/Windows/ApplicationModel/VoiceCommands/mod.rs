@@ -1,6 +1,5 @@
 ::windows_core::imp::com_interface!(IVoiceCommand, IVoiceCommand_Vtbl, 0x936f5273_ec82_42a6_a55c_d2d79ec6f920);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVoiceCommand_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CommandName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -15,21 +14,18 @@ pub struct IVoiceCommand_Vtbl {
 }
 ::windows_core::imp::com_interface!(IVoiceCommandCompletedEventArgs, IVoiceCommandCompletedEventArgs_Vtbl, 0xc85e675d_fe42_432c_9907_09df9fcf64e8);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVoiceCommandCompletedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Reason: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut VoiceCommandCompletionReason) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IVoiceCommandConfirmationResult, IVoiceCommandConfirmationResult_Vtbl, 0xa022593e_8221_4526_b083_840972262247);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVoiceCommandConfirmationResult_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Confirmed: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IVoiceCommandContentTile, IVoiceCommandContentTile_Vtbl, 0x3eefe9f0_b8c7_4c76_a0de_1607895ee327);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVoiceCommandContentTile_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Title: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -57,7 +53,6 @@ pub struct IVoiceCommandContentTile_Vtbl {
 }
 ::windows_core::imp::com_interface!(IVoiceCommandDefinition, IVoiceCommandDefinition_Vtbl, 0x7972aad0_0974_4979_984b_cb8959cd61ae);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVoiceCommandDefinition_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Language: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -69,7 +64,6 @@ pub struct IVoiceCommandDefinition_Vtbl {
 }
 ::windows_core::imp::com_interface!(IVoiceCommandDefinitionManagerStatics, IVoiceCommandDefinitionManagerStatics_Vtbl, 0x8fe7a69e_067e_4f16_a18c_5b17e9499940);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVoiceCommandDefinitionManagerStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage")]
@@ -83,14 +77,12 @@ pub struct IVoiceCommandDefinitionManagerStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IVoiceCommandDisambiguationResult, IVoiceCommandDisambiguationResult_Vtbl, 0xecc68cfe_c9ac_45df_a8ea_feea08ef9c5e);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVoiceCommandDisambiguationResult_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SelectedItem: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IVoiceCommandResponse, IVoiceCommandResponse_Vtbl, 0x0284b30e_8a3b_4cc4_a6a1_cad5be2716b5);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVoiceCommandResponse_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Message: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -106,7 +98,6 @@ pub struct IVoiceCommandResponse_Vtbl {
 }
 ::windows_core::imp::com_interface!(IVoiceCommandResponseStatics, IVoiceCommandResponseStatics_Vtbl, 0x2932f813_0d3b_49f2_96dd_625019bd3b5d);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVoiceCommandResponseStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub MaxSupportedVoiceCommandContentTiles: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -123,7 +114,6 @@ pub struct IVoiceCommandResponseStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IVoiceCommandServiceConnection, IVoiceCommandServiceConnection_Vtbl, 0xd894bb9f_21da_44a4_98a2_fb131920a9cc);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVoiceCommandServiceConnection_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetVoiceCommandAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -142,7 +132,6 @@ pub struct IVoiceCommandServiceConnection_Vtbl {
 }
 ::windows_core::imp::com_interface!(IVoiceCommandServiceConnectionStatics, IVoiceCommandServiceConnectionStatics_Vtbl, 0x370ebffb_2d34_42df_8770_074d0f334697);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVoiceCommandServiceConnectionStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "ApplicationModel_AppService")]
@@ -152,7 +141,6 @@ pub struct IVoiceCommandServiceConnectionStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IVoiceCommandUserMessage, IVoiceCommandUserMessage_Vtbl, 0x674eb3c0_44f6_4f07_b979_4c723fc08597);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVoiceCommandUserMessage_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub DisplayMessage: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,

@@ -1,6 +1,5 @@
 ::windows_core::imp::com_interface!(IAppListEntry, IAppListEntry_Vtbl, 0xef00f07f_2108_490a_877a_8a9f17c25fad);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppListEntry_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub DisplayInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -8,14 +7,12 @@ pub struct IAppListEntry_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppListEntry2, IAppListEntry2_Vtbl, 0xd0a618ad_bf35_42ac_ac06_86eeeb41d04b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppListEntry2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub AppUserModelId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IAppListEntry3, IAppListEntry3_Vtbl, 0x6099f28d_fc32_470a_bc69_4b061a76ef2e);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppListEntry3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "System")]
@@ -25,14 +22,12 @@ pub struct IAppListEntry3_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppListEntry4, IAppListEntry4_Vtbl, 0x2a131ed2_56f5_487c_8697_5166f3b33da0);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppListEntry4_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub AppInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ICoreApplication, ICoreApplication_Vtbl, 0x0aacf7a4_5e1d_49df_8034_fb6a68bc5ed1);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreApplication_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Id: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -50,7 +45,6 @@ pub struct ICoreApplication_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICoreApplication2, ICoreApplication2_Vtbl, 0x998681fb_1ab6_4b7f_be4a_9a0645224c04);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreApplication2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -66,7 +60,6 @@ pub struct ICoreApplication2_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICoreApplication3, ICoreApplication3_Vtbl, 0xfeec0d39_598b_4507_8a67_772632580a57);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreApplication3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub RequestRestartAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -77,7 +70,6 @@ pub struct ICoreApplication3_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICoreApplicationExit, ICoreApplicationExit_Vtbl, 0xcf86461d_261e_4b72_9acd_44ed2ace6a29);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreApplicationExit_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Exit: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -106,7 +98,6 @@ impl ::windows_core::RuntimeType for ICoreApplicationUnhandledError {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreApplicationUnhandledError_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub UnhandledErrorDetected: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
@@ -114,7 +105,6 @@ pub struct ICoreApplicationUnhandledError_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICoreApplicationUseCount, ICoreApplicationUseCount_Vtbl, 0x518dc408_c077_475b_809e_0bc0c57e4b74);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreApplicationUseCount_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IncrementApplicationUseCount: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -122,7 +112,6 @@ pub struct ICoreApplicationUseCount_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICoreApplicationView, ICoreApplicationView_Vtbl, 0x638bb2db_451d_4661_b099_414f34ffb9f1);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreApplicationView_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "UI_Core")]
@@ -139,7 +128,6 @@ pub struct ICoreApplicationView_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICoreApplicationView2, ICoreApplicationView2_Vtbl, 0x68eb7adf_917f_48eb_9aeb_7de53e086ab1);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreApplicationView2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "UI_Core")]
@@ -149,7 +137,6 @@ pub struct ICoreApplicationView2_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICoreApplicationView3, ICoreApplicationView3_Vtbl, 0x07ebe1b3_a4cf_4550_ab70_b07e85330bc8);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreApplicationView3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsComponent: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -159,7 +146,6 @@ pub struct ICoreApplicationView3_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICoreApplicationView5, ICoreApplicationView5_Vtbl, 0x2bc095a8_8ef0_446d_9e60_3a3e0428c671);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreApplicationView5_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -169,7 +155,6 @@ pub struct ICoreApplicationView5_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICoreApplicationView6, ICoreApplicationView6_Vtbl, 0xc119d49a_0679_49ba_803f_b79c5cf34cca);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreApplicationView6_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "System")]
@@ -179,7 +164,6 @@ pub struct ICoreApplicationView6_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICoreApplicationViewTitleBar, ICoreApplicationViewTitleBar_Vtbl, 0x006d35e3_e1f1_431b_9508_29b96926ac53);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreApplicationViewTitleBar_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SetExtendViewIntoTitleBar: unsafe extern "system" fn(*mut ::core::ffi::c_void, bool) -> ::windows_core::HRESULT,
@@ -195,7 +179,6 @@ pub struct ICoreApplicationViewTitleBar_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICoreImmersiveApplication, ICoreImmersiveApplication_Vtbl, 0x1ada0e3e_e4a2_4123_b451_dc96bf800419);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreImmersiveApplication_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -207,14 +190,12 @@ pub struct ICoreImmersiveApplication_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICoreImmersiveApplication2, ICoreImmersiveApplication2_Vtbl, 0x828e1e36_e9e3_4cfc_9b66_48b78ea9bb2c);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreImmersiveApplication2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateNewViewFromMainView: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ICoreImmersiveApplication3, ICoreImmersiveApplication3_Vtbl, 0x34a05b2f_ee0d_41e5_8314_cf10c91bf0af);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreImmersiveApplication3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateNewViewWithViewSource: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -254,7 +235,6 @@ impl ::windows_core::RuntimeType for IFrameworkView {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IFrameworkView_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -281,21 +261,18 @@ impl ::windows_core::RuntimeType for IFrameworkViewSource {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IFrameworkViewSource_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateView: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IHostedViewClosingEventArgs, IHostedViewClosingEventArgs_Vtbl, 0xd238943c_b24e_4790_acb5_3e4243c4ff87);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IHostedViewClosingEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetDeferral: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IUnhandledError, IUnhandledError_Vtbl, 0x9459b726_53b5_4686_9eaf_fa8162dc3980);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUnhandledError_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Handled: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -303,7 +280,6 @@ pub struct IUnhandledError_Vtbl {
 }
 ::windows_core::imp::com_interface!(IUnhandledErrorDetectedEventArgs, IUnhandledErrorDetectedEventArgs_Vtbl, 0x679ab78b_b336_4822_ac40_0d750f0b7a2b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUnhandledErrorDetectedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub UnhandledError: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,

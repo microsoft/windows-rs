@@ -105,7 +105,6 @@ impl IDirectSound {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDirectSound_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub CreateSoundBuffer: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const DSBUFFERDESC, *mut *mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -188,7 +187,6 @@ impl IDirectSound3DBuffer {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDirectSound3DBuffer_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Graphics_Direct3D")]
@@ -285,7 +283,6 @@ impl IDirectSound3DListener {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDirectSound3DListener_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Graphics_Direct3D")]
@@ -363,7 +360,6 @@ impl IDirectSound8 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDirectSound8_Vtbl {
     pub base__: IDirectSound_Vtbl,
     pub VerifyCertification: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -434,7 +430,6 @@ impl IDirectSoundBuffer {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDirectSoundBuffer_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetCaps: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut DSBCAPS) -> ::windows_core::HRESULT,
@@ -531,7 +526,6 @@ impl IDirectSoundBuffer8 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDirectSoundBuffer8_Vtbl {
     pub base__: IDirectSoundBuffer_Vtbl,
     pub SetFX: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const DSEFFECTDESC, *mut u32) -> ::windows_core::HRESULT,
@@ -556,7 +550,6 @@ impl IDirectSoundCapture {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDirectSoundCapture_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub CreateCaptureBuffer: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const DSCBUFFERDESC, *mut *mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -600,7 +593,6 @@ impl IDirectSoundCaptureBuffer {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDirectSoundCaptureBuffer_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetCaps: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut DSCBCAPS) -> ::windows_core::HRESULT,
@@ -656,7 +648,6 @@ impl IDirectSoundCaptureBuffer8 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDirectSoundCaptureBuffer8_Vtbl {
     pub base__: IDirectSoundCaptureBuffer_Vtbl,
     pub GetObjectInPath: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, u32, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -681,7 +672,6 @@ impl IDirectSoundCaptureFXAec {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDirectSoundCaptureFXAec_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub SetAllParameters: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const DSCFXAec) -> ::windows_core::HRESULT,
@@ -704,7 +694,6 @@ impl IDirectSoundCaptureFXNoiseSuppress {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDirectSoundCaptureFXNoiseSuppress_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub SetAllParameters: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const DSCFXNoiseSuppress) -> ::windows_core::HRESULT,
@@ -722,7 +711,6 @@ impl IDirectSoundFXChorus {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDirectSoundFXChorus_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub SetAllParameters: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const DSFXChorus) -> ::windows_core::HRESULT,
@@ -739,7 +727,6 @@ impl IDirectSoundFXCompressor {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDirectSoundFXCompressor_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub SetAllParameters: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const DSFXCompressor) -> ::windows_core::HRESULT,
@@ -756,7 +743,6 @@ impl IDirectSoundFXDistortion {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDirectSoundFXDistortion_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub SetAllParameters: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const DSFXDistortion) -> ::windows_core::HRESULT,
@@ -773,7 +759,6 @@ impl IDirectSoundFXEcho {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDirectSoundFXEcho_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub SetAllParameters: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const DSFXEcho) -> ::windows_core::HRESULT,
@@ -790,7 +775,6 @@ impl IDirectSoundFXFlanger {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDirectSoundFXFlanger_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub SetAllParameters: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const DSFXFlanger) -> ::windows_core::HRESULT,
@@ -808,7 +792,6 @@ impl IDirectSoundFXGargle {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDirectSoundFXGargle_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub SetAllParameters: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const DSFXGargle) -> ::windows_core::HRESULT,
@@ -839,7 +822,6 @@ impl IDirectSoundFXI3DL2Reverb {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDirectSoundFXI3DL2Reverb_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub SetAllParameters: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const DSFXI3DL2Reverb) -> ::windows_core::HRESULT,
@@ -861,7 +843,6 @@ impl IDirectSoundFXParamEq {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDirectSoundFXParamEq_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub SetAllParameters: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const DSFXParamEq) -> ::windows_core::HRESULT,
@@ -879,7 +860,6 @@ impl IDirectSoundFXWavesReverb {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDirectSoundFXWavesReverb_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub SetAllParameters: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const DSFXWavesReverb) -> ::windows_core::HRESULT,
@@ -896,7 +876,6 @@ impl IDirectSoundFullDuplex {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDirectSoundFullDuplex_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *const ::windows_core::GUID, *const DSCBUFFERDESC, *const DSBUFFERDESC, super::super::super::Foundation::HWND, u32, *mut *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -909,7 +888,6 @@ impl IDirectSoundNotify {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDirectSoundNotify_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub SetNotificationPositions: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const DSBPOSITIONNOTIFY) -> ::windows_core::HRESULT,

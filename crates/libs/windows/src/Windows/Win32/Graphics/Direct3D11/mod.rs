@@ -155,7 +155,6 @@ impl ID3D11Asynchronous {
 unsafe impl ::core::marker::Send for ID3D11Asynchronous {}
 unsafe impl ::core::marker::Sync for ID3D11Asynchronous {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D11Asynchronous_Vtbl {
     pub base__: ID3D11DeviceChild_Vtbl,
     pub GetDataSize: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> u32,
@@ -196,7 +195,6 @@ impl ID3D11AuthenticatedChannel {
 unsafe impl ::core::marker::Send for ID3D11AuthenticatedChannel {}
 unsafe impl ::core::marker::Sync for ID3D11AuthenticatedChannel {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D11AuthenticatedChannel_Vtbl {
     pub base__: ID3D11DeviceChild_Vtbl,
     pub GetCertificateSize: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -230,7 +228,6 @@ impl ID3D11BlendState {
 unsafe impl ::core::marker::Send for ID3D11BlendState {}
 unsafe impl ::core::marker::Sync for ID3D11BlendState {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D11BlendState_Vtbl {
     pub base__: ID3D11DeviceChild_Vtbl,
     pub GetDesc: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut D3D11_BLEND_DESC),
@@ -265,7 +262,6 @@ impl ID3D11BlendState1 {
 unsafe impl ::core::marker::Send for ID3D11BlendState1 {}
 unsafe impl ::core::marker::Sync for ID3D11BlendState1 {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D11BlendState1_Vtbl {
     pub base__: ID3D11BlendState_Vtbl,
     pub GetDesc1: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut D3D11_BLEND_DESC1),
@@ -308,7 +304,6 @@ impl ID3D11Buffer {
 unsafe impl ::core::marker::Send for ID3D11Buffer {}
 unsafe impl ::core::marker::Sync for ID3D11Buffer {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D11Buffer_Vtbl {
     pub base__: ID3D11Resource_Vtbl,
     pub GetDesc: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut D3D11_BUFFER_DESC),
@@ -351,7 +346,6 @@ impl ID3D11ClassInstance {
 unsafe impl ::core::marker::Send for ID3D11ClassInstance {}
 unsafe impl ::core::marker::Sync for ID3D11ClassInstance {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D11ClassInstance_Vtbl {
     pub base__: ID3D11DeviceChild_Vtbl,
     pub GetClassLinkage: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void),
@@ -397,7 +391,6 @@ impl ID3D11ClassLinkage {
 unsafe impl ::core::marker::Send for ID3D11ClassLinkage {}
 unsafe impl ::core::marker::Sync for ID3D11ClassLinkage {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D11ClassLinkage_Vtbl {
     pub base__: ID3D11DeviceChild_Vtbl,
     pub GetClassInstance: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCSTR, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -430,7 +423,6 @@ impl ID3D11CommandList {
 unsafe impl ::core::marker::Send for ID3D11CommandList {}
 unsafe impl ::core::marker::Sync for ID3D11CommandList {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D11CommandList_Vtbl {
     pub base__: ID3D11DeviceChild_Vtbl,
     pub GetContextFlags: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> u32,
@@ -459,7 +451,6 @@ impl ID3D11ComputeShader {
 unsafe impl ::core::marker::Send for ID3D11ComputeShader {}
 unsafe impl ::core::marker::Sync for ID3D11ComputeShader {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D11ComputeShader_Vtbl {
     pub base__: ID3D11DeviceChild_Vtbl,
 }
@@ -495,7 +486,6 @@ impl ID3D11Counter {
 unsafe impl ::core::marker::Send for ID3D11Counter {}
 unsafe impl ::core::marker::Sync for ID3D11Counter {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D11Counter_Vtbl {
     pub base__: ID3D11Asynchronous_Vtbl,
     pub GetDesc: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut D3D11_COUNTER_DESC),
@@ -546,7 +536,6 @@ impl ID3D11CryptoSession {
 unsafe impl ::core::marker::Send for ID3D11CryptoSession {}
 unsafe impl ::core::marker::Sync for ID3D11CryptoSession {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D11CryptoSession_Vtbl {
     pub base__: ID3D11DeviceChild_Vtbl,
     pub GetCryptoType: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::GUID),
@@ -601,7 +590,6 @@ impl ID3D11Debug {
 unsafe impl ::core::marker::Send for ID3D11Debug {}
 unsafe impl ::core::marker::Sync for ID3D11Debug {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D11Debug_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub SetFeatureMask: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
@@ -647,7 +635,6 @@ impl ID3D11DepthStencilState {
 unsafe impl ::core::marker::Send for ID3D11DepthStencilState {}
 unsafe impl ::core::marker::Sync for ID3D11DepthStencilState {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D11DepthStencilState_Vtbl {
     pub base__: ID3D11DeviceChild_Vtbl,
     pub GetDesc: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut D3D11_DEPTH_STENCIL_DESC),
@@ -685,7 +672,6 @@ impl ID3D11DepthStencilView {
 unsafe impl ::core::marker::Send for ID3D11DepthStencilView {}
 unsafe impl ::core::marker::Sync for ID3D11DepthStencilView {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D11DepthStencilView_Vtbl {
     pub base__: ID3D11View_Vtbl,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -890,7 +876,6 @@ impl ID3D11Device {
 unsafe impl ::core::marker::Send for ID3D11Device {}
 unsafe impl ::core::marker::Sync for ID3D11Device {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D11Device_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub CreateBuffer: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const D3D11_BUFFER_DESC, *const D3D11_SUBRESOURCE_DATA, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1198,7 +1183,6 @@ impl ID3D11Device1 {
 unsafe impl ::core::marker::Send for ID3D11Device1 {}
 unsafe impl ::core::marker::Sync for ID3D11Device1 {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D11Device1_Vtbl {
     pub base__: ID3D11Device_Vtbl,
     pub GetImmediateContext1: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void),
@@ -1462,7 +1446,6 @@ impl ID3D11Device2 {
 unsafe impl ::core::marker::Send for ID3D11Device2 {}
 unsafe impl ::core::marker::Sync for ID3D11Device2 {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D11Device2_Vtbl {
     pub base__: ID3D11Device1_Vtbl,
     pub GetImmediateContext2: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void),
@@ -1778,7 +1761,6 @@ impl ID3D11Device3 {
 unsafe impl ::core::marker::Send for ID3D11Device3 {}
 unsafe impl ::core::marker::Sync for ID3D11Device3 {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D11Device3_Vtbl {
     pub base__: ID3D11Device2_Vtbl,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -2123,7 +2105,6 @@ impl ID3D11Device4 {
 unsafe impl ::core::marker::Send for ID3D11Device4 {}
 unsafe impl ::core::marker::Sync for ID3D11Device4 {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D11Device4_Vtbl {
     pub base__: ID3D11Device3_Vtbl,
     pub RegisterDeviceRemovedEvent: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::HANDLE, *mut u32) -> ::windows_core::HRESULT,
@@ -2457,7 +2438,6 @@ impl ID3D11Device5 {
 unsafe impl ::core::marker::Send for ID3D11Device5 {}
 unsafe impl ::core::marker::Sync for ID3D11Device5 {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D11Device5_Vtbl {
     pub base__: ID3D11Device4_Vtbl,
     pub OpenSharedFence: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::HANDLE, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -2487,7 +2467,6 @@ impl ID3D11DeviceChild {
 unsafe impl ::core::marker::Send for ID3D11DeviceChild {}
 unsafe impl ::core::marker::Sync for ID3D11DeviceChild {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D11DeviceChild_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetDevice: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void),
@@ -2976,7 +2955,6 @@ impl ID3D11DeviceContext {
 unsafe impl ::core::marker::Send for ID3D11DeviceContext {}
 unsafe impl ::core::marker::Sync for ID3D11DeviceContext {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D11DeviceContext_Vtbl {
     pub base__: ID3D11DeviceChild_Vtbl,
     pub VSSetConstantBuffers: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, *const *mut ::core::ffi::c_void),
@@ -3663,7 +3641,6 @@ impl ID3D11DeviceContext1 {
 unsafe impl ::core::marker::Send for ID3D11DeviceContext1 {}
 unsafe impl ::core::marker::Sync for ID3D11DeviceContext1 {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D11DeviceContext1_Vtbl {
     pub base__: ID3D11DeviceContext_Vtbl,
     pub CopySubresourceRegion1: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, u32, u32, u32, *mut ::core::ffi::c_void, u32, *const D3D11_BOX, u32),
@@ -4317,7 +4294,6 @@ impl ID3D11DeviceContext2 {
 unsafe impl ::core::marker::Send for ID3D11DeviceContext2 {}
 unsafe impl ::core::marker::Sync for ID3D11DeviceContext2 {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D11DeviceContext2_Vtbl {
     pub base__: ID3D11DeviceContext1_Vtbl,
     pub UpdateTileMappings: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, *const D3D11_TILED_RESOURCE_COORDINATE, *const D3D11_TILE_REGION_SIZE, *mut ::core::ffi::c_void, u32, *const u32, *const u32, *const u32, u32) -> ::windows_core::HRESULT,
@@ -4979,7 +4955,6 @@ impl ID3D11DeviceContext3 {
 unsafe impl ::core::marker::Send for ID3D11DeviceContext3 {}
 unsafe impl ::core::marker::Sync for ID3D11DeviceContext3 {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D11DeviceContext3_Vtbl {
     pub base__: ID3D11DeviceContext2_Vtbl,
     pub Flush1: unsafe extern "system" fn(*mut ::core::ffi::c_void, D3D11_CONTEXT_TYPE, super::super::Foundation::HANDLE),
@@ -5646,7 +5621,6 @@ impl ID3D11DeviceContext4 {
 unsafe impl ::core::marker::Send for ID3D11DeviceContext4 {}
 unsafe impl ::core::marker::Sync for ID3D11DeviceContext4 {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D11DeviceContext4_Vtbl {
     pub base__: ID3D11DeviceContext3_Vtbl,
     pub Signal: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u64) -> ::windows_core::HRESULT,
@@ -5676,7 +5650,6 @@ impl ID3D11DomainShader {
 unsafe impl ::core::marker::Send for ID3D11DomainShader {}
 unsafe impl ::core::marker::Sync for ID3D11DomainShader {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D11DomainShader_Vtbl {
     pub base__: ID3D11DeviceChild_Vtbl,
 }
@@ -5721,7 +5694,6 @@ impl ID3D11Fence {
 unsafe impl ::core::marker::Send for ID3D11Fence {}
 unsafe impl ::core::marker::Sync for ID3D11Fence {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D11Fence_Vtbl {
     pub base__: ID3D11DeviceChild_Vtbl,
     #[cfg(feature = "Win32_Security")]
@@ -5786,7 +5758,6 @@ impl ID3D11FunctionLinkingGraph {
 unsafe impl ::core::marker::Send for ID3D11FunctionLinkingGraph {}
 unsafe impl ::core::marker::Sync for ID3D11FunctionLinkingGraph {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D11FunctionLinkingGraph_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Graphics_Direct3D")]
@@ -5823,7 +5794,6 @@ impl ID3D11FunctionParameterReflection {
 unsafe impl ::core::marker::Send for ID3D11FunctionParameterReflection {}
 unsafe impl ::core::marker::Sync for ID3D11FunctionParameterReflection {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D11FunctionParameterReflection_Vtbl {
     #[cfg(feature = "Win32_Graphics_Direct3D")]
     pub GetDesc: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut D3D11_PARAMETER_DESC) -> ::windows_core::HRESULT,
@@ -5869,7 +5839,6 @@ impl ID3D11FunctionReflection {
 unsafe impl ::core::marker::Send for ID3D11FunctionReflection {}
 unsafe impl ::core::marker::Sync for ID3D11FunctionReflection {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D11FunctionReflection_Vtbl {
     #[cfg(feature = "Win32_Graphics_Direct3D")]
     pub GetDesc: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut D3D11_FUNCTION_DESC) -> ::windows_core::HRESULT,
@@ -5912,7 +5881,6 @@ impl ID3D11GeometryShader {
 unsafe impl ::core::marker::Send for ID3D11GeometryShader {}
 unsafe impl ::core::marker::Sync for ID3D11GeometryShader {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D11GeometryShader_Vtbl {
     pub base__: ID3D11DeviceChild_Vtbl,
 }
@@ -5940,7 +5908,6 @@ impl ID3D11HullShader {
 unsafe impl ::core::marker::Send for ID3D11HullShader {}
 unsafe impl ::core::marker::Sync for ID3D11HullShader {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D11HullShader_Vtbl {
     pub base__: ID3D11DeviceChild_Vtbl,
 }
@@ -6074,7 +6041,6 @@ impl ID3D11InfoQueue {
 unsafe impl ::core::marker::Send for ID3D11InfoQueue {}
 unsafe impl ::core::marker::Sync for ID3D11InfoQueue {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D11InfoQueue_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub SetMessageCountLimit: unsafe extern "system" fn(*mut ::core::ffi::c_void, u64) -> ::windows_core::HRESULT,
@@ -6137,7 +6103,6 @@ impl ID3D11InputLayout {
 unsafe impl ::core::marker::Send for ID3D11InputLayout {}
 unsafe impl ::core::marker::Sync for ID3D11InputLayout {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D11InputLayout_Vtbl {
     pub base__: ID3D11DeviceChild_Vtbl,
 }
@@ -6155,7 +6120,6 @@ impl ID3D11LibraryReflection {
 unsafe impl ::core::marker::Send for ID3D11LibraryReflection {}
 unsafe impl ::core::marker::Sync for ID3D11LibraryReflection {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D11LibraryReflection_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetDesc: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut D3D11_LIBRARY_DESC) -> ::windows_core::HRESULT,
@@ -6186,7 +6150,6 @@ impl ID3D11Linker {
 unsafe impl ::core::marker::Send for ID3D11Linker {}
 unsafe impl ::core::marker::Sync for ID3D11Linker {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D11Linker_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Graphics_Direct3D")]
@@ -6202,7 +6165,6 @@ impl ID3D11LinkingNode {}
 unsafe impl ::core::marker::Send for ID3D11LinkingNode {}
 unsafe impl ::core::marker::Sync for ID3D11LinkingNode {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D11LinkingNode_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
 }
@@ -6220,7 +6182,6 @@ impl ID3D11Module {
 unsafe impl ::core::marker::Send for ID3D11Module {}
 unsafe impl ::core::marker::Sync for ID3D11Module {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D11Module_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCSTR, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -6277,7 +6238,6 @@ impl ID3D11ModuleInstance {
 unsafe impl ::core::marker::Send for ID3D11ModuleInstance {}
 unsafe impl ::core::marker::Sync for ID3D11ModuleInstance {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D11ModuleInstance_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub BindConstantBuffer: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, u32) -> ::windows_core::HRESULT,
@@ -6313,7 +6273,6 @@ impl ID3D11Multithread {
 unsafe impl ::core::marker::Send for ID3D11Multithread {}
 unsafe impl ::core::marker::Sync for ID3D11Multithread {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D11Multithread_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Enter: unsafe extern "system" fn(*mut ::core::ffi::c_void),
@@ -6345,7 +6304,6 @@ impl ID3D11PixelShader {
 unsafe impl ::core::marker::Send for ID3D11PixelShader {}
 unsafe impl ::core::marker::Sync for ID3D11PixelShader {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D11PixelShader_Vtbl {
     pub base__: ID3D11DeviceChild_Vtbl,
 }
@@ -6381,7 +6339,6 @@ impl ID3D11Predicate {
 unsafe impl ::core::marker::Send for ID3D11Predicate {}
 unsafe impl ::core::marker::Sync for ID3D11Predicate {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D11Predicate_Vtbl {
     pub base__: ID3D11Query_Vtbl,
 }
@@ -6417,7 +6374,6 @@ impl ID3D11Query {
 unsafe impl ::core::marker::Send for ID3D11Query {}
 unsafe impl ::core::marker::Sync for ID3D11Query {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D11Query_Vtbl {
     pub base__: ID3D11Asynchronous_Vtbl,
     pub GetDesc: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut D3D11_QUERY_DESC),
@@ -6459,7 +6415,6 @@ impl ID3D11Query1 {
 unsafe impl ::core::marker::Send for ID3D11Query1 {}
 unsafe impl ::core::marker::Sync for ID3D11Query1 {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D11Query1_Vtbl {
     pub base__: ID3D11Query_Vtbl,
     pub GetDesc1: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut D3D11_QUERY_DESC1),
@@ -6491,7 +6446,6 @@ impl ID3D11RasterizerState {
 unsafe impl ::core::marker::Send for ID3D11RasterizerState {}
 unsafe impl ::core::marker::Sync for ID3D11RasterizerState {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D11RasterizerState_Vtbl {
     pub base__: ID3D11DeviceChild_Vtbl,
     pub GetDesc: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut D3D11_RASTERIZER_DESC),
@@ -6526,7 +6480,6 @@ impl ID3D11RasterizerState1 {
 unsafe impl ::core::marker::Send for ID3D11RasterizerState1 {}
 unsafe impl ::core::marker::Sync for ID3D11RasterizerState1 {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D11RasterizerState1_Vtbl {
     pub base__: ID3D11RasterizerState_Vtbl,
     pub GetDesc1: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut D3D11_RASTERIZER_DESC1),
@@ -6564,7 +6517,6 @@ impl ID3D11RasterizerState2 {
 unsafe impl ::core::marker::Send for ID3D11RasterizerState2 {}
 unsafe impl ::core::marker::Sync for ID3D11RasterizerState2 {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D11RasterizerState2_Vtbl {
     pub base__: ID3D11RasterizerState1_Vtbl,
     pub GetDesc2: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut D3D11_RASTERIZER_DESC2),
@@ -6579,7 +6531,6 @@ impl ID3D11RefDefaultTrackingOptions {
 unsafe impl ::core::marker::Send for ID3D11RefDefaultTrackingOptions {}
 unsafe impl ::core::marker::Sync for ID3D11RefDefaultTrackingOptions {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D11RefDefaultTrackingOptions_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub SetTrackingOptions: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32) -> ::windows_core::HRESULT,
@@ -6594,7 +6545,6 @@ impl ID3D11RefTrackingOptions {
 unsafe impl ::core::marker::Send for ID3D11RefTrackingOptions {}
 unsafe impl ::core::marker::Sync for ID3D11RefTrackingOptions {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D11RefTrackingOptions_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub SetTrackingOptions: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
@@ -6632,7 +6582,6 @@ impl ID3D11RenderTargetView {
 unsafe impl ::core::marker::Send for ID3D11RenderTargetView {}
 unsafe impl ::core::marker::Sync for ID3D11RenderTargetView {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D11RenderTargetView_Vtbl {
     pub base__: ID3D11View_Vtbl,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -6677,7 +6626,6 @@ impl ID3D11RenderTargetView1 {
 unsafe impl ::core::marker::Send for ID3D11RenderTargetView1 {}
 unsafe impl ::core::marker::Sync for ID3D11RenderTargetView1 {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D11RenderTargetView1_Vtbl {
     pub base__: ID3D11RenderTargetView_Vtbl,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -6720,7 +6668,6 @@ impl ID3D11Resource {
 unsafe impl ::core::marker::Send for ID3D11Resource {}
 unsafe impl ::core::marker::Sync for ID3D11Resource {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D11Resource_Vtbl {
     pub base__: ID3D11DeviceChild_Vtbl,
     pub GetType: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut D3D11_RESOURCE_DIMENSION),
@@ -6754,7 +6701,6 @@ impl ID3D11SamplerState {
 unsafe impl ::core::marker::Send for ID3D11SamplerState {}
 unsafe impl ::core::marker::Sync for ID3D11SamplerState {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D11SamplerState_Vtbl {
     pub base__: ID3D11DeviceChild_Vtbl,
     pub GetDesc: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut D3D11_SAMPLER_DESC),
@@ -6841,7 +6787,6 @@ impl ID3D11ShaderReflection {
 unsafe impl ::core::marker::Send for ID3D11ShaderReflection {}
 unsafe impl ::core::marker::Sync for ID3D11ShaderReflection {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D11ShaderReflection_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Graphics_Direct3D")]
@@ -6907,7 +6852,6 @@ impl ID3D11ShaderReflectionConstantBuffer {
 unsafe impl ::core::marker::Send for ID3D11ShaderReflectionConstantBuffer {}
 unsafe impl ::core::marker::Sync for ID3D11ShaderReflectionConstantBuffer {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D11ShaderReflectionConstantBuffer_Vtbl {
     #[cfg(feature = "Win32_Graphics_Direct3D")]
     pub GetDesc: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut D3D11_SHADER_BUFFER_DESC) -> ::windows_core::HRESULT,
@@ -6968,7 +6912,6 @@ impl ID3D11ShaderReflectionType {
 unsafe impl ::core::marker::Send for ID3D11ShaderReflectionType {}
 unsafe impl ::core::marker::Sync for ID3D11ShaderReflectionType {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D11ShaderReflectionType_Vtbl {
     #[cfg(feature = "Win32_Graphics_Direct3D")]
     pub GetDesc: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut D3D11_SHADER_TYPE_DESC) -> ::windows_core::HRESULT,
@@ -7003,7 +6946,6 @@ impl ID3D11ShaderReflectionVariable {
 unsafe impl ::core::marker::Send for ID3D11ShaderReflectionVariable {}
 unsafe impl ::core::marker::Sync for ID3D11ShaderReflectionVariable {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D11ShaderReflectionVariable_Vtbl {
     pub GetDesc: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut D3D11_SHADER_VARIABLE_DESC) -> ::windows_core::HRESULT,
     pub GetType: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::core::option::Option<ID3D11ShaderReflectionType>,
@@ -7043,7 +6985,6 @@ impl ID3D11ShaderResourceView {
 unsafe impl ::core::marker::Send for ID3D11ShaderResourceView {}
 unsafe impl ::core::marker::Sync for ID3D11ShaderResourceView {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D11ShaderResourceView_Vtbl {
     pub base__: ID3D11View_Vtbl,
     #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -7088,7 +7029,6 @@ impl ID3D11ShaderResourceView1 {
 unsafe impl ::core::marker::Send for ID3D11ShaderResourceView1 {}
 unsafe impl ::core::marker::Sync for ID3D11ShaderResourceView1 {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D11ShaderResourceView1_Vtbl {
     pub base__: ID3D11ShaderResourceView_Vtbl,
     #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -7127,7 +7067,6 @@ impl ID3D11ShaderTrace {
 unsafe impl ::core::marker::Send for ID3D11ShaderTrace {}
 unsafe impl ::core::marker::Sync for ID3D11ShaderTrace {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D11ShaderTrace_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub TraceReady: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u64) -> ::windows_core::HRESULT,
@@ -7153,7 +7092,6 @@ impl ID3D11ShaderTraceFactory {
 unsafe impl ::core::marker::Send for ID3D11ShaderTraceFactory {}
 unsafe impl ::core::marker::Sync for ID3D11ShaderTraceFactory {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D11ShaderTraceFactory_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub CreateShaderTrace: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *const D3D11_SHADER_TRACE_DESC, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -7174,7 +7112,6 @@ impl ID3D11SwitchToRef {
 unsafe impl ::core::marker::Send for ID3D11SwitchToRef {}
 unsafe impl ::core::marker::Sync for ID3D11SwitchToRef {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D11SwitchToRef_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub SetUseRef: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::BOOL) -> super::super::Foundation::BOOL,
@@ -7219,7 +7156,6 @@ impl ID3D11Texture1D {
 unsafe impl ::core::marker::Send for ID3D11Texture1D {}
 unsafe impl ::core::marker::Sync for ID3D11Texture1D {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D11Texture1D_Vtbl {
     pub base__: ID3D11Resource_Vtbl,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -7266,7 +7202,6 @@ impl ID3D11Texture2D {
 unsafe impl ::core::marker::Send for ID3D11Texture2D {}
 unsafe impl ::core::marker::Sync for ID3D11Texture2D {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D11Texture2D_Vtbl {
     pub base__: ID3D11Resource_Vtbl,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -7317,7 +7252,6 @@ impl ID3D11Texture2D1 {
 unsafe impl ::core::marker::Send for ID3D11Texture2D1 {}
 unsafe impl ::core::marker::Sync for ID3D11Texture2D1 {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D11Texture2D1_Vtbl {
     pub base__: ID3D11Texture2D_Vtbl,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -7364,7 +7298,6 @@ impl ID3D11Texture3D {
 unsafe impl ::core::marker::Send for ID3D11Texture3D {}
 unsafe impl ::core::marker::Sync for ID3D11Texture3D {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D11Texture3D_Vtbl {
     pub base__: ID3D11Resource_Vtbl,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -7415,7 +7348,6 @@ impl ID3D11Texture3D1 {
 unsafe impl ::core::marker::Send for ID3D11Texture3D1 {}
 unsafe impl ::core::marker::Sync for ID3D11Texture3D1 {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D11Texture3D1_Vtbl {
     pub base__: ID3D11Texture3D_Vtbl,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -7439,7 +7371,6 @@ impl ID3D11TracingDevice {
 unsafe impl ::core::marker::Send for ID3D11TracingDevice {}
 unsafe impl ::core::marker::Sync for ID3D11TracingDevice {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D11TracingDevice_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub SetShaderTrackingOptionsByType: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32) -> ::windows_core::HRESULT,
@@ -7478,7 +7409,6 @@ impl ID3D11UnorderedAccessView {
 unsafe impl ::core::marker::Send for ID3D11UnorderedAccessView {}
 unsafe impl ::core::marker::Sync for ID3D11UnorderedAccessView {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D11UnorderedAccessView_Vtbl {
     pub base__: ID3D11View_Vtbl,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -7523,7 +7453,6 @@ impl ID3D11UnorderedAccessView1 {
 unsafe impl ::core::marker::Send for ID3D11UnorderedAccessView1 {}
 unsafe impl ::core::marker::Sync for ID3D11UnorderedAccessView1 {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D11UnorderedAccessView1_Vtbl {
     pub base__: ID3D11UnorderedAccessView_Vtbl,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -7555,7 +7484,6 @@ impl ID3D11VertexShader {
 unsafe impl ::core::marker::Send for ID3D11VertexShader {}
 unsafe impl ::core::marker::Sync for ID3D11VertexShader {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D11VertexShader_Vtbl {
     pub base__: ID3D11DeviceChild_Vtbl,
 }
@@ -7967,7 +7895,6 @@ impl ID3D11VideoContext {
 unsafe impl ::core::marker::Send for ID3D11VideoContext {}
 unsafe impl ::core::marker::Sync for ID3D11VideoContext {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D11VideoContext_Vtbl {
     pub base__: ID3D11DeviceChild_Vtbl,
     pub GetDecoderBuffer: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, D3D11_VIDEO_DECODER_BUFFER_TYPE, *mut u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -8553,7 +8480,6 @@ impl ID3D11VideoContext1 {
 unsafe impl ::core::marker::Send for ID3D11VideoContext1 {}
 unsafe impl ::core::marker::Sync for ID3D11VideoContext1 {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D11VideoContext1_Vtbl {
     pub base__: ID3D11VideoContext_Vtbl,
     pub SubmitDecoderBuffers1: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, *const D3D11_VIDEO_DECODER_BUFFER_DESC1) -> ::windows_core::HRESULT,
@@ -9132,7 +9058,6 @@ impl ID3D11VideoContext2 {
 unsafe impl ::core::marker::Send for ID3D11VideoContext2 {}
 unsafe impl ::core::marker::Sync for ID3D11VideoContext2 {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D11VideoContext2_Vtbl {
     pub base__: ID3D11VideoContext1_Vtbl,
     #[cfg(feature = "Win32_Graphics_Dxgi")]
@@ -9705,7 +9630,6 @@ impl ID3D11VideoContext3 {
 unsafe impl ::core::marker::Send for ID3D11VideoContext3 {}
 unsafe impl ::core::marker::Sync for ID3D11VideoContext3 {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D11VideoContext3_Vtbl {
     pub base__: ID3D11VideoContext2_Vtbl,
     pub DecoderBeginFrame1: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, *const ::core::ffi::c_void, u32, *const u32, *const *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -9743,7 +9667,6 @@ impl ID3D11VideoDecoder {
 unsafe impl ::core::marker::Send for ID3D11VideoDecoder {}
 unsafe impl ::core::marker::Sync for ID3D11VideoDecoder {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D11VideoDecoder_Vtbl {
     pub base__: ID3D11DeviceChild_Vtbl,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -9784,7 +9707,6 @@ impl ID3D11VideoDecoderOutputView {
 unsafe impl ::core::marker::Send for ID3D11VideoDecoderOutputView {}
 unsafe impl ::core::marker::Sync for ID3D11VideoDecoderOutputView {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D11VideoDecoderOutputView_Vtbl {
     pub base__: ID3D11View_Vtbl,
     pub GetDesc: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut D3D11_VIDEO_DECODER_OUTPUT_VIEW_DESC),
@@ -9878,7 +9800,6 @@ impl ID3D11VideoDevice {
 unsafe impl ::core::marker::Send for ID3D11VideoDevice {}
 unsafe impl ::core::marker::Sync for ID3D11VideoDevice {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D11VideoDevice_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -10020,7 +9941,6 @@ impl ID3D11VideoDevice1 {
 unsafe impl ::core::marker::Send for ID3D11VideoDevice1 {}
 unsafe impl ::core::marker::Sync for ID3D11VideoDevice1 {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D11VideoDevice1_Vtbl {
     pub base__: ID3D11VideoDevice_Vtbl,
     pub GetCryptoSessionPrivateDataSize: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *const ::windows_core::GUID, *const ::windows_core::GUID, *mut u32, *mut u32) -> ::windows_core::HRESULT,
@@ -10152,7 +10072,6 @@ impl ID3D11VideoDevice2 {
 unsafe impl ::core::marker::Send for ID3D11VideoDevice2 {}
 unsafe impl ::core::marker::Sync for ID3D11VideoDevice2 {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D11VideoDevice2_Vtbl {
     pub base__: ID3D11VideoDevice1_Vtbl,
     pub CheckFeatureSupport: unsafe extern "system" fn(*mut ::core::ffi::c_void, D3D11_FEATURE_VIDEO, *mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
@@ -10189,7 +10108,6 @@ impl ID3D11VideoProcessor {
 unsafe impl ::core::marker::Send for ID3D11VideoProcessor {}
 unsafe impl ::core::marker::Sync for ID3D11VideoProcessor {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D11VideoProcessor_Vtbl {
     pub base__: ID3D11DeviceChild_Vtbl,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -10245,7 +10163,6 @@ impl ID3D11VideoProcessorEnumerator {
 unsafe impl ::core::marker::Send for ID3D11VideoProcessorEnumerator {}
 unsafe impl ::core::marker::Sync for ID3D11VideoProcessorEnumerator {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D11VideoProcessorEnumerator_Vtbl {
     pub base__: ID3D11DeviceChild_Vtbl,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -10316,7 +10233,6 @@ impl ID3D11VideoProcessorEnumerator1 {
 unsafe impl ::core::marker::Send for ID3D11VideoProcessorEnumerator1 {}
 unsafe impl ::core::marker::Sync for ID3D11VideoProcessorEnumerator1 {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D11VideoProcessorEnumerator1_Vtbl {
     pub base__: ID3D11VideoProcessorEnumerator_Vtbl,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -10358,7 +10274,6 @@ impl ID3D11VideoProcessorInputView {
 unsafe impl ::core::marker::Send for ID3D11VideoProcessorInputView {}
 unsafe impl ::core::marker::Sync for ID3D11VideoProcessorInputView {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D11VideoProcessorInputView_Vtbl {
     pub base__: ID3D11View_Vtbl,
     pub GetDesc: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC),
@@ -10397,7 +10312,6 @@ impl ID3D11VideoProcessorOutputView {
 unsafe impl ::core::marker::Send for ID3D11VideoProcessorOutputView {}
 unsafe impl ::core::marker::Sync for ID3D11VideoProcessorOutputView {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D11VideoProcessorOutputView_Vtbl {
     pub base__: ID3D11View_Vtbl,
     pub GetDesc: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC),
@@ -10431,7 +10345,6 @@ impl ID3D11View {
 unsafe impl ::core::marker::Send for ID3D11View {}
 unsafe impl ::core::marker::Sync for ID3D11View {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D11View_Vtbl {
     pub base__: ID3D11DeviceChild_Vtbl,
     pub GetResource: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void),
@@ -10460,7 +10373,6 @@ impl ID3DDeviceContextState {
 unsafe impl ::core::marker::Send for ID3DDeviceContextState {}
 unsafe impl ::core::marker::Sync for ID3DDeviceContextState {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3DDeviceContextState_Vtbl {
     pub base__: ID3D11DeviceChild_Vtbl,
 }
@@ -10489,7 +10401,6 @@ impl ID3DUserDefinedAnnotation {
 unsafe impl ::core::marker::Send for ID3DUserDefinedAnnotation {}
 unsafe impl ::core::marker::Sync for ID3DUserDefinedAnnotation {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3DUserDefinedAnnotation_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub BeginEvent: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR) -> i32,
@@ -10531,7 +10442,6 @@ impl ID3DX11FFT {
 unsafe impl ::core::marker::Send for ID3DX11FFT {}
 unsafe impl ::core::marker::Sync for ID3DX11FFT {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3DX11FFT_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub SetForwardScale: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32) -> ::windows_core::HRESULT,
@@ -10566,7 +10476,6 @@ impl ID3DX11Scan {
 unsafe impl ::core::marker::Send for ID3DX11Scan {}
 unsafe impl ::core::marker::Sync for ID3DX11Scan {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3DX11Scan_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub SetScanDirection: unsafe extern "system" fn(*mut ::core::ffi::c_void, D3DX11_SCAN_DIRECTION) -> ::windows_core::HRESULT,
@@ -10591,7 +10500,6 @@ impl ID3DX11SegmentedScan {
 unsafe impl ::core::marker::Send for ID3DX11SegmentedScan {}
 unsafe impl ::core::marker::Sync for ID3DX11SegmentedScan {}
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3DX11SegmentedScan_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub SetScanDirection: unsafe extern "system" fn(*mut ::core::ffi::c_void, D3DX11_SCAN_DIRECTION) -> ::windows_core::HRESULT,

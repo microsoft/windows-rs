@@ -73,7 +73,7 @@ pub struct DMO_MEDIA_TYPE {
     pub bTemporalCompression: super::super::Foundation::BOOL,
     pub lSampleSize: u32,
     pub formattype: ::windows_sys::core::GUID,
-    pub pUnk: ::windows_sys::core::IUnknown,
+    pub pUnk: *mut ::core::ffi::c_void,
     pub cbFormat: u32,
     pub pbFormat: *mut u8,
 }

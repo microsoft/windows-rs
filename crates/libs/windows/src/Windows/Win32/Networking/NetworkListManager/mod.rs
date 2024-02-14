@@ -27,7 +27,6 @@ impl IEnumNetworkConnections {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IEnumNetworkConnections_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Ole")]
@@ -74,7 +73,6 @@ impl IEnumNetworks {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IEnumNetworks_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Ole")]
@@ -156,7 +154,6 @@ impl INetwork {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct INetwork_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub GetName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
@@ -244,7 +241,6 @@ impl INetwork2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct INetwork2_Vtbl {
     pub base__: INetwork_Vtbl,
     pub IsDomainAuthenticatedBy: unsafe extern "system" fn(*mut ::core::ffi::c_void, NLM_DOMAIN_AUTHENTICATION_KIND, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
@@ -287,7 +283,6 @@ impl INetworkConnection {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct INetworkConnection_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -343,7 +338,6 @@ impl INetworkConnection2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct INetworkConnection2_Vtbl {
     pub base__: INetworkConnection_Vtbl,
     pub IsDomainAuthenticatedBy: unsafe extern "system" fn(*mut ::core::ffi::c_void, NLM_DOMAIN_AUTHENTICATION_KIND, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
@@ -360,7 +354,6 @@ impl INetworkConnectionCost {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct INetworkConnectionCost_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetCost: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -377,7 +370,6 @@ impl INetworkConnectionCostEvents {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct INetworkConnectionCostEvents_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub ConnectionCostChanged: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::GUID, u32) -> ::windows_core::HRESULT,
@@ -394,7 +386,6 @@ impl INetworkConnectionEvents {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct INetworkConnectionEvents_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub NetworkConnectionConnectivityChanged: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::GUID, NLM_CONNECTIVITY) -> ::windows_core::HRESULT,
@@ -417,7 +408,6 @@ impl INetworkCostManager {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct INetworkCostManager_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetCost: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32, *const NLM_SOCKADDR) -> ::windows_core::HRESULT,
@@ -435,7 +425,6 @@ impl INetworkCostManagerEvents {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct INetworkCostManagerEvents_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub CostChanged: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const NLM_SOCKADDR) -> ::windows_core::HRESULT,
@@ -458,7 +447,6 @@ impl INetworkEvents {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct INetworkEvents_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub NetworkAdded: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::GUID) -> ::windows_core::HRESULT,
@@ -513,7 +501,6 @@ impl INetworkListManager {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct INetworkListManager_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -546,7 +533,6 @@ impl INetworkListManagerEvents {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct INetworkListManagerEvents_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub ConnectivityChanged: unsafe extern "system" fn(*mut ::core::ffi::c_void, NLM_CONNECTIVITY) -> ::windows_core::HRESULT,

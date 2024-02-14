@@ -1,6 +1,5 @@
 ::windows_core::imp::com_interface!(IAtomPubClient, IAtomPubClient_Vtbl, 0x35392c38_cded_4d4c_9637_05f15c1c9406);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAtomPubClient_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Web_Syndication")]
@@ -47,7 +46,6 @@ pub struct IAtomPubClient_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAtomPubClientFactory, IAtomPubClientFactory_Vtbl, 0x49d55012_57cb_4bde_ab9f_2610b172777b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAtomPubClientFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Security_Credentials")]
@@ -57,7 +55,6 @@ pub struct IAtomPubClientFactory_Vtbl {
 }
 ::windows_core::imp::com_interface!(IResourceCollection, IResourceCollection_Vtbl, 0x7f5fd609_bc88_41d4_88fa_3de6704d428e);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IResourceCollection_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Web_Syndication")]
@@ -76,7 +73,6 @@ pub struct IResourceCollection_Vtbl {
 }
 ::windows_core::imp::com_interface!(IServiceDocument, IServiceDocument_Vtbl, 0x8b7ec771_2ab3_4dbe_8bcc_778f92b75e51);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IServiceDocument_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -86,7 +82,6 @@ pub struct IServiceDocument_Vtbl {
 }
 ::windows_core::imp::com_interface!(IWorkspace, IWorkspace_Vtbl, 0xb41da63b_a4b8_4036_89c5_83c31266ba49);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWorkspace_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Web_Syndication")]

@@ -1,6 +1,5 @@
 ::windows_core::imp::com_interface!(ICustomSensor, ICustomSensor_Vtbl, 0xa136f9ad_4034_4b4d_99dd_531aac649c09);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICustomSensor_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetCurrentReading: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -13,7 +12,6 @@ pub struct ICustomSensor_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICustomSensor2, ICustomSensor2_Vtbl, 0x20db3111_ec58_4d9f_bfbd_e77825088510);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICustomSensor2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SetReportLatency: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
@@ -22,7 +20,6 @@ pub struct ICustomSensor2_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICustomSensorReading, ICustomSensorReading_Vtbl, 0x64004f4d_446a_4366_a87a_5f963268ec53);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICustomSensorReading_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Timestamp: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::super::Foundation::DateTime) -> ::windows_core::HRESULT,
@@ -33,21 +30,18 @@ pub struct ICustomSensorReading_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICustomSensorReading2, ICustomSensorReading2_Vtbl, 0x223c98ea_bf73_4992_9a48_d3c897594ccb);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICustomSensorReading2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub PerformanceCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ICustomSensorReadingChangedEventArgs, ICustomSensorReadingChangedEventArgs_Vtbl, 0x6b202023_cffd_4cc1_8ff0_e21823d76fcc);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICustomSensorReadingChangedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Reading: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ICustomSensorStatics, ICustomSensorStatics_Vtbl, 0x992052cf_f422_4c7d_836b_e7dc74a7124b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICustomSensorStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetDeviceSelector: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::GUID, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,

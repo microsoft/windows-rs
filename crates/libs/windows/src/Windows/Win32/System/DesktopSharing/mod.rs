@@ -34,7 +34,6 @@ impl IRDPSRAPIApplication {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRDPSRAPIApplication_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -76,7 +75,6 @@ impl IRDPSRAPIApplicationFilter {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRDPSRAPIApplicationFilter_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -108,7 +106,6 @@ impl IRDPSRAPIApplicationList {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRDPSRAPIApplicationList_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub _NewEnum: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -157,7 +154,6 @@ impl IRDPSRAPIAttendee {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRDPSRAPIAttendee_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub Id: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
@@ -194,7 +190,6 @@ impl IRDPSRAPIAttendeeDisconnectInfo {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRDPSRAPIAttendeeDisconnectInfo_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -222,7 +217,6 @@ impl IRDPSRAPIAttendeeManager {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRDPSRAPIAttendeeManager_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub _NewEnum: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -252,7 +246,6 @@ impl IRDPSRAPIAudioStream {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRDPSRAPIAudioStream_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i64) -> ::windows_core::HRESULT,
@@ -274,7 +267,6 @@ impl IRDPSRAPIClipboardUseEvents {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRDPSRAPIClipboardUseEvents_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -297,7 +289,6 @@ impl IRDPSRAPIDebug {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRDPSRAPIDebug_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub SetCLXCmdLine: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
@@ -329,7 +320,6 @@ impl IRDPSRAPIFrameBuffer {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRDPSRAPIFrameBuffer_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub Width: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
@@ -378,7 +368,6 @@ impl IRDPSRAPIInvitation {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRDPSRAPIInvitation_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub ConnectionString: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
@@ -424,7 +413,6 @@ impl IRDPSRAPIInvitationManager {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRDPSRAPIInvitationManager_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub _NewEnum: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -446,7 +434,6 @@ impl IRDPSRAPIPerfCounterLogger {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRDPSRAPIPerfCounterLogger_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub LogValue: unsafe extern "system" fn(*mut ::core::ffi::c_void, i64) -> ::windows_core::HRESULT,
@@ -463,7 +450,6 @@ impl IRDPSRAPIPerfCounterLoggingManager {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRDPSRAPIPerfCounterLoggingManager_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub CreateLogger: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -491,7 +477,6 @@ impl IRDPSRAPISessionProperties {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRDPSRAPISessionProperties_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub get_Property: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
@@ -562,7 +547,6 @@ impl IRDPSRAPISharingSession {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRDPSRAPISharingSession_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub Open: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -680,7 +664,6 @@ impl IRDPSRAPISharingSession2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRDPSRAPISharingSession2_Vtbl {
     pub base__: IRDPSRAPISharingSession_Vtbl,
     pub ConnectUsingTransportStream: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
@@ -722,7 +705,6 @@ impl IRDPSRAPITcpConnectionInfo {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRDPSRAPITcpConnectionInfo_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub Protocol: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
@@ -767,7 +749,6 @@ impl IRDPSRAPITransportStream {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRDPSRAPITransportStream_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub AllocBuffer: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -821,7 +802,6 @@ impl IRDPSRAPITransportStreamBuffer {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRDPSRAPITransportStreamBuffer_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Storage: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut u8) -> ::windows_core::HRESULT,
@@ -855,7 +835,6 @@ impl IRDPSRAPITransportStreamEvents {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRDPSRAPITransportStreamEvents_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub OnWriteCompleted: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void),
@@ -942,7 +921,6 @@ impl IRDPSRAPIViewer {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRDPSRAPIViewer_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub Connect: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
@@ -1005,7 +983,6 @@ impl IRDPSRAPIVirtualChannel {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRDPSRAPIVirtualChannel_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub SendData: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, i32, u32) -> ::windows_core::HRESULT,
@@ -1043,7 +1020,6 @@ impl IRDPSRAPIVirtualChannelManager {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRDPSRAPIVirtualChannelManager_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub _NewEnum: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1095,7 +1071,6 @@ impl IRDPSRAPIWindow {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRDPSRAPIWindow_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub Id: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
@@ -1127,7 +1102,6 @@ impl IRDPSRAPIWindowList {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRDPSRAPIWindowList_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub _NewEnum: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1173,7 +1147,6 @@ impl IRDPViewerInputSink {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRDPViewerInputSink_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub SendMouseButtonEvent: unsafe extern "system" fn(*mut ::core::ffi::c_void, RDPSRAPI_MOUSE_BUTTON_TYPE, super::super::Foundation::VARIANT_BOOL, u32, u32) -> ::windows_core::HRESULT,
@@ -1193,7 +1166,6 @@ pub struct IRDPViewerInputSink_Vtbl {
 impl _IRDPSessionEvents {}
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct _IRDPSessionEvents_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
 }

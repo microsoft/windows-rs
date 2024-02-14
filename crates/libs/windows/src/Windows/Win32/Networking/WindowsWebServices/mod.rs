@@ -1105,7 +1105,6 @@ impl IContentPrefetcherTaskTrigger {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IContentPrefetcherTaskTrigger_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub TriggerContentPrefetcherTask: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,

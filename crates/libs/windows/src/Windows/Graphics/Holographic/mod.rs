@@ -1,6 +1,5 @@
 ::windows_core::imp::com_interface!(IHolographicCamera, IHolographicCamera_Vtbl, 0xe4e98445_9bed_4980_9ba0_e87680d1cb74);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IHolographicCamera_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub RenderTargetSize: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::Size) -> ::windows_core::HRESULT,
@@ -13,7 +12,6 @@ pub struct IHolographicCamera_Vtbl {
 }
 ::windows_core::imp::com_interface!(IHolographicCamera2, IHolographicCamera2_Vtbl, 0xb55b9f1a_ba8c_4f84_ad79_2e7e1e2450f3);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IHolographicCamera2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub LeftViewportParameters: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -22,7 +20,6 @@ pub struct IHolographicCamera2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IHolographicCamera3, IHolographicCamera3_Vtbl, 0x45aa4fb3_7b59_524e_4a3f_4a6ad6650477);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IHolographicCamera3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsPrimaryLayerEnabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -35,14 +32,12 @@ pub struct IHolographicCamera3_Vtbl {
 }
 ::windows_core::imp::com_interface!(IHolographicCamera4, IHolographicCamera4_Vtbl, 0x9a2531d6_4723_4f39_a9a5_9d05181d9b44);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IHolographicCamera4_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CanOverrideViewport: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IHolographicCamera5, IHolographicCamera5_Vtbl, 0x229706f2_628d_4ef5_9c08_a63fdd7787c6);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IHolographicCamera5_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsHardwareContentProtectionSupported: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -51,14 +46,12 @@ pub struct IHolographicCamera5_Vtbl {
 }
 ::windows_core::imp::com_interface!(IHolographicCamera6, IHolographicCamera6_Vtbl, 0x0209194f_632d_5154_ab52_0b5d15b12505);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IHolographicCamera6_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ViewConfiguration: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IHolographicCameraPose, IHolographicCameraPose_Vtbl, 0x0d7d7e30_12de_45bd_912b_c7f6561599d1);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IHolographicCameraPose_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub HolographicCamera: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -84,7 +77,6 @@ pub struct IHolographicCameraPose_Vtbl {
 }
 ::windows_core::imp::com_interface!(IHolographicCameraPose2, IHolographicCameraPose2_Vtbl, 0x232be073_5d2d_4560_814e_2697c4fce16b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IHolographicCameraPose2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
@@ -99,7 +91,6 @@ pub struct IHolographicCameraPose2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IHolographicCameraRenderingParameters, IHolographicCameraRenderingParameters_Vtbl, 0x8eac2ed1_5bf4_4e16_8236_ae0800c11d0d);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IHolographicCameraRenderingParameters_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
@@ -125,7 +116,6 @@ pub struct IHolographicCameraRenderingParameters_Vtbl {
 }
 ::windows_core::imp::com_interface!(IHolographicCameraRenderingParameters2, IHolographicCameraRenderingParameters2_Vtbl, 0x261270e3_b696_4634_94d6_be0681643599);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IHolographicCameraRenderingParameters2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ReprojectionMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut HolographicReprojectionMode) -> ::windows_core::HRESULT,
@@ -137,7 +127,6 @@ pub struct IHolographicCameraRenderingParameters2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IHolographicCameraRenderingParameters3, IHolographicCameraRenderingParameters3_Vtbl, 0xb1aa513f_136d_4b06_b9d4_e4b914cd0683);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IHolographicCameraRenderingParameters3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsContentProtectionEnabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -145,7 +134,6 @@ pub struct IHolographicCameraRenderingParameters3_Vtbl {
 }
 ::windows_core::imp::com_interface!(IHolographicCameraRenderingParameters4, IHolographicCameraRenderingParameters4_Vtbl, 0x0878fa4c_e163_57dc_82b7_c406ab3e0537);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IHolographicCameraRenderingParameters4_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub DepthReprojectionMethod: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut HolographicDepthReprojectionMethod) -> ::windows_core::HRESULT,
@@ -153,7 +141,6 @@ pub struct IHolographicCameraRenderingParameters4_Vtbl {
 }
 ::windows_core::imp::com_interface!(IHolographicCameraViewportParameters, IHolographicCameraViewportParameters_Vtbl, 0x80cdf3f7_842a_41e1_93ed_5692ab1fbb10);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IHolographicCameraViewportParameters_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Numerics")]
@@ -167,7 +154,6 @@ pub struct IHolographicCameraViewportParameters_Vtbl {
 }
 ::windows_core::imp::com_interface!(IHolographicDisplay, IHolographicDisplay_Vtbl, 0x9acea414_1d9f_4090_a388_90c06f6eae9c);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IHolographicDisplay_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub DisplayName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -182,28 +168,24 @@ pub struct IHolographicDisplay_Vtbl {
 }
 ::windows_core::imp::com_interface!(IHolographicDisplay2, IHolographicDisplay2_Vtbl, 0x75ac3f82_e755_436c_8d96_4d32d131473e);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IHolographicDisplay2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub RefreshRate: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f64) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IHolographicDisplay3, IHolographicDisplay3_Vtbl, 0xfc4c6ac6_6480_5008_b29e_157d77c843f7);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IHolographicDisplay3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub TryGetViewConfiguration: unsafe extern "system" fn(*mut ::core::ffi::c_void, HolographicViewConfigurationKind, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IHolographicDisplayStatics, IHolographicDisplayStatics_Vtbl, 0xcb374983_e7b0_4841_8355_3ae5b536e9a4);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IHolographicDisplayStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetDefault: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IHolographicFrame, IHolographicFrame_Vtbl, 0xc6988eb6_a8b9_3054_a6eb_d624b6536375);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IHolographicFrame_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -224,21 +206,18 @@ pub struct IHolographicFrame_Vtbl {
 }
 ::windows_core::imp::com_interface!(IHolographicFrame2, IHolographicFrame2_Vtbl, 0x283f37bf_3bf2_5e91_6633_870574e6f217);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IHolographicFrame2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetQuadLayerUpdateParameters: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IHolographicFrame3, IHolographicFrame3_Vtbl, 0xe5e964c9_8a27_55d3_9f98_94530d369052);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IHolographicFrame3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Id: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut HolographicFrameId) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IHolographicFramePrediction, IHolographicFramePrediction_Vtbl, 0x520f4de1_5c0a_4e79_a81e_6abe02bb2739);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IHolographicFramePrediction_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -254,7 +233,6 @@ pub struct IHolographicFramePrediction_Vtbl {
 ::windows_core::imp::com_interface!(IHolographicFramePresentationMonitor, IHolographicFramePresentationMonitor_Vtbl, 0xca87256c_6fae_428e_bb83_25dfee51136b);
 #[cfg(feature = "deprecated")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IHolographicFramePresentationMonitor_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
@@ -266,7 +244,6 @@ pub struct IHolographicFramePresentationMonitor_Vtbl {
 ::windows_core::imp::com_interface!(IHolographicFramePresentationReport, IHolographicFramePresentationReport_Vtbl, 0x80baf614_f2f4_4c8a_8de3_065c78f6d5de);
 #[cfg(feature = "deprecated")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IHolographicFramePresentationReport_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "deprecated")]
@@ -292,7 +269,6 @@ pub struct IHolographicFramePresentationReport_Vtbl {
 }
 ::windows_core::imp::com_interface!(IHolographicFrameRenderingReport, IHolographicFrameRenderingReport_Vtbl, 0x05f32de4_e384_51b3_b934_f0d3a0f78606);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IHolographicFrameRenderingReport_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub FrameId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut HolographicFrameId) -> ::windows_core::HRESULT,
@@ -303,7 +279,6 @@ pub struct IHolographicFrameRenderingReport_Vtbl {
 }
 ::windows_core::imp::com_interface!(IHolographicFrameScanoutMonitor, IHolographicFrameScanoutMonitor_Vtbl, 0x7e83efa9_843c_5401_8095_9bc1b8b08638);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IHolographicFrameScanoutMonitor_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -313,7 +288,6 @@ pub struct IHolographicFrameScanoutMonitor_Vtbl {
 }
 ::windows_core::imp::com_interface!(IHolographicFrameScanoutReport, IHolographicFrameScanoutReport_Vtbl, 0x0ebbe606_03a0_5ca0_b46e_bba068d7233f);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IHolographicFrameScanoutReport_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub RenderingReport: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -324,7 +298,6 @@ pub struct IHolographicFrameScanoutReport_Vtbl {
 }
 ::windows_core::imp::com_interface!(IHolographicQuadLayer, IHolographicQuadLayer_Vtbl, 0x903460c9_c9d9_5d5c_41ac_a2d5ab0fd331);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IHolographicQuadLayer_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Graphics_DirectX")]
@@ -335,7 +308,6 @@ pub struct IHolographicQuadLayer_Vtbl {
 }
 ::windows_core::imp::com_interface!(IHolographicQuadLayerFactory, IHolographicQuadLayerFactory_Vtbl, 0xa67538f3_5a14_5a10_489a_455065b37b76);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IHolographicQuadLayerFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::Size, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -346,7 +318,6 @@ pub struct IHolographicQuadLayerFactory_Vtbl {
 }
 ::windows_core::imp::com_interface!(IHolographicQuadLayerUpdateParameters, IHolographicQuadLayerUpdateParameters_Vtbl, 0x2b0ea3b0_798d_5bca_55c2_2c0c762ebb08);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IHolographicQuadLayerUpdateParameters_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
@@ -370,7 +341,6 @@ pub struct IHolographicQuadLayerUpdateParameters_Vtbl {
 }
 ::windows_core::imp::com_interface!(IHolographicQuadLayerUpdateParameters2, IHolographicQuadLayerUpdateParameters2_Vtbl, 0x4f33d32d_82c1_46c1_8980_3cb70d98182b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IHolographicQuadLayerUpdateParameters2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CanAcquireWithHardwareProtection: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -381,7 +351,6 @@ pub struct IHolographicQuadLayerUpdateParameters2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IHolographicSpace, IHolographicSpace_Vtbl, 0x4380dba6_5e78_434f_807c_3433d1efe8b7);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IHolographicSpace_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub PrimaryAdapterId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut HolographicAdapterId) -> ::windows_core::HRESULT,
@@ -397,7 +366,6 @@ pub struct IHolographicSpace_Vtbl {
 }
 ::windows_core::imp::com_interface!(IHolographicSpace2, IHolographicSpace2_Vtbl, 0x4f81a9a8_b7ff_4883_9827_7d677287ea70);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IHolographicSpace2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub UserPresence: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut HolographicSpaceUserPresence) -> ::windows_core::HRESULT,
@@ -412,14 +380,12 @@ pub struct IHolographicSpace2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IHolographicSpace3, IHolographicSpace3_Vtbl, 0xdf1733d1_f224_587e_8d71_1e8fc8f07b1f);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IHolographicSpace3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateFrameScanoutMonitor: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IHolographicSpaceCameraAddedEventArgs, IHolographicSpaceCameraAddedEventArgs_Vtbl, 0x58f1da35_bbb3_3c8f_993d_6c80e7feb99f);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IHolographicSpaceCameraAddedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Camera: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -427,14 +393,12 @@ pub struct IHolographicSpaceCameraAddedEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IHolographicSpaceCameraRemovedEventArgs, IHolographicSpaceCameraRemovedEventArgs_Vtbl, 0x805444a8_f2ae_322e_8da9_836a0a95a4c1);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IHolographicSpaceCameraRemovedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Camera: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IHolographicSpaceStatics, IHolographicSpaceStatics_Vtbl, 0x364e6064_c8f2_3ba1_8391_66b8489e67fd);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IHolographicSpaceStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "UI_Core")]
@@ -444,7 +408,6 @@ pub struct IHolographicSpaceStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IHolographicSpaceStatics2, IHolographicSpaceStatics2_Vtbl, 0x0e777088_75fc_48af_8758_0652f6f07c59);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IHolographicSpaceStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsSupported: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -454,14 +417,12 @@ pub struct IHolographicSpaceStatics2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IHolographicSpaceStatics3, IHolographicSpaceStatics3_Vtbl, 0x3b00de3d_b1a3_4dfe_8e79_fec5909e6df8);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IHolographicSpaceStatics3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsConfigured: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IHolographicViewConfiguration, IHolographicViewConfiguration_Vtbl, 0x5c1de6e6_67e9_5004_b02c_67a3a122b576);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IHolographicViewConfiguration_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub NativeRenderTargetSize: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::Size) -> ::windows_core::HRESULT,
@@ -488,7 +449,6 @@ pub struct IHolographicViewConfiguration_Vtbl {
 }
 ::windows_core::imp::com_interface!(IHolographicViewConfiguration2, IHolographicViewConfiguration2_Vtbl, 0xe241756e_e0d0_5019_9af5_1b165bc2f54e);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IHolographicViewConfiguration2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]

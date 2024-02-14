@@ -25,7 +25,6 @@ impl IPhotoAcquire {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPhotoAcquire_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub CreatePhotoSource: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -58,7 +57,6 @@ impl IPhotoAcquireDeviceSelectionDialog {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPhotoAcquireDeviceSelectionDialog_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub SetTitle: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
@@ -108,7 +106,6 @@ impl IPhotoAcquireItem {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPhotoAcquireItem_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetItemName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
@@ -163,7 +160,6 @@ impl IPhotoAcquireOptionsDialog {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPhotoAcquireOptionsDialog_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
@@ -203,7 +199,6 @@ impl IPhotoAcquirePlugin {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPhotoAcquirePlugin_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -315,7 +310,6 @@ impl IPhotoAcquireProgressCB {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPhotoAcquireProgressCB_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Cancelled: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
@@ -400,7 +394,6 @@ impl IPhotoAcquireSettings {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPhotoAcquireSettings_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub InitializeFromRegistry: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
@@ -456,7 +449,6 @@ impl IPhotoAcquireSource {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPhotoAcquireSource_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetFriendlyName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
@@ -482,7 +474,6 @@ impl IPhotoProgressActionCB {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPhotoProgressActionCB_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub DoAction: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::HWND) -> ::windows_core::HRESULT,
@@ -590,7 +581,6 @@ impl IPhotoProgressDialog {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPhotoProgressDialog_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Create: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::HWND) -> ::windows_core::HRESULT,
@@ -660,7 +650,6 @@ impl IUserInputString {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUserInputString_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetSubmitButtonText: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,

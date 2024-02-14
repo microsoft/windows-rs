@@ -1,6 +1,5 @@
 ::windows_core::imp::com_interface!(IAudioEncodingProperties, IAudioEncodingProperties_Vtbl, 0x62bc7a16_005c_4b3b_8a0b_0a090e9687f3);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAudioEncodingProperties_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SetBitrate: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
@@ -14,21 +13,18 @@ pub struct IAudioEncodingProperties_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAudioEncodingProperties2, IAudioEncodingProperties2_Vtbl, 0xc45d54da_80bd_4c23_80d5_72d4a181e894);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAudioEncodingProperties2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsSpatial: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IAudioEncodingProperties3, IAudioEncodingProperties3_Vtbl, 0x87600341_748c_4f8d_b0fd_10caf08ff087);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAudioEncodingProperties3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Copy: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IAudioEncodingPropertiesStatics, IAudioEncodingPropertiesStatics_Vtbl, 0x0cad332c_ebe9_4527_b36d_e42a13cf38db);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAudioEncodingPropertiesStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateAac: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -39,7 +35,6 @@ pub struct IAudioEncodingPropertiesStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAudioEncodingPropertiesStatics2, IAudioEncodingPropertiesStatics2_Vtbl, 0x7489316f_77a0_433d_8ed5_4040280e8665);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAudioEncodingPropertiesStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateAlac: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -47,7 +42,6 @@ pub struct IAudioEncodingPropertiesStatics2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAudioEncodingPropertiesWithFormatUserData, IAudioEncodingPropertiesWithFormatUserData_Vtbl, 0x98f10d79_13ea_49ff_be70_2673db69702c);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAudioEncodingPropertiesWithFormatUserData_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SetFormatUserData: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const u8) -> ::windows_core::HRESULT,
@@ -55,7 +49,6 @@ pub struct IAudioEncodingPropertiesWithFormatUserData_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAv1ProfileIdsStatics, IAv1ProfileIdsStatics_Vtbl, 0x9105812b_7c09_5882_88a4_678008a5174d);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAv1ProfileIdsStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub MainChromaSubsampling420BitDepth8: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
@@ -73,20 +66,17 @@ pub struct IAv1ProfileIdsStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IContainerEncodingProperties, IContainerEncodingProperties_Vtbl, 0x59ac2a57_b32a_479e_8a61_4b7f2e9e7ea0);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IContainerEncodingProperties_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
 }
 ::windows_core::imp::com_interface!(IContainerEncodingProperties2, IContainerEncodingProperties2_Vtbl, 0xb272c029_ae26_4819_baad_ad7a49b0a876);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IContainerEncodingProperties2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Copy: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IH264ProfileIdsStatics, IH264ProfileIdsStatics_Vtbl, 0x38654ca7_846a_4f97_a2e5_c3a15bbf70fd);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IH264ProfileIdsStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ConstrainedBaseline: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
@@ -102,7 +92,6 @@ pub struct IH264ProfileIdsStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IHevcProfileIdsStatics, IHevcProfileIdsStatics_Vtbl, 0x1e50d280_2aa7_53c1_973f_2189fa656f53);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IHevcProfileIdsStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub MainChromaSubsampling420BitDepth8: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
@@ -130,7 +119,6 @@ pub struct IHevcProfileIdsStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IImageEncodingProperties, IImageEncodingProperties_Vtbl, 0x78625635_f331_4189_b1c3_b48d5ae034f1);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IImageEncodingProperties_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SetWidth: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
@@ -140,14 +128,12 @@ pub struct IImageEncodingProperties_Vtbl {
 }
 ::windows_core::imp::com_interface!(IImageEncodingProperties2, IImageEncodingProperties2_Vtbl, 0xc854a2df_c923_469b_ac8e_6a9f3c1cd9e3);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IImageEncodingProperties2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Copy: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IImageEncodingPropertiesStatics, IImageEncodingPropertiesStatics_Vtbl, 0x257c68dc_8b99_439e_aa59_913a36161297);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IImageEncodingPropertiesStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateJpeg: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -156,7 +142,6 @@ pub struct IImageEncodingPropertiesStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IImageEncodingPropertiesStatics2, IImageEncodingPropertiesStatics2_Vtbl, 0xf6c25b29_3824_46b0_956e_501329e1be3c);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IImageEncodingPropertiesStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateUncompressed: unsafe extern "system" fn(*mut ::core::ffi::c_void, MediaPixelFormat, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -164,14 +149,12 @@ pub struct IImageEncodingPropertiesStatics2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IImageEncodingPropertiesStatics3, IImageEncodingPropertiesStatics3_Vtbl, 0x48f4814d_a2ff_48dc_8ea0_e90680663656);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IImageEncodingPropertiesStatics3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateHeif: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IMediaEncodingProfile, IMediaEncodingProfile_Vtbl, 0xe7dbf5a8_1db9_4783_876b_3dfe12acfdb3);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaEncodingProfile_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SetAudio: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -183,7 +166,6 @@ pub struct IMediaEncodingProfile_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMediaEncodingProfile2, IMediaEncodingProfile2_Vtbl, 0x349b3e0a_4035_488e_9877_85632865ed10);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaEncodingProfile2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
@@ -205,7 +187,6 @@ pub struct IMediaEncodingProfile2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMediaEncodingProfile3, IMediaEncodingProfile3_Vtbl, 0xba6ebe88_7570_4e69_accf_5611ad015f88);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaEncodingProfile3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
@@ -219,7 +200,6 @@ pub struct IMediaEncodingProfile3_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMediaEncodingProfileStatics, IMediaEncodingProfileStatics_Vtbl, 0x197f352c_2ede_4a45_a896_817a4854f8fe);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaEncodingProfileStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateM4a: unsafe extern "system" fn(*mut ::core::ffi::c_void, AudioEncodingQuality, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -238,7 +218,6 @@ pub struct IMediaEncodingProfileStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMediaEncodingProfileStatics2, IMediaEncodingProfileStatics2_Vtbl, 0xce8de74f_6af4_4288_8fe2_79adf1f79a43);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaEncodingProfileStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateWav: unsafe extern "system" fn(*mut ::core::ffi::c_void, AudioEncodingQuality, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -246,7 +225,6 @@ pub struct IMediaEncodingProfileStatics2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMediaEncodingProfileStatics3, IMediaEncodingProfileStatics3_Vtbl, 0x90dac5aa_cf76_4294_a9ed_1a1420f51f6b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaEncodingProfileStatics3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateAlac: unsafe extern "system" fn(*mut ::core::ffi::c_void, AudioEncodingQuality, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -255,7 +233,6 @@ pub struct IMediaEncodingProfileStatics3_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMediaEncodingProfileStatics4, IMediaEncodingProfileStatics4_Vtbl, 0x6fafd7b5_9404_514a_81dd_c9444d648af0);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaEncodingProfileStatics4_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateVp9: unsafe extern "system" fn(*mut ::core::ffi::c_void, VideoEncodingQuality, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -295,7 +272,6 @@ impl ::windows_core::RuntimeType for IMediaEncodingProperties {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaEncodingProperties_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -308,7 +284,6 @@ pub struct IMediaEncodingProperties_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMediaEncodingSubtypesStatics, IMediaEncodingSubtypesStatics_Vtbl, 0x37b6580e_a171_4464_ba5a_53189e48c1c8);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaEncodingSubtypesStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Aac: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -354,7 +329,6 @@ pub struct IMediaEncodingSubtypesStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMediaEncodingSubtypesStatics2, IMediaEncodingSubtypesStatics2_Vtbl, 0x4b7cd23d_42ff_4d33_8531_0626bee4b52d);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaEncodingSubtypesStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Vp9: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -364,7 +338,6 @@ pub struct IMediaEncodingSubtypesStatics2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMediaEncodingSubtypesStatics3, IMediaEncodingSubtypesStatics3_Vtbl, 0xba2414e4_883d_464e_a44f_097da08ef7ff);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaEncodingSubtypesStatics3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Alac: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -372,21 +345,18 @@ pub struct IMediaEncodingSubtypesStatics3_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMediaEncodingSubtypesStatics4, IMediaEncodingSubtypesStatics4_Vtbl, 0xddece58a_3949_4644_8a2c_59ef02c642fa);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaEncodingSubtypesStatics4_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub P010: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IMediaEncodingSubtypesStatics5, IMediaEncodingSubtypesStatics5_Vtbl, 0x5ad4a007_ffce_4760_9828_5d0c99637e6a);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaEncodingSubtypesStatics5_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Heif: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IMediaEncodingSubtypesStatics6, IMediaEncodingSubtypesStatics6_Vtbl, 0xa1252973_a984_5912_93bb_54e7e569e053);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaEncodingSubtypesStatics6_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Pgs: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -396,14 +366,12 @@ pub struct IMediaEncodingSubtypesStatics6_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMediaEncodingSubtypesStatics7, IMediaEncodingSubtypesStatics7_Vtbl, 0x92f2dca7_9937_52a1_b619_ddfad81cd99c);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaEncodingSubtypesStatics7_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Av1: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IMediaRatio, IMediaRatio_Vtbl, 0xd2d0fee5_8929_401d_ac78_7d357e378163);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaRatio_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SetNumerator: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
@@ -413,7 +381,6 @@ pub struct IMediaRatio_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMpeg2ProfileIdsStatics, IMpeg2ProfileIdsStatics_Vtbl, 0xa461ff85_e57a_4128_9b21_d5331b04235c);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMpeg2ProfileIdsStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Simple: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
@@ -424,7 +391,6 @@ pub struct IMpeg2ProfileIdsStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(ITimedMetadataEncodingProperties, ITimedMetadataEncodingProperties_Vtbl, 0x51cd30d3_d690_4cfa_97f4_4a398e9db420);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITimedMetadataEncodingProperties_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SetFormatUserData: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const u8) -> ::windows_core::HRESULT,
@@ -433,7 +399,6 @@ pub struct ITimedMetadataEncodingProperties_Vtbl {
 }
 ::windows_core::imp::com_interface!(ITimedMetadataEncodingPropertiesStatics, ITimedMetadataEncodingPropertiesStatics_Vtbl, 0x6629bb67_6e55_5643_89a0_7a7e8d85b52c);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITimedMetadataEncodingPropertiesStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreatePgs: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -443,7 +408,6 @@ pub struct ITimedMetadataEncodingPropertiesStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IVideoEncodingProperties, IVideoEncodingProperties_Vtbl, 0x76ee6c9a_37c2_4f2a_880a_1282bbb4373d);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVideoEncodingProperties_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SetBitrate: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
@@ -457,7 +421,6 @@ pub struct IVideoEncodingProperties_Vtbl {
 }
 ::windows_core::imp::com_interface!(IVideoEncodingProperties2, IVideoEncodingProperties2_Vtbl, 0xf743a1ef_d465_4290_a94b_ef0f1528f8e3);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVideoEncodingProperties2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SetFormatUserData: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const u8) -> ::windows_core::HRESULT,
@@ -467,28 +430,24 @@ pub struct IVideoEncodingProperties2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IVideoEncodingProperties3, IVideoEncodingProperties3_Vtbl, 0x386bcdc4_873a_479f_b3eb_56c1fcbec6d7);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVideoEncodingProperties3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub StereoscopicVideoPackingMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut StereoscopicVideoPackingMode) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IVideoEncodingProperties4, IVideoEncodingProperties4_Vtbl, 0x724ef014_c10c_40f2_9d72_3ee13b45fa8e);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVideoEncodingProperties4_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SphericalVideoFrameFormat: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut SphericalVideoFrameFormat) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IVideoEncodingProperties5, IVideoEncodingProperties5_Vtbl, 0x4959080f_272f_4ece_a4df_c0ccdb33d840);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVideoEncodingProperties5_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Copy: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IVideoEncodingPropertiesStatics, IVideoEncodingPropertiesStatics_Vtbl, 0x3ce14d44_1dc5_43db_9f38_ebebf90152cb);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVideoEncodingPropertiesStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateH264: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -497,14 +456,12 @@ pub struct IVideoEncodingPropertiesStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IVideoEncodingPropertiesStatics2, IVideoEncodingPropertiesStatics2_Vtbl, 0xcf1ebd5d_49fe_4d00_b59a_cfa4dfc51944);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVideoEncodingPropertiesStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateHevc: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IVideoEncodingPropertiesStatics3, IVideoEncodingPropertiesStatics3_Vtbl, 0x65b46685_60da_5e51_91a2_b38c4763b872);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVideoEncodingPropertiesStatics3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateVp9: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -512,7 +469,6 @@ pub struct IVideoEncodingPropertiesStatics3_Vtbl {
 }
 ::windows_core::imp::com_interface!(IVp9ProfileIdsStatics, IVp9ProfileIdsStatics_Vtbl, 0x20311a55_fe06_5883_92d9_6080c97743e5);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVp9ProfileIdsStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Profile0ChromaSubsampling420BitDepth8: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,

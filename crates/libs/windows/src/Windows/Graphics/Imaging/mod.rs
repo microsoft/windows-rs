@@ -1,6 +1,5 @@
 ::windows_core::imp::com_interface!(IBitmapBuffer, IBitmapBuffer_Vtbl, 0xa53e04c4_399c_438c_b28f_a63a6b83d1a1);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBitmapBuffer_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetPlaneCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
@@ -8,7 +7,6 @@ pub struct IBitmapBuffer_Vtbl {
 }
 ::windows_core::imp::com_interface!(IBitmapCodecInformation, IBitmapCodecInformation_Vtbl, 0x400caaf2_c4b0_4392_a3b0_6f6f9ba95cb4);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBitmapCodecInformation_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CodecId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
@@ -24,7 +22,6 @@ pub struct IBitmapCodecInformation_Vtbl {
 }
 ::windows_core::imp::com_interface!(IBitmapDecoder, IBitmapDecoder_Vtbl, 0xacef22ba_1d74_4c91_9dfc_9620745233e6);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBitmapDecoder_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub BitmapContainerProperties: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -38,7 +35,6 @@ pub struct IBitmapDecoder_Vtbl {
 }
 ::windows_core::imp::com_interface!(IBitmapDecoderStatics, IBitmapDecoderStatics_Vtbl, 0x438ccb26_bcef_4e95_bad6_23a822e58d01);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBitmapDecoderStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub BmpDecoderId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
@@ -63,7 +59,6 @@ pub struct IBitmapDecoderStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IBitmapDecoderStatics2, IBitmapDecoderStatics2_Vtbl, 0x50ba68ea_99a1_40c4_80d9_aef0dafa6c3f);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBitmapDecoderStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub HeifDecoderId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
@@ -71,7 +66,6 @@ pub struct IBitmapDecoderStatics2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IBitmapEncoder, IBitmapEncoder_Vtbl, 0x2bc468e3_e1f8_4b54_95e8_32919551ce62);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBitmapEncoder_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub EncoderInformation: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -94,7 +88,6 @@ pub struct IBitmapEncoder_Vtbl {
 }
 ::windows_core::imp::com_interface!(IBitmapEncoderStatics, IBitmapEncoderStatics_Vtbl, 0xa74356a7_a4e4_4eb9_8e40_564de7e1ccb2);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBitmapEncoderStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub BmpEncoderId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
@@ -123,14 +116,12 @@ pub struct IBitmapEncoderStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IBitmapEncoderStatics2, IBitmapEncoderStatics2_Vtbl, 0x33cbc259_fe31_41b1_b812_086d21e87e16);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBitmapEncoderStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub HeifEncoderId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IBitmapEncoderWithSoftwareBitmap, IBitmapEncoderWithSoftwareBitmap_Vtbl, 0x686cd241_4330_4c77_ace4_0334968b1768);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBitmapEncoderWithSoftwareBitmap_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SetSoftwareBitmap: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -231,7 +222,6 @@ impl ::windows_core::RuntimeType for IBitmapFrame {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBitmapFrame_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -371,7 +361,6 @@ impl ::windows_core::RuntimeType for IBitmapFrameWithSoftwareBitmap {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBitmapFrameWithSoftwareBitmap_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetSoftwareBitmapAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -380,7 +369,6 @@ pub struct IBitmapFrameWithSoftwareBitmap_Vtbl {
 }
 ::windows_core::imp::com_interface!(IBitmapProperties, IBitmapProperties_Vtbl, 0xea9f4f1b_b505_4450_a4d1_e8ca94529d8d);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBitmapProperties_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -407,7 +395,6 @@ impl ::windows_core::RuntimeType for IBitmapPropertiesView {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBitmapPropertiesView_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -417,7 +404,6 @@ pub struct IBitmapPropertiesView_Vtbl {
 }
 ::windows_core::imp::com_interface!(IBitmapTransform, IBitmapTransform_Vtbl, 0xae755344_e268_4d35_adcf_e995d31a8d34);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBitmapTransform_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ScaledWidth: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -435,7 +421,6 @@ pub struct IBitmapTransform_Vtbl {
 }
 ::windows_core::imp::com_interface!(IBitmapTypedValue, IBitmapTypedValue_Vtbl, 0xcd8044a9_2443_4000_b0cd_79316c56f589);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBitmapTypedValue_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Value: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -443,21 +428,18 @@ pub struct IBitmapTypedValue_Vtbl {
 }
 ::windows_core::imp::com_interface!(IBitmapTypedValueFactory, IBitmapTypedValueFactory_Vtbl, 0x92dbb599_ce13_46bb_9545_cb3a3f63eb8b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBitmapTypedValueFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, super::super::Foundation::PropertyType, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IPixelDataProvider, IPixelDataProvider_Vtbl, 0xdd831f25_185c_4595_9fb9_ccbe6ec18a6f);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPixelDataProvider_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub DetachPixelData: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32, *mut *mut u8) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ISoftwareBitmap, ISoftwareBitmap_Vtbl, 0x689e0708_7eef_483f_963f_da938818e073);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISoftwareBitmap_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub BitmapPixelFormat: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut BitmapPixelFormat) -> ::windows_core::HRESULT,
@@ -483,7 +465,6 @@ pub struct ISoftwareBitmap_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISoftwareBitmapFactory, ISoftwareBitmapFactory_Vtbl, 0xc99feb69_2d62_4d47_a6b3_4fdb6a07fdf8);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISoftwareBitmapFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut ::core::ffi::c_void, BitmapPixelFormat, i32, i32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -491,7 +472,6 @@ pub struct ISoftwareBitmapFactory_Vtbl {
 }
 ::windows_core::imp::com_interface!(ISoftwareBitmapStatics, ISoftwareBitmapStatics_Vtbl, 0xdf0385db_672f_4a9d_806e_c2442f343e86);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISoftwareBitmapStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Copy: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,

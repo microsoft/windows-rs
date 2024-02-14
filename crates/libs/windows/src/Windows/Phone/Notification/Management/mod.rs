@@ -1,6 +1,5 @@
 ::windows_core::imp::com_interface!(IAccessoryManager, IAccessoryManager_Vtbl, 0x0d04a12c_883d_4aa7_bca7_fa4bb8bffee6);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAccessoryManager_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub RegisterAccessoryApp: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -59,7 +58,6 @@ pub struct IAccessoryManager_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAccessoryManager2, IAccessoryManager2_Vtbl, 0xbacad44d_d393_46c6_b80c_15fdf44d5386);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAccessoryManager2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub RingDevice: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -92,7 +90,6 @@ pub struct IAccessoryManager2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAccessoryManager3, IAccessoryManager3_Vtbl, 0x81f75137_edc7_47e0_b2f7_7e577c833f7d);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAccessoryManager3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SnoozeAlarmByInstanceId: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -147,7 +144,6 @@ impl ::windows_core::RuntimeType for IAccessoryNotificationTriggerDetails {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAccessoryNotificationTriggerDetails_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub TimeCreated: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::super::Foundation::DateTime) -> ::windows_core::HRESULT,
@@ -159,7 +155,6 @@ pub struct IAccessoryNotificationTriggerDetails_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAlarmNotificationTriggerDetails, IAlarmNotificationTriggerDetails_Vtbl, 0x38f5fa30_c738_4da2_908c_775d83c36abb);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAlarmNotificationTriggerDetails_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub AlarmId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
@@ -169,14 +164,12 @@ pub struct IAlarmNotificationTriggerDetails_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAlarmNotificationTriggerDetails2, IAlarmNotificationTriggerDetails2_Vtbl, 0xcf16e06a_7155_40fe_a9c2_7bd2127ef853);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAlarmNotificationTriggerDetails2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub InstanceId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IAppNotificationInfo, IAppNotificationInfo_Vtbl, 0x2157bea5_e286_45d3_9bea_f790fc216e0e);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppNotificationInfo_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Id: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -184,7 +177,6 @@ pub struct IAppNotificationInfo_Vtbl {
 }
 ::windows_core::imp::com_interface!(IBinaryId, IBinaryId_Vtbl, 0x4f0da531_5595_44b4_9181_ce4efa3fc168);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBinaryId_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Id: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u8) -> ::windows_core::HRESULT,
@@ -192,7 +184,6 @@ pub struct IBinaryId_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICalendarChangedNotificationTriggerDetails, ICalendarChangedNotificationTriggerDetails_Vtbl, 0x4b8a3bfc_279d_42ab_9c68_3e87977bf216);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICalendarChangedNotificationTriggerDetails_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub EventType: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut CalendarChangedEvent) -> ::windows_core::HRESULT,
@@ -200,7 +191,6 @@ pub struct ICalendarChangedNotificationTriggerDetails_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICortanaTileNotificationTriggerDetails, ICortanaTileNotificationTriggerDetails_Vtbl, 0xdc0f01d5_1489_46bb_b73b_7f90067ecf27);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICortanaTileNotificationTriggerDetails_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub TileId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -216,7 +206,6 @@ pub struct ICortanaTileNotificationTriggerDetails_Vtbl {
 }
 ::windows_core::imp::com_interface!(IEmailAccountInfo, IEmailAccountInfo_Vtbl, 0xdfbc02ab_bda0_4568_927e_b2ede35818a1);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IEmailAccountInfo_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub DisplayName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -224,7 +213,6 @@ pub struct IEmailAccountInfo_Vtbl {
 }
 ::windows_core::imp::com_interface!(IEmailFolderInfo, IEmailFolderInfo_Vtbl, 0xc207150e_e237_46d6_90e6_4f529eeac1e2);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IEmailFolderInfo_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub DisplayName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -232,7 +220,6 @@ pub struct IEmailFolderInfo_Vtbl {
 }
 ::windows_core::imp::com_interface!(IEmailNotificationTriggerDetails, IEmailNotificationTriggerDetails_Vtbl, 0xf3b82612_46cf_4e70_8e0d_7b2e04ab492b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IEmailNotificationTriggerDetails_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub AccountName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -247,14 +234,12 @@ pub struct IEmailNotificationTriggerDetails_Vtbl {
 }
 ::windows_core::imp::com_interface!(IEmailNotificationTriggerDetails2, IEmailNotificationTriggerDetails2_Vtbl, 0x168067e3_c56f_4ec7_bed1_f734e08de5b2);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IEmailNotificationTriggerDetails2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub MessageEntryId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IEmailReadNotificationTriggerDetails, IEmailReadNotificationTriggerDetails_Vtbl, 0xf5b7a087_06f3_4e3e_8c42_325e67010413);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IEmailReadNotificationTriggerDetails_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub AccountName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -264,7 +249,6 @@ pub struct IEmailReadNotificationTriggerDetails_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMediaControlsTriggerDetails, IMediaControlsTriggerDetails_Vtbl, 0xfab4648b_ae45_4548_91ca_4ab0548e33b5);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaControlsTriggerDetails_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub PlaybackStatus: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut PlaybackStatus) -> ::windows_core::HRESULT,
@@ -272,7 +256,6 @@ pub struct IMediaControlsTriggerDetails_Vtbl {
 }
 ::windows_core::imp::com_interface!(IMediaMetadata, IMediaMetadata_Vtbl, 0x9b50ddf7_bb6c_4330_b3cd_0704a54cdb80);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMediaMetadata_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Title: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -288,7 +271,6 @@ pub struct IMediaMetadata_Vtbl {
 }
 ::windows_core::imp::com_interface!(IPhoneCallDetails, IPhoneCallDetails_Vtbl, 0x0c1b6f53_f071_483e_bf33_ebd44b724447);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPhoneCallDetails_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub PhoneLine: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
@@ -309,7 +291,6 @@ pub struct IPhoneCallDetails_Vtbl {
 }
 ::windows_core::imp::com_interface!(IPhoneLineDetails, IPhoneLineDetails_Vtbl, 0x47eb32dc_33ed_49b9_995c_a296bac82b77);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPhoneLineDetails_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub LineId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
@@ -321,14 +302,12 @@ pub struct IPhoneLineDetails_Vtbl {
 }
 ::windows_core::imp::com_interface!(IPhoneLineDetails2, IPhoneLineDetails2_Vtbl, 0xb30cd77d_0147_498c_8241_bf0cabc60a25);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPhoneLineDetails2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub MissedCallCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IPhoneNotificationTriggerDetails, IPhoneNotificationTriggerDetails_Vtbl, 0xccc2fdf7_09c3_4118_91bc_ca6323a8d383);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPhoneNotificationTriggerDetails_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub PhoneNotificationType: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut PhoneNotificationType) -> ::windows_core::HRESULT,
@@ -337,7 +316,6 @@ pub struct IPhoneNotificationTriggerDetails_Vtbl {
 }
 ::windows_core::imp::com_interface!(IReminderNotificationTriggerDetails, IReminderNotificationTriggerDetails_Vtbl, 0x5bddaa5d_9f61_4bf0_9feb_10502bc0b0c2);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IReminderNotificationTriggerDetails_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ReminderId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
@@ -353,14 +331,12 @@ pub struct IReminderNotificationTriggerDetails_Vtbl {
 }
 ::windows_core::imp::com_interface!(IReminderNotificationTriggerDetails2, IReminderNotificationTriggerDetails2_Vtbl, 0xe715f9c0_504d_4c0f_a6b3_bcb9722c6cdd);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IReminderNotificationTriggerDetails2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub InstanceId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ISpeedDialEntry, ISpeedDialEntry_Vtbl, 0x9240b6db_872c_46dc_b62a_be4541b166f8);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISpeedDialEntry_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub PhoneNumber: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -369,7 +345,6 @@ pub struct ISpeedDialEntry_Vtbl {
 }
 ::windows_core::imp::com_interface!(ITextResponse, ITextResponse_Vtbl, 0xe9cb74c3_2457_4cdb_8110_72f5e8e883e8);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITextResponse_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Id: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -377,7 +352,6 @@ pub struct ITextResponse_Vtbl {
 }
 ::windows_core::imp::com_interface!(IToastNotificationTriggerDetails, IToastNotificationTriggerDetails_Vtbl, 0xc9314895_4e6d_4e9d_afec_9e921b875ae8);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IToastNotificationTriggerDetails_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Text1: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -388,14 +362,12 @@ pub struct IToastNotificationTriggerDetails_Vtbl {
 }
 ::windows_core::imp::com_interface!(IToastNotificationTriggerDetails2, IToastNotificationTriggerDetails2_Vtbl, 0x3e0479dd_cac4_4f60_afa3_b925d9d83c93);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IToastNotificationTriggerDetails2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub InstanceId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IVolumeInfo, IVolumeInfo_Vtbl, 0x944dd118_7704_4481_b92e_d3ed3ece6322);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVolumeInfo_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SystemVolume: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,

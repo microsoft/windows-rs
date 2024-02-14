@@ -1,6 +1,5 @@
 ::windows_core::imp::com_interface!(IAppBroadcastingMonitor, IAppBroadcastingMonitor_Vtbl, 0x00f95a68_8907_48a0_b8ef_24d208137542);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppBroadcastingMonitor_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsCurrentAppBroadcasting: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -9,7 +8,6 @@ pub struct IAppBroadcastingMonitor_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppBroadcastingStatus, IAppBroadcastingStatus_Vtbl, 0x1225e4df_03a1_42f8_8b80_c9228cd9cf2e);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppBroadcastingStatus_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CanStartBroadcast: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -17,7 +15,6 @@ pub struct IAppBroadcastingStatus_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppBroadcastingStatusDetails, IAppBroadcastingStatusDetails_Vtbl, 0x069dada4_b573_4e3c_8e19_1bafacd09713);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppBroadcastingStatusDetails_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsAnyAppBroadcasting: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
@@ -31,7 +28,6 @@ pub struct IAppBroadcastingStatusDetails_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppBroadcastingUI, IAppBroadcastingUI_Vtbl, 0xe56f9f8f_ee99_4dca_a3c3_70af3db44f5f);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppBroadcastingUI_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetStatus: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -39,7 +35,6 @@ pub struct IAppBroadcastingUI_Vtbl {
 }
 ::windows_core::imp::com_interface!(IAppBroadcastingUIStatics, IAppBroadcastingUIStatics_Vtbl, 0x55a8a79d_23cb_4579_9c34_886fe02c045a);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppBroadcastingUIStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetDefault: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,

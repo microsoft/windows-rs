@@ -2,7 +2,6 @@
 ::windows_core::imp::com_interface!(IBackgroundEnergyManagerStatics, IBackgroundEnergyManagerStatics_Vtbl, 0xb3161d95_1180_4376_96e1_4095568147ce);
 #[cfg(feature = "deprecated")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBackgroundEnergyManagerStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "deprecated")]
@@ -58,7 +57,6 @@ pub struct IBackgroundEnergyManagerStatics_Vtbl {
 ::windows_core::imp::com_interface!(IForegroundEnergyManagerStatics, IForegroundEnergyManagerStatics_Vtbl, 0x9ff86872_e677_4814_9a20_5337ca732b98);
 #[cfg(feature = "deprecated")]
 #[repr(C)]
-#[doc(hidden)]
 pub struct IForegroundEnergyManagerStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "deprecated")]
@@ -104,7 +102,6 @@ pub struct IForegroundEnergyManagerStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IPowerManagerStatics, IPowerManagerStatics_Vtbl, 0x1394825d_62ce_4364_98d5_aa28c7fbd15b);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPowerManagerStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub EnergySaverStatus: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut EnergySaverStatus) -> ::windows_core::HRESULT,

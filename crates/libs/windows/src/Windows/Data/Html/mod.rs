@@ -1,6 +1,5 @@
 ::windows_core::imp::com_interface!(IHtmlUtilities, IHtmlUtilities_Vtbl, 0xfec00add_2399_4fac_b5a7_05e9acd7181d);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IHtmlUtilities_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ConvertToText: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,

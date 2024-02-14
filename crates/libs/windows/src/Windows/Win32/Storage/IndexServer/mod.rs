@@ -57,7 +57,6 @@ impl IFilter {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IFilter_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
@@ -90,7 +89,6 @@ impl IPhraseSink {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPhraseSink_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub PutSmallPhrase: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, u32, ::windows_core::PCWSTR, u32, u32) -> ::windows_core::HRESULT,

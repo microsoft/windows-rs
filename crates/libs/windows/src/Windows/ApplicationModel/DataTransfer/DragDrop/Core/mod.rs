@@ -1,6 +1,5 @@
 ::windows_core::imp::com_interface!(ICoreDragDropManager, ICoreDragDropManager_Vtbl, 0x7d56d344_8464_4faf_aa49_37ea6e2d7bd1);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreDragDropManager_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub TargetRequested: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
@@ -10,14 +9,12 @@ pub struct ICoreDragDropManager_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICoreDragDropManagerStatics, ICoreDragDropManagerStatics_Vtbl, 0x9542fdca_da12_4c1c_8d06_041db29733c3);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreDragDropManagerStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetForCurrentView: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ICoreDragInfo, ICoreDragInfo_Vtbl, 0x48353a8b_cb50_464e_9575_cd4e3a7ab028);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreDragInfo_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Data: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -26,14 +23,12 @@ pub struct ICoreDragInfo_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICoreDragInfo2, ICoreDragInfo2_Vtbl, 0xc54691e5_e6fb_4d74_b4b1_8a3c17f25e9e);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreDragInfo2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub AllowedOperations: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::DataPackageOperation) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ICoreDragOperation, ICoreDragOperation_Vtbl, 0xcc06de4f_6db0_4e62_ab1b_a74a02dc6d85);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreDragOperation_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Data: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -52,7 +47,6 @@ pub struct ICoreDragOperation_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICoreDragOperation2, ICoreDragOperation2_Vtbl, 0x824b1e2c_d99a_4fc3_8507_6c182f33b46a);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreDragOperation2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub AllowedOperations: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::DataPackageOperation) -> ::windows_core::HRESULT,
@@ -60,7 +54,6 @@ pub struct ICoreDragOperation2_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICoreDragUIOverride, ICoreDragUIOverride_Vtbl, 0x89a85064_3389_4f4f_8897_7e8a3ffb3c93);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreDragUIOverride_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Graphics_Imaging")]
@@ -131,7 +124,6 @@ impl ::windows_core::RuntimeType for ICoreDropOperationTarget {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreDropOperationTarget_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub EnterAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -141,7 +133,6 @@ pub struct ICoreDropOperationTarget_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICoreDropOperationTargetRequestedEventArgs, ICoreDropOperationTargetRequestedEventArgs_Vtbl, 0x2aca929a_5e28_4ea6_829e_29134e665d6d);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreDropOperationTargetRequestedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SetTarget: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,

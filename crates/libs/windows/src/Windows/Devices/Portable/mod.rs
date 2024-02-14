@@ -1,6 +1,5 @@
 ::windows_core::imp::com_interface!(IServiceDeviceStatics, IServiceDeviceStatics_Vtbl, 0xa88214e1_59c7_4a20_aba6_9f6707937230);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IServiceDeviceStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetDeviceSelector: unsafe extern "system" fn(*mut ::core::ffi::c_void, ServiceDeviceType, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -8,7 +7,6 @@ pub struct IServiceDeviceStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IStorageDeviceStatics, IStorageDeviceStatics_Vtbl, 0x5ece44ee_1b23_4dd2_8652_bc164f003128);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IStorageDeviceStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage")]

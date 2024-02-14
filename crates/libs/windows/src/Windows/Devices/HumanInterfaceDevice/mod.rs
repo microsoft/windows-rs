@@ -1,6 +1,5 @@
 ::windows_core::imp::com_interface!(IHidBooleanControl, IHidBooleanControl_Vtbl, 0x524df48a_3695_408c_bba2_e2eb5abfbc20);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IHidBooleanControl_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Id: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -12,7 +11,6 @@ pub struct IHidBooleanControl_Vtbl {
 }
 ::windows_core::imp::com_interface!(IHidBooleanControlDescription, IHidBooleanControlDescription_Vtbl, 0x6196e543_29d8_4a2a_8683_849e207bbe31);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IHidBooleanControlDescription_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Id: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -27,14 +25,12 @@ pub struct IHidBooleanControlDescription_Vtbl {
 }
 ::windows_core::imp::com_interface!(IHidBooleanControlDescription2, IHidBooleanControlDescription2_Vtbl, 0xc8eed2ea_8a77_4c36_aa00_5ff0449d3e73);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IHidBooleanControlDescription2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsAbsolute: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IHidCollection, IHidCollection_Vtbl, 0x7189f5a3_32f1_46e3_befd_44d2663b7e6a);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IHidCollection_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Id: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -44,7 +40,6 @@ pub struct IHidCollection_Vtbl {
 }
 ::windows_core::imp::com_interface!(IHidDevice, IHidDevice_Vtbl, 0x5f8a14e7_2200_432e_95da_d09b87d574a8);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IHidDevice_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub VendorId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u16) -> ::windows_core::HRESULT,
@@ -75,7 +70,6 @@ pub struct IHidDevice_Vtbl {
 }
 ::windows_core::imp::com_interface!(IHidDeviceStatics, IHidDeviceStatics_Vtbl, 0x9e5981e4_9856_418c_9f73_77de0cd85754);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IHidDeviceStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetDeviceSelector: unsafe extern "system" fn(*mut ::core::ffi::c_void, u16, u16, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -87,7 +81,6 @@ pub struct IHidDeviceStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IHidFeatureReport, IHidFeatureReport_Vtbl, 0x841d9b79_5ae5_46e3_82ef_1fec5c8942f4);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IHidFeatureReport_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Id: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u16) -> ::windows_core::HRESULT,
@@ -106,7 +99,6 @@ pub struct IHidFeatureReport_Vtbl {
 }
 ::windows_core::imp::com_interface!(IHidInputReport, IHidInputReport_Vtbl, 0xc35d0e50_f7e7_4e8d_b23e_cabbe56b90e9);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IHidInputReport_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Id: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u16) -> ::windows_core::HRESULT,
@@ -129,14 +121,12 @@ pub struct IHidInputReport_Vtbl {
 }
 ::windows_core::imp::com_interface!(IHidInputReportReceivedEventArgs, IHidInputReportReceivedEventArgs_Vtbl, 0x7059c5cb_59b2_4dc2_985c_0adc6136fa2d);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IHidInputReportReceivedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Report: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IHidNumericControl, IHidNumericControl_Vtbl, 0xe38a12a5_35a7_4b75_89c8_fb1f28b10823);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IHidNumericControl_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Id: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -151,7 +141,6 @@ pub struct IHidNumericControl_Vtbl {
 }
 ::windows_core::imp::com_interface!(IHidNumericControlDescription, IHidNumericControlDescription_Vtbl, 0x638d5e86_1d97_4c75_927f_5ff58ba05e32);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IHidNumericControlDescription_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Id: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -176,7 +165,6 @@ pub struct IHidNumericControlDescription_Vtbl {
 }
 ::windows_core::imp::com_interface!(IHidOutputReport, IHidOutputReport_Vtbl, 0x62cb2544_c896_4463_93c1_df9db053c450);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IHidOutputReport_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Id: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u16) -> ::windows_core::HRESULT,

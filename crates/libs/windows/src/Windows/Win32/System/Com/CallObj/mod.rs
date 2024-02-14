@@ -97,7 +97,6 @@ impl ICallFrame {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICallFrame_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut CALLFRAMEINFO) -> ::windows_core::HRESULT,
@@ -131,7 +130,6 @@ impl ICallFrameEvents {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICallFrameEvents_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub OnCall: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -148,7 +146,6 @@ impl ICallFrameWalker {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICallFrameWalker_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub OnWalkInterface: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *const *const ::core::ffi::c_void, super::super::super::Foundation::BOOL, super::super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
@@ -171,7 +168,6 @@ impl ICallIndirect {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICallIndirect_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub CallIndirect: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::HRESULT, u32, *const ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -207,7 +203,6 @@ impl ICallInterceptor {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICallInterceptor_Vtbl {
     pub base__: ICallIndirect_Vtbl,
     pub RegisterSink: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -227,7 +222,6 @@ impl ICallUnmarshal {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICallUnmarshal_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Unmarshal: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const ::core::ffi::c_void, u32, super::super::super::Foundation::BOOL, u32, *const CALLFRAME_MARSHALCONTEXT, *mut u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -245,7 +239,6 @@ impl IInterfaceRelated {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IInterfaceRelated_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub SetIID: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID) -> ::windows_core::HRESULT,

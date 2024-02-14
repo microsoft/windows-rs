@@ -19,6 +19,7 @@ pub struct Writer {
     pub package: bool,             // default is single file with no cfg - implies !flatten
     pub minimal: bool,             // strips out enumerators - in future possibly other helpers as well
     pub no_inner_attributes: bool, // skips the inner attributes at the start of the file
+    pub vtbl: bool,                // include minimal vtbl layout support for interfaces
 }
 
 impl Writer {
@@ -34,6 +35,7 @@ impl Writer {
             package: false,
             minimal: false,
             no_inner_attributes: false,
+            vtbl: false,
         }
     }
 
@@ -111,8 +113,12 @@ impl Writer {
             metadata::Type::ISize => quote! { isize },
             metadata::Type::USize => quote! { usize },
             metadata::Type::String => {
-                let crate_name = self.crate_name();
-                quote! { #crate_name HSTRING }
+                if self.sys {
+                    quote! { *mut ::core::ffi::c_void }
+                } else {
+                    let crate_name = self.crate_name();
+                    quote! { #crate_name HSTRING }
+                }
             }
             metadata::Type::BSTR => {
                 let crate_name = self.crate_name();
@@ -127,16 +133,24 @@ impl Writer {
                 quote! { #crate_name PROPVARIANT }
             }
             metadata::Type::IInspectable => {
-                let crate_name = self.crate_name();
-                quote! { #crate_name IInspectable }
+                if self.sys {
+                    quote! { *mut ::core::ffi::c_void }
+                } else {
+                    let crate_name = self.crate_name();
+                    quote! { #crate_name IInspectable }
+                }
             }
             metadata::Type::GUID => {
                 let crate_name = self.crate_name();
                 quote! { #crate_name GUID }
             }
             metadata::Type::IUnknown => {
-                let crate_name = self.crate_name();
-                quote! { #crate_name IUnknown }
+                if self.sys {
+                    quote! { *mut ::core::ffi::c_void }
+                } else {
+                    let crate_name = self.crate_name();
+                    quote! { #crate_name IUnknown }
+                }
             }
             metadata::Type::HRESULT => {
                 let crate_name = self.crate_name();
@@ -732,16 +746,17 @@ impl Writer {
             }
         }
     }
-    pub fn interface_vtbl(&self, def: metadata::TypeDef, generics: &[metadata::Type], _ident: &TokenStream, constraints: &TokenStream, features: &TokenStream) -> TokenStream {
+    pub fn interface_vtbl(&self, def: metadata::TypeDef, generics: &[metadata::Type], constraints: &TokenStream, features: &TokenStream) -> TokenStream {
         let vtbl = self.type_def_vtbl_name(def, generics);
         let mut methods = quote! {};
         let mut method_names = MethodNames::new();
         method_names.add_vtable_types(def);
         let phantoms = self.generic_named_phantoms(generics);
+        let crate_name = self.crate_name();
 
         match metadata::type_def_vtables(def).last() {
-            Some(metadata::Type::IUnknown) => methods.combine(&quote! { pub base__: ::windows_core::IUnknown_Vtbl, }),
-            Some(metadata::Type::IInspectable) => methods.combine(&quote! { pub base__: ::windows_core::IInspectable_Vtbl, }),
+            Some(metadata::Type::IUnknown) => methods.combine(&quote! { pub base__: #crate_name IUnknown_Vtbl, }),
+            Some(metadata::Type::IInspectable) => methods.combine(&quote! { pub base__: #crate_name IInspectable_Vtbl, }),
             Some(metadata::Type::TypeDef(def, _)) => {
                 let vtbl = self.type_def_vtbl_name(*def, &[]);
                 methods.combine(&quote! { pub base__: #vtbl, });
@@ -777,7 +792,7 @@ impl Writer {
 
         quote! {
             #features
-            #[repr(C)] #[doc(hidden)] pub struct #vtbl where #constraints {
+            #[repr(C)] pub struct #vtbl where #constraints {
                 #methods
                 #(pub #phantoms)*
             }

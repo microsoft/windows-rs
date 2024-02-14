@@ -1,6 +1,5 @@
 ::windows_core::imp::com_interface!(IFindAllAccountsResult, IFindAllAccountsResult_Vtbl, 0xa5812b5d_b72e_420c_86ab_aac0d7b7261f);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IFindAllAccountsResult_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(all(feature = "Foundation_Collections", feature = "Security_Credentials"))]
@@ -12,7 +11,6 @@ pub struct IFindAllAccountsResult_Vtbl {
 }
 ::windows_core::imp::com_interface!(IWebAccountEventArgs, IWebAccountEventArgs_Vtbl, 0x6fb7037d_424e_44ec_977c_ef2415462a5a);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWebAccountEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Security_Credentials")]
@@ -22,7 +20,6 @@ pub struct IWebAccountEventArgs_Vtbl {
 }
 ::windows_core::imp::com_interface!(IWebAccountMonitor, IWebAccountMonitor_Vtbl, 0x7445f5fd_aa9d_4619_8d5d_c138a4ede3e5);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWebAccountMonitor_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Updated: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
@@ -34,7 +31,6 @@ pub struct IWebAccountMonitor_Vtbl {
 }
 ::windows_core::imp::com_interface!(IWebAccountMonitor2, IWebAccountMonitor2_Vtbl, 0xa7adc1f8_24b8_4f01_9ae5_24545e71233a);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWebAccountMonitor2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub AccountPictureUpdated: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
@@ -42,7 +38,6 @@ pub struct IWebAccountMonitor2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IWebAuthenticationCoreManagerStatics, IWebAuthenticationCoreManagerStatics_Vtbl, 0x6aca7c92_a581_4479_9c10_752eff44fd34);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWebAuthenticationCoreManagerStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetTokenSilentlyAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -70,7 +65,6 @@ pub struct IWebAuthenticationCoreManagerStatics_Vtbl {
 }
 ::windows_core::imp::com_interface!(IWebAuthenticationCoreManagerStatics2, IWebAuthenticationCoreManagerStatics2_Vtbl, 0xf584184a_8b57_4820_b6a4_70a5b6fcf44a);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWebAuthenticationCoreManagerStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(all(feature = "Security_Credentials", feature = "System"))]
@@ -80,7 +74,6 @@ pub struct IWebAuthenticationCoreManagerStatics2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IWebAuthenticationCoreManagerStatics3, IWebAuthenticationCoreManagerStatics3_Vtbl, 0x2404eeb2_8924_4d93_ab3a_99688b419d56);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWebAuthenticationCoreManagerStatics3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(all(feature = "Foundation_Collections", feature = "Security_Credentials"))]
@@ -90,7 +83,6 @@ pub struct IWebAuthenticationCoreManagerStatics3_Vtbl {
 }
 ::windows_core::imp::com_interface!(IWebAuthenticationCoreManagerStatics4, IWebAuthenticationCoreManagerStatics4_Vtbl, 0x54e633fe_96e0_41e8_9832_1298897c2aaf);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWebAuthenticationCoreManagerStatics4_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Security_Credentials")]
@@ -116,7 +108,6 @@ pub struct IWebAuthenticationCoreManagerStatics4_Vtbl {
 }
 ::windows_core::imp::com_interface!(IWebProviderError, IWebProviderError_Vtbl, 0xdb191bb1_50c5_4809_8dca_09c99410245c);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWebProviderError_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ErrorCode: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -128,14 +119,12 @@ pub struct IWebProviderError_Vtbl {
 }
 ::windows_core::imp::com_interface!(IWebProviderErrorFactory, IWebProviderErrorFactory_Vtbl, 0xe3c40a2d_89ef_4e37_847f_a8b9d5a32910);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWebProviderErrorFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWebTokenRequest, IWebTokenRequest_Vtbl, 0xb77b4d68_adcb_4673_b364_0cf7b35caf97);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWebTokenRequest_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Security_Credentials")]
@@ -152,7 +141,6 @@ pub struct IWebTokenRequest_Vtbl {
 }
 ::windows_core::imp::com_interface!(IWebTokenRequest2, IWebTokenRequest2_Vtbl, 0xd700c079_30c8_4397_9654_961c3be8b855);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWebTokenRequest2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -162,7 +150,6 @@ pub struct IWebTokenRequest2_Vtbl {
 }
 ::windows_core::imp::com_interface!(IWebTokenRequest3, IWebTokenRequest3_Vtbl, 0x5a755b51_3bb1_41a5_a63d_90bc32c7db9a);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWebTokenRequest3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CorrelationId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -170,7 +157,6 @@ pub struct IWebTokenRequest3_Vtbl {
 }
 ::windows_core::imp::com_interface!(IWebTokenRequestFactory, IWebTokenRequestFactory_Vtbl, 0x6cf2141c_0ff0_4c67_b84f_99ddbe4a72c9);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWebTokenRequestFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Security_Credentials")]
@@ -192,7 +178,6 @@ pub struct IWebTokenRequestFactory_Vtbl {
 }
 ::windows_core::imp::com_interface!(IWebTokenRequestResult, IWebTokenRequestResult_Vtbl, 0xc12a8305_d1f8_4483_8d54_38fe292784ff);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWebTokenRequestResult_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -205,7 +190,6 @@ pub struct IWebTokenRequestResult_Vtbl {
 }
 ::windows_core::imp::com_interface!(IWebTokenResponse, IWebTokenResponse_Vtbl, 0x67a7c5ca_83f6_44c6_a3b1_0eb69e41fa8a);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWebTokenResponse_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Token: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -221,7 +205,6 @@ pub struct IWebTokenResponse_Vtbl {
 }
 ::windows_core::imp::com_interface!(IWebTokenResponseFactory, IWebTokenResponseFactory_Vtbl, 0xab6bf7f8_5450_4ef6_97f7_052b0431c0f0);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWebTokenResponseFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateWithToken: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,

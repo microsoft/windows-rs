@@ -64,7 +64,6 @@ impl IDDVideoPortContainer {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDDVideoPortContainer_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub CreateVideoPort: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut DDVIDEOPORTDESC, *mut *mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -158,7 +157,6 @@ impl IDirectDraw {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDirectDraw_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Compact: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -274,7 +272,6 @@ impl IDirectDraw2 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDirectDraw2_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Compact: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -408,7 +405,6 @@ impl IDirectDraw4 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDirectDraw4_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Compact: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -555,7 +551,6 @@ impl IDirectDraw7 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDirectDraw7_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Compact: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -623,7 +618,6 @@ impl IDirectDrawClipper {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDirectDrawClipper_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -650,7 +644,6 @@ impl IDirectDrawColorControl {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDirectDrawColorControl_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetColorControls: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut DDCOLORCONTROL) -> ::windows_core::HRESULT,
@@ -667,7 +660,6 @@ impl IDirectDrawGammaControl {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDirectDrawGammaControl_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetGammaRamp: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut DDGAMMARAMP) -> ::windows_core::HRESULT,
@@ -687,7 +679,6 @@ impl IDirectDrawKernel {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDirectDrawKernel_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetCaps: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut DDKERNELCAPS) -> ::windows_core::HRESULT,
@@ -717,7 +708,6 @@ impl IDirectDrawPalette {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDirectDrawPalette_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetCaps: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
@@ -878,7 +868,6 @@ impl IDirectDrawSurface {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDirectDrawSurface_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub AddAttachedSurface: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1074,7 +1063,6 @@ impl IDirectDrawSurface2 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDirectDrawSurface2_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub AddAttachedSurface: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1276,7 +1264,6 @@ impl IDirectDrawSurface3 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDirectDrawSurface3_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub AddAttachedSurface: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1494,7 +1481,6 @@ impl IDirectDrawSurface4 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDirectDrawSurface4_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub AddAttachedSurface: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1729,7 +1715,6 @@ impl IDirectDrawSurface7 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDirectDrawSurface7_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub AddAttachedSurface: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -1796,7 +1781,6 @@ impl IDirectDrawSurfaceKernel {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDirectDrawSurfaceKernel_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetKernelHandle: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut usize) -> ::windows_core::HRESULT,
@@ -1855,7 +1839,6 @@ impl IDirectDrawVideoPort {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDirectDrawVideoPort_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Flip: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
@@ -1887,7 +1870,6 @@ impl IDirectDrawVideoPortNotify {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDirectDrawVideoPortNotify_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub AcquireNotification: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::HANDLE, *mut DDVIDEOPORTNOTIFY) -> ::windows_core::HRESULT,

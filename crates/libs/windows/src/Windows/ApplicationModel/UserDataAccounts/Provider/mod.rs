@@ -1,6 +1,5 @@
 ::windows_core::imp::com_interface!(IUserDataAccountPartnerAccountInfo, IUserDataAccountPartnerAccountInfo_Vtbl, 0x5f200037_f6ef_4ec3_8630_012c59c1149f);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUserDataAccountPartnerAccountInfo_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub DisplayName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -9,7 +8,6 @@ pub struct IUserDataAccountPartnerAccountInfo_Vtbl {
 }
 ::windows_core::imp::com_interface!(IUserDataAccountProviderAddAccountOperation, IUserDataAccountProviderAddAccountOperation_Vtbl, 0xb9c72530_3f84_4b5d_8eaa_45e97aa842ed);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUserDataAccountProviderAddAccountOperation_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ContentKinds: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::UserDataAccountContentKinds) -> ::windows_core::HRESULT,
@@ -34,14 +32,12 @@ impl ::windows_core::RuntimeType for IUserDataAccountProviderOperation {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUserDataAccountProviderOperation_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Kind: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut UserDataAccountProviderOperationKind) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IUserDataAccountProviderResolveErrorsOperation, IUserDataAccountProviderResolveErrorsOperation_Vtbl, 0x6235dc15_bfcb_41e1_9957_9759a28846cc);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUserDataAccountProviderResolveErrorsOperation_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub UserDataAccountId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
@@ -49,7 +45,6 @@ pub struct IUserDataAccountProviderResolveErrorsOperation_Vtbl {
 }
 ::windows_core::imp::com_interface!(IUserDataAccountProviderSettingsOperation, IUserDataAccountProviderSettingsOperation_Vtbl, 0x92034db7_8648_4f30_acfa_3002658ca80d);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUserDataAccountProviderSettingsOperation_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub UserDataAccountId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,

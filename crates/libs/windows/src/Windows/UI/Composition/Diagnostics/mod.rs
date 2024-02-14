@@ -1,6 +1,5 @@
 ::windows_core::imp::com_interface!(ICompositionDebugHeatMaps, ICompositionDebugHeatMaps_Vtbl, 0xe49c90ac_2ff3_5805_718c_b725ee07650f);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositionDebugHeatMaps_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Hide: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -10,14 +9,12 @@ pub struct ICompositionDebugHeatMaps_Vtbl {
 }
 ::windows_core::imp::com_interface!(ICompositionDebugSettings, ICompositionDebugSettings_Vtbl, 0x2831987e_1d82_4d38_b7b7_efd11c7bc3d1);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositionDebugSettings_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub HeatMaps: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ICompositionDebugSettingsStatics, ICompositionDebugSettingsStatics_Vtbl, 0x64ec1f1e_6af8_4af8_b814_c870fd5a9505);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositionDebugSettingsStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub TryGetSettings: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,

@@ -7,7 +7,7 @@ pub fn standalone_imp(writer: &Writer) -> String {
     let mut constants = std::collections::BTreeSet::new();
 
     for item in writer.reader.items() {
-        item_collect_standalone(item.clone(), &mut types);
+        item_collect_standalone(writer, item.clone(), &mut types);
 
         match item {
             metadata::Item::Type(_) => {}
@@ -21,9 +21,39 @@ pub fn standalone_imp(writer: &Writer) -> String {
     for ty in types {
         match ty {
             metadata::Type::HRESULT if writer.sys => sorted.insert("HRESULT", quote! { pub type HRESULT = i32; }),
-            metadata::Type::String if writer.sys => sorted.insert("HSTRING", quote! { pub type HSTRING = *mut ::core::ffi::c_void; }),
-            metadata::Type::IUnknown if writer.sys => sorted.insert("IUnknown", quote! { pub type IUnknown = *mut ::core::ffi::c_void; }),
-            metadata::Type::IInspectable if writer.sys => sorted.insert("IInspectable", quote! { pub type IInspectable = *mut ::core::ffi::c_void; }),
+            metadata::Type::IUnknown if writer.sys => sorted.insert(
+                "IUnknown",
+                if !writer.vtbl {
+                    quote! {}
+                } else {
+                    quote! {
+                        pub const IID_IUnknown: GUID = GUID::from_u128(0x00000000_0000_0000_c000_000000000046);
+                        #[repr(C)]
+                        pub struct IUnknown_Vtbl {
+                            pub QueryInterface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: *const GUID, interface: *mut *mut ::core::ffi::c_void) -> HRESULT,
+                            pub AddRef: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+                            pub Release: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+                        }
+                    }
+                },
+            ),
+            metadata::Type::IInspectable if writer.sys => sorted.insert(
+                "IInspectable",
+                if !writer.vtbl {
+                    quote! {}
+                } else {
+                    quote! {
+                        pub const IID_IInspectable: GUID = GUID::from_u128(0xaf86e2e0_b12d_4c6a_9c5a_d7aa65101e90);
+                        #[repr(C)]
+                        pub struct IInspectable_Vtbl {
+                            pub base: IUnknown_Vtbl,
+                            pub GetIids: unsafe extern "system" fn(this: *mut std::ffi::c_void, count: *mut u32, values: *mut *mut GUID) -> HRESULT,
+                            pub GetRuntimeClassName: unsafe extern "system" fn(this: *mut std::ffi::c_void, value: *mut *mut std::ffi::c_void) -> HRESULT,
+                            pub GetTrustLevel: unsafe extern "system" fn(this: *mut std::ffi::c_void, value: *mut i32) -> HRESULT,
+                        }
+                    }
+                },
+            ),
             metadata::Type::PSTR if writer.sys => sorted.insert("PSTR", quote! { pub type PSTR = *mut u8; }),
             metadata::Type::PWSTR if writer.sys => sorted.insert("PWSTR", quote! { pub type PWSTR = *mut u16; }),
             metadata::Type::PCSTR if writer.sys => sorted.insert("PCSTR", quote! { pub type PCSTR = *const u8; }),
@@ -115,22 +145,33 @@ impl SortedTokens {
     }
 }
 
-fn item_collect_standalone(item: metadata::Item, set: &mut std::collections::BTreeSet<metadata::Type>) {
+fn item_collect_standalone(writer: &Writer, item: metadata::Item, set: &mut std::collections::BTreeSet<metadata::Type>) {
     match item {
-        metadata::Item::Type(def) => type_collect_standalone(&metadata::Type::TypeDef(def, vec![]), set),
-        metadata::Item::Const(def) => type_collect_standalone(&def.ty(None).to_const_type(), set),
+        metadata::Item::Type(def) => type_collect_standalone(writer, &metadata::Type::TypeDef(def, vec![]), set),
+        metadata::Item::Const(def) => type_collect_standalone(writer, &def.ty(None).to_const_type(), set),
         metadata::Item::Fn(def, namespace) => {
             let signature = metadata::method_def_signature(namespace, def, &[]);
-            type_collect_standalone(&signature.return_type, set);
-            signature.params.iter().for_each(|param| type_collect_standalone(&param.ty, set));
+            type_collect_standalone(writer, &signature.return_type, set);
+            signature.params.iter().for_each(|param| type_collect_standalone(writer, &param.ty, set));
         }
     }
 }
 // TODO: remove or move to riddle
-fn type_collect_standalone(ty: &metadata::Type, set: &mut std::collections::BTreeSet<metadata::Type>) {
+fn type_collect_standalone(writer: &Writer, ty: &metadata::Type, set: &mut std::collections::BTreeSet<metadata::Type>) {
     let ty = ty.to_underlying_type();
     if !set.insert(ty.clone()) {
         return;
+    }
+
+    if writer.vtbl {
+        match ty {
+            metadata::Type::IUnknown => {
+                set.insert(metadata::Type::GUID);
+                set.insert(metadata::Type::HRESULT);
+            }
+            metadata::Type::IInspectable => type_collect_standalone(writer, &metadata::Type::IUnknown, set),
+            _ => {}
+        }
     }
 
     let metadata::Type::TypeDef(def, generics) = ty.to_underlying_type() else {
@@ -148,14 +189,15 @@ fn type_collect_standalone(ty: &metadata::Type, set: &mut std::collections::BTre
     if !type_name.namespace.is_empty() {
         for row in def.reader().get_type_def(type_name.namespace, type_name.name) {
             if def != row {
-                type_collect_standalone(&metadata::Type::TypeDef(row, Vec::new()), set);
+                type_collect_standalone(writer, &metadata::Type::TypeDef(row, Vec::new()), set);
             }
         }
     }
 
     for generic in &generics {
-        type_collect_standalone(generic, set);
+        type_collect_standalone(writer, generic, set);
     }
+
     for field in def.fields() {
         let ty = field.ty(Some(def));
         if let metadata::Type::TypeDef(def, _) = &ty {
@@ -163,30 +205,43 @@ fn type_collect_standalone(ty: &metadata::Type, set: &mut std::collections::BTre
                 continue;
             }
         }
-        type_collect_standalone(&ty, set);
+        type_collect_standalone(writer, &ty, set);
     }
+
     for method in def.methods() {
         // Skip delegate pseudo-constructors.
         if method.name() == ".ctor" {
             continue;
         }
         let signature = metadata::method_def_signature(def.namespace(), method, &generics);
-        type_collect_standalone(&signature.return_type, set);
-        signature.params.iter().for_each(|param| type_collect_standalone(&param.ty, set));
-    }
-    for interface in metadata::type_interfaces(&ty) {
-        type_collect_standalone(&interface.ty, set);
-    }
-    if def.kind() == metadata::TypeKind::Struct && def.fields().next().is_none() && metadata::type_def_guid(def).is_some() {
-        set.insert(metadata::Type::GUID);
+        type_collect_standalone(writer, &signature.return_type, set);
+        signature.params.iter().for_each(|param| type_collect_standalone(writer, &param.ty, set));
     }
 
-    type_collect_standalone_nested(def, set);
+    for interface in metadata::type_interfaces(&ty) {
+        type_collect_standalone(writer, &interface.ty, set);
+    }
+
+    match def.kind() {
+        metadata::TypeKind::Struct => {
+            if def.fields().next().is_none() && metadata::type_def_guid(def).is_some() {
+                set.insert(metadata::Type::GUID);
+            }
+        }
+        metadata::TypeKind::Interface => {
+            if def.flags().contains(metadata::TypeAttributes::WindowsRuntime) {
+                type_collect_standalone(writer, &metadata::Type::IInspectable, set);
+            }
+        }
+        _ => {}
+    }
+
+    type_collect_standalone_nested(writer, def, set);
 }
 
-fn type_collect_standalone_nested(td: metadata::TypeDef, set: &mut std::collections::BTreeSet<metadata::Type>) {
+fn type_collect_standalone_nested(writer: &Writer, td: metadata::TypeDef, set: &mut std::collections::BTreeSet<metadata::Type>) {
     for nested in td.reader().nested_types(td) {
-        type_collect_standalone_nested(nested, set);
+        type_collect_standalone_nested(writer, nested, set);
 
         for field in nested.fields() {
             let ty = field.ty(Some(nested));
@@ -197,7 +252,7 @@ fn type_collect_standalone_nested(td: metadata::TypeDef, set: &mut std::collecti
                     continue;
                 }
             }
-            type_collect_standalone(&ty, set);
+            type_collect_standalone(writer, &ty, set);
         }
     }
 }
