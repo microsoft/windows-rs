@@ -1,0 +1,56 @@
+use super::*;
+
+#[doc(hidden)]
+#[macro_export]
+macro_rules! com_call {
+    ($vtbl:ty, $this:ident.$method:ident($($args:tt)*)) => {
+        ((&**($this.as_raw() as *mut *mut $vtbl)).$method)($this.as_raw(), $($args)*)
+    }
+}
+
+pub use com_call;
+
+#[repr(transparent)]
+pub struct ComPtr(std::ptr::NonNull<std::ffi::c_void>);
+
+impl ComPtr {
+    pub fn as_raw(&self) -> *mut std::ffi::c_void {
+        unsafe { std::mem::transmute_copy(self) }
+    }
+
+    pub fn cast(&self, iid: &GUID) -> Option<Self> {
+        let mut result = None;
+        unsafe {
+            com_call!(
+                IUnknown_Vtbl,
+                self.QueryInterface(iid, &mut result as *mut _ as _)
+            );
+        }
+        result
+    }
+}
+
+impl PartialEq for ComPtr {
+    fn eq(&self, other: &Self) -> bool {
+        self.cast(&IID_IUnknown).unwrap().0 == other.cast(&IID_IUnknown).unwrap().0
+    }
+}
+
+impl Eq for ComPtr {}
+
+impl Clone for ComPtr {
+    fn clone(&self) -> Self {
+        unsafe {
+            com_call!(IUnknown_Vtbl, self.AddRef());
+        }
+        Self(self.0)
+    }
+}
+
+impl Drop for ComPtr {
+    fn drop(&mut self) {
+        unsafe {
+            com_call!(IUnknown_Vtbl, self.Release());
+        }
+    }
+}

@@ -1,0 +1,21 @@
+--out src/bindings.rs
+--config flatten sys minimal vtbl
+
+--filter
+    Windows.Win32.Foundation.E_INVALIDARG
+    Windows.Win32.Foundation.E_UNEXPECTED
+    Windows.Win32.Foundation.ERROR_NO_UNICODE_TRANSLATION
+    Windows.Win32.Foundation.GetLastError
+    Windows.Win32.Foundation.SysFreeString
+    Windows.Win32.Foundation.SysStringLen
+    Windows.Win32.System.Com.GetErrorInfo
+    Windows.Win32.System.Com.IErrorInfo
+    Windows.Win32.System.Com.SetErrorInfo
+    Windows.Win32.System.Diagnostics.Debug.FORMAT_MESSAGE_ALLOCATE_BUFFER
+    Windows.Win32.System.Diagnostics.Debug.FORMAT_MESSAGE_FROM_SYSTEM
+    Windows.Win32.System.Diagnostics.Debug.FORMAT_MESSAGE_IGNORE_INSERTS
+    Windows.Win32.System.Diagnostics.Debug.FormatMessageW
+    Windows.Win32.System.Memory.GetProcessHeap
+    Windows.Win32.System.Memory.HeapFree
+    Windows.Win32.System.WinRT.IRestrictedErrorInfo
+    Windows.Win32.System.WinRT.RoOriginateErrorW

@@ -1,0 +1,122 @@
+use super::*;
+
+/// An error code value returned by most COM functions.
+#[repr(transparent)]
+#[derive(Copy, Clone, Default, Eq, PartialEq)]
+#[must_use]
+#[allow(non_camel_case_types)]
+pub struct HRESULT(pub i32);
+
+impl HRESULT {
+    /// Returns [`true`] if `self` is a success code.
+    #[inline]
+    pub const fn is_ok(self) -> bool {
+        self.0 >= 0
+    }
+
+    /// Returns [`true`] if `self` is a failure code.
+    #[inline]
+    pub const fn is_err(self) -> bool {
+        !self.is_ok()
+    }
+
+    /// Asserts that `self` is a success code.
+    ///
+    /// This will invoke the [`panic!`] macro if `self` is a failure code and display
+    /// the [`HRESULT`] value for diagnostics.
+    #[inline]
+    #[track_caller]
+    pub fn unwrap(self) {
+        assert!(self.is_ok(), "HRESULT 0x{:X}", self.0);
+    }
+
+    /// Converts the [`HRESULT`] to [`Result<()>`][Result<_>].
+    #[inline]
+    pub fn ok(self) -> Result<()> {
+        if self.is_ok() {
+            Ok(())
+        } else {
+            Err(self.into())
+        }
+    }
+
+    /// Calls `op` if `self` is a success code, otherwise returns [`HRESULT`]
+    /// converted to [`Result<T>`].
+    #[inline]
+    pub fn map<F, T>(self, op: F) -> Result<T>
+    where
+        F: FnOnce() -> T,
+    {
+        self.ok()?;
+        Ok(op())
+    }
+
+    /// Calls `op` if `self` is a success code, otherwise returns [`HRESULT`]
+    /// converted to [`Result<T>`].
+    #[inline]
+    pub fn and_then<F, T>(self, op: F) -> Result<T>
+    where
+        F: FnOnce() -> Result<T>,
+    {
+        self.ok()?;
+        op()
+    }
+
+    /// The error message describing the error.
+    pub fn message(&self) -> String {
+        let mut message = HeapString::default();
+
+        unsafe {
+            let size = FormatMessageW(
+                FORMAT_MESSAGE_ALLOCATE_BUFFER
+                    | FORMAT_MESSAGE_FROM_SYSTEM
+                    | FORMAT_MESSAGE_IGNORE_INSERTS,
+                std::ptr::null(),
+                self.0 as u32,
+                0,
+                &mut message.0 as *mut _ as *mut _,
+                0,
+                std::ptr::null(),
+            );
+
+            if !message.0.is_null() && size > 0 {
+                String::from_utf16_lossy(wide_trim_end(std::slice::from_raw_parts(
+                    message.0,
+                    size as usize,
+                )))
+            } else {
+                String::default()
+            }
+        }
+    }
+
+    /// Maps a Win32 error code to an HRESULT value.
+    pub const fn from_win32(error: u32) -> Self {
+        Self(if error as i32 <= 0 {
+            error
+        } else {
+            (error & 0x0000_FFFF) | (7 << 16) | 0x8000_0000
+        } as i32)
+    }
+}
+
+impl<T> From<Result<T>> for HRESULT {
+    fn from(result: Result<T>) -> Self {
+        if let Err(error) = result {
+            return error.into();
+        }
+        HRESULT(0)
+    }
+}
+
+impl std::fmt::Display for HRESULT {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.write_fmt(format_args!("{:#010X}", self.0))
+    }
+}
+
+impl std::fmt::Debug for HRESULT {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.write_fmt(format_args!("HRESULT({})", self))
+    }
+}
