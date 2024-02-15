@@ -35,12 +35,12 @@ where
         if !abi.is_null() {
             Ok(std::mem::transmute_copy(&abi))
         } else {
-            Err(Error::OK)
+            Err(Error::empty())
         }
     }
 
     fn from_default(default: &Self::Default) -> Result<Self> {
-        default.as_ref().cloned().ok_or(Error::OK)
+        default.as_ref().cloned().ok_or(Error::empty())
     }
 }
 

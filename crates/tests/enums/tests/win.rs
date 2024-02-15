@@ -36,7 +36,7 @@ fn const_pattern() {
 
 #[test]
 fn win32_error() {
-    assert!(helpers::set_thread_ui_language());
+    helpers::set_thread_ui_language();
 
     let e: WIN32_ERROR = ERROR_ACCESS_DENIED;
     assert!(e.0 == 5);

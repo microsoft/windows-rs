@@ -1,14 +1,15 @@
 [package]
-name = "windows-core"
-version = "0.52.0"
+name = "windows-result"
+version = "0.1.0"
 authors = ["Microsoft"]
 edition = "2021"
-rust-version = "1.62"
+rust-version = "1.60"
 license = "MIT OR Apache-2.0"
-description = "Rust for Windows"
+description = "Windows error handling"
 repository = "https://github.com/microsoft/windows-rs"
 readme = "readme.md"
 categories = ["os::windows-apis"]
+exclude = ["tests"]
 
 [lints]
 workspace = true
@@ -21,10 +22,6 @@ targets = []
 version = "0.52.0"
 path = "../targets"
 
-[dependencies.windows-result]
-version = "0.1.0"
-path = "../result"
-
-[features]
-default = []
-implement = []
+[dev-dependencies.windows-bindgen]
+version = "0.52.0"
+path = "../bindgen"

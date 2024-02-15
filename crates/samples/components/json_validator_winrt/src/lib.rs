@@ -27,7 +27,7 @@ impl bindings::IJsonValidator_Impl for JsonValidator {
                 .next()
                 .map_or(String::new(), |error| error.to_string());
 
-            Err(Error::new(E_INVALIDARG, message.into()))
+            Err(Error::new(E_INVALIDARG, message))
         }
     }
 }
@@ -50,7 +50,7 @@ impl bindings::IJsonValidatorFactory_Impl for JsonValidatorFactory {
         let schema = json_from_hstring(schema)?;
 
         let schema = JSONSchema::compile(&schema)
-            .map_err(|error| Error::new(E_INVALIDARG, error.to_string().into()))?;
+            .map_err(|error| Error::new(E_INVALIDARG, error.to_string()))?;
 
         Ok(JsonValidator { schema }.into())
     }
@@ -60,8 +60,7 @@ impl bindings::IJsonValidatorFactory_Impl for JsonValidatorFactory {
 fn json_from_hstring(value: &HSTRING) -> Result<serde_json::Value> {
     let value = String::try_from(value)?;
 
-    serde_json::from_str(&value)
-        .map_err(|error| Error::new(E_INVALIDARG, format!("{error}").into()))
+    serde_json::from_str(&value).map_err(|error| Error::new(E_INVALIDARG, format!("{error}")))
 }
 
 #[no_mangle]

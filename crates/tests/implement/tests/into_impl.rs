@@ -24,7 +24,7 @@ where
             if owner.0.len() > (*this).1 {
                 Ok(owner.0[(*this).1].clone())
             } else {
-                Err(Error::new(E_BOUNDS, "".into()))
+                Err(Error::new(E_BOUNDS, ""))
             }
         }
     }

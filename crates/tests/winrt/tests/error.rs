@@ -3,7 +3,7 @@ use windows::{Foundation::Uri, Win32::Foundation::E_NOINTERFACE};
 
 #[test]
 fn from_hresult() {
-    assert!(helpers::set_thread_ui_language());
+    helpers::set_thread_ui_language();
 
     let error: windows::core::Error = windows::core::HRESULT(-2147467260).into();
 
@@ -14,8 +14,7 @@ fn from_hresult() {
 
 #[test]
 fn originate() {
-    let error =
-        windows::core::Error::new(windows::core::HRESULT(-2147467260), "test originate".into());
+    let error = windows::core::Error::new(windows::core::HRESULT(-2147467260), "test originate");
 
     assert_eq!(error.code(), windows::core::HRESULT(-2147467260));
     assert_eq!(error.message(), "test originate");
@@ -30,7 +29,7 @@ fn originate() {
 
 #[test]
 fn bad_uri() {
-    assert!(helpers::set_thread_ui_language());
+    helpers::set_thread_ui_language();
 
     let result = Uri::CreateUri(&windows::core::HSTRING::from("INVALID"));
     let error: windows::core::Error = result.unwrap_err();
@@ -42,10 +41,7 @@ fn bad_uri() {
 #[test]
 fn convertible() {
     fn windows_error() -> windows::core::Result<()> {
-        Err(windows::core::Error::new(
-            E_NOINTERFACE,
-            "test message".into(),
-        ))
+        Err(windows::core::Error::new(E_NOINTERFACE, "test message"))
     }
 
     fn convertible_error() -> core::result::Result<(), Box<dyn std::error::Error>> {

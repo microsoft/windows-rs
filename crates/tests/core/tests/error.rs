@@ -5,7 +5,7 @@ use windows::{
 
 #[test]
 fn display_debug() {
-    assert!(helpers::set_thread_ui_language());
+    helpers::set_thread_ui_language();
 
     let e = Error::from(ERROR_NO_UNICODE_TRANSLATION);
     let display = format!("{e}");
@@ -54,14 +54,11 @@ fn set_error_info() -> Result<()> {
 fn suppressed_error_info() -> Result<()> {
     unsafe { RoSetErrorReportingFlags(RO_ERROR_REPORTING_SUPPRESSSETERRORINFO.0 as u32)? };
 
-    assert_eq!(
-        Error::new(E_FAIL, "message".into()).message(),
-        "Unspecified error"
-    );
+    assert_eq!(Error::new(E_FAIL, "message").message(), "Unspecified error");
 
     unsafe { RoSetErrorReportingFlags(RO_ERROR_REPORTING_USESETERRORINFO.0 as u32)? };
 
-    assert_eq!(Error::new(E_FAIL, "message".into()).message(), "message");
+    assert_eq!(Error::new(E_FAIL, "message").message(), "message");
 
     Ok(())
 }
@@ -71,5 +68,5 @@ fn suppressed_error_info() -> Result<()> {
 fn just_hresult() {
     let e: Error = E_NOTIMPL.into();
     assert!(e.code() == E_NOTIMPL);
-    assert!(e.info::<IUnknown>().is_none());
+    assert!(e.as_ptr().is_null());
 }

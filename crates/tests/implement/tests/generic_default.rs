@@ -21,7 +21,7 @@ where
     fn GetAt(&self, index: u32) -> Result<T> {
         match self.0.get(index as usize) {
             Some(value) => T::from_default(value),
-            None => Err(Error::new(E_BOUNDS, "".into())),
+            None => Err(Error::new(E_BOUNDS, "")),
         }
     }
 

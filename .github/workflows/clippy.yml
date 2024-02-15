@@ -120,6 +120,7 @@ jobs:
           cargo clippy -p test_readme &&
           cargo clippy -p test_reserved &&
           cargo clippy -p test_resources &&
+          cargo clippy -p test_result &&
           cargo clippy -p test_return_handle &&
           cargo clippy -p test_return_struct &&
           cargo clippy -p test_riddle &&
@@ -153,6 +154,7 @@ jobs:
           cargo clippy -p windows-implement &&
           cargo clippy -p windows-interface &&
           cargo clippy -p windows-metadata &&
+          cargo clippy -p windows-result &&
           cargo clippy -p windows-sys &&
           cargo clippy -p windows-targets &&
           cargo clippy -p windows-version &&

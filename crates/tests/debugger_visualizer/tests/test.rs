@@ -13,10 +13,10 @@ struct Test;
 
 impl IErrorInfo_Impl for Test {
     fn GetGUID(&self) -> Result<GUID> {
-        Err(Error::new(E_OUTOFMEMORY, "Out of memory message".into()))
+        Err(Error::new(E_OUTOFMEMORY, "Out of memory message"))
     }
     fn GetSource(&self) -> Result<BSTR> {
-        Err(Error::new(E_INVALIDARG, "Invalid argument message".into()))
+        Err(Error::new(E_INVALIDARG, "Invalid argument message"))
     }
     fn GetDescription(&self) -> Result<BSTR> {
         Ok(BSTR::new())
@@ -173,13 +173,13 @@ hstring          : "This is an HSTRING" [Type: windows_core::strings::hstring::H
         [16]             : 0x4e 'N' [Type: char16_t]
         [17]             : 0x47 'G' [Type: char16_t]
 
-out_of_memory_error : 0x8007000e (Not enough memory resources are available to complete this operation.) [Type: windows_core::error::Error]
-    [<Raw View>]     [Type: windows_core::error::Error]
-    [info]           : Some [Type: enum2$<core::option::Option<windows_core::imp::com_bindings::IErrorInfo> >]
+out_of_memory_error : 0x8007000e (Not enough memory resources are available to complete this operation.) [Type: windows_result::error::Error]
+    [<Raw View>]     [Type: windows_result::error::Error]
+    [info]           : Some [Type: enum2$<core::option::Option<windows_result::com::ComPtr> >]
 
-invalid_argument_error : 0x80070057 (The parameter is incorrect.) [Type: windows_core::error::Error]
-    [<Raw View>]     [Type: windows_core::error::Error]
-    [info]           : Some [Type: enum2$<core::option::Option<windows_core::imp::com_bindings::IErrorInfo> >]
+invalid_argument_error : 0x80070057 (The parameter is incorrect.) [Type: windows_result::error::Error]
+    [<Raw View>]     [Type: windows_result::error::Error]
+    [info]           : Some [Type: enum2$<core::option::Option<windows_result::com::ComPtr> >]
     "#
 )]
 fn test_debugger_visualizer() {

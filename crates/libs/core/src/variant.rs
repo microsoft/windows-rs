@@ -209,7 +209,7 @@ impl TryFrom<&VARIANT> for IUnknown {
                 let unknown: &IUnknown = std::mem::transmute(&from.0.Anonymous.Anonymous.Anonymous.punkVal);
                 Ok(unknown.clone())
             } else {
-                Err(Error { code: imp::TYPE_E_TYPEMISMATCH, info: None })
+                Err(Error::from_hresult(imp::TYPE_E_TYPEMISMATCH))
             }
         }
     }
@@ -223,7 +223,7 @@ impl TryFrom<&PROPVARIANT> for IUnknown {
                 let unknown: &IUnknown = std::mem::transmute(&from.0.Anonymous.Anonymous.Anonymous.punkVal);
                 Ok(unknown.clone())
             } else {
-                Err(Error { code: imp::TYPE_E_TYPEMISMATCH, info: None })
+                Err(Error::from_hresult(imp::TYPE_E_TYPEMISMATCH))
             }
         }
     }
