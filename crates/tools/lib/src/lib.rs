@@ -32,10 +32,7 @@ pub fn libraries() -> BTreeMap<String, BTreeMap<String, CallingConvention>> {
     let reader = metadata::Reader::new(files);
     combine_libraries(reader, &mut libraries);
 
-    // StgConvertPropertyToVariant was removed https://github.com/microsoft/win32metadata/issues/1566
-    // It is very unlikely that anybody is calling that function, but this just ensures that the libs
-    // are stable and we don't break the `windows-targets` crate compatibility until the next major
-    // release of that crate.
+    // StgConvertPropertyToVariant is now back but HtmlHelpA and HtmlHelpW have disappeared.
 
     let compat =
         vec![
