@@ -61,52 +61,19 @@ impl Key {
 
     /// Sets the name and value in the registry key.
     pub fn set_u32<T: AsRef<str>>(&self, name: T, value: u32) -> Result<()> {
-        let result = unsafe {
-            RegSetValueExW(
-                self.0,
-                pcwstr(name).as_ptr(),
-                0,
-                REG_DWORD,
-                &value as *const _ as _,
-                4,
-            )
-        };
-
-        win32_error(result)
+        unsafe { self.set_value(name, REG_DWORD, &value as *const _ as _, 4) }
     }
 
     /// Sets the name and value in the registry key.
     pub fn set_u64<T: AsRef<str>>(&self, name: T, value: u64) -> Result<()> {
-        let result = unsafe {
-            RegSetValueExW(
-                self.0,
-                pcwstr(name).as_ptr(),
-                0,
-                REG_QWORD,
-                &value as *const _ as _,
-                8,
-            )
-        };
-
-        win32_error(result)
+        unsafe { self.set_value(name, REG_QWORD, &value as *const _ as _, 8) }
     }
 
     /// Sets the name and value in the registry key.
     pub fn set_string<T: AsRef<str>>(&self, name: T, value: T) -> Result<()> {
         let value = pcwstr(value);
 
-        let result = unsafe {
-            RegSetValueExW(
-                self.0,
-                pcwstr(name).as_ptr(),
-                0,
-                REG_SZ,
-                value.as_ptr() as _,
-                value.len() as u32 * 2,
-            )
-        };
-
-        win32_error(result)
+        unsafe { self.set_value(name, REG_SZ, value.as_ptr() as _, value.len() * 2) }
     }
 
     /// Sets the name and value in the registry key.
@@ -118,34 +85,12 @@ impl Key {
 
         packed.push(0);
 
-        let result = unsafe {
-            RegSetValueExW(
-                self.0,
-                pcwstr(name).as_ptr(),
-                0,
-                REG_MULTI_SZ,
-                packed.as_ptr() as _,
-                packed.len() as u32 * 2,
-            )
-        };
-
-        win32_error(result)
+        unsafe { self.set_value(name, REG_MULTI_SZ, packed.as_ptr() as _, packed.len() * 2) }
     }
 
     /// Sets the name and value in the registry key.
     pub fn set_bytes<T: AsRef<str>>(&self, name: T, value: &[u8]) -> Result<()> {
-        let result = unsafe {
-            RegSetValueExW(
-                self.0,
-                pcwstr(name).as_ptr(),
-                0,
-                REG_BINARY,
-                value.as_ptr() as _,
-                value.len() as u32,
-            )
-        };
-
-        win32_error(result)
+        unsafe { self.set_value(name, REG_BINARY, value.as_ptr() as _, value.len()) }
     }
 
     /// Gets the value for the name in the registry key.
@@ -315,6 +260,19 @@ impl Key {
         } else {
             Err(invalid_data())
         }
+    }
+
+    unsafe fn set_value<T: AsRef<str>>(
+        &self,
+        name: T,
+        ty: REG_VALUE_TYPE,
+        ptr: *const u8,
+        len: usize,
+    ) -> Result<()> {
+        let result =
+            unsafe { RegSetValueExW(self.0, pcwstr(name).as_ptr(), 0, ty, ptr, len.try_into()?) };
+
+        win32_error(result)
     }
 }
 
