@@ -1797,11 +1797,11 @@ where
     SetupDiBuildDriverInfoList(deviceinfoset.into_param().abi(), ::core::mem::transmute(deviceinfodata.unwrap_or(::std::ptr::null_mut())), drivertype).ok()
 }
 #[inline]
-pub unsafe fn SetupDiCallClassInstaller<P0>(installfunction: u32, deviceinfoset: P0, deviceinfodata: ::core::option::Option<*const SP_DEVINFO_DATA>) -> ::windows_core::Result<()>
+pub unsafe fn SetupDiCallClassInstaller<P0>(installfunction: DI_FUNCTION, deviceinfoset: P0, deviceinfodata: ::core::option::Option<*const SP_DEVINFO_DATA>) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<HDEVINFO>,
 {
-    ::windows_targets::link!("setupapi.dll" "system" fn SetupDiCallClassInstaller(installfunction : u32, deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("setupapi.dll" "system" fn SetupDiCallClassInstaller(installfunction : DI_FUNCTION, deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA) -> super::super::Foundation:: BOOL);
     SetupDiCallClassInstaller(installfunction, deviceinfoset.into_param().abi(), ::core::mem::transmute(deviceinfodata.unwrap_or(::std::ptr::null()))).ok()
 }
 #[inline]
@@ -1903,14 +1903,14 @@ where
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[inline]
-pub unsafe fn SetupDiCreateDeviceInfoA<P0, P1, P2, P3>(deviceinfoset: P0, devicename: P1, classguid: *const ::windows_core::GUID, devicedescription: P2, hwndparent: P3, creationflags: u32, deviceinfodata: ::core::option::Option<*mut SP_DEVINFO_DATA>) -> ::windows_core::Result<()>
+pub unsafe fn SetupDiCreateDeviceInfoA<P0, P1, P2, P3>(deviceinfoset: P0, devicename: P1, classguid: *const ::windows_core::GUID, devicedescription: P2, hwndparent: P3, creationflags: SETUP_DI_DEVICE_CREATION_FLAGS, deviceinfodata: ::core::option::Option<*mut SP_DEVINFO_DATA>) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<HDEVINFO>,
     P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
     P2: ::windows_core::IntoParam<::windows_core::PCSTR>,
     P3: ::windows_core::IntoParam<super::super::Foundation::HWND>,
 {
-    ::windows_targets::link!("setupapi.dll" "system" fn SetupDiCreateDeviceInfoA(deviceinfoset : HDEVINFO, devicename : ::windows_core::PCSTR, classguid : *const ::windows_core::GUID, devicedescription : ::windows_core::PCSTR, hwndparent : super::super::Foundation:: HWND, creationflags : u32, deviceinfodata : *mut SP_DEVINFO_DATA) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("setupapi.dll" "system" fn SetupDiCreateDeviceInfoA(deviceinfoset : HDEVINFO, devicename : ::windows_core::PCSTR, classguid : *const ::windows_core::GUID, devicedescription : ::windows_core::PCSTR, hwndparent : super::super::Foundation:: HWND, creationflags : SETUP_DI_DEVICE_CREATION_FLAGS, deviceinfodata : *mut SP_DEVINFO_DATA) -> super::super::Foundation:: BOOL);
     SetupDiCreateDeviceInfoA(deviceinfoset.into_param().abi(), devicename.into_param().abi(), classguid, devicedescription.into_param().abi(), hwndparent.into_param().abi(), creationflags, ::core::mem::transmute(deviceinfodata.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[inline]
@@ -1943,14 +1943,14 @@ where
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[inline]
-pub unsafe fn SetupDiCreateDeviceInfoW<P0, P1, P2, P3>(deviceinfoset: P0, devicename: P1, classguid: *const ::windows_core::GUID, devicedescription: P2, hwndparent: P3, creationflags: u32, deviceinfodata: ::core::option::Option<*mut SP_DEVINFO_DATA>) -> ::windows_core::Result<()>
+pub unsafe fn SetupDiCreateDeviceInfoW<P0, P1, P2, P3>(deviceinfoset: P0, devicename: P1, classguid: *const ::windows_core::GUID, devicedescription: P2, hwndparent: P3, creationflags: SETUP_DI_DEVICE_CREATION_FLAGS, deviceinfodata: ::core::option::Option<*mut SP_DEVINFO_DATA>) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<HDEVINFO>,
     P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     P2: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     P3: ::windows_core::IntoParam<super::super::Foundation::HWND>,
 {
-    ::windows_targets::link!("setupapi.dll" "system" fn SetupDiCreateDeviceInfoW(deviceinfoset : HDEVINFO, devicename : ::windows_core::PCWSTR, classguid : *const ::windows_core::GUID, devicedescription : ::windows_core::PCWSTR, hwndparent : super::super::Foundation:: HWND, creationflags : u32, deviceinfodata : *mut SP_DEVINFO_DATA) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("setupapi.dll" "system" fn SetupDiCreateDeviceInfoW(deviceinfoset : HDEVINFO, devicename : ::windows_core::PCWSTR, classguid : *const ::windows_core::GUID, devicedescription : ::windows_core::PCWSTR, hwndparent : super::super::Foundation:: HWND, creationflags : SETUP_DI_DEVICE_CREATION_FLAGS, deviceinfodata : *mut SP_DEVINFO_DATA) -> super::super::Foundation:: BOOL);
     SetupDiCreateDeviceInfoW(deviceinfoset.into_param().abi(), devicename.into_param().abi(), classguid, devicedescription.into_param().abi(), hwndparent.into_param().abi(), creationflags, ::core::mem::transmute(deviceinfodata.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[inline]
@@ -2088,13 +2088,13 @@ where
     ::windows_targets::link!("setupapi.dll" "system" fn SetupDiEnumDriverInfoW(deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA, drivertype : SETUP_DI_DRIVER_TYPE, memberindex : u32, driverinfodata : *mut SP_DRVINFO_DATA_V2_W) -> super::super::Foundation:: BOOL);
     SetupDiEnumDriverInfoW(deviceinfoset.into_param().abi(), ::core::mem::transmute(deviceinfodata.unwrap_or(::std::ptr::null())), drivertype, memberindex, driverinfodata).ok()
 }
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemInformation"))]
 #[inline]
 pub unsafe fn SetupDiGetActualModelsSectionA(context: *const INFCONTEXT, alternateplatforminfo: ::core::option::Option<*const SP_ALTPLATFORM_INFO_V2>, infsectionwithext: ::core::option::Option<&mut [u8]>, requiredsize: ::core::option::Option<*mut u32>, reserved: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<()> {
     ::windows_targets::link!("setupapi.dll" "system" fn SetupDiGetActualModelsSectionA(context : *const INFCONTEXT, alternateplatforminfo : *const SP_ALTPLATFORM_INFO_V2, infsectionwithext : ::windows_core::PSTR, infsectionwithextsize : u32, requiredsize : *mut u32, reserved : *const ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
     SetupDiGetActualModelsSectionA(context, ::core::mem::transmute(alternateplatforminfo.unwrap_or(::std::ptr::null())), ::core::mem::transmute(infsectionwithext.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), infsectionwithext.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(requiredsize.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(reserved.unwrap_or(::std::ptr::null()))).ok()
 }
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemInformation"))]
 #[inline]
 pub unsafe fn SetupDiGetActualModelsSectionW(context: *const INFCONTEXT, alternateplatforminfo: ::core::option::Option<*const SP_ALTPLATFORM_INFO_V2>, infsectionwithext: ::core::option::Option<&mut [u16]>, requiredsize: ::core::option::Option<*mut u32>, reserved: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<()> {
     ::windows_targets::link!("setupapi.dll" "system" fn SetupDiGetActualModelsSectionW(context : *const INFCONTEXT, alternateplatforminfo : *const SP_ALTPLATFORM_INFO_V2, infsectionwithext : ::windows_core::PWSTR, infsectionwithextsize : u32, requiredsize : *mut u32, reserved : *const ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
@@ -2108,7 +2108,7 @@ where
     ::windows_targets::link!("setupapi.dll" "system" fn SetupDiGetActualSectionToInstallA(infhandle : *const ::core::ffi::c_void, infsectionname : ::windows_core::PCSTR, infsectionwithext : ::windows_core::PSTR, infsectionwithextsize : u32, requiredsize : *mut u32, extension : *mut ::windows_core::PSTR) -> super::super::Foundation:: BOOL);
     SetupDiGetActualSectionToInstallA(infhandle, infsectionname.into_param().abi(), ::core::mem::transmute(infsectionwithext.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), infsectionwithext.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(requiredsize.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(extension.unwrap_or(::std::ptr::null_mut()))).ok()
 }
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemInformation"))]
 #[inline]
 pub unsafe fn SetupDiGetActualSectionToInstallExA<P0>(infhandle: *const ::core::ffi::c_void, infsectionname: P0, alternateplatforminfo: ::core::option::Option<*const SP_ALTPLATFORM_INFO_V2>, infsectionwithext: ::core::option::Option<&mut [u8]>, requiredsize: ::core::option::Option<*mut u32>, extension: ::core::option::Option<*mut ::windows_core::PSTR>, reserved: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<()>
 where
@@ -2127,7 +2127,7 @@ where
     )
     .ok()
 }
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemInformation"))]
 #[inline]
 pub unsafe fn SetupDiGetActualSectionToInstallExW<P0>(infhandle: *const ::core::ffi::c_void, infsectionname: P0, alternateplatforminfo: ::core::option::Option<*const SP_ALTPLATFORM_INFO_V2>, infsectionwithext: ::core::option::Option<&mut [u16]>, requiredsize: ::core::option::Option<*mut u32>, extension: ::core::option::Option<*mut ::windows_core::PWSTR>, reserved: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<()>
 where
@@ -2204,46 +2204,46 @@ where
     SetupDiGetClassDevPropertySheetsW(deviceinfoset.into_param().abi(), ::core::mem::transmute(deviceinfodata.unwrap_or(::std::ptr::null())), propertysheetheader, propertysheetheaderpagelistsize, ::core::mem::transmute(requiredsize.unwrap_or(::std::ptr::null_mut())), propertysheettype).ok()
 }
 #[inline]
-pub unsafe fn SetupDiGetClassDevsA<P0, P1>(classguid: ::core::option::Option<*const ::windows_core::GUID>, enumerator: P0, hwndparent: P1, flags: u32) -> ::windows_core::Result<HDEVINFO>
+pub unsafe fn SetupDiGetClassDevsA<P0, P1>(classguid: ::core::option::Option<*const ::windows_core::GUID>, enumerator: P0, hwndparent: P1, flags: SETUP_DI_GET_CLASS_DEVS_FLAGS) -> ::windows_core::Result<HDEVINFO>
 where
     P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     P1: ::windows_core::IntoParam<super::super::Foundation::HWND>,
 {
-    ::windows_targets::link!("setupapi.dll" "system" fn SetupDiGetClassDevsA(classguid : *const ::windows_core::GUID, enumerator : ::windows_core::PCSTR, hwndparent : super::super::Foundation:: HWND, flags : u32) -> HDEVINFO);
+    ::windows_targets::link!("setupapi.dll" "system" fn SetupDiGetClassDevsA(classguid : *const ::windows_core::GUID, enumerator : ::windows_core::PCSTR, hwndparent : super::super::Foundation:: HWND, flags : SETUP_DI_GET_CLASS_DEVS_FLAGS) -> HDEVINFO);
     let result__ = SetupDiGetClassDevsA(::core::mem::transmute(classguid.unwrap_or(::std::ptr::null())), enumerator.into_param().abi(), hwndparent.into_param().abi(), flags);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[inline]
-pub unsafe fn SetupDiGetClassDevsExA<P0, P1, P2, P3>(classguid: ::core::option::Option<*const ::windows_core::GUID>, enumerator: P0, hwndparent: P1, flags: u32, deviceinfoset: P2, machinename: P3, reserved: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<HDEVINFO>
+pub unsafe fn SetupDiGetClassDevsExA<P0, P1, P2, P3>(classguid: ::core::option::Option<*const ::windows_core::GUID>, enumerator: P0, hwndparent: P1, flags: SETUP_DI_GET_CLASS_DEVS_FLAGS, deviceinfoset: P2, machinename: P3, reserved: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<HDEVINFO>
 where
     P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     P1: ::windows_core::IntoParam<super::super::Foundation::HWND>,
     P2: ::windows_core::IntoParam<HDEVINFO>,
     P3: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("setupapi.dll" "system" fn SetupDiGetClassDevsExA(classguid : *const ::windows_core::GUID, enumerator : ::windows_core::PCSTR, hwndparent : super::super::Foundation:: HWND, flags : u32, deviceinfoset : HDEVINFO, machinename : ::windows_core::PCSTR, reserved : *const ::core::ffi::c_void) -> HDEVINFO);
+    ::windows_targets::link!("setupapi.dll" "system" fn SetupDiGetClassDevsExA(classguid : *const ::windows_core::GUID, enumerator : ::windows_core::PCSTR, hwndparent : super::super::Foundation:: HWND, flags : SETUP_DI_GET_CLASS_DEVS_FLAGS, deviceinfoset : HDEVINFO, machinename : ::windows_core::PCSTR, reserved : *const ::core::ffi::c_void) -> HDEVINFO);
     let result__ = SetupDiGetClassDevsExA(::core::mem::transmute(classguid.unwrap_or(::std::ptr::null())), enumerator.into_param().abi(), hwndparent.into_param().abi(), flags, deviceinfoset.into_param().abi(), machinename.into_param().abi(), ::core::mem::transmute(reserved.unwrap_or(::std::ptr::null())));
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[inline]
-pub unsafe fn SetupDiGetClassDevsExW<P0, P1, P2, P3>(classguid: ::core::option::Option<*const ::windows_core::GUID>, enumerator: P0, hwndparent: P1, flags: u32, deviceinfoset: P2, machinename: P3, reserved: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<HDEVINFO>
+pub unsafe fn SetupDiGetClassDevsExW<P0, P1, P2, P3>(classguid: ::core::option::Option<*const ::windows_core::GUID>, enumerator: P0, hwndparent: P1, flags: SETUP_DI_GET_CLASS_DEVS_FLAGS, deviceinfoset: P2, machinename: P3, reserved: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<HDEVINFO>
 where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     P1: ::windows_core::IntoParam<super::super::Foundation::HWND>,
     P2: ::windows_core::IntoParam<HDEVINFO>,
     P3: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("setupapi.dll" "system" fn SetupDiGetClassDevsExW(classguid : *const ::windows_core::GUID, enumerator : ::windows_core::PCWSTR, hwndparent : super::super::Foundation:: HWND, flags : u32, deviceinfoset : HDEVINFO, machinename : ::windows_core::PCWSTR, reserved : *const ::core::ffi::c_void) -> HDEVINFO);
+    ::windows_targets::link!("setupapi.dll" "system" fn SetupDiGetClassDevsExW(classguid : *const ::windows_core::GUID, enumerator : ::windows_core::PCWSTR, hwndparent : super::super::Foundation:: HWND, flags : SETUP_DI_GET_CLASS_DEVS_FLAGS, deviceinfoset : HDEVINFO, machinename : ::windows_core::PCWSTR, reserved : *const ::core::ffi::c_void) -> HDEVINFO);
     let result__ = SetupDiGetClassDevsExW(::core::mem::transmute(classguid.unwrap_or(::std::ptr::null())), enumerator.into_param().abi(), hwndparent.into_param().abi(), flags, deviceinfoset.into_param().abi(), machinename.into_param().abi(), ::core::mem::transmute(reserved.unwrap_or(::std::ptr::null())));
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[inline]
-pub unsafe fn SetupDiGetClassDevsW<P0, P1>(classguid: ::core::option::Option<*const ::windows_core::GUID>, enumerator: P0, hwndparent: P1, flags: u32) -> ::windows_core::Result<HDEVINFO>
+pub unsafe fn SetupDiGetClassDevsW<P0, P1>(classguid: ::core::option::Option<*const ::windows_core::GUID>, enumerator: P0, hwndparent: P1, flags: SETUP_DI_GET_CLASS_DEVS_FLAGS) -> ::windows_core::Result<HDEVINFO>
 where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     P1: ::windows_core::IntoParam<super::super::Foundation::HWND>,
 {
-    ::windows_targets::link!("setupapi.dll" "system" fn SetupDiGetClassDevsW(classguid : *const ::windows_core::GUID, enumerator : ::windows_core::PCWSTR, hwndparent : super::super::Foundation:: HWND, flags : u32) -> HDEVINFO);
+    ::windows_targets::link!("setupapi.dll" "system" fn SetupDiGetClassDevsW(classguid : *const ::windows_core::GUID, enumerator : ::windows_core::PCWSTR, hwndparent : super::super::Foundation:: HWND, flags : SETUP_DI_GET_CLASS_DEVS_FLAGS) -> HDEVINFO);
     let result__ = SetupDiGetClassDevsW(::core::mem::transmute(classguid.unwrap_or(::std::ptr::null())), enumerator.into_param().abi(), hwndparent.into_param().abi(), flags);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
@@ -2474,19 +2474,19 @@ where
     SetupDiGetDevicePropertyW(deviceinfoset.into_param().abi(), deviceinfodata, propertykey, propertytype, ::core::mem::transmute(propertybuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), propertybuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(requiredsize.unwrap_or(::std::ptr::null_mut())), flags).ok()
 }
 #[inline]
-pub unsafe fn SetupDiGetDeviceRegistryPropertyA<P0>(deviceinfoset: P0, deviceinfodata: *const SP_DEVINFO_DATA, property: u32, propertyregdatatype: ::core::option::Option<*mut u32>, propertybuffer: ::core::option::Option<&mut [u8]>, requiredsize: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()>
+pub unsafe fn SetupDiGetDeviceRegistryPropertyA<P0>(deviceinfoset: P0, deviceinfodata: *const SP_DEVINFO_DATA, property: SETUP_DI_REGISTRY_PROPERTY, propertyregdatatype: ::core::option::Option<*mut u32>, propertybuffer: ::core::option::Option<&mut [u8]>, requiredsize: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<HDEVINFO>,
 {
-    ::windows_targets::link!("setupapi.dll" "system" fn SetupDiGetDeviceRegistryPropertyA(deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA, property : u32, propertyregdatatype : *mut u32, propertybuffer : *mut u8, propertybuffersize : u32, requiredsize : *mut u32) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("setupapi.dll" "system" fn SetupDiGetDeviceRegistryPropertyA(deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA, property : SETUP_DI_REGISTRY_PROPERTY, propertyregdatatype : *mut u32, propertybuffer : *mut u8, propertybuffersize : u32, requiredsize : *mut u32) -> super::super::Foundation:: BOOL);
     SetupDiGetDeviceRegistryPropertyA(deviceinfoset.into_param().abi(), deviceinfodata, property, ::core::mem::transmute(propertyregdatatype.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(propertybuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), propertybuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(requiredsize.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[inline]
-pub unsafe fn SetupDiGetDeviceRegistryPropertyW<P0>(deviceinfoset: P0, deviceinfodata: *const SP_DEVINFO_DATA, property: u32, propertyregdatatype: ::core::option::Option<*mut u32>, propertybuffer: ::core::option::Option<&mut [u8]>, requiredsize: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()>
+pub unsafe fn SetupDiGetDeviceRegistryPropertyW<P0>(deviceinfoset: P0, deviceinfodata: *const SP_DEVINFO_DATA, property: SETUP_DI_REGISTRY_PROPERTY, propertyregdatatype: ::core::option::Option<*mut u32>, propertybuffer: ::core::option::Option<&mut [u8]>, requiredsize: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<HDEVINFO>,
 {
-    ::windows_targets::link!("setupapi.dll" "system" fn SetupDiGetDeviceRegistryPropertyW(deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA, property : u32, propertyregdatatype : *mut u32, propertybuffer : *mut u8, propertybuffersize : u32, requiredsize : *mut u32) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("setupapi.dll" "system" fn SetupDiGetDeviceRegistryPropertyW(deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA, property : SETUP_DI_REGISTRY_PROPERTY, propertyregdatatype : *mut u32, propertybuffer : *mut u8, propertybuffersize : u32, requiredsize : *mut u32) -> super::super::Foundation:: BOOL);
     SetupDiGetDeviceRegistryPropertyW(deviceinfoset.into_param().abi(), deviceinfodata, property, ::core::mem::transmute(propertyregdatatype.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(propertybuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), propertybuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(requiredsize.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[inline]
@@ -2932,19 +2932,19 @@ where
     SetupDiSetDevicePropertyW(deviceinfoset.into_param().abi(), deviceinfodata, propertykey, propertytype, ::core::mem::transmute(propertybuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), propertybuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), flags).ok()
 }
 #[inline]
-pub unsafe fn SetupDiSetDeviceRegistryPropertyA<P0>(deviceinfoset: P0, deviceinfodata: *mut SP_DEVINFO_DATA, property: u32, propertybuffer: ::core::option::Option<&[u8]>) -> ::windows_core::Result<()>
+pub unsafe fn SetupDiSetDeviceRegistryPropertyA<P0>(deviceinfoset: P0, deviceinfodata: *mut SP_DEVINFO_DATA, property: SETUP_DI_REGISTRY_PROPERTY, propertybuffer: ::core::option::Option<&[u8]>) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<HDEVINFO>,
 {
-    ::windows_targets::link!("setupapi.dll" "system" fn SetupDiSetDeviceRegistryPropertyA(deviceinfoset : HDEVINFO, deviceinfodata : *mut SP_DEVINFO_DATA, property : u32, propertybuffer : *const u8, propertybuffersize : u32) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("setupapi.dll" "system" fn SetupDiSetDeviceRegistryPropertyA(deviceinfoset : HDEVINFO, deviceinfodata : *mut SP_DEVINFO_DATA, property : SETUP_DI_REGISTRY_PROPERTY, propertybuffer : *const u8, propertybuffersize : u32) -> super::super::Foundation:: BOOL);
     SetupDiSetDeviceRegistryPropertyA(deviceinfoset.into_param().abi(), deviceinfodata, property, ::core::mem::transmute(propertybuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), propertybuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())).ok()
 }
 #[inline]
-pub unsafe fn SetupDiSetDeviceRegistryPropertyW<P0>(deviceinfoset: P0, deviceinfodata: *mut SP_DEVINFO_DATA, property: u32, propertybuffer: ::core::option::Option<&[u8]>) -> ::windows_core::Result<()>
+pub unsafe fn SetupDiSetDeviceRegistryPropertyW<P0>(deviceinfoset: P0, deviceinfodata: *mut SP_DEVINFO_DATA, property: SETUP_DI_REGISTRY_PROPERTY, propertybuffer: ::core::option::Option<&[u8]>) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<HDEVINFO>,
 {
-    ::windows_targets::link!("setupapi.dll" "system" fn SetupDiSetDeviceRegistryPropertyW(deviceinfoset : HDEVINFO, deviceinfodata : *mut SP_DEVINFO_DATA, property : u32, propertybuffer : *const u8, propertybuffersize : u32) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("setupapi.dll" "system" fn SetupDiSetDeviceRegistryPropertyW(deviceinfoset : HDEVINFO, deviceinfodata : *mut SP_DEVINFO_DATA, property : SETUP_DI_REGISTRY_PROPERTY, propertybuffer : *const u8, propertybuffersize : u32) -> super::super::Foundation:: BOOL);
     SetupDiSetDeviceRegistryPropertyW(deviceinfoset.into_param().abi(), deviceinfodata, property, ::core::mem::transmute(propertybuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), propertybuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())).ok()
 }
 #[inline]
@@ -3126,7 +3126,7 @@ pub unsafe fn SetupGetFileQueueFlags(filequeue: *const ::core::ffi::c_void, flag
     ::windows_targets::link!("setupapi.dll" "system" fn SetupGetFileQueueFlags(filequeue : *const ::core::ffi::c_void, flags : *mut u32) -> super::super::Foundation:: BOOL);
     SetupGetFileQueueFlags(filequeue, flags).ok()
 }
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemInformation"))]
 #[inline]
 pub unsafe fn SetupGetInfDriverStoreLocationA<P0, P1>(filename: P0, alternateplatforminfo: ::core::option::Option<*const SP_ALTPLATFORM_INFO_V2>, localename: P1, returnbuffer: &mut [u8], requiredsize: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()>
 where
@@ -3136,7 +3136,7 @@ where
     ::windows_targets::link!("setupapi.dll" "system" fn SetupGetInfDriverStoreLocationA(filename : ::windows_core::PCSTR, alternateplatforminfo : *const SP_ALTPLATFORM_INFO_V2, localename : ::windows_core::PCSTR, returnbuffer : ::windows_core::PSTR, returnbuffersize : u32, requiredsize : *mut u32) -> super::super::Foundation:: BOOL);
     SetupGetInfDriverStoreLocationA(filename.into_param().abi(), ::core::mem::transmute(alternateplatforminfo.unwrap_or(::std::ptr::null())), localename.into_param().abi(), ::core::mem::transmute(returnbuffer.as_ptr()), returnbuffer.len().try_into().unwrap(), ::core::mem::transmute(requiredsize.unwrap_or(::std::ptr::null_mut()))).ok()
 }
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemInformation"))]
 #[inline]
 pub unsafe fn SetupGetInfDriverStoreLocationW<P0, P1>(filename: P0, alternateplatforminfo: ::core::option::Option<*const SP_ALTPLATFORM_INFO_V2>, localename: P1, returnbuffer: &mut [u16], requiredsize: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()>
 where
@@ -3683,13 +3683,13 @@ pub unsafe fn SetupQueryInfFileInformationW(infinformation: *const SP_INF_INFORM
     ::windows_targets::link!("setupapi.dll" "system" fn SetupQueryInfFileInformationW(infinformation : *const SP_INF_INFORMATION, infindex : u32, returnbuffer : ::windows_core::PWSTR, returnbuffersize : u32, requiredsize : *mut u32) -> super::super::Foundation:: BOOL);
     SetupQueryInfFileInformationW(infinformation, infindex, ::core::mem::transmute(returnbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), returnbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(requiredsize.unwrap_or(::std::ptr::null_mut()))).ok()
 }
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemInformation"))]
 #[inline]
 pub unsafe fn SetupQueryInfOriginalFileInformationA(infinformation: *const SP_INF_INFORMATION, infindex: u32, alternateplatforminfo: ::core::option::Option<*const SP_ALTPLATFORM_INFO_V2>, originalfileinfo: *mut SP_ORIGINAL_FILE_INFO_A) -> ::windows_core::Result<()> {
     ::windows_targets::link!("setupapi.dll" "system" fn SetupQueryInfOriginalFileInformationA(infinformation : *const SP_INF_INFORMATION, infindex : u32, alternateplatforminfo : *const SP_ALTPLATFORM_INFO_V2, originalfileinfo : *mut SP_ORIGINAL_FILE_INFO_A) -> super::super::Foundation:: BOOL);
     SetupQueryInfOriginalFileInformationA(infinformation, infindex, ::core::mem::transmute(alternateplatforminfo.unwrap_or(::std::ptr::null())), originalfileinfo).ok()
 }
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemInformation"))]
 #[inline]
 pub unsafe fn SetupQueryInfOriginalFileInformationW(infinformation: *const SP_INF_INFORMATION, infindex: u32, alternateplatforminfo: ::core::option::Option<*const SP_ALTPLATFORM_INFO_V2>, originalfileinfo: *mut SP_ORIGINAL_FILE_INFO_W) -> ::windows_core::Result<()> {
     ::windows_targets::link!("setupapi.dll" "system" fn SetupQueryInfOriginalFileInformationW(infinformation : *const SP_INF_INFORMATION, infindex : u32, alternateplatforminfo : *const SP_ALTPLATFORM_INFO_V2, originalfileinfo : *mut SP_ORIGINAL_FILE_INFO_W) -> super::super::Foundation:: BOOL);
@@ -4037,7 +4037,7 @@ where
     ::windows_targets::link!("setupapi.dll" "system" fn SetupSetDirectoryIdW(infhandle : *const ::core::ffi::c_void, id : u32, directory : ::windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
     SetupSetDirectoryIdW(infhandle, id, directory.into_param().abi()).ok()
 }
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemInformation"))]
 #[inline]
 pub unsafe fn SetupSetFileQueueAlternatePlatformA<P0>(queuehandle: *const ::core::ffi::c_void, alternateplatforminfo: ::core::option::Option<*const SP_ALTPLATFORM_INFO_V2>, alternatedefaultcatalogfile: P0) -> ::windows_core::Result<()>
 where
@@ -4046,7 +4046,7 @@ where
     ::windows_targets::link!("setupapi.dll" "system" fn SetupSetFileQueueAlternatePlatformA(queuehandle : *const ::core::ffi::c_void, alternateplatforminfo : *const SP_ALTPLATFORM_INFO_V2, alternatedefaultcatalogfile : ::windows_core::PCSTR) -> super::super::Foundation:: BOOL);
     SetupSetFileQueueAlternatePlatformA(queuehandle, ::core::mem::transmute(alternateplatforminfo.unwrap_or(::std::ptr::null())), alternatedefaultcatalogfile.into_param().abi()).ok()
 }
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemInformation"))]
 #[inline]
 pub unsafe fn SetupSetFileQueueAlternatePlatformW<P0>(queuehandle: *const ::core::ffi::c_void, alternateplatforminfo: ::core::option::Option<*const SP_ALTPLATFORM_INFO_V2>, alternatedefaultcatalogfile: P0) -> ::windows_core::Result<()>
 where
@@ -4130,7 +4130,7 @@ where
     ::windows_targets::link!("setupapi.dll" "system" fn SetupUninstallOEMInfW(inffilename : ::windows_core::PCWSTR, flags : u32, reserved : *const ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
     SetupUninstallOEMInfW(inffilename.into_param().abi(), flags, ::core::mem::transmute(reserved.unwrap_or(::std::ptr::null())))
 }
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemInformation"))]
 #[inline]
 pub unsafe fn SetupVerifyInfFileA<P0>(infname: P0, altplatforminfo: ::core::option::Option<*const SP_ALTPLATFORM_INFO_V2>, infsignerinfo: *mut SP_INF_SIGNER_INFO_V2_A) -> super::super::Foundation::BOOL
 where
@@ -4139,7 +4139,7 @@ where
     ::windows_targets::link!("setupapi.dll" "system" fn SetupVerifyInfFileA(infname : ::windows_core::PCSTR, altplatforminfo : *const SP_ALTPLATFORM_INFO_V2, infsignerinfo : *mut SP_INF_SIGNER_INFO_V2_A) -> super::super::Foundation:: BOOL);
     SetupVerifyInfFileA(infname.into_param().abi(), ::core::mem::transmute(altplatforminfo.unwrap_or(::std::ptr::null())), infsignerinfo)
 }
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemInformation"))]
 #[inline]
 pub unsafe fn SetupVerifyInfFileW<P0>(infname: P0, altplatforminfo: ::core::option::Option<*const SP_ALTPLATFORM_INFO_V2>, infsignerinfo: *mut SP_INF_SIGNER_INFO_V2_W) -> super::super::Foundation::BOOL
 where
@@ -4489,6 +4489,26 @@ pub const CM_SET_DEVNODE_PROBLEM_NORMAL: u32 = 0u32;
 pub const CM_SET_DEVNODE_PROBLEM_OVERRIDE: u32 = 1u32;
 pub const CM_SET_HW_PROF_FLAGS_BITS: u32 = 1u32;
 pub const CM_SET_HW_PROF_FLAGS_UI_NOT_OK: u32 = 1u32;
+pub const CONFIGFLAG_BOOT_DEVICE: SETUP_DI_DEVICE_CONFIGURATION_FLAGS = SETUP_DI_DEVICE_CONFIGURATION_FLAGS(262144u32);
+pub const CONFIGFLAG_CANTSTOPACHILD: SETUP_DI_DEVICE_CONFIGURATION_FLAGS = SETUP_DI_DEVICE_CONFIGURATION_FLAGS(128u32);
+pub const CONFIGFLAG_DISABLED: SETUP_DI_DEVICE_CONFIGURATION_FLAGS = SETUP_DI_DEVICE_CONFIGURATION_FLAGS(1u32);
+pub const CONFIGFLAG_FAILEDINSTALL: SETUP_DI_DEVICE_CONFIGURATION_FLAGS = SETUP_DI_DEVICE_CONFIGURATION_FLAGS(64u32);
+pub const CONFIGFLAG_FINISHINSTALL_ACTION: SETUP_DI_DEVICE_CONFIGURATION_FLAGS = SETUP_DI_DEVICE_CONFIGURATION_FLAGS(131072u32);
+pub const CONFIGFLAG_FINISHINSTALL_UI: SETUP_DI_DEVICE_CONFIGURATION_FLAGS = SETUP_DI_DEVICE_CONFIGURATION_FLAGS(65536u32);
+pub const CONFIGFLAG_FINISH_INSTALL: SETUP_DI_DEVICE_CONFIGURATION_FLAGS = SETUP_DI_DEVICE_CONFIGURATION_FLAGS(1024u32);
+pub const CONFIGFLAG_IGNORE_BOOT_LC: SETUP_DI_DEVICE_CONFIGURATION_FLAGS = SETUP_DI_DEVICE_CONFIGURATION_FLAGS(8u32);
+pub const CONFIGFLAG_MANUAL_INSTALL: SETUP_DI_DEVICE_CONFIGURATION_FLAGS = SETUP_DI_DEVICE_CONFIGURATION_FLAGS(4u32);
+pub const CONFIGFLAG_NEEDS_CLASS_CONFIG: SETUP_DI_DEVICE_CONFIGURATION_FLAGS = SETUP_DI_DEVICE_CONFIGURATION_FLAGS(524288u32);
+pub const CONFIGFLAG_NEEDS_FORCED_CONFIG: SETUP_DI_DEVICE_CONFIGURATION_FLAGS = SETUP_DI_DEVICE_CONFIGURATION_FLAGS(2048u32);
+pub const CONFIGFLAG_NETBOOT_CARD: SETUP_DI_DEVICE_CONFIGURATION_FLAGS = SETUP_DI_DEVICE_CONFIGURATION_FLAGS(4096u32);
+pub const CONFIGFLAG_NET_BOOT: SETUP_DI_DEVICE_CONFIGURATION_FLAGS = SETUP_DI_DEVICE_CONFIGURATION_FLAGS(16u32);
+pub const CONFIGFLAG_NOREMOVEEXIT: SETUP_DI_DEVICE_CONFIGURATION_FLAGS = SETUP_DI_DEVICE_CONFIGURATION_FLAGS(512u32);
+pub const CONFIGFLAG_OKREMOVEROM: SETUP_DI_DEVICE_CONFIGURATION_FLAGS = SETUP_DI_DEVICE_CONFIGURATION_FLAGS(256u32);
+pub const CONFIGFLAG_PARTIAL_LOG_CONF: SETUP_DI_DEVICE_CONFIGURATION_FLAGS = SETUP_DI_DEVICE_CONFIGURATION_FLAGS(8192u32);
+pub const CONFIGFLAG_REINSTALL: SETUP_DI_DEVICE_CONFIGURATION_FLAGS = SETUP_DI_DEVICE_CONFIGURATION_FLAGS(32u32);
+pub const CONFIGFLAG_REMOVED: SETUP_DI_DEVICE_CONFIGURATION_FLAGS = SETUP_DI_DEVICE_CONFIGURATION_FLAGS(2u32);
+pub const CONFIGFLAG_SUPPRESS_SURPRISE: SETUP_DI_DEVICE_CONFIGURATION_FLAGS = SETUP_DI_DEVICE_CONFIGURATION_FLAGS(16384u32);
+pub const CONFIGFLAG_VERIFY_HARDWARE: SETUP_DI_DEVICE_CONFIGURATION_FLAGS = SETUP_DI_DEVICE_CONFIGURATION_FLAGS(32768u32);
 pub const CONFIGMG_VERSION: u32 = 1024u32;
 pub const COPYFLG_FORCE_FILE_IN_USE: u32 = 8u32;
 pub const COPYFLG_IN_USE_TRY_RENAME: u32 = 16384u32;
@@ -4571,72 +4591,72 @@ pub const DELFLG_IN_USE: u32 = 1u32;
 pub const DELFLG_IN_USE1: u32 = 65536u32;
 pub const DIBCI_NODISPLAYCLASS: u32 = 2u32;
 pub const DIBCI_NOINSTALLCLASS: u32 = 1u32;
-pub const DICD_GENERATE_ID: u32 = 1u32;
-pub const DICD_INHERIT_CLASSDRVS: u32 = 2u32;
+pub const DICD_GENERATE_ID: SETUP_DI_DEVICE_CREATION_FLAGS = SETUP_DI_DEVICE_CREATION_FLAGS(1u32);
+pub const DICD_INHERIT_CLASSDRVS: SETUP_DI_DEVICE_CREATION_FLAGS = SETUP_DI_DEVICE_CREATION_FLAGS(2u32);
 pub const DICLASSPROP_INSTALLER: u32 = 1u32;
 pub const DICLASSPROP_INTERFACE: u32 = 2u32;
-pub const DICS_DISABLE: u32 = 2u32;
-pub const DICS_ENABLE: u32 = 1u32;
-pub const DICS_FLAG_CONFIGGENERAL: u32 = 4u32;
-pub const DICS_FLAG_CONFIGSPECIFIC: u32 = 2u32;
-pub const DICS_FLAG_GLOBAL: u32 = 1u32;
-pub const DICS_PROPCHANGE: u32 = 3u32;
-pub const DICS_START: u32 = 4u32;
-pub const DICS_STOP: u32 = 5u32;
+pub const DICS_DISABLE: SETUP_DI_STATE_CHANGE = SETUP_DI_STATE_CHANGE(2u32);
+pub const DICS_ENABLE: SETUP_DI_STATE_CHANGE = SETUP_DI_STATE_CHANGE(1u32);
+pub const DICS_FLAG_CONFIGGENERAL: SETUP_DI_PROPERTY_CHANGE_SCOPE = SETUP_DI_PROPERTY_CHANGE_SCOPE(4u32);
+pub const DICS_FLAG_CONFIGSPECIFIC: SETUP_DI_PROPERTY_CHANGE_SCOPE = SETUP_DI_PROPERTY_CHANGE_SCOPE(2u32);
+pub const DICS_FLAG_GLOBAL: SETUP_DI_PROPERTY_CHANGE_SCOPE = SETUP_DI_PROPERTY_CHANGE_SCOPE(1u32);
+pub const DICS_PROPCHANGE: SETUP_DI_STATE_CHANGE = SETUP_DI_STATE_CHANGE(3u32);
+pub const DICS_START: SETUP_DI_STATE_CHANGE = SETUP_DI_STATE_CHANGE(4u32);
+pub const DICS_STOP: SETUP_DI_STATE_CHANGE = SETUP_DI_STATE_CHANGE(5u32);
 pub const DICUSTOMDEVPROP_MERGE_MULTISZ: u32 = 1u32;
-pub const DIF_ADDPROPERTYPAGE_ADVANCED: u32 = 35u32;
-pub const DIF_ADDPROPERTYPAGE_BASIC: u32 = 36u32;
-pub const DIF_ADDREMOTEPROPERTYPAGE_ADVANCED: u32 = 40u32;
-pub const DIF_ALLOW_INSTALL: u32 = 24u32;
-pub const DIF_ASSIGNRESOURCES: u32 = 3u32;
-pub const DIF_CALCDISKSPACE: u32 = 11u32;
-pub const DIF_DESTROYPRIVATEDATA: u32 = 12u32;
-pub const DIF_DESTROYWIZARDDATA: u32 = 17u32;
-pub const DIF_DETECT: u32 = 15u32;
-pub const DIF_DETECTCANCEL: u32 = 33u32;
-pub const DIF_DETECTVERIFY: u32 = 20u32;
-pub const DIF_ENABLECLASS: u32 = 19u32;
-pub const DIF_FINISHINSTALL_ACTION: u32 = 42u32;
-pub const DIF_FIRSTTIMESETUP: u32 = 6u32;
-pub const DIF_FOUNDDEVICE: u32 = 7u32;
-pub const DIF_INSTALLCLASSDRIVERS: u32 = 10u32;
-pub const DIF_INSTALLDEVICE: u32 = 2u32;
-pub const DIF_INSTALLDEVICEFILES: u32 = 21u32;
-pub const DIF_INSTALLINTERFACES: u32 = 32u32;
-pub const DIF_INSTALLWIZARD: u32 = 16u32;
-pub const DIF_MOVEDEVICE: u32 = 14u32;
-pub const DIF_NEWDEVICEWIZARD_FINISHINSTALL: u32 = 30u32;
-pub const DIF_NEWDEVICEWIZARD_POSTANALYZE: u32 = 29u32;
-pub const DIF_NEWDEVICEWIZARD_PREANALYZE: u32 = 28u32;
-pub const DIF_NEWDEVICEWIZARD_PRESELECT: u32 = 26u32;
-pub const DIF_NEWDEVICEWIZARD_SELECT: u32 = 27u32;
-pub const DIF_POWERMESSAGEWAKE: u32 = 39u32;
-pub const DIF_PROPERTIES: u32 = 4u32;
-pub const DIF_PROPERTYCHANGE: u32 = 18u32;
-pub const DIF_REGISTERDEVICE: u32 = 25u32;
-pub const DIF_REGISTER_COINSTALLERS: u32 = 34u32;
-pub const DIF_REMOVE: u32 = 5u32;
-pub const DIF_RESERVED1: u32 = 37u32;
-pub const DIF_RESERVED2: u32 = 48u32;
-pub const DIF_SELECTBESTCOMPATDRV: u32 = 23u32;
-pub const DIF_SELECTCLASSDRIVERS: u32 = 8u32;
-pub const DIF_SELECTDEVICE: u32 = 1u32;
-pub const DIF_TROUBLESHOOTER: u32 = 38u32;
-pub const DIF_UNREMOVE: u32 = 22u32;
-pub const DIF_UNUSED1: u32 = 31u32;
-pub const DIF_UPDATEDRIVER_UI: u32 = 41u32;
-pub const DIF_VALIDATECLASSDRIVERS: u32 = 9u32;
-pub const DIF_VALIDATEDRIVER: u32 = 13u32;
+pub const DIF_ADDPROPERTYPAGE_ADVANCED: DI_FUNCTION = DI_FUNCTION(35u32);
+pub const DIF_ADDPROPERTYPAGE_BASIC: DI_FUNCTION = DI_FUNCTION(36u32);
+pub const DIF_ADDREMOTEPROPERTYPAGE_ADVANCED: DI_FUNCTION = DI_FUNCTION(40u32);
+pub const DIF_ALLOW_INSTALL: DI_FUNCTION = DI_FUNCTION(24u32);
+pub const DIF_ASSIGNRESOURCES: DI_FUNCTION = DI_FUNCTION(3u32);
+pub const DIF_CALCDISKSPACE: DI_FUNCTION = DI_FUNCTION(11u32);
+pub const DIF_DESTROYPRIVATEDATA: DI_FUNCTION = DI_FUNCTION(12u32);
+pub const DIF_DESTROYWIZARDDATA: DI_FUNCTION = DI_FUNCTION(17u32);
+pub const DIF_DETECT: DI_FUNCTION = DI_FUNCTION(15u32);
+pub const DIF_DETECTCANCEL: DI_FUNCTION = DI_FUNCTION(33u32);
+pub const DIF_DETECTVERIFY: DI_FUNCTION = DI_FUNCTION(20u32);
+pub const DIF_ENABLECLASS: DI_FUNCTION = DI_FUNCTION(19u32);
+pub const DIF_FINISHINSTALL_ACTION: DI_FUNCTION = DI_FUNCTION(42u32);
+pub const DIF_FIRSTTIMESETUP: DI_FUNCTION = DI_FUNCTION(6u32);
+pub const DIF_FOUNDDEVICE: DI_FUNCTION = DI_FUNCTION(7u32);
+pub const DIF_INSTALLCLASSDRIVERS: DI_FUNCTION = DI_FUNCTION(10u32);
+pub const DIF_INSTALLDEVICE: DI_FUNCTION = DI_FUNCTION(2u32);
+pub const DIF_INSTALLDEVICEFILES: DI_FUNCTION = DI_FUNCTION(21u32);
+pub const DIF_INSTALLINTERFACES: DI_FUNCTION = DI_FUNCTION(32u32);
+pub const DIF_INSTALLWIZARD: DI_FUNCTION = DI_FUNCTION(16u32);
+pub const DIF_MOVEDEVICE: DI_FUNCTION = DI_FUNCTION(14u32);
+pub const DIF_NEWDEVICEWIZARD_FINISHINSTALL: DI_FUNCTION = DI_FUNCTION(30u32);
+pub const DIF_NEWDEVICEWIZARD_POSTANALYZE: DI_FUNCTION = DI_FUNCTION(29u32);
+pub const DIF_NEWDEVICEWIZARD_PREANALYZE: DI_FUNCTION = DI_FUNCTION(28u32);
+pub const DIF_NEWDEVICEWIZARD_PRESELECT: DI_FUNCTION = DI_FUNCTION(26u32);
+pub const DIF_NEWDEVICEWIZARD_SELECT: DI_FUNCTION = DI_FUNCTION(27u32);
+pub const DIF_POWERMESSAGEWAKE: DI_FUNCTION = DI_FUNCTION(39u32);
+pub const DIF_PROPERTIES: DI_FUNCTION = DI_FUNCTION(4u32);
+pub const DIF_PROPERTYCHANGE: DI_FUNCTION = DI_FUNCTION(18u32);
+pub const DIF_REGISTERDEVICE: DI_FUNCTION = DI_FUNCTION(25u32);
+pub const DIF_REGISTER_COINSTALLERS: DI_FUNCTION = DI_FUNCTION(34u32);
+pub const DIF_REMOVE: DI_FUNCTION = DI_FUNCTION(5u32);
+pub const DIF_RESERVED1: DI_FUNCTION = DI_FUNCTION(37u32);
+pub const DIF_RESERVED2: DI_FUNCTION = DI_FUNCTION(48u32);
+pub const DIF_SELECTBESTCOMPATDRV: DI_FUNCTION = DI_FUNCTION(23u32);
+pub const DIF_SELECTCLASSDRIVERS: DI_FUNCTION = DI_FUNCTION(8u32);
+pub const DIF_SELECTDEVICE: DI_FUNCTION = DI_FUNCTION(1u32);
+pub const DIF_TROUBLESHOOTER: DI_FUNCTION = DI_FUNCTION(38u32);
+pub const DIF_UNREMOVE: DI_FUNCTION = DI_FUNCTION(22u32);
+pub const DIF_UNUSED1: DI_FUNCTION = DI_FUNCTION(31u32);
+pub const DIF_UPDATEDRIVER_UI: DI_FUNCTION = DI_FUNCTION(41u32);
+pub const DIF_VALIDATECLASSDRIVERS: DI_FUNCTION = DI_FUNCTION(9u32);
+pub const DIF_VALIDATEDRIVER: DI_FUNCTION = DI_FUNCTION(13u32);
 pub const DIGCDP_FLAG_ADVANCED: u32 = 2u32;
 pub const DIGCDP_FLAG_BASIC: u32 = 1u32;
 pub const DIGCDP_FLAG_REMOTE_ADVANCED: u32 = 4u32;
 pub const DIGCDP_FLAG_REMOTE_BASIC: u32 = 3u32;
-pub const DIGCF_ALLCLASSES: u32 = 4u32;
-pub const DIGCF_DEFAULT: u32 = 1u32;
-pub const DIGCF_DEVICEINTERFACE: u32 = 16u32;
-pub const DIGCF_INTERFACEDEVICE: u32 = 16u32;
-pub const DIGCF_PRESENT: u32 = 2u32;
-pub const DIGCF_PROFILE: u32 = 8u32;
+pub const DIGCF_ALLCLASSES: SETUP_DI_GET_CLASS_DEVS_FLAGS = SETUP_DI_GET_CLASS_DEVS_FLAGS(4u32);
+pub const DIGCF_DEFAULT: SETUP_DI_GET_CLASS_DEVS_FLAGS = SETUP_DI_GET_CLASS_DEVS_FLAGS(1u32);
+pub const DIGCF_DEVICEINTERFACE: SETUP_DI_GET_CLASS_DEVS_FLAGS = SETUP_DI_GET_CLASS_DEVS_FLAGS(16u32);
+pub const DIGCF_INTERFACEDEVICE: SETUP_DI_GET_CLASS_DEVS_FLAGS = SETUP_DI_GET_CLASS_DEVS_FLAGS(16u32);
+pub const DIGCF_PRESENT: SETUP_DI_GET_CLASS_DEVS_FLAGS = SETUP_DI_GET_CLASS_DEVS_FLAGS(2u32);
+pub const DIGCF_PROFILE: SETUP_DI_GET_CLASS_DEVS_FLAGS = SETUP_DI_GET_CLASS_DEVS_FLAGS(8u32);
 pub const DIIDFLAG_BITS: DIINSTALLDEVICE_FLAGS = DIINSTALLDEVICE_FLAGS(15u32);
 pub const DIIDFLAG_INSTALLCOPYINFDRIVERS: DIINSTALLDEVICE_FLAGS = DIINSTALLDEVICE_FLAGS(8u32);
 pub const DIIDFLAG_INSTALLNULLDRIVER: DIINSTALLDEVICE_FLAGS = DIINSTALLDEVICE_FLAGS(4u32);
@@ -4700,108 +4720,108 @@ pub const DIRID_WINDOWS: u32 = 10u32;
 pub const DIURFLAG_NO_REMOVE_INF: DIUNINSTALLDRIVER_FLAGS = DIUNINSTALLDRIVER_FLAGS(1u32);
 pub const DIURFLAG_RESERVED: DIUNINSTALLDRIVER_FLAGS = DIUNINSTALLDRIVER_FLAGS(2u32);
 pub const DIURFLAG_VALID: DIUNINSTALLDRIVER_FLAGS = DIUNINSTALLDRIVER_FLAGS(3u32);
-pub const DI_AUTOASSIGNRES: i32 = 64i32;
-pub const DI_CLASSINSTALLPARAMS: i32 = 1048576i32;
-pub const DI_COMPAT_FROM_CLASS: i32 = 524288i32;
-pub const DI_DIDCLASS: i32 = 32i32;
-pub const DI_DIDCOMPAT: i32 = 16i32;
-pub const DI_DISABLED: i32 = 2048i32;
-pub const DI_DONOTCALLCONFIGMG: i32 = 131072i32;
-pub const DI_DRIVERPAGE_ADDED: i32 = 67108864i32;
-pub const DI_ENUMSINGLEINF: i32 = 65536i32;
-pub const DI_FLAGSEX_ALLOWEXCLUDEDDRVS: i32 = 2048i32;
-pub const DI_FLAGSEX_ALTPLATFORM_DRVSEARCH: i32 = 268435456i32;
-pub const DI_FLAGSEX_ALWAYSWRITEIDS: i32 = 512i32;
-pub const DI_FLAGSEX_APPENDDRIVERLIST: i32 = 262144i32;
-pub const DI_FLAGSEX_BACKUPONREPLACE: i32 = 1048576i32;
-pub const DI_FLAGSEX_CI_FAILED: i32 = 4i32;
-pub const DI_FLAGSEX_DEVICECHANGE: i32 = 256i32;
-pub const DI_FLAGSEX_DIDCOMPATINFO: i32 = 32i32;
-pub const DI_FLAGSEX_DIDINFOLIST: i32 = 16i32;
-pub const DI_FLAGSEX_DRIVERLIST_FROM_URL: i32 = 2097152i32;
-pub const DI_FLAGSEX_EXCLUDE_OLD_INET_DRIVERS: i32 = 8388608i32;
-pub const DI_FLAGSEX_FILTERCLASSES: i32 = 64i32;
-pub const DI_FLAGSEX_FILTERSIMILARDRIVERS: i32 = 33554432i32;
-pub const DI_FLAGSEX_FINISHINSTALL_ACTION: i32 = 8i32;
-pub const DI_FLAGSEX_INET_DRIVER: i32 = 131072i32;
-pub const DI_FLAGSEX_INSTALLEDDRIVER: i32 = 67108864i32;
-pub const DI_FLAGSEX_IN_SYSTEM_SETUP: i32 = 65536i32;
-pub const DI_FLAGSEX_NOUIONQUERYREMOVE: i32 = 4096i32;
-pub const DI_FLAGSEX_NO_CLASSLIST_NODE_MERGE: i32 = 134217728i32;
-pub const DI_FLAGSEX_NO_DRVREG_MODIFY: i32 = 32768i32;
-pub const DI_FLAGSEX_POWERPAGE_ADDED: i32 = 16777216i32;
-pub const DI_FLAGSEX_PREINSTALLBACKUP: i32 = 524288i32;
-pub const DI_FLAGSEX_PROPCHANGE_PENDING: i32 = 1024i32;
-pub const DI_FLAGSEX_RECURSIVESEARCH: i32 = 1073741824i32;
-pub const DI_FLAGSEX_RESERVED1: i32 = 4194304i32;
-pub const DI_FLAGSEX_RESERVED2: i32 = 1i32;
-pub const DI_FLAGSEX_RESERVED3: i32 = 2i32;
-pub const DI_FLAGSEX_RESERVED4: i32 = 16384i32;
-pub const DI_FLAGSEX_RESTART_DEVICE_ONLY: i32 = 536870912i32;
-pub const DI_FLAGSEX_SEARCH_PUBLISHED_INFS: i32 = -2147483648i32;
-pub const DI_FLAGSEX_SETFAILEDINSTALL: i32 = 128i32;
-pub const DI_FLAGSEX_USECLASSFORCOMPAT: i32 = 8192i32;
-pub const DI_FORCECOPY: i32 = 33554432i32;
-pub const DI_GENERALPAGE_ADDED: i32 = 4096i32;
-pub const DI_INF_IS_SORTED: i32 = 32768i32;
-pub const DI_INSTALLDISABLED: i32 = 262144i32;
-pub const DI_MULTMFGS: i32 = 1024i32;
-pub const DI_NEEDREBOOT: i32 = 256i32;
-pub const DI_NEEDRESTART: i32 = 128i32;
-pub const DI_NOBROWSE: i32 = 512i32;
-pub const DI_NODI_DEFAULTACTION: i32 = 2097152i32;
-pub const DI_NOFILECOPY: i32 = 16777216i32;
-pub const DI_NOSELECTICONS: i32 = 1073741824i32;
-pub const DI_NOVCP: i32 = 8i32;
-pub const DI_NOWRITE_IDS: i32 = -2147483648i32;
-pub const DI_OVERRIDE_INFFLAGS: i32 = 268435456i32;
-pub const DI_PROPERTIES_CHANGE: i32 = 16384i32;
-pub const DI_PROPS_NOCHANGEUSAGE: i32 = 536870912i32;
-pub const DI_QUIETINSTALL: i32 = 8388608i32;
-pub const DI_REMOVEDEVICE_CONFIGSPECIFIC: u32 = 2u32;
-pub const DI_REMOVEDEVICE_GLOBAL: u32 = 1u32;
-pub const DI_RESOURCEPAGE_ADDED: i32 = 8192i32;
-pub const DI_SHOWALL: i32 = 7i32;
-pub const DI_SHOWCLASS: i32 = 4i32;
-pub const DI_SHOWCOMPAT: i32 = 2i32;
-pub const DI_SHOWOEM: i32 = 1i32;
-pub const DI_UNREMOVEDEVICE_CONFIGSPECIFIC: u32 = 2u32;
-pub const DI_USECI_SELECTSTRINGS: i32 = 134217728i32;
+pub const DI_AUTOASSIGNRES: SETUP_DI_DEVICE_INSTALL_FLAGS = SETUP_DI_DEVICE_INSTALL_FLAGS(64u32);
+pub const DI_CLASSINSTALLPARAMS: SETUP_DI_DEVICE_INSTALL_FLAGS = SETUP_DI_DEVICE_INSTALL_FLAGS(1048576u32);
+pub const DI_COMPAT_FROM_CLASS: SETUP_DI_DEVICE_INSTALL_FLAGS = SETUP_DI_DEVICE_INSTALL_FLAGS(524288u32);
+pub const DI_DIDCLASS: SETUP_DI_DEVICE_INSTALL_FLAGS = SETUP_DI_DEVICE_INSTALL_FLAGS(32u32);
+pub const DI_DIDCOMPAT: SETUP_DI_DEVICE_INSTALL_FLAGS = SETUP_DI_DEVICE_INSTALL_FLAGS(16u32);
+pub const DI_DISABLED: SETUP_DI_DEVICE_INSTALL_FLAGS = SETUP_DI_DEVICE_INSTALL_FLAGS(2048u32);
+pub const DI_DONOTCALLCONFIGMG: SETUP_DI_DEVICE_INSTALL_FLAGS = SETUP_DI_DEVICE_INSTALL_FLAGS(131072u32);
+pub const DI_DRIVERPAGE_ADDED: SETUP_DI_DEVICE_INSTALL_FLAGS = SETUP_DI_DEVICE_INSTALL_FLAGS(67108864u32);
+pub const DI_ENUMSINGLEINF: SETUP_DI_DEVICE_INSTALL_FLAGS = SETUP_DI_DEVICE_INSTALL_FLAGS(65536u32);
+pub const DI_FLAGSEX_ALLOWEXCLUDEDDRVS: SETUP_DI_DEVICE_INSTALL_FLAGS_EX = SETUP_DI_DEVICE_INSTALL_FLAGS_EX(2048u32);
+pub const DI_FLAGSEX_ALTPLATFORM_DRVSEARCH: SETUP_DI_DEVICE_INSTALL_FLAGS_EX = SETUP_DI_DEVICE_INSTALL_FLAGS_EX(268435456u32);
+pub const DI_FLAGSEX_ALWAYSWRITEIDS: SETUP_DI_DEVICE_INSTALL_FLAGS_EX = SETUP_DI_DEVICE_INSTALL_FLAGS_EX(512u32);
+pub const DI_FLAGSEX_APPENDDRIVERLIST: SETUP_DI_DEVICE_INSTALL_FLAGS_EX = SETUP_DI_DEVICE_INSTALL_FLAGS_EX(262144u32);
+pub const DI_FLAGSEX_BACKUPONREPLACE: SETUP_DI_DEVICE_INSTALL_FLAGS_EX = SETUP_DI_DEVICE_INSTALL_FLAGS_EX(1048576u32);
+pub const DI_FLAGSEX_CI_FAILED: SETUP_DI_DEVICE_INSTALL_FLAGS_EX = SETUP_DI_DEVICE_INSTALL_FLAGS_EX(4u32);
+pub const DI_FLAGSEX_DEVICECHANGE: SETUP_DI_DEVICE_INSTALL_FLAGS_EX = SETUP_DI_DEVICE_INSTALL_FLAGS_EX(256u32);
+pub const DI_FLAGSEX_DIDCOMPATINFO: SETUP_DI_DEVICE_INSTALL_FLAGS_EX = SETUP_DI_DEVICE_INSTALL_FLAGS_EX(32u32);
+pub const DI_FLAGSEX_DIDINFOLIST: SETUP_DI_DEVICE_INSTALL_FLAGS_EX = SETUP_DI_DEVICE_INSTALL_FLAGS_EX(16u32);
+pub const DI_FLAGSEX_DRIVERLIST_FROM_URL: SETUP_DI_DEVICE_INSTALL_FLAGS_EX = SETUP_DI_DEVICE_INSTALL_FLAGS_EX(2097152u32);
+pub const DI_FLAGSEX_EXCLUDE_OLD_INET_DRIVERS: SETUP_DI_DEVICE_INSTALL_FLAGS_EX = SETUP_DI_DEVICE_INSTALL_FLAGS_EX(8388608u32);
+pub const DI_FLAGSEX_FILTERCLASSES: SETUP_DI_DEVICE_INSTALL_FLAGS_EX = SETUP_DI_DEVICE_INSTALL_FLAGS_EX(64u32);
+pub const DI_FLAGSEX_FILTERSIMILARDRIVERS: SETUP_DI_DEVICE_INSTALL_FLAGS_EX = SETUP_DI_DEVICE_INSTALL_FLAGS_EX(33554432u32);
+pub const DI_FLAGSEX_FINISHINSTALL_ACTION: SETUP_DI_DEVICE_INSTALL_FLAGS_EX = SETUP_DI_DEVICE_INSTALL_FLAGS_EX(8u32);
+pub const DI_FLAGSEX_INET_DRIVER: SETUP_DI_DEVICE_INSTALL_FLAGS_EX = SETUP_DI_DEVICE_INSTALL_FLAGS_EX(131072u32);
+pub const DI_FLAGSEX_INSTALLEDDRIVER: SETUP_DI_DEVICE_INSTALL_FLAGS_EX = SETUP_DI_DEVICE_INSTALL_FLAGS_EX(67108864u32);
+pub const DI_FLAGSEX_IN_SYSTEM_SETUP: SETUP_DI_DEVICE_INSTALL_FLAGS_EX = SETUP_DI_DEVICE_INSTALL_FLAGS_EX(65536u32);
+pub const DI_FLAGSEX_NOUIONQUERYREMOVE: SETUP_DI_DEVICE_INSTALL_FLAGS_EX = SETUP_DI_DEVICE_INSTALL_FLAGS_EX(4096u32);
+pub const DI_FLAGSEX_NO_CLASSLIST_NODE_MERGE: SETUP_DI_DEVICE_INSTALL_FLAGS_EX = SETUP_DI_DEVICE_INSTALL_FLAGS_EX(134217728u32);
+pub const DI_FLAGSEX_NO_DRVREG_MODIFY: SETUP_DI_DEVICE_INSTALL_FLAGS_EX = SETUP_DI_DEVICE_INSTALL_FLAGS_EX(32768u32);
+pub const DI_FLAGSEX_POWERPAGE_ADDED: SETUP_DI_DEVICE_INSTALL_FLAGS_EX = SETUP_DI_DEVICE_INSTALL_FLAGS_EX(16777216u32);
+pub const DI_FLAGSEX_PREINSTALLBACKUP: SETUP_DI_DEVICE_INSTALL_FLAGS_EX = SETUP_DI_DEVICE_INSTALL_FLAGS_EX(524288u32);
+pub const DI_FLAGSEX_PROPCHANGE_PENDING: SETUP_DI_DEVICE_INSTALL_FLAGS_EX = SETUP_DI_DEVICE_INSTALL_FLAGS_EX(1024u32);
+pub const DI_FLAGSEX_RECURSIVESEARCH: SETUP_DI_DEVICE_INSTALL_FLAGS_EX = SETUP_DI_DEVICE_INSTALL_FLAGS_EX(1073741824u32);
+pub const DI_FLAGSEX_RESERVED1: SETUP_DI_DEVICE_INSTALL_FLAGS_EX = SETUP_DI_DEVICE_INSTALL_FLAGS_EX(4194304u32);
+pub const DI_FLAGSEX_RESERVED2: SETUP_DI_DEVICE_INSTALL_FLAGS_EX = SETUP_DI_DEVICE_INSTALL_FLAGS_EX(1u32);
+pub const DI_FLAGSEX_RESERVED3: SETUP_DI_DEVICE_INSTALL_FLAGS_EX = SETUP_DI_DEVICE_INSTALL_FLAGS_EX(2u32);
+pub const DI_FLAGSEX_RESERVED4: SETUP_DI_DEVICE_INSTALL_FLAGS_EX = SETUP_DI_DEVICE_INSTALL_FLAGS_EX(16384u32);
+pub const DI_FLAGSEX_RESTART_DEVICE_ONLY: SETUP_DI_DEVICE_INSTALL_FLAGS_EX = SETUP_DI_DEVICE_INSTALL_FLAGS_EX(536870912u32);
+pub const DI_FLAGSEX_SEARCH_PUBLISHED_INFS: SETUP_DI_DEVICE_INSTALL_FLAGS_EX = SETUP_DI_DEVICE_INSTALL_FLAGS_EX(2147483648u32);
+pub const DI_FLAGSEX_SETFAILEDINSTALL: SETUP_DI_DEVICE_INSTALL_FLAGS_EX = SETUP_DI_DEVICE_INSTALL_FLAGS_EX(128u32);
+pub const DI_FLAGSEX_USECLASSFORCOMPAT: SETUP_DI_DEVICE_INSTALL_FLAGS_EX = SETUP_DI_DEVICE_INSTALL_FLAGS_EX(8192u32);
+pub const DI_FORCECOPY: SETUP_DI_DEVICE_INSTALL_FLAGS = SETUP_DI_DEVICE_INSTALL_FLAGS(33554432u32);
+pub const DI_GENERALPAGE_ADDED: SETUP_DI_DEVICE_INSTALL_FLAGS = SETUP_DI_DEVICE_INSTALL_FLAGS(4096u32);
+pub const DI_INF_IS_SORTED: SETUP_DI_DEVICE_INSTALL_FLAGS = SETUP_DI_DEVICE_INSTALL_FLAGS(32768u32);
+pub const DI_INSTALLDISABLED: SETUP_DI_DEVICE_INSTALL_FLAGS = SETUP_DI_DEVICE_INSTALL_FLAGS(262144u32);
+pub const DI_MULTMFGS: SETUP_DI_DEVICE_INSTALL_FLAGS = SETUP_DI_DEVICE_INSTALL_FLAGS(1024u32);
+pub const DI_NEEDREBOOT: SETUP_DI_DEVICE_INSTALL_FLAGS = SETUP_DI_DEVICE_INSTALL_FLAGS(256u32);
+pub const DI_NEEDRESTART: SETUP_DI_DEVICE_INSTALL_FLAGS = SETUP_DI_DEVICE_INSTALL_FLAGS(128u32);
+pub const DI_NOBROWSE: SETUP_DI_DEVICE_INSTALL_FLAGS = SETUP_DI_DEVICE_INSTALL_FLAGS(512u32);
+pub const DI_NODI_DEFAULTACTION: SETUP_DI_DEVICE_INSTALL_FLAGS = SETUP_DI_DEVICE_INSTALL_FLAGS(2097152u32);
+pub const DI_NOFILECOPY: SETUP_DI_DEVICE_INSTALL_FLAGS = SETUP_DI_DEVICE_INSTALL_FLAGS(16777216u32);
+pub const DI_NOSELECTICONS: SETUP_DI_DEVICE_INSTALL_FLAGS = SETUP_DI_DEVICE_INSTALL_FLAGS(1073741824u32);
+pub const DI_NOVCP: SETUP_DI_DEVICE_INSTALL_FLAGS = SETUP_DI_DEVICE_INSTALL_FLAGS(8u32);
+pub const DI_NOWRITE_IDS: SETUP_DI_DEVICE_INSTALL_FLAGS = SETUP_DI_DEVICE_INSTALL_FLAGS(2147483648u32);
+pub const DI_OVERRIDE_INFFLAGS: SETUP_DI_DEVICE_INSTALL_FLAGS = SETUP_DI_DEVICE_INSTALL_FLAGS(268435456u32);
+pub const DI_PROPERTIES_CHANGE: SETUP_DI_DEVICE_INSTALL_FLAGS = SETUP_DI_DEVICE_INSTALL_FLAGS(16384u32);
+pub const DI_PROPS_NOCHANGEUSAGE: SETUP_DI_DEVICE_INSTALL_FLAGS = SETUP_DI_DEVICE_INSTALL_FLAGS(536870912u32);
+pub const DI_QUIETINSTALL: SETUP_DI_DEVICE_INSTALL_FLAGS = SETUP_DI_DEVICE_INSTALL_FLAGS(8388608u32);
+pub const DI_REMOVEDEVICE_CONFIGSPECIFIC: SETUP_DI_REMOVE_DEVICE_SCOPE = SETUP_DI_REMOVE_DEVICE_SCOPE(2u32);
+pub const DI_REMOVEDEVICE_GLOBAL: SETUP_DI_REMOVE_DEVICE_SCOPE = SETUP_DI_REMOVE_DEVICE_SCOPE(1u32);
+pub const DI_RESOURCEPAGE_ADDED: SETUP_DI_DEVICE_INSTALL_FLAGS = SETUP_DI_DEVICE_INSTALL_FLAGS(8192u32);
+pub const DI_SHOWALL: SETUP_DI_DEVICE_INSTALL_FLAGS = SETUP_DI_DEVICE_INSTALL_FLAGS(7u32);
+pub const DI_SHOWCLASS: SETUP_DI_DEVICE_INSTALL_FLAGS = SETUP_DI_DEVICE_INSTALL_FLAGS(4u32);
+pub const DI_SHOWCOMPAT: SETUP_DI_DEVICE_INSTALL_FLAGS = SETUP_DI_DEVICE_INSTALL_FLAGS(2u32);
+pub const DI_SHOWOEM: SETUP_DI_DEVICE_INSTALL_FLAGS = SETUP_DI_DEVICE_INSTALL_FLAGS(1u32);
+pub const DI_UNREMOVEDEVICE_CONFIGSPECIFIC: SETUP_DI_DEVICE_INSTALL_FLAGS = SETUP_DI_DEVICE_INSTALL_FLAGS(2u32);
+pub const DI_USECI_SELECTSTRINGS: SETUP_DI_DEVICE_INSTALL_FLAGS = SETUP_DI_DEVICE_INSTALL_FLAGS(134217728u32);
 pub const DMI_BKCOLOR: u32 = 2u32;
 pub const DMI_MASK: u32 = 1u32;
 pub const DMI_USERECT: u32 = 4u32;
-pub const DNF_ALWAYSEXCLUDEFROMLIST: u32 = 524288u32;
-pub const DNF_AUTHENTICODE_SIGNED: u32 = 131072u32;
-pub const DNF_BAD_DRIVER: u32 = 2048u32;
-pub const DNF_BASIC_DRIVER: u32 = 65536u32;
-pub const DNF_CLASS_DRIVER: u32 = 32u32;
-pub const DNF_COMPATIBLE_DRIVER: u32 = 64u32;
-pub const DNF_DUPDESC: u32 = 1u32;
-pub const DNF_DUPDRIVERVER: u32 = 32768u32;
-pub const DNF_DUPPROVIDER: u32 = 4096u32;
-pub const DNF_EXCLUDEFROMLIST: u32 = 4u32;
-pub const DNF_INBOX_DRIVER: u32 = 1048576u32;
-pub const DNF_INET_DRIVER: u32 = 128u32;
-pub const DNF_INF_IS_SIGNED: u32 = 8192u32;
-pub const DNF_INSTALLEDDRIVER: u32 = 262144u32;
-pub const DNF_LEGACYINF: u32 = 16u32;
-pub const DNF_NODRIVER: u32 = 8u32;
-pub const DNF_OEM_F6_INF: u32 = 16384u32;
-pub const DNF_OLDDRIVER: u32 = 2u32;
-pub const DNF_OLD_INET_DRIVER: u32 = 1024u32;
-pub const DNF_REQUESTADDITIONALSOFTWARE: u32 = 2097152u32;
-pub const DNF_UNUSED1: u32 = 256u32;
-pub const DNF_UNUSED2: u32 = 512u32;
-pub const DNF_UNUSED_22: u32 = 4194304u32;
-pub const DNF_UNUSED_23: u32 = 8388608u32;
-pub const DNF_UNUSED_24: u32 = 16777216u32;
-pub const DNF_UNUSED_25: u32 = 33554432u32;
-pub const DNF_UNUSED_26: u32 = 67108864u32;
-pub const DNF_UNUSED_27: u32 = 134217728u32;
-pub const DNF_UNUSED_28: u32 = 268435456u32;
-pub const DNF_UNUSED_29: u32 = 536870912u32;
-pub const DNF_UNUSED_30: u32 = 1073741824u32;
-pub const DNF_UNUSED_31: u32 = 2147483648u32;
+pub const DNF_ALWAYSEXCLUDEFROMLIST: SETUP_DI_DRIVER_INSTALL_FLAGS = SETUP_DI_DRIVER_INSTALL_FLAGS(524288u32);
+pub const DNF_AUTHENTICODE_SIGNED: SETUP_DI_DRIVER_INSTALL_FLAGS = SETUP_DI_DRIVER_INSTALL_FLAGS(131072u32);
+pub const DNF_BAD_DRIVER: SETUP_DI_DRIVER_INSTALL_FLAGS = SETUP_DI_DRIVER_INSTALL_FLAGS(2048u32);
+pub const DNF_BASIC_DRIVER: SETUP_DI_DRIVER_INSTALL_FLAGS = SETUP_DI_DRIVER_INSTALL_FLAGS(65536u32);
+pub const DNF_CLASS_DRIVER: SETUP_DI_DRIVER_INSTALL_FLAGS = SETUP_DI_DRIVER_INSTALL_FLAGS(32u32);
+pub const DNF_COMPATIBLE_DRIVER: SETUP_DI_DRIVER_INSTALL_FLAGS = SETUP_DI_DRIVER_INSTALL_FLAGS(64u32);
+pub const DNF_DUPDESC: SETUP_DI_DRIVER_INSTALL_FLAGS = SETUP_DI_DRIVER_INSTALL_FLAGS(1u32);
+pub const DNF_DUPDRIVERVER: SETUP_DI_DRIVER_INSTALL_FLAGS = SETUP_DI_DRIVER_INSTALL_FLAGS(32768u32);
+pub const DNF_DUPPROVIDER: SETUP_DI_DRIVER_INSTALL_FLAGS = SETUP_DI_DRIVER_INSTALL_FLAGS(4096u32);
+pub const DNF_EXCLUDEFROMLIST: SETUP_DI_DRIVER_INSTALL_FLAGS = SETUP_DI_DRIVER_INSTALL_FLAGS(4u32);
+pub const DNF_INBOX_DRIVER: SETUP_DI_DRIVER_INSTALL_FLAGS = SETUP_DI_DRIVER_INSTALL_FLAGS(1048576u32);
+pub const DNF_INET_DRIVER: SETUP_DI_DRIVER_INSTALL_FLAGS = SETUP_DI_DRIVER_INSTALL_FLAGS(128u32);
+pub const DNF_INF_IS_SIGNED: SETUP_DI_DRIVER_INSTALL_FLAGS = SETUP_DI_DRIVER_INSTALL_FLAGS(8192u32);
+pub const DNF_INSTALLEDDRIVER: SETUP_DI_DRIVER_INSTALL_FLAGS = SETUP_DI_DRIVER_INSTALL_FLAGS(262144u32);
+pub const DNF_LEGACYINF: SETUP_DI_DRIVER_INSTALL_FLAGS = SETUP_DI_DRIVER_INSTALL_FLAGS(16u32);
+pub const DNF_NODRIVER: SETUP_DI_DRIVER_INSTALL_FLAGS = SETUP_DI_DRIVER_INSTALL_FLAGS(8u32);
+pub const DNF_OEM_F6_INF: SETUP_DI_DRIVER_INSTALL_FLAGS = SETUP_DI_DRIVER_INSTALL_FLAGS(16384u32);
+pub const DNF_OLDDRIVER: SETUP_DI_DRIVER_INSTALL_FLAGS = SETUP_DI_DRIVER_INSTALL_FLAGS(2u32);
+pub const DNF_OLD_INET_DRIVER: SETUP_DI_DRIVER_INSTALL_FLAGS = SETUP_DI_DRIVER_INSTALL_FLAGS(1024u32);
+pub const DNF_REQUESTADDITIONALSOFTWARE: SETUP_DI_DRIVER_INSTALL_FLAGS = SETUP_DI_DRIVER_INSTALL_FLAGS(2097152u32);
+pub const DNF_UNUSED1: SETUP_DI_DRIVER_INSTALL_FLAGS = SETUP_DI_DRIVER_INSTALL_FLAGS(256u32);
+pub const DNF_UNUSED2: SETUP_DI_DRIVER_INSTALL_FLAGS = SETUP_DI_DRIVER_INSTALL_FLAGS(512u32);
+pub const DNF_UNUSED_22: SETUP_DI_DRIVER_INSTALL_FLAGS = SETUP_DI_DRIVER_INSTALL_FLAGS(4194304u32);
+pub const DNF_UNUSED_23: SETUP_DI_DRIVER_INSTALL_FLAGS = SETUP_DI_DRIVER_INSTALL_FLAGS(8388608u32);
+pub const DNF_UNUSED_24: SETUP_DI_DRIVER_INSTALL_FLAGS = SETUP_DI_DRIVER_INSTALL_FLAGS(16777216u32);
+pub const DNF_UNUSED_25: SETUP_DI_DRIVER_INSTALL_FLAGS = SETUP_DI_DRIVER_INSTALL_FLAGS(33554432u32);
+pub const DNF_UNUSED_26: SETUP_DI_DRIVER_INSTALL_FLAGS = SETUP_DI_DRIVER_INSTALL_FLAGS(67108864u32);
+pub const DNF_UNUSED_27: SETUP_DI_DRIVER_INSTALL_FLAGS = SETUP_DI_DRIVER_INSTALL_FLAGS(134217728u32);
+pub const DNF_UNUSED_28: SETUP_DI_DRIVER_INSTALL_FLAGS = SETUP_DI_DRIVER_INSTALL_FLAGS(268435456u32);
+pub const DNF_UNUSED_29: SETUP_DI_DRIVER_INSTALL_FLAGS = SETUP_DI_DRIVER_INSTALL_FLAGS(536870912u32);
+pub const DNF_UNUSED_30: SETUP_DI_DRIVER_INSTALL_FLAGS = SETUP_DI_DRIVER_INSTALL_FLAGS(1073741824u32);
+pub const DNF_UNUSED_31: SETUP_DI_DRIVER_INSTALL_FLAGS = SETUP_DI_DRIVER_INSTALL_FLAGS(2147483648u32);
 pub const DN_APM_DRIVER: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(268435456u32);
 pub const DN_APM_ENUMERATOR: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(134217728u32);
 pub const DN_ARM_WAKEUP: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(67108864u32);
@@ -5396,8 +5416,6 @@ pub const NDW_INSTALLFLAG_EXPRESSINTRO: u32 = 1024u32;
 pub const NDW_INSTALLFLAG_HARDWAREALLREADYIN: u32 = 2u32;
 pub const NDW_INSTALLFLAG_INSTALLSPECIFIC: u32 = 8192u32;
 pub const NDW_INSTALLFLAG_KNOWNCLASS: u32 = 524288u32;
-pub const NDW_INSTALLFLAG_NEEDREBOOT: i32 = 256i32;
-pub const NDW_INSTALLFLAG_NEEDRESTART: i32 = 128i32;
 pub const NDW_INSTALLFLAG_NEEDSHUTDOWN: u32 = 512u32;
 pub const NDW_INSTALLFLAG_NODETECTEDDEVS: u32 = 4096u32;
 pub const NDW_INSTALLFLAG_PCMCIADEVICE: u32 = 131072u32;
@@ -5483,44 +5501,44 @@ pub const SPCRP_UPPERFILTERS: u32 = 17u32;
 pub const SPDIT_CLASSDRIVER: SETUP_DI_DRIVER_TYPE = SETUP_DI_DRIVER_TYPE(1u32);
 pub const SPDIT_COMPATDRIVER: SETUP_DI_DRIVER_TYPE = SETUP_DI_DRIVER_TYPE(2u32);
 pub const SPDIT_NODRIVER: u32 = 0u32;
-pub const SPDRP_ADDRESS: u32 = 28u32;
-pub const SPDRP_BASE_CONTAINERID: u32 = 36u32;
-pub const SPDRP_BUSNUMBER: u32 = 21u32;
-pub const SPDRP_BUSTYPEGUID: u32 = 19u32;
-pub const SPDRP_CAPABILITIES: u32 = 15u32;
-pub const SPDRP_CHARACTERISTICS: u32 = 27u32;
-pub const SPDRP_CLASS: u32 = 7u32;
-pub const SPDRP_CLASSGUID: u32 = 8u32;
-pub const SPDRP_COMPATIBLEIDS: u32 = 2u32;
-pub const SPDRP_CONFIGFLAGS: u32 = 10u32;
-pub const SPDRP_DEVICEDESC: u32 = 0u32;
-pub const SPDRP_DEVICE_POWER_DATA: u32 = 30u32;
-pub const SPDRP_DEVTYPE: u32 = 25u32;
-pub const SPDRP_DRIVER: u32 = 9u32;
-pub const SPDRP_ENUMERATOR_NAME: u32 = 22u32;
-pub const SPDRP_EXCLUSIVE: u32 = 26u32;
-pub const SPDRP_FRIENDLYNAME: u32 = 12u32;
-pub const SPDRP_HARDWAREID: u32 = 1u32;
-pub const SPDRP_INSTALL_STATE: u32 = 34u32;
-pub const SPDRP_LEGACYBUSTYPE: u32 = 20u32;
-pub const SPDRP_LOCATION_INFORMATION: u32 = 13u32;
-pub const SPDRP_LOCATION_PATHS: u32 = 35u32;
-pub const SPDRP_LOWERFILTERS: u32 = 18u32;
-pub const SPDRP_MAXIMUM_PROPERTY: u32 = 37u32;
-pub const SPDRP_MFG: u32 = 11u32;
-pub const SPDRP_PHYSICAL_DEVICE_OBJECT_NAME: u32 = 14u32;
-pub const SPDRP_REMOVAL_POLICY: u32 = 31u32;
-pub const SPDRP_REMOVAL_POLICY_HW_DEFAULT: u32 = 32u32;
-pub const SPDRP_REMOVAL_POLICY_OVERRIDE: u32 = 33u32;
-pub const SPDRP_SECURITY: u32 = 23u32;
-pub const SPDRP_SECURITY_SDS: u32 = 24u32;
-pub const SPDRP_SERVICE: u32 = 4u32;
-pub const SPDRP_UI_NUMBER: u32 = 16u32;
-pub const SPDRP_UI_NUMBER_DESC_FORMAT: u32 = 29u32;
-pub const SPDRP_UNUSED0: u32 = 3u32;
-pub const SPDRP_UNUSED1: u32 = 5u32;
-pub const SPDRP_UNUSED2: u32 = 6u32;
-pub const SPDRP_UPPERFILTERS: u32 = 17u32;
+pub const SPDRP_ADDRESS: SETUP_DI_REGISTRY_PROPERTY = SETUP_DI_REGISTRY_PROPERTY(28u32);
+pub const SPDRP_BASE_CONTAINERID: SETUP_DI_REGISTRY_PROPERTY = SETUP_DI_REGISTRY_PROPERTY(36u32);
+pub const SPDRP_BUSNUMBER: SETUP_DI_REGISTRY_PROPERTY = SETUP_DI_REGISTRY_PROPERTY(21u32);
+pub const SPDRP_BUSTYPEGUID: SETUP_DI_REGISTRY_PROPERTY = SETUP_DI_REGISTRY_PROPERTY(19u32);
+pub const SPDRP_CAPABILITIES: SETUP_DI_REGISTRY_PROPERTY = SETUP_DI_REGISTRY_PROPERTY(15u32);
+pub const SPDRP_CHARACTERISTICS: SETUP_DI_REGISTRY_PROPERTY = SETUP_DI_REGISTRY_PROPERTY(27u32);
+pub const SPDRP_CLASS: SETUP_DI_REGISTRY_PROPERTY = SETUP_DI_REGISTRY_PROPERTY(7u32);
+pub const SPDRP_CLASSGUID: SETUP_DI_REGISTRY_PROPERTY = SETUP_DI_REGISTRY_PROPERTY(8u32);
+pub const SPDRP_COMPATIBLEIDS: SETUP_DI_REGISTRY_PROPERTY = SETUP_DI_REGISTRY_PROPERTY(2u32);
+pub const SPDRP_CONFIGFLAGS: SETUP_DI_REGISTRY_PROPERTY = SETUP_DI_REGISTRY_PROPERTY(10u32);
+pub const SPDRP_DEVICEDESC: SETUP_DI_REGISTRY_PROPERTY = SETUP_DI_REGISTRY_PROPERTY(0u32);
+pub const SPDRP_DEVICE_POWER_DATA: SETUP_DI_REGISTRY_PROPERTY = SETUP_DI_REGISTRY_PROPERTY(30u32);
+pub const SPDRP_DEVTYPE: SETUP_DI_REGISTRY_PROPERTY = SETUP_DI_REGISTRY_PROPERTY(25u32);
+pub const SPDRP_DRIVER: SETUP_DI_REGISTRY_PROPERTY = SETUP_DI_REGISTRY_PROPERTY(9u32);
+pub const SPDRP_ENUMERATOR_NAME: SETUP_DI_REGISTRY_PROPERTY = SETUP_DI_REGISTRY_PROPERTY(22u32);
+pub const SPDRP_EXCLUSIVE: SETUP_DI_REGISTRY_PROPERTY = SETUP_DI_REGISTRY_PROPERTY(26u32);
+pub const SPDRP_FRIENDLYNAME: SETUP_DI_REGISTRY_PROPERTY = SETUP_DI_REGISTRY_PROPERTY(12u32);
+pub const SPDRP_HARDWAREID: SETUP_DI_REGISTRY_PROPERTY = SETUP_DI_REGISTRY_PROPERTY(1u32);
+pub const SPDRP_INSTALL_STATE: SETUP_DI_REGISTRY_PROPERTY = SETUP_DI_REGISTRY_PROPERTY(34u32);
+pub const SPDRP_LEGACYBUSTYPE: SETUP_DI_REGISTRY_PROPERTY = SETUP_DI_REGISTRY_PROPERTY(20u32);
+pub const SPDRP_LOCATION_INFORMATION: SETUP_DI_REGISTRY_PROPERTY = SETUP_DI_REGISTRY_PROPERTY(13u32);
+pub const SPDRP_LOCATION_PATHS: SETUP_DI_REGISTRY_PROPERTY = SETUP_DI_REGISTRY_PROPERTY(35u32);
+pub const SPDRP_LOWERFILTERS: SETUP_DI_REGISTRY_PROPERTY = SETUP_DI_REGISTRY_PROPERTY(18u32);
+pub const SPDRP_MAXIMUM_PROPERTY: SETUP_DI_REGISTRY_PROPERTY = SETUP_DI_REGISTRY_PROPERTY(37u32);
+pub const SPDRP_MFG: SETUP_DI_REGISTRY_PROPERTY = SETUP_DI_REGISTRY_PROPERTY(11u32);
+pub const SPDRP_PHYSICAL_DEVICE_OBJECT_NAME: SETUP_DI_REGISTRY_PROPERTY = SETUP_DI_REGISTRY_PROPERTY(14u32);
+pub const SPDRP_REMOVAL_POLICY: SETUP_DI_REGISTRY_PROPERTY = SETUP_DI_REGISTRY_PROPERTY(31u32);
+pub const SPDRP_REMOVAL_POLICY_HW_DEFAULT: SETUP_DI_REGISTRY_PROPERTY = SETUP_DI_REGISTRY_PROPERTY(32u32);
+pub const SPDRP_REMOVAL_POLICY_OVERRIDE: SETUP_DI_REGISTRY_PROPERTY = SETUP_DI_REGISTRY_PROPERTY(33u32);
+pub const SPDRP_SECURITY: SETUP_DI_REGISTRY_PROPERTY = SETUP_DI_REGISTRY_PROPERTY(23u32);
+pub const SPDRP_SECURITY_SDS: SETUP_DI_REGISTRY_PROPERTY = SETUP_DI_REGISTRY_PROPERTY(24u32);
+pub const SPDRP_SERVICE: SETUP_DI_REGISTRY_PROPERTY = SETUP_DI_REGISTRY_PROPERTY(4u32);
+pub const SPDRP_UI_NUMBER: SETUP_DI_REGISTRY_PROPERTY = SETUP_DI_REGISTRY_PROPERTY(16u32);
+pub const SPDRP_UI_NUMBER_DESC_FORMAT: SETUP_DI_REGISTRY_PROPERTY = SETUP_DI_REGISTRY_PROPERTY(29u32);
+pub const SPDRP_UNUSED0: SETUP_DI_REGISTRY_PROPERTY = SETUP_DI_REGISTRY_PROPERTY(3u32);
+pub const SPDRP_UNUSED1: SETUP_DI_REGISTRY_PROPERTY = SETUP_DI_REGISTRY_PROPERTY(5u32);
+pub const SPDRP_UNUSED2: SETUP_DI_REGISTRY_PROPERTY = SETUP_DI_REGISTRY_PROPERTY(6u32);
+pub const SPDRP_UPPERFILTERS: SETUP_DI_REGISTRY_PROPERTY = SETUP_DI_REGISTRY_PROPERTY(17u32);
 pub const SPDSL_DISALLOW_NEGATIVE_ADJUST: u32 = 2u32;
 pub const SPDSL_IGNORE_DISK: u32 = 1u32;
 pub const SPFILELOG_FORCENEW: u32 = 2u32;
@@ -6438,6 +6456,17 @@ impl ::core::ops::Not for DIUNINSTALLDRIVER_FLAGS {
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+pub struct DI_FUNCTION(pub u32);
+impl ::windows_core::TypeKind for DI_FUNCTION {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::fmt::Debug for DI_FUNCTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DI_FUNCTION").field(&self.0).finish()
+    }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct INF_STYLE(pub u32);
 impl ::windows_core::TypeKind for INF_STYLE {
     type TypeKind = ::windows_core::CopyType;
@@ -6768,6 +6797,226 @@ impl ::core::ops::Not for SETUPSCANFILEQUEUE_FLAGS {
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+pub struct SETUP_DI_DEVICE_CONFIGURATION_FLAGS(pub u32);
+impl ::windows_core::TypeKind for SETUP_DI_DEVICE_CONFIGURATION_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::fmt::Debug for SETUP_DI_DEVICE_CONFIGURATION_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SETUP_DI_DEVICE_CONFIGURATION_FLAGS").field(&self.0).finish()
+    }
+}
+impl SETUP_DI_DEVICE_CONFIGURATION_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for SETUP_DI_DEVICE_CONFIGURATION_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for SETUP_DI_DEVICE_CONFIGURATION_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for SETUP_DI_DEVICE_CONFIGURATION_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for SETUP_DI_DEVICE_CONFIGURATION_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for SETUP_DI_DEVICE_CONFIGURATION_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+pub struct SETUP_DI_DEVICE_CREATION_FLAGS(pub u32);
+impl ::windows_core::TypeKind for SETUP_DI_DEVICE_CREATION_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::fmt::Debug for SETUP_DI_DEVICE_CREATION_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SETUP_DI_DEVICE_CREATION_FLAGS").field(&self.0).finish()
+    }
+}
+impl SETUP_DI_DEVICE_CREATION_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for SETUP_DI_DEVICE_CREATION_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for SETUP_DI_DEVICE_CREATION_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for SETUP_DI_DEVICE_CREATION_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for SETUP_DI_DEVICE_CREATION_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for SETUP_DI_DEVICE_CREATION_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+pub struct SETUP_DI_DEVICE_INSTALL_FLAGS(pub u32);
+impl ::windows_core::TypeKind for SETUP_DI_DEVICE_INSTALL_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::fmt::Debug for SETUP_DI_DEVICE_INSTALL_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SETUP_DI_DEVICE_INSTALL_FLAGS").field(&self.0).finish()
+    }
+}
+impl SETUP_DI_DEVICE_INSTALL_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for SETUP_DI_DEVICE_INSTALL_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for SETUP_DI_DEVICE_INSTALL_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for SETUP_DI_DEVICE_INSTALL_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for SETUP_DI_DEVICE_INSTALL_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for SETUP_DI_DEVICE_INSTALL_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+pub struct SETUP_DI_DEVICE_INSTALL_FLAGS_EX(pub u32);
+impl ::windows_core::TypeKind for SETUP_DI_DEVICE_INSTALL_FLAGS_EX {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::fmt::Debug for SETUP_DI_DEVICE_INSTALL_FLAGS_EX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SETUP_DI_DEVICE_INSTALL_FLAGS_EX").field(&self.0).finish()
+    }
+}
+impl SETUP_DI_DEVICE_INSTALL_FLAGS_EX {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for SETUP_DI_DEVICE_INSTALL_FLAGS_EX {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for SETUP_DI_DEVICE_INSTALL_FLAGS_EX {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for SETUP_DI_DEVICE_INSTALL_FLAGS_EX {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for SETUP_DI_DEVICE_INSTALL_FLAGS_EX {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for SETUP_DI_DEVICE_INSTALL_FLAGS_EX {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+pub struct SETUP_DI_DRIVER_INSTALL_FLAGS(pub u32);
+impl ::windows_core::TypeKind for SETUP_DI_DRIVER_INSTALL_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::fmt::Debug for SETUP_DI_DRIVER_INSTALL_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SETUP_DI_DRIVER_INSTALL_FLAGS").field(&self.0).finish()
+    }
+}
+impl SETUP_DI_DRIVER_INSTALL_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for SETUP_DI_DRIVER_INSTALL_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for SETUP_DI_DRIVER_INSTALL_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for SETUP_DI_DRIVER_INSTALL_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for SETUP_DI_DRIVER_INSTALL_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for SETUP_DI_DRIVER_INSTALL_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SETUP_DI_DRIVER_TYPE(pub u32);
 impl ::windows_core::TypeKind for SETUP_DI_DRIVER_TYPE {
     type TypeKind = ::windows_core::CopyType;
@@ -6775,6 +7024,94 @@ impl ::windows_core::TypeKind for SETUP_DI_DRIVER_TYPE {
 impl ::core::fmt::Debug for SETUP_DI_DRIVER_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SETUP_DI_DRIVER_TYPE").field(&self.0).finish()
+    }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+pub struct SETUP_DI_GET_CLASS_DEVS_FLAGS(pub u32);
+impl ::windows_core::TypeKind for SETUP_DI_GET_CLASS_DEVS_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::fmt::Debug for SETUP_DI_GET_CLASS_DEVS_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SETUP_DI_GET_CLASS_DEVS_FLAGS").field(&self.0).finish()
+    }
+}
+impl SETUP_DI_GET_CLASS_DEVS_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for SETUP_DI_GET_CLASS_DEVS_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for SETUP_DI_GET_CLASS_DEVS_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for SETUP_DI_GET_CLASS_DEVS_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for SETUP_DI_GET_CLASS_DEVS_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for SETUP_DI_GET_CLASS_DEVS_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+pub struct SETUP_DI_PROPERTY_CHANGE_SCOPE(pub u32);
+impl ::windows_core::TypeKind for SETUP_DI_PROPERTY_CHANGE_SCOPE {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::fmt::Debug for SETUP_DI_PROPERTY_CHANGE_SCOPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SETUP_DI_PROPERTY_CHANGE_SCOPE").field(&self.0).finish()
+    }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+pub struct SETUP_DI_REGISTRY_PROPERTY(pub u32);
+impl ::windows_core::TypeKind for SETUP_DI_REGISTRY_PROPERTY {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::fmt::Debug for SETUP_DI_REGISTRY_PROPERTY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SETUP_DI_REGISTRY_PROPERTY").field(&self.0).finish()
+    }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+pub struct SETUP_DI_REMOVE_DEVICE_SCOPE(pub u32);
+impl ::windows_core::TypeKind for SETUP_DI_REMOVE_DEVICE_SCOPE {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::fmt::Debug for SETUP_DI_REMOVE_DEVICE_SCOPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SETUP_DI_REMOVE_DEVICE_SCOPE").field(&self.0).finish()
+    }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+pub struct SETUP_DI_STATE_CHANGE(pub u32);
+impl ::windows_core::TypeKind for SETUP_DI_STATE_CHANGE {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::fmt::Debug for SETUP_DI_STATE_CHANGE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SETUP_DI_STATE_CHANGE").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
@@ -8729,34 +9066,34 @@ impl ::core::default::Default for SP_ALTPLATFORM_INFO_V1 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemInformation"))]
 pub struct SP_ALTPLATFORM_INFO_V2 {
     pub cbSize: u32,
     pub Platform: super::super::System::Diagnostics::Debug::VER_PLATFORM,
     pub MajorVersion: u32,
     pub MinorVersion: u32,
-    pub ProcessorArchitecture: u16,
+    pub ProcessorArchitecture: super::super::System::SystemInformation::PROCESSOR_ARCHITECTURE,
     pub Anonymous: SP_ALTPLATFORM_INFO_V2_0,
     pub FirstValidatedMajorVersion: u32,
     pub FirstValidatedMinorVersion: u32,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemInformation"))]
 impl ::core::marker::Copy for SP_ALTPLATFORM_INFO_V2 {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemInformation"))]
 impl ::core::clone::Clone for SP_ALTPLATFORM_INFO_V2 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemInformation"))]
 impl ::windows_core::TypeKind for SP_ALTPLATFORM_INFO_V2 {
     type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemInformation"))]
 impl ::core::default::Default for SP_ALTPLATFORM_INFO_V2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -8764,28 +9101,28 @@ impl ::core::default::Default for SP_ALTPLATFORM_INFO_V2 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemInformation"))]
 pub union SP_ALTPLATFORM_INFO_V2_0 {
     pub Reserved: u16,
     pub Flags: u16,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemInformation"))]
 impl ::core::marker::Copy for SP_ALTPLATFORM_INFO_V2_0 {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemInformation"))]
 impl ::core::clone::Clone for SP_ALTPLATFORM_INFO_V2_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemInformation"))]
 impl ::windows_core::TypeKind for SP_ALTPLATFORM_INFO_V2_0 {
     type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemInformation"))]
 impl ::core::default::Default for SP_ALTPLATFORM_INFO_V2_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -8793,34 +9130,34 @@ impl ::core::default::Default for SP_ALTPLATFORM_INFO_V2_0 {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemInformation"))]
 pub struct SP_ALTPLATFORM_INFO_V2 {
     pub cbSize: u32,
     pub Platform: super::super::System::Diagnostics::Debug::VER_PLATFORM,
     pub MajorVersion: u32,
     pub MinorVersion: u32,
-    pub ProcessorArchitecture: u16,
+    pub ProcessorArchitecture: super::super::System::SystemInformation::PROCESSOR_ARCHITECTURE,
     pub Anonymous: SP_ALTPLATFORM_INFO_V2_0,
     pub FirstValidatedMajorVersion: u32,
     pub FirstValidatedMinorVersion: u32,
 }
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemInformation"))]
 impl ::core::marker::Copy for SP_ALTPLATFORM_INFO_V2 {}
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemInformation"))]
 impl ::core::clone::Clone for SP_ALTPLATFORM_INFO_V2 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemInformation"))]
 impl ::windows_core::TypeKind for SP_ALTPLATFORM_INFO_V2 {
     type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemInformation"))]
 impl ::core::default::Default for SP_ALTPLATFORM_INFO_V2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -8828,28 +9165,28 @@ impl ::core::default::Default for SP_ALTPLATFORM_INFO_V2 {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemInformation"))]
 pub union SP_ALTPLATFORM_INFO_V2_0 {
     pub Reserved: u16,
     pub Flags: u16,
 }
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemInformation"))]
 impl ::core::marker::Copy for SP_ALTPLATFORM_INFO_V2_0 {}
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemInformation"))]
 impl ::core::clone::Clone for SP_ALTPLATFORM_INFO_V2_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemInformation"))]
 impl ::windows_core::TypeKind for SP_ALTPLATFORM_INFO_V2_0 {
     type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemInformation"))]
 impl ::core::default::Default for SP_ALTPLATFORM_INFO_V2_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -9237,7 +9574,7 @@ impl ::core::default::Default for SP_CLASSIMAGELIST_DATA {
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct SP_CLASSINSTALL_HEADER {
     pub cbSize: u32,
-    pub InstallFunction: u32,
+    pub InstallFunction: DI_FUNCTION,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::marker::Copy for SP_CLASSINSTALL_HEADER {}
@@ -9261,7 +9598,7 @@ impl ::core::default::Default for SP_CLASSINSTALL_HEADER {
 #[cfg(target_arch = "x86")]
 pub struct SP_CLASSINSTALL_HEADER {
     pub cbSize: u32,
-    pub InstallFunction: u32,
+    pub InstallFunction: DI_FUNCTION,
 }
 #[cfg(target_arch = "x86")]
 impl ::core::marker::Copy for SP_CLASSINSTALL_HEADER {}
@@ -9639,8 +9976,8 @@ impl ::core::default::Default for SP_DEVINFO_LIST_DETAIL_DATA_W {
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct SP_DEVINSTALL_PARAMS_A {
     pub cbSize: u32,
-    pub Flags: u32,
-    pub FlagsEx: u32,
+    pub Flags: SETUP_DI_DEVICE_INSTALL_FLAGS,
+    pub FlagsEx: SETUP_DI_DEVICE_INSTALL_FLAGS_EX,
     pub hwndParent: super::super::Foundation::HWND,
     pub InstallMsgHandler: PSP_FILE_CALLBACK_A,
     pub InstallMsgHandlerContext: *mut ::core::ffi::c_void,
@@ -9671,8 +10008,8 @@ impl ::core::default::Default for SP_DEVINSTALL_PARAMS_A {
 #[cfg(target_arch = "x86")]
 pub struct SP_DEVINSTALL_PARAMS_A {
     pub cbSize: u32,
-    pub Flags: u32,
-    pub FlagsEx: u32,
+    pub Flags: SETUP_DI_DEVICE_INSTALL_FLAGS,
+    pub FlagsEx: SETUP_DI_DEVICE_INSTALL_FLAGS_EX,
     pub hwndParent: super::super::Foundation::HWND,
     pub InstallMsgHandler: PSP_FILE_CALLBACK_A,
     pub InstallMsgHandlerContext: *mut ::core::ffi::c_void,
@@ -9703,8 +10040,8 @@ impl ::core::default::Default for SP_DEVINSTALL_PARAMS_A {
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct SP_DEVINSTALL_PARAMS_W {
     pub cbSize: u32,
-    pub Flags: u32,
-    pub FlagsEx: u32,
+    pub Flags: SETUP_DI_DEVICE_INSTALL_FLAGS,
+    pub FlagsEx: SETUP_DI_DEVICE_INSTALL_FLAGS_EX,
     pub hwndParent: super::super::Foundation::HWND,
     pub InstallMsgHandler: PSP_FILE_CALLBACK_W,
     pub InstallMsgHandlerContext: *mut ::core::ffi::c_void,
@@ -9735,8 +10072,8 @@ impl ::core::default::Default for SP_DEVINSTALL_PARAMS_W {
 #[cfg(target_arch = "x86")]
 pub struct SP_DEVINSTALL_PARAMS_W {
     pub cbSize: u32,
-    pub Flags: u32,
-    pub FlagsEx: u32,
+    pub Flags: SETUP_DI_DEVICE_INSTALL_FLAGS,
+    pub FlagsEx: SETUP_DI_DEVICE_INSTALL_FLAGS_EX,
     pub hwndParent: super::super::Foundation::HWND,
     pub InstallMsgHandler: PSP_FILE_CALLBACK_W,
     pub InstallMsgHandlerContext: *mut ::core::ffi::c_void,
@@ -10124,7 +10461,7 @@ impl ::core::default::Default for SP_DRVINFO_DETAIL_DATA_W {
 pub struct SP_DRVINSTALL_PARAMS {
     pub cbSize: u32,
     pub Rank: u32,
-    pub Flags: u32,
+    pub Flags: SETUP_DI_DRIVER_INSTALL_FLAGS,
     pub PrivateData: usize,
     pub Reserved: u32,
 }
@@ -10151,7 +10488,7 @@ impl ::core::default::Default for SP_DRVINSTALL_PARAMS {
 pub struct SP_DRVINSTALL_PARAMS {
     pub cbSize: u32,
     pub Rank: u32,
-    pub Flags: u32,
+    pub Flags: SETUP_DI_DRIVER_INSTALL_FLAGS,
     pub PrivateData: usize,
     pub Reserved: u32,
 }
@@ -10926,8 +11263,8 @@ impl ::core::default::Default for SP_POWERMESSAGEWAKE_PARAMS_W {
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct SP_PROPCHANGE_PARAMS {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
-    pub StateChange: u32,
-    pub Scope: u32,
+    pub StateChange: SETUP_DI_STATE_CHANGE,
+    pub Scope: SETUP_DI_PROPERTY_CHANGE_SCOPE,
     pub HwProfile: u32,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -10952,8 +11289,8 @@ impl ::core::default::Default for SP_PROPCHANGE_PARAMS {
 #[cfg(target_arch = "x86")]
 pub struct SP_PROPCHANGE_PARAMS {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
-    pub StateChange: u32,
-    pub Scope: u32,
+    pub StateChange: SETUP_DI_STATE_CHANGE,
+    pub Scope: SETUP_DI_PROPERTY_CHANGE_SCOPE,
     pub HwProfile: u32,
 }
 #[cfg(target_arch = "x86")]
@@ -11134,7 +11471,7 @@ impl ::core::default::Default for SP_REGISTER_CONTROL_STATUSW {
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct SP_REMOVEDEVICE_PARAMS {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
-    pub Scope: u32,
+    pub Scope: SETUP_DI_REMOVE_DEVICE_SCOPE,
     pub HwProfile: u32,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -11159,7 +11496,7 @@ impl ::core::default::Default for SP_REMOVEDEVICE_PARAMS {
 #[cfg(target_arch = "x86")]
 pub struct SP_REMOVEDEVICE_PARAMS {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
-    pub Scope: u32,
+    pub Scope: SETUP_DI_REMOVE_DEVICE_SCOPE,
     pub HwProfile: u32,
 }
 #[cfg(target_arch = "x86")]
