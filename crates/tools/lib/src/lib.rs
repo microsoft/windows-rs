@@ -31,18 +31,6 @@ pub fn libraries() -> BTreeMap<String, BTreeMap<String, CallingConvention>> {
     let files = default_metadata();
     let reader = metadata::Reader::new(files);
     combine_libraries(reader, &mut libraries);
-
-    // StgConvertPropertyToVariant is now back but HtmlHelpA and HtmlHelpW have disappeared.
-
-    let compat =
-        vec![
-            metadata::File::new(std::include_bytes!("../Windows.Win32.49.winmd").to_vec())
-                .expect("invalid winmd"),
-        ];
-
-    let reader = metadata::Reader::new(compat);
-    combine_libraries(reader, &mut libraries);
-
     libraries
 }
 
