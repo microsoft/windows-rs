@@ -107,6 +107,12 @@ fn field_initializer<'a>(writer: &Writer, field: metadata::Field, input: &'a str
             let literals = literals.iter().map(|literal| TokenStream::from(*literal));
             (quote! { #name: [#(#literals,)*], }, rest)
         }
+        metadata::Type::MutPtr(_, _) => {
+            // The Win32 metadata uses integer values for initializing pointers. This is a workaround
+            // to allow most such cases to work.
+            let (_, rest) = read_literal(input);
+            (quote! { #name: ::core::ptr::null_mut(), }, rest)
+        }
         _ => {
             let (literal, rest) = read_literal(input);
             let literal: TokenStream = literal.into();

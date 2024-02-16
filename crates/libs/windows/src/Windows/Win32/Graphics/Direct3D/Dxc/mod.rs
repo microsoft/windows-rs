@@ -947,6 +947,7 @@ pub const CLSID_DxcLibrary: ::windows_core::GUID = ::windows_core::GUID::from_u1
 pub const CLSID_DxcLinker: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xef6a8087_b0ea_4d56_9e45_d07e1a8b7806);
 pub const CLSID_DxcOptimizer: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xae2cd79f_cc22_453f_9b6b_b124e7a5204c);
 pub const CLSID_DxcPdbUtils: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x54621dfb_f2ce_457e_ae8c_ec355faeec7c);
+pub const CLSID_DxcUtils: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6245d6af_66e0_48fd_80b4_4d271796748c);
 pub const CLSID_DxcValidator: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8ca3e215_f728_4cf3_8cdd_88af917587a1);
 pub const DXC_ARG_ALL_RESOURCES_BOUND: ::windows_core::PCWSTR = ::windows_core::w!("-all_resources_bound");
 pub const DXC_ARG_AVOID_FLOW_CONTROL: ::windows_core::PCWSTR = ::windows_core::w!("-Gfa");

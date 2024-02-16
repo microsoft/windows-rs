@@ -339,6 +339,37 @@ impl ILockBytes_Vtbl {
         iid == &<ILockBytes as ::windows_core::Interface>::IID
     }
 }
+pub trait IMemoryAllocator_Impl: Sized {
+    fn Allocate(&self, cbsize: u32) -> *mut ::core::ffi::c_void;
+    fn Free(&self, pv: *mut ::core::ffi::c_void);
+}
+impl IMemoryAllocator_Vtbl {
+    pub const fn new<Impl: IMemoryAllocator_Impl>() -> IMemoryAllocator_Vtbl {
+        unsafe extern "system" fn Allocate<Impl: IMemoryAllocator_Impl>(this: *mut ::core::ffi::c_void, cbsize: u32) -> *mut ::core::ffi::c_void {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows_core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
+            this.Allocate(::core::mem::transmute_copy(&cbsize))
+        }
+        unsafe extern "system" fn Free<Impl: IMemoryAllocator_Impl>(this: *mut ::core::ffi::c_void, pv: *mut ::core::ffi::c_void) {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows_core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
+            this.Free(::core::mem::transmute_copy(&pv))
+        }
+        Self { Allocate: Allocate::<Impl>, Free: Free::<Impl> }
+    }
+}
+#[doc(hidden)]
+struct IMemoryAllocator_ImplVtbl<T: IMemoryAllocator_Impl>(::std::marker::PhantomData<T>);
+impl<T: IMemoryAllocator_Impl> IMemoryAllocator_ImplVtbl<T> {
+    const VTABLE: IMemoryAllocator_Vtbl = IMemoryAllocator_Vtbl::new::<T>();
+}
+impl IMemoryAllocator {
+    pub fn new<'a, T: IMemoryAllocator_Impl>(this: &'a T) -> ::windows_core::ScopedInterface<'a, Self> {
+        let this = ::windows_core::ScopedHeap { vtable: &IMemoryAllocator_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
+        let this = ::std::mem::ManuallyDrop::new(::std::boxed::Box::new(this));
+        unsafe { ::windows_core::ScopedInterface::new(::std::mem::transmute(&this.vtable)) }
+    }
+}
 pub trait IPersistStorage_Impl: Sized + super::IPersist_Impl {
     fn IsDirty(&self) -> ::windows_core::HRESULT;
     fn InitNew(&self, pstg: ::core::option::Option<&IStorage>) -> ::windows_core::Result<()>;

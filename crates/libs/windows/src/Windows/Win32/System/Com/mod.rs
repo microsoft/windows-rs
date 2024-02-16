@@ -2563,19 +2563,23 @@ impl IMoniker {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetSizeMax)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn BindToObject<P0, P1>(&self, pbc: P0, pmktoleft: P1, riidresult: *const ::windows_core::GUID, ppvresult: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>
+    pub unsafe fn BindToObject<P0, P1, T>(&self, pbc: P0, pmktoleft: P1) -> ::windows_core::Result<T>
     where
         P0: ::windows_core::IntoParam<IBindCtx>,
         P1: ::windows_core::IntoParam<IMoniker>,
+        T: ::windows_core::Interface,
     {
-        (::windows_core::Interface::vtable(self).BindToObject)(::windows_core::Interface::as_raw(self), pbc.into_param().abi(), pmktoleft.into_param().abi(), riidresult, ppvresult).ok()
+        let mut result__ = ::std::ptr::null_mut();
+        (::windows_core::Interface::vtable(self).BindToObject)(::windows_core::Interface::as_raw(self), pbc.into_param().abi(), pmktoleft.into_param().abi(), &T::IID, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn BindToStorage<P0, P1>(&self, pbc: P0, pmktoleft: P1, riid: *const ::windows_core::GUID, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>
+    pub unsafe fn BindToStorage<P0, P1, T>(&self, pbc: P0, pmktoleft: P1) -> ::windows_core::Result<T>
     where
         P0: ::windows_core::IntoParam<IBindCtx>,
         P1: ::windows_core::IntoParam<IMoniker>,
+        T: ::windows_core::Interface,
     {
-        (::windows_core::Interface::vtable(self).BindToStorage)(::windows_core::Interface::as_raw(self), pbc.into_param().abi(), pmktoleft.into_param().abi(), riid, ppvobj).ok()
+        let mut result__ = ::std::ptr::null_mut();
+        (::windows_core::Interface::vtable(self).BindToStorage)(::windows_core::Interface::as_raw(self), pbc.into_param().abi(), pmktoleft.into_param().abi(), &T::IID, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Reduce<P0>(&self, pbc: P0, dwreducehowfar: u32, ppmktoleft: *mut ::core::option::Option<IMoniker>, ppmkreduced: *mut ::core::option::Option<IMoniker>) -> ::windows_core::Result<()>
     where

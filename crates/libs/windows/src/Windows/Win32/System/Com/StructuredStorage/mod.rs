@@ -617,6 +617,14 @@ where
     SetConvertStg(pstg.into_param().abi(), fconvert.into_param().abi()).ok()
 }
 #[inline]
+pub unsafe fn StgConvertPropertyToVariant<P0>(pprop: *const SERIALIZEDPROPERTYVALUE, codepage: u16, pvar: *mut ::windows_core::PROPVARIANT, pma: P0) -> super::super::super::Foundation::BOOLEAN
+where
+    P0: ::windows_core::IntoParam<IMemoryAllocator>,
+{
+    ::windows_targets::link!("ole32.dll" "system" fn StgConvertPropertyToVariant(pprop : *const SERIALIZEDPROPERTYVALUE, codepage : u16, pvar : *mut ::std::mem::MaybeUninit <::windows_core::PROPVARIANT >, pma : * mut::core::ffi::c_void) -> super::super::super::Foundation:: BOOLEAN);
+    StgConvertPropertyToVariant(pprop, codepage, ::core::mem::transmute(pvar), pma.into_param().abi())
+}
+#[inline]
 pub unsafe fn StgConvertVariantToProperty<P0>(pvar: *const ::windows_core::PROPVARIANT, codepage: u16, pprop: ::core::option::Option<*mut SERIALIZEDPROPERTYVALUE>, pcb: *mut u32, pid: u32, freserved: P0, pcindirect: ::core::option::Option<*mut u32>) -> *mut SERIALIZEDPROPERTYVALUE
 where
     P0: ::windows_core::IntoParam<super::super::super::Foundation::BOOLEAN>,
@@ -1022,6 +1030,20 @@ pub struct ILockBytes_Vtbl {
     pub LockRegion: unsafe extern "system" fn(*mut ::core::ffi::c_void, u64, u64, u32) -> ::windows_core::HRESULT,
     pub UnlockRegion: unsafe extern "system" fn(*mut ::core::ffi::c_void, u64, u64, u32) -> ::windows_core::HRESULT,
     pub Stat: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::STATSTG, u32) -> ::windows_core::HRESULT,
+}
+::windows_core::imp::interface!(IMemoryAllocator, IMemoryAllocator_Vtbl);
+impl IMemoryAllocator {
+    pub unsafe fn Allocate(&self, cbsize: u32) -> *mut ::core::ffi::c_void {
+        (::windows_core::Interface::vtable(self).Allocate)(::windows_core::Interface::as_raw(self), cbsize)
+    }
+    pub unsafe fn Free(&self, pv: *mut ::core::ffi::c_void) {
+        (::windows_core::Interface::vtable(self).Free)(::windows_core::Interface::as_raw(self), pv)
+    }
+}
+#[repr(C)]
+pub struct IMemoryAllocator_Vtbl {
+    pub Allocate: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> *mut ::core::ffi::c_void,
+    pub Free: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void),
 }
 ::windows_core::imp::com_interface!(IPersistStorage, IPersistStorage_Vtbl, 0x0000010a_0000_0000_c000_000000000046);
 ::windows_core::imp::interface_hierarchy!(IPersistStorage, ::windows_core::IUnknown, super::IPersist);
