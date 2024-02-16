@@ -78,37 +78,29 @@ impl<'a> Iterator for ValueIterator<'a> {
                         if value_len == 0 {
                             Value::String(String::new())
                         } else {
-                            let mut value = unsafe {
+                            let value = unsafe {
                                 std::slice::from_raw_parts(
                                     self.value.as_ptr() as *const u16,
                                     value_len as usize / 2,
                                 )
                             };
 
-                            while value.last() == Some(&0) {
-                                value = value.split_at(value.len() - 1).0;
-                            }
-
-                            Value::String(String::from_utf16_lossy(value))
+                            Value::String(String::from_utf16_lossy(trim(value)))
                         }
                     }
                     REG_MULTI_SZ => {
                         if value_len == 0 {
                             Value::MultiString(vec![])
                         } else {
-                            let mut value = unsafe {
+                            let value = unsafe {
                                 std::slice::from_raw_parts(
                                     self.value.as_ptr() as *const u16,
                                     value_len as usize / 2,
                                 )
                             };
 
-                            while value.last() == Some(&0) {
-                                value = value.split_at(value.len() - 1).0;
-                            }
-
                             Value::MultiString(
-                                value
+                                trim(value)
                                     .split(|c| *c == 0)
                                     .map(String::from_utf16_lossy)
                                     .collect(),

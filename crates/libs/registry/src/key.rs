@@ -162,12 +162,7 @@ impl Key {
                 };
 
                 win32_error(result)?;
-
-                while value.last() == Some(&0) {
-                    value.pop();
-                }
-
-                Ok(Value::String(String::from_utf16_lossy(&value)))
+                Ok(Value::String(String::from_utf16_lossy(trim(&value))))
             }
             REG_MULTI_SZ => {
                 let mut value = vec![0u16; len as usize / 2];
@@ -185,12 +180,8 @@ impl Key {
 
                 win32_error(result)?;
 
-                while value.last() == Some(&0) {
-                    value.pop();
-                }
-
                 Ok(Value::MultiString(
-                    value
+                    trim(&value)
                         .split(|c| *c == 0)
                         .map(String::from_utf16_lossy)
                         .collect(),

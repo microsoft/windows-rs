@@ -35,14 +35,19 @@ pub const LOCAL_MACHINE: &Key = &Key(HKEY_LOCAL_MACHINE);
 /// The predefined `HKEY_USERS` registry key.
 pub const USERS: &Key = &Key(HKEY_USERS);
 
-// TODO: other shortcuts?
-
 fn pcwstr<T: AsRef<str>>(value: T) -> Vec<u16> {
     value
         .as_ref()
         .encode_utf16()
         .chain(std::iter::once(0))
         .collect()
+}
+
+fn trim(mut value: &[u16]) -> &[u16] {
+    while value.last() == Some(&0) {
+        value = &value[..value.len() - 1];
+    }
+    value
 }
 
 fn win32_error(result: u32) -> Result<()> {
