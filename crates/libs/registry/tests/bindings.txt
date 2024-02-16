@@ -1,0 +1,30 @@
+--out src/bindings.rs
+--config flatten sys minimal
+
+--filter
+    Windows.Win32.Foundation.ERROR_INVALID_DATA
+    Windows.Win32.Foundation.ERROR_NO_MORE_ITEMS
+    Windows.Win32.System.Registry.HKEY_CLASSES_ROOT
+    Windows.Win32.System.Registry.HKEY_CURRENT_CONFIG
+    Windows.Win32.System.Registry.HKEY_CURRENT_USER
+    Windows.Win32.System.Registry.HKEY_LOCAL_MACHINE
+    Windows.Win32.System.Registry.HKEY_USERS
+    Windows.Win32.System.Registry.KEY_READ
+    Windows.Win32.System.Registry.KEY_WRITE
+    Windows.Win32.System.Registry.REG_BINARY
+    Windows.Win32.System.Registry.REG_DWORD
+    Windows.Win32.System.Registry.REG_EXPAND_SZ
+    Windows.Win32.System.Registry.REG_MULTI_SZ
+    Windows.Win32.System.Registry.REG_OPTION_NON_VOLATILE
+    Windows.Win32.System.Registry.REG_QWORD
+    Windows.Win32.System.Registry.REG_SZ
+    Windows.Win32.System.Registry.RegCloseKey
+    Windows.Win32.System.Registry.RegCreateKeyExW
+    Windows.Win32.System.Registry.RegDeleteTreeW
+    Windows.Win32.System.Registry.RegDeleteValueW
+    Windows.Win32.System.Registry.RegEnumKeyExW
+    Windows.Win32.System.Registry.RegEnumValueW
+    Windows.Win32.System.Registry.RegOpenKeyExW
+    Windows.Win32.System.Registry.RegQueryInfoKeyW
+    Windows.Win32.System.Registry.RegQueryValueExW
+    Windows.Win32.System.Registry.RegSetValueExW

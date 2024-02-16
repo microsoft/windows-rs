@@ -106,8 +106,8 @@ jobs:
           cargo test -p test_deprecated &&
           cargo test -p test_dispatch &&
           cargo test -p test_does_not_return &&
-          cargo clean &&
           cargo test -p test_enums &&
+          cargo clean &&
           cargo test -p test_error &&
           cargo test -p test_event &&
           cargo test -p test_extensions &&
@@ -126,6 +126,7 @@ jobs:
           cargo test -p test_not_dll &&
           cargo test -p test_query_signature &&
           cargo test -p test_readme &&
+          cargo test -p test_registry &&
           cargo test -p test_reserved &&
           cargo test -p test_resources &&
           cargo test -p test_result &&
@@ -162,6 +163,7 @@ jobs:
           cargo test -p windows-implement &&
           cargo test -p windows-interface &&
           cargo test -p windows-metadata &&
+          cargo test -p windows-registry &&
           cargo test -p windows-result &&
           cargo test -p windows-sys &&
           cargo test -p windows-targets &&
