@@ -3,6 +3,7 @@ use windows_result::*;
 const S_OK: HRESULT = HRESULT(0);
 const E_INVALIDARG: HRESULT = HRESULT(-2147024809i32);
 const ERROR_CANCELLED: u32 = 1223;
+const ERROR_INVALID_DATA: u32 = 13;
 const E_CANCELLED: HRESULT = HRESULT::from_win32(ERROR_CANCELLED);
 
 windows_targets::link!("kernel32.dll" "system" fn SetLastError(code: u32));
@@ -48,4 +49,16 @@ fn from_win32() {
     let e = Error::from_win32();
     assert!(e.as_ptr().is_null());
     assert_eq!(e.code(), E_CANCELLED);
+}
+
+#[test]
+fn try_from_int() {
+    fn call(value: usize) -> Result<u16> {
+        Ok(value.try_into()?)
+    }
+
+    assert_eq!(call(123), Ok(123));
+
+    let e = call(usize::MAX).unwrap_err();
+    assert_eq!(e.code(), HRESULT::from_win32(ERROR_INVALID_DATA));
 }

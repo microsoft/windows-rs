@@ -18,6 +18,7 @@
 ::windows_targets::link!("oleaut32.dll" "system" fn SysStringLen(pbstr : BSTR) -> u32);
 pub type BOOL = i32;
 pub type BSTR = *const u16;
+pub const ERROR_INVALID_DATA: WIN32_ERROR = 13u32;
 pub const ERROR_NO_UNICODE_TRANSLATION: WIN32_ERROR = 1113u32;
 pub const E_INVALIDARG: HRESULT = -2147024809i32;
 pub const E_UNEXPECTED: HRESULT = -2147418113i32;

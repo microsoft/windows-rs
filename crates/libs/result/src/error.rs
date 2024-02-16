@@ -160,7 +160,7 @@ impl From<std::string::FromUtf8Error> for Error {
 impl From<std::num::TryFromIntError> for Error {
     fn from(_: std::num::TryFromIntError) -> Self {
         Self {
-            code: HRESULT(E_INVALIDARG),
+            code: HRESULT::from_win32(ERROR_INVALID_DATA),
             info: None,
         }
     }
