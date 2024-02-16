@@ -1,0 +1,11 @@
+[package]
+name = "test_registry"
+version = "0.0.0"
+edition = "2021"
+publish = false
+
+[dependencies.windows-registry]
+path = "../../libs/registry"
+
+[dependencies.windows-result]
+path = "../../libs/result"
