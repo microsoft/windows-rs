@@ -53,7 +53,7 @@ fn from_win32() {
 
 #[test]
 fn try_from_int() {
-    fn call(value: usize) -> Result<u32> {
+    fn call(value: usize) -> Result<u16> {
         Ok(value.try_into()?)
     }
 
