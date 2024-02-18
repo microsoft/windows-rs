@@ -8,6 +8,7 @@ mod extensions;
 mod functions;
 mod handles;
 mod implements;
+mod index;
 mod interfaces;
 mod iterators;
 mod method_names;
@@ -16,9 +17,12 @@ mod structs;
 mod try_format;
 mod winrt_methods;
 mod writer;
+
 use super::*;
 use crate::Result;
+use index::*;
 use rayon::prelude::*;
+use writer::*;
 
 pub fn from_reader(reader: &'static metadata::Reader, mut config: std::collections::BTreeMap<&str, &str>, output: &str) -> Result<()> {
     let mut writer = Writer::new(reader, output);
@@ -102,7 +106,8 @@ fn gen_package(writer: &Writer) -> Result<()> {
         Ok::<(), Error>(())
     })?;
 
-    let cargo_toml = format!("{}/Cargo.toml", super::directory(directory));
+    let package_root = super::directory(directory);
+    let cargo_toml = format!("{package_root}/Cargo.toml");
     let mut toml = String::new();
 
     for line in read_file_lines(&cargo_toml)? {
@@ -130,14 +135,14 @@ fn gen_package(writer: &Writer) -> Result<()> {
         }
     }
 
-    write_to_file(&cargo_toml, toml)
+    write_to_file(&cargo_toml, toml)?;
+    write_to_file(&format!("{package_root}/features.json"), gen_index(&writer))
 }
 
 use method_names::*;
 use std::fmt::Write;
 use tokens::*;
 use try_format::*;
-use writer::*;
 
 fn namespace(writer: &Writer, tree: &Tree) -> String {
     let writer = &mut writer.clone();
