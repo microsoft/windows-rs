@@ -4298,9 +4298,9 @@ pub struct IWebAppDiagnosticsSetup_Vtbl {
     pub DiagnosticsSupported: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
     pub CreateObjectWithSiteAtWebApp: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, u32, *const ::windows_core::GUID, usize) -> ::windows_core::HRESULT,
 }
-pub const ACTIVPROF_E_PROFILER_ABSENT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80040201u32 as _);
-pub const ACTIVPROF_E_PROFILER_PRESENT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80040200u32 as _);
-pub const ACTIVPROF_E_UNABLE_TO_APPLY_ACTION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80040202u32 as _);
+pub const ACTIVPROF_E_PROFILER_ABSENT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80040201_u32 as _);
+pub const ACTIVPROF_E_PROFILER_PRESENT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80040200_u32 as _);
+pub const ACTIVPROF_E_UNABLE_TO_APPLY_ACTION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80040202_u32 as _);
 pub const APPBREAKFLAG_DEBUGGER_BLOCK: u32 = 1u32;
 pub const APPBREAKFLAG_DEBUGGER_HALT: u32 = 2u32;
 pub const APPBREAKFLAG_IN_BREAKPOINT: u32 = 2147483648u32;
@@ -4362,12 +4362,12 @@ pub const ERRORRESUMEACTION_SkipErrorStatement: ERRORRESUMEACTION = ERRORRESUMEA
 pub const ETK_FIRST_CHANCE: SCRIPT_ERROR_DEBUG_EXCEPTION_THROWN_KIND = SCRIPT_ERROR_DEBUG_EXCEPTION_THROWN_KIND(0i32);
 pub const ETK_UNHANDLED: SCRIPT_ERROR_DEBUG_EXCEPTION_THROWN_KIND = SCRIPT_ERROR_DEBUG_EXCEPTION_THROWN_KIND(2i32);
 pub const ETK_USER_UNHANDLED: SCRIPT_ERROR_DEBUG_EXCEPTION_THROWN_KIND = SCRIPT_ERROR_DEBUG_EXCEPTION_THROWN_KIND(1i32);
-pub const E_JsDEBUG_INVALID_MEMORY_ADDRESS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8DC70005u32 as _);
-pub const E_JsDEBUG_MISMATCHED_RUNTIME: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8DC70001u32 as _);
-pub const E_JsDEBUG_OUTSIDE_OF_VM: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8DC70004u32 as _);
-pub const E_JsDEBUG_RUNTIME_NOT_IN_DEBUG_MODE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8DC70007u32 as _);
-pub const E_JsDEBUG_SOURCE_LOCATION_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8DC70006u32 as _);
-pub const E_JsDEBUG_UNKNOWN_THREAD: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8DC70002u32 as _);
+pub const E_JsDEBUG_INVALID_MEMORY_ADDRESS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8DC70005_u32 as _);
+pub const E_JsDEBUG_MISMATCHED_RUNTIME: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8DC70001_u32 as _);
+pub const E_JsDEBUG_OUTSIDE_OF_VM: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8DC70004_u32 as _);
+pub const E_JsDEBUG_RUNTIME_NOT_IN_DEBUG_MODE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8DC70007_u32 as _);
+pub const E_JsDEBUG_SOURCE_LOCATION_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8DC70006_u32 as _);
+pub const E_JsDEBUG_UNKNOWN_THREAD: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8DC70002_u32 as _);
 pub const FACILITY_JsDEBUG: u32 = 3527u32;
 pub const FILTER_EXCLUDE_ANONYMOUS_CODE: APPLICATION_NODE_EVENT_FILTER = APPLICATION_NODE_EVENT_FILTER(1i32);
 pub const FILTER_EXCLUDE_EVAL_CODE: APPLICATION_NODE_EVENT_FILTER = APPLICATION_NODE_EVENT_FILTER(2i32);

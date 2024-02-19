@@ -258,14 +258,14 @@ pub const RECONCILEF_OMITSELFRESIDUE: RECONCILEF = RECONCILEF(8i32);
 pub const RECONCILEF_ONLYYOUWERECHANGED: RECONCILEF = RECONCILEF(64i32);
 pub const RECONCILEF_RESUMERECONCILIATION: RECONCILEF = RECONCILEF(16i32);
 pub const RECONCILEF_YOUMAYDOTHEUPDATES: RECONCILEF = RECONCILEF(32i32);
-pub const REC_E_ABORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80041000u32 as _);
-pub const REC_E_INEEDTODOTHEUPDATES: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80041004u32 as _);
-pub const REC_E_NOCALLBACK: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80041001u32 as _);
-pub const REC_E_NORESIDUES: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80041002u32 as _);
-pub const REC_E_TOODIFFERENT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80041003u32 as _);
-pub const REC_S_IDIDTHEUPDATES: ::windows_core::HRESULT = ::windows_core::HRESULT(0x41000u32 as _);
-pub const REC_S_NOTCOMPLETE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x41001u32 as _);
-pub const REC_S_NOTCOMPLETEBUTPROPAGATE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x41002u32 as _);
+pub const REC_E_ABORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80041000_u32 as _);
+pub const REC_E_INEEDTODOTHEUPDATES: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80041004_u32 as _);
+pub const REC_E_NOCALLBACK: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80041001_u32 as _);
+pub const REC_E_NORESIDUES: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80041002_u32 as _);
+pub const REC_E_TOODIFFERENT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80041003_u32 as _);
+pub const REC_S_IDIDTHEUPDATES: ::windows_core::HRESULT = ::windows_core::HRESULT(0x41000_u32 as _);
+pub const REC_S_NOTCOMPLETE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x41001_u32 as _);
+pub const REC_S_NOTCOMPLETEBUTPROPAGATE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x41002_u32 as _);
 pub const STATEBITS_FLAT: u32 = 1u32;
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
