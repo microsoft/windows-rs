@@ -1,6 +1,5 @@
 #![allow(non_snake_case)]
 
-use std::convert::TryFrom;
 use windows::{core::*, Foundation::Collections::*, Win32::Foundation::E_BOUNDS};
 
 #[test]
