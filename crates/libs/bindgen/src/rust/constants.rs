@@ -35,14 +35,18 @@ pub fn writer(writer: &Writer, def: metadata::Field) -> TokenStream {
             }
         } else {
             let kind = writer.type_default_name(&ty);
-            let value = writer.value(&constant.value());
+            let mut value = writer.value(&constant.value());
             let underlying_type = type_underlying_type(&ty);
 
-            let value = if underlying_type == constant_type {
-                value
+            if underlying_type == constant_type {
+                if ty == metadata::Type::HRESULT {
+                    if let metadata::Value::I32(signed) = constant.value() {
+                        value = format!("0x{:X}u32 as _", signed).into();
+                    }
+                }
             } else {
-                quote! { #value as _ }
-            };
+                value = quote! { #value as _ };
+            }
 
             if !writer.sys && type_has_replacement(&ty) {
                 quote! {
