@@ -28,7 +28,7 @@ impl ::core::fmt::Debug for AgileReferenceOptions {
         f.debug_tuple("AgileReferenceOptions").field(&self.0).finish()
     }
 }
-pub const CO_E_NOTINITIALIZED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800401F0u32 as _);
+pub const CO_E_NOTINITIALIZED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800401F0_u32 as _);
 #[repr(C)]
 pub struct DateTime {
     pub UniversalTime: i64,
@@ -61,9 +61,9 @@ impl ::core::default::Default for DateTime {
         unsafe { ::core::mem::zeroed() }
     }
 }
-pub const E_BOUNDS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8000000Bu32 as _);
-pub const E_NOINTERFACE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80004002u32 as _);
-pub const E_OUTOFMEMORY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8007000Eu32 as _);
+pub const E_BOUNDS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8000000B_u32 as _);
+pub const E_NOINTERFACE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80004002_u32 as _);
+pub const E_OUTOFMEMORY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8007000E_u32 as _);
 ::windows_core::imp::com_interface!(IAgileObject, IAgileObject_Vtbl, 0x94ea2b94_e9cc_49e0_c0ff_ee64ca8f5b90);
 ::windows_core::imp::interface_hierarchy!(IAgileObject, ::windows_core::IUnknown);
 impl IAgileObject {}
@@ -696,7 +696,7 @@ pub struct IWeakReferenceSource_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetWeakReference: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-pub const JSCRIPT_E_CANTEXECUTE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x89020001u32 as _);
+pub const JSCRIPT_E_CANTEXECUTE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x89020001_u32 as _);
 #[repr(C)]
 pub struct Point {
     pub X: f32,
@@ -1035,7 +1035,7 @@ impl PropertyValue {
 impl ::windows_core::RuntimeName for PropertyValue {
     const NAME: &'static str = "Windows.Foundation.PropertyValue";
 }
-pub const RPC_E_DISCONNECTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80010108u32 as _);
+pub const RPC_E_DISCONNECTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80010108_u32 as _);
 #[repr(C)]
 pub struct Rect {
     pub X: f32,
@@ -1104,7 +1104,7 @@ impl ::core::default::Default for Size {
         unsafe { ::core::mem::zeroed() }
     }
 }
-pub const TYPE_E_TYPEMISMATCH: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80028CA0u32 as _);
+pub const TYPE_E_TYPEMISMATCH: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80028CA0_u32 as _);
 #[repr(C)]
 pub struct TimeSpan {
     pub Duration: i64,

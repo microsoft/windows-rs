@@ -41,7 +41,7 @@ pub fn writer(writer: &Writer, def: metadata::Field) -> TokenStream {
             if underlying_type == constant_type {
                 if ty == metadata::Type::HRESULT {
                     if let metadata::Value::I32(signed) = constant.value() {
-                        value = format!("0x{:X}u32 as _", signed).into();
+                        value = format!("0x{:X}_u32 as _", signed).into();
                     }
                 }
             } else {
