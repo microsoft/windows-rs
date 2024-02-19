@@ -1,4 +1,3 @@
-use std::convert::TryInto;
 use windows::{Foundation::Uri, Win32::Foundation::E_NOINTERFACE};
 
 #[test]

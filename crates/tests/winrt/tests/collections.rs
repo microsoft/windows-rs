@@ -1,5 +1,4 @@
 use core::convert::*;
-use core::iter::FromIterator;
 
 use windows::{
     core::Interface,
