@@ -95,11 +95,11 @@ pub const PKEY_WCN_SSID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY 
 pub const SID_WcnProvider: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc100beca_d33a_4a4b_bf23_bbef4663d017);
 pub const WCNDeviceObject: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc100bea7_d33a_4a4b_bf23_bbef4663d017);
 pub const WCN_API_MAX_BUFFER_SIZE: u32 = 2096u32;
-pub const WCN_E_AUTHENTICATION_FAILED: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147206142i32);
-pub const WCN_E_CONNECTION_REJECTED: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147206141i32);
-pub const WCN_E_PEER_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147206143i32);
-pub const WCN_E_PROTOCOL_ERROR: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147206139i32);
-pub const WCN_E_SESSION_TIMEDOUT: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147206140i32);
+pub const WCN_E_AUTHENTICATION_FAILED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80043C02u32 as _);
+pub const WCN_E_CONNECTION_REJECTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80043C03u32 as _);
+pub const WCN_E_PEER_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80043C01u32 as _);
+pub const WCN_E_PROTOCOL_ERROR: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80043C05u32 as _);
+pub const WCN_E_SESSION_TIMEDOUT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80043C04u32 as _);
 pub const WCN_FLAG_AUTHENTICATED_VE: u32 = 2u32;
 pub const WCN_FLAG_DISCOVERY_VE: u32 = 1u32;
 pub const WCN_FLAG_ENCRYPTED_VE: u32 = 4u32;

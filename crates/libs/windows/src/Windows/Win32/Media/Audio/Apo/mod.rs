@@ -325,20 +325,20 @@ pub struct IAudioSystemEffectsCustomFormats_Vtbl {
     pub GetFormat: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetFormatRepresentation: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
 }
-pub const APOERR_ALREADY_INITIALIZED: ::windows_core::HRESULT = ::windows_core::HRESULT(-2005073919i32);
-pub const APOERR_ALREADY_UNLOCKED: ::windows_core::HRESULT = ::windows_core::HRESULT(-2005073914i32);
-pub const APOERR_APO_LOCKED: ::windows_core::HRESULT = ::windows_core::HRESULT(-2005073910i32);
-pub const APOERR_BUFFERS_OVERLAP: ::windows_core::HRESULT = ::windows_core::HRESULT(-2005073915i32);
-pub const APOERR_FORMAT_NOT_SUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(-2005073917i32);
-pub const APOERR_INVALID_APO_CLSID: ::windows_core::HRESULT = ::windows_core::HRESULT(-2005073916i32);
-pub const APOERR_INVALID_COEFFCOUNT: ::windows_core::HRESULT = ::windows_core::HRESULT(-2005073909i32);
-pub const APOERR_INVALID_COEFFICIENT: ::windows_core::HRESULT = ::windows_core::HRESULT(-2005073908i32);
-pub const APOERR_INVALID_CONNECTION_FORMAT: ::windows_core::HRESULT = ::windows_core::HRESULT(-2005073911i32);
-pub const APOERR_INVALID_CURVE_PARAM: ::windows_core::HRESULT = ::windows_core::HRESULT(-2005073907i32);
-pub const APOERR_INVALID_INPUTID: ::windows_core::HRESULT = ::windows_core::HRESULT(-2005073906i32);
-pub const APOERR_INVALID_OUTPUT_MAXFRAMECOUNT: ::windows_core::HRESULT = ::windows_core::HRESULT(-2005073912i32);
-pub const APOERR_NOT_INITIALIZED: ::windows_core::HRESULT = ::windows_core::HRESULT(-2005073918i32);
-pub const APOERR_NUM_CONNECTIONS_INVALID: ::windows_core::HRESULT = ::windows_core::HRESULT(-2005073913i32);
+pub const APOERR_ALREADY_INITIALIZED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x887D0001u32 as _);
+pub const APOERR_ALREADY_UNLOCKED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x887D0006u32 as _);
+pub const APOERR_APO_LOCKED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x887D000Au32 as _);
+pub const APOERR_BUFFERS_OVERLAP: ::windows_core::HRESULT = ::windows_core::HRESULT(0x887D0005u32 as _);
+pub const APOERR_FORMAT_NOT_SUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x887D0003u32 as _);
+pub const APOERR_INVALID_APO_CLSID: ::windows_core::HRESULT = ::windows_core::HRESULT(0x887D0004u32 as _);
+pub const APOERR_INVALID_COEFFCOUNT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x887D000Bu32 as _);
+pub const APOERR_INVALID_COEFFICIENT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x887D000Cu32 as _);
+pub const APOERR_INVALID_CONNECTION_FORMAT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x887D0009u32 as _);
+pub const APOERR_INVALID_CURVE_PARAM: ::windows_core::HRESULT = ::windows_core::HRESULT(0x887D000Du32 as _);
+pub const APOERR_INVALID_INPUTID: ::windows_core::HRESULT = ::windows_core::HRESULT(0x887D000Eu32 as _);
+pub const APOERR_INVALID_OUTPUT_MAXFRAMECOUNT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x887D0008u32 as _);
+pub const APOERR_NOT_INITIALIZED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x887D0002u32 as _);
+pub const APOERR_NUM_CONNECTIONS_INVALID: ::windows_core::HRESULT = ::windows_core::HRESULT(0x887D0007u32 as _);
 pub const APO_CONNECTION_BUFFER_TYPE_ALLOCATED: APO_CONNECTION_BUFFER_TYPE = APO_CONNECTION_BUFFER_TYPE(0i32);
 pub const APO_CONNECTION_BUFFER_TYPE_DEPENDANT: APO_CONNECTION_BUFFER_TYPE = APO_CONNECTION_BUFFER_TYPE(2i32);
 pub const APO_CONNECTION_BUFFER_TYPE_EXTERNAL: APO_CONNECTION_BUFFER_TYPE = APO_CONNECTION_BUFFER_TYPE(1i32);

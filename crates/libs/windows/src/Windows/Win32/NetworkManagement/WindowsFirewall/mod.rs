@@ -2907,7 +2907,7 @@ pub const NetFwProduct: ::windows_core::GUID = ::windows_core::GUID::from_u128(0
 pub const NetFwProducts: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcc19079b_8272_4d73_bb70_cdb533527b61);
 pub const NetFwRule: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2c5bc43e_3369_4c33_ab0c_be9469677af4);
 pub const NetSharingManager: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5c63c1ad_3956_4ff8_8486_40034758315b);
-pub const S_OBJECT_NO_LONGER_VALID: ::windows_core::HRESULT = ::windows_core::HRESULT(2i32);
+pub const S_OBJECT_NO_LONGER_VALID: ::windows_core::HRESULT = ::windows_core::HRESULT(0x2u32 as _);
 pub const UPnPNAT: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xae1e00aa_3fd5_403c_8a27_2bbdc30cd0e1);
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]

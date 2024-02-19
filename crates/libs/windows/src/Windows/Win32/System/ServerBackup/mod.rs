@@ -70,7 +70,7 @@ pub struct IWsbApplicationRestoreSupport_Vtbl {
     pub OrderComponents: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const ::windows_core::PCWSTR, *const ::windows_core::PCWSTR, *mut *mut ::windows_core::PWSTR, *mut *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
     pub IsRollForwardSupported: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u8) -> ::windows_core::HRESULT,
 }
-pub const WSBAPP_ASYNC_IN_PROGRESS: ::windows_core::HRESULT = ::windows_core::HRESULT(7995396i32);
+pub const WSBAPP_ASYNC_IN_PROGRESS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x7A0004u32 as _);
 pub const WSB_MAX_OB_STATUS_ENTRY: u32 = 5u32;
 pub const WSB_MAX_OB_STATUS_VALUE_TYPE_PAIR: u32 = 5u32;
 pub const WSB_OB_ET_DATETIME: WSB_OB_STATUS_ENTRY_PAIR_TYPE = WSB_OB_STATUS_ENTRY_PAIR_TYPE(3i32);
