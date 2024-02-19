@@ -11,7 +11,7 @@ use windows::{
     Win32::Security::Authorization::*,
     Win32::System::Com::StructuredStorage::*,
     Win32::System::Com::*,
-    Win32::System::{Com::CreateUri, Diagnostics::Debug::*, Threading::*},
+    Win32::System::{Diagnostics::Debug::*, Threading::*},
     Win32::UI::{
         Accessibility::UIA_ScrollPatternNoScroll,
         Animation::UIAnimationManager,
@@ -19,9 +19,6 @@ use windows::{
         WindowsAndMessaging::{PROPENUMPROCA, PROPENUMPROCW, WM_KEYUP},
     },
 };
-
-use std::convert::TryInto;
-use windows::core::GUID;
 
 #[test]
 fn signed_enum32() {

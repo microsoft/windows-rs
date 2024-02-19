@@ -8,8 +8,6 @@ macro_rules! com_call {
     }
 }
 
-pub use com_call;
-
 #[repr(transparent)]
 pub struct ComPtr(std::ptr::NonNull<std::ffi::c_void>);
 

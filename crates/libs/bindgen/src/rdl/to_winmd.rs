@@ -1,6 +1,5 @@
 use super::*;
-use crate::winmd::{self, writer};
-use crate::Result;
+use crate::winmd::writer;
 
 // TODO: store span in winmd so that errors resolving type references can be traced back to file/line/column
 use std::collections::HashMap;
