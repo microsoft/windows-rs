@@ -1,5 +1,4 @@
 use super::*;
-use crate::Result;
 use tokens::{quote, to_ident, TokenStream};
 
 pub fn from_reader(reader: &'static metadata::Reader, mut config: std::collections::BTreeMap<&str, &str>, output: &str) -> Result<()> {
