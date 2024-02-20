@@ -11689,7 +11689,7 @@ impl NTSTATUS {
     }
     #[inline]
     pub const fn to_hresult(self) -> ::windows_core::HRESULT {
-        ::windows_core::HRESULT(self.0 | 0x1000_0000)
+        ::windows_core::HRESULT::from_nt(self.0)
     }
     #[inline]
     pub fn ok(self) -> ::windows_core::Result<()> {
