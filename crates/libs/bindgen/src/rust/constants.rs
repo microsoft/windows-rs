@@ -39,7 +39,7 @@ pub fn writer(writer: &Writer, def: metadata::Field) -> TokenStream {
             let underlying_type = type_underlying_type(&ty);
 
             if underlying_type == constant_type {
-                if ty == metadata::Type::HRESULT {
+                if is_signed_error(&ty) {
                     if let metadata::Value::I32(signed) = constant.value() {
                         value = format!("0x{:X}_u32 as _", signed).into();
                     }
@@ -75,6 +75,14 @@ pub fn writer(writer: &Writer, def: metadata::Field) -> TokenStream {
         }
     } else {
         quote! {}
+    }
+}
+
+fn is_signed_error(ty: &metadata::Type) -> bool {
+    match ty {
+        metadata::Type::HRESULT => true,
+        metadata::Type::TypeDef(def, _) => def.type_name() == metadata::TypeName::NTSTATUS,
+        _ => false,
     }
 }
 
