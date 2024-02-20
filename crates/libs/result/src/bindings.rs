@@ -12,6 +12,7 @@
 ::windows_targets::link!("kernel32.dll" "system" fn GetLastError() -> WIN32_ERROR);
 ::windows_targets::link!("kernel32.dll" "system" fn GetProcessHeap() -> HANDLE);
 ::windows_targets::link!("kernel32.dll" "system" fn HeapFree(hheap : HANDLE, dwflags : HEAP_FLAGS, lpmem : *const ::core::ffi::c_void) -> BOOL);
+::windows_targets::link!("kernel32.dll" "system" fn LoadLibraryExA(lplibfilename : PCSTR, hfile : HANDLE, dwflags : LOAD_LIBRARY_FLAGS) -> HMODULE);
 ::windows_targets::link!("oleaut32.dll" "system" fn GetErrorInfo(dwreserved : u32, pperrinfo : *mut * mut::core::ffi::c_void) -> HRESULT);
 ::windows_targets::link!("oleaut32.dll" "system" fn SetErrorInfo(dwreserved : u32, perrinfo : * mut::core::ffi::c_void) -> HRESULT);
 ::windows_targets::link!("oleaut32.dll" "system" fn SysFreeString(bstrstring : BSTR));
@@ -23,6 +24,7 @@ pub const ERROR_NO_UNICODE_TRANSLATION: WIN32_ERROR = 1113u32;
 pub const E_INVALIDARG: HRESULT = 0x80070057_u32 as _;
 pub const E_UNEXPECTED: HRESULT = 0x8000FFFF_u32 as _;
 pub const FORMAT_MESSAGE_ALLOCATE_BUFFER: FORMAT_MESSAGE_OPTIONS = 256u32;
+pub const FORMAT_MESSAGE_FROM_HMODULE: FORMAT_MESSAGE_OPTIONS = 2048u32;
 pub const FORMAT_MESSAGE_FROM_SYSTEM: FORMAT_MESSAGE_OPTIONS = 4096u32;
 pub const FORMAT_MESSAGE_IGNORE_INSERTS: FORMAT_MESSAGE_OPTIONS = 512u32;
 pub type FORMAT_MESSAGE_OPTIONS = u32;
@@ -51,6 +53,7 @@ impl GUID {
 }
 pub type HANDLE = isize;
 pub type HEAP_FLAGS = u32;
+pub type HMODULE = isize;
 pub type HRESULT = i32;
 pub const IID_IErrorInfo: GUID = GUID::from_u128(0x1cf2b120_547d_101b_8e65_08002b2bd119);
 #[repr(C)]
@@ -86,6 +89,9 @@ pub struct IUnknown_Vtbl {
     pub AddRef: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub Release: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
 }
+pub type LOAD_LIBRARY_FLAGS = u32;
+pub const LOAD_LIBRARY_SEARCH_DEFAULT_DIRS: LOAD_LIBRARY_FLAGS = 4096u32;
+pub type PCSTR = *const u8;
 pub type PCWSTR = *const u16;
 pub type PWSTR = *mut u16;
 pub type WIN32_ERROR = u32;

@@ -65,14 +65,26 @@ impl HRESULT {
     /// The error message describing the error.
     pub fn message(&self) -> String {
         let mut message = HeapString::default();
+        let mut code = self.0;
+        let mut module = 0;
+
+        let mut flags = FORMAT_MESSAGE_ALLOCATE_BUFFER
+            | FORMAT_MESSAGE_FROM_SYSTEM
+            | FORMAT_MESSAGE_IGNORE_INSERTS;
 
         unsafe {
+            if self.0 & 0x1000_0000 == 0x1000_0000 {
+                code ^= 0x1000_0000;
+                flags |= FORMAT_MESSAGE_FROM_HMODULE;
+
+                module =
+                    LoadLibraryExA(b"ntdll.dll\0".as_ptr(), 0, LOAD_LIBRARY_SEARCH_DEFAULT_DIRS);
+            }
+
             let size = FormatMessageW(
-                FORMAT_MESSAGE_ALLOCATE_BUFFER
-                    | FORMAT_MESSAGE_FROM_SYSTEM
-                    | FORMAT_MESSAGE_IGNORE_INSERTS,
-                std::ptr::null(),
-                self.0 as u32,
+                flags,
+                module as _,
+                code as _,
                 0,
                 &mut message.0 as *mut _ as *mut _,
                 0,
@@ -97,6 +109,15 @@ impl HRESULT {
         } else {
             (error & 0x0000_FFFF) | (7 << 16) | 0x8000_0000
         } as i32)
+    }
+
+    /// Maps an NT error code to an HRESULT value.
+    pub const fn from_nt(error: i32) -> Self {
+        Self(if error >= 0 {
+            error
+        } else {
+            error | 0x1000_0000
+        })
     }
 }
 
