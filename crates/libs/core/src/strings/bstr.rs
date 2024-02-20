@@ -111,12 +111,6 @@ impl TryFrom<BSTR> for String {
     }
 }
 
-impl IntoParam<PCWSTR> for &BSTR {
-    unsafe fn into_param(self) -> Param<PCWSTR> {
-        Param::Owned(PCWSTR(self.as_ptr()))
-    }
-}
-
 impl Default for BSTR {
     fn default() -> Self {
         Self(std::ptr::null_mut())
@@ -167,8 +161,4 @@ impl Drop for BSTR {
             unsafe { crate::imp::SysFreeString(self.0) }
         }
     }
-}
-
-impl TypeKind for BSTR {
-    type TypeKind = ValueType;
 }

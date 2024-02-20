@@ -63,7 +63,3 @@ impl PCWSTR {
         Decode(move || std::char::decode_utf16(self.as_wide().iter().cloned()))
     }
 }
-
-impl TypeKind for PCWSTR {
-    type TypeKind = CopyType;
-}

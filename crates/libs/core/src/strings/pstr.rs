@@ -54,7 +54,3 @@ impl PSTR {
         Decode(move || decode_utf8(self.as_bytes()))
     }
 }
-
-impl TypeKind for PSTR {
-    type TypeKind = CopyType;
-}

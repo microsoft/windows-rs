@@ -87,14 +87,6 @@ impl HSTRING {
     }
 }
 
-impl RuntimeType for HSTRING {
-    const SIGNATURE: crate::imp::ConstBuffer = crate::imp::ConstBuffer::from_slice(b"string");
-}
-
-impl TypeKind for HSTRING {
-    type TypeKind = ValueType;
-}
-
 impl Default for HSTRING {
     fn default() -> Self {
         Self::new()
@@ -394,12 +386,6 @@ impl<'a> From<&'a HSTRING> for std::ffi::OsString {
 impl From<HSTRING> for std::ffi::OsString {
     fn from(hstring: HSTRING) -> Self {
         Self::from(&hstring)
-    }
-}
-
-impl IntoParam<PCWSTR> for &HSTRING {
-    unsafe fn into_param(self) -> Param<PCWSTR> {
-        Param::Owned(PCWSTR(self.as_ptr()))
     }
 }
 
