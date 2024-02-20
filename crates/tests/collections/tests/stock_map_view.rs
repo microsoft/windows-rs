@@ -1,7 +1,6 @@
 #![allow(non_snake_case)]
 
 use std::collections::BTreeMap;
-use std::convert::{TryFrom, TryInto};
 use windows::{core::*, Foundation::Collections::*, Win32::Foundation::E_BOUNDS};
 
 #[test]

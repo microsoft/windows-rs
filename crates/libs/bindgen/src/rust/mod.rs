@@ -19,7 +19,6 @@ mod winrt_methods;
 mod writer;
 
 use super::*;
-use crate::Result;
 use index::*;
 use rayon::prelude::*;
 use writer::*;
