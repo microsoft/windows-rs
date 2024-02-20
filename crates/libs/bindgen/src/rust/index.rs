@@ -37,15 +37,15 @@ pub fn gen_index(writer: &Writer) -> String {
             cfg = match item {
                 Item::Type(def) => {
                     index_item.name = def.name().to_string();
-                    cfg.union(&type_def_cfg(&writer, def, &[]))
+                    cfg.union(&type_def_cfg(writer, def, &[]))
                 }
                 Item::Const(field) => {
                     index_item.name = field.name().to_string();
-                    cfg.union(&field_cfg(&writer, field))
+                    cfg.union(&field_cfg(writer, field))
                 }
                 Item::Fn(method, _) => {
                     index_item.name = method.name().to_string();
-                    cfg.union(&signature_cfg(&writer, method))
+                    cfg.union(&signature_cfg(writer, method))
                 }
             };
 

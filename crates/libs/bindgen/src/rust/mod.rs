@@ -135,7 +135,7 @@ fn gen_package(writer: &Writer) -> Result<()> {
     }
 
     write_to_file(&cargo_toml, toml)?;
-    write_to_file(&format!("{package_root}/features.json"), gen_index(&writer))
+    write_to_file(&format!("{package_root}/features.json"), gen_index(writer))
 }
 
 use method_names::*;
