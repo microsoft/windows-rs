@@ -31,3 +31,10 @@ features = ["full", "extra-traits"]
 [dependencies.proc-macro2]
 version = "1.0"
 features = ["span-locations"]
+
+[dependencies.serde]
+version = "1.0.196"
+features = ["derive"]
+
+[dependencies.serde_json]
+version = "1.0.113"
