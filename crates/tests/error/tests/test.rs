@@ -46,6 +46,7 @@ fn ntstatus() -> Result<()> {
     let hresult: HRESULT = STATUS_NOT_FOUND.into();
 
     assert_eq!(error.code(), hresult);
+    assert_eq!(error.message(), "The object was not found.");
     assert_eq!(STATUS_NOT_FOUND.is_ok(), false);
     assert_eq!(STATUS_NOT_FOUND.is_err(), true);
     assert_eq!(STATUS_SUCCESS.is_ok(), true);

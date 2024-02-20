@@ -3,8 +3,12 @@ use windows_result::*;
 const S_OK: HRESULT = HRESULT(0);
 const S_FALSE: HRESULT = HRESULT(1);
 const E_INVALIDARG: HRESULT = HRESULT(-2147024809i32);
+
 const ERROR_CANCELLED: u32 = 1223;
 const E_CANCELLED: HRESULT = HRESULT::from_win32(ERROR_CANCELLED);
+
+const STATUS_NOT_FOUND: i32 = -1073741275;
+const E_STATUS_NOT_FOUND: HRESULT = HRESULT::from_nt(STATUS_NOT_FOUND);
 
 #[test]
 fn is_ok() {
@@ -53,6 +57,7 @@ fn message() {
         "The operation was canceled by the user."
     );
 
+    assert_eq!(E_STATUS_NOT_FOUND.message(), "The object was not found.");
     assert_eq!(HRESULT(-1).message(), "");
 }
 
@@ -60,6 +65,14 @@ fn message() {
 fn from_win32() {
     assert_eq!(E_INVALIDARG, HRESULT::from_win32(E_INVALIDARG.0 as u32));
     assert_eq!(E_CANCELLED, HRESULT::from_win32(ERROR_CANCELLED));
+    assert_eq!(HRESULT(0), HRESULT::from_win32(0));
+}
+
+#[test]
+fn from_nt() {
+    assert_eq!(E_STATUS_NOT_FOUND, HRESULT::from_nt(STATUS_NOT_FOUND));
+    assert_eq!(S_OK, HRESULT::from_nt(0));
+    assert_eq!(HRESULT(1), HRESULT::from_nt(1));
 }
 
 #[test]
