@@ -54,20 +54,3 @@ impl PCSTR {
         Decode(move || decode_utf8(self.as_bytes()))
     }
 }
-
-impl TypeKind for PCSTR {
-    type TypeKind = CopyType;
-}
-
-#[cfg(test)]
-mod tests {
-    use super::*;
-
-    #[test]
-    fn can_display() {
-        // 💖 followed by an invalid byte sequence and then an incomplete one
-        let s = [240, 159, 146, 150, 255, 240, 159, 0];
-        let s = PCSTR::from_raw(s.as_ptr());
-        assert_eq!("💖�", format!("{}", unsafe { s.display() }));
-    }
-}

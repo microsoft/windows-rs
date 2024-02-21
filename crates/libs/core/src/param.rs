@@ -79,3 +79,15 @@ where
         Param::Owned(std::mem::transmute_copy(&self))
     }
 }
+
+impl IntoParam<PCWSTR> for &BSTR {
+    unsafe fn into_param(self) -> Param<PCWSTR> {
+        Param::Owned(PCWSTR(self.as_ptr()))
+    }
+}
+
+impl IntoParam<PCWSTR> for &HSTRING {
+    unsafe fn into_param(self) -> Param<PCWSTR> {
+        Param::Owned(PCWSTR(self.as_ptr()))
+    }
+}

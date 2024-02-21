@@ -28,3 +28,7 @@ primitives! {
     (f32, b"f4"),
     (f64, b"f8")
 }
+
+impl RuntimeType for HSTRING {
+    const SIGNATURE: crate::imp::ConstBuffer = crate::imp::ConstBuffer::from_slice(b"string");
+}

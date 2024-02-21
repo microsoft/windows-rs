@@ -25,8 +25,7 @@ extern "C" {
 }
 
 /// An internal helper for decoding an iterator of chars and displaying them
-#[doc(hidden)]
-pub struct Decode<F>(pub F);
+struct Decode<F>(pub F);
 
 impl<F, R, E> std::fmt::Display for Decode<F>
 where
