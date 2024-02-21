@@ -1,0 +1,28 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "start-react-app",
+        "type": "shell",
+        "command": "npm start",
+        "options": {
+          "cwd": "${workspaceFolder}"
+        },
+        "isBackground": true,
+        "problemMatcher": {
+          "owner": "custom",
+          "pattern": {
+            "regexp": ".",
+            "file": 1,
+            "location": 2,
+            "message": 3
+          },
+          "background": {
+            "activeOnStart": true,
+            "beginsPattern": "Compiling...",
+            "endsPattern": "Compiled successfully"
+          }
+        }
+      }
+    ]
+  }

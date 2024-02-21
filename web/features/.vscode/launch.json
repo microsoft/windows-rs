@@ -1,0 +1,12 @@
+{
+    "configurations": [
+        {
+            "name": "Launch Browser",
+            "request": "launch",
+            "type": "msedge",
+            "url": "http://localhost:3000",
+            "webRoot": "${workspaceFolder}/src",
+            "preLaunchTask": "start-react-app"
+        }
+    ]
+}
