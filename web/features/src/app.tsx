@@ -24,6 +24,7 @@ import {
 import Path from './components/path';
 import FeatureList from './components/featurelist';
 import { IWorkerMessage, IInitializeMessage, IInitializeResultMessage, ISearchMessage, ISearchResultMessage } from './worker/worker';
+import { useNavigate, useParams } from 'react-router-dom';
 
 const useStyles = makeStyles({
     root: {
@@ -121,8 +122,9 @@ function App() {
     const [worker, setWorker] = React.useState<Worker | null>(null);
     const [query, setQuery] = React.useState('');
 
+    const params = useParams();
     const branches = process.env.REACT_APP_BRANCHES!.split(',');
-    const defaultBranch = branches[0];
+    const defaultBranch = branches.includes(params.branch!) ? params.branch : branches[0];
     const [branch, setBranch] = React.useState(defaultBranch);
 
     const styles = useStyles();
@@ -189,11 +191,14 @@ function App() {
         setResultsTruncated(false);
     };
 
+    const navigate = useNavigate();
     const onBranchSelected = (
         ev: SelectionEvents,
         data: OptionOnSelectData
     ) => {
-        setBranch(data.optionValue ?? defaultBranch);
+        const branch = data.optionValue ?? defaultBranch;
+        setBranch(branch);
+        navigate(`/${branch}`, { replace: true });
     };
 
     return (
