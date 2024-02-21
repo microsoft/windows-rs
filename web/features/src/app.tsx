@@ -122,7 +122,8 @@ function App() {
     const [query, setQuery] = React.useState('');
 
     const branches = process.env.REACT_APP_BRANCHES!.split(',');
-    const defaultBranch = branches[0];
+    const desiredBranch = window.location.pathname.slice(1);
+    const defaultBranch = branches.includes(desiredBranch) ? desiredBranch : branches[0];
     const [branch, setBranch] = React.useState(defaultBranch);
 
     const styles = useStyles();
