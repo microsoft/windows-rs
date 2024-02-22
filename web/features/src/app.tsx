@@ -58,7 +58,9 @@ const useStyles = makeStyles({
     },
     searchContainer: {
         display: 'flex',
-        width: '100%'
+        flexWrap: 'wrap',
+        width: '100%',
+        ...shorthands.gap('1em')
     },
     searchInput: {
         flexGrow: 5
@@ -238,7 +240,7 @@ function App() {
                             )
                         }
                     />
-                    <Dropdown className={styles.searchBranch} value={branch} onOptionSelect={onBranchSelected}>
+                    <Dropdown size='large' className={styles.searchBranch} value={branch} onOptionSelect={onBranchSelected}>
                         {
                             branches.map((branch) => (
                                 <Option key={branch}>
