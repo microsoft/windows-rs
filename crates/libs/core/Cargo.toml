@@ -1,6 +1,6 @@
 [package]
 name = "windows-core"
-version = "0.52.0"
+version = "0.53.0"
 authors = ["Microsoft"]
 edition = "2021"
 rust-version = "1.62"
@@ -18,7 +18,7 @@ default-target = "x86_64-pc-windows-msvc"
 targets = []
 
 [dependencies.windows-targets]
-version = "0.52.0"
+version = "0.52.1"
 path = "../targets"
 
 [dependencies.windows-result]

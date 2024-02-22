@@ -3,17 +3,17 @@
 The [windows-bindgen](https://crates.io/crates/windows-bindgen) crate automatically generates Rust bindings from Windows metadata.
 
 * [Getting started](https://kennykerr.ca/rust-getting-started/)
-* [Samples](https://github.com/microsoft/windows-rs/tree/0.52.0/crates/samples) <!-- link to samples for upcoming release -->
+* [Samples](https://github.com/microsoft/windows-rs/tree/0.53.0/crates/samples) <!-- link to samples for upcoming release -->
 * [Releases](https://github.com/microsoft/windows-rs/releases)
 
 Start by adding the following to your Cargo.toml file:
 
 ```toml
 [dependencies.windows-targets]
-version = "0.52"
+version = "0.53"
 
 [dev-dependencies.windows-bindgen]
-version = "0.52"
+version = "0.53"
 ```
 
 Generates Rust bindings in a build script or test as needed:
