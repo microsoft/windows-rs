@@ -5,7 +5,7 @@ The [windows](https://crates.io/crates/windows) and [windows-sys](https://crates
 * [Getting started](https://kennykerr.ca/rust-getting-started/)
 * [Samples](https://github.com/microsoft/windows-rs/tree/master/crates/samples)  <!-- link to latest samples on repo -->
 * [Releases](https://github.com/microsoft/windows-rs/releases)
-* [Feature search](https://microsoft.github.io/windows-rs/features/)
+* [Feature search](https://microsoft.github.io/windows-rs/features/#/master)
 
 This repo is the home of the following crates (and other supporting crates):
 
