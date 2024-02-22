@@ -23,6 +23,17 @@ fn link_name() {
 }
 
 #[test]
+fn doc() {
+    windows_targets::link!("kernel32.dll" "system" "SetLastError" #[doc = "SetLastError"] fn SetLastError(code: u32) -> ());
+    windows_targets::link!("kernel32.dll" "system" #[doc = "GetLastError"] fn GetLastError() -> u32);
+
+    unsafe {
+        SetLastError(1234);
+        assert_eq!(GetLastError(), 1234);
+    }
+}
+
+#[test]
 fn cdecl() {
     windows_targets::link!("wldap32.dll" "cdecl" fn LdapMapErrorToWin32(code : i32) -> u32);
     const LDAP_BUSY: i32 = 51;
