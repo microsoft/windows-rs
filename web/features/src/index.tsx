@@ -1,4 +1,5 @@
 import * as ReactDOM from 'react-dom/client';
+import { RouterProvider, createHashRouter } from 'react-router-dom';
 import { FluentProvider, createLightTheme } from '@fluentui/react-components';
 import '@fontsource/fira-sans';
 import App from './app';
@@ -32,6 +33,12 @@ const lightTheme = {
     ...coreTheme,
 };
 
+const router = createHashRouter([
+    {
+        path: '/:branch?',
+        element: <App />
+    }
+]);
 const root = ReactDOM.createRoot(
     document.getElementById('root') as HTMLElement
 );
@@ -39,7 +46,7 @@ root.render(
     // https://github.com/microsoft/fluentui/issues/30450
     //<StrictMode>
     <FluentProvider theme={lightTheme}>
-        <App />
+        <RouterProvider router={router} />
     </FluentProvider>
     //</StrictMode>
 );
