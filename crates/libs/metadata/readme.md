@@ -10,7 +10,7 @@ Start by adding the following to your Cargo.toml file:
 
 ```toml
 [dependencies.windows-metadata]
-version = "0.52"
+version = "0.53.0"
 ```
 
 Read metadata as needed:
