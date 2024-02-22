@@ -1,0 +1,56 @@
+name: web
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: 'pages'
+  cancel-in-progress: false
+
+on:
+  pull_request:
+  push:
+    paths-ignore:
+      - '.github/ISSUE_TEMPLATE/**'
+    branches:
+      - master
+  workflow_dispatch:
+
+jobs:
+  web:
+    name: web
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: current
+
+      - name: Install dependencies
+        run: npm install
+        working-directory: web/features
+
+      - name: Build project
+        run: npm run build
+        working-directory: web/features
+
+      - name: Stage website
+        run: |
+          mkdir -p web/build/features
+          cp -r web/features/build/* web/build/features
+        if: github.event_name != 'pull_request'
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: web/build
+        if: github.event_name != 'pull_request'
+
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
+        if: github.event_name != 'pull_request'

@@ -1,0 +1,6 @@
+{
+    "xml.trace.server": "off",
+    "typescript.tsserver.log": "off",
+    "js/ts.implicitProjectConfig.target": "ES2016",
+    "typescript.tsserver.experimental.enableProjectDiagnostics": false
+}

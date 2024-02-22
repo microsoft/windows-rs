@@ -133,6 +133,8 @@ fn main() {
         &[
             "Windows.Win32.UI.WindowsAndMessaging.IDC_UPARROW",
             "Windows.Win32.Security.Cryptography.CMC_ADD_ATTRIBUTES",
+            "Windows.Win32.Foundation.E_ACCESSDENIED",
+            "Windows.Win32.Foundation.STATUS_NOT_FOUND",
         ],
     );
 

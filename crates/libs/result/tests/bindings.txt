@@ -13,9 +13,12 @@
     Windows.Win32.System.Com.IErrorInfo
     Windows.Win32.System.Com.SetErrorInfo
     Windows.Win32.System.Diagnostics.Debug.FORMAT_MESSAGE_ALLOCATE_BUFFER
+    Windows.Win32.System.Diagnostics.Debug.FORMAT_MESSAGE_FROM_HMODULE
     Windows.Win32.System.Diagnostics.Debug.FORMAT_MESSAGE_FROM_SYSTEM
     Windows.Win32.System.Diagnostics.Debug.FORMAT_MESSAGE_IGNORE_INSERTS
     Windows.Win32.System.Diagnostics.Debug.FormatMessageW
+    Windows.Win32.System.LibraryLoader.LOAD_LIBRARY_SEARCH_DEFAULT_DIRS
+    Windows.Win32.System.LibraryLoader.LoadLibraryExA
     Windows.Win32.System.Memory.GetProcessHeap
     Windows.Win32.System.Memory.HeapFree
     Windows.Win32.System.WinRT.IRestrictedErrorInfo

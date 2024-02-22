@@ -1,4 +1,3 @@
-use std::convert::TryFrom;
 use windows::core::*;
 
 #[test]

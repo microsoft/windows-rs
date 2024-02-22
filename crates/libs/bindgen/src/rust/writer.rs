@@ -1185,6 +1185,22 @@ fn const_ptrs(pointers: usize) -> TokenStream {
     "*const ".repeat(pointers).into()
 }
 
+pub fn cfg_features(cfg: &cfg::Cfg) -> Vec<String> {
+    let mut compact = Vec::<&'static str>::new();
+    for feature in cfg.types.keys() {
+        if !feature.is_empty() {
+            for pos in 0..compact.len() {
+                if starts_with(feature, unsafe { compact.get_unchecked(pos) }) {
+                    compact.remove(pos);
+                    break;
+                }
+            }
+            compact.push(feature);
+        }
+    }
+    compact.into_iter().map(to_feature).collect()
+}
+
 fn to_feature(name: &str) -> String {
     let mut feature = String::new();
 
