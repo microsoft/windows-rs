@@ -5,7 +5,7 @@ The [windows](https://crates.io/crates/windows) and [windows-sys](https://crates
 * [Getting started](https://kennykerr.ca/rust-getting-started/)
 * [Samples](https://github.com/microsoft/windows-rs/tree/0.52.0/crates/samples)
 * [Releases](https://github.com/microsoft/windows-rs/releases)
-* [Feature search](https://microsoft.github.io/windows-rs/features/0.52.0)
+* [Feature search](https://microsoft.github.io/windows-rs/features/#/0.52.0)
 
 Start by adding the following to your Cargo.toml file:
 
