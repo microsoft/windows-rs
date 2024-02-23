@@ -21,6 +21,7 @@ on:
 jobs:
   web:
     name: web
+    if: github.repository == 'microsoft/windows-rs'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
