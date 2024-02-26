@@ -10,6 +10,7 @@ features = [
     "implement",
     "Foundation",
     "Win32_Foundation",
+    "Win32_System_Rpc",
 ]
 
 [dev-dependencies]

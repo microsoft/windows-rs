@@ -173,7 +173,7 @@ impl Signature {
                     SignatureKind::ResultVoid
                 }
             }
-            Type::TypeDef(def, _) if def.type_name() == TypeName::WIN32_ERROR => SignatureKind::ResultVoid,
+            Type::TypeDef(def, _) if matches!(def.type_name(), TypeName::WIN32_ERROR | TypeName::RPC_STATUS) => SignatureKind::ResultVoid,
             Type::TypeDef(def, _) if def.type_name() == TypeName::BOOL && method_def_last_error(self.def) => SignatureKind::ResultVoid,
             _ if type_is_struct(&self.return_type) => SignatureKind::ReturnStruct,
             _ => SignatureKind::PreserveSig,
