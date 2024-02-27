@@ -35,7 +35,8 @@ fn test() -> Result<()> {
             None,
             Some(buffer.as_mut_ptr() as _),
             Some(&mut len),
-        ).ok()?;
+        )
+        .ok()?;
         assert_eq!(String::from_utf8_lossy(&buffer), "text/plain\0");
         Ok(())
     }

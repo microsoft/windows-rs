@@ -6,10 +6,7 @@ use windows::{
 fn calling_convention() {
     unsafe {
         // This function requires cdecl on x86.
-        assert_eq!(
-            LdapMapErrorToWin32(LDAP_BUSY),
-            ERROR_BUSY
-        );
+        assert_eq!(LdapMapErrorToWin32(LDAP_BUSY), ERROR_BUSY);
 
         // This function requires stdcall on x86.
         GetTickCount();
