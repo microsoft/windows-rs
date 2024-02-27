@@ -258,6 +258,10 @@ fn handle_last_error(def: metadata::MethodDef, signature: &metadata::Signature) 
         if map.flags().contains(metadata::PInvokeAttributes::SupportsLastError) {
             if let metadata::Type::TypeDef(return_type, _) = &signature.return_type {
                 if metadata::type_def_is_handle(*return_type) {
+                    // https://github.com/microsoft/windows-rs/issues/2392#issuecomment-1477765781
+                    if def.name() == "LocalFree" {
+                        return false;
+                    }
                     if return_type.underlying_type().is_pointer() {
                         return true;
                     }

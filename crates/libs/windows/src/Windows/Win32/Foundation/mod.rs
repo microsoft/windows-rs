@@ -57,13 +57,12 @@ where
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[inline]
-pub unsafe fn LocalFree<P0>(hmem: P0) -> ::windows_core::Result<HLOCAL>
+pub unsafe fn LocalFree<P0>(hmem: P0) -> HLOCAL
 where
     P0: ::windows_core::IntoParam<HLOCAL>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn LocalFree(hmem : HLOCAL) -> HLOCAL);
-    let result__ = LocalFree(hmem.into_param().abi());
-    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
+    LocalFree(hmem.into_param().abi())
 }
 #[inline]
 pub unsafe fn RtlNtStatusToDosError<P0>(status: P0) -> u32
