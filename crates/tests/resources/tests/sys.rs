@@ -8,6 +8,7 @@ use windows_sys::{
 #[test]
 fn sys() {
     unsafe {
+        SetLastError(0);
         assert_eq!(IDI_APPLICATION as u16, 32512);
         assert_ne!(LoadIconW(0, IDI_APPLICATION), 0);
         assert_eq!(GetLastError(), 0);

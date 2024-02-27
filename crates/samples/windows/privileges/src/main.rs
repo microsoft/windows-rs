@@ -37,7 +37,7 @@ fn main() -> Result<()> {
             println!("{}", name.display())
         }
 
-        _ = LocalFree(buffer);
+        LocalFree(buffer);
         Ok(())
     }
 }
