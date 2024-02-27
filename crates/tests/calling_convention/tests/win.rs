@@ -7,8 +7,8 @@ fn calling_convention() {
     unsafe {
         // This function requires cdecl on x86.
         assert_eq!(
-            LdapMapErrorToWin32(LDAP_BUSY).unwrap_err().code(),
-            ERROR_BUSY.into()
+            LdapMapErrorToWin32(LDAP_BUSY),
+            ERROR_BUSY
         );
 
         // This function requires stdcall on x86.

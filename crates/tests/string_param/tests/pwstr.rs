@@ -12,6 +12,6 @@ fn test() {
         assert_eq!(utf8.len(), len);
         assert_eq!(utf16.len(), len);
 
-        assert_eq!(GetLastError().unwrap_err().code(), ERROR_BUSY_DRIVE.into());
+        assert_eq!(GetLastError(), ERROR_BUSY_DRIVE);
     }
 }
