@@ -165,18 +165,25 @@ fn main() {
         "src/b_vtbl_4.rs",
         &["Windows.Win32.System.Com.IPersistFile"],
     );
+
+    // Ensure that derives adds the #[derive(...)] attribute.
+    write_derives(
+        "src/b_derives.rs",
+        &["Windows.Foundation.DateTime"],
+        &["Windows.Foundation.DateTime=::core::cmp::PartialOrd,::core::cmp::Ord"],
+    );
 }
 
 fn write_sys(output: &str, filter: &[&str]) {
-    riddle(output, filter, &["flatten", "sys", "minimal"]);
+    riddle(output, filter, &["flatten", "sys", "minimal"], None);
 }
 
 fn write_win(output: &str, filter: &[&str]) {
-    riddle(output, filter, &["flatten", "minimal"]);
+    riddle(output, filter, &["flatten", "minimal"], None);
 }
 
 fn write_std(output: &str, filter: &[&str]) {
-    riddle(output, filter, &["flatten", "std", "minimal"]);
+    riddle(output, filter, &["flatten", "std", "minimal"], None);
 }
 
 fn write_no_inner_attr(output: &str, filter: &[&str]) {
@@ -184,14 +191,19 @@ fn write_no_inner_attr(output: &str, filter: &[&str]) {
         output,
         filter,
         &["flatten", "no-inner-attributes", "minimal"],
+        None,
     );
 }
 
 fn write_vtbl(output: &str, filter: &[&str]) {
-    riddle(output, filter, &["flatten", "sys", "minimal", "vtbl"]);
+    riddle(output, filter, &["flatten", "sys", "minimal", "vtbl"], None);
 }
 
-fn riddle(output: &str, filter: &[&str], config: &[&str]) {
+fn write_derives(output: &str, filter: &[&str], derives: &[&str]) {
+    riddle(output, filter, &["flatten", "minimal"], Some(derives));
+}
+
+fn riddle(output: &str, filter: &[&str], config: &[&str], derives: Option<&[&str]>) {
     // Rust-analyzer may re-run build scripts whenever a source file is deleted
     // which causes an endless loop if the file is deleted from a build script.
     // To workaround this, we truncate the file instead of deleting it.
@@ -220,6 +232,11 @@ fn riddle(output: &str, filter: &[&str], config: &[&str]) {
     command.args(filter);
     command.arg("--config");
     command.args(config);
+
+    if let Some(derives) = derives {
+        command.arg("--derives");
+        command.args(derives);
+    }
 
     if !command.status().unwrap().success() {
         panic!("Failed to run riddle");

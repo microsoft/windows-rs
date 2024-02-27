@@ -1,7 +1,7 @@
 use super::*;
 use metadata::HasAttributes;
 
-pub fn writer(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
+pub fn writer(writer: &Writer, def: metadata::TypeDef, derives: Option<&TokenStream>) -> TokenStream {
     if def.has_attribute("ApiContractAttribute") {
         return quote! {};
     }
@@ -10,10 +10,10 @@ pub fn writer(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
         return handles::writer(writer, def);
     }
 
-    gen_struct_with_name(writer, def, def.name(), &cfg::Cfg::default())
+    gen_struct_with_name(writer, def, def.name(), &cfg::Cfg::default(), derives)
 }
 
-fn gen_struct_with_name(writer: &Writer, def: metadata::TypeDef, struct_name: &str, cfg: &cfg::Cfg) -> TokenStream {
+fn gen_struct_with_name(writer: &Writer, def: metadata::TypeDef, struct_name: &str, cfg: &cfg::Cfg, derives: Option<&TokenStream>) -> TokenStream {
     let name = to_ident(struct_name);
 
     if def.fields().next().is_none() {
@@ -81,6 +81,7 @@ fn gen_struct_with_name(writer: &Writer, def: metadata::TypeDef, struct_name: &s
     let mut tokens = quote! {
         #repr
         #features
+        #derives
         pub #struct_or_union #name {#(#fields)*}
     };
 
@@ -103,7 +104,7 @@ fn gen_struct_with_name(writer: &Writer, def: metadata::TypeDef, struct_name: &s
 
     for (index, nested_type) in writer.reader.nested_types(def).enumerate() {
         let nested_name = format!("{struct_name}_{index}");
-        tokens.combine(&gen_struct_with_name(writer, nested_type, &nested_name, &cfg));
+        tokens.combine(&gen_struct_with_name(writer, nested_type, &nested_name, &cfg, None));
     }
 
     tokens

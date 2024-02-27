@@ -7,6 +7,7 @@ mod b_bstr;
 mod b_calendar;
 mod b_constant_types;
 mod b_depends;
+mod b_derives;
 mod b_enumeration;
 mod b_enumerator;
 mod b_guid;
@@ -183,4 +184,21 @@ fn from_included() {
     unsafe {
         included::GetVersion();
     }
+}
+
+#[test]
+fn derive_ord() {
+    use b_derives::*;
+    let mut dates = [
+        DateTime { UniversalTime: 123 },
+        DateTime { UniversalTime: 42 },
+    ];
+    dates.sort();
+    assert_eq!(
+        &dates,
+        &[
+            DateTime { UniversalTime: 42 },
+            DateTime { UniversalTime: 123 }
+        ]
+    );
 }

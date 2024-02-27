@@ -1,7 +1,7 @@
 use super::*;
 use metadata::AsRow;
 
-pub fn standalone_imp(writer: &Writer) -> String {
+pub fn standalone_imp(writer: &Writer, derives: &std::collections::BTreeMap<(&str, &str), TokenStream>) -> String {
     let mut types = std::collections::BTreeSet::new();
     let mut functions = std::collections::BTreeSet::new();
     let mut constants = std::collections::BTreeSet::new();
@@ -112,7 +112,7 @@ pub fn standalone_imp(writer: &Writer) -> String {
                                 continue;
                             }
                         }
-                        sorted.insert(name, structs::writer(writer, def));
+                        sorted.insert(name, structs::writer(writer, def, derives.get(&(def.namespace(), name))));
                     }
                     metadata::TypeKind::Delegate => {
                         sorted.insert(def.name(), delegates::writer(writer, def));

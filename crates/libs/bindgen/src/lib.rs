@@ -20,6 +20,7 @@ enum ArgKind {
     Output,
     Filter,
     Config,
+    Derives,
 }
 
 /// Windows metadata compiler.
@@ -38,6 +39,7 @@ where
     let mut exclude = Vec::<&str>::new();
     let mut config = std::collections::BTreeMap::<&str, &str>::new();
     let mut format = false;
+    let mut derives = std::collections::BTreeMap::<(&str, &str), tokens::TokenStream>::new();
 
     for arg in &args {
         if arg.starts_with('-') {
@@ -50,6 +52,7 @@ where
                 "-o" | "--out" => kind = ArgKind::Output,
                 "-f" | "--filter" => kind = ArgKind::Filter,
                 "--config" => kind = ArgKind::Config,
+                "--derives" => kind = ArgKind::Derives,
                 "--format" => format = true,
                 _ => return Err(Error::new(&format!("invalid option `{arg}`"))),
             },
@@ -73,6 +76,22 @@ where
                     config.insert(key, value);
                 } else {
                     config.insert(arg, "");
+                }
+            }
+            ArgKind::Derives => {
+                if let Some((ty, traits)) = arg.split_once('=') {
+                    if let Some(last_dot) = ty.rfind('.') {
+                        let name = &ty[last_dot + 1..];
+                        let namespace = &ty[..last_dot];
+                        let traits: tokens::TokenStream = traits.into();
+                        if derives.insert((namespace, name), quote! { #[derive(#traits)] }).is_some() {
+                            return Err(Error::new(&format!("Duplicate entry for type `{ty}` in --derives")));
+                        }
+                    } else {
+                        return Err(Error::new(&format!("The type `{ty}` in --derives must be fully qualified")));
+                    }
+                } else {
+                    return Err(Error::new(&format!("Invalid format for --derives, expected ty=traits, actual: `{arg}`")));
                 }
             }
         }
@@ -113,10 +132,21 @@ where
 
     winmd::verify(reader)?;
 
+    let unused_derives = derives.keys().filter(|(namespace, name)| reader.get_type_def(namespace, name).next().is_none()).collect::<Vec<_>>();
+    if !unused_derives.is_empty() {
+        let mut message = "unused derives".to_string();
+
+        for (namespace, name) in unused_derives {
+            message.push_str(&format!("\n  {namespace}.{name}"));
+        }
+
+        return Err(Error::new(&message));
+    }
+
     match extension(&output) {
         "rdl" => rdl::from_reader(reader, config, &output)?,
         "winmd" => winmd::from_reader(reader, config, &output)?,
-        "rs" => rust::from_reader(reader, config, &output)?,
+        "rs" => rust::from_reader(reader, config, &derives, &output)?,
         _ => return Err(Error::new("output extension must be one of winmd/rdl/rs")),
     }
 
@@ -261,4 +291,19 @@ fn extension(path: &str) -> &str {
 
 fn directory(path: &str) -> &str {
     path.rsplit_once(&['/', '\\']).map_or("", |(directory, _)| directory)
+}
+
+#[test]
+fn bad_derive_args() {
+    let result = bindgen(&["--derives", "Foo"]).unwrap_err().to_string();
+    assert_eq!(result, "error: Invalid format for --derives, expected ty=traits, actual: `Foo`\n");
+
+    let result = bindgen(&["--derives", "Foo=bar"]).unwrap_err().to_string();
+    assert_eq!(result, "error: The type `Foo` in --derives must be fully qualified\n");
+
+    let result = bindgen(&["--derives", "Foo.Bar=bar", "Foo.Bar=baz"]).unwrap_err().to_string();
+    assert_eq!(result, "error: Duplicate entry for type `Foo.Bar` in --derives\n");
+
+    let result = bindgen(&["--out", "test.rs", "--filter", "Windows.Win32.System.Com.CoInitialize", "--derives", "Foo.Bar=bar"]).unwrap_err().to_string();
+    assert_eq!(result, "error: unused derives\n  Foo.Bar\n");
 }

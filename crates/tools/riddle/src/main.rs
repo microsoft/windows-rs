@@ -12,6 +12,7 @@ Options:
   --config <key=value>  Override a configuration value
   --format              Format .rdl files only
   --etc <path>          File containing command line options
+  --derives <ty=traits> Emit a derive attribute for a type
 "#
         );
     } else {

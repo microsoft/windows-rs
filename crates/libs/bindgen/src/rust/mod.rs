@@ -23,7 +23,7 @@ use index::*;
 use rayon::prelude::*;
 use writer::*;
 
-pub fn from_reader(reader: &'static metadata::Reader, mut config: std::collections::BTreeMap<&str, &str>, output: &str) -> Result<()> {
+pub fn from_reader(reader: &'static metadata::Reader, mut config: std::collections::BTreeMap<&str, &str>, derives: &std::collections::BTreeMap<(&str, &str), TokenStream>, output: &str) -> Result<()> {
     let mut writer = Writer::new(reader, output);
     writer.package = config.remove("package").is_some();
     writer.flatten = config.remove("flatten").is_some();
@@ -47,32 +47,32 @@ pub fn from_reader(reader: &'static metadata::Reader, mut config: std::collectio
     }
 
     if writer.package {
-        gen_package(&writer)
+        gen_package(&writer, derives)
     } else {
-        gen_file(&writer)
+        gen_file(&writer, derives)
     }
 }
 
-fn gen_file(writer: &Writer) -> Result<()> {
+fn gen_file(writer: &Writer, derives: &std::collections::BTreeMap<(&str, &str), TokenStream>) -> Result<()> {
     // TODO: harmonize this output code so we don't need these two wildly differnt code paths
     // there should be a simple way to generate the with or without namespaces.
 
     if writer.flatten {
-        let tokens = standalone::standalone_imp(writer);
+        let tokens = standalone::standalone_imp(writer, derives);
         write_to_file(&writer.output, try_format(writer, &tokens))
     } else {
         let mut tokens = String::new();
         let root = Tree::new(writer.reader);
 
         for tree in root.nested.values() {
-            tokens.push_str(&namespace(writer, tree));
+            tokens.push_str(&namespace(writer, tree, derives));
         }
 
         write_to_file(&writer.output, try_format(writer, &tokens))
     }
 }
 
-fn gen_package(writer: &Writer) -> Result<()> {
+fn gen_package(writer: &Writer, derives: &std::collections::BTreeMap<(&str, &str), TokenStream>) -> Result<()> {
     let directory = directory(&writer.output);
     let root = Tree::new(writer.reader);
     let mut root_len = 0;
@@ -86,7 +86,7 @@ fn gen_package(writer: &Writer) -> Result<()> {
 
     trees.par_iter().try_for_each(|tree| {
         let directory = format!("{directory}/{}", tree.namespace.replace('.', "/"));
-        let mut tokens = namespace(writer, tree);
+        let mut tokens = namespace(writer, tree, derives);
 
         let tokens_impl = if !writer.sys { namespace_impl(writer, tree) } else { String::new() };
 
@@ -143,7 +143,7 @@ use std::fmt::Write;
 use tokens::*;
 use try_format::*;
 
-fn namespace(writer: &Writer, tree: &Tree) -> String {
+fn namespace(writer: &Writer, tree: &Tree, derives: &std::collections::BTreeMap<(&str, &str), TokenStream>) -> String {
     let writer = &mut writer.clone();
     writer.namespace = tree.namespace;
     let mut tokens = TokenStream::new();
@@ -159,7 +159,7 @@ fn namespace(writer: &Writer, tree: &Tree) -> String {
         } else {
             tokens.combine(&quote! { pub mod #name });
             tokens.push_str("{");
-            tokens.push_str(&namespace(writer, tree));
+            tokens.push_str(&namespace(writer, tree, derives));
             tokens.push_str("}");
         }
     }
@@ -200,7 +200,7 @@ fn namespace(writer: &Writer, tree: &Tree) -> String {
                                 continue;
                             }
                         }
-                        types.entry(kind).or_default().entry(name).or_default().combine(&structs::writer(writer, def));
+                        types.entry(kind).or_default().entry(name).or_default().combine(&structs::writer(writer, def, derives.get(&(def.namespace(), name))));
                     }
                     metadata::TypeKind::Delegate => types.entry(kind).or_default().entry(name).or_default().combine(&delegates::writer(writer, def)),
                 }
