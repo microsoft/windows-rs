@@ -432,9 +432,9 @@ pub unsafe fn GetDisplayAutoRotationPreferences(porientation: *mut ORIENTATION_P
     GetDisplayAutoRotationPreferences(porientation)
 }
 #[inline]
-pub unsafe fn GetDisplayConfigBufferSizes(flags: QUERY_DISPLAY_CONFIG_FLAGS, numpatharrayelements: *mut u32, nummodeinfoarrayelements: *mut u32) -> ::windows_core::Result<()> {
+pub unsafe fn GetDisplayConfigBufferSizes(flags: QUERY_DISPLAY_CONFIG_FLAGS, numpatharrayelements: *mut u32, nummodeinfoarrayelements: *mut u32) -> super::super::Foundation::WIN32_ERROR {
     ::windows_targets::link!("user32.dll" "system" fn GetDisplayConfigBufferSizes(flags : QUERY_DISPLAY_CONFIG_FLAGS, numpatharrayelements : *mut u32, nummodeinfoarrayelements : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
-    GetDisplayConfigBufferSizes(flags, numpatharrayelements, nummodeinfoarrayelements).ok()
+    GetDisplayConfigBufferSizes(flags, numpatharrayelements, nummodeinfoarrayelements)
 }
 #[inline]
 pub unsafe fn GetMonitorBrightness<P0>(hmonitor: P0, pdwminimumbrightness: *mut u32, pdwcurrentbrightness: *mut u32, pdwmaximumbrightness: *mut u32) -> i32
@@ -602,9 +602,9 @@ pub unsafe fn PATHOBJ_vGetBounds(ppo: *mut PATHOBJ, prectfx: *mut RECTFX) {
     PATHOBJ_vGetBounds(ppo, prectfx)
 }
 #[inline]
-pub unsafe fn QueryDisplayConfig(flags: QUERY_DISPLAY_CONFIG_FLAGS, numpatharrayelements: *mut u32, patharray: *mut DISPLAYCONFIG_PATH_INFO, nummodeinfoarrayelements: *mut u32, modeinfoarray: *mut DISPLAYCONFIG_MODE_INFO, currenttopologyid: ::core::option::Option<*mut DISPLAYCONFIG_TOPOLOGY_ID>) -> ::windows_core::Result<()> {
+pub unsafe fn QueryDisplayConfig(flags: QUERY_DISPLAY_CONFIG_FLAGS, numpatharrayelements: *mut u32, patharray: *mut DISPLAYCONFIG_PATH_INFO, nummodeinfoarrayelements: *mut u32, modeinfoarray: *mut DISPLAYCONFIG_MODE_INFO, currenttopologyid: ::core::option::Option<*mut DISPLAYCONFIG_TOPOLOGY_ID>) -> super::super::Foundation::WIN32_ERROR {
     ::windows_targets::link!("user32.dll" "system" fn QueryDisplayConfig(flags : QUERY_DISPLAY_CONFIG_FLAGS, numpatharrayelements : *mut u32, patharray : *mut DISPLAYCONFIG_PATH_INFO, nummodeinfoarrayelements : *mut u32, modeinfoarray : *mut DISPLAYCONFIG_MODE_INFO, currenttopologyid : *mut DISPLAYCONFIG_TOPOLOGY_ID) -> super::super::Foundation:: WIN32_ERROR);
-    QueryDisplayConfig(flags, numpatharrayelements, patharray, nummodeinfoarrayelements, modeinfoarray, ::core::mem::transmute(currenttopologyid.unwrap_or(::std::ptr::null_mut()))).ok()
+    QueryDisplayConfig(flags, numpatharrayelements, patharray, nummodeinfoarrayelements, modeinfoarray, ::core::mem::transmute(currenttopologyid.unwrap_or(::std::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn RestoreMonitorFactoryColorDefaults<P0>(hmonitor: P0) -> i32

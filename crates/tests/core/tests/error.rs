@@ -28,8 +28,7 @@ fn hresult_last_error() {
     unsafe {
         assert_eq!(CRYPT_E_NOT_FOUND.0, 0x80092004u32 as i32);
         SetLastError(WIN32_ERROR(CRYPT_E_NOT_FOUND.0 as u32));
-        let e = GetLastError().unwrap_err();
-        assert_eq!(e.code(), CRYPT_E_NOT_FOUND);
+        assert_eq!(GetLastError().to_hresult(), CRYPT_E_NOT_FOUND);
     }
 }
 

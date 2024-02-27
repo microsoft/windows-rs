@@ -16,68 +16,68 @@ where
     AddPackageDependency(packagedependencyid.into_param().abi(), rank, options, packagedependencycontext, ::core::mem::transmute(packagefullname.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[inline]
-pub unsafe fn AppPolicyGetClrCompat<P0>(processtoken: P0, policy: *mut AppPolicyClrCompat) -> ::windows_core::Result<()>
+pub unsafe fn AppPolicyGetClrCompat<P0>(processtoken: P0, policy: *mut AppPolicyClrCompat) -> super::super::super::Foundation::WIN32_ERROR
 where
     P0: ::windows_core::IntoParam<super::super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn AppPolicyGetClrCompat(processtoken : super::super::super::Foundation:: HANDLE, policy : *mut AppPolicyClrCompat) -> super::super::super::Foundation:: WIN32_ERROR);
-    AppPolicyGetClrCompat(processtoken.into_param().abi(), policy).ok()
+    AppPolicyGetClrCompat(processtoken.into_param().abi(), policy)
 }
 #[inline]
-pub unsafe fn AppPolicyGetCreateFileAccess<P0>(processtoken: P0, policy: *mut AppPolicyCreateFileAccess) -> ::windows_core::Result<()>
+pub unsafe fn AppPolicyGetCreateFileAccess<P0>(processtoken: P0, policy: *mut AppPolicyCreateFileAccess) -> super::super::super::Foundation::WIN32_ERROR
 where
     P0: ::windows_core::IntoParam<super::super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn AppPolicyGetCreateFileAccess(processtoken : super::super::super::Foundation:: HANDLE, policy : *mut AppPolicyCreateFileAccess) -> super::super::super::Foundation:: WIN32_ERROR);
-    AppPolicyGetCreateFileAccess(processtoken.into_param().abi(), policy).ok()
+    AppPolicyGetCreateFileAccess(processtoken.into_param().abi(), policy)
 }
 #[inline]
-pub unsafe fn AppPolicyGetLifecycleManagement<P0>(processtoken: P0, policy: *mut AppPolicyLifecycleManagement) -> ::windows_core::Result<()>
+pub unsafe fn AppPolicyGetLifecycleManagement<P0>(processtoken: P0, policy: *mut AppPolicyLifecycleManagement) -> super::super::super::Foundation::WIN32_ERROR
 where
     P0: ::windows_core::IntoParam<super::super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn AppPolicyGetLifecycleManagement(processtoken : super::super::super::Foundation:: HANDLE, policy : *mut AppPolicyLifecycleManagement) -> super::super::super::Foundation:: WIN32_ERROR);
-    AppPolicyGetLifecycleManagement(processtoken.into_param().abi(), policy).ok()
+    AppPolicyGetLifecycleManagement(processtoken.into_param().abi(), policy)
 }
 #[inline]
-pub unsafe fn AppPolicyGetMediaFoundationCodecLoading<P0>(processtoken: P0, policy: *mut AppPolicyMediaFoundationCodecLoading) -> ::windows_core::Result<()>
+pub unsafe fn AppPolicyGetMediaFoundationCodecLoading<P0>(processtoken: P0, policy: *mut AppPolicyMediaFoundationCodecLoading) -> super::super::super::Foundation::WIN32_ERROR
 where
     P0: ::windows_core::IntoParam<super::super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn AppPolicyGetMediaFoundationCodecLoading(processtoken : super::super::super::Foundation:: HANDLE, policy : *mut AppPolicyMediaFoundationCodecLoading) -> super::super::super::Foundation:: WIN32_ERROR);
-    AppPolicyGetMediaFoundationCodecLoading(processtoken.into_param().abi(), policy).ok()
+    AppPolicyGetMediaFoundationCodecLoading(processtoken.into_param().abi(), policy)
 }
 #[inline]
-pub unsafe fn AppPolicyGetProcessTerminationMethod<P0>(processtoken: P0, policy: *mut AppPolicyProcessTerminationMethod) -> ::windows_core::Result<()>
+pub unsafe fn AppPolicyGetProcessTerminationMethod<P0>(processtoken: P0, policy: *mut AppPolicyProcessTerminationMethod) -> super::super::super::Foundation::WIN32_ERROR
 where
     P0: ::windows_core::IntoParam<super::super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn AppPolicyGetProcessTerminationMethod(processtoken : super::super::super::Foundation:: HANDLE, policy : *mut AppPolicyProcessTerminationMethod) -> super::super::super::Foundation:: WIN32_ERROR);
-    AppPolicyGetProcessTerminationMethod(processtoken.into_param().abi(), policy).ok()
+    AppPolicyGetProcessTerminationMethod(processtoken.into_param().abi(), policy)
 }
 #[inline]
-pub unsafe fn AppPolicyGetShowDeveloperDiagnostic<P0>(processtoken: P0, policy: *mut AppPolicyShowDeveloperDiagnostic) -> ::windows_core::Result<()>
+pub unsafe fn AppPolicyGetShowDeveloperDiagnostic<P0>(processtoken: P0, policy: *mut AppPolicyShowDeveloperDiagnostic) -> super::super::super::Foundation::WIN32_ERROR
 where
     P0: ::windows_core::IntoParam<super::super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn AppPolicyGetShowDeveloperDiagnostic(processtoken : super::super::super::Foundation:: HANDLE, policy : *mut AppPolicyShowDeveloperDiagnostic) -> super::super::super::Foundation:: WIN32_ERROR);
-    AppPolicyGetShowDeveloperDiagnostic(processtoken.into_param().abi(), policy).ok()
+    AppPolicyGetShowDeveloperDiagnostic(processtoken.into_param().abi(), policy)
 }
 #[inline]
-pub unsafe fn AppPolicyGetThreadInitializationType<P0>(processtoken: P0, policy: *mut AppPolicyThreadInitializationType) -> ::windows_core::Result<()>
+pub unsafe fn AppPolicyGetThreadInitializationType<P0>(processtoken: P0, policy: *mut AppPolicyThreadInitializationType) -> super::super::super::Foundation::WIN32_ERROR
 where
     P0: ::windows_core::IntoParam<super::super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn AppPolicyGetThreadInitializationType(processtoken : super::super::super::Foundation:: HANDLE, policy : *mut AppPolicyThreadInitializationType) -> super::super::super::Foundation:: WIN32_ERROR);
-    AppPolicyGetThreadInitializationType(processtoken.into_param().abi(), policy).ok()
+    AppPolicyGetThreadInitializationType(processtoken.into_param().abi(), policy)
 }
 #[inline]
-pub unsafe fn AppPolicyGetWindowingModel<P0>(processtoken: P0, policy: *mut AppPolicyWindowingModel) -> ::windows_core::Result<()>
+pub unsafe fn AppPolicyGetWindowingModel<P0>(processtoken: P0, policy: *mut AppPolicyWindowingModel) -> super::super::super::Foundation::WIN32_ERROR
 where
     P0: ::windows_core::IntoParam<super::super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn AppPolicyGetWindowingModel(processtoken : super::super::super::Foundation:: HANDLE, policy : *mut AppPolicyWindowingModel) -> super::super::super::Foundation:: WIN32_ERROR);
-    AppPolicyGetWindowingModel(processtoken.into_param().abi(), policy).ok()
+    AppPolicyGetWindowingModel(processtoken.into_param().abi(), policy)
 }
 #[inline]
 pub unsafe fn CheckIsMSIXPackage<P0>(packagefullname: P0) -> ::windows_core::Result<super::super::super::Foundation::BOOL>
@@ -89,9 +89,9 @@ where
     CheckIsMSIXPackage(packagefullname.into_param().abi(), &mut result__).map(|| result__)
 }
 #[inline]
-pub unsafe fn ClosePackageInfo(packageinforeference: *const _PACKAGE_INFO_REFERENCE) -> ::windows_core::Result<()> {
+pub unsafe fn ClosePackageInfo(packageinforeference: *const _PACKAGE_INFO_REFERENCE) -> super::super::super::Foundation::WIN32_ERROR {
     ::windows_targets::link!("kernel32.dll" "system" fn ClosePackageInfo(packageinforeference : *const _PACKAGE_INFO_REFERENCE) -> super::super::super::Foundation:: WIN32_ERROR);
-    ClosePackageInfo(packageinforeference).ok()
+    ClosePackageInfo(packageinforeference)
 }
 #[inline]
 pub unsafe fn CreatePackageVirtualizationContext<P0>(packagefamilyname: P0) -> ::windows_core::Result<PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE>
@@ -125,67 +125,67 @@ where
     DuplicatePackageVirtualizationContext(sourcecontext.into_param().abi(), &mut result__).map(|| result__)
 }
 #[inline]
-pub unsafe fn FindPackagesByPackageFamily<P0>(packagefamilyname: P0, packagefilters: u32, count: *mut u32, packagefullnames: ::core::option::Option<*mut ::windows_core::PWSTR>, bufferlength: *mut u32, buffer: ::windows_core::PWSTR, packageproperties: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()>
+pub unsafe fn FindPackagesByPackageFamily<P0>(packagefamilyname: P0, packagefilters: u32, count: *mut u32, packagefullnames: ::core::option::Option<*mut ::windows_core::PWSTR>, bufferlength: *mut u32, buffer: ::windows_core::PWSTR, packageproperties: ::core::option::Option<*mut u32>) -> super::super::super::Foundation::WIN32_ERROR
 where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn FindPackagesByPackageFamily(packagefamilyname : ::windows_core::PCWSTR, packagefilters : u32, count : *mut u32, packagefullnames : *mut ::windows_core::PWSTR, bufferlength : *mut u32, buffer : ::windows_core::PWSTR, packageproperties : *mut u32) -> super::super::super::Foundation:: WIN32_ERROR);
-    FindPackagesByPackageFamily(packagefamilyname.into_param().abi(), packagefilters, count, ::core::mem::transmute(packagefullnames.unwrap_or(::std::ptr::null_mut())), bufferlength, ::core::mem::transmute(buffer), ::core::mem::transmute(packageproperties.unwrap_or(::std::ptr::null_mut()))).ok()
+    FindPackagesByPackageFamily(packagefamilyname.into_param().abi(), packagefilters, count, ::core::mem::transmute(packagefullnames.unwrap_or(::std::ptr::null_mut())), bufferlength, ::core::mem::transmute(buffer), ::core::mem::transmute(packageproperties.unwrap_or(::std::ptr::null_mut())))
 }
 #[inline]
-pub unsafe fn FormatApplicationUserModelId<P0, P1>(packagefamilyname: P0, packagerelativeapplicationid: P1, applicationusermodelidlength: *mut u32, applicationusermodelid: ::windows_core::PWSTR) -> ::windows_core::Result<()>
+pub unsafe fn FormatApplicationUserModelId<P0, P1>(packagefamilyname: P0, packagerelativeapplicationid: P1, applicationusermodelidlength: *mut u32, applicationusermodelid: ::windows_core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR
 where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn FormatApplicationUserModelId(packagefamilyname : ::windows_core::PCWSTR, packagerelativeapplicationid : ::windows_core::PCWSTR, applicationusermodelidlength : *mut u32, applicationusermodelid : ::windows_core::PWSTR) -> super::super::super::Foundation:: WIN32_ERROR);
-    FormatApplicationUserModelId(packagefamilyname.into_param().abi(), packagerelativeapplicationid.into_param().abi(), applicationusermodelidlength, ::core::mem::transmute(applicationusermodelid)).ok()
+    FormatApplicationUserModelId(packagefamilyname.into_param().abi(), packagerelativeapplicationid.into_param().abi(), applicationusermodelidlength, ::core::mem::transmute(applicationusermodelid))
 }
 #[inline]
-pub unsafe fn GetApplicationUserModelId<P0>(hprocess: P0, applicationusermodelidlength: *mut u32, applicationusermodelid: ::windows_core::PWSTR) -> ::windows_core::Result<()>
+pub unsafe fn GetApplicationUserModelId<P0>(hprocess: P0, applicationusermodelidlength: *mut u32, applicationusermodelid: ::windows_core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR
 where
     P0: ::windows_core::IntoParam<super::super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn GetApplicationUserModelId(hprocess : super::super::super::Foundation:: HANDLE, applicationusermodelidlength : *mut u32, applicationusermodelid : ::windows_core::PWSTR) -> super::super::super::Foundation:: WIN32_ERROR);
-    GetApplicationUserModelId(hprocess.into_param().abi(), applicationusermodelidlength, ::core::mem::transmute(applicationusermodelid)).ok()
+    GetApplicationUserModelId(hprocess.into_param().abi(), applicationusermodelidlength, ::core::mem::transmute(applicationusermodelid))
 }
 #[inline]
-pub unsafe fn GetApplicationUserModelIdFromToken<P0>(token: P0, applicationusermodelidlength: *mut u32, applicationusermodelid: ::windows_core::PWSTR) -> ::windows_core::Result<()>
+pub unsafe fn GetApplicationUserModelIdFromToken<P0>(token: P0, applicationusermodelidlength: *mut u32, applicationusermodelid: ::windows_core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR
 where
     P0: ::windows_core::IntoParam<super::super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("api-ms-win-appmodel-runtime-l1-1-1.dll" "system" fn GetApplicationUserModelIdFromToken(token : super::super::super::Foundation:: HANDLE, applicationusermodelidlength : *mut u32, applicationusermodelid : ::windows_core::PWSTR) -> super::super::super::Foundation:: WIN32_ERROR);
-    GetApplicationUserModelIdFromToken(token.into_param().abi(), applicationusermodelidlength, ::core::mem::transmute(applicationusermodelid)).ok()
+    GetApplicationUserModelIdFromToken(token.into_param().abi(), applicationusermodelidlength, ::core::mem::transmute(applicationusermodelid))
 }
 #[inline]
-pub unsafe fn GetCurrentApplicationUserModelId(applicationusermodelidlength: *mut u32, applicationusermodelid: ::windows_core::PWSTR) -> ::windows_core::Result<()> {
+pub unsafe fn GetCurrentApplicationUserModelId(applicationusermodelidlength: *mut u32, applicationusermodelid: ::windows_core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR {
     ::windows_targets::link!("kernel32.dll" "system" fn GetCurrentApplicationUserModelId(applicationusermodelidlength : *mut u32, applicationusermodelid : ::windows_core::PWSTR) -> super::super::super::Foundation:: WIN32_ERROR);
-    GetCurrentApplicationUserModelId(applicationusermodelidlength, ::core::mem::transmute(applicationusermodelid)).ok()
+    GetCurrentApplicationUserModelId(applicationusermodelidlength, ::core::mem::transmute(applicationusermodelid))
 }
 #[inline]
-pub unsafe fn GetCurrentPackageFamilyName(packagefamilynamelength: *mut u32, packagefamilyname: ::windows_core::PWSTR) -> ::windows_core::Result<()> {
+pub unsafe fn GetCurrentPackageFamilyName(packagefamilynamelength: *mut u32, packagefamilyname: ::windows_core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR {
     ::windows_targets::link!("kernel32.dll" "system" fn GetCurrentPackageFamilyName(packagefamilynamelength : *mut u32, packagefamilyname : ::windows_core::PWSTR) -> super::super::super::Foundation:: WIN32_ERROR);
-    GetCurrentPackageFamilyName(packagefamilynamelength, ::core::mem::transmute(packagefamilyname)).ok()
+    GetCurrentPackageFamilyName(packagefamilynamelength, ::core::mem::transmute(packagefamilyname))
 }
 #[inline]
-pub unsafe fn GetCurrentPackageFullName(packagefullnamelength: *mut u32, packagefullname: ::windows_core::PWSTR) -> ::windows_core::Result<()> {
+pub unsafe fn GetCurrentPackageFullName(packagefullnamelength: *mut u32, packagefullname: ::windows_core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR {
     ::windows_targets::link!("kernel32.dll" "system" fn GetCurrentPackageFullName(packagefullnamelength : *mut u32, packagefullname : ::windows_core::PWSTR) -> super::super::super::Foundation:: WIN32_ERROR);
-    GetCurrentPackageFullName(packagefullnamelength, ::core::mem::transmute(packagefullname)).ok()
+    GetCurrentPackageFullName(packagefullnamelength, ::core::mem::transmute(packagefullname))
 }
 #[inline]
-pub unsafe fn GetCurrentPackageId(bufferlength: *mut u32, buffer: ::core::option::Option<*mut u8>) -> ::windows_core::Result<()> {
+pub unsafe fn GetCurrentPackageId(bufferlength: *mut u32, buffer: ::core::option::Option<*mut u8>) -> super::super::super::Foundation::WIN32_ERROR {
     ::windows_targets::link!("kernel32.dll" "system" fn GetCurrentPackageId(bufferlength : *mut u32, buffer : *mut u8) -> super::super::super::Foundation:: WIN32_ERROR);
-    GetCurrentPackageId(bufferlength, ::core::mem::transmute(buffer.unwrap_or(::std::ptr::null_mut()))).ok()
+    GetCurrentPackageId(bufferlength, ::core::mem::transmute(buffer.unwrap_or(::std::ptr::null_mut())))
 }
 #[inline]
-pub unsafe fn GetCurrentPackageInfo(flags: u32, bufferlength: *mut u32, buffer: ::core::option::Option<*mut u8>, count: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
+pub unsafe fn GetCurrentPackageInfo(flags: u32, bufferlength: *mut u32, buffer: ::core::option::Option<*mut u8>, count: ::core::option::Option<*mut u32>) -> super::super::super::Foundation::WIN32_ERROR {
     ::windows_targets::link!("kernel32.dll" "system" fn GetCurrentPackageInfo(flags : u32, bufferlength : *mut u32, buffer : *mut u8, count : *mut u32) -> super::super::super::Foundation:: WIN32_ERROR);
-    GetCurrentPackageInfo(flags, bufferlength, ::core::mem::transmute(buffer.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(count.unwrap_or(::std::ptr::null_mut()))).ok()
+    GetCurrentPackageInfo(flags, bufferlength, ::core::mem::transmute(buffer.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(count.unwrap_or(::std::ptr::null_mut())))
 }
 #[inline]
-pub unsafe fn GetCurrentPackageInfo2(flags: u32, packagepathtype: PackagePathType, bufferlength: *mut u32, buffer: ::core::option::Option<*mut u8>, count: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
+pub unsafe fn GetCurrentPackageInfo2(flags: u32, packagepathtype: PackagePathType, bufferlength: *mut u32, buffer: ::core::option::Option<*mut u8>, count: ::core::option::Option<*mut u32>) -> super::super::super::Foundation::WIN32_ERROR {
     ::windows_targets::link!("api-ms-win-appmodel-runtime-l1-1-3.dll" "system" fn GetCurrentPackageInfo2(flags : u32, packagepathtype : PackagePathType, bufferlength : *mut u32, buffer : *mut u8, count : *mut u32) -> super::super::super::Foundation:: WIN32_ERROR);
-    GetCurrentPackageInfo2(flags, packagepathtype, bufferlength, ::core::mem::transmute(buffer.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(count.unwrap_or(::std::ptr::null_mut()))).ok()
+    GetCurrentPackageInfo2(flags, packagepathtype, bufferlength, ::core::mem::transmute(buffer.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(count.unwrap_or(::std::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn GetCurrentPackageInfo3(flags: u32, packageinfotype: PackageInfo3Type, bufferlength: *mut u32, buffer: ::core::option::Option<*mut ::core::ffi::c_void>, count: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
@@ -193,14 +193,14 @@ pub unsafe fn GetCurrentPackageInfo3(flags: u32, packageinfotype: PackageInfo3Ty
     GetCurrentPackageInfo3(flags, packageinfotype, bufferlength, ::core::mem::transmute(buffer.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(count.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[inline]
-pub unsafe fn GetCurrentPackagePath(pathlength: *mut u32, path: ::windows_core::PWSTR) -> ::windows_core::Result<()> {
+pub unsafe fn GetCurrentPackagePath(pathlength: *mut u32, path: ::windows_core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR {
     ::windows_targets::link!("kernel32.dll" "system" fn GetCurrentPackagePath(pathlength : *mut u32, path : ::windows_core::PWSTR) -> super::super::super::Foundation:: WIN32_ERROR);
-    GetCurrentPackagePath(pathlength, ::core::mem::transmute(path)).ok()
+    GetCurrentPackagePath(pathlength, ::core::mem::transmute(path))
 }
 #[inline]
-pub unsafe fn GetCurrentPackagePath2(packagepathtype: PackagePathType, pathlength: *mut u32, path: ::windows_core::PWSTR) -> ::windows_core::Result<()> {
+pub unsafe fn GetCurrentPackagePath2(packagepathtype: PackagePathType, pathlength: *mut u32, path: ::windows_core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR {
     ::windows_targets::link!("api-ms-win-appmodel-runtime-l1-1-3.dll" "system" fn GetCurrentPackagePath2(packagepathtype : PackagePathType, pathlength : *mut u32, path : ::windows_core::PWSTR) -> super::super::super::Foundation:: WIN32_ERROR);
-    GetCurrentPackagePath2(packagepathtype, pathlength, ::core::mem::transmute(path)).ok()
+    GetCurrentPackagePath2(packagepathtype, pathlength, ::core::mem::transmute(path))
 }
 #[inline]
 pub unsafe fn GetCurrentPackageVirtualizationContext() -> PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE {
@@ -217,41 +217,41 @@ where
     GetIdForPackageDependencyContext(packagedependencycontext.into_param().abi(), &mut result__).map(|| result__)
 }
 #[inline]
-pub unsafe fn GetPackageApplicationIds(packageinforeference: *const _PACKAGE_INFO_REFERENCE, bufferlength: *mut u32, buffer: ::core::option::Option<*mut u8>, count: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
+pub unsafe fn GetPackageApplicationIds(packageinforeference: *const _PACKAGE_INFO_REFERENCE, bufferlength: *mut u32, buffer: ::core::option::Option<*mut u8>, count: ::core::option::Option<*mut u32>) -> super::super::super::Foundation::WIN32_ERROR {
     ::windows_targets::link!("kernel32.dll" "system" fn GetPackageApplicationIds(packageinforeference : *const _PACKAGE_INFO_REFERENCE, bufferlength : *mut u32, buffer : *mut u8, count : *mut u32) -> super::super::super::Foundation:: WIN32_ERROR);
-    GetPackageApplicationIds(packageinforeference, bufferlength, ::core::mem::transmute(buffer.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(count.unwrap_or(::std::ptr::null_mut()))).ok()
+    GetPackageApplicationIds(packageinforeference, bufferlength, ::core::mem::transmute(buffer.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(count.unwrap_or(::std::ptr::null_mut())))
 }
 #[inline]
-pub unsafe fn GetPackageFamilyName<P0>(hprocess: P0, packagefamilynamelength: *mut u32, packagefamilyname: ::windows_core::PWSTR) -> ::windows_core::Result<()>
+pub unsafe fn GetPackageFamilyName<P0>(hprocess: P0, packagefamilynamelength: *mut u32, packagefamilyname: ::windows_core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR
 where
     P0: ::windows_core::IntoParam<super::super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn GetPackageFamilyName(hprocess : super::super::super::Foundation:: HANDLE, packagefamilynamelength : *mut u32, packagefamilyname : ::windows_core::PWSTR) -> super::super::super::Foundation:: WIN32_ERROR);
-    GetPackageFamilyName(hprocess.into_param().abi(), packagefamilynamelength, ::core::mem::transmute(packagefamilyname)).ok()
+    GetPackageFamilyName(hprocess.into_param().abi(), packagefamilynamelength, ::core::mem::transmute(packagefamilyname))
 }
 #[inline]
-pub unsafe fn GetPackageFamilyNameFromToken<P0>(token: P0, packagefamilynamelength: *mut u32, packagefamilyname: ::windows_core::PWSTR) -> ::windows_core::Result<()>
+pub unsafe fn GetPackageFamilyNameFromToken<P0>(token: P0, packagefamilynamelength: *mut u32, packagefamilyname: ::windows_core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR
 where
     P0: ::windows_core::IntoParam<super::super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("api-ms-win-appmodel-runtime-l1-1-1.dll" "system" fn GetPackageFamilyNameFromToken(token : super::super::super::Foundation:: HANDLE, packagefamilynamelength : *mut u32, packagefamilyname : ::windows_core::PWSTR) -> super::super::super::Foundation:: WIN32_ERROR);
-    GetPackageFamilyNameFromToken(token.into_param().abi(), packagefamilynamelength, ::core::mem::transmute(packagefamilyname)).ok()
+    GetPackageFamilyNameFromToken(token.into_param().abi(), packagefamilynamelength, ::core::mem::transmute(packagefamilyname))
 }
 #[inline]
-pub unsafe fn GetPackageFullName<P0>(hprocess: P0, packagefullnamelength: *mut u32, packagefullname: ::windows_core::PWSTR) -> ::windows_core::Result<()>
+pub unsafe fn GetPackageFullName<P0>(hprocess: P0, packagefullnamelength: *mut u32, packagefullname: ::windows_core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR
 where
     P0: ::windows_core::IntoParam<super::super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn GetPackageFullName(hprocess : super::super::super::Foundation:: HANDLE, packagefullnamelength : *mut u32, packagefullname : ::windows_core::PWSTR) -> super::super::super::Foundation:: WIN32_ERROR);
-    GetPackageFullName(hprocess.into_param().abi(), packagefullnamelength, ::core::mem::transmute(packagefullname)).ok()
+    GetPackageFullName(hprocess.into_param().abi(), packagefullnamelength, ::core::mem::transmute(packagefullname))
 }
 #[inline]
-pub unsafe fn GetPackageFullNameFromToken<P0>(token: P0, packagefullnamelength: *mut u32, packagefullname: ::windows_core::PWSTR) -> ::windows_core::Result<()>
+pub unsafe fn GetPackageFullNameFromToken<P0>(token: P0, packagefullnamelength: *mut u32, packagefullname: ::windows_core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR
 where
     P0: ::windows_core::IntoParam<super::super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("api-ms-win-appmodel-runtime-l1-1-1.dll" "system" fn GetPackageFullNameFromToken(token : super::super::super::Foundation:: HANDLE, packagefullnamelength : *mut u32, packagefullname : ::windows_core::PWSTR) -> super::super::super::Foundation:: WIN32_ERROR);
-    GetPackageFullNameFromToken(token.into_param().abi(), packagefullnamelength, ::core::mem::transmute(packagefullname)).ok()
+    GetPackageFullNameFromToken(token.into_param().abi(), packagefullnamelength, ::core::mem::transmute(packagefullname))
 }
 #[inline]
 pub unsafe fn GetPackageGraphRevisionId() -> u32 {
@@ -259,51 +259,51 @@ pub unsafe fn GetPackageGraphRevisionId() -> u32 {
     GetPackageGraphRevisionId()
 }
 #[inline]
-pub unsafe fn GetPackageId<P0>(hprocess: P0, bufferlength: *mut u32, buffer: ::core::option::Option<*mut u8>) -> ::windows_core::Result<()>
+pub unsafe fn GetPackageId<P0>(hprocess: P0, bufferlength: *mut u32, buffer: ::core::option::Option<*mut u8>) -> super::super::super::Foundation::WIN32_ERROR
 where
     P0: ::windows_core::IntoParam<super::super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn GetPackageId(hprocess : super::super::super::Foundation:: HANDLE, bufferlength : *mut u32, buffer : *mut u8) -> super::super::super::Foundation:: WIN32_ERROR);
-    GetPackageId(hprocess.into_param().abi(), bufferlength, ::core::mem::transmute(buffer.unwrap_or(::std::ptr::null_mut()))).ok()
+    GetPackageId(hprocess.into_param().abi(), bufferlength, ::core::mem::transmute(buffer.unwrap_or(::std::ptr::null_mut())))
 }
 #[inline]
-pub unsafe fn GetPackageInfo(packageinforeference: *const _PACKAGE_INFO_REFERENCE, flags: u32, bufferlength: *mut u32, buffer: ::core::option::Option<*mut u8>, count: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
+pub unsafe fn GetPackageInfo(packageinforeference: *const _PACKAGE_INFO_REFERENCE, flags: u32, bufferlength: *mut u32, buffer: ::core::option::Option<*mut u8>, count: ::core::option::Option<*mut u32>) -> super::super::super::Foundation::WIN32_ERROR {
     ::windows_targets::link!("kernel32.dll" "system" fn GetPackageInfo(packageinforeference : *const _PACKAGE_INFO_REFERENCE, flags : u32, bufferlength : *mut u32, buffer : *mut u8, count : *mut u32) -> super::super::super::Foundation:: WIN32_ERROR);
-    GetPackageInfo(packageinforeference, flags, bufferlength, ::core::mem::transmute(buffer.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(count.unwrap_or(::std::ptr::null_mut()))).ok()
+    GetPackageInfo(packageinforeference, flags, bufferlength, ::core::mem::transmute(buffer.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(count.unwrap_or(::std::ptr::null_mut())))
 }
 #[inline]
-pub unsafe fn GetPackageInfo2(packageinforeference: *const _PACKAGE_INFO_REFERENCE, flags: u32, packagepathtype: PackagePathType, bufferlength: *mut u32, buffer: ::core::option::Option<*mut u8>, count: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
+pub unsafe fn GetPackageInfo2(packageinforeference: *const _PACKAGE_INFO_REFERENCE, flags: u32, packagepathtype: PackagePathType, bufferlength: *mut u32, buffer: ::core::option::Option<*mut u8>, count: ::core::option::Option<*mut u32>) -> super::super::super::Foundation::WIN32_ERROR {
     ::windows_targets::link!("api-ms-win-appmodel-runtime-l1-1-3.dll" "system" fn GetPackageInfo2(packageinforeference : *const _PACKAGE_INFO_REFERENCE, flags : u32, packagepathtype : PackagePathType, bufferlength : *mut u32, buffer : *mut u8, count : *mut u32) -> super::super::super::Foundation:: WIN32_ERROR);
-    GetPackageInfo2(packageinforeference, flags, packagepathtype, bufferlength, ::core::mem::transmute(buffer.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(count.unwrap_or(::std::ptr::null_mut()))).ok()
+    GetPackageInfo2(packageinforeference, flags, packagepathtype, bufferlength, ::core::mem::transmute(buffer.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(count.unwrap_or(::std::ptr::null_mut())))
 }
 #[inline]
-pub unsafe fn GetPackagePath(packageid: *const PACKAGE_ID, reserved: u32, pathlength: *mut u32, path: ::windows_core::PWSTR) -> ::windows_core::Result<()> {
+pub unsafe fn GetPackagePath(packageid: *const PACKAGE_ID, reserved: u32, pathlength: *mut u32, path: ::windows_core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR {
     ::windows_targets::link!("kernel32.dll" "system" fn GetPackagePath(packageid : *const PACKAGE_ID, reserved : u32, pathlength : *mut u32, path : ::windows_core::PWSTR) -> super::super::super::Foundation:: WIN32_ERROR);
-    GetPackagePath(packageid, reserved, pathlength, ::core::mem::transmute(path)).ok()
+    GetPackagePath(packageid, reserved, pathlength, ::core::mem::transmute(path))
 }
 #[inline]
-pub unsafe fn GetPackagePathByFullName<P0>(packagefullname: P0, pathlength: *mut u32, path: ::windows_core::PWSTR) -> ::windows_core::Result<()>
+pub unsafe fn GetPackagePathByFullName<P0>(packagefullname: P0, pathlength: *mut u32, path: ::windows_core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR
 where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn GetPackagePathByFullName(packagefullname : ::windows_core::PCWSTR, pathlength : *mut u32, path : ::windows_core::PWSTR) -> super::super::super::Foundation:: WIN32_ERROR);
-    GetPackagePathByFullName(packagefullname.into_param().abi(), pathlength, ::core::mem::transmute(path)).ok()
+    GetPackagePathByFullName(packagefullname.into_param().abi(), pathlength, ::core::mem::transmute(path))
 }
 #[inline]
-pub unsafe fn GetPackagePathByFullName2<P0>(packagefullname: P0, packagepathtype: PackagePathType, pathlength: *mut u32, path: ::windows_core::PWSTR) -> ::windows_core::Result<()>
+pub unsafe fn GetPackagePathByFullName2<P0>(packagefullname: P0, packagepathtype: PackagePathType, pathlength: *mut u32, path: ::windows_core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR
 where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("api-ms-win-appmodel-runtime-l1-1-3.dll" "system" fn GetPackagePathByFullName2(packagefullname : ::windows_core::PCWSTR, packagepathtype : PackagePathType, pathlength : *mut u32, path : ::windows_core::PWSTR) -> super::super::super::Foundation:: WIN32_ERROR);
-    GetPackagePathByFullName2(packagefullname.into_param().abi(), packagepathtype, pathlength, ::core::mem::transmute(path)).ok()
+    GetPackagePathByFullName2(packagefullname.into_param().abi(), packagepathtype, pathlength, ::core::mem::transmute(path))
 }
 #[inline]
-pub unsafe fn GetPackagesByPackageFamily<P0>(packagefamilyname: P0, count: *mut u32, packagefullnames: ::core::option::Option<*mut ::windows_core::PWSTR>, bufferlength: *mut u32, buffer: ::windows_core::PWSTR) -> ::windows_core::Result<()>
+pub unsafe fn GetPackagesByPackageFamily<P0>(packagefamilyname: P0, count: *mut u32, packagefullnames: ::core::option::Option<*mut ::windows_core::PWSTR>, bufferlength: *mut u32, buffer: ::windows_core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR
 where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn GetPackagesByPackageFamily(packagefamilyname : ::windows_core::PCWSTR, count : *mut u32, packagefullnames : *mut ::windows_core::PWSTR, bufferlength : *mut u32, buffer : ::windows_core::PWSTR) -> super::super::super::Foundation:: WIN32_ERROR);
-    GetPackagesByPackageFamily(packagefamilyname.into_param().abi(), count, ::core::mem::transmute(packagefullnames.unwrap_or(::std::ptr::null_mut())), bufferlength, ::core::mem::transmute(buffer)).ok()
+    GetPackagesByPackageFamily(packagefamilyname.into_param().abi(), count, ::core::mem::transmute(packagefullnames.unwrap_or(::std::ptr::null_mut())), bufferlength, ::core::mem::transmute(buffer))
 }
 #[inline]
 pub unsafe fn GetProcessesInVirtualizationContext<P0>(packagefamilyname: P0, count: *mut u32, processes: *mut *mut super::super::super::Foundation::HANDLE) -> ::windows_core::Result<()>
@@ -323,87 +323,87 @@ where
     GetResolvedPackageFullNameForPackageDependency(packagedependencyid.into_param().abi(), &mut result__).map(|| result__)
 }
 #[inline]
-pub unsafe fn GetStagedPackageOrigin<P0>(packagefullname: P0, origin: *mut PackageOrigin) -> ::windows_core::Result<()>
+pub unsafe fn GetStagedPackageOrigin<P0>(packagefullname: P0, origin: *mut PackageOrigin) -> super::super::super::Foundation::WIN32_ERROR
 where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("api-ms-win-appmodel-runtime-l1-1-1.dll" "system" fn GetStagedPackageOrigin(packagefullname : ::windows_core::PCWSTR, origin : *mut PackageOrigin) -> super::super::super::Foundation:: WIN32_ERROR);
-    GetStagedPackageOrigin(packagefullname.into_param().abi(), origin).ok()
+    GetStagedPackageOrigin(packagefullname.into_param().abi(), origin)
 }
 #[inline]
-pub unsafe fn GetStagedPackagePathByFullName<P0>(packagefullname: P0, pathlength: *mut u32, path: ::windows_core::PWSTR) -> ::windows_core::Result<()>
+pub unsafe fn GetStagedPackagePathByFullName<P0>(packagefullname: P0, pathlength: *mut u32, path: ::windows_core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR
 where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn GetStagedPackagePathByFullName(packagefullname : ::windows_core::PCWSTR, pathlength : *mut u32, path : ::windows_core::PWSTR) -> super::super::super::Foundation:: WIN32_ERROR);
-    GetStagedPackagePathByFullName(packagefullname.into_param().abi(), pathlength, ::core::mem::transmute(path)).ok()
+    GetStagedPackagePathByFullName(packagefullname.into_param().abi(), pathlength, ::core::mem::transmute(path))
 }
 #[inline]
-pub unsafe fn GetStagedPackagePathByFullName2<P0>(packagefullname: P0, packagepathtype: PackagePathType, pathlength: *mut u32, path: ::windows_core::PWSTR) -> ::windows_core::Result<()>
+pub unsafe fn GetStagedPackagePathByFullName2<P0>(packagefullname: P0, packagepathtype: PackagePathType, pathlength: *mut u32, path: ::windows_core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR
 where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("api-ms-win-appmodel-runtime-l1-1-3.dll" "system" fn GetStagedPackagePathByFullName2(packagefullname : ::windows_core::PCWSTR, packagepathtype : PackagePathType, pathlength : *mut u32, path : ::windows_core::PWSTR) -> super::super::super::Foundation:: WIN32_ERROR);
-    GetStagedPackagePathByFullName2(packagefullname.into_param().abi(), packagepathtype, pathlength, ::core::mem::transmute(path)).ok()
+    GetStagedPackagePathByFullName2(packagefullname.into_param().abi(), packagepathtype, pathlength, ::core::mem::transmute(path))
 }
 #[inline]
-pub unsafe fn OpenPackageInfoByFullName<P0>(packagefullname: P0, reserved: u32, packageinforeference: *mut *mut _PACKAGE_INFO_REFERENCE) -> ::windows_core::Result<()>
+pub unsafe fn OpenPackageInfoByFullName<P0>(packagefullname: P0, reserved: u32, packageinforeference: *mut *mut _PACKAGE_INFO_REFERENCE) -> super::super::super::Foundation::WIN32_ERROR
 where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn OpenPackageInfoByFullName(packagefullname : ::windows_core::PCWSTR, reserved : u32, packageinforeference : *mut *mut _PACKAGE_INFO_REFERENCE) -> super::super::super::Foundation:: WIN32_ERROR);
-    OpenPackageInfoByFullName(packagefullname.into_param().abi(), reserved, packageinforeference).ok()
+    OpenPackageInfoByFullName(packagefullname.into_param().abi(), reserved, packageinforeference)
 }
 #[inline]
-pub unsafe fn OpenPackageInfoByFullNameForUser<P0, P1>(usersid: P0, packagefullname: P1, reserved: u32, packageinforeference: *mut *mut _PACKAGE_INFO_REFERENCE) -> ::windows_core::Result<()>
+pub unsafe fn OpenPackageInfoByFullNameForUser<P0, P1>(usersid: P0, packagefullname: P1, reserved: u32, packageinforeference: *mut *mut _PACKAGE_INFO_REFERENCE) -> super::super::super::Foundation::WIN32_ERROR
 where
     P0: ::windows_core::IntoParam<super::super::super::Foundation::PSID>,
     P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("api-ms-win-appmodel-runtime-l1-1-1.dll" "system" fn OpenPackageInfoByFullNameForUser(usersid : super::super::super::Foundation:: PSID, packagefullname : ::windows_core::PCWSTR, reserved : u32, packageinforeference : *mut *mut _PACKAGE_INFO_REFERENCE) -> super::super::super::Foundation:: WIN32_ERROR);
-    OpenPackageInfoByFullNameForUser(usersid.into_param().abi(), packagefullname.into_param().abi(), reserved, packageinforeference).ok()
+    OpenPackageInfoByFullNameForUser(usersid.into_param().abi(), packagefullname.into_param().abi(), reserved, packageinforeference)
 }
 #[inline]
-pub unsafe fn PackageFamilyNameFromFullName<P0>(packagefullname: P0, packagefamilynamelength: *mut u32, packagefamilyname: ::windows_core::PWSTR) -> ::windows_core::Result<()>
+pub unsafe fn PackageFamilyNameFromFullName<P0>(packagefullname: P0, packagefamilynamelength: *mut u32, packagefamilyname: ::windows_core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR
 where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn PackageFamilyNameFromFullName(packagefullname : ::windows_core::PCWSTR, packagefamilynamelength : *mut u32, packagefamilyname : ::windows_core::PWSTR) -> super::super::super::Foundation:: WIN32_ERROR);
-    PackageFamilyNameFromFullName(packagefullname.into_param().abi(), packagefamilynamelength, ::core::mem::transmute(packagefamilyname)).ok()
+    PackageFamilyNameFromFullName(packagefullname.into_param().abi(), packagefamilynamelength, ::core::mem::transmute(packagefamilyname))
 }
 #[inline]
-pub unsafe fn PackageFamilyNameFromId(packageid: *const PACKAGE_ID, packagefamilynamelength: *mut u32, packagefamilyname: ::windows_core::PWSTR) -> ::windows_core::Result<()> {
+pub unsafe fn PackageFamilyNameFromId(packageid: *const PACKAGE_ID, packagefamilynamelength: *mut u32, packagefamilyname: ::windows_core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR {
     ::windows_targets::link!("kernel32.dll" "system" fn PackageFamilyNameFromId(packageid : *const PACKAGE_ID, packagefamilynamelength : *mut u32, packagefamilyname : ::windows_core::PWSTR) -> super::super::super::Foundation:: WIN32_ERROR);
-    PackageFamilyNameFromId(packageid, packagefamilynamelength, ::core::mem::transmute(packagefamilyname)).ok()
+    PackageFamilyNameFromId(packageid, packagefamilynamelength, ::core::mem::transmute(packagefamilyname))
 }
 #[inline]
-pub unsafe fn PackageFullNameFromId(packageid: *const PACKAGE_ID, packagefullnamelength: *mut u32, packagefullname: ::windows_core::PWSTR) -> ::windows_core::Result<()> {
+pub unsafe fn PackageFullNameFromId(packageid: *const PACKAGE_ID, packagefullnamelength: *mut u32, packagefullname: ::windows_core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR {
     ::windows_targets::link!("kernel32.dll" "system" fn PackageFullNameFromId(packageid : *const PACKAGE_ID, packagefullnamelength : *mut u32, packagefullname : ::windows_core::PWSTR) -> super::super::super::Foundation:: WIN32_ERROR);
-    PackageFullNameFromId(packageid, packagefullnamelength, ::core::mem::transmute(packagefullname)).ok()
+    PackageFullNameFromId(packageid, packagefullnamelength, ::core::mem::transmute(packagefullname))
 }
 #[inline]
-pub unsafe fn PackageIdFromFullName<P0>(packagefullname: P0, flags: u32, bufferlength: *mut u32, buffer: ::core::option::Option<*mut u8>) -> ::windows_core::Result<()>
+pub unsafe fn PackageIdFromFullName<P0>(packagefullname: P0, flags: u32, bufferlength: *mut u32, buffer: ::core::option::Option<*mut u8>) -> super::super::super::Foundation::WIN32_ERROR
 where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn PackageIdFromFullName(packagefullname : ::windows_core::PCWSTR, flags : u32, bufferlength : *mut u32, buffer : *mut u8) -> super::super::super::Foundation:: WIN32_ERROR);
-    PackageIdFromFullName(packagefullname.into_param().abi(), flags, bufferlength, ::core::mem::transmute(buffer.unwrap_or(::std::ptr::null_mut()))).ok()
+    PackageIdFromFullName(packagefullname.into_param().abi(), flags, bufferlength, ::core::mem::transmute(buffer.unwrap_or(::std::ptr::null_mut())))
 }
 #[inline]
-pub unsafe fn PackageNameAndPublisherIdFromFamilyName<P0>(packagefamilyname: P0, packagenamelength: *mut u32, packagename: ::windows_core::PWSTR, packagepublisheridlength: *mut u32, packagepublisherid: ::windows_core::PWSTR) -> ::windows_core::Result<()>
+pub unsafe fn PackageNameAndPublisherIdFromFamilyName<P0>(packagefamilyname: P0, packagenamelength: *mut u32, packagename: ::windows_core::PWSTR, packagepublisheridlength: *mut u32, packagepublisherid: ::windows_core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR
 where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn PackageNameAndPublisherIdFromFamilyName(packagefamilyname : ::windows_core::PCWSTR, packagenamelength : *mut u32, packagename : ::windows_core::PWSTR, packagepublisheridlength : *mut u32, packagepublisherid : ::windows_core::PWSTR) -> super::super::super::Foundation:: WIN32_ERROR);
-    PackageNameAndPublisherIdFromFamilyName(packagefamilyname.into_param().abi(), packagenamelength, ::core::mem::transmute(packagename), packagepublisheridlength, ::core::mem::transmute(packagepublisherid)).ok()
+    PackageNameAndPublisherIdFromFamilyName(packagefamilyname.into_param().abi(), packagenamelength, ::core::mem::transmute(packagename), packagepublisheridlength, ::core::mem::transmute(packagepublisherid))
 }
 #[inline]
-pub unsafe fn ParseApplicationUserModelId<P0>(applicationusermodelid: P0, packagefamilynamelength: *mut u32, packagefamilyname: ::windows_core::PWSTR, packagerelativeapplicationidlength: *mut u32, packagerelativeapplicationid: ::windows_core::PWSTR) -> ::windows_core::Result<()>
+pub unsafe fn ParseApplicationUserModelId<P0>(applicationusermodelid: P0, packagefamilynamelength: *mut u32, packagefamilyname: ::windows_core::PWSTR, packagerelativeapplicationidlength: *mut u32, packagerelativeapplicationid: ::windows_core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR
 where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn ParseApplicationUserModelId(applicationusermodelid : ::windows_core::PCWSTR, packagefamilynamelength : *mut u32, packagefamilyname : ::windows_core::PWSTR, packagerelativeapplicationidlength : *mut u32, packagerelativeapplicationid : ::windows_core::PWSTR) -> super::super::super::Foundation:: WIN32_ERROR);
-    ParseApplicationUserModelId(applicationusermodelid.into_param().abi(), packagefamilynamelength, ::core::mem::transmute(packagefamilyname), packagerelativeapplicationidlength, ::core::mem::transmute(packagerelativeapplicationid)).ok()
+    ParseApplicationUserModelId(applicationusermodelid.into_param().abi(), packagefamilynamelength, ::core::mem::transmute(packagefamilyname), packagerelativeapplicationidlength, ::core::mem::transmute(packagerelativeapplicationid))
 }
 #[inline]
 pub unsafe fn ReleasePackageVirtualizationContext<P0>(context: P0)
@@ -433,41 +433,41 @@ where
     TryCreatePackageDependency(user.into_param().abi(), packagefamilyname.into_param().abi(), ::core::mem::transmute(minversion), packagedependencyprocessorarchitectures, lifetimekind, lifetimeartifact.into_param().abi(), options, &mut result__).map(|| result__)
 }
 #[inline]
-pub unsafe fn VerifyApplicationUserModelId<P0>(applicationusermodelid: P0) -> ::windows_core::Result<()>
+pub unsafe fn VerifyApplicationUserModelId<P0>(applicationusermodelid: P0) -> super::super::super::Foundation::WIN32_ERROR
 where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("api-ms-win-appmodel-runtime-l1-1-1.dll" "system" fn VerifyApplicationUserModelId(applicationusermodelid : ::windows_core::PCWSTR) -> super::super::super::Foundation:: WIN32_ERROR);
-    VerifyApplicationUserModelId(applicationusermodelid.into_param().abi()).ok()
+    VerifyApplicationUserModelId(applicationusermodelid.into_param().abi())
 }
 #[inline]
-pub unsafe fn VerifyPackageFamilyName<P0>(packagefamilyname: P0) -> ::windows_core::Result<()>
+pub unsafe fn VerifyPackageFamilyName<P0>(packagefamilyname: P0) -> super::super::super::Foundation::WIN32_ERROR
 where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("api-ms-win-appmodel-runtime-l1-1-1.dll" "system" fn VerifyPackageFamilyName(packagefamilyname : ::windows_core::PCWSTR) -> super::super::super::Foundation:: WIN32_ERROR);
-    VerifyPackageFamilyName(packagefamilyname.into_param().abi()).ok()
+    VerifyPackageFamilyName(packagefamilyname.into_param().abi())
 }
 #[inline]
-pub unsafe fn VerifyPackageFullName<P0>(packagefullname: P0) -> ::windows_core::Result<()>
+pub unsafe fn VerifyPackageFullName<P0>(packagefullname: P0) -> super::super::super::Foundation::WIN32_ERROR
 where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("api-ms-win-appmodel-runtime-l1-1-1.dll" "system" fn VerifyPackageFullName(packagefullname : ::windows_core::PCWSTR) -> super::super::super::Foundation:: WIN32_ERROR);
-    VerifyPackageFullName(packagefullname.into_param().abi()).ok()
+    VerifyPackageFullName(packagefullname.into_param().abi())
 }
 #[inline]
-pub unsafe fn VerifyPackageId(packageid: *const PACKAGE_ID) -> ::windows_core::Result<()> {
+pub unsafe fn VerifyPackageId(packageid: *const PACKAGE_ID) -> super::super::super::Foundation::WIN32_ERROR {
     ::windows_targets::link!("api-ms-win-appmodel-runtime-l1-1-1.dll" "system" fn VerifyPackageId(packageid : *const PACKAGE_ID) -> super::super::super::Foundation:: WIN32_ERROR);
-    VerifyPackageId(packageid).ok()
+    VerifyPackageId(packageid)
 }
 #[inline]
-pub unsafe fn VerifyPackageRelativeApplicationId<P0>(packagerelativeapplicationid: P0) -> ::windows_core::Result<()>
+pub unsafe fn VerifyPackageRelativeApplicationId<P0>(packagerelativeapplicationid: P0) -> super::super::super::Foundation::WIN32_ERROR
 where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("api-ms-win-appmodel-runtime-l1-1-1.dll" "system" fn VerifyPackageRelativeApplicationId(packagerelativeapplicationid : ::windows_core::PCWSTR) -> super::super::super::Foundation:: WIN32_ERROR);
-    VerifyPackageRelativeApplicationId(packagerelativeapplicationid.into_param().abi()).ok()
+    VerifyPackageRelativeApplicationId(packagerelativeapplicationid.into_param().abi())
 }
 ::windows_core::imp::com_interface!(IAppxAppInstallerReader, IAppxAppInstallerReader_Vtbl, 0xf35bc38c_1d2f_43db_a1f4_586430d1fed2);
 ::windows_core::imp::interface_hierarchy!(IAppxAppInstallerReader, ::windows_core::IUnknown);

@@ -43,9 +43,9 @@ where
     GetHandleInformation(hobject.into_param().abi(), lpdwflags).ok()
 }
 #[inline]
-pub unsafe fn GetLastError() -> ::windows_core::Result<()> {
+pub unsafe fn GetLastError() -> WIN32_ERROR {
     ::windows_targets::link!("kernel32.dll" "system" fn GetLastError() -> WIN32_ERROR);
-    GetLastError().ok()
+    GetLastError()
 }
 #[inline]
 pub unsafe fn GlobalFree<P0>(hmem: P0) -> ::windows_core::Result<HGLOBAL>
