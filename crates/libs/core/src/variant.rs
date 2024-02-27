@@ -152,7 +152,7 @@ impl VARIANT {
     pub unsafe fn from_raw(raw: imp::VARIANT) -> Self {
         Self(raw)
     }
-    
+
     /// Returns the underlying raw data for the `VARIANT`.
     pub fn as_raw(&self) -> &imp::VARIANT {
         &self.0
@@ -180,7 +180,7 @@ impl PROPVARIANT {
     pub unsafe fn from_raw(raw: imp::PROPVARIANT) -> Self {
         Self(raw)
     }
-    
+
     /// Returns the underlying raw data for the `PROPVARIANT`.
     pub fn as_raw(&self) -> &imp::PROPVARIANT {
         &self.0
