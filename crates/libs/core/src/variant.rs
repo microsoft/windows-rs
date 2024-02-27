@@ -143,6 +143,20 @@ impl VARIANT {
     pub const fn is_empty(&self) -> bool {
         unsafe { self.0.Anonymous.Anonymous.vt == imp::VT_EMPTY }
     }
+
+    /// Creates a `VARIANT` by taking ownership of the raw data.
+    ///
+    /// # Safety
+    ///
+    /// The raw data must be owned by the caller and represent a valid `VARIANT` data structure.
+    pub unsafe fn from_raw(raw: imp::VARIANT) -> Self {
+        Self(raw)
+    }
+    
+    /// Returns the underlying raw data for the `VARIANT`.
+    pub fn as_raw(&self) -> &imp::VARIANT {
+        &self.0
+    }
 }
 
 impl PROPVARIANT {
@@ -156,6 +170,20 @@ impl PROPVARIANT {
     /// Returns true if the `PROPVARIANT` is empty.
     pub const fn is_empty(&self) -> bool {
         unsafe { self.0.Anonymous.Anonymous.vt == imp::VT_EMPTY }
+    }
+
+    /// Creates a `PROPVARIANT` by taking ownership of the raw data.
+    ///
+    /// # Safety
+    ///
+    /// The raw data must be owned by the caller and represent a valid `PROPVARIANT` data structure.
+    pub unsafe fn from_raw(raw: imp::PROPVARIANT) -> Self {
+        Self(raw)
+    }
+    
+    /// Returns the underlying raw data for the `PROPVARIANT`.
+    pub fn as_raw(&self) -> &imp::PROPVARIANT {
+        &self.0
     }
 }
 
