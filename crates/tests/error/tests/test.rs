@@ -89,7 +89,7 @@ fn rpc() -> Result<()> {
     assert_eq!(e.code(), HRESULT::from_win32(1715));
     assert_eq!(e.message(), "The RPC server is not listening.");
 
-    let r: Result<()> = unsafe { RpcServerListen(0, 0, 1) };
+    let r: Result<()> = unsafe { RpcServerListen(0, 0, 1).ok() };
     assert_eq!(r.unwrap_err().code(), RPC_S_MAX_CALLS_TOO_SMALL.into());
 
     RPC_S_OK.ok()
