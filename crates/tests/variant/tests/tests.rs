@@ -1,9 +1,12 @@
 use windows::Foundation::Uri;
-use windows::Win32::Foundation::TYPE_E_TYPEMISMATCH;
+use windows::Win32::Foundation::{E_INVALIDARG, TYPE_E_TYPEMISMATCH};
+use windows::Win32::System::Com;
 use windows_core::*;
 
 #[test]
 fn test_variant() -> Result<()> {
+    unsafe { Com::CoIncrementMTAUsage()? };
+
     let empty: VARIANT = VARIANT::new();
     assert!(empty.is_empty());
 
@@ -83,6 +86,19 @@ fn test_variant() -> Result<()> {
         TYPE_E_TYPEMISMATCH
     );
 
+    let dispatch: Com::IDispatch =
+        unsafe { Com::CoCreateInstance(&Com::Events::CEventSystem, None, Com::CLSCTX_ALL)? };
+    let v = VARIANT::from(dispatch);
+    let dispatch = Com::IDispatch::try_from(&v)?;
+    dispatch.cast::<Com::Events::IEventSystem>()?;
+    assert_eq!(i32::try_from(&v).unwrap_err().code(), E_INVALIDARG);
+    assert_eq!(
+        Com::IDispatch::try_from(&VARIANT::from(3.5f64))
+            .unwrap_err()
+            .code(),
+        TYPE_E_TYPEMISMATCH
+    );
+
     let v = VARIANT::from(BSTR::from("hello"));
     assert_eq!(BSTR::try_from(&v)?, "hello");
     assert_eq!(
@@ -115,6 +131,8 @@ fn test_variant() -> Result<()> {
 
 #[test]
 fn test_propvariant() -> Result<()> {
+    unsafe { Com::CoIncrementMTAUsage()? };
+
     let empty: PROPVARIANT = PROPVARIANT::new();
     assert!(empty.is_empty());
 
@@ -195,6 +213,19 @@ fn test_propvariant() -> Result<()> {
     assert_eq!(i32::try_from(&v).unwrap_err().code(), TYPE_E_TYPEMISMATCH);
     assert_eq!(
         IUnknown::try_from(&PROPVARIANT::from(3.5f64))
+            .unwrap_err()
+            .code(),
+        TYPE_E_TYPEMISMATCH
+    );
+
+    let dispatch: Com::IDispatch =
+        unsafe { Com::CoCreateInstance(&Com::Events::CEventSystem, None, Com::CLSCTX_ALL)? };
+    let v = PROPVARIANT::from(dispatch);
+    let dispatch = Com::IDispatch::try_from(&v)?;
+    dispatch.cast::<Com::Events::IEventSystem>()?;
+    assert_eq!(i32::try_from(&v).unwrap_err().code(), E_INVALIDARG);
+    assert_eq!(
+        Com::IDispatch::try_from(&PROPVARIANT::from(3.5f64))
             .unwrap_err()
             .code(),
         TYPE_E_TYPEMISMATCH

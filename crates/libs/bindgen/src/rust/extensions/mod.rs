@@ -15,6 +15,7 @@ pub fn gen_mod(writer: &Writer, namespace: &str) -> TokenStream {
         "Windows.Win32.Foundation" => concat!(include_str!("mod/Win32/Foundation/BOOL.rs"), include_str!("mod/Win32/Foundation/BOOLEAN.rs"), include_str!("mod/Win32/Foundation/NTSTATUS.rs"), include_str!("mod/Win32/Foundation/VARIANT_BOOL.rs"), include_str!("mod/Win32/Foundation/WIN32_ERROR.rs"),),
         "Windows.Win32.Networking.WinSock" => concat!(include_str!("mod/Win32/Networking/WinSock/IN_ADDR.rs"), include_str!("mod/Win32/Networking/WinSock/IN6_ADDR.rs"), include_str!("mod/Win32/Networking/WinSock/SOCKADDR_IN.rs"), include_str!("mod/Win32/Networking/WinSock/SOCKADDR_IN6.rs"), include_str!("mod/Win32/Networking/WinSock/SOCKADDR_INET.rs"),),
         "Windows.Win32.System.Rpc" => include_str!("mod/Win32/System/Rpc/RPC_STATUS.rs"),
+        "Windows.Win32.System.Com" => include_str!("mod/Win32/System/Com/IDispatch.rs"),
         "Windows.Win32.UI.WindowsAndMessaging" => {
             include_str!("mod/Win32/UI/WindowsAndMessaging/WindowLong.rs")
         }
