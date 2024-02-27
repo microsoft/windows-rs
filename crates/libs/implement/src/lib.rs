@@ -7,6 +7,9 @@ use quote::{quote, ToTokens};
 /// Implements one or more COM interfaces.
 ///
 /// # Example
+///
+/// Note that you could also have a look at [this more complete tutorial](https://kennykerr.ca/rust-getting-started/how-to-implement-com-interface.html)
+///
 /// ```rust,ignore
 /// #[interface("094d70d6-5202-44b8-abb8-43860da5aca2")]
 /// unsafe trait IValue: IUnknown {
@@ -24,8 +27,9 @@ use quote::{quote, ToTokens};
 /// }
 ///
 /// fn main() {
-///     let object: IValue = Value(123).into();
-///     // Call interface methods...
+///     let rust_instance = Value(123);
+///     let com_object: IValue = rust_instance.into();
+///     // You can now call interface methods on com_object.
 /// }
 /// ```
 #[proc_macro_attribute]
