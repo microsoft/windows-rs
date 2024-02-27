@@ -8,7 +8,7 @@ use quote::{quote, ToTokens};
 ///
 /// # Example
 ///
-/// Note that you could also have a look at [this more complete tutorial](https://kennykerr.ca/rust-getting-started/how-to-implement-com-interface.html)
+/// Here is a [more complete tutorial](https://kennykerr.ca/rust-getting-started/how-to-implement-com-interface.html).
 ///
 /// ```rust,ignore
 /// #[interface("094d70d6-5202-44b8-abb8-43860da5aca2")]
