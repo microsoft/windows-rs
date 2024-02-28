@@ -1,10 +1,10 @@
 
 [package]
 name = "windows-targets"
-version = "0.52.3"
+version = "0.52.4"
 authors = ["Microsoft"]
 edition = "2021"
-rust-version = "1.60"
+rust-version = "1.56"
 license = "MIT OR Apache-2.0"
 description = "Import libs for Windows"
 repository = "https://github.com/microsoft/windows-rs"
