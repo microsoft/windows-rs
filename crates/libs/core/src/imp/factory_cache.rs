@@ -16,6 +16,12 @@ impl<C, I> FactoryCache<C, I> {
     }
 }
 
+impl<C, I> Default for FactoryCache<C, I> {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+
 impl<C: crate::RuntimeName, I: Interface> FactoryCache<C, I> {
     pub fn call<R, F: FnOnce(&I) -> crate::Result<R>>(&self, callback: F) -> crate::Result<R> {
         loop {
