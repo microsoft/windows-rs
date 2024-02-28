@@ -178,32 +178,35 @@ fn namespace(writer: &Writer, tree: &Tree) -> String {
                     continue;
                 }
                 let name = type_name.name;
-                let kind = def.kind();
-                match kind {
+                let mut kind = def.kind();
+
+                let tokens = match kind {
                     metadata::TypeKind::Class => {
                         if def.flags().contains(metadata::TypeAttributes::WindowsRuntime) {
-                            types.entry(kind).or_default().insert(name, classes::writer(writer, def));
+                            classes::writer(writer, def)
+                        } else {
+                            quote! {}
                         }
                     }
-                    metadata::TypeKind::Interface => types.entry(kind).or_default().entry(name).or_default().combine(&interfaces::writer(writer, def)),
-                    metadata::TypeKind::Enum => types.entry(kind).or_default().entry(name).or_default().combine(&enums::writer(writer, def)),
+                    metadata::TypeKind::Interface => interfaces::writer(writer, def),
+                    metadata::TypeKind::Enum => enums::writer(writer, def),
                     metadata::TypeKind::Struct => {
-                        if def.fields().next().is_none() {
-                            if let Some(guid) = metadata::type_def_guid(def) {
-                                let ident = to_ident(name);
-                                let value = writer.guid(&guid);
-                                let guid = writer.type_name(&metadata::Type::GUID);
-                                let constant = quote! {
-                                    pub const #ident: #guid = #value;
-                                };
-                                types.entry(metadata::TypeKind::Class).or_default().entry(name).or_default().combine(&constant);
-                                continue;
+                        if let Some(guid) = clsid(def) {
+                            kind = metadata::TypeKind::Class;
+                            let ident = to_ident(name);
+                            let value = writer.guid(&guid);
+                            let guid = writer.type_name(&metadata::Type::GUID);
+                            quote! {
+                                pub const #ident: #guid = #value;
                             }
+                        } else {
+                            structs::writer(writer, def)
                         }
-                        types.entry(kind).or_default().entry(name).or_default().combine(&structs::writer(writer, def));
                     }
-                    metadata::TypeKind::Delegate => types.entry(kind).or_default().entry(name).or_default().combine(&delegates::writer(writer, def)),
-                }
+                    metadata::TypeKind::Delegate => delegates::writer(writer, def),
+                };
+
+                types.entry(kind).or_default().entry(name).or_default().combine(&tokens);
             }
             metadata::Item::Fn(def, namespace) => {
                 let name = def.name();
@@ -231,6 +234,13 @@ fn namespace(writer: &Writer, tree: &Tree) -> String {
     }
 
     tokens.into_string()
+}
+
+fn clsid(def: metadata::TypeDef) -> Option<metadata::Guid> {
+    if def.fields().next().is_none() {
+        return metadata::type_def_guid(def);
+    }
+    None
 }
 
 fn namespace_impl(writer: &Writer, tree: &Tree) -> String {
