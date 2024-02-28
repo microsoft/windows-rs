@@ -91,3 +91,15 @@ impl IntoParam<PCWSTR> for &HSTRING {
         Param::Owned(PCWSTR(self.as_ptr()))
     }
 }
+
+impl IntoParam<PCWSTR> for PWSTR {
+    unsafe fn into_param(self) -> Param<PCWSTR> {
+        Param::Owned(PCWSTR(self.0))
+    }
+}
+
+impl IntoParam<PCSTR> for PSTR {
+    unsafe fn into_param(self) -> Param<PCSTR> {
+        Param::Owned(PCSTR(self.0))
+    }
+}
