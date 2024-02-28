@@ -10,7 +10,7 @@ Start by adding the following to your Cargo.toml file:
 
 ```toml
 [dependencies.windows-targets]
-version = "0.52.3"
+version = "0.52.4"
 
 [dev-dependencies.windows-bindgen]
 version = "0.53.0"
