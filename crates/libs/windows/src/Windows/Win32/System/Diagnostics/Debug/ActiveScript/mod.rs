@@ -4333,7 +4333,6 @@ pub const CATID_ActiveScript: ::windows_core::GUID = ::windows_core::GUID::from_
 pub const CATID_ActiveScriptAuthor: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0aee2a92_bcbb_11d0_8c72_00c04fc2b085);
 pub const CATID_ActiveScriptEncode: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf0b7a1a3_9847_11cf_8f20_00805f2cd064);
 pub const CATID_ActiveScriptParse: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf0b7a1a2_9847_11cf_8f20_00805f2cd064);
-pub const CDebugDocumentHelper: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x83b8bca6_687c_11d0_a405_00aa0060275c);
 pub const DEBUG_TEXT_ALLOWBREAKPOINTS: u32 = 8u32;
 pub const DEBUG_TEXT_ALLOWERRORREPORT: u32 = 16u32;
 pub const DEBUG_TEXT_EVALUATETOCODECONTEXT: u32 = 32u32;
@@ -4354,8 +4353,6 @@ pub const DOCUMENTNAMETYPE_URL: DOCUMENTNAMETYPE = DOCUMENTNAMETYPE(3i32);
 pub const DST_INTERNAL_FRAME: DEBUG_STACKFRAME_TYPE = DEBUG_STACKFRAME_TYPE(1i32);
 pub const DST_INVOCATION_FRAME: DEBUG_STACKFRAME_TYPE = DEBUG_STACKFRAME_TYPE(2i32);
 pub const DST_SCRIPT_FRAME: DEBUG_STACKFRAME_TYPE = DEBUG_STACKFRAME_TYPE(0i32);
-pub const DebugHelper: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0bfcc060_8c1d_11d0_accd_00aa0060275c);
-pub const DefaultDebugSessionProvider: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x834128a2_51f4_11d0_8f20_00805f2cd064);
 pub const ERRORRESUMEACTION_AbortCallAndReturnErrorToCaller: ERRORRESUMEACTION = ERRORRESUMEACTION(1i32);
 pub const ERRORRESUMEACTION_ReexecuteErrorStatement: ERRORRESUMEACTION = ERRORRESUMEACTION(0i32);
 pub const ERRORRESUMEACTION_SkipErrorStatement: ERRORRESUMEACTION = ERRORRESUMEACTION(2i32);
@@ -4387,8 +4384,6 @@ pub const JS_PROPERTY_MEMBERS_ARGUMENTS: JS_PROPERTY_MEMBERS = JS_PROPERTY_MEMBE
 pub const JS_PROPERTY_METHOD: JS_PROPERTY_ATTRIBUTES = JS_PROPERTY_ATTRIBUTES(4i32);
 pub const JS_PROPERTY_NATIVE_WINRT_POINTER: JS_PROPERTY_ATTRIBUTES = JS_PROPERTY_ATTRIBUTES(16i32);
 pub const JS_PROPERTY_READONLY: JS_PROPERTY_ATTRIBUTES = JS_PROPERTY_ATTRIBUTES(8i32);
-pub const MachineDebugManager_DEBUG: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x49769cec_3a55_4bb0_b697_88fede77e8ea);
-pub const MachineDebugManager_RETAIL: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c0a3666_30c9_11d0_8f20_00805f2cd064);
 pub const OID_JSSIP: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x06c9e010_38ce_11d4_a2a3_00104bd35090);
 pub const OID_VBSSIP: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1629f04e_2799_4db5_8fe5_ace10f17ebab);
 pub const OID_WSFSIP: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1a610570_38ce_11d4_a2a3_00104bd35090);
@@ -4445,7 +4440,6 @@ pub const PROFILER_SCRIPT_TYPE_DOM: PROFILER_SCRIPT_TYPE = PROFILER_SCRIPT_TYPE(
 pub const PROFILER_SCRIPT_TYPE_DYNAMIC: PROFILER_SCRIPT_TYPE = PROFILER_SCRIPT_TYPE(1i32);
 pub const PROFILER_SCRIPT_TYPE_NATIVE: PROFILER_SCRIPT_TYPE = PROFILER_SCRIPT_TYPE(2i32);
 pub const PROFILER_SCRIPT_TYPE_USER: PROFILER_SCRIPT_TYPE = PROFILER_SCRIPT_TYPE(0i32);
-pub const ProcessDebugManager: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x78a51822_51f4_11d0_8f20_00805f2cd064);
 pub const SCRIPTGCTYPE_EXHAUSTIVE: SCRIPTGCTYPE = SCRIPTGCTYPE(1i32);
 pub const SCRIPTGCTYPE_NORMAL: SCRIPTGCTYPE = SCRIPTGCTYPE(0i32);
 pub const SCRIPTINFO_ITYPEINFO: u32 = 2u32;
@@ -5059,6 +5053,8 @@ impl ::core::fmt::Debug for SCRIPT_INVOCATION_CONTEXT_TYPE {
         f.debug_tuple("SCRIPT_INVOCATION_CONTEXT_TYPE").field(&self.0).finish()
     }
 }
+pub const CDebugDocumentHelper: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x83b8bca6_687c_11d0_a405_00aa0060275c);
+pub const DebugHelper: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0bfcc060_8c1d_11d0_accd_00aa0060275c);
 #[repr(C)]
 pub struct DebugStackFrameDescriptor {
     pub pdsf: ::std::mem::ManuallyDrop<::core::option::Option<IDebugStackFrame>>,
@@ -5123,6 +5119,7 @@ impl ::core::default::Default for DebugStackFrameDescriptor64 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+pub const DefaultDebugSessionProvider: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x834128a2_51f4_11d0_8f20_00805f2cd064);
 #[repr(C)]
 pub struct JS_NATIVE_FRAME {
     pub InstructionOffset: u64,
@@ -5187,6 +5184,8 @@ impl ::core::default::Default for JsDebugPropertyInfo {
         unsafe { ::core::mem::zeroed() }
     }
 }
+pub const MachineDebugManager_DEBUG: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x49769cec_3a55_4bb0_b697_88fede77e8ea);
+pub const MachineDebugManager_RETAIL: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c0a3666_30c9_11d0_8f20_00805f2cd064);
 #[repr(C)]
 pub struct PROFILER_HEAP_OBJECT {
     pub size: u32,
@@ -5427,6 +5426,7 @@ impl ::core::default::Default for PROFILER_PROPERTY_TYPE_SUBSTRING_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+pub const ProcessDebugManager: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x78a51822_51f4_11d0_8f20_00805f2cd064);
 #[repr(C)]
 pub struct TEXT_DOCUMENT_ARRAY {
     pub dwCount: u32,

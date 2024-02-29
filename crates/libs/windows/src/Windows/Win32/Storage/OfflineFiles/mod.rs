@@ -2039,8 +2039,6 @@ pub const OFFLINEFILES_SYNC_STATE_REMOTE_KNOWN: u32 = 2u32;
 pub const OFFLINEFILES_SYNC_STATE_Stable: OFFLINEFILES_SYNC_STATE = OFFLINEFILES_SYNC_STATE(0i32);
 pub const OFFLINEFILES_TRANSITION_FLAG_CONSOLE: u32 = 2u32;
 pub const OFFLINEFILES_TRANSITION_FLAG_INTERACTIVE: u32 = 1u32;
-pub const OfflineFilesCache: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x48c6be7c_3871_43cc_b46f_1449a1bb2ff3);
-pub const OfflineFilesSetting: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfd3659e9_a920_4123_ad64_7fc76c7aacdf);
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct OFFLINEFILES_CACHING_MODE(pub i32);
@@ -2195,5 +2193,7 @@ impl ::core::fmt::Debug for OFFLINEFILES_SYNC_STATE {
         f.debug_tuple("OFFLINEFILES_SYNC_STATE").field(&self.0).finish()
     }
 }
+pub const OfflineFilesCache: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x48c6be7c_3871_43cc_b46f_1449a1bb2ff3);
+pub const OfflineFilesSetting: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfd3659e9_a920_4123_ad64_7fc76c7aacdf);
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

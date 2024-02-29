@@ -205,14 +205,12 @@ pub const DEDUP_PT_MaxChunkSizeBytes: DEDUP_SET_PARAM_TYPE = DEDUP_SET_PARAM_TYP
 pub const DEDUP_PT_MinChunkSizeBytes: DEDUP_SET_PARAM_TYPE = DEDUP_SET_PARAM_TYPE(1i32);
 pub const DEDUP_RECONSTRUCT_OPTIMIZED: DEDUP_BACKUP_SUPPORT_PARAM_TYPE = DEDUP_BACKUP_SUPPORT_PARAM_TYPE(2i32);
 pub const DEDUP_RECONSTRUCT_UNOPTIMIZED: DEDUP_BACKUP_SUPPORT_PARAM_TYPE = DEDUP_BACKUP_SUPPORT_PARAM_TYPE(1i32);
-pub const DedupBackupSupport: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x73d6b2ad_2984_4715_b2e3_924c149744dd);
 pub const DedupChunkFlags_Compressed: DedupChunkFlags = DedupChunkFlags(1i32);
 pub const DedupChunkFlags_None: DedupChunkFlags = DedupChunkFlags(0i32);
 pub const DedupChunkingAlgorithm_Unknonwn: DedupChunkingAlgorithm = DedupChunkingAlgorithm(0i32);
 pub const DedupChunkingAlgorithm_V1: DedupChunkingAlgorithm = DedupChunkingAlgorithm(1i32);
 pub const DedupCompressionAlgorithm_Unknonwn: DedupCompressionAlgorithm = DedupCompressionAlgorithm(0i32);
 pub const DedupCompressionAlgorithm_Xpress: DedupCompressionAlgorithm = DedupCompressionAlgorithm(1i32);
-pub const DedupDataPort: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8f107207_1829_48b2_a64b_e61f8e0d9acb);
 pub const DedupDataPortManagerOption_AutoStart: DedupDataPortManagerOption = DedupDataPortManagerOption(1i32);
 pub const DedupDataPortManagerOption_None: DedupDataPortManagerOption = DedupDataPortManagerOption(0i32);
 pub const DedupDataPortManagerOption_SkipReconciliation: DedupDataPortManagerOption = DedupDataPortManagerOption(2i32);
@@ -423,6 +421,7 @@ impl ::core::default::Default for DEDUP_CONTAINER_EXTENT {
         unsafe { ::core::mem::zeroed() }
     }
 }
+pub const DedupBackupSupport: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x73d6b2ad_2984_4715_b2e3_924c149744dd);
 #[repr(C)]
 pub struct DedupChunk {
     pub Hash: DedupHash,
@@ -455,6 +454,7 @@ impl ::core::default::Default for DedupChunk {
         unsafe { ::core::mem::zeroed() }
     }
 }
+pub const DedupDataPort: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8f107207_1829_48b2_a64b_e61f8e0d9acb);
 #[repr(C)]
 pub struct DedupHash {
     pub Hash: [u8; 32],

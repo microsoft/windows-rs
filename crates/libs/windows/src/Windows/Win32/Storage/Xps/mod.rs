@@ -5805,9 +5805,6 @@ pub const XPS_TILE_MODE_FLIPXY: XPS_TILE_MODE = XPS_TILE_MODE(5i32);
 pub const XPS_TILE_MODE_FLIPY: XPS_TILE_MODE = XPS_TILE_MODE(4i32);
 pub const XPS_TILE_MODE_NONE: XPS_TILE_MODE = XPS_TILE_MODE(1i32);
 pub const XPS_TILE_MODE_TILE: XPS_TILE_MODE = XPS_TILE_MODE(2i32);
-pub const XpsOMObjectFactory: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe974d26d_3d9b_4d47_88cc_3872f2dc3585);
-pub const XpsOMThumbnailGenerator: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7e4a23e2_b969_4761_be35_1a8ced58e323);
-pub const XpsSignatureManager: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb0c43320_2315_44a2_b70a_0943a140a8ee);
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PRINTER_DEVICE_CAPABILITIES(pub u16);
@@ -6732,6 +6729,9 @@ impl ::core::default::Default for XPS_SIZE {
         unsafe { ::core::mem::zeroed() }
     }
 }
+pub const XpsOMObjectFactory: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe974d26d_3d9b_4d47_88cc_3872f2dc3585);
+pub const XpsOMThumbnailGenerator: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7e4a23e2_b969_4761_be35_1a8ced58e323);
+pub const XpsSignatureManager: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb0c43320_2315_44a2_b70a_0943a140a8ee);
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub type ABORTPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Graphics::Gdi::HDC, param1: i32) -> super::super::Foundation::BOOL>;
 #[cfg(feature = "implement")]

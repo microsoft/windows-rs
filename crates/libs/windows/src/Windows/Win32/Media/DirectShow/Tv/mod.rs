@@ -18521,13 +18521,6 @@ impl _IMSVidCtlEvents {}
 pub struct _IMSVidCtlEvents_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
 }
-pub const ANALOG_AUXIN_NETWORK_TYPE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x742ef867_09e1_40a3_82d3_9669ba35325f);
-pub const ANALOG_FM_NETWORK_TYPE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7728087b_2bb9_4e30_8078_449476e59dbb);
-pub const ANALOG_TV_NETWORK_TYPE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb820d87e_e0e3_478f_8a38_4e13f7b3df42);
-pub const ATSCChannelTuneRequest: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0369b4e6_45b6_11d3_b650_00c04f79498e);
-pub const ATSCComponentType: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa8dcf3d5_0780_4ef4_8a83_2cffaacb8ace);
-pub const ATSCLocator: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8872ff1b_98fa_4d7a_8d93_c9f1055f85bb);
-pub const ATSCTuningSpace: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa2e30750_6c3d_11d3_b653_00c04f79498e);
 pub const ATSC_EIT_TID: u32 = 203u32;
 pub const ATSC_ETM_LOCATION_IN_PTC_FOR_EVENT: u32 = 2u32;
 pub const ATSC_ETM_LOCATION_IN_PTC_FOR_PSIP: u32 = 1u32;
@@ -18541,15 +18534,10 @@ pub const ATSC_RRT_PID: u32 = 8187u32;
 pub const ATSC_RRT_TID: u32 = 202u32;
 pub const ATSC_STT_PID: u32 = 8187u32;
 pub const ATSC_STT_TID: u32 = 205u32;
-pub const ATSC_TERRESTRIAL_TV_NETWORK_TYPE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0dad2fdd_5fd7_11d3_8f50_00c04f7971e2);
 pub const ATSC_VCT_CABL_TID: u32 = 201u32;
 pub const ATSC_VCT_PID: u32 = 8187u32;
 pub const ATSC_VCT_TERR_TID: u32 = 200u32;
 pub const AgeBased: EnTvRat_System = EnTvRat_System(9i32);
-pub const AnalogAudioComponentType: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x28ab0005_e845_4ffa_aa9b_f4665236141c);
-pub const AnalogLocator: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x49638b91_48ab_48b7_a47a_7d0e75a08ede);
-pub const AnalogRadioTuningSpace: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8a674b4c_1f63_11d3_b64c_00c04f79498e);
-pub const AnalogTVTuningSpace: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8a674b4d_1f63_11d3_b64c_00c04f79498e);
 pub const AudioType_Commentary: u32 = 5u32;
 pub const AudioType_Dialogue: u32 = 4u32;
 pub const AudioType_Emergency: u32 = 6u32;
@@ -18559,11 +18547,6 @@ pub const AudioType_Reserved: i32 = -1i32;
 pub const AudioType_Standard: u32 = 0u32;
 pub const AudioType_Visually_Impaired: u32 = 2u32;
 pub const AudioType_Voiceover: u32 = 7u32;
-pub const AuxInTuningSpace: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf9769a06_7aca_4e39_9cfb_97bb35f0e77e);
-pub const BDANETWORKTYPE_ATSC: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x71985f51_1ca1_11d3_9cc8_00c04f7971e0);
-pub const BDA_DEBUG_DATA_AVAILABLE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x69c24f54_9983_497e_b415_282be4c555fb);
-pub const BDA_DEBUG_DATA_TYPE_STRING: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa806e767_de5c_430c_80bf_a21ebe06c748);
-pub const BSKYB_TERRESTRIAL_TV_NETWORK_TYPE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9e9e46c6_3aba_4f08_ad0e_cc5ac8148c2b);
 pub const Bda_DigitalStandard_ATSC: BDA_DigitalSignalStandard = BDA_DigitalSignalStandard(8i32);
 pub const Bda_DigitalStandard_DVB_C: BDA_DigitalSignalStandard = BDA_DigitalSignalStandard(4i32);
 pub const Bda_DigitalStandard_DVB_S: BDA_DigitalSignalStandard = BDA_DigitalSignalStandard(2i32);
@@ -18589,7 +18572,6 @@ pub const BfIsAttr_6: BfEnTvRat_GenericAttributes = BfEnTvRat_GenericAttributes(
 pub const BfIsAttr_7: BfEnTvRat_GenericAttributes = BfEnTvRat_GenericAttributes(128i32);
 pub const BfIsBlocked: BfEnTvRat_GenericAttributes = BfEnTvRat_GenericAttributes(1i32);
 pub const BfValidAttrSubmask: BfEnTvRat_GenericAttributes = BfEnTvRat_GenericAttributes(255i32);
-pub const BroadcastEventService: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0b3ffb92_0919_4934_9d5b_619c719d0202);
 pub const CAE_IsBlocked: BfEnTvRat_Attributes_CAE_TV = BfEnTvRat_Attributes_CAE_TV(1i32);
 pub const CAE_TV_14: EnTvRat_CAE_TV = EnTvRat_CAE_TV(5i32);
 pub const CAE_TV_18: EnTvRat_CAE_TV = EnTvRat_CAE_TV(6i32);
@@ -18659,14 +18641,10 @@ pub const CRID_LOCATION_DVB_RESERVED1: CRID_LOCATION = CRID_LOCATION(2i32);
 pub const CRID_LOCATION_DVB_RESERVED2: CRID_LOCATION = CRID_LOCATION(3i32);
 pub const CRID_LOCATION_IN_CIT: CRID_LOCATION = CRID_LOCATION(1i32);
 pub const CRID_LOCATION_IN_DESCRIPTOR: CRID_LOCATION = CRID_LOCATION(0i32);
-pub const CXDSData: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc4c4c4f4_0049_4e2b_98fb_9537f6ce516d);
 pub const Canadian_English: EnTvRat_System = EnTvRat_System(2i32);
 pub const Canadian_French: EnTvRat_System = EnTvRat_System(3i32);
 pub const ChannelChangeSpanningEvent_End: ChannelChangeSpanningEvent_State = ChannelChangeSpanningEvent_State(2i32);
 pub const ChannelChangeSpanningEvent_Start: ChannelChangeSpanningEvent_State = ChannelChangeSpanningEvent_State(0i32);
-pub const ChannelIDTuneRequest: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3a9428a7_31a4_45e9_9efb_e055bf7bb3db);
-pub const ChannelIDTuningSpace: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcc829a2f_3365_463f_af13_81dbb6f3a555);
-pub const ChannelTuneRequest: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0369b4e5_45b6_11d3_b650_00c04f79498e);
 pub const ChannelTypeAudio: ChannelType = ChannelType(4i32);
 pub const ChannelTypeCaptions: ChannelType = ChannelType(32i32);
 pub const ChannelTypeData: ChannelType = ChannelType(128i32);
@@ -18676,11 +18654,6 @@ pub const ChannelTypeSubtitles: ChannelType = ChannelType(16i32);
 pub const ChannelTypeSuperimpose: ChannelType = ChannelType(64i32);
 pub const ChannelTypeText: ChannelType = ChannelType(8i32);
 pub const ChannelTypeVideo: ChannelType = ChannelType(2i32);
-pub const Component: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x59dc47a8_116c_11d3_9d8e_00c04f72d980);
-pub const ComponentType: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x823535a0_0318_11d3_9d8e_00c04f72d980);
-pub const ComponentTypes: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa1a2b1c4_0e3a_11d3_9d8e_00c04f72d980);
-pub const Components: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x809b6661_94c4_49e6_b6ec_3f0f862215aa);
-pub const CreatePropBagOnRegKey: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8a674b49_1f63_11d3_b64c_00c04f79498e);
 pub const DEF_MODE_PROFILE: CROSSBAR_DEFAULT_FLAGS = CROSSBAR_DEFAULT_FLAGS(1i32);
 pub const DEF_MODE_STREAMS: CROSSBAR_DEFAULT_FLAGS = CROSSBAR_DEFAULT_FLAGS(2i32);
 pub const DESC_LINKAGE_CA_REPLACEMENT: DESC_LINKAGE_TYPE = DESC_LINKAGE_TYPE(3i32);
@@ -18693,8 +18666,6 @@ pub const DESC_LINKAGE_RESERVED0: DESC_LINKAGE_TYPE = DESC_LINKAGE_TYPE(0i32);
 pub const DESC_LINKAGE_RESERVED1: DESC_LINKAGE_TYPE = DESC_LINKAGE_TYPE(7i32);
 pub const DESC_LINKAGE_RESERVED2: DESC_LINKAGE_TYPE = DESC_LINKAGE_TYPE(255i32);
 pub const DESC_LINKAGE_USER: DESC_LINKAGE_TYPE = DESC_LINKAGE_TYPE(8i32);
-pub const DIGITAL_CABLE_NETWORK_TYPE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x143827ab_f77b_498d_81ca_5a007aec28bf);
-pub const DIRECT_TV_SATELLITE_TV_NETWORK_TYPE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x93b66fb5_93d4_4323_921c_c1f52df61d3f);
 pub const DISPID_CHTUNER_ACTR_MINOR_CHANNEL: DISPID_TUNER = DISPID_TUNER(201i32);
 pub const DISPID_CHTUNER_ATVAC_CHANNEL: DISPID_TUNER = DISPID_TUNER(101i32);
 pub const DISPID_CHTUNER_ATVDC_CONTENT: DISPID_TUNER = DISPID_TUNER(102i32);
@@ -18812,7 +18783,6 @@ pub const DOWNRES_InWindowOnly: DownResEventParam = DownResEventParam(1i32);
 pub const DOWNRES_Undefined: DownResEventParam = DownResEventParam(2i32);
 pub const DSATTRIB_BadSampleInfo: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe4846dda_5838_42b4_b897_6f7e5faa2f2f);
 pub const DSATTRIB_WMDRMProtectionInfo: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x40749583_6b9d_4eec_b43c_67a1801e1a9b);
-pub const DTFilter: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc4c4c4f2_0049_4e2b_98fb_9537f6ce516d);
 pub const DTV_CardStatus_Error: u32 = 2u32;
 pub const DTV_CardStatus_FirmwareDownload: u32 = 3u32;
 pub const DTV_CardStatus_Inserted: u32 = 0u32;
@@ -18822,17 +18792,9 @@ pub const DTV_Entitlement_NotEntitled: u32 = 1u32;
 pub const DTV_Entitlement_TechnicalFailure: u32 = 2u32;
 pub const DTV_MMIMessage_Close: u32 = 1u32;
 pub const DTV_MMIMessage_Open: u32 = 0u32;
-pub const DVBCLocator: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc531d9fd_9685_4028_8b68_6e1232079f1e);
-pub const DVBSLocator: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1df7d126_4050_47f0_a7cf_4c4ca9241333);
-pub const DVBSTuningSpace: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb64016f3_c9a2_4066_96f0_bd9563314726);
 pub const DVBS_SCAN_TABLE_MAX_SIZE: u32 = 400u32;
-pub const DVBTLocator: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9cd64701_bdf3_4d14_8e03_f12983d86664);
-pub const DVBTLocator2: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xefe3fa02_45d7_4920_be96_53fa7f35b0e6);
-pub const DVBTuneRequest: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x15d6504a_5494_499c_886c_973c9e53b9f1);
-pub const DVBTuningSpace: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc6b14b32_76aa_4a86_a7ac_5c79aaf58da7);
 pub const DVB_BAT_PID: u32 = 17u32;
 pub const DVB_BAT_TID: u32 = 74u32;
-pub const DVB_CABLE_TV_NETWORK_TYPE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdc0c0fe7_0485_4266_b93f_68fbf80ed834);
 pub const DVB_DIT_PID: u32 = 30u32;
 pub const DVB_DIT_TID: u32 = 126u32;
 pub const DVB_EIT_ACTUAL_TID: u32 = 78u32;
@@ -18843,7 +18805,6 @@ pub const DVB_NIT_OTHER_TID: u32 = 65u32;
 pub const DVB_NIT_PID: u32 = 16u32;
 pub const DVB_RST_PID: u32 = 19u32;
 pub const DVB_RST_TID: u32 = 113u32;
-pub const DVB_SATELLITE_TV_NETWORK_TYPE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfa4b375a_45b4_4d45_8440_263957b11623);
 pub const DVB_SDT_ACTUAL_TID: u32 = 66u32;
 pub const DVB_SDT_OTHER_TID: u32 = 70u32;
 pub const DVB_SDT_PID: u32 = 17u32;
@@ -18857,59 +18818,10 @@ pub const DVB_ST_PID_20: u32 = 20u32;
 pub const DVB_ST_TID: u32 = 114u32;
 pub const DVB_TDT_PID: u32 = 20u32;
 pub const DVB_TDT_TID: u32 = 112u32;
-pub const DVB_TERRESTRIAL_TV_NETWORK_TYPE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x216c62df_6d7f_4e9a_8571_05f14edb766a);
 pub const DVB_TOT_PID: u32 = 20u32;
 pub const DVB_TOT_TID: u32 = 115u32;
-pub const DigitalCableLocator: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x03c06416_d127_407a_ab4c_fdd279abbe5d);
-pub const DigitalCableTuneRequest: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x26ec0b63_aa90_458a_8df4_5659f2c8a18a);
-pub const DigitalCableTuningSpace: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd9bb4cee_b87a_47f1_ac92_b08d9c7813fc);
-pub const DigitalLocator: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6e50cc0d_c19b_4bf6_810b_5bd60761f5cc);
-pub const ECHOSTAR_SATELLITE_TV_NETWORK_TYPE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc4f6b31b_c6bf_4759_886f_a7386dca27a0);
 pub const ENCDEC_CPEVENT: EncDecEvents = EncDecEvents(0i32);
 pub const ENCDEC_RECORDING_STATUS: EncDecEvents = EncDecEvents(1i32);
-pub const ESEventFactory: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8e8a07da_71f8_40c1_a929_5e3a868ac2c6);
-pub const ESEventService: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc20447fc_ec60_475e_813f_d2b0a6decefe);
-pub const ETFilter: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc4c4c4f1_0049_4e2b_98fb_9537f6ce516d);
-pub const EVENTID_ARIBcontentSpanningEvent: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3a954083_93d0_463e_90b2_0742c496edf0);
-pub const EVENTID_AudioDescriptorSpanningEvent: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x107bd41c_a6da_4691_8369_11b2cdaa288e);
-pub const EVENTID_AudioTypeSpanningEvent: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x501cbfbe_b849_42ce_9be9_3db869fb82b3);
-pub const EVENTID_BDAConditionalAccessTAG: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xefc3a459_ae8b_4b4a_8fe9_79a0d097f3ea);
-pub const EVENTID_BDAEventingServicePendingEvent: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5ca51711_5ddc_41a6_9430_e41b8b3bbc5b);
-pub const EVENTID_BDA_CASBroadcastMMI: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x676876f0_1132_404c_a7ca_e72069a9d54f);
-pub const EVENTID_BDA_CASCloseMMI: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5d0f550f_de2e_479d_8345_ec0e9557e8a2);
-pub const EVENTID_BDA_CASOpenMMI: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x85dac915_e593_410d_8471_d6812105f28e);
-pub const EVENTID_BDA_CASReleaseTuner: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x20c1a16b_441f_49a5_bb5c_e9a04495c6c1);
-pub const EVENTID_BDA_CASRequestTuner: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcf39a9d8_f5d3_4685_be57_ed81dba46b27);
-pub const EVENTID_BDA_DiseqCResponseAvailable: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xefa628f8_1f2c_4b67_9ea5_acf6fa9a1f36);
-pub const EVENTID_BDA_EncoderSignalLock: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5ec90eb9_39fa_4cfc_b93f_00bb11077f5e);
-pub const EVENTID_BDA_FdcStatus: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x05f25366_d0eb_43d2_bc3c_682b863df142);
-pub const EVENTID_BDA_FdcTableSection: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6a0cd757_4ce3_4e5b_9444_7187b87152c5);
-pub const EVENTID_BDA_GPNVValueUpdate: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xff75c68c_f416_4e7e_bf17_6d55c5df1575);
-pub const EVENTID_BDA_GuideDataAvailable: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x98db717a_478a_4cd4_92d0_95f66b89e5b1);
-pub const EVENTID_BDA_GuideDataError: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xac33c448_6f73_4fd7_b341_594c360d8d74);
-pub const EVENTID_BDA_GuideServiceInformationUpdated: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa1c3ea2b_175f_4458_b735_507d22db23a6);
-pub const EVENTID_BDA_IsdbCASResponse: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd4cb1966_41bc_4ced_9a20_fdceac78f70d);
-pub const EVENTID_BDA_LbigsCloseConnectionHandle: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc2f08b99_65ef_4314_9671_e99d4cce0bae);
-pub const EVENTID_BDA_LbigsOpenConnection: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x356207b2_6f31_4eb0_a271_b3fa6bb7680f);
-pub const EVENTID_BDA_LbigsSendData: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1123277b_f1c6_4154_8b0d_48e6157059aa);
-pub const EVENTID_BDA_RatingPinReset: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc6e048c0_c574_4c26_bcda_2f4d35eb5e85);
-pub const EVENTID_BDA_TransprtStreamSelectorInfo: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc40f9f85_09d0_489c_9e9c_0abbb56951b0);
-pub const EVENTID_BDA_TunerNoSignal: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe29b382b_1edd_4930_bc46_682fd72d2dfb);
-pub const EVENTID_BDA_TunerSignalLock: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1872e740_f573_429b_a00e_d9c1e408af09);
-pub const EVENTID_BDA_UpdateDrmStatus: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x65a6f681_1462_473b_88ce_cb731427bdb5);
-pub const EVENTID_BDA_UpdateScanState: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x55702b50_7b49_42b8_a82f_4afb691b0628);
-pub const EVENTID_CADenialCountChanged: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2a65c528_2249_4070_ac16_00390cdfb2dd);
-pub const EVENTID_CASFailureSpanningEvent: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xead831ae_5529_4d1f_afce_0d8cd1257d30);
-pub const EVENTID_CSDescriptorSpanningEvent: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xefe779d9_97f0_4786_800d_95cf505ddc66);
-pub const EVENTID_CandidatePostTuneData: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9f02d3d0_9f06_4369_9f1e_3ad6ca19807e);
-pub const EVENTID_CardStatusChanged: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa265faea_f874_4b38_9ff7_c53d02969996);
-pub const EVENTID_ChannelChangeSpanningEvent: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9067c5e5_4c5c_4205_86c8_7afe20fe1efa);
-pub const EVENTID_ChannelInfoSpanningEvent: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x41f36d80_4132_4cc2_b121_01a43219d81b);
-pub const EVENTID_ChannelTypeSpanningEvent: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x72ab1d51_87d2_489b_ba11_0e08dc210243);
-pub const EVENTID_CtxADescriptorSpanningEvent: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3ab4a2e6_4247_4b34_896c_30afa5d21c24);
-pub const EVENTID_DFNWithNoActualAVData: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf5689ffe_55f9_4bb3_96be_ae971c63bae0);
-pub const EVENTID_DRMParingStatusChanged: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x000906f5_f0d1_41d6_a7df_4028697669f6);
-pub const EVENTID_DRMParingStepComplete: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5b2ebf78_b752_4420_b41e_a472dc95828e);
 pub const EVENTID_DTFilterCOPPBlock: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc4c4c4ea_0049_4e2b_98fb_9537f6ce516d);
 pub const EVENTID_DTFilterCOPPUnblock: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc4c4c4e8_0049_4e2b_98fb_9537f6ce516d);
 pub const EVENTID_DTFilterDataFormatFailure: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc4c4c4ed_0049_4e2b_98fb_9537f6ce516d);
@@ -18918,60 +18830,31 @@ pub const EVENTID_DTFilterRatingChange: ::windows_core::GUID = ::windows_core::G
 pub const EVENTID_DTFilterRatingsBlock: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc4c4c4e3_0049_4e2b_98fb_9537f6ce516d);
 pub const EVENTID_DTFilterRatingsUnblock: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc4c4c4e4_0049_4e2b_98fb_9537f6ce516d);
 pub const EVENTID_DTFilterXDSPacket: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc4c4c4e5_0049_4e2b_98fb_9537f6ce516d);
-pub const EVENTID_DVBScramblingControlSpanningEvent: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4bd4e1c4_90a1_4109_8236_27f00e7dcc5b);
 pub const EVENTID_DemultiplexerFilterDiscontinuity: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x16155770_aed5_475c_bb98_95a33070df0c);
-pub const EVENTID_DualMonoSpanningEvent: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa9a29b56_a84b_488c_89d5_0d4e7657c8ce);
-pub const EVENTID_DvbParentalRatingDescriptor: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2a67a58d_eca5_4eac_abcb_e734d3776d0a);
-pub const EVENTID_EASMessageReceived: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd10df9d5_c261_4b85_9e8a_517b3299cab2);
 pub const EVENTID_ETDTFilterLicenseFailure: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc4c4c4ef_0049_4e2b_98fb_9537f6ce516d);
 pub const EVENTID_ETDTFilterLicenseOK: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc4c4c4ee_0049_4e2b_98fb_9537f6ce516d);
 pub const EVENTID_ETFilterCopyNever: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc4c4c4f0_0049_4e2b_98fb_9537f6ce516d);
 pub const EVENTID_ETFilterCopyOnce: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc4c4c4eb_0049_4e2b_98fb_9537f6ce516d);
 pub const EVENTID_ETFilterEncryptionOff: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc4c4c4e7_0049_4e2b_98fb_9537f6ce516d);
 pub const EVENTID_ETFilterEncryptionOn: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc4c4c4e6_0049_4e2b_98fb_9537f6ce516d);
-pub const EVENTID_EmmMessageSpanningEvent: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6bf00268_4f7e_4294_aa87_e9e953e43f14);
 pub const EVENTID_EncDecFilterError: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc4c4c4e9_0049_4e2b_98fb_9537f6ce516d);
 pub const EVENTID_EncDecFilterEvent: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4a1b465b_0fb9_4159_afbd_e33006a0f9f4);
-pub const EVENTID_EntitlementChanged: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9071ad5d_2359_4c95_8694_afa81d70bfd5);
 pub const EVENTID_FormatNotSupportedEvent: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x24b2280a_b2aa_4777_bf65_63f35e7b024a);
-pub const EVENTID_LanguageSpanningEvent: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe292666d_9c02_448d_aa8d_781a93fdc395);
-pub const EVENTID_MMIMessage: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x052c29af_09a4_4b93_890f_bd6a348968a4);
-pub const EVENTID_NewSignalAcquired: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc87ec52d_cd18_404a_a076_c02a273d3de7);
-pub const EVENTID_PBDAParentalControlEvent: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf947aa85_fb52_48e8_b9c5_e1e1f411a51a);
-pub const EVENTID_PIDListSpanningEvent: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x47fc8f65_e2bb_4634_9cef_fdbfe6261d5c);
-pub const EVENTID_PSITable: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1b9c3703_d447_4e16_97bb_01799fc031ed);
-pub const EVENTID_RRTSpanningEvent: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf6cfc8f4_da93_4f2f_bff8_ba1ee6fca3a2);
 pub const EVENTID_SBE2RecControlStarted: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8966a89e_f83e_4c0e_bc3b_bfa7649e04cb);
 pub const EVENTID_SBE2RecControlStopped: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x454b1ec8_0c9b_4caa_b1a1_1e7a2666f6c3);
-pub const EVENTID_STBChannelNumber: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x17c4d730_d0f0_413a_8c99_500469de35ad);
-pub const EVENTID_ServiceTerminated: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0a1d591c_e0d2_4f8e_8960_2335bef45ccb);
-pub const EVENTID_SignalAndServiceStatusSpanningEvent: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8068c5cb_3c04_492b_b47d_0308820dce51);
-pub const EVENTID_SignalStatusChanged: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6d9cfaf2_702d_4b01_8dff_6892ad20d191);
-pub const EVENTID_StreamIDSpanningEvent: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcaf1ab68_e153_4d41_a6b3_a7c998db75ee);
-pub const EVENTID_StreamTypeSpanningEvent: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x82af2ebc_30a6_4264_a80b_ad2e1372ac60);
-pub const EVENTID_SubtitleSpanningEvent: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5dcec048_d0b9_4163_872c_4f32223be88a);
-pub const EVENTID_TeletextSpanningEvent: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9599d950_5f33_4617_af7c_1e54b510daa3);
-pub const EVENTID_TuneFailureEvent: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd97287b2_2dfd_436a_9485_99d7d4ab5a69);
-pub const EVENTID_TuneFailureSpanningEvent: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6f8aa455_5ee1_48ab_a27c_4c8d70b9aeba);
-pub const EVENTID_TuningChanged: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9d7e6235_4b7d_425d_a6d1_d717c33b9c4c);
-pub const EVENTID_TuningChanging: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x83183c03_c09e_45c4_a719_807a94952bf9);
 pub const EVENTID_XDSCodecDuplicateXDSRating: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc4c4c4df_0049_4e2b_98fb_9537f6ce516d);
 pub const EVENTID_XDSCodecNewXDSPacket: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc4c4c4e1_0049_4e2b_98fb_9537f6ce516d);
 pub const EVENTID_XDSCodecNewXDSRating: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc4c4c4e0_0049_4e2b_98fb_9537f6ce516d);
-pub const EVENTTYPE_CASDescrambleFailureEvent: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb2127d42_7be5_4f4b_9130_6679899f4f4b);
 pub const EnTag_Once: EnTag_Mode = EnTag_Mode(1i32);
 pub const EnTag_Remove: EnTag_Mode = EnTag_Mode(0i32);
 pub const EnTag_Repeat: EnTag_Mode = EnTag_Mode(2i32);
-pub const EvalRat: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc5c5c5f1_3abc_11d6_b25b_00c04fa0c026);
 pub const FORMATNOTSUPPORTED_CLEAR: FormatNotSupportedEvents = FormatNotSupportedEvents(0i32);
 pub const FORMATNOTSUPPORTED_NOTSUPPORTED: FormatNotSupportedEvents = FormatNotSupportedEvents(1i32);
 pub const FORMATTYPE_CPFilters_Processed: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6739b36f_1d5f_4ac2_8192_28bb0e73d16a);
 pub const FORMATTYPE_ETDTFilter_Tagged: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc4c4c4d1_0049_4e2b_98fb_9537f6ce516d);
 pub const FrameMode: PositionModeList = PositionModeList(0i32);
-pub const ISDBSLocator: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6504afed_a629_455c_a7f1_04964dea5cc4);
 pub const ISDB_BIT_PID: u32 = 36u32;
 pub const ISDB_BIT_TID: u32 = 196u32;
-pub const ISDB_CABLE_TV_NETWORK_TYPE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc974ddb5_41fe_4b25_9741_92f049f1d5d1);
 pub const ISDB_CDT_PID: u32 = 41u32;
 pub const ISDB_CDT_TID: u32 = 200u32;
 pub const ISDB_EMM_TID: u32 = 133u32;
@@ -18980,42 +18863,10 @@ pub const ISDB_LDT_TID: u32 = 199u32;
 pub const ISDB_NBIT_MSG_TID: u32 = 197u32;
 pub const ISDB_NBIT_PID: u32 = 37u32;
 pub const ISDB_NBIT_REF_TID: u32 = 198u32;
-pub const ISDB_SATELLITE_TV_NETWORK_TYPE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb0a4e6a0_6a1a_4b83_bb5b_903e1d90e6b6);
 pub const ISDB_SDTT_ALT_PID: u32 = 40u32;
 pub const ISDB_SDTT_PID: u32 = 35u32;
 pub const ISDB_SDTT_TID: u32 = 195u32;
 pub const ISDB_ST_TID: u32 = 114u32;
-pub const ISDB_S_NETWORK_TYPE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa1e78202_1459_41b1_9ca9_2a92587a42cc);
-pub const ISDB_TERRESTRIAL_TV_NETWORK_TYPE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x95037f6f_3ac7_4452_b6c4_45a9ce9292a2);
-pub const ISDB_T_NETWORK_TYPE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfc3855a6_c901_4f2e_aba8_90815afc6c83);
-pub const KSCATEGORY_BDA_IP_SINK: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x71985f4a_1ca1_11d3_9cc8_00c04f7971e0);
-pub const KSCATEGORY_BDA_NETWORK_EPG: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x71985f49_1ca1_11d3_9cc8_00c04f7971e0);
-pub const KSCATEGORY_BDA_NETWORK_PROVIDER: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x71985f4b_1ca1_11d3_9cc8_00c04f7971e0);
-pub const KSCATEGORY_BDA_NETWORK_TUNER: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x71985f48_1ca1_11d3_9cc8_00c04f7971e0);
-pub const KSCATEGORY_BDA_RECEIVER_COMPONENT: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfd0a5af4_b41d_11d2_9c95_00c04f7971e0);
-pub const KSCATEGORY_BDA_TRANSPORT_INFORMATION: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa2e3074f_6c3d_11d3_b653_00c04f79498e);
-pub const KSDATAFORMAT_SPECIFIER_BDA_IP: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6b891420_db09_11d2_8f32_00c04f7971e2);
-pub const KSDATAFORMAT_SPECIFIER_BDA_TRANSPORT: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8deda6fd_ac5f_4334_8ecf_a4ba8fa7d0f0);
-pub const KSDATAFORMAT_SUBTYPE_ATSC_SI: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb3c7397c_d303_414d_b33c_4ed2c9d29733);
-pub const KSDATAFORMAT_SUBTYPE_BDA_IP: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5a9a213c_db08_11d2_8f32_00c04f7971e2);
-pub const KSDATAFORMAT_SUBTYPE_BDA_IP_CONTROL: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x499856e8_e85b_48ed_9bea_410d0dd4ef81);
-pub const KSDATAFORMAT_SUBTYPE_BDA_MPEG2_TRANSPORT: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf4aeb342_0329_4fdd_a8fd_4aff4926c978);
-pub const KSDATAFORMAT_SUBTYPE_BDA_OPENCABLE_OOB_PSIP: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x951727db_d2ce_4528_96f6_3301fabb2de0);
-pub const KSDATAFORMAT_SUBTYPE_BDA_OPENCABLE_PSIP: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x762e3f66_336f_48d1_bf83_2b00352c11f0);
-pub const KSDATAFORMAT_SUBTYPE_DVB_SI: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe9dd31a3_221d_4adb_8532_9af309c1a408);
-pub const KSDATAFORMAT_SUBTYPE_ISDB_SI: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4a2eeb99_6458_4538_b187_04017c41413f);
-pub const KSDATAFORMAT_SUBTYPE_PBDA_TRANSPORT_RAW: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0d7aed42_cb9a_11db_9705_005056c00008);
-pub const KSDATAFORMAT_TYPE_BDA_ANTENNA: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x71985f41_1ca1_11d3_9cc8_00c04f7971e0);
-pub const KSDATAFORMAT_TYPE_BDA_IF_SIGNAL: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x61be0b47_a5eb_499b_9a85_5b16c07f1258);
-pub const KSDATAFORMAT_TYPE_BDA_IP: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe25f7b8e_cccc_11d2_8f25_00c04f7971e2);
-pub const KSDATAFORMAT_TYPE_BDA_IP_CONTROL: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdadd5799_7d5b_4b63_80fb_d1442f26b621);
-pub const KSDATAFORMAT_TYPE_MPE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x455f176c_4b06_47ce_9aef_8caef73df7b5);
-pub const KSDATAFORMAT_TYPE_MPEG2_SECTIONS: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x455f176c_4b06_47ce_9aef_8caef73df7b5);
-pub const KSEVENTSETID_BdaCAEvent: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x488c4ccc_b768_4129_8eb1_b00a071f9068);
-pub const KSEVENTSETID_BdaDiseqCEvent: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8b19bbf0_4184_43ac_ad3c_0c889be4c212);
-pub const KSEVENTSETID_BdaEvent: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xae7e55b2_96d7_4e29_908f_62f95b2a1679);
-pub const KSEVENTSETID_BdaPinEvent: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x104781cd_50bd_40d5_95fb_087e0e86a591);
-pub const KSEVENTSETID_BdaTunerEvent: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xaab59e17_01c9_4ebf_93f2_fc3b79b46f91);
 pub const KSEVENT_BDA_CA_MODULE_STATUS_CHANGED: KSPROPERTY_BDA_CA_EVENT = KSPROPERTY_BDA_CA_EVENT(1i32);
 pub const KSEVENT_BDA_CA_MODULE_UI_REQUESTED: KSPROPERTY_BDA_CA_EVENT = KSPROPERTY_BDA_CA_EVENT(3i32);
 pub const KSEVENT_BDA_CA_SMART_CARD_STATUS_CHANGED: KSPROPERTY_BDA_CA_EVENT = KSPROPERTY_BDA_CA_EVENT(2i32);
@@ -19025,23 +18876,6 @@ pub const KSEVENT_BDA_PIN_CONNECTED: KSPROPERTY_BDA_PIN_EVENT = KSPROPERTY_BDA_P
 pub const KSEVENT_BDA_PIN_DISCONNECTED: KSPROPERTY_BDA_PIN_EVENT = KSPROPERTY_BDA_PIN_EVENT(1i32);
 pub const KSEVENT_BDA_PROGRAM_FLOW_STATUS_CHANGED: KSPROPERTY_BDA_CA_EVENT = KSPROPERTY_BDA_CA_EVENT(0i32);
 pub const KSEVENT_BDA_TUNER_SCAN: KSEVENT_BDA_TUNER = KSEVENT_BDA_TUNER(0i32);
-pub const KSMETHODSETID_BdaChangeSync: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfd0a5af3_b41d_11d2_9c95_00c04f7971e0);
-pub const KSMETHODSETID_BdaConditionalAccessService: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x10ced3b4_320b_41bf_9824_1b2e68e71eb9);
-pub const KSMETHODSETID_BdaDebug: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0d4a90ec_c69d_4ee2_8c5a_fb1f63a50da1);
-pub const KSMETHODSETID_BdaDeviceConfiguration: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x71985f45_1ca1_11d3_9cc8_00c04f7971e0);
-pub const KSMETHODSETID_BdaDrmService: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbff6b5bb_b0ae_484c_9dca_73528fb0b46e);
-pub const KSMETHODSETID_BdaEventing: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf99492da_6193_4eb0_8690_6686cbff713e);
-pub const KSMETHODSETID_BdaGuideDataDeliveryService: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8d9d5562_1589_417d_99ce_ac531dda19f9);
-pub const KSMETHODSETID_BdaIsdbConditionalAccess: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5e68c627_16c2_4e6c_b1e2_d00170cdaa0f);
-pub const KSMETHODSETID_BdaMux: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x942aafec_4c05_4c74_b8eb_8706c2a4943f);
-pub const KSMETHODSETID_BdaNameValue: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x36e07304_9f0d_4e88_9118_ac0ba317b7f2);
-pub const KSMETHODSETID_BdaNameValueA: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c24096d_5ff5_47de_a856_062e587e3727);
-pub const KSMETHODSETID_BdaScanning: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x12eb49df_6249_47f3_b190_e21e6e2f8a9c);
-pub const KSMETHODSETID_BdaTSSelector: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1dcfafe9_b45e_41b3_bb2a_561eb129ae98);
-pub const KSMETHODSETID_BdaTuner: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb774102f_ac07_478a_8228_2742d961fa7e);
-pub const KSMETHODSETID_BdaUserActivity: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xeda5c834_4531_483c_be0a_94e6c96ff396);
-pub const KSMETHODSETID_BdaWmdrmSession: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4be6fa3d_07cd_4139_8b80_8c18ba3aec88);
-pub const KSMETHODSETID_BdaWmdrmTuner: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x86d979cf_a8a7_4f94_b5fb_14c0aca68fe6);
 pub const KSMETHOD_BDA_CAS_CHECKENTITLEMENTTOKEN: KSMETHOD_BDA_CAS_SERVICE = KSMETHOD_BDA_CAS_SERVICE(0i32);
 pub const KSMETHOD_BDA_CAS_CLOSEMMIDIALOG: KSMETHOD_BDA_CAS_SERVICE = KSMETHOD_BDA_CAS_SERVICE(3i32);
 pub const KSMETHOD_BDA_CAS_OPENBROADCASTMMI: KSMETHOD_BDA_CAS_SERVICE = KSMETHOD_BDA_CAS_SERVICE(2i32);
@@ -19101,27 +18935,6 @@ pub const KSMETHOD_BDA_WMDRM_REISSUELICENSE: KSMETHOD_BDA_WMDRM = KSMETHOD_BDA_W
 pub const KSMETHOD_BDA_WMDRM_RENEWLICENSE: KSMETHOD_BDA_WMDRM = KSMETHOD_BDA_WMDRM(5i32);
 pub const KSMETHOD_BDA_WMDRM_REVINFO: KSMETHOD_BDA_WMDRM = KSMETHOD_BDA_WMDRM(1i32);
 pub const KSMETHOD_BDA_WMDRM_STATUS: KSMETHOD_BDA_WMDRM = KSMETHOD_BDA_WMDRM(0i32);
-pub const KSNODE_BDA_8PSK_DEMODULATOR: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe957a0e7_dd98_4a3c_810b_3525157ab62e);
-pub const KSNODE_BDA_8VSB_DEMODULATOR: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x71985f4f_1ca1_11d3_9cc8_00c04f7971e0);
-pub const KSNODE_BDA_ANALOG_DEMODULATOR: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x634db199_27dd_46b8_acfb_ecc98e61a2ad);
-pub const KSNODE_BDA_COFDM_DEMODULATOR: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2dac6e05_edbe_4b9c_b387_1b6fad7d6495);
-pub const KSNODE_BDA_COMMON_CA_POD: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd83ef8fc_f3b8_45ab_8b71_ecf7c339deb4);
-pub const KSNODE_BDA_DRI_DRM: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4f95ad74_cefb_42d2_94a9_68c5b2c1aabe);
-pub const KSNODE_BDA_IP_SINK: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x71985f4e_1ca1_11d3_9cc8_00c04f7971e0);
-pub const KSNODE_BDA_ISDB_S_DEMODULATOR: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xedde230a_9086_432d_b8a5_6670263807e9);
-pub const KSNODE_BDA_ISDB_T_DEMODULATOR: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfcea3ae3_2cb2_464d_8f5d_305c0bb778a2);
-pub const KSNODE_BDA_OPENCABLE_POD: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x345812a0_fb7c_4790_aa7e_b1db88ac19c9);
-pub const KSNODE_BDA_PBDA_CAS: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc026869f_7129_4e71_8696_ec8f75299b77);
-pub const KSNODE_BDA_PBDA_DRM: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9eeebd03_eea1_450f_96ae_633e6de63cce);
-pub const KSNODE_BDA_PBDA_ISDBCAS: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf2cf2ab3_5b9d_40ae_ab7c_4e7ad0bd1c52);
-pub const KSNODE_BDA_PBDA_MUX: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf88c7787_6678_4f4b_a13e_da09861d682b);
-pub const KSNODE_BDA_PBDA_TUNER: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xaa5e8286_593c_4979_9494_46a2a9dfe076);
-pub const KSNODE_BDA_PID_FILTER: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf5412789_b0a0_44e1_ae4f_ee999b1b7fbe);
-pub const KSNODE_BDA_QAM_DEMODULATOR: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x71985f4d_1ca1_11d3_9cc8_00c04f7971e0);
-pub const KSNODE_BDA_QPSK_DEMODULATOR: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6390c905_27c1_4d67_bdb7_77c50d079300);
-pub const KSNODE_BDA_RF_TUNER: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x71985f4c_1ca1_11d3_9cc8_00c04f7971e0);
-pub const KSNODE_BDA_TS_SELECTOR: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5eddf185_fed1_4f45_9685_bbb73c323cfc);
-pub const KSNODE_BDA_VIDEO_ENCODER: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd98429e3_65c9_4ac4_93aa_766782833b7a);
 pub const KSPROPERTY_BDA_AUTODEMODULATE_START: KSPROPERTY_BDA_AUTODEMODULATE = KSPROPERTY_BDA_AUTODEMODULATE(0i32);
 pub const KSPROPERTY_BDA_AUTODEMODULATE_STOP: KSPROPERTY_BDA_AUTODEMODULATE = KSPROPERTY_BDA_AUTODEMODULATE(1i32);
 pub const KSPROPERTY_BDA_CA_MODULE_STATUS: KSPROPERTY_BDA_CA = KSPROPERTY_BDA_CA(1i32);
@@ -19196,31 +19009,13 @@ pub const KSPROPERTY_BDA_TEMPLATE_CONNECTIONS: KSPROPERTY_BDA_TOPOLOGY = KSPROPE
 pub const KSPROPERTY_BDA_TRANSMISSION_MODE: KSPROPERTY_BDA_DIGITAL_DEMODULATOR = KSPROPERTY_BDA_DIGITAL_DEMODULATOR(8i32);
 pub const KSPROPERTY_BDA_VOID_TRANSFORM_START: KSPROPERTY_BDA_VOID_TRANSFORM = KSPROPERTY_BDA_VOID_TRANSFORM(0i32);
 pub const KSPROPERTY_BDA_VOID_TRANSFORM_STOP: KSPROPERTY_BDA_VOID_TRANSFORM = KSPROPERTY_BDA_VOID_TRANSFORM(1i32);
-pub const KSPROPSETID_BdaAutodemodulate: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xddf15b12_bd25_11d2_9ca0_00c04f7971e0);
-pub const KSPROPSETID_BdaCA: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb0693766_5278_4ec6_b9e1_3ce40560ef5a);
-pub const KSPROPSETID_BdaDigitalDemodulator: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xef30f379_985b_4d10_b640_a79d5e04e1e0);
-pub const KSPROPSETID_BdaDiseqCommand: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf84e2ab0_3c6b_45e3_a0fc_8669d4b81f11);
-pub const KSPROPSETID_BdaEthernetFilter: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x71985f43_1ca1_11d3_9cc8_00c04f7971e0);
-pub const KSPROPSETID_BdaFrequencyFilter: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x71985f47_1ca1_11d3_9cc8_00c04f7971e0);
-pub const KSPROPSETID_BdaIPv4Filter: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x71985f44_1ca1_11d3_9cc8_00c04f7971e0);
-pub const KSPROPSETID_BdaIPv6Filter: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe1785a74_2a23_4fb3_9245_a8f88017ef33);
-pub const KSPROPSETID_BdaLNBInfo: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x992cf102_49f9_4719_a664_c4f23e2408f4);
-pub const KSPROPSETID_BdaNullTransform: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xddf15b0d_bd25_11d2_9ca0_00c04f7971e0);
-pub const KSPROPSETID_BdaPIDFilter: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd0a67d65_08df_4fec_8533_e5b550410b85);
-pub const KSPROPSETID_BdaPinControl: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0ded49d5_a8b7_4d5d_97a1_12b0c195874d);
-pub const KSPROPSETID_BdaSignalStats: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1347d106_cf3a_428a_a5cb_ac0d9a2a4338);
-pub const KSPROPSETID_BdaTableSection: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x516b99c5_971c_4aaf_b3f3_d9fda8a15e16);
-pub const KSPROPSETID_BdaTopology: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa14ee835_0a23_11d3_9cc7_00c04f7971e0);
-pub const KSPROPSETID_BdaVoidTransform: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x71985f46_1ca1_11d3_9cc8_00c04f7971e0);
 pub const LIC_BadLicense: LicenseEventBlockReason = LicenseEventBlockReason(0i32);
 pub const LIC_Expired: LicenseEventBlockReason = LicenseEventBlockReason(2i32);
 pub const LIC_ExtenderBlocked: LicenseEventBlockReason = LicenseEventBlockReason(4i32);
 pub const LIC_NeedActivation: LicenseEventBlockReason = LicenseEventBlockReason(3i32);
 pub const LIC_NeedIndiv: LicenseEventBlockReason = LicenseEventBlockReason(1i32);
-pub const LanguageComponentType: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1be49f30_0e1b_11d3_9d8e_00c04f72d980);
 pub const LastReservedDeviceDispid: SegDispidList = SegDispidList(16383i32);
 pub const LastReservedDeviceEvent: SegEventidList = SegEventidList(16383i32);
-pub const Locator: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0888c883_ac4f_4943_b516_2c38d9b34562);
 pub const MAX_COUNTRY_CODE_STRING: u32 = 3u32;
 pub const MEDIASUBTYPE_CPFilters_Processed: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x46adbd28_6fd0_4796_93b2_155c51dc048d);
 pub const MEDIASUBTYPE_ETDTFilter_Tagged: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc4c4c4d0_0049_4e2b_98fb_9537f6ce516d);
@@ -19235,10 +19030,6 @@ pub const MPAA_PG13: EnTvRat_MPAA = EnTvRat_MPAA(3i32);
 pub const MPAA_R: EnTvRat_MPAA = EnTvRat_MPAA(4i32);
 pub const MPAA_ValidAttrSubmask: BfEnTvRat_Attributes_MPAA = BfEnTvRat_Attributes_MPAA(1i32);
 pub const MPAA_X: EnTvRat_MPAA = EnTvRat_MPAA(6i32);
-pub const MPEG2Component: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x055cb2d7_2969_45cd_914b_76890722f112);
-pub const MPEG2ComponentType: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x418008f3_cf67_4668_9628_10dc52be1d08);
-pub const MPEG2TuneRequest: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0955ac62_bf2e_4cba_a2b9_a63f772d46cf);
-pub const MPEG2TuneRequestFactory: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2c63e4eb_4cea_41b8_919c_e947ea19a77c);
 pub const MPEG2_FILTER_VERSION_1_SIZE: u32 = 124u32;
 pub const MPEG2_FILTER_VERSION_2_SIZE: u32 = 133u32;
 pub const MPEG_CAT_PID: u32 = 1u32;
@@ -19261,7 +19052,6 @@ pub const MPEG_SECTION_IS_CURRENT: MPEG_CURRENT_NEXT_BIT = MPEG_CURRENT_NEXT_BIT
 pub const MPEG_SECTION_IS_NEXT: MPEG_CURRENT_NEXT_BIT = MPEG_CURRENT_NEXT_BIT(0i32);
 pub const MPEG_TSDT_PID: u32 = 2u32;
 pub const MPEG_TSDT_TID: u32 = 3u32;
-pub const MSEventBinder: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x577faa18_4518_445e_8f70_1473f8cf4ba4);
 pub const MSVIDCTL_ALT: MSVidCtlButtonstate = MSVidCtlButtonstate(4i32);
 pub const MSVIDCTL_CTRL: MSVidCtlButtonstate = MSVidCtlButtonstate(2i32);
 pub const MSVIDCTL_LEFT_BUTTON: MSVidCtlButtonstate = MSVidCtlButtonstate(1i32);
@@ -19270,77 +19060,12 @@ pub const MSVIDCTL_RIGHT_BUTTON: MSVidCtlButtonstate = MSVidCtlButtonstate(2i32)
 pub const MSVIDCTL_SHIFT: MSVidCtlButtonstate = MSVidCtlButtonstate(1i32);
 pub const MSVIDCTL_X_BUTTON1: MSVidCtlButtonstate = MSVidCtlButtonstate(8i32);
 pub const MSVIDCTL_X_BUTTON2: MSVidCtlButtonstate = MSVidCtlButtonstate(16i32);
-pub const MSVidAnalogCaptureToCCA: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x942b7909_a28e_49a1_a207_34ebcbcb4b3b);
-pub const MSVidAnalogCaptureToDataServices: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc5702cd6_9b79_11d3_b654_00c04f79498e);
-pub const MSVidAnalogCaptureToOverlayMixer: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe18af75a_08af_11d3_b64a_00c04f79498e);
-pub const MSVidAnalogCaptureToStreamBufferSink: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9f50e8b1_9530_4ddc_825e_1af81d47aed6);
-pub const MSVidAnalogCaptureToXDS: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3540d440_5b1d_49cb_821a_e84b8cf065a7);
-pub const MSVidAnalogTVToEncoder: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x28953661_0231_41db_8986_21ff4388ee9b);
-pub const MSVidAnalogTunerDevice: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1c15d484_911d_11d2_b632_00c04f79498e);
-pub const MSVidAudioRenderer: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x37b03544_a4c8_11d2_b634_00c04f79498e);
-pub const MSVidAudioRendererDevices: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc5702ccf_9b79_11d3_b654_00c04f79498e);
-pub const MSVidBDATunerDevice: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa2e3074e_6c3d_11d3_b653_00c04f79498e);
-pub const MSVidCCA: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x86151827_e47b_45ee_8421_d10e6e690979);
-pub const MSVidCCAToStreamBufferSink: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3ef76d68_8661_4843_8b8f_c37163d8c9ce);
-pub const MSVidCCToAR: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd76334ca_d89e_4baf_86ab_ddb59372afc2);
-pub const MSVidCCToVMR: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc4bf2784_ae00_41ba_9828_9c953bd3c54a);
-pub const MSVidClosedCaptioning: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7f9cb14d_48e4_43b6_9346_1aebc39c64d3);
-pub const MSVidClosedCaptioningSI: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x92ed88bf_879e_448f_b6b6_a385bceb846d);
-pub const MSVidCtl: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb0edf163_910a_11d2_b632_00c04f79498e);
-pub const MSVidDataServices: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x334125c0_77e5_11d3_b653_00c04f79498e);
-pub const MSVidDataServicesToStreamBufferSink: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x38f03426_e83b_4e68_b65b_dcae73304838);
-pub const MSVidDataServicesToXDS: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0429ec6e_1144_4bed_b88b_2fb9899a4a3d);
-pub const MSVidDevice: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6e40476f_9c49_4c3e_8bb9_8587958eff74);
-pub const MSVidDevice2: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x30997f7d_b3b5_4a1c_983a_1fe8098cb77d);
-pub const MSVidDigitalCaptureToCCA: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x73d14237_b9db_4efa_a6dd_84350421fb2f);
-pub const MSVidDigitalCaptureToITV: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5d8e73f7_4989_4ac8_8a98_39ba0d325302);
-pub const MSVidDigitalCaptureToStreamBufferSink: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xabe40035_27c3_4a2f_8153_6624471608af);
-pub const MSVidEVR: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc45268a2_fa81_4e19_b1e3_72edbd60aeda);
-pub const MSVidEncoder: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbb530c63_d9df_4b49_9439_63453962e598);
-pub const MSVidEncoderToStreamBufferSink: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa0b9b497_afbc_45ad_a8a6_9b077c40d4f2);
-pub const MSVidFeature: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7748530b_c08a_47ea_b24c_be8695ff405f);
-pub const MSVidFeatures: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc5702cd0_9b79_11d3_b654_00c04f79498e);
-pub const MSVidFilePlaybackDevice: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x37b0353c_a4c8_11d2_b634_00c04f79498e);
-pub const MSVidFilePlaybackToAudioRenderer: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcc23f537_18d4_4ece_93bd_207a84726979);
-pub const MSVidFilePlaybackToVideoRenderer: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb401c5eb_8457_427f_84ea_a4d2363364b0);
-pub const MSVidGenericComposite: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2764bce5_cc39_11d2_b639_00c04f79498e);
-pub const MSVidGenericSink: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4a5869cf_929d_4040_ae03_fcafc5b9cd42);
-pub const MSVidITVCapture: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5740a302_ef0b_45ce_bf3b_4470a14a8980);
-pub const MSVidITVPlayback: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9e797ed0_5253_4243_a9b7_bd06c58f8ef3);
-pub const MSVidITVToStreamBufferSink: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x92b94828_1af7_4e6e_9ebf_770657f77af5);
-pub const MSVidInputDevice: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xac1972f2_138a_4ca3_90da_ae51112eda28);
-pub const MSVidInputDevices: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc5702ccc_9b79_11d3_b654_00c04f79498e);
-pub const MSVidMPEG2DecoderToClosedCaptioning: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6ad28ee1_5002_4e71_aaf7_bd077907b1a4);
-pub const MSVidOutput: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x87eb890d_03ad_4e9d_9866_376e5ec572ed);
-pub const MSVidOutputDevices: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc5702ccd_9b79_11d3_b654_00c04f79498e);
-pub const MSVidRect: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcb4276e6_7d5f_4cf1_9727_629c5e6db6ae);
-pub const MSVidSBESourceToCC: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9193a8f9_0cba_400e_aa97_eb4709164576);
-pub const MSVidSBESourceToGenericSink: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x991da7e5_953f_435b_be5e_b92a05edfc42);
-pub const MSVidSBESourceToITV: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2291478c_5ee3_4bef_ab5d_b5ff2cf58352);
 pub const MSVidSEG_DEST: MSVidSegmentType = MSVidSegmentType(2i32);
 pub const MSVidSEG_SOURCE: MSVidSegmentType = MSVidSegmentType(0i32);
 pub const MSVidSEG_XFORM: MSVidSegmentType = MSVidSegmentType(1i32);
 pub const MSVidSink_Audio: MSVidSinkStreams = MSVidSinkStreams(2i32);
 pub const MSVidSink_Other: MSVidSinkStreams = MSVidSinkStreams(4i32);
 pub const MSVidSink_Video: MSVidSinkStreams = MSVidSinkStreams(1i32);
-pub const MSVidStreamBufferRecordingControl: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcaafdd83_cefc_4e3d_ba03_175f17a24f91);
-pub const MSVidStreamBufferSink: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9e77aac4_35e5_42a1_bdc2_8f3ff399847c);
-pub const MSVidStreamBufferSource: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xad8e510d_217f_409b_8076_29c5e73b98e8);
-pub const MSVidStreamBufferSourceToVideoRenderer: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3c4708dc_b181_46a8_8da8_4ab0371758cd);
-pub const MSVidStreamBufferV2Source: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfd351ea1_4173_4af4_821d_80d4ae979048);
-pub const MSVidVMR9: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x24dc3975_09bf_4231_8655_3ee71f43837d);
-pub const MSVidVideoInputDevice: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x95f4820b_bb3a_4e2d_bc64_5b817bc2c30e);
-pub const MSVidVideoPlaybackDevice: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1990d634_1a5e_4071_a34a_53aaffce9f36);
-pub const MSVidVideoRenderer: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x37b03543_a4c8_11d2_b634_00c04f79498e);
-pub const MSVidVideoRendererDevices: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc5702cce_9b79_11d3_b654_00c04f79498e);
-pub const MSVidWebDVD: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x011b3619_fe63_4814_8a84_15a194ce9ce3);
-pub const MSVidWebDVDAdm: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfa7c375b_66a7_4280_879d_fd459c84bb02);
-pub const MSVidWebDVDToAudioRenderer: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8d04238e_9fd1_41c6_8de3_9e1ee309e935);
-pub const MSVidWebDVDToVideoRenderer: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x267db0b3_55e3_4902_949b_df8f5cec0191);
-pub const MSVidXDS: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0149eedf_d08f_4142_8d73_d23903d21e90);
-pub const Mpeg2Data: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc666e115_bb62_4027_a113_82d643fe2d99);
-pub const Mpeg2DataLib: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdbaf6c1b_b6a4_4898_ae65_204f0d9509a1);
-pub const Mpeg2Stream: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf91d96c7_8509_4d0b_ab26_a0dd10904bb7);
 pub const OCUR_PAIRING_PROTOCOL_VERSION: u32 = 2u32;
 pub const PARENTAL_CONTROL_ATTRIB_DIALOGUE: u32 = 515u32;
 pub const PARENTAL_CONTROL_ATTRIB_FANTASY: u32 = 516u32;
@@ -19351,16 +19076,7 @@ pub const PARENTAL_CONTROL_CONTENT_RATING: u32 = 256u32;
 pub const PARENTAL_CONTROL_TIME_RANGE: u32 = 1u32;
 pub const PARENTAL_CONTROL_VALUE_UNDEFINED: u32 = 0u32;
 pub const PBDA: EnTvRat_System = EnTvRat_System(8i32);
-pub const PBDA_ALWAYS_TUNE_IN_MUX: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1e1d7141_583f_4ac2_b019_1f430eda0f4c);
 pub const PBDA_PAIRING_PROTOCOL_VERSION: u32 = 3u32;
-pub const PINNAME_BDA_ANALOG_AUDIO: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd28a580a_9b1f_4b0c_9c33_9bf0a8ea636b);
-pub const PINNAME_BDA_ANALOG_VIDEO: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5c0c8281_5667_486c_8482_63e31f01a6e9);
-pub const PINNAME_BDA_FM_RADIO: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd2855fed_b2d3_4eeb_9bd0_193436a2f890);
-pub const PINNAME_BDA_IF_PIN: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1a9d4a42_f3cd_48a1_9aea_71de133cbe14);
-pub const PINNAME_BDA_OPENCABLE_PSIP_PIN: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x297bb104_e5c9_4ace_b123_95c3cbb24d4f);
-pub const PINNAME_BDA_TRANSPORT: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x78216a81_cfa8_493e_9711_36a61c08bd9d);
-pub const PINNAME_IPSINK_INPUT: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3fdffa70_ac9a_11d2_8f17_00c04f7971e2);
-pub const PINNAME_MPE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc1b06d73_1dbb_11d3_8f46_00c04f7971e2);
 pub const PROT_COPY_BF: ProtType = ProtType(7i32);
 pub const PROT_COPY_CN_RECORDING_STOP: ProtType = ProtType(8i32);
 pub const PROT_COPY_FREE: ProtType = ProtType(1i32);
@@ -19371,7 +19087,6 @@ pub const PROT_COPY_NEVER: ProtType = ProtType(3i32);
 pub const PROT_COPY_NEVER_REALLY: ProtType = ProtType(4i32);
 pub const PROT_COPY_NO_MORE: ProtType = ProtType(5i32);
 pub const PROT_COPY_ONCE: ProtType = ProtType(2i32);
-pub const PersistTuneXmlUtility: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe77026b0_b97f_4cbb_b7fb_f4f03ad69f11);
 pub const RECORDING_STARTED: CPRecordingStatus = CPRecordingStatus(1i32);
 pub const RECORDING_STOPPED: CPRecordingStatus = CPRecordingStatus(0i32);
 pub const RECORDING_TYPE_CONTENT: RECORDING_TYPE = RECORDING_TYPE(0i32);
@@ -19434,7 +19149,6 @@ pub const STREAMBUFFER_TYPE_GUID: STREAMBUFFER_ATTR_DATATYPE = STREAMBUFFER_ATTR
 pub const STREAMBUFFER_TYPE_QWORD: STREAMBUFFER_ATTR_DATATYPE = STREAMBUFFER_ATTR_DATATYPE(4i32);
 pub const STREAMBUFFER_TYPE_STRING: STREAMBUFFER_ATTR_DATATYPE = STREAMBUFFER_ATTR_DATATYPE(1i32);
 pub const STREAMBUFFER_TYPE_WORD: STREAMBUFFER_ATTR_DATATYPE = STREAMBUFFER_ATTR_DATATYPE(5i32);
-pub const SectionList: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x73da5d04_4347_45d3_a9dc_fae9ddbe558d);
 pub const SignalAndServiceStatusSpanningEvent_AllAVScrambled: SignalAndServiceStatusSpanningEvent_State = SignalAndServiceStatusSpanningEvent_State(5i32);
 pub const SignalAndServiceStatusSpanningEvent_Clear: SignalAndServiceStatusSpanningEvent_State = SignalAndServiceStatusSpanningEvent_State(0i32);
 pub const SignalAndServiceStatusSpanningEvent_NoSubscription: SignalAndServiceStatusSpanningEvent_State = SignalAndServiceStatusSpanningEvent_State(4i32);
@@ -19444,12 +19158,7 @@ pub const SignalAndServiceStatusSpanningEvent_ServiceOffAir: SignalAndServiceSta
 pub const SignalAndServiceStatusSpanningEvent_WeakTVSignal: SignalAndServiceStatusSpanningEvent_State = SignalAndServiceStatusSpanningEvent_State(3i32);
 pub const System5: EnTvRat_System = EnTvRat_System(5i32);
 pub const System6: EnTvRat_System = EnTvRat_System(6i32);
-pub const SystemTuningSpaces: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd02aac50_027e_11d3_9d8e_00c04f72d980);
-pub const TIFLoad: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x14eb8748_1753_4393_95ae_4f7e7a87aad6);
 pub const TenthsSecondsMode: PositionModeList = PositionModeList(1i32);
-pub const TuneRequest: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb46e0d38_ab35_4a06_a137_70576b01b39f);
-pub const TunerMarshaler: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6438570b_0c08_4a25_9504_8012bb4d50cf);
-pub const TuningSpace: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5ffdc5e6_b83a_4b55_b6e8_c69e765fe9db);
 pub const TvRat_0: EnTvRat_GenericLevel = EnTvRat_GenericLevel(0i32);
 pub const TvRat_1: EnTvRat_GenericLevel = EnTvRat_GenericLevel(1i32);
 pub const TvRat_10: EnTvRat_GenericLevel = EnTvRat_GenericLevel(10i32);
@@ -19522,8 +19231,6 @@ pub const VA_VIDEO_NTSC: VA_VIDEO_FORMAT = VA_VIDEO_FORMAT(2i32);
 pub const VA_VIDEO_PAL: VA_VIDEO_FORMAT = VA_VIDEO_FORMAT(1i32);
 pub const VA_VIDEO_SECAM: VA_VIDEO_FORMAT = VA_VIDEO_FORMAT(3i32);
 pub const VA_VIDEO_UNSPECIFIED: VA_VIDEO_FORMAT = VA_VIDEO_FORMAT(5i32);
-pub const XDSCodec: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc4c4c4f3_0049_4e2b_98fb_9537f6ce516d);
-pub const XDSToRat: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc5c5c5f0_3abc_11d6_b25b_00c04fa0c026);
 pub const dispidAVAudioChannelConfigEvent: SegEventidList = SegEventidList(51i32);
 pub const dispidAVAudioChannelCountEvent: SegEventidList = SegEventidList(52i32);
 pub const dispidAVAudioSampleRateEvent: SegEventidList = SegEventidList(50i32);
@@ -21006,6 +20713,13 @@ impl ::core::fmt::Debug for VA_VIDEO_FORMAT {
         f.debug_tuple("VA_VIDEO_FORMAT").field(&self.0).finish()
     }
 }
+pub const ANALOG_AUXIN_NETWORK_TYPE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x742ef867_09e1_40a3_82d3_9669ba35325f);
+pub const ANALOG_FM_NETWORK_TYPE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7728087b_2bb9_4e30_8078_449476e59dbb);
+pub const ANALOG_TV_NETWORK_TYPE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb820d87e_e0e3_478f_8a38_4e13f7b3df42);
+pub const ATSCChannelTuneRequest: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0369b4e6_45b6_11d3_b650_00c04f79498e);
+pub const ATSCComponentType: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa8dcf3d5_0780_4ef4_8a83_2cffaacb8ace);
+pub const ATSCLocator: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8872ff1b_98fa_4d7a_8d93_c9f1055f85bb);
+pub const ATSCTuningSpace: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa2e30750_6c3d_11d3_b653_00c04f79498e);
 #[repr(C, packed(1))]
 pub struct ATSC_FILTER_OPTIONS {
     pub fSpecifyEtmId: super::super::super::Foundation::BOOL,
@@ -21025,6 +20739,13 @@ impl ::core::default::Default for ATSC_FILTER_OPTIONS {
         unsafe { ::core::mem::zeroed() }
     }
 }
+pub const ATSC_TERRESTRIAL_TV_NETWORK_TYPE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0dad2fdd_5fd7_11d3_8f50_00c04f7971e2);
+pub const AnalogAudioComponentType: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x28ab0005_e845_4ffa_aa9b_f4665236141c);
+pub const AnalogLocator: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x49638b91_48ab_48b7_a47a_7d0e75a08ede);
+pub const AnalogRadioTuningSpace: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8a674b4c_1f63_11d3_b64c_00c04f79498e);
+pub const AnalogTVTuningSpace: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8a674b4d_1f63_11d3_b64c_00c04f79498e);
+pub const AuxInTuningSpace: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf9769a06_7aca_4e39_9cfb_97bb35f0e77e);
+pub const BDANETWORKTYPE_ATSC: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x71985f51_1ca1_11d3_9cc8_00c04f7971e0);
 #[repr(C)]
 pub struct BDA_DEBUG_DATA {
     pub lResult: i32,
@@ -21057,6 +20778,8 @@ impl ::core::default::Default for BDA_DEBUG_DATA {
         unsafe { ::core::mem::zeroed() }
     }
 }
+pub const BDA_DEBUG_DATA_AVAILABLE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x69c24f54_9983_497e_b415_282be4c555fb);
+pub const BDA_DEBUG_DATA_TYPE_STRING: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa806e767_de5c_430c_80bf_a21ebe06c748);
 #[repr(C)]
 pub struct BDA_EVENT_DATA {
     pub lResult: i32,
@@ -21122,6 +20845,7 @@ impl ::core::default::Default for BDA_TRANSPORT_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+pub const BSKYB_TERRESTRIAL_TV_NETWORK_TYPE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9e9e46c6_3aba_4f08_ad0e_cc5ac8148c2b);
 #[repr(C, packed(1))]
 pub struct BadSampleInfo {
     pub hrReason: ::windows_core::HRESULT,
@@ -21140,6 +20864,7 @@ impl ::core::default::Default for BadSampleInfo {
         unsafe { ::core::mem::zeroed() }
     }
 }
+pub const BroadcastEventService: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0b3ffb92_0919_4934_9d5b_619c719d0202);
 #[repr(C)]
 pub struct CAPTURE_STREAMTIME {
     pub StreamTime: i64,
@@ -21169,6 +20894,7 @@ impl ::core::default::Default for CAPTURE_STREAMTIME {
         unsafe { ::core::mem::zeroed() }
     }
 }
+pub const CXDSData: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc4c4c4f4_0049_4e2b_98fb_9537f6ce516d);
 #[repr(C)]
 pub struct ChannelChangeInfo {
     pub state: ChannelChangeSpanningEvent_State,
@@ -21199,6 +20925,8 @@ impl ::core::default::Default for ChannelChangeInfo {
         unsafe { ::core::mem::zeroed() }
     }
 }
+pub const ChannelIDTuneRequest: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3a9428a7_31a4_45e9_9efb_e055bf7bb3db);
+pub const ChannelIDTuningSpace: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcc829a2f_3365_463f_af13_81dbb6f3a555);
 #[repr(C)]
 pub struct ChannelInfo {
     pub lFrequency: i32,
@@ -21327,6 +21055,7 @@ impl ::core::default::Default for ChannelInfo_0_2 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+pub const ChannelTuneRequest: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0369b4e5_45b6_11d3_b650_00c04f79498e);
 #[repr(C)]
 pub struct ChannelTypeInfo {
     pub channelType: ChannelType,
@@ -21357,6 +21086,13 @@ impl ::core::default::Default for ChannelTypeInfo {
         unsafe { ::core::mem::zeroed() }
     }
 }
+pub const Component: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x59dc47a8_116c_11d3_9d8e_00c04f72d980);
+pub const ComponentType: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x823535a0_0318_11d3_9d8e_00c04f72d980);
+pub const ComponentTypes: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa1a2b1c4_0e3a_11d3_9d8e_00c04f72d980);
+pub const Components: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x809b6661_94c4_49e6_b6ec_3f0f862215aa);
+pub const CreatePropBagOnRegKey: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8a674b49_1f63_11d3_b64c_00c04f79498e);
+pub const DIGITAL_CABLE_NETWORK_TYPE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x143827ab_f77b_498d_81ca_5a007aec28bf);
+pub const DIRECT_TV_SATELLITE_TV_NETWORK_TYPE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x93b66fb5_93d4_4323_921c_c1f52df61d3f);
 #[repr(C)]
 pub struct DSHOW_STREAM_DESC {
     pub VersionNo: u32,
@@ -21513,6 +21249,10 @@ impl ::core::default::Default for DSMCC_SECTION_1 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+pub const DTFilter: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc4c4c4f2_0049_4e2b_98fb_9537f6ce516d);
+pub const DVBCLocator: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc531d9fd_9685_4028_8b68_6e1232079f1e);
+pub const DVBSLocator: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1df7d126_4050_47f0_a7cf_4c4ca9241333);
+pub const DVBSTuningSpace: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb64016f3_c9a2_4066_96f0_bd9563314726);
 #[repr(C)]
 pub struct DVBScramblingControlSpanningEvent {
     pub ulPID: u32,
@@ -21543,6 +21283,11 @@ impl ::core::default::Default for DVBScramblingControlSpanningEvent {
         unsafe { ::core::mem::zeroed() }
     }
 }
+pub const DVBTLocator: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9cd64701_bdf3_4d14_8e03_f12983d86664);
+pub const DVBTLocator2: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xefe3fa02_45d7_4920_be96_53fa7f35b0e6);
+pub const DVBTuneRequest: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x15d6504a_5494_499c_886c_973c9e53b9f1);
+pub const DVBTuningSpace: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc6b14b32_76aa_4a86_a7ac_5c79aaf58da7);
+pub const DVB_CABLE_TV_NETWORK_TYPE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdc0c0fe7_0485_4266_b93f_68fbf80ed834);
 #[repr(C, packed(1))]
 pub struct DVB_EIT_FILTER_OPTIONS {
     pub fSpecifySegment: super::super::super::Foundation::BOOL,
@@ -21562,6 +21307,8 @@ impl ::core::default::Default for DVB_EIT_FILTER_OPTIONS {
         unsafe { ::core::mem::zeroed() }
     }
 }
+pub const DVB_SATELLITE_TV_NETWORK_TYPE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfa4b375a_45b4_4d45_8440_263957b11623);
+pub const DVB_TERRESTRIAL_TV_NETWORK_TYPE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x216c62df_6d7f_4e9a_8571_05f14edb766a);
 #[repr(C)]
 #[cfg(feature = "Win32_Media_MediaFoundation")]
 pub struct DVR_STREAM_DESC {
@@ -21604,6 +21351,10 @@ impl ::core::default::Default for DVR_STREAM_DESC {
         unsafe { ::core::mem::zeroed() }
     }
 }
+pub const DigitalCableLocator: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x03c06416_d127_407a_ab4c_fdd279abbe5d);
+pub const DigitalCableTuneRequest: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x26ec0b63_aa90_458a_8df4_5659f2c8a18a);
+pub const DigitalCableTuningSpace: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd9bb4cee_b87a_47f1_ac92_b08d9c7813fc);
+pub const DigitalLocator: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6e50cc0d_c19b_4bf6_810b_5bd60761f5cc);
 #[repr(C)]
 pub struct DualMonoInfo {
     pub LangID1: u16,
@@ -21696,6 +21447,106 @@ impl ::core::default::Default for DvbParentalRatingParam {
         unsafe { ::core::mem::zeroed() }
     }
 }
+pub const ECHOSTAR_SATELLITE_TV_NETWORK_TYPE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc4f6b31b_c6bf_4759_886f_a7386dca27a0);
+pub const ESEventFactory: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8e8a07da_71f8_40c1_a929_5e3a868ac2c6);
+pub const ESEventService: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc20447fc_ec60_475e_813f_d2b0a6decefe);
+pub const ETFilter: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc4c4c4f1_0049_4e2b_98fb_9537f6ce516d);
+pub const EVENTID_ARIBcontentSpanningEvent: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3a954083_93d0_463e_90b2_0742c496edf0);
+pub const EVENTID_AudioDescriptorSpanningEvent: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x107bd41c_a6da_4691_8369_11b2cdaa288e);
+pub const EVENTID_AudioTypeSpanningEvent: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x501cbfbe_b849_42ce_9be9_3db869fb82b3);
+pub const EVENTID_BDAConditionalAccessTAG: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xefc3a459_ae8b_4b4a_8fe9_79a0d097f3ea);
+pub const EVENTID_BDAEventingServicePendingEvent: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5ca51711_5ddc_41a6_9430_e41b8b3bbc5b);
+pub const EVENTID_BDA_CASBroadcastMMI: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x676876f0_1132_404c_a7ca_e72069a9d54f);
+pub const EVENTID_BDA_CASCloseMMI: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5d0f550f_de2e_479d_8345_ec0e9557e8a2);
+pub const EVENTID_BDA_CASOpenMMI: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x85dac915_e593_410d_8471_d6812105f28e);
+pub const EVENTID_BDA_CASReleaseTuner: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x20c1a16b_441f_49a5_bb5c_e9a04495c6c1);
+pub const EVENTID_BDA_CASRequestTuner: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcf39a9d8_f5d3_4685_be57_ed81dba46b27);
+pub const EVENTID_BDA_DiseqCResponseAvailable: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xefa628f8_1f2c_4b67_9ea5_acf6fa9a1f36);
+pub const EVENTID_BDA_EncoderSignalLock: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5ec90eb9_39fa_4cfc_b93f_00bb11077f5e);
+pub const EVENTID_BDA_FdcStatus: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x05f25366_d0eb_43d2_bc3c_682b863df142);
+pub const EVENTID_BDA_FdcTableSection: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6a0cd757_4ce3_4e5b_9444_7187b87152c5);
+pub const EVENTID_BDA_GPNVValueUpdate: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xff75c68c_f416_4e7e_bf17_6d55c5df1575);
+pub const EVENTID_BDA_GuideDataAvailable: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x98db717a_478a_4cd4_92d0_95f66b89e5b1);
+pub const EVENTID_BDA_GuideDataError: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xac33c448_6f73_4fd7_b341_594c360d8d74);
+pub const EVENTID_BDA_GuideServiceInformationUpdated: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa1c3ea2b_175f_4458_b735_507d22db23a6);
+pub const EVENTID_BDA_IsdbCASResponse: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd4cb1966_41bc_4ced_9a20_fdceac78f70d);
+pub const EVENTID_BDA_LbigsCloseConnectionHandle: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc2f08b99_65ef_4314_9671_e99d4cce0bae);
+pub const EVENTID_BDA_LbigsOpenConnection: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x356207b2_6f31_4eb0_a271_b3fa6bb7680f);
+pub const EVENTID_BDA_LbigsSendData: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1123277b_f1c6_4154_8b0d_48e6157059aa);
+pub const EVENTID_BDA_RatingPinReset: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc6e048c0_c574_4c26_bcda_2f4d35eb5e85);
+pub const EVENTID_BDA_TransprtStreamSelectorInfo: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc40f9f85_09d0_489c_9e9c_0abbb56951b0);
+pub const EVENTID_BDA_TunerNoSignal: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe29b382b_1edd_4930_bc46_682fd72d2dfb);
+pub const EVENTID_BDA_TunerSignalLock: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1872e740_f573_429b_a00e_d9c1e408af09);
+pub const EVENTID_BDA_UpdateDrmStatus: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x65a6f681_1462_473b_88ce_cb731427bdb5);
+pub const EVENTID_BDA_UpdateScanState: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x55702b50_7b49_42b8_a82f_4afb691b0628);
+pub const EVENTID_CADenialCountChanged: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2a65c528_2249_4070_ac16_00390cdfb2dd);
+pub const EVENTID_CASFailureSpanningEvent: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xead831ae_5529_4d1f_afce_0d8cd1257d30);
+pub const EVENTID_CSDescriptorSpanningEvent: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xefe779d9_97f0_4786_800d_95cf505ddc66);
+pub const EVENTID_CandidatePostTuneData: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9f02d3d0_9f06_4369_9f1e_3ad6ca19807e);
+pub const EVENTID_CardStatusChanged: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa265faea_f874_4b38_9ff7_c53d02969996);
+pub const EVENTID_ChannelChangeSpanningEvent: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9067c5e5_4c5c_4205_86c8_7afe20fe1efa);
+pub const EVENTID_ChannelInfoSpanningEvent: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x41f36d80_4132_4cc2_b121_01a43219d81b);
+pub const EVENTID_ChannelTypeSpanningEvent: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x72ab1d51_87d2_489b_ba11_0e08dc210243);
+pub const EVENTID_CtxADescriptorSpanningEvent: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3ab4a2e6_4247_4b34_896c_30afa5d21c24);
+pub const EVENTID_DFNWithNoActualAVData: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf5689ffe_55f9_4bb3_96be_ae971c63bae0);
+pub const EVENTID_DRMParingStatusChanged: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x000906f5_f0d1_41d6_a7df_4028697669f6);
+pub const EVENTID_DRMParingStepComplete: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5b2ebf78_b752_4420_b41e_a472dc95828e);
+pub const EVENTID_DVBScramblingControlSpanningEvent: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4bd4e1c4_90a1_4109_8236_27f00e7dcc5b);
+pub const EVENTID_DualMonoSpanningEvent: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa9a29b56_a84b_488c_89d5_0d4e7657c8ce);
+pub const EVENTID_DvbParentalRatingDescriptor: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2a67a58d_eca5_4eac_abcb_e734d3776d0a);
+pub const EVENTID_EASMessageReceived: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd10df9d5_c261_4b85_9e8a_517b3299cab2);
+pub const EVENTID_EmmMessageSpanningEvent: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6bf00268_4f7e_4294_aa87_e9e953e43f14);
+pub const EVENTID_EntitlementChanged: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9071ad5d_2359_4c95_8694_afa81d70bfd5);
+pub const EVENTID_LanguageSpanningEvent: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe292666d_9c02_448d_aa8d_781a93fdc395);
+pub const EVENTID_MMIMessage: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x052c29af_09a4_4b93_890f_bd6a348968a4);
+pub const EVENTID_NewSignalAcquired: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc87ec52d_cd18_404a_a076_c02a273d3de7);
+pub const EVENTID_PBDAParentalControlEvent: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf947aa85_fb52_48e8_b9c5_e1e1f411a51a);
+pub const EVENTID_PIDListSpanningEvent: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x47fc8f65_e2bb_4634_9cef_fdbfe6261d5c);
+pub const EVENTID_PSITable: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1b9c3703_d447_4e16_97bb_01799fc031ed);
+pub const EVENTID_RRTSpanningEvent: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf6cfc8f4_da93_4f2f_bff8_ba1ee6fca3a2);
+pub const EVENTID_STBChannelNumber: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x17c4d730_d0f0_413a_8c99_500469de35ad);
+pub const EVENTID_ServiceTerminated: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0a1d591c_e0d2_4f8e_8960_2335bef45ccb);
+pub const EVENTID_SignalAndServiceStatusSpanningEvent: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8068c5cb_3c04_492b_b47d_0308820dce51);
+pub const EVENTID_SignalStatusChanged: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6d9cfaf2_702d_4b01_8dff_6892ad20d191);
+pub const EVENTID_StreamIDSpanningEvent: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcaf1ab68_e153_4d41_a6b3_a7c998db75ee);
+pub const EVENTID_StreamTypeSpanningEvent: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x82af2ebc_30a6_4264_a80b_ad2e1372ac60);
+pub const EVENTID_SubtitleSpanningEvent: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5dcec048_d0b9_4163_872c_4f32223be88a);
+pub const EVENTID_TeletextSpanningEvent: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9599d950_5f33_4617_af7c_1e54b510daa3);
+pub const EVENTID_TuneFailureEvent: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd97287b2_2dfd_436a_9485_99d7d4ab5a69);
+pub const EVENTID_TuneFailureSpanningEvent: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6f8aa455_5ee1_48ab_a27c_4c8d70b9aeba);
+pub const EVENTID_TuningChanged: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9d7e6235_4b7d_425d_a6d1_d717c33b9c4c);
+pub const EVENTID_TuningChanging: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x83183c03_c09e_45c4_a719_807a94952bf9);
+pub const EVENTTYPE_CASDescrambleFailureEvent: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb2127d42_7be5_4f4b_9130_6679899f4f4b);
+pub const EvalRat: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc5c5c5f1_3abc_11d6_b25b_00c04fa0c026);
+pub const ISDBSLocator: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6504afed_a629_455c_a7f1_04964dea5cc4);
+pub const ISDB_CABLE_TV_NETWORK_TYPE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc974ddb5_41fe_4b25_9741_92f049f1d5d1);
+pub const ISDB_SATELLITE_TV_NETWORK_TYPE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb0a4e6a0_6a1a_4b83_bb5b_903e1d90e6b6);
+pub const ISDB_S_NETWORK_TYPE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa1e78202_1459_41b1_9ca9_2a92587a42cc);
+pub const ISDB_TERRESTRIAL_TV_NETWORK_TYPE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x95037f6f_3ac7_4452_b6c4_45a9ce9292a2);
+pub const ISDB_T_NETWORK_TYPE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfc3855a6_c901_4f2e_aba8_90815afc6c83);
+pub const KSCATEGORY_BDA_IP_SINK: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x71985f4a_1ca1_11d3_9cc8_00c04f7971e0);
+pub const KSCATEGORY_BDA_NETWORK_EPG: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x71985f49_1ca1_11d3_9cc8_00c04f7971e0);
+pub const KSCATEGORY_BDA_NETWORK_PROVIDER: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x71985f4b_1ca1_11d3_9cc8_00c04f7971e0);
+pub const KSCATEGORY_BDA_NETWORK_TUNER: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x71985f48_1ca1_11d3_9cc8_00c04f7971e0);
+pub const KSCATEGORY_BDA_RECEIVER_COMPONENT: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfd0a5af4_b41d_11d2_9c95_00c04f7971e0);
+pub const KSCATEGORY_BDA_TRANSPORT_INFORMATION: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa2e3074f_6c3d_11d3_b653_00c04f79498e);
+pub const KSDATAFORMAT_SPECIFIER_BDA_IP: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6b891420_db09_11d2_8f32_00c04f7971e2);
+pub const KSDATAFORMAT_SPECIFIER_BDA_TRANSPORT: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8deda6fd_ac5f_4334_8ecf_a4ba8fa7d0f0);
+pub const KSDATAFORMAT_SUBTYPE_ATSC_SI: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb3c7397c_d303_414d_b33c_4ed2c9d29733);
+pub const KSDATAFORMAT_SUBTYPE_BDA_IP: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5a9a213c_db08_11d2_8f32_00c04f7971e2);
+pub const KSDATAFORMAT_SUBTYPE_BDA_IP_CONTROL: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x499856e8_e85b_48ed_9bea_410d0dd4ef81);
+pub const KSDATAFORMAT_SUBTYPE_BDA_MPEG2_TRANSPORT: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf4aeb342_0329_4fdd_a8fd_4aff4926c978);
+pub const KSDATAFORMAT_SUBTYPE_BDA_OPENCABLE_OOB_PSIP: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x951727db_d2ce_4528_96f6_3301fabb2de0);
+pub const KSDATAFORMAT_SUBTYPE_BDA_OPENCABLE_PSIP: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x762e3f66_336f_48d1_bf83_2b00352c11f0);
+pub const KSDATAFORMAT_SUBTYPE_DVB_SI: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe9dd31a3_221d_4adb_8532_9af309c1a408);
+pub const KSDATAFORMAT_SUBTYPE_ISDB_SI: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4a2eeb99_6458_4538_b187_04017c41413f);
+pub const KSDATAFORMAT_SUBTYPE_PBDA_TRANSPORT_RAW: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0d7aed42_cb9a_11db_9705_005056c00008);
+pub const KSDATAFORMAT_TYPE_BDA_ANTENNA: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x71985f41_1ca1_11d3_9cc8_00c04f7971e0);
+pub const KSDATAFORMAT_TYPE_BDA_IF_SIGNAL: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x61be0b47_a5eb_499b_9a85_5b16c07f1258);
+pub const KSDATAFORMAT_TYPE_BDA_IP: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe25f7b8e_cccc_11d2_8f25_00c04f7971e2);
+pub const KSDATAFORMAT_TYPE_BDA_IP_CONTROL: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdadd5799_7d5b_4b63_80fb_d1442f26b621);
+pub const KSDATAFORMAT_TYPE_MPE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x455f176c_4b06_47ce_9aef_8caef73df7b5);
+pub const KSDATAFORMAT_TYPE_MPEG2_SECTIONS: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x455f176c_4b06_47ce_9aef_8caef73df7b5);
 #[repr(C)]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KSEVENTDATA_BDA_RF_TUNER_SCAN_S {
@@ -21722,6 +21573,28 @@ impl ::core::default::Default for KSEVENTDATA_BDA_RF_TUNER_SCAN_S {
         unsafe { ::core::mem::zeroed() }
     }
 }
+pub const KSEVENTSETID_BdaCAEvent: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x488c4ccc_b768_4129_8eb1_b00a071f9068);
+pub const KSEVENTSETID_BdaDiseqCEvent: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8b19bbf0_4184_43ac_ad3c_0c889be4c212);
+pub const KSEVENTSETID_BdaEvent: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xae7e55b2_96d7_4e29_908f_62f95b2a1679);
+pub const KSEVENTSETID_BdaPinEvent: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x104781cd_50bd_40d5_95fb_087e0e86a591);
+pub const KSEVENTSETID_BdaTunerEvent: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xaab59e17_01c9_4ebf_93f2_fc3b79b46f91);
+pub const KSMETHODSETID_BdaChangeSync: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfd0a5af3_b41d_11d2_9c95_00c04f7971e0);
+pub const KSMETHODSETID_BdaConditionalAccessService: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x10ced3b4_320b_41bf_9824_1b2e68e71eb9);
+pub const KSMETHODSETID_BdaDebug: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0d4a90ec_c69d_4ee2_8c5a_fb1f63a50da1);
+pub const KSMETHODSETID_BdaDeviceConfiguration: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x71985f45_1ca1_11d3_9cc8_00c04f7971e0);
+pub const KSMETHODSETID_BdaDrmService: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbff6b5bb_b0ae_484c_9dca_73528fb0b46e);
+pub const KSMETHODSETID_BdaEventing: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf99492da_6193_4eb0_8690_6686cbff713e);
+pub const KSMETHODSETID_BdaGuideDataDeliveryService: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8d9d5562_1589_417d_99ce_ac531dda19f9);
+pub const KSMETHODSETID_BdaIsdbConditionalAccess: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5e68c627_16c2_4e6c_b1e2_d00170cdaa0f);
+pub const KSMETHODSETID_BdaMux: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x942aafec_4c05_4c74_b8eb_8706c2a4943f);
+pub const KSMETHODSETID_BdaNameValue: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x36e07304_9f0d_4e88_9118_ac0ba317b7f2);
+pub const KSMETHODSETID_BdaNameValueA: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c24096d_5ff5_47de_a856_062e587e3727);
+pub const KSMETHODSETID_BdaScanning: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x12eb49df_6249_47f3_b190_e21e6e2f8a9c);
+pub const KSMETHODSETID_BdaTSSelector: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1dcfafe9_b45e_41b3_bb2a_561eb129ae98);
+pub const KSMETHODSETID_BdaTuner: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb774102f_ac07_478a_8228_2742d961fa7e);
+pub const KSMETHODSETID_BdaUserActivity: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xeda5c834_4531_483c_be0a_94e6c96ff396);
+pub const KSMETHODSETID_BdaWmdrmSession: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4be6fa3d_07cd_4139_8b80_8c18ba3aec88);
+pub const KSMETHODSETID_BdaWmdrmTuner: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x86d979cf_a8a7_4f94_b5fb_14c0aca68fe6);
 #[repr(C)]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KSM_BDA_BUFFER {
@@ -22501,6 +22374,27 @@ impl ::core::default::Default for KSM_BDA_WMDRM_RENEWLICENSE {
         unsafe { ::core::mem::zeroed() }
     }
 }
+pub const KSNODE_BDA_8PSK_DEMODULATOR: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe957a0e7_dd98_4a3c_810b_3525157ab62e);
+pub const KSNODE_BDA_8VSB_DEMODULATOR: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x71985f4f_1ca1_11d3_9cc8_00c04f7971e0);
+pub const KSNODE_BDA_ANALOG_DEMODULATOR: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x634db199_27dd_46b8_acfb_ecc98e61a2ad);
+pub const KSNODE_BDA_COFDM_DEMODULATOR: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2dac6e05_edbe_4b9c_b387_1b6fad7d6495);
+pub const KSNODE_BDA_COMMON_CA_POD: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd83ef8fc_f3b8_45ab_8b71_ecf7c339deb4);
+pub const KSNODE_BDA_DRI_DRM: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4f95ad74_cefb_42d2_94a9_68c5b2c1aabe);
+pub const KSNODE_BDA_IP_SINK: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x71985f4e_1ca1_11d3_9cc8_00c04f7971e0);
+pub const KSNODE_BDA_ISDB_S_DEMODULATOR: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xedde230a_9086_432d_b8a5_6670263807e9);
+pub const KSNODE_BDA_ISDB_T_DEMODULATOR: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfcea3ae3_2cb2_464d_8f5d_305c0bb778a2);
+pub const KSNODE_BDA_OPENCABLE_POD: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x345812a0_fb7c_4790_aa7e_b1db88ac19c9);
+pub const KSNODE_BDA_PBDA_CAS: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc026869f_7129_4e71_8696_ec8f75299b77);
+pub const KSNODE_BDA_PBDA_DRM: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9eeebd03_eea1_450f_96ae_633e6de63cce);
+pub const KSNODE_BDA_PBDA_ISDBCAS: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf2cf2ab3_5b9d_40ae_ab7c_4e7ad0bd1c52);
+pub const KSNODE_BDA_PBDA_MUX: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf88c7787_6678_4f4b_a13e_da09861d682b);
+pub const KSNODE_BDA_PBDA_TUNER: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xaa5e8286_593c_4979_9494_46a2a9dfe076);
+pub const KSNODE_BDA_PID_FILTER: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf5412789_b0a0_44e1_ae4f_ee999b1b7fbe);
+pub const KSNODE_BDA_QAM_DEMODULATOR: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x71985f4d_1ca1_11d3_9cc8_00c04f7971e0);
+pub const KSNODE_BDA_QPSK_DEMODULATOR: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6390c905_27c1_4d67_bdb7_77c50d079300);
+pub const KSNODE_BDA_RF_TUNER: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x71985f4c_1ca1_11d3_9cc8_00c04f7971e0);
+pub const KSNODE_BDA_TS_SELECTOR: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5eddf185_fed1_4f45_9685_bbb73c323cfc);
+pub const KSNODE_BDA_VIDEO_ENCODER: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd98429e3_65c9_4ac4_93aa_766782833b7a);
 #[repr(C)]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KSPROPERTY_BDA_RF_TUNER_CAPS_S {
@@ -22609,6 +22503,22 @@ impl ::core::default::Default for KSPROPERTY_BDA_RF_TUNER_STANDARD_S {
         unsafe { ::core::mem::zeroed() }
     }
 }
+pub const KSPROPSETID_BdaAutodemodulate: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xddf15b12_bd25_11d2_9ca0_00c04f7971e0);
+pub const KSPROPSETID_BdaCA: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb0693766_5278_4ec6_b9e1_3ce40560ef5a);
+pub const KSPROPSETID_BdaDigitalDemodulator: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xef30f379_985b_4d10_b640_a79d5e04e1e0);
+pub const KSPROPSETID_BdaDiseqCommand: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf84e2ab0_3c6b_45e3_a0fc_8669d4b81f11);
+pub const KSPROPSETID_BdaEthernetFilter: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x71985f43_1ca1_11d3_9cc8_00c04f7971e0);
+pub const KSPROPSETID_BdaFrequencyFilter: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x71985f47_1ca1_11d3_9cc8_00c04f7971e0);
+pub const KSPROPSETID_BdaIPv4Filter: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x71985f44_1ca1_11d3_9cc8_00c04f7971e0);
+pub const KSPROPSETID_BdaIPv6Filter: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe1785a74_2a23_4fb3_9245_a8f88017ef33);
+pub const KSPROPSETID_BdaLNBInfo: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x992cf102_49f9_4719_a664_c4f23e2408f4);
+pub const KSPROPSETID_BdaNullTransform: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xddf15b0d_bd25_11d2_9ca0_00c04f7971e0);
+pub const KSPROPSETID_BdaPIDFilter: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd0a67d65_08df_4fec_8533_e5b550410b85);
+pub const KSPROPSETID_BdaPinControl: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0ded49d5_a8b7_4d5d_97a1_12b0c195874d);
+pub const KSPROPSETID_BdaSignalStats: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1347d106_cf3a_428a_a5cb_ac0d9a2a4338);
+pub const KSPROPSETID_BdaTableSection: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x516b99c5_971c_4aaf_b3f3_d9fda8a15e16);
+pub const KSPROPSETID_BdaTopology: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa14ee835_0a23_11d3_9cc7_00c04f7971e0);
+pub const KSPROPSETID_BdaVoidTransform: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x71985f46_1ca1_11d3_9cc8_00c04f7971e0);
 #[repr(C)]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KSP_BDA_NODE_PIN {
@@ -22768,6 +22678,7 @@ impl ::core::default::Default for LONG_SECTION_1 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+pub const LanguageComponentType: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1be49f30_0e1b_11d3_9d8e_00c04f72d980);
 #[repr(C)]
 pub struct LanguageInfo {
     pub LangID: u16,
@@ -22798,6 +22709,11 @@ impl ::core::default::Default for LanguageInfo {
         unsafe { ::core::mem::zeroed() }
     }
 }
+pub const Locator: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0888c883_ac4f_4943_b516_2c38d9b34562);
+pub const MPEG2Component: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x055cb2d7_2969_45cd_914b_76890722f112);
+pub const MPEG2ComponentType: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x418008f3_cf67_4668_9628_10dc52be1d08);
+pub const MPEG2TuneRequest: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0955ac62_bf2e_4cba_a2b9_a63f772d46cf);
+pub const MPEG2TuneRequestFactory: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2c63e4eb_4cea_41b8_919c_e947ea19a77c);
 #[repr(C, packed(1))]
 pub struct MPEG2_FILTER {
     pub bVersionNumber: u8,
@@ -23275,6 +23191,72 @@ impl ::core::default::Default for MPE_ELEMENT {
         unsafe { ::core::mem::zeroed() }
     }
 }
+pub const MSEventBinder: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x577faa18_4518_445e_8f70_1473f8cf4ba4);
+pub const MSVidAnalogCaptureToCCA: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x942b7909_a28e_49a1_a207_34ebcbcb4b3b);
+pub const MSVidAnalogCaptureToDataServices: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc5702cd6_9b79_11d3_b654_00c04f79498e);
+pub const MSVidAnalogCaptureToOverlayMixer: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe18af75a_08af_11d3_b64a_00c04f79498e);
+pub const MSVidAnalogCaptureToStreamBufferSink: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9f50e8b1_9530_4ddc_825e_1af81d47aed6);
+pub const MSVidAnalogCaptureToXDS: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3540d440_5b1d_49cb_821a_e84b8cf065a7);
+pub const MSVidAnalogTVToEncoder: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x28953661_0231_41db_8986_21ff4388ee9b);
+pub const MSVidAnalogTunerDevice: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1c15d484_911d_11d2_b632_00c04f79498e);
+pub const MSVidAudioRenderer: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x37b03544_a4c8_11d2_b634_00c04f79498e);
+pub const MSVidAudioRendererDevices: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc5702ccf_9b79_11d3_b654_00c04f79498e);
+pub const MSVidBDATunerDevice: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa2e3074e_6c3d_11d3_b653_00c04f79498e);
+pub const MSVidCCA: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x86151827_e47b_45ee_8421_d10e6e690979);
+pub const MSVidCCAToStreamBufferSink: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3ef76d68_8661_4843_8b8f_c37163d8c9ce);
+pub const MSVidCCToAR: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd76334ca_d89e_4baf_86ab_ddb59372afc2);
+pub const MSVidCCToVMR: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc4bf2784_ae00_41ba_9828_9c953bd3c54a);
+pub const MSVidClosedCaptioning: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7f9cb14d_48e4_43b6_9346_1aebc39c64d3);
+pub const MSVidClosedCaptioningSI: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x92ed88bf_879e_448f_b6b6_a385bceb846d);
+pub const MSVidCtl: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb0edf163_910a_11d2_b632_00c04f79498e);
+pub const MSVidDataServices: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x334125c0_77e5_11d3_b653_00c04f79498e);
+pub const MSVidDataServicesToStreamBufferSink: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x38f03426_e83b_4e68_b65b_dcae73304838);
+pub const MSVidDataServicesToXDS: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0429ec6e_1144_4bed_b88b_2fb9899a4a3d);
+pub const MSVidDevice: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6e40476f_9c49_4c3e_8bb9_8587958eff74);
+pub const MSVidDevice2: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x30997f7d_b3b5_4a1c_983a_1fe8098cb77d);
+pub const MSVidDigitalCaptureToCCA: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x73d14237_b9db_4efa_a6dd_84350421fb2f);
+pub const MSVidDigitalCaptureToITV: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5d8e73f7_4989_4ac8_8a98_39ba0d325302);
+pub const MSVidDigitalCaptureToStreamBufferSink: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xabe40035_27c3_4a2f_8153_6624471608af);
+pub const MSVidEVR: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc45268a2_fa81_4e19_b1e3_72edbd60aeda);
+pub const MSVidEncoder: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbb530c63_d9df_4b49_9439_63453962e598);
+pub const MSVidEncoderToStreamBufferSink: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa0b9b497_afbc_45ad_a8a6_9b077c40d4f2);
+pub const MSVidFeature: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7748530b_c08a_47ea_b24c_be8695ff405f);
+pub const MSVidFeatures: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc5702cd0_9b79_11d3_b654_00c04f79498e);
+pub const MSVidFilePlaybackDevice: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x37b0353c_a4c8_11d2_b634_00c04f79498e);
+pub const MSVidFilePlaybackToAudioRenderer: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcc23f537_18d4_4ece_93bd_207a84726979);
+pub const MSVidFilePlaybackToVideoRenderer: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb401c5eb_8457_427f_84ea_a4d2363364b0);
+pub const MSVidGenericComposite: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2764bce5_cc39_11d2_b639_00c04f79498e);
+pub const MSVidGenericSink: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4a5869cf_929d_4040_ae03_fcafc5b9cd42);
+pub const MSVidITVCapture: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5740a302_ef0b_45ce_bf3b_4470a14a8980);
+pub const MSVidITVPlayback: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9e797ed0_5253_4243_a9b7_bd06c58f8ef3);
+pub const MSVidITVToStreamBufferSink: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x92b94828_1af7_4e6e_9ebf_770657f77af5);
+pub const MSVidInputDevice: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xac1972f2_138a_4ca3_90da_ae51112eda28);
+pub const MSVidInputDevices: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc5702ccc_9b79_11d3_b654_00c04f79498e);
+pub const MSVidMPEG2DecoderToClosedCaptioning: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6ad28ee1_5002_4e71_aaf7_bd077907b1a4);
+pub const MSVidOutput: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x87eb890d_03ad_4e9d_9866_376e5ec572ed);
+pub const MSVidOutputDevices: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc5702ccd_9b79_11d3_b654_00c04f79498e);
+pub const MSVidRect: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcb4276e6_7d5f_4cf1_9727_629c5e6db6ae);
+pub const MSVidSBESourceToCC: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9193a8f9_0cba_400e_aa97_eb4709164576);
+pub const MSVidSBESourceToGenericSink: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x991da7e5_953f_435b_be5e_b92a05edfc42);
+pub const MSVidSBESourceToITV: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2291478c_5ee3_4bef_ab5d_b5ff2cf58352);
+pub const MSVidStreamBufferRecordingControl: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcaafdd83_cefc_4e3d_ba03_175f17a24f91);
+pub const MSVidStreamBufferSink: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9e77aac4_35e5_42a1_bdc2_8f3ff399847c);
+pub const MSVidStreamBufferSource: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xad8e510d_217f_409b_8076_29c5e73b98e8);
+pub const MSVidStreamBufferSourceToVideoRenderer: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3c4708dc_b181_46a8_8da8_4ab0371758cd);
+pub const MSVidStreamBufferV2Source: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfd351ea1_4173_4af4_821d_80d4ae979048);
+pub const MSVidVMR9: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x24dc3975_09bf_4231_8655_3ee71f43837d);
+pub const MSVidVideoInputDevice: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x95f4820b_bb3a_4e2d_bc64_5b817bc2c30e);
+pub const MSVidVideoPlaybackDevice: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1990d634_1a5e_4071_a34a_53aaffce9f36);
+pub const MSVidVideoRenderer: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x37b03543_a4c8_11d2_b634_00c04f79498e);
+pub const MSVidVideoRendererDevices: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc5702cce_9b79_11d3_b654_00c04f79498e);
+pub const MSVidWebDVD: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x011b3619_fe63_4814_8a84_15a194ce9ce3);
+pub const MSVidWebDVDAdm: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfa7c375b_66a7_4280_879d_fd459c84bb02);
+pub const MSVidWebDVDToAudioRenderer: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8d04238e_9fd1_41c6_8de3_9e1ee309e935);
+pub const MSVidWebDVDToVideoRenderer: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x267db0b3_55e3_4902_949b_df8f5cec0191);
+pub const MSVidXDS: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0149eedf_d08f_4142_8d73_d23903d21e90);
+pub const Mpeg2Data: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc666e115_bb62_4027_a113_82d643fe2d99);
+pub const Mpeg2DataLib: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdbaf6c1b_b6a4_4898_ae65_204f0d9509a1);
+pub const Mpeg2Stream: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf91d96c7_8509_4d0b_ab26_a0dd10904bb7);
 #[repr(C, packed(1))]
 pub struct Mpeg2TableSampleHdr {
     pub SectionCount: u8,
@@ -23314,6 +23296,7 @@ impl ::core::default::Default for PBDAParentalControl {
         unsafe { ::core::mem::zeroed() }
     }
 }
+pub const PBDA_ALWAYS_TUNE_IN_MUX: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1e1d7141_583f_4ac2_b019_1f430eda0f4c);
 #[repr(C)]
 pub struct PBDA_TAG_ATTRIBUTE {
     pub TableUUId: ::windows_core::GUID,
@@ -23442,6 +23425,15 @@ impl ::core::default::Default for PID_BITS_MIDL {
         unsafe { ::core::mem::zeroed() }
     }
 }
+pub const PINNAME_BDA_ANALOG_AUDIO: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd28a580a_9b1f_4b0c_9c33_9bf0a8ea636b);
+pub const PINNAME_BDA_ANALOG_VIDEO: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5c0c8281_5667_486c_8482_63e31f01a6e9);
+pub const PINNAME_BDA_FM_RADIO: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd2855fed_b2d3_4eeb_9bd0_193436a2f890);
+pub const PINNAME_BDA_IF_PIN: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1a9d4a42_f3cd_48a1_9aea_71de133cbe14);
+pub const PINNAME_BDA_OPENCABLE_PSIP_PIN: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x297bb104_e5c9_4ace_b123_95c3cbb24d4f);
+pub const PINNAME_BDA_TRANSPORT: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x78216a81_cfa8_493e_9711_36a61c08bd9d);
+pub const PINNAME_IPSINK_INPUT: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3fdffa70_ac9a_11d2_8f17_00c04f7971e2);
+pub const PINNAME_MPE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc1b06d73_1dbb_11d3_8f46_00c04f7971e2);
+pub const PersistTuneXmlUtility: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe77026b0_b97f_4cbb_b7fb_f4f03ad69f11);
 #[repr(C)]
 pub struct ProgramElement {
     pub wProgramNumber: u16,
@@ -23727,6 +23719,7 @@ impl ::core::default::Default for STREAMBUFFER_ATTRIBUTE {
         unsafe { ::core::mem::zeroed() }
     }
 }
+pub const SectionList: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x73da5d04_4347_45d3_a9dc_fae9ddbe558d);
 #[repr(C)]
 pub struct SpanningEventDescriptor {
     pub wDataLen: u16,
@@ -23814,6 +23807,7 @@ impl ::core::default::Default for SpanningEventEmmMessage {
         unsafe { ::core::mem::zeroed() }
     }
 }
+pub const SystemTuningSpaces: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd02aac50_027e_11d3_9d8e_00c04f72d980);
 #[repr(C, packed(1))]
 pub struct TID_EXTENSION {
     pub wTidExt: u16,
@@ -23833,6 +23827,7 @@ impl ::core::default::Default for TID_EXTENSION {
         unsafe { ::core::mem::zeroed() }
     }
 }
+pub const TIFLoad: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x14eb8748_1753_4393_95ae_4f7e7a87aad6);
 #[repr(C)]
 pub struct TRANSPORT_PROPERTIES {
     pub PID: u32,
@@ -23901,6 +23896,9 @@ impl ::core::default::Default for TRANSPORT_PROPERTIES_0_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+pub const TuneRequest: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb46e0d38_ab35_4a06_a137_70576b01b39f);
+pub const TunerMarshaler: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6438570b_0c08_4a25_9504_8012bb4d50cf);
+pub const TuningSpace: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5ffdc5e6_b83a_4b55_b6e8_c69e765fe9db);
 #[repr(C)]
 pub struct UDCR_TAG {
     pub bVersion: u8,
@@ -23994,5 +23992,7 @@ impl ::core::default::Default for WMDRMProtectionInfo {
         unsafe { ::core::mem::zeroed() }
     }
 }
+pub const XDSCodec: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc4c4c4f3_0049_4e2b_98fb_9537f6ce516d);
+pub const XDSToRat: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc5c5c5f0_3abc_11d6_b25b_00c04fa0c026);
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

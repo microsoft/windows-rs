@@ -310,8 +310,6 @@ pub struct IUISimplePropertySet_Vtbl {
     GetValue: usize,
 }
 pub const LIBID_UIRibbon: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x942f35c2_e83b_45ef_b085_ac295dd63d5b);
-pub const UIRibbonFramework: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x926749fa_2615_4987_8845_c33e65f2b957);
-pub const UIRibbonImageFromBitmapFactory: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0f7434b6_59b6_4250_999e_d168d6ae4293);
 pub const UI_ALL_COMMANDS: u32 = 0u32;
 pub const UI_COLLECTIONCHANGE_INSERT: UI_COLLECTIONCHANGE = UI_COLLECTIONCHANGE(0i32);
 pub const UI_COLLECTIONCHANGE_REMOVE: UI_COLLECTIONCHANGE = UI_COLLECTIONCHANGE(1i32);
@@ -599,6 +597,8 @@ impl ::core::fmt::Debug for UI_VIEWVERB {
         f.debug_tuple("UI_VIEWVERB").field(&self.0).finish()
     }
 }
+pub const UIRibbonFramework: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x926749fa_2615_4987_8845_c33e65f2b957);
+pub const UIRibbonImageFromBitmapFactory: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0f7434b6_59b6_4250_999e_d168d6ae4293);
 #[repr(C)]
 pub struct UI_EVENTPARAMS {
     pub EventType: UI_EVENTTYPE,

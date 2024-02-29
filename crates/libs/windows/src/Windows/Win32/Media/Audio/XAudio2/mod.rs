@@ -666,8 +666,6 @@ pub struct IXAudio2VoiceCallback_Vtbl {
     pub OnLoopEnd: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void),
     pub OnVoiceError: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, ::windows_core::HRESULT),
 }
-pub const AudioReverb: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc2633b16_471b_4498_b8c5_4f0959e2ec09);
-pub const AudioVolumeMeter: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4fc3b166_972a_40cf_bc37_7db03db2fba3);
 pub const BandPassFilter: XAUDIO2_FILTER_TYPE = XAUDIO2_FILTER_TYPE(1i32);
 pub const Cardioid: HrtfDirectivityType = HrtfDirectivityType(1i32);
 pub const Cone: HrtfDirectivityType = HrtfDirectivityType(2i32);
@@ -683,7 +681,6 @@ pub const FXECHO_MAX_WETDRYMIX: f32 = 1f32;
 pub const FXECHO_MIN_DELAY: f32 = 1f32;
 pub const FXECHO_MIN_FEEDBACK: f32 = 0f32;
 pub const FXECHO_MIN_WETDRYMIX: f32 = 0f32;
-pub const FXEQ: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf5e01117_d6c4_485a_a3f5_695196f3dbfa);
 pub const FXEQ_DEFAULT_BANDWIDTH: f32 = 1f32;
 pub const FXEQ_DEFAULT_FREQUENCY_CENTER_0: f32 = 100f32;
 pub const FXEQ_DEFAULT_FREQUENCY_CENTER_1: f32 = 800f32;
@@ -698,7 +695,6 @@ pub const FXEQ_MIN_BANDWIDTH: f32 = 0.1f32;
 pub const FXEQ_MIN_FRAMERATE: u32 = 22000u32;
 pub const FXEQ_MIN_FREQUENCY_CENTER: f32 = 20f32;
 pub const FXEQ_MIN_GAIN: f32 = 0.126f32;
-pub const FXEcho: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5039d740_f736_449a_84d3_a56202557b87);
 pub const FXLOUDNESS_DEFAULT_MOMENTARY_MS: u32 = 400u32;
 pub const FXLOUDNESS_DEFAULT_SHORTTERM_MS: u32 = 3000u32;
 pub const FXMASTERINGLIMITER_DEFAULT_LOUDNESS: u32 = 1000u32;
@@ -707,14 +703,12 @@ pub const FXMASTERINGLIMITER_MAX_LOUDNESS: u32 = 1800u32;
 pub const FXMASTERINGLIMITER_MAX_RELEASE: u32 = 20u32;
 pub const FXMASTERINGLIMITER_MIN_LOUDNESS: u32 = 1u32;
 pub const FXMASTERINGLIMITER_MIN_RELEASE: u32 = 1u32;
-pub const FXMasteringLimiter: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc4137916_2be1_46fd_8599_441536f49856);
 pub const FXREVERB_DEFAULT_DIFFUSION: f32 = 0.9f32;
 pub const FXREVERB_DEFAULT_ROOMSIZE: f32 = 0.6f32;
 pub const FXREVERB_MAX_DIFFUSION: f32 = 1f32;
 pub const FXREVERB_MAX_ROOMSIZE: f32 = 1f32;
 pub const FXREVERB_MIN_DIFFUSION: f32 = 0f32;
 pub const FXREVERB_MIN_ROOMSIZE: f32 = 0.0001f32;
-pub const FXReverb: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7d9aca56_cb68_4807_b632_b137352e8596);
 pub const HRTF_DEFAULT_UNITY_GAIN_DISTANCE: f32 = 1f32;
 pub const HRTF_MAX_GAIN_LIMIT: f32 = 12f32;
 pub const HRTF_MIN_GAIN_LIMIT: f32 = -96f32;
@@ -968,6 +962,8 @@ impl ::core::fmt::Debug for XAUDIO2_FILTER_TYPE {
         f.debug_tuple("XAUDIO2_FILTER_TYPE").field(&self.0).finish()
     }
 }
+pub const AudioReverb: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc2633b16_471b_4498_b8c5_4f0959e2ec09);
+pub const AudioVolumeMeter: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4fc3b166_972a_40cf_bc37_7db03db2fba3);
 #[repr(C, packed(1))]
 pub struct FXECHO_INITDATA {
     pub MaxDelay: f32,
@@ -1006,6 +1002,7 @@ impl ::core::default::Default for FXECHO_PARAMETERS {
         unsafe { ::core::mem::zeroed() }
     }
 }
+pub const FXEQ: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf5e01117_d6c4_485a_a3f5_695196f3dbfa);
 #[repr(C, packed(1))]
 pub struct FXEQ_PARAMETERS {
     pub FrequencyCenter0: f32,
@@ -1035,6 +1032,7 @@ impl ::core::default::Default for FXEQ_PARAMETERS {
         unsafe { ::core::mem::zeroed() }
     }
 }
+pub const FXEcho: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5039d740_f736_449a_84d3_a56202557b87);
 #[repr(C, packed(1))]
 pub struct FXMASTERINGLIMITER_PARAMETERS {
     pub Release: u32,
@@ -1054,6 +1052,7 @@ impl ::core::default::Default for FXMASTERINGLIMITER_PARAMETERS {
         unsafe { ::core::mem::zeroed() }
     }
 }
+pub const FXMasteringLimiter: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc4137916_2be1_46fd_8599_441536f49856);
 #[repr(C, packed(1))]
 pub struct FXREVERB_PARAMETERS {
     pub Diffusion: f32,
@@ -1073,6 +1072,7 @@ impl ::core::default::Default for FXREVERB_PARAMETERS {
         unsafe { ::core::mem::zeroed() }
     }
 }
+pub const FXReverb: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7d9aca56_cb68_4807_b632_b137352e8596);
 #[repr(C)]
 pub struct HrtfApoInit {
     pub distanceDecay: *mut HrtfDistanceDecay,

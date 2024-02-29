@@ -1088,19 +1088,7 @@ pub const AVS_FILLED: APPLICATION_VIEW_STATE = 1i32;
 pub const AVS_FULLSCREEN_LANDSCAPE: APPLICATION_VIEW_STATE = 0i32;
 pub const AVS_FULLSCREEN_PORTRAIT: APPLICATION_VIEW_STATE = 3i32;
 pub const AVS_SNAPPED: APPLICATION_VIEW_STATE = 2i32;
-pub const AccessibilityDockingService: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x29ce1d46_b481_4aa0_a08a_d3ebc8aca402);
 pub const AllowSmallerSize: ThumbnailStreamCacheOptions = 4i32;
-pub const AlphabeticalCategorizer: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x3c2654c6_7372_4f6b_b310_55d6128f49d2);
-pub const AppShellVerbHandler: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x4ed3a719_cea8_4bd9_910d_e252f997afc2);
-pub const AppStartupLink: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x273eb5e7_88b0_4843_bfef_e2c81d43aae5);
-pub const AppVisibility: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x7e5fe3d9_985f_4908_91f9_ee19f9fd1514);
-pub const ApplicationActivationManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x45ba127d_10a8_46ea_8ab7_56ea9078943c);
-pub const ApplicationAssociationRegistration: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x591209c7_767b_42b2_9fba_44ee4615f2c7);
-pub const ApplicationAssociationRegistrationUI: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x1968106d_f3b5_44cf_890e_116fcb9ecef1);
-pub const ApplicationDesignModeSettings: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x958a6fb5_dcb2_4faf_aafd_7fb054ad1a3b);
-pub const ApplicationDestinations: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x86c14003_4d6b_4ef3_a7b4_0506663b2e68);
-pub const ApplicationDocumentLists: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x86bec222_30f2_47e0_9f25_60d11cd75c28);
-pub const AttachmentServices: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x4125dd96_e03a_4103_8f70_e0597d803b9c);
 pub const BFFM_ENABLEOK: u32 = 1125u32;
 pub const BFFM_INITIALIZED: u32 = 1u32;
 pub const BFFM_IUNKNOWN: u32 = 5u32;
@@ -1261,7 +1249,6 @@ pub const CDBOSC_RENAME: u32 = 3u32;
 pub const CDBOSC_SELCHANGE: u32 = 2u32;
 pub const CDBOSC_SETFOCUS: u32 = 0u32;
 pub const CDBOSC_STATECHANGE: u32 = 4u32;
-pub const CDBurn: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xfbeb8a05_beee_4442_804e_409d6c4515e9);
 pub const CDCS_ENABLED: CDCONTROLSTATEF = 1i32;
 pub const CDCS_ENABLEDVISIBLE: CDCONTROLSTATEF = 3i32;
 pub const CDCS_INACTIVE: CDCONTROLSTATEF = 0i32;
@@ -1650,7 +1637,6 @@ pub const CSIDL_SYSTEM: u32 = 37u32;
 pub const CSIDL_SYSTEMX86: u32 = 41u32;
 pub const CSIDL_TEMPLATES: u32 = 21u32;
 pub const CSIDL_WINDOWS: u32 = 36u32;
-pub const CScriptErrorList: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xefd01300_160f_11d2_bb2e_00805ff7efca);
 pub const CTF_COINIT: i32 = 8i32;
 pub const CTF_COINIT_MTA: i32 = 4096i32;
 pub const CTF_COINIT_STA: i32 = 8i32;
@@ -1666,7 +1652,6 @@ pub const CTF_THREAD_REF: i32 = 2i32;
 pub const CTF_UNUSED: i32 = 128i32;
 pub const CTF_WAIT_ALLOWCOM: i32 = 64i32;
 pub const CTF_WAIT_NO_REENTRANCY: i32 = 512i32;
-pub const ConflictFolder: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x289978ac_a101_4341_a817_21eba7fd046d);
 pub const DBCID_CLSIDOFBAR: i32 = 2i32;
 pub const DBCID_EMPTY: i32 = 0i32;
 pub const DBCID_GETBAR: i32 = 4i32;
@@ -1841,13 +1826,6 @@ pub const DWPOS_FIT: DESKTOP_WALLPAPER_POSITION = 3i32;
 pub const DWPOS_SPAN: DESKTOP_WALLPAPER_POSITION = 5i32;
 pub const DWPOS_STRETCH: DESKTOP_WALLPAPER_POSITION = 2i32;
 pub const DWPOS_TILE: DESKTOP_WALLPAPER_POSITION = 1i32;
-pub const DefFolderMenu: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xc63382be_7933_48d0_9ac8_85fb46be2fdd);
-pub const DesktopGadget: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x924ccc1b_6562_4c85_8657_d177925222b6);
-pub const DesktopWallpaper: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xc2cf3110_460e_4fc1_b9d0_8a1c0c9cc4bd);
-pub const DestinationList: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x77f10cf0_3db5_4966_b520_b7c54fd35ed6);
-pub const DocPropShellExtension: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x883373c3_bf89_11d1_be35_080036b11a03);
-pub const DriveSizeCategorizer: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x94357b53_ca29_4b78_83ae_e8fe7409134f);
-pub const DriveTypeCategorizer: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xb0a8f3cf_4333_4bab_8873_1ccb1cada48b);
 pub const EBF_NODROPTARGET: EXPLORER_BROWSER_FILL_FLAGS = 512i32;
 pub const EBF_NONE: EXPLORER_BROWSER_FILL_FLAGS = 0i32;
 pub const EBF_SELECTFROMDATAOBJECT: EXPLORER_BROWSER_FILL_FLAGS = 256i32;
@@ -1929,10 +1907,6 @@ pub const E_USERTILE_FILESIZE: ::windows_sys::core::HRESULT = 0x80270214_u32 as 
 pub const E_USERTILE_LARGEORDYNAMIC: ::windows_sys::core::HRESULT = 0x80270212_u32 as _;
 pub const E_USERTILE_UNSUPPORTEDFILETYPE: ::windows_sys::core::HRESULT = 0x80270210_u32 as _;
 pub const E_USERTILE_VIDEOFRAMESIZE: ::windows_sys::core::HRESULT = 0x80270213_u32 as _;
-pub const EnumerableObjectCollection: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x2d3468c1_36a7_43b6_ac24_d3f02fd9607a);
-pub const ExecuteFolder: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x11dbb47c_a525_400b_9e80_a54615a090c0);
-pub const ExecuteUnknown: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xe44e9428_bdbc_4987_a099_40dc8fd255e7);
-pub const ExplorerBrowser: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x71f96385_ddd6_48d3_a0c1_ae06e8b055fb);
 pub const ExtractIfNotCached: ThumbnailStreamCacheOptions = 0i32;
 pub const FCIDM_BROWSERFIRST: u32 = 40960u32;
 pub const FCIDM_BROWSERLAST: u32 = 48896u32;
@@ -2268,7 +2242,6 @@ pub const FP_BELOW: FLYOUT_PLACEMENT = 2i32;
 pub const FP_DEFAULT: FLYOUT_PLACEMENT = 0i32;
 pub const FP_LEFT: FLYOUT_PLACEMENT = 3i32;
 pub const FP_RIGHT: FLYOUT_PLACEMENT = 4i32;
-pub const FSCopyHandler: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xd197380a_0a79_4dc8_a033_ed882c2fa14b);
 pub const FTA_AlwaysUnsafe: FILETYPEATTRIBUTEFLAGS = 131072i32;
 pub const FTA_AlwaysUseDirectInvoke: FILETYPEATTRIBUTEFLAGS = 4194304i32;
 pub const FTA_Exclude: FILETYPEATTRIBUTEFLAGS = 1i32;
@@ -2350,13 +2323,6 @@ pub const FWF_SUBSETGROUPS: FOLDERFLAGS = 536870912i32;
 pub const FWF_TRANSPARENT: FOLDERFLAGS = 256i32;
 pub const FWF_TRICHECKSELECT: FOLDERFLAGS = 67108864i32;
 pub const FWF_USESEARCHFOLDER: FOLDERFLAGS = 1073741824i32;
-pub const FileOpenDialog: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xdc1c5a9c_e88a_4dde_a5a1_60f82a20aef7);
-pub const FileOperation: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x3ad05575_8857_4850_9277_11b85bdb8e09);
-pub const FileSaveDialog: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xc0b4e2f3_ba21_4773_8dba_335ec946eb8b);
-pub const FileSearchBand: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xc4ee31f3_4768_11d2_be5c_00a0c9a83da1);
-pub const FolderViewHost: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x20b1cb23_6968_4eb9_b7d4_a66d00d07cee);
-pub const FrameworkInputPane: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xd5120aa3_46ba_44c5_822d_ca8092c1fc72);
-pub const FreeSpaceCategorizer: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xb5607793_24ac_44c7_82e2_831726aa6cb7);
 pub const GADOF_DIRTY: u32 = 1u32;
 pub const GCS_HELPTEXT: u32 = 5u32;
 pub const GCS_HELPTEXTA: u32 = 1u32;
@@ -2448,7 +2414,6 @@ pub const GLOBALCOUNTER_USERINFOCHANGED: SHGLOBALCOUNTER = 56i32;
 pub const GPFIDL_ALTNAME: GPFIDL_FLAGS = 1u32;
 pub const GPFIDL_DEFAULT: GPFIDL_FLAGS = 0u32;
 pub const GPFIDL_UNCPRINTER: GPFIDL_FLAGS = 2u32;
-pub const GenericCredentialProvider: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x25cbb996_92ed_457e_b28c_4774084bd562);
 pub const HELPINFO_MENUITEM: HELP_INFO_TYPE = 2i32;
 pub const HELPINFO_WINDOW: HELP_INFO_TYPE = 1i32;
 pub const HGSC_DOCUMENTSLIBRARY: HOMEGROUPSHARINGCHOICES = 8i32;
@@ -2518,8 +2483,6 @@ pub const HLTRANSLATEF_DEFAULT: HLTRANSLATEF = 0i32;
 pub const HLTRANSLATEF_DONTAPPLYDEFAULTPREFIX: HLTRANSLATEF = 1i32;
 pub const HOMEGROUP_SECURITY_GROUP: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("HomeUsers");
 pub const HOMEGROUP_SECURITY_GROUP_MULTI: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("HUG");
-pub const HideInputPaneAnimationCoordinator: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x384742b1_2a77_4cb3_8cf8_1136f5e17e59);
-pub const HomeGroup: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xde77ba04_3c92_4d11_a1a5_42352a53e0e3);
 pub const IDC_OFFLINE_HAND: u32 = 103u32;
 pub const IDC_PANTOOL_HAND_CLOSED: u32 = 105u32;
 pub const IDC_PANTOOL_HAND_OPEN: u32 = 104u32;
@@ -2545,7 +2508,6 @@ pub const IEIFLAG_SCREEN: u32 = 32u32;
 pub const IEIT_PRIORITY_NORMAL: u32 = 268435456u32;
 pub const IEI_PRIORITY_MAX: u32 = 2147483647u32;
 pub const IEI_PRIORITY_MIN: u32 = 0u32;
-pub const IENamespaceTreeControl: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xace52d03_e5cd_4b20_82ff_e71b11beae1d);
 pub const IEPDN_BINDINGUI: IEPDNFLAGS = 1i32;
 pub const IESHORTCUT_BACKGROUNDTAB: IESHORTCUTFLAGS = 8i32;
 pub const IESHORTCUT_FORCENAVIGATE: IESHORTCUTFLAGS = 4i32;
@@ -2605,13 +2567,6 @@ pub const IURL_INVOKECOMMAND_FL_USE_DEFAULT_VERB: IURL_INVOKECOMMAND_FLAGS = 2i3
 pub const IURL_SETURL_FL_GUESS_PROTOCOL: IURL_SETURL_FLAGS = 1i32;
 pub const IURL_SETURL_FL_USE_DEFAULT_PROTOCOL: IURL_SETURL_FLAGS = 2i32;
 pub const Identity_LocalUserProvider: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xa198529b_730f_4089_b646_a12557f5665e);
-pub const ImageProperties: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x7ab770c7_0e23_4d7a_8aa2_19bfad479829);
-pub const ImageRecompress: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x6e33091c_d2f8_4740_b55e_2e11d1477a2c);
-pub const ImageTranscode: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x17b75166_928f_417d_9685_64aa135565c1);
-pub const InputPanelConfiguration: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x2853add3_f096_4c63_a78f_7fa3ea837fb7);
-pub const InternetExplorer: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x0002df01_0000_0000_c000_000000000046);
-pub const InternetExplorerMedium: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xd5e8041d_920f_45e9_b8fb_b1deb82c6e5e);
-pub const InternetPrintOrdering: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xadd36aa8_751a_4579_a266_d66f5202ccbb);
 pub const ItemCount_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xabbf5c45_5ccc_47b7_bb4e_87cb87bbd162);
 pub const ItemIndex_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x92a053da_2969_4021_bf27_514cfc2e4a69);
 pub const KDC_FREQUENT: KNOWNDESTCATEGORY = 1i32;
@@ -2659,7 +2614,6 @@ pub const KF_REDIRECT_SET_OWNER_EXPLICIT: _KF_REDIRECT_FLAGS = 8i32;
 pub const KF_REDIRECT_UNPIN: _KF_REDIRECT_FLAGS = 64i32;
 pub const KF_REDIRECT_USER_EXCLUSIVE: _KF_REDIRECT_FLAGS = 1i32;
 pub const KF_REDIRECT_WITH_UI: _KF_REDIRECT_FLAGS = 32i32;
-pub const KnownFolderManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x4df0c730_df9d_4ae3_9153_aa6b82e9795a);
 pub const LFF_ALLITEMS: LIBRARYFOLDERFILTER = 3i32;
 pub const LFF_FORCEFILESYSTEM: LIBRARYFOLDERFILTER = 1i32;
 pub const LFF_STORAGEITEMS: LIBRARYFOLDERFILTER = 2i32;
@@ -2674,7 +2628,6 @@ pub const LOF_PINNEDTONAVPANE: LIBRARYOPTIONFLAGS = 1i32;
 pub const LSF_FAILIFTHERE: LIBRARYSAVEFLAGS = 0i32;
 pub const LSF_MAKEUNIQUENAME: LIBRARYSAVEFLAGS = 2i32;
 pub const LSF_OVERRIDEEXISTING: LIBRARYSAVEFLAGS = 1i32;
-pub const LocalThumbnailCache: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x50ef4544_ac9f_4a8e_b21b_8a26180db13f);
 pub const MAV_APP_VISIBLE: MONITOR_APP_VISIBILITY = 2i32;
 pub const MAV_NO_APP_VISIBLE: MONITOR_APP_VISIBILITY = 1i32;
 pub const MAV_UNKNOWN: MONITOR_APP_VISIBILITY = 0i32;
@@ -2714,8 +2667,6 @@ pub const MPPF_TOP: MENUPOPUPPOPUPFLAGS = 536870912i32;
 pub const MUS_COMPLETE: MERGE_UPDATE_STATUS = 0i32;
 pub const MUS_FAILED: MERGE_UPDATE_STATUS = 2i32;
 pub const MUS_USERINPUTNEEDED: MERGE_UPDATE_STATUS = 1i32;
-pub const MailRecipient: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x9e56be60_c50f_11cf_9a2c_00a0c90a90ce);
-pub const MergedCategorizer: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x8e827c11_33e7_4bc1_b242_8cd9a1c2b304);
 pub const NCM_DISPLAYERRORTIP: u32 = 1028u32;
 pub const NCM_GETADDRESS: u32 = 1025u32;
 pub const NCM_GETALLOWTYPE: u32 = 1027u32;
@@ -2762,7 +2713,6 @@ pub const NMCSAEI_EDIT: _NMCSAEI_FLAGS = 1i32;
 pub const NMCSAEI_SELECT: _NMCSAEI_FLAGS = 0i32;
 pub const NOTIFYICON_VERSION: u32 = 3u32;
 pub const NOTIFYICON_VERSION_4: u32 = 4u32;
-pub const NPCredentialProvider: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x3dd6bec0_8193_4ffe_ae25_e08e39ea4063);
 pub const NSTCDHPOS_ONTOP: i32 = -1i32;
 pub const NSTCECT_BUTTON: _NSTCECLICKTYPE = 3i32;
 pub const NSTCECT_DBLCLICK: _NSTCECLICKTYPE = 4i32;
@@ -2869,11 +2819,6 @@ pub const NWMF_UNLOADING: NWMF = 1i32;
 pub const NWMF_USERALLOWED: NWMF = 256i32;
 pub const NWMF_USERINITED: NWMF = 2i32;
 pub const NWMF_USERREQUESTED: NWMF = 128i32;
-pub const NamespaceTreeControl: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xae054212_3535_4430_83ed_d501aa6680e6);
-pub const NamespaceWalker: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x72eb61e0_8672_4303_9175_f2e4c68b2e7c);
-pub const NetworkConnections: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x7007acc7_3202_11d1_aad2_00805fc1270e);
-pub const NetworkExplorerFolder: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xf02c1a0d_be21_4350_88b0_7367fc96ef3c);
-pub const NetworkPlaces: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x208d2c60_3aea_1069_a2d7_08002b30309d);
 pub const OAIF_ALLOW_REGISTRATION: OPEN_AS_INFO_FLAGS = 1i32;
 pub const OAIF_EXEC: OPEN_AS_INFO_FLAGS = 4i32;
 pub const OAIF_FILE_IS_URI: OPEN_AS_INFO_FLAGS = 128i32;
@@ -2940,9 +2885,6 @@ pub const OS_WIN98_GOLD: OS = 6u32;
 pub const OS_WINDOWS: OS = 0u32;
 pub const OS_WOW6432: OS = 30u32;
 pub const OS_XPORGREATER: OS = 18u32;
-pub const OnexCredentialProvider: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x07aa0886_cc8d_4e19_a410_1c75af686e62);
-pub const OnexPlapSmartcardCredentialProvider: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x33c86cd6_705f_4ba1_9adb_67070b837775);
-pub const OpenControlPanel: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x06622d85_6856_4460_8de1_a81921b41c4b);
 pub const PAI_ASSIGNEDTIME: PUBAPPINFOFLAGS = 2i32;
 pub const PAI_EXPIRETIME: PUBAPPINFOFLAGS = 16i32;
 pub const PAI_PUBLISHEDTIME: PUBAPPINFOFLAGS = 4i32;
@@ -3091,7 +3033,6 @@ pub const PIFPARAMSSIZE: u32 = 64u32;
 pub const PIFSHDATASIZE: u32 = 64u32;
 pub const PIFSHPROGSIZE: u32 = 64u32;
 pub const PIFSTARTLOCSIZE: u32 = 63u32;
-pub const PINLogonCredentialProvider: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xcb82ea12_9f71_446d_89e1_8d0924e1256e);
 pub const PLATFORM_BROWSERONLY: u32 = 1u32;
 pub const PLATFORM_IE3: u32 = 1u32;
 pub const PLATFORM_INTEGRATED: u32 = 2u32;
@@ -3153,13 +3094,7 @@ pub const PSGUID_SUMMARYINFORMATION: ::windows_sys::core::GUID = ::windows_sys::
 pub const PSGUID_VIDEO: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x64440491_4c8b_11d1_8b70_080036b11a03);
 pub const PSGUID_VOLUME: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x9b174b35_40ff_11d2_a27e_00c04fc30871);
 pub const PSGUID_WEBVIEW: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xf2275480_f782_4291_bd94_f13693513aec);
-pub const PackageDebugSettings: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xb1aec16f_2383_4852_b0e9_8f0b1dc66b4d);
-pub const PasswordCredentialProvider: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x60b78e88_ead8_445c_9cfd_0b87f74ea6cd);
-pub const PreviousVersions: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x596ab062_b4d2_4215_9f74_e9109b0a8153);
-pub const PropertiesUI: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xd912f8cf_0396_4915_884e_fb425d32943b);
 pub const ProtectedModeRedirect: NewProcessCauseConstants = 1i32;
-pub const PublishDropTarget: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xcc6eeffb_43f6_46c5_9619_51d571967f7d);
-pub const PublishingWizard: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x6b33163c_76a5_4b6c_bf21_45de9cd503a1);
 pub const QCMINFO_PLACE_AFTER: u32 = 1u32;
 pub const QCMINFO_PLACE_BEFORE: u32 = 0u32;
 pub const QIF_CACHED: QITIPF_FLAGS = 1i32;
@@ -3177,8 +3112,6 @@ pub const QUNS_NOT_PRESENT: QUERY_USER_NOTIFICATION_STATE = 1i32;
 pub const QUNS_PRESENTATION_MODE: QUERY_USER_NOTIFICATION_STATE = 4i32;
 pub const QUNS_QUIET_TIME: QUERY_USER_NOTIFICATION_STATE = 6i32;
 pub const QUNS_RUNNING_D3D_FULL_SCREEN: QUERY_USER_NOTIFICATION_STATE = 3i32;
-pub const QueryCancelAutoPlay: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x331f1768_05a9_4ddd_b86e_dae34ddc998a);
-pub const RASProvider: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x5537e283_b1e7_4ef8_9c6e_7ab0afe5056d);
 pub const REFRESH_COMPLETELY: RefreshConstants = 3i32;
 pub const REFRESH_IFEXPIRED: RefreshConstants = 1i32;
 pub const REFRESH_NORMAL: RefreshConstants = 0i32;
@@ -4351,44 +4284,7 @@ pub const S_SYNCMGR_ENUMITEMS: ::windows_sys::core::HRESULT = 0x40211_u32 as _;
 pub const S_SYNCMGR_ITEMDELETED: ::windows_sys::core::HRESULT = 0x40210_u32 as _;
 pub const S_SYNCMGR_MISSINGITEMS: ::windows_sys::core::HRESULT = 0x40201_u32 as _;
 pub const S_SYNCMGR_RETRYSYNC: ::windows_sys::core::HRESULT = 0x40202_u32 as _;
-pub const ScheduledTasks: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xd6277990_4c6a_11cf_8d87_00aa0060f5bf);
-pub const SearchFolderItemFactory: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x14010e02_bbbd_41f0_88e3_eda371216584);
 pub const SelectedItemCount_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x8fe316d2_0e52_460a_9c1e_48f273d470a3);
-pub const SharedBitmap: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x4db26476_6787_4046_b836_e8412a9e8a27);
-pub const SharingConfigurationManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x49f371e1_8c5c_4d9c_9a3b_54a6827f513c);
-pub const Shell: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x13709620_c279_11ce_a49e_444553540000);
-pub const ShellBrowserWindow: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xc08afd90_f2a1_11d1_8455_00a0c91f3880);
-pub const ShellDesktop: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x00021400_0000_0000_c000_000000000046);
-pub const ShellDispatchInproc: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x0a89a860_d7b1_11ce_8350_444553540000);
-pub const ShellFSFolder: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xf3364ba0_65b9_11ce_a9ba_00aa004ae837);
-pub const ShellFolderItem: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x2fe352ea_fd1f_11d2_b1f4_00c04f8eeb3e);
-pub const ShellFolderView: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x62112aa1_ebe4_11cf_a5fb_0020afe7292d);
-pub const ShellFolderViewOC: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x9ba05971_f6a8_11cf_a442_00a0c90a8f39);
-pub const ShellImageDataFactory: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x66e4e4fb_f385_4dd0_8d74_a2efd1bc6178);
-pub const ShellItem: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x9ac9fbe1_e0a2_4ad6_b4ee_e212013ea917);
-pub const ShellLibrary: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xd9b3211d_e57f_4426_aaef_30a806add397);
-pub const ShellLink: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x00021401_0000_0000_c000_000000000046);
-pub const ShellLinkObject: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x11219420_1768_11d1_95be_00609797ea4f);
-pub const ShellNameSpace: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x55136805_b2de_11d1_b9f2_00a0c98bc547);
-pub const ShellUIHelper: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x64ab4bb7_111e_11d1_8f79_00c04fc2fbe1);
-pub const ShellWindows: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x9ba05972_f6a8_11cf_a442_00a0c90a8f39);
-pub const ShowInputPaneAnimationCoordinator: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x1f046abf_3202_4dc1_8cb5_3c67617ce1fa);
-pub const SimpleConflictPresenter: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x7a0f6ab7_ed84_46b6_b47e_02aa159a152b);
-pub const SizeCategorizer: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x55d7b852_f6d1_42f2_aa75_8728a1b2d264);
-pub const SmartcardCredentialProvider: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x8fd7e19c_3bf7_489b_a72c_846ab3678c96);
-pub const SmartcardPinProvider: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x94596c7e_3744_41ce_893e_bbf09122f76a);
-pub const SmartcardReaderSelectionProvider: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x1b283861_754f_4022_ad47_a5eaaa618894);
-pub const SmartcardWinRTProvider: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x1ee7337f_85ac_45e2_a23c_37c753209769);
-pub const StartMenuPin: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xa2a9545d_a0c2_42b4_9708_a0b2badd77c8);
-pub const StorageProviderBanners: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x7ccdf9f4_e576_455a_8bc7_f6ec68d6f063);
-pub const SuspensionDependencyManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x6b273fc5_61fd_4918_95a2_c3b5e9d7f581);
-pub const SyncMgr: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x6295df27_35ee_11d1_8707_00c04fd93327);
-pub const SyncMgrClient: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x1202db60_1dac_42c5_aed5_1abdd432248e);
-pub const SyncMgrControl: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x1a1f4206_0688_4e7f_be03_d82ec69df9a5);
-pub const SyncMgrFolder: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x9c73f5e5_7ae7_4e32_a8e8_8d23b85255bf);
-pub const SyncMgrScheduleWizard: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x8d8b8e30_c451_421b_8553_d2976afa648c);
-pub const SyncResultsFolder: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x71d99464_3b6b_475c_b241_e15883207529);
-pub const SyncSetupFolder: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x2e9e59c0_b437_4981_a647_9c34b9b90891);
 pub const TBIF_APPEND: u32 = 0u32;
 pub const TBIF_DEFAULT: u32 = 0u32;
 pub const TBIF_INTERNETBAR: u32 = 65536u32;
@@ -4448,12 +4344,6 @@ pub const TS_INDETERMINATE: _TRANSFER_ADVISE_STATE = 4i32;
 pub const TS_NONE: _TRANSFER_ADVISE_STATE = 0i32;
 pub const TS_PERFORMING: _TRANSFER_ADVISE_STATE = 1i32;
 pub const TS_PREPARING: _TRANSFER_ADVISE_STATE = 2i32;
-pub const TaskbarList: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x56fdf344_fd6d_11d0_958a_006097c9a090);
-pub const ThumbnailStreamCache: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xcbe0fed3_4b91_4e90_8354_8a8c84ec6872);
-pub const TimeCategorizer: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x3bb4118f_ddfd_4d30_a348_9fb5d6bf1afe);
-pub const TrackShellMenu: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x8278f931_2a3e_11d2_838f_00c04fd918d0);
-pub const TrayBandSiteService: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xf60ad0a0_e5e1_45cb_b51a_e15b9f8b2934);
-pub const TrayDeskBand: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xe6442437_6c68_4f52_94dd_2cfed267efb9);
 pub const URLASSOCDLG_FL_REGISTER_ASSOC: URLASSOCIATIONDIALOG_IN_FLAGS = 2i32;
 pub const URLASSOCDLG_FL_USE_DEFAULT_NAME: URLASSOCIATIONDIALOG_IN_FLAGS = 1i32;
 pub const URLIS_APPLIABLE: URLIS = 4i32;
@@ -4530,10 +4420,6 @@ pub const URL_UNESCAPE_URI_COMPONENT: u32 = 262144u32;
 pub const URL_WININET_COMPATIBILITY: u32 = 2147483648u32;
 pub const UR_MONITOR_DISCONNECT: UNDOCK_REASON = 1i32;
 pub const UR_RESOLUTION_CHANGE: UNDOCK_REASON = 0i32;
-pub const UserNotification: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x0010890e_8789_413c_adbc_48f5b511b3af);
-pub const V1PasswordCredentialProvider: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x6f45dc1e_5384_457a_bc13_2cd81b0d28ed);
-pub const V1SmartcardCredentialProvider: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x8bf9a910_a8ff_457f_999f_a5ca10b4a885);
-pub const V1WinBioCredentialProvider: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xac3ac249_e820_4343_a65b_377ac634dc09);
 pub const VALIDATEUNC_CONNECT: VALIDATEUNC_OPTION = 1i32;
 pub const VALIDATEUNC_NOUI: VALIDATEUNC_OPTION = 2i32;
 pub const VALIDATEUNC_PERSIST: VALIDATEUNC_OPTION = 8i32;
@@ -4565,8 +4451,6 @@ pub const VPCF_TEXT: VPCOLORFLAGS = 1i32;
 pub const VPCF_TEXTBACKGROUND: VPCOLORFLAGS = 5i32;
 pub const VPWF_ALPHABLEND: VPWATERMARKFLAGS = 1i32;
 pub const VPWF_DEFAULT: VPWATERMARKFLAGS = 0i32;
-pub const VaultProvider: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x503739d0_4c5e_4cfd_b3ba_d881334f0df2);
-pub const VirtualDesktopManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xaa509086_5ca9_4c25_8f95_589d3c07b48a);
 pub const WC_NETADDRESS: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("msctls_netaddress");
 pub const WM_CPL_LAUNCH: u32 = 2024u32;
 pub const WM_CPL_LAUNCHED: u32 = 2025u32;
@@ -4613,10 +4497,6 @@ pub const WTS_SCALEUP: WTS_FLAGS = 65536i32;
 pub const WTS_SKIPFASTEXTRACT: WTS_FLAGS = 128i32;
 pub const WTS_SLOWRECLAIM: WTS_FLAGS = 8i32;
 pub const WTS_WIDETHUMBNAILS: WTS_FLAGS = 16384i32;
-pub const WebBrowser: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x8856f961_340a_11d0_a96b_00c04fd705a2);
-pub const WebBrowser_V1: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xeab22ac3_30c1_11cf_a7eb_0000c05bae0b);
-pub const WebWizardHost: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xc827f149_55c1_4d28_935e_57e47caed973);
-pub const WinBioCredentialProvider: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xbec09223_b018_416d_a0ac_523971b639f5);
 pub const __UNUSED_RECYCLE_WAS_GLOBALCOUNTER_CSCSYNCINPROGRESS: SHGLOBALCOUNTER = 13i32;
 pub const __UNUSED_RECYCLE_WAS_GLOBALCOUNTER_RECYCLEDIRTYCOUNT_SERVERDRIVE: SHGLOBALCOUNTER = 42i32;
 pub const __UNUSED_RECYCLE_WAS_GLOBALCOUNTER_RECYCLEGLOBALDIRTYCOUNT: SHGLOBALCOUNTER = 43i32;
@@ -5139,6 +5019,18 @@ impl ::core::clone::Clone for AUTO_SCROLL_DATA {
         *self
     }
 }
+pub const AccessibilityDockingService: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x29ce1d46_b481_4aa0_a08a_d3ebc8aca402);
+pub const AlphabeticalCategorizer: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x3c2654c6_7372_4f6b_b310_55d6128f49d2);
+pub const AppShellVerbHandler: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x4ed3a719_cea8_4bd9_910d_e252f997afc2);
+pub const AppStartupLink: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x273eb5e7_88b0_4843_bfef_e2c81d43aae5);
+pub const AppVisibility: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x7e5fe3d9_985f_4908_91f9_ee19f9fd1514);
+pub const ApplicationActivationManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x45ba127d_10a8_46ea_8ab7_56ea9078943c);
+pub const ApplicationAssociationRegistration: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x591209c7_767b_42b2_9fba_44ee4615f2c7);
+pub const ApplicationAssociationRegistrationUI: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x1968106d_f3b5_44cf_890e_116fcb9ecef1);
+pub const ApplicationDesignModeSettings: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x958a6fb5_dcb2_4faf_aafd_7fb054ad1a3b);
+pub const ApplicationDestinations: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x86c14003_4d6b_4ef3_a7b4_0506663b2e68);
+pub const ApplicationDocumentLists: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x86bec222_30f2_47e0_9f25_60d11cd75c28);
+pub const AttachmentServices: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x4125dd96_e03a_4103_8f70_e0597d803b9c);
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell_Common")]
 pub struct BANDINFOSFB {
@@ -5326,6 +5218,7 @@ impl ::core::clone::Clone for CATEGORY_INFO {
         *self
     }
 }
+pub const CDBurn: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xfbeb8a05_beee_4442_804e_409d6c4515e9);
 #[repr(C, packed(1))]
 pub struct CIDA {
     pub cidl: u32,
@@ -5504,6 +5397,8 @@ impl ::core::clone::Clone for CSFV {
         *self
     }
 }
+pub const CScriptErrorList: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xefd01300_160f_11d2_bb2e_00805ff7efca);
+pub const ConflictFolder: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x289978ac_a101_4341_a817_21eba7fd046d);
 #[repr(C, packed(1))]
 pub struct DATABLOCK_HEADER {
     pub cbSize: u32,
@@ -5718,6 +5613,13 @@ impl ::core::clone::Clone for DROPFILES {
         *self
     }
 }
+pub const DefFolderMenu: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xc63382be_7933_48d0_9ac8_85fb46be2fdd);
+pub const DesktopGadget: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x924ccc1b_6562_4c85_8657_d177925222b6);
+pub const DesktopWallpaper: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xc2cf3110_460e_4fc1_b9d0_8a1c0c9cc4bd);
+pub const DestinationList: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x77f10cf0_3db5_4966_b520_b7c54fd35ed6);
+pub const DocPropShellExtension: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x883373c3_bf89_11d1_be35_080036b11a03);
+pub const DriveSizeCategorizer: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x94357b53_ca29_4b78_83ae_e8fe7409134f);
+pub const DriveTypeCategorizer: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xb0a8f3cf_4333_4bab_8873_1ccb1cada48b);
 #[repr(C, packed(1))]
 pub struct EXP_DARWIN_LINK {
     pub dbh: DATABLOCK_HEADER,
@@ -5780,6 +5682,10 @@ impl ::core::clone::Clone for EXTRASEARCH {
         *self
     }
 }
+pub const EnumerableObjectCollection: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x2d3468c1_36a7_43b6_ac24_d3f02fd9607a);
+pub const ExecuteFolder: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x11dbb47c_a525_400b_9e80_a54615a090c0);
+pub const ExecuteUnknown: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xe44e9428_bdbc_4987_a099_40dc8fd255e7);
+pub const ExplorerBrowser: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x71f96385_ddd6_48d3_a0c1_ae06e8b055fb);
 #[repr(C, packed(1))]
 pub struct FILEDESCRIPTORA {
     pub dwFlags: u32,
@@ -5878,6 +5784,15 @@ impl ::core::clone::Clone for FOLDERSETTINGS {
         *self
     }
 }
+pub const FSCopyHandler: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xd197380a_0a79_4dc8_a033_ed882c2fa14b);
+pub const FileOpenDialog: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xdc1c5a9c_e88a_4dde_a5a1_60f82a20aef7);
+pub const FileOperation: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x3ad05575_8857_4850_9277_11b85bdb8e09);
+pub const FileSaveDialog: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xc0b4e2f3_ba21_4773_8dba_335ec946eb8b);
+pub const FileSearchBand: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xc4ee31f3_4768_11d2_be5c_00a0c9a83da1);
+pub const FolderViewHost: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x20b1cb23_6968_4eb9_b7d4_a66d00d07cee);
+pub const FrameworkInputPane: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xd5120aa3_46ba_44c5_822d_ca8092c1fc72);
+pub const FreeSpaceCategorizer: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xb5607793_24ac_44c7_82e2_831726aa6cb7);
+pub const GenericCredentialProvider: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x25cbb996_92ed_457e_b28c_4774084bd562);
 pub type HDROP = isize;
 #[repr(C)]
 pub struct HELPINFO {
@@ -5963,6 +5878,9 @@ impl ::core::clone::Clone for HLTBINFO {
     }
 }
 pub type HPSXA = isize;
+pub const HideInputPaneAnimationCoordinator: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x384742b1_2a77_4cb3_8cf8_1136f5e17e59);
+pub const HomeGroup: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xde77ba04_3c92_4d11_a1a5_42352a53e0e3);
+pub const IENamespaceTreeControl: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xace52d03_e5cd_4b20_82ff_e71b11beae1d);
 #[repr(C)]
 pub struct ITEMSPACING {
     pub cxSmall: i32,
@@ -5976,6 +5894,13 @@ impl ::core::clone::Clone for ITEMSPACING {
         *self
     }
 }
+pub const ImageProperties: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x7ab770c7_0e23_4d7a_8aa2_19bfad479829);
+pub const ImageRecompress: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x6e33091c_d2f8_4740_b55e_2e11d1477a2c);
+pub const ImageTranscode: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x17b75166_928f_417d_9685_64aa135565c1);
+pub const InputPanelConfiguration: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x2853add3_f096_4c63_a78f_7fa3ea837fb7);
+pub const InternetExplorer: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x0002df01_0000_0000_c000_000000000046);
+pub const InternetExplorerMedium: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xd5e8041d_920f_45e9_b8fb_b1deb82c6e5e);
+pub const InternetPrintOrdering: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xadd36aa8_751a_4579_a266_d66f5202ccbb);
 #[repr(C)]
 pub struct KNOWNFOLDER_DEFINITION {
     pub category: KF_CATEGORY,
@@ -5998,6 +5923,8 @@ impl ::core::clone::Clone for KNOWNFOLDER_DEFINITION {
         *self
     }
 }
+pub const KnownFolderManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x4df0c730_df9d_4ae3_9153_aa6b82e9795a);
+pub const LocalThumbnailCache: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x50ef4544_ac9f_4a8e_b21b_8a26180db13f);
 #[repr(C)]
 pub struct MULTIKEYHELPA {
     pub mkSize: u32,
@@ -6022,6 +5949,8 @@ impl ::core::clone::Clone for MULTIKEYHELPW {
         *self
     }
 }
+pub const MailRecipient: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x9e56be60_c50f_11cf_9a2c_00a0c90a90ce);
+pub const MergedCategorizer: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x8e827c11_33e7_4bc1_b242_8cd9a1c2b304);
 #[repr(C)]
 #[cfg(all(feature = "Win32_NetworkManagement_IpHelper", feature = "Win32_Networking_WinSock"))]
 pub struct NC_ADDRESS {
@@ -6297,6 +6226,7 @@ impl ::core::clone::Clone for NOTIFYICONIDENTIFIER {
         *self
     }
 }
+pub const NPCredentialProvider: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x3dd6bec0_8193_4ffe_ae25_e08e39ea4063);
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_WNet")]
 pub struct NRESARRAY {
@@ -6375,6 +6305,11 @@ impl ::core::clone::Clone for NT_FE_CONSOLE_PROPS {
         *self
     }
 }
+pub const NamespaceTreeControl: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xae054212_3535_4430_83ed_d501aa6680e6);
+pub const NamespaceWalker: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x72eb61e0_8672_4303_9175_f2e4c68b2e7c);
+pub const NetworkConnections: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x7007acc7_3202_11d1_aad2_00805fc1270e);
+pub const NetworkExplorerFolder: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xf02c1a0d_be21_4350_88b0_7367fc96ef3c);
+pub const NetworkPlaces: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x208d2c60_3aea_1069_a2d7_08002b30309d);
 #[repr(C)]
 pub struct OPENASINFO {
     pub pcszFile: ::windows_sys::core::PCWSTR,
@@ -6455,6 +6390,9 @@ impl ::core::clone::Clone for OPEN_PRINTER_PROPS_INFOW {
         *self
     }
 }
+pub const OnexCredentialProvider: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x07aa0886_cc8d_4e19_a410_1c75af686e62);
+pub const OnexPlapSmartcardCredentialProvider: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x33c86cd6_705f_4ba1_9adb_67070b837775);
+pub const OpenControlPanel: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x06622d85_6856_4460_8de1_a81921b41c4b);
 pub type PAPPCONSTRAIN_REGISTRATION = isize;
 pub type PAPPSTATE_REGISTRATION = isize;
 #[repr(C)]
@@ -6504,6 +6442,7 @@ impl ::core::clone::Clone for PERSIST_FOLDER_TARGET_INFO {
         *self
     }
 }
+pub const PINLogonCredentialProvider: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xcb82ea12_9f71_446d_89e1_8d0924e1256e);
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub struct PREVIEWHANDLERFRAMEINFO {
@@ -6568,6 +6507,12 @@ impl ::core::clone::Clone for PUBAPPINFO {
         *self
     }
 }
+pub const PackageDebugSettings: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xb1aec16f_2383_4852_b0e9_8f0b1dc66b4d);
+pub const PasswordCredentialProvider: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x60b78e88_ead8_445c_9cfd_0b87f74ea6cd);
+pub const PreviousVersions: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x596ab062_b4d2_4215_9f74_e9109b0a8153);
+pub const PropertiesUI: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xd912f8cf_0396_4915_884e_fb425d32943b);
+pub const PublishDropTarget: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xcc6eeffb_43f6_46c5_9619_51d571967f7d);
+pub const PublishingWizard: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x6b33163c_76a5_4b6c_bf21_45de9cd503a1);
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub struct QCMINFO {
@@ -6618,6 +6563,8 @@ impl ::core::clone::Clone for QITAB {
         *self
     }
 }
+pub const QueryCancelAutoPlay: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x331f1768_05a9_4ddd_b86e_dae34ddc998a);
+pub const RASProvider: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x5537e283_b1e7_4ef8_9c6e_7ab0afe5056d);
 #[repr(C)]
 pub struct SFVM_HELPTOPIC_DATA {
     pub wszHelpFile: [u16; 260],
@@ -7624,6 +7571,43 @@ impl ::core::clone::Clone for SYNCMGR_CONFLICT_ID_INFO {
         *self
     }
 }
+pub const ScheduledTasks: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xd6277990_4c6a_11cf_8d87_00aa0060f5bf);
+pub const SearchFolderItemFactory: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x14010e02_bbbd_41f0_88e3_eda371216584);
+pub const SharedBitmap: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x4db26476_6787_4046_b836_e8412a9e8a27);
+pub const SharingConfigurationManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x49f371e1_8c5c_4d9c_9a3b_54a6827f513c);
+pub const Shell: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x13709620_c279_11ce_a49e_444553540000);
+pub const ShellBrowserWindow: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xc08afd90_f2a1_11d1_8455_00a0c91f3880);
+pub const ShellDesktop: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x00021400_0000_0000_c000_000000000046);
+pub const ShellDispatchInproc: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x0a89a860_d7b1_11ce_8350_444553540000);
+pub const ShellFSFolder: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xf3364ba0_65b9_11ce_a9ba_00aa004ae837);
+pub const ShellFolderItem: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x2fe352ea_fd1f_11d2_b1f4_00c04f8eeb3e);
+pub const ShellFolderView: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x62112aa1_ebe4_11cf_a5fb_0020afe7292d);
+pub const ShellFolderViewOC: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x9ba05971_f6a8_11cf_a442_00a0c90a8f39);
+pub const ShellImageDataFactory: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x66e4e4fb_f385_4dd0_8d74_a2efd1bc6178);
+pub const ShellItem: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x9ac9fbe1_e0a2_4ad6_b4ee_e212013ea917);
+pub const ShellLibrary: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xd9b3211d_e57f_4426_aaef_30a806add397);
+pub const ShellLink: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x00021401_0000_0000_c000_000000000046);
+pub const ShellLinkObject: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x11219420_1768_11d1_95be_00609797ea4f);
+pub const ShellNameSpace: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x55136805_b2de_11d1_b9f2_00a0c98bc547);
+pub const ShellUIHelper: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x64ab4bb7_111e_11d1_8f79_00c04fc2fbe1);
+pub const ShellWindows: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x9ba05972_f6a8_11cf_a442_00a0c90a8f39);
+pub const ShowInputPaneAnimationCoordinator: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x1f046abf_3202_4dc1_8cb5_3c67617ce1fa);
+pub const SimpleConflictPresenter: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x7a0f6ab7_ed84_46b6_b47e_02aa159a152b);
+pub const SizeCategorizer: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x55d7b852_f6d1_42f2_aa75_8728a1b2d264);
+pub const SmartcardCredentialProvider: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x8fd7e19c_3bf7_489b_a72c_846ab3678c96);
+pub const SmartcardPinProvider: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x94596c7e_3744_41ce_893e_bbf09122f76a);
+pub const SmartcardReaderSelectionProvider: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x1b283861_754f_4022_ad47_a5eaaa618894);
+pub const SmartcardWinRTProvider: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x1ee7337f_85ac_45e2_a23c_37c753209769);
+pub const StartMenuPin: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xa2a9545d_a0c2_42b4_9708_a0b2badd77c8);
+pub const StorageProviderBanners: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x7ccdf9f4_e576_455a_8bc7_f6ec68d6f063);
+pub const SuspensionDependencyManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x6b273fc5_61fd_4918_95a2_c3b5e9d7f581);
+pub const SyncMgr: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x6295df27_35ee_11d1_8707_00c04fd93327);
+pub const SyncMgrClient: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x1202db60_1dac_42c5_aed5_1abdd432248e);
+pub const SyncMgrControl: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x1a1f4206_0688_4e7f_be03_d82ec69df9a5);
+pub const SyncMgrFolder: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x9c73f5e5_7ae7_4e32_a8e8_8d23b85255bf);
+pub const SyncMgrScheduleWizard: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x8d8b8e30_c451_421b_8553_d2976afa648c);
+pub const SyncResultsFolder: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x71d99464_3b6b_475c_b241_e15883207529);
+pub const SyncSetupFolder: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x2e9e59c0_b437_4981_a647_9c34b9b90891);
 #[repr(C)]
 pub struct TBINFO {
     pub cbuttons: u32,
@@ -7670,6 +7654,12 @@ impl ::core::clone::Clone for TOOLBARITEM {
         *self
     }
 }
+pub const TaskbarList: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x56fdf344_fd6d_11d0_958a_006097c9a090);
+pub const ThumbnailStreamCache: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xcbe0fed3_4b91_4e90_8354_8a8c84ec6872);
+pub const TimeCategorizer: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x3bb4118f_ddfd_4d30_a348_9fb5d6bf1afe);
+pub const TrackShellMenu: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x8278f931_2a3e_11d2_838f_00c04fd918d0);
+pub const TrayBandSiteService: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xf60ad0a0_e5e1_45cb_b51a_e15b9f8b2934);
+pub const TrayDeskBand: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xe6442437_6c68_4f52_94dd_2cfed267efb9);
 #[repr(C)]
 pub struct URLINVOKECOMMANDINFOA {
     pub dwcbSize: u32,
@@ -7696,6 +7686,12 @@ impl ::core::clone::Clone for URLINVOKECOMMANDINFOW {
         *self
     }
 }
+pub const UserNotification: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x0010890e_8789_413c_adbc_48f5b511b3af);
+pub const V1PasswordCredentialProvider: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x6f45dc1e_5384_457a_bc13_2cd81b0d28ed);
+pub const V1SmartcardCredentialProvider: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x8bf9a910_a8ff_457f_999f_a5ca10b4a885);
+pub const V1WinBioCredentialProvider: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xac3ac249_e820_4343_a65b_377ac634dc09);
+pub const VaultProvider: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x503739d0_4c5e_4cfd_b3ba_d881334f0df2);
+pub const VirtualDesktopManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xaa509086_5ca9_4c25_8f95_589d3c07b48a);
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell_Common")]
 pub struct WINDOWDATA {
@@ -7724,6 +7720,10 @@ impl ::core::clone::Clone for WTS_THUMBNAILID {
         *self
     }
 }
+pub const WebBrowser: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x8856f961_340a_11d0_a96b_00c04fd705a2);
+pub const WebBrowser_V1: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xeab22ac3_30c1_11cf_a7eb_0000c05bae0b);
+pub const WebWizardHost: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xc827f149_55c1_4d28_935e_57e47caed973);
+pub const WinBioCredentialProvider: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xbec09223_b018_416d_a0ac_523971b639f5);
 pub type APPLET_PROC = ::core::option::Option<unsafe extern "system" fn(hwndcpl: super::super::Foundation::HWND, msg: u32, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> i32>;
 pub type BFFCALLBACK = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: u32, lparam: super::super::Foundation::LPARAM, lpdata: super::super::Foundation::LPARAM) -> i32>;
 pub type DLLGETVERSIONPROC = ::core::option::Option<unsafe extern "system" fn(param0: *mut DLLVERSIONINFO) -> ::windows_sys::core::HRESULT>;

@@ -4620,32 +4620,6 @@ pub const MI_UINT8A: MI_Type = MI_Type(17i32);
 pub const MI_WRITEMESSAGE_CHANNEL_DEBUG: u32 = 2u32;
 pub const MI_WRITEMESSAGE_CHANNEL_VERBOSE: u32 = 1u32;
 pub const MI_WRITEMESSAGE_CHANNEL_WARNING: u32 = 0u32;
-pub const MofCompiler: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6daf9757_2e37_11d2_aec9_00c04fb68820);
-pub const SWbemDateTime: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x47dfbe54_cf76_11d3_b38f_00105a1f473a);
-pub const SWbemEventSource: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x04b83d58_21ae_11d2_8b33_00600806d9b6);
-pub const SWbemLastError: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc2feeeac_cfcd_11d1_8b05_00600806d9b6);
-pub const SWbemLocator: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x76a64158_cb41_11d1_8b02_00600806d9b6);
-pub const SWbemMethod: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x04b83d5b_21ae_11d2_8b33_00600806d9b6);
-pub const SWbemMethodSet: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x04b83d5a_21ae_11d2_8b33_00600806d9b6);
-pub const SWbemNamedValue: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x04b83d60_21ae_11d2_8b33_00600806d9b6);
-pub const SWbemNamedValueSet: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9aed384e_ce8b_11d1_8b05_00600806d9b6);
-pub const SWbemObject: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x04b83d62_21ae_11d2_8b33_00600806d9b6);
-pub const SWbemObjectEx: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd6bdafb2_9435_491f_bb87_6aa0f0bc31a2);
-pub const SWbemObjectPath: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5791bc26_ce9c_11d1_97bf_0000f81e849c);
-pub const SWbemObjectSet: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x04b83d61_21ae_11d2_8b33_00600806d9b6);
-pub const SWbemPrivilege: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x26ee67bc_5804_11d2_8b4a_00600806d9b6);
-pub const SWbemPrivilegeSet: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x26ee67be_5804_11d2_8b4a_00600806d9b6);
-pub const SWbemProperty: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x04b83d5d_21ae_11d2_8b33_00600806d9b6);
-pub const SWbemPropertySet: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x04b83d5c_21ae_11d2_8b33_00600806d9b6);
-pub const SWbemQualifier: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x04b83d5f_21ae_11d2_8b33_00600806d9b6);
-pub const SWbemQualifierSet: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x04b83d5e_21ae_11d2_8b33_00600806d9b6);
-pub const SWbemRefreshableItem: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8c6854bc_de4b_11d3_b390_00105a1f473a);
-pub const SWbemRefresher: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd269bf5c_d9c1_11d3_b38f_00105a1f473a);
-pub const SWbemSecurity: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb54d66e9_2287_11d2_8b33_00600806d9b6);
-pub const SWbemServices: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x04b83d63_21ae_11d2_8b33_00600806d9b6);
-pub const SWbemServicesEx: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x62e522dc_8cf3_40a8_8b2e_37d595651e40);
-pub const SWbemSink: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x75718c9a_f029_11d1_a1ac_00c04fb6c223);
-pub const UnsecuredApartment: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x49bd2028_1523_11d1_ad79_00c04fd8fdff);
 pub const WBEMESS_E_AUTHZ_NOT_PRIVILEGED: WBEMSTATUS = WBEMSTATUS(-2147213309i32);
 pub const WBEMESS_E_REGISTRATION_TOO_BROAD: WBEMSTATUS = WBEMSTATUS(-2147213311i32);
 pub const WBEMESS_E_REGISTRATION_TOO_PRECISE: WBEMSTATUS = WBEMSTATUS(-2147213310i32);
@@ -5009,7 +4983,6 @@ pub const WBEM_S_SOURCE_NOT_AVAILABLE: WBEMSTATUS = WBEMSTATUS(262167i32);
 pub const WBEM_S_SUBJECT_TO_SDS: WBEM_EXTRA_RETURN_CODES = WBEM_EXTRA_RETURN_CODES(274435i32);
 pub const WBEM_S_TIMEDOUT: WBEMSTATUS = WBEMSTATUS(262148i32);
 pub const WBEM_WRITE_PROVIDER: WBEM_SECURITY_FLAGS = WBEM_SECURITY_FLAGS(16i32);
-pub const WMIExtension: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf0975afe_5c7f_11d2_8b74_00104b2afb41);
 pub const WMIQ_ANALYSIS_ASSOC_QUERY: WMIQ_ANALYSIS_TYPE = WMIQ_ANALYSIS_TYPE(2i32);
 pub const WMIQ_ANALYSIS_PROP_ANALYSIS_MATRIX: WMIQ_ANALYSIS_TYPE = WMIQ_ANALYSIS_TYPE(3i32);
 pub const WMIQ_ANALYSIS_QUERY_TEXT: WMIQ_ANALYSIS_TYPE = WMIQ_ANALYSIS_TYPE(4i32);
@@ -5128,24 +5101,6 @@ pub const WMI_OBJ_TEXT_WMI_EXT6: WMI_OBJ_TEXT = WMI_OBJ_TEXT(8i32);
 pub const WMI_OBJ_TEXT_WMI_EXT7: WMI_OBJ_TEXT = WMI_OBJ_TEXT(9i32);
 pub const WMI_OBJ_TEXT_WMI_EXT8: WMI_OBJ_TEXT = WMI_OBJ_TEXT(10i32);
 pub const WMI_OBJ_TEXT_WMI_EXT9: WMI_OBJ_TEXT = WMI_OBJ_TEXT(11i32);
-pub const WbemAdministrativeLocator: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcb8555cc_9128_11d1_ad9b_00c04fd8fdff);
-pub const WbemAuthenticatedLocator: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcd184336_9128_11d1_ad9b_00c04fd8fdff);
-pub const WbemBackupRestore: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc49e32c6_bc8b_11d2_85d4_00105a1f8304);
-pub const WbemClassObject: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9a653086_174f_11d2_b5f9_00104b703efd);
-pub const WbemContext: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x674b6698_ee92_11d0_ad71_00c04fd8fdff);
-pub const WbemDCOMTransport: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf7ce2e13_8c90_11d1_9e7b_00c04fc324a8);
-pub const WbemDecoupledBasicEventProvider: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf5f75737_2843_4f22_933d_c76a97cda62f);
-pub const WbemDecoupledRegistrar: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4cfc7932_0f9d_4bef_9c32_8ea2a6b56fcb);
-pub const WbemDefPath: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcf4cc405_e2c5_4ddd_b3ce_5e7582d8c9fa);
-pub const WbemLevel1Login: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8bc3f05e_d86b_11d0_a075_00c04fb68820);
-pub const WbemLocalAddrRes: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa1044801_8f7e_11d1_9e7c_00c04fc324a8);
-pub const WbemLocator: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4590f811_1d3a_11d0_891f_00aa004b2e24);
-pub const WbemObjectTextSrc: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8d1c559d_84f0_4bb3_a7d5_56a7435a9ba6);
-pub const WbemQuery: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xeac8a024_21e2_4523_ad73_a71a0aa2f56a);
-pub const WbemRefresher: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc71566f2_561e_11d1_ad87_00c04fd8fdff);
-pub const WbemStatusCodeText: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xeb87e1bd_3233_11d2_aec9_00c04fb68820);
-pub const WbemUnauthenticatedLocator: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x443e7b79_de31_11d2_b340_00104bcc4b4a);
-pub const WbemUninitializedClassObject: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7a0227f6_7108_11d1_ad90_00c04fd8fdff);
 pub const wbemAuthenticationLevelCall: WbemAuthenticationLevelEnum = WbemAuthenticationLevelEnum(3i32);
 pub const wbemAuthenticationLevelConnect: WbemAuthenticationLevelEnum = WbemAuthenticationLevelEnum(2i32);
 pub const wbemAuthenticationLevelDefault: WbemAuthenticationLevelEnum = WbemAuthenticationLevelEnum(0i32);
@@ -11233,6 +11188,7 @@ impl ::core::default::Default for MI_Value {
         unsafe { ::core::mem::zeroed() }
     }
 }
+pub const MofCompiler: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6daf9757_2e37_11d2_aec9_00c04fb68820);
 #[repr(C)]
 pub struct SWbemAnalysisMatrix {
     pub m_uVersion: u32,
@@ -11352,6 +11308,24 @@ impl ::core::default::Default for SWbemAssocQueryInf {
         unsafe { ::core::mem::zeroed() }
     }
 }
+pub const SWbemDateTime: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x47dfbe54_cf76_11d3_b38f_00105a1f473a);
+pub const SWbemEventSource: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x04b83d58_21ae_11d2_8b33_00600806d9b6);
+pub const SWbemLastError: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc2feeeac_cfcd_11d1_8b05_00600806d9b6);
+pub const SWbemLocator: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x76a64158_cb41_11d1_8b02_00600806d9b6);
+pub const SWbemMethod: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x04b83d5b_21ae_11d2_8b33_00600806d9b6);
+pub const SWbemMethodSet: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x04b83d5a_21ae_11d2_8b33_00600806d9b6);
+pub const SWbemNamedValue: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x04b83d60_21ae_11d2_8b33_00600806d9b6);
+pub const SWbemNamedValueSet: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9aed384e_ce8b_11d1_8b05_00600806d9b6);
+pub const SWbemObject: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x04b83d62_21ae_11d2_8b33_00600806d9b6);
+pub const SWbemObjectEx: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd6bdafb2_9435_491f_bb87_6aa0f0bc31a2);
+pub const SWbemObjectPath: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5791bc26_ce9c_11d1_97bf_0000f81e849c);
+pub const SWbemObjectSet: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x04b83d61_21ae_11d2_8b33_00600806d9b6);
+pub const SWbemPrivilege: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x26ee67bc_5804_11d2_8b4a_00600806d9b6);
+pub const SWbemPrivilegeSet: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x26ee67be_5804_11d2_8b4a_00600806d9b6);
+pub const SWbemProperty: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x04b83d5d_21ae_11d2_8b33_00600806d9b6);
+pub const SWbemPropertySet: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x04b83d5c_21ae_11d2_8b33_00600806d9b6);
+pub const SWbemQualifier: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x04b83d5f_21ae_11d2_8b33_00600806d9b6);
+pub const SWbemQualifierSet: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x04b83d5e_21ae_11d2_8b33_00600806d9b6);
 #[repr(C)]
 pub struct SWbemQueryQualifiedName {
     pub m_uVersion: u32,
@@ -11387,6 +11361,8 @@ impl ::core::default::Default for SWbemQueryQualifiedName {
         unsafe { ::core::mem::zeroed() }
     }
 }
+pub const SWbemRefreshableItem: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8c6854bc_de4b_11d3_b390_00105a1f473a);
+pub const SWbemRefresher: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd269bf5c_d9c1_11d3_b38f_00105a1f473a);
 #[repr(C)]
 pub union SWbemRpnConst {
     pub m_pszStrVal: ::windows_core::PCWSTR,
@@ -11553,6 +11529,11 @@ impl ::core::default::Default for SWbemRpnTokenList {
         unsafe { ::core::mem::zeroed() }
     }
 }
+pub const SWbemSecurity: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb54d66e9_2287_11d2_8b33_00600806d9b6);
+pub const SWbemServices: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x04b83d63_21ae_11d2_8b33_00600806d9b6);
+pub const SWbemServicesEx: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x62e522dc_8cf3_40a8_8b2e_37d595651e40);
+pub const SWbemSink: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x75718c9a_f029_11d1_a1ac_00c04fb6c223);
+pub const UnsecuredApartment: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x49bd2028_1523_11d1_ad79_00c04fd8fdff);
 #[repr(C)]
 pub struct WBEM_COMPILE_STATUS_INFO {
     pub lPhaseError: i32,
@@ -11587,6 +11568,25 @@ impl ::core::default::Default for WBEM_COMPILE_STATUS_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+pub const WMIExtension: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf0975afe_5c7f_11d2_8b74_00104b2afb41);
+pub const WbemAdministrativeLocator: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcb8555cc_9128_11d1_ad9b_00c04fd8fdff);
+pub const WbemAuthenticatedLocator: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcd184336_9128_11d1_ad9b_00c04fd8fdff);
+pub const WbemBackupRestore: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc49e32c6_bc8b_11d2_85d4_00105a1f8304);
+pub const WbemClassObject: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9a653086_174f_11d2_b5f9_00104b703efd);
+pub const WbemContext: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x674b6698_ee92_11d0_ad71_00c04fd8fdff);
+pub const WbemDCOMTransport: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf7ce2e13_8c90_11d1_9e7b_00c04fc324a8);
+pub const WbemDecoupledBasicEventProvider: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf5f75737_2843_4f22_933d_c76a97cda62f);
+pub const WbemDecoupledRegistrar: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4cfc7932_0f9d_4bef_9c32_8ea2a6b56fcb);
+pub const WbemDefPath: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcf4cc405_e2c5_4ddd_b3ce_5e7582d8c9fa);
+pub const WbemLevel1Login: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8bc3f05e_d86b_11d0_a075_00c04fb68820);
+pub const WbemLocalAddrRes: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa1044801_8f7e_11d1_9e7c_00c04fc324a8);
+pub const WbemLocator: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4590f811_1d3a_11d0_891f_00aa004b2e24);
+pub const WbemObjectTextSrc: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8d1c559d_84f0_4bb3_a7d5_56a7435a9ba6);
+pub const WbemQuery: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xeac8a024_21e2_4523_ad73_a71a0aa2f56a);
+pub const WbemRefresher: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc71566f2_561e_11d1_ad87_00c04fd8fdff);
+pub const WbemStatusCodeText: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xeb87e1bd_3233_11d2_aec9_00c04fb68820);
+pub const WbemUnauthenticatedLocator: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x443e7b79_de31_11d2_b340_00104bcc4b4a);
+pub const WbemUninitializedClassObject: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7a0227f6_7108_11d1_ad90_00c04fd8fdff);
 pub type MI_CancelCallback = ::core::option::Option<unsafe extern "system" fn(reason: MI_CancellationReason, callbackdata: *const ::core::ffi::c_void)>;
 pub type MI_Deserializer_ClassObjectNeeded = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, servername: *const u16, namespacename: *const u16, classname: *const u16, requestedclassobject: *mut *mut MI_Class) -> MI_Result>;
 pub type MI_MainFunction = ::core::option::Option<unsafe extern "system" fn(server: *mut MI_Server) -> *mut MI_Module>;

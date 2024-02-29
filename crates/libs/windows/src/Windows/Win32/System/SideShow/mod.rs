@@ -378,10 +378,6 @@ pub const SIDESHOW_NEW_EVENT_DATA_AVAILABLE: ::windows_core::GUID = ::windows_co
 pub const SIDESHOW_SCREEN_TYPE_BITMAP: SIDESHOW_SCREEN_TYPE = SIDESHOW_SCREEN_TYPE(0i32);
 pub const SIDESHOW_SCREEN_TYPE_TEXT: SIDESHOW_SCREEN_TYPE = SIDESHOW_SCREEN_TYPE(1i32);
 pub const SIDESHOW_USER_CHANGE_REQUEST_EVENT: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5009673c_3f7d_4c7e_9971_eaa2e91f1575);
-pub const SideShowKeyCollection: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdfbbdbf8_18de_49b8_83dc_ebc727c62d94);
-pub const SideShowNotification: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0ce3e86f_d5cd_4525_a766_1abab1a752f5);
-pub const SideShowPropVariantCollection: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe640f415_539e_4923_96cd_5f093bc250cd);
-pub const SideShowSession: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe20543b9_f785_4ea2_981e_c4ffa76bbc7c);
 pub const VERSION_1_WINDOWS_7: u32 = 0u32;
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
@@ -656,5 +652,9 @@ impl ::core::default::Default for SCF_NAVIGATION_EVENT {
         unsafe { ::core::mem::zeroed() }
     }
 }
+pub const SideShowKeyCollection: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdfbbdbf8_18de_49b8_83dc_ebc727c62d94);
+pub const SideShowNotification: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0ce3e86f_d5cd_4525_a766_1abab1a752f5);
+pub const SideShowPropVariantCollection: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe640f415_539e_4923_96cd_5f093bc250cd);
+pub const SideShowSession: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe20543b9_f785_4ea2_981e_c4ffa76bbc7c);
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

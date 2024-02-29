@@ -1,10 +1,6 @@
 ::windows_targets::link!("msctfmonitor.dll" "system" fn DoMsCtfMonitor(dwflags : u32, heventforservicestop : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("msctfmonitor.dll" "system" fn InitLocalMsCtfMonitor(dwflags : u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("msctfmonitor.dll" "system" fn UninitLocalMsCtfMonitor() -> ::windows_sys::core::HRESULT);
-pub const AccClientDocMgr: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xfc48cc30_4f3e_4fa1_803b_ad0e196a83b1);
-pub const AccDictionary: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x6572ee16_5fe5_4331_bb6d_76a49c56e423);
-pub const AccServerDocMgr: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x6089a37e_eb8a_482d_bd6f_f9f46904d16d);
-pub const AccStore: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x5440837f_4bff_4ae5_a1b1_7722ecc6332a);
 pub const CAND_CANCELED: TfCandidateResult = 2i32;
 pub const CAND_FINALIZED: TfCandidateResult = 0i32;
 pub const CAND_SELECTED: TfCandidateResult = 1i32;
@@ -20,7 +16,6 @@ pub const CLSID_TsfServices: ::windows_sys::core::GUID = ::windows_sys::core::GU
 pub const DCM_FLAGS_CTFMON: u32 = 2u32;
 pub const DCM_FLAGS_LOCALTHREADTSF: u32 = 4u32;
 pub const DCM_FLAGS_TASKENG: u32 = 1u32;
-pub const DocWrap: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xbf426f7e_7a5e_44d6_830c_a390ea9462a3);
 pub const GETIF_DICTGRAM: TfSapiObject = 4i32;
 pub const GETIF_RECOCONTEXT: TfSapiObject = 1i32;
 pub const GETIF_RECOGNIZER: TfSapiObject = 2i32;
@@ -177,7 +172,6 @@ pub const IS_URL: InputScope = 1i32;
 pub const IS_XML: InputScope = -4i32;
 pub const IS_YOMI: InputScope = 56i32;
 pub const LIBID_MSAATEXTLib: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x150e2d7a_dac1_4582_947d_2a8fd78b82cd);
-pub const MSAAControl: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x08cd963f_7a3e_4f5c_9bd8_d692bb043c5b);
 pub const STYLE_ACTIVE_SELECTION: TfIntegratableCandidateListSelectionStyle = 0i32;
 pub const STYLE_IMPLIED_SELECTION: TfIntegratableCandidateListSelectionStyle = 1i32;
 pub const TF_AE_END: TfActiveSelEnd = 2i32;
@@ -629,7 +623,13 @@ pub type TsGravity = i32;
 pub type TsLayoutCode = i32;
 pub type TsRunType = i32;
 pub type TsShiftDir = i32;
+pub const AccClientDocMgr: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xfc48cc30_4f3e_4fa1_803b_ad0e196a83b1);
+pub const AccDictionary: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x6572ee16_5fe5_4331_bb6d_76a49c56e423);
+pub const AccServerDocMgr: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x6089a37e_eb8a_482d_bd6f_f9f46904d16d);
+pub const AccStore: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x5440837f_4bff_4ae5_a1b1_7722ecc6332a);
+pub const DocWrap: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xbf426f7e_7a5e_44d6_830c_a390ea9462a3);
 pub type HKL = isize;
+pub const MSAAControl: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x08cd963f_7a3e_4f5c_9bd8_d692bb043c5b);
 #[repr(C)]
 pub struct TF_DA_COLOR {
     pub r#type: TF_DA_COLORTYPE,

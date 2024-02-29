@@ -90,7 +90,6 @@ pub const AA_TRUSTEDUSER_TRUSTEDCLIENT: AATrustClassID = 2i32;
 pub const AA_TRUSTEDUSER_UNTRUSTEDCLIENT: AATrustClassID = 1i32;
 pub const AA_UNTRUSTED: AATrustClassID = 0i32;
 pub const ACQUIRE_TARGET_LOCK_TIMEOUT: u32 = 300000u32;
-pub const ADsTSUserEx: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xe2e9cae6_1e7b_4b8e_babd_e9bf6292ac29);
 pub const AllowOnlySDRServers: PolicyAttributeType = 7i32;
 pub const CHANNEL_BUFFER_SIZE: u32 = 65535u32;
 pub const CHANNEL_CHUNK_LENGTH: u32 = 1600u32;
@@ -338,7 +337,6 @@ pub const TSSB_NOTIFY_TARGET_CHANGE: TSSB_NOTIFICATION_TYPE = 1i32;
 pub const TSSD_ADDR_IPv4: TSSD_AddrV46Type = 4i32;
 pub const TSSD_ADDR_IPv6: TSSD_AddrV46Type = 6i32;
 pub const TSSD_ADDR_UNDEFINED: TSSD_AddrV46Type = 0i32;
-pub const TSUserExInterfaces: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x0910dd01_df8c_11d1_ae27_00c04fa35813);
 pub const TS_SB_SORT_BY_NAME: TS_SB_SORT_BY = 1i32;
 pub const TS_SB_SORT_BY_NONE: TS_SB_SORT_BY = 0i32;
 pub const TS_SB_SORT_BY_PROP: TS_SB_SORT_BY = 2i32;
@@ -611,7 +609,6 @@ pub const WTS_WSD_LOGOFF: u32 = 1u32;
 pub const WTS_WSD_POWEROFF: u32 = 8u32;
 pub const WTS_WSD_REBOOT: u32 = 4u32;
 pub const WTS_WSD_SHUTDOWN: u32 = 2u32;
-pub const Workspace: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x4f1dfca6_3aad_48e1_8406_4bc21a501d7c);
 pub type AAAccountingDataType = i32;
 pub type AAAuthSchemes = i32;
 pub type AATrustClassID = i32;
@@ -684,6 +681,7 @@ impl ::core::clone::Clone for AAAccountingData {
         *self
     }
 }
+pub const ADsTSUserEx: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xe2e9cae6_1e7b_4b8e_babd_e9bf6292ac29);
 #[repr(C)]
 pub struct AE_CURRENT_POSITION {
     pub u64DevicePosition: u64,
@@ -928,6 +926,7 @@ impl ::core::clone::Clone for TSSD_ConnectionPoint {
         *self
     }
 }
+pub const TSUserExInterfaces: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x0910dd01_df8c_11d1_ae27_00c04fa35813);
 #[repr(C)]
 pub struct VM_NOTIFY_ENTRY {
     pub VmName: [u16; 128],
@@ -2193,6 +2192,7 @@ impl ::core::clone::Clone for WTS_VALIDATION_INFORMATIONW {
         *self
     }
 }
+pub const Workspace: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x4f1dfca6_3aad_48e1_8406_4bc21a501d7c);
 #[repr(C)]
 pub struct pluginResource {
     pub alias: [u16; 256],

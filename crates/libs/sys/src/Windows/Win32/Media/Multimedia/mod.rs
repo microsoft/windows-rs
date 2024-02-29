@@ -724,7 +724,6 @@ pub const JPEG_PROCESS_BASELINE: u32 = 0u32;
 pub const JPEG_RGB: u32 = 3u32;
 pub const JPEG_Y: u32 = 1u32;
 pub const JPEG_YCbCr: u32 = 2u32;
-pub const KSDATAFORMAT_SUBTYPE_IEEE_FLOAT: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x00000003_0000_0010_8000_00aa00389b71);
 pub const MCIERR_AVI_AUDIOERROR: u32 = 619u32;
 pub const MCIERR_AVI_BADPALETTE: u32 = 620u32;
 pub const MCIERR_AVI_CANTPLAYFULLSCREEN: u32 = 615u32;
@@ -5934,6 +5933,7 @@ impl ::core::clone::Clone for JPEGINFOHEADER {
         *self
     }
 }
+pub const KSDATAFORMAT_SUBTYPE_IEEE_FLOAT: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x00000003_0000_0010_8000_00aa00389b71);
 #[repr(C, packed(1))]
 pub struct MCI_ANIM_OPEN_PARMSA {
     pub dwCallback: usize,

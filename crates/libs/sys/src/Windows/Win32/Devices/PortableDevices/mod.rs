@@ -66,7 +66,6 @@ pub const E_WPD_SERVICE_NOT_OPEN: ::windows_sys::core::HRESULT = 0x802A00C9_u32 
 pub const E_WPD_SMS_INVALID_MESSAGE_BODY: ::windows_sys::core::HRESULT = 0x802A0065_u32 as _;
 pub const E_WPD_SMS_INVALID_RECIPIENT: ::windows_sys::core::HRESULT = 0x802A0064_u32 as _;
 pub const E_WPD_SMS_SERVICE_UNAVAILABLE: ::windows_sys::core::HRESULT = 0x802A0066_u32 as _;
-pub const EnumBthMtpConnectors: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xa1570149_e645_4f43_8b0d_409b061db2fc);
 pub const FACILITY_WPD: u32 = 42u32;
 pub const FLAG_MessageObj_DayOfWeekFriday: u32 = 32u32;
 pub const FLAG_MessageObj_DayOfWeekMonday: u32 = 2u32;
@@ -427,17 +426,6 @@ pub const PORTABLE_DEVICE_NAMESPACE_EXCLUDE_FROM_SHELL: ::windows_sys::core::PCW
 pub const PORTABLE_DEVICE_NAMESPACE_THUMBNAIL_CONTENT_TYPES: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("PortableDeviceNameSpaceThumbnailContentTypes");
 pub const PORTABLE_DEVICE_NAMESPACE_TIMEOUT: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("PortableDeviceNameSpaceTimeout");
 pub const PORTABLE_DEVICE_TYPE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("PortableDeviceType");
-pub const PortableDevice: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x728a21c5_3d9e_48d7_9810_864848f0f404);
-pub const PortableDeviceDispatchFactory: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x43232233_8338_4658_ae01_0b4ae830b6b0);
-pub const PortableDeviceFTM: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xf7c0039a_4762_488a_b4b3_760ef9a1ba9b);
-pub const PortableDeviceKeyCollection: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xde2d022d_2480_43be_97f0_d1fa2cf98f4f);
-pub const PortableDeviceManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x0af10cec_2ecd_4b92_9581_34f6ae0637f3);
-pub const PortableDevicePropVariantCollection: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x08a99e2f_6d6d_4b80_af5a_baf2bcbe4cb9);
-pub const PortableDeviceService: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xef5db4c2_9312_422c_9152_411cd9c4dd84);
-pub const PortableDeviceServiceFTM: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x1649b154_c794_497a_9b03_f3f0121302f3);
-pub const PortableDeviceValues: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x0c15d503_d017_47ce_9016_7b3f978721cc);
-pub const PortableDeviceValuesCollection: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x3882134d_14cf_4220_9cb4_435f86d83f60);
-pub const PortableDeviceWebControl: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x186dd02c_2dec_41b5_a7d4_b59056fade51);
 pub const RANGEMAX_MessageObj_PatternDayOfMonth: u32 = 31u32;
 pub const RANGEMAX_MessageObj_PatternMonthOfYear: u32 = 12u32;
 pub const RANGEMAX_StatusSvc_BatteryLife: u32 = 100u32;
@@ -1956,7 +1944,6 @@ pub const WPD_WHITE_BALANCE_MANUAL: WPD_WHITE_BALANCE_SETTINGS = 1i32;
 pub const WPD_WHITE_BALANCE_ONE_PUSH_AUTOMATIC: WPD_WHITE_BALANCE_SETTINGS = 3i32;
 pub const WPD_WHITE_BALANCE_TUNGSTEN: WPD_WHITE_BALANCE_SETTINGS = 6i32;
 pub const WPD_WHITE_BALANCE_UNDEFINED: WPD_WHITE_BALANCE_SETTINGS = 0i32;
-pub const WpdSerializer: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x0b91a74b_ad7c_4a9d_b563_29eef9167172);
 pub type DELETE_OBJECT_OPTIONS = i32;
 pub type DEVICE_RADIO_STATE = i32;
 pub type SMS_MESSAGE_TYPES = i32;
@@ -1989,6 +1976,18 @@ pub type WPD_VIDEO_SCAN_TYPES = i32;
 pub type WPD_WHITE_BALANCE_SETTINGS = i32;
 pub type WpdAttributeForm = i32;
 pub type WpdParameterAttributeForm = i32;
+pub const EnumBthMtpConnectors: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xa1570149_e645_4f43_8b0d_409b061db2fc);
+pub const PortableDevice: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x728a21c5_3d9e_48d7_9810_864848f0f404);
+pub const PortableDeviceDispatchFactory: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x43232233_8338_4658_ae01_0b4ae830b6b0);
+pub const PortableDeviceFTM: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xf7c0039a_4762_488a_b4b3_760ef9a1ba9b);
+pub const PortableDeviceKeyCollection: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xde2d022d_2480_43be_97f0_d1fa2cf98f4f);
+pub const PortableDeviceManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x0af10cec_2ecd_4b92_9581_34f6ae0637f3);
+pub const PortableDevicePropVariantCollection: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x08a99e2f_6d6d_4b80_af5a_baf2bcbe4cb9);
+pub const PortableDeviceService: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xef5db4c2_9312_422c_9152_411cd9c4dd84);
+pub const PortableDeviceServiceFTM: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x1649b154_c794_497a_9b03_f3f0121302f3);
+pub const PortableDeviceValues: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x0c15d503_d017_47ce_9016_7b3f978721cc);
+pub const PortableDeviceValuesCollection: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x3882134d_14cf_4220_9cb4_435f86d83f60);
+pub const PortableDeviceWebControl: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x186dd02c_2dec_41b5_a7d4_b59056fade51);
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub struct WPD_COMMAND_ACCESS_LOOKUP_ENTRY {
@@ -2004,3 +2003,4 @@ impl ::core::clone::Clone for WPD_COMMAND_ACCESS_LOOKUP_ENTRY {
         *self
     }
 }
+pub const WpdSerializer: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x0b91a74b_ad7c_4a9d_b563_29eef9167172);

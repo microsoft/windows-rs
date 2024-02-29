@@ -5433,10 +5433,6 @@ pub struct IVersionInfo_Vtbl {
     pub GetComponentDescription: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub GetInstanceDescription: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-pub const AccClientDocMgr: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfc48cc30_4f3e_4fa1_803b_ad0e196a83b1);
-pub const AccDictionary: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6572ee16_5fe5_4331_bb6d_76a49c56e423);
-pub const AccServerDocMgr: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6089a37e_eb8a_482d_bd6f_f9f46904d16d);
-pub const AccStore: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5440837f_4bff_4ae5_a1b1_7722ecc6332a);
 pub const CAND_CANCELED: TfCandidateResult = TfCandidateResult(2i32);
 pub const CAND_FINALIZED: TfCandidateResult = TfCandidateResult(0i32);
 pub const CAND_SELECTED: TfCandidateResult = TfCandidateResult(1i32);
@@ -5452,7 +5448,6 @@ pub const CLSID_TsfServices: ::windows_core::GUID = ::windows_core::GUID::from_u
 pub const DCM_FLAGS_CTFMON: u32 = 2u32;
 pub const DCM_FLAGS_LOCALTHREADTSF: u32 = 4u32;
 pub const DCM_FLAGS_TASKENG: u32 = 1u32;
-pub const DocWrap: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbf426f7e_7a5e_44d6_830c_a390ea9462a3);
 pub const GETIF_DICTGRAM: TfSapiObject = TfSapiObject(4i32);
 pub const GETIF_RECOCONTEXT: TfSapiObject = TfSapiObject(1i32);
 pub const GETIF_RECOGNIZER: TfSapiObject = TfSapiObject(2i32);
@@ -5609,7 +5604,6 @@ pub const IS_URL: InputScope = InputScope(1i32);
 pub const IS_XML: InputScope = InputScope(-4i32);
 pub const IS_YOMI: InputScope = InputScope(56i32);
 pub const LIBID_MSAATEXTLib: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x150e2d7a_dac1_4582_947d_2a8fd78b82cd);
-pub const MSAAControl: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x08cd963f_7a3e_4f5c_9bd8_d692bb043c5b);
 pub const STYLE_ACTIVE_SELECTION: TfIntegratableCandidateListSelectionStyle = TfIntegratableCandidateListSelectionStyle(0i32);
 pub const STYLE_IMPLIED_SELECTION: TfIntegratableCandidateListSelectionStyle = TfIntegratableCandidateListSelectionStyle(1i32);
 pub const TF_AE_END: TfActiveSelEnd = TfActiveSelEnd(2i32);
@@ -6506,6 +6500,11 @@ impl ::core::fmt::Debug for TsShiftDir {
         f.debug_tuple("TsShiftDir").field(&self.0).finish()
     }
 }
+pub const AccClientDocMgr: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfc48cc30_4f3e_4fa1_803b_ad0e196a83b1);
+pub const AccDictionary: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6572ee16_5fe5_4331_bb6d_76a49c56e423);
+pub const AccServerDocMgr: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6089a37e_eb8a_482d_bd6f_f9f46904d16d);
+pub const AccStore: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5440837f_4bff_4ae5_a1b1_7722ecc6332a);
+pub const DocWrap: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbf426f7e_7a5e_44d6_830c_a390ea9462a3);
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HKL(pub isize);
@@ -6533,6 +6532,7 @@ impl ::core::fmt::Debug for HKL {
 impl ::windows_core::TypeKind for HKL {
     type TypeKind = ::windows_core::CopyType;
 }
+pub const MSAAControl: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x08cd963f_7a3e_4f5c_9bd8_d692bb043c5b);
 #[repr(C)]
 pub struct TF_DA_COLOR {
     pub r#type: TF_DA_COLORTYPE,

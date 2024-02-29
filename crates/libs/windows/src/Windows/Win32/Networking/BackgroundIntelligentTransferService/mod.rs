@@ -2430,7 +2430,6 @@ pub const BG_S_PROXY_CHANGED: i32 = 2097194i32;
 pub const BG_S_UNABLE_TO_DELETE_FILES: i32 = 2097178i32;
 pub const BG_TOKEN_LOCAL_FILE: BG_TOKEN = BG_TOKEN(1u32);
 pub const BG_TOKEN_NETWORK: BG_TOKEN = BG_TOKEN(2u32);
-pub const BITSExtensionSetupFactory: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xefbbab68_7286_4783_94bf_9461d8b7e7e9);
 pub const BITS_COST_OPTION_IGNORE_CONGESTION: u32 = 2147483648u32;
 pub const BITS_COST_STATE_BELOW_CAP: u32 = 4u32;
 pub const BITS_COST_STATE_CAPPED_USAGE_UNKNOWN: u32 = 2u32;
@@ -2467,17 +2466,6 @@ pub const BITS_MC_JOB_TAKE_OWNERSHIP: i32 = -2145828860i32;
 pub const BITS_MC_PEERCACHING_PORT: i32 = -2145828854i32;
 pub const BITS_MC_STATE_FILE_CORRUPT: i32 = -2145828857i32;
 pub const BITS_MC_WSD_PORT: i32 = -2145828853i32;
-pub const BackgroundCopyManager: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4991d34b_80a1_4291_83b6_3328366b9097);
-pub const BackgroundCopyManager10_1: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4bd3e4e1_7bd4_4a2b_9964_496400de5193);
-pub const BackgroundCopyManager10_2: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4575438f_a6c8_4976_b0fe_2f26b80d959e);
-pub const BackgroundCopyManager10_3: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5fd42ad5_c04e_4d36_adc7_e08ff15737ad);
-pub const BackgroundCopyManager1_5: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf087771f_d74f_4c1a_bb8a_e16aca9124ea);
-pub const BackgroundCopyManager2_0: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6d18ad12_bde3_4393_b311_099c346e6df9);
-pub const BackgroundCopyManager2_5: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x03ca98d6_ff5d_49b8_abc6_03dd84127020);
-pub const BackgroundCopyManager3_0: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x659cdea7_489e_11d9_a9cd_000d56965251);
-pub const BackgroundCopyManager4_0: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbb6df56b_cace_11dc_9992_0019b93a3a84);
-pub const BackgroundCopyManager5_0: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1ecca34c_e88a_44e3_8d6a_8921bde9e452);
-pub const BackgroundCopyQMgr: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x69ad4aee_51be_439b_a92c_86ae490e8b30);
 pub const GROUPPROP_DESCRIPTION: GROUPPROP = GROUPPROP(12i32);
 pub const GROUPPROP_DISPLAYNAME: GROUPPROP = GROUPPROP(11i32);
 pub const GROUPPROP_LOCALUSERID: GROUPPROP = GROUPPROP(3i32);
@@ -2913,6 +2901,7 @@ impl ::core::default::Default for BG_JOB_TIMES {
         unsafe { ::core::mem::zeroed() }
     }
 }
+pub const BITSExtensionSetupFactory: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xefbbab68_7286_4783_94bf_9461d8b7e7e9);
 #[repr(C)]
 pub union BITS_FILE_PROPERTY_VALUE {
     pub String: ::windows_core::PWSTR,
@@ -2953,6 +2942,17 @@ impl ::core::default::Default for BITS_JOB_PROPERTY_VALUE {
         unsafe { ::core::mem::zeroed() }
     }
 }
+pub const BackgroundCopyManager: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4991d34b_80a1_4291_83b6_3328366b9097);
+pub const BackgroundCopyManager10_1: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4bd3e4e1_7bd4_4a2b_9964_496400de5193);
+pub const BackgroundCopyManager10_2: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4575438f_a6c8_4976_b0fe_2f26b80d959e);
+pub const BackgroundCopyManager10_3: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5fd42ad5_c04e_4d36_adc7_e08ff15737ad);
+pub const BackgroundCopyManager1_5: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf087771f_d74f_4c1a_bb8a_e16aca9124ea);
+pub const BackgroundCopyManager2_0: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6d18ad12_bde3_4393_b311_099c346e6df9);
+pub const BackgroundCopyManager2_5: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x03ca98d6_ff5d_49b8_abc6_03dd84127020);
+pub const BackgroundCopyManager3_0: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x659cdea7_489e_11d9_a9cd_000d56965251);
+pub const BackgroundCopyManager4_0: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbb6df56b_cace_11dc_9992_0019b93a3a84);
+pub const BackgroundCopyManager5_0: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1ecca34c_e88a_44e3_8d6a_8921bde9e452);
+pub const BackgroundCopyQMgr: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x69ad4aee_51be_439b_a92c_86ae490e8b30);
 #[repr(C)]
 pub struct FILESETINFO {
     pub bstrRemoteFile: ::std::mem::ManuallyDrop<::windows_core::BSTR>,

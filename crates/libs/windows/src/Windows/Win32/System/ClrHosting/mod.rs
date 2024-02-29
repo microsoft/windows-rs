@@ -2478,7 +2478,6 @@ pub const APPDOMAIN_SECURITY_FORBID_CROSSAD_REVERSE_PINVOKE: APPDOMAIN_SECURITY_
 pub const APPDOMAIN_SECURITY_SANDBOXED: APPDOMAIN_SECURITY_FLAGS = APPDOMAIN_SECURITY_FLAGS(1i32);
 pub const BucketParamLength: u32 = 255u32;
 pub const BucketParamsCount: u32 = 10u32;
-pub const CLRRuntimeHost: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x90f1a06e_7712_4762_86b5_7a5eba6bdb02);
 pub const CLR_ASSEMBLY_BUILD_VERSION: u32 = 0u32;
 pub const CLR_ASSEMBLY_IDENTITY_FLAGS_DEFAULT: ECLRAssemblyIdentityFlags = ECLRAssemblyIdentityFlags(0i32);
 pub const CLR_ASSEMBLY_MAJOR_VERSION: u32 = 4u32;
@@ -2499,9 +2498,6 @@ pub const CLSID_RESOLUTION_REGISTERED: CLSID_RESOLUTION_FLAGS = CLSID_RESOLUTION
 pub const COR_GC_COUNTS: COR_GC_STAT_TYPES = COR_GC_STAT_TYPES(1i32);
 pub const COR_GC_MEMORYUSAGE: COR_GC_STAT_TYPES = COR_GC_STAT_TYPES(2i32);
 pub const COR_GC_THREAD_HAS_PROMOTED_BYTES: COR_GC_THREAD_STATS_TYPES = COR_GC_THREAD_STATS_TYPES(1i32);
-pub const ComCallUnmarshal: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3f281000_e95a_11d2_886b_00c04f869f04);
-pub const ComCallUnmarshalV4: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x45fb4600_e6e8_4928_b25e_50476ff79425);
-pub const CorRuntimeHost: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcb2f6723_ab3a_11d2_9c40_00c04fa30a3e);
 pub const DEPRECATED_CLR_API_MESG: ::windows_core::PCSTR = ::windows_core::s!("This API has been deprecated. Refer to https://go.microsoft.com/fwlink/?LinkId=143720 for more details.");
 pub const DUMP_FLAVOR_CriticalCLRState: ECustomDumpFlavor = ECustomDumpFlavor(1i32);
 pub const DUMP_FLAVOR_Default: ECustomDumpFlavor = ECustomDumpFlavor(0i32);
@@ -2601,7 +2597,6 @@ pub const TT_THREADPOOL_WAIT: ETaskType = ETaskType(512i32);
 pub const TT_THREADPOOL_WORKER: ETaskType = ETaskType(32i32);
 pub const TT_UNKNOWN: ETaskType = ETaskType(-2147483648i32);
 pub const TT_USER: ETaskType = ETaskType(256i32);
-pub const TypeNameFactory: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb81ff171_20f3_11d2_8dcc_00a0c9b00525);
 pub const WAIT_ALERTABLE: WAIT_OPTION = WAIT_OPTION(2i32);
 pub const WAIT_MSGPUMP: WAIT_OPTION = WAIT_OPTION(1i32);
 pub const WAIT_NOTINDEADLOCK: WAIT_OPTION = WAIT_OPTION(4i32);
@@ -3064,6 +3059,7 @@ impl ::core::default::Default for BucketParameters {
         unsafe { ::core::mem::zeroed() }
     }
 }
+pub const CLRRuntimeHost: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x90f1a06e_7712_4762_86b5_7a5eba6bdb02);
 #[repr(C)]
 pub struct CLR_DEBUGGING_VERSION {
     pub wStructVersion: u16,
@@ -3178,6 +3174,9 @@ impl ::core::default::Default for COR_GC_THREAD_STATS {
         unsafe { ::core::mem::zeroed() }
     }
 }
+pub const ComCallUnmarshal: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3f281000_e95a_11d2_886b_00c04f869f04);
+pub const ComCallUnmarshalV4: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x45fb4600_e6e8_4928_b25e_50476ff79425);
+pub const CorRuntimeHost: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcb2f6723_ab3a_11d2_9c40_00c04fa30a3e);
 #[repr(C)]
 pub struct CustomDumpItem {
     pub itemKind: ECustomDumpItemKind,
@@ -3315,6 +3314,7 @@ impl ::core::default::Default for StackOverflowInfo {
         unsafe { ::core::mem::zeroed() }
     }
 }
+pub const TypeNameFactory: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb81ff171_20f3_11d2_8dcc_00a0c9b00525);
 pub type CLRCreateInstanceFnPtr = ::core::option::Option<unsafe extern "system" fn(clsid: *const ::windows_core::GUID, riid: *const ::windows_core::GUID, ppinterface: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT>;
 pub type CallbackThreadSetFnPtr = ::core::option::Option<unsafe extern "system" fn() -> ::windows_core::HRESULT>;
 pub type CallbackThreadUnsetFnPtr = ::core::option::Option<unsafe extern "system" fn() -> ::windows_core::HRESULT>;

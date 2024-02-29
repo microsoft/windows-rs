@@ -261,11 +261,7 @@ pub const BulletStyle_HollowSquareBullet: BulletStyle = 3i32;
 pub const BulletStyle_None: BulletStyle = 0i32;
 pub const BulletStyle_Other: BulletStyle = -1i32;
 pub const Button_Control_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x5a78e369_c6a1_4f33_a9d7_79f20d0c788e);
-pub const CAccPropServices: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xb5f8350b_0548_48b1_a6ee_88bd00b4a5e7);
 pub const CLSID_AccPropServices: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xb5f8350b_0548_48b1_a6ee_88bd00b4a5e7);
-pub const CUIAutomation: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xff48dba4_60ef_4201_aa87_54103eef594e);
-pub const CUIAutomation8: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xe22ad333_b25f_460c_83d0_0581107395c9);
-pub const CUIAutomationRegistrar: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x6e29fabf_9977_42d1_8d0e_ca7e61ad87e6);
 pub const Calendar_Control_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x8913eb88_00e5_46bc_8e4e_14a786e165a1);
 pub const CapStyle_AllCap: CapStyle = 2i32;
 pub const CapStyle_AllPetiteCaps: CapStyle = 3i32;
@@ -1488,6 +1484,10 @@ impl ::core::clone::Clone for ACCESSTIMEOUT {
         *self
     }
 }
+pub const CAccPropServices: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xb5f8350b_0548_48b1_a6ee_88bd00b4a5e7);
+pub const CUIAutomation: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xff48dba4_60ef_4201_aa87_54103eef594e);
+pub const CUIAutomation8: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xe22ad333_b25f_460c_83d0_0581107395c9);
+pub const CUIAutomationRegistrar: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x6e29fabf_9977_42d1_8d0e_ca7e61ad87e6);
 #[repr(C)]
 pub struct ExtendedProperty {
     pub PropertyName: ::windows_sys::core::BSTR,

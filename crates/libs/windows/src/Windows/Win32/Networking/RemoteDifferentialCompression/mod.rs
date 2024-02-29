@@ -490,7 +490,6 @@ pub struct ISimilarityTraitsTable_Vtbl {
     pub BeginDump: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetLastIndex: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
 }
-pub const FindSimilarResults: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x96236a93_9dbc_11da_9e3f_0011114ae311);
 pub const MSRDC_DEFAULT_COMPAREBUFFER: u32 = 3200000u32;
 pub const MSRDC_DEFAULT_HASHWINDOWSIZE_1: u32 = 48u32;
 pub const MSRDC_DEFAULT_HASHWINDOWSIZE_N: u32 = 2u32;
@@ -536,23 +535,8 @@ pub const RDC_HeaderVersionOlder: RDC_ErrorCode = RDC_ErrorCode(2i32);
 pub const RDC_HeaderWrongType: RDC_ErrorCode = RDC_ErrorCode(4i32);
 pub const RDC_NoError: RDC_ErrorCode = RDC_ErrorCode(0i32);
 pub const RDC_Win32Error: RDC_ErrorCode = RDC_ErrorCode(10i32);
-pub const RdcComparator: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x96236a8b_9dbc_11da_9e3f_0011114ae311);
-pub const RdcFileReader: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x96236a89_9dbc_11da_9e3f_0011114ae311);
-pub const RdcGenerator: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x96236a88_9dbc_11da_9e3f_0011114ae311);
-pub const RdcGeneratorFilterMaxParameters: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x96236a87_9dbc_11da_9e3f_0011114ae311);
-pub const RdcGeneratorParameters: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x96236a86_9dbc_11da_9e3f_0011114ae311);
-pub const RdcLibrary: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x96236a85_9dbc_11da_9e3f_0011114ae311);
-pub const RdcSignatureReader: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x96236a8a_9dbc_11da_9e3f_0011114ae311);
-pub const RdcSimilarityGenerator: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x96236a92_9dbc_11da_9e3f_0011114ae311);
-pub const Similarity: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x96236a91_9dbc_11da_9e3f_0011114ae311);
 pub const SimilarityFileIdMaxSize: u32 = 32u32;
 pub const SimilarityFileIdMinSize: u32 = 4u32;
-pub const SimilarityFileIdTable: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x96236a90_9dbc_11da_9e3f_0011114ae311);
-pub const SimilarityReportProgress: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x96236a8d_9dbc_11da_9e3f_0011114ae311);
-pub const SimilarityTableDumpState: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x96236a8e_9dbc_11da_9e3f_0011114ae311);
-pub const SimilarityTraitsMappedView: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x96236a95_9dbc_11da_9e3f_0011114ae311);
-pub const SimilarityTraitsMapping: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x96236a94_9dbc_11da_9e3f_0011114ae311);
-pub const SimilarityTraitsTable: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x96236a8f_9dbc_11da_9e3f_0011114ae311);
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct GeneratorParametersType(pub i32);
@@ -638,6 +622,7 @@ impl ::core::default::Default for FindSimilarFileIndexResults {
         unsafe { ::core::mem::zeroed() }
     }
 }
+pub const FindSimilarResults: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x96236a93_9dbc_11da_9e3f_0011114ae311);
 #[repr(C)]
 pub struct RdcBufferPointer {
     pub m_Size: u32,
@@ -669,6 +654,12 @@ impl ::core::default::Default for RdcBufferPointer {
         unsafe { ::core::mem::zeroed() }
     }
 }
+pub const RdcComparator: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x96236a8b_9dbc_11da_9e3f_0011114ae311);
+pub const RdcFileReader: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x96236a89_9dbc_11da_9e3f_0011114ae311);
+pub const RdcGenerator: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x96236a88_9dbc_11da_9e3f_0011114ae311);
+pub const RdcGeneratorFilterMaxParameters: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x96236a87_9dbc_11da_9e3f_0011114ae311);
+pub const RdcGeneratorParameters: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x96236a86_9dbc_11da_9e3f_0011114ae311);
+pub const RdcLibrary: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x96236a85_9dbc_11da_9e3f_0011114ae311);
 #[repr(C)]
 pub struct RdcNeed {
     pub m_BlockType: RdcNeedType,
@@ -792,6 +783,9 @@ impl ::core::default::Default for RdcSignaturePointer {
         unsafe { ::core::mem::zeroed() }
     }
 }
+pub const RdcSignatureReader: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x96236a8a_9dbc_11da_9e3f_0011114ae311);
+pub const RdcSimilarityGenerator: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x96236a92_9dbc_11da_9e3f_0011114ae311);
+pub const Similarity: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x96236a91_9dbc_11da_9e3f_0011114ae311);
 #[repr(C)]
 pub struct SimilarityData {
     pub m_Data: [u8; 16],
@@ -880,6 +874,7 @@ impl ::core::default::Default for SimilarityFileId {
         unsafe { ::core::mem::zeroed() }
     }
 }
+pub const SimilarityFileIdTable: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x96236a90_9dbc_11da_9e3f_0011114ae311);
 #[repr(C)]
 pub struct SimilarityMappedViewInfo {
     pub m_Data: *mut u8,
@@ -910,5 +905,10 @@ impl ::core::default::Default for SimilarityMappedViewInfo {
         unsafe { ::core::mem::zeroed() }
     }
 }
+pub const SimilarityReportProgress: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x96236a8d_9dbc_11da_9e3f_0011114ae311);
+pub const SimilarityTableDumpState: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x96236a8e_9dbc_11da_9e3f_0011114ae311);
+pub const SimilarityTraitsMappedView: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x96236a95_9dbc_11da_9e3f_0011114ae311);
+pub const SimilarityTraitsMapping: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x96236a94_9dbc_11da_9e3f_0011114ae311);
+pub const SimilarityTraitsTable: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x96236a8f_9dbc_11da_9e3f_0011114ae311);
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

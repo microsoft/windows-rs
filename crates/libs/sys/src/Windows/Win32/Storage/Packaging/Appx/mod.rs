@@ -145,11 +145,6 @@ pub const AppPolicyWindowingModel_ClassicDesktop: AppPolicyWindowingModel = 2i32
 pub const AppPolicyWindowingModel_ClassicPhone: AppPolicyWindowingModel = 3i32;
 pub const AppPolicyWindowingModel_None: AppPolicyWindowingModel = 0i32;
 pub const AppPolicyWindowingModel_Universal: AppPolicyWindowingModel = 1i32;
-pub const AppxBundleFactory: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x378e0446_5384_43b7_8877_e7dbdd883446);
-pub const AppxEncryptionFactory: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xdc664fdd_d868_46ee_8780_8d196cb739f7);
-pub const AppxFactory: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x5842a140_ff9f_4166_8f5c_62f5b7b0c781);
-pub const AppxPackageEditor: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xf004f2ca_aebc_4b0d_bf58_e516d5bcc0ab);
-pub const AppxPackagingDiagnosticEventSinkManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x50ca0a46_1588_4161_8ed2_ef9e469ced5d);
 pub const CreatePackageDependencyOptions_DoNotVerifyDependencyResolution: CreatePackageDependencyOptions = 1i32;
 pub const CreatePackageDependencyOptions_None: CreatePackageDependencyOptions = 0i32;
 pub const CreatePackageDependencyOptions_ScopeIsSystem: CreatePackageDependencyOptions = 2i32;
@@ -331,6 +326,11 @@ impl ::core::clone::Clone for APPX_PACKAGE_WRITER_PAYLOAD_STREAM {
         *self
     }
 }
+pub const AppxBundleFactory: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x378e0446_5384_43b7_8877_e7dbdd883446);
+pub const AppxEncryptionFactory: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xdc664fdd_d868_46ee_8780_8d196cb739f7);
+pub const AppxFactory: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x5842a140_ff9f_4166_8f5c_62f5b7b0c781);
+pub const AppxPackageEditor: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xf004f2ca_aebc_4b0d_bf58_e516d5bcc0ab);
+pub const AppxPackagingDiagnosticEventSinkManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x50ca0a46_1588_4161_8ed2_ef9e469ced5d);
 pub type PACKAGEDEPENDENCY_CONTEXT = isize;
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]

@@ -493,7 +493,6 @@ pub const DC_REJECTED: DISCONNECT_CODE = 2i32;
 pub const DISPIDMASK: u32 = 65535u32;
 pub const DT_ILS: DIRECTORY_TYPE = 2i32;
 pub const DT_NTDS: DIRECTORY_TYPE = 1i32;
-pub const DispatchMapper: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xe9225296_c759_11d1_a02b_00c04fb6809f);
 pub const FDS_NOTSUPPORTED: FULLDUPLEX_SUPPORT = 1i32;
 pub const FDS_SUPPORTED: FULLDUPLEX_SUPPORT = 0i32;
 pub const FDS_UNKNOWN: FULLDUPLEX_SUPPORT = 2i32;
@@ -1190,7 +1189,6 @@ pub const ME_PRIVATE_EVENT: MSP_EVENT = 3i32;
 pub const ME_TONE_TERMINAL_EVENT: MSP_EVENT = 7i32;
 pub const ME_TSP_DATA: MSP_EVENT = 2i32;
 pub const ME_TTS_TERMINAL_EVENT: MSP_EVENT = 5i32;
-pub const McastAddressAllocation: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xdf0daef2_a289_11d1_8697_006008b0e5d2);
 pub const OPENTNEFSTREAM: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("OpenTnefStream");
 pub const OPENTNEFSTREAMEX: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("OpenTnefStreamEx");
 pub const OT_CONFERENCE: DIRECTORY_OBJECT_TYPE = 1i32;
@@ -1510,8 +1508,6 @@ pub const RENDBIND_DEFAULTCREDENTIALS: u32 = 14u32;
 pub const RENDBIND_DEFAULTDOMAINNAME: u32 = 2u32;
 pub const RENDBIND_DEFAULTPASSWORD: u32 = 8u32;
 pub const RENDBIND_DEFAULTUSERNAME: u32 = 4u32;
-pub const Rendezvous: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xf1029e5b_cb5b_11d0_8d59_00c04fd91ac0);
-pub const RequestMakeCall: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xac48ffe0_f8c4_11d1_a030_00c04fb6809f);
 pub const STRINGFORMAT_ASCII: u32 = 1u32;
 pub const STRINGFORMAT_BINARY: u32 = 4u32;
 pub const STRINGFORMAT_DBCS: u32 = 2u32;
@@ -1522,7 +1518,6 @@ pub const STRM_PAUSED: u32 = 8u32;
 pub const STRM_RUNNING: u32 = 4u32;
 pub const STRM_STOPPED: u32 = 16u32;
 pub const STRM_TERMINALSELECTED: u32 = 1u32;
-pub const TAPI: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x21d6d48e_a88b_11d0_83dd_00aa003ccabd);
 pub const TAPIERR_CONNECTED: i32 = 0i32;
 pub const TAPIERR_DESTBUSY: i32 = -11i32;
 pub const TAPIERR_DESTNOANSWER: i32 = -12i32;
@@ -1928,6 +1923,7 @@ impl ::core::clone::Clone for DTR {
         *self
     }
 }
+pub const DispatchMapper: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xe9225296_c759_11d1_a02b_00c04fb6809f);
 pub type HDRVCALL = isize;
 pub type HDRVDIALOGINSTANCE = isize;
 pub type HDRVLINE = isize;
@@ -3478,6 +3474,7 @@ impl ::core::clone::Clone for MSP_EVENT_INFO_0_7 {
         *self
     }
 }
+pub const McastAddressAllocation: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xdf0daef2_a289_11d1_8697_006008b0e5d2);
 #[repr(C)]
 pub struct NSID {
     pub dwSize: u32,
@@ -3680,6 +3677,8 @@ impl ::core::clone::Clone for RENDDATA {
         *self
     }
 }
+pub const Rendezvous: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xf1029e5b_cb5b_11d0_8d59_00c04fd91ac0);
+pub const RequestMakeCall: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xac48ffe0_f8c4_11d1_a030_00c04fb6809f);
 #[repr(C)]
 pub struct STnefProblem {
     pub ulComponent: u32,
@@ -3704,6 +3703,7 @@ impl ::core::clone::Clone for STnefProblemArray {
         *self
     }
 }
+pub const TAPI: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x21d6d48e_a88b_11d0_83dd_00aa003ccabd);
 #[repr(C)]
 pub struct TAPI_CUSTOMTONE {
     pub dwFrequency: u32,

@@ -879,7 +879,6 @@ pub const SYSTEM_TYPE_NT6_3_SERVER: IASOSTYPE = IASOSTYPE(12i32);
 pub const SYSTEM_TYPE_NT6_3_WORKSTATION: IASOSTYPE = IASOSTYPE(5i32);
 pub const SYSTEM_TYPE_NT6_SERVER: IASOSTYPE = IASOSTYPE(9i32);
 pub const SYSTEM_TYPE_NT6_WORKSTATION: IASOSTYPE = IASOSTYPE(2i32);
-pub const SdoMachine: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe9218ae7_9e91_11d1_bf60_0080c7846bc0);
 pub const VENDORID: ATTRIBUTEINFO = ATTRIBUTEINFO(5i32);
 pub const VENDORTYPE: ATTRIBUTEINFO = ATTRIBUTEINFO(7i32);
 pub const raAccept: RADIUS_ACTION = RADIUS_ACTION(2i32);
@@ -1663,6 +1662,7 @@ impl ::core::default::Default for RADIUS_VSA_FORMAT {
         unsafe { ::core::mem::zeroed() }
     }
 }
+pub const SdoMachine: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe9218ae7_9e91_11d1_bf60_0080c7846bc0);
 pub type PRADIUS_EXTENSION_FREE_ATTRIBUTES = ::core::option::Option<unsafe extern "system" fn(pattrs: *mut RADIUS_ATTRIBUTE)>;
 pub type PRADIUS_EXTENSION_INIT = ::core::option::Option<unsafe extern "system" fn() -> u32>;
 pub type PRADIUS_EXTENSION_PROCESS = ::core::option::Option<unsafe extern "system" fn(pattrs: *const RADIUS_ATTRIBUTE, pfaction: *mut RADIUS_ACTION) -> u32>;

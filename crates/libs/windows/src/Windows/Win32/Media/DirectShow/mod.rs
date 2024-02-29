@@ -13739,7 +13739,6 @@ pub const FORMAT_MPEG2Video: ::windows_core::GUID = ::windows_core::GUID::from_u
 pub const FORMAT_MPEG2_VIDEO: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe06d80e3_db46_11cf_b4d1_00805f6cbbea);
 pub const FORMAT_UVCH264Video: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2017be05_6629_4248_aaed_7e1a47bc9b9c);
 pub const Famine: QualityMessageType = QualityMessageType(0i32);
-pub const FilgraphManager: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe436ebb3_524f_11ce_9f53_0020af0ba770);
 pub const Flood: QualityMessageType = QualityMessageType(1i32);
 pub const GUID_TIME_MUSIC: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0574c49d_5b04_4b15_a542_ae282030117b);
 pub const GUID_TIME_REFERENCE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x93ad712b_daa0_4ffe_bc81_b0ce500fcdd9);
@@ -21537,6 +21536,7 @@ impl ::core::default::Default for FILTER_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+pub const FilgraphManager: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe436ebb3_524f_11ce_9f53_0020af0ba770);
 #[repr(C)]
 #[cfg(feature = "Win32_Media_Audio")]
 pub struct HEAACWAVEFORMAT {

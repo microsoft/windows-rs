@@ -1661,7 +1661,6 @@ pub const OPC_URI_TARGET_MODE_INTERNAL: OPC_URI_TARGET_MODE = OPC_URI_TARGET_MOD
 pub const OPC_VALIDATE_ON_LOAD: OPC_READ_FLAGS = OPC_READ_FLAGS(1i32);
 pub const OPC_WRITE_DEFAULT: OPC_WRITE_FLAGS = OPC_WRITE_FLAGS(0i32);
 pub const OPC_WRITE_FORCE_ZIP32: OPC_WRITE_FLAGS = OPC_WRITE_FLAGS(1i32);
-pub const OpcFactory: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6b2d6ba0_9f3e_4f27_920b_313cc426a39e);
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct OPC_CANONICALIZATION_METHOD(pub i32);
@@ -1849,5 +1848,6 @@ impl ::core::ops::Not for OPC_WRITE_FLAGS {
         Self(self.0.not())
     }
 }
+pub const OpcFactory: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6b2d6ba0_9f3e_4f27_920b_313cc426a39e);
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

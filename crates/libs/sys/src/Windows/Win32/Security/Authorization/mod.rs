@@ -367,9 +367,6 @@ pub const AuthzContextInfoServerContext: AUTHZ_CONTEXT_INFORMATION_CLASS = 6i32;
 pub const AuthzContextInfoSource: AUTHZ_CONTEXT_INFORMATION_CLASS = 8i32;
 pub const AuthzContextInfoUserClaims: AUTHZ_CONTEXT_INFORMATION_CLASS = 13i32;
 pub const AuthzContextInfoUserSid: AUTHZ_CONTEXT_INFORMATION_CLASS = 1i32;
-pub const AzAuthorizationStore: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xb2bcff59_a757_4b0b_a1bc_ea69981da69e);
-pub const AzBizRuleContext: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x5c2dc96f_8d51_434b_b33c_379bccae77c3);
-pub const AzPrincipalLocator: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x483afb5d_70df_4e16_abdc_a1de4d015a3e);
 pub const DENY_ACCESS: ACCESS_MODE = 3i32;
 pub const GRANT_ACCESS: ACCESS_MODE = 1i32;
 pub const INHERITED_ACCESS_ENTRY: u32 = 16u32;
@@ -1068,6 +1065,9 @@ impl ::core::clone::Clone for AUTHZ_SOURCE_SCHEMA_REGISTRATION_0 {
         *self
     }
 }
+pub const AzAuthorizationStore: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xb2bcff59_a757_4b0b_a1bc_ea69981da69e);
+pub const AzBizRuleContext: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x5c2dc96f_8d51_434b_b33c_379bccae77c3);
+pub const AzPrincipalLocator: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x483afb5d_70df_4e16_abdc_a1de4d015a3e);
 #[repr(C)]
 pub struct EXPLICIT_ACCESS_A {
     pub grfAccessPermissions: u32,

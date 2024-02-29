@@ -9265,9 +9265,6 @@ pub const FXSO_NONE: FEEDS_XML_SORT_ORDER = FEEDS_XML_SORT_ORDER(0i32);
 pub const FXSP_DOWNLOADTIME: FEEDS_XML_SORT_PROPERTY = FEEDS_XML_SORT_PROPERTY(2i32);
 pub const FXSP_NONE: FEEDS_XML_SORT_PROPERTY = FEEDS_XML_SORT_PROPERTY(0i32);
 pub const FXSP_PUBDATE: FEEDS_XML_SORT_PROPERTY = FEEDS_XML_SORT_PROPERTY(1i32);
-pub const FeedFolderWatcher: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x281001ed_7765_4cb0_84af_e9b387af01ff);
-pub const FeedWatcher: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x18a6737b_f433_4687_89bc_a1b4dfb9f123);
-pub const FeedsManager: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfaeb54c4_f66f_4806_83a0_805299f5e3ad);
 pub const IOCTL_WMP_DEVICE_CAN_SYNC: u32 = 844123479u32;
 pub const IOCTL_WMP_METADATA_ROUND_TRIP: u32 = 827346263u32;
 pub const PLUGIN_ALL_MEDIASENDTO: ::windows_core::PCWSTR = ::windows_core::w!("MediaSendTo");
@@ -9325,10 +9322,8 @@ pub const WMPGC_FLAGS_DISABLE_PLUGINS: u32 = 8u32;
 pub const WMPGC_FLAGS_IGNORE_AV_SYNC: u32 = 4u32;
 pub const WMPGC_FLAGS_SUPPRESS_DIALOGS: u32 = 2u32;
 pub const WMPGC_FLAGS_USE_CUSTOM_GRAPH: u32 = 16u32;
-pub const WMPLib: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6bf52a50_394a_11d3_b153_00c04f79faa6);
 pub const WMPOCXEVENT_BASE: u32 = 6500u32;
 pub const WMPPlugin_Caps_CannotConvertFormats: WMPPlugin_Caps = WMPPlugin_Caps(1i32);
-pub const WMPRemoteMediaServices: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdf333473_2cf7_4be2_907f_9aad5661364f);
 pub const WMPServices_StreamState_Pause: WMPServices_StreamState = WMPServices_StreamState(1i32);
 pub const WMPServices_StreamState_Play: WMPServices_StreamState = WMPServices_StreamState(2i32);
 pub const WMPServices_StreamState_Stop: WMPServices_StreamState = WMPServices_StreamState(0i32);
@@ -9414,7 +9409,6 @@ pub const WMProfile_V80_96StereoAudio: ::windows_core::GUID = ::windows_core::GU
 pub const WMProfile_V80_BESTVBRVideo: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x048439ba_309c_440e_9cb4_3dcca3756423);
 pub const WMProfile_V80_FAIRVBRVideo: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3510a862_5850_4886_835f_d78ec6a64042);
 pub const WMProfile_V80_HIGHVBRVideo: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0f10d9d3_3b04_4fb0_a3d3_88d4ac854acc);
-pub const WindowsMediaPlayer: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6bf52a52_394a_11d3_b153_00c04f79faa6);
 pub const g_szAllAuthors: ::windows_core::PCWSTR = ::windows_core::w!("AllAuthors");
 pub const g_szAllCPAlbumIDs: ::windows_core::PCWSTR = ::windows_core::w!("AllCPAlbumIDs");
 pub const g_szAllCPAlbumSubGenreIDs: ::windows_core::PCWSTR = ::windows_core::w!("AllCPAlbumSubGenreIDs");
@@ -10018,6 +10012,9 @@ impl ::core::fmt::Debug for WMPTransactionType {
         f.debug_tuple("WMPTransactionType").field(&self.0).finish()
     }
 }
+pub const FeedFolderWatcher: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x281001ed_7765_4cb0_84af_e9b387af01ff);
+pub const FeedWatcher: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x18a6737b_f433_4687_89bc_a1b4dfb9f123);
+pub const FeedsManager: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfaeb54c4_f66f_4806_83a0_805299f5e3ad);
 #[repr(C)]
 pub struct TimedLevel {
     pub frequency: [u8; 2048],
@@ -10080,6 +10077,8 @@ impl ::core::default::Default for WMPContextMenuInfo {
         unsafe { ::core::mem::zeroed() }
     }
 }
+pub const WMPLib: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6bf52a50_394a_11d3_b153_00c04f79faa6);
+pub const WMPRemoteMediaServices: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdf333473_2cf7_4be2_907f_9aad5661364f);
 #[repr(C, packed(1))]
 pub struct WMP_WMDM_METADATA_ROUND_TRIP_DEVICE2PC {
     pub dwCurrentTransactionID: u32,
@@ -10122,5 +10121,6 @@ impl ::core::default::Default for WMP_WMDM_METADATA_ROUND_TRIP_PC2DEVICE {
         unsafe { ::core::mem::zeroed() }
     }
 }
+pub const WindowsMediaPlayer: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6bf52a52_394a_11d3_b153_00c04f79faa6);
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

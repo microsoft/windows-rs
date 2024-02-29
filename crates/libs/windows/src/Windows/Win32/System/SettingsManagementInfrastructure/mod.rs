@@ -604,7 +604,6 @@ pub const OfflineMode: WcmTargetMode = WcmTargetMode(1i32);
 pub const OnlineMode: WcmTargetMode = WcmTargetMode(2i32);
 pub const ReadOnlyAccess: WcmNamespaceAccess = WcmNamespaceAccess(1i32);
 pub const ReadWriteAccess: WcmNamespaceAccess = WcmNamespaceAccess(2i32);
-pub const SettingsEngine: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9f7d7bb5_20b3_11da_81a5_0030f1642e3c);
 pub const SharedEnumeration: WcmNamespaceEnumerationFlags = WcmNamespaceEnumerationFlags(1i32);
 pub const UnknownStatus: WcmUserStatus = WcmUserStatus(0i32);
 pub const UserEnumeration: WcmNamespaceEnumerationFlags = WcmNamespaceEnumerationFlags(2i32);
@@ -767,5 +766,6 @@ impl ::core::fmt::Debug for WcmUserStatus {
         f.debug_tuple("WcmUserStatus").field(&self.0).finish()
     }
 }
+pub const SettingsEngine: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9f7d7bb5_20b3_11da_81a5_0030f1642e3c);
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

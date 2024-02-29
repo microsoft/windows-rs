@@ -3290,7 +3290,6 @@ pub const PROXY_TYPE_AUTO_DETECT: u32 = 8u32;
 pub const PROXY_TYPE_AUTO_PROXY_URL: u32 = 4u32;
 pub const PROXY_TYPE_DIRECT: u32 = 1u32;
 pub const PROXY_TYPE_PROXY: u32 = 2u32;
-pub const ProofOfPossessionCookieInfoManager: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa9927f85_a304_4390_8b23_a75f1c668600);
 pub const REDIRECT_CACHE_ENTRY: u32 = 2048u32;
 pub const REGSTR_DIAL_AUTOCONNECT: ::windows_core::PCSTR = ::windows_core::s!("AutoConnect");
 pub const REGSTR_LEASH_LEGACY_COOKIES: ::windows_core::PCSTR = ::windows_core::s!("LeashLegacyCookies");
@@ -6226,6 +6225,7 @@ impl ::core::default::Default for ProofOfPossessionCookieInfo {
         unsafe { ::core::mem::zeroed() }
     }
 }
+pub const ProofOfPossessionCookieInfoManager: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa9927f85_a304_4390_8b23_a75f1c668600);
 #[repr(C)]
 pub struct URLCACHE_ENTRY_INFO {
     pub pwszSourceUrlName: ::windows_core::PWSTR,

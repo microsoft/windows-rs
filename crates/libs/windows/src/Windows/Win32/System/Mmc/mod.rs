@@ -3089,8 +3089,6 @@ pub struct _EventConnector_Vtbl {
     pub Disconnect: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 pub const AUTO_WIDTH: i32 = -1i32;
-pub const AppEventsDHTMLConnector: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xade6444b_c91f_4e37_92a4_5bb430a33340);
-pub const Application: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x49b2791a_b1ae_4c90_9b8e_e860ba07f889);
 pub const BUTTONPRESSED: MMC_BUTTON_STATE = MMC_BUTTON_STATE(16i32);
 pub const CCM_COMMANDID_MASK_RESERVED: CCM_COMMANDID_MASK_CONSTANTS = CCM_COMMANDID_MASK_CONSTANTS(4294901760u32);
 pub const CCM_INSERTIONALLOWED_NEW: CCM_INSERTIONALLOWED = CCM_INSERTIONALLOWED(2i32);
@@ -3123,7 +3121,6 @@ pub const CCT_SNAPIN_MANAGER: DATA_OBJECT_TYPES = DATA_OBJECT_TYPES(32770i32);
 pub const CCT_UNINITIALIZED: DATA_OBJECT_TYPES = DATA_OBJECT_TYPES(65535i32);
 pub const CHECKED: MMC_BUTTON_STATE = MMC_BUTTON_STATE(2i32);
 pub const COMBOBOXBAR: MMC_CONTROL_TYPE = MMC_CONTROL_TYPE(2i32);
-pub const ConsolePower: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf0285374_dff1_11d3_b433_00c04f8ecd78);
 pub const DocumentMode_Author: _DocumentMode = _DocumentMode(0i32);
 pub const DocumentMode_User: _DocumentMode = _DocumentMode(1i32);
 pub const DocumentMode_User_MDI: _DocumentMode = _DocumentMode(2i32);
@@ -3202,7 +3199,6 @@ pub const MMCN_SELECT: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32789i32);
 pub const MMCN_SHOW: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32790i32);
 pub const MMCN_SNAPINHELP: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32792i32);
 pub const MMCN_VIEW_CHANGE: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32791i32);
-pub const MMCVersionInfo: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd6fedb1d_cf21_4bd9_af3b_c5468e9c6684);
 pub const MMC_ACTION_ID: MMC_ACTION_TYPE = MMC_ACTION_TYPE(0i32);
 pub const MMC_ACTION_LINK: MMC_ACTION_TYPE = MMC_ACTION_TYPE(1i32);
 pub const MMC_ACTION_SCRIPT: MMC_ACTION_TYPE = MMC_ACTION_TYPE(2i32);
@@ -3585,6 +3581,8 @@ impl ::core::fmt::Debug for _ViewOptions {
         f.debug_tuple("_ViewOptions").field(&self.0).finish()
     }
 }
+pub const AppEventsDHTMLConnector: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xade6444b_c91f_4e37_92a4_5bb430a33340);
+pub const Application: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x49b2791a_b1ae_4c90_9b8e_e860ba07f889);
 #[repr(C)]
 pub struct CONTEXTMENUITEM {
     pub strName: ::windows_core::PWSTR,
@@ -3654,6 +3652,7 @@ impl ::core::default::Default for CONTEXTMENUITEM2 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+pub const ConsolePower: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf0285374_dff1_11d3_b433_00c04f8ecd78);
 #[repr(C)]
 pub struct MENUBUTTONDATA {
     pub idCommand: i32,
@@ -3719,6 +3718,7 @@ impl ::core::default::Default for MMCBUTTON {
         unsafe { ::core::mem::zeroed() }
     }
 }
+pub const MMCVersionInfo: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd6fedb1d_cf21_4bd9_af3b_c5468e9c6684);
 #[repr(C)]
 pub struct MMC_COLUMN_DATA {
     pub nColIndex: i32,

@@ -299,8 +299,6 @@ pub const FH_TARGET_NAME: FH_TARGET_PROPERTY_TYPE = FH_TARGET_PROPERTY_TYPE(0i32
 pub const FH_TARGET_PART_OF_LIBRARY: FH_DEVICE_VALIDATION_RESULT = FH_DEVICE_VALIDATION_RESULT(5i32);
 pub const FH_TARGET_URL: FH_TARGET_PROPERTY_TYPE = FH_TARGET_PROPERTY_TYPE(1i32);
 pub const FH_VALID_TARGET: FH_DEVICE_VALIDATION_RESULT = FH_DEVICE_VALIDATION_RESULT(6i32);
-pub const FhConfigMgr: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xed43bb3c_09e9_498a_9df6_2177244c6db4);
-pub const FhReassociation: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4d728e35_16fa_4320_9e8b_bfd7100a8846);
 pub const MAX_BACKUP_STATUS: FH_BACKUP_STATUS = FH_BACKUP_STATUS(4i32);
 pub const MAX_LOCAL_POLICY: FH_LOCAL_POLICY_TYPE = FH_LOCAL_POLICY_TYPE(3i32);
 pub const MAX_PROTECTED_ITEM_CATEGORY: FH_PROTECTED_ITEM_CATEGORY = FH_PROTECTED_ITEM_CATEGORY(2i32);
@@ -395,5 +393,7 @@ impl ::core::fmt::Debug for FhBackupStopReason {
         f.debug_tuple("FhBackupStopReason").field(&self.0).finish()
     }
 }
+pub const FhConfigMgr: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xed43bb3c_09e9_498a_9df6_2177244c6db4);
+pub const FhReassociation: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4d728e35_16fa_4320_9e8b_bfd7100a8846);
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

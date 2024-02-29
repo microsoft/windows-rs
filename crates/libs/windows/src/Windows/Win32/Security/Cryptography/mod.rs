@@ -3728,10 +3728,6 @@ pub const CALG_THIRDPARTY_KEY_EXCHANGE: ALG_ID = ALG_ID(45056u32);
 pub const CALG_THIRDPARTY_SIGNATURE: ALG_ID = ALG_ID(12288u32);
 pub const CALG_TLS1PRF: ALG_ID = ALG_ID(32778u32);
 pub const CALG_TLS1_MASTER: ALG_ID = ALG_ID(19462u32);
-pub const CCertSrvSetup: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x961f180f_f55c_413d_a9b3_7d2af4d8e42f);
-pub const CCertSrvSetupKeyInformation: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x38373906_5433_4633_b0fb_29b7e78262e1);
-pub const CCertificateEnrollmentPolicyServerSetup: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xafe2fa32_41b1_459d_a5de_49add8a72182);
-pub const CCertificateEnrollmentServerSetup: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9902f3bc_88af_4cf8_ae62_7140531552b6);
 pub const CERT_ACCESS_STATE_GP_SYSTEM_STORE_FLAG: u32 = 8u32;
 pub const CERT_ACCESS_STATE_LM_SYSTEM_STORE_FLAG: u32 = 4u32;
 pub const CERT_ACCESS_STATE_PROP_ID: u32 = 14u32;
@@ -4586,7 +4582,6 @@ pub const CMC_STATUS_NO_SUPPORT: u32 = 4u32;
 pub const CMC_STATUS_PENDING: u32 = 3u32;
 pub const CMC_STATUS_SUCCESS: u32 = 0u32;
 pub const CMC_TAGGED_CERT_REQUEST_CHOICE: u32 = 1u32;
-pub const CMSCEPSetup: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xaa4f5c02_8e7c_49c4_94fa_67a5cc5eadb4);
 pub const CMSG_ATTR_CERT_COUNT_PARAM: u32 = 31u32;
 pub const CMSG_ATTR_CERT_PARAM: u32 = 32u32;
 pub const CMSG_AUTHENTICATED_ATTRIBUTES_FLAG: u32 = 8u32;
@@ -9736,6 +9731,10 @@ impl ::core::default::Default for BCryptBufferDesc {
         unsafe { ::core::mem::zeroed() }
     }
 }
+pub const CCertSrvSetup: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x961f180f_f55c_413d_a9b3_7d2af4d8e42f);
+pub const CCertSrvSetupKeyInformation: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x38373906_5433_4633_b0fb_29b7e78262e1);
+pub const CCertificateEnrollmentPolicyServerSetup: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xafe2fa32_41b1_459d_a5de_49add8a72182);
+pub const CCertificateEnrollmentServerSetup: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9902f3bc_88af_4cf8_ae62_7140531552b6);
 #[repr(C)]
 pub struct CERTIFICATE_CHAIN_BLOB {
     pub certCount: u32,
@@ -13396,6 +13395,7 @@ impl ::core::default::Default for CMC_TAGGED_REQUEST_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+pub const CMSCEPSetup: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xaa4f5c02_8e7c_49c4_94fa_67a5cc5eadb4);
 #[repr(C)]
 pub struct CMSG_CMS_RECIPIENT_INFO {
     pub dwRecipientChoice: u32,

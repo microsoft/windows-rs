@@ -7,9 +7,6 @@
 ::windows_targets::link!("mapi32.dll" "system" fn OpenIMsgSession(lpmalloc : * mut::core::ffi::c_void, ulflags : u32, lppmsgsess : *mut LPMSGSESS) -> i32);
 #[cfg(feature = "Win32_System_AddressBook")]
 ::windows_targets::link!("mapi32.dll" "system" fn SetAttribIMsgOnIStg(lpobject : *mut ::core::ffi::c_void, lpproptags : *mut super::super::System::AddressBook:: SPropTagArray, lppropattrs : *mut SPropAttrArray, lpppropproblems : *mut *mut super::super::System::AddressBook:: SPropProblemArray) -> ::windows_sys::core::HRESULT);
-pub const BlockRange: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xb507ca27_2204_11dd_966a_001aa01bbc58);
-pub const BlockRangeList: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xb507ca28_2204_11dd_966a_001aa01bbc58);
-pub const BootOptions: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x2c941fce_975b_59be_a960_9a2a262853a5);
 pub const CATID_SMTP_DNSRESOLVERRECORDSINK: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xbd0b4366_8e03_11d2_94f6_00c04f79f1d6);
 pub const CATID_SMTP_DSN: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x22b55731_f5f8_4d23_bd8f_87b52371a73a);
 pub const CATID_SMTP_GET_AUX_DOMAIN_INFO_FLAGS: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x84ff368a_fab3_43d7_bcdf_692c5b46e6b1);
@@ -207,11 +204,6 @@ pub const Emulation144MFloppy: EmulationType = 2i32;
 pub const Emulation288MFloppy: EmulationType = 3i32;
 pub const EmulationHardDisk: EmulationType = 4i32;
 pub const EmulationNone: EmulationType = 0i32;
-pub const EnumFsiItems: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x2c941fc6_975b_59be_a960_9a2a262853a5);
-pub const EnumProgressItems: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x2c941fca_975b_59be_a960_9a2a262853a5);
-pub const FileSystemImageResult: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x2c941fcc_975b_59be_a960_9a2a262853a5);
-pub const FsiDirectoryItem: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x2c941fc8_975b_59be_a960_9a2a262853a5);
-pub const FsiFileItem: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x2c941fc7_975b_59be_a960_9a2a262853a5);
 pub const FsiFileSystemISO9660: FsiFileSystems = 1i32;
 pub const FsiFileSystemJoliet: FsiFileSystems = 2i32;
 pub const FsiFileSystemNone: FsiFileSystems = 0i32;
@@ -220,8 +212,6 @@ pub const FsiFileSystemUnknown: FsiFileSystems = 1073741824i32;
 pub const FsiItemDirectory: FsiItemType = 1i32;
 pub const FsiItemFile: FsiItemType = 2i32;
 pub const FsiItemNotFound: FsiItemType = 0i32;
-pub const FsiNamedStreams: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xc6b6f8ed_6d19_44b4_b539_b159b793a32d);
-pub const FsiStream: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x2c941fcd_975b_59be_a960_9a2a262853a5);
 pub const GUID_SMTPSVC_SOURCE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x1b3c0666_e470_11d1_aa67_00c04fa345f6);
 pub const GUID_SMTP_SOURCE_TYPE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xfb65c4dc_e468_11d1_aa67_00c04fa345f6);
 pub const IMAPI2FS_BOOT_ENTRY_COUNT_MAX: u32 = 32u32;
@@ -580,26 +570,6 @@ pub const MP_STATUS_CATEGORIZED: u32 = 5u32;
 pub const MP_STATUS_RETRY: u32 = 1u32;
 pub const MP_STATUS_SUBMITTED: u32 = 4u32;
 pub const MP_STATUS_SUCCESS: u32 = 0u32;
-pub const MSDiscMasterObj: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x520cca63_51a5_11d3_9144_00104ba11c5e);
-pub const MSDiscRecorderObj: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x520cca61_51a5_11d3_9144_00104ba11c5e);
-pub const MSEnumDiscRecordersObj: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x8a03567a_63cb_4ba8_baf6_52119816d1ef);
-pub const MsftDiscFormat2Data: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x2735412a_7f64_5b0f_8f00_5d77afbe261e);
-pub const MsftDiscFormat2Erase: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x2735412b_7f64_5b0f_8f00_5d77afbe261e);
-pub const MsftDiscFormat2RawCD: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x27354128_7f64_5b0f_8f00_5d77afbe261e);
-pub const MsftDiscFormat2TrackAtOnce: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x27354129_7f64_5b0f_8f00_5d77afbe261e);
-pub const MsftDiscMaster2: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x2735412e_7f64_5b0f_8f00_5d77afbe261e);
-pub const MsftDiscRecorder2: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x2735412d_7f64_5b0f_8f00_5d77afbe261e);
-pub const MsftFileSystemImage: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x2c941fc5_975b_59be_a960_9a2a262853a5);
-pub const MsftIsoImageManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xceee3b62_8f56_4056_869b_ef16917e3efc);
-pub const MsftMultisessionRandomWrite: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xb507ca24_2204_11dd_966a_001aa01bbc58);
-pub const MsftMultisessionSequential: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x27354122_7f64_5b0f_8f00_5d77afbe261e);
-pub const MsftRawCDImageCreator: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x25983561_9d65_49ce_b335_40630d901227);
-pub const MsftStreamConcatenate: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x27354125_7f64_5b0f_8f00_5d77afbe261e);
-pub const MsftStreamInterleave: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x27354124_7f64_5b0f_8f00_5d77afbe261e);
-pub const MsftStreamPrng001: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x27354126_7f64_5b0f_8f00_5d77afbe261e);
-pub const MsftStreamZero: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x27354127_7f64_5b0f_8f00_5d77afbe261e);
-pub const MsftWriteEngine2: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x2735412c_7f64_5b0f_8f00_5d77afbe261e);
-pub const MsftWriteSpeedDescriptor: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x27354123_7f64_5b0f_8f00_5d77afbe261e);
 pub const NMP_PROCESS_CONTROL: u32 = 2u32;
 pub const NMP_PROCESS_MODERATOR: u32 = 4u32;
 pub const NMP_PROCESS_POST: u32 = 1u32;
@@ -607,8 +577,6 @@ pub const PlatformEFI: PlatformId = 239i32;
 pub const PlatformMac: PlatformId = 2i32;
 pub const PlatformPowerPC: PlatformId = 1i32;
 pub const PlatformX86: PlatformId = 0i32;
-pub const ProgressItem: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x2c941fcb_975b_59be_a960_9a2a262853a5);
-pub const ProgressItems: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x2c941fc9_975b_59be_a960_9a2a262853a5);
 pub const RECORDER_BURNING: DISC_RECORDER_STATE_FLAGS = 2u32;
 pub const RECORDER_CDR: RECORDER_TYPES = 1i32;
 pub const RECORDER_CDRW: RECORDER_TYPES = 2i32;
@@ -640,12 +608,6 @@ pub const RP_REMOTE_MTA_NO_DSN: u32 = 524288u32;
 pub const RP_UNRESOLVED: u32 = 4144u32;
 pub const RP_VOLATILE_FLAGS_MASK: u32 = 4026531840u32;
 pub const SZ_PROGID_SMTPCAT: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("Smtp.Cat");
-pub const tagIMMPID_CPV_STRUCT: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xa2a76b2a_e52d_11d1_aa64_00c04fa35b82);
-pub const tagIMMPID_MPV_STRUCT: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xcbe69706_c9bd_11d1_9ff2_00c04fa37348);
-pub const tagIMMPID_MP_STRUCT: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x13384cf0_b3c4_11d1_aa92_00aa006bc80b);
-pub const tagIMMPID_NMP_STRUCT: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x7433a9aa_20e2_11d2_94d6_00c04fa379f1);
-pub const tagIMMPID_RPV_STRUCT: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x79e82049_d320_11d1_9ff4_00c04fa37348);
-pub const tagIMMPID_RP_STRUCT: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x79e82048_d320_11d1_9ff4_00c04fa37348);
 pub type DISC_RECORDER_STATE_FLAGS = u32;
 pub type EmulationType = i32;
 pub type FsiFileSystems = i32;
@@ -675,6 +637,16 @@ pub type MEDIA_FLAGS = i32;
 pub type MEDIA_TYPES = i32;
 pub type PlatformId = i32;
 pub type RECORDER_TYPES = i32;
+pub const BlockRange: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xb507ca27_2204_11dd_966a_001aa01bbc58);
+pub const BlockRangeList: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xb507ca28_2204_11dd_966a_001aa01bbc58);
+pub const BootOptions: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x2c941fce_975b_59be_a960_9a2a262853a5);
+pub const EnumFsiItems: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x2c941fc6_975b_59be_a960_9a2a262853a5);
+pub const EnumProgressItems: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x2c941fca_975b_59be_a960_9a2a262853a5);
+pub const FileSystemImageResult: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x2c941fcc_975b_59be_a960_9a2a262853a5);
+pub const FsiDirectoryItem: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x2c941fc8_975b_59be_a960_9a2a262853a5);
+pub const FsiFileItem: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x2c941fc7_975b_59be_a960_9a2a262853a5);
+pub const FsiNamedStreams: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xc6b6f8ed_6d19_44b4_b539_b159b793a32d);
+pub const FsiStream: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x2c941fcd_975b_59be_a960_9a2a262853a5);
 #[repr(C)]
 pub struct IMMP_MPV_STORE_DRIVER_HANDLE {
     pub guidSignature: ::windows_sys::core::GUID,
@@ -686,6 +658,28 @@ impl ::core::clone::Clone for IMMP_MPV_STORE_DRIVER_HANDLE {
     }
 }
 pub type LPMSGSESS = isize;
+pub const MSDiscMasterObj: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x520cca63_51a5_11d3_9144_00104ba11c5e);
+pub const MSDiscRecorderObj: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x520cca61_51a5_11d3_9144_00104ba11c5e);
+pub const MSEnumDiscRecordersObj: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x8a03567a_63cb_4ba8_baf6_52119816d1ef);
+pub const MsftDiscFormat2Data: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x2735412a_7f64_5b0f_8f00_5d77afbe261e);
+pub const MsftDiscFormat2Erase: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x2735412b_7f64_5b0f_8f00_5d77afbe261e);
+pub const MsftDiscFormat2RawCD: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x27354128_7f64_5b0f_8f00_5d77afbe261e);
+pub const MsftDiscFormat2TrackAtOnce: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x27354129_7f64_5b0f_8f00_5d77afbe261e);
+pub const MsftDiscMaster2: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x2735412e_7f64_5b0f_8f00_5d77afbe261e);
+pub const MsftDiscRecorder2: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x2735412d_7f64_5b0f_8f00_5d77afbe261e);
+pub const MsftFileSystemImage: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x2c941fc5_975b_59be_a960_9a2a262853a5);
+pub const MsftIsoImageManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xceee3b62_8f56_4056_869b_ef16917e3efc);
+pub const MsftMultisessionRandomWrite: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xb507ca24_2204_11dd_966a_001aa01bbc58);
+pub const MsftMultisessionSequential: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x27354122_7f64_5b0f_8f00_5d77afbe261e);
+pub const MsftRawCDImageCreator: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x25983561_9d65_49ce_b335_40630d901227);
+pub const MsftStreamConcatenate: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x27354125_7f64_5b0f_8f00_5d77afbe261e);
+pub const MsftStreamInterleave: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x27354124_7f64_5b0f_8f00_5d77afbe261e);
+pub const MsftStreamPrng001: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x27354126_7f64_5b0f_8f00_5d77afbe261e);
+pub const MsftStreamZero: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x27354127_7f64_5b0f_8f00_5d77afbe261e);
+pub const MsftWriteEngine2: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x2735412c_7f64_5b0f_8f00_5d77afbe261e);
+pub const MsftWriteSpeedDescriptor: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x27354123_7f64_5b0f_8f00_5d77afbe261e);
+pub const ProgressItem: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x2c941fcb_975b_59be_a960_9a2a262853a5);
+pub const ProgressItems: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x2c941fc9_975b_59be_a960_9a2a262853a5);
 #[repr(C)]
 pub struct SPropAttrArray {
     pub cValues: u32,
@@ -697,6 +691,7 @@ impl ::core::clone::Clone for SPropAttrArray {
         *self
     }
 }
+pub const tagIMMPID_CPV_STRUCT: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xa2a76b2a_e52d_11d1_aa64_00c04fa35b82);
 #[repr(C)]
 pub struct tagIMMPID_GUIDLIST_ITEM {
     pub pguid: *const ::windows_sys::core::GUID,
@@ -709,4 +704,9 @@ impl ::core::clone::Clone for tagIMMPID_GUIDLIST_ITEM {
         *self
     }
 }
+pub const tagIMMPID_MPV_STRUCT: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xcbe69706_c9bd_11d1_9ff2_00c04fa37348);
+pub const tagIMMPID_MP_STRUCT: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x13384cf0_b3c4_11d1_aa92_00aa006bc80b);
+pub const tagIMMPID_NMP_STRUCT: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x7433a9aa_20e2_11d2_94d6_00c04fa379f1);
+pub const tagIMMPID_RPV_STRUCT: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x79e82049_d320_11d1_9ff4_00c04fa37348);
+pub const tagIMMPID_RP_STRUCT: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x79e82048_d320_11d1_9ff4_00c04fa37348);
 pub type MSGCALLRELEASE = ::core::option::Option<unsafe extern "system" fn(ulcallerdata: u32, lpmessage: *mut ::core::ffi::c_void)>;

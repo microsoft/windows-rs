@@ -223,7 +223,6 @@ pub struct ITpmVirtualSmartCardManagerStatusCallback_Vtbl {
     pub ReportProgress: unsafe extern "system" fn(*mut ::core::ffi::c_void, TPMVSCMGR_STATUS) -> ::windows_core::HRESULT,
     pub ReportError: unsafe extern "system" fn(*mut ::core::ffi::c_void, TPMVSCMGR_ERROR) -> ::windows_core::HRESULT,
 }
-pub const RemoteTpmVirtualSmartCardManager: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x152ea2a8_70dc_4c59_8b2a_32aa3ca0dcac);
 pub const TPMVSCMGR_ERROR_CARD_CREATE: TPMVSCMGR_ERROR = TPMVSCMGR_ERROR(17i32);
 pub const TPMVSCMGR_ERROR_CARD_DESTROY: TPMVSCMGR_ERROR = TPMVSCMGR_ERROR(18i32);
 pub const TPMVSCMGR_ERROR_GENERATE_FILESYSTEM: TPMVSCMGR_ERROR = TPMVSCMGR_ERROR(16i32);
@@ -261,7 +260,6 @@ pub const TPMVSC_ATTESTATION_AIK_AND_CERTIFICATE: TPMVSC_ATTESTATION_TYPE = TPMV
 pub const TPMVSC_ATTESTATION_AIK_ONLY: TPMVSC_ATTESTATION_TYPE = TPMVSC_ATTESTATION_TYPE(1i32);
 pub const TPMVSC_ATTESTATION_NONE: TPMVSC_ATTESTATION_TYPE = TPMVSC_ATTESTATION_TYPE(0i32);
 pub const TPMVSC_DEFAULT_ADMIN_ALGORITHM_ID: u32 = 130u32;
-pub const TpmVirtualSmartCardManager: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x16a18e86_7f6e_4c20_ad89_4ffc0db7a96a);
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TPMVSCMGR_ERROR(pub i32);
@@ -295,5 +293,7 @@ impl ::core::fmt::Debug for TPMVSC_ATTESTATION_TYPE {
         f.debug_tuple("TPMVSC_ATTESTATION_TYPE").field(&self.0).finish()
     }
 }
+pub const RemoteTpmVirtualSmartCardManager: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x152ea2a8_70dc_4c59_8b2a_32aa3ca0dcac);
+pub const TpmVirtualSmartCardManager: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x16a18e86_7f6e_4c20_ad89_4ffc0db7a96a);
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

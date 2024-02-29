@@ -1362,13 +1362,6 @@ pub struct IUIAnimationVariableIntegerChangeHandler2_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub OnIntegerValueChanged: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *const i32, *const i32, u32) -> ::windows_core::HRESULT,
 }
-pub const UIAnimationManager: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4c1fc63a_695c_47e8_a339_1a194be3d0b8);
-pub const UIAnimationManager2: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd25d8842_8884_4a4a_b321_091314379bdd);
-pub const UIAnimationTimer: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbfcd4a0c_06b6_4384_b768_0daa792c380e);
-pub const UIAnimationTransitionFactory: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8a9b1cdd_fcd7_419c_8b44_42fd17db1887);
-pub const UIAnimationTransitionFactory2: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x84302f97_7f7b_4040_b190_72ac9d18e420);
-pub const UIAnimationTransitionLibrary: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1d6322ad_aa85_4ef5_a828_86d71067d145);
-pub const UIAnimationTransitionLibrary2: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x812f944a_c5c8_4cd9_b0a6_b3da802f228d);
 pub const UI_ANIMATION_DEPENDENCY_DURATION: UI_ANIMATION_DEPENDENCIES = UI_ANIMATION_DEPENDENCIES(8i32);
 pub const UI_ANIMATION_DEPENDENCY_FINAL_VALUE: UI_ANIMATION_DEPENDENCIES = UI_ANIMATION_DEPENDENCIES(2i32);
 pub const UI_ANIMATION_DEPENDENCY_FINAL_VELOCITY: UI_ANIMATION_DEPENDENCIES = UI_ANIMATION_DEPENDENCIES(4i32);
@@ -1577,6 +1570,13 @@ impl ::core::fmt::Debug for UI_ANIMATION_UPDATE_RESULT {
         f.debug_tuple("UI_ANIMATION_UPDATE_RESULT").field(&self.0).finish()
     }
 }
+pub const UIAnimationManager: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4c1fc63a_695c_47e8_a339_1a194be3d0b8);
+pub const UIAnimationManager2: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd25d8842_8884_4a4a_b321_091314379bdd);
+pub const UIAnimationTimer: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbfcd4a0c_06b6_4384_b768_0daa792c380e);
+pub const UIAnimationTransitionFactory: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8a9b1cdd_fcd7_419c_8b44_42fd17db1887);
+pub const UIAnimationTransitionFactory2: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x84302f97_7f7b_4040_b190_72ac9d18e420);
+pub const UIAnimationTransitionLibrary: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1d6322ad_aa85_4ef5_a828_86d71067d145);
+pub const UIAnimationTransitionLibrary2: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x812f944a_c5c8_4cd9_b0a6_b3da802f228d);
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UI_ANIMATION_KEYFRAME(pub isize);

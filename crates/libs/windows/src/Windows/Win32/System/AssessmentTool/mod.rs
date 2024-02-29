@@ -377,12 +377,6 @@ pub struct IWinSATInitiateEvents_Vtbl {
     pub WinSATComplete: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::HRESULT, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
     pub WinSATUpdate: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
 }
-pub const CAccessiblityWinSAT: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6e18f9c6_a3eb_495a_89b7_956482e19f7a);
-pub const CInitiateWinSAT: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x489331dc_f5e0_4528_9fda_45331bf4a571);
-pub const CProvideWinSATVisuals: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9f377d7e_e551_44f8_9f94_9db392b03b7b);
-pub const CQueryAllWinSAT: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x05df8d13_c355_47f4_a11e_851b338cefb8);
-pub const CQueryOEMWinSATCustomization: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc47a41b7_b729_424f_9af9_5cb3934f2dfa);
-pub const CQueryWinSAT: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf3bdfad3_f276_49e9_9b17_c474f48f0764);
 pub const WINSAT_ASSESSMENT_CPU: WINSAT_ASSESSMENT_TYPE = WINSAT_ASSESSMENT_TYPE(1i32);
 pub const WINSAT_ASSESSMENT_D3D: WINSAT_ASSESSMENT_TYPE = WINSAT_ASSESSMENT_TYPE(3i32);
 pub const WINSAT_ASSESSMENT_DISK: WINSAT_ASSESSMENT_TYPE = WINSAT_ASSESSMENT_TYPE(2i32);
@@ -445,5 +439,11 @@ impl ::core::fmt::Debug for WINSAT_OEM_CUSTOMIZATION_STATE {
         f.debug_tuple("WINSAT_OEM_CUSTOMIZATION_STATE").field(&self.0).finish()
     }
 }
+pub const CAccessiblityWinSAT: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6e18f9c6_a3eb_495a_89b7_956482e19f7a);
+pub const CInitiateWinSAT: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x489331dc_f5e0_4528_9fda_45331bf4a571);
+pub const CProvideWinSATVisuals: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9f377d7e_e551_44f8_9f94_9db392b03b7b);
+pub const CQueryAllWinSAT: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x05df8d13_c355_47f4_a11e_851b338cefb8);
+pub const CQueryOEMWinSATCustomization: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc47a41b7_b729_424f_9af9_5cb3934f2dfa);
+pub const CQueryWinSAT: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf3bdfad3_f276_49e9_9b17_c474f48f0764);
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

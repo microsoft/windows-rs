@@ -3327,7 +3327,6 @@ pub const RTCCET_NETWORK_QUALITY_CHANGE: RTC_CLIENT_EVENT_TYPE = RTC_CLIENT_EVEN
 pub const RTCCET_VOLUME_CHANGE: RTC_CLIENT_EVENT_TYPE = RTC_CLIENT_EVENT_TYPE(0i32);
 pub const RTCCS_FAIL_ON_REDIRECT: u32 = 2u32;
 pub const RTCCS_FORCE_PROFILE: u32 = 1u32;
-pub const RTCClient: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7a42ea29_a2b7_40c4_b091_f6f024aa89be);
 pub const RTCEF_ALL: u32 = 33554431u32;
 pub const RTCEF_BUDDY: u32 = 256u32;
 pub const RTCEF_BUDDY2: u32 = 262144u32;
@@ -4181,6 +4180,7 @@ impl ::core::fmt::Debug for RTC_WATCHER_STATE {
         f.debug_tuple("RTC_WATCHER_STATE").field(&self.0).finish()
     }
 }
+pub const RTCClient: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7a42ea29_a2b7_40c4_b091_f6f024aa89be);
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub struct TRANSPORT_SETTING {

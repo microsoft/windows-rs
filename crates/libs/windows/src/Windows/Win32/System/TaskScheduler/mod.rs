@@ -3925,9 +3925,6 @@ pub const TASK_TUESDAY: u32 = 4u32;
 pub const TASK_UPDATE: TASK_CREATION = TASK_CREATION(4i32);
 pub const TASK_VALIDATE_ONLY: TASK_CREATION = TASK_CREATION(1i32);
 pub const TASK_WEDNESDAY: u32 = 8u32;
-pub const TaskHandlerPS: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf2a69db7_da2c_4352_9066_86fee6dacac9);
-pub const TaskHandlerStatusPS: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9f15266d_d7ba_48f0_93c1_e6895f6fe5ac);
-pub const TaskScheduler: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0f87369f_a4e5_4cfc_bd3e_73e6154572dd);
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TASKPAGE(pub i32);
@@ -4227,6 +4224,9 @@ impl ::core::default::Default for TRIGGER_TYPE_UNION {
         unsafe { ::core::mem::zeroed() }
     }
 }
+pub const TaskHandlerPS: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf2a69db7_da2c_4352_9066_86fee6dacac9);
+pub const TaskHandlerStatusPS: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9f15266d_d7ba_48f0_93c1_e6895f6fe5ac);
+pub const TaskScheduler: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0f87369f_a4e5_4cfc_bd3e_73e6154572dd);
 #[repr(C)]
 pub struct WEEKLY {
     pub WeeksInterval: u16,

@@ -106,8 +106,6 @@ pub const GPS_READWRITE: GETPROPERTYSTOREFLAGS = 2i32;
 pub const GPS_TEMPORARY: GETPROPERTYSTOREFLAGS = 4i32;
 pub const GPS_VOLATILEPROPERTIES: GETPROPERTYSTOREFLAGS = 2048i32;
 pub const GPS_VOLATILEPROPERTIESONLY: GETPROPERTYSTOREFLAGS = 4096i32;
-pub const InMemoryPropertyStore: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x9a02e012_6303_4e1e_b9a1_630f802592c5);
-pub const InMemoryPropertyStoreMarshalByValue: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xd4ca0e2d_6da7_4b75_a97c_5f306f0eaedc);
 pub const PDAT_AVERAGE: PROPDESC_AGGREGATION_TYPE = 3i32;
 pub const PDAT_DATERANGE: PROPDESC_AGGREGATION_TYPE = 4i32;
 pub const PDAT_DEFAULT: PROPDESC_AGGREGATION_TYPE = 0i32;
@@ -248,7 +246,6 @@ pub const PUIFNF_MNEMONIC: PROPERTYUI_NAME_FLAGS = 1i32;
 pub const PUIF_DEFAULT: PROPERTYUI_FLAGS = 0i32;
 pub const PUIF_NOLABELININFOTIP: PROPERTYUI_FLAGS = 2i32;
 pub const PUIF_RIGHTALIGN: PROPERTYUI_FLAGS = 1i32;
-pub const PropertySystem: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xb8967f85_58ae_4f46_9fb2_5d7904798f4b);
 pub const SESF_ALL_FLAGS: SYNC_ENGINE_STATE_FLAGS = 511i32;
 pub const SESF_AUTHENTICATION_ERROR: SYNC_ENGINE_STATE_FLAGS = 4i32;
 pub const SESF_NONE: SYNC_ENGINE_STATE_FLAGS = 0i32;
@@ -296,6 +293,8 @@ pub type PSC_STATE = i32;
 pub type SYNC_ENGINE_STATE_FLAGS = i32;
 pub type SYNC_TRANSFER_STATUS = i32;
 pub type _PERSIST_SPROPSTORE_FLAGS = i32;
+pub const InMemoryPropertyStore: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x9a02e012_6303_4e1e_b9a1_630f802592c5);
+pub const InMemoryPropertyStoreMarshalByValue: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xd4ca0e2d_6da7_4b75_a97c_5f306f0eaedc);
 pub type PCUSERIALIZEDPROPSTORAGE = isize;
 #[repr(C)]
 pub struct PROPERTYKEY {
@@ -329,4 +328,5 @@ impl ::core::clone::Clone for PROPPRG {
         *self
     }
 }
+pub const PropertySystem: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xb8967f85_58ae_4f46_9fb2_5d7904798f4b);
 pub type SERIALIZEDPROPSTORAGE = isize;

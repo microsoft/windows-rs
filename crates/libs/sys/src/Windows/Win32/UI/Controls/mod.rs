@@ -1393,7 +1393,6 @@ pub const I_IMAGENONE: i32 = -2i32;
 pub const I_INDENTCALLBACK: i32 = -1i32;
 pub const I_ONE_OR_MORE: TVITEMEXW_CHILDREN = 1i32;
 pub const I_ZERO: TVITEMEXW_CHILDREN = 0i32;
-pub const ImageList: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x7c476ba2_02b1_48f4_8048_b24619ddc058);
 pub const LBCP_BORDER_HSCROLL: LISTBOXPARTS = 1i32;
 pub const LBCP_BORDER_HVSCROLL: LISTBOXPARTS = 2i32;
 pub const LBCP_BORDER_NOSCROLL: LISTBOXPARTS = 3i32;
@@ -5351,6 +5350,7 @@ impl ::core::clone::Clone for INTLIST {
         *self
     }
 }
+pub const ImageList: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x7c476ba2_02b1_48f4_8048_b24619ddc058);
 #[repr(C)]
 pub struct LHITTESTINFO {
     pub pt: super::super::Foundation::POINT,

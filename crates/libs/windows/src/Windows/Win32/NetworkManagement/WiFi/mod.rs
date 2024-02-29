@@ -1477,7 +1477,6 @@ pub const DevProp_PciRootBus_SupportedSpeedsAndModes_Pci_X_133Mhz: DEVPROP_PCIRO
 pub const DevProp_PciRootBus_SupportedSpeedsAndModes_Pci_X_266Mhz: DEVPROP_PCIROOTBUS_SUPPORTEDSPEEDSANDMODES = DEVPROP_PCIROOTBUS_SUPPORTEDSPEEDSANDMODES(16u32);
 pub const DevProp_PciRootBus_SupportedSpeedsAndModes_Pci_X_533Mhz: DEVPROP_PCIROOTBUS_SUPPORTEDSPEEDSANDMODES = DEVPROP_PCIROOTBUS_SUPPORTEDSPEEDSANDMODES(32u32);
 pub const DevProp_PciRootBus_SupportedSpeedsAndModes_Pci_X_66Mhz: DEVPROP_PCIROOTBUS_SUPPORTEDSPEEDSANDMODES = DEVPROP_PCIROOTBUS_SUPPORTEDSPEEDSANDMODES(4u32);
-pub const Dot11AdHocManager: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdd06a84f_83bd_4d01_8ab9_2389fea0869e);
 pub const GUID_AEPSERVICE_WIFIDIRECT_DEVICE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcc29827c_9caf_4928_99a9_18f7c2381389);
 pub const GUID_DEVINTERFACE_ASP_INFRA_DEVICE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xff823995_7a72_4c80_8757_c67ee13d1a49);
 pub const GUID_DEVINTERFACE_WIFIDIRECT_DEVICE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x439b20af_8955_405b_99f0_a62af0c68d43);
@@ -12098,6 +12097,7 @@ impl ::core::default::Default for DOT11_WPS_DEVICE_NAME {
         unsafe { ::core::mem::zeroed() }
     }
 }
+pub const Dot11AdHocManager: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdd06a84f_83bd_4d01_8ab9_2389fea0869e);
 #[repr(C)]
 pub struct L2_NOTIFICATION_DATA {
     pub NotificationSource: WLAN_NOTIFICATION_SOURCES,

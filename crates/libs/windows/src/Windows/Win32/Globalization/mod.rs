@@ -8602,9 +8602,6 @@ pub const CAL_THAI: u32 = 7u32;
 pub const CAL_UMALQURA: u32 = 23u32;
 pub const CAL_USE_CP_ACP: u32 = 1073741824u32;
 pub const CANITER_SKIP_ZEROES: u32 = 1u32;
-pub const CMLangConvertCharset: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd66d6f99_cdaa_11d0_b822_00c04fc9b31f);
-pub const CMLangString: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc04d65cf_b70d_11d0_b188_00aa0038c969);
-pub const CMultiLanguage: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x275c23e2_3747_11d0_9fea_00aa003f8646);
 pub const COMPARE_STRING: SYSNLS_FUNCTION = SYSNLS_FUNCTION(1i32);
 pub const CORRECTIVE_ACTION_DELETE: CORRECTIVE_ACTION = CORRECTIVE_ACTION(3i32);
 pub const CORRECTIVE_ACTION_GET_SUGGESTIONS: CORRECTIVE_ACTION = CORRECTIVE_ACTION(1i32);
@@ -9186,7 +9183,6 @@ pub const SSA_PIDX: u32 = 268435456u32;
 pub const SSA_RTL: u32 = 256u32;
 pub const SSA_TAB: u32 = 2u32;
 pub const SecondUnit: CALDATETIME_DATEUNIT = CALDATETIME_DATEUNIT(7i32);
-pub const SpellCheckerFactory: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7ab36653_1796_484b_bdfa_e74f1db7c1dc);
 pub const TCI_SRCCHARSET: TRANSLATE_CHARSET_INFO_FLAGS = TRANSLATE_CHARSET_INFO_FLAGS(1u32);
 pub const TCI_SRCCODEPAGE: TRANSLATE_CHARSET_INFO_FLAGS = TRANSLATE_CHARSET_INFO_FLAGS(2u32);
 pub const TCI_SRCFONTSIG: TRANSLATE_CHARSET_INFO_FLAGS = TRANSLATE_CHARSET_INFO_FLAGS(3u32);
@@ -13578,6 +13574,9 @@ impl ::core::default::Default for CHARSETINFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+pub const CMLangConvertCharset: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd66d6f99_cdaa_11d0_b822_00c04fc9b31f);
+pub const CMLangString: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc04d65cf_b70d_11d0_b188_00aa0038c969);
+pub const CMultiLanguage: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x275c23e2_3747_11d0_9fea_00aa003f8646);
 #[repr(C)]
 pub struct CPINFO {
     pub MaxCharSize: u32,
@@ -15150,6 +15149,7 @@ impl ::core::default::Default for SCRIPT_VISATTR {
         unsafe { ::core::mem::zeroed() }
     }
 }
+pub const SpellCheckerFactory: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7ab36653_1796_484b_bdfa_e74f1db7c1dc);
 #[repr(C)]
 pub struct TEXTRANGE_PROPERTIES {
     pub potfRecords: *mut OPENTYPE_FEATURE_RECORD,

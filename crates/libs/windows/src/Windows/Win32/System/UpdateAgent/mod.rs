@@ -6202,18 +6202,8 @@ pub struct IWindowsUpdateAgentInfo_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub GetInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::VARIANT>, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
 }
-pub const AutomaticUpdates: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbfe18e9c_6d87_4450_b37c_e02f0b373803);
-pub const InstallationAgent: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x317e92fc_1679_46fd_a0b5_f08914dd8623);
 pub const LIBID_WUApiLib: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb596cc9f_56e5_419e_a622_e01bb457431e);
-pub const StringCollection: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x72c97d74_7c3b_40ae_b77d_abdb22eba6fb);
-pub const SystemInformation: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc01b9ba0_bea7_41ba_b604_d0a36f469133);
 pub const UPDATE_LOCKDOWN_WEBSITE_ACCESS: u32 = 1u32;
-pub const UpdateCollection: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x13639463_00db_4646_803d_528026140d88);
-pub const UpdateDownloader: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5baf654a_5a07_4264_a255_9ff54c7151e7);
-pub const UpdateInstaller: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd2e0fe7f_d23e_48e1_93c0_6fa8cc346474);
-pub const UpdateSearcher: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb699e5e8_67ff_4177_88b0_3684a3388bfb);
-pub const UpdateServiceManager: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf8d253d9_89a4_4daa_87b6_1168369f0b21);
-pub const UpdateSession: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4cb43d7f_7eee_4906_8698_60da1c38f2fe);
 pub const WU_E_ALL_UPDATES_FAILED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80240022_u32 as _);
 pub const WU_E_AUCLIENT_UNEXPECTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80243FFF_u32 as _);
 pub const WU_E_AU_CALL_CANCELLED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80240055_u32 as _);
@@ -6682,8 +6672,6 @@ pub const WU_S_SOME_UPDATES_SKIPPED_ON_BATTERY: ::windows_core::HRESULT = ::wind
 pub const WU_S_UH_DOWNLOAD_SIZE_CALCULATED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x242016_u32 as _);
 pub const WU_S_UH_INSTALLSTILLPENDING: ::windows_core::HRESULT = ::windows_core::HRESULT(0x242015_u32 as _);
 pub const WU_S_UPDATE_ERROR: ::windows_core::HRESULT = ::windows_core::HRESULT(0x240003_u32 as _);
-pub const WebProxy: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x650503cf_9108_4ddc_a2ce_6c2341e1c582);
-pub const WindowsUpdateAgentInfo: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc2e88c2f_6f5b_4aaa_894b_55c847ad3a2d);
 pub const adAlwaysAutoDownload: AutoDownloadMode = AutoDownloadMode(2i32);
 pub const adLetWindowsUpdateDecide: AutoDownloadMode = AutoDownloadMode(0i32);
 pub const adNeverAutoDownload: AutoDownloadMode = AutoDownloadMode(1i32);
@@ -6992,5 +6980,17 @@ impl ::core::fmt::Debug for UpdateType {
         f.debug_tuple("UpdateType").field(&self.0).finish()
     }
 }
+pub const AutomaticUpdates: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbfe18e9c_6d87_4450_b37c_e02f0b373803);
+pub const InstallationAgent: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x317e92fc_1679_46fd_a0b5_f08914dd8623);
+pub const StringCollection: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x72c97d74_7c3b_40ae_b77d_abdb22eba6fb);
+pub const SystemInformation: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc01b9ba0_bea7_41ba_b604_d0a36f469133);
+pub const UpdateCollection: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x13639463_00db_4646_803d_528026140d88);
+pub const UpdateDownloader: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5baf654a_5a07_4264_a255_9ff54c7151e7);
+pub const UpdateInstaller: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd2e0fe7f_d23e_48e1_93c0_6fa8cc346474);
+pub const UpdateSearcher: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb699e5e8_67ff_4177_88b0_3684a3388bfb);
+pub const UpdateServiceManager: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf8d253d9_89a4_4daa_87b6_1168369f0b21);
+pub const UpdateSession: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4cb43d7f_7eee_4906_8698_60da1c38f2fe);
+pub const WebProxy: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x650503cf_9108_4ddc_a2ce_6c2341e1c582);
+pub const WindowsUpdateAgentInfo: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc2e88c2f_6f5b_4aaa_894b_55c847ad3a2d);
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

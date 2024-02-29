@@ -2505,8 +2505,6 @@ pub const WiaAudFmt_AIFF: ::windows_core::GUID = ::windows_core::GUID::from_u128
 pub const WiaAudFmt_MP3: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0fbc71fb_43bf_49f2_9190_e6fecff37e54);
 pub const WiaAudFmt_WAV: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf818e146_07af_40ff_ae55_be8f2c065dbe);
 pub const WiaAudFmt_WMA: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd61d6413_8bc2_438f_93ad_21bd484db6a1);
-pub const WiaDevMgr: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa1f4e726_8cf1_11d1_bf92_0060081ed811);
-pub const WiaDevMgr2: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb6c292bc_7c88_41ee_8b54_8ec92617e599);
 pub const WiaImgFmt_ASF: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8d948ee9_d0aa_4a12_9d9a_9cc5de36199b);
 pub const WiaImgFmt_AVI: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x32f8ca14_087c_4908_b7c4_6757fe7e90ab);
 pub const WiaImgFmt_BMP: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb96b3cab_0728_11d3_9d7b_0000f81ef32e);
@@ -2572,8 +2570,6 @@ pub const WiaItemTypeTransfer: u32 = 8192u32;
 pub const WiaItemTypeTwainCapabilityPassThrough: u32 = 131072u32;
 pub const WiaItemTypeVPanorama: u32 = 1024u32;
 pub const WiaItemTypeVideo: u32 = 65536u32;
-pub const WiaLog: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa1e75357_881a_419e_83e2_bb16db197c68);
-pub const WiaVideo: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3908c3cd_4478_4536_af2f_10c25d4ef89a);
 pub const g_dwDebugFlags: u32 = 0u32;
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
@@ -4126,6 +4122,9 @@ impl ::core::default::Default for WIA_RAW_HEADER {
         unsafe { ::core::mem::zeroed() }
     }
 }
+pub const WiaDevMgr: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa1f4e726_8cf1_11d1_bf92_0060081ed811);
+pub const WiaDevMgr2: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb6c292bc_7c88_41ee_8b54_8ec92617e599);
+pub const WiaLog: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa1e75357_881a_419e_83e2_bb16db197c68);
 #[repr(C)]
 pub struct WiaTransferParams {
     pub lMessage: i32,
@@ -4158,6 +4157,7 @@ impl ::core::default::Default for WiaTransferParams {
         unsafe { ::core::mem::zeroed() }
     }
 }
+pub const WiaVideo: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3908c3cd_4478_4536_af2f_10c25d4ef89a);
 pub type DeviceDialogFunction = ::core::option::Option<unsafe extern "system" fn(param0: *mut DEVICEDIALOGDATA) -> ::windows_core::HRESULT>;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
