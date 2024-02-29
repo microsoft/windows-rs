@@ -85,39 +85,7 @@ pub fn standalone_imp(writer: &Writer) -> String {
                 );
             }
             metadata::Type::TypeDef(def, _) => {
-                let kind = def.kind();
-                match kind {
-                    metadata::TypeKind::Class => {
-                        sorted.insert(def.name(), classes::writer(writer, def));
-                    }
-                    metadata::TypeKind::Interface => {
-                        sorted.insert(def.name(), interfaces::writer(writer, def));
-                    }
-                    metadata::TypeKind::Enum => {
-                        sorted.insert(def.name(), enums::writer(writer, def));
-                    }
-                    metadata::TypeKind::Struct => {
-                        let name = def.name();
-                        if def.fields().next().is_none() {
-                            if let Some(guid) = metadata::type_def_guid(def) {
-                                let ident = to_ident(name);
-                                let value = writer.guid(&guid);
-                                let guid = writer.type_name(&metadata::Type::GUID);
-                                sorted.insert(
-                                    name,
-                                    quote! {
-                                        pub const #ident: #guid = #value;
-                                    },
-                                );
-                                continue;
-                            }
-                        }
-                        sorted.insert(name, structs::writer(writer, def));
-                    }
-                    metadata::TypeKind::Delegate => {
-                        sorted.insert(def.name(), delegates::writer(writer, def));
-                    }
-                }
+                sorted.insert(def.name(), writer.type_def(def));
             }
             _ => {}
         }
