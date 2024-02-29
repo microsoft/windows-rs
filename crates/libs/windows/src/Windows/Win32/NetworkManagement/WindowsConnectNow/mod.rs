@@ -93,7 +93,6 @@ pub const PKEY_WCN_DeviceType_SubCategoryOUI: super::super::UI::Shell::Propertie
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_WCN_SSID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_core::GUID::from_u128(0x88190b8b_4684_11da_a26a_0002b3988e81), pid: 32 };
 pub const SID_WcnProvider: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc100beca_d33a_4a4b_bf23_bbef4663d017);
-pub const WCNDeviceObject: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc100bea7_d33a_4a4b_bf23_bbef4663d017);
 pub const WCN_API_MAX_BUFFER_SIZE: u32 = 2096u32;
 pub const WCN_E_AUTHENTICATION_FAILED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80043C02_u32 as _);
 pub const WCN_E_CONNECTION_REJECTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80043C03_u32 as _);
@@ -567,6 +566,7 @@ impl ::core::fmt::Debug for WCN_VALUE_TYPE_WI_FI_PROTECTED_SETUP_STATE {
         f.debug_tuple("WCN_VALUE_TYPE_WI_FI_PROTECTED_SETUP_STATE").field(&self.0).finish()
     }
 }
+pub const WCNDeviceObject: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc100bea7_d33a_4a4b_bf23_bbef4663d017);
 #[repr(C, packed(1))]
 pub struct WCN_VALUE_TYPE_PRIMARY_DEVICE_TYPE {
     pub Category: u16,

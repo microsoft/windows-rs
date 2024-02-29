@@ -177,36 +177,7 @@ fn namespace(writer: &Writer, tree: &Tree) -> String {
                 if writer.reader.core_types().any(|(x, _)| x == &type_name) {
                     continue;
                 }
-                let name = type_name.name;
-                let mut kind = def.kind();
-
-                let tokens = match kind {
-                    metadata::TypeKind::Class => {
-                        if def.flags().contains(metadata::TypeAttributes::WindowsRuntime) {
-                            classes::writer(writer, def)
-                        } else {
-                            quote! {}
-                        }
-                    }
-                    metadata::TypeKind::Interface => interfaces::writer(writer, def),
-                    metadata::TypeKind::Enum => enums::writer(writer, def),
-                    metadata::TypeKind::Struct => {
-                        if let Some(guid) = clsid(def) {
-                            kind = metadata::TypeKind::Class;
-                            let ident = to_ident(name);
-                            let value = writer.guid(&guid);
-                            let guid = writer.type_name(&metadata::Type::GUID);
-                            quote! {
-                                pub const #ident: #guid = #value;
-                            }
-                        } else {
-                            structs::writer(writer, def)
-                        }
-                    }
-                    metadata::TypeKind::Delegate => delegates::writer(writer, def),
-                };
-
-                types.entry(kind).or_default().entry(name).or_default().combine(&tokens);
+                types.entry(def.kind()).or_default().entry(type_name.name).or_default().combine(&writer.type_def(def));
             }
             metadata::Item::Fn(def, namespace) => {
                 let name = def.name();
@@ -234,13 +205,6 @@ fn namespace(writer: &Writer, tree: &Tree) -> String {
     }
 
     tokens.into_string()
-}
-
-fn clsid(def: metadata::TypeDef) -> Option<metadata::Guid> {
-    if def.fields().next().is_none() {
-        return metadata::type_def_guid(def);
-    }
-    None
 }
 
 fn namespace_impl(writer: &Writer, tree: &Tree) -> String {

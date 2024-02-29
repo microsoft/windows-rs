@@ -627,10 +627,8 @@ pub struct IIdentityStoreEx_Vtbl {
     pub CreateConnectedIdentity: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, ::windows_core::PCWSTR, *const ::windows_core::GUID) -> ::windows_core::HRESULT,
     pub DeleteConnectedIdentity: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *const ::windows_core::GUID) -> ::windows_core::HRESULT,
 }
-pub const CIdentityProfileHandler: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xecf5bf46_e3b6_449a_b56b_43f58f867814);
 pub const CONNECTING: ACCOUNT_STATE = ACCOUNT_STATE(1i32);
 pub const CONNECT_COMPLETED: ACCOUNT_STATE = ACCOUNT_STATE(2i32);
-pub const CoClassIdentityStore: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x30d49246_d217_465f_b00b_ac9ddd652eb7);
 pub const IDENTITIES_ALL: IDENTITY_TYPE = IDENTITY_TYPE(0i32);
 pub const IDENTITIES_ME_ONLY: IDENTITY_TYPE = IDENTITY_TYPE(1i32);
 pub const IDENTITY_ASSOCIATED: IdentityUpdateEvent = IdentityUpdateEvent(1i32);
@@ -738,5 +736,7 @@ impl ::core::ops::Not for IdentityUpdateEvent {
         Self(self.0.not())
     }
 }
+pub const CIdentityProfileHandler: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xecf5bf46_e3b6_449a_b56b_43f58f867814);
+pub const CoClassIdentityStore: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x30d49246_d217_465f_b00b_ac9ddd652eb7);
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

@@ -16,14 +16,12 @@ pub const GID_ROLLOVER: GESTURECONFIG_ID = 7u32;
 pub const GID_ROTATE: GESTURECONFIG_ID = 5u32;
 pub const GID_TWOFINGERTAP: GESTURECONFIG_ID = 6u32;
 pub const GID_ZOOM: GESTURECONFIG_ID = 3u32;
-pub const InertiaProcessor: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xabb27087_4ce0_4e58_a0cb_e24df96814be);
 pub const MANIPULATION_ALL: MANIPULATION_PROCESSOR_MANIPULATIONS = 15i32;
 pub const MANIPULATION_NONE: MANIPULATION_PROCESSOR_MANIPULATIONS = 0i32;
 pub const MANIPULATION_ROTATE: MANIPULATION_PROCESSOR_MANIPULATIONS = 8i32;
 pub const MANIPULATION_SCALE: MANIPULATION_PROCESSOR_MANIPULATIONS = 4i32;
 pub const MANIPULATION_TRANSLATE_X: MANIPULATION_PROCESSOR_MANIPULATIONS = 1i32;
 pub const MANIPULATION_TRANSLATE_Y: MANIPULATION_PROCESSOR_MANIPULATIONS = 2i32;
-pub const ManipulationProcessor: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x597d4fb0_47fd_4aff_89b9_c6cfae8cf08e);
 pub const TOUCHEVENTF_DOWN: TOUCHEVENTF_FLAGS = 2u32;
 pub const TOUCHEVENTF_INRANGE: TOUCHEVENTF_FLAGS = 8u32;
 pub const TOUCHEVENTF_MOVE: TOUCHEVENTF_FLAGS = 1u32;
@@ -88,6 +86,8 @@ impl ::core::clone::Clone for GESTURENOTIFYSTRUCT {
 }
 pub type HGESTUREINFO = isize;
 pub type HTOUCHINPUT = isize;
+pub const InertiaProcessor: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xabb27087_4ce0_4e58_a0cb_e24df96814be);
+pub const ManipulationProcessor: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x597d4fb0_47fd_4aff_89b9_c6cfae8cf08e);
 #[repr(C)]
 pub struct TOUCHINPUT {
     pub x: i32,

@@ -5549,7 +5549,6 @@ pub const MSITRANSFORM_VALIDATE_UPDATEVERSION: MSITRANSFORM_VALIDATE = MSITRANSF
 pub const MSITRANSFORM_VALIDATE_UPGRADECODE: MSITRANSFORM_VALIDATE = MSITRANSFORM_VALIDATE(2048i32);
 pub const MSI_INVALID_HASH_IS_FATAL: u32 = 1u32;
 pub const MSI_NULL_INTEGER: u32 = 2147483648u32;
-pub const MsmMerge: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0adda830_2c26_11d2_ad65_00a0c9af11a6);
 pub const PACKMAN_RUNTIME_INVALID: PACKMAN_RUNTIME = PACKMAN_RUNTIME(6i32);
 pub const PACKMAN_RUNTIME_JUPITER: PACKMAN_RUNTIME = PACKMAN_RUNTIME(5i32);
 pub const PACKMAN_RUNTIME_MODERN_NATIVE: PACKMAN_RUNTIME = PACKMAN_RUNTIME(4i32);
@@ -5599,7 +5598,6 @@ pub const PID_TEMPLATE: u32 = 7u32;
 pub const PID_THUMBNAIL: u32 = 17u32;
 pub const PID_TITLE: u32 = 2u32;
 pub const PID_WORDCOUNT: u32 = 15u32;
-pub const PMSvc: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb9e511fc_e364_497a_a121_b7b3612cedce);
 pub const PM_ACTIVATION_POLICY_INVALID: PM_ACTIVATION_POLICY = PM_ACTIVATION_POLICY(7i32);
 pub const PM_ACTIVATION_POLICY_MULTISESSION: PM_ACTIVATION_POLICY = PM_ACTIVATION_POLICY(4i32);
 pub const PM_ACTIVATION_POLICY_REPLACE: PM_ACTIVATION_POLICY = PM_ACTIVATION_POLICY(2i32);
@@ -7870,6 +7868,7 @@ impl ::core::default::Default for MSIPATCHSEQUENCEINFOW {
         unsafe { ::core::mem::zeroed() }
     }
 }
+pub const MsmMerge: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0adda830_2c26_11d2_ad65_00a0c9af11a6);
 #[repr(C)]
 pub struct PATCH_IGNORE_RANGE {
     pub OffsetInOldFile: u32,
@@ -8197,6 +8196,7 @@ impl ::core::default::Default for PMSIHANDLE {
         unsafe { ::core::mem::zeroed() }
     }
 }
+pub const PMSvc: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb9e511fc_e364_497a_a121_b7b3612cedce);
 #[repr(C)]
 pub struct PM_APPTASKTYPE {
     pub ProductID: ::windows_core::GUID,

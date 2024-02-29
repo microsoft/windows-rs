@@ -1484,7 +1484,6 @@ pub struct IVssWriterComponents_Vtbl {
     pub GetWriterInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::GUID, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
     pub GetComponent: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-pub const VSSCoordinator: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe579ab5f_1cc4_44b4_bed9_de0991ff0623);
 pub const VSS_APP_AUTO: VSS_APPLICATION_LEVEL = VSS_APPLICATION_LEVEL(-1i32);
 pub const VSS_APP_BACK_END: VSS_APPLICATION_LEVEL = VSS_APPLICATION_LEVEL(2i32);
 pub const VSS_APP_FRONT_END: VSS_APPLICATION_LEVEL = VSS_APPLICATION_LEVEL(3i32);
@@ -1792,7 +1791,6 @@ pub const VSS_WS_WAITING_FOR_BACKUP_COMPLETE: VSS_WRITER_STATE = VSS_WRITER_STAT
 pub const VSS_WS_WAITING_FOR_FREEZE: VSS_WRITER_STATE = VSS_WRITER_STATE(2i32);
 pub const VSS_WS_WAITING_FOR_POST_SNAPSHOT: VSS_WRITER_STATE = VSS_WRITER_STATE(4i32);
 pub const VSS_WS_WAITING_FOR_THAW: VSS_WRITER_STATE = VSS_WRITER_STATE(3i32);
-pub const VssSnapshotMgmt: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0b5a2c52_3eb9_470a_96e2_6c6d4570e40f);
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct VSS_ALTERNATE_WRITER_STATE(pub i32);
@@ -2123,6 +2121,7 @@ impl ::core::fmt::Debug for VSS_WRITER_STATE {
         f.debug_tuple("VSS_WRITER_STATE").field(&self.0).finish()
     }
 }
+pub const VSSCoordinator: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe579ab5f_1cc4_44b4_bed9_de0991ff0623);
 #[repr(C)]
 pub struct VSS_DIFF_AREA_PROP {
     pub m_pwszVolumeName: *mut u16,
@@ -2418,5 +2417,6 @@ impl ::core::default::Default for VSS_VOLUME_PROTECTION_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+pub const VssSnapshotMgmt: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0b5a2c52_3eb9_470a_96e2_6c6d4570e40f);
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

@@ -27,7 +27,6 @@ pub const UpdateImpactLevel_High: UpdateImpactLevel = UpdateImpactLevel(3i32);
 pub const UpdateImpactLevel_Low: UpdateImpactLevel = UpdateImpactLevel(1i32);
 pub const UpdateImpactLevel_Medium: UpdateImpactLevel = UpdateImpactLevel(2i32);
 pub const UpdateImpactLevel_None: UpdateImpactLevel = UpdateImpactLevel(0i32);
-pub const WaaSAssessor: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x098ef871_fa9f_46af_8958_c083515d7c9c);
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct UpdateAssessmentStatus(pub i32);
@@ -130,5 +129,6 @@ impl ::core::default::Default for UpdateAssessment {
         unsafe { ::core::mem::zeroed() }
     }
 }
+pub const WaaSAssessor: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x098ef871_fa9f_46af_8958_c083515d7c9c);
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

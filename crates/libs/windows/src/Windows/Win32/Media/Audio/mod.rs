@@ -3704,7 +3704,6 @@ pub const DRVM_MAPPER: u32 = 8192u32;
 pub const DRVM_MAPPER_STATUS: u32 = 8192u32;
 pub const DRV_MAPPER_PREFERRED_INPUT_GET: u32 = 16384u32;
 pub const DRV_MAPPER_PREFERRED_OUTPUT_GET: u32 = 16386u32;
-pub const DeviceTopology: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1df639d0_5ec1_47aa_9379_828dc1aa8c59);
 pub const DigitalAudioDisplayDevice: EndpointFormFactor = EndpointFormFactor(9i32);
 pub const DisconnectReasonDeviceRemoval: AudioSessionDisconnectReason = AudioSessionDisconnectReason(0i32);
 pub const DisconnectReasonExclusiveModeOverride: AudioSessionDisconnectReason = AudioSessionDisconnectReason(5i32);
@@ -3894,7 +3893,6 @@ pub const MIXER_SETCONTROLDETAILSF_CUSTOM: i32 = 1i32;
 pub const MIXER_SETCONTROLDETAILSF_QUERYMASK: i32 = 15i32;
 pub const MIXER_SETCONTROLDETAILSF_VALUE: i32 = 0i32;
 pub const MIXER_SHORT_NAME_CHARS: u32 = 16u32;
-pub const MMDeviceEnumerator: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbcde0395_e52f_467c_8e3d_c4579291692e);
 pub const MM_ACM_FILTERCHOOSE: u32 = 32768u32;
 pub const MM_ACM_FORMATCHOOSE: u32 = 32768u32;
 pub const MOD_FMSYNTH: u32 = 4u32;
@@ -5643,6 +5641,7 @@ impl ::core::default::Default for DIRECTX_AUDIO_ACTIVATION_PARAMS {
         unsafe { ::core::mem::zeroed() }
     }
 }
+pub const DeviceTopology: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1df639d0_5ec1_47aa_9379_828dc1aa8c59);
 #[repr(C, packed(1))]
 pub struct ECHOWAVEFILTER {
     pub wfltr: WAVEFILTER,
@@ -6955,6 +6954,7 @@ impl ::core::default::Default for MIXERLINEW_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+pub const MMDeviceEnumerator: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbcde0395_e52f_467c_8e3d_c4579291692e);
 #[repr(C, packed(1))]
 pub struct PCMWAVEFORMAT {
     pub wf: WAVEFORMAT,

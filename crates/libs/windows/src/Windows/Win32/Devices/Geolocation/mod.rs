@@ -506,11 +506,6 @@ pub struct _ILatLongReportFactoryEvents_Vtbl {
 }
 pub const BREADCRUMBING_UNSUPPORTED: u32 = 0u32;
 pub const BREADCRUMBING_VERSION_1: u32 = 1u32;
-pub const CivicAddressReport: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd39e7bdd_7d05_46b8_8721_80cf035f57d7);
-pub const CivicAddressReportFactory: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2a11f42c_3e81_4ad4_9cbe_45579d89671a);
-pub const DefaultLocation: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8b7fbfe0_5cd7_494a_af8c_283a65707506);
-pub const DispCivicAddressReport: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4c596aec_8544_4082_ba9f_eb0a7d8e65c6);
-pub const DispLatLongReport: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7a7c3277_8f84_4636_95b2_ebb5507ff77e);
 pub const GNSS_AGNSSFORMAT_LTO: u32 = 4u32;
 pub const GNSS_AGNSSFORMAT_XTRA1: u32 = 1u32;
 pub const GNSS_AGNSSFORMAT_XTRA2: u32 = 2u32;
@@ -625,9 +620,6 @@ pub const IOCTL_GNSS_START_FIXSESSION: u32 = 2228288u32;
 pub const IOCTL_GNSS_STOP_BREADCRUMBING: u32 = 2228676u32;
 pub const IOCTL_GNSS_STOP_FIXSESSION: u32 = 2228296u32;
 pub const LOCATION_API_VERSION: u32 = 1u32;
-pub const LatLongReport: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xed81c073_1f84_4ca8_a161_183c776bc651);
-pub const LatLongReportFactory: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9dcc3cc8_8609_4863_bad4_03601f4c65e8);
-pub const Location: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe5b8e079_ee6d_4e33_a438_c87f2e959254);
 pub const MAX_SERVER_URL_NAME: u32 = 260u32;
 pub const MIN_BREADCRUMBS_SUPPORTED: u32 = 120u32;
 pub const MIN_GEOFENCES_REQUIRED: u32 = 100u32;
@@ -780,6 +772,11 @@ impl ::core::fmt::Debug for LOCATION_REPORT_STATUS {
         f.debug_tuple("LOCATION_REPORT_STATUS").field(&self.0).finish()
     }
 }
+pub const CivicAddressReport: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd39e7bdd_7d05_46b8_8721_80cf035f57d7);
+pub const CivicAddressReportFactory: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2a11f42c_3e81_4ad4_9cbe_45579d89671a);
+pub const DefaultLocation: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8b7fbfe0_5cd7_494a_af8c_283a65707506);
+pub const DispCivicAddressReport: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4c596aec_8544_4082_ba9f_eb0a7d8e65c6);
+pub const DispLatLongReport: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7a7c3277_8f84_4636_95b2_ebb5507ff77e);
 #[repr(C)]
 pub struct GNSS_AGNSS_INJECT {
     pub Size: u32,
@@ -2763,5 +2760,8 @@ impl ::core::default::Default for GNSS_V2UPL_NI_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+pub const LatLongReport: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xed81c073_1f84_4ca8_a161_183c776bc651);
+pub const LatLongReportFactory: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9dcc3cc8_8609_4863_bad4_03601f4c65e8);
+pub const Location: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe5b8e079_ee6d_4e33_a438_c87f2e959254);
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

@@ -984,16 +984,6 @@ pub const UPNP_E_URLBASE_PRESENT: ::windows_core::HRESULT = ::windows_core::HRES
 pub const UPNP_E_VALUE_TOO_LONG: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004A030_u32 as _);
 pub const UPNP_E_VARIABLE_VALUE_UNKNOWN: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80040212_u32 as _);
 pub const UPNP_SERVICE_DELAY_SCPD_AND_SUBSCRIPTION: u32 = 1u32;
-pub const UPnPDescriptionDocument: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1d8a9b47_3a28_4ce2_8a4b_bd34e45bceeb);
-pub const UPnPDescriptionDocumentEx: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x33fd0563_d81a_4393_83cc_0195b1da2f91);
-pub const UPnPDevice: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa32552c5_ba61_457a_b59a_a2561e125e33);
-pub const UPnPDeviceFinder: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe2085f28_feb7_404a_b8e7_e659bdeaaa02);
-pub const UPnPDeviceFinderEx: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x181b54fc_380b_4a75_b3f1_4ac45e9605b0);
-pub const UPnPDevices: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb9e84ffd_ad3c_40a4_b835_0882ebcbaaa8);
-pub const UPnPRegistrar: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x204810b9_73b2_11d4_bf42_00b0d0118b56);
-pub const UPnPRemoteEndpointInfo: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2e5e84e9_4049_4244_b728_2d24227157c7);
-pub const UPnPService: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc624ba95_fbcb_4409_8c03_8cceec533ef1);
-pub const UPnPServices: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc0bc4b4a_a406_4efc_932f_b8546b8100cc);
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SW_DEVICE_CAPABILITIES(pub i32);
@@ -1088,6 +1078,16 @@ impl ::core::default::Default for SW_DEVICE_CREATE_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+pub const UPnPDescriptionDocument: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1d8a9b47_3a28_4ce2_8a4b_bd34e45bceeb);
+pub const UPnPDescriptionDocumentEx: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x33fd0563_d81a_4393_83cc_0195b1da2f91);
+pub const UPnPDevice: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa32552c5_ba61_457a_b59a_a2561e125e33);
+pub const UPnPDeviceFinder: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe2085f28_feb7_404a_b8e7_e659bdeaaa02);
+pub const UPnPDeviceFinderEx: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x181b54fc_380b_4a75_b3f1_4ac45e9605b0);
+pub const UPnPDevices: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb9e84ffd_ad3c_40a4_b835_0882ebcbaaa8);
+pub const UPnPRegistrar: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x204810b9_73b2_11d4_bf42_00b0d0118b56);
+pub const UPnPRemoteEndpointInfo: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2e5e84e9_4049_4244_b728_2d24227157c7);
+pub const UPnPService: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc624ba95_fbcb_4409_8c03_8cceec533ef1);
+pub const UPnPServices: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc0bc4b4a_a406_4efc_932f_b8546b8100cc);
 pub type SW_DEVICE_CREATE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(hswdevice: HSWDEVICE, createresult: ::windows_core::HRESULT, pcontext: *const ::core::ffi::c_void, pszdeviceinstanceid: ::windows_core::PCWSTR)>;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

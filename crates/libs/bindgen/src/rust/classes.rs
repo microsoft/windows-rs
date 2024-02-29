@@ -2,6 +2,10 @@ use super::*;
 use metadata::HasAttributes;
 
 pub fn writer(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
+    if !def.flags().contains(metadata::TypeAttributes::WindowsRuntime) {
+        return quote! {};
+    }
+
     if writer.sys {
         if def.interface_impls().next().is_some() {
             let name = to_ident(def.name());

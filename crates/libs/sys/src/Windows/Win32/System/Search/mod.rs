@@ -467,12 +467,6 @@ pub const CRESTRICTIONS_MDSCHEMA_MEMBERS: u32 = 12u32;
 pub const CRESTRICTIONS_MDSCHEMA_PROPERTIES: u32 = 9u32;
 pub const CRESTRICTIONS_MDSCHEMA_SETS: u32 = 5u32;
 pub const CSTORAGEPROPERTY: u32 = 23u32;
-pub const CSearchLanguageSupport: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x6a68cc80_4337_4dbc_bd27_fbfb1053820b);
-pub const CSearchManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x7d096c5f_ac08_4f1f_beb7_5c22c517ce39);
-pub const CSearchRoot: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x30766bd2_ea1c_4f28_bf27_0b44e2f68db7);
-pub const CSearchScopeRule: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xe63de750_3bd7_4be5_9c84_6b4281988c44);
-pub const CompoundCondition: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x116f8d13_101e_4fa5_84d4_ff8279381935);
-pub const ConditionFactory: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xe03e85b0_7be3_4000_ba98_6c13de9fa486);
 pub const DBACCESSOR_INHERITED: DBACCESSORFLAGSENUM = 16i32;
 pub const DBACCESSOR_INVALID: DBACCESSORFLAGSENUM = 0i32;
 pub const DBACCESSOR_OPTIMIZED: DBACCESSORFLAGSENUM = 8i32;
@@ -1630,7 +1624,6 @@ pub const DS_E_TOOMANYDATASOURCES: i32 = -2147220461i32;
 pub const DS_E_UNKNOWNPARAM: i32 = -2147220450i32;
 pub const DS_E_UNKNOWNREQUEST: i32 = -2147220476i32;
 pub const DS_E_VALUETOOLARGE: i32 = -2147220451i32;
-pub const DataLinks: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x2206cdb2_19c1_11d1_89e0_00c04fd7a829);
 pub const ERROR_FTE: u32 = 13824u32;
 pub const ERROR_FTE_CB: u32 = 51968u32;
 pub const ERROR_FTE_FD: u32 = 64768u32;
@@ -1955,7 +1948,6 @@ pub const FTE_S_RESOURCES_STARTING_TO_GET_LOW: i32 = 275993i32;
 pub const FTE_S_RESUME: i32 = 276014i32;
 pub const FTE_S_STATUS_CHANGE_REQUEST: i32 = 276011i32;
 pub const FTE_S_TRY_TO_FLUSH: i32 = 276055i32;
-pub const FilterRegistration: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x9e175b8d_f52a_11d8_b9a5_505054503030);
 pub const GENERATE_METHOD_PREFIXMATCH: u32 = 1u32;
 pub const GENERATE_METHOD_STEMMED: u32 = 2u32;
 pub const GHTR_E_INSUFFICIENT_DISK_SPACE: i32 = -2147218037i32;
@@ -2171,7 +2163,6 @@ pub const INET_E_SCHEDULED_UPDATES_RESTRICTED: ::windows_sys::core::HRESULT = 0x
 pub const INET_E_SCHEDULED_UPDATE_INTERVAL: ::windows_sys::core::HRESULT = 0x800C0F86_u32 as _;
 pub const INET_S_AGENT_INCREASED_CACHE_SIZE: ::windows_sys::core::HRESULT = 0xC0F90_u32 as _;
 pub const INET_S_AGENT_PART_FAIL: ::windows_sys::core::HRESULT = 0xC0F81_u32 as _;
-pub const Interval: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xd957171f_4bf9_4de2_bcd5_c70a7ca55836);
 pub const JET_GET_PROP_STORE_ERROR: i32 = -1073732822i32;
 pub const JET_INIT_ERROR: i32 = -1073732824i32;
 pub const JET_MULTIINSTANCE_DISABLED: i32 = -2147474645i32;
@@ -2234,7 +2225,6 @@ pub const KAGREQDIAGFLAGS_RECORD: KAGREQDIAGFLAGSENUM = 2i32;
 pub const LOCKMODE_EXCLUSIVE: LOCKMODEENUM = 1i32;
 pub const LOCKMODE_INVALID: LOCKMODEENUM = 0i32;
 pub const LOCKMODE_SHARED: LOCKMODEENUM = 2i32;
-pub const LeafCondition: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x52f15c89_5a17_48e1_bbcd_46a3f89c7cc2);
 pub const MAXNAME: u32 = 129u32;
 pub const MAXNUMERICLEN: u32 = 16u32;
 pub const MAXUSEVERITY: u32 = 18u32;
@@ -2414,11 +2404,6 @@ pub const MD_E_INVALIDAXIS: ::windows_sys::core::HRESULT = 0x80040E63_u32 as _;
 pub const MD_E_INVALIDCELLRANGE: ::windows_sys::core::HRESULT = 0x80040E64_u32 as _;
 pub const MINFATALERR: u32 = 20u32;
 pub const MIN_USER_DATATYPE: u32 = 256u32;
-pub const MSDAINITIALIZE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x2206cdb0_19c1_11d1_89e0_00c04fd7a829);
-pub const MSDAORA: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xe8cc4cbe_fdff_11d0_b865_00a0c9081c1d);
-pub const MSDAORA8: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x7f06a373_dd6a_43db_b4e0_1fc121e5e62b);
-pub const MSDAORA8_ERROR: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x7f06a374_dd6a_43db_b4e0_1fc121e5e62b);
-pub const MSDAORA_ERROR: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xe8cc4cbf_fdff_11d0_b865_00a0c9081c1d);
 pub const MSG_CI_CORRUPT_INDEX_COMPONENT: ::windows_sys::core::HRESULT = 0x4000102A_u32 as _;
 pub const MSG_CI_CREATE_SEVER_ITEM_FAILED: ::windows_sys::core::HRESULT = 0x80001048_u32 as _;
 pub const MSG_CI_MASTER_MERGE_ABORTED: ::windows_sys::core::HRESULT = 0x40001008_u32 as _;
@@ -2464,7 +2449,6 @@ pub const NOTESPH_E_UNSUPPORTED_CONTENT_FIELD_TYPE: i32 = -2147211773i32;
 pub const NOTESPH_S_IGNORE_ID: i32 = 271874i32;
 pub const NOTESPH_S_LISTKNOWNFIELDS: i32 = 271888i32;
 pub const NOT_N_PARSE_ERROR: ::windows_sys::core::HRESULT = 0x8092E_u32 as _;
-pub const NegationCondition: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x8de9c74c_605a_4acd_bee3_2b222aa2d23d);
 pub const OCC_INVALID: u32 = 4294967295u32;
 pub const ODBCVER: u32 = 896u32;
 pub const ODBC_ADD_DSN: u32 = 1u32;
@@ -2536,7 +2520,6 @@ pub const OSPXFER_ABORT: OSPXFER = 1i32;
 pub const OSPXFER_COMPLETE: OSPXFER = 0i32;
 pub const OSPXFER_ERROR: OSPXFER = 2i32;
 pub const OSP_IndexLabel: u32 = 0u32;
-pub const PDPO: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xccb4ec60_b9dc_11d1_ac80_00a0c9034873);
 pub const PEOPLE_IMPORT_E_CANONICALURL_TOOLONG: i32 = -2147205110i32;
 pub const PEOPLE_IMPORT_E_DATATYPENOTSUPPORTED: i32 = -2147205115i32;
 pub const PEOPLE_IMPORT_E_DBCONNFAIL: i32 = -2147205120i32;
@@ -2683,8 +2666,6 @@ pub const QUERY_SORTDEFAULT: u32 = 4u32;
 pub const QUERY_SORTXASCEND: u32 = 2u32;
 pub const QUERY_SORTXDESCEND: u32 = 3u32;
 pub const QUERY_VALIDBITS: u32 = 3u32;
-pub const QueryParser: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xb72f8fd8_0fab_4dd9_bdbf_245a6ce1485b);
-pub const QueryParserManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x5088b39a_29b4_4d9d_8245_4ee289222f66);
 pub const REXSPH_E_DUPLICATE_PROPERTY: i32 = -2147207927i32;
 pub const REXSPH_E_INVALID_CALL: i32 = -2147207936i32;
 pub const REXSPH_E_MULTIPLE_REDIRECT: i32 = -2147207933i32;
@@ -2716,7 +2697,6 @@ pub const RTOr: u32 = 2u32;
 pub const RTProperty: u32 = 5u32;
 pub const RTProximity: u32 = 6u32;
 pub const RTVector: u32 = 7u32;
-pub const RootBinder: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xff151822_b0bf_11d1_a80d_000000000000);
 pub const SCHEMA_E_ADDSTOPWORDS: i32 = -2147218420i32;
 pub const SCHEMA_E_BADATTRIBUTE: i32 = -2147218412i32;
 pub const SCHEMA_E_BADCOLUMNNAME: i32 = -2147218414i32;
@@ -4616,7 +4596,6 @@ pub const SUBSTYPE_URL: SUBSCRIPTIONTYPE = 0i32;
 pub const SUCCEED: u32 = 1u32;
 pub const SUCCEED_ABORT: u32 = 2u32;
 pub const SUCCEED_ASYNC: u32 = 3u32;
-pub const SubscriptionMgr: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xabbe31d0_6dae_11d0_beca_00c04fd940be);
 pub const TRACE_ON: i32 = 1i32;
 pub const TRACE_VERSION: u32 = 1000u32;
 pub const TRACE_VS_EVENT_ON: i32 = 2i32;
@@ -4923,6 +4902,12 @@ impl ::core::clone::Clone for CONTENTRESTRICTION {
         *self
     }
 }
+pub const CSearchLanguageSupport: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x6a68cc80_4337_4dbc_bd27_fbfb1053820b);
+pub const CSearchManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x7d096c5f_ac08_4f1f_beb7_5c22c517ce39);
+pub const CSearchRoot: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x30766bd2_ea1c_4f28_bf27_0b44e2f68db7);
+pub const CSearchScopeRule: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xe63de750_3bd7_4be5_9c84_6b4281988c44);
+pub const CompoundCondition: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x116f8d13_101e_4fa5_84d4_ff8279381935);
+pub const ConditionFactory: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xe03e85b0_7be3_4000_ba98_6c13de9fa486);
 #[repr(C)]
 pub struct DATE_STRUCT {
     pub year: i16,
@@ -5914,6 +5899,7 @@ impl ::core::clone::Clone for DCINFO {
         *self
     }
 }
+pub const DataLinks: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x2206cdb2_19c1_11d1_89e0_00c04fd7a829);
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct ERRORINFO {
@@ -5961,6 +5947,7 @@ impl ::core::clone::Clone for FILTERED_DATA_SOURCES {
         *self
     }
 }
+pub const FilterRegistration: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x9e175b8d_f52a_11d8_b9a5_505054503030);
 pub type HACCESSOR = usize;
 #[repr(C)]
 pub struct HITRANGE {
@@ -6012,6 +5999,7 @@ impl ::core::clone::Clone for ITEM_INFO {
         *self
     }
 }
+pub const Interval: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xd957171f_4bf9_4de2_bcd5_c70a7ca55836);
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 pub struct KAGGETDIAG {
@@ -6042,6 +6030,7 @@ impl ::core::clone::Clone for KAGREQDIAG {
         *self
     }
 }
+pub const LeafCondition: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x52f15c89_5a17_48e1_bbcd_46a3f89c7cc2);
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct MDAXISINFO {
@@ -6078,6 +6067,11 @@ impl ::core::clone::Clone for MDAXISINFO {
         *self
     }
 }
+pub const MSDAINITIALIZE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x2206cdb0_19c1_11d1_89e0_00c04fd7a829);
+pub const MSDAORA: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xe8cc4cbe_fdff_11d0_b865_00a0c9081c1d);
+pub const MSDAORA8: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x7f06a373_dd6a_43db_b4e0_1fc121e5e62b);
+pub const MSDAORA8_ERROR: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x7f06a374_dd6a_43db_b4e0_1fc121e5e62b);
+pub const MSDAORA_ERROR: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xe8cc4cbf_fdff_11d0_b865_00a0c9081c1d);
 #[repr(C)]
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
 pub struct NATLANGUAGERESTRICTION {
@@ -6121,6 +6115,7 @@ impl ::core::clone::Clone for NOTRESTRICTION {
         *self
     }
 }
+pub const NegationCondition: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x8de9c74c_605a_4acd_bee3_2b222aa2d23d);
 #[repr(C)]
 pub struct ODBC_VS_ARGS {
     pub pguidEvent: *const ::windows_sys::core::GUID,
@@ -6157,6 +6152,7 @@ impl ::core::clone::Clone for ODBC_VS_ARGS_1 {
         *self
     }
 }
+pub const PDPO: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xccb4ec60_b9dc_11d1_ac80_00a0c9034873);
 #[repr(C)]
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub struct PROPERTYRESTRICTION {
@@ -6188,6 +6184,8 @@ impl ::core::clone::Clone for PROXY_INFO {
         *self
     }
 }
+pub const QueryParser: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xb72f8fd8_0fab_4dd9_bdbf_245a6ce1485b);
+pub const QueryParserManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x5088b39a_29b4_4d9d_8245_4ee289222f66);
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub struct RANGECATEGORIZE {
@@ -6295,6 +6293,7 @@ impl ::core::clone::Clone for RMTPACK {
         *self
     }
 }
+pub const RootBinder: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xff151822_b0bf_11d1_a80d_000000000000);
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub struct SEARCH_COLUMN_PROPERTIES {
@@ -6733,6 +6732,7 @@ impl ::core::clone::Clone for SUBSCRIPTIONITEMINFO {
         *self
     }
 }
+pub const SubscriptionMgr: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xabbe31d0_6dae_11d0_beca_00c04fd940be);
 #[repr(C)]
 pub struct TEXT_SOURCE {
     pub pfnFillTextBuffer: PFNFILLTEXTBUFFER,

@@ -74,6 +74,15 @@ impl Writer {
             }
         }
     }
+    pub fn type_def(&self, def: metadata::TypeDef) -> TokenStream {
+        match def.kind() {
+            metadata::TypeKind::Class => classes::writer(self, def),
+            metadata::TypeKind::Interface => interfaces::writer(self, def),
+            metadata::TypeKind::Enum => enums::writer(self, def),
+            metadata::TypeKind::Struct => structs::writer(self, def),
+            metadata::TypeKind::Delegate => delegates::writer(self, def),
+        }
+    }
 
     //
     // Type

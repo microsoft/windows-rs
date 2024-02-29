@@ -3084,21 +3084,8 @@ pub const ActivityContentDocument: OpenServiceActivityContentType = OpenServiceA
 pub const ActivityContentLink: OpenServiceActivityContentType = OpenServiceActivityContentType(2i32);
 pub const ActivityContentNone: OpenServiceActivityContentType = OpenServiceActivityContentType(-1i32);
 pub const ActivityContentSelection: OpenServiceActivityContentType = OpenServiceActivityContentType(1i32);
-pub const AnchorClick: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x13d5413c_33b9_11d2_95a7_00c04f8ecb02);
 pub const CATID_MSOfficeAntiVirus: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x56ffcc30_d398_11d0_b2ae_00a0c908fa49);
-pub const CDeviceRect: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3050f6d4_98b5_11cf_bb82_00aa00bdce0b);
-pub const CDownloadBehavior: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3050f5be_98b5_11cf_bb82_00aa00bdce0b);
-pub const CHeaderFooter: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3050f6cd_98b5_11cf_bb82_00aa00bdce0b);
-pub const CLayoutRect: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3050f664_98b5_11cf_bb82_00aa00bdce0b);
 pub const COLOR_NO_TRANSPARENT: u32 = 4294967295u32;
-pub const CPersistDataPeer: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3050f487_98b5_11cf_bb82_00aa00bdce0b);
-pub const CPersistHistory: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3050f4c8_98b5_11cf_bb82_00aa00bdce0b);
-pub const CPersistShortcut: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3050f4c6_98b5_11cf_bb82_00aa00bdce0b);
-pub const CPersistSnapshot: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3050f4c9_98b5_11cf_bb82_00aa00bdce0b);
-pub const CPersistUserData: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3050f48e_98b5_11cf_bb82_00aa00bdce0b);
-pub const CoDitherToRGB8: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa860ce50_3910_11d0_86fc_00a0c913f750);
-pub const CoMapMIMEToCLSID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x30c3b080_30fb_11d0_b724_00aa006c1a01);
-pub const CoSniffStream: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6a01fda0_30df_11d0_b724_00aa006c1a01);
 pub const DISPID_ACTIVEXFILTERINGENABLED: u32 = 61u32;
 pub const DISPID_ADDCHANNEL: u32 = 5u32;
 pub const DISPID_ADDDESKTOPCOMPONENT: u32 = 6u32;
@@ -3328,8 +3315,6 @@ pub const FRAMEOPTIONS_NORESIZE: FRAMEOPTIONS_FLAGS = FRAMEOPTIONS_FLAGS(8i32);
 pub const FRAMEOPTIONS_SCROLL_AUTO: FRAMEOPTIONS_FLAGS = FRAMEOPTIONS_FLAGS(4i32);
 pub const FRAMEOPTIONS_SCROLL_NO: FRAMEOPTIONS_FLAGS = FRAMEOPTIONS_FLAGS(2i32);
 pub const FRAMEOPTIONS_SCROLL_YES: FRAMEOPTIONS_FLAGS = FRAMEOPTIONS_FLAGS(1i32);
-pub const HomePage: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x766bf2ae_d650_11d1_9811_00c04fc31d2e);
-pub const HomePageSetting: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x374cede0_873a_4c4f_bc86_bcc8cf5116a3);
 pub const IECMDID_ARG_CLEAR_FORMS_ALL: u32 = 0u32;
 pub const IECMDID_ARG_CLEAR_FORMS_ALL_BUT_PASSWORDS: u32 = 1u32;
 pub const IECMDID_ARG_CLEAR_FORMS_PASSWORDS_ONLY: u32 = 2u32;
@@ -3347,7 +3332,6 @@ pub const IELAUNCHOPTION_FORCE_EDGE: IELAUNCHOPTION_FLAGS = IELAUNCHOPTION_FLAGS
 pub const IELAUNCHOPTION_LOCK_ENGINE: IELAUNCHOPTION_FLAGS = IELAUNCHOPTION_FLAGS(8i32);
 pub const IELAUNCHOPTION_SCRIPTDEBUG: IELAUNCHOPTION_FLAGS = IELAUNCHOPTION_FLAGS(1i32);
 pub const IEPROCESS_MODULE_NAME: ::windows_core::PCWSTR = ::windows_core::w!("IERtUtil.dll");
-pub const IEWebDriverManager: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x90314af2_5250_47b3_89d8_6295fc23bc22);
 pub const IE_USE_OE_MAIL_HKEY: i32 = -2147483647i32;
 pub const IE_USE_OE_MAIL_KEY: ::windows_core::PCWSTR = ::windows_core::w!("Software\\Microsoft\\Internet Explorer\\Mail");
 pub const IE_USE_OE_MAIL_VALUE: ::windows_core::PCWSTR = ::windows_core::w!("Use Outlook Express");
@@ -3367,8 +3351,6 @@ pub const IMGDECODE_HINT_TOPDOWN: u32 = 1u32;
 pub const INTERNETEXPLORERCONFIGURATION_HOST: INTERNETEXPLORERCONFIGURATION = INTERNETEXPLORERCONFIGURATION(1i32);
 pub const INTERNETEXPLORERCONFIGURATION_WEB_DRIVER: INTERNETEXPLORERCONFIGURATION = INTERNETEXPLORERCONFIGURATION(2i32);
 pub const INTERNETEXPLORERCONFIGURATION_WEB_DRIVER_EDGE: INTERNETEXPLORERCONFIGURATION = INTERNETEXPLORERCONFIGURATION(4i32);
-pub const IntelliForms: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x613ab92e_16bf_11d2_bca5_00c04fd929db);
-pub const InternetExplorerManager: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdf4fcc34_067a_4e0a_8352_4a1a5095346e);
 pub const LINKSBAND: u32 = 4u32;
 pub const MAPMIME_CLSID: u32 = 1u32;
 pub const MAPMIME_DEFAULT: u32 = 0u32;
@@ -3389,9 +3371,6 @@ pub const OS_E_CANCELLED: OpenServiceErrors = OpenServiceErrors(-2147471631i32);
 pub const OS_E_GPDISABLED: OpenServiceErrors = OpenServiceErrors(-1072886820i32);
 pub const OS_E_NOTFOUND: OpenServiceErrors = OpenServiceErrors(-2147287038i32);
 pub const OS_E_NOTSUPPORTED: OpenServiceErrors = OpenServiceErrors(-2147467231i32);
-pub const OpenServiceActivityManager: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc5efd803_50f8_43cd_9ab8_aafc1394c9e0);
-pub const OpenServiceManager: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x098870b6_39ea_480b_b8b5_dd0167c4db59);
-pub const PeerFactory: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3050f4cf_98b5_11cf_bb82_00aa00bdce0b);
 pub const REGSTRA_VAL_STARTPAGE: ::windows_core::PCSTR = ::windows_core::s!("Start Page");
 pub const REGSTR_PATH_CURRENT: ::windows_core::PCWSTR = ::windows_core::w!("current");
 pub const REGSTR_PATH_DEFAULT: ::windows_core::PCWSTR = ::windows_core::w!("default");
@@ -3595,7 +3574,6 @@ pub const msoslHigh: u32 = 3u32;
 pub const msoslMedium: u32 = 2u32;
 pub const msoslNone: u32 = 1u32;
 pub const msoslUndefined: u32 = 0u32;
-pub const wfolders: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbae31f9a_1b81_11d2_a97a_00c04f8ecb02);
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ADDURL_FLAG(pub i32);
@@ -3728,6 +3706,21 @@ impl ::core::fmt::Debug for SCROLLABLECONTEXTMENU_PLACEMENT {
         f.debug_tuple("SCROLLABLECONTEXTMENU_PLACEMENT").field(&self.0).finish()
     }
 }
+pub const AnchorClick: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x13d5413c_33b9_11d2_95a7_00c04f8ecb02);
+pub const CDeviceRect: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3050f6d4_98b5_11cf_bb82_00aa00bdce0b);
+pub const CDownloadBehavior: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3050f5be_98b5_11cf_bb82_00aa00bdce0b);
+pub const CHeaderFooter: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3050f6cd_98b5_11cf_bb82_00aa00bdce0b);
+pub const CLayoutRect: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3050f664_98b5_11cf_bb82_00aa00bdce0b);
+pub const CPersistDataPeer: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3050f487_98b5_11cf_bb82_00aa00bdce0b);
+pub const CPersistHistory: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3050f4c8_98b5_11cf_bb82_00aa00bdce0b);
+pub const CPersistShortcut: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3050f4c6_98b5_11cf_bb82_00aa00bdce0b);
+pub const CPersistSnapshot: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3050f4c9_98b5_11cf_bb82_00aa00bdce0b);
+pub const CPersistUserData: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3050f48e_98b5_11cf_bb82_00aa00bdce0b);
+pub const CoDitherToRGB8: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa860ce50_3910_11d0_86fc_00a0c913f750);
+pub const CoMapMIMEToCLSID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x30c3b080_30fb_11d0_b724_00aa006c1a01);
+pub const CoSniffStream: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6a01fda0_30df_11d0_b724_00aa006c1a01);
+pub const HomePage: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x766bf2ae_d650_11d1_9811_00c04fc31d2e);
+pub const HomePageSetting: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x374cede0_873a_4c4f_bc86_bcc8cf5116a3);
 #[repr(C)]
 pub struct IELAUNCHURLINFO {
     pub cbSize: u32,
@@ -3759,6 +3752,9 @@ impl ::core::default::Default for IELAUNCHURLINFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+pub const IEWebDriverManager: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x90314af2_5250_47b3_89d8_6295fc23bc22);
+pub const IntelliForms: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x613ab92e_16bf_11d2_bca5_00c04fd929db);
+pub const InternetExplorerManager: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdf4fcc34_067a_4e0a_8352_4a1a5095346e);
 #[repr(C)]
 pub struct NAVIGATEDATA {
     pub ulTarget: u32,
@@ -3792,6 +3788,9 @@ impl ::core::default::Default for NAVIGATEDATA {
         unsafe { ::core::mem::zeroed() }
     }
 }
+pub const OpenServiceActivityManager: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc5efd803_50f8_43cd_9ab8_aafc1394c9e0);
+pub const OpenServiceManager: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x098870b6_39ea_480b_b8b5_dd0167c4db59);
+pub const PeerFactory: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3050f4cf_98b5_11cf_bb82_00aa00bdce0b);
 #[repr(C)]
 pub struct STATURL {
     pub cbSize: u32,
@@ -3827,5 +3826,6 @@ impl ::core::default::Default for STATURL {
         unsafe { ::core::mem::zeroed() }
     }
 }
+pub const wfolders: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbae31f9a_1b81_11d2_a97a_00c04f8ecb02);
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

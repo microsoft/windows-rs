@@ -5833,9 +5833,6 @@ pub const BOOKLET_EDGE_LEFT: u32 = 0u32;
 pub const BOOKLET_EDGE_RIGHT: u32 = 1u32;
 pub const BOOKLET_PRINT: u32 = 2u32;
 pub const BORDER_PRINT: u32 = 0u32;
-pub const BidiRequest: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb9162a23_45f9_47cc_80f5_fe0fe9b9e1a2);
-pub const BidiRequestContainer: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfc5b8a24_db05_4a01_8388_22edf6c2bbba);
-pub const BidiSpl: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2a614240_a4c5_4c33_bd87_1bc709331639);
 pub const CC_BIG5: i32 = -10i32;
 pub const CC_CP437: i32 = -1i32;
 pub const CC_CP850: i32 = -2i32;
@@ -7125,7 +7122,6 @@ pub const PrintJobStatus_Restarted: PrintJobStatus = PrintJobStatus(2048i32);
 pub const PrintJobStatus_Retained: PrintJobStatus = PrintJobStatus(8192i32);
 pub const PrintJobStatus_Spooling: PrintJobStatus = PrintJobStatus(8i32);
 pub const PrintJobStatus_UserIntervention: PrintJobStatus = PrintJobStatus(1024i32);
-pub const PrintSchemaAsyncOperation: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x43b2f83d_10f2_48ab_831b_55fdbdbd34a4);
 pub const PrintSchemaConstrainedSetting_Admin: PrintSchemaConstrainedSetting = PrintSchemaConstrainedSetting(2i32);
 pub const PrintSchemaConstrainedSetting_Device: PrintSchemaConstrainedSetting = PrintSchemaConstrainedSetting(3i32);
 pub const PrintSchemaConstrainedSetting_None: PrintSchemaConstrainedSetting = PrintSchemaConstrainedSetting(0i32);
@@ -7135,9 +7131,6 @@ pub const PrintSchemaParameterDataType_NumericString: PrintSchemaParameterDataTy
 pub const PrintSchemaParameterDataType_String: PrintSchemaParameterDataType = PrintSchemaParameterDataType(2i32);
 pub const PrintSchemaSelectionType_PickMany: PrintSchemaSelectionType = PrintSchemaSelectionType(1i32);
 pub const PrintSchemaSelectionType_PickOne: PrintSchemaSelectionType = PrintSchemaSelectionType(0i32);
-pub const PrinterExtensionManager: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x331b60da_9e90_4dd0_9c84_eac4e659b61f);
-pub const PrinterQueue: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xeb54c230_798c_4c9e_b461_29fad04039b1);
-pub const PrinterQueueView: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xeb54c231_798c_4c9e_b461_29fad04039b1);
 pub const QCP_DEVICEPROFILE: u32 = 0u32;
 pub const QCP_PROFILEDISK: u32 = 2u32;
 pub const QCP_PROFILEMEMORY: u32 = 1u32;
@@ -8174,6 +8167,9 @@ impl ::core::default::Default for BINARY_CONTAINER {
         unsafe { ::core::mem::zeroed() }
     }
 }
+pub const BidiRequest: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb9162a23_45f9_47cc_80f5_fe0fe9b9e1a2);
+pub const BidiRequestContainer: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfc5b8a24_db05_4a01_8388_22edf6c2bbba);
+pub const BidiSpl: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2a614240_a4c5_4c33_bd87_1bc709331639);
 #[repr(C)]
 pub struct BranchOfficeJobData {
     pub eEventType: EBranchOfficeJobEventType,
@@ -15029,6 +15025,10 @@ impl ::core::default::Default for PrintPropertyValue_0_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+pub const PrintSchemaAsyncOperation: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x43b2f83d_10f2_48ab_831b_55fdbdbd34a4);
+pub const PrinterExtensionManager: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x331b60da_9e90_4dd0_9c84_eac4e659b61f);
+pub const PrinterQueue: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xeb54c230_798c_4c9e_b461_29fad04039b1);
+pub const PrinterQueueView: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xeb54c231_798c_4c9e_b461_29fad04039b1);
 #[repr(C)]
 pub struct SETRESULT_INFO {
     pub cbSize: u16,

@@ -1757,7 +1757,6 @@ pub const NetAllComputerNames: NET_COMPUTER_NAME_TYPE = 2i32;
 pub const NetAlternateComputerNames: NET_COMPUTER_NAME_TYPE = 1i32;
 pub const NetComputerNameTypeMax: NET_COMPUTER_NAME_TYPE = 3i32;
 pub const NetPrimaryComputerName: NET_COMPUTER_NAME_TYPE = 0i32;
-pub const NetProvisioning: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x2aa2b5fe_b846_4d07_810c_b21ee45320e3);
 pub const NetSetupDnsMachine: NETSETUP_NAME_TYPE = 5i32;
 pub const NetSetupDomain: NETSETUP_NAME_TYPE = 3i32;
 pub const NetSetupDomainName: NETSETUP_JOIN_STATUS = 3i32;
@@ -3373,6 +3372,7 @@ impl ::core::clone::Clone for NET_VALIDATE_PERSISTED_FIELDS {
         *self
     }
 }
+pub const NetProvisioning: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x2aa2b5fe_b846_4d07_810c_b21ee45320e3);
 #[repr(C)]
 pub struct OBO_TOKEN {
     pub Type: OBO_TOKEN_TYPE,

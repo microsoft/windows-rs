@@ -578,13 +578,9 @@ pub const SIMPLE_DEVICE_ORIENTATION_ROTATED_270: SimpleDeviceOrientation = 3i32;
 pub const SIMPLE_DEVICE_ORIENTATION_ROTATED_90: SimpleDeviceOrientation = 1i32;
 pub const SIMPLE_DEVICE_ORIENTATION_ROTATED_FACE_DOWN: SimpleDeviceOrientation = 5i32;
 pub const SIMPLE_DEVICE_ORIENTATION_ROTATED_FACE_UP: SimpleDeviceOrientation = 4i32;
-pub const Sensor: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xe97ced00_523a_4133_bf6f_d3a2dae7f6ba);
-pub const SensorCollection: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x79c43adb_a429_469f_aa39_2f2b74b75937);
 pub const SensorConnectionType_Attached: SENSOR_CONNECTION_TYPES = 1i32;
 pub const SensorConnectionType_External: SENSOR_CONNECTION_TYPES = 2i32;
 pub const SensorConnectionType_Integrated: SENSOR_CONNECTION_TYPES = 0i32;
-pub const SensorDataReport: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x4ea9d6ef_694b_4218_8816_ccda8da74bba);
-pub const SensorManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x77a1c827_fcd2_4689_8915_9d613cc5fa3e);
 pub const SensorState_Active: SENSOR_STATE = 2i32;
 pub const SensorState_Error: SENSOR_STATE = 3i32;
 pub const SensorState_Idle: SENSOR_STATE = 1i32;
@@ -724,6 +720,10 @@ impl ::core::clone::Clone for SENSOR_VALUE_PAIR {
         *self
     }
 }
+pub const Sensor: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xe97ced00_523a_4133_bf6f_d3a2dae7f6ba);
+pub const SensorCollection: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x79c43adb_a429_469f_aa39_2f2b74b75937);
+pub const SensorDataReport: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x4ea9d6ef_694b_4218_8816_ccda8da74bba);
+pub const SensorManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x77a1c827_fcd2_4689_8915_9d613cc5fa3e);
 #[repr(C)]
 pub struct VEC3D {
     pub X: f32,

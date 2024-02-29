@@ -8,8 +8,6 @@
 pub const SECURITY_PRODUCT_TYPE_ANTISPYWARE: SECURITY_PRODUCT_TYPE = 2i32;
 pub const SECURITY_PRODUCT_TYPE_ANTIVIRUS: SECURITY_PRODUCT_TYPE = 0i32;
 pub const SECURITY_PRODUCT_TYPE_FIREWALL: SECURITY_PRODUCT_TYPE = 1i32;
-pub const WSCDefaultProduct: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x2981a36e_f22d_11e5_9ce9_5e5517507c66);
-pub const WSCProductList: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x17072f7b_9abe_4a74_a261_1eb76b55107a);
 pub const WSC_SECURITY_PRODUCT_OUT_OF_DATE: WSC_SECURITY_SIGNATURE_STATUS = 0i32;
 pub const WSC_SECURITY_PRODUCT_STATE_EXPIRED: WSC_SECURITY_PRODUCT_STATE = 3i32;
 pub const WSC_SECURITY_PRODUCT_STATE_OFF: WSC_SECURITY_PRODUCT_STATE = 1i32;
@@ -39,3 +37,5 @@ pub type WSC_SECURITY_PRODUCT_SUBSTATUS = i32;
 pub type WSC_SECURITY_PROVIDER = i32;
 pub type WSC_SECURITY_PROVIDER_HEALTH = i32;
 pub type WSC_SECURITY_SIGNATURE_STATUS = i32;
+pub const WSCDefaultProduct: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x2981a36e_f22d_11e5_9ce9_5e5517507c66);
+pub const WSCProductList: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x17072f7b_9abe_4a74_a261_1eb76b55107a);

@@ -696,7 +696,6 @@ pub struct ITraceRelogger_Vtbl {
 }
 pub const ALPCGuid: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x45d8cccd_539f_4b72_a8b7_5c683142609a);
 pub const CLSID_TraceRelogger: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7b40792d_05ff_44c4_9058_f440c71f17d4);
-pub const CTraceRelogger: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7b40792d_05ff_44c4_9058_f440c71f17d4);
 pub const DIAG_LOGGER_NAMEA: ::windows_core::PCSTR = ::windows_core::s!("DiagLog");
 pub const DIAG_LOGGER_NAMEW: ::windows_core::PCWSTR = ::windows_core::w!("DiagLog");
 pub const DecodingSourceMax: DECODING_SOURCE = DECODING_SOURCE(4i32);
@@ -1792,6 +1791,7 @@ impl ::core::default::Default for CONTROLTRACE_HANDLE {
         unsafe { ::core::mem::zeroed() }
     }
 }
+pub const CTraceRelogger: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7b40792d_05ff_44c4_9058_f440c71f17d4);
 #[repr(C)]
 pub struct ENABLE_TRACE_PARAMETERS {
     pub Version: u32,

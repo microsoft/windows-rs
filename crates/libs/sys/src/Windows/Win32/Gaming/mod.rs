@@ -45,8 +45,6 @@ pub const GAMING_DEVICE_VENDOR_ID_NONE: GAMING_DEVICE_VENDOR_ID = 0i32;
 pub const GIS_ALL_USERS: GAME_INSTALL_SCOPE = 3i32;
 pub const GIS_CURRENT_USER: GAME_INSTALL_SCOPE = 2i32;
 pub const GIS_NOT_INSTALLED: GAME_INSTALL_SCOPE = 1i32;
-pub const GameExplorer: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x9a5ea990_3034_4d6f_9128_01f3c61022bc);
-pub const GameStatistics: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xdbc85a2c_c0dc_4961_b6e2_d28b62c11ad4);
 pub const ID_GDF_THUMBNAIL_STR: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("__GDF_THUMBNAIL");
 pub const ID_GDF_XML_STR: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("__GDF_XML");
 pub const XBL_IDP_AUTH_TOKEN_STATUS_LOAD_MSA_ACCOUNT_FAILED: XBL_IDP_AUTH_TOKEN_STATUS = 3i32;
@@ -80,8 +78,6 @@ pub const XPRIVILEGE_SUBSCRIPTION_CONTENT: KnownGamingPrivileges = 219i32;
 pub const XPRIVILEGE_USER_CREATED_CONTENT: KnownGamingPrivileges = 247i32;
 pub const XPRIVILEGE_VIDEO_COMMUNICATIONS: KnownGamingPrivileges = 235i32;
 pub const XPRIVILEGE_VIEW_FRIENDS_LIST: KnownGamingPrivileges = 197i32;
-pub const XblIdpAuthManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xce23534b_56d8_4978_86a2_7ee570640468);
-pub const XblIdpAuthTokenResult: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x9f493441_744a_410c_ae2b_9a22f7c7731f);
 pub type GAMESTATS_OPEN_RESULT = i32;
 pub type GAMESTATS_OPEN_TYPE = i32;
 pub type GAME_INSTALL_SCOPE = i32;
@@ -100,5 +96,9 @@ impl ::core::clone::Clone for GAMING_DEVICE_MODEL_INFORMATION {
         *self
     }
 }
+pub const GameExplorer: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x9a5ea990_3034_4d6f_9128_01f3c61022bc);
+pub const GameStatistics: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xdbc85a2c_c0dc_4961_b6e2_d28b62c11ad4);
+pub const XblIdpAuthManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xce23534b_56d8_4978_86a2_7ee570640468);
+pub const XblIdpAuthTokenResult: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x9f493441_744a_410c_ae2b_9a22f7c7731f);
 pub type GameUICompletionRoutine = ::core::option::Option<unsafe extern "system" fn(returncode: ::windows_sys::core::HRESULT, context: *const ::core::ffi::c_void)>;
 pub type PlayerPickerUICompletionRoutine = ::core::option::Option<unsafe extern "system" fn(returncode: ::windows_sys::core::HRESULT, context: *const ::core::ffi::c_void, selectedxuids: *const *mut ::core::ffi::c_void, selectedxuidscount: usize)>;

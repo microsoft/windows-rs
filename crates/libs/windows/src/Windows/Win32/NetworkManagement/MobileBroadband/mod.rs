@@ -1707,10 +1707,6 @@ pub const MBN_VOICE_CLASS_NONE: MBN_VOICE_CLASS = MBN_VOICE_CLASS(0i32);
 pub const MBN_VOICE_CLASS_NO_VOICE: MBN_VOICE_CLASS = MBN_VOICE_CLASS(1i32);
 pub const MBN_VOICE_CLASS_SEPARATE_VOICE_DATA: MBN_VOICE_CLASS = MBN_VOICE_CLASS(2i32);
 pub const MBN_VOICE_CLASS_SIMULTANEOUS_VOICE_DATA: MBN_VOICE_CLASS = MBN_VOICE_CLASS(3i32);
-pub const MbnConnectionManager: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbdfee05c_4418_11dd_90ed_001c257ccff1);
-pub const MbnConnectionProfileManager: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbdfee05a_4418_11dd_90ed_001c257ccff1);
-pub const MbnDeviceServicesManager: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2269daa3_2a9f_4165_a501_ce00a6f7a75b);
-pub const MbnInterfaceManager: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbdfee05b_4418_11dd_90ed_001c257ccff1);
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MBN_ACTIVATION_STATE(pub i32);
@@ -2378,6 +2374,10 @@ impl ::core::default::Default for MBN_SMS_STATUS_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+pub const MbnConnectionManager: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbdfee05c_4418_11dd_90ed_001c257ccff1);
+pub const MbnConnectionProfileManager: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbdfee05a_4418_11dd_90ed_001c257ccff1);
+pub const MbnDeviceServicesManager: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2269daa3_2a9f_4165_a501_ce00a6f7a75b);
+pub const MbnInterfaceManager: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbdfee05b_4418_11dd_90ed_001c257ccff1);
 #[repr(C)]
 pub struct __DummyPinType__ {
     pub pinType: u32,

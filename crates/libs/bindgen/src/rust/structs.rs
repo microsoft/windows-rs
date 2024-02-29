@@ -10,6 +10,15 @@ pub fn writer(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
         return handles::writer(writer, def);
     }
 
+    if let Some(guid) = clsid(def) {
+        let ident = to_ident(def.name());
+        let value = writer.guid(&guid);
+        let guid = writer.type_name(&metadata::Type::GUID);
+        return quote! {
+            pub const #ident: #guid = #value;
+        };
+    }
+
     gen_struct_with_name(writer, def, def.name(), &cfg::Cfg::default())
 }
 
@@ -284,4 +293,11 @@ fn gen_struct_constants(writer: &Writer, def: metadata::TypeDef, struct_name: &T
     }
 
     tokens
+}
+
+fn clsid(def: metadata::TypeDef) -> Option<metadata::Guid> {
+    if def.fields().next().is_none() {
+        return metadata::type_def_guid(def);
+    }
+    None
 }

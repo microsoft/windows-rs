@@ -2075,7 +2075,6 @@ pub const CP_OPEN: u32 = 1u32;
 pub const CREATE_FOR_DIR: u32 = 2u32;
 pub const CREATE_FOR_IMPORT: u32 = 1u32;
 pub const CRITICAL_SECTION_NO_DEBUG_INFO: u32 = 16777216u32;
-pub const CameraUIControl: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x16d5a2be_b1c5_47b3_8eae_ccbcf452c7e8);
 pub const DCICREATEOFFSCREENSURFACE: u32 = 2u32;
 pub const DCICREATEOVERLAYSURFACE: u32 = 3u32;
 pub const DCICREATEPRIMARYSURFACE: u32 = 1u32;
@@ -2158,7 +2157,6 @@ pub const DRIVE_UNKNOWN: u32 = 0u32;
 pub const DTR_CONTROL_DISABLE: u32 = 0u32;
 pub const DTR_CONTROL_ENABLE: u32 = 1u32;
 pub const DTR_CONTROL_HANDSHAKE: u32 = 2u32;
-pub const DefaultBrowserSyncSettings: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3ac83423_3112_4aa6_9b5b_1feb23d0c5f9);
 pub const EFSRPC_SECURE_ONLY: u32 = 8u32;
 pub const EFS_DROP_ALTERNATE_STREAMS: u32 = 16u32;
 pub const EFS_USE_RECOVERY_KEYS: u32 = 1u32;
@@ -2167,8 +2165,6 @@ pub const ENTITY_TYPE_ID: u32 = 1u32;
 pub const ER_ENTITY: TDIENTITY_ENTITY_TYPE = TDIENTITY_ENTITY_TYPE(896u32);
 pub const ER_ICMP: u32 = 896u32;
 pub const EVENTLOG_FULL_INFO: u32 = 0u32;
-pub const EditionUpgradeBroker: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc4270827_4f39_45df_9288_12ff6b85a921);
-pub const EditionUpgradeHelper: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x01776df3_b9af_4e50_9b1c_56e93116d704);
 pub const EndpointIoControlType: TDI_TL_IO_CONTROL_TYPE = TDI_TL_IO_CONTROL_TYPE(0i32);
 pub const FAIL_FAST_GENERATE_EXCEPTION_ADDRESS: u32 = 1u32;
 pub const FAIL_FAST_NO_HARD_ERROR_DLG: u32 = 2u32;
@@ -3117,6 +3113,7 @@ impl ::core::default::Default for CUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG {
         unsafe { ::core::mem::zeroed() }
     }
 }
+pub const CameraUIControl: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x16d5a2be_b1c5_47b3_8eae_ccbcf452c7e8);
 #[repr(C)]
 pub struct DATETIME {
     pub year: u16,
@@ -3477,6 +3474,9 @@ impl ::core::default::Default for DELAYLOAD_PROC_DESCRIPTOR_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+pub const DefaultBrowserSyncSettings: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3ac83423_3112_4aa6_9b5b_1feb23d0c5f9);
+pub const EditionUpgradeBroker: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc4270827_4f39_45df_9288_12ff6b85a921);
+pub const EditionUpgradeHelper: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x01776df3_b9af_4e50_9b1c_56e93116d704);
 #[repr(C)]
 pub struct FEATURE_ERROR {
     pub hr: ::windows_core::HRESULT,

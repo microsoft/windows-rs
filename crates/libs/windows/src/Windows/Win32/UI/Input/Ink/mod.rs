@@ -122,8 +122,6 @@ pub struct IInkPresenterDesktop_Vtbl {
     pub SetSize: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32, f32) -> ::windows_core::HRESULT,
     pub OnHighContrastChanged: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-pub const InkD2DRenderer: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4044e60c_7b01_4671_a97c_04e0210a07a5);
-pub const InkDesktopHost: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x062584a6_f830_4bdc_a4d2_0a10ab062b1d);
 pub const USE_ORIGINAL_COLORS: INK_HIGH_CONTRAST_ADJUSTMENT = INK_HIGH_CONTRAST_ADJUSTMENT(2i32);
 pub const USE_SYSTEM_COLORS: INK_HIGH_CONTRAST_ADJUSTMENT = INK_HIGH_CONTRAST_ADJUSTMENT(1i32);
 pub const USE_SYSTEM_COLORS_WHEN_NECESSARY: INK_HIGH_CONTRAST_ADJUSTMENT = INK_HIGH_CONTRAST_ADJUSTMENT(0i32);
@@ -138,5 +136,7 @@ impl ::core::fmt::Debug for INK_HIGH_CONTRAST_ADJUSTMENT {
         f.debug_tuple("INK_HIGH_CONTRAST_ADJUSTMENT").field(&self.0).finish()
     }
 }
+pub const InkD2DRenderer: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4044e60c_7b01_4671_a97c_04e0210a07a5);
+pub const InkDesktopHost: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x062584a6_f830_4bdc_a4d2_0a10ab062b1d);
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

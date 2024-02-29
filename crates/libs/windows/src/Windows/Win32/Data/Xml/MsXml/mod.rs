@@ -10215,18 +10215,10 @@ pub const DISPID_XTLRUNTIME_FORMATNUMBER: u32 = 193u32;
 pub const DISPID_XTLRUNTIME_FORMATTIME: u32 = 195u32;
 pub const DISPID_XTLRUNTIME_UNIQUEID: u32 = 187u32;
 pub const DISPID_XTLRUNTIME__TOP: u32 = 196u32;
-pub const DOMDocument: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2933bf90_7b36_11d2_b20e_00c04f983e60);
-pub const DOMDocument60: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x88d96a05_f192_11d4_a65f_0040963251e5);
-pub const DOMFreeThreadedDocument: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2933bf91_7b36_11d2_b20e_00c04f983e60);
 pub const E_XML_BUFFERTOOSMALL: i32 = -1072897498i32;
 pub const E_XML_INVALID: i32 = -1072897499i32;
 pub const E_XML_NODTD: i32 = -1072897500i32;
 pub const E_XML_NOTWF: i32 = -1072897501i32;
-pub const FreeThreadedDOMDocument60: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x88d96a06_f192_11d4_a65f_0040963251e5);
-pub const FreeThreadedXMLHTTP60: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x88d96a09_f192_11d4_a65f_0040963251e5);
-pub const MXHTMLWriter60: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x88d96a10_f192_11d4_a65f_0040963251e5);
-pub const MXNamespaceManager60: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x88d96a11_f192_11d4_a65f_0040963251e5);
-pub const MXXMLWriter60: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x88d96a0f_f192_11d4_a65f_0040963251e5);
 pub const NODE_ATTRIBUTE: DOMNodeType = DOMNodeType(2i32);
 pub const NODE_CDATA_SECTION: DOMNodeType = DOMNodeType(4i32);
 pub const NODE_COMMENT: DOMNodeType = DOMNodeType(8i32);
@@ -10240,8 +10232,6 @@ pub const NODE_INVALID: DOMNodeType = DOMNodeType(0i32);
 pub const NODE_NOTATION: DOMNodeType = DOMNodeType(12i32);
 pub const NODE_PROCESSING_INSTRUCTION: DOMNodeType = DOMNodeType(7i32);
 pub const NODE_TEXT: DOMNodeType = DOMNodeType(3i32);
-pub const SAXAttributes60: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x88d96a0e_f192_11d4_a65f_0040963251e5);
-pub const SAXXMLReader60: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x88d96a0c_f192_11d4_a65f_0040963251e5);
 pub const SCHEMACONTENTTYPE_ELEMENTONLY: SCHEMACONTENTTYPE = SCHEMACONTENTTYPE(2i32);
 pub const SCHEMACONTENTTYPE_EMPTY: SCHEMACONTENTTYPE = SCHEMACONTENTTYPE(0i32);
 pub const SCHEMACONTENTTYPE_MIXED: SCHEMACONTENTTYPE = SCHEMACONTENTTYPE(3i32);
@@ -10356,7 +10346,6 @@ pub const SXH_SERVER_CERT_IGNORE_CERT_CN_INVALID: SXH_SERVER_CERT_OPTION = SXH_S
 pub const SXH_SERVER_CERT_IGNORE_CERT_DATE_INVALID: SXH_SERVER_CERT_OPTION = SXH_SERVER_CERT_OPTION(8192i32);
 pub const SXH_SERVER_CERT_IGNORE_UNKNOWN_CA: SXH_SERVER_CERT_OPTION = SXH_SERVER_CERT_OPTION(256i32);
 pub const SXH_SERVER_CERT_IGNORE_WRONG_USAGE: SXH_SERVER_CERT_OPTION = SXH_SERVER_CERT_OPTION(512i32);
-pub const ServerXMLHTTP60: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x88d96a0b_f192_11d4_a65f_0040963251e5);
 pub const XHR_AUTH_ALL: XHR_AUTH = XHR_AUTH(0i32);
 pub const XHR_AUTH_NONE: XHR_AUTH = XHR_AUTH(1i32);
 pub const XHR_AUTH_PROXY: XHR_AUTH = XHR_AUTH(2i32);
@@ -10405,8 +10394,6 @@ pub const XHR_PROP_QUERY_STRING_UTF8: XHR_PROPERTY = XHR_PROPERTY(7i32);
 pub const XHR_PROP_REPORT_REDIRECT_STATUS: XHR_PROPERTY = XHR_PROPERTY(4i32);
 pub const XHR_PROP_SET_ENTERPRISEID: XHR_PROPERTY = XHR_PROPERTY(10i32);
 pub const XHR_PROP_TIMEOUT: XHR_PROPERTY = XHR_PROPERTY(2i32);
-pub const XMLDSOControl: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x550dda30_0541_11d2_9ca9_0060b0ec3d39);
-pub const XMLDocument: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcfc399af_d876_11d0_9c10_00c04fc99c8e);
 pub const XMLELEMTYPE_COMMENT: XMLELEM_TYPE = XMLELEM_TYPE(2i32);
 pub const XMLELEMTYPE_DOCUMENT: XMLELEM_TYPE = XMLELEM_TYPE(3i32);
 pub const XMLELEMTYPE_DTD: XMLELEM_TYPE = XMLELEM_TYPE(4i32);
@@ -10414,10 +10401,6 @@ pub const XMLELEMTYPE_ELEMENT: XMLELEM_TYPE = XMLELEM_TYPE(0i32);
 pub const XMLELEMTYPE_OTHER: XMLELEM_TYPE = XMLELEM_TYPE(6i32);
 pub const XMLELEMTYPE_PI: XMLELEM_TYPE = XMLELEM_TYPE(5i32);
 pub const XMLELEMTYPE_TEXT: XMLELEM_TYPE = XMLELEM_TYPE(1i32);
-pub const XMLHTTP60: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x88d96a0a_f192_11d4_a65f_0040963251e5);
-pub const XMLHTTPRequest: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xed8c108e_4349_11d2_91a4_00c04f7969e8);
-pub const XMLSchemaCache60: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x88d96a07_f192_11d4_a65f_0040963251e5);
-pub const XSLTemplate60: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x88d96a08_f192_11d4_a65f_0040963251e5);
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DOMNodeType(pub i32);
@@ -10627,6 +10610,17 @@ impl ::core::fmt::Debug for XMLELEM_TYPE {
         f.debug_tuple("XMLELEM_TYPE").field(&self.0).finish()
     }
 }
+pub const DOMDocument: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2933bf90_7b36_11d2_b20e_00c04f983e60);
+pub const DOMDocument60: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x88d96a05_f192_11d4_a65f_0040963251e5);
+pub const DOMFreeThreadedDocument: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2933bf91_7b36_11d2_b20e_00c04f983e60);
+pub const FreeThreadedDOMDocument60: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x88d96a06_f192_11d4_a65f_0040963251e5);
+pub const FreeThreadedXMLHTTP60: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x88d96a09_f192_11d4_a65f_0040963251e5);
+pub const MXHTMLWriter60: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x88d96a10_f192_11d4_a65f_0040963251e5);
+pub const MXNamespaceManager60: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x88d96a11_f192_11d4_a65f_0040963251e5);
+pub const MXXMLWriter60: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x88d96a0f_f192_11d4_a65f_0040963251e5);
+pub const SAXAttributes60: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x88d96a0e_f192_11d4_a65f_0040963251e5);
+pub const SAXXMLReader60: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x88d96a0c_f192_11d4_a65f_0040963251e5);
+pub const ServerXMLHTTP60: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x88d96a0b_f192_11d4_a65f_0040963251e5);
 #[repr(C)]
 pub struct XHR_CERT {
     pub cbCert: u32,
@@ -10691,6 +10685,11 @@ impl ::core::default::Default for XHR_COOKIE {
         unsafe { ::core::mem::zeroed() }
     }
 }
+pub const XMLDSOControl: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x550dda30_0541_11d2_9ca9_0060b0ec3d39);
+pub const XMLDocument: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcfc399af_d876_11d0_9c10_00c04fc99c8e);
+pub const XMLHTTP60: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x88d96a0a_f192_11d4_a65f_0040963251e5);
+pub const XMLHTTPRequest: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xed8c108e_4349_11d2_91a4_00c04f7969e8);
+pub const XMLSchemaCache60: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x88d96a07_f192_11d4_a65f_0040963251e5);
 #[repr(C)]
 pub struct XML_ERROR {
     pub _nLine: u32,
@@ -10726,6 +10725,7 @@ impl ::core::default::Default for XML_ERROR {
         unsafe { ::core::mem::zeroed() }
     }
 }
+pub const XSLTemplate60: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x88d96a08_f192_11d4_a65f_0040963251e5);
 #[repr(C)]
 pub struct __msxml6_ReferenceRemainingTypes__ {
     pub __tagDomNodeType__: DOMNodeType,

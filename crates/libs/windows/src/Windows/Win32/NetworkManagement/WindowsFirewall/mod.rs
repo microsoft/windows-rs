@@ -2899,16 +2899,7 @@ pub const NET_FW_SERVICE_NONE: NET_FW_SERVICE_TYPE = NET_FW_SERVICE_TYPE(3i32);
 pub const NET_FW_SERVICE_REMOTE_DESKTOP: NET_FW_SERVICE_TYPE = NET_FW_SERVICE_TYPE(2i32);
 pub const NET_FW_SERVICE_TYPE_MAX: NET_FW_SERVICE_TYPE = NET_FW_SERVICE_TYPE(4i32);
 pub const NET_FW_SERVICE_UPNP: NET_FW_SERVICE_TYPE = NET_FW_SERVICE_TYPE(1i32);
-pub const NetFwAuthorizedApplication: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xec9846b3_2762_4a6b_a214_6acb603462d2);
-pub const NetFwMgr: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x304ce942_6e39_40d8_943a_b913c40c9cd4);
-pub const NetFwOpenPort: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0ca545c6_37ad_4a6c_bf92_9f7610067ef5);
-pub const NetFwPolicy2: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe2b3c97f_6ae1_41ac_817a_f6f92166d7dd);
-pub const NetFwProduct: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9d745ed8_c514_4d1d_bf42_751fed2d5ac7);
-pub const NetFwProducts: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcc19079b_8272_4d73_bb70_cdb533527b61);
-pub const NetFwRule: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2c5bc43e_3369_4c33_ab0c_be9469677af4);
-pub const NetSharingManager: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5c63c1ad_3956_4ff8_8486_40034758315b);
 pub const S_OBJECT_NO_LONGER_VALID: ::windows_core::HRESULT = ::windows_core::HRESULT(0x2_u32 as _);
-pub const UPnPNAT: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xae1e00aa_3fd5_403c_8a27_2bbdc30cd0e1);
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS(pub i32);
@@ -3559,6 +3550,15 @@ impl ::core::default::Default for NETCON_PROPERTIES {
         unsafe { ::core::mem::zeroed() }
     }
 }
+pub const NetFwAuthorizedApplication: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xec9846b3_2762_4a6b_a214_6acb603462d2);
+pub const NetFwMgr: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x304ce942_6e39_40d8_943a_b913c40c9cd4);
+pub const NetFwOpenPort: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0ca545c6_37ad_4a6c_bf92_9f7610067ef5);
+pub const NetFwPolicy2: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe2b3c97f_6ae1_41ac_817a_f6f92166d7dd);
+pub const NetFwProduct: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9d745ed8_c514_4d1d_bf42_751fed2d5ac7);
+pub const NetFwProducts: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcc19079b_8272_4d73_bb70_cdb533527b61);
+pub const NetFwRule: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2c5bc43e_3369_4c33_ab0c_be9469677af4);
+pub const NetSharingManager: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5c63c1ad_3956_4ff8_8486_40034758315b);
+pub const UPnPNAT: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xae1e00aa_3fd5_403c_8a27_2bbdc30cd0e1);
 #[cfg(feature = "Win32_Security")]
 pub type PAC_CHANGES_CALLBACK_FN = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, pchange: *const INET_FIREWALL_AC_CHANGE)>;
 pub type PFN_FWADDDYNAMICKEYWORDADDRESS0 = ::core::option::Option<unsafe extern "system" fn(dynamickeywordaddress: *const FW_DYNAMIC_KEYWORD_ADDRESS0) -> u32>;

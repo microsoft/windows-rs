@@ -2949,7 +2949,6 @@ pub const SYNC_SERIALIZE_REPLICA_KEY_MAP: u32 = 1u32;
 pub const SYNC_STATISTICS_RANGE_COUNT: SYNC_STATISTICS = SYNC_STATISTICS(0i32);
 pub const SYNC_VERSION_FLAG_FROM_FEED: u32 = 1u32;
 pub const SYNC_VERSION_FLAG_HAS_BY: u32 = 2u32;
-pub const SyncProviderRegistration: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf82b4ef1_93a9_4dde_8015_f7950a1a6e31);
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CONFLICT_RESOLUTION_POLICY(pub i32);
@@ -3375,5 +3374,6 @@ impl ::core::default::Default for SyncProviderConfiguration {
         unsafe { ::core::mem::zeroed() }
     }
 }
+pub const SyncProviderRegistration: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf82b4ef1_93a9_4dde_8015_f7950a1a6e31);
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

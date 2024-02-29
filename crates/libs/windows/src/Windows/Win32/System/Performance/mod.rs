@@ -5613,13 +5613,6 @@ pub struct _ISystemMonitorUnion_Vtbl {
     pub BatchingLock: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::VARIANT_BOOL, SysmonBatchReason) -> ::windows_core::HRESULT,
     pub LoadSettings: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-pub const AppearPropPage: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe49741e9_93a8_4ab1_8e96_bf4482282e9c);
-pub const BootTraceSession: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x03837538_098b_11d8_9414_505054503030);
-pub const BootTraceSessionCollection: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x03837539_098b_11d8_9414_505054503030);
-pub const CounterItem: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc4d2d8e0_d1dd_11ce_940f_008029004348);
-pub const CounterItem2: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x43196c62_c31f_4ce3_a02e_79efe0f6a525);
-pub const CounterPropPage: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcf948561_ede8_11ce_941e_008029004347);
-pub const Counters: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb2b066d2_2aac_11cf_942f_008029004347);
 pub const DATA_SOURCE_REGISTRY: REAL_TIME_DATA_SOURCE_ID_FLAGS = REAL_TIME_DATA_SOURCE_ID_FLAGS(1u32);
 pub const DATA_SOURCE_WBEM: REAL_TIME_DATA_SOURCE_ID_FLAGS = REAL_TIME_DATA_SOURCE_ID_FLAGS(4u32);
 pub const DIID_DICounterItem: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc08c4ff2_0e2e_11cf_942c_008029004347);
@@ -5627,18 +5620,8 @@ pub const DIID_DILogFileItem: ::windows_core::GUID = ::windows_core::GUID::from_
 pub const DIID_DISystemMonitor: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x13d73d81_c32e_11cf_9398_00aa00a3ddea);
 pub const DIID_DISystemMonitorEvents: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x84979930_4ab3_11cf_943a_008029004347);
 pub const DIID_DISystemMonitorInternal: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x194eb242_c32c_11cf_9398_00aa00a3ddea);
-pub const DataCollectorSet: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x03837521_098b_11d8_9414_505054503030);
-pub const DataCollectorSetCollection: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x03837525_098b_11d8_9414_505054503030);
-pub const GeneralPropPage: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc3e5d3d2_1a03_11cf_942d_008029004347);
-pub const GraphPropPage: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc3e5d3d3_1a03_11cf_942d_008029004347);
 pub const H_WBEM_DATASOURCE: i32 = -1i32;
 pub const LIBID_SystemMonitor: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1b773e42_2509_11cf_942f_008029004347);
-pub const LegacyDataCollectorSet: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x03837526_098b_11d8_9414_505054503030);
-pub const LegacyDataCollectorSetCollection: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x03837527_098b_11d8_9414_505054503030);
-pub const LegacyTraceSession: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x03837528_098b_11d8_9414_505054503030);
-pub const LegacyTraceSessionCollection: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x03837529_098b_11d8_9414_505054503030);
-pub const LogFileItem: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x16ec5be8_df93_4237_94e4_9ee918111d71);
-pub const LogFiles: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2735d9fd_f6b9_4f19_a5d9_e2d068584bc5);
 pub const MAX_COUNTER_PATH: u32 = 256u32;
 pub const MAX_PERF_OBJECTS_IN_QUERY_FUNCTION: i32 = 64i32;
 pub const PDH_ACCESS_DENIED: u32 = 3221228507u32;
@@ -5863,17 +5846,6 @@ pub const PLA_CAPABILITY_V1_SESSION: u32 = 2u32;
 pub const PLA_CAPABILITY_V1_SVC: u32 = 1u32;
 pub const PLA_CAPABILITY_V1_SYSTEM: u32 = 4u32;
 pub const S_PDH: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x04d66358_c4a1_419b_8023_23b73902de2c);
-pub const ServerDataCollectorSet: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x03837531_098b_11d8_9414_505054503030);
-pub const ServerDataCollectorSetCollection: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x03837532_098b_11d8_9414_505054503030);
-pub const SourcePropPage: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0cf32aa1_7571_11d0_93c4_00aa00a3ddea);
-pub const SystemDataCollectorSet: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x03837546_098b_11d8_9414_505054503030);
-pub const SystemDataCollectorSetCollection: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x03837547_098b_11d8_9414_505054503030);
-pub const SystemMonitor: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc4d2d8e0_d1dd_11ce_940f_008029004347);
-pub const SystemMonitor2: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7f30578c_5f38_4612_acfe_6ed04c7b7af8);
-pub const TraceDataProvider: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x03837513_098b_11d8_9414_505054503030);
-pub const TraceDataProviderCollection: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x03837511_098b_11d8_9414_505054503030);
-pub const TraceSession: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0383751c_098b_11d8_9414_505054503030);
-pub const TraceSessionCollection: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x03837530_098b_11d8_9414_505054503030);
 pub const WINPERF_LOG_DEBUG: u32 = 2u32;
 pub const WINPERF_LOG_NONE: u32 = 0u32;
 pub const WINPERF_LOG_USER: u32 = 1u32;
@@ -6290,6 +6262,23 @@ impl ::core::fmt::Debug for WeekDays {
         f.debug_tuple("WeekDays").field(&self.0).finish()
     }
 }
+pub const AppearPropPage: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe49741e9_93a8_4ab1_8e96_bf4482282e9c);
+pub const BootTraceSession: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x03837538_098b_11d8_9414_505054503030);
+pub const BootTraceSessionCollection: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x03837539_098b_11d8_9414_505054503030);
+pub const CounterItem: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc4d2d8e0_d1dd_11ce_940f_008029004348);
+pub const CounterItem2: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x43196c62_c31f_4ce3_a02e_79efe0f6a525);
+pub const CounterPropPage: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcf948561_ede8_11ce_941e_008029004347);
+pub const Counters: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb2b066d2_2aac_11cf_942f_008029004347);
+pub const DataCollectorSet: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x03837521_098b_11d8_9414_505054503030);
+pub const DataCollectorSetCollection: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x03837525_098b_11d8_9414_505054503030);
+pub const GeneralPropPage: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc3e5d3d2_1a03_11cf_942d_008029004347);
+pub const GraphPropPage: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc3e5d3d3_1a03_11cf_942d_008029004347);
+pub const LegacyDataCollectorSet: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x03837526_098b_11d8_9414_505054503030);
+pub const LegacyDataCollectorSetCollection: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x03837527_098b_11d8_9414_505054503030);
+pub const LegacyTraceSession: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x03837528_098b_11d8_9414_505054503030);
+pub const LegacyTraceSessionCollection: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x03837529_098b_11d8_9414_505054503030);
+pub const LogFileItem: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x16ec5be8_df93_4237_94e4_9ee918111d71);
+pub const LogFiles: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2735d9fd_f6b9_4f19_a5d9_e2d068584bc5);
 #[repr(C)]
 pub struct PDH_BROWSE_DLG_CONFIG_A {
     pub _bitfield: u32,
@@ -8113,6 +8102,17 @@ impl ::core::default::Default for PERF_STRING_COUNTER_HEADER {
         unsafe { ::core::mem::zeroed() }
     }
 }
+pub const ServerDataCollectorSet: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x03837531_098b_11d8_9414_505054503030);
+pub const ServerDataCollectorSetCollection: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x03837532_098b_11d8_9414_505054503030);
+pub const SourcePropPage: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0cf32aa1_7571_11d0_93c4_00aa00a3ddea);
+pub const SystemDataCollectorSet: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x03837546_098b_11d8_9414_505054503030);
+pub const SystemDataCollectorSetCollection: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x03837547_098b_11d8_9414_505054503030);
+pub const SystemMonitor: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc4d2d8e0_d1dd_11ce_940f_008029004347);
+pub const SystemMonitor2: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7f30578c_5f38_4612_acfe_6ed04c7b7af8);
+pub const TraceDataProvider: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x03837513_098b_11d8_9414_505054503030);
+pub const TraceDataProviderCollection: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x03837511_098b_11d8_9414_505054503030);
+pub const TraceSession: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0383751c_098b_11d8_9414_505054503030);
+pub const TraceSessionCollection: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x03837530_098b_11d8_9414_505054503030);
 pub type CounterPathCallBack = ::core::option::Option<unsafe extern "system" fn(param0: usize) -> i32>;
 pub type PERFLIBREQUEST = ::core::option::Option<unsafe extern "system" fn(requestcode: u32, buffer: *mut ::core::ffi::c_void, buffersize: u32) -> u32>;
 pub type PERF_MEM_ALLOC = ::core::option::Option<unsafe extern "system" fn(allocsize: usize, pcontext: *mut ::core::ffi::c_void) -> *mut ::core::ffi::c_void>;

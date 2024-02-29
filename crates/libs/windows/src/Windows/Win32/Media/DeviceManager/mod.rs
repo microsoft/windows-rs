@@ -2697,8 +2697,6 @@ pub const MTP_NEXTPHASE_READ_DATA: u32 = 1u32;
 pub const MTP_NEXTPHASE_WRITE_DATA: u32 = 2u32;
 pub const MTP_RESPONSE_MAX_PARAMS: u32 = 5u32;
 pub const MTP_RESPONSE_OK: u16 = 8193u16;
-pub const MediaDevMgr: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x25baad81_3560_11d3_8471_00c04f79dbc0);
-pub const MediaDevMgrClassFactory: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x50040c1d_bdbf_4924_b873_f14d6c5bfd66);
 pub const RSA_KEY_LEN: u32 = 64u32;
 pub const SAC_CERT_V1: u32 = 2u32;
 pub const SAC_CERT_X509: u32 = 1u32;
@@ -2710,13 +2708,7 @@ pub const SCP_EVENTID_ACQSECURECLOCK: ::windows_core::GUID = ::windows_core::GUI
 pub const SCP_EVENTID_DRMINFO: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x213dd287_41d2_432b_9e3f_3b4f7b3581dd);
 pub const SCP_EVENTID_NEEDTOINDIV: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x87a507c7_b469_4386_b976_d5d1ce538a6f);
 pub const SCP_PARAMID_DRMVERSION: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x41d0155d_7cc7_4217_ada9_005074624da4);
-pub const WMDMDevice: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x807b3cdf_357a_11d3_8471_00c04f79dbc0);
-pub const WMDMDeviceEnum: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x430e35af_3971_11d3_8474_00c04f79dbc0);
 pub const WMDMID_LENGTH: u32 = 128u32;
-pub const WMDMLogger: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x110a3202_5a79_11d3_8d78_444553540000);
-pub const WMDMStorage: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x807b3ce0_357a_11d3_8471_00c04f79dbc0);
-pub const WMDMStorageEnum: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xeb401a3b_3af7_11d3_8474_00c04f79dbc0);
-pub const WMDMStorageGlobal: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x807b3ce1_357a_11d3_8471_00c04f79dbc0);
 pub const WMDM_APP_REVOKED: u32 = 2u32;
 pub const WMDM_CONTENT_FILE: u32 = 4u32;
 pub const WMDM_CONTENT_FOLDER: u32 = 8u32;
@@ -3236,6 +3228,8 @@ impl ::core::default::Default for MTP_COMMAND_DATA_OUT {
         unsafe { ::core::mem::zeroed() }
     }
 }
+pub const MediaDevMgr: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x25baad81_3560_11d3_8471_00c04f79dbc0);
+pub const MediaDevMgrClassFactory: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x50040c1d_bdbf_4924_b873_f14d6c5bfd66);
 #[repr(C)]
 pub struct OPAQUECOMMAND {
     pub guidCommand: ::windows_core::GUID,
@@ -3401,6 +3395,8 @@ impl ::core::default::Default for WMDMDetermineMaxPropStringLen {
         unsafe { ::core::mem::zeroed() }
     }
 }
+pub const WMDMDevice: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x807b3cdf_357a_11d3_8471_00c04f79dbc0);
+pub const WMDMDeviceEnum: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x430e35af_3971_11d3_8474_00c04f79dbc0);
 #[repr(C)]
 pub struct WMDMID {
     pub cbSize: u32,
@@ -3433,6 +3429,7 @@ impl ::core::default::Default for WMDMID {
         unsafe { ::core::mem::zeroed() }
     }
 }
+pub const WMDMLogger: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x110a3202_5a79_11d3_8d78_444553540000);
 #[repr(C)]
 pub struct WMDMMetadataView {
     pub pwszViewName: ::windows_core::PWSTR,
@@ -3499,6 +3496,9 @@ impl ::core::default::Default for WMDMRIGHTS {
         unsafe { ::core::mem::zeroed() }
     }
 }
+pub const WMDMStorage: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x807b3ce0_357a_11d3_8471_00c04f79dbc0);
+pub const WMDMStorageEnum: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xeb401a3b_3af7_11d3_8474_00c04f79dbc0);
+pub const WMDMStorageGlobal: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x807b3ce1_357a_11d3_8471_00c04f79dbc0);
 #[repr(C)]
 pub struct WMDM_FORMAT_CAPABILITY {
     pub nPropConfig: u32,

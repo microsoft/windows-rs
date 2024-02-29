@@ -79,7 +79,6 @@ pub const RSS_INVITATION: RENDEZVOUS_SESSION_STATE = RENDEZVOUS_SESSION_STATE(2i
 pub const RSS_READY: RENDEZVOUS_SESSION_STATE = RENDEZVOUS_SESSION_STATE(1i32);
 pub const RSS_TERMINATED: RENDEZVOUS_SESSION_STATE = RENDEZVOUS_SESSION_STATE(7i32);
 pub const RSS_UNKNOWN: RENDEZVOUS_SESSION_STATE = RENDEZVOUS_SESSION_STATE(0i32);
-pub const RendezvousApplication: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0b7e019a_b5de_47fa_8966_9082f82fb192);
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RENDEZVOUS_SESSION_FLAGS(pub i32);
@@ -102,5 +101,6 @@ impl ::core::fmt::Debug for RENDEZVOUS_SESSION_STATE {
         f.debug_tuple("RENDEZVOUS_SESSION_STATE").field(&self.0).finish()
     }
 }
+pub const RendezvousApplication: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0b7e019a_b5de_47fa_8966_9082f82fb192);
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

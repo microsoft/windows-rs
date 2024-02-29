@@ -632,7 +632,6 @@ pub const WSMAN_SHELL_OPTION_NOPROFILE: ::windows_sys::core::PCWSTR = ::windows_
 pub const WSMAN_STREAM_ID_STDERR: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("stderr");
 pub const WSMAN_STREAM_ID_STDIN: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("stdin");
 pub const WSMAN_STREAM_ID_STDOUT: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("stdout");
-pub const WSMan: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xbced617b_ec03_420b_8508_977dc7a686bd);
 pub const WSManFlagAllowNegotiateImplicitCredentials: WSManSessionFlags = 67108864i32;
 pub const WSManFlagAssociatedInstance: WSManEnumFlags = 0i32;
 pub const WSManFlagAssociationInstance: WSManEnumFlags = 128i32;
@@ -662,7 +661,6 @@ pub const WSManFlagUseKerberos: WSManSessionFlags = 524288i32;
 pub const WSManFlagUseNegotiate: WSManSessionFlags = 131072i32;
 pub const WSManFlagUseNoAuthentication: WSManSessionFlags = 32768i32;
 pub const WSManFlagUseSsl: WSManSessionFlags = 134217728i32;
-pub const WSManInternal: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x7de087a5_5dcb_4df7_bb12_0924ad8fbd9a);
 pub const WSManProxyAutoDetect: WSManProxyAccessTypeFlags = 4i32;
 pub const WSManProxyIEConfig: WSManProxyAccessTypeFlags = 1i32;
 pub const WSManProxyNoProxyServer: WSManProxyAccessTypeFlags = 8i32;
@@ -1088,6 +1086,8 @@ impl ::core::clone::Clone for WSMAN_USERNAME_PASSWORD_CREDS {
         *self
     }
 }
+pub const WSMan: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xbced617b_ec03_420b_8508_977dc7a686bd);
+pub const WSManInternal: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x7de087a5_5dcb_4df7_bb12_0924ad8fbd9a);
 pub type WSMAN_PLUGIN_AUTHORIZE_OPERATION = ::core::option::Option<unsafe extern "system" fn(plugincontext: *const ::core::ffi::c_void, senderdetails: *const WSMAN_SENDER_DETAILS, flags: u32, operation: u32, action: ::windows_sys::core::PCWSTR, resourceuri: ::windows_sys::core::PCWSTR)>;
 pub type WSMAN_PLUGIN_AUTHORIZE_QUERY_QUOTA = ::core::option::Option<unsafe extern "system" fn(plugincontext: *const ::core::ffi::c_void, senderdetails: *const WSMAN_SENDER_DETAILS, flags: u32)>;
 pub type WSMAN_PLUGIN_AUTHORIZE_RELEASE_CONTEXT = ::core::option::Option<unsafe extern "system" fn(userauthorizationcontext: *const ::core::ffi::c_void)>;

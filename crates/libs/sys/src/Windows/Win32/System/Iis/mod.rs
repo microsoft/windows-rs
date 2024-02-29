@@ -59,7 +59,6 @@ pub const FTP_PROCESS_CLOSE_SESSION: FTP_PROCESS_STATUS = 1i32;
 pub const FTP_PROCESS_CONTINUE: FTP_PROCESS_STATUS = 0i32;
 pub const FTP_PROCESS_REJECT_COMMAND: FTP_PROCESS_STATUS = 3i32;
 pub const FTP_PROCESS_TERMINATE_SESSION: FTP_PROCESS_STATUS = 2i32;
-pub const FtpProvider: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x70bdc667_33b2_45f0_ac52_c3ca46f7a656);
 pub const GUID_IIS_ALL_TRACE_PROVIDERS: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000000);
 pub const GUID_IIS_ASPNET_TRACE_PROVIDER: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xaff081fe_0247_4275_9c4e_021f3dc1da35);
 pub const GUID_IIS_ASP_TRACE_TRACE_PROVIDER: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x06b94d9a_b15e_456e_a4ef_37c984a2cb4b);
@@ -1036,6 +1035,7 @@ impl ::core::clone::Clone for EXTENSION_CONTROL_BLOCK {
         *self
     }
 }
+pub const FtpProvider: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x70bdc667_33b2_45f0_ac52_c3ca46f7a656);
 pub type HCONN = *mut ::core::ffi::c_void;
 #[repr(C)]
 pub struct HSE_CUSTOM_ERROR_INFO {

@@ -271,8 +271,6 @@ pub struct IWscProduct3_Vtbl {
 pub const SECURITY_PRODUCT_TYPE_ANTISPYWARE: SECURITY_PRODUCT_TYPE = SECURITY_PRODUCT_TYPE(2i32);
 pub const SECURITY_PRODUCT_TYPE_ANTIVIRUS: SECURITY_PRODUCT_TYPE = SECURITY_PRODUCT_TYPE(0i32);
 pub const SECURITY_PRODUCT_TYPE_FIREWALL: SECURITY_PRODUCT_TYPE = SECURITY_PRODUCT_TYPE(1i32);
-pub const WSCDefaultProduct: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2981a36e_f22d_11e5_9ce9_5e5517507c66);
-pub const WSCProductList: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x17072f7b_9abe_4a74_a261_1eb76b55107a);
 pub const WSC_SECURITY_PRODUCT_OUT_OF_DATE: WSC_SECURITY_SIGNATURE_STATUS = WSC_SECURITY_SIGNATURE_STATUS(0i32);
 pub const WSC_SECURITY_PRODUCT_STATE_EXPIRED: WSC_SECURITY_PRODUCT_STATE = WSC_SECURITY_PRODUCT_STATE(3i32);
 pub const WSC_SECURITY_PRODUCT_STATE_OFF: WSC_SECURITY_PRODUCT_STATE = WSC_SECURITY_PRODUCT_STATE(1i32);
@@ -362,5 +360,7 @@ impl ::core::fmt::Debug for WSC_SECURITY_SIGNATURE_STATUS {
         f.debug_tuple("WSC_SECURITY_SIGNATURE_STATUS").field(&self.0).finish()
     }
 }
+pub const WSCDefaultProduct: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2981a36e_f22d_11e5_9ce9_5e5517507c66);
+pub const WSCProductList: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x17072f7b_9abe_4a74_a261_1eb76b55107a);
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

@@ -819,7 +819,6 @@ pub const CLSID_DragDropConfigurationBehavior: ::windows_core::GUID = ::windows_
 pub const CLSID_HorizontalIndicatorContent: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe7d18cf5_3ec7_44d5_a76b_3770f3cf903d);
 pub const CLSID_VerticalIndicatorContent: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa10b5f17_afe0_4aa2_91e9_3e7001d2e6b4);
 pub const CLSID_VirtualViewportContent: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3206a19a_86f0_4cb4_a7f3_16e3b7e2d852);
-pub const DCompManipulationCompositor: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x79dea627_a08a_43ac_8ef5_6900b9299126);
 pub const DIRECTMANIPULATION_AUTOSCROLL_CONFIGURATION_FORWARD: DIRECTMANIPULATION_AUTOSCROLL_CONFIGURATION = DIRECTMANIPULATION_AUTOSCROLL_CONFIGURATION(1i32);
 pub const DIRECTMANIPULATION_AUTOSCROLL_CONFIGURATION_REVERSE: DIRECTMANIPULATION_AUTOSCROLL_CONFIGURATION = DIRECTMANIPULATION_AUTOSCROLL_CONFIGURATION(2i32);
 pub const DIRECTMANIPULATION_AUTOSCROLL_CONFIGURATION_STOP: DIRECTMANIPULATION_AUTOSCROLL_CONFIGURATION = DIRECTMANIPULATION_AUTOSCROLL_CONFIGURATION(0i32);
@@ -899,11 +898,6 @@ pub const DIRECTMANIPULATION_VIEWPORT_OPTIONS_DISABLEPIXELSNAPPING: DIRECTMANIPU
 pub const DIRECTMANIPULATION_VIEWPORT_OPTIONS_EXPLICITHITTEST: DIRECTMANIPULATION_VIEWPORT_OPTIONS = DIRECTMANIPULATION_VIEWPORT_OPTIONS(8i32);
 pub const DIRECTMANIPULATION_VIEWPORT_OPTIONS_INPUT: DIRECTMANIPULATION_VIEWPORT_OPTIONS = DIRECTMANIPULATION_VIEWPORT_OPTIONS(4i32);
 pub const DIRECTMANIPULATION_VIEWPORT_OPTIONS_MANUALUPDATE: DIRECTMANIPULATION_VIEWPORT_OPTIONS = DIRECTMANIPULATION_VIEWPORT_OPTIONS(2i32);
-pub const DirectManipulationManager: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x54e211b6_3650_4f75_8334_fa359598e1c5);
-pub const DirectManipulationPrimaryContent: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcaa02661_d59e_41c7_8393_3ba3bacb6b57);
-pub const DirectManipulationSharedManager: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x99793286_77cc_4b57_96db_3b354f6f9fb5);
-pub const DirectManipulationUpdateManager: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9fc1bfd5_1835_441a_b3b1_b6cc74b727d0);
-pub const DirectManipulationViewport: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x34e211b6_3650_4f75_8334_fa359598e1c5);
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DIRECTMANIPULATION_AUTOSCROLL_CONFIGURATION(pub i32);
@@ -1366,5 +1360,11 @@ impl ::core::ops::Not for DIRECTMANIPULATION_VIEWPORT_OPTIONS {
         Self(self.0.not())
     }
 }
+pub const DCompManipulationCompositor: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x79dea627_a08a_43ac_8ef5_6900b9299126);
+pub const DirectManipulationManager: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x54e211b6_3650_4f75_8334_fa359598e1c5);
+pub const DirectManipulationPrimaryContent: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcaa02661_d59e_41c7_8393_3ba3bacb6b57);
+pub const DirectManipulationSharedManager: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x99793286_77cc_4b57_96db_3b354f6f9fb5);
+pub const DirectManipulationUpdateManager: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9fc1bfd5_1835_441a_b3b1_b6cc74b727d0);
+pub const DirectManipulationViewport: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x34e211b6_3650_4f75_8334_fa359598e1c5);
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

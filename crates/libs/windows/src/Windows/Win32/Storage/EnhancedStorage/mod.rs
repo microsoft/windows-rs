@@ -415,10 +415,6 @@ pub const ES_RESERVED_SILO_SPECIFIC_ERROR_END: u32 = 49151u32;
 pub const ES_RESERVED_SILO_SPECIFIC_ERROR_START: u32 = 4608u32;
 pub const ES_VENDOR_ERROR_END: u32 = 65535u32;
 pub const ES_VENDOR_ERROR_START: u32 = 49152u32;
-pub const EnhancedStorageACT: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xaf076a15_2ece_4ad4_bb21_29f040e176d8);
-pub const EnhancedStorageSilo: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcb25220c_76c7_4fee_842b_f3383cd022bc);
-pub const EnhancedStorageSiloAction: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x886d29dd_b506_466b_9fbf_b44ff383fb3f);
-pub const EnumEnhancedStorageACT: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfe841493_835c_4fa3_b6cc_b4b2d4719848);
 pub const FACILITY_ENHANCED_STORAGE: u32 = 4u32;
 pub const FILEOFFLINEAVAILABILITYSTATUS_COMPLETE: u32 = 2u32;
 pub const FILEOFFLINEAVAILABILITYSTATUS_COMPLETE_PINNED: u32 = 3u32;
@@ -2888,6 +2884,10 @@ impl ::core::default::Default for ENHANCED_STORAGE_PASSWORD_SILO_INFORMATION {
         unsafe { ::core::mem::zeroed() }
     }
 }
+pub const EnhancedStorageACT: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xaf076a15_2ece_4ad4_bb21_29f040e176d8);
+pub const EnhancedStorageSilo: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcb25220c_76c7_4fee_842b_f3383cd022bc);
+pub const EnhancedStorageSiloAction: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x886d29dd_b506_466b_9fbf_b44ff383fb3f);
+pub const EnumEnhancedStorageACT: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfe841493_835c_4fa3_b6cc_b4b2d4719848);
 #[repr(C)]
 pub struct SILO_INFO {
     pub ulSTID: u32,

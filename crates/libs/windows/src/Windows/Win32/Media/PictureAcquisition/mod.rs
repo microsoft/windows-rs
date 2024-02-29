@@ -736,12 +736,6 @@ pub const PROGRESS_DIALOG_ICON_LARGE: PROGRESS_DIALOG_IMAGE_TYPE = PROGRESS_DIAL
 pub const PROGRESS_DIALOG_ICON_SMALL: PROGRESS_DIALOG_IMAGE_TYPE = PROGRESS_DIALOG_IMAGE_TYPE(0i32);
 pub const PROGRESS_DIALOG_ICON_THUMBNAIL: PROGRESS_DIALOG_IMAGE_TYPE = PROGRESS_DIALOG_IMAGE_TYPE(2i32);
 pub const PROGRESS_INDETERMINATE: i32 = -1i32;
-pub const PhotoAcquire: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x00f26e02_e9f2_4a9f_9fdd_5a962fb26a98);
-pub const PhotoAcquireAutoPlayDropTarget: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x00f20eb5_8fd6_4d9d_b75e_36801766c8f1);
-pub const PhotoAcquireAutoPlayHWEventHandler: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x00f2b433_44e4_4d88_b2b0_2698a0a91dba);
-pub const PhotoAcquireDeviceSelectionDialog: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x00f29a34_b8a1_482c_bcf8_3ac7b0fe8f62);
-pub const PhotoAcquireOptionsDialog: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x00f210a1_62f0_438b_9f7e_9618d72a1831);
-pub const PhotoProgressDialog: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x00f24ca0_748f_4e8a_894f_0e0357c6799f);
 pub const USER_INPUT_DEFAULT: USER_INPUT_STRING_TYPE = USER_INPUT_STRING_TYPE(0i32);
 pub const USER_INPUT_PATH_ELEMENT: USER_INPUT_STRING_TYPE = USER_INPUT_STRING_TYPE(1i32);
 #[repr(transparent)]
@@ -810,5 +804,11 @@ impl ::core::fmt::Debug for USER_INPUT_STRING_TYPE {
         f.debug_tuple("USER_INPUT_STRING_TYPE").field(&self.0).finish()
     }
 }
+pub const PhotoAcquire: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x00f26e02_e9f2_4a9f_9fdd_5a962fb26a98);
+pub const PhotoAcquireAutoPlayDropTarget: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x00f20eb5_8fd6_4d9d_b75e_36801766c8f1);
+pub const PhotoAcquireAutoPlayHWEventHandler: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x00f2b433_44e4_4d88_b2b0_2698a0a91dba);
+pub const PhotoAcquireDeviceSelectionDialog: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x00f29a34_b8a1_482c_bcf8_3ac7b0fe8f62);
+pub const PhotoAcquireOptionsDialog: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x00f210a1_62f0_438b_9f7e_9618d72a1831);
+pub const PhotoProgressDialog: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x00f24ca0_748f_4e8a_894f_0e0357c6799f);
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

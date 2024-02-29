@@ -1323,19 +1323,6 @@ pub const DISPID_RDPSRAPI_PROP_WINDOWNAME: u32 = 213u32;
 pub const DISPID_RDPSRAPI_PROP_WINDOWSHARED: u32 = 212u32;
 pub const DISPID_RDPSRAPI_PROP_WINDOW_LIST: u32 = 216u32;
 pub const DISPID_RDPSRAPI_PROP_WNDFLAGS: u32 = 224u32;
-pub const RDPSRAPIApplication: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc116a484_4b25_4b9f_8a54_b934b06e57fa);
-pub const RDPSRAPIApplicationFilter: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe35ace89_c7e8_427e_a4f9_b9da072826bd);
-pub const RDPSRAPIApplicationList: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9e31c815_7433_4876_97fb_ed59fe2baa22);
-pub const RDPSRAPIAttendee: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x74f93bb5_755f_488e_8a29_2390108aef55);
-pub const RDPSRAPIAttendeeDisconnectInfo: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb47d7250_5bdb_405d_b487_caad9c56f4f8);
-pub const RDPSRAPIAttendeeManager: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd7b13a01_f7d4_42a6_8595_12fc8c24e851);
-pub const RDPSRAPIFrameBuffer: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa4f66bcc_538e_4101_951d_30847adb5101);
-pub const RDPSRAPIInvitation: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x49174dc6_0731_4b5e_8ee1_83a63d3868fa);
-pub const RDPSRAPIInvitationManager: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x53d9c9db_75ab_4271_948a_4c4eb36a8f2b);
-pub const RDPSRAPISessionProperties: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdd7594ff_ea2a_4c06_8fdf_132de48b6510);
-pub const RDPSRAPITcpConnectionInfo: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbe49db3f_ebb6_4278_8ce0_d5455833eaee);
-pub const RDPSRAPIWindow: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x03cf46db_ce45_4d36_86ed_ed28b74398bf);
-pub const RDPSRAPIWindowList: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9c21e2b8_5dd4_42cc_81ba_1c099852e6fa);
 pub const RDPSRAPI_KBD_CODE_SCANCODE: RDPSRAPI_KBD_CODE_TYPE = RDPSRAPI_KBD_CODE_TYPE(0i32);
 pub const RDPSRAPI_KBD_CODE_UNICODE: RDPSRAPI_KBD_CODE_TYPE = RDPSRAPI_KBD_CODE_TYPE(1i32);
 pub const RDPSRAPI_KBD_SYNC_FLAG_CAPS_LOCK: RDPSRAPI_KBD_SYNC_FLAG = RDPSRAPI_KBD_SYNC_FLAG(4i32);
@@ -1348,10 +1335,6 @@ pub const RDPSRAPI_MOUSE_BUTTON_BUTTON3: RDPSRAPI_MOUSE_BUTTON_TYPE = RDPSRAPI_M
 pub const RDPSRAPI_MOUSE_BUTTON_XBUTTON1: RDPSRAPI_MOUSE_BUTTON_TYPE = RDPSRAPI_MOUSE_BUTTON_TYPE(3i32);
 pub const RDPSRAPI_MOUSE_BUTTON_XBUTTON2: RDPSRAPI_MOUSE_BUTTON_TYPE = RDPSRAPI_MOUSE_BUTTON_TYPE(4i32);
 pub const RDPSRAPI_MOUSE_BUTTON_XBUTTON3: RDPSRAPI_MOUSE_BUTTON_TYPE = RDPSRAPI_MOUSE_BUTTON_TYPE(5i32);
-pub const RDPSession: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9b78f0e6_3e05_4a5b_b2e8_e743a8956b65);
-pub const RDPTransportStreamBuffer: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8d4a1c69_f17f_4549_a699_761c6e6b5c0a);
-pub const RDPTransportStreamEvents: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x31e3ab20_5350_483f_9dc6_6748665efdeb);
-pub const RDPViewer: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x32be5ed2_5c86_480f_a914_0ff8885a1b3f);
 pub const WND_FLAG_PRIVILEGED: RDPSRAPI_WND_FLAGS = RDPSRAPI_WND_FLAGS(1i32);
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
@@ -1485,6 +1468,23 @@ impl ::core::fmt::Debug for RDPSRAPI_WND_FLAGS {
         f.debug_tuple("RDPSRAPI_WND_FLAGS").field(&self.0).finish()
     }
 }
+pub const RDPSRAPIApplication: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc116a484_4b25_4b9f_8a54_b934b06e57fa);
+pub const RDPSRAPIApplicationFilter: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe35ace89_c7e8_427e_a4f9_b9da072826bd);
+pub const RDPSRAPIApplicationList: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9e31c815_7433_4876_97fb_ed59fe2baa22);
+pub const RDPSRAPIAttendee: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x74f93bb5_755f_488e_8a29_2390108aef55);
+pub const RDPSRAPIAttendeeDisconnectInfo: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb47d7250_5bdb_405d_b487_caad9c56f4f8);
+pub const RDPSRAPIAttendeeManager: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd7b13a01_f7d4_42a6_8595_12fc8c24e851);
+pub const RDPSRAPIFrameBuffer: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa4f66bcc_538e_4101_951d_30847adb5101);
+pub const RDPSRAPIInvitation: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x49174dc6_0731_4b5e_8ee1_83a63d3868fa);
+pub const RDPSRAPIInvitationManager: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x53d9c9db_75ab_4271_948a_4c4eb36a8f2b);
+pub const RDPSRAPISessionProperties: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdd7594ff_ea2a_4c06_8fdf_132de48b6510);
+pub const RDPSRAPITcpConnectionInfo: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbe49db3f_ebb6_4278_8ce0_d5455833eaee);
+pub const RDPSRAPIWindow: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x03cf46db_ce45_4d36_86ed_ed28b74398bf);
+pub const RDPSRAPIWindowList: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9c21e2b8_5dd4_42cc_81ba_1c099852e6fa);
+pub const RDPSession: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9b78f0e6_3e05_4a5b_b2e8_e743a8956b65);
+pub const RDPTransportStreamBuffer: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8d4a1c69_f17f_4549_a699_761c6e6b5c0a);
+pub const RDPTransportStreamEvents: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x31e3ab20_5350_483f_9dc6_6748665efdeb);
+pub const RDPViewer: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x32be5ed2_5c86_480f_a914_0ff8885a1b3f);
 #[repr(C)]
 pub struct __ReferenceRemainingTypes__ {
     pub __ctrlLevel__: CTRL_LEVEL,

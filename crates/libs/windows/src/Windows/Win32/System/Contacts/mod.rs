@@ -1066,8 +1066,6 @@ pub const CONTACTPROP_PUB_L3_VALUE: ::windows_core::PCWSTR = ::windows_core::w!(
 pub const CONTACTPROP_PUB_MAILER: ::windows_core::PCWSTR = ::windows_core::w!("Mailer");
 pub const CONTACTPROP_PUB_NOTES: ::windows_core::PCWSTR = ::windows_core::w!("Notes");
 pub const CONTACTPROP_PUB_PROGID: ::windows_core::PCWSTR = ::windows_core::w!("ProgID");
-pub const Contact: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x61b68808_8eee_4fd1_acb8_3d804c8db056);
-pub const ContactManager: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7165c8ab_af88_42bd_86fd_5310b4285a02);
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CONTACT_AGGREGATION_COLLECTION_OPTIONS(pub i32);
@@ -1120,5 +1118,7 @@ impl ::core::default::Default for CONTACT_AGGREGATION_BLOB {
         unsafe { ::core::mem::zeroed() }
     }
 }
+pub const Contact: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x61b68808_8eee_4fd1_acb8_3d804c8db056);
+pub const ContactManager: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7165c8ab_af88_42bd_86fd_5310b4285a02);
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
