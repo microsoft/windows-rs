@@ -14,7 +14,7 @@ fn linker() -> Result<()> {
 #[test]
 fn gdi() {
     unsafe {
-        AlphaBlend(
+        _ = AlphaBlend(
             HDC::default(),
             0,
             0,

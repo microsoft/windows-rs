@@ -342,7 +342,7 @@ impl Window {
                     let mut ps = PAINTSTRUCT::default();
                     BeginPaint(self.handle, &mut ps);
                     self.render().unwrap();
-                    EndPaint(self.handle, &ps);
+                    _ = EndPaint(self.handle, &ps);
                     LRESULT(0)
                 }
                 WM_SIZE => {
@@ -425,7 +425,7 @@ impl Window {
                         DispatchMessageA(&message);
                     }
                 } else {
-                    GetMessageA(&mut message, None, 0, 0);
+                    _ = GetMessageA(&mut message, None, 0, 0);
 
                     if message.message == WM_QUIT {
                         return Ok(());

@@ -42,6 +42,20 @@ pub fn from_reader(reader: &'static metadata::Reader, mut config: std::collectio
         return Err(Error::new("cannot combine `implement` and `sys` configuration values"));
     }
 
+    config.retain(|key, value| {
+        if let Some(full_name) = key.strip_prefix("prepend:") {
+            if let Some(index) = full_name.rfind('.') {
+                let namespace = &full_name[0..index];
+                let name = &full_name[index + 1..];
+                if let Some(type_def) = reader.get_type_def(namespace, name).next() {
+                    writer.prepend.insert(type_def, value.to_string());
+                    return false;
+                }
+            }
+        }
+        true
+    });
+
     if let Some((key, _)) = config.first_key_value() {
         return Err(Error::new(&format!("invalid configuration value `{key}`")));
     }

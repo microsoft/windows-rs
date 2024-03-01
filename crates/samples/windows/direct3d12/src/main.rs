@@ -103,14 +103,14 @@ where
     };
 
     sample.bind_to_window(&hwnd)?;
-    unsafe { ShowWindow(hwnd, SW_SHOW) };
+    unsafe { _ = ShowWindow(hwnd, SW_SHOW) };
 
     loop {
         let mut message = MSG::default();
 
         if unsafe { PeekMessageA(&mut message, None, 0, 0, PM_REMOVE) }.into() {
             unsafe {
-                TranslateMessage(&message);
+                _ = TranslateMessage(&message);
                 DispatchMessageA(&message);
             }
 

@@ -165,6 +165,16 @@ fn main() {
         "src/b_vtbl_4.rs",
         &["Windows.Win32.System.Com.IPersistFile"],
     );
+
+    riddle(
+        "src/b_prepend.rs",
+        &["Windows.Foundation.DateTime"],
+        &[
+            "flatten",
+            "minimal",
+            "prepend:Windows.Foundation.DateTime=#[derive(std::cmp::PartialOrd,std::cmp::Ord)]",
+        ],
+    );
 }
 
 fn write_sys(output: &str, filter: &[&str]) {
