@@ -3810,6 +3810,7 @@ impl ::core::fmt::Debug for RPC_NOTIFICATION_TYPES {
         f.debug_tuple("RPC_NOTIFICATION_TYPES").field(&self.0).finish()
     }
 }
+#[must_use]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RPC_STATUS(pub i32);

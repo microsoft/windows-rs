@@ -10490,6 +10490,7 @@ impl ::core::fmt::Debug for WAIT_EVENT {
         f.debug_tuple("WAIT_EVENT").field(&self.0).finish()
     }
 }
+#[must_use]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WIN32_ERROR(pub u32);
@@ -10530,6 +10531,7 @@ impl ::core::default::Default for APP_LOCAL_DEVICE_ID {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[must_use]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BOOL(pub i32);
@@ -11161,6 +11163,7 @@ impl ::core::default::Default for LUID {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[must_use]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NTSTATUS(pub i32);

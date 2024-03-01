@@ -182,7 +182,7 @@ fn com_inheritance() {
         assert!(factory.IsCurrent().as_bool());
 
         // IDXGIFactory2
-        factory.IsWindowedStereoEnabled();
+        _ = factory.IsWindowedStereoEnabled();
 
         // IDXGIFactory3
         assert!(factory.GetCreationFlags() == 0);
@@ -202,7 +202,7 @@ fn com_inheritance() {
 #[test]
 fn onecore_imports() -> windows::core::Result<()> {
     unsafe {
-        HasExpandedResources()?;
+        _ = HasExpandedResources()?;
 
         let uri = CreateUri(w!("http://kennykerr.ca"), URI_CREATE_FLAGS::default(), 0)?;
 

@@ -10,11 +10,9 @@ where
     Ok(result)
 }
 
+// This function is needed to avoid a recursion limit in the Rust compiler.
 fn from_string(result: &mut Vec<String>, value: &str) -> Result<()> {
-    let value = if let Some((value, _)) = value.split_once('#') { value } else { value };
-
-    from_iter(result, value.split_whitespace().map(|arg| arg.to_string()))?;
-    Ok(())
+    from_iter(result, value.split_whitespace().map(|arg| arg.to_string()))
 }
 
 fn from_iter<I, S>(result: &mut Vec<String>, args: I) -> Result<()>

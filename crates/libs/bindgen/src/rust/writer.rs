@@ -20,6 +20,7 @@ pub struct Writer {
     pub minimal: bool,             // strips out enumerators - in future possibly other helpers as well
     pub no_inner_attributes: bool, // skips the inner attributes at the start of the file
     pub vtbl: bool,                // include minimal vtbl layout support for interfaces
+    pub prepend: std::collections::HashMap<metadata::TypeDef, String>,
 }
 
 impl Writer {
@@ -36,6 +37,7 @@ impl Writer {
             minimal: false,
             no_inner_attributes: false,
             vtbl: false,
+            prepend: Default::default(),
         }
     }
 
@@ -75,12 +77,20 @@ impl Writer {
         }
     }
     pub fn type_def(&self, def: metadata::TypeDef) -> TokenStream {
-        match def.kind() {
+        let tokens = match def.kind() {
             metadata::TypeKind::Class => classes::writer(self, def),
             metadata::TypeKind::Interface => interfaces::writer(self, def),
             metadata::TypeKind::Enum => enums::writer(self, def),
             metadata::TypeKind::Struct => structs::writer(self, def),
             metadata::TypeKind::Delegate => delegates::writer(self, def),
+        };
+
+        if let Some(prepend) = self.prepend.get(&def) {
+            let mut combined = TokenStream::from(prepend);
+            combined.combine(&tokens);
+            combined
+        } else {
+            tokens
         }
     }
 

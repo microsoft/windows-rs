@@ -18,6 +18,7 @@ mod b_none;
 mod b_overloads;
 mod b_pcstr;
 mod b_pcwstr;
+mod b_prepend;
 mod b_pstr;
 mod b_pwstr;
 mod b_std;
@@ -183,4 +184,21 @@ fn from_included() {
     unsafe {
         included::GetVersion();
     }
+}
+
+#[test]
+fn prepend() {
+    use b_prepend::*;
+    let mut dates = [
+        DateTime { UniversalTime: 123 },
+        DateTime { UniversalTime: 42 },
+    ];
+    dates.sort();
+    assert_eq!(
+        &dates,
+        &[
+            DateTime { UniversalTime: 42 },
+            DateTime { UniversalTime: 123 }
+        ]
+    );
 }

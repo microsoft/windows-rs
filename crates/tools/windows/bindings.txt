@@ -1,6 +1,10 @@
 --in crates/libs/bindgen/default
 --out crates/libs/windows/src/lib.rs
 --config package
+--config prepend:Windows.Win32.Foundation.WIN32_ERROR=#[must_use]
+--config prepend:Windows.Win32.Foundation.BOOL=#[must_use]
+--config prepend:Windows.Win32.Foundation.NTSTATUS=#[must_use]
+--config prepend:Windows.Win32.System.Rpc.RPC_STATUS=#[must_use]
 
 --filter
     Windows
