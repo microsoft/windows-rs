@@ -39,95 +39,90 @@ impl ID3D10EffectVariable_Impl for Variable {
         assert_eq!(self.0, 0x00000000_0000_0000_c000_000000000046);
         true.into()
     }
-    fn GetType(&self) -> ::core::option::Option<ID3D10EffectType> {
+    fn GetType(&self) -> core::option::Option<ID3D10EffectType> {
         unimplemented!();
     }
-    fn GetDesc(&self, _: *mut D3D10_EFFECT_VARIABLE_DESC) -> ::windows::core::Result<()> {
+    fn GetDesc(&self, _: *mut D3D10_EFFECT_VARIABLE_DESC) -> windows::core::Result<()> {
         unimplemented!();
     }
-    fn GetAnnotationByIndex(&self, _: u32) -> ::core::option::Option<ID3D10EffectVariable> {
+    fn GetAnnotationByIndex(&self, _: u32) -> core::option::Option<ID3D10EffectVariable> {
         unimplemented!();
     }
     fn GetAnnotationByName(
         &self,
         _: &::windows::core::PCSTR,
-    ) -> ::core::option::Option<ID3D10EffectVariable> {
+    ) -> core::option::Option<ID3D10EffectVariable> {
         unimplemented!();
     }
-    fn GetMemberByIndex(&self, _: u32) -> ::core::option::Option<ID3D10EffectVariable> {
+    fn GetMemberByIndex(&self, _: u32) -> core::option::Option<ID3D10EffectVariable> {
         unimplemented!();
     }
     fn GetMemberByName(
         &self,
         _: &::windows::core::PCSTR,
-    ) -> ::core::option::Option<ID3D10EffectVariable> {
+    ) -> core::option::Option<ID3D10EffectVariable> {
         unimplemented!();
     }
     fn GetMemberBySemantic(
         &self,
         _: &::windows::core::PCSTR,
-    ) -> ::core::option::Option<ID3D10EffectVariable> {
+    ) -> core::option::Option<ID3D10EffectVariable> {
         unimplemented!();
     }
-    fn GetElement(&self, _: u32) -> ::core::option::Option<ID3D10EffectVariable> {
+    fn GetElement(&self, _: u32) -> core::option::Option<ID3D10EffectVariable> {
         unimplemented!();
     }
-    fn GetParentConstantBuffer(&self) -> ::core::option::Option<ID3D10EffectConstantBuffer> {
+    fn GetParentConstantBuffer(&self) -> core::option::Option<ID3D10EffectConstantBuffer> {
         unimplemented!();
     }
-    fn AsScalar(&self) -> ::core::option::Option<ID3D10EffectScalarVariable> {
+    fn AsScalar(&self) -> core::option::Option<ID3D10EffectScalarVariable> {
         unimplemented!();
     }
-    fn AsVector(&self) -> ::core::option::Option<ID3D10EffectVectorVariable> {
+    fn AsVector(&self) -> core::option::Option<ID3D10EffectVectorVariable> {
         unimplemented!();
     }
-    fn AsMatrix(&self) -> ::core::option::Option<ID3D10EffectMatrixVariable> {
+    fn AsMatrix(&self) -> core::option::Option<ID3D10EffectMatrixVariable> {
         unimplemented!();
     }
-    fn AsString(&self) -> ::core::option::Option<ID3D10EffectStringVariable> {
+    fn AsString(&self) -> core::option::Option<ID3D10EffectStringVariable> {
         unimplemented!();
     }
-    fn AsShaderResource(&self) -> ::core::option::Option<ID3D10EffectShaderResourceVariable> {
+    fn AsShaderResource(&self) -> core::option::Option<ID3D10EffectShaderResourceVariable> {
         unimplemented!();
     }
-    fn AsRenderTargetView(&self) -> ::core::option::Option<ID3D10EffectRenderTargetViewVariable> {
+    fn AsRenderTargetView(&self) -> core::option::Option<ID3D10EffectRenderTargetViewVariable> {
         unimplemented!();
     }
-    fn AsDepthStencilView(&self) -> ::core::option::Option<ID3D10EffectDepthStencilViewVariable> {
+    fn AsDepthStencilView(&self) -> core::option::Option<ID3D10EffectDepthStencilViewVariable> {
         unimplemented!();
     }
-    fn AsConstantBuffer(&self) -> ::core::option::Option<ID3D10EffectConstantBuffer> {
+    fn AsConstantBuffer(&self) -> core::option::Option<ID3D10EffectConstantBuffer> {
         unimplemented!();
     }
-    fn AsShader(&self) -> ::core::option::Option<ID3D10EffectShaderVariable> {
+    fn AsShader(&self) -> core::option::Option<ID3D10EffectShaderVariable> {
         unimplemented!();
     }
-    fn AsBlend(&self) -> ::core::option::Option<ID3D10EffectBlendVariable> {
+    fn AsBlend(&self) -> core::option::Option<ID3D10EffectBlendVariable> {
         unimplemented!();
     }
-    fn AsDepthStencil(&self) -> ::core::option::Option<ID3D10EffectDepthStencilVariable> {
+    fn AsDepthStencil(&self) -> core::option::Option<ID3D10EffectDepthStencilVariable> {
         unimplemented!();
     }
-    fn AsRasterizer(&self) -> ::core::option::Option<ID3D10EffectRasterizerVariable> {
+    fn AsRasterizer(&self) -> core::option::Option<ID3D10EffectRasterizerVariable> {
         unimplemented!();
     }
-    fn AsSampler(&self) -> ::core::option::Option<ID3D10EffectSamplerVariable> {
+    fn AsSampler(&self) -> core::option::Option<ID3D10EffectSamplerVariable> {
         unimplemented!();
     }
     fn SetRawValue(
         &self,
-        _: *const ::core::ffi::c_void,
+        _: *const core::ffi::c_void,
         _: u32,
         _: u32,
-    ) -> ::windows::core::Result<()> {
+    ) -> windows::core::Result<()> {
         unimplemented!();
     }
-    fn GetRawValue(
-        &self,
-        _: *mut ::core::ffi::c_void,
-        _: u32,
-        _: u32,
-    ) -> ::windows::core::Result<()> {
+    fn GetRawValue(&self, _: *mut core::ffi::c_void, _: u32, _: u32) -> windows::core::Result<()> {
         unimplemented!();
     }
 }

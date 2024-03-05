@@ -3,7 +3,7 @@ pub unsafe fn CreatePresentationFactory<P0>(d3ddevice: P0, riid: *const windows_
 where
     P0: windows_core::IntoParam<windows_core::IUnknown>,
 {
-    ::windows_targets::link!("dcomp.dll" "system" fn CreatePresentationFactory(d3ddevice : * mut core::ffi::c_void, riid : *const windows_core::GUID, presentationfactory : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_targets::link!("dcomp.dll" "system" fn CreatePresentationFactory(d3ddevice : * mut core::ffi::c_void, riid : *const windows_core::GUID, presentationfactory : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     CreatePresentationFactory(d3ddevice.into_param().abi(), riid, presentationfactory).ok()
 }
 windows_core::imp::com_interface!(ICompositionFramePresentStatistics, ICompositionFramePresentStatistics_Vtbl, 0xab41d127_c101_4c0a_911d_f9f2e9d08e64);

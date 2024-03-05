@@ -1,6 +1,6 @@
 #[inline]
 pub unsafe fn Netbios(pncb: *mut NCB) -> u8 {
-    ::windows_targets::link!("netapi32.dll" "system" fn Netbios(pncb : *mut NCB) -> u8);
+    windows_targets::link!("netapi32.dll" "system" fn Netbios(pncb : *mut NCB) -> u8);
     Netbios(pncb)
 }
 pub const ALL_TRANSPORTS: windows_core::PCSTR = windows_core::s!("M\u{0}\u{0}\u{0}");

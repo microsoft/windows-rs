@@ -1,29 +1,29 @@
 #[inline]
 pub unsafe fn CreateAudioReverb() -> windows_core::Result<windows_core::IUnknown> {
-    ::windows_targets::link!("xaudio2_8.dll" "system" fn CreateAudioReverb(ppapo : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_targets::link!("xaudio2_8.dll" "system" fn CreateAudioReverb(ppapo : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = std::mem::zeroed();
     CreateAudioReverb(&mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[inline]
 pub unsafe fn CreateAudioVolumeMeter() -> windows_core::Result<windows_core::IUnknown> {
-    ::windows_targets::link!("xaudio2_8.dll" "system" fn CreateAudioVolumeMeter(ppapo : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_targets::link!("xaudio2_8.dll" "system" fn CreateAudioVolumeMeter(ppapo : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = std::mem::zeroed();
     CreateAudioVolumeMeter(&mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[inline]
 pub unsafe fn CreateFX(clsid: *const windows_core::GUID, peffect: *mut Option<windows_core::IUnknown>, pinitdat: Option<*const core::ffi::c_void>, initdatabytesize: u32) -> windows_core::Result<()> {
-    ::windows_targets::link!("xaudio2_8.dll" "cdecl" fn CreateFX(clsid : *const windows_core::GUID, peffect : *mut * mut core::ffi::c_void, pinitdat : *const core::ffi::c_void, initdatabytesize : u32) -> windows_core::HRESULT);
+    windows_targets::link!("xaudio2_8.dll" "cdecl" fn CreateFX(clsid : *const windows_core::GUID, peffect : *mut * mut core::ffi::c_void, pinitdat : *const core::ffi::c_void, initdatabytesize : u32) -> windows_core::HRESULT);
     CreateFX(clsid, core::mem::transmute(peffect), core::mem::transmute(pinitdat.unwrap_or(std::ptr::null())), initdatabytesize).ok()
 }
 #[inline]
 pub unsafe fn CreateHrtfApo(init: *const HrtfApoInit) -> windows_core::Result<IXAPO> {
-    ::windows_targets::link!("hrtfapo.dll" "system" fn CreateHrtfApo(init : *const HrtfApoInit, xapo : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_targets::link!("hrtfapo.dll" "system" fn CreateHrtfApo(init : *const HrtfApoInit, xapo : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = std::mem::zeroed();
     CreateHrtfApo(init, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[inline]
 pub unsafe fn XAudio2CreateWithVersionInfo(ppxaudio2: *mut Option<IXAudio2>, flags: u32, xaudio2processor: u32, ntddiversion: u32) -> windows_core::Result<()> {
-    ::windows_targets::link!("xaudio2_8.dll" "system" fn XAudio2CreateWithVersionInfo(ppxaudio2 : *mut * mut core::ffi::c_void, flags : u32, xaudio2processor : u32, ntddiversion : u32) -> windows_core::HRESULT);
+    windows_targets::link!("xaudio2_8.dll" "system" fn XAudio2CreateWithVersionInfo(ppxaudio2 : *mut * mut core::ffi::c_void, flags : u32, xaudio2processor : u32, ntddiversion : u32) -> windows_core::HRESULT);
     XAudio2CreateWithVersionInfo(core::mem::transmute(ppxaudio2), flags, xaudio2processor, ntddiversion).ok()
 }
 windows_core::imp::com_interface!(IXAPO, IXAPO_Vtbl, 0xa410b984_9839_4819_a0be_2856ae6b3adb);

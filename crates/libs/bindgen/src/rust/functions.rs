@@ -241,7 +241,7 @@ fn gen_link(writer: &Writer, namespace: &str, signature: &metadata::Signature) -
         }
         tokens.push_str(&vararg.0);
         let tokens = tokens.trim_end_matches(", ");
-        format!(r#"::windows_targets::link!("{library}" "{abi}"{symbol} fn {name}({tokens}){return_type});"#).into()
+        format!(r#"windows_targets::link!("{library}" "{abi}"{symbol} fn {name}({tokens}){return_type});"#).into()
     }
 }
 

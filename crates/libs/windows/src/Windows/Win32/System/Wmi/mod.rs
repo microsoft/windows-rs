@@ -1,6 +1,6 @@
 #[inline]
 pub unsafe fn MI_Application_InitializeV1(flags: u32, applicationid: Option<*const u16>, extendederror: Option<*mut *mut MI_Instance>, application: *mut MI_Application) -> MI_Result {
-    ::windows_targets::link!("mi.dll" "cdecl" fn MI_Application_InitializeV1(flags : u32, applicationid : *const u16, extendederror : *mut *mut MI_Instance, application : *mut MI_Application) -> MI_Result);
+    windows_targets::link!("mi.dll" "cdecl" fn MI_Application_InitializeV1(flags : u32, applicationid : *const u16, extendederror : *mut *mut MI_Instance, application : *mut MI_Application) -> MI_Result);
     MI_Application_InitializeV1(flags, core::mem::transmute(applicationid.unwrap_or(std::ptr::null())), core::mem::transmute(extendederror.unwrap_or(std::ptr::null_mut())), application)
 }
 windows_core::imp::com_interface!(IEnumWbemClassObject, IEnumWbemClassObject_Vtbl, 0x027947e1_d731_11ce_a357_000000000001);

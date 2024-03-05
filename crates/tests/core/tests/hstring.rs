@@ -253,7 +253,7 @@ mod sys {
     windows_targets::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn WindowsDeleteString(string: HSTRING) -> HRESULT);
 
     pub type HRESULT = i32;
-    pub type HSTRING = *mut ::core::ffi::c_void;
+    pub type HSTRING = *mut core::ffi::c_void;
     pub type PCWSTR = *const u16;
 
     #[repr(C)]

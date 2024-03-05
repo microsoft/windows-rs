@@ -1,12 +1,12 @@
 #[inline]
 pub unsafe fn MLCreateOperatorRegistry() -> windows_core::Result<IMLOperatorRegistry> {
-    ::windows_targets::link!("windows.ai.machinelearning.dll" "system" fn MLCreateOperatorRegistry(registry : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_targets::link!("windows.ai.machinelearning.dll" "system" fn MLCreateOperatorRegistry(registry : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = std::mem::zeroed();
     MLCreateOperatorRegistry(&mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[inline]
 pub unsafe fn WinMLCreateRuntime() -> windows_core::Result<IWinMLRuntime> {
-    ::windows_targets::link!("winml.dll" "system" fn WinMLCreateRuntime(runtime : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_targets::link!("winml.dll" "system" fn WinMLCreateRuntime(runtime : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = std::mem::zeroed();
     WinMLCreateRuntime(&mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }

@@ -26,37 +26,37 @@ pub mod Streaming;
 pub mod WindowsMediaFormat;
 #[inline]
 pub unsafe fn timeBeginPeriod(uperiod: u32) -> u32 {
-    ::windows_targets::link!("winmm.dll" "system" fn timeBeginPeriod(uperiod : u32) -> u32);
+    windows_targets::link!("winmm.dll" "system" fn timeBeginPeriod(uperiod : u32) -> u32);
     timeBeginPeriod(uperiod)
 }
 #[inline]
 pub unsafe fn timeEndPeriod(uperiod: u32) -> u32 {
-    ::windows_targets::link!("winmm.dll" "system" fn timeEndPeriod(uperiod : u32) -> u32);
+    windows_targets::link!("winmm.dll" "system" fn timeEndPeriod(uperiod : u32) -> u32);
     timeEndPeriod(uperiod)
 }
 #[inline]
 pub unsafe fn timeGetDevCaps(ptc: *mut TIMECAPS, cbtc: u32) -> u32 {
-    ::windows_targets::link!("winmm.dll" "system" fn timeGetDevCaps(ptc : *mut TIMECAPS, cbtc : u32) -> u32);
+    windows_targets::link!("winmm.dll" "system" fn timeGetDevCaps(ptc : *mut TIMECAPS, cbtc : u32) -> u32);
     timeGetDevCaps(ptc, cbtc)
 }
 #[inline]
 pub unsafe fn timeGetSystemTime(pmmt: *mut MMTIME, cbmmt: u32) -> u32 {
-    ::windows_targets::link!("winmm.dll" "system" fn timeGetSystemTime(pmmt : *mut MMTIME, cbmmt : u32) -> u32);
+    windows_targets::link!("winmm.dll" "system" fn timeGetSystemTime(pmmt : *mut MMTIME, cbmmt : u32) -> u32);
     timeGetSystemTime(pmmt, cbmmt)
 }
 #[inline]
 pub unsafe fn timeGetTime() -> u32 {
-    ::windows_targets::link!("winmm.dll" "system" fn timeGetTime() -> u32);
+    windows_targets::link!("winmm.dll" "system" fn timeGetTime() -> u32);
     timeGetTime()
 }
 #[inline]
 pub unsafe fn timeKillEvent(utimerid: u32) -> u32 {
-    ::windows_targets::link!("winmm.dll" "system" fn timeKillEvent(utimerid : u32) -> u32);
+    windows_targets::link!("winmm.dll" "system" fn timeKillEvent(utimerid : u32) -> u32);
     timeKillEvent(utimerid)
 }
 #[inline]
 pub unsafe fn timeSetEvent(udelay: u32, uresolution: u32, fptc: LPTIMECALLBACK, dwuser: usize, fuevent: u32) -> u32 {
-    ::windows_targets::link!("winmm.dll" "system" fn timeSetEvent(udelay : u32, uresolution : u32, fptc : LPTIMECALLBACK, dwuser : usize, fuevent : u32) -> u32);
+    windows_targets::link!("winmm.dll" "system" fn timeSetEvent(udelay : u32, uresolution : u32, fptc : LPTIMECALLBACK, dwuser : usize, fuevent : u32) -> u32);
     timeSetEvent(udelay, uresolution, fptc, dwuser, fuevent)
 }
 windows_core::imp::com_interface!(IReferenceClock, IReferenceClock_Vtbl, 0x56a86897_0ad4_11ce_b03a_0020af0ba770);

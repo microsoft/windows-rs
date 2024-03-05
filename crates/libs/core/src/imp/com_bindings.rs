@@ -1,7 +1,7 @@
 #![allow(non_snake_case, non_upper_case_globals, non_camel_case_types, dead_code, clippy::all)]
 #[inline]
 pub unsafe fn CoCreateGuid() -> windows_core::Result<windows_core::GUID> {
-    ::windows_targets::link!("ole32.dll" "system" fn CoCreateGuid(pguid : *mut windows_core::GUID) -> windows_core::HRESULT);
+    windows_targets::link!("ole32.dll" "system" fn CoCreateGuid(pguid : *mut windows_core::GUID) -> windows_core::HRESULT);
     let mut result__ = std::mem::zeroed();
     CoCreateGuid(&mut result__).map(|| result__)
 }
@@ -10,7 +10,7 @@ pub unsafe fn RoGetAgileReference<P0>(options: AgileReferenceOptions, riid: *con
 where
     P0: windows_core::IntoParam<windows_core::IUnknown>,
 {
-    ::windows_targets::link!("ole32.dll" "system" fn RoGetAgileReference(options : AgileReferenceOptions, riid : *const windows_core::GUID, punk : * mut core::ffi::c_void, ppagilereference : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_targets::link!("ole32.dll" "system" fn RoGetAgileReference(options : AgileReferenceOptions, riid : *const windows_core::GUID, punk : * mut core::ffi::c_void, ppagilereference : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = std::mem::zeroed();
     RoGetAgileReference(options, riid, punk.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }

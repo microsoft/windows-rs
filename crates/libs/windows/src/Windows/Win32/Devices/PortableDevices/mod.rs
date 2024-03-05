@@ -3,7 +3,7 @@ pub unsafe fn DMProcessConfigXMLFiltered<P0>(pszxmlin: P0, rgszallowedcspnodes: 
 where
     P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("dmprocessxmlfiltered.dll" "system" fn DMProcessConfigXMLFiltered(pszxmlin : windows_core::PCWSTR, rgszallowedcspnodes : *const windows_core::PCWSTR, dwnumallowedcspnodes : u32, pbstrxmlout : *mut std::mem::MaybeUninit < windows_core::BSTR >) -> windows_core::HRESULT);
+    windows_targets::link!("dmprocessxmlfiltered.dll" "system" fn DMProcessConfigXMLFiltered(pszxmlin : windows_core::PCWSTR, rgszallowedcspnodes : *const windows_core::PCWSTR, dwnumallowedcspnodes : u32, pbstrxmlout : *mut std::mem::MaybeUninit < windows_core::BSTR >) -> windows_core::HRESULT);
     let mut result__ = std::mem::zeroed();
     DMProcessConfigXMLFiltered(pszxmlin.into_param().abi(), core::mem::transmute(rgszallowedcspnodes.as_ptr()), rgszallowedcspnodes.len().try_into().unwrap(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }

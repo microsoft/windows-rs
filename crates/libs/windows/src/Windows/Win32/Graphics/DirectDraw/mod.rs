@@ -3,7 +3,7 @@ pub unsafe fn DirectDrawCreate<P0>(lpguid: *mut windows_core::GUID, lplpdd: *mut
 where
     P0: windows_core::IntoParam<windows_core::IUnknown>,
 {
-    ::windows_targets::link!("ddraw.dll" "system" fn DirectDrawCreate(lpguid : *mut windows_core::GUID, lplpdd : *mut * mut core::ffi::c_void, punkouter : * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_targets::link!("ddraw.dll" "system" fn DirectDrawCreate(lpguid : *mut windows_core::GUID, lplpdd : *mut * mut core::ffi::c_void, punkouter : * mut core::ffi::c_void) -> windows_core::HRESULT);
     DirectDrawCreate(lpguid, core::mem::transmute(lplpdd), punkouter.into_param().abi()).ok()
 }
 #[inline]
@@ -11,7 +11,7 @@ pub unsafe fn DirectDrawCreateClipper<P0>(dwflags: u32, lplpddclipper: *mut Opti
 where
     P0: windows_core::IntoParam<windows_core::IUnknown>,
 {
-    ::windows_targets::link!("ddraw.dll" "system" fn DirectDrawCreateClipper(dwflags : u32, lplpddclipper : *mut * mut core::ffi::c_void, punkouter : * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_targets::link!("ddraw.dll" "system" fn DirectDrawCreateClipper(dwflags : u32, lplpddclipper : *mut * mut core::ffi::c_void, punkouter : * mut core::ffi::c_void) -> windows_core::HRESULT);
     DirectDrawCreateClipper(dwflags, core::mem::transmute(lplpddclipper), punkouter.into_param().abi()).ok()
 }
 #[inline]
@@ -19,29 +19,29 @@ pub unsafe fn DirectDrawCreateEx<P0>(lpguid: *mut windows_core::GUID, lplpdd: *m
 where
     P0: windows_core::IntoParam<windows_core::IUnknown>,
 {
-    ::windows_targets::link!("ddraw.dll" "system" fn DirectDrawCreateEx(lpguid : *mut windows_core::GUID, lplpdd : *mut *mut core::ffi::c_void, iid : *const windows_core::GUID, punkouter : * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_targets::link!("ddraw.dll" "system" fn DirectDrawCreateEx(lpguid : *mut windows_core::GUID, lplpdd : *mut *mut core::ffi::c_void, iid : *const windows_core::GUID, punkouter : * mut core::ffi::c_void) -> windows_core::HRESULT);
     DirectDrawCreateEx(lpguid, lplpdd, iid, punkouter.into_param().abi()).ok()
 }
 #[inline]
 pub unsafe fn DirectDrawEnumerateA(lpcallback: LPDDENUMCALLBACKA, lpcontext: *mut core::ffi::c_void) -> windows_core::Result<()> {
-    ::windows_targets::link!("ddraw.dll" "system" fn DirectDrawEnumerateA(lpcallback : LPDDENUMCALLBACKA, lpcontext : *mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_targets::link!("ddraw.dll" "system" fn DirectDrawEnumerateA(lpcallback : LPDDENUMCALLBACKA, lpcontext : *mut core::ffi::c_void) -> windows_core::HRESULT);
     DirectDrawEnumerateA(lpcallback, lpcontext).ok()
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn DirectDrawEnumerateExA(lpcallback: LPDDENUMCALLBACKEXA, lpcontext: *mut core::ffi::c_void, dwflags: u32) -> windows_core::Result<()> {
-    ::windows_targets::link!("ddraw.dll" "system" fn DirectDrawEnumerateExA(lpcallback : LPDDENUMCALLBACKEXA, lpcontext : *mut core::ffi::c_void, dwflags : u32) -> windows_core::HRESULT);
+    windows_targets::link!("ddraw.dll" "system" fn DirectDrawEnumerateExA(lpcallback : LPDDENUMCALLBACKEXA, lpcontext : *mut core::ffi::c_void, dwflags : u32) -> windows_core::HRESULT);
     DirectDrawEnumerateExA(lpcallback, lpcontext, dwflags).ok()
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn DirectDrawEnumerateExW(lpcallback: LPDDENUMCALLBACKEXW, lpcontext: *mut core::ffi::c_void, dwflags: u32) -> windows_core::Result<()> {
-    ::windows_targets::link!("ddraw.dll" "system" fn DirectDrawEnumerateExW(lpcallback : LPDDENUMCALLBACKEXW, lpcontext : *mut core::ffi::c_void, dwflags : u32) -> windows_core::HRESULT);
+    windows_targets::link!("ddraw.dll" "system" fn DirectDrawEnumerateExW(lpcallback : LPDDENUMCALLBACKEXW, lpcontext : *mut core::ffi::c_void, dwflags : u32) -> windows_core::HRESULT);
     DirectDrawEnumerateExW(lpcallback, lpcontext, dwflags).ok()
 }
 #[inline]
 pub unsafe fn DirectDrawEnumerateW(lpcallback: LPDDENUMCALLBACKW, lpcontext: *mut core::ffi::c_void) -> windows_core::Result<()> {
-    ::windows_targets::link!("ddraw.dll" "system" fn DirectDrawEnumerateW(lpcallback : LPDDENUMCALLBACKW, lpcontext : *mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_targets::link!("ddraw.dll" "system" fn DirectDrawEnumerateW(lpcallback : LPDDENUMCALLBACKW, lpcontext : *mut core::ffi::c_void) -> windows_core::HRESULT);
     DirectDrawEnumerateW(lpcallback, lpcontext).ok()
 }
 windows_core::imp::com_interface!(IDDVideoPortContainer, IDDVideoPortContainer_Vtbl, 0x6c142760_a733_11ce_a521_0020af0be560);

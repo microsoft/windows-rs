@@ -5,7 +5,7 @@ where
     P0: windows_core::IntoParam<super::super::super::Foundation::HWND>,
     P1: windows_core::IntoParam<super::super::super::Globalization::HIMC>,
 {
-    ::windows_targets::link!("imm32.dll" "system" fn ImmAssociateContext(param0 : super::super::super::Foundation:: HWND, param1 : super::super::super::Globalization:: HIMC) -> super::super::super::Globalization:: HIMC);
+    windows_targets::link!("imm32.dll" "system" fn ImmAssociateContext(param0 : super::super::super::Foundation:: HWND, param1 : super::super::super::Globalization:: HIMC) -> super::super::super::Globalization:: HIMC);
     ImmAssociateContext(param0.into_param().abi(), param1.into_param().abi())
 }
 #[cfg(feature = "Win32_Globalization")]
@@ -15,7 +15,7 @@ where
     P0: windows_core::IntoParam<super::super::super::Foundation::HWND>,
     P1: windows_core::IntoParam<super::super::super::Globalization::HIMC>,
 {
-    ::windows_targets::link!("imm32.dll" "system" fn ImmAssociateContextEx(param0 : super::super::super::Foundation:: HWND, param1 : super::super::super::Globalization:: HIMC, param2 : u32) -> super::super::super::Foundation:: BOOL);
+    windows_targets::link!("imm32.dll" "system" fn ImmAssociateContextEx(param0 : super::super::super::Foundation:: HWND, param1 : super::super::super::Globalization:: HIMC, param2 : u32) -> super::super::super::Foundation:: BOOL);
     ImmAssociateContextEx(param0.into_param().abi(), param1.into_param().abi(), param2)
 }
 #[cfg(feature = "Win32_UI_TextServices")]
@@ -25,7 +25,7 @@ where
     P0: windows_core::IntoParam<super::super::TextServices::HKL>,
     P1: windows_core::IntoParam<super::super::super::Foundation::HWND>,
 {
-    ::windows_targets::link!("imm32.dll" "system" fn ImmConfigureIMEA(param0 : super::super::TextServices:: HKL, param1 : super::super::super::Foundation:: HWND, param2 : u32, param3 : *mut core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
+    windows_targets::link!("imm32.dll" "system" fn ImmConfigureIMEA(param0 : super::super::TextServices:: HKL, param1 : super::super::super::Foundation:: HWND, param2 : u32, param3 : *mut core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
     ImmConfigureIMEA(param0.into_param().abi(), param1.into_param().abi(), param2, param3)
 }
 #[cfg(feature = "Win32_UI_TextServices")]
@@ -35,19 +35,19 @@ where
     P0: windows_core::IntoParam<super::super::TextServices::HKL>,
     P1: windows_core::IntoParam<super::super::super::Foundation::HWND>,
 {
-    ::windows_targets::link!("imm32.dll" "system" fn ImmConfigureIMEW(param0 : super::super::TextServices:: HKL, param1 : super::super::super::Foundation:: HWND, param2 : u32, param3 : *mut core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
+    windows_targets::link!("imm32.dll" "system" fn ImmConfigureIMEW(param0 : super::super::TextServices:: HKL, param1 : super::super::super::Foundation:: HWND, param2 : u32, param3 : *mut core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
     ImmConfigureIMEW(param0.into_param().abi(), param1.into_param().abi(), param2, param3)
 }
 #[cfg(feature = "Win32_Globalization")]
 #[inline]
 pub unsafe fn ImmCreateContext() -> super::super::super::Globalization::HIMC {
-    ::windows_targets::link!("imm32.dll" "system" fn ImmCreateContext() -> super::super::super::Globalization:: HIMC);
+    windows_targets::link!("imm32.dll" "system" fn ImmCreateContext() -> super::super::super::Globalization:: HIMC);
     ImmCreateContext()
 }
 #[cfg(feature = "Win32_Globalization")]
 #[inline]
 pub unsafe fn ImmCreateIMCC(param0: u32) -> super::super::super::Globalization::HIMCC {
-    ::windows_targets::link!("imm32.dll" "system" fn ImmCreateIMCC(param0 : u32) -> super::super::super::Globalization:: HIMCC);
+    windows_targets::link!("imm32.dll" "system" fn ImmCreateIMCC(param0 : u32) -> super::super::super::Globalization:: HIMCC);
     ImmCreateIMCC(param0)
 }
 #[inline]
@@ -55,7 +55,7 @@ pub unsafe fn ImmCreateSoftKeyboard<P0>(param0: u32, param1: P0, param2: i32, pa
 where
     P0: windows_core::IntoParam<super::super::super::Foundation::HWND>,
 {
-    ::windows_targets::link!("imm32.dll" "system" fn ImmCreateSoftKeyboard(param0 : u32, param1 : super::super::super::Foundation:: HWND, param2 : i32, param3 : i32) -> super::super::super::Foundation:: HWND);
+    windows_targets::link!("imm32.dll" "system" fn ImmCreateSoftKeyboard(param0 : u32, param1 : super::super::super::Foundation:: HWND, param2 : i32, param3 : i32) -> super::super::super::Foundation:: HWND);
     ImmCreateSoftKeyboard(param0, param1.into_param().abi(), param2, param3)
 }
 #[cfg(feature = "Win32_Globalization")]
@@ -64,7 +64,7 @@ pub unsafe fn ImmDestroyContext<P0>(param0: P0) -> super::super::super::Foundati
 where
     P0: windows_core::IntoParam<super::super::super::Globalization::HIMC>,
 {
-    ::windows_targets::link!("imm32.dll" "system" fn ImmDestroyContext(param0 : super::super::super::Globalization:: HIMC) -> super::super::super::Foundation:: BOOL);
+    windows_targets::link!("imm32.dll" "system" fn ImmDestroyContext(param0 : super::super::super::Globalization:: HIMC) -> super::super::super::Foundation:: BOOL);
     ImmDestroyContext(param0.into_param().abi())
 }
 #[cfg(feature = "Win32_Globalization")]
@@ -73,7 +73,7 @@ pub unsafe fn ImmDestroyIMCC<P0>(param0: P0) -> super::super::super::Globalizati
 where
     P0: windows_core::IntoParam<super::super::super::Globalization::HIMCC>,
 {
-    ::windows_targets::link!("imm32.dll" "system" fn ImmDestroyIMCC(param0 : super::super::super::Globalization:: HIMCC) -> super::super::super::Globalization:: HIMCC);
+    windows_targets::link!("imm32.dll" "system" fn ImmDestroyIMCC(param0 : super::super::super::Globalization:: HIMCC) -> super::super::super::Globalization:: HIMCC);
     ImmDestroyIMCC(param0.into_param().abi())
 }
 #[inline]
@@ -81,22 +81,22 @@ pub unsafe fn ImmDestroySoftKeyboard<P0>(param0: P0) -> super::super::super::Fou
 where
     P0: windows_core::IntoParam<super::super::super::Foundation::HWND>,
 {
-    ::windows_targets::link!("imm32.dll" "system" fn ImmDestroySoftKeyboard(param0 : super::super::super::Foundation:: HWND) -> super::super::super::Foundation:: BOOL);
+    windows_targets::link!("imm32.dll" "system" fn ImmDestroySoftKeyboard(param0 : super::super::super::Foundation:: HWND) -> super::super::super::Foundation:: BOOL);
     ImmDestroySoftKeyboard(param0.into_param().abi())
 }
 #[inline]
 pub unsafe fn ImmDisableIME(param0: u32) -> super::super::super::Foundation::BOOL {
-    ::windows_targets::link!("imm32.dll" "system" fn ImmDisableIME(param0 : u32) -> super::super::super::Foundation:: BOOL);
+    windows_targets::link!("imm32.dll" "system" fn ImmDisableIME(param0 : u32) -> super::super::super::Foundation:: BOOL);
     ImmDisableIME(param0)
 }
 #[inline]
 pub unsafe fn ImmDisableLegacyIME() -> super::super::super::Foundation::BOOL {
-    ::windows_targets::link!("imm32.dll" "system" fn ImmDisableLegacyIME() -> super::super::super::Foundation:: BOOL);
+    windows_targets::link!("imm32.dll" "system" fn ImmDisableLegacyIME() -> super::super::super::Foundation:: BOOL);
     ImmDisableLegacyIME()
 }
 #[inline]
 pub unsafe fn ImmDisableTextFrameService(idthread: u32) -> super::super::super::Foundation::BOOL {
-    ::windows_targets::link!("imm32.dll" "system" fn ImmDisableTextFrameService(idthread : u32) -> super::super::super::Foundation:: BOOL);
+    windows_targets::link!("imm32.dll" "system" fn ImmDisableTextFrameService(idthread : u32) -> super::super::super::Foundation:: BOOL);
     ImmDisableTextFrameService(idthread)
 }
 #[cfg(feature = "Win32_Globalization")]
@@ -105,7 +105,7 @@ pub unsafe fn ImmEnumInputContext<P0>(idthread: u32, lpfn: IMCENUMPROC, lparam: 
 where
     P0: windows_core::IntoParam<super::super::super::Foundation::LPARAM>,
 {
-    ::windows_targets::link!("imm32.dll" "system" fn ImmEnumInputContext(idthread : u32, lpfn : IMCENUMPROC, lparam : super::super::super::Foundation:: LPARAM) -> super::super::super::Foundation:: BOOL);
+    windows_targets::link!("imm32.dll" "system" fn ImmEnumInputContext(idthread : u32, lpfn : IMCENUMPROC, lparam : super::super::super::Foundation:: LPARAM) -> super::super::super::Foundation:: BOOL);
     ImmEnumInputContext(idthread, lpfn, lparam.into_param().abi())
 }
 #[cfg(feature = "Win32_UI_TextServices")]
@@ -116,7 +116,7 @@ where
     P1: windows_core::IntoParam<windows_core::PCSTR>,
     P2: windows_core::IntoParam<windows_core::PCSTR>,
 {
-    ::windows_targets::link!("imm32.dll" "system" fn ImmEnumRegisterWordA(param0 : super::super::TextServices:: HKL, param1 : REGISTERWORDENUMPROCA, lpszreading : windows_core::PCSTR, param3 : u32, lpszregister : windows_core::PCSTR, param5 : *mut core::ffi::c_void) -> u32);
+    windows_targets::link!("imm32.dll" "system" fn ImmEnumRegisterWordA(param0 : super::super::TextServices:: HKL, param1 : REGISTERWORDENUMPROCA, lpszreading : windows_core::PCSTR, param3 : u32, lpszregister : windows_core::PCSTR, param5 : *mut core::ffi::c_void) -> u32);
     ImmEnumRegisterWordA(param0.into_param().abi(), param1, lpszreading.into_param().abi(), param3, lpszregister.into_param().abi(), param5)
 }
 #[cfg(feature = "Win32_UI_TextServices")]
@@ -127,7 +127,7 @@ where
     P1: windows_core::IntoParam<windows_core::PCWSTR>,
     P2: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("imm32.dll" "system" fn ImmEnumRegisterWordW(param0 : super::super::TextServices:: HKL, param1 : REGISTERWORDENUMPROCW, lpszreading : windows_core::PCWSTR, param3 : u32, lpszregister : windows_core::PCWSTR, param5 : *mut core::ffi::c_void) -> u32);
+    windows_targets::link!("imm32.dll" "system" fn ImmEnumRegisterWordW(param0 : super::super::TextServices:: HKL, param1 : REGISTERWORDENUMPROCW, lpszreading : windows_core::PCWSTR, param3 : u32, lpszregister : windows_core::PCWSTR, param5 : *mut core::ffi::c_void) -> u32);
     ImmEnumRegisterWordW(param0.into_param().abi(), param1, lpszreading.into_param().abi(), param3, lpszregister.into_param().abi(), param5)
 }
 #[cfg(all(feature = "Win32_Globalization", feature = "Win32_UI_TextServices"))]
@@ -137,7 +137,7 @@ where
     P0: windows_core::IntoParam<super::super::TextServices::HKL>,
     P1: windows_core::IntoParam<super::super::super::Globalization::HIMC>,
 {
-    ::windows_targets::link!("imm32.dll" "system" fn ImmEscapeA(param0 : super::super::TextServices:: HKL, param1 : super::super::super::Globalization:: HIMC, param2 : IME_ESCAPE, param3 : *mut core::ffi::c_void) -> super::super::super::Foundation:: LRESULT);
+    windows_targets::link!("imm32.dll" "system" fn ImmEscapeA(param0 : super::super::TextServices:: HKL, param1 : super::super::super::Globalization:: HIMC, param2 : IME_ESCAPE, param3 : *mut core::ffi::c_void) -> super::super::super::Foundation:: LRESULT);
     ImmEscapeA(param0.into_param().abi(), param1.into_param().abi(), param2, param3)
 }
 #[cfg(all(feature = "Win32_Globalization", feature = "Win32_UI_TextServices"))]
@@ -147,7 +147,7 @@ where
     P0: windows_core::IntoParam<super::super::TextServices::HKL>,
     P1: windows_core::IntoParam<super::super::super::Globalization::HIMC>,
 {
-    ::windows_targets::link!("imm32.dll" "system" fn ImmEscapeW(param0 : super::super::TextServices:: HKL, param1 : super::super::super::Globalization:: HIMC, param2 : IME_ESCAPE, param3 : *mut core::ffi::c_void) -> super::super::super::Foundation:: LRESULT);
+    windows_targets::link!("imm32.dll" "system" fn ImmEscapeW(param0 : super::super::TextServices:: HKL, param1 : super::super::super::Globalization:: HIMC, param2 : IME_ESCAPE, param3 : *mut core::ffi::c_void) -> super::super::super::Foundation:: LRESULT);
     ImmEscapeW(param0.into_param().abi(), param1.into_param().abi(), param2, param3)
 }
 #[cfg(feature = "Win32_Globalization")]
@@ -156,7 +156,7 @@ pub unsafe fn ImmGenerateMessage<P0>(param0: P0) -> super::super::super::Foundat
 where
     P0: windows_core::IntoParam<super::super::super::Globalization::HIMC>,
 {
-    ::windows_targets::link!("imm32.dll" "system" fn ImmGenerateMessage(param0 : super::super::super::Globalization:: HIMC) -> super::super::super::Foundation:: BOOL);
+    windows_targets::link!("imm32.dll" "system" fn ImmGenerateMessage(param0 : super::super::super::Globalization:: HIMC) -> super::super::super::Foundation:: BOOL);
     ImmGenerateMessage(param0.into_param().abi())
 }
 #[cfg(feature = "Win32_Globalization")]
@@ -165,7 +165,7 @@ pub unsafe fn ImmGetCandidateListA<P0>(param0: P0, deindex: u32, lpcandlist: Opt
 where
     P0: windows_core::IntoParam<super::super::super::Globalization::HIMC>,
 {
-    ::windows_targets::link!("imm32.dll" "system" fn ImmGetCandidateListA(param0 : super::super::super::Globalization:: HIMC, deindex : u32, lpcandlist : *mut CANDIDATELIST, dwbuflen : u32) -> u32);
+    windows_targets::link!("imm32.dll" "system" fn ImmGetCandidateListA(param0 : super::super::super::Globalization:: HIMC, deindex : u32, lpcandlist : *mut CANDIDATELIST, dwbuflen : u32) -> u32);
     ImmGetCandidateListA(param0.into_param().abi(), deindex, core::mem::transmute(lpcandlist.unwrap_or(std::ptr::null_mut())), dwbuflen)
 }
 #[cfg(feature = "Win32_Globalization")]
@@ -174,7 +174,7 @@ pub unsafe fn ImmGetCandidateListCountA<P0>(param0: P0, lpdwlistcount: *mut u32)
 where
     P0: windows_core::IntoParam<super::super::super::Globalization::HIMC>,
 {
-    ::windows_targets::link!("imm32.dll" "system" fn ImmGetCandidateListCountA(param0 : super::super::super::Globalization:: HIMC, lpdwlistcount : *mut u32) -> u32);
+    windows_targets::link!("imm32.dll" "system" fn ImmGetCandidateListCountA(param0 : super::super::super::Globalization:: HIMC, lpdwlistcount : *mut u32) -> u32);
     ImmGetCandidateListCountA(param0.into_param().abi(), lpdwlistcount)
 }
 #[cfg(feature = "Win32_Globalization")]
@@ -183,7 +183,7 @@ pub unsafe fn ImmGetCandidateListCountW<P0>(param0: P0, lpdwlistcount: *mut u32)
 where
     P0: windows_core::IntoParam<super::super::super::Globalization::HIMC>,
 {
-    ::windows_targets::link!("imm32.dll" "system" fn ImmGetCandidateListCountW(param0 : super::super::super::Globalization:: HIMC, lpdwlistcount : *mut u32) -> u32);
+    windows_targets::link!("imm32.dll" "system" fn ImmGetCandidateListCountW(param0 : super::super::super::Globalization:: HIMC, lpdwlistcount : *mut u32) -> u32);
     ImmGetCandidateListCountW(param0.into_param().abi(), lpdwlistcount)
 }
 #[cfg(feature = "Win32_Globalization")]
@@ -192,7 +192,7 @@ pub unsafe fn ImmGetCandidateListW<P0>(param0: P0, deindex: u32, lpcandlist: Opt
 where
     P0: windows_core::IntoParam<super::super::super::Globalization::HIMC>,
 {
-    ::windows_targets::link!("imm32.dll" "system" fn ImmGetCandidateListW(param0 : super::super::super::Globalization:: HIMC, deindex : u32, lpcandlist : *mut CANDIDATELIST, dwbuflen : u32) -> u32);
+    windows_targets::link!("imm32.dll" "system" fn ImmGetCandidateListW(param0 : super::super::super::Globalization:: HIMC, deindex : u32, lpcandlist : *mut CANDIDATELIST, dwbuflen : u32) -> u32);
     ImmGetCandidateListW(param0.into_param().abi(), deindex, core::mem::transmute(lpcandlist.unwrap_or(std::ptr::null_mut())), dwbuflen)
 }
 #[cfg(feature = "Win32_Globalization")]
@@ -201,7 +201,7 @@ pub unsafe fn ImmGetCandidateWindow<P0>(param0: P0, param1: u32, lpcandidate: *m
 where
     P0: windows_core::IntoParam<super::super::super::Globalization::HIMC>,
 {
-    ::windows_targets::link!("imm32.dll" "system" fn ImmGetCandidateWindow(param0 : super::super::super::Globalization:: HIMC, param1 : u32, lpcandidate : *mut CANDIDATEFORM) -> super::super::super::Foundation:: BOOL);
+    windows_targets::link!("imm32.dll" "system" fn ImmGetCandidateWindow(param0 : super::super::super::Globalization:: HIMC, param1 : u32, lpcandidate : *mut CANDIDATEFORM) -> super::super::super::Foundation:: BOOL);
     ImmGetCandidateWindow(param0.into_param().abi(), param1, lpcandidate)
 }
 #[cfg(all(feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
@@ -210,7 +210,7 @@ pub unsafe fn ImmGetCompositionFontA<P0>(param0: P0, lplf: *mut super::super::su
 where
     P0: windows_core::IntoParam<super::super::super::Globalization::HIMC>,
 {
-    ::windows_targets::link!("imm32.dll" "system" fn ImmGetCompositionFontA(param0 : super::super::super::Globalization:: HIMC, lplf : *mut super::super::super::Graphics::Gdi:: LOGFONTA) -> super::super::super::Foundation:: BOOL);
+    windows_targets::link!("imm32.dll" "system" fn ImmGetCompositionFontA(param0 : super::super::super::Globalization:: HIMC, lplf : *mut super::super::super::Graphics::Gdi:: LOGFONTA) -> super::super::super::Foundation:: BOOL);
     ImmGetCompositionFontA(param0.into_param().abi(), lplf)
 }
 #[cfg(all(feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
@@ -219,7 +219,7 @@ pub unsafe fn ImmGetCompositionFontW<P0>(param0: P0, lplf: *mut super::super::su
 where
     P0: windows_core::IntoParam<super::super::super::Globalization::HIMC>,
 {
-    ::windows_targets::link!("imm32.dll" "system" fn ImmGetCompositionFontW(param0 : super::super::super::Globalization:: HIMC, lplf : *mut super::super::super::Graphics::Gdi:: LOGFONTW) -> super::super::super::Foundation:: BOOL);
+    windows_targets::link!("imm32.dll" "system" fn ImmGetCompositionFontW(param0 : super::super::super::Globalization:: HIMC, lplf : *mut super::super::super::Graphics::Gdi:: LOGFONTW) -> super::super::super::Foundation:: BOOL);
     ImmGetCompositionFontW(param0.into_param().abi(), lplf)
 }
 #[cfg(feature = "Win32_Globalization")]
@@ -228,7 +228,7 @@ pub unsafe fn ImmGetCompositionStringA<P0>(param0: P0, param1: IME_COMPOSITION_S
 where
     P0: windows_core::IntoParam<super::super::super::Globalization::HIMC>,
 {
-    ::windows_targets::link!("imm32.dll" "system" fn ImmGetCompositionStringA(param0 : super::super::super::Globalization:: HIMC, param1 : IME_COMPOSITION_STRING, lpbuf : *mut core::ffi::c_void, dwbuflen : u32) -> i32);
+    windows_targets::link!("imm32.dll" "system" fn ImmGetCompositionStringA(param0 : super::super::super::Globalization:: HIMC, param1 : IME_COMPOSITION_STRING, lpbuf : *mut core::ffi::c_void, dwbuflen : u32) -> i32);
     ImmGetCompositionStringA(param0.into_param().abi(), param1, core::mem::transmute(lpbuf.unwrap_or(std::ptr::null_mut())), dwbuflen)
 }
 #[cfg(feature = "Win32_Globalization")]
@@ -237,7 +237,7 @@ pub unsafe fn ImmGetCompositionStringW<P0>(param0: P0, param1: IME_COMPOSITION_S
 where
     P0: windows_core::IntoParam<super::super::super::Globalization::HIMC>,
 {
-    ::windows_targets::link!("imm32.dll" "system" fn ImmGetCompositionStringW(param0 : super::super::super::Globalization:: HIMC, param1 : IME_COMPOSITION_STRING, lpbuf : *mut core::ffi::c_void, dwbuflen : u32) -> i32);
+    windows_targets::link!("imm32.dll" "system" fn ImmGetCompositionStringW(param0 : super::super::super::Globalization:: HIMC, param1 : IME_COMPOSITION_STRING, lpbuf : *mut core::ffi::c_void, dwbuflen : u32) -> i32);
     ImmGetCompositionStringW(param0.into_param().abi(), param1, core::mem::transmute(lpbuf.unwrap_or(std::ptr::null_mut())), dwbuflen)
 }
 #[cfg(feature = "Win32_Globalization")]
@@ -246,7 +246,7 @@ pub unsafe fn ImmGetCompositionWindow<P0>(param0: P0, lpcompform: *mut COMPOSITI
 where
     P0: windows_core::IntoParam<super::super::super::Globalization::HIMC>,
 {
-    ::windows_targets::link!("imm32.dll" "system" fn ImmGetCompositionWindow(param0 : super::super::super::Globalization:: HIMC, lpcompform : *mut COMPOSITIONFORM) -> super::super::super::Foundation:: BOOL);
+    windows_targets::link!("imm32.dll" "system" fn ImmGetCompositionWindow(param0 : super::super::super::Globalization:: HIMC, lpcompform : *mut COMPOSITIONFORM) -> super::super::super::Foundation:: BOOL);
     ImmGetCompositionWindow(param0.into_param().abi(), lpcompform)
 }
 #[cfg(feature = "Win32_Globalization")]
@@ -255,7 +255,7 @@ pub unsafe fn ImmGetContext<P0>(param0: P0) -> super::super::super::Globalizatio
 where
     P0: windows_core::IntoParam<super::super::super::Foundation::HWND>,
 {
-    ::windows_targets::link!("imm32.dll" "system" fn ImmGetContext(param0 : super::super::super::Foundation:: HWND) -> super::super::super::Globalization:: HIMC);
+    windows_targets::link!("imm32.dll" "system" fn ImmGetContext(param0 : super::super::super::Foundation:: HWND) -> super::super::super::Globalization:: HIMC);
     ImmGetContext(param0.into_param().abi())
 }
 #[cfg(all(feature = "Win32_Globalization", feature = "Win32_UI_TextServices"))]
@@ -266,7 +266,7 @@ where
     P1: windows_core::IntoParam<super::super::super::Globalization::HIMC>,
     P2: windows_core::IntoParam<windows_core::PCSTR>,
 {
-    ::windows_targets::link!("imm32.dll" "system" fn ImmGetConversionListA(param0 : super::super::TextServices:: HKL, param1 : super::super::super::Globalization:: HIMC, lpsrc : windows_core::PCSTR, lpdst : *mut CANDIDATELIST, dwbuflen : u32, uflag : GET_CONVERSION_LIST_FLAG) -> u32);
+    windows_targets::link!("imm32.dll" "system" fn ImmGetConversionListA(param0 : super::super::TextServices:: HKL, param1 : super::super::super::Globalization:: HIMC, lpsrc : windows_core::PCSTR, lpdst : *mut CANDIDATELIST, dwbuflen : u32, uflag : GET_CONVERSION_LIST_FLAG) -> u32);
     ImmGetConversionListA(param0.into_param().abi(), param1.into_param().abi(), lpsrc.into_param().abi(), lpdst, dwbuflen, uflag)
 }
 #[cfg(all(feature = "Win32_Globalization", feature = "Win32_UI_TextServices"))]
@@ -277,7 +277,7 @@ where
     P1: windows_core::IntoParam<super::super::super::Globalization::HIMC>,
     P2: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("imm32.dll" "system" fn ImmGetConversionListW(param0 : super::super::TextServices:: HKL, param1 : super::super::super::Globalization:: HIMC, lpsrc : windows_core::PCWSTR, lpdst : *mut CANDIDATELIST, dwbuflen : u32, uflag : GET_CONVERSION_LIST_FLAG) -> u32);
+    windows_targets::link!("imm32.dll" "system" fn ImmGetConversionListW(param0 : super::super::TextServices:: HKL, param1 : super::super::super::Globalization:: HIMC, lpsrc : windows_core::PCWSTR, lpdst : *mut CANDIDATELIST, dwbuflen : u32, uflag : GET_CONVERSION_LIST_FLAG) -> u32);
     ImmGetConversionListW(param0.into_param().abi(), param1.into_param().abi(), lpsrc.into_param().abi(), lpdst, dwbuflen, uflag)
 }
 #[cfg(feature = "Win32_Globalization")]
@@ -286,7 +286,7 @@ pub unsafe fn ImmGetConversionStatus<P0>(param0: P0, lpfdwconversion: Option<*mu
 where
     P0: windows_core::IntoParam<super::super::super::Globalization::HIMC>,
 {
-    ::windows_targets::link!("imm32.dll" "system" fn ImmGetConversionStatus(param0 : super::super::super::Globalization:: HIMC, lpfdwconversion : *mut IME_CONVERSION_MODE, lpfdwsentence : *mut IME_SENTENCE_MODE) -> super::super::super::Foundation:: BOOL);
+    windows_targets::link!("imm32.dll" "system" fn ImmGetConversionStatus(param0 : super::super::super::Globalization:: HIMC, lpfdwconversion : *mut IME_CONVERSION_MODE, lpfdwsentence : *mut IME_SENTENCE_MODE) -> super::super::super::Foundation:: BOOL);
     ImmGetConversionStatus(param0.into_param().abi(), core::mem::transmute(lpfdwconversion.unwrap_or(std::ptr::null_mut())), core::mem::transmute(lpfdwsentence.unwrap_or(std::ptr::null_mut())))
 }
 #[inline]
@@ -294,7 +294,7 @@ pub unsafe fn ImmGetDefaultIMEWnd<P0>(param0: P0) -> super::super::super::Founda
 where
     P0: windows_core::IntoParam<super::super::super::Foundation::HWND>,
 {
-    ::windows_targets::link!("imm32.dll" "system" fn ImmGetDefaultIMEWnd(param0 : super::super::super::Foundation:: HWND) -> super::super::super::Foundation:: HWND);
+    windows_targets::link!("imm32.dll" "system" fn ImmGetDefaultIMEWnd(param0 : super::super::super::Foundation:: HWND) -> super::super::super::Foundation:: HWND);
     ImmGetDefaultIMEWnd(param0.into_param().abi())
 }
 #[cfg(feature = "Win32_UI_TextServices")]
@@ -303,7 +303,7 @@ pub unsafe fn ImmGetDescriptionA<P0>(param0: P0, lpszdescription: Option<&mut [u
 where
     P0: windows_core::IntoParam<super::super::TextServices::HKL>,
 {
-    ::windows_targets::link!("imm32.dll" "system" fn ImmGetDescriptionA(param0 : super::super::TextServices:: HKL, lpszdescription : windows_core::PSTR, ubuflen : u32) -> u32);
+    windows_targets::link!("imm32.dll" "system" fn ImmGetDescriptionA(param0 : super::super::TextServices:: HKL, lpszdescription : windows_core::PSTR, ubuflen : u32) -> u32);
     ImmGetDescriptionA(param0.into_param().abi(), core::mem::transmute(lpszdescription.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpszdescription.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
 }
 #[cfg(feature = "Win32_UI_TextServices")]
@@ -312,7 +312,7 @@ pub unsafe fn ImmGetDescriptionW<P0>(param0: P0, lpszdescription: Option<&mut [u
 where
     P0: windows_core::IntoParam<super::super::TextServices::HKL>,
 {
-    ::windows_targets::link!("imm32.dll" "system" fn ImmGetDescriptionW(param0 : super::super::TextServices:: HKL, lpszdescription : windows_core::PWSTR, ubuflen : u32) -> u32);
+    windows_targets::link!("imm32.dll" "system" fn ImmGetDescriptionW(param0 : super::super::TextServices:: HKL, lpszdescription : windows_core::PWSTR, ubuflen : u32) -> u32);
     ImmGetDescriptionW(param0.into_param().abi(), core::mem::transmute(lpszdescription.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpszdescription.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
 }
 #[cfg(feature = "Win32_Globalization")]
@@ -321,7 +321,7 @@ pub unsafe fn ImmGetGuideLineA<P0>(param0: P0, dwindex: GET_GUIDE_LINE_TYPE, lpb
 where
     P0: windows_core::IntoParam<super::super::super::Globalization::HIMC>,
 {
-    ::windows_targets::link!("imm32.dll" "system" fn ImmGetGuideLineA(param0 : super::super::super::Globalization:: HIMC, dwindex : GET_GUIDE_LINE_TYPE, lpbuf : windows_core::PSTR, dwbuflen : u32) -> u32);
+    windows_targets::link!("imm32.dll" "system" fn ImmGetGuideLineA(param0 : super::super::super::Globalization:: HIMC, dwindex : GET_GUIDE_LINE_TYPE, lpbuf : windows_core::PSTR, dwbuflen : u32) -> u32);
     ImmGetGuideLineA(param0.into_param().abi(), dwindex, core::mem::transmute(lpbuf.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpbuf.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
 }
 #[cfg(feature = "Win32_Globalization")]
@@ -330,13 +330,13 @@ pub unsafe fn ImmGetGuideLineW<P0>(param0: P0, dwindex: GET_GUIDE_LINE_TYPE, lpb
 where
     P0: windows_core::IntoParam<super::super::super::Globalization::HIMC>,
 {
-    ::windows_targets::link!("imm32.dll" "system" fn ImmGetGuideLineW(param0 : super::super::super::Globalization:: HIMC, dwindex : GET_GUIDE_LINE_TYPE, lpbuf : windows_core::PWSTR, dwbuflen : u32) -> u32);
+    windows_targets::link!("imm32.dll" "system" fn ImmGetGuideLineW(param0 : super::super::super::Globalization:: HIMC, dwindex : GET_GUIDE_LINE_TYPE, lpbuf : windows_core::PWSTR, dwbuflen : u32) -> u32);
     ImmGetGuideLineW(param0.into_param().abi(), dwindex, core::mem::transmute(lpbuf), dwbuflen)
 }
 #[cfg(feature = "Win32_UI_TextServices")]
 #[inline]
 pub unsafe fn ImmGetHotKey(param0: u32, lpumodifiers: *mut u32, lpuvkey: *mut u32, phkl: *mut super::super::TextServices::HKL) -> super::super::super::Foundation::BOOL {
-    ::windows_targets::link!("imm32.dll" "system" fn ImmGetHotKey(param0 : u32, lpumodifiers : *mut u32, lpuvkey : *mut u32, phkl : *mut super::super::TextServices:: HKL) -> super::super::super::Foundation:: BOOL);
+    windows_targets::link!("imm32.dll" "system" fn ImmGetHotKey(param0 : u32, lpumodifiers : *mut u32, lpuvkey : *mut u32, phkl : *mut super::super::TextServices:: HKL) -> super::super::super::Foundation:: BOOL);
     ImmGetHotKey(param0, lpumodifiers, lpuvkey, phkl)
 }
 #[cfg(feature = "Win32_Globalization")]
@@ -345,7 +345,7 @@ pub unsafe fn ImmGetIMCCLockCount<P0>(param0: P0) -> u32
 where
     P0: windows_core::IntoParam<super::super::super::Globalization::HIMCC>,
 {
-    ::windows_targets::link!("imm32.dll" "system" fn ImmGetIMCCLockCount(param0 : super::super::super::Globalization:: HIMCC) -> u32);
+    windows_targets::link!("imm32.dll" "system" fn ImmGetIMCCLockCount(param0 : super::super::super::Globalization:: HIMCC) -> u32);
     ImmGetIMCCLockCount(param0.into_param().abi())
 }
 #[cfg(feature = "Win32_Globalization")]
@@ -354,7 +354,7 @@ pub unsafe fn ImmGetIMCCSize<P0>(param0: P0) -> u32
 where
     P0: windows_core::IntoParam<super::super::super::Globalization::HIMCC>,
 {
-    ::windows_targets::link!("imm32.dll" "system" fn ImmGetIMCCSize(param0 : super::super::super::Globalization:: HIMCC) -> u32);
+    windows_targets::link!("imm32.dll" "system" fn ImmGetIMCCSize(param0 : super::super::super::Globalization:: HIMCC) -> u32);
     ImmGetIMCCSize(param0.into_param().abi())
 }
 #[cfg(feature = "Win32_Globalization")]
@@ -363,7 +363,7 @@ pub unsafe fn ImmGetIMCLockCount<P0>(param0: P0) -> u32
 where
     P0: windows_core::IntoParam<super::super::super::Globalization::HIMC>,
 {
-    ::windows_targets::link!("imm32.dll" "system" fn ImmGetIMCLockCount(param0 : super::super::super::Globalization:: HIMC) -> u32);
+    windows_targets::link!("imm32.dll" "system" fn ImmGetIMCLockCount(param0 : super::super::super::Globalization:: HIMC) -> u32);
     ImmGetIMCLockCount(param0.into_param().abi())
 }
 #[cfg(feature = "Win32_UI_TextServices")]
@@ -372,7 +372,7 @@ pub unsafe fn ImmGetIMEFileNameA<P0>(param0: P0, lpszfilename: Option<&mut [u8]>
 where
     P0: windows_core::IntoParam<super::super::TextServices::HKL>,
 {
-    ::windows_targets::link!("imm32.dll" "system" fn ImmGetIMEFileNameA(param0 : super::super::TextServices:: HKL, lpszfilename : windows_core::PSTR, ubuflen : u32) -> u32);
+    windows_targets::link!("imm32.dll" "system" fn ImmGetIMEFileNameA(param0 : super::super::TextServices:: HKL, lpszfilename : windows_core::PSTR, ubuflen : u32) -> u32);
     ImmGetIMEFileNameA(param0.into_param().abi(), core::mem::transmute(lpszfilename.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpszfilename.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
 }
 #[cfg(feature = "Win32_UI_TextServices")]
@@ -381,7 +381,7 @@ pub unsafe fn ImmGetIMEFileNameW<P0>(param0: P0, lpszfilename: Option<&mut [u16]
 where
     P0: windows_core::IntoParam<super::super::TextServices::HKL>,
 {
-    ::windows_targets::link!("imm32.dll" "system" fn ImmGetIMEFileNameW(param0 : super::super::TextServices:: HKL, lpszfilename : windows_core::PWSTR, ubuflen : u32) -> u32);
+    windows_targets::link!("imm32.dll" "system" fn ImmGetIMEFileNameW(param0 : super::super::TextServices:: HKL, lpszfilename : windows_core::PWSTR, ubuflen : u32) -> u32);
     ImmGetIMEFileNameW(param0.into_param().abi(), core::mem::transmute(lpszfilename.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpszfilename.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
 }
 #[cfg(all(feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
@@ -390,7 +390,7 @@ pub unsafe fn ImmGetImeMenuItemsA<P0>(param0: P0, param1: u32, param2: u32, lpim
 where
     P0: windows_core::IntoParam<super::super::super::Globalization::HIMC>,
 {
-    ::windows_targets::link!("imm32.dll" "system" fn ImmGetImeMenuItemsA(param0 : super::super::super::Globalization:: HIMC, param1 : u32, param2 : u32, lpimeparentmenu : *mut IMEMENUITEMINFOA, lpimemenu : *mut IMEMENUITEMINFOA, dwsize : u32) -> u32);
+    windows_targets::link!("imm32.dll" "system" fn ImmGetImeMenuItemsA(param0 : super::super::super::Globalization:: HIMC, param1 : u32, param2 : u32, lpimeparentmenu : *mut IMEMENUITEMINFOA, lpimemenu : *mut IMEMENUITEMINFOA, dwsize : u32) -> u32);
     ImmGetImeMenuItemsA(param0.into_param().abi(), param1, param2, core::mem::transmute(lpimeparentmenu.unwrap_or(std::ptr::null_mut())), core::mem::transmute(lpimemenu.unwrap_or(std::ptr::null_mut())), dwsize)
 }
 #[cfg(all(feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
@@ -399,7 +399,7 @@ pub unsafe fn ImmGetImeMenuItemsW<P0>(param0: P0, param1: u32, param2: u32, lpim
 where
     P0: windows_core::IntoParam<super::super::super::Globalization::HIMC>,
 {
-    ::windows_targets::link!("imm32.dll" "system" fn ImmGetImeMenuItemsW(param0 : super::super::super::Globalization:: HIMC, param1 : u32, param2 : u32, lpimeparentmenu : *mut IMEMENUITEMINFOW, lpimemenu : *mut IMEMENUITEMINFOW, dwsize : u32) -> u32);
+    windows_targets::link!("imm32.dll" "system" fn ImmGetImeMenuItemsW(param0 : super::super::super::Globalization:: HIMC, param1 : u32, param2 : u32, lpimeparentmenu : *mut IMEMENUITEMINFOW, lpimemenu : *mut IMEMENUITEMINFOW, dwsize : u32) -> u32);
     ImmGetImeMenuItemsW(param0.into_param().abi(), param1, param2, core::mem::transmute(lpimeparentmenu.unwrap_or(std::ptr::null_mut())), core::mem::transmute(lpimemenu.unwrap_or(std::ptr::null_mut())), dwsize)
 }
 #[cfg(feature = "Win32_Globalization")]
@@ -408,7 +408,7 @@ pub unsafe fn ImmGetOpenStatus<P0>(param0: P0) -> super::super::super::Foundatio
 where
     P0: windows_core::IntoParam<super::super::super::Globalization::HIMC>,
 {
-    ::windows_targets::link!("imm32.dll" "system" fn ImmGetOpenStatus(param0 : super::super::super::Globalization:: HIMC) -> super::super::super::Foundation:: BOOL);
+    windows_targets::link!("imm32.dll" "system" fn ImmGetOpenStatus(param0 : super::super::super::Globalization:: HIMC) -> super::super::super::Foundation:: BOOL);
     ImmGetOpenStatus(param0.into_param().abi())
 }
 #[cfg(feature = "Win32_UI_TextServices")]
@@ -417,7 +417,7 @@ pub unsafe fn ImmGetProperty<P0>(param0: P0, param1: u32) -> u32
 where
     P0: windows_core::IntoParam<super::super::TextServices::HKL>,
 {
-    ::windows_targets::link!("imm32.dll" "system" fn ImmGetProperty(param0 : super::super::TextServices:: HKL, param1 : u32) -> u32);
+    windows_targets::link!("imm32.dll" "system" fn ImmGetProperty(param0 : super::super::TextServices:: HKL, param1 : u32) -> u32);
     ImmGetProperty(param0.into_param().abi(), param1)
 }
 #[cfg(feature = "Win32_UI_TextServices")]
@@ -426,7 +426,7 @@ pub unsafe fn ImmGetRegisterWordStyleA<P0>(param0: P0, lpstylebuf: &mut [STYLEBU
 where
     P0: windows_core::IntoParam<super::super::TextServices::HKL>,
 {
-    ::windows_targets::link!("imm32.dll" "system" fn ImmGetRegisterWordStyleA(param0 : super::super::TextServices:: HKL, nitem : u32, lpstylebuf : *mut STYLEBUFA) -> u32);
+    windows_targets::link!("imm32.dll" "system" fn ImmGetRegisterWordStyleA(param0 : super::super::TextServices:: HKL, nitem : u32, lpstylebuf : *mut STYLEBUFA) -> u32);
     ImmGetRegisterWordStyleA(param0.into_param().abi(), lpstylebuf.len().try_into().unwrap(), core::mem::transmute(lpstylebuf.as_ptr()))
 }
 #[cfg(feature = "Win32_UI_TextServices")]
@@ -435,7 +435,7 @@ pub unsafe fn ImmGetRegisterWordStyleW<P0>(param0: P0, lpstylebuf: &mut [STYLEBU
 where
     P0: windows_core::IntoParam<super::super::TextServices::HKL>,
 {
-    ::windows_targets::link!("imm32.dll" "system" fn ImmGetRegisterWordStyleW(param0 : super::super::TextServices:: HKL, nitem : u32, lpstylebuf : *mut STYLEBUFW) -> u32);
+    windows_targets::link!("imm32.dll" "system" fn ImmGetRegisterWordStyleW(param0 : super::super::TextServices:: HKL, nitem : u32, lpstylebuf : *mut STYLEBUFW) -> u32);
     ImmGetRegisterWordStyleW(param0.into_param().abi(), lpstylebuf.len().try_into().unwrap(), core::mem::transmute(lpstylebuf.as_ptr()))
 }
 #[cfg(feature = "Win32_Globalization")]
@@ -444,7 +444,7 @@ pub unsafe fn ImmGetStatusWindowPos<P0>(param0: P0, lpptpos: *mut super::super::
 where
     P0: windows_core::IntoParam<super::super::super::Globalization::HIMC>,
 {
-    ::windows_targets::link!("imm32.dll" "system" fn ImmGetStatusWindowPos(param0 : super::super::super::Globalization:: HIMC, lpptpos : *mut super::super::super::Foundation:: POINT) -> super::super::super::Foundation:: BOOL);
+    windows_targets::link!("imm32.dll" "system" fn ImmGetStatusWindowPos(param0 : super::super::super::Globalization:: HIMC, lpptpos : *mut super::super::super::Foundation:: POINT) -> super::super::super::Foundation:: BOOL);
     ImmGetStatusWindowPos(param0.into_param().abi(), lpptpos)
 }
 #[inline]
@@ -452,7 +452,7 @@ pub unsafe fn ImmGetVirtualKey<P0>(param0: P0) -> u32
 where
     P0: windows_core::IntoParam<super::super::super::Foundation::HWND>,
 {
-    ::windows_targets::link!("imm32.dll" "system" fn ImmGetVirtualKey(param0 : super::super::super::Foundation:: HWND) -> u32);
+    windows_targets::link!("imm32.dll" "system" fn ImmGetVirtualKey(param0 : super::super::super::Foundation:: HWND) -> u32);
     ImmGetVirtualKey(param0.into_param().abi())
 }
 #[cfg(feature = "Win32_UI_TextServices")]
@@ -462,7 +462,7 @@ where
     P0: windows_core::IntoParam<windows_core::PCSTR>,
     P1: windows_core::IntoParam<windows_core::PCSTR>,
 {
-    ::windows_targets::link!("imm32.dll" "system" fn ImmInstallIMEA(lpszimefilename : windows_core::PCSTR, lpszlayouttext : windows_core::PCSTR) -> super::super::TextServices:: HKL);
+    windows_targets::link!("imm32.dll" "system" fn ImmInstallIMEA(lpszimefilename : windows_core::PCSTR, lpszlayouttext : windows_core::PCSTR) -> super::super::TextServices:: HKL);
     ImmInstallIMEA(lpszimefilename.into_param().abi(), lpszlayouttext.into_param().abi())
 }
 #[cfg(feature = "Win32_UI_TextServices")]
@@ -472,7 +472,7 @@ where
     P0: windows_core::IntoParam<windows_core::PCWSTR>,
     P1: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("imm32.dll" "system" fn ImmInstallIMEW(lpszimefilename : windows_core::PCWSTR, lpszlayouttext : windows_core::PCWSTR) -> super::super::TextServices:: HKL);
+    windows_targets::link!("imm32.dll" "system" fn ImmInstallIMEW(lpszimefilename : windows_core::PCWSTR, lpszlayouttext : windows_core::PCWSTR) -> super::super::TextServices:: HKL);
     ImmInstallIMEW(lpszimefilename.into_param().abi(), lpszlayouttext.into_param().abi())
 }
 #[cfg(feature = "Win32_UI_TextServices")]
@@ -481,7 +481,7 @@ pub unsafe fn ImmIsIME<P0>(param0: P0) -> super::super::super::Foundation::BOOL
 where
     P0: windows_core::IntoParam<super::super::TextServices::HKL>,
 {
-    ::windows_targets::link!("imm32.dll" "system" fn ImmIsIME(param0 : super::super::TextServices:: HKL) -> super::super::super::Foundation:: BOOL);
+    windows_targets::link!("imm32.dll" "system" fn ImmIsIME(param0 : super::super::TextServices:: HKL) -> super::super::super::Foundation:: BOOL);
     ImmIsIME(param0.into_param().abi())
 }
 #[inline]
@@ -491,7 +491,7 @@ where
     P1: windows_core::IntoParam<super::super::super::Foundation::WPARAM>,
     P2: windows_core::IntoParam<super::super::super::Foundation::LPARAM>,
 {
-    ::windows_targets::link!("imm32.dll" "system" fn ImmIsUIMessageA(param0 : super::super::super::Foundation:: HWND, param1 : u32, param2 : super::super::super::Foundation:: WPARAM, param3 : super::super::super::Foundation:: LPARAM) -> super::super::super::Foundation:: BOOL);
+    windows_targets::link!("imm32.dll" "system" fn ImmIsUIMessageA(param0 : super::super::super::Foundation:: HWND, param1 : u32, param2 : super::super::super::Foundation:: WPARAM, param3 : super::super::super::Foundation:: LPARAM) -> super::super::super::Foundation:: BOOL);
     ImmIsUIMessageA(param0.into_param().abi(), param1, param2.into_param().abi(), param3.into_param().abi())
 }
 #[inline]
@@ -501,7 +501,7 @@ where
     P1: windows_core::IntoParam<super::super::super::Foundation::WPARAM>,
     P2: windows_core::IntoParam<super::super::super::Foundation::LPARAM>,
 {
-    ::windows_targets::link!("imm32.dll" "system" fn ImmIsUIMessageW(param0 : super::super::super::Foundation:: HWND, param1 : u32, param2 : super::super::super::Foundation:: WPARAM, param3 : super::super::super::Foundation:: LPARAM) -> super::super::super::Foundation:: BOOL);
+    windows_targets::link!("imm32.dll" "system" fn ImmIsUIMessageW(param0 : super::super::super::Foundation:: HWND, param1 : u32, param2 : super::super::super::Foundation:: WPARAM, param3 : super::super::super::Foundation:: LPARAM) -> super::super::super::Foundation:: BOOL);
     ImmIsUIMessageW(param0.into_param().abi(), param1, param2.into_param().abi(), param3.into_param().abi())
 }
 #[cfg(all(feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
@@ -510,7 +510,7 @@ pub unsafe fn ImmLockIMC<P0>(param0: P0) -> *mut INPUTCONTEXT
 where
     P0: windows_core::IntoParam<super::super::super::Globalization::HIMC>,
 {
-    ::windows_targets::link!("imm32.dll" "system" fn ImmLockIMC(param0 : super::super::super::Globalization:: HIMC) -> *mut INPUTCONTEXT);
+    windows_targets::link!("imm32.dll" "system" fn ImmLockIMC(param0 : super::super::super::Globalization:: HIMC) -> *mut INPUTCONTEXT);
     ImmLockIMC(param0.into_param().abi())
 }
 #[cfg(feature = "Win32_Globalization")]
@@ -519,7 +519,7 @@ pub unsafe fn ImmLockIMCC<P0>(param0: P0) -> *mut core::ffi::c_void
 where
     P0: windows_core::IntoParam<super::super::super::Globalization::HIMCC>,
 {
-    ::windows_targets::link!("imm32.dll" "system" fn ImmLockIMCC(param0 : super::super::super::Globalization:: HIMCC) -> *mut core::ffi::c_void);
+    windows_targets::link!("imm32.dll" "system" fn ImmLockIMCC(param0 : super::super::super::Globalization:: HIMCC) -> *mut core::ffi::c_void);
     ImmLockIMCC(param0.into_param().abi())
 }
 #[cfg(feature = "Win32_Globalization")]
@@ -528,7 +528,7 @@ pub unsafe fn ImmNotifyIME<P0>(param0: P0, dwaction: NOTIFY_IME_ACTION, dwindex:
 where
     P0: windows_core::IntoParam<super::super::super::Globalization::HIMC>,
 {
-    ::windows_targets::link!("imm32.dll" "system" fn ImmNotifyIME(param0 : super::super::super::Globalization:: HIMC, dwaction : NOTIFY_IME_ACTION, dwindex : NOTIFY_IME_INDEX, dwvalue : u32) -> super::super::super::Foundation:: BOOL);
+    windows_targets::link!("imm32.dll" "system" fn ImmNotifyIME(param0 : super::super::super::Globalization:: HIMC, dwaction : NOTIFY_IME_ACTION, dwindex : NOTIFY_IME_INDEX, dwvalue : u32) -> super::super::super::Foundation:: BOOL);
     ImmNotifyIME(param0.into_param().abi(), dwaction, dwindex, dwvalue)
 }
 #[cfg(feature = "Win32_Globalization")]
@@ -537,7 +537,7 @@ pub unsafe fn ImmReSizeIMCC<P0>(param0: P0, param1: u32) -> super::super::super:
 where
     P0: windows_core::IntoParam<super::super::super::Globalization::HIMCC>,
 {
-    ::windows_targets::link!("imm32.dll" "system" fn ImmReSizeIMCC(param0 : super::super::super::Globalization:: HIMCC, param1 : u32) -> super::super::super::Globalization:: HIMCC);
+    windows_targets::link!("imm32.dll" "system" fn ImmReSizeIMCC(param0 : super::super::super::Globalization:: HIMCC, param1 : u32) -> super::super::super::Globalization:: HIMCC);
     ImmReSizeIMCC(param0.into_param().abi(), param1)
 }
 #[cfg(feature = "Win32_UI_TextServices")]
@@ -548,7 +548,7 @@ where
     P1: windows_core::IntoParam<windows_core::PCSTR>,
     P2: windows_core::IntoParam<windows_core::PCSTR>,
 {
-    ::windows_targets::link!("imm32.dll" "system" fn ImmRegisterWordA(param0 : super::super::TextServices:: HKL, lpszreading : windows_core::PCSTR, param2 : u32, lpszregister : windows_core::PCSTR) -> super::super::super::Foundation:: BOOL);
+    windows_targets::link!("imm32.dll" "system" fn ImmRegisterWordA(param0 : super::super::TextServices:: HKL, lpszreading : windows_core::PCSTR, param2 : u32, lpszregister : windows_core::PCSTR) -> super::super::super::Foundation:: BOOL);
     ImmRegisterWordA(param0.into_param().abi(), lpszreading.into_param().abi(), param2, lpszregister.into_param().abi())
 }
 #[cfg(feature = "Win32_UI_TextServices")]
@@ -559,7 +559,7 @@ where
     P1: windows_core::IntoParam<windows_core::PCWSTR>,
     P2: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("imm32.dll" "system" fn ImmRegisterWordW(param0 : super::super::TextServices:: HKL, lpszreading : windows_core::PCWSTR, param2 : u32, lpszregister : windows_core::PCWSTR) -> super::super::super::Foundation:: BOOL);
+    windows_targets::link!("imm32.dll" "system" fn ImmRegisterWordW(param0 : super::super::TextServices:: HKL, lpszreading : windows_core::PCWSTR, param2 : u32, lpszregister : windows_core::PCWSTR) -> super::super::super::Foundation:: BOOL);
     ImmRegisterWordW(param0.into_param().abi(), lpszreading.into_param().abi(), param2, lpszregister.into_param().abi())
 }
 #[cfg(feature = "Win32_Globalization")]
@@ -569,7 +569,7 @@ where
     P0: windows_core::IntoParam<super::super::super::Foundation::HWND>,
     P1: windows_core::IntoParam<super::super::super::Globalization::HIMC>,
 {
-    ::windows_targets::link!("imm32.dll" "system" fn ImmReleaseContext(param0 : super::super::super::Foundation:: HWND, param1 : super::super::super::Globalization:: HIMC) -> super::super::super::Foundation:: BOOL);
+    windows_targets::link!("imm32.dll" "system" fn ImmReleaseContext(param0 : super::super::super::Foundation:: HWND, param1 : super::super::super::Globalization:: HIMC) -> super::super::super::Foundation:: BOOL);
     ImmReleaseContext(param0.into_param().abi(), param1.into_param().abi())
 }
 #[cfg(feature = "Win32_Globalization")]
@@ -580,7 +580,7 @@ where
     P1: windows_core::IntoParam<super::super::super::Foundation::WPARAM>,
     P2: windows_core::IntoParam<super::super::super::Foundation::LPARAM>,
 {
-    ::windows_targets::link!("imm32.dll" "system" fn ImmRequestMessageA(param0 : super::super::super::Globalization:: HIMC, param1 : super::super::super::Foundation:: WPARAM, param2 : super::super::super::Foundation:: LPARAM) -> super::super::super::Foundation:: LRESULT);
+    windows_targets::link!("imm32.dll" "system" fn ImmRequestMessageA(param0 : super::super::super::Globalization:: HIMC, param1 : super::super::super::Foundation:: WPARAM, param2 : super::super::super::Foundation:: LPARAM) -> super::super::super::Foundation:: LRESULT);
     ImmRequestMessageA(param0.into_param().abi(), param1.into_param().abi(), param2.into_param().abi())
 }
 #[cfg(feature = "Win32_Globalization")]
@@ -591,7 +591,7 @@ where
     P1: windows_core::IntoParam<super::super::super::Foundation::WPARAM>,
     P2: windows_core::IntoParam<super::super::super::Foundation::LPARAM>,
 {
-    ::windows_targets::link!("imm32.dll" "system" fn ImmRequestMessageW(param0 : super::super::super::Globalization:: HIMC, param1 : super::super::super::Foundation:: WPARAM, param2 : super::super::super::Foundation:: LPARAM) -> super::super::super::Foundation:: LRESULT);
+    windows_targets::link!("imm32.dll" "system" fn ImmRequestMessageW(param0 : super::super::super::Globalization:: HIMC, param1 : super::super::super::Foundation:: WPARAM, param2 : super::super::super::Foundation:: LPARAM) -> super::super::super::Foundation:: LRESULT);
     ImmRequestMessageW(param0.into_param().abi(), param1.into_param().abi(), param2.into_param().abi())
 }
 #[cfg(feature = "Win32_Globalization")]
@@ -600,7 +600,7 @@ pub unsafe fn ImmSetCandidateWindow<P0>(param0: P0, lpcandidate: *const CANDIDAT
 where
     P0: windows_core::IntoParam<super::super::super::Globalization::HIMC>,
 {
-    ::windows_targets::link!("imm32.dll" "system" fn ImmSetCandidateWindow(param0 : super::super::super::Globalization:: HIMC, lpcandidate : *const CANDIDATEFORM) -> super::super::super::Foundation:: BOOL);
+    windows_targets::link!("imm32.dll" "system" fn ImmSetCandidateWindow(param0 : super::super::super::Globalization:: HIMC, lpcandidate : *const CANDIDATEFORM) -> super::super::super::Foundation:: BOOL);
     ImmSetCandidateWindow(param0.into_param().abi(), lpcandidate)
 }
 #[cfg(all(feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
@@ -609,7 +609,7 @@ pub unsafe fn ImmSetCompositionFontA<P0>(param0: P0, lplf: *const super::super::
 where
     P0: windows_core::IntoParam<super::super::super::Globalization::HIMC>,
 {
-    ::windows_targets::link!("imm32.dll" "system" fn ImmSetCompositionFontA(param0 : super::super::super::Globalization:: HIMC, lplf : *const super::super::super::Graphics::Gdi:: LOGFONTA) -> super::super::super::Foundation:: BOOL);
+    windows_targets::link!("imm32.dll" "system" fn ImmSetCompositionFontA(param0 : super::super::super::Globalization:: HIMC, lplf : *const super::super::super::Graphics::Gdi:: LOGFONTA) -> super::super::super::Foundation:: BOOL);
     ImmSetCompositionFontA(param0.into_param().abi(), lplf)
 }
 #[cfg(all(feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
@@ -618,7 +618,7 @@ pub unsafe fn ImmSetCompositionFontW<P0>(param0: P0, lplf: *const super::super::
 where
     P0: windows_core::IntoParam<super::super::super::Globalization::HIMC>,
 {
-    ::windows_targets::link!("imm32.dll" "system" fn ImmSetCompositionFontW(param0 : super::super::super::Globalization:: HIMC, lplf : *const super::super::super::Graphics::Gdi:: LOGFONTW) -> super::super::super::Foundation:: BOOL);
+    windows_targets::link!("imm32.dll" "system" fn ImmSetCompositionFontW(param0 : super::super::super::Globalization:: HIMC, lplf : *const super::super::super::Graphics::Gdi:: LOGFONTW) -> super::super::super::Foundation:: BOOL);
     ImmSetCompositionFontW(param0.into_param().abi(), lplf)
 }
 #[cfg(feature = "Win32_Globalization")]
@@ -627,7 +627,7 @@ pub unsafe fn ImmSetCompositionStringA<P0>(param0: P0, dwindex: SET_COMPOSITION_
 where
     P0: windows_core::IntoParam<super::super::super::Globalization::HIMC>,
 {
-    ::windows_targets::link!("imm32.dll" "system" fn ImmSetCompositionStringA(param0 : super::super::super::Globalization:: HIMC, dwindex : SET_COMPOSITION_STRING_TYPE, lpcomp : *const core::ffi::c_void, dwcomplen : u32, lpread : *const core::ffi::c_void, dwreadlen : u32) -> super::super::super::Foundation:: BOOL);
+    windows_targets::link!("imm32.dll" "system" fn ImmSetCompositionStringA(param0 : super::super::super::Globalization:: HIMC, dwindex : SET_COMPOSITION_STRING_TYPE, lpcomp : *const core::ffi::c_void, dwcomplen : u32, lpread : *const core::ffi::c_void, dwreadlen : u32) -> super::super::super::Foundation:: BOOL);
     ImmSetCompositionStringA(param0.into_param().abi(), dwindex, core::mem::transmute(lpcomp.unwrap_or(std::ptr::null())), dwcomplen, core::mem::transmute(lpread.unwrap_or(std::ptr::null())), dwreadlen)
 }
 #[cfg(feature = "Win32_Globalization")]
@@ -636,7 +636,7 @@ pub unsafe fn ImmSetCompositionStringW<P0>(param0: P0, dwindex: SET_COMPOSITION_
 where
     P0: windows_core::IntoParam<super::super::super::Globalization::HIMC>,
 {
-    ::windows_targets::link!("imm32.dll" "system" fn ImmSetCompositionStringW(param0 : super::super::super::Globalization:: HIMC, dwindex : SET_COMPOSITION_STRING_TYPE, lpcomp : *const core::ffi::c_void, dwcomplen : u32, lpread : *const core::ffi::c_void, dwreadlen : u32) -> super::super::super::Foundation:: BOOL);
+    windows_targets::link!("imm32.dll" "system" fn ImmSetCompositionStringW(param0 : super::super::super::Globalization:: HIMC, dwindex : SET_COMPOSITION_STRING_TYPE, lpcomp : *const core::ffi::c_void, dwcomplen : u32, lpread : *const core::ffi::c_void, dwreadlen : u32) -> super::super::super::Foundation:: BOOL);
     ImmSetCompositionStringW(param0.into_param().abi(), dwindex, core::mem::transmute(lpcomp.unwrap_or(std::ptr::null())), dwcomplen, core::mem::transmute(lpread.unwrap_or(std::ptr::null())), dwreadlen)
 }
 #[cfg(feature = "Win32_Globalization")]
@@ -645,7 +645,7 @@ pub unsafe fn ImmSetCompositionWindow<P0>(param0: P0, lpcompform: *const COMPOSI
 where
     P0: windows_core::IntoParam<super::super::super::Globalization::HIMC>,
 {
-    ::windows_targets::link!("imm32.dll" "system" fn ImmSetCompositionWindow(param0 : super::super::super::Globalization:: HIMC, lpcompform : *const COMPOSITIONFORM) -> super::super::super::Foundation:: BOOL);
+    windows_targets::link!("imm32.dll" "system" fn ImmSetCompositionWindow(param0 : super::super::super::Globalization:: HIMC, lpcompform : *const COMPOSITIONFORM) -> super::super::super::Foundation:: BOOL);
     ImmSetCompositionWindow(param0.into_param().abi(), lpcompform)
 }
 #[cfg(feature = "Win32_Globalization")]
@@ -654,7 +654,7 @@ pub unsafe fn ImmSetConversionStatus<P0>(param0: P0, param1: IME_CONVERSION_MODE
 where
     P0: windows_core::IntoParam<super::super::super::Globalization::HIMC>,
 {
-    ::windows_targets::link!("imm32.dll" "system" fn ImmSetConversionStatus(param0 : super::super::super::Globalization:: HIMC, param1 : IME_CONVERSION_MODE, param2 : IME_SENTENCE_MODE) -> super::super::super::Foundation:: BOOL);
+    windows_targets::link!("imm32.dll" "system" fn ImmSetConversionStatus(param0 : super::super::super::Globalization:: HIMC, param1 : IME_CONVERSION_MODE, param2 : IME_SENTENCE_MODE) -> super::super::super::Foundation:: BOOL);
     ImmSetConversionStatus(param0.into_param().abi(), param1, param2)
 }
 #[cfg(feature = "Win32_UI_TextServices")]
@@ -663,7 +663,7 @@ pub unsafe fn ImmSetHotKey<P0>(param0: u32, param1: u32, param2: u32, param3: P0
 where
     P0: windows_core::IntoParam<super::super::TextServices::HKL>,
 {
-    ::windows_targets::link!("imm32.dll" "system" fn ImmSetHotKey(param0 : u32, param1 : u32, param2 : u32, param3 : super::super::TextServices:: HKL) -> super::super::super::Foundation:: BOOL);
+    windows_targets::link!("imm32.dll" "system" fn ImmSetHotKey(param0 : u32, param1 : u32, param2 : u32, param3 : super::super::TextServices:: HKL) -> super::super::super::Foundation:: BOOL);
     ImmSetHotKey(param0, param1, param2, param3.into_param().abi())
 }
 #[cfg(feature = "Win32_Globalization")]
@@ -673,7 +673,7 @@ where
     P0: windows_core::IntoParam<super::super::super::Globalization::HIMC>,
     P1: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("imm32.dll" "system" fn ImmSetOpenStatus(param0 : super::super::super::Globalization:: HIMC, param1 : super::super::super::Foundation:: BOOL) -> super::super::super::Foundation:: BOOL);
+    windows_targets::link!("imm32.dll" "system" fn ImmSetOpenStatus(param0 : super::super::super::Globalization:: HIMC, param1 : super::super::super::Foundation:: BOOL) -> super::super::super::Foundation:: BOOL);
     ImmSetOpenStatus(param0.into_param().abi(), param1.into_param().abi())
 }
 #[cfg(feature = "Win32_Globalization")]
@@ -682,7 +682,7 @@ pub unsafe fn ImmSetStatusWindowPos<P0>(param0: P0, lpptpos: *const super::super
 where
     P0: windows_core::IntoParam<super::super::super::Globalization::HIMC>,
 {
-    ::windows_targets::link!("imm32.dll" "system" fn ImmSetStatusWindowPos(param0 : super::super::super::Globalization:: HIMC, lpptpos : *const super::super::super::Foundation:: POINT) -> super::super::super::Foundation:: BOOL);
+    windows_targets::link!("imm32.dll" "system" fn ImmSetStatusWindowPos(param0 : super::super::super::Globalization:: HIMC, lpptpos : *const super::super::super::Foundation:: POINT) -> super::super::super::Foundation:: BOOL);
     ImmSetStatusWindowPos(param0.into_param().abi(), lpptpos)
 }
 #[inline]
@@ -690,7 +690,7 @@ pub unsafe fn ImmShowSoftKeyboard<P0>(param0: P0, param1: i32) -> super::super::
 where
     P0: windows_core::IntoParam<super::super::super::Foundation::HWND>,
 {
-    ::windows_targets::link!("imm32.dll" "system" fn ImmShowSoftKeyboard(param0 : super::super::super::Foundation:: HWND, param1 : i32) -> super::super::super::Foundation:: BOOL);
+    windows_targets::link!("imm32.dll" "system" fn ImmShowSoftKeyboard(param0 : super::super::super::Foundation:: HWND, param1 : i32) -> super::super::super::Foundation:: BOOL);
     ImmShowSoftKeyboard(param0.into_param().abi(), param1)
 }
 #[inline]
@@ -698,7 +698,7 @@ pub unsafe fn ImmSimulateHotKey<P0>(param0: P0, param1: IME_HOTKEY_IDENTIFIER) -
 where
     P0: windows_core::IntoParam<super::super::super::Foundation::HWND>,
 {
-    ::windows_targets::link!("imm32.dll" "system" fn ImmSimulateHotKey(param0 : super::super::super::Foundation:: HWND, param1 : IME_HOTKEY_IDENTIFIER) -> super::super::super::Foundation:: BOOL);
+    windows_targets::link!("imm32.dll" "system" fn ImmSimulateHotKey(param0 : super::super::super::Foundation:: HWND, param1 : IME_HOTKEY_IDENTIFIER) -> super::super::super::Foundation:: BOOL);
     ImmSimulateHotKey(param0.into_param().abi(), param1)
 }
 #[cfg(feature = "Win32_Globalization")]
@@ -707,7 +707,7 @@ pub unsafe fn ImmUnlockIMC<P0>(param0: P0) -> super::super::super::Foundation::B
 where
     P0: windows_core::IntoParam<super::super::super::Globalization::HIMC>,
 {
-    ::windows_targets::link!("imm32.dll" "system" fn ImmUnlockIMC(param0 : super::super::super::Globalization:: HIMC) -> super::super::super::Foundation:: BOOL);
+    windows_targets::link!("imm32.dll" "system" fn ImmUnlockIMC(param0 : super::super::super::Globalization:: HIMC) -> super::super::super::Foundation:: BOOL);
     ImmUnlockIMC(param0.into_param().abi())
 }
 #[cfg(feature = "Win32_Globalization")]
@@ -716,7 +716,7 @@ pub unsafe fn ImmUnlockIMCC<P0>(param0: P0) -> super::super::super::Foundation::
 where
     P0: windows_core::IntoParam<super::super::super::Globalization::HIMCC>,
 {
-    ::windows_targets::link!("imm32.dll" "system" fn ImmUnlockIMCC(param0 : super::super::super::Globalization:: HIMCC) -> super::super::super::Foundation:: BOOL);
+    windows_targets::link!("imm32.dll" "system" fn ImmUnlockIMCC(param0 : super::super::super::Globalization:: HIMCC) -> super::super::super::Foundation:: BOOL);
     ImmUnlockIMCC(param0.into_param().abi())
 }
 #[cfg(feature = "Win32_UI_TextServices")]
@@ -727,7 +727,7 @@ where
     P1: windows_core::IntoParam<windows_core::PCSTR>,
     P2: windows_core::IntoParam<windows_core::PCSTR>,
 {
-    ::windows_targets::link!("imm32.dll" "system" fn ImmUnregisterWordA(param0 : super::super::TextServices:: HKL, lpszreading : windows_core::PCSTR, param2 : u32, lpszunregister : windows_core::PCSTR) -> super::super::super::Foundation:: BOOL);
+    windows_targets::link!("imm32.dll" "system" fn ImmUnregisterWordA(param0 : super::super::TextServices:: HKL, lpszreading : windows_core::PCSTR, param2 : u32, lpszunregister : windows_core::PCSTR) -> super::super::super::Foundation:: BOOL);
     ImmUnregisterWordA(param0.into_param().abi(), lpszreading.into_param().abi(), param2, lpszunregister.into_param().abi())
 }
 #[cfg(feature = "Win32_UI_TextServices")]
@@ -738,7 +738,7 @@ where
     P1: windows_core::IntoParam<windows_core::PCWSTR>,
     P2: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("imm32.dll" "system" fn ImmUnregisterWordW(param0 : super::super::TextServices:: HKL, lpszreading : windows_core::PCWSTR, param2 : u32, lpszunregister : windows_core::PCWSTR) -> super::super::super::Foundation:: BOOL);
+    windows_targets::link!("imm32.dll" "system" fn ImmUnregisterWordW(param0 : super::super::TextServices:: HKL, lpszreading : windows_core::PCWSTR, param2 : u32, lpszunregister : windows_core::PCWSTR) -> super::super::super::Foundation:: BOOL);
     ImmUnregisterWordW(param0.into_param().abi(), lpszreading.into_param().abi(), param2, lpszunregister.into_param().abi())
 }
 windows_core::imp::com_interface!(IActiveIME, IActiveIME_Vtbl, 0x6fe20962_d077_11d0_8fe7_00aa006bcc59);

@@ -1,4 +1,4 @@
-::windows_targets::link!("netapi32.dll" "system" fn Netbios(pncb : *mut NCB) -> u8);
+windows_targets::link!("netapi32.dll" "system" fn Netbios(pncb : *mut NCB) -> u8);
 pub const ALL_TRANSPORTS: windows_sys::core::PCSTR = windows_sys::core::s!("M\u{0}\u{0}\u{0}");
 pub const ASYNCH: u32 = 128u32;
 pub const CALL_PENDING: u32 = 2u32;

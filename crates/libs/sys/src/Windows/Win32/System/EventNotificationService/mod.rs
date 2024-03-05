@@ -1,6 +1,6 @@
-::windows_targets::link!("sensapi.dll" "system" fn IsDestinationReachableA(lpszdestination : windows_sys::core::PCSTR, lpqocinfo : *mut QOCINFO) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("sensapi.dll" "system" fn IsDestinationReachableW(lpszdestination : windows_sys::core::PCWSTR, lpqocinfo : *mut QOCINFO) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("sensapi.dll" "system" fn IsNetworkAlive(lpdwflags : *mut u32) -> super::super::Foundation:: BOOL);
+windows_targets::link!("sensapi.dll" "system" fn IsDestinationReachableA(lpszdestination : windows_sys::core::PCSTR, lpqocinfo : *mut QOCINFO) -> super::super::Foundation:: BOOL);
+windows_targets::link!("sensapi.dll" "system" fn IsDestinationReachableW(lpszdestination : windows_sys::core::PCWSTR, lpqocinfo : *mut QOCINFO) -> super::super::Foundation:: BOOL);
+windows_targets::link!("sensapi.dll" "system" fn IsNetworkAlive(lpdwflags : *mut u32) -> super::super::Foundation:: BOOL);
 pub const CONNECTION_AOL: u32 = 4u32;
 pub const CONNECTION_LAN: SENS_CONNECTION_TYPE = 0u32;
 pub const CONNECTION_WAN: SENS_CONNECTION_TYPE = 1u32;

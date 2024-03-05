@@ -3,7 +3,7 @@ pub unsafe fn VerifierEnumerateResource<P0>(process: P0, flags: VERIFIER_ENUM_RE
 where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("verifier.dll" "system" fn VerifierEnumerateResource(process : super::super::Foundation:: HANDLE, flags : VERIFIER_ENUM_RESOURCE_FLAGS, resourcetype : u32, resourcecallback : AVRF_RESOURCE_ENUMERATE_CALLBACK, enumerationcontext : *mut core::ffi::c_void) -> u32);
+    windows_targets::link!("verifier.dll" "system" fn VerifierEnumerateResource(process : super::super::Foundation:: HANDLE, flags : VERIFIER_ENUM_RESOURCE_FLAGS, resourcetype : u32, resourcecallback : AVRF_RESOURCE_ENUMERATE_CALLBACK, enumerationcontext : *mut core::ffi::c_void) -> u32);
     VerifierEnumerateResource(process.into_param().abi(), flags, resourcetype.0 as _, resourcecallback, enumerationcontext)
 }
 pub const AVRF_ENUM_RESOURCES_FLAGS_DONT_RESOLVE_TRACES: VERIFIER_ENUM_RESOURCE_FLAGS = VERIFIER_ENUM_RESOURCE_FLAGS(2u32);

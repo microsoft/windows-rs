@@ -4,7 +4,7 @@ pub unsafe fn CreateXmlReader<P0>(riid: *const windows_core::GUID, ppvobject: *m
 where
     P0: windows_core::IntoParam<super::super::super::System::Com::IMalloc>,
 {
-    ::windows_targets::link!("xmllite.dll" "system" fn CreateXmlReader(riid : *const windows_core::GUID, ppvobject : *mut *mut core::ffi::c_void, pmalloc : * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_targets::link!("xmllite.dll" "system" fn CreateXmlReader(riid : *const windows_core::GUID, ppvobject : *mut *mut core::ffi::c_void, pmalloc : * mut core::ffi::c_void) -> windows_core::HRESULT);
     CreateXmlReader(riid, ppvobject, pmalloc.into_param().abi()).ok()
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -16,7 +16,7 @@ where
     P2: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
     P3: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("xmllite.dll" "system" fn CreateXmlReaderInputWithEncodingCodePage(pinputstream : * mut core::ffi::c_void, pmalloc : * mut core::ffi::c_void, nencodingcodepage : u32, fencodinghint : super::super::super::Foundation:: BOOL, pwszbaseuri : windows_core::PCWSTR, ppinput : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_targets::link!("xmllite.dll" "system" fn CreateXmlReaderInputWithEncodingCodePage(pinputstream : * mut core::ffi::c_void, pmalloc : * mut core::ffi::c_void, nencodingcodepage : u32, fencodinghint : super::super::super::Foundation:: BOOL, pwszbaseuri : windows_core::PCWSTR, ppinput : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = std::mem::zeroed();
     CreateXmlReaderInputWithEncodingCodePage(pinputstream.into_param().abi(), pmalloc.into_param().abi(), nencodingcodepage, fencodinghint.into_param().abi(), pwszbaseuri.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
@@ -30,7 +30,7 @@ where
     P3: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
     P4: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("xmllite.dll" "system" fn CreateXmlReaderInputWithEncodingName(pinputstream : * mut core::ffi::c_void, pmalloc : * mut core::ffi::c_void, pwszencodingname : windows_core::PCWSTR, fencodinghint : super::super::super::Foundation:: BOOL, pwszbaseuri : windows_core::PCWSTR, ppinput : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_targets::link!("xmllite.dll" "system" fn CreateXmlReaderInputWithEncodingName(pinputstream : * mut core::ffi::c_void, pmalloc : * mut core::ffi::c_void, pwszencodingname : windows_core::PCWSTR, fencodinghint : super::super::super::Foundation:: BOOL, pwszbaseuri : windows_core::PCWSTR, ppinput : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = std::mem::zeroed();
     CreateXmlReaderInputWithEncodingName(pinputstream.into_param().abi(), pmalloc.into_param().abi(), pwszencodingname.into_param().abi(), fencodinghint.into_param().abi(), pwszbaseuri.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
@@ -40,7 +40,7 @@ pub unsafe fn CreateXmlWriter<P0>(riid: *const windows_core::GUID, ppvobject: *m
 where
     P0: windows_core::IntoParam<super::super::super::System::Com::IMalloc>,
 {
-    ::windows_targets::link!("xmllite.dll" "system" fn CreateXmlWriter(riid : *const windows_core::GUID, ppvobject : *mut *mut core::ffi::c_void, pmalloc : * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_targets::link!("xmllite.dll" "system" fn CreateXmlWriter(riid : *const windows_core::GUID, ppvobject : *mut *mut core::ffi::c_void, pmalloc : * mut core::ffi::c_void) -> windows_core::HRESULT);
     CreateXmlWriter(riid, ppvobject, pmalloc.into_param().abi()).ok()
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -50,7 +50,7 @@ where
     P0: windows_core::IntoParam<windows_core::IUnknown>,
     P1: windows_core::IntoParam<super::super::super::System::Com::IMalloc>,
 {
-    ::windows_targets::link!("xmllite.dll" "system" fn CreateXmlWriterOutputWithEncodingCodePage(poutputstream : * mut core::ffi::c_void, pmalloc : * mut core::ffi::c_void, nencodingcodepage : u32, ppoutput : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_targets::link!("xmllite.dll" "system" fn CreateXmlWriterOutputWithEncodingCodePage(poutputstream : * mut core::ffi::c_void, pmalloc : * mut core::ffi::c_void, nencodingcodepage : u32, ppoutput : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = std::mem::zeroed();
     CreateXmlWriterOutputWithEncodingCodePage(poutputstream.into_param().abi(), pmalloc.into_param().abi(), nencodingcodepage, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
@@ -62,7 +62,7 @@ where
     P1: windows_core::IntoParam<super::super::super::System::Com::IMalloc>,
     P2: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("xmllite.dll" "system" fn CreateXmlWriterOutputWithEncodingName(poutputstream : * mut core::ffi::c_void, pmalloc : * mut core::ffi::c_void, pwszencodingname : windows_core::PCWSTR, ppoutput : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_targets::link!("xmllite.dll" "system" fn CreateXmlWriterOutputWithEncodingName(poutputstream : * mut core::ffi::c_void, pmalloc : * mut core::ffi::c_void, pwszencodingname : windows_core::PCWSTR, ppoutput : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = std::mem::zeroed();
     CreateXmlWriterOutputWithEncodingName(poutputstream.into_param().abi(), pmalloc.into_param().abi(), pwszencodingname.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }

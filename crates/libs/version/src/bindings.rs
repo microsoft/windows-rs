@@ -5,7 +5,7 @@
     dead_code,
     clippy::all
 )]
-::windows_targets::link!("ntdll.dll" "system" fn RtlGetVersion(lpversioninformation : *mut OSVERSIONINFOW) -> NTSTATUS);
+windows_targets::link!("ntdll.dll" "system" fn RtlGetVersion(lpversioninformation : *mut OSVERSIONINFOW) -> NTSTATUS);
 pub type NTSTATUS = i32;
 #[repr(C)]
 pub struct OSVERSIONINFOEXW {

@@ -3,22 +3,22 @@ pub unsafe fn OfflineFilesEnable<P0>(benable: P0, pbrebootrequired: *mut super::
 where
     P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("cscapi.dll" "system" fn OfflineFilesEnable(benable : super::super::Foundation:: BOOL, pbrebootrequired : *mut super::super::Foundation:: BOOL) -> u32);
+    windows_targets::link!("cscapi.dll" "system" fn OfflineFilesEnable(benable : super::super::Foundation:: BOOL, pbrebootrequired : *mut super::super::Foundation:: BOOL) -> u32);
     OfflineFilesEnable(benable.into_param().abi(), pbrebootrequired)
 }
 #[inline]
 pub unsafe fn OfflineFilesQueryStatus(pbactive: Option<*mut super::super::Foundation::BOOL>, pbenabled: Option<*mut super::super::Foundation::BOOL>) -> u32 {
-    ::windows_targets::link!("cscapi.dll" "system" fn OfflineFilesQueryStatus(pbactive : *mut super::super::Foundation:: BOOL, pbenabled : *mut super::super::Foundation:: BOOL) -> u32);
+    windows_targets::link!("cscapi.dll" "system" fn OfflineFilesQueryStatus(pbactive : *mut super::super::Foundation:: BOOL, pbenabled : *mut super::super::Foundation:: BOOL) -> u32);
     OfflineFilesQueryStatus(core::mem::transmute(pbactive.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pbenabled.unwrap_or(std::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn OfflineFilesQueryStatusEx(pbactive: Option<*mut super::super::Foundation::BOOL>, pbenabled: Option<*mut super::super::Foundation::BOOL>, pbavailable: Option<*mut super::super::Foundation::BOOL>) -> u32 {
-    ::windows_targets::link!("cscapi.dll" "system" fn OfflineFilesQueryStatusEx(pbactive : *mut super::super::Foundation:: BOOL, pbenabled : *mut super::super::Foundation:: BOOL, pbavailable : *mut super::super::Foundation:: BOOL) -> u32);
+    windows_targets::link!("cscapi.dll" "system" fn OfflineFilesQueryStatusEx(pbactive : *mut super::super::Foundation:: BOOL, pbenabled : *mut super::super::Foundation:: BOOL, pbavailable : *mut super::super::Foundation:: BOOL) -> u32);
     OfflineFilesQueryStatusEx(core::mem::transmute(pbactive.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pbenabled.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pbavailable.unwrap_or(std::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn OfflineFilesStart() -> u32 {
-    ::windows_targets::link!("cscapi.dll" "system" fn OfflineFilesStart() -> u32);
+    windows_targets::link!("cscapi.dll" "system" fn OfflineFilesStart() -> u32);
     OfflineFilesStart()
 }
 windows_core::imp::com_interface!(IEnumOfflineFilesItems, IEnumOfflineFilesItems_Vtbl, 0xda70e815_c361_4407_bc0b_0d7046e5f2cd);

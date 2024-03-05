@@ -1,11 +1,11 @@
 #[inline]
 pub unsafe fn AcquireSRWLockExclusive(srwlock: *mut SRWLOCK) {
-    ::windows_targets::link!("kernel32.dll" "system" fn AcquireSRWLockExclusive(srwlock : *mut SRWLOCK));
+    windows_targets::link!("kernel32.dll" "system" fn AcquireSRWLockExclusive(srwlock : *mut SRWLOCK));
     AcquireSRWLockExclusive(srwlock)
 }
 #[inline]
 pub unsafe fn AcquireSRWLockShared(srwlock: *mut SRWLOCK) {
-    ::windows_targets::link!("kernel32.dll" "system" fn AcquireSRWLockShared(srwlock : *mut SRWLOCK));
+    windows_targets::link!("kernel32.dll" "system" fn AcquireSRWLockShared(srwlock : *mut SRWLOCK));
     AcquireSRWLockShared(srwlock)
 }
 #[inline]
@@ -13,7 +13,7 @@ pub unsafe fn AddIntegrityLabelToBoundaryDescriptor<P0>(boundarydescriptor: *mut
 where
     P0: windows_core::IntoParam<super::super::Foundation::PSID>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn AddIntegrityLabelToBoundaryDescriptor(boundarydescriptor : *mut super::super::Foundation:: HANDLE, integritylabel : super::super::Foundation:: PSID) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn AddIntegrityLabelToBoundaryDescriptor(boundarydescriptor : *mut super::super::Foundation:: HANDLE, integritylabel : super::super::Foundation:: PSID) -> super::super::Foundation:: BOOL);
     AddIntegrityLabelToBoundaryDescriptor(boundarydescriptor, integritylabel.into_param().abi()).ok()
 }
 #[inline]
@@ -21,7 +21,7 @@ pub unsafe fn AddSIDToBoundaryDescriptor<P0>(boundarydescriptor: *mut super::sup
 where
     P0: windows_core::IntoParam<super::super::Foundation::PSID>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn AddSIDToBoundaryDescriptor(boundarydescriptor : *mut super::super::Foundation:: HANDLE, requiredsid : super::super::Foundation:: PSID) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn AddSIDToBoundaryDescriptor(boundarydescriptor : *mut super::super::Foundation:: HANDLE, requiredsid : super::super::Foundation:: PSID) -> super::super::Foundation:: BOOL);
     AddSIDToBoundaryDescriptor(boundarydescriptor, requiredsid.into_param().abi()).ok()
 }
 #[inline]
@@ -29,7 +29,7 @@ pub unsafe fn AttachThreadInput<P0>(idattach: u32, idattachto: u32, fattach: P0)
 where
     P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("user32.dll" "system" fn AttachThreadInput(idattach : u32, idattachto : u32, fattach : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("user32.dll" "system" fn AttachThreadInput(idattach : u32, idattachto : u32, fattach : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
     AttachThreadInput(idattach, idattachto, fattach.into_param().abi())
 }
 #[inline]
@@ -37,7 +37,7 @@ pub unsafe fn AvQuerySystemResponsiveness<P0>(avrthandle: P0, systemresponsivene
 where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("avrt.dll" "system" fn AvQuerySystemResponsiveness(avrthandle : super::super::Foundation:: HANDLE, systemresponsivenessvalue : *mut u32) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("avrt.dll" "system" fn AvQuerySystemResponsiveness(avrthandle : super::super::Foundation:: HANDLE, systemresponsivenessvalue : *mut u32) -> super::super::Foundation:: BOOL);
     AvQuerySystemResponsiveness(avrthandle.into_param().abi(), systemresponsivenessvalue).ok()
 }
 #[inline]
@@ -45,12 +45,12 @@ pub unsafe fn AvRevertMmThreadCharacteristics<P0>(avrthandle: P0) -> windows_cor
 where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("avrt.dll" "system" fn AvRevertMmThreadCharacteristics(avrthandle : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("avrt.dll" "system" fn AvRevertMmThreadCharacteristics(avrthandle : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
     AvRevertMmThreadCharacteristics(avrthandle.into_param().abi()).ok()
 }
 #[inline]
 pub unsafe fn AvRtCreateThreadOrderingGroup(context: *mut super::super::Foundation::HANDLE, period: *const i64, threadorderingguid: *mut windows_core::GUID, timeout: Option<*const i64>) -> windows_core::Result<()> {
-    ::windows_targets::link!("avrt.dll" "system" fn AvRtCreateThreadOrderingGroup(context : *mut super::super::Foundation:: HANDLE, period : *const i64, threadorderingguid : *mut windows_core::GUID, timeout : *const i64) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("avrt.dll" "system" fn AvRtCreateThreadOrderingGroup(context : *mut super::super::Foundation:: HANDLE, period : *const i64, threadorderingguid : *mut windows_core::GUID, timeout : *const i64) -> super::super::Foundation:: BOOL);
     AvRtCreateThreadOrderingGroup(context, period, threadorderingguid, core::mem::transmute(timeout.unwrap_or(std::ptr::null()))).ok()
 }
 #[inline]
@@ -58,7 +58,7 @@ pub unsafe fn AvRtCreateThreadOrderingGroupExA<P0>(context: *mut super::super::F
 where
     P0: windows_core::IntoParam<windows_core::PCSTR>,
 {
-    ::windows_targets::link!("avrt.dll" "system" fn AvRtCreateThreadOrderingGroupExA(context : *mut super::super::Foundation:: HANDLE, period : *const i64, threadorderingguid : *mut windows_core::GUID, timeout : *const i64, taskname : windows_core::PCSTR) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("avrt.dll" "system" fn AvRtCreateThreadOrderingGroupExA(context : *mut super::super::Foundation:: HANDLE, period : *const i64, threadorderingguid : *mut windows_core::GUID, timeout : *const i64, taskname : windows_core::PCSTR) -> super::super::Foundation:: BOOL);
     AvRtCreateThreadOrderingGroupExA(context, period, threadorderingguid, core::mem::transmute(timeout.unwrap_or(std::ptr::null())), taskname.into_param().abi()).ok()
 }
 #[inline]
@@ -66,7 +66,7 @@ pub unsafe fn AvRtCreateThreadOrderingGroupExW<P0>(context: *mut super::super::F
 where
     P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("avrt.dll" "system" fn AvRtCreateThreadOrderingGroupExW(context : *mut super::super::Foundation:: HANDLE, period : *const i64, threadorderingguid : *mut windows_core::GUID, timeout : *const i64, taskname : windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("avrt.dll" "system" fn AvRtCreateThreadOrderingGroupExW(context : *mut super::super::Foundation:: HANDLE, period : *const i64, threadorderingguid : *mut windows_core::GUID, timeout : *const i64, taskname : windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
     AvRtCreateThreadOrderingGroupExW(context, period, threadorderingguid, core::mem::transmute(timeout.unwrap_or(std::ptr::null())), taskname.into_param().abi()).ok()
 }
 #[inline]
@@ -74,7 +74,7 @@ pub unsafe fn AvRtDeleteThreadOrderingGroup<P0>(context: P0) -> windows_core::Re
 where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("avrt.dll" "system" fn AvRtDeleteThreadOrderingGroup(context : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("avrt.dll" "system" fn AvRtDeleteThreadOrderingGroup(context : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
     AvRtDeleteThreadOrderingGroup(context.into_param().abi()).ok()
 }
 #[inline]
@@ -82,7 +82,7 @@ pub unsafe fn AvRtJoinThreadOrderingGroup<P0>(context: *mut super::super::Founda
 where
     P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("avrt.dll" "system" fn AvRtJoinThreadOrderingGroup(context : *mut super::super::Foundation:: HANDLE, threadorderingguid : *const windows_core::GUID, before : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("avrt.dll" "system" fn AvRtJoinThreadOrderingGroup(context : *mut super::super::Foundation:: HANDLE, threadorderingguid : *const windows_core::GUID, before : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
     AvRtJoinThreadOrderingGroup(context, threadorderingguid, before.into_param().abi()).ok()
 }
 #[inline]
@@ -90,7 +90,7 @@ pub unsafe fn AvRtLeaveThreadOrderingGroup<P0>(context: P0) -> windows_core::Res
 where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("avrt.dll" "system" fn AvRtLeaveThreadOrderingGroup(context : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("avrt.dll" "system" fn AvRtLeaveThreadOrderingGroup(context : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
     AvRtLeaveThreadOrderingGroup(context.into_param().abi()).ok()
 }
 #[inline]
@@ -98,7 +98,7 @@ pub unsafe fn AvRtWaitOnThreadOrderingGroup<P0>(context: P0) -> windows_core::Re
 where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("avrt.dll" "system" fn AvRtWaitOnThreadOrderingGroup(context : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("avrt.dll" "system" fn AvRtWaitOnThreadOrderingGroup(context : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
     AvRtWaitOnThreadOrderingGroup(context.into_param().abi()).ok()
 }
 #[inline]
@@ -107,7 +107,7 @@ where
     P0: windows_core::IntoParam<windows_core::PCSTR>,
     P1: windows_core::IntoParam<windows_core::PCSTR>,
 {
-    ::windows_targets::link!("avrt.dll" "system" fn AvSetMmMaxThreadCharacteristicsA(firsttask : windows_core::PCSTR, secondtask : windows_core::PCSTR, taskindex : *mut u32) -> super::super::Foundation:: HANDLE);
+    windows_targets::link!("avrt.dll" "system" fn AvSetMmMaxThreadCharacteristicsA(firsttask : windows_core::PCSTR, secondtask : windows_core::PCSTR, taskindex : *mut u32) -> super::super::Foundation:: HANDLE);
     let result__ = AvSetMmMaxThreadCharacteristicsA(firsttask.into_param().abi(), secondtask.into_param().abi(), taskindex);
     (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
 }
@@ -117,7 +117,7 @@ where
     P0: windows_core::IntoParam<windows_core::PCWSTR>,
     P1: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("avrt.dll" "system" fn AvSetMmMaxThreadCharacteristicsW(firsttask : windows_core::PCWSTR, secondtask : windows_core::PCWSTR, taskindex : *mut u32) -> super::super::Foundation:: HANDLE);
+    windows_targets::link!("avrt.dll" "system" fn AvSetMmMaxThreadCharacteristicsW(firsttask : windows_core::PCWSTR, secondtask : windows_core::PCWSTR, taskindex : *mut u32) -> super::super::Foundation:: HANDLE);
     let result__ = AvSetMmMaxThreadCharacteristicsW(firsttask.into_param().abi(), secondtask.into_param().abi(), taskindex);
     (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
 }
@@ -126,7 +126,7 @@ pub unsafe fn AvSetMmThreadCharacteristicsA<P0>(taskname: P0, taskindex: *mut u3
 where
     P0: windows_core::IntoParam<windows_core::PCSTR>,
 {
-    ::windows_targets::link!("avrt.dll" "system" fn AvSetMmThreadCharacteristicsA(taskname : windows_core::PCSTR, taskindex : *mut u32) -> super::super::Foundation:: HANDLE);
+    windows_targets::link!("avrt.dll" "system" fn AvSetMmThreadCharacteristicsA(taskname : windows_core::PCSTR, taskindex : *mut u32) -> super::super::Foundation:: HANDLE);
     let result__ = AvSetMmThreadCharacteristicsA(taskname.into_param().abi(), taskindex);
     (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
 }
@@ -135,7 +135,7 @@ pub unsafe fn AvSetMmThreadCharacteristicsW<P0>(taskname: P0, taskindex: *mut u3
 where
     P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("avrt.dll" "system" fn AvSetMmThreadCharacteristicsW(taskname : windows_core::PCWSTR, taskindex : *mut u32) -> super::super::Foundation:: HANDLE);
+    windows_targets::link!("avrt.dll" "system" fn AvSetMmThreadCharacteristicsW(taskname : windows_core::PCWSTR, taskindex : *mut u32) -> super::super::Foundation:: HANDLE);
     let result__ = AvSetMmThreadCharacteristicsW(taskname.into_param().abi(), taskindex);
     (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
 }
@@ -144,7 +144,7 @@ pub unsafe fn AvSetMmThreadPriority<P0>(avrthandle: P0, priority: AVRT_PRIORITY)
 where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("avrt.dll" "system" fn AvSetMmThreadPriority(avrthandle : super::super::Foundation:: HANDLE, priority : AVRT_PRIORITY) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("avrt.dll" "system" fn AvSetMmThreadPriority(avrthandle : super::super::Foundation:: HANDLE, priority : AVRT_PRIORITY) -> super::super::Foundation:: BOOL);
     AvSetMmThreadPriority(avrthandle.into_param().abi(), priority).ok()
 }
 #[inline]
@@ -152,7 +152,7 @@ pub unsafe fn CallbackMayRunLong<P0>(pci: P0) -> super::super::Foundation::BOOL
 where
     P0: windows_core::IntoParam<PTP_CALLBACK_INSTANCE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn CallbackMayRunLong(pci : PTP_CALLBACK_INSTANCE) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn CallbackMayRunLong(pci : PTP_CALLBACK_INSTANCE) -> super::super::Foundation:: BOOL);
     CallbackMayRunLong(pci.into_param().abi())
 }
 #[inline]
@@ -160,7 +160,7 @@ pub unsafe fn CancelThreadpoolIo<P0>(pio: P0)
 where
     P0: windows_core::IntoParam<PTP_IO>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn CancelThreadpoolIo(pio : PTP_IO));
+    windows_targets::link!("kernel32.dll" "system" fn CancelThreadpoolIo(pio : PTP_IO));
     CancelThreadpoolIo(pio.into_param().abi())
 }
 #[inline]
@@ -169,7 +169,7 @@ where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
     P1: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn CancelTimerQueueTimer(timerqueue : super::super::Foundation:: HANDLE, timer : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn CancelTimerQueueTimer(timerqueue : super::super::Foundation:: HANDLE, timer : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
     CancelTimerQueueTimer(timerqueue.into_param().abi(), timer.into_param().abi())
 }
 #[inline]
@@ -177,7 +177,7 @@ pub unsafe fn CancelWaitableTimer<P0>(htimer: P0) -> windows_core::Result<()>
 where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn CancelWaitableTimer(htimer : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn CancelWaitableTimer(htimer : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
     CancelWaitableTimer(htimer.into_param().abi()).ok()
 }
 #[inline]
@@ -186,7 +186,7 @@ where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
     P1: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn ChangeTimerQueueTimer(timerqueue : super::super::Foundation:: HANDLE, timer : super::super::Foundation:: HANDLE, duetime : u32, period : u32) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn ChangeTimerQueueTimer(timerqueue : super::super::Foundation:: HANDLE, timer : super::super::Foundation:: HANDLE, duetime : u32, period : u32) -> super::super::Foundation:: BOOL);
     ChangeTimerQueueTimer(timerqueue.into_param().abi(), timer.into_param().abi(), duetime, period).ok()
 }
 #[inline]
@@ -194,7 +194,7 @@ pub unsafe fn ClosePrivateNamespace<P0>(handle: P0, flags: u32) -> super::super:
 where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn ClosePrivateNamespace(handle : super::super::Foundation:: HANDLE, flags : u32) -> super::super::Foundation:: BOOLEAN);
+    windows_targets::link!("kernel32.dll" "system" fn ClosePrivateNamespace(handle : super::super::Foundation:: HANDLE, flags : u32) -> super::super::Foundation:: BOOLEAN);
     ClosePrivateNamespace(handle.into_param().abi(), flags)
 }
 #[inline]
@@ -202,7 +202,7 @@ pub unsafe fn CloseThreadpool<P0>(ptpp: P0)
 where
     P0: windows_core::IntoParam<PTP_POOL>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn CloseThreadpool(ptpp : PTP_POOL));
+    windows_targets::link!("kernel32.dll" "system" fn CloseThreadpool(ptpp : PTP_POOL));
     CloseThreadpool(ptpp.into_param().abi())
 }
 #[inline]
@@ -210,7 +210,7 @@ pub unsafe fn CloseThreadpoolCleanupGroup<P0>(ptpcg: P0)
 where
     P0: windows_core::IntoParam<PTP_CLEANUP_GROUP>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn CloseThreadpoolCleanupGroup(ptpcg : PTP_CLEANUP_GROUP));
+    windows_targets::link!("kernel32.dll" "system" fn CloseThreadpoolCleanupGroup(ptpcg : PTP_CLEANUP_GROUP));
     CloseThreadpoolCleanupGroup(ptpcg.into_param().abi())
 }
 #[inline]
@@ -219,7 +219,7 @@ where
     P0: windows_core::IntoParam<PTP_CLEANUP_GROUP>,
     P1: windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn CloseThreadpoolCleanupGroupMembers(ptpcg : PTP_CLEANUP_GROUP, fcancelpendingcallbacks : super::super::Foundation:: BOOL, pvcleanupcontext : *mut core::ffi::c_void));
+    windows_targets::link!("kernel32.dll" "system" fn CloseThreadpoolCleanupGroupMembers(ptpcg : PTP_CLEANUP_GROUP, fcancelpendingcallbacks : super::super::Foundation:: BOOL, pvcleanupcontext : *mut core::ffi::c_void));
     CloseThreadpoolCleanupGroupMembers(ptpcg.into_param().abi(), fcancelpendingcallbacks.into_param().abi(), core::mem::transmute(pvcleanupcontext.unwrap_or(std::ptr::null_mut())))
 }
 #[inline]
@@ -227,7 +227,7 @@ pub unsafe fn CloseThreadpoolIo<P0>(pio: P0)
 where
     P0: windows_core::IntoParam<PTP_IO>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn CloseThreadpoolIo(pio : PTP_IO));
+    windows_targets::link!("kernel32.dll" "system" fn CloseThreadpoolIo(pio : PTP_IO));
     CloseThreadpoolIo(pio.into_param().abi())
 }
 #[inline]
@@ -235,7 +235,7 @@ pub unsafe fn CloseThreadpoolTimer<P0>(pti: P0)
 where
     P0: windows_core::IntoParam<PTP_TIMER>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn CloseThreadpoolTimer(pti : PTP_TIMER));
+    windows_targets::link!("kernel32.dll" "system" fn CloseThreadpoolTimer(pti : PTP_TIMER));
     CloseThreadpoolTimer(pti.into_param().abi())
 }
 #[inline]
@@ -243,7 +243,7 @@ pub unsafe fn CloseThreadpoolWait<P0>(pwa: P0)
 where
     P0: windows_core::IntoParam<PTP_WAIT>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn CloseThreadpoolWait(pwa : PTP_WAIT));
+    windows_targets::link!("kernel32.dll" "system" fn CloseThreadpoolWait(pwa : PTP_WAIT));
     CloseThreadpoolWait(pwa.into_param().abi())
 }
 #[inline]
@@ -251,22 +251,22 @@ pub unsafe fn CloseThreadpoolWork<P0>(pwk: P0)
 where
     P0: windows_core::IntoParam<PTP_WORK>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn CloseThreadpoolWork(pwk : PTP_WORK));
+    windows_targets::link!("kernel32.dll" "system" fn CloseThreadpoolWork(pwk : PTP_WORK));
     CloseThreadpoolWork(pwk.into_param().abi())
 }
 #[inline]
 pub unsafe fn ConvertFiberToThread() -> windows_core::Result<()> {
-    ::windows_targets::link!("kernel32.dll" "system" fn ConvertFiberToThread() -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn ConvertFiberToThread() -> super::super::Foundation:: BOOL);
     ConvertFiberToThread().ok()
 }
 #[inline]
 pub unsafe fn ConvertThreadToFiber(lpparameter: Option<*const core::ffi::c_void>) -> *mut core::ffi::c_void {
-    ::windows_targets::link!("kernel32.dll" "system" fn ConvertThreadToFiber(lpparameter : *const core::ffi::c_void) -> *mut core::ffi::c_void);
+    windows_targets::link!("kernel32.dll" "system" fn ConvertThreadToFiber(lpparameter : *const core::ffi::c_void) -> *mut core::ffi::c_void);
     ConvertThreadToFiber(core::mem::transmute(lpparameter.unwrap_or(std::ptr::null())))
 }
 #[inline]
 pub unsafe fn ConvertThreadToFiberEx(lpparameter: Option<*const core::ffi::c_void>, dwflags: u32) -> *mut core::ffi::c_void {
-    ::windows_targets::link!("kernel32.dll" "system" fn ConvertThreadToFiberEx(lpparameter : *const core::ffi::c_void, dwflags : u32) -> *mut core::ffi::c_void);
+    windows_targets::link!("kernel32.dll" "system" fn ConvertThreadToFiberEx(lpparameter : *const core::ffi::c_void, dwflags : u32) -> *mut core::ffi::c_void);
     ConvertThreadToFiberEx(core::mem::transmute(lpparameter.unwrap_or(std::ptr::null())), dwflags)
 }
 #[inline]
@@ -274,7 +274,7 @@ pub unsafe fn CreateBoundaryDescriptorA<P0>(name: P0, flags: u32) -> windows_cor
 where
     P0: windows_core::IntoParam<windows_core::PCSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn CreateBoundaryDescriptorA(name : windows_core::PCSTR, flags : u32) -> super::super::Foundation:: HANDLE);
+    windows_targets::link!("kernel32.dll" "system" fn CreateBoundaryDescriptorA(name : windows_core::PCSTR, flags : u32) -> super::super::Foundation:: HANDLE);
     let result__ = CreateBoundaryDescriptorA(name.into_param().abi(), flags);
     (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
 }
@@ -283,7 +283,7 @@ pub unsafe fn CreateBoundaryDescriptorW<P0>(name: P0, flags: u32) -> super::supe
 where
     P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn CreateBoundaryDescriptorW(name : windows_core::PCWSTR, flags : u32) -> super::super::Foundation:: HANDLE);
+    windows_targets::link!("kernel32.dll" "system" fn CreateBoundaryDescriptorW(name : windows_core::PCWSTR, flags : u32) -> super::super::Foundation:: HANDLE);
     CreateBoundaryDescriptorW(name.into_param().abi(), flags)
 }
 #[cfg(feature = "Win32_Security")]
@@ -294,7 +294,7 @@ where
     P1: windows_core::IntoParam<super::super::Foundation::BOOL>,
     P2: windows_core::IntoParam<windows_core::PCSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn CreateEventA(lpeventattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, bmanualreset : super::super::Foundation:: BOOL, binitialstate : super::super::Foundation:: BOOL, lpname : windows_core::PCSTR) -> super::super::Foundation:: HANDLE);
+    windows_targets::link!("kernel32.dll" "system" fn CreateEventA(lpeventattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, bmanualreset : super::super::Foundation:: BOOL, binitialstate : super::super::Foundation:: BOOL, lpname : windows_core::PCSTR) -> super::super::Foundation:: HANDLE);
     let result__ = CreateEventA(core::mem::transmute(lpeventattributes.unwrap_or(std::ptr::null())), bmanualreset.into_param().abi(), binitialstate.into_param().abi(), lpname.into_param().abi());
     (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
 }
@@ -304,7 +304,7 @@ pub unsafe fn CreateEventExA<P0>(lpeventattributes: Option<*const super::super::
 where
     P0: windows_core::IntoParam<windows_core::PCSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn CreateEventExA(lpeventattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, lpname : windows_core::PCSTR, dwflags : CREATE_EVENT, dwdesiredaccess : u32) -> super::super::Foundation:: HANDLE);
+    windows_targets::link!("kernel32.dll" "system" fn CreateEventExA(lpeventattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, lpname : windows_core::PCSTR, dwflags : CREATE_EVENT, dwdesiredaccess : u32) -> super::super::Foundation:: HANDLE);
     let result__ = CreateEventExA(core::mem::transmute(lpeventattributes.unwrap_or(std::ptr::null())), lpname.into_param().abi(), dwflags, dwdesiredaccess);
     (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
 }
@@ -314,7 +314,7 @@ pub unsafe fn CreateEventExW<P0>(lpeventattributes: Option<*const super::super::
 where
     P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn CreateEventExW(lpeventattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, lpname : windows_core::PCWSTR, dwflags : CREATE_EVENT, dwdesiredaccess : u32) -> super::super::Foundation:: HANDLE);
+    windows_targets::link!("kernel32.dll" "system" fn CreateEventExW(lpeventattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, lpname : windows_core::PCWSTR, dwflags : CREATE_EVENT, dwdesiredaccess : u32) -> super::super::Foundation:: HANDLE);
     let result__ = CreateEventExW(core::mem::transmute(lpeventattributes.unwrap_or(std::ptr::null())), lpname.into_param().abi(), dwflags, dwdesiredaccess);
     (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
 }
@@ -326,18 +326,18 @@ where
     P1: windows_core::IntoParam<super::super::Foundation::BOOL>,
     P2: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn CreateEventW(lpeventattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, bmanualreset : super::super::Foundation:: BOOL, binitialstate : super::super::Foundation:: BOOL, lpname : windows_core::PCWSTR) -> super::super::Foundation:: HANDLE);
+    windows_targets::link!("kernel32.dll" "system" fn CreateEventW(lpeventattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, bmanualreset : super::super::Foundation:: BOOL, binitialstate : super::super::Foundation:: BOOL, lpname : windows_core::PCWSTR) -> super::super::Foundation:: HANDLE);
     let result__ = CreateEventW(core::mem::transmute(lpeventattributes.unwrap_or(std::ptr::null())), bmanualreset.into_param().abi(), binitialstate.into_param().abi(), lpname.into_param().abi());
     (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
 pub unsafe fn CreateFiber(dwstacksize: usize, lpstartaddress: LPFIBER_START_ROUTINE, lpparameter: Option<*const core::ffi::c_void>) -> *mut core::ffi::c_void {
-    ::windows_targets::link!("kernel32.dll" "system" fn CreateFiber(dwstacksize : usize, lpstartaddress : LPFIBER_START_ROUTINE, lpparameter : *const core::ffi::c_void) -> *mut core::ffi::c_void);
+    windows_targets::link!("kernel32.dll" "system" fn CreateFiber(dwstacksize : usize, lpstartaddress : LPFIBER_START_ROUTINE, lpparameter : *const core::ffi::c_void) -> *mut core::ffi::c_void);
     CreateFiber(dwstacksize, lpstartaddress, core::mem::transmute(lpparameter.unwrap_or(std::ptr::null())))
 }
 #[inline]
 pub unsafe fn CreateFiberEx(dwstackcommitsize: usize, dwstackreservesize: usize, dwflags: u32, lpstartaddress: LPFIBER_START_ROUTINE, lpparameter: Option<*const core::ffi::c_void>) -> *mut core::ffi::c_void {
-    ::windows_targets::link!("kernel32.dll" "system" fn CreateFiberEx(dwstackcommitsize : usize, dwstackreservesize : usize, dwflags : u32, lpstartaddress : LPFIBER_START_ROUTINE, lpparameter : *const core::ffi::c_void) -> *mut core::ffi::c_void);
+    windows_targets::link!("kernel32.dll" "system" fn CreateFiberEx(dwstackcommitsize : usize, dwstackreservesize : usize, dwflags : u32, lpstartaddress : LPFIBER_START_ROUTINE, lpparameter : *const core::ffi::c_void) -> *mut core::ffi::c_void);
     CreateFiberEx(dwstackcommitsize, dwstackreservesize, dwflags, lpstartaddress, core::mem::transmute(lpparameter.unwrap_or(std::ptr::null())))
 }
 #[cfg(feature = "Win32_Security")]
@@ -347,7 +347,7 @@ where
     P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
     P1: windows_core::IntoParam<windows_core::PCSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn CreateMutexA(lpmutexattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, binitialowner : super::super::Foundation:: BOOL, lpname : windows_core::PCSTR) -> super::super::Foundation:: HANDLE);
+    windows_targets::link!("kernel32.dll" "system" fn CreateMutexA(lpmutexattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, binitialowner : super::super::Foundation:: BOOL, lpname : windows_core::PCSTR) -> super::super::Foundation:: HANDLE);
     let result__ = CreateMutexA(core::mem::transmute(lpmutexattributes.unwrap_or(std::ptr::null())), binitialowner.into_param().abi(), lpname.into_param().abi());
     (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
 }
@@ -357,7 +357,7 @@ pub unsafe fn CreateMutexExA<P0>(lpmutexattributes: Option<*const super::super::
 where
     P0: windows_core::IntoParam<windows_core::PCSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn CreateMutexExA(lpmutexattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, lpname : windows_core::PCSTR, dwflags : u32, dwdesiredaccess : u32) -> super::super::Foundation:: HANDLE);
+    windows_targets::link!("kernel32.dll" "system" fn CreateMutexExA(lpmutexattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, lpname : windows_core::PCSTR, dwflags : u32, dwdesiredaccess : u32) -> super::super::Foundation:: HANDLE);
     let result__ = CreateMutexExA(core::mem::transmute(lpmutexattributes.unwrap_or(std::ptr::null())), lpname.into_param().abi(), dwflags, dwdesiredaccess);
     (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
 }
@@ -367,7 +367,7 @@ pub unsafe fn CreateMutexExW<P0>(lpmutexattributes: Option<*const super::super::
 where
     P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn CreateMutexExW(lpmutexattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, lpname : windows_core::PCWSTR, dwflags : u32, dwdesiredaccess : u32) -> super::super::Foundation:: HANDLE);
+    windows_targets::link!("kernel32.dll" "system" fn CreateMutexExW(lpmutexattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, lpname : windows_core::PCWSTR, dwflags : u32, dwdesiredaccess : u32) -> super::super::Foundation:: HANDLE);
     let result__ = CreateMutexExW(core::mem::transmute(lpmutexattributes.unwrap_or(std::ptr::null())), lpname.into_param().abi(), dwflags, dwdesiredaccess);
     (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
 }
@@ -378,7 +378,7 @@ where
     P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
     P1: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn CreateMutexW(lpmutexattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, binitialowner : super::super::Foundation:: BOOL, lpname : windows_core::PCWSTR) -> super::super::Foundation:: HANDLE);
+    windows_targets::link!("kernel32.dll" "system" fn CreateMutexW(lpmutexattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, binitialowner : super::super::Foundation:: BOOL, lpname : windows_core::PCWSTR) -> super::super::Foundation:: HANDLE);
     let result__ = CreateMutexW(core::mem::transmute(lpmutexattributes.unwrap_or(std::ptr::null())), binitialowner.into_param().abi(), lpname.into_param().abi());
     (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
 }
@@ -388,7 +388,7 @@ pub unsafe fn CreatePrivateNamespaceA<P0>(lpprivatenamespaceattributes: Option<*
 where
     P0: windows_core::IntoParam<windows_core::PCSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn CreatePrivateNamespaceA(lpprivatenamespaceattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, lpboundarydescriptor : *const core::ffi::c_void, lpaliasprefix : windows_core::PCSTR) -> super::super::Foundation:: HANDLE);
+    windows_targets::link!("kernel32.dll" "system" fn CreatePrivateNamespaceA(lpprivatenamespaceattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, lpboundarydescriptor : *const core::ffi::c_void, lpaliasprefix : windows_core::PCSTR) -> super::super::Foundation:: HANDLE);
     let result__ = CreatePrivateNamespaceA(core::mem::transmute(lpprivatenamespaceattributes.unwrap_or(std::ptr::null())), lpboundarydescriptor, lpaliasprefix.into_param().abi());
     (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
 }
@@ -398,7 +398,7 @@ pub unsafe fn CreatePrivateNamespaceW<P0>(lpprivatenamespaceattributes: Option<*
 where
     P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn CreatePrivateNamespaceW(lpprivatenamespaceattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, lpboundarydescriptor : *const core::ffi::c_void, lpaliasprefix : windows_core::PCWSTR) -> super::super::Foundation:: HANDLE);
+    windows_targets::link!("kernel32.dll" "system" fn CreatePrivateNamespaceW(lpprivatenamespaceattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, lpboundarydescriptor : *const core::ffi::c_void, lpaliasprefix : windows_core::PCWSTR) -> super::super::Foundation:: HANDLE);
     CreatePrivateNamespaceW(core::mem::transmute(lpprivatenamespaceattributes.unwrap_or(std::ptr::null())), lpboundarydescriptor, lpaliasprefix.into_param().abi())
 }
 #[cfg(feature = "Win32_Security")]
@@ -409,7 +409,7 @@ where
     P1: windows_core::IntoParam<super::super::Foundation::BOOL>,
     P2: windows_core::IntoParam<windows_core::PCSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn CreateProcessA(lpapplicationname : windows_core::PCSTR, lpcommandline : windows_core::PSTR, lpprocessattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, lpthreadattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, binherithandles : super::super::Foundation:: BOOL, dwcreationflags : PROCESS_CREATION_FLAGS, lpenvironment : *const core::ffi::c_void, lpcurrentdirectory : windows_core::PCSTR, lpstartupinfo : *const STARTUPINFOA, lpprocessinformation : *mut PROCESS_INFORMATION) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn CreateProcessA(lpapplicationname : windows_core::PCSTR, lpcommandline : windows_core::PSTR, lpprocessattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, lpthreadattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, binherithandles : super::super::Foundation:: BOOL, dwcreationflags : PROCESS_CREATION_FLAGS, lpenvironment : *const core::ffi::c_void, lpcurrentdirectory : windows_core::PCSTR, lpstartupinfo : *const STARTUPINFOA, lpprocessinformation : *mut PROCESS_INFORMATION) -> super::super::Foundation:: BOOL);
     CreateProcessA(lpapplicationname.into_param().abi(), core::mem::transmute(lpcommandline), core::mem::transmute(lpprocessattributes.unwrap_or(std::ptr::null())), core::mem::transmute(lpthreadattributes.unwrap_or(std::ptr::null())), binherithandles.into_param().abi(), dwcreationflags, core::mem::transmute(lpenvironment.unwrap_or(std::ptr::null())), lpcurrentdirectory.into_param().abi(), lpstartupinfo, lpprocessinformation).ok()
 }
 #[cfg(feature = "Win32_Security")]
@@ -421,7 +421,7 @@ where
     P2: windows_core::IntoParam<super::super::Foundation::BOOL>,
     P3: windows_core::IntoParam<windows_core::PCSTR>,
 {
-    ::windows_targets::link!("advapi32.dll" "system" fn CreateProcessAsUserA(htoken : super::super::Foundation:: HANDLE, lpapplicationname : windows_core::PCSTR, lpcommandline : windows_core::PSTR, lpprocessattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, lpthreadattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, binherithandles : super::super::Foundation:: BOOL, dwcreationflags : PROCESS_CREATION_FLAGS, lpenvironment : *const core::ffi::c_void, lpcurrentdirectory : windows_core::PCSTR, lpstartupinfo : *const STARTUPINFOA, lpprocessinformation : *mut PROCESS_INFORMATION) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("advapi32.dll" "system" fn CreateProcessAsUserA(htoken : super::super::Foundation:: HANDLE, lpapplicationname : windows_core::PCSTR, lpcommandline : windows_core::PSTR, lpprocessattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, lpthreadattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, binherithandles : super::super::Foundation:: BOOL, dwcreationflags : PROCESS_CREATION_FLAGS, lpenvironment : *const core::ffi::c_void, lpcurrentdirectory : windows_core::PCSTR, lpstartupinfo : *const STARTUPINFOA, lpprocessinformation : *mut PROCESS_INFORMATION) -> super::super::Foundation:: BOOL);
     CreateProcessAsUserA(htoken.into_param().abi(), lpapplicationname.into_param().abi(), core::mem::transmute(lpcommandline), core::mem::transmute(lpprocessattributes.unwrap_or(std::ptr::null())), core::mem::transmute(lpthreadattributes.unwrap_or(std::ptr::null())), binherithandles.into_param().abi(), dwcreationflags, core::mem::transmute(lpenvironment.unwrap_or(std::ptr::null())), lpcurrentdirectory.into_param().abi(), lpstartupinfo, lpprocessinformation).ok()
 }
 #[cfg(feature = "Win32_Security")]
@@ -433,7 +433,7 @@ where
     P2: windows_core::IntoParam<super::super::Foundation::BOOL>,
     P3: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("advapi32.dll" "system" fn CreateProcessAsUserW(htoken : super::super::Foundation:: HANDLE, lpapplicationname : windows_core::PCWSTR, lpcommandline : windows_core::PWSTR, lpprocessattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, lpthreadattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, binherithandles : super::super::Foundation:: BOOL, dwcreationflags : PROCESS_CREATION_FLAGS, lpenvironment : *const core::ffi::c_void, lpcurrentdirectory : windows_core::PCWSTR, lpstartupinfo : *const STARTUPINFOW, lpprocessinformation : *mut PROCESS_INFORMATION) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("advapi32.dll" "system" fn CreateProcessAsUserW(htoken : super::super::Foundation:: HANDLE, lpapplicationname : windows_core::PCWSTR, lpcommandline : windows_core::PWSTR, lpprocessattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, lpthreadattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, binherithandles : super::super::Foundation:: BOOL, dwcreationflags : PROCESS_CREATION_FLAGS, lpenvironment : *const core::ffi::c_void, lpcurrentdirectory : windows_core::PCWSTR, lpstartupinfo : *const STARTUPINFOW, lpprocessinformation : *mut PROCESS_INFORMATION) -> super::super::Foundation:: BOOL);
     CreateProcessAsUserW(htoken.into_param().abi(), lpapplicationname.into_param().abi(), core::mem::transmute(lpcommandline), core::mem::transmute(lpprocessattributes.unwrap_or(std::ptr::null())), core::mem::transmute(lpthreadattributes.unwrap_or(std::ptr::null())), binherithandles.into_param().abi(), dwcreationflags, core::mem::transmute(lpenvironment.unwrap_or(std::ptr::null())), lpcurrentdirectory.into_param().abi(), lpstartupinfo, lpprocessinformation).ok()
 }
 #[cfg(feature = "Win32_Security")]
@@ -444,7 +444,7 @@ where
     P1: windows_core::IntoParam<super::super::Foundation::BOOL>,
     P2: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn CreateProcessW(lpapplicationname : windows_core::PCWSTR, lpcommandline : windows_core::PWSTR, lpprocessattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, lpthreadattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, binherithandles : super::super::Foundation:: BOOL, dwcreationflags : PROCESS_CREATION_FLAGS, lpenvironment : *const core::ffi::c_void, lpcurrentdirectory : windows_core::PCWSTR, lpstartupinfo : *const STARTUPINFOW, lpprocessinformation : *mut PROCESS_INFORMATION) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn CreateProcessW(lpapplicationname : windows_core::PCWSTR, lpcommandline : windows_core::PWSTR, lpprocessattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, lpthreadattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, binherithandles : super::super::Foundation:: BOOL, dwcreationflags : PROCESS_CREATION_FLAGS, lpenvironment : *const core::ffi::c_void, lpcurrentdirectory : windows_core::PCWSTR, lpstartupinfo : *const STARTUPINFOW, lpprocessinformation : *mut PROCESS_INFORMATION) -> super::super::Foundation:: BOOL);
     CreateProcessW(lpapplicationname.into_param().abi(), core::mem::transmute(lpcommandline), core::mem::transmute(lpprocessattributes.unwrap_or(std::ptr::null())), core::mem::transmute(lpthreadattributes.unwrap_or(std::ptr::null())), binherithandles.into_param().abi(), dwcreationflags, core::mem::transmute(lpenvironment.unwrap_or(std::ptr::null())), lpcurrentdirectory.into_param().abi(), lpstartupinfo, lpprocessinformation).ok()
 }
 #[inline]
@@ -456,7 +456,7 @@ where
     P3: windows_core::IntoParam<windows_core::PCWSTR>,
     P4: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("advapi32.dll" "system" fn CreateProcessWithLogonW(lpusername : windows_core::PCWSTR, lpdomain : windows_core::PCWSTR, lppassword : windows_core::PCWSTR, dwlogonflags : CREATE_PROCESS_LOGON_FLAGS, lpapplicationname : windows_core::PCWSTR, lpcommandline : windows_core::PWSTR, dwcreationflags : PROCESS_CREATION_FLAGS, lpenvironment : *const core::ffi::c_void, lpcurrentdirectory : windows_core::PCWSTR, lpstartupinfo : *const STARTUPINFOW, lpprocessinformation : *mut PROCESS_INFORMATION) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("advapi32.dll" "system" fn CreateProcessWithLogonW(lpusername : windows_core::PCWSTR, lpdomain : windows_core::PCWSTR, lppassword : windows_core::PCWSTR, dwlogonflags : CREATE_PROCESS_LOGON_FLAGS, lpapplicationname : windows_core::PCWSTR, lpcommandline : windows_core::PWSTR, dwcreationflags : PROCESS_CREATION_FLAGS, lpenvironment : *const core::ffi::c_void, lpcurrentdirectory : windows_core::PCWSTR, lpstartupinfo : *const STARTUPINFOW, lpprocessinformation : *mut PROCESS_INFORMATION) -> super::super::Foundation:: BOOL);
     CreateProcessWithLogonW(lpusername.into_param().abi(), lpdomain.into_param().abi(), lppassword.into_param().abi(), dwlogonflags, lpapplicationname.into_param().abi(), core::mem::transmute(lpcommandline), dwcreationflags, core::mem::transmute(lpenvironment.unwrap_or(std::ptr::null())), lpcurrentdirectory.into_param().abi(), lpstartupinfo, lpprocessinformation).ok()
 }
 #[inline]
@@ -466,7 +466,7 @@ where
     P1: windows_core::IntoParam<windows_core::PCWSTR>,
     P2: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("advapi32.dll" "system" fn CreateProcessWithTokenW(htoken : super::super::Foundation:: HANDLE, dwlogonflags : CREATE_PROCESS_LOGON_FLAGS, lpapplicationname : windows_core::PCWSTR, lpcommandline : windows_core::PWSTR, dwcreationflags : PROCESS_CREATION_FLAGS, lpenvironment : *const core::ffi::c_void, lpcurrentdirectory : windows_core::PCWSTR, lpstartupinfo : *const STARTUPINFOW, lpprocessinformation : *mut PROCESS_INFORMATION) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("advapi32.dll" "system" fn CreateProcessWithTokenW(htoken : super::super::Foundation:: HANDLE, dwlogonflags : CREATE_PROCESS_LOGON_FLAGS, lpapplicationname : windows_core::PCWSTR, lpcommandline : windows_core::PWSTR, dwcreationflags : PROCESS_CREATION_FLAGS, lpenvironment : *const core::ffi::c_void, lpcurrentdirectory : windows_core::PCWSTR, lpstartupinfo : *const STARTUPINFOW, lpprocessinformation : *mut PROCESS_INFORMATION) -> super::super::Foundation:: BOOL);
     CreateProcessWithTokenW(htoken.into_param().abi(), dwlogonflags, lpapplicationname.into_param().abi(), core::mem::transmute(lpcommandline), dwcreationflags, core::mem::transmute(lpenvironment.unwrap_or(std::ptr::null())), lpcurrentdirectory.into_param().abi(), lpstartupinfo, lpprocessinformation).ok()
 }
 #[cfg(feature = "Win32_Security")]
@@ -475,7 +475,7 @@ pub unsafe fn CreateRemoteThread<P0>(hprocess: P0, lpthreadattributes: Option<*c
 where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn CreateRemoteThread(hprocess : super::super::Foundation:: HANDLE, lpthreadattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, dwstacksize : usize, lpstartaddress : LPTHREAD_START_ROUTINE, lpparameter : *const core::ffi::c_void, dwcreationflags : u32, lpthreadid : *mut u32) -> super::super::Foundation:: HANDLE);
+    windows_targets::link!("kernel32.dll" "system" fn CreateRemoteThread(hprocess : super::super::Foundation:: HANDLE, lpthreadattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, dwstacksize : usize, lpstartaddress : LPTHREAD_START_ROUTINE, lpparameter : *const core::ffi::c_void, dwcreationflags : u32, lpthreadid : *mut u32) -> super::super::Foundation:: HANDLE);
     let result__ = CreateRemoteThread(hprocess.into_param().abi(), core::mem::transmute(lpthreadattributes.unwrap_or(std::ptr::null())), dwstacksize, lpstartaddress, core::mem::transmute(lpparameter.unwrap_or(std::ptr::null())), dwcreationflags, core::mem::transmute(lpthreadid.unwrap_or(std::ptr::null_mut())));
     (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
 }
@@ -486,7 +486,7 @@ where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
     P1: windows_core::IntoParam<LPPROC_THREAD_ATTRIBUTE_LIST>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn CreateRemoteThreadEx(hprocess : super::super::Foundation:: HANDLE, lpthreadattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, dwstacksize : usize, lpstartaddress : LPTHREAD_START_ROUTINE, lpparameter : *const core::ffi::c_void, dwcreationflags : u32, lpattributelist : LPPROC_THREAD_ATTRIBUTE_LIST, lpthreadid : *mut u32) -> super::super::Foundation:: HANDLE);
+    windows_targets::link!("kernel32.dll" "system" fn CreateRemoteThreadEx(hprocess : super::super::Foundation:: HANDLE, lpthreadattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, dwstacksize : usize, lpstartaddress : LPTHREAD_START_ROUTINE, lpparameter : *const core::ffi::c_void, dwcreationflags : u32, lpattributelist : LPPROC_THREAD_ATTRIBUTE_LIST, lpthreadid : *mut u32) -> super::super::Foundation:: HANDLE);
     let result__ = CreateRemoteThreadEx(hprocess.into_param().abi(), core::mem::transmute(lpthreadattributes.unwrap_or(std::ptr::null())), dwstacksize, lpstartaddress, core::mem::transmute(lpparameter.unwrap_or(std::ptr::null())), dwcreationflags, lpattributelist.into_param().abi(), core::mem::transmute(lpthreadid.unwrap_or(std::ptr::null_mut())));
     (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
 }
@@ -496,7 +496,7 @@ pub unsafe fn CreateSemaphoreA<P0>(lpsemaphoreattributes: Option<*const super::s
 where
     P0: windows_core::IntoParam<windows_core::PCSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn CreateSemaphoreA(lpsemaphoreattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, linitialcount : i32, lmaximumcount : i32, lpname : windows_core::PCSTR) -> super::super::Foundation:: HANDLE);
+    windows_targets::link!("kernel32.dll" "system" fn CreateSemaphoreA(lpsemaphoreattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, linitialcount : i32, lmaximumcount : i32, lpname : windows_core::PCSTR) -> super::super::Foundation:: HANDLE);
     let result__ = CreateSemaphoreA(core::mem::transmute(lpsemaphoreattributes.unwrap_or(std::ptr::null())), linitialcount, lmaximumcount, lpname.into_param().abi());
     (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
 }
@@ -506,7 +506,7 @@ pub unsafe fn CreateSemaphoreExA<P0>(lpsemaphoreattributes: Option<*const super:
 where
     P0: windows_core::IntoParam<windows_core::PCSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn CreateSemaphoreExA(lpsemaphoreattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, linitialcount : i32, lmaximumcount : i32, lpname : windows_core::PCSTR, dwflags : u32, dwdesiredaccess : u32) -> super::super::Foundation:: HANDLE);
+    windows_targets::link!("kernel32.dll" "system" fn CreateSemaphoreExA(lpsemaphoreattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, linitialcount : i32, lmaximumcount : i32, lpname : windows_core::PCSTR, dwflags : u32, dwdesiredaccess : u32) -> super::super::Foundation:: HANDLE);
     let result__ = CreateSemaphoreExA(core::mem::transmute(lpsemaphoreattributes.unwrap_or(std::ptr::null())), linitialcount, lmaximumcount, lpname.into_param().abi(), dwflags, dwdesiredaccess);
     (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
 }
@@ -516,7 +516,7 @@ pub unsafe fn CreateSemaphoreExW<P0>(lpsemaphoreattributes: Option<*const super:
 where
     P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn CreateSemaphoreExW(lpsemaphoreattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, linitialcount : i32, lmaximumcount : i32, lpname : windows_core::PCWSTR, dwflags : u32, dwdesiredaccess : u32) -> super::super::Foundation:: HANDLE);
+    windows_targets::link!("kernel32.dll" "system" fn CreateSemaphoreExW(lpsemaphoreattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, linitialcount : i32, lmaximumcount : i32, lpname : windows_core::PCWSTR, dwflags : u32, dwdesiredaccess : u32) -> super::super::Foundation:: HANDLE);
     let result__ = CreateSemaphoreExW(core::mem::transmute(lpsemaphoreattributes.unwrap_or(std::ptr::null())), linitialcount, lmaximumcount, lpname.into_param().abi(), dwflags, dwdesiredaccess);
     (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
 }
@@ -526,25 +526,25 @@ pub unsafe fn CreateSemaphoreW<P0>(lpsemaphoreattributes: Option<*const super::s
 where
     P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn CreateSemaphoreW(lpsemaphoreattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, linitialcount : i32, lmaximumcount : i32, lpname : windows_core::PCWSTR) -> super::super::Foundation:: HANDLE);
+    windows_targets::link!("kernel32.dll" "system" fn CreateSemaphoreW(lpsemaphoreattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, linitialcount : i32, lmaximumcount : i32, lpname : windows_core::PCWSTR) -> super::super::Foundation:: HANDLE);
     let result__ = CreateSemaphoreW(core::mem::transmute(lpsemaphoreattributes.unwrap_or(std::ptr::null())), linitialcount, lmaximumcount, lpname.into_param().abi());
     (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn CreateThread(lpthreadattributes: Option<*const super::super::Security::SECURITY_ATTRIBUTES>, dwstacksize: usize, lpstartaddress: LPTHREAD_START_ROUTINE, lpparameter: Option<*const core::ffi::c_void>, dwcreationflags: THREAD_CREATION_FLAGS, lpthreadid: Option<*mut u32>) -> windows_core::Result<super::super::Foundation::HANDLE> {
-    ::windows_targets::link!("kernel32.dll" "system" fn CreateThread(lpthreadattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, dwstacksize : usize, lpstartaddress : LPTHREAD_START_ROUTINE, lpparameter : *const core::ffi::c_void, dwcreationflags : THREAD_CREATION_FLAGS, lpthreadid : *mut u32) -> super::super::Foundation:: HANDLE);
+    windows_targets::link!("kernel32.dll" "system" fn CreateThread(lpthreadattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, dwstacksize : usize, lpstartaddress : LPTHREAD_START_ROUTINE, lpparameter : *const core::ffi::c_void, dwcreationflags : THREAD_CREATION_FLAGS, lpthreadid : *mut u32) -> super::super::Foundation:: HANDLE);
     let result__ = CreateThread(core::mem::transmute(lpthreadattributes.unwrap_or(std::ptr::null())), dwstacksize, lpstartaddress, core::mem::transmute(lpparameter.unwrap_or(std::ptr::null())), dwcreationflags, core::mem::transmute(lpthreadid.unwrap_or(std::ptr::null_mut())));
     (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
 pub unsafe fn CreateThreadpool(reserved: Option<*const core::ffi::c_void>) -> PTP_POOL {
-    ::windows_targets::link!("kernel32.dll" "system" fn CreateThreadpool(reserved : *const core::ffi::c_void) -> PTP_POOL);
+    windows_targets::link!("kernel32.dll" "system" fn CreateThreadpool(reserved : *const core::ffi::c_void) -> PTP_POOL);
     CreateThreadpool(core::mem::transmute(reserved.unwrap_or(std::ptr::null())))
 }
 #[inline]
 pub unsafe fn CreateThreadpoolCleanupGroup() -> PTP_CLEANUP_GROUP {
-    ::windows_targets::link!("kernel32.dll" "system" fn CreateThreadpoolCleanupGroup() -> PTP_CLEANUP_GROUP);
+    windows_targets::link!("kernel32.dll" "system" fn CreateThreadpoolCleanupGroup() -> PTP_CLEANUP_GROUP);
     CreateThreadpoolCleanupGroup()
 }
 #[inline]
@@ -552,31 +552,31 @@ pub unsafe fn CreateThreadpoolIo<P0>(fl: P0, pfnio: PTP_WIN32_IO_CALLBACK, pv: O
 where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn CreateThreadpoolIo(fl : super::super::Foundation:: HANDLE, pfnio : PTP_WIN32_IO_CALLBACK, pv : *mut core::ffi::c_void, pcbe : *const TP_CALLBACK_ENVIRON_V3) -> PTP_IO);
+    windows_targets::link!("kernel32.dll" "system" fn CreateThreadpoolIo(fl : super::super::Foundation:: HANDLE, pfnio : PTP_WIN32_IO_CALLBACK, pv : *mut core::ffi::c_void, pcbe : *const TP_CALLBACK_ENVIRON_V3) -> PTP_IO);
     let result__ = CreateThreadpoolIo(fl.into_param().abi(), pfnio, core::mem::transmute(pv.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pcbe.unwrap_or(std::ptr::null())));
     (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
 pub unsafe fn CreateThreadpoolTimer(pfnti: PTP_TIMER_CALLBACK, pv: Option<*mut core::ffi::c_void>, pcbe: Option<*const TP_CALLBACK_ENVIRON_V3>) -> windows_core::Result<PTP_TIMER> {
-    ::windows_targets::link!("kernel32.dll" "system" fn CreateThreadpoolTimer(pfnti : PTP_TIMER_CALLBACK, pv : *mut core::ffi::c_void, pcbe : *const TP_CALLBACK_ENVIRON_V3) -> PTP_TIMER);
+    windows_targets::link!("kernel32.dll" "system" fn CreateThreadpoolTimer(pfnti : PTP_TIMER_CALLBACK, pv : *mut core::ffi::c_void, pcbe : *const TP_CALLBACK_ENVIRON_V3) -> PTP_TIMER);
     let result__ = CreateThreadpoolTimer(pfnti, core::mem::transmute(pv.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pcbe.unwrap_or(std::ptr::null())));
     (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
 pub unsafe fn CreateThreadpoolWait(pfnwa: PTP_WAIT_CALLBACK, pv: Option<*mut core::ffi::c_void>, pcbe: Option<*const TP_CALLBACK_ENVIRON_V3>) -> windows_core::Result<PTP_WAIT> {
-    ::windows_targets::link!("kernel32.dll" "system" fn CreateThreadpoolWait(pfnwa : PTP_WAIT_CALLBACK, pv : *mut core::ffi::c_void, pcbe : *const TP_CALLBACK_ENVIRON_V3) -> PTP_WAIT);
+    windows_targets::link!("kernel32.dll" "system" fn CreateThreadpoolWait(pfnwa : PTP_WAIT_CALLBACK, pv : *mut core::ffi::c_void, pcbe : *const TP_CALLBACK_ENVIRON_V3) -> PTP_WAIT);
     let result__ = CreateThreadpoolWait(pfnwa, core::mem::transmute(pv.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pcbe.unwrap_or(std::ptr::null())));
     (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
 pub unsafe fn CreateThreadpoolWork(pfnwk: PTP_WORK_CALLBACK, pv: Option<*mut core::ffi::c_void>, pcbe: Option<*const TP_CALLBACK_ENVIRON_V3>) -> windows_core::Result<PTP_WORK> {
-    ::windows_targets::link!("kernel32.dll" "system" fn CreateThreadpoolWork(pfnwk : PTP_WORK_CALLBACK, pv : *mut core::ffi::c_void, pcbe : *const TP_CALLBACK_ENVIRON_V3) -> PTP_WORK);
+    windows_targets::link!("kernel32.dll" "system" fn CreateThreadpoolWork(pfnwk : PTP_WORK_CALLBACK, pv : *mut core::ffi::c_void, pcbe : *const TP_CALLBACK_ENVIRON_V3) -> PTP_WORK);
     let result__ = CreateThreadpoolWork(pfnwk, core::mem::transmute(pv.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pcbe.unwrap_or(std::ptr::null())));
     (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
 pub unsafe fn CreateTimerQueue() -> windows_core::Result<super::super::Foundation::HANDLE> {
-    ::windows_targets::link!("kernel32.dll" "system" fn CreateTimerQueue() -> super::super::Foundation:: HANDLE);
+    windows_targets::link!("kernel32.dll" "system" fn CreateTimerQueue() -> super::super::Foundation:: HANDLE);
     let result__ = CreateTimerQueue();
     (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
 }
@@ -585,17 +585,17 @@ pub unsafe fn CreateTimerQueueTimer<P0>(phnewtimer: *mut super::super::Foundatio
 where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn CreateTimerQueueTimer(phnewtimer : *mut super::super::Foundation:: HANDLE, timerqueue : super::super::Foundation:: HANDLE, callback : WAITORTIMERCALLBACK, parameter : *const core::ffi::c_void, duetime : u32, period : u32, flags : WORKER_THREAD_FLAGS) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn CreateTimerQueueTimer(phnewtimer : *mut super::super::Foundation:: HANDLE, timerqueue : super::super::Foundation:: HANDLE, callback : WAITORTIMERCALLBACK, parameter : *const core::ffi::c_void, duetime : u32, period : u32, flags : WORKER_THREAD_FLAGS) -> super::super::Foundation:: BOOL);
     CreateTimerQueueTimer(phnewtimer, timerqueue.into_param().abi(), callback, core::mem::transmute(parameter.unwrap_or(std::ptr::null())), duetime, period, flags).ok()
 }
 #[inline]
 pub unsafe fn CreateUmsCompletionList(umscompletionlist: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
-    ::windows_targets::link!("kernel32.dll" "system" fn CreateUmsCompletionList(umscompletionlist : *mut *mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn CreateUmsCompletionList(umscompletionlist : *mut *mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
     CreateUmsCompletionList(umscompletionlist).ok()
 }
 #[inline]
 pub unsafe fn CreateUmsThreadContext(lpumsthread: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
-    ::windows_targets::link!("kernel32.dll" "system" fn CreateUmsThreadContext(lpumsthread : *mut *mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn CreateUmsThreadContext(lpumsthread : *mut *mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
     CreateUmsThreadContext(lpumsthread).ok()
 }
 #[cfg(feature = "Win32_Security")]
@@ -605,7 +605,7 @@ where
     P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
     P1: windows_core::IntoParam<windows_core::PCSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn CreateWaitableTimerA(lptimerattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, bmanualreset : super::super::Foundation:: BOOL, lptimername : windows_core::PCSTR) -> super::super::Foundation:: HANDLE);
+    windows_targets::link!("kernel32.dll" "system" fn CreateWaitableTimerA(lptimerattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, bmanualreset : super::super::Foundation:: BOOL, lptimername : windows_core::PCSTR) -> super::super::Foundation:: HANDLE);
     CreateWaitableTimerA(core::mem::transmute(lptimerattributes.unwrap_or(std::ptr::null())), bmanualreset.into_param().abi(), lptimername.into_param().abi())
 }
 #[cfg(feature = "Win32_Security")]
@@ -614,7 +614,7 @@ pub unsafe fn CreateWaitableTimerExA<P0>(lptimerattributes: Option<*const super:
 where
     P0: windows_core::IntoParam<windows_core::PCSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn CreateWaitableTimerExA(lptimerattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, lptimername : windows_core::PCSTR, dwflags : u32, dwdesiredaccess : u32) -> super::super::Foundation:: HANDLE);
+    windows_targets::link!("kernel32.dll" "system" fn CreateWaitableTimerExA(lptimerattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, lptimername : windows_core::PCSTR, dwflags : u32, dwdesiredaccess : u32) -> super::super::Foundation:: HANDLE);
     CreateWaitableTimerExA(core::mem::transmute(lptimerattributes.unwrap_or(std::ptr::null())), lptimername.into_param().abi(), dwflags, dwdesiredaccess)
 }
 #[cfg(feature = "Win32_Security")]
@@ -623,7 +623,7 @@ pub unsafe fn CreateWaitableTimerExW<P0>(lptimerattributes: Option<*const super:
 where
     P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn CreateWaitableTimerExW(lptimerattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, lptimername : windows_core::PCWSTR, dwflags : u32, dwdesiredaccess : u32) -> super::super::Foundation:: HANDLE);
+    windows_targets::link!("kernel32.dll" "system" fn CreateWaitableTimerExW(lptimerattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, lptimername : windows_core::PCWSTR, dwflags : u32, dwdesiredaccess : u32) -> super::super::Foundation:: HANDLE);
     let result__ = CreateWaitableTimerExW(core::mem::transmute(lptimerattributes.unwrap_or(std::ptr::null())), lptimername.into_param().abi(), dwflags, dwdesiredaccess);
     (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
 }
@@ -634,7 +634,7 @@ where
     P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
     P1: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn CreateWaitableTimerW(lptimerattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, bmanualreset : super::super::Foundation:: BOOL, lptimername : windows_core::PCWSTR) -> super::super::Foundation:: HANDLE);
+    windows_targets::link!("kernel32.dll" "system" fn CreateWaitableTimerW(lptimerattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, bmanualreset : super::super::Foundation:: BOOL, lptimername : windows_core::PCWSTR) -> super::super::Foundation:: HANDLE);
     let result__ = CreateWaitableTimerW(core::mem::transmute(lptimerattributes.unwrap_or(std::ptr::null())), bmanualreset.into_param().abi(), lptimername.into_param().abi());
     (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
 }
@@ -643,28 +643,28 @@ pub unsafe fn DeleteBoundaryDescriptor<P0>(boundarydescriptor: P0)
 where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn DeleteBoundaryDescriptor(boundarydescriptor : super::super::Foundation:: HANDLE));
+    windows_targets::link!("kernel32.dll" "system" fn DeleteBoundaryDescriptor(boundarydescriptor : super::super::Foundation:: HANDLE));
     DeleteBoundaryDescriptor(boundarydescriptor.into_param().abi())
 }
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn DeleteCriticalSection(lpcriticalsection: *mut CRITICAL_SECTION) {
-    ::windows_targets::link!("kernel32.dll" "system" fn DeleteCriticalSection(lpcriticalsection : *mut CRITICAL_SECTION));
+    windows_targets::link!("kernel32.dll" "system" fn DeleteCriticalSection(lpcriticalsection : *mut CRITICAL_SECTION));
     DeleteCriticalSection(lpcriticalsection)
 }
 #[inline]
 pub unsafe fn DeleteFiber(lpfiber: *const core::ffi::c_void) {
-    ::windows_targets::link!("kernel32.dll" "system" fn DeleteFiber(lpfiber : *const core::ffi::c_void));
+    windows_targets::link!("kernel32.dll" "system" fn DeleteFiber(lpfiber : *const core::ffi::c_void));
     DeleteFiber(lpfiber)
 }
 #[inline]
 pub unsafe fn DeleteProcThreadAttributeList(lpattributelist: LPPROC_THREAD_ATTRIBUTE_LIST) {
-    ::windows_targets::link!("kernel32.dll" "system" fn DeleteProcThreadAttributeList(lpattributelist : LPPROC_THREAD_ATTRIBUTE_LIST));
+    windows_targets::link!("kernel32.dll" "system" fn DeleteProcThreadAttributeList(lpattributelist : LPPROC_THREAD_ATTRIBUTE_LIST));
     DeleteProcThreadAttributeList(lpattributelist)
 }
 #[inline]
 pub unsafe fn DeleteSynchronizationBarrier(lpbarrier: *mut SYNCHRONIZATION_BARRIER) -> super::super::Foundation::BOOL {
-    ::windows_targets::link!("kernel32.dll" "system" fn DeleteSynchronizationBarrier(lpbarrier : *mut SYNCHRONIZATION_BARRIER) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn DeleteSynchronizationBarrier(lpbarrier : *mut SYNCHRONIZATION_BARRIER) -> super::super::Foundation:: BOOL);
     DeleteSynchronizationBarrier(lpbarrier)
 }
 #[inline]
@@ -672,7 +672,7 @@ pub unsafe fn DeleteTimerQueue<P0>(timerqueue: P0) -> windows_core::Result<()>
 where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn DeleteTimerQueue(timerqueue : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn DeleteTimerQueue(timerqueue : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
     DeleteTimerQueue(timerqueue.into_param().abi()).ok()
 }
 #[inline]
@@ -681,7 +681,7 @@ where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
     P1: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn DeleteTimerQueueEx(timerqueue : super::super::Foundation:: HANDLE, completionevent : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn DeleteTimerQueueEx(timerqueue : super::super::Foundation:: HANDLE, completionevent : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
     DeleteTimerQueueEx(timerqueue.into_param().abi(), completionevent.into_param().abi()).ok()
 }
 #[inline]
@@ -691,22 +691,22 @@ where
     P1: windows_core::IntoParam<super::super::Foundation::HANDLE>,
     P2: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn DeleteTimerQueueTimer(timerqueue : super::super::Foundation:: HANDLE, timer : super::super::Foundation:: HANDLE, completionevent : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn DeleteTimerQueueTimer(timerqueue : super::super::Foundation:: HANDLE, timer : super::super::Foundation:: HANDLE, completionevent : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
     DeleteTimerQueueTimer(timerqueue.into_param().abi(), timer.into_param().abi(), completionevent.into_param().abi()).ok()
 }
 #[inline]
 pub unsafe fn DeleteUmsCompletionList(umscompletionlist: *const core::ffi::c_void) -> windows_core::Result<()> {
-    ::windows_targets::link!("kernel32.dll" "system" fn DeleteUmsCompletionList(umscompletionlist : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn DeleteUmsCompletionList(umscompletionlist : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
     DeleteUmsCompletionList(umscompletionlist).ok()
 }
 #[inline]
 pub unsafe fn DeleteUmsThreadContext(umsthread: *const core::ffi::c_void) -> windows_core::Result<()> {
-    ::windows_targets::link!("kernel32.dll" "system" fn DeleteUmsThreadContext(umsthread : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn DeleteUmsThreadContext(umsthread : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
     DeleteUmsThreadContext(umsthread).ok()
 }
 #[inline]
 pub unsafe fn DequeueUmsCompletionListItems(umscompletionlist: *const core::ffi::c_void, waittimeout: u32, umsthreadlist: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
-    ::windows_targets::link!("kernel32.dll" "system" fn DequeueUmsCompletionListItems(umscompletionlist : *const core::ffi::c_void, waittimeout : u32, umsthreadlist : *mut *mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn DequeueUmsCompletionListItems(umscompletionlist : *const core::ffi::c_void, waittimeout : u32, umsthreadlist : *mut *mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
     DequeueUmsCompletionListItems(umscompletionlist, waittimeout, umsthreadlist).ok()
 }
 #[inline]
@@ -714,64 +714,64 @@ pub unsafe fn DisassociateCurrentThreadFromCallback<P0>(pci: P0)
 where
     P0: windows_core::IntoParam<PTP_CALLBACK_INSTANCE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn DisassociateCurrentThreadFromCallback(pci : PTP_CALLBACK_INSTANCE));
+    windows_targets::link!("kernel32.dll" "system" fn DisassociateCurrentThreadFromCallback(pci : PTP_CALLBACK_INSTANCE));
     DisassociateCurrentThreadFromCallback(pci.into_param().abi())
 }
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn EnterCriticalSection(lpcriticalsection: *mut CRITICAL_SECTION) {
-    ::windows_targets::link!("kernel32.dll" "system" fn EnterCriticalSection(lpcriticalsection : *mut CRITICAL_SECTION));
+    windows_targets::link!("kernel32.dll" "system" fn EnterCriticalSection(lpcriticalsection : *mut CRITICAL_SECTION));
     EnterCriticalSection(lpcriticalsection)
 }
 #[inline]
 pub unsafe fn EnterSynchronizationBarrier(lpbarrier: *mut SYNCHRONIZATION_BARRIER, dwflags: u32) -> super::super::Foundation::BOOL {
-    ::windows_targets::link!("kernel32.dll" "system" fn EnterSynchronizationBarrier(lpbarrier : *mut SYNCHRONIZATION_BARRIER, dwflags : u32) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn EnterSynchronizationBarrier(lpbarrier : *mut SYNCHRONIZATION_BARRIER, dwflags : u32) -> super::super::Foundation:: BOOL);
     EnterSynchronizationBarrier(lpbarrier, dwflags)
 }
 #[cfg(feature = "Win32_System_SystemServices")]
 #[inline]
 pub unsafe fn EnterUmsSchedulingMode(schedulerstartupinfo: *const UMS_SCHEDULER_STARTUP_INFO) -> windows_core::Result<()> {
-    ::windows_targets::link!("kernel32.dll" "system" fn EnterUmsSchedulingMode(schedulerstartupinfo : *const UMS_SCHEDULER_STARTUP_INFO) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn EnterUmsSchedulingMode(schedulerstartupinfo : *const UMS_SCHEDULER_STARTUP_INFO) -> super::super::Foundation:: BOOL);
     EnterUmsSchedulingMode(schedulerstartupinfo).ok()
 }
 #[inline]
 pub unsafe fn ExecuteUmsThread(umsthread: *mut core::ffi::c_void) -> windows_core::Result<()> {
-    ::windows_targets::link!("kernel32.dll" "system" fn ExecuteUmsThread(umsthread : *mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn ExecuteUmsThread(umsthread : *mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
     ExecuteUmsThread(umsthread).ok()
 }
 #[inline]
 pub unsafe fn ExitProcess(uexitcode: u32) -> ! {
-    ::windows_targets::link!("kernel32.dll" "system" fn ExitProcess(uexitcode : u32) -> !);
+    windows_targets::link!("kernel32.dll" "system" fn ExitProcess(uexitcode : u32) -> !);
     ExitProcess(uexitcode)
 }
 #[inline]
 pub unsafe fn ExitThread(dwexitcode: u32) -> ! {
-    ::windows_targets::link!("kernel32.dll" "system" fn ExitThread(dwexitcode : u32) -> !);
+    windows_targets::link!("kernel32.dll" "system" fn ExitThread(dwexitcode : u32) -> !);
     ExitThread(dwexitcode)
 }
 #[inline]
 pub unsafe fn FlsAlloc(lpcallback: PFLS_CALLBACK_FUNCTION) -> u32 {
-    ::windows_targets::link!("kernel32.dll" "system" fn FlsAlloc(lpcallback : PFLS_CALLBACK_FUNCTION) -> u32);
+    windows_targets::link!("kernel32.dll" "system" fn FlsAlloc(lpcallback : PFLS_CALLBACK_FUNCTION) -> u32);
     FlsAlloc(lpcallback)
 }
 #[inline]
 pub unsafe fn FlsFree(dwflsindex: u32) -> windows_core::Result<()> {
-    ::windows_targets::link!("kernel32.dll" "system" fn FlsFree(dwflsindex : u32) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn FlsFree(dwflsindex : u32) -> super::super::Foundation:: BOOL);
     FlsFree(dwflsindex).ok()
 }
 #[inline]
 pub unsafe fn FlsGetValue(dwflsindex: u32) -> *mut core::ffi::c_void {
-    ::windows_targets::link!("kernel32.dll" "system" fn FlsGetValue(dwflsindex : u32) -> *mut core::ffi::c_void);
+    windows_targets::link!("kernel32.dll" "system" fn FlsGetValue(dwflsindex : u32) -> *mut core::ffi::c_void);
     FlsGetValue(dwflsindex)
 }
 #[inline]
 pub unsafe fn FlsSetValue(dwflsindex: u32, lpflsdata: Option<*const core::ffi::c_void>) -> windows_core::Result<()> {
-    ::windows_targets::link!("kernel32.dll" "system" fn FlsSetValue(dwflsindex : u32, lpflsdata : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn FlsSetValue(dwflsindex : u32, lpflsdata : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
     FlsSetValue(dwflsindex, core::mem::transmute(lpflsdata.unwrap_or(std::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn FlushProcessWriteBuffers() {
-    ::windows_targets::link!("kernel32.dll" "system" fn FlushProcessWriteBuffers());
+    windows_targets::link!("kernel32.dll" "system" fn FlushProcessWriteBuffers());
     FlushProcessWriteBuffers()
 }
 #[inline]
@@ -780,60 +780,60 @@ where
     P0: windows_core::IntoParam<PTP_CALLBACK_INSTANCE>,
     P1: windows_core::IntoParam<super::super::Foundation::HMODULE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn FreeLibraryWhenCallbackReturns(pci : PTP_CALLBACK_INSTANCE, r#mod : super::super::Foundation:: HMODULE));
+    windows_targets::link!("kernel32.dll" "system" fn FreeLibraryWhenCallbackReturns(pci : PTP_CALLBACK_INSTANCE, r#mod : super::super::Foundation:: HMODULE));
     FreeLibraryWhenCallbackReturns(pci.into_param().abi(), r#mod.into_param().abi())
 }
 #[inline]
 pub unsafe fn GetActiveProcessorCount(groupnumber: u16) -> u32 {
-    ::windows_targets::link!("kernel32.dll" "system" fn GetActiveProcessorCount(groupnumber : u16) -> u32);
+    windows_targets::link!("kernel32.dll" "system" fn GetActiveProcessorCount(groupnumber : u16) -> u32);
     GetActiveProcessorCount(groupnumber)
 }
 #[inline]
 pub unsafe fn GetActiveProcessorGroupCount() -> u16 {
-    ::windows_targets::link!("kernel32.dll" "system" fn GetActiveProcessorGroupCount() -> u16);
+    windows_targets::link!("kernel32.dll" "system" fn GetActiveProcessorGroupCount() -> u16);
     GetActiveProcessorGroupCount()
 }
 #[inline]
 pub unsafe fn GetCurrentProcess() -> super::super::Foundation::HANDLE {
-    ::windows_targets::link!("kernel32.dll" "system" fn GetCurrentProcess() -> super::super::Foundation:: HANDLE);
+    windows_targets::link!("kernel32.dll" "system" fn GetCurrentProcess() -> super::super::Foundation:: HANDLE);
     GetCurrentProcess()
 }
 #[inline]
 pub unsafe fn GetCurrentProcessId() -> u32 {
-    ::windows_targets::link!("kernel32.dll" "system" fn GetCurrentProcessId() -> u32);
+    windows_targets::link!("kernel32.dll" "system" fn GetCurrentProcessId() -> u32);
     GetCurrentProcessId()
 }
 #[inline]
 pub unsafe fn GetCurrentProcessorNumber() -> u32 {
-    ::windows_targets::link!("kernel32.dll" "system" fn GetCurrentProcessorNumber() -> u32);
+    windows_targets::link!("kernel32.dll" "system" fn GetCurrentProcessorNumber() -> u32);
     GetCurrentProcessorNumber()
 }
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn GetCurrentProcessorNumberEx() -> super::Kernel::PROCESSOR_NUMBER {
-    ::windows_targets::link!("kernel32.dll" "system" fn GetCurrentProcessorNumberEx(procnumber : *mut super::Kernel:: PROCESSOR_NUMBER));
+    windows_targets::link!("kernel32.dll" "system" fn GetCurrentProcessorNumberEx(procnumber : *mut super::Kernel:: PROCESSOR_NUMBER));
     let mut result__ = std::mem::zeroed();
     GetCurrentProcessorNumberEx(&mut result__);
     result__
 }
 #[inline]
 pub unsafe fn GetCurrentThread() -> super::super::Foundation::HANDLE {
-    ::windows_targets::link!("kernel32.dll" "system" fn GetCurrentThread() -> super::super::Foundation:: HANDLE);
+    windows_targets::link!("kernel32.dll" "system" fn GetCurrentThread() -> super::super::Foundation:: HANDLE);
     GetCurrentThread()
 }
 #[inline]
 pub unsafe fn GetCurrentThreadId() -> u32 {
-    ::windows_targets::link!("kernel32.dll" "system" fn GetCurrentThreadId() -> u32);
+    windows_targets::link!("kernel32.dll" "system" fn GetCurrentThreadId() -> u32);
     GetCurrentThreadId()
 }
 #[inline]
 pub unsafe fn GetCurrentThreadStackLimits(lowlimit: *mut usize, highlimit: *mut usize) {
-    ::windows_targets::link!("kernel32.dll" "system" fn GetCurrentThreadStackLimits(lowlimit : *mut usize, highlimit : *mut usize));
+    windows_targets::link!("kernel32.dll" "system" fn GetCurrentThreadStackLimits(lowlimit : *mut usize, highlimit : *mut usize));
     GetCurrentThreadStackLimits(lowlimit, highlimit)
 }
 #[inline]
 pub unsafe fn GetCurrentUmsThread() -> *mut core::ffi::c_void {
-    ::windows_targets::link!("kernel32.dll" "system" fn GetCurrentUmsThread() -> *mut core::ffi::c_void);
+    windows_targets::link!("kernel32.dll" "system" fn GetCurrentUmsThread() -> *mut core::ffi::c_void);
     GetCurrentUmsThread()
 }
 #[inline]
@@ -841,7 +841,7 @@ pub unsafe fn GetExitCodeProcess<P0>(hprocess: P0, lpexitcode: *mut u32) -> wind
 where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn GetExitCodeProcess(hprocess : super::super::Foundation:: HANDLE, lpexitcode : *mut u32) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn GetExitCodeProcess(hprocess : super::super::Foundation:: HANDLE, lpexitcode : *mut u32) -> super::super::Foundation:: BOOL);
     GetExitCodeProcess(hprocess.into_param().abi(), lpexitcode).ok()
 }
 #[inline]
@@ -849,7 +849,7 @@ pub unsafe fn GetExitCodeThread<P0>(hthread: P0, lpexitcode: *mut u32) -> window
 where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn GetExitCodeThread(hthread : super::super::Foundation:: HANDLE, lpexitcode : *mut u32) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn GetExitCodeThread(hthread : super::super::Foundation:: HANDLE, lpexitcode : *mut u32) -> super::super::Foundation:: BOOL);
     GetExitCodeThread(hthread.into_param().abi(), lpexitcode).ok()
 }
 #[inline]
@@ -857,43 +857,43 @@ pub unsafe fn GetGuiResources<P0>(hprocess: P0, uiflags: GET_GUI_RESOURCES_FLAGS
 where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("user32.dll" "system" fn GetGuiResources(hprocess : super::super::Foundation:: HANDLE, uiflags : GET_GUI_RESOURCES_FLAGS) -> u32);
+    windows_targets::link!("user32.dll" "system" fn GetGuiResources(hprocess : super::super::Foundation:: HANDLE, uiflags : GET_GUI_RESOURCES_FLAGS) -> u32);
     GetGuiResources(hprocess.into_param().abi(), uiflags)
 }
 #[inline]
 pub unsafe fn GetMachineTypeAttributes(machine: u16) -> windows_core::Result<MACHINE_ATTRIBUTES> {
-    ::windows_targets::link!("kernel32.dll" "system" fn GetMachineTypeAttributes(machine : u16, machinetypeattributes : *mut MACHINE_ATTRIBUTES) -> windows_core::HRESULT);
+    windows_targets::link!("kernel32.dll" "system" fn GetMachineTypeAttributes(machine : u16, machinetypeattributes : *mut MACHINE_ATTRIBUTES) -> windows_core::HRESULT);
     let mut result__ = std::mem::zeroed();
     GetMachineTypeAttributes(machine, &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn GetMaximumProcessorCount(groupnumber: u16) -> u32 {
-    ::windows_targets::link!("kernel32.dll" "system" fn GetMaximumProcessorCount(groupnumber : u16) -> u32);
+    windows_targets::link!("kernel32.dll" "system" fn GetMaximumProcessorCount(groupnumber : u16) -> u32);
     GetMaximumProcessorCount(groupnumber)
 }
 #[inline]
 pub unsafe fn GetMaximumProcessorGroupCount() -> u16 {
-    ::windows_targets::link!("kernel32.dll" "system" fn GetMaximumProcessorGroupCount() -> u16);
+    windows_targets::link!("kernel32.dll" "system" fn GetMaximumProcessorGroupCount() -> u16);
     GetMaximumProcessorGroupCount()
 }
 #[inline]
 pub unsafe fn GetNextUmsListItem(umscontext: *mut core::ffi::c_void) -> *mut core::ffi::c_void {
-    ::windows_targets::link!("kernel32.dll" "system" fn GetNextUmsListItem(umscontext : *mut core::ffi::c_void) -> *mut core::ffi::c_void);
+    windows_targets::link!("kernel32.dll" "system" fn GetNextUmsListItem(umscontext : *mut core::ffi::c_void) -> *mut core::ffi::c_void);
     GetNextUmsListItem(umscontext)
 }
 #[inline]
 pub unsafe fn GetNumaAvailableMemoryNode(node: u8, availablebytes: *mut u64) -> windows_core::Result<()> {
-    ::windows_targets::link!("kernel32.dll" "system" fn GetNumaAvailableMemoryNode(node : u8, availablebytes : *mut u64) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn GetNumaAvailableMemoryNode(node : u8, availablebytes : *mut u64) -> super::super::Foundation:: BOOL);
     GetNumaAvailableMemoryNode(node, availablebytes).ok()
 }
 #[inline]
 pub unsafe fn GetNumaAvailableMemoryNodeEx(node: u16, availablebytes: *mut u64) -> windows_core::Result<()> {
-    ::windows_targets::link!("kernel32.dll" "system" fn GetNumaAvailableMemoryNodeEx(node : u16, availablebytes : *mut u64) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn GetNumaAvailableMemoryNodeEx(node : u16, availablebytes : *mut u64) -> super::super::Foundation:: BOOL);
     GetNumaAvailableMemoryNodeEx(node, availablebytes).ok()
 }
 #[inline]
 pub unsafe fn GetNumaHighestNodeNumber(highestnodenumber: *mut u32) -> windows_core::Result<()> {
-    ::windows_targets::link!("kernel32.dll" "system" fn GetNumaHighestNodeNumber(highestnodenumber : *mut u32) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn GetNumaHighestNodeNumber(highestnodenumber : *mut u32) -> super::super::Foundation:: BOOL);
     GetNumaHighestNodeNumber(highestnodenumber).ok()
 }
 #[inline]
@@ -901,45 +901,45 @@ pub unsafe fn GetNumaNodeNumberFromHandle<P0>(hfile: P0, nodenumber: *mut u16) -
 where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn GetNumaNodeNumberFromHandle(hfile : super::super::Foundation:: HANDLE, nodenumber : *mut u16) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn GetNumaNodeNumberFromHandle(hfile : super::super::Foundation:: HANDLE, nodenumber : *mut u16) -> super::super::Foundation:: BOOL);
     GetNumaNodeNumberFromHandle(hfile.into_param().abi(), nodenumber).ok()
 }
 #[inline]
 pub unsafe fn GetNumaNodeProcessorMask(node: u8, processormask: *mut u64) -> windows_core::Result<()> {
-    ::windows_targets::link!("kernel32.dll" "system" fn GetNumaNodeProcessorMask(node : u8, processormask : *mut u64) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn GetNumaNodeProcessorMask(node : u8, processormask : *mut u64) -> super::super::Foundation:: BOOL);
     GetNumaNodeProcessorMask(node, processormask).ok()
 }
 #[cfg(feature = "Win32_System_SystemInformation")]
 #[inline]
 pub unsafe fn GetNumaNodeProcessorMask2(nodenumber: u16, processormasks: Option<&mut [super::SystemInformation::GROUP_AFFINITY]>, requiredmaskcount: *mut u16) -> super::super::Foundation::BOOL {
-    ::windows_targets::link!("kernel32.dll" "system" fn GetNumaNodeProcessorMask2(nodenumber : u16, processormasks : *mut super::SystemInformation:: GROUP_AFFINITY, processormaskcount : u16, requiredmaskcount : *mut u16) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn GetNumaNodeProcessorMask2(nodenumber : u16, processormasks : *mut super::SystemInformation:: GROUP_AFFINITY, processormaskcount : u16, requiredmaskcount : *mut u16) -> super::super::Foundation:: BOOL);
     GetNumaNodeProcessorMask2(nodenumber, core::mem::transmute(processormasks.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), processormasks.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), requiredmaskcount)
 }
 #[cfg(feature = "Win32_System_SystemInformation")]
 #[inline]
 pub unsafe fn GetNumaNodeProcessorMaskEx(node: u16, processormask: *mut super::SystemInformation::GROUP_AFFINITY) -> super::super::Foundation::BOOL {
-    ::windows_targets::link!("kernel32.dll" "system" fn GetNumaNodeProcessorMaskEx(node : u16, processormask : *mut super::SystemInformation:: GROUP_AFFINITY) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn GetNumaNodeProcessorMaskEx(node : u16, processormask : *mut super::SystemInformation:: GROUP_AFFINITY) -> super::super::Foundation:: BOOL);
     GetNumaNodeProcessorMaskEx(node, processormask)
 }
 #[inline]
 pub unsafe fn GetNumaProcessorNode(processor: u8, nodenumber: *mut u8) -> windows_core::Result<()> {
-    ::windows_targets::link!("kernel32.dll" "system" fn GetNumaProcessorNode(processor : u8, nodenumber : *mut u8) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn GetNumaProcessorNode(processor : u8, nodenumber : *mut u8) -> super::super::Foundation:: BOOL);
     GetNumaProcessorNode(processor, nodenumber).ok()
 }
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn GetNumaProcessorNodeEx(processor: *const super::Kernel::PROCESSOR_NUMBER, nodenumber: *mut u16) -> windows_core::Result<()> {
-    ::windows_targets::link!("kernel32.dll" "system" fn GetNumaProcessorNodeEx(processor : *const super::Kernel:: PROCESSOR_NUMBER, nodenumber : *mut u16) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn GetNumaProcessorNodeEx(processor : *const super::Kernel:: PROCESSOR_NUMBER, nodenumber : *mut u16) -> super::super::Foundation:: BOOL);
     GetNumaProcessorNodeEx(processor, nodenumber).ok()
 }
 #[inline]
 pub unsafe fn GetNumaProximityNode(proximityid: u32, nodenumber: *mut u8) -> windows_core::Result<()> {
-    ::windows_targets::link!("kernel32.dll" "system" fn GetNumaProximityNode(proximityid : u32, nodenumber : *mut u8) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn GetNumaProximityNode(proximityid : u32, nodenumber : *mut u8) -> super::super::Foundation:: BOOL);
     GetNumaProximityNode(proximityid, nodenumber).ok()
 }
 #[inline]
 pub unsafe fn GetNumaProximityNodeEx(proximityid: u32, nodenumber: *mut u16) -> super::super::Foundation::BOOL {
-    ::windows_targets::link!("kernel32.dll" "system" fn GetNumaProximityNodeEx(proximityid : u32, nodenumber : *mut u16) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn GetNumaProximityNodeEx(proximityid : u32, nodenumber : *mut u16) -> super::super::Foundation:: BOOL);
     GetNumaProximityNodeEx(proximityid, nodenumber)
 }
 #[inline]
@@ -947,7 +947,7 @@ pub unsafe fn GetPriorityClass<P0>(hprocess: P0) -> u32
 where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn GetPriorityClass(hprocess : super::super::Foundation:: HANDLE) -> u32);
+    windows_targets::link!("kernel32.dll" "system" fn GetPriorityClass(hprocess : super::super::Foundation:: HANDLE) -> u32);
     GetPriorityClass(hprocess.into_param().abi())
 }
 #[inline]
@@ -955,7 +955,7 @@ pub unsafe fn GetProcessAffinityMask<P0>(hprocess: P0, lpprocessaffinitymask: *m
 where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn GetProcessAffinityMask(hprocess : super::super::Foundation:: HANDLE, lpprocessaffinitymask : *mut usize, lpsystemaffinitymask : *mut usize) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn GetProcessAffinityMask(hprocess : super::super::Foundation:: HANDLE, lpprocessaffinitymask : *mut usize, lpsystemaffinitymask : *mut usize) -> super::super::Foundation:: BOOL);
     GetProcessAffinityMask(hprocess.into_param().abi(), lpprocessaffinitymask, lpsystemaffinitymask).ok()
 }
 #[inline]
@@ -963,7 +963,7 @@ pub unsafe fn GetProcessDEPPolicy<P0>(hprocess: P0, lpflags: *mut u32, lppermane
 where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn GetProcessDEPPolicy(hprocess : super::super::Foundation:: HANDLE, lpflags : *mut u32, lppermanent : *mut super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn GetProcessDEPPolicy(hprocess : super::super::Foundation:: HANDLE, lpflags : *mut u32, lppermanent : *mut super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
     GetProcessDEPPolicy(hprocess.into_param().abi(), lpflags, lppermanent).ok()
 }
 #[cfg(feature = "Win32_System_SystemInformation")]
@@ -972,7 +972,7 @@ pub unsafe fn GetProcessDefaultCpuSetMasks<P0>(process: P0, cpusetmasks: Option<
 where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn GetProcessDefaultCpuSetMasks(process : super::super::Foundation:: HANDLE, cpusetmasks : *mut super::SystemInformation:: GROUP_AFFINITY, cpusetmaskcount : u16, requiredmaskcount : *mut u16) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn GetProcessDefaultCpuSetMasks(process : super::super::Foundation:: HANDLE, cpusetmasks : *mut super::SystemInformation:: GROUP_AFFINITY, cpusetmaskcount : u16, requiredmaskcount : *mut u16) -> super::super::Foundation:: BOOL);
     GetProcessDefaultCpuSetMasks(process.into_param().abi(), core::mem::transmute(cpusetmasks.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), cpusetmasks.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), requiredmaskcount)
 }
 #[inline]
@@ -980,7 +980,7 @@ pub unsafe fn GetProcessDefaultCpuSets<P0>(process: P0, cpusetids: Option<&mut [
 where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn GetProcessDefaultCpuSets(process : super::super::Foundation:: HANDLE, cpusetids : *mut u32, cpusetidcount : u32, requiredidcount : *mut u32) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn GetProcessDefaultCpuSets(process : super::super::Foundation:: HANDLE, cpusetids : *mut u32, cpusetidcount : u32, requiredidcount : *mut u32) -> super::super::Foundation:: BOOL);
     GetProcessDefaultCpuSets(process.into_param().abi(), core::mem::transmute(cpusetids.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), cpusetids.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), requiredidcount)
 }
 #[inline]
@@ -988,7 +988,7 @@ pub unsafe fn GetProcessGroupAffinity<P0>(hprocess: P0, groupcount: *mut u16, gr
 where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn GetProcessGroupAffinity(hprocess : super::super::Foundation:: HANDLE, groupcount : *mut u16, grouparray : *mut u16) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn GetProcessGroupAffinity(hprocess : super::super::Foundation:: HANDLE, groupcount : *mut u16, grouparray : *mut u16) -> super::super::Foundation:: BOOL);
     GetProcessGroupAffinity(hprocess.into_param().abi(), groupcount, grouparray)
 }
 #[inline]
@@ -996,7 +996,7 @@ pub unsafe fn GetProcessHandleCount<P0>(hprocess: P0, pdwhandlecount: *mut u32) 
 where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn GetProcessHandleCount(hprocess : super::super::Foundation:: HANDLE, pdwhandlecount : *mut u32) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn GetProcessHandleCount(hprocess : super::super::Foundation:: HANDLE, pdwhandlecount : *mut u32) -> super::super::Foundation:: BOOL);
     GetProcessHandleCount(hprocess.into_param().abi(), pdwhandlecount).ok()
 }
 #[inline]
@@ -1004,7 +1004,7 @@ pub unsafe fn GetProcessId<P0>(process: P0) -> u32
 where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn GetProcessId(process : super::super::Foundation:: HANDLE) -> u32);
+    windows_targets::link!("kernel32.dll" "system" fn GetProcessId(process : super::super::Foundation:: HANDLE) -> u32);
     GetProcessId(process.into_param().abi())
 }
 #[inline]
@@ -1012,7 +1012,7 @@ pub unsafe fn GetProcessIdOfThread<P0>(thread: P0) -> u32
 where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn GetProcessIdOfThread(thread : super::super::Foundation:: HANDLE) -> u32);
+    windows_targets::link!("kernel32.dll" "system" fn GetProcessIdOfThread(thread : super::super::Foundation:: HANDLE) -> u32);
     GetProcessIdOfThread(thread.into_param().abi())
 }
 #[inline]
@@ -1020,7 +1020,7 @@ pub unsafe fn GetProcessInformation<P0>(hprocess: P0, processinformationclass: P
 where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn GetProcessInformation(hprocess : super::super::Foundation:: HANDLE, processinformationclass : PROCESS_INFORMATION_CLASS, processinformation : *mut core::ffi::c_void, processinformationsize : u32) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn GetProcessInformation(hprocess : super::super::Foundation:: HANDLE, processinformationclass : PROCESS_INFORMATION_CLASS, processinformation : *mut core::ffi::c_void, processinformationsize : u32) -> super::super::Foundation:: BOOL);
     GetProcessInformation(hprocess.into_param().abi(), processinformationclass, processinformation, processinformationsize).ok()
 }
 #[inline]
@@ -1028,7 +1028,7 @@ pub unsafe fn GetProcessIoCounters<P0>(hprocess: P0, lpiocounters: *mut IO_COUNT
 where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn GetProcessIoCounters(hprocess : super::super::Foundation:: HANDLE, lpiocounters : *mut IO_COUNTERS) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn GetProcessIoCounters(hprocess : super::super::Foundation:: HANDLE, lpiocounters : *mut IO_COUNTERS) -> super::super::Foundation:: BOOL);
     GetProcessIoCounters(hprocess.into_param().abi(), lpiocounters).ok()
 }
 #[inline]
@@ -1036,7 +1036,7 @@ pub unsafe fn GetProcessMitigationPolicy<P0>(hprocess: P0, mitigationpolicy: PRO
 where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn GetProcessMitigationPolicy(hprocess : super::super::Foundation:: HANDLE, mitigationpolicy : PROCESS_MITIGATION_POLICY, lpbuffer : *mut core::ffi::c_void, dwlength : usize) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn GetProcessMitigationPolicy(hprocess : super::super::Foundation:: HANDLE, mitigationpolicy : PROCESS_MITIGATION_POLICY, lpbuffer : *mut core::ffi::c_void, dwlength : usize) -> super::super::Foundation:: BOOL);
     GetProcessMitigationPolicy(hprocess.into_param().abi(), mitigationpolicy, lpbuffer, dwlength).ok()
 }
 #[inline]
@@ -1044,12 +1044,12 @@ pub unsafe fn GetProcessPriorityBoost<P0>(hprocess: P0, pdisablepriorityboost: *
 where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn GetProcessPriorityBoost(hprocess : super::super::Foundation:: HANDLE, pdisablepriorityboost : *mut super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn GetProcessPriorityBoost(hprocess : super::super::Foundation:: HANDLE, pdisablepriorityboost : *mut super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
     GetProcessPriorityBoost(hprocess.into_param().abi(), pdisablepriorityboost).ok()
 }
 #[inline]
 pub unsafe fn GetProcessShutdownParameters(lpdwlevel: *mut u32, lpdwflags: *mut u32) -> windows_core::Result<()> {
-    ::windows_targets::link!("kernel32.dll" "system" fn GetProcessShutdownParameters(lpdwlevel : *mut u32, lpdwflags : *mut u32) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn GetProcessShutdownParameters(lpdwlevel : *mut u32, lpdwflags : *mut u32) -> super::super::Foundation:: BOOL);
     GetProcessShutdownParameters(lpdwlevel, lpdwflags).ok()
 }
 #[inline]
@@ -1057,12 +1057,12 @@ pub unsafe fn GetProcessTimes<P0>(hprocess: P0, lpcreationtime: *mut super::supe
 where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn GetProcessTimes(hprocess : super::super::Foundation:: HANDLE, lpcreationtime : *mut super::super::Foundation:: FILETIME, lpexittime : *mut super::super::Foundation:: FILETIME, lpkerneltime : *mut super::super::Foundation:: FILETIME, lpusertime : *mut super::super::Foundation:: FILETIME) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn GetProcessTimes(hprocess : super::super::Foundation:: HANDLE, lpcreationtime : *mut super::super::Foundation:: FILETIME, lpexittime : *mut super::super::Foundation:: FILETIME, lpkerneltime : *mut super::super::Foundation:: FILETIME, lpusertime : *mut super::super::Foundation:: FILETIME) -> super::super::Foundation:: BOOL);
     GetProcessTimes(hprocess.into_param().abi(), lpcreationtime, lpexittime, lpkerneltime, lpusertime).ok()
 }
 #[inline]
 pub unsafe fn GetProcessVersion(processid: u32) -> u32 {
-    ::windows_targets::link!("kernel32.dll" "system" fn GetProcessVersion(processid : u32) -> u32);
+    windows_targets::link!("kernel32.dll" "system" fn GetProcessVersion(processid : u32) -> u32);
     GetProcessVersion(processid)
 }
 #[inline]
@@ -1070,22 +1070,22 @@ pub unsafe fn GetProcessWorkingSetSize<P0>(hprocess: P0, lpminimumworkingsetsize
 where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn GetProcessWorkingSetSize(hprocess : super::super::Foundation:: HANDLE, lpminimumworkingsetsize : *mut usize, lpmaximumworkingsetsize : *mut usize) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn GetProcessWorkingSetSize(hprocess : super::super::Foundation:: HANDLE, lpminimumworkingsetsize : *mut usize, lpmaximumworkingsetsize : *mut usize) -> super::super::Foundation:: BOOL);
     GetProcessWorkingSetSize(hprocess.into_param().abi(), lpminimumworkingsetsize, lpmaximumworkingsetsize).ok()
 }
 #[inline]
 pub unsafe fn GetStartupInfoA(lpstartupinfo: *mut STARTUPINFOA) {
-    ::windows_targets::link!("kernel32.dll" "system" fn GetStartupInfoA(lpstartupinfo : *mut STARTUPINFOA));
+    windows_targets::link!("kernel32.dll" "system" fn GetStartupInfoA(lpstartupinfo : *mut STARTUPINFOA));
     GetStartupInfoA(lpstartupinfo)
 }
 #[inline]
 pub unsafe fn GetStartupInfoW(lpstartupinfo: *mut STARTUPINFOW) {
-    ::windows_targets::link!("kernel32.dll" "system" fn GetStartupInfoW(lpstartupinfo : *mut STARTUPINFOW));
+    windows_targets::link!("kernel32.dll" "system" fn GetStartupInfoW(lpstartupinfo : *mut STARTUPINFOW));
     GetStartupInfoW(lpstartupinfo)
 }
 #[inline]
 pub unsafe fn GetSystemTimes(lpidletime: Option<*mut super::super::Foundation::FILETIME>, lpkerneltime: Option<*mut super::super::Foundation::FILETIME>, lpusertime: Option<*mut super::super::Foundation::FILETIME>) -> windows_core::Result<()> {
-    ::windows_targets::link!("kernel32.dll" "system" fn GetSystemTimes(lpidletime : *mut super::super::Foundation:: FILETIME, lpkerneltime : *mut super::super::Foundation:: FILETIME, lpusertime : *mut super::super::Foundation:: FILETIME) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn GetSystemTimes(lpidletime : *mut super::super::Foundation:: FILETIME, lpkerneltime : *mut super::super::Foundation:: FILETIME, lpusertime : *mut super::super::Foundation:: FILETIME) -> super::super::Foundation:: BOOL);
     GetSystemTimes(core::mem::transmute(lpidletime.unwrap_or(std::ptr::null_mut())), core::mem::transmute(lpkerneltime.unwrap_or(std::ptr::null_mut())), core::mem::transmute(lpusertime.unwrap_or(std::ptr::null_mut()))).ok()
 }
 #[inline]
@@ -1093,7 +1093,7 @@ pub unsafe fn GetThreadDescription<P0>(hthread: P0) -> windows_core::Result<wind
 where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn GetThreadDescription(hthread : super::super::Foundation:: HANDLE, ppszthreaddescription : *mut windows_core::PWSTR) -> windows_core::HRESULT);
+    windows_targets::link!("kernel32.dll" "system" fn GetThreadDescription(hthread : super::super::Foundation:: HANDLE, ppszthreaddescription : *mut windows_core::PWSTR) -> windows_core::HRESULT);
     let mut result__ = std::mem::zeroed();
     GetThreadDescription(hthread.into_param().abi(), &mut result__).map(|| result__)
 }
@@ -1103,7 +1103,7 @@ pub unsafe fn GetThreadGroupAffinity<P0>(hthread: P0, groupaffinity: *mut super:
 where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn GetThreadGroupAffinity(hthread : super::super::Foundation:: HANDLE, groupaffinity : *mut super::SystemInformation:: GROUP_AFFINITY) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn GetThreadGroupAffinity(hthread : super::super::Foundation:: HANDLE, groupaffinity : *mut super::SystemInformation:: GROUP_AFFINITY) -> super::super::Foundation:: BOOL);
     GetThreadGroupAffinity(hthread.into_param().abi(), groupaffinity)
 }
 #[inline]
@@ -1111,7 +1111,7 @@ pub unsafe fn GetThreadIOPendingFlag<P0>(hthread: P0, lpioispending: *mut super:
 where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn GetThreadIOPendingFlag(hthread : super::super::Foundation:: HANDLE, lpioispending : *mut super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn GetThreadIOPendingFlag(hthread : super::super::Foundation:: HANDLE, lpioispending : *mut super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
     GetThreadIOPendingFlag(hthread.into_param().abi(), lpioispending).ok()
 }
 #[inline]
@@ -1119,7 +1119,7 @@ pub unsafe fn GetThreadId<P0>(thread: P0) -> u32
 where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn GetThreadId(thread : super::super::Foundation:: HANDLE) -> u32);
+    windows_targets::link!("kernel32.dll" "system" fn GetThreadId(thread : super::super::Foundation:: HANDLE) -> u32);
     GetThreadId(thread.into_param().abi())
 }
 #[cfg(feature = "Win32_System_Kernel")]
@@ -1128,7 +1128,7 @@ pub unsafe fn GetThreadIdealProcessorEx<P0>(hthread: P0, lpidealprocessor: *mut 
 where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn GetThreadIdealProcessorEx(hthread : super::super::Foundation:: HANDLE, lpidealprocessor : *mut super::Kernel:: PROCESSOR_NUMBER) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn GetThreadIdealProcessorEx(hthread : super::super::Foundation:: HANDLE, lpidealprocessor : *mut super::Kernel:: PROCESSOR_NUMBER) -> super::super::Foundation:: BOOL);
     GetThreadIdealProcessorEx(hthread.into_param().abi(), lpidealprocessor).ok()
 }
 #[inline]
@@ -1136,7 +1136,7 @@ pub unsafe fn GetThreadInformation<P0>(hthread: P0, threadinformationclass: THRE
 where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn GetThreadInformation(hthread : super::super::Foundation:: HANDLE, threadinformationclass : THREAD_INFORMATION_CLASS, threadinformation : *mut core::ffi::c_void, threadinformationsize : u32) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn GetThreadInformation(hthread : super::super::Foundation:: HANDLE, threadinformationclass : THREAD_INFORMATION_CLASS, threadinformation : *mut core::ffi::c_void, threadinformationsize : u32) -> super::super::Foundation:: BOOL);
     GetThreadInformation(hthread.into_param().abi(), threadinformationclass, threadinformation, threadinformationsize).ok()
 }
 #[inline]
@@ -1144,7 +1144,7 @@ pub unsafe fn GetThreadPriority<P0>(hthread: P0) -> i32
 where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn GetThreadPriority(hthread : super::super::Foundation:: HANDLE) -> i32);
+    windows_targets::link!("kernel32.dll" "system" fn GetThreadPriority(hthread : super::super::Foundation:: HANDLE) -> i32);
     GetThreadPriority(hthread.into_param().abi())
 }
 #[inline]
@@ -1152,7 +1152,7 @@ pub unsafe fn GetThreadPriorityBoost<P0>(hthread: P0, pdisablepriorityboost: *mu
 where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn GetThreadPriorityBoost(hthread : super::super::Foundation:: HANDLE, pdisablepriorityboost : *mut super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn GetThreadPriorityBoost(hthread : super::super::Foundation:: HANDLE, pdisablepriorityboost : *mut super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
     GetThreadPriorityBoost(hthread.into_param().abi(), pdisablepriorityboost).ok()
 }
 #[cfg(feature = "Win32_System_SystemInformation")]
@@ -1161,7 +1161,7 @@ pub unsafe fn GetThreadSelectedCpuSetMasks<P0>(thread: P0, cpusetmasks: Option<&
 where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn GetThreadSelectedCpuSetMasks(thread : super::super::Foundation:: HANDLE, cpusetmasks : *mut super::SystemInformation:: GROUP_AFFINITY, cpusetmaskcount : u16, requiredmaskcount : *mut u16) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn GetThreadSelectedCpuSetMasks(thread : super::super::Foundation:: HANDLE, cpusetmasks : *mut super::SystemInformation:: GROUP_AFFINITY, cpusetmaskcount : u16, requiredmaskcount : *mut u16) -> super::super::Foundation:: BOOL);
     GetThreadSelectedCpuSetMasks(thread.into_param().abi(), core::mem::transmute(cpusetmasks.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), cpusetmasks.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), requiredmaskcount)
 }
 #[inline]
@@ -1169,7 +1169,7 @@ pub unsafe fn GetThreadSelectedCpuSets<P0>(thread: P0, cpusetids: Option<&mut [u
 where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn GetThreadSelectedCpuSets(thread : super::super::Foundation:: HANDLE, cpusetids : *mut u32, cpusetidcount : u32, requiredidcount : *mut u32) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn GetThreadSelectedCpuSets(thread : super::super::Foundation:: HANDLE, cpusetids : *mut u32, cpusetidcount : u32, requiredidcount : *mut u32) -> super::super::Foundation:: BOOL);
     GetThreadSelectedCpuSets(thread.into_param().abi(), core::mem::transmute(cpusetids.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), cpusetids.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), requiredidcount)
 }
 #[inline]
@@ -1177,12 +1177,12 @@ pub unsafe fn GetThreadTimes<P0>(hthread: P0, lpcreationtime: *mut super::super:
 where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn GetThreadTimes(hthread : super::super::Foundation:: HANDLE, lpcreationtime : *mut super::super::Foundation:: FILETIME, lpexittime : *mut super::super::Foundation:: FILETIME, lpkerneltime : *mut super::super::Foundation:: FILETIME, lpusertime : *mut super::super::Foundation:: FILETIME) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn GetThreadTimes(hthread : super::super::Foundation:: HANDLE, lpcreationtime : *mut super::super::Foundation:: FILETIME, lpexittime : *mut super::super::Foundation:: FILETIME, lpkerneltime : *mut super::super::Foundation:: FILETIME, lpusertime : *mut super::super::Foundation:: FILETIME) -> super::super::Foundation:: BOOL);
     GetThreadTimes(hthread.into_param().abi(), lpcreationtime, lpexittime, lpkerneltime, lpusertime).ok()
 }
 #[inline]
 pub unsafe fn GetUmsCompletionListEvent(umscompletionlist: *const core::ffi::c_void, umscompletionevent: *mut super::super::Foundation::HANDLE) -> windows_core::Result<()> {
-    ::windows_targets::link!("kernel32.dll" "system" fn GetUmsCompletionListEvent(umscompletionlist : *const core::ffi::c_void, umscompletionevent : *mut super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn GetUmsCompletionListEvent(umscompletionlist : *const core::ffi::c_void, umscompletionevent : *mut super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
     GetUmsCompletionListEvent(umscompletionlist, umscompletionevent).ok()
 }
 #[inline]
@@ -1190,34 +1190,34 @@ pub unsafe fn GetUmsSystemThreadInformation<P0>(threadhandle: P0, systemthreadin
 where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn GetUmsSystemThreadInformation(threadhandle : super::super::Foundation:: HANDLE, systemthreadinfo : *mut UMS_SYSTEM_THREAD_INFORMATION) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn GetUmsSystemThreadInformation(threadhandle : super::super::Foundation:: HANDLE, systemthreadinfo : *mut UMS_SYSTEM_THREAD_INFORMATION) -> super::super::Foundation:: BOOL);
     GetUmsSystemThreadInformation(threadhandle.into_param().abi(), systemthreadinfo)
 }
 #[inline]
 pub unsafe fn InitOnceBeginInitialize(lpinitonce: *mut INIT_ONCE, dwflags: u32, fpending: *mut super::super::Foundation::BOOL, lpcontext: Option<*mut *mut core::ffi::c_void>) -> windows_core::Result<()> {
-    ::windows_targets::link!("kernel32.dll" "system" fn InitOnceBeginInitialize(lpinitonce : *mut INIT_ONCE, dwflags : u32, fpending : *mut super::super::Foundation:: BOOL, lpcontext : *mut *mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn InitOnceBeginInitialize(lpinitonce : *mut INIT_ONCE, dwflags : u32, fpending : *mut super::super::Foundation:: BOOL, lpcontext : *mut *mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
     InitOnceBeginInitialize(lpinitonce, dwflags, fpending, core::mem::transmute(lpcontext.unwrap_or(std::ptr::null_mut()))).ok()
 }
 #[inline]
 pub unsafe fn InitOnceComplete(lpinitonce: *mut INIT_ONCE, dwflags: u32, lpcontext: Option<*const core::ffi::c_void>) -> windows_core::Result<()> {
-    ::windows_targets::link!("kernel32.dll" "system" fn InitOnceComplete(lpinitonce : *mut INIT_ONCE, dwflags : u32, lpcontext : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn InitOnceComplete(lpinitonce : *mut INIT_ONCE, dwflags : u32, lpcontext : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
     InitOnceComplete(lpinitonce, dwflags, core::mem::transmute(lpcontext.unwrap_or(std::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn InitOnceExecuteOnce(initonce: *mut INIT_ONCE, initfn: PINIT_ONCE_FN, parameter: Option<*mut core::ffi::c_void>, context: Option<*mut *mut core::ffi::c_void>) -> windows_core::Result<()> {
-    ::windows_targets::link!("kernel32.dll" "system" fn InitOnceExecuteOnce(initonce : *mut INIT_ONCE, initfn : PINIT_ONCE_FN, parameter : *mut core::ffi::c_void, context : *mut *mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn InitOnceExecuteOnce(initonce : *mut INIT_ONCE, initfn : PINIT_ONCE_FN, parameter : *mut core::ffi::c_void, context : *mut *mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
     InitOnceExecuteOnce(initonce, initfn, core::mem::transmute(parameter.unwrap_or(std::ptr::null_mut())), core::mem::transmute(context.unwrap_or(std::ptr::null_mut()))).ok()
 }
 #[inline]
 pub unsafe fn InitOnceInitialize() -> INIT_ONCE {
-    ::windows_targets::link!("kernel32.dll" "system" fn InitOnceInitialize(initonce : *mut INIT_ONCE));
+    windows_targets::link!("kernel32.dll" "system" fn InitOnceInitialize(initonce : *mut INIT_ONCE));
     let mut result__ = std::mem::zeroed();
     InitOnceInitialize(&mut result__);
     result__
 }
 #[inline]
 pub unsafe fn InitializeConditionVariable() -> CONDITION_VARIABLE {
-    ::windows_targets::link!("kernel32.dll" "system" fn InitializeConditionVariable(conditionvariable : *mut CONDITION_VARIABLE));
+    windows_targets::link!("kernel32.dll" "system" fn InitializeConditionVariable(conditionvariable : *mut CONDITION_VARIABLE));
     let mut result__ = std::mem::zeroed();
     InitializeConditionVariable(&mut result__);
     result__
@@ -1225,68 +1225,68 @@ pub unsafe fn InitializeConditionVariable() -> CONDITION_VARIABLE {
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn InitializeCriticalSection(lpcriticalsection: *mut CRITICAL_SECTION) {
-    ::windows_targets::link!("kernel32.dll" "system" fn InitializeCriticalSection(lpcriticalsection : *mut CRITICAL_SECTION));
+    windows_targets::link!("kernel32.dll" "system" fn InitializeCriticalSection(lpcriticalsection : *mut CRITICAL_SECTION));
     InitializeCriticalSection(lpcriticalsection)
 }
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn InitializeCriticalSectionAndSpinCount(lpcriticalsection: *mut CRITICAL_SECTION, dwspincount: u32) -> windows_core::Result<()> {
-    ::windows_targets::link!("kernel32.dll" "system" fn InitializeCriticalSectionAndSpinCount(lpcriticalsection : *mut CRITICAL_SECTION, dwspincount : u32) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn InitializeCriticalSectionAndSpinCount(lpcriticalsection : *mut CRITICAL_SECTION, dwspincount : u32) -> super::super::Foundation:: BOOL);
     InitializeCriticalSectionAndSpinCount(lpcriticalsection, dwspincount).ok()
 }
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn InitializeCriticalSectionEx(lpcriticalsection: *mut CRITICAL_SECTION, dwspincount: u32, flags: u32) -> windows_core::Result<()> {
-    ::windows_targets::link!("kernel32.dll" "system" fn InitializeCriticalSectionEx(lpcriticalsection : *mut CRITICAL_SECTION, dwspincount : u32, flags : u32) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn InitializeCriticalSectionEx(lpcriticalsection : *mut CRITICAL_SECTION, dwspincount : u32, flags : u32) -> super::super::Foundation:: BOOL);
     InitializeCriticalSectionEx(lpcriticalsection, dwspincount, flags).ok()
 }
 #[inline]
 pub unsafe fn InitializeProcThreadAttributeList(lpattributelist: LPPROC_THREAD_ATTRIBUTE_LIST, dwattributecount: u32, dwflags: u32, lpsize: *mut usize) -> windows_core::Result<()> {
-    ::windows_targets::link!("kernel32.dll" "system" fn InitializeProcThreadAttributeList(lpattributelist : LPPROC_THREAD_ATTRIBUTE_LIST, dwattributecount : u32, dwflags : u32, lpsize : *mut usize) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn InitializeProcThreadAttributeList(lpattributelist : LPPROC_THREAD_ATTRIBUTE_LIST, dwattributecount : u32, dwflags : u32, lpsize : *mut usize) -> super::super::Foundation:: BOOL);
     InitializeProcThreadAttributeList(lpattributelist, dwattributecount, dwflags, lpsize).ok()
 }
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn InitializeSListHead() -> super::Kernel::SLIST_HEADER {
-    ::windows_targets::link!("kernel32.dll" "system" fn InitializeSListHead(listhead : *mut super::Kernel:: SLIST_HEADER));
+    windows_targets::link!("kernel32.dll" "system" fn InitializeSListHead(listhead : *mut super::Kernel:: SLIST_HEADER));
     let mut result__ = std::mem::zeroed();
     InitializeSListHead(&mut result__);
     result__
 }
 #[inline]
 pub unsafe fn InitializeSRWLock() -> SRWLOCK {
-    ::windows_targets::link!("kernel32.dll" "system" fn InitializeSRWLock(srwlock : *mut SRWLOCK));
+    windows_targets::link!("kernel32.dll" "system" fn InitializeSRWLock(srwlock : *mut SRWLOCK));
     let mut result__ = std::mem::zeroed();
     InitializeSRWLock(&mut result__);
     result__
 }
 #[inline]
 pub unsafe fn InitializeSynchronizationBarrier(lpbarrier: *mut SYNCHRONIZATION_BARRIER, ltotalthreads: i32, lspincount: i32) -> windows_core::Result<()> {
-    ::windows_targets::link!("kernel32.dll" "system" fn InitializeSynchronizationBarrier(lpbarrier : *mut SYNCHRONIZATION_BARRIER, ltotalthreads : i32, lspincount : i32) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn InitializeSynchronizationBarrier(lpbarrier : *mut SYNCHRONIZATION_BARRIER, ltotalthreads : i32, lspincount : i32) -> super::super::Foundation:: BOOL);
     InitializeSynchronizationBarrier(lpbarrier, ltotalthreads, lspincount).ok()
 }
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn InterlockedFlushSList(listhead: *mut super::Kernel::SLIST_HEADER) -> *mut super::Kernel::SLIST_ENTRY {
-    ::windows_targets::link!("kernel32.dll" "system" fn InterlockedFlushSList(listhead : *mut super::Kernel:: SLIST_HEADER) -> *mut super::Kernel:: SLIST_ENTRY);
+    windows_targets::link!("kernel32.dll" "system" fn InterlockedFlushSList(listhead : *mut super::Kernel:: SLIST_HEADER) -> *mut super::Kernel:: SLIST_ENTRY);
     InterlockedFlushSList(listhead)
 }
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn InterlockedPopEntrySList(listhead: *mut super::Kernel::SLIST_HEADER) -> *mut super::Kernel::SLIST_ENTRY {
-    ::windows_targets::link!("kernel32.dll" "system" fn InterlockedPopEntrySList(listhead : *mut super::Kernel:: SLIST_HEADER) -> *mut super::Kernel:: SLIST_ENTRY);
+    windows_targets::link!("kernel32.dll" "system" fn InterlockedPopEntrySList(listhead : *mut super::Kernel:: SLIST_HEADER) -> *mut super::Kernel:: SLIST_ENTRY);
     InterlockedPopEntrySList(listhead)
 }
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn InterlockedPushEntrySList(listhead: *mut super::Kernel::SLIST_HEADER, listentry: *mut super::Kernel::SLIST_ENTRY) -> *mut super::Kernel::SLIST_ENTRY {
-    ::windows_targets::link!("kernel32.dll" "system" fn InterlockedPushEntrySList(listhead : *mut super::Kernel:: SLIST_HEADER, listentry : *mut super::Kernel:: SLIST_ENTRY) -> *mut super::Kernel:: SLIST_ENTRY);
+    windows_targets::link!("kernel32.dll" "system" fn InterlockedPushEntrySList(listhead : *mut super::Kernel:: SLIST_HEADER, listentry : *mut super::Kernel:: SLIST_ENTRY) -> *mut super::Kernel:: SLIST_ENTRY);
     InterlockedPushEntrySList(listhead, listentry)
 }
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn InterlockedPushListSListEx(listhead: *mut super::Kernel::SLIST_HEADER, list: *mut super::Kernel::SLIST_ENTRY, listend: *mut super::Kernel::SLIST_ENTRY, count: u32) -> *mut super::Kernel::SLIST_ENTRY {
-    ::windows_targets::link!("kernel32.dll" "system" fn InterlockedPushListSListEx(listhead : *mut super::Kernel:: SLIST_HEADER, list : *mut super::Kernel:: SLIST_ENTRY, listend : *mut super::Kernel:: SLIST_ENTRY, count : u32) -> *mut super::Kernel:: SLIST_ENTRY);
+    windows_targets::link!("kernel32.dll" "system" fn InterlockedPushListSListEx(listhead : *mut super::Kernel:: SLIST_HEADER, list : *mut super::Kernel:: SLIST_ENTRY, listend : *mut super::Kernel:: SLIST_ENTRY, count : u32) -> *mut super::Kernel:: SLIST_ENTRY);
     InterlockedPushListSListEx(listhead, list, listend, count)
 }
 #[inline]
@@ -1294,7 +1294,7 @@ pub unsafe fn IsImmersiveProcess<P0>(hprocess: P0) -> windows_core::Result<()>
 where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("user32.dll" "system" fn IsImmersiveProcess(hprocess : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("user32.dll" "system" fn IsImmersiveProcess(hprocess : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
     IsImmersiveProcess(hprocess.into_param().abi()).ok()
 }
 #[inline]
@@ -1302,17 +1302,17 @@ pub unsafe fn IsProcessCritical<P0>(hprocess: P0, critical: *mut super::super::F
 where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn IsProcessCritical(hprocess : super::super::Foundation:: HANDLE, critical : *mut super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn IsProcessCritical(hprocess : super::super::Foundation:: HANDLE, critical : *mut super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
     IsProcessCritical(hprocess.into_param().abi(), critical).ok()
 }
 #[inline]
 pub unsafe fn IsProcessorFeaturePresent(processorfeature: PROCESSOR_FEATURE_ID) -> super::super::Foundation::BOOL {
-    ::windows_targets::link!("kernel32.dll" "system" fn IsProcessorFeaturePresent(processorfeature : PROCESSOR_FEATURE_ID) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn IsProcessorFeaturePresent(processorfeature : PROCESSOR_FEATURE_ID) -> super::super::Foundation:: BOOL);
     IsProcessorFeaturePresent(processorfeature)
 }
 #[inline]
 pub unsafe fn IsThreadAFiber() -> super::super::Foundation::BOOL {
-    ::windows_targets::link!("kernel32.dll" "system" fn IsThreadAFiber() -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn IsThreadAFiber() -> super::super::Foundation:: BOOL);
     IsThreadAFiber()
 }
 #[inline]
@@ -1320,7 +1320,7 @@ pub unsafe fn IsThreadpoolTimerSet<P0>(pti: P0) -> super::super::Foundation::BOO
 where
     P0: windows_core::IntoParam<PTP_TIMER>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn IsThreadpoolTimerSet(pti : PTP_TIMER) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn IsThreadpoolTimerSet(pti : PTP_TIMER) -> super::super::Foundation:: BOOL);
     IsThreadpoolTimerSet(pti.into_param().abi())
 }
 #[inline]
@@ -1328,7 +1328,7 @@ pub unsafe fn IsWow64Process<P0>(hprocess: P0, wow64process: *mut super::super::
 where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn IsWow64Process(hprocess : super::super::Foundation:: HANDLE, wow64process : *mut super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn IsWow64Process(hprocess : super::super::Foundation:: HANDLE, wow64process : *mut super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
     IsWow64Process(hprocess.into_param().abi(), wow64process).ok()
 }
 #[cfg(feature = "Win32_System_SystemInformation")]
@@ -1337,13 +1337,13 @@ pub unsafe fn IsWow64Process2<P0>(hprocess: P0, pprocessmachine: *mut super::Sys
 where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn IsWow64Process2(hprocess : super::super::Foundation:: HANDLE, pprocessmachine : *mut super::SystemInformation:: IMAGE_FILE_MACHINE, pnativemachine : *mut super::SystemInformation:: IMAGE_FILE_MACHINE) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn IsWow64Process2(hprocess : super::super::Foundation:: HANDLE, pprocessmachine : *mut super::SystemInformation:: IMAGE_FILE_MACHINE, pnativemachine : *mut super::SystemInformation:: IMAGE_FILE_MACHINE) -> super::super::Foundation:: BOOL);
     IsWow64Process2(hprocess.into_param().abi(), pprocessmachine, core::mem::transmute(pnativemachine.unwrap_or(std::ptr::null_mut()))).ok()
 }
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn LeaveCriticalSection(lpcriticalsection: *mut CRITICAL_SECTION) {
-    ::windows_targets::link!("kernel32.dll" "system" fn LeaveCriticalSection(lpcriticalsection : *mut CRITICAL_SECTION));
+    windows_targets::link!("kernel32.dll" "system" fn LeaveCriticalSection(lpcriticalsection : *mut CRITICAL_SECTION));
     LeaveCriticalSection(lpcriticalsection)
 }
 #[cfg(feature = "Win32_System_Kernel")]
@@ -1352,7 +1352,7 @@ pub unsafe fn LeaveCriticalSectionWhenCallbackReturns<P0>(pci: P0, pcs: *mut CRI
 where
     P0: windows_core::IntoParam<PTP_CALLBACK_INSTANCE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn LeaveCriticalSectionWhenCallbackReturns(pci : PTP_CALLBACK_INSTANCE, pcs : *mut CRITICAL_SECTION));
+    windows_targets::link!("kernel32.dll" "system" fn LeaveCriticalSectionWhenCallbackReturns(pci : PTP_CALLBACK_INSTANCE, pcs : *mut CRITICAL_SECTION));
     LeaveCriticalSectionWhenCallbackReturns(pci.into_param().abi(), pcs)
 }
 #[inline]
@@ -1361,7 +1361,7 @@ where
     P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
     P1: windows_core::IntoParam<windows_core::PCSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn OpenEventA(dwdesiredaccess : SYNCHRONIZATION_ACCESS_RIGHTS, binherithandle : super::super::Foundation:: BOOL, lpname : windows_core::PCSTR) -> super::super::Foundation:: HANDLE);
+    windows_targets::link!("kernel32.dll" "system" fn OpenEventA(dwdesiredaccess : SYNCHRONIZATION_ACCESS_RIGHTS, binherithandle : super::super::Foundation:: BOOL, lpname : windows_core::PCSTR) -> super::super::Foundation:: HANDLE);
     let result__ = OpenEventA(dwdesiredaccess, binherithandle.into_param().abi(), lpname.into_param().abi());
     (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
 }
@@ -1371,7 +1371,7 @@ where
     P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
     P1: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn OpenEventW(dwdesiredaccess : SYNCHRONIZATION_ACCESS_RIGHTS, binherithandle : super::super::Foundation:: BOOL, lpname : windows_core::PCWSTR) -> super::super::Foundation:: HANDLE);
+    windows_targets::link!("kernel32.dll" "system" fn OpenEventW(dwdesiredaccess : SYNCHRONIZATION_ACCESS_RIGHTS, binherithandle : super::super::Foundation:: BOOL, lpname : windows_core::PCWSTR) -> super::super::Foundation:: HANDLE);
     let result__ = OpenEventW(dwdesiredaccess, binherithandle.into_param().abi(), lpname.into_param().abi());
     (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
 }
@@ -1381,7 +1381,7 @@ where
     P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
     P1: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn OpenMutexW(dwdesiredaccess : SYNCHRONIZATION_ACCESS_RIGHTS, binherithandle : super::super::Foundation:: BOOL, lpname : windows_core::PCWSTR) -> super::super::Foundation:: HANDLE);
+    windows_targets::link!("kernel32.dll" "system" fn OpenMutexW(dwdesiredaccess : SYNCHRONIZATION_ACCESS_RIGHTS, binherithandle : super::super::Foundation:: BOOL, lpname : windows_core::PCWSTR) -> super::super::Foundation:: HANDLE);
     let result__ = OpenMutexW(dwdesiredaccess, binherithandle.into_param().abi(), lpname.into_param().abi());
     (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
 }
@@ -1390,7 +1390,7 @@ pub unsafe fn OpenPrivateNamespaceA<P0>(lpboundarydescriptor: *const core::ffi::
 where
     P0: windows_core::IntoParam<windows_core::PCSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn OpenPrivateNamespaceA(lpboundarydescriptor : *const core::ffi::c_void, lpaliasprefix : windows_core::PCSTR) -> super::super::Foundation:: HANDLE);
+    windows_targets::link!("kernel32.dll" "system" fn OpenPrivateNamespaceA(lpboundarydescriptor : *const core::ffi::c_void, lpaliasprefix : windows_core::PCSTR) -> super::super::Foundation:: HANDLE);
     OpenPrivateNamespaceA(lpboundarydescriptor, lpaliasprefix.into_param().abi())
 }
 #[inline]
@@ -1398,7 +1398,7 @@ pub unsafe fn OpenPrivateNamespaceW<P0>(lpboundarydescriptor: *const core::ffi::
 where
     P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn OpenPrivateNamespaceW(lpboundarydescriptor : *const core::ffi::c_void, lpaliasprefix : windows_core::PCWSTR) -> super::super::Foundation:: HANDLE);
+    windows_targets::link!("kernel32.dll" "system" fn OpenPrivateNamespaceW(lpboundarydescriptor : *const core::ffi::c_void, lpaliasprefix : windows_core::PCWSTR) -> super::super::Foundation:: HANDLE);
     OpenPrivateNamespaceW(lpboundarydescriptor, lpaliasprefix.into_param().abi())
 }
 #[inline]
@@ -1406,7 +1406,7 @@ pub unsafe fn OpenProcess<P0>(dwdesiredaccess: PROCESS_ACCESS_RIGHTS, binheritha
 where
     P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn OpenProcess(dwdesiredaccess : PROCESS_ACCESS_RIGHTS, binherithandle : super::super::Foundation:: BOOL, dwprocessid : u32) -> super::super::Foundation:: HANDLE);
+    windows_targets::link!("kernel32.dll" "system" fn OpenProcess(dwdesiredaccess : PROCESS_ACCESS_RIGHTS, binherithandle : super::super::Foundation:: BOOL, dwprocessid : u32) -> super::super::Foundation:: HANDLE);
     let result__ = OpenProcess(dwdesiredaccess, binherithandle.into_param().abi(), dwprocessid);
     (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
 }
@@ -1416,7 +1416,7 @@ pub unsafe fn OpenProcessToken<P0>(processhandle: P0, desiredaccess: super::supe
 where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("advapi32.dll" "system" fn OpenProcessToken(processhandle : super::super::Foundation:: HANDLE, desiredaccess : super::super::Security:: TOKEN_ACCESS_MASK, tokenhandle : *mut super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("advapi32.dll" "system" fn OpenProcessToken(processhandle : super::super::Foundation:: HANDLE, desiredaccess : super::super::Security:: TOKEN_ACCESS_MASK, tokenhandle : *mut super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
     OpenProcessToken(processhandle.into_param().abi(), desiredaccess, tokenhandle).ok()
 }
 #[inline]
@@ -1425,7 +1425,7 @@ where
     P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
     P1: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn OpenSemaphoreW(dwdesiredaccess : SYNCHRONIZATION_ACCESS_RIGHTS, binherithandle : super::super::Foundation:: BOOL, lpname : windows_core::PCWSTR) -> super::super::Foundation:: HANDLE);
+    windows_targets::link!("kernel32.dll" "system" fn OpenSemaphoreW(dwdesiredaccess : SYNCHRONIZATION_ACCESS_RIGHTS, binherithandle : super::super::Foundation:: BOOL, lpname : windows_core::PCWSTR) -> super::super::Foundation:: HANDLE);
     let result__ = OpenSemaphoreW(dwdesiredaccess, binherithandle.into_param().abi(), lpname.into_param().abi());
     (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
 }
@@ -1434,7 +1434,7 @@ pub unsafe fn OpenThread<P0>(dwdesiredaccess: THREAD_ACCESS_RIGHTS, binherithand
 where
     P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn OpenThread(dwdesiredaccess : THREAD_ACCESS_RIGHTS, binherithandle : super::super::Foundation:: BOOL, dwthreadid : u32) -> super::super::Foundation:: HANDLE);
+    windows_targets::link!("kernel32.dll" "system" fn OpenThread(dwdesiredaccess : THREAD_ACCESS_RIGHTS, binherithandle : super::super::Foundation:: BOOL, dwthreadid : u32) -> super::super::Foundation:: HANDLE);
     let result__ = OpenThread(dwdesiredaccess, binherithandle.into_param().abi(), dwthreadid);
     (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
 }
@@ -1445,7 +1445,7 @@ where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
     P1: windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("advapi32.dll" "system" fn OpenThreadToken(threadhandle : super::super::Foundation:: HANDLE, desiredaccess : super::super::Security:: TOKEN_ACCESS_MASK, openasself : super::super::Foundation:: BOOL, tokenhandle : *mut super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("advapi32.dll" "system" fn OpenThreadToken(threadhandle : super::super::Foundation:: HANDLE, desiredaccess : super::super::Security:: TOKEN_ACCESS_MASK, openasself : super::super::Foundation:: BOOL, tokenhandle : *mut super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
     OpenThreadToken(threadhandle.into_param().abi(), desiredaccess, openasself.into_param().abi(), tokenhandle).ok()
 }
 #[inline]
@@ -1454,7 +1454,7 @@ where
     P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
     P1: windows_core::IntoParam<windows_core::PCSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn OpenWaitableTimerA(dwdesiredaccess : u32, binherithandle : super::super::Foundation:: BOOL, lptimername : windows_core::PCSTR) -> super::super::Foundation:: HANDLE);
+    windows_targets::link!("kernel32.dll" "system" fn OpenWaitableTimerA(dwdesiredaccess : u32, binherithandle : super::super::Foundation:: BOOL, lptimername : windows_core::PCSTR) -> super::super::Foundation:: HANDLE);
     OpenWaitableTimerA(dwdesiredaccess, binherithandle.into_param().abi(), lptimername.into_param().abi())
 }
 #[inline]
@@ -1463,7 +1463,7 @@ where
     P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
     P1: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn OpenWaitableTimerW(dwdesiredaccess : SYNCHRONIZATION_ACCESS_RIGHTS, binherithandle : super::super::Foundation:: BOOL, lptimername : windows_core::PCWSTR) -> super::super::Foundation:: HANDLE);
+    windows_targets::link!("kernel32.dll" "system" fn OpenWaitableTimerW(dwdesiredaccess : SYNCHRONIZATION_ACCESS_RIGHTS, binherithandle : super::super::Foundation:: BOOL, lptimername : windows_core::PCWSTR) -> super::super::Foundation:: HANDLE);
     let result__ = OpenWaitableTimerW(dwdesiredaccess, binherithandle.into_param().abi(), lptimername.into_param().abi());
     (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
 }
@@ -1472,13 +1472,13 @@ pub unsafe fn PulseEvent<P0>(hevent: P0) -> windows_core::Result<()>
 where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn PulseEvent(hevent : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn PulseEvent(hevent : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
     PulseEvent(hevent.into_param().abi()).ok()
 }
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn QueryDepthSList(listhead: *const super::Kernel::SLIST_HEADER) -> u16 {
-    ::windows_targets::link!("kernel32.dll" "system" fn QueryDepthSList(listhead : *const super::Kernel:: SLIST_HEADER) -> u16);
+    windows_targets::link!("kernel32.dll" "system" fn QueryDepthSList(listhead : *const super::Kernel:: SLIST_HEADER) -> u16);
     QueryDepthSList(listhead)
 }
 #[inline]
@@ -1486,7 +1486,7 @@ pub unsafe fn QueryFullProcessImageNameA<P0>(hprocess: P0, dwflags: PROCESS_NAME
 where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn QueryFullProcessImageNameA(hprocess : super::super::Foundation:: HANDLE, dwflags : PROCESS_NAME_FORMAT, lpexename : windows_core::PSTR, lpdwsize : *mut u32) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn QueryFullProcessImageNameA(hprocess : super::super::Foundation:: HANDLE, dwflags : PROCESS_NAME_FORMAT, lpexename : windows_core::PSTR, lpdwsize : *mut u32) -> super::super::Foundation:: BOOL);
     QueryFullProcessImageNameA(hprocess.into_param().abi(), dwflags, core::mem::transmute(lpexename), lpdwsize).ok()
 }
 #[inline]
@@ -1494,7 +1494,7 @@ pub unsafe fn QueryFullProcessImageNameW<P0>(hprocess: P0, dwflags: PROCESS_NAME
 where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn QueryFullProcessImageNameW(hprocess : super::super::Foundation:: HANDLE, dwflags : PROCESS_NAME_FORMAT, lpexename : windows_core::PWSTR, lpdwsize : *mut u32) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn QueryFullProcessImageNameW(hprocess : super::super::Foundation:: HANDLE, dwflags : PROCESS_NAME_FORMAT, lpexename : windows_core::PWSTR, lpdwsize : *mut u32) -> super::super::Foundation:: BOOL);
     QueryFullProcessImageNameW(hprocess.into_param().abi(), dwflags, core::mem::transmute(lpexename), lpdwsize).ok()
 }
 #[inline]
@@ -1502,12 +1502,12 @@ pub unsafe fn QueryProcessAffinityUpdateMode<P0>(hprocess: P0, lpdwflags: Option
 where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn QueryProcessAffinityUpdateMode(hprocess : super::super::Foundation:: HANDLE, lpdwflags : *mut PROCESS_AFFINITY_AUTO_UPDATE_FLAGS) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn QueryProcessAffinityUpdateMode(hprocess : super::super::Foundation:: HANDLE, lpdwflags : *mut PROCESS_AFFINITY_AUTO_UPDATE_FLAGS) -> super::super::Foundation:: BOOL);
     QueryProcessAffinityUpdateMode(hprocess.into_param().abi(), core::mem::transmute(lpdwflags.unwrap_or(std::ptr::null_mut()))).ok()
 }
 #[inline]
 pub unsafe fn QueryProtectedPolicy(policyguid: *const windows_core::GUID, policyvalue: *mut usize) -> super::super::Foundation::BOOL {
-    ::windows_targets::link!("kernel32.dll" "system" fn QueryProtectedPolicy(policyguid : *const windows_core::GUID, policyvalue : *mut usize) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn QueryProtectedPolicy(policyguid : *const windows_core::GUID, policyvalue : *mut usize) -> super::super::Foundation:: BOOL);
     QueryProtectedPolicy(policyguid, policyvalue)
 }
 #[inline]
@@ -1515,12 +1515,12 @@ pub unsafe fn QueryThreadpoolStackInformation<P0>(ptpp: P0, ptpsi: *mut TP_POOL_
 where
     P0: windows_core::IntoParam<PTP_POOL>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn QueryThreadpoolStackInformation(ptpp : PTP_POOL, ptpsi : *mut TP_POOL_STACK_INFORMATION) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn QueryThreadpoolStackInformation(ptpp : PTP_POOL, ptpsi : *mut TP_POOL_STACK_INFORMATION) -> super::super::Foundation:: BOOL);
     QueryThreadpoolStackInformation(ptpp.into_param().abi(), ptpsi).ok()
 }
 #[inline]
 pub unsafe fn QueryUmsThreadInformation(umsthread: *const core::ffi::c_void, umsthreadinfoclass: UMS_THREAD_INFO_CLASS, umsthreadinformation: *mut core::ffi::c_void, umsthreadinformationlength: u32, returnlength: Option<*mut u32>) -> windows_core::Result<()> {
-    ::windows_targets::link!("kernel32.dll" "system" fn QueryUmsThreadInformation(umsthread : *const core::ffi::c_void, umsthreadinfoclass : UMS_THREAD_INFO_CLASS, umsthreadinformation : *mut core::ffi::c_void, umsthreadinformationlength : u32, returnlength : *mut u32) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn QueryUmsThreadInformation(umsthread : *const core::ffi::c_void, umsthreadinfoclass : UMS_THREAD_INFO_CLASS, umsthreadinformation : *mut core::ffi::c_void, umsthreadinformationlength : u32, returnlength : *mut u32) -> super::super::Foundation:: BOOL);
     QueryUmsThreadInformation(umsthread, umsthreadinfoclass, umsthreadinformation, umsthreadinformationlength, core::mem::transmute(returnlength.unwrap_or(std::ptr::null_mut()))).ok()
 }
 #[inline]
@@ -1528,7 +1528,7 @@ pub unsafe fn QueueUserAPC<P0>(pfnapc: super::super::Foundation::PAPCFUNC, hthre
 where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn QueueUserAPC(pfnapc : super::super::Foundation:: PAPCFUNC, hthread : super::super::Foundation:: HANDLE, dwdata : usize) -> u32);
+    windows_targets::link!("kernel32.dll" "system" fn QueueUserAPC(pfnapc : super::super::Foundation:: PAPCFUNC, hthread : super::super::Foundation:: HANDLE, dwdata : usize) -> u32);
     QueueUserAPC(pfnapc, hthread.into_param().abi(), dwdata)
 }
 #[inline]
@@ -1536,12 +1536,12 @@ pub unsafe fn QueueUserAPC2<P0>(apcroutine: super::super::Foundation::PAPCFUNC, 
 where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn QueueUserAPC2(apcroutine : super::super::Foundation:: PAPCFUNC, thread : super::super::Foundation:: HANDLE, data : usize, flags : QUEUE_USER_APC_FLAGS) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn QueueUserAPC2(apcroutine : super::super::Foundation:: PAPCFUNC, thread : super::super::Foundation:: HANDLE, data : usize, flags : QUEUE_USER_APC_FLAGS) -> super::super::Foundation:: BOOL);
     QueueUserAPC2(apcroutine, thread.into_param().abi(), data, flags)
 }
 #[inline]
 pub unsafe fn QueueUserWorkItem(function: LPTHREAD_START_ROUTINE, context: Option<*const core::ffi::c_void>, flags: WORKER_THREAD_FLAGS) -> windows_core::Result<()> {
-    ::windows_targets::link!("kernel32.dll" "system" fn QueueUserWorkItem(function : LPTHREAD_START_ROUTINE, context : *const core::ffi::c_void, flags : WORKER_THREAD_FLAGS) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn QueueUserWorkItem(function : LPTHREAD_START_ROUTINE, context : *const core::ffi::c_void, flags : WORKER_THREAD_FLAGS) -> super::super::Foundation:: BOOL);
     QueueUserWorkItem(function, core::mem::transmute(context.unwrap_or(std::ptr::null())), flags).ok()
 }
 #[inline]
@@ -1549,7 +1549,7 @@ pub unsafe fn RegisterWaitForSingleObject<P0>(phnewwaitobject: *mut super::super
 where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn RegisterWaitForSingleObject(phnewwaitobject : *mut super::super::Foundation:: HANDLE, hobject : super::super::Foundation:: HANDLE, callback : WAITORTIMERCALLBACK, context : *const core::ffi::c_void, dwmilliseconds : u32, dwflags : WORKER_THREAD_FLAGS) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn RegisterWaitForSingleObject(phnewwaitobject : *mut super::super::Foundation:: HANDLE, hobject : super::super::Foundation:: HANDLE, callback : WAITORTIMERCALLBACK, context : *const core::ffi::c_void, dwmilliseconds : u32, dwflags : WORKER_THREAD_FLAGS) -> super::super::Foundation:: BOOL);
     RegisterWaitForSingleObject(phnewwaitobject, hobject.into_param().abi(), callback, core::mem::transmute(context.unwrap_or(std::ptr::null())), dwmilliseconds, dwflags).ok()
 }
 #[inline]
@@ -1557,7 +1557,7 @@ pub unsafe fn ReleaseMutex<P0>(hmutex: P0) -> windows_core::Result<()>
 where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn ReleaseMutex(hmutex : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn ReleaseMutex(hmutex : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
     ReleaseMutex(hmutex.into_param().abi()).ok()
 }
 #[inline]
@@ -1566,17 +1566,17 @@ where
     P0: windows_core::IntoParam<PTP_CALLBACK_INSTANCE>,
     P1: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn ReleaseMutexWhenCallbackReturns(pci : PTP_CALLBACK_INSTANCE, r#mut : super::super::Foundation:: HANDLE));
+    windows_targets::link!("kernel32.dll" "system" fn ReleaseMutexWhenCallbackReturns(pci : PTP_CALLBACK_INSTANCE, r#mut : super::super::Foundation:: HANDLE));
     ReleaseMutexWhenCallbackReturns(pci.into_param().abi(), r#mut.into_param().abi())
 }
 #[inline]
 pub unsafe fn ReleaseSRWLockExclusive(srwlock: *mut SRWLOCK) {
-    ::windows_targets::link!("kernel32.dll" "system" fn ReleaseSRWLockExclusive(srwlock : *mut SRWLOCK));
+    windows_targets::link!("kernel32.dll" "system" fn ReleaseSRWLockExclusive(srwlock : *mut SRWLOCK));
     ReleaseSRWLockExclusive(srwlock)
 }
 #[inline]
 pub unsafe fn ReleaseSRWLockShared(srwlock: *mut SRWLOCK) {
-    ::windows_targets::link!("kernel32.dll" "system" fn ReleaseSRWLockShared(srwlock : *mut SRWLOCK));
+    windows_targets::link!("kernel32.dll" "system" fn ReleaseSRWLockShared(srwlock : *mut SRWLOCK));
     ReleaseSRWLockShared(srwlock)
 }
 #[inline]
@@ -1584,7 +1584,7 @@ pub unsafe fn ReleaseSemaphore<P0>(hsemaphore: P0, lreleasecount: i32, lppreviou
 where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn ReleaseSemaphore(hsemaphore : super::super::Foundation:: HANDLE, lreleasecount : i32, lppreviouscount : *mut i32) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn ReleaseSemaphore(hsemaphore : super::super::Foundation:: HANDLE, lreleasecount : i32, lppreviouscount : *mut i32) -> super::super::Foundation:: BOOL);
     ReleaseSemaphore(hsemaphore.into_param().abi(), lreleasecount, core::mem::transmute(lppreviouscount.unwrap_or(std::ptr::null_mut()))).ok()
 }
 #[inline]
@@ -1593,7 +1593,7 @@ where
     P0: windows_core::IntoParam<PTP_CALLBACK_INSTANCE>,
     P1: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn ReleaseSemaphoreWhenCallbackReturns(pci : PTP_CALLBACK_INSTANCE, sem : super::super::Foundation:: HANDLE, crel : u32));
+    windows_targets::link!("kernel32.dll" "system" fn ReleaseSemaphoreWhenCallbackReturns(pci : PTP_CALLBACK_INSTANCE, sem : super::super::Foundation:: HANDLE, crel : u32));
     ReleaseSemaphoreWhenCallbackReturns(pci.into_param().abi(), sem.into_param().abi(), crel)
 }
 #[inline]
@@ -1601,7 +1601,7 @@ pub unsafe fn ResetEvent<P0>(hevent: P0) -> windows_core::Result<()>
 where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn ResetEvent(hevent : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn ResetEvent(hevent : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
     ResetEvent(hevent.into_param().abi()).ok()
 }
 #[inline]
@@ -1609,7 +1609,7 @@ pub unsafe fn ResumeThread<P0>(hthread: P0) -> u32
 where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn ResumeThread(hthread : super::super::Foundation:: HANDLE) -> u32);
+    windows_targets::link!("kernel32.dll" "system" fn ResumeThread(hthread : super::super::Foundation:: HANDLE) -> u32);
     ResumeThread(hthread.into_param().abi())
 }
 #[inline]
@@ -1617,18 +1617,18 @@ pub unsafe fn RtwqAddPeriodicCallback<P0>(callback: RTWQPERIODICCALLBACK, contex
 where
     P0: windows_core::IntoParam<windows_core::IUnknown>,
 {
-    ::windows_targets::link!("rtworkq.dll" "system" fn RtwqAddPeriodicCallback(callback : RTWQPERIODICCALLBACK, context : * mut core::ffi::c_void, key : *mut u32) -> windows_core::HRESULT);
+    windows_targets::link!("rtworkq.dll" "system" fn RtwqAddPeriodicCallback(callback : RTWQPERIODICCALLBACK, context : * mut core::ffi::c_void, key : *mut u32) -> windows_core::HRESULT);
     RtwqAddPeriodicCallback(callback, context.into_param().abi(), core::mem::transmute(key.unwrap_or(std::ptr::null_mut()))).ok()
 }
 #[inline]
 pub unsafe fn RtwqAllocateSerialWorkQueue(workqueueidin: u32) -> windows_core::Result<u32> {
-    ::windows_targets::link!("rtworkq.dll" "system" fn RtwqAllocateSerialWorkQueue(workqueueidin : u32, workqueueidout : *mut u32) -> windows_core::HRESULT);
+    windows_targets::link!("rtworkq.dll" "system" fn RtwqAllocateSerialWorkQueue(workqueueidin : u32, workqueueidout : *mut u32) -> windows_core::HRESULT);
     let mut result__ = std::mem::zeroed();
     RtwqAllocateSerialWorkQueue(workqueueidin, &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn RtwqAllocateWorkQueue(workqueuetype: RTWQ_WORKQUEUE_TYPE) -> windows_core::Result<u32> {
-    ::windows_targets::link!("rtworkq.dll" "system" fn RtwqAllocateWorkQueue(workqueuetype : RTWQ_WORKQUEUE_TYPE, workqueueid : *mut u32) -> windows_core::HRESULT);
+    windows_targets::link!("rtworkq.dll" "system" fn RtwqAllocateWorkQueue(workqueuetype : RTWQ_WORKQUEUE_TYPE, workqueueid : *mut u32) -> windows_core::HRESULT);
     let mut result__ = std::mem::zeroed();
     RtwqAllocateWorkQueue(workqueuetype, &mut result__).map(|| result__)
 }
@@ -1639,7 +1639,7 @@ where
     P1: windows_core::IntoParam<IRtwqAsyncCallback>,
     P2: windows_core::IntoParam<windows_core::IUnknown>,
 {
-    ::windows_targets::link!("rtworkq.dll" "system" fn RtwqBeginRegisterWorkQueueWithMMCSS(workqueueid : u32, usageclass : windows_core::PCWSTR, dwtaskid : u32, lpriority : i32, donecallback : * mut core::ffi::c_void, donestate : * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_targets::link!("rtworkq.dll" "system" fn RtwqBeginRegisterWorkQueueWithMMCSS(workqueueid : u32, usageclass : windows_core::PCWSTR, dwtaskid : u32, lpriority : i32, donecallback : * mut core::ffi::c_void, donestate : * mut core::ffi::c_void) -> windows_core::HRESULT);
     RtwqBeginRegisterWorkQueueWithMMCSS(workqueueid, usageclass.into_param().abi(), dwtaskid, lpriority, donecallback.into_param().abi(), donestate.into_param().abi()).ok()
 }
 #[inline]
@@ -1648,7 +1648,7 @@ where
     P0: windows_core::IntoParam<IRtwqAsyncCallback>,
     P1: windows_core::IntoParam<windows_core::IUnknown>,
 {
-    ::windows_targets::link!("rtworkq.dll" "system" fn RtwqBeginUnregisterWorkQueueWithMMCSS(workqueueid : u32, donecallback : * mut core::ffi::c_void, donestate : * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_targets::link!("rtworkq.dll" "system" fn RtwqBeginUnregisterWorkQueueWithMMCSS(workqueueid : u32, donecallback : * mut core::ffi::c_void, donestate : * mut core::ffi::c_void) -> windows_core::HRESULT);
     RtwqBeginUnregisterWorkQueueWithMMCSS(workqueueid, donecallback.into_param().abi(), donestate.into_param().abi()).ok()
 }
 #[inline]
@@ -1656,12 +1656,12 @@ pub unsafe fn RtwqCancelDeadline<P0>(prequest: P0) -> windows_core::Result<()>
 where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("rtworkq.dll" "system" fn RtwqCancelDeadline(prequest : super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
+    windows_targets::link!("rtworkq.dll" "system" fn RtwqCancelDeadline(prequest : super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
     RtwqCancelDeadline(prequest.into_param().abi()).ok()
 }
 #[inline]
 pub unsafe fn RtwqCancelWorkItem(key: u64) -> windows_core::Result<()> {
-    ::windows_targets::link!("rtworkq.dll" "system" fn RtwqCancelWorkItem(key : u64) -> windows_core::HRESULT);
+    windows_targets::link!("rtworkq.dll" "system" fn RtwqCancelWorkItem(key : u64) -> windows_core::HRESULT);
     RtwqCancelWorkItem(key).ok()
 }
 #[inline]
@@ -1671,7 +1671,7 @@ where
     P1: windows_core::IntoParam<IRtwqAsyncCallback>,
     P2: windows_core::IntoParam<windows_core::IUnknown>,
 {
-    ::windows_targets::link!("rtworkq.dll" "system" fn RtwqCreateAsyncResult(appobject : * mut core::ffi::c_void, callback : * mut core::ffi::c_void, appstate : * mut core::ffi::c_void, asyncresult : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_targets::link!("rtworkq.dll" "system" fn RtwqCreateAsyncResult(appobject : * mut core::ffi::c_void, callback : * mut core::ffi::c_void, appstate : * mut core::ffi::c_void, asyncresult : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = std::mem::zeroed();
     RtwqCreateAsyncResult(appobject.into_param().abi(), callback.into_param().abi(), appstate.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
@@ -1680,24 +1680,24 @@ pub unsafe fn RtwqEndRegisterWorkQueueWithMMCSS<P0>(result: P0) -> windows_core:
 where
     P0: windows_core::IntoParam<IRtwqAsyncResult>,
 {
-    ::windows_targets::link!("rtworkq.dll" "system" fn RtwqEndRegisterWorkQueueWithMMCSS(result : * mut core::ffi::c_void, taskid : *mut u32) -> windows_core::HRESULT);
+    windows_targets::link!("rtworkq.dll" "system" fn RtwqEndRegisterWorkQueueWithMMCSS(result : * mut core::ffi::c_void, taskid : *mut u32) -> windows_core::HRESULT);
     let mut result__ = std::mem::zeroed();
     RtwqEndRegisterWorkQueueWithMMCSS(result.into_param().abi(), &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn RtwqGetWorkQueueMMCSSClass(workqueueid: u32, usageclass: windows_core::PWSTR, usageclasslength: *mut u32) -> windows_core::Result<()> {
-    ::windows_targets::link!("rtworkq.dll" "system" fn RtwqGetWorkQueueMMCSSClass(workqueueid : u32, usageclass : windows_core::PWSTR, usageclasslength : *mut u32) -> windows_core::HRESULT);
+    windows_targets::link!("rtworkq.dll" "system" fn RtwqGetWorkQueueMMCSSClass(workqueueid : u32, usageclass : windows_core::PWSTR, usageclasslength : *mut u32) -> windows_core::HRESULT);
     RtwqGetWorkQueueMMCSSClass(workqueueid, core::mem::transmute(usageclass), usageclasslength).ok()
 }
 #[inline]
 pub unsafe fn RtwqGetWorkQueueMMCSSPriority(workqueueid: u32) -> windows_core::Result<i32> {
-    ::windows_targets::link!("rtworkq.dll" "system" fn RtwqGetWorkQueueMMCSSPriority(workqueueid : u32, priority : *mut i32) -> windows_core::HRESULT);
+    windows_targets::link!("rtworkq.dll" "system" fn RtwqGetWorkQueueMMCSSPriority(workqueueid : u32, priority : *mut i32) -> windows_core::HRESULT);
     let mut result__ = std::mem::zeroed();
     RtwqGetWorkQueueMMCSSPriority(workqueueid, &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn RtwqGetWorkQueueMMCSSTaskId(workqueueid: u32) -> windows_core::Result<u32> {
-    ::windows_targets::link!("rtworkq.dll" "system" fn RtwqGetWorkQueueMMCSSTaskId(workqueueid : u32, taskid : *mut u32) -> windows_core::HRESULT);
+    windows_targets::link!("rtworkq.dll" "system" fn RtwqGetWorkQueueMMCSSTaskId(workqueueid : u32, taskid : *mut u32) -> windows_core::HRESULT);
     let mut result__ = std::mem::zeroed();
     RtwqGetWorkQueueMMCSSTaskId(workqueueid, &mut result__).map(|| result__)
 }
@@ -1706,7 +1706,7 @@ pub unsafe fn RtwqInvokeCallback<P0>(result: P0) -> windows_core::Result<()>
 where
     P0: windows_core::IntoParam<IRtwqAsyncResult>,
 {
-    ::windows_targets::link!("rtworkq.dll" "system" fn RtwqInvokeCallback(result : * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_targets::link!("rtworkq.dll" "system" fn RtwqInvokeCallback(result : * mut core::ffi::c_void) -> windows_core::HRESULT);
     RtwqInvokeCallback(result.into_param().abi()).ok()
 }
 #[inline]
@@ -1714,13 +1714,13 @@ pub unsafe fn RtwqJoinWorkQueue<P0>(workqueueid: u32, hfile: P0) -> windows_core
 where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("rtworkq.dll" "system" fn RtwqJoinWorkQueue(workqueueid : u32, hfile : super::super::Foundation:: HANDLE, out : *mut super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
+    windows_targets::link!("rtworkq.dll" "system" fn RtwqJoinWorkQueue(workqueueid : u32, hfile : super::super::Foundation:: HANDLE, out : *mut super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
     let mut result__ = std::mem::zeroed();
     RtwqJoinWorkQueue(workqueueid, hfile.into_param().abi(), &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn RtwqLockPlatform() -> windows_core::Result<()> {
-    ::windows_targets::link!("rtworkq.dll" "system" fn RtwqLockPlatform() -> windows_core::HRESULT);
+    windows_targets::link!("rtworkq.dll" "system" fn RtwqLockPlatform() -> windows_core::HRESULT);
     RtwqLockPlatform().ok()
 }
 #[inline]
@@ -1728,12 +1728,12 @@ pub unsafe fn RtwqLockSharedWorkQueue<P0>(usageclass: P0, basepriority: i32, tas
 where
     P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("rtworkq.dll" "system" fn RtwqLockSharedWorkQueue(usageclass : windows_core::PCWSTR, basepriority : i32, taskid : *mut u32, id : *mut u32) -> windows_core::HRESULT);
+    windows_targets::link!("rtworkq.dll" "system" fn RtwqLockSharedWorkQueue(usageclass : windows_core::PCWSTR, basepriority : i32, taskid : *mut u32, id : *mut u32) -> windows_core::HRESULT);
     RtwqLockSharedWorkQueue(usageclass.into_param().abi(), basepriority, taskid, id).ok()
 }
 #[inline]
 pub unsafe fn RtwqLockWorkQueue(workqueueid: u32) -> windows_core::Result<()> {
-    ::windows_targets::link!("rtworkq.dll" "system" fn RtwqLockWorkQueue(workqueueid : u32) -> windows_core::HRESULT);
+    windows_targets::link!("rtworkq.dll" "system" fn RtwqLockWorkQueue(workqueueid : u32) -> windows_core::HRESULT);
     RtwqLockWorkQueue(workqueueid).ok()
 }
 #[inline]
@@ -1742,7 +1742,7 @@ where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
     P1: windows_core::IntoParam<IRtwqAsyncResult>,
 {
-    ::windows_targets::link!("rtworkq.dll" "system" fn RtwqPutWaitingWorkItem(hevent : super::super::Foundation:: HANDLE, lpriority : i32, result : * mut core::ffi::c_void, key : *mut u64) -> windows_core::HRESULT);
+    windows_targets::link!("rtworkq.dll" "system" fn RtwqPutWaitingWorkItem(hevent : super::super::Foundation:: HANDLE, lpriority : i32, result : * mut core::ffi::c_void, key : *mut u64) -> windows_core::HRESULT);
     RtwqPutWaitingWorkItem(hevent.into_param().abi(), lpriority, result.into_param().abi(), core::mem::transmute(key.unwrap_or(std::ptr::null_mut()))).ok()
 }
 #[inline]
@@ -1750,7 +1750,7 @@ pub unsafe fn RtwqPutWorkItem<P0>(dwqueue: u32, lpriority: i32, result: P0) -> w
 where
     P0: windows_core::IntoParam<IRtwqAsyncResult>,
 {
-    ::windows_targets::link!("rtworkq.dll" "system" fn RtwqPutWorkItem(dwqueue : u32, lpriority : i32, result : * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_targets::link!("rtworkq.dll" "system" fn RtwqPutWorkItem(dwqueue : u32, lpriority : i32, result : * mut core::ffi::c_void) -> windows_core::HRESULT);
     RtwqPutWorkItem(dwqueue, lpriority, result.into_param().abi()).ok()
 }
 #[inline]
@@ -1758,7 +1758,7 @@ pub unsafe fn RtwqRegisterPlatformEvents<P0>(platformevents: P0) -> windows_core
 where
     P0: windows_core::IntoParam<IRtwqPlatformEvents>,
 {
-    ::windows_targets::link!("rtworkq.dll" "system" fn RtwqRegisterPlatformEvents(platformevents : * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_targets::link!("rtworkq.dll" "system" fn RtwqRegisterPlatformEvents(platformevents : * mut core::ffi::c_void) -> windows_core::HRESULT);
     RtwqRegisterPlatformEvents(platformevents.into_param().abi()).ok()
 }
 #[inline]
@@ -1766,12 +1766,12 @@ pub unsafe fn RtwqRegisterPlatformWithMMCSS<P0>(usageclass: P0, taskid: *mut u32
 where
     P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("rtworkq.dll" "system" fn RtwqRegisterPlatformWithMMCSS(usageclass : windows_core::PCWSTR, taskid : *mut u32, lpriority : i32) -> windows_core::HRESULT);
+    windows_targets::link!("rtworkq.dll" "system" fn RtwqRegisterPlatformWithMMCSS(usageclass : windows_core::PCWSTR, taskid : *mut u32, lpriority : i32) -> windows_core::HRESULT);
     RtwqRegisterPlatformWithMMCSS(usageclass.into_param().abi(), taskid, lpriority).ok()
 }
 #[inline]
 pub unsafe fn RtwqRemovePeriodicCallback(dwkey: u32) -> windows_core::Result<()> {
-    ::windows_targets::link!("rtworkq.dll" "system" fn RtwqRemovePeriodicCallback(dwkey : u32) -> windows_core::HRESULT);
+    windows_targets::link!("rtworkq.dll" "system" fn RtwqRemovePeriodicCallback(dwkey : u32) -> windows_core::HRESULT);
     RtwqRemovePeriodicCallback(dwkey).ok()
 }
 #[inline]
@@ -1779,18 +1779,18 @@ pub unsafe fn RtwqScheduleWorkItem<P0>(result: P0, timeout: i64, key: Option<*mu
 where
     P0: windows_core::IntoParam<IRtwqAsyncResult>,
 {
-    ::windows_targets::link!("rtworkq.dll" "system" fn RtwqScheduleWorkItem(result : * mut core::ffi::c_void, timeout : i64, key : *mut u64) -> windows_core::HRESULT);
+    windows_targets::link!("rtworkq.dll" "system" fn RtwqScheduleWorkItem(result : * mut core::ffi::c_void, timeout : i64, key : *mut u64) -> windows_core::HRESULT);
     RtwqScheduleWorkItem(result.into_param().abi(), timeout, core::mem::transmute(key.unwrap_or(std::ptr::null_mut()))).ok()
 }
 #[inline]
 pub unsafe fn RtwqSetDeadline(workqueueid: u32, deadlineinhns: i64) -> windows_core::Result<super::super::Foundation::HANDLE> {
-    ::windows_targets::link!("rtworkq.dll" "system" fn RtwqSetDeadline(workqueueid : u32, deadlineinhns : i64, prequest : *mut super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
+    windows_targets::link!("rtworkq.dll" "system" fn RtwqSetDeadline(workqueueid : u32, deadlineinhns : i64, prequest : *mut super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
     let mut result__ = std::mem::zeroed();
     RtwqSetDeadline(workqueueid, deadlineinhns, &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn RtwqSetDeadline2(workqueueid: u32, deadlineinhns: i64, predeadlineinhns: i64) -> windows_core::Result<super::super::Foundation::HANDLE> {
-    ::windows_targets::link!("rtworkq.dll" "system" fn RtwqSetDeadline2(workqueueid : u32, deadlineinhns : i64, predeadlineinhns : i64, prequest : *mut super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
+    windows_targets::link!("rtworkq.dll" "system" fn RtwqSetDeadline2(workqueueid : u32, deadlineinhns : i64, predeadlineinhns : i64, prequest : *mut super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
     let mut result__ = std::mem::zeroed();
     RtwqSetDeadline2(workqueueid, deadlineinhns, predeadlineinhns, &mut result__).map(|| result__)
 }
@@ -1799,17 +1799,17 @@ pub unsafe fn RtwqSetLongRunning<P0>(workqueueid: u32, enable: P0) -> windows_co
 where
     P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("rtworkq.dll" "system" fn RtwqSetLongRunning(workqueueid : u32, enable : super::super::Foundation:: BOOL) -> windows_core::HRESULT);
+    windows_targets::link!("rtworkq.dll" "system" fn RtwqSetLongRunning(workqueueid : u32, enable : super::super::Foundation:: BOOL) -> windows_core::HRESULT);
     RtwqSetLongRunning(workqueueid, enable.into_param().abi()).ok()
 }
 #[inline]
 pub unsafe fn RtwqShutdown() -> windows_core::Result<()> {
-    ::windows_targets::link!("rtworkq.dll" "system" fn RtwqShutdown() -> windows_core::HRESULT);
+    windows_targets::link!("rtworkq.dll" "system" fn RtwqShutdown() -> windows_core::HRESULT);
     RtwqShutdown().ok()
 }
 #[inline]
 pub unsafe fn RtwqStartup() -> windows_core::Result<()> {
-    ::windows_targets::link!("rtworkq.dll" "system" fn RtwqStartup() -> windows_core::HRESULT);
+    windows_targets::link!("rtworkq.dll" "system" fn RtwqStartup() -> windows_core::HRESULT);
     RtwqStartup().ok()
 }
 #[inline]
@@ -1817,17 +1817,17 @@ pub unsafe fn RtwqUnjoinWorkQueue<P0>(workqueueid: u32, hfile: P0) -> windows_co
 where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("rtworkq.dll" "system" fn RtwqUnjoinWorkQueue(workqueueid : u32, hfile : super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
+    windows_targets::link!("rtworkq.dll" "system" fn RtwqUnjoinWorkQueue(workqueueid : u32, hfile : super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
     RtwqUnjoinWorkQueue(workqueueid, hfile.into_param().abi()).ok()
 }
 #[inline]
 pub unsafe fn RtwqUnlockPlatform() -> windows_core::Result<()> {
-    ::windows_targets::link!("rtworkq.dll" "system" fn RtwqUnlockPlatform() -> windows_core::HRESULT);
+    windows_targets::link!("rtworkq.dll" "system" fn RtwqUnlockPlatform() -> windows_core::HRESULT);
     RtwqUnlockPlatform().ok()
 }
 #[inline]
 pub unsafe fn RtwqUnlockWorkQueue(workqueueid: u32) -> windows_core::Result<()> {
-    ::windows_targets::link!("rtworkq.dll" "system" fn RtwqUnlockWorkQueue(workqueueid : u32) -> windows_core::HRESULT);
+    windows_targets::link!("rtworkq.dll" "system" fn RtwqUnlockWorkQueue(workqueueid : u32) -> windows_core::HRESULT);
     RtwqUnlockWorkQueue(workqueueid).ok()
 }
 #[inline]
@@ -1835,18 +1835,18 @@ pub unsafe fn RtwqUnregisterPlatformEvents<P0>(platformevents: P0) -> windows_co
 where
     P0: windows_core::IntoParam<IRtwqPlatformEvents>,
 {
-    ::windows_targets::link!("rtworkq.dll" "system" fn RtwqUnregisterPlatformEvents(platformevents : * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_targets::link!("rtworkq.dll" "system" fn RtwqUnregisterPlatformEvents(platformevents : * mut core::ffi::c_void) -> windows_core::HRESULT);
     RtwqUnregisterPlatformEvents(platformevents.into_param().abi()).ok()
 }
 #[inline]
 pub unsafe fn RtwqUnregisterPlatformFromMMCSS() -> windows_core::Result<()> {
-    ::windows_targets::link!("rtworkq.dll" "system" fn RtwqUnregisterPlatformFromMMCSS() -> windows_core::HRESULT);
+    windows_targets::link!("rtworkq.dll" "system" fn RtwqUnregisterPlatformFromMMCSS() -> windows_core::HRESULT);
     RtwqUnregisterPlatformFromMMCSS().ok()
 }
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn SetCriticalSectionSpinCount(lpcriticalsection: *mut CRITICAL_SECTION, dwspincount: u32) -> u32 {
-    ::windows_targets::link!("kernel32.dll" "system" fn SetCriticalSectionSpinCount(lpcriticalsection : *mut CRITICAL_SECTION, dwspincount : u32) -> u32);
+    windows_targets::link!("kernel32.dll" "system" fn SetCriticalSectionSpinCount(lpcriticalsection : *mut CRITICAL_SECTION, dwspincount : u32) -> u32);
     SetCriticalSectionSpinCount(lpcriticalsection, dwspincount)
 }
 #[inline]
@@ -1854,7 +1854,7 @@ pub unsafe fn SetEvent<P0>(hevent: P0) -> windows_core::Result<()>
 where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn SetEvent(hevent : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn SetEvent(hevent : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
     SetEvent(hevent.into_param().abi()).ok()
 }
 #[inline]
@@ -1863,7 +1863,7 @@ where
     P0: windows_core::IntoParam<PTP_CALLBACK_INSTANCE>,
     P1: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn SetEventWhenCallbackReturns(pci : PTP_CALLBACK_INSTANCE, evt : super::super::Foundation:: HANDLE));
+    windows_targets::link!("kernel32.dll" "system" fn SetEventWhenCallbackReturns(pci : PTP_CALLBACK_INSTANCE, evt : super::super::Foundation:: HANDLE));
     SetEventWhenCallbackReturns(pci.into_param().abi(), evt.into_param().abi())
 }
 #[inline]
@@ -1871,7 +1871,7 @@ pub unsafe fn SetPriorityClass<P0>(hprocess: P0, dwpriorityclass: PROCESS_CREATI
 where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn SetPriorityClass(hprocess : super::super::Foundation:: HANDLE, dwpriorityclass : PROCESS_CREATION_FLAGS) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn SetPriorityClass(hprocess : super::super::Foundation:: HANDLE, dwpriorityclass : PROCESS_CREATION_FLAGS) -> super::super::Foundation:: BOOL);
     SetPriorityClass(hprocess.into_param().abi(), dwpriorityclass).ok()
 }
 #[inline]
@@ -1879,7 +1879,7 @@ pub unsafe fn SetProcessAffinityMask<P0>(hprocess: P0, dwprocessaffinitymask: us
 where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn SetProcessAffinityMask(hprocess : super::super::Foundation:: HANDLE, dwprocessaffinitymask : usize) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn SetProcessAffinityMask(hprocess : super::super::Foundation:: HANDLE, dwprocessaffinitymask : usize) -> super::super::Foundation:: BOOL);
     SetProcessAffinityMask(hprocess.into_param().abi(), dwprocessaffinitymask).ok()
 }
 #[inline]
@@ -1887,12 +1887,12 @@ pub unsafe fn SetProcessAffinityUpdateMode<P0>(hprocess: P0, dwflags: PROCESS_AF
 where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn SetProcessAffinityUpdateMode(hprocess : super::super::Foundation:: HANDLE, dwflags : PROCESS_AFFINITY_AUTO_UPDATE_FLAGS) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn SetProcessAffinityUpdateMode(hprocess : super::super::Foundation:: HANDLE, dwflags : PROCESS_AFFINITY_AUTO_UPDATE_FLAGS) -> super::super::Foundation:: BOOL);
     SetProcessAffinityUpdateMode(hprocess.into_param().abi(), dwflags).ok()
 }
 #[inline]
 pub unsafe fn SetProcessDEPPolicy(dwflags: PROCESS_DEP_FLAGS) -> windows_core::Result<()> {
-    ::windows_targets::link!("kernel32.dll" "system" fn SetProcessDEPPolicy(dwflags : PROCESS_DEP_FLAGS) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn SetProcessDEPPolicy(dwflags : PROCESS_DEP_FLAGS) -> super::super::Foundation:: BOOL);
     SetProcessDEPPolicy(dwflags).ok()
 }
 #[cfg(feature = "Win32_System_SystemInformation")]
@@ -1901,7 +1901,7 @@ pub unsafe fn SetProcessDefaultCpuSetMasks<P0>(process: P0, cpusetmasks: Option<
 where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn SetProcessDefaultCpuSetMasks(process : super::super::Foundation:: HANDLE, cpusetmasks : *const super::SystemInformation:: GROUP_AFFINITY, cpusetmaskcount : u16) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn SetProcessDefaultCpuSetMasks(process : super::super::Foundation:: HANDLE, cpusetmasks : *const super::SystemInformation:: GROUP_AFFINITY, cpusetmaskcount : u16) -> super::super::Foundation:: BOOL);
     SetProcessDefaultCpuSetMasks(process.into_param().abi(), core::mem::transmute(cpusetmasks.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), cpusetmasks.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
 }
 #[inline]
@@ -1909,7 +1909,7 @@ pub unsafe fn SetProcessDefaultCpuSets<P0>(process: P0, cpusetids: Option<&[u32]
 where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn SetProcessDefaultCpuSets(process : super::super::Foundation:: HANDLE, cpusetids : *const u32, cpusetidcount : u32) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn SetProcessDefaultCpuSets(process : super::super::Foundation:: HANDLE, cpusetids : *const u32, cpusetidcount : u32) -> super::super::Foundation:: BOOL);
     SetProcessDefaultCpuSets(process.into_param().abi(), core::mem::transmute(cpusetids.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), cpusetids.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
 }
 #[inline]
@@ -1917,7 +1917,7 @@ pub unsafe fn SetProcessDynamicEHContinuationTargets<P0>(process: P0, targets: &
 where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn SetProcessDynamicEHContinuationTargets(process : super::super::Foundation:: HANDLE, numberoftargets : u16, targets : *mut PROCESS_DYNAMIC_EH_CONTINUATION_TARGET) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn SetProcessDynamicEHContinuationTargets(process : super::super::Foundation:: HANDLE, numberoftargets : u16, targets : *mut PROCESS_DYNAMIC_EH_CONTINUATION_TARGET) -> super::super::Foundation:: BOOL);
     SetProcessDynamicEHContinuationTargets(process.into_param().abi(), targets.len().try_into().unwrap(), core::mem::transmute(targets.as_ptr())).ok()
 }
 #[inline]
@@ -1925,7 +1925,7 @@ pub unsafe fn SetProcessDynamicEnforcedCetCompatibleRanges<P0>(process: P0, rang
 where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn SetProcessDynamicEnforcedCetCompatibleRanges(process : super::super::Foundation:: HANDLE, numberofranges : u16, ranges : *mut PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGE) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn SetProcessDynamicEnforcedCetCompatibleRanges(process : super::super::Foundation:: HANDLE, numberofranges : u16, ranges : *mut PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGE) -> super::super::Foundation:: BOOL);
     SetProcessDynamicEnforcedCetCompatibleRanges(process.into_param().abi(), ranges.len().try_into().unwrap(), core::mem::transmute(ranges.as_ptr()))
 }
 #[inline]
@@ -1933,12 +1933,12 @@ pub unsafe fn SetProcessInformation<P0>(hprocess: P0, processinformationclass: P
 where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn SetProcessInformation(hprocess : super::super::Foundation:: HANDLE, processinformationclass : PROCESS_INFORMATION_CLASS, processinformation : *const core::ffi::c_void, processinformationsize : u32) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn SetProcessInformation(hprocess : super::super::Foundation:: HANDLE, processinformationclass : PROCESS_INFORMATION_CLASS, processinformation : *const core::ffi::c_void, processinformationsize : u32) -> super::super::Foundation:: BOOL);
     SetProcessInformation(hprocess.into_param().abi(), processinformationclass, processinformation, processinformationsize).ok()
 }
 #[inline]
 pub unsafe fn SetProcessMitigationPolicy(mitigationpolicy: PROCESS_MITIGATION_POLICY, lpbuffer: *const core::ffi::c_void, dwlength: usize) -> windows_core::Result<()> {
-    ::windows_targets::link!("kernel32.dll" "system" fn SetProcessMitigationPolicy(mitigationpolicy : PROCESS_MITIGATION_POLICY, lpbuffer : *const core::ffi::c_void, dwlength : usize) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn SetProcessMitigationPolicy(mitigationpolicy : PROCESS_MITIGATION_POLICY, lpbuffer : *const core::ffi::c_void, dwlength : usize) -> super::super::Foundation:: BOOL);
     SetProcessMitigationPolicy(mitigationpolicy, lpbuffer, dwlength).ok()
 }
 #[inline]
@@ -1947,7 +1947,7 @@ where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
     P1: windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn SetProcessPriorityBoost(hprocess : super::super::Foundation:: HANDLE, bdisablepriorityboost : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn SetProcessPriorityBoost(hprocess : super::super::Foundation:: HANDLE, bdisablepriorityboost : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
     SetProcessPriorityBoost(hprocess.into_param().abi(), bdisablepriorityboost.into_param().abi()).ok()
 }
 #[inline]
@@ -1955,12 +1955,12 @@ pub unsafe fn SetProcessRestrictionExemption<P0>(fenableexemption: P0) -> window
 where
     P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("user32.dll" "system" fn SetProcessRestrictionExemption(fenableexemption : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("user32.dll" "system" fn SetProcessRestrictionExemption(fenableexemption : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
     SetProcessRestrictionExemption(fenableexemption.into_param().abi()).ok()
 }
 #[inline]
 pub unsafe fn SetProcessShutdownParameters(dwlevel: u32, dwflags: u32) -> windows_core::Result<()> {
-    ::windows_targets::link!("kernel32.dll" "system" fn SetProcessShutdownParameters(dwlevel : u32, dwflags : u32) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn SetProcessShutdownParameters(dwlevel : u32, dwflags : u32) -> super::super::Foundation:: BOOL);
     SetProcessShutdownParameters(dwlevel, dwflags).ok()
 }
 #[inline]
@@ -1968,12 +1968,12 @@ pub unsafe fn SetProcessWorkingSetSize<P0>(hprocess: P0, dwminimumworkingsetsize
 where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn SetProcessWorkingSetSize(hprocess : super::super::Foundation:: HANDLE, dwminimumworkingsetsize : usize, dwmaximumworkingsetsize : usize) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn SetProcessWorkingSetSize(hprocess : super::super::Foundation:: HANDLE, dwminimumworkingsetsize : usize, dwmaximumworkingsetsize : usize) -> super::super::Foundation:: BOOL);
     SetProcessWorkingSetSize(hprocess.into_param().abi(), dwminimumworkingsetsize, dwmaximumworkingsetsize).ok()
 }
 #[inline]
 pub unsafe fn SetProtectedPolicy(policyguid: *const windows_core::GUID, policyvalue: usize, oldpolicyvalue: Option<*mut usize>) -> windows_core::Result<()> {
-    ::windows_targets::link!("kernel32.dll" "system" fn SetProtectedPolicy(policyguid : *const windows_core::GUID, policyvalue : usize, oldpolicyvalue : *mut usize) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn SetProtectedPolicy(policyguid : *const windows_core::GUID, policyvalue : usize, oldpolicyvalue : *mut usize) -> super::super::Foundation:: BOOL);
     SetProtectedPolicy(policyguid, policyvalue, core::mem::transmute(oldpolicyvalue.unwrap_or(std::ptr::null_mut()))).ok()
 }
 #[inline]
@@ -1981,7 +1981,7 @@ pub unsafe fn SetThreadAffinityMask<P0>(hthread: P0, dwthreadaffinitymask: usize
 where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn SetThreadAffinityMask(hthread : super::super::Foundation:: HANDLE, dwthreadaffinitymask : usize) -> usize);
+    windows_targets::link!("kernel32.dll" "system" fn SetThreadAffinityMask(hthread : super::super::Foundation:: HANDLE, dwthreadaffinitymask : usize) -> usize);
     SetThreadAffinityMask(hthread.into_param().abi(), dwthreadaffinitymask)
 }
 #[inline]
@@ -1990,7 +1990,7 @@ where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
     P1: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn SetThreadDescription(hthread : super::super::Foundation:: HANDLE, lpthreaddescription : windows_core::PCWSTR) -> windows_core::HRESULT);
+    windows_targets::link!("kernel32.dll" "system" fn SetThreadDescription(hthread : super::super::Foundation:: HANDLE, lpthreaddescription : windows_core::PCWSTR) -> windows_core::HRESULT);
     SetThreadDescription(hthread.into_param().abi(), lpthreaddescription.into_param().abi()).ok()
 }
 #[cfg(feature = "Win32_System_SystemInformation")]
@@ -1999,7 +1999,7 @@ pub unsafe fn SetThreadGroupAffinity<P0>(hthread: P0, groupaffinity: *const supe
 where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn SetThreadGroupAffinity(hthread : super::super::Foundation:: HANDLE, groupaffinity : *const super::SystemInformation:: GROUP_AFFINITY, previousgroupaffinity : *mut super::SystemInformation:: GROUP_AFFINITY) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn SetThreadGroupAffinity(hthread : super::super::Foundation:: HANDLE, groupaffinity : *const super::SystemInformation:: GROUP_AFFINITY, previousgroupaffinity : *mut super::SystemInformation:: GROUP_AFFINITY) -> super::super::Foundation:: BOOL);
     SetThreadGroupAffinity(hthread.into_param().abi(), groupaffinity, core::mem::transmute(previousgroupaffinity.unwrap_or(std::ptr::null_mut())))
 }
 #[inline]
@@ -2007,7 +2007,7 @@ pub unsafe fn SetThreadIdealProcessor<P0>(hthread: P0, dwidealprocessor: u32) ->
 where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn SetThreadIdealProcessor(hthread : super::super::Foundation:: HANDLE, dwidealprocessor : u32) -> u32);
+    windows_targets::link!("kernel32.dll" "system" fn SetThreadIdealProcessor(hthread : super::super::Foundation:: HANDLE, dwidealprocessor : u32) -> u32);
     SetThreadIdealProcessor(hthread.into_param().abi(), dwidealprocessor)
 }
 #[cfg(feature = "Win32_System_Kernel")]
@@ -2016,7 +2016,7 @@ pub unsafe fn SetThreadIdealProcessorEx<P0>(hthread: P0, lpidealprocessor: *cons
 where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn SetThreadIdealProcessorEx(hthread : super::super::Foundation:: HANDLE, lpidealprocessor : *const super::Kernel:: PROCESSOR_NUMBER, lppreviousidealprocessor : *mut super::Kernel:: PROCESSOR_NUMBER) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn SetThreadIdealProcessorEx(hthread : super::super::Foundation:: HANDLE, lpidealprocessor : *const super::Kernel:: PROCESSOR_NUMBER, lppreviousidealprocessor : *mut super::Kernel:: PROCESSOR_NUMBER) -> super::super::Foundation:: BOOL);
     SetThreadIdealProcessorEx(hthread.into_param().abi(), lpidealprocessor, core::mem::transmute(lppreviousidealprocessor.unwrap_or(std::ptr::null_mut()))).ok()
 }
 #[inline]
@@ -2024,7 +2024,7 @@ pub unsafe fn SetThreadInformation<P0>(hthread: P0, threadinformationclass: THRE
 where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn SetThreadInformation(hthread : super::super::Foundation:: HANDLE, threadinformationclass : THREAD_INFORMATION_CLASS, threadinformation : *const core::ffi::c_void, threadinformationsize : u32) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn SetThreadInformation(hthread : super::super::Foundation:: HANDLE, threadinformationclass : THREAD_INFORMATION_CLASS, threadinformation : *const core::ffi::c_void, threadinformationsize : u32) -> super::super::Foundation:: BOOL);
     SetThreadInformation(hthread.into_param().abi(), threadinformationclass, threadinformation, threadinformationsize).ok()
 }
 #[inline]
@@ -2032,7 +2032,7 @@ pub unsafe fn SetThreadPriority<P0>(hthread: P0, npriority: THREAD_PRIORITY) -> 
 where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn SetThreadPriority(hthread : super::super::Foundation:: HANDLE, npriority : THREAD_PRIORITY) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn SetThreadPriority(hthread : super::super::Foundation:: HANDLE, npriority : THREAD_PRIORITY) -> super::super::Foundation:: BOOL);
     SetThreadPriority(hthread.into_param().abi(), npriority).ok()
 }
 #[inline]
@@ -2041,7 +2041,7 @@ where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
     P1: windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn SetThreadPriorityBoost(hthread : super::super::Foundation:: HANDLE, bdisablepriorityboost : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn SetThreadPriorityBoost(hthread : super::super::Foundation:: HANDLE, bdisablepriorityboost : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
     SetThreadPriorityBoost(hthread.into_param().abi(), bdisablepriorityboost.into_param().abi()).ok()
 }
 #[cfg(feature = "Win32_System_SystemInformation")]
@@ -2050,7 +2050,7 @@ pub unsafe fn SetThreadSelectedCpuSetMasks<P0>(thread: P0, cpusetmasks: Option<&
 where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn SetThreadSelectedCpuSetMasks(thread : super::super::Foundation:: HANDLE, cpusetmasks : *const super::SystemInformation:: GROUP_AFFINITY, cpusetmaskcount : u16) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn SetThreadSelectedCpuSetMasks(thread : super::super::Foundation:: HANDLE, cpusetmasks : *const super::SystemInformation:: GROUP_AFFINITY, cpusetmaskcount : u16) -> super::super::Foundation:: BOOL);
     SetThreadSelectedCpuSetMasks(thread.into_param().abi(), core::mem::transmute(cpusetmasks.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), cpusetmasks.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
 }
 #[inline]
@@ -2058,12 +2058,12 @@ pub unsafe fn SetThreadSelectedCpuSets<P0>(thread: P0, cpusetids: &[u32]) -> sup
 where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn SetThreadSelectedCpuSets(thread : super::super::Foundation:: HANDLE, cpusetids : *const u32, cpusetidcount : u32) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn SetThreadSelectedCpuSets(thread : super::super::Foundation:: HANDLE, cpusetids : *const u32, cpusetidcount : u32) -> super::super::Foundation:: BOOL);
     SetThreadSelectedCpuSets(thread.into_param().abi(), core::mem::transmute(cpusetids.as_ptr()), cpusetids.len().try_into().unwrap())
 }
 #[inline]
 pub unsafe fn SetThreadStackGuarantee(stacksizeinbytes: *mut u32) -> windows_core::Result<()> {
-    ::windows_targets::link!("kernel32.dll" "system" fn SetThreadStackGuarantee(stacksizeinbytes : *mut u32) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn SetThreadStackGuarantee(stacksizeinbytes : *mut u32) -> super::super::Foundation:: BOOL);
     SetThreadStackGuarantee(stacksizeinbytes).ok()
 }
 #[inline]
@@ -2071,7 +2071,7 @@ pub unsafe fn SetThreadToken<P0>(thread: Option<*const super::super::Foundation:
 where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("advapi32.dll" "system" fn SetThreadToken(thread : *const super::super::Foundation:: HANDLE, token : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("advapi32.dll" "system" fn SetThreadToken(thread : *const super::super::Foundation:: HANDLE, token : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
     SetThreadToken(core::mem::transmute(thread.unwrap_or(std::ptr::null())), token.into_param().abi()).ok()
 }
 #[inline]
@@ -2079,7 +2079,7 @@ pub unsafe fn SetThreadpoolStackInformation<P0>(ptpp: P0, ptpsi: *const TP_POOL_
 where
     P0: windows_core::IntoParam<PTP_POOL>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn SetThreadpoolStackInformation(ptpp : PTP_POOL, ptpsi : *const TP_POOL_STACK_INFORMATION) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn SetThreadpoolStackInformation(ptpp : PTP_POOL, ptpsi : *const TP_POOL_STACK_INFORMATION) -> super::super::Foundation:: BOOL);
     SetThreadpoolStackInformation(ptpp.into_param().abi(), ptpsi).ok()
 }
 #[inline]
@@ -2087,7 +2087,7 @@ pub unsafe fn SetThreadpoolThreadMaximum<P0>(ptpp: P0, cthrdmost: u32)
 where
     P0: windows_core::IntoParam<PTP_POOL>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn SetThreadpoolThreadMaximum(ptpp : PTP_POOL, cthrdmost : u32));
+    windows_targets::link!("kernel32.dll" "system" fn SetThreadpoolThreadMaximum(ptpp : PTP_POOL, cthrdmost : u32));
     SetThreadpoolThreadMaximum(ptpp.into_param().abi(), cthrdmost)
 }
 #[inline]
@@ -2095,7 +2095,7 @@ pub unsafe fn SetThreadpoolThreadMinimum<P0>(ptpp: P0, cthrdmic: u32) -> windows
 where
     P0: windows_core::IntoParam<PTP_POOL>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn SetThreadpoolThreadMinimum(ptpp : PTP_POOL, cthrdmic : u32) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn SetThreadpoolThreadMinimum(ptpp : PTP_POOL, cthrdmic : u32) -> super::super::Foundation:: BOOL);
     SetThreadpoolThreadMinimum(ptpp.into_param().abi(), cthrdmic).ok()
 }
 #[inline]
@@ -2103,7 +2103,7 @@ pub unsafe fn SetThreadpoolTimer<P0>(pti: P0, pftduetime: Option<*const super::s
 where
     P0: windows_core::IntoParam<PTP_TIMER>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn SetThreadpoolTimer(pti : PTP_TIMER, pftduetime : *const super::super::Foundation:: FILETIME, msperiod : u32, mswindowlength : u32));
+    windows_targets::link!("kernel32.dll" "system" fn SetThreadpoolTimer(pti : PTP_TIMER, pftduetime : *const super::super::Foundation:: FILETIME, msperiod : u32, mswindowlength : u32));
     SetThreadpoolTimer(pti.into_param().abi(), core::mem::transmute(pftduetime.unwrap_or(std::ptr::null())), msperiod, mswindowlength)
 }
 #[inline]
@@ -2111,7 +2111,7 @@ pub unsafe fn SetThreadpoolTimerEx<P0>(pti: P0, pftduetime: Option<*const super:
 where
     P0: windows_core::IntoParam<PTP_TIMER>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn SetThreadpoolTimerEx(pti : PTP_TIMER, pftduetime : *const super::super::Foundation:: FILETIME, msperiod : u32, mswindowlength : u32) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn SetThreadpoolTimerEx(pti : PTP_TIMER, pftduetime : *const super::super::Foundation:: FILETIME, msperiod : u32, mswindowlength : u32) -> super::super::Foundation:: BOOL);
     SetThreadpoolTimerEx(pti.into_param().abi(), core::mem::transmute(pftduetime.unwrap_or(std::ptr::null())), msperiod, mswindowlength)
 }
 #[inline]
@@ -2120,7 +2120,7 @@ where
     P0: windows_core::IntoParam<PTP_WAIT>,
     P1: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn SetThreadpoolWait(pwa : PTP_WAIT, h : super::super::Foundation:: HANDLE, pfttimeout : *const super::super::Foundation:: FILETIME));
+    windows_targets::link!("kernel32.dll" "system" fn SetThreadpoolWait(pwa : PTP_WAIT, h : super::super::Foundation:: HANDLE, pfttimeout : *const super::super::Foundation:: FILETIME));
     SetThreadpoolWait(pwa.into_param().abi(), h.into_param().abi(), core::mem::transmute(pfttimeout.unwrap_or(std::ptr::null())))
 }
 #[inline]
@@ -2129,7 +2129,7 @@ where
     P0: windows_core::IntoParam<PTP_WAIT>,
     P1: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn SetThreadpoolWaitEx(pwa : PTP_WAIT, h : super::super::Foundation:: HANDLE, pfttimeout : *const super::super::Foundation:: FILETIME, reserved : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn SetThreadpoolWaitEx(pwa : PTP_WAIT, h : super::super::Foundation:: HANDLE, pfttimeout : *const super::super::Foundation:: FILETIME, reserved : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
     SetThreadpoolWaitEx(pwa.into_param().abi(), h.into_param().abi(), core::mem::transmute(pfttimeout.unwrap_or(std::ptr::null())), core::mem::transmute(reserved.unwrap_or(std::ptr::null())))
 }
 #[inline]
@@ -2138,12 +2138,12 @@ where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
     P1: windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn SetTimerQueueTimer(timerqueue : super::super::Foundation:: HANDLE, callback : WAITORTIMERCALLBACK, parameter : *const core::ffi::c_void, duetime : u32, period : u32, preferio : super::super::Foundation:: BOOL) -> super::super::Foundation:: HANDLE);
+    windows_targets::link!("kernel32.dll" "system" fn SetTimerQueueTimer(timerqueue : super::super::Foundation:: HANDLE, callback : WAITORTIMERCALLBACK, parameter : *const core::ffi::c_void, duetime : u32, period : u32, preferio : super::super::Foundation:: BOOL) -> super::super::Foundation:: HANDLE);
     SetTimerQueueTimer(timerqueue.into_param().abi(), callback, core::mem::transmute(parameter.unwrap_or(std::ptr::null())), duetime, period, preferio.into_param().abi())
 }
 #[inline]
 pub unsafe fn SetUmsThreadInformation(umsthread: *const core::ffi::c_void, umsthreadinfoclass: UMS_THREAD_INFO_CLASS, umsthreadinformation: *const core::ffi::c_void, umsthreadinformationlength: u32) -> windows_core::Result<()> {
-    ::windows_targets::link!("kernel32.dll" "system" fn SetUmsThreadInformation(umsthread : *const core::ffi::c_void, umsthreadinfoclass : UMS_THREAD_INFO_CLASS, umsthreadinformation : *const core::ffi::c_void, umsthreadinformationlength : u32) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn SetUmsThreadInformation(umsthread : *const core::ffi::c_void, umsthreadinfoclass : UMS_THREAD_INFO_CLASS, umsthreadinformation : *const core::ffi::c_void, umsthreadinformationlength : u32) -> super::super::Foundation:: BOOL);
     SetUmsThreadInformation(umsthread, umsthreadinfoclass, umsthreadinformation, umsthreadinformationlength).ok()
 }
 #[inline]
@@ -2152,7 +2152,7 @@ where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
     P1: windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn SetWaitableTimer(htimer : super::super::Foundation:: HANDLE, lpduetime : *const i64, lperiod : i32, pfncompletionroutine : PTIMERAPCROUTINE, lpargtocompletionroutine : *const core::ffi::c_void, fresume : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn SetWaitableTimer(htimer : super::super::Foundation:: HANDLE, lpduetime : *const i64, lperiod : i32, pfncompletionroutine : PTIMERAPCROUTINE, lpargtocompletionroutine : *const core::ffi::c_void, fresume : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
     SetWaitableTimer(htimer.into_param().abi(), lpduetime, lperiod, pfncompletionroutine, core::mem::transmute(lpargtocompletionroutine.unwrap_or(std::ptr::null())), fresume.into_param().abi()).ok()
 }
 #[inline]
@@ -2160,7 +2160,7 @@ pub unsafe fn SetWaitableTimerEx<P0>(htimer: P0, lpduetime: *const i64, lperiod:
 where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn SetWaitableTimerEx(htimer : super::super::Foundation:: HANDLE, lpduetime : *const i64, lperiod : i32, pfncompletionroutine : PTIMERAPCROUTINE, lpargtocompletionroutine : *const core::ffi::c_void, wakecontext : *const REASON_CONTEXT, tolerabledelay : u32) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn SetWaitableTimerEx(htimer : super::super::Foundation:: HANDLE, lpduetime : *const i64, lperiod : i32, pfncompletionroutine : PTIMERAPCROUTINE, lpargtocompletionroutine : *const core::ffi::c_void, wakecontext : *const REASON_CONTEXT, tolerabledelay : u32) -> super::super::Foundation:: BOOL);
     SetWaitableTimerEx(htimer.into_param().abi(), lpduetime, lperiod, pfncompletionroutine, core::mem::transmute(lpargtocompletionroutine.unwrap_or(std::ptr::null())), core::mem::transmute(wakecontext.unwrap_or(std::ptr::null())), tolerabledelay).ok()
 }
 #[inline]
@@ -2170,23 +2170,23 @@ where
     P1: windows_core::IntoParam<super::super::Foundation::HANDLE>,
     P2: windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn SignalObjectAndWait(hobjecttosignal : super::super::Foundation:: HANDLE, hobjecttowaiton : super::super::Foundation:: HANDLE, dwmilliseconds : u32, balertable : super::super::Foundation:: BOOL) -> super::super::Foundation:: WAIT_EVENT);
+    windows_targets::link!("kernel32.dll" "system" fn SignalObjectAndWait(hobjecttosignal : super::super::Foundation:: HANDLE, hobjecttowaiton : super::super::Foundation:: HANDLE, dwmilliseconds : u32, balertable : super::super::Foundation:: BOOL) -> super::super::Foundation:: WAIT_EVENT);
     SignalObjectAndWait(hobjecttosignal.into_param().abi(), hobjecttowaiton.into_param().abi(), dwmilliseconds, balertable.into_param().abi())
 }
 #[inline]
 pub unsafe fn Sleep(dwmilliseconds: u32) {
-    ::windows_targets::link!("kernel32.dll" "system" fn Sleep(dwmilliseconds : u32));
+    windows_targets::link!("kernel32.dll" "system" fn Sleep(dwmilliseconds : u32));
     Sleep(dwmilliseconds)
 }
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn SleepConditionVariableCS(conditionvariable: *mut CONDITION_VARIABLE, criticalsection: *mut CRITICAL_SECTION, dwmilliseconds: u32) -> windows_core::Result<()> {
-    ::windows_targets::link!("kernel32.dll" "system" fn SleepConditionVariableCS(conditionvariable : *mut CONDITION_VARIABLE, criticalsection : *mut CRITICAL_SECTION, dwmilliseconds : u32) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn SleepConditionVariableCS(conditionvariable : *mut CONDITION_VARIABLE, criticalsection : *mut CRITICAL_SECTION, dwmilliseconds : u32) -> super::super::Foundation:: BOOL);
     SleepConditionVariableCS(conditionvariable, criticalsection, dwmilliseconds).ok()
 }
 #[inline]
 pub unsafe fn SleepConditionVariableSRW(conditionvariable: *mut CONDITION_VARIABLE, srwlock: *mut SRWLOCK, dwmilliseconds: u32, flags: u32) -> windows_core::Result<()> {
-    ::windows_targets::link!("kernel32.dll" "system" fn SleepConditionVariableSRW(conditionvariable : *mut CONDITION_VARIABLE, srwlock : *mut SRWLOCK, dwmilliseconds : u32, flags : u32) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn SleepConditionVariableSRW(conditionvariable : *mut CONDITION_VARIABLE, srwlock : *mut SRWLOCK, dwmilliseconds : u32, flags : u32) -> super::super::Foundation:: BOOL);
     SleepConditionVariableSRW(conditionvariable, srwlock, dwmilliseconds, flags).ok()
 }
 #[inline]
@@ -2194,7 +2194,7 @@ pub unsafe fn SleepEx<P0>(dwmilliseconds: u32, balertable: P0) -> u32
 where
     P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn SleepEx(dwmilliseconds : u32, balertable : super::super::Foundation:: BOOL) -> u32);
+    windows_targets::link!("kernel32.dll" "system" fn SleepEx(dwmilliseconds : u32, balertable : super::super::Foundation:: BOOL) -> u32);
     SleepEx(dwmilliseconds, balertable.into_param().abi())
 }
 #[inline]
@@ -2202,7 +2202,7 @@ pub unsafe fn StartThreadpoolIo<P0>(pio: P0)
 where
     P0: windows_core::IntoParam<PTP_IO>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn StartThreadpoolIo(pio : PTP_IO));
+    windows_targets::link!("kernel32.dll" "system" fn StartThreadpoolIo(pio : PTP_IO));
     StartThreadpoolIo(pio.into_param().abi())
 }
 #[inline]
@@ -2210,7 +2210,7 @@ pub unsafe fn SubmitThreadpoolWork<P0>(pwk: P0)
 where
     P0: windows_core::IntoParam<PTP_WORK>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn SubmitThreadpoolWork(pwk : PTP_WORK));
+    windows_targets::link!("kernel32.dll" "system" fn SubmitThreadpoolWork(pwk : PTP_WORK));
     SubmitThreadpoolWork(pwk.into_param().abi())
 }
 #[inline]
@@ -2218,17 +2218,17 @@ pub unsafe fn SuspendThread<P0>(hthread: P0) -> u32
 where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn SuspendThread(hthread : super::super::Foundation:: HANDLE) -> u32);
+    windows_targets::link!("kernel32.dll" "system" fn SuspendThread(hthread : super::super::Foundation:: HANDLE) -> u32);
     SuspendThread(hthread.into_param().abi())
 }
 #[inline]
 pub unsafe fn SwitchToFiber(lpfiber: *const core::ffi::c_void) {
-    ::windows_targets::link!("kernel32.dll" "system" fn SwitchToFiber(lpfiber : *const core::ffi::c_void));
+    windows_targets::link!("kernel32.dll" "system" fn SwitchToFiber(lpfiber : *const core::ffi::c_void));
     SwitchToFiber(lpfiber)
 }
 #[inline]
 pub unsafe fn SwitchToThread() -> super::super::Foundation::BOOL {
-    ::windows_targets::link!("kernel32.dll" "system" fn SwitchToThread() -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn SwitchToThread() -> super::super::Foundation:: BOOL);
     SwitchToThread()
 }
 #[inline]
@@ -2236,7 +2236,7 @@ pub unsafe fn TerminateProcess<P0>(hprocess: P0, uexitcode: u32) -> windows_core
 where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn TerminateProcess(hprocess : super::super::Foundation:: HANDLE, uexitcode : u32) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn TerminateProcess(hprocess : super::super::Foundation:: HANDLE, uexitcode : u32) -> super::super::Foundation:: BOOL);
     TerminateProcess(hprocess.into_param().abi(), uexitcode).ok()
 }
 #[inline]
@@ -2244,53 +2244,53 @@ pub unsafe fn TerminateThread<P0>(hthread: P0, dwexitcode: u32) -> windows_core:
 where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn TerminateThread(hthread : super::super::Foundation:: HANDLE, dwexitcode : u32) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn TerminateThread(hthread : super::super::Foundation:: HANDLE, dwexitcode : u32) -> super::super::Foundation:: BOOL);
     TerminateThread(hthread.into_param().abi(), dwexitcode).ok()
 }
 #[inline]
 pub unsafe fn TlsAlloc() -> u32 {
-    ::windows_targets::link!("kernel32.dll" "system" fn TlsAlloc() -> u32);
+    windows_targets::link!("kernel32.dll" "system" fn TlsAlloc() -> u32);
     TlsAlloc()
 }
 #[inline]
 pub unsafe fn TlsFree(dwtlsindex: u32) -> windows_core::Result<()> {
-    ::windows_targets::link!("kernel32.dll" "system" fn TlsFree(dwtlsindex : u32) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn TlsFree(dwtlsindex : u32) -> super::super::Foundation:: BOOL);
     TlsFree(dwtlsindex).ok()
 }
 #[inline]
 pub unsafe fn TlsGetValue(dwtlsindex: u32) -> *mut core::ffi::c_void {
-    ::windows_targets::link!("kernel32.dll" "system" fn TlsGetValue(dwtlsindex : u32) -> *mut core::ffi::c_void);
+    windows_targets::link!("kernel32.dll" "system" fn TlsGetValue(dwtlsindex : u32) -> *mut core::ffi::c_void);
     TlsGetValue(dwtlsindex)
 }
 #[inline]
 pub unsafe fn TlsSetValue(dwtlsindex: u32, lptlsvalue: Option<*const core::ffi::c_void>) -> windows_core::Result<()> {
-    ::windows_targets::link!("kernel32.dll" "system" fn TlsSetValue(dwtlsindex : u32, lptlsvalue : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn TlsSetValue(dwtlsindex : u32, lptlsvalue : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
     TlsSetValue(dwtlsindex, core::mem::transmute(lptlsvalue.unwrap_or(std::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn TryAcquireSRWLockExclusive(srwlock: *mut SRWLOCK) -> super::super::Foundation::BOOLEAN {
-    ::windows_targets::link!("kernel32.dll" "system" fn TryAcquireSRWLockExclusive(srwlock : *mut SRWLOCK) -> super::super::Foundation:: BOOLEAN);
+    windows_targets::link!("kernel32.dll" "system" fn TryAcquireSRWLockExclusive(srwlock : *mut SRWLOCK) -> super::super::Foundation:: BOOLEAN);
     TryAcquireSRWLockExclusive(srwlock)
 }
 #[inline]
 pub unsafe fn TryAcquireSRWLockShared(srwlock: *mut SRWLOCK) -> super::super::Foundation::BOOLEAN {
-    ::windows_targets::link!("kernel32.dll" "system" fn TryAcquireSRWLockShared(srwlock : *mut SRWLOCK) -> super::super::Foundation:: BOOLEAN);
+    windows_targets::link!("kernel32.dll" "system" fn TryAcquireSRWLockShared(srwlock : *mut SRWLOCK) -> super::super::Foundation:: BOOLEAN);
     TryAcquireSRWLockShared(srwlock)
 }
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn TryEnterCriticalSection(lpcriticalsection: *mut CRITICAL_SECTION) -> super::super::Foundation::BOOL {
-    ::windows_targets::link!("kernel32.dll" "system" fn TryEnterCriticalSection(lpcriticalsection : *mut CRITICAL_SECTION) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn TryEnterCriticalSection(lpcriticalsection : *mut CRITICAL_SECTION) -> super::super::Foundation:: BOOL);
     TryEnterCriticalSection(lpcriticalsection)
 }
 #[inline]
 pub unsafe fn TrySubmitThreadpoolCallback(pfns: PTP_SIMPLE_CALLBACK, pv: Option<*mut core::ffi::c_void>, pcbe: Option<*const TP_CALLBACK_ENVIRON_V3>) -> windows_core::Result<()> {
-    ::windows_targets::link!("kernel32.dll" "system" fn TrySubmitThreadpoolCallback(pfns : PTP_SIMPLE_CALLBACK, pv : *mut core::ffi::c_void, pcbe : *const TP_CALLBACK_ENVIRON_V3) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn TrySubmitThreadpoolCallback(pfns : PTP_SIMPLE_CALLBACK, pv : *mut core::ffi::c_void, pcbe : *const TP_CALLBACK_ENVIRON_V3) -> super::super::Foundation:: BOOL);
     TrySubmitThreadpoolCallback(pfns, core::mem::transmute(pv.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pcbe.unwrap_or(std::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn UmsThreadYield(schedulerparam: *const core::ffi::c_void) -> windows_core::Result<()> {
-    ::windows_targets::link!("kernel32.dll" "system" fn UmsThreadYield(schedulerparam : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn UmsThreadYield(schedulerparam : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
     UmsThreadYield(schedulerparam).ok()
 }
 #[inline]
@@ -2298,7 +2298,7 @@ pub unsafe fn UnregisterWait<P0>(waithandle: P0) -> windows_core::Result<()>
 where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn UnregisterWait(waithandle : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn UnregisterWait(waithandle : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
     UnregisterWait(waithandle.into_param().abi()).ok()
 }
 #[inline]
@@ -2307,12 +2307,12 @@ where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
     P1: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn UnregisterWaitEx(waithandle : super::super::Foundation:: HANDLE, completionevent : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn UnregisterWaitEx(waithandle : super::super::Foundation:: HANDLE, completionevent : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
     UnregisterWaitEx(waithandle.into_param().abi(), completionevent.into_param().abi()).ok()
 }
 #[inline]
 pub unsafe fn UpdateProcThreadAttribute(lpattributelist: LPPROC_THREAD_ATTRIBUTE_LIST, dwflags: u32, attribute: usize, lpvalue: Option<*const core::ffi::c_void>, cbsize: usize, lppreviousvalue: Option<*mut core::ffi::c_void>, lpreturnsize: Option<*const usize>) -> windows_core::Result<()> {
-    ::windows_targets::link!("kernel32.dll" "system" fn UpdateProcThreadAttribute(lpattributelist : LPPROC_THREAD_ATTRIBUTE_LIST, dwflags : u32, attribute : usize, lpvalue : *const core::ffi::c_void, cbsize : usize, lppreviousvalue : *mut core::ffi::c_void, lpreturnsize : *const usize) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn UpdateProcThreadAttribute(lpattributelist : LPPROC_THREAD_ATTRIBUTE_LIST, dwflags : u32, attribute : usize, lpvalue : *const core::ffi::c_void, cbsize : usize, lppreviousvalue : *mut core::ffi::c_void, lpreturnsize : *const usize) -> super::super::Foundation:: BOOL);
     UpdateProcThreadAttribute(lpattributelist, dwflags, attribute, core::mem::transmute(lpvalue.unwrap_or(std::ptr::null())), cbsize, core::mem::transmute(lppreviousvalue.unwrap_or(std::ptr::null_mut())), core::mem::transmute(lpreturnsize.unwrap_or(std::ptr::null()))).ok()
 }
 #[inline]
@@ -2320,7 +2320,7 @@ pub unsafe fn WaitForInputIdle<P0>(hprocess: P0, dwmilliseconds: u32) -> u32
 where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("user32.dll" "system" fn WaitForInputIdle(hprocess : super::super::Foundation:: HANDLE, dwmilliseconds : u32) -> u32);
+    windows_targets::link!("user32.dll" "system" fn WaitForInputIdle(hprocess : super::super::Foundation:: HANDLE, dwmilliseconds : u32) -> u32);
     WaitForInputIdle(hprocess.into_param().abi(), dwmilliseconds)
 }
 #[inline]
@@ -2328,7 +2328,7 @@ pub unsafe fn WaitForMultipleObjects<P0>(lphandles: &[super::super::Foundation::
 where
     P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn WaitForMultipleObjects(ncount : u32, lphandles : *const super::super::Foundation:: HANDLE, bwaitall : super::super::Foundation:: BOOL, dwmilliseconds : u32) -> super::super::Foundation:: WAIT_EVENT);
+    windows_targets::link!("kernel32.dll" "system" fn WaitForMultipleObjects(ncount : u32, lphandles : *const super::super::Foundation:: HANDLE, bwaitall : super::super::Foundation:: BOOL, dwmilliseconds : u32) -> super::super::Foundation:: WAIT_EVENT);
     WaitForMultipleObjects(lphandles.len().try_into().unwrap(), core::mem::transmute(lphandles.as_ptr()), bwaitall.into_param().abi(), dwmilliseconds)
 }
 #[inline]
@@ -2337,7 +2337,7 @@ where
     P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
     P1: windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn WaitForMultipleObjectsEx(ncount : u32, lphandles : *const super::super::Foundation:: HANDLE, bwaitall : super::super::Foundation:: BOOL, dwmilliseconds : u32, balertable : super::super::Foundation:: BOOL) -> super::super::Foundation:: WAIT_EVENT);
+    windows_targets::link!("kernel32.dll" "system" fn WaitForMultipleObjectsEx(ncount : u32, lphandles : *const super::super::Foundation:: HANDLE, bwaitall : super::super::Foundation:: BOOL, dwmilliseconds : u32, balertable : super::super::Foundation:: BOOL) -> super::super::Foundation:: WAIT_EVENT);
     WaitForMultipleObjectsEx(lphandles.len().try_into().unwrap(), core::mem::transmute(lphandles.as_ptr()), bwaitall.into_param().abi(), dwmilliseconds, balertable.into_param().abi())
 }
 #[inline]
@@ -2345,7 +2345,7 @@ pub unsafe fn WaitForSingleObject<P0>(hhandle: P0, dwmilliseconds: u32) -> super
 where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn WaitForSingleObject(hhandle : super::super::Foundation:: HANDLE, dwmilliseconds : u32) -> super::super::Foundation:: WAIT_EVENT);
+    windows_targets::link!("kernel32.dll" "system" fn WaitForSingleObject(hhandle : super::super::Foundation:: HANDLE, dwmilliseconds : u32) -> super::super::Foundation:: WAIT_EVENT);
     WaitForSingleObject(hhandle.into_param().abi(), dwmilliseconds)
 }
 #[inline]
@@ -2354,7 +2354,7 @@ where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
     P1: windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn WaitForSingleObjectEx(hhandle : super::super::Foundation:: HANDLE, dwmilliseconds : u32, balertable : super::super::Foundation:: BOOL) -> super::super::Foundation:: WAIT_EVENT);
+    windows_targets::link!("kernel32.dll" "system" fn WaitForSingleObjectEx(hhandle : super::super::Foundation:: HANDLE, dwmilliseconds : u32, balertable : super::super::Foundation:: BOOL) -> super::super::Foundation:: WAIT_EVENT);
     WaitForSingleObjectEx(hhandle.into_param().abi(), dwmilliseconds, balertable.into_param().abi())
 }
 #[inline]
@@ -2363,7 +2363,7 @@ where
     P0: windows_core::IntoParam<PTP_IO>,
     P1: windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn WaitForThreadpoolIoCallbacks(pio : PTP_IO, fcancelpendingcallbacks : super::super::Foundation:: BOOL));
+    windows_targets::link!("kernel32.dll" "system" fn WaitForThreadpoolIoCallbacks(pio : PTP_IO, fcancelpendingcallbacks : super::super::Foundation:: BOOL));
     WaitForThreadpoolIoCallbacks(pio.into_param().abi(), fcancelpendingcallbacks.into_param().abi())
 }
 #[inline]
@@ -2372,7 +2372,7 @@ where
     P0: windows_core::IntoParam<PTP_TIMER>,
     P1: windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn WaitForThreadpoolTimerCallbacks(pti : PTP_TIMER, fcancelpendingcallbacks : super::super::Foundation:: BOOL));
+    windows_targets::link!("kernel32.dll" "system" fn WaitForThreadpoolTimerCallbacks(pti : PTP_TIMER, fcancelpendingcallbacks : super::super::Foundation:: BOOL));
     WaitForThreadpoolTimerCallbacks(pti.into_param().abi(), fcancelpendingcallbacks.into_param().abi())
 }
 #[inline]
@@ -2381,7 +2381,7 @@ where
     P0: windows_core::IntoParam<PTP_WAIT>,
     P1: windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn WaitForThreadpoolWaitCallbacks(pwa : PTP_WAIT, fcancelpendingcallbacks : super::super::Foundation:: BOOL));
+    windows_targets::link!("kernel32.dll" "system" fn WaitForThreadpoolWaitCallbacks(pwa : PTP_WAIT, fcancelpendingcallbacks : super::super::Foundation:: BOOL));
     WaitForThreadpoolWaitCallbacks(pwa.into_param().abi(), fcancelpendingcallbacks.into_param().abi())
 }
 #[inline]
@@ -2390,32 +2390,32 @@ where
     P0: windows_core::IntoParam<PTP_WORK>,
     P1: windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn WaitForThreadpoolWorkCallbacks(pwk : PTP_WORK, fcancelpendingcallbacks : super::super::Foundation:: BOOL));
+    windows_targets::link!("kernel32.dll" "system" fn WaitForThreadpoolWorkCallbacks(pwk : PTP_WORK, fcancelpendingcallbacks : super::super::Foundation:: BOOL));
     WaitForThreadpoolWorkCallbacks(pwk.into_param().abi(), fcancelpendingcallbacks.into_param().abi())
 }
 #[inline]
 pub unsafe fn WaitOnAddress(address: *const core::ffi::c_void, compareaddress: *const core::ffi::c_void, addresssize: usize, dwmilliseconds: u32) -> windows_core::Result<()> {
-    ::windows_targets::link!("api-ms-win-core-synch-l1-2-0.dll" "system" fn WaitOnAddress(address : *const core::ffi::c_void, compareaddress : *const core::ffi::c_void, addresssize : usize, dwmilliseconds : u32) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("api-ms-win-core-synch-l1-2-0.dll" "system" fn WaitOnAddress(address : *const core::ffi::c_void, compareaddress : *const core::ffi::c_void, addresssize : usize, dwmilliseconds : u32) -> super::super::Foundation:: BOOL);
     WaitOnAddress(address, compareaddress, addresssize, dwmilliseconds).ok()
 }
 #[inline]
 pub unsafe fn WakeAllConditionVariable(conditionvariable: *mut CONDITION_VARIABLE) {
-    ::windows_targets::link!("kernel32.dll" "system" fn WakeAllConditionVariable(conditionvariable : *mut CONDITION_VARIABLE));
+    windows_targets::link!("kernel32.dll" "system" fn WakeAllConditionVariable(conditionvariable : *mut CONDITION_VARIABLE));
     WakeAllConditionVariable(conditionvariable)
 }
 #[inline]
 pub unsafe fn WakeByAddressAll(address: *const core::ffi::c_void) {
-    ::windows_targets::link!("api-ms-win-core-synch-l1-2-0.dll" "system" fn WakeByAddressAll(address : *const core::ffi::c_void));
+    windows_targets::link!("api-ms-win-core-synch-l1-2-0.dll" "system" fn WakeByAddressAll(address : *const core::ffi::c_void));
     WakeByAddressAll(address)
 }
 #[inline]
 pub unsafe fn WakeByAddressSingle(address: *const core::ffi::c_void) {
-    ::windows_targets::link!("api-ms-win-core-synch-l1-2-0.dll" "system" fn WakeByAddressSingle(address : *const core::ffi::c_void));
+    windows_targets::link!("api-ms-win-core-synch-l1-2-0.dll" "system" fn WakeByAddressSingle(address : *const core::ffi::c_void));
     WakeByAddressSingle(address)
 }
 #[inline]
 pub unsafe fn WakeConditionVariable(conditionvariable: *mut CONDITION_VARIABLE) {
-    ::windows_targets::link!("kernel32.dll" "system" fn WakeConditionVariable(conditionvariable : *mut CONDITION_VARIABLE));
+    windows_targets::link!("kernel32.dll" "system" fn WakeConditionVariable(conditionvariable : *mut CONDITION_VARIABLE));
     WakeConditionVariable(conditionvariable)
 }
 #[inline]
@@ -2423,12 +2423,12 @@ pub unsafe fn WinExec<P0>(lpcmdline: P0, ucmdshow: u32) -> u32
 where
     P0: windows_core::IntoParam<windows_core::PCSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn WinExec(lpcmdline : windows_core::PCSTR, ucmdshow : u32) -> u32);
+    windows_targets::link!("kernel32.dll" "system" fn WinExec(lpcmdline : windows_core::PCSTR, ucmdshow : u32) -> u32);
     WinExec(lpcmdline.into_param().abi(), ucmdshow)
 }
 #[inline]
 pub unsafe fn Wow64SetThreadDefaultGuestMachine(machine: u16) -> u16 {
-    ::windows_targets::link!("api-ms-win-core-wow64-l1-1-1.dll" "system" fn Wow64SetThreadDefaultGuestMachine(machine : u16) -> u16);
+    windows_targets::link!("api-ms-win-core-wow64-l1-1-1.dll" "system" fn Wow64SetThreadDefaultGuestMachine(machine : u16) -> u16);
     Wow64SetThreadDefaultGuestMachine(machine)
 }
 #[inline]
@@ -2436,7 +2436,7 @@ pub unsafe fn Wow64SuspendThread<P0>(hthread: P0) -> u32
 where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn Wow64SuspendThread(hthread : super::super::Foundation:: HANDLE) -> u32);
+    windows_targets::link!("kernel32.dll" "system" fn Wow64SuspendThread(hthread : super::super::Foundation:: HANDLE) -> u32);
     Wow64SuspendThread(hthread.into_param().abi())
 }
 windows_core::imp::com_interface!(IRtwqAsyncCallback, IRtwqAsyncCallback_Vtbl, 0xa27003cf_2354_4f2a_8d6a_ab7cff15437e);

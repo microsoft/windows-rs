@@ -175,7 +175,7 @@ impl Class {
     where
         P0: windows_core::IntoParam<windows_core::IInspectable>,
         P1: windows_core::IntoParam<Class>,
-        P2: windows_core::IntoParam<::windows::Foundation::IStringable>,
+        P2: windows_core::IntoParam<windows::Foundation::IStringable>,
         P3: windows_core::IntoParam<Callback>,
     {
         let this = self;

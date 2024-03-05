@@ -4,12 +4,12 @@ where
     P0: windows_core::IntoParam<windows_core::PCWSTR>,
     P1: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("efswrt.dll" "system" fn ProtectFileToEnterpriseIdentity(fileorfolderpath : windows_core::PCWSTR, identity : windows_core::PCWSTR) -> windows_core::HRESULT);
+    windows_targets::link!("efswrt.dll" "system" fn ProtectFileToEnterpriseIdentity(fileorfolderpath : windows_core::PCWSTR, identity : windows_core::PCWSTR) -> windows_core::HRESULT);
     ProtectFileToEnterpriseIdentity(fileorfolderpath.into_param().abi(), identity.into_param().abi()).ok()
 }
 #[inline]
 pub unsafe fn SrpCloseThreadNetworkContext(threadnetworkcontext: *mut HTHREAD_NETWORK_CONTEXT) -> windows_core::Result<()> {
-    ::windows_targets::link!("srpapi.dll" "system" fn SrpCloseThreadNetworkContext(threadnetworkcontext : *mut HTHREAD_NETWORK_CONTEXT) -> windows_core::HRESULT);
+    windows_targets::link!("srpapi.dll" "system" fn SrpCloseThreadNetworkContext(threadnetworkcontext : *mut HTHREAD_NETWORK_CONTEXT) -> windows_core::HRESULT);
     SrpCloseThreadNetworkContext(threadnetworkcontext).ok()
 }
 #[inline]
@@ -17,19 +17,19 @@ pub unsafe fn SrpCreateThreadNetworkContext<P0>(enterpriseid: P0) -> windows_cor
 where
     P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("srpapi.dll" "system" fn SrpCreateThreadNetworkContext(enterpriseid : windows_core::PCWSTR, threadnetworkcontext : *mut HTHREAD_NETWORK_CONTEXT) -> windows_core::HRESULT);
+    windows_targets::link!("srpapi.dll" "system" fn SrpCreateThreadNetworkContext(enterpriseid : windows_core::PCWSTR, threadnetworkcontext : *mut HTHREAD_NETWORK_CONTEXT) -> windows_core::HRESULT);
     let mut result__ = std::mem::zeroed();
     SrpCreateThreadNetworkContext(enterpriseid.into_param().abi(), &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn SrpDisablePermissiveModeFileEncryption() -> windows_core::Result<()> {
-    ::windows_targets::link!("srpapi.dll" "system" fn SrpDisablePermissiveModeFileEncryption() -> windows_core::HRESULT);
+    windows_targets::link!("srpapi.dll" "system" fn SrpDisablePermissiveModeFileEncryption() -> windows_core::HRESULT);
     SrpDisablePermissiveModeFileEncryption().ok()
 }
 #[cfg(feature = "Win32_Storage_Packaging_Appx")]
 #[inline]
 pub unsafe fn SrpDoesPolicyAllowAppExecution(packageid: *const super::super::Storage::Packaging::Appx::PACKAGE_ID) -> windows_core::Result<super::super::Foundation::BOOL> {
-    ::windows_targets::link!("srpapi.dll" "system" fn SrpDoesPolicyAllowAppExecution(packageid : *const super::super::Storage::Packaging::Appx:: PACKAGE_ID, isallowed : *mut super::super::Foundation:: BOOL) -> windows_core::HRESULT);
+    windows_targets::link!("srpapi.dll" "system" fn SrpDoesPolicyAllowAppExecution(packageid : *const super::super::Storage::Packaging::Appx:: PACKAGE_ID, isallowed : *mut super::super::Foundation:: BOOL) -> windows_core::HRESULT);
     let mut result__ = std::mem::zeroed();
     SrpDoesPolicyAllowAppExecution(packageid, &mut result__).map(|| result__)
 }
@@ -38,7 +38,7 @@ pub unsafe fn SrpEnablePermissiveModeFileEncryption<P0>(enterpriseid: P0) -> win
 where
     P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("srpapi.dll" "system" fn SrpEnablePermissiveModeFileEncryption(enterpriseid : windows_core::PCWSTR) -> windows_core::HRESULT);
+    windows_targets::link!("srpapi.dll" "system" fn SrpEnablePermissiveModeFileEncryption(enterpriseid : windows_core::PCWSTR) -> windows_core::HRESULT);
     SrpEnablePermissiveModeFileEncryption(enterpriseid.into_param().abi()).ok()
 }
 #[inline]
@@ -46,7 +46,7 @@ pub unsafe fn SrpGetEnterpriseIds<P0>(tokenhandle: P0, numberofbytes: Option<*mu
 where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("srpapi.dll" "system" fn SrpGetEnterpriseIds(tokenhandle : super::super::Foundation:: HANDLE, numberofbytes : *mut u32, enterpriseids : *mut windows_core::PCWSTR, enterpriseidcount : *mut u32) -> windows_core::HRESULT);
+    windows_targets::link!("srpapi.dll" "system" fn SrpGetEnterpriseIds(tokenhandle : super::super::Foundation:: HANDLE, numberofbytes : *mut u32, enterpriseids : *mut windows_core::PCWSTR, enterpriseidcount : *mut u32) -> windows_core::HRESULT);
     SrpGetEnterpriseIds(tokenhandle.into_param().abi(), core::mem::transmute(numberofbytes.unwrap_or(std::ptr::null_mut())), core::mem::transmute(enterpriseids.unwrap_or(std::ptr::null_mut())), enterpriseidcount).ok()
 }
 #[inline]
@@ -54,18 +54,18 @@ pub unsafe fn SrpGetEnterprisePolicy<P0>(tokenhandle: P0) -> windows_core::Resul
 where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("srpapi.dll" "system" fn SrpGetEnterprisePolicy(tokenhandle : super::super::Foundation:: HANDLE, policyflags : *mut ENTERPRISE_DATA_POLICIES) -> windows_core::HRESULT);
+    windows_targets::link!("srpapi.dll" "system" fn SrpGetEnterprisePolicy(tokenhandle : super::super::Foundation:: HANDLE, policyflags : *mut ENTERPRISE_DATA_POLICIES) -> windows_core::HRESULT);
     let mut result__ = std::mem::zeroed();
     SrpGetEnterprisePolicy(tokenhandle.into_param().abi(), &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn SrpHostingInitialize(version: SRPHOSTING_VERSION, r#type: SRPHOSTING_TYPE, pvdata: *const core::ffi::c_void, cbdata: u32) -> windows_core::Result<()> {
-    ::windows_targets::link!("srpapi.dll" "system" fn SrpHostingInitialize(version : SRPHOSTING_VERSION, r#type : SRPHOSTING_TYPE, pvdata : *const core::ffi::c_void, cbdata : u32) -> windows_core::HRESULT);
+    windows_targets::link!("srpapi.dll" "system" fn SrpHostingInitialize(version : SRPHOSTING_VERSION, r#type : SRPHOSTING_TYPE, pvdata : *const core::ffi::c_void, cbdata : u32) -> windows_core::HRESULT);
     SrpHostingInitialize(version, r#type, pvdata, cbdata).ok()
 }
 #[inline]
 pub unsafe fn SrpHostingTerminate(r#type: SRPHOSTING_TYPE) {
-    ::windows_targets::link!("srpapi.dll" "system" fn SrpHostingTerminate(r#type : SRPHOSTING_TYPE));
+    windows_targets::link!("srpapi.dll" "system" fn SrpHostingTerminate(r#type : SRPHOSTING_TYPE));
     SrpHostingTerminate(r#type)
 }
 #[inline]
@@ -73,7 +73,7 @@ pub unsafe fn SrpIsTokenService<P0>(tokenhandle: P0, istokenservice: *mut u8) ->
 where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("srpapi.dll" "system" fn SrpIsTokenService(tokenhandle : super::super::Foundation:: HANDLE, istokenservice : *mut u8) -> super::super::Foundation:: NTSTATUS);
+    windows_targets::link!("srpapi.dll" "system" fn SrpIsTokenService(tokenhandle : super::super::Foundation:: HANDLE, istokenservice : *mut u8) -> super::super::Foundation:: NTSTATUS);
     SrpIsTokenService(tokenhandle.into_param().abi(), istokenservice)
 }
 #[inline]
@@ -82,7 +82,7 @@ where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
     P1: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("srpapi.dll" "system" fn SrpSetTokenEnterpriseId(tokenhandle : super::super::Foundation:: HANDLE, enterpriseid : windows_core::PCWSTR) -> windows_core::HRESULT);
+    windows_targets::link!("srpapi.dll" "system" fn SrpSetTokenEnterpriseId(tokenhandle : super::super::Foundation:: HANDLE, enterpriseid : windows_core::PCWSTR) -> windows_core::HRESULT);
     SrpSetTokenEnterpriseId(tokenhandle.into_param().abi(), enterpriseid.into_param().abi()).ok()
 }
 #[inline]
@@ -90,7 +90,7 @@ pub unsafe fn UnprotectFile<P0>(fileorfolderpath: P0, options: Option<*const FIL
 where
     P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("efswrt.dll" "system" fn UnprotectFile(fileorfolderpath : windows_core::PCWSTR, options : *const FILE_UNPROTECT_OPTIONS) -> windows_core::HRESULT);
+    windows_targets::link!("efswrt.dll" "system" fn UnprotectFile(fileorfolderpath : windows_core::PCWSTR, options : *const FILE_UNPROTECT_OPTIONS) -> windows_core::HRESULT);
     UnprotectFile(fileorfolderpath.into_param().abi(), core::mem::transmute(options.unwrap_or(std::ptr::null()))).ok()
 }
 windows_core::imp::com_interface!(IProtectionPolicyManagerInterop, IProtectionPolicyManagerInterop_Vtbl, 0x4652651d_c1fe_4ba1_9f0a_c0f56596f721);

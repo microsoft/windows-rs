@@ -1,36 +1,36 @@
 #[inline]
 pub unsafe fn SnmpCancelMsg(session: isize, reqid: i32) -> u32 {
-    ::windows_targets::link!("wsnmp32.dll" "system" fn SnmpCancelMsg(session : isize, reqid : i32) -> u32);
+    windows_targets::link!("wsnmp32.dll" "system" fn SnmpCancelMsg(session : isize, reqid : i32) -> u32);
     SnmpCancelMsg(session, reqid)
 }
 #[inline]
 pub unsafe fn SnmpCleanup() -> u32 {
-    ::windows_targets::link!("wsnmp32.dll" "system" fn SnmpCleanup() -> u32);
+    windows_targets::link!("wsnmp32.dll" "system" fn SnmpCleanup() -> u32);
     SnmpCleanup()
 }
 #[inline]
 pub unsafe fn SnmpCleanupEx() -> u32 {
-    ::windows_targets::link!("wsnmp32.dll" "system" fn SnmpCleanupEx() -> u32);
+    windows_targets::link!("wsnmp32.dll" "system" fn SnmpCleanupEx() -> u32);
     SnmpCleanupEx()
 }
 #[inline]
 pub unsafe fn SnmpClose(session: isize) -> u32 {
-    ::windows_targets::link!("wsnmp32.dll" "system" fn SnmpClose(session : isize) -> u32);
+    windows_targets::link!("wsnmp32.dll" "system" fn SnmpClose(session : isize) -> u32);
     SnmpClose(session)
 }
 #[inline]
 pub unsafe fn SnmpContextToStr(context: isize, string: *mut smiOCTETS) -> u32 {
-    ::windows_targets::link!("wsnmp32.dll" "system" fn SnmpContextToStr(context : isize, string : *mut smiOCTETS) -> u32);
+    windows_targets::link!("wsnmp32.dll" "system" fn SnmpContextToStr(context : isize, string : *mut smiOCTETS) -> u32);
     SnmpContextToStr(context, string)
 }
 #[inline]
 pub unsafe fn SnmpCountVbl(vbl: isize) -> u32 {
-    ::windows_targets::link!("wsnmp32.dll" "system" fn SnmpCountVbl(vbl : isize) -> u32);
+    windows_targets::link!("wsnmp32.dll" "system" fn SnmpCountVbl(vbl : isize) -> u32);
     SnmpCountVbl(vbl)
 }
 #[inline]
 pub unsafe fn SnmpCreatePdu(session: isize, pdu_type: SNMP_PDU_TYPE, request_id: i32, error_status: i32, error_index: i32, varbindlist: isize) -> isize {
-    ::windows_targets::link!("wsnmp32.dll" "system" fn SnmpCreatePdu(session : isize, pdu_type : SNMP_PDU_TYPE, request_id : i32, error_status : i32, error_index : i32, varbindlist : isize) -> isize);
+    windows_targets::link!("wsnmp32.dll" "system" fn SnmpCreatePdu(session : isize, pdu_type : SNMP_PDU_TYPE, request_id : i32, error_status : i32, error_index : i32, varbindlist : isize) -> isize);
     SnmpCreatePdu(session, pdu_type, request_id, error_status, error_index, varbindlist)
 }
 #[inline]
@@ -38,142 +38,142 @@ pub unsafe fn SnmpCreateSession<P0>(hwnd: P0, wmsg: u32, fcallback: SNMPAPI_CALL
 where
     P0: windows_core::IntoParam<super::super::Foundation::HWND>,
 {
-    ::windows_targets::link!("wsnmp32.dll" "system" fn SnmpCreateSession(hwnd : super::super::Foundation:: HWND, wmsg : u32, fcallback : SNMPAPI_CALLBACK, lpclientdata : *mut core::ffi::c_void) -> isize);
+    windows_targets::link!("wsnmp32.dll" "system" fn SnmpCreateSession(hwnd : super::super::Foundation:: HWND, wmsg : u32, fcallback : SNMPAPI_CALLBACK, lpclientdata : *mut core::ffi::c_void) -> isize);
     SnmpCreateSession(hwnd.into_param().abi(), wmsg, fcallback, lpclientdata)
 }
 #[inline]
 pub unsafe fn SnmpCreateVbl(session: isize, name: *mut smiOID, value: *mut smiVALUE) -> isize {
-    ::windows_targets::link!("wsnmp32.dll" "system" fn SnmpCreateVbl(session : isize, name : *mut smiOID, value : *mut smiVALUE) -> isize);
+    windows_targets::link!("wsnmp32.dll" "system" fn SnmpCreateVbl(session : isize, name : *mut smiOID, value : *mut smiVALUE) -> isize);
     SnmpCreateVbl(session, name, value)
 }
 #[inline]
 pub unsafe fn SnmpDecodeMsg(session: isize, srcentity: *mut isize, dstentity: *mut isize, context: *mut isize, pdu: *mut isize, msgbufdesc: *mut smiOCTETS) -> u32 {
-    ::windows_targets::link!("wsnmp32.dll" "system" fn SnmpDecodeMsg(session : isize, srcentity : *mut isize, dstentity : *mut isize, context : *mut isize, pdu : *mut isize, msgbufdesc : *mut smiOCTETS) -> u32);
+    windows_targets::link!("wsnmp32.dll" "system" fn SnmpDecodeMsg(session : isize, srcentity : *mut isize, dstentity : *mut isize, context : *mut isize, pdu : *mut isize, msgbufdesc : *mut smiOCTETS) -> u32);
     SnmpDecodeMsg(session, srcentity, dstentity, context, pdu, msgbufdesc)
 }
 #[inline]
 pub unsafe fn SnmpDeleteVb(vbl: isize, index: u32) -> u32 {
-    ::windows_targets::link!("wsnmp32.dll" "system" fn SnmpDeleteVb(vbl : isize, index : u32) -> u32);
+    windows_targets::link!("wsnmp32.dll" "system" fn SnmpDeleteVb(vbl : isize, index : u32) -> u32);
     SnmpDeleteVb(vbl, index)
 }
 #[inline]
 pub unsafe fn SnmpDuplicatePdu(session: isize, pdu: isize) -> isize {
-    ::windows_targets::link!("wsnmp32.dll" "system" fn SnmpDuplicatePdu(session : isize, pdu : isize) -> isize);
+    windows_targets::link!("wsnmp32.dll" "system" fn SnmpDuplicatePdu(session : isize, pdu : isize) -> isize);
     SnmpDuplicatePdu(session, pdu)
 }
 #[inline]
 pub unsafe fn SnmpDuplicateVbl(session: isize, vbl: isize) -> isize {
-    ::windows_targets::link!("wsnmp32.dll" "system" fn SnmpDuplicateVbl(session : isize, vbl : isize) -> isize);
+    windows_targets::link!("wsnmp32.dll" "system" fn SnmpDuplicateVbl(session : isize, vbl : isize) -> isize);
     SnmpDuplicateVbl(session, vbl)
 }
 #[inline]
 pub unsafe fn SnmpEncodeMsg(session: isize, srcentity: isize, dstentity: isize, context: isize, pdu: isize, msgbufdesc: *mut smiOCTETS) -> u32 {
-    ::windows_targets::link!("wsnmp32.dll" "system" fn SnmpEncodeMsg(session : isize, srcentity : isize, dstentity : isize, context : isize, pdu : isize, msgbufdesc : *mut smiOCTETS) -> u32);
+    windows_targets::link!("wsnmp32.dll" "system" fn SnmpEncodeMsg(session : isize, srcentity : isize, dstentity : isize, context : isize, pdu : isize, msgbufdesc : *mut smiOCTETS) -> u32);
     SnmpEncodeMsg(session, srcentity, dstentity, context, pdu, msgbufdesc)
 }
 #[inline]
 pub unsafe fn SnmpEntityToStr(entity: isize, string: &mut [u8]) -> u32 {
-    ::windows_targets::link!("wsnmp32.dll" "system" fn SnmpEntityToStr(entity : isize, size : u32, string : windows_core::PSTR) -> u32);
+    windows_targets::link!("wsnmp32.dll" "system" fn SnmpEntityToStr(entity : isize, size : u32, string : windows_core::PSTR) -> u32);
     SnmpEntityToStr(entity, string.len().try_into().unwrap(), core::mem::transmute(string.as_ptr()))
 }
 #[inline]
 pub unsafe fn SnmpFreeContext(context: isize) -> u32 {
-    ::windows_targets::link!("wsnmp32.dll" "system" fn SnmpFreeContext(context : isize) -> u32);
+    windows_targets::link!("wsnmp32.dll" "system" fn SnmpFreeContext(context : isize) -> u32);
     SnmpFreeContext(context)
 }
 #[inline]
 pub unsafe fn SnmpFreeDescriptor(syntax: u32, descriptor: *mut smiOCTETS) -> u32 {
-    ::windows_targets::link!("wsnmp32.dll" "system" fn SnmpFreeDescriptor(syntax : u32, descriptor : *mut smiOCTETS) -> u32);
+    windows_targets::link!("wsnmp32.dll" "system" fn SnmpFreeDescriptor(syntax : u32, descriptor : *mut smiOCTETS) -> u32);
     SnmpFreeDescriptor(syntax, descriptor)
 }
 #[inline]
 pub unsafe fn SnmpFreeEntity(entity: isize) -> u32 {
-    ::windows_targets::link!("wsnmp32.dll" "system" fn SnmpFreeEntity(entity : isize) -> u32);
+    windows_targets::link!("wsnmp32.dll" "system" fn SnmpFreeEntity(entity : isize) -> u32);
     SnmpFreeEntity(entity)
 }
 #[inline]
 pub unsafe fn SnmpFreePdu(pdu: isize) -> u32 {
-    ::windows_targets::link!("wsnmp32.dll" "system" fn SnmpFreePdu(pdu : isize) -> u32);
+    windows_targets::link!("wsnmp32.dll" "system" fn SnmpFreePdu(pdu : isize) -> u32);
     SnmpFreePdu(pdu)
 }
 #[inline]
 pub unsafe fn SnmpFreeVbl(vbl: isize) -> u32 {
-    ::windows_targets::link!("wsnmp32.dll" "system" fn SnmpFreeVbl(vbl : isize) -> u32);
+    windows_targets::link!("wsnmp32.dll" "system" fn SnmpFreeVbl(vbl : isize) -> u32);
     SnmpFreeVbl(vbl)
 }
 #[inline]
 pub unsafe fn SnmpGetLastError(session: isize) -> u32 {
-    ::windows_targets::link!("wsnmp32.dll" "system" fn SnmpGetLastError(session : isize) -> u32);
+    windows_targets::link!("wsnmp32.dll" "system" fn SnmpGetLastError(session : isize) -> u32);
     SnmpGetLastError(session)
 }
 #[inline]
 pub unsafe fn SnmpGetPduData(pdu: isize, pdu_type: *mut SNMP_PDU_TYPE, request_id: *mut i32, error_status: *mut SNMP_ERROR, error_index: *mut i32, varbindlist: *mut isize) -> u32 {
-    ::windows_targets::link!("wsnmp32.dll" "system" fn SnmpGetPduData(pdu : isize, pdu_type : *mut SNMP_PDU_TYPE, request_id : *mut i32, error_status : *mut SNMP_ERROR, error_index : *mut i32, varbindlist : *mut isize) -> u32);
+    windows_targets::link!("wsnmp32.dll" "system" fn SnmpGetPduData(pdu : isize, pdu_type : *mut SNMP_PDU_TYPE, request_id : *mut i32, error_status : *mut SNMP_ERROR, error_index : *mut i32, varbindlist : *mut isize) -> u32);
     SnmpGetPduData(pdu, pdu_type, request_id, error_status, error_index, varbindlist)
 }
 #[inline]
 pub unsafe fn SnmpGetRetransmitMode(nretransmitmode: *mut SNMP_STATUS) -> u32 {
-    ::windows_targets::link!("wsnmp32.dll" "system" fn SnmpGetRetransmitMode(nretransmitmode : *mut SNMP_STATUS) -> u32);
+    windows_targets::link!("wsnmp32.dll" "system" fn SnmpGetRetransmitMode(nretransmitmode : *mut SNMP_STATUS) -> u32);
     SnmpGetRetransmitMode(nretransmitmode)
 }
 #[inline]
 pub unsafe fn SnmpGetRetry(hentity: isize, npolicyretry: *mut u32, nactualretry: *mut u32) -> u32 {
-    ::windows_targets::link!("wsnmp32.dll" "system" fn SnmpGetRetry(hentity : isize, npolicyretry : *mut u32, nactualretry : *mut u32) -> u32);
+    windows_targets::link!("wsnmp32.dll" "system" fn SnmpGetRetry(hentity : isize, npolicyretry : *mut u32, nactualretry : *mut u32) -> u32);
     SnmpGetRetry(hentity, npolicyretry, nactualretry)
 }
 #[inline]
 pub unsafe fn SnmpGetTimeout(hentity: isize, npolicytimeout: *mut u32, nactualtimeout: *mut u32) -> u32 {
-    ::windows_targets::link!("wsnmp32.dll" "system" fn SnmpGetTimeout(hentity : isize, npolicytimeout : *mut u32, nactualtimeout : *mut u32) -> u32);
+    windows_targets::link!("wsnmp32.dll" "system" fn SnmpGetTimeout(hentity : isize, npolicytimeout : *mut u32, nactualtimeout : *mut u32) -> u32);
     SnmpGetTimeout(hentity, npolicytimeout, nactualtimeout)
 }
 #[inline]
 pub unsafe fn SnmpGetTranslateMode(ntranslatemode: *mut SNMP_API_TRANSLATE_MODE) -> u32 {
-    ::windows_targets::link!("wsnmp32.dll" "system" fn SnmpGetTranslateMode(ntranslatemode : *mut SNMP_API_TRANSLATE_MODE) -> u32);
+    windows_targets::link!("wsnmp32.dll" "system" fn SnmpGetTranslateMode(ntranslatemode : *mut SNMP_API_TRANSLATE_MODE) -> u32);
     SnmpGetTranslateMode(ntranslatemode)
 }
 #[inline]
 pub unsafe fn SnmpGetVb(vbl: isize, index: u32, name: *mut smiOID, value: *mut smiVALUE) -> u32 {
-    ::windows_targets::link!("wsnmp32.dll" "system" fn SnmpGetVb(vbl : isize, index : u32, name : *mut smiOID, value : *mut smiVALUE) -> u32);
+    windows_targets::link!("wsnmp32.dll" "system" fn SnmpGetVb(vbl : isize, index : u32, name : *mut smiOID, value : *mut smiVALUE) -> u32);
     SnmpGetVb(vbl, index, name, value)
 }
 #[inline]
 pub unsafe fn SnmpGetVendorInfo(vendorinfo: *mut smiVENDORINFO) -> u32 {
-    ::windows_targets::link!("wsnmp32.dll" "system" fn SnmpGetVendorInfo(vendorinfo : *mut smiVENDORINFO) -> u32);
+    windows_targets::link!("wsnmp32.dll" "system" fn SnmpGetVendorInfo(vendorinfo : *mut smiVENDORINFO) -> u32);
     SnmpGetVendorInfo(vendorinfo)
 }
 #[inline]
 pub unsafe fn SnmpListen(hentity: isize, lstatus: SNMP_STATUS) -> u32 {
-    ::windows_targets::link!("wsnmp32.dll" "system" fn SnmpListen(hentity : isize, lstatus : SNMP_STATUS) -> u32);
+    windows_targets::link!("wsnmp32.dll" "system" fn SnmpListen(hentity : isize, lstatus : SNMP_STATUS) -> u32);
     SnmpListen(hentity, lstatus)
 }
 #[inline]
 pub unsafe fn SnmpListenEx(hentity: isize, lstatus: u32, nuseentityaddr: u32) -> u32 {
-    ::windows_targets::link!("wsnmp32.dll" "system" fn SnmpListenEx(hentity : isize, lstatus : u32, nuseentityaddr : u32) -> u32);
+    windows_targets::link!("wsnmp32.dll" "system" fn SnmpListenEx(hentity : isize, lstatus : u32, nuseentityaddr : u32) -> u32);
     SnmpListenEx(hentity, lstatus, nuseentityaddr)
 }
 #[inline]
 pub unsafe fn SnmpMgrClose(session: *mut core::ffi::c_void) -> super::super::Foundation::BOOL {
-    ::windows_targets::link!("mgmtapi.dll" "system" fn SnmpMgrClose(session : *mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("mgmtapi.dll" "system" fn SnmpMgrClose(session : *mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
     SnmpMgrClose(session)
 }
 #[inline]
 pub unsafe fn SnmpMgrCtl(session: *mut core::ffi::c_void, dwctlcode: u32, lpvinbuffer: *mut core::ffi::c_void, cbinbuffer: u32, lpvoutbuffer: *mut core::ffi::c_void, cboutbuffer: u32, lpcbbytesreturned: *mut u32) -> windows_core::Result<()> {
-    ::windows_targets::link!("mgmtapi.dll" "system" fn SnmpMgrCtl(session : *mut core::ffi::c_void, dwctlcode : u32, lpvinbuffer : *mut core::ffi::c_void, cbinbuffer : u32, lpvoutbuffer : *mut core::ffi::c_void, cboutbuffer : u32, lpcbbytesreturned : *mut u32) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("mgmtapi.dll" "system" fn SnmpMgrCtl(session : *mut core::ffi::c_void, dwctlcode : u32, lpvinbuffer : *mut core::ffi::c_void, cbinbuffer : u32, lpvoutbuffer : *mut core::ffi::c_void, cboutbuffer : u32, lpcbbytesreturned : *mut u32) -> super::super::Foundation:: BOOL);
     SnmpMgrCtl(session, dwctlcode, lpvinbuffer, cbinbuffer, lpvoutbuffer, cboutbuffer, lpcbbytesreturned).ok()
 }
 #[inline]
 pub unsafe fn SnmpMgrGetTrap(enterprise: *mut AsnObjectIdentifier, ipaddress: *mut AsnOctetString, generictrap: *mut SNMP_GENERICTRAP, specifictrap: *mut i32, timestamp: *mut u32, variablebindings: *mut SnmpVarBindList) -> super::super::Foundation::BOOL {
-    ::windows_targets::link!("mgmtapi.dll" "system" fn SnmpMgrGetTrap(enterprise : *mut AsnObjectIdentifier, ipaddress : *mut AsnOctetString, generictrap : *mut SNMP_GENERICTRAP, specifictrap : *mut i32, timestamp : *mut u32, variablebindings : *mut SnmpVarBindList) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("mgmtapi.dll" "system" fn SnmpMgrGetTrap(enterprise : *mut AsnObjectIdentifier, ipaddress : *mut AsnOctetString, generictrap : *mut SNMP_GENERICTRAP, specifictrap : *mut i32, timestamp : *mut u32, variablebindings : *mut SnmpVarBindList) -> super::super::Foundation:: BOOL);
     SnmpMgrGetTrap(enterprise, ipaddress, generictrap, specifictrap, timestamp, variablebindings)
 }
 #[inline]
 pub unsafe fn SnmpMgrGetTrapEx(enterprise: *mut AsnObjectIdentifier, agentaddress: *mut AsnOctetString, sourceaddress: *mut AsnOctetString, generictrap: *mut SNMP_GENERICTRAP, specifictrap: *mut i32, community: *mut AsnOctetString, timestamp: *mut u32, variablebindings: *mut SnmpVarBindList) -> super::super::Foundation::BOOL {
-    ::windows_targets::link!("mgmtapi.dll" "system" fn SnmpMgrGetTrapEx(enterprise : *mut AsnObjectIdentifier, agentaddress : *mut AsnOctetString, sourceaddress : *mut AsnOctetString, generictrap : *mut SNMP_GENERICTRAP, specifictrap : *mut i32, community : *mut AsnOctetString, timestamp : *mut u32, variablebindings : *mut SnmpVarBindList) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("mgmtapi.dll" "system" fn SnmpMgrGetTrapEx(enterprise : *mut AsnObjectIdentifier, agentaddress : *mut AsnOctetString, sourceaddress : *mut AsnOctetString, generictrap : *mut SNMP_GENERICTRAP, specifictrap : *mut i32, community : *mut AsnOctetString, timestamp : *mut u32, variablebindings : *mut SnmpVarBindList) -> super::super::Foundation:: BOOL);
     SnmpMgrGetTrapEx(enterprise, agentaddress, sourceaddress, generictrap, specifictrap, community, timestamp, variablebindings)
 }
 #[inline]
 pub unsafe fn SnmpMgrOidToStr(oid: *mut AsnObjectIdentifier, string: Option<*mut windows_core::PSTR>) -> super::super::Foundation::BOOL {
-    ::windows_targets::link!("mgmtapi.dll" "system" fn SnmpMgrOidToStr(oid : *mut AsnObjectIdentifier, string : *mut windows_core::PSTR) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("mgmtapi.dll" "system" fn SnmpMgrOidToStr(oid : *mut AsnObjectIdentifier, string : *mut windows_core::PSTR) -> super::super::Foundation:: BOOL);
     SnmpMgrOidToStr(oid, core::mem::transmute(string.unwrap_or(std::ptr::null_mut())))
 }
 #[inline]
@@ -182,12 +182,12 @@ where
     P0: windows_core::IntoParam<windows_core::PCSTR>,
     P1: windows_core::IntoParam<windows_core::PCSTR>,
 {
-    ::windows_targets::link!("mgmtapi.dll" "system" fn SnmpMgrOpen(lpagentaddress : windows_core::PCSTR, lpagentcommunity : windows_core::PCSTR, ntimeout : i32, nretries : i32) -> *mut core::ffi::c_void);
+    windows_targets::link!("mgmtapi.dll" "system" fn SnmpMgrOpen(lpagentaddress : windows_core::PCSTR, lpagentcommunity : windows_core::PCSTR, ntimeout : i32, nretries : i32) -> *mut core::ffi::c_void);
     SnmpMgrOpen(lpagentaddress.into_param().abi(), lpagentcommunity.into_param().abi(), ntimeout, nretries)
 }
 #[inline]
 pub unsafe fn SnmpMgrRequest(session: *mut core::ffi::c_void, requesttype: u8, variablebindings: *mut SnmpVarBindList, errorstatus: *mut SNMP_ERROR_STATUS, errorindex: *mut i32) -> i32 {
-    ::windows_targets::link!("mgmtapi.dll" "system" fn SnmpMgrRequest(session : *mut core::ffi::c_void, requesttype : u8, variablebindings : *mut SnmpVarBindList, errorstatus : *mut SNMP_ERROR_STATUS, errorindex : *mut i32) -> i32);
+    windows_targets::link!("mgmtapi.dll" "system" fn SnmpMgrRequest(session : *mut core::ffi::c_void, requesttype : u8, variablebindings : *mut SnmpVarBindList, errorstatus : *mut SNMP_ERROR_STATUS, errorindex : *mut i32) -> i32);
     SnmpMgrRequest(session, requesttype, variablebindings, errorstatus, errorindex)
 }
 #[inline]
@@ -195,27 +195,27 @@ pub unsafe fn SnmpMgrStrToOid<P0>(string: P0, oid: *mut AsnObjectIdentifier) -> 
 where
     P0: windows_core::IntoParam<windows_core::PCSTR>,
 {
-    ::windows_targets::link!("mgmtapi.dll" "system" fn SnmpMgrStrToOid(string : windows_core::PCSTR, oid : *mut AsnObjectIdentifier) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("mgmtapi.dll" "system" fn SnmpMgrStrToOid(string : windows_core::PCSTR, oid : *mut AsnObjectIdentifier) -> super::super::Foundation:: BOOL);
     SnmpMgrStrToOid(string.into_param().abi(), oid)
 }
 #[inline]
 pub unsafe fn SnmpMgrTrapListen(phtrapavailable: *mut super::super::Foundation::HANDLE) -> windows_core::Result<()> {
-    ::windows_targets::link!("mgmtapi.dll" "system" fn SnmpMgrTrapListen(phtrapavailable : *mut super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("mgmtapi.dll" "system" fn SnmpMgrTrapListen(phtrapavailable : *mut super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
     SnmpMgrTrapListen(phtrapavailable).ok()
 }
 #[inline]
 pub unsafe fn SnmpOidCompare(xoid: *mut smiOID, yoid: *mut smiOID, maxlen: u32, result: *mut i32) -> u32 {
-    ::windows_targets::link!("wsnmp32.dll" "system" fn SnmpOidCompare(xoid : *mut smiOID, yoid : *mut smiOID, maxlen : u32, result : *mut i32) -> u32);
+    windows_targets::link!("wsnmp32.dll" "system" fn SnmpOidCompare(xoid : *mut smiOID, yoid : *mut smiOID, maxlen : u32, result : *mut i32) -> u32);
     SnmpOidCompare(xoid, yoid, maxlen, result)
 }
 #[inline]
 pub unsafe fn SnmpOidCopy(srcoid: *mut smiOID, dstoid: *mut smiOID) -> u32 {
-    ::windows_targets::link!("wsnmp32.dll" "system" fn SnmpOidCopy(srcoid : *mut smiOID, dstoid : *mut smiOID) -> u32);
+    windows_targets::link!("wsnmp32.dll" "system" fn SnmpOidCopy(srcoid : *mut smiOID, dstoid : *mut smiOID) -> u32);
     SnmpOidCopy(srcoid, dstoid)
 }
 #[inline]
 pub unsafe fn SnmpOidToStr(srcoid: *const smiOID, string: &mut [u8]) -> u32 {
-    ::windows_targets::link!("wsnmp32.dll" "system" fn SnmpOidToStr(srcoid : *const smiOID, size : u32, string : windows_core::PSTR) -> u32);
+    windows_targets::link!("wsnmp32.dll" "system" fn SnmpOidToStr(srcoid : *const smiOID, size : u32, string : windows_core::PSTR) -> u32);
     SnmpOidToStr(srcoid, string.len().try_into().unwrap(), core::mem::transmute(string.as_ptr()))
 }
 #[inline]
@@ -223,72 +223,72 @@ pub unsafe fn SnmpOpen<P0>(hwnd: P0, wmsg: u32) -> isize
 where
     P0: windows_core::IntoParam<super::super::Foundation::HWND>,
 {
-    ::windows_targets::link!("wsnmp32.dll" "system" fn SnmpOpen(hwnd : super::super::Foundation:: HWND, wmsg : u32) -> isize);
+    windows_targets::link!("wsnmp32.dll" "system" fn SnmpOpen(hwnd : super::super::Foundation:: HWND, wmsg : u32) -> isize);
     SnmpOpen(hwnd.into_param().abi(), wmsg)
 }
 #[inline]
 pub unsafe fn SnmpRecvMsg(session: isize, srcentity: *mut isize, dstentity: *mut isize, context: *mut isize, pdu: *mut isize) -> u32 {
-    ::windows_targets::link!("wsnmp32.dll" "system" fn SnmpRecvMsg(session : isize, srcentity : *mut isize, dstentity : *mut isize, context : *mut isize, pdu : *mut isize) -> u32);
+    windows_targets::link!("wsnmp32.dll" "system" fn SnmpRecvMsg(session : isize, srcentity : *mut isize, dstentity : *mut isize, context : *mut isize, pdu : *mut isize) -> u32);
     SnmpRecvMsg(session, srcentity, dstentity, context, pdu)
 }
 #[inline]
 pub unsafe fn SnmpRegister(session: isize, srcentity: isize, dstentity: isize, context: isize, notification: *mut smiOID, state: SNMP_STATUS) -> u32 {
-    ::windows_targets::link!("wsnmp32.dll" "system" fn SnmpRegister(session : isize, srcentity : isize, dstentity : isize, context : isize, notification : *mut smiOID, state : SNMP_STATUS) -> u32);
+    windows_targets::link!("wsnmp32.dll" "system" fn SnmpRegister(session : isize, srcentity : isize, dstentity : isize, context : isize, notification : *mut smiOID, state : SNMP_STATUS) -> u32);
     SnmpRegister(session, srcentity, dstentity, context, notification, state)
 }
 #[inline]
 pub unsafe fn SnmpSendMsg(session: isize, srcentity: isize, dstentity: isize, context: isize, pdu: isize) -> u32 {
-    ::windows_targets::link!("wsnmp32.dll" "system" fn SnmpSendMsg(session : isize, srcentity : isize, dstentity : isize, context : isize, pdu : isize) -> u32);
+    windows_targets::link!("wsnmp32.dll" "system" fn SnmpSendMsg(session : isize, srcentity : isize, dstentity : isize, context : isize, pdu : isize) -> u32);
     SnmpSendMsg(session, srcentity, dstentity, context, pdu)
 }
 #[inline]
 pub unsafe fn SnmpSetPduData(pdu: isize, pdu_type: *const i32, request_id: *const i32, non_repeaters: *const i32, max_repetitions: *const i32, varbindlist: *const isize) -> u32 {
-    ::windows_targets::link!("wsnmp32.dll" "system" fn SnmpSetPduData(pdu : isize, pdu_type : *const i32, request_id : *const i32, non_repeaters : *const i32, max_repetitions : *const i32, varbindlist : *const isize) -> u32);
+    windows_targets::link!("wsnmp32.dll" "system" fn SnmpSetPduData(pdu : isize, pdu_type : *const i32, request_id : *const i32, non_repeaters : *const i32, max_repetitions : *const i32, varbindlist : *const isize) -> u32);
     SnmpSetPduData(pdu, pdu_type, request_id, non_repeaters, max_repetitions, varbindlist)
 }
 #[inline]
 pub unsafe fn SnmpSetPort(hentity: isize, nport: u32) -> u32 {
-    ::windows_targets::link!("wsnmp32.dll" "system" fn SnmpSetPort(hentity : isize, nport : u32) -> u32);
+    windows_targets::link!("wsnmp32.dll" "system" fn SnmpSetPort(hentity : isize, nport : u32) -> u32);
     SnmpSetPort(hentity, nport)
 }
 #[inline]
 pub unsafe fn SnmpSetRetransmitMode(nretransmitmode: SNMP_STATUS) -> u32 {
-    ::windows_targets::link!("wsnmp32.dll" "system" fn SnmpSetRetransmitMode(nretransmitmode : SNMP_STATUS) -> u32);
+    windows_targets::link!("wsnmp32.dll" "system" fn SnmpSetRetransmitMode(nretransmitmode : SNMP_STATUS) -> u32);
     SnmpSetRetransmitMode(nretransmitmode)
 }
 #[inline]
 pub unsafe fn SnmpSetRetry(hentity: isize, npolicyretry: u32) -> u32 {
-    ::windows_targets::link!("wsnmp32.dll" "system" fn SnmpSetRetry(hentity : isize, npolicyretry : u32) -> u32);
+    windows_targets::link!("wsnmp32.dll" "system" fn SnmpSetRetry(hentity : isize, npolicyretry : u32) -> u32);
     SnmpSetRetry(hentity, npolicyretry)
 }
 #[inline]
 pub unsafe fn SnmpSetTimeout(hentity: isize, npolicytimeout: u32) -> u32 {
-    ::windows_targets::link!("wsnmp32.dll" "system" fn SnmpSetTimeout(hentity : isize, npolicytimeout : u32) -> u32);
+    windows_targets::link!("wsnmp32.dll" "system" fn SnmpSetTimeout(hentity : isize, npolicytimeout : u32) -> u32);
     SnmpSetTimeout(hentity, npolicytimeout)
 }
 #[inline]
 pub unsafe fn SnmpSetTranslateMode(ntranslatemode: SNMP_API_TRANSLATE_MODE) -> u32 {
-    ::windows_targets::link!("wsnmp32.dll" "system" fn SnmpSetTranslateMode(ntranslatemode : SNMP_API_TRANSLATE_MODE) -> u32);
+    windows_targets::link!("wsnmp32.dll" "system" fn SnmpSetTranslateMode(ntranslatemode : SNMP_API_TRANSLATE_MODE) -> u32);
     SnmpSetTranslateMode(ntranslatemode)
 }
 #[inline]
 pub unsafe fn SnmpSetVb(vbl: isize, index: u32, name: *mut smiOID, value: *mut smiVALUE) -> u32 {
-    ::windows_targets::link!("wsnmp32.dll" "system" fn SnmpSetVb(vbl : isize, index : u32, name : *mut smiOID, value : *mut smiVALUE) -> u32);
+    windows_targets::link!("wsnmp32.dll" "system" fn SnmpSetVb(vbl : isize, index : u32, name : *mut smiOID, value : *mut smiVALUE) -> u32);
     SnmpSetVb(vbl, index, name, value)
 }
 #[inline]
 pub unsafe fn SnmpStartup(nmajorversion: *mut u32, nminorversion: *mut u32, nlevel: *mut u32, ntranslatemode: *mut SNMP_API_TRANSLATE_MODE, nretransmitmode: *mut SNMP_STATUS) -> u32 {
-    ::windows_targets::link!("wsnmp32.dll" "system" fn SnmpStartup(nmajorversion : *mut u32, nminorversion : *mut u32, nlevel : *mut u32, ntranslatemode : *mut SNMP_API_TRANSLATE_MODE, nretransmitmode : *mut SNMP_STATUS) -> u32);
+    windows_targets::link!("wsnmp32.dll" "system" fn SnmpStartup(nmajorversion : *mut u32, nminorversion : *mut u32, nlevel : *mut u32, ntranslatemode : *mut SNMP_API_TRANSLATE_MODE, nretransmitmode : *mut SNMP_STATUS) -> u32);
     SnmpStartup(nmajorversion, nminorversion, nlevel, ntranslatemode, nretransmitmode)
 }
 #[inline]
 pub unsafe fn SnmpStartupEx(nmajorversion: *mut u32, nminorversion: *mut u32, nlevel: *mut u32, ntranslatemode: *mut SNMP_API_TRANSLATE_MODE, nretransmitmode: *mut SNMP_STATUS) -> u32 {
-    ::windows_targets::link!("wsnmp32.dll" "system" fn SnmpStartupEx(nmajorversion : *mut u32, nminorversion : *mut u32, nlevel : *mut u32, ntranslatemode : *mut SNMP_API_TRANSLATE_MODE, nretransmitmode : *mut SNMP_STATUS) -> u32);
+    windows_targets::link!("wsnmp32.dll" "system" fn SnmpStartupEx(nmajorversion : *mut u32, nminorversion : *mut u32, nlevel : *mut u32, ntranslatemode : *mut SNMP_API_TRANSLATE_MODE, nretransmitmode : *mut SNMP_STATUS) -> u32);
     SnmpStartupEx(nmajorversion, nminorversion, nlevel, ntranslatemode, nretransmitmode)
 }
 #[inline]
 pub unsafe fn SnmpStrToContext(session: isize, string: *mut smiOCTETS) -> isize {
-    ::windows_targets::link!("wsnmp32.dll" "system" fn SnmpStrToContext(session : isize, string : *mut smiOCTETS) -> isize);
+    windows_targets::link!("wsnmp32.dll" "system" fn SnmpStrToContext(session : isize, string : *mut smiOCTETS) -> isize);
     SnmpStrToContext(session, string)
 }
 #[inline]
@@ -296,7 +296,7 @@ pub unsafe fn SnmpStrToEntity<P0>(session: isize, string: P0) -> isize
 where
     P0: windows_core::IntoParam<windows_core::PCSTR>,
 {
-    ::windows_targets::link!("wsnmp32.dll" "system" fn SnmpStrToEntity(session : isize, string : windows_core::PCSTR) -> isize);
+    windows_targets::link!("wsnmp32.dll" "system" fn SnmpStrToEntity(session : isize, string : windows_core::PCSTR) -> isize);
     SnmpStrToEntity(session, string.into_param().abi())
 }
 #[inline]
@@ -304,32 +304,32 @@ pub unsafe fn SnmpStrToOid<P0>(string: P0, dstoid: *mut smiOID) -> u32
 where
     P0: windows_core::IntoParam<windows_core::PCSTR>,
 {
-    ::windows_targets::link!("wsnmp32.dll" "system" fn SnmpStrToOid(string : windows_core::PCSTR, dstoid : *mut smiOID) -> u32);
+    windows_targets::link!("wsnmp32.dll" "system" fn SnmpStrToOid(string : windows_core::PCSTR, dstoid : *mut smiOID) -> u32);
     SnmpStrToOid(string.into_param().abi(), dstoid)
 }
 #[inline]
 pub unsafe fn SnmpSvcGetUptime() -> u32 {
-    ::windows_targets::link!("snmpapi.dll" "system" fn SnmpSvcGetUptime() -> u32);
+    windows_targets::link!("snmpapi.dll" "system" fn SnmpSvcGetUptime() -> u32);
     SnmpSvcGetUptime()
 }
 #[inline]
 pub unsafe fn SnmpSvcSetLogLevel(nloglevel: SNMP_LOG) {
-    ::windows_targets::link!("snmpapi.dll" "system" fn SnmpSvcSetLogLevel(nloglevel : SNMP_LOG));
+    windows_targets::link!("snmpapi.dll" "system" fn SnmpSvcSetLogLevel(nloglevel : SNMP_LOG));
     SnmpSvcSetLogLevel(nloglevel)
 }
 #[inline]
 pub unsafe fn SnmpSvcSetLogType(nlogtype: SNMP_OUTPUT_LOG_TYPE) {
-    ::windows_targets::link!("snmpapi.dll" "system" fn SnmpSvcSetLogType(nlogtype : i32));
+    windows_targets::link!("snmpapi.dll" "system" fn SnmpSvcSetLogType(nlogtype : i32));
     SnmpSvcSetLogType(nlogtype.0 as _)
 }
 #[inline]
 pub unsafe fn SnmpUtilAsnAnyCpy(panydst: *mut AsnAny, panysrc: *mut AsnAny) -> i32 {
-    ::windows_targets::link!("snmpapi.dll" "system" fn SnmpUtilAsnAnyCpy(panydst : *mut AsnAny, panysrc : *mut AsnAny) -> i32);
+    windows_targets::link!("snmpapi.dll" "system" fn SnmpUtilAsnAnyCpy(panydst : *mut AsnAny, panysrc : *mut AsnAny) -> i32);
     SnmpUtilAsnAnyCpy(panydst, panysrc)
 }
 #[inline]
 pub unsafe fn SnmpUtilAsnAnyFree(pany: *mut AsnAny) {
-    ::windows_targets::link!("snmpapi.dll" "system" fn SnmpUtilAsnAnyFree(pany : *mut AsnAny));
+    windows_targets::link!("snmpapi.dll" "system" fn SnmpUtilAsnAnyFree(pany : *mut AsnAny));
     SnmpUtilAsnAnyFree(pany)
 }
 #[inline]
@@ -337,107 +337,107 @@ pub unsafe fn SnmpUtilDbgPrint<P0>(nloglevel: SNMP_LOG, szformat: P0)
 where
     P0: windows_core::IntoParam<windows_core::PCSTR>,
 {
-    ::windows_targets::link!("snmpapi.dll" "cdecl" fn SnmpUtilDbgPrint(nloglevel : SNMP_LOG, szformat : windows_core::PCSTR));
+    windows_targets::link!("snmpapi.dll" "cdecl" fn SnmpUtilDbgPrint(nloglevel : SNMP_LOG, szformat : windows_core::PCSTR));
     SnmpUtilDbgPrint(nloglevel, szformat.into_param().abi())
 }
 #[inline]
 pub unsafe fn SnmpUtilIdsToA(ids: *mut u32, idlength: u32) -> windows_core::PSTR {
-    ::windows_targets::link!("snmpapi.dll" "system" fn SnmpUtilIdsToA(ids : *mut u32, idlength : u32) -> windows_core::PSTR);
+    windows_targets::link!("snmpapi.dll" "system" fn SnmpUtilIdsToA(ids : *mut u32, idlength : u32) -> windows_core::PSTR);
     SnmpUtilIdsToA(ids, idlength)
 }
 #[inline]
 pub unsafe fn SnmpUtilMemAlloc(nbytes: u32) -> *mut core::ffi::c_void {
-    ::windows_targets::link!("snmpapi.dll" "system" fn SnmpUtilMemAlloc(nbytes : u32) -> *mut core::ffi::c_void);
+    windows_targets::link!("snmpapi.dll" "system" fn SnmpUtilMemAlloc(nbytes : u32) -> *mut core::ffi::c_void);
     SnmpUtilMemAlloc(nbytes)
 }
 #[inline]
 pub unsafe fn SnmpUtilMemFree(pmem: *mut core::ffi::c_void) {
-    ::windows_targets::link!("snmpapi.dll" "system" fn SnmpUtilMemFree(pmem : *mut core::ffi::c_void));
+    windows_targets::link!("snmpapi.dll" "system" fn SnmpUtilMemFree(pmem : *mut core::ffi::c_void));
     SnmpUtilMemFree(pmem)
 }
 #[inline]
 pub unsafe fn SnmpUtilMemReAlloc(pmem: *mut core::ffi::c_void, nbytes: u32) -> *mut core::ffi::c_void {
-    ::windows_targets::link!("snmpapi.dll" "system" fn SnmpUtilMemReAlloc(pmem : *mut core::ffi::c_void, nbytes : u32) -> *mut core::ffi::c_void);
+    windows_targets::link!("snmpapi.dll" "system" fn SnmpUtilMemReAlloc(pmem : *mut core::ffi::c_void, nbytes : u32) -> *mut core::ffi::c_void);
     SnmpUtilMemReAlloc(pmem, nbytes)
 }
 #[inline]
 pub unsafe fn SnmpUtilOctetsCmp(poctets1: *mut AsnOctetString, poctets2: *mut AsnOctetString) -> i32 {
-    ::windows_targets::link!("snmpapi.dll" "system" fn SnmpUtilOctetsCmp(poctets1 : *mut AsnOctetString, poctets2 : *mut AsnOctetString) -> i32);
+    windows_targets::link!("snmpapi.dll" "system" fn SnmpUtilOctetsCmp(poctets1 : *mut AsnOctetString, poctets2 : *mut AsnOctetString) -> i32);
     SnmpUtilOctetsCmp(poctets1, poctets2)
 }
 #[inline]
 pub unsafe fn SnmpUtilOctetsCpy(poctetsdst: *mut AsnOctetString, poctetssrc: *mut AsnOctetString) -> i32 {
-    ::windows_targets::link!("snmpapi.dll" "system" fn SnmpUtilOctetsCpy(poctetsdst : *mut AsnOctetString, poctetssrc : *mut AsnOctetString) -> i32);
+    windows_targets::link!("snmpapi.dll" "system" fn SnmpUtilOctetsCpy(poctetsdst : *mut AsnOctetString, poctetssrc : *mut AsnOctetString) -> i32);
     SnmpUtilOctetsCpy(poctetsdst, poctetssrc)
 }
 #[inline]
 pub unsafe fn SnmpUtilOctetsFree(poctets: *mut AsnOctetString) {
-    ::windows_targets::link!("snmpapi.dll" "system" fn SnmpUtilOctetsFree(poctets : *mut AsnOctetString));
+    windows_targets::link!("snmpapi.dll" "system" fn SnmpUtilOctetsFree(poctets : *mut AsnOctetString));
     SnmpUtilOctetsFree(poctets)
 }
 #[inline]
 pub unsafe fn SnmpUtilOctetsNCmp(poctets1: *mut AsnOctetString, poctets2: *mut AsnOctetString, nchars: u32) -> i32 {
-    ::windows_targets::link!("snmpapi.dll" "system" fn SnmpUtilOctetsNCmp(poctets1 : *mut AsnOctetString, poctets2 : *mut AsnOctetString, nchars : u32) -> i32);
+    windows_targets::link!("snmpapi.dll" "system" fn SnmpUtilOctetsNCmp(poctets1 : *mut AsnOctetString, poctets2 : *mut AsnOctetString, nchars : u32) -> i32);
     SnmpUtilOctetsNCmp(poctets1, poctets2, nchars)
 }
 #[inline]
 pub unsafe fn SnmpUtilOidAppend(poiddst: *mut AsnObjectIdentifier, poidsrc: *mut AsnObjectIdentifier) -> i32 {
-    ::windows_targets::link!("snmpapi.dll" "system" fn SnmpUtilOidAppend(poiddst : *mut AsnObjectIdentifier, poidsrc : *mut AsnObjectIdentifier) -> i32);
+    windows_targets::link!("snmpapi.dll" "system" fn SnmpUtilOidAppend(poiddst : *mut AsnObjectIdentifier, poidsrc : *mut AsnObjectIdentifier) -> i32);
     SnmpUtilOidAppend(poiddst, poidsrc)
 }
 #[inline]
 pub unsafe fn SnmpUtilOidCmp(poid1: *mut AsnObjectIdentifier, poid2: *mut AsnObjectIdentifier) -> i32 {
-    ::windows_targets::link!("snmpapi.dll" "system" fn SnmpUtilOidCmp(poid1 : *mut AsnObjectIdentifier, poid2 : *mut AsnObjectIdentifier) -> i32);
+    windows_targets::link!("snmpapi.dll" "system" fn SnmpUtilOidCmp(poid1 : *mut AsnObjectIdentifier, poid2 : *mut AsnObjectIdentifier) -> i32);
     SnmpUtilOidCmp(poid1, poid2)
 }
 #[inline]
 pub unsafe fn SnmpUtilOidCpy(poiddst: *mut AsnObjectIdentifier, poidsrc: *mut AsnObjectIdentifier) -> i32 {
-    ::windows_targets::link!("snmpapi.dll" "system" fn SnmpUtilOidCpy(poiddst : *mut AsnObjectIdentifier, poidsrc : *mut AsnObjectIdentifier) -> i32);
+    windows_targets::link!("snmpapi.dll" "system" fn SnmpUtilOidCpy(poiddst : *mut AsnObjectIdentifier, poidsrc : *mut AsnObjectIdentifier) -> i32);
     SnmpUtilOidCpy(poiddst, poidsrc)
 }
 #[inline]
 pub unsafe fn SnmpUtilOidFree(poid: *mut AsnObjectIdentifier) {
-    ::windows_targets::link!("snmpapi.dll" "system" fn SnmpUtilOidFree(poid : *mut AsnObjectIdentifier));
+    windows_targets::link!("snmpapi.dll" "system" fn SnmpUtilOidFree(poid : *mut AsnObjectIdentifier));
     SnmpUtilOidFree(poid)
 }
 #[inline]
 pub unsafe fn SnmpUtilOidNCmp(poid1: *mut AsnObjectIdentifier, poid2: *mut AsnObjectIdentifier, nsubids: u32) -> i32 {
-    ::windows_targets::link!("snmpapi.dll" "system" fn SnmpUtilOidNCmp(poid1 : *mut AsnObjectIdentifier, poid2 : *mut AsnObjectIdentifier, nsubids : u32) -> i32);
+    windows_targets::link!("snmpapi.dll" "system" fn SnmpUtilOidNCmp(poid1 : *mut AsnObjectIdentifier, poid2 : *mut AsnObjectIdentifier, nsubids : u32) -> i32);
     SnmpUtilOidNCmp(poid1, poid2, nsubids)
 }
 #[inline]
 pub unsafe fn SnmpUtilOidToA(oid: *mut AsnObjectIdentifier) -> windows_core::PSTR {
-    ::windows_targets::link!("snmpapi.dll" "system" fn SnmpUtilOidToA(oid : *mut AsnObjectIdentifier) -> windows_core::PSTR);
+    windows_targets::link!("snmpapi.dll" "system" fn SnmpUtilOidToA(oid : *mut AsnObjectIdentifier) -> windows_core::PSTR);
     SnmpUtilOidToA(oid)
 }
 #[inline]
 pub unsafe fn SnmpUtilPrintAsnAny(pany: *mut AsnAny) {
-    ::windows_targets::link!("snmpapi.dll" "system" fn SnmpUtilPrintAsnAny(pany : *mut AsnAny));
+    windows_targets::link!("snmpapi.dll" "system" fn SnmpUtilPrintAsnAny(pany : *mut AsnAny));
     SnmpUtilPrintAsnAny(pany)
 }
 #[inline]
 pub unsafe fn SnmpUtilPrintOid(oid: *mut AsnObjectIdentifier) {
-    ::windows_targets::link!("snmpapi.dll" "system" fn SnmpUtilPrintOid(oid : *mut AsnObjectIdentifier));
+    windows_targets::link!("snmpapi.dll" "system" fn SnmpUtilPrintOid(oid : *mut AsnObjectIdentifier));
     SnmpUtilPrintOid(oid)
 }
 #[inline]
 pub unsafe fn SnmpUtilVarBindCpy(pvbdst: *mut SnmpVarBind, pvbsrc: *mut SnmpVarBind) -> i32 {
-    ::windows_targets::link!("snmpapi.dll" "system" fn SnmpUtilVarBindCpy(pvbdst : *mut SnmpVarBind, pvbsrc : *mut SnmpVarBind) -> i32);
+    windows_targets::link!("snmpapi.dll" "system" fn SnmpUtilVarBindCpy(pvbdst : *mut SnmpVarBind, pvbsrc : *mut SnmpVarBind) -> i32);
     SnmpUtilVarBindCpy(pvbdst, pvbsrc)
 }
 #[inline]
 pub unsafe fn SnmpUtilVarBindFree(pvb: *mut SnmpVarBind) {
-    ::windows_targets::link!("snmpapi.dll" "system" fn SnmpUtilVarBindFree(pvb : *mut SnmpVarBind));
+    windows_targets::link!("snmpapi.dll" "system" fn SnmpUtilVarBindFree(pvb : *mut SnmpVarBind));
     SnmpUtilVarBindFree(pvb)
 }
 #[inline]
 pub unsafe fn SnmpUtilVarBindListCpy(pvbldst: *mut SnmpVarBindList, pvblsrc: *mut SnmpVarBindList) -> i32 {
-    ::windows_targets::link!("snmpapi.dll" "system" fn SnmpUtilVarBindListCpy(pvbldst : *mut SnmpVarBindList, pvblsrc : *mut SnmpVarBindList) -> i32);
+    windows_targets::link!("snmpapi.dll" "system" fn SnmpUtilVarBindListCpy(pvbldst : *mut SnmpVarBindList, pvblsrc : *mut SnmpVarBindList) -> i32);
     SnmpUtilVarBindListCpy(pvbldst, pvblsrc)
 }
 #[inline]
 pub unsafe fn SnmpUtilVarBindListFree(pvbl: *mut SnmpVarBindList) {
-    ::windows_targets::link!("snmpapi.dll" "system" fn SnmpUtilVarBindListFree(pvbl : *mut SnmpVarBindList));
+    windows_targets::link!("snmpapi.dll" "system" fn SnmpUtilVarBindListFree(pvbl : *mut SnmpVarBindList));
     SnmpUtilVarBindListFree(pvbl)
 }
 pub const ASN_APPLICATION: u32 = 64u32;

@@ -3,7 +3,7 @@ pub unsafe fn NtClose<P0>(handle: P0) -> super::super::Win32::Foundation::NTSTAT
 where
     P0: windows_core::IntoParam<super::super::Win32::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("ntdll.dll" "system" fn NtClose(handle : super::super::Win32::Foundation:: HANDLE) -> super::super::Win32::Foundation:: NTSTATUS);
+    windows_targets::link!("ntdll.dll" "system" fn NtClose(handle : super::super::Win32::Foundation:: HANDLE) -> super::super::Win32::Foundation:: NTSTATUS);
     NtClose(handle.into_param().abi())
 }
 #[inline]
@@ -11,7 +11,7 @@ pub unsafe fn NtQueryObject<P0>(handle: P0, objectinformationclass: OBJECT_INFOR
 where
     P0: windows_core::IntoParam<super::super::Win32::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("ntdll.dll" "system" fn NtQueryObject(handle : super::super::Win32::Foundation:: HANDLE, objectinformationclass : OBJECT_INFORMATION_CLASS, objectinformation : *mut core::ffi::c_void, objectinformationlength : u32, returnlength : *mut u32) -> super::super::Win32::Foundation:: NTSTATUS);
+    windows_targets::link!("ntdll.dll" "system" fn NtQueryObject(handle : super::super::Win32::Foundation:: HANDLE, objectinformationclass : OBJECT_INFORMATION_CLASS, objectinformation : *mut core::ffi::c_void, objectinformationlength : u32, returnlength : *mut u32) -> super::super::Win32::Foundation:: NTSTATUS);
     NtQueryObject(handle.into_param().abi(), objectinformationclass, core::mem::transmute(objectinformation.unwrap_or(std::ptr::null_mut())), objectinformationlength, core::mem::transmute(returnlength.unwrap_or(std::ptr::null_mut())))
 }
 pub const DontUseThisType: POOL_TYPE = POOL_TYPE(3i32);

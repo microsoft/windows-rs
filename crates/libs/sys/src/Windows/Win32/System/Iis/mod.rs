@@ -1,7 +1,7 @@
-::windows_targets::link!("rpcproxy.dll" "system" fn GetExtensionVersion(pver : *mut HSE_VERSION_INFO) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("rpcproxy.dll" "system" fn GetFilterVersion(pver : *mut HTTP_FILTER_VERSION) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("rpcproxy.dll" "system" fn HttpExtensionProc(pecb : *const EXTENSION_CONTROL_BLOCK) -> u32);
-::windows_targets::link!("rpcproxy.dll" "system" fn HttpFilterProc(pfc : *mut HTTP_FILTER_CONTEXT, notificationtype : u32, pvnotification : *mut core::ffi::c_void) -> u32);
+windows_targets::link!("rpcproxy.dll" "system" fn GetExtensionVersion(pver : *mut HSE_VERSION_INFO) -> super::super::Foundation:: BOOL);
+windows_targets::link!("rpcproxy.dll" "system" fn GetFilterVersion(pver : *mut HTTP_FILTER_VERSION) -> super::super::Foundation:: BOOL);
+windows_targets::link!("rpcproxy.dll" "system" fn HttpExtensionProc(pecb : *const EXTENSION_CONTROL_BLOCK) -> u32);
+windows_targets::link!("rpcproxy.dll" "system" fn HttpFilterProc(pfc : *mut HTTP_FILTER_CONTEXT, notificationtype : u32, pvnotification : *mut core::ffi::c_void) -> u32);
 pub const ADMINDATA_MAX_NAME_LEN: u32 = 256u32;
 pub const ALL_METADATA: METADATATYPES = 0i32;
 pub const APPCTR_MD_ID_BEGIN_RESERVED: u32 = 57344u32;

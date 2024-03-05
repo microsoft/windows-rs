@@ -472,7 +472,7 @@ impl Writer {
             let mut tokens = TokenStream::new();
 
             if is_external {
-                tokens.push_str("::windows::");
+                tokens.push_str("windows::");
                 namespace.next();
             } else {
                 for _ in 0..relative.count() {

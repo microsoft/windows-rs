@@ -5,7 +5,7 @@ where
     P1: windows_core::IntoParam<super::super::Foundation::HWND>,
     P2: windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("dcomp.dll" "system" fn DCompositionAttachMouseDragToHwnd(visual : * mut core::ffi::c_void, hwnd : super::super::Foundation:: HWND, enable : super::super::Foundation:: BOOL) -> windows_core::HRESULT);
+    windows_targets::link!("dcomp.dll" "system" fn DCompositionAttachMouseDragToHwnd(visual : * mut core::ffi::c_void, hwnd : super::super::Foundation:: HWND, enable : super::super::Foundation:: BOOL) -> windows_core::HRESULT);
     DCompositionAttachMouseDragToHwnd(visual.into_param().abi(), hwnd.into_param().abi(), enable.into_param().abi()).ok()
 }
 #[inline]
@@ -15,7 +15,7 @@ where
     P1: windows_core::IntoParam<super::super::Foundation::HWND>,
     P2: windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("dcomp.dll" "system" fn DCompositionAttachMouseWheelToHwnd(visual : * mut core::ffi::c_void, hwnd : super::super::Foundation:: HWND, enable : super::super::Foundation:: BOOL) -> windows_core::HRESULT);
+    windows_targets::link!("dcomp.dll" "system" fn DCompositionAttachMouseWheelToHwnd(visual : * mut core::ffi::c_void, hwnd : super::super::Foundation:: HWND, enable : super::super::Foundation:: BOOL) -> windows_core::HRESULT);
     DCompositionAttachMouseWheelToHwnd(visual.into_param().abi(), hwnd.into_param().abi(), enable.into_param().abi()).ok()
 }
 #[inline]
@@ -23,7 +23,7 @@ pub unsafe fn DCompositionBoostCompositorClock<P0>(enable: P0) -> windows_core::
 where
     P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("dcomp.dll" "system" fn DCompositionBoostCompositorClock(enable : super::super::Foundation:: BOOL) -> windows_core::HRESULT);
+    windows_targets::link!("dcomp.dll" "system" fn DCompositionBoostCompositorClock(enable : super::super::Foundation:: BOOL) -> windows_core::HRESULT);
     DCompositionBoostCompositorClock(enable.into_param().abi()).ok()
 }
 #[cfg(feature = "Win32_Graphics_Dxgi")]
@@ -33,7 +33,7 @@ where
     P0: windows_core::IntoParam<super::Dxgi::IDXGIDevice>,
     T: windows_core::Interface,
 {
-    ::windows_targets::link!("dcomp.dll" "system" fn DCompositionCreateDevice(dxgidevice : * mut core::ffi::c_void, iid : *const windows_core::GUID, dcompositiondevice : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_targets::link!("dcomp.dll" "system" fn DCompositionCreateDevice(dxgidevice : * mut core::ffi::c_void, iid : *const windows_core::GUID, dcompositiondevice : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = std::ptr::null_mut();
     DCompositionCreateDevice(dxgidevice.into_param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
@@ -43,7 +43,7 @@ where
     P0: windows_core::IntoParam<windows_core::IUnknown>,
     T: windows_core::Interface,
 {
-    ::windows_targets::link!("dcomp.dll" "system" fn DCompositionCreateDevice2(renderingdevice : * mut core::ffi::c_void, iid : *const windows_core::GUID, dcompositiondevice : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_targets::link!("dcomp.dll" "system" fn DCompositionCreateDevice2(renderingdevice : * mut core::ffi::c_void, iid : *const windows_core::GUID, dcompositiondevice : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = std::ptr::null_mut();
     DCompositionCreateDevice2(renderingdevice.into_param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
@@ -53,36 +53,36 @@ where
     P0: windows_core::IntoParam<windows_core::IUnknown>,
     T: windows_core::Interface,
 {
-    ::windows_targets::link!("dcomp.dll" "system" fn DCompositionCreateDevice3(renderingdevice : * mut core::ffi::c_void, iid : *const windows_core::GUID, dcompositiondevice : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_targets::link!("dcomp.dll" "system" fn DCompositionCreateDevice3(renderingdevice : * mut core::ffi::c_void, iid : *const windows_core::GUID, dcompositiondevice : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = std::ptr::null_mut();
     DCompositionCreateDevice3(renderingdevice.into_param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn DCompositionCreateSurfaceHandle(desiredaccess: u32, securityattributes: Option<*const super::super::Security::SECURITY_ATTRIBUTES>) -> windows_core::Result<super::super::Foundation::HANDLE> {
-    ::windows_targets::link!("dcomp.dll" "system" fn DCompositionCreateSurfaceHandle(desiredaccess : u32, securityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, surfacehandle : *mut super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
+    windows_targets::link!("dcomp.dll" "system" fn DCompositionCreateSurfaceHandle(desiredaccess : u32, securityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, surfacehandle : *mut super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
     let mut result__ = std::mem::zeroed();
     DCompositionCreateSurfaceHandle(desiredaccess, core::mem::transmute(securityattributes.unwrap_or(std::ptr::null())), &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn DCompositionGetFrameId(frameidtype: COMPOSITION_FRAME_ID_TYPE) -> windows_core::Result<u64> {
-    ::windows_targets::link!("dcomp.dll" "system" fn DCompositionGetFrameId(frameidtype : COMPOSITION_FRAME_ID_TYPE, frameid : *mut u64) -> windows_core::HRESULT);
+    windows_targets::link!("dcomp.dll" "system" fn DCompositionGetFrameId(frameidtype : COMPOSITION_FRAME_ID_TYPE, frameid : *mut u64) -> windows_core::HRESULT);
     let mut result__ = std::mem::zeroed();
     DCompositionGetFrameId(frameidtype, &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn DCompositionGetStatistics(frameid: u64, framestats: *mut COMPOSITION_FRAME_STATS, targetidcount: u32, targetids: Option<*mut COMPOSITION_TARGET_ID>, actualtargetidcount: Option<*mut u32>) -> windows_core::Result<()> {
-    ::windows_targets::link!("dcomp.dll" "system" fn DCompositionGetStatistics(frameid : u64, framestats : *mut COMPOSITION_FRAME_STATS, targetidcount : u32, targetids : *mut COMPOSITION_TARGET_ID, actualtargetidcount : *mut u32) -> windows_core::HRESULT);
+    windows_targets::link!("dcomp.dll" "system" fn DCompositionGetStatistics(frameid : u64, framestats : *mut COMPOSITION_FRAME_STATS, targetidcount : u32, targetids : *mut COMPOSITION_TARGET_ID, actualtargetidcount : *mut u32) -> windows_core::HRESULT);
     DCompositionGetStatistics(frameid, framestats, targetidcount, core::mem::transmute(targetids.unwrap_or(std::ptr::null_mut())), core::mem::transmute(actualtargetidcount.unwrap_or(std::ptr::null_mut()))).ok()
 }
 #[inline]
 pub unsafe fn DCompositionGetTargetStatistics(frameid: u64, targetid: *const COMPOSITION_TARGET_ID, targetstats: *mut COMPOSITION_TARGET_STATS) -> windows_core::Result<()> {
-    ::windows_targets::link!("dcomp.dll" "system" fn DCompositionGetTargetStatistics(frameid : u64, targetid : *const COMPOSITION_TARGET_ID, targetstats : *mut COMPOSITION_TARGET_STATS) -> windows_core::HRESULT);
+    windows_targets::link!("dcomp.dll" "system" fn DCompositionGetTargetStatistics(frameid : u64, targetid : *const COMPOSITION_TARGET_ID, targetstats : *mut COMPOSITION_TARGET_STATS) -> windows_core::HRESULT);
     DCompositionGetTargetStatistics(frameid, targetid, targetstats).ok()
 }
 #[inline]
 pub unsafe fn DCompositionWaitForCompositorClock(handles: Option<&[super::super::Foundation::HANDLE]>, timeoutinms: u32) -> u32 {
-    ::windows_targets::link!("dcomp.dll" "system" fn DCompositionWaitForCompositorClock(count : u32, handles : *const super::super::Foundation:: HANDLE, timeoutinms : u32) -> u32);
+    windows_targets::link!("dcomp.dll" "system" fn DCompositionWaitForCompositorClock(count : u32, handles : *const super::super::Foundation:: HANDLE, timeoutinms : u32) -> u32);
     DCompositionWaitForCompositorClock(handles.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(handles.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), timeoutinms)
 }
 windows_core::imp::com_interface!(IDCompositionAffineTransform2DEffect, IDCompositionAffineTransform2DEffect_Vtbl, 0x0b74b9e8_cdd6_492f_bbbc_5ed32157026d);

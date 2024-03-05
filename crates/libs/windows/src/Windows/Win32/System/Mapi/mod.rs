@@ -1,6 +1,6 @@
 #[inline]
 pub unsafe fn MAPIFreeBuffer(pv: *mut core::ffi::c_void) -> u32 {
-    ::windows_targets::link!("mapi32.dll" "system" fn MAPIFreeBuffer(pv : *mut core::ffi::c_void) -> u32);
+    windows_targets::link!("mapi32.dll" "system" fn MAPIFreeBuffer(pv : *mut core::ffi::c_void) -> u32);
     MAPIFreeBuffer(pv)
 }
 pub const MAPI_AB_NOMODIFY: u32 = 1024u32;

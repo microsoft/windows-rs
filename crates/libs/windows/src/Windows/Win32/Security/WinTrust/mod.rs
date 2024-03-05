@@ -3,7 +3,7 @@ pub unsafe fn OpenPersonalTrustDBDialog<P0>(hwndparent: P0) -> super::super::Fou
 where
     P0: windows_core::IntoParam<super::super::Foundation::HWND>,
 {
-    ::windows_targets::link!("wintrust.dll" "system" fn OpenPersonalTrustDBDialog(hwndparent : super::super::Foundation:: HWND) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("wintrust.dll" "system" fn OpenPersonalTrustDBDialog(hwndparent : super::super::Foundation:: HWND) -> super::super::Foundation:: BOOL);
     OpenPersonalTrustDBDialog(hwndparent.into_param().abi())
 }
 #[inline]
@@ -11,31 +11,31 @@ pub unsafe fn OpenPersonalTrustDBDialogEx<P0>(hwndparent: P0, dwflags: u32, pvre
 where
     P0: windows_core::IntoParam<super::super::Foundation::HWND>,
 {
-    ::windows_targets::link!("wintrust.dll" "system" fn OpenPersonalTrustDBDialogEx(hwndparent : super::super::Foundation:: HWND, dwflags : u32, pvreserved : *mut *mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("wintrust.dll" "system" fn OpenPersonalTrustDBDialogEx(hwndparent : super::super::Foundation:: HWND, dwflags : u32, pvreserved : *mut *mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
     OpenPersonalTrustDBDialogEx(hwndparent.into_param().abi(), dwflags, core::mem::transmute(pvreserved.unwrap_or(std::ptr::null_mut())))
 }
 #[cfg(all(feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 #[inline]
 pub unsafe fn WTHelperCertCheckValidSignature(pprovdata: *mut CRYPT_PROVIDER_DATA) -> windows_core::Result<()> {
-    ::windows_targets::link!("wintrust.dll" "system" fn WTHelperCertCheckValidSignature(pprovdata : *mut CRYPT_PROVIDER_DATA) -> windows_core::HRESULT);
+    windows_targets::link!("wintrust.dll" "system" fn WTHelperCertCheckValidSignature(pprovdata : *mut CRYPT_PROVIDER_DATA) -> windows_core::HRESULT);
     WTHelperCertCheckValidSignature(pprovdata).ok()
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
 #[inline]
 pub unsafe fn WTHelperCertIsSelfSigned(dwencoding: u32, pcert: *mut super::Cryptography::CERT_INFO) -> super::super::Foundation::BOOL {
-    ::windows_targets::link!("wintrust.dll" "system" fn WTHelperCertIsSelfSigned(dwencoding : u32, pcert : *mut super::Cryptography:: CERT_INFO) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("wintrust.dll" "system" fn WTHelperCertIsSelfSigned(dwencoding : u32, pcert : *mut super::Cryptography:: CERT_INFO) -> super::super::Foundation:: BOOL);
     WTHelperCertIsSelfSigned(dwencoding, pcert)
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
 #[inline]
 pub unsafe fn WTHelperGetProvCertFromChain(psgnr: *mut CRYPT_PROVIDER_SGNR, idxcert: u32) -> *mut CRYPT_PROVIDER_CERT {
-    ::windows_targets::link!("wintrust.dll" "system" fn WTHelperGetProvCertFromChain(psgnr : *mut CRYPT_PROVIDER_SGNR, idxcert : u32) -> *mut CRYPT_PROVIDER_CERT);
+    windows_targets::link!("wintrust.dll" "system" fn WTHelperGetProvCertFromChain(psgnr : *mut CRYPT_PROVIDER_SGNR, idxcert : u32) -> *mut CRYPT_PROVIDER_CERT);
     WTHelperGetProvCertFromChain(psgnr, idxcert)
 }
 #[cfg(all(feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 #[inline]
 pub unsafe fn WTHelperGetProvPrivateDataFromChain(pprovdata: *mut CRYPT_PROVIDER_DATA, pgproviderid: *mut windows_core::GUID) -> *mut CRYPT_PROVIDER_PRIVDATA {
-    ::windows_targets::link!("wintrust.dll" "system" fn WTHelperGetProvPrivateDataFromChain(pprovdata : *mut CRYPT_PROVIDER_DATA, pgproviderid : *mut windows_core::GUID) -> *mut CRYPT_PROVIDER_PRIVDATA);
+    windows_targets::link!("wintrust.dll" "system" fn WTHelperGetProvPrivateDataFromChain(pprovdata : *mut CRYPT_PROVIDER_DATA, pgproviderid : *mut windows_core::GUID) -> *mut CRYPT_PROVIDER_PRIVDATA);
     WTHelperGetProvPrivateDataFromChain(pprovdata, pgproviderid)
 }
 #[cfg(all(feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
@@ -44,7 +44,7 @@ pub unsafe fn WTHelperGetProvSignerFromChain<P0>(pprovdata: *mut CRYPT_PROVIDER_
 where
     P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("wintrust.dll" "system" fn WTHelperGetProvSignerFromChain(pprovdata : *mut CRYPT_PROVIDER_DATA, idxsigner : u32, fcountersigner : super::super::Foundation:: BOOL, idxcountersigner : u32) -> *mut CRYPT_PROVIDER_SGNR);
+    windows_targets::link!("wintrust.dll" "system" fn WTHelperGetProvSignerFromChain(pprovdata : *mut CRYPT_PROVIDER_DATA, idxsigner : u32, fcountersigner : super::super::Foundation:: BOOL, idxcountersigner : u32) -> *mut CRYPT_PROVIDER_SGNR);
     WTHelperGetProvSignerFromChain(pprovdata, idxsigner, fcountersigner.into_param().abi(), idxcountersigner)
 }
 #[cfg(all(feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
@@ -53,7 +53,7 @@ pub unsafe fn WTHelperProvDataFromStateData<P0>(hstatedata: P0) -> *mut CRYPT_PR
 where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("wintrust.dll" "system" fn WTHelperProvDataFromStateData(hstatedata : super::super::Foundation:: HANDLE) -> *mut CRYPT_PROVIDER_DATA);
+    windows_targets::link!("wintrust.dll" "system" fn WTHelperProvDataFromStateData(hstatedata : super::super::Foundation:: HANDLE) -> *mut CRYPT_PROVIDER_DATA);
     WTHelperProvDataFromStateData(hstatedata.into_param().abi())
 }
 #[inline]
@@ -61,7 +61,7 @@ pub unsafe fn WinVerifyTrust<P0>(hwnd: P0, pgactionid: *mut windows_core::GUID, 
 where
     P0: windows_core::IntoParam<super::super::Foundation::HWND>,
 {
-    ::windows_targets::link!("wintrust.dll" "system" fn WinVerifyTrust(hwnd : super::super::Foundation:: HWND, pgactionid : *mut windows_core::GUID, pwvtdata : *mut core::ffi::c_void) -> i32);
+    windows_targets::link!("wintrust.dll" "system" fn WinVerifyTrust(hwnd : super::super::Foundation:: HWND, pgactionid : *mut windows_core::GUID, pwvtdata : *mut core::ffi::c_void) -> i32);
     WinVerifyTrust(hwnd.into_param().abi(), pgactionid, pwvtdata)
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
@@ -70,12 +70,12 @@ pub unsafe fn WinVerifyTrustEx<P0>(hwnd: P0, pgactionid: *mut windows_core::GUID
 where
     P0: windows_core::IntoParam<super::super::Foundation::HWND>,
 {
-    ::windows_targets::link!("wintrust.dll" "system" fn WinVerifyTrustEx(hwnd : super::super::Foundation:: HWND, pgactionid : *mut windows_core::GUID, pwintrustdata : *mut WINTRUST_DATA) -> i32);
+    windows_targets::link!("wintrust.dll" "system" fn WinVerifyTrustEx(hwnd : super::super::Foundation:: HWND, pgactionid : *mut windows_core::GUID, pwintrustdata : *mut WINTRUST_DATA) -> i32);
     WinVerifyTrustEx(hwnd.into_param().abi(), pgactionid, pwintrustdata)
 }
 #[inline]
 pub unsafe fn WintrustAddActionID(pgactionid: *const windows_core::GUID, fdwflags: u32, psprovinfo: *const CRYPT_REGISTER_ACTIONID) -> windows_core::Result<()> {
-    ::windows_targets::link!("wintrust.dll" "system" fn WintrustAddActionID(pgactionid : *const windows_core::GUID, fdwflags : u32, psprovinfo : *const CRYPT_REGISTER_ACTIONID) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("wintrust.dll" "system" fn WintrustAddActionID(pgactionid : *const windows_core::GUID, fdwflags : u32, psprovinfo : *const CRYPT_REGISTER_ACTIONID) -> super::super::Foundation:: BOOL);
     WintrustAddActionID(pgactionid, fdwflags, psprovinfo).ok()
 }
 #[inline]
@@ -83,7 +83,7 @@ pub unsafe fn WintrustAddDefaultForUsage<P0>(pszusageoid: P0, psdefusage: *const
 where
     P0: windows_core::IntoParam<windows_core::PCSTR>,
 {
-    ::windows_targets::link!("wintrust.dll" "system" fn WintrustAddDefaultForUsage(pszusageoid : windows_core::PCSTR, psdefusage : *const CRYPT_PROVIDER_REGDEFUSAGE) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("wintrust.dll" "system" fn WintrustAddDefaultForUsage(pszusageoid : windows_core::PCSTR, psdefusage : *const CRYPT_PROVIDER_REGDEFUSAGE) -> super::super::Foundation:: BOOL);
     WintrustAddDefaultForUsage(pszusageoid.into_param().abi(), psdefusage).ok()
 }
 #[inline]
@@ -91,23 +91,23 @@ pub unsafe fn WintrustGetDefaultForUsage<P0>(dwaction: WINTRUST_GET_DEFAULT_FOR_
 where
     P0: windows_core::IntoParam<windows_core::PCSTR>,
 {
-    ::windows_targets::link!("wintrust.dll" "system" fn WintrustGetDefaultForUsage(dwaction : WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION, pszusageoid : windows_core::PCSTR, psusage : *mut CRYPT_PROVIDER_DEFUSAGE) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("wintrust.dll" "system" fn WintrustGetDefaultForUsage(dwaction : WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION, pszusageoid : windows_core::PCSTR, psusage : *mut CRYPT_PROVIDER_DEFUSAGE) -> super::super::Foundation:: BOOL);
     WintrustGetDefaultForUsage(dwaction, pszusageoid.into_param().abi(), psusage).ok()
 }
 #[inline]
 pub unsafe fn WintrustGetRegPolicyFlags(pdwpolicyflags: *mut WINTRUST_POLICY_FLAGS) {
-    ::windows_targets::link!("wintrust.dll" "system" fn WintrustGetRegPolicyFlags(pdwpolicyflags : *mut WINTRUST_POLICY_FLAGS));
+    windows_targets::link!("wintrust.dll" "system" fn WintrustGetRegPolicyFlags(pdwpolicyflags : *mut WINTRUST_POLICY_FLAGS));
     WintrustGetRegPolicyFlags(pdwpolicyflags)
 }
 #[cfg(all(feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 #[inline]
 pub unsafe fn WintrustLoadFunctionPointers(pgactionid: *mut windows_core::GUID, ppfns: *mut CRYPT_PROVIDER_FUNCTIONS) -> super::super::Foundation::BOOL {
-    ::windows_targets::link!("wintrust.dll" "system" fn WintrustLoadFunctionPointers(pgactionid : *mut windows_core::GUID, ppfns : *mut CRYPT_PROVIDER_FUNCTIONS) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("wintrust.dll" "system" fn WintrustLoadFunctionPointers(pgactionid : *mut windows_core::GUID, ppfns : *mut CRYPT_PROVIDER_FUNCTIONS) -> super::super::Foundation:: BOOL);
     WintrustLoadFunctionPointers(pgactionid, ppfns)
 }
 #[inline]
 pub unsafe fn WintrustRemoveActionID(pgactionid: *const windows_core::GUID) -> super::super::Foundation::BOOL {
-    ::windows_targets::link!("wintrust.dll" "system" fn WintrustRemoveActionID(pgactionid : *const windows_core::GUID) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("wintrust.dll" "system" fn WintrustRemoveActionID(pgactionid : *const windows_core::GUID) -> super::super::Foundation:: BOOL);
     WintrustRemoveActionID(pgactionid)
 }
 #[inline]
@@ -115,12 +115,12 @@ pub unsafe fn WintrustSetDefaultIncludePEPageHashes<P0>(fincludepepagehashes: P0
 where
     P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("wintrust.dll" "system" fn WintrustSetDefaultIncludePEPageHashes(fincludepepagehashes : super::super::Foundation:: BOOL));
+    windows_targets::link!("wintrust.dll" "system" fn WintrustSetDefaultIncludePEPageHashes(fincludepepagehashes : super::super::Foundation:: BOOL));
     WintrustSetDefaultIncludePEPageHashes(fincludepepagehashes.into_param().abi())
 }
 #[inline]
 pub unsafe fn WintrustSetRegPolicyFlags(dwpolicyflags: WINTRUST_POLICY_FLAGS) -> super::super::Foundation::BOOL {
-    ::windows_targets::link!("wintrust.dll" "system" fn WintrustSetRegPolicyFlags(dwpolicyflags : WINTRUST_POLICY_FLAGS) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("wintrust.dll" "system" fn WintrustSetRegPolicyFlags(dwpolicyflags : WINTRUST_POLICY_FLAGS) -> super::super::Foundation:: BOOL);
     WintrustSetRegPolicyFlags(dwpolicyflags)
 }
 pub const CAT_MEMBERINFO2_OBJID: windows_core::PCSTR = windows_core::s!("1.3.6.1.4.1.311.12.2.3");
