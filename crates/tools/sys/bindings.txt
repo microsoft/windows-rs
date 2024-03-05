@@ -1,6 +1,6 @@
 --in crates/libs/bindgen/default
 --out crates/libs/sys/src/lib.rs
---config package sys
+--config package sys no-bindgen-comment
 
 --filter
     Windows.Wdk

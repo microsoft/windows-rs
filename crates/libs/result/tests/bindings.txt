@@ -1,5 +1,5 @@
 --out src/bindings.rs
---config flatten sys minimal vtbl
+--config flatten sys minimal vtbl no-bindgen-comment
 
 --filter
     Windows.Win32.Foundation.E_INVALIDARG

@@ -19,6 +19,7 @@ pub struct Writer {
     pub package: bool,             // default is single file with no cfg - implies !flatten
     pub minimal: bool,             // strips out enumerators - in future possibly other helpers as well
     pub no_inner_attributes: bool, // skips the inner attributes at the start of the file
+    pub no_bindgen_comment: bool,  // skips the bindgen comment at the start of the file
     pub vtbl: bool,                // include minimal vtbl layout support for interfaces
     pub prepend: std::collections::HashMap<metadata::TypeDef, String>,
 }
@@ -36,6 +37,7 @@ impl Writer {
             package: false,
             minimal: false,
             no_inner_attributes: false,
+            no_bindgen_comment: false,
             vtbl: false,
             prepend: Default::default(),
         }

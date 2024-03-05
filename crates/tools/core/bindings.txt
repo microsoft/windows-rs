@@ -1,7 +1,7 @@
 // These will use `windows-sys` style bindings.
 
 --out crates/libs/core/src/imp/bindings.rs
---config flatten sys minimal
+--config flatten sys minimal no-bindgen-comment
 
 --filter
     Windows.Win32.Foundation.CloseHandle

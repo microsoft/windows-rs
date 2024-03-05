@@ -125,6 +125,7 @@ mod test {
             "--config",
             "flatten",
             "sys",
+            "no-bindgen-comment",
             "--filter",
             "Windows.Wdk.System.SystemServices.RtlGetVersion",
             "Windows.Win32.System.SystemInformation.OSVERSIONINFOEXW",

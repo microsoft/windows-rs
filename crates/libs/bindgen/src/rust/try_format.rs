@@ -1,7 +1,7 @@
 use std::io::Write;
 
 pub fn try_format(writer: &super::Writer, tokens: &str) -> String {
-    let preamble = if writer.package {
+    let preamble = if writer.no_bindgen_comment {
         String::new()
     } else {
         let name = std::env!("CARGO_PKG_NAME");
