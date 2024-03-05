@@ -115,7 +115,7 @@ impl Drop for HSTRING {
             unsafe {
                 let header = header.as_ref();
                 if header.flags & REFERENCE_FLAG == 0 && header.count.release() == 0 {
-                    crate::imp::heap_free(header as *const _ as *mut _);
+                    imp::heap_free(header as *const _ as *mut _);
                 }
             }
         }
@@ -398,7 +398,7 @@ struct Header {
     _0: u32,
     _1: u32,
     data: *mut u16,
-    count: crate::imp::RefCount,
+    count: imp::RefCount,
     buffer_start: u16,
 }
 
@@ -409,13 +409,13 @@ impl Header {
         // The space for the terminating null character is already accounted for inside of `Header`.
         let alloc_size = std::mem::size_of::<Header>() + 2 * len as usize;
 
-        let header = crate::imp::heap_alloc(alloc_size)? as *mut Header;
+        let header = imp::heap_alloc(alloc_size)? as *mut Header;
 
         // SAFETY: uses `std::ptr::write` (since `header` is unintialized). `Header` is safe to be all zeros.
         unsafe {
             header.write(std::mem::MaybeUninit::<Header>::zeroed().assume_init());
             (*header).len = len;
-            (*header).count = crate::imp::RefCount::new(1);
+            (*header).count = imp::RefCount::new(1);
             (*header).data = &mut (*header).buffer_start;
         }
         Ok(header)

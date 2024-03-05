@@ -128,7 +128,7 @@
 ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTReclaimAllocations(param0 : *mut D3DKMT_RECLAIMALLOCATIONS) -> super::super::super::Win32::Foundation:: NTSTATUS);
 ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTReclaimAllocations2(param0 : *mut D3DKMT_RECLAIMALLOCATIONS2) -> super::super::super::Win32::Foundation:: NTSTATUS);
 ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTRegisterTrimNotification(param0 : *mut D3DKMT_REGISTERTRIMNOTIFICATION) -> super::super::super::Win32::Foundation:: NTSTATUS);
-::windows_targets::link!("gdi32.dll" "system" fn D3DKMTRegisterVailProcess(param0 : *const ::windows_sys::core::GUID) -> super::super::super::Win32::Foundation:: NTSTATUS);
+::windows_targets::link!("gdi32.dll" "system" fn D3DKMTRegisterVailProcess(param0 : *const windows_sys::core::GUID) -> super::super::super::Win32::Foundation:: NTSTATUS);
 ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTReleaseKeyedMutex(param0 : *mut D3DKMT_RELEASEKEYEDMUTEX) -> super::super::super::Win32::Foundation:: NTSTATUS);
 ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTReleaseKeyedMutex2(param0 : *mut D3DKMT_RELEASEKEYEDMUTEX2) -> super::super::super::Win32::Foundation:: NTSTATUS);
 ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTReleaseProcessVidPnSourceOwners(param0 : super::super::super::Win32::Foundation:: HANDLE) -> super::super::super::Win32::Foundation:: NTSTATUS);
@@ -1086,8 +1086,8 @@ pub const D3DKMT_SET_QUEUEDLIMIT_PRESENT: D3DKMT_QUEUEDLIMIT_TYPE = 1i32;
 pub const D3DKMT_STANDARDALLOCATIONTYPE_EXISTINGHEAP: D3DKMT_STANDARDALLOCATIONTYPE = 1i32;
 pub const D3DKMT_STANDARDALLOCATIONTYPE_INTERNALBACKINGSTORE: D3DKMT_STANDARDALLOCATIONTYPE = 2i32;
 pub const D3DKMT_STANDARDALLOCATIONTYPE_MAX: D3DKMT_STANDARDALLOCATIONTYPE = 3i32;
-pub const D3DKMT_SUBKEY_DX9: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("DX9");
-pub const D3DKMT_SUBKEY_OPENGL: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("OpenGL");
+pub const D3DKMT_SUBKEY_DX9: windows_sys::core::PCWSTR = windows_sys::core::w!("DX9");
+pub const D3DKMT_SUBKEY_OPENGL: windows_sys::core::PCWSTR = windows_sys::core::w!("OpenGL");
 pub const D3DKMT_SignalCommandBuffer: D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE = 5i32;
 pub const D3DKMT_SoftwareCommandBuffer: D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE = 7i32;
 pub const D3DKMT_SystemCommandBuffer: D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE = 2i32;
@@ -1554,20 +1554,20 @@ pub const DXGKMDT_OPM_DPCP_ON: DXGKMDT_OPM_DPCP_PROTECTION_LEVEL = 1i32;
 pub const DXGKMDT_OPM_DVI_CHARACTERISTIC_1_0: DXGKDT_OPM_DVI_CHARACTERISTICS = 1i32;
 pub const DXGKMDT_OPM_DVI_CHARACTERISTIC_1_1_OR_ABOVE: DXGKDT_OPM_DVI_CHARACTERISTICS = 2i32;
 pub const DXGKMDT_OPM_ENCRYPTED_PARAMETERS_SIZE: u32 = 256u32;
-pub const DXGKMDT_OPM_GET_ACP_AND_CGMSA_SIGNALING: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x6629a591_3b79_4cf3_924a_11e8e7811671);
-pub const DXGKMDT_OPM_GET_ACTUAL_OUTPUT_FORMAT: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xd7bf1ba3_ad13_4f8e_af98_0dcb3ca204cc);
-pub const DXGKMDT_OPM_GET_ACTUAL_PROTECTION_LEVEL: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x1957210a_7766_452a_b99a_d27aed54f03a);
-pub const DXGKMDT_OPM_GET_ADAPTER_BUS_TYPE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xc6f4d673_6174_4184_8e35_f6db5200bcba);
-pub const DXGKMDT_OPM_GET_CODEC_INFO: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x4f374491_8f5f_4445_9dba_95588f6b58b4);
-pub const DXGKMDT_OPM_GET_CONNECTED_HDCP_DEVICE_INFORMATION: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x0db59d74_a992_492e_a0bd_c23fda564e00);
-pub const DXGKMDT_OPM_GET_CONNECTOR_TYPE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x81d0bfd5_6afe_48c2_99c0_95a08f97c5da);
-pub const DXGKMDT_OPM_GET_CURRENT_HDCP_SRM_VERSION: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x99c5ceff_5f1d_4879_81c1_c52443c9482b);
-pub const DXGKMDT_OPM_GET_DVI_CHARACTERISTICS: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xa470b3bb_5dd7_4172_839c_3d3776e0ebf5);
+pub const DXGKMDT_OPM_GET_ACP_AND_CGMSA_SIGNALING: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6629a591_3b79_4cf3_924a_11e8e7811671);
+pub const DXGKMDT_OPM_GET_ACTUAL_OUTPUT_FORMAT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd7bf1ba3_ad13_4f8e_af98_0dcb3ca204cc);
+pub const DXGKMDT_OPM_GET_ACTUAL_PROTECTION_LEVEL: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1957210a_7766_452a_b99a_d27aed54f03a);
+pub const DXGKMDT_OPM_GET_ADAPTER_BUS_TYPE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc6f4d673_6174_4184_8e35_f6db5200bcba);
+pub const DXGKMDT_OPM_GET_CODEC_INFO: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4f374491_8f5f_4445_9dba_95588f6b58b4);
+pub const DXGKMDT_OPM_GET_CONNECTED_HDCP_DEVICE_INFORMATION: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0db59d74_a992_492e_a0bd_c23fda564e00);
+pub const DXGKMDT_OPM_GET_CONNECTOR_TYPE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x81d0bfd5_6afe_48c2_99c0_95a08f97c5da);
+pub const DXGKMDT_OPM_GET_CURRENT_HDCP_SRM_VERSION: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x99c5ceff_5f1d_4879_81c1_c52443c9482b);
+pub const DXGKMDT_OPM_GET_DVI_CHARACTERISTICS: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa470b3bb_5dd7_4172_839c_3d3776e0ebf5);
 pub const DXGKMDT_OPM_GET_INFORMATION_PARAMETERS_SIZE: u32 = 4056u32;
-pub const DXGKMDT_OPM_GET_OUTPUT_HARDWARE_PROTECTION_SUPPORT: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x3b129589_2af8_4ef0_96a2_704a845a218e);
-pub const DXGKMDT_OPM_GET_OUTPUT_ID: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x72cb6df3_244f_40ce_b09e_20506af6302f);
-pub const DXGKMDT_OPM_GET_SUPPORTED_PROTECTION_TYPES: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x38f2a801_9a6c_48bb_9107_b6696e6f1797);
-pub const DXGKMDT_OPM_GET_VIRTUAL_PROTECTION_LEVEL: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xb2075857_3eda_4d5d_88db_748f8c1a0549);
+pub const DXGKMDT_OPM_GET_OUTPUT_HARDWARE_PROTECTION_SUPPORT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3b129589_2af8_4ef0_96a2_704a845a218e);
+pub const DXGKMDT_OPM_GET_OUTPUT_ID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x72cb6df3_244f_40ce_b09e_20506af6302f);
+pub const DXGKMDT_OPM_GET_SUPPORTED_PROTECTION_TYPES: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x38f2a801_9a6c_48bb_9107_b6696e6f1797);
+pub const DXGKMDT_OPM_GET_VIRTUAL_PROTECTION_LEVEL: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb2075857_3eda_4d5d_88db_748f8c1a0549);
 pub const DXGKMDT_OPM_HDCP_FLAG_NONE: DXGKMDT_OPM_HDCP_FLAG = 0i32;
 pub const DXGKMDT_OPM_HDCP_FLAG_REPEATER: DXGKMDT_OPM_HDCP_FLAG = 1i32;
 pub const DXGKMDT_OPM_HDCP_KEY_SELECTION_VECTOR_SIZE: u32 = 5u32;
@@ -1609,10 +1609,10 @@ pub const DXGKMDT_OPM_PROTECTION_TYPE_SIZE: u32 = 4u32;
 pub const DXGKMDT_OPM_PROTECTION_TYPE_TYPE_ENFORCEMENT_HDCP: DXGKMDT_OPM_PROTECTION_TYPE = 32i32;
 pub const DXGKMDT_OPM_REDISTRIBUTION_CONTROL_REQUIRED: DXGKMDT_OPM_CGMSA = 8i32;
 pub const DXGKMDT_OPM_REQUESTED_INFORMATION_SIZE: u32 = 4076u32;
-pub const DXGKMDT_OPM_SET_ACP_AND_CGMSA_SIGNALING: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x09a631a5_d684_4c60_8e4d_d3bb0f0be3ee);
-pub const DXGKMDT_OPM_SET_HDCP_SRM: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x8b5ef5d1_c30d_44ff_84a5_ea71dce78f13);
-pub const DXGKMDT_OPM_SET_PROTECTION_LEVEL: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x9bb9327c_4eb5_4727_9f00_b42b0919c0da);
-pub const DXGKMDT_OPM_SET_PROTECTION_LEVEL_ACCORDING_TO_CSS_DVD: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x39ce333e_4cc0_44ae_bfcc_da50b5f82e72);
+pub const DXGKMDT_OPM_SET_ACP_AND_CGMSA_SIGNALING: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x09a631a5_d684_4c60_8e4d_d3bb0f0be3ee);
+pub const DXGKMDT_OPM_SET_HDCP_SRM: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8b5ef5d1_c30d_44ff_84a5_ea71dce78f13);
+pub const DXGKMDT_OPM_SET_PROTECTION_LEVEL: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9bb9327c_4eb5_4727_9f00_b42b0919c0da);
+pub const DXGKMDT_OPM_SET_PROTECTION_LEVEL_ACCORDING_TO_CSS_DVD: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x39ce333e_4cc0_44ae_bfcc_da50b5f82e72);
 pub const DXGKMDT_OPM_STATUS_LINK_LOST: DXGKMDT_OPM_STATUS = 1i32;
 pub const DXGKMDT_OPM_STATUS_NORMAL: DXGKMDT_OPM_STATUS = 0i32;
 pub const DXGKMDT_OPM_STATUS_RENEGOTIATION_REQUIRED: DXGKMDT_OPM_STATUS = 2i32;
@@ -1714,7 +1714,7 @@ pub const DxgkBacklightOptimizationDisable: DXGK_BACKLIGHT_OPTIMIZATION_LEVEL = 
 pub const DxgkBacklightOptimizationDynamic: DXGK_BACKLIGHT_OPTIMIZATION_LEVEL = 2i32;
 pub const DxgkBacklightOptimizationEDR: DXGK_BACKLIGHT_OPTIMIZATION_LEVEL = 4i32;
 pub const FLIPEX_TIMEOUT_USER: u32 = 2000u32;
-pub const GUID_DEVINTERFACE_GRAPHICSPOWER: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xea5c6870_e93c_4588_bef1_fec42fc9429a);
+pub const GUID_DEVINTERFACE_GRAPHICSPOWER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xea5c6870_e93c_4588_bef1_fec42fc9429a);
 pub const HpdAwarenessAlwaysConnected: DXGK_CHILD_DEVICE_HPD_AWARENESS = 1i32;
 pub const HpdAwarenessInterruptible: DXGK_CHILD_DEVICE_HPD_AWARENESS = 4i32;
 pub const HpdAwarenessNone: DXGK_CHILD_DEVICE_HPD_AWARENESS = 2i32;
@@ -2160,9 +2160,9 @@ pub struct D3DCAPS8 {
     pub MaxPixelShaderValue: f32,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl ::core::marker::Copy for D3DCAPS8 {}
+impl Copy for D3DCAPS8 {}
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl ::core::clone::Clone for D3DCAPS8 {
+impl Clone for D3DCAPS8 {
     fn clone(&self) -> Self {
         *self
     }
@@ -2183,8 +2183,8 @@ pub struct D3DDDIARG_CREATERESOURCE {
     pub Flags: D3DDDI_RESOURCEFLAGS,
     pub Rotation: D3DDDI_ROTATION,
 }
-impl ::core::marker::Copy for D3DDDIARG_CREATERESOURCE {}
-impl ::core::clone::Clone for D3DDDIARG_CREATERESOURCE {
+impl Copy for D3DDDIARG_CREATERESOURCE {}
+impl Clone for D3DDDIARG_CREATERESOURCE {
     fn clone(&self) -> Self {
         *self
     }
@@ -2206,8 +2206,8 @@ pub struct D3DDDIARG_CREATERESOURCE2 {
     pub Rotation: D3DDDI_ROTATION,
     pub Flags2: D3DDDI_RESOURCEFLAGS2,
 }
-impl ::core::marker::Copy for D3DDDIARG_CREATERESOURCE2 {}
-impl ::core::clone::Clone for D3DDDIARG_CREATERESOURCE2 {
+impl Copy for D3DDDIARG_CREATERESOURCE2 {}
+impl Clone for D3DDDIARG_CREATERESOURCE2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -2216,8 +2216,8 @@ impl ::core::clone::Clone for D3DDDIARG_CREATERESOURCE2 {
 pub struct D3DDDICB_DESTROYALLOCATION2FLAGS {
     pub Anonymous: D3DDDICB_DESTROYALLOCATION2FLAGS_0,
 }
-impl ::core::marker::Copy for D3DDDICB_DESTROYALLOCATION2FLAGS {}
-impl ::core::clone::Clone for D3DDDICB_DESTROYALLOCATION2FLAGS {
+impl Copy for D3DDDICB_DESTROYALLOCATION2FLAGS {}
+impl Clone for D3DDDICB_DESTROYALLOCATION2FLAGS {
     fn clone(&self) -> Self {
         *self
     }
@@ -2227,8 +2227,8 @@ pub union D3DDDICB_DESTROYALLOCATION2FLAGS_0 {
     pub Anonymous: D3DDDICB_DESTROYALLOCATION2FLAGS_0_0,
     pub Value: u32,
 }
-impl ::core::marker::Copy for D3DDDICB_DESTROYALLOCATION2FLAGS_0 {}
-impl ::core::clone::Clone for D3DDDICB_DESTROYALLOCATION2FLAGS_0 {
+impl Copy for D3DDDICB_DESTROYALLOCATION2FLAGS_0 {}
+impl Clone for D3DDDICB_DESTROYALLOCATION2FLAGS_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -2237,8 +2237,8 @@ impl ::core::clone::Clone for D3DDDICB_DESTROYALLOCATION2FLAGS_0 {
 pub struct D3DDDICB_DESTROYALLOCATION2FLAGS_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for D3DDDICB_DESTROYALLOCATION2FLAGS_0_0 {}
-impl ::core::clone::Clone for D3DDDICB_DESTROYALLOCATION2FLAGS_0_0 {
+impl Copy for D3DDDICB_DESTROYALLOCATION2FLAGS_0_0 {}
+impl Clone for D3DDDICB_DESTROYALLOCATION2FLAGS_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -2247,8 +2247,8 @@ impl ::core::clone::Clone for D3DDDICB_DESTROYALLOCATION2FLAGS_0_0 {
 pub struct D3DDDICB_LOCK2FLAGS {
     pub Anonymous: D3DDDICB_LOCK2FLAGS_0,
 }
-impl ::core::marker::Copy for D3DDDICB_LOCK2FLAGS {}
-impl ::core::clone::Clone for D3DDDICB_LOCK2FLAGS {
+impl Copy for D3DDDICB_LOCK2FLAGS {}
+impl Clone for D3DDDICB_LOCK2FLAGS {
     fn clone(&self) -> Self {
         *self
     }
@@ -2258,8 +2258,8 @@ pub union D3DDDICB_LOCK2FLAGS_0 {
     pub Anonymous: D3DDDICB_LOCK2FLAGS_0_0,
     pub Value: u32,
 }
-impl ::core::marker::Copy for D3DDDICB_LOCK2FLAGS_0 {}
-impl ::core::clone::Clone for D3DDDICB_LOCK2FLAGS_0 {
+impl Copy for D3DDDICB_LOCK2FLAGS_0 {}
+impl Clone for D3DDDICB_LOCK2FLAGS_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -2268,8 +2268,8 @@ impl ::core::clone::Clone for D3DDDICB_LOCK2FLAGS_0 {
 pub struct D3DDDICB_LOCK2FLAGS_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for D3DDDICB_LOCK2FLAGS_0_0 {}
-impl ::core::clone::Clone for D3DDDICB_LOCK2FLAGS_0_0 {
+impl Copy for D3DDDICB_LOCK2FLAGS_0_0 {}
+impl Clone for D3DDDICB_LOCK2FLAGS_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -2278,8 +2278,8 @@ impl ::core::clone::Clone for D3DDDICB_LOCK2FLAGS_0_0 {
 pub struct D3DDDICB_LOCKFLAGS {
     pub Anonymous: D3DDDICB_LOCKFLAGS_0,
 }
-impl ::core::marker::Copy for D3DDDICB_LOCKFLAGS {}
-impl ::core::clone::Clone for D3DDDICB_LOCKFLAGS {
+impl Copy for D3DDDICB_LOCKFLAGS {}
+impl Clone for D3DDDICB_LOCKFLAGS {
     fn clone(&self) -> Self {
         *self
     }
@@ -2289,8 +2289,8 @@ pub union D3DDDICB_LOCKFLAGS_0 {
     pub Anonymous: D3DDDICB_LOCKFLAGS_0_0,
     pub Value: u32,
 }
-impl ::core::marker::Copy for D3DDDICB_LOCKFLAGS_0 {}
-impl ::core::clone::Clone for D3DDDICB_LOCKFLAGS_0 {
+impl Copy for D3DDDICB_LOCKFLAGS_0 {}
+impl Clone for D3DDDICB_LOCKFLAGS_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -2299,8 +2299,8 @@ impl ::core::clone::Clone for D3DDDICB_LOCKFLAGS_0 {
 pub struct D3DDDICB_LOCKFLAGS_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for D3DDDICB_LOCKFLAGS_0_0 {}
-impl ::core::clone::Clone for D3DDDICB_LOCKFLAGS_0_0 {
+impl Copy for D3DDDICB_LOCKFLAGS_0_0 {}
+impl Clone for D3DDDICB_LOCKFLAGS_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -2309,8 +2309,8 @@ impl ::core::clone::Clone for D3DDDICB_LOCKFLAGS_0_0 {
 pub struct D3DDDICB_SIGNALFLAGS {
     pub Anonymous: D3DDDICB_SIGNALFLAGS_0,
 }
-impl ::core::marker::Copy for D3DDDICB_SIGNALFLAGS {}
-impl ::core::clone::Clone for D3DDDICB_SIGNALFLAGS {
+impl Copy for D3DDDICB_SIGNALFLAGS {}
+impl Clone for D3DDDICB_SIGNALFLAGS {
     fn clone(&self) -> Self {
         *self
     }
@@ -2320,8 +2320,8 @@ pub union D3DDDICB_SIGNALFLAGS_0 {
     pub Anonymous: D3DDDICB_SIGNALFLAGS_0_0,
     pub Value: u32,
 }
-impl ::core::marker::Copy for D3DDDICB_SIGNALFLAGS_0 {}
-impl ::core::clone::Clone for D3DDDICB_SIGNALFLAGS_0 {
+impl Copy for D3DDDICB_SIGNALFLAGS_0 {}
+impl Clone for D3DDDICB_SIGNALFLAGS_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -2330,8 +2330,8 @@ impl ::core::clone::Clone for D3DDDICB_SIGNALFLAGS_0 {
 pub struct D3DDDICB_SIGNALFLAGS_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for D3DDDICB_SIGNALFLAGS_0_0 {}
-impl ::core::clone::Clone for D3DDDICB_SIGNALFLAGS_0_0 {
+impl Copy for D3DDDICB_SIGNALFLAGS_0_0 {}
+impl Clone for D3DDDICB_SIGNALFLAGS_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -2340,8 +2340,8 @@ impl ::core::clone::Clone for D3DDDICB_SIGNALFLAGS_0_0 {
 pub struct D3DDDIGPUVIRTUALADDRESS_PROTECTION_TYPE {
     pub Anonymous: D3DDDIGPUVIRTUALADDRESS_PROTECTION_TYPE_0,
 }
-impl ::core::marker::Copy for D3DDDIGPUVIRTUALADDRESS_PROTECTION_TYPE {}
-impl ::core::clone::Clone for D3DDDIGPUVIRTUALADDRESS_PROTECTION_TYPE {
+impl Copy for D3DDDIGPUVIRTUALADDRESS_PROTECTION_TYPE {}
+impl Clone for D3DDDIGPUVIRTUALADDRESS_PROTECTION_TYPE {
     fn clone(&self) -> Self {
         *self
     }
@@ -2351,8 +2351,8 @@ pub union D3DDDIGPUVIRTUALADDRESS_PROTECTION_TYPE_0 {
     pub Anonymous: D3DDDIGPUVIRTUALADDRESS_PROTECTION_TYPE_0_0,
     pub Value: u64,
 }
-impl ::core::marker::Copy for D3DDDIGPUVIRTUALADDRESS_PROTECTION_TYPE_0 {}
-impl ::core::clone::Clone for D3DDDIGPUVIRTUALADDRESS_PROTECTION_TYPE_0 {
+impl Copy for D3DDDIGPUVIRTUALADDRESS_PROTECTION_TYPE_0 {}
+impl Clone for D3DDDIGPUVIRTUALADDRESS_PROTECTION_TYPE_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -2361,8 +2361,8 @@ impl ::core::clone::Clone for D3DDDIGPUVIRTUALADDRESS_PROTECTION_TYPE_0 {
 pub struct D3DDDIGPUVIRTUALADDRESS_PROTECTION_TYPE_0_0 {
     pub _bitfield: u64,
 }
-impl ::core::marker::Copy for D3DDDIGPUVIRTUALADDRESS_PROTECTION_TYPE_0_0 {}
-impl ::core::clone::Clone for D3DDDIGPUVIRTUALADDRESS_PROTECTION_TYPE_0_0 {
+impl Copy for D3DDDIGPUVIRTUALADDRESS_PROTECTION_TYPE_0_0 {}
+impl Clone for D3DDDIGPUVIRTUALADDRESS_PROTECTION_TYPE_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -2374,8 +2374,8 @@ pub struct D3DDDIRECT {
     pub right: i32,
     pub bottom: i32,
 }
-impl ::core::marker::Copy for D3DDDIRECT {}
-impl ::core::clone::Clone for D3DDDIRECT {
+impl Copy for D3DDDIRECT {}
+impl Clone for D3DDDIRECT {
     fn clone(&self) -> Self {
         *self
     }
@@ -2383,14 +2383,14 @@ impl ::core::clone::Clone for D3DDDIRECT {
 #[repr(C)]
 pub struct D3DDDI_ALLOCATIONINFO {
     pub hAllocation: u32,
-    pub pSystemMem: *const ::core::ffi::c_void,
-    pub pPrivateDriverData: *mut ::core::ffi::c_void,
+    pub pSystemMem: *const core::ffi::c_void,
+    pub pPrivateDriverData: *mut core::ffi::c_void,
     pub PrivateDriverDataSize: u32,
     pub VidPnSourceId: u32,
     pub Flags: D3DDDI_ALLOCATIONINFO_0,
 }
-impl ::core::marker::Copy for D3DDDI_ALLOCATIONINFO {}
-impl ::core::clone::Clone for D3DDDI_ALLOCATIONINFO {
+impl Copy for D3DDDI_ALLOCATIONINFO {}
+impl Clone for D3DDDI_ALLOCATIONINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -2400,8 +2400,8 @@ pub union D3DDDI_ALLOCATIONINFO_0 {
     pub Anonymous: D3DDDI_ALLOCATIONINFO_0_0,
     pub Value: u32,
 }
-impl ::core::marker::Copy for D3DDDI_ALLOCATIONINFO_0 {}
-impl ::core::clone::Clone for D3DDDI_ALLOCATIONINFO_0 {
+impl Copy for D3DDDI_ALLOCATIONINFO_0 {}
+impl Clone for D3DDDI_ALLOCATIONINFO_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -2410,8 +2410,8 @@ impl ::core::clone::Clone for D3DDDI_ALLOCATIONINFO_0 {
 pub struct D3DDDI_ALLOCATIONINFO_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for D3DDDI_ALLOCATIONINFO_0_0 {}
-impl ::core::clone::Clone for D3DDDI_ALLOCATIONINFO_0_0 {
+impl Copy for D3DDDI_ALLOCATIONINFO_0_0 {}
+impl Clone for D3DDDI_ALLOCATIONINFO_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -2420,7 +2420,7 @@ impl ::core::clone::Clone for D3DDDI_ALLOCATIONINFO_0_0 {
 pub struct D3DDDI_ALLOCATIONINFO2 {
     pub hAllocation: u32,
     pub Anonymous1: D3DDDI_ALLOCATIONINFO2_0,
-    pub pPrivateDriverData: *mut ::core::ffi::c_void,
+    pub pPrivateDriverData: *mut core::ffi::c_void,
     pub PrivateDriverDataSize: u32,
     pub VidPnSourceId: u32,
     pub Flags: D3DDDI_ALLOCATIONINFO2_2,
@@ -2428,8 +2428,8 @@ pub struct D3DDDI_ALLOCATIONINFO2 {
     pub Anonymous2: D3DDDI_ALLOCATIONINFO2_1,
     pub Reserved: [usize; 5],
 }
-impl ::core::marker::Copy for D3DDDI_ALLOCATIONINFO2 {}
-impl ::core::clone::Clone for D3DDDI_ALLOCATIONINFO2 {
+impl Copy for D3DDDI_ALLOCATIONINFO2 {}
+impl Clone for D3DDDI_ALLOCATIONINFO2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -2437,10 +2437,10 @@ impl ::core::clone::Clone for D3DDDI_ALLOCATIONINFO2 {
 #[repr(C)]
 pub union D3DDDI_ALLOCATIONINFO2_0 {
     pub hSection: super::super::super::Win32::Foundation::HANDLE,
-    pub pSystemMem: *const ::core::ffi::c_void,
+    pub pSystemMem: *const core::ffi::c_void,
 }
-impl ::core::marker::Copy for D3DDDI_ALLOCATIONINFO2_0 {}
-impl ::core::clone::Clone for D3DDDI_ALLOCATIONINFO2_0 {
+impl Copy for D3DDDI_ALLOCATIONINFO2_0 {}
+impl Clone for D3DDDI_ALLOCATIONINFO2_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -2450,8 +2450,8 @@ pub union D3DDDI_ALLOCATIONINFO2_1 {
     pub Priority: u32,
     pub Unused: usize,
 }
-impl ::core::marker::Copy for D3DDDI_ALLOCATIONINFO2_1 {}
-impl ::core::clone::Clone for D3DDDI_ALLOCATIONINFO2_1 {
+impl Copy for D3DDDI_ALLOCATIONINFO2_1 {}
+impl Clone for D3DDDI_ALLOCATIONINFO2_1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -2461,8 +2461,8 @@ pub union D3DDDI_ALLOCATIONINFO2_2 {
     pub Anonymous: D3DDDI_ALLOCATIONINFO2_2_0,
     pub Value: u32,
 }
-impl ::core::marker::Copy for D3DDDI_ALLOCATIONINFO2_2 {}
-impl ::core::clone::Clone for D3DDDI_ALLOCATIONINFO2_2 {
+impl Copy for D3DDDI_ALLOCATIONINFO2_2 {}
+impl Clone for D3DDDI_ALLOCATIONINFO2_2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -2471,8 +2471,8 @@ impl ::core::clone::Clone for D3DDDI_ALLOCATIONINFO2_2 {
 pub struct D3DDDI_ALLOCATIONINFO2_2_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for D3DDDI_ALLOCATIONINFO2_2_0 {}
-impl ::core::clone::Clone for D3DDDI_ALLOCATIONINFO2_2_0 {
+impl Copy for D3DDDI_ALLOCATIONINFO2_2_0 {}
+impl Clone for D3DDDI_ALLOCATIONINFO2_2_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -2482,8 +2482,8 @@ pub struct D3DDDI_ALLOCATIONLIST {
     pub hAllocation: u32,
     pub Anonymous: D3DDDI_ALLOCATIONLIST_0,
 }
-impl ::core::marker::Copy for D3DDDI_ALLOCATIONLIST {}
-impl ::core::clone::Clone for D3DDDI_ALLOCATIONLIST {
+impl Copy for D3DDDI_ALLOCATIONLIST {}
+impl Clone for D3DDDI_ALLOCATIONLIST {
     fn clone(&self) -> Self {
         *self
     }
@@ -2493,8 +2493,8 @@ pub union D3DDDI_ALLOCATIONLIST_0 {
     pub Anonymous: D3DDDI_ALLOCATIONLIST_0_0,
     pub Value: u32,
 }
-impl ::core::marker::Copy for D3DDDI_ALLOCATIONLIST_0 {}
-impl ::core::clone::Clone for D3DDDI_ALLOCATIONLIST_0 {
+impl Copy for D3DDDI_ALLOCATIONLIST_0 {}
+impl Clone for D3DDDI_ALLOCATIONLIST_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -2503,8 +2503,8 @@ impl ::core::clone::Clone for D3DDDI_ALLOCATIONLIST_0 {
 pub struct D3DDDI_ALLOCATIONLIST_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for D3DDDI_ALLOCATIONLIST_0_0 {}
-impl ::core::clone::Clone for D3DDDI_ALLOCATIONLIST_0_0 {
+impl Copy for D3DDDI_ALLOCATIONLIST_0_0 {}
+impl Clone for D3DDDI_ALLOCATIONLIST_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -2513,8 +2513,8 @@ impl ::core::clone::Clone for D3DDDI_ALLOCATIONLIST_0_0 {
 pub struct D3DDDI_CREATECONTEXTFLAGS {
     pub Anonymous: D3DDDI_CREATECONTEXTFLAGS_0,
 }
-impl ::core::marker::Copy for D3DDDI_CREATECONTEXTFLAGS {}
-impl ::core::clone::Clone for D3DDDI_CREATECONTEXTFLAGS {
+impl Copy for D3DDDI_CREATECONTEXTFLAGS {}
+impl Clone for D3DDDI_CREATECONTEXTFLAGS {
     fn clone(&self) -> Self {
         *self
     }
@@ -2524,8 +2524,8 @@ pub union D3DDDI_CREATECONTEXTFLAGS_0 {
     pub Anonymous: D3DDDI_CREATECONTEXTFLAGS_0_0,
     pub Value: u32,
 }
-impl ::core::marker::Copy for D3DDDI_CREATECONTEXTFLAGS_0 {}
-impl ::core::clone::Clone for D3DDDI_CREATECONTEXTFLAGS_0 {
+impl Copy for D3DDDI_CREATECONTEXTFLAGS_0 {}
+impl Clone for D3DDDI_CREATECONTEXTFLAGS_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -2534,8 +2534,8 @@ impl ::core::clone::Clone for D3DDDI_CREATECONTEXTFLAGS_0 {
 pub struct D3DDDI_CREATECONTEXTFLAGS_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for D3DDDI_CREATECONTEXTFLAGS_0_0 {}
-impl ::core::clone::Clone for D3DDDI_CREATECONTEXTFLAGS_0_0 {
+impl Copy for D3DDDI_CREATECONTEXTFLAGS_0_0 {}
+impl Clone for D3DDDI_CREATECONTEXTFLAGS_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -2544,8 +2544,8 @@ impl ::core::clone::Clone for D3DDDI_CREATECONTEXTFLAGS_0_0 {
 pub struct D3DDDI_CREATEHWCONTEXTFLAGS {
     pub Anonymous: D3DDDI_CREATEHWCONTEXTFLAGS_0,
 }
-impl ::core::marker::Copy for D3DDDI_CREATEHWCONTEXTFLAGS {}
-impl ::core::clone::Clone for D3DDDI_CREATEHWCONTEXTFLAGS {
+impl Copy for D3DDDI_CREATEHWCONTEXTFLAGS {}
+impl Clone for D3DDDI_CREATEHWCONTEXTFLAGS {
     fn clone(&self) -> Self {
         *self
     }
@@ -2555,8 +2555,8 @@ pub union D3DDDI_CREATEHWCONTEXTFLAGS_0 {
     pub Anonymous: D3DDDI_CREATEHWCONTEXTFLAGS_0_0,
     pub Value: u32,
 }
-impl ::core::marker::Copy for D3DDDI_CREATEHWCONTEXTFLAGS_0 {}
-impl ::core::clone::Clone for D3DDDI_CREATEHWCONTEXTFLAGS_0 {
+impl Copy for D3DDDI_CREATEHWCONTEXTFLAGS_0 {}
+impl Clone for D3DDDI_CREATEHWCONTEXTFLAGS_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -2565,8 +2565,8 @@ impl ::core::clone::Clone for D3DDDI_CREATEHWCONTEXTFLAGS_0 {
 pub struct D3DDDI_CREATEHWCONTEXTFLAGS_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for D3DDDI_CREATEHWCONTEXTFLAGS_0_0 {}
-impl ::core::clone::Clone for D3DDDI_CREATEHWCONTEXTFLAGS_0_0 {
+impl Copy for D3DDDI_CREATEHWCONTEXTFLAGS_0_0 {}
+impl Clone for D3DDDI_CREATEHWCONTEXTFLAGS_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -2575,8 +2575,8 @@ impl ::core::clone::Clone for D3DDDI_CREATEHWCONTEXTFLAGS_0_0 {
 pub struct D3DDDI_CREATEHWQUEUEFLAGS {
     pub Anonymous: D3DDDI_CREATEHWQUEUEFLAGS_0,
 }
-impl ::core::marker::Copy for D3DDDI_CREATEHWQUEUEFLAGS {}
-impl ::core::clone::Clone for D3DDDI_CREATEHWQUEUEFLAGS {
+impl Copy for D3DDDI_CREATEHWQUEUEFLAGS {}
+impl Clone for D3DDDI_CREATEHWQUEUEFLAGS {
     fn clone(&self) -> Self {
         *self
     }
@@ -2586,8 +2586,8 @@ pub union D3DDDI_CREATEHWQUEUEFLAGS_0 {
     pub Anonymous: D3DDDI_CREATEHWQUEUEFLAGS_0_0,
     pub Value: u32,
 }
-impl ::core::marker::Copy for D3DDDI_CREATEHWQUEUEFLAGS_0 {}
-impl ::core::clone::Clone for D3DDDI_CREATEHWQUEUEFLAGS_0 {
+impl Copy for D3DDDI_CREATEHWQUEUEFLAGS_0 {}
+impl Clone for D3DDDI_CREATEHWQUEUEFLAGS_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -2596,8 +2596,8 @@ impl ::core::clone::Clone for D3DDDI_CREATEHWQUEUEFLAGS_0 {
 pub struct D3DDDI_CREATEHWQUEUEFLAGS_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for D3DDDI_CREATEHWQUEUEFLAGS_0_0 {}
-impl ::core::clone::Clone for D3DDDI_CREATEHWQUEUEFLAGS_0_0 {
+impl Copy for D3DDDI_CREATEHWQUEUEFLAGS_0_0 {}
+impl Clone for D3DDDI_CREATEHWQUEUEFLAGS_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -2605,15 +2605,15 @@ impl ::core::clone::Clone for D3DDDI_CREATEHWQUEUEFLAGS_0_0 {
 #[repr(C)]
 pub struct D3DDDI_CREATENATIVEFENCEINFO {
     pub InitialFenceValue: u64,
-    pub pPrivateDriverData: *mut ::core::ffi::c_void,
+    pub pPrivateDriverData: *mut core::ffi::c_void,
     pub PrivateDriverDataSize: u32,
     pub EngineAffinity: u32,
     pub Flags: D3DDDI_SYNCHRONIZATIONOBJECT_FLAGS,
     pub hSyncObject: u32,
     pub NativeFenceMapping: D3DDDI_NATIVEFENCEMAPPING,
 }
-impl ::core::marker::Copy for D3DDDI_CREATENATIVEFENCEINFO {}
-impl ::core::clone::Clone for D3DDDI_CREATENATIVEFENCEINFO {
+impl Copy for D3DDDI_CREATENATIVEFENCEINFO {}
+impl Clone for D3DDDI_CREATENATIVEFENCEINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -2622,8 +2622,8 @@ impl ::core::clone::Clone for D3DDDI_CREATENATIVEFENCEINFO {
 pub struct D3DDDI_DESTROYPAGINGQUEUE {
     pub hPagingQueue: u32,
 }
-impl ::core::marker::Copy for D3DDDI_DESTROYPAGINGQUEUE {}
-impl ::core::clone::Clone for D3DDDI_DESTROYPAGINGQUEUE {
+impl Copy for D3DDDI_DESTROYPAGINGQUEUE {}
+impl Clone for D3DDDI_DESTROYPAGINGQUEUE {
     fn clone(&self) -> Self {
         *self
     }
@@ -2635,8 +2635,8 @@ pub struct D3DDDI_DRIVERESCAPE_CPUEVENTUSAGE {
     pub hKmdCpuEvent: u64,
     pub Usage: [u32; 8],
 }
-impl ::core::marker::Copy for D3DDDI_DRIVERESCAPE_CPUEVENTUSAGE {}
-impl ::core::clone::Clone for D3DDDI_DRIVERESCAPE_CPUEVENTUSAGE {
+impl Copy for D3DDDI_DRIVERESCAPE_CPUEVENTUSAGE {}
+impl Clone for D3DDDI_DRIVERESCAPE_CPUEVENTUSAGE {
     fn clone(&self) -> Self {
         *self
     }
@@ -2646,8 +2646,8 @@ pub struct D3DDDI_DRIVERESCAPE_TRANSLATEALLOCATIONEHANDLE {
     pub EscapeType: D3DDDI_DRIVERESCAPETYPE,
     pub hAllocation: u32,
 }
-impl ::core::marker::Copy for D3DDDI_DRIVERESCAPE_TRANSLATEALLOCATIONEHANDLE {}
-impl ::core::clone::Clone for D3DDDI_DRIVERESCAPE_TRANSLATEALLOCATIONEHANDLE {
+impl Copy for D3DDDI_DRIVERESCAPE_TRANSLATEALLOCATIONEHANDLE {}
+impl Clone for D3DDDI_DRIVERESCAPE_TRANSLATEALLOCATIONEHANDLE {
     fn clone(&self) -> Self {
         *self
     }
@@ -2657,8 +2657,8 @@ pub struct D3DDDI_DRIVERESCAPE_TRANSLATERESOURCEHANDLE {
     pub EscapeType: D3DDDI_DRIVERESCAPETYPE,
     pub hResource: u32,
 }
-impl ::core::marker::Copy for D3DDDI_DRIVERESCAPE_TRANSLATERESOURCEHANDLE {}
-impl ::core::clone::Clone for D3DDDI_DRIVERESCAPE_TRANSLATERESOURCEHANDLE {
+impl Copy for D3DDDI_DRIVERESCAPE_TRANSLATERESOURCEHANDLE {}
+impl Clone for D3DDDI_DRIVERESCAPE_TRANSLATERESOURCEHANDLE {
     fn clone(&self) -> Self {
         *self
     }
@@ -2669,8 +2669,8 @@ pub struct D3DDDI_DXGI_RGB {
     pub Green: f32,
     pub Blue: f32,
 }
-impl ::core::marker::Copy for D3DDDI_DXGI_RGB {}
-impl ::core::clone::Clone for D3DDDI_DXGI_RGB {
+impl Copy for D3DDDI_DXGI_RGB {}
+impl Clone for D3DDDI_DXGI_RGB {
     fn clone(&self) -> Self {
         *self
     }
@@ -2679,8 +2679,8 @@ impl ::core::clone::Clone for D3DDDI_DXGI_RGB {
 pub struct D3DDDI_ESCAPEFLAGS {
     pub Anonymous: D3DDDI_ESCAPEFLAGS_0,
 }
-impl ::core::marker::Copy for D3DDDI_ESCAPEFLAGS {}
-impl ::core::clone::Clone for D3DDDI_ESCAPEFLAGS {
+impl Copy for D3DDDI_ESCAPEFLAGS {}
+impl Clone for D3DDDI_ESCAPEFLAGS {
     fn clone(&self) -> Self {
         *self
     }
@@ -2690,8 +2690,8 @@ pub union D3DDDI_ESCAPEFLAGS_0 {
     pub Anonymous: D3DDDI_ESCAPEFLAGS_0_0,
     pub Value: u32,
 }
-impl ::core::marker::Copy for D3DDDI_ESCAPEFLAGS_0 {}
-impl ::core::clone::Clone for D3DDDI_ESCAPEFLAGS_0 {
+impl Copy for D3DDDI_ESCAPEFLAGS_0 {}
+impl Clone for D3DDDI_ESCAPEFLAGS_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -2700,8 +2700,8 @@ impl ::core::clone::Clone for D3DDDI_ESCAPEFLAGS_0 {
 pub struct D3DDDI_ESCAPEFLAGS_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for D3DDDI_ESCAPEFLAGS_0_0 {}
-impl ::core::clone::Clone for D3DDDI_ESCAPEFLAGS_0_0 {
+impl Copy for D3DDDI_ESCAPEFLAGS_0_0 {}
+impl Clone for D3DDDI_ESCAPEFLAGS_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -2710,8 +2710,8 @@ impl ::core::clone::Clone for D3DDDI_ESCAPEFLAGS_0_0 {
 pub struct D3DDDI_EVICT_FLAGS {
     pub Anonymous: D3DDDI_EVICT_FLAGS_0,
 }
-impl ::core::marker::Copy for D3DDDI_EVICT_FLAGS {}
-impl ::core::clone::Clone for D3DDDI_EVICT_FLAGS {
+impl Copy for D3DDDI_EVICT_FLAGS {}
+impl Clone for D3DDDI_EVICT_FLAGS {
     fn clone(&self) -> Self {
         *self
     }
@@ -2721,8 +2721,8 @@ pub union D3DDDI_EVICT_FLAGS_0 {
     pub Anonymous: D3DDDI_EVICT_FLAGS_0_0,
     pub Value: u32,
 }
-impl ::core::marker::Copy for D3DDDI_EVICT_FLAGS_0 {}
-impl ::core::clone::Clone for D3DDDI_EVICT_FLAGS_0 {
+impl Copy for D3DDDI_EVICT_FLAGS_0 {}
+impl Clone for D3DDDI_EVICT_FLAGS_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -2731,8 +2731,8 @@ impl ::core::clone::Clone for D3DDDI_EVICT_FLAGS_0 {
 pub struct D3DDDI_EVICT_FLAGS_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for D3DDDI_EVICT_FLAGS_0_0 {}
-impl ::core::clone::Clone for D3DDDI_EVICT_FLAGS_0_0 {
+impl Copy for D3DDDI_EVICT_FLAGS_0_0 {}
+impl Clone for D3DDDI_EVICT_FLAGS_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -2743,8 +2743,8 @@ pub struct D3DDDI_GAMMA_RAMP_DXGI_1 {
     pub Offset: D3DDDI_DXGI_RGB,
     pub GammaCurve: [D3DDDI_DXGI_RGB; 1025],
 }
-impl ::core::marker::Copy for D3DDDI_GAMMA_RAMP_DXGI_1 {}
-impl ::core::clone::Clone for D3DDDI_GAMMA_RAMP_DXGI_1 {
+impl Copy for D3DDDI_GAMMA_RAMP_DXGI_1 {}
+impl Clone for D3DDDI_GAMMA_RAMP_DXGI_1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -2755,8 +2755,8 @@ pub struct D3DDDI_GAMMA_RAMP_RGB256x3x16 {
     pub Green: [u16; 256],
     pub Blue: [u16; 256],
 }
-impl ::core::marker::Copy for D3DDDI_GAMMA_RAMP_RGB256x3x16 {}
-impl ::core::clone::Clone for D3DDDI_GAMMA_RAMP_RGB256x3x16 {
+impl Copy for D3DDDI_GAMMA_RAMP_RGB256x3x16 {}
+impl Clone for D3DDDI_GAMMA_RAMP_RGB256x3x16 {
     fn clone(&self) -> Self {
         *self
     }
@@ -2765,10 +2765,10 @@ impl ::core::clone::Clone for D3DDDI_GAMMA_RAMP_RGB256x3x16 {
 pub struct D3DDDI_GETRESOURCEPRESENTPRIVATEDRIVERDATA {
     pub hResource: u32,
     pub PrivateDriverDataSize: u32,
-    pub pPrivateDriverData: *mut ::core::ffi::c_void,
+    pub pPrivateDriverData: *mut core::ffi::c_void,
 }
-impl ::core::marker::Copy for D3DDDI_GETRESOURCEPRESENTPRIVATEDRIVERDATA {}
-impl ::core::clone::Clone for D3DDDI_GETRESOURCEPRESENTPRIVATEDRIVERDATA {
+impl Copy for D3DDDI_GETRESOURCEPRESENTPRIVATEDRIVERDATA {}
+impl Clone for D3DDDI_GETRESOURCEPRESENTPRIVATEDRIVERDATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -2784,8 +2784,8 @@ pub struct D3DDDI_HDR_METADATA_HDR10 {
     pub MaxContentLightLevel: u16,
     pub MaxFrameAverageLightLevel: u16,
 }
-impl ::core::marker::Copy for D3DDDI_HDR_METADATA_HDR10 {}
-impl ::core::clone::Clone for D3DDDI_HDR_METADATA_HDR10 {
+impl Copy for D3DDDI_HDR_METADATA_HDR10 {}
+impl Clone for D3DDDI_HDR_METADATA_HDR10 {
     fn clone(&self) -> Self {
         *self
     }
@@ -2794,8 +2794,8 @@ impl ::core::clone::Clone for D3DDDI_HDR_METADATA_HDR10 {
 pub struct D3DDDI_HDR_METADATA_HDR10PLUS {
     pub Data: [u8; 72],
 }
-impl ::core::marker::Copy for D3DDDI_HDR_METADATA_HDR10PLUS {}
-impl ::core::clone::Clone for D3DDDI_HDR_METADATA_HDR10PLUS {
+impl Copy for D3DDDI_HDR_METADATA_HDR10PLUS {}
+impl Clone for D3DDDI_HDR_METADATA_HDR10PLUS {
     fn clone(&self) -> Self {
         *self
     }
@@ -2805,11 +2805,11 @@ pub struct D3DDDI_KERNELOVERLAYINFO {
     pub hAllocation: u32,
     pub DstRect: D3DDDIRECT,
     pub SrcRect: D3DDDIRECT,
-    pub pPrivateDriverData: *mut ::core::ffi::c_void,
+    pub pPrivateDriverData: *mut core::ffi::c_void,
     pub PrivateDriverDataSize: u32,
 }
-impl ::core::marker::Copy for D3DDDI_KERNELOVERLAYINFO {}
-impl ::core::clone::Clone for D3DDDI_KERNELOVERLAYINFO {
+impl Copy for D3DDDI_KERNELOVERLAYINFO {}
+impl Clone for D3DDDI_KERNELOVERLAYINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -2824,8 +2824,8 @@ pub struct D3DDDI_MAKERESIDENT {
     pub PagingFenceValue: u64,
     pub NumBytesToTrim: u64,
 }
-impl ::core::marker::Copy for D3DDDI_MAKERESIDENT {}
-impl ::core::clone::Clone for D3DDDI_MAKERESIDENT {
+impl Copy for D3DDDI_MAKERESIDENT {}
+impl Clone for D3DDDI_MAKERESIDENT {
     fn clone(&self) -> Self {
         *self
     }
@@ -2834,8 +2834,8 @@ impl ::core::clone::Clone for D3DDDI_MAKERESIDENT {
 pub struct D3DDDI_MAKERESIDENT_FLAGS {
     pub Anonymous: D3DDDI_MAKERESIDENT_FLAGS_0,
 }
-impl ::core::marker::Copy for D3DDDI_MAKERESIDENT_FLAGS {}
-impl ::core::clone::Clone for D3DDDI_MAKERESIDENT_FLAGS {
+impl Copy for D3DDDI_MAKERESIDENT_FLAGS {}
+impl Clone for D3DDDI_MAKERESIDENT_FLAGS {
     fn clone(&self) -> Self {
         *self
     }
@@ -2845,8 +2845,8 @@ pub union D3DDDI_MAKERESIDENT_FLAGS_0 {
     pub Anonymous: D3DDDI_MAKERESIDENT_FLAGS_0_0,
     pub Value: u32,
 }
-impl ::core::marker::Copy for D3DDDI_MAKERESIDENT_FLAGS_0 {}
-impl ::core::clone::Clone for D3DDDI_MAKERESIDENT_FLAGS_0 {
+impl Copy for D3DDDI_MAKERESIDENT_FLAGS_0 {}
+impl Clone for D3DDDI_MAKERESIDENT_FLAGS_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -2855,8 +2855,8 @@ impl ::core::clone::Clone for D3DDDI_MAKERESIDENT_FLAGS_0 {
 pub struct D3DDDI_MAKERESIDENT_FLAGS_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for D3DDDI_MAKERESIDENT_FLAGS_0_0 {}
-impl ::core::clone::Clone for D3DDDI_MAKERESIDENT_FLAGS_0_0 {
+impl Copy for D3DDDI_MAKERESIDENT_FLAGS_0_0 {}
+impl Clone for D3DDDI_MAKERESIDENT_FLAGS_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -2877,8 +2877,8 @@ pub struct D3DDDI_MAPGPUVIRTUALADDRESS {
     pub VirtualAddress: u64,
     pub PagingFenceValue: u64,
 }
-impl ::core::marker::Copy for D3DDDI_MAPGPUVIRTUALADDRESS {}
-impl ::core::clone::Clone for D3DDDI_MAPGPUVIRTUALADDRESS {
+impl Copy for D3DDDI_MAPGPUVIRTUALADDRESS {}
+impl Clone for D3DDDI_MAPGPUVIRTUALADDRESS {
     fn clone(&self) -> Self {
         *self
     }
@@ -2888,20 +2888,20 @@ pub struct D3DDDI_MULTISAMPLINGMETHOD {
     pub NumSamples: u32,
     pub NumQualityLevels: u32,
 }
-impl ::core::marker::Copy for D3DDDI_MULTISAMPLINGMETHOD {}
-impl ::core::clone::Clone for D3DDDI_MULTISAMPLINGMETHOD {
+impl Copy for D3DDDI_MULTISAMPLINGMETHOD {}
+impl Clone for D3DDDI_MULTISAMPLINGMETHOD {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct D3DDDI_NATIVEFENCEMAPPING {
-    pub CurrentValueCpuVa: *mut ::core::ffi::c_void,
+    pub CurrentValueCpuVa: *mut core::ffi::c_void,
     pub CurrentValueGpuVa: u64,
     pub MonitoredValueGpuVa: u64,
 }
-impl ::core::marker::Copy for D3DDDI_NATIVEFENCEMAPPING {}
-impl ::core::clone::Clone for D3DDDI_NATIVEFENCEMAPPING {
+impl Copy for D3DDDI_NATIVEFENCEMAPPING {}
+impl Clone for D3DDDI_NATIVEFENCEMAPPING {
     fn clone(&self) -> Self {
         *self
     }
@@ -2910,8 +2910,8 @@ impl ::core::clone::Clone for D3DDDI_NATIVEFENCEMAPPING {
 pub struct D3DDDI_OFFER_FLAGS {
     pub Anonymous: D3DDDI_OFFER_FLAGS_0,
 }
-impl ::core::marker::Copy for D3DDDI_OFFER_FLAGS {}
-impl ::core::clone::Clone for D3DDDI_OFFER_FLAGS {
+impl Copy for D3DDDI_OFFER_FLAGS {}
+impl Clone for D3DDDI_OFFER_FLAGS {
     fn clone(&self) -> Self {
         *self
     }
@@ -2921,8 +2921,8 @@ pub union D3DDDI_OFFER_FLAGS_0 {
     pub Anonymous: D3DDDI_OFFER_FLAGS_0_0,
     pub Value: u32,
 }
-impl ::core::marker::Copy for D3DDDI_OFFER_FLAGS_0 {}
-impl ::core::clone::Clone for D3DDDI_OFFER_FLAGS_0 {
+impl Copy for D3DDDI_OFFER_FLAGS_0 {}
+impl Clone for D3DDDI_OFFER_FLAGS_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -2931,8 +2931,8 @@ impl ::core::clone::Clone for D3DDDI_OFFER_FLAGS_0 {
 pub struct D3DDDI_OFFER_FLAGS_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for D3DDDI_OFFER_FLAGS_0_0 {}
-impl ::core::clone::Clone for D3DDDI_OFFER_FLAGS_0_0 {
+impl Copy for D3DDDI_OFFER_FLAGS_0_0 {}
+impl Clone for D3DDDI_OFFER_FLAGS_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -2940,11 +2940,11 @@ impl ::core::clone::Clone for D3DDDI_OFFER_FLAGS_0_0 {
 #[repr(C)]
 pub struct D3DDDI_OPENALLOCATIONINFO {
     pub hAllocation: u32,
-    pub pPrivateDriverData: *const ::core::ffi::c_void,
+    pub pPrivateDriverData: *const core::ffi::c_void,
     pub PrivateDriverDataSize: u32,
 }
-impl ::core::marker::Copy for D3DDDI_OPENALLOCATIONINFO {}
-impl ::core::clone::Clone for D3DDDI_OPENALLOCATIONINFO {
+impl Copy for D3DDDI_OPENALLOCATIONINFO {}
+impl Clone for D3DDDI_OPENALLOCATIONINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -2952,13 +2952,13 @@ impl ::core::clone::Clone for D3DDDI_OPENALLOCATIONINFO {
 #[repr(C)]
 pub struct D3DDDI_OPENALLOCATIONINFO2 {
     pub hAllocation: u32,
-    pub pPrivateDriverData: *const ::core::ffi::c_void,
+    pub pPrivateDriverData: *const core::ffi::c_void,
     pub PrivateDriverDataSize: u32,
     pub GpuVirtualAddress: u64,
     pub Reserved: [usize; 6],
 }
-impl ::core::marker::Copy for D3DDDI_OPENALLOCATIONINFO2 {}
-impl ::core::clone::Clone for D3DDDI_OPENALLOCATIONINFO2 {
+impl Copy for D3DDDI_OPENALLOCATIONINFO2 {}
+impl Clone for D3DDDI_OPENALLOCATIONINFO2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -2972,8 +2972,8 @@ pub struct D3DDDI_PATCHLOCATIONLIST {
     pub PatchOffset: u32,
     pub SplitOffset: u32,
 }
-impl ::core::marker::Copy for D3DDDI_PATCHLOCATIONLIST {}
-impl ::core::clone::Clone for D3DDDI_PATCHLOCATIONLIST {
+impl Copy for D3DDDI_PATCHLOCATIONLIST {}
+impl Clone for D3DDDI_PATCHLOCATIONLIST {
     fn clone(&self) -> Self {
         *self
     }
@@ -2983,8 +2983,8 @@ pub union D3DDDI_PATCHLOCATIONLIST_0 {
     pub Anonymous: D3DDDI_PATCHLOCATIONLIST_0_0,
     pub Value: u32,
 }
-impl ::core::marker::Copy for D3DDDI_PATCHLOCATIONLIST_0 {}
-impl ::core::clone::Clone for D3DDDI_PATCHLOCATIONLIST_0 {
+impl Copy for D3DDDI_PATCHLOCATIONLIST_0 {}
+impl Clone for D3DDDI_PATCHLOCATIONLIST_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -2993,8 +2993,8 @@ impl ::core::clone::Clone for D3DDDI_PATCHLOCATIONLIST_0 {
 pub struct D3DDDI_PATCHLOCATIONLIST_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for D3DDDI_PATCHLOCATIONLIST_0_0 {}
-impl ::core::clone::Clone for D3DDDI_PATCHLOCATIONLIST_0_0 {
+impl Copy for D3DDDI_PATCHLOCATIONLIST_0_0 {}
+impl Clone for D3DDDI_PATCHLOCATIONLIST_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3003,8 +3003,8 @@ impl ::core::clone::Clone for D3DDDI_PATCHLOCATIONLIST_0_0 {
 pub struct D3DDDI_QUERYREGISTRY_FLAGS {
     pub Anonymous: D3DDDI_QUERYREGISTRY_FLAGS_0,
 }
-impl ::core::marker::Copy for D3DDDI_QUERYREGISTRY_FLAGS {}
-impl ::core::clone::Clone for D3DDDI_QUERYREGISTRY_FLAGS {
+impl Copy for D3DDDI_QUERYREGISTRY_FLAGS {}
+impl Clone for D3DDDI_QUERYREGISTRY_FLAGS {
     fn clone(&self) -> Self {
         *self
     }
@@ -3014,8 +3014,8 @@ pub union D3DDDI_QUERYREGISTRY_FLAGS_0 {
     pub Anonymous: D3DDDI_QUERYREGISTRY_FLAGS_0_0,
     pub Value: u32,
 }
-impl ::core::marker::Copy for D3DDDI_QUERYREGISTRY_FLAGS_0 {}
-impl ::core::clone::Clone for D3DDDI_QUERYREGISTRY_FLAGS_0 {
+impl Copy for D3DDDI_QUERYREGISTRY_FLAGS_0 {}
+impl Clone for D3DDDI_QUERYREGISTRY_FLAGS_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3024,8 +3024,8 @@ impl ::core::clone::Clone for D3DDDI_QUERYREGISTRY_FLAGS_0 {
 pub struct D3DDDI_QUERYREGISTRY_FLAGS_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for D3DDDI_QUERYREGISTRY_FLAGS_0_0 {}
-impl ::core::clone::Clone for D3DDDI_QUERYREGISTRY_FLAGS_0_0 {
+impl Copy for D3DDDI_QUERYREGISTRY_FLAGS_0_0 {}
+impl Clone for D3DDDI_QUERYREGISTRY_FLAGS_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3041,8 +3041,8 @@ pub struct D3DDDI_QUERYREGISTRY_INFO {
     pub Status: D3DDDI_QUERYREGISTRY_STATUS,
     pub Anonymous: D3DDDI_QUERYREGISTRY_INFO_0,
 }
-impl ::core::marker::Copy for D3DDDI_QUERYREGISTRY_INFO {}
-impl ::core::clone::Clone for D3DDDI_QUERYREGISTRY_INFO {
+impl Copy for D3DDDI_QUERYREGISTRY_INFO {}
+impl Clone for D3DDDI_QUERYREGISTRY_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -3054,8 +3054,8 @@ pub union D3DDDI_QUERYREGISTRY_INFO_0 {
     pub OutputString: [u16; 1],
     pub OutputBinary: [u8; 1],
 }
-impl ::core::marker::Copy for D3DDDI_QUERYREGISTRY_INFO_0 {}
-impl ::core::clone::Clone for D3DDDI_QUERYREGISTRY_INFO_0 {
+impl Copy for D3DDDI_QUERYREGISTRY_INFO_0 {}
+impl Clone for D3DDDI_QUERYREGISTRY_INFO_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3065,8 +3065,8 @@ pub struct D3DDDI_RATIONAL {
     pub Numerator: u32,
     pub Denominator: u32,
 }
-impl ::core::marker::Copy for D3DDDI_RATIONAL {}
-impl ::core::clone::Clone for D3DDDI_RATIONAL {
+impl Copy for D3DDDI_RATIONAL {}
+impl Clone for D3DDDI_RATIONAL {
     fn clone(&self) -> Self {
         *self
     }
@@ -3083,8 +3083,8 @@ pub struct D3DDDI_RESERVEGPUVIRTUALADDRESS {
     pub VirtualAddress: u64,
     pub Anonymous4: D3DDDI_RESERVEGPUVIRTUALADDRESS_3,
 }
-impl ::core::marker::Copy for D3DDDI_RESERVEGPUVIRTUALADDRESS {}
-impl ::core::clone::Clone for D3DDDI_RESERVEGPUVIRTUALADDRESS {
+impl Copy for D3DDDI_RESERVEGPUVIRTUALADDRESS {}
+impl Clone for D3DDDI_RESERVEGPUVIRTUALADDRESS {
     fn clone(&self) -> Self {
         *self
     }
@@ -3094,8 +3094,8 @@ pub union D3DDDI_RESERVEGPUVIRTUALADDRESS_0 {
     pub hPagingQueue: u32,
     pub hAdapter: u32,
 }
-impl ::core::marker::Copy for D3DDDI_RESERVEGPUVIRTUALADDRESS_0 {}
-impl ::core::clone::Clone for D3DDDI_RESERVEGPUVIRTUALADDRESS_0 {
+impl Copy for D3DDDI_RESERVEGPUVIRTUALADDRESS_0 {}
+impl Clone for D3DDDI_RESERVEGPUVIRTUALADDRESS_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3105,8 +3105,8 @@ pub union D3DDDI_RESERVEGPUVIRTUALADDRESS_1 {
     pub ReservationType: D3DDDIGPUVIRTUALADDRESS_RESERVATION_TYPE,
     pub Reserved0: u32,
 }
-impl ::core::marker::Copy for D3DDDI_RESERVEGPUVIRTUALADDRESS_1 {}
-impl ::core::clone::Clone for D3DDDI_RESERVEGPUVIRTUALADDRESS_1 {
+impl Copy for D3DDDI_RESERVEGPUVIRTUALADDRESS_1 {}
+impl Clone for D3DDDI_RESERVEGPUVIRTUALADDRESS_1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3116,8 +3116,8 @@ pub union D3DDDI_RESERVEGPUVIRTUALADDRESS_2 {
     pub DriverProtection: u64,
     pub Reserved1: u64,
 }
-impl ::core::marker::Copy for D3DDDI_RESERVEGPUVIRTUALADDRESS_2 {}
-impl ::core::clone::Clone for D3DDDI_RESERVEGPUVIRTUALADDRESS_2 {
+impl Copy for D3DDDI_RESERVEGPUVIRTUALADDRESS_2 {}
+impl Clone for D3DDDI_RESERVEGPUVIRTUALADDRESS_2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3127,8 +3127,8 @@ pub union D3DDDI_RESERVEGPUVIRTUALADDRESS_3 {
     pub PagingFenceValue: u64,
     pub Reserved2: u64,
 }
-impl ::core::marker::Copy for D3DDDI_RESERVEGPUVIRTUALADDRESS_3 {}
-impl ::core::clone::Clone for D3DDDI_RESERVEGPUVIRTUALADDRESS_3 {
+impl Copy for D3DDDI_RESERVEGPUVIRTUALADDRESS_3 {}
+impl Clone for D3DDDI_RESERVEGPUVIRTUALADDRESS_3 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3137,8 +3137,8 @@ impl ::core::clone::Clone for D3DDDI_RESERVEGPUVIRTUALADDRESS_3 {
 pub struct D3DDDI_RESOURCEFLAGS {
     pub Anonymous: D3DDDI_RESOURCEFLAGS_0,
 }
-impl ::core::marker::Copy for D3DDDI_RESOURCEFLAGS {}
-impl ::core::clone::Clone for D3DDDI_RESOURCEFLAGS {
+impl Copy for D3DDDI_RESOURCEFLAGS {}
+impl Clone for D3DDDI_RESOURCEFLAGS {
     fn clone(&self) -> Self {
         *self
     }
@@ -3148,8 +3148,8 @@ pub union D3DDDI_RESOURCEFLAGS_0 {
     pub Anonymous: D3DDDI_RESOURCEFLAGS_0_0,
     pub Value: u32,
 }
-impl ::core::marker::Copy for D3DDDI_RESOURCEFLAGS_0 {}
-impl ::core::clone::Clone for D3DDDI_RESOURCEFLAGS_0 {
+impl Copy for D3DDDI_RESOURCEFLAGS_0 {}
+impl Clone for D3DDDI_RESOURCEFLAGS_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3158,8 +3158,8 @@ impl ::core::clone::Clone for D3DDDI_RESOURCEFLAGS_0 {
 pub struct D3DDDI_RESOURCEFLAGS_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for D3DDDI_RESOURCEFLAGS_0_0 {}
-impl ::core::clone::Clone for D3DDDI_RESOURCEFLAGS_0_0 {
+impl Copy for D3DDDI_RESOURCEFLAGS_0_0 {}
+impl Clone for D3DDDI_RESOURCEFLAGS_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3168,8 +3168,8 @@ impl ::core::clone::Clone for D3DDDI_RESOURCEFLAGS_0_0 {
 pub struct D3DDDI_RESOURCEFLAGS2 {
     pub Anonymous: D3DDDI_RESOURCEFLAGS2_0,
 }
-impl ::core::marker::Copy for D3DDDI_RESOURCEFLAGS2 {}
-impl ::core::clone::Clone for D3DDDI_RESOURCEFLAGS2 {
+impl Copy for D3DDDI_RESOURCEFLAGS2 {}
+impl Clone for D3DDDI_RESOURCEFLAGS2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3179,8 +3179,8 @@ pub union D3DDDI_RESOURCEFLAGS2_0 {
     pub Anonymous: D3DDDI_RESOURCEFLAGS2_0_0,
     pub Value: u32,
 }
-impl ::core::marker::Copy for D3DDDI_RESOURCEFLAGS2_0 {}
-impl ::core::clone::Clone for D3DDDI_RESOURCEFLAGS2_0 {
+impl Copy for D3DDDI_RESOURCEFLAGS2_0 {}
+impl Clone for D3DDDI_RESOURCEFLAGS2_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3189,8 +3189,8 @@ impl ::core::clone::Clone for D3DDDI_RESOURCEFLAGS2_0 {
 pub struct D3DDDI_RESOURCEFLAGS2_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for D3DDDI_RESOURCEFLAGS2_0_0 {}
-impl ::core::clone::Clone for D3DDDI_RESOURCEFLAGS2_0_0 {
+impl Copy for D3DDDI_RESOURCEFLAGS2_0_0 {}
+impl Clone for D3DDDI_RESOURCEFLAGS2_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3199,8 +3199,8 @@ impl ::core::clone::Clone for D3DDDI_RESOURCEFLAGS2_0_0 {
 pub struct D3DDDI_SEGMENTPREFERENCE {
     pub Anonymous: D3DDDI_SEGMENTPREFERENCE_0,
 }
-impl ::core::marker::Copy for D3DDDI_SEGMENTPREFERENCE {}
-impl ::core::clone::Clone for D3DDDI_SEGMENTPREFERENCE {
+impl Copy for D3DDDI_SEGMENTPREFERENCE {}
+impl Clone for D3DDDI_SEGMENTPREFERENCE {
     fn clone(&self) -> Self {
         *self
     }
@@ -3210,8 +3210,8 @@ pub union D3DDDI_SEGMENTPREFERENCE_0 {
     pub Anonymous: D3DDDI_SEGMENTPREFERENCE_0_0,
     pub Value: u32,
 }
-impl ::core::marker::Copy for D3DDDI_SEGMENTPREFERENCE_0 {}
-impl ::core::clone::Clone for D3DDDI_SEGMENTPREFERENCE_0 {
+impl Copy for D3DDDI_SEGMENTPREFERENCE_0 {}
+impl Clone for D3DDDI_SEGMENTPREFERENCE_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3220,8 +3220,8 @@ impl ::core::clone::Clone for D3DDDI_SEGMENTPREFERENCE_0 {
 pub struct D3DDDI_SEGMENTPREFERENCE_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for D3DDDI_SEGMENTPREFERENCE_0_0 {}
-impl ::core::clone::Clone for D3DDDI_SEGMENTPREFERENCE_0_0 {
+impl Copy for D3DDDI_SEGMENTPREFERENCE_0_0 {}
+impl Clone for D3DDDI_SEGMENTPREFERENCE_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3231,12 +3231,12 @@ pub struct D3DDDI_SURFACEINFO {
     pub Width: u32,
     pub Height: u32,
     pub Depth: u32,
-    pub pSysMem: *const ::core::ffi::c_void,
+    pub pSysMem: *const core::ffi::c_void,
     pub SysMemPitch: u32,
     pub SysMemSlicePitch: u32,
 }
-impl ::core::marker::Copy for D3DDDI_SURFACEINFO {}
-impl ::core::clone::Clone for D3DDDI_SURFACEINFO {
+impl Copy for D3DDDI_SURFACEINFO {}
+impl Clone for D3DDDI_SURFACEINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -3246,8 +3246,8 @@ pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO {
     pub Type: D3DDDI_SYNCHRONIZATIONOBJECT_TYPE,
     pub Anonymous: D3DDDI_SYNCHRONIZATIONOBJECTINFO_0,
 }
-impl ::core::marker::Copy for D3DDDI_SYNCHRONIZATIONOBJECTINFO {}
-impl ::core::clone::Clone for D3DDDI_SYNCHRONIZATIONOBJECTINFO {
+impl Copy for D3DDDI_SYNCHRONIZATIONOBJECTINFO {}
+impl Clone for D3DDDI_SYNCHRONIZATIONOBJECTINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -3258,8 +3258,8 @@ pub union D3DDDI_SYNCHRONIZATIONOBJECTINFO_0 {
     pub Semaphore: D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_1,
     pub Reserved: D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_0,
 }
-impl ::core::marker::Copy for D3DDDI_SYNCHRONIZATIONOBJECTINFO_0 {}
-impl ::core::clone::Clone for D3DDDI_SYNCHRONIZATIONOBJECTINFO_0 {
+impl Copy for D3DDDI_SYNCHRONIZATIONOBJECTINFO_0 {}
+impl Clone for D3DDDI_SYNCHRONIZATIONOBJECTINFO_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3268,8 +3268,8 @@ impl ::core::clone::Clone for D3DDDI_SYNCHRONIZATIONOBJECTINFO_0 {
 pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_0 {
     pub Reserved: [u32; 16],
 }
-impl ::core::marker::Copy for D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_0 {}
-impl ::core::clone::Clone for D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_0 {
+impl Copy for D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_0 {}
+impl Clone for D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3279,8 +3279,8 @@ pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_1 {
     pub MaxCount: u32,
     pub InitialCount: u32,
 }
-impl ::core::marker::Copy for D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_1 {}
-impl ::core::clone::Clone for D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_1 {
+impl Copy for D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_1 {}
+impl Clone for D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3289,8 +3289,8 @@ impl ::core::clone::Clone for D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_1 {
 pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_2 {
     pub InitialState: super::super::super::Win32::Foundation::BOOL,
 }
-impl ::core::marker::Copy for D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_2 {}
-impl ::core::clone::Clone for D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_2 {
+impl Copy for D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_2 {}
+impl Clone for D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3302,8 +3302,8 @@ pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2 {
     pub Anonymous: D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0,
     pub SharedHandle: u32,
 }
-impl ::core::marker::Copy for D3DDDI_SYNCHRONIZATIONOBJECTINFO2 {}
-impl ::core::clone::Clone for D3DDDI_SYNCHRONIZATIONOBJECTINFO2 {
+impl Copy for D3DDDI_SYNCHRONIZATIONOBJECTINFO2 {}
+impl Clone for D3DDDI_SYNCHRONIZATIONOBJECTINFO2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3318,8 +3318,8 @@ pub union D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0 {
     pub PeriodicMonitoredFence: D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_3,
     pub Reserved: D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_4,
 }
-impl ::core::marker::Copy for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0 {}
-impl ::core::clone::Clone for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0 {
+impl Copy for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0 {}
+impl Clone for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3328,8 +3328,8 @@ impl ::core::clone::Clone for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0 {
 pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_0 {
     pub Event: super::super::super::Win32::Foundation::HANDLE,
 }
-impl ::core::marker::Copy for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_0 {}
-impl ::core::clone::Clone for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_0 {
+impl Copy for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_0 {}
+impl Clone for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3338,8 +3338,8 @@ impl ::core::clone::Clone for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_0 {
 pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_1 {
     pub FenceValue: u64,
 }
-impl ::core::marker::Copy for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_1 {}
-impl ::core::clone::Clone for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_1 {
+impl Copy for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_1 {}
+impl Clone for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3347,13 +3347,13 @@ impl ::core::clone::Clone for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_1 {
 #[repr(C)]
 pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_2 {
     pub InitialFenceValue: u64,
-    pub FenceValueCPUVirtualAddress: *mut ::core::ffi::c_void,
+    pub FenceValueCPUVirtualAddress: *mut core::ffi::c_void,
     pub FenceValueGPUVirtualAddress: u64,
     pub EngineAffinity: u32,
     pub Padding: u32,
 }
-impl ::core::marker::Copy for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_2 {}
-impl ::core::clone::Clone for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_2 {
+impl Copy for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_2 {}
+impl Clone for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3363,13 +3363,13 @@ pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_3 {
     pub hAdapter: u32,
     pub VidPnTargetId: u32,
     pub Time: u64,
-    pub FenceValueCPUVirtualAddress: *mut ::core::ffi::c_void,
+    pub FenceValueCPUVirtualAddress: *mut core::ffi::c_void,
     pub FenceValueGPUVirtualAddress: u64,
     pub EngineAffinity: u32,
     pub Padding: u32,
 }
-impl ::core::marker::Copy for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_3 {}
-impl ::core::clone::Clone for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_3 {
+impl Copy for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_3 {}
+impl Clone for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_3 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3378,8 +3378,8 @@ impl ::core::clone::Clone for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_3 {
 pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_4 {
     pub Reserved: [u64; 8],
 }
-impl ::core::marker::Copy for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_4 {}
-impl ::core::clone::Clone for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_4 {
+impl Copy for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_4 {}
+impl Clone for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_4 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3389,8 +3389,8 @@ pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_5 {
     pub MaxCount: u32,
     pub InitialCount: u32,
 }
-impl ::core::marker::Copy for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_5 {}
-impl ::core::clone::Clone for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_5 {
+impl Copy for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_5 {}
+impl Clone for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_5 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3399,8 +3399,8 @@ impl ::core::clone::Clone for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_5 {
 pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_6 {
     pub InitialState: super::super::super::Win32::Foundation::BOOL,
 }
-impl ::core::marker::Copy for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_6 {}
-impl ::core::clone::Clone for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_6 {
+impl Copy for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_6 {}
+impl Clone for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_6 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3409,8 +3409,8 @@ impl ::core::clone::Clone for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_6 {
 pub struct D3DDDI_SYNCHRONIZATIONOBJECT_FLAGS {
     pub Anonymous: D3DDDI_SYNCHRONIZATIONOBJECT_FLAGS_0,
 }
-impl ::core::marker::Copy for D3DDDI_SYNCHRONIZATIONOBJECT_FLAGS {}
-impl ::core::clone::Clone for D3DDDI_SYNCHRONIZATIONOBJECT_FLAGS {
+impl Copy for D3DDDI_SYNCHRONIZATIONOBJECT_FLAGS {}
+impl Clone for D3DDDI_SYNCHRONIZATIONOBJECT_FLAGS {
     fn clone(&self) -> Self {
         *self
     }
@@ -3420,8 +3420,8 @@ pub union D3DDDI_SYNCHRONIZATIONOBJECT_FLAGS_0 {
     pub Anonymous: D3DDDI_SYNCHRONIZATIONOBJECT_FLAGS_0_0,
     pub Value: u32,
 }
-impl ::core::marker::Copy for D3DDDI_SYNCHRONIZATIONOBJECT_FLAGS_0 {}
-impl ::core::clone::Clone for D3DDDI_SYNCHRONIZATIONOBJECT_FLAGS_0 {
+impl Copy for D3DDDI_SYNCHRONIZATIONOBJECT_FLAGS_0 {}
+impl Clone for D3DDDI_SYNCHRONIZATIONOBJECT_FLAGS_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3430,8 +3430,8 @@ impl ::core::clone::Clone for D3DDDI_SYNCHRONIZATIONOBJECT_FLAGS_0 {
 pub struct D3DDDI_SYNCHRONIZATIONOBJECT_FLAGS_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for D3DDDI_SYNCHRONIZATIONOBJECT_FLAGS_0_0 {}
-impl ::core::clone::Clone for D3DDDI_SYNCHRONIZATIONOBJECT_FLAGS_0_0 {
+impl Copy for D3DDDI_SYNCHRONIZATIONOBJECT_FLAGS_0_0 {}
+impl Clone for D3DDDI_SYNCHRONIZATIONOBJECT_FLAGS_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3440,8 +3440,8 @@ impl ::core::clone::Clone for D3DDDI_SYNCHRONIZATIONOBJECT_FLAGS_0_0 {
 pub struct D3DDDI_TRIMRESIDENCYSET_FLAGS {
     pub Anonymous: D3DDDI_TRIMRESIDENCYSET_FLAGS_0,
 }
-impl ::core::marker::Copy for D3DDDI_TRIMRESIDENCYSET_FLAGS {}
-impl ::core::clone::Clone for D3DDDI_TRIMRESIDENCYSET_FLAGS {
+impl Copy for D3DDDI_TRIMRESIDENCYSET_FLAGS {}
+impl Clone for D3DDDI_TRIMRESIDENCYSET_FLAGS {
     fn clone(&self) -> Self {
         *self
     }
@@ -3451,8 +3451,8 @@ pub union D3DDDI_TRIMRESIDENCYSET_FLAGS_0 {
     pub Anonymous: D3DDDI_TRIMRESIDENCYSET_FLAGS_0_0,
     pub Value: u32,
 }
-impl ::core::marker::Copy for D3DDDI_TRIMRESIDENCYSET_FLAGS_0 {}
-impl ::core::clone::Clone for D3DDDI_TRIMRESIDENCYSET_FLAGS_0 {
+impl Copy for D3DDDI_TRIMRESIDENCYSET_FLAGS_0 {}
+impl Clone for D3DDDI_TRIMRESIDENCYSET_FLAGS_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3461,8 +3461,8 @@ impl ::core::clone::Clone for D3DDDI_TRIMRESIDENCYSET_FLAGS_0 {
 pub struct D3DDDI_TRIMRESIDENCYSET_FLAGS_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for D3DDDI_TRIMRESIDENCYSET_FLAGS_0_0 {}
-impl ::core::clone::Clone for D3DDDI_TRIMRESIDENCYSET_FLAGS_0_0 {
+impl Copy for D3DDDI_TRIMRESIDENCYSET_FLAGS_0_0 {}
+impl Clone for D3DDDI_TRIMRESIDENCYSET_FLAGS_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3477,8 +3477,8 @@ pub struct D3DDDI_UPDATEALLOCPROPERTY {
     pub PagingFenceValue: u64,
     pub Anonymous: D3DDDI_UPDATEALLOCPROPERTY_0,
 }
-impl ::core::marker::Copy for D3DDDI_UPDATEALLOCPROPERTY {}
-impl ::core::clone::Clone for D3DDDI_UPDATEALLOCPROPERTY {
+impl Copy for D3DDDI_UPDATEALLOCPROPERTY {}
+impl Clone for D3DDDI_UPDATEALLOCPROPERTY {
     fn clone(&self) -> Self {
         *self
     }
@@ -3488,8 +3488,8 @@ pub union D3DDDI_UPDATEALLOCPROPERTY_0 {
     pub Anonymous: D3DDDI_UPDATEALLOCPROPERTY_0_0,
     pub PropertyMaskValue: u32,
 }
-impl ::core::marker::Copy for D3DDDI_UPDATEALLOCPROPERTY_0 {}
-impl ::core::clone::Clone for D3DDDI_UPDATEALLOCPROPERTY_0 {
+impl Copy for D3DDDI_UPDATEALLOCPROPERTY_0 {}
+impl Clone for D3DDDI_UPDATEALLOCPROPERTY_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3498,8 +3498,8 @@ impl ::core::clone::Clone for D3DDDI_UPDATEALLOCPROPERTY_0 {
 pub struct D3DDDI_UPDATEALLOCPROPERTY_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for D3DDDI_UPDATEALLOCPROPERTY_0_0 {}
-impl ::core::clone::Clone for D3DDDI_UPDATEALLOCPROPERTY_0_0 {
+impl Copy for D3DDDI_UPDATEALLOCPROPERTY_0_0 {}
+impl Clone for D3DDDI_UPDATEALLOCPROPERTY_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3508,8 +3508,8 @@ impl ::core::clone::Clone for D3DDDI_UPDATEALLOCPROPERTY_0_0 {
 pub struct D3DDDI_UPDATEALLOCPROPERTY_FLAGS {
     pub Anonymous: D3DDDI_UPDATEALLOCPROPERTY_FLAGS_0,
 }
-impl ::core::marker::Copy for D3DDDI_UPDATEALLOCPROPERTY_FLAGS {}
-impl ::core::clone::Clone for D3DDDI_UPDATEALLOCPROPERTY_FLAGS {
+impl Copy for D3DDDI_UPDATEALLOCPROPERTY_FLAGS {}
+impl Clone for D3DDDI_UPDATEALLOCPROPERTY_FLAGS {
     fn clone(&self) -> Self {
         *self
     }
@@ -3519,8 +3519,8 @@ pub union D3DDDI_UPDATEALLOCPROPERTY_FLAGS_0 {
     pub Anonymous: D3DDDI_UPDATEALLOCPROPERTY_FLAGS_0_0,
     pub Value: u32,
 }
-impl ::core::marker::Copy for D3DDDI_UPDATEALLOCPROPERTY_FLAGS_0 {}
-impl ::core::clone::Clone for D3DDDI_UPDATEALLOCPROPERTY_FLAGS_0 {
+impl Copy for D3DDDI_UPDATEALLOCPROPERTY_FLAGS_0 {}
+impl Clone for D3DDDI_UPDATEALLOCPROPERTY_FLAGS_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3529,8 +3529,8 @@ impl ::core::clone::Clone for D3DDDI_UPDATEALLOCPROPERTY_FLAGS_0 {
 pub struct D3DDDI_UPDATEALLOCPROPERTY_FLAGS_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for D3DDDI_UPDATEALLOCPROPERTY_FLAGS_0_0 {}
-impl ::core::clone::Clone for D3DDDI_UPDATEALLOCPROPERTY_FLAGS_0_0 {
+impl Copy for D3DDDI_UPDATEALLOCPROPERTY_FLAGS_0_0 {}
+impl Clone for D3DDDI_UPDATEALLOCPROPERTY_FLAGS_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3540,8 +3540,8 @@ pub struct D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION {
     pub OperationType: D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_TYPE,
     pub Anonymous: D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0,
 }
-impl ::core::marker::Copy for D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION {}
-impl ::core::clone::Clone for D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION {
+impl Copy for D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION {}
+impl Clone for D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -3553,8 +3553,8 @@ pub union D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0 {
     pub Unmap: D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_3,
     pub Copy: D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_0,
 }
-impl ::core::marker::Copy for D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0 {}
-impl ::core::clone::Clone for D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0 {
+impl Copy for D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0 {}
+impl Clone for D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3565,8 +3565,8 @@ pub struct D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_0 {
     pub SizeInBytes: u64,
     pub DestAddress: u64,
 }
-impl ::core::marker::Copy for D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_0 {}
-impl ::core::clone::Clone for D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_0 {
+impl Copy for D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_0 {}
+impl Clone for D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3581,8 +3581,8 @@ pub struct D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_1 {
     pub Protection: D3DDDIGPUVIRTUALADDRESS_PROTECTION_TYPE,
     pub DriverProtection: u64,
 }
-impl ::core::marker::Copy for D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_1 {}
-impl ::core::clone::Clone for D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_1 {
+impl Copy for D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_1 {}
+impl Clone for D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3595,8 +3595,8 @@ pub struct D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_2 {
     pub AllocationOffsetInBytes: u64,
     pub AllocationSizeInBytes: u64,
 }
-impl ::core::marker::Copy for D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_2 {}
-impl ::core::clone::Clone for D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_2 {
+impl Copy for D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_2 {}
+impl Clone for D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3607,8 +3607,8 @@ pub struct D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_3 {
     pub SizeInBytes: u64,
     pub Protection: D3DDDIGPUVIRTUALADDRESS_PROTECTION_TYPE,
 }
-impl ::core::marker::Copy for D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_3 {}
-impl ::core::clone::Clone for D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_3 {
+impl Copy for D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_3 {}
+impl Clone for D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_3 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3617,8 +3617,8 @@ impl ::core::clone::Clone for D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_3 {
 pub struct D3DDDI_WAITFORSYNCHRONIZATIONOBJECTFROMCPU_FLAGS {
     pub Anonymous: D3DDDI_WAITFORSYNCHRONIZATIONOBJECTFROMCPU_FLAGS_0,
 }
-impl ::core::marker::Copy for D3DDDI_WAITFORSYNCHRONIZATIONOBJECTFROMCPU_FLAGS {}
-impl ::core::clone::Clone for D3DDDI_WAITFORSYNCHRONIZATIONOBJECTFROMCPU_FLAGS {
+impl Copy for D3DDDI_WAITFORSYNCHRONIZATIONOBJECTFROMCPU_FLAGS {}
+impl Clone for D3DDDI_WAITFORSYNCHRONIZATIONOBJECTFROMCPU_FLAGS {
     fn clone(&self) -> Self {
         *self
     }
@@ -3628,8 +3628,8 @@ pub union D3DDDI_WAITFORSYNCHRONIZATIONOBJECTFROMCPU_FLAGS_0 {
     pub Anonymous: D3DDDI_WAITFORSYNCHRONIZATIONOBJECTFROMCPU_FLAGS_0_0,
     pub Value: u32,
 }
-impl ::core::marker::Copy for D3DDDI_WAITFORSYNCHRONIZATIONOBJECTFROMCPU_FLAGS_0 {}
-impl ::core::clone::Clone for D3DDDI_WAITFORSYNCHRONIZATIONOBJECTFROMCPU_FLAGS_0 {
+impl Copy for D3DDDI_WAITFORSYNCHRONIZATIONOBJECTFROMCPU_FLAGS_0 {}
+impl Clone for D3DDDI_WAITFORSYNCHRONIZATIONOBJECTFROMCPU_FLAGS_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3638,8 +3638,8 @@ impl ::core::clone::Clone for D3DDDI_WAITFORSYNCHRONIZATIONOBJECTFROMCPU_FLAGS_0
 pub struct D3DDDI_WAITFORSYNCHRONIZATIONOBJECTFROMCPU_FLAGS_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for D3DDDI_WAITFORSYNCHRONIZATIONOBJECTFROMCPU_FLAGS_0_0 {}
-impl ::core::clone::Clone for D3DDDI_WAITFORSYNCHRONIZATIONOBJECTFROMCPU_FLAGS_0_0 {
+impl Copy for D3DDDI_WAITFORSYNCHRONIZATIONOBJECTFROMCPU_FLAGS_0_0 {}
+impl Clone for D3DDDI_WAITFORSYNCHRONIZATIONOBJECTFROMCPU_FLAGS_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3662,9 +3662,9 @@ pub struct D3DDEVICEDESC_V1 {
     pub dwMaxVertexCount: u32,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl ::core::marker::Copy for D3DDEVICEDESC_V1 {}
+impl Copy for D3DDEVICEDESC_V1 {}
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl ::core::clone::Clone for D3DDEVICEDESC_V1 {
+impl Clone for D3DDEVICEDESC_V1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3695,9 +3695,9 @@ pub struct D3DDEVICEDESC_V2 {
     pub dwMaxStippleHeight: u32,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl ::core::marker::Copy for D3DDEVICEDESC_V2 {}
+impl Copy for D3DDEVICEDESC_V2 {}
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl ::core::clone::Clone for D3DDEVICEDESC_V2 {
+impl Clone for D3DDEVICEDESC_V2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3741,9 +3741,9 @@ pub struct D3DDEVICEDESC_V3 {
     pub wMaxSimultaneousTextures: u16,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl ::core::marker::Copy for D3DDEVICEDESC_V3 {}
+impl Copy for D3DDEVICEDESC_V3 {}
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl ::core::clone::Clone for D3DDEVICEDESC_V3 {
+impl Clone for D3DDEVICEDESC_V3 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3754,8 +3754,8 @@ pub struct D3DGPU_PHYSICAL_ADDRESS {
     pub Padding: u32,
     pub SegmentOffset: u64,
 }
-impl ::core::marker::Copy for D3DGPU_PHYSICAL_ADDRESS {}
-impl ::core::clone::Clone for D3DGPU_PHYSICAL_ADDRESS {
+impl Copy for D3DGPU_PHYSICAL_ADDRESS {}
+impl Clone for D3DGPU_PHYSICAL_ADDRESS {
     fn clone(&self) -> Self {
         *self
     }
@@ -3768,8 +3768,8 @@ pub struct D3DHAL_CALLBACKS {
     pub ContextDestroy: LPD3DHAL_CONTEXTDESTROYCB,
     pub ContextDestroyAll: LPD3DHAL_CONTEXTDESTROYALLCB,
     pub SceneCapture: LPD3DHAL_SCENECAPTURECB,
-    pub lpReserved10: *mut ::core::ffi::c_void,
-    pub lpReserved11: *mut ::core::ffi::c_void,
+    pub lpReserved10: *mut core::ffi::c_void,
+    pub lpReserved11: *mut core::ffi::c_void,
     pub RenderState: LPD3DHAL_RENDERSTATECB,
     pub RenderPrimitive: LPD3DHAL_RENDERPRIMITIVECB,
     pub dwReserved: u32,
@@ -3777,16 +3777,16 @@ pub struct D3DHAL_CALLBACKS {
     pub TextureDestroy: LPD3DHAL_TEXTUREDESTROYCB,
     pub TextureSwap: LPD3DHAL_TEXTURESWAPCB,
     pub TextureGetSurf: LPD3DHAL_TEXTUREGETSURFCB,
-    pub lpReserved12: *mut ::core::ffi::c_void,
-    pub lpReserved13: *mut ::core::ffi::c_void,
-    pub lpReserved14: *mut ::core::ffi::c_void,
-    pub lpReserved15: *mut ::core::ffi::c_void,
-    pub lpReserved16: *mut ::core::ffi::c_void,
-    pub lpReserved17: *mut ::core::ffi::c_void,
-    pub lpReserved18: *mut ::core::ffi::c_void,
-    pub lpReserved19: *mut ::core::ffi::c_void,
-    pub lpReserved20: *mut ::core::ffi::c_void,
-    pub lpReserved21: *mut ::core::ffi::c_void,
+    pub lpReserved12: *mut core::ffi::c_void,
+    pub lpReserved13: *mut core::ffi::c_void,
+    pub lpReserved14: *mut core::ffi::c_void,
+    pub lpReserved15: *mut core::ffi::c_void,
+    pub lpReserved16: *mut core::ffi::c_void,
+    pub lpReserved17: *mut core::ffi::c_void,
+    pub lpReserved18: *mut core::ffi::c_void,
+    pub lpReserved19: *mut core::ffi::c_void,
+    pub lpReserved20: *mut core::ffi::c_void,
+    pub lpReserved21: *mut core::ffi::c_void,
     pub GetState: LPD3DHAL_GETSTATECB,
     pub dwReserved0: u32,
     pub dwReserved1: u32,
@@ -3800,9 +3800,9 @@ pub struct D3DHAL_CALLBACKS {
     pub dwReserved9: u32,
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-impl ::core::marker::Copy for D3DHAL_CALLBACKS {}
+impl Copy for D3DHAL_CALLBACKS {}
 #[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-impl ::core::clone::Clone for D3DHAL_CALLBACKS {
+impl Clone for D3DHAL_CALLBACKS {
     fn clone(&self) -> Self {
         *self
     }
@@ -3819,9 +3819,9 @@ pub struct D3DHAL_CALLBACKS2 {
     pub DrawPrimitives: LPD3DHAL_DRAWPRIMITIVESCB,
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-impl ::core::marker::Copy for D3DHAL_CALLBACKS2 {}
+impl Copy for D3DHAL_CALLBACKS2 {}
 #[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-impl ::core::clone::Clone for D3DHAL_CALLBACKS2 {
+impl Clone for D3DHAL_CALLBACKS2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3832,14 +3832,14 @@ pub struct D3DHAL_CALLBACKS3 {
     pub dwSize: u32,
     pub dwFlags: u32,
     pub Clear2: LPD3DHAL_CLEAR2CB,
-    pub lpvReserved: *mut ::core::ffi::c_void,
+    pub lpvReserved: *mut core::ffi::c_void,
     pub ValidateTextureStageState: LPD3DHAL_VALIDATETEXTURESTAGESTATECB,
     pub DrawPrimitives2: LPD3DHAL_DRAWPRIMITIVES2CB,
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-impl ::core::marker::Copy for D3DHAL_CALLBACKS3 {}
+impl Copy for D3DHAL_CALLBACKS3 {}
 #[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-impl ::core::clone::Clone for D3DHAL_CALLBACKS3 {
+impl Clone for D3DHAL_CALLBACKS3 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3854,12 +3854,12 @@ pub struct D3DHAL_CLEAR2DATA {
     pub dwFillStencil: u32,
     pub lpRects: *mut super::super::super::Win32::Graphics::Direct3D9::D3DRECT,
     pub dwNumRects: u32,
-    pub ddrval: ::windows_sys::core::HRESULT,
+    pub ddrval: windows_sys::core::HRESULT,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl ::core::marker::Copy for D3DHAL_CLEAR2DATA {}
+impl Copy for D3DHAL_CLEAR2DATA {}
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl ::core::clone::Clone for D3DHAL_CLEAR2DATA {
+impl Clone for D3DHAL_CLEAR2DATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -3873,12 +3873,12 @@ pub struct D3DHAL_CLEARDATA {
     pub dwFillDepth: u32,
     pub lpRects: *mut super::super::super::Win32::Graphics::Direct3D9::D3DRECT,
     pub dwNumRects: u32,
-    pub ddrval: ::windows_sys::core::HRESULT,
+    pub ddrval: windows_sys::core::HRESULT,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl ::core::marker::Copy for D3DHAL_CLEARDATA {}
+impl Copy for D3DHAL_CLEARDATA {}
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl ::core::clone::Clone for D3DHAL_CLEARDATA {
+impl Clone for D3DHAL_CLEARDATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -3889,8 +3889,8 @@ pub struct D3DHAL_CLIPPEDTRIANGLEFAN {
     pub dwEdgeFlags: u32,
     pub PrimitiveCount: u32,
 }
-impl ::core::marker::Copy for D3DHAL_CLIPPEDTRIANGLEFAN {}
-impl ::core::clone::Clone for D3DHAL_CLIPPEDTRIANGLEFAN {
+impl Copy for D3DHAL_CLIPPEDTRIANGLEFAN {}
+impl Clone for D3DHAL_CLIPPEDTRIANGLEFAN {
     fn clone(&self) -> Self {
         *self
     }
@@ -3903,12 +3903,12 @@ pub struct D3DHAL_CONTEXTCREATEDATA {
     pub Anonymous3: D3DHAL_CONTEXTCREATEDATA_2,
     pub Anonymous4: D3DHAL_CONTEXTCREATEDATA_3,
     pub dwhContext: usize,
-    pub ddrval: ::windows_sys::core::HRESULT,
+    pub ddrval: windows_sys::core::HRESULT,
 }
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-impl ::core::marker::Copy for D3DHAL_CONTEXTCREATEDATA {}
+impl Copy for D3DHAL_CONTEXTCREATEDATA {}
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-impl ::core::clone::Clone for D3DHAL_CONTEXTCREATEDATA {
+impl Clone for D3DHAL_CONTEXTCREATEDATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -3920,9 +3920,9 @@ pub union D3DHAL_CONTEXTCREATEDATA_0 {
     pub lpDDLcl: *mut super::super::super::Win32::Graphics::DirectDraw::DDRAWI_DIRECTDRAW_LCL,
 }
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-impl ::core::marker::Copy for D3DHAL_CONTEXTCREATEDATA_0 {}
+impl Copy for D3DHAL_CONTEXTCREATEDATA_0 {}
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-impl ::core::clone::Clone for D3DHAL_CONTEXTCREATEDATA_0 {
+impl Clone for D3DHAL_CONTEXTCREATEDATA_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3930,13 +3930,13 @@ impl ::core::clone::Clone for D3DHAL_CONTEXTCREATEDATA_0 {
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 pub union D3DHAL_CONTEXTCREATEDATA_1 {
-    pub lpDDS: *mut ::core::ffi::c_void,
+    pub lpDDS: *mut core::ffi::c_void,
     pub lpDDSLcl: *mut super::super::super::Win32::Graphics::DirectDraw::DDRAWI_DDRAWSURFACE_LCL,
 }
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-impl ::core::marker::Copy for D3DHAL_CONTEXTCREATEDATA_1 {}
+impl Copy for D3DHAL_CONTEXTCREATEDATA_1 {}
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-impl ::core::clone::Clone for D3DHAL_CONTEXTCREATEDATA_1 {
+impl Clone for D3DHAL_CONTEXTCREATEDATA_1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3944,13 +3944,13 @@ impl ::core::clone::Clone for D3DHAL_CONTEXTCREATEDATA_1 {
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 pub union D3DHAL_CONTEXTCREATEDATA_2 {
-    pub lpDDSZ: *mut ::core::ffi::c_void,
+    pub lpDDSZ: *mut core::ffi::c_void,
     pub lpDDSZLcl: *mut super::super::super::Win32::Graphics::DirectDraw::DDRAWI_DDRAWSURFACE_LCL,
 }
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-impl ::core::marker::Copy for D3DHAL_CONTEXTCREATEDATA_2 {}
+impl Copy for D3DHAL_CONTEXTCREATEDATA_2 {}
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-impl ::core::clone::Clone for D3DHAL_CONTEXTCREATEDATA_2 {
+impl Clone for D3DHAL_CONTEXTCREATEDATA_2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3962,9 +3962,9 @@ pub union D3DHAL_CONTEXTCREATEDATA_3 {
     pub dwrstates: usize,
 }
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-impl ::core::marker::Copy for D3DHAL_CONTEXTCREATEDATA_3 {}
+impl Copy for D3DHAL_CONTEXTCREATEDATA_3 {}
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-impl ::core::clone::Clone for D3DHAL_CONTEXTCREATEDATA_3 {
+impl Clone for D3DHAL_CONTEXTCREATEDATA_3 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3972,10 +3972,10 @@ impl ::core::clone::Clone for D3DHAL_CONTEXTCREATEDATA_3 {
 #[repr(C)]
 pub struct D3DHAL_CONTEXTDESTROYALLDATA {
     pub dwPID: u32,
-    pub ddrval: ::windows_sys::core::HRESULT,
+    pub ddrval: windows_sys::core::HRESULT,
 }
-impl ::core::marker::Copy for D3DHAL_CONTEXTDESTROYALLDATA {}
-impl ::core::clone::Clone for D3DHAL_CONTEXTDESTROYALLDATA {
+impl Copy for D3DHAL_CONTEXTDESTROYALLDATA {}
+impl Clone for D3DHAL_CONTEXTDESTROYALLDATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -3983,10 +3983,10 @@ impl ::core::clone::Clone for D3DHAL_CONTEXTDESTROYALLDATA {
 #[repr(C)]
 pub struct D3DHAL_CONTEXTDESTROYDATA {
     pub dwhContext: usize,
-    pub ddrval: ::windows_sys::core::HRESULT,
+    pub ddrval: windows_sys::core::HRESULT,
 }
-impl ::core::marker::Copy for D3DHAL_CONTEXTDESTROYDATA {}
-impl ::core::clone::Clone for D3DHAL_CONTEXTDESTROYDATA {
+impl Copy for D3DHAL_CONTEXTDESTROYDATA {}
+impl Clone for D3DHAL_CONTEXTDESTROYDATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -4016,8 +4016,8 @@ pub struct D3DHAL_D3DDX6EXTENDEDCAPS {
     pub wMaxTextureBlendStages: u16,
     pub wMaxSimultaneousTextures: u16,
 }
-impl ::core::marker::Copy for D3DHAL_D3DDX6EXTENDEDCAPS {}
-impl ::core::clone::Clone for D3DHAL_D3DDX6EXTENDEDCAPS {
+impl Copy for D3DHAL_D3DDX6EXTENDEDCAPS {}
+impl Clone for D3DHAL_D3DDX6EXTENDEDCAPS {
     fn clone(&self) -> Self {
         *self
     }
@@ -4056,8 +4056,8 @@ pub struct D3DHAL_D3DEXTENDEDCAPS {
     pub dwReserved3: u32,
     pub dwReserved4: u32,
 }
-impl ::core::marker::Copy for D3DHAL_D3DEXTENDEDCAPS {}
-impl ::core::clone::Clone for D3DHAL_D3DEXTENDEDCAPS {
+impl Copy for D3DHAL_D3DEXTENDEDCAPS {}
+impl Clone for D3DHAL_D3DEXTENDEDCAPS {
     fn clone(&self) -> Self {
         *self
     }
@@ -4069,9 +4069,9 @@ pub struct D3DHAL_DP2ADDDIRTYBOX {
     pub DirtyBox: super::super::super::Win32::Graphics::Direct3D9::D3DBOX,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl ::core::marker::Copy for D3DHAL_DP2ADDDIRTYBOX {}
+impl Copy for D3DHAL_DP2ADDDIRTYBOX {}
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl ::core::clone::Clone for D3DHAL_DP2ADDDIRTYBOX {
+impl Clone for D3DHAL_DP2ADDDIRTYBOX {
     fn clone(&self) -> Self {
         *self
     }
@@ -4081,8 +4081,8 @@ pub struct D3DHAL_DP2ADDDIRTYRECT {
     pub dwSurface: u32,
     pub rDirtyArea: super::super::super::Win32::Foundation::RECTL,
 }
-impl ::core::marker::Copy for D3DHAL_DP2ADDDIRTYRECT {}
-impl ::core::clone::Clone for D3DHAL_DP2ADDDIRTYRECT {
+impl Copy for D3DHAL_DP2ADDDIRTYRECT {}
+impl Clone for D3DHAL_DP2ADDDIRTYRECT {
     fn clone(&self) -> Self {
         *self
     }
@@ -4097,8 +4097,8 @@ pub struct D3DHAL_DP2BLT {
     pub dwDestMipLevel: u32,
     pub Flags: u32,
 }
-impl ::core::marker::Copy for D3DHAL_DP2BLT {}
-impl ::core::clone::Clone for D3DHAL_DP2BLT {
+impl Copy for D3DHAL_DP2BLT {}
+impl Clone for D3DHAL_DP2BLT {
     fn clone(&self) -> Self {
         *self
     }
@@ -4113,9 +4113,9 @@ pub struct D3DHAL_DP2BUFFERBLT {
     pub dwFlags: u32,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl ::core::marker::Copy for D3DHAL_DP2BUFFERBLT {}
+impl Copy for D3DHAL_DP2BUFFERBLT {}
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl ::core::clone::Clone for D3DHAL_DP2BUFFERBLT {
+impl Clone for D3DHAL_DP2BUFFERBLT {
     fn clone(&self) -> Self {
         *self
     }
@@ -4128,8 +4128,8 @@ pub struct D3DHAL_DP2CLEAR {
     pub dwFillStencil: u32,
     pub Rects: [super::super::super::Win32::Foundation::RECT; 1],
 }
-impl ::core::marker::Copy for D3DHAL_DP2CLEAR {}
-impl ::core::clone::Clone for D3DHAL_DP2CLEAR {
+impl Copy for D3DHAL_DP2CLEAR {}
+impl Clone for D3DHAL_DP2CLEAR {
     fn clone(&self) -> Self {
         *self
     }
@@ -4140,8 +4140,8 @@ pub struct D3DHAL_DP2COLORFILL {
     pub rRect: super::super::super::Win32::Foundation::RECTL,
     pub Color: u32,
 }
-impl ::core::marker::Copy for D3DHAL_DP2COLORFILL {}
-impl ::core::clone::Clone for D3DHAL_DP2COLORFILL {
+impl Copy for D3DHAL_DP2COLORFILL {}
+impl Clone for D3DHAL_DP2COLORFILL {
     fn clone(&self) -> Self {
         *self
     }
@@ -4152,8 +4152,8 @@ pub struct D3DHAL_DP2COMMAND {
     pub bReserved: u8,
     pub Anonymous: D3DHAL_DP2COMMAND_0,
 }
-impl ::core::marker::Copy for D3DHAL_DP2COMMAND {}
-impl ::core::clone::Clone for D3DHAL_DP2COMMAND {
+impl Copy for D3DHAL_DP2COMMAND {}
+impl Clone for D3DHAL_DP2COMMAND {
     fn clone(&self) -> Self {
         *self
     }
@@ -4163,8 +4163,8 @@ pub union D3DHAL_DP2COMMAND_0 {
     pub wPrimitiveCount: u16,
     pub wStateCount: u16,
 }
-impl ::core::marker::Copy for D3DHAL_DP2COMMAND_0 {}
-impl ::core::clone::Clone for D3DHAL_DP2COMMAND_0 {
+impl Copy for D3DHAL_DP2COMMAND_0 {}
+impl Clone for D3DHAL_DP2COMMAND_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4182,9 +4182,9 @@ pub struct D3DHAL_DP2COMPOSERECTS {
     pub YOffset: i32,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl ::core::marker::Copy for D3DHAL_DP2COMPOSERECTS {}
+impl Copy for D3DHAL_DP2COMPOSERECTS {}
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl ::core::clone::Clone for D3DHAL_DP2COMPOSERECTS {
+impl Clone for D3DHAL_DP2COMPOSERECTS {
     fn clone(&self) -> Self {
         *self
     }
@@ -4193,8 +4193,8 @@ impl ::core::clone::Clone for D3DHAL_DP2COMPOSERECTS {
 pub struct D3DHAL_DP2CREATELIGHT {
     pub dwIndex: u32,
 }
-impl ::core::marker::Copy for D3DHAL_DP2CREATELIGHT {}
-impl ::core::clone::Clone for D3DHAL_DP2CREATELIGHT {
+impl Copy for D3DHAL_DP2CREATELIGHT {}
+impl Clone for D3DHAL_DP2CREATELIGHT {
     fn clone(&self) -> Self {
         *self
     }
@@ -4204,8 +4204,8 @@ pub struct D3DHAL_DP2CREATEPIXELSHADER {
     pub dwHandle: u32,
     pub dwCodeSize: u32,
 }
-impl ::core::marker::Copy for D3DHAL_DP2CREATEPIXELSHADER {}
-impl ::core::clone::Clone for D3DHAL_DP2CREATEPIXELSHADER {
+impl Copy for D3DHAL_DP2CREATEPIXELSHADER {}
+impl Clone for D3DHAL_DP2CREATEPIXELSHADER {
     fn clone(&self) -> Self {
         *self
     }
@@ -4217,9 +4217,9 @@ pub struct D3DHAL_DP2CREATEQUERY {
     pub QueryType: super::super::super::Win32::Graphics::Direct3D9::D3DQUERYTYPE,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl ::core::marker::Copy for D3DHAL_DP2CREATEQUERY {}
+impl Copy for D3DHAL_DP2CREATEQUERY {}
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl ::core::clone::Clone for D3DHAL_DP2CREATEQUERY {
+impl Clone for D3DHAL_DP2CREATEQUERY {
     fn clone(&self) -> Self {
         *self
     }
@@ -4230,8 +4230,8 @@ pub struct D3DHAL_DP2CREATEVERTEXSHADER {
     pub dwDeclSize: u32,
     pub dwCodeSize: u32,
 }
-impl ::core::marker::Copy for D3DHAL_DP2CREATEVERTEXSHADER {}
-impl ::core::clone::Clone for D3DHAL_DP2CREATEVERTEXSHADER {
+impl Copy for D3DHAL_DP2CREATEVERTEXSHADER {}
+impl Clone for D3DHAL_DP2CREATEVERTEXSHADER {
     fn clone(&self) -> Self {
         *self
     }
@@ -4241,8 +4241,8 @@ pub struct D3DHAL_DP2CREATEVERTEXSHADERDECL {
     pub dwHandle: u32,
     pub dwNumVertexElements: u32,
 }
-impl ::core::marker::Copy for D3DHAL_DP2CREATEVERTEXSHADERDECL {}
-impl ::core::clone::Clone for D3DHAL_DP2CREATEVERTEXSHADERDECL {
+impl Copy for D3DHAL_DP2CREATEVERTEXSHADERDECL {}
+impl Clone for D3DHAL_DP2CREATEVERTEXSHADERDECL {
     fn clone(&self) -> Self {
         *self
     }
@@ -4252,8 +4252,8 @@ pub struct D3DHAL_DP2CREATEVERTEXSHADERFUNC {
     pub dwHandle: u32,
     pub dwSize: u32,
 }
-impl ::core::marker::Copy for D3DHAL_DP2CREATEVERTEXSHADERFUNC {}
-impl ::core::clone::Clone for D3DHAL_DP2CREATEVERTEXSHADERFUNC {
+impl Copy for D3DHAL_DP2CREATEVERTEXSHADERFUNC {}
+impl Clone for D3DHAL_DP2CREATEVERTEXSHADERFUNC {
     fn clone(&self) -> Self {
         *self
     }
@@ -4262,8 +4262,8 @@ impl ::core::clone::Clone for D3DHAL_DP2CREATEVERTEXSHADERFUNC {
 pub struct D3DHAL_DP2DELETEQUERY {
     pub dwQueryID: u32,
 }
-impl ::core::marker::Copy for D3DHAL_DP2DELETEQUERY {}
-impl ::core::clone::Clone for D3DHAL_DP2DELETEQUERY {
+impl Copy for D3DHAL_DP2DELETEQUERY {}
+impl Clone for D3DHAL_DP2DELETEQUERY {
     fn clone(&self) -> Self {
         *self
     }
@@ -4279,9 +4279,9 @@ pub struct D3DHAL_DP2DRAWINDEXEDPRIMITIVE {
     pub PrimitiveCount: u32,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl ::core::marker::Copy for D3DHAL_DP2DRAWINDEXEDPRIMITIVE {}
+impl Copy for D3DHAL_DP2DRAWINDEXEDPRIMITIVE {}
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl ::core::clone::Clone for D3DHAL_DP2DRAWINDEXEDPRIMITIVE {
+impl Clone for D3DHAL_DP2DRAWINDEXEDPRIMITIVE {
     fn clone(&self) -> Self {
         *self
     }
@@ -4297,9 +4297,9 @@ pub struct D3DHAL_DP2DRAWINDEXEDPRIMITIVE2 {
     pub PrimitiveCount: u32,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl ::core::marker::Copy for D3DHAL_DP2DRAWINDEXEDPRIMITIVE2 {}
+impl Copy for D3DHAL_DP2DRAWINDEXEDPRIMITIVE2 {}
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl ::core::clone::Clone for D3DHAL_DP2DRAWINDEXEDPRIMITIVE2 {
+impl Clone for D3DHAL_DP2DRAWINDEXEDPRIMITIVE2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4312,9 +4312,9 @@ pub struct D3DHAL_DP2DRAWPRIMITIVE {
     pub PrimitiveCount: u32,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl ::core::marker::Copy for D3DHAL_DP2DRAWPRIMITIVE {}
+impl Copy for D3DHAL_DP2DRAWPRIMITIVE {}
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl ::core::clone::Clone for D3DHAL_DP2DRAWPRIMITIVE {
+impl Clone for D3DHAL_DP2DRAWPRIMITIVE {
     fn clone(&self) -> Self {
         *self
     }
@@ -4327,9 +4327,9 @@ pub struct D3DHAL_DP2DRAWPRIMITIVE2 {
     pub PrimitiveCount: u32,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl ::core::marker::Copy for D3DHAL_DP2DRAWPRIMITIVE2 {}
+impl Copy for D3DHAL_DP2DRAWPRIMITIVE2 {}
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl ::core::clone::Clone for D3DHAL_DP2DRAWPRIMITIVE2 {
+impl Clone for D3DHAL_DP2DRAWPRIMITIVE2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4339,8 +4339,8 @@ pub struct D3DHAL_DP2DRAWRECTPATCH {
     pub Handle: u32,
     pub Flags: u32,
 }
-impl ::core::marker::Copy for D3DHAL_DP2DRAWRECTPATCH {}
-impl ::core::clone::Clone for D3DHAL_DP2DRAWRECTPATCH {
+impl Copy for D3DHAL_DP2DRAWRECTPATCH {}
+impl Clone for D3DHAL_DP2DRAWRECTPATCH {
     fn clone(&self) -> Self {
         *self
     }
@@ -4350,8 +4350,8 @@ pub struct D3DHAL_DP2DRAWTRIPATCH {
     pub Handle: u32,
     pub Flags: u32,
 }
-impl ::core::marker::Copy for D3DHAL_DP2DRAWTRIPATCH {}
-impl ::core::clone::Clone for D3DHAL_DP2DRAWTRIPATCH {
+impl Copy for D3DHAL_DP2DRAWTRIPATCH {}
+impl Clone for D3DHAL_DP2DRAWTRIPATCH {
     fn clone(&self) -> Self {
         *self
     }
@@ -4361,8 +4361,8 @@ pub struct D3DHAL_DP2EXT {
     pub dwExtToken: u32,
     pub dwSize: u32,
 }
-impl ::core::marker::Copy for D3DHAL_DP2EXT {}
-impl ::core::clone::Clone for D3DHAL_DP2EXT {
+impl Copy for D3DHAL_DP2EXT {}
+impl Clone for D3DHAL_DP2EXT {
     fn clone(&self) -> Self {
         *self
     }
@@ -4374,9 +4374,9 @@ pub struct D3DHAL_DP2GENERATEMIPSUBLEVELS {
     pub Filter: super::super::super::Win32::Graphics::Direct3D9::D3DTEXTUREFILTERTYPE,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl ::core::marker::Copy for D3DHAL_DP2GENERATEMIPSUBLEVELS {}
+impl Copy for D3DHAL_DP2GENERATEMIPSUBLEVELS {}
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl ::core::clone::Clone for D3DHAL_DP2GENERATEMIPSUBLEVELS {
+impl Clone for D3DHAL_DP2GENERATEMIPSUBLEVELS {
     fn clone(&self) -> Self {
         *self
     }
@@ -4386,8 +4386,8 @@ pub struct D3DHAL_DP2INDEXEDLINELIST {
     pub wV1: u16,
     pub wV2: u16,
 }
-impl ::core::marker::Copy for D3DHAL_DP2INDEXEDLINELIST {}
-impl ::core::clone::Clone for D3DHAL_DP2INDEXEDLINELIST {
+impl Copy for D3DHAL_DP2INDEXEDLINELIST {}
+impl Clone for D3DHAL_DP2INDEXEDLINELIST {
     fn clone(&self) -> Self {
         *self
     }
@@ -4396,8 +4396,8 @@ impl ::core::clone::Clone for D3DHAL_DP2INDEXEDLINELIST {
 pub struct D3DHAL_DP2INDEXEDLINESTRIP {
     pub wV: [u16; 2],
 }
-impl ::core::marker::Copy for D3DHAL_DP2INDEXEDLINESTRIP {}
-impl ::core::clone::Clone for D3DHAL_DP2INDEXEDLINESTRIP {
+impl Copy for D3DHAL_DP2INDEXEDLINESTRIP {}
+impl Clone for D3DHAL_DP2INDEXEDLINESTRIP {
     fn clone(&self) -> Self {
         *self
     }
@@ -4406,8 +4406,8 @@ impl ::core::clone::Clone for D3DHAL_DP2INDEXEDLINESTRIP {
 pub struct D3DHAL_DP2INDEXEDTRIANGLEFAN {
     pub wV: [u16; 3],
 }
-impl ::core::marker::Copy for D3DHAL_DP2INDEXEDTRIANGLEFAN {}
-impl ::core::clone::Clone for D3DHAL_DP2INDEXEDTRIANGLEFAN {
+impl Copy for D3DHAL_DP2INDEXEDTRIANGLEFAN {}
+impl Clone for D3DHAL_DP2INDEXEDTRIANGLEFAN {
     fn clone(&self) -> Self {
         *self
     }
@@ -4419,8 +4419,8 @@ pub struct D3DHAL_DP2INDEXEDTRIANGLELIST {
     pub wV3: u16,
     pub wFlags: u16,
 }
-impl ::core::marker::Copy for D3DHAL_DP2INDEXEDTRIANGLELIST {}
-impl ::core::clone::Clone for D3DHAL_DP2INDEXEDTRIANGLELIST {
+impl Copy for D3DHAL_DP2INDEXEDTRIANGLELIST {}
+impl Clone for D3DHAL_DP2INDEXEDTRIANGLELIST {
     fn clone(&self) -> Self {
         *self
     }
@@ -4431,8 +4431,8 @@ pub struct D3DHAL_DP2INDEXEDTRIANGLELIST2 {
     pub wV2: u16,
     pub wV3: u16,
 }
-impl ::core::marker::Copy for D3DHAL_DP2INDEXEDTRIANGLELIST2 {}
-impl ::core::clone::Clone for D3DHAL_DP2INDEXEDTRIANGLELIST2 {
+impl Copy for D3DHAL_DP2INDEXEDTRIANGLELIST2 {}
+impl Clone for D3DHAL_DP2INDEXEDTRIANGLELIST2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4441,8 +4441,8 @@ impl ::core::clone::Clone for D3DHAL_DP2INDEXEDTRIANGLELIST2 {
 pub struct D3DHAL_DP2INDEXEDTRIANGLESTRIP {
     pub wV: [u16; 3],
 }
-impl ::core::marker::Copy for D3DHAL_DP2INDEXEDTRIANGLESTRIP {}
-impl ::core::clone::Clone for D3DHAL_DP2INDEXEDTRIANGLESTRIP {
+impl Copy for D3DHAL_DP2INDEXEDTRIANGLESTRIP {}
+impl Clone for D3DHAL_DP2INDEXEDTRIANGLESTRIP {
     fn clone(&self) -> Self {
         *self
     }
@@ -4452,8 +4452,8 @@ pub struct D3DHAL_DP2ISSUEQUERY {
     pub dwQueryID: u32,
     pub dwFlags: u32,
 }
-impl ::core::marker::Copy for D3DHAL_DP2ISSUEQUERY {}
-impl ::core::clone::Clone for D3DHAL_DP2ISSUEQUERY {
+impl Copy for D3DHAL_DP2ISSUEQUERY {}
+impl Clone for D3DHAL_DP2ISSUEQUERY {
     fn clone(&self) -> Self {
         *self
     }
@@ -4462,8 +4462,8 @@ impl ::core::clone::Clone for D3DHAL_DP2ISSUEQUERY {
 pub struct D3DHAL_DP2LINELIST {
     pub wVStart: u16,
 }
-impl ::core::marker::Copy for D3DHAL_DP2LINELIST {}
-impl ::core::clone::Clone for D3DHAL_DP2LINELIST {
+impl Copy for D3DHAL_DP2LINELIST {}
+impl Clone for D3DHAL_DP2LINELIST {
     fn clone(&self) -> Self {
         *self
     }
@@ -4472,8 +4472,8 @@ impl ::core::clone::Clone for D3DHAL_DP2LINELIST {
 pub struct D3DHAL_DP2LINESTRIP {
     pub wVStart: u16,
 }
-impl ::core::marker::Copy for D3DHAL_DP2LINESTRIP {}
-impl ::core::clone::Clone for D3DHAL_DP2LINESTRIP {
+impl Copy for D3DHAL_DP2LINESTRIP {}
+impl Clone for D3DHAL_DP2LINESTRIP {
     fn clone(&self) -> Self {
         *self
     }
@@ -4485,9 +4485,9 @@ pub struct D3DHAL_DP2MULTIPLYTRANSFORM {
     pub matrix: super::super::super::Win32::Graphics::Direct3D::D3DMATRIX,
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Direct3D9"))]
-impl ::core::marker::Copy for D3DHAL_DP2MULTIPLYTRANSFORM {}
+impl Copy for D3DHAL_DP2MULTIPLYTRANSFORM {}
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Direct3D9"))]
-impl ::core::clone::Clone for D3DHAL_DP2MULTIPLYTRANSFORM {
+impl Clone for D3DHAL_DP2MULTIPLYTRANSFORM {
     fn clone(&self) -> Self {
         *self
     }
@@ -4496,8 +4496,8 @@ impl ::core::clone::Clone for D3DHAL_DP2MULTIPLYTRANSFORM {
 pub struct D3DHAL_DP2PIXELSHADER {
     pub dwHandle: u32,
 }
-impl ::core::marker::Copy for D3DHAL_DP2PIXELSHADER {}
-impl ::core::clone::Clone for D3DHAL_DP2PIXELSHADER {
+impl Copy for D3DHAL_DP2PIXELSHADER {}
+impl Clone for D3DHAL_DP2PIXELSHADER {
     fn clone(&self) -> Self {
         *self
     }
@@ -4507,8 +4507,8 @@ pub struct D3DHAL_DP2POINTS {
     pub wCount: u16,
     pub wVStart: u16,
 }
-impl ::core::marker::Copy for D3DHAL_DP2POINTS {}
-impl ::core::clone::Clone for D3DHAL_DP2POINTS {
+impl Copy for D3DHAL_DP2POINTS {}
+impl Clone for D3DHAL_DP2POINTS {
     fn clone(&self) -> Self {
         *self
     }
@@ -4520,9 +4520,9 @@ pub struct D3DHAL_DP2RENDERSTATE {
     pub Anonymous: D3DHAL_DP2RENDERSTATE_0,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl ::core::marker::Copy for D3DHAL_DP2RENDERSTATE {}
+impl Copy for D3DHAL_DP2RENDERSTATE {}
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl ::core::clone::Clone for D3DHAL_DP2RENDERSTATE {
+impl Clone for D3DHAL_DP2RENDERSTATE {
     fn clone(&self) -> Self {
         *self
     }
@@ -4534,9 +4534,9 @@ pub union D3DHAL_DP2RENDERSTATE_0 {
     pub dwState: u32,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl ::core::marker::Copy for D3DHAL_DP2RENDERSTATE_0 {}
+impl Copy for D3DHAL_DP2RENDERSTATE_0 {}
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl ::core::clone::Clone for D3DHAL_DP2RENDERSTATE_0 {
+impl Clone for D3DHAL_DP2RENDERSTATE_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4548,8 +4548,8 @@ pub struct D3DHAL_DP2RESPONSE {
     pub wStateCount: u16,
     pub dwTotalSize: u32,
 }
-impl ::core::marker::Copy for D3DHAL_DP2RESPONSE {}
-impl ::core::clone::Clone for D3DHAL_DP2RESPONSE {
+impl Copy for D3DHAL_DP2RESPONSE {}
+impl Clone for D3DHAL_DP2RESPONSE {
     fn clone(&self) -> Self {
         *self
     }
@@ -4559,8 +4559,8 @@ pub struct D3DHAL_DP2RESPONSEQUERY {
     pub dwQueryID: u32,
     pub dwSize: u32,
 }
-impl ::core::marker::Copy for D3DHAL_DP2RESPONSEQUERY {}
-impl ::core::clone::Clone for D3DHAL_DP2RESPONSEQUERY {
+impl Copy for D3DHAL_DP2RESPONSEQUERY {}
+impl Clone for D3DHAL_DP2RESPONSEQUERY {
     fn clone(&self) -> Self {
         *self
     }
@@ -4570,8 +4570,8 @@ pub struct D3DHAL_DP2SETCLIPPLANE {
     pub dwIndex: u32,
     pub plane: [f32; 4],
 }
-impl ::core::marker::Copy for D3DHAL_DP2SETCLIPPLANE {}
-impl ::core::clone::Clone for D3DHAL_DP2SETCLIPPLANE {
+impl Copy for D3DHAL_DP2SETCLIPPLANE {}
+impl Clone for D3DHAL_DP2SETCLIPPLANE {
     fn clone(&self) -> Self {
         *self
     }
@@ -4582,8 +4582,8 @@ pub struct D3DHAL_DP2SETCONVOLUTIONKERNELMONO {
     pub dwHeight: u32,
     pub dwFlags: u32,
 }
-impl ::core::marker::Copy for D3DHAL_DP2SETCONVOLUTIONKERNELMONO {}
-impl ::core::clone::Clone for D3DHAL_DP2SETCONVOLUTIONKERNELMONO {
+impl Copy for D3DHAL_DP2SETCONVOLUTIONKERNELMONO {}
+impl Clone for D3DHAL_DP2SETCONVOLUTIONKERNELMONO {
     fn clone(&self) -> Self {
         *self
     }
@@ -4592,8 +4592,8 @@ impl ::core::clone::Clone for D3DHAL_DP2SETCONVOLUTIONKERNELMONO {
 pub struct D3DHAL_DP2SETDEPTHSTENCIL {
     pub hZBuffer: u32,
 }
-impl ::core::marker::Copy for D3DHAL_DP2SETDEPTHSTENCIL {}
-impl ::core::clone::Clone for D3DHAL_DP2SETDEPTHSTENCIL {
+impl Copy for D3DHAL_DP2SETDEPTHSTENCIL {}
+impl Clone for D3DHAL_DP2SETDEPTHSTENCIL {
     fn clone(&self) -> Self {
         *self
     }
@@ -4603,8 +4603,8 @@ pub struct D3DHAL_DP2SETINDICES {
     pub dwVBHandle: u32,
     pub dwStride: u32,
 }
-impl ::core::marker::Copy for D3DHAL_DP2SETINDICES {}
-impl ::core::clone::Clone for D3DHAL_DP2SETINDICES {
+impl Copy for D3DHAL_DP2SETINDICES {}
+impl Clone for D3DHAL_DP2SETINDICES {
     fn clone(&self) -> Self {
         *self
     }
@@ -4614,8 +4614,8 @@ pub struct D3DHAL_DP2SETLIGHT {
     pub dwIndex: u32,
     pub dwDataType: u32,
 }
-impl ::core::marker::Copy for D3DHAL_DP2SETLIGHT {}
-impl ::core::clone::Clone for D3DHAL_DP2SETLIGHT {
+impl Copy for D3DHAL_DP2SETLIGHT {}
+impl Clone for D3DHAL_DP2SETLIGHT {
     fn clone(&self) -> Self {
         *self
     }
@@ -4626,8 +4626,8 @@ pub struct D3DHAL_DP2SETPALETTE {
     pub dwPaletteFlags: u32,
     pub dwSurfaceHandle: u32,
 }
-impl ::core::marker::Copy for D3DHAL_DP2SETPALETTE {}
-impl ::core::clone::Clone for D3DHAL_DP2SETPALETTE {
+impl Copy for D3DHAL_DP2SETPALETTE {}
+impl Clone for D3DHAL_DP2SETPALETTE {
     fn clone(&self) -> Self {
         *self
     }
@@ -4637,8 +4637,8 @@ pub struct D3DHAL_DP2SETPIXELSHADERCONST {
     pub dwRegister: u32,
     pub dwCount: u32,
 }
-impl ::core::marker::Copy for D3DHAL_DP2SETPIXELSHADERCONST {}
-impl ::core::clone::Clone for D3DHAL_DP2SETPIXELSHADERCONST {
+impl Copy for D3DHAL_DP2SETPIXELSHADERCONST {}
+impl Clone for D3DHAL_DP2SETPIXELSHADERCONST {
     fn clone(&self) -> Self {
         *self
     }
@@ -4648,8 +4648,8 @@ pub struct D3DHAL_DP2SETPRIORITY {
     pub dwDDSurface: u32,
     pub dwPriority: u32,
 }
-impl ::core::marker::Copy for D3DHAL_DP2SETPRIORITY {}
-impl ::core::clone::Clone for D3DHAL_DP2SETPRIORITY {
+impl Copy for D3DHAL_DP2SETPRIORITY {}
+impl Clone for D3DHAL_DP2SETPRIORITY {
     fn clone(&self) -> Self {
         *self
     }
@@ -4659,8 +4659,8 @@ pub struct D3DHAL_DP2SETRENDERTARGET {
     pub hRenderTarget: u32,
     pub hZBuffer: u32,
 }
-impl ::core::marker::Copy for D3DHAL_DP2SETRENDERTARGET {}
-impl ::core::clone::Clone for D3DHAL_DP2SETRENDERTARGET {
+impl Copy for D3DHAL_DP2SETRENDERTARGET {}
+impl Clone for D3DHAL_DP2SETRENDERTARGET {
     fn clone(&self) -> Self {
         *self
     }
@@ -4670,8 +4670,8 @@ pub struct D3DHAL_DP2SETRENDERTARGET2 {
     pub RTIndex: u32,
     pub hRenderTarget: u32,
 }
-impl ::core::marker::Copy for D3DHAL_DP2SETRENDERTARGET2 {}
-impl ::core::clone::Clone for D3DHAL_DP2SETRENDERTARGET2 {
+impl Copy for D3DHAL_DP2SETRENDERTARGET2 {}
+impl Clone for D3DHAL_DP2SETRENDERTARGET2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4682,8 +4682,8 @@ pub struct D3DHAL_DP2SETSTREAMSOURCE {
     pub dwVBHandle: u32,
     pub dwStride: u32,
 }
-impl ::core::marker::Copy for D3DHAL_DP2SETSTREAMSOURCE {}
-impl ::core::clone::Clone for D3DHAL_DP2SETSTREAMSOURCE {
+impl Copy for D3DHAL_DP2SETSTREAMSOURCE {}
+impl Clone for D3DHAL_DP2SETSTREAMSOURCE {
     fn clone(&self) -> Self {
         *self
     }
@@ -4695,8 +4695,8 @@ pub struct D3DHAL_DP2SETSTREAMSOURCE2 {
     pub dwOffset: u32,
     pub dwStride: u32,
 }
-impl ::core::marker::Copy for D3DHAL_DP2SETSTREAMSOURCE2 {}
-impl ::core::clone::Clone for D3DHAL_DP2SETSTREAMSOURCE2 {
+impl Copy for D3DHAL_DP2SETSTREAMSOURCE2 {}
+impl Clone for D3DHAL_DP2SETSTREAMSOURCE2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4706,8 +4706,8 @@ pub struct D3DHAL_DP2SETSTREAMSOURCEFREQ {
     pub dwStream: u32,
     pub dwDivider: u32,
 }
-impl ::core::marker::Copy for D3DHAL_DP2SETSTREAMSOURCEFREQ {}
-impl ::core::clone::Clone for D3DHAL_DP2SETSTREAMSOURCEFREQ {
+impl Copy for D3DHAL_DP2SETSTREAMSOURCEFREQ {}
+impl Clone for D3DHAL_DP2SETSTREAMSOURCEFREQ {
     fn clone(&self) -> Self {
         *self
     }
@@ -4717,8 +4717,8 @@ pub struct D3DHAL_DP2SETSTREAMSOURCEUM {
     pub dwStream: u32,
     pub dwStride: u32,
 }
-impl ::core::marker::Copy for D3DHAL_DP2SETSTREAMSOURCEUM {}
-impl ::core::clone::Clone for D3DHAL_DP2SETSTREAMSOURCEUM {
+impl Copy for D3DHAL_DP2SETSTREAMSOURCEUM {}
+impl Clone for D3DHAL_DP2SETSTREAMSOURCEUM {
     fn clone(&self) -> Self {
         *self
     }
@@ -4728,8 +4728,8 @@ pub struct D3DHAL_DP2SETTEXLOD {
     pub dwDDSurface: u32,
     pub dwLOD: u32,
 }
-impl ::core::marker::Copy for D3DHAL_DP2SETTEXLOD {}
-impl ::core::clone::Clone for D3DHAL_DP2SETTEXLOD {
+impl Copy for D3DHAL_DP2SETTEXLOD {}
+impl Clone for D3DHAL_DP2SETTEXLOD {
     fn clone(&self) -> Self {
         *self
     }
@@ -4741,9 +4741,9 @@ pub struct D3DHAL_DP2SETTRANSFORM {
     pub matrix: super::super::super::Win32::Graphics::Direct3D::D3DMATRIX,
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Direct3D9"))]
-impl ::core::marker::Copy for D3DHAL_DP2SETTRANSFORM {}
+impl Copy for D3DHAL_DP2SETTRANSFORM {}
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Direct3D9"))]
-impl ::core::clone::Clone for D3DHAL_DP2SETTRANSFORM {
+impl Clone for D3DHAL_DP2SETTRANSFORM {
     fn clone(&self) -> Self {
         *self
     }
@@ -4753,8 +4753,8 @@ pub struct D3DHAL_DP2SETVERTEXSHADERCONST {
     pub dwRegister: u32,
     pub dwCount: u32,
 }
-impl ::core::marker::Copy for D3DHAL_DP2SETVERTEXSHADERCONST {}
-impl ::core::clone::Clone for D3DHAL_DP2SETVERTEXSHADERCONST {
+impl Copy for D3DHAL_DP2SETVERTEXSHADERCONST {}
+impl Clone for D3DHAL_DP2SETVERTEXSHADERCONST {
     fn clone(&self) -> Self {
         *self
     }
@@ -4763,8 +4763,8 @@ impl ::core::clone::Clone for D3DHAL_DP2SETVERTEXSHADERCONST {
 pub struct D3DHAL_DP2STARTVERTEX {
     pub wVStart: u16,
 }
-impl ::core::marker::Copy for D3DHAL_DP2STARTVERTEX {}
-impl ::core::clone::Clone for D3DHAL_DP2STARTVERTEX {
+impl Copy for D3DHAL_DP2STARTVERTEX {}
+impl Clone for D3DHAL_DP2STARTVERTEX {
     fn clone(&self) -> Self {
         *self
     }
@@ -4777,9 +4777,9 @@ pub struct D3DHAL_DP2STATESET {
     pub sbType: super::super::super::Win32::Graphics::Direct3D9::D3DSTATEBLOCKTYPE,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl ::core::marker::Copy for D3DHAL_DP2STATESET {}
+impl Copy for D3DHAL_DP2STATESET {}
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl ::core::clone::Clone for D3DHAL_DP2STATESET {
+impl Clone for D3DHAL_DP2STATESET {
     fn clone(&self) -> Self {
         *self
     }
@@ -4794,8 +4794,8 @@ pub struct D3DHAL_DP2SURFACEBLT {
     pub dwDestMipLevel: u32,
     pub Flags: u32,
 }
-impl ::core::marker::Copy for D3DHAL_DP2SURFACEBLT {}
-impl ::core::clone::Clone for D3DHAL_DP2SURFACEBLT {
+impl Copy for D3DHAL_DP2SURFACEBLT {}
+impl Clone for D3DHAL_DP2SURFACEBLT {
     fn clone(&self) -> Self {
         *self
     }
@@ -4808,8 +4808,8 @@ pub struct D3DHAL_DP2TEXBLT {
     pub rSrc: super::super::super::Win32::Foundation::RECTL,
     pub dwFlags: u32,
 }
-impl ::core::marker::Copy for D3DHAL_DP2TEXBLT {}
-impl ::core::clone::Clone for D3DHAL_DP2TEXBLT {
+impl Copy for D3DHAL_DP2TEXBLT {}
+impl Clone for D3DHAL_DP2TEXBLT {
     fn clone(&self) -> Self {
         *self
     }
@@ -4820,8 +4820,8 @@ pub struct D3DHAL_DP2TEXTURESTAGESTATE {
     pub TSState: u16,
     pub dwValue: u32,
 }
-impl ::core::marker::Copy for D3DHAL_DP2TEXTURESTAGESTATE {}
-impl ::core::clone::Clone for D3DHAL_DP2TEXTURESTAGESTATE {
+impl Copy for D3DHAL_DP2TEXTURESTAGESTATE {}
+impl Clone for D3DHAL_DP2TEXTURESTAGESTATE {
     fn clone(&self) -> Self {
         *self
     }
@@ -4830,8 +4830,8 @@ impl ::core::clone::Clone for D3DHAL_DP2TEXTURESTAGESTATE {
 pub struct D3DHAL_DP2TRIANGLEFAN {
     pub wVStart: u16,
 }
-impl ::core::marker::Copy for D3DHAL_DP2TRIANGLEFAN {}
-impl ::core::clone::Clone for D3DHAL_DP2TRIANGLEFAN {
+impl Copy for D3DHAL_DP2TRIANGLEFAN {}
+impl Clone for D3DHAL_DP2TRIANGLEFAN {
     fn clone(&self) -> Self {
         *self
     }
@@ -4840,8 +4840,8 @@ impl ::core::clone::Clone for D3DHAL_DP2TRIANGLEFAN {
 pub struct D3DHAL_DP2TRIANGLEFAN_IMM {
     pub dwEdgeFlags: u32,
 }
-impl ::core::marker::Copy for D3DHAL_DP2TRIANGLEFAN_IMM {}
-impl ::core::clone::Clone for D3DHAL_DP2TRIANGLEFAN_IMM {
+impl Copy for D3DHAL_DP2TRIANGLEFAN_IMM {}
+impl Clone for D3DHAL_DP2TRIANGLEFAN_IMM {
     fn clone(&self) -> Self {
         *self
     }
@@ -4850,8 +4850,8 @@ impl ::core::clone::Clone for D3DHAL_DP2TRIANGLEFAN_IMM {
 pub struct D3DHAL_DP2TRIANGLELIST {
     pub wVStart: u16,
 }
-impl ::core::marker::Copy for D3DHAL_DP2TRIANGLELIST {}
-impl ::core::clone::Clone for D3DHAL_DP2TRIANGLELIST {
+impl Copy for D3DHAL_DP2TRIANGLELIST {}
+impl Clone for D3DHAL_DP2TRIANGLELIST {
     fn clone(&self) -> Self {
         *self
     }
@@ -4860,8 +4860,8 @@ impl ::core::clone::Clone for D3DHAL_DP2TRIANGLELIST {
 pub struct D3DHAL_DP2TRIANGLESTRIP {
     pub wVStart: u16,
 }
-impl ::core::marker::Copy for D3DHAL_DP2TRIANGLESTRIP {}
-impl ::core::clone::Clone for D3DHAL_DP2TRIANGLESTRIP {
+impl Copy for D3DHAL_DP2TRIANGLESTRIP {}
+impl Clone for D3DHAL_DP2TRIANGLESTRIP {
     fn clone(&self) -> Self {
         *self
     }
@@ -4872,8 +4872,8 @@ pub struct D3DHAL_DP2UPDATEPALETTE {
     pub wStartIndex: u16,
     pub wNumEntries: u16,
 }
-impl ::core::marker::Copy for D3DHAL_DP2UPDATEPALETTE {}
-impl ::core::clone::Clone for D3DHAL_DP2UPDATEPALETTE {
+impl Copy for D3DHAL_DP2UPDATEPALETTE {}
+impl Clone for D3DHAL_DP2UPDATEPALETTE {
     fn clone(&self) -> Self {
         *self
     }
@@ -4882,8 +4882,8 @@ impl ::core::clone::Clone for D3DHAL_DP2UPDATEPALETTE {
 pub struct D3DHAL_DP2VERTEXSHADER {
     pub dwHandle: u32,
 }
-impl ::core::marker::Copy for D3DHAL_DP2VERTEXSHADER {}
-impl ::core::clone::Clone for D3DHAL_DP2VERTEXSHADER {
+impl Copy for D3DHAL_DP2VERTEXSHADER {}
+impl Clone for D3DHAL_DP2VERTEXSHADER {
     fn clone(&self) -> Self {
         *self
     }
@@ -4895,8 +4895,8 @@ pub struct D3DHAL_DP2VIEWPORTINFO {
     pub dwWidth: u32,
     pub dwHeight: u32,
 }
-impl ::core::marker::Copy for D3DHAL_DP2VIEWPORTINFO {}
-impl ::core::clone::Clone for D3DHAL_DP2VIEWPORTINFO {
+impl Copy for D3DHAL_DP2VIEWPORTINFO {}
+impl Clone for D3DHAL_DP2VIEWPORTINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -4913,9 +4913,9 @@ pub struct D3DHAL_DP2VOLUMEBLT {
     pub dwFlags: u32,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl ::core::marker::Copy for D3DHAL_DP2VOLUMEBLT {}
+impl Copy for D3DHAL_DP2VOLUMEBLT {}
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl ::core::clone::Clone for D3DHAL_DP2VOLUMEBLT {
+impl Clone for D3DHAL_DP2VOLUMEBLT {
     fn clone(&self) -> Self {
         *self
     }
@@ -4925,8 +4925,8 @@ pub struct D3DHAL_DP2WINFO {
     pub dvWNear: f32,
     pub dvWFar: f32,
 }
-impl ::core::marker::Copy for D3DHAL_DP2WINFO {}
-impl ::core::clone::Clone for D3DHAL_DP2WINFO {
+impl Copy for D3DHAL_DP2WINFO {}
+impl Clone for D3DHAL_DP2WINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -4936,8 +4936,8 @@ pub struct D3DHAL_DP2ZRANGE {
     pub dvMinZ: f32,
     pub dvMaxZ: f32,
 }
-impl ::core::marker::Copy for D3DHAL_DP2ZRANGE {}
-impl ::core::clone::Clone for D3DHAL_DP2ZRANGE {
+impl Copy for D3DHAL_DP2ZRANGE {}
+impl Clone for D3DHAL_DP2ZRANGE {
     fn clone(&self) -> Self {
         *self
     }
@@ -4949,16 +4949,16 @@ pub struct D3DHAL_DRAWONEINDEXEDPRIMITIVEDATA {
     pub dwFlags: u32,
     pub PrimitiveType: super::super::super::Win32::Graphics::Direct3D9::D3DPRIMITIVETYPE,
     pub Anonymous: D3DHAL_DRAWONEINDEXEDPRIMITIVEDATA_0,
-    pub lpvVertices: *mut ::core::ffi::c_void,
+    pub lpvVertices: *mut core::ffi::c_void,
     pub dwNumVertices: u32,
     pub lpwIndices: *mut u16,
     pub dwNumIndices: u32,
-    pub ddrval: ::windows_sys::core::HRESULT,
+    pub ddrval: windows_sys::core::HRESULT,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl ::core::marker::Copy for D3DHAL_DRAWONEINDEXEDPRIMITIVEDATA {}
+impl Copy for D3DHAL_DRAWONEINDEXEDPRIMITIVEDATA {}
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl ::core::clone::Clone for D3DHAL_DRAWONEINDEXEDPRIMITIVEDATA {
+impl Clone for D3DHAL_DRAWONEINDEXEDPRIMITIVEDATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -4970,9 +4970,9 @@ pub union D3DHAL_DRAWONEINDEXEDPRIMITIVEDATA_0 {
     pub dwFVFControl: u32,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl ::core::marker::Copy for D3DHAL_DRAWONEINDEXEDPRIMITIVEDATA_0 {}
+impl Copy for D3DHAL_DRAWONEINDEXEDPRIMITIVEDATA_0 {}
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl ::core::clone::Clone for D3DHAL_DRAWONEINDEXEDPRIMITIVEDATA_0 {
+impl Clone for D3DHAL_DRAWONEINDEXEDPRIMITIVEDATA_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4984,15 +4984,15 @@ pub struct D3DHAL_DRAWONEPRIMITIVEDATA {
     pub dwFlags: u32,
     pub PrimitiveType: super::super::super::Win32::Graphics::Direct3D9::D3DPRIMITIVETYPE,
     pub Anonymous: D3DHAL_DRAWONEPRIMITIVEDATA_0,
-    pub lpvVertices: *mut ::core::ffi::c_void,
+    pub lpvVertices: *mut core::ffi::c_void,
     pub dwNumVertices: u32,
     pub dwReserved: u32,
-    pub ddrval: ::windows_sys::core::HRESULT,
+    pub ddrval: windows_sys::core::HRESULT,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl ::core::marker::Copy for D3DHAL_DRAWONEPRIMITIVEDATA {}
+impl Copy for D3DHAL_DRAWONEPRIMITIVEDATA {}
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl ::core::clone::Clone for D3DHAL_DRAWONEPRIMITIVEDATA {
+impl Clone for D3DHAL_DRAWONEPRIMITIVEDATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -5004,9 +5004,9 @@ pub union D3DHAL_DRAWONEPRIMITIVEDATA_0 {
     pub dwFVFControl: u32,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl ::core::marker::Copy for D3DHAL_DRAWONEPRIMITIVEDATA_0 {}
+impl Copy for D3DHAL_DRAWONEPRIMITIVEDATA_0 {}
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl ::core::clone::Clone for D3DHAL_DRAWONEPRIMITIVEDATA_0 {
+impl Clone for D3DHAL_DRAWONEPRIMITIVEDATA_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -5018,8 +5018,8 @@ pub struct D3DHAL_DRAWPRIMCOUNTS {
     pub wVertexType: u16,
     pub wNumVertices: u16,
 }
-impl ::core::marker::Copy for D3DHAL_DRAWPRIMCOUNTS {}
-impl ::core::clone::Clone for D3DHAL_DRAWPRIMCOUNTS {
+impl Copy for D3DHAL_DRAWPRIMCOUNTS {}
+impl Clone for D3DHAL_DRAWPRIMCOUNTS {
     fn clone(&self) -> Self {
         *self
     }
@@ -5043,9 +5043,9 @@ pub struct D3DHAL_DRAWPRIMITIVES2DATA {
     pub dwErrorOffset: u32,
 }
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-impl ::core::marker::Copy for D3DHAL_DRAWPRIMITIVES2DATA {}
+impl Copy for D3DHAL_DRAWPRIMITIVES2DATA {}
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-impl ::core::clone::Clone for D3DHAL_DRAWPRIMITIVES2DATA {
+impl Clone for D3DHAL_DRAWPRIMITIVES2DATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -5054,12 +5054,12 @@ impl ::core::clone::Clone for D3DHAL_DRAWPRIMITIVES2DATA {
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 pub union D3DHAL_DRAWPRIMITIVES2DATA_0 {
     pub lpDDVertex: *mut super::super::super::Win32::Graphics::DirectDraw::DDRAWI_DDRAWSURFACE_LCL,
-    pub lpVertices: *mut ::core::ffi::c_void,
+    pub lpVertices: *mut core::ffi::c_void,
 }
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-impl ::core::marker::Copy for D3DHAL_DRAWPRIMITIVES2DATA_0 {}
+impl Copy for D3DHAL_DRAWPRIMITIVES2DATA_0 {}
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-impl ::core::clone::Clone for D3DHAL_DRAWPRIMITIVES2DATA_0 {
+impl Clone for D3DHAL_DRAWPRIMITIVES2DATA_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -5068,12 +5068,12 @@ impl ::core::clone::Clone for D3DHAL_DRAWPRIMITIVES2DATA_0 {
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 pub union D3DHAL_DRAWPRIMITIVES2DATA_1 {
     pub dwVertexSize: u32,
-    pub ddrval: ::windows_sys::core::HRESULT,
+    pub ddrval: windows_sys::core::HRESULT,
 }
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-impl ::core::marker::Copy for D3DHAL_DRAWPRIMITIVES2DATA_1 {}
+impl Copy for D3DHAL_DRAWPRIMITIVES2DATA_1 {}
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-impl ::core::clone::Clone for D3DHAL_DRAWPRIMITIVES2DATA_1 {
+impl Clone for D3DHAL_DRAWPRIMITIVES2DATA_1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -5082,12 +5082,12 @@ impl ::core::clone::Clone for D3DHAL_DRAWPRIMITIVES2DATA_1 {
 pub struct D3DHAL_DRAWPRIMITIVESDATA {
     pub dwhContext: usize,
     pub dwFlags: u32,
-    pub lpvData: *mut ::core::ffi::c_void,
+    pub lpvData: *mut core::ffi::c_void,
     pub dwFVFControl: u32,
-    pub ddrval: ::windows_sys::core::HRESULT,
+    pub ddrval: windows_sys::core::HRESULT,
 }
-impl ::core::marker::Copy for D3DHAL_DRAWPRIMITIVESDATA {}
-impl ::core::clone::Clone for D3DHAL_DRAWPRIMITIVESDATA {
+impl Copy for D3DHAL_DRAWPRIMITIVESDATA {}
+impl Clone for D3DHAL_DRAWPRIMITIVESDATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -5098,12 +5098,12 @@ pub struct D3DHAL_GETSTATEDATA {
     pub dwhContext: usize,
     pub dwWhich: u32,
     pub ddState: super::super::super::Win32::Graphics::Direct3D9::D3DSTATE,
-    pub ddrval: ::windows_sys::core::HRESULT,
+    pub ddrval: windows_sys::core::HRESULT,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl ::core::marker::Copy for D3DHAL_GETSTATEDATA {}
+impl Copy for D3DHAL_GETSTATEDATA {}
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl ::core::clone::Clone for D3DHAL_GETSTATEDATA {
+impl Clone for D3DHAL_GETSTATEDATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -5119,9 +5119,9 @@ pub struct D3DHAL_GLOBALDRIVERDATA {
     pub lpTextureFormats: *mut super::super::super::Win32::Graphics::DirectDraw::DDSURFACEDESC,
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw"))]
-impl ::core::marker::Copy for D3DHAL_GLOBALDRIVERDATA {}
+impl Copy for D3DHAL_GLOBALDRIVERDATA {}
 #[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw"))]
-impl ::core::clone::Clone for D3DHAL_GLOBALDRIVERDATA {
+impl Clone for D3DHAL_GLOBALDRIVERDATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -5132,16 +5132,16 @@ pub struct D3DHAL_RENDERPRIMITIVEDATA {
     pub dwhContext: usize,
     pub dwOffset: u32,
     pub dwStatus: u32,
-    pub lpExeBuf: *mut ::core::ffi::c_void,
+    pub lpExeBuf: *mut core::ffi::c_void,
     pub dwTLOffset: u32,
-    pub lpTLBuf: *mut ::core::ffi::c_void,
+    pub lpTLBuf: *mut core::ffi::c_void,
     pub diInstruction: super::super::super::Win32::Graphics::Direct3D9::D3DINSTRUCTION,
-    pub ddrval: ::windows_sys::core::HRESULT,
+    pub ddrval: windows_sys::core::HRESULT,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl ::core::marker::Copy for D3DHAL_RENDERPRIMITIVEDATA {}
+impl Copy for D3DHAL_RENDERPRIMITIVEDATA {}
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl ::core::clone::Clone for D3DHAL_RENDERPRIMITIVEDATA {
+impl Clone for D3DHAL_RENDERPRIMITIVEDATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -5151,11 +5151,11 @@ pub struct D3DHAL_RENDERSTATEDATA {
     pub dwhContext: usize,
     pub dwOffset: u32,
     pub dwCount: u32,
-    pub lpExeBuf: *mut ::core::ffi::c_void,
-    pub ddrval: ::windows_sys::core::HRESULT,
+    pub lpExeBuf: *mut core::ffi::c_void,
+    pub ddrval: windows_sys::core::HRESULT,
 }
-impl ::core::marker::Copy for D3DHAL_RENDERSTATEDATA {}
-impl ::core::clone::Clone for D3DHAL_RENDERSTATEDATA {
+impl Copy for D3DHAL_RENDERSTATEDATA {}
+impl Clone for D3DHAL_RENDERSTATEDATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -5164,10 +5164,10 @@ impl ::core::clone::Clone for D3DHAL_RENDERSTATEDATA {
 pub struct D3DHAL_SCENECAPTUREDATA {
     pub dwhContext: usize,
     pub dwFlag: u32,
-    pub ddrval: ::windows_sys::core::HRESULT,
+    pub ddrval: windows_sys::core::HRESULT,
 }
-impl ::core::marker::Copy for D3DHAL_SCENECAPTUREDATA {}
-impl ::core::clone::Clone for D3DHAL_SCENECAPTUREDATA {
+impl Copy for D3DHAL_SCENECAPTUREDATA {}
+impl Clone for D3DHAL_SCENECAPTUREDATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -5178,12 +5178,12 @@ pub struct D3DHAL_SETRENDERTARGETDATA {
     pub dwhContext: usize,
     pub Anonymous1: D3DHAL_SETRENDERTARGETDATA_0,
     pub Anonymous2: D3DHAL_SETRENDERTARGETDATA_1,
-    pub ddrval: ::windows_sys::core::HRESULT,
+    pub ddrval: windows_sys::core::HRESULT,
 }
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-impl ::core::marker::Copy for D3DHAL_SETRENDERTARGETDATA {}
+impl Copy for D3DHAL_SETRENDERTARGETDATA {}
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-impl ::core::clone::Clone for D3DHAL_SETRENDERTARGETDATA {
+impl Clone for D3DHAL_SETRENDERTARGETDATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -5191,13 +5191,13 @@ impl ::core::clone::Clone for D3DHAL_SETRENDERTARGETDATA {
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 pub union D3DHAL_SETRENDERTARGETDATA_0 {
-    pub lpDDS: *mut ::core::ffi::c_void,
+    pub lpDDS: *mut core::ffi::c_void,
     pub lpDDSLcl: *mut super::super::super::Win32::Graphics::DirectDraw::DDRAWI_DDRAWSURFACE_LCL,
 }
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-impl ::core::marker::Copy for D3DHAL_SETRENDERTARGETDATA_0 {}
+impl Copy for D3DHAL_SETRENDERTARGETDATA_0 {}
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-impl ::core::clone::Clone for D3DHAL_SETRENDERTARGETDATA_0 {
+impl Clone for D3DHAL_SETRENDERTARGETDATA_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -5205,13 +5205,13 @@ impl ::core::clone::Clone for D3DHAL_SETRENDERTARGETDATA_0 {
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 pub union D3DHAL_SETRENDERTARGETDATA_1 {
-    pub lpDDSZ: *mut ::core::ffi::c_void,
+    pub lpDDSZ: *mut core::ffi::c_void,
     pub lpDDSZLcl: *mut super::super::super::Win32::Graphics::DirectDraw::DDRAWI_DDRAWSURFACE_LCL,
 }
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-impl ::core::marker::Copy for D3DHAL_SETRENDERTARGETDATA_1 {}
+impl Copy for D3DHAL_SETRENDERTARGETDATA_1 {}
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-impl ::core::clone::Clone for D3DHAL_SETRENDERTARGETDATA_1 {
+impl Clone for D3DHAL_SETRENDERTARGETDATA_1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -5219,12 +5219,12 @@ impl ::core::clone::Clone for D3DHAL_SETRENDERTARGETDATA_1 {
 #[repr(C)]
 pub struct D3DHAL_TEXTURECREATEDATA {
     pub dwhContext: usize,
-    pub lpDDS: *mut ::core::ffi::c_void,
+    pub lpDDS: *mut core::ffi::c_void,
     pub dwHandle: u32,
-    pub ddrval: ::windows_sys::core::HRESULT,
+    pub ddrval: windows_sys::core::HRESULT,
 }
-impl ::core::marker::Copy for D3DHAL_TEXTURECREATEDATA {}
-impl ::core::clone::Clone for D3DHAL_TEXTURECREATEDATA {
+impl Copy for D3DHAL_TEXTURECREATEDATA {}
+impl Clone for D3DHAL_TEXTURECREATEDATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -5233,10 +5233,10 @@ impl ::core::clone::Clone for D3DHAL_TEXTURECREATEDATA {
 pub struct D3DHAL_TEXTUREDESTROYDATA {
     pub dwhContext: usize,
     pub dwHandle: u32,
-    pub ddrval: ::windows_sys::core::HRESULT,
+    pub ddrval: windows_sys::core::HRESULT,
 }
-impl ::core::marker::Copy for D3DHAL_TEXTUREDESTROYDATA {}
-impl ::core::clone::Clone for D3DHAL_TEXTUREDESTROYDATA {
+impl Copy for D3DHAL_TEXTUREDESTROYDATA {}
+impl Clone for D3DHAL_TEXTUREDESTROYDATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -5246,10 +5246,10 @@ pub struct D3DHAL_TEXTUREGETSURFDATA {
     pub dwhContext: usize,
     pub lpDDS: usize,
     pub dwHandle: u32,
-    pub ddrval: ::windows_sys::core::HRESULT,
+    pub ddrval: windows_sys::core::HRESULT,
 }
-impl ::core::marker::Copy for D3DHAL_TEXTUREGETSURFDATA {}
-impl ::core::clone::Clone for D3DHAL_TEXTUREGETSURFDATA {
+impl Copy for D3DHAL_TEXTUREGETSURFDATA {}
+impl Clone for D3DHAL_TEXTUREGETSURFDATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -5259,10 +5259,10 @@ pub struct D3DHAL_TEXTURESWAPDATA {
     pub dwhContext: usize,
     pub dwHandle1: u32,
     pub dwHandle2: u32,
-    pub ddrval: ::windows_sys::core::HRESULT,
+    pub ddrval: windows_sys::core::HRESULT,
 }
-impl ::core::marker::Copy for D3DHAL_TEXTURESWAPDATA {}
-impl ::core::clone::Clone for D3DHAL_TEXTURESWAPDATA {
+impl Copy for D3DHAL_TEXTURESWAPDATA {}
+impl Clone for D3DHAL_TEXTURESWAPDATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -5273,10 +5273,10 @@ pub struct D3DHAL_VALIDATETEXTURESTAGESTATEDATA {
     pub dwFlags: u32,
     pub dwReserved: usize,
     pub dwNumPasses: u32,
-    pub ddrval: ::windows_sys::core::HRESULT,
+    pub ddrval: windows_sys::core::HRESULT,
 }
-impl ::core::marker::Copy for D3DHAL_VALIDATETEXTURESTAGESTATEDATA {}
-impl ::core::clone::Clone for D3DHAL_VALIDATETEXTURESTAGESTATEDATA {
+impl Copy for D3DHAL_VALIDATETEXTURESTAGESTATEDATA {}
+impl Clone for D3DHAL_VALIDATETEXTURESTAGESTATEDATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -5286,8 +5286,8 @@ pub struct D3DKMDT_2DREGION {
     pub cx: u32,
     pub cy: u32,
 }
-impl ::core::marker::Copy for D3DKMDT_2DREGION {}
-impl ::core::clone::Clone for D3DKMDT_2DREGION {
+impl Copy for D3DKMDT_2DREGION {}
+impl Clone for D3DKMDT_2DREGION {
     fn clone(&self) -> Self {
         *self
     }
@@ -5298,8 +5298,8 @@ pub struct D3DKMDT_3x4_COLORSPACE_TRANSFORM {
     pub ScalarMultiplier: f32,
     pub LookupTable1D: [D3DDDI_DXGI_RGB; 4096],
 }
-impl ::core::marker::Copy for D3DKMDT_3x4_COLORSPACE_TRANSFORM {}
-impl ::core::clone::Clone for D3DKMDT_3x4_COLORSPACE_TRANSFORM {
+impl Copy for D3DKMDT_3x4_COLORSPACE_TRANSFORM {}
+impl Clone for D3DKMDT_3x4_COLORSPACE_TRANSFORM {
     fn clone(&self) -> Self {
         *self
     }
@@ -5313,8 +5313,8 @@ pub struct D3DKMDT_COLORSPACE_TRANSFORM_MATRIX_V2 {
     pub StageControlLookupTable1DRegamma: D3DKMDT_COLORSPACE_TRANSFORM_STAGE_CONTROL,
     pub LookupTable1DRegamma: [D3DDDI_DXGI_RGB; 4096],
 }
-impl ::core::marker::Copy for D3DKMDT_COLORSPACE_TRANSFORM_MATRIX_V2 {}
-impl ::core::clone::Clone for D3DKMDT_COLORSPACE_TRANSFORM_MATRIX_V2 {
+impl Copy for D3DKMDT_COLORSPACE_TRANSFORM_MATRIX_V2 {}
+impl Clone for D3DKMDT_COLORSPACE_TRANSFORM_MATRIX_V2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -5326,8 +5326,8 @@ pub struct D3DKMDT_COLOR_COEFF_DYNAMIC_RANGES {
     pub ThirdChannel: u32,
     pub FourthChannel: u32,
 }
-impl ::core::marker::Copy for D3DKMDT_COLOR_COEFF_DYNAMIC_RANGES {}
-impl ::core::clone::Clone for D3DKMDT_COLOR_COEFF_DYNAMIC_RANGES {
+impl Copy for D3DKMDT_COLOR_COEFF_DYNAMIC_RANGES {}
+impl Clone for D3DKMDT_COLOR_COEFF_DYNAMIC_RANGES {
     fn clone(&self) -> Self {
         *self
     }
@@ -5337,8 +5337,8 @@ pub struct D3DKMDT_DISPLAYMODE_FLAGS {
     pub _bitfield1: u32,
     pub _bitfield2: u32,
 }
-impl ::core::marker::Copy for D3DKMDT_DISPLAYMODE_FLAGS {}
-impl ::core::clone::Clone for D3DKMDT_DISPLAYMODE_FLAGS {
+impl Copy for D3DKMDT_DISPLAYMODE_FLAGS {}
+impl Clone for D3DKMDT_DISPLAYMODE_FLAGS {
     fn clone(&self) -> Self {
         *self
     }
@@ -5350,8 +5350,8 @@ pub struct D3DKMDT_FREQUENCY_RANGE {
     pub MinHSyncFreq: D3DDDI_RATIONAL,
     pub MaxHSyncFreq: D3DDDI_RATIONAL,
 }
-impl ::core::marker::Copy for D3DKMDT_FREQUENCY_RANGE {}
-impl ::core::clone::Clone for D3DKMDT_FREQUENCY_RANGE {
+impl Copy for D3DKMDT_FREQUENCY_RANGE {}
+impl Clone for D3DKMDT_FREQUENCY_RANGE {
     fn clone(&self) -> Self {
         *self
     }
@@ -5362,8 +5362,8 @@ pub struct D3DKMDT_GAMMA_RAMP {
     pub DataSize: usize,
     pub Data: D3DKMDT_GAMMA_RAMP_0,
 }
-impl ::core::marker::Copy for D3DKMDT_GAMMA_RAMP {}
-impl ::core::clone::Clone for D3DKMDT_GAMMA_RAMP {
+impl Copy for D3DKMDT_GAMMA_RAMP {}
+impl Clone for D3DKMDT_GAMMA_RAMP {
     fn clone(&self) -> Self {
         *self
     }
@@ -5374,10 +5374,10 @@ pub union D3DKMDT_GAMMA_RAMP_0 {
     pub pDxgi1: *mut D3DDDI_GAMMA_RAMP_DXGI_1,
     pub p3x4: *mut D3DKMDT_3x4_COLORSPACE_TRANSFORM,
     pub pMatrixV2: *mut D3DKMDT_COLORSPACE_TRANSFORM_MATRIX_V2,
-    pub pRaw: *mut ::core::ffi::c_void,
+    pub pRaw: *mut core::ffi::c_void,
 }
-impl ::core::marker::Copy for D3DKMDT_GAMMA_RAMP_0 {}
-impl ::core::clone::Clone for D3DKMDT_GAMMA_RAMP_0 {
+impl Copy for D3DKMDT_GAMMA_RAMP_0 {}
+impl Clone for D3DKMDT_GAMMA_RAMP_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -5391,8 +5391,8 @@ pub struct D3DKMDT_GDISURFACEDATA {
     pub Flags: D3DKMDT_GDISURFACEFLAGS,
     pub Pitch: u32,
 }
-impl ::core::marker::Copy for D3DKMDT_GDISURFACEDATA {}
-impl ::core::clone::Clone for D3DKMDT_GDISURFACEDATA {
+impl Copy for D3DKMDT_GDISURFACEDATA {}
+impl Clone for D3DKMDT_GDISURFACEDATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -5401,8 +5401,8 @@ impl ::core::clone::Clone for D3DKMDT_GDISURFACEDATA {
 pub struct D3DKMDT_GDISURFACEFLAGS {
     pub Anonymous: D3DKMDT_GDISURFACEFLAGS_0,
 }
-impl ::core::marker::Copy for D3DKMDT_GDISURFACEFLAGS {}
-impl ::core::clone::Clone for D3DKMDT_GDISURFACEFLAGS {
+impl Copy for D3DKMDT_GDISURFACEFLAGS {}
+impl Clone for D3DKMDT_GDISURFACEFLAGS {
     fn clone(&self) -> Self {
         *self
     }
@@ -5412,8 +5412,8 @@ pub union D3DKMDT_GDISURFACEFLAGS_0 {
     pub Anonymous: D3DKMDT_GDISURFACEFLAGS_0_0,
     pub Value: u32,
 }
-impl ::core::marker::Copy for D3DKMDT_GDISURFACEFLAGS_0 {}
-impl ::core::clone::Clone for D3DKMDT_GDISURFACEFLAGS_0 {
+impl Copy for D3DKMDT_GDISURFACEFLAGS_0 {}
+impl Clone for D3DKMDT_GDISURFACEFLAGS_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -5422,8 +5422,8 @@ impl ::core::clone::Clone for D3DKMDT_GDISURFACEFLAGS_0 {
 pub struct D3DKMDT_GDISURFACEFLAGS_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for D3DKMDT_GDISURFACEFLAGS_0_0 {}
-impl ::core::clone::Clone for D3DKMDT_GDISURFACEFLAGS_0_0 {
+impl Copy for D3DKMDT_GDISURFACEFLAGS_0_0 {}
+impl Clone for D3DKMDT_GDISURFACEFLAGS_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -5437,8 +5437,8 @@ pub struct D3DKMDT_GRAPHICS_RENDERING_FORMAT {
     pub ColorBasis: D3DKMDT_COLOR_BASIS,
     pub PixelValueAccessMode: D3DKMDT_PIXEL_VALUE_ACCESS_MODE,
 }
-impl ::core::marker::Copy for D3DKMDT_GRAPHICS_RENDERING_FORMAT {}
-impl ::core::clone::Clone for D3DKMDT_GRAPHICS_RENDERING_FORMAT {
+impl Copy for D3DKMDT_GRAPHICS_RENDERING_FORMAT {}
+impl Clone for D3DKMDT_GRAPHICS_RENDERING_FORMAT {
     fn clone(&self) -> Self {
         *self
     }
@@ -5448,11 +5448,11 @@ pub struct D3DKMDT_MONITOR_DESCRIPTOR {
     pub Id: u32,
     pub Type: D3DKMDT_MONITOR_DESCRIPTOR_TYPE,
     pub DataSize: usize,
-    pub pData: *mut ::core::ffi::c_void,
+    pub pData: *mut core::ffi::c_void,
     pub Origin: D3DKMDT_MONITOR_CAPABILITIES_ORIGIN,
 }
-impl ::core::marker::Copy for D3DKMDT_MONITOR_DESCRIPTOR {}
-impl ::core::clone::Clone for D3DKMDT_MONITOR_DESCRIPTOR {
+impl Copy for D3DKMDT_MONITOR_DESCRIPTOR {}
+impl Clone for D3DKMDT_MONITOR_DESCRIPTOR {
     fn clone(&self) -> Self {
         *self
     }
@@ -5464,8 +5464,8 @@ pub struct D3DKMDT_MONITOR_FREQUENCY_RANGE {
     pub ConstraintType: D3DKMDT_MONITOR_FREQUENCY_RANGE_CONSTRAINT,
     pub Constraint: D3DKMDT_MONITOR_FREQUENCY_RANGE_0,
 }
-impl ::core::marker::Copy for D3DKMDT_MONITOR_FREQUENCY_RANGE {}
-impl ::core::clone::Clone for D3DKMDT_MONITOR_FREQUENCY_RANGE {
+impl Copy for D3DKMDT_MONITOR_FREQUENCY_RANGE {}
+impl Clone for D3DKMDT_MONITOR_FREQUENCY_RANGE {
     fn clone(&self) -> Self {
         *self
     }
@@ -5475,8 +5475,8 @@ pub union D3DKMDT_MONITOR_FREQUENCY_RANGE_0 {
     pub ActiveSize: D3DKMDT_2DREGION,
     pub MaxPixelRate: usize,
 }
-impl ::core::marker::Copy for D3DKMDT_MONITOR_FREQUENCY_RANGE_0 {}
-impl ::core::clone::Clone for D3DKMDT_MONITOR_FREQUENCY_RANGE_0 {
+impl Copy for D3DKMDT_MONITOR_FREQUENCY_RANGE_0 {}
+impl Clone for D3DKMDT_MONITOR_FREQUENCY_RANGE_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -5490,8 +5490,8 @@ pub struct D3DKMDT_MONITOR_SOURCE_MODE {
     pub Origin: D3DKMDT_MONITOR_CAPABILITIES_ORIGIN,
     pub Preference: D3DKMDT_MODE_PREFERENCE,
 }
-impl ::core::marker::Copy for D3DKMDT_MONITOR_SOURCE_MODE {}
-impl ::core::clone::Clone for D3DKMDT_MONITOR_SOURCE_MODE {
+impl Copy for D3DKMDT_MONITOR_SOURCE_MODE {}
+impl Clone for D3DKMDT_MONITOR_SOURCE_MODE {
     fn clone(&self) -> Self {
         *self
     }
@@ -5503,8 +5503,8 @@ pub struct D3DKMDT_PALETTEDATA {
     pub Blue: u8,
     pub Unused: u8,
 }
-impl ::core::marker::Copy for D3DKMDT_PALETTEDATA {}
-impl ::core::clone::Clone for D3DKMDT_PALETTEDATA {
+impl Copy for D3DKMDT_PALETTEDATA {}
+impl Clone for D3DKMDT_PALETTEDATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -5514,8 +5514,8 @@ pub struct D3DKMDT_PREEMPTION_CAPS {
     pub GraphicsPreemptionGranularity: D3DKMDT_GRAPHICS_PREEMPTION_GRANULARITY,
     pub ComputePreemptionGranularity: D3DKMDT_COMPUTE_PREEMPTION_GRANULARITY,
 }
-impl ::core::marker::Copy for D3DKMDT_PREEMPTION_CAPS {}
-impl ::core::clone::Clone for D3DKMDT_PREEMPTION_CAPS {
+impl Copy for D3DKMDT_PREEMPTION_CAPS {}
+impl Clone for D3DKMDT_PREEMPTION_CAPS {
     fn clone(&self) -> Self {
         *self
     }
@@ -5527,8 +5527,8 @@ pub struct D3DKMDT_SHADOWSURFACEDATA {
     pub Format: D3DDDIFORMAT,
     pub Pitch: u32,
 }
-impl ::core::marker::Copy for D3DKMDT_SHADOWSURFACEDATA {}
-impl ::core::clone::Clone for D3DKMDT_SHADOWSURFACEDATA {
+impl Copy for D3DKMDT_SHADOWSURFACEDATA {}
+impl Clone for D3DKMDT_SHADOWSURFACEDATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -5541,8 +5541,8 @@ pub struct D3DKMDT_SHAREDPRIMARYSURFACEDATA {
     pub RefreshRate: D3DDDI_RATIONAL,
     pub VidPnSourceId: u32,
 }
-impl ::core::marker::Copy for D3DKMDT_SHAREDPRIMARYSURFACEDATA {}
-impl ::core::clone::Clone for D3DKMDT_SHAREDPRIMARYSURFACEDATA {
+impl Copy for D3DKMDT_SHAREDPRIMARYSURFACEDATA {}
+impl Clone for D3DKMDT_SHAREDPRIMARYSURFACEDATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -5553,8 +5553,8 @@ pub struct D3DKMDT_STAGINGSURFACEDATA {
     pub Height: u32,
     pub Pitch: u32,
 }
-impl ::core::marker::Copy for D3DKMDT_STAGINGSURFACEDATA {}
-impl ::core::clone::Clone for D3DKMDT_STAGINGSURFACEDATA {
+impl Copy for D3DKMDT_STAGINGSURFACEDATA {}
+impl Clone for D3DKMDT_STAGINGSURFACEDATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -5564,8 +5564,8 @@ pub struct D3DKMDT_VIDEO_PRESENT_SOURCE {
     pub Id: u32,
     pub dwReserved: u32,
 }
-impl ::core::marker::Copy for D3DKMDT_VIDEO_PRESENT_SOURCE {}
-impl ::core::clone::Clone for D3DKMDT_VIDEO_PRESENT_SOURCE {
+impl Copy for D3DKMDT_VIDEO_PRESENT_SOURCE {}
+impl Clone for D3DKMDT_VIDEO_PRESENT_SOURCE {
     fn clone(&self) -> Self {
         *self
     }
@@ -5578,8 +5578,8 @@ pub struct D3DKMDT_VIDEO_PRESENT_TARGET {
     pub MonitorOrientationAwareness: D3DKMDT_MONITOR_ORIENTATION_AWARENESS,
     pub SupportsSdtvModes: super::super::super::Win32::Foundation::BOOLEAN,
 }
-impl ::core::marker::Copy for D3DKMDT_VIDEO_PRESENT_TARGET {}
-impl ::core::clone::Clone for D3DKMDT_VIDEO_PRESENT_TARGET {
+impl Copy for D3DKMDT_VIDEO_PRESENT_TARGET {}
+impl Clone for D3DKMDT_VIDEO_PRESENT_TARGET {
     fn clone(&self) -> Self {
         *self
     }
@@ -5594,8 +5594,8 @@ pub struct D3DKMDT_VIDEO_SIGNAL_INFO {
     pub PixelRate: usize,
     pub Anonymous: D3DKMDT_VIDEO_SIGNAL_INFO_0,
 }
-impl ::core::marker::Copy for D3DKMDT_VIDEO_SIGNAL_INFO {}
-impl ::core::clone::Clone for D3DKMDT_VIDEO_SIGNAL_INFO {
+impl Copy for D3DKMDT_VIDEO_SIGNAL_INFO {}
+impl Clone for D3DKMDT_VIDEO_SIGNAL_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -5605,8 +5605,8 @@ pub union D3DKMDT_VIDEO_SIGNAL_INFO_0 {
     pub AdditionalSignalInfo: D3DKMDT_VIDEO_SIGNAL_INFO_0_0,
     pub ScanLineOrdering: D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING,
 }
-impl ::core::marker::Copy for D3DKMDT_VIDEO_SIGNAL_INFO_0 {}
-impl ::core::clone::Clone for D3DKMDT_VIDEO_SIGNAL_INFO_0 {
+impl Copy for D3DKMDT_VIDEO_SIGNAL_INFO_0 {}
+impl Clone for D3DKMDT_VIDEO_SIGNAL_INFO_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -5615,8 +5615,8 @@ impl ::core::clone::Clone for D3DKMDT_VIDEO_SIGNAL_INFO_0 {
 pub struct D3DKMDT_VIDEO_SIGNAL_INFO_0_0 {
     pub _bitfield: i32,
 }
-impl ::core::marker::Copy for D3DKMDT_VIDEO_SIGNAL_INFO_0_0 {}
-impl ::core::clone::Clone for D3DKMDT_VIDEO_SIGNAL_INFO_0_0 {
+impl Copy for D3DKMDT_VIDEO_SIGNAL_INFO_0_0 {}
+impl Clone for D3DKMDT_VIDEO_SIGNAL_INFO_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -5625,8 +5625,8 @@ impl ::core::clone::Clone for D3DKMDT_VIDEO_SIGNAL_INFO_0_0 {
 pub struct D3DKMDT_VIDPN_HW_CAPABILITY {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for D3DKMDT_VIDPN_HW_CAPABILITY {}
-impl ::core::clone::Clone for D3DKMDT_VIDPN_HW_CAPABILITY {
+impl Copy for D3DKMDT_VIDPN_HW_CAPABILITY {}
+impl Clone for D3DKMDT_VIDPN_HW_CAPABILITY {
     fn clone(&self) -> Self {
         *self
     }
@@ -5645,8 +5645,8 @@ pub struct D3DKMDT_VIDPN_PRESENT_PATH {
     pub CopyProtection: D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION,
     pub GammaRamp: D3DKMDT_GAMMA_RAMP,
 }
-impl ::core::marker::Copy for D3DKMDT_VIDPN_PRESENT_PATH {}
-impl ::core::clone::Clone for D3DKMDT_VIDPN_PRESENT_PATH {
+impl Copy for D3DKMDT_VIDPN_PRESENT_PATH {}
+impl Clone for D3DKMDT_VIDPN_PRESENT_PATH {
     fn clone(&self) -> Self {
         *self
     }
@@ -5658,8 +5658,8 @@ pub struct D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION {
     pub OEMCopyProtection: [u8; 256],
     pub CopyProtectionSupport: D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_SUPPORT,
 }
-impl ::core::marker::Copy for D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION {}
-impl ::core::clone::Clone for D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION {
+impl Copy for D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION {}
+impl Clone for D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION {
     fn clone(&self) -> Self {
         *self
     }
@@ -5668,8 +5668,8 @@ impl ::core::clone::Clone for D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION {
 pub struct D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_SUPPORT {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_SUPPORT {}
-impl ::core::clone::Clone for D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_SUPPORT {
+impl Copy for D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_SUPPORT {}
+impl Clone for D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_SUPPORT {
     fn clone(&self) -> Self {
         *self
     }
@@ -5678,8 +5678,8 @@ impl ::core::clone::Clone for D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_SUPPORT 
 pub struct D3DKMDT_VIDPN_PRESENT_PATH_ROTATION_SUPPORT {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for D3DKMDT_VIDPN_PRESENT_PATH_ROTATION_SUPPORT {}
-impl ::core::clone::Clone for D3DKMDT_VIDPN_PRESENT_PATH_ROTATION_SUPPORT {
+impl Copy for D3DKMDT_VIDPN_PRESENT_PATH_ROTATION_SUPPORT {}
+impl Clone for D3DKMDT_VIDPN_PRESENT_PATH_ROTATION_SUPPORT {
     fn clone(&self) -> Self {
         *self
     }
@@ -5688,8 +5688,8 @@ impl ::core::clone::Clone for D3DKMDT_VIDPN_PRESENT_PATH_ROTATION_SUPPORT {
 pub struct D3DKMDT_VIDPN_PRESENT_PATH_SCALING_SUPPORT {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for D3DKMDT_VIDPN_PRESENT_PATH_SCALING_SUPPORT {}
-impl ::core::clone::Clone for D3DKMDT_VIDPN_PRESENT_PATH_SCALING_SUPPORT {
+impl Copy for D3DKMDT_VIDPN_PRESENT_PATH_SCALING_SUPPORT {}
+impl Clone for D3DKMDT_VIDPN_PRESENT_PATH_SCALING_SUPPORT {
     fn clone(&self) -> Self {
         *self
     }
@@ -5701,8 +5701,8 @@ pub struct D3DKMDT_VIDPN_PRESENT_PATH_TRANSFORMATION {
     pub Rotation: D3DKMDT_VIDPN_PRESENT_PATH_ROTATION,
     pub RotationSupport: D3DKMDT_VIDPN_PRESENT_PATH_ROTATION_SUPPORT,
 }
-impl ::core::marker::Copy for D3DKMDT_VIDPN_PRESENT_PATH_TRANSFORMATION {}
-impl ::core::clone::Clone for D3DKMDT_VIDPN_PRESENT_PATH_TRANSFORMATION {
+impl Copy for D3DKMDT_VIDPN_PRESENT_PATH_TRANSFORMATION {}
+impl Clone for D3DKMDT_VIDPN_PRESENT_PATH_TRANSFORMATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -5713,8 +5713,8 @@ pub struct D3DKMDT_VIDPN_SOURCE_MODE {
     pub Type: D3DKMDT_VIDPN_SOURCE_MODE_TYPE,
     pub Format: D3DKMDT_VIDPN_SOURCE_MODE_0,
 }
-impl ::core::marker::Copy for D3DKMDT_VIDPN_SOURCE_MODE {}
-impl ::core::clone::Clone for D3DKMDT_VIDPN_SOURCE_MODE {
+impl Copy for D3DKMDT_VIDPN_SOURCE_MODE {}
+impl Clone for D3DKMDT_VIDPN_SOURCE_MODE {
     fn clone(&self) -> Self {
         *self
     }
@@ -5724,8 +5724,8 @@ pub union D3DKMDT_VIDPN_SOURCE_MODE_0 {
     pub Graphics: D3DKMDT_GRAPHICS_RENDERING_FORMAT,
     pub Text: D3DKMDT_TEXT_RENDERING_FORMAT,
 }
-impl ::core::marker::Copy for D3DKMDT_VIDPN_SOURCE_MODE_0 {}
-impl ::core::clone::Clone for D3DKMDT_VIDPN_SOURCE_MODE_0 {
+impl Copy for D3DKMDT_VIDPN_SOURCE_MODE_0 {}
+impl Clone for D3DKMDT_VIDPN_SOURCE_MODE_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -5737,8 +5737,8 @@ pub struct D3DKMDT_VIDPN_TARGET_MODE {
     pub Anonymous: D3DKMDT_VIDPN_TARGET_MODE_0,
     pub MinimumVSyncFreq: D3DDDI_RATIONAL,
 }
-impl ::core::marker::Copy for D3DKMDT_VIDPN_TARGET_MODE {}
-impl ::core::clone::Clone for D3DKMDT_VIDPN_TARGET_MODE {
+impl Copy for D3DKMDT_VIDPN_TARGET_MODE {}
+impl Clone for D3DKMDT_VIDPN_TARGET_MODE {
     fn clone(&self) -> Self {
         *self
     }
@@ -5748,8 +5748,8 @@ pub union D3DKMDT_VIDPN_TARGET_MODE_0 {
     pub WireFormatAndPreference: D3DKMDT_WIRE_FORMAT_AND_PREFERENCE,
     pub Anonymous: D3DKMDT_VIDPN_TARGET_MODE_0_0,
 }
-impl ::core::marker::Copy for D3DKMDT_VIDPN_TARGET_MODE_0 {}
-impl ::core::clone::Clone for D3DKMDT_VIDPN_TARGET_MODE_0 {
+impl Copy for D3DKMDT_VIDPN_TARGET_MODE_0 {}
+impl Clone for D3DKMDT_VIDPN_TARGET_MODE_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -5758,8 +5758,8 @@ impl ::core::clone::Clone for D3DKMDT_VIDPN_TARGET_MODE_0 {
 pub struct D3DKMDT_VIDPN_TARGET_MODE_0_0 {
     pub _bitfield: i32,
 }
-impl ::core::marker::Copy for D3DKMDT_VIDPN_TARGET_MODE_0_0 {}
-impl ::core::clone::Clone for D3DKMDT_VIDPN_TARGET_MODE_0_0 {
+impl Copy for D3DKMDT_VIDPN_TARGET_MODE_0_0 {}
+impl Clone for D3DKMDT_VIDPN_TARGET_MODE_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -5771,8 +5771,8 @@ pub struct D3DKMDT_VIRTUALGPUSURFACEDATA {
     pub DriverSegmentId: u32,
     pub PrivateDriverData: u32,
 }
-impl ::core::marker::Copy for D3DKMDT_VIRTUALGPUSURFACEDATA {}
-impl ::core::clone::Clone for D3DKMDT_VIRTUALGPUSURFACEDATA {
+impl Copy for D3DKMDT_VIRTUALGPUSURFACEDATA {}
+impl Clone for D3DKMDT_VIRTUALGPUSURFACEDATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -5782,8 +5782,8 @@ pub union D3DKMDT_WIRE_FORMAT_AND_PREFERENCE {
     pub Anonymous: D3DKMDT_WIRE_FORMAT_AND_PREFERENCE_0,
     pub Value: u32,
 }
-impl ::core::marker::Copy for D3DKMDT_WIRE_FORMAT_AND_PREFERENCE {}
-impl ::core::clone::Clone for D3DKMDT_WIRE_FORMAT_AND_PREFERENCE {
+impl Copy for D3DKMDT_WIRE_FORMAT_AND_PREFERENCE {}
+impl Clone for D3DKMDT_WIRE_FORMAT_AND_PREFERENCE {
     fn clone(&self) -> Self {
         *self
     }
@@ -5792,8 +5792,8 @@ impl ::core::clone::Clone for D3DKMDT_WIRE_FORMAT_AND_PREFERENCE {
 pub struct D3DKMDT_WIRE_FORMAT_AND_PREFERENCE_0 {
     pub _bitfield: i32,
 }
-impl ::core::marker::Copy for D3DKMDT_WIRE_FORMAT_AND_PREFERENCE_0 {}
-impl ::core::clone::Clone for D3DKMDT_WIRE_FORMAT_AND_PREFERENCE_0 {
+impl Copy for D3DKMDT_WIRE_FORMAT_AND_PREFERENCE_0 {}
+impl Clone for D3DKMDT_WIRE_FORMAT_AND_PREFERENCE_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -5805,8 +5805,8 @@ pub struct D3DKMT_ACQUIREKEYEDMUTEX {
     pub pTimeout: *mut i64,
     pub FenceValue: u64,
 }
-impl ::core::marker::Copy for D3DKMT_ACQUIREKEYEDMUTEX {}
-impl ::core::clone::Clone for D3DKMT_ACQUIREKEYEDMUTEX {
+impl Copy for D3DKMT_ACQUIREKEYEDMUTEX {}
+impl Clone for D3DKMT_ACQUIREKEYEDMUTEX {
     fn clone(&self) -> Self {
         *self
     }
@@ -5817,11 +5817,11 @@ pub struct D3DKMT_ACQUIREKEYEDMUTEX2 {
     pub Key: u64,
     pub pTimeout: *mut i64,
     pub FenceValue: u64,
-    pub pPrivateRuntimeData: *mut ::core::ffi::c_void,
+    pub pPrivateRuntimeData: *mut core::ffi::c_void,
     pub PrivateRuntimeDataSize: u32,
 }
-impl ::core::marker::Copy for D3DKMT_ACQUIREKEYEDMUTEX2 {}
-impl ::core::clone::Clone for D3DKMT_ACQUIREKEYEDMUTEX2 {
+impl Copy for D3DKMT_ACQUIREKEYEDMUTEX2 {}
+impl Clone for D3DKMT_ACQUIREKEYEDMUTEX2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -5831,8 +5831,8 @@ pub struct D3DKMT_ACTIVATE_SPECIFIC_DIAG_ESCAPE {
     pub Type: D3DKMT_ACTIVATE_SPECIFIC_DIAG_TYPE,
     pub Activate: super::super::super::Win32::Foundation::BOOL,
 }
-impl ::core::marker::Copy for D3DKMT_ACTIVATE_SPECIFIC_DIAG_ESCAPE {}
-impl ::core::clone::Clone for D3DKMT_ACTIVATE_SPECIFIC_DIAG_ESCAPE {
+impl Copy for D3DKMT_ACTIVATE_SPECIFIC_DIAG_ESCAPE {}
+impl Clone for D3DKMT_ACTIVATE_SPECIFIC_DIAG_ESCAPE {
     fn clone(&self) -> Self {
         *self
     }
@@ -5843,8 +5843,8 @@ pub struct D3DKMT_ADAPTERADDRESS {
     pub DeviceNumber: u32,
     pub FunctionNumber: u32,
 }
-impl ::core::marker::Copy for D3DKMT_ADAPTERADDRESS {}
-impl ::core::clone::Clone for D3DKMT_ADAPTERADDRESS {
+impl Copy for D3DKMT_ADAPTERADDRESS {}
+impl Clone for D3DKMT_ADAPTERADDRESS {
     fn clone(&self) -> Self {
         *self
     }
@@ -5856,8 +5856,8 @@ pub struct D3DKMT_ADAPTERINFO {
     pub NumOfSources: u32,
     pub bPrecisePresentRegionsPreferred: super::super::super::Win32::Foundation::BOOL,
 }
-impl ::core::marker::Copy for D3DKMT_ADAPTERINFO {}
-impl ::core::clone::Clone for D3DKMT_ADAPTERINFO {
+impl Copy for D3DKMT_ADAPTERINFO {}
+impl Clone for D3DKMT_ADAPTERINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -5869,8 +5869,8 @@ pub struct D3DKMT_ADAPTERREGISTRYINFO {
     pub DacType: [u16; 260],
     pub ChipType: [u16; 260],
 }
-impl ::core::marker::Copy for D3DKMT_ADAPTERREGISTRYINFO {}
-impl ::core::clone::Clone for D3DKMT_ADAPTERREGISTRYINFO {
+impl Copy for D3DKMT_ADAPTERREGISTRYINFO {}
+impl Clone for D3DKMT_ADAPTERREGISTRYINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -5879,8 +5879,8 @@ impl ::core::clone::Clone for D3DKMT_ADAPTERREGISTRYINFO {
 pub struct D3DKMT_ADAPTERTYPE {
     pub Anonymous: D3DKMT_ADAPTERTYPE_0,
 }
-impl ::core::marker::Copy for D3DKMT_ADAPTERTYPE {}
-impl ::core::clone::Clone for D3DKMT_ADAPTERTYPE {
+impl Copy for D3DKMT_ADAPTERTYPE {}
+impl Clone for D3DKMT_ADAPTERTYPE {
     fn clone(&self) -> Self {
         *self
     }
@@ -5890,8 +5890,8 @@ pub union D3DKMT_ADAPTERTYPE_0 {
     pub Anonymous: D3DKMT_ADAPTERTYPE_0_0,
     pub Value: u32,
 }
-impl ::core::marker::Copy for D3DKMT_ADAPTERTYPE_0 {}
-impl ::core::clone::Clone for D3DKMT_ADAPTERTYPE_0 {
+impl Copy for D3DKMT_ADAPTERTYPE_0 {}
+impl Clone for D3DKMT_ADAPTERTYPE_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -5900,8 +5900,8 @@ impl ::core::clone::Clone for D3DKMT_ADAPTERTYPE_0 {
 pub struct D3DKMT_ADAPTERTYPE_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for D3DKMT_ADAPTERTYPE_0_0 {}
-impl ::core::clone::Clone for D3DKMT_ADAPTERTYPE_0_0 {
+impl Copy for D3DKMT_ADAPTERTYPE_0_0 {}
+impl Clone for D3DKMT_ADAPTERTYPE_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -5919,8 +5919,8 @@ pub struct D3DKMT_ADAPTER_PERFDATA {
     pub Temperature: u32,
     pub PowerStateOverride: u8,
 }
-impl ::core::marker::Copy for D3DKMT_ADAPTER_PERFDATA {}
-impl ::core::clone::Clone for D3DKMT_ADAPTER_PERFDATA {
+impl Copy for D3DKMT_ADAPTER_PERFDATA {}
+impl Clone for D3DKMT_ADAPTER_PERFDATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -5934,8 +5934,8 @@ pub struct D3DKMT_ADAPTER_PERFDATACAPS {
     pub TemperatureMax: u32,
     pub TemperatureWarning: u32,
 }
-impl ::core::marker::Copy for D3DKMT_ADAPTER_PERFDATACAPS {}
-impl ::core::clone::Clone for D3DKMT_ADAPTER_PERFDATACAPS {
+impl Copy for D3DKMT_ADAPTER_PERFDATACAPS {}
+impl Clone for D3DKMT_ADAPTER_PERFDATACAPS {
     fn clone(&self) -> Self {
         *self
     }
@@ -5946,8 +5946,8 @@ pub struct D3DKMT_ADAPTER_VERIFIER_OPTION {
     pub Mode: D3DKMT_VERIFIER_OPTION_MODE,
     pub Data: D3DKMT_ADAPTER_VERIFIER_OPTION_DATA,
 }
-impl ::core::marker::Copy for D3DKMT_ADAPTER_VERIFIER_OPTION {}
-impl ::core::clone::Clone for D3DKMT_ADAPTER_VERIFIER_OPTION {
+impl Copy for D3DKMT_ADAPTER_VERIFIER_OPTION {}
+impl Clone for D3DKMT_ADAPTER_VERIFIER_OPTION {
     fn clone(&self) -> Self {
         *self
     }
@@ -5957,8 +5957,8 @@ pub union D3DKMT_ADAPTER_VERIFIER_OPTION_DATA {
     pub VidMmFlags: D3DKMT_ADAPTER_VERIFIER_VIDMM_FLAGS,
     pub VidMmTrimInterval: D3DKMT_ADAPTER_VERIFIER_VIDMM_TRIM_INTERVAL,
 }
-impl ::core::marker::Copy for D3DKMT_ADAPTER_VERIFIER_OPTION_DATA {}
-impl ::core::clone::Clone for D3DKMT_ADAPTER_VERIFIER_OPTION_DATA {
+impl Copy for D3DKMT_ADAPTER_VERIFIER_OPTION_DATA {}
+impl Clone for D3DKMT_ADAPTER_VERIFIER_OPTION_DATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -5968,8 +5968,8 @@ pub union D3DKMT_ADAPTER_VERIFIER_VIDMM_FLAGS {
     pub Anonymous: D3DKMT_ADAPTER_VERIFIER_VIDMM_FLAGS_0,
     pub Value: u32,
 }
-impl ::core::marker::Copy for D3DKMT_ADAPTER_VERIFIER_VIDMM_FLAGS {}
-impl ::core::clone::Clone for D3DKMT_ADAPTER_VERIFIER_VIDMM_FLAGS {
+impl Copy for D3DKMT_ADAPTER_VERIFIER_VIDMM_FLAGS {}
+impl Clone for D3DKMT_ADAPTER_VERIFIER_VIDMM_FLAGS {
     fn clone(&self) -> Self {
         *self
     }
@@ -5978,8 +5978,8 @@ impl ::core::clone::Clone for D3DKMT_ADAPTER_VERIFIER_VIDMM_FLAGS {
 pub struct D3DKMT_ADAPTER_VERIFIER_VIDMM_FLAGS_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for D3DKMT_ADAPTER_VERIFIER_VIDMM_FLAGS_0 {}
-impl ::core::clone::Clone for D3DKMT_ADAPTER_VERIFIER_VIDMM_FLAGS_0 {
+impl Copy for D3DKMT_ADAPTER_VERIFIER_VIDMM_FLAGS_0 {}
+impl Clone for D3DKMT_ADAPTER_VERIFIER_VIDMM_FLAGS_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -5990,8 +5990,8 @@ pub struct D3DKMT_ADAPTER_VERIFIER_VIDMM_TRIM_INTERVAL {
     pub MaximumTrimInterval: u64,
     pub IdleTrimInterval: u64,
 }
-impl ::core::marker::Copy for D3DKMT_ADAPTER_VERIFIER_VIDMM_TRIM_INTERVAL {}
-impl ::core::clone::Clone for D3DKMT_ADAPTER_VERIFIER_VIDMM_TRIM_INTERVAL {
+impl Copy for D3DKMT_ADAPTER_VERIFIER_VIDMM_TRIM_INTERVAL {}
+impl Clone for D3DKMT_ADAPTER_VERIFIER_VIDMM_TRIM_INTERVAL {
     fn clone(&self) -> Self {
         *self
     }
@@ -6003,8 +6003,8 @@ pub struct D3DKMT_ADJUSTFULLSCREENGAMMA {
     pub Scale: D3DDDI_DXGI_RGB,
     pub Offset: D3DDDI_DXGI_RGB,
 }
-impl ::core::marker::Copy for D3DKMT_ADJUSTFULLSCREENGAMMA {}
-impl ::core::clone::Clone for D3DKMT_ADJUSTFULLSCREENGAMMA {
+impl Copy for D3DKMT_ADJUSTFULLSCREENGAMMA {}
+impl Clone for D3DKMT_ADJUSTFULLSCREENGAMMA {
     fn clone(&self) -> Self {
         *self
     }
@@ -6014,8 +6014,8 @@ pub struct D3DKMT_AUXILIARYPRESENTINFO {
     pub size: u32,
     pub r#type: D3DKMT_AUXILIARYPRESENTINFO_TYPE,
 }
-impl ::core::marker::Copy for D3DKMT_AUXILIARYPRESENTINFO {}
-impl ::core::clone::Clone for D3DKMT_AUXILIARYPRESENTINFO {
+impl Copy for D3DKMT_AUXILIARYPRESENTINFO {}
+impl Clone for D3DKMT_AUXILIARYPRESENTINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -6024,8 +6024,8 @@ impl ::core::clone::Clone for D3DKMT_AUXILIARYPRESENTINFO {
 pub struct D3DKMT_BDDFALLBACK_CTL {
     pub ForceBddHeadlessNextFallback: super::super::super::Win32::Foundation::BOOLEAN,
 }
-impl ::core::marker::Copy for D3DKMT_BDDFALLBACK_CTL {}
-impl ::core::clone::Clone for D3DKMT_BDDFALLBACK_CTL {
+impl Copy for D3DKMT_BDDFALLBACK_CTL {}
+impl Clone for D3DKMT_BDDFALLBACK_CTL {
     fn clone(&self) -> Self {
         *self
     }
@@ -6035,8 +6035,8 @@ pub struct D3DKMT_BLOCKLIST_INFO {
     pub Size: u32,
     pub BlockList: [u16; 1],
 }
-impl ::core::marker::Copy for D3DKMT_BLOCKLIST_INFO {}
-impl ::core::clone::Clone for D3DKMT_BLOCKLIST_INFO {
+impl Copy for D3DKMT_BLOCKLIST_INFO {}
+impl Clone for D3DKMT_BLOCKLIST_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -6048,8 +6048,8 @@ pub struct D3DKMT_BLTMODEL_PRESENTHISTORYTOKEN {
     pub EventId: u64,
     pub DirtyRegions: D3DKMT_DIRTYREGIONS,
 }
-impl ::core::marker::Copy for D3DKMT_BLTMODEL_PRESENTHISTORYTOKEN {}
-impl ::core::clone::Clone for D3DKMT_BLTMODEL_PRESENTHISTORYTOKEN {
+impl Copy for D3DKMT_BLTMODEL_PRESENTHISTORYTOKEN {}
+impl Clone for D3DKMT_BLTMODEL_PRESENTHISTORYTOKEN {
     fn clone(&self) -> Self {
         *self
     }
@@ -6060,8 +6060,8 @@ pub struct D3DKMT_BRIGHTNESS_INFO {
     pub ChildUid: u32,
     pub Anonymous: D3DKMT_BRIGHTNESS_INFO_0,
 }
-impl ::core::marker::Copy for D3DKMT_BRIGHTNESS_INFO {}
-impl ::core::clone::Clone for D3DKMT_BRIGHTNESS_INFO {
+impl Copy for D3DKMT_BRIGHTNESS_INFO {}
+impl Clone for D3DKMT_BRIGHTNESS_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -6079,8 +6079,8 @@ pub union D3DKMT_BRIGHTNESS_INFO_0 {
     pub GetBrightnessMillinits: DXGK_BRIGHTNESS_GET_OUT,
     pub SetBrightnessMillinits: DXGK_BRIGHTNESS_SET_IN,
 }
-impl ::core::marker::Copy for D3DKMT_BRIGHTNESS_INFO_0 {}
-impl ::core::clone::Clone for D3DKMT_BRIGHTNESS_INFO_0 {
+impl Copy for D3DKMT_BRIGHTNESS_INFO_0 {}
+impl Clone for D3DKMT_BRIGHTNESS_INFO_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -6090,19 +6090,19 @@ pub struct D3DKMT_BRIGHTNESS_POSSIBLE_LEVELS {
     pub LevelCount: u8,
     pub BrightnessLevels: [u8; 256],
 }
-impl ::core::marker::Copy for D3DKMT_BRIGHTNESS_POSSIBLE_LEVELS {}
-impl ::core::clone::Clone for D3DKMT_BRIGHTNESS_POSSIBLE_LEVELS {
+impl Copy for D3DKMT_BRIGHTNESS_POSSIBLE_LEVELS {}
+impl Clone for D3DKMT_BRIGHTNESS_POSSIBLE_LEVELS {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct D3DKMT_BUDGETCHANGENOTIFICATION {
-    pub Context: *mut ::core::ffi::c_void,
+    pub Context: *mut core::ffi::c_void,
     pub Budget: u64,
 }
-impl ::core::marker::Copy for D3DKMT_BUDGETCHANGENOTIFICATION {}
-impl ::core::clone::Clone for D3DKMT_BUDGETCHANGENOTIFICATION {
+impl Copy for D3DKMT_BUDGETCHANGENOTIFICATION {}
+impl Clone for D3DKMT_BUDGETCHANGENOTIFICATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -6117,8 +6117,8 @@ pub struct D3DKMT_CANCEL_PRESENTS {
     pub CompSurfaceLuid: super::super::super::Win32::Foundation::LUID,
     pub BindId: u64,
 }
-impl ::core::marker::Copy for D3DKMT_CANCEL_PRESENTS {}
-impl ::core::clone::Clone for D3DKMT_CANCEL_PRESENTS {
+impl Copy for D3DKMT_CANCEL_PRESENTS {}
+impl Clone for D3DKMT_CANCEL_PRESENTS {
     fn clone(&self) -> Self {
         *self
     }
@@ -6127,8 +6127,8 @@ impl ::core::clone::Clone for D3DKMT_CANCEL_PRESENTS {
 pub struct D3DKMT_CANCEL_PRESENTS_FLAGS {
     pub Anonymous: D3DKMT_CANCEL_PRESENTS_FLAGS_0,
 }
-impl ::core::marker::Copy for D3DKMT_CANCEL_PRESENTS_FLAGS {}
-impl ::core::clone::Clone for D3DKMT_CANCEL_PRESENTS_FLAGS {
+impl Copy for D3DKMT_CANCEL_PRESENTS_FLAGS {}
+impl Clone for D3DKMT_CANCEL_PRESENTS_FLAGS {
     fn clone(&self) -> Self {
         *self
     }
@@ -6138,8 +6138,8 @@ pub union D3DKMT_CANCEL_PRESENTS_FLAGS_0 {
     pub ReprogramInterrupt: D3DKMT_CANCEL_PRESENTS_FLAGS_0_0,
     pub Value: u32,
 }
-impl ::core::marker::Copy for D3DKMT_CANCEL_PRESENTS_FLAGS_0 {}
-impl ::core::clone::Clone for D3DKMT_CANCEL_PRESENTS_FLAGS_0 {
+impl Copy for D3DKMT_CANCEL_PRESENTS_FLAGS_0 {}
+impl Clone for D3DKMT_CANCEL_PRESENTS_FLAGS_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -6148,8 +6148,8 @@ impl ::core::clone::Clone for D3DKMT_CANCEL_PRESENTS_FLAGS_0 {
 pub struct D3DKMT_CANCEL_PRESENTS_FLAGS_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for D3DKMT_CANCEL_PRESENTS_FLAGS_0_0 {}
-impl ::core::clone::Clone for D3DKMT_CANCEL_PRESENTS_FLAGS_0_0 {
+impl Copy for D3DKMT_CANCEL_PRESENTS_FLAGS_0_0 {}
+impl Clone for D3DKMT_CANCEL_PRESENTS_FLAGS_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -6159,15 +6159,15 @@ impl ::core::clone::Clone for D3DKMT_CANCEL_PRESENTS_FLAGS_0_0 {
 pub struct D3DKMT_CHANGESURFACEPOINTER {
     pub hDC: super::super::super::Win32::Graphics::Gdi::HDC,
     pub hBitmap: super::super::super::Win32::Foundation::HANDLE,
-    pub pSurfacePointer: *mut ::core::ffi::c_void,
+    pub pSurfacePointer: *mut core::ffi::c_void,
     pub Width: u32,
     pub Height: u32,
     pub Pitch: u32,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::marker::Copy for D3DKMT_CHANGESURFACEPOINTER {}
+impl Copy for D3DKMT_CHANGESURFACEPOINTER {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::clone::Clone for D3DKMT_CHANGESURFACEPOINTER {
+impl Clone for D3DKMT_CHANGESURFACEPOINTER {
     fn clone(&self) -> Self {
         *self
     }
@@ -6180,8 +6180,8 @@ pub struct D3DKMT_CHANGEVIDEOMEMORYRESERVATION {
     pub Reservation: u64,
     pub PhysicalAdapterIndex: u32,
 }
-impl ::core::marker::Copy for D3DKMT_CHANGEVIDEOMEMORYRESERVATION {}
-impl ::core::clone::Clone for D3DKMT_CHANGEVIDEOMEMORYRESERVATION {
+impl Copy for D3DKMT_CHANGEVIDEOMEMORYRESERVATION {}
+impl Clone for D3DKMT_CHANGEVIDEOMEMORYRESERVATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -6191,8 +6191,8 @@ pub struct D3DKMT_CHECKMONITORPOWERSTATE {
     pub hAdapter: u32,
     pub VidPnSourceId: u32,
 }
-impl ::core::marker::Copy for D3DKMT_CHECKMONITORPOWERSTATE {}
-impl ::core::clone::Clone for D3DKMT_CHECKMONITORPOWERSTATE {
+impl Copy for D3DKMT_CHECKMONITORPOWERSTATE {}
+impl Clone for D3DKMT_CHECKMONITORPOWERSTATE {
     fn clone(&self) -> Self {
         *self
     }
@@ -6205,8 +6205,8 @@ pub struct D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT {
     pub Supported: super::super::super::Win32::Foundation::BOOL,
     pub ReturnInfo: D3DKMT_CHECK_MULTIPLANE_OVERLAY_SUPPORT_RETURN_INFO,
 }
-impl ::core::marker::Copy for D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT {}
-impl ::core::clone::Clone for D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT {
+impl Copy for D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT {}
+impl Clone for D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT {
     fn clone(&self) -> Self {
         *self
     }
@@ -6220,8 +6220,8 @@ pub struct D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT2 {
     pub Supported: super::super::super::Win32::Foundation::BOOL,
     pub ReturnInfo: D3DKMT_CHECK_MULTIPLANE_OVERLAY_SUPPORT_RETURN_INFO,
 }
-impl ::core::marker::Copy for D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT2 {}
-impl ::core::clone::Clone for D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT2 {
+impl Copy for D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT2 {}
+impl Clone for D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -6237,8 +6237,8 @@ pub struct D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT3 {
     pub Supported: super::super::super::Win32::Foundation::BOOL,
     pub ReturnInfo: D3DKMT_CHECK_MULTIPLANE_OVERLAY_SUPPORT_RETURN_INFO,
 }
-impl ::core::marker::Copy for D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT3 {}
-impl ::core::clone::Clone for D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT3 {
+impl Copy for D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT3 {}
+impl Clone for D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT3 {
     fn clone(&self) -> Self {
         *self
     }
@@ -6247,8 +6247,8 @@ impl ::core::clone::Clone for D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT3 {
 pub struct D3DKMT_CHECKOCCLUSION {
     pub hWindow: super::super::super::Win32::Foundation::HWND,
 }
-impl ::core::marker::Copy for D3DKMT_CHECKOCCLUSION {}
-impl ::core::clone::Clone for D3DKMT_CHECKOCCLUSION {
+impl Copy for D3DKMT_CHECKOCCLUSION {}
+impl Clone for D3DKMT_CHECKOCCLUSION {
     fn clone(&self) -> Self {
         *self
     }
@@ -6258,8 +6258,8 @@ pub struct D3DKMT_CHECKSHAREDRESOURCEACCESS {
     pub hResource: u32,
     pub ClientPid: u32,
 }
-impl ::core::marker::Copy for D3DKMT_CHECKSHAREDRESOURCEACCESS {}
-impl ::core::clone::Clone for D3DKMT_CHECKSHAREDRESOURCEACCESS {
+impl Copy for D3DKMT_CHECKSHAREDRESOURCEACCESS {}
+impl Clone for D3DKMT_CHECKSHAREDRESOURCEACCESS {
     fn clone(&self) -> Self {
         *self
     }
@@ -6269,8 +6269,8 @@ pub struct D3DKMT_CHECKVIDPNEXCLUSIVEOWNERSHIP {
     pub hAdapter: u32,
     pub VidPnSourceId: u32,
 }
-impl ::core::marker::Copy for D3DKMT_CHECKVIDPNEXCLUSIVEOWNERSHIP {}
-impl ::core::clone::Clone for D3DKMT_CHECKVIDPNEXCLUSIVEOWNERSHIP {
+impl Copy for D3DKMT_CHECKVIDPNEXCLUSIVEOWNERSHIP {}
+impl Clone for D3DKMT_CHECKVIDPNEXCLUSIVEOWNERSHIP {
     fn clone(&self) -> Self {
         *self
     }
@@ -6282,8 +6282,8 @@ pub struct D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE {
     pub VidPnSourceId: u32,
     pub PlaneAttributes: D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES,
 }
-impl ::core::marker::Copy for D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE {}
-impl ::core::clone::Clone for D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE {
+impl Copy for D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE {}
+impl Clone for D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE {
     fn clone(&self) -> Self {
         *self
     }
@@ -6296,8 +6296,8 @@ pub struct D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE2 {
     pub VidPnSourceId: u32,
     pub PlaneAttributes: D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES2,
 }
-impl ::core::marker::Copy for D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE2 {}
-impl ::core::clone::Clone for D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE2 {
+impl Copy for D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE2 {}
+impl Clone for D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -6310,8 +6310,8 @@ pub struct D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3 {
     pub VidPnSourceId: u32,
     pub pPlaneAttributes: *mut D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES3,
 }
-impl ::core::marker::Copy for D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3 {}
-impl ::core::clone::Clone for D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3 {
+impl Copy for D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3 {}
+impl Clone for D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3 {
     fn clone(&self) -> Self {
         *self
     }
@@ -6320,8 +6320,8 @@ impl ::core::clone::Clone for D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3 {
 pub struct D3DKMT_CHECK_MULTIPLANE_OVERLAY_SUPPORT_RETURN_INFO {
     pub Anonymous: D3DKMT_CHECK_MULTIPLANE_OVERLAY_SUPPORT_RETURN_INFO_0,
 }
-impl ::core::marker::Copy for D3DKMT_CHECK_MULTIPLANE_OVERLAY_SUPPORT_RETURN_INFO {}
-impl ::core::clone::Clone for D3DKMT_CHECK_MULTIPLANE_OVERLAY_SUPPORT_RETURN_INFO {
+impl Copy for D3DKMT_CHECK_MULTIPLANE_OVERLAY_SUPPORT_RETURN_INFO {}
+impl Clone for D3DKMT_CHECK_MULTIPLANE_OVERLAY_SUPPORT_RETURN_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -6331,8 +6331,8 @@ pub union D3DKMT_CHECK_MULTIPLANE_OVERLAY_SUPPORT_RETURN_INFO_0 {
     pub Anonymous: D3DKMT_CHECK_MULTIPLANE_OVERLAY_SUPPORT_RETURN_INFO_0_0,
     pub Value: u32,
 }
-impl ::core::marker::Copy for D3DKMT_CHECK_MULTIPLANE_OVERLAY_SUPPORT_RETURN_INFO_0 {}
-impl ::core::clone::Clone for D3DKMT_CHECK_MULTIPLANE_OVERLAY_SUPPORT_RETURN_INFO_0 {
+impl Copy for D3DKMT_CHECK_MULTIPLANE_OVERLAY_SUPPORT_RETURN_INFO_0 {}
+impl Clone for D3DKMT_CHECK_MULTIPLANE_OVERLAY_SUPPORT_RETURN_INFO_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -6341,8 +6341,8 @@ impl ::core::clone::Clone for D3DKMT_CHECK_MULTIPLANE_OVERLAY_SUPPORT_RETURN_INF
 pub struct D3DKMT_CHECK_MULTIPLANE_OVERLAY_SUPPORT_RETURN_INFO_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for D3DKMT_CHECK_MULTIPLANE_OVERLAY_SUPPORT_RETURN_INFO_0_0 {}
-impl ::core::clone::Clone for D3DKMT_CHECK_MULTIPLANE_OVERLAY_SUPPORT_RETURN_INFO_0_0 {
+impl Copy for D3DKMT_CHECK_MULTIPLANE_OVERLAY_SUPPORT_RETURN_INFO_0_0 {}
+impl Clone for D3DKMT_CHECK_MULTIPLANE_OVERLAY_SUPPORT_RETURN_INFO_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -6351,8 +6351,8 @@ impl ::core::clone::Clone for D3DKMT_CHECK_MULTIPLANE_OVERLAY_SUPPORT_RETURN_INF
 pub struct D3DKMT_CLOSEADAPTER {
     pub hAdapter: u32,
 }
-impl ::core::marker::Copy for D3DKMT_CLOSEADAPTER {}
-impl ::core::clone::Clone for D3DKMT_CLOSEADAPTER {
+impl Copy for D3DKMT_CLOSEADAPTER {}
+impl Clone for D3DKMT_CLOSEADAPTER {
     fn clone(&self) -> Self {
         *self
     }
@@ -6361,8 +6361,8 @@ impl ::core::clone::Clone for D3DKMT_CLOSEADAPTER {
 pub struct D3DKMT_COMPOSITION_PRESENTHISTORYTOKEN {
     pub hPrivateData: u64,
 }
-impl ::core::marker::Copy for D3DKMT_COMPOSITION_PRESENTHISTORYTOKEN {}
-impl ::core::clone::Clone for D3DKMT_COMPOSITION_PRESENTHISTORYTOKEN {
+impl Copy for D3DKMT_COMPOSITION_PRESENTHISTORYTOKEN {}
+impl Clone for D3DKMT_COMPOSITION_PRESENTHISTORYTOKEN {
     fn clone(&self) -> Self {
         *self
     }
@@ -6375,8 +6375,8 @@ pub struct D3DKMT_CONFIGURESHAREDRESOURCE {
     pub hProcess: super::super::super::Win32::Foundation::HANDLE,
     pub AllowAccess: super::super::super::Win32::Foundation::BOOLEAN,
 }
-impl ::core::marker::Copy for D3DKMT_CONFIGURESHAREDRESOURCE {}
-impl ::core::clone::Clone for D3DKMT_CONFIGURESHAREDRESOURCE {
+impl Copy for D3DKMT_CONFIGURESHAREDRESOURCE {}
+impl Clone for D3DKMT_CONFIGURESHAREDRESOURCE {
     fn clone(&self) -> Self {
         *self
     }
@@ -6386,8 +6386,8 @@ pub struct D3DKMT_CONNECT_DOORBELL {
     pub hHwQueue: u32,
     pub Flags: D3DKMT_CONNECT_DOORBELL_FLAGS,
 }
-impl ::core::marker::Copy for D3DKMT_CONNECT_DOORBELL {}
-impl ::core::clone::Clone for D3DKMT_CONNECT_DOORBELL {
+impl Copy for D3DKMT_CONNECT_DOORBELL {}
+impl Clone for D3DKMT_CONNECT_DOORBELL {
     fn clone(&self) -> Self {
         *self
     }
@@ -6396,8 +6396,8 @@ impl ::core::clone::Clone for D3DKMT_CONNECT_DOORBELL {
 pub struct D3DKMT_CONNECT_DOORBELL_FLAGS {
     pub Anonymous: D3DKMT_CONNECT_DOORBELL_FLAGS_0,
 }
-impl ::core::marker::Copy for D3DKMT_CONNECT_DOORBELL_FLAGS {}
-impl ::core::clone::Clone for D3DKMT_CONNECT_DOORBELL_FLAGS {
+impl Copy for D3DKMT_CONNECT_DOORBELL_FLAGS {}
+impl Clone for D3DKMT_CONNECT_DOORBELL_FLAGS {
     fn clone(&self) -> Self {
         *self
     }
@@ -6407,8 +6407,8 @@ pub union D3DKMT_CONNECT_DOORBELL_FLAGS_0 {
     pub Anonymous: D3DKMT_CONNECT_DOORBELL_FLAGS_0_0,
     pub Value: u32,
 }
-impl ::core::marker::Copy for D3DKMT_CONNECT_DOORBELL_FLAGS_0 {}
-impl ::core::clone::Clone for D3DKMT_CONNECT_DOORBELL_FLAGS_0 {
+impl Copy for D3DKMT_CONNECT_DOORBELL_FLAGS_0 {}
+impl Clone for D3DKMT_CONNECT_DOORBELL_FLAGS_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -6417,8 +6417,8 @@ impl ::core::clone::Clone for D3DKMT_CONNECT_DOORBELL_FLAGS_0 {
 pub struct D3DKMT_CONNECT_DOORBELL_FLAGS_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for D3DKMT_CONNECT_DOORBELL_FLAGS_0_0 {}
-impl ::core::clone::Clone for D3DKMT_CONNECT_DOORBELL_FLAGS_0_0 {
+impl Copy for D3DKMT_CONNECT_DOORBELL_FLAGS_0_0 {}
+impl Clone for D3DKMT_CONNECT_DOORBELL_FLAGS_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -6427,8 +6427,8 @@ impl ::core::clone::Clone for D3DKMT_CONNECT_DOORBELL_FLAGS_0_0 {
 pub struct D3DKMT_CPDRIVERNAME {
     pub ContentProtectionFileName: [u16; 260],
 }
-impl ::core::marker::Copy for D3DKMT_CPDRIVERNAME {}
-impl ::core::clone::Clone for D3DKMT_CPDRIVERNAME {
+impl Copy for D3DKMT_CPDRIVERNAME {}
+impl Clone for D3DKMT_CPDRIVERNAME {
     fn clone(&self) -> Self {
         *self
     }
@@ -6438,7 +6438,7 @@ pub struct D3DKMT_CREATEALLOCATION {
     pub hDevice: u32,
     pub hResource: u32,
     pub hGlobalShare: u32,
-    pub pPrivateRuntimeData: *const ::core::ffi::c_void,
+    pub pPrivateRuntimeData: *const core::ffi::c_void,
     pub PrivateRuntimeDataSize: u32,
     pub Anonymous1: D3DKMT_CREATEALLOCATION_0,
     pub PrivateDriverDataSize: u32,
@@ -6447,8 +6447,8 @@ pub struct D3DKMT_CREATEALLOCATION {
     pub Flags: D3DKMT_CREATEALLOCATIONFLAGS,
     pub hPrivateRuntimeResourceHandle: super::super::super::Win32::Foundation::HANDLE,
 }
-impl ::core::marker::Copy for D3DKMT_CREATEALLOCATION {}
-impl ::core::clone::Clone for D3DKMT_CREATEALLOCATION {
+impl Copy for D3DKMT_CREATEALLOCATION {}
+impl Clone for D3DKMT_CREATEALLOCATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -6456,10 +6456,10 @@ impl ::core::clone::Clone for D3DKMT_CREATEALLOCATION {
 #[repr(C)]
 pub union D3DKMT_CREATEALLOCATION_0 {
     pub pStandardAllocation: *mut D3DKMT_CREATESTANDARDALLOCATION,
-    pub pPrivateDriverData: *const ::core::ffi::c_void,
+    pub pPrivateDriverData: *const core::ffi::c_void,
 }
-impl ::core::marker::Copy for D3DKMT_CREATEALLOCATION_0 {}
-impl ::core::clone::Clone for D3DKMT_CREATEALLOCATION_0 {
+impl Copy for D3DKMT_CREATEALLOCATION_0 {}
+impl Clone for D3DKMT_CREATEALLOCATION_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -6469,8 +6469,8 @@ pub union D3DKMT_CREATEALLOCATION_1 {
     pub pAllocationInfo: *mut D3DDDI_ALLOCATIONINFO,
     pub pAllocationInfo2: *mut D3DDDI_ALLOCATIONINFO2,
 }
-impl ::core::marker::Copy for D3DKMT_CREATEALLOCATION_1 {}
-impl ::core::clone::Clone for D3DKMT_CREATEALLOCATION_1 {
+impl Copy for D3DKMT_CREATEALLOCATION_1 {}
+impl Clone for D3DKMT_CREATEALLOCATION_1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -6479,8 +6479,8 @@ impl ::core::clone::Clone for D3DKMT_CREATEALLOCATION_1 {
 pub struct D3DKMT_CREATEALLOCATIONFLAGS {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for D3DKMT_CREATEALLOCATIONFLAGS {}
-impl ::core::clone::Clone for D3DKMT_CREATEALLOCATIONFLAGS {
+impl Copy for D3DKMT_CREATEALLOCATIONFLAGS {}
+impl Clone for D3DKMT_CREATEALLOCATIONFLAGS {
     fn clone(&self) -> Self {
         *self
     }
@@ -6491,11 +6491,11 @@ pub struct D3DKMT_CREATECONTEXT {
     pub NodeOrdinal: u32,
     pub EngineAffinity: u32,
     pub Flags: D3DDDI_CREATECONTEXTFLAGS,
-    pub pPrivateDriverData: *mut ::core::ffi::c_void,
+    pub pPrivateDriverData: *mut core::ffi::c_void,
     pub PrivateDriverDataSize: u32,
     pub ClientHint: D3DKMT_CLIENTHINT,
     pub hContext: u32,
-    pub pCommandBuffer: *mut ::core::ffi::c_void,
+    pub pCommandBuffer: *mut core::ffi::c_void,
     pub CommandBufferSize: u32,
     pub pAllocationList: *mut D3DDDI_ALLOCATIONLIST,
     pub AllocationListSize: u32,
@@ -6503,8 +6503,8 @@ pub struct D3DKMT_CREATECONTEXT {
     pub PatchLocationListSize: u32,
     pub CommandBuffer: u64,
 }
-impl ::core::marker::Copy for D3DKMT_CREATECONTEXT {}
-impl ::core::clone::Clone for D3DKMT_CREATECONTEXT {
+impl Copy for D3DKMT_CREATECONTEXT {}
+impl Clone for D3DKMT_CREATECONTEXT {
     fn clone(&self) -> Self {
         *self
     }
@@ -6515,13 +6515,13 @@ pub struct D3DKMT_CREATECONTEXTVIRTUAL {
     pub NodeOrdinal: u32,
     pub EngineAffinity: u32,
     pub Flags: D3DDDI_CREATECONTEXTFLAGS,
-    pub pPrivateDriverData: *mut ::core::ffi::c_void,
+    pub pPrivateDriverData: *mut core::ffi::c_void,
     pub PrivateDriverDataSize: u32,
     pub ClientHint: D3DKMT_CLIENTHINT,
     pub hContext: u32,
 }
-impl ::core::marker::Copy for D3DKMT_CREATECONTEXTVIRTUAL {}
-impl ::core::clone::Clone for D3DKMT_CREATECONTEXTVIRTUAL {
+impl Copy for D3DKMT_CREATECONTEXTVIRTUAL {}
+impl Clone for D3DKMT_CREATECONTEXTVIRTUAL {
     fn clone(&self) -> Self {
         *self
     }
@@ -6529,7 +6529,7 @@ impl ::core::clone::Clone for D3DKMT_CREATECONTEXTVIRTUAL {
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct D3DKMT_CREATEDCFROMMEMORY {
-    pub pMemory: *mut ::core::ffi::c_void,
+    pub pMemory: *mut core::ffi::c_void,
     pub Format: D3DDDIFORMAT,
     pub Width: u32,
     pub Height: u32,
@@ -6540,9 +6540,9 @@ pub struct D3DKMT_CREATEDCFROMMEMORY {
     pub hBitmap: super::super::super::Win32::Foundation::HANDLE,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::marker::Copy for D3DKMT_CREATEDCFROMMEMORY {}
+impl Copy for D3DKMT_CREATEDCFROMMEMORY {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::clone::Clone for D3DKMT_CREATEDCFROMMEMORY {
+impl Clone for D3DKMT_CREATEDCFROMMEMORY {
     fn clone(&self) -> Self {
         *self
     }
@@ -6552,15 +6552,15 @@ pub struct D3DKMT_CREATEDEVICE {
     pub Anonymous: D3DKMT_CREATEDEVICE_0,
     pub Flags: D3DKMT_CREATEDEVICEFLAGS,
     pub hDevice: u32,
-    pub pCommandBuffer: *mut ::core::ffi::c_void,
+    pub pCommandBuffer: *mut core::ffi::c_void,
     pub CommandBufferSize: u32,
     pub pAllocationList: *mut D3DDDI_ALLOCATIONLIST,
     pub AllocationListSize: u32,
     pub pPatchLocationList: *mut D3DDDI_PATCHLOCATIONLIST,
     pub PatchLocationListSize: u32,
 }
-impl ::core::marker::Copy for D3DKMT_CREATEDEVICE {}
-impl ::core::clone::Clone for D3DKMT_CREATEDEVICE {
+impl Copy for D3DKMT_CREATEDEVICE {}
+impl Clone for D3DKMT_CREATEDEVICE {
     fn clone(&self) -> Self {
         *self
     }
@@ -6568,10 +6568,10 @@ impl ::core::clone::Clone for D3DKMT_CREATEDEVICE {
 #[repr(C)]
 pub union D3DKMT_CREATEDEVICE_0 {
     pub hAdapter: u32,
-    pub pAdapter: *mut ::core::ffi::c_void,
+    pub pAdapter: *mut core::ffi::c_void,
 }
-impl ::core::marker::Copy for D3DKMT_CREATEDEVICE_0 {}
-impl ::core::clone::Clone for D3DKMT_CREATEDEVICE_0 {
+impl Copy for D3DKMT_CREATEDEVICE_0 {}
+impl Clone for D3DKMT_CREATEDEVICE_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -6580,8 +6580,8 @@ impl ::core::clone::Clone for D3DKMT_CREATEDEVICE_0 {
 pub struct D3DKMT_CREATEDEVICEFLAGS {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for D3DKMT_CREATEDEVICEFLAGS {}
-impl ::core::clone::Clone for D3DKMT_CREATEDEVICEFLAGS {
+impl Copy for D3DKMT_CREATEDEVICEFLAGS {}
+impl Clone for D3DKMT_CREATEDEVICEFLAGS {
     fn clone(&self) -> Self {
         *self
     }
@@ -6593,11 +6593,11 @@ pub struct D3DKMT_CREATEHWCONTEXT {
     pub EngineAffinity: u32,
     pub Flags: D3DDDI_CREATEHWCONTEXTFLAGS,
     pub PrivateDriverDataSize: u32,
-    pub pPrivateDriverData: *mut ::core::ffi::c_void,
+    pub pPrivateDriverData: *mut core::ffi::c_void,
     pub hHwContext: u32,
 }
-impl ::core::marker::Copy for D3DKMT_CREATEHWCONTEXT {}
-impl ::core::clone::Clone for D3DKMT_CREATEHWCONTEXT {
+impl Copy for D3DKMT_CREATEHWCONTEXT {}
+impl Clone for D3DKMT_CREATEHWCONTEXT {
     fn clone(&self) -> Self {
         *self
     }
@@ -6607,14 +6607,14 @@ pub struct D3DKMT_CREATEHWQUEUE {
     pub hHwContext: u32,
     pub Flags: D3DDDI_CREATEHWQUEUEFLAGS,
     pub PrivateDriverDataSize: u32,
-    pub pPrivateDriverData: *mut ::core::ffi::c_void,
+    pub pPrivateDriverData: *mut core::ffi::c_void,
     pub hHwQueue: u32,
     pub hHwQueueProgressFence: u32,
-    pub HwQueueProgressFenceCPUVirtualAddress: *mut ::core::ffi::c_void,
+    pub HwQueueProgressFenceCPUVirtualAddress: *mut core::ffi::c_void,
     pub HwQueueProgressFenceGPUVirtualAddress: u64,
 }
-impl ::core::marker::Copy for D3DKMT_CREATEHWQUEUE {}
-impl ::core::clone::Clone for D3DKMT_CREATEHWQUEUE {
+impl Copy for D3DKMT_CREATEHWQUEUE {}
+impl Clone for D3DKMT_CREATEHWQUEUE {
     fn clone(&self) -> Self {
         *self
     }
@@ -6625,8 +6625,8 @@ pub struct D3DKMT_CREATEKEYEDMUTEX {
     pub hSharedHandle: u32,
     pub hKeyedMutex: u32,
 }
-impl ::core::marker::Copy for D3DKMT_CREATEKEYEDMUTEX {}
-impl ::core::clone::Clone for D3DKMT_CREATEKEYEDMUTEX {
+impl Copy for D3DKMT_CREATEKEYEDMUTEX {}
+impl Clone for D3DKMT_CREATEKEYEDMUTEX {
     fn clone(&self) -> Self {
         *self
     }
@@ -6636,12 +6636,12 @@ pub struct D3DKMT_CREATEKEYEDMUTEX2 {
     pub InitialValue: u64,
     pub hSharedHandle: u32,
     pub hKeyedMutex: u32,
-    pub pPrivateRuntimeData: *mut ::core::ffi::c_void,
+    pub pPrivateRuntimeData: *mut core::ffi::c_void,
     pub PrivateRuntimeDataSize: u32,
     pub Flags: D3DKMT_CREATEKEYEDMUTEX2_FLAGS,
 }
-impl ::core::marker::Copy for D3DKMT_CREATEKEYEDMUTEX2 {}
-impl ::core::clone::Clone for D3DKMT_CREATEKEYEDMUTEX2 {
+impl Copy for D3DKMT_CREATEKEYEDMUTEX2 {}
+impl Clone for D3DKMT_CREATEKEYEDMUTEX2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -6650,8 +6650,8 @@ impl ::core::clone::Clone for D3DKMT_CREATEKEYEDMUTEX2 {
 pub struct D3DKMT_CREATEKEYEDMUTEX2_FLAGS {
     pub Anonymous: D3DKMT_CREATEKEYEDMUTEX2_FLAGS_0,
 }
-impl ::core::marker::Copy for D3DKMT_CREATEKEYEDMUTEX2_FLAGS {}
-impl ::core::clone::Clone for D3DKMT_CREATEKEYEDMUTEX2_FLAGS {
+impl Copy for D3DKMT_CREATEKEYEDMUTEX2_FLAGS {}
+impl Clone for D3DKMT_CREATEKEYEDMUTEX2_FLAGS {
     fn clone(&self) -> Self {
         *self
     }
@@ -6661,8 +6661,8 @@ pub union D3DKMT_CREATEKEYEDMUTEX2_FLAGS_0 {
     pub Anonymous: D3DKMT_CREATEKEYEDMUTEX2_FLAGS_0_0,
     pub Value: u32,
 }
-impl ::core::marker::Copy for D3DKMT_CREATEKEYEDMUTEX2_FLAGS_0 {}
-impl ::core::clone::Clone for D3DKMT_CREATEKEYEDMUTEX2_FLAGS_0 {
+impl Copy for D3DKMT_CREATEKEYEDMUTEX2_FLAGS_0 {}
+impl Clone for D3DKMT_CREATEKEYEDMUTEX2_FLAGS_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -6671,8 +6671,8 @@ impl ::core::clone::Clone for D3DKMT_CREATEKEYEDMUTEX2_FLAGS_0 {
 pub struct D3DKMT_CREATEKEYEDMUTEX2_FLAGS_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for D3DKMT_CREATEKEYEDMUTEX2_FLAGS_0_0 {}
-impl ::core::clone::Clone for D3DKMT_CREATEKEYEDMUTEX2_FLAGS_0_0 {
+impl Copy for D3DKMT_CREATEKEYEDMUTEX2_FLAGS_0_0 {}
+impl Clone for D3DKMT_CREATEKEYEDMUTEX2_FLAGS_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -6682,8 +6682,8 @@ pub struct D3DKMT_CREATENATIVEFENCE {
     pub hDevice: u32,
     pub Info: D3DDDI_CREATENATIVEFENCEINFO,
 }
-impl ::core::marker::Copy for D3DKMT_CREATENATIVEFENCE {}
-impl ::core::clone::Clone for D3DKMT_CREATENATIVEFENCE {
+impl Copy for D3DKMT_CREATENATIVEFENCE {}
+impl Clone for D3DKMT_CREATENATIVEFENCE {
     fn clone(&self) -> Self {
         *self
     }
@@ -6695,8 +6695,8 @@ pub struct D3DKMT_CREATEOVERLAY {
     pub OverlayInfo: D3DDDI_KERNELOVERLAYINFO,
     pub hOverlay: u32,
 }
-impl ::core::marker::Copy for D3DKMT_CREATEOVERLAY {}
-impl ::core::clone::Clone for D3DKMT_CREATEOVERLAY {
+impl Copy for D3DKMT_CREATEOVERLAY {}
+impl Clone for D3DKMT_CREATEOVERLAY {
     fn clone(&self) -> Self {
         *self
     }
@@ -6707,11 +6707,11 @@ pub struct D3DKMT_CREATEPAGINGQUEUE {
     pub Priority: D3DDDI_PAGINGQUEUE_PRIORITY,
     pub hPagingQueue: u32,
     pub hSyncObject: u32,
-    pub FenceValueCPUVirtualAddress: *mut ::core::ffi::c_void,
+    pub FenceValueCPUVirtualAddress: *mut core::ffi::c_void,
     pub PhysicalAdapterIndex: u32,
 }
-impl ::core::marker::Copy for D3DKMT_CREATEPAGINGQUEUE {}
-impl ::core::clone::Clone for D3DKMT_CREATEPAGINGQUEUE {
+impl Copy for D3DKMT_CREATEPAGINGQUEUE {}
+impl Clone for D3DKMT_CREATEPAGINGQUEUE {
     fn clone(&self) -> Self {
         *self
     }
@@ -6720,14 +6720,14 @@ impl ::core::clone::Clone for D3DKMT_CREATEPAGINGQUEUE {
 pub struct D3DKMT_CREATEPROTECTEDSESSION {
     pub hDevice: u32,
     pub hSyncObject: u32,
-    pub pPrivateDriverData: *const ::core::ffi::c_void,
+    pub pPrivateDriverData: *const core::ffi::c_void,
     pub PrivateDriverDataSize: u32,
-    pub pPrivateRuntimeData: *const ::core::ffi::c_void,
+    pub pPrivateRuntimeData: *const core::ffi::c_void,
     pub PrivateRuntimeDataSize: u32,
     pub hHandle: u32,
 }
-impl ::core::marker::Copy for D3DKMT_CREATEPROTECTEDSESSION {}
-impl ::core::clone::Clone for D3DKMT_CREATEPROTECTEDSESSION {
+impl Copy for D3DKMT_CREATEPROTECTEDSESSION {}
+impl Clone for D3DKMT_CREATEPROTECTEDSESSION {
     fn clone(&self) -> Self {
         *self
     }
@@ -6738,8 +6738,8 @@ pub struct D3DKMT_CREATESTANDARDALLOCATION {
     pub Anonymous: D3DKMT_CREATESTANDARDALLOCATION_0,
     pub Flags: D3DKMT_CREATESTANDARDALLOCATIONFLAGS,
 }
-impl ::core::marker::Copy for D3DKMT_CREATESTANDARDALLOCATION {}
-impl ::core::clone::Clone for D3DKMT_CREATESTANDARDALLOCATION {
+impl Copy for D3DKMT_CREATESTANDARDALLOCATION {}
+impl Clone for D3DKMT_CREATESTANDARDALLOCATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -6748,8 +6748,8 @@ impl ::core::clone::Clone for D3DKMT_CREATESTANDARDALLOCATION {
 pub union D3DKMT_CREATESTANDARDALLOCATION_0 {
     pub ExistingHeapData: D3DKMT_STANDARDALLOCATION_EXISTINGHEAP,
 }
-impl ::core::marker::Copy for D3DKMT_CREATESTANDARDALLOCATION_0 {}
-impl ::core::clone::Clone for D3DKMT_CREATESTANDARDALLOCATION_0 {
+impl Copy for D3DKMT_CREATESTANDARDALLOCATION_0 {}
+impl Clone for D3DKMT_CREATESTANDARDALLOCATION_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -6758,8 +6758,8 @@ impl ::core::clone::Clone for D3DKMT_CREATESTANDARDALLOCATION_0 {
 pub struct D3DKMT_CREATESTANDARDALLOCATIONFLAGS {
     pub Anonymous: D3DKMT_CREATESTANDARDALLOCATIONFLAGS_0,
 }
-impl ::core::marker::Copy for D3DKMT_CREATESTANDARDALLOCATIONFLAGS {}
-impl ::core::clone::Clone for D3DKMT_CREATESTANDARDALLOCATIONFLAGS {
+impl Copy for D3DKMT_CREATESTANDARDALLOCATIONFLAGS {}
+impl Clone for D3DKMT_CREATESTANDARDALLOCATIONFLAGS {
     fn clone(&self) -> Self {
         *self
     }
@@ -6769,8 +6769,8 @@ pub union D3DKMT_CREATESTANDARDALLOCATIONFLAGS_0 {
     pub Anonymous: D3DKMT_CREATESTANDARDALLOCATIONFLAGS_0_0,
     pub Value: u32,
 }
-impl ::core::marker::Copy for D3DKMT_CREATESTANDARDALLOCATIONFLAGS_0 {}
-impl ::core::clone::Clone for D3DKMT_CREATESTANDARDALLOCATIONFLAGS_0 {
+impl Copy for D3DKMT_CREATESTANDARDALLOCATIONFLAGS_0 {}
+impl Clone for D3DKMT_CREATESTANDARDALLOCATIONFLAGS_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -6779,8 +6779,8 @@ impl ::core::clone::Clone for D3DKMT_CREATESTANDARDALLOCATIONFLAGS_0 {
 pub struct D3DKMT_CREATESTANDARDALLOCATIONFLAGS_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for D3DKMT_CREATESTANDARDALLOCATIONFLAGS_0_0 {}
-impl ::core::clone::Clone for D3DKMT_CREATESTANDARDALLOCATIONFLAGS_0_0 {
+impl Copy for D3DKMT_CREATESTANDARDALLOCATIONFLAGS_0_0 {}
+impl Clone for D3DKMT_CREATESTANDARDALLOCATIONFLAGS_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -6792,8 +6792,8 @@ pub struct D3DKMT_CREATESYNCFILE {
     pub FenceValue: u64,
     pub hSyncFile: u64,
 }
-impl ::core::marker::Copy for D3DKMT_CREATESYNCFILE {}
-impl ::core::clone::Clone for D3DKMT_CREATESYNCFILE {
+impl Copy for D3DKMT_CREATESYNCFILE {}
+impl Clone for D3DKMT_CREATESYNCFILE {
     fn clone(&self) -> Self {
         *self
     }
@@ -6804,8 +6804,8 @@ pub struct D3DKMT_CREATESYNCHRONIZATIONOBJECT {
     pub Info: D3DDDI_SYNCHRONIZATIONOBJECTINFO,
     pub hSyncObject: u32,
 }
-impl ::core::marker::Copy for D3DKMT_CREATESYNCHRONIZATIONOBJECT {}
-impl ::core::clone::Clone for D3DKMT_CREATESYNCHRONIZATIONOBJECT {
+impl Copy for D3DKMT_CREATESYNCHRONIZATIONOBJECT {}
+impl Clone for D3DKMT_CREATESYNCHRONIZATIONOBJECT {
     fn clone(&self) -> Self {
         *self
     }
@@ -6816,8 +6816,8 @@ pub struct D3DKMT_CREATESYNCHRONIZATIONOBJECT2 {
     pub Info: D3DDDI_SYNCHRONIZATIONOBJECTINFO2,
     pub hSyncObject: u32,
 }
-impl ::core::marker::Copy for D3DKMT_CREATESYNCHRONIZATIONOBJECT2 {}
-impl ::core::clone::Clone for D3DKMT_CREATESYNCHRONIZATIONOBJECT2 {
+impl Copy for D3DKMT_CREATESYNCHRONIZATIONOBJECT2 {}
+impl Clone for D3DKMT_CREATESYNCHRONIZATIONOBJECT2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -6829,13 +6829,13 @@ pub struct D3DKMT_CREATE_DOORBELL {
     pub hRingBufferControl: u32,
     pub Flags: D3DKMT_CREATE_DOORBELL_FLAGS,
     pub PrivateDriverDataSize: u32,
-    pub PrivateDriverData: *mut ::core::ffi::c_void,
-    pub DoorbellCPUVirtualAddress: *mut ::core::ffi::c_void,
-    pub DoorbellSecondaryCPUVirtualAddress: *mut ::core::ffi::c_void,
-    pub DoorbellStatusCPUVirtualAddress: *mut ::core::ffi::c_void,
+    pub PrivateDriverData: *mut core::ffi::c_void,
+    pub DoorbellCPUVirtualAddress: *mut core::ffi::c_void,
+    pub DoorbellSecondaryCPUVirtualAddress: *mut core::ffi::c_void,
+    pub DoorbellStatusCPUVirtualAddress: *mut core::ffi::c_void,
 }
-impl ::core::marker::Copy for D3DKMT_CREATE_DOORBELL {}
-impl ::core::clone::Clone for D3DKMT_CREATE_DOORBELL {
+impl Copy for D3DKMT_CREATE_DOORBELL {}
+impl Clone for D3DKMT_CREATE_DOORBELL {
     fn clone(&self) -> Self {
         *self
     }
@@ -6844,8 +6844,8 @@ impl ::core::clone::Clone for D3DKMT_CREATE_DOORBELL {
 pub struct D3DKMT_CREATE_DOORBELL_FLAGS {
     pub Anonymous: D3DKMT_CREATE_DOORBELL_FLAGS_0,
 }
-impl ::core::marker::Copy for D3DKMT_CREATE_DOORBELL_FLAGS {}
-impl ::core::clone::Clone for D3DKMT_CREATE_DOORBELL_FLAGS {
+impl Copy for D3DKMT_CREATE_DOORBELL_FLAGS {}
+impl Clone for D3DKMT_CREATE_DOORBELL_FLAGS {
     fn clone(&self) -> Self {
         *self
     }
@@ -6855,8 +6855,8 @@ pub union D3DKMT_CREATE_DOORBELL_FLAGS_0 {
     pub Anonymous: D3DKMT_CREATE_DOORBELL_FLAGS_0_0,
     pub Value: u32,
 }
-impl ::core::marker::Copy for D3DKMT_CREATE_DOORBELL_FLAGS_0 {}
-impl ::core::clone::Clone for D3DKMT_CREATE_DOORBELL_FLAGS_0 {
+impl Copy for D3DKMT_CREATE_DOORBELL_FLAGS_0 {}
+impl Clone for D3DKMT_CREATE_DOORBELL_FLAGS_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -6865,8 +6865,8 @@ impl ::core::clone::Clone for D3DKMT_CREATE_DOORBELL_FLAGS_0 {
 pub struct D3DKMT_CREATE_DOORBELL_FLAGS_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for D3DKMT_CREATE_DOORBELL_FLAGS_0_0 {}
-impl ::core::clone::Clone for D3DKMT_CREATE_DOORBELL_FLAGS_0_0 {
+impl Copy for D3DKMT_CREATE_DOORBELL_FLAGS_0_0 {}
+impl Clone for D3DKMT_CREATE_DOORBELL_FLAGS_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -6880,8 +6880,8 @@ pub struct D3DKMT_CREATE_OUTPUTDUPL {
     pub KeyedMutexs: [D3DKMT_OUTPUTDUPL_KEYEDMUTEX; 3],
     pub Flags: D3DKMT_OUTPUTDUPLCREATIONFLAGS,
 }
-impl ::core::marker::Copy for D3DKMT_CREATE_OUTPUTDUPL {}
-impl ::core::clone::Clone for D3DKMT_CREATE_OUTPUTDUPL {
+impl Copy for D3DKMT_CREATE_OUTPUTDUPL {}
+impl Clone for D3DKMT_CREATE_OUTPUTDUPL {
     fn clone(&self) -> Self {
         *self
     }
@@ -6890,8 +6890,8 @@ impl ::core::clone::Clone for D3DKMT_CREATE_OUTPUTDUPL {
 pub struct D3DKMT_CROSSADAPTERRESOURCE_SUPPORT {
     pub SupportTier: D3DKMT_CROSSADAPTERRESOURCE_SUPPORT_TIER,
 }
-impl ::core::marker::Copy for D3DKMT_CROSSADAPTERRESOURCE_SUPPORT {}
-impl ::core::clone::Clone for D3DKMT_CROSSADAPTERRESOURCE_SUPPORT {
+impl Copy for D3DKMT_CROSSADAPTERRESOURCE_SUPPORT {}
+impl Clone for D3DKMT_CROSSADAPTERRESOURCE_SUPPORT {
     fn clone(&self) -> Self {
         *self
     }
@@ -6901,8 +6901,8 @@ pub struct D3DKMT_CURRENTDISPLAYMODE {
     pub VidPnSourceId: u32,
     pub DisplayMode: D3DKMT_DISPLAYMODE,
 }
-impl ::core::marker::Copy for D3DKMT_CURRENTDISPLAYMODE {}
-impl ::core::clone::Clone for D3DKMT_CURRENTDISPLAYMODE {
+impl Copy for D3DKMT_CURRENTDISPLAYMODE {}
+impl Clone for D3DKMT_CURRENTDISPLAYMODE {
     fn clone(&self) -> Self {
         *self
     }
@@ -6912,8 +6912,8 @@ pub struct D3DKMT_DEBUG_SNAPSHOT_ESCAPE {
     pub Length: u32,
     pub Buffer: [u8; 1],
 }
-impl ::core::marker::Copy for D3DKMT_DEBUG_SNAPSHOT_ESCAPE {}
-impl ::core::clone::Clone for D3DKMT_DEBUG_SNAPSHOT_ESCAPE {
+impl Copy for D3DKMT_DEBUG_SNAPSHOT_ESCAPE {}
+impl Clone for D3DKMT_DEBUG_SNAPSHOT_ESCAPE {
     fn clone(&self) -> Self {
         *self
     }
@@ -6925,8 +6925,8 @@ pub struct D3DKMT_DESTROYALLOCATION {
     pub phAllocationList: *const u32,
     pub AllocationCount: u32,
 }
-impl ::core::marker::Copy for D3DKMT_DESTROYALLOCATION {}
-impl ::core::clone::Clone for D3DKMT_DESTROYALLOCATION {
+impl Copy for D3DKMT_DESTROYALLOCATION {}
+impl Clone for D3DKMT_DESTROYALLOCATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -6939,8 +6939,8 @@ pub struct D3DKMT_DESTROYALLOCATION2 {
     pub AllocationCount: u32,
     pub Flags: D3DDDICB_DESTROYALLOCATION2FLAGS,
 }
-impl ::core::marker::Copy for D3DKMT_DESTROYALLOCATION2 {}
-impl ::core::clone::Clone for D3DKMT_DESTROYALLOCATION2 {
+impl Copy for D3DKMT_DESTROYALLOCATION2 {}
+impl Clone for D3DKMT_DESTROYALLOCATION2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -6949,8 +6949,8 @@ impl ::core::clone::Clone for D3DKMT_DESTROYALLOCATION2 {
 pub struct D3DKMT_DESTROYCONTEXT {
     pub hContext: u32,
 }
-impl ::core::marker::Copy for D3DKMT_DESTROYCONTEXT {}
-impl ::core::clone::Clone for D3DKMT_DESTROYCONTEXT {
+impl Copy for D3DKMT_DESTROYCONTEXT {}
+impl Clone for D3DKMT_DESTROYCONTEXT {
     fn clone(&self) -> Self {
         *self
     }
@@ -6962,9 +6962,9 @@ pub struct D3DKMT_DESTROYDCFROMMEMORY {
     pub hBitmap: super::super::super::Win32::Foundation::HANDLE,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::marker::Copy for D3DKMT_DESTROYDCFROMMEMORY {}
+impl Copy for D3DKMT_DESTROYDCFROMMEMORY {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::clone::Clone for D3DKMT_DESTROYDCFROMMEMORY {
+impl Clone for D3DKMT_DESTROYDCFROMMEMORY {
     fn clone(&self) -> Self {
         *self
     }
@@ -6973,8 +6973,8 @@ impl ::core::clone::Clone for D3DKMT_DESTROYDCFROMMEMORY {
 pub struct D3DKMT_DESTROYDEVICE {
     pub hDevice: u32,
 }
-impl ::core::marker::Copy for D3DKMT_DESTROYDEVICE {}
-impl ::core::clone::Clone for D3DKMT_DESTROYDEVICE {
+impl Copy for D3DKMT_DESTROYDEVICE {}
+impl Clone for D3DKMT_DESTROYDEVICE {
     fn clone(&self) -> Self {
         *self
     }
@@ -6983,8 +6983,8 @@ impl ::core::clone::Clone for D3DKMT_DESTROYDEVICE {
 pub struct D3DKMT_DESTROYHWCONTEXT {
     pub hHwContext: u32,
 }
-impl ::core::marker::Copy for D3DKMT_DESTROYHWCONTEXT {}
-impl ::core::clone::Clone for D3DKMT_DESTROYHWCONTEXT {
+impl Copy for D3DKMT_DESTROYHWCONTEXT {}
+impl Clone for D3DKMT_DESTROYHWCONTEXT {
     fn clone(&self) -> Self {
         *self
     }
@@ -6993,8 +6993,8 @@ impl ::core::clone::Clone for D3DKMT_DESTROYHWCONTEXT {
 pub struct D3DKMT_DESTROYHWQUEUE {
     pub hHwQueue: u32,
 }
-impl ::core::marker::Copy for D3DKMT_DESTROYHWQUEUE {}
-impl ::core::clone::Clone for D3DKMT_DESTROYHWQUEUE {
+impl Copy for D3DKMT_DESTROYHWQUEUE {}
+impl Clone for D3DKMT_DESTROYHWQUEUE {
     fn clone(&self) -> Self {
         *self
     }
@@ -7003,8 +7003,8 @@ impl ::core::clone::Clone for D3DKMT_DESTROYHWQUEUE {
 pub struct D3DKMT_DESTROYKEYEDMUTEX {
     pub hKeyedMutex: u32,
 }
-impl ::core::marker::Copy for D3DKMT_DESTROYKEYEDMUTEX {}
-impl ::core::clone::Clone for D3DKMT_DESTROYKEYEDMUTEX {
+impl Copy for D3DKMT_DESTROYKEYEDMUTEX {}
+impl Clone for D3DKMT_DESTROYKEYEDMUTEX {
     fn clone(&self) -> Self {
         *self
     }
@@ -7014,8 +7014,8 @@ pub struct D3DKMT_DESTROYOVERLAY {
     pub hDevice: u32,
     pub hOverlay: u32,
 }
-impl ::core::marker::Copy for D3DKMT_DESTROYOVERLAY {}
-impl ::core::clone::Clone for D3DKMT_DESTROYOVERLAY {
+impl Copy for D3DKMT_DESTROYOVERLAY {}
+impl Clone for D3DKMT_DESTROYOVERLAY {
     fn clone(&self) -> Self {
         *self
     }
@@ -7024,8 +7024,8 @@ impl ::core::clone::Clone for D3DKMT_DESTROYOVERLAY {
 pub struct D3DKMT_DESTROYPROTECTEDSESSION {
     pub hHandle: u32,
 }
-impl ::core::marker::Copy for D3DKMT_DESTROYPROTECTEDSESSION {}
-impl ::core::clone::Clone for D3DKMT_DESTROYPROTECTEDSESSION {
+impl Copy for D3DKMT_DESTROYPROTECTEDSESSION {}
+impl Clone for D3DKMT_DESTROYPROTECTEDSESSION {
     fn clone(&self) -> Self {
         *self
     }
@@ -7034,8 +7034,8 @@ impl ::core::clone::Clone for D3DKMT_DESTROYPROTECTEDSESSION {
 pub struct D3DKMT_DESTROYSYNCHRONIZATIONOBJECT {
     pub hSyncObject: u32,
 }
-impl ::core::marker::Copy for D3DKMT_DESTROYSYNCHRONIZATIONOBJECT {}
-impl ::core::clone::Clone for D3DKMT_DESTROYSYNCHRONIZATIONOBJECT {
+impl Copy for D3DKMT_DESTROYSYNCHRONIZATIONOBJECT {}
+impl Clone for D3DKMT_DESTROYSYNCHRONIZATIONOBJECT {
     fn clone(&self) -> Self {
         *self
     }
@@ -7044,8 +7044,8 @@ impl ::core::clone::Clone for D3DKMT_DESTROYSYNCHRONIZATIONOBJECT {
 pub struct D3DKMT_DESTROY_DOORBELL {
     pub hHwQueue: u32,
 }
-impl ::core::marker::Copy for D3DKMT_DESTROY_DOORBELL {}
-impl ::core::clone::Clone for D3DKMT_DESTROY_DOORBELL {
+impl Copy for D3DKMT_DESTROY_DOORBELL {}
+impl Clone for D3DKMT_DESTROY_DOORBELL {
     fn clone(&self) -> Self {
         *self
     }
@@ -7056,8 +7056,8 @@ pub struct D3DKMT_DESTROY_OUTPUTDUPL {
     pub VidPnSourceId: u32,
     pub bDestroyAllContexts: super::super::super::Win32::Foundation::BOOL,
 }
-impl ::core::marker::Copy for D3DKMT_DESTROY_OUTPUTDUPL {}
-impl ::core::clone::Clone for D3DKMT_DESTROY_OUTPUTDUPL {
+impl Copy for D3DKMT_DESTROY_OUTPUTDUPL {}
+impl Clone for D3DKMT_DESTROY_OUTPUTDUPL {
     fn clone(&self) -> Self {
         *self
     }
@@ -7071,8 +7071,8 @@ pub struct D3DKMT_DEVICEPAGEFAULT_STATE {
     pub FaultErrorCode: DXGK_FAULT_ERROR_CODE,
     pub FaultedVirtualAddress: u64,
 }
-impl ::core::marker::Copy for D3DKMT_DEVICEPAGEFAULT_STATE {}
-impl ::core::clone::Clone for D3DKMT_DEVICEPAGEFAULT_STATE {
+impl Copy for D3DKMT_DEVICEPAGEFAULT_STATE {}
+impl Clone for D3DKMT_DEVICEPAGEFAULT_STATE {
     fn clone(&self) -> Self {
         *self
     }
@@ -7082,8 +7082,8 @@ pub struct D3DKMT_DEVICEPRESENT_QUEUE_STATE {
     pub VidPnSourceId: u32,
     pub bQueuedPresentLimitReached: super::super::super::Win32::Foundation::BOOLEAN,
 }
-impl ::core::marker::Copy for D3DKMT_DEVICEPRESENT_QUEUE_STATE {}
-impl ::core::clone::Clone for D3DKMT_DEVICEPRESENT_QUEUE_STATE {
+impl Copy for D3DKMT_DEVICEPRESENT_QUEUE_STATE {}
+impl Clone for D3DKMT_DEVICEPRESENT_QUEUE_STATE {
     fn clone(&self) -> Self {
         *self
     }
@@ -7093,8 +7093,8 @@ pub struct D3DKMT_DEVICEPRESENT_STATE {
     pub VidPnSourceId: u32,
     pub PresentStats: D3DKMT_PRESENT_STATS,
 }
-impl ::core::marker::Copy for D3DKMT_DEVICEPRESENT_STATE {}
-impl ::core::clone::Clone for D3DKMT_DEVICEPRESENT_STATE {
+impl Copy for D3DKMT_DEVICEPRESENT_STATE {}
+impl Clone for D3DKMT_DEVICEPRESENT_STATE {
     fn clone(&self) -> Self {
         *self
     }
@@ -7104,8 +7104,8 @@ pub struct D3DKMT_DEVICEPRESENT_STATE_DWM {
     pub VidPnSourceId: u32,
     pub PresentStatsDWM: D3DKMT_PRESENT_STATS_DWM,
 }
-impl ::core::marker::Copy for D3DKMT_DEVICEPRESENT_STATE_DWM {}
-impl ::core::clone::Clone for D3DKMT_DEVICEPRESENT_STATE_DWM {
+impl Copy for D3DKMT_DEVICEPRESENT_STATE_DWM {}
+impl Clone for D3DKMT_DEVICEPRESENT_STATE_DWM {
     fn clone(&self) -> Self {
         *self
     }
@@ -7114,8 +7114,8 @@ impl ::core::clone::Clone for D3DKMT_DEVICEPRESENT_STATE_DWM {
 pub struct D3DKMT_DEVICERESET_STATE {
     pub Anonymous: D3DKMT_DEVICERESET_STATE_0,
 }
-impl ::core::marker::Copy for D3DKMT_DEVICERESET_STATE {}
-impl ::core::clone::Clone for D3DKMT_DEVICERESET_STATE {
+impl Copy for D3DKMT_DEVICERESET_STATE {}
+impl Clone for D3DKMT_DEVICERESET_STATE {
     fn clone(&self) -> Self {
         *self
     }
@@ -7125,8 +7125,8 @@ pub union D3DKMT_DEVICERESET_STATE_0 {
     pub Anonymous: D3DKMT_DEVICERESET_STATE_0_0,
     pub Value: u32,
 }
-impl ::core::marker::Copy for D3DKMT_DEVICERESET_STATE_0 {}
-impl ::core::clone::Clone for D3DKMT_DEVICERESET_STATE_0 {
+impl Copy for D3DKMT_DEVICERESET_STATE_0 {}
+impl Clone for D3DKMT_DEVICERESET_STATE_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -7135,8 +7135,8 @@ impl ::core::clone::Clone for D3DKMT_DEVICERESET_STATE_0 {
 pub struct D3DKMT_DEVICERESET_STATE_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for D3DKMT_DEVICERESET_STATE_0_0 {}
-impl ::core::clone::Clone for D3DKMT_DEVICERESET_STATE_0_0 {
+impl Copy for D3DKMT_DEVICERESET_STATE_0_0 {}
+impl Clone for D3DKMT_DEVICERESET_STATE_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -7146,8 +7146,8 @@ pub struct D3DKMT_DEVICE_ESCAPE {
     pub Type: D3DKMT_DEVICEESCAPE_TYPE,
     pub Anonymous: D3DKMT_DEVICE_ESCAPE_0,
 }
-impl ::core::marker::Copy for D3DKMT_DEVICE_ESCAPE {}
-impl ::core::clone::Clone for D3DKMT_DEVICE_ESCAPE {
+impl Copy for D3DKMT_DEVICE_ESCAPE {}
+impl Clone for D3DKMT_DEVICE_ESCAPE {
     fn clone(&self) -> Self {
         *self
     }
@@ -7156,8 +7156,8 @@ impl ::core::clone::Clone for D3DKMT_DEVICE_ESCAPE {
 pub union D3DKMT_DEVICE_ESCAPE_0 {
     pub VidPnFromAllocation: D3DKMT_DEVICE_ESCAPE_0_0,
 }
-impl ::core::marker::Copy for D3DKMT_DEVICE_ESCAPE_0 {}
-impl ::core::clone::Clone for D3DKMT_DEVICE_ESCAPE_0 {
+impl Copy for D3DKMT_DEVICE_ESCAPE_0 {}
+impl Clone for D3DKMT_DEVICE_ESCAPE_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -7167,8 +7167,8 @@ pub struct D3DKMT_DEVICE_ESCAPE_0_0 {
     pub hPrimaryAllocation: u32,
     pub VidPnSourceId: u32,
 }
-impl ::core::marker::Copy for D3DKMT_DEVICE_ESCAPE_0_0 {}
-impl ::core::clone::Clone for D3DKMT_DEVICE_ESCAPE_0_0 {
+impl Copy for D3DKMT_DEVICE_ESCAPE_0_0 {}
+impl Clone for D3DKMT_DEVICE_ESCAPE_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -7182,8 +7182,8 @@ pub struct D3DKMT_DEVICE_IDS {
     pub RevisionID: u32,
     pub BusType: u32,
 }
-impl ::core::marker::Copy for D3DKMT_DEVICE_IDS {}
-impl ::core::clone::Clone for D3DKMT_DEVICE_IDS {
+impl Copy for D3DKMT_DEVICE_IDS {}
+impl Clone for D3DKMT_DEVICE_IDS {
     fn clone(&self) -> Self {
         *self
     }
@@ -7192,8 +7192,8 @@ impl ::core::clone::Clone for D3DKMT_DEVICE_IDS {
 pub struct D3DKMT_DIRECTFLIP_SUPPORT {
     pub Supported: super::super::super::Win32::Foundation::BOOL,
 }
-impl ::core::marker::Copy for D3DKMT_DIRECTFLIP_SUPPORT {}
-impl ::core::clone::Clone for D3DKMT_DIRECTFLIP_SUPPORT {
+impl Copy for D3DKMT_DIRECTFLIP_SUPPORT {}
+impl Clone for D3DKMT_DIRECTFLIP_SUPPORT {
     fn clone(&self) -> Self {
         *self
     }
@@ -7203,8 +7203,8 @@ pub struct D3DKMT_DIRTYREGIONS {
     pub NumRects: u32,
     pub Rects: [super::super::super::Win32::Foundation::RECT; 16],
 }
-impl ::core::marker::Copy for D3DKMT_DIRTYREGIONS {}
-impl ::core::clone::Clone for D3DKMT_DIRTYREGIONS {
+impl Copy for D3DKMT_DIRTYREGIONS {}
+impl Clone for D3DKMT_DIRTYREGIONS {
     fn clone(&self) -> Self {
         *self
     }
@@ -7221,8 +7221,8 @@ pub struct D3DKMT_DISPLAYMODE {
     pub DisplayFixedOutput: u32,
     pub Flags: D3DKMDT_DISPLAYMODE_FLAGS,
 }
-impl ::core::marker::Copy for D3DKMT_DISPLAYMODE {}
-impl ::core::clone::Clone for D3DKMT_DISPLAYMODE {
+impl Copy for D3DKMT_DISPLAYMODE {}
+impl Clone for D3DKMT_DISPLAYMODE {
     fn clone(&self) -> Self {
         *self
     }
@@ -7233,8 +7233,8 @@ pub struct D3DKMT_DISPLAYMODELIST {
     pub ModeCount: u32,
     pub pModeList: [D3DKMT_DISPLAYMODE; 1],
 }
-impl ::core::marker::Copy for D3DKMT_DISPLAYMODELIST {}
-impl ::core::clone::Clone for D3DKMT_DISPLAYMODELIST {
+impl Copy for D3DKMT_DISPLAYMODELIST {}
+impl Clone for D3DKMT_DISPLAYMODELIST {
     fn clone(&self) -> Self {
         *self
     }
@@ -7243,8 +7243,8 @@ impl ::core::clone::Clone for D3DKMT_DISPLAYMODELIST {
 pub struct D3DKMT_DISPLAY_CAPS {
     pub Anonymous: D3DKMT_DISPLAY_CAPS_0,
 }
-impl ::core::marker::Copy for D3DKMT_DISPLAY_CAPS {}
-impl ::core::clone::Clone for D3DKMT_DISPLAY_CAPS {
+impl Copy for D3DKMT_DISPLAY_CAPS {}
+impl Clone for D3DKMT_DISPLAY_CAPS {
     fn clone(&self) -> Self {
         *self
     }
@@ -7254,8 +7254,8 @@ pub union D3DKMT_DISPLAY_CAPS_0 {
     pub Anonymous: D3DKMT_DISPLAY_CAPS_0_0,
     pub Value: u64,
 }
-impl ::core::marker::Copy for D3DKMT_DISPLAY_CAPS_0 {}
-impl ::core::clone::Clone for D3DKMT_DISPLAY_CAPS_0 {
+impl Copy for D3DKMT_DISPLAY_CAPS_0 {}
+impl Clone for D3DKMT_DISPLAY_CAPS_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -7264,8 +7264,8 @@ impl ::core::clone::Clone for D3DKMT_DISPLAY_CAPS_0 {
 pub struct D3DKMT_DISPLAY_CAPS_0_0 {
     pub _bitfield: u64,
 }
-impl ::core::marker::Copy for D3DKMT_DISPLAY_CAPS_0_0 {}
-impl ::core::clone::Clone for D3DKMT_DISPLAY_CAPS_0_0 {
+impl Copy for D3DKMT_DISPLAY_CAPS_0_0 {}
+impl Clone for D3DKMT_DISPLAY_CAPS_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -7275,8 +7275,8 @@ pub struct D3DKMT_DISPLAY_UMD_FILENAMEINFO {
     pub Version: KMT_DISPLAY_UMD_VERSION,
     pub UmdFileName: [u16; 260],
 }
-impl ::core::marker::Copy for D3DKMT_DISPLAY_UMD_FILENAMEINFO {}
-impl ::core::clone::Clone for D3DKMT_DISPLAY_UMD_FILENAMEINFO {
+impl Copy for D3DKMT_DISPLAY_UMD_FILENAMEINFO {}
+impl Clone for D3DKMT_DISPLAY_UMD_FILENAMEINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -7285,8 +7285,8 @@ impl ::core::clone::Clone for D3DKMT_DISPLAY_UMD_FILENAMEINFO {
 pub struct D3DKMT_DLIST_DRIVER_NAME {
     pub DListFileName: [u16; 260],
 }
-impl ::core::marker::Copy for D3DKMT_DLIST_DRIVER_NAME {}
-impl ::core::clone::Clone for D3DKMT_DLIST_DRIVER_NAME {
+impl Copy for D3DKMT_DLIST_DRIVER_NAME {}
+impl Clone for D3DKMT_DLIST_DRIVER_NAME {
     fn clone(&self) -> Self {
         *self
     }
@@ -7298,8 +7298,8 @@ pub struct D3DKMT_DMM_ESCAPE {
     pub MinRequiredBufferSize: usize,
     pub Data: [u8; 1],
 }
-impl ::core::marker::Copy for D3DKMT_DMM_ESCAPE {}
-impl ::core::clone::Clone for D3DKMT_DMM_ESCAPE {
+impl Copy for D3DKMT_DMM_ESCAPE {}
+impl Clone for D3DKMT_DMM_ESCAPE {
     fn clone(&self) -> Self {
         *self
     }
@@ -7308,8 +7308,8 @@ impl ::core::clone::Clone for D3DKMT_DMM_ESCAPE {
 pub struct D3DKMT_DOD_SET_DIRTYRECT_MODE {
     pub bForceFullScreenDirty: super::super::super::Win32::Foundation::BOOL,
 }
-impl ::core::marker::Copy for D3DKMT_DOD_SET_DIRTYRECT_MODE {}
-impl ::core::clone::Clone for D3DKMT_DOD_SET_DIRTYRECT_MODE {
+impl Copy for D3DKMT_DOD_SET_DIRTYRECT_MODE {}
+impl Clone for D3DKMT_DOD_SET_DIRTYRECT_MODE {
     fn clone(&self) -> Self {
         *self
     }
@@ -7318,8 +7318,8 @@ impl ::core::clone::Clone for D3DKMT_DOD_SET_DIRTYRECT_MODE {
 pub struct D3DKMT_DRIVERCAPS_EXT {
     pub Anonymous: D3DKMT_DRIVERCAPS_EXT_0,
 }
-impl ::core::marker::Copy for D3DKMT_DRIVERCAPS_EXT {}
-impl ::core::clone::Clone for D3DKMT_DRIVERCAPS_EXT {
+impl Copy for D3DKMT_DRIVERCAPS_EXT {}
+impl Clone for D3DKMT_DRIVERCAPS_EXT {
     fn clone(&self) -> Self {
         *self
     }
@@ -7329,8 +7329,8 @@ pub union D3DKMT_DRIVERCAPS_EXT_0 {
     pub Anonymous: D3DKMT_DRIVERCAPS_EXT_0_0,
     pub Value: u32,
 }
-impl ::core::marker::Copy for D3DKMT_DRIVERCAPS_EXT_0 {}
-impl ::core::clone::Clone for D3DKMT_DRIVERCAPS_EXT_0 {
+impl Copy for D3DKMT_DRIVERCAPS_EXT_0 {}
+impl Clone for D3DKMT_DRIVERCAPS_EXT_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -7339,8 +7339,8 @@ impl ::core::clone::Clone for D3DKMT_DRIVERCAPS_EXT_0 {
 pub struct D3DKMT_DRIVERCAPS_EXT_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for D3DKMT_DRIVERCAPS_EXT_0_0 {}
-impl ::core::clone::Clone for D3DKMT_DRIVERCAPS_EXT_0_0 {
+impl Copy for D3DKMT_DRIVERCAPS_EXT_0_0 {}
+impl Clone for D3DKMT_DRIVERCAPS_EXT_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -7349,8 +7349,8 @@ impl ::core::clone::Clone for D3DKMT_DRIVERCAPS_EXT_0_0 {
 pub struct D3DKMT_DRIVER_DESCRIPTION {
     pub DriverDescription: [u16; 4096],
 }
-impl ::core::marker::Copy for D3DKMT_DRIVER_DESCRIPTION {}
-impl ::core::clone::Clone for D3DKMT_DRIVER_DESCRIPTION {
+impl Copy for D3DKMT_DRIVER_DESCRIPTION {}
+impl Clone for D3DKMT_DRIVER_DESCRIPTION {
     fn clone(&self) -> Self {
         *self
     }
@@ -7360,8 +7360,8 @@ pub struct D3DKMT_ENUMADAPTERS {
     pub NumAdapters: u32,
     pub Adapters: [D3DKMT_ADAPTERINFO; 16],
 }
-impl ::core::marker::Copy for D3DKMT_ENUMADAPTERS {}
-impl ::core::clone::Clone for D3DKMT_ENUMADAPTERS {
+impl Copy for D3DKMT_ENUMADAPTERS {}
+impl Clone for D3DKMT_ENUMADAPTERS {
     fn clone(&self) -> Self {
         *self
     }
@@ -7371,8 +7371,8 @@ pub struct D3DKMT_ENUMADAPTERS2 {
     pub NumAdapters: u32,
     pub pAdapters: *mut D3DKMT_ADAPTERINFO,
 }
-impl ::core::marker::Copy for D3DKMT_ENUMADAPTERS2 {}
-impl ::core::clone::Clone for D3DKMT_ENUMADAPTERS2 {
+impl Copy for D3DKMT_ENUMADAPTERS2 {}
+impl Clone for D3DKMT_ENUMADAPTERS2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -7383,8 +7383,8 @@ pub struct D3DKMT_ENUMADAPTERS3 {
     pub NumAdapters: u32,
     pub pAdapters: *mut D3DKMT_ADAPTERINFO,
 }
-impl ::core::marker::Copy for D3DKMT_ENUMADAPTERS3 {}
-impl ::core::clone::Clone for D3DKMT_ENUMADAPTERS3 {
+impl Copy for D3DKMT_ENUMADAPTERS3 {}
+impl Clone for D3DKMT_ENUMADAPTERS3 {
     fn clone(&self) -> Self {
         *self
     }
@@ -7394,8 +7394,8 @@ pub union D3DKMT_ENUMADAPTERS_FILTER {
     pub Anonymous: D3DKMT_ENUMADAPTERS_FILTER_0,
     pub Value: u64,
 }
-impl ::core::marker::Copy for D3DKMT_ENUMADAPTERS_FILTER {}
-impl ::core::clone::Clone for D3DKMT_ENUMADAPTERS_FILTER {
+impl Copy for D3DKMT_ENUMADAPTERS_FILTER {}
+impl Clone for D3DKMT_ENUMADAPTERS_FILTER {
     fn clone(&self) -> Self {
         *self
     }
@@ -7404,8 +7404,8 @@ impl ::core::clone::Clone for D3DKMT_ENUMADAPTERS_FILTER {
 pub struct D3DKMT_ENUMADAPTERS_FILTER_0 {
     pub _bitfield: u64,
 }
-impl ::core::marker::Copy for D3DKMT_ENUMADAPTERS_FILTER_0 {}
-impl ::core::clone::Clone for D3DKMT_ENUMADAPTERS_FILTER_0 {
+impl Copy for D3DKMT_ENUMADAPTERS_FILTER_0 {}
+impl Clone for D3DKMT_ENUMADAPTERS_FILTER_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -7416,12 +7416,12 @@ pub struct D3DKMT_ESCAPE {
     pub hDevice: u32,
     pub Type: D3DKMT_ESCAPETYPE,
     pub Flags: D3DDDI_ESCAPEFLAGS,
-    pub pPrivateDriverData: *mut ::core::ffi::c_void,
+    pub pPrivateDriverData: *mut core::ffi::c_void,
     pub PrivateDriverDataSize: u32,
     pub hContext: u32,
 }
-impl ::core::marker::Copy for D3DKMT_ESCAPE {}
-impl ::core::clone::Clone for D3DKMT_ESCAPE {
+impl Copy for D3DKMT_ESCAPE {}
+impl Clone for D3DKMT_ESCAPE {
     fn clone(&self) -> Self {
         *self
     }
@@ -7435,8 +7435,8 @@ pub struct D3DKMT_ESCAPE_VIRTUAL_REFRESH_RATE {
     pub BaseDesktopDuration: u32,
     pub Reserved: [u8; 16],
 }
-impl ::core::marker::Copy for D3DKMT_ESCAPE_VIRTUAL_REFRESH_RATE {}
-impl ::core::clone::Clone for D3DKMT_ESCAPE_VIRTUAL_REFRESH_RATE {
+impl Copy for D3DKMT_ESCAPE_VIRTUAL_REFRESH_RATE {}
+impl Clone for D3DKMT_ESCAPE_VIRTUAL_REFRESH_RATE {
     fn clone(&self) -> Self {
         *self
     }
@@ -7449,8 +7449,8 @@ pub struct D3DKMT_EVICT {
     pub Flags: D3DDDI_EVICT_FLAGS,
     pub NumBytesToTrim: u64,
 }
-impl ::core::marker::Copy for D3DKMT_EVICT {}
-impl ::core::clone::Clone for D3DKMT_EVICT {
+impl Copy for D3DKMT_EVICT {}
+impl Clone for D3DKMT_EVICT {
     fn clone(&self) -> Self {
         *self
     }
@@ -7461,8 +7461,8 @@ pub struct D3DKMT_EVICTION_CRITERIA {
     pub MaximumSize: u64,
     pub Anonymous: D3DKMT_EVICTION_CRITERIA_0,
 }
-impl ::core::marker::Copy for D3DKMT_EVICTION_CRITERIA {}
-impl ::core::clone::Clone for D3DKMT_EVICTION_CRITERIA {
+impl Copy for D3DKMT_EVICTION_CRITERIA {}
+impl Clone for D3DKMT_EVICTION_CRITERIA {
     fn clone(&self) -> Self {
         *self
     }
@@ -7471,8 +7471,8 @@ impl ::core::clone::Clone for D3DKMT_EVICTION_CRITERIA {
 pub struct D3DKMT_EVICTION_CRITERIA_0 {
     pub Anonymous: D3DKMT_EVICTION_CRITERIA_0_0,
 }
-impl ::core::marker::Copy for D3DKMT_EVICTION_CRITERIA_0 {}
-impl ::core::clone::Clone for D3DKMT_EVICTION_CRITERIA_0 {
+impl Copy for D3DKMT_EVICTION_CRITERIA_0 {}
+impl Clone for D3DKMT_EVICTION_CRITERIA_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -7482,8 +7482,8 @@ pub union D3DKMT_EVICTION_CRITERIA_0_0 {
     pub Flags: D3DKMT_EVICTION_CRITERIA_0_0_0,
     pub Value: u32,
 }
-impl ::core::marker::Copy for D3DKMT_EVICTION_CRITERIA_0_0 {}
-impl ::core::clone::Clone for D3DKMT_EVICTION_CRITERIA_0_0 {
+impl Copy for D3DKMT_EVICTION_CRITERIA_0_0 {}
+impl Clone for D3DKMT_EVICTION_CRITERIA_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -7492,8 +7492,8 @@ impl ::core::clone::Clone for D3DKMT_EVICTION_CRITERIA_0_0 {
 pub struct D3DKMT_EVICTION_CRITERIA_0_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for D3DKMT_EVICTION_CRITERIA_0_0_0 {}
-impl ::core::clone::Clone for D3DKMT_EVICTION_CRITERIA_0_0_0 {
+impl Copy for D3DKMT_EVICTION_CRITERIA_0_0_0 {}
+impl Clone for D3DKMT_EVICTION_CRITERIA_0_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -7502,8 +7502,8 @@ impl ::core::clone::Clone for D3DKMT_EVICTION_CRITERIA_0_0_0 {
 pub struct D3DKMT_FENCE_PRESENTHISTORYTOKEN {
     pub Key: u64,
 }
-impl ::core::marker::Copy for D3DKMT_FENCE_PRESENTHISTORYTOKEN {}
-impl ::core::clone::Clone for D3DKMT_FENCE_PRESENTHISTORYTOKEN {
+impl Copy for D3DKMT_FENCE_PRESENTHISTORYTOKEN {}
+impl Clone for D3DKMT_FENCE_PRESENTHISTORYTOKEN {
     fn clone(&self) -> Self {
         *self
     }
@@ -7512,8 +7512,8 @@ impl ::core::clone::Clone for D3DKMT_FENCE_PRESENTHISTORYTOKEN {
 pub struct D3DKMT_FLIPINFOFLAGS {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for D3DKMT_FLIPINFOFLAGS {}
-impl ::core::clone::Clone for D3DKMT_FLIPINFOFLAGS {
+impl Copy for D3DKMT_FLIPINFOFLAGS {}
+impl Clone for D3DKMT_FLIPINFOFLAGS {
     fn clone(&self) -> Self {
         *self
     }
@@ -7531,8 +7531,8 @@ pub struct D3DKMT_FLIPMANAGER_AUXILIARYPRESENTINFO {
     pub WasCanceled: super::super::super::Win32::Foundation::BOOL,
     pub ConvertedToNonIFlip: super::super::super::Win32::Foundation::BOOL,
 }
-impl ::core::marker::Copy for D3DKMT_FLIPMANAGER_AUXILIARYPRESENTINFO {}
-impl ::core::clone::Clone for D3DKMT_FLIPMANAGER_AUXILIARYPRESENTINFO {
+impl Copy for D3DKMT_FLIPMANAGER_AUXILIARYPRESENTINFO {}
+impl Clone for D3DKMT_FLIPMANAGER_AUXILIARYPRESENTINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -7543,8 +7543,8 @@ pub struct D3DKMT_FLIPMANAGER_PRESENTHISTORYTOKEN {
     pub PresentAtQpc: u64,
     pub Flags: D3DKMT_FLIPMANAGER_PRESENTHISTORYTOKEN_0,
 }
-impl ::core::marker::Copy for D3DKMT_FLIPMANAGER_PRESENTHISTORYTOKEN {}
-impl ::core::clone::Clone for D3DKMT_FLIPMANAGER_PRESENTHISTORYTOKEN {
+impl Copy for D3DKMT_FLIPMANAGER_PRESENTHISTORYTOKEN {}
+impl Clone for D3DKMT_FLIPMANAGER_PRESENTHISTORYTOKEN {
     fn clone(&self) -> Self {
         *self
     }
@@ -7554,8 +7554,8 @@ pub union D3DKMT_FLIPMANAGER_PRESENTHISTORYTOKEN_0 {
     pub Anonymous: D3DKMT_FLIPMANAGER_PRESENTHISTORYTOKEN_0_0,
     pub Value: u32,
 }
-impl ::core::marker::Copy for D3DKMT_FLIPMANAGER_PRESENTHISTORYTOKEN_0 {}
-impl ::core::clone::Clone for D3DKMT_FLIPMANAGER_PRESENTHISTORYTOKEN_0 {
+impl Copy for D3DKMT_FLIPMANAGER_PRESENTHISTORYTOKEN_0 {}
+impl Clone for D3DKMT_FLIPMANAGER_PRESENTHISTORYTOKEN_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -7564,8 +7564,8 @@ impl ::core::clone::Clone for D3DKMT_FLIPMANAGER_PRESENTHISTORYTOKEN_0 {
 pub struct D3DKMT_FLIPMANAGER_PRESENTHISTORYTOKEN_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for D3DKMT_FLIPMANAGER_PRESENTHISTORYTOKEN_0_0 {}
-impl ::core::clone::Clone for D3DKMT_FLIPMANAGER_PRESENTHISTORYTOKEN_0_0 {
+impl Copy for D3DKMT_FLIPMANAGER_PRESENTHISTORYTOKEN_0_0 {}
+impl Clone for D3DKMT_FLIPMANAGER_PRESENTHISTORYTOKEN_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -7603,8 +7603,8 @@ pub struct D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN {
     pub ColorSpace: D3DDDI_COLOR_SPACE_TYPE,
     pub DirtyRegions: D3DKMT_DIRTYREGIONS,
 }
-impl ::core::marker::Copy for D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN {}
-impl ::core::clone::Clone for D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN {
+impl Copy for D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN {}
+impl Clone for D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN {
     fn clone(&self) -> Self {
         *self
     }
@@ -7614,8 +7614,8 @@ pub union D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN_0 {
     pub ScatterBlts: D3DKMT_SCATTERBLTS,
     pub Anonymous: D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN_0_0,
 }
-impl ::core::marker::Copy for D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN_0 {}
-impl ::core::clone::Clone for D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN_0 {
+impl Copy for D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN_0 {}
+impl Clone for D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -7626,8 +7626,8 @@ pub struct D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN_0_0 {
     pub HDRMetaDataType: D3DDDI_HDR_METADATA_TYPE,
     pub Anonymous: D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN_0_0_0,
 }
-impl ::core::marker::Copy for D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN_0_0 {}
-impl ::core::clone::Clone for D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN_0_0 {
+impl Copy for D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN_0_0 {}
+impl Clone for D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -7637,8 +7637,8 @@ pub union D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN_0_0_0 {
     pub HDRMetaDataHDR10: D3DDDI_HDR_METADATA_HDR10,
     pub HDRMetaDataHDR10Plus: D3DDDI_HDR_METADATA_HDR10PLUS,
 }
-impl ::core::marker::Copy for D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN_0_0_0 {}
-impl ::core::clone::Clone for D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN_0_0_0 {
+impl Copy for D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN_0_0_0 {}
+impl Clone for D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN_0_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -7647,8 +7647,8 @@ impl ::core::clone::Clone for D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN_0_0_0 {
 pub struct D3DKMT_FLIPMODEL_PRESENTHISTORYTOKENFLAGS {
     pub Anonymous: D3DKMT_FLIPMODEL_PRESENTHISTORYTOKENFLAGS_0,
 }
-impl ::core::marker::Copy for D3DKMT_FLIPMODEL_PRESENTHISTORYTOKENFLAGS {}
-impl ::core::clone::Clone for D3DKMT_FLIPMODEL_PRESENTHISTORYTOKENFLAGS {
+impl Copy for D3DKMT_FLIPMODEL_PRESENTHISTORYTOKENFLAGS {}
+impl Clone for D3DKMT_FLIPMODEL_PRESENTHISTORYTOKENFLAGS {
     fn clone(&self) -> Self {
         *self
     }
@@ -7658,8 +7658,8 @@ pub union D3DKMT_FLIPMODEL_PRESENTHISTORYTOKENFLAGS_0 {
     pub Anonymous: D3DKMT_FLIPMODEL_PRESENTHISTORYTOKENFLAGS_0_0,
     pub Value: u32,
 }
-impl ::core::marker::Copy for D3DKMT_FLIPMODEL_PRESENTHISTORYTOKENFLAGS_0 {}
-impl ::core::clone::Clone for D3DKMT_FLIPMODEL_PRESENTHISTORYTOKENFLAGS_0 {
+impl Copy for D3DKMT_FLIPMODEL_PRESENTHISTORYTOKENFLAGS_0 {}
+impl Clone for D3DKMT_FLIPMODEL_PRESENTHISTORYTOKENFLAGS_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -7668,8 +7668,8 @@ impl ::core::clone::Clone for D3DKMT_FLIPMODEL_PRESENTHISTORYTOKENFLAGS_0 {
 pub struct D3DKMT_FLIPMODEL_PRESENTHISTORYTOKENFLAGS_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for D3DKMT_FLIPMODEL_PRESENTHISTORYTOKENFLAGS_0_0 {}
-impl ::core::clone::Clone for D3DKMT_FLIPMODEL_PRESENTHISTORYTOKENFLAGS_0_0 {
+impl Copy for D3DKMT_FLIPMODEL_PRESENTHISTORYTOKENFLAGS_0_0 {}
+impl Clone for D3DKMT_FLIPMODEL_PRESENTHISTORYTOKENFLAGS_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -7679,11 +7679,11 @@ pub struct D3DKMT_FLIPOVERLAY {
     pub hDevice: u32,
     pub hOverlay: u32,
     pub hSource: u32,
-    pub pPrivateDriverData: *mut ::core::ffi::c_void,
+    pub pPrivateDriverData: *mut core::ffi::c_void,
     pub PrivateDriverDataSize: u32,
 }
-impl ::core::marker::Copy for D3DKMT_FLIPOVERLAY {}
-impl ::core::clone::Clone for D3DKMT_FLIPOVERLAY {
+impl Copy for D3DKMT_FLIPOVERLAY {}
+impl Clone for D3DKMT_FLIPOVERLAY {
     fn clone(&self) -> Self {
         *self
     }
@@ -7694,8 +7694,8 @@ pub struct D3DKMT_FLIPQUEUEINFO {
     pub MaxSoftwareFlipQueueLength: u32,
     pub FlipFlags: D3DKMT_FLIPINFOFLAGS,
 }
-impl ::core::marker::Copy for D3DKMT_FLIPQUEUEINFO {}
-impl ::core::clone::Clone for D3DKMT_FLIPQUEUEINFO {
+impl Copy for D3DKMT_FLIPQUEUEINFO {}
+impl Clone for D3DKMT_FLIPQUEUEINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -7704,8 +7704,8 @@ impl ::core::clone::Clone for D3DKMT_FLIPQUEUEINFO {
 pub struct D3DKMT_FLUSHHEAPTRANSITIONS {
     pub hAdapter: u32,
 }
-impl ::core::marker::Copy for D3DKMT_FLUSHHEAPTRANSITIONS {}
-impl ::core::clone::Clone for D3DKMT_FLUSHHEAPTRANSITIONS {
+impl Copy for D3DKMT_FLUSHHEAPTRANSITIONS {}
+impl Clone for D3DKMT_FLUSHHEAPTRANSITIONS {
     fn clone(&self) -> Self {
         *self
     }
@@ -7716,8 +7716,8 @@ pub struct D3DKMT_FREEGPUVIRTUALADDRESS {
     pub BaseAddress: u64,
     pub Size: u64,
 }
-impl ::core::marker::Copy for D3DKMT_FREEGPUVIRTUALADDRESS {}
-impl ::core::clone::Clone for D3DKMT_FREEGPUVIRTUALADDRESS {
+impl Copy for D3DKMT_FREEGPUVIRTUALADDRESS {}
+impl Clone for D3DKMT_FREEGPUVIRTUALADDRESS {
     fn clone(&self) -> Self {
         *self
     }
@@ -7730,8 +7730,8 @@ pub struct D3DKMT_GDIMODEL_PRESENTHISTORYTOKEN {
     pub ScrollOffset: super::super::super::Win32::Foundation::POINT,
     pub DirtyRegions: D3DKMT_DIRTYREGIONS,
 }
-impl ::core::marker::Copy for D3DKMT_GDIMODEL_PRESENTHISTORYTOKEN {}
-impl ::core::clone::Clone for D3DKMT_GDIMODEL_PRESENTHISTORYTOKEN {
+impl Copy for D3DKMT_GDIMODEL_PRESENTHISTORYTOKEN {}
+impl Clone for D3DKMT_GDIMODEL_PRESENTHISTORYTOKEN {
     fn clone(&self) -> Self {
         *self
     }
@@ -7742,8 +7742,8 @@ pub struct D3DKMT_GDIMODEL_SYSMEM_PRESENTHISTORYTOKEN {
     pub dwDirtyFlags: u32,
     pub uiCookie: u64,
 }
-impl ::core::marker::Copy for D3DKMT_GDIMODEL_SYSMEM_PRESENTHISTORYTOKEN {}
-impl ::core::clone::Clone for D3DKMT_GDIMODEL_SYSMEM_PRESENTHISTORYTOKEN {
+impl Copy for D3DKMT_GDIMODEL_SYSMEM_PRESENTHISTORYTOKEN {}
+impl Clone for D3DKMT_GDIMODEL_SYSMEM_PRESENTHISTORYTOKEN {
     fn clone(&self) -> Self {
         *self
     }
@@ -7756,8 +7756,8 @@ pub struct D3DKMT_GETALLOCATIONPRIORITY {
     pub AllocationCount: u32,
     pub pPriorities: *mut u32,
 }
-impl ::core::marker::Copy for D3DKMT_GETALLOCATIONPRIORITY {}
-impl ::core::clone::Clone for D3DKMT_GETALLOCATIONPRIORITY {
+impl Copy for D3DKMT_GETALLOCATIONPRIORITY {}
+impl Clone for D3DKMT_GETALLOCATIONPRIORITY {
     fn clone(&self) -> Self {
         *self
     }
@@ -7767,8 +7767,8 @@ pub struct D3DKMT_GETCONTEXTINPROCESSSCHEDULINGPRIORITY {
     pub hContext: u32,
     pub Priority: i32,
 }
-impl ::core::marker::Copy for D3DKMT_GETCONTEXTINPROCESSSCHEDULINGPRIORITY {}
-impl ::core::clone::Clone for D3DKMT_GETCONTEXTINPROCESSSCHEDULINGPRIORITY {
+impl Copy for D3DKMT_GETCONTEXTINPROCESSSCHEDULINGPRIORITY {}
+impl Clone for D3DKMT_GETCONTEXTINPROCESSSCHEDULINGPRIORITY {
     fn clone(&self) -> Self {
         *self
     }
@@ -7778,8 +7778,8 @@ pub struct D3DKMT_GETCONTEXTSCHEDULINGPRIORITY {
     pub hContext: u32,
     pub Priority: i32,
 }
-impl ::core::marker::Copy for D3DKMT_GETCONTEXTSCHEDULINGPRIORITY {}
-impl ::core::clone::Clone for D3DKMT_GETCONTEXTSCHEDULINGPRIORITY {
+impl Copy for D3DKMT_GETCONTEXTSCHEDULINGPRIORITY {}
+impl Clone for D3DKMT_GETCONTEXTSCHEDULINGPRIORITY {
     fn clone(&self) -> Self {
         *self
     }
@@ -7790,8 +7790,8 @@ pub struct D3DKMT_GETDEVICESTATE {
     pub StateType: D3DKMT_DEVICESTATE_TYPE,
     pub Anonymous: D3DKMT_GETDEVICESTATE_0,
 }
-impl ::core::marker::Copy for D3DKMT_GETDEVICESTATE {}
-impl ::core::clone::Clone for D3DKMT_GETDEVICESTATE {
+impl Copy for D3DKMT_GETDEVICESTATE {}
+impl Clone for D3DKMT_GETDEVICESTATE {
     fn clone(&self) -> Self {
         *self
     }
@@ -7805,8 +7805,8 @@ pub union D3DKMT_GETDEVICESTATE_0 {
     pub PageFaultState: D3DKMT_DEVICEPAGEFAULT_STATE,
     pub PresentQueueState: D3DKMT_DEVICEPRESENT_QUEUE_STATE,
 }
-impl ::core::marker::Copy for D3DKMT_GETDEVICESTATE_0 {}
-impl ::core::clone::Clone for D3DKMT_GETDEVICESTATE_0 {
+impl Copy for D3DKMT_GETDEVICESTATE_0 {}
+impl Clone for D3DKMT_GETDEVICESTATE_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -7818,8 +7818,8 @@ pub struct D3DKMT_GETDISPLAYMODELIST {
     pub pModeList: *mut D3DKMT_DISPLAYMODE,
     pub ModeCount: u32,
 }
-impl ::core::marker::Copy for D3DKMT_GETDISPLAYMODELIST {}
-impl ::core::clone::Clone for D3DKMT_GETDISPLAYMODELIST {
+impl Copy for D3DKMT_GETDISPLAYMODELIST {}
+impl Clone for D3DKMT_GETDISPLAYMODELIST {
     fn clone(&self) -> Self {
         *self
     }
@@ -7834,8 +7834,8 @@ pub struct D3DKMT_GETMULTISAMPLEMETHODLIST {
     pub pMethodList: *mut D3DKMT_MULTISAMPLEMETHOD,
     pub MethodCount: u32,
 }
-impl ::core::marker::Copy for D3DKMT_GETMULTISAMPLEMETHODLIST {}
-impl ::core::clone::Clone for D3DKMT_GETMULTISAMPLEMETHODLIST {
+impl Copy for D3DKMT_GETMULTISAMPLEMETHODLIST {}
+impl Clone for D3DKMT_GETMULTISAMPLEMETHODLIST {
     fn clone(&self) -> Self {
         *self
     }
@@ -7846,8 +7846,8 @@ pub struct D3DKMT_GETOVERLAYSTATE {
     pub hOverlay: u32,
     pub OverlayEnabled: super::super::super::Win32::Foundation::BOOLEAN,
 }
-impl ::core::marker::Copy for D3DKMT_GETOVERLAYSTATE {}
-impl ::core::clone::Clone for D3DKMT_GETOVERLAYSTATE {
+impl Copy for D3DKMT_GETOVERLAYSTATE {}
+impl Clone for D3DKMT_GETOVERLAYSTATE {
     fn clone(&self) -> Self {
         *self
     }
@@ -7860,8 +7860,8 @@ pub struct D3DKMT_GETPRESENTHISTORY {
     pub pTokens: *mut D3DKMT_PRESENTHISTORYTOKEN,
     pub NumTokens: u32,
 }
-impl ::core::marker::Copy for D3DKMT_GETPRESENTHISTORY {}
-impl ::core::clone::Clone for D3DKMT_GETPRESENTHISTORY {
+impl Copy for D3DKMT_GETPRESENTHISTORY {}
+impl Clone for D3DKMT_GETPRESENTHISTORY {
     fn clone(&self) -> Self {
         *self
     }
@@ -7872,8 +7872,8 @@ pub struct D3DKMT_GETPROCESSDEVICEREMOVALSUPPORT {
     pub AdapterLuid: super::super::super::Win32::Foundation::LUID,
     pub Support: super::super::super::Win32::Foundation::BOOLEAN,
 }
-impl ::core::marker::Copy for D3DKMT_GETPROCESSDEVICEREMOVALSUPPORT {}
-impl ::core::clone::Clone for D3DKMT_GETPROCESSDEVICEREMOVALSUPPORT {
+impl Copy for D3DKMT_GETPROCESSDEVICEREMOVALSUPPORT {}
+impl Clone for D3DKMT_GETPROCESSDEVICEREMOVALSUPPORT {
     fn clone(&self) -> Self {
         *self
     }
@@ -7882,11 +7882,11 @@ impl ::core::clone::Clone for D3DKMT_GETPROCESSDEVICEREMOVALSUPPORT {
 pub struct D3DKMT_GETRUNTIMEDATA {
     pub hAdapter: u32,
     pub hGlobalShare: u32,
-    pub pRuntimeData: *mut ::core::ffi::c_void,
+    pub pRuntimeData: *mut core::ffi::c_void,
     pub RuntimeDataSize: u32,
 }
-impl ::core::marker::Copy for D3DKMT_GETRUNTIMEDATA {}
-impl ::core::clone::Clone for D3DKMT_GETRUNTIMEDATA {
+impl Copy for D3DKMT_GETRUNTIMEDATA {}
+impl Clone for D3DKMT_GETRUNTIMEDATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -7898,8 +7898,8 @@ pub struct D3DKMT_GETSCANLINE {
     pub InVerticalBlank: super::super::super::Win32::Foundation::BOOLEAN,
     pub ScanLine: u32,
 }
-impl ::core::marker::Copy for D3DKMT_GETSCANLINE {}
-impl ::core::clone::Clone for D3DKMT_GETSCANLINE {
+impl Copy for D3DKMT_GETSCANLINE {}
+impl Clone for D3DKMT_GETSCANLINE {
     fn clone(&self) -> Self {
         *self
     }
@@ -7910,8 +7910,8 @@ pub struct D3DKMT_GETSHAREDPRIMARYHANDLE {
     pub VidPnSourceId: u32,
     pub hSharedPrimary: u32,
 }
-impl ::core::marker::Copy for D3DKMT_GETSHAREDPRIMARYHANDLE {}
-impl ::core::clone::Clone for D3DKMT_GETSHAREDPRIMARYHANDLE {
+impl Copy for D3DKMT_GETSHAREDPRIMARYHANDLE {}
+impl Clone for D3DKMT_GETSHAREDPRIMARYHANDLE {
     fn clone(&self) -> Self {
         *self
     }
@@ -7922,8 +7922,8 @@ pub struct D3DKMT_GETSHAREDRESOURCEADAPTERLUID {
     pub hNtHandle: super::super::super::Win32::Foundation::HANDLE,
     pub AdapterLuid: super::super::super::Win32::Foundation::LUID,
 }
-impl ::core::marker::Copy for D3DKMT_GETSHAREDRESOURCEADAPTERLUID {}
-impl ::core::clone::Clone for D3DKMT_GETSHAREDRESOURCEADAPTERLUID {
+impl Copy for D3DKMT_GETSHAREDRESOURCEADAPTERLUID {}
+impl Clone for D3DKMT_GETSHAREDRESOURCEADAPTERLUID {
     fn clone(&self) -> Self {
         *self
     }
@@ -7935,8 +7935,8 @@ pub struct D3DKMT_GETVERTICALBLANKEVENT {
     pub VidPnSourceId: u32,
     pub phEvent: *mut isize,
 }
-impl ::core::marker::Copy for D3DKMT_GETVERTICALBLANKEVENT {}
-impl ::core::clone::Clone for D3DKMT_GETVERTICALBLANKEVENT {
+impl Copy for D3DKMT_GETVERTICALBLANKEVENT {}
+impl Clone for D3DKMT_GETVERTICALBLANKEVENT {
     fn clone(&self) -> Self {
         *self
     }
@@ -7946,8 +7946,8 @@ pub struct D3DKMT_GET_DEVICE_VIDPN_OWNERSHIP_INFO {
     pub hDevice: u32,
     pub bFailedDwmAcquireVidPn: super::super::super::Win32::Foundation::BOOLEAN,
 }
-impl ::core::marker::Copy for D3DKMT_GET_DEVICE_VIDPN_OWNERSHIP_INFO {}
-impl ::core::clone::Clone for D3DKMT_GET_DEVICE_VIDPN_OWNERSHIP_INFO {
+impl Copy for D3DKMT_GET_DEVICE_VIDPN_OWNERSHIP_INFO {}
+impl Clone for D3DKMT_GET_DEVICE_VIDPN_OWNERSHIP_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -7957,8 +7957,8 @@ pub struct D3DKMT_GET_GPUMMU_CAPS {
     pub PhysicalAdapterIndex: u32,
     pub GpuMmuCaps: DXGK_ESCAPE_GPUMMUCAPS,
 }
-impl ::core::marker::Copy for D3DKMT_GET_GPUMMU_CAPS {}
-impl ::core::clone::Clone for D3DKMT_GET_GPUMMU_CAPS {
+impl Copy for D3DKMT_GET_GPUMMU_CAPS {}
+impl Clone for D3DKMT_GET_GPUMMU_CAPS {
     fn clone(&self) -> Self {
         *self
     }
@@ -7974,8 +7974,8 @@ pub struct D3DKMT_GET_MULTIPLANE_OVERLAY_CAPS {
     pub MaxStretchFactor: f32,
     pub MaxShrinkFactor: f32,
 }
-impl ::core::marker::Copy for D3DKMT_GET_MULTIPLANE_OVERLAY_CAPS {}
-impl ::core::clone::Clone for D3DKMT_GET_MULTIPLANE_OVERLAY_CAPS {
+impl Copy for D3DKMT_GET_MULTIPLANE_OVERLAY_CAPS {}
+impl Clone for D3DKMT_GET_MULTIPLANE_OVERLAY_CAPS {
     fn clone(&self) -> Self {
         *self
     }
@@ -7987,8 +7987,8 @@ pub struct D3DKMT_GET_POST_COMPOSITION_CAPS {
     pub MaxStretchFactor: f32,
     pub MaxShrinkFactor: f32,
 }
-impl ::core::marker::Copy for D3DKMT_GET_POST_COMPOSITION_CAPS {}
-impl ::core::clone::Clone for D3DKMT_GET_POST_COMPOSITION_CAPS {
+impl Copy for D3DKMT_GET_POST_COMPOSITION_CAPS {}
+impl Clone for D3DKMT_GET_POST_COMPOSITION_CAPS {
     fn clone(&self) -> Self {
         *self
     }
@@ -8003,8 +8003,8 @@ pub struct D3DKMT_GET_PTE {
     pub Pte: [DXGK_PTE; 64],
     pub NumValidEntries: u32,
 }
-impl ::core::marker::Copy for D3DKMT_GET_PTE {}
-impl ::core::clone::Clone for D3DKMT_GET_PTE {
+impl Copy for D3DKMT_GET_PTE {}
+impl Clone for D3DKMT_GET_PTE {
     fn clone(&self) -> Self {
         *self
     }
@@ -8015,8 +8015,8 @@ pub struct D3DKMT_GET_SEGMENT_CAPS {
     pub NumSegments: u32,
     pub SegmentCaps: [D3DKMT_SEGMENT_CAPS; 32],
 }
-impl ::core::marker::Copy for D3DKMT_GET_SEGMENT_CAPS {}
-impl ::core::clone::Clone for D3DKMT_GET_SEGMENT_CAPS {
+impl Copy for D3DKMT_GET_SEGMENT_CAPS {}
+impl Clone for D3DKMT_GET_SEGMENT_CAPS {
     fn clone(&self) -> Self {
         *self
     }
@@ -8026,8 +8026,8 @@ pub struct D3DKMT_GPUMMU_CAPS {
     pub Flags: D3DKMT_GPUMMU_CAPS_0,
     pub VirtualAddressBitCount: u32,
 }
-impl ::core::marker::Copy for D3DKMT_GPUMMU_CAPS {}
-impl ::core::clone::Clone for D3DKMT_GPUMMU_CAPS {
+impl Copy for D3DKMT_GPUMMU_CAPS {}
+impl Clone for D3DKMT_GPUMMU_CAPS {
     fn clone(&self) -> Self {
         *self
     }
@@ -8037,8 +8037,8 @@ pub union D3DKMT_GPUMMU_CAPS_0 {
     pub Anonymous: D3DKMT_GPUMMU_CAPS_0_0,
     pub Value: u32,
 }
-impl ::core::marker::Copy for D3DKMT_GPUMMU_CAPS_0 {}
-impl ::core::clone::Clone for D3DKMT_GPUMMU_CAPS_0 {
+impl Copy for D3DKMT_GPUMMU_CAPS_0 {}
+impl Clone for D3DKMT_GPUMMU_CAPS_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -8047,8 +8047,8 @@ impl ::core::clone::Clone for D3DKMT_GPUMMU_CAPS_0 {
 pub struct D3DKMT_GPUMMU_CAPS_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for D3DKMT_GPUMMU_CAPS_0_0 {}
-impl ::core::clone::Clone for D3DKMT_GPUMMU_CAPS_0_0 {
+impl Copy for D3DKMT_GPUMMU_CAPS_0_0 {}
+impl Clone for D3DKMT_GPUMMU_CAPS_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -8059,8 +8059,8 @@ pub struct D3DKMT_GPUVERSION {
     pub BiosVersion: [u16; 32],
     pub GpuArchitecture: [u16; 32],
 }
-impl ::core::marker::Copy for D3DKMT_GPUVERSION {}
-impl ::core::clone::Clone for D3DKMT_GPUVERSION {
+impl Copy for D3DKMT_GPUVERSION {}
+impl Clone for D3DKMT_GPUVERSION {
     fn clone(&self) -> Self {
         *self
     }
@@ -8070,8 +8070,8 @@ pub struct D3DKMT_HISTORY_BUFFER_STATUS {
     pub Enabled: super::super::super::Win32::Foundation::BOOLEAN,
     pub Reserved: u32,
 }
-impl ::core::marker::Copy for D3DKMT_HISTORY_BUFFER_STATUS {}
-impl ::core::clone::Clone for D3DKMT_HISTORY_BUFFER_STATUS {
+impl Copy for D3DKMT_HISTORY_BUFFER_STATUS {}
+impl Clone for D3DKMT_HISTORY_BUFFER_STATUS {
     fn clone(&self) -> Self {
         *self
     }
@@ -8080,8 +8080,8 @@ impl ::core::clone::Clone for D3DKMT_HISTORY_BUFFER_STATUS {
 pub struct D3DKMT_HWDRM_SUPPORT {
     pub Supported: super::super::super::Win32::Foundation::BOOLEAN,
 }
-impl ::core::marker::Copy for D3DKMT_HWDRM_SUPPORT {}
-impl ::core::clone::Clone for D3DKMT_HWDRM_SUPPORT {
+impl Copy for D3DKMT_HWDRM_SUPPORT {}
+impl Clone for D3DKMT_HWDRM_SUPPORT {
     fn clone(&self) -> Self {
         *self
     }
@@ -8090,8 +8090,8 @@ impl ::core::clone::Clone for D3DKMT_HWDRM_SUPPORT {
 pub struct D3DKMT_HYBRID_DLIST_DLL_SUPPORT {
     pub Supported: super::super::super::Win32::Foundation::BOOL,
 }
-impl ::core::marker::Copy for D3DKMT_HYBRID_DLIST_DLL_SUPPORT {}
-impl ::core::clone::Clone for D3DKMT_HYBRID_DLIST_DLL_SUPPORT {
+impl Copy for D3DKMT_HYBRID_DLIST_DLL_SUPPORT {}
+impl Clone for D3DKMT_HYBRID_DLIST_DLL_SUPPORT {
     fn clone(&self) -> Self {
         *self
     }
@@ -8103,8 +8103,8 @@ pub struct D3DKMT_HYBRID_LIST {
     pub bUserPreferenceQuery: super::super::super::Win32::Foundation::BOOL,
     pub QueryType: D3DKMT_GPU_PREFERENCE_QUERY_TYPE,
 }
-impl ::core::marker::Copy for D3DKMT_HYBRID_LIST {}
-impl ::core::clone::Clone for D3DKMT_HYBRID_LIST {
+impl Copy for D3DKMT_HYBRID_LIST {}
+impl Clone for D3DKMT_HYBRID_LIST {
     fn clone(&self) -> Self {
         *self
     }
@@ -8113,8 +8113,8 @@ impl ::core::clone::Clone for D3DKMT_HYBRID_LIST {
 pub struct D3DKMT_INDEPENDENTFLIP_SECONDARY_SUPPORT {
     pub Supported: super::super::super::Win32::Foundation::BOOL,
 }
-impl ::core::marker::Copy for D3DKMT_INDEPENDENTFLIP_SECONDARY_SUPPORT {}
-impl ::core::clone::Clone for D3DKMT_INDEPENDENTFLIP_SECONDARY_SUPPORT {
+impl Copy for D3DKMT_INDEPENDENTFLIP_SECONDARY_SUPPORT {}
+impl Clone for D3DKMT_INDEPENDENTFLIP_SECONDARY_SUPPORT {
     fn clone(&self) -> Self {
         *self
     }
@@ -8123,8 +8123,8 @@ impl ::core::clone::Clone for D3DKMT_INDEPENDENTFLIP_SECONDARY_SUPPORT {
 pub struct D3DKMT_INDEPENDENTFLIP_SUPPORT {
     pub Supported: super::super::super::Win32::Foundation::BOOL,
 }
-impl ::core::marker::Copy for D3DKMT_INDEPENDENTFLIP_SUPPORT {}
-impl ::core::clone::Clone for D3DKMT_INDEPENDENTFLIP_SUPPORT {
+impl Copy for D3DKMT_INDEPENDENTFLIP_SUPPORT {}
+impl Clone for D3DKMT_INDEPENDENTFLIP_SUPPORT {
     fn clone(&self) -> Self {
         *self
     }
@@ -8132,11 +8132,11 @@ impl ::core::clone::Clone for D3DKMT_INDEPENDENTFLIP_SUPPORT {
 #[repr(C)]
 pub struct D3DKMT_INVALIDATEACTIVEVIDPN {
     pub hAdapter: u32,
-    pub pPrivateDriverData: *mut ::core::ffi::c_void,
+    pub pPrivateDriverData: *mut core::ffi::c_void,
     pub PrivateDriverDataSize: u32,
 }
-impl ::core::marker::Copy for D3DKMT_INVALIDATEACTIVEVIDPN {}
-impl ::core::clone::Clone for D3DKMT_INVALIDATEACTIVEVIDPN {
+impl Copy for D3DKMT_INVALIDATEACTIVEVIDPN {}
+impl Clone for D3DKMT_INVALIDATEACTIVEVIDPN {
     fn clone(&self) -> Self {
         *self
     }
@@ -8148,8 +8148,8 @@ pub struct D3DKMT_INVALIDATECACHE {
     pub Offset: usize,
     pub Length: usize,
 }
-impl ::core::marker::Copy for D3DKMT_INVALIDATECACHE {}
-impl ::core::clone::Clone for D3DKMT_INVALIDATECACHE {
+impl Copy for D3DKMT_INVALIDATECACHE {}
+impl Clone for D3DKMT_INVALIDATECACHE {
     fn clone(&self) -> Self {
         *self
     }
@@ -8158,8 +8158,8 @@ impl ::core::clone::Clone for D3DKMT_INVALIDATECACHE {
 pub struct D3DKMT_ISBADDRIVERFORHWPROTECTIONDISABLED {
     pub Disabled: super::super::super::Win32::Foundation::BOOL,
 }
-impl ::core::marker::Copy for D3DKMT_ISBADDRIVERFORHWPROTECTIONDISABLED {}
-impl ::core::clone::Clone for D3DKMT_ISBADDRIVERFORHWPROTECTIONDISABLED {
+impl Copy for D3DKMT_ISBADDRIVERFORHWPROTECTIONDISABLED {}
+impl Clone for D3DKMT_ISBADDRIVERFORHWPROTECTIONDISABLED {
     fn clone(&self) -> Self {
         *self
     }
@@ -8168,8 +8168,8 @@ impl ::core::clone::Clone for D3DKMT_ISBADDRIVERFORHWPROTECTIONDISABLED {
 pub struct D3DKMT_KMD_DRIVER_VERSION {
     pub DriverVersion: i64,
 }
-impl ::core::marker::Copy for D3DKMT_KMD_DRIVER_VERSION {}
-impl ::core::clone::Clone for D3DKMT_KMD_DRIVER_VERSION {
+impl Copy for D3DKMT_KMD_DRIVER_VERSION {}
+impl Clone for D3DKMT_KMD_DRIVER_VERSION {
     fn clone(&self) -> Self {
         *self
     }
@@ -8181,12 +8181,12 @@ pub struct D3DKMT_LOCK {
     pub PrivateDriverData: u32,
     pub NumPages: u32,
     pub pPages: *const u32,
-    pub pData: *mut ::core::ffi::c_void,
+    pub pData: *mut core::ffi::c_void,
     pub Flags: D3DDDICB_LOCKFLAGS,
     pub GpuVirtualAddress: u64,
 }
-impl ::core::marker::Copy for D3DKMT_LOCK {}
-impl ::core::clone::Clone for D3DKMT_LOCK {
+impl Copy for D3DKMT_LOCK {}
+impl Clone for D3DKMT_LOCK {
     fn clone(&self) -> Self {
         *self
     }
@@ -8196,10 +8196,10 @@ pub struct D3DKMT_LOCK2 {
     pub hDevice: u32,
     pub hAllocation: u32,
     pub Flags: D3DDDICB_LOCK2FLAGS,
-    pub pData: *mut ::core::ffi::c_void,
+    pub pData: *mut core::ffi::c_void,
 }
-impl ::core::marker::Copy for D3DKMT_LOCK2 {}
-impl ::core::clone::Clone for D3DKMT_LOCK2 {
+impl Copy for D3DKMT_LOCK2 {}
+impl Clone for D3DKMT_LOCK2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -8209,8 +8209,8 @@ pub struct D3DKMT_MARKDEVICEASERROR {
     pub hDevice: u32,
     pub Reason: D3DKMT_DEVICE_ERROR_REASON,
 }
-impl ::core::marker::Copy for D3DKMT_MARKDEVICEASERROR {}
-impl ::core::clone::Clone for D3DKMT_MARKDEVICEASERROR {
+impl Copy for D3DKMT_MARKDEVICEASERROR {}
+impl Clone for D3DKMT_MARKDEVICEASERROR {
     fn clone(&self) -> Self {
         *self
     }
@@ -8219,8 +8219,8 @@ impl ::core::clone::Clone for D3DKMT_MARKDEVICEASERROR {
 pub struct D3DKMT_MIRACASTCOMPANIONDRIVERNAME {
     pub MiracastCompanionDriverName: [u16; 260],
 }
-impl ::core::marker::Copy for D3DKMT_MIRACASTCOMPANIONDRIVERNAME {}
-impl ::core::clone::Clone for D3DKMT_MIRACASTCOMPANIONDRIVERNAME {
+impl Copy for D3DKMT_MIRACASTCOMPANIONDRIVERNAME {}
+impl Clone for D3DKMT_MIRACASTCOMPANIONDRIVERNAME {
     fn clone(&self) -> Self {
         *self
     }
@@ -8231,8 +8231,8 @@ pub struct D3DKMT_MIRACAST_CHUNK_DATA {
     pub PrivateDriverDataSize: u32,
     pub PrivateDriverData: [u8; 1],
 }
-impl ::core::marker::Copy for D3DKMT_MIRACAST_CHUNK_DATA {}
-impl ::core::clone::Clone for D3DKMT_MIRACAST_CHUNK_DATA {
+impl Copy for D3DKMT_MIRACAST_CHUNK_DATA {}
+impl Clone for D3DKMT_MIRACAST_CHUNK_DATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -8243,8 +8243,8 @@ pub struct D3DKMT_MIRACAST_DISPLAY_DEVICE_CAPS {
     pub DefaultControlPort: u32,
     pub UsesIhvSolution: super::super::super::Win32::Foundation::BOOLEAN,
 }
-impl ::core::marker::Copy for D3DKMT_MIRACAST_DISPLAY_DEVICE_CAPS {}
-impl ::core::clone::Clone for D3DKMT_MIRACAST_DISPLAY_DEVICE_CAPS {
+impl Copy for D3DKMT_MIRACAST_DISPLAY_DEVICE_CAPS {}
+impl Clone for D3DKMT_MIRACAST_DISPLAY_DEVICE_CAPS {
     fn clone(&self) -> Self {
         *self
     }
@@ -8253,8 +8253,8 @@ impl ::core::clone::Clone for D3DKMT_MIRACAST_DISPLAY_DEVICE_CAPS {
 pub struct D3DKMT_MIRACAST_DISPLAY_DEVICE_STATUS {
     pub State: D3DKMT_MIRACAST_DISPLAY_DEVICE_STATE,
 }
-impl ::core::marker::Copy for D3DKMT_MIRACAST_DISPLAY_DEVICE_STATUS {}
-impl ::core::clone::Clone for D3DKMT_MIRACAST_DISPLAY_DEVICE_STATUS {
+impl Copy for D3DKMT_MIRACAST_DISPLAY_DEVICE_STATUS {}
+impl Clone for D3DKMT_MIRACAST_DISPLAY_DEVICE_STATUS {
     fn clone(&self) -> Self {
         *self
     }
@@ -8265,8 +8265,8 @@ pub struct D3DKMT_MIRACAST_DISPLAY_STOP_SESSIONS {
     pub TargetId: u32,
     pub StopReason: u32,
 }
-impl ::core::marker::Copy for D3DKMT_MIRACAST_DISPLAY_STOP_SESSIONS {}
-impl ::core::clone::Clone for D3DKMT_MIRACAST_DISPLAY_STOP_SESSIONS {
+impl Copy for D3DKMT_MIRACAST_DISPLAY_STOP_SESSIONS {}
+impl Clone for D3DKMT_MIRACAST_DISPLAY_STOP_SESSIONS {
     fn clone(&self) -> Self {
         *self
     }
@@ -8276,8 +8276,8 @@ pub struct D3DKMT_MOVE_RECT {
     pub SourcePoint: super::super::super::Win32::Foundation::POINT,
     pub DestRect: super::super::super::Win32::Foundation::RECT,
 }
-impl ::core::marker::Copy for D3DKMT_MOVE_RECT {}
-impl ::core::clone::Clone for D3DKMT_MOVE_RECT {
+impl Copy for D3DKMT_MOVE_RECT {}
+impl Clone for D3DKMT_MOVE_RECT {
     fn clone(&self) -> Self {
         *self
     }
@@ -8286,8 +8286,8 @@ impl ::core::clone::Clone for D3DKMT_MOVE_RECT {
 pub struct D3DKMT_MPO3DDI_SUPPORT {
     pub Supported: super::super::super::Win32::Foundation::BOOL,
 }
-impl ::core::marker::Copy for D3DKMT_MPO3DDI_SUPPORT {}
-impl ::core::clone::Clone for D3DKMT_MPO3DDI_SUPPORT {
+impl Copy for D3DKMT_MPO3DDI_SUPPORT {}
+impl Clone for D3DKMT_MPO3DDI_SUPPORT {
     fn clone(&self) -> Self {
         *self
     }
@@ -8296,8 +8296,8 @@ impl ::core::clone::Clone for D3DKMT_MPO3DDI_SUPPORT {
 pub struct D3DKMT_MPOKERNELCAPS_SUPPORT {
     pub Supported: super::super::super::Win32::Foundation::BOOL,
 }
-impl ::core::marker::Copy for D3DKMT_MPOKERNELCAPS_SUPPORT {}
-impl ::core::clone::Clone for D3DKMT_MPOKERNELCAPS_SUPPORT {
+impl Copy for D3DKMT_MPOKERNELCAPS_SUPPORT {}
+impl Clone for D3DKMT_MPOKERNELCAPS_SUPPORT {
     fn clone(&self) -> Self {
         *self
     }
@@ -8306,8 +8306,8 @@ impl ::core::clone::Clone for D3DKMT_MPOKERNELCAPS_SUPPORT {
 pub struct D3DKMT_MULTIPLANEOVERLAY_DECODE_SUPPORT {
     pub Supported: super::super::super::Win32::Foundation::BOOL,
 }
-impl ::core::marker::Copy for D3DKMT_MULTIPLANEOVERLAY_DECODE_SUPPORT {}
-impl ::core::clone::Clone for D3DKMT_MULTIPLANEOVERLAY_DECODE_SUPPORT {
+impl Copy for D3DKMT_MULTIPLANEOVERLAY_DECODE_SUPPORT {}
+impl Clone for D3DKMT_MULTIPLANEOVERLAY_DECODE_SUPPORT {
     fn clone(&self) -> Self {
         *self
     }
@@ -8319,8 +8319,8 @@ pub struct D3DKMT_MULTIPLANEOVERLAY_HUD_SUPPORT {
     pub KernelSupported: super::super::super::Win32::Foundation::BOOL,
     pub HudSupported: super::super::super::Win32::Foundation::BOOL,
 }
-impl ::core::marker::Copy for D3DKMT_MULTIPLANEOVERLAY_HUD_SUPPORT {}
-impl ::core::clone::Clone for D3DKMT_MULTIPLANEOVERLAY_HUD_SUPPORT {
+impl Copy for D3DKMT_MULTIPLANEOVERLAY_HUD_SUPPORT {}
+impl Clone for D3DKMT_MULTIPLANEOVERLAY_HUD_SUPPORT {
     fn clone(&self) -> Self {
         *self
     }
@@ -8329,8 +8329,8 @@ impl ::core::clone::Clone for D3DKMT_MULTIPLANEOVERLAY_HUD_SUPPORT {
 pub struct D3DKMT_MULTIPLANEOVERLAY_SECONDARY_SUPPORT {
     pub Supported: super::super::super::Win32::Foundation::BOOL,
 }
-impl ::core::marker::Copy for D3DKMT_MULTIPLANEOVERLAY_SECONDARY_SUPPORT {}
-impl ::core::clone::Clone for D3DKMT_MULTIPLANEOVERLAY_SECONDARY_SUPPORT {
+impl Copy for D3DKMT_MULTIPLANEOVERLAY_SECONDARY_SUPPORT {}
+impl Clone for D3DKMT_MULTIPLANEOVERLAY_SECONDARY_SUPPORT {
     fn clone(&self) -> Self {
         *self
     }
@@ -8341,8 +8341,8 @@ pub struct D3DKMT_MULTIPLANEOVERLAY_STRETCH_SUPPORT {
     pub Update: super::super::super::Win32::Foundation::BOOL,
     pub Supported: super::super::super::Win32::Foundation::BOOL,
 }
-impl ::core::marker::Copy for D3DKMT_MULTIPLANEOVERLAY_STRETCH_SUPPORT {}
-impl ::core::clone::Clone for D3DKMT_MULTIPLANEOVERLAY_STRETCH_SUPPORT {
+impl Copy for D3DKMT_MULTIPLANEOVERLAY_STRETCH_SUPPORT {}
+impl Clone for D3DKMT_MULTIPLANEOVERLAY_STRETCH_SUPPORT {
     fn clone(&self) -> Self {
         *self
     }
@@ -8351,8 +8351,8 @@ impl ::core::clone::Clone for D3DKMT_MULTIPLANEOVERLAY_STRETCH_SUPPORT {
 pub struct D3DKMT_MULTIPLANEOVERLAY_SUPPORT {
     pub Supported: super::super::super::Win32::Foundation::BOOL,
 }
-impl ::core::marker::Copy for D3DKMT_MULTIPLANEOVERLAY_SUPPORT {}
-impl ::core::clone::Clone for D3DKMT_MULTIPLANEOVERLAY_SUPPORT {
+impl Copy for D3DKMT_MULTIPLANEOVERLAY_SUPPORT {}
+impl Clone for D3DKMT_MULTIPLANEOVERLAY_SUPPORT {
     fn clone(&self) -> Self {
         *self
     }
@@ -8364,8 +8364,8 @@ pub struct D3DKMT_MULTIPLANE_OVERLAY {
     pub hAllocation: u32,
     pub PlaneAttributes: D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES,
 }
-impl ::core::marker::Copy for D3DKMT_MULTIPLANE_OVERLAY {}
-impl ::core::clone::Clone for D3DKMT_MULTIPLANE_OVERLAY {
+impl Copy for D3DKMT_MULTIPLANE_OVERLAY {}
+impl Clone for D3DKMT_MULTIPLANE_OVERLAY {
     fn clone(&self) -> Self {
         *self
     }
@@ -8377,8 +8377,8 @@ pub struct D3DKMT_MULTIPLANE_OVERLAY2 {
     pub hAllocation: u32,
     pub PlaneAttributes: D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES2,
 }
-impl ::core::marker::Copy for D3DKMT_MULTIPLANE_OVERLAY2 {}
-impl ::core::clone::Clone for D3DKMT_MULTIPLANE_OVERLAY2 {
+impl Copy for D3DKMT_MULTIPLANE_OVERLAY2 {}
+impl Clone for D3DKMT_MULTIPLANE_OVERLAY2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -8392,15 +8392,15 @@ pub struct D3DKMT_MULTIPLANE_OVERLAY3 {
     pub AllocationCount: u32,
     pub pAllocationList: *mut u32,
     pub DriverPrivateDataSize: u32,
-    pub pDriverPrivateData: *mut ::core::ffi::c_void,
+    pub pDriverPrivateData: *mut core::ffi::c_void,
     pub pPlaneAttributes: *const D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES3,
     pub hFlipToFence: u32,
     pub hFlipAwayFence: u32,
     pub FlipToFenceValue: u64,
     pub FlipAwayFenceValue: u64,
 }
-impl ::core::marker::Copy for D3DKMT_MULTIPLANE_OVERLAY3 {}
-impl ::core::clone::Clone for D3DKMT_MULTIPLANE_OVERLAY3 {
+impl Copy for D3DKMT_MULTIPLANE_OVERLAY3 {}
+impl Clone for D3DKMT_MULTIPLANE_OVERLAY3 {
     fn clone(&self) -> Self {
         *self
     }
@@ -8423,8 +8423,8 @@ pub struct D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES {
     pub StereoFlipMode: DXGKMT_MULTIPLANE_OVERLAY_STEREO_FLIP_MODE,
     pub StretchQuality: DXGKMT_MULTIPLANE_OVERLAY_STRETCH_QUALITY,
 }
-impl ::core::marker::Copy for D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES {}
-impl ::core::clone::Clone for D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES {
+impl Copy for D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES {}
+impl Clone for D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES {
     fn clone(&self) -> Self {
         *self
     }
@@ -8448,8 +8448,8 @@ pub struct D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES2 {
     pub StretchQuality: DXGKMT_MULTIPLANE_OVERLAY_STRETCH_QUALITY,
     pub Reserved1: u32,
 }
-impl ::core::marker::Copy for D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES2 {}
-impl ::core::clone::Clone for D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES2 {
+impl Copy for D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES2 {}
+impl Clone for D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -8468,8 +8468,8 @@ pub struct D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES3 {
     pub StretchQuality: DXGKMT_MULTIPLANE_OVERLAY_STRETCH_QUALITY,
     pub SDRWhiteLevel: u32,
 }
-impl ::core::marker::Copy for D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES3 {}
-impl ::core::clone::Clone for D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES3 {
+impl Copy for D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES3 {}
+impl Clone for D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES3 {
     fn clone(&self) -> Self {
         *self
     }
@@ -8478,8 +8478,8 @@ impl ::core::clone::Clone for D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES3 {
 pub struct D3DKMT_MULTIPLANE_OVERLAY_CAPS {
     pub Anonymous: D3DKMT_MULTIPLANE_OVERLAY_CAPS_0,
 }
-impl ::core::marker::Copy for D3DKMT_MULTIPLANE_OVERLAY_CAPS {}
-impl ::core::clone::Clone for D3DKMT_MULTIPLANE_OVERLAY_CAPS {
+impl Copy for D3DKMT_MULTIPLANE_OVERLAY_CAPS {}
+impl Clone for D3DKMT_MULTIPLANE_OVERLAY_CAPS {
     fn clone(&self) -> Self {
         *self
     }
@@ -8489,8 +8489,8 @@ pub union D3DKMT_MULTIPLANE_OVERLAY_CAPS_0 {
     pub Anonymous: D3DKMT_MULTIPLANE_OVERLAY_CAPS_0_0,
     pub Value: u32,
 }
-impl ::core::marker::Copy for D3DKMT_MULTIPLANE_OVERLAY_CAPS_0 {}
-impl ::core::clone::Clone for D3DKMT_MULTIPLANE_OVERLAY_CAPS_0 {
+impl Copy for D3DKMT_MULTIPLANE_OVERLAY_CAPS_0 {}
+impl Clone for D3DKMT_MULTIPLANE_OVERLAY_CAPS_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -8499,8 +8499,8 @@ impl ::core::clone::Clone for D3DKMT_MULTIPLANE_OVERLAY_CAPS_0 {
 pub struct D3DKMT_MULTIPLANE_OVERLAY_CAPS_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for D3DKMT_MULTIPLANE_OVERLAY_CAPS_0_0 {}
-impl ::core::clone::Clone for D3DKMT_MULTIPLANE_OVERLAY_CAPS_0_0 {
+impl Copy for D3DKMT_MULTIPLANE_OVERLAY_CAPS_0_0 {}
+impl Clone for D3DKMT_MULTIPLANE_OVERLAY_CAPS_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -8512,8 +8512,8 @@ pub struct D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION {
     pub DstRect: super::super::super::Win32::Foundation::RECT,
     pub Rotation: D3DDDI_ROTATION,
 }
-impl ::core::marker::Copy for D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION {}
-impl ::core::clone::Clone for D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION {
+impl Copy for D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION {}
+impl Clone for D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION {
     fn clone(&self) -> Self {
         *self
     }
@@ -8522,8 +8522,8 @@ impl ::core::clone::Clone for D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION {
 pub struct D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_FLAGS {
     pub Anonymous: D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_FLAGS_0,
 }
-impl ::core::marker::Copy for D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_FLAGS {}
-impl ::core::clone::Clone for D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_FLAGS {
+impl Copy for D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_FLAGS {}
+impl Clone for D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_FLAGS {
     fn clone(&self) -> Self {
         *self
     }
@@ -8533,8 +8533,8 @@ pub union D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_FLAGS_0 {
     pub Anonymous: D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_FLAGS_0_0,
     pub Value: u32,
 }
-impl ::core::marker::Copy for D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_FLAGS_0 {}
-impl ::core::clone::Clone for D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_FLAGS_0 {
+impl Copy for D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_FLAGS_0 {}
+impl Clone for D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_FLAGS_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -8543,8 +8543,8 @@ impl ::core::clone::Clone for D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_FLAGS_0
 pub struct D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_FLAGS_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_FLAGS_0_0 {}
-impl ::core::clone::Clone for D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_FLAGS_0_0 {
+impl Copy for D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_FLAGS_0_0 {}
+impl Clone for D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_FLAGS_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -8554,8 +8554,8 @@ pub struct D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_WITH_SOURCE {
     pub VidPnSourceId: u32,
     pub PostComposition: D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION,
 }
-impl ::core::marker::Copy for D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_WITH_SOURCE {}
-impl ::core::clone::Clone for D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_WITH_SOURCE {
+impl Copy for D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_WITH_SOURCE {}
+impl Clone for D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_WITH_SOURCE {
     fn clone(&self) -> Self {
         *self
     }
@@ -8566,8 +8566,8 @@ pub struct D3DKMT_MULTISAMPLEMETHOD {
     pub NumQualityLevels: u32,
     pub Reserved: u32,
 }
-impl ::core::marker::Copy for D3DKMT_MULTISAMPLEMETHOD {}
-impl ::core::clone::Clone for D3DKMT_MULTISAMPLEMETHOD {
+impl Copy for D3DKMT_MULTISAMPLEMETHOD {}
+impl Clone for D3DKMT_MULTISAMPLEMETHOD {
     fn clone(&self) -> Self {
         *self
     }
@@ -8577,8 +8577,8 @@ pub struct D3DKMT_NODEMETADATA {
     pub NodeOrdinalAndAdapterIndex: u32,
     pub NodeData: DXGK_NODEMETADATA,
 }
-impl ::core::marker::Copy for D3DKMT_NODEMETADATA {}
-impl ::core::clone::Clone for D3DKMT_NODEMETADATA {
+impl Copy for D3DKMT_NODEMETADATA {}
+impl Clone for D3DKMT_NODEMETADATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -8595,8 +8595,8 @@ pub struct D3DKMT_NODE_PERFDATA {
     pub VoltageMaxOC: u32,
     pub MaxTransitionLatency: u64,
 }
-impl ::core::marker::Copy for D3DKMT_NODE_PERFDATA {}
-impl ::core::clone::Clone for D3DKMT_NODE_PERFDATA {
+impl Copy for D3DKMT_NODE_PERFDATA {}
+impl Clone for D3DKMT_NODE_PERFDATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -8606,8 +8606,8 @@ pub struct D3DKMT_NOTIFY_WORK_SUBMISSION {
     pub hHwQueue: u32,
     pub Flags: D3DKMT_NOTIFY_WORK_SUBMISSION_FLAGS,
 }
-impl ::core::marker::Copy for D3DKMT_NOTIFY_WORK_SUBMISSION {}
-impl ::core::clone::Clone for D3DKMT_NOTIFY_WORK_SUBMISSION {
+impl Copy for D3DKMT_NOTIFY_WORK_SUBMISSION {}
+impl Clone for D3DKMT_NOTIFY_WORK_SUBMISSION {
     fn clone(&self) -> Self {
         *self
     }
@@ -8616,8 +8616,8 @@ impl ::core::clone::Clone for D3DKMT_NOTIFY_WORK_SUBMISSION {
 pub struct D3DKMT_NOTIFY_WORK_SUBMISSION_FLAGS {
     pub Anonymous: D3DKMT_NOTIFY_WORK_SUBMISSION_FLAGS_0,
 }
-impl ::core::marker::Copy for D3DKMT_NOTIFY_WORK_SUBMISSION_FLAGS {}
-impl ::core::clone::Clone for D3DKMT_NOTIFY_WORK_SUBMISSION_FLAGS {
+impl Copy for D3DKMT_NOTIFY_WORK_SUBMISSION_FLAGS {}
+impl Clone for D3DKMT_NOTIFY_WORK_SUBMISSION_FLAGS {
     fn clone(&self) -> Self {
         *self
     }
@@ -8627,8 +8627,8 @@ pub union D3DKMT_NOTIFY_WORK_SUBMISSION_FLAGS_0 {
     pub Anonymous: D3DKMT_NOTIFY_WORK_SUBMISSION_FLAGS_0_0,
     pub Value: u32,
 }
-impl ::core::marker::Copy for D3DKMT_NOTIFY_WORK_SUBMISSION_FLAGS_0 {}
-impl ::core::clone::Clone for D3DKMT_NOTIFY_WORK_SUBMISSION_FLAGS_0 {
+impl Copy for D3DKMT_NOTIFY_WORK_SUBMISSION_FLAGS_0 {}
+impl Clone for D3DKMT_NOTIFY_WORK_SUBMISSION_FLAGS_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -8637,8 +8637,8 @@ impl ::core::clone::Clone for D3DKMT_NOTIFY_WORK_SUBMISSION_FLAGS_0 {
 pub struct D3DKMT_NOTIFY_WORK_SUBMISSION_FLAGS_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for D3DKMT_NOTIFY_WORK_SUBMISSION_FLAGS_0_0 {}
-impl ::core::clone::Clone for D3DKMT_NOTIFY_WORK_SUBMISSION_FLAGS_0_0 {
+impl Copy for D3DKMT_NOTIFY_WORK_SUBMISSION_FLAGS_0_0 {}
+impl Clone for D3DKMT_NOTIFY_WORK_SUBMISSION_FLAGS_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -8652,8 +8652,8 @@ pub struct D3DKMT_OFFERALLOCATIONS {
     pub Priority: D3DKMT_OFFER_PRIORITY,
     pub Flags: D3DKMT_OFFER_FLAGS,
 }
-impl ::core::marker::Copy for D3DKMT_OFFERALLOCATIONS {}
-impl ::core::clone::Clone for D3DKMT_OFFERALLOCATIONS {
+impl Copy for D3DKMT_OFFERALLOCATIONS {}
+impl Clone for D3DKMT_OFFERALLOCATIONS {
     fn clone(&self) -> Self {
         *self
     }
@@ -8662,8 +8662,8 @@ impl ::core::clone::Clone for D3DKMT_OFFERALLOCATIONS {
 pub struct D3DKMT_OFFER_FLAGS {
     pub Anonymous: D3DKMT_OFFER_FLAGS_0,
 }
-impl ::core::marker::Copy for D3DKMT_OFFER_FLAGS {}
-impl ::core::clone::Clone for D3DKMT_OFFER_FLAGS {
+impl Copy for D3DKMT_OFFER_FLAGS {}
+impl Clone for D3DKMT_OFFER_FLAGS {
     fn clone(&self) -> Self {
         *self
     }
@@ -8673,8 +8673,8 @@ pub union D3DKMT_OFFER_FLAGS_0 {
     pub Anonymous: D3DKMT_OFFER_FLAGS_0_0,
     pub Value: u32,
 }
-impl ::core::marker::Copy for D3DKMT_OFFER_FLAGS_0 {}
-impl ::core::clone::Clone for D3DKMT_OFFER_FLAGS_0 {
+impl Copy for D3DKMT_OFFER_FLAGS_0 {}
+impl Clone for D3DKMT_OFFER_FLAGS_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -8683,20 +8683,20 @@ impl ::core::clone::Clone for D3DKMT_OFFER_FLAGS_0 {
 pub struct D3DKMT_OFFER_FLAGS_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for D3DKMT_OFFER_FLAGS_0_0 {}
-impl ::core::clone::Clone for D3DKMT_OFFER_FLAGS_0_0 {
+impl Copy for D3DKMT_OFFER_FLAGS_0_0 {}
+impl Clone for D3DKMT_OFFER_FLAGS_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct D3DKMT_OPENADAPTERFROMDEVICENAME {
-    pub pDeviceName: ::windows_sys::core::PCWSTR,
+    pub pDeviceName: windows_sys::core::PCWSTR,
     pub hAdapter: u32,
     pub AdapterLuid: super::super::super::Win32::Foundation::LUID,
 }
-impl ::core::marker::Copy for D3DKMT_OPENADAPTERFROMDEVICENAME {}
-impl ::core::clone::Clone for D3DKMT_OPENADAPTERFROMDEVICENAME {
+impl Copy for D3DKMT_OPENADAPTERFROMDEVICENAME {}
+impl Clone for D3DKMT_OPENADAPTERFROMDEVICENAME {
     fn clone(&self) -> Self {
         *self
     }
@@ -8708,8 +8708,8 @@ pub struct D3DKMT_OPENADAPTERFROMGDIDISPLAYNAME {
     pub AdapterLuid: super::super::super::Win32::Foundation::LUID,
     pub VidPnSourceId: u32,
 }
-impl ::core::marker::Copy for D3DKMT_OPENADAPTERFROMGDIDISPLAYNAME {}
-impl ::core::clone::Clone for D3DKMT_OPENADAPTERFROMGDIDISPLAYNAME {
+impl Copy for D3DKMT_OPENADAPTERFROMGDIDISPLAYNAME {}
+impl Clone for D3DKMT_OPENADAPTERFROMGDIDISPLAYNAME {
     fn clone(&self) -> Self {
         *self
     }
@@ -8723,9 +8723,9 @@ pub struct D3DKMT_OPENADAPTERFROMHDC {
     pub VidPnSourceId: u32,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::marker::Copy for D3DKMT_OPENADAPTERFROMHDC {}
+impl Copy for D3DKMT_OPENADAPTERFROMHDC {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::clone::Clone for D3DKMT_OPENADAPTERFROMHDC {
+impl Clone for D3DKMT_OPENADAPTERFROMHDC {
     fn clone(&self) -> Self {
         *self
     }
@@ -8735,8 +8735,8 @@ pub struct D3DKMT_OPENADAPTERFROMLUID {
     pub AdapterLuid: super::super::super::Win32::Foundation::LUID,
     pub hAdapter: u32,
 }
-impl ::core::marker::Copy for D3DKMT_OPENADAPTERFROMLUID {}
-impl ::core::clone::Clone for D3DKMT_OPENADAPTERFROMLUID {
+impl Copy for D3DKMT_OPENADAPTERFROMLUID {}
+impl Clone for D3DKMT_OPENADAPTERFROMLUID {
     fn clone(&self) -> Self {
         *self
     }
@@ -8747,8 +8747,8 @@ pub struct D3DKMT_OPENGLINFO {
     pub Version: u32,
     pub Flags: u32,
 }
-impl ::core::marker::Copy for D3DKMT_OPENGLINFO {}
-impl ::core::clone::Clone for D3DKMT_OPENGLINFO {
+impl Copy for D3DKMT_OPENGLINFO {}
+impl Clone for D3DKMT_OPENGLINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -8758,8 +8758,8 @@ pub struct D3DKMT_OPENKEYEDMUTEX {
     pub hSharedHandle: u32,
     pub hKeyedMutex: u32,
 }
-impl ::core::marker::Copy for D3DKMT_OPENKEYEDMUTEX {}
-impl ::core::clone::Clone for D3DKMT_OPENKEYEDMUTEX {
+impl Copy for D3DKMT_OPENKEYEDMUTEX {}
+impl Clone for D3DKMT_OPENKEYEDMUTEX {
     fn clone(&self) -> Self {
         *self
     }
@@ -8768,11 +8768,11 @@ impl ::core::clone::Clone for D3DKMT_OPENKEYEDMUTEX {
 pub struct D3DKMT_OPENKEYEDMUTEX2 {
     pub hSharedHandle: u32,
     pub hKeyedMutex: u32,
-    pub pPrivateRuntimeData: *mut ::core::ffi::c_void,
+    pub pPrivateRuntimeData: *mut core::ffi::c_void,
     pub PrivateRuntimeDataSize: u32,
 }
-impl ::core::marker::Copy for D3DKMT_OPENKEYEDMUTEX2 {}
-impl ::core::clone::Clone for D3DKMT_OPENKEYEDMUTEX2 {
+impl Copy for D3DKMT_OPENKEYEDMUTEX2 {}
+impl Clone for D3DKMT_OPENKEYEDMUTEX2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -8781,11 +8781,11 @@ impl ::core::clone::Clone for D3DKMT_OPENKEYEDMUTEX2 {
 pub struct D3DKMT_OPENKEYEDMUTEXFROMNTHANDLE {
     pub hNtHandle: super::super::super::Win32::Foundation::HANDLE,
     pub hKeyedMutex: u32,
-    pub pPrivateRuntimeData: *mut ::core::ffi::c_void,
+    pub pPrivateRuntimeData: *mut core::ffi::c_void,
     pub PrivateRuntimeDataSize: u32,
 }
-impl ::core::marker::Copy for D3DKMT_OPENKEYEDMUTEXFROMNTHANDLE {}
-impl ::core::clone::Clone for D3DKMT_OPENKEYEDMUTEXFROMNTHANDLE {
+impl Copy for D3DKMT_OPENKEYEDMUTEXFROMNTHANDLE {}
+impl Clone for D3DKMT_OPENKEYEDMUTEXFROMNTHANDLE {
     fn clone(&self) -> Self {
         *self
     }
@@ -8799,8 +8799,8 @@ pub struct D3DKMT_OPENNATIVEFENCEFROMNTHANDLE {
     pub hSyncObject: u32,
     pub NativeFenceMapping: D3DDDI_NATIVEFENCEMAPPING,
 }
-impl ::core::marker::Copy for D3DKMT_OPENNATIVEFENCEFROMNTHANDLE {}
-impl ::core::clone::Clone for D3DKMT_OPENNATIVEFENCEFROMNTHANDLE {
+impl Copy for D3DKMT_OPENNATIVEFENCEFROMNTHANDLE {}
+impl Clone for D3DKMT_OPENNATIVEFENCEFROMNTHANDLE {
     fn clone(&self) -> Self {
         *self
     }
@@ -8813,9 +8813,9 @@ pub struct D3DKMT_OPENNTHANDLEFROMNAME {
     pub hNtHandle: super::super::super::Win32::Foundation::HANDLE,
 }
 #[cfg(feature = "Wdk_Foundation")]
-impl ::core::marker::Copy for D3DKMT_OPENNTHANDLEFROMNAME {}
+impl Copy for D3DKMT_OPENNTHANDLEFROMNAME {}
 #[cfg(feature = "Wdk_Foundation")]
-impl ::core::clone::Clone for D3DKMT_OPENNTHANDLEFROMNAME {
+impl Clone for D3DKMT_OPENNTHANDLEFROMNAME {
     fn clone(&self) -> Self {
         *self
     }
@@ -8825,8 +8825,8 @@ pub struct D3DKMT_OPENPROTECTEDSESSIONFROMNTHANDLE {
     pub hNtHandle: super::super::super::Win32::Foundation::HANDLE,
     pub hHandle: u32,
 }
-impl ::core::marker::Copy for D3DKMT_OPENPROTECTEDSESSIONFROMNTHANDLE {}
-impl ::core::clone::Clone for D3DKMT_OPENPROTECTEDSESSIONFROMNTHANDLE {
+impl Copy for D3DKMT_OPENPROTECTEDSESSIONFROMNTHANDLE {}
+impl Clone for D3DKMT_OPENPROTECTEDSESSIONFROMNTHANDLE {
     fn clone(&self) -> Self {
         *self
     }
@@ -8837,16 +8837,16 @@ pub struct D3DKMT_OPENRESOURCE {
     pub hGlobalShare: u32,
     pub NumAllocations: u32,
     pub Anonymous: D3DKMT_OPENRESOURCE_0,
-    pub pPrivateRuntimeData: *mut ::core::ffi::c_void,
+    pub pPrivateRuntimeData: *mut core::ffi::c_void,
     pub PrivateRuntimeDataSize: u32,
-    pub pResourcePrivateDriverData: *mut ::core::ffi::c_void,
+    pub pResourcePrivateDriverData: *mut core::ffi::c_void,
     pub ResourcePrivateDriverDataSize: u32,
-    pub pTotalPrivateDriverDataBuffer: *mut ::core::ffi::c_void,
+    pub pTotalPrivateDriverDataBuffer: *mut core::ffi::c_void,
     pub TotalPrivateDriverDataBufferSize: u32,
     pub hResource: u32,
 }
-impl ::core::marker::Copy for D3DKMT_OPENRESOURCE {}
-impl ::core::clone::Clone for D3DKMT_OPENRESOURCE {
+impl Copy for D3DKMT_OPENRESOURCE {}
+impl Clone for D3DKMT_OPENRESOURCE {
     fn clone(&self) -> Self {
         *self
     }
@@ -8856,8 +8856,8 @@ pub union D3DKMT_OPENRESOURCE_0 {
     pub pOpenAllocationInfo: *mut D3DDDI_OPENALLOCATIONINFO,
     pub pOpenAllocationInfo2: *mut D3DDDI_OPENALLOCATIONINFO2,
 }
-impl ::core::marker::Copy for D3DKMT_OPENRESOURCE_0 {}
-impl ::core::clone::Clone for D3DKMT_OPENRESOURCE_0 {
+impl Copy for D3DKMT_OPENRESOURCE_0 {}
+impl Clone for D3DKMT_OPENRESOURCE_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -8869,19 +8869,19 @@ pub struct D3DKMT_OPENRESOURCEFROMNTHANDLE {
     pub NumAllocations: u32,
     pub pOpenAllocationInfo2: *mut D3DDDI_OPENALLOCATIONINFO2,
     pub PrivateRuntimeDataSize: u32,
-    pub pPrivateRuntimeData: *mut ::core::ffi::c_void,
+    pub pPrivateRuntimeData: *mut core::ffi::c_void,
     pub ResourcePrivateDriverDataSize: u32,
-    pub pResourcePrivateDriverData: *mut ::core::ffi::c_void,
+    pub pResourcePrivateDriverData: *mut core::ffi::c_void,
     pub TotalPrivateDriverDataBufferSize: u32,
-    pub pTotalPrivateDriverDataBuffer: *mut ::core::ffi::c_void,
+    pub pTotalPrivateDriverDataBuffer: *mut core::ffi::c_void,
     pub hResource: u32,
     pub hKeyedMutex: u32,
-    pub pKeyedMutexPrivateRuntimeData: *mut ::core::ffi::c_void,
+    pub pKeyedMutexPrivateRuntimeData: *mut core::ffi::c_void,
     pub KeyedMutexPrivateRuntimeDataSize: u32,
     pub hSyncObject: u32,
 }
-impl ::core::marker::Copy for D3DKMT_OPENRESOURCEFROMNTHANDLE {}
-impl ::core::clone::Clone for D3DKMT_OPENRESOURCEFROMNTHANDLE {
+impl Copy for D3DKMT_OPENRESOURCEFROMNTHANDLE {}
+impl Clone for D3DKMT_OPENRESOURCEFROMNTHANDLE {
     fn clone(&self) -> Self {
         *self
     }
@@ -8892,8 +8892,8 @@ pub struct D3DKMT_OPENSYNCHRONIZATIONOBJECT {
     pub hSyncObject: u32,
     pub Reserved: [u64; 8],
 }
-impl ::core::marker::Copy for D3DKMT_OPENSYNCHRONIZATIONOBJECT {}
-impl ::core::clone::Clone for D3DKMT_OPENSYNCHRONIZATIONOBJECT {
+impl Copy for D3DKMT_OPENSYNCHRONIZATIONOBJECT {}
+impl Clone for D3DKMT_OPENSYNCHRONIZATIONOBJECT {
     fn clone(&self) -> Self {
         *self
     }
@@ -8903,8 +8903,8 @@ pub struct D3DKMT_OPENSYNCOBJECTFROMNTHANDLE {
     pub hNtHandle: super::super::super::Win32::Foundation::HANDLE,
     pub hSyncObject: u32,
 }
-impl ::core::marker::Copy for D3DKMT_OPENSYNCOBJECTFROMNTHANDLE {}
-impl ::core::clone::Clone for D3DKMT_OPENSYNCOBJECTFROMNTHANDLE {
+impl Copy for D3DKMT_OPENSYNCOBJECTFROMNTHANDLE {}
+impl Clone for D3DKMT_OPENSYNCOBJECTFROMNTHANDLE {
     fn clone(&self) -> Self {
         *self
     }
@@ -8917,8 +8917,8 @@ pub struct D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2 {
     pub hSyncObject: u32,
     pub Anonymous: D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2_0,
 }
-impl ::core::marker::Copy for D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2 {}
-impl ::core::clone::Clone for D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2 {
+impl Copy for D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2 {}
+impl Clone for D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -8928,20 +8928,20 @@ pub union D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2_0 {
     pub MonitoredFence: D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2_0_0,
     pub Reserved: [u64; 8],
 }
-impl ::core::marker::Copy for D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2_0 {}
-impl ::core::clone::Clone for D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2_0 {
+impl Copy for D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2_0 {}
+impl Clone for D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2_0_0 {
-    pub FenceValueCPUVirtualAddress: *mut ::core::ffi::c_void,
+    pub FenceValueCPUVirtualAddress: *mut core::ffi::c_void,
     pub FenceValueGPUVirtualAddress: u64,
     pub EngineAffinity: u32,
 }
-impl ::core::marker::Copy for D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2_0_0 {}
-impl ::core::clone::Clone for D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2_0_0 {
+impl Copy for D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2_0_0 {}
+impl Clone for D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -8954,9 +8954,9 @@ pub struct D3DKMT_OPENSYNCOBJECTNTHANDLEFROMNAME {
     pub hNtHandle: super::super::super::Win32::Foundation::HANDLE,
 }
 #[cfg(feature = "Wdk_Foundation")]
-impl ::core::marker::Copy for D3DKMT_OPENSYNCOBJECTNTHANDLEFROMNAME {}
+impl Copy for D3DKMT_OPENSYNCOBJECTNTHANDLEFROMNAME {}
 #[cfg(feature = "Wdk_Foundation")]
-impl ::core::clone::Clone for D3DKMT_OPENSYNCOBJECTNTHANDLEFROMNAME {
+impl Clone for D3DKMT_OPENSYNCOBJECTNTHANDLEFROMNAME {
     fn clone(&self) -> Self {
         *self
     }
@@ -8969,8 +8969,8 @@ pub struct D3DKMT_OUTDUPL_POINTER_SHAPE_INFO {
     pub Pitch: u32,
     pub HotSpot: super::super::super::Win32::Foundation::POINT,
 }
-impl ::core::marker::Copy for D3DKMT_OUTDUPL_POINTER_SHAPE_INFO {}
-impl ::core::clone::Clone for D3DKMT_OUTDUPL_POINTER_SHAPE_INFO {
+impl Copy for D3DKMT_OUTDUPL_POINTER_SHAPE_INFO {}
+impl Clone for D3DKMT_OUTDUPL_POINTER_SHAPE_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -8980,8 +8980,8 @@ pub struct D3DKMT_OUTPUTDUPLCONTEXTSCOUNT {
     pub VidPnSourceId: u32,
     pub OutputDuplicationCount: u32,
 }
-impl ::core::marker::Copy for D3DKMT_OUTPUTDUPLCONTEXTSCOUNT {}
-impl ::core::clone::Clone for D3DKMT_OUTPUTDUPLCONTEXTSCOUNT {
+impl Copy for D3DKMT_OUTPUTDUPLCONTEXTSCOUNT {}
+impl Clone for D3DKMT_OUTPUTDUPLCONTEXTSCOUNT {
     fn clone(&self) -> Self {
         *self
     }
@@ -8990,8 +8990,8 @@ impl ::core::clone::Clone for D3DKMT_OUTPUTDUPLCONTEXTSCOUNT {
 pub struct D3DKMT_OUTPUTDUPLCREATIONFLAGS {
     pub Anonymous: D3DKMT_OUTPUTDUPLCREATIONFLAGS_0,
 }
-impl ::core::marker::Copy for D3DKMT_OUTPUTDUPLCREATIONFLAGS {}
-impl ::core::clone::Clone for D3DKMT_OUTPUTDUPLCREATIONFLAGS {
+impl Copy for D3DKMT_OUTPUTDUPLCREATIONFLAGS {}
+impl Clone for D3DKMT_OUTPUTDUPLCREATIONFLAGS {
     fn clone(&self) -> Self {
         *self
     }
@@ -9001,8 +9001,8 @@ pub union D3DKMT_OUTPUTDUPLCREATIONFLAGS_0 {
     pub Anonymous: D3DKMT_OUTPUTDUPLCREATIONFLAGS_0_0,
     pub Value: u32,
 }
-impl ::core::marker::Copy for D3DKMT_OUTPUTDUPLCREATIONFLAGS_0 {}
-impl ::core::clone::Clone for D3DKMT_OUTPUTDUPLCREATIONFLAGS_0 {
+impl Copy for D3DKMT_OUTPUTDUPLCREATIONFLAGS_0 {}
+impl Clone for D3DKMT_OUTPUTDUPLCREATIONFLAGS_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -9011,8 +9011,8 @@ impl ::core::clone::Clone for D3DKMT_OUTPUTDUPLCREATIONFLAGS_0 {
 pub struct D3DKMT_OUTPUTDUPLCREATIONFLAGS_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for D3DKMT_OUTPUTDUPLCREATIONFLAGS_0_0 {}
-impl ::core::clone::Clone for D3DKMT_OUTPUTDUPLCREATIONFLAGS_0_0 {
+impl Copy for D3DKMT_OUTPUTDUPLCREATIONFLAGS_0_0 {}
+impl Clone for D3DKMT_OUTPUTDUPLCREATIONFLAGS_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -9028,8 +9028,8 @@ pub struct D3DKMT_OUTPUTDUPLPRESENT {
     pub Flags: D3DKMT_OUTPUTDUPLPRESENTFLAGS,
     pub hIndirectContext: u32,
 }
-impl ::core::marker::Copy for D3DKMT_OUTPUTDUPLPRESENT {}
-impl ::core::clone::Clone for D3DKMT_OUTPUTDUPLPRESENT {
+impl Copy for D3DKMT_OUTPUTDUPLPRESENT {}
+impl Clone for D3DKMT_OUTPUTDUPLPRESENT {
     fn clone(&self) -> Self {
         *self
     }
@@ -9038,8 +9038,8 @@ impl ::core::clone::Clone for D3DKMT_OUTPUTDUPLPRESENT {
 pub struct D3DKMT_OUTPUTDUPLPRESENTFLAGS {
     pub Anonymous: D3DKMT_OUTPUTDUPLPRESENTFLAGS_0,
 }
-impl ::core::marker::Copy for D3DKMT_OUTPUTDUPLPRESENTFLAGS {}
-impl ::core::clone::Clone for D3DKMT_OUTPUTDUPLPRESENTFLAGS {
+impl Copy for D3DKMT_OUTPUTDUPLPRESENTFLAGS {}
+impl Clone for D3DKMT_OUTPUTDUPLPRESENTFLAGS {
     fn clone(&self) -> Self {
         *self
     }
@@ -9049,8 +9049,8 @@ pub union D3DKMT_OUTPUTDUPLPRESENTFLAGS_0 {
     pub Anonymous: D3DKMT_OUTPUTDUPLPRESENTFLAGS_0_0,
     pub Value: u32,
 }
-impl ::core::marker::Copy for D3DKMT_OUTPUTDUPLPRESENTFLAGS_0 {}
-impl ::core::clone::Clone for D3DKMT_OUTPUTDUPLPRESENTFLAGS_0 {
+impl Copy for D3DKMT_OUTPUTDUPLPRESENTFLAGS_0 {}
+impl Clone for D3DKMT_OUTPUTDUPLPRESENTFLAGS_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -9059,8 +9059,8 @@ impl ::core::clone::Clone for D3DKMT_OUTPUTDUPLPRESENTFLAGS_0 {
 pub struct D3DKMT_OUTPUTDUPLPRESENTFLAGS_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for D3DKMT_OUTPUTDUPLPRESENTFLAGS_0_0 {}
-impl ::core::clone::Clone for D3DKMT_OUTPUTDUPLPRESENTFLAGS_0_0 {
+impl Copy for D3DKMT_OUTPUTDUPLPRESENTFLAGS_0_0 {}
+impl Clone for D3DKMT_OUTPUTDUPLPRESENTFLAGS_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -9075,8 +9075,8 @@ pub struct D3DKMT_OUTPUTDUPLPRESENTTOHWQUEUE {
     pub Flags: D3DKMT_OUTPUTDUPLPRESENTFLAGS,
     pub hIndirectHwQueue: u32,
 }
-impl ::core::marker::Copy for D3DKMT_OUTPUTDUPLPRESENTTOHWQUEUE {}
-impl ::core::clone::Clone for D3DKMT_OUTPUTDUPLPRESENTTOHWQUEUE {
+impl Copy for D3DKMT_OUTPUTDUPLPRESENTTOHWQUEUE {}
+impl Clone for D3DKMT_OUTPUTDUPLPRESENTTOHWQUEUE {
     fn clone(&self) -> Self {
         *self
     }
@@ -9092,8 +9092,8 @@ pub struct D3DKMT_OUTPUTDUPL_FRAMEINFO {
     pub TotalMetadataBufferSize: u32,
     pub PointerShapeBufferSize: u32,
 }
-impl ::core::marker::Copy for D3DKMT_OUTPUTDUPL_FRAMEINFO {}
-impl ::core::clone::Clone for D3DKMT_OUTPUTDUPL_FRAMEINFO {
+impl Copy for D3DKMT_OUTPUTDUPL_FRAMEINFO {}
+impl Clone for D3DKMT_OUTPUTDUPL_FRAMEINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -9104,8 +9104,8 @@ pub struct D3DKMT_OUTPUTDUPL_GET_FRAMEINFO {
     pub VidPnSourceId: u32,
     pub FrameInfo: D3DKMT_OUTPUTDUPL_FRAMEINFO,
 }
-impl ::core::marker::Copy for D3DKMT_OUTPUTDUPL_GET_FRAMEINFO {}
-impl ::core::clone::Clone for D3DKMT_OUTPUTDUPL_GET_FRAMEINFO {
+impl Copy for D3DKMT_OUTPUTDUPL_GET_FRAMEINFO {}
+impl Clone for D3DKMT_OUTPUTDUPL_GET_FRAMEINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -9115,12 +9115,12 @@ pub struct D3DKMT_OUTPUTDUPL_GET_POINTER_SHAPE_DATA {
     pub hAdapter: u32,
     pub VidPnSourceId: u32,
     pub BufferSizeSupplied: u32,
-    pub pShapeBuffer: *mut ::core::ffi::c_void,
+    pub pShapeBuffer: *mut core::ffi::c_void,
     pub BufferSizeRequired: u32,
     pub ShapeInfo: D3DKMT_OUTDUPL_POINTER_SHAPE_INFO,
 }
-impl ::core::marker::Copy for D3DKMT_OUTPUTDUPL_GET_POINTER_SHAPE_DATA {}
-impl ::core::clone::Clone for D3DKMT_OUTPUTDUPL_GET_POINTER_SHAPE_DATA {
+impl Copy for D3DKMT_OUTPUTDUPL_GET_POINTER_SHAPE_DATA {}
+impl Clone for D3DKMT_OUTPUTDUPL_GET_POINTER_SHAPE_DATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -9129,8 +9129,8 @@ impl ::core::clone::Clone for D3DKMT_OUTPUTDUPL_GET_POINTER_SHAPE_DATA {
 pub struct D3DKMT_OUTPUTDUPL_KEYEDMUTEX {
     pub hSharedSurfaceNt: super::super::super::Win32::Foundation::HANDLE,
 }
-impl ::core::marker::Copy for D3DKMT_OUTPUTDUPL_KEYEDMUTEX {}
-impl ::core::clone::Clone for D3DKMT_OUTPUTDUPL_KEYEDMUTEX {
+impl Copy for D3DKMT_OUTPUTDUPL_KEYEDMUTEX {}
+impl Clone for D3DKMT_OUTPUTDUPL_KEYEDMUTEX {
     fn clone(&self) -> Self {
         *self
     }
@@ -9141,11 +9141,11 @@ pub struct D3DKMT_OUTPUTDUPL_METADATA {
     pub VidPnSourceId: u32,
     pub Type: D3DKMT_OUTPUTDUPL_METADATATYPE,
     pub BufferSizeSupplied: u32,
-    pub pBuffer: *mut ::core::ffi::c_void,
+    pub pBuffer: *mut core::ffi::c_void,
     pub BufferSizeRequired: u32,
 }
-impl ::core::marker::Copy for D3DKMT_OUTPUTDUPL_METADATA {}
-impl ::core::clone::Clone for D3DKMT_OUTPUTDUPL_METADATA {
+impl Copy for D3DKMT_OUTPUTDUPL_METADATA {}
+impl Clone for D3DKMT_OUTPUTDUPL_METADATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -9155,8 +9155,8 @@ pub struct D3DKMT_OUTPUTDUPL_POINTER_POSITION {
     pub Position: super::super::super::Win32::Foundation::POINT,
     pub Visible: super::super::super::Win32::Foundation::BOOL,
 }
-impl ::core::marker::Copy for D3DKMT_OUTPUTDUPL_POINTER_POSITION {}
-impl ::core::clone::Clone for D3DKMT_OUTPUTDUPL_POINTER_POSITION {
+impl Copy for D3DKMT_OUTPUTDUPL_POINTER_POSITION {}
+impl Clone for D3DKMT_OUTPUTDUPL_POINTER_POSITION {
     fn clone(&self) -> Self {
         *self
     }
@@ -9167,8 +9167,8 @@ pub struct D3DKMT_OUTPUTDUPL_RELEASE_FRAME {
     pub VidPnSourceId: u32,
     pub NextKeyMutexIdx: u32,
 }
-impl ::core::marker::Copy for D3DKMT_OUTPUTDUPL_RELEASE_FRAME {}
-impl ::core::clone::Clone for D3DKMT_OUTPUTDUPL_RELEASE_FRAME {
+impl Copy for D3DKMT_OUTPUTDUPL_RELEASE_FRAME {}
+impl Clone for D3DKMT_OUTPUTDUPL_RELEASE_FRAME {
     fn clone(&self) -> Self {
         *self
     }
@@ -9183,8 +9183,8 @@ pub struct D3DKMT_OUTPUTDUPL_SNAPSHOT {
     pub Padding: u32,
     pub OutputDuplDebugInfos: [OUTPUTDUPL_CONTEXT_DEBUG_INFO; 1],
 }
-impl ::core::marker::Copy for D3DKMT_OUTPUTDUPL_SNAPSHOT {}
-impl ::core::clone::Clone for D3DKMT_OUTPUTDUPL_SNAPSHOT {
+impl Copy for D3DKMT_OUTPUTDUPL_SNAPSHOT {}
+impl Clone for D3DKMT_OUTPUTDUPL_SNAPSHOT {
     fn clone(&self) -> Self {
         *self
     }
@@ -9197,8 +9197,8 @@ pub struct D3DKMT_PAGE_TABLE_LEVEL_DESC {
     pub LowerLevelsMask: u64,
     pub EntryCoverageInPages: u64,
 }
-impl ::core::marker::Copy for D3DKMT_PAGE_TABLE_LEVEL_DESC {}
-impl ::core::clone::Clone for D3DKMT_PAGE_TABLE_LEVEL_DESC {
+impl Copy for D3DKMT_PAGE_TABLE_LEVEL_DESC {}
+impl Clone for D3DKMT_PAGE_TABLE_LEVEL_DESC {
     fn clone(&self) -> Self {
         *self
     }
@@ -9207,8 +9207,8 @@ impl ::core::clone::Clone for D3DKMT_PAGE_TABLE_LEVEL_DESC {
 pub struct D3DKMT_PANELFITTER_SUPPORT {
     pub Supported: super::super::super::Win32::Foundation::BOOL,
 }
-impl ::core::marker::Copy for D3DKMT_PANELFITTER_SUPPORT {}
-impl ::core::clone::Clone for D3DKMT_PANELFITTER_SUPPORT {
+impl Copy for D3DKMT_PANELFITTER_SUPPORT {}
+impl Clone for D3DKMT_PANELFITTER_SUPPORT {
     fn clone(&self) -> Self {
         *self
     }
@@ -9217,8 +9217,8 @@ impl ::core::clone::Clone for D3DKMT_PANELFITTER_SUPPORT {
 pub struct D3DKMT_PARAVIRTUALIZATION {
     pub SecureContainer: super::super::super::Win32::Foundation::BOOLEAN,
 }
-impl ::core::marker::Copy for D3DKMT_PARAVIRTUALIZATION {}
-impl ::core::clone::Clone for D3DKMT_PARAVIRTUALIZATION {
+impl Copy for D3DKMT_PARAVIRTUALIZATION {}
+impl Clone for D3DKMT_PARAVIRTUALIZATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -9227,8 +9227,8 @@ impl ::core::clone::Clone for D3DKMT_PARAVIRTUALIZATION {
 pub struct D3DKMT_PHYSICAL_ADAPTER_COUNT {
     pub Count: u32,
 }
-impl ::core::marker::Copy for D3DKMT_PHYSICAL_ADAPTER_COUNT {}
-impl ::core::clone::Clone for D3DKMT_PHYSICAL_ADAPTER_COUNT {
+impl Copy for D3DKMT_PHYSICAL_ADAPTER_COUNT {}
+impl Clone for D3DKMT_PHYSICAL_ADAPTER_COUNT {
     fn clone(&self) -> Self {
         *self
     }
@@ -9239,8 +9239,8 @@ pub struct D3DKMT_PINDIRECTFLIPRESOURCES {
     pub ResourceCount: u32,
     pub pResourceList: *mut u32,
 }
-impl ::core::marker::Copy for D3DKMT_PINDIRECTFLIPRESOURCES {}
-impl ::core::clone::Clone for D3DKMT_PINDIRECTFLIPRESOURCES {
+impl Copy for D3DKMT_PINDIRECTFLIPRESOURCES {}
+impl Clone for D3DKMT_PINDIRECTFLIPRESOURCES {
     fn clone(&self) -> Self {
         *self
     }
@@ -9249,8 +9249,8 @@ impl ::core::clone::Clone for D3DKMT_PINDIRECTFLIPRESOURCES {
 pub struct D3DKMT_PLANE_SPECIFIC_INPUT_FLAGS {
     pub Anonymous: D3DKMT_PLANE_SPECIFIC_INPUT_FLAGS_0,
 }
-impl ::core::marker::Copy for D3DKMT_PLANE_SPECIFIC_INPUT_FLAGS {}
-impl ::core::clone::Clone for D3DKMT_PLANE_SPECIFIC_INPUT_FLAGS {
+impl Copy for D3DKMT_PLANE_SPECIFIC_INPUT_FLAGS {}
+impl Clone for D3DKMT_PLANE_SPECIFIC_INPUT_FLAGS {
     fn clone(&self) -> Self {
         *self
     }
@@ -9260,8 +9260,8 @@ pub union D3DKMT_PLANE_SPECIFIC_INPUT_FLAGS_0 {
     pub Anonymous: D3DKMT_PLANE_SPECIFIC_INPUT_FLAGS_0_0,
     pub Value: u32,
 }
-impl ::core::marker::Copy for D3DKMT_PLANE_SPECIFIC_INPUT_FLAGS_0 {}
-impl ::core::clone::Clone for D3DKMT_PLANE_SPECIFIC_INPUT_FLAGS_0 {
+impl Copy for D3DKMT_PLANE_SPECIFIC_INPUT_FLAGS_0 {}
+impl Clone for D3DKMT_PLANE_SPECIFIC_INPUT_FLAGS_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -9270,8 +9270,8 @@ impl ::core::clone::Clone for D3DKMT_PLANE_SPECIFIC_INPUT_FLAGS_0 {
 pub struct D3DKMT_PLANE_SPECIFIC_INPUT_FLAGS_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for D3DKMT_PLANE_SPECIFIC_INPUT_FLAGS_0_0 {}
-impl ::core::clone::Clone for D3DKMT_PLANE_SPECIFIC_INPUT_FLAGS_0_0 {
+impl Copy for D3DKMT_PLANE_SPECIFIC_INPUT_FLAGS_0_0 {}
+impl Clone for D3DKMT_PLANE_SPECIFIC_INPUT_FLAGS_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -9280,8 +9280,8 @@ impl ::core::clone::Clone for D3DKMT_PLANE_SPECIFIC_INPUT_FLAGS_0_0 {
 pub struct D3DKMT_PLANE_SPECIFIC_OUTPUT_FLAGS {
     pub Anonymous: D3DKMT_PLANE_SPECIFIC_OUTPUT_FLAGS_0,
 }
-impl ::core::marker::Copy for D3DKMT_PLANE_SPECIFIC_OUTPUT_FLAGS {}
-impl ::core::clone::Clone for D3DKMT_PLANE_SPECIFIC_OUTPUT_FLAGS {
+impl Copy for D3DKMT_PLANE_SPECIFIC_OUTPUT_FLAGS {}
+impl Clone for D3DKMT_PLANE_SPECIFIC_OUTPUT_FLAGS {
     fn clone(&self) -> Self {
         *self
     }
@@ -9291,8 +9291,8 @@ pub union D3DKMT_PLANE_SPECIFIC_OUTPUT_FLAGS_0 {
     pub Anonymous: D3DKMT_PLANE_SPECIFIC_OUTPUT_FLAGS_0_0,
     pub Value: u32,
 }
-impl ::core::marker::Copy for D3DKMT_PLANE_SPECIFIC_OUTPUT_FLAGS_0 {}
-impl ::core::clone::Clone for D3DKMT_PLANE_SPECIFIC_OUTPUT_FLAGS_0 {
+impl Copy for D3DKMT_PLANE_SPECIFIC_OUTPUT_FLAGS_0 {}
+impl Clone for D3DKMT_PLANE_SPECIFIC_OUTPUT_FLAGS_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -9301,8 +9301,8 @@ impl ::core::clone::Clone for D3DKMT_PLANE_SPECIFIC_OUTPUT_FLAGS_0 {
 pub struct D3DKMT_PLANE_SPECIFIC_OUTPUT_FLAGS_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for D3DKMT_PLANE_SPECIFIC_OUTPUT_FLAGS_0_0 {}
-impl ::core::clone::Clone for D3DKMT_PLANE_SPECIFIC_OUTPUT_FLAGS_0_0 {
+impl Copy for D3DKMT_PLANE_SPECIFIC_OUTPUT_FLAGS_0_0 {}
+impl Clone for D3DKMT_PLANE_SPECIFIC_OUTPUT_FLAGS_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -9312,8 +9312,8 @@ pub struct D3DKMT_POLLDISPLAYCHILDREN {
     pub hAdapter: u32,
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for D3DKMT_POLLDISPLAYCHILDREN {}
-impl ::core::clone::Clone for D3DKMT_POLLDISPLAYCHILDREN {
+impl Copy for D3DKMT_POLLDISPLAYCHILDREN {}
+impl Clone for D3DKMT_POLLDISPLAYCHILDREN {
     fn clone(&self) -> Self {
         *self
     }
@@ -9343,11 +9343,11 @@ pub struct D3DKMT_PRESENT {
     pub BroadcastSrcAllocation: *mut u32,
     pub BroadcastDstAllocation: *mut u32,
     pub PrivateDriverDataSize: u32,
-    pub pPrivateDriverData: *mut ::core::ffi::c_void,
+    pub pPrivateDriverData: *mut core::ffi::c_void,
     pub bOptimizeForComposition: super::super::super::Win32::Foundation::BOOLEAN,
 }
-impl ::core::marker::Copy for D3DKMT_PRESENT {}
-impl ::core::clone::Clone for D3DKMT_PRESENT {
+impl Copy for D3DKMT_PRESENT {}
+impl Clone for D3DKMT_PRESENT {
     fn clone(&self) -> Self {
         *self
     }
@@ -9357,8 +9357,8 @@ pub union D3DKMT_PRESENT_0 {
     pub hDevice: u32,
     pub hContext: u32,
 }
-impl ::core::marker::Copy for D3DKMT_PRESENT_0 {}
-impl ::core::clone::Clone for D3DKMT_PRESENT_0 {
+impl Copy for D3DKMT_PRESENT_0 {}
+impl Clone for D3DKMT_PRESENT_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -9368,8 +9368,8 @@ pub union D3DKMT_PRESENT_1 {
     pub hAdapter: u32,
     pub hIndirectContext: u32,
 }
-impl ::core::marker::Copy for D3DKMT_PRESENT_1 {}
-impl ::core::clone::Clone for D3DKMT_PRESENT_1 {
+impl Copy for D3DKMT_PRESENT_1 {}
+impl Clone for D3DKMT_PRESENT_1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -9378,8 +9378,8 @@ impl ::core::clone::Clone for D3DKMT_PRESENT_1 {
 pub struct D3DKMT_PRESENTFLAGS {
     pub Anonymous: D3DKMT_PRESENTFLAGS_0,
 }
-impl ::core::marker::Copy for D3DKMT_PRESENTFLAGS {}
-impl ::core::clone::Clone for D3DKMT_PRESENTFLAGS {
+impl Copy for D3DKMT_PRESENTFLAGS {}
+impl Clone for D3DKMT_PRESENTFLAGS {
     fn clone(&self) -> Self {
         *self
     }
@@ -9389,8 +9389,8 @@ pub union D3DKMT_PRESENTFLAGS_0 {
     pub Anonymous: D3DKMT_PRESENTFLAGS_0_0,
     pub Value: u32,
 }
-impl ::core::marker::Copy for D3DKMT_PRESENTFLAGS_0 {}
-impl ::core::clone::Clone for D3DKMT_PRESENTFLAGS_0 {
+impl Copy for D3DKMT_PRESENTFLAGS_0 {}
+impl Clone for D3DKMT_PRESENTFLAGS_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -9399,8 +9399,8 @@ impl ::core::clone::Clone for D3DKMT_PRESENTFLAGS_0 {
 pub struct D3DKMT_PRESENTFLAGS_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for D3DKMT_PRESENTFLAGS_0_0 {}
-impl ::core::clone::Clone for D3DKMT_PRESENTFLAGS_0_0 {
+impl Copy for D3DKMT_PRESENTFLAGS_0_0 {}
+impl Clone for D3DKMT_PRESENTFLAGS_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -9412,8 +9412,8 @@ pub struct D3DKMT_PRESENTHISTORYTOKEN {
     pub CompositionBindingId: u64,
     pub Token: D3DKMT_PRESENTHISTORYTOKEN_0,
 }
-impl ::core::marker::Copy for D3DKMT_PRESENTHISTORYTOKEN {}
-impl ::core::clone::Clone for D3DKMT_PRESENTHISTORYTOKEN {
+impl Copy for D3DKMT_PRESENTHISTORYTOKEN {}
+impl Clone for D3DKMT_PRESENTHISTORYTOKEN {
     fn clone(&self) -> Self {
         *self
     }
@@ -9430,8 +9430,8 @@ pub union D3DKMT_PRESENTHISTORYTOKEN_0 {
     pub FlipManager: D3DKMT_FLIPMANAGER_PRESENTHISTORYTOKEN,
     pub SurfaceComplete: D3DKMT_SURFACECOMPLETE_PRESENTHISTORYTOKEN,
 }
-impl ::core::marker::Copy for D3DKMT_PRESENTHISTORYTOKEN_0 {}
-impl ::core::clone::Clone for D3DKMT_PRESENTHISTORYTOKEN_0 {
+impl Copy for D3DKMT_PRESENTHISTORYTOKEN_0 {}
+impl Clone for D3DKMT_PRESENTHISTORYTOKEN_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -9449,8 +9449,8 @@ pub struct D3DKMT_PRESENT_MULTIPLANE_OVERLAY {
     pub pPresentPlanes: *mut D3DKMT_MULTIPLANE_OVERLAY,
     pub Duration: u32,
 }
-impl ::core::marker::Copy for D3DKMT_PRESENT_MULTIPLANE_OVERLAY {}
-impl ::core::clone::Clone for D3DKMT_PRESENT_MULTIPLANE_OVERLAY {
+impl Copy for D3DKMT_PRESENT_MULTIPLANE_OVERLAY {}
+impl Clone for D3DKMT_PRESENT_MULTIPLANE_OVERLAY {
     fn clone(&self) -> Self {
         *self
     }
@@ -9460,8 +9460,8 @@ pub union D3DKMT_PRESENT_MULTIPLANE_OVERLAY_0 {
     pub hDevice: u32,
     pub hContext: u32,
 }
-impl ::core::marker::Copy for D3DKMT_PRESENT_MULTIPLANE_OVERLAY_0 {}
-impl ::core::clone::Clone for D3DKMT_PRESENT_MULTIPLANE_OVERLAY_0 {
+impl Copy for D3DKMT_PRESENT_MULTIPLANE_OVERLAY_0 {}
+impl Clone for D3DKMT_PRESENT_MULTIPLANE_OVERLAY_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -9480,8 +9480,8 @@ pub struct D3DKMT_PRESENT_MULTIPLANE_OVERLAY2 {
     pub pPresentPlanes: *mut D3DKMT_MULTIPLANE_OVERLAY2,
     pub Duration: u32,
 }
-impl ::core::marker::Copy for D3DKMT_PRESENT_MULTIPLANE_OVERLAY2 {}
-impl ::core::clone::Clone for D3DKMT_PRESENT_MULTIPLANE_OVERLAY2 {
+impl Copy for D3DKMT_PRESENT_MULTIPLANE_OVERLAY2 {}
+impl Clone for D3DKMT_PRESENT_MULTIPLANE_OVERLAY2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -9491,8 +9491,8 @@ pub union D3DKMT_PRESENT_MULTIPLANE_OVERLAY2_0 {
     pub hDevice: u32,
     pub hContext: u32,
 }
-impl ::core::marker::Copy for D3DKMT_PRESENT_MULTIPLANE_OVERLAY2_0 {}
-impl ::core::clone::Clone for D3DKMT_PRESENT_MULTIPLANE_OVERLAY2_0 {
+impl Copy for D3DKMT_PRESENT_MULTIPLANE_OVERLAY2_0 {}
+impl Clone for D3DKMT_PRESENT_MULTIPLANE_OVERLAY2_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -9511,11 +9511,11 @@ pub struct D3DKMT_PRESENT_MULTIPLANE_OVERLAY3 {
     pub Duration: u32,
     pub HDRMetaDataType: D3DDDI_HDR_METADATA_TYPE,
     pub HDRMetaDataSize: u32,
-    pub pHDRMetaData: *const ::core::ffi::c_void,
+    pub pHDRMetaData: *const core::ffi::c_void,
     pub BoostRefreshRateMultiplier: u32,
 }
-impl ::core::marker::Copy for D3DKMT_PRESENT_MULTIPLANE_OVERLAY3 {}
-impl ::core::clone::Clone for D3DKMT_PRESENT_MULTIPLANE_OVERLAY3 {
+impl Copy for D3DKMT_PRESENT_MULTIPLANE_OVERLAY3 {}
+impl Clone for D3DKMT_PRESENT_MULTIPLANE_OVERLAY3 {
     fn clone(&self) -> Self {
         *self
     }
@@ -9524,8 +9524,8 @@ impl ::core::clone::Clone for D3DKMT_PRESENT_MULTIPLANE_OVERLAY3 {
 pub struct D3DKMT_PRESENT_MULTIPLANE_OVERLAY_FLAGS {
     pub Anonymous: D3DKMT_PRESENT_MULTIPLANE_OVERLAY_FLAGS_0,
 }
-impl ::core::marker::Copy for D3DKMT_PRESENT_MULTIPLANE_OVERLAY_FLAGS {}
-impl ::core::clone::Clone for D3DKMT_PRESENT_MULTIPLANE_OVERLAY_FLAGS {
+impl Copy for D3DKMT_PRESENT_MULTIPLANE_OVERLAY_FLAGS {}
+impl Clone for D3DKMT_PRESENT_MULTIPLANE_OVERLAY_FLAGS {
     fn clone(&self) -> Self {
         *self
     }
@@ -9535,8 +9535,8 @@ pub union D3DKMT_PRESENT_MULTIPLANE_OVERLAY_FLAGS_0 {
     pub Anonymous: D3DKMT_PRESENT_MULTIPLANE_OVERLAY_FLAGS_0_0,
     pub Value: u32,
 }
-impl ::core::marker::Copy for D3DKMT_PRESENT_MULTIPLANE_OVERLAY_FLAGS_0 {}
-impl ::core::clone::Clone for D3DKMT_PRESENT_MULTIPLANE_OVERLAY_FLAGS_0 {
+impl Copy for D3DKMT_PRESENT_MULTIPLANE_OVERLAY_FLAGS_0 {}
+impl Clone for D3DKMT_PRESENT_MULTIPLANE_OVERLAY_FLAGS_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -9545,8 +9545,8 @@ impl ::core::clone::Clone for D3DKMT_PRESENT_MULTIPLANE_OVERLAY_FLAGS_0 {
 pub struct D3DKMT_PRESENT_MULTIPLANE_OVERLAY_FLAGS_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for D3DKMT_PRESENT_MULTIPLANE_OVERLAY_FLAGS_0_0 {}
-impl ::core::clone::Clone for D3DKMT_PRESENT_MULTIPLANE_OVERLAY_FLAGS_0_0 {
+impl Copy for D3DKMT_PRESENT_MULTIPLANE_OVERLAY_FLAGS_0_0 {}
+impl Clone for D3DKMT_PRESENT_MULTIPLANE_OVERLAY_FLAGS_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -9560,10 +9560,10 @@ pub struct D3DKMT_PRESENT_REDIRECTED {
     pub Flags: D3DKMT_PRESENT_REDIRECTED_FLAGS,
     pub hSource: u32,
     pub PrivateDriverDataSize: u32,
-    pub pPrivateDriverData: *mut ::core::ffi::c_void,
+    pub pPrivateDriverData: *mut core::ffi::c_void,
 }
-impl ::core::marker::Copy for D3DKMT_PRESENT_REDIRECTED {}
-impl ::core::clone::Clone for D3DKMT_PRESENT_REDIRECTED {
+impl Copy for D3DKMT_PRESENT_REDIRECTED {}
+impl Clone for D3DKMT_PRESENT_REDIRECTED {
     fn clone(&self) -> Self {
         *self
     }
@@ -9572,8 +9572,8 @@ impl ::core::clone::Clone for D3DKMT_PRESENT_REDIRECTED {
 pub struct D3DKMT_PRESENT_REDIRECTED_FLAGS {
     pub Anonymous: D3DKMT_PRESENT_REDIRECTED_FLAGS_0,
 }
-impl ::core::marker::Copy for D3DKMT_PRESENT_REDIRECTED_FLAGS {}
-impl ::core::clone::Clone for D3DKMT_PRESENT_REDIRECTED_FLAGS {
+impl Copy for D3DKMT_PRESENT_REDIRECTED_FLAGS {}
+impl Clone for D3DKMT_PRESENT_REDIRECTED_FLAGS {
     fn clone(&self) -> Self {
         *self
     }
@@ -9583,8 +9583,8 @@ pub union D3DKMT_PRESENT_REDIRECTED_FLAGS_0 {
     pub Anonymous: D3DKMT_PRESENT_REDIRECTED_FLAGS_0_0,
     pub Value: u32,
 }
-impl ::core::marker::Copy for D3DKMT_PRESENT_REDIRECTED_FLAGS_0 {}
-impl ::core::clone::Clone for D3DKMT_PRESENT_REDIRECTED_FLAGS_0 {
+impl Copy for D3DKMT_PRESENT_REDIRECTED_FLAGS_0 {}
+impl Clone for D3DKMT_PRESENT_REDIRECTED_FLAGS_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -9593,8 +9593,8 @@ impl ::core::clone::Clone for D3DKMT_PRESENT_REDIRECTED_FLAGS_0 {
 pub struct D3DKMT_PRESENT_REDIRECTED_FLAGS_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for D3DKMT_PRESENT_REDIRECTED_FLAGS_0_0 {}
-impl ::core::clone::Clone for D3DKMT_PRESENT_REDIRECTED_FLAGS_0_0 {
+impl Copy for D3DKMT_PRESENT_REDIRECTED_FLAGS_0_0 {}
+impl Clone for D3DKMT_PRESENT_REDIRECTED_FLAGS_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -9606,8 +9606,8 @@ pub struct D3DKMT_PRESENT_RGNS {
     pub MoveRectCount: u32,
     pub pMoveRects: *const D3DKMT_MOVE_RECT,
 }
-impl ::core::marker::Copy for D3DKMT_PRESENT_RGNS {}
-impl ::core::clone::Clone for D3DKMT_PRESENT_RGNS {
+impl Copy for D3DKMT_PRESENT_RGNS {}
+impl Clone for D3DKMT_PRESENT_RGNS {
     fn clone(&self) -> Self {
         *self
     }
@@ -9620,8 +9620,8 @@ pub struct D3DKMT_PRESENT_STATS {
     pub SyncQPCTime: i64,
     pub SyncGPUTime: i64,
 }
-impl ::core::marker::Copy for D3DKMT_PRESENT_STATS {}
-impl ::core::clone::Clone for D3DKMT_PRESENT_STATS {
+impl Copy for D3DKMT_PRESENT_STATS {}
+impl Clone for D3DKMT_PRESENT_STATS {
     fn clone(&self) -> Self {
         *self
     }
@@ -9635,8 +9635,8 @@ pub struct D3DKMT_PRESENT_STATS_DWM {
     pub SyncQPCTime: i64,
     pub CustomPresentDuration: u32,
 }
-impl ::core::marker::Copy for D3DKMT_PRESENT_STATS_DWM {}
-impl ::core::clone::Clone for D3DKMT_PRESENT_STATS_DWM {
+impl Copy for D3DKMT_PRESENT_STATS_DWM {}
+impl Clone for D3DKMT_PRESENT_STATS_DWM {
     fn clone(&self) -> Self {
         *self
     }
@@ -9653,8 +9653,8 @@ pub struct D3DKMT_PRESENT_STATS_DWM2 {
     pub VirtualSyncRefreshCount: u32,
     pub VirtualSyncQPCTime: i64,
 }
-impl ::core::marker::Copy for D3DKMT_PRESENT_STATS_DWM2 {}
-impl ::core::clone::Clone for D3DKMT_PRESENT_STATS_DWM2 {
+impl Copy for D3DKMT_PRESENT_STATS_DWM2 {}
+impl Clone for D3DKMT_PRESENT_STATS_DWM2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -9666,8 +9666,8 @@ pub struct D3DKMT_PROCESS_VERIFIER_OPTION {
     pub Mode: D3DKMT_VERIFIER_OPTION_MODE,
     pub Data: D3DKMT_PROCESS_VERIFIER_OPTION_DATA,
 }
-impl ::core::marker::Copy for D3DKMT_PROCESS_VERIFIER_OPTION {}
-impl ::core::clone::Clone for D3DKMT_PROCESS_VERIFIER_OPTION {
+impl Copy for D3DKMT_PROCESS_VERIFIER_OPTION {}
+impl Clone for D3DKMT_PROCESS_VERIFIER_OPTION {
     fn clone(&self) -> Self {
         *self
     }
@@ -9677,8 +9677,8 @@ pub union D3DKMT_PROCESS_VERIFIER_OPTION_DATA {
     pub VidMmFlags: D3DKMT_PROCESS_VERIFIER_VIDMM_FLAGS,
     pub VidMmRestrictBudget: D3DKMT_PROCESS_VERIFIER_VIDMM_RESTRICT_BUDGET,
 }
-impl ::core::marker::Copy for D3DKMT_PROCESS_VERIFIER_OPTION_DATA {}
-impl ::core::clone::Clone for D3DKMT_PROCESS_VERIFIER_OPTION_DATA {
+impl Copy for D3DKMT_PROCESS_VERIFIER_OPTION_DATA {}
+impl Clone for D3DKMT_PROCESS_VERIFIER_OPTION_DATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -9688,8 +9688,8 @@ pub union D3DKMT_PROCESS_VERIFIER_VIDMM_FLAGS {
     pub Anonymous: D3DKMT_PROCESS_VERIFIER_VIDMM_FLAGS_0,
     pub Value: u32,
 }
-impl ::core::marker::Copy for D3DKMT_PROCESS_VERIFIER_VIDMM_FLAGS {}
-impl ::core::clone::Clone for D3DKMT_PROCESS_VERIFIER_VIDMM_FLAGS {
+impl Copy for D3DKMT_PROCESS_VERIFIER_VIDMM_FLAGS {}
+impl Clone for D3DKMT_PROCESS_VERIFIER_VIDMM_FLAGS {
     fn clone(&self) -> Self {
         *self
     }
@@ -9698,8 +9698,8 @@ impl ::core::clone::Clone for D3DKMT_PROCESS_VERIFIER_VIDMM_FLAGS {
 pub struct D3DKMT_PROCESS_VERIFIER_VIDMM_FLAGS_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for D3DKMT_PROCESS_VERIFIER_VIDMM_FLAGS_0 {}
-impl ::core::clone::Clone for D3DKMT_PROCESS_VERIFIER_VIDMM_FLAGS_0 {
+impl Copy for D3DKMT_PROCESS_VERIFIER_VIDMM_FLAGS_0 {}
+impl Clone for D3DKMT_PROCESS_VERIFIER_VIDMM_FLAGS_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -9709,8 +9709,8 @@ pub struct D3DKMT_PROCESS_VERIFIER_VIDMM_RESTRICT_BUDGET {
     pub LocalBudget: u64,
     pub NonLocalBudget: u64,
 }
-impl ::core::marker::Copy for D3DKMT_PROCESS_VERIFIER_VIDMM_RESTRICT_BUDGET {}
-impl ::core::clone::Clone for D3DKMT_PROCESS_VERIFIER_VIDMM_RESTRICT_BUDGET {
+impl Copy for D3DKMT_PROCESS_VERIFIER_VIDMM_RESTRICT_BUDGET {}
+impl Clone for D3DKMT_PROCESS_VERIFIER_VIDMM_RESTRICT_BUDGET {
     fn clone(&self) -> Self {
         *self
     }
@@ -9719,11 +9719,11 @@ impl ::core::clone::Clone for D3DKMT_PROCESS_VERIFIER_VIDMM_RESTRICT_BUDGET {
 pub struct D3DKMT_QUERYADAPTERINFO {
     pub hAdapter: u32,
     pub Type: KMTQUERYADAPTERINFOTYPE,
-    pub pPrivateDriverData: *mut ::core::ffi::c_void,
+    pub pPrivateDriverData: *mut core::ffi::c_void,
     pub PrivateDriverDataSize: u32,
 }
-impl ::core::marker::Copy for D3DKMT_QUERYADAPTERINFO {}
-impl ::core::clone::Clone for D3DKMT_QUERYADAPTERINFO {
+impl Copy for D3DKMT_QUERYADAPTERINFO {}
+impl Clone for D3DKMT_QUERYADAPTERINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -9736,8 +9736,8 @@ pub struct D3DKMT_QUERYALLOCATIONRESIDENCY {
     pub AllocationCount: u32,
     pub pResidencyStatus: *mut D3DKMT_ALLOCATIONRESIDENCYSTATUS,
 }
-impl ::core::marker::Copy for D3DKMT_QUERYALLOCATIONRESIDENCY {}
-impl ::core::clone::Clone for D3DKMT_QUERYALLOCATIONRESIDENCY {
+impl Copy for D3DKMT_QUERYALLOCATIONRESIDENCY {}
+impl Clone for D3DKMT_QUERYALLOCATIONRESIDENCY {
     fn clone(&self) -> Self {
         *self
     }
@@ -9749,8 +9749,8 @@ pub struct D3DKMT_QUERYCLOCKCALIBRATION {
     pub PhysicalAdapterIndex: u32,
     pub ClockData: DXGK_GPUCLOCKDATA,
 }
-impl ::core::marker::Copy for D3DKMT_QUERYCLOCKCALIBRATION {}
-impl ::core::clone::Clone for D3DKMT_QUERYCLOCKCALIBRATION {
+impl Copy for D3DKMT_QUERYCLOCKCALIBRATION {}
+impl Clone for D3DKMT_QUERYCLOCKCALIBRATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -9762,8 +9762,8 @@ pub struct D3DKMT_QUERYFSEBLOCK {
     pub VidPnSourceId: u32,
     pub Flags: D3DKMT_QUERYFSEBLOCKFLAGS,
 }
-impl ::core::marker::Copy for D3DKMT_QUERYFSEBLOCK {}
-impl ::core::clone::Clone for D3DKMT_QUERYFSEBLOCK {
+impl Copy for D3DKMT_QUERYFSEBLOCK {}
+impl Clone for D3DKMT_QUERYFSEBLOCK {
     fn clone(&self) -> Self {
         *self
     }
@@ -9773,8 +9773,8 @@ pub union D3DKMT_QUERYFSEBLOCKFLAGS {
     pub Anonymous: D3DKMT_QUERYFSEBLOCKFLAGS_0,
     pub Value: u32,
 }
-impl ::core::marker::Copy for D3DKMT_QUERYFSEBLOCKFLAGS {}
-impl ::core::clone::Clone for D3DKMT_QUERYFSEBLOCKFLAGS {
+impl Copy for D3DKMT_QUERYFSEBLOCKFLAGS {}
+impl Clone for D3DKMT_QUERYFSEBLOCKFLAGS {
     fn clone(&self) -> Self {
         *self
     }
@@ -9783,8 +9783,8 @@ impl ::core::clone::Clone for D3DKMT_QUERYFSEBLOCKFLAGS {
 pub struct D3DKMT_QUERYFSEBLOCKFLAGS_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for D3DKMT_QUERYFSEBLOCKFLAGS_0 {}
-impl ::core::clone::Clone for D3DKMT_QUERYFSEBLOCKFLAGS_0 {
+impl Copy for D3DKMT_QUERYFSEBLOCKFLAGS_0 {}
+impl Clone for D3DKMT_QUERYFSEBLOCKFLAGS_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -9796,8 +9796,8 @@ pub struct D3DKMT_QUERYPROCESSOFFERINFO {
     pub DecommitUniqueness: u64,
     pub DecommittableBytes: u64,
 }
-impl ::core::marker::Copy for D3DKMT_QUERYPROCESSOFFERINFO {}
-impl ::core::clone::Clone for D3DKMT_QUERYPROCESSOFFERINFO {
+impl Copy for D3DKMT_QUERYPROCESSOFFERINFO {}
+impl Clone for D3DKMT_QUERYPROCESSOFFERINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -9805,13 +9805,13 @@ impl ::core::clone::Clone for D3DKMT_QUERYPROCESSOFFERINFO {
 #[repr(C)]
 pub struct D3DKMT_QUERYPROTECTEDSESSIONINFOFROMNTHANDLE {
     pub hNtHandle: super::super::super::Win32::Foundation::HANDLE,
-    pub pPrivateDriverData: *const ::core::ffi::c_void,
+    pub pPrivateDriverData: *const core::ffi::c_void,
     pub PrivateDriverDataSize: u32,
-    pub pPrivateRuntimeData: *const ::core::ffi::c_void,
+    pub pPrivateRuntimeData: *const core::ffi::c_void,
     pub PrivateRuntimeDataSize: u32,
 }
-impl ::core::marker::Copy for D3DKMT_QUERYPROTECTEDSESSIONINFOFROMNTHANDLE {}
-impl ::core::clone::Clone for D3DKMT_QUERYPROTECTEDSESSIONINFOFROMNTHANDLE {
+impl Copy for D3DKMT_QUERYPROTECTEDSESSIONINFOFROMNTHANDLE {}
+impl Clone for D3DKMT_QUERYPROTECTEDSESSIONINFOFROMNTHANDLE {
     fn clone(&self) -> Self {
         *self
     }
@@ -9821,8 +9821,8 @@ pub struct D3DKMT_QUERYPROTECTEDSESSIONSTATUS {
     pub hHandle: u32,
     pub Status: D3DKMT_PROTECTED_SESSION_STATUS,
 }
-impl ::core::marker::Copy for D3DKMT_QUERYPROTECTEDSESSIONSTATUS {}
-impl ::core::clone::Clone for D3DKMT_QUERYPROTECTEDSESSIONSTATUS {
+impl Copy for D3DKMT_QUERYPROTECTEDSESSIONSTATUS {}
+impl Clone for D3DKMT_QUERYPROTECTEDSESSIONSTATUS {
     fn clone(&self) -> Self {
         *self
     }
@@ -9832,8 +9832,8 @@ pub struct D3DKMT_QUERYREMOTEVIDPNSOURCEFROMGDIDISPLAYNAME {
     pub DeviceName: [u16; 32],
     pub VidPnSourceId: u32,
 }
-impl ::core::marker::Copy for D3DKMT_QUERYREMOTEVIDPNSOURCEFROMGDIDISPLAYNAME {}
-impl ::core::clone::Clone for D3DKMT_QUERYREMOTEVIDPNSOURCEFROMGDIDISPLAYNAME {
+impl Copy for D3DKMT_QUERYREMOTEVIDPNSOURCEFROMGDIDISPLAYNAME {}
+impl Clone for D3DKMT_QUERYREMOTEVIDPNSOURCEFROMGDIDISPLAYNAME {
     fn clone(&self) -> Self {
         *self
     }
@@ -9842,14 +9842,14 @@ impl ::core::clone::Clone for D3DKMT_QUERYREMOTEVIDPNSOURCEFROMGDIDISPLAYNAME {
 pub struct D3DKMT_QUERYRESOURCEINFO {
     pub hDevice: u32,
     pub hGlobalShare: u32,
-    pub pPrivateRuntimeData: *mut ::core::ffi::c_void,
+    pub pPrivateRuntimeData: *mut core::ffi::c_void,
     pub PrivateRuntimeDataSize: u32,
     pub TotalPrivateDriverDataSize: u32,
     pub ResourcePrivateDriverDataSize: u32,
     pub NumAllocations: u32,
 }
-impl ::core::marker::Copy for D3DKMT_QUERYRESOURCEINFO {}
-impl ::core::clone::Clone for D3DKMT_QUERYRESOURCEINFO {
+impl Copy for D3DKMT_QUERYRESOURCEINFO {}
+impl Clone for D3DKMT_QUERYRESOURCEINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -9858,14 +9858,14 @@ impl ::core::clone::Clone for D3DKMT_QUERYRESOURCEINFO {
 pub struct D3DKMT_QUERYRESOURCEINFOFROMNTHANDLE {
     pub hDevice: u32,
     pub hNtHandle: super::super::super::Win32::Foundation::HANDLE,
-    pub pPrivateRuntimeData: *mut ::core::ffi::c_void,
+    pub pPrivateRuntimeData: *mut core::ffi::c_void,
     pub PrivateRuntimeDataSize: u32,
     pub TotalPrivateDriverDataSize: u32,
     pub ResourcePrivateDriverDataSize: u32,
     pub NumAllocations: u32,
 }
-impl ::core::marker::Copy for D3DKMT_QUERYRESOURCEINFOFROMNTHANDLE {}
-impl ::core::clone::Clone for D3DKMT_QUERYRESOURCEINFOFROMNTHANDLE {
+impl Copy for D3DKMT_QUERYRESOURCEINFOFROMNTHANDLE {}
+impl Clone for D3DKMT_QUERYRESOURCEINFOFROMNTHANDLE {
     fn clone(&self) -> Self {
         *self
     }
@@ -9878,8 +9878,8 @@ pub struct D3DKMT_QUERYSTATISTICS {
     pub QueryResult: D3DKMT_QUERYSTATISTICS_RESULT,
     pub Anonymous: D3DKMT_QUERYSTATISTICS_0,
 }
-impl ::core::marker::Copy for D3DKMT_QUERYSTATISTICS {}
-impl ::core::clone::Clone for D3DKMT_QUERYSTATISTICS {
+impl Copy for D3DKMT_QUERYSTATISTICS {}
+impl Clone for D3DKMT_QUERYSTATISTICS {
     fn clone(&self) -> Self {
         *self
     }
@@ -9904,8 +9904,8 @@ pub union D3DKMT_QUERYSTATISTICS_0 {
     pub QueryNode2: D3DKMT_QUERYSTATISTICS_QUERY_NODE2,
     pub QueryProcessNode2: D3DKMT_QUERYSTATISTICS_QUERY_NODE2,
 }
-impl ::core::marker::Copy for D3DKMT_QUERYSTATISTICS_0 {}
-impl ::core::clone::Clone for D3DKMT_QUERYSTATISTICS_0 {
+impl Copy for D3DKMT_QUERYSTATISTICS_0 {}
+impl Clone for D3DKMT_QUERYSTATISTICS_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -9931,8 +9931,8 @@ pub struct D3DKMT_QUERYSTATISTICS_ADAPTER_INFORMATION {
     pub Flags: D3DKMT_QUERYSTATISTICS_ADAPTER_INFORMATION_FLAGS,
     pub Reserved: [u64; 7],
 }
-impl ::core::marker::Copy for D3DKMT_QUERYSTATISTICS_ADAPTER_INFORMATION {}
-impl ::core::clone::Clone for D3DKMT_QUERYSTATISTICS_ADAPTER_INFORMATION {
+impl Copy for D3DKMT_QUERYSTATISTICS_ADAPTER_INFORMATION {}
+impl Clone for D3DKMT_QUERYSTATISTICS_ADAPTER_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -9941,8 +9941,8 @@ impl ::core::clone::Clone for D3DKMT_QUERYSTATISTICS_ADAPTER_INFORMATION {
 pub struct D3DKMT_QUERYSTATISTICS_ADAPTER_INFORMATION_FLAGS {
     pub Anonymous: D3DKMT_QUERYSTATISTICS_ADAPTER_INFORMATION_FLAGS_0,
 }
-impl ::core::marker::Copy for D3DKMT_QUERYSTATISTICS_ADAPTER_INFORMATION_FLAGS {}
-impl ::core::clone::Clone for D3DKMT_QUERYSTATISTICS_ADAPTER_INFORMATION_FLAGS {
+impl Copy for D3DKMT_QUERYSTATISTICS_ADAPTER_INFORMATION_FLAGS {}
+impl Clone for D3DKMT_QUERYSTATISTICS_ADAPTER_INFORMATION_FLAGS {
     fn clone(&self) -> Self {
         *self
     }
@@ -9952,8 +9952,8 @@ pub union D3DKMT_QUERYSTATISTICS_ADAPTER_INFORMATION_FLAGS_0 {
     pub Anonymous: D3DKMT_QUERYSTATISTICS_ADAPTER_INFORMATION_FLAGS_0_0,
     pub Value: u64,
 }
-impl ::core::marker::Copy for D3DKMT_QUERYSTATISTICS_ADAPTER_INFORMATION_FLAGS_0 {}
-impl ::core::clone::Clone for D3DKMT_QUERYSTATISTICS_ADAPTER_INFORMATION_FLAGS_0 {
+impl Copy for D3DKMT_QUERYSTATISTICS_ADAPTER_INFORMATION_FLAGS_0 {}
+impl Clone for D3DKMT_QUERYSTATISTICS_ADAPTER_INFORMATION_FLAGS_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -9962,8 +9962,8 @@ impl ::core::clone::Clone for D3DKMT_QUERYSTATISTICS_ADAPTER_INFORMATION_FLAGS_0
 pub struct D3DKMT_QUERYSTATISTICS_ADAPTER_INFORMATION_FLAGS_0_0 {
     pub _bitfield: u64,
 }
-impl ::core::marker::Copy for D3DKMT_QUERYSTATISTICS_ADAPTER_INFORMATION_FLAGS_0_0 {}
-impl ::core::clone::Clone for D3DKMT_QUERYSTATISTICS_ADAPTER_INFORMATION_FLAGS_0_0 {
+impl Copy for D3DKMT_QUERYSTATISTICS_ADAPTER_INFORMATION_FLAGS_0_0 {}
+impl Clone for D3DKMT_QUERYSTATISTICS_ADAPTER_INFORMATION_FLAGS_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -9973,8 +9973,8 @@ pub struct D3DKMT_QUERYSTATISTICS_COMMITMENT_DATA {
     pub TotalBytesEvictedFromProcess: u64,
     pub BytesBySegmentPreference: [u64; 5],
 }
-impl ::core::marker::Copy for D3DKMT_QUERYSTATISTICS_COMMITMENT_DATA {}
-impl ::core::clone::Clone for D3DKMT_QUERYSTATISTICS_COMMITMENT_DATA {
+impl Copy for D3DKMT_QUERYSTATISTICS_COMMITMENT_DATA {}
+impl Clone for D3DKMT_QUERYSTATISTICS_COMMITMENT_DATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -9984,8 +9984,8 @@ pub struct D3DKMT_QUERYSTATISTICS_COUNTER {
     pub Count: u32,
     pub Bytes: u64,
 }
-impl ::core::marker::Copy for D3DKMT_QUERYSTATISTICS_COUNTER {}
-impl ::core::clone::Clone for D3DKMT_QUERYSTATISTICS_COUNTER {
+impl Copy for D3DKMT_QUERYSTATISTICS_COUNTER {}
+impl Clone for D3DKMT_QUERYSTATISTICS_COUNTER {
     fn clone(&self) -> Self {
         *self
     }
@@ -9996,8 +9996,8 @@ pub struct D3DKMT_QUERYSTATISTICS_DMA_BUFFER {
     pub AllocationListBytes: u32,
     pub PatchLocationListBytes: u32,
 }
-impl ::core::marker::Copy for D3DKMT_QUERYSTATISTICS_DMA_BUFFER {}
-impl ::core::clone::Clone for D3DKMT_QUERYSTATISTICS_DMA_BUFFER {
+impl Copy for D3DKMT_QUERYSTATISTICS_DMA_BUFFER {}
+impl Clone for D3DKMT_QUERYSTATISTICS_DMA_BUFFER {
     fn clone(&self) -> Self {
         *self
     }
@@ -10009,8 +10009,8 @@ pub struct D3DKMT_QUERYSTATISTICS_DMA_PACKET_TYPE_INFORMATION {
     pub PacketPreempted: u32,
     pub PacketFaulted: u32,
 }
-impl ::core::marker::Copy for D3DKMT_QUERYSTATISTICS_DMA_PACKET_TYPE_INFORMATION {}
-impl ::core::clone::Clone for D3DKMT_QUERYSTATISTICS_DMA_PACKET_TYPE_INFORMATION {
+impl Copy for D3DKMT_QUERYSTATISTICS_DMA_PACKET_TYPE_INFORMATION {}
+impl Clone for D3DKMT_QUERYSTATISTICS_DMA_PACKET_TYPE_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -10021,8 +10021,8 @@ pub struct D3DKMT_QUERYSTATISTICS_MEMORY {
     pub AllocsCommitted: u32,
     pub AllocsResident: u32,
 }
-impl ::core::marker::Copy for D3DKMT_QUERYSTATISTICS_MEMORY {}
-impl ::core::clone::Clone for D3DKMT_QUERYSTATISTICS_MEMORY {
+impl Copy for D3DKMT_QUERYSTATISTICS_MEMORY {}
+impl Clone for D3DKMT_QUERYSTATISTICS_MEMORY {
     fn clone(&self) -> Self {
         *self
     }
@@ -10035,8 +10035,8 @@ pub struct D3DKMT_QUERYSTATISTICS_MEMORY_USAGE {
     pub ModifiedBytes: u64,
     pub StandbyBytes: u64,
 }
-impl ::core::marker::Copy for D3DKMT_QUERYSTATISTICS_MEMORY_USAGE {}
-impl ::core::clone::Clone for D3DKMT_QUERYSTATISTICS_MEMORY_USAGE {
+impl Copy for D3DKMT_QUERYSTATISTICS_MEMORY_USAGE {}
+impl Clone for D3DKMT_QUERYSTATISTICS_MEMORY_USAGE {
     fn clone(&self) -> Self {
         *self
     }
@@ -10048,8 +10048,8 @@ pub struct D3DKMT_QUERYSTATISTICS_NODE_INFORMATION {
     pub NodePerfData: D3DKMT_NODE_PERFDATA,
     pub Reserved: [u32; 3],
 }
-impl ::core::marker::Copy for D3DKMT_QUERYSTATISTICS_NODE_INFORMATION {}
-impl ::core::clone::Clone for D3DKMT_QUERYSTATISTICS_NODE_INFORMATION {
+impl Copy for D3DKMT_QUERYSTATISTICS_NODE_INFORMATION {}
+impl Clone for D3DKMT_QUERYSTATISTICS_NODE_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -10059,8 +10059,8 @@ pub struct D3DKMT_QUERYSTATISTICS_PACKET_INFORMATION {
     pub QueuePacket: [D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE_INFORMATION; 8],
     pub DmaPacket: [D3DKMT_QUERYSTATISTICS_DMA_PACKET_TYPE_INFORMATION; 4],
 }
-impl ::core::marker::Copy for D3DKMT_QUERYSTATISTICS_PACKET_INFORMATION {}
-impl ::core::clone::Clone for D3DKMT_QUERYSTATISTICS_PACKET_INFORMATION {
+impl Copy for D3DKMT_QUERYSTATISTICS_PACKET_INFORMATION {}
+impl Clone for D3DKMT_QUERYSTATISTICS_PACKET_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -10071,8 +10071,8 @@ pub struct D3DKMT_QUERYSTATISTICS_PHYSICAL_ADAPTER_INFORMATION {
     pub AdapterPerfDataCaps: D3DKMT_ADAPTER_PERFDATACAPS,
     pub GpuVersion: D3DKMT_GPUVERSION,
 }
-impl ::core::marker::Copy for D3DKMT_QUERYSTATISTICS_PHYSICAL_ADAPTER_INFORMATION {}
-impl ::core::clone::Clone for D3DKMT_QUERYSTATISTICS_PHYSICAL_ADAPTER_INFORMATION {
+impl Copy for D3DKMT_QUERYSTATISTICS_PHYSICAL_ADAPTER_INFORMATION {}
+impl Clone for D3DKMT_QUERYSTATISTICS_PHYSICAL_ADAPTER_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -10085,8 +10085,8 @@ pub struct D3DKMT_QUERYSTATISTICS_POLICY {
     pub RemovePagesFromWorkingSetOnPaging: u64,
     pub MigrationEnabled: u64,
 }
-impl ::core::marker::Copy for D3DKMT_QUERYSTATISTICS_POLICY {}
-impl ::core::clone::Clone for D3DKMT_QUERYSTATISTICS_POLICY {
+impl Copy for D3DKMT_QUERYSTATISTICS_POLICY {}
+impl Clone for D3DKMT_QUERYSTATISTICS_POLICY {
     fn clone(&self) -> Self {
         *self
     }
@@ -10095,8 +10095,8 @@ impl ::core::clone::Clone for D3DKMT_QUERYSTATISTICS_POLICY {
 pub struct D3DKMT_QUERYSTATISTICS_PREEMPTION_INFORMATION {
     pub PreemptionCounter: [u32; 16],
 }
-impl ::core::marker::Copy for D3DKMT_QUERYSTATISTICS_PREEMPTION_INFORMATION {}
-impl ::core::clone::Clone for D3DKMT_QUERYSTATISTICS_PREEMPTION_INFORMATION {
+impl Copy for D3DKMT_QUERYSTATISTICS_PREEMPTION_INFORMATION {}
+impl Clone for D3DKMT_QUERYSTATISTICS_PREEMPTION_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -10113,8 +10113,8 @@ pub struct D3DKMT_QUERYSTATISTICS_PROCESS_ADAPTER_INFORMATION {
     pub ProcessInterferenceCounters: D3DKMT_QUERYSTATISTICS_PROCESS_INTERFERENCE_COUNTERS,
     pub ClientHint: D3DKMT_CLIENTHINT,
 }
-impl ::core::marker::Copy for D3DKMT_QUERYSTATISTICS_PROCESS_ADAPTER_INFORMATION {}
-impl ::core::clone::Clone for D3DKMT_QUERYSTATISTICS_PROCESS_ADAPTER_INFORMATION {
+impl Copy for D3DKMT_QUERYSTATISTICS_PROCESS_ADAPTER_INFORMATION {}
+impl Clone for D3DKMT_QUERYSTATISTICS_PROCESS_ADAPTER_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -10126,8 +10126,8 @@ pub struct D3DKMT_QUERYSTATISTICS_PROCESS_INFORMATION {
     pub SystemMemory: D3DKMT_QUERYSTATISTICS_SYSTEM_MEMORY,
     pub Reserved: [u64; 7],
 }
-impl ::core::marker::Copy for D3DKMT_QUERYSTATISTICS_PROCESS_INFORMATION {}
-impl ::core::clone::Clone for D3DKMT_QUERYSTATISTICS_PROCESS_INFORMATION {
+impl Copy for D3DKMT_QUERYSTATISTICS_PROCESS_INFORMATION {}
+impl Clone for D3DKMT_QUERYSTATISTICS_PROCESS_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -10136,8 +10136,8 @@ impl ::core::clone::Clone for D3DKMT_QUERYSTATISTICS_PROCESS_INFORMATION {
 pub struct D3DKMT_QUERYSTATISTICS_PROCESS_INTERFERENCE_COUNTERS {
     pub InterferenceCount: [u64; 9],
 }
-impl ::core::marker::Copy for D3DKMT_QUERYSTATISTICS_PROCESS_INTERFERENCE_COUNTERS {}
-impl ::core::clone::Clone for D3DKMT_QUERYSTATISTICS_PROCESS_INTERFERENCE_COUNTERS {
+impl Copy for D3DKMT_QUERYSTATISTICS_PROCESS_INTERFERENCE_COUNTERS {}
+impl Clone for D3DKMT_QUERYSTATISTICS_PROCESS_INTERFERENCE_COUNTERS {
     fn clone(&self) -> Self {
         *self
     }
@@ -10150,8 +10150,8 @@ pub struct D3DKMT_QUERYSTATISTICS_PROCESS_NODE_INFORMATION {
     pub PacketStatistics: D3DKMT_QUERYSTATISTICS_PACKET_INFORMATION,
     pub Reserved: [u64; 8],
 }
-impl ::core::marker::Copy for D3DKMT_QUERYSTATISTICS_PROCESS_NODE_INFORMATION {}
-impl ::core::clone::Clone for D3DKMT_QUERYSTATISTICS_PROCESS_NODE_INFORMATION {
+impl Copy for D3DKMT_QUERYSTATISTICS_PROCESS_NODE_INFORMATION {}
+impl Clone for D3DKMT_QUERYSTATISTICS_PROCESS_NODE_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -10163,8 +10163,8 @@ pub struct D3DKMT_QUERYSTATISTICS_PROCESS_SEGMENT_GROUP_INFORMATION {
     pub Usage: u64,
     pub Demoted: [u64; 5],
 }
-impl ::core::marker::Copy for D3DKMT_QUERYSTATISTICS_PROCESS_SEGMENT_GROUP_INFORMATION {}
-impl ::core::clone::Clone for D3DKMT_QUERYSTATISTICS_PROCESS_SEGMENT_GROUP_INFORMATION {
+impl Copy for D3DKMT_QUERYSTATISTICS_PROCESS_SEGMENT_GROUP_INFORMATION {}
+impl Clone for D3DKMT_QUERYSTATISTICS_PROCESS_SEGMENT_GROUP_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -10180,8 +10180,8 @@ pub struct D3DKMT_QUERYSTATISTICS_PROCESS_SEGMENT_INFORMATION {
     pub _Policy: D3DKMT_QUERYSTATISTICS_PROCESS_SEGMENT_POLICY,
     pub Reserved: [u64; 8],
 }
-impl ::core::marker::Copy for D3DKMT_QUERYSTATISTICS_PROCESS_SEGMENT_INFORMATION {}
-impl ::core::clone::Clone for D3DKMT_QUERYSTATISTICS_PROCESS_SEGMENT_INFORMATION {
+impl Copy for D3DKMT_QUERYSTATISTICS_PROCESS_SEGMENT_INFORMATION {}
+impl Clone for D3DKMT_QUERYSTATISTICS_PROCESS_SEGMENT_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -10190,8 +10190,8 @@ impl ::core::clone::Clone for D3DKMT_QUERYSTATISTICS_PROCESS_SEGMENT_INFORMATION
 pub struct D3DKMT_QUERYSTATISTICS_PROCESS_SEGMENT_POLICY {
     pub UseMRU: u64,
 }
-impl ::core::marker::Copy for D3DKMT_QUERYSTATISTICS_PROCESS_SEGMENT_POLICY {}
-impl ::core::clone::Clone for D3DKMT_QUERYSTATISTICS_PROCESS_SEGMENT_POLICY {
+impl Copy for D3DKMT_QUERYSTATISTICS_PROCESS_SEGMENT_POLICY {}
+impl Clone for D3DKMT_QUERYSTATISTICS_PROCESS_SEGMENT_POLICY {
     fn clone(&self) -> Self {
         *self
     }
@@ -10208,8 +10208,8 @@ pub struct D3DKMT_QUERYSTATISTICS_PROCESS_VIDPNSOURCE_INFORMATION {
     pub VSyncOffNoPhaseTotalTimeMs: u64,
     pub Reserved: [u64; 4],
 }
-impl ::core::marker::Copy for D3DKMT_QUERYSTATISTICS_PROCESS_VIDPNSOURCE_INFORMATION {}
-impl ::core::clone::Clone for D3DKMT_QUERYSTATISTICS_PROCESS_VIDPNSOURCE_INFORMATION {
+impl Copy for D3DKMT_QUERYSTATISTICS_PROCESS_VIDPNSOURCE_INFORMATION {}
+impl Clone for D3DKMT_QUERYSTATISTICS_PROCESS_VIDPNSOURCE_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -10218,8 +10218,8 @@ impl ::core::clone::Clone for D3DKMT_QUERYSTATISTICS_PROCESS_VIDPNSOURCE_INFORMA
 pub struct D3DKMT_QUERYSTATISTICS_QUERY_ADAPTER2 {
     pub PhysicalAdapterIndex: u16,
 }
-impl ::core::marker::Copy for D3DKMT_QUERYSTATISTICS_QUERY_ADAPTER2 {}
-impl ::core::clone::Clone for D3DKMT_QUERYSTATISTICS_QUERY_ADAPTER2 {
+impl Copy for D3DKMT_QUERYSTATISTICS_QUERY_ADAPTER2 {}
+impl Clone for D3DKMT_QUERYSTATISTICS_QUERY_ADAPTER2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -10228,8 +10228,8 @@ impl ::core::clone::Clone for D3DKMT_QUERYSTATISTICS_QUERY_ADAPTER2 {
 pub struct D3DKMT_QUERYSTATISTICS_QUERY_ADAPTER_INFORMATION2 {
     pub PhysicalAdapterIndex: u16,
 }
-impl ::core::marker::Copy for D3DKMT_QUERYSTATISTICS_QUERY_ADAPTER_INFORMATION2 {}
-impl ::core::clone::Clone for D3DKMT_QUERYSTATISTICS_QUERY_ADAPTER_INFORMATION2 {
+impl Copy for D3DKMT_QUERYSTATISTICS_QUERY_ADAPTER_INFORMATION2 {}
+impl Clone for D3DKMT_QUERYSTATISTICS_QUERY_ADAPTER_INFORMATION2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -10238,8 +10238,8 @@ impl ::core::clone::Clone for D3DKMT_QUERYSTATISTICS_QUERY_ADAPTER_INFORMATION2 
 pub struct D3DKMT_QUERYSTATISTICS_QUERY_NODE {
     pub NodeId: u32,
 }
-impl ::core::marker::Copy for D3DKMT_QUERYSTATISTICS_QUERY_NODE {}
-impl ::core::clone::Clone for D3DKMT_QUERYSTATISTICS_QUERY_NODE {
+impl Copy for D3DKMT_QUERYSTATISTICS_QUERY_NODE {}
+impl Clone for D3DKMT_QUERYSTATISTICS_QUERY_NODE {
     fn clone(&self) -> Self {
         *self
     }
@@ -10249,8 +10249,8 @@ pub struct D3DKMT_QUERYSTATISTICS_QUERY_NODE2 {
     pub PhysicalAdapterIndex: u16,
     pub NodeOrdinal: u16,
 }
-impl ::core::marker::Copy for D3DKMT_QUERYSTATISTICS_QUERY_NODE2 {}
-impl ::core::clone::Clone for D3DKMT_QUERYSTATISTICS_QUERY_NODE2 {
+impl Copy for D3DKMT_QUERYSTATISTICS_QUERY_NODE2 {}
+impl Clone for D3DKMT_QUERYSTATISTICS_QUERY_NODE2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -10259,8 +10259,8 @@ impl ::core::clone::Clone for D3DKMT_QUERYSTATISTICS_QUERY_NODE2 {
 pub struct D3DKMT_QUERYSTATISTICS_QUERY_PHYSICAL_ADAPTER {
     pub PhysicalAdapterIndex: u32,
 }
-impl ::core::marker::Copy for D3DKMT_QUERYSTATISTICS_QUERY_PHYSICAL_ADAPTER {}
-impl ::core::clone::Clone for D3DKMT_QUERYSTATISTICS_QUERY_PHYSICAL_ADAPTER {
+impl Copy for D3DKMT_QUERYSTATISTICS_QUERY_PHYSICAL_ADAPTER {}
+impl Clone for D3DKMT_QUERYSTATISTICS_QUERY_PHYSICAL_ADAPTER {
     fn clone(&self) -> Self {
         *self
     }
@@ -10270,8 +10270,8 @@ pub struct D3DKMT_QUERYSTATISTICS_QUERY_PROCESS_SEGMENT_GROUP2 {
     pub PhysicalAdapterIndex: u16,
     pub SegmentGroup: u16,
 }
-impl ::core::marker::Copy for D3DKMT_QUERYSTATISTICS_QUERY_PROCESS_SEGMENT_GROUP2 {}
-impl ::core::clone::Clone for D3DKMT_QUERYSTATISTICS_QUERY_PROCESS_SEGMENT_GROUP2 {
+impl Copy for D3DKMT_QUERYSTATISTICS_QUERY_PROCESS_SEGMENT_GROUP2 {}
+impl Clone for D3DKMT_QUERYSTATISTICS_QUERY_PROCESS_SEGMENT_GROUP2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -10280,8 +10280,8 @@ impl ::core::clone::Clone for D3DKMT_QUERYSTATISTICS_QUERY_PROCESS_SEGMENT_GROUP
 pub struct D3DKMT_QUERYSTATISTICS_QUERY_SEGMENT {
     pub SegmentId: u32,
 }
-impl ::core::marker::Copy for D3DKMT_QUERYSTATISTICS_QUERY_SEGMENT {}
-impl ::core::clone::Clone for D3DKMT_QUERYSTATISTICS_QUERY_SEGMENT {
+impl Copy for D3DKMT_QUERYSTATISTICS_QUERY_SEGMENT {}
+impl Clone for D3DKMT_QUERYSTATISTICS_QUERY_SEGMENT {
     fn clone(&self) -> Self {
         *self
     }
@@ -10291,8 +10291,8 @@ pub struct D3DKMT_QUERYSTATISTICS_QUERY_SEGMENT2 {
     pub PhysicalAdapterIndex: u16,
     pub SegmentId: u16,
 }
-impl ::core::marker::Copy for D3DKMT_QUERYSTATISTICS_QUERY_SEGMENT2 {}
-impl ::core::clone::Clone for D3DKMT_QUERYSTATISTICS_QUERY_SEGMENT2 {
+impl Copy for D3DKMT_QUERYSTATISTICS_QUERY_SEGMENT2 {}
+impl Clone for D3DKMT_QUERYSTATISTICS_QUERY_SEGMENT2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -10302,8 +10302,8 @@ pub struct D3DKMT_QUERYSTATISTICS_QUERY_SEGMENT_GROUP_USAGE {
     pub PhysicalAdapterIndex: u16,
     pub SegmentGroup: u16,
 }
-impl ::core::marker::Copy for D3DKMT_QUERYSTATISTICS_QUERY_SEGMENT_GROUP_USAGE {}
-impl ::core::clone::Clone for D3DKMT_QUERYSTATISTICS_QUERY_SEGMENT_GROUP_USAGE {
+impl Copy for D3DKMT_QUERYSTATISTICS_QUERY_SEGMENT_GROUP_USAGE {}
+impl Clone for D3DKMT_QUERYSTATISTICS_QUERY_SEGMENT_GROUP_USAGE {
     fn clone(&self) -> Self {
         *self
     }
@@ -10313,8 +10313,8 @@ pub struct D3DKMT_QUERYSTATISTICS_QUERY_SEGMENT_USAGE {
     pub PhysicalAdapterIndex: u16,
     pub SegmentId: u16,
 }
-impl ::core::marker::Copy for D3DKMT_QUERYSTATISTICS_QUERY_SEGMENT_USAGE {}
-impl ::core::clone::Clone for D3DKMT_QUERYSTATISTICS_QUERY_SEGMENT_USAGE {
+impl Copy for D3DKMT_QUERYSTATISTICS_QUERY_SEGMENT_USAGE {}
+impl Clone for D3DKMT_QUERYSTATISTICS_QUERY_SEGMENT_USAGE {
     fn clone(&self) -> Self {
         *self
     }
@@ -10323,8 +10323,8 @@ impl ::core::clone::Clone for D3DKMT_QUERYSTATISTICS_QUERY_SEGMENT_USAGE {
 pub struct D3DKMT_QUERYSTATISTICS_QUERY_VIDPNSOURCE {
     pub VidPnSourceId: u32,
 }
-impl ::core::marker::Copy for D3DKMT_QUERYSTATISTICS_QUERY_VIDPNSOURCE {}
-impl ::core::clone::Clone for D3DKMT_QUERYSTATISTICS_QUERY_VIDPNSOURCE {
+impl Copy for D3DKMT_QUERYSTATISTICS_QUERY_VIDPNSOURCE {}
+impl Clone for D3DKMT_QUERYSTATISTICS_QUERY_VIDPNSOURCE {
     fn clone(&self) -> Self {
         *self
     }
@@ -10334,8 +10334,8 @@ pub struct D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE_INFORMATION {
     pub PacketSubmited: u32,
     pub PacketCompleted: u32,
 }
-impl ::core::marker::Copy for D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE_INFORMATION {}
-impl ::core::clone::Clone for D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE_INFORMATION {
+impl Copy for D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE_INFORMATION {}
+impl Clone for D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -10356,8 +10356,8 @@ pub union D3DKMT_QUERYSTATISTICS_RESULT {
     pub SegmentUsageInformation: D3DKMT_QUERYSTATISTICS_MEMORY_USAGE,
     pub SegmentGroupUsageInformation: D3DKMT_QUERYSTATISTICS_MEMORY_USAGE,
 }
-impl ::core::marker::Copy for D3DKMT_QUERYSTATISTICS_RESULT {}
-impl ::core::clone::Clone for D3DKMT_QUERYSTATISTICS_RESULT {
+impl Copy for D3DKMT_QUERYSTATISTICS_RESULT {}
+impl Clone for D3DKMT_QUERYSTATISTICS_RESULT {
     fn clone(&self) -> Self {
         *self
     }
@@ -10375,8 +10375,8 @@ pub struct D3DKMT_QUERYSTATISTICS_SEGMENT_INFORMATION {
     pub SegmentProperties: D3DKMT_QUERYSTATISTICS_SEGMENT_INFORMATION_1,
     pub Reserved: [u64; 5],
 }
-impl ::core::marker::Copy for D3DKMT_QUERYSTATISTICS_SEGMENT_INFORMATION {}
-impl ::core::clone::Clone for D3DKMT_QUERYSTATISTICS_SEGMENT_INFORMATION {
+impl Copy for D3DKMT_QUERYSTATISTICS_SEGMENT_INFORMATION {}
+impl Clone for D3DKMT_QUERYSTATISTICS_SEGMENT_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -10385,8 +10385,8 @@ impl ::core::clone::Clone for D3DKMT_QUERYSTATISTICS_SEGMENT_INFORMATION {
 pub struct D3DKMT_QUERYSTATISTICS_SEGMENT_INFORMATION_0 {
     pub _bitfield: u64,
 }
-impl ::core::marker::Copy for D3DKMT_QUERYSTATISTICS_SEGMENT_INFORMATION_0 {}
-impl ::core::clone::Clone for D3DKMT_QUERYSTATISTICS_SEGMENT_INFORMATION_0 {
+impl Copy for D3DKMT_QUERYSTATISTICS_SEGMENT_INFORMATION_0 {}
+impl Clone for D3DKMT_QUERYSTATISTICS_SEGMENT_INFORMATION_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -10395,8 +10395,8 @@ impl ::core::clone::Clone for D3DKMT_QUERYSTATISTICS_SEGMENT_INFORMATION_0 {
 pub struct D3DKMT_QUERYSTATISTICS_SEGMENT_INFORMATION_1 {
     pub _bitfield: u64,
 }
-impl ::core::marker::Copy for D3DKMT_QUERYSTATISTICS_SEGMENT_INFORMATION_1 {}
-impl ::core::clone::Clone for D3DKMT_QUERYSTATISTICS_SEGMENT_INFORMATION_1 {
+impl Copy for D3DKMT_QUERYSTATISTICS_SEGMENT_INFORMATION_1 {}
+impl Clone for D3DKMT_QUERYSTATISTICS_SEGMENT_INFORMATION_1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -10415,8 +10415,8 @@ pub struct D3DKMT_QUERYSTATISTICS_SYSTEM_MEMORY {
     pub SectionBytesReserved: u64,
     pub BytesZeroed: u64,
 }
-impl ::core::marker::Copy for D3DKMT_QUERYSTATISTICS_SYSTEM_MEMORY {}
-impl ::core::clone::Clone for D3DKMT_QUERYSTATISTICS_SYSTEM_MEMORY {
+impl Copy for D3DKMT_QUERYSTATISTICS_SYSTEM_MEMORY {}
+impl Clone for D3DKMT_QUERYSTATISTICS_SYSTEM_MEMORY {
     fn clone(&self) -> Self {
         *self
     }
@@ -10428,8 +10428,8 @@ pub struct D3DKMT_QUERYSTATISTICS_VIDEO_MEMORY {
     pub AllocsResidentInNonPreferred: D3DKMT_QUERYSTATISTICS_COUNTER,
     pub TotalBytesEvictedDueToPreparation: u64,
 }
-impl ::core::marker::Copy for D3DKMT_QUERYSTATISTICS_VIDEO_MEMORY {}
-impl ::core::clone::Clone for D3DKMT_QUERYSTATISTICS_VIDEO_MEMORY {
+impl Copy for D3DKMT_QUERYSTATISTICS_VIDEO_MEMORY {}
+impl Clone for D3DKMT_QUERYSTATISTICS_VIDEO_MEMORY {
     fn clone(&self) -> Self {
         *self
     }
@@ -10440,8 +10440,8 @@ pub struct D3DKMT_QUERYSTATISTICS_VIDPNSOURCE_INFORMATION {
     pub SystemInformation: D3DKMT_QUERYSTATISTICS_PROCESS_VIDPNSOURCE_INFORMATION,
     pub Reserved: [u64; 8],
 }
-impl ::core::marker::Copy for D3DKMT_QUERYSTATISTICS_VIDPNSOURCE_INFORMATION {}
-impl ::core::clone::Clone for D3DKMT_QUERYSTATISTICS_VIDPNSOURCE_INFORMATION {
+impl Copy for D3DKMT_QUERYSTATISTICS_VIDPNSOURCE_INFORMATION {}
+impl Clone for D3DKMT_QUERYSTATISTICS_VIDPNSOURCE_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -10456,8 +10456,8 @@ pub struct D3DKMT_QUERYSTATSTICS_ALLOCATIONS {
     pub MigratedFail: D3DKMT_QUERYSTATISTICS_COUNTER,
     pub MigratedAbandoned: D3DKMT_QUERYSTATISTICS_COUNTER,
 }
-impl ::core::marker::Copy for D3DKMT_QUERYSTATSTICS_ALLOCATIONS {}
-impl ::core::clone::Clone for D3DKMT_QUERYSTATSTICS_ALLOCATIONS {
+impl Copy for D3DKMT_QUERYSTATSTICS_ALLOCATIONS {}
+impl Clone for D3DKMT_QUERYSTATSTICS_ALLOCATIONS {
     fn clone(&self) -> Self {
         *self
     }
@@ -10472,8 +10472,8 @@ pub struct D3DKMT_QUERYSTATSTICS_LOCKS {
     pub NbLocksLinearization: u32,
     pub NbComplexLocks: u32,
 }
-impl ::core::marker::Copy for D3DKMT_QUERYSTATSTICS_LOCKS {}
-impl ::core::clone::Clone for D3DKMT_QUERYSTATSTICS_LOCKS {
+impl Copy for D3DKMT_QUERYSTATSTICS_LOCKS {}
+impl Clone for D3DKMT_QUERYSTATSTICS_LOCKS {
     fn clone(&self) -> Self {
         *self
     }
@@ -10499,8 +10499,8 @@ pub struct D3DKMT_QUERYSTATSTICS_PAGING_FAULT {
     pub EvictionsDueToPurge: D3DKMT_QUERYSTATISTICS_COUNTER,
     pub EvictionsDueToSuspendCPUAccess: D3DKMT_QUERYSTATISTICS_COUNTER,
 }
-impl ::core::marker::Copy for D3DKMT_QUERYSTATSTICS_PAGING_FAULT {}
-impl ::core::clone::Clone for D3DKMT_QUERYSTATSTICS_PAGING_FAULT {
+impl Copy for D3DKMT_QUERYSTATSTICS_PAGING_FAULT {}
+impl Clone for D3DKMT_QUERYSTATSTICS_PAGING_FAULT {
     fn clone(&self) -> Self {
         *self
     }
@@ -10516,8 +10516,8 @@ pub struct D3DKMT_QUERYSTATSTICS_PAGING_TRANSFER {
     pub BytesTransferredFromApertureToMemory: u64,
     pub BytesTransferredFromMemoryToAperture: u64,
 }
-impl ::core::marker::Copy for D3DKMT_QUERYSTATSTICS_PAGING_TRANSFER {}
-impl ::core::clone::Clone for D3DKMT_QUERYSTATSTICS_PAGING_TRANSFER {
+impl Copy for D3DKMT_QUERYSTATSTICS_PAGING_TRANSFER {}
+impl Clone for D3DKMT_QUERYSTATSTICS_PAGING_TRANSFER {
     fn clone(&self) -> Self {
         *self
     }
@@ -10530,8 +10530,8 @@ pub struct D3DKMT_QUERYSTATSTICS_PREPRATION {
     pub ImmediateHighestPreparationPass: u32,
     pub AllocationsTrimmed: D3DKMT_QUERYSTATISTICS_COUNTER,
 }
-impl ::core::marker::Copy for D3DKMT_QUERYSTATSTICS_PREPRATION {}
-impl ::core::clone::Clone for D3DKMT_QUERYSTATSTICS_PREPRATION {
+impl Copy for D3DKMT_QUERYSTATSTICS_PREPRATION {}
+impl Clone for D3DKMT_QUERYSTATSTICS_PREPRATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -10553,8 +10553,8 @@ pub struct D3DKMT_QUERYSTATSTICS_REFERENCE_DMA_BUFFER {
     pub NbAllocationWithNonPreferredResources: u32,
     pub NbAllocationInsertedInMigrationTable: u32,
 }
-impl ::core::marker::Copy for D3DKMT_QUERYSTATSTICS_REFERENCE_DMA_BUFFER {}
-impl ::core::clone::Clone for D3DKMT_QUERYSTATSTICS_REFERENCE_DMA_BUFFER {
+impl Copy for D3DKMT_QUERYSTATSTICS_REFERENCE_DMA_BUFFER {}
+impl Clone for D3DKMT_QUERYSTATSTICS_REFERENCE_DMA_BUFFER {
     fn clone(&self) -> Self {
         *self
     }
@@ -10571,8 +10571,8 @@ pub struct D3DKMT_QUERYSTATSTICS_RENAMING {
     pub NbFailuresDueToLowResource: u32,
     pub NbFailuresDueToNonRetiredLimit: u32,
 }
-impl ::core::marker::Copy for D3DKMT_QUERYSTATSTICS_RENAMING {}
-impl ::core::clone::Clone for D3DKMT_QUERYSTATSTICS_RENAMING {
+impl Copy for D3DKMT_QUERYSTATSTICS_RENAMING {}
+impl Clone for D3DKMT_QUERYSTATSTICS_RENAMING {
     fn clone(&self) -> Self {
         *self
     }
@@ -10582,8 +10582,8 @@ pub struct D3DKMT_QUERYSTATSTICS_SWIZZLING_RANGE {
     pub NbRangesAcquired: u32,
     pub NbRangesReleased: u32,
 }
-impl ::core::marker::Copy for D3DKMT_QUERYSTATSTICS_SWIZZLING_RANGE {}
-impl ::core::clone::Clone for D3DKMT_QUERYSTATSTICS_SWIZZLING_RANGE {
+impl Copy for D3DKMT_QUERYSTATSTICS_SWIZZLING_RANGE {}
+impl Clone for D3DKMT_QUERYSTATSTICS_SWIZZLING_RANGE {
     fn clone(&self) -> Self {
         *self
     }
@@ -10595,8 +10595,8 @@ pub struct D3DKMT_QUERYSTATSTICS_TERMINATIONS {
     pub DestroyedShared: D3DKMT_QUERYSTATISTICS_COUNTER,
     pub DestroyedNonShared: D3DKMT_QUERYSTATISTICS_COUNTER,
 }
-impl ::core::marker::Copy for D3DKMT_QUERYSTATSTICS_TERMINATIONS {}
-impl ::core::clone::Clone for D3DKMT_QUERYSTATSTICS_TERMINATIONS {
+impl Copy for D3DKMT_QUERYSTATSTICS_TERMINATIONS {}
+impl Clone for D3DKMT_QUERYSTATSTICS_TERMINATIONS {
     fn clone(&self) -> Self {
         *self
     }
@@ -10612,8 +10612,8 @@ pub struct D3DKMT_QUERYVIDEOMEMORYINFO {
     pub AvailableForReservation: u64,
     pub PhysicalAdapterIndex: u32,
 }
-impl ::core::marker::Copy for D3DKMT_QUERYVIDEOMEMORYINFO {}
-impl ::core::clone::Clone for D3DKMT_QUERYVIDEOMEMORYINFO {
+impl Copy for D3DKMT_QUERYVIDEOMEMORYINFO {}
+impl Clone for D3DKMT_QUERYVIDEOMEMORYINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -10626,8 +10626,8 @@ pub struct D3DKMT_QUERYVIDPNEXCLUSIVEOWNERSHIP {
     pub AdapterLuid: super::super::super::Win32::Foundation::LUID,
     pub OwnerType: D3DKMT_VIDPNSOURCEOWNER_TYPE,
 }
-impl ::core::marker::Copy for D3DKMT_QUERYVIDPNEXCLUSIVEOWNERSHIP {}
-impl ::core::clone::Clone for D3DKMT_QUERYVIDPNEXCLUSIVEOWNERSHIP {
+impl Copy for D3DKMT_QUERYVIDPNEXCLUSIVEOWNERSHIP {}
+impl Clone for D3DKMT_QUERYVIDPNEXCLUSIVEOWNERSHIP {
     fn clone(&self) -> Self {
         *self
     }
@@ -10636,8 +10636,8 @@ impl ::core::clone::Clone for D3DKMT_QUERYVIDPNEXCLUSIVEOWNERSHIP {
 pub struct D3DKMT_QUERY_ADAPTER_UNIQUE_GUID {
     pub AdapterUniqueGUID: [u16; 40],
 }
-impl ::core::marker::Copy for D3DKMT_QUERY_ADAPTER_UNIQUE_GUID {}
-impl ::core::clone::Clone for D3DKMT_QUERY_ADAPTER_UNIQUE_GUID {
+impl Copy for D3DKMT_QUERY_ADAPTER_UNIQUE_GUID {}
+impl Clone for D3DKMT_QUERY_ADAPTER_UNIQUE_GUID {
     fn clone(&self) -> Self {
         *self
     }
@@ -10647,8 +10647,8 @@ pub struct D3DKMT_QUERY_DEVICE_IDS {
     pub PhysicalAdapterIndex: u32,
     pub DeviceIds: D3DKMT_DEVICE_IDS,
 }
-impl ::core::marker::Copy for D3DKMT_QUERY_DEVICE_IDS {}
-impl ::core::clone::Clone for D3DKMT_QUERY_DEVICE_IDS {
+impl Copy for D3DKMT_QUERY_DEVICE_IDS {}
+impl Clone for D3DKMT_QUERY_DEVICE_IDS {
     fn clone(&self) -> Self {
         *self
     }
@@ -10658,8 +10658,8 @@ pub struct D3DKMT_QUERY_GPUMMU_CAPS {
     pub PhysicalAdapterIndex: u32,
     pub Caps: D3DKMT_GPUMMU_CAPS,
 }
-impl ::core::marker::Copy for D3DKMT_QUERY_GPUMMU_CAPS {}
-impl ::core::clone::Clone for D3DKMT_QUERY_GPUMMU_CAPS {
+impl Copy for D3DKMT_QUERY_GPUMMU_CAPS {}
+impl Clone for D3DKMT_QUERY_GPUMMU_CAPS {
     fn clone(&self) -> Self {
         *self
     }
@@ -10668,8 +10668,8 @@ impl ::core::clone::Clone for D3DKMT_QUERY_GPUMMU_CAPS {
 pub struct D3DKMT_QUERY_MIRACAST_DRIVER_TYPE {
     pub MiracastDriverType: D3DKMT_MIRACAST_DRIVER_TYPE,
 }
-impl ::core::marker::Copy for D3DKMT_QUERY_MIRACAST_DRIVER_TYPE {}
-impl ::core::clone::Clone for D3DKMT_QUERY_MIRACAST_DRIVER_TYPE {
+impl Copy for D3DKMT_QUERY_MIRACAST_DRIVER_TYPE {}
+impl Clone for D3DKMT_QUERY_MIRACAST_DRIVER_TYPE {
     fn clone(&self) -> Self {
         *self
     }
@@ -10678,11 +10678,11 @@ impl ::core::clone::Clone for D3DKMT_QUERY_MIRACAST_DRIVER_TYPE {
 pub struct D3DKMT_QUERY_PHYSICAL_ADAPTER_PNP_KEY {
     pub PhysicalAdapterIndex: u32,
     pub PnPKeyType: D3DKMT_PNP_KEY_TYPE,
-    pub pDest: ::windows_sys::core::PWSTR,
+    pub pDest: windows_sys::core::PWSTR,
     pub pCchDest: *mut u32,
 }
-impl ::core::marker::Copy for D3DKMT_QUERY_PHYSICAL_ADAPTER_PNP_KEY {}
-impl ::core::clone::Clone for D3DKMT_QUERY_PHYSICAL_ADAPTER_PNP_KEY {
+impl Copy for D3DKMT_QUERY_PHYSICAL_ADAPTER_PNP_KEY {}
+impl Clone for D3DKMT_QUERY_PHYSICAL_ADAPTER_PNP_KEY {
     fn clone(&self) -> Self {
         *self
     }
@@ -10692,8 +10692,8 @@ pub struct D3DKMT_QUERY_SCANOUT_CAPS {
     pub VidPnSourceId: u32,
     pub Caps: u32,
 }
-impl ::core::marker::Copy for D3DKMT_QUERY_SCANOUT_CAPS {}
-impl ::core::clone::Clone for D3DKMT_QUERY_SCANOUT_CAPS {
+impl Copy for D3DKMT_QUERY_SCANOUT_CAPS {}
+impl Clone for D3DKMT_QUERY_SCANOUT_CAPS {
     fn clone(&self) -> Self {
         *self
     }
@@ -10706,8 +10706,8 @@ pub struct D3DKMT_RECLAIMALLOCATIONS {
     pub pDiscarded: *mut super::super::super::Win32::Foundation::BOOL,
     pub NumAllocations: u32,
 }
-impl ::core::marker::Copy for D3DKMT_RECLAIMALLOCATIONS {}
-impl ::core::clone::Clone for D3DKMT_RECLAIMALLOCATIONS {
+impl Copy for D3DKMT_RECLAIMALLOCATIONS {}
+impl Clone for D3DKMT_RECLAIMALLOCATIONS {
     fn clone(&self) -> Self {
         *self
     }
@@ -10721,8 +10721,8 @@ pub struct D3DKMT_RECLAIMALLOCATIONS2 {
     pub Anonymous: D3DKMT_RECLAIMALLOCATIONS2_0,
     pub PagingFenceValue: u64,
 }
-impl ::core::marker::Copy for D3DKMT_RECLAIMALLOCATIONS2 {}
-impl ::core::clone::Clone for D3DKMT_RECLAIMALLOCATIONS2 {
+impl Copy for D3DKMT_RECLAIMALLOCATIONS2 {}
+impl Clone for D3DKMT_RECLAIMALLOCATIONS2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -10732,8 +10732,8 @@ pub union D3DKMT_RECLAIMALLOCATIONS2_0 {
     pub pDiscarded: *mut super::super::super::Win32::Foundation::BOOL,
     pub pResults: *mut D3DDDI_RECLAIM_RESULT,
 }
-impl ::core::marker::Copy for D3DKMT_RECLAIMALLOCATIONS2_0 {}
-impl ::core::clone::Clone for D3DKMT_RECLAIMALLOCATIONS2_0 {
+impl Copy for D3DKMT_RECLAIMALLOCATIONS2_0 {}
+impl Clone for D3DKMT_RECLAIMALLOCATIONS2_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -10742,11 +10742,11 @@ impl ::core::clone::Clone for D3DKMT_RECLAIMALLOCATIONS2_0 {
 pub struct D3DKMT_REGISTERBUDGETCHANGENOTIFICATION {
     pub hDevice: u32,
     pub Callback: PFND3DKMT_BUDGETCHANGENOTIFICATIONCALLBACK,
-    pub Context: *mut ::core::ffi::c_void,
-    pub Handle: *mut ::core::ffi::c_void,
+    pub Context: *mut core::ffi::c_void,
+    pub Handle: *mut core::ffi::c_void,
 }
-impl ::core::marker::Copy for D3DKMT_REGISTERBUDGETCHANGENOTIFICATION {}
-impl ::core::clone::Clone for D3DKMT_REGISTERBUDGETCHANGENOTIFICATION {
+impl Copy for D3DKMT_REGISTERBUDGETCHANGENOTIFICATION {}
+impl Clone for D3DKMT_REGISTERBUDGETCHANGENOTIFICATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -10756,11 +10756,11 @@ pub struct D3DKMT_REGISTERTRIMNOTIFICATION {
     pub AdapterLuid: super::super::super::Win32::Foundation::LUID,
     pub hDevice: u32,
     pub Callback: PFND3DKMT_TRIMNOTIFICATIONCALLBACK,
-    pub Context: *mut ::core::ffi::c_void,
-    pub Handle: *mut ::core::ffi::c_void,
+    pub Context: *mut core::ffi::c_void,
+    pub Handle: *mut core::ffi::c_void,
 }
-impl ::core::marker::Copy for D3DKMT_REGISTERTRIMNOTIFICATION {}
-impl ::core::clone::Clone for D3DKMT_REGISTERTRIMNOTIFICATION {
+impl Copy for D3DKMT_REGISTERTRIMNOTIFICATION {}
+impl Clone for D3DKMT_REGISTERTRIMNOTIFICATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -10771,8 +10771,8 @@ pub struct D3DKMT_RELEASEKEYEDMUTEX {
     pub Key: u64,
     pub FenceValue: u64,
 }
-impl ::core::marker::Copy for D3DKMT_RELEASEKEYEDMUTEX {}
-impl ::core::clone::Clone for D3DKMT_RELEASEKEYEDMUTEX {
+impl Copy for D3DKMT_RELEASEKEYEDMUTEX {}
+impl Clone for D3DKMT_RELEASEKEYEDMUTEX {
     fn clone(&self) -> Self {
         *self
     }
@@ -10782,11 +10782,11 @@ pub struct D3DKMT_RELEASEKEYEDMUTEX2 {
     pub hKeyedMutex: u32,
     pub Key: u64,
     pub FenceValue: u64,
-    pub pPrivateRuntimeData: *mut ::core::ffi::c_void,
+    pub pPrivateRuntimeData: *mut core::ffi::c_void,
     pub PrivateRuntimeDataSize: u32,
 }
-impl ::core::marker::Copy for D3DKMT_RELEASEKEYEDMUTEX2 {}
-impl ::core::clone::Clone for D3DKMT_RELEASEKEYEDMUTEX2 {
+impl Copy for D3DKMT_RELEASEKEYEDMUTEX2 {}
+impl Clone for D3DKMT_RELEASEKEYEDMUTEX2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -10798,7 +10798,7 @@ pub struct D3DKMT_RENDER {
     pub CommandLength: u32,
     pub AllocationCount: u32,
     pub PatchLocationCount: u32,
-    pub pNewCommandBuffer: *mut ::core::ffi::c_void,
+    pub pNewCommandBuffer: *mut core::ffi::c_void,
     pub NewCommandBufferSize: u32,
     pub pNewAllocationList: *mut D3DDDI_ALLOCATIONLIST,
     pub NewAllocationListSize: u32,
@@ -10810,11 +10810,11 @@ pub struct D3DKMT_RENDER {
     pub BroadcastContext: [u32; 64],
     pub QueuedBufferCount: u32,
     pub NewCommandBuffer: u64,
-    pub pPrivateDriverData: *mut ::core::ffi::c_void,
+    pub pPrivateDriverData: *mut core::ffi::c_void,
     pub PrivateDriverDataSize: u32,
 }
-impl ::core::marker::Copy for D3DKMT_RENDER {}
-impl ::core::clone::Clone for D3DKMT_RENDER {
+impl Copy for D3DKMT_RENDER {}
+impl Clone for D3DKMT_RENDER {
     fn clone(&self) -> Self {
         *self
     }
@@ -10824,8 +10824,8 @@ pub union D3DKMT_RENDER_0 {
     pub hDevice: u32,
     pub hContext: u32,
 }
-impl ::core::marker::Copy for D3DKMT_RENDER_0 {}
-impl ::core::clone::Clone for D3DKMT_RENDER_0 {
+impl Copy for D3DKMT_RENDER_0 {}
+impl Clone for D3DKMT_RENDER_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -10834,8 +10834,8 @@ impl ::core::clone::Clone for D3DKMT_RENDER_0 {
 pub struct D3DKMT_RENDERFLAGS {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for D3DKMT_RENDERFLAGS {}
-impl ::core::clone::Clone for D3DKMT_RENDERFLAGS {
+impl Copy for D3DKMT_RENDERFLAGS {}
+impl Clone for D3DKMT_RENDERFLAGS {
     fn clone(&self) -> Self {
         *self
     }
@@ -10846,8 +10846,8 @@ pub struct D3DKMT_REQUEST_MACHINE_CRASH_ESCAPE {
     pub Param2: usize,
     pub Param3: usize,
 }
-impl ::core::marker::Copy for D3DKMT_REQUEST_MACHINE_CRASH_ESCAPE {}
-impl ::core::clone::Clone for D3DKMT_REQUEST_MACHINE_CRASH_ESCAPE {
+impl Copy for D3DKMT_REQUEST_MACHINE_CRASH_ESCAPE {}
+impl Clone for D3DKMT_REQUEST_MACHINE_CRASH_ESCAPE {
     fn clone(&self) -> Self {
         *self
     }
@@ -10860,8 +10860,8 @@ pub struct D3DKMT_SCATTERBLT {
     pub SourceRect: super::super::super::Win32::Foundation::RECT,
     pub DestinationOffset: super::super::super::Win32::Foundation::POINT,
 }
-impl ::core::marker::Copy for D3DKMT_SCATTERBLT {}
-impl ::core::clone::Clone for D3DKMT_SCATTERBLT {
+impl Copy for D3DKMT_SCATTERBLT {}
+impl Clone for D3DKMT_SCATTERBLT {
     fn clone(&self) -> Self {
         *self
     }
@@ -10871,8 +10871,8 @@ pub struct D3DKMT_SCATTERBLTS {
     pub NumBlts: u32,
     pub Blts: [D3DKMT_SCATTERBLT; 12],
 }
-impl ::core::marker::Copy for D3DKMT_SCATTERBLTS {}
-impl ::core::clone::Clone for D3DKMT_SCATTERBLTS {
+impl Copy for D3DKMT_SCATTERBLTS {}
+impl Clone for D3DKMT_SCATTERBLTS {
     fn clone(&self) -> Self {
         *self
     }
@@ -10885,8 +10885,8 @@ pub struct D3DKMT_SEGMENTGROUPSIZEINFO {
     pub NonLocalMemory: u64,
     pub NonBudgetMemory: u64,
 }
-impl ::core::marker::Copy for D3DKMT_SEGMENTGROUPSIZEINFO {}
-impl ::core::clone::Clone for D3DKMT_SEGMENTGROUPSIZEINFO {
+impl Copy for D3DKMT_SEGMENTGROUPSIZEINFO {}
+impl Clone for D3DKMT_SEGMENTGROUPSIZEINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -10897,8 +10897,8 @@ pub struct D3DKMT_SEGMENTSIZEINFO {
     pub DedicatedSystemMemorySize: u64,
     pub SharedSystemMemorySize: u64,
 }
-impl ::core::marker::Copy for D3DKMT_SEGMENTSIZEINFO {}
-impl ::core::clone::Clone for D3DKMT_SEGMENTSIZEINFO {
+impl Copy for D3DKMT_SEGMENTSIZEINFO {}
+impl Clone for D3DKMT_SEGMENTSIZEINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -10912,8 +10912,8 @@ pub struct D3DKMT_SEGMENT_CAPS {
     pub bReservedSysMem: super::super::super::Win32::Foundation::BOOLEAN,
     pub BudgetGroup: D3DKMT_MEMORY_SEGMENT_GROUP,
 }
-impl ::core::marker::Copy for D3DKMT_SEGMENT_CAPS {}
-impl ::core::clone::Clone for D3DKMT_SEGMENT_CAPS {
+impl Copy for D3DKMT_SEGMENT_CAPS {}
+impl Clone for D3DKMT_SEGMENT_CAPS {
     fn clone(&self) -> Self {
         *self
     }
@@ -10926,8 +10926,8 @@ pub struct D3DKMT_SETALLOCATIONPRIORITY {
     pub AllocationCount: u32,
     pub pPriorities: *const u32,
 }
-impl ::core::marker::Copy for D3DKMT_SETALLOCATIONPRIORITY {}
-impl ::core::clone::Clone for D3DKMT_SETALLOCATIONPRIORITY {
+impl Copy for D3DKMT_SETALLOCATIONPRIORITY {}
+impl Clone for D3DKMT_SETALLOCATIONPRIORITY {
     fn clone(&self) -> Self {
         *self
     }
@@ -10937,8 +10937,8 @@ pub struct D3DKMT_SETCONTEXTINPROCESSSCHEDULINGPRIORITY {
     pub hContext: u32,
     pub Priority: i32,
 }
-impl ::core::marker::Copy for D3DKMT_SETCONTEXTINPROCESSSCHEDULINGPRIORITY {}
-impl ::core::clone::Clone for D3DKMT_SETCONTEXTINPROCESSSCHEDULINGPRIORITY {
+impl Copy for D3DKMT_SETCONTEXTINPROCESSSCHEDULINGPRIORITY {}
+impl Clone for D3DKMT_SETCONTEXTINPROCESSSCHEDULINGPRIORITY {
     fn clone(&self) -> Self {
         *self
     }
@@ -10948,8 +10948,8 @@ pub struct D3DKMT_SETCONTEXTSCHEDULINGPRIORITY {
     pub hContext: u32,
     pub Priority: i32,
 }
-impl ::core::marker::Copy for D3DKMT_SETCONTEXTSCHEDULINGPRIORITY {}
-impl ::core::clone::Clone for D3DKMT_SETCONTEXTSCHEDULINGPRIORITY {
+impl Copy for D3DKMT_SETCONTEXTSCHEDULINGPRIORITY {}
+impl Clone for D3DKMT_SETCONTEXTSCHEDULINGPRIORITY {
     fn clone(&self) -> Self {
         *self
     }
@@ -10963,8 +10963,8 @@ pub struct D3DKMT_SETDISPLAYMODE {
     pub PrivateDriverFormatAttribute: u32,
     pub Flags: D3DKMT_SETDISPLAYMODE_FLAGS,
 }
-impl ::core::marker::Copy for D3DKMT_SETDISPLAYMODE {}
-impl ::core::clone::Clone for D3DKMT_SETDISPLAYMODE {
+impl Copy for D3DKMT_SETDISPLAYMODE {}
+impl Clone for D3DKMT_SETDISPLAYMODE {
     fn clone(&self) -> Self {
         *self
     }
@@ -10974,8 +10974,8 @@ pub struct D3DKMT_SETDISPLAYMODE_FLAGS {
     pub _bitfield1: u8,
     pub _bitfield2: u32,
 }
-impl ::core::marker::Copy for D3DKMT_SETDISPLAYMODE_FLAGS {}
-impl ::core::clone::Clone for D3DKMT_SETDISPLAYMODE_FLAGS {
+impl Copy for D3DKMT_SETDISPLAYMODE_FLAGS {}
+impl Clone for D3DKMT_SETDISPLAYMODE_FLAGS {
     fn clone(&self) -> Self {
         *self
     }
@@ -10986,8 +10986,8 @@ pub struct D3DKMT_SETDISPLAYPRIVATEDRIVERFORMAT {
     pub VidPnSourceId: u32,
     pub PrivateDriverFormatAttribute: u32,
 }
-impl ::core::marker::Copy for D3DKMT_SETDISPLAYPRIVATEDRIVERFORMAT {}
-impl ::core::clone::Clone for D3DKMT_SETDISPLAYPRIVATEDRIVERFORMAT {
+impl Copy for D3DKMT_SETDISPLAYPRIVATEDRIVERFORMAT {}
+impl Clone for D3DKMT_SETDISPLAYPRIVATEDRIVERFORMAT {
     fn clone(&self) -> Self {
         *self
     }
@@ -10999,8 +10999,8 @@ pub struct D3DKMT_SETFSEBLOCK {
     pub VidPnSourceId: u32,
     pub Flags: D3DKMT_SETFSEBLOCKFLAGS,
 }
-impl ::core::marker::Copy for D3DKMT_SETFSEBLOCK {}
-impl ::core::clone::Clone for D3DKMT_SETFSEBLOCK {
+impl Copy for D3DKMT_SETFSEBLOCK {}
+impl Clone for D3DKMT_SETFSEBLOCK {
     fn clone(&self) -> Self {
         *self
     }
@@ -11010,8 +11010,8 @@ pub union D3DKMT_SETFSEBLOCKFLAGS {
     pub Anonymous: D3DKMT_SETFSEBLOCKFLAGS_0,
     pub Value: u32,
 }
-impl ::core::marker::Copy for D3DKMT_SETFSEBLOCKFLAGS {}
-impl ::core::clone::Clone for D3DKMT_SETFSEBLOCKFLAGS {
+impl Copy for D3DKMT_SETFSEBLOCKFLAGS {}
+impl Clone for D3DKMT_SETFSEBLOCKFLAGS {
     fn clone(&self) -> Self {
         *self
     }
@@ -11020,8 +11020,8 @@ impl ::core::clone::Clone for D3DKMT_SETFSEBLOCKFLAGS {
 pub struct D3DKMT_SETFSEBLOCKFLAGS_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for D3DKMT_SETFSEBLOCKFLAGS_0 {}
-impl ::core::clone::Clone for D3DKMT_SETFSEBLOCKFLAGS_0 {
+impl Copy for D3DKMT_SETFSEBLOCKFLAGS_0 {}
+impl Clone for D3DKMT_SETFSEBLOCKFLAGS_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -11034,8 +11034,8 @@ pub struct D3DKMT_SETGAMMARAMP {
     pub Anonymous: D3DKMT_SETGAMMARAMP_0,
     pub Size: u32,
 }
-impl ::core::marker::Copy for D3DKMT_SETGAMMARAMP {}
-impl ::core::clone::Clone for D3DKMT_SETGAMMARAMP {
+impl Copy for D3DKMT_SETGAMMARAMP {}
+impl Clone for D3DKMT_SETGAMMARAMP {
     fn clone(&self) -> Self {
         *self
     }
@@ -11045,8 +11045,8 @@ pub union D3DKMT_SETGAMMARAMP_0 {
     pub pGammaRampRgb256x3x16: *mut D3DDDI_GAMMA_RAMP_RGB256x3x16,
     pub pGammaRampDXGI1: *mut D3DDDI_GAMMA_RAMP_DXGI_1,
 }
-impl ::core::marker::Copy for D3DKMT_SETGAMMARAMP_0 {}
-impl ::core::clone::Clone for D3DKMT_SETGAMMARAMP_0 {
+impl Copy for D3DKMT_SETGAMMARAMP_0 {}
+impl Clone for D3DKMT_SETGAMMARAMP_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -11056,8 +11056,8 @@ pub struct D3DKMT_SETHWPROTECTIONTEARDOWNRECOVERY {
     pub hAdapter: u32,
     pub Recovered: super::super::super::Win32::Foundation::BOOL,
 }
-impl ::core::marker::Copy for D3DKMT_SETHWPROTECTIONTEARDOWNRECOVERY {}
-impl ::core::clone::Clone for D3DKMT_SETHWPROTECTIONTEARDOWNRECOVERY {
+impl Copy for D3DKMT_SETHWPROTECTIONTEARDOWNRECOVERY {}
+impl Clone for D3DKMT_SETHWPROTECTIONTEARDOWNRECOVERY {
     fn clone(&self) -> Self {
         *self
     }
@@ -11068,8 +11068,8 @@ pub struct D3DKMT_SETQUEUEDLIMIT {
     pub Type: D3DKMT_QUEUEDLIMIT_TYPE,
     pub Anonymous: D3DKMT_SETQUEUEDLIMIT_0,
 }
-impl ::core::marker::Copy for D3DKMT_SETQUEUEDLIMIT {}
-impl ::core::clone::Clone for D3DKMT_SETQUEUEDLIMIT {
+impl Copy for D3DKMT_SETQUEUEDLIMIT {}
+impl Clone for D3DKMT_SETQUEUEDLIMIT {
     fn clone(&self) -> Self {
         *self
     }
@@ -11079,8 +11079,8 @@ pub union D3DKMT_SETQUEUEDLIMIT_0 {
     pub QueuedPresentLimit: u32,
     pub Anonymous: D3DKMT_SETQUEUEDLIMIT_0_0,
 }
-impl ::core::marker::Copy for D3DKMT_SETQUEUEDLIMIT_0 {}
-impl ::core::clone::Clone for D3DKMT_SETQUEUEDLIMIT_0 {
+impl Copy for D3DKMT_SETQUEUEDLIMIT_0 {}
+impl Clone for D3DKMT_SETQUEUEDLIMIT_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -11090,8 +11090,8 @@ pub struct D3DKMT_SETQUEUEDLIMIT_0_0 {
     pub VidPnSourceId: u32,
     pub QueuedPendingFlipLimit: u32,
 }
-impl ::core::marker::Copy for D3DKMT_SETQUEUEDLIMIT_0_0 {}
-impl ::core::clone::Clone for D3DKMT_SETQUEUEDLIMIT_0_0 {
+impl Copy for D3DKMT_SETQUEUEDLIMIT_0_0 {}
+impl Clone for D3DKMT_SETQUEUEDLIMIT_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -11101,8 +11101,8 @@ pub struct D3DKMT_SETSTABLEPOWERSTATE {
     pub hAdapter: u32,
     pub Enabled: super::super::super::Win32::Foundation::BOOL,
 }
-impl ::core::marker::Copy for D3DKMT_SETSTABLEPOWERSTATE {}
-impl ::core::clone::Clone for D3DKMT_SETSTABLEPOWERSTATE {
+impl Copy for D3DKMT_SETSTABLEPOWERSTATE {}
+impl Clone for D3DKMT_SETSTABLEPOWERSTATE {
     fn clone(&self) -> Self {
         *self
     }
@@ -11114,8 +11114,8 @@ pub struct D3DKMT_SETSYNCREFRESHCOUNTWAITTARGET {
     pub VidPnSourceId: u32,
     pub TargetSyncRefreshCount: u32,
 }
-impl ::core::marker::Copy for D3DKMT_SETSYNCREFRESHCOUNTWAITTARGET {}
-impl ::core::clone::Clone for D3DKMT_SETSYNCREFRESHCOUNTWAITTARGET {
+impl Copy for D3DKMT_SETSYNCREFRESHCOUNTWAITTARGET {}
+impl Clone for D3DKMT_SETSYNCREFRESHCOUNTWAITTARGET {
     fn clone(&self) -> Self {
         *self
     }
@@ -11126,8 +11126,8 @@ pub struct D3DKMT_SETVIDPNSOURCEHWPROTECTION {
     pub VidPnSourceId: u32,
     pub HwProtected: super::super::super::Win32::Foundation::BOOL,
 }
-impl ::core::marker::Copy for D3DKMT_SETVIDPNSOURCEHWPROTECTION {}
-impl ::core::clone::Clone for D3DKMT_SETVIDPNSOURCEHWPROTECTION {
+impl Copy for D3DKMT_SETVIDPNSOURCEHWPROTECTION {}
+impl Clone for D3DKMT_SETVIDPNSOURCEHWPROTECTION {
     fn clone(&self) -> Self {
         *self
     }
@@ -11139,8 +11139,8 @@ pub struct D3DKMT_SETVIDPNSOURCEOWNER {
     pub pVidPnSourceId: *const u32,
     pub VidPnSourceCount: u32,
 }
-impl ::core::marker::Copy for D3DKMT_SETVIDPNSOURCEOWNER {}
-impl ::core::clone::Clone for D3DKMT_SETVIDPNSOURCEOWNER {
+impl Copy for D3DKMT_SETVIDPNSOURCEOWNER {}
+impl Clone for D3DKMT_SETVIDPNSOURCEOWNER {
     fn clone(&self) -> Self {
         *self
     }
@@ -11150,8 +11150,8 @@ pub struct D3DKMT_SETVIDPNSOURCEOWNER1 {
     pub Version0: D3DKMT_SETVIDPNSOURCEOWNER,
     pub Flags: D3DKMT_VIDPNSOURCEOWNER_FLAGS,
 }
-impl ::core::marker::Copy for D3DKMT_SETVIDPNSOURCEOWNER1 {}
-impl ::core::clone::Clone for D3DKMT_SETVIDPNSOURCEOWNER1 {
+impl Copy for D3DKMT_SETVIDPNSOURCEOWNER1 {}
+impl Clone for D3DKMT_SETVIDPNSOURCEOWNER1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -11161,8 +11161,8 @@ pub struct D3DKMT_SETVIDPNSOURCEOWNER2 {
     pub Version1: D3DKMT_SETVIDPNSOURCEOWNER1,
     pub pVidPnSourceNtHandles: *const isize,
 }
-impl ::core::marker::Copy for D3DKMT_SETVIDPNSOURCEOWNER2 {}
-impl ::core::clone::Clone for D3DKMT_SETVIDPNSOURCEOWNER2 {
+impl Copy for D3DKMT_SETVIDPNSOURCEOWNER2 {}
+impl Clone for D3DKMT_SETVIDPNSOURCEOWNER2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -11175,8 +11175,8 @@ pub struct D3DKMT_SET_COLORSPACE_TRANSFORM {
     pub Size: u32,
     pub Anonymous: D3DKMT_SET_COLORSPACE_TRANSFORM_0,
 }
-impl ::core::marker::Copy for D3DKMT_SET_COLORSPACE_TRANSFORM {}
-impl ::core::clone::Clone for D3DKMT_SET_COLORSPACE_TRANSFORM {
+impl Copy for D3DKMT_SET_COLORSPACE_TRANSFORM {}
+impl Clone for D3DKMT_SET_COLORSPACE_TRANSFORM {
     fn clone(&self) -> Self {
         *self
     }
@@ -11185,8 +11185,8 @@ impl ::core::clone::Clone for D3DKMT_SET_COLORSPACE_TRANSFORM {
 pub union D3DKMT_SET_COLORSPACE_TRANSFORM_0 {
     pub pColorSpaceTransform: *mut D3DKMDT_3x4_COLORSPACE_TRANSFORM,
 }
-impl ::core::marker::Copy for D3DKMT_SET_COLORSPACE_TRANSFORM_0 {}
-impl ::core::clone::Clone for D3DKMT_SET_COLORSPACE_TRANSFORM_0 {
+impl Copy for D3DKMT_SET_COLORSPACE_TRANSFORM_0 {}
+impl Clone for D3DKMT_SET_COLORSPACE_TRANSFORM_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -11197,8 +11197,8 @@ pub struct D3DKMT_SHAREDPRIMARYLOCKNOTIFICATION {
     pub VidPnSourceId: u32,
     pub LockRect: super::super::super::Win32::Foundation::RECTL,
 }
-impl ::core::marker::Copy for D3DKMT_SHAREDPRIMARYLOCKNOTIFICATION {}
-impl ::core::clone::Clone for D3DKMT_SHAREDPRIMARYLOCKNOTIFICATION {
+impl Copy for D3DKMT_SHAREDPRIMARYLOCKNOTIFICATION {}
+impl Clone for D3DKMT_SHAREDPRIMARYLOCKNOTIFICATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -11208,8 +11208,8 @@ pub struct D3DKMT_SHAREDPRIMARYUNLOCKNOTIFICATION {
     pub AdapterLuid: super::super::super::Win32::Foundation::LUID,
     pub VidPnSourceId: u32,
 }
-impl ::core::marker::Copy for D3DKMT_SHAREDPRIMARYUNLOCKNOTIFICATION {}
-impl ::core::clone::Clone for D3DKMT_SHAREDPRIMARYUNLOCKNOTIFICATION {
+impl Copy for D3DKMT_SHAREDPRIMARYUNLOCKNOTIFICATION {}
+impl Clone for D3DKMT_SHAREDPRIMARYUNLOCKNOTIFICATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -11221,8 +11221,8 @@ pub struct D3DKMT_SHAREOBJECTWITHHOST {
     pub Reserved: u64,
     pub hVailProcessNtHandle: u64,
 }
-impl ::core::marker::Copy for D3DKMT_SHAREOBJECTWITHHOST {}
-impl ::core::clone::Clone for D3DKMT_SHAREOBJECTWITHHOST {
+impl Copy for D3DKMT_SHAREOBJECTWITHHOST {}
+impl Clone for D3DKMT_SHAREOBJECTWITHHOST {
     fn clone(&self) -> Self {
         *self
     }
@@ -11234,8 +11234,8 @@ pub struct D3DKMT_SIGNALSYNCHRONIZATIONOBJECT {
     pub ObjectHandleArray: [u32; 32],
     pub Flags: D3DDDICB_SIGNALFLAGS,
 }
-impl ::core::marker::Copy for D3DKMT_SIGNALSYNCHRONIZATIONOBJECT {}
-impl ::core::clone::Clone for D3DKMT_SIGNALSYNCHRONIZATIONOBJECT {
+impl Copy for D3DKMT_SIGNALSYNCHRONIZATIONOBJECT {}
+impl Clone for D3DKMT_SIGNALSYNCHRONIZATIONOBJECT {
     fn clone(&self) -> Self {
         *self
     }
@@ -11250,8 +11250,8 @@ pub struct D3DKMT_SIGNALSYNCHRONIZATIONOBJECT2 {
     pub BroadcastContext: [u32; 64],
     pub Anonymous: D3DKMT_SIGNALSYNCHRONIZATIONOBJECT2_0,
 }
-impl ::core::marker::Copy for D3DKMT_SIGNALSYNCHRONIZATIONOBJECT2 {}
-impl ::core::clone::Clone for D3DKMT_SIGNALSYNCHRONIZATIONOBJECT2 {
+impl Copy for D3DKMT_SIGNALSYNCHRONIZATIONOBJECT2 {}
+impl Clone for D3DKMT_SIGNALSYNCHRONIZATIONOBJECT2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -11262,8 +11262,8 @@ pub union D3DKMT_SIGNALSYNCHRONIZATIONOBJECT2_0 {
     pub CpuEventHandle: super::super::super::Win32::Foundation::HANDLE,
     pub Reserved: [u64; 8],
 }
-impl ::core::marker::Copy for D3DKMT_SIGNALSYNCHRONIZATIONOBJECT2_0 {}
-impl ::core::clone::Clone for D3DKMT_SIGNALSYNCHRONIZATIONOBJECT2_0 {
+impl Copy for D3DKMT_SIGNALSYNCHRONIZATIONOBJECT2_0 {}
+impl Clone for D3DKMT_SIGNALSYNCHRONIZATIONOBJECT2_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -11272,8 +11272,8 @@ impl ::core::clone::Clone for D3DKMT_SIGNALSYNCHRONIZATIONOBJECT2_0 {
 pub struct D3DKMT_SIGNALSYNCHRONIZATIONOBJECT2_0_0 {
     pub FenceValue: u64,
 }
-impl ::core::marker::Copy for D3DKMT_SIGNALSYNCHRONIZATIONOBJECT2_0_0 {}
-impl ::core::clone::Clone for D3DKMT_SIGNALSYNCHRONIZATIONOBJECT2_0_0 {
+impl Copy for D3DKMT_SIGNALSYNCHRONIZATIONOBJECT2_0_0 {}
+impl Clone for D3DKMT_SIGNALSYNCHRONIZATIONOBJECT2_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -11286,8 +11286,8 @@ pub struct D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMCPU {
     pub FenceValueArray: *const u64,
     pub Flags: D3DDDICB_SIGNALFLAGS,
 }
-impl ::core::marker::Copy for D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMCPU {}
-impl ::core::clone::Clone for D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMCPU {
+impl Copy for D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMCPU {}
+impl Clone for D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMCPU {
     fn clone(&self) -> Self {
         *self
     }
@@ -11299,8 +11299,8 @@ pub struct D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU {
     pub ObjectHandleArray: *const u32,
     pub Anonymous: D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU_0,
 }
-impl ::core::marker::Copy for D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU {}
-impl ::core::clone::Clone for D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU {
+impl Copy for D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU {}
+impl Clone for D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU {
     fn clone(&self) -> Self {
         *self
     }
@@ -11310,8 +11310,8 @@ pub union D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU_0 {
     pub MonitoredFenceValueArray: *const u64,
     pub Reserved: [u64; 8],
 }
-impl ::core::marker::Copy for D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU_0 {}
-impl ::core::clone::Clone for D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU_0 {
+impl Copy for D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU_0 {}
+impl Clone for D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -11325,8 +11325,8 @@ pub struct D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU2 {
     pub BroadcastContextArray: *const u32,
     pub Anonymous: D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU2_0,
 }
-impl ::core::marker::Copy for D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU2 {}
-impl ::core::clone::Clone for D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU2 {
+impl Copy for D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU2 {}
+impl Clone for D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -11338,8 +11338,8 @@ pub union D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU2_0 {
     pub MonitoredFenceValueArray: *const u64,
     pub Reserved: [u64; 8],
 }
-impl ::core::marker::Copy for D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU2_0 {}
-impl ::core::clone::Clone for D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU2_0 {
+impl Copy for D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU2_0 {}
+impl Clone for D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU2_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -11348,8 +11348,8 @@ impl ::core::clone::Clone for D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU2_0 {
 pub struct D3DKMT_STANDARDALLOCATION_EXISTINGHEAP {
     pub Size: usize,
 }
-impl ::core::marker::Copy for D3DKMT_STANDARDALLOCATION_EXISTINGHEAP {}
-impl ::core::clone::Clone for D3DKMT_STANDARDALLOCATION_EXISTINGHEAP {
+impl Copy for D3DKMT_STANDARDALLOCATION_EXISTINGHEAP {}
+impl Clone for D3DKMT_STANDARDALLOCATION_EXISTINGHEAP {
     fn clone(&self) -> Self {
         *self
     }
@@ -11362,15 +11362,15 @@ pub struct D3DKMT_SUBMITCOMMAND {
     pub PresentHistoryToken: u64,
     pub BroadcastContextCount: u32,
     pub BroadcastContext: [u32; 64],
-    pub pPrivateDriverData: *mut ::core::ffi::c_void,
+    pub pPrivateDriverData: *mut core::ffi::c_void,
     pub PrivateDriverDataSize: u32,
     pub NumPrimaries: u32,
     pub WrittenPrimaries: [u32; 16],
     pub NumHistoryBuffers: u32,
     pub HistoryBufferArray: *mut u32,
 }
-impl ::core::marker::Copy for D3DKMT_SUBMITCOMMAND {}
-impl ::core::clone::Clone for D3DKMT_SUBMITCOMMAND {
+impl Copy for D3DKMT_SUBMITCOMMAND {}
+impl Clone for D3DKMT_SUBMITCOMMAND {
     fn clone(&self) -> Self {
         *self
     }
@@ -11379,8 +11379,8 @@ impl ::core::clone::Clone for D3DKMT_SUBMITCOMMAND {
 pub struct D3DKMT_SUBMITCOMMANDFLAGS {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for D3DKMT_SUBMITCOMMANDFLAGS {}
-impl ::core::clone::Clone for D3DKMT_SUBMITCOMMANDFLAGS {
+impl Copy for D3DKMT_SUBMITCOMMANDFLAGS {}
+impl Clone for D3DKMT_SUBMITCOMMANDFLAGS {
     fn clone(&self) -> Self {
         *self
     }
@@ -11392,12 +11392,12 @@ pub struct D3DKMT_SUBMITCOMMANDTOHWQUEUE {
     pub CommandBuffer: u64,
     pub CommandLength: u32,
     pub PrivateDriverDataSize: u32,
-    pub pPrivateDriverData: *mut ::core::ffi::c_void,
+    pub pPrivateDriverData: *mut core::ffi::c_void,
     pub NumPrimaries: u32,
     pub WrittenPrimaries: *const u32,
 }
-impl ::core::marker::Copy for D3DKMT_SUBMITCOMMANDTOHWQUEUE {}
-impl ::core::clone::Clone for D3DKMT_SUBMITCOMMANDTOHWQUEUE {
+impl Copy for D3DKMT_SUBMITCOMMANDTOHWQUEUE {}
+impl Clone for D3DKMT_SUBMITCOMMANDTOHWQUEUE {
     fn clone(&self) -> Self {
         *self
     }
@@ -11408,8 +11408,8 @@ pub struct D3DKMT_SUBMITPRESENTBLTTOHWQUEUE {
     pub HwQueueProgressFenceId: u64,
     pub PrivatePresentData: D3DKMT_PRESENT,
 }
-impl ::core::marker::Copy for D3DKMT_SUBMITPRESENTBLTTOHWQUEUE {}
-impl ::core::clone::Clone for D3DKMT_SUBMITPRESENTBLTTOHWQUEUE {
+impl Copy for D3DKMT_SUBMITPRESENTBLTTOHWQUEUE {}
+impl Clone for D3DKMT_SUBMITPRESENTBLTTOHWQUEUE {
     fn clone(&self) -> Self {
         *self
     }
@@ -11419,8 +11419,8 @@ pub struct D3DKMT_SUBMITPRESENTTOHWQUEUE {
     pub hHwQueues: *mut u32,
     pub PrivatePresentData: D3DKMT_PRESENT,
 }
-impl ::core::marker::Copy for D3DKMT_SUBMITPRESENTTOHWQUEUE {}
-impl ::core::clone::Clone for D3DKMT_SUBMITPRESENTTOHWQUEUE {
+impl Copy for D3DKMT_SUBMITPRESENTTOHWQUEUE {}
+impl Clone for D3DKMT_SUBMITPRESENTTOHWQUEUE {
     fn clone(&self) -> Self {
         *self
     }
@@ -11434,8 +11434,8 @@ pub struct D3DKMT_SUBMITSIGNALSYNCOBJECTSTOHWQUEUE {
     pub ObjectHandleArray: *const u32,
     pub FenceValueArray: *const u64,
 }
-impl ::core::marker::Copy for D3DKMT_SUBMITSIGNALSYNCOBJECTSTOHWQUEUE {}
-impl ::core::clone::Clone for D3DKMT_SUBMITSIGNALSYNCOBJECTSTOHWQUEUE {
+impl Copy for D3DKMT_SUBMITSIGNALSYNCOBJECTSTOHWQUEUE {}
+impl Clone for D3DKMT_SUBMITSIGNALSYNCOBJECTSTOHWQUEUE {
     fn clone(&self) -> Self {
         *self
     }
@@ -11447,8 +11447,8 @@ pub struct D3DKMT_SUBMITWAITFORSYNCOBJECTSTOHWQUEUE {
     pub ObjectHandleArray: *const u32,
     pub FenceValueArray: *const u64,
 }
-impl ::core::marker::Copy for D3DKMT_SUBMITWAITFORSYNCOBJECTSTOHWQUEUE {}
-impl ::core::clone::Clone for D3DKMT_SUBMITWAITFORSYNCOBJECTSTOHWQUEUE {
+impl Copy for D3DKMT_SUBMITWAITFORSYNCOBJECTSTOHWQUEUE {}
+impl Clone for D3DKMT_SUBMITWAITFORSYNCOBJECTSTOHWQUEUE {
     fn clone(&self) -> Self {
         *self
     }
@@ -11457,8 +11457,8 @@ impl ::core::clone::Clone for D3DKMT_SUBMITWAITFORSYNCOBJECTSTOHWQUEUE {
 pub struct D3DKMT_SURFACECOMPLETE_PRESENTHISTORYTOKEN {
     pub hLogicalSurface: u64,
 }
-impl ::core::marker::Copy for D3DKMT_SURFACECOMPLETE_PRESENTHISTORYTOKEN {}
-impl ::core::clone::Clone for D3DKMT_SURFACECOMPLETE_PRESENTHISTORYTOKEN {
+impl Copy for D3DKMT_SURFACECOMPLETE_PRESENTHISTORYTOKEN {}
+impl Clone for D3DKMT_SURFACECOMPLETE_PRESENTHISTORYTOKEN {
     fn clone(&self) -> Self {
         *self
     }
@@ -11468,8 +11468,8 @@ pub struct D3DKMT_TDRDBGCTRL_ESCAPE {
     pub TdrControl: D3DKMT_TDRDBGCTRLTYPE,
     pub Anonymous: D3DKMT_TDRDBGCTRL_ESCAPE_0,
 }
-impl ::core::marker::Copy for D3DKMT_TDRDBGCTRL_ESCAPE {}
-impl ::core::clone::Clone for D3DKMT_TDRDBGCTRL_ESCAPE {
+impl Copy for D3DKMT_TDRDBGCTRL_ESCAPE {}
+impl Clone for D3DKMT_TDRDBGCTRL_ESCAPE {
     fn clone(&self) -> Self {
         *self
     }
@@ -11478,8 +11478,8 @@ impl ::core::clone::Clone for D3DKMT_TDRDBGCTRL_ESCAPE {
 pub union D3DKMT_TDRDBGCTRL_ESCAPE_0 {
     pub NodeOrdinal: u32,
 }
-impl ::core::marker::Copy for D3DKMT_TDRDBGCTRL_ESCAPE_0 {}
-impl ::core::clone::Clone for D3DKMT_TDRDBGCTRL_ESCAPE_0 {
+impl Copy for D3DKMT_TDRDBGCTRL_ESCAPE_0 {}
+impl Clone for D3DKMT_TDRDBGCTRL_ESCAPE_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -11490,20 +11490,20 @@ pub struct D3DKMT_TRACKEDWORKLOAD_SUPPORT {
     pub EngineType: DXGK_ENGINE_TYPE,
     pub Support: super::super::super::Win32::Foundation::BOOL,
 }
-impl ::core::marker::Copy for D3DKMT_TRACKEDWORKLOAD_SUPPORT {}
-impl ::core::clone::Clone for D3DKMT_TRACKEDWORKLOAD_SUPPORT {
+impl Copy for D3DKMT_TRACKEDWORKLOAD_SUPPORT {}
+impl Clone for D3DKMT_TRACKEDWORKLOAD_SUPPORT {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct D3DKMT_TRIMNOTIFICATION {
-    pub Context: *mut ::core::ffi::c_void,
+    pub Context: *mut core::ffi::c_void,
     pub Flags: D3DDDI_TRIMRESIDENCYSET_FLAGS,
     pub NumBytesToTrim: u64,
 }
-impl ::core::marker::Copy for D3DKMT_TRIMNOTIFICATION {}
-impl ::core::clone::Clone for D3DKMT_TRIMNOTIFICATION {
+impl Copy for D3DKMT_TRIMNOTIFICATION {}
+impl Clone for D3DKMT_TRIMNOTIFICATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -11516,8 +11516,8 @@ pub struct D3DKMT_TRIMPROCESSCOMMITMENT {
     pub DecommitRequested: u64,
     pub NumBytesDecommitted: u64,
 }
-impl ::core::marker::Copy for D3DKMT_TRIMPROCESSCOMMITMENT {}
-impl ::core::clone::Clone for D3DKMT_TRIMPROCESSCOMMITMENT {
+impl Copy for D3DKMT_TRIMPROCESSCOMMITMENT {}
+impl Clone for D3DKMT_TRIMPROCESSCOMMITMENT {
     fn clone(&self) -> Self {
         *self
     }
@@ -11527,8 +11527,8 @@ pub union D3DKMT_TRIMPROCESSCOMMITMENT_FLAGS {
     pub Anonymous: D3DKMT_TRIMPROCESSCOMMITMENT_FLAGS_0,
     pub Value: u32,
 }
-impl ::core::marker::Copy for D3DKMT_TRIMPROCESSCOMMITMENT_FLAGS {}
-impl ::core::clone::Clone for D3DKMT_TRIMPROCESSCOMMITMENT_FLAGS {
+impl Copy for D3DKMT_TRIMPROCESSCOMMITMENT_FLAGS {}
+impl Clone for D3DKMT_TRIMPROCESSCOMMITMENT_FLAGS {
     fn clone(&self) -> Self {
         *self
     }
@@ -11537,8 +11537,8 @@ impl ::core::clone::Clone for D3DKMT_TRIMPROCESSCOMMITMENT_FLAGS {
 pub struct D3DKMT_TRIMPROCESSCOMMITMENT_FLAGS_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for D3DKMT_TRIMPROCESSCOMMITMENT_FLAGS_0 {}
-impl ::core::clone::Clone for D3DKMT_TRIMPROCESSCOMMITMENT_FLAGS_0 {
+impl Copy for D3DKMT_TRIMPROCESSCOMMITMENT_FLAGS_0 {}
+impl Clone for D3DKMT_TRIMPROCESSCOMMITMENT_FLAGS_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -11548,8 +11548,8 @@ pub struct D3DKMT_UMDFILENAMEINFO {
     pub Version: KMTUMDVERSION,
     pub UmdFileName: [u16; 260],
 }
-impl ::core::marker::Copy for D3DKMT_UMDFILENAMEINFO {}
-impl ::core::clone::Clone for D3DKMT_UMDFILENAMEINFO {
+impl Copy for D3DKMT_UMDFILENAMEINFO {}
+impl Clone for D3DKMT_UMDFILENAMEINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -11558,8 +11558,8 @@ impl ::core::clone::Clone for D3DKMT_UMDFILENAMEINFO {
 pub struct D3DKMT_UMD_DRIVER_VERSION {
     pub DriverVersion: i64,
 }
-impl ::core::marker::Copy for D3DKMT_UMD_DRIVER_VERSION {}
-impl ::core::clone::Clone for D3DKMT_UMD_DRIVER_VERSION {
+impl Copy for D3DKMT_UMD_DRIVER_VERSION {}
+impl Clone for D3DKMT_UMD_DRIVER_VERSION {
     fn clone(&self) -> Self {
         *self
     }
@@ -11570,8 +11570,8 @@ pub struct D3DKMT_UNLOCK {
     pub NumAllocations: u32,
     pub phAllocations: *const u32,
 }
-impl ::core::marker::Copy for D3DKMT_UNLOCK {}
-impl ::core::clone::Clone for D3DKMT_UNLOCK {
+impl Copy for D3DKMT_UNLOCK {}
+impl Clone for D3DKMT_UNLOCK {
     fn clone(&self) -> Self {
         *self
     }
@@ -11581,8 +11581,8 @@ pub struct D3DKMT_UNLOCK2 {
     pub hDevice: u32,
     pub hAllocation: u32,
 }
-impl ::core::marker::Copy for D3DKMT_UNLOCK2 {}
-impl ::core::clone::Clone for D3DKMT_UNLOCK2 {
+impl Copy for D3DKMT_UNLOCK2 {}
+impl Clone for D3DKMT_UNLOCK2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -11593,29 +11593,29 @@ pub struct D3DKMT_UNPINDIRECTFLIPRESOURCES {
     pub ResourceCount: u32,
     pub pResourceList: *mut u32,
 }
-impl ::core::marker::Copy for D3DKMT_UNPINDIRECTFLIPRESOURCES {}
-impl ::core::clone::Clone for D3DKMT_UNPINDIRECTFLIPRESOURCES {
+impl Copy for D3DKMT_UNPINDIRECTFLIPRESOURCES {}
+impl Clone for D3DKMT_UNPINDIRECTFLIPRESOURCES {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct D3DKMT_UNREGISTERBUDGETCHANGENOTIFICATION {
-    pub Handle: *mut ::core::ffi::c_void,
+    pub Handle: *mut core::ffi::c_void,
 }
-impl ::core::marker::Copy for D3DKMT_UNREGISTERBUDGETCHANGENOTIFICATION {}
-impl ::core::clone::Clone for D3DKMT_UNREGISTERBUDGETCHANGENOTIFICATION {
+impl Copy for D3DKMT_UNREGISTERBUDGETCHANGENOTIFICATION {}
+impl Clone for D3DKMT_UNREGISTERBUDGETCHANGENOTIFICATION {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct D3DKMT_UNREGISTERTRIMNOTIFICATION {
-    pub Handle: *mut ::core::ffi::c_void,
+    pub Handle: *mut core::ffi::c_void,
     pub Callback: PFND3DKMT_TRIMNOTIFICATIONCALLBACK,
 }
-impl ::core::marker::Copy for D3DKMT_UNREGISTERTRIMNOTIFICATION {}
-impl ::core::clone::Clone for D3DKMT_UNREGISTERTRIMNOTIFICATION {
+impl Copy for D3DKMT_UNREGISTERTRIMNOTIFICATION {}
+impl Clone for D3DKMT_UNREGISTERTRIMNOTIFICATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -11632,8 +11632,8 @@ pub struct D3DKMT_UPDATEGPUVIRTUALADDRESS {
     pub FenceValue: u64,
     pub Flags: D3DKMT_UPDATEGPUVIRTUALADDRESS_0,
 }
-impl ::core::marker::Copy for D3DKMT_UPDATEGPUVIRTUALADDRESS {}
-impl ::core::clone::Clone for D3DKMT_UPDATEGPUVIRTUALADDRESS {
+impl Copy for D3DKMT_UPDATEGPUVIRTUALADDRESS {}
+impl Clone for D3DKMT_UPDATEGPUVIRTUALADDRESS {
     fn clone(&self) -> Self {
         *self
     }
@@ -11643,8 +11643,8 @@ pub union D3DKMT_UPDATEGPUVIRTUALADDRESS_0 {
     pub Anonymous: D3DKMT_UPDATEGPUVIRTUALADDRESS_0_0,
     pub Value: u32,
 }
-impl ::core::marker::Copy for D3DKMT_UPDATEGPUVIRTUALADDRESS_0 {}
-impl ::core::clone::Clone for D3DKMT_UPDATEGPUVIRTUALADDRESS_0 {
+impl Copy for D3DKMT_UPDATEGPUVIRTUALADDRESS_0 {}
+impl Clone for D3DKMT_UPDATEGPUVIRTUALADDRESS_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -11653,8 +11653,8 @@ impl ::core::clone::Clone for D3DKMT_UPDATEGPUVIRTUALADDRESS_0 {
 pub struct D3DKMT_UPDATEGPUVIRTUALADDRESS_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for D3DKMT_UPDATEGPUVIRTUALADDRESS_0_0 {}
-impl ::core::clone::Clone for D3DKMT_UPDATEGPUVIRTUALADDRESS_0_0 {
+impl Copy for D3DKMT_UPDATEGPUVIRTUALADDRESS_0_0 {}
+impl Clone for D3DKMT_UPDATEGPUVIRTUALADDRESS_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -11665,8 +11665,8 @@ pub struct D3DKMT_UPDATEOVERLAY {
     pub hOverlay: u32,
     pub OverlayInfo: D3DDDI_KERNELOVERLAYINFO,
 }
-impl ::core::marker::Copy for D3DKMT_UPDATEOVERLAY {}
-impl ::core::clone::Clone for D3DKMT_UPDATEOVERLAY {
+impl Copy for D3DKMT_UPDATEOVERLAY {}
+impl Clone for D3DKMT_UPDATEOVERLAY {
     fn clone(&self) -> Self {
         *self
     }
@@ -11680,8 +11680,8 @@ pub struct D3DKMT_VAD_DESC {
     pub StartAddress: u64,
     pub EndAddress: u64,
 }
-impl ::core::marker::Copy for D3DKMT_VAD_DESC {}
-impl ::core::clone::Clone for D3DKMT_VAD_DESC {
+impl Copy for D3DKMT_VAD_DESC {}
+impl Clone for D3DKMT_VAD_DESC {
     fn clone(&self) -> Self {
         *self
     }
@@ -11699,8 +11699,8 @@ pub struct D3DKMT_VA_RANGE_DESC {
     pub OwnerOffset: u64,
     pub Protection: u32,
 }
-impl ::core::marker::Copy for D3DKMT_VA_RANGE_DESC {}
-impl ::core::clone::Clone for D3DKMT_VA_RANGE_DESC {
+impl Copy for D3DKMT_VA_RANGE_DESC {}
+impl Clone for D3DKMT_VA_RANGE_DESC {
     fn clone(&self) -> Self {
         *self
     }
@@ -11709,8 +11709,8 @@ impl ::core::clone::Clone for D3DKMT_VA_RANGE_DESC {
 pub struct D3DKMT_VGPUINTERFACEID {
     pub VirtualGpuIntefaceId: [u16; 260],
 }
-impl ::core::marker::Copy for D3DKMT_VGPUINTERFACEID {}
-impl ::core::clone::Clone for D3DKMT_VGPUINTERFACEID {
+impl Copy for D3DKMT_VGPUINTERFACEID {}
+impl Clone for D3DKMT_VGPUINTERFACEID {
     fn clone(&self) -> Self {
         *self
     }
@@ -11720,8 +11720,8 @@ pub struct D3DKMT_VIDMM_ESCAPE {
     pub Type: D3DKMT_VIDMMESCAPETYPE,
     pub Anonymous: D3DKMT_VIDMM_ESCAPE_0,
 }
-impl ::core::marker::Copy for D3DKMT_VIDMM_ESCAPE {}
-impl ::core::clone::Clone for D3DKMT_VIDMM_ESCAPE {
+impl Copy for D3DKMT_VIDMM_ESCAPE {}
+impl Clone for D3DKMT_VIDMM_ESCAPE {
     fn clone(&self) -> Self {
         *self
     }
@@ -11744,8 +11744,8 @@ pub union D3DKMT_VIDMM_ESCAPE_0 {
     pub VerifyIntegrity: D3DKMT_VIDMM_ESCAPE_0_12,
     pub DelayedEvictionConfig: D3DKMT_VIDMM_ESCAPE_0_2,
 }
-impl ::core::marker::Copy for D3DKMT_VIDMM_ESCAPE_0 {}
-impl ::core::clone::Clone for D3DKMT_VIDMM_ESCAPE_0 {
+impl Copy for D3DKMT_VIDMM_ESCAPE_0 {}
+impl Clone for D3DKMT_VIDMM_ESCAPE_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -11759,8 +11759,8 @@ pub struct D3DKMT_VIDMM_ESCAPE_0_0 {
     pub LargestGapBefore: u64,
     pub LargestGapAfter: u64,
 }
-impl ::core::marker::Copy for D3DKMT_VIDMM_ESCAPE_0_0 {}
-impl ::core::clone::Clone for D3DKMT_VIDMM_ESCAPE_0_0 {
+impl Copy for D3DKMT_VIDMM_ESCAPE_0_0 {}
+impl Clone for D3DKMT_VIDMM_ESCAPE_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -11772,8 +11772,8 @@ pub struct D3DKMT_VIDMM_ESCAPE_0_1 {
     pub Milliseconds: u32,
     pub PagingFenceValue: u64,
 }
-impl ::core::marker::Copy for D3DKMT_VIDMM_ESCAPE_0_1 {}
-impl ::core::clone::Clone for D3DKMT_VIDMM_ESCAPE_0_1 {
+impl Copy for D3DKMT_VIDMM_ESCAPE_0_1 {}
+impl Clone for D3DKMT_VIDMM_ESCAPE_0_1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -11782,8 +11782,8 @@ impl ::core::clone::Clone for D3DKMT_VIDMM_ESCAPE_0_1 {
 pub struct D3DKMT_VIDMM_ESCAPE_0_2 {
     pub TimerValue: i64,
 }
-impl ::core::marker::Copy for D3DKMT_VIDMM_ESCAPE_0_2 {}
-impl ::core::clone::Clone for D3DKMT_VIDMM_ESCAPE_0_2 {
+impl Copy for D3DKMT_VIDMM_ESCAPE_0_2 {}
+impl Clone for D3DKMT_VIDMM_ESCAPE_0_2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -11792,8 +11792,8 @@ impl ::core::clone::Clone for D3DKMT_VIDMM_ESCAPE_0_2 {
 pub struct D3DKMT_VIDMM_ESCAPE_0_3 {
     pub NtHandle: u64,
 }
-impl ::core::marker::Copy for D3DKMT_VIDMM_ESCAPE_0_3 {}
-impl ::core::clone::Clone for D3DKMT_VIDMM_ESCAPE_0_3 {
+impl Copy for D3DKMT_VIDMM_ESCAPE_0_3 {}
+impl Clone for D3DKMT_VIDMM_ESCAPE_0_3 {
     fn clone(&self) -> Self {
         *self
     }
@@ -11804,8 +11804,8 @@ pub struct D3DKMT_VIDMM_ESCAPE_0_4 {
     pub AllocationHandle: u32,
     pub hProcess: super::super::super::Win32::Foundation::HANDLE,
 }
-impl ::core::marker::Copy for D3DKMT_VIDMM_ESCAPE_0_4 {}
-impl ::core::clone::Clone for D3DKMT_VIDMM_ESCAPE_0_4 {
+impl Copy for D3DKMT_VIDMM_ESCAPE_0_4 {}
+impl Clone for D3DKMT_VIDMM_ESCAPE_0_4 {
     fn clone(&self) -> Self {
         *self
     }
@@ -11814,8 +11814,8 @@ impl ::core::clone::Clone for D3DKMT_VIDMM_ESCAPE_0_4 {
 pub struct D3DKMT_VIDMM_ESCAPE_0_5 {
     pub NumBytesToTrim: u64,
 }
-impl ::core::marker::Copy for D3DKMT_VIDMM_ESCAPE_0_5 {}
-impl ::core::clone::Clone for D3DKMT_VIDMM_ESCAPE_0_5 {
+impl Copy for D3DKMT_VIDMM_ESCAPE_0_5 {}
+impl Clone for D3DKMT_VIDMM_ESCAPE_0_5 {
     fn clone(&self) -> Self {
         *self
     }
@@ -11826,8 +11826,8 @@ pub struct D3DKMT_VIDMM_ESCAPE_0_6 {
     pub Command: D3DKMT_VAD_ESCAPE_COMMAND,
     pub Status: super::super::super::Win32::Foundation::NTSTATUS,
 }
-impl ::core::marker::Copy for D3DKMT_VIDMM_ESCAPE_0_6 {}
-impl ::core::clone::Clone for D3DKMT_VIDMM_ESCAPE_0_6 {
+impl Copy for D3DKMT_VIDMM_ESCAPE_0_6 {}
+impl Clone for D3DKMT_VIDMM_ESCAPE_0_6 {
     fn clone(&self) -> Self {
         *self
     }
@@ -11841,8 +11841,8 @@ pub union D3DKMT_VIDMM_ESCAPE_0_6_0 {
     pub GetPte: D3DKMT_GET_PTE,
     pub GetSegmentCaps: D3DKMT_GET_SEGMENT_CAPS,
 }
-impl ::core::marker::Copy for D3DKMT_VIDMM_ESCAPE_0_6_0 {}
-impl ::core::clone::Clone for D3DKMT_VIDMM_ESCAPE_0_6_0 {
+impl Copy for D3DKMT_VIDMM_ESCAPE_0_6_0 {}
+impl Clone for D3DKMT_VIDMM_ESCAPE_0_6_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -11851,8 +11851,8 @@ impl ::core::clone::Clone for D3DKMT_VIDMM_ESCAPE_0_6_0 {
 pub struct D3DKMT_VIDMM_ESCAPE_0_6_0_0 {
     pub NumVads: u32,
 }
-impl ::core::marker::Copy for D3DKMT_VIDMM_ESCAPE_0_6_0_0 {}
-impl ::core::clone::Clone for D3DKMT_VIDMM_ESCAPE_0_6_0_0 {
+impl Copy for D3DKMT_VIDMM_ESCAPE_0_6_0_0 {}
+impl Clone for D3DKMT_VIDMM_ESCAPE_0_6_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -11861,8 +11861,8 @@ impl ::core::clone::Clone for D3DKMT_VIDMM_ESCAPE_0_6_0_0 {
 pub struct D3DKMT_VIDMM_ESCAPE_0_7 {
     pub hProcess: super::super::super::Win32::Foundation::HANDLE,
 }
-impl ::core::marker::Copy for D3DKMT_VIDMM_ESCAPE_0_7 {}
-impl ::core::clone::Clone for D3DKMT_VIDMM_ESCAPE_0_7 {
+impl Copy for D3DKMT_VIDMM_ESCAPE_0_7 {}
+impl Clone for D3DKMT_VIDMM_ESCAPE_0_7 {
     fn clone(&self) -> Self {
         *self
     }
@@ -11872,8 +11872,8 @@ pub struct D3DKMT_VIDMM_ESCAPE_0_8 {
     pub LocalMemoryBudget: u64,
     pub SystemMemoryBudget: u64,
 }
-impl ::core::marker::Copy for D3DKMT_VIDMM_ESCAPE_0_8 {}
-impl ::core::clone::Clone for D3DKMT_VIDMM_ESCAPE_0_8 {
+impl Copy for D3DKMT_VIDMM_ESCAPE_0_8 {}
+impl Clone for D3DKMT_VIDMM_ESCAPE_0_8 {
     fn clone(&self) -> Self {
         *self
     }
@@ -11882,8 +11882,8 @@ impl ::core::clone::Clone for D3DKMT_VIDMM_ESCAPE_0_8 {
 pub struct D3DKMT_VIDMM_ESCAPE_0_9 {
     pub Anonymous: D3DKMT_VIDMM_ESCAPE_0_9_0,
 }
-impl ::core::marker::Copy for D3DKMT_VIDMM_ESCAPE_0_9 {}
-impl ::core::clone::Clone for D3DKMT_VIDMM_ESCAPE_0_9 {
+impl Copy for D3DKMT_VIDMM_ESCAPE_0_9 {}
+impl Clone for D3DKMT_VIDMM_ESCAPE_0_9 {
     fn clone(&self) -> Self {
         *self
     }
@@ -11893,8 +11893,8 @@ pub union D3DKMT_VIDMM_ESCAPE_0_9_0 {
     pub Anonymous: D3DKMT_VIDMM_ESCAPE_0_9_0_0,
     pub Value: u32,
 }
-impl ::core::marker::Copy for D3DKMT_VIDMM_ESCAPE_0_9_0 {}
-impl ::core::clone::Clone for D3DKMT_VIDMM_ESCAPE_0_9_0 {
+impl Copy for D3DKMT_VIDMM_ESCAPE_0_9_0 {}
+impl Clone for D3DKMT_VIDMM_ESCAPE_0_9_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -11903,8 +11903,8 @@ impl ::core::clone::Clone for D3DKMT_VIDMM_ESCAPE_0_9_0 {
 pub struct D3DKMT_VIDMM_ESCAPE_0_9_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for D3DKMT_VIDMM_ESCAPE_0_9_0_0 {}
-impl ::core::clone::Clone for D3DKMT_VIDMM_ESCAPE_0_9_0_0 {
+impl Copy for D3DKMT_VIDMM_ESCAPE_0_9_0_0 {}
+impl Clone for D3DKMT_VIDMM_ESCAPE_0_9_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -11915,8 +11915,8 @@ pub struct D3DKMT_VIDMM_ESCAPE_0_10 {
     pub MaxTrimInterval: u32,
     pub IdleTrimInterval: u32,
 }
-impl ::core::marker::Copy for D3DKMT_VIDMM_ESCAPE_0_10 {}
-impl ::core::clone::Clone for D3DKMT_VIDMM_ESCAPE_0_10 {
+impl Copy for D3DKMT_VIDMM_ESCAPE_0_10 {}
+impl Clone for D3DKMT_VIDMM_ESCAPE_0_10 {
     fn clone(&self) -> Self {
         *self
     }
@@ -11926,8 +11926,8 @@ pub struct D3DKMT_VIDMM_ESCAPE_0_11 {
     pub hProcess: super::super::super::Win32::Foundation::HANDLE,
     pub bAllowWakeOnSubmission: super::super::super::Win32::Foundation::BOOL,
 }
-impl ::core::marker::Copy for D3DKMT_VIDMM_ESCAPE_0_11 {}
-impl ::core::clone::Clone for D3DKMT_VIDMM_ESCAPE_0_11 {
+impl Copy for D3DKMT_VIDMM_ESCAPE_0_11 {}
+impl Clone for D3DKMT_VIDMM_ESCAPE_0_11 {
     fn clone(&self) -> Self {
         *self
     }
@@ -11936,8 +11936,8 @@ impl ::core::clone::Clone for D3DKMT_VIDMM_ESCAPE_0_11 {
 pub struct D3DKMT_VIDMM_ESCAPE_0_12 {
     pub SegmentId: u32,
 }
-impl ::core::marker::Copy for D3DKMT_VIDMM_ESCAPE_0_12 {}
-impl ::core::clone::Clone for D3DKMT_VIDMM_ESCAPE_0_12 {
+impl Copy for D3DKMT_VIDMM_ESCAPE_0_12 {}
+impl Clone for D3DKMT_VIDMM_ESCAPE_0_12 {
     fn clone(&self) -> Self {
         *self
     }
@@ -11946,8 +11946,8 @@ impl ::core::clone::Clone for D3DKMT_VIDMM_ESCAPE_0_12 {
 pub struct D3DKMT_VIDMM_ESCAPE_0_13 {
     pub bFlush: super::super::super::Win32::Foundation::BOOL,
 }
-impl ::core::marker::Copy for D3DKMT_VIDMM_ESCAPE_0_13 {}
-impl ::core::clone::Clone for D3DKMT_VIDMM_ESCAPE_0_13 {
+impl Copy for D3DKMT_VIDMM_ESCAPE_0_13 {}
+impl Clone for D3DKMT_VIDMM_ESCAPE_0_13 {
     fn clone(&self) -> Self {
         *self
     }
@@ -11956,8 +11956,8 @@ impl ::core::clone::Clone for D3DKMT_VIDMM_ESCAPE_0_13 {
 pub struct D3DKMT_VIDPNSOURCEOWNER_FLAGS {
     pub Anonymous: D3DKMT_VIDPNSOURCEOWNER_FLAGS_0,
 }
-impl ::core::marker::Copy for D3DKMT_VIDPNSOURCEOWNER_FLAGS {}
-impl ::core::clone::Clone for D3DKMT_VIDPNSOURCEOWNER_FLAGS {
+impl Copy for D3DKMT_VIDPNSOURCEOWNER_FLAGS {}
+impl Clone for D3DKMT_VIDPNSOURCEOWNER_FLAGS {
     fn clone(&self) -> Self {
         *self
     }
@@ -11967,8 +11967,8 @@ pub union D3DKMT_VIDPNSOURCEOWNER_FLAGS_0 {
     pub Anonymous: D3DKMT_VIDPNSOURCEOWNER_FLAGS_0_0,
     pub Value: u32,
 }
-impl ::core::marker::Copy for D3DKMT_VIDPNSOURCEOWNER_FLAGS_0 {}
-impl ::core::clone::Clone for D3DKMT_VIDPNSOURCEOWNER_FLAGS_0 {
+impl Copy for D3DKMT_VIDPNSOURCEOWNER_FLAGS_0 {}
+impl Clone for D3DKMT_VIDPNSOURCEOWNER_FLAGS_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -11977,8 +11977,8 @@ impl ::core::clone::Clone for D3DKMT_VIDPNSOURCEOWNER_FLAGS_0 {
 pub struct D3DKMT_VIDPNSOURCEOWNER_FLAGS_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for D3DKMT_VIDPNSOURCEOWNER_FLAGS_0_0 {}
-impl ::core::clone::Clone for D3DKMT_VIDPNSOURCEOWNER_FLAGS_0_0 {
+impl Copy for D3DKMT_VIDPNSOURCEOWNER_FLAGS_0_0 {}
+impl Clone for D3DKMT_VIDPNSOURCEOWNER_FLAGS_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -11989,8 +11989,8 @@ pub struct D3DKMT_VIDSCH_ESCAPE {
     pub Anonymous: D3DKMT_VIDSCH_ESCAPE_0,
     pub VirtualRefreshRateControl: D3DKMT_ESCAPE_VIRTUAL_REFRESH_RATE,
 }
-impl ::core::marker::Copy for D3DKMT_VIDSCH_ESCAPE {}
-impl ::core::clone::Clone for D3DKMT_VIDSCH_ESCAPE {
+impl Copy for D3DKMT_VIDSCH_ESCAPE {}
+impl Clone for D3DKMT_VIDSCH_ESCAPE {
     fn clone(&self) -> Self {
         *self
     }
@@ -12006,8 +12006,8 @@ pub union D3DKMT_VIDSCH_ESCAPE_0 {
     pub TdrLimit: D3DKMT_VIDSCH_ESCAPE_0_1,
     pub PfnControl: D3DKMT_ESCAPE_PFN_CONTROL_COMMAND,
 }
-impl ::core::marker::Copy for D3DKMT_VIDSCH_ESCAPE_0 {}
-impl ::core::clone::Clone for D3DKMT_VIDSCH_ESCAPE_0 {
+impl Copy for D3DKMT_VIDSCH_ESCAPE_0 {}
+impl Clone for D3DKMT_VIDSCH_ESCAPE_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -12017,8 +12017,8 @@ pub struct D3DKMT_VIDSCH_ESCAPE_0_0 {
     pub TdrControl: u32,
     pub Anonymous: D3DKMT_VIDSCH_ESCAPE_0_0_0,
 }
-impl ::core::marker::Copy for D3DKMT_VIDSCH_ESCAPE_0_0 {}
-impl ::core::clone::Clone for D3DKMT_VIDSCH_ESCAPE_0_0 {
+impl Copy for D3DKMT_VIDSCH_ESCAPE_0_0 {}
+impl Clone for D3DKMT_VIDSCH_ESCAPE_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -12027,8 +12027,8 @@ impl ::core::clone::Clone for D3DKMT_VIDSCH_ESCAPE_0_0 {
 pub union D3DKMT_VIDSCH_ESCAPE_0_0_0 {
     pub NodeOrdinal: u32,
 }
-impl ::core::marker::Copy for D3DKMT_VIDSCH_ESCAPE_0_0_0 {}
-impl ::core::clone::Clone for D3DKMT_VIDSCH_ESCAPE_0_0_0 {
+impl Copy for D3DKMT_VIDSCH_ESCAPE_0_0_0 {}
+impl Clone for D3DKMT_VIDSCH_ESCAPE_0_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -12038,8 +12038,8 @@ pub struct D3DKMT_VIDSCH_ESCAPE_0_1 {
     pub Count: u32,
     pub Time: u32,
 }
-impl ::core::marker::Copy for D3DKMT_VIDSCH_ESCAPE_0_1 {}
-impl ::core::clone::Clone for D3DKMT_VIDSCH_ESCAPE_0_1 {
+impl Copy for D3DKMT_VIDSCH_ESCAPE_0_1 {}
+impl Clone for D3DKMT_VIDSCH_ESCAPE_0_1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -12048,8 +12048,8 @@ impl ::core::clone::Clone for D3DKMT_VIDSCH_ESCAPE_0_1 {
 pub struct D3DKMT_VIRTUALADDRESSFLAGS {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for D3DKMT_VIRTUALADDRESSFLAGS {}
-impl ::core::clone::Clone for D3DKMT_VIRTUALADDRESSFLAGS {
+impl Copy for D3DKMT_VIRTUALADDRESSFLAGS {}
+impl Clone for D3DKMT_VIRTUALADDRESSFLAGS {
     fn clone(&self) -> Self {
         *self
     }
@@ -12058,8 +12058,8 @@ impl ::core::clone::Clone for D3DKMT_VIRTUALADDRESSFLAGS {
 pub struct D3DKMT_VIRTUALADDRESSINFO {
     pub VirtualAddressFlags: D3DKMT_VIRTUALADDRESSFLAGS,
 }
-impl ::core::marker::Copy for D3DKMT_VIRTUALADDRESSINFO {}
-impl ::core::clone::Clone for D3DKMT_VIRTUALADDRESSINFO {
+impl Copy for D3DKMT_VIRTUALADDRESSINFO {}
+impl Clone for D3DKMT_VIRTUALADDRESSINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -12068,8 +12068,8 @@ impl ::core::clone::Clone for D3DKMT_VIRTUALADDRESSINFO {
 pub struct D3DKMT_WAITFORIDLE {
     pub hDevice: u32,
 }
-impl ::core::marker::Copy for D3DKMT_WAITFORIDLE {}
-impl ::core::clone::Clone for D3DKMT_WAITFORIDLE {
+impl Copy for D3DKMT_WAITFORIDLE {}
+impl Clone for D3DKMT_WAITFORIDLE {
     fn clone(&self) -> Self {
         *self
     }
@@ -12080,8 +12080,8 @@ pub struct D3DKMT_WAITFORSYNCHRONIZATIONOBJECT {
     pub ObjectCount: u32,
     pub ObjectHandleArray: [u32; 32],
 }
-impl ::core::marker::Copy for D3DKMT_WAITFORSYNCHRONIZATIONOBJECT {}
-impl ::core::clone::Clone for D3DKMT_WAITFORSYNCHRONIZATIONOBJECT {
+impl Copy for D3DKMT_WAITFORSYNCHRONIZATIONOBJECT {}
+impl Clone for D3DKMT_WAITFORSYNCHRONIZATIONOBJECT {
     fn clone(&self) -> Self {
         *self
     }
@@ -12093,8 +12093,8 @@ pub struct D3DKMT_WAITFORSYNCHRONIZATIONOBJECT2 {
     pub ObjectHandleArray: [u32; 32],
     pub Anonymous: D3DKMT_WAITFORSYNCHRONIZATIONOBJECT2_0,
 }
-impl ::core::marker::Copy for D3DKMT_WAITFORSYNCHRONIZATIONOBJECT2 {}
-impl ::core::clone::Clone for D3DKMT_WAITFORSYNCHRONIZATIONOBJECT2 {
+impl Copy for D3DKMT_WAITFORSYNCHRONIZATIONOBJECT2 {}
+impl Clone for D3DKMT_WAITFORSYNCHRONIZATIONOBJECT2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -12104,8 +12104,8 @@ pub union D3DKMT_WAITFORSYNCHRONIZATIONOBJECT2_0 {
     pub Fence: D3DKMT_WAITFORSYNCHRONIZATIONOBJECT2_0_0,
     pub Reserved: [u64; 8],
 }
-impl ::core::marker::Copy for D3DKMT_WAITFORSYNCHRONIZATIONOBJECT2_0 {}
-impl ::core::clone::Clone for D3DKMT_WAITFORSYNCHRONIZATIONOBJECT2_0 {
+impl Copy for D3DKMT_WAITFORSYNCHRONIZATIONOBJECT2_0 {}
+impl Clone for D3DKMT_WAITFORSYNCHRONIZATIONOBJECT2_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -12114,8 +12114,8 @@ impl ::core::clone::Clone for D3DKMT_WAITFORSYNCHRONIZATIONOBJECT2_0 {
 pub struct D3DKMT_WAITFORSYNCHRONIZATIONOBJECT2_0_0 {
     pub FenceValue: u64,
 }
-impl ::core::marker::Copy for D3DKMT_WAITFORSYNCHRONIZATIONOBJECT2_0_0 {}
-impl ::core::clone::Clone for D3DKMT_WAITFORSYNCHRONIZATIONOBJECT2_0_0 {
+impl Copy for D3DKMT_WAITFORSYNCHRONIZATIONOBJECT2_0_0 {}
+impl Clone for D3DKMT_WAITFORSYNCHRONIZATIONOBJECT2_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -12129,8 +12129,8 @@ pub struct D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMCPU {
     pub hAsyncEvent: super::super::super::Win32::Foundation::HANDLE,
     pub Flags: D3DDDI_WAITFORSYNCHRONIZATIONOBJECTFROMCPU_FLAGS,
 }
-impl ::core::marker::Copy for D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMCPU {}
-impl ::core::clone::Clone for D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMCPU {
+impl Copy for D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMCPU {}
+impl Clone for D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMCPU {
     fn clone(&self) -> Self {
         *self
     }
@@ -12142,8 +12142,8 @@ pub struct D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMGPU {
     pub ObjectHandleArray: *const u32,
     pub Anonymous: D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMGPU_0,
 }
-impl ::core::marker::Copy for D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMGPU {}
-impl ::core::clone::Clone for D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMGPU {
+impl Copy for D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMGPU {}
+impl Clone for D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMGPU {
     fn clone(&self) -> Self {
         *self
     }
@@ -12154,8 +12154,8 @@ pub union D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMGPU_0 {
     pub FenceValue: u64,
     pub Reserved: [u64; 8],
 }
-impl ::core::marker::Copy for D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMGPU_0 {}
-impl ::core::clone::Clone for D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMGPU_0 {
+impl Copy for D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMGPU_0 {}
+impl Clone for D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMGPU_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -12166,8 +12166,8 @@ pub struct D3DKMT_WAITFORVERTICALBLANKEVENT {
     pub hDevice: u32,
     pub VidPnSourceId: u32,
 }
-impl ::core::marker::Copy for D3DKMT_WAITFORVERTICALBLANKEVENT {}
-impl ::core::clone::Clone for D3DKMT_WAITFORVERTICALBLANKEVENT {
+impl Copy for D3DKMT_WAITFORVERTICALBLANKEVENT {}
+impl Clone for D3DKMT_WAITFORVERTICALBLANKEVENT {
     fn clone(&self) -> Self {
         *self
     }
@@ -12180,8 +12180,8 @@ pub struct D3DKMT_WAITFORVERTICALBLANKEVENT2 {
     pub NumObjects: u32,
     pub ObjectHandleArray: [isize; 8],
 }
-impl ::core::marker::Copy for D3DKMT_WAITFORVERTICALBLANKEVENT2 {}
-impl ::core::clone::Clone for D3DKMT_WAITFORVERTICALBLANKEVENT2 {
+impl Copy for D3DKMT_WAITFORVERTICALBLANKEVENT2 {}
+impl Clone for D3DKMT_WAITFORVERTICALBLANKEVENT2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -12191,8 +12191,8 @@ pub struct D3DKMT_WDDM_1_2_CAPS {
     pub PreemptionCaps: D3DKMDT_PREEMPTION_CAPS,
     pub Anonymous: D3DKMT_WDDM_1_2_CAPS_0,
 }
-impl ::core::marker::Copy for D3DKMT_WDDM_1_2_CAPS {}
-impl ::core::clone::Clone for D3DKMT_WDDM_1_2_CAPS {
+impl Copy for D3DKMT_WDDM_1_2_CAPS {}
+impl Clone for D3DKMT_WDDM_1_2_CAPS {
     fn clone(&self) -> Self {
         *self
     }
@@ -12202,8 +12202,8 @@ pub union D3DKMT_WDDM_1_2_CAPS_0 {
     pub Anonymous: D3DKMT_WDDM_1_2_CAPS_0_0,
     pub Value: u32,
 }
-impl ::core::marker::Copy for D3DKMT_WDDM_1_2_CAPS_0 {}
-impl ::core::clone::Clone for D3DKMT_WDDM_1_2_CAPS_0 {
+impl Copy for D3DKMT_WDDM_1_2_CAPS_0 {}
+impl Clone for D3DKMT_WDDM_1_2_CAPS_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -12212,8 +12212,8 @@ impl ::core::clone::Clone for D3DKMT_WDDM_1_2_CAPS_0 {
 pub struct D3DKMT_WDDM_1_2_CAPS_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for D3DKMT_WDDM_1_2_CAPS_0_0 {}
-impl ::core::clone::Clone for D3DKMT_WDDM_1_2_CAPS_0_0 {
+impl Copy for D3DKMT_WDDM_1_2_CAPS_0_0 {}
+impl Clone for D3DKMT_WDDM_1_2_CAPS_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -12222,8 +12222,8 @@ impl ::core::clone::Clone for D3DKMT_WDDM_1_2_CAPS_0_0 {
 pub struct D3DKMT_WDDM_1_3_CAPS {
     pub Anonymous: D3DKMT_WDDM_1_3_CAPS_0,
 }
-impl ::core::marker::Copy for D3DKMT_WDDM_1_3_CAPS {}
-impl ::core::clone::Clone for D3DKMT_WDDM_1_3_CAPS {
+impl Copy for D3DKMT_WDDM_1_3_CAPS {}
+impl Clone for D3DKMT_WDDM_1_3_CAPS {
     fn clone(&self) -> Self {
         *self
     }
@@ -12233,8 +12233,8 @@ pub union D3DKMT_WDDM_1_3_CAPS_0 {
     pub Anonymous: D3DKMT_WDDM_1_3_CAPS_0_0,
     pub Value: u32,
 }
-impl ::core::marker::Copy for D3DKMT_WDDM_1_3_CAPS_0 {}
-impl ::core::clone::Clone for D3DKMT_WDDM_1_3_CAPS_0 {
+impl Copy for D3DKMT_WDDM_1_3_CAPS_0 {}
+impl Clone for D3DKMT_WDDM_1_3_CAPS_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -12243,8 +12243,8 @@ impl ::core::clone::Clone for D3DKMT_WDDM_1_3_CAPS_0 {
 pub struct D3DKMT_WDDM_1_3_CAPS_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for D3DKMT_WDDM_1_3_CAPS_0_0 {}
-impl ::core::clone::Clone for D3DKMT_WDDM_1_3_CAPS_0_0 {
+impl Copy for D3DKMT_WDDM_1_3_CAPS_0_0 {}
+impl Clone for D3DKMT_WDDM_1_3_CAPS_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -12253,8 +12253,8 @@ impl ::core::clone::Clone for D3DKMT_WDDM_1_3_CAPS_0_0 {
 pub struct D3DKMT_WDDM_2_0_CAPS {
     pub Anonymous: D3DKMT_WDDM_2_0_CAPS_0,
 }
-impl ::core::marker::Copy for D3DKMT_WDDM_2_0_CAPS {}
-impl ::core::clone::Clone for D3DKMT_WDDM_2_0_CAPS {
+impl Copy for D3DKMT_WDDM_2_0_CAPS {}
+impl Clone for D3DKMT_WDDM_2_0_CAPS {
     fn clone(&self) -> Self {
         *self
     }
@@ -12264,8 +12264,8 @@ pub union D3DKMT_WDDM_2_0_CAPS_0 {
     pub Anonymous: D3DKMT_WDDM_2_0_CAPS_0_0,
     pub Value: u32,
 }
-impl ::core::marker::Copy for D3DKMT_WDDM_2_0_CAPS_0 {}
-impl ::core::clone::Clone for D3DKMT_WDDM_2_0_CAPS_0 {
+impl Copy for D3DKMT_WDDM_2_0_CAPS_0 {}
+impl Clone for D3DKMT_WDDM_2_0_CAPS_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -12274,8 +12274,8 @@ impl ::core::clone::Clone for D3DKMT_WDDM_2_0_CAPS_0 {
 pub struct D3DKMT_WDDM_2_0_CAPS_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for D3DKMT_WDDM_2_0_CAPS_0_0 {}
-impl ::core::clone::Clone for D3DKMT_WDDM_2_0_CAPS_0_0 {
+impl Copy for D3DKMT_WDDM_2_0_CAPS_0_0 {}
+impl Clone for D3DKMT_WDDM_2_0_CAPS_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -12284,8 +12284,8 @@ impl ::core::clone::Clone for D3DKMT_WDDM_2_0_CAPS_0_0 {
 pub struct D3DKMT_WDDM_2_7_CAPS {
     pub Anonymous: D3DKMT_WDDM_2_7_CAPS_0,
 }
-impl ::core::marker::Copy for D3DKMT_WDDM_2_7_CAPS {}
-impl ::core::clone::Clone for D3DKMT_WDDM_2_7_CAPS {
+impl Copy for D3DKMT_WDDM_2_7_CAPS {}
+impl Clone for D3DKMT_WDDM_2_7_CAPS {
     fn clone(&self) -> Self {
         *self
     }
@@ -12295,8 +12295,8 @@ pub union D3DKMT_WDDM_2_7_CAPS_0 {
     pub Anonymous: D3DKMT_WDDM_2_7_CAPS_0_0,
     pub Value: u32,
 }
-impl ::core::marker::Copy for D3DKMT_WDDM_2_7_CAPS_0 {}
-impl ::core::clone::Clone for D3DKMT_WDDM_2_7_CAPS_0 {
+impl Copy for D3DKMT_WDDM_2_7_CAPS_0 {}
+impl Clone for D3DKMT_WDDM_2_7_CAPS_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -12305,8 +12305,8 @@ impl ::core::clone::Clone for D3DKMT_WDDM_2_7_CAPS_0 {
 pub struct D3DKMT_WDDM_2_7_CAPS_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for D3DKMT_WDDM_2_7_CAPS_0_0 {}
-impl ::core::clone::Clone for D3DKMT_WDDM_2_7_CAPS_0_0 {
+impl Copy for D3DKMT_WDDM_2_7_CAPS_0_0 {}
+impl Clone for D3DKMT_WDDM_2_7_CAPS_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -12315,8 +12315,8 @@ impl ::core::clone::Clone for D3DKMT_WDDM_2_7_CAPS_0_0 {
 pub struct D3DKMT_WDDM_2_9_CAPS {
     pub Anonymous: D3DKMT_WDDM_2_9_CAPS_0,
 }
-impl ::core::marker::Copy for D3DKMT_WDDM_2_9_CAPS {}
-impl ::core::clone::Clone for D3DKMT_WDDM_2_9_CAPS {
+impl Copy for D3DKMT_WDDM_2_9_CAPS {}
+impl Clone for D3DKMT_WDDM_2_9_CAPS {
     fn clone(&self) -> Self {
         *self
     }
@@ -12326,8 +12326,8 @@ pub union D3DKMT_WDDM_2_9_CAPS_0 {
     pub Anonymous: D3DKMT_WDDM_2_9_CAPS_0_0,
     pub Value: u32,
 }
-impl ::core::marker::Copy for D3DKMT_WDDM_2_9_CAPS_0 {}
-impl ::core::clone::Clone for D3DKMT_WDDM_2_9_CAPS_0 {
+impl Copy for D3DKMT_WDDM_2_9_CAPS_0 {}
+impl Clone for D3DKMT_WDDM_2_9_CAPS_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -12336,8 +12336,8 @@ impl ::core::clone::Clone for D3DKMT_WDDM_2_9_CAPS_0 {
 pub struct D3DKMT_WDDM_2_9_CAPS_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for D3DKMT_WDDM_2_9_CAPS_0_0 {}
-impl ::core::clone::Clone for D3DKMT_WDDM_2_9_CAPS_0_0 {
+impl Copy for D3DKMT_WDDM_2_9_CAPS_0_0 {}
+impl Clone for D3DKMT_WDDM_2_9_CAPS_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -12346,8 +12346,8 @@ impl ::core::clone::Clone for D3DKMT_WDDM_2_9_CAPS_0_0 {
 pub struct D3DKMT_WDDM_3_0_CAPS {
     pub Anonymous: D3DKMT_WDDM_3_0_CAPS_0,
 }
-impl ::core::marker::Copy for D3DKMT_WDDM_3_0_CAPS {}
-impl ::core::clone::Clone for D3DKMT_WDDM_3_0_CAPS {
+impl Copy for D3DKMT_WDDM_3_0_CAPS {}
+impl Clone for D3DKMT_WDDM_3_0_CAPS {
     fn clone(&self) -> Self {
         *self
     }
@@ -12357,8 +12357,8 @@ pub union D3DKMT_WDDM_3_0_CAPS_0 {
     pub Anonymous: D3DKMT_WDDM_3_0_CAPS_0_0,
     pub Value: u32,
 }
-impl ::core::marker::Copy for D3DKMT_WDDM_3_0_CAPS_0 {}
-impl ::core::clone::Clone for D3DKMT_WDDM_3_0_CAPS_0 {
+impl Copy for D3DKMT_WDDM_3_0_CAPS_0 {}
+impl Clone for D3DKMT_WDDM_3_0_CAPS_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -12367,8 +12367,8 @@ impl ::core::clone::Clone for D3DKMT_WDDM_3_0_CAPS_0 {
 pub struct D3DKMT_WDDM_3_0_CAPS_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for D3DKMT_WDDM_3_0_CAPS_0_0 {}
-impl ::core::clone::Clone for D3DKMT_WDDM_3_0_CAPS_0_0 {
+impl Copy for D3DKMT_WDDM_3_0_CAPS_0_0 {}
+impl Clone for D3DKMT_WDDM_3_0_CAPS_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -12377,8 +12377,8 @@ impl ::core::clone::Clone for D3DKMT_WDDM_3_0_CAPS_0_0 {
 pub struct D3DKMT_WDDM_3_1_CAPS {
     pub Anonymous: D3DKMT_WDDM_3_1_CAPS_0,
 }
-impl ::core::marker::Copy for D3DKMT_WDDM_3_1_CAPS {}
-impl ::core::clone::Clone for D3DKMT_WDDM_3_1_CAPS {
+impl Copy for D3DKMT_WDDM_3_1_CAPS {}
+impl Clone for D3DKMT_WDDM_3_1_CAPS {
     fn clone(&self) -> Self {
         *self
     }
@@ -12388,8 +12388,8 @@ pub union D3DKMT_WDDM_3_1_CAPS_0 {
     pub Anonymous: D3DKMT_WDDM_3_1_CAPS_0_0,
     pub Value: u32,
 }
-impl ::core::marker::Copy for D3DKMT_WDDM_3_1_CAPS_0 {}
-impl ::core::clone::Clone for D3DKMT_WDDM_3_1_CAPS_0 {
+impl Copy for D3DKMT_WDDM_3_1_CAPS_0 {}
+impl Clone for D3DKMT_WDDM_3_1_CAPS_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -12398,8 +12398,8 @@ impl ::core::clone::Clone for D3DKMT_WDDM_3_1_CAPS_0 {
 pub struct D3DKMT_WDDM_3_1_CAPS_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for D3DKMT_WDDM_3_1_CAPS_0_0 {}
-impl ::core::clone::Clone for D3DKMT_WDDM_3_1_CAPS_0_0 {
+impl Copy for D3DKMT_WDDM_3_1_CAPS_0_0 {}
+impl Clone for D3DKMT_WDDM_3_1_CAPS_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -12408,8 +12408,8 @@ impl ::core::clone::Clone for D3DKMT_WDDM_3_1_CAPS_0_0 {
 pub struct D3DKMT_WORKINGSETFLAGS {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for D3DKMT_WORKINGSETFLAGS {}
-impl ::core::clone::Clone for D3DKMT_WORKINGSETFLAGS {
+impl Copy for D3DKMT_WORKINGSETFLAGS {}
+impl Clone for D3DKMT_WORKINGSETFLAGS {
     fn clone(&self) -> Self {
         *self
     }
@@ -12420,8 +12420,8 @@ pub struct D3DKMT_WORKINGSETINFO {
     pub MinimumWorkingSetPercentile: u32,
     pub MaximumWorkingSetPercentile: u32,
 }
-impl ::core::marker::Copy for D3DKMT_WORKINGSETINFO {}
-impl ::core::clone::Clone for D3DKMT_WORKINGSETINFO {
+impl Copy for D3DKMT_WORKINGSETINFO {}
+impl Clone for D3DKMT_WORKINGSETINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -12430,8 +12430,8 @@ impl ::core::clone::Clone for D3DKMT_WORKINGSETINFO {
 pub struct D3DKMT_WSAUMDIMAGENAME {
     pub WsaUmdImageName: [u16; 260],
 }
-impl ::core::marker::Copy for D3DKMT_WSAUMDIMAGENAME {}
-impl ::core::clone::Clone for D3DKMT_WSAUMDIMAGENAME {
+impl Copy for D3DKMT_WSAUMDIMAGENAME {}
+impl Clone for D3DKMT_WSAUMDIMAGENAME {
     fn clone(&self) -> Self {
         *self
     }
@@ -12440,8 +12440,8 @@ impl ::core::clone::Clone for D3DKMT_WSAUMDIMAGENAME {
 pub struct D3DKMT_XBOX {
     pub IsXBOX: super::super::super::Win32::Foundation::BOOL,
 }
-impl ::core::marker::Copy for D3DKMT_XBOX {}
-impl ::core::clone::Clone for D3DKMT_XBOX {
+impl Copy for D3DKMT_XBOX {}
+impl Clone for D3DKMT_XBOX {
     fn clone(&self) -> Self {
         *self
     }
@@ -12451,8 +12451,8 @@ pub struct D3DLINEPATTERN {
     pub wRepeatFactor: u16,
     pub wLinePattern: u16,
 }
-impl ::core::marker::Copy for D3DLINEPATTERN {}
-impl ::core::clone::Clone for D3DLINEPATTERN {
+impl Copy for D3DLINEPATTERN {}
+impl Clone for D3DLINEPATTERN {
     fn clone(&self) -> Self {
         *self
     }
@@ -12496,9 +12496,9 @@ pub struct D3DNTDEVICEDESC_V3 {
     pub wMaxSimultaneousTextures: u16,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl ::core::marker::Copy for D3DNTDEVICEDESC_V3 {}
+impl Copy for D3DNTDEVICEDESC_V3 {}
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl ::core::clone::Clone for D3DNTDEVICEDESC_V3 {
+impl Clone for D3DNTDEVICEDESC_V3 {
     fn clone(&self) -> Self {
         *self
     }
@@ -12521,9 +12521,9 @@ pub struct D3DNTHALDEVICEDESC_V1 {
     pub dwMaxVertexCount: u32,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl ::core::marker::Copy for D3DNTHALDEVICEDESC_V1 {}
+impl Copy for D3DNTHALDEVICEDESC_V1 {}
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl ::core::clone::Clone for D3DNTHALDEVICEDESC_V1 {
+impl Clone for D3DNTHALDEVICEDESC_V1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -12554,9 +12554,9 @@ pub struct D3DNTHALDEVICEDESC_V2 {
     pub dwMaxStippleHeight: u32,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl ::core::marker::Copy for D3DNTHALDEVICEDESC_V2 {}
+impl Copy for D3DNTHALDEVICEDESC_V2 {}
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl ::core::clone::Clone for D3DNTHALDEVICEDESC_V2 {
+impl Clone for D3DNTHALDEVICEDESC_V2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -12569,26 +12569,26 @@ pub struct D3DNTHAL_CALLBACKS {
     pub ContextDestroy: LPD3DNTHAL_CONTEXTDESTROYCB,
     pub ContextDestroyAll: LPD3DNTHAL_CONTEXTDESTROYALLCB,
     pub SceneCapture: LPD3DNTHAL_SCENECAPTURECB,
-    pub dwReserved10: *mut ::core::ffi::c_void,
-    pub dwReserved11: *mut ::core::ffi::c_void,
-    pub dwReserved22: *mut ::core::ffi::c_void,
-    pub dwReserved23: *mut ::core::ffi::c_void,
+    pub dwReserved10: *mut core::ffi::c_void,
+    pub dwReserved11: *mut core::ffi::c_void,
+    pub dwReserved22: *mut core::ffi::c_void,
+    pub dwReserved23: *mut core::ffi::c_void,
     pub dwReserved: usize,
     pub TextureCreate: LPD3DNTHAL_TEXTURECREATECB,
     pub TextureDestroy: LPD3DNTHAL_TEXTUREDESTROYCB,
     pub TextureSwap: LPD3DNTHAL_TEXTURESWAPCB,
     pub TextureGetSurf: LPD3DNTHAL_TEXTUREGETSURFCB,
-    pub dwReserved12: *mut ::core::ffi::c_void,
-    pub dwReserved13: *mut ::core::ffi::c_void,
-    pub dwReserved14: *mut ::core::ffi::c_void,
-    pub dwReserved15: *mut ::core::ffi::c_void,
-    pub dwReserved16: *mut ::core::ffi::c_void,
-    pub dwReserved17: *mut ::core::ffi::c_void,
-    pub dwReserved18: *mut ::core::ffi::c_void,
-    pub dwReserved19: *mut ::core::ffi::c_void,
-    pub dwReserved20: *mut ::core::ffi::c_void,
-    pub dwReserved21: *mut ::core::ffi::c_void,
-    pub dwReserved24: *mut ::core::ffi::c_void,
+    pub dwReserved12: *mut core::ffi::c_void,
+    pub dwReserved13: *mut core::ffi::c_void,
+    pub dwReserved14: *mut core::ffi::c_void,
+    pub dwReserved15: *mut core::ffi::c_void,
+    pub dwReserved16: *mut core::ffi::c_void,
+    pub dwReserved17: *mut core::ffi::c_void,
+    pub dwReserved18: *mut core::ffi::c_void,
+    pub dwReserved19: *mut core::ffi::c_void,
+    pub dwReserved20: *mut core::ffi::c_void,
+    pub dwReserved21: *mut core::ffi::c_void,
+    pub dwReserved24: *mut core::ffi::c_void,
     pub dwReserved0: usize,
     pub dwReserved1: usize,
     pub dwReserved2: usize,
@@ -12601,9 +12601,9 @@ pub struct D3DNTHAL_CALLBACKS {
     pub dwReserved9: usize,
 }
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
-impl ::core::marker::Copy for D3DNTHAL_CALLBACKS {}
+impl Copy for D3DNTHAL_CALLBACKS {}
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
-impl ::core::clone::Clone for D3DNTHAL_CALLBACKS {
+impl Clone for D3DNTHAL_CALLBACKS {
     fn clone(&self) -> Self {
         *self
     }
@@ -12614,15 +12614,15 @@ pub struct D3DNTHAL_CALLBACKS2 {
     pub dwSize: u32,
     pub dwFlags: u32,
     pub SetRenderTarget: LPD3DNTHAL_SETRENDERTARGETCB,
-    pub dwReserved1: *mut ::core::ffi::c_void,
-    pub dwReserved2: *mut ::core::ffi::c_void,
-    pub dwReserved3: *mut ::core::ffi::c_void,
-    pub dwReserved4: *mut ::core::ffi::c_void,
+    pub dwReserved1: *mut core::ffi::c_void,
+    pub dwReserved2: *mut core::ffi::c_void,
+    pub dwReserved3: *mut core::ffi::c_void,
+    pub dwReserved4: *mut core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
-impl ::core::marker::Copy for D3DNTHAL_CALLBACKS2 {}
+impl Copy for D3DNTHAL_CALLBACKS2 {}
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
-impl ::core::clone::Clone for D3DNTHAL_CALLBACKS2 {
+impl Clone for D3DNTHAL_CALLBACKS2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -12633,14 +12633,14 @@ pub struct D3DNTHAL_CALLBACKS3 {
     pub dwSize: u32,
     pub dwFlags: u32,
     pub Clear2: LPD3DNTHAL_CLEAR2CB,
-    pub lpvReserved: *mut ::core::ffi::c_void,
+    pub lpvReserved: *mut core::ffi::c_void,
     pub ValidateTextureStageState: LPD3DNTHAL_VALIDATETEXTURESTAGESTATECB,
     pub DrawPrimitives2: LPD3DNTHAL_DRAWPRIMITIVES2CB,
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw"))]
-impl ::core::marker::Copy for D3DNTHAL_CALLBACKS3 {}
+impl Copy for D3DNTHAL_CALLBACKS3 {}
 #[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw"))]
-impl ::core::clone::Clone for D3DNTHAL_CALLBACKS3 {
+impl Clone for D3DNTHAL_CALLBACKS3 {
     fn clone(&self) -> Self {
         *self
     }
@@ -12655,12 +12655,12 @@ pub struct D3DNTHAL_CLEAR2DATA {
     pub dwFillStencil: u32,
     pub lpRects: *mut super::super::super::Win32::Graphics::Direct3D9::D3DRECT,
     pub dwNumRects: u32,
-    pub ddrval: ::windows_sys::core::HRESULT,
+    pub ddrval: windows_sys::core::HRESULT,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl ::core::marker::Copy for D3DNTHAL_CLEAR2DATA {}
+impl Copy for D3DNTHAL_CLEAR2DATA {}
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl ::core::clone::Clone for D3DNTHAL_CLEAR2DATA {
+impl Clone for D3DNTHAL_CLEAR2DATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -12671,8 +12671,8 @@ pub struct D3DNTHAL_CLIPPEDTRIANGLEFAN {
     pub dwEdgeFlags: u32,
     pub PrimitiveCount: u32,
 }
-impl ::core::marker::Copy for D3DNTHAL_CLIPPEDTRIANGLEFAN {}
-impl ::core::clone::Clone for D3DNTHAL_CLIPPEDTRIANGLEFAN {
+impl Copy for D3DNTHAL_CLIPPEDTRIANGLEFAN {}
+impl Clone for D3DNTHAL_CLIPPEDTRIANGLEFAN {
     fn clone(&self) -> Self {
         *self
     }
@@ -12685,12 +12685,12 @@ pub struct D3DNTHAL_CONTEXTCREATEDATA {
     pub Anonymous3: D3DNTHAL_CONTEXTCREATEDATA_2,
     pub dwPID: u32,
     pub dwhContext: usize,
-    pub ddrval: ::windows_sys::core::HRESULT,
+    pub ddrval: windows_sys::core::HRESULT,
 }
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
-impl ::core::marker::Copy for D3DNTHAL_CONTEXTCREATEDATA {}
+impl Copy for D3DNTHAL_CONTEXTCREATEDATA {}
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
-impl ::core::clone::Clone for D3DNTHAL_CONTEXTCREATEDATA {
+impl Clone for D3DNTHAL_CONTEXTCREATEDATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -12702,9 +12702,9 @@ pub union D3DNTHAL_CONTEXTCREATEDATA_0 {
     pub lpDDLcl: *mut super::super::super::Win32::Graphics::DirectDraw::DD_DIRECTDRAW_LOCAL,
 }
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
-impl ::core::marker::Copy for D3DNTHAL_CONTEXTCREATEDATA_0 {}
+impl Copy for D3DNTHAL_CONTEXTCREATEDATA_0 {}
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
-impl ::core::clone::Clone for D3DNTHAL_CONTEXTCREATEDATA_0 {
+impl Clone for D3DNTHAL_CONTEXTCREATEDATA_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -12716,9 +12716,9 @@ pub union D3DNTHAL_CONTEXTCREATEDATA_1 {
     pub lpDDSLcl: *mut super::super::super::Win32::Graphics::DirectDraw::DD_SURFACE_LOCAL,
 }
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
-impl ::core::marker::Copy for D3DNTHAL_CONTEXTCREATEDATA_1 {}
+impl Copy for D3DNTHAL_CONTEXTCREATEDATA_1 {}
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
-impl ::core::clone::Clone for D3DNTHAL_CONTEXTCREATEDATA_1 {
+impl Clone for D3DNTHAL_CONTEXTCREATEDATA_1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -12730,9 +12730,9 @@ pub union D3DNTHAL_CONTEXTCREATEDATA_2 {
     pub lpDDSZLcl: *mut super::super::super::Win32::Graphics::DirectDraw::DD_SURFACE_LOCAL,
 }
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
-impl ::core::marker::Copy for D3DNTHAL_CONTEXTCREATEDATA_2 {}
+impl Copy for D3DNTHAL_CONTEXTCREATEDATA_2 {}
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
-impl ::core::clone::Clone for D3DNTHAL_CONTEXTCREATEDATA_2 {
+impl Clone for D3DNTHAL_CONTEXTCREATEDATA_2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -12740,10 +12740,10 @@ impl ::core::clone::Clone for D3DNTHAL_CONTEXTCREATEDATA_2 {
 #[repr(C)]
 pub struct D3DNTHAL_CONTEXTDESTROYALLDATA {
     pub dwPID: u32,
-    pub ddrval: ::windows_sys::core::HRESULT,
+    pub ddrval: windows_sys::core::HRESULT,
 }
-impl ::core::marker::Copy for D3DNTHAL_CONTEXTDESTROYALLDATA {}
-impl ::core::clone::Clone for D3DNTHAL_CONTEXTDESTROYALLDATA {
+impl Copy for D3DNTHAL_CONTEXTDESTROYALLDATA {}
+impl Clone for D3DNTHAL_CONTEXTDESTROYALLDATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -12751,10 +12751,10 @@ impl ::core::clone::Clone for D3DNTHAL_CONTEXTDESTROYALLDATA {
 #[repr(C)]
 pub struct D3DNTHAL_CONTEXTDESTROYDATA {
     pub dwhContext: usize,
-    pub ddrval: ::windows_sys::core::HRESULT,
+    pub ddrval: windows_sys::core::HRESULT,
 }
-impl ::core::marker::Copy for D3DNTHAL_CONTEXTDESTROYDATA {}
-impl ::core::clone::Clone for D3DNTHAL_CONTEXTDESTROYDATA {
+impl Copy for D3DNTHAL_CONTEXTDESTROYDATA {}
+impl Clone for D3DNTHAL_CONTEXTDESTROYDATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -12784,8 +12784,8 @@ pub struct D3DNTHAL_D3DDX6EXTENDEDCAPS {
     pub wMaxTextureBlendStages: u16,
     pub wMaxSimultaneousTextures: u16,
 }
-impl ::core::marker::Copy for D3DNTHAL_D3DDX6EXTENDEDCAPS {}
-impl ::core::clone::Clone for D3DNTHAL_D3DDX6EXTENDEDCAPS {
+impl Copy for D3DNTHAL_D3DDX6EXTENDEDCAPS {}
+impl Clone for D3DNTHAL_D3DDX6EXTENDEDCAPS {
     fn clone(&self) -> Self {
         *self
     }
@@ -12824,8 +12824,8 @@ pub struct D3DNTHAL_D3DEXTENDEDCAPS {
     pub dwReserved3: u32,
     pub dwReserved4: u32,
 }
-impl ::core::marker::Copy for D3DNTHAL_D3DEXTENDEDCAPS {}
-impl ::core::clone::Clone for D3DNTHAL_D3DEXTENDEDCAPS {
+impl Copy for D3DNTHAL_D3DEXTENDEDCAPS {}
+impl Clone for D3DNTHAL_D3DEXTENDEDCAPS {
     fn clone(&self) -> Self {
         *self
     }
@@ -12837,9 +12837,9 @@ pub struct D3DNTHAL_DP2ADDDIRTYBOX {
     pub DirtyBox: super::super::super::Win32::Graphics::Direct3D9::D3DBOX,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl ::core::marker::Copy for D3DNTHAL_DP2ADDDIRTYBOX {}
+impl Copy for D3DNTHAL_DP2ADDDIRTYBOX {}
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl ::core::clone::Clone for D3DNTHAL_DP2ADDDIRTYBOX {
+impl Clone for D3DNTHAL_DP2ADDDIRTYBOX {
     fn clone(&self) -> Self {
         *self
     }
@@ -12849,8 +12849,8 @@ pub struct D3DNTHAL_DP2ADDDIRTYRECT {
     pub dwSurface: u32,
     pub rDirtyArea: super::super::super::Win32::Foundation::RECTL,
 }
-impl ::core::marker::Copy for D3DNTHAL_DP2ADDDIRTYRECT {}
-impl ::core::clone::Clone for D3DNTHAL_DP2ADDDIRTYRECT {
+impl Copy for D3DNTHAL_DP2ADDDIRTYRECT {}
+impl Clone for D3DNTHAL_DP2ADDDIRTYRECT {
     fn clone(&self) -> Self {
         *self
     }
@@ -12865,8 +12865,8 @@ pub struct D3DNTHAL_DP2BLT {
     pub dwDestMipLevel: u32,
     pub Flags: u32,
 }
-impl ::core::marker::Copy for D3DNTHAL_DP2BLT {}
-impl ::core::clone::Clone for D3DNTHAL_DP2BLT {
+impl Copy for D3DNTHAL_DP2BLT {}
+impl Clone for D3DNTHAL_DP2BLT {
     fn clone(&self) -> Self {
         *self
     }
@@ -12881,9 +12881,9 @@ pub struct D3DNTHAL_DP2BUFFERBLT {
     pub dwFlags: u32,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl ::core::marker::Copy for D3DNTHAL_DP2BUFFERBLT {}
+impl Copy for D3DNTHAL_DP2BUFFERBLT {}
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl ::core::clone::Clone for D3DNTHAL_DP2BUFFERBLT {
+impl Clone for D3DNTHAL_DP2BUFFERBLT {
     fn clone(&self) -> Self {
         *self
     }
@@ -12896,8 +12896,8 @@ pub struct D3DNTHAL_DP2CLEAR {
     pub dwFillStencil: u32,
     pub Rects: [super::super::super::Win32::Foundation::RECT; 1],
 }
-impl ::core::marker::Copy for D3DNTHAL_DP2CLEAR {}
-impl ::core::clone::Clone for D3DNTHAL_DP2CLEAR {
+impl Copy for D3DNTHAL_DP2CLEAR {}
+impl Clone for D3DNTHAL_DP2CLEAR {
     fn clone(&self) -> Self {
         *self
     }
@@ -12908,8 +12908,8 @@ pub struct D3DNTHAL_DP2COLORFILL {
     pub rRect: super::super::super::Win32::Foundation::RECTL,
     pub Color: u32,
 }
-impl ::core::marker::Copy for D3DNTHAL_DP2COLORFILL {}
-impl ::core::clone::Clone for D3DNTHAL_DP2COLORFILL {
+impl Copy for D3DNTHAL_DP2COLORFILL {}
+impl Clone for D3DNTHAL_DP2COLORFILL {
     fn clone(&self) -> Self {
         *self
     }
@@ -12920,8 +12920,8 @@ pub struct D3DNTHAL_DP2COMMAND {
     pub bReserved: u8,
     pub Anonymous: D3DNTHAL_DP2COMMAND_0,
 }
-impl ::core::marker::Copy for D3DNTHAL_DP2COMMAND {}
-impl ::core::clone::Clone for D3DNTHAL_DP2COMMAND {
+impl Copy for D3DNTHAL_DP2COMMAND {}
+impl Clone for D3DNTHAL_DP2COMMAND {
     fn clone(&self) -> Self {
         *self
     }
@@ -12931,8 +12931,8 @@ pub union D3DNTHAL_DP2COMMAND_0 {
     pub wPrimitiveCount: u16,
     pub wStateCount: u16,
 }
-impl ::core::marker::Copy for D3DNTHAL_DP2COMMAND_0 {}
-impl ::core::clone::Clone for D3DNTHAL_DP2COMMAND_0 {
+impl Copy for D3DNTHAL_DP2COMMAND_0 {}
+impl Clone for D3DNTHAL_DP2COMMAND_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -12950,9 +12950,9 @@ pub struct D3DNTHAL_DP2COMPOSERECTS {
     pub YOffset: i32,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl ::core::marker::Copy for D3DNTHAL_DP2COMPOSERECTS {}
+impl Copy for D3DNTHAL_DP2COMPOSERECTS {}
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl ::core::clone::Clone for D3DNTHAL_DP2COMPOSERECTS {
+impl Clone for D3DNTHAL_DP2COMPOSERECTS {
     fn clone(&self) -> Self {
         *self
     }
@@ -12961,8 +12961,8 @@ impl ::core::clone::Clone for D3DNTHAL_DP2COMPOSERECTS {
 pub struct D3DNTHAL_DP2CREATELIGHT {
     pub dwIndex: u32,
 }
-impl ::core::marker::Copy for D3DNTHAL_DP2CREATELIGHT {}
-impl ::core::clone::Clone for D3DNTHAL_DP2CREATELIGHT {
+impl Copy for D3DNTHAL_DP2CREATELIGHT {}
+impl Clone for D3DNTHAL_DP2CREATELIGHT {
     fn clone(&self) -> Self {
         *self
     }
@@ -12972,8 +12972,8 @@ pub struct D3DNTHAL_DP2CREATEPIXELSHADER {
     pub dwHandle: u32,
     pub dwCodeSize: u32,
 }
-impl ::core::marker::Copy for D3DNTHAL_DP2CREATEPIXELSHADER {}
-impl ::core::clone::Clone for D3DNTHAL_DP2CREATEPIXELSHADER {
+impl Copy for D3DNTHAL_DP2CREATEPIXELSHADER {}
+impl Clone for D3DNTHAL_DP2CREATEPIXELSHADER {
     fn clone(&self) -> Self {
         *self
     }
@@ -12985,9 +12985,9 @@ pub struct D3DNTHAL_DP2CREATEQUERY {
     pub QueryType: super::super::super::Win32::Graphics::Direct3D9::D3DQUERYTYPE,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl ::core::marker::Copy for D3DNTHAL_DP2CREATEQUERY {}
+impl Copy for D3DNTHAL_DP2CREATEQUERY {}
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl ::core::clone::Clone for D3DNTHAL_DP2CREATEQUERY {
+impl Clone for D3DNTHAL_DP2CREATEQUERY {
     fn clone(&self) -> Self {
         *self
     }
@@ -12998,8 +12998,8 @@ pub struct D3DNTHAL_DP2CREATEVERTEXSHADER {
     pub dwDeclSize: u32,
     pub dwCodeSize: u32,
 }
-impl ::core::marker::Copy for D3DNTHAL_DP2CREATEVERTEXSHADER {}
-impl ::core::clone::Clone for D3DNTHAL_DP2CREATEVERTEXSHADER {
+impl Copy for D3DNTHAL_DP2CREATEVERTEXSHADER {}
+impl Clone for D3DNTHAL_DP2CREATEVERTEXSHADER {
     fn clone(&self) -> Self {
         *self
     }
@@ -13009,8 +13009,8 @@ pub struct D3DNTHAL_DP2CREATEVERTEXSHADERDECL {
     pub dwHandle: u32,
     pub dwNumVertexElements: u32,
 }
-impl ::core::marker::Copy for D3DNTHAL_DP2CREATEVERTEXSHADERDECL {}
-impl ::core::clone::Clone for D3DNTHAL_DP2CREATEVERTEXSHADERDECL {
+impl Copy for D3DNTHAL_DP2CREATEVERTEXSHADERDECL {}
+impl Clone for D3DNTHAL_DP2CREATEVERTEXSHADERDECL {
     fn clone(&self) -> Self {
         *self
     }
@@ -13020,8 +13020,8 @@ pub struct D3DNTHAL_DP2CREATEVERTEXSHADERFUNC {
     pub dwHandle: u32,
     pub dwSize: u32,
 }
-impl ::core::marker::Copy for D3DNTHAL_DP2CREATEVERTEXSHADERFUNC {}
-impl ::core::clone::Clone for D3DNTHAL_DP2CREATEVERTEXSHADERFUNC {
+impl Copy for D3DNTHAL_DP2CREATEVERTEXSHADERFUNC {}
+impl Clone for D3DNTHAL_DP2CREATEVERTEXSHADERFUNC {
     fn clone(&self) -> Self {
         *self
     }
@@ -13030,8 +13030,8 @@ impl ::core::clone::Clone for D3DNTHAL_DP2CREATEVERTEXSHADERFUNC {
 pub struct D3DNTHAL_DP2DELETEQUERY {
     pub dwQueryID: u32,
 }
-impl ::core::marker::Copy for D3DNTHAL_DP2DELETEQUERY {}
-impl ::core::clone::Clone for D3DNTHAL_DP2DELETEQUERY {
+impl Copy for D3DNTHAL_DP2DELETEQUERY {}
+impl Clone for D3DNTHAL_DP2DELETEQUERY {
     fn clone(&self) -> Self {
         *self
     }
@@ -13047,9 +13047,9 @@ pub struct D3DNTHAL_DP2DRAWINDEXEDPRIMITIVE {
     pub PrimitiveCount: u32,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl ::core::marker::Copy for D3DNTHAL_DP2DRAWINDEXEDPRIMITIVE {}
+impl Copy for D3DNTHAL_DP2DRAWINDEXEDPRIMITIVE {}
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl ::core::clone::Clone for D3DNTHAL_DP2DRAWINDEXEDPRIMITIVE {
+impl Clone for D3DNTHAL_DP2DRAWINDEXEDPRIMITIVE {
     fn clone(&self) -> Self {
         *self
     }
@@ -13065,9 +13065,9 @@ pub struct D3DNTHAL_DP2DRAWINDEXEDPRIMITIVE2 {
     pub PrimitiveCount: u32,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl ::core::marker::Copy for D3DNTHAL_DP2DRAWINDEXEDPRIMITIVE2 {}
+impl Copy for D3DNTHAL_DP2DRAWINDEXEDPRIMITIVE2 {}
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl ::core::clone::Clone for D3DNTHAL_DP2DRAWINDEXEDPRIMITIVE2 {
+impl Clone for D3DNTHAL_DP2DRAWINDEXEDPRIMITIVE2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -13080,9 +13080,9 @@ pub struct D3DNTHAL_DP2DRAWPRIMITIVE {
     pub PrimitiveCount: u32,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl ::core::marker::Copy for D3DNTHAL_DP2DRAWPRIMITIVE {}
+impl Copy for D3DNTHAL_DP2DRAWPRIMITIVE {}
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl ::core::clone::Clone for D3DNTHAL_DP2DRAWPRIMITIVE {
+impl Clone for D3DNTHAL_DP2DRAWPRIMITIVE {
     fn clone(&self) -> Self {
         *self
     }
@@ -13095,9 +13095,9 @@ pub struct D3DNTHAL_DP2DRAWPRIMITIVE2 {
     pub PrimitiveCount: u32,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl ::core::marker::Copy for D3DNTHAL_DP2DRAWPRIMITIVE2 {}
+impl Copy for D3DNTHAL_DP2DRAWPRIMITIVE2 {}
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl ::core::clone::Clone for D3DNTHAL_DP2DRAWPRIMITIVE2 {
+impl Clone for D3DNTHAL_DP2DRAWPRIMITIVE2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -13107,8 +13107,8 @@ pub struct D3DNTHAL_DP2DRAWRECTPATCH {
     pub Handle: u32,
     pub Flags: u32,
 }
-impl ::core::marker::Copy for D3DNTHAL_DP2DRAWRECTPATCH {}
-impl ::core::clone::Clone for D3DNTHAL_DP2DRAWRECTPATCH {
+impl Copy for D3DNTHAL_DP2DRAWRECTPATCH {}
+impl Clone for D3DNTHAL_DP2DRAWRECTPATCH {
     fn clone(&self) -> Self {
         *self
     }
@@ -13118,8 +13118,8 @@ pub struct D3DNTHAL_DP2DRAWTRIPATCH {
     pub Handle: u32,
     pub Flags: u32,
 }
-impl ::core::marker::Copy for D3DNTHAL_DP2DRAWTRIPATCH {}
-impl ::core::clone::Clone for D3DNTHAL_DP2DRAWTRIPATCH {
+impl Copy for D3DNTHAL_DP2DRAWTRIPATCH {}
+impl Clone for D3DNTHAL_DP2DRAWTRIPATCH {
     fn clone(&self) -> Self {
         *self
     }
@@ -13129,8 +13129,8 @@ pub struct D3DNTHAL_DP2EXT {
     pub dwExtToken: u32,
     pub dwSize: u32,
 }
-impl ::core::marker::Copy for D3DNTHAL_DP2EXT {}
-impl ::core::clone::Clone for D3DNTHAL_DP2EXT {
+impl Copy for D3DNTHAL_DP2EXT {}
+impl Clone for D3DNTHAL_DP2EXT {
     fn clone(&self) -> Self {
         *self
     }
@@ -13142,9 +13142,9 @@ pub struct D3DNTHAL_DP2GENERATEMIPSUBLEVELS {
     pub Filter: super::super::super::Win32::Graphics::Direct3D9::D3DTEXTUREFILTERTYPE,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl ::core::marker::Copy for D3DNTHAL_DP2GENERATEMIPSUBLEVELS {}
+impl Copy for D3DNTHAL_DP2GENERATEMIPSUBLEVELS {}
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl ::core::clone::Clone for D3DNTHAL_DP2GENERATEMIPSUBLEVELS {
+impl Clone for D3DNTHAL_DP2GENERATEMIPSUBLEVELS {
     fn clone(&self) -> Self {
         *self
     }
@@ -13154,8 +13154,8 @@ pub struct D3DNTHAL_DP2INDEXEDLINELIST {
     pub wV1: u16,
     pub wV2: u16,
 }
-impl ::core::marker::Copy for D3DNTHAL_DP2INDEXEDLINELIST {}
-impl ::core::clone::Clone for D3DNTHAL_DP2INDEXEDLINELIST {
+impl Copy for D3DNTHAL_DP2INDEXEDLINELIST {}
+impl Clone for D3DNTHAL_DP2INDEXEDLINELIST {
     fn clone(&self) -> Self {
         *self
     }
@@ -13164,8 +13164,8 @@ impl ::core::clone::Clone for D3DNTHAL_DP2INDEXEDLINELIST {
 pub struct D3DNTHAL_DP2INDEXEDLINESTRIP {
     pub wV: [u16; 2],
 }
-impl ::core::marker::Copy for D3DNTHAL_DP2INDEXEDLINESTRIP {}
-impl ::core::clone::Clone for D3DNTHAL_DP2INDEXEDLINESTRIP {
+impl Copy for D3DNTHAL_DP2INDEXEDLINESTRIP {}
+impl Clone for D3DNTHAL_DP2INDEXEDLINESTRIP {
     fn clone(&self) -> Self {
         *self
     }
@@ -13174,8 +13174,8 @@ impl ::core::clone::Clone for D3DNTHAL_DP2INDEXEDLINESTRIP {
 pub struct D3DNTHAL_DP2INDEXEDTRIANGLEFAN {
     pub wV: [u16; 3],
 }
-impl ::core::marker::Copy for D3DNTHAL_DP2INDEXEDTRIANGLEFAN {}
-impl ::core::clone::Clone for D3DNTHAL_DP2INDEXEDTRIANGLEFAN {
+impl Copy for D3DNTHAL_DP2INDEXEDTRIANGLEFAN {}
+impl Clone for D3DNTHAL_DP2INDEXEDTRIANGLEFAN {
     fn clone(&self) -> Self {
         *self
     }
@@ -13187,8 +13187,8 @@ pub struct D3DNTHAL_DP2INDEXEDTRIANGLELIST {
     pub wV3: u16,
     pub wFlags: u16,
 }
-impl ::core::marker::Copy for D3DNTHAL_DP2INDEXEDTRIANGLELIST {}
-impl ::core::clone::Clone for D3DNTHAL_DP2INDEXEDTRIANGLELIST {
+impl Copy for D3DNTHAL_DP2INDEXEDTRIANGLELIST {}
+impl Clone for D3DNTHAL_DP2INDEXEDTRIANGLELIST {
     fn clone(&self) -> Self {
         *self
     }
@@ -13199,8 +13199,8 @@ pub struct D3DNTHAL_DP2INDEXEDTRIANGLELIST2 {
     pub wV2: u16,
     pub wV3: u16,
 }
-impl ::core::marker::Copy for D3DNTHAL_DP2INDEXEDTRIANGLELIST2 {}
-impl ::core::clone::Clone for D3DNTHAL_DP2INDEXEDTRIANGLELIST2 {
+impl Copy for D3DNTHAL_DP2INDEXEDTRIANGLELIST2 {}
+impl Clone for D3DNTHAL_DP2INDEXEDTRIANGLELIST2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -13209,8 +13209,8 @@ impl ::core::clone::Clone for D3DNTHAL_DP2INDEXEDTRIANGLELIST2 {
 pub struct D3DNTHAL_DP2INDEXEDTRIANGLESTRIP {
     pub wV: [u16; 3],
 }
-impl ::core::marker::Copy for D3DNTHAL_DP2INDEXEDTRIANGLESTRIP {}
-impl ::core::clone::Clone for D3DNTHAL_DP2INDEXEDTRIANGLESTRIP {
+impl Copy for D3DNTHAL_DP2INDEXEDTRIANGLESTRIP {}
+impl Clone for D3DNTHAL_DP2INDEXEDTRIANGLESTRIP {
     fn clone(&self) -> Self {
         *self
     }
@@ -13220,8 +13220,8 @@ pub struct D3DNTHAL_DP2ISSUEQUERY {
     pub dwQueryID: u32,
     pub dwFlags: u32,
 }
-impl ::core::marker::Copy for D3DNTHAL_DP2ISSUEQUERY {}
-impl ::core::clone::Clone for D3DNTHAL_DP2ISSUEQUERY {
+impl Copy for D3DNTHAL_DP2ISSUEQUERY {}
+impl Clone for D3DNTHAL_DP2ISSUEQUERY {
     fn clone(&self) -> Self {
         *self
     }
@@ -13230,8 +13230,8 @@ impl ::core::clone::Clone for D3DNTHAL_DP2ISSUEQUERY {
 pub struct D3DNTHAL_DP2LINELIST {
     pub wVStart: u16,
 }
-impl ::core::marker::Copy for D3DNTHAL_DP2LINELIST {}
-impl ::core::clone::Clone for D3DNTHAL_DP2LINELIST {
+impl Copy for D3DNTHAL_DP2LINELIST {}
+impl Clone for D3DNTHAL_DP2LINELIST {
     fn clone(&self) -> Self {
         *self
     }
@@ -13240,8 +13240,8 @@ impl ::core::clone::Clone for D3DNTHAL_DP2LINELIST {
 pub struct D3DNTHAL_DP2LINESTRIP {
     pub wVStart: u16,
 }
-impl ::core::marker::Copy for D3DNTHAL_DP2LINESTRIP {}
-impl ::core::clone::Clone for D3DNTHAL_DP2LINESTRIP {
+impl Copy for D3DNTHAL_DP2LINESTRIP {}
+impl Clone for D3DNTHAL_DP2LINESTRIP {
     fn clone(&self) -> Self {
         *self
     }
@@ -13253,9 +13253,9 @@ pub struct D3DNTHAL_DP2MULTIPLYTRANSFORM {
     pub matrix: super::super::super::Win32::Graphics::Direct3D::D3DMATRIX,
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Direct3D9"))]
-impl ::core::marker::Copy for D3DNTHAL_DP2MULTIPLYTRANSFORM {}
+impl Copy for D3DNTHAL_DP2MULTIPLYTRANSFORM {}
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Direct3D9"))]
-impl ::core::clone::Clone for D3DNTHAL_DP2MULTIPLYTRANSFORM {
+impl Clone for D3DNTHAL_DP2MULTIPLYTRANSFORM {
     fn clone(&self) -> Self {
         *self
     }
@@ -13264,8 +13264,8 @@ impl ::core::clone::Clone for D3DNTHAL_DP2MULTIPLYTRANSFORM {
 pub struct D3DNTHAL_DP2PIXELSHADER {
     pub dwHandle: u32,
 }
-impl ::core::marker::Copy for D3DNTHAL_DP2PIXELSHADER {}
-impl ::core::clone::Clone for D3DNTHAL_DP2PIXELSHADER {
+impl Copy for D3DNTHAL_DP2PIXELSHADER {}
+impl Clone for D3DNTHAL_DP2PIXELSHADER {
     fn clone(&self) -> Self {
         *self
     }
@@ -13275,8 +13275,8 @@ pub struct D3DNTHAL_DP2POINTS {
     pub wCount: u16,
     pub wVStart: u16,
 }
-impl ::core::marker::Copy for D3DNTHAL_DP2POINTS {}
-impl ::core::clone::Clone for D3DNTHAL_DP2POINTS {
+impl Copy for D3DNTHAL_DP2POINTS {}
+impl Clone for D3DNTHAL_DP2POINTS {
     fn clone(&self) -> Self {
         *self
     }
@@ -13288,9 +13288,9 @@ pub struct D3DNTHAL_DP2RENDERSTATE {
     pub Anonymous: D3DNTHAL_DP2RENDERSTATE_0,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl ::core::marker::Copy for D3DNTHAL_DP2RENDERSTATE {}
+impl Copy for D3DNTHAL_DP2RENDERSTATE {}
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl ::core::clone::Clone for D3DNTHAL_DP2RENDERSTATE {
+impl Clone for D3DNTHAL_DP2RENDERSTATE {
     fn clone(&self) -> Self {
         *self
     }
@@ -13302,9 +13302,9 @@ pub union D3DNTHAL_DP2RENDERSTATE_0 {
     pub dwState: u32,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl ::core::marker::Copy for D3DNTHAL_DP2RENDERSTATE_0 {}
+impl Copy for D3DNTHAL_DP2RENDERSTATE_0 {}
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl ::core::clone::Clone for D3DNTHAL_DP2RENDERSTATE_0 {
+impl Clone for D3DNTHAL_DP2RENDERSTATE_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -13316,8 +13316,8 @@ pub struct D3DNTHAL_DP2RESPONSE {
     pub wStateCount: u16,
     pub dwTotalSize: u32,
 }
-impl ::core::marker::Copy for D3DNTHAL_DP2RESPONSE {}
-impl ::core::clone::Clone for D3DNTHAL_DP2RESPONSE {
+impl Copy for D3DNTHAL_DP2RESPONSE {}
+impl Clone for D3DNTHAL_DP2RESPONSE {
     fn clone(&self) -> Self {
         *self
     }
@@ -13327,8 +13327,8 @@ pub struct D3DNTHAL_DP2RESPONSEQUERY {
     pub dwQueryID: u32,
     pub dwSize: u32,
 }
-impl ::core::marker::Copy for D3DNTHAL_DP2RESPONSEQUERY {}
-impl ::core::clone::Clone for D3DNTHAL_DP2RESPONSEQUERY {
+impl Copy for D3DNTHAL_DP2RESPONSEQUERY {}
+impl Clone for D3DNTHAL_DP2RESPONSEQUERY {
     fn clone(&self) -> Self {
         *self
     }
@@ -13338,8 +13338,8 @@ pub struct D3DNTHAL_DP2SETCLIPPLANE {
     pub dwIndex: u32,
     pub plane: [f32; 4],
 }
-impl ::core::marker::Copy for D3DNTHAL_DP2SETCLIPPLANE {}
-impl ::core::clone::Clone for D3DNTHAL_DP2SETCLIPPLANE {
+impl Copy for D3DNTHAL_DP2SETCLIPPLANE {}
+impl Clone for D3DNTHAL_DP2SETCLIPPLANE {
     fn clone(&self) -> Self {
         *self
     }
@@ -13350,8 +13350,8 @@ pub struct D3DNTHAL_DP2SETCONVOLUTIONKERNELMONO {
     pub dwHeight: u32,
     pub dwFlags: u32,
 }
-impl ::core::marker::Copy for D3DNTHAL_DP2SETCONVOLUTIONKERNELMONO {}
-impl ::core::clone::Clone for D3DNTHAL_DP2SETCONVOLUTIONKERNELMONO {
+impl Copy for D3DNTHAL_DP2SETCONVOLUTIONKERNELMONO {}
+impl Clone for D3DNTHAL_DP2SETCONVOLUTIONKERNELMONO {
     fn clone(&self) -> Self {
         *self
     }
@@ -13360,8 +13360,8 @@ impl ::core::clone::Clone for D3DNTHAL_DP2SETCONVOLUTIONKERNELMONO {
 pub struct D3DNTHAL_DP2SETDEPTHSTENCIL {
     pub hZBuffer: u32,
 }
-impl ::core::marker::Copy for D3DNTHAL_DP2SETDEPTHSTENCIL {}
-impl ::core::clone::Clone for D3DNTHAL_DP2SETDEPTHSTENCIL {
+impl Copy for D3DNTHAL_DP2SETDEPTHSTENCIL {}
+impl Clone for D3DNTHAL_DP2SETDEPTHSTENCIL {
     fn clone(&self) -> Self {
         *self
     }
@@ -13371,8 +13371,8 @@ pub struct D3DNTHAL_DP2SETINDICES {
     pub dwVBHandle: u32,
     pub dwStride: u32,
 }
-impl ::core::marker::Copy for D3DNTHAL_DP2SETINDICES {}
-impl ::core::clone::Clone for D3DNTHAL_DP2SETINDICES {
+impl Copy for D3DNTHAL_DP2SETINDICES {}
+impl Clone for D3DNTHAL_DP2SETINDICES {
     fn clone(&self) -> Self {
         *self
     }
@@ -13382,8 +13382,8 @@ pub struct D3DNTHAL_DP2SETLIGHT {
     pub dwIndex: u32,
     pub Anonymous: D3DNTHAL_DP2SETLIGHT_0,
 }
-impl ::core::marker::Copy for D3DNTHAL_DP2SETLIGHT {}
-impl ::core::clone::Clone for D3DNTHAL_DP2SETLIGHT {
+impl Copy for D3DNTHAL_DP2SETLIGHT {}
+impl Clone for D3DNTHAL_DP2SETLIGHT {
     fn clone(&self) -> Self {
         *self
     }
@@ -13393,8 +13393,8 @@ pub union D3DNTHAL_DP2SETLIGHT_0 {
     pub lightData: u32,
     pub dwDataType: u32,
 }
-impl ::core::marker::Copy for D3DNTHAL_DP2SETLIGHT_0 {}
-impl ::core::clone::Clone for D3DNTHAL_DP2SETLIGHT_0 {
+impl Copy for D3DNTHAL_DP2SETLIGHT_0 {}
+impl Clone for D3DNTHAL_DP2SETLIGHT_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -13405,8 +13405,8 @@ pub struct D3DNTHAL_DP2SETPALETTE {
     pub dwPaletteFlags: u32,
     pub dwSurfaceHandle: u32,
 }
-impl ::core::marker::Copy for D3DNTHAL_DP2SETPALETTE {}
-impl ::core::clone::Clone for D3DNTHAL_DP2SETPALETTE {
+impl Copy for D3DNTHAL_DP2SETPALETTE {}
+impl Clone for D3DNTHAL_DP2SETPALETTE {
     fn clone(&self) -> Self {
         *self
     }
@@ -13416,8 +13416,8 @@ pub struct D3DNTHAL_DP2SETPIXELSHADERCONST {
     pub dwRegister: u32,
     pub dwCount: u32,
 }
-impl ::core::marker::Copy for D3DNTHAL_DP2SETPIXELSHADERCONST {}
-impl ::core::clone::Clone for D3DNTHAL_DP2SETPIXELSHADERCONST {
+impl Copy for D3DNTHAL_DP2SETPIXELSHADERCONST {}
+impl Clone for D3DNTHAL_DP2SETPIXELSHADERCONST {
     fn clone(&self) -> Self {
         *self
     }
@@ -13427,8 +13427,8 @@ pub struct D3DNTHAL_DP2SETPRIORITY {
     pub dwDDDestSurface: u32,
     pub dwPriority: u32,
 }
-impl ::core::marker::Copy for D3DNTHAL_DP2SETPRIORITY {}
-impl ::core::clone::Clone for D3DNTHAL_DP2SETPRIORITY {
+impl Copy for D3DNTHAL_DP2SETPRIORITY {}
+impl Clone for D3DNTHAL_DP2SETPRIORITY {
     fn clone(&self) -> Self {
         *self
     }
@@ -13438,8 +13438,8 @@ pub struct D3DNTHAL_DP2SETRENDERTARGET {
     pub hRenderTarget: u32,
     pub hZBuffer: u32,
 }
-impl ::core::marker::Copy for D3DNTHAL_DP2SETRENDERTARGET {}
-impl ::core::clone::Clone for D3DNTHAL_DP2SETRENDERTARGET {
+impl Copy for D3DNTHAL_DP2SETRENDERTARGET {}
+impl Clone for D3DNTHAL_DP2SETRENDERTARGET {
     fn clone(&self) -> Self {
         *self
     }
@@ -13449,8 +13449,8 @@ pub struct D3DNTHAL_DP2SETRENDERTARGET2 {
     pub RTIndex: u32,
     pub hRenderTarget: u32,
 }
-impl ::core::marker::Copy for D3DNTHAL_DP2SETRENDERTARGET2 {}
-impl ::core::clone::Clone for D3DNTHAL_DP2SETRENDERTARGET2 {
+impl Copy for D3DNTHAL_DP2SETRENDERTARGET2 {}
+impl Clone for D3DNTHAL_DP2SETRENDERTARGET2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -13461,8 +13461,8 @@ pub struct D3DNTHAL_DP2SETSTREAMSOURCE {
     pub dwVBHandle: u32,
     pub dwStride: u32,
 }
-impl ::core::marker::Copy for D3DNTHAL_DP2SETSTREAMSOURCE {}
-impl ::core::clone::Clone for D3DNTHAL_DP2SETSTREAMSOURCE {
+impl Copy for D3DNTHAL_DP2SETSTREAMSOURCE {}
+impl Clone for D3DNTHAL_DP2SETSTREAMSOURCE {
     fn clone(&self) -> Self {
         *self
     }
@@ -13474,8 +13474,8 @@ pub struct D3DNTHAL_DP2SETSTREAMSOURCE2 {
     pub dwOffset: u32,
     pub dwStride: u32,
 }
-impl ::core::marker::Copy for D3DNTHAL_DP2SETSTREAMSOURCE2 {}
-impl ::core::clone::Clone for D3DNTHAL_DP2SETSTREAMSOURCE2 {
+impl Copy for D3DNTHAL_DP2SETSTREAMSOURCE2 {}
+impl Clone for D3DNTHAL_DP2SETSTREAMSOURCE2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -13485,8 +13485,8 @@ pub struct D3DNTHAL_DP2SETSTREAMSOURCEFREQ {
     pub dwStream: u32,
     pub dwDivider: u32,
 }
-impl ::core::marker::Copy for D3DNTHAL_DP2SETSTREAMSOURCEFREQ {}
-impl ::core::clone::Clone for D3DNTHAL_DP2SETSTREAMSOURCEFREQ {
+impl Copy for D3DNTHAL_DP2SETSTREAMSOURCEFREQ {}
+impl Clone for D3DNTHAL_DP2SETSTREAMSOURCEFREQ {
     fn clone(&self) -> Self {
         *self
     }
@@ -13496,8 +13496,8 @@ pub struct D3DNTHAL_DP2SETSTREAMSOURCEUM {
     pub dwStream: u32,
     pub dwStride: u32,
 }
-impl ::core::marker::Copy for D3DNTHAL_DP2SETSTREAMSOURCEUM {}
-impl ::core::clone::Clone for D3DNTHAL_DP2SETSTREAMSOURCEUM {
+impl Copy for D3DNTHAL_DP2SETSTREAMSOURCEUM {}
+impl Clone for D3DNTHAL_DP2SETSTREAMSOURCEUM {
     fn clone(&self) -> Self {
         *self
     }
@@ -13507,8 +13507,8 @@ pub struct D3DNTHAL_DP2SETTEXLOD {
     pub dwDDSurface: u32,
     pub dwLOD: u32,
 }
-impl ::core::marker::Copy for D3DNTHAL_DP2SETTEXLOD {}
-impl ::core::clone::Clone for D3DNTHAL_DP2SETTEXLOD {
+impl Copy for D3DNTHAL_DP2SETTEXLOD {}
+impl Clone for D3DNTHAL_DP2SETTEXLOD {
     fn clone(&self) -> Self {
         *self
     }
@@ -13520,9 +13520,9 @@ pub struct D3DNTHAL_DP2SETTRANSFORM {
     pub matrix: super::super::super::Win32::Graphics::Direct3D::D3DMATRIX,
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Direct3D9"))]
-impl ::core::marker::Copy for D3DNTHAL_DP2SETTRANSFORM {}
+impl Copy for D3DNTHAL_DP2SETTRANSFORM {}
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Direct3D9"))]
-impl ::core::clone::Clone for D3DNTHAL_DP2SETTRANSFORM {
+impl Clone for D3DNTHAL_DP2SETTRANSFORM {
     fn clone(&self) -> Self {
         *self
     }
@@ -13532,8 +13532,8 @@ pub struct D3DNTHAL_DP2SETVERTEXSHADERCONST {
     pub dwRegister: u32,
     pub dwCount: u32,
 }
-impl ::core::marker::Copy for D3DNTHAL_DP2SETVERTEXSHADERCONST {}
-impl ::core::clone::Clone for D3DNTHAL_DP2SETVERTEXSHADERCONST {
+impl Copy for D3DNTHAL_DP2SETVERTEXSHADERCONST {}
+impl Clone for D3DNTHAL_DP2SETVERTEXSHADERCONST {
     fn clone(&self) -> Self {
         *self
     }
@@ -13542,8 +13542,8 @@ impl ::core::clone::Clone for D3DNTHAL_DP2SETVERTEXSHADERCONST {
 pub struct D3DNTHAL_DP2STARTVERTEX {
     pub wVStart: u16,
 }
-impl ::core::marker::Copy for D3DNTHAL_DP2STARTVERTEX {}
-impl ::core::clone::Clone for D3DNTHAL_DP2STARTVERTEX {
+impl Copy for D3DNTHAL_DP2STARTVERTEX {}
+impl Clone for D3DNTHAL_DP2STARTVERTEX {
     fn clone(&self) -> Self {
         *self
     }
@@ -13556,9 +13556,9 @@ pub struct D3DNTHAL_DP2STATESET {
     pub sbType: super::super::super::Win32::Graphics::Direct3D9::D3DSTATEBLOCKTYPE,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl ::core::marker::Copy for D3DNTHAL_DP2STATESET {}
+impl Copy for D3DNTHAL_DP2STATESET {}
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl ::core::clone::Clone for D3DNTHAL_DP2STATESET {
+impl Clone for D3DNTHAL_DP2STATESET {
     fn clone(&self) -> Self {
         *self
     }
@@ -13573,8 +13573,8 @@ pub struct D3DNTHAL_DP2SURFACEBLT {
     pub dwDestMipLevel: u32,
     pub Flags: u32,
 }
-impl ::core::marker::Copy for D3DNTHAL_DP2SURFACEBLT {}
-impl ::core::clone::Clone for D3DNTHAL_DP2SURFACEBLT {
+impl Copy for D3DNTHAL_DP2SURFACEBLT {}
+impl Clone for D3DNTHAL_DP2SURFACEBLT {
     fn clone(&self) -> Self {
         *self
     }
@@ -13587,8 +13587,8 @@ pub struct D3DNTHAL_DP2TEXBLT {
     pub rSrc: super::super::super::Win32::Foundation::RECTL,
     pub dwFlags: u32,
 }
-impl ::core::marker::Copy for D3DNTHAL_DP2TEXBLT {}
-impl ::core::clone::Clone for D3DNTHAL_DP2TEXBLT {
+impl Copy for D3DNTHAL_DP2TEXBLT {}
+impl Clone for D3DNTHAL_DP2TEXBLT {
     fn clone(&self) -> Self {
         *self
     }
@@ -13599,8 +13599,8 @@ pub struct D3DNTHAL_DP2TEXTURESTAGESTATE {
     pub TSState: u16,
     pub dwValue: u32,
 }
-impl ::core::marker::Copy for D3DNTHAL_DP2TEXTURESTAGESTATE {}
-impl ::core::clone::Clone for D3DNTHAL_DP2TEXTURESTAGESTATE {
+impl Copy for D3DNTHAL_DP2TEXTURESTAGESTATE {}
+impl Clone for D3DNTHAL_DP2TEXTURESTAGESTATE {
     fn clone(&self) -> Self {
         *self
     }
@@ -13609,8 +13609,8 @@ impl ::core::clone::Clone for D3DNTHAL_DP2TEXTURESTAGESTATE {
 pub struct D3DNTHAL_DP2TRIANGLEFAN {
     pub wVStart: u16,
 }
-impl ::core::marker::Copy for D3DNTHAL_DP2TRIANGLEFAN {}
-impl ::core::clone::Clone for D3DNTHAL_DP2TRIANGLEFAN {
+impl Copy for D3DNTHAL_DP2TRIANGLEFAN {}
+impl Clone for D3DNTHAL_DP2TRIANGLEFAN {
     fn clone(&self) -> Self {
         *self
     }
@@ -13619,8 +13619,8 @@ impl ::core::clone::Clone for D3DNTHAL_DP2TRIANGLEFAN {
 pub struct D3DNTHAL_DP2TRIANGLEFAN_IMM {
     pub dwEdgeFlags: u32,
 }
-impl ::core::marker::Copy for D3DNTHAL_DP2TRIANGLEFAN_IMM {}
-impl ::core::clone::Clone for D3DNTHAL_DP2TRIANGLEFAN_IMM {
+impl Copy for D3DNTHAL_DP2TRIANGLEFAN_IMM {}
+impl Clone for D3DNTHAL_DP2TRIANGLEFAN_IMM {
     fn clone(&self) -> Self {
         *self
     }
@@ -13629,8 +13629,8 @@ impl ::core::clone::Clone for D3DNTHAL_DP2TRIANGLEFAN_IMM {
 pub struct D3DNTHAL_DP2TRIANGLELIST {
     pub wVStart: u16,
 }
-impl ::core::marker::Copy for D3DNTHAL_DP2TRIANGLELIST {}
-impl ::core::clone::Clone for D3DNTHAL_DP2TRIANGLELIST {
+impl Copy for D3DNTHAL_DP2TRIANGLELIST {}
+impl Clone for D3DNTHAL_DP2TRIANGLELIST {
     fn clone(&self) -> Self {
         *self
     }
@@ -13639,8 +13639,8 @@ impl ::core::clone::Clone for D3DNTHAL_DP2TRIANGLELIST {
 pub struct D3DNTHAL_DP2TRIANGLESTRIP {
     pub wVStart: u16,
 }
-impl ::core::marker::Copy for D3DNTHAL_DP2TRIANGLESTRIP {}
-impl ::core::clone::Clone for D3DNTHAL_DP2TRIANGLESTRIP {
+impl Copy for D3DNTHAL_DP2TRIANGLESTRIP {}
+impl Clone for D3DNTHAL_DP2TRIANGLESTRIP {
     fn clone(&self) -> Self {
         *self
     }
@@ -13651,8 +13651,8 @@ pub struct D3DNTHAL_DP2UPDATEPALETTE {
     pub wStartIndex: u16,
     pub wNumEntries: u16,
 }
-impl ::core::marker::Copy for D3DNTHAL_DP2UPDATEPALETTE {}
-impl ::core::clone::Clone for D3DNTHAL_DP2UPDATEPALETTE {
+impl Copy for D3DNTHAL_DP2UPDATEPALETTE {}
+impl Clone for D3DNTHAL_DP2UPDATEPALETTE {
     fn clone(&self) -> Self {
         *self
     }
@@ -13661,8 +13661,8 @@ impl ::core::clone::Clone for D3DNTHAL_DP2UPDATEPALETTE {
 pub struct D3DNTHAL_DP2VERTEXSHADER {
     pub dwHandle: u32,
 }
-impl ::core::marker::Copy for D3DNTHAL_DP2VERTEXSHADER {}
-impl ::core::clone::Clone for D3DNTHAL_DP2VERTEXSHADER {
+impl Copy for D3DNTHAL_DP2VERTEXSHADER {}
+impl Clone for D3DNTHAL_DP2VERTEXSHADER {
     fn clone(&self) -> Self {
         *self
     }
@@ -13674,8 +13674,8 @@ pub struct D3DNTHAL_DP2VIEWPORTINFO {
     pub dwWidth: u32,
     pub dwHeight: u32,
 }
-impl ::core::marker::Copy for D3DNTHAL_DP2VIEWPORTINFO {}
-impl ::core::clone::Clone for D3DNTHAL_DP2VIEWPORTINFO {
+impl Copy for D3DNTHAL_DP2VIEWPORTINFO {}
+impl Clone for D3DNTHAL_DP2VIEWPORTINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -13692,9 +13692,9 @@ pub struct D3DNTHAL_DP2VOLUMEBLT {
     pub dwFlags: u32,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl ::core::marker::Copy for D3DNTHAL_DP2VOLUMEBLT {}
+impl Copy for D3DNTHAL_DP2VOLUMEBLT {}
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl ::core::clone::Clone for D3DNTHAL_DP2VOLUMEBLT {
+impl Clone for D3DNTHAL_DP2VOLUMEBLT {
     fn clone(&self) -> Self {
         *self
     }
@@ -13704,8 +13704,8 @@ pub struct D3DNTHAL_DP2WINFO {
     pub dvWNear: f32,
     pub dvWFar: f32,
 }
-impl ::core::marker::Copy for D3DNTHAL_DP2WINFO {}
-impl ::core::clone::Clone for D3DNTHAL_DP2WINFO {
+impl Copy for D3DNTHAL_DP2WINFO {}
+impl Clone for D3DNTHAL_DP2WINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -13715,8 +13715,8 @@ pub struct D3DNTHAL_DP2ZRANGE {
     pub dvMinZ: f32,
     pub dvMaxZ: f32,
 }
-impl ::core::marker::Copy for D3DNTHAL_DP2ZRANGE {}
-impl ::core::clone::Clone for D3DNTHAL_DP2ZRANGE {
+impl Copy for D3DNTHAL_DP2ZRANGE {}
+impl Clone for D3DNTHAL_DP2ZRANGE {
     fn clone(&self) -> Self {
         *self
     }
@@ -13740,9 +13740,9 @@ pub struct D3DNTHAL_DRAWPRIMITIVES2DATA {
     pub dwErrorOffset: u32,
 }
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
-impl ::core::marker::Copy for D3DNTHAL_DRAWPRIMITIVES2DATA {}
+impl Copy for D3DNTHAL_DRAWPRIMITIVES2DATA {}
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
-impl ::core::clone::Clone for D3DNTHAL_DRAWPRIMITIVES2DATA {
+impl Clone for D3DNTHAL_DRAWPRIMITIVES2DATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -13751,12 +13751,12 @@ impl ::core::clone::Clone for D3DNTHAL_DRAWPRIMITIVES2DATA {
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
 pub union D3DNTHAL_DRAWPRIMITIVES2DATA_0 {
     pub lpDDVertex: *mut super::super::super::Win32::Graphics::DirectDraw::DD_SURFACE_LOCAL,
-    pub lpVertices: *mut ::core::ffi::c_void,
+    pub lpVertices: *mut core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
-impl ::core::marker::Copy for D3DNTHAL_DRAWPRIMITIVES2DATA_0 {}
+impl Copy for D3DNTHAL_DRAWPRIMITIVES2DATA_0 {}
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
-impl ::core::clone::Clone for D3DNTHAL_DRAWPRIMITIVES2DATA_0 {
+impl Clone for D3DNTHAL_DRAWPRIMITIVES2DATA_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -13765,12 +13765,12 @@ impl ::core::clone::Clone for D3DNTHAL_DRAWPRIMITIVES2DATA_0 {
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
 pub union D3DNTHAL_DRAWPRIMITIVES2DATA_1 {
     pub dwVertexSize: u32,
-    pub ddrval: ::windows_sys::core::HRESULT,
+    pub ddrval: windows_sys::core::HRESULT,
 }
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
-impl ::core::marker::Copy for D3DNTHAL_DRAWPRIMITIVES2DATA_1 {}
+impl Copy for D3DNTHAL_DRAWPRIMITIVES2DATA_1 {}
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
-impl ::core::clone::Clone for D3DNTHAL_DRAWPRIMITIVES2DATA_1 {
+impl Clone for D3DNTHAL_DRAWPRIMITIVES2DATA_1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -13786,9 +13786,9 @@ pub struct D3DNTHAL_GLOBALDRIVERDATA {
     pub lpTextureFormats: *mut super::super::super::Win32::Graphics::DirectDraw::DDSURFACEDESC,
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw"))]
-impl ::core::marker::Copy for D3DNTHAL_GLOBALDRIVERDATA {}
+impl Copy for D3DNTHAL_GLOBALDRIVERDATA {}
 #[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw"))]
-impl ::core::clone::Clone for D3DNTHAL_GLOBALDRIVERDATA {
+impl Clone for D3DNTHAL_GLOBALDRIVERDATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -13797,10 +13797,10 @@ impl ::core::clone::Clone for D3DNTHAL_GLOBALDRIVERDATA {
 pub struct D3DNTHAL_SCENECAPTUREDATA {
     pub dwhContext: usize,
     pub dwFlag: u32,
-    pub ddrval: ::windows_sys::core::HRESULT,
+    pub ddrval: windows_sys::core::HRESULT,
 }
-impl ::core::marker::Copy for D3DNTHAL_SCENECAPTUREDATA {}
-impl ::core::clone::Clone for D3DNTHAL_SCENECAPTUREDATA {
+impl Copy for D3DNTHAL_SCENECAPTUREDATA {}
+impl Clone for D3DNTHAL_SCENECAPTUREDATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -13811,12 +13811,12 @@ pub struct D3DNTHAL_SETRENDERTARGETDATA {
     pub dwhContext: usize,
     pub lpDDS: *mut super::super::super::Win32::Graphics::DirectDraw::DD_SURFACE_LOCAL,
     pub lpDDSZ: *mut super::super::super::Win32::Graphics::DirectDraw::DD_SURFACE_LOCAL,
-    pub ddrval: ::windows_sys::core::HRESULT,
+    pub ddrval: windows_sys::core::HRESULT,
 }
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
-impl ::core::marker::Copy for D3DNTHAL_SETRENDERTARGETDATA {}
+impl Copy for D3DNTHAL_SETRENDERTARGETDATA {}
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
-impl ::core::clone::Clone for D3DNTHAL_SETRENDERTARGETDATA {
+impl Clone for D3DNTHAL_SETRENDERTARGETDATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -13826,10 +13826,10 @@ pub struct D3DNTHAL_TEXTURECREATEDATA {
     pub dwhContext: usize,
     pub hDDS: super::super::super::Win32::Foundation::HANDLE,
     pub dwHandle: usize,
-    pub ddrval: ::windows_sys::core::HRESULT,
+    pub ddrval: windows_sys::core::HRESULT,
 }
-impl ::core::marker::Copy for D3DNTHAL_TEXTURECREATEDATA {}
-impl ::core::clone::Clone for D3DNTHAL_TEXTURECREATEDATA {
+impl Copy for D3DNTHAL_TEXTURECREATEDATA {}
+impl Clone for D3DNTHAL_TEXTURECREATEDATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -13838,10 +13838,10 @@ impl ::core::clone::Clone for D3DNTHAL_TEXTURECREATEDATA {
 pub struct D3DNTHAL_TEXTUREDESTROYDATA {
     pub dwhContext: usize,
     pub dwHandle: usize,
-    pub ddrval: ::windows_sys::core::HRESULT,
+    pub ddrval: windows_sys::core::HRESULT,
 }
-impl ::core::marker::Copy for D3DNTHAL_TEXTUREDESTROYDATA {}
-impl ::core::clone::Clone for D3DNTHAL_TEXTUREDESTROYDATA {
+impl Copy for D3DNTHAL_TEXTUREDESTROYDATA {}
+impl Clone for D3DNTHAL_TEXTUREDESTROYDATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -13851,10 +13851,10 @@ pub struct D3DNTHAL_TEXTUREGETSURFDATA {
     pub dwhContext: usize,
     pub hDDS: super::super::super::Win32::Foundation::HANDLE,
     pub dwHandle: usize,
-    pub ddrval: ::windows_sys::core::HRESULT,
+    pub ddrval: windows_sys::core::HRESULT,
 }
-impl ::core::marker::Copy for D3DNTHAL_TEXTUREGETSURFDATA {}
-impl ::core::clone::Clone for D3DNTHAL_TEXTUREGETSURFDATA {
+impl Copy for D3DNTHAL_TEXTUREGETSURFDATA {}
+impl Clone for D3DNTHAL_TEXTUREGETSURFDATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -13864,10 +13864,10 @@ pub struct D3DNTHAL_TEXTURESWAPDATA {
     pub dwhContext: usize,
     pub dwHandle1: usize,
     pub dwHandle2: usize,
-    pub ddrval: ::windows_sys::core::HRESULT,
+    pub ddrval: windows_sys::core::HRESULT,
 }
-impl ::core::marker::Copy for D3DNTHAL_TEXTURESWAPDATA {}
-impl ::core::clone::Clone for D3DNTHAL_TEXTURESWAPDATA {
+impl Copy for D3DNTHAL_TEXTURESWAPDATA {}
+impl Clone for D3DNTHAL_TEXTURESWAPDATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -13878,10 +13878,10 @@ pub struct D3DNTHAL_VALIDATETEXTURESTAGESTATEDATA {
     pub dwFlags: u32,
     pub dwReserved: usize,
     pub dwNumPasses: u32,
-    pub ddrval: ::windows_sys::core::HRESULT,
+    pub ddrval: windows_sys::core::HRESULT,
 }
-impl ::core::marker::Copy for D3DNTHAL_VALIDATETEXTURESTAGESTATEDATA {}
-impl ::core::clone::Clone for D3DNTHAL_VALIDATETEXTURESTAGESTATEDATA {
+impl Copy for D3DNTHAL_VALIDATETEXTURESTAGESTATEDATA {}
+impl Clone for D3DNTHAL_VALIDATETEXTURESTAGESTATEDATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -13890,8 +13890,8 @@ impl ::core::clone::Clone for D3DNTHAL_VALIDATETEXTURESTAGESTATEDATA {
 pub struct DDNT_DEFERRED_AGP_AWARE_DATA {
     pub gdi2: DDNT_GETDRIVERINFO2DATA,
 }
-impl ::core::marker::Copy for DDNT_DEFERRED_AGP_AWARE_DATA {}
-impl ::core::clone::Clone for DDNT_DEFERRED_AGP_AWARE_DATA {
+impl Copy for DDNT_DEFERRED_AGP_AWARE_DATA {}
+impl Clone for DDNT_DEFERRED_AGP_AWARE_DATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -13902,8 +13902,8 @@ pub struct DDNT_DXVERSION {
     pub dwDXVersion: u32,
     pub dwReserved: u32,
 }
-impl ::core::marker::Copy for DDNT_DXVERSION {}
-impl ::core::clone::Clone for DDNT_DXVERSION {
+impl Copy for DDNT_DXVERSION {}
+impl Clone for DDNT_DXVERSION {
     fn clone(&self) -> Self {
         *self
     }
@@ -13913,8 +13913,8 @@ pub struct DDNT_FREE_DEFERRED_AGP_DATA {
     pub gdi2: DDNT_GETDRIVERINFO2DATA,
     pub dwProcessId: u32,
 }
-impl ::core::marker::Copy for DDNT_FREE_DEFERRED_AGP_DATA {}
-impl ::core::clone::Clone for DDNT_FREE_DEFERRED_AGP_DATA {
+impl Copy for DDNT_FREE_DEFERRED_AGP_DATA {}
+impl Clone for DDNT_FREE_DEFERRED_AGP_DATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -13926,8 +13926,8 @@ pub struct DDNT_GETADAPTERGROUPDATA {
     pub dwReserved1: u32,
     pub dwReserved2: u32,
 }
-impl ::core::marker::Copy for DDNT_GETADAPTERGROUPDATA {}
-impl ::core::clone::Clone for DDNT_GETADAPTERGROUPDATA {
+impl Copy for DDNT_GETADAPTERGROUPDATA {}
+impl Clone for DDNT_GETADAPTERGROUPDATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -13937,8 +13937,8 @@ pub struct DDNT_GETD3DQUERYCOUNTDATA {
     pub gdi2: DDNT_GETDRIVERINFO2DATA,
     pub dwNumQueries: u32,
 }
-impl ::core::marker::Copy for DDNT_GETD3DQUERYCOUNTDATA {}
-impl ::core::clone::Clone for DDNT_GETD3DQUERYCOUNTDATA {
+impl Copy for DDNT_GETD3DQUERYCOUNTDATA {}
+impl Clone for DDNT_GETD3DQUERYCOUNTDATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -13950,9 +13950,9 @@ pub struct DDNT_GETD3DQUERYDATA {
     pub Anonymous: DDNT_GETD3DQUERYDATA_0,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl ::core::marker::Copy for DDNT_GETD3DQUERYDATA {}
+impl Copy for DDNT_GETD3DQUERYDATA {}
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl ::core::clone::Clone for DDNT_GETD3DQUERYDATA {
+impl Clone for DDNT_GETD3DQUERYDATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -13964,9 +13964,9 @@ pub union DDNT_GETD3DQUERYDATA_0 {
     pub QueryType: super::super::super::Win32::Graphics::Direct3D9::D3DQUERYTYPE,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl ::core::marker::Copy for DDNT_GETD3DQUERYDATA_0 {}
+impl Copy for DDNT_GETD3DQUERYDATA_0 {}
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl ::core::clone::Clone for DDNT_GETD3DQUERYDATA_0 {
+impl Clone for DDNT_GETD3DQUERYDATA_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -13977,8 +13977,8 @@ pub struct DDNT_GETDDIVERSIONDATA {
     pub dwDXVersion: u32,
     pub dwDDIVersion: u32,
 }
-impl ::core::marker::Copy for DDNT_GETDDIVERSIONDATA {}
-impl ::core::clone::Clone for DDNT_GETDDIVERSIONDATA {
+impl Copy for DDNT_GETDDIVERSIONDATA {}
+impl Clone for DDNT_GETDDIVERSIONDATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -13990,8 +13990,8 @@ pub struct DDNT_GETDRIVERINFO2DATA {
     pub dwType: u32,
     pub dwExpectedSize: u32,
 }
-impl ::core::marker::Copy for DDNT_GETDRIVERINFO2DATA {}
-impl ::core::clone::Clone for DDNT_GETDRIVERINFO2DATA {
+impl Copy for DDNT_GETDRIVERINFO2DATA {}
+impl Clone for DDNT_GETDRIVERINFO2DATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -14002,8 +14002,8 @@ pub struct DDNT_GETEXTENDEDMODECOUNTDATA {
     pub dwModeCount: u32,
     pub dwReserved: u32,
 }
-impl ::core::marker::Copy for DDNT_GETEXTENDEDMODECOUNTDATA {}
-impl ::core::clone::Clone for DDNT_GETEXTENDEDMODECOUNTDATA {
+impl Copy for DDNT_GETEXTENDEDMODECOUNTDATA {}
+impl Clone for DDNT_GETEXTENDEDMODECOUNTDATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -14016,9 +14016,9 @@ pub struct DDNT_GETEXTENDEDMODEDATA {
     pub mode: super::super::super::Win32::Graphics::Direct3D9::D3DDISPLAYMODE,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl ::core::marker::Copy for DDNT_GETEXTENDEDMODEDATA {}
+impl Copy for DDNT_GETEXTENDEDMODEDATA {}
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl ::core::clone::Clone for DDNT_GETEXTENDEDMODEDATA {
+impl Clone for DDNT_GETEXTENDEDMODEDATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -14029,8 +14029,8 @@ pub struct DDNT_GETFORMATCOUNTDATA {
     pub dwFormatCount: u32,
     pub dwReserved: u32,
 }
-impl ::core::marker::Copy for DDNT_GETFORMATCOUNTDATA {}
-impl ::core::clone::Clone for DDNT_GETFORMATCOUNTDATA {
+impl Copy for DDNT_GETFORMATCOUNTDATA {}
+impl Clone for DDNT_GETFORMATCOUNTDATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -14043,9 +14043,9 @@ pub struct DDNT_GETFORMATDATA {
     pub format: super::super::super::Win32::Graphics::DirectDraw::DDPIXELFORMAT,
 }
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
-impl ::core::marker::Copy for DDNT_GETFORMATDATA {}
+impl Copy for DDNT_GETFORMATDATA {}
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
-impl ::core::clone::Clone for DDNT_GETFORMATDATA {
+impl Clone for DDNT_GETFORMATDATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -14059,9 +14059,9 @@ pub struct DDNT_MULTISAMPLEQUALITYLEVELSDATA {
     pub QualityLevels: u32,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl ::core::marker::Copy for DDNT_MULTISAMPLEQUALITYLEVELSDATA {}
+impl Copy for DDNT_MULTISAMPLEQUALITYLEVELSDATA {}
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl ::core::clone::Clone for DDNT_MULTISAMPLEQUALITYLEVELSDATA {
+impl Clone for DDNT_MULTISAMPLEQUALITYLEVELSDATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -14070,8 +14070,8 @@ impl ::core::clone::Clone for DDNT_MULTISAMPLEQUALITYLEVELSDATA {
 pub struct DD_DEFERRED_AGP_AWARE_DATA {
     pub gdi2: DD_GETDRIVERINFO2DATA,
 }
-impl ::core::marker::Copy for DD_DEFERRED_AGP_AWARE_DATA {}
-impl ::core::clone::Clone for DD_DEFERRED_AGP_AWARE_DATA {
+impl Copy for DD_DEFERRED_AGP_AWARE_DATA {}
+impl Clone for DD_DEFERRED_AGP_AWARE_DATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -14082,8 +14082,8 @@ pub struct DD_DXVERSION {
     pub dwDXVersion: u32,
     pub dwReserved: u32,
 }
-impl ::core::marker::Copy for DD_DXVERSION {}
-impl ::core::clone::Clone for DD_DXVERSION {
+impl Copy for DD_DXVERSION {}
+impl Clone for DD_DXVERSION {
     fn clone(&self) -> Self {
         *self
     }
@@ -14093,8 +14093,8 @@ pub struct DD_FREE_DEFERRED_AGP_DATA {
     pub gdi2: DD_GETDRIVERINFO2DATA,
     pub dwProcessId: u32,
 }
-impl ::core::marker::Copy for DD_FREE_DEFERRED_AGP_DATA {}
-impl ::core::clone::Clone for DD_FREE_DEFERRED_AGP_DATA {
+impl Copy for DD_FREE_DEFERRED_AGP_DATA {}
+impl Clone for DD_FREE_DEFERRED_AGP_DATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -14106,8 +14106,8 @@ pub struct DD_GETADAPTERGROUPDATA {
     pub dwReserved1: u32,
     pub dwReserved2: u32,
 }
-impl ::core::marker::Copy for DD_GETADAPTERGROUPDATA {}
-impl ::core::clone::Clone for DD_GETADAPTERGROUPDATA {
+impl Copy for DD_GETADAPTERGROUPDATA {}
+impl Clone for DD_GETADAPTERGROUPDATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -14117,8 +14117,8 @@ pub struct DD_GETD3DQUERYCOUNTDATA {
     pub gdi2: DD_GETDRIVERINFO2DATA,
     pub dwNumQueries: u32,
 }
-impl ::core::marker::Copy for DD_GETD3DQUERYCOUNTDATA {}
-impl ::core::clone::Clone for DD_GETD3DQUERYCOUNTDATA {
+impl Copy for DD_GETD3DQUERYCOUNTDATA {}
+impl Clone for DD_GETD3DQUERYCOUNTDATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -14130,9 +14130,9 @@ pub struct DD_GETD3DQUERYDATA {
     pub Anonymous: DD_GETD3DQUERYDATA_0,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl ::core::marker::Copy for DD_GETD3DQUERYDATA {}
+impl Copy for DD_GETD3DQUERYDATA {}
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl ::core::clone::Clone for DD_GETD3DQUERYDATA {
+impl Clone for DD_GETD3DQUERYDATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -14144,9 +14144,9 @@ pub union DD_GETD3DQUERYDATA_0 {
     pub QueryType: super::super::super::Win32::Graphics::Direct3D9::D3DQUERYTYPE,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl ::core::marker::Copy for DD_GETD3DQUERYDATA_0 {}
+impl Copy for DD_GETD3DQUERYDATA_0 {}
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl ::core::clone::Clone for DD_GETD3DQUERYDATA_0 {
+impl Clone for DD_GETD3DQUERYDATA_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -14157,8 +14157,8 @@ pub struct DD_GETDDIVERSIONDATA {
     pub dwDXVersion: u32,
     pub dwDDIVersion: u32,
 }
-impl ::core::marker::Copy for DD_GETDDIVERSIONDATA {}
-impl ::core::clone::Clone for DD_GETDDIVERSIONDATA {
+impl Copy for DD_GETDDIVERSIONDATA {}
+impl Clone for DD_GETDDIVERSIONDATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -14170,8 +14170,8 @@ pub struct DD_GETDRIVERINFO2DATA {
     pub dwType: u32,
     pub dwExpectedSize: u32,
 }
-impl ::core::marker::Copy for DD_GETDRIVERINFO2DATA {}
-impl ::core::clone::Clone for DD_GETDRIVERINFO2DATA {
+impl Copy for DD_GETDRIVERINFO2DATA {}
+impl Clone for DD_GETDRIVERINFO2DATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -14182,8 +14182,8 @@ pub struct DD_GETEXTENDEDMODECOUNTDATA {
     pub dwModeCount: u32,
     pub dwReserved: u32,
 }
-impl ::core::marker::Copy for DD_GETEXTENDEDMODECOUNTDATA {}
-impl ::core::clone::Clone for DD_GETEXTENDEDMODECOUNTDATA {
+impl Copy for DD_GETEXTENDEDMODECOUNTDATA {}
+impl Clone for DD_GETEXTENDEDMODECOUNTDATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -14196,9 +14196,9 @@ pub struct DD_GETEXTENDEDMODEDATA {
     pub mode: super::super::super::Win32::Graphics::Direct3D9::D3DDISPLAYMODE,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl ::core::marker::Copy for DD_GETEXTENDEDMODEDATA {}
+impl Copy for DD_GETEXTENDEDMODEDATA {}
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl ::core::clone::Clone for DD_GETEXTENDEDMODEDATA {
+impl Clone for DD_GETEXTENDEDMODEDATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -14209,8 +14209,8 @@ pub struct DD_GETFORMATCOUNTDATA {
     pub dwFormatCount: u32,
     pub dwReserved: u32,
 }
-impl ::core::marker::Copy for DD_GETFORMATCOUNTDATA {}
-impl ::core::clone::Clone for DD_GETFORMATCOUNTDATA {
+impl Copy for DD_GETFORMATCOUNTDATA {}
+impl Clone for DD_GETFORMATCOUNTDATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -14223,9 +14223,9 @@ pub struct DD_GETFORMATDATA {
     pub format: super::super::super::Win32::Graphics::DirectDraw::DDPIXELFORMAT,
 }
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
-impl ::core::marker::Copy for DD_GETFORMATDATA {}
+impl Copy for DD_GETFORMATDATA {}
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
-impl ::core::clone::Clone for DD_GETFORMATDATA {
+impl Clone for DD_GETFORMATDATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -14239,9 +14239,9 @@ pub struct DD_MULTISAMPLEQUALITYLEVELSDATA {
     pub QualityLevels: u32,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl ::core::marker::Copy for DD_MULTISAMPLEQUALITYLEVELSDATA {}
+impl Copy for DD_MULTISAMPLEQUALITYLEVELSDATA {}
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl ::core::clone::Clone for DD_MULTISAMPLEQUALITYLEVELSDATA {
+impl Clone for DD_MULTISAMPLEQUALITYLEVELSDATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -14258,8 +14258,8 @@ pub struct DISPLAYID_DETAILED_TIMING_TYPE_I {
     pub Anonymous3: DISPLAYID_DETAILED_TIMING_TYPE_I_2,
     pub VerticalSyncWidth: u16,
 }
-impl ::core::marker::Copy for DISPLAYID_DETAILED_TIMING_TYPE_I {}
-impl ::core::clone::Clone for DISPLAYID_DETAILED_TIMING_TYPE_I {
+impl Copy for DISPLAYID_DETAILED_TIMING_TYPE_I {}
+impl Clone for DISPLAYID_DETAILED_TIMING_TYPE_I {
     fn clone(&self) -> Self {
         *self
     }
@@ -14268,8 +14268,8 @@ impl ::core::clone::Clone for DISPLAYID_DETAILED_TIMING_TYPE_I {
 pub struct DISPLAYID_DETAILED_TIMING_TYPE_I_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for DISPLAYID_DETAILED_TIMING_TYPE_I_0 {}
-impl ::core::clone::Clone for DISPLAYID_DETAILED_TIMING_TYPE_I_0 {
+impl Copy for DISPLAYID_DETAILED_TIMING_TYPE_I_0 {}
+impl Clone for DISPLAYID_DETAILED_TIMING_TYPE_I_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -14278,8 +14278,8 @@ impl ::core::clone::Clone for DISPLAYID_DETAILED_TIMING_TYPE_I_0 {
 pub struct DISPLAYID_DETAILED_TIMING_TYPE_I_1 {
     pub _bitfield: u16,
 }
-impl ::core::marker::Copy for DISPLAYID_DETAILED_TIMING_TYPE_I_1 {}
-impl ::core::clone::Clone for DISPLAYID_DETAILED_TIMING_TYPE_I_1 {
+impl Copy for DISPLAYID_DETAILED_TIMING_TYPE_I_1 {}
+impl Clone for DISPLAYID_DETAILED_TIMING_TYPE_I_1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -14288,8 +14288,8 @@ impl ::core::clone::Clone for DISPLAYID_DETAILED_TIMING_TYPE_I_1 {
 pub struct DISPLAYID_DETAILED_TIMING_TYPE_I_2 {
     pub _bitfield: u16,
 }
-impl ::core::marker::Copy for DISPLAYID_DETAILED_TIMING_TYPE_I_2 {}
-impl ::core::clone::Clone for DISPLAYID_DETAILED_TIMING_TYPE_I_2 {
+impl Copy for DISPLAYID_DETAILED_TIMING_TYPE_I_2 {}
+impl Clone for DISPLAYID_DETAILED_TIMING_TYPE_I_2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -14301,8 +14301,8 @@ pub struct DXGKARG_SETPALETTE {
     pub NumEntries: u32,
     pub pLookupTable: *mut D3DKMDT_PALETTEDATA,
 }
-impl ::core::marker::Copy for DXGKARG_SETPALETTE {}
-impl ::core::clone::Clone for DXGKARG_SETPALETTE {
+impl Copy for DXGKARG_SETPALETTE {}
+impl Clone for DXGKARG_SETPALETTE {
     fn clone(&self) -> Self {
         *self
     }
@@ -14323,8 +14323,8 @@ pub struct DXGKMDT_OPM_ACP_AND_CGMSA_SIGNALING {
     pub ulReserved2: [u32; 4],
     pub ulReserved3: [u32; 4],
 }
-impl ::core::marker::Copy for DXGKMDT_OPM_ACP_AND_CGMSA_SIGNALING {}
-impl ::core::clone::Clone for DXGKMDT_OPM_ACP_AND_CGMSA_SIGNALING {
+impl Copy for DXGKMDT_OPM_ACP_AND_CGMSA_SIGNALING {}
+impl Clone for DXGKMDT_OPM_ACP_AND_CGMSA_SIGNALING {
     fn clone(&self) -> Self {
         *self
     }
@@ -14340,8 +14340,8 @@ pub struct DXGKMDT_OPM_ACTUAL_OUTPUT_FORMAT {
     pub ulFrequencyNumerator: u32,
     pub ulFrequencyDenominator: u32,
 }
-impl ::core::marker::Copy for DXGKMDT_OPM_ACTUAL_OUTPUT_FORMAT {}
-impl ::core::clone::Clone for DXGKMDT_OPM_ACTUAL_OUTPUT_FORMAT {
+impl Copy for DXGKMDT_OPM_ACTUAL_OUTPUT_FORMAT {}
+impl Clone for DXGKMDT_OPM_ACTUAL_OUTPUT_FORMAT {
     fn clone(&self) -> Self {
         *self
     }
@@ -14349,13 +14349,13 @@ impl ::core::clone::Clone for DXGKMDT_OPM_ACTUAL_OUTPUT_FORMAT {
 #[repr(C, packed(1))]
 pub struct DXGKMDT_OPM_CONFIGURE_PARAMETERS {
     pub omac: DXGKMDT_OPM_OMAC,
-    pub guidSetting: ::windows_sys::core::GUID,
+    pub guidSetting: windows_sys::core::GUID,
     pub ulSequenceNumber: u32,
     pub cbParametersSize: u32,
     pub abParameters: [u8; 4056],
 }
-impl ::core::marker::Copy for DXGKMDT_OPM_CONFIGURE_PARAMETERS {}
-impl ::core::clone::Clone for DXGKMDT_OPM_CONFIGURE_PARAMETERS {
+impl Copy for DXGKMDT_OPM_CONFIGURE_PARAMETERS {}
+impl Clone for DXGKMDT_OPM_CONFIGURE_PARAMETERS {
     fn clone(&self) -> Self {
         *self
     }
@@ -14370,8 +14370,8 @@ pub struct DXGKMDT_OPM_CONNECTED_HDCP_DEVICE_INFORMATION {
     pub Reserved2: [u8; 16],
     pub Reserved3: [u8; 16],
 }
-impl ::core::marker::Copy for DXGKMDT_OPM_CONNECTED_HDCP_DEVICE_INFORMATION {}
-impl ::core::clone::Clone for DXGKMDT_OPM_CONNECTED_HDCP_DEVICE_INFORMATION {
+impl Copy for DXGKMDT_OPM_CONNECTED_HDCP_DEVICE_INFORMATION {}
+impl Clone for DXGKMDT_OPM_CONNECTED_HDCP_DEVICE_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -14379,13 +14379,13 @@ impl ::core::clone::Clone for DXGKMDT_OPM_CONNECTED_HDCP_DEVICE_INFORMATION {
 #[repr(C, packed(1))]
 pub struct DXGKMDT_OPM_COPP_COMPATIBLE_GET_INFO_PARAMETERS {
     pub rnRandomNumber: DXGKMDT_OPM_RANDOM_NUMBER,
-    pub guidInformation: ::windows_sys::core::GUID,
+    pub guidInformation: windows_sys::core::GUID,
     pub ulSequenceNumber: u32,
     pub cbParametersSize: u32,
     pub abParameters: [u8; 4056],
 }
-impl ::core::marker::Copy for DXGKMDT_OPM_COPP_COMPATIBLE_GET_INFO_PARAMETERS {}
-impl ::core::clone::Clone for DXGKMDT_OPM_COPP_COMPATIBLE_GET_INFO_PARAMETERS {
+impl Copy for DXGKMDT_OPM_COPP_COMPATIBLE_GET_INFO_PARAMETERS {}
+impl Clone for DXGKMDT_OPM_COPP_COMPATIBLE_GET_INFO_PARAMETERS {
     fn clone(&self) -> Self {
         *self
     }
@@ -14396,8 +14396,8 @@ pub struct DXGKMDT_OPM_CREATE_VIDEO_OUTPUT_FOR_TARGET_PARAMETERS {
     pub TargetId: u32,
     pub Vos: DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTICS,
 }
-impl ::core::marker::Copy for DXGKMDT_OPM_CREATE_VIDEO_OUTPUT_FOR_TARGET_PARAMETERS {}
-impl ::core::clone::Clone for DXGKMDT_OPM_CREATE_VIDEO_OUTPUT_FOR_TARGET_PARAMETERS {
+impl Copy for DXGKMDT_OPM_CREATE_VIDEO_OUTPUT_FOR_TARGET_PARAMETERS {}
+impl Clone for DXGKMDT_OPM_CREATE_VIDEO_OUTPUT_FOR_TARGET_PARAMETERS {
     fn clone(&self) -> Self {
         *self
     }
@@ -14406,8 +14406,8 @@ impl ::core::clone::Clone for DXGKMDT_OPM_CREATE_VIDEO_OUTPUT_FOR_TARGET_PARAMET
 pub struct DXGKMDT_OPM_ENCRYPTED_PARAMETERS {
     pub abEncryptedParameters: [u8; 256],
 }
-impl ::core::marker::Copy for DXGKMDT_OPM_ENCRYPTED_PARAMETERS {}
-impl ::core::clone::Clone for DXGKMDT_OPM_ENCRYPTED_PARAMETERS {
+impl Copy for DXGKMDT_OPM_ENCRYPTED_PARAMETERS {}
+impl Clone for DXGKMDT_OPM_ENCRYPTED_PARAMETERS {
     fn clone(&self) -> Self {
         *self
     }
@@ -14416,13 +14416,13 @@ impl ::core::clone::Clone for DXGKMDT_OPM_ENCRYPTED_PARAMETERS {
 pub struct DXGKMDT_OPM_GET_INFO_PARAMETERS {
     pub omac: DXGKMDT_OPM_OMAC,
     pub rnRandomNumber: DXGKMDT_OPM_RANDOM_NUMBER,
-    pub guidInformation: ::windows_sys::core::GUID,
+    pub guidInformation: windows_sys::core::GUID,
     pub ulSequenceNumber: u32,
     pub cbParametersSize: u32,
     pub abParameters: [u8; 4056],
 }
-impl ::core::marker::Copy for DXGKMDT_OPM_GET_INFO_PARAMETERS {}
-impl ::core::clone::Clone for DXGKMDT_OPM_GET_INFO_PARAMETERS {
+impl Copy for DXGKMDT_OPM_GET_INFO_PARAMETERS {}
+impl Clone for DXGKMDT_OPM_GET_INFO_PARAMETERS {
     fn clone(&self) -> Self {
         *self
     }
@@ -14431,8 +14431,8 @@ impl ::core::clone::Clone for DXGKMDT_OPM_GET_INFO_PARAMETERS {
 pub struct DXGKMDT_OPM_HDCP_KEY_SELECTION_VECTOR {
     pub abKeySelectionVector: [u8; 5],
 }
-impl ::core::marker::Copy for DXGKMDT_OPM_HDCP_KEY_SELECTION_VECTOR {}
-impl ::core::clone::Clone for DXGKMDT_OPM_HDCP_KEY_SELECTION_VECTOR {
+impl Copy for DXGKMDT_OPM_HDCP_KEY_SELECTION_VECTOR {}
+impl Clone for DXGKMDT_OPM_HDCP_KEY_SELECTION_VECTOR {
     fn clone(&self) -> Self {
         *self
     }
@@ -14441,8 +14441,8 @@ impl ::core::clone::Clone for DXGKMDT_OPM_HDCP_KEY_SELECTION_VECTOR {
 pub struct DXGKMDT_OPM_OMAC {
     pub abOMAC: [u8; 16],
 }
-impl ::core::marker::Copy for DXGKMDT_OPM_OMAC {}
-impl ::core::clone::Clone for DXGKMDT_OPM_OMAC {
+impl Copy for DXGKMDT_OPM_OMAC {}
+impl Clone for DXGKMDT_OPM_OMAC {
     fn clone(&self) -> Self {
         *self
     }
@@ -14453,8 +14453,8 @@ pub struct DXGKMDT_OPM_OUTPUT_ID {
     pub ulStatusFlags: u32,
     pub OutputId: u64,
 }
-impl ::core::marker::Copy for DXGKMDT_OPM_OUTPUT_ID {}
-impl ::core::clone::Clone for DXGKMDT_OPM_OUTPUT_ID {
+impl Copy for DXGKMDT_OPM_OUTPUT_ID {}
+impl Clone for DXGKMDT_OPM_OUTPUT_ID {
     fn clone(&self) -> Self {
         *self
     }
@@ -14463,8 +14463,8 @@ impl ::core::clone::Clone for DXGKMDT_OPM_OUTPUT_ID {
 pub struct DXGKMDT_OPM_RANDOM_NUMBER {
     pub abRandomNumber: [u8; 16],
 }
-impl ::core::marker::Copy for DXGKMDT_OPM_RANDOM_NUMBER {}
-impl ::core::clone::Clone for DXGKMDT_OPM_RANDOM_NUMBER {
+impl Copy for DXGKMDT_OPM_RANDOM_NUMBER {}
+impl Clone for DXGKMDT_OPM_RANDOM_NUMBER {
     fn clone(&self) -> Self {
         *self
     }
@@ -14475,8 +14475,8 @@ pub struct DXGKMDT_OPM_REQUESTED_INFORMATION {
     pub cbRequestedInformationSize: u32,
     pub abRequestedInformation: [u8; 4076],
 }
-impl ::core::marker::Copy for DXGKMDT_OPM_REQUESTED_INFORMATION {}
-impl ::core::clone::Clone for DXGKMDT_OPM_REQUESTED_INFORMATION {
+impl Copy for DXGKMDT_OPM_REQUESTED_INFORMATION {}
+impl Clone for DXGKMDT_OPM_REQUESTED_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -14494,8 +14494,8 @@ pub struct DXGKMDT_OPM_SET_ACP_AND_CGMSA_SIGNALING_PARAMETERS {
     pub ulReserved2: [u32; 4],
     pub ulReserved3: u32,
 }
-impl ::core::marker::Copy for DXGKMDT_OPM_SET_ACP_AND_CGMSA_SIGNALING_PARAMETERS {}
-impl ::core::clone::Clone for DXGKMDT_OPM_SET_ACP_AND_CGMSA_SIGNALING_PARAMETERS {
+impl Copy for DXGKMDT_OPM_SET_ACP_AND_CGMSA_SIGNALING_PARAMETERS {}
+impl Clone for DXGKMDT_OPM_SET_ACP_AND_CGMSA_SIGNALING_PARAMETERS {
     fn clone(&self) -> Self {
         *self
     }
@@ -14504,8 +14504,8 @@ impl ::core::clone::Clone for DXGKMDT_OPM_SET_ACP_AND_CGMSA_SIGNALING_PARAMETERS
 pub struct DXGKMDT_OPM_SET_HDCP_SRM_PARAMETERS {
     pub ulSRMVersion: u32,
 }
-impl ::core::marker::Copy for DXGKMDT_OPM_SET_HDCP_SRM_PARAMETERS {}
-impl ::core::clone::Clone for DXGKMDT_OPM_SET_HDCP_SRM_PARAMETERS {
+impl Copy for DXGKMDT_OPM_SET_HDCP_SRM_PARAMETERS {}
+impl Clone for DXGKMDT_OPM_SET_HDCP_SRM_PARAMETERS {
     fn clone(&self) -> Self {
         *self
     }
@@ -14517,8 +14517,8 @@ pub struct DXGKMDT_OPM_SET_PROTECTION_LEVEL_PARAMETERS {
     pub Reserved: u32,
     pub Reserved2: u32,
 }
-impl ::core::marker::Copy for DXGKMDT_OPM_SET_PROTECTION_LEVEL_PARAMETERS {}
-impl ::core::clone::Clone for DXGKMDT_OPM_SET_PROTECTION_LEVEL_PARAMETERS {
+impl Copy for DXGKMDT_OPM_SET_PROTECTION_LEVEL_PARAMETERS {}
+impl Clone for DXGKMDT_OPM_SET_PROTECTION_LEVEL_PARAMETERS {
     fn clone(&self) -> Self {
         *self
     }
@@ -14531,8 +14531,8 @@ pub struct DXGKMDT_OPM_STANDARD_INFORMATION {
     pub ulReserved: u32,
     pub ulReserved2: u32,
 }
-impl ::core::marker::Copy for DXGKMDT_OPM_STANDARD_INFORMATION {}
-impl ::core::clone::Clone for DXGKMDT_OPM_STANDARD_INFORMATION {
+impl Copy for DXGKMDT_OPM_STANDARD_INFORMATION {}
+impl Clone for DXGKMDT_OPM_STANDARD_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -14542,8 +14542,8 @@ pub struct DXGKVGPU_ESCAPE_HEAD {
     pub Luid: GPUP_DRIVER_ESCAPE_INPUT,
     pub Type: DXGKVGPU_ESCAPE_TYPE,
 }
-impl ::core::marker::Copy for DXGKVGPU_ESCAPE_HEAD {}
-impl ::core::clone::Clone for DXGKVGPU_ESCAPE_HEAD {
+impl Copy for DXGKVGPU_ESCAPE_HEAD {}
+impl Clone for DXGKVGPU_ESCAPE_HEAD {
     fn clone(&self) -> Self {
         *self
     }
@@ -14551,10 +14551,10 @@ impl ::core::clone::Clone for DXGKVGPU_ESCAPE_HEAD {
 #[repr(C)]
 pub struct DXGKVGPU_ESCAPE_INITIALIZE {
     pub Header: DXGKVGPU_ESCAPE_HEAD,
-    pub VmGuid: ::windows_sys::core::GUID,
+    pub VmGuid: windows_sys::core::GUID,
 }
-impl ::core::marker::Copy for DXGKVGPU_ESCAPE_INITIALIZE {}
-impl ::core::clone::Clone for DXGKVGPU_ESCAPE_INITIALIZE {
+impl Copy for DXGKVGPU_ESCAPE_INITIALIZE {}
+impl Clone for DXGKVGPU_ESCAPE_INITIALIZE {
     fn clone(&self) -> Self {
         *self
     }
@@ -14565,8 +14565,8 @@ pub struct DXGKVGPU_ESCAPE_PAUSE {
     pub DeviceLuid: super::super::super::Win32::Foundation::LUID,
     pub Anonymous: DXGKVGPU_ESCAPE_PAUSE_0,
 }
-impl ::core::marker::Copy for DXGKVGPU_ESCAPE_PAUSE {}
-impl ::core::clone::Clone for DXGKVGPU_ESCAPE_PAUSE {
+impl Copy for DXGKVGPU_ESCAPE_PAUSE {}
+impl Clone for DXGKVGPU_ESCAPE_PAUSE {
     fn clone(&self) -> Self {
         *self
     }
@@ -14576,8 +14576,8 @@ pub union DXGKVGPU_ESCAPE_PAUSE_0 {
     pub Anonymous: DXGKVGPU_ESCAPE_PAUSE_0_0,
     pub Flags: u32,
 }
-impl ::core::marker::Copy for DXGKVGPU_ESCAPE_PAUSE_0 {}
-impl ::core::clone::Clone for DXGKVGPU_ESCAPE_PAUSE_0 {
+impl Copy for DXGKVGPU_ESCAPE_PAUSE_0 {}
+impl Clone for DXGKVGPU_ESCAPE_PAUSE_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -14586,8 +14586,8 @@ impl ::core::clone::Clone for DXGKVGPU_ESCAPE_PAUSE_0 {
 pub struct DXGKVGPU_ESCAPE_PAUSE_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for DXGKVGPU_ESCAPE_PAUSE_0_0 {}
-impl ::core::clone::Clone for DXGKVGPU_ESCAPE_PAUSE_0_0 {
+impl Copy for DXGKVGPU_ESCAPE_PAUSE_0_0 {}
+impl Clone for DXGKVGPU_ESCAPE_PAUSE_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -14597,8 +14597,8 @@ pub struct DXGKVGPU_ESCAPE_POWERTRANSITIONCOMPLETE {
     pub Header: DXGKVGPU_ESCAPE_HEAD,
     pub PowerState: u32,
 }
-impl ::core::marker::Copy for DXGKVGPU_ESCAPE_POWERTRANSITIONCOMPLETE {}
-impl ::core::clone::Clone for DXGKVGPU_ESCAPE_POWERTRANSITIONCOMPLETE {
+impl Copy for DXGKVGPU_ESCAPE_POWERTRANSITIONCOMPLETE {}
+impl Clone for DXGKVGPU_ESCAPE_POWERTRANSITIONCOMPLETE {
     fn clone(&self) -> Self {
         *self
     }
@@ -14609,8 +14609,8 @@ pub struct DXGKVGPU_ESCAPE_READ_PCI_CONFIG {
     pub Offset: u32,
     pub Size: u32,
 }
-impl ::core::marker::Copy for DXGKVGPU_ESCAPE_READ_PCI_CONFIG {}
-impl ::core::clone::Clone for DXGKVGPU_ESCAPE_READ_PCI_CONFIG {
+impl Copy for DXGKVGPU_ESCAPE_READ_PCI_CONFIG {}
+impl Clone for DXGKVGPU_ESCAPE_READ_PCI_CONFIG {
     fn clone(&self) -> Self {
         *self
     }
@@ -14619,8 +14619,8 @@ impl ::core::clone::Clone for DXGKVGPU_ESCAPE_READ_PCI_CONFIG {
 pub struct DXGKVGPU_ESCAPE_READ_VGPU_TYPE {
     pub Header: DXGKVGPU_ESCAPE_HEAD,
 }
-impl ::core::marker::Copy for DXGKVGPU_ESCAPE_READ_VGPU_TYPE {}
-impl ::core::clone::Clone for DXGKVGPU_ESCAPE_READ_VGPU_TYPE {
+impl Copy for DXGKVGPU_ESCAPE_READ_VGPU_TYPE {}
+impl Clone for DXGKVGPU_ESCAPE_READ_VGPU_TYPE {
     fn clone(&self) -> Self {
         *self
     }
@@ -14629,8 +14629,8 @@ impl ::core::clone::Clone for DXGKVGPU_ESCAPE_READ_VGPU_TYPE {
 pub struct DXGKVGPU_ESCAPE_RELEASE {
     pub Header: DXGKVGPU_ESCAPE_HEAD,
 }
-impl ::core::marker::Copy for DXGKVGPU_ESCAPE_RELEASE {}
-impl ::core::clone::Clone for DXGKVGPU_ESCAPE_RELEASE {
+impl Copy for DXGKVGPU_ESCAPE_RELEASE {}
+impl Clone for DXGKVGPU_ESCAPE_RELEASE {
     fn clone(&self) -> Self {
         *self
     }
@@ -14641,8 +14641,8 @@ pub struct DXGKVGPU_ESCAPE_RESUME {
     pub DeviceLuid: super::super::super::Win32::Foundation::LUID,
     pub Flags: u32,
 }
-impl ::core::marker::Copy for DXGKVGPU_ESCAPE_RESUME {}
-impl ::core::clone::Clone for DXGKVGPU_ESCAPE_RESUME {
+impl Copy for DXGKVGPU_ESCAPE_RESUME {}
+impl Clone for DXGKVGPU_ESCAPE_RESUME {
     fn clone(&self) -> Self {
         *self
     }
@@ -14653,8 +14653,8 @@ pub struct DXGKVGPU_ESCAPE_WRITE_PCI_CONFIG {
     pub Offset: u32,
     pub Size: u32,
 }
-impl ::core::marker::Copy for DXGKVGPU_ESCAPE_WRITE_PCI_CONFIG {}
-impl ::core::clone::Clone for DXGKVGPU_ESCAPE_WRITE_PCI_CONFIG {
+impl Copy for DXGKVGPU_ESCAPE_WRITE_PCI_CONFIG {}
+impl Clone for DXGKVGPU_ESCAPE_WRITE_PCI_CONFIG {
     fn clone(&self) -> Self {
         *self
     }
@@ -14671,8 +14671,8 @@ pub struct DXGK_ADAPTER_PERFDATA {
     pub Temperature: u32,
     pub PowerStateOverride: u8,
 }
-impl ::core::marker::Copy for DXGK_ADAPTER_PERFDATA {}
-impl ::core::clone::Clone for DXGK_ADAPTER_PERFDATA {
+impl Copy for DXGK_ADAPTER_PERFDATA {}
+impl Clone for DXGK_ADAPTER_PERFDATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -14685,8 +14685,8 @@ pub struct DXGK_ADAPTER_PERFDATACAPS {
     pub TemperatureMax: u32,
     pub TemperatureWarning: u32,
 }
-impl ::core::marker::Copy for DXGK_ADAPTER_PERFDATACAPS {}
-impl ::core::clone::Clone for DXGK_ADAPTER_PERFDATACAPS {
+impl Copy for DXGK_ADAPTER_PERFDATACAPS {}
+impl Clone for DXGK_ADAPTER_PERFDATACAPS {
     fn clone(&self) -> Self {
         *self
     }
@@ -14697,8 +14697,8 @@ pub struct DXGK_BACKLIGHT_INFO {
     pub BacklightEffective: u16,
     pub GammaRamp: D3DDDI_GAMMA_RAMP_RGB256x3x16,
 }
-impl ::core::marker::Copy for DXGK_BACKLIGHT_INFO {}
-impl ::core::clone::Clone for DXGK_BACKLIGHT_INFO {
+impl Copy for DXGK_BACKLIGHT_INFO {}
+impl Clone for DXGK_BACKLIGHT_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -14707,8 +14707,8 @@ impl ::core::clone::Clone for DXGK_BACKLIGHT_INFO {
 pub struct DXGK_BRIGHTNESS_CAPS {
     pub Anonymous: DXGK_BRIGHTNESS_CAPS_0,
 }
-impl ::core::marker::Copy for DXGK_BRIGHTNESS_CAPS {}
-impl ::core::clone::Clone for DXGK_BRIGHTNESS_CAPS {
+impl Copy for DXGK_BRIGHTNESS_CAPS {}
+impl Clone for DXGK_BRIGHTNESS_CAPS {
     fn clone(&self) -> Self {
         *self
     }
@@ -14718,8 +14718,8 @@ pub union DXGK_BRIGHTNESS_CAPS_0 {
     pub Anonymous: DXGK_BRIGHTNESS_CAPS_0_0,
     pub Value: u32,
 }
-impl ::core::marker::Copy for DXGK_BRIGHTNESS_CAPS_0 {}
-impl ::core::clone::Clone for DXGK_BRIGHTNESS_CAPS_0 {
+impl Copy for DXGK_BRIGHTNESS_CAPS_0 {}
+impl Clone for DXGK_BRIGHTNESS_CAPS_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -14728,8 +14728,8 @@ impl ::core::clone::Clone for DXGK_BRIGHTNESS_CAPS_0 {
 pub struct DXGK_BRIGHTNESS_CAPS_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for DXGK_BRIGHTNESS_CAPS_0_0 {}
-impl ::core::clone::Clone for DXGK_BRIGHTNESS_CAPS_0_0 {
+impl Copy for DXGK_BRIGHTNESS_CAPS_0_0 {}
+impl Clone for DXGK_BRIGHTNESS_CAPS_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -14741,8 +14741,8 @@ pub struct DXGK_BRIGHTNESS_GET_NIT_RANGES_OUT {
     pub PreferredMaximumBrightness: u32,
     pub SupportedRanges: [DXGK_BRIGHTNESS_NIT_RANGE; 16],
 }
-impl ::core::marker::Copy for DXGK_BRIGHTNESS_GET_NIT_RANGES_OUT {}
-impl ::core::clone::Clone for DXGK_BRIGHTNESS_GET_NIT_RANGES_OUT {
+impl Copy for DXGK_BRIGHTNESS_GET_NIT_RANGES_OUT {}
+impl Clone for DXGK_BRIGHTNESS_GET_NIT_RANGES_OUT {
     fn clone(&self) -> Self {
         *self
     }
@@ -14752,8 +14752,8 @@ pub struct DXGK_BRIGHTNESS_GET_OUT {
     pub CurrentBrightnessMillinits: u32,
     pub TargetBrightnessMillinits: u32,
 }
-impl ::core::marker::Copy for DXGK_BRIGHTNESS_GET_OUT {}
-impl ::core::clone::Clone for DXGK_BRIGHTNESS_GET_OUT {
+impl Copy for DXGK_BRIGHTNESS_GET_OUT {}
+impl Clone for DXGK_BRIGHTNESS_GET_OUT {
     fn clone(&self) -> Self {
         *self
     }
@@ -14764,8 +14764,8 @@ pub struct DXGK_BRIGHTNESS_NIT_RANGE {
     pub MaximumLevelMillinit: u32,
     pub StepSizeMillinit: u32,
 }
-impl ::core::marker::Copy for DXGK_BRIGHTNESS_NIT_RANGE {}
-impl ::core::clone::Clone for DXGK_BRIGHTNESS_NIT_RANGE {
+impl Copy for DXGK_BRIGHTNESS_NIT_RANGE {}
+impl Clone for DXGK_BRIGHTNESS_NIT_RANGE {
     fn clone(&self) -> Self {
         *self
     }
@@ -14778,8 +14778,8 @@ pub struct DXGK_BRIGHTNESS_SENSOR_DATA {
     pub Chromaticity: DXGK_BRIGHTNESS_SENSOR_DATA_CHROMATICITY,
     pub ColorTemperature: f32,
 }
-impl ::core::marker::Copy for DXGK_BRIGHTNESS_SENSOR_DATA {}
-impl ::core::clone::Clone for DXGK_BRIGHTNESS_SENSOR_DATA {
+impl Copy for DXGK_BRIGHTNESS_SENSOR_DATA {}
+impl Clone for DXGK_BRIGHTNESS_SENSOR_DATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -14789,8 +14789,8 @@ pub union DXGK_BRIGHTNESS_SENSOR_DATA_0 {
     pub Flags: DXGK_BRIGHTNESS_SENSOR_DATA_0_0,
     pub ValidSensorValues: u32,
 }
-impl ::core::marker::Copy for DXGK_BRIGHTNESS_SENSOR_DATA_0 {}
-impl ::core::clone::Clone for DXGK_BRIGHTNESS_SENSOR_DATA_0 {
+impl Copy for DXGK_BRIGHTNESS_SENSOR_DATA_0 {}
+impl Clone for DXGK_BRIGHTNESS_SENSOR_DATA_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -14799,8 +14799,8 @@ impl ::core::clone::Clone for DXGK_BRIGHTNESS_SENSOR_DATA_0 {
 pub struct DXGK_BRIGHTNESS_SENSOR_DATA_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for DXGK_BRIGHTNESS_SENSOR_DATA_0_0 {}
-impl ::core::clone::Clone for DXGK_BRIGHTNESS_SENSOR_DATA_0_0 {
+impl Copy for DXGK_BRIGHTNESS_SENSOR_DATA_0_0 {}
+impl Clone for DXGK_BRIGHTNESS_SENSOR_DATA_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -14810,8 +14810,8 @@ pub struct DXGK_BRIGHTNESS_SENSOR_DATA_CHROMATICITY {
     pub ChromaticityX: f32,
     pub ChromaticityY: f32,
 }
-impl ::core::marker::Copy for DXGK_BRIGHTNESS_SENSOR_DATA_CHROMATICITY {}
-impl ::core::clone::Clone for DXGK_BRIGHTNESS_SENSOR_DATA_CHROMATICITY {
+impl Copy for DXGK_BRIGHTNESS_SENSOR_DATA_CHROMATICITY {}
+impl Clone for DXGK_BRIGHTNESS_SENSOR_DATA_CHROMATICITY {
     fn clone(&self) -> Self {
         *self
     }
@@ -14822,8 +14822,8 @@ pub struct DXGK_BRIGHTNESS_SET_IN {
     pub TransitionTimeMs: u32,
     pub SensorReadings: DXGK_BRIGHTNESS_SENSOR_DATA,
 }
-impl ::core::marker::Copy for DXGK_BRIGHTNESS_SET_IN {}
-impl ::core::clone::Clone for DXGK_BRIGHTNESS_SET_IN {
+impl Copy for DXGK_BRIGHTNESS_SET_IN {}
+impl Clone for DXGK_BRIGHTNESS_SET_IN {
     fn clone(&self) -> Self {
         *self
     }
@@ -14832,8 +14832,8 @@ impl ::core::clone::Clone for DXGK_BRIGHTNESS_SET_IN {
 pub struct DXGK_BRIGHTNESS_STATE {
     pub Anonymous: DXGK_BRIGHTNESS_STATE_0,
 }
-impl ::core::marker::Copy for DXGK_BRIGHTNESS_STATE {}
-impl ::core::clone::Clone for DXGK_BRIGHTNESS_STATE {
+impl Copy for DXGK_BRIGHTNESS_STATE {}
+impl Clone for DXGK_BRIGHTNESS_STATE {
     fn clone(&self) -> Self {
         *self
     }
@@ -14843,8 +14843,8 @@ pub union DXGK_BRIGHTNESS_STATE_0 {
     pub Anonymous: DXGK_BRIGHTNESS_STATE_0_0,
     pub Value: u32,
 }
-impl ::core::marker::Copy for DXGK_BRIGHTNESS_STATE_0 {}
-impl ::core::clone::Clone for DXGK_BRIGHTNESS_STATE_0 {
+impl Copy for DXGK_BRIGHTNESS_STATE_0 {}
+impl Clone for DXGK_BRIGHTNESS_STATE_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -14853,8 +14853,8 @@ impl ::core::clone::Clone for DXGK_BRIGHTNESS_STATE_0 {
 pub struct DXGK_BRIGHTNESS_STATE_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for DXGK_BRIGHTNESS_STATE_0_0 {}
-impl ::core::clone::Clone for DXGK_BRIGHTNESS_STATE_0_0 {
+impl Copy for DXGK_BRIGHTNESS_STATE_0_0 {}
+impl Clone for DXGK_BRIGHTNESS_STATE_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -14869,8 +14869,8 @@ pub struct DXGK_DISPLAY_INFORMATION {
     pub TargetId: u32,
     pub AcpiId: u32,
 }
-impl ::core::marker::Copy for DXGK_DISPLAY_INFORMATION {}
-impl ::core::clone::Clone for DXGK_DISPLAY_INFORMATION {
+impl Copy for DXGK_DISPLAY_INFORMATION {}
+impl Clone for DXGK_DISPLAY_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -14888,8 +14888,8 @@ pub struct DXGK_ESCAPE_GPUMMUCAPS {
     pub PageTableLevelCount: u32,
     pub PageTableLevelDesk: [D3DKMT_PAGE_TABLE_LEVEL_DESC; 6],
 }
-impl ::core::marker::Copy for DXGK_ESCAPE_GPUMMUCAPS {}
-impl ::core::clone::Clone for DXGK_ESCAPE_GPUMMUCAPS {
+impl Copy for DXGK_ESCAPE_GPUMMUCAPS {}
+impl Clone for DXGK_ESCAPE_GPUMMUCAPS {
     fn clone(&self) -> Self {
         *self
     }
@@ -14898,8 +14898,8 @@ impl ::core::clone::Clone for DXGK_ESCAPE_GPUMMUCAPS {
 pub struct DXGK_FAULT_ERROR_CODE {
     pub Anonymous: DXGK_FAULT_ERROR_CODE_0,
 }
-impl ::core::marker::Copy for DXGK_FAULT_ERROR_CODE {}
-impl ::core::clone::Clone for DXGK_FAULT_ERROR_CODE {
+impl Copy for DXGK_FAULT_ERROR_CODE {}
+impl Clone for DXGK_FAULT_ERROR_CODE {
     fn clone(&self) -> Self {
         *self
     }
@@ -14909,8 +14909,8 @@ pub union DXGK_FAULT_ERROR_CODE_0 {
     pub Anonymous1: DXGK_FAULT_ERROR_CODE_0_0,
     pub Anonymous2: DXGK_FAULT_ERROR_CODE_0_1,
 }
-impl ::core::marker::Copy for DXGK_FAULT_ERROR_CODE_0 {}
-impl ::core::clone::Clone for DXGK_FAULT_ERROR_CODE_0 {
+impl Copy for DXGK_FAULT_ERROR_CODE_0 {}
+impl Clone for DXGK_FAULT_ERROR_CODE_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -14919,8 +14919,8 @@ impl ::core::clone::Clone for DXGK_FAULT_ERROR_CODE_0 {
 pub struct DXGK_FAULT_ERROR_CODE_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for DXGK_FAULT_ERROR_CODE_0_0 {}
-impl ::core::clone::Clone for DXGK_FAULT_ERROR_CODE_0_0 {
+impl Copy for DXGK_FAULT_ERROR_CODE_0_0 {}
+impl Clone for DXGK_FAULT_ERROR_CODE_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -14929,8 +14929,8 @@ impl ::core::clone::Clone for DXGK_FAULT_ERROR_CODE_0_0 {
 pub struct DXGK_FAULT_ERROR_CODE_0_1 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for DXGK_FAULT_ERROR_CODE_0_1 {}
-impl ::core::clone::Clone for DXGK_FAULT_ERROR_CODE_0_1 {
+impl Copy for DXGK_FAULT_ERROR_CODE_0_1 {}
+impl Clone for DXGK_FAULT_ERROR_CODE_0_1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -14942,8 +14942,8 @@ pub struct DXGK_GPUCLOCKDATA {
     pub CpuClockCounter: u64,
     pub Flags: DXGK_GPUCLOCKDATA_FLAGS,
 }
-impl ::core::marker::Copy for DXGK_GPUCLOCKDATA {}
-impl ::core::clone::Clone for DXGK_GPUCLOCKDATA {
+impl Copy for DXGK_GPUCLOCKDATA {}
+impl Clone for DXGK_GPUCLOCKDATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -14952,8 +14952,8 @@ impl ::core::clone::Clone for DXGK_GPUCLOCKDATA {
 pub struct DXGK_GPUCLOCKDATA_FLAGS {
     pub Anonymous: DXGK_GPUCLOCKDATA_FLAGS_0,
 }
-impl ::core::marker::Copy for DXGK_GPUCLOCKDATA_FLAGS {}
-impl ::core::clone::Clone for DXGK_GPUCLOCKDATA_FLAGS {
+impl Copy for DXGK_GPUCLOCKDATA_FLAGS {}
+impl Clone for DXGK_GPUCLOCKDATA_FLAGS {
     fn clone(&self) -> Self {
         *self
     }
@@ -14963,8 +14963,8 @@ pub union DXGK_GPUCLOCKDATA_FLAGS_0 {
     pub Anonymous: DXGK_GPUCLOCKDATA_FLAGS_0_0,
     pub Value: u32,
 }
-impl ::core::marker::Copy for DXGK_GPUCLOCKDATA_FLAGS_0 {}
-impl ::core::clone::Clone for DXGK_GPUCLOCKDATA_FLAGS_0 {
+impl Copy for DXGK_GPUCLOCKDATA_FLAGS_0 {}
+impl Clone for DXGK_GPUCLOCKDATA_FLAGS_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -14973,8 +14973,8 @@ impl ::core::clone::Clone for DXGK_GPUCLOCKDATA_FLAGS_0 {
 pub struct DXGK_GPUCLOCKDATA_FLAGS_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for DXGK_GPUCLOCKDATA_FLAGS_0_0 {}
-impl ::core::clone::Clone for DXGK_GPUCLOCKDATA_FLAGS_0_0 {
+impl Copy for DXGK_GPUCLOCKDATA_FLAGS_0_0 {}
+impl Clone for DXGK_GPUCLOCKDATA_FLAGS_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -14984,8 +14984,8 @@ pub struct DXGK_GPUVERSION {
     pub BiosVersion: [u16; 32],
     pub GpuArchitecture: [u16; 32],
 }
-impl ::core::marker::Copy for DXGK_GPUVERSION {}
-impl ::core::clone::Clone for DXGK_GPUVERSION {
+impl Copy for DXGK_GPUVERSION {}
+impl Clone for DXGK_GPUVERSION {
     fn clone(&self) -> Self {
         *self
     }
@@ -14994,16 +14994,16 @@ impl ::core::clone::Clone for DXGK_GPUVERSION {
 #[cfg(feature = "Win32_System_Power")]
 pub struct DXGK_GRAPHICSPOWER_REGISTER_INPUT_V_1_2 {
     pub Version: u32,
-    pub PrivateHandle: *mut ::core::ffi::c_void,
+    pub PrivateHandle: *mut core::ffi::c_void,
     pub PowerNotificationCb: PDXGK_POWER_NOTIFICATION,
     pub RemovalNotificationCb: PDXGK_REMOVAL_NOTIFICATION,
     pub FStateNotificationCb: PDXGK_FSTATE_NOTIFICATION,
     pub InitialComponentStateCb: PDXGK_INITIAL_COMPONENT_STATE,
 }
 #[cfg(feature = "Win32_System_Power")]
-impl ::core::marker::Copy for DXGK_GRAPHICSPOWER_REGISTER_INPUT_V_1_2 {}
+impl Copy for DXGK_GRAPHICSPOWER_REGISTER_INPUT_V_1_2 {}
 #[cfg(feature = "Win32_System_Power")]
-impl ::core::clone::Clone for DXGK_GRAPHICSPOWER_REGISTER_INPUT_V_1_2 {
+impl Clone for DXGK_GRAPHICSPOWER_REGISTER_INPUT_V_1_2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -15011,15 +15011,15 @@ impl ::core::clone::Clone for DXGK_GRAPHICSPOWER_REGISTER_INPUT_V_1_2 {
 #[repr(C)]
 #[cfg(feature = "Win32_System_Power")]
 pub struct DXGK_GRAPHICSPOWER_REGISTER_OUTPUT {
-    pub DeviceHandle: *mut ::core::ffi::c_void,
+    pub DeviceHandle: *mut core::ffi::c_void,
     pub InitialGrfxPowerState: super::super::super::Win32::System::Power::DEVICE_POWER_STATE,
     pub SetSharedPowerComponentStateCb: PDXGK_SET_SHARED_POWER_COMPONENT_STATE,
     pub UnregisterCb: PDXGK_GRAPHICSPOWER_UNREGISTER,
 }
 #[cfg(feature = "Win32_System_Power")]
-impl ::core::marker::Copy for DXGK_GRAPHICSPOWER_REGISTER_OUTPUT {}
+impl Copy for DXGK_GRAPHICSPOWER_REGISTER_OUTPUT {}
 #[cfg(feature = "Win32_System_Power")]
-impl ::core::clone::Clone for DXGK_GRAPHICSPOWER_REGISTER_OUTPUT {
+impl Clone for DXGK_GRAPHICSPOWER_REGISTER_OUTPUT {
     fn clone(&self) -> Self {
         *self
     }
@@ -15029,8 +15029,8 @@ pub union DXGK_MIRACAST_CHUNK_ID {
     pub Anonymous: DXGK_MIRACAST_CHUNK_ID_0,
     pub Value: u64,
 }
-impl ::core::marker::Copy for DXGK_MIRACAST_CHUNK_ID {}
-impl ::core::clone::Clone for DXGK_MIRACAST_CHUNK_ID {
+impl Copy for DXGK_MIRACAST_CHUNK_ID {}
+impl Clone for DXGK_MIRACAST_CHUNK_ID {
     fn clone(&self) -> Self {
         *self
     }
@@ -15039,8 +15039,8 @@ impl ::core::clone::Clone for DXGK_MIRACAST_CHUNK_ID {
 pub struct DXGK_MIRACAST_CHUNK_ID_0 {
     pub _bitfield: u64,
 }
-impl ::core::marker::Copy for DXGK_MIRACAST_CHUNK_ID_0 {}
-impl ::core::clone::Clone for DXGK_MIRACAST_CHUNK_ID_0 {
+impl Copy for DXGK_MIRACAST_CHUNK_ID_0 {}
+impl Clone for DXGK_MIRACAST_CHUNK_ID_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -15052,8 +15052,8 @@ pub struct DXGK_MIRACAST_CHUNK_INFO {
     pub ProcessingTime: u32,
     pub EncodeRate: u32,
 }
-impl ::core::marker::Copy for DXGK_MIRACAST_CHUNK_INFO {}
-impl ::core::clone::Clone for DXGK_MIRACAST_CHUNK_INFO {
+impl Copy for DXGK_MIRACAST_CHUNK_INFO {}
+impl Clone for DXGK_MIRACAST_CHUNK_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -15063,8 +15063,8 @@ pub union DXGK_MONITORLINKINFO_CAPABILITIES {
     pub Anonymous: DXGK_MONITORLINKINFO_CAPABILITIES_0,
     pub Value: u32,
 }
-impl ::core::marker::Copy for DXGK_MONITORLINKINFO_CAPABILITIES {}
-impl ::core::clone::Clone for DXGK_MONITORLINKINFO_CAPABILITIES {
+impl Copy for DXGK_MONITORLINKINFO_CAPABILITIES {}
+impl Clone for DXGK_MONITORLINKINFO_CAPABILITIES {
     fn clone(&self) -> Self {
         *self
     }
@@ -15073,8 +15073,8 @@ impl ::core::clone::Clone for DXGK_MONITORLINKINFO_CAPABILITIES {
 pub struct DXGK_MONITORLINKINFO_CAPABILITIES_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for DXGK_MONITORLINKINFO_CAPABILITIES_0 {}
-impl ::core::clone::Clone for DXGK_MONITORLINKINFO_CAPABILITIES_0 {
+impl Copy for DXGK_MONITORLINKINFO_CAPABILITIES_0 {}
+impl Clone for DXGK_MONITORLINKINFO_CAPABILITIES_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -15084,8 +15084,8 @@ pub union DXGK_MONITORLINKINFO_USAGEHINTS {
     pub Anonymous: DXGK_MONITORLINKINFO_USAGEHINTS_0,
     pub Value: u32,
 }
-impl ::core::marker::Copy for DXGK_MONITORLINKINFO_USAGEHINTS {}
-impl ::core::clone::Clone for DXGK_MONITORLINKINFO_USAGEHINTS {
+impl Copy for DXGK_MONITORLINKINFO_USAGEHINTS {}
+impl Clone for DXGK_MONITORLINKINFO_USAGEHINTS {
     fn clone(&self) -> Self {
         *self
     }
@@ -15094,8 +15094,8 @@ impl ::core::clone::Clone for DXGK_MONITORLINKINFO_USAGEHINTS {
 pub struct DXGK_MONITORLINKINFO_USAGEHINTS_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for DXGK_MONITORLINKINFO_USAGEHINTS_0 {}
-impl ::core::clone::Clone for DXGK_MONITORLINKINFO_USAGEHINTS_0 {
+impl Copy for DXGK_MONITORLINKINFO_USAGEHINTS_0 {}
+impl Clone for DXGK_MONITORLINKINFO_USAGEHINTS_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -15108,8 +15108,8 @@ pub struct DXGK_NODEMETADATA {
     pub GpuMmuSupported: super::super::super::Win32::Foundation::BOOLEAN,
     pub IoMmuSupported: super::super::super::Win32::Foundation::BOOLEAN,
 }
-impl ::core::marker::Copy for DXGK_NODEMETADATA {}
-impl ::core::clone::Clone for DXGK_NODEMETADATA {
+impl Copy for DXGK_NODEMETADATA {}
+impl Clone for DXGK_NODEMETADATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -15118,8 +15118,8 @@ impl ::core::clone::Clone for DXGK_NODEMETADATA {
 pub struct DXGK_NODEMETADATA_FLAGS {
     pub Anonymous: DXGK_NODEMETADATA_FLAGS_0,
 }
-impl ::core::marker::Copy for DXGK_NODEMETADATA_FLAGS {}
-impl ::core::clone::Clone for DXGK_NODEMETADATA_FLAGS {
+impl Copy for DXGK_NODEMETADATA_FLAGS {}
+impl Clone for DXGK_NODEMETADATA_FLAGS {
     fn clone(&self) -> Self {
         *self
     }
@@ -15129,8 +15129,8 @@ pub union DXGK_NODEMETADATA_FLAGS_0 {
     pub Anonymous: DXGK_NODEMETADATA_FLAGS_0_0,
     pub Value: u32,
 }
-impl ::core::marker::Copy for DXGK_NODEMETADATA_FLAGS_0 {}
-impl ::core::clone::Clone for DXGK_NODEMETADATA_FLAGS_0 {
+impl Copy for DXGK_NODEMETADATA_FLAGS_0 {}
+impl Clone for DXGK_NODEMETADATA_FLAGS_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -15139,8 +15139,8 @@ impl ::core::clone::Clone for DXGK_NODEMETADATA_FLAGS_0 {
 pub struct DXGK_NODEMETADATA_FLAGS_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for DXGK_NODEMETADATA_FLAGS_0_0 {}
-impl ::core::clone::Clone for DXGK_NODEMETADATA_FLAGS_0_0 {
+impl Copy for DXGK_NODEMETADATA_FLAGS_0_0 {}
+impl Clone for DXGK_NODEMETADATA_FLAGS_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -15155,8 +15155,8 @@ pub struct DXGK_NODE_PERFDATA {
     pub VoltageMaxOC: u32,
     pub MaxTransitionLatency: u64,
 }
-impl ::core::marker::Copy for DXGK_NODE_PERFDATA {}
-impl ::core::clone::Clone for DXGK_NODE_PERFDATA {
+impl Copy for DXGK_NODE_PERFDATA {}
+impl Clone for DXGK_NODE_PERFDATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -15166,8 +15166,8 @@ pub struct DXGK_PTE {
     pub Anonymous1: DXGK_PTE_0,
     pub Anonymous2: DXGK_PTE_1,
 }
-impl ::core::marker::Copy for DXGK_PTE {}
-impl ::core::clone::Clone for DXGK_PTE {
+impl Copy for DXGK_PTE {}
+impl Clone for DXGK_PTE {
     fn clone(&self) -> Self {
         *self
     }
@@ -15177,8 +15177,8 @@ pub union DXGK_PTE_0 {
     pub Anonymous: DXGK_PTE_0_0,
     pub Flags: u64,
 }
-impl ::core::marker::Copy for DXGK_PTE_0 {}
-impl ::core::clone::Clone for DXGK_PTE_0 {
+impl Copy for DXGK_PTE_0 {}
+impl Clone for DXGK_PTE_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -15187,8 +15187,8 @@ impl ::core::clone::Clone for DXGK_PTE_0 {
 pub struct DXGK_PTE_0_0 {
     pub _bitfield: u64,
 }
-impl ::core::marker::Copy for DXGK_PTE_0_0 {}
-impl ::core::clone::Clone for DXGK_PTE_0_0 {
+impl Copy for DXGK_PTE_0_0 {}
+impl Clone for DXGK_PTE_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -15198,8 +15198,8 @@ pub union DXGK_PTE_1 {
     pub PageAddress: u64,
     pub PageTableAddress: u64,
 }
-impl ::core::marker::Copy for DXGK_PTE_1 {}
-impl ::core::clone::Clone for DXGK_PTE_1 {
+impl Copy for DXGK_PTE_1 {}
+impl Clone for DXGK_PTE_1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -15210,8 +15210,8 @@ pub struct DXGK_TARGETMODE_DETAIL_TIMING {
     pub TimingId: u32,
     pub DetailTiming: DISPLAYID_DETAILED_TIMING_TYPE_I,
 }
-impl ::core::marker::Copy for DXGK_TARGETMODE_DETAIL_TIMING {}
-impl ::core::clone::Clone for DXGK_TARGETMODE_DETAIL_TIMING {
+impl Copy for DXGK_TARGETMODE_DETAIL_TIMING {}
+impl Clone for DXGK_TARGETMODE_DETAIL_TIMING {
     fn clone(&self) -> Self {
         *self
     }
@@ -15220,8 +15220,8 @@ impl ::core::clone::Clone for DXGK_TARGETMODE_DETAIL_TIMING {
 pub struct GPUP_DRIVER_ESCAPE_INPUT {
     pub vfLUID: super::super::super::Win32::Foundation::LUID,
 }
-impl ::core::marker::Copy for GPUP_DRIVER_ESCAPE_INPUT {}
-impl ::core::clone::Clone for GPUP_DRIVER_ESCAPE_INPUT {
+impl Copy for GPUP_DRIVER_ESCAPE_INPUT {}
+impl Clone for GPUP_DRIVER_ESCAPE_INPUT {
     fn clone(&self) -> Self {
         *self
     }
@@ -15235,8 +15235,8 @@ pub struct OUTPUTDUPL_CONTEXT_DEBUG_INFO {
     pub LastMouseTime: i64,
     pub ProcessName: [i8; 16],
 }
-impl ::core::marker::Copy for OUTPUTDUPL_CONTEXT_DEBUG_INFO {}
-impl ::core::clone::Clone for OUTPUTDUPL_CONTEXT_DEBUG_INFO {
+impl Copy for OUTPUTDUPL_CONTEXT_DEBUG_INFO {}
+impl Clone for OUTPUTDUPL_CONTEXT_DEBUG_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -15246,253 +15246,253 @@ pub struct _NT_D3DLINEPATTERN {
     pub wRepeatFactor: u16,
     pub wLinePattern: u16,
 }
-impl ::core::marker::Copy for _NT_D3DLINEPATTERN {}
-impl ::core::clone::Clone for _NT_D3DLINEPATTERN {
+impl Copy for _NT_D3DLINEPATTERN {}
+impl Clone for _NT_D3DLINEPATTERN {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-pub type LPD3DHAL_CLEAR2CB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DHAL_CLEAR2DATA) -> u32>;
+pub type LPD3DHAL_CLEAR2CB = Option<unsafe extern "system" fn(param0: *mut D3DHAL_CLEAR2DATA) -> u32>;
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-pub type LPD3DHAL_CLEARCB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DHAL_CLEARDATA) -> u32>;
+pub type LPD3DHAL_CLEARCB = Option<unsafe extern "system" fn(param0: *mut D3DHAL_CLEARDATA) -> u32>;
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-pub type LPD3DHAL_CONTEXTCREATECB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DHAL_CONTEXTCREATEDATA) -> u32>;
-pub type LPD3DHAL_CONTEXTDESTROYALLCB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DHAL_CONTEXTDESTROYALLDATA) -> u32>;
-pub type LPD3DHAL_CONTEXTDESTROYCB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DHAL_CONTEXTDESTROYDATA) -> u32>;
+pub type LPD3DHAL_CONTEXTCREATECB = Option<unsafe extern "system" fn(param0: *mut D3DHAL_CONTEXTCREATEDATA) -> u32>;
+pub type LPD3DHAL_CONTEXTDESTROYALLCB = Option<unsafe extern "system" fn(param0: *mut D3DHAL_CONTEXTDESTROYALLDATA) -> u32>;
+pub type LPD3DHAL_CONTEXTDESTROYCB = Option<unsafe extern "system" fn(param0: *mut D3DHAL_CONTEXTDESTROYDATA) -> u32>;
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-pub type LPD3DHAL_DRAWONEINDEXEDPRIMITIVECB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DHAL_DRAWONEINDEXEDPRIMITIVEDATA) -> u32>;
+pub type LPD3DHAL_DRAWONEINDEXEDPRIMITIVECB = Option<unsafe extern "system" fn(param0: *mut D3DHAL_DRAWONEINDEXEDPRIMITIVEDATA) -> u32>;
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-pub type LPD3DHAL_DRAWONEPRIMITIVECB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DHAL_DRAWONEPRIMITIVEDATA) -> u32>;
+pub type LPD3DHAL_DRAWONEPRIMITIVECB = Option<unsafe extern "system" fn(param0: *mut D3DHAL_DRAWONEPRIMITIVEDATA) -> u32>;
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-pub type LPD3DHAL_DRAWPRIMITIVES2CB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DHAL_DRAWPRIMITIVES2DATA) -> u32>;
-pub type LPD3DHAL_DRAWPRIMITIVESCB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DHAL_DRAWPRIMITIVESDATA) -> u32>;
+pub type LPD3DHAL_DRAWPRIMITIVES2CB = Option<unsafe extern "system" fn(param0: *mut D3DHAL_DRAWPRIMITIVES2DATA) -> u32>;
+pub type LPD3DHAL_DRAWPRIMITIVESCB = Option<unsafe extern "system" fn(param0: *mut D3DHAL_DRAWPRIMITIVESDATA) -> u32>;
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-pub type LPD3DHAL_GETSTATECB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DHAL_GETSTATEDATA) -> u32>;
+pub type LPD3DHAL_GETSTATECB = Option<unsafe extern "system" fn(param0: *mut D3DHAL_GETSTATEDATA) -> u32>;
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-pub type LPD3DHAL_RENDERPRIMITIVECB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DHAL_RENDERPRIMITIVEDATA) -> u32>;
-pub type LPD3DHAL_RENDERSTATECB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DHAL_RENDERSTATEDATA) -> u32>;
-pub type LPD3DHAL_SCENECAPTURECB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DHAL_SCENECAPTUREDATA) -> u32>;
+pub type LPD3DHAL_RENDERPRIMITIVECB = Option<unsafe extern "system" fn(param0: *mut D3DHAL_RENDERPRIMITIVEDATA) -> u32>;
+pub type LPD3DHAL_RENDERSTATECB = Option<unsafe extern "system" fn(param0: *mut D3DHAL_RENDERSTATEDATA) -> u32>;
+pub type LPD3DHAL_SCENECAPTURECB = Option<unsafe extern "system" fn(param0: *mut D3DHAL_SCENECAPTUREDATA) -> u32>;
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-pub type LPD3DHAL_SETRENDERTARGETCB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DHAL_SETRENDERTARGETDATA) -> u32>;
-pub type LPD3DHAL_TEXTURECREATECB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DHAL_TEXTURECREATEDATA) -> u32>;
-pub type LPD3DHAL_TEXTUREDESTROYCB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DHAL_TEXTUREDESTROYDATA) -> u32>;
-pub type LPD3DHAL_TEXTUREGETSURFCB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DHAL_TEXTUREGETSURFDATA) -> u32>;
-pub type LPD3DHAL_TEXTURESWAPCB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DHAL_TEXTURESWAPDATA) -> u32>;
-pub type LPD3DHAL_VALIDATETEXTURESTAGESTATECB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DHAL_VALIDATETEXTURESTAGESTATEDATA) -> u32>;
+pub type LPD3DHAL_SETRENDERTARGETCB = Option<unsafe extern "system" fn(param0: *mut D3DHAL_SETRENDERTARGETDATA) -> u32>;
+pub type LPD3DHAL_TEXTURECREATECB = Option<unsafe extern "system" fn(param0: *mut D3DHAL_TEXTURECREATEDATA) -> u32>;
+pub type LPD3DHAL_TEXTUREDESTROYCB = Option<unsafe extern "system" fn(param0: *mut D3DHAL_TEXTUREDESTROYDATA) -> u32>;
+pub type LPD3DHAL_TEXTUREGETSURFCB = Option<unsafe extern "system" fn(param0: *mut D3DHAL_TEXTUREGETSURFDATA) -> u32>;
+pub type LPD3DHAL_TEXTURESWAPCB = Option<unsafe extern "system" fn(param0: *mut D3DHAL_TEXTURESWAPDATA) -> u32>;
+pub type LPD3DHAL_VALIDATETEXTURESTAGESTATECB = Option<unsafe extern "system" fn(param0: *mut D3DHAL_VALIDATETEXTURESTAGESTATEDATA) -> u32>;
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-pub type LPD3DNTHAL_CLEAR2CB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DNTHAL_CLEAR2DATA) -> u32>;
+pub type LPD3DNTHAL_CLEAR2CB = Option<unsafe extern "system" fn(param0: *mut D3DNTHAL_CLEAR2DATA) -> u32>;
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
-pub type LPD3DNTHAL_CONTEXTCREATECB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DNTHAL_CONTEXTCREATEDATA) -> u32>;
-pub type LPD3DNTHAL_CONTEXTDESTROYALLCB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DNTHAL_CONTEXTDESTROYALLDATA) -> u32>;
-pub type LPD3DNTHAL_CONTEXTDESTROYCB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DNTHAL_CONTEXTDESTROYDATA) -> u32>;
+pub type LPD3DNTHAL_CONTEXTCREATECB = Option<unsafe extern "system" fn(param0: *mut D3DNTHAL_CONTEXTCREATEDATA) -> u32>;
+pub type LPD3DNTHAL_CONTEXTDESTROYALLCB = Option<unsafe extern "system" fn(param0: *mut D3DNTHAL_CONTEXTDESTROYALLDATA) -> u32>;
+pub type LPD3DNTHAL_CONTEXTDESTROYCB = Option<unsafe extern "system" fn(param0: *mut D3DNTHAL_CONTEXTDESTROYDATA) -> u32>;
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
-pub type LPD3DNTHAL_DRAWPRIMITIVES2CB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DNTHAL_DRAWPRIMITIVES2DATA) -> u32>;
-pub type LPD3DNTHAL_SCENECAPTURECB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DNTHAL_SCENECAPTUREDATA) -> u32>;
+pub type LPD3DNTHAL_DRAWPRIMITIVES2CB = Option<unsafe extern "system" fn(param0: *mut D3DNTHAL_DRAWPRIMITIVES2DATA) -> u32>;
+pub type LPD3DNTHAL_SCENECAPTURECB = Option<unsafe extern "system" fn(param0: *mut D3DNTHAL_SCENECAPTUREDATA) -> u32>;
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
-pub type LPD3DNTHAL_SETRENDERTARGETCB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DNTHAL_SETRENDERTARGETDATA) -> u32>;
-pub type LPD3DNTHAL_TEXTURECREATECB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DNTHAL_TEXTURECREATEDATA) -> u32>;
-pub type LPD3DNTHAL_TEXTUREDESTROYCB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DNTHAL_TEXTUREDESTROYDATA) -> u32>;
-pub type LPD3DNTHAL_TEXTUREGETSURFCB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DNTHAL_TEXTUREGETSURFDATA) -> u32>;
-pub type LPD3DNTHAL_TEXTURESWAPCB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DNTHAL_TEXTURESWAPDATA) -> u32>;
-pub type LPD3DNTHAL_VALIDATETEXTURESTAGESTATECB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DNTHAL_VALIDATETEXTURESTAGESTATEDATA) -> u32>;
-pub type PDXGK_FSTATE_NOTIFICATION = ::core::option::Option<unsafe extern "system" fn(graphicsdevicehandle: *mut ::core::ffi::c_void, componentindex: u32, newfstate: u32, prenotification: super::super::super::Win32::Foundation::BOOLEAN, privatehandle: *mut ::core::ffi::c_void)>;
-pub type PDXGK_GRAPHICSPOWER_UNREGISTER = ::core::option::Option<unsafe extern "system" fn(devicehandle: *mut ::core::ffi::c_void, privatehandle: *mut ::core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PDXGK_INITIAL_COMPONENT_STATE = ::core::option::Option<unsafe extern "system" fn(graphicsdevicehandle: *mut ::core::ffi::c_void, privatehandle: *mut ::core::ffi::c_void, componentindex: u32, isblockingtype: super::super::super::Win32::Foundation::BOOLEAN, initialfstate: u32, componentguid: ::windows_sys::core::GUID, powercomponentmappingflag: u32)>;
+pub type LPD3DNTHAL_SETRENDERTARGETCB = Option<unsafe extern "system" fn(param0: *mut D3DNTHAL_SETRENDERTARGETDATA) -> u32>;
+pub type LPD3DNTHAL_TEXTURECREATECB = Option<unsafe extern "system" fn(param0: *mut D3DNTHAL_TEXTURECREATEDATA) -> u32>;
+pub type LPD3DNTHAL_TEXTUREDESTROYCB = Option<unsafe extern "system" fn(param0: *mut D3DNTHAL_TEXTUREDESTROYDATA) -> u32>;
+pub type LPD3DNTHAL_TEXTUREGETSURFCB = Option<unsafe extern "system" fn(param0: *mut D3DNTHAL_TEXTUREGETSURFDATA) -> u32>;
+pub type LPD3DNTHAL_TEXTURESWAPCB = Option<unsafe extern "system" fn(param0: *mut D3DNTHAL_TEXTURESWAPDATA) -> u32>;
+pub type LPD3DNTHAL_VALIDATETEXTURESTAGESTATECB = Option<unsafe extern "system" fn(param0: *mut D3DNTHAL_VALIDATETEXTURESTAGESTATEDATA) -> u32>;
+pub type PDXGK_FSTATE_NOTIFICATION = Option<unsafe extern "system" fn(graphicsdevicehandle: *mut core::ffi::c_void, componentindex: u32, newfstate: u32, prenotification: super::super::super::Win32::Foundation::BOOLEAN, privatehandle: *mut core::ffi::c_void)>;
+pub type PDXGK_GRAPHICSPOWER_UNREGISTER = Option<unsafe extern "system" fn(devicehandle: *mut core::ffi::c_void, privatehandle: *mut core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PDXGK_INITIAL_COMPONENT_STATE = Option<unsafe extern "system" fn(graphicsdevicehandle: *mut core::ffi::c_void, privatehandle: *mut core::ffi::c_void, componentindex: u32, isblockingtype: super::super::super::Win32::Foundation::BOOLEAN, initialfstate: u32, componentguid: windows_sys::core::GUID, powercomponentmappingflag: u32)>;
 #[cfg(feature = "Win32_System_Power")]
-pub type PDXGK_POWER_NOTIFICATION = ::core::option::Option<unsafe extern "system" fn(graphicsdevicehandle: *mut ::core::ffi::c_void, newgrfxpowerstate: super::super::super::Win32::System::Power::DEVICE_POWER_STATE, prenotification: super::super::super::Win32::Foundation::BOOLEAN, privatehandle: *mut ::core::ffi::c_void)>;
-pub type PDXGK_REMOVAL_NOTIFICATION = ::core::option::Option<unsafe extern "system" fn(graphicsdevicehandle: *mut ::core::ffi::c_void, privatehandle: *mut ::core::ffi::c_void)>;
-pub type PDXGK_SET_SHARED_POWER_COMPONENT_STATE = ::core::option::Option<unsafe extern "system" fn(devicehandle: *mut ::core::ffi::c_void, privatehandle: *mut ::core::ffi::c_void, componentindex: u32, active: super::super::super::Win32::Foundation::BOOLEAN) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_ACQUIREKEYEDMUTEX = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_ACQUIREKEYEDMUTEX) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_ACQUIREKEYEDMUTEX2 = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_ACQUIREKEYEDMUTEX2) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_ADJUSTFULLSCREENGAMMA = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_ADJUSTFULLSCREENGAMMA) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_BUDGETCHANGENOTIFICATIONCALLBACK = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_BUDGETCHANGENOTIFICATION)>;
-pub type PFND3DKMT_CANCELPRESENTS = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_CANCEL_PRESENTS) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PDXGK_POWER_NOTIFICATION = Option<unsafe extern "system" fn(graphicsdevicehandle: *mut core::ffi::c_void, newgrfxpowerstate: super::super::super::Win32::System::Power::DEVICE_POWER_STATE, prenotification: super::super::super::Win32::Foundation::BOOLEAN, privatehandle: *mut core::ffi::c_void)>;
+pub type PDXGK_REMOVAL_NOTIFICATION = Option<unsafe extern "system" fn(graphicsdevicehandle: *mut core::ffi::c_void, privatehandle: *mut core::ffi::c_void)>;
+pub type PDXGK_SET_SHARED_POWER_COMPONENT_STATE = Option<unsafe extern "system" fn(devicehandle: *mut core::ffi::c_void, privatehandle: *mut core::ffi::c_void, componentindex: u32, active: super::super::super::Win32::Foundation::BOOLEAN) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_ACQUIREKEYEDMUTEX = Option<unsafe extern "system" fn(param0: *mut D3DKMT_ACQUIREKEYEDMUTEX) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_ACQUIREKEYEDMUTEX2 = Option<unsafe extern "system" fn(param0: *mut D3DKMT_ACQUIREKEYEDMUTEX2) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_ADJUSTFULLSCREENGAMMA = Option<unsafe extern "system" fn(param0: *const D3DKMT_ADJUSTFULLSCREENGAMMA) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_BUDGETCHANGENOTIFICATIONCALLBACK = Option<unsafe extern "system" fn(param0: *const D3DKMT_BUDGETCHANGENOTIFICATION)>;
+pub type PFND3DKMT_CANCELPRESENTS = Option<unsafe extern "system" fn(param0: *const D3DKMT_CANCEL_PRESENTS) -> super::super::super::Win32::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Graphics_Gdi")]
-pub type PFND3DKMT_CHANGESURFACEPOINTER = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_CHANGESURFACEPOINTER) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_CHANGEVIDEOMEMORYRESERVATION = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_CHANGEVIDEOMEMORYRESERVATION) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_CHECKEXCLUSIVEOWNERSHIP = ::core::option::Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::BOOLEAN>;
-pub type PFND3DKMT_CHECKMONITORPOWERSTATE = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_CHECKMONITORPOWERSTATE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT2 = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT2) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT3 = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT3) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_CHECKOCCLUSION = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_CHECKOCCLUSION) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_CHECKSHAREDRESOURCEACCESS = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_CHECKSHAREDRESOURCEACCESS) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_CHECKVIDPNEXCLUSIVEOWNERSHIP = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_CHECKVIDPNEXCLUSIVEOWNERSHIP) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_CLOSEADAPTER = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_CLOSEADAPTER) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_CONFIGURESHAREDRESOURCE = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_CONFIGURESHAREDRESOURCE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_CONNECTDOORBELL = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_CONNECT_DOORBELL) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_CREATEALLOCATION = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATEALLOCATION) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_CREATEALLOCATION2 = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATEALLOCATION) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_CREATECONTEXT = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATECONTEXT) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_CREATECONTEXTVIRTUAL = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATECONTEXTVIRTUAL) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_CHANGESURFACEPOINTER = Option<unsafe extern "system" fn(param0: *const D3DKMT_CHANGESURFACEPOINTER) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_CHANGEVIDEOMEMORYRESERVATION = Option<unsafe extern "system" fn(param0: *const D3DKMT_CHANGEVIDEOMEMORYRESERVATION) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_CHECKEXCLUSIVEOWNERSHIP = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::BOOLEAN>;
+pub type PFND3DKMT_CHECKMONITORPOWERSTATE = Option<unsafe extern "system" fn(param0: *const D3DKMT_CHECKMONITORPOWERSTATE) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT2 = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT2) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT3 = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT3) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_CHECKOCCLUSION = Option<unsafe extern "system" fn(param0: *const D3DKMT_CHECKOCCLUSION) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_CHECKSHAREDRESOURCEACCESS = Option<unsafe extern "system" fn(param0: *const D3DKMT_CHECKSHAREDRESOURCEACCESS) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_CHECKVIDPNEXCLUSIVEOWNERSHIP = Option<unsafe extern "system" fn(param0: *const D3DKMT_CHECKVIDPNEXCLUSIVEOWNERSHIP) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_CLOSEADAPTER = Option<unsafe extern "system" fn(param0: *const D3DKMT_CLOSEADAPTER) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_CONFIGURESHAREDRESOURCE = Option<unsafe extern "system" fn(param0: *const D3DKMT_CONFIGURESHAREDRESOURCE) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_CONNECTDOORBELL = Option<unsafe extern "system" fn(param0: *const D3DKMT_CONNECT_DOORBELL) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_CREATEALLOCATION = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATEALLOCATION) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_CREATEALLOCATION2 = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATEALLOCATION) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_CREATECONTEXT = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATECONTEXT) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_CREATECONTEXTVIRTUAL = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATECONTEXTVIRTUAL) -> super::super::super::Win32::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Graphics_Gdi")]
-pub type PFND3DKMT_CREATEDCFROMMEMORY = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATEDCFROMMEMORY) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_CREATEDEVICE = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATEDEVICE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_CREATEDOORBELL = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_CREATE_DOORBELL) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_CREATEHWQUEUE = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATEHWQUEUE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_CREATEKEYEDMUTEX = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATEKEYEDMUTEX) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_CREATEKEYEDMUTEX2 = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATEKEYEDMUTEX2) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_CREATENATIVEFENCE = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATENATIVEFENCE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_CREATEOUTPUTDUPL = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_CREATE_OUTPUTDUPL) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_CREATEOVERLAY = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATEOVERLAY) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_CREATEPAGINGQUEUE = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATEPAGINGQUEUE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_CREATEPROTECTEDSESSION = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATEPROTECTEDSESSION) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_CREATESYNCHRONIZATIONOBJECT = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATESYNCHRONIZATIONOBJECT) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_CREATESYNCHRONIZATIONOBJECT2 = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATESYNCHRONIZATIONOBJECT2) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_DESTROYALLOCATION = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_DESTROYALLOCATION) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_DESTROYALLOCATION2 = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_DESTROYALLOCATION2) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_DESTROYCONTEXT = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_DESTROYCONTEXT) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_CREATEDCFROMMEMORY = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATEDCFROMMEMORY) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_CREATEDEVICE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATEDEVICE) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_CREATEDOORBELL = Option<unsafe extern "system" fn(param0: *const D3DKMT_CREATE_DOORBELL) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_CREATEHWQUEUE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATEHWQUEUE) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_CREATEKEYEDMUTEX = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATEKEYEDMUTEX) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_CREATEKEYEDMUTEX2 = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATEKEYEDMUTEX2) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_CREATENATIVEFENCE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATENATIVEFENCE) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_CREATEOUTPUTDUPL = Option<unsafe extern "system" fn(param0: *const D3DKMT_CREATE_OUTPUTDUPL) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_CREATEOVERLAY = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATEOVERLAY) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_CREATEPAGINGQUEUE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATEPAGINGQUEUE) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_CREATEPROTECTEDSESSION = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATEPROTECTEDSESSION) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_CREATESYNCHRONIZATIONOBJECT = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATESYNCHRONIZATIONOBJECT) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_CREATESYNCHRONIZATIONOBJECT2 = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATESYNCHRONIZATIONOBJECT2) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_DESTROYALLOCATION = Option<unsafe extern "system" fn(param0: *const D3DKMT_DESTROYALLOCATION) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_DESTROYALLOCATION2 = Option<unsafe extern "system" fn(param0: *const D3DKMT_DESTROYALLOCATION2) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_DESTROYCONTEXT = Option<unsafe extern "system" fn(param0: *const D3DKMT_DESTROYCONTEXT) -> super::super::super::Win32::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Graphics_Gdi")]
-pub type PFND3DKMT_DESTROYDCFROMMEMORY = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_DESTROYDCFROMMEMORY) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_DESTROYDEVICE = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_DESTROYDEVICE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_DESTROYDOORBELL = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_DESTROY_DOORBELL) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_DESTROYHWQUEUE = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_DESTROYHWQUEUE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_DESTROYKEYEDMUTEX = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_DESTROYKEYEDMUTEX) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_DESTROYOUTPUTDUPL = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_DESTROY_OUTPUTDUPL) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_DESTROYOVERLAY = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_DESTROYOVERLAY) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_DESTROYPAGINGQUEUE = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DDDI_DESTROYPAGINGQUEUE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_DESTROYPROTECTEDSESSION = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_DESTROYPROTECTEDSESSION) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_DESTROYSYNCHRONIZATIONOBJECT = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_DESTROYSYNCHRONIZATIONOBJECT) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_ENUMADAPTERS = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_ENUMADAPTERS) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_ENUMADAPTERS2 = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_ENUMADAPTERS2) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_ENUMADAPTERS3 = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_ENUMADAPTERS3) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_ESCAPE = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_ESCAPE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_EVICT = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_EVICT) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_FLIPOVERLAY = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_FLIPOVERLAY) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_FLUSHHEAPTRANSITIONS = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_FLUSHHEAPTRANSITIONS) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_FREEGPUVIRTUALADDRESS = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_FREEGPUVIRTUALADDRESS) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_GETALLOCATIONPRIORITY = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_GETALLOCATIONPRIORITY) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_GETCONTEXTINPROCESSSCHEDULINGPRIORITY = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_GETCONTEXTINPROCESSSCHEDULINGPRIORITY) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_GETCONTEXTSCHEDULINGPRIORITY = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_GETCONTEXTSCHEDULINGPRIORITY) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_GETDEVICESTATE = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_GETDEVICESTATE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_GETDISPLAYMODELIST = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_GETDISPLAYMODELIST) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_GETDWMVERTICALBLANKEVENT = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_GETVERTICALBLANKEVENT) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_GETMULTIPLANEOVERLAYCAPS = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_GET_MULTIPLANE_OVERLAY_CAPS) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_GETMULTISAMPLEMETHODLIST = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_GETMULTISAMPLEMETHODLIST) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_GETOVERLAYSTATE = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_GETOVERLAYSTATE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_GETPOSTCOMPOSITIONCAPS = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_GET_POST_COMPOSITION_CAPS) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_GETPRESENTHISTORY = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_GETPRESENTHISTORY) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_GETPROCESSDEVICEREMOVALSUPPORT = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_GETPROCESSDEVICEREMOVALSUPPORT) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_GETPROCESSSCHEDULINGPRIORITYCLASS = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Win32::Foundation::HANDLE, param1: *mut D3DKMT_SCHEDULINGPRIORITYCLASS) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_GETRESOURCEPRESENTPRIVATEDRIVERDATA = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DDDI_GETRESOURCEPRESENTPRIVATEDRIVERDATA) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_GETRUNTIMEDATA = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_GETRUNTIMEDATA) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_GETSCANLINE = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_GETSCANLINE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_GETSHAREDPRIMARYHANDLE = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_GETSHAREDPRIMARYHANDLE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_GETSHAREDRESOURCEADAPTERLUID = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_GETSHAREDRESOURCEADAPTERLUID) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_INVALIDATEACTIVEVIDPN = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_INVALIDATEACTIVEVIDPN) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_INVALIDATECACHE = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_INVALIDATECACHE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_LOCK = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_LOCK) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_LOCK2 = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_LOCK2) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_MAKERESIDENT = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DDDI_MAKERESIDENT) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_MAPGPUVIRTUALADDRESS = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DDDI_MAPGPUVIRTUALADDRESS) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_MARKDEVICEASERROR = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_MARKDEVICEASERROR) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_NOTIFYWORKSUBMISSION = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_NOTIFY_WORK_SUBMISSION) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_OFFERALLOCATIONS = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_OFFERALLOCATIONS) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_OPENADAPTERFROMDEVICENAME = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENADAPTERFROMDEVICENAME) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_OPENADAPTERFROMGDIDISPLAYNAME = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENADAPTERFROMGDIDISPLAYNAME) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_DESTROYDCFROMMEMORY = Option<unsafe extern "system" fn(param0: *const D3DKMT_DESTROYDCFROMMEMORY) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_DESTROYDEVICE = Option<unsafe extern "system" fn(param0: *const D3DKMT_DESTROYDEVICE) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_DESTROYDOORBELL = Option<unsafe extern "system" fn(param0: *const D3DKMT_DESTROY_DOORBELL) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_DESTROYHWQUEUE = Option<unsafe extern "system" fn(param0: *const D3DKMT_DESTROYHWQUEUE) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_DESTROYKEYEDMUTEX = Option<unsafe extern "system" fn(param0: *const D3DKMT_DESTROYKEYEDMUTEX) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_DESTROYOUTPUTDUPL = Option<unsafe extern "system" fn(param0: *const D3DKMT_DESTROY_OUTPUTDUPL) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_DESTROYOVERLAY = Option<unsafe extern "system" fn(param0: *const D3DKMT_DESTROYOVERLAY) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_DESTROYPAGINGQUEUE = Option<unsafe extern "system" fn(param0: *mut D3DDDI_DESTROYPAGINGQUEUE) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_DESTROYPROTECTEDSESSION = Option<unsafe extern "system" fn(param0: *mut D3DKMT_DESTROYPROTECTEDSESSION) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_DESTROYSYNCHRONIZATIONOBJECT = Option<unsafe extern "system" fn(param0: *const D3DKMT_DESTROYSYNCHRONIZATIONOBJECT) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_ENUMADAPTERS = Option<unsafe extern "system" fn(param0: *mut D3DKMT_ENUMADAPTERS) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_ENUMADAPTERS2 = Option<unsafe extern "system" fn(param0: *mut D3DKMT_ENUMADAPTERS2) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_ENUMADAPTERS3 = Option<unsafe extern "system" fn(param0: *mut D3DKMT_ENUMADAPTERS3) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_ESCAPE = Option<unsafe extern "system" fn(param0: *const D3DKMT_ESCAPE) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_EVICT = Option<unsafe extern "system" fn(param0: *mut D3DKMT_EVICT) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_FLIPOVERLAY = Option<unsafe extern "system" fn(param0: *const D3DKMT_FLIPOVERLAY) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_FLUSHHEAPTRANSITIONS = Option<unsafe extern "system" fn(param0: *const D3DKMT_FLUSHHEAPTRANSITIONS) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_FREEGPUVIRTUALADDRESS = Option<unsafe extern "system" fn(param0: *const D3DKMT_FREEGPUVIRTUALADDRESS) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_GETALLOCATIONPRIORITY = Option<unsafe extern "system" fn(param0: *const D3DKMT_GETALLOCATIONPRIORITY) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_GETCONTEXTINPROCESSSCHEDULINGPRIORITY = Option<unsafe extern "system" fn(param0: *mut D3DKMT_GETCONTEXTINPROCESSSCHEDULINGPRIORITY) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_GETCONTEXTSCHEDULINGPRIORITY = Option<unsafe extern "system" fn(param0: *mut D3DKMT_GETCONTEXTSCHEDULINGPRIORITY) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_GETDEVICESTATE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_GETDEVICESTATE) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_GETDISPLAYMODELIST = Option<unsafe extern "system" fn(param0: *mut D3DKMT_GETDISPLAYMODELIST) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_GETDWMVERTICALBLANKEVENT = Option<unsafe extern "system" fn(param0: *const D3DKMT_GETVERTICALBLANKEVENT) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_GETMULTIPLANEOVERLAYCAPS = Option<unsafe extern "system" fn(param0: *mut D3DKMT_GET_MULTIPLANE_OVERLAY_CAPS) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_GETMULTISAMPLEMETHODLIST = Option<unsafe extern "system" fn(param0: *mut D3DKMT_GETMULTISAMPLEMETHODLIST) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_GETOVERLAYSTATE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_GETOVERLAYSTATE) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_GETPOSTCOMPOSITIONCAPS = Option<unsafe extern "system" fn(param0: *mut D3DKMT_GET_POST_COMPOSITION_CAPS) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_GETPRESENTHISTORY = Option<unsafe extern "system" fn(param0: *mut D3DKMT_GETPRESENTHISTORY) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_GETPROCESSDEVICEREMOVALSUPPORT = Option<unsafe extern "system" fn(param0: *mut D3DKMT_GETPROCESSDEVICEREMOVALSUPPORT) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_GETPROCESSSCHEDULINGPRIORITYCLASS = Option<unsafe extern "system" fn(param0: super::super::super::Win32::Foundation::HANDLE, param1: *mut D3DKMT_SCHEDULINGPRIORITYCLASS) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_GETRESOURCEPRESENTPRIVATEDRIVERDATA = Option<unsafe extern "system" fn(param0: *mut D3DDDI_GETRESOURCEPRESENTPRIVATEDRIVERDATA) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_GETRUNTIMEDATA = Option<unsafe extern "system" fn(param0: *mut D3DKMT_GETRUNTIMEDATA) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_GETSCANLINE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_GETSCANLINE) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_GETSHAREDPRIMARYHANDLE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_GETSHAREDPRIMARYHANDLE) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_GETSHAREDRESOURCEADAPTERLUID = Option<unsafe extern "system" fn(param0: *mut D3DKMT_GETSHAREDRESOURCEADAPTERLUID) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_INVALIDATEACTIVEVIDPN = Option<unsafe extern "system" fn(param0: *const D3DKMT_INVALIDATEACTIVEVIDPN) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_INVALIDATECACHE = Option<unsafe extern "system" fn(param0: *const D3DKMT_INVALIDATECACHE) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_LOCK = Option<unsafe extern "system" fn(param0: *mut D3DKMT_LOCK) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_LOCK2 = Option<unsafe extern "system" fn(param0: *mut D3DKMT_LOCK2) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_MAKERESIDENT = Option<unsafe extern "system" fn(param0: *mut D3DDDI_MAKERESIDENT) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_MAPGPUVIRTUALADDRESS = Option<unsafe extern "system" fn(param0: *mut D3DDDI_MAPGPUVIRTUALADDRESS) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_MARKDEVICEASERROR = Option<unsafe extern "system" fn(param0: *const D3DKMT_MARKDEVICEASERROR) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_NOTIFYWORKSUBMISSION = Option<unsafe extern "system" fn(param0: *const D3DKMT_NOTIFY_WORK_SUBMISSION) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_OFFERALLOCATIONS = Option<unsafe extern "system" fn(param0: *const D3DKMT_OFFERALLOCATIONS) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_OPENADAPTERFROMDEVICENAME = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENADAPTERFROMDEVICENAME) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_OPENADAPTERFROMGDIDISPLAYNAME = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENADAPTERFROMGDIDISPLAYNAME) -> super::super::super::Win32::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Graphics_Gdi")]
-pub type PFND3DKMT_OPENADAPTERFROMHDC = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENADAPTERFROMHDC) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_OPENADAPTERFROMLUID = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENADAPTERFROMLUID) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_OPENKEYEDMUTEX = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENKEYEDMUTEX) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_OPENKEYEDMUTEX2 = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENKEYEDMUTEX2) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_OPENKEYEDMUTEXFROMNTHANDLE = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENKEYEDMUTEXFROMNTHANDLE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_OPENNATIVEFENCEFROMNTHANDLE = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENNATIVEFENCEFROMNTHANDLE) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_OPENADAPTERFROMHDC = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENADAPTERFROMHDC) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_OPENADAPTERFROMLUID = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENADAPTERFROMLUID) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_OPENKEYEDMUTEX = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENKEYEDMUTEX) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_OPENKEYEDMUTEX2 = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENKEYEDMUTEX2) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_OPENKEYEDMUTEXFROMNTHANDLE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENKEYEDMUTEXFROMNTHANDLE) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_OPENNATIVEFENCEFROMNTHANDLE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENNATIVEFENCEFROMNTHANDLE) -> super::super::super::Win32::Foundation::NTSTATUS>;
 #[cfg(feature = "Wdk_Foundation")]
-pub type PFND3DKMT_OPENNTHANDLEFROMNAME = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENNTHANDLEFROMNAME) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_OPENPROTECTEDSESSIONFROMNTHANDLE = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENPROTECTEDSESSIONFROMNTHANDLE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_OPENRESOURCE = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENRESOURCE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_OPENRESOURCE2 = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENRESOURCE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_OPENRESOURCEFROMNTHANDLE = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENRESOURCEFROMNTHANDLE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_OPENSYNCHRONIZATIONOBJECT = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENSYNCHRONIZATIONOBJECT) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_OPENSYNCOBJECTFROMNTHANDLE = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENSYNCOBJECTFROMNTHANDLE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_OPENSYNCOBJECTFROMNTHANDLE2 = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_OPENNTHANDLEFROMNAME = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENNTHANDLEFROMNAME) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_OPENPROTECTEDSESSIONFROMNTHANDLE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENPROTECTEDSESSIONFROMNTHANDLE) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_OPENRESOURCE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENRESOURCE) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_OPENRESOURCE2 = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENRESOURCE) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_OPENRESOURCEFROMNTHANDLE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENRESOURCEFROMNTHANDLE) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_OPENSYNCHRONIZATIONOBJECT = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENSYNCHRONIZATIONOBJECT) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_OPENSYNCOBJECTFROMNTHANDLE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENSYNCOBJECTFROMNTHANDLE) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_OPENSYNCOBJECTFROMNTHANDLE2 = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2) -> super::super::super::Win32::Foundation::NTSTATUS>;
 #[cfg(feature = "Wdk_Foundation")]
-pub type PFND3DKMT_OPENSYNCOBJECTNTHANDLEFROMNAME = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENSYNCOBJECTNTHANDLEFROMNAME) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_OUTPUTDUPLGETFRAMEINFO = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_OUTPUTDUPL_GET_FRAMEINFO) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_OUTPUTDUPLGETMETADATA = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_OUTPUTDUPL_METADATA) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_OUTPUTDUPLGETPOINTERSHAPEDATA = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_OUTPUTDUPL_GET_POINTER_SHAPE_DATA) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_OUTPUTDUPLPRESENT = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_OUTPUTDUPLPRESENT) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_OUTPUTDUPLPRESENTTOHWQUEUE = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_OUTPUTDUPLPRESENTTOHWQUEUE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_OUTPUTDUPLRELEASEFRAME = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_OUTPUTDUPL_RELEASE_FRAME) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_PINDIRECTFLIPRESOURCES = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_PINDIRECTFLIPRESOURCES) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_POLLDISPLAYCHILDREN = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_POLLDISPLAYCHILDREN) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_PRESENT = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_PRESENT) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_PRESENTMULTIPLANEOVERLAY = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_PRESENT_MULTIPLANE_OVERLAY) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_PRESENTMULTIPLANEOVERLAY2 = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_PRESENT_MULTIPLANE_OVERLAY2) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_PRESENTMULTIPLANEOVERLAY3 = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_PRESENT_MULTIPLANE_OVERLAY3) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_QUERYADAPTERINFO = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_QUERYADAPTERINFO) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_QUERYALLOCATIONRESIDENCY = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_QUERYALLOCATIONRESIDENCY) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_QUERYCLOCKCALIBRATION = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_QUERYCLOCKCALIBRATION) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_QUERYFSEBLOCK = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_QUERYFSEBLOCK) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_QUERYHYBRIDLISTVALUE = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_HYBRID_LIST) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_QUERYPROCESSOFFERINFO = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_QUERYPROCESSOFFERINFO) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_QUERYPROTECTEDSESSIONINFOFROMNTHANDLE = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_QUERYPROTECTEDSESSIONINFOFROMNTHANDLE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_QUERYPROTECTEDSESSIONSTATUS = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_QUERYPROTECTEDSESSIONSTATUS) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_QUERYREMOTEVIDPNSOURCEFROMGDIDISPLAYNAME = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_QUERYREMOTEVIDPNSOURCEFROMGDIDISPLAYNAME) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_QUERYRESOURCEINFO = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_QUERYRESOURCEINFO) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_QUERYRESOURCEINFOFROMNTHANDLE = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_QUERYRESOURCEINFOFROMNTHANDLE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_QUERYSTATISTICS = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_QUERYSTATISTICS) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_QUERYVIDEOMEMORYINFO = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_QUERYVIDEOMEMORYINFO) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_QUERYVIDPNEXCLUSIVEOWNERSHIP = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_QUERYVIDPNEXCLUSIVEOWNERSHIP) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_RECLAIMALLOCATIONS = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_RECLAIMALLOCATIONS) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_RECLAIMALLOCATIONS2 = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_RECLAIMALLOCATIONS2) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_REGISTERBUDGETCHANGENOTIFICATION = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_REGISTERBUDGETCHANGENOTIFICATION) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_REGISTERTRIMNOTIFICATION = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_REGISTERTRIMNOTIFICATION) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_RELEASEKEYEDMUTEX = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_RELEASEKEYEDMUTEX) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_RELEASEKEYEDMUTEX2 = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_RELEASEKEYEDMUTEX2) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_RELEASEPROCESSVIDPNSOURCEOWNERS = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Win32::Foundation::HANDLE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_RENDER = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_RENDER) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_RESERVEGPUVIRTUALADDRESS = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DDDI_RESERVEGPUVIRTUALADDRESS) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_SETALLOCATIONPRIORITY = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_SETALLOCATIONPRIORITY) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_SETCONTEXTINPROCESSSCHEDULINGPRIORITY = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_SETCONTEXTINPROCESSSCHEDULINGPRIORITY) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_SETCONTEXTSCHEDULINGPRIORITY = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_SETCONTEXTSCHEDULINGPRIORITY) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_SETDISPLAYMODE = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_SETDISPLAYMODE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_SETDISPLAYPRIVATEDRIVERFORMAT = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_SETDISPLAYPRIVATEDRIVERFORMAT) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_SETFSEBLOCK = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_SETFSEBLOCK) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_SETGAMMARAMP = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_SETGAMMARAMP) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_SETHWPROTECTIONTEARDOWNRECOVERY = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_SETHWPROTECTIONTEARDOWNRECOVERY) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_SETHYBRIDLISTVVALUE = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_HYBRID_LIST) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_SETPROCESSSCHEDULINGPRIORITYCLASS = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Win32::Foundation::HANDLE, param1: D3DKMT_SCHEDULINGPRIORITYCLASS) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_SETQUEUEDLIMIT = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_SETQUEUEDLIMIT) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_SETSTABLEPOWERSTATE = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_SETSTABLEPOWERSTATE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_SETSTEREOENABLED = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Win32::Foundation::BOOL) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_SETSYNCREFRESHCOUNTWAITTARGET = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_SETSYNCREFRESHCOUNTWAITTARGET) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_SETVIDPNSOURCEHWPROTECTION = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_SETVIDPNSOURCEHWPROTECTION) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_SETVIDPNSOURCEOWNER = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_SETVIDPNSOURCEOWNER) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_SETVIDPNSOURCEOWNER1 = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_SETVIDPNSOURCEOWNER1) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_SETVIDPNSOURCEOWNER2 = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_SETVIDPNSOURCEOWNER2) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_SHAREDPRIMARYLOCKNOTIFICATION = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_SHAREDPRIMARYLOCKNOTIFICATION) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_SHAREDPRIMARYUNLOCKNOTIFICATION = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_SHAREDPRIMARYUNLOCKNOTIFICATION) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_OPENSYNCOBJECTNTHANDLEFROMNAME = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENSYNCOBJECTNTHANDLEFROMNAME) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_OUTPUTDUPLGETFRAMEINFO = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OUTPUTDUPL_GET_FRAMEINFO) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_OUTPUTDUPLGETMETADATA = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OUTPUTDUPL_METADATA) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_OUTPUTDUPLGETPOINTERSHAPEDATA = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OUTPUTDUPL_GET_POINTER_SHAPE_DATA) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_OUTPUTDUPLPRESENT = Option<unsafe extern "system" fn(param0: *const D3DKMT_OUTPUTDUPLPRESENT) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_OUTPUTDUPLPRESENTTOHWQUEUE = Option<unsafe extern "system" fn(param0: *const D3DKMT_OUTPUTDUPLPRESENTTOHWQUEUE) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_OUTPUTDUPLRELEASEFRAME = Option<unsafe extern "system" fn(param0: *const D3DKMT_OUTPUTDUPL_RELEASE_FRAME) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_PINDIRECTFLIPRESOURCES = Option<unsafe extern "system" fn(param0: *const D3DKMT_PINDIRECTFLIPRESOURCES) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_POLLDISPLAYCHILDREN = Option<unsafe extern "system" fn(param0: *const D3DKMT_POLLDISPLAYCHILDREN) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_PRESENT = Option<unsafe extern "system" fn(param0: *mut D3DKMT_PRESENT) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_PRESENTMULTIPLANEOVERLAY = Option<unsafe extern "system" fn(param0: *const D3DKMT_PRESENT_MULTIPLANE_OVERLAY) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_PRESENTMULTIPLANEOVERLAY2 = Option<unsafe extern "system" fn(param0: *const D3DKMT_PRESENT_MULTIPLANE_OVERLAY2) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_PRESENTMULTIPLANEOVERLAY3 = Option<unsafe extern "system" fn(param0: *const D3DKMT_PRESENT_MULTIPLANE_OVERLAY3) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_QUERYADAPTERINFO = Option<unsafe extern "system" fn(param0: *mut D3DKMT_QUERYADAPTERINFO) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_QUERYALLOCATIONRESIDENCY = Option<unsafe extern "system" fn(param0: *const D3DKMT_QUERYALLOCATIONRESIDENCY) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_QUERYCLOCKCALIBRATION = Option<unsafe extern "system" fn(param0: *mut D3DKMT_QUERYCLOCKCALIBRATION) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_QUERYFSEBLOCK = Option<unsafe extern "system" fn(param0: *mut D3DKMT_QUERYFSEBLOCK) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_QUERYHYBRIDLISTVALUE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_HYBRID_LIST) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_QUERYPROCESSOFFERINFO = Option<unsafe extern "system" fn(param0: *mut D3DKMT_QUERYPROCESSOFFERINFO) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_QUERYPROTECTEDSESSIONINFOFROMNTHANDLE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_QUERYPROTECTEDSESSIONINFOFROMNTHANDLE) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_QUERYPROTECTEDSESSIONSTATUS = Option<unsafe extern "system" fn(param0: *mut D3DKMT_QUERYPROTECTEDSESSIONSTATUS) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_QUERYREMOTEVIDPNSOURCEFROMGDIDISPLAYNAME = Option<unsafe extern "system" fn(param0: *mut D3DKMT_QUERYREMOTEVIDPNSOURCEFROMGDIDISPLAYNAME) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_QUERYRESOURCEINFO = Option<unsafe extern "system" fn(param0: *mut D3DKMT_QUERYRESOURCEINFO) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_QUERYRESOURCEINFOFROMNTHANDLE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_QUERYRESOURCEINFOFROMNTHANDLE) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_QUERYSTATISTICS = Option<unsafe extern "system" fn(param0: *const D3DKMT_QUERYSTATISTICS) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_QUERYVIDEOMEMORYINFO = Option<unsafe extern "system" fn(param0: *mut D3DKMT_QUERYVIDEOMEMORYINFO) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_QUERYVIDPNEXCLUSIVEOWNERSHIP = Option<unsafe extern "system" fn(param0: *mut D3DKMT_QUERYVIDPNEXCLUSIVEOWNERSHIP) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_RECLAIMALLOCATIONS = Option<unsafe extern "system" fn(param0: *mut D3DKMT_RECLAIMALLOCATIONS) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_RECLAIMALLOCATIONS2 = Option<unsafe extern "system" fn(param0: *mut D3DKMT_RECLAIMALLOCATIONS2) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_REGISTERBUDGETCHANGENOTIFICATION = Option<unsafe extern "system" fn(param0: *mut D3DKMT_REGISTERBUDGETCHANGENOTIFICATION) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_REGISTERTRIMNOTIFICATION = Option<unsafe extern "system" fn(param0: *mut D3DKMT_REGISTERTRIMNOTIFICATION) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_RELEASEKEYEDMUTEX = Option<unsafe extern "system" fn(param0: *mut D3DKMT_RELEASEKEYEDMUTEX) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_RELEASEKEYEDMUTEX2 = Option<unsafe extern "system" fn(param0: *mut D3DKMT_RELEASEKEYEDMUTEX2) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_RELEASEPROCESSVIDPNSOURCEOWNERS = Option<unsafe extern "system" fn(param0: super::super::super::Win32::Foundation::HANDLE) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_RENDER = Option<unsafe extern "system" fn(param0: *mut D3DKMT_RENDER) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_RESERVEGPUVIRTUALADDRESS = Option<unsafe extern "system" fn(param0: *mut D3DDDI_RESERVEGPUVIRTUALADDRESS) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_SETALLOCATIONPRIORITY = Option<unsafe extern "system" fn(param0: *const D3DKMT_SETALLOCATIONPRIORITY) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_SETCONTEXTINPROCESSSCHEDULINGPRIORITY = Option<unsafe extern "system" fn(param0: *const D3DKMT_SETCONTEXTINPROCESSSCHEDULINGPRIORITY) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_SETCONTEXTSCHEDULINGPRIORITY = Option<unsafe extern "system" fn(param0: *const D3DKMT_SETCONTEXTSCHEDULINGPRIORITY) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_SETDISPLAYMODE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_SETDISPLAYMODE) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_SETDISPLAYPRIVATEDRIVERFORMAT = Option<unsafe extern "system" fn(param0: *const D3DKMT_SETDISPLAYPRIVATEDRIVERFORMAT) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_SETFSEBLOCK = Option<unsafe extern "system" fn(param0: *const D3DKMT_SETFSEBLOCK) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_SETGAMMARAMP = Option<unsafe extern "system" fn(param0: *const D3DKMT_SETGAMMARAMP) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_SETHWPROTECTIONTEARDOWNRECOVERY = Option<unsafe extern "system" fn(param0: *const D3DKMT_SETHWPROTECTIONTEARDOWNRECOVERY) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_SETHYBRIDLISTVVALUE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_HYBRID_LIST) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_SETPROCESSSCHEDULINGPRIORITYCLASS = Option<unsafe extern "system" fn(param0: super::super::super::Win32::Foundation::HANDLE, param1: D3DKMT_SCHEDULINGPRIORITYCLASS) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_SETQUEUEDLIMIT = Option<unsafe extern "system" fn(param0: *const D3DKMT_SETQUEUEDLIMIT) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_SETSTABLEPOWERSTATE = Option<unsafe extern "system" fn(param0: *const D3DKMT_SETSTABLEPOWERSTATE) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_SETSTEREOENABLED = Option<unsafe extern "system" fn(param0: super::super::super::Win32::Foundation::BOOL) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_SETSYNCREFRESHCOUNTWAITTARGET = Option<unsafe extern "system" fn(param0: *const D3DKMT_SETSYNCREFRESHCOUNTWAITTARGET) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_SETVIDPNSOURCEHWPROTECTION = Option<unsafe extern "system" fn(param0: *const D3DKMT_SETVIDPNSOURCEHWPROTECTION) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_SETVIDPNSOURCEOWNER = Option<unsafe extern "system" fn(param0: *const D3DKMT_SETVIDPNSOURCEOWNER) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_SETVIDPNSOURCEOWNER1 = Option<unsafe extern "system" fn(param0: *const D3DKMT_SETVIDPNSOURCEOWNER1) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_SETVIDPNSOURCEOWNER2 = Option<unsafe extern "system" fn(param0: *const D3DKMT_SETVIDPNSOURCEOWNER2) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_SHAREDPRIMARYLOCKNOTIFICATION = Option<unsafe extern "system" fn(param0: *const D3DKMT_SHAREDPRIMARYLOCKNOTIFICATION) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_SHAREDPRIMARYUNLOCKNOTIFICATION = Option<unsafe extern "system" fn(param0: *const D3DKMT_SHAREDPRIMARYUNLOCKNOTIFICATION) -> super::super::super::Win32::Foundation::NTSTATUS>;
 #[cfg(feature = "Wdk_Foundation")]
-pub type PFND3DKMT_SHAREOBJECTS = ::core::option::Option<unsafe extern "system" fn(cobjects: u32, hobjects: *const u32, pobjectattributes: *const super::super::Foundation::OBJECT_ATTRIBUTES, dwdesiredaccess: u32, phsharednthandle: *mut super::super::super::Win32::Foundation::HANDLE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_SIGNALSYNCHRONIZATIONOBJECT = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECT) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_SIGNALSYNCHRONIZATIONOBJECT2 = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECT2) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMCPU = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMCPU) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU2 = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU2) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_SUBMITCOMMAND = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_SUBMITCOMMAND) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_SUBMITCOMMANDTOHWQUEUE = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_SUBMITCOMMANDTOHWQUEUE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_SUBMITPRESENTBLTTOHWQUEUE = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_SUBMITPRESENTBLTTOHWQUEUE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_SUBMITPRESENTTOHWQUEUE = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_SUBMITPRESENTTOHWQUEUE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_SUBMITSIGNALSYNCOBJECTSTOHWQUEUE = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_SUBMITSIGNALSYNCOBJECTSTOHWQUEUE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_SUBMITWAITFORSYNCOBJECTSTOHWQUEUE = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_SUBMITWAITFORSYNCOBJECTSTOHWQUEUE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_TRIMNOTIFICATIONCALLBACK = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_TRIMNOTIFICATION)>;
-pub type PFND3DKMT_TRIMPROCESSCOMMITMENT = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_TRIMPROCESSCOMMITMENT) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_UNLOCK = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_UNLOCK) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_UNLOCK2 = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_UNLOCK2) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_UNPINDIRECTFLIPRESOURCES = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_UNPINDIRECTFLIPRESOURCES) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_UNREGISTERBUDGETCHANGENOTIFICATION = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_UNREGISTERBUDGETCHANGENOTIFICATION) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_UNREGISTERTRIMNOTIFICATION = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_UNREGISTERTRIMNOTIFICATION) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_UPDATEALLOCATIONPROPERTY = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DDDI_UPDATEALLOCPROPERTY) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_UPDATEGPUVIRTUALADDRESS = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_UPDATEGPUVIRTUALADDRESS) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_UPDATEOVERLAY = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_UPDATEOVERLAY) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_WAITFORIDLE = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_WAITFORIDLE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_WAITFORSYNCHRONIZATIONOBJECT = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_WAITFORSYNCHRONIZATIONOBJECT) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_WAITFORSYNCHRONIZATIONOBJECT2 = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_WAITFORSYNCHRONIZATIONOBJECT2) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMCPU = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMCPU) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMGPU = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMGPU) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_WAITFORVERTICALBLANKEVENT = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_WAITFORVERTICALBLANKEVENT) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_WAITFORVERTICALBLANKEVENT2 = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_WAITFORVERTICALBLANKEVENT2) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DNTPARSEUNKNOWNCOMMAND = ::core::option::Option<unsafe extern "system" fn(lpvcommands: *mut ::core::ffi::c_void, lplpvreturnedcommand: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT>;
-pub type PFND3DPARSEUNKNOWNCOMMAND = ::core::option::Option<unsafe extern "system" fn(lpvcommands: *mut ::core::ffi::c_void, lplpvreturnedcommand: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT>;
+pub type PFND3DKMT_SHAREOBJECTS = Option<unsafe extern "system" fn(cobjects: u32, hobjects: *const u32, pobjectattributes: *const super::super::Foundation::OBJECT_ATTRIBUTES, dwdesiredaccess: u32, phsharednthandle: *mut super::super::super::Win32::Foundation::HANDLE) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_SIGNALSYNCHRONIZATIONOBJECT = Option<unsafe extern "system" fn(param0: *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECT) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_SIGNALSYNCHRONIZATIONOBJECT2 = Option<unsafe extern "system" fn(param0: *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECT2) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMCPU = Option<unsafe extern "system" fn(param0: *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMCPU) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU = Option<unsafe extern "system" fn(param0: *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU2 = Option<unsafe extern "system" fn(param0: *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU2) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_SUBMITCOMMAND = Option<unsafe extern "system" fn(param0: *const D3DKMT_SUBMITCOMMAND) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_SUBMITCOMMANDTOHWQUEUE = Option<unsafe extern "system" fn(param0: *const D3DKMT_SUBMITCOMMANDTOHWQUEUE) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_SUBMITPRESENTBLTTOHWQUEUE = Option<unsafe extern "system" fn(param0: *const D3DKMT_SUBMITPRESENTBLTTOHWQUEUE) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_SUBMITPRESENTTOHWQUEUE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_SUBMITPRESENTTOHWQUEUE) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_SUBMITSIGNALSYNCOBJECTSTOHWQUEUE = Option<unsafe extern "system" fn(param0: *const D3DKMT_SUBMITSIGNALSYNCOBJECTSTOHWQUEUE) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_SUBMITWAITFORSYNCOBJECTSTOHWQUEUE = Option<unsafe extern "system" fn(param0: *const D3DKMT_SUBMITWAITFORSYNCOBJECTSTOHWQUEUE) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_TRIMNOTIFICATIONCALLBACK = Option<unsafe extern "system" fn(param0: *mut D3DKMT_TRIMNOTIFICATION)>;
+pub type PFND3DKMT_TRIMPROCESSCOMMITMENT = Option<unsafe extern "system" fn(param0: *mut D3DKMT_TRIMPROCESSCOMMITMENT) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_UNLOCK = Option<unsafe extern "system" fn(param0: *const D3DKMT_UNLOCK) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_UNLOCK2 = Option<unsafe extern "system" fn(param0: *const D3DKMT_UNLOCK2) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_UNPINDIRECTFLIPRESOURCES = Option<unsafe extern "system" fn(param0: *const D3DKMT_UNPINDIRECTFLIPRESOURCES) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_UNREGISTERBUDGETCHANGENOTIFICATION = Option<unsafe extern "system" fn(param0: *mut D3DKMT_UNREGISTERBUDGETCHANGENOTIFICATION) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_UNREGISTERTRIMNOTIFICATION = Option<unsafe extern "system" fn(param0: *mut D3DKMT_UNREGISTERTRIMNOTIFICATION) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_UPDATEALLOCATIONPROPERTY = Option<unsafe extern "system" fn(param0: *mut D3DDDI_UPDATEALLOCPROPERTY) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_UPDATEGPUVIRTUALADDRESS = Option<unsafe extern "system" fn(param0: *const D3DKMT_UPDATEGPUVIRTUALADDRESS) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_UPDATEOVERLAY = Option<unsafe extern "system" fn(param0: *const D3DKMT_UPDATEOVERLAY) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_WAITFORIDLE = Option<unsafe extern "system" fn(param0: *const D3DKMT_WAITFORIDLE) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_WAITFORSYNCHRONIZATIONOBJECT = Option<unsafe extern "system" fn(param0: *const D3DKMT_WAITFORSYNCHRONIZATIONOBJECT) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_WAITFORSYNCHRONIZATIONOBJECT2 = Option<unsafe extern "system" fn(param0: *const D3DKMT_WAITFORSYNCHRONIZATIONOBJECT2) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMCPU = Option<unsafe extern "system" fn(param0: *const D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMCPU) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMGPU = Option<unsafe extern "system" fn(param0: *const D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMGPU) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_WAITFORVERTICALBLANKEVENT = Option<unsafe extern "system" fn(param0: *const D3DKMT_WAITFORVERTICALBLANKEVENT) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_WAITFORVERTICALBLANKEVENT2 = Option<unsafe extern "system" fn(param0: *const D3DKMT_WAITFORVERTICALBLANKEVENT2) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DNTPARSEUNKNOWNCOMMAND = Option<unsafe extern "system" fn(lpvcommands: *mut core::ffi::c_void, lplpvreturnedcommand: *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
+pub type PFND3DPARSEUNKNOWNCOMMAND = Option<unsafe extern "system" fn(lpvcommands: *mut core::ffi::c_void, lplpvreturnedcommand: *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;

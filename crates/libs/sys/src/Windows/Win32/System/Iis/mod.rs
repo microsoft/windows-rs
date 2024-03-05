@@ -1,7 +1,7 @@
 ::windows_targets::link!("rpcproxy.dll" "system" fn GetExtensionVersion(pver : *mut HSE_VERSION_INFO) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("rpcproxy.dll" "system" fn GetFilterVersion(pver : *mut HTTP_FILTER_VERSION) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("rpcproxy.dll" "system" fn HttpExtensionProc(pecb : *const EXTENSION_CONTROL_BLOCK) -> u32);
-::windows_targets::link!("rpcproxy.dll" "system" fn HttpFilterProc(pfc : *mut HTTP_FILTER_CONTEXT, notificationtype : u32, pvnotification : *mut ::core::ffi::c_void) -> u32);
+::windows_targets::link!("rpcproxy.dll" "system" fn HttpFilterProc(pfc : *mut HTTP_FILTER_CONTEXT, notificationtype : u32, pvnotification : *mut core::ffi::c_void) -> u32);
 pub const ADMINDATA_MAX_NAME_LEN: u32 = 256u32;
 pub const ALL_METADATA: METADATATYPES = 0i32;
 pub const APPCTR_MD_ID_BEGIN_RESERVED: u32 = 57344u32;
@@ -14,15 +14,15 @@ pub const ASP_MD_ID_END_RESERVED: u32 = 29951u32;
 pub const ASP_MD_SERVER_BASE: u32 = 7000u32;
 pub const ASP_MD_UT_APP: u32 = 101u32;
 pub const BINARY_METADATA: METADATATYPES = 3i32;
-pub const CLSID_IImgCtx: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x3050f3d6_98b5_11cf_bb82_00aa00bdce0b);
-pub const CLSID_IisServiceControl: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xe8fb8621_588f_11d2_9d61_00c04f79c5fe);
-pub const CLSID_MSAdminBase_W: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xa9e69610_b80d_11d0_b9b9_00a0c922e750);
-pub const CLSID_Request: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x920c25d0_25d9_11d0_a55f_00a0c90c2091);
-pub const CLSID_Response: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x46e19ba0_25dd_11d0_a55f_00a0c90c2091);
-pub const CLSID_ScriptingContext: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xd97a6da0_a868_11cf_83ae_11b0c90c2bd8);
-pub const CLSID_Server: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xa506d160_25e0_11d0_a55f_00a0c90c2091);
-pub const CLSID_Session: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x509f8f20_25de_11d0_a55f_00a0c90c2091);
-pub const CLSID_WamAdmin: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x61738644_f196_11d0_9953_00c04fd919c1);
+pub const CLSID_IImgCtx: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3050f3d6_98b5_11cf_bb82_00aa00bdce0b);
+pub const CLSID_IisServiceControl: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe8fb8621_588f_11d2_9d61_00c04f79c5fe);
+pub const CLSID_MSAdminBase_W: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa9e69610_b80d_11d0_b9b9_00a0c922e750);
+pub const CLSID_Request: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x920c25d0_25d9_11d0_a55f_00a0c90c2091);
+pub const CLSID_Response: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x46e19ba0_25dd_11d0_a55f_00a0c90c2091);
+pub const CLSID_ScriptingContext: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd97a6da0_a868_11cf_83ae_11b0c90c2bd8);
+pub const CLSID_Server: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa506d160_25e0_11d0_a55f_00a0c90c2091);
+pub const CLSID_Session: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x509f8f20_25de_11d0_a55f_00a0c90c2091);
+pub const CLSID_WamAdmin: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x61738644_f196_11d0_9953_00c04fd919c1);
 pub const DISPID_HTTPREQUEST_ABORT: u32 = 12u32;
 pub const DISPID_HTTPREQUEST_BASE: u32 = 1u32;
 pub const DISPID_HTTPREQUEST_GETALLRESPONSEHEADERS: u32 = 4u32;
@@ -59,13 +59,13 @@ pub const FTP_PROCESS_CLOSE_SESSION: FTP_PROCESS_STATUS = 1i32;
 pub const FTP_PROCESS_CONTINUE: FTP_PROCESS_STATUS = 0i32;
 pub const FTP_PROCESS_REJECT_COMMAND: FTP_PROCESS_STATUS = 3i32;
 pub const FTP_PROCESS_TERMINATE_SESSION: FTP_PROCESS_STATUS = 2i32;
-pub const GUID_IIS_ALL_TRACE_PROVIDERS: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000000);
-pub const GUID_IIS_ASPNET_TRACE_PROVIDER: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xaff081fe_0247_4275_9c4e_021f3dc1da35);
-pub const GUID_IIS_ASP_TRACE_TRACE_PROVIDER: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x06b94d9a_b15e_456e_a4ef_37c984a2cb4b);
-pub const GUID_IIS_ISAPI_TRACE_PROVIDER: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xa1c2040e_8840_4c31_ba11_9871031a19ea);
-pub const GUID_IIS_WWW_GLOBAL_TRACE_PROVIDER: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xd55d3bc9_cba9_44df_827e_132d3a4596c2);
-pub const GUID_IIS_WWW_SERVER_TRACE_PROVIDER: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x3a2a4e84_4c21_4981_ae10_3fda0d9b0f83);
-pub const GUID_IIS_WWW_SERVER_V2_TRACE_PROVIDER: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xde4649c9_15e8_4fea_9d85_1cdda520c334);
+pub const GUID_IIS_ALL_TRACE_PROVIDERS: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000000);
+pub const GUID_IIS_ASPNET_TRACE_PROVIDER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xaff081fe_0247_4275_9c4e_021f3dc1da35);
+pub const GUID_IIS_ASP_TRACE_TRACE_PROVIDER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x06b94d9a_b15e_456e_a4ef_37c984a2cb4b);
+pub const GUID_IIS_ISAPI_TRACE_PROVIDER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa1c2040e_8840_4c31_ba11_9871031a19ea);
+pub const GUID_IIS_WWW_GLOBAL_TRACE_PROVIDER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd55d3bc9_cba9_44df_827e_132d3a4596c2);
+pub const GUID_IIS_WWW_SERVER_TRACE_PROVIDER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3a2a4e84_4c21_4981_ae10_3fda0d9b0f83);
+pub const GUID_IIS_WWW_SERVER_V2_TRACE_PROVIDER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xde4649c9_15e8_4fea_9d85_1cdda520c334);
 pub const HSE_APPEND_LOG_PARAMETER: u32 = 1003u32;
 pub const HSE_APP_FLAG_IN_PROCESS: u32 = 0u32;
 pub const HSE_APP_FLAG_ISOLATED_OOP: u32 = 1u32;
@@ -164,53 +164,53 @@ pub const HTTP_TRACE_TYPE_SHORT: HTTP_TRACE_TYPE = 2i32;
 pub const HTTP_TRACE_TYPE_ULONG: HTTP_TRACE_TYPE = 19i32;
 pub const HTTP_TRACE_TYPE_ULONGLONG: HTTP_TRACE_TYPE = 21i32;
 pub const HTTP_TRACE_TYPE_USHORT: HTTP_TRACE_TYPE = 18i32;
-pub const IISADMIN_EXTENSIONS_CLSID_MD_KEY: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("LM/IISADMIN/EXTENSIONS/DCOMCLSIDS");
-pub const IISADMIN_EXTENSIONS_CLSID_MD_KEYA: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("LM/IISADMIN/EXTENSIONS/DCOMCLSIDS");
-pub const IISADMIN_EXTENSIONS_CLSID_MD_KEYW: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("LM/IISADMIN/EXTENSIONS/DCOMCLSIDS");
-pub const IISADMIN_EXTENSIONS_REG_KEY: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("SOFTWARE\\Microsoft\\InetStp\\Extensions");
-pub const IISADMIN_EXTENSIONS_REG_KEYA: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("SOFTWARE\\Microsoft\\InetStp\\Extensions");
-pub const IISADMIN_EXTENSIONS_REG_KEYW: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("SOFTWARE\\Microsoft\\InetStp\\Extensions");
-pub const IIS_CLASS_CERTMAPPER: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("IIsCertMapper");
-pub const IIS_CLASS_CERTMAPPER_W: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("IIsCertMapper");
-pub const IIS_CLASS_COMPRESS_SCHEME: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("IIsCompressionScheme");
-pub const IIS_CLASS_COMPRESS_SCHEMES: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("IIsCompressionSchemes");
-pub const IIS_CLASS_COMPRESS_SCHEMES_W: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("IIsCompressionSchemes");
-pub const IIS_CLASS_COMPRESS_SCHEME_W: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("IIsCompressionScheme");
-pub const IIS_CLASS_COMPUTER: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("IIsComputer");
-pub const IIS_CLASS_COMPUTER_W: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("IIsComputer");
-pub const IIS_CLASS_FILTER: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("IIsFilter");
-pub const IIS_CLASS_FILTERS: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("IIsFilters");
-pub const IIS_CLASS_FILTERS_W: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("IIsFilters");
-pub const IIS_CLASS_FILTER_W: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("IIsFilter");
-pub const IIS_CLASS_FTP_INFO: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("IIsFtpInfo");
-pub const IIS_CLASS_FTP_INFO_W: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("IIsFtpInfo");
-pub const IIS_CLASS_FTP_SERVER: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("IIsFtpServer");
-pub const IIS_CLASS_FTP_SERVER_W: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("IIsFtpServer");
-pub const IIS_CLASS_FTP_SERVICE: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("IIsFtpService");
-pub const IIS_CLASS_FTP_SERVICE_W: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("IIsFtpService");
-pub const IIS_CLASS_FTP_VDIR: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("IIsFtpVirtualDir");
-pub const IIS_CLASS_FTP_VDIR_W: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("IIsFtpVirtualDir");
-pub const IIS_CLASS_LOG_MODULE: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("IIsLogModule");
-pub const IIS_CLASS_LOG_MODULES: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("IIsLogModules");
-pub const IIS_CLASS_LOG_MODULES_W: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("IIsLogModules");
-pub const IIS_CLASS_LOG_MODULE_W: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("IIsLogModule");
-pub const IIS_CLASS_MIMEMAP: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("IIsMimeMap");
-pub const IIS_CLASS_MIMEMAP_W: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("IIsMimeMap");
-pub const IIS_CLASS_WEB_DIR: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("IIsWebDirectory");
-pub const IIS_CLASS_WEB_DIR_W: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("IIsWebDirectory");
-pub const IIS_CLASS_WEB_FILE: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("IIsWebFile");
-pub const IIS_CLASS_WEB_FILE_W: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("IIsWebFile");
-pub const IIS_CLASS_WEB_INFO: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("IIsWebInfo");
-pub const IIS_CLASS_WEB_INFO_W: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("IIsWebInfo");
-pub const IIS_CLASS_WEB_SERVER: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("IIsWebServer");
-pub const IIS_CLASS_WEB_SERVER_W: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("IIsWebServer");
-pub const IIS_CLASS_WEB_SERVICE: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("IIsWebService");
-pub const IIS_CLASS_WEB_SERVICE_W: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("IIsWebService");
-pub const IIS_CLASS_WEB_VDIR: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("IIsWebVirtualDir");
-pub const IIS_CLASS_WEB_VDIR_W: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("IIsWebVirtualDir");
+pub const IISADMIN_EXTENSIONS_CLSID_MD_KEY: windows_sys::core::PCWSTR = windows_sys::core::w!("LM/IISADMIN/EXTENSIONS/DCOMCLSIDS");
+pub const IISADMIN_EXTENSIONS_CLSID_MD_KEYA: windows_sys::core::PCSTR = windows_sys::core::s!("LM/IISADMIN/EXTENSIONS/DCOMCLSIDS");
+pub const IISADMIN_EXTENSIONS_CLSID_MD_KEYW: windows_sys::core::PCWSTR = windows_sys::core::w!("LM/IISADMIN/EXTENSIONS/DCOMCLSIDS");
+pub const IISADMIN_EXTENSIONS_REG_KEY: windows_sys::core::PCWSTR = windows_sys::core::w!("SOFTWARE\\Microsoft\\InetStp\\Extensions");
+pub const IISADMIN_EXTENSIONS_REG_KEYA: windows_sys::core::PCSTR = windows_sys::core::s!("SOFTWARE\\Microsoft\\InetStp\\Extensions");
+pub const IISADMIN_EXTENSIONS_REG_KEYW: windows_sys::core::PCWSTR = windows_sys::core::w!("SOFTWARE\\Microsoft\\InetStp\\Extensions");
+pub const IIS_CLASS_CERTMAPPER: windows_sys::core::PCSTR = windows_sys::core::s!("IIsCertMapper");
+pub const IIS_CLASS_CERTMAPPER_W: windows_sys::core::PCWSTR = windows_sys::core::w!("IIsCertMapper");
+pub const IIS_CLASS_COMPRESS_SCHEME: windows_sys::core::PCSTR = windows_sys::core::s!("IIsCompressionScheme");
+pub const IIS_CLASS_COMPRESS_SCHEMES: windows_sys::core::PCSTR = windows_sys::core::s!("IIsCompressionSchemes");
+pub const IIS_CLASS_COMPRESS_SCHEMES_W: windows_sys::core::PCWSTR = windows_sys::core::w!("IIsCompressionSchemes");
+pub const IIS_CLASS_COMPRESS_SCHEME_W: windows_sys::core::PCWSTR = windows_sys::core::w!("IIsCompressionScheme");
+pub const IIS_CLASS_COMPUTER: windows_sys::core::PCSTR = windows_sys::core::s!("IIsComputer");
+pub const IIS_CLASS_COMPUTER_W: windows_sys::core::PCWSTR = windows_sys::core::w!("IIsComputer");
+pub const IIS_CLASS_FILTER: windows_sys::core::PCSTR = windows_sys::core::s!("IIsFilter");
+pub const IIS_CLASS_FILTERS: windows_sys::core::PCSTR = windows_sys::core::s!("IIsFilters");
+pub const IIS_CLASS_FILTERS_W: windows_sys::core::PCWSTR = windows_sys::core::w!("IIsFilters");
+pub const IIS_CLASS_FILTER_W: windows_sys::core::PCWSTR = windows_sys::core::w!("IIsFilter");
+pub const IIS_CLASS_FTP_INFO: windows_sys::core::PCSTR = windows_sys::core::s!("IIsFtpInfo");
+pub const IIS_CLASS_FTP_INFO_W: windows_sys::core::PCWSTR = windows_sys::core::w!("IIsFtpInfo");
+pub const IIS_CLASS_FTP_SERVER: windows_sys::core::PCSTR = windows_sys::core::s!("IIsFtpServer");
+pub const IIS_CLASS_FTP_SERVER_W: windows_sys::core::PCWSTR = windows_sys::core::w!("IIsFtpServer");
+pub const IIS_CLASS_FTP_SERVICE: windows_sys::core::PCSTR = windows_sys::core::s!("IIsFtpService");
+pub const IIS_CLASS_FTP_SERVICE_W: windows_sys::core::PCWSTR = windows_sys::core::w!("IIsFtpService");
+pub const IIS_CLASS_FTP_VDIR: windows_sys::core::PCSTR = windows_sys::core::s!("IIsFtpVirtualDir");
+pub const IIS_CLASS_FTP_VDIR_W: windows_sys::core::PCWSTR = windows_sys::core::w!("IIsFtpVirtualDir");
+pub const IIS_CLASS_LOG_MODULE: windows_sys::core::PCSTR = windows_sys::core::s!("IIsLogModule");
+pub const IIS_CLASS_LOG_MODULES: windows_sys::core::PCSTR = windows_sys::core::s!("IIsLogModules");
+pub const IIS_CLASS_LOG_MODULES_W: windows_sys::core::PCWSTR = windows_sys::core::w!("IIsLogModules");
+pub const IIS_CLASS_LOG_MODULE_W: windows_sys::core::PCWSTR = windows_sys::core::w!("IIsLogModule");
+pub const IIS_CLASS_MIMEMAP: windows_sys::core::PCSTR = windows_sys::core::s!("IIsMimeMap");
+pub const IIS_CLASS_MIMEMAP_W: windows_sys::core::PCWSTR = windows_sys::core::w!("IIsMimeMap");
+pub const IIS_CLASS_WEB_DIR: windows_sys::core::PCSTR = windows_sys::core::s!("IIsWebDirectory");
+pub const IIS_CLASS_WEB_DIR_W: windows_sys::core::PCWSTR = windows_sys::core::w!("IIsWebDirectory");
+pub const IIS_CLASS_WEB_FILE: windows_sys::core::PCSTR = windows_sys::core::s!("IIsWebFile");
+pub const IIS_CLASS_WEB_FILE_W: windows_sys::core::PCWSTR = windows_sys::core::w!("IIsWebFile");
+pub const IIS_CLASS_WEB_INFO: windows_sys::core::PCSTR = windows_sys::core::s!("IIsWebInfo");
+pub const IIS_CLASS_WEB_INFO_W: windows_sys::core::PCWSTR = windows_sys::core::w!("IIsWebInfo");
+pub const IIS_CLASS_WEB_SERVER: windows_sys::core::PCSTR = windows_sys::core::s!("IIsWebServer");
+pub const IIS_CLASS_WEB_SERVER_W: windows_sys::core::PCWSTR = windows_sys::core::w!("IIsWebServer");
+pub const IIS_CLASS_WEB_SERVICE: windows_sys::core::PCSTR = windows_sys::core::s!("IIsWebService");
+pub const IIS_CLASS_WEB_SERVICE_W: windows_sys::core::PCWSTR = windows_sys::core::w!("IIsWebService");
+pub const IIS_CLASS_WEB_VDIR: windows_sys::core::PCSTR = windows_sys::core::s!("IIsWebVirtualDir");
+pub const IIS_CLASS_WEB_VDIR_W: windows_sys::core::PCWSTR = windows_sys::core::w!("IIsWebVirtualDir");
 pub const IIS_MD_ADSI_METAID_BEGIN: u32 = 130000u32;
-pub const IIS_MD_ADSI_SCHEMA_PATH_A: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("/Schema");
-pub const IIS_MD_ADSI_SCHEMA_PATH_W: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("/Schema");
+pub const IIS_MD_ADSI_SCHEMA_PATH_A: windows_sys::core::PCSTR = windows_sys::core::s!("/Schema");
+pub const IIS_MD_ADSI_SCHEMA_PATH_W: windows_sys::core::PCWSTR = windows_sys::core::w!("/Schema");
 pub const IIS_MD_APPPOOL_BASE: u32 = 9000u32;
 pub const IIS_MD_APP_BASE: u32 = 9100u32;
 pub const IIS_MD_FILE_PROP_BASE: u32 = 6000u32;
@@ -219,23 +219,23 @@ pub const IIS_MD_GLOBAL_BASE: u32 = 9200u32;
 pub const IIS_MD_HTTP_BASE: u32 = 2000u32;
 pub const IIS_MD_ID_BEGIN_RESERVED: u32 = 1u32;
 pub const IIS_MD_ID_END_RESERVED: u32 = 32767u32;
-pub const IIS_MD_INSTANCE_ROOT: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("Root");
-pub const IIS_MD_ISAPI_FILTERS: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("/Filters");
-pub const IIS_MD_LOCAL_MACHINE_PATH: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("LM");
+pub const IIS_MD_INSTANCE_ROOT: windows_sys::core::PCSTR = windows_sys::core::s!("Root");
+pub const IIS_MD_ISAPI_FILTERS: windows_sys::core::PCSTR = windows_sys::core::s!("/Filters");
+pub const IIS_MD_LOCAL_MACHINE_PATH: windows_sys::core::PCSTR = windows_sys::core::s!("LM");
 pub const IIS_MD_LOGCUSTOM_BASE: u32 = 4500u32;
 pub const IIS_MD_LOGCUSTOM_LAST: u32 = 4508u32;
 pub const IIS_MD_LOG_BASE: u32 = 4000u32;
 pub const IIS_MD_LOG_LAST: u32 = 4015u32;
 pub const IIS_MD_SERVER_BASE: u32 = 1000u32;
 pub const IIS_MD_SSL_BASE: u32 = 5500u32;
-pub const IIS_MD_SVC_INFO_PATH: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("Info");
+pub const IIS_MD_SVC_INFO_PATH: windows_sys::core::PCSTR = windows_sys::core::s!("Info");
 pub const IIS_MD_UT_END_RESERVED: u32 = 2000u32;
 pub const IIS_MD_UT_FILE: u32 = 2u32;
 pub const IIS_MD_UT_SERVER: u32 = 1u32;
 pub const IIS_MD_UT_WAM: u32 = 100u32;
 pub const IIS_MD_VR_BASE: u32 = 3000u32;
-pub const IIS_WEBSOCKET: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("websockets");
-pub const IIS_WEBSOCKET_SERVER_VARIABLE: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("IIS_WEBSOCK");
+pub const IIS_WEBSOCKET: windows_sys::core::PCWSTR = windows_sys::core::w!("websockets");
+pub const IIS_WEBSOCKET_SERVER_VARIABLE: windows_sys::core::PCSTR = windows_sys::core::s!("IIS_WEBSOCK");
 pub const IMAP_MD_ID_BEGIN_RESERVED: u32 = 49152u32;
 pub const IMAP_MD_ID_END_RESERVED: u32 = 53247u32;
 pub const IMGANIM_ANIMATED: u32 = 268435456u32;
@@ -258,9 +258,9 @@ pub const IMGLOAD_STOPPED: u32 = 4194304u32;
 pub const IMGTRANS_MASK: u32 = 536870912u32;
 pub const IMGTRANS_OPAQUE: u32 = 536870912u32;
 pub const INVALID_END_METADATA: METADATATYPES = 6i32;
-pub const LIBID_ASPTypeLibrary: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xd97a6da0_a85c_11cf_83ae_00a0c90c2bd8);
-pub const LIBID_IISRSTALib: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xe8fb8614_588f_11d2_9d61_00c04f79c5fe);
-pub const LIBID_WAMREGLib: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x29822aa8_f302_11d0_9953_00c04fd919c1);
+pub const LIBID_ASPTypeLibrary: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd97a6da0_a85c_11cf_83ae_00a0c90c2bd8);
+pub const LIBID_IISRSTALib: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe8fb8614_588f_11d2_9d61_00c04f79c5fe);
+pub const LIBID_WAMREGLib: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x29822aa8_f302_11d0_9953_00c04fd919c1);
 pub const MB_DONT_IMPERSONATE: u32 = 9033u32;
 pub const MD_ACCESS_EXECUTE: u32 = 4u32;
 pub const MD_ACCESS_MAP_CERT: u32 = 128u32;
@@ -511,7 +511,7 @@ pub const MD_CREATE_PROC_NEW_CONSOLE: u32 = 6036u32;
 pub const MD_CUSTOM_DEPLOYMENT_DATA: u32 = 6055u32;
 pub const MD_CUSTOM_ERROR: u32 = 6008u32;
 pub const MD_CUSTOM_ERROR_DESC: u32 = 2120u32;
-pub const MD_DEFAULT_BACKUP_LOCATION: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("MDBackUp");
+pub const MD_DEFAULT_BACKUP_LOCATION: windows_sys::core::PCWSTR = windows_sys::core::w!("MDBackUp");
 pub const MD_DEFAULT_LOAD_FILE: u32 = 6006u32;
 pub const MD_DEFAULT_LOGON_DOMAIN: u32 = 6012u32;
 pub const MD_DEMAND_START_THRESHOLD: u32 = 9207u32;
@@ -712,8 +712,8 @@ pub const MD_IISADMIN_EXTENSIONS: u32 = 1028u32;
 pub const MD_IMPORT_INHERITED: u32 = 1u32;
 pub const MD_IMPORT_MERGE: u32 = 4u32;
 pub const MD_IMPORT_NODE_ONLY: u32 = 2u32;
-pub const MD_INSERT_PATH_STRING: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("<%INSERT_PATH%>");
-pub const MD_INSERT_PATH_STRINGA: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("<%INSERT_PATH%>");
+pub const MD_INSERT_PATH_STRING: windows_sys::core::PCWSTR = windows_sys::core::w!("<%INSERT_PATH%>");
+pub const MD_INSERT_PATH_STRINGA: windows_sys::core::PCSTR = windows_sys::core::s!("<%INSERT_PATH%>");
 pub const MD_IN_PROCESS_ISAPI_APPS: u32 = 2073u32;
 pub const MD_IP_SEC: u32 = 6019u32;
 pub const MD_ISAPI_RESTRICTION_LIST: u32 = 2163u32;
@@ -972,10 +972,10 @@ pub const WAM_MD_ID_BEGIN_RESERVED: u32 = 29952u32;
 pub const WAM_MD_ID_END_RESERVED: u32 = 32767u32;
 pub const WAM_MD_SERVER_BASE: u32 = 7500u32;
 pub const WEBDAV_MD_SERVER_BASE: u32 = 8500u32;
-pub const WEB_CORE_ACTIVATE_DLL_ENTRY: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("WebCoreActivate");
-pub const WEB_CORE_DLL_NAME: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("hwebcore.dll");
-pub const WEB_CORE_SET_METADATA_DLL_ENTRY: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("WebCoreSetMetadata");
-pub const WEB_CORE_SHUTDOWN_DLL_ENTRY: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("WebCoreShutdown");
+pub const WEB_CORE_ACTIVATE_DLL_ENTRY: windows_sys::core::PCSTR = windows_sys::core::s!("WebCoreActivate");
+pub const WEB_CORE_DLL_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("hwebcore.dll");
+pub const WEB_CORE_SET_METADATA_DLL_ENTRY: windows_sys::core::PCSTR = windows_sys::core::s!("WebCoreSetMetadata");
+pub const WEB_CORE_SHUTDOWN_DLL_ENTRY: windows_sys::core::PCSTR = windows_sys::core::s!("WebCoreShutdown");
 pub type FTP_ACCESS = i32;
 pub type FTP_PROCESS_STATUS = i32;
 pub type HTTP_TRACE_TYPE = i32;
@@ -991,20 +991,20 @@ pub struct CERT_CONTEXT_EX {
     pub dwCertificateFlags: u32,
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
-impl ::core::marker::Copy for CERT_CONTEXT_EX {}
+impl Copy for CERT_CONTEXT_EX {}
 #[cfg(feature = "Win32_Security_Cryptography")]
-impl ::core::clone::Clone for CERT_CONTEXT_EX {
+impl Clone for CERT_CONTEXT_EX {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct CONFIGURATION_ENTRY {
-    pub bstrKey: ::windows_sys::core::BSTR,
-    pub bstrValue: ::windows_sys::core::BSTR,
+    pub bstrKey: windows_sys::core::BSTR,
+    pub bstrValue: windows_sys::core::BSTR,
 }
-impl ::core::marker::Copy for CONFIGURATION_ENTRY {}
-impl ::core::clone::Clone for CONFIGURATION_ENTRY {
+impl Copy for CONFIGURATION_ENTRY {}
+impl Clone for CONFIGURATION_ENTRY {
     fn clone(&self) -> Self {
         *self
     }
@@ -1016,50 +1016,50 @@ pub struct EXTENSION_CONTROL_BLOCK {
     pub ConnID: HCONN,
     pub dwHttpStatusCode: u32,
     pub lpszLogData: [i8; 80],
-    pub lpszMethod: ::windows_sys::core::PSTR,
-    pub lpszQueryString: ::windows_sys::core::PSTR,
-    pub lpszPathInfo: ::windows_sys::core::PSTR,
-    pub lpszPathTranslated: ::windows_sys::core::PSTR,
+    pub lpszMethod: windows_sys::core::PSTR,
+    pub lpszQueryString: windows_sys::core::PSTR,
+    pub lpszPathInfo: windows_sys::core::PSTR,
+    pub lpszPathTranslated: windows_sys::core::PSTR,
     pub cbTotalBytes: u32,
     pub cbAvailable: u32,
     pub lpbData: *mut u8,
-    pub lpszContentType: ::windows_sys::core::PSTR,
+    pub lpszContentType: windows_sys::core::PSTR,
     pub GetServerVariable: PFN_IIS_GETSERVERVARIABLE,
     pub WriteClient: PFN_IIS_WRITECLIENT,
     pub ReadClient: PFN_IIS_READCLIENT,
     pub ServerSupportFunction: PFN_IIS_SERVERSUPPORTFUNCTION,
 }
-impl ::core::marker::Copy for EXTENSION_CONTROL_BLOCK {}
-impl ::core::clone::Clone for EXTENSION_CONTROL_BLOCK {
+impl Copy for EXTENSION_CONTROL_BLOCK {}
+impl Clone for EXTENSION_CONTROL_BLOCK {
     fn clone(&self) -> Self {
         *self
     }
 }
-pub const FtpProvider: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x70bdc667_33b2_45f0_ac52_c3ca46f7a656);
-pub type HCONN = *mut ::core::ffi::c_void;
+pub const FtpProvider: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x70bdc667_33b2_45f0_ac52_c3ca46f7a656);
+pub type HCONN = *mut core::ffi::c_void;
 #[repr(C)]
 pub struct HSE_CUSTOM_ERROR_INFO {
-    pub pszStatus: ::windows_sys::core::PSTR,
+    pub pszStatus: windows_sys::core::PSTR,
     pub uHttpSubError: u16,
     pub fAsync: super::super::Foundation::BOOL,
 }
-impl ::core::marker::Copy for HSE_CUSTOM_ERROR_INFO {}
-impl ::core::clone::Clone for HSE_CUSTOM_ERROR_INFO {
+impl Copy for HSE_CUSTOM_ERROR_INFO {}
+impl Clone for HSE_CUSTOM_ERROR_INFO {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct HSE_EXEC_UNICODE_URL_INFO {
-    pub pszUrl: ::windows_sys::core::PWSTR,
-    pub pszMethod: ::windows_sys::core::PSTR,
-    pub pszChildHeaders: ::windows_sys::core::PSTR,
+    pub pszUrl: windows_sys::core::PWSTR,
+    pub pszMethod: windows_sys::core::PSTR,
+    pub pszChildHeaders: windows_sys::core::PSTR,
     pub pUserInfo: *mut HSE_EXEC_UNICODE_URL_USER_INFO,
     pub pEntity: *mut HSE_EXEC_URL_ENTITY_INFO,
     pub dwExecUrlFlags: u32,
 }
-impl ::core::marker::Copy for HSE_EXEC_UNICODE_URL_INFO {}
-impl ::core::clone::Clone for HSE_EXEC_UNICODE_URL_INFO {
+impl Copy for HSE_EXEC_UNICODE_URL_INFO {}
+impl Clone for HSE_EXEC_UNICODE_URL_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -1067,11 +1067,11 @@ impl ::core::clone::Clone for HSE_EXEC_UNICODE_URL_INFO {
 #[repr(C)]
 pub struct HSE_EXEC_UNICODE_URL_USER_INFO {
     pub hImpersonationToken: super::super::Foundation::HANDLE,
-    pub pszCustomUserName: ::windows_sys::core::PWSTR,
-    pub pszCustomAuthType: ::windows_sys::core::PSTR,
+    pub pszCustomUserName: windows_sys::core::PWSTR,
+    pub pszCustomAuthType: windows_sys::core::PSTR,
 }
-impl ::core::marker::Copy for HSE_EXEC_UNICODE_URL_USER_INFO {}
-impl ::core::clone::Clone for HSE_EXEC_UNICODE_URL_USER_INFO {
+impl Copy for HSE_EXEC_UNICODE_URL_USER_INFO {}
+impl Clone for HSE_EXEC_UNICODE_URL_USER_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -1079,25 +1079,25 @@ impl ::core::clone::Clone for HSE_EXEC_UNICODE_URL_USER_INFO {
 #[repr(C)]
 pub struct HSE_EXEC_URL_ENTITY_INFO {
     pub cbAvailable: u32,
-    pub lpbData: *mut ::core::ffi::c_void,
+    pub lpbData: *mut core::ffi::c_void,
 }
-impl ::core::marker::Copy for HSE_EXEC_URL_ENTITY_INFO {}
-impl ::core::clone::Clone for HSE_EXEC_URL_ENTITY_INFO {
+impl Copy for HSE_EXEC_URL_ENTITY_INFO {}
+impl Clone for HSE_EXEC_URL_ENTITY_INFO {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct HSE_EXEC_URL_INFO {
-    pub pszUrl: ::windows_sys::core::PSTR,
-    pub pszMethod: ::windows_sys::core::PSTR,
-    pub pszChildHeaders: ::windows_sys::core::PSTR,
+    pub pszUrl: windows_sys::core::PSTR,
+    pub pszMethod: windows_sys::core::PSTR,
+    pub pszChildHeaders: windows_sys::core::PSTR,
     pub pUserInfo: *mut HSE_EXEC_URL_USER_INFO,
     pub pEntity: *mut HSE_EXEC_URL_ENTITY_INFO,
     pub dwExecUrlFlags: u32,
 }
-impl ::core::marker::Copy for HSE_EXEC_URL_INFO {}
-impl ::core::clone::Clone for HSE_EXEC_URL_INFO {
+impl Copy for HSE_EXEC_URL_INFO {}
+impl Clone for HSE_EXEC_URL_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -1108,8 +1108,8 @@ pub struct HSE_EXEC_URL_STATUS {
     pub uHttpSubStatus: u16,
     pub dwWin32Error: u32,
 }
-impl ::core::marker::Copy for HSE_EXEC_URL_STATUS {}
-impl ::core::clone::Clone for HSE_EXEC_URL_STATUS {
+impl Copy for HSE_EXEC_URL_STATUS {}
+impl Clone for HSE_EXEC_URL_STATUS {
     fn clone(&self) -> Self {
         *self
     }
@@ -1117,11 +1117,11 @@ impl ::core::clone::Clone for HSE_EXEC_URL_STATUS {
 #[repr(C)]
 pub struct HSE_EXEC_URL_USER_INFO {
     pub hImpersonationToken: super::super::Foundation::HANDLE,
-    pub pszCustomUserName: ::windows_sys::core::PSTR,
-    pub pszCustomAuthType: ::windows_sys::core::PSTR,
+    pub pszCustomUserName: windows_sys::core::PSTR,
+    pub pszCustomAuthType: windows_sys::core::PSTR,
 }
-impl ::core::marker::Copy for HSE_EXEC_URL_USER_INFO {}
-impl ::core::clone::Clone for HSE_EXEC_URL_USER_INFO {
+impl Copy for HSE_EXEC_URL_USER_INFO {}
+impl Clone for HSE_EXEC_URL_USER_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -1129,27 +1129,27 @@ impl ::core::clone::Clone for HSE_EXEC_URL_USER_INFO {
 #[repr(C)]
 pub struct HSE_RESPONSE_VECTOR {
     pub dwFlags: u32,
-    pub pszStatus: ::windows_sys::core::PSTR,
-    pub pszHeaders: ::windows_sys::core::PSTR,
+    pub pszStatus: windows_sys::core::PSTR,
+    pub pszHeaders: windows_sys::core::PSTR,
     pub nElementCount: u32,
     pub lpElementArray: *mut HSE_VECTOR_ELEMENT,
 }
-impl ::core::marker::Copy for HSE_RESPONSE_VECTOR {}
-impl ::core::clone::Clone for HSE_RESPONSE_VECTOR {
+impl Copy for HSE_RESPONSE_VECTOR {}
+impl Clone for HSE_RESPONSE_VECTOR {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct HSE_SEND_HEADER_EX_INFO {
-    pub pszStatus: ::windows_sys::core::PCSTR,
-    pub pszHeader: ::windows_sys::core::PCSTR,
+    pub pszStatus: windows_sys::core::PCSTR,
+    pub pszHeader: windows_sys::core::PCSTR,
     pub cchStatus: u32,
     pub cchHeader: u32,
     pub fKeepConn: super::super::Foundation::BOOL,
 }
-impl ::core::marker::Copy for HSE_SEND_HEADER_EX_INFO {}
-impl ::core::clone::Clone for HSE_SEND_HEADER_EX_INFO {
+impl Copy for HSE_SEND_HEADER_EX_INFO {}
+impl Clone for HSE_SEND_HEADER_EX_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -1157,19 +1157,19 @@ impl ::core::clone::Clone for HSE_SEND_HEADER_EX_INFO {
 #[repr(C)]
 pub struct HSE_TF_INFO {
     pub pfnHseIO: PFN_HSE_IO_COMPLETION,
-    pub pContext: *mut ::core::ffi::c_void,
+    pub pContext: *mut core::ffi::c_void,
     pub hFile: super::super::Foundation::HANDLE,
-    pub pszStatusCode: ::windows_sys::core::PCSTR,
+    pub pszStatusCode: windows_sys::core::PCSTR,
     pub BytesToWrite: u32,
     pub Offset: u32,
-    pub pHead: *mut ::core::ffi::c_void,
+    pub pHead: *mut core::ffi::c_void,
     pub HeadLength: u32,
-    pub pTail: *mut ::core::ffi::c_void,
+    pub pTail: *mut core::ffi::c_void,
     pub TailLength: u32,
     pub dwFlags: u32,
 }
-impl ::core::marker::Copy for HSE_TF_INFO {}
-impl ::core::clone::Clone for HSE_TF_INFO {
+impl Copy for HSE_TF_INFO {}
+impl Clone for HSE_TF_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -1181,8 +1181,8 @@ pub struct HSE_TRACE_INFO {
     pub dwReserved1: u32,
     pub dwReserved2: u32,
 }
-impl ::core::marker::Copy for HSE_TRACE_INFO {}
-impl ::core::clone::Clone for HSE_TRACE_INFO {
+impl Copy for HSE_TRACE_INFO {}
+impl Clone for HSE_TRACE_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -1194,8 +1194,8 @@ pub struct HSE_UNICODE_URL_MAPEX_INFO {
     pub cchMatchingPath: u32,
     pub cchMatchingURL: u32,
 }
-impl ::core::marker::Copy for HSE_UNICODE_URL_MAPEX_INFO {}
-impl ::core::clone::Clone for HSE_UNICODE_URL_MAPEX_INFO {
+impl Copy for HSE_UNICODE_URL_MAPEX_INFO {}
+impl Clone for HSE_UNICODE_URL_MAPEX_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -1209,8 +1209,8 @@ pub struct HSE_URL_MAPEX_INFO {
     pub dwReserved1: u32,
     pub dwReserved2: u32,
 }
-impl ::core::marker::Copy for HSE_URL_MAPEX_INFO {}
-impl ::core::clone::Clone for HSE_URL_MAPEX_INFO {
+impl Copy for HSE_URL_MAPEX_INFO {}
+impl Clone for HSE_URL_MAPEX_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -1218,12 +1218,12 @@ impl ::core::clone::Clone for HSE_URL_MAPEX_INFO {
 #[repr(C)]
 pub struct HSE_VECTOR_ELEMENT {
     pub ElementType: u32,
-    pub pvContext: *mut ::core::ffi::c_void,
+    pub pvContext: *mut core::ffi::c_void,
     pub cbOffset: u64,
     pub cbSize: u64,
 }
-impl ::core::marker::Copy for HSE_VECTOR_ELEMENT {}
-impl ::core::clone::Clone for HSE_VECTOR_ELEMENT {
+impl Copy for HSE_VECTOR_ELEMENT {}
+impl Clone for HSE_VECTOR_ELEMENT {
     fn clone(&self) -> Self {
         *self
     }
@@ -1233,33 +1233,33 @@ pub struct HSE_VERSION_INFO {
     pub dwExtensionVersion: u32,
     pub lpszExtensionDesc: [i8; 256],
 }
-impl ::core::marker::Copy for HSE_VERSION_INFO {}
-impl ::core::clone::Clone for HSE_VERSION_INFO {
+impl Copy for HSE_VERSION_INFO {}
+impl Clone for HSE_VERSION_INFO {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct HTTP_FILTER_ACCESS_DENIED {
-    pub pszURL: ::windows_sys::core::PCSTR,
-    pub pszPhysicalPath: ::windows_sys::core::PCSTR,
+    pub pszURL: windows_sys::core::PCSTR,
+    pub pszPhysicalPath: windows_sys::core::PCSTR,
     pub dwReason: u32,
 }
-impl ::core::marker::Copy for HTTP_FILTER_ACCESS_DENIED {}
-impl ::core::clone::Clone for HTTP_FILTER_ACCESS_DENIED {
+impl Copy for HTTP_FILTER_ACCESS_DENIED {}
+impl Clone for HTTP_FILTER_ACCESS_DENIED {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct HTTP_FILTER_AUTHENT {
-    pub pszUser: ::windows_sys::core::PSTR,
+    pub pszUser: windows_sys::core::PSTR,
     pub cbUserBuff: u32,
-    pub pszPassword: ::windows_sys::core::PSTR,
+    pub pszPassword: windows_sys::core::PSTR,
     pub cbPasswordBuff: u32,
 }
-impl ::core::marker::Copy for HTTP_FILTER_AUTHENT {}
-impl ::core::clone::Clone for HTTP_FILTER_AUTHENT {
+impl Copy for HTTP_FILTER_AUTHENT {}
+impl Clone for HTTP_FILTER_AUTHENT {
     fn clone(&self) -> Self {
         *self
     }
@@ -1274,8 +1274,8 @@ pub struct HTTP_FILTER_AUTH_COMPLETE_INFO {
     pub fResetAuth: super::super::Foundation::BOOL,
     pub dwReserved: u32,
 }
-impl ::core::marker::Copy for HTTP_FILTER_AUTH_COMPLETE_INFO {}
-impl ::core::clone::Clone for HTTP_FILTER_AUTH_COMPLETE_INFO {
+impl Copy for HTTP_FILTER_AUTH_COMPLETE_INFO {}
+impl Clone for HTTP_FILTER_AUTH_COMPLETE_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -1284,38 +1284,38 @@ impl ::core::clone::Clone for HTTP_FILTER_AUTH_COMPLETE_INFO {
 pub struct HTTP_FILTER_CONTEXT {
     pub cbSize: u32,
     pub Revision: u32,
-    pub ServerContext: *mut ::core::ffi::c_void,
+    pub ServerContext: *mut core::ffi::c_void,
     pub ulReserved: u32,
     pub fIsSecurePort: super::super::Foundation::BOOL,
-    pub pFilterContext: *mut ::core::ffi::c_void,
+    pub pFilterContext: *mut core::ffi::c_void,
     pub GetServerVariable: isize,
     pub AddResponseHeaders: isize,
     pub WriteClient: isize,
     pub AllocMem: isize,
     pub ServerSupportFunction: isize,
 }
-impl ::core::marker::Copy for HTTP_FILTER_CONTEXT {}
-impl ::core::clone::Clone for HTTP_FILTER_CONTEXT {
+impl Copy for HTTP_FILTER_CONTEXT {}
+impl Clone for HTTP_FILTER_CONTEXT {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct HTTP_FILTER_LOG {
-    pub pszClientHostName: ::windows_sys::core::PCSTR,
-    pub pszClientUserName: ::windows_sys::core::PCSTR,
-    pub pszServerName: ::windows_sys::core::PCSTR,
-    pub pszOperation: ::windows_sys::core::PCSTR,
-    pub pszTarget: ::windows_sys::core::PCSTR,
-    pub pszParameters: ::windows_sys::core::PCSTR,
+    pub pszClientHostName: windows_sys::core::PCSTR,
+    pub pszClientUserName: windows_sys::core::PCSTR,
+    pub pszServerName: windows_sys::core::PCSTR,
+    pub pszOperation: windows_sys::core::PCSTR,
+    pub pszTarget: windows_sys::core::PCSTR,
+    pub pszParameters: windows_sys::core::PCSTR,
     pub dwHttpStatus: u32,
     pub dwWin32Status: u32,
     pub dwBytesSent: u32,
     pub dwBytesRecvd: u32,
     pub msTimeForProcessing: u32,
 }
-impl ::core::marker::Copy for HTTP_FILTER_LOG {}
-impl ::core::clone::Clone for HTTP_FILTER_LOG {
+impl Copy for HTTP_FILTER_LOG {}
+impl Clone for HTTP_FILTER_LOG {
     fn clone(&self) -> Self {
         *self
     }
@@ -1328,49 +1328,49 @@ pub struct HTTP_FILTER_PREPROC_HEADERS {
     pub HttpStatus: u32,
     pub dwReserved: u32,
 }
-impl ::core::marker::Copy for HTTP_FILTER_PREPROC_HEADERS {}
-impl ::core::clone::Clone for HTTP_FILTER_PREPROC_HEADERS {
+impl Copy for HTTP_FILTER_PREPROC_HEADERS {}
+impl Clone for HTTP_FILTER_PREPROC_HEADERS {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct HTTP_FILTER_RAW_DATA {
-    pub pvInData: *mut ::core::ffi::c_void,
+    pub pvInData: *mut core::ffi::c_void,
     pub cbInData: u32,
     pub cbInBuffer: u32,
     pub dwReserved: u32,
 }
-impl ::core::marker::Copy for HTTP_FILTER_RAW_DATA {}
-impl ::core::clone::Clone for HTTP_FILTER_RAW_DATA {
+impl Copy for HTTP_FILTER_RAW_DATA {}
+impl Clone for HTTP_FILTER_RAW_DATA {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct HTTP_FILTER_URL_MAP {
-    pub pszURL: ::windows_sys::core::PCSTR,
-    pub pszPhysicalPath: ::windows_sys::core::PSTR,
+    pub pszURL: windows_sys::core::PCSTR,
+    pub pszPhysicalPath: windows_sys::core::PSTR,
     pub cbPathBuff: u32,
 }
-impl ::core::marker::Copy for HTTP_FILTER_URL_MAP {}
-impl ::core::clone::Clone for HTTP_FILTER_URL_MAP {
+impl Copy for HTTP_FILTER_URL_MAP {}
+impl Clone for HTTP_FILTER_URL_MAP {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct HTTP_FILTER_URL_MAP_EX {
-    pub pszURL: ::windows_sys::core::PCSTR,
-    pub pszPhysicalPath: ::windows_sys::core::PSTR,
+    pub pszURL: windows_sys::core::PCSTR,
+    pub pszPhysicalPath: windows_sys::core::PSTR,
     pub cbPathBuff: u32,
     pub dwFlags: u32,
     pub cchMatchingPath: u32,
     pub cchMatchingURL: u32,
-    pub pszScriptMapEntry: ::windows_sys::core::PCSTR,
+    pub pszScriptMapEntry: windows_sys::core::PCSTR,
 }
-impl ::core::marker::Copy for HTTP_FILTER_URL_MAP_EX {}
-impl ::core::clone::Clone for HTTP_FILTER_URL_MAP_EX {
+impl Copy for HTTP_FILTER_URL_MAP_EX {}
+impl Clone for HTTP_FILTER_URL_MAP_EX {
     fn clone(&self) -> Self {
         *self
     }
@@ -1382,97 +1382,97 @@ pub struct HTTP_FILTER_VERSION {
     pub lpszFilterDesc: [i8; 257],
     pub dwFlags: u32,
 }
-impl ::core::marker::Copy for HTTP_FILTER_VERSION {}
-impl ::core::clone::Clone for HTTP_FILTER_VERSION {
+impl Copy for HTTP_FILTER_VERSION {}
+impl Clone for HTTP_FILTER_VERSION {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct HTTP_TRACE_CONFIGURATION {
-    pub pProviderGuid: *const ::windows_sys::core::GUID,
+    pub pProviderGuid: *const windows_sys::core::GUID,
     pub dwAreas: u32,
     pub dwVerbosity: u32,
     pub fProviderEnabled: super::super::Foundation::BOOL,
 }
-impl ::core::marker::Copy for HTTP_TRACE_CONFIGURATION {}
-impl ::core::clone::Clone for HTTP_TRACE_CONFIGURATION {
+impl Copy for HTTP_TRACE_CONFIGURATION {}
+impl Clone for HTTP_TRACE_CONFIGURATION {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct HTTP_TRACE_EVENT {
-    pub pProviderGuid: *const ::windows_sys::core::GUID,
+    pub pProviderGuid: *const windows_sys::core::GUID,
     pub dwArea: u32,
-    pub pAreaGuid: *const ::windows_sys::core::GUID,
+    pub pAreaGuid: *const windows_sys::core::GUID,
     pub dwEvent: u32,
-    pub pszEventName: ::windows_sys::core::PCWSTR,
+    pub pszEventName: windows_sys::core::PCWSTR,
     pub dwEventVersion: u32,
     pub dwVerbosity: u32,
-    pub pActivityGuid: *const ::windows_sys::core::GUID,
-    pub pRelatedActivityGuid: *const ::windows_sys::core::GUID,
+    pub pActivityGuid: *const windows_sys::core::GUID,
+    pub pRelatedActivityGuid: *const windows_sys::core::GUID,
     pub dwTimeStamp: u32,
     pub dwFlags: u32,
     pub cEventItems: u32,
     pub pEventItems: *mut HTTP_TRACE_EVENT_ITEM,
 }
-impl ::core::marker::Copy for HTTP_TRACE_EVENT {}
-impl ::core::clone::Clone for HTTP_TRACE_EVENT {
+impl Copy for HTTP_TRACE_EVENT {}
+impl Clone for HTTP_TRACE_EVENT {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct HTTP_TRACE_EVENT_ITEM {
-    pub pszName: ::windows_sys::core::PCWSTR,
+    pub pszName: windows_sys::core::PCWSTR,
     pub dwDataType: HTTP_TRACE_TYPE,
     pub pbData: *mut u8,
     pub cbData: u32,
-    pub pszDataDescription: ::windows_sys::core::PCWSTR,
+    pub pszDataDescription: windows_sys::core::PCWSTR,
 }
-impl ::core::marker::Copy for HTTP_TRACE_EVENT_ITEM {}
-impl ::core::clone::Clone for HTTP_TRACE_EVENT_ITEM {
+impl Copy for HTTP_TRACE_EVENT_ITEM {}
+impl Clone for HTTP_TRACE_EVENT_ITEM {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct LOGGING_PARAMETERS {
-    pub pszSessionId: ::windows_sys::core::PCWSTR,
-    pub pszSiteName: ::windows_sys::core::PCWSTR,
-    pub pszUserName: ::windows_sys::core::PCWSTR,
-    pub pszHostName: ::windows_sys::core::PCWSTR,
-    pub pszRemoteIpAddress: ::windows_sys::core::PCWSTR,
+    pub pszSessionId: windows_sys::core::PCWSTR,
+    pub pszSiteName: windows_sys::core::PCWSTR,
+    pub pszUserName: windows_sys::core::PCWSTR,
+    pub pszHostName: windows_sys::core::PCWSTR,
+    pub pszRemoteIpAddress: windows_sys::core::PCWSTR,
     pub dwRemoteIpPort: u32,
-    pub pszLocalIpAddress: ::windows_sys::core::PCWSTR,
+    pub pszLocalIpAddress: windows_sys::core::PCWSTR,
     pub dwLocalIpPort: u32,
     pub BytesSent: u64,
     pub BytesReceived: u64,
-    pub pszCommand: ::windows_sys::core::PCWSTR,
-    pub pszCommandParameters: ::windows_sys::core::PCWSTR,
-    pub pszFullPath: ::windows_sys::core::PCWSTR,
+    pub pszCommand: windows_sys::core::PCWSTR,
+    pub pszCommandParameters: windows_sys::core::PCWSTR,
+    pub pszFullPath: windows_sys::core::PCWSTR,
     pub dwElapsedMilliseconds: u32,
     pub FtpStatus: u32,
     pub FtpSubStatus: u32,
-    pub hrStatus: ::windows_sys::core::HRESULT,
-    pub pszInformation: ::windows_sys::core::PCWSTR,
+    pub hrStatus: windows_sys::core::HRESULT,
+    pub pszInformation: windows_sys::core::PCWSTR,
 }
-impl ::core::marker::Copy for LOGGING_PARAMETERS {}
-impl ::core::clone::Clone for LOGGING_PARAMETERS {
+impl Copy for LOGGING_PARAMETERS {}
+impl Clone for LOGGING_PARAMETERS {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct MD_CHANGE_OBJECT_W {
-    pub pszMDPath: ::windows_sys::core::PWSTR,
+    pub pszMDPath: windows_sys::core::PWSTR,
     pub dwMDChangeType: u32,
     pub dwMDNumDataIDs: u32,
     pub pdwMDDataIDs: *mut u32,
 }
-impl ::core::marker::Copy for MD_CHANGE_OBJECT_W {}
-impl ::core::clone::Clone for MD_CHANGE_OBJECT_W {
+impl Copy for MD_CHANGE_OBJECT_W {}
+impl Clone for MD_CHANGE_OBJECT_W {
     fn clone(&self) -> Self {
         *self
     }
@@ -1487,8 +1487,8 @@ pub struct METADATA_GETALL_INTERNAL_RECORD {
     pub Anonymous: METADATA_GETALL_INTERNAL_RECORD_0,
     pub dwMDDataTag: u32,
 }
-impl ::core::marker::Copy for METADATA_GETALL_INTERNAL_RECORD {}
-impl ::core::clone::Clone for METADATA_GETALL_INTERNAL_RECORD {
+impl Copy for METADATA_GETALL_INTERNAL_RECORD {}
+impl Clone for METADATA_GETALL_INTERNAL_RECORD {
     fn clone(&self) -> Self {
         *self
     }
@@ -1498,8 +1498,8 @@ pub union METADATA_GETALL_INTERNAL_RECORD_0 {
     pub dwMDDataOffset: usize,
     pub pbMDData: *mut u8,
 }
-impl ::core::marker::Copy for METADATA_GETALL_INTERNAL_RECORD_0 {}
-impl ::core::clone::Clone for METADATA_GETALL_INTERNAL_RECORD_0 {
+impl Copy for METADATA_GETALL_INTERNAL_RECORD_0 {}
+impl Clone for METADATA_GETALL_INTERNAL_RECORD_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -1514,8 +1514,8 @@ pub struct METADATA_GETALL_RECORD {
     pub dwMDDataOffset: u32,
     pub dwMDDataTag: u32,
 }
-impl ::core::marker::Copy for METADATA_GETALL_RECORD {}
-impl ::core::clone::Clone for METADATA_GETALL_RECORD {
+impl Copy for METADATA_GETALL_RECORD {}
+impl Clone for METADATA_GETALL_RECORD {
     fn clone(&self) -> Self {
         *self
     }
@@ -1525,8 +1525,8 @@ pub struct METADATA_HANDLE_INFO {
     pub dwMDPermissions: u32,
     pub dwMDSystemChangeNumber: u32,
 }
-impl ::core::marker::Copy for METADATA_HANDLE_INFO {}
-impl ::core::clone::Clone for METADATA_HANDLE_INFO {
+impl Copy for METADATA_HANDLE_INFO {}
+impl Clone for METADATA_HANDLE_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -1541,73 +1541,73 @@ pub struct METADATA_RECORD {
     pub pbMDData: *mut u8,
     pub dwMDDataTag: u32,
 }
-impl ::core::marker::Copy for METADATA_RECORD {}
-impl ::core::clone::Clone for METADATA_RECORD {
+impl Copy for METADATA_RECORD {}
+impl Clone for METADATA_RECORD {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct POST_PROCESS_PARAMETERS {
-    pub pszSessionId: ::windows_sys::core::PCWSTR,
-    pub pszSiteName: ::windows_sys::core::PCWSTR,
-    pub pszUserName: ::windows_sys::core::PCWSTR,
-    pub pszHostName: ::windows_sys::core::PCWSTR,
-    pub pszRemoteIpAddress: ::windows_sys::core::PCWSTR,
+    pub pszSessionId: windows_sys::core::PCWSTR,
+    pub pszSiteName: windows_sys::core::PCWSTR,
+    pub pszUserName: windows_sys::core::PCWSTR,
+    pub pszHostName: windows_sys::core::PCWSTR,
+    pub pszRemoteIpAddress: windows_sys::core::PCWSTR,
     pub dwRemoteIpPort: u32,
-    pub pszLocalIpAddress: ::windows_sys::core::PCWSTR,
+    pub pszLocalIpAddress: windows_sys::core::PCWSTR,
     pub dwLocalIpPort: u32,
     pub BytesSent: u64,
     pub BytesReceived: u64,
-    pub pszCommand: ::windows_sys::core::PCWSTR,
-    pub pszCommandParameters: ::windows_sys::core::PCWSTR,
-    pub pszFullPath: ::windows_sys::core::PCWSTR,
-    pub pszPhysicalPath: ::windows_sys::core::PCWSTR,
+    pub pszCommand: windows_sys::core::PCWSTR,
+    pub pszCommandParameters: windows_sys::core::PCWSTR,
+    pub pszFullPath: windows_sys::core::PCWSTR,
+    pub pszPhysicalPath: windows_sys::core::PCWSTR,
     pub FtpStatus: u32,
     pub FtpSubStatus: u32,
-    pub hrStatus: ::windows_sys::core::HRESULT,
+    pub hrStatus: windows_sys::core::HRESULT,
     pub SessionStartTime: super::super::Foundation::FILETIME,
     pub BytesSentPerSession: u64,
     pub BytesReceivedPerSession: u64,
 }
-impl ::core::marker::Copy for POST_PROCESS_PARAMETERS {}
-impl ::core::clone::Clone for POST_PROCESS_PARAMETERS {
+impl Copy for POST_PROCESS_PARAMETERS {}
+impl Clone for POST_PROCESS_PARAMETERS {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct PRE_PROCESS_PARAMETERS {
-    pub pszSessionId: ::windows_sys::core::PCWSTR,
-    pub pszSiteName: ::windows_sys::core::PCWSTR,
-    pub pszUserName: ::windows_sys::core::PCWSTR,
-    pub pszHostName: ::windows_sys::core::PCWSTR,
-    pub pszRemoteIpAddress: ::windows_sys::core::PCWSTR,
+    pub pszSessionId: windows_sys::core::PCWSTR,
+    pub pszSiteName: windows_sys::core::PCWSTR,
+    pub pszUserName: windows_sys::core::PCWSTR,
+    pub pszHostName: windows_sys::core::PCWSTR,
+    pub pszRemoteIpAddress: windows_sys::core::PCWSTR,
     pub dwRemoteIpPort: u32,
-    pub pszLocalIpAddress: ::windows_sys::core::PCWSTR,
+    pub pszLocalIpAddress: windows_sys::core::PCWSTR,
     pub dwLocalIpPort: u32,
-    pub pszCommand: ::windows_sys::core::PCWSTR,
-    pub pszCommandParameters: ::windows_sys::core::PCWSTR,
+    pub pszCommand: windows_sys::core::PCWSTR,
+    pub pszCommandParameters: windows_sys::core::PCWSTR,
     pub SessionStartTime: super::super::Foundation::FILETIME,
     pub BytesSentPerSession: u64,
     pub BytesReceivedPerSession: u64,
 }
-impl ::core::marker::Copy for PRE_PROCESS_PARAMETERS {}
-impl ::core::clone::Clone for PRE_PROCESS_PARAMETERS {
+impl Copy for PRE_PROCESS_PARAMETERS {}
+impl Clone for PRE_PROCESS_PARAMETERS {
     fn clone(&self) -> Self {
         *self
     }
 }
-pub type PFN_GETEXTENSIONVERSION = ::core::option::Option<unsafe extern "system" fn(pver: *mut HSE_VERSION_INFO) -> super::super::Foundation::BOOL>;
-pub type PFN_HSE_CACHE_INVALIDATION_CALLBACK = ::core::option::Option<unsafe extern "system" fn(pszurl: ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT>;
-pub type PFN_HSE_GET_PROTOCOL_MANAGER_CUSTOM_INTERFACE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(pszprotocolmanagerdll: ::windows_sys::core::PCWSTR, pszprotocolmanagerdllinitfunction: ::windows_sys::core::PCWSTR, dwcustominterfaceid: u32, ppcustominterface: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT>;
-pub type PFN_HSE_IO_COMPLETION = ::core::option::Option<unsafe extern "system" fn(pecb: *mut EXTENSION_CONTROL_BLOCK, pcontext: *mut ::core::ffi::c_void, cbio: u32, dwerror: u32)>;
-pub type PFN_HTTPEXTENSIONPROC = ::core::option::Option<unsafe extern "system" fn(pecb: *mut EXTENSION_CONTROL_BLOCK) -> u32>;
-pub type PFN_IIS_GETSERVERVARIABLE = ::core::option::Option<unsafe extern "system" fn(param0: HCONN, param1: ::windows_sys::core::PCSTR, param2: *mut ::core::ffi::c_void, param3: *mut u32) -> super::super::Foundation::BOOL>;
-pub type PFN_IIS_READCLIENT = ::core::option::Option<unsafe extern "system" fn(param0: HCONN, param1: *mut ::core::ffi::c_void, param2: *mut u32) -> super::super::Foundation::BOOL>;
-pub type PFN_IIS_SERVERSUPPORTFUNCTION = ::core::option::Option<unsafe extern "system" fn(param0: HCONN, param1: u32, param2: *mut ::core::ffi::c_void, param3: *mut u32, param4: *mut u32) -> super::super::Foundation::BOOL>;
-pub type PFN_IIS_WRITECLIENT = ::core::option::Option<unsafe extern "system" fn(param0: HCONN, param1: *mut ::core::ffi::c_void, param2: *mut u32, param3: u32) -> super::super::Foundation::BOOL>;
-pub type PFN_TERMINATEEXTENSION = ::core::option::Option<unsafe extern "system" fn(dwflags: u32) -> super::super::Foundation::BOOL>;
-pub type PFN_WEB_CORE_ACTIVATE = ::core::option::Option<unsafe extern "system" fn(pszapphostconfigfile: ::windows_sys::core::PCWSTR, pszrootwebconfigfile: ::windows_sys::core::PCWSTR, pszinstancename: ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT>;
-pub type PFN_WEB_CORE_SET_METADATA_DLL_ENTRY = ::core::option::Option<unsafe extern "system" fn(pszmetadatatype: ::windows_sys::core::PCWSTR, pszvalue: ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT>;
-pub type PFN_WEB_CORE_SHUTDOWN = ::core::option::Option<unsafe extern "system" fn(fimmediate: u32) -> ::windows_sys::core::HRESULT>;
+pub type PFN_GETEXTENSIONVERSION = Option<unsafe extern "system" fn(pver: *mut HSE_VERSION_INFO) -> super::super::Foundation::BOOL>;
+pub type PFN_HSE_CACHE_INVALIDATION_CALLBACK = Option<unsafe extern "system" fn(pszurl: windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT>;
+pub type PFN_HSE_GET_PROTOCOL_MANAGER_CUSTOM_INTERFACE_CALLBACK = Option<unsafe extern "system" fn(pszprotocolmanagerdll: windows_sys::core::PCWSTR, pszprotocolmanagerdllinitfunction: windows_sys::core::PCWSTR, dwcustominterfaceid: u32, ppcustominterface: *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
+pub type PFN_HSE_IO_COMPLETION = Option<unsafe extern "system" fn(pecb: *mut EXTENSION_CONTROL_BLOCK, pcontext: *mut core::ffi::c_void, cbio: u32, dwerror: u32)>;
+pub type PFN_HTTPEXTENSIONPROC = Option<unsafe extern "system" fn(pecb: *mut EXTENSION_CONTROL_BLOCK) -> u32>;
+pub type PFN_IIS_GETSERVERVARIABLE = Option<unsafe extern "system" fn(param0: HCONN, param1: windows_sys::core::PCSTR, param2: *mut core::ffi::c_void, param3: *mut u32) -> super::super::Foundation::BOOL>;
+pub type PFN_IIS_READCLIENT = Option<unsafe extern "system" fn(param0: HCONN, param1: *mut core::ffi::c_void, param2: *mut u32) -> super::super::Foundation::BOOL>;
+pub type PFN_IIS_SERVERSUPPORTFUNCTION = Option<unsafe extern "system" fn(param0: HCONN, param1: u32, param2: *mut core::ffi::c_void, param3: *mut u32, param4: *mut u32) -> super::super::Foundation::BOOL>;
+pub type PFN_IIS_WRITECLIENT = Option<unsafe extern "system" fn(param0: HCONN, param1: *mut core::ffi::c_void, param2: *mut u32, param3: u32) -> super::super::Foundation::BOOL>;
+pub type PFN_TERMINATEEXTENSION = Option<unsafe extern "system" fn(dwflags: u32) -> super::super::Foundation::BOOL>;
+pub type PFN_WEB_CORE_ACTIVATE = Option<unsafe extern "system" fn(pszapphostconfigfile: windows_sys::core::PCWSTR, pszrootwebconfigfile: windows_sys::core::PCWSTR, pszinstancename: windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT>;
+pub type PFN_WEB_CORE_SET_METADATA_DLL_ENTRY = Option<unsafe extern "system" fn(pszmetadatatype: windows_sys::core::PCWSTR, pszvalue: windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT>;
+pub type PFN_WEB_CORE_SHUTDOWN = Option<unsafe extern "system" fn(fimmediate: u32) -> windows_sys::core::HRESULT>;

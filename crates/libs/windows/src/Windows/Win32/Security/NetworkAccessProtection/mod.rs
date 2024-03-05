@@ -39,169 +39,169 @@ pub const tracingLevelBasic: NapTracingLevel = NapTracingLevel(1i32);
 pub const tracingLevelDebug: NapTracingLevel = NapTracingLevel(3i32);
 pub const tracingLevelUndefined: NapTracingLevel = NapTracingLevel(0i32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct ExtendedIsolationState(pub i32);
-impl ::windows_core::TypeKind for ExtendedIsolationState {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for ExtendedIsolationState {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for ExtendedIsolationState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for ExtendedIsolationState {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("ExtendedIsolationState").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct FailureCategory(pub i32);
-impl ::windows_core::TypeKind for FailureCategory {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for FailureCategory {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for FailureCategory {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for FailureCategory {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("FailureCategory").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct FixupState(pub i32);
-impl ::windows_core::TypeKind for FixupState {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for FixupState {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for FixupState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for FixupState {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("FixupState").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct IsolationState(pub i32);
-impl ::windows_core::TypeKind for IsolationState {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for IsolationState {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for IsolationState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for IsolationState {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("IsolationState").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct NapNotifyType(pub i32);
-impl ::windows_core::TypeKind for NapNotifyType {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for NapNotifyType {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for NapNotifyType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for NapNotifyType {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("NapNotifyType").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct NapTracingLevel(pub i32);
-impl ::windows_core::TypeKind for NapTracingLevel {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for NapTracingLevel {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for NapTracingLevel {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for NapTracingLevel {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("NapTracingLevel").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct RemoteConfigurationType(pub i32);
-impl ::windows_core::TypeKind for RemoteConfigurationType {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for RemoteConfigurationType {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for RemoteConfigurationType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for RemoteConfigurationType {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("RemoteConfigurationType").field(&self.0).finish()
     }
 }
 #[repr(C)]
 pub struct CorrelationId {
-    pub connId: ::windows_core::GUID,
+    pub connId: windows_core::GUID,
     pub timeStamp: super::super::Foundation::FILETIME,
 }
-impl ::core::marker::Copy for CorrelationId {}
-impl ::core::clone::Clone for CorrelationId {
+impl Copy for CorrelationId {}
+impl Clone for CorrelationId {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for CorrelationId {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for CorrelationId {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("CorrelationId").field("connId", &self.connId).field("timeStamp", &self.timeStamp).finish()
     }
 }
-impl ::windows_core::TypeKind for CorrelationId {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for CorrelationId {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for CorrelationId {
+impl PartialEq for CorrelationId {
     fn eq(&self, other: &Self) -> bool {
         self.connId == other.connId && self.timeStamp == other.timeStamp
     }
 }
-impl ::core::cmp::Eq for CorrelationId {}
-impl ::core::default::Default for CorrelationId {
+impl Eq for CorrelationId {}
+impl Default for CorrelationId {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 pub struct CountedString {
     pub length: u16,
-    pub string: ::windows_core::PWSTR,
+    pub string: windows_core::PWSTR,
 }
-impl ::core::marker::Copy for CountedString {}
-impl ::core::clone::Clone for CountedString {
+impl Copy for CountedString {}
+impl Clone for CountedString {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for CountedString {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for CountedString {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("CountedString").field("length", &self.length).field("string", &self.string).finish()
     }
 }
-impl ::windows_core::TypeKind for CountedString {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for CountedString {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for CountedString {
+impl PartialEq for CountedString {
     fn eq(&self, other: &Self) -> bool {
         self.length == other.length && self.string == other.string
     }
 }
-impl ::core::cmp::Eq for CountedString {}
-impl ::core::default::Default for CountedString {
+impl Eq for CountedString {}
+impl Default for CountedString {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 pub struct FailureCategoryMapping {
     pub mappingCompliance: [super::super::Foundation::BOOL; 5],
 }
-impl ::core::marker::Copy for FailureCategoryMapping {}
-impl ::core::clone::Clone for FailureCategoryMapping {
+impl Copy for FailureCategoryMapping {}
+impl Clone for FailureCategoryMapping {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for FailureCategoryMapping {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for FailureCategoryMapping {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("FailureCategoryMapping").field("mappingCompliance", &self.mappingCompliance).finish()
     }
 }
-impl ::windows_core::TypeKind for FailureCategoryMapping {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for FailureCategoryMapping {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for FailureCategoryMapping {
+impl PartialEq for FailureCategoryMapping {
     fn eq(&self, other: &Self) -> bool {
         self.mappingCompliance == other.mappingCompliance
     }
 }
-impl ::core::cmp::Eq for FailureCategoryMapping {}
-impl ::core::default::Default for FailureCategoryMapping {
+impl Eq for FailureCategoryMapping {}
+impl Default for FailureCategoryMapping {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -211,87 +211,87 @@ pub struct FixupInfo {
     pub resultCodes: ResultCodes,
     pub fixupMsgId: u32,
 }
-impl ::core::marker::Copy for FixupInfo {}
-impl ::core::clone::Clone for FixupInfo {
+impl Copy for FixupInfo {}
+impl Clone for FixupInfo {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for FixupInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for FixupInfo {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("FixupInfo").field("state", &self.state).field("percentage", &self.percentage).field("resultCodes", &self.resultCodes).field("fixupMsgId", &self.fixupMsgId).finish()
     }
 }
-impl ::windows_core::TypeKind for FixupInfo {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for FixupInfo {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for FixupInfo {
+impl PartialEq for FixupInfo {
     fn eq(&self, other: &Self) -> bool {
         self.state == other.state && self.percentage == other.percentage && self.resultCodes == other.resultCodes && self.fixupMsgId == other.fixupMsgId
     }
 }
-impl ::core::cmp::Eq for FixupInfo {}
-impl ::core::default::Default for FixupInfo {
+impl Eq for FixupInfo {}
+impl Default for FixupInfo {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 pub struct Ipv4Address {
     pub addr: [u8; 4],
 }
-impl ::core::marker::Copy for Ipv4Address {}
-impl ::core::clone::Clone for Ipv4Address {
+impl Copy for Ipv4Address {}
+impl Clone for Ipv4Address {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for Ipv4Address {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for Ipv4Address {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("Ipv4Address").field("addr", &self.addr).finish()
     }
 }
-impl ::windows_core::TypeKind for Ipv4Address {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for Ipv4Address {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for Ipv4Address {
+impl PartialEq for Ipv4Address {
     fn eq(&self, other: &Self) -> bool {
         self.addr == other.addr
     }
 }
-impl ::core::cmp::Eq for Ipv4Address {}
-impl ::core::default::Default for Ipv4Address {
+impl Eq for Ipv4Address {}
+impl Default for Ipv4Address {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 pub struct Ipv6Address {
     pub addr: [u8; 16],
 }
-impl ::core::marker::Copy for Ipv6Address {}
-impl ::core::clone::Clone for Ipv6Address {
+impl Copy for Ipv6Address {}
+impl Clone for Ipv6Address {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for Ipv6Address {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for Ipv6Address {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("Ipv6Address").field("addr", &self.addr).finish()
     }
 }
-impl ::windows_core::TypeKind for Ipv6Address {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for Ipv6Address {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for Ipv6Address {
+impl PartialEq for Ipv6Address {
     fn eq(&self, other: &Self) -> bool {
         self.addr == other.addr
     }
 }
-impl ::core::cmp::Eq for Ipv6Address {}
-impl ::core::default::Default for Ipv6Address {
+impl Eq for Ipv6Address {}
+impl Default for Ipv6Address {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -300,29 +300,29 @@ pub struct IsolationInfo {
     pub probEndTime: super::super::Foundation::FILETIME,
     pub failureUrl: CountedString,
 }
-impl ::core::marker::Copy for IsolationInfo {}
-impl ::core::clone::Clone for IsolationInfo {
+impl Copy for IsolationInfo {}
+impl Clone for IsolationInfo {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for IsolationInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for IsolationInfo {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("IsolationInfo").field("isolationState", &self.isolationState).field("probEndTime", &self.probEndTime).field("failureUrl", &self.failureUrl).finish()
     }
 }
-impl ::windows_core::TypeKind for IsolationInfo {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for IsolationInfo {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for IsolationInfo {
+impl PartialEq for IsolationInfo {
     fn eq(&self, other: &Self) -> bool {
         self.isolationState == other.isolationState && self.probEndTime == other.probEndTime && self.failureUrl == other.failureUrl
     }
 }
-impl ::core::cmp::Eq for IsolationInfo {}
-impl ::core::default::Default for IsolationInfo {
+impl Eq for IsolationInfo {}
+impl Default for IsolationInfo {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -332,29 +332,29 @@ pub struct IsolationInfoEx {
     pub probEndTime: super::super::Foundation::FILETIME,
     pub failureUrl: CountedString,
 }
-impl ::core::marker::Copy for IsolationInfoEx {}
-impl ::core::clone::Clone for IsolationInfoEx {
+impl Copy for IsolationInfoEx {}
+impl Clone for IsolationInfoEx {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for IsolationInfoEx {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for IsolationInfoEx {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("IsolationInfoEx").field("isolationState", &self.isolationState).field("extendedIsolationState", &self.extendedIsolationState).field("probEndTime", &self.probEndTime).field("failureUrl", &self.failureUrl).finish()
     }
 }
-impl ::windows_core::TypeKind for IsolationInfoEx {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for IsolationInfoEx {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for IsolationInfoEx {
+impl PartialEq for IsolationInfoEx {
     fn eq(&self, other: &Self) -> bool {
         self.isolationState == other.isolationState && self.extendedIsolationState == other.extendedIsolationState && self.probEndTime == other.probEndTime && self.failureUrl == other.failureUrl
     }
 }
-impl ::core::cmp::Eq for IsolationInfoEx {}
-impl ::core::default::Default for IsolationInfoEx {
+impl Eq for IsolationInfoEx {}
+impl Default for IsolationInfoEx {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -364,34 +364,34 @@ pub struct NapComponentRegistrationInfo {
     pub description: CountedString,
     pub version: CountedString,
     pub vendorName: CountedString,
-    pub infoClsid: ::windows_core::GUID,
-    pub configClsid: ::windows_core::GUID,
+    pub infoClsid: windows_core::GUID,
+    pub configClsid: windows_core::GUID,
     pub registrationDate: super::super::Foundation::FILETIME,
     pub componentType: u32,
 }
-impl ::core::marker::Copy for NapComponentRegistrationInfo {}
-impl ::core::clone::Clone for NapComponentRegistrationInfo {
+impl Copy for NapComponentRegistrationInfo {}
+impl Clone for NapComponentRegistrationInfo {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for NapComponentRegistrationInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for NapComponentRegistrationInfo {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("NapComponentRegistrationInfo").field("id", &self.id).field("friendlyName", &self.friendlyName).field("description", &self.description).field("version", &self.version).field("vendorName", &self.vendorName).field("infoClsid", &self.infoClsid).field("configClsid", &self.configClsid).field("registrationDate", &self.registrationDate).field("componentType", &self.componentType).finish()
     }
 }
-impl ::windows_core::TypeKind for NapComponentRegistrationInfo {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for NapComponentRegistrationInfo {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for NapComponentRegistrationInfo {
+impl PartialEq for NapComponentRegistrationInfo {
     fn eq(&self, other: &Self) -> bool {
         self.id == other.id && self.friendlyName == other.friendlyName && self.description == other.description && self.version == other.version && self.vendorName == other.vendorName && self.infoClsid == other.infoClsid && self.configClsid == other.configClsid && self.registrationDate == other.registrationDate && self.componentType == other.componentType
     }
 }
-impl ::core::cmp::Eq for NapComponentRegistrationInfo {}
-impl ::core::default::Default for NapComponentRegistrationInfo {
+impl Eq for NapComponentRegistrationInfo {}
+impl Default for NapComponentRegistrationInfo {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -399,29 +399,29 @@ pub struct NetworkSoH {
     pub size: u16,
     pub data: *mut u8,
 }
-impl ::core::marker::Copy for NetworkSoH {}
-impl ::core::clone::Clone for NetworkSoH {
+impl Copy for NetworkSoH {}
+impl Clone for NetworkSoH {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for NetworkSoH {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for NetworkSoH {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("NetworkSoH").field("size", &self.size).field("data", &self.data).finish()
     }
 }
-impl ::windows_core::TypeKind for NetworkSoH {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for NetworkSoH {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for NetworkSoH {
+impl PartialEq for NetworkSoH {
     fn eq(&self, other: &Self) -> bool {
         self.size == other.size && self.data == other.data
     }
 }
-impl ::core::cmp::Eq for NetworkSoH {}
-impl ::core::default::Default for NetworkSoH {
+impl Eq for NetworkSoH {}
+impl Default for NetworkSoH {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -429,59 +429,59 @@ pub struct PrivateData {
     pub size: u16,
     pub data: *mut u8,
 }
-impl ::core::marker::Copy for PrivateData {}
-impl ::core::clone::Clone for PrivateData {
+impl Copy for PrivateData {}
+impl Clone for PrivateData {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for PrivateData {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for PrivateData {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("PrivateData").field("size", &self.size).field("data", &self.data).finish()
     }
 }
-impl ::windows_core::TypeKind for PrivateData {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for PrivateData {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for PrivateData {
+impl PartialEq for PrivateData {
     fn eq(&self, other: &Self) -> bool {
         self.size == other.size && self.data == other.data
     }
 }
-impl ::core::cmp::Eq for PrivateData {}
-impl ::core::default::Default for PrivateData {
+impl Eq for PrivateData {}
+impl Default for PrivateData {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 pub struct ResultCodes {
     pub count: u16,
-    pub results: *mut ::windows_core::HRESULT,
+    pub results: *mut windows_core::HRESULT,
 }
-impl ::core::marker::Copy for ResultCodes {}
-impl ::core::clone::Clone for ResultCodes {
+impl Copy for ResultCodes {}
+impl Clone for ResultCodes {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for ResultCodes {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for ResultCodes {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("ResultCodes").field("count", &self.count).field("results", &self.results).finish()
     }
 }
-impl ::windows_core::TypeKind for ResultCodes {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for ResultCodes {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for ResultCodes {
+impl PartialEq for ResultCodes {
     fn eq(&self, other: &Self) -> bool {
         self.count == other.count && self.results == other.results
     }
 }
-impl ::core::cmp::Eq for ResultCodes {}
-impl ::core::default::Default for ResultCodes {
+impl Eq for ResultCodes {}
+impl Default for ResultCodes {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -489,29 +489,29 @@ pub struct SoH {
     pub count: u16,
     pub attributes: *mut SoHAttribute,
 }
-impl ::core::marker::Copy for SoH {}
-impl ::core::clone::Clone for SoH {
+impl Copy for SoH {}
+impl Clone for SoH {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for SoH {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for SoH {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("SoH").field("count", &self.count).field("attributes", &self.attributes).finish()
     }
 }
-impl ::windows_core::TypeKind for SoH {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for SoH {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for SoH {
+impl PartialEq for SoH {
     fn eq(&self, other: &Self) -> bool {
         self.count == other.count && self.attributes == other.attributes
     }
 }
-impl ::core::cmp::Eq for SoH {}
-impl ::core::default::Default for SoH {
+impl Eq for SoH {}
+impl Default for SoH {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -520,29 +520,29 @@ pub struct SoHAttribute {
     pub size: u16,
     pub value: *mut u8,
 }
-impl ::core::marker::Copy for SoHAttribute {}
-impl ::core::clone::Clone for SoHAttribute {
+impl Copy for SoHAttribute {}
+impl Clone for SoHAttribute {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for SoHAttribute {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for SoHAttribute {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("SoHAttribute").field("type", &self.r#type).field("size", &self.size).field("value", &self.value).finish()
     }
 }
-impl ::windows_core::TypeKind for SoHAttribute {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for SoHAttribute {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for SoHAttribute {
+impl PartialEq for SoHAttribute {
     fn eq(&self, other: &Self) -> bool {
         self.r#type == other.r#type && self.size == other.size && self.value == other.value
     }
 }
-impl ::core::cmp::Eq for SoHAttribute {}
-impl ::core::default::Default for SoHAttribute {
+impl Eq for SoHAttribute {}
+impl Default for SoHAttribute {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -552,28 +552,28 @@ pub struct SystemHealthAgentState {
     pub failureCategory: FailureCategory,
     pub fixupInfo: FixupInfo,
 }
-impl ::core::marker::Copy for SystemHealthAgentState {}
-impl ::core::clone::Clone for SystemHealthAgentState {
+impl Copy for SystemHealthAgentState {}
+impl Clone for SystemHealthAgentState {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for SystemHealthAgentState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for SystemHealthAgentState {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("SystemHealthAgentState").field("id", &self.id).field("shaResultCodes", &self.shaResultCodes).field("failureCategory", &self.failureCategory).field("fixupInfo", &self.fixupInfo).finish()
     }
 }
-impl ::windows_core::TypeKind for SystemHealthAgentState {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for SystemHealthAgentState {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for SystemHealthAgentState {
+impl PartialEq for SystemHealthAgentState {
     fn eq(&self, other: &Self) -> bool {
         self.id == other.id && self.shaResultCodes == other.shaResultCodes && self.failureCategory == other.failureCategory && self.fixupInfo == other.fixupInfo
     }
 }
-impl ::core::cmp::Eq for SystemHealthAgentState {}
-impl ::core::default::Default for SystemHealthAgentState {
+impl Eq for SystemHealthAgentState {}
+impl Default for SystemHealthAgentState {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }

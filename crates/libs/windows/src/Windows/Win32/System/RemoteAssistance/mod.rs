@@ -1,7 +1,7 @@
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(DRendezvousSessionEvents, DRendezvousSessionEvents_Vtbl, 0x3fa19cf8_64c4_4f53_ae60_635b3806eca6);
+windows_core::imp::com_interface!(DRendezvousSessionEvents, DRendezvousSessionEvents_Vtbl, 0x3fa19cf8_64c4_4f53_ae60_635b3806eca6);
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(DRendezvousSessionEvents, ::windows_core::IUnknown, super::Com::IDispatch);
+windows_core::imp::interface_hierarchy!(DRendezvousSessionEvents, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl DRendezvousSessionEvents {}
 #[cfg(feature = "Win32_System_Com")]
@@ -9,57 +9,57 @@ impl DRendezvousSessionEvents {}
 pub struct DRendezvousSessionEvents_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
 }
-::windows_core::imp::com_interface!(IRendezvousApplication, IRendezvousApplication_Vtbl, 0x4f4d070b_a275_49fb_b10d_8ec26387b50d);
-::windows_core::imp::interface_hierarchy!(IRendezvousApplication, ::windows_core::IUnknown);
+windows_core::imp::com_interface!(IRendezvousApplication, IRendezvousApplication_Vtbl, 0x4f4d070b_a275_49fb_b10d_8ec26387b50d);
+windows_core::imp::interface_hierarchy!(IRendezvousApplication, windows_core::IUnknown);
 impl IRendezvousApplication {
-    pub unsafe fn SetRendezvousSession<P0>(&self, prendezvoussession: P0) -> ::windows_core::Result<()>
+    pub unsafe fn SetRendezvousSession<P0>(&self, prendezvoussession: P0) -> windows_core::Result<()>
     where
-        P0: ::windows_core::IntoParam<::windows_core::IUnknown>,
+        P0: windows_core::IntoParam<windows_core::IUnknown>,
     {
-        (::windows_core::Interface::vtable(self).SetRendezvousSession)(::windows_core::Interface::as_raw(self), prendezvoussession.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetRendezvousSession)(windows_core::Interface::as_raw(self), prendezvoussession.into_param().abi()).ok()
     }
 }
 #[repr(C)]
 pub struct IRendezvousApplication_Vtbl {
-    pub base__: ::windows_core::IUnknown_Vtbl,
-    pub SetRendezvousSession: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub SetRendezvousSession: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-::windows_core::imp::com_interface!(IRendezvousSession, IRendezvousSession_Vtbl, 0x9ba4b1dd_8b0c_48b7_9e7c_2f25857c8df5);
-::windows_core::imp::interface_hierarchy!(IRendezvousSession, ::windows_core::IUnknown);
+windows_core::imp::com_interface!(IRendezvousSession, IRendezvousSession_Vtbl, 0x9ba4b1dd_8b0c_48b7_9e7c_2f25857c8df5);
+windows_core::imp::interface_hierarchy!(IRendezvousSession, windows_core::IUnknown);
 impl IRendezvousSession {
-    pub unsafe fn State(&self) -> ::windows_core::Result<RENDEZVOUS_SESSION_STATE> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).State)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+    pub unsafe fn State(&self) -> windows_core::Result<RENDEZVOUS_SESSION_STATE> {
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).State)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn RemoteUser(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).RemoteUser)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
+    pub unsafe fn RemoteUser(&self) -> windows_core::Result<windows_core::BSTR> {
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).RemoteUser)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn Flags(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Flags)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+    pub unsafe fn Flags(&self) -> windows_core::Result<i32> {
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).Flags)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SendContextData<P0>(&self, bstrdata: P0) -> ::windows_core::Result<()>
+    pub unsafe fn SendContextData<P0>(&self, bstrdata: P0) -> windows_core::Result<()>
     where
-        P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P0: windows_core::IntoParam<windows_core::BSTR>,
     {
-        (::windows_core::Interface::vtable(self).SendContextData)(::windows_core::Interface::as_raw(self), bstrdata.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SendContextData)(windows_core::Interface::as_raw(self), bstrdata.into_param().abi()).ok()
     }
-    pub unsafe fn Terminate<P0>(&self, hr: ::windows_core::HRESULT, bstrappdata: P0) -> ::windows_core::Result<()>
+    pub unsafe fn Terminate<P0>(&self, hr: windows_core::HRESULT, bstrappdata: P0) -> windows_core::Result<()>
     where
-        P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P0: windows_core::IntoParam<windows_core::BSTR>,
     {
-        (::windows_core::Interface::vtable(self).Terminate)(::windows_core::Interface::as_raw(self), hr, bstrappdata.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Terminate)(windows_core::Interface::as_raw(self), hr, bstrappdata.into_param().abi()).ok()
     }
 }
 #[repr(C)]
 pub struct IRendezvousSession_Vtbl {
-    pub base__: ::windows_core::IUnknown_Vtbl,
-    pub State: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut RENDEZVOUS_SESSION_STATE) -> ::windows_core::HRESULT,
-    pub RemoteUser: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub Flags: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
-    pub SendContextData: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub Terminate: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::HRESULT, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub State: unsafe extern "system" fn(*mut core::ffi::c_void, *mut RENDEZVOUS_SESSION_STATE) -> windows_core::HRESULT,
+    pub RemoteUser: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub Flags: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub SendContextData: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub Terminate: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::HRESULT, std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 pub const DISPID_EVENT_ON_CONTEXT_DATA: u32 = 7u32;
 pub const DISPID_EVENT_ON_SEND_ERROR: u32 = 8u32;
@@ -80,27 +80,27 @@ pub const RSS_READY: RENDEZVOUS_SESSION_STATE = RENDEZVOUS_SESSION_STATE(1i32);
 pub const RSS_TERMINATED: RENDEZVOUS_SESSION_STATE = RENDEZVOUS_SESSION_STATE(7i32);
 pub const RSS_UNKNOWN: RENDEZVOUS_SESSION_STATE = RENDEZVOUS_SESSION_STATE(0i32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct RENDEZVOUS_SESSION_FLAGS(pub i32);
-impl ::windows_core::TypeKind for RENDEZVOUS_SESSION_FLAGS {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for RENDEZVOUS_SESSION_FLAGS {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for RENDEZVOUS_SESSION_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for RENDEZVOUS_SESSION_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("RENDEZVOUS_SESSION_FLAGS").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct RENDEZVOUS_SESSION_STATE(pub i32);
-impl ::windows_core::TypeKind for RENDEZVOUS_SESSION_STATE {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for RENDEZVOUS_SESSION_STATE {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for RENDEZVOUS_SESSION_STATE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for RENDEZVOUS_SESSION_STATE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("RENDEZVOUS_SESSION_STATE").field(&self.0).finish()
     }
 }
-pub const RendezvousApplication: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0b7e019a_b5de_47fa_8966_9082f82fb192);
+pub const RendezvousApplication: windows_core::GUID = windows_core::GUID::from_u128(0x0b7e019a_b5de_47fa_8966_9082f82fb192);
 #[cfg(feature = "implement")]
-::core::include!("impl.rs");
+core::include!("impl.rs");

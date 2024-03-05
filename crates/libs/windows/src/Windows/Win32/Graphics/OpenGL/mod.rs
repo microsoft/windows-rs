@@ -2,52 +2,52 @@
 #[inline]
 pub unsafe fn ChoosePixelFormat<P0>(hdc: P0, ppfd: *const PIXELFORMATDESCRIPTOR) -> i32
 where
-    P0: ::windows_core::IntoParam<super::Gdi::HDC>,
+    P0: windows_core::IntoParam<super::Gdi::HDC>,
 {
     ::windows_targets::link!("gdi32.dll" "system" fn ChoosePixelFormat(hdc : super::Gdi:: HDC, ppfd : *const PIXELFORMATDESCRIPTOR) -> i32);
     ChoosePixelFormat(hdc.into_param().abi(), ppfd)
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn DescribePixelFormat<P0>(hdc: P0, ipixelformat: i32, nbytes: u32, ppfd: ::core::option::Option<*mut PIXELFORMATDESCRIPTOR>) -> i32
+pub unsafe fn DescribePixelFormat<P0>(hdc: P0, ipixelformat: i32, nbytes: u32, ppfd: Option<*mut PIXELFORMATDESCRIPTOR>) -> i32
 where
-    P0: ::windows_core::IntoParam<super::Gdi::HDC>,
+    P0: windows_core::IntoParam<super::Gdi::HDC>,
 {
     ::windows_targets::link!("gdi32.dll" "system" fn DescribePixelFormat(hdc : super::Gdi:: HDC, ipixelformat : i32, nbytes : u32, ppfd : *mut PIXELFORMATDESCRIPTOR) -> i32);
-    DescribePixelFormat(hdc.into_param().abi(), ipixelformat, nbytes, ::core::mem::transmute(ppfd.unwrap_or(::std::ptr::null_mut())))
+    DescribePixelFormat(hdc.into_param().abi(), ipixelformat, nbytes, core::mem::transmute(ppfd.unwrap_or(std::ptr::null_mut())))
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn GetEnhMetaFilePixelFormat<P0>(hemf: P0, cbbuffer: u32, ppfd: ::core::option::Option<*mut PIXELFORMATDESCRIPTOR>) -> u32
+pub unsafe fn GetEnhMetaFilePixelFormat<P0>(hemf: P0, cbbuffer: u32, ppfd: Option<*mut PIXELFORMATDESCRIPTOR>) -> u32
 where
-    P0: ::windows_core::IntoParam<super::Gdi::HENHMETAFILE>,
+    P0: windows_core::IntoParam<super::Gdi::HENHMETAFILE>,
 {
     ::windows_targets::link!("gdi32.dll" "system" fn GetEnhMetaFilePixelFormat(hemf : super::Gdi:: HENHMETAFILE, cbbuffer : u32, ppfd : *mut PIXELFORMATDESCRIPTOR) -> u32);
-    GetEnhMetaFilePixelFormat(hemf.into_param().abi(), cbbuffer, ::core::mem::transmute(ppfd.unwrap_or(::std::ptr::null_mut())))
+    GetEnhMetaFilePixelFormat(hemf.into_param().abi(), cbbuffer, core::mem::transmute(ppfd.unwrap_or(std::ptr::null_mut())))
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn GetPixelFormat<P0>(hdc: P0) -> i32
 where
-    P0: ::windows_core::IntoParam<super::Gdi::HDC>,
+    P0: windows_core::IntoParam<super::Gdi::HDC>,
 {
     ::windows_targets::link!("gdi32.dll" "system" fn GetPixelFormat(hdc : super::Gdi:: HDC) -> i32);
     GetPixelFormat(hdc.into_param().abi())
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn SetPixelFormat<P0>(hdc: P0, format: i32, ppfd: *const PIXELFORMATDESCRIPTOR) -> ::windows_core::Result<()>
+pub unsafe fn SetPixelFormat<P0>(hdc: P0, format: i32, ppfd: *const PIXELFORMATDESCRIPTOR) -> windows_core::Result<()>
 where
-    P0: ::windows_core::IntoParam<super::Gdi::HDC>,
+    P0: windows_core::IntoParam<super::Gdi::HDC>,
 {
     ::windows_targets::link!("gdi32.dll" "system" fn SetPixelFormat(hdc : super::Gdi:: HDC, format : i32, ppfd : *const PIXELFORMATDESCRIPTOR) -> super::super::Foundation:: BOOL);
     SetPixelFormat(hdc.into_param().abi(), format, ppfd).ok()
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn SwapBuffers<P0>(param0: P0) -> ::windows_core::Result<()>
+pub unsafe fn SwapBuffers<P0>(param0: P0) -> windows_core::Result<()>
 where
-    P0: ::windows_core::IntoParam<super::Gdi::HDC>,
+    P0: windows_core::IntoParam<super::Gdi::HDC>,
 {
     ::windows_targets::link!("gdi32.dll" "system" fn SwapBuffers(param0 : super::Gdi:: HDC) -> super::super::Foundation:: BOOL);
     SwapBuffers(param0.into_param().abi()).ok()
@@ -98,8 +98,8 @@ pub unsafe fn glCallList(list: u32) {
     glCallList(list)
 }
 #[inline]
-pub unsafe fn glCallLists(n: i32, r#type: u32, lists: *const ::core::ffi::c_void) {
-    ::windows_targets::link!("opengl32.dll" "system" fn glCallLists(n : i32, r#type : u32, lists : *const ::core::ffi::c_void));
+pub unsafe fn glCallLists(n: i32, r#type: u32, lists: *const core::ffi::c_void) {
+    ::windows_targets::link!("opengl32.dll" "system" fn glCallLists(n : i32, r#type : u32, lists : *const core::ffi::c_void));
     glCallLists(n, r#type, lists)
 }
 #[inline]
@@ -308,8 +308,8 @@ pub unsafe fn glColorMaterial(face: u32, mode: u32) {
     glColorMaterial(face, mode)
 }
 #[inline]
-pub unsafe fn glColorPointer(size: i32, r#type: u32, stride: i32, pointer: *const ::core::ffi::c_void) {
-    ::windows_targets::link!("opengl32.dll" "system" fn glColorPointer(size : i32, r#type : u32, stride : i32, pointer : *const ::core::ffi::c_void));
+pub unsafe fn glColorPointer(size: i32, r#type: u32, stride: i32, pointer: *const core::ffi::c_void) {
+    ::windows_targets::link!("opengl32.dll" "system" fn glColorPointer(size : i32, r#type : u32, stride : i32, pointer : *const core::ffi::c_void));
     glColorPointer(size, r#type, stride, pointer)
 }
 #[inline]
@@ -388,13 +388,13 @@ pub unsafe fn glDrawBuffer(mode: u32) {
     glDrawBuffer(mode)
 }
 #[inline]
-pub unsafe fn glDrawElements(mode: u32, count: i32, r#type: u32, indices: *const ::core::ffi::c_void) {
-    ::windows_targets::link!("opengl32.dll" "system" fn glDrawElements(mode : u32, count : i32, r#type : u32, indices : *const ::core::ffi::c_void));
+pub unsafe fn glDrawElements(mode: u32, count: i32, r#type: u32, indices: *const core::ffi::c_void) {
+    ::windows_targets::link!("opengl32.dll" "system" fn glDrawElements(mode : u32, count : i32, r#type : u32, indices : *const core::ffi::c_void));
     glDrawElements(mode, count, r#type, indices)
 }
 #[inline]
-pub unsafe fn glDrawPixels(width: i32, height: i32, format: u32, r#type: u32, pixels: *const ::core::ffi::c_void) {
-    ::windows_targets::link!("opengl32.dll" "system" fn glDrawPixels(width : i32, height : i32, format : u32, r#type : u32, pixels : *const ::core::ffi::c_void));
+pub unsafe fn glDrawPixels(width: i32, height: i32, format: u32, r#type: u32, pixels: *const core::ffi::c_void) {
+    ::windows_targets::link!("opengl32.dll" "system" fn glDrawPixels(width : i32, height : i32, format : u32, r#type : u32, pixels : *const core::ffi::c_void));
     glDrawPixels(width, height, format, r#type, pixels)
 }
 #[inline]
@@ -403,8 +403,8 @@ pub unsafe fn glEdgeFlag(flag: u8) {
     glEdgeFlag(flag)
 }
 #[inline]
-pub unsafe fn glEdgeFlagPointer(stride: i32, pointer: *const ::core::ffi::c_void) {
-    ::windows_targets::link!("opengl32.dll" "system" fn glEdgeFlagPointer(stride : i32, pointer : *const ::core::ffi::c_void));
+pub unsafe fn glEdgeFlagPointer(stride: i32, pointer: *const core::ffi::c_void) {
+    ::windows_targets::link!("opengl32.dll" "system" fn glEdgeFlagPointer(stride : i32, pointer : *const core::ffi::c_void));
     glEdgeFlagPointer(stride, pointer)
 }
 #[inline]
@@ -628,8 +628,8 @@ pub unsafe fn glGetPixelMapusv(map: u32, values: *mut u16) {
     glGetPixelMapusv(map, values)
 }
 #[inline]
-pub unsafe fn glGetPointerv(pname: u32, params: *mut *mut ::core::ffi::c_void) {
-    ::windows_targets::link!("opengl32.dll" "system" fn glGetPointerv(pname : u32, params : *mut *mut ::core::ffi::c_void));
+pub unsafe fn glGetPointerv(pname: u32, params: *mut *mut core::ffi::c_void) {
+    ::windows_targets::link!("opengl32.dll" "system" fn glGetPointerv(pname : u32, params : *mut *mut core::ffi::c_void));
     glGetPointerv(pname, params)
 }
 #[inline]
@@ -668,8 +668,8 @@ pub unsafe fn glGetTexGeniv(coord: u32, pname: u32, params: *mut i32) {
     glGetTexGeniv(coord, pname, params)
 }
 #[inline]
-pub unsafe fn glGetTexImage(target: u32, level: i32, format: u32, r#type: u32, pixels: *mut ::core::ffi::c_void) {
-    ::windows_targets::link!("opengl32.dll" "system" fn glGetTexImage(target : u32, level : i32, format : u32, r#type : u32, pixels : *mut ::core::ffi::c_void));
+pub unsafe fn glGetTexImage(target: u32, level: i32, format: u32, r#type: u32, pixels: *mut core::ffi::c_void) {
+    ::windows_targets::link!("opengl32.dll" "system" fn glGetTexImage(target : u32, level : i32, format : u32, r#type : u32, pixels : *mut core::ffi::c_void));
     glGetTexImage(target, level, format, r#type, pixels)
 }
 #[inline]
@@ -703,8 +703,8 @@ pub unsafe fn glIndexMask(mask: u32) {
     glIndexMask(mask)
 }
 #[inline]
-pub unsafe fn glIndexPointer(r#type: u32, stride: i32, pointer: *const ::core::ffi::c_void) {
-    ::windows_targets::link!("opengl32.dll" "system" fn glIndexPointer(r#type : u32, stride : i32, pointer : *const ::core::ffi::c_void));
+pub unsafe fn glIndexPointer(r#type: u32, stride: i32, pointer: *const core::ffi::c_void) {
+    ::windows_targets::link!("opengl32.dll" "system" fn glIndexPointer(r#type : u32, stride : i32, pointer : *const core::ffi::c_void));
     glIndexPointer(r#type, stride, pointer)
 }
 #[inline]
@@ -763,8 +763,8 @@ pub unsafe fn glInitNames() {
     glInitNames()
 }
 #[inline]
-pub unsafe fn glInterleavedArrays(format: u32, stride: i32, pointer: *const ::core::ffi::c_void) {
-    ::windows_targets::link!("opengl32.dll" "system" fn glInterleavedArrays(format : u32, stride : i32, pointer : *const ::core::ffi::c_void));
+pub unsafe fn glInterleavedArrays(format: u32, stride: i32, pointer: *const core::ffi::c_void) {
+    ::windows_targets::link!("opengl32.dll" "system" fn glInterleavedArrays(format : u32, stride : i32, pointer : *const core::ffi::c_void));
     glInterleavedArrays(format, stride, pointer)
 }
 #[inline]
@@ -993,8 +993,8 @@ pub unsafe fn glNormal3sv(v: *const i16) {
     glNormal3sv(v)
 }
 #[inline]
-pub unsafe fn glNormalPointer(r#type: u32, stride: i32, pointer: *const ::core::ffi::c_void) {
-    ::windows_targets::link!("opengl32.dll" "system" fn glNormalPointer(r#type : u32, stride : i32, pointer : *const ::core::ffi::c_void));
+pub unsafe fn glNormalPointer(r#type: u32, stride: i32, pointer: *const core::ffi::c_void) {
+    ::windows_targets::link!("opengl32.dll" "system" fn glNormalPointer(r#type : u32, stride : i32, pointer : *const core::ffi::c_void));
     glNormalPointer(r#type, stride, pointer)
 }
 #[inline]
@@ -1238,8 +1238,8 @@ pub unsafe fn glReadBuffer(mode: u32) {
     glReadBuffer(mode)
 }
 #[inline]
-pub unsafe fn glReadPixels(x: i32, y: i32, width: i32, height: i32, format: u32, r#type: u32, pixels: *mut ::core::ffi::c_void) {
-    ::windows_targets::link!("opengl32.dll" "system" fn glReadPixels(x : i32, y : i32, width : i32, height : i32, format : u32, r#type : u32, pixels : *mut ::core::ffi::c_void));
+pub unsafe fn glReadPixels(x: i32, y: i32, width: i32, height: i32, format: u32, r#type: u32, pixels: *mut core::ffi::c_void) {
+    ::windows_targets::link!("opengl32.dll" "system" fn glReadPixels(x : i32, y : i32, width : i32, height : i32, format : u32, r#type : u32, pixels : *mut core::ffi::c_void));
     glReadPixels(x, y, width, height, format, r#type, pixels)
 }
 #[inline]
@@ -1498,8 +1498,8 @@ pub unsafe fn glTexCoord4sv(v: *const i16) {
     glTexCoord4sv(v)
 }
 #[inline]
-pub unsafe fn glTexCoordPointer(size: i32, r#type: u32, stride: i32, pointer: *const ::core::ffi::c_void) {
-    ::windows_targets::link!("opengl32.dll" "system" fn glTexCoordPointer(size : i32, r#type : u32, stride : i32, pointer : *const ::core::ffi::c_void));
+pub unsafe fn glTexCoordPointer(size: i32, r#type: u32, stride: i32, pointer: *const core::ffi::c_void) {
+    ::windows_targets::link!("opengl32.dll" "system" fn glTexCoordPointer(size : i32, r#type : u32, stride : i32, pointer : *const core::ffi::c_void));
     glTexCoordPointer(size, r#type, stride, pointer)
 }
 #[inline]
@@ -1553,13 +1553,13 @@ pub unsafe fn glTexGeniv(coord: u32, pname: u32, params: *const i32) {
     glTexGeniv(coord, pname, params)
 }
 #[inline]
-pub unsafe fn glTexImage1D(target: u32, level: i32, internalformat: i32, width: i32, border: i32, format: u32, r#type: u32, pixels: *const ::core::ffi::c_void) {
-    ::windows_targets::link!("opengl32.dll" "system" fn glTexImage1D(target : u32, level : i32, internalformat : i32, width : i32, border : i32, format : u32, r#type : u32, pixels : *const ::core::ffi::c_void));
+pub unsafe fn glTexImage1D(target: u32, level: i32, internalformat: i32, width: i32, border: i32, format: u32, r#type: u32, pixels: *const core::ffi::c_void) {
+    ::windows_targets::link!("opengl32.dll" "system" fn glTexImage1D(target : u32, level : i32, internalformat : i32, width : i32, border : i32, format : u32, r#type : u32, pixels : *const core::ffi::c_void));
     glTexImage1D(target, level, internalformat, width, border, format, r#type, pixels)
 }
 #[inline]
-pub unsafe fn glTexImage2D(target: u32, level: i32, internalformat: i32, width: i32, height: i32, border: i32, format: u32, r#type: u32, pixels: *const ::core::ffi::c_void) {
-    ::windows_targets::link!("opengl32.dll" "system" fn glTexImage2D(target : u32, level : i32, internalformat : i32, width : i32, height : i32, border : i32, format : u32, r#type : u32, pixels : *const ::core::ffi::c_void));
+pub unsafe fn glTexImage2D(target: u32, level: i32, internalformat: i32, width: i32, height: i32, border: i32, format: u32, r#type: u32, pixels: *const core::ffi::c_void) {
+    ::windows_targets::link!("opengl32.dll" "system" fn glTexImage2D(target : u32, level : i32, internalformat : i32, width : i32, height : i32, border : i32, format : u32, r#type : u32, pixels : *const core::ffi::c_void));
     glTexImage2D(target, level, internalformat, width, height, border, format, r#type, pixels)
 }
 #[inline]
@@ -1583,13 +1583,13 @@ pub unsafe fn glTexParameteriv(target: u32, pname: u32, params: *const i32) {
     glTexParameteriv(target, pname, params)
 }
 #[inline]
-pub unsafe fn glTexSubImage1D(target: u32, level: i32, xoffset: i32, width: i32, format: u32, r#type: u32, pixels: *const ::core::ffi::c_void) {
-    ::windows_targets::link!("opengl32.dll" "system" fn glTexSubImage1D(target : u32, level : i32, xoffset : i32, width : i32, format : u32, r#type : u32, pixels : *const ::core::ffi::c_void));
+pub unsafe fn glTexSubImage1D(target: u32, level: i32, xoffset: i32, width: i32, format: u32, r#type: u32, pixels: *const core::ffi::c_void) {
+    ::windows_targets::link!("opengl32.dll" "system" fn glTexSubImage1D(target : u32, level : i32, xoffset : i32, width : i32, format : u32, r#type : u32, pixels : *const core::ffi::c_void));
     glTexSubImage1D(target, level, xoffset, width, format, r#type, pixels)
 }
 #[inline]
-pub unsafe fn glTexSubImage2D(target: u32, level: i32, xoffset: i32, yoffset: i32, width: i32, height: i32, format: u32, r#type: u32, pixels: *const ::core::ffi::c_void) {
-    ::windows_targets::link!("opengl32.dll" "system" fn glTexSubImage2D(target : u32, level : i32, xoffset : i32, yoffset : i32, width : i32, height : i32, format : u32, r#type : u32, pixels : *const ::core::ffi::c_void));
+pub unsafe fn glTexSubImage2D(target: u32, level: i32, xoffset: i32, yoffset: i32, width: i32, height: i32, format: u32, r#type: u32, pixels: *const core::ffi::c_void) {
+    ::windows_targets::link!("opengl32.dll" "system" fn glTexSubImage2D(target : u32, level : i32, xoffset : i32, yoffset : i32, width : i32, height : i32, format : u32, r#type : u32, pixels : *const core::ffi::c_void));
     glTexSubImage2D(target, level, xoffset, yoffset, width, height, format, r#type, pixels)
 }
 #[inline]
@@ -1723,8 +1723,8 @@ pub unsafe fn glVertex4sv(v: *const i16) {
     glVertex4sv(v)
 }
 #[inline]
-pub unsafe fn glVertexPointer(size: i32, r#type: u32, stride: i32, pointer: *const ::core::ffi::c_void) {
-    ::windows_targets::link!("opengl32.dll" "system" fn glVertexPointer(size : i32, r#type : u32, stride : i32, pointer : *const ::core::ffi::c_void));
+pub unsafe fn glVertexPointer(size: i32, r#type: u32, stride: i32, pointer: *const core::ffi::c_void) {
+    ::windows_targets::link!("opengl32.dll" "system" fn glVertexPointer(size : i32, r#type : u32, stride : i32, pointer : *const core::ffi::c_void));
     glVertexPointer(size, r#type, stride, pointer)
 }
 #[inline]
@@ -1753,13 +1753,13 @@ pub unsafe fn gluBeginTrim(nobj: *mut GLUnurbs) {
     gluBeginTrim(nobj)
 }
 #[inline]
-pub unsafe fn gluBuild1DMipmaps(target: u32, components: i32, width: i32, format: u32, r#type: u32, data: *const ::core::ffi::c_void) -> i32 {
-    ::windows_targets::link!("glu32.dll" "system" fn gluBuild1DMipmaps(target : u32, components : i32, width : i32, format : u32, r#type : u32, data : *const ::core::ffi::c_void) -> i32);
+pub unsafe fn gluBuild1DMipmaps(target: u32, components: i32, width: i32, format: u32, r#type: u32, data: *const core::ffi::c_void) -> i32 {
+    ::windows_targets::link!("glu32.dll" "system" fn gluBuild1DMipmaps(target : u32, components : i32, width : i32, format : u32, r#type : u32, data : *const core::ffi::c_void) -> i32);
     gluBuild1DMipmaps(target, components, width, format, r#type, data)
 }
 #[inline]
-pub unsafe fn gluBuild2DMipmaps(target: u32, components: i32, width: i32, height: i32, format: u32, r#type: u32, data: *const ::core::ffi::c_void) -> i32 {
-    ::windows_targets::link!("glu32.dll" "system" fn gluBuild2DMipmaps(target : u32, components : i32, width : i32, height : i32, format : u32, r#type : u32, data : *const ::core::ffi::c_void) -> i32);
+pub unsafe fn gluBuild2DMipmaps(target: u32, components: i32, width: i32, height: i32, format: u32, r#type: u32, data: *const core::ffi::c_void) -> i32 {
+    ::windows_targets::link!("glu32.dll" "system" fn gluBuild2DMipmaps(target : u32, components : i32, width : i32, height : i32, format : u32, r#type : u32, data : *const core::ffi::c_void) -> i32);
     gluBuild2DMipmaps(target, components, width, height, format, r#type, data)
 }
 #[inline]
@@ -1813,8 +1813,8 @@ pub unsafe fn gluErrorString(errcode: u32) -> *mut u8 {
     gluErrorString(errcode)
 }
 #[inline]
-pub unsafe fn gluErrorUnicodeStringEXT(errcode: u32) -> ::windows_core::PCWSTR {
-    ::windows_targets::link!("glu32.dll" "system" fn gluErrorUnicodeStringEXT(errcode : u32) -> ::windows_core::PCWSTR);
+pub unsafe fn gluErrorUnicodeStringEXT(errcode: u32) -> windows_core::PCWSTR {
+    ::windows_targets::link!("glu32.dll" "system" fn gluErrorUnicodeStringEXT(errcode : u32) -> windows_core::PCWSTR);
     gluErrorUnicodeStringEXT(errcode)
 }
 #[inline]
@@ -1938,8 +1938,8 @@ pub unsafe fn gluQuadricTexture(quadobject: *mut GLUquadric, texturecoords: u8) 
     gluQuadricTexture(quadobject, texturecoords)
 }
 #[inline]
-pub unsafe fn gluScaleImage(format: u32, widthin: i32, heightin: i32, typein: u32, datain: *const ::core::ffi::c_void, widthout: i32, heightout: i32, typeout: u32, dataout: *mut ::core::ffi::c_void) -> i32 {
-    ::windows_targets::link!("glu32.dll" "system" fn gluScaleImage(format : u32, widthin : i32, heightin : i32, typein : u32, datain : *const ::core::ffi::c_void, widthout : i32, heightout : i32, typeout : u32, dataout : *mut ::core::ffi::c_void) -> i32);
+pub unsafe fn gluScaleImage(format: u32, widthin: i32, heightin: i32, typein: u32, datain: *const core::ffi::c_void, widthout: i32, heightout: i32, typeout: u32, dataout: *mut core::ffi::c_void) -> i32 {
+    ::windows_targets::link!("glu32.dll" "system" fn gluScaleImage(format : u32, widthin : i32, heightin : i32, typein : u32, datain : *const core::ffi::c_void, widthout : i32, heightout : i32, typeout : u32, dataout : *mut core::ffi::c_void) -> i32);
     gluScaleImage(format, widthin, heightin, typein, datain, widthout, heightout, typeout, dataout)
 }
 #[inline]
@@ -1953,8 +1953,8 @@ pub unsafe fn gluTessBeginContour(tess: *mut GLUtesselator) {
     gluTessBeginContour(tess)
 }
 #[inline]
-pub unsafe fn gluTessBeginPolygon(tess: *mut GLUtesselator, polygon_data: *mut ::core::ffi::c_void) {
-    ::windows_targets::link!("glu32.dll" "system" fn gluTessBeginPolygon(tess : *mut GLUtesselator, polygon_data : *mut ::core::ffi::c_void));
+pub unsafe fn gluTessBeginPolygon(tess: *mut GLUtesselator, polygon_data: *mut core::ffi::c_void) {
+    ::windows_targets::link!("glu32.dll" "system" fn gluTessBeginPolygon(tess : *mut GLUtesselator, polygon_data : *mut core::ffi::c_void));
     gluTessBeginPolygon(tess, polygon_data)
 }
 #[inline]
@@ -1983,8 +1983,8 @@ pub unsafe fn gluTessProperty(tess: *mut GLUtesselator, which: u32, value: f64) 
     gluTessProperty(tess, which, value)
 }
 #[inline]
-pub unsafe fn gluTessVertex(tess: *mut GLUtesselator, coords: *mut f64, data: *mut ::core::ffi::c_void) {
-    ::windows_targets::link!("glu32.dll" "system" fn gluTessVertex(tess : *mut GLUtesselator, coords : *mut f64, data : *mut ::core::ffi::c_void));
+pub unsafe fn gluTessVertex(tess: *mut GLUtesselator, coords: *mut f64, data: *mut core::ffi::c_void) {
+    ::windows_targets::link!("glu32.dll" "system" fn gluTessVertex(tess : *mut GLUtesselator, coords : *mut f64, data : *mut core::ffi::c_void));
     gluTessVertex(tess, coords, data)
 }
 #[inline]
@@ -1993,38 +1993,38 @@ pub unsafe fn gluUnProject(winx: f64, winy: f64, winz: f64, modelmatrix: *const 
     gluUnProject(winx, winy, winz, modelmatrix, projmatrix, viewport, objx, objy, objz)
 }
 #[inline]
-pub unsafe fn wglCopyContext<P0, P1>(param0: P0, param1: P1, param2: u32) -> ::windows_core::Result<()>
+pub unsafe fn wglCopyContext<P0, P1>(param0: P0, param1: P1, param2: u32) -> windows_core::Result<()>
 where
-    P0: ::windows_core::IntoParam<HGLRC>,
-    P1: ::windows_core::IntoParam<HGLRC>,
+    P0: windows_core::IntoParam<HGLRC>,
+    P1: windows_core::IntoParam<HGLRC>,
 {
     ::windows_targets::link!("opengl32.dll" "system" fn wglCopyContext(param0 : HGLRC, param1 : HGLRC, param2 : u32) -> super::super::Foundation:: BOOL);
     wglCopyContext(param0.into_param().abi(), param1.into_param().abi(), param2).ok()
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn wglCreateContext<P0>(param0: P0) -> ::windows_core::Result<HGLRC>
+pub unsafe fn wglCreateContext<P0>(param0: P0) -> windows_core::Result<HGLRC>
 where
-    P0: ::windows_core::IntoParam<super::Gdi::HDC>,
+    P0: windows_core::IntoParam<super::Gdi::HDC>,
 {
     ::windows_targets::link!("opengl32.dll" "system" fn wglCreateContext(param0 : super::Gdi:: HDC) -> HGLRC);
     let result__ = wglCreateContext(param0.into_param().abi());
-    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn wglCreateLayerContext<P0>(param0: P0, param1: i32) -> ::windows_core::Result<HGLRC>
+pub unsafe fn wglCreateLayerContext<P0>(param0: P0, param1: i32) -> windows_core::Result<HGLRC>
 where
-    P0: ::windows_core::IntoParam<super::Gdi::HDC>,
+    P0: windows_core::IntoParam<super::Gdi::HDC>,
 {
     ::windows_targets::link!("opengl32.dll" "system" fn wglCreateLayerContext(param0 : super::Gdi:: HDC, param1 : i32) -> HGLRC);
     let result__ = wglCreateLayerContext(param0.into_param().abi(), param1);
-    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
-pub unsafe fn wglDeleteContext<P0>(param0: P0) -> ::windows_core::Result<()>
+pub unsafe fn wglDeleteContext<P0>(param0: P0) -> windows_core::Result<()>
 where
-    P0: ::windows_core::IntoParam<HGLRC>,
+    P0: windows_core::IntoParam<HGLRC>,
 {
     ::windows_targets::link!("opengl32.dll" "system" fn wglDeleteContext(param0 : HGLRC) -> super::super::Foundation:: BOOL);
     wglDeleteContext(param0.into_param().abi()).ok()
@@ -2033,7 +2033,7 @@ where
 #[inline]
 pub unsafe fn wglDescribeLayerPlane<P0>(param0: P0, param1: i32, param2: i32, param3: u32, param4: *mut LAYERPLANEDESCRIPTOR) -> super::super::Foundation::BOOL
 where
-    P0: ::windows_core::IntoParam<super::Gdi::HDC>,
+    P0: windows_core::IntoParam<super::Gdi::HDC>,
 {
     ::windows_targets::link!("opengl32.dll" "system" fn wglDescribeLayerPlane(param0 : super::Gdi:: HDC, param1 : i32, param2 : i32, param3 : u32, param4 : *mut LAYERPLANEDESCRIPTOR) -> super::super::Foundation:: BOOL);
     wglDescribeLayerPlane(param0.into_param().abi(), param1, param2, param3, param4)
@@ -2053,7 +2053,7 @@ pub unsafe fn wglGetCurrentDC() -> super::Gdi::HDC {
 #[inline]
 pub unsafe fn wglGetLayerPaletteEntries<P0>(param0: P0, param1: i32, param2: i32, param3: i32, param4: *mut super::super::Foundation::COLORREF) -> i32
 where
-    P0: ::windows_core::IntoParam<super::Gdi::HDC>,
+    P0: windows_core::IntoParam<super::Gdi::HDC>,
 {
     ::windows_targets::link!("opengl32.dll" "system" fn wglGetLayerPaletteEntries(param0 : super::Gdi:: HDC, param1 : i32, param2 : i32, param3 : i32, param4 : *mut super::super::Foundation:: COLORREF) -> i32);
     wglGetLayerPaletteEntries(param0.into_param().abi(), param1, param2, param3, param4)
@@ -2061,27 +2061,27 @@ where
 #[inline]
 pub unsafe fn wglGetProcAddress<P0>(param0: P0) -> super::super::Foundation::PROC
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P0: windows_core::IntoParam<windows_core::PCSTR>,
 {
-    ::windows_targets::link!("opengl32.dll" "system" fn wglGetProcAddress(param0 : ::windows_core::PCSTR) -> super::super::Foundation:: PROC);
+    ::windows_targets::link!("opengl32.dll" "system" fn wglGetProcAddress(param0 : windows_core::PCSTR) -> super::super::Foundation:: PROC);
     wglGetProcAddress(param0.into_param().abi())
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn wglMakeCurrent<P0, P1>(param0: P0, param1: P1) -> ::windows_core::Result<()>
+pub unsafe fn wglMakeCurrent<P0, P1>(param0: P0, param1: P1) -> windows_core::Result<()>
 where
-    P0: ::windows_core::IntoParam<super::Gdi::HDC>,
-    P1: ::windows_core::IntoParam<HGLRC>,
+    P0: windows_core::IntoParam<super::Gdi::HDC>,
+    P1: windows_core::IntoParam<HGLRC>,
 {
     ::windows_targets::link!("opengl32.dll" "system" fn wglMakeCurrent(param0 : super::Gdi:: HDC, param1 : HGLRC) -> super::super::Foundation:: BOOL);
     wglMakeCurrent(param0.into_param().abi(), param1.into_param().abi()).ok()
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn wglRealizeLayerPalette<P0, P1>(param0: P0, param1: i32, param2: P1) -> ::windows_core::Result<()>
+pub unsafe fn wglRealizeLayerPalette<P0, P1>(param0: P0, param1: i32, param2: P1) -> windows_core::Result<()>
 where
-    P0: ::windows_core::IntoParam<super::Gdi::HDC>,
-    P1: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
+    P0: windows_core::IntoParam<super::Gdi::HDC>,
+    P1: windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
     ::windows_targets::link!("opengl32.dll" "system" fn wglRealizeLayerPalette(param0 : super::Gdi:: HDC, param1 : i32, param2 : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
     wglRealizeLayerPalette(param0.into_param().abi(), param1, param2.into_param().abi()).ok()
@@ -2090,61 +2090,61 @@ where
 #[inline]
 pub unsafe fn wglSetLayerPaletteEntries<P0>(param0: P0, param1: i32, param2: i32, param3: i32, param4: *const super::super::Foundation::COLORREF) -> i32
 where
-    P0: ::windows_core::IntoParam<super::Gdi::HDC>,
+    P0: windows_core::IntoParam<super::Gdi::HDC>,
 {
     ::windows_targets::link!("opengl32.dll" "system" fn wglSetLayerPaletteEntries(param0 : super::Gdi:: HDC, param1 : i32, param2 : i32, param3 : i32, param4 : *const super::super::Foundation:: COLORREF) -> i32);
     wglSetLayerPaletteEntries(param0.into_param().abi(), param1, param2, param3, param4)
 }
 #[inline]
-pub unsafe fn wglShareLists<P0, P1>(param0: P0, param1: P1) -> ::windows_core::Result<()>
+pub unsafe fn wglShareLists<P0, P1>(param0: P0, param1: P1) -> windows_core::Result<()>
 where
-    P0: ::windows_core::IntoParam<HGLRC>,
-    P1: ::windows_core::IntoParam<HGLRC>,
+    P0: windows_core::IntoParam<HGLRC>,
+    P1: windows_core::IntoParam<HGLRC>,
 {
     ::windows_targets::link!("opengl32.dll" "system" fn wglShareLists(param0 : HGLRC, param1 : HGLRC) -> super::super::Foundation:: BOOL);
     wglShareLists(param0.into_param().abi(), param1.into_param().abi()).ok()
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn wglSwapLayerBuffers<P0>(param0: P0, param1: u32) -> ::windows_core::Result<()>
+pub unsafe fn wglSwapLayerBuffers<P0>(param0: P0, param1: u32) -> windows_core::Result<()>
 where
-    P0: ::windows_core::IntoParam<super::Gdi::HDC>,
+    P0: windows_core::IntoParam<super::Gdi::HDC>,
 {
     ::windows_targets::link!("opengl32.dll" "system" fn wglSwapLayerBuffers(param0 : super::Gdi:: HDC, param1 : u32) -> super::super::Foundation:: BOOL);
     wglSwapLayerBuffers(param0.into_param().abi(), param1).ok()
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn wglUseFontBitmapsA<P0>(param0: P0, param1: u32, param2: u32, param3: u32) -> ::windows_core::Result<()>
+pub unsafe fn wglUseFontBitmapsA<P0>(param0: P0, param1: u32, param2: u32, param3: u32) -> windows_core::Result<()>
 where
-    P0: ::windows_core::IntoParam<super::Gdi::HDC>,
+    P0: windows_core::IntoParam<super::Gdi::HDC>,
 {
     ::windows_targets::link!("opengl32.dll" "system" fn wglUseFontBitmapsA(param0 : super::Gdi:: HDC, param1 : u32, param2 : u32, param3 : u32) -> super::super::Foundation:: BOOL);
     wglUseFontBitmapsA(param0.into_param().abi(), param1, param2, param3).ok()
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn wglUseFontBitmapsW<P0>(param0: P0, param1: u32, param2: u32, param3: u32) -> ::windows_core::Result<()>
+pub unsafe fn wglUseFontBitmapsW<P0>(param0: P0, param1: u32, param2: u32, param3: u32) -> windows_core::Result<()>
 where
-    P0: ::windows_core::IntoParam<super::Gdi::HDC>,
+    P0: windows_core::IntoParam<super::Gdi::HDC>,
 {
     ::windows_targets::link!("opengl32.dll" "system" fn wglUseFontBitmapsW(param0 : super::Gdi:: HDC, param1 : u32, param2 : u32, param3 : u32) -> super::super::Foundation:: BOOL);
     wglUseFontBitmapsW(param0.into_param().abi(), param1, param2, param3).ok()
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn wglUseFontOutlinesA<P0>(param0: P0, param1: u32, param2: u32, param3: u32, param4: f32, param5: f32, param6: i32, param7: *mut GLYPHMETRICSFLOAT) -> ::windows_core::Result<()>
+pub unsafe fn wglUseFontOutlinesA<P0>(param0: P0, param1: u32, param2: u32, param3: u32, param4: f32, param5: f32, param6: i32, param7: *mut GLYPHMETRICSFLOAT) -> windows_core::Result<()>
 where
-    P0: ::windows_core::IntoParam<super::Gdi::HDC>,
+    P0: windows_core::IntoParam<super::Gdi::HDC>,
 {
     ::windows_targets::link!("opengl32.dll" "system" fn wglUseFontOutlinesA(param0 : super::Gdi:: HDC, param1 : u32, param2 : u32, param3 : u32, param4 : f32, param5 : f32, param6 : i32, param7 : *mut GLYPHMETRICSFLOAT) -> super::super::Foundation:: BOOL);
     wglUseFontOutlinesA(param0.into_param().abi(), param1, param2, param3, param4, param5, param6, param7).ok()
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn wglUseFontOutlinesW<P0>(param0: P0, param1: u32, param2: u32, param3: u32, param4: f32, param5: f32, param6: i32, param7: *mut GLYPHMETRICSFLOAT) -> ::windows_core::Result<()>
+pub unsafe fn wglUseFontOutlinesW<P0>(param0: P0, param1: u32, param2: u32, param3: u32, param4: f32, param5: f32, param6: i32, param7: *mut GLYPHMETRICSFLOAT) -> windows_core::Result<()>
 where
-    P0: ::windows_core::IntoParam<super::Gdi::HDC>,
+    P0: windows_core::IntoParam<super::Gdi::HDC>,
 {
     ::windows_targets::link!("opengl32.dll" "system" fn wglUseFontOutlinesW(param0 : super::Gdi:: HDC, param1 : u32, param2 : u32, param3 : u32, param4 : f32, param5 : f32, param6 : i32, param7 : *mut GLYPHMETRICSFLOAT) -> super::super::Foundation:: BOOL);
     wglUseFontOutlinesW(param0.into_param().abi(), param1, param2, param3, param4, param5, param6, param7).ok()
@@ -2877,13 +2877,13 @@ pub const PFD_TYPE_COLORINDEX: PFD_PIXEL_TYPE = PFD_PIXEL_TYPE(1u8);
 pub const PFD_TYPE_RGBA: PFD_PIXEL_TYPE = PFD_PIXEL_TYPE(0u8);
 pub const PFD_UNDERLAY_PLANE: PFD_LAYER_TYPE = PFD_LAYER_TYPE(-1i8);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct PFD_FLAGS(pub u32);
-impl ::windows_core::TypeKind for PFD_FLAGS {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for PFD_FLAGS {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for PFD_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for PFD_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("PFD_FLAGS").field(&self.0).finish()
     }
 }
@@ -2892,53 +2892,53 @@ impl PFD_FLAGS {
         self.0 & other.0 == other.0
     }
 }
-impl ::core::ops::BitOr for PFD_FLAGS {
+impl core::ops::BitOr for PFD_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
         Self(self.0 | other.0)
     }
 }
-impl ::core::ops::BitAnd for PFD_FLAGS {
+impl core::ops::BitAnd for PFD_FLAGS {
     type Output = Self;
     fn bitand(self, other: Self) -> Self {
         Self(self.0 & other.0)
     }
 }
-impl ::core::ops::BitOrAssign for PFD_FLAGS {
+impl core::ops::BitOrAssign for PFD_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
         self.0.bitor_assign(other.0)
     }
 }
-impl ::core::ops::BitAndAssign for PFD_FLAGS {
+impl core::ops::BitAndAssign for PFD_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
         self.0.bitand_assign(other.0)
     }
 }
-impl ::core::ops::Not for PFD_FLAGS {
+impl core::ops::Not for PFD_FLAGS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct PFD_LAYER_TYPE(pub i8);
-impl ::windows_core::TypeKind for PFD_LAYER_TYPE {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for PFD_LAYER_TYPE {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for PFD_LAYER_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for PFD_LAYER_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("PFD_LAYER_TYPE").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct PFD_PIXEL_TYPE(pub u8);
-impl ::windows_core::TypeKind for PFD_PIXEL_TYPE {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for PFD_PIXEL_TYPE {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for PFD_PIXEL_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for PFD_PIXEL_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("PFD_PIXEL_TYPE").field(&self.0).finish()
     }
 }
@@ -2949,102 +2949,102 @@ pub struct EMRPIXELFORMAT {
     pub pfd: PIXELFORMATDESCRIPTOR,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::marker::Copy for EMRPIXELFORMAT {}
+impl Copy for EMRPIXELFORMAT {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::clone::Clone for EMRPIXELFORMAT {
+impl Clone for EMRPIXELFORMAT {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::fmt::Debug for EMRPIXELFORMAT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for EMRPIXELFORMAT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("EMRPIXELFORMAT").field("emr", &self.emr).field("pfd", &self.pfd).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::windows_core::TypeKind for EMRPIXELFORMAT {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for EMRPIXELFORMAT {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::cmp::PartialEq for EMRPIXELFORMAT {
+impl PartialEq for EMRPIXELFORMAT {
     fn eq(&self, other: &Self) -> bool {
         self.emr == other.emr && self.pfd == other.pfd
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::cmp::Eq for EMRPIXELFORMAT {}
+impl Eq for EMRPIXELFORMAT {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::default::Default for EMRPIXELFORMAT {
+impl Default for EMRPIXELFORMAT {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(PartialEq, Eq)]
 pub struct GLUnurbs(pub isize);
-impl ::core::default::Default for GLUnurbs {
+impl Default for GLUnurbs {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
-impl ::core::clone::Clone for GLUnurbs {
+impl Clone for GLUnurbs {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::marker::Copy for GLUnurbs {}
-impl ::core::fmt::Debug for GLUnurbs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl Copy for GLUnurbs {}
+impl core::fmt::Debug for GLUnurbs {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("GLUnurbs").field(&self.0).finish()
     }
 }
-impl ::windows_core::TypeKind for GLUnurbs {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for GLUnurbs {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(PartialEq, Eq)]
 pub struct GLUquadric(pub isize);
-impl ::core::default::Default for GLUquadric {
+impl Default for GLUquadric {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
-impl ::core::clone::Clone for GLUquadric {
+impl Clone for GLUquadric {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::marker::Copy for GLUquadric {}
-impl ::core::fmt::Debug for GLUquadric {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl Copy for GLUquadric {}
+impl core::fmt::Debug for GLUquadric {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("GLUquadric").field(&self.0).finish()
     }
 }
-impl ::windows_core::TypeKind for GLUquadric {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for GLUquadric {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(PartialEq, Eq)]
 pub struct GLUtesselator(pub isize);
-impl ::core::default::Default for GLUtesselator {
+impl Default for GLUtesselator {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
-impl ::core::clone::Clone for GLUtesselator {
+impl Clone for GLUtesselator {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::marker::Copy for GLUtesselator {}
-impl ::core::fmt::Debug for GLUtesselator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl Copy for GLUtesselator {}
+impl core::fmt::Debug for GLUtesselator {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("GLUtesselator").field(&self.0).finish()
     }
 }
-impl ::windows_core::TypeKind for GLUtesselator {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for GLUtesselator {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 pub struct GLYPHMETRICSFLOAT {
@@ -3054,57 +3054,57 @@ pub struct GLYPHMETRICSFLOAT {
     pub gmfCellIncX: f32,
     pub gmfCellIncY: f32,
 }
-impl ::core::marker::Copy for GLYPHMETRICSFLOAT {}
-impl ::core::clone::Clone for GLYPHMETRICSFLOAT {
+impl Copy for GLYPHMETRICSFLOAT {}
+impl Clone for GLYPHMETRICSFLOAT {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for GLYPHMETRICSFLOAT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for GLYPHMETRICSFLOAT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("GLYPHMETRICSFLOAT").field("gmfBlackBoxX", &self.gmfBlackBoxX).field("gmfBlackBoxY", &self.gmfBlackBoxY).field("gmfptGlyphOrigin", &self.gmfptGlyphOrigin).field("gmfCellIncX", &self.gmfCellIncX).field("gmfCellIncY", &self.gmfCellIncY).finish()
     }
 }
-impl ::windows_core::TypeKind for GLYPHMETRICSFLOAT {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for GLYPHMETRICSFLOAT {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for GLYPHMETRICSFLOAT {
+impl PartialEq for GLYPHMETRICSFLOAT {
     fn eq(&self, other: &Self) -> bool {
         self.gmfBlackBoxX == other.gmfBlackBoxX && self.gmfBlackBoxY == other.gmfBlackBoxY && self.gmfptGlyphOrigin == other.gmfptGlyphOrigin && self.gmfCellIncX == other.gmfCellIncX && self.gmfCellIncY == other.gmfCellIncY
     }
 }
-impl ::core::cmp::Eq for GLYPHMETRICSFLOAT {}
-impl ::core::default::Default for GLYPHMETRICSFLOAT {
+impl Eq for GLYPHMETRICSFLOAT {}
+impl Default for GLYPHMETRICSFLOAT {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(PartialEq, Eq)]
 pub struct HGLRC(pub isize);
 impl HGLRC {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 || self.0 == 0
     }
 }
-impl ::core::default::Default for HGLRC {
+impl Default for HGLRC {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
-impl ::core::clone::Clone for HGLRC {
+impl Clone for HGLRC {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::marker::Copy for HGLRC {}
-impl ::core::fmt::Debug for HGLRC {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl Copy for HGLRC {}
+impl core::fmt::Debug for HGLRC {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("HGLRC").field(&self.0).finish()
     }
 }
-impl ::windows_core::TypeKind for HGLRC {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for HGLRC {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 pub struct LAYERPLANEDESCRIPTOR {
@@ -3133,14 +3133,14 @@ pub struct LAYERPLANEDESCRIPTOR {
     pub bReserved: u8,
     pub crTransparent: super::super::Foundation::COLORREF,
 }
-impl ::core::marker::Copy for LAYERPLANEDESCRIPTOR {}
-impl ::core::clone::Clone for LAYERPLANEDESCRIPTOR {
+impl Copy for LAYERPLANEDESCRIPTOR {}
+impl Clone for LAYERPLANEDESCRIPTOR {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for LAYERPLANEDESCRIPTOR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for LAYERPLANEDESCRIPTOR {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("LAYERPLANEDESCRIPTOR")
             .field("nSize", &self.nSize)
             .field("nVersion", &self.nVersion)
@@ -3169,10 +3169,10 @@ impl ::core::fmt::Debug for LAYERPLANEDESCRIPTOR {
             .finish()
     }
 }
-impl ::windows_core::TypeKind for LAYERPLANEDESCRIPTOR {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for LAYERPLANEDESCRIPTOR {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for LAYERPLANEDESCRIPTOR {
+impl PartialEq for LAYERPLANEDESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
         self.nSize == other.nSize
             && self.nVersion == other.nVersion
@@ -3200,10 +3200,10 @@ impl ::core::cmp::PartialEq for LAYERPLANEDESCRIPTOR {
             && self.crTransparent == other.crTransparent
     }
 }
-impl ::core::cmp::Eq for LAYERPLANEDESCRIPTOR {}
-impl ::core::default::Default for LAYERPLANEDESCRIPTOR {
+impl Eq for LAYERPLANEDESCRIPTOR {}
+impl Default for LAYERPLANEDESCRIPTOR {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -3235,14 +3235,14 @@ pub struct PIXELFORMATDESCRIPTOR {
     pub dwVisibleMask: u32,
     pub dwDamageMask: u32,
 }
-impl ::core::marker::Copy for PIXELFORMATDESCRIPTOR {}
-impl ::core::clone::Clone for PIXELFORMATDESCRIPTOR {
+impl Copy for PIXELFORMATDESCRIPTOR {}
+impl Clone for PIXELFORMATDESCRIPTOR {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for PIXELFORMATDESCRIPTOR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for PIXELFORMATDESCRIPTOR {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("PIXELFORMATDESCRIPTOR")
             .field("nSize", &self.nSize)
             .field("nVersion", &self.nVersion)
@@ -3273,10 +3273,10 @@ impl ::core::fmt::Debug for PIXELFORMATDESCRIPTOR {
             .finish()
     }
 }
-impl ::windows_core::TypeKind for PIXELFORMATDESCRIPTOR {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for PIXELFORMATDESCRIPTOR {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for PIXELFORMATDESCRIPTOR {
+impl PartialEq for PIXELFORMATDESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
         self.nSize == other.nSize
             && self.nVersion == other.nVersion
@@ -3306,10 +3306,10 @@ impl ::core::cmp::PartialEq for PIXELFORMATDESCRIPTOR {
             && self.dwDamageMask == other.dwDamageMask
     }
 }
-impl ::core::cmp::Eq for PIXELFORMATDESCRIPTOR {}
-impl ::core::default::Default for PIXELFORMATDESCRIPTOR {
+impl Eq for PIXELFORMATDESCRIPTOR {}
+impl Default for PIXELFORMATDESCRIPTOR {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -3317,59 +3317,59 @@ pub struct POINTFLOAT {
     pub x: f32,
     pub y: f32,
 }
-impl ::core::marker::Copy for POINTFLOAT {}
-impl ::core::clone::Clone for POINTFLOAT {
+impl Copy for POINTFLOAT {}
+impl Clone for POINTFLOAT {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for POINTFLOAT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for POINTFLOAT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("POINTFLOAT").field("x", &self.x).field("y", &self.y).finish()
     }
 }
-impl ::windows_core::TypeKind for POINTFLOAT {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for POINTFLOAT {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for POINTFLOAT {
+impl PartialEq for POINTFLOAT {
     fn eq(&self, other: &Self) -> bool {
         self.x == other.x && self.y == other.y
     }
 }
-impl ::core::cmp::Eq for POINTFLOAT {}
-impl ::core::default::Default for POINTFLOAT {
+impl Eq for POINTFLOAT {}
+impl Default for POINTFLOAT {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
-pub type GLUnurbsErrorProc = ::core::option::Option<unsafe extern "system" fn(param0: u32)>;
-pub type GLUquadricErrorProc = ::core::option::Option<unsafe extern "system" fn(param0: u32)>;
-pub type GLUtessBeginDataProc = ::core::option::Option<unsafe extern "system" fn(param0: u32, param1: *mut ::core::ffi::c_void)>;
-pub type GLUtessBeginProc = ::core::option::Option<unsafe extern "system" fn(param0: u32)>;
-pub type GLUtessCombineDataProc = ::core::option::Option<unsafe extern "system" fn(param0: *mut f64, param1: *mut *mut ::core::ffi::c_void, param2: *mut f32, param3: *mut *mut ::core::ffi::c_void, param4: *mut ::core::ffi::c_void)>;
-pub type GLUtessCombineProc = ::core::option::Option<unsafe extern "system" fn(param0: *mut f64, param1: *mut *mut ::core::ffi::c_void, param2: *mut f32, param3: *mut *mut ::core::ffi::c_void)>;
-pub type GLUtessEdgeFlagDataProc = ::core::option::Option<unsafe extern "system" fn(param0: u8, param1: *mut ::core::ffi::c_void)>;
-pub type GLUtessEdgeFlagProc = ::core::option::Option<unsafe extern "system" fn(param0: u8)>;
-pub type GLUtessEndDataProc = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void)>;
-pub type GLUtessEndProc = ::core::option::Option<unsafe extern "system" fn()>;
-pub type GLUtessErrorDataProc = ::core::option::Option<unsafe extern "system" fn(param0: u32, param1: *mut ::core::ffi::c_void)>;
-pub type GLUtessErrorProc = ::core::option::Option<unsafe extern "system" fn(param0: u32)>;
-pub type GLUtessVertexDataProc = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: *mut ::core::ffi::c_void)>;
-pub type GLUtessVertexProc = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void)>;
-pub type PFNGLADDSWAPHINTRECTWINPROC = ::core::option::Option<unsafe extern "system" fn(x: i32, y: i32, width: i32, height: i32)>;
-pub type PFNGLARRAYELEMENTARRAYEXTPROC = ::core::option::Option<unsafe extern "system" fn(mode: u32, count: i32, pi: *const ::core::ffi::c_void)>;
-pub type PFNGLARRAYELEMENTEXTPROC = ::core::option::Option<unsafe extern "system" fn(i: i32)>;
-pub type PFNGLCOLORPOINTEREXTPROC = ::core::option::Option<unsafe extern "system" fn(size: i32, r#type: u32, stride: i32, count: i32, pointer: *const ::core::ffi::c_void)>;
-pub type PFNGLCOLORSUBTABLEEXTPROC = ::core::option::Option<unsafe extern "system" fn(target: u32, start: i32, count: i32, format: u32, r#type: u32, data: *const ::core::ffi::c_void)>;
-pub type PFNGLCOLORTABLEEXTPROC = ::core::option::Option<unsafe extern "system" fn(target: u32, internalformat: u32, width: i32, format: u32, r#type: u32, data: *const ::core::ffi::c_void)>;
-pub type PFNGLDRAWARRAYSEXTPROC = ::core::option::Option<unsafe extern "system" fn(mode: u32, first: i32, count: i32)>;
-pub type PFNGLDRAWRANGEELEMENTSWINPROC = ::core::option::Option<unsafe extern "system" fn(mode: u32, start: u32, end: u32, count: i32, r#type: u32, indices: *const ::core::ffi::c_void)>;
-pub type PFNGLEDGEFLAGPOINTEREXTPROC = ::core::option::Option<unsafe extern "system" fn(stride: i32, count: i32, pointer: *const u8)>;
-pub type PFNGLGETCOLORTABLEEXTPROC = ::core::option::Option<unsafe extern "system" fn(target: u32, format: u32, r#type: u32, data: *mut ::core::ffi::c_void)>;
-pub type PFNGLGETCOLORTABLEPARAMETERFVEXTPROC = ::core::option::Option<unsafe extern "system" fn(target: u32, pname: u32, params: *mut f32)>;
-pub type PFNGLGETCOLORTABLEPARAMETERIVEXTPROC = ::core::option::Option<unsafe extern "system" fn(target: u32, pname: u32, params: *mut i32)>;
-pub type PFNGLGETPOINTERVEXTPROC = ::core::option::Option<unsafe extern "system" fn(pname: u32, params: *mut *mut ::core::ffi::c_void)>;
-pub type PFNGLINDEXPOINTEREXTPROC = ::core::option::Option<unsafe extern "system" fn(r#type: u32, stride: i32, count: i32, pointer: *const ::core::ffi::c_void)>;
-pub type PFNGLNORMALPOINTEREXTPROC = ::core::option::Option<unsafe extern "system" fn(r#type: u32, stride: i32, count: i32, pointer: *const ::core::ffi::c_void)>;
-pub type PFNGLTEXCOORDPOINTEREXTPROC = ::core::option::Option<unsafe extern "system" fn(size: i32, r#type: u32, stride: i32, count: i32, pointer: *const ::core::ffi::c_void)>;
-pub type PFNGLVERTEXPOINTEREXTPROC = ::core::option::Option<unsafe extern "system" fn(size: i32, r#type: u32, stride: i32, count: i32, pointer: *const ::core::ffi::c_void)>;
+pub type GLUnurbsErrorProc = Option<unsafe extern "system" fn(param0: u32)>;
+pub type GLUquadricErrorProc = Option<unsafe extern "system" fn(param0: u32)>;
+pub type GLUtessBeginDataProc = Option<unsafe extern "system" fn(param0: u32, param1: *mut core::ffi::c_void)>;
+pub type GLUtessBeginProc = Option<unsafe extern "system" fn(param0: u32)>;
+pub type GLUtessCombineDataProc = Option<unsafe extern "system" fn(param0: *mut f64, param1: *mut *mut core::ffi::c_void, param2: *mut f32, param3: *mut *mut core::ffi::c_void, param4: *mut core::ffi::c_void)>;
+pub type GLUtessCombineProc = Option<unsafe extern "system" fn(param0: *mut f64, param1: *mut *mut core::ffi::c_void, param2: *mut f32, param3: *mut *mut core::ffi::c_void)>;
+pub type GLUtessEdgeFlagDataProc = Option<unsafe extern "system" fn(param0: u8, param1: *mut core::ffi::c_void)>;
+pub type GLUtessEdgeFlagProc = Option<unsafe extern "system" fn(param0: u8)>;
+pub type GLUtessEndDataProc = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void)>;
+pub type GLUtessEndProc = Option<unsafe extern "system" fn()>;
+pub type GLUtessErrorDataProc = Option<unsafe extern "system" fn(param0: u32, param1: *mut core::ffi::c_void)>;
+pub type GLUtessErrorProc = Option<unsafe extern "system" fn(param0: u32)>;
+pub type GLUtessVertexDataProc = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void, param1: *mut core::ffi::c_void)>;
+pub type GLUtessVertexProc = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void)>;
+pub type PFNGLADDSWAPHINTRECTWINPROC = Option<unsafe extern "system" fn(x: i32, y: i32, width: i32, height: i32)>;
+pub type PFNGLARRAYELEMENTARRAYEXTPROC = Option<unsafe extern "system" fn(mode: u32, count: i32, pi: *const core::ffi::c_void)>;
+pub type PFNGLARRAYELEMENTEXTPROC = Option<unsafe extern "system" fn(i: i32)>;
+pub type PFNGLCOLORPOINTEREXTPROC = Option<unsafe extern "system" fn(size: i32, r#type: u32, stride: i32, count: i32, pointer: *const core::ffi::c_void)>;
+pub type PFNGLCOLORSUBTABLEEXTPROC = Option<unsafe extern "system" fn(target: u32, start: i32, count: i32, format: u32, r#type: u32, data: *const core::ffi::c_void)>;
+pub type PFNGLCOLORTABLEEXTPROC = Option<unsafe extern "system" fn(target: u32, internalformat: u32, width: i32, format: u32, r#type: u32, data: *const core::ffi::c_void)>;
+pub type PFNGLDRAWARRAYSEXTPROC = Option<unsafe extern "system" fn(mode: u32, first: i32, count: i32)>;
+pub type PFNGLDRAWRANGEELEMENTSWINPROC = Option<unsafe extern "system" fn(mode: u32, start: u32, end: u32, count: i32, r#type: u32, indices: *const core::ffi::c_void)>;
+pub type PFNGLEDGEFLAGPOINTEREXTPROC = Option<unsafe extern "system" fn(stride: i32, count: i32, pointer: *const u8)>;
+pub type PFNGLGETCOLORTABLEEXTPROC = Option<unsafe extern "system" fn(target: u32, format: u32, r#type: u32, data: *mut core::ffi::c_void)>;
+pub type PFNGLGETCOLORTABLEPARAMETERFVEXTPROC = Option<unsafe extern "system" fn(target: u32, pname: u32, params: *mut f32)>;
+pub type PFNGLGETCOLORTABLEPARAMETERIVEXTPROC = Option<unsafe extern "system" fn(target: u32, pname: u32, params: *mut i32)>;
+pub type PFNGLGETPOINTERVEXTPROC = Option<unsafe extern "system" fn(pname: u32, params: *mut *mut core::ffi::c_void)>;
+pub type PFNGLINDEXPOINTEREXTPROC = Option<unsafe extern "system" fn(r#type: u32, stride: i32, count: i32, pointer: *const core::ffi::c_void)>;
+pub type PFNGLNORMALPOINTEREXTPROC = Option<unsafe extern "system" fn(r#type: u32, stride: i32, count: i32, pointer: *const core::ffi::c_void)>;
+pub type PFNGLTEXCOORDPOINTEREXTPROC = Option<unsafe extern "system" fn(size: i32, r#type: u32, stride: i32, count: i32, pointer: *const core::ffi::c_void)>;
+pub type PFNGLVERTEXPOINTEREXTPROC = Option<unsafe extern "system" fn(size: i32, r#type: u32, stride: i32, count: i32, pointer: *const core::ffi::c_void)>;

@@ -2,268 +2,268 @@
 ::windows_targets::link!("wlanapi.dll" "system" fn WFDCloseHandle(hclienthandle : super::super::Foundation:: HANDLE) -> u32);
 ::windows_targets::link!("wlanapi.dll" "system" fn WFDCloseSession(hsessionhandle : super::super::Foundation:: HANDLE) -> u32);
 ::windows_targets::link!("wlanapi.dll" "system" fn WFDOpenHandle(dwclientversion : u32, pdwnegotiatedversion : *mut u32, phclienthandle : *mut super::super::Foundation:: HANDLE) -> u32);
-::windows_targets::link!("wlanapi.dll" "system" fn WFDOpenLegacySession(hclienthandle : super::super::Foundation:: HANDLE, plegacymacaddress : *const *const u8, phsessionhandle : *mut super::super::Foundation:: HANDLE, pguidsessioninterface : *mut ::windows_sys::core::GUID) -> u32);
-::windows_targets::link!("wlanapi.dll" "system" fn WFDStartOpenSession(hclienthandle : super::super::Foundation:: HANDLE, pdeviceaddress : *const *const u8, pvcontext : *const ::core::ffi::c_void, pfncallback : WFD_OPEN_SESSION_COMPLETE_CALLBACK, phsessionhandle : *mut super::super::Foundation:: HANDLE) -> u32);
+::windows_targets::link!("wlanapi.dll" "system" fn WFDOpenLegacySession(hclienthandle : super::super::Foundation:: HANDLE, plegacymacaddress : *const *const u8, phsessionhandle : *mut super::super::Foundation:: HANDLE, pguidsessioninterface : *mut windows_sys::core::GUID) -> u32);
+::windows_targets::link!("wlanapi.dll" "system" fn WFDStartOpenSession(hclienthandle : super::super::Foundation:: HANDLE, pdeviceaddress : *const *const u8, pvcontext : *const core::ffi::c_void, pfncallback : WFD_OPEN_SESSION_COMPLETE_CALLBACK, phsessionhandle : *mut super::super::Foundation:: HANDLE) -> u32);
 ::windows_targets::link!("wlanapi.dll" "system" fn WFDUpdateDeviceVisibility(pdeviceaddress : *const *const u8) -> u32);
-::windows_targets::link!("wlanapi.dll" "system" fn WlanAllocateMemory(dwmemorysize : u32) -> *mut ::core::ffi::c_void);
-::windows_targets::link!("wlanapi.dll" "system" fn WlanCloseHandle(hclienthandle : super::super::Foundation:: HANDLE, preserved : *const ::core::ffi::c_void) -> u32);
+::windows_targets::link!("wlanapi.dll" "system" fn WlanAllocateMemory(dwmemorysize : u32) -> *mut core::ffi::c_void);
+::windows_targets::link!("wlanapi.dll" "system" fn WlanCloseHandle(hclienthandle : super::super::Foundation:: HANDLE, preserved : *const core::ffi::c_void) -> u32);
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-::windows_targets::link!("wlanapi.dll" "system" fn WlanConnect(hclienthandle : super::super::Foundation:: HANDLE, pinterfaceguid : *const ::windows_sys::core::GUID, pconnectionparameters : *const WLAN_CONNECTION_PARAMETERS, preserved : *const ::core::ffi::c_void) -> u32);
+::windows_targets::link!("wlanapi.dll" "system" fn WlanConnect(hclienthandle : super::super::Foundation:: HANDLE, pinterfaceguid : *const windows_sys::core::GUID, pconnectionparameters : *const WLAN_CONNECTION_PARAMETERS, preserved : *const core::ffi::c_void) -> u32);
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-::windows_targets::link!("wlanapi.dll" "system" fn WlanConnect2(hclienthandle : super::super::Foundation:: HANDLE, pinterfaceguid : *const ::windows_sys::core::GUID, pconnectionparameters : *const WLAN_CONNECTION_PARAMETERS_V2, preserved : *const ::core::ffi::c_void) -> u32);
-::windows_targets::link!("wlanapi.dll" "system" fn WlanDeleteProfile(hclienthandle : super::super::Foundation:: HANDLE, pinterfaceguid : *const ::windows_sys::core::GUID, strprofilename : ::windows_sys::core::PCWSTR, preserved : *const ::core::ffi::c_void) -> u32);
-::windows_targets::link!("wlanapi.dll" "system" fn WlanDeviceServiceCommand(hclienthandle : super::super::Foundation:: HANDLE, pinterfaceguid : *const ::windows_sys::core::GUID, pdeviceserviceguid : *const ::windows_sys::core::GUID, dwopcode : u32, dwinbuffersize : u32, pinbuffer : *const ::core::ffi::c_void, dwoutbuffersize : u32, poutbuffer : *mut ::core::ffi::c_void, pdwbytesreturned : *mut u32) -> u32);
-::windows_targets::link!("wlanapi.dll" "system" fn WlanDisconnect(hclienthandle : super::super::Foundation:: HANDLE, pinterfaceguid : *const ::windows_sys::core::GUID, preserved : *const ::core::ffi::c_void) -> u32);
-::windows_targets::link!("wlanapi.dll" "system" fn WlanEnumInterfaces(hclienthandle : super::super::Foundation:: HANDLE, preserved : *const ::core::ffi::c_void, ppinterfacelist : *mut *mut WLAN_INTERFACE_INFO_LIST) -> u32);
-::windows_targets::link!("wlanapi.dll" "system" fn WlanExtractPsdIEDataList(hclienthandle : super::super::Foundation:: HANDLE, dwiedatasize : u32, prawiedata : *const u8, strformat : ::windows_sys::core::PCWSTR, preserved : *const ::core::ffi::c_void, pppsdiedatalist : *mut *mut WLAN_RAW_DATA_LIST) -> u32);
-::windows_targets::link!("wlanapi.dll" "system" fn WlanFreeMemory(pmemory : *const ::core::ffi::c_void));
-::windows_targets::link!("wlanapi.dll" "system" fn WlanGetAvailableNetworkList(hclienthandle : super::super::Foundation:: HANDLE, pinterfaceguid : *const ::windows_sys::core::GUID, dwflags : u32, preserved : *const ::core::ffi::c_void, ppavailablenetworklist : *mut *mut WLAN_AVAILABLE_NETWORK_LIST) -> u32);
-::windows_targets::link!("wlanapi.dll" "system" fn WlanGetAvailableNetworkList2(hclienthandle : super::super::Foundation:: HANDLE, pinterfaceguid : *const ::windows_sys::core::GUID, dwflags : u32, preserved : *const ::core::ffi::c_void, ppavailablenetworklist : *mut *mut WLAN_AVAILABLE_NETWORK_LIST_V2) -> u32);
-::windows_targets::link!("wlanapi.dll" "system" fn WlanGetFilterList(hclienthandle : super::super::Foundation:: HANDLE, wlanfilterlisttype : WLAN_FILTER_LIST_TYPE, preserved : *const ::core::ffi::c_void, ppnetworklist : *mut *mut DOT11_NETWORK_LIST) -> u32);
-::windows_targets::link!("wlanapi.dll" "system" fn WlanGetInterfaceCapability(hclienthandle : super::super::Foundation:: HANDLE, pinterfaceguid : *const ::windows_sys::core::GUID, preserved : *const ::core::ffi::c_void, ppcapability : *mut *mut WLAN_INTERFACE_CAPABILITY) -> u32);
-::windows_targets::link!("wlanapi.dll" "system" fn WlanGetNetworkBssList(hclienthandle : super::super::Foundation:: HANDLE, pinterfaceguid : *const ::windows_sys::core::GUID, pdot11ssid : *const DOT11_SSID, dot11bsstype : DOT11_BSS_TYPE, bsecurityenabled : super::super::Foundation:: BOOL, preserved : *const ::core::ffi::c_void, ppwlanbsslist : *mut *mut WLAN_BSS_LIST) -> u32);
-::windows_targets::link!("wlanapi.dll" "system" fn WlanGetProfile(hclienthandle : super::super::Foundation:: HANDLE, pinterfaceguid : *const ::windows_sys::core::GUID, strprofilename : ::windows_sys::core::PCWSTR, preserved : *const ::core::ffi::c_void, pstrprofilexml : *mut ::windows_sys::core::PWSTR, pdwflags : *mut u32, pdwgrantedaccess : *mut u32) -> u32);
-::windows_targets::link!("wlanapi.dll" "system" fn WlanGetProfileCustomUserData(hclienthandle : super::super::Foundation:: HANDLE, pinterfaceguid : *const ::windows_sys::core::GUID, strprofilename : ::windows_sys::core::PCWSTR, preserved : *const ::core::ffi::c_void, pdwdatasize : *mut u32, ppdata : *mut *mut u8) -> u32);
-::windows_targets::link!("wlanapi.dll" "system" fn WlanGetProfileList(hclienthandle : super::super::Foundation:: HANDLE, pinterfaceguid : *const ::windows_sys::core::GUID, preserved : *const ::core::ffi::c_void, ppprofilelist : *mut *mut WLAN_PROFILE_INFO_LIST) -> u32);
-::windows_targets::link!("wlanapi.dll" "system" fn WlanGetSecuritySettings(hclienthandle : super::super::Foundation:: HANDLE, securableobject : WLAN_SECURABLE_OBJECT, pvaluetype : *mut WLAN_OPCODE_VALUE_TYPE, pstrcurrentsddl : *mut ::windows_sys::core::PWSTR, pdwgrantedaccess : *mut u32) -> u32);
-::windows_targets::link!("wlanapi.dll" "system" fn WlanGetSupportedDeviceServices(hclienthandle : super::super::Foundation:: HANDLE, pinterfaceguid : *const ::windows_sys::core::GUID, ppdevsvcguidlist : *mut *mut WLAN_DEVICE_SERVICE_GUID_LIST) -> u32);
-::windows_targets::link!("wlanapi.dll" "system" fn WlanHostedNetworkForceStart(hclienthandle : super::super::Foundation:: HANDLE, pfailreason : *mut WLAN_HOSTED_NETWORK_REASON, pvreserved : *const ::core::ffi::c_void) -> u32);
-::windows_targets::link!("wlanapi.dll" "system" fn WlanHostedNetworkForceStop(hclienthandle : super::super::Foundation:: HANDLE, pfailreason : *mut WLAN_HOSTED_NETWORK_REASON, pvreserved : *const ::core::ffi::c_void) -> u32);
-::windows_targets::link!("wlanapi.dll" "system" fn WlanHostedNetworkInitSettings(hclienthandle : super::super::Foundation:: HANDLE, pfailreason : *mut WLAN_HOSTED_NETWORK_REASON, pvreserved : *const ::core::ffi::c_void) -> u32);
-::windows_targets::link!("wlanapi.dll" "system" fn WlanHostedNetworkQueryProperty(hclienthandle : super::super::Foundation:: HANDLE, opcode : WLAN_HOSTED_NETWORK_OPCODE, pdwdatasize : *mut u32, ppvdata : *mut *mut ::core::ffi::c_void, pwlanopcodevaluetype : *mut WLAN_OPCODE_VALUE_TYPE, pvreserved : *const ::core::ffi::c_void) -> u32);
-::windows_targets::link!("wlanapi.dll" "system" fn WlanHostedNetworkQuerySecondaryKey(hclienthandle : super::super::Foundation:: HANDLE, pdwkeylength : *mut u32, ppuckeydata : *mut *mut u8, pbispassphrase : *mut super::super::Foundation:: BOOL, pbpersistent : *mut super::super::Foundation:: BOOL, pfailreason : *mut WLAN_HOSTED_NETWORK_REASON, pvreserved : *const ::core::ffi::c_void) -> u32);
-::windows_targets::link!("wlanapi.dll" "system" fn WlanHostedNetworkQueryStatus(hclienthandle : super::super::Foundation:: HANDLE, ppwlanhostednetworkstatus : *mut *mut WLAN_HOSTED_NETWORK_STATUS, pvreserved : *const ::core::ffi::c_void) -> u32);
-::windows_targets::link!("wlanapi.dll" "system" fn WlanHostedNetworkRefreshSecuritySettings(hclienthandle : super::super::Foundation:: HANDLE, pfailreason : *mut WLAN_HOSTED_NETWORK_REASON, pvreserved : *const ::core::ffi::c_void) -> u32);
-::windows_targets::link!("wlanapi.dll" "system" fn WlanHostedNetworkSetProperty(hclienthandle : super::super::Foundation:: HANDLE, opcode : WLAN_HOSTED_NETWORK_OPCODE, dwdatasize : u32, pvdata : *const ::core::ffi::c_void, pfailreason : *mut WLAN_HOSTED_NETWORK_REASON, pvreserved : *const ::core::ffi::c_void) -> u32);
-::windows_targets::link!("wlanapi.dll" "system" fn WlanHostedNetworkSetSecondaryKey(hclienthandle : super::super::Foundation:: HANDLE, dwkeylength : u32, puckeydata : *const u8, bispassphrase : super::super::Foundation:: BOOL, bpersistent : super::super::Foundation:: BOOL, pfailreason : *mut WLAN_HOSTED_NETWORK_REASON, pvreserved : *const ::core::ffi::c_void) -> u32);
-::windows_targets::link!("wlanapi.dll" "system" fn WlanHostedNetworkStartUsing(hclienthandle : super::super::Foundation:: HANDLE, pfailreason : *mut WLAN_HOSTED_NETWORK_REASON, pvreserved : *const ::core::ffi::c_void) -> u32);
-::windows_targets::link!("wlanapi.dll" "system" fn WlanHostedNetworkStopUsing(hclienthandle : super::super::Foundation:: HANDLE, pfailreason : *mut WLAN_HOSTED_NETWORK_REASON, pvreserved : *const ::core::ffi::c_void) -> u32);
-::windows_targets::link!("wlanapi.dll" "system" fn WlanIhvControl(hclienthandle : super::super::Foundation:: HANDLE, pinterfaceguid : *const ::windows_sys::core::GUID, r#type : WLAN_IHV_CONTROL_TYPE, dwinbuffersize : u32, pinbuffer : *const ::core::ffi::c_void, dwoutbuffersize : u32, poutbuffer : *mut ::core::ffi::c_void, pdwbytesreturned : *mut u32) -> u32);
-::windows_targets::link!("wlanapi.dll" "system" fn WlanOpenHandle(dwclientversion : u32, preserved : *const ::core::ffi::c_void, pdwnegotiatedversion : *mut u32, phclienthandle : *mut super::super::Foundation:: HANDLE) -> u32);
-::windows_targets::link!("wlanapi.dll" "system" fn WlanQueryAutoConfigParameter(hclienthandle : super::super::Foundation:: HANDLE, opcode : WLAN_AUTOCONF_OPCODE, preserved : *const ::core::ffi::c_void, pdwdatasize : *mut u32, ppdata : *mut *mut ::core::ffi::c_void, pwlanopcodevaluetype : *mut WLAN_OPCODE_VALUE_TYPE) -> u32);
-::windows_targets::link!("wlanapi.dll" "system" fn WlanQueryInterface(hclienthandle : super::super::Foundation:: HANDLE, pinterfaceguid : *const ::windows_sys::core::GUID, opcode : WLAN_INTF_OPCODE, preserved : *const ::core::ffi::c_void, pdwdatasize : *mut u32, ppdata : *mut *mut ::core::ffi::c_void, pwlanopcodevaluetype : *mut WLAN_OPCODE_VALUE_TYPE) -> u32);
-::windows_targets::link!("wlanapi.dll" "system" fn WlanReasonCodeToString(dwreasoncode : u32, dwbuffersize : u32, pstringbuffer : ::windows_sys::core::PCWSTR, preserved : *const ::core::ffi::c_void) -> u32);
+::windows_targets::link!("wlanapi.dll" "system" fn WlanConnect2(hclienthandle : super::super::Foundation:: HANDLE, pinterfaceguid : *const windows_sys::core::GUID, pconnectionparameters : *const WLAN_CONNECTION_PARAMETERS_V2, preserved : *const core::ffi::c_void) -> u32);
+::windows_targets::link!("wlanapi.dll" "system" fn WlanDeleteProfile(hclienthandle : super::super::Foundation:: HANDLE, pinterfaceguid : *const windows_sys::core::GUID, strprofilename : windows_sys::core::PCWSTR, preserved : *const core::ffi::c_void) -> u32);
+::windows_targets::link!("wlanapi.dll" "system" fn WlanDeviceServiceCommand(hclienthandle : super::super::Foundation:: HANDLE, pinterfaceguid : *const windows_sys::core::GUID, pdeviceserviceguid : *const windows_sys::core::GUID, dwopcode : u32, dwinbuffersize : u32, pinbuffer : *const core::ffi::c_void, dwoutbuffersize : u32, poutbuffer : *mut core::ffi::c_void, pdwbytesreturned : *mut u32) -> u32);
+::windows_targets::link!("wlanapi.dll" "system" fn WlanDisconnect(hclienthandle : super::super::Foundation:: HANDLE, pinterfaceguid : *const windows_sys::core::GUID, preserved : *const core::ffi::c_void) -> u32);
+::windows_targets::link!("wlanapi.dll" "system" fn WlanEnumInterfaces(hclienthandle : super::super::Foundation:: HANDLE, preserved : *const core::ffi::c_void, ppinterfacelist : *mut *mut WLAN_INTERFACE_INFO_LIST) -> u32);
+::windows_targets::link!("wlanapi.dll" "system" fn WlanExtractPsdIEDataList(hclienthandle : super::super::Foundation:: HANDLE, dwiedatasize : u32, prawiedata : *const u8, strformat : windows_sys::core::PCWSTR, preserved : *const core::ffi::c_void, pppsdiedatalist : *mut *mut WLAN_RAW_DATA_LIST) -> u32);
+::windows_targets::link!("wlanapi.dll" "system" fn WlanFreeMemory(pmemory : *const core::ffi::c_void));
+::windows_targets::link!("wlanapi.dll" "system" fn WlanGetAvailableNetworkList(hclienthandle : super::super::Foundation:: HANDLE, pinterfaceguid : *const windows_sys::core::GUID, dwflags : u32, preserved : *const core::ffi::c_void, ppavailablenetworklist : *mut *mut WLAN_AVAILABLE_NETWORK_LIST) -> u32);
+::windows_targets::link!("wlanapi.dll" "system" fn WlanGetAvailableNetworkList2(hclienthandle : super::super::Foundation:: HANDLE, pinterfaceguid : *const windows_sys::core::GUID, dwflags : u32, preserved : *const core::ffi::c_void, ppavailablenetworklist : *mut *mut WLAN_AVAILABLE_NETWORK_LIST_V2) -> u32);
+::windows_targets::link!("wlanapi.dll" "system" fn WlanGetFilterList(hclienthandle : super::super::Foundation:: HANDLE, wlanfilterlisttype : WLAN_FILTER_LIST_TYPE, preserved : *const core::ffi::c_void, ppnetworklist : *mut *mut DOT11_NETWORK_LIST) -> u32);
+::windows_targets::link!("wlanapi.dll" "system" fn WlanGetInterfaceCapability(hclienthandle : super::super::Foundation:: HANDLE, pinterfaceguid : *const windows_sys::core::GUID, preserved : *const core::ffi::c_void, ppcapability : *mut *mut WLAN_INTERFACE_CAPABILITY) -> u32);
+::windows_targets::link!("wlanapi.dll" "system" fn WlanGetNetworkBssList(hclienthandle : super::super::Foundation:: HANDLE, pinterfaceguid : *const windows_sys::core::GUID, pdot11ssid : *const DOT11_SSID, dot11bsstype : DOT11_BSS_TYPE, bsecurityenabled : super::super::Foundation:: BOOL, preserved : *const core::ffi::c_void, ppwlanbsslist : *mut *mut WLAN_BSS_LIST) -> u32);
+::windows_targets::link!("wlanapi.dll" "system" fn WlanGetProfile(hclienthandle : super::super::Foundation:: HANDLE, pinterfaceguid : *const windows_sys::core::GUID, strprofilename : windows_sys::core::PCWSTR, preserved : *const core::ffi::c_void, pstrprofilexml : *mut windows_sys::core::PWSTR, pdwflags : *mut u32, pdwgrantedaccess : *mut u32) -> u32);
+::windows_targets::link!("wlanapi.dll" "system" fn WlanGetProfileCustomUserData(hclienthandle : super::super::Foundation:: HANDLE, pinterfaceguid : *const windows_sys::core::GUID, strprofilename : windows_sys::core::PCWSTR, preserved : *const core::ffi::c_void, pdwdatasize : *mut u32, ppdata : *mut *mut u8) -> u32);
+::windows_targets::link!("wlanapi.dll" "system" fn WlanGetProfileList(hclienthandle : super::super::Foundation:: HANDLE, pinterfaceguid : *const windows_sys::core::GUID, preserved : *const core::ffi::c_void, ppprofilelist : *mut *mut WLAN_PROFILE_INFO_LIST) -> u32);
+::windows_targets::link!("wlanapi.dll" "system" fn WlanGetSecuritySettings(hclienthandle : super::super::Foundation:: HANDLE, securableobject : WLAN_SECURABLE_OBJECT, pvaluetype : *mut WLAN_OPCODE_VALUE_TYPE, pstrcurrentsddl : *mut windows_sys::core::PWSTR, pdwgrantedaccess : *mut u32) -> u32);
+::windows_targets::link!("wlanapi.dll" "system" fn WlanGetSupportedDeviceServices(hclienthandle : super::super::Foundation:: HANDLE, pinterfaceguid : *const windows_sys::core::GUID, ppdevsvcguidlist : *mut *mut WLAN_DEVICE_SERVICE_GUID_LIST) -> u32);
+::windows_targets::link!("wlanapi.dll" "system" fn WlanHostedNetworkForceStart(hclienthandle : super::super::Foundation:: HANDLE, pfailreason : *mut WLAN_HOSTED_NETWORK_REASON, pvreserved : *const core::ffi::c_void) -> u32);
+::windows_targets::link!("wlanapi.dll" "system" fn WlanHostedNetworkForceStop(hclienthandle : super::super::Foundation:: HANDLE, pfailreason : *mut WLAN_HOSTED_NETWORK_REASON, pvreserved : *const core::ffi::c_void) -> u32);
+::windows_targets::link!("wlanapi.dll" "system" fn WlanHostedNetworkInitSettings(hclienthandle : super::super::Foundation:: HANDLE, pfailreason : *mut WLAN_HOSTED_NETWORK_REASON, pvreserved : *const core::ffi::c_void) -> u32);
+::windows_targets::link!("wlanapi.dll" "system" fn WlanHostedNetworkQueryProperty(hclienthandle : super::super::Foundation:: HANDLE, opcode : WLAN_HOSTED_NETWORK_OPCODE, pdwdatasize : *mut u32, ppvdata : *mut *mut core::ffi::c_void, pwlanopcodevaluetype : *mut WLAN_OPCODE_VALUE_TYPE, pvreserved : *const core::ffi::c_void) -> u32);
+::windows_targets::link!("wlanapi.dll" "system" fn WlanHostedNetworkQuerySecondaryKey(hclienthandle : super::super::Foundation:: HANDLE, pdwkeylength : *mut u32, ppuckeydata : *mut *mut u8, pbispassphrase : *mut super::super::Foundation:: BOOL, pbpersistent : *mut super::super::Foundation:: BOOL, pfailreason : *mut WLAN_HOSTED_NETWORK_REASON, pvreserved : *const core::ffi::c_void) -> u32);
+::windows_targets::link!("wlanapi.dll" "system" fn WlanHostedNetworkQueryStatus(hclienthandle : super::super::Foundation:: HANDLE, ppwlanhostednetworkstatus : *mut *mut WLAN_HOSTED_NETWORK_STATUS, pvreserved : *const core::ffi::c_void) -> u32);
+::windows_targets::link!("wlanapi.dll" "system" fn WlanHostedNetworkRefreshSecuritySettings(hclienthandle : super::super::Foundation:: HANDLE, pfailreason : *mut WLAN_HOSTED_NETWORK_REASON, pvreserved : *const core::ffi::c_void) -> u32);
+::windows_targets::link!("wlanapi.dll" "system" fn WlanHostedNetworkSetProperty(hclienthandle : super::super::Foundation:: HANDLE, opcode : WLAN_HOSTED_NETWORK_OPCODE, dwdatasize : u32, pvdata : *const core::ffi::c_void, pfailreason : *mut WLAN_HOSTED_NETWORK_REASON, pvreserved : *const core::ffi::c_void) -> u32);
+::windows_targets::link!("wlanapi.dll" "system" fn WlanHostedNetworkSetSecondaryKey(hclienthandle : super::super::Foundation:: HANDLE, dwkeylength : u32, puckeydata : *const u8, bispassphrase : super::super::Foundation:: BOOL, bpersistent : super::super::Foundation:: BOOL, pfailreason : *mut WLAN_HOSTED_NETWORK_REASON, pvreserved : *const core::ffi::c_void) -> u32);
+::windows_targets::link!("wlanapi.dll" "system" fn WlanHostedNetworkStartUsing(hclienthandle : super::super::Foundation:: HANDLE, pfailreason : *mut WLAN_HOSTED_NETWORK_REASON, pvreserved : *const core::ffi::c_void) -> u32);
+::windows_targets::link!("wlanapi.dll" "system" fn WlanHostedNetworkStopUsing(hclienthandle : super::super::Foundation:: HANDLE, pfailreason : *mut WLAN_HOSTED_NETWORK_REASON, pvreserved : *const core::ffi::c_void) -> u32);
+::windows_targets::link!("wlanapi.dll" "system" fn WlanIhvControl(hclienthandle : super::super::Foundation:: HANDLE, pinterfaceguid : *const windows_sys::core::GUID, r#type : WLAN_IHV_CONTROL_TYPE, dwinbuffersize : u32, pinbuffer : *const core::ffi::c_void, dwoutbuffersize : u32, poutbuffer : *mut core::ffi::c_void, pdwbytesreturned : *mut u32) -> u32);
+::windows_targets::link!("wlanapi.dll" "system" fn WlanOpenHandle(dwclientversion : u32, preserved : *const core::ffi::c_void, pdwnegotiatedversion : *mut u32, phclienthandle : *mut super::super::Foundation:: HANDLE) -> u32);
+::windows_targets::link!("wlanapi.dll" "system" fn WlanQueryAutoConfigParameter(hclienthandle : super::super::Foundation:: HANDLE, opcode : WLAN_AUTOCONF_OPCODE, preserved : *const core::ffi::c_void, pdwdatasize : *mut u32, ppdata : *mut *mut core::ffi::c_void, pwlanopcodevaluetype : *mut WLAN_OPCODE_VALUE_TYPE) -> u32);
+::windows_targets::link!("wlanapi.dll" "system" fn WlanQueryInterface(hclienthandle : super::super::Foundation:: HANDLE, pinterfaceguid : *const windows_sys::core::GUID, opcode : WLAN_INTF_OPCODE, preserved : *const core::ffi::c_void, pdwdatasize : *mut u32, ppdata : *mut *mut core::ffi::c_void, pwlanopcodevaluetype : *mut WLAN_OPCODE_VALUE_TYPE) -> u32);
+::windows_targets::link!("wlanapi.dll" "system" fn WlanReasonCodeToString(dwreasoncode : u32, dwbuffersize : u32, pstringbuffer : windows_sys::core::PCWSTR, preserved : *const core::ffi::c_void) -> u32);
 ::windows_targets::link!("wlanapi.dll" "system" fn WlanRegisterDeviceServiceNotification(hclienthandle : super::super::Foundation:: HANDLE, pdevsvcguidlist : *const WLAN_DEVICE_SERVICE_GUID_LIST) -> u32);
-::windows_targets::link!("wlanapi.dll" "system" fn WlanRegisterNotification(hclienthandle : super::super::Foundation:: HANDLE, dwnotifsource : WLAN_NOTIFICATION_SOURCES, bignoreduplicate : super::super::Foundation:: BOOL, funccallback : WLAN_NOTIFICATION_CALLBACK, pcallbackcontext : *const ::core::ffi::c_void, preserved : *const ::core::ffi::c_void, pdwprevnotifsource : *mut u32) -> u32);
-::windows_targets::link!("wlanapi.dll" "system" fn WlanRegisterVirtualStationNotification(hclienthandle : super::super::Foundation:: HANDLE, bregister : super::super::Foundation:: BOOL, preserved : *const ::core::ffi::c_void) -> u32);
-::windows_targets::link!("wlanapi.dll" "system" fn WlanRenameProfile(hclienthandle : super::super::Foundation:: HANDLE, pinterfaceguid : *const ::windows_sys::core::GUID, stroldprofilename : ::windows_sys::core::PCWSTR, strnewprofilename : ::windows_sys::core::PCWSTR, preserved : *const ::core::ffi::c_void) -> u32);
-::windows_targets::link!("wlanapi.dll" "system" fn WlanSaveTemporaryProfile(hclienthandle : super::super::Foundation:: HANDLE, pinterfaceguid : *const ::windows_sys::core::GUID, strprofilename : ::windows_sys::core::PCWSTR, stralluserprofilesecurity : ::windows_sys::core::PCWSTR, dwflags : u32, boverwrite : super::super::Foundation:: BOOL, preserved : *const ::core::ffi::c_void) -> u32);
-::windows_targets::link!("wlanapi.dll" "system" fn WlanScan(hclienthandle : super::super::Foundation:: HANDLE, pinterfaceguid : *const ::windows_sys::core::GUID, pdot11ssid : *const DOT11_SSID, piedata : *const WLAN_RAW_DATA, preserved : *const ::core::ffi::c_void) -> u32);
-::windows_targets::link!("wlanapi.dll" "system" fn WlanSetAutoConfigParameter(hclienthandle : super::super::Foundation:: HANDLE, opcode : WLAN_AUTOCONF_OPCODE, dwdatasize : u32, pdata : *const ::core::ffi::c_void, preserved : *const ::core::ffi::c_void) -> u32);
-::windows_targets::link!("wlanapi.dll" "system" fn WlanSetFilterList(hclienthandle : super::super::Foundation:: HANDLE, wlanfilterlisttype : WLAN_FILTER_LIST_TYPE, pnetworklist : *const DOT11_NETWORK_LIST, preserved : *const ::core::ffi::c_void) -> u32);
-::windows_targets::link!("wlanapi.dll" "system" fn WlanSetInterface(hclienthandle : super::super::Foundation:: HANDLE, pinterfaceguid : *const ::windows_sys::core::GUID, opcode : WLAN_INTF_OPCODE, dwdatasize : u32, pdata : *const ::core::ffi::c_void, preserved : *const ::core::ffi::c_void) -> u32);
-::windows_targets::link!("wlanapi.dll" "system" fn WlanSetProfile(hclienthandle : super::super::Foundation:: HANDLE, pinterfaceguid : *const ::windows_sys::core::GUID, dwflags : u32, strprofilexml : ::windows_sys::core::PCWSTR, stralluserprofilesecurity : ::windows_sys::core::PCWSTR, boverwrite : super::super::Foundation:: BOOL, preserved : *const ::core::ffi::c_void, pdwreasoncode : *mut u32) -> u32);
-::windows_targets::link!("wlanapi.dll" "system" fn WlanSetProfileCustomUserData(hclienthandle : super::super::Foundation:: HANDLE, pinterfaceguid : *const ::windows_sys::core::GUID, strprofilename : ::windows_sys::core::PCWSTR, dwdatasize : u32, pdata : *const u8, preserved : *const ::core::ffi::c_void) -> u32);
+::windows_targets::link!("wlanapi.dll" "system" fn WlanRegisterNotification(hclienthandle : super::super::Foundation:: HANDLE, dwnotifsource : WLAN_NOTIFICATION_SOURCES, bignoreduplicate : super::super::Foundation:: BOOL, funccallback : WLAN_NOTIFICATION_CALLBACK, pcallbackcontext : *const core::ffi::c_void, preserved : *const core::ffi::c_void, pdwprevnotifsource : *mut u32) -> u32);
+::windows_targets::link!("wlanapi.dll" "system" fn WlanRegisterVirtualStationNotification(hclienthandle : super::super::Foundation:: HANDLE, bregister : super::super::Foundation:: BOOL, preserved : *const core::ffi::c_void) -> u32);
+::windows_targets::link!("wlanapi.dll" "system" fn WlanRenameProfile(hclienthandle : super::super::Foundation:: HANDLE, pinterfaceguid : *const windows_sys::core::GUID, stroldprofilename : windows_sys::core::PCWSTR, strnewprofilename : windows_sys::core::PCWSTR, preserved : *const core::ffi::c_void) -> u32);
+::windows_targets::link!("wlanapi.dll" "system" fn WlanSaveTemporaryProfile(hclienthandle : super::super::Foundation:: HANDLE, pinterfaceguid : *const windows_sys::core::GUID, strprofilename : windows_sys::core::PCWSTR, stralluserprofilesecurity : windows_sys::core::PCWSTR, dwflags : u32, boverwrite : super::super::Foundation:: BOOL, preserved : *const core::ffi::c_void) -> u32);
+::windows_targets::link!("wlanapi.dll" "system" fn WlanScan(hclienthandle : super::super::Foundation:: HANDLE, pinterfaceguid : *const windows_sys::core::GUID, pdot11ssid : *const DOT11_SSID, piedata : *const WLAN_RAW_DATA, preserved : *const core::ffi::c_void) -> u32);
+::windows_targets::link!("wlanapi.dll" "system" fn WlanSetAutoConfigParameter(hclienthandle : super::super::Foundation:: HANDLE, opcode : WLAN_AUTOCONF_OPCODE, dwdatasize : u32, pdata : *const core::ffi::c_void, preserved : *const core::ffi::c_void) -> u32);
+::windows_targets::link!("wlanapi.dll" "system" fn WlanSetFilterList(hclienthandle : super::super::Foundation:: HANDLE, wlanfilterlisttype : WLAN_FILTER_LIST_TYPE, pnetworklist : *const DOT11_NETWORK_LIST, preserved : *const core::ffi::c_void) -> u32);
+::windows_targets::link!("wlanapi.dll" "system" fn WlanSetInterface(hclienthandle : super::super::Foundation:: HANDLE, pinterfaceguid : *const windows_sys::core::GUID, opcode : WLAN_INTF_OPCODE, dwdatasize : u32, pdata : *const core::ffi::c_void, preserved : *const core::ffi::c_void) -> u32);
+::windows_targets::link!("wlanapi.dll" "system" fn WlanSetProfile(hclienthandle : super::super::Foundation:: HANDLE, pinterfaceguid : *const windows_sys::core::GUID, dwflags : u32, strprofilexml : windows_sys::core::PCWSTR, stralluserprofilesecurity : windows_sys::core::PCWSTR, boverwrite : super::super::Foundation:: BOOL, preserved : *const core::ffi::c_void, pdwreasoncode : *mut u32) -> u32);
+::windows_targets::link!("wlanapi.dll" "system" fn WlanSetProfileCustomUserData(hclienthandle : super::super::Foundation:: HANDLE, pinterfaceguid : *const windows_sys::core::GUID, strprofilename : windows_sys::core::PCWSTR, dwdatasize : u32, pdata : *const u8, preserved : *const core::ffi::c_void) -> u32);
 #[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
-::windows_targets::link!("wlanapi.dll" "system" fn WlanSetProfileEapUserData(hclienthandle : super::super::Foundation:: HANDLE, pinterfaceguid : *const ::windows_sys::core::GUID, strprofilename : ::windows_sys::core::PCWSTR, eaptype : super::super::Security::ExtensibleAuthenticationProtocol:: EAP_METHOD_TYPE, dwflags : WLAN_SET_EAPHOST_FLAGS, dweapuserdatasize : u32, pbeapuserdata : *const u8, preserved : *const ::core::ffi::c_void) -> u32);
-::windows_targets::link!("wlanapi.dll" "system" fn WlanSetProfileEapXmlUserData(hclienthandle : super::super::Foundation:: HANDLE, pinterfaceguid : *const ::windows_sys::core::GUID, strprofilename : ::windows_sys::core::PCWSTR, dwflags : WLAN_SET_EAPHOST_FLAGS, streapxmluserdata : ::windows_sys::core::PCWSTR, preserved : *const ::core::ffi::c_void) -> u32);
-::windows_targets::link!("wlanapi.dll" "system" fn WlanSetProfileList(hclienthandle : super::super::Foundation:: HANDLE, pinterfaceguid : *const ::windows_sys::core::GUID, dwitems : u32, strprofilenames : *const ::windows_sys::core::PCWSTR, preserved : *const ::core::ffi::c_void) -> u32);
-::windows_targets::link!("wlanapi.dll" "system" fn WlanSetProfilePosition(hclienthandle : super::super::Foundation:: HANDLE, pinterfaceguid : *const ::windows_sys::core::GUID, strprofilename : ::windows_sys::core::PCWSTR, dwposition : u32, preserved : *const ::core::ffi::c_void) -> u32);
-::windows_targets::link!("wlanapi.dll" "system" fn WlanSetPsdIEDataList(hclienthandle : super::super::Foundation:: HANDLE, strformat : ::windows_sys::core::PCWSTR, ppsdiedatalist : *const WLAN_RAW_DATA_LIST, preserved : *const ::core::ffi::c_void) -> u32);
-::windows_targets::link!("wlanapi.dll" "system" fn WlanSetSecuritySettings(hclienthandle : super::super::Foundation:: HANDLE, securableobject : WLAN_SECURABLE_OBJECT, strmodifiedsddl : ::windows_sys::core::PCWSTR) -> u32);
-::windows_targets::link!("wlanui.dll" "system" fn WlanUIEditProfile(dwclientversion : u32, wstrprofilename : ::windows_sys::core::PCWSTR, pinterfaceguid : *const ::windows_sys::core::GUID, hwnd : super::super::Foundation:: HWND, wlstartpage : WL_DISPLAY_PAGES, preserved : *const ::core::ffi::c_void, pwlanreasoncode : *mut u32) -> u32);
+::windows_targets::link!("wlanapi.dll" "system" fn WlanSetProfileEapUserData(hclienthandle : super::super::Foundation:: HANDLE, pinterfaceguid : *const windows_sys::core::GUID, strprofilename : windows_sys::core::PCWSTR, eaptype : super::super::Security::ExtensibleAuthenticationProtocol:: EAP_METHOD_TYPE, dwflags : WLAN_SET_EAPHOST_FLAGS, dweapuserdatasize : u32, pbeapuserdata : *const u8, preserved : *const core::ffi::c_void) -> u32);
+::windows_targets::link!("wlanapi.dll" "system" fn WlanSetProfileEapXmlUserData(hclienthandle : super::super::Foundation:: HANDLE, pinterfaceguid : *const windows_sys::core::GUID, strprofilename : windows_sys::core::PCWSTR, dwflags : WLAN_SET_EAPHOST_FLAGS, streapxmluserdata : windows_sys::core::PCWSTR, preserved : *const core::ffi::c_void) -> u32);
+::windows_targets::link!("wlanapi.dll" "system" fn WlanSetProfileList(hclienthandle : super::super::Foundation:: HANDLE, pinterfaceguid : *const windows_sys::core::GUID, dwitems : u32, strprofilenames : *const windows_sys::core::PCWSTR, preserved : *const core::ffi::c_void) -> u32);
+::windows_targets::link!("wlanapi.dll" "system" fn WlanSetProfilePosition(hclienthandle : super::super::Foundation:: HANDLE, pinterfaceguid : *const windows_sys::core::GUID, strprofilename : windows_sys::core::PCWSTR, dwposition : u32, preserved : *const core::ffi::c_void) -> u32);
+::windows_targets::link!("wlanapi.dll" "system" fn WlanSetPsdIEDataList(hclienthandle : super::super::Foundation:: HANDLE, strformat : windows_sys::core::PCWSTR, ppsdiedatalist : *const WLAN_RAW_DATA_LIST, preserved : *const core::ffi::c_void) -> u32);
+::windows_targets::link!("wlanapi.dll" "system" fn WlanSetSecuritySettings(hclienthandle : super::super::Foundation:: HANDLE, securableobject : WLAN_SECURABLE_OBJECT, strmodifiedsddl : windows_sys::core::PCWSTR) -> u32);
+::windows_targets::link!("wlanui.dll" "system" fn WlanUIEditProfile(dwclientversion : u32, wstrprofilename : windows_sys::core::PCWSTR, pinterfaceguid : *const windows_sys::core::GUID, hwnd : super::super::Foundation:: HWND, wlstartpage : WL_DISPLAY_PAGES, preserved : *const core::ffi::c_void, pwlanreasoncode : *mut u32) -> u32);
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_InfraCast_AccessPointBssid: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 19 };
+pub const DEVPKEY_InfraCast_AccessPointBssid: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 19 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_InfraCast_ChallengeAep: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 21 };
+pub const DEVPKEY_InfraCast_ChallengeAep: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 21 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_InfraCast_DevnodeAep: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 23 };
+pub const DEVPKEY_InfraCast_DevnodeAep: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 23 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_InfraCast_HostName_ResolutionMode: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 25 };
+pub const DEVPKEY_InfraCast_HostName_ResolutionMode: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 25 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_InfraCast_PinSupported: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 29 };
+pub const DEVPKEY_InfraCast_PinSupported: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 29 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_InfraCast_RtspTcpConnectionParametersSupported: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 30 };
+pub const DEVPKEY_InfraCast_RtspTcpConnectionParametersSupported: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 30 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_InfraCast_SinkHostName: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 20 };
+pub const DEVPKEY_InfraCast_SinkHostName: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 20 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_InfraCast_SinkIpAddress: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 26 };
+pub const DEVPKEY_InfraCast_SinkIpAddress: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 26 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_InfraCast_StreamSecuritySupported: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 18 };
+pub const DEVPKEY_InfraCast_StreamSecuritySupported: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 18 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_InfraCast_Supported: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 17 };
+pub const DEVPKEY_InfraCast_Supported: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 17 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_PciDevice_AERCapabilityPresent: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62), pid: 17 };
+pub const DEVPKEY_PciDevice_AERCapabilityPresent: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62), pid: 17 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_PciDevice_AcsCapabilityRegister: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62), pid: 32 };
+pub const DEVPKEY_PciDevice_AcsCapabilityRegister: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62), pid: 32 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_PciDevice_AcsCompatibleUpHierarchy: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62), pid: 31 };
+pub const DEVPKEY_PciDevice_AcsCompatibleUpHierarchy: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62), pid: 31 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_PciDevice_AcsSupport: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62), pid: 29 };
+pub const DEVPKEY_PciDevice_AcsSupport: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62), pid: 29 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_PciDevice_AriSupport: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62), pid: 30 };
+pub const DEVPKEY_PciDevice_AriSupport: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62), pid: 30 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_PciDevice_AtomicsSupported: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62), pid: 35 };
+pub const DEVPKEY_PciDevice_AtomicsSupported: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62), pid: 35 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_PciDevice_AtsSupport: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62), pid: 33 };
+pub const DEVPKEY_PciDevice_AtsSupport: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62), pid: 33 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_PciDevice_BarTypes: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62), pid: 16 };
+pub const DEVPKEY_PciDevice_BarTypes: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62), pid: 16 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_PciDevice_BaseClass: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62), pid: 3 };
+pub const DEVPKEY_PciDevice_BaseClass: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62), pid: 3 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_PciDevice_Correctable_Error_Mask: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62), pid: 21 };
+pub const DEVPKEY_PciDevice_Correctable_Error_Mask: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62), pid: 21 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_PciDevice_CurrentLinkSpeed: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62), pid: 9 };
+pub const DEVPKEY_PciDevice_CurrentLinkSpeed: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62), pid: 9 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_PciDevice_CurrentLinkWidth: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62), pid: 10 };
+pub const DEVPKEY_PciDevice_CurrentLinkWidth: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62), pid: 10 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_PciDevice_CurrentPayloadSize: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62), pid: 6 };
+pub const DEVPKEY_PciDevice_CurrentPayloadSize: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62), pid: 6 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_PciDevice_CurrentSpeedAndMode: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62), pid: 2 };
+pub const DEVPKEY_PciDevice_CurrentSpeedAndMode: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62), pid: 2 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_PciDevice_D3ColdSupport: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62), pid: 38 };
+pub const DEVPKEY_PciDevice_D3ColdSupport: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62), pid: 38 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_PciDevice_DeviceType: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62), pid: 1 };
+pub const DEVPKEY_PciDevice_DeviceType: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62), pid: 1 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_PciDevice_ECRC_Errors: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62), pid: 22 };
+pub const DEVPKEY_PciDevice_ECRC_Errors: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62), pid: 22 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_PciDevice_Error_Reporting: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62), pid: 23 };
+pub const DEVPKEY_PciDevice_Error_Reporting: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62), pid: 23 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_PciDevice_ExpressSpecVersion: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62), pid: 13 };
+pub const DEVPKEY_PciDevice_ExpressSpecVersion: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62), pid: 13 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_PciDevice_FirmwareErrorHandling: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62), pid: 18 };
+pub const DEVPKEY_PciDevice_FirmwareErrorHandling: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62), pid: 18 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_PciDevice_InterruptMessageMaximum: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62), pid: 15 };
+pub const DEVPKEY_PciDevice_InterruptMessageMaximum: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62), pid: 15 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_PciDevice_InterruptSupport: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62), pid: 14 };
+pub const DEVPKEY_PciDevice_InterruptSupport: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62), pid: 14 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_PciDevice_Label_Id: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62), pid: 27 };
+pub const DEVPKEY_PciDevice_Label_Id: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62), pid: 27 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_PciDevice_Label_String: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62), pid: 28 };
+pub const DEVPKEY_PciDevice_Label_String: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62), pid: 28 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_PciDevice_MaxLinkSpeed: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62), pid: 11 };
+pub const DEVPKEY_PciDevice_MaxLinkSpeed: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62), pid: 11 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_PciDevice_MaxLinkWidth: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62), pid: 12 };
+pub const DEVPKEY_PciDevice_MaxLinkWidth: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62), pid: 12 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_PciDevice_MaxPayloadSize: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62), pid: 7 };
+pub const DEVPKEY_PciDevice_MaxPayloadSize: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62), pid: 7 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_PciDevice_MaxReadRequestSize: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62), pid: 8 };
+pub const DEVPKEY_PciDevice_MaxReadRequestSize: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62), pid: 8 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_PciDevice_OnPostPath: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62), pid: 37 };
+pub const DEVPKEY_PciDevice_OnPostPath: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62), pid: 37 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_PciDevice_ParentSerialNumber: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62), pid: 45 };
+pub const DEVPKEY_PciDevice_ParentSerialNumber: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62), pid: 45 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_PciDevice_ProgIf: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62), pid: 5 };
+pub const DEVPKEY_PciDevice_ProgIf: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62), pid: 5 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_PciDevice_RequiresReservedMemoryRegion: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62), pid: 34 };
+pub const DEVPKEY_PciDevice_RequiresReservedMemoryRegion: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62), pid: 34 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_PciDevice_RootError_Reporting: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62), pid: 24 };
+pub const DEVPKEY_PciDevice_RootError_Reporting: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62), pid: 24 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_PciDevice_S0WakeupSupported: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62), pid: 25 };
+pub const DEVPKEY_PciDevice_S0WakeupSupported: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62), pid: 25 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_PciDevice_SerialNumber: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62), pid: 40 };
+pub const DEVPKEY_PciDevice_SerialNumber: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62), pid: 40 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_PciDevice_SriovSupport: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62), pid: 26 };
+pub const DEVPKEY_PciDevice_SriovSupport: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62), pid: 26 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_PciDevice_SubClass: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62), pid: 4 };
+pub const DEVPKEY_PciDevice_SubClass: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62), pid: 4 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_PciDevice_SupportedLinkSubState: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62), pid: 36 };
+pub const DEVPKEY_PciDevice_SupportedLinkSubState: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62), pid: 36 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_PciDevice_Uncorrectable_Error_Mask: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62), pid: 19 };
+pub const DEVPKEY_PciDevice_Uncorrectable_Error_Mask: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62), pid: 19 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_PciDevice_Uncorrectable_Error_Severity: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62), pid: 20 };
+pub const DEVPKEY_PciDevice_Uncorrectable_Error_Severity: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62), pid: 20 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_PciDevice_UsbComponentRelation: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62), pid: 43 };
+pub const DEVPKEY_PciDevice_UsbComponentRelation: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62), pid: 43 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_PciDevice_UsbDvsecPortSpecificAttributes: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62), pid: 42 };
+pub const DEVPKEY_PciDevice_UsbDvsecPortSpecificAttributes: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62), pid: 42 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_PciDevice_UsbDvsecPortType: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62), pid: 41 };
+pub const DEVPKEY_PciDevice_UsbDvsecPortType: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62), pid: 41 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_PciDevice_UsbHostRouterName: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62), pid: 44 };
+pub const DEVPKEY_PciDevice_UsbHostRouterName: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62), pid: 44 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_PciRootBus_ASPMSupport: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0xd817fc28_793e_4b9e_9970_469d8be63073), pid: 8 };
+pub const DEVPKEY_PciRootBus_ASPMSupport: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0xd817fc28_793e_4b9e_9970_469d8be63073), pid: 8 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_PciRootBus_ClockPowerManagementSupport: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0xd817fc28_793e_4b9e_9970_469d8be63073), pid: 9 };
+pub const DEVPKEY_PciRootBus_ClockPowerManagementSupport: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0xd817fc28_793e_4b9e_9970_469d8be63073), pid: 9 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_PciRootBus_CurrentSpeedAndMode: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0xd817fc28_793e_4b9e_9970_469d8be63073), pid: 2 };
+pub const DEVPKEY_PciRootBus_CurrentSpeedAndMode: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0xd817fc28_793e_4b9e_9970_469d8be63073), pid: 2 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_PciRootBus_DeviceIDMessagingCapable: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0xd817fc28_793e_4b9e_9970_469d8be63073), pid: 4 };
+pub const DEVPKEY_PciRootBus_DeviceIDMessagingCapable: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0xd817fc28_793e_4b9e_9970_469d8be63073), pid: 4 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_PciRootBus_ExtendedConfigAvailable: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0xd817fc28_793e_4b9e_9970_469d8be63073), pid: 6 };
+pub const DEVPKEY_PciRootBus_ExtendedConfigAvailable: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0xd817fc28_793e_4b9e_9970_469d8be63073), pid: 6 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_PciRootBus_ExtendedPCIConfigOpRegionSupport: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0xd817fc28_793e_4b9e_9970_469d8be63073), pid: 7 };
+pub const DEVPKEY_PciRootBus_ExtendedPCIConfigOpRegionSupport: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0xd817fc28_793e_4b9e_9970_469d8be63073), pid: 7 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_PciRootBus_MSISupport: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0xd817fc28_793e_4b9e_9970_469d8be63073), pid: 11 };
+pub const DEVPKEY_PciRootBus_MSISupport: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0xd817fc28_793e_4b9e_9970_469d8be63073), pid: 11 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_PciRootBus_NativePciExpressControl: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0xd817fc28_793e_4b9e_9970_469d8be63073), pid: 17 };
+pub const DEVPKEY_PciRootBus_NativePciExpressControl: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0xd817fc28_793e_4b9e_9970_469d8be63073), pid: 17 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_PciRootBus_PCIExpressAERControl: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0xd817fc28_793e_4b9e_9970_469d8be63073), pid: 15 };
+pub const DEVPKEY_PciRootBus_PCIExpressAERControl: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0xd817fc28_793e_4b9e_9970_469d8be63073), pid: 15 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_PciRootBus_PCIExpressCapabilityControl: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0xd817fc28_793e_4b9e_9970_469d8be63073), pid: 16 };
+pub const DEVPKEY_PciRootBus_PCIExpressCapabilityControl: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0xd817fc28_793e_4b9e_9970_469d8be63073), pid: 16 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_PciRootBus_PCIExpressNativeHotPlugControl: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0xd817fc28_793e_4b9e_9970_469d8be63073), pid: 12 };
+pub const DEVPKEY_PciRootBus_PCIExpressNativeHotPlugControl: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0xd817fc28_793e_4b9e_9970_469d8be63073), pid: 12 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_PciRootBus_PCIExpressNativePMEControl: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0xd817fc28_793e_4b9e_9970_469d8be63073), pid: 14 };
+pub const DEVPKEY_PciRootBus_PCIExpressNativePMEControl: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0xd817fc28_793e_4b9e_9970_469d8be63073), pid: 14 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_PciRootBus_PCISegmentGroupsSupport: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0xd817fc28_793e_4b9e_9970_469d8be63073), pid: 10 };
+pub const DEVPKEY_PciRootBus_PCISegmentGroupsSupport: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0xd817fc28_793e_4b9e_9970_469d8be63073), pid: 10 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_PciRootBus_SHPCNativeHotPlugControl: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0xd817fc28_793e_4b9e_9970_469d8be63073), pid: 13 };
+pub const DEVPKEY_PciRootBus_SHPCNativeHotPlugControl: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0xd817fc28_793e_4b9e_9970_469d8be63073), pid: 13 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_PciRootBus_SecondaryBusWidth: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0xd817fc28_793e_4b9e_9970_469d8be63073), pid: 5 };
+pub const DEVPKEY_PciRootBus_SecondaryBusWidth: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0xd817fc28_793e_4b9e_9970_469d8be63073), pid: 5 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_PciRootBus_SecondaryInterface: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0xd817fc28_793e_4b9e_9970_469d8be63073), pid: 1 };
+pub const DEVPKEY_PciRootBus_SecondaryInterface: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0xd817fc28_793e_4b9e_9970_469d8be63073), pid: 1 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_PciRootBus_SupportedSpeedsAndModes: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0xd817fc28_793e_4b9e_9970_469d8be63073), pid: 3 };
+pub const DEVPKEY_PciRootBus_SupportedSpeedsAndModes: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0xd817fc28_793e_4b9e_9970_469d8be63073), pid: 3 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_PciRootBus_SystemMsiSupport: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0xd817fc28_793e_4b9e_9970_469d8be63073), pid: 18 };
+pub const DEVPKEY_PciRootBus_SystemMsiSupport: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0xd817fc28_793e_4b9e_9970_469d8be63073), pid: 18 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_WiFiDirectServices_AdvertisementId: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0x31b37743_7c5e_4005_93e6_e953f92b82e9), pid: 5 };
+pub const DEVPKEY_WiFiDirectServices_AdvertisementId: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x31b37743_7c5e_4005_93e6_e953f92b82e9), pid: 5 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_WiFiDirectServices_RequestServiceInformation: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0x31b37743_7c5e_4005_93e6_e953f92b82e9), pid: 7 };
+pub const DEVPKEY_WiFiDirectServices_RequestServiceInformation: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x31b37743_7c5e_4005_93e6_e953f92b82e9), pid: 7 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_WiFiDirectServices_ServiceAddress: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0x31b37743_7c5e_4005_93e6_e953f92b82e9), pid: 2 };
+pub const DEVPKEY_WiFiDirectServices_ServiceAddress: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x31b37743_7c5e_4005_93e6_e953f92b82e9), pid: 2 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_WiFiDirectServices_ServiceConfigMethods: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0x31b37743_7c5e_4005_93e6_e953f92b82e9), pid: 6 };
+pub const DEVPKEY_WiFiDirectServices_ServiceConfigMethods: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x31b37743_7c5e_4005_93e6_e953f92b82e9), pid: 6 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_WiFiDirectServices_ServiceInformation: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0x31b37743_7c5e_4005_93e6_e953f92b82e9), pid: 4 };
+pub const DEVPKEY_WiFiDirectServices_ServiceInformation: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x31b37743_7c5e_4005_93e6_e953f92b82e9), pid: 4 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_WiFiDirectServices_ServiceName: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0x31b37743_7c5e_4005_93e6_e953f92b82e9), pid: 3 };
+pub const DEVPKEY_WiFiDirectServices_ServiceName: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x31b37743_7c5e_4005_93e6_e953f92b82e9), pid: 3 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_WiFiDirect_DeviceAddress: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 1 };
+pub const DEVPKEY_WiFiDirect_DeviceAddress: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 1 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_WiFiDirect_DeviceAddressCopy: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 13 };
+pub const DEVPKEY_WiFiDirect_DeviceAddressCopy: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 13 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_WiFiDirect_FoundWsbService: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 24 };
+pub const DEVPKEY_WiFiDirect_FoundWsbService: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 24 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_WiFiDirect_GroupId: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 4 };
+pub const DEVPKEY_WiFiDirect_GroupId: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 4 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_WiFiDirect_InformationElements: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 12 };
+pub const DEVPKEY_WiFiDirect_InformationElements: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 12 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_WiFiDirect_InterfaceAddress: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 2 };
+pub const DEVPKEY_WiFiDirect_InterfaceAddress: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 2 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_WiFiDirect_InterfaceGuid: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 3 };
+pub const DEVPKEY_WiFiDirect_InterfaceGuid: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 3 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_WiFiDirect_IsConnected: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 5 };
+pub const DEVPKEY_WiFiDirect_IsConnected: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 5 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_WiFiDirect_IsDMGCapable: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 22 };
+pub const DEVPKEY_WiFiDirect_IsDMGCapable: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 22 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_WiFiDirect_IsLegacyDevice: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 7 };
+pub const DEVPKEY_WiFiDirect_IsLegacyDevice: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 7 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_WiFiDirect_IsMiracastLCPSupported: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 9 };
+pub const DEVPKEY_WiFiDirect_IsMiracastLCPSupported: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 9 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_WiFiDirect_IsRecentlyAssociated: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 14 };
+pub const DEVPKEY_WiFiDirect_IsRecentlyAssociated: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 14 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_WiFiDirect_IsVisible: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 6 };
+pub const DEVPKEY_WiFiDirect_IsVisible: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 6 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_WiFiDirect_LinkQuality: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 28 };
+pub const DEVPKEY_WiFiDirect_LinkQuality: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 28 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_WiFiDirect_MiracastVersion: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 8 };
+pub const DEVPKEY_WiFiDirect_MiracastVersion: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 8 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_WiFiDirect_Miracast_SessionMgmtControlPort: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 31 };
+pub const DEVPKEY_WiFiDirect_Miracast_SessionMgmtControlPort: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 31 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_WiFiDirect_NoMiracastAutoProject: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 16 };
+pub const DEVPKEY_WiFiDirect_NoMiracastAutoProject: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 16 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_WiFiDirect_RtspTcpConnectionParametersSupported: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 32 };
+pub const DEVPKEY_WiFiDirect_RtspTcpConnectionParametersSupported: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 32 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_WiFiDirect_Service_Aeps: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 15 };
+pub const DEVPKEY_WiFiDirect_Service_Aeps: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 15 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_WiFiDirect_Services: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 10 };
+pub const DEVPKEY_WiFiDirect_Services: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 10 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_WiFiDirect_SupportedChannelList: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 11 };
+pub const DEVPKEY_WiFiDirect_SupportedChannelList: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 11 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_WiFiDirect_TransientAssociation: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 27 };
+pub const DEVPKEY_WiFiDirect_TransientAssociation: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 27 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_WiFi_InterfaceGuid: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0xef1167eb_cbfc_4341_a568_a7c91a68982c), pid: 2 };
+pub const DEVPKEY_WiFi_InterfaceGuid: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0xef1167eb_cbfc_4341_a568_a7c91a68982c), pid: 2 };
 pub const DISCOVERY_FILTER_BITMASK_ANY: u32 = 15u32;
 pub const DISCOVERY_FILTER_BITMASK_DEVICE: u32 = 1u32;
 pub const DISCOVERY_FILTER_BITMASK_GO: u32 = 2u32;
@@ -738,12 +738,12 @@ pub const DevProp_PciRootBus_SupportedSpeedsAndModes_Pci_X_133Mhz: DEVPROP_PCIRO
 pub const DevProp_PciRootBus_SupportedSpeedsAndModes_Pci_X_266Mhz: DEVPROP_PCIROOTBUS_SUPPORTEDSPEEDSANDMODES = 16u32;
 pub const DevProp_PciRootBus_SupportedSpeedsAndModes_Pci_X_533Mhz: DEVPROP_PCIROOTBUS_SUPPORTEDSPEEDSANDMODES = 32u32;
 pub const DevProp_PciRootBus_SupportedSpeedsAndModes_Pci_X_66Mhz: DEVPROP_PCIROOTBUS_SUPPORTEDSPEEDSANDMODES = 4u32;
-pub const GUID_AEPSERVICE_WIFIDIRECT_DEVICE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xcc29827c_9caf_4928_99a9_18f7c2381389);
-pub const GUID_DEVINTERFACE_ASP_INFRA_DEVICE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xff823995_7a72_4c80_8757_c67ee13d1a49);
-pub const GUID_DEVINTERFACE_WIFIDIRECT_DEVICE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x439b20af_8955_405b_99f0_a62af0c68d43);
-pub const IHV_INIT_FUNCTION_NAME: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("Dot11ExtIhvInitService");
-pub const IHV_INIT_VS_FUNCTION_NAME: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("Dot11ExtIhvInitVirtualStation");
-pub const IHV_VERSION_FUNCTION_NAME: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("Dot11ExtIhvGetVersionInfo");
+pub const GUID_AEPSERVICE_WIFIDIRECT_DEVICE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xcc29827c_9caf_4928_99a9_18f7c2381389);
+pub const GUID_DEVINTERFACE_ASP_INFRA_DEVICE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xff823995_7a72_4c80_8757_c67ee13d1a49);
+pub const GUID_DEVINTERFACE_WIFIDIRECT_DEVICE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x439b20af_8955_405b_99f0_a62af0c68d43);
+pub const IHV_INIT_FUNCTION_NAME: windows_sys::core::PCSTR = windows_sys::core::s!("Dot11ExtIhvInitService");
+pub const IHV_INIT_VS_FUNCTION_NAME: windows_sys::core::PCSTR = windows_sys::core::s!("Dot11ExtIhvInitVirtualStation");
+pub const IHV_VERSION_FUNCTION_NAME: windows_sys::core::PCSTR = windows_sys::core::s!("Dot11ExtIhvGetVersionInfo");
 pub const IndicationTypeLinkQuality: DOT11EXT_IHV_INDICATION_TYPE = 4i32;
 pub const IndicationTypeNicSpecificNotification: DOT11EXT_IHV_INDICATION_TYPE = 0i32;
 pub const IndicationTypePhyStateChange: DOT11EXT_IHV_INDICATION_TYPE = 3i32;
@@ -1567,19 +1567,19 @@ pub struct DOT11EXT_APIS {
     pub Dot11ExtProcessSecurityPacket: DOT11EXT_PROCESS_ONEX_PACKET,
 }
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
-impl ::core::marker::Copy for DOT11EXT_APIS {}
+impl Copy for DOT11EXT_APIS {}
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
-impl ::core::clone::Clone for DOT11EXT_APIS {
+impl Clone for DOT11EXT_APIS {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct DOT11EXT_IHV_CONNECTIVITY_PROFILE {
-    pub pszXmlFragmentIhvConnectivity: ::windows_sys::core::PWSTR,
+    pub pszXmlFragmentIhvConnectivity: windows_sys::core::PWSTR,
 }
-impl ::core::marker::Copy for DOT11EXT_IHV_CONNECTIVITY_PROFILE {}
-impl ::core::clone::Clone for DOT11EXT_IHV_CONNECTIVITY_PROFILE {
+impl Copy for DOT11EXT_IHV_CONNECTIVITY_PROFILE {}
+impl Clone for DOT11EXT_IHV_CONNECTIVITY_PROFILE {
     fn clone(&self) -> Self {
         *self
     }
@@ -1589,8 +1589,8 @@ pub struct DOT11EXT_IHV_DISCOVERY_PROFILE {
     pub IhvConnectivityProfile: DOT11EXT_IHV_CONNECTIVITY_PROFILE,
     pub IhvSecurityProfile: DOT11EXT_IHV_SECURITY_PROFILE,
 }
-impl ::core::marker::Copy for DOT11EXT_IHV_DISCOVERY_PROFILE {}
-impl ::core::clone::Clone for DOT11EXT_IHV_DISCOVERY_PROFILE {
+impl Copy for DOT11EXT_IHV_DISCOVERY_PROFILE {}
+impl Clone for DOT11EXT_IHV_DISCOVERY_PROFILE {
     fn clone(&self) -> Self {
         *self
     }
@@ -1600,8 +1600,8 @@ pub struct DOT11EXT_IHV_DISCOVERY_PROFILE_LIST {
     pub dwCount: u32,
     pub pIhvDiscoveryProfiles: *mut DOT11EXT_IHV_DISCOVERY_PROFILE,
 }
-impl ::core::marker::Copy for DOT11EXT_IHV_DISCOVERY_PROFILE_LIST {}
-impl ::core::clone::Clone for DOT11EXT_IHV_DISCOVERY_PROFILE_LIST {
+impl Copy for DOT11EXT_IHV_DISCOVERY_PROFILE_LIST {}
+impl Clone for DOT11EXT_IHV_DISCOVERY_PROFILE_LIST {
     fn clone(&self) -> Self {
         *self
     }
@@ -1630,9 +1630,9 @@ pub struct DOT11EXT_IHV_HANDLERS {
     pub Dot11ExtIhvControl: DOT11EXTIHV_CONTROL,
 }
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Security_ExtensibleAuthenticationProtocol", feature = "Win32_System_RemoteDesktop"))]
-impl ::core::marker::Copy for DOT11EXT_IHV_HANDLERS {}
+impl Copy for DOT11EXT_IHV_HANDLERS {}
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Security_ExtensibleAuthenticationProtocol", feature = "Win32_System_RemoteDesktop"))]
-impl ::core::clone::Clone for DOT11EXT_IHV_HANDLERS {
+impl Clone for DOT11EXT_IHV_HANDLERS {
     fn clone(&self) -> Self {
         *self
     }
@@ -1643,12 +1643,12 @@ pub struct DOT11EXT_IHV_PARAMS {
     pub dot11ExtIhvProfileParams: DOT11EXT_IHV_PROFILE_PARAMS,
     pub wstrProfileName: [u16; 256],
     pub dwProfileTypeFlags: u32,
-    pub interfaceGuid: ::windows_sys::core::GUID,
+    pub interfaceGuid: windows_sys::core::GUID,
 }
 #[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
-impl ::core::marker::Copy for DOT11EXT_IHV_PARAMS {}
+impl Copy for DOT11EXT_IHV_PARAMS {}
 #[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
-impl ::core::clone::Clone for DOT11EXT_IHV_PARAMS {
+impl Clone for DOT11EXT_IHV_PARAMS {
     fn clone(&self) -> Self {
         *self
     }
@@ -1661,20 +1661,20 @@ pub struct DOT11EXT_IHV_PROFILE_PARAMS {
     pub pMSSecuritySettings: *mut DOT11_MSSECURITY_SETTINGS,
 }
 #[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
-impl ::core::marker::Copy for DOT11EXT_IHV_PROFILE_PARAMS {}
+impl Copy for DOT11EXT_IHV_PROFILE_PARAMS {}
 #[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
-impl ::core::clone::Clone for DOT11EXT_IHV_PROFILE_PARAMS {
+impl Clone for DOT11EXT_IHV_PROFILE_PARAMS {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct DOT11EXT_IHV_SECURITY_PROFILE {
-    pub pszXmlFragmentIhvSecurity: ::windows_sys::core::PWSTR,
+    pub pszXmlFragmentIhvSecurity: windows_sys::core::PWSTR,
     pub bUseMSOnex: super::super::Foundation::BOOL,
 }
-impl ::core::marker::Copy for DOT11EXT_IHV_SECURITY_PROFILE {}
-impl ::core::clone::Clone for DOT11EXT_IHV_SECURITY_PROFILE {
+impl Copy for DOT11EXT_IHV_SECURITY_PROFILE {}
+impl Clone for DOT11EXT_IHV_SECURITY_PROFILE {
     fn clone(&self) -> Self {
         *self
     }
@@ -1684,8 +1684,8 @@ pub struct DOT11EXT_IHV_SSID_LIST {
     pub ulCount: u32,
     pub SSIDs: [DOT11_SSID; 1],
 }
-impl ::core::marker::Copy for DOT11EXT_IHV_SSID_LIST {}
-impl ::core::clone::Clone for DOT11EXT_IHV_SSID_LIST {
+impl Copy for DOT11EXT_IHV_SSID_LIST {}
+impl Clone for DOT11EXT_IHV_SSID_LIST {
     fn clone(&self) -> Self {
         *self
     }
@@ -1693,13 +1693,13 @@ impl ::core::clone::Clone for DOT11EXT_IHV_SSID_LIST {
 #[repr(C)]
 pub struct DOT11EXT_IHV_UI_REQUEST {
     pub dwSessionId: u32,
-    pub guidUIRequest: ::windows_sys::core::GUID,
-    pub UIPageClsid: ::windows_sys::core::GUID,
+    pub guidUIRequest: windows_sys::core::GUID,
+    pub UIPageClsid: windows_sys::core::GUID,
     pub dwByteCount: u32,
     pub pvUIRequest: *mut u8,
 }
-impl ::core::marker::Copy for DOT11EXT_IHV_UI_REQUEST {}
-impl ::core::clone::Clone for DOT11EXT_IHV_UI_REQUEST {
+impl Copy for DOT11EXT_IHV_UI_REQUEST {}
+impl Clone for DOT11EXT_IHV_UI_REQUEST {
     fn clone(&self) -> Self {
         *self
     }
@@ -1711,8 +1711,8 @@ pub struct DOT11EXT_VIRTUAL_STATION_APIS {
     pub Dot11ExtQueryVirtualStationProperties: DOT11EXT_QUERY_VIRTUAL_STATION_PROPERTIES,
     pub Dot11ExtSetVirtualStationAPProperties: DOT11EXT_SET_VIRTUAL_STATION_AP_PROPERTIES,
 }
-impl ::core::marker::Copy for DOT11EXT_VIRTUAL_STATION_APIS {}
-impl ::core::clone::Clone for DOT11EXT_VIRTUAL_STATION_APIS {
+impl Copy for DOT11EXT_VIRTUAL_STATION_APIS {}
+impl Clone for DOT11EXT_VIRTUAL_STATION_APIS {
     fn clone(&self) -> Self {
         *self
     }
@@ -1726,8 +1726,8 @@ pub struct DOT11EXT_VIRTUAL_STATION_AP_PROPERTY {
     pub dwKeyLength: u32,
     pub ucKeyData: [u8; 64],
 }
-impl ::core::marker::Copy for DOT11EXT_VIRTUAL_STATION_AP_PROPERTY {}
-impl ::core::clone::Clone for DOT11EXT_VIRTUAL_STATION_AP_PROPERTY {
+impl Copy for DOT11EXT_VIRTUAL_STATION_AP_PROPERTY {}
+impl Clone for DOT11EXT_VIRTUAL_STATION_AP_PROPERTY {
     fn clone(&self) -> Self {
         *self
     }
@@ -1740,20 +1740,20 @@ pub struct DOT11_ACCESSNETWORKOPTIONS {
     pub ESR: u8,
     pub UESA: u8,
 }
-impl ::core::marker::Copy for DOT11_ACCESSNETWORKOPTIONS {}
-impl ::core::clone::Clone for DOT11_ACCESSNETWORKOPTIONS {
+impl Copy for DOT11_ACCESSNETWORKOPTIONS {}
+impl Clone for DOT11_ACCESSNETWORKOPTIONS {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct DOT11_ADAPTER {
-    pub gAdapterId: ::windows_sys::core::GUID,
-    pub pszDescription: ::windows_sys::core::PWSTR,
+    pub gAdapterId: windows_sys::core::GUID,
+    pub pszDescription: windows_sys::core::PWSTR,
     pub Dot11CurrentOpMode: DOT11_CURRENT_OPERATION_MODE,
 }
-impl ::core::marker::Copy for DOT11_ADAPTER {}
-impl ::core::clone::Clone for DOT11_ADAPTER {
+impl Copy for DOT11_ADAPTER {}
+impl Clone for DOT11_ADAPTER {
     fn clone(&self) -> Self {
         *self
     }
@@ -1768,9 +1768,9 @@ pub struct DOT11_ADDITIONAL_IE {
     pub uResponseIEsLength: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for DOT11_ADDITIONAL_IE {}
+impl Copy for DOT11_ADDITIONAL_IE {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for DOT11_ADDITIONAL_IE {
+impl Clone for DOT11_ADDITIONAL_IE {
     fn clone(&self) -> Self {
         *self
     }
@@ -1784,9 +1784,9 @@ pub struct DOT11_ANQP_QUERY_COMPLETE_PARAMETERS {
     pub uResponseLength: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for DOT11_ANQP_QUERY_COMPLETE_PARAMETERS {}
+impl Copy for DOT11_ANQP_QUERY_COMPLETE_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for DOT11_ANQP_QUERY_COMPLETE_PARAMETERS {
+impl Clone for DOT11_ANQP_QUERY_COMPLETE_PARAMETERS {
     fn clone(&self) -> Self {
         *self
     }
@@ -1798,8 +1798,8 @@ pub struct DOT11_AP_JOIN_REQUEST {
     pub uChCenterFrequency: u32,
     pub dot11BSSDescription: DOT11_BSS_DESCRIPTION,
 }
-impl ::core::marker::Copy for DOT11_AP_JOIN_REQUEST {}
-impl ::core::clone::Clone for DOT11_AP_JOIN_REQUEST {
+impl Copy for DOT11_AP_JOIN_REQUEST {}
+impl Clone for DOT11_AP_JOIN_REQUEST {
     fn clone(&self) -> Self {
         *self
     }
@@ -1835,9 +1835,9 @@ pub struct DOT11_ASSOCIATION_COMPLETION_PARAMETERS {
     pub uAssocComebackTime: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for DOT11_ASSOCIATION_COMPLETION_PARAMETERS {}
+impl Copy for DOT11_ASSOCIATION_COMPLETION_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for DOT11_ASSOCIATION_COMPLETION_PARAMETERS {
+impl Clone for DOT11_ASSOCIATION_COMPLETION_PARAMETERS {
     fn clone(&self) -> Self {
         *self
     }
@@ -1858,8 +1858,8 @@ pub struct DOT11_ASSOCIATION_INFO_EX {
     pub ullNumOfRxPacketSuccesses: u64,
     pub ullNumOfRxPacketFailures: u64,
 }
-impl ::core::marker::Copy for DOT11_ASSOCIATION_INFO_EX {}
-impl ::core::clone::Clone for DOT11_ASSOCIATION_INFO_EX {
+impl Copy for DOT11_ASSOCIATION_INFO_EX {}
+impl Clone for DOT11_ASSOCIATION_INFO_EX {
     fn clone(&self) -> Self {
         *self
     }
@@ -1873,9 +1873,9 @@ pub struct DOT11_ASSOCIATION_INFO_LIST {
     pub dot11AssocInfo: [DOT11_ASSOCIATION_INFO_EX; 1],
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for DOT11_ASSOCIATION_INFO_LIST {}
+impl Copy for DOT11_ASSOCIATION_INFO_LIST {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for DOT11_ASSOCIATION_INFO_LIST {
+impl Clone for DOT11_ASSOCIATION_INFO_LIST {
     fn clone(&self) -> Self {
         *self
     }
@@ -1889,9 +1889,9 @@ pub struct DOT11_ASSOCIATION_PARAMS {
     pub uAssocRequestIEsLength: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for DOT11_ASSOCIATION_PARAMS {}
+impl Copy for DOT11_ASSOCIATION_PARAMS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for DOT11_ASSOCIATION_PARAMS {
+impl Clone for DOT11_ASSOCIATION_PARAMS {
     fn clone(&self) -> Self {
         *self
     }
@@ -1906,9 +1906,9 @@ pub struct DOT11_ASSOCIATION_START_PARAMETERS {
     pub uIHVDataSize: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for DOT11_ASSOCIATION_START_PARAMETERS {}
+impl Copy for DOT11_ASSOCIATION_START_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for DOT11_ASSOCIATION_START_PARAMETERS {
+impl Clone for DOT11_ASSOCIATION_START_PARAMETERS {
     fn clone(&self) -> Self {
         *self
     }
@@ -1922,9 +1922,9 @@ pub struct DOT11_AUTH_ALGORITHM_LIST {
     pub AlgorithmIds: [DOT11_AUTH_ALGORITHM; 1],
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for DOT11_AUTH_ALGORITHM_LIST {}
+impl Copy for DOT11_AUTH_ALGORITHM_LIST {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for DOT11_AUTH_ALGORITHM_LIST {
+impl Clone for DOT11_AUTH_ALGORITHM_LIST {
     fn clone(&self) -> Self {
         *self
     }
@@ -1934,8 +1934,8 @@ pub struct DOT11_AUTH_CIPHER_PAIR {
     pub AuthAlgoId: DOT11_AUTH_ALGORITHM,
     pub CipherAlgoId: DOT11_CIPHER_ALGORITHM,
 }
-impl ::core::marker::Copy for DOT11_AUTH_CIPHER_PAIR {}
-impl ::core::clone::Clone for DOT11_AUTH_CIPHER_PAIR {
+impl Copy for DOT11_AUTH_CIPHER_PAIR {}
+impl Clone for DOT11_AUTH_CIPHER_PAIR {
     fn clone(&self) -> Self {
         *self
     }
@@ -1949,9 +1949,9 @@ pub struct DOT11_AUTH_CIPHER_PAIR_LIST {
     pub AuthCipherPairs: [DOT11_AUTH_CIPHER_PAIR; 1],
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for DOT11_AUTH_CIPHER_PAIR_LIST {}
+impl Copy for DOT11_AUTH_CIPHER_PAIR_LIST {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for DOT11_AUTH_CIPHER_PAIR_LIST {
+impl Clone for DOT11_AUTH_CIPHER_PAIR_LIST {
     fn clone(&self) -> Self {
         *self
     }
@@ -1965,9 +1965,9 @@ pub struct DOT11_AVAILABLE_CHANNEL_LIST {
     pub uChannelNumber: [u32; 1],
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for DOT11_AVAILABLE_CHANNEL_LIST {}
+impl Copy for DOT11_AVAILABLE_CHANNEL_LIST {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for DOT11_AVAILABLE_CHANNEL_LIST {
+impl Clone for DOT11_AVAILABLE_CHANNEL_LIST {
     fn clone(&self) -> Self {
         *self
     }
@@ -1981,9 +1981,9 @@ pub struct DOT11_AVAILABLE_FREQUENCY_LIST {
     pub uFrequencyValue: [u32; 1],
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for DOT11_AVAILABLE_FREQUENCY_LIST {}
+impl Copy for DOT11_AVAILABLE_FREQUENCY_LIST {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for DOT11_AVAILABLE_FREQUENCY_LIST {
+impl Clone for DOT11_AVAILABLE_FREQUENCY_LIST {
     fn clone(&self) -> Self {
         *self
     }
@@ -1993,8 +1993,8 @@ pub struct DOT11_BSSID_CANDIDATE {
     pub BSSID: [u8; 6],
     pub uFlags: u32,
 }
-impl ::core::marker::Copy for DOT11_BSSID_CANDIDATE {}
-impl ::core::clone::Clone for DOT11_BSSID_CANDIDATE {
+impl Copy for DOT11_BSSID_CANDIDATE {}
+impl Clone for DOT11_BSSID_CANDIDATE {
     fn clone(&self) -> Self {
         *self
     }
@@ -2008,9 +2008,9 @@ pub struct DOT11_BSSID_LIST {
     pub BSSIDs: [u8; 6],
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for DOT11_BSSID_LIST {}
+impl Copy for DOT11_BSSID_LIST {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for DOT11_BSSID_LIST {
+impl Clone for DOT11_BSSID_LIST {
     fn clone(&self) -> Self {
         *self
     }
@@ -2026,8 +2026,8 @@ pub struct DOT11_BSS_DESCRIPTION {
     pub uBufferLength: u32,
     pub ucBuffer: [u8; 1],
 }
-impl ::core::marker::Copy for DOT11_BSS_DESCRIPTION {}
-impl ::core::clone::Clone for DOT11_BSS_DESCRIPTION {
+impl Copy for DOT11_BSS_DESCRIPTION {}
+impl Clone for DOT11_BSS_DESCRIPTION {
     fn clone(&self) -> Self {
         *self
     }
@@ -2048,8 +2048,8 @@ pub struct DOT11_BSS_ENTRY {
     pub uBufferLength: u32,
     pub ucBuffer: [u8; 1],
 }
-impl ::core::marker::Copy for DOT11_BSS_ENTRY {}
-impl ::core::clone::Clone for DOT11_BSS_ENTRY {
+impl Copy for DOT11_BSS_ENTRY {}
+impl Clone for DOT11_BSS_ENTRY {
     fn clone(&self) -> Self {
         *self
     }
@@ -2059,8 +2059,8 @@ pub union DOT11_BSS_ENTRY_PHY_SPECIFIC_INFO {
     pub uChCenterFrequency: u32,
     pub FHSS: DOT11_BSS_ENTRY_PHY_SPECIFIC_INFO_0,
 }
-impl ::core::marker::Copy for DOT11_BSS_ENTRY_PHY_SPECIFIC_INFO {}
-impl ::core::clone::Clone for DOT11_BSS_ENTRY_PHY_SPECIFIC_INFO {
+impl Copy for DOT11_BSS_ENTRY_PHY_SPECIFIC_INFO {}
+impl Clone for DOT11_BSS_ENTRY_PHY_SPECIFIC_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -2071,8 +2071,8 @@ pub struct DOT11_BSS_ENTRY_PHY_SPECIFIC_INFO_0 {
     pub uHopSet: u32,
     pub uDwellTime: u32,
 }
-impl ::core::marker::Copy for DOT11_BSS_ENTRY_PHY_SPECIFIC_INFO_0 {}
-impl ::core::clone::Clone for DOT11_BSS_ENTRY_PHY_SPECIFIC_INFO_0 {
+impl Copy for DOT11_BSS_ENTRY_PHY_SPECIFIC_INFO_0 {}
+impl Clone for DOT11_BSS_ENTRY_PHY_SPECIFIC_INFO_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -2082,8 +2082,8 @@ pub struct DOT11_BSS_LIST {
     pub uNumOfBytes: u32,
     pub pucBuffer: *mut u8,
 }
-impl ::core::marker::Copy for DOT11_BSS_LIST {}
-impl ::core::clone::Clone for DOT11_BSS_LIST {
+impl Copy for DOT11_BSS_LIST {}
+impl Clone for DOT11_BSS_LIST {
     fn clone(&self) -> Self {
         *self
     }
@@ -2097,9 +2097,9 @@ pub struct DOT11_BYTE_ARRAY {
     pub ucBuffer: [u8; 1],
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for DOT11_BYTE_ARRAY {}
+impl Copy for DOT11_BYTE_ARRAY {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for DOT11_BYTE_ARRAY {
+impl Clone for DOT11_BYTE_ARRAY {
     fn clone(&self) -> Self {
         *self
     }
@@ -2111,9 +2111,9 @@ pub struct DOT11_CAN_SUSTAIN_AP_PARAMETERS {
     pub ulReason: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for DOT11_CAN_SUSTAIN_AP_PARAMETERS {}
+impl Copy for DOT11_CAN_SUSTAIN_AP_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for DOT11_CAN_SUSTAIN_AP_PARAMETERS {
+impl Clone for DOT11_CAN_SUSTAIN_AP_PARAMETERS {
     fn clone(&self) -> Self {
         *self
     }
@@ -2123,8 +2123,8 @@ pub struct DOT11_CHANNEL_HINT {
     pub Dot11PhyType: DOT11_PHY_TYPE,
     pub uChannelNumber: u32,
 }
-impl ::core::marker::Copy for DOT11_CHANNEL_HINT {}
-impl ::core::clone::Clone for DOT11_CHANNEL_HINT {
+impl Copy for DOT11_CHANNEL_HINT {}
+impl Clone for DOT11_CHANNEL_HINT {
     fn clone(&self) -> Self {
         *self
     }
@@ -2138,9 +2138,9 @@ pub struct DOT11_CIPHER_ALGORITHM_LIST {
     pub AlgorithmIds: [DOT11_CIPHER_ALGORITHM; 1],
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for DOT11_CIPHER_ALGORITHM_LIST {}
+impl Copy for DOT11_CIPHER_ALGORITHM_LIST {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for DOT11_CIPHER_ALGORITHM_LIST {
+impl Clone for DOT11_CIPHER_ALGORITHM_LIST {
     fn clone(&self) -> Self {
         *self
     }
@@ -2158,9 +2158,9 @@ pub struct DOT11_CIPHER_DEFAULT_KEY_VALUE {
     pub ucKey: [u8; 1],
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for DOT11_CIPHER_DEFAULT_KEY_VALUE {}
+impl Copy for DOT11_CIPHER_DEFAULT_KEY_VALUE {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for DOT11_CIPHER_DEFAULT_KEY_VALUE {
+impl Clone for DOT11_CIPHER_DEFAULT_KEY_VALUE {
     fn clone(&self) -> Self {
         *self
     }
@@ -2175,8 +2175,8 @@ pub struct DOT11_CIPHER_KEY_MAPPING_KEY_VALUE {
     pub usKeyLength: u16,
     pub ucKey: [u8; 1],
 }
-impl ::core::marker::Copy for DOT11_CIPHER_KEY_MAPPING_KEY_VALUE {}
-impl ::core::clone::Clone for DOT11_CIPHER_KEY_MAPPING_KEY_VALUE {
+impl Copy for DOT11_CIPHER_KEY_MAPPING_KEY_VALUE {}
+impl Clone for DOT11_CIPHER_KEY_MAPPING_KEY_VALUE {
     fn clone(&self) -> Self {
         *self
     }
@@ -2188,9 +2188,9 @@ pub struct DOT11_CONNECTION_COMPLETION_PARAMETERS {
     pub uStatus: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for DOT11_CONNECTION_COMPLETION_PARAMETERS {}
+impl Copy for DOT11_CONNECTION_COMPLETION_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for DOT11_CONNECTION_COMPLETION_PARAMETERS {
+impl Clone for DOT11_CONNECTION_COMPLETION_PARAMETERS {
     fn clone(&self) -> Self {
         *self
     }
@@ -2204,9 +2204,9 @@ pub struct DOT11_CONNECTION_START_PARAMETERS {
     pub AdhocSSID: DOT11_SSID,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for DOT11_CONNECTION_START_PARAMETERS {}
+impl Copy for DOT11_CONNECTION_START_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for DOT11_CONNECTION_START_PARAMETERS {
+impl Clone for DOT11_CONNECTION_START_PARAMETERS {
     fn clone(&self) -> Self {
         *self
     }
@@ -2227,8 +2227,8 @@ pub struct DOT11_COUNTERS_ENTRY {
     pub uFCSErrorCount: u32,
     pub uTransmittedFrameCount: u32,
 }
-impl ::core::marker::Copy for DOT11_COUNTERS_ENTRY {}
-impl ::core::clone::Clone for DOT11_COUNTERS_ENTRY {
+impl Copy for DOT11_COUNTERS_ENTRY {}
+impl Clone for DOT11_COUNTERS_ENTRY {
     fn clone(&self) -> Self {
         *self
     }
@@ -2242,9 +2242,9 @@ pub struct DOT11_COUNTRY_OR_REGION_STRING_LIST {
     pub CountryOrRegionStrings: [u8; 3],
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for DOT11_COUNTRY_OR_REGION_STRING_LIST {}
+impl Copy for DOT11_COUNTRY_OR_REGION_STRING_LIST {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for DOT11_COUNTRY_OR_REGION_STRING_LIST {
+impl Clone for DOT11_COUNTRY_OR_REGION_STRING_LIST {
     fn clone(&self) -> Self {
         *self
     }
@@ -2254,8 +2254,8 @@ pub struct DOT11_CURRENT_OFFLOAD_CAPABILITY {
     pub uReserved: u32,
     pub uFlags: u32,
 }
-impl ::core::marker::Copy for DOT11_CURRENT_OFFLOAD_CAPABILITY {}
-impl ::core::clone::Clone for DOT11_CURRENT_OFFLOAD_CAPABILITY {
+impl Copy for DOT11_CURRENT_OFFLOAD_CAPABILITY {}
+impl Clone for DOT11_CURRENT_OFFLOAD_CAPABILITY {
     fn clone(&self) -> Self {
         *self
     }
@@ -2265,8 +2265,8 @@ pub struct DOT11_CURRENT_OPERATION_MODE {
     pub uReserved: u32,
     pub uCurrentOpMode: u32,
 }
-impl ::core::marker::Copy for DOT11_CURRENT_OPERATION_MODE {}
-impl ::core::clone::Clone for DOT11_CURRENT_OPERATION_MODE {
+impl Copy for DOT11_CURRENT_OPERATION_MODE {}
+impl Clone for DOT11_CURRENT_OPERATION_MODE {
     fn clone(&self) -> Self {
         *self
     }
@@ -2279,8 +2279,8 @@ pub struct DOT11_CURRENT_OPTIONAL_CAPABILITY {
     pub bDot11PCFMPDUTransferToPC: super::super::Foundation::BOOLEAN,
     pub bStrictlyOrderedServiceClass: super::super::Foundation::BOOLEAN,
 }
-impl ::core::marker::Copy for DOT11_CURRENT_OPTIONAL_CAPABILITY {}
-impl ::core::clone::Clone for DOT11_CURRENT_OPTIONAL_CAPABILITY {
+impl Copy for DOT11_CURRENT_OPTIONAL_CAPABILITY {}
+impl Clone for DOT11_CURRENT_OPTIONAL_CAPABILITY {
     fn clone(&self) -> Self {
         *self
     }
@@ -2291,8 +2291,8 @@ pub struct DOT11_DATA_RATE_MAPPING_ENTRY {
     pub ucDataRateFlag: u8,
     pub usDataRateValue: u16,
 }
-impl ::core::marker::Copy for DOT11_DATA_RATE_MAPPING_ENTRY {}
-impl ::core::clone::Clone for DOT11_DATA_RATE_MAPPING_ENTRY {
+impl Copy for DOT11_DATA_RATE_MAPPING_ENTRY {}
+impl Clone for DOT11_DATA_RATE_MAPPING_ENTRY {
     fn clone(&self) -> Self {
         *self
     }
@@ -2305,9 +2305,9 @@ pub struct DOT11_DATA_RATE_MAPPING_TABLE {
     pub DataRateMappingEntries: [DOT11_DATA_RATE_MAPPING_ENTRY; 126],
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for DOT11_DATA_RATE_MAPPING_TABLE {}
+impl Copy for DOT11_DATA_RATE_MAPPING_TABLE {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for DOT11_DATA_RATE_MAPPING_TABLE {
+impl Clone for DOT11_DATA_RATE_MAPPING_TABLE {
     fn clone(&self) -> Self {
         *self
     }
@@ -2329,8 +2329,8 @@ pub struct DOT11_DEFAULT_WEP_OFFLOAD {
     pub usKeyLength: u16,
     pub ucKey: [u8; 1],
 }
-impl ::core::marker::Copy for DOT11_DEFAULT_WEP_OFFLOAD {}
-impl ::core::clone::Clone for DOT11_DEFAULT_WEP_OFFLOAD {
+impl Copy for DOT11_DEFAULT_WEP_OFFLOAD {}
+impl Clone for DOT11_DEFAULT_WEP_OFFLOAD {
     fn clone(&self) -> Self {
         *self
     }
@@ -2344,8 +2344,8 @@ pub struct DOT11_DEFAULT_WEP_UPLOAD {
     pub dot11IV48Counters: [DOT11_IV48_COUNTER; 16],
     pub usDot11RWBitMaps: [u16; 16],
 }
-impl ::core::marker::Copy for DOT11_DEFAULT_WEP_UPLOAD {}
-impl ::core::clone::Clone for DOT11_DEFAULT_WEP_UPLOAD {
+impl Copy for DOT11_DEFAULT_WEP_UPLOAD {}
+impl Clone for DOT11_DEFAULT_WEP_UPLOAD {
     fn clone(&self) -> Self {
         *self
     }
@@ -2358,9 +2358,9 @@ pub struct DOT11_DISASSOCIATE_PEER_REQUEST {
     pub usReason: u16,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for DOT11_DISASSOCIATE_PEER_REQUEST {}
+impl Copy for DOT11_DISASSOCIATE_PEER_REQUEST {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for DOT11_DISASSOCIATE_PEER_REQUEST {
+impl Clone for DOT11_DISASSOCIATE_PEER_REQUEST {
     fn clone(&self) -> Self {
         *self
     }
@@ -2375,9 +2375,9 @@ pub struct DOT11_DISASSOCIATION_PARAMETERS {
     pub uIHVDataSize: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for DOT11_DISASSOCIATION_PARAMETERS {}
+impl Copy for DOT11_DISASSOCIATION_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for DOT11_DISASSOCIATION_PARAMETERS {
+impl Clone for DOT11_DISASSOCIATION_PARAMETERS {
     fn clone(&self) -> Self {
         *self
     }
@@ -2387,8 +2387,8 @@ pub struct DOT11_DIVERSITY_SELECTION_RX {
     pub uAntennaListIndex: u32,
     pub bDiversitySelectionRX: super::super::Foundation::BOOLEAN,
 }
-impl ::core::marker::Copy for DOT11_DIVERSITY_SELECTION_RX {}
-impl ::core::clone::Clone for DOT11_DIVERSITY_SELECTION_RX {
+impl Copy for DOT11_DIVERSITY_SELECTION_RX {}
+impl Clone for DOT11_DIVERSITY_SELECTION_RX {
     fn clone(&self) -> Self {
         *self
     }
@@ -2399,8 +2399,8 @@ pub struct DOT11_DIVERSITY_SELECTION_RX_LIST {
     pub uTotalNumOfEntries: u32,
     pub dot11DiversitySelectionRx: [DOT11_DIVERSITY_SELECTION_RX; 1],
 }
-impl ::core::marker::Copy for DOT11_DIVERSITY_SELECTION_RX_LIST {}
-impl ::core::clone::Clone for DOT11_DIVERSITY_SELECTION_RX_LIST {
+impl Copy for DOT11_DIVERSITY_SELECTION_RX_LIST {}
+impl Clone for DOT11_DIVERSITY_SELECTION_RX_LIST {
     fn clone(&self) -> Self {
         *self
     }
@@ -2412,9 +2412,9 @@ pub struct DOT11_EAP_RESULT {
     pub pAttribArray: *mut super::super::Security::ExtensibleAuthenticationProtocol::EAP_ATTRIBUTES,
 }
 #[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
-impl ::core::marker::Copy for DOT11_EAP_RESULT {}
+impl Copy for DOT11_EAP_RESULT {}
 #[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
-impl ::core::clone::Clone for DOT11_EAP_RESULT {
+impl Clone for DOT11_EAP_RESULT {
     fn clone(&self) -> Self {
         *self
     }
@@ -2424,8 +2424,8 @@ pub struct DOT11_ENCAP_ENTRY {
     pub usEtherType: u16,
     pub usEncapType: u16,
 }
-impl ::core::marker::Copy for DOT11_ENCAP_ENTRY {}
-impl ::core::clone::Clone for DOT11_ENCAP_ENTRY {
+impl Copy for DOT11_ENCAP_ENTRY {}
+impl Clone for DOT11_ENCAP_ENTRY {
     fn clone(&self) -> Self {
         *self
     }
@@ -2437,8 +2437,8 @@ pub struct DOT11_ERP_PHY_ATTRIBUTES {
     pub bDSSSOFDMOptionImplemented: super::super::Foundation::BOOLEAN,
     pub bShortSlotTimeOptionImplemented: super::super::Foundation::BOOLEAN,
 }
-impl ::core::marker::Copy for DOT11_ERP_PHY_ATTRIBUTES {}
-impl ::core::clone::Clone for DOT11_ERP_PHY_ATTRIBUTES {
+impl Copy for DOT11_ERP_PHY_ATTRIBUTES {}
+impl Clone for DOT11_ERP_PHY_ATTRIBUTES {
     fn clone(&self) -> Self {
         *self
     }
@@ -2462,9 +2462,9 @@ pub struct DOT11_EXTAP_ATTRIBUTES {
     pub pInfraSupportedMcastAlgoPairs: *mut DOT11_AUTH_CIPHER_PAIR,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for DOT11_EXTAP_ATTRIBUTES {}
+impl Copy for DOT11_EXTAP_ATTRIBUTES {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for DOT11_EXTAP_ATTRIBUTES {
+impl Clone for DOT11_EXTAP_ATTRIBUTES {
     fn clone(&self) -> Self {
         *self
     }
@@ -2508,9 +2508,9 @@ pub struct DOT11_EXTSTA_ATTRIBUTES {
     pub bHESSIDConnectionSupported: super::super::Foundation::BOOLEAN,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for DOT11_EXTSTA_ATTRIBUTES {}
+impl Copy for DOT11_EXTSTA_ATTRIBUTES {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for DOT11_EXTSTA_ATTRIBUTES {
+impl Clone for DOT11_EXTSTA_ATTRIBUTES {
     fn clone(&self) -> Self {
         *self
     }
@@ -2531,9 +2531,9 @@ pub struct DOT11_EXTSTA_CAPABILITY {
     pub uMaxNumPerSTADefaultKeyTables: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for DOT11_EXTSTA_CAPABILITY {}
+impl Copy for DOT11_EXTSTA_CAPABILITY {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for DOT11_EXTSTA_CAPABILITY {
+impl Clone for DOT11_EXTSTA_CAPABILITY {
     fn clone(&self) -> Self {
         *self
     }
@@ -2549,13 +2549,13 @@ pub struct DOT11_EXTSTA_RECV_CONTEXT {
     pub lRSSI: i32,
     pub ucDataRate: u8,
     pub uSizeMediaSpecificInfo: u32,
-    pub pvMediaSpecificInfo: *mut ::core::ffi::c_void,
+    pub pvMediaSpecificInfo: *mut core::ffi::c_void,
     pub ullTimestamp: u64,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for DOT11_EXTSTA_RECV_CONTEXT {}
+impl Copy for DOT11_EXTSTA_RECV_CONTEXT {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for DOT11_EXTSTA_RECV_CONTEXT {
+impl Clone for DOT11_EXTSTA_RECV_CONTEXT {
     fn clone(&self) -> Self {
         *self
     }
@@ -2567,13 +2567,13 @@ pub struct DOT11_EXTSTA_SEND_CONTEXT {
     pub usExemptionActionType: u16,
     pub uPhyId: u32,
     pub uDelayedSleepValue: u32,
-    pub pvMediaSpecificInfo: *mut ::core::ffi::c_void,
+    pub pvMediaSpecificInfo: *mut core::ffi::c_void,
     pub uSendFlags: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for DOT11_EXTSTA_SEND_CONTEXT {}
+impl Copy for DOT11_EXTSTA_SEND_CONTEXT {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for DOT11_EXTSTA_SEND_CONTEXT {
+impl Clone for DOT11_EXTSTA_SEND_CONTEXT {
     fn clone(&self) -> Self {
         *self
     }
@@ -2583,8 +2583,8 @@ pub struct DOT11_FRAGMENT_DESCRIPTOR {
     pub uOffset: u32,
     pub uLength: u32,
 }
-impl ::core::marker::Copy for DOT11_FRAGMENT_DESCRIPTOR {}
-impl ::core::clone::Clone for DOT11_FRAGMENT_DESCRIPTOR {
+impl Copy for DOT11_FRAGMENT_DESCRIPTOR {}
+impl Clone for DOT11_FRAGMENT_DESCRIPTOR {
     fn clone(&self) -> Self {
         *self
     }
@@ -2600,9 +2600,9 @@ pub struct DOT11_GO_NEGOTIATION_CONFIRMATION_SEND_COMPLETE_PARAMETERS {
     pub uIEsLength: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for DOT11_GO_NEGOTIATION_CONFIRMATION_SEND_COMPLETE_PARAMETERS {}
+impl Copy for DOT11_GO_NEGOTIATION_CONFIRMATION_SEND_COMPLETE_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for DOT11_GO_NEGOTIATION_CONFIRMATION_SEND_COMPLETE_PARAMETERS {
+impl Clone for DOT11_GO_NEGOTIATION_CONFIRMATION_SEND_COMPLETE_PARAMETERS {
     fn clone(&self) -> Self {
         *self
     }
@@ -2618,9 +2618,9 @@ pub struct DOT11_GO_NEGOTIATION_REQUEST_SEND_COMPLETE_PARAMETERS {
     pub uIEsLength: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for DOT11_GO_NEGOTIATION_REQUEST_SEND_COMPLETE_PARAMETERS {}
+impl Copy for DOT11_GO_NEGOTIATION_REQUEST_SEND_COMPLETE_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for DOT11_GO_NEGOTIATION_REQUEST_SEND_COMPLETE_PARAMETERS {
+impl Clone for DOT11_GO_NEGOTIATION_REQUEST_SEND_COMPLETE_PARAMETERS {
     fn clone(&self) -> Self {
         *self
     }
@@ -2636,9 +2636,9 @@ pub struct DOT11_GO_NEGOTIATION_RESPONSE_SEND_COMPLETE_PARAMETERS {
     pub uIEsLength: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for DOT11_GO_NEGOTIATION_RESPONSE_SEND_COMPLETE_PARAMETERS {}
+impl Copy for DOT11_GO_NEGOTIATION_RESPONSE_SEND_COMPLETE_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for DOT11_GO_NEGOTIATION_RESPONSE_SEND_COMPLETE_PARAMETERS {
+impl Clone for DOT11_GO_NEGOTIATION_RESPONSE_SEND_COMPLETE_PARAMETERS {
     fn clone(&self) -> Self {
         *self
     }
@@ -2648,8 +2648,8 @@ pub struct DOT11_HOPPING_PATTERN_ENTRY {
     pub uHoppingPatternIndex: u32,
     pub uRandomTableFieldNumber: u32,
 }
-impl ::core::marker::Copy for DOT11_HOPPING_PATTERN_ENTRY {}
-impl ::core::clone::Clone for DOT11_HOPPING_PATTERN_ENTRY {
+impl Copy for DOT11_HOPPING_PATTERN_ENTRY {}
+impl Clone for DOT11_HOPPING_PATTERN_ENTRY {
     fn clone(&self) -> Self {
         *self
     }
@@ -2660,8 +2660,8 @@ pub struct DOT11_HOPPING_PATTERN_ENTRY_LIST {
     pub uTotalNumOfEntries: u32,
     pub dot11HoppingPatternEntry: [DOT11_HOPPING_PATTERN_ENTRY; 1],
 }
-impl ::core::marker::Copy for DOT11_HOPPING_PATTERN_ENTRY_LIST {}
-impl ::core::clone::Clone for DOT11_HOPPING_PATTERN_ENTRY_LIST {
+impl Copy for DOT11_HOPPING_PATTERN_ENTRY_LIST {}
+impl Clone for DOT11_HOPPING_PATTERN_ENTRY_LIST {
     fn clone(&self) -> Self {
         *self
     }
@@ -2673,8 +2673,8 @@ pub struct DOT11_HRDSSS_PHY_ATTRIBUTES {
     pub bChannelAgilityPresent: super::super::Foundation::BOOLEAN,
     pub uHRCCAModeSupported: u32,
 }
-impl ::core::marker::Copy for DOT11_HRDSSS_PHY_ATTRIBUTES {}
-impl ::core::clone::Clone for DOT11_HRDSSS_PHY_ATTRIBUTES {
+impl Copy for DOT11_HRDSSS_PHY_ATTRIBUTES {}
+impl Clone for DOT11_HRDSSS_PHY_ATTRIBUTES {
     fn clone(&self) -> Self {
         *self
     }
@@ -2688,9 +2688,9 @@ pub struct DOT11_IBSS_PARAMS {
     pub uIEsLength: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for DOT11_IBSS_PARAMS {}
+impl Copy for DOT11_IBSS_PARAMS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for DOT11_IBSS_PARAMS {
+impl Clone for DOT11_IBSS_PARAMS {
     fn clone(&self) -> Self {
         *self
     }
@@ -2700,8 +2700,8 @@ pub struct DOT11_IHV_VERSION_INFO {
     pub dwVerMin: u32,
     pub dwVerMax: u32,
 }
-impl ::core::marker::Copy for DOT11_IHV_VERSION_INFO {}
-impl ::core::clone::Clone for DOT11_IHV_VERSION_INFO {
+impl Copy for DOT11_IHV_VERSION_INFO {}
+impl Clone for DOT11_IHV_VERSION_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -2728,9 +2728,9 @@ pub struct DOT11_INCOMING_ASSOC_COMPLETION_PARAMETERS {
     pub uBeaconSize: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for DOT11_INCOMING_ASSOC_COMPLETION_PARAMETERS {}
+impl Copy for DOT11_INCOMING_ASSOC_COMPLETION_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for DOT11_INCOMING_ASSOC_COMPLETION_PARAMETERS {
+impl Clone for DOT11_INCOMING_ASSOC_COMPLETION_PARAMETERS {
     fn clone(&self) -> Self {
         *self
     }
@@ -2746,9 +2746,9 @@ pub struct DOT11_INCOMING_ASSOC_DECISION {
     pub uAssocResponseIEsLength: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for DOT11_INCOMING_ASSOC_DECISION {}
+impl Copy for DOT11_INCOMING_ASSOC_DECISION {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for DOT11_INCOMING_ASSOC_DECISION {
+impl Clone for DOT11_INCOMING_ASSOC_DECISION {
     fn clone(&self) -> Self {
         *self
     }
@@ -2765,9 +2765,9 @@ pub struct DOT11_INCOMING_ASSOC_DECISION_V2 {
     pub WFDStatus: u8,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for DOT11_INCOMING_ASSOC_DECISION_V2 {}
+impl Copy for DOT11_INCOMING_ASSOC_DECISION_V2 {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for DOT11_INCOMING_ASSOC_DECISION_V2 {
+impl Clone for DOT11_INCOMING_ASSOC_DECISION_V2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -2782,9 +2782,9 @@ pub struct DOT11_INCOMING_ASSOC_REQUEST_RECEIVED_PARAMETERS {
     pub uAssocReqSize: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for DOT11_INCOMING_ASSOC_REQUEST_RECEIVED_PARAMETERS {}
+impl Copy for DOT11_INCOMING_ASSOC_REQUEST_RECEIVED_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for DOT11_INCOMING_ASSOC_REQUEST_RECEIVED_PARAMETERS {
+impl Clone for DOT11_INCOMING_ASSOC_REQUEST_RECEIVED_PARAMETERS {
     fn clone(&self) -> Self {
         *self
     }
@@ -2796,9 +2796,9 @@ pub struct DOT11_INCOMING_ASSOC_STARTED_PARAMETERS {
     pub PeerMacAddr: [u8; 6],
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for DOT11_INCOMING_ASSOC_STARTED_PARAMETERS {}
+impl Copy for DOT11_INCOMING_ASSOC_STARTED_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for DOT11_INCOMING_ASSOC_STARTED_PARAMETERS {
+impl Clone for DOT11_INCOMING_ASSOC_STARTED_PARAMETERS {
     fn clone(&self) -> Self {
         *self
     }
@@ -2815,9 +2815,9 @@ pub struct DOT11_INVITATION_REQUEST_SEND_COMPLETE_PARAMETERS {
     pub uIEsLength: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for DOT11_INVITATION_REQUEST_SEND_COMPLETE_PARAMETERS {}
+impl Copy for DOT11_INVITATION_REQUEST_SEND_COMPLETE_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for DOT11_INVITATION_REQUEST_SEND_COMPLETE_PARAMETERS {
+impl Clone for DOT11_INVITATION_REQUEST_SEND_COMPLETE_PARAMETERS {
     fn clone(&self) -> Self {
         *self
     }
@@ -2833,9 +2833,9 @@ pub struct DOT11_INVITATION_RESPONSE_SEND_COMPLETE_PARAMETERS {
     pub uIEsLength: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for DOT11_INVITATION_RESPONSE_SEND_COMPLETE_PARAMETERS {}
+impl Copy for DOT11_INVITATION_RESPONSE_SEND_COMPLETE_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for DOT11_INVITATION_RESPONSE_SEND_COMPLETE_PARAMETERS {
+impl Clone for DOT11_INVITATION_RESPONSE_SEND_COMPLETE_PARAMETERS {
     fn clone(&self) -> Self {
         *self
     }
@@ -2845,8 +2845,8 @@ pub struct DOT11_IV48_COUNTER {
     pub uIV32Counter: u32,
     pub usIV16Counter: u16,
 }
-impl ::core::marker::Copy for DOT11_IV48_COUNTER {}
-impl ::core::clone::Clone for DOT11_IV48_COUNTER {
+impl Copy for DOT11_IV48_COUNTER {}
+impl Clone for DOT11_IV48_COUNTER {
     fn clone(&self) -> Self {
         *self
     }
@@ -2858,8 +2858,8 @@ pub struct DOT11_JOIN_REQUEST {
     pub uChCenterFrequency: u32,
     pub dot11BSSDescription: DOT11_BSS_DESCRIPTION,
 }
-impl ::core::marker::Copy for DOT11_JOIN_REQUEST {}
-impl ::core::clone::Clone for DOT11_JOIN_REQUEST {
+impl Copy for DOT11_JOIN_REQUEST {}
+impl Clone for DOT11_JOIN_REQUEST {
     fn clone(&self) -> Self {
         *self
     }
@@ -2870,8 +2870,8 @@ pub struct DOT11_KEY_ALGO_BIP {
     pub ulBIPKeyLength: u32,
     pub ucBIPKey: [u8; 1],
 }
-impl ::core::marker::Copy for DOT11_KEY_ALGO_BIP {}
-impl ::core::clone::Clone for DOT11_KEY_ALGO_BIP {
+impl Copy for DOT11_KEY_ALGO_BIP {}
+impl Clone for DOT11_KEY_ALGO_BIP {
     fn clone(&self) -> Self {
         *self
     }
@@ -2882,8 +2882,8 @@ pub struct DOT11_KEY_ALGO_BIP_GMAC_256 {
     pub ulBIPGmac256KeyLength: u32,
     pub ucBIPGmac256Key: [u8; 1],
 }
-impl ::core::marker::Copy for DOT11_KEY_ALGO_BIP_GMAC_256 {}
-impl ::core::clone::Clone for DOT11_KEY_ALGO_BIP_GMAC_256 {
+impl Copy for DOT11_KEY_ALGO_BIP_GMAC_256 {}
+impl Clone for DOT11_KEY_ALGO_BIP_GMAC_256 {
     fn clone(&self) -> Self {
         *self
     }
@@ -2894,8 +2894,8 @@ pub struct DOT11_KEY_ALGO_CCMP {
     pub ulCCMPKeyLength: u32,
     pub ucCCMPKey: [u8; 1],
 }
-impl ::core::marker::Copy for DOT11_KEY_ALGO_CCMP {}
-impl ::core::clone::Clone for DOT11_KEY_ALGO_CCMP {
+impl Copy for DOT11_KEY_ALGO_CCMP {}
+impl Clone for DOT11_KEY_ALGO_CCMP {
     fn clone(&self) -> Self {
         *self
     }
@@ -2906,8 +2906,8 @@ pub struct DOT11_KEY_ALGO_GCMP {
     pub ulGCMPKeyLength: u32,
     pub ucGCMPKey: [u8; 1],
 }
-impl ::core::marker::Copy for DOT11_KEY_ALGO_GCMP {}
-impl ::core::clone::Clone for DOT11_KEY_ALGO_GCMP {
+impl Copy for DOT11_KEY_ALGO_GCMP {}
+impl Clone for DOT11_KEY_ALGO_GCMP {
     fn clone(&self) -> Self {
         *self
     }
@@ -2918,8 +2918,8 @@ pub struct DOT11_KEY_ALGO_GCMP_256 {
     pub ulGCMP256KeyLength: u32,
     pub ucGCMP256Key: [u8; 1],
 }
-impl ::core::marker::Copy for DOT11_KEY_ALGO_GCMP_256 {}
-impl ::core::clone::Clone for DOT11_KEY_ALGO_GCMP_256 {
+impl Copy for DOT11_KEY_ALGO_GCMP_256 {}
+impl Clone for DOT11_KEY_ALGO_GCMP_256 {
     fn clone(&self) -> Self {
         *self
     }
@@ -2931,8 +2931,8 @@ pub struct DOT11_KEY_ALGO_TKIP_MIC {
     pub ulMICKeyLength: u32,
     pub ucTKIPMICKeys: [u8; 1],
 }
-impl ::core::marker::Copy for DOT11_KEY_ALGO_TKIP_MIC {}
-impl ::core::clone::Clone for DOT11_KEY_ALGO_TKIP_MIC {
+impl Copy for DOT11_KEY_ALGO_TKIP_MIC {}
+impl Clone for DOT11_KEY_ALGO_TKIP_MIC {
     fn clone(&self) -> Self {
         *self
     }
@@ -2942,8 +2942,8 @@ pub struct DOT11_LINK_QUALITY_ENTRY {
     pub PeerMacAddr: [u8; 6],
     pub ucLinkQuality: u8,
 }
-impl ::core::marker::Copy for DOT11_LINK_QUALITY_ENTRY {}
-impl ::core::clone::Clone for DOT11_LINK_QUALITY_ENTRY {
+impl Copy for DOT11_LINK_QUALITY_ENTRY {}
+impl Clone for DOT11_LINK_QUALITY_ENTRY {
     fn clone(&self) -> Self {
         *self
     }
@@ -2956,9 +2956,9 @@ pub struct DOT11_LINK_QUALITY_PARAMETERS {
     pub uLinkQualityListOffset: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for DOT11_LINK_QUALITY_PARAMETERS {}
+impl Copy for DOT11_LINK_QUALITY_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for DOT11_LINK_QUALITY_PARAMETERS {
+impl Clone for DOT11_LINK_QUALITY_PARAMETERS {
     fn clone(&self) -> Self {
         *self
     }
@@ -2972,9 +2972,9 @@ pub struct DOT11_MAC_ADDRESS_LIST {
     pub MacAddrs: [u8; 6],
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for DOT11_MAC_ADDRESS_LIST {}
+impl Copy for DOT11_MAC_ADDRESS_LIST {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for DOT11_MAC_ADDRESS_LIST {
+impl Clone for DOT11_MAC_ADDRESS_LIST {
     fn clone(&self) -> Self {
         *self
     }
@@ -2996,8 +2996,8 @@ pub struct DOT11_MAC_FRAME_STATISTICS {
     pub ullDecryptSuccessCount: u64,
     pub ullDecryptFailureCount: u64,
 }
-impl ::core::marker::Copy for DOT11_MAC_FRAME_STATISTICS {}
-impl ::core::clone::Clone for DOT11_MAC_FRAME_STATISTICS {
+impl Copy for DOT11_MAC_FRAME_STATISTICS {}
+impl Clone for DOT11_MAC_FRAME_STATISTICS {
     fn clone(&self) -> Self {
         *self
     }
@@ -3008,8 +3008,8 @@ pub struct DOT11_MAC_INFO {
     pub uNdisPortNumber: u32,
     pub MacAddr: [u8; 6],
 }
-impl ::core::marker::Copy for DOT11_MAC_INFO {}
-impl ::core::clone::Clone for DOT11_MAC_INFO {
+impl Copy for DOT11_MAC_INFO {}
+impl Clone for DOT11_MAC_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -3021,9 +3021,9 @@ pub struct DOT11_MAC_PARAMETERS {
     pub uOpmodeMask: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for DOT11_MAC_PARAMETERS {}
+impl Copy for DOT11_MAC_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for DOT11_MAC_PARAMETERS {
+impl Clone for DOT11_MAC_PARAMETERS {
     fn clone(&self) -> Self {
         *self
     }
@@ -3034,12 +3034,12 @@ pub struct DOT11_MANUFACTURING_CALLBACK_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub dot11ManufacturingCallbackType: DOT11_MANUFACTURING_CALLBACK_TYPE,
     pub uStatus: u32,
-    pub pvContext: *mut ::core::ffi::c_void,
+    pub pvContext: *mut core::ffi::c_void,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for DOT11_MANUFACTURING_CALLBACK_PARAMETERS {}
+impl Copy for DOT11_MANUFACTURING_CALLBACK_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for DOT11_MANUFACTURING_CALLBACK_PARAMETERS {
+impl Clone for DOT11_MANUFACTURING_CALLBACK_PARAMETERS {
     fn clone(&self) -> Self {
         *self
     }
@@ -3050,8 +3050,8 @@ pub struct DOT11_MANUFACTURING_FUNCTIONAL_TEST_QUERY_ADC {
     pub uChannel: u32,
     pub ADCPowerLevel: i32,
 }
-impl ::core::marker::Copy for DOT11_MANUFACTURING_FUNCTIONAL_TEST_QUERY_ADC {}
-impl ::core::clone::Clone for DOT11_MANUFACTURING_FUNCTIONAL_TEST_QUERY_ADC {
+impl Copy for DOT11_MANUFACTURING_FUNCTIONAL_TEST_QUERY_ADC {}
+impl Clone for DOT11_MANUFACTURING_FUNCTIONAL_TEST_QUERY_ADC {
     fn clone(&self) -> Self {
         *self
     }
@@ -3063,8 +3063,8 @@ pub struct DOT11_MANUFACTURING_FUNCTIONAL_TEST_RX {
     pub uChannel: u32,
     pub PowerLevel: i32,
 }
-impl ::core::marker::Copy for DOT11_MANUFACTURING_FUNCTIONAL_TEST_RX {}
-impl ::core::clone::Clone for DOT11_MANUFACTURING_FUNCTIONAL_TEST_RX {
+impl Copy for DOT11_MANUFACTURING_FUNCTIONAL_TEST_RX {}
+impl Clone for DOT11_MANUFACTURING_FUNCTIONAL_TEST_RX {
     fn clone(&self) -> Self {
         *self
     }
@@ -3078,8 +3078,8 @@ pub struct DOT11_MANUFACTURING_FUNCTIONAL_TEST_TX {
     pub uSetPowerLevel: u32,
     pub ADCPowerLevel: i32,
 }
-impl ::core::marker::Copy for DOT11_MANUFACTURING_FUNCTIONAL_TEST_TX {}
-impl ::core::clone::Clone for DOT11_MANUFACTURING_FUNCTIONAL_TEST_TX {
+impl Copy for DOT11_MANUFACTURING_FUNCTIONAL_TEST_TX {}
+impl Clone for DOT11_MANUFACTURING_FUNCTIONAL_TEST_TX {
     fn clone(&self) -> Self {
         *self
     }
@@ -3090,12 +3090,12 @@ pub struct DOT11_MANUFACTURING_SELF_TEST_QUERY_RESULTS {
     pub uTestID: u32,
     pub bResult: super::super::Foundation::BOOLEAN,
     pub uPinFailedBitMask: u32,
-    pub pvContext: *mut ::core::ffi::c_void,
+    pub pvContext: *mut core::ffi::c_void,
     pub uBytesWrittenOut: u32,
     pub ucBufferOut: [u8; 1],
 }
-impl ::core::marker::Copy for DOT11_MANUFACTURING_SELF_TEST_QUERY_RESULTS {}
-impl ::core::clone::Clone for DOT11_MANUFACTURING_SELF_TEST_QUERY_RESULTS {
+impl Copy for DOT11_MANUFACTURING_SELF_TEST_QUERY_RESULTS {}
+impl Clone for DOT11_MANUFACTURING_SELF_TEST_QUERY_RESULTS {
     fn clone(&self) -> Self {
         *self
     }
@@ -3105,12 +3105,12 @@ pub struct DOT11_MANUFACTURING_SELF_TEST_SET_PARAMS {
     pub SelfTestType: DOT11_MANUFACTURING_SELF_TEST_TYPE,
     pub uTestID: u32,
     pub uPinBitMask: u32,
-    pub pvContext: *mut ::core::ffi::c_void,
+    pub pvContext: *mut core::ffi::c_void,
     pub uBufferLength: u32,
     pub ucBufferIn: [u8; 1],
 }
-impl ::core::marker::Copy for DOT11_MANUFACTURING_SELF_TEST_SET_PARAMS {}
-impl ::core::clone::Clone for DOT11_MANUFACTURING_SELF_TEST_SET_PARAMS {
+impl Copy for DOT11_MANUFACTURING_SELF_TEST_SET_PARAMS {}
+impl Clone for DOT11_MANUFACTURING_SELF_TEST_SET_PARAMS {
     fn clone(&self) -> Self {
         *self
     }
@@ -3121,8 +3121,8 @@ pub struct DOT11_MANUFACTURING_TEST {
     pub uBufferLength: u32,
     pub ucBuffer: [u8; 1],
 }
-impl ::core::marker::Copy for DOT11_MANUFACTURING_TEST {}
-impl ::core::clone::Clone for DOT11_MANUFACTURING_TEST {
+impl Copy for DOT11_MANUFACTURING_TEST {}
+impl Clone for DOT11_MANUFACTURING_TEST {
     fn clone(&self) -> Self {
         *self
     }
@@ -3135,8 +3135,8 @@ pub struct DOT11_MANUFACTURING_TEST_QUERY_DATA {
     pub uBytesRead: u32,
     pub ucBufferOut: [u8; 1],
 }
-impl ::core::marker::Copy for DOT11_MANUFACTURING_TEST_QUERY_DATA {}
-impl ::core::clone::Clone for DOT11_MANUFACTURING_TEST_QUERY_DATA {
+impl Copy for DOT11_MANUFACTURING_TEST_QUERY_DATA {}
+impl Clone for DOT11_MANUFACTURING_TEST_QUERY_DATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -3148,8 +3148,8 @@ pub struct DOT11_MANUFACTURING_TEST_SET_DATA {
     pub uBufferLength: u32,
     pub ucBufferIn: [u8; 1],
 }
-impl ::core::marker::Copy for DOT11_MANUFACTURING_TEST_SET_DATA {}
-impl ::core::clone::Clone for DOT11_MANUFACTURING_TEST_SET_DATA {
+impl Copy for DOT11_MANUFACTURING_TEST_SET_DATA {}
+impl Clone for DOT11_MANUFACTURING_TEST_SET_DATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -3157,10 +3157,10 @@ impl ::core::clone::Clone for DOT11_MANUFACTURING_TEST_SET_DATA {
 #[repr(C)]
 pub struct DOT11_MANUFACTURING_TEST_SLEEP {
     pub uSleepTime: u32,
-    pub pvContext: *mut ::core::ffi::c_void,
+    pub pvContext: *mut core::ffi::c_void,
 }
-impl ::core::marker::Copy for DOT11_MANUFACTURING_TEST_SLEEP {}
-impl ::core::clone::Clone for DOT11_MANUFACTURING_TEST_SLEEP {
+impl Copy for DOT11_MANUFACTURING_TEST_SLEEP {}
+impl Clone for DOT11_MANUFACTURING_TEST_SLEEP {
     fn clone(&self) -> Self {
         *self
     }
@@ -3171,8 +3171,8 @@ pub struct DOT11_MD_CAPABILITY_ENTRY_LIST {
     pub uTotalNumOfEntries: u32,
     pub dot11MDCapabilityEntry: [DOT11_MULTI_DOMAIN_CAPABILITY_ENTRY; 1],
 }
-impl ::core::marker::Copy for DOT11_MD_CAPABILITY_ENTRY_LIST {}
-impl ::core::clone::Clone for DOT11_MD_CAPABILITY_ENTRY_LIST {
+impl Copy for DOT11_MD_CAPABILITY_ENTRY_LIST {}
+impl Clone for DOT11_MD_CAPABILITY_ENTRY_LIST {
     fn clone(&self) -> Self {
         *self
     }
@@ -3185,9 +3185,9 @@ pub struct DOT11_MPDU_MAX_LENGTH_INDICATION {
     pub uMPDUMaxLength: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for DOT11_MPDU_MAX_LENGTH_INDICATION {}
+impl Copy for DOT11_MPDU_MAX_LENGTH_INDICATION {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for DOT11_MPDU_MAX_LENGTH_INDICATION {
+impl Clone for DOT11_MPDU_MAX_LENGTH_INDICATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -3204,9 +3204,9 @@ pub struct DOT11_MSONEX_RESULT_PARAMS {
     pub pDot11EapResult: *mut DOT11_EAP_RESULT,
 }
 #[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
-impl ::core::marker::Copy for DOT11_MSONEX_RESULT_PARAMS {}
+impl Copy for DOT11_MSONEX_RESULT_PARAMS {}
 #[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
-impl ::core::clone::Clone for DOT11_MSONEX_RESULT_PARAMS {
+impl Clone for DOT11_MSONEX_RESULT_PARAMS {
     fn clone(&self) -> Self {
         *self
     }
@@ -3222,9 +3222,9 @@ pub struct DOT11_MSSECURITY_SETTINGS {
     pub pEapConnectionData: *mut u8,
 }
 #[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
-impl ::core::marker::Copy for DOT11_MSSECURITY_SETTINGS {}
+impl Copy for DOT11_MSSECURITY_SETTINGS {}
 #[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
-impl ::core::clone::Clone for DOT11_MSSECURITY_SETTINGS {
+impl Clone for DOT11_MSSECURITY_SETTINGS {
     fn clone(&self) -> Self {
         *self
     }
@@ -3236,8 +3236,8 @@ pub struct DOT11_MULTI_DOMAIN_CAPABILITY_ENTRY {
     pub uNumberOfChannels: u32,
     pub lMaximumTransmitPowerLevel: i32,
 }
-impl ::core::marker::Copy for DOT11_MULTI_DOMAIN_CAPABILITY_ENTRY {}
-impl ::core::clone::Clone for DOT11_MULTI_DOMAIN_CAPABILITY_ENTRY {
+impl Copy for DOT11_MULTI_DOMAIN_CAPABILITY_ENTRY {}
+impl Clone for DOT11_MULTI_DOMAIN_CAPABILITY_ENTRY {
     fn clone(&self) -> Self {
         *self
     }
@@ -3247,8 +3247,8 @@ pub struct DOT11_NETWORK {
     pub dot11Ssid: DOT11_SSID,
     pub dot11BssType: DOT11_BSS_TYPE,
 }
-impl ::core::marker::Copy for DOT11_NETWORK {}
-impl ::core::clone::Clone for DOT11_NETWORK {
+impl Copy for DOT11_NETWORK {}
+impl Clone for DOT11_NETWORK {
     fn clone(&self) -> Self {
         *self
     }
@@ -3259,8 +3259,8 @@ pub struct DOT11_NETWORK_LIST {
     pub dwIndex: u32,
     pub Network: [DOT11_NETWORK; 1],
 }
-impl ::core::marker::Copy for DOT11_NETWORK_LIST {}
-impl ::core::clone::Clone for DOT11_NETWORK_LIST {
+impl Copy for DOT11_NETWORK_LIST {}
+impl Clone for DOT11_NETWORK_LIST {
     fn clone(&self) -> Self {
         *self
     }
@@ -3271,8 +3271,8 @@ pub struct DOT11_NIC_SPECIFIC_EXTENSION {
     pub uTotalBufferLength: u32,
     pub ucBuffer: [u8; 1],
 }
-impl ::core::marker::Copy for DOT11_NIC_SPECIFIC_EXTENSION {}
-impl ::core::clone::Clone for DOT11_NIC_SPECIFIC_EXTENSION {
+impl Copy for DOT11_NIC_SPECIFIC_EXTENSION {}
+impl Clone for DOT11_NIC_SPECIFIC_EXTENSION {
     fn clone(&self) -> Self {
         *self
     }
@@ -3281,8 +3281,8 @@ impl ::core::clone::Clone for DOT11_NIC_SPECIFIC_EXTENSION {
 pub struct DOT11_OFDM_PHY_ATTRIBUTES {
     pub uFrequencyBandsSupported: u32,
 }
-impl ::core::marker::Copy for DOT11_OFDM_PHY_ATTRIBUTES {}
-impl ::core::clone::Clone for DOT11_OFDM_PHY_ATTRIBUTES {
+impl Copy for DOT11_OFDM_PHY_ATTRIBUTES {}
+impl Clone for DOT11_OFDM_PHY_ATTRIBUTES {
     fn clone(&self) -> Self {
         *self
     }
@@ -3297,8 +3297,8 @@ pub struct DOT11_OFFLOAD_CAPABILITY {
     pub uSupportedAuthAlgorithms: u32,
     pub uMaxAuthKeyMappingLength: u32,
 }
-impl ::core::marker::Copy for DOT11_OFFLOAD_CAPABILITY {}
-impl ::core::clone::Clone for DOT11_OFFLOAD_CAPABILITY {
+impl Copy for DOT11_OFFLOAD_CAPABILITY {}
+impl Clone for DOT11_OFFLOAD_CAPABILITY {
     fn clone(&self) -> Self {
         *self
     }
@@ -3310,8 +3310,8 @@ pub struct DOT11_OFFLOAD_NETWORK {
     pub AuthAlgo: DOT11_AUTH_ALGORITHM,
     pub Dot11ChannelHints: [DOT11_CHANNEL_HINT; 4],
 }
-impl ::core::marker::Copy for DOT11_OFFLOAD_NETWORK {}
-impl ::core::clone::Clone for DOT11_OFFLOAD_NETWORK {
+impl Copy for DOT11_OFFLOAD_NETWORK {}
+impl Clone for DOT11_OFFLOAD_NETWORK {
     fn clone(&self) -> Self {
         *self
     }
@@ -3328,9 +3328,9 @@ pub struct DOT11_OFFLOAD_NETWORK_LIST_INFO {
     pub offloadNetworkList: [DOT11_OFFLOAD_NETWORK; 1],
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for DOT11_OFFLOAD_NETWORK_LIST_INFO {}
+impl Copy for DOT11_OFFLOAD_NETWORK_LIST_INFO {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for DOT11_OFFLOAD_NETWORK_LIST_INFO {
+impl Clone for DOT11_OFFLOAD_NETWORK_LIST_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -3342,9 +3342,9 @@ pub struct DOT11_OFFLOAD_NETWORK_STATUS_PARAMETERS {
     pub Status: i32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for DOT11_OFFLOAD_NETWORK_STATUS_PARAMETERS {}
+impl Copy for DOT11_OFFLOAD_NETWORK_STATUS_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for DOT11_OFFLOAD_NETWORK_STATUS_PARAMETERS {
+impl Clone for DOT11_OFFLOAD_NETWORK_STATUS_PARAMETERS {
     fn clone(&self) -> Self {
         *self
     }
@@ -3354,8 +3354,8 @@ pub struct DOT11_OI {
     pub OILength: u16,
     pub OI: [u8; 5],
 }
-impl ::core::marker::Copy for DOT11_OI {}
-impl ::core::clone::Clone for DOT11_OI {
+impl Copy for DOT11_OI {}
+impl Clone for DOT11_OI {
     fn clone(&self) -> Self {
         *self
     }
@@ -3369,8 +3369,8 @@ pub struct DOT11_OPERATION_MODE_CAPABILITY {
     pub uNumOfRXBuffers: u32,
     pub uOpModeCapability: u32,
 }
-impl ::core::marker::Copy for DOT11_OPERATION_MODE_CAPABILITY {}
-impl ::core::clone::Clone for DOT11_OPERATION_MODE_CAPABILITY {
+impl Copy for DOT11_OPERATION_MODE_CAPABILITY {}
+impl Clone for DOT11_OPERATION_MODE_CAPABILITY {
     fn clone(&self) -> Self {
         *self
     }
@@ -3382,8 +3382,8 @@ pub struct DOT11_OPTIONAL_CAPABILITY {
     pub bDot11PCFMPDUTransferToPC: super::super::Foundation::BOOLEAN,
     pub bStrictlyOrderedServiceClass: super::super::Foundation::BOOLEAN,
 }
-impl ::core::marker::Copy for DOT11_OPTIONAL_CAPABILITY {}
-impl ::core::clone::Clone for DOT11_OPTIONAL_CAPABILITY {
+impl Copy for DOT11_OPTIONAL_CAPABILITY {}
+impl Clone for DOT11_OPTIONAL_CAPABILITY {
     fn clone(&self) -> Self {
         *self
     }
@@ -3404,8 +3404,8 @@ pub struct DOT11_PEER_INFO {
     pub liAssociationUpTime: i64,
     pub Statistics: DOT11_PEER_STATISTICS,
 }
-impl ::core::marker::Copy for DOT11_PEER_INFO {}
-impl ::core::clone::Clone for DOT11_PEER_INFO {
+impl Copy for DOT11_PEER_INFO {}
+impl Clone for DOT11_PEER_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -3419,9 +3419,9 @@ pub struct DOT11_PEER_INFO_LIST {
     pub PeerInfo: [DOT11_PEER_INFO; 1],
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for DOT11_PEER_INFO_LIST {}
+impl Copy for DOT11_PEER_INFO_LIST {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for DOT11_PEER_INFO_LIST {
+impl Clone for DOT11_PEER_INFO_LIST {
     fn clone(&self) -> Self {
         *self
     }
@@ -3435,8 +3435,8 @@ pub struct DOT11_PEER_STATISTICS {
     pub ullRxPacketSuccessCount: u64,
     pub ullRxPacketFailureCount: u64,
 }
-impl ::core::marker::Copy for DOT11_PEER_STATISTICS {}
-impl ::core::clone::Clone for DOT11_PEER_STATISTICS {
+impl Copy for DOT11_PEER_STATISTICS {}
+impl Clone for DOT11_PEER_STATISTICS {
     fn clone(&self) -> Self {
         *self
     }
@@ -3449,8 +3449,8 @@ pub struct DOT11_PER_MSDU_COUNTERS {
     pub uRTSFailureCount: u32,
     pub uACKFailureCount: u32,
 }
-impl ::core::marker::Copy for DOT11_PER_MSDU_COUNTERS {}
-impl ::core::clone::Clone for DOT11_PER_MSDU_COUNTERS {
+impl Copy for DOT11_PER_MSDU_COUNTERS {}
+impl Clone for DOT11_PER_MSDU_COUNTERS {
     fn clone(&self) -> Self {
         *self
     }
@@ -3474,9 +3474,9 @@ pub struct DOT11_PHY_ATTRIBUTES {
     pub SupportedDataRatesValue: DOT11_SUPPORTED_DATA_RATES_VALUE_V2,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for DOT11_PHY_ATTRIBUTES {}
+impl Copy for DOT11_PHY_ATTRIBUTES {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for DOT11_PHY_ATTRIBUTES {
+impl Clone for DOT11_PHY_ATTRIBUTES {
     fn clone(&self) -> Self {
         *self
     }
@@ -3489,9 +3489,9 @@ pub union DOT11_PHY_ATTRIBUTES_0 {
     pub ERPAttributes: DOT11_ERP_PHY_ATTRIBUTES,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for DOT11_PHY_ATTRIBUTES_0 {}
+impl Copy for DOT11_PHY_ATTRIBUTES_0 {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for DOT11_PHY_ATTRIBUTES_0 {
+impl Clone for DOT11_PHY_ATTRIBUTES_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3517,8 +3517,8 @@ pub struct DOT11_PHY_FRAME_STATISTICS {
     pub ullPromiscuousReceivedFragmentCount: u64,
     pub ullFCSErrorCount: u64,
 }
-impl ::core::marker::Copy for DOT11_PHY_FRAME_STATISTICS {}
-impl ::core::clone::Clone for DOT11_PHY_FRAME_STATISTICS {
+impl Copy for DOT11_PHY_FRAME_STATISTICS {}
+impl Clone for DOT11_PHY_FRAME_STATISTICS {
     fn clone(&self) -> Self {
         *self
     }
@@ -3531,9 +3531,9 @@ pub struct DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS {
     pub Anonymous: DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS_0,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS {}
+impl Copy for DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS {
+impl Clone for DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS {
     fn clone(&self) -> Self {
         *self
     }
@@ -3545,9 +3545,9 @@ pub union DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS_0 {
     pub ulFrequency: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS_0 {}
+impl Copy for DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS_0 {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS_0 {
+impl Clone for DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3561,9 +3561,9 @@ pub struct DOT11_PHY_ID_LIST {
     pub dot11PhyId: [u32; 1],
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for DOT11_PHY_ID_LIST {}
+impl Copy for DOT11_PHY_ID_LIST {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for DOT11_PHY_ID_LIST {
+impl Clone for DOT11_PHY_ID_LIST {
     fn clone(&self) -> Self {
         *self
     }
@@ -3577,9 +3577,9 @@ pub struct DOT11_PHY_STATE_PARAMETERS {
     pub bSoftwarePhyState: super::super::Foundation::BOOLEAN,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for DOT11_PHY_STATE_PARAMETERS {}
+impl Copy for DOT11_PHY_STATE_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for DOT11_PHY_STATE_PARAMETERS {
+impl Clone for DOT11_PHY_STATE_PARAMETERS {
     fn clone(&self) -> Self {
         *self
     }
@@ -3595,8 +3595,8 @@ pub struct DOT11_PHY_TYPE_INFO {
     pub uChannelListSize: u32,
     pub ucChannelListBuffer: [u8; 1],
 }
-impl ::core::marker::Copy for DOT11_PHY_TYPE_INFO {}
-impl ::core::clone::Clone for DOT11_PHY_TYPE_INFO {
+impl Copy for DOT11_PHY_TYPE_INFO {}
+impl Clone for DOT11_PHY_TYPE_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -3610,9 +3610,9 @@ pub struct DOT11_PHY_TYPE_LIST {
     pub dot11PhyType: [DOT11_PHY_TYPE; 1],
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for DOT11_PHY_TYPE_LIST {}
+impl Copy for DOT11_PHY_TYPE_LIST {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for DOT11_PHY_TYPE_LIST {
+impl Clone for DOT11_PHY_TYPE_LIST {
     fn clone(&self) -> Self {
         *self
     }
@@ -3625,9 +3625,9 @@ pub struct DOT11_PMKID_CANDIDATE_LIST_PARAMETERS {
     pub uCandidateListOffset: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for DOT11_PMKID_CANDIDATE_LIST_PARAMETERS {}
+impl Copy for DOT11_PMKID_CANDIDATE_LIST_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for DOT11_PMKID_CANDIDATE_LIST_PARAMETERS {
+impl Clone for DOT11_PMKID_CANDIDATE_LIST_PARAMETERS {
     fn clone(&self) -> Self {
         *self
     }
@@ -3638,8 +3638,8 @@ pub struct DOT11_PMKID_ENTRY {
     pub PMKID: [u8; 16],
     pub uFlags: u32,
 }
-impl ::core::marker::Copy for DOT11_PMKID_ENTRY {}
-impl ::core::clone::Clone for DOT11_PMKID_ENTRY {
+impl Copy for DOT11_PMKID_ENTRY {}
+impl Clone for DOT11_PMKID_ENTRY {
     fn clone(&self) -> Self {
         *self
     }
@@ -3653,9 +3653,9 @@ pub struct DOT11_PMKID_LIST {
     pub PMKIDs: [DOT11_PMKID_ENTRY; 1],
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for DOT11_PMKID_LIST {}
+impl Copy for DOT11_PMKID_LIST {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for DOT11_PMKID_LIST {
+impl Clone for DOT11_PMKID_LIST {
     fn clone(&self) -> Self {
         *self
     }
@@ -3667,8 +3667,8 @@ pub struct DOT11_PORT_STATE {
     pub bPortControlled: super::super::Foundation::BOOL,
     pub bPortAuthorized: super::super::Foundation::BOOL,
 }
-impl ::core::marker::Copy for DOT11_PORT_STATE {}
-impl ::core::clone::Clone for DOT11_PORT_STATE {
+impl Copy for DOT11_PORT_STATE {}
+impl Clone for DOT11_PORT_STATE {
     fn clone(&self) -> Self {
         *self
     }
@@ -3681,9 +3681,9 @@ pub struct DOT11_PORT_STATE_NOTIFICATION {
     pub bOpen: super::super::Foundation::BOOLEAN,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for DOT11_PORT_STATE_NOTIFICATION {}
+impl Copy for DOT11_PORT_STATE_NOTIFICATION {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for DOT11_PORT_STATE_NOTIFICATION {
+impl Clone for DOT11_PORT_STATE_NOTIFICATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -3695,9 +3695,9 @@ pub struct DOT11_POWER_MGMT_AUTO_MODE_ENABLED_INFO {
     pub bEnabled: super::super::Foundation::BOOLEAN,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for DOT11_POWER_MGMT_AUTO_MODE_ENABLED_INFO {}
+impl Copy for DOT11_POWER_MGMT_AUTO_MODE_ENABLED_INFO {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for DOT11_POWER_MGMT_AUTO_MODE_ENABLED_INFO {
+impl Clone for DOT11_POWER_MGMT_AUTO_MODE_ENABLED_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -3710,8 +3710,8 @@ pub struct DOT11_POWER_MGMT_MODE {
     pub usAID: u16,
     pub bReceiveDTIMs: super::super::Foundation::BOOLEAN,
 }
-impl ::core::marker::Copy for DOT11_POWER_MGMT_MODE {}
-impl ::core::clone::Clone for DOT11_POWER_MGMT_MODE {
+impl Copy for DOT11_POWER_MGMT_MODE {}
+impl Clone for DOT11_POWER_MGMT_MODE {
     fn clone(&self) -> Self {
         *self
     }
@@ -3725,9 +3725,9 @@ pub struct DOT11_POWER_MGMT_MODE_STATUS_INFO {
     pub Reason: DOT11_POWER_MODE_REASON,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for DOT11_POWER_MGMT_MODE_STATUS_INFO {}
+impl Copy for DOT11_POWER_MGMT_MODE_STATUS_INFO {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for DOT11_POWER_MGMT_MODE_STATUS_INFO {
+impl Clone for DOT11_POWER_MGMT_MODE_STATUS_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -3738,8 +3738,8 @@ pub struct DOT11_PRIVACY_EXEMPTION {
     pub usExemptionActionType: u16,
     pub usExemptionPacketType: u16,
 }
-impl ::core::marker::Copy for DOT11_PRIVACY_EXEMPTION {}
-impl ::core::clone::Clone for DOT11_PRIVACY_EXEMPTION {
+impl Copy for DOT11_PRIVACY_EXEMPTION {}
+impl Clone for DOT11_PRIVACY_EXEMPTION {
     fn clone(&self) -> Self {
         *self
     }
@@ -3753,9 +3753,9 @@ pub struct DOT11_PRIVACY_EXEMPTION_LIST {
     pub PrivacyExemptionEntries: [DOT11_PRIVACY_EXEMPTION; 1],
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for DOT11_PRIVACY_EXEMPTION_LIST {}
+impl Copy for DOT11_PRIVACY_EXEMPTION_LIST {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for DOT11_PRIVACY_EXEMPTION_LIST {
+impl Clone for DOT11_PRIVACY_EXEMPTION_LIST {
     fn clone(&self) -> Self {
         *self
     }
@@ -3772,9 +3772,9 @@ pub struct DOT11_PROVISION_DISCOVERY_REQUEST_SEND_COMPLETE_PARAMETERS {
     pub uIEsLength: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for DOT11_PROVISION_DISCOVERY_REQUEST_SEND_COMPLETE_PARAMETERS {}
+impl Copy for DOT11_PROVISION_DISCOVERY_REQUEST_SEND_COMPLETE_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for DOT11_PROVISION_DISCOVERY_REQUEST_SEND_COMPLETE_PARAMETERS {
+impl Clone for DOT11_PROVISION_DISCOVERY_REQUEST_SEND_COMPLETE_PARAMETERS {
     fn clone(&self) -> Self {
         *self
     }
@@ -3790,9 +3790,9 @@ pub struct DOT11_PROVISION_DISCOVERY_RESPONSE_SEND_COMPLETE_PARAMETERS {
     pub uIEsLength: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for DOT11_PROVISION_DISCOVERY_RESPONSE_SEND_COMPLETE_PARAMETERS {}
+impl Copy for DOT11_PROVISION_DISCOVERY_RESPONSE_SEND_COMPLETE_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for DOT11_PROVISION_DISCOVERY_RESPONSE_SEND_COMPLETE_PARAMETERS {
+impl Clone for DOT11_PROVISION_DISCOVERY_RESPONSE_SEND_COMPLETE_PARAMETERS {
     fn clone(&self) -> Self {
         *self
     }
@@ -3804,9 +3804,9 @@ pub struct DOT11_QOS_PARAMS {
     pub ucEnabledQoSProtocolFlags: u8,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for DOT11_QOS_PARAMS {}
+impl Copy for DOT11_QOS_PARAMS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for DOT11_QOS_PARAMS {
+impl Clone for DOT11_QOS_PARAMS {
     fn clone(&self) -> Self {
         *self
     }
@@ -3817,8 +3817,8 @@ pub struct DOT11_QOS_TX_DURATION {
     pub uMinPHYRate: u32,
     pub uDuration: u32,
 }
-impl ::core::marker::Copy for DOT11_QOS_TX_DURATION {}
-impl ::core::clone::Clone for DOT11_QOS_TX_DURATION {
+impl Copy for DOT11_QOS_TX_DURATION {}
+impl Clone for DOT11_QOS_TX_DURATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -3829,8 +3829,8 @@ pub struct DOT11_QOS_TX_MEDIUM_TIME {
     pub ucQoSPriority: u8,
     pub uMediumTimeAdmited: u32,
 }
-impl ::core::marker::Copy for DOT11_QOS_TX_MEDIUM_TIME {}
-impl ::core::clone::Clone for DOT11_QOS_TX_MEDIUM_TIME {
+impl Copy for DOT11_QOS_TX_MEDIUM_TIME {}
+impl Clone for DOT11_QOS_TX_MEDIUM_TIME {
     fn clone(&self) -> Self {
         *self
     }
@@ -3840,8 +3840,8 @@ pub struct DOT11_RATE_SET {
     pub uRateSetLength: u32,
     pub ucRateSet: [u8; 126],
 }
-impl ::core::marker::Copy for DOT11_RATE_SET {}
-impl ::core::clone::Clone for DOT11_RATE_SET {
+impl Copy for DOT11_RATE_SET {}
+impl Clone for DOT11_RATE_SET {
     fn clone(&self) -> Self {
         *self
     }
@@ -3856,9 +3856,9 @@ pub struct DOT11_RECEIVED_GO_NEGOTIATION_CONFIRMATION_PARAMETERS {
     pub uIEsLength: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for DOT11_RECEIVED_GO_NEGOTIATION_CONFIRMATION_PARAMETERS {}
+impl Copy for DOT11_RECEIVED_GO_NEGOTIATION_CONFIRMATION_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for DOT11_RECEIVED_GO_NEGOTIATION_CONFIRMATION_PARAMETERS {
+impl Clone for DOT11_RECEIVED_GO_NEGOTIATION_CONFIRMATION_PARAMETERS {
     fn clone(&self) -> Self {
         *self
     }
@@ -3869,14 +3869,14 @@ pub struct DOT11_RECEIVED_GO_NEGOTIATION_REQUEST_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub PeerDeviceAddress: [u8; 6],
     pub DialogToken: u8,
-    pub RequestContext: *mut ::core::ffi::c_void,
+    pub RequestContext: *mut core::ffi::c_void,
     pub uIEsOffset: u32,
     pub uIEsLength: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for DOT11_RECEIVED_GO_NEGOTIATION_REQUEST_PARAMETERS {}
+impl Copy for DOT11_RECEIVED_GO_NEGOTIATION_REQUEST_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for DOT11_RECEIVED_GO_NEGOTIATION_REQUEST_PARAMETERS {
+impl Clone for DOT11_RECEIVED_GO_NEGOTIATION_REQUEST_PARAMETERS {
     fn clone(&self) -> Self {
         *self
     }
@@ -3887,14 +3887,14 @@ pub struct DOT11_RECEIVED_GO_NEGOTIATION_RESPONSE_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub PeerDeviceAddress: [u8; 6],
     pub DialogToken: u8,
-    pub ResponseContext: *mut ::core::ffi::c_void,
+    pub ResponseContext: *mut core::ffi::c_void,
     pub uIEsOffset: u32,
     pub uIEsLength: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for DOT11_RECEIVED_GO_NEGOTIATION_RESPONSE_PARAMETERS {}
+impl Copy for DOT11_RECEIVED_GO_NEGOTIATION_RESPONSE_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for DOT11_RECEIVED_GO_NEGOTIATION_RESPONSE_PARAMETERS {
+impl Clone for DOT11_RECEIVED_GO_NEGOTIATION_RESPONSE_PARAMETERS {
     fn clone(&self) -> Self {
         *self
     }
@@ -3906,14 +3906,14 @@ pub struct DOT11_RECEIVED_INVITATION_REQUEST_PARAMETERS {
     pub TransmitterDeviceAddress: [u8; 6],
     pub BSSID: [u8; 6],
     pub DialogToken: u8,
-    pub RequestContext: *mut ::core::ffi::c_void,
+    pub RequestContext: *mut core::ffi::c_void,
     pub uIEsOffset: u32,
     pub uIEsLength: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for DOT11_RECEIVED_INVITATION_REQUEST_PARAMETERS {}
+impl Copy for DOT11_RECEIVED_INVITATION_REQUEST_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for DOT11_RECEIVED_INVITATION_REQUEST_PARAMETERS {
+impl Clone for DOT11_RECEIVED_INVITATION_REQUEST_PARAMETERS {
     fn clone(&self) -> Self {
         *self
     }
@@ -3929,9 +3929,9 @@ pub struct DOT11_RECEIVED_INVITATION_RESPONSE_PARAMETERS {
     pub uIEsLength: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for DOT11_RECEIVED_INVITATION_RESPONSE_PARAMETERS {}
+impl Copy for DOT11_RECEIVED_INVITATION_RESPONSE_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for DOT11_RECEIVED_INVITATION_RESPONSE_PARAMETERS {
+impl Clone for DOT11_RECEIVED_INVITATION_RESPONSE_PARAMETERS {
     fn clone(&self) -> Self {
         *self
     }
@@ -3943,14 +3943,14 @@ pub struct DOT11_RECEIVED_PROVISION_DISCOVERY_REQUEST_PARAMETERS {
     pub TransmitterDeviceAddress: [u8; 6],
     pub BSSID: [u8; 6],
     pub DialogToken: u8,
-    pub RequestContext: *mut ::core::ffi::c_void,
+    pub RequestContext: *mut core::ffi::c_void,
     pub uIEsOffset: u32,
     pub uIEsLength: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for DOT11_RECEIVED_PROVISION_DISCOVERY_REQUEST_PARAMETERS {}
+impl Copy for DOT11_RECEIVED_PROVISION_DISCOVERY_REQUEST_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for DOT11_RECEIVED_PROVISION_DISCOVERY_REQUEST_PARAMETERS {
+impl Clone for DOT11_RECEIVED_PROVISION_DISCOVERY_REQUEST_PARAMETERS {
     fn clone(&self) -> Self {
         *self
     }
@@ -3966,9 +3966,9 @@ pub struct DOT11_RECEIVED_PROVISION_DISCOVERY_RESPONSE_PARAMETERS {
     pub uIEsLength: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for DOT11_RECEIVED_PROVISION_DISCOVERY_RESPONSE_PARAMETERS {}
+impl Copy for DOT11_RECEIVED_PROVISION_DISCOVERY_RESPONSE_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for DOT11_RECEIVED_PROVISION_DISCOVERY_RESPONSE_PARAMETERS {
+impl Clone for DOT11_RECEIVED_PROVISION_DISCOVERY_RESPONSE_PARAMETERS {
     fn clone(&self) -> Self {
         *self
     }
@@ -3976,7 +3976,7 @@ impl ::core::clone::Clone for DOT11_RECEIVED_PROVISION_DISCOVERY_RESPONSE_PARAME
 #[repr(C)]
 pub struct DOT11_RECV_EXTENSION_INFO {
     pub uVersion: u32,
-    pub pvReserved: *mut ::core::ffi::c_void,
+    pub pvReserved: *mut core::ffi::c_void,
     pub dot11PhyType: DOT11_PHY_TYPE,
     pub uChCenterFrequency: u32,
     pub lRSSI: i32,
@@ -3997,10 +3997,10 @@ pub struct DOT11_RECV_EXTENSION_INFO {
     pub usDot11RightRWBitMap: u16,
     pub usNumberOfMPDUsReceived: u16,
     pub usNumberOfFragments: u16,
-    pub pNdisPackets: [*mut ::core::ffi::c_void; 1],
+    pub pNdisPackets: [*mut core::ffi::c_void; 1],
 }
-impl ::core::marker::Copy for DOT11_RECV_EXTENSION_INFO {}
-impl ::core::clone::Clone for DOT11_RECV_EXTENSION_INFO {
+impl Copy for DOT11_RECV_EXTENSION_INFO {}
+impl Clone for DOT11_RECV_EXTENSION_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -4008,7 +4008,7 @@ impl ::core::clone::Clone for DOT11_RECV_EXTENSION_INFO {
 #[repr(C)]
 pub struct DOT11_RECV_EXTENSION_INFO_V2 {
     pub uVersion: u32,
-    pub pvReserved: *mut ::core::ffi::c_void,
+    pub pvReserved: *mut core::ffi::c_void,
     pub dot11PhyType: DOT11_PHY_TYPE,
     pub uChCenterFrequency: u32,
     pub lRSSI: i32,
@@ -4027,10 +4027,10 @@ pub struct DOT11_RECV_EXTENSION_INFO_V2 {
     pub usDot11RightRWBitMap: u16,
     pub usNumberOfMPDUsReceived: u16,
     pub usNumberOfFragments: u16,
-    pub pNdisPackets: [*mut ::core::ffi::c_void; 1],
+    pub pNdisPackets: [*mut core::ffi::c_void; 1],
 }
-impl ::core::marker::Copy for DOT11_RECV_EXTENSION_INFO_V2 {}
-impl ::core::clone::Clone for DOT11_RECV_EXTENSION_INFO_V2 {
+impl Copy for DOT11_RECV_EXTENSION_INFO_V2 {}
+impl Clone for DOT11_RECV_EXTENSION_INFO_V2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4041,8 +4041,8 @@ pub struct DOT11_RECV_SENSITIVITY {
     pub lRSSIMin: i32,
     pub lRSSIMax: i32,
 }
-impl ::core::marker::Copy for DOT11_RECV_SENSITIVITY {}
-impl ::core::clone::Clone for DOT11_RECV_SENSITIVITY {
+impl Copy for DOT11_RECV_SENSITIVITY {}
+impl Clone for DOT11_RECV_SENSITIVITY {
     fn clone(&self) -> Self {
         *self
     }
@@ -4054,8 +4054,8 @@ pub struct DOT11_RECV_SENSITIVITY_LIST {
     pub uTotalNumOfEntries: u32,
     pub dot11RecvSensitivity: [DOT11_RECV_SENSITIVITY; 1],
 }
-impl ::core::marker::Copy for DOT11_RECV_SENSITIVITY_LIST {}
-impl ::core::clone::Clone for DOT11_RECV_SENSITIVITY_LIST {
+impl Copy for DOT11_RECV_SENSITIVITY_LIST {}
+impl Clone for DOT11_RECV_SENSITIVITY_LIST {
     fn clone(&self) -> Self {
         *self
     }
@@ -4065,8 +4065,8 @@ pub union DOT11_RECV_SENSITIVITY_LIST_0 {
     pub dot11PhyType: DOT11_PHY_TYPE,
     pub uPhyId: u32,
 }
-impl ::core::marker::Copy for DOT11_RECV_SENSITIVITY_LIST_0 {}
-impl ::core::clone::Clone for DOT11_RECV_SENSITIVITY_LIST_0 {
+impl Copy for DOT11_RECV_SENSITIVITY_LIST_0 {}
+impl Clone for DOT11_RECV_SENSITIVITY_LIST_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4077,8 +4077,8 @@ pub struct DOT11_REG_DOMAINS_SUPPORT_VALUE {
     pub uTotalNumOfEntries: u32,
     pub dot11RegDomainValue: [DOT11_REG_DOMAIN_VALUE; 1],
 }
-impl ::core::marker::Copy for DOT11_REG_DOMAINS_SUPPORT_VALUE {}
-impl ::core::clone::Clone for DOT11_REG_DOMAINS_SUPPORT_VALUE {
+impl Copy for DOT11_REG_DOMAINS_SUPPORT_VALUE {}
+impl Clone for DOT11_REG_DOMAINS_SUPPORT_VALUE {
     fn clone(&self) -> Self {
         *self
     }
@@ -4088,8 +4088,8 @@ pub struct DOT11_REG_DOMAIN_VALUE {
     pub uRegDomainsSupportIndex: u32,
     pub uRegDomainsSupportValue: u32,
 }
-impl ::core::marker::Copy for DOT11_REG_DOMAIN_VALUE {}
-impl ::core::clone::Clone for DOT11_REG_DOMAIN_VALUE {
+impl Copy for DOT11_REG_DOMAIN_VALUE {}
+impl Clone for DOT11_REG_DOMAIN_VALUE {
     fn clone(&self) -> Self {
         *self
     }
@@ -4100,8 +4100,8 @@ pub struct DOT11_RESET_REQUEST {
     pub dot11MacAddress: [u8; 6],
     pub bSetDefaultMIB: super::super::Foundation::BOOLEAN,
 }
-impl ::core::marker::Copy for DOT11_RESET_REQUEST {}
-impl ::core::clone::Clone for DOT11_RESET_REQUEST {
+impl Copy for DOT11_RESET_REQUEST {}
+impl Clone for DOT11_RESET_REQUEST {
     fn clone(&self) -> Self {
         *self
     }
@@ -4113,9 +4113,9 @@ pub struct DOT11_ROAMING_COMPLETION_PARAMETERS {
     pub uStatus: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for DOT11_ROAMING_COMPLETION_PARAMETERS {}
+impl Copy for DOT11_ROAMING_COMPLETION_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for DOT11_ROAMING_COMPLETION_PARAMETERS {
+impl Clone for DOT11_ROAMING_COMPLETION_PARAMETERS {
     fn clone(&self) -> Self {
         *self
     }
@@ -4129,9 +4129,9 @@ pub struct DOT11_ROAMING_START_PARAMETERS {
     pub uRoamingReason: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for DOT11_ROAMING_START_PARAMETERS {}
+impl Copy for DOT11_ROAMING_START_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for DOT11_ROAMING_START_PARAMETERS {
+impl Clone for DOT11_ROAMING_START_PARAMETERS {
     fn clone(&self) -> Self {
         *self
     }
@@ -4142,8 +4142,8 @@ pub struct DOT11_RSSI_RANGE {
     pub uRSSIMin: u32,
     pub uRSSIMax: u32,
 }
-impl ::core::marker::Copy for DOT11_RSSI_RANGE {}
-impl ::core::clone::Clone for DOT11_RSSI_RANGE {
+impl Copy for DOT11_RSSI_RANGE {}
+impl Clone for DOT11_RSSI_RANGE {
     fn clone(&self) -> Self {
         *self
     }
@@ -4164,8 +4164,8 @@ pub struct DOT11_SCAN_REQUEST {
     pub uIEsLength: u32,
     pub ucBuffer: [u8; 1],
 }
-impl ::core::marker::Copy for DOT11_SCAN_REQUEST {}
-impl ::core::clone::Clone for DOT11_SCAN_REQUEST {
+impl Copy for DOT11_SCAN_REQUEST {}
+impl Clone for DOT11_SCAN_REQUEST {
     fn clone(&self) -> Self {
         *self
     }
@@ -4187,8 +4187,8 @@ pub struct DOT11_SCAN_REQUEST_V2 {
     pub uIEsLength: u32,
     pub ucBuffer: [u8; 1],
 }
-impl ::core::marker::Copy for DOT11_SCAN_REQUEST_V2 {}
-impl ::core::clone::Clone for DOT11_SCAN_REQUEST_V2 {
+impl Copy for DOT11_SCAN_REQUEST_V2 {}
+impl Clone for DOT11_SCAN_REQUEST_V2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4199,8 +4199,8 @@ pub struct DOT11_SECURITY_PACKET_HEADER {
     pub usEtherType: u16,
     pub Data: [u8; 1],
 }
-impl ::core::marker::Copy for DOT11_SECURITY_PACKET_HEADER {}
-impl ::core::clone::Clone for DOT11_SECURITY_PACKET_HEADER {
+impl Copy for DOT11_SECURITY_PACKET_HEADER {}
+impl Clone for DOT11_SECURITY_PACKET_HEADER {
     fn clone(&self) -> Self {
         *self
     }
@@ -4211,7 +4211,7 @@ pub struct DOT11_SEND_GO_NEGOTIATION_CONFIRMATION_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub PeerDeviceAddress: [u8; 6],
     pub DialogToken: u8,
-    pub ResponseContext: *mut ::core::ffi::c_void,
+    pub ResponseContext: *mut core::ffi::c_void,
     pub uSendTimeout: u32,
     pub Status: u8,
     pub GroupCapability: u8,
@@ -4221,9 +4221,9 @@ pub struct DOT11_SEND_GO_NEGOTIATION_CONFIRMATION_PARAMETERS {
     pub uIEsLength: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for DOT11_SEND_GO_NEGOTIATION_CONFIRMATION_PARAMETERS {}
+impl Copy for DOT11_SEND_GO_NEGOTIATION_CONFIRMATION_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for DOT11_SEND_GO_NEGOTIATION_CONFIRMATION_PARAMETERS {
+impl Clone for DOT11_SEND_GO_NEGOTIATION_CONFIRMATION_PARAMETERS {
     fn clone(&self) -> Self {
         *self
     }
@@ -4243,9 +4243,9 @@ pub struct DOT11_SEND_GO_NEGOTIATION_REQUEST_PARAMETERS {
     pub uIEsLength: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for DOT11_SEND_GO_NEGOTIATION_REQUEST_PARAMETERS {}
+impl Copy for DOT11_SEND_GO_NEGOTIATION_REQUEST_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for DOT11_SEND_GO_NEGOTIATION_REQUEST_PARAMETERS {
+impl Clone for DOT11_SEND_GO_NEGOTIATION_REQUEST_PARAMETERS {
     fn clone(&self) -> Self {
         *self
     }
@@ -4256,7 +4256,7 @@ pub struct DOT11_SEND_GO_NEGOTIATION_RESPONSE_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub PeerDeviceAddress: [u8; 6],
     pub DialogToken: u8,
-    pub RequestContext: *mut ::core::ffi::c_void,
+    pub RequestContext: *mut core::ffi::c_void,
     pub uSendTimeout: u32,
     pub Status: u8,
     pub GroupOwnerIntent: DOT11_WFD_GO_INTENT,
@@ -4269,9 +4269,9 @@ pub struct DOT11_SEND_GO_NEGOTIATION_RESPONSE_PARAMETERS {
     pub uIEsLength: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for DOT11_SEND_GO_NEGOTIATION_RESPONSE_PARAMETERS {}
+impl Copy for DOT11_SEND_GO_NEGOTIATION_RESPONSE_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for DOT11_SEND_GO_NEGOTIATION_RESPONSE_PARAMETERS {
+impl Clone for DOT11_SEND_GO_NEGOTIATION_RESPONSE_PARAMETERS {
     fn clone(&self) -> Self {
         *self
     }
@@ -4295,9 +4295,9 @@ pub struct DOT11_SEND_INVITATION_REQUEST_PARAMETERS {
     pub uIEsLength: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for DOT11_SEND_INVITATION_REQUEST_PARAMETERS {}
+impl Copy for DOT11_SEND_INVITATION_REQUEST_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for DOT11_SEND_INVITATION_REQUEST_PARAMETERS {
+impl Clone for DOT11_SEND_INVITATION_REQUEST_PARAMETERS {
     fn clone(&self) -> Self {
         *self
     }
@@ -4308,7 +4308,7 @@ pub struct DOT11_SEND_INVITATION_RESPONSE_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub ReceiverDeviceAddress: [u8; 6],
     pub DialogToken: u8,
-    pub RequestContext: *mut ::core::ffi::c_void,
+    pub RequestContext: *mut core::ffi::c_void,
     pub uSendTimeout: u32,
     pub Status: u8,
     pub MinimumConfigTimeout: DOT11_WFD_CONFIGURATION_TIMEOUT,
@@ -4320,9 +4320,9 @@ pub struct DOT11_SEND_INVITATION_RESPONSE_PARAMETERS {
     pub uIEsLength: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for DOT11_SEND_INVITATION_RESPONSE_PARAMETERS {}
+impl Copy for DOT11_SEND_INVITATION_RESPONSE_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for DOT11_SEND_INVITATION_RESPONSE_PARAMETERS {
+impl Clone for DOT11_SEND_INVITATION_RESPONSE_PARAMETERS {
     fn clone(&self) -> Self {
         *self
     }
@@ -4341,9 +4341,9 @@ pub struct DOT11_SEND_PROVISION_DISCOVERY_REQUEST_PARAMETERS {
     pub uIEsLength: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for DOT11_SEND_PROVISION_DISCOVERY_REQUEST_PARAMETERS {}
+impl Copy for DOT11_SEND_PROVISION_DISCOVERY_REQUEST_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for DOT11_SEND_PROVISION_DISCOVERY_REQUEST_PARAMETERS {
+impl Clone for DOT11_SEND_PROVISION_DISCOVERY_REQUEST_PARAMETERS {
     fn clone(&self) -> Self {
         *self
     }
@@ -4354,15 +4354,15 @@ pub struct DOT11_SEND_PROVISION_DISCOVERY_RESPONSE_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub ReceiverDeviceAddress: [u8; 6],
     pub DialogToken: u8,
-    pub RequestContext: *mut ::core::ffi::c_void,
+    pub RequestContext: *mut core::ffi::c_void,
     pub uSendTimeout: u32,
     pub uIEsOffset: u32,
     pub uIEsLength: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for DOT11_SEND_PROVISION_DISCOVERY_RESPONSE_PARAMETERS {}
+impl Copy for DOT11_SEND_PROVISION_DISCOVERY_RESPONSE_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for DOT11_SEND_PROVISION_DISCOVERY_RESPONSE_PARAMETERS {
+impl Clone for DOT11_SEND_PROVISION_DISCOVERY_RESPONSE_PARAMETERS {
     fn clone(&self) -> Self {
         *self
     }
@@ -4372,8 +4372,8 @@ pub struct DOT11_SSID {
     pub uSSIDLength: u32,
     pub ucSSID: [u8; 32],
 }
-impl ::core::marker::Copy for DOT11_SSID {}
-impl ::core::clone::Clone for DOT11_SSID {
+impl Copy for DOT11_SSID {}
+impl Clone for DOT11_SSID {
     fn clone(&self) -> Self {
         *self
     }
@@ -4387,9 +4387,9 @@ pub struct DOT11_SSID_LIST {
     pub SSIDs: [DOT11_SSID; 1],
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for DOT11_SSID_LIST {}
+impl Copy for DOT11_SSID_LIST {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for DOT11_SSID_LIST {
+impl Clone for DOT11_SSID_LIST {
     fn clone(&self) -> Self {
         *self
     }
@@ -4401,8 +4401,8 @@ pub struct DOT11_START_REQUEST {
     pub uChCenterFrequency: u32,
     pub dot11BSSDescription: DOT11_BSS_DESCRIPTION,
 }
-impl ::core::marker::Copy for DOT11_START_REQUEST {}
-impl ::core::clone::Clone for DOT11_START_REQUEST {
+impl Copy for DOT11_START_REQUEST {}
+impl Clone for DOT11_START_REQUEST {
     fn clone(&self) -> Self {
         *self
     }
@@ -4419,9 +4419,9 @@ pub struct DOT11_STATISTICS {
     pub PhyCounters: [DOT11_PHY_FRAME_STATISTICS; 1],
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for DOT11_STATISTICS {}
+impl Copy for DOT11_STATISTICS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for DOT11_STATISTICS {
+impl Clone for DOT11_STATISTICS {
     fn clone(&self) -> Self {
         *self
     }
@@ -4431,8 +4431,8 @@ pub struct DOT11_STATUS_INDICATION {
     pub uStatusType: u32,
     pub ndisStatus: i32,
 }
-impl ::core::marker::Copy for DOT11_STATUS_INDICATION {}
-impl ::core::clone::Clone for DOT11_STATUS_INDICATION {
+impl Copy for DOT11_STATUS_INDICATION {}
+impl Clone for DOT11_STATUS_INDICATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -4444,9 +4444,9 @@ pub struct DOT11_STOP_AP_PARAMETERS {
     pub ulReason: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for DOT11_STOP_AP_PARAMETERS {}
+impl Copy for DOT11_STOP_AP_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for DOT11_STOP_AP_PARAMETERS {
+impl Clone for DOT11_STOP_AP_PARAMETERS {
     fn clone(&self) -> Self {
         *self
     }
@@ -4456,8 +4456,8 @@ pub struct DOT11_SUPPORTED_ANTENNA {
     pub uAntennaListIndex: u32,
     pub bSupportedAntenna: super::super::Foundation::BOOLEAN,
 }
-impl ::core::marker::Copy for DOT11_SUPPORTED_ANTENNA {}
-impl ::core::clone::Clone for DOT11_SUPPORTED_ANTENNA {
+impl Copy for DOT11_SUPPORTED_ANTENNA {}
+impl Clone for DOT11_SUPPORTED_ANTENNA {
     fn clone(&self) -> Self {
         *self
     }
@@ -4468,8 +4468,8 @@ pub struct DOT11_SUPPORTED_ANTENNA_LIST {
     pub uTotalNumOfEntries: u32,
     pub dot11SupportedAntenna: [DOT11_SUPPORTED_ANTENNA; 1],
 }
-impl ::core::marker::Copy for DOT11_SUPPORTED_ANTENNA_LIST {}
-impl ::core::clone::Clone for DOT11_SUPPORTED_ANTENNA_LIST {
+impl Copy for DOT11_SUPPORTED_ANTENNA_LIST {}
+impl Clone for DOT11_SUPPORTED_ANTENNA_LIST {
     fn clone(&self) -> Self {
         *self
     }
@@ -4479,8 +4479,8 @@ pub struct DOT11_SUPPORTED_DATA_RATES_VALUE {
     pub ucSupportedTxDataRatesValue: [u8; 8],
     pub ucSupportedRxDataRatesValue: [u8; 8],
 }
-impl ::core::marker::Copy for DOT11_SUPPORTED_DATA_RATES_VALUE {}
-impl ::core::clone::Clone for DOT11_SUPPORTED_DATA_RATES_VALUE {
+impl Copy for DOT11_SUPPORTED_DATA_RATES_VALUE {}
+impl Clone for DOT11_SUPPORTED_DATA_RATES_VALUE {
     fn clone(&self) -> Self {
         *self
     }
@@ -4490,8 +4490,8 @@ pub struct DOT11_SUPPORTED_DATA_RATES_VALUE_V2 {
     pub ucSupportedTxDataRatesValue: [u8; 255],
     pub ucSupportedRxDataRatesValue: [u8; 255],
 }
-impl ::core::marker::Copy for DOT11_SUPPORTED_DATA_RATES_VALUE_V2 {}
-impl ::core::clone::Clone for DOT11_SUPPORTED_DATA_RATES_VALUE_V2 {
+impl Copy for DOT11_SUPPORTED_DATA_RATES_VALUE_V2 {}
+impl Clone for DOT11_SUPPORTED_DATA_RATES_VALUE_V2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4500,8 +4500,8 @@ impl ::core::clone::Clone for DOT11_SUPPORTED_DATA_RATES_VALUE_V2 {
 pub struct DOT11_SUPPORTED_DSSS_CHANNEL {
     pub uChannel: u32,
 }
-impl ::core::marker::Copy for DOT11_SUPPORTED_DSSS_CHANNEL {}
-impl ::core::clone::Clone for DOT11_SUPPORTED_DSSS_CHANNEL {
+impl Copy for DOT11_SUPPORTED_DSSS_CHANNEL {}
+impl Clone for DOT11_SUPPORTED_DSSS_CHANNEL {
     fn clone(&self) -> Self {
         *self
     }
@@ -4512,8 +4512,8 @@ pub struct DOT11_SUPPORTED_DSSS_CHANNEL_LIST {
     pub uTotalNumOfEntries: u32,
     pub dot11SupportedDSSSChannel: [DOT11_SUPPORTED_DSSS_CHANNEL; 1],
 }
-impl ::core::marker::Copy for DOT11_SUPPORTED_DSSS_CHANNEL_LIST {}
-impl ::core::clone::Clone for DOT11_SUPPORTED_DSSS_CHANNEL_LIST {
+impl Copy for DOT11_SUPPORTED_DSSS_CHANNEL_LIST {}
+impl Clone for DOT11_SUPPORTED_DSSS_CHANNEL_LIST {
     fn clone(&self) -> Self {
         *self
     }
@@ -4522,8 +4522,8 @@ impl ::core::clone::Clone for DOT11_SUPPORTED_DSSS_CHANNEL_LIST {
 pub struct DOT11_SUPPORTED_OFDM_FREQUENCY {
     pub uCenterFrequency: u32,
 }
-impl ::core::marker::Copy for DOT11_SUPPORTED_OFDM_FREQUENCY {}
-impl ::core::clone::Clone for DOT11_SUPPORTED_OFDM_FREQUENCY {
+impl Copy for DOT11_SUPPORTED_OFDM_FREQUENCY {}
+impl Clone for DOT11_SUPPORTED_OFDM_FREQUENCY {
     fn clone(&self) -> Self {
         *self
     }
@@ -4534,8 +4534,8 @@ pub struct DOT11_SUPPORTED_OFDM_FREQUENCY_LIST {
     pub uTotalNumOfEntries: u32,
     pub dot11SupportedOFDMFrequency: [DOT11_SUPPORTED_OFDM_FREQUENCY; 1],
 }
-impl ::core::marker::Copy for DOT11_SUPPORTED_OFDM_FREQUENCY_LIST {}
-impl ::core::clone::Clone for DOT11_SUPPORTED_OFDM_FREQUENCY_LIST {
+impl Copy for DOT11_SUPPORTED_OFDM_FREQUENCY_LIST {}
+impl Clone for DOT11_SUPPORTED_OFDM_FREQUENCY_LIST {
     fn clone(&self) -> Self {
         *self
     }
@@ -4546,8 +4546,8 @@ pub struct DOT11_SUPPORTED_PHY_TYPES {
     pub uTotalNumOfEntries: u32,
     pub dot11PHYType: [DOT11_PHY_TYPE; 1],
 }
-impl ::core::marker::Copy for DOT11_SUPPORTED_PHY_TYPES {}
-impl ::core::clone::Clone for DOT11_SUPPORTED_PHY_TYPES {
+impl Copy for DOT11_SUPPORTED_PHY_TYPES {}
+impl Clone for DOT11_SUPPORTED_PHY_TYPES {
     fn clone(&self) -> Self {
         *self
     }
@@ -4557,8 +4557,8 @@ pub struct DOT11_SUPPORTED_POWER_LEVELS {
     pub uNumOfSupportedPowerLevels: u32,
     pub uTxPowerLevelValues: [u32; 8],
 }
-impl ::core::marker::Copy for DOT11_SUPPORTED_POWER_LEVELS {}
-impl ::core::clone::Clone for DOT11_SUPPORTED_POWER_LEVELS {
+impl Copy for DOT11_SUPPORTED_POWER_LEVELS {}
+impl Clone for DOT11_SUPPORTED_POWER_LEVELS {
     fn clone(&self) -> Self {
         *self
     }
@@ -4572,9 +4572,9 @@ pub struct DOT11_TKIPMIC_FAILURE_PARAMETERS {
     pub PeerMac: [u8; 6],
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for DOT11_TKIPMIC_FAILURE_PARAMETERS {}
+impl Copy for DOT11_TKIPMIC_FAILURE_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for DOT11_TKIPMIC_FAILURE_PARAMETERS {
+impl Clone for DOT11_TKIPMIC_FAILURE_PARAMETERS {
     fn clone(&self) -> Self {
         *self
     }
@@ -4585,8 +4585,8 @@ pub struct DOT11_UPDATE_IE {
     pub uBufferLength: u32,
     pub ucBuffer: [u8; 1],
 }
-impl ::core::marker::Copy for DOT11_UPDATE_IE {}
-impl ::core::clone::Clone for DOT11_UPDATE_IE {
+impl Copy for DOT11_UPDATE_IE {}
+impl Clone for DOT11_UPDATE_IE {
     fn clone(&self) -> Self {
         *self
     }
@@ -4596,8 +4596,8 @@ pub struct DOT11_VENUEINFO {
     pub VenueGroup: u8,
     pub VenueType: u8,
 }
-impl ::core::marker::Copy for DOT11_VENUEINFO {}
-impl ::core::clone::Clone for DOT11_VENUEINFO {
+impl Copy for DOT11_VENUEINFO {}
+impl Clone for DOT11_VENUEINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -4610,9 +4610,9 @@ pub struct DOT11_VWIFI_ATTRIBUTES {
     pub Combinations: [DOT11_VWIFI_COMBINATION; 1],
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for DOT11_VWIFI_ATTRIBUTES {}
+impl Copy for DOT11_VWIFI_ATTRIBUTES {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for DOT11_VWIFI_ATTRIBUTES {
+impl Clone for DOT11_VWIFI_ATTRIBUTES {
     fn clone(&self) -> Self {
         *self
     }
@@ -4626,9 +4626,9 @@ pub struct DOT11_VWIFI_COMBINATION {
     pub uNumSoftAP: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for DOT11_VWIFI_COMBINATION {}
+impl Copy for DOT11_VWIFI_COMBINATION {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for DOT11_VWIFI_COMBINATION {
+impl Clone for DOT11_VWIFI_COMBINATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -4643,9 +4643,9 @@ pub struct DOT11_VWIFI_COMBINATION_V2 {
     pub uNumVirtualStation: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for DOT11_VWIFI_COMBINATION_V2 {}
+impl Copy for DOT11_VWIFI_COMBINATION_V2 {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for DOT11_VWIFI_COMBINATION_V2 {
+impl Clone for DOT11_VWIFI_COMBINATION_V2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4661,9 +4661,9 @@ pub struct DOT11_VWIFI_COMBINATION_V3 {
     pub uNumWFDGroup: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for DOT11_VWIFI_COMBINATION_V3 {}
+impl Copy for DOT11_VWIFI_COMBINATION_V3 {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for DOT11_VWIFI_COMBINATION_V3 {
+impl Clone for DOT11_VWIFI_COMBINATION_V3 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4686,8 +4686,8 @@ pub struct DOT11_WEP_OFFLOAD {
     pub usKeyLength: u16,
     pub ucKey: [u8; 1],
 }
-impl ::core::marker::Copy for DOT11_WEP_OFFLOAD {}
-impl ::core::clone::Clone for DOT11_WEP_OFFLOAD {
+impl Copy for DOT11_WEP_OFFLOAD {}
+impl Clone for DOT11_WEP_OFFLOAD {
     fn clone(&self) -> Self {
         *self
     }
@@ -4701,8 +4701,8 @@ pub struct DOT11_WEP_UPLOAD {
     pub dot11IV48Counters: [DOT11_IV48_COUNTER; 16],
     pub usDot11RWBitMaps: [u16; 16],
 }
-impl ::core::marker::Copy for DOT11_WEP_UPLOAD {}
-impl ::core::clone::Clone for DOT11_WEP_UPLOAD {
+impl Copy for DOT11_WEP_UPLOAD {}
+impl Clone for DOT11_WEP_UPLOAD {
     fn clone(&self) -> Self {
         *self
     }
@@ -4719,9 +4719,9 @@ pub struct DOT11_WFD_ADDITIONAL_IE {
     pub uDefaultRequestIEsLength: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for DOT11_WFD_ADDITIONAL_IE {}
+impl Copy for DOT11_WFD_ADDITIONAL_IE {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for DOT11_WFD_ADDITIONAL_IE {
+impl Clone for DOT11_WFD_ADDITIONAL_IE {
     fn clone(&self) -> Self {
         *self
     }
@@ -4733,8 +4733,8 @@ pub struct DOT11_WFD_ADVERTISED_SERVICE_DESCRIPTOR {
     pub ServiceNameLength: u8,
     pub ServiceName: [u8; 255],
 }
-impl ::core::marker::Copy for DOT11_WFD_ADVERTISED_SERVICE_DESCRIPTOR {}
-impl ::core::clone::Clone for DOT11_WFD_ADVERTISED_SERVICE_DESCRIPTOR {
+impl Copy for DOT11_WFD_ADVERTISED_SERVICE_DESCRIPTOR {}
+impl Clone for DOT11_WFD_ADVERTISED_SERVICE_DESCRIPTOR {
     fn clone(&self) -> Self {
         *self
     }
@@ -4744,8 +4744,8 @@ pub struct DOT11_WFD_ADVERTISED_SERVICE_LIST {
     pub ServiceCount: u16,
     pub AdvertisedService: [DOT11_WFD_ADVERTISED_SERVICE_DESCRIPTOR; 1],
 }
-impl ::core::marker::Copy for DOT11_WFD_ADVERTISED_SERVICE_LIST {}
-impl ::core::clone::Clone for DOT11_WFD_ADVERTISED_SERVICE_LIST {
+impl Copy for DOT11_WFD_ADVERTISED_SERVICE_LIST {}
+impl Clone for DOT11_WFD_ADVERTISED_SERVICE_LIST {
     fn clone(&self) -> Self {
         *self
     }
@@ -4755,8 +4755,8 @@ pub struct DOT11_WFD_ADVERTISEMENT_ID {
     pub AdvertisementID: u32,
     pub ServiceAddress: [u8; 6],
 }
-impl ::core::marker::Copy for DOT11_WFD_ADVERTISEMENT_ID {}
-impl ::core::clone::Clone for DOT11_WFD_ADVERTISEMENT_ID {
+impl Copy for DOT11_WFD_ADVERTISEMENT_ID {}
+impl Clone for DOT11_WFD_ADVERTISEMENT_ID {
     fn clone(&self) -> Self {
         *self
     }
@@ -4781,9 +4781,9 @@ pub struct DOT11_WFD_ATTRIBUTES {
     pub uGORoleClientTableSize: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for DOT11_WFD_ATTRIBUTES {}
+impl Copy for DOT11_WFD_ATTRIBUTES {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for DOT11_WFD_ATTRIBUTES {
+impl Clone for DOT11_WFD_ATTRIBUTES {
     fn clone(&self) -> Self {
         *self
     }
@@ -4794,8 +4794,8 @@ pub struct DOT11_WFD_CHANNEL {
     pub OperatingClass: u8,
     pub ChannelNumber: u8,
 }
-impl ::core::marker::Copy for DOT11_WFD_CHANNEL {}
-impl ::core::clone::Clone for DOT11_WFD_CHANNEL {
+impl Copy for DOT11_WFD_CHANNEL {}
+impl Clone for DOT11_WFD_CHANNEL {
     fn clone(&self) -> Self {
         *self
     }
@@ -4805,8 +4805,8 @@ pub struct DOT11_WFD_CONFIGURATION_TIMEOUT {
     pub GOTimeout: u8,
     pub ClientTimeout: u8,
 }
-impl ::core::marker::Copy for DOT11_WFD_CONFIGURATION_TIMEOUT {}
-impl ::core::clone::Clone for DOT11_WFD_CONFIGURATION_TIMEOUT {
+impl Copy for DOT11_WFD_CONFIGURATION_TIMEOUT {}
+impl Clone for DOT11_WFD_CONFIGURATION_TIMEOUT {
     fn clone(&self) -> Self {
         *self
     }
@@ -4824,9 +4824,9 @@ pub struct DOT11_WFD_DEVICE_CAPABILITY_CONFIG {
     pub WPSVersionsEnabled: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for DOT11_WFD_DEVICE_CAPABILITY_CONFIG {}
+impl Copy for DOT11_WFD_DEVICE_CAPABILITY_CONFIG {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for DOT11_WFD_DEVICE_CAPABILITY_CONFIG {
+impl Clone for DOT11_WFD_DEVICE_CAPABILITY_CONFIG {
     fn clone(&self) -> Self {
         *self
     }
@@ -4850,8 +4850,8 @@ pub struct DOT11_WFD_DEVICE_ENTRY {
     pub uProbeResponseIEsOffset: u32,
     pub uProbeResponseIEsLength: u32,
 }
-impl ::core::marker::Copy for DOT11_WFD_DEVICE_ENTRY {}
-impl ::core::clone::Clone for DOT11_WFD_DEVICE_ENTRY {
+impl Copy for DOT11_WFD_DEVICE_ENTRY {}
+impl Clone for DOT11_WFD_DEVICE_ENTRY {
     fn clone(&self) -> Self {
         *self
     }
@@ -4866,9 +4866,9 @@ pub struct DOT11_WFD_DEVICE_INFO {
     pub DeviceName: DOT11_WPS_DEVICE_NAME,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for DOT11_WFD_DEVICE_INFO {}
+impl Copy for DOT11_WFD_DEVICE_INFO {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for DOT11_WFD_DEVICE_INFO {
+impl Clone for DOT11_WFD_DEVICE_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -4880,9 +4880,9 @@ pub struct DOT11_WFD_DEVICE_LISTEN_CHANNEL {
     pub ChannelNumber: u8,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for DOT11_WFD_DEVICE_LISTEN_CHANNEL {}
+impl Copy for DOT11_WFD_DEVICE_LISTEN_CHANNEL {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for DOT11_WFD_DEVICE_LISTEN_CHANNEL {
+impl Clone for DOT11_WFD_DEVICE_LISTEN_CHANNEL {
     fn clone(&self) -> Self {
         *self
     }
@@ -4893,8 +4893,8 @@ pub struct DOT11_WFD_DEVICE_TYPE {
     pub SubCategoryID: u16,
     pub OUI: [u8; 4],
 }
-impl ::core::marker::Copy for DOT11_WFD_DEVICE_TYPE {}
-impl ::core::clone::Clone for DOT11_WFD_DEVICE_TYPE {
+impl Copy for DOT11_WFD_DEVICE_TYPE {}
+impl Clone for DOT11_WFD_DEVICE_TYPE {
     fn clone(&self) -> Self {
         *self
     }
@@ -4910,9 +4910,9 @@ pub struct DOT11_WFD_DISCOVER_COMPLETE_PARAMETERS {
     pub uListLength: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for DOT11_WFD_DISCOVER_COMPLETE_PARAMETERS {}
+impl Copy for DOT11_WFD_DISCOVER_COMPLETE_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for DOT11_WFD_DISCOVER_COMPLETE_PARAMETERS {
+impl Clone for DOT11_WFD_DISCOVER_COMPLETE_PARAMETERS {
     fn clone(&self) -> Self {
         *self
     }
@@ -4923,8 +4923,8 @@ pub struct DOT11_WFD_DISCOVER_DEVICE_FILTER {
     pub ucBitmask: u8,
     pub GroupSSID: DOT11_SSID,
 }
-impl ::core::marker::Copy for DOT11_WFD_DISCOVER_DEVICE_FILTER {}
-impl ::core::clone::Clone for DOT11_WFD_DISCOVER_DEVICE_FILTER {
+impl Copy for DOT11_WFD_DISCOVER_DEVICE_FILTER {}
+impl Clone for DOT11_WFD_DISCOVER_DEVICE_FILTER {
     fn clone(&self) -> Self {
         *self
     }
@@ -4943,9 +4943,9 @@ pub struct DOT11_WFD_DISCOVER_REQUEST {
     pub bForceScanLegacyNetworks: super::super::Foundation::BOOLEAN,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for DOT11_WFD_DISCOVER_REQUEST {}
+impl Copy for DOT11_WFD_DISCOVER_REQUEST {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for DOT11_WFD_DISCOVER_REQUEST {
+impl Clone for DOT11_WFD_DISCOVER_REQUEST {
     fn clone(&self) -> Self {
         *self
     }
@@ -4954,8 +4954,8 @@ impl ::core::clone::Clone for DOT11_WFD_DISCOVER_REQUEST {
 pub struct DOT11_WFD_GO_INTENT {
     pub _bitfield: u8,
 }
-impl ::core::marker::Copy for DOT11_WFD_GO_INTENT {}
-impl ::core::clone::Clone for DOT11_WFD_GO_INTENT {
+impl Copy for DOT11_WFD_GO_INTENT {}
+impl Clone for DOT11_WFD_GO_INTENT {
     fn clone(&self) -> Self {
         *self
     }
@@ -4965,8 +4965,8 @@ pub struct DOT11_WFD_GROUP_ID {
     pub DeviceAddress: [u8; 6],
     pub SSID: DOT11_SSID,
 }
-impl ::core::marker::Copy for DOT11_WFD_GROUP_ID {}
-impl ::core::clone::Clone for DOT11_WFD_GROUP_ID {
+impl Copy for DOT11_WFD_GROUP_ID {}
+impl Clone for DOT11_WFD_GROUP_ID {
     fn clone(&self) -> Self {
         *self
     }
@@ -4981,9 +4981,9 @@ pub struct DOT11_WFD_GROUP_JOIN_PARAMETERS {
     pub bWaitForWPSReady: super::super::Foundation::BOOLEAN,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for DOT11_WFD_GROUP_JOIN_PARAMETERS {}
+impl Copy for DOT11_WFD_GROUP_JOIN_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for DOT11_WFD_GROUP_JOIN_PARAMETERS {
+impl Clone for DOT11_WFD_GROUP_JOIN_PARAMETERS {
     fn clone(&self) -> Self {
         *self
     }
@@ -5000,9 +5000,9 @@ pub struct DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG {
     pub uMaximumGroupLimit: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG {}
+impl Copy for DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG {
+impl Clone for DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG {
     fn clone(&self) -> Self {
         *self
     }
@@ -5020,9 +5020,9 @@ pub struct DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG_V2 {
     pub bEapolKeyIpAddressAllocationSupported: super::super::Foundation::BOOLEAN,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG_V2 {}
+impl Copy for DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG_V2 {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG_V2 {
+impl Clone for DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG_V2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -5034,9 +5034,9 @@ pub struct DOT11_WFD_GROUP_START_PARAMETERS {
     pub AdvertisedOperatingChannel: DOT11_WFD_CHANNEL,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for DOT11_WFD_GROUP_START_PARAMETERS {}
+impl Copy for DOT11_WFD_GROUP_START_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for DOT11_WFD_GROUP_START_PARAMETERS {
+impl Clone for DOT11_WFD_GROUP_START_PARAMETERS {
     fn clone(&self) -> Self {
         *self
     }
@@ -5045,8 +5045,8 @@ impl ::core::clone::Clone for DOT11_WFD_GROUP_START_PARAMETERS {
 pub struct DOT11_WFD_INVITATION_FLAGS {
     pub _bitfield: u8,
 }
-impl ::core::marker::Copy for DOT11_WFD_INVITATION_FLAGS {}
-impl ::core::clone::Clone for DOT11_WFD_INVITATION_FLAGS {
+impl Copy for DOT11_WFD_INVITATION_FLAGS {}
+impl Clone for DOT11_WFD_INVITATION_FLAGS {
     fn clone(&self) -> Self {
         *self
     }
@@ -5060,9 +5060,9 @@ pub struct DOT11_WFD_SECONDARY_DEVICE_TYPE_LIST {
     pub SecondaryDeviceTypes: [DOT11_WFD_DEVICE_TYPE; 1],
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for DOT11_WFD_SECONDARY_DEVICE_TYPE_LIST {}
+impl Copy for DOT11_WFD_SECONDARY_DEVICE_TYPE_LIST {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for DOT11_WFD_SECONDARY_DEVICE_TYPE_LIST {
+impl Clone for DOT11_WFD_SECONDARY_DEVICE_TYPE_LIST {
     fn clone(&self) -> Self {
         *self
     }
@@ -5072,8 +5072,8 @@ pub struct DOT11_WFD_SERVICE_HASH_LIST {
     pub ServiceHashCount: u16,
     pub ServiceHash: [u8; 6],
 }
-impl ::core::marker::Copy for DOT11_WFD_SERVICE_HASH_LIST {}
-impl ::core::clone::Clone for DOT11_WFD_SERVICE_HASH_LIST {
+impl Copy for DOT11_WFD_SERVICE_HASH_LIST {}
+impl Clone for DOT11_WFD_SERVICE_HASH_LIST {
     fn clone(&self) -> Self {
         *self
     }
@@ -5083,8 +5083,8 @@ pub struct DOT11_WFD_SESSION_ID {
     pub SessionID: u32,
     pub SessionAddress: [u8; 6],
 }
-impl ::core::marker::Copy for DOT11_WFD_SESSION_ID {}
-impl ::core::clone::Clone for DOT11_WFD_SESSION_ID {
+impl Copy for DOT11_WFD_SESSION_ID {}
+impl Clone for DOT11_WFD_SESSION_ID {
     fn clone(&self) -> Self {
         *self
     }
@@ -5094,8 +5094,8 @@ pub struct DOT11_WFD_SESSION_INFO {
     pub uSessionInfoLength: u16,
     pub ucSessionInfo: [u8; 144],
 }
-impl ::core::marker::Copy for DOT11_WFD_SESSION_INFO {}
-impl ::core::clone::Clone for DOT11_WFD_SESSION_INFO {
+impl Copy for DOT11_WFD_SESSION_INFO {}
+impl Clone for DOT11_WFD_SESSION_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -5108,8 +5108,8 @@ pub struct DOT11_WME_AC_PARAMETERS {
     pub ucECWmax: u8,
     pub usTXOPLimit: u16,
 }
-impl ::core::marker::Copy for DOT11_WME_AC_PARAMETERS {}
-impl ::core::clone::Clone for DOT11_WME_AC_PARAMETERS {
+impl Copy for DOT11_WME_AC_PARAMETERS {}
+impl Clone for DOT11_WME_AC_PARAMETERS {
     fn clone(&self) -> Self {
         *self
     }
@@ -5120,8 +5120,8 @@ pub struct DOT11_WME_AC_PARAMETERS_LIST {
     pub uTotalNumOfEntries: u32,
     pub dot11WMEACParameters: [DOT11_WME_AC_PARAMETERS; 1],
 }
-impl ::core::marker::Copy for DOT11_WME_AC_PARAMETERS_LIST {}
-impl ::core::clone::Clone for DOT11_WME_AC_PARAMETERS_LIST {
+impl Copy for DOT11_WME_AC_PARAMETERS_LIST {}
+impl Clone for DOT11_WME_AC_PARAMETERS_LIST {
     fn clone(&self) -> Self {
         *self
     }
@@ -5135,8 +5135,8 @@ pub struct DOT11_WME_UPDATE_IE {
     pub uWMEParamElemLength: u32,
     pub ucBuffer: [u8; 1],
 }
-impl ::core::marker::Copy for DOT11_WME_UPDATE_IE {}
-impl ::core::clone::Clone for DOT11_WME_UPDATE_IE {
+impl Copy for DOT11_WME_UPDATE_IE {}
+impl Clone for DOT11_WME_UPDATE_IE {
     fn clone(&self) -> Self {
         *self
     }
@@ -5148,8 +5148,8 @@ pub struct DOT11_WPA_TSC {
     pub hOffload: super::super::Foundation::HANDLE,
     pub dot11IV48Counter: DOT11_IV48_COUNTER,
 }
-impl ::core::marker::Copy for DOT11_WPA_TSC {}
-impl ::core::clone::Clone for DOT11_WPA_TSC {
+impl Copy for DOT11_WPA_TSC {}
+impl Clone for DOT11_WPA_TSC {
     fn clone(&self) -> Self {
         *self
     }
@@ -5159,23 +5159,23 @@ pub struct DOT11_WPS_DEVICE_NAME {
     pub uDeviceNameLength: u32,
     pub ucDeviceName: [u8; 32],
 }
-impl ::core::marker::Copy for DOT11_WPS_DEVICE_NAME {}
-impl ::core::clone::Clone for DOT11_WPS_DEVICE_NAME {
+impl Copy for DOT11_WPS_DEVICE_NAME {}
+impl Clone for DOT11_WPS_DEVICE_NAME {
     fn clone(&self) -> Self {
         *self
     }
 }
-pub const Dot11AdHocManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xdd06a84f_83bd_4d01_8ab9_2389fea0869e);
+pub const Dot11AdHocManager: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdd06a84f_83bd_4d01_8ab9_2389fea0869e);
 #[repr(C)]
 pub struct L2_NOTIFICATION_DATA {
     pub NotificationSource: WLAN_NOTIFICATION_SOURCES,
     pub NotificationCode: u32,
-    pub InterfaceGuid: ::windows_sys::core::GUID,
+    pub InterfaceGuid: windows_sys::core::GUID,
     pub dwDataSize: u32,
-    pub pData: *mut ::core::ffi::c_void,
+    pub pData: *mut core::ffi::c_void,
 }
-impl ::core::marker::Copy for L2_NOTIFICATION_DATA {}
-impl ::core::clone::Clone for L2_NOTIFICATION_DATA {
+impl Copy for L2_NOTIFICATION_DATA {}
+impl Clone for L2_NOTIFICATION_DATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -5194,8 +5194,8 @@ pub struct ONEX_AUTH_PARAMS {
     pub UserName: ONEX_VARIABLE_BLOB,
     pub Domain: ONEX_VARIABLE_BLOB,
 }
-impl ::core::marker::Copy for ONEX_AUTH_PARAMS {}
-impl ::core::clone::Clone for ONEX_AUTH_PARAMS {
+impl Copy for ONEX_AUTH_PARAMS {}
+impl Clone for ONEX_AUTH_PARAMS {
     fn clone(&self) -> Self {
         *self
     }
@@ -5206,17 +5206,17 @@ pub struct ONEX_EAP_ERROR {
     pub dwWinError: u32,
     pub r#type: super::super::Security::ExtensibleAuthenticationProtocol::EAP_METHOD_TYPE,
     pub dwReasonCode: u32,
-    pub rootCauseGuid: ::windows_sys::core::GUID,
-    pub repairGuid: ::windows_sys::core::GUID,
-    pub helpLinkGuid: ::windows_sys::core::GUID,
+    pub rootCauseGuid: windows_sys::core::GUID,
+    pub repairGuid: windows_sys::core::GUID,
+    pub helpLinkGuid: windows_sys::core::GUID,
     pub _bitfield: u32,
     pub RootCauseString: ONEX_VARIABLE_BLOB,
     pub RepairString: ONEX_VARIABLE_BLOB,
 }
 #[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
-impl ::core::marker::Copy for ONEX_EAP_ERROR {}
+impl Copy for ONEX_EAP_ERROR {}
 #[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
-impl ::core::clone::Clone for ONEX_EAP_ERROR {
+impl Clone for ONEX_EAP_ERROR {
     fn clone(&self) -> Self {
         *self
     }
@@ -5230,8 +5230,8 @@ pub struct ONEX_RESULT_UPDATE_DATA {
     pub authParams: ONEX_VARIABLE_BLOB,
     pub eapError: ONEX_VARIABLE_BLOB,
 }
-impl ::core::marker::Copy for ONEX_RESULT_UPDATE_DATA {}
-impl ::core::clone::Clone for ONEX_RESULT_UPDATE_DATA {
+impl Copy for ONEX_RESULT_UPDATE_DATA {}
+impl Clone for ONEX_RESULT_UPDATE_DATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -5242,8 +5242,8 @@ pub struct ONEX_STATUS {
     pub dwReason: u32,
     pub dwError: u32,
 }
-impl ::core::marker::Copy for ONEX_STATUS {}
-impl ::core::clone::Clone for ONEX_STATUS {
+impl Copy for ONEX_STATUS {}
+impl Clone for ONEX_STATUS {
     fn clone(&self) -> Self {
         *self
     }
@@ -5255,8 +5255,8 @@ pub struct ONEX_USER_INFO {
     pub UserName: ONEX_VARIABLE_BLOB,
     pub DomainName: ONEX_VARIABLE_BLOB,
 }
-impl ::core::marker::Copy for ONEX_USER_INFO {}
-impl ::core::clone::Clone for ONEX_USER_INFO {
+impl Copy for ONEX_USER_INFO {}
+impl Clone for ONEX_USER_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -5266,8 +5266,8 @@ pub struct ONEX_VARIABLE_BLOB {
     pub dwSize: u32,
     pub dwOffset: u32,
 }
-impl ::core::marker::Copy for ONEX_VARIABLE_BLOB {}
-impl ::core::clone::Clone for ONEX_VARIABLE_BLOB {
+impl Copy for ONEX_VARIABLE_BLOB {}
+impl Clone for ONEX_VARIABLE_BLOB {
     fn clone(&self) -> Self {
         *self
     }
@@ -5280,8 +5280,8 @@ pub struct WDIAG_IHV_WLAN_ID {
     pub dwFlags: u32,
     pub dwReasonCode: u32,
 }
-impl ::core::marker::Copy for WDIAG_IHV_WLAN_ID {}
-impl ::core::clone::Clone for WDIAG_IHV_WLAN_ID {
+impl Copy for WDIAG_IHV_WLAN_ID {}
+impl Clone for WDIAG_IHV_WLAN_ID {
     fn clone(&self) -> Self {
         *self
     }
@@ -5292,8 +5292,8 @@ pub struct WFDSVC_CONNECTION_CAPABILITY {
     pub bClient: super::super::Foundation::BOOLEAN,
     pub bGO: super::super::Foundation::BOOLEAN,
 }
-impl ::core::marker::Copy for WFDSVC_CONNECTION_CAPABILITY {}
-impl ::core::clone::Clone for WFDSVC_CONNECTION_CAPABILITY {
+impl Copy for WFDSVC_CONNECTION_CAPABILITY {}
+impl Clone for WFDSVC_CONNECTION_CAPABILITY {
     fn clone(&self) -> Self {
         *self
     }
@@ -5303,8 +5303,8 @@ pub struct WFD_GROUP_ID {
     pub DeviceAddress: [u8; 6],
     pub GroupSSID: DOT11_SSID,
 }
-impl ::core::marker::Copy for WFD_GROUP_ID {}
-impl ::core::clone::Clone for WFD_GROUP_ID {
+impl Copy for WFD_GROUP_ID {}
+impl Clone for WFD_GROUP_ID {
     fn clone(&self) -> Self {
         *self
     }
@@ -5320,8 +5320,8 @@ pub struct WLAN_ASSOCIATION_ATTRIBUTES {
     pub ulRxRate: u32,
     pub ulTxRate: u32,
 }
-impl ::core::marker::Copy for WLAN_ASSOCIATION_ATTRIBUTES {}
-impl ::core::clone::Clone for WLAN_ASSOCIATION_ATTRIBUTES {
+impl Copy for WLAN_ASSOCIATION_ATTRIBUTES {}
+impl Clone for WLAN_ASSOCIATION_ATTRIBUTES {
     fn clone(&self) -> Self {
         *self
     }
@@ -5331,8 +5331,8 @@ pub struct WLAN_AUTH_CIPHER_PAIR_LIST {
     pub dwNumberOfItems: u32,
     pub pAuthCipherPairList: [DOT11_AUTH_CIPHER_PAIR; 1],
 }
-impl ::core::marker::Copy for WLAN_AUTH_CIPHER_PAIR_LIST {}
-impl ::core::clone::Clone for WLAN_AUTH_CIPHER_PAIR_LIST {
+impl Copy for WLAN_AUTH_CIPHER_PAIR_LIST {}
+impl Clone for WLAN_AUTH_CIPHER_PAIR_LIST {
     fn clone(&self) -> Self {
         *self
     }
@@ -5355,8 +5355,8 @@ pub struct WLAN_AVAILABLE_NETWORK {
     pub dwFlags: u32,
     pub dwReserved: u32,
 }
-impl ::core::marker::Copy for WLAN_AVAILABLE_NETWORK {}
-impl ::core::clone::Clone for WLAN_AVAILABLE_NETWORK {
+impl Copy for WLAN_AVAILABLE_NETWORK {}
+impl Clone for WLAN_AVAILABLE_NETWORK {
     fn clone(&self) -> Self {
         *self
     }
@@ -5367,8 +5367,8 @@ pub struct WLAN_AVAILABLE_NETWORK_LIST {
     pub dwIndex: u32,
     pub Network: [WLAN_AVAILABLE_NETWORK; 1],
 }
-impl ::core::marker::Copy for WLAN_AVAILABLE_NETWORK_LIST {}
-impl ::core::clone::Clone for WLAN_AVAILABLE_NETWORK_LIST {
+impl Copy for WLAN_AVAILABLE_NETWORK_LIST {}
+impl Clone for WLAN_AVAILABLE_NETWORK_LIST {
     fn clone(&self) -> Self {
         *self
     }
@@ -5379,8 +5379,8 @@ pub struct WLAN_AVAILABLE_NETWORK_LIST_V2 {
     pub dwIndex: u32,
     pub Network: [WLAN_AVAILABLE_NETWORK_V2; 1],
 }
-impl ::core::marker::Copy for WLAN_AVAILABLE_NETWORK_LIST_V2 {}
-impl ::core::clone::Clone for WLAN_AVAILABLE_NETWORK_LIST_V2 {
+impl Copy for WLAN_AVAILABLE_NETWORK_LIST_V2 {}
+impl Clone for WLAN_AVAILABLE_NETWORK_LIST_V2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -5406,8 +5406,8 @@ pub struct WLAN_AVAILABLE_NETWORK_V2 {
     pub VenueInfo: DOT11_VENUEINFO,
     pub dwReserved: u32,
 }
-impl ::core::marker::Copy for WLAN_AVAILABLE_NETWORK_V2 {}
-impl ::core::clone::Clone for WLAN_AVAILABLE_NETWORK_V2 {
+impl Copy for WLAN_AVAILABLE_NETWORK_V2 {}
+impl Clone for WLAN_AVAILABLE_NETWORK_V2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -5431,8 +5431,8 @@ pub struct WLAN_BSS_ENTRY {
     pub ulIeOffset: u32,
     pub ulIeSize: u32,
 }
-impl ::core::marker::Copy for WLAN_BSS_ENTRY {}
-impl ::core::clone::Clone for WLAN_BSS_ENTRY {
+impl Copy for WLAN_BSS_ENTRY {}
+impl Clone for WLAN_BSS_ENTRY {
     fn clone(&self) -> Self {
         *self
     }
@@ -5443,8 +5443,8 @@ pub struct WLAN_BSS_LIST {
     pub dwNumberOfItems: u32,
     pub wlanBssEntries: [WLAN_BSS_ENTRY; 1],
 }
-impl ::core::marker::Copy for WLAN_BSS_LIST {}
-impl ::core::clone::Clone for WLAN_BSS_LIST {
+impl Copy for WLAN_BSS_LIST {}
+impl Clone for WLAN_BSS_LIST {
     fn clone(&self) -> Self {
         *self
     }
@@ -5457,8 +5457,8 @@ pub struct WLAN_CONNECTION_ATTRIBUTES {
     pub wlanAssociationAttributes: WLAN_ASSOCIATION_ATTRIBUTES,
     pub wlanSecurityAttributes: WLAN_SECURITY_ATTRIBUTES,
 }
-impl ::core::marker::Copy for WLAN_CONNECTION_ATTRIBUTES {}
-impl ::core::clone::Clone for WLAN_CONNECTION_ATTRIBUTES {
+impl Copy for WLAN_CONNECTION_ATTRIBUTES {}
+impl Clone for WLAN_CONNECTION_ATTRIBUTES {
     fn clone(&self) -> Self {
         *self
     }
@@ -5474,8 +5474,8 @@ pub struct WLAN_CONNECTION_NOTIFICATION_DATA {
     pub dwFlags: WLAN_CONNECTION_NOTIFICATION_FLAGS,
     pub strProfileXml: [u16; 1],
 }
-impl ::core::marker::Copy for WLAN_CONNECTION_NOTIFICATION_DATA {}
-impl ::core::clone::Clone for WLAN_CONNECTION_NOTIFICATION_DATA {
+impl Copy for WLAN_CONNECTION_NOTIFICATION_DATA {}
+impl Clone for WLAN_CONNECTION_NOTIFICATION_DATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -5484,16 +5484,16 @@ impl ::core::clone::Clone for WLAN_CONNECTION_NOTIFICATION_DATA {
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct WLAN_CONNECTION_PARAMETERS {
     pub wlanConnectionMode: WLAN_CONNECTION_MODE,
-    pub strProfile: ::windows_sys::core::PCWSTR,
+    pub strProfile: windows_sys::core::PCWSTR,
     pub pDot11Ssid: *mut DOT11_SSID,
     pub pDesiredBssidList: *mut DOT11_BSSID_LIST,
     pub dot11BssType: DOT11_BSS_TYPE,
     pub dwFlags: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for WLAN_CONNECTION_PARAMETERS {}
+impl Copy for WLAN_CONNECTION_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for WLAN_CONNECTION_PARAMETERS {
+impl Clone for WLAN_CONNECTION_PARAMETERS {
     fn clone(&self) -> Self {
         *self
     }
@@ -5502,7 +5502,7 @@ impl ::core::clone::Clone for WLAN_CONNECTION_PARAMETERS {
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct WLAN_CONNECTION_PARAMETERS_V2 {
     pub wlanConnectionMode: WLAN_CONNECTION_MODE,
-    pub strProfile: ::windows_sys::core::PCWSTR,
+    pub strProfile: windows_sys::core::PCWSTR,
     pub pDot11Ssid: *mut DOT11_SSID,
     pub pDot11Hessid: *mut u8,
     pub pDesiredBssidList: *mut DOT11_BSSID_LIST,
@@ -5511,9 +5511,9 @@ pub struct WLAN_CONNECTION_PARAMETERS_V2 {
     pub pDot11AccessNetworkOptions: *mut DOT11_ACCESSNETWORKOPTIONS,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for WLAN_CONNECTION_PARAMETERS_V2 {}
+impl Copy for WLAN_CONNECTION_PARAMETERS_V2 {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for WLAN_CONNECTION_PARAMETERS_V2 {
+impl Clone for WLAN_CONNECTION_PARAMETERS_V2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -5523,8 +5523,8 @@ pub struct WLAN_COUNTRY_OR_REGION_STRING_LIST {
     pub dwNumberOfItems: u32,
     pub pCountryOrRegionStringList: [u8; 3],
 }
-impl ::core::marker::Copy for WLAN_COUNTRY_OR_REGION_STRING_LIST {}
-impl ::core::clone::Clone for WLAN_COUNTRY_OR_REGION_STRING_LIST {
+impl Copy for WLAN_COUNTRY_OR_REGION_STRING_LIST {}
+impl Clone for WLAN_COUNTRY_OR_REGION_STRING_LIST {
     fn clone(&self) -> Self {
         *self
     }
@@ -5533,23 +5533,23 @@ impl ::core::clone::Clone for WLAN_COUNTRY_OR_REGION_STRING_LIST {
 pub struct WLAN_DEVICE_SERVICE_GUID_LIST {
     pub dwNumberOfItems: u32,
     pub dwIndex: u32,
-    pub DeviceService: [::windows_sys::core::GUID; 1],
+    pub DeviceService: [windows_sys::core::GUID; 1],
 }
-impl ::core::marker::Copy for WLAN_DEVICE_SERVICE_GUID_LIST {}
-impl ::core::clone::Clone for WLAN_DEVICE_SERVICE_GUID_LIST {
+impl Copy for WLAN_DEVICE_SERVICE_GUID_LIST {}
+impl Clone for WLAN_DEVICE_SERVICE_GUID_LIST {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct WLAN_DEVICE_SERVICE_NOTIFICATION_DATA {
-    pub DeviceService: ::windows_sys::core::GUID,
+    pub DeviceService: windows_sys::core::GUID,
     pub dwOpCode: u32,
     pub dwDataSize: u32,
     pub DataBlob: [u8; 1],
 }
-impl ::core::marker::Copy for WLAN_DEVICE_SERVICE_NOTIFICATION_DATA {}
-impl ::core::clone::Clone for WLAN_DEVICE_SERVICE_NOTIFICATION_DATA {
+impl Copy for WLAN_DEVICE_SERVICE_NOTIFICATION_DATA {}
+impl Clone for WLAN_DEVICE_SERVICE_NOTIFICATION_DATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -5559,8 +5559,8 @@ pub struct WLAN_HOSTED_NETWORK_CONNECTION_SETTINGS {
     pub hostedNetworkSSID: DOT11_SSID,
     pub dwMaxNumberOfPeers: u32,
 }
-impl ::core::marker::Copy for WLAN_HOSTED_NETWORK_CONNECTION_SETTINGS {}
-impl ::core::clone::Clone for WLAN_HOSTED_NETWORK_CONNECTION_SETTINGS {
+impl Copy for WLAN_HOSTED_NETWORK_CONNECTION_SETTINGS {}
+impl Clone for WLAN_HOSTED_NETWORK_CONNECTION_SETTINGS {
     fn clone(&self) -> Self {
         *self
     }
@@ -5571,8 +5571,8 @@ pub struct WLAN_HOSTED_NETWORK_DATA_PEER_STATE_CHANGE {
     pub NewState: WLAN_HOSTED_NETWORK_PEER_STATE,
     pub PeerStateChangeReason: WLAN_HOSTED_NETWORK_REASON,
 }
-impl ::core::marker::Copy for WLAN_HOSTED_NETWORK_DATA_PEER_STATE_CHANGE {}
-impl ::core::clone::Clone for WLAN_HOSTED_NETWORK_DATA_PEER_STATE_CHANGE {
+impl Copy for WLAN_HOSTED_NETWORK_DATA_PEER_STATE_CHANGE {}
+impl Clone for WLAN_HOSTED_NETWORK_DATA_PEER_STATE_CHANGE {
     fn clone(&self) -> Self {
         *self
     }
@@ -5582,8 +5582,8 @@ pub struct WLAN_HOSTED_NETWORK_PEER_STATE {
     pub PeerMacAddress: [u8; 6],
     pub PeerAuthState: WLAN_HOSTED_NETWORK_PEER_AUTH_STATE,
 }
-impl ::core::marker::Copy for WLAN_HOSTED_NETWORK_PEER_STATE {}
-impl ::core::clone::Clone for WLAN_HOSTED_NETWORK_PEER_STATE {
+impl Copy for WLAN_HOSTED_NETWORK_PEER_STATE {}
+impl Clone for WLAN_HOSTED_NETWORK_PEER_STATE {
     fn clone(&self) -> Self {
         *self
     }
@@ -5593,8 +5593,8 @@ pub struct WLAN_HOSTED_NETWORK_RADIO_STATE {
     pub dot11SoftwareRadioState: DOT11_RADIO_STATE,
     pub dot11HardwareRadioState: DOT11_RADIO_STATE,
 }
-impl ::core::marker::Copy for WLAN_HOSTED_NETWORK_RADIO_STATE {}
-impl ::core::clone::Clone for WLAN_HOSTED_NETWORK_RADIO_STATE {
+impl Copy for WLAN_HOSTED_NETWORK_RADIO_STATE {}
+impl Clone for WLAN_HOSTED_NETWORK_RADIO_STATE {
     fn clone(&self) -> Self {
         *self
     }
@@ -5604,8 +5604,8 @@ pub struct WLAN_HOSTED_NETWORK_SECURITY_SETTINGS {
     pub dot11AuthAlgo: DOT11_AUTH_ALGORITHM,
     pub dot11CipherAlgo: DOT11_CIPHER_ALGORITHM,
 }
-impl ::core::marker::Copy for WLAN_HOSTED_NETWORK_SECURITY_SETTINGS {}
-impl ::core::clone::Clone for WLAN_HOSTED_NETWORK_SECURITY_SETTINGS {
+impl Copy for WLAN_HOSTED_NETWORK_SECURITY_SETTINGS {}
+impl Clone for WLAN_HOSTED_NETWORK_SECURITY_SETTINGS {
     fn clone(&self) -> Self {
         *self
     }
@@ -5616,8 +5616,8 @@ pub struct WLAN_HOSTED_NETWORK_STATE_CHANGE {
     pub NewState: WLAN_HOSTED_NETWORK_STATE,
     pub StateChangeReason: WLAN_HOSTED_NETWORK_REASON,
 }
-impl ::core::marker::Copy for WLAN_HOSTED_NETWORK_STATE_CHANGE {}
-impl ::core::clone::Clone for WLAN_HOSTED_NETWORK_STATE_CHANGE {
+impl Copy for WLAN_HOSTED_NETWORK_STATE_CHANGE {}
+impl Clone for WLAN_HOSTED_NETWORK_STATE_CHANGE {
     fn clone(&self) -> Self {
         *self
     }
@@ -5625,15 +5625,15 @@ impl ::core::clone::Clone for WLAN_HOSTED_NETWORK_STATE_CHANGE {
 #[repr(C)]
 pub struct WLAN_HOSTED_NETWORK_STATUS {
     pub HostedNetworkState: WLAN_HOSTED_NETWORK_STATE,
-    pub IPDeviceID: ::windows_sys::core::GUID,
+    pub IPDeviceID: windows_sys::core::GUID,
     pub wlanHostedNetworkBSSID: [u8; 6],
     pub dot11PhyType: DOT11_PHY_TYPE,
     pub ulChannelFrequency: u32,
     pub dwNumberOfPeers: u32,
     pub PeerList: [WLAN_HOSTED_NETWORK_PEER_STATE; 1],
 }
-impl ::core::marker::Copy for WLAN_HOSTED_NETWORK_STATUS {}
-impl ::core::clone::Clone for WLAN_HOSTED_NETWORK_STATUS {
+impl Copy for WLAN_HOSTED_NETWORK_STATUS {}
+impl Clone for WLAN_HOSTED_NETWORK_STATUS {
     fn clone(&self) -> Self {
         *self
     }
@@ -5647,20 +5647,20 @@ pub struct WLAN_INTERFACE_CAPABILITY {
     pub dwNumberOfSupportedPhys: u32,
     pub dot11PhyTypes: [DOT11_PHY_TYPE; 64],
 }
-impl ::core::marker::Copy for WLAN_INTERFACE_CAPABILITY {}
-impl ::core::clone::Clone for WLAN_INTERFACE_CAPABILITY {
+impl Copy for WLAN_INTERFACE_CAPABILITY {}
+impl Clone for WLAN_INTERFACE_CAPABILITY {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct WLAN_INTERFACE_INFO {
-    pub InterfaceGuid: ::windows_sys::core::GUID,
+    pub InterfaceGuid: windows_sys::core::GUID,
     pub strInterfaceDescription: [u16; 256],
     pub isState: WLAN_INTERFACE_STATE,
 }
-impl ::core::marker::Copy for WLAN_INTERFACE_INFO {}
-impl ::core::clone::Clone for WLAN_INTERFACE_INFO {
+impl Copy for WLAN_INTERFACE_INFO {}
+impl Clone for WLAN_INTERFACE_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -5671,8 +5671,8 @@ pub struct WLAN_INTERFACE_INFO_LIST {
     pub dwIndex: u32,
     pub InterfaceInfo: [WLAN_INTERFACE_INFO; 1],
 }
-impl ::core::marker::Copy for WLAN_INTERFACE_INFO_LIST {}
-impl ::core::clone::Clone for WLAN_INTERFACE_INFO_LIST {
+impl Copy for WLAN_INTERFACE_INFO_LIST {}
+impl Clone for WLAN_INTERFACE_INFO_LIST {
     fn clone(&self) -> Self {
         *self
     }
@@ -5692,8 +5692,8 @@ pub struct WLAN_MAC_FRAME_STATISTICS {
     pub ullDecryptSuccessCount: u64,
     pub ullDecryptFailureCount: u64,
 }
-impl ::core::marker::Copy for WLAN_MAC_FRAME_STATISTICS {}
-impl ::core::clone::Clone for WLAN_MAC_FRAME_STATISTICS {
+impl Copy for WLAN_MAC_FRAME_STATISTICS {}
+impl Clone for WLAN_MAC_FRAME_STATISTICS {
     fn clone(&self) -> Self {
         *self
     }
@@ -5710,8 +5710,8 @@ pub struct WLAN_MSM_NOTIFICATION_DATA {
     pub bLastPeer: super::super::Foundation::BOOL,
     pub wlanReasonCode: u32,
 }
-impl ::core::marker::Copy for WLAN_MSM_NOTIFICATION_DATA {}
-impl ::core::clone::Clone for WLAN_MSM_NOTIFICATION_DATA {
+impl Copy for WLAN_MSM_NOTIFICATION_DATA {}
+impl Clone for WLAN_MSM_NOTIFICATION_DATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -5737,8 +5737,8 @@ pub struct WLAN_PHY_FRAME_STATISTICS {
     pub ullPromiscuousReceivedFragmentCount: u64,
     pub ullFCSErrorCount: u64,
 }
-impl ::core::marker::Copy for WLAN_PHY_FRAME_STATISTICS {}
-impl ::core::clone::Clone for WLAN_PHY_FRAME_STATISTICS {
+impl Copy for WLAN_PHY_FRAME_STATISTICS {}
+impl Clone for WLAN_PHY_FRAME_STATISTICS {
     fn clone(&self) -> Self {
         *self
     }
@@ -5749,8 +5749,8 @@ pub struct WLAN_PHY_RADIO_STATE {
     pub dot11SoftwareRadioState: DOT11_RADIO_STATE,
     pub dot11HardwareRadioState: DOT11_RADIO_STATE,
 }
-impl ::core::marker::Copy for WLAN_PHY_RADIO_STATE {}
-impl ::core::clone::Clone for WLAN_PHY_RADIO_STATE {
+impl Copy for WLAN_PHY_RADIO_STATE {}
+impl Clone for WLAN_PHY_RADIO_STATE {
     fn clone(&self) -> Self {
         *self
     }
@@ -5760,8 +5760,8 @@ pub struct WLAN_PROFILE_INFO {
     pub strProfileName: [u16; 256],
     pub dwFlags: u32,
 }
-impl ::core::marker::Copy for WLAN_PROFILE_INFO {}
-impl ::core::clone::Clone for WLAN_PROFILE_INFO {
+impl Copy for WLAN_PROFILE_INFO {}
+impl Clone for WLAN_PROFILE_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -5772,8 +5772,8 @@ pub struct WLAN_PROFILE_INFO_LIST {
     pub dwIndex: u32,
     pub ProfileInfo: [WLAN_PROFILE_INFO; 1],
 }
-impl ::core::marker::Copy for WLAN_PROFILE_INFO_LIST {}
-impl ::core::clone::Clone for WLAN_PROFILE_INFO_LIST {
+impl Copy for WLAN_PROFILE_INFO_LIST {}
+impl Clone for WLAN_PROFILE_INFO_LIST {
     fn clone(&self) -> Self {
         *self
     }
@@ -5783,8 +5783,8 @@ pub struct WLAN_RADIO_STATE {
     pub dwNumberOfPhys: u32,
     pub PhyRadioState: [WLAN_PHY_RADIO_STATE; 64],
 }
-impl ::core::marker::Copy for WLAN_RADIO_STATE {}
-impl ::core::clone::Clone for WLAN_RADIO_STATE {
+impl Copy for WLAN_RADIO_STATE {}
+impl Clone for WLAN_RADIO_STATE {
     fn clone(&self) -> Self {
         *self
     }
@@ -5794,8 +5794,8 @@ pub struct WLAN_RATE_SET {
     pub uRateSetLength: u32,
     pub usRateSet: [u16; 126],
 }
-impl ::core::marker::Copy for WLAN_RATE_SET {}
-impl ::core::clone::Clone for WLAN_RATE_SET {
+impl Copy for WLAN_RATE_SET {}
+impl Clone for WLAN_RATE_SET {
     fn clone(&self) -> Self {
         *self
     }
@@ -5805,8 +5805,8 @@ pub struct WLAN_RAW_DATA {
     pub dwDataSize: u32,
     pub DataBlob: [u8; 1],
 }
-impl ::core::marker::Copy for WLAN_RAW_DATA {}
-impl ::core::clone::Clone for WLAN_RAW_DATA {
+impl Copy for WLAN_RAW_DATA {}
+impl Clone for WLAN_RAW_DATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -5817,8 +5817,8 @@ pub struct WLAN_RAW_DATA_LIST {
     pub dwNumberOfItems: u32,
     pub DataList: [WLAN_RAW_DATA_LIST_0; 1],
 }
-impl ::core::marker::Copy for WLAN_RAW_DATA_LIST {}
-impl ::core::clone::Clone for WLAN_RAW_DATA_LIST {
+impl Copy for WLAN_RAW_DATA_LIST {}
+impl Clone for WLAN_RAW_DATA_LIST {
     fn clone(&self) -> Self {
         *self
     }
@@ -5828,8 +5828,8 @@ pub struct WLAN_RAW_DATA_LIST_0 {
     pub dwDataOffset: u32,
     pub dwDataSize: u32,
 }
-impl ::core::marker::Copy for WLAN_RAW_DATA_LIST_0 {}
-impl ::core::clone::Clone for WLAN_RAW_DATA_LIST_0 {
+impl Copy for WLAN_RAW_DATA_LIST_0 {}
+impl Clone for WLAN_RAW_DATA_LIST_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -5841,8 +5841,8 @@ pub struct WLAN_SECURITY_ATTRIBUTES {
     pub dot11AuthAlgorithm: DOT11_AUTH_ALGORITHM,
     pub dot11CipherAlgorithm: DOT11_CIPHER_ALGORITHM,
 }
-impl ::core::marker::Copy for WLAN_SECURITY_ATTRIBUTES {}
-impl ::core::clone::Clone for WLAN_SECURITY_ATTRIBUTES {
+impl Copy for WLAN_SECURITY_ATTRIBUTES {}
+impl Clone for WLAN_SECURITY_ATTRIBUTES {
     fn clone(&self) -> Self {
         *self
     }
@@ -5857,69 +5857,69 @@ pub struct WLAN_STATISTICS {
     pub dwNumberOfPhys: u32,
     pub PhyCounters: [WLAN_PHY_FRAME_STATISTICS; 1],
 }
-impl ::core::marker::Copy for WLAN_STATISTICS {}
-impl ::core::clone::Clone for WLAN_STATISTICS {
+impl Copy for WLAN_STATISTICS {}
+impl Clone for WLAN_STATISTICS {
     fn clone(&self) -> Self {
         *self
     }
 }
-pub type DOT11EXTIHV_ADAPTER_RESET = ::core::option::Option<unsafe extern "system" fn(hihvextadapter: super::super::Foundation::HANDLE) -> u32>;
-pub type DOT11EXTIHV_CONTROL = ::core::option::Option<unsafe extern "system" fn(hihvextadapter: super::super::Foundation::HANDLE, dwinbuffersize: u32, pinbuffer: *const u8, dwoutbuffersize: u32, poutbuffer: *mut u8, pdwbytesreturned: *mut u32) -> u32>;
+pub type DOT11EXTIHV_ADAPTER_RESET = Option<unsafe extern "system" fn(hihvextadapter: super::super::Foundation::HANDLE) -> u32>;
+pub type DOT11EXTIHV_CONTROL = Option<unsafe extern "system" fn(hihvextadapter: super::super::Foundation::HANDLE, dwinbuffersize: u32, pinbuffer: *const u8, dwoutbuffersize: u32, poutbuffer: *mut u8, pdwbytesreturned: *mut u32) -> u32>;
 #[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
-pub type DOT11EXTIHV_CREATE_DISCOVERY_PROFILES = ::core::option::Option<unsafe extern "system" fn(hihvextadapter: super::super::Foundation::HANDLE, binsecure: super::super::Foundation::BOOL, pihvprofileparams: *const DOT11EXT_IHV_PROFILE_PARAMS, pconnectablebssid: *const DOT11_BSS_LIST, pihvdiscoveryprofilelist: *mut DOT11EXT_IHV_DISCOVERY_PROFILE_LIST, pdwreasoncode: *mut u32) -> u32>;
-pub type DOT11EXTIHV_DEINIT_ADAPTER = ::core::option::Option<unsafe extern "system" fn(hihvextadapter: super::super::Foundation::HANDLE)>;
-pub type DOT11EXTIHV_DEINIT_SERVICE = ::core::option::Option<unsafe extern "system" fn()>;
-pub type DOT11EXTIHV_GET_VERSION_INFO = ::core::option::Option<unsafe extern "system" fn(pdot11ihvversioninfo: *mut DOT11_IHV_VERSION_INFO) -> u32>;
-pub type DOT11EXTIHV_INIT_ADAPTER = ::core::option::Option<unsafe extern "system" fn(pdot11adapter: *const DOT11_ADAPTER, hdot11svchandle: super::super::Foundation::HANDLE, phihvextadapter: *mut super::super::Foundation::HANDLE) -> u32>;
+pub type DOT11EXTIHV_CREATE_DISCOVERY_PROFILES = Option<unsafe extern "system" fn(hihvextadapter: super::super::Foundation::HANDLE, binsecure: super::super::Foundation::BOOL, pihvprofileparams: *const DOT11EXT_IHV_PROFILE_PARAMS, pconnectablebssid: *const DOT11_BSS_LIST, pihvdiscoveryprofilelist: *mut DOT11EXT_IHV_DISCOVERY_PROFILE_LIST, pdwreasoncode: *mut u32) -> u32>;
+pub type DOT11EXTIHV_DEINIT_ADAPTER = Option<unsafe extern "system" fn(hihvextadapter: super::super::Foundation::HANDLE)>;
+pub type DOT11EXTIHV_DEINIT_SERVICE = Option<unsafe extern "system" fn()>;
+pub type DOT11EXTIHV_GET_VERSION_INFO = Option<unsafe extern "system" fn(pdot11ihvversioninfo: *mut DOT11_IHV_VERSION_INFO) -> u32>;
+pub type DOT11EXTIHV_INIT_ADAPTER = Option<unsafe extern "system" fn(pdot11adapter: *const DOT11_ADAPTER, hdot11svchandle: super::super::Foundation::HANDLE, phihvextadapter: *mut super::super::Foundation::HANDLE) -> u32>;
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Security_ExtensibleAuthenticationProtocol", feature = "Win32_System_RemoteDesktop"))]
-pub type DOT11EXTIHV_INIT_SERVICE = ::core::option::Option<unsafe extern "system" fn(dwvernumused: u32, pdot11extapi: *const DOT11EXT_APIS, pvreserved: *const ::core::ffi::c_void, pdot11ihvhandlers: *mut DOT11EXT_IHV_HANDLERS) -> u32>;
-pub type DOT11EXTIHV_INIT_VIRTUAL_STATION = ::core::option::Option<unsafe extern "system" fn(pdot11extvsapi: *const DOT11EXT_VIRTUAL_STATION_APIS, pvreserved: *const ::core::ffi::c_void) -> u32>;
-pub type DOT11EXTIHV_IS_UI_REQUEST_PENDING = ::core::option::Option<unsafe extern "system" fn(guiduirequest: ::windows_sys::core::GUID, pbisrequestpending: *mut super::super::Foundation::BOOL) -> u32>;
+pub type DOT11EXTIHV_INIT_SERVICE = Option<unsafe extern "system" fn(dwvernumused: u32, pdot11extapi: *const DOT11EXT_APIS, pvreserved: *const core::ffi::c_void, pdot11ihvhandlers: *mut DOT11EXT_IHV_HANDLERS) -> u32>;
+pub type DOT11EXTIHV_INIT_VIRTUAL_STATION = Option<unsafe extern "system" fn(pdot11extvsapi: *const DOT11EXT_VIRTUAL_STATION_APIS, pvreserved: *const core::ffi::c_void) -> u32>;
+pub type DOT11EXTIHV_IS_UI_REQUEST_PENDING = Option<unsafe extern "system" fn(guiduirequest: windows_sys::core::GUID, pbisrequestpending: *mut super::super::Foundation::BOOL) -> u32>;
 #[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
-pub type DOT11EXTIHV_ONEX_INDICATE_RESULT = ::core::option::Option<unsafe extern "system" fn(hihvextadapter: super::super::Foundation::HANDLE, msonexresult: DOT11_MSONEX_RESULT, pdot11msonexresultparams: *const DOT11_MSONEX_RESULT_PARAMS) -> u32>;
+pub type DOT11EXTIHV_ONEX_INDICATE_RESULT = Option<unsafe extern "system" fn(hihvextadapter: super::super::Foundation::HANDLE, msonexresult: DOT11_MSONEX_RESULT, pdot11msonexresultparams: *const DOT11_MSONEX_RESULT_PARAMS) -> u32>;
 #[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
-pub type DOT11EXTIHV_PERFORM_CAPABILITY_MATCH = ::core::option::Option<unsafe extern "system" fn(hihvextadapter: super::super::Foundation::HANDLE, pihvprofileparams: *const DOT11EXT_IHV_PROFILE_PARAMS, pihvconnprofile: *const DOT11EXT_IHV_CONNECTIVITY_PROFILE, pihvsecprofile: *const DOT11EXT_IHV_SECURITY_PROFILE, pconnectablebssid: *const DOT11_BSS_LIST, pdwreasoncode: *mut u32) -> u32>;
+pub type DOT11EXTIHV_PERFORM_CAPABILITY_MATCH = Option<unsafe extern "system" fn(hihvextadapter: super::super::Foundation::HANDLE, pihvprofileparams: *const DOT11EXT_IHV_PROFILE_PARAMS, pihvconnprofile: *const DOT11EXT_IHV_CONNECTIVITY_PROFILE, pihvsecprofile: *const DOT11EXT_IHV_SECURITY_PROFILE, pconnectablebssid: *const DOT11_BSS_LIST, pdwreasoncode: *mut u32) -> u32>;
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-pub type DOT11EXTIHV_PERFORM_POST_ASSOCIATE = ::core::option::Option<unsafe extern "system" fn(hihvextadapter: super::super::Foundation::HANDLE, hsecuritysessionid: super::super::Foundation::HANDLE, pportstate: *const DOT11_PORT_STATE, udot11assocparamsbytes: u32, pdot11assocparams: *const DOT11_ASSOCIATION_COMPLETION_PARAMETERS) -> u32>;
+pub type DOT11EXTIHV_PERFORM_POST_ASSOCIATE = Option<unsafe extern "system" fn(hihvextadapter: super::super::Foundation::HANDLE, hsecuritysessionid: super::super::Foundation::HANDLE, pportstate: *const DOT11_PORT_STATE, udot11assocparamsbytes: u32, pdot11assocparams: *const DOT11_ASSOCIATION_COMPLETION_PARAMETERS) -> u32>;
 #[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
-pub type DOT11EXTIHV_PERFORM_PRE_ASSOCIATE = ::core::option::Option<unsafe extern "system" fn(hihvextadapter: super::super::Foundation::HANDLE, hconnectsession: super::super::Foundation::HANDLE, pihvprofileparams: *const DOT11EXT_IHV_PROFILE_PARAMS, pihvconnprofile: *const DOT11EXT_IHV_CONNECTIVITY_PROFILE, pihvsecprofile: *const DOT11EXT_IHV_SECURITY_PROFILE, pconnectablebssid: *const DOT11_BSS_LIST, pdwreasoncode: *mut u32) -> u32>;
+pub type DOT11EXTIHV_PERFORM_PRE_ASSOCIATE = Option<unsafe extern "system" fn(hihvextadapter: super::super::Foundation::HANDLE, hconnectsession: super::super::Foundation::HANDLE, pihvprofileparams: *const DOT11EXT_IHV_PROFILE_PARAMS, pihvconnprofile: *const DOT11EXT_IHV_CONNECTIVITY_PROFILE, pihvsecprofile: *const DOT11EXT_IHV_SECURITY_PROFILE, pconnectablebssid: *const DOT11_BSS_LIST, pdwreasoncode: *mut u32) -> u32>;
 #[cfg(feature = "Win32_System_RemoteDesktop")]
-pub type DOT11EXTIHV_PROCESS_SESSION_CHANGE = ::core::option::Option<unsafe extern "system" fn(ueventtype: u32, psessionnotification: *const super::super::System::RemoteDesktop::WTSSESSION_NOTIFICATION) -> u32>;
-pub type DOT11EXTIHV_PROCESS_UI_RESPONSE = ::core::option::Option<unsafe extern "system" fn(guiduirequest: ::windows_sys::core::GUID, dwbytecount: u32, pvresponsebuffer: *const ::core::ffi::c_void) -> u32>;
-pub type DOT11EXTIHV_QUERY_UI_REQUEST = ::core::option::Option<unsafe extern "system" fn(hihvextadapter: super::super::Foundation::HANDLE, connectionphase: DOT11EXT_IHV_CONNECTION_PHASE, ppihvuirequest: *mut *mut DOT11EXT_IHV_UI_REQUEST) -> u32>;
-pub type DOT11EXTIHV_RECEIVE_INDICATION = ::core::option::Option<unsafe extern "system" fn(hihvextadapter: super::super::Foundation::HANDLE, indicationtype: DOT11EXT_IHV_INDICATION_TYPE, ubufferlength: u32, pvbuffer: *const ::core::ffi::c_void) -> u32>;
-pub type DOT11EXTIHV_RECEIVE_PACKET = ::core::option::Option<unsafe extern "system" fn(hihvextadapter: super::super::Foundation::HANDLE, dwinbuffersize: u32, pvinbuffer: *const ::core::ffi::c_void) -> u32>;
-pub type DOT11EXTIHV_SEND_PACKET_COMPLETION = ::core::option::Option<unsafe extern "system" fn(hsendcompletion: super::super::Foundation::HANDLE) -> u32>;
-pub type DOT11EXTIHV_STOP_POST_ASSOCIATE = ::core::option::Option<unsafe extern "system" fn(hihvextadapter: super::super::Foundation::HANDLE, ppeer: *const *const u8, dot11assocstatus: u32) -> u32>;
+pub type DOT11EXTIHV_PROCESS_SESSION_CHANGE = Option<unsafe extern "system" fn(ueventtype: u32, psessionnotification: *const super::super::System::RemoteDesktop::WTSSESSION_NOTIFICATION) -> u32>;
+pub type DOT11EXTIHV_PROCESS_UI_RESPONSE = Option<unsafe extern "system" fn(guiduirequest: windows_sys::core::GUID, dwbytecount: u32, pvresponsebuffer: *const core::ffi::c_void) -> u32>;
+pub type DOT11EXTIHV_QUERY_UI_REQUEST = Option<unsafe extern "system" fn(hihvextadapter: super::super::Foundation::HANDLE, connectionphase: DOT11EXT_IHV_CONNECTION_PHASE, ppihvuirequest: *mut *mut DOT11EXT_IHV_UI_REQUEST) -> u32>;
+pub type DOT11EXTIHV_RECEIVE_INDICATION = Option<unsafe extern "system" fn(hihvextadapter: super::super::Foundation::HANDLE, indicationtype: DOT11EXT_IHV_INDICATION_TYPE, ubufferlength: u32, pvbuffer: *const core::ffi::c_void) -> u32>;
+pub type DOT11EXTIHV_RECEIVE_PACKET = Option<unsafe extern "system" fn(hihvextadapter: super::super::Foundation::HANDLE, dwinbuffersize: u32, pvinbuffer: *const core::ffi::c_void) -> u32>;
+pub type DOT11EXTIHV_SEND_PACKET_COMPLETION = Option<unsafe extern "system" fn(hsendcompletion: super::super::Foundation::HANDLE) -> u32>;
+pub type DOT11EXTIHV_STOP_POST_ASSOCIATE = Option<unsafe extern "system" fn(hihvextadapter: super::super::Foundation::HANDLE, ppeer: *const *const u8, dot11assocstatus: u32) -> u32>;
 #[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
-pub type DOT11EXTIHV_VALIDATE_PROFILE = ::core::option::Option<unsafe extern "system" fn(hihvextadapter: super::super::Foundation::HANDLE, pihvprofileparams: *const DOT11EXT_IHV_PROFILE_PARAMS, pihvconnprofile: *const DOT11EXT_IHV_CONNECTIVITY_PROFILE, pihvsecprofile: *const DOT11EXT_IHV_SECURITY_PROFILE, pdwreasoncode: *mut u32) -> u32>;
-pub type DOT11EXT_ALLOCATE_BUFFER = ::core::option::Option<unsafe extern "system" fn(dwbytecount: u32, ppvbuffer: *mut *mut ::core::ffi::c_void) -> u32>;
-pub type DOT11EXT_FREE_BUFFER = ::core::option::Option<unsafe extern "system" fn(pvmemory: *const ::core::ffi::c_void)>;
-pub type DOT11EXT_GET_PROFILE_CUSTOM_USER_DATA = ::core::option::Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, hconnectsession: super::super::Foundation::HANDLE, dwsessionid: u32, pdwdatasize: *mut u32, ppvdata: *mut *mut ::core::ffi::c_void) -> u32>;
-pub type DOT11EXT_NIC_SPECIFIC_EXTENSION = ::core::option::Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, dwinbuffersize: u32, pvinbuffer: *const ::core::ffi::c_void, pdwoutbuffersize: *mut u32, pvoutbuffer: *mut ::core::ffi::c_void) -> u32>;
+pub type DOT11EXTIHV_VALIDATE_PROFILE = Option<unsafe extern "system" fn(hihvextadapter: super::super::Foundation::HANDLE, pihvprofileparams: *const DOT11EXT_IHV_PROFILE_PARAMS, pihvconnprofile: *const DOT11EXT_IHV_CONNECTIVITY_PROFILE, pihvsecprofile: *const DOT11EXT_IHV_SECURITY_PROFILE, pdwreasoncode: *mut u32) -> u32>;
+pub type DOT11EXT_ALLOCATE_BUFFER = Option<unsafe extern "system" fn(dwbytecount: u32, ppvbuffer: *mut *mut core::ffi::c_void) -> u32>;
+pub type DOT11EXT_FREE_BUFFER = Option<unsafe extern "system" fn(pvmemory: *const core::ffi::c_void)>;
+pub type DOT11EXT_GET_PROFILE_CUSTOM_USER_DATA = Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, hconnectsession: super::super::Foundation::HANDLE, dwsessionid: u32, pdwdatasize: *mut u32, ppvdata: *mut *mut core::ffi::c_void) -> u32>;
+pub type DOT11EXT_NIC_SPECIFIC_EXTENSION = Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, dwinbuffersize: u32, pvinbuffer: *const core::ffi::c_void, pdwoutbuffersize: *mut u32, pvoutbuffer: *mut core::ffi::c_void) -> u32>;
 #[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
-pub type DOT11EXT_ONEX_START = ::core::option::Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, peapattributes: *const super::super::Security::ExtensibleAuthenticationProtocol::EAP_ATTRIBUTES) -> u32>;
-pub type DOT11EXT_ONEX_STOP = ::core::option::Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE) -> u32>;
-pub type DOT11EXT_POST_ASSOCIATE_COMPLETION = ::core::option::Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, hsecuritysessionid: super::super::Foundation::HANDLE, ppeer: *const *const u8, dwreasoncode: u32, dwwin32error: u32) -> u32>;
-pub type DOT11EXT_PRE_ASSOCIATE_COMPLETION = ::core::option::Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, hconnectsession: super::super::Foundation::HANDLE, dwreasoncode: u32, dwwin32error: u32) -> u32>;
-pub type DOT11EXT_PROCESS_ONEX_PACKET = ::core::option::Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, dwinpacketsize: u32, pvinpacket: *const ::core::ffi::c_void) -> u32>;
-pub type DOT11EXT_QUERY_VIRTUAL_STATION_PROPERTIES = ::core::option::Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, pbisvirtualstation: *mut super::super::Foundation::BOOL, pgprimary: *mut ::windows_sys::core::GUID, pvreserved: *const ::core::ffi::c_void) -> u32>;
-pub type DOT11EXT_RELEASE_VIRTUAL_STATION = ::core::option::Option<unsafe extern "system" fn(hdot11primaryhandle: super::super::Foundation::HANDLE, pvreserved: *const ::core::ffi::c_void) -> u32>;
-pub type DOT11EXT_REQUEST_VIRTUAL_STATION = ::core::option::Option<unsafe extern "system" fn(hdot11primaryhandle: super::super::Foundation::HANDLE, pvreserved: *const ::core::ffi::c_void) -> u32>;
-pub type DOT11EXT_SEND_NOTIFICATION = ::core::option::Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, pnotificationdata: *const L2_NOTIFICATION_DATA) -> u32>;
-pub type DOT11EXT_SEND_PACKET = ::core::option::Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, upacketlen: u32, pvpacket: *const ::core::ffi::c_void, hsendcompletion: super::super::Foundation::HANDLE) -> u32>;
-pub type DOT11EXT_SEND_UI_REQUEST = ::core::option::Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, pihvuirequest: *const DOT11EXT_IHV_UI_REQUEST) -> u32>;
-pub type DOT11EXT_SET_AUTH_ALGORITHM = ::core::option::Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, dwauthalgo: u32) -> u32>;
-pub type DOT11EXT_SET_CURRENT_PROFILE = ::core::option::Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, hconnectsession: super::super::Foundation::HANDLE, pihvconnprofile: *const DOT11EXT_IHV_CONNECTIVITY_PROFILE, pihvsecprofile: *const DOT11EXT_IHV_SECURITY_PROFILE) -> u32>;
+pub type DOT11EXT_ONEX_START = Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, peapattributes: *const super::super::Security::ExtensibleAuthenticationProtocol::EAP_ATTRIBUTES) -> u32>;
+pub type DOT11EXT_ONEX_STOP = Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE) -> u32>;
+pub type DOT11EXT_POST_ASSOCIATE_COMPLETION = Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, hsecuritysessionid: super::super::Foundation::HANDLE, ppeer: *const *const u8, dwreasoncode: u32, dwwin32error: u32) -> u32>;
+pub type DOT11EXT_PRE_ASSOCIATE_COMPLETION = Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, hconnectsession: super::super::Foundation::HANDLE, dwreasoncode: u32, dwwin32error: u32) -> u32>;
+pub type DOT11EXT_PROCESS_ONEX_PACKET = Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, dwinpacketsize: u32, pvinpacket: *const core::ffi::c_void) -> u32>;
+pub type DOT11EXT_QUERY_VIRTUAL_STATION_PROPERTIES = Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, pbisvirtualstation: *mut super::super::Foundation::BOOL, pgprimary: *mut windows_sys::core::GUID, pvreserved: *const core::ffi::c_void) -> u32>;
+pub type DOT11EXT_RELEASE_VIRTUAL_STATION = Option<unsafe extern "system" fn(hdot11primaryhandle: super::super::Foundation::HANDLE, pvreserved: *const core::ffi::c_void) -> u32>;
+pub type DOT11EXT_REQUEST_VIRTUAL_STATION = Option<unsafe extern "system" fn(hdot11primaryhandle: super::super::Foundation::HANDLE, pvreserved: *const core::ffi::c_void) -> u32>;
+pub type DOT11EXT_SEND_NOTIFICATION = Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, pnotificationdata: *const L2_NOTIFICATION_DATA) -> u32>;
+pub type DOT11EXT_SEND_PACKET = Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, upacketlen: u32, pvpacket: *const core::ffi::c_void, hsendcompletion: super::super::Foundation::HANDLE) -> u32>;
+pub type DOT11EXT_SEND_UI_REQUEST = Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, pihvuirequest: *const DOT11EXT_IHV_UI_REQUEST) -> u32>;
+pub type DOT11EXT_SET_AUTH_ALGORITHM = Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, dwauthalgo: u32) -> u32>;
+pub type DOT11EXT_SET_CURRENT_PROFILE = Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, hconnectsession: super::super::Foundation::HANDLE, pihvconnprofile: *const DOT11EXT_IHV_CONNECTIVITY_PROFILE, pihvsecprofile: *const DOT11EXT_IHV_SECURITY_PROFILE) -> u32>;
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-pub type DOT11EXT_SET_DEFAULT_KEY = ::core::option::Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, pkey: *const DOT11_CIPHER_DEFAULT_KEY_VALUE, dot11direction: DOT11_DIRECTION) -> u32>;
-pub type DOT11EXT_SET_DEFAULT_KEY_ID = ::core::option::Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, udefaultkeyid: u32) -> u32>;
-pub type DOT11EXT_SET_ETHERTYPE_HANDLING = ::core::option::Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, umaxbacklog: u32, unumofexemption: u32, pexemption: *const DOT11_PRIVACY_EXEMPTION, unumofregistration: u32, pusregistration: *const u16) -> u32>;
-pub type DOT11EXT_SET_EXCLUDE_UNENCRYPTED = ::core::option::Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, bexcludeunencrypted: super::super::Foundation::BOOL) -> u32>;
-pub type DOT11EXT_SET_KEY_MAPPING_KEY = ::core::option::Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, pkey: *const DOT11_CIPHER_KEY_MAPPING_KEY_VALUE) -> u32>;
-pub type DOT11EXT_SET_MULTICAST_CIPHER_ALGORITHM = ::core::option::Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, dwmulticastcipheralgo: u32) -> u32>;
-pub type DOT11EXT_SET_PROFILE_CUSTOM_USER_DATA = ::core::option::Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, hconnectsession: super::super::Foundation::HANDLE, dwsessionid: u32, dwdatasize: u32, pvdata: *const ::core::ffi::c_void) -> u32>;
-pub type DOT11EXT_SET_UNICAST_CIPHER_ALGORITHM = ::core::option::Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, dwunicastcipheralgo: u32) -> u32>;
-pub type DOT11EXT_SET_VIRTUAL_STATION_AP_PROPERTIES = ::core::option::Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, hconnectsession: super::super::Foundation::HANDLE, dwnumproperties: u32, pproperties: *const DOT11EXT_VIRTUAL_STATION_AP_PROPERTY, pvreserved: *const ::core::ffi::c_void) -> u32>;
-pub type WFD_OPEN_SESSION_COMPLETE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(hsessionhandle: super::super::Foundation::HANDLE, pvcontext: *const ::core::ffi::c_void, guidsessioninterface: ::windows_sys::core::GUID, dwerror: u32, dwreasoncode: u32)>;
-pub type WLAN_NOTIFICATION_CALLBACK = ::core::option::Option<unsafe extern "system" fn(param0: *mut L2_NOTIFICATION_DATA, param1: *mut ::core::ffi::c_void)>;
+pub type DOT11EXT_SET_DEFAULT_KEY = Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, pkey: *const DOT11_CIPHER_DEFAULT_KEY_VALUE, dot11direction: DOT11_DIRECTION) -> u32>;
+pub type DOT11EXT_SET_DEFAULT_KEY_ID = Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, udefaultkeyid: u32) -> u32>;
+pub type DOT11EXT_SET_ETHERTYPE_HANDLING = Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, umaxbacklog: u32, unumofexemption: u32, pexemption: *const DOT11_PRIVACY_EXEMPTION, unumofregistration: u32, pusregistration: *const u16) -> u32>;
+pub type DOT11EXT_SET_EXCLUDE_UNENCRYPTED = Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, bexcludeunencrypted: super::super::Foundation::BOOL) -> u32>;
+pub type DOT11EXT_SET_KEY_MAPPING_KEY = Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, pkey: *const DOT11_CIPHER_KEY_MAPPING_KEY_VALUE) -> u32>;
+pub type DOT11EXT_SET_MULTICAST_CIPHER_ALGORITHM = Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, dwmulticastcipheralgo: u32) -> u32>;
+pub type DOT11EXT_SET_PROFILE_CUSTOM_USER_DATA = Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, hconnectsession: super::super::Foundation::HANDLE, dwsessionid: u32, dwdatasize: u32, pvdata: *const core::ffi::c_void) -> u32>;
+pub type DOT11EXT_SET_UNICAST_CIPHER_ALGORITHM = Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, dwunicastcipheralgo: u32) -> u32>;
+pub type DOT11EXT_SET_VIRTUAL_STATION_AP_PROPERTIES = Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, hconnectsession: super::super::Foundation::HANDLE, dwnumproperties: u32, pproperties: *const DOT11EXT_VIRTUAL_STATION_AP_PROPERTY, pvreserved: *const core::ffi::c_void) -> u32>;
+pub type WFD_OPEN_SESSION_COMPLETE_CALLBACK = Option<unsafe extern "system" fn(hsessionhandle: super::super::Foundation::HANDLE, pvcontext: *const core::ffi::c_void, guidsessioninterface: windows_sys::core::GUID, dwerror: u32, dwreasoncode: u32)>;
+pub type WLAN_NOTIFICATION_CALLBACK = Option<unsafe extern "system" fn(param0: *mut L2_NOTIFICATION_DATA, param1: *mut core::ffi::c_void)>;

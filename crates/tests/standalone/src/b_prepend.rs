@@ -12,34 +12,34 @@
 pub struct DateTime {
     pub UniversalTime: i64,
 }
-impl ::core::marker::Copy for DateTime {}
-impl ::core::clone::Clone for DateTime {
+impl Copy for DateTime {}
+impl Clone for DateTime {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for DateTime {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for DateTime {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("DateTime")
             .field("UniversalTime", &self.UniversalTime)
             .finish()
     }
 }
-impl ::windows_core::TypeKind for DateTime {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for DateTime {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::windows_core::RuntimeType for DateTime {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer =
-        ::windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Foundation.DateTime;i8)");
+impl windows_core::RuntimeType for DateTime {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Foundation.DateTime;i8)");
 }
-impl ::core::cmp::PartialEq for DateTime {
+impl PartialEq for DateTime {
     fn eq(&self, other: &Self) -> bool {
         self.UniversalTime == other.UniversalTime
     }
 }
-impl ::core::cmp::Eq for DateTime {}
-impl ::core::default::Default for DateTime {
+impl Eq for DateTime {}
+impl Default for DateTime {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }

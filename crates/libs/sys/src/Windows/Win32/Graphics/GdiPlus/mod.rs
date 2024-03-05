@@ -29,15 +29,15 @@
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipAddPathRectangleI(path : *mut GpPath, x : i32, y : i32, width : i32, height : i32) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipAddPathRectangles(path : *mut GpPath, rects : *const RectF, count : i32) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipAddPathRectanglesI(path : *mut GpPath, rects : *const Rect, count : i32) -> Status);
-::windows_targets::link!("gdiplus.dll" "system" fn GdipAddPathString(path : *mut GpPath, string : ::windows_sys::core::PCWSTR, length : i32, family : *const GpFontFamily, style : i32, emsize : f32, layoutrect : *const RectF, format : *const GpStringFormat) -> Status);
-::windows_targets::link!("gdiplus.dll" "system" fn GdipAddPathStringI(path : *mut GpPath, string : ::windows_sys::core::PCWSTR, length : i32, family : *const GpFontFamily, style : i32, emsize : f32, layoutrect : *const Rect, format : *const GpStringFormat) -> Status);
-::windows_targets::link!("gdiplus.dll" "system" fn GdipAlloc(size : usize) -> *mut ::core::ffi::c_void);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipAddPathString(path : *mut GpPath, string : windows_sys::core::PCWSTR, length : i32, family : *const GpFontFamily, style : i32, emsize : f32, layoutrect : *const RectF, format : *const GpStringFormat) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipAddPathStringI(path : *mut GpPath, string : windows_sys::core::PCWSTR, length : i32, family : *const GpFontFamily, style : i32, emsize : f32, layoutrect : *const Rect, format : *const GpStringFormat) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipAlloc(size : usize) -> *mut core::ffi::c_void);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipBeginContainer(graphics : *mut GpGraphics, dstrect : *const RectF, srcrect : *const RectF, unit : Unit, state : *mut u32) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipBeginContainer2(graphics : *mut GpGraphics, state : *mut u32) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipBeginContainerI(graphics : *mut GpGraphics, dstrect : *const Rect, srcrect : *const Rect, unit : Unit, state : *mut u32) -> Status);
-::windows_targets::link!("gdiplus.dll" "system" fn GdipBitmapApplyEffect(bitmap : *mut GpBitmap, effect : *mut CGpEffect, roi : *mut super::super::Foundation:: RECT, useauxdata : super::super::Foundation:: BOOL, auxdata : *mut *mut ::core::ffi::c_void, auxdatasize : *mut i32) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipBitmapApplyEffect(bitmap : *mut GpBitmap, effect : *mut CGpEffect, roi : *mut super::super::Foundation:: RECT, useauxdata : super::super::Foundation:: BOOL, auxdata : *mut *mut core::ffi::c_void, auxdatasize : *mut i32) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipBitmapConvertFormat(pinputbitmap : *mut GpBitmap, format : i32, dithertype : DitherType, palettetype : PaletteType, palette : *mut ColorPalette, alphathresholdpercent : f32) -> Status);
-::windows_targets::link!("gdiplus.dll" "system" fn GdipBitmapCreateApplyEffect(inputbitmaps : *mut *mut GpBitmap, numinputs : i32, effect : *mut CGpEffect, roi : *mut super::super::Foundation:: RECT, outputrect : *mut super::super::Foundation:: RECT, outputbitmap : *mut *mut GpBitmap, useauxdata : super::super::Foundation:: BOOL, auxdata : *mut *mut ::core::ffi::c_void, auxdatasize : *mut i32) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipBitmapCreateApplyEffect(inputbitmaps : *mut *mut GpBitmap, numinputs : i32, effect : *mut CGpEffect, roi : *mut super::super::Foundation:: RECT, outputrect : *mut super::super::Foundation:: RECT, outputbitmap : *mut *mut GpBitmap, useauxdata : super::super::Foundation:: BOOL, auxdata : *mut *mut core::ffi::c_void, auxdatasize : *mut i32) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipBitmapGetHistogram(bitmap : *mut GpBitmap, format : HistogramFormat, numberofentries : u32, channel0 : *mut u32, channel1 : *mut u32, channel2 : *mut u32, channel3 : *mut u32) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipBitmapGetHistogramSize(format : HistogramFormat, numberofentries : *mut u32) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipBitmapGetPixel(bitmap : *mut GpBitmap, x : i32, y : i32, color : *mut u32) -> Status);
@@ -66,29 +66,29 @@
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipCombineRegionRectI(region : *mut GpRegion, rect : *const Rect, combinemode : CombineMode) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipCombineRegionRegion(region : *mut GpRegion, region2 : *mut GpRegion, combinemode : CombineMode) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipComment(graphics : *mut GpGraphics, sizedata : u32, data : *const u8) -> Status);
-::windows_targets::link!("gdiplus.dll" "system" fn GdipConvertToEmfPlus(refgraphics : *const GpGraphics, metafile : *mut GpMetafile, conversionfailureflag : *mut i32, emftype : EmfType, description : ::windows_sys::core::PCWSTR, out_metafile : *mut *mut GpMetafile) -> Status);
-::windows_targets::link!("gdiplus.dll" "system" fn GdipConvertToEmfPlusToFile(refgraphics : *const GpGraphics, metafile : *mut GpMetafile, conversionfailureflag : *mut i32, filename : ::windows_sys::core::PCWSTR, emftype : EmfType, description : ::windows_sys::core::PCWSTR, out_metafile : *mut *mut GpMetafile) -> Status);
-::windows_targets::link!("gdiplus.dll" "system" fn GdipConvertToEmfPlusToStream(refgraphics : *const GpGraphics, metafile : *mut GpMetafile, conversionfailureflag : *mut i32, stream : * mut::core::ffi::c_void, emftype : EmfType, description : ::windows_sys::core::PCWSTR, out_metafile : *mut *mut GpMetafile) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipConvertToEmfPlus(refgraphics : *const GpGraphics, metafile : *mut GpMetafile, conversionfailureflag : *mut i32, emftype : EmfType, description : windows_sys::core::PCWSTR, out_metafile : *mut *mut GpMetafile) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipConvertToEmfPlusToFile(refgraphics : *const GpGraphics, metafile : *mut GpMetafile, conversionfailureflag : *mut i32, filename : windows_sys::core::PCWSTR, emftype : EmfType, description : windows_sys::core::PCWSTR, out_metafile : *mut *mut GpMetafile) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipConvertToEmfPlusToStream(refgraphics : *const GpGraphics, metafile : *mut GpMetafile, conversionfailureflag : *mut i32, stream : * mut core::ffi::c_void, emftype : EmfType, description : windows_sys::core::PCWSTR, out_metafile : *mut *mut GpMetafile) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateAdjustableArrowCap(height : f32, width : f32, isfilled : super::super::Foundation:: BOOL, cap : *mut *mut GpAdjustableArrowCap) -> Status);
-::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateBitmapFromDirectDrawSurface(surface : * mut::core::ffi::c_void, bitmap : *mut *mut GpBitmap) -> Status);
-::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateBitmapFromFile(filename : ::windows_sys::core::PCWSTR, bitmap : *mut *mut GpBitmap) -> Status);
-::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateBitmapFromFileICM(filename : ::windows_sys::core::PCWSTR, bitmap : *mut *mut GpBitmap) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateBitmapFromDirectDrawSurface(surface : * mut core::ffi::c_void, bitmap : *mut *mut GpBitmap) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateBitmapFromFile(filename : windows_sys::core::PCWSTR, bitmap : *mut *mut GpBitmap) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateBitmapFromFileICM(filename : windows_sys::core::PCWSTR, bitmap : *mut *mut GpBitmap) -> Status);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateBitmapFromGdiDib(gdibitmapinfo : *const super::Gdi:: BITMAPINFO, gdibitmapdata : *mut ::core::ffi::c_void, bitmap : *mut *mut GpBitmap) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateBitmapFromGdiDib(gdibitmapinfo : *const super::Gdi:: BITMAPINFO, gdibitmapdata : *mut core::ffi::c_void, bitmap : *mut *mut GpBitmap) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateBitmapFromGraphics(width : i32, height : i32, target : *mut GpGraphics, bitmap : *mut *mut GpBitmap) -> Status);
 #[cfg(feature = "Win32_Graphics_Gdi")]
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateBitmapFromHBITMAP(hbm : super::Gdi:: HBITMAP, hpal : super::Gdi:: HPALETTE, bitmap : *mut *mut GpBitmap) -> Status);
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateBitmapFromHICON(hicon : super::super::UI::WindowsAndMessaging:: HICON, bitmap : *mut *mut GpBitmap) -> Status);
-::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateBitmapFromResource(hinstance : super::super::Foundation:: HINSTANCE, lpbitmapname : ::windows_sys::core::PCWSTR, bitmap : *mut *mut GpBitmap) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateBitmapFromResource(hinstance : super::super::Foundation:: HINSTANCE, lpbitmapname : windows_sys::core::PCWSTR, bitmap : *mut *mut GpBitmap) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateBitmapFromScan0(width : i32, height : i32, stride : i32, format : i32, scan0 : *const u8, bitmap : *mut *mut GpBitmap) -> Status);
-::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateBitmapFromStream(stream : * mut::core::ffi::c_void, bitmap : *mut *mut GpBitmap) -> Status);
-::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateBitmapFromStreamICM(stream : * mut::core::ffi::c_void, bitmap : *mut *mut GpBitmap) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateBitmapFromStream(stream : * mut core::ffi::c_void, bitmap : *mut *mut GpBitmap) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateBitmapFromStreamICM(stream : * mut core::ffi::c_void, bitmap : *mut *mut GpBitmap) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateCachedBitmap(bitmap : *mut GpBitmap, graphics : *mut GpGraphics, cachedbitmap : *mut *mut GpCachedBitmap) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateCustomLineCap(fillpath : *mut GpPath, strokepath : *mut GpPath, basecap : LineCap, baseinset : f32, customcap : *mut *mut GpCustomLineCap) -> Status);
-::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateEffect(guid : ::windows_sys::core::GUID, effect : *mut *mut CGpEffect) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateEffect(guid : windows_sys::core::GUID, effect : *mut *mut CGpEffect) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateFont(fontfamily : *const GpFontFamily, emsize : f32, style : i32, unit : Unit, font : *mut *mut GpFont) -> Status);
-::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateFontFamilyFromName(name : ::windows_sys::core::PCWSTR, fontcollection : *mut GpFontCollection, fontfamily : *mut *mut GpFontFamily) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateFontFamilyFromName(name : windows_sys::core::PCWSTR, fontcollection : *mut GpFontCollection, fontfamily : *mut *mut GpFontFamily) -> Status);
 #[cfg(feature = "Win32_Graphics_Gdi")]
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateFontFromDC(hdc : super::Gdi:: HDC, font : *mut *mut GpFont) -> Status);
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -121,11 +121,11 @@
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateMatrix3I(rect : *const Rect, dstplg : *const Point, matrix : *mut *mut Matrix) -> Status);
 #[cfg(feature = "Win32_Graphics_Gdi")]
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateMetafileFromEmf(hemf : super::Gdi:: HENHMETAFILE, deleteemf : super::super::Foundation:: BOOL, metafile : *mut *mut GpMetafile) -> Status);
-::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateMetafileFromFile(file : ::windows_sys::core::PCWSTR, metafile : *mut *mut GpMetafile) -> Status);
-::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateMetafileFromStream(stream : * mut::core::ffi::c_void, metafile : *mut *mut GpMetafile) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateMetafileFromFile(file : windows_sys::core::PCWSTR, metafile : *mut *mut GpMetafile) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateMetafileFromStream(stream : * mut core::ffi::c_void, metafile : *mut *mut GpMetafile) -> Status);
 #[cfg(feature = "Win32_Graphics_Gdi")]
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateMetafileFromWmf(hwmf : super::Gdi:: HMETAFILE, deletewmf : super::super::Foundation:: BOOL, wmfplaceablefileheader : *const WmfPlaceableFileHeader, metafile : *mut *mut GpMetafile) -> Status);
-::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateMetafileFromWmfFile(file : ::windows_sys::core::PCWSTR, wmfplaceablefileheader : *const WmfPlaceableFileHeader, metafile : *mut *mut GpMetafile) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateMetafileFromWmfFile(file : windows_sys::core::PCWSTR, wmfplaceablefileheader : *const WmfPlaceableFileHeader, metafile : *mut *mut GpMetafile) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreatePath(brushmode : FillMode, path : *mut *mut GpPath) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreatePath2(param0 : *const PointF, param1 : *const u8, param2 : i32, param3 : FillMode, path : *mut *mut GpPath) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreatePath2I(param0 : *const Point, param1 : *const u8, param2 : i32, param3 : FillMode, path : *mut *mut GpPath) -> Status);
@@ -143,7 +143,7 @@
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateRegionRectI(rect : *const Rect, region : *mut *mut GpRegion) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateRegionRgnData(regiondata : *const u8, size : i32, region : *mut *mut GpRegion) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateSolidFill(color : u32, brush : *mut *mut GpSolidFill) -> Status);
-::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateStreamOnFile(filename : ::windows_sys::core::PCWSTR, access : u32, stream : *mut * mut::core::ffi::c_void) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateStreamOnFile(filename : windows_sys::core::PCWSTR, access : u32, stream : *mut * mut core::ffi::c_void) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateStringFormat(formatattributes : i32, language : u16, format : *mut *mut GpStringFormat) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateTexture(image : *mut GpImage, wrapmode : WrapMode, texture : *mut *mut GpTexture) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateTexture2(image : *mut GpImage, wrapmode : WrapMode, x : f32, y : f32, width : f32, height : f32, texture : *mut *mut GpTexture) -> Status);
@@ -193,12 +193,12 @@
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipDrawImagePointRectI(graphics : *mut GpGraphics, image : *mut GpImage, x : i32, y : i32, srcx : i32, srcy : i32, srcwidth : i32, srcheight : i32, srcunit : Unit) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipDrawImagePoints(graphics : *mut GpGraphics, image : *mut GpImage, dstpoints : *const PointF, count : i32) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipDrawImagePointsI(graphics : *mut GpGraphics, image : *mut GpImage, dstpoints : *const Point, count : i32) -> Status);
-::windows_targets::link!("gdiplus.dll" "system" fn GdipDrawImagePointsRect(graphics : *mut GpGraphics, image : *mut GpImage, points : *const PointF, count : i32, srcx : f32, srcy : f32, srcwidth : f32, srcheight : f32, srcunit : Unit, imageattributes : *const GpImageAttributes, callback : isize, callbackdata : *mut ::core::ffi::c_void) -> Status);
-::windows_targets::link!("gdiplus.dll" "system" fn GdipDrawImagePointsRectI(graphics : *mut GpGraphics, image : *mut GpImage, points : *const Point, count : i32, srcx : i32, srcy : i32, srcwidth : i32, srcheight : i32, srcunit : Unit, imageattributes : *const GpImageAttributes, callback : isize, callbackdata : *mut ::core::ffi::c_void) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipDrawImagePointsRect(graphics : *mut GpGraphics, image : *mut GpImage, points : *const PointF, count : i32, srcx : f32, srcy : f32, srcwidth : f32, srcheight : f32, srcunit : Unit, imageattributes : *const GpImageAttributes, callback : isize, callbackdata : *mut core::ffi::c_void) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipDrawImagePointsRectI(graphics : *mut GpGraphics, image : *mut GpImage, points : *const Point, count : i32, srcx : i32, srcy : i32, srcwidth : i32, srcheight : i32, srcunit : Unit, imageattributes : *const GpImageAttributes, callback : isize, callbackdata : *mut core::ffi::c_void) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipDrawImageRect(graphics : *mut GpGraphics, image : *mut GpImage, x : f32, y : f32, width : f32, height : f32) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipDrawImageRectI(graphics : *mut GpGraphics, image : *mut GpImage, x : i32, y : i32, width : i32, height : i32) -> Status);
-::windows_targets::link!("gdiplus.dll" "system" fn GdipDrawImageRectRect(graphics : *mut GpGraphics, image : *mut GpImage, dstx : f32, dsty : f32, dstwidth : f32, dstheight : f32, srcx : f32, srcy : f32, srcwidth : f32, srcheight : f32, srcunit : Unit, imageattributes : *const GpImageAttributes, callback : isize, callbackdata : *mut ::core::ffi::c_void) -> Status);
-::windows_targets::link!("gdiplus.dll" "system" fn GdipDrawImageRectRectI(graphics : *mut GpGraphics, image : *mut GpImage, dstx : i32, dsty : i32, dstwidth : i32, dstheight : i32, srcx : i32, srcy : i32, srcwidth : i32, srcheight : i32, srcunit : Unit, imageattributes : *const GpImageAttributes, callback : isize, callbackdata : *mut ::core::ffi::c_void) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipDrawImageRectRect(graphics : *mut GpGraphics, image : *mut GpImage, dstx : f32, dsty : f32, dstwidth : f32, dstheight : f32, srcx : f32, srcy : f32, srcwidth : f32, srcheight : f32, srcunit : Unit, imageattributes : *const GpImageAttributes, callback : isize, callbackdata : *mut core::ffi::c_void) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipDrawImageRectRectI(graphics : *mut GpGraphics, image : *mut GpImage, dstx : i32, dsty : i32, dstwidth : i32, dstheight : i32, srcx : i32, srcy : i32, srcwidth : i32, srcheight : i32, srcunit : Unit, imageattributes : *const GpImageAttributes, callback : isize, callbackdata : *mut core::ffi::c_void) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipDrawLine(graphics : *mut GpGraphics, pen : *mut GpPen, x1 : f32, y1 : f32, x2 : f32, y2 : f32) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipDrawLineI(graphics : *mut GpGraphics, pen : *mut GpPen, x1 : i32, y1 : i32, x2 : i32, y2 : i32) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipDrawLines(graphics : *mut GpGraphics, pen : *mut GpPen, points : *const PointF, count : i32) -> Status);
@@ -212,22 +212,22 @@
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipDrawRectangleI(graphics : *mut GpGraphics, pen : *mut GpPen, x : i32, y : i32, width : i32, height : i32) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipDrawRectangles(graphics : *mut GpGraphics, pen : *mut GpPen, rects : *const RectF, count : i32) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipDrawRectanglesI(graphics : *mut GpGraphics, pen : *mut GpPen, rects : *const Rect, count : i32) -> Status);
-::windows_targets::link!("gdiplus.dll" "system" fn GdipDrawString(graphics : *mut GpGraphics, string : ::windows_sys::core::PCWSTR, length : i32, font : *const GpFont, layoutrect : *const RectF, stringformat : *const GpStringFormat, brush : *const GpBrush) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipDrawString(graphics : *mut GpGraphics, string : windows_sys::core::PCWSTR, length : i32, font : *const GpFont, layoutrect : *const RectF, stringformat : *const GpStringFormat, brush : *const GpBrush) -> Status);
 #[cfg(feature = "Win32_Graphics_Gdi")]
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipEmfToWmfBits(hemf : super::Gdi:: HENHMETAFILE, cbdata16 : u32, pdata16 : *mut u8, imapmode : i32, eflags : i32) -> u32);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipEndContainer(graphics : *mut GpGraphics, state : u32) -> Status);
-::windows_targets::link!("gdiplus.dll" "system" fn GdipEnumerateMetafileDestPoint(graphics : *mut GpGraphics, metafile : *const GpMetafile, destpoint : *const PointF, callback : isize, callbackdata : *mut ::core::ffi::c_void, imageattributes : *const GpImageAttributes) -> Status);
-::windows_targets::link!("gdiplus.dll" "system" fn GdipEnumerateMetafileDestPointI(graphics : *mut GpGraphics, metafile : *const GpMetafile, destpoint : *const Point, callback : isize, callbackdata : *mut ::core::ffi::c_void, imageattributes : *const GpImageAttributes) -> Status);
-::windows_targets::link!("gdiplus.dll" "system" fn GdipEnumerateMetafileDestPoints(graphics : *mut GpGraphics, metafile : *const GpMetafile, destpoints : *const PointF, count : i32, callback : isize, callbackdata : *mut ::core::ffi::c_void, imageattributes : *const GpImageAttributes) -> Status);
-::windows_targets::link!("gdiplus.dll" "system" fn GdipEnumerateMetafileDestPointsI(graphics : *mut GpGraphics, metafile : *const GpMetafile, destpoints : *const Point, count : i32, callback : isize, callbackdata : *mut ::core::ffi::c_void, imageattributes : *const GpImageAttributes) -> Status);
-::windows_targets::link!("gdiplus.dll" "system" fn GdipEnumerateMetafileDestRect(graphics : *mut GpGraphics, metafile : *const GpMetafile, destrect : *const RectF, callback : isize, callbackdata : *mut ::core::ffi::c_void, imageattributes : *const GpImageAttributes) -> Status);
-::windows_targets::link!("gdiplus.dll" "system" fn GdipEnumerateMetafileDestRectI(graphics : *mut GpGraphics, metafile : *const GpMetafile, destrect : *const Rect, callback : isize, callbackdata : *mut ::core::ffi::c_void, imageattributes : *const GpImageAttributes) -> Status);
-::windows_targets::link!("gdiplus.dll" "system" fn GdipEnumerateMetafileSrcRectDestPoint(graphics : *mut GpGraphics, metafile : *const GpMetafile, destpoint : *const PointF, srcrect : *const RectF, srcunit : Unit, callback : isize, callbackdata : *mut ::core::ffi::c_void, imageattributes : *const GpImageAttributes) -> Status);
-::windows_targets::link!("gdiplus.dll" "system" fn GdipEnumerateMetafileSrcRectDestPointI(graphics : *mut GpGraphics, metafile : *const GpMetafile, destpoint : *const Point, srcrect : *const Rect, srcunit : Unit, callback : isize, callbackdata : *mut ::core::ffi::c_void, imageattributes : *const GpImageAttributes) -> Status);
-::windows_targets::link!("gdiplus.dll" "system" fn GdipEnumerateMetafileSrcRectDestPoints(graphics : *mut GpGraphics, metafile : *const GpMetafile, destpoints : *const PointF, count : i32, srcrect : *const RectF, srcunit : Unit, callback : isize, callbackdata : *mut ::core::ffi::c_void, imageattributes : *const GpImageAttributes) -> Status);
-::windows_targets::link!("gdiplus.dll" "system" fn GdipEnumerateMetafileSrcRectDestPointsI(graphics : *mut GpGraphics, metafile : *const GpMetafile, destpoints : *const Point, count : i32, srcrect : *const Rect, srcunit : Unit, callback : isize, callbackdata : *mut ::core::ffi::c_void, imageattributes : *const GpImageAttributes) -> Status);
-::windows_targets::link!("gdiplus.dll" "system" fn GdipEnumerateMetafileSrcRectDestRect(graphics : *mut GpGraphics, metafile : *const GpMetafile, destrect : *const RectF, srcrect : *const RectF, srcunit : Unit, callback : isize, callbackdata : *mut ::core::ffi::c_void, imageattributes : *const GpImageAttributes) -> Status);
-::windows_targets::link!("gdiplus.dll" "system" fn GdipEnumerateMetafileSrcRectDestRectI(graphics : *mut GpGraphics, metafile : *const GpMetafile, destrect : *const Rect, srcrect : *const Rect, srcunit : Unit, callback : isize, callbackdata : *mut ::core::ffi::c_void, imageattributes : *const GpImageAttributes) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipEnumerateMetafileDestPoint(graphics : *mut GpGraphics, metafile : *const GpMetafile, destpoint : *const PointF, callback : isize, callbackdata : *mut core::ffi::c_void, imageattributes : *const GpImageAttributes) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipEnumerateMetafileDestPointI(graphics : *mut GpGraphics, metafile : *const GpMetafile, destpoint : *const Point, callback : isize, callbackdata : *mut core::ffi::c_void, imageattributes : *const GpImageAttributes) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipEnumerateMetafileDestPoints(graphics : *mut GpGraphics, metafile : *const GpMetafile, destpoints : *const PointF, count : i32, callback : isize, callbackdata : *mut core::ffi::c_void, imageattributes : *const GpImageAttributes) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipEnumerateMetafileDestPointsI(graphics : *mut GpGraphics, metafile : *const GpMetafile, destpoints : *const Point, count : i32, callback : isize, callbackdata : *mut core::ffi::c_void, imageattributes : *const GpImageAttributes) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipEnumerateMetafileDestRect(graphics : *mut GpGraphics, metafile : *const GpMetafile, destrect : *const RectF, callback : isize, callbackdata : *mut core::ffi::c_void, imageattributes : *const GpImageAttributes) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipEnumerateMetafileDestRectI(graphics : *mut GpGraphics, metafile : *const GpMetafile, destrect : *const Rect, callback : isize, callbackdata : *mut core::ffi::c_void, imageattributes : *const GpImageAttributes) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipEnumerateMetafileSrcRectDestPoint(graphics : *mut GpGraphics, metafile : *const GpMetafile, destpoint : *const PointF, srcrect : *const RectF, srcunit : Unit, callback : isize, callbackdata : *mut core::ffi::c_void, imageattributes : *const GpImageAttributes) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipEnumerateMetafileSrcRectDestPointI(graphics : *mut GpGraphics, metafile : *const GpMetafile, destpoint : *const Point, srcrect : *const Rect, srcunit : Unit, callback : isize, callbackdata : *mut core::ffi::c_void, imageattributes : *const GpImageAttributes) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipEnumerateMetafileSrcRectDestPoints(graphics : *mut GpGraphics, metafile : *const GpMetafile, destpoints : *const PointF, count : i32, srcrect : *const RectF, srcunit : Unit, callback : isize, callbackdata : *mut core::ffi::c_void, imageattributes : *const GpImageAttributes) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipEnumerateMetafileSrcRectDestPointsI(graphics : *mut GpGraphics, metafile : *const GpMetafile, destpoints : *const Point, count : i32, srcrect : *const Rect, srcunit : Unit, callback : isize, callbackdata : *mut core::ffi::c_void, imageattributes : *const GpImageAttributes) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipEnumerateMetafileSrcRectDestRect(graphics : *mut GpGraphics, metafile : *const GpMetafile, destrect : *const RectF, srcrect : *const RectF, srcunit : Unit, callback : isize, callbackdata : *mut core::ffi::c_void, imageattributes : *const GpImageAttributes) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipEnumerateMetafileSrcRectDestRectI(graphics : *mut GpGraphics, metafile : *const GpMetafile, destrect : *const Rect, srcrect : *const Rect, srcunit : Unit, callback : isize, callbackdata : *mut core::ffi::c_void, imageattributes : *const GpImageAttributes) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipFillClosedCurve(graphics : *mut GpGraphics, brush : *mut GpBrush, points : *const PointF, count : i32) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipFillClosedCurve2(graphics : *mut GpGraphics, brush : *mut GpBrush, points : *const PointF, count : i32, tension : f32, fillmode : FillMode) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipFillClosedCurve2I(graphics : *mut GpGraphics, brush : *mut GpBrush, points : *const Point, count : i32, tension : f32, fillmode : FillMode) -> Status);
@@ -250,7 +250,7 @@
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipFindNextImageItem(image : *mut GpImage, item : *mut ImageItemData) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipFlattenPath(path : *mut GpPath, matrix : *mut Matrix, flatness : f32) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipFlush(graphics : *mut GpGraphics, intention : FlushIntention) -> Status);
-::windows_targets::link!("gdiplus.dll" "system" fn GdipFree(ptr : *mut ::core::ffi::c_void));
+::windows_targets::link!("gdiplus.dll" "system" fn GdipFree(ptr : *mut core::ffi::c_void));
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetAdjustableArrowCapFillState(cap : *mut GpAdjustableArrowCap, fillstate : *mut super::super::Foundation:: BOOL) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetAdjustableArrowCapHeight(cap : *mut GpAdjustableArrowCap, height : *mut f32) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetAdjustableArrowCapMiddleInset(cap : *mut GpAdjustableArrowCap, middleinset : *mut f32) -> Status);
@@ -275,12 +275,12 @@
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetDpiX(graphics : *mut GpGraphics, dpi : *mut f32) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetDpiY(graphics : *mut GpGraphics, dpi : *mut f32) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetEffectParameterSize(effect : *mut CGpEffect, size : *mut u32) -> Status);
-::windows_targets::link!("gdiplus.dll" "system" fn GdipGetEffectParameters(effect : *mut CGpEffect, size : *mut u32, params : *mut ::core::ffi::c_void) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipGetEffectParameters(effect : *mut CGpEffect, size : *mut u32, params : *mut core::ffi::c_void) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetEmHeight(family : *const GpFontFamily, style : i32, emheight : *mut u16) -> Status);
-::windows_targets::link!("gdiplus.dll" "system" fn GdipGetEncoderParameterList(image : *mut GpImage, clsidencoder : *const ::windows_sys::core::GUID, size : u32, buffer : *mut EncoderParameters) -> Status);
-::windows_targets::link!("gdiplus.dll" "system" fn GdipGetEncoderParameterListSize(image : *mut GpImage, clsidencoder : *const ::windows_sys::core::GUID, size : *mut u32) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipGetEncoderParameterList(image : *mut GpImage, clsidencoder : *const windows_sys::core::GUID, size : u32, buffer : *mut EncoderParameters) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipGetEncoderParameterListSize(image : *mut GpImage, clsidencoder : *const windows_sys::core::GUID, size : *mut u32) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetFamily(font : *mut GpFont, family : *mut *mut GpFontFamily) -> Status);
-::windows_targets::link!("gdiplus.dll" "system" fn GdipGetFamilyName(family : *const GpFontFamily, name : ::windows_sys::core::PWSTR, language : u16) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipGetFamilyName(family : *const GpFontFamily, name : windows_sys::core::PWSTR, language : u16) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetFontCollectionFamilyCount(fontcollection : *mut GpFontCollection, numfound : *mut i32) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetFontCollectionFamilyList(fontcollection : *const GpFontCollection, numsought : i32, gpfamilies : *mut *mut GpFontFamily, numfound : *mut i32) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetFontHeight(font : *const GpFont, graphics : *const GpGraphics, height : *mut f32) -> Status);
@@ -311,8 +311,8 @@
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetImagePalette(image : *mut GpImage, palette : *mut ColorPalette, size : i32) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetImagePaletteSize(image : *mut GpImage, size : *mut i32) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetImagePixelFormat(image : *mut GpImage, format : *mut i32) -> Status);
-::windows_targets::link!("gdiplus.dll" "system" fn GdipGetImageRawFormat(image : *mut GpImage, format : *mut ::windows_sys::core::GUID) -> Status);
-::windows_targets::link!("gdiplus.dll" "system" fn GdipGetImageThumbnail(image : *mut GpImage, thumbwidth : u32, thumbheight : u32, thumbimage : *mut *mut GpImage, callback : isize, callbackdata : *mut ::core::ffi::c_void) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipGetImageRawFormat(image : *mut GpImage, format : *mut windows_sys::core::GUID) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipGetImageThumbnail(image : *mut GpImage, thumbwidth : u32, thumbheight : u32, thumbimage : *mut *mut GpImage, callback : isize, callbackdata : *mut core::ffi::c_void) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetImageType(image : *mut GpImage, r#type : *mut ImageType) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetImageVerticalResolution(image : *mut GpImage, resolution : *mut f32) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetImageWidth(image : *mut GpImage, width : *mut u32) -> Status);
@@ -337,11 +337,11 @@
 #[cfg(feature = "Win32_Graphics_Gdi")]
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetMetafileHeaderFromEmf(hemf : super::Gdi:: HENHMETAFILE, header : *mut MetafileHeader) -> Status);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("gdiplus.dll" "system" fn GdipGetMetafileHeaderFromFile(filename : ::windows_sys::core::PCWSTR, header : *mut MetafileHeader) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipGetMetafileHeaderFromFile(filename : windows_sys::core::PCWSTR, header : *mut MetafileHeader) -> Status);
 #[cfg(feature = "Win32_Graphics_Gdi")]
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetMetafileHeaderFromMetafile(metafile : *mut GpMetafile, header : *mut MetafileHeader) -> Status);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("gdiplus.dll" "system" fn GdipGetMetafileHeaderFromStream(stream : * mut::core::ffi::c_void, header : *mut MetafileHeader) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipGetMetafileHeaderFromStream(stream : * mut core::ffi::c_void, header : *mut MetafileHeader) -> Status);
 #[cfg(feature = "Win32_Graphics_Gdi")]
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetMetafileHeaderFromWmf(hwmf : super::Gdi:: HMETAFILE, wmfplaceablefileheader : *const WmfPlaceableFileHeader, header : *mut MetafileHeader) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetNearestColor(graphics : *mut GpGraphics, argb : *mut u32) -> Status);
@@ -429,14 +429,14 @@
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetVisibleClipBoundsI(graphics : *mut GpGraphics, rect : *mut Rect) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetWorldTransform(graphics : *mut GpGraphics, matrix : *mut Matrix) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipGraphicsClear(graphics : *mut GpGraphics, color : u32) -> Status);
-::windows_targets::link!("gdiplus.dll" "system" fn GdipGraphicsSetAbort(pgraphics : *mut GpGraphics, piabort : * mut::core::ffi::c_void) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipGraphicsSetAbort(pgraphics : *mut GpGraphics, piabort : * mut core::ffi::c_void) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipImageForceValidation(image : *mut GpImage) -> Status);
-::windows_targets::link!("gdiplus.dll" "system" fn GdipImageGetFrameCount(image : *mut GpImage, dimensionid : *const ::windows_sys::core::GUID, count : *mut u32) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipImageGetFrameCount(image : *mut GpImage, dimensionid : *const windows_sys::core::GUID, count : *mut u32) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipImageGetFrameDimensionsCount(image : *mut GpImage, count : *mut u32) -> Status);
-::windows_targets::link!("gdiplus.dll" "system" fn GdipImageGetFrameDimensionsList(image : *mut GpImage, dimensionids : *mut ::windows_sys::core::GUID, count : u32) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipImageGetFrameDimensionsList(image : *mut GpImage, dimensionids : *mut windows_sys::core::GUID, count : u32) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipImageRotateFlip(image : *mut GpImage, rftype : RotateFlipType) -> Status);
-::windows_targets::link!("gdiplus.dll" "system" fn GdipImageSelectActiveFrame(image : *mut GpImage, dimensionid : *const ::windows_sys::core::GUID, frameindex : u32) -> Status);
-::windows_targets::link!("gdiplus.dll" "system" fn GdipImageSetAbort(pimage : *mut GpImage, piabort : * mut::core::ffi::c_void) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipImageSelectActiveFrame(image : *mut GpImage, dimensionid : *const windows_sys::core::GUID, frameindex : u32) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipImageSetAbort(pimage : *mut GpImage, piabort : * mut core::ffi::c_void) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipInitializePalette(palette : *mut ColorPalette, palettetype : PaletteType, optimalcolors : i32, usetransparentcolor : super::super::Foundation:: BOOL, bitmap : *mut GpBitmap) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipInvertMatrix(matrix : *mut Matrix) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipIsClipEmpty(graphics : *mut GpGraphics, result : *mut super::super::Foundation:: BOOL) -> Status);
@@ -460,13 +460,13 @@
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipIsVisibleRegionPointI(region : *mut GpRegion, x : i32, y : i32, graphics : *mut GpGraphics, result : *mut super::super::Foundation:: BOOL) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipIsVisibleRegionRect(region : *mut GpRegion, x : f32, y : f32, width : f32, height : f32, graphics : *mut GpGraphics, result : *mut super::super::Foundation:: BOOL) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipIsVisibleRegionRectI(region : *mut GpRegion, x : i32, y : i32, width : i32, height : i32, graphics : *mut GpGraphics, result : *mut super::super::Foundation:: BOOL) -> Status);
-::windows_targets::link!("gdiplus.dll" "system" fn GdipLoadImageFromFile(filename : ::windows_sys::core::PCWSTR, image : *mut *mut GpImage) -> Status);
-::windows_targets::link!("gdiplus.dll" "system" fn GdipLoadImageFromFileICM(filename : ::windows_sys::core::PCWSTR, image : *mut *mut GpImage) -> Status);
-::windows_targets::link!("gdiplus.dll" "system" fn GdipLoadImageFromStream(stream : * mut::core::ffi::c_void, image : *mut *mut GpImage) -> Status);
-::windows_targets::link!("gdiplus.dll" "system" fn GdipLoadImageFromStreamICM(stream : * mut::core::ffi::c_void, image : *mut *mut GpImage) -> Status);
-::windows_targets::link!("gdiplus.dll" "system" fn GdipMeasureCharacterRanges(graphics : *mut GpGraphics, string : ::windows_sys::core::PCWSTR, length : i32, font : *const GpFont, layoutrect : *const RectF, stringformat : *const GpStringFormat, regioncount : i32, regions : *mut *mut GpRegion) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipLoadImageFromFile(filename : windows_sys::core::PCWSTR, image : *mut *mut GpImage) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipLoadImageFromFileICM(filename : windows_sys::core::PCWSTR, image : *mut *mut GpImage) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipLoadImageFromStream(stream : * mut core::ffi::c_void, image : *mut *mut GpImage) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipLoadImageFromStreamICM(stream : * mut core::ffi::c_void, image : *mut *mut GpImage) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipMeasureCharacterRanges(graphics : *mut GpGraphics, string : windows_sys::core::PCWSTR, length : i32, font : *const GpFont, layoutrect : *const RectF, stringformat : *const GpStringFormat, regioncount : i32, regions : *mut *mut GpRegion) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipMeasureDriverString(graphics : *mut GpGraphics, text : *const u16, length : i32, font : *const GpFont, positions : *const PointF, flags : i32, matrix : *const Matrix, boundingbox : *mut RectF) -> Status);
-::windows_targets::link!("gdiplus.dll" "system" fn GdipMeasureString(graphics : *mut GpGraphics, string : ::windows_sys::core::PCWSTR, length : i32, font : *const GpFont, layoutrect : *const RectF, stringformat : *const GpStringFormat, boundingbox : *mut RectF, codepointsfitted : *mut i32, linesfilled : *mut i32) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipMeasureString(graphics : *mut GpGraphics, string : windows_sys::core::PCWSTR, length : i32, font : *const GpFont, layoutrect : *const RectF, stringformat : *const GpStringFormat, boundingbox : *mut RectF, codepointsfitted : *mut i32, linesfilled : *mut i32) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipMultiplyLineTransform(brush : *mut GpLineGradient, matrix : *const Matrix, order : MatrixOrder) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipMultiplyMatrix(matrix : *mut Matrix, matrix2 : *mut Matrix, order : MatrixOrder) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipMultiplyPathGradientTransform(brush : *mut GpPathGradient, matrix : *const Matrix, order : MatrixOrder) -> Status);
@@ -488,20 +488,20 @@
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipPathIterNextSubpathPath(iterator : *mut GpPathIterator, resultcount : *mut i32, path : *mut GpPath, isclosed : *mut super::super::Foundation:: BOOL) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipPathIterRewind(iterator : *mut GpPathIterator) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipPlayMetafileRecord(metafile : *const GpMetafile, recordtype : EmfPlusRecordType, flags : u32, datasize : u32, data : *const u8) -> Status);
-::windows_targets::link!("gdiplus.dll" "system" fn GdipPrivateAddFontFile(fontcollection : *mut GpFontCollection, filename : ::windows_sys::core::PCWSTR) -> Status);
-::windows_targets::link!("gdiplus.dll" "system" fn GdipPrivateAddMemoryFont(fontcollection : *mut GpFontCollection, memory : *const ::core::ffi::c_void, length : i32) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipPrivateAddFontFile(fontcollection : *mut GpFontCollection, filename : windows_sys::core::PCWSTR) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipPrivateAddMemoryFont(fontcollection : *mut GpFontCollection, memory : *const core::ffi::c_void, length : i32) -> Status);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("gdiplus.dll" "system" fn GdipRecordMetafile(referencehdc : super::Gdi:: HDC, r#type : EmfType, framerect : *const RectF, frameunit : MetafileFrameUnit, description : ::windows_sys::core::PCWSTR, metafile : *mut *mut GpMetafile) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipRecordMetafile(referencehdc : super::Gdi:: HDC, r#type : EmfType, framerect : *const RectF, frameunit : MetafileFrameUnit, description : windows_sys::core::PCWSTR, metafile : *mut *mut GpMetafile) -> Status);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("gdiplus.dll" "system" fn GdipRecordMetafileFileName(filename : ::windows_sys::core::PCWSTR, referencehdc : super::Gdi:: HDC, r#type : EmfType, framerect : *const RectF, frameunit : MetafileFrameUnit, description : ::windows_sys::core::PCWSTR, metafile : *mut *mut GpMetafile) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipRecordMetafileFileName(filename : windows_sys::core::PCWSTR, referencehdc : super::Gdi:: HDC, r#type : EmfType, framerect : *const RectF, frameunit : MetafileFrameUnit, description : windows_sys::core::PCWSTR, metafile : *mut *mut GpMetafile) -> Status);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("gdiplus.dll" "system" fn GdipRecordMetafileFileNameI(filename : ::windows_sys::core::PCWSTR, referencehdc : super::Gdi:: HDC, r#type : EmfType, framerect : *const Rect, frameunit : MetafileFrameUnit, description : ::windows_sys::core::PCWSTR, metafile : *mut *mut GpMetafile) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipRecordMetafileFileNameI(filename : windows_sys::core::PCWSTR, referencehdc : super::Gdi:: HDC, r#type : EmfType, framerect : *const Rect, frameunit : MetafileFrameUnit, description : windows_sys::core::PCWSTR, metafile : *mut *mut GpMetafile) -> Status);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("gdiplus.dll" "system" fn GdipRecordMetafileI(referencehdc : super::Gdi:: HDC, r#type : EmfType, framerect : *const Rect, frameunit : MetafileFrameUnit, description : ::windows_sys::core::PCWSTR, metafile : *mut *mut GpMetafile) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipRecordMetafileI(referencehdc : super::Gdi:: HDC, r#type : EmfType, framerect : *const Rect, frameunit : MetafileFrameUnit, description : windows_sys::core::PCWSTR, metafile : *mut *mut GpMetafile) -> Status);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("gdiplus.dll" "system" fn GdipRecordMetafileStream(stream : * mut::core::ffi::c_void, referencehdc : super::Gdi:: HDC, r#type : EmfType, framerect : *const RectF, frameunit : MetafileFrameUnit, description : ::windows_sys::core::PCWSTR, metafile : *mut *mut GpMetafile) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipRecordMetafileStream(stream : * mut core::ffi::c_void, referencehdc : super::Gdi:: HDC, r#type : EmfType, framerect : *const RectF, frameunit : MetafileFrameUnit, description : windows_sys::core::PCWSTR, metafile : *mut *mut GpMetafile) -> Status);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("gdiplus.dll" "system" fn GdipRecordMetafileStreamI(stream : * mut::core::ffi::c_void, referencehdc : super::Gdi:: HDC, r#type : EmfType, framerect : *const Rect, frameunit : MetafileFrameUnit, description : ::windows_sys::core::PCWSTR, metafile : *mut *mut GpMetafile) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipRecordMetafileStreamI(stream : * mut core::ffi::c_void, referencehdc : super::Gdi:: HDC, r#type : EmfType, framerect : *const Rect, frameunit : MetafileFrameUnit, description : windows_sys::core::PCWSTR, metafile : *mut *mut GpMetafile) -> Status);
 #[cfg(feature = "Win32_Graphics_Gdi")]
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipReleaseDC(graphics : *mut GpGraphics, hdc : super::Gdi:: HDC) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipRemovePropertyItem(image : *mut GpImage, propid : u32) -> Status);
@@ -525,8 +525,8 @@
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipSaveAdd(image : *mut GpImage, encoderparams : *const EncoderParameters) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipSaveAddImage(image : *mut GpImage, newimage : *mut GpImage, encoderparams : *const EncoderParameters) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipSaveGraphics(graphics : *mut GpGraphics, state : *mut u32) -> Status);
-::windows_targets::link!("gdiplus.dll" "system" fn GdipSaveImageToFile(image : *mut GpImage, filename : ::windows_sys::core::PCWSTR, clsidencoder : *const ::windows_sys::core::GUID, encoderparams : *const EncoderParameters) -> Status);
-::windows_targets::link!("gdiplus.dll" "system" fn GdipSaveImageToStream(image : *mut GpImage, stream : * mut::core::ffi::c_void, clsidencoder : *const ::windows_sys::core::GUID, encoderparams : *const EncoderParameters) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipSaveImageToFile(image : *mut GpImage, filename : windows_sys::core::PCWSTR, clsidencoder : *const windows_sys::core::GUID, encoderparams : *const EncoderParameters) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipSaveImageToStream(image : *mut GpImage, stream : * mut core::ffi::c_void, clsidencoder : *const windows_sys::core::GUID, encoderparams : *const EncoderParameters) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipScaleLineTransform(brush : *mut GpLineGradient, sx : f32, sy : f32, order : MatrixOrder) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipScaleMatrix(matrix : *mut Matrix, scalex : f32, scaley : f32, order : MatrixOrder) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipScalePathGradientTransform(brush : *mut GpPathGradient, sx : f32, sy : f32, order : MatrixOrder) -> Status);
@@ -551,7 +551,7 @@
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetCustomLineCapStrokeCaps(customcap : *mut GpCustomLineCap, startcap : LineCap, endcap : LineCap) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetCustomLineCapStrokeJoin(customcap : *mut GpCustomLineCap, linejoin : LineJoin) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetCustomLineCapWidthScale(customcap : *mut GpCustomLineCap, widthscale : f32) -> Status);
-::windows_targets::link!("gdiplus.dll" "system" fn GdipSetEffectParameters(effect : *mut CGpEffect, params : *const ::core::ffi::c_void, size : u32) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipSetEffectParameters(effect : *mut CGpEffect, params : *const core::ffi::c_void, size : u32) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetEmpty(region : *mut GpRegion) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetImageAttributesCachedBackground(imageattr : *mut GpImageAttributes, enableflag : super::super::Foundation:: BOOL) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetImageAttributesColorKeys(imageattr : *mut GpImageAttributes, r#type : ColorAdjustType, enableflag : super::super::Foundation:: BOOL, colorlow : u32, colorhigh : u32) -> Status);
@@ -559,7 +559,7 @@
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetImageAttributesGamma(imageattr : *mut GpImageAttributes, r#type : ColorAdjustType, enableflag : super::super::Foundation:: BOOL, gamma : f32) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetImageAttributesNoOp(imageattr : *mut GpImageAttributes, r#type : ColorAdjustType, enableflag : super::super::Foundation:: BOOL) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetImageAttributesOutputChannel(imageattr : *mut GpImageAttributes, r#type : ColorAdjustType, enableflag : super::super::Foundation:: BOOL, channelflags : ColorChannelFlags) -> Status);
-::windows_targets::link!("gdiplus.dll" "system" fn GdipSetImageAttributesOutputChannelColorProfile(imageattr : *mut GpImageAttributes, r#type : ColorAdjustType, enableflag : super::super::Foundation:: BOOL, colorprofilefilename : ::windows_sys::core::PCWSTR) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipSetImageAttributesOutputChannelColorProfile(imageattr : *mut GpImageAttributes, r#type : ColorAdjustType, enableflag : super::super::Foundation:: BOOL, colorprofilefilename : windows_sys::core::PCWSTR) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetImageAttributesRemapTable(imageattr : *mut GpImageAttributes, r#type : ColorAdjustType, enableflag : super::super::Foundation:: BOOL, mapsize : u32, map : *const ColorMap) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetImageAttributesThreshold(imageattr : *mut GpImageAttributes, r#type : ColorAdjustType, enableflag : super::super::Foundation:: BOOL, threshold : f32) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetImageAttributesToIdentity(imageattr : *mut GpImageAttributes, r#type : ColorAdjustType) -> Status);
@@ -634,7 +634,7 @@
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipStartPathFigure(path : *mut GpPath) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipStringFormatGetGenericDefault(format : *mut *mut GpStringFormat) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipStringFormatGetGenericTypographic(format : *mut *mut GpStringFormat) -> Status);
-::windows_targets::link!("gdiplus.dll" "system" fn GdipTestControl(control : GpTestControlEnum, param1 : *mut ::core::ffi::c_void) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipTestControl(control : GpTestControlEnum, param1 : *mut core::ffi::c_void) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipTransformMatrixPoints(matrix : *mut Matrix, pts : *mut PointF, count : i32) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipTransformMatrixPointsI(matrix : *mut Matrix, pts : *mut Point, count : i32) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipTransformPath(path : *mut GpPath, matrix : *mut Matrix) -> Status);
@@ -672,14 +672,14 @@ pub const AdjustMidtone: CurveAdjustments = 5i32;
 pub const AdjustShadow: CurveAdjustments = 4i32;
 pub const AdjustWhiteSaturation: CurveAdjustments = 6i32;
 pub const BLUE_SHIFT: u32 = 0u32;
-pub const BlurEffectGuid: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x633c80a4_1843_482b_9ef2_be2834c5fdd4);
-pub const BrightnessContrastEffectGuid: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xd3a1dbe1_8ec4_4c17_9f4c_ea97ad1c343d);
+pub const BlurEffectGuid: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x633c80a4_1843_482b_9ef2_be2834c5fdd4);
+pub const BrightnessContrastEffectGuid: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd3a1dbe1_8ec4_4c17_9f4c_ea97ad1c343d);
 pub const BrushTypeHatchFill: BrushType = 1i32;
 pub const BrushTypeLinearGradient: BrushType = 4i32;
 pub const BrushTypePathGradient: BrushType = 3i32;
 pub const BrushTypeSolidColor: BrushType = 0i32;
 pub const BrushTypeTextureFill: BrushType = 2i32;
-pub const CodecIImageBytes: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x025d1823_6c7d_447b_bbdb_a3cbc3dfa2fc);
+pub const CodecIImageBytes: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x025d1823_6c7d_447b_bbdb_a3cbc3dfa2fc);
 pub const ColorAdjustTypeAny: ColorAdjustType = 6i32;
 pub const ColorAdjustTypeBitmap: ColorAdjustType = 1i32;
 pub const ColorAdjustTypeBrush: ColorAdjustType = 2i32;
@@ -687,15 +687,15 @@ pub const ColorAdjustTypeCount: ColorAdjustType = 5i32;
 pub const ColorAdjustTypeDefault: ColorAdjustType = 0i32;
 pub const ColorAdjustTypePen: ColorAdjustType = 3i32;
 pub const ColorAdjustTypeText: ColorAdjustType = 4i32;
-pub const ColorBalanceEffectGuid: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x537e597d_251e_48da_9664_29ca496b70f8);
+pub const ColorBalanceEffectGuid: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x537e597d_251e_48da_9664_29ca496b70f8);
 pub const ColorChannelFlagsC: ColorChannelFlags = 0i32;
 pub const ColorChannelFlagsK: ColorChannelFlags = 3i32;
 pub const ColorChannelFlagsLast: ColorChannelFlags = 4i32;
 pub const ColorChannelFlagsM: ColorChannelFlags = 1i32;
 pub const ColorChannelFlagsY: ColorChannelFlags = 2i32;
-pub const ColorCurveEffectGuid: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xdd6a0022_58e4_4a67_9d9b_d48eb881a53d);
-pub const ColorLUTEffectGuid: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xa7ce72a9_0f7f_40d7_b3cc_d0c02d5c3212);
-pub const ColorMatrixEffectGuid: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x718f2615_7933_40e3_a511_5f68fe14dd74);
+pub const ColorCurveEffectGuid: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdd6a0022_58e4_4a67_9d9b_d48eb881a53d);
+pub const ColorLUTEffectGuid: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa7ce72a9_0f7f_40d7_b3cc_d0c02d5c3212);
+pub const ColorMatrixEffectGuid: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x718f2615_7933_40e3_a511_5f68fe14dd74);
 pub const ColorMatrixFlagsAltGray: ColorMatrixFlags = 2i32;
 pub const ColorMatrixFlagsDefault: ColorMatrixFlags = 0i32;
 pub const ColorMatrixFlagsSkipGrays: ColorMatrixFlags = 1i32;
@@ -947,12 +947,12 @@ pub const EmfToWmfBitsFlagsNoXORClip: EmfToWmfBitsFlags = 4i32;
 pub const EmfTypeEmfOnly: EmfType = 3i32;
 pub const EmfTypeEmfPlusDual: EmfType = 5i32;
 pub const EmfTypeEmfPlusOnly: EmfType = 4i32;
-pub const EncoderChrominanceTable: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xf2e455dc_09b3_4316_8260_676ada32481c);
-pub const EncoderColorDepth: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x66087055_ad66_4c7c_9a18_38a2310b8337);
-pub const EncoderColorSpace: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xae7a62a0_ee2c_49d8_9d07_1ba8a927596e);
-pub const EncoderCompression: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xe09d739d_ccd4_44ee_8eba_3fbf8be4fc58);
-pub const EncoderImageItems: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x63875e13_1f1d_45ab_9195_a29b6066a650);
-pub const EncoderLuminanceTable: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xedb33bce_0266_4a77_b904_27216099e717);
+pub const EncoderChrominanceTable: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf2e455dc_09b3_4316_8260_676ada32481c);
+pub const EncoderColorDepth: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x66087055_ad66_4c7c_9a18_38a2310b8337);
+pub const EncoderColorSpace: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xae7a62a0_ee2c_49d8_9d07_1ba8a927596e);
+pub const EncoderCompression: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe09d739d_ccd4_44ee_8eba_3fbf8be4fc58);
+pub const EncoderImageItems: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x63875e13_1f1d_45ab_9195_a29b6066a650);
+pub const EncoderLuminanceTable: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xedb33bce_0266_4a77_b904_27216099e717);
 pub const EncoderParameterValueTypeASCII: EncoderParameterValueType = 2i32;
 pub const EncoderParameterValueTypeByte: EncoderParameterValueType = 1i32;
 pub const EncoderParameterValueTypeLong: EncoderParameterValueType = 4i32;
@@ -962,12 +962,12 @@ pub const EncoderParameterValueTypeRational: EncoderParameterValueType = 5i32;
 pub const EncoderParameterValueTypeRationalRange: EncoderParameterValueType = 8i32;
 pub const EncoderParameterValueTypeShort: EncoderParameterValueType = 3i32;
 pub const EncoderParameterValueTypeUndefined: EncoderParameterValueType = 7i32;
-pub const EncoderQuality: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x1d5be4b5_fa4a_452d_9cdd_5db35105e7eb);
-pub const EncoderRenderMethod: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x6d42c53a_229a_4825_8bb7_5c99e2b9a8b8);
-pub const EncoderSaveAsCMYK: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xa219bbc9_0a9d_4005_a3ee_3a421b8bb06c);
-pub const EncoderSaveFlag: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x292266fc_ac40_47bf_8cfc_a85b89a655de);
-pub const EncoderScanMethod: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x3a4e2661_3109_4e56_8536_42c156e7dcfa);
-pub const EncoderTransformation: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x8d0eb2d1_a58e_4ea8_aa14_108074b7b6f9);
+pub const EncoderQuality: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1d5be4b5_fa4a_452d_9cdd_5db35105e7eb);
+pub const EncoderRenderMethod: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6d42c53a_229a_4825_8bb7_5c99e2b9a8b8);
+pub const EncoderSaveAsCMYK: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa219bbc9_0a9d_4005_a3ee_3a421b8bb06c);
+pub const EncoderSaveFlag: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x292266fc_ac40_47bf_8cfc_a85b89a655de);
+pub const EncoderScanMethod: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3a4e2661_3109_4e56_8536_42c156e7dcfa);
+pub const EncoderTransformation: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8d0eb2d1_a58e_4ea8_aa14_108074b7b6f9);
 pub const EncoderValueColorTypeCMYK: EncoderValue = 0i32;
 pub const EncoderValueColorTypeGray: EncoderValue = 24i32;
 pub const EncoderValueColorTypeRGB: EncoderValue = 25i32;
@@ -994,7 +994,7 @@ pub const EncoderValueTransformRotate270: EncoderValue = 15i32;
 pub const EncoderValueTransformRotate90: EncoderValue = 13i32;
 pub const EncoderValueVersionGif87: EncoderValue = 9i32;
 pub const EncoderValueVersionGif89: EncoderValue = 10i32;
-pub const EncoderVersion: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x24d18c76_814a_41a4_bf53_1c219cccf797);
+pub const EncoderVersion: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x24d18c76_814a_41a4_bf53_1c219cccf797);
 pub const FileNotFound: Status = 10i32;
 pub const FillModeAlternate: FillMode = 0i32;
 pub const FillModeWinding: FillMode = 1i32;
@@ -1009,11 +1009,11 @@ pub const FontStyleNotFound: Status = 15i32;
 pub const FontStyleRegular: FontStyle = 0i32;
 pub const FontStyleStrikeout: FontStyle = 8i32;
 pub const FontStyleUnderline: FontStyle = 4i32;
-pub const FormatIDImageInformation: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xe5836cbe_5eef_4f1d_acde_ae4c43b608ce);
-pub const FormatIDJpegAppHeaders: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x1c4afdcd_6177_43cf_abc7_5f51af39ee85);
-pub const FrameDimensionPage: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x7462dc86_6180_4c7e_8e3f_ee7333a7a483);
-pub const FrameDimensionResolution: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x84236f7b_3bd3_428f_8dab_4ea1439ca315);
-pub const FrameDimensionTime: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x6aedbd6d_3fb5_418a_83a6_7f45229dc872);
+pub const FormatIDImageInformation: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe5836cbe_5eef_4f1d_acde_ae4c43b608ce);
+pub const FormatIDJpegAppHeaders: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1c4afdcd_6177_43cf_abc7_5f51af39ee85);
+pub const FrameDimensionPage: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7462dc86_6180_4c7e_8e3f_ee7333a7a483);
+pub const FrameDimensionResolution: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x84236f7b_3bd3_428f_8dab_4ea1439ca315);
+pub const FrameDimensionTime: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6aedbd6d_3fb5_418a_83a6_7f45229dc872);
 pub const GDIP_EMFPLUSFLAGS_DISPLAY: u32 = 1u32;
 pub const GDIP_EMFPLUS_RECORD_BASE: u32 = 16384u32;
 pub const GDIP_WMF_RECORD_BASE: u32 = 65536u32;
@@ -1095,7 +1095,7 @@ pub const HistogramFormatRGB: HistogramFormat = 2i32;
 pub const HotkeyPrefixHide: HotkeyPrefix = 2i32;
 pub const HotkeyPrefixNone: HotkeyPrefix = 0i32;
 pub const HotkeyPrefixShow: HotkeyPrefix = 1i32;
-pub const HueSaturationLightnessEffectGuid: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x8b2dd6c3_eb07_4d87_a5f0_7108e26a9c5f);
+pub const HueSaturationLightnessEffectGuid: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8b2dd6c3_eb07_4d87_a5f0_7108e26a9c5f);
 pub const ImageCodecFlagsBlockingDecode: ImageCodecFlags = 32i32;
 pub const ImageCodecFlagsBuiltin: ImageCodecFlags = 65536i32;
 pub const ImageCodecFlagsDecoder: ImageCodecFlags = 2i32;
@@ -1119,19 +1119,19 @@ pub const ImageFlagsNone: ImageFlags = 0i32;
 pub const ImageFlagsPartiallyScalable: ImageFlags = 8i32;
 pub const ImageFlagsReadOnly: ImageFlags = 65536i32;
 pub const ImageFlagsScalable: ImageFlags = 1i32;
-pub const ImageFormatBMP: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xb96b3cab_0728_11d3_9d7b_0000f81ef32e);
-pub const ImageFormatEMF: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xb96b3cac_0728_11d3_9d7b_0000f81ef32e);
-pub const ImageFormatEXIF: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xb96b3cb2_0728_11d3_9d7b_0000f81ef32e);
-pub const ImageFormatGIF: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xb96b3cb0_0728_11d3_9d7b_0000f81ef32e);
-pub const ImageFormatHEIF: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xb96b3cb6_0728_11d3_9d7b_0000f81ef32e);
-pub const ImageFormatIcon: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xb96b3cb5_0728_11d3_9d7b_0000f81ef32e);
-pub const ImageFormatJPEG: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xb96b3cae_0728_11d3_9d7b_0000f81ef32e);
-pub const ImageFormatMemoryBMP: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xb96b3caa_0728_11d3_9d7b_0000f81ef32e);
-pub const ImageFormatPNG: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xb96b3caf_0728_11d3_9d7b_0000f81ef32e);
-pub const ImageFormatTIFF: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xb96b3cb1_0728_11d3_9d7b_0000f81ef32e);
-pub const ImageFormatUndefined: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xb96b3ca9_0728_11d3_9d7b_0000f81ef32e);
-pub const ImageFormatWEBP: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xb96b3cb7_0728_11d3_9d7b_0000f81ef32e);
-pub const ImageFormatWMF: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xb96b3cad_0728_11d3_9d7b_0000f81ef32e);
+pub const ImageFormatBMP: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb96b3cab_0728_11d3_9d7b_0000f81ef32e);
+pub const ImageFormatEMF: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb96b3cac_0728_11d3_9d7b_0000f81ef32e);
+pub const ImageFormatEXIF: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb96b3cb2_0728_11d3_9d7b_0000f81ef32e);
+pub const ImageFormatGIF: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb96b3cb0_0728_11d3_9d7b_0000f81ef32e);
+pub const ImageFormatHEIF: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb96b3cb6_0728_11d3_9d7b_0000f81ef32e);
+pub const ImageFormatIcon: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb96b3cb5_0728_11d3_9d7b_0000f81ef32e);
+pub const ImageFormatJPEG: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb96b3cae_0728_11d3_9d7b_0000f81ef32e);
+pub const ImageFormatMemoryBMP: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb96b3caa_0728_11d3_9d7b_0000f81ef32e);
+pub const ImageFormatPNG: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb96b3caf_0728_11d3_9d7b_0000f81ef32e);
+pub const ImageFormatTIFF: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb96b3cb1_0728_11d3_9d7b_0000f81ef32e);
+pub const ImageFormatUndefined: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb96b3ca9_0728_11d3_9d7b_0000f81ef32e);
+pub const ImageFormatWEBP: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb96b3cb7_0728_11d3_9d7b_0000f81ef32e);
+pub const ImageFormatWMF: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb96b3cad_0728_11d3_9d7b_0000f81ef32e);
 pub const ImageLockModeRead: ImageLockMode = 1i32;
 pub const ImageLockModeUserInputBuf: ImageLockMode = 4i32;
 pub const ImageLockModeWrite: ImageLockMode = 2i32;
@@ -1152,7 +1152,7 @@ pub const InvalidParameter: Status = 2i32;
 pub const ItemDataPositionAfterBits: ItemDataPosition = 2i32;
 pub const ItemDataPositionAfterHeader: ItemDataPosition = 0i32;
 pub const ItemDataPositionAfterPalette: ItemDataPosition = 1i32;
-pub const LevelsEffectGuid: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x99c354ec_2a31_4f3a_8c34_17a803b33a25);
+pub const LevelsEffectGuid: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x99c354ec_2a31_4f3a_8c34_17a803b33a25);
 pub const LineCapAnchorMask: LineCap = 240i32;
 pub const LineCapArrowAnchor: LineCap = 20i32;
 pub const LineCapCustom: LineCap = 255i32;
@@ -1499,7 +1499,7 @@ pub const QualityModeHigh: QualityMode = 2i32;
 pub const QualityModeInvalid: QualityMode = -1i32;
 pub const QualityModeLow: QualityMode = 1i32;
 pub const RED_SHIFT: u32 = 16u32;
-pub const RedEyeCorrectionEffectGuid: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x74d29d05_69a4_4266_9549_3cc52836b632);
+pub const RedEyeCorrectionEffectGuid: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x74d29d05_69a4_4266_9549_3cc52836b632);
 pub const Rotate180FlipNone: RotateFlipType = 2i32;
 pub const Rotate180FlipX: RotateFlipType = 6i32;
 pub const Rotate180FlipXY: RotateFlipType = 0i32;
@@ -1516,7 +1516,7 @@ pub const RotateNoneFlipNone: RotateFlipType = 0i32;
 pub const RotateNoneFlipX: RotateFlipType = 4i32;
 pub const RotateNoneFlipXY: RotateFlipType = 2i32;
 pub const RotateNoneFlipY: RotateFlipType = 6i32;
-pub const SharpenEffectGuid: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x63cbf3ee_c526_402c_8f71_62c540bf5142);
+pub const SharpenEffectGuid: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x63cbf3ee_c526_402c_8f71_62c540bf5142);
 pub const SmoothingModeAntiAlias: SmoothingMode = 4i32;
 pub const SmoothingModeAntiAlias8x4: SmoothingMode = 4i32;
 pub const SmoothingModeAntiAlias8x8: SmoothingMode = 5i32;
@@ -1557,7 +1557,7 @@ pub const TextRenderingHintClearTypeGridFit: TextRenderingHint = 5i32;
 pub const TextRenderingHintSingleBitPerPixel: TextRenderingHint = 2i32;
 pub const TextRenderingHintSingleBitPerPixelGridFit: TextRenderingHint = 1i32;
 pub const TextRenderingHintSystemDefault: TextRenderingHint = 0i32;
-pub const TintEffectGuid: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x1077af00_2848_4441_9489_44ad4c2d7a2c);
+pub const TintEffectGuid: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1077af00_2848_4441_9489_44ad4c2d7a2c);
 pub const UnitDisplay: Unit = 1i32;
 pub const UnitDocument: Unit = 5i32;
 pub const UnitInch: Unit = 4i32;
@@ -1726,11 +1726,11 @@ pub struct BitmapData {
     pub Height: u32,
     pub Stride: i32,
     pub PixelFormat: i32,
-    pub Scan0: *mut ::core::ffi::c_void,
+    pub Scan0: *mut core::ffi::c_void,
     pub Reserved: usize,
 }
-impl ::core::marker::Copy for BitmapData {}
-impl ::core::clone::Clone for BitmapData {
+impl Copy for BitmapData {}
+impl Clone for BitmapData {
     fn clone(&self) -> Self {
         *self
     }
@@ -1739,8 +1739,8 @@ impl ::core::clone::Clone for BitmapData {
 pub struct Blur {
     pub Base: Effect,
 }
-impl ::core::marker::Copy for Blur {}
-impl ::core::clone::Clone for Blur {
+impl Copy for Blur {}
+impl Clone for Blur {
     fn clone(&self) -> Self {
         *self
     }
@@ -1750,8 +1750,8 @@ pub struct BlurParams {
     pub radius: f32,
     pub expandEdge: super::super::Foundation::BOOL,
 }
-impl ::core::marker::Copy for BlurParams {}
-impl ::core::clone::Clone for BlurParams {
+impl Copy for BlurParams {}
+impl Clone for BlurParams {
     fn clone(&self) -> Self {
         *self
     }
@@ -1760,8 +1760,8 @@ impl ::core::clone::Clone for BlurParams {
 pub struct BrightnessContrast {
     pub Base: Effect,
 }
-impl ::core::marker::Copy for BrightnessContrast {}
-impl ::core::clone::Clone for BrightnessContrast {
+impl Copy for BrightnessContrast {}
+impl Clone for BrightnessContrast {
     fn clone(&self) -> Self {
         *self
     }
@@ -1771,8 +1771,8 @@ pub struct BrightnessContrastParams {
     pub brightnessLevel: i32,
     pub contrastLevel: i32,
 }
-impl ::core::marker::Copy for BrightnessContrastParams {}
-impl ::core::clone::Clone for BrightnessContrastParams {
+impl Copy for BrightnessContrastParams {}
+impl Clone for BrightnessContrastParams {
     fn clone(&self) -> Self {
         *self
     }
@@ -1784,8 +1784,8 @@ pub struct CharacterRange {
     pub First: i32,
     pub Length: i32,
 }
-impl ::core::marker::Copy for CharacterRange {}
-impl ::core::clone::Clone for CharacterRange {
+impl Copy for CharacterRange {}
+impl Clone for CharacterRange {
     fn clone(&self) -> Self {
         *self
     }
@@ -1945,8 +1945,8 @@ impl Color {
     pub const GreenMask: i32 = 65280i32;
     pub const BlueMask: i32 = 255i32;
 }
-impl ::core::marker::Copy for Color {}
-impl ::core::clone::Clone for Color {
+impl Copy for Color {}
+impl Clone for Color {
     fn clone(&self) -> Self {
         *self
     }
@@ -1955,8 +1955,8 @@ impl ::core::clone::Clone for Color {
 pub struct ColorBalance {
     pub Base: Effect,
 }
-impl ::core::marker::Copy for ColorBalance {}
-impl ::core::clone::Clone for ColorBalance {
+impl Copy for ColorBalance {}
+impl Clone for ColorBalance {
     fn clone(&self) -> Self {
         *self
     }
@@ -1967,8 +1967,8 @@ pub struct ColorBalanceParams {
     pub magentaGreen: i32,
     pub yellowBlue: i32,
 }
-impl ::core::marker::Copy for ColorBalanceParams {}
-impl ::core::clone::Clone for ColorBalanceParams {
+impl Copy for ColorBalanceParams {}
+impl Clone for ColorBalanceParams {
     fn clone(&self) -> Self {
         *self
     }
@@ -1977,8 +1977,8 @@ impl ::core::clone::Clone for ColorBalanceParams {
 pub struct ColorCurve {
     pub Base: Effect,
 }
-impl ::core::marker::Copy for ColorCurve {}
-impl ::core::clone::Clone for ColorCurve {
+impl Copy for ColorCurve {}
+impl Clone for ColorCurve {
     fn clone(&self) -> Self {
         *self
     }
@@ -1989,8 +1989,8 @@ pub struct ColorCurveParams {
     pub channel: CurveChannel,
     pub adjustValue: i32,
 }
-impl ::core::marker::Copy for ColorCurveParams {}
-impl ::core::clone::Clone for ColorCurveParams {
+impl Copy for ColorCurveParams {}
+impl Clone for ColorCurveParams {
     fn clone(&self) -> Self {
         *self
     }
@@ -1999,8 +1999,8 @@ impl ::core::clone::Clone for ColorCurveParams {
 pub struct ColorLUT {
     pub Base: Effect,
 }
-impl ::core::marker::Copy for ColorLUT {}
-impl ::core::clone::Clone for ColorLUT {
+impl Copy for ColorLUT {}
+impl Clone for ColorLUT {
     fn clone(&self) -> Self {
         *self
     }
@@ -2012,8 +2012,8 @@ pub struct ColorLUTParams {
     pub lutR: [u8; 256],
     pub lutA: [u8; 256],
 }
-impl ::core::marker::Copy for ColorLUTParams {}
-impl ::core::clone::Clone for ColorLUTParams {
+impl Copy for ColorLUTParams {}
+impl Clone for ColorLUTParams {
     fn clone(&self) -> Self {
         *self
     }
@@ -2023,8 +2023,8 @@ pub struct ColorMap {
     pub oldColor: Color,
     pub newColor: Color,
 }
-impl ::core::marker::Copy for ColorMap {}
-impl ::core::clone::Clone for ColorMap {
+impl Copy for ColorMap {}
+impl Clone for ColorMap {
     fn clone(&self) -> Self {
         *self
     }
@@ -2033,8 +2033,8 @@ impl ::core::clone::Clone for ColorMap {
 pub struct ColorMatrix {
     pub m: [f32; 25],
 }
-impl ::core::marker::Copy for ColorMatrix {}
-impl ::core::clone::Clone for ColorMatrix {
+impl Copy for ColorMatrix {}
+impl Clone for ColorMatrix {
     fn clone(&self) -> Self {
         *self
     }
@@ -2043,8 +2043,8 @@ impl ::core::clone::Clone for ColorMatrix {
 pub struct ColorMatrixEffect {
     pub Base: Effect,
 }
-impl ::core::marker::Copy for ColorMatrixEffect {}
-impl ::core::clone::Clone for ColorMatrixEffect {
+impl Copy for ColorMatrixEffect {}
+impl Clone for ColorMatrixEffect {
     fn clone(&self) -> Self {
         *self
     }
@@ -2055,8 +2055,8 @@ pub struct ColorPalette {
     pub Count: u32,
     pub Entries: [u32; 1],
 }
-impl ::core::marker::Copy for ColorPalette {}
-impl ::core::clone::Clone for ColorPalette {
+impl Copy for ColorPalette {}
+impl Clone for ColorPalette {
     fn clone(&self) -> Self {
         *self
     }
@@ -2080,35 +2080,35 @@ pub struct ENHMETAHEADER3 {
     pub szlDevice: super::super::Foundation::SIZE,
     pub szlMillimeters: super::super::Foundation::SIZE,
 }
-impl ::core::marker::Copy for ENHMETAHEADER3 {}
-impl ::core::clone::Clone for ENHMETAHEADER3 {
+impl Copy for ENHMETAHEADER3 {}
+impl Clone for ENHMETAHEADER3 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct Effect {
-    pub lpVtbl: *mut *mut ::core::ffi::c_void,
+    pub lpVtbl: *mut *mut core::ffi::c_void,
     pub nativeEffect: *mut CGpEffect,
     pub auxDataSize: i32,
-    pub auxData: *mut ::core::ffi::c_void,
+    pub auxData: *mut core::ffi::c_void,
     pub useAuxData: super::super::Foundation::BOOL,
 }
-impl ::core::marker::Copy for Effect {}
-impl ::core::clone::Clone for Effect {
+impl Copy for Effect {}
+impl Clone for Effect {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct EncoderParameter {
-    pub Guid: ::windows_sys::core::GUID,
+    pub Guid: windows_sys::core::GUID,
     pub NumberOfValues: u32,
     pub Type: u32,
-    pub Value: *mut ::core::ffi::c_void,
+    pub Value: *mut core::ffi::c_void,
 }
-impl ::core::marker::Copy for EncoderParameter {}
-impl ::core::clone::Clone for EncoderParameter {
+impl Copy for EncoderParameter {}
+impl Clone for EncoderParameter {
     fn clone(&self) -> Self {
         *self
     }
@@ -2118,8 +2118,8 @@ pub struct EncoderParameters {
     pub Count: u32,
     pub Parameter: [EncoderParameter; 1],
 }
-impl ::core::marker::Copy for EncoderParameters {}
-impl ::core::clone::Clone for EncoderParameters {
+impl Copy for EncoderParameters {}
+impl Clone for EncoderParameters {
     fn clone(&self) -> Self {
         *self
     }
@@ -2134,8 +2134,8 @@ pub struct GdiplusStartupInput {
     pub SuppressBackgroundThread: super::super::Foundation::BOOL,
     pub SuppressExternalCodecs: super::super::Foundation::BOOL,
 }
-impl ::core::marker::Copy for GdiplusStartupInput {}
-impl ::core::clone::Clone for GdiplusStartupInput {
+impl Copy for GdiplusStartupInput {}
+impl Clone for GdiplusStartupInput {
     fn clone(&self) -> Self {
         *self
     }
@@ -2145,8 +2145,8 @@ pub struct GdiplusStartupInputEx {
     pub Base: GdiplusStartupInput,
     pub StartupParameters: i32,
 }
-impl ::core::marker::Copy for GdiplusStartupInputEx {}
-impl ::core::clone::Clone for GdiplusStartupInputEx {
+impl Copy for GdiplusStartupInputEx {}
+impl Clone for GdiplusStartupInputEx {
     fn clone(&self) -> Self {
         *self
     }
@@ -2156,8 +2156,8 @@ pub struct GdiplusStartupOutput {
     pub NotificationHook: isize,
     pub NotificationUnhook: isize,
 }
-impl ::core::marker::Copy for GdiplusStartupOutput {}
-impl ::core::clone::Clone for GdiplusStartupOutput {
+impl Copy for GdiplusStartupOutput {}
+impl Clone for GdiplusStartupOutput {
     fn clone(&self) -> Self {
         *self
     }
@@ -2190,8 +2190,8 @@ pub type GpTexture = isize;
 pub struct HueSaturationLightness {
     pub Base: Effect,
 }
-impl ::core::marker::Copy for HueSaturationLightness {}
-impl ::core::clone::Clone for HueSaturationLightness {
+impl Copy for HueSaturationLightness {}
+impl Clone for HueSaturationLightness {
     fn clone(&self) -> Self {
         *self
     }
@@ -2202,8 +2202,8 @@ pub struct HueSaturationLightnessParams {
     pub saturationLevel: i32,
     pub lightnessLevel: i32,
 }
-impl ::core::marker::Copy for HueSaturationLightnessParams {}
-impl ::core::clone::Clone for HueSaturationLightnessParams {
+impl Copy for HueSaturationLightnessParams {}
+impl Clone for HueSaturationLightnessParams {
     fn clone(&self) -> Self {
         *self
     }
@@ -2211,13 +2211,13 @@ impl ::core::clone::Clone for HueSaturationLightnessParams {
 pub type Image = isize;
 #[repr(C)]
 pub struct ImageCodecInfo {
-    pub Clsid: ::windows_sys::core::GUID,
-    pub FormatID: ::windows_sys::core::GUID,
-    pub CodecName: ::windows_sys::core::PCWSTR,
-    pub DllName: ::windows_sys::core::PCWSTR,
-    pub FormatDescription: ::windows_sys::core::PCWSTR,
-    pub FilenameExtension: ::windows_sys::core::PCWSTR,
-    pub MimeType: ::windows_sys::core::PCWSTR,
+    pub Clsid: windows_sys::core::GUID,
+    pub FormatID: windows_sys::core::GUID,
+    pub CodecName: windows_sys::core::PCWSTR,
+    pub DllName: windows_sys::core::PCWSTR,
+    pub FormatDescription: windows_sys::core::PCWSTR,
+    pub FilenameExtension: windows_sys::core::PCWSTR,
+    pub MimeType: windows_sys::core::PCWSTR,
     pub Flags: u32,
     pub Version: u32,
     pub SigCount: u32,
@@ -2225,8 +2225,8 @@ pub struct ImageCodecInfo {
     pub SigPattern: *const u8,
     pub SigMask: *const u8,
 }
-impl ::core::marker::Copy for ImageCodecInfo {}
-impl ::core::clone::Clone for ImageCodecInfo {
+impl Copy for ImageCodecInfo {}
+impl Clone for ImageCodecInfo {
     fn clone(&self) -> Self {
         *self
     }
@@ -2235,14 +2235,14 @@ impl ::core::clone::Clone for ImageCodecInfo {
 pub struct ImageItemData {
     pub Size: u32,
     pub Position: u32,
-    pub Desc: *mut ::core::ffi::c_void,
+    pub Desc: *mut core::ffi::c_void,
     pub DescSize: u32,
-    pub Data: *mut ::core::ffi::c_void,
+    pub Data: *mut core::ffi::c_void,
     pub DataSize: u32,
     pub Cookie: u32,
 }
-impl ::core::marker::Copy for ImageItemData {}
-impl ::core::clone::Clone for ImageItemData {
+impl Copy for ImageItemData {}
+impl Clone for ImageItemData {
     fn clone(&self) -> Self {
         *self
     }
@@ -2252,8 +2252,8 @@ pub type InstalledFontCollection = isize;
 pub struct Levels {
     pub Base: Effect,
 }
-impl ::core::marker::Copy for Levels {}
-impl ::core::clone::Clone for Levels {
+impl Copy for Levels {}
+impl Clone for Levels {
     fn clone(&self) -> Self {
         *self
     }
@@ -2264,8 +2264,8 @@ pub struct LevelsParams {
     pub midtone: i32,
     pub shadow: i32,
 }
-impl ::core::marker::Copy for LevelsParams {}
-impl ::core::clone::Clone for LevelsParams {
+impl Copy for LevelsParams {}
+impl Clone for LevelsParams {
     fn clone(&self) -> Self {
         *self
     }
@@ -2291,9 +2291,9 @@ pub struct MetafileHeader {
     pub LogicalDpiY: i32,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::marker::Copy for MetafileHeader {}
+impl Copy for MetafileHeader {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::clone::Clone for MetafileHeader {
+impl Clone for MetafileHeader {
     fn clone(&self) -> Self {
         *self
     }
@@ -2305,9 +2305,9 @@ pub union MetafileHeader_0 {
     pub EmfHeader: ENHMETAHEADER3,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::marker::Copy for MetafileHeader_0 {}
+impl Copy for MetafileHeader_0 {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::clone::Clone for MetafileHeader_0 {
+impl Clone for MetafileHeader_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -2319,8 +2319,8 @@ pub struct PWMFRect16 {
     pub Right: i16,
     pub Bottom: i16,
 }
-impl ::core::marker::Copy for PWMFRect16 {}
-impl ::core::clone::Clone for PWMFRect16 {
+impl Copy for PWMFRect16 {}
+impl Clone for PWMFRect16 {
     fn clone(&self) -> Self {
         *self
     }
@@ -2331,8 +2331,8 @@ pub struct Point {
     pub X: i32,
     pub Y: i32,
 }
-impl ::core::marker::Copy for Point {}
-impl ::core::clone::Clone for Point {
+impl Copy for Point {}
+impl Clone for Point {
     fn clone(&self) -> Self {
         *self
     }
@@ -2342,8 +2342,8 @@ pub struct PointF {
     pub X: f32,
     pub Y: f32,
 }
-impl ::core::marker::Copy for PointF {}
-impl ::core::clone::Clone for PointF {
+impl Copy for PointF {}
+impl Clone for PointF {
     fn clone(&self) -> Self {
         *self
     }
@@ -2354,10 +2354,10 @@ pub struct PropertyItem {
     pub id: u32,
     pub length: u32,
     pub r#type: u16,
-    pub value: *mut ::core::ffi::c_void,
+    pub value: *mut core::ffi::c_void,
 }
-impl ::core::marker::Copy for PropertyItem {}
-impl ::core::clone::Clone for PropertyItem {
+impl Copy for PropertyItem {}
+impl Clone for PropertyItem {
     fn clone(&self) -> Self {
         *self
     }
@@ -2369,8 +2369,8 @@ pub struct Rect {
     pub Width: i32,
     pub Height: i32,
 }
-impl ::core::marker::Copy for Rect {}
-impl ::core::clone::Clone for Rect {
+impl Copy for Rect {}
+impl Clone for Rect {
     fn clone(&self) -> Self {
         *self
     }
@@ -2382,8 +2382,8 @@ pub struct RectF {
     pub Width: f32,
     pub Height: f32,
 }
-impl ::core::marker::Copy for RectF {}
-impl ::core::clone::Clone for RectF {
+impl Copy for RectF {}
+impl Clone for RectF {
     fn clone(&self) -> Self {
         *self
     }
@@ -2392,8 +2392,8 @@ impl ::core::clone::Clone for RectF {
 pub struct RedEyeCorrection {
     pub Base: Effect,
 }
-impl ::core::marker::Copy for RedEyeCorrection {}
-impl ::core::clone::Clone for RedEyeCorrection {
+impl Copy for RedEyeCorrection {}
+impl Clone for RedEyeCorrection {
     fn clone(&self) -> Self {
         *self
     }
@@ -2403,8 +2403,8 @@ pub struct RedEyeCorrectionParams {
     pub numberOfAreas: u32,
     pub areas: *mut super::super::Foundation::RECT,
 }
-impl ::core::marker::Copy for RedEyeCorrectionParams {}
-impl ::core::clone::Clone for RedEyeCorrectionParams {
+impl Copy for RedEyeCorrectionParams {}
+impl Clone for RedEyeCorrectionParams {
     fn clone(&self) -> Self {
         *self
     }
@@ -2414,8 +2414,8 @@ pub type Region = isize;
 pub struct Sharpen {
     pub Base: Effect,
 }
-impl ::core::marker::Copy for Sharpen {}
-impl ::core::clone::Clone for Sharpen {
+impl Copy for Sharpen {}
+impl Clone for Sharpen {
     fn clone(&self) -> Self {
         *self
     }
@@ -2425,8 +2425,8 @@ pub struct SharpenParams {
     pub radius: f32,
     pub amount: f32,
 }
-impl ::core::marker::Copy for SharpenParams {}
-impl ::core::clone::Clone for SharpenParams {
+impl Copy for SharpenParams {}
+impl Clone for SharpenParams {
     fn clone(&self) -> Self {
         *self
     }
@@ -2436,8 +2436,8 @@ pub struct Size {
     pub Width: i32,
     pub Height: i32,
 }
-impl ::core::marker::Copy for Size {}
-impl ::core::clone::Clone for Size {
+impl Copy for Size {}
+impl Clone for Size {
     fn clone(&self) -> Self {
         *self
     }
@@ -2447,8 +2447,8 @@ pub struct SizeF {
     pub Width: f32,
     pub Height: f32,
 }
-impl ::core::marker::Copy for SizeF {}
-impl ::core::clone::Clone for SizeF {
+impl Copy for SizeF {}
+impl Clone for SizeF {
     fn clone(&self) -> Self {
         *self
     }
@@ -2457,8 +2457,8 @@ impl ::core::clone::Clone for SizeF {
 pub struct Tint {
     pub Base: Effect,
 }
-impl ::core::marker::Copy for Tint {}
-impl ::core::clone::Clone for Tint {
+impl Copy for Tint {}
+impl Clone for Tint {
     fn clone(&self) -> Self {
         *self
     }
@@ -2468,8 +2468,8 @@ pub struct TintParams {
     pub hue: i32,
     pub amount: i32,
 }
-impl ::core::marker::Copy for TintParams {}
-impl ::core::clone::Clone for TintParams {
+impl Copy for TintParams {}
+impl Clone for TintParams {
     fn clone(&self) -> Self {
         *self
     }
@@ -2483,16 +2483,16 @@ pub struct WmfPlaceableFileHeader {
     pub Reserved: u32,
     pub Checksum: i16,
 }
-impl ::core::marker::Copy for WmfPlaceableFileHeader {}
-impl ::core::clone::Clone for WmfPlaceableFileHeader {
+impl Copy for WmfPlaceableFileHeader {}
+impl Clone for WmfPlaceableFileHeader {
     fn clone(&self) -> Self {
         *self
     }
 }
-pub type DebugEventProc = ::core::option::Option<unsafe extern "system" fn(level: DebugEventLevel, message: ::windows_sys::core::PCSTR)>;
-pub type DrawImageAbort = ::core::option::Option<unsafe extern "system" fn() -> super::super::Foundation::BOOL>;
-pub type EnumerateMetafileProc = ::core::option::Option<unsafe extern "system" fn(param0: EmfPlusRecordType, param1: u32, param2: u32, param3: *const u8, param4: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
-pub type GetThumbnailImageAbort = ::core::option::Option<unsafe extern "system" fn() -> super::super::Foundation::BOOL>;
-pub type ImageAbort = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
-pub type NotificationHookProc = ::core::option::Option<unsafe extern "system" fn(token: *mut usize) -> Status>;
-pub type NotificationUnhookProc = ::core::option::Option<unsafe extern "system" fn(token: usize)>;
+pub type DebugEventProc = Option<unsafe extern "system" fn(level: DebugEventLevel, message: windows_sys::core::PCSTR)>;
+pub type DrawImageAbort = Option<unsafe extern "system" fn() -> super::super::Foundation::BOOL>;
+pub type EnumerateMetafileProc = Option<unsafe extern "system" fn(param0: EmfPlusRecordType, param1: u32, param2: u32, param3: *const u8, param4: *mut core::ffi::c_void) -> super::super::Foundation::BOOL>;
+pub type GetThumbnailImageAbort = Option<unsafe extern "system" fn() -> super::super::Foundation::BOOL>;
+pub type ImageAbort = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void) -> super::super::Foundation::BOOL>;
+pub type NotificationHookProc = Option<unsafe extern "system" fn(token: *mut usize) -> Status>;
+pub type NotificationUnhookProc = Option<unsafe extern "system" fn(token: usize)>;

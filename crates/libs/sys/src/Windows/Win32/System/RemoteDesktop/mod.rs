@@ -1,73 +1,73 @@
 ::windows_targets::link!("kernel32.dll" "system" fn ProcessIdToSessionId(dwprocessid : u32, psessionid : *mut u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("wtsapi32.dll" "system" fn WTSCloseServer(hserver : super::super::Foundation:: HANDLE));
-::windows_targets::link!("wtsapi32.dll" "system" fn WTSConnectSessionA(logonid : u32, targetlogonid : u32, ppassword : ::windows_sys::core::PCSTR, bwait : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("wtsapi32.dll" "system" fn WTSConnectSessionW(logonid : u32, targetlogonid : u32, ppassword : ::windows_sys::core::PCWSTR, bwait : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("wtsapi32.dll" "system" fn WTSCreateListenerA(hserver : super::super::Foundation:: HANDLE, preserved : *const ::core::ffi::c_void, reserved : u32, plistenername : ::windows_sys::core::PCSTR, pbuffer : *const WTSLISTENERCONFIGA, flag : u32) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("wtsapi32.dll" "system" fn WTSCreateListenerW(hserver : super::super::Foundation:: HANDLE, preserved : *const ::core::ffi::c_void, reserved : u32, plistenername : ::windows_sys::core::PCWSTR, pbuffer : *const WTSLISTENERCONFIGW, flag : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wtsapi32.dll" "system" fn WTSConnectSessionA(logonid : u32, targetlogonid : u32, ppassword : windows_sys::core::PCSTR, bwait : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wtsapi32.dll" "system" fn WTSConnectSessionW(logonid : u32, targetlogonid : u32, ppassword : windows_sys::core::PCWSTR, bwait : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wtsapi32.dll" "system" fn WTSCreateListenerA(hserver : super::super::Foundation:: HANDLE, preserved : *const core::ffi::c_void, reserved : u32, plistenername : windows_sys::core::PCSTR, pbuffer : *const WTSLISTENERCONFIGA, flag : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wtsapi32.dll" "system" fn WTSCreateListenerW(hserver : super::super::Foundation:: HANDLE, preserved : *const core::ffi::c_void, reserved : u32, plistenername : windows_sys::core::PCWSTR, pbuffer : *const WTSLISTENERCONFIGW, flag : u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("wtsapi32.dll" "system" fn WTSDisconnectSession(hserver : super::super::Foundation:: HANDLE, sessionid : u32, bwait : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("wtsapi32.dll" "system" fn WTSEnableChildSessions(benable : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("wtsapi32.dll" "system" fn WTSEnumerateListenersA(hserver : super::super::Foundation:: HANDLE, preserved : *const ::core::ffi::c_void, reserved : u32, plisteners : *mut *mut i8, pcount : *mut u32) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("wtsapi32.dll" "system" fn WTSEnumerateListenersW(hserver : super::super::Foundation:: HANDLE, preserved : *const ::core::ffi::c_void, reserved : u32, plisteners : *mut *mut u16, pcount : *mut u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wtsapi32.dll" "system" fn WTSEnumerateListenersA(hserver : super::super::Foundation:: HANDLE, preserved : *const core::ffi::c_void, reserved : u32, plisteners : *mut *mut i8, pcount : *mut u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wtsapi32.dll" "system" fn WTSEnumerateListenersW(hserver : super::super::Foundation:: HANDLE, preserved : *const core::ffi::c_void, reserved : u32, plisteners : *mut *mut u16, pcount : *mut u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("wtsapi32.dll" "system" fn WTSEnumerateProcessesA(hserver : super::super::Foundation:: HANDLE, reserved : u32, version : u32, ppprocessinfo : *mut *mut WTS_PROCESS_INFOA, pcount : *mut u32) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("wtsapi32.dll" "system" fn WTSEnumerateProcessesExA(hserver : super::super::Foundation:: HANDLE, plevel : *mut u32, sessionid : u32, ppprocessinfo : *mut ::windows_sys::core::PSTR, pcount : *mut u32) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("wtsapi32.dll" "system" fn WTSEnumerateProcessesExW(hserver : super::super::Foundation:: HANDLE, plevel : *mut u32, sessionid : u32, ppprocessinfo : *mut ::windows_sys::core::PWSTR, pcount : *mut u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wtsapi32.dll" "system" fn WTSEnumerateProcessesExA(hserver : super::super::Foundation:: HANDLE, plevel : *mut u32, sessionid : u32, ppprocessinfo : *mut windows_sys::core::PSTR, pcount : *mut u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wtsapi32.dll" "system" fn WTSEnumerateProcessesExW(hserver : super::super::Foundation:: HANDLE, plevel : *mut u32, sessionid : u32, ppprocessinfo : *mut windows_sys::core::PWSTR, pcount : *mut u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("wtsapi32.dll" "system" fn WTSEnumerateProcessesW(hserver : super::super::Foundation:: HANDLE, reserved : u32, version : u32, ppprocessinfo : *mut *mut WTS_PROCESS_INFOW, pcount : *mut u32) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("wtsapi32.dll" "system" fn WTSEnumerateServersA(pdomainname : ::windows_sys::core::PCSTR, reserved : u32, version : u32, ppserverinfo : *mut *mut WTS_SERVER_INFOA, pcount : *mut u32) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("wtsapi32.dll" "system" fn WTSEnumerateServersW(pdomainname : ::windows_sys::core::PCWSTR, reserved : u32, version : u32, ppserverinfo : *mut *mut WTS_SERVER_INFOW, pcount : *mut u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wtsapi32.dll" "system" fn WTSEnumerateServersA(pdomainname : windows_sys::core::PCSTR, reserved : u32, version : u32, ppserverinfo : *mut *mut WTS_SERVER_INFOA, pcount : *mut u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wtsapi32.dll" "system" fn WTSEnumerateServersW(pdomainname : windows_sys::core::PCWSTR, reserved : u32, version : u32, ppserverinfo : *mut *mut WTS_SERVER_INFOW, pcount : *mut u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("wtsapi32.dll" "system" fn WTSEnumerateSessionsA(hserver : super::super::Foundation:: HANDLE, reserved : u32, version : u32, ppsessioninfo : *mut *mut WTS_SESSION_INFOA, pcount : *mut u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("wtsapi32.dll" "system" fn WTSEnumerateSessionsExA(hserver : super::super::Foundation:: HANDLE, plevel : *mut u32, filter : u32, ppsessioninfo : *mut *mut WTS_SESSION_INFO_1A, pcount : *mut u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("wtsapi32.dll" "system" fn WTSEnumerateSessionsExW(hserver : super::super::Foundation:: HANDLE, plevel : *mut u32, filter : u32, ppsessioninfo : *mut *mut WTS_SESSION_INFO_1W, pcount : *mut u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("wtsapi32.dll" "system" fn WTSEnumerateSessionsW(hserver : super::super::Foundation:: HANDLE, reserved : u32, version : u32, ppsessioninfo : *mut *mut WTS_SESSION_INFOW, pcount : *mut u32) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("wtsapi32.dll" "system" fn WTSFreeMemory(pmemory : *mut ::core::ffi::c_void));
-::windows_targets::link!("wtsapi32.dll" "system" fn WTSFreeMemoryExA(wtstypeclass : WTS_TYPE_CLASS, pmemory : *const ::core::ffi::c_void, numberofentries : u32) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("wtsapi32.dll" "system" fn WTSFreeMemoryExW(wtstypeclass : WTS_TYPE_CLASS, pmemory : *const ::core::ffi::c_void, numberofentries : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wtsapi32.dll" "system" fn WTSFreeMemory(pmemory : *mut core::ffi::c_void));
+::windows_targets::link!("wtsapi32.dll" "system" fn WTSFreeMemoryExA(wtstypeclass : WTS_TYPE_CLASS, pmemory : *const core::ffi::c_void, numberofentries : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wtsapi32.dll" "system" fn WTSFreeMemoryExW(wtstypeclass : WTS_TYPE_CLASS, pmemory : *const core::ffi::c_void, numberofentries : u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("kernel32.dll" "system" fn WTSGetActiveConsoleSessionId() -> u32);
 ::windows_targets::link!("wtsapi32.dll" "system" fn WTSGetChildSessionId(psessionid : *mut u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Security")]
-::windows_targets::link!("wtsapi32.dll" "system" fn WTSGetListenerSecurityA(hserver : super::super::Foundation:: HANDLE, preserved : *const ::core::ffi::c_void, reserved : u32, plistenername : ::windows_sys::core::PCSTR, securityinformation : super::super::Security:: OBJECT_SECURITY_INFORMATION, psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR, nlength : u32, lpnlengthneeded : *mut u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wtsapi32.dll" "system" fn WTSGetListenerSecurityA(hserver : super::super::Foundation:: HANDLE, preserved : *const core::ffi::c_void, reserved : u32, plistenername : windows_sys::core::PCSTR, securityinformation : super::super::Security:: OBJECT_SECURITY_INFORMATION, psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR, nlength : u32, lpnlengthneeded : *mut u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Security")]
-::windows_targets::link!("wtsapi32.dll" "system" fn WTSGetListenerSecurityW(hserver : super::super::Foundation:: HANDLE, preserved : *const ::core::ffi::c_void, reserved : u32, plistenername : ::windows_sys::core::PCWSTR, securityinformation : super::super::Security:: OBJECT_SECURITY_INFORMATION, psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR, nlength : u32, lpnlengthneeded : *mut u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wtsapi32.dll" "system" fn WTSGetListenerSecurityW(hserver : super::super::Foundation:: HANDLE, preserved : *const core::ffi::c_void, reserved : u32, plistenername : windows_sys::core::PCWSTR, securityinformation : super::super::Security:: OBJECT_SECURITY_INFORMATION, psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR, nlength : u32, lpnlengthneeded : *mut u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("wtsapi32.dll" "system" fn WTSIsChildSessionsEnabled(pbenabled : *mut super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("wtsapi32.dll" "system" fn WTSLogoffSession(hserver : super::super::Foundation:: HANDLE, sessionid : u32, bwait : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("wtsapi32.dll" "system" fn WTSOpenServerA(pservername : ::windows_sys::core::PCSTR) -> super::super::Foundation:: HANDLE);
-::windows_targets::link!("wtsapi32.dll" "system" fn WTSOpenServerExA(pservername : ::windows_sys::core::PCSTR) -> super::super::Foundation:: HANDLE);
-::windows_targets::link!("wtsapi32.dll" "system" fn WTSOpenServerExW(pservername : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: HANDLE);
-::windows_targets::link!("wtsapi32.dll" "system" fn WTSOpenServerW(pservername : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: HANDLE);
-::windows_targets::link!("wtsapi32.dll" "system" fn WTSQueryListenerConfigA(hserver : super::super::Foundation:: HANDLE, preserved : *const ::core::ffi::c_void, reserved : u32, plistenername : ::windows_sys::core::PCSTR, pbuffer : *mut WTSLISTENERCONFIGA) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("wtsapi32.dll" "system" fn WTSQueryListenerConfigW(hserver : super::super::Foundation:: HANDLE, preserved : *const ::core::ffi::c_void, reserved : u32, plistenername : ::windows_sys::core::PCWSTR, pbuffer : *mut WTSLISTENERCONFIGW) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("wtsapi32.dll" "system" fn WTSQuerySessionInformationA(hserver : super::super::Foundation:: HANDLE, sessionid : u32, wtsinfoclass : WTS_INFO_CLASS, ppbuffer : *mut ::windows_sys::core::PSTR, pbytesreturned : *mut u32) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("wtsapi32.dll" "system" fn WTSQuerySessionInformationW(hserver : super::super::Foundation:: HANDLE, sessionid : u32, wtsinfoclass : WTS_INFO_CLASS, ppbuffer : *mut ::windows_sys::core::PWSTR, pbytesreturned : *mut u32) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("wtsapi32.dll" "system" fn WTSQueryUserConfigA(pservername : ::windows_sys::core::PCSTR, pusername : ::windows_sys::core::PCSTR, wtsconfigclass : WTS_CONFIG_CLASS, ppbuffer : *mut ::windows_sys::core::PSTR, pbytesreturned : *mut u32) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("wtsapi32.dll" "system" fn WTSQueryUserConfigW(pservername : ::windows_sys::core::PCWSTR, pusername : ::windows_sys::core::PCWSTR, wtsconfigclass : WTS_CONFIG_CLASS, ppbuffer : *mut ::windows_sys::core::PWSTR, pbytesreturned : *mut u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wtsapi32.dll" "system" fn WTSOpenServerA(pservername : windows_sys::core::PCSTR) -> super::super::Foundation:: HANDLE);
+::windows_targets::link!("wtsapi32.dll" "system" fn WTSOpenServerExA(pservername : windows_sys::core::PCSTR) -> super::super::Foundation:: HANDLE);
+::windows_targets::link!("wtsapi32.dll" "system" fn WTSOpenServerExW(pservername : windows_sys::core::PCWSTR) -> super::super::Foundation:: HANDLE);
+::windows_targets::link!("wtsapi32.dll" "system" fn WTSOpenServerW(pservername : windows_sys::core::PCWSTR) -> super::super::Foundation:: HANDLE);
+::windows_targets::link!("wtsapi32.dll" "system" fn WTSQueryListenerConfigA(hserver : super::super::Foundation:: HANDLE, preserved : *const core::ffi::c_void, reserved : u32, plistenername : windows_sys::core::PCSTR, pbuffer : *mut WTSLISTENERCONFIGA) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wtsapi32.dll" "system" fn WTSQueryListenerConfigW(hserver : super::super::Foundation:: HANDLE, preserved : *const core::ffi::c_void, reserved : u32, plistenername : windows_sys::core::PCWSTR, pbuffer : *mut WTSLISTENERCONFIGW) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wtsapi32.dll" "system" fn WTSQuerySessionInformationA(hserver : super::super::Foundation:: HANDLE, sessionid : u32, wtsinfoclass : WTS_INFO_CLASS, ppbuffer : *mut windows_sys::core::PSTR, pbytesreturned : *mut u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wtsapi32.dll" "system" fn WTSQuerySessionInformationW(hserver : super::super::Foundation:: HANDLE, sessionid : u32, wtsinfoclass : WTS_INFO_CLASS, ppbuffer : *mut windows_sys::core::PWSTR, pbytesreturned : *mut u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wtsapi32.dll" "system" fn WTSQueryUserConfigA(pservername : windows_sys::core::PCSTR, pusername : windows_sys::core::PCSTR, wtsconfigclass : WTS_CONFIG_CLASS, ppbuffer : *mut windows_sys::core::PSTR, pbytesreturned : *mut u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wtsapi32.dll" "system" fn WTSQueryUserConfigW(pservername : windows_sys::core::PCWSTR, pusername : windows_sys::core::PCWSTR, wtsconfigclass : WTS_CONFIG_CLASS, ppbuffer : *mut windows_sys::core::PWSTR, pbytesreturned : *mut u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("wtsapi32.dll" "system" fn WTSQueryUserToken(sessionid : u32, phtoken : *mut super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("wtsapi32.dll" "system" fn WTSRegisterSessionNotification(hwnd : super::super::Foundation:: HWND, dwflags : u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("wtsapi32.dll" "system" fn WTSRegisterSessionNotificationEx(hserver : super::super::Foundation:: HANDLE, hwnd : super::super::Foundation:: HWND, dwflags : u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-::windows_targets::link!("wtsapi32.dll" "system" fn WTSSendMessageA(hserver : super::super::Foundation:: HANDLE, sessionid : u32, ptitle : ::windows_sys::core::PCSTR, titlelength : u32, pmessage : ::windows_sys::core::PCSTR, messagelength : u32, style : super::super::UI::WindowsAndMessaging:: MESSAGEBOX_STYLE, timeout : u32, presponse : *mut super::super::UI::WindowsAndMessaging:: MESSAGEBOX_RESULT, bwait : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wtsapi32.dll" "system" fn WTSSendMessageA(hserver : super::super::Foundation:: HANDLE, sessionid : u32, ptitle : windows_sys::core::PCSTR, titlelength : u32, pmessage : windows_sys::core::PCSTR, messagelength : u32, style : super::super::UI::WindowsAndMessaging:: MESSAGEBOX_STYLE, timeout : u32, presponse : *mut super::super::UI::WindowsAndMessaging:: MESSAGEBOX_RESULT, bwait : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-::windows_targets::link!("wtsapi32.dll" "system" fn WTSSendMessageW(hserver : super::super::Foundation:: HANDLE, sessionid : u32, ptitle : ::windows_sys::core::PCWSTR, titlelength : u32, pmessage : ::windows_sys::core::PCWSTR, messagelength : u32, style : super::super::UI::WindowsAndMessaging:: MESSAGEBOX_STYLE, timeout : u32, presponse : *mut super::super::UI::WindowsAndMessaging:: MESSAGEBOX_RESULT, bwait : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wtsapi32.dll" "system" fn WTSSendMessageW(hserver : super::super::Foundation:: HANDLE, sessionid : u32, ptitle : windows_sys::core::PCWSTR, titlelength : u32, pmessage : windows_sys::core::PCWSTR, messagelength : u32, style : super::super::UI::WindowsAndMessaging:: MESSAGEBOX_STYLE, timeout : u32, presponse : *mut super::super::UI::WindowsAndMessaging:: MESSAGEBOX_RESULT, bwait : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Security")]
-::windows_targets::link!("wtsapi32.dll" "system" fn WTSSetListenerSecurityA(hserver : super::super::Foundation:: HANDLE, preserved : *const ::core::ffi::c_void, reserved : u32, plistenername : ::windows_sys::core::PCSTR, securityinformation : super::super::Security:: OBJECT_SECURITY_INFORMATION, psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wtsapi32.dll" "system" fn WTSSetListenerSecurityA(hserver : super::super::Foundation:: HANDLE, preserved : *const core::ffi::c_void, reserved : u32, plistenername : windows_sys::core::PCSTR, securityinformation : super::super::Security:: OBJECT_SECURITY_INFORMATION, psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Security")]
-::windows_targets::link!("wtsapi32.dll" "system" fn WTSSetListenerSecurityW(hserver : super::super::Foundation:: HANDLE, preserved : *const ::core::ffi::c_void, reserved : u32, plistenername : ::windows_sys::core::PCWSTR, securityinformation : super::super::Security:: OBJECT_SECURITY_INFORMATION, psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("wtsapi32.dll" "system" fn WTSSetRenderHint(prenderhintid : *mut u64, hwndowner : super::super::Foundation:: HWND, renderhinttype : u32, cbhintdatalength : u32, phintdata : *const u8) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("wtsapi32.dll" "system" fn WTSSetUserConfigA(pservername : ::windows_sys::core::PCSTR, pusername : ::windows_sys::core::PCSTR, wtsconfigclass : WTS_CONFIG_CLASS, pbuffer : ::windows_sys::core::PCSTR, datalength : u32) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("wtsapi32.dll" "system" fn WTSSetUserConfigW(pservername : ::windows_sys::core::PCWSTR, pusername : ::windows_sys::core::PCWSTR, wtsconfigclass : WTS_CONFIG_CLASS, pbuffer : ::windows_sys::core::PCWSTR, datalength : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wtsapi32.dll" "system" fn WTSSetListenerSecurityW(hserver : super::super::Foundation:: HANDLE, preserved : *const core::ffi::c_void, reserved : u32, plistenername : windows_sys::core::PCWSTR, securityinformation : super::super::Security:: OBJECT_SECURITY_INFORMATION, psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wtsapi32.dll" "system" fn WTSSetRenderHint(prenderhintid : *mut u64, hwndowner : super::super::Foundation:: HWND, renderhinttype : u32, cbhintdatalength : u32, phintdata : *const u8) -> windows_sys::core::HRESULT);
+::windows_targets::link!("wtsapi32.dll" "system" fn WTSSetUserConfigA(pservername : windows_sys::core::PCSTR, pusername : windows_sys::core::PCSTR, wtsconfigclass : WTS_CONFIG_CLASS, pbuffer : windows_sys::core::PCSTR, datalength : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wtsapi32.dll" "system" fn WTSSetUserConfigW(pservername : windows_sys::core::PCWSTR, pusername : windows_sys::core::PCWSTR, wtsconfigclass : WTS_CONFIG_CLASS, pbuffer : windows_sys::core::PCWSTR, datalength : u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("wtsapi32.dll" "system" fn WTSShutdownSystem(hserver : super::super::Foundation:: HANDLE, shutdownflag : u32) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("wtsapi32.dll" "system" fn WTSStartRemoteControlSessionA(ptargetservername : ::windows_sys::core::PCSTR, targetlogonid : u32, hotkeyvk : u8, hotkeymodifiers : u16) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("wtsapi32.dll" "system" fn WTSStartRemoteControlSessionW(ptargetservername : ::windows_sys::core::PCWSTR, targetlogonid : u32, hotkeyvk : u8, hotkeymodifiers : u16) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wtsapi32.dll" "system" fn WTSStartRemoteControlSessionA(ptargetservername : windows_sys::core::PCSTR, targetlogonid : u32, hotkeyvk : u8, hotkeymodifiers : u16) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wtsapi32.dll" "system" fn WTSStartRemoteControlSessionW(ptargetservername : windows_sys::core::PCWSTR, targetlogonid : u32, hotkeyvk : u8, hotkeymodifiers : u16) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("wtsapi32.dll" "system" fn WTSStopRemoteControlSession(logonid : u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("wtsapi32.dll" "system" fn WTSTerminateProcess(hserver : super::super::Foundation:: HANDLE, processid : u32, exitcode : u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("wtsapi32.dll" "system" fn WTSUnRegisterSessionNotification(hwnd : super::super::Foundation:: HWND) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("wtsapi32.dll" "system" fn WTSUnRegisterSessionNotificationEx(hserver : super::super::Foundation:: HANDLE, hwnd : super::super::Foundation:: HWND) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("wtsapi32.dll" "system" fn WTSVirtualChannelClose(hchannelhandle : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("wtsapi32.dll" "system" fn WTSVirtualChannelOpen(hserver : super::super::Foundation:: HANDLE, sessionid : u32, pvirtualname : ::windows_sys::core::PCSTR) -> super::super::Foundation:: HANDLE);
-::windows_targets::link!("wtsapi32.dll" "system" fn WTSVirtualChannelOpenEx(sessionid : u32, pvirtualname : ::windows_sys::core::PCSTR, flags : u32) -> super::super::Foundation:: HANDLE);
+::windows_targets::link!("wtsapi32.dll" "system" fn WTSVirtualChannelOpen(hserver : super::super::Foundation:: HANDLE, sessionid : u32, pvirtualname : windows_sys::core::PCSTR) -> super::super::Foundation:: HANDLE);
+::windows_targets::link!("wtsapi32.dll" "system" fn WTSVirtualChannelOpenEx(sessionid : u32, pvirtualname : windows_sys::core::PCSTR, flags : u32) -> super::super::Foundation:: HANDLE);
 ::windows_targets::link!("wtsapi32.dll" "system" fn WTSVirtualChannelPurgeInput(hchannelhandle : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("wtsapi32.dll" "system" fn WTSVirtualChannelPurgeOutput(hchannelhandle : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("wtsapi32.dll" "system" fn WTSVirtualChannelQuery(hchannelhandle : super::super::Foundation:: HANDLE, param1 : WTS_VIRTUAL_CLASS, ppbuffer : *mut *mut ::core::ffi::c_void, pbytesreturned : *mut u32) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("wtsapi32.dll" "system" fn WTSVirtualChannelRead(hchannelhandle : super::super::Foundation:: HANDLE, timeout : u32, buffer : ::windows_sys::core::PSTR, buffersize : u32, pbytesread : *mut u32) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("wtsapi32.dll" "system" fn WTSVirtualChannelWrite(hchannelhandle : super::super::Foundation:: HANDLE, buffer : ::windows_sys::core::PCSTR, length : u32, pbyteswritten : *mut u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wtsapi32.dll" "system" fn WTSVirtualChannelQuery(hchannelhandle : super::super::Foundation:: HANDLE, param1 : WTS_VIRTUAL_CLASS, ppbuffer : *mut *mut core::ffi::c_void, pbytesreturned : *mut u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wtsapi32.dll" "system" fn WTSVirtualChannelRead(hchannelhandle : super::super::Foundation:: HANDLE, timeout : u32, buffer : windows_sys::core::PSTR, buffersize : u32, pbytesread : *mut u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wtsapi32.dll" "system" fn WTSVirtualChannelWrite(hchannelhandle : super::super::Foundation:: HANDLE, buffer : windows_sys::core::PCSTR, length : u32, pbyteswritten : *mut u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("wtsapi32.dll" "system" fn WTSWaitSystemEvent(hserver : super::super::Foundation:: HANDLE, eventmask : u32, peventflags : *mut u32) -> super::super::Foundation:: BOOL);
 pub const AA_AUTH_ANY: AAAuthSchemes = 6i32;
 pub const AA_AUTH_BASIC: AAAuthSchemes = 1i32;
@@ -144,8 +144,8 @@ pub const CLIENTNAME_LENGTH: u32 = 20u32;
 pub const CLIENT_MESSAGE_CONNECTION_ERROR: CLIENT_MESSAGE_TYPE = 2i32;
 pub const CLIENT_MESSAGE_CONNECTION_INVALID: CLIENT_MESSAGE_TYPE = 0i32;
 pub const CLIENT_MESSAGE_CONNECTION_STATUS: CLIENT_MESSAGE_TYPE = 1i32;
-pub const CONNECTION_PROPERTY_CURSOR_BLINK_DISABLED: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x4b150580_fea4_4d3c_9de4_7433a66618f7);
-pub const CONNECTION_PROPERTY_IDLE_TIME_WARNING: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x693f7ff5_0c4e_4d17_b8e0_1f70325e5d58);
+pub const CONNECTION_PROPERTY_CURSOR_BLINK_DISABLED: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4b150580_fea4_4d3c_9de4_7433a66618f7);
+pub const CONNECTION_PROPERTY_IDLE_TIME_WARNING: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x693f7ff5_0c4e_4d17_b8e0_1f70325e5d58);
 pub const CONNECTION_REQUEST_CANCELLED: CONNECTION_CHANGE_NOTIFICATION = 5i32;
 pub const CONNECTION_REQUEST_FAILED: CONNECTION_CHANGE_NOTIFICATION = 2i32;
 pub const CONNECTION_REQUEST_INVALID: CONNECTION_CHANGE_NOTIFICATION = 0i32;
@@ -232,10 +232,10 @@ pub const POSITION_INVALID: AE_POSITION_FLAGS = 0i32;
 pub const POSITION_QPC_ERROR: AE_POSITION_FLAGS = 4i32;
 pub const PRODUCTINFO_COMPANYNAME_LENGTH: u32 = 256u32;
 pub const PRODUCTINFO_PRODUCTID_LENGTH: u32 = 4u32;
-pub const PROPERTY_DYNAMIC_TIME_ZONE_INFORMATION: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x0cdfd28e_d0b9_4c1f_a5eb_6d1f6c6535b9);
-pub const PROPERTY_TYPE_ENABLE_UNIVERSAL_APPS_FOR_CUSTOM_SHELL: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xed2c3fda_338d_4d3f_81a3_e767310d908e);
-pub const PROPERTY_TYPE_GET_FAST_RECONNECT: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x6212d757_0043_4862_99c3_9f3059ac2a3b);
-pub const PROPERTY_TYPE_GET_FAST_RECONNECT_USER_SID: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x197c427a_0135_4b6d_9c5e_e6579a0ab625);
+pub const PROPERTY_DYNAMIC_TIME_ZONE_INFORMATION: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0cdfd28e_d0b9_4c1f_a5eb_6d1f6c6535b9);
+pub const PROPERTY_TYPE_ENABLE_UNIVERSAL_APPS_FOR_CUSTOM_SHELL: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xed2c3fda_338d_4d3f_81a3_e767310d908e);
+pub const PROPERTY_TYPE_GET_FAST_RECONNECT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6212d757_0043_4862_99c3_9f3059ac2a3b);
+pub const PROPERTY_TYPE_GET_FAST_RECONNECT_USER_SID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x197c427a_0135_4b6d_9c5e_e6579a0ab625);
 pub const PROVISIONING_PLUGIN: PLUGIN_TYPE = 32i32;
 pub const PasswordEncodingUTF16BE: PasswordEncodingType = 2i32;
 pub const PasswordEncodingUTF16LE: PasswordEncodingType = 1i32;
@@ -243,7 +243,7 @@ pub const PasswordEncodingUTF8: PasswordEncodingType = 0i32;
 pub const PnpRedirectionDisabled: PolicyAttributeType = 6i32;
 pub const PortRedirectionDisabled: PolicyAttributeType = 4i32;
 pub const PrinterRedirectionDisabled: PolicyAttributeType = 3i32;
-pub const RDCLIENT_BITMAP_RENDER_SERVICE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xe4cc08cb_942e_4b19_8504_bd5a89a747f5);
+pub const RDCLIENT_BITMAP_RENDER_SERVICE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe4cc08cb_942e_4b19_8504_bd5a89a747f5);
 pub const RDV_TASK_STATUS_APPLYING: RDV_TASK_STATUS = 3i32;
 pub const RDV_TASK_STATUS_DOWNLOADING: RDV_TASK_STATUS = 2i32;
 pub const RDV_TASK_STATUS_FAILED: RDV_TASK_STATUS = 7i32;
@@ -394,7 +394,7 @@ pub const WRDS_PERF_ENABLE_DESKTOP_COMPOSITION: u32 = 256u32;
 pub const WRDS_PERF_ENABLE_ENHANCED_GRAPHICS: u32 = 16u32;
 pub const WRDS_PERF_ENABLE_FONT_SMOOTHING: u32 = 128u32;
 pub const WRDS_PROTOCOL_NAME_LENGTH: u32 = 8u32;
-pub const WRDS_SERVICE_ID_GRAPHICS_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xd2993f4d_02cf_4280_8c48_1624b44f8706);
+pub const WRDS_SERVICE_ID_GRAPHICS_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd2993f4d_02cf_4280_8c48_1624b44f8706);
 pub const WRDS_SETTING_LEVEL_1: WRDS_SETTING_LEVEL = 1i32;
 pub const WRDS_SETTING_LEVEL_INVALID: WRDS_SETTING_LEVEL = 0i32;
 pub const WRDS_SETTING_STATUS_DISABLED: WRDS_SETTING_STATUS = 0i32;
@@ -515,7 +515,7 @@ pub const WTS_CLIENT_PRODUCT_ID_LENGTH: u32 = 32u32;
 pub const WTS_COMMENT_LENGTH: u32 = 60u32;
 pub const WTS_CURRENT_SERVER: super::super::Foundation::HANDLE = 0i32 as _;
 pub const WTS_CURRENT_SERVER_HANDLE: super::super::Foundation::HANDLE = 0i32 as _;
-pub const WTS_CURRENT_SERVER_NAME: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("");
+pub const WTS_CURRENT_SERVER_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("");
 pub const WTS_CURRENT_SESSION: u32 = 4294967295u32;
 pub const WTS_DEVICE_NAME_LENGTH: u32 = 19u32;
 pub const WTS_DIRECTORY_LENGTH: u32 = 256u32;
@@ -569,15 +569,15 @@ pub const WTS_PERF_ENABLE_ENHANCED_GRAPHICS: u32 = 16u32;
 pub const WTS_PERF_ENABLE_FONT_SMOOTHING: u32 = 128u32;
 pub const WTS_PROCESS_INFO_LEVEL_0: u32 = 0u32;
 pub const WTS_PROCESS_INFO_LEVEL_1: u32 = 1u32;
-pub const WTS_PROPERTY_DEFAULT_CONFIG: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("DefaultConfig");
+pub const WTS_PROPERTY_DEFAULT_CONFIG: windows_sys::core::PCWSTR = windows_sys::core::w!("DefaultConfig");
 pub const WTS_PROTOCOL_NAME_LENGTH: u32 = 8u32;
 pub const WTS_PROTOCOL_TYPE_CONSOLE: u32 = 0u32;
 pub const WTS_PROTOCOL_TYPE_ICA: u32 = 1u32;
 pub const WTS_PROTOCOL_TYPE_RDP: u32 = 2u32;
-pub const WTS_QUERY_ALLOWED_INITIAL_APP: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xc77d1b30_5be1_4c6b_a0e1_bd6d2e5c9fcc);
-pub const WTS_QUERY_AUDIOENUM_DLL: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x9bf4fa97_c883_4c2a_80ab_5a39c9af00db);
-pub const WTS_QUERY_LOGON_SCREEN_SIZE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x8b8e0fe7_0804_4a0e_b279_8660b1df0049);
-pub const WTS_QUERY_MF_FORMAT_SUPPORT: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x41869ad0_6332_4dc8_95d5_db749e2f1d94);
+pub const WTS_QUERY_ALLOWED_INITIAL_APP: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc77d1b30_5be1_4c6b_a0e1_bd6d2e5c9fcc);
+pub const WTS_QUERY_AUDIOENUM_DLL: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9bf4fa97_c883_4c2a_80ab_5a39c9af00db);
+pub const WTS_QUERY_LOGON_SCREEN_SIZE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8b8e0fe7_0804_4a0e_b279_8660b1df0049);
+pub const WTS_QUERY_MF_FORMAT_SUPPORT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x41869ad0_6332_4dc8_95d5_db749e2f1d94);
 pub const WTS_SECURITY_ALL_ACCESS: WTS_SECURITY_FLAGS = 983999u32;
 pub const WTS_SECURITY_CONNECT: WTS_SECURITY_FLAGS = 256u32;
 pub const WTS_SECURITY_CURRENT_GUEST_ACCESS: WTS_SECURITY_FLAGS = 72u32;
@@ -663,25 +663,25 @@ pub type WTS_TYPE_CLASS = i32;
 pub type WTS_VIRTUAL_CLASS = i32;
 #[repr(C)]
 pub struct AAAccountingData {
-    pub userName: ::windows_sys::core::BSTR,
-    pub clientName: ::windows_sys::core::BSTR,
+    pub userName: windows_sys::core::BSTR,
+    pub clientName: windows_sys::core::BSTR,
     pub authType: AAAuthSchemes,
-    pub resourceName: ::windows_sys::core::BSTR,
+    pub resourceName: windows_sys::core::BSTR,
     pub portNumber: i32,
-    pub protocolName: ::windows_sys::core::BSTR,
+    pub protocolName: windows_sys::core::BSTR,
     pub numberOfBytesReceived: i32,
     pub numberOfBytesTransfered: i32,
-    pub reasonForDisconnect: ::windows_sys::core::BSTR,
-    pub mainSessionId: ::windows_sys::core::GUID,
+    pub reasonForDisconnect: windows_sys::core::BSTR,
+    pub mainSessionId: windows_sys::core::GUID,
     pub subSessionId: i32,
 }
-impl ::core::marker::Copy for AAAccountingData {}
-impl ::core::clone::Clone for AAAccountingData {
+impl Copy for AAAccountingData {}
+impl Clone for AAAccountingData {
     fn clone(&self) -> Self {
         *self
     }
 }
-pub const ADsTSUserEx: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xe2e9cae6_1e7b_4b8e_babd_e9bf6292ac29);
+pub const ADsTSUserEx: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe2e9cae6_1e7b_4b8e_babd_e9bf6292ac29);
 #[repr(C)]
 pub struct AE_CURRENT_POSITION {
     pub u64DevicePosition: u64,
@@ -691,8 +691,8 @@ pub struct AE_CURRENT_POSITION {
     pub f32FramesPerSecond: f32,
     pub Flag: AE_POSITION_FLAGS,
 }
-impl ::core::marker::Copy for AE_CURRENT_POSITION {}
-impl ::core::clone::Clone for AE_CURRENT_POSITION {
+impl Copy for AE_CURRENT_POSITION {}
+impl Clone for AE_CURRENT_POSITION {
     fn clone(&self) -> Self {
         *self
     }
@@ -702,8 +702,8 @@ pub struct BITMAP_RENDERER_STATISTICS {
     pub dwFramesDelivered: u32,
     pub dwFramesDropped: u32,
 }
-impl ::core::marker::Copy for BITMAP_RENDERER_STATISTICS {}
-impl ::core::clone::Clone for BITMAP_RENDERER_STATISTICS {
+impl Copy for BITMAP_RENDERER_STATISTICS {}
+impl Clone for BITMAP_RENDERER_STATISTICS {
     fn clone(&self) -> Self {
         *self
     }
@@ -713,8 +713,8 @@ pub struct CHANNEL_DEF {
     pub name: [i8; 8],
     pub options: u32,
 }
-impl ::core::marker::Copy for CHANNEL_DEF {}
-impl ::core::clone::Clone for CHANNEL_DEF {
+impl Copy for CHANNEL_DEF {}
+impl Clone for CHANNEL_DEF {
     fn clone(&self) -> Self {
         *self
     }
@@ -728,8 +728,8 @@ pub struct CHANNEL_ENTRY_POINTS {
     pub pVirtualChannelClose: PVIRTUALCHANNELCLOSE,
     pub pVirtualChannelWrite: PVIRTUALCHANNELWRITE,
 }
-impl ::core::marker::Copy for CHANNEL_ENTRY_POINTS {}
-impl ::core::clone::Clone for CHANNEL_ENTRY_POINTS {
+impl Copy for CHANNEL_ENTRY_POINTS {}
+impl Clone for CHANNEL_ENTRY_POINTS {
     fn clone(&self) -> Self {
         *self
     }
@@ -739,8 +739,8 @@ pub struct CHANNEL_PDU_HEADER {
     pub length: u32,
     pub flags: u32,
 }
-impl ::core::marker::Copy for CHANNEL_PDU_HEADER {}
-impl ::core::clone::Clone for CHANNEL_PDU_HEADER {
+impl Copy for CHANNEL_PDU_HEADER {}
+impl Clone for CHANNEL_PDU_HEADER {
     fn clone(&self) -> Self {
         *self
     }
@@ -751,8 +751,8 @@ pub struct CLIENT_DISPLAY {
     pub VerticalResolution: u32,
     pub ColorDepth: u32,
 }
-impl ::core::marker::Copy for CLIENT_DISPLAY {}
-impl ::core::clone::Clone for CLIENT_DISPLAY {
+impl Copy for CLIENT_DISPLAY {}
+impl Clone for CLIENT_DISPLAY {
     fn clone(&self) -> Self {
         *self
     }
@@ -762,8 +762,8 @@ pub struct PRODUCT_INFOA {
     pub CompanyName: [i8; 256],
     pub ProductID: [i8; 4],
 }
-impl ::core::marker::Copy for PRODUCT_INFOA {}
-impl ::core::clone::Clone for PRODUCT_INFOA {
+impl Copy for PRODUCT_INFOA {}
+impl Clone for PRODUCT_INFOA {
     fn clone(&self) -> Self {
         *self
     }
@@ -773,8 +773,8 @@ pub struct PRODUCT_INFOW {
     pub CompanyName: [u16; 256],
     pub ProductID: [u16; 4],
 }
-impl ::core::marker::Copy for PRODUCT_INFOW {}
-impl ::core::clone::Clone for PRODUCT_INFOW {
+impl Copy for PRODUCT_INFOW {}
+impl Clone for PRODUCT_INFOW {
     fn clone(&self) -> Self {
         *self
     }
@@ -790,8 +790,8 @@ pub struct RFX_GFX_MONITOR_INFO {
     pub orientation: u32,
     pub primary: super::super::Foundation::BOOL,
 }
-impl ::core::marker::Copy for RFX_GFX_MONITOR_INFO {}
-impl ::core::clone::Clone for RFX_GFX_MONITOR_INFO {
+impl Copy for RFX_GFX_MONITOR_INFO {}
+impl Clone for RFX_GFX_MONITOR_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -800,8 +800,8 @@ impl ::core::clone::Clone for RFX_GFX_MONITOR_INFO {
 pub struct RFX_GFX_MSG_CLIENT_DESKTOP_INFO_REQUEST {
     pub channelHdr: RFX_GFX_MSG_HEADER,
 }
-impl ::core::marker::Copy for RFX_GFX_MSG_CLIENT_DESKTOP_INFO_REQUEST {}
-impl ::core::clone::Clone for RFX_GFX_MSG_CLIENT_DESKTOP_INFO_REQUEST {
+impl Copy for RFX_GFX_MSG_CLIENT_DESKTOP_INFO_REQUEST {}
+impl Clone for RFX_GFX_MSG_CLIENT_DESKTOP_INFO_REQUEST {
     fn clone(&self) -> Self {
         *self
     }
@@ -814,8 +814,8 @@ pub struct RFX_GFX_MSG_CLIENT_DESKTOP_INFO_RESPONSE {
     pub MonitorData: [RFX_GFX_MONITOR_INFO; 16],
     pub clientUniqueId: [u16; 32],
 }
-impl ::core::marker::Copy for RFX_GFX_MSG_CLIENT_DESKTOP_INFO_RESPONSE {}
-impl ::core::clone::Clone for RFX_GFX_MSG_CLIENT_DESKTOP_INFO_RESPONSE {
+impl Copy for RFX_GFX_MSG_CLIENT_DESKTOP_INFO_RESPONSE {}
+impl Clone for RFX_GFX_MSG_CLIENT_DESKTOP_INFO_RESPONSE {
     fn clone(&self) -> Self {
         *self
     }
@@ -824,8 +824,8 @@ impl ::core::clone::Clone for RFX_GFX_MSG_CLIENT_DESKTOP_INFO_RESPONSE {
 pub struct RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_CONFIRM {
     pub channelHdr: RFX_GFX_MSG_HEADER,
 }
-impl ::core::marker::Copy for RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_CONFIRM {}
-impl ::core::clone::Clone for RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_CONFIRM {
+impl Copy for RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_CONFIRM {}
+impl Clone for RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_CONFIRM {
     fn clone(&self) -> Self {
         *self
     }
@@ -838,8 +838,8 @@ pub struct RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_NOTIFY {
     pub ulBpp: u32,
     pub Reserved: u32,
 }
-impl ::core::marker::Copy for RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_NOTIFY {}
-impl ::core::clone::Clone for RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_NOTIFY {
+impl Copy for RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_NOTIFY {}
+impl Clone for RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_NOTIFY {
     fn clone(&self) -> Self {
         *self
     }
@@ -850,8 +850,8 @@ pub struct RFX_GFX_MSG_DESKTOP_INPUT_RESET {
     pub ulWidth: u32,
     pub ulHeight: u32,
 }
-impl ::core::marker::Copy for RFX_GFX_MSG_DESKTOP_INPUT_RESET {}
-impl ::core::clone::Clone for RFX_GFX_MSG_DESKTOP_INPUT_RESET {
+impl Copy for RFX_GFX_MSG_DESKTOP_INPUT_RESET {}
+impl Clone for RFX_GFX_MSG_DESKTOP_INPUT_RESET {
     fn clone(&self) -> Self {
         *self
     }
@@ -861,8 +861,8 @@ pub struct RFX_GFX_MSG_DESKTOP_RESEND_REQUEST {
     pub channelHdr: RFX_GFX_MSG_HEADER,
     pub RedrawRect: RFX_GFX_RECT,
 }
-impl ::core::marker::Copy for RFX_GFX_MSG_DESKTOP_RESEND_REQUEST {}
-impl ::core::clone::Clone for RFX_GFX_MSG_DESKTOP_RESEND_REQUEST {
+impl Copy for RFX_GFX_MSG_DESKTOP_RESEND_REQUEST {}
+impl Clone for RFX_GFX_MSG_DESKTOP_RESEND_REQUEST {
     fn clone(&self) -> Self {
         *self
     }
@@ -872,8 +872,8 @@ pub struct RFX_GFX_MSG_DISCONNECT_NOTIFY {
     pub channelHdr: RFX_GFX_MSG_HEADER,
     pub DisconnectReason: u32,
 }
-impl ::core::marker::Copy for RFX_GFX_MSG_DISCONNECT_NOTIFY {}
-impl ::core::clone::Clone for RFX_GFX_MSG_DISCONNECT_NOTIFY {
+impl Copy for RFX_GFX_MSG_DISCONNECT_NOTIFY {}
+impl Clone for RFX_GFX_MSG_DISCONNECT_NOTIFY {
     fn clone(&self) -> Self {
         *self
     }
@@ -883,8 +883,8 @@ pub struct RFX_GFX_MSG_HEADER {
     pub uMSGType: u16,
     pub cbSize: u16,
 }
-impl ::core::marker::Copy for RFX_GFX_MSG_HEADER {}
-impl ::core::clone::Clone for RFX_GFX_MSG_HEADER {
+impl Copy for RFX_GFX_MSG_HEADER {}
+impl Clone for RFX_GFX_MSG_HEADER {
     fn clone(&self) -> Self {
         *self
     }
@@ -894,8 +894,8 @@ pub struct RFX_GFX_MSG_RDP_DATA {
     pub channelHdr: RFX_GFX_MSG_HEADER,
     pub rdpData: [u8; 1],
 }
-impl ::core::marker::Copy for RFX_GFX_MSG_RDP_DATA {}
-impl ::core::clone::Clone for RFX_GFX_MSG_RDP_DATA {
+impl Copy for RFX_GFX_MSG_RDP_DATA {}
+impl Clone for RFX_GFX_MSG_RDP_DATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -907,8 +907,8 @@ pub struct RFX_GFX_RECT {
     pub right: i32,
     pub bottom: i32,
 }
-impl ::core::marker::Copy for RFX_GFX_RECT {}
-impl ::core::clone::Clone for RFX_GFX_RECT {
+impl Copy for RFX_GFX_RECT {}
+impl Clone for RFX_GFX_RECT {
     fn clone(&self) -> Self {
         *self
     }
@@ -920,20 +920,20 @@ pub struct TSSD_ConnectionPoint {
     pub PortNumber: u16,
     pub AddressScope: u32,
 }
-impl ::core::marker::Copy for TSSD_ConnectionPoint {}
-impl ::core::clone::Clone for TSSD_ConnectionPoint {
+impl Copy for TSSD_ConnectionPoint {}
+impl Clone for TSSD_ConnectionPoint {
     fn clone(&self) -> Self {
         *self
     }
 }
-pub const TSUserExInterfaces: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x0910dd01_df8c_11d1_ae27_00c04fa35813);
+pub const TSUserExInterfaces: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0910dd01_df8c_11d1_ae27_00c04fa35813);
 #[repr(C)]
 pub struct VM_NOTIFY_ENTRY {
     pub VmName: [u16; 128],
     pub VmHost: [u16; 128],
 }
-impl ::core::marker::Copy for VM_NOTIFY_ENTRY {}
-impl ::core::clone::Clone for VM_NOTIFY_ENTRY {
+impl Copy for VM_NOTIFY_ENTRY {}
+impl Clone for VM_NOTIFY_ENTRY {
     fn clone(&self) -> Self {
         *self
     }
@@ -943,8 +943,8 @@ pub struct VM_NOTIFY_INFO {
     pub dwNumEntries: u32,
     pub ppVmEntries: *mut *mut VM_NOTIFY_ENTRY,
 }
-impl ::core::marker::Copy for VM_NOTIFY_INFO {}
-impl ::core::clone::Clone for VM_NOTIFY_INFO {
+impl Copy for VM_NOTIFY_INFO {}
+impl Clone for VM_NOTIFY_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -952,10 +952,10 @@ impl ::core::clone::Clone for VM_NOTIFY_INFO {
 #[repr(C)]
 pub struct VM_PATCH_INFO {
     pub dwNumEntries: u32,
-    pub pVmNames: *mut ::windows_sys::core::PWSTR,
+    pub pVmNames: *mut windows_sys::core::PWSTR,
 }
-impl ::core::marker::Copy for VM_PATCH_INFO {}
-impl ::core::clone::Clone for VM_PATCH_INFO {
+impl Copy for VM_PATCH_INFO {}
+impl Clone for VM_PATCH_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -964,8 +964,8 @@ impl ::core::clone::Clone for VM_PATCH_INFO {
 pub union WRDS_CONNECTION_SETTING {
     pub WRdsConnectionSettings1: WRDS_CONNECTION_SETTINGS_1,
 }
-impl ::core::marker::Copy for WRDS_CONNECTION_SETTING {}
-impl ::core::clone::Clone for WRDS_CONNECTION_SETTING {
+impl Copy for WRDS_CONNECTION_SETTING {}
+impl Clone for WRDS_CONNECTION_SETTING {
     fn clone(&self) -> Self {
         *self
     }
@@ -975,8 +975,8 @@ pub struct WRDS_CONNECTION_SETTINGS {
     pub WRdsConnectionSettingLevel: WRDS_CONNECTION_SETTING_LEVEL,
     pub WRdsConnectionSetting: WRDS_CONNECTION_SETTING,
 }
-impl ::core::marker::Copy for WRDS_CONNECTION_SETTINGS {}
-impl ::core::clone::Clone for WRDS_CONNECTION_SETTINGS {
+impl Copy for WRDS_CONNECTION_SETTINGS {}
+impl Clone for WRDS_CONNECTION_SETTINGS {
     fn clone(&self) -> Self {
         *self
     }
@@ -1045,12 +1045,12 @@ pub struct WRDS_CONNECTION_SETTINGS_1 {
     pub ClientSockAddress: WTS_SOCKADDR,
     pub ClientTimeZone: WTS_TIME_ZONE_INFORMATION,
     pub WRdsListenerSettings: WRDS_LISTENER_SETTINGS,
-    pub EventLogActivityId: ::windows_sys::core::GUID,
+    pub EventLogActivityId: windows_sys::core::GUID,
     pub ContextSize: u32,
     pub ContextData: *mut u8,
 }
-impl ::core::marker::Copy for WRDS_CONNECTION_SETTINGS_1 {}
-impl ::core::clone::Clone for WRDS_CONNECTION_SETTINGS_1 {
+impl Copy for WRDS_CONNECTION_SETTINGS_1 {}
+impl Clone for WRDS_CONNECTION_SETTINGS_1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -1067,8 +1067,8 @@ pub struct WRDS_DYNAMIC_TIME_ZONE_INFORMATION {
     pub TimeZoneKeyName: [u16; 128],
     pub DynamicDaylightTimeDisabled: u16,
 }
-impl ::core::marker::Copy for WRDS_DYNAMIC_TIME_ZONE_INFORMATION {}
-impl ::core::clone::Clone for WRDS_DYNAMIC_TIME_ZONE_INFORMATION {
+impl Copy for WRDS_DYNAMIC_TIME_ZONE_INFORMATION {}
+impl Clone for WRDS_DYNAMIC_TIME_ZONE_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -1077,8 +1077,8 @@ impl ::core::clone::Clone for WRDS_DYNAMIC_TIME_ZONE_INFORMATION {
 pub union WRDS_LISTENER_SETTING {
     pub WRdsListenerSettings1: WRDS_LISTENER_SETTINGS_1,
 }
-impl ::core::marker::Copy for WRDS_LISTENER_SETTING {}
-impl ::core::clone::Clone for WRDS_LISTENER_SETTING {
+impl Copy for WRDS_LISTENER_SETTING {}
+impl Clone for WRDS_LISTENER_SETTING {
     fn clone(&self) -> Self {
         *self
     }
@@ -1088,8 +1088,8 @@ pub struct WRDS_LISTENER_SETTINGS {
     pub WRdsListenerSettingLevel: WRDS_LISTENER_SETTING_LEVEL,
     pub WRdsListenerSetting: WRDS_LISTENER_SETTING,
 }
-impl ::core::marker::Copy for WRDS_LISTENER_SETTINGS {}
-impl ::core::clone::Clone for WRDS_LISTENER_SETTINGS {
+impl Copy for WRDS_LISTENER_SETTINGS {}
+impl Clone for WRDS_LISTENER_SETTINGS {
     fn clone(&self) -> Self {
         *self
     }
@@ -1100,8 +1100,8 @@ pub struct WRDS_LISTENER_SETTINGS_1 {
     pub SecurityDescriptorSize: u32,
     pub pSecurityDescriptor: *mut u8,
 }
-impl ::core::marker::Copy for WRDS_LISTENER_SETTINGS_1 {}
-impl ::core::clone::Clone for WRDS_LISTENER_SETTINGS_1 {
+impl Copy for WRDS_LISTENER_SETTINGS_1 {}
+impl Clone for WRDS_LISTENER_SETTINGS_1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -1110,8 +1110,8 @@ impl ::core::clone::Clone for WRDS_LISTENER_SETTINGS_1 {
 pub union WRDS_SETTING {
     pub WRdsSettings1: WRDS_SETTINGS_1,
 }
-impl ::core::marker::Copy for WRDS_SETTING {}
-impl ::core::clone::Clone for WRDS_SETTING {
+impl Copy for WRDS_SETTING {}
+impl Clone for WRDS_SETTING {
     fn clone(&self) -> Self {
         *self
     }
@@ -1122,8 +1122,8 @@ pub struct WRDS_SETTINGS {
     pub WRdsSettingLevel: WRDS_SETTING_LEVEL,
     pub WRdsSetting: WRDS_SETTING,
 }
-impl ::core::marker::Copy for WRDS_SETTINGS {}
-impl ::core::clone::Clone for WRDS_SETTINGS {
+impl Copy for WRDS_SETTINGS {}
+impl Clone for WRDS_SETTINGS {
     fn clone(&self) -> Self {
         *self
     }
@@ -1162,8 +1162,8 @@ pub struct WRDS_SETTINGS_1 {
     pub WRdsKeepAliveStartValue: super::super::Foundation::BOOLEAN,
     pub WRdsKeepAliveIntervalValue: u32,
 }
-impl ::core::marker::Copy for WRDS_SETTINGS_1 {}
-impl ::core::clone::Clone for WRDS_SETTINGS_1 {
+impl Copy for WRDS_SETTINGS_1 {}
+impl Clone for WRDS_SETTINGS_1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -1190,8 +1190,8 @@ pub struct WTSCLIENTA {
     pub OutBufLength: u16,
     pub DeviceId: [i8; 261],
 }
-impl ::core::marker::Copy for WTSCLIENTA {}
-impl ::core::clone::Clone for WTSCLIENTA {
+impl Copy for WTSCLIENTA {}
+impl Clone for WTSCLIENTA {
     fn clone(&self) -> Self {
         *self
     }
@@ -1218,8 +1218,8 @@ pub struct WTSCLIENTW {
     pub OutBufLength: u16,
     pub DeviceId: [u16; 261],
 }
-impl ::core::marker::Copy for WTSCLIENTW {}
-impl ::core::clone::Clone for WTSCLIENTW {
+impl Copy for WTSCLIENTW {}
+impl Clone for WTSCLIENTW {
     fn clone(&self) -> Self {
         *self
     }
@@ -1238,8 +1238,8 @@ pub struct WTSCONFIGINFOA {
     pub InitialProgram: [i8; 261],
     pub ApplicationName: [i8; 261],
 }
-impl ::core::marker::Copy for WTSCONFIGINFOA {}
-impl ::core::clone::Clone for WTSCONFIGINFOA {
+impl Copy for WTSCONFIGINFOA {}
+impl Clone for WTSCONFIGINFOA {
     fn clone(&self) -> Self {
         *self
     }
@@ -1258,8 +1258,8 @@ pub struct WTSCONFIGINFOW {
     pub InitialProgram: [u16; 261],
     pub ApplicationName: [u16; 261],
 }
-impl ::core::marker::Copy for WTSCONFIGINFOW {}
-impl ::core::clone::Clone for WTSCONFIGINFOW {
+impl Copy for WTSCONFIGINFOW {}
+impl Clone for WTSCONFIGINFOW {
     fn clone(&self) -> Self {
         *self
     }
@@ -1283,8 +1283,8 @@ pub struct WTSINFOA {
     pub LogonTime: i64,
     pub CurrentTime: i64,
 }
-impl ::core::marker::Copy for WTSINFOA {}
-impl ::core::clone::Clone for WTSINFOA {
+impl Copy for WTSINFOA {}
+impl Clone for WTSINFOA {
     fn clone(&self) -> Self {
         *self
     }
@@ -1294,8 +1294,8 @@ pub struct WTSINFOEXA {
     pub Level: u32,
     pub Data: WTSINFOEX_LEVEL_A,
 }
-impl ::core::marker::Copy for WTSINFOEXA {}
-impl ::core::clone::Clone for WTSINFOEXA {
+impl Copy for WTSINFOEXA {}
+impl Clone for WTSINFOEXA {
     fn clone(&self) -> Self {
         *self
     }
@@ -1305,8 +1305,8 @@ pub struct WTSINFOEXW {
     pub Level: u32,
     pub Data: WTSINFOEX_LEVEL_W,
 }
-impl ::core::marker::Copy for WTSINFOEXW {}
-impl ::core::clone::Clone for WTSINFOEXW {
+impl Copy for WTSINFOEXW {}
+impl Clone for WTSINFOEXW {
     fn clone(&self) -> Self {
         *self
     }
@@ -1331,8 +1331,8 @@ pub struct WTSINFOEX_LEVEL1_A {
     pub IncomingCompressedBytes: u32,
     pub OutgoingCompressedBytes: u32,
 }
-impl ::core::marker::Copy for WTSINFOEX_LEVEL1_A {}
-impl ::core::clone::Clone for WTSINFOEX_LEVEL1_A {
+impl Copy for WTSINFOEX_LEVEL1_A {}
+impl Clone for WTSINFOEX_LEVEL1_A {
     fn clone(&self) -> Self {
         *self
     }
@@ -1357,8 +1357,8 @@ pub struct WTSINFOEX_LEVEL1_W {
     pub IncomingCompressedBytes: u32,
     pub OutgoingCompressedBytes: u32,
 }
-impl ::core::marker::Copy for WTSINFOEX_LEVEL1_W {}
-impl ::core::clone::Clone for WTSINFOEX_LEVEL1_W {
+impl Copy for WTSINFOEX_LEVEL1_W {}
+impl Clone for WTSINFOEX_LEVEL1_W {
     fn clone(&self) -> Self {
         *self
     }
@@ -1367,8 +1367,8 @@ impl ::core::clone::Clone for WTSINFOEX_LEVEL1_W {
 pub union WTSINFOEX_LEVEL_A {
     pub WTSInfoExLevel1: WTSINFOEX_LEVEL1_A,
 }
-impl ::core::marker::Copy for WTSINFOEX_LEVEL_A {}
-impl ::core::clone::Clone for WTSINFOEX_LEVEL_A {
+impl Copy for WTSINFOEX_LEVEL_A {}
+impl Clone for WTSINFOEX_LEVEL_A {
     fn clone(&self) -> Self {
         *self
     }
@@ -1377,8 +1377,8 @@ impl ::core::clone::Clone for WTSINFOEX_LEVEL_A {
 pub union WTSINFOEX_LEVEL_W {
     pub WTSInfoExLevel1: WTSINFOEX_LEVEL1_W,
 }
-impl ::core::marker::Copy for WTSINFOEX_LEVEL_W {}
-impl ::core::clone::Clone for WTSINFOEX_LEVEL_W {
+impl Copy for WTSINFOEX_LEVEL_W {}
+impl Clone for WTSINFOEX_LEVEL_W {
     fn clone(&self) -> Self {
         *self
     }
@@ -1402,8 +1402,8 @@ pub struct WTSINFOW {
     pub LogonTime: i64,
     pub CurrentTime: i64,
 }
-impl ::core::marker::Copy for WTSINFOW {}
-impl ::core::clone::Clone for WTSINFOW {
+impl Copy for WTSINFOW {}
+impl Clone for WTSINFOW {
     fn clone(&self) -> Self {
         *self
     }
@@ -1442,8 +1442,8 @@ pub struct WTSLISTENERCONFIGA {
     pub WorkDirectory: [i8; 261],
     pub InitialProgram: [i8; 261],
 }
-impl ::core::marker::Copy for WTSLISTENERCONFIGA {}
-impl ::core::clone::Clone for WTSLISTENERCONFIGA {
+impl Copy for WTSLISTENERCONFIGA {}
+impl Clone for WTSLISTENERCONFIGA {
     fn clone(&self) -> Self {
         *self
     }
@@ -1482,8 +1482,8 @@ pub struct WTSLISTENERCONFIGW {
     pub WorkDirectory: [u16; 261],
     pub InitialProgram: [u16; 261],
 }
-impl ::core::marker::Copy for WTSLISTENERCONFIGW {}
-impl ::core::clone::Clone for WTSLISTENERCONFIGW {
+impl Copy for WTSLISTENERCONFIGW {}
+impl Clone for WTSLISTENERCONFIGW {
     fn clone(&self) -> Self {
         *self
     }
@@ -1495,8 +1495,8 @@ pub struct WTSSBX_IP_ADDRESS {
     pub PortNumber: u16,
     pub dwScope: u32,
 }
-impl ::core::marker::Copy for WTSSBX_IP_ADDRESS {}
-impl ::core::clone::Clone for WTSSBX_IP_ADDRESS {
+impl Copy for WTSSBX_IP_ADDRESS {}
+impl Clone for WTSSBX_IP_ADDRESS {
     fn clone(&self) -> Self {
         *self
     }
@@ -1508,8 +1508,8 @@ pub struct WTSSBX_MACHINE_CONNECT_INFO {
     pub dwNumOfIPAddr: u32,
     pub IPaddr: [WTSSBX_IP_ADDRESS; 12],
 }
-impl ::core::marker::Copy for WTSSBX_MACHINE_CONNECT_INFO {}
-impl ::core::clone::Clone for WTSSBX_MACHINE_CONNECT_INFO {
+impl Copy for WTSSBX_MACHINE_CONNECT_INFO {}
+impl Clone for WTSSBX_MACHINE_CONNECT_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -1525,8 +1525,8 @@ pub struct WTSSBX_MACHINE_INFO {
     pub InDrain: WTSSBX_MACHINE_DRAIN,
     pub MachineState: WTSSBX_MACHINE_STATE,
 }
-impl ::core::marker::Copy for WTSSBX_MACHINE_INFO {}
-impl ::core::clone::Clone for WTSSBX_MACHINE_INFO {
+impl Copy for WTSSBX_MACHINE_INFO {}
+impl Clone for WTSSBX_MACHINE_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -1541,8 +1541,8 @@ pub struct WTSSBX_SESSION_INFO {
     pub DisconnectTime: super::super::Foundation::FILETIME,
     pub SessionState: WTSSBX_SESSION_STATE,
 }
-impl ::core::marker::Copy for WTSSBX_SESSION_INFO {}
-impl ::core::clone::Clone for WTSSBX_SESSION_INFO {
+impl Copy for WTSSBX_SESSION_INFO {}
+impl Clone for WTSSBX_SESSION_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -1552,8 +1552,8 @@ pub struct WTSSESSION_NOTIFICATION {
     pub cbSize: u32,
     pub dwSessionId: u32,
 }
-impl ::core::marker::Copy for WTSSESSION_NOTIFICATION {}
-impl ::core::clone::Clone for WTSSESSION_NOTIFICATION {
+impl Copy for WTSSESSION_NOTIFICATION {}
+impl Clone for WTSSESSION_NOTIFICATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -1579,8 +1579,8 @@ pub struct WTSUSERCONFIGA {
     pub TerminalServerHomeDir: [i8; 261],
     pub TerminalServerHomeDirDrive: [i8; 4],
 }
-impl ::core::marker::Copy for WTSUSERCONFIGA {}
-impl ::core::clone::Clone for WTSUSERCONFIGA {
+impl Copy for WTSUSERCONFIGA {}
+impl Clone for WTSUSERCONFIGA {
     fn clone(&self) -> Self {
         *self
     }
@@ -1606,8 +1606,8 @@ pub struct WTSUSERCONFIGW {
     pub TerminalServerHomeDir: [u16; 261],
     pub TerminalServerHomeDirDrive: [u16; 4],
 }
-impl ::core::marker::Copy for WTSUSERCONFIGW {}
-impl ::core::clone::Clone for WTSUSERCONFIGW {
+impl Copy for WTSUSERCONFIGW {}
+impl Clone for WTSUSERCONFIGW {
     fn clone(&self) -> Self {
         *self
     }
@@ -1619,8 +1619,8 @@ pub struct WTS_CACHE_STATS {
     pub ProtocolType: u16,
     pub Length: u16,
 }
-impl ::core::marker::Copy for WTS_CACHE_STATS {}
-impl ::core::clone::Clone for WTS_CACHE_STATS {
+impl Copy for WTS_CACHE_STATS {}
+impl Clone for WTS_CACHE_STATS {
     fn clone(&self) -> Self {
         *self
     }
@@ -1631,8 +1631,8 @@ pub union WTS_CACHE_STATS_UN {
     pub TShareCacheStats: u32,
     pub Reserved: [u32; 20],
 }
-impl ::core::marker::Copy for WTS_CACHE_STATS_UN {}
-impl ::core::clone::Clone for WTS_CACHE_STATS_UN {
+impl Copy for WTS_CACHE_STATS_UN {}
+impl Clone for WTS_CACHE_STATS_UN {
     fn clone(&self) -> Self {
         *self
     }
@@ -1642,8 +1642,8 @@ pub struct WTS_CLIENT_ADDRESS {
     pub AddressFamily: u32,
     pub Address: [u8; 20],
 }
-impl ::core::marker::Copy for WTS_CLIENT_ADDRESS {}
-impl ::core::clone::Clone for WTS_CLIENT_ADDRESS {
+impl Copy for WTS_CLIENT_ADDRESS {}
+impl Clone for WTS_CLIENT_ADDRESS {
     fn clone(&self) -> Self {
         *self
     }
@@ -1706,8 +1706,8 @@ pub struct WTS_CLIENT_DATA {
     pub fDisableClip: super::super::Foundation::BOOLEAN,
     pub fDisablePNP: super::super::Foundation::BOOLEAN,
 }
-impl ::core::marker::Copy for WTS_CLIENT_DATA {}
-impl ::core::clone::Clone for WTS_CLIENT_DATA {
+impl Copy for WTS_CLIENT_DATA {}
+impl Clone for WTS_CLIENT_DATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -1718,8 +1718,8 @@ pub struct WTS_CLIENT_DISPLAY {
     pub VerticalResolution: u32,
     pub ColorDepth: u32,
 }
-impl ::core::marker::Copy for WTS_CLIENT_DISPLAY {}
-impl ::core::clone::Clone for WTS_CLIENT_DISPLAY {
+impl Copy for WTS_CLIENT_DISPLAY {}
+impl Clone for WTS_CLIENT_DISPLAY {
     fn clone(&self) -> Self {
         *self
     }
@@ -1729,8 +1729,8 @@ pub struct WTS_DISPLAY_IOCTL {
     pub pDisplayIOCtlData: [u8; 256],
     pub cbDisplayIOCtlData: u32,
 }
-impl ::core::marker::Copy for WTS_DISPLAY_IOCTL {}
-impl ::core::clone::Clone for WTS_DISPLAY_IOCTL {
+impl Copy for WTS_DISPLAY_IOCTL {}
+impl Clone for WTS_DISPLAY_IOCTL {
     fn clone(&self) -> Self {
         *self
     }
@@ -1744,8 +1744,8 @@ pub struct WTS_LICENSE_CAPABILITIES {
     pub cbClientName: u32,
     pub rgbClientName: [u8; 42],
 }
-impl ::core::marker::Copy for WTS_LICENSE_CAPABILITIES {}
-impl ::core::clone::Clone for WTS_LICENSE_CAPABILITIES {
+impl Copy for WTS_LICENSE_CAPABILITIES {}
+impl Clone for WTS_LICENSE_CAPABILITIES {
     fn clone(&self) -> Self {
         *self
     }
@@ -1763,8 +1763,8 @@ pub struct WTS_POLICY_DATA {
     pub fDisableClip: super::super::Foundation::BOOLEAN,
     pub fDisablePNPRedir: super::super::Foundation::BOOLEAN,
 }
-impl ::core::marker::Copy for WTS_POLICY_DATA {}
-impl ::core::clone::Clone for WTS_POLICY_DATA {
+impl Copy for WTS_POLICY_DATA {}
+impl Clone for WTS_POLICY_DATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -1773,11 +1773,11 @@ impl ::core::clone::Clone for WTS_POLICY_DATA {
 pub struct WTS_PROCESS_INFOA {
     pub SessionId: u32,
     pub ProcessId: u32,
-    pub pProcessName: ::windows_sys::core::PSTR,
+    pub pProcessName: windows_sys::core::PSTR,
     pub pUserSid: super::super::Foundation::PSID,
 }
-impl ::core::marker::Copy for WTS_PROCESS_INFOA {}
-impl ::core::clone::Clone for WTS_PROCESS_INFOA {
+impl Copy for WTS_PROCESS_INFOA {}
+impl Clone for WTS_PROCESS_INFOA {
     fn clone(&self) -> Self {
         *self
     }
@@ -1786,11 +1786,11 @@ impl ::core::clone::Clone for WTS_PROCESS_INFOA {
 pub struct WTS_PROCESS_INFOW {
     pub SessionId: u32,
     pub ProcessId: u32,
-    pub pProcessName: ::windows_sys::core::PWSTR,
+    pub pProcessName: windows_sys::core::PWSTR,
     pub pUserSid: super::super::Foundation::PSID,
 }
-impl ::core::marker::Copy for WTS_PROCESS_INFOW {}
-impl ::core::clone::Clone for WTS_PROCESS_INFOW {
+impl Copy for WTS_PROCESS_INFOW {}
+impl Clone for WTS_PROCESS_INFOW {
     fn clone(&self) -> Self {
         *self
     }
@@ -1799,7 +1799,7 @@ impl ::core::clone::Clone for WTS_PROCESS_INFOW {
 pub struct WTS_PROCESS_INFO_EXA {
     pub SessionId: u32,
     pub ProcessId: u32,
-    pub pProcessName: ::windows_sys::core::PSTR,
+    pub pProcessName: windows_sys::core::PSTR,
     pub pUserSid: super::super::Foundation::PSID,
     pub NumberOfThreads: u32,
     pub HandleCount: u32,
@@ -1810,8 +1810,8 @@ pub struct WTS_PROCESS_INFO_EXA {
     pub UserTime: i64,
     pub KernelTime: i64,
 }
-impl ::core::marker::Copy for WTS_PROCESS_INFO_EXA {}
-impl ::core::clone::Clone for WTS_PROCESS_INFO_EXA {
+impl Copy for WTS_PROCESS_INFO_EXA {}
+impl Clone for WTS_PROCESS_INFO_EXA {
     fn clone(&self) -> Self {
         *self
     }
@@ -1820,7 +1820,7 @@ impl ::core::clone::Clone for WTS_PROCESS_INFO_EXA {
 pub struct WTS_PROCESS_INFO_EXW {
     pub SessionId: u32,
     pub ProcessId: u32,
-    pub pProcessName: ::windows_sys::core::PWSTR,
+    pub pProcessName: windows_sys::core::PWSTR,
     pub pUserSid: super::super::Foundation::PSID,
     pub NumberOfThreads: u32,
     pub HandleCount: u32,
@@ -1831,8 +1831,8 @@ pub struct WTS_PROCESS_INFO_EXW {
     pub UserTime: i64,
     pub KernelTime: i64,
 }
-impl ::core::marker::Copy for WTS_PROCESS_INFO_EXW {}
-impl ::core::clone::Clone for WTS_PROCESS_INFO_EXW {
+impl Copy for WTS_PROCESS_INFO_EXW {}
+impl Clone for WTS_PROCESS_INFO_EXW {
     fn clone(&self) -> Self {
         *self
     }
@@ -1842,8 +1842,8 @@ pub struct WTS_PROPERTY_VALUE {
     pub Type: u16,
     pub u: WTS_PROPERTY_VALUE_0,
 }
-impl ::core::marker::Copy for WTS_PROPERTY_VALUE {}
-impl ::core::clone::Clone for WTS_PROPERTY_VALUE {
+impl Copy for WTS_PROPERTY_VALUE {}
+impl Clone for WTS_PROPERTY_VALUE {
     fn clone(&self) -> Self {
         *self
     }
@@ -1853,10 +1853,10 @@ pub union WTS_PROPERTY_VALUE_0 {
     pub ulVal: u32,
     pub strVal: WTS_PROPERTY_VALUE_0_1,
     pub bVal: WTS_PROPERTY_VALUE_0_0,
-    pub guidVal: ::windows_sys::core::GUID,
+    pub guidVal: windows_sys::core::GUID,
 }
-impl ::core::marker::Copy for WTS_PROPERTY_VALUE_0 {}
-impl ::core::clone::Clone for WTS_PROPERTY_VALUE_0 {
+impl Copy for WTS_PROPERTY_VALUE_0 {}
+impl Clone for WTS_PROPERTY_VALUE_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -1864,10 +1864,10 @@ impl ::core::clone::Clone for WTS_PROPERTY_VALUE_0 {
 #[repr(C)]
 pub struct WTS_PROPERTY_VALUE_0_0 {
     pub size: u32,
-    pub pbVal: ::windows_sys::core::PSTR,
+    pub pbVal: windows_sys::core::PSTR,
 }
-impl ::core::marker::Copy for WTS_PROPERTY_VALUE_0_0 {}
-impl ::core::clone::Clone for WTS_PROPERTY_VALUE_0_0 {
+impl Copy for WTS_PROPERTY_VALUE_0_0 {}
+impl Clone for WTS_PROPERTY_VALUE_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -1875,10 +1875,10 @@ impl ::core::clone::Clone for WTS_PROPERTY_VALUE_0_0 {
 #[repr(C)]
 pub struct WTS_PROPERTY_VALUE_0_1 {
     pub size: u32,
-    pub pstrVal: ::windows_sys::core::PWSTR,
+    pub pstrVal: windows_sys::core::PWSTR,
 }
-impl ::core::marker::Copy for WTS_PROPERTY_VALUE_0_1 {}
-impl ::core::clone::Clone for WTS_PROPERTY_VALUE_0_1 {
+impl Copy for WTS_PROPERTY_VALUE_0_1 {}
+impl Clone for WTS_PROPERTY_VALUE_0_1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -1888,8 +1888,8 @@ pub struct WTS_PROTOCOL_CACHE {
     pub CacheReads: u32,
     pub CacheHits: u32,
 }
-impl ::core::marker::Copy for WTS_PROTOCOL_CACHE {}
-impl ::core::clone::Clone for WTS_PROTOCOL_CACHE {
+impl Copy for WTS_PROTOCOL_CACHE {}
+impl Clone for WTS_PROTOCOL_CACHE {
     fn clone(&self) -> Self {
         *self
     }
@@ -1915,8 +1915,8 @@ pub struct WTS_PROTOCOL_COUNTERS {
     pub Specific: u16,
     pub Reserved: [u32; 100],
 }
-impl ::core::marker::Copy for WTS_PROTOCOL_COUNTERS {}
-impl ::core::clone::Clone for WTS_PROTOCOL_COUNTERS {
+impl Copy for WTS_PROTOCOL_COUNTERS {}
+impl Clone for WTS_PROTOCOL_COUNTERS {
     fn clone(&self) -> Self {
         *self
     }
@@ -1930,28 +1930,28 @@ pub struct WTS_PROTOCOL_STATUS {
     pub AsyncSignalMask: u32,
     pub Counters: [i64; 100],
 }
-impl ::core::marker::Copy for WTS_PROTOCOL_STATUS {}
-impl ::core::clone::Clone for WTS_PROTOCOL_STATUS {
+impl Copy for WTS_PROTOCOL_STATUS {}
+impl Clone for WTS_PROTOCOL_STATUS {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct WTS_SERVER_INFOA {
-    pub pServerName: ::windows_sys::core::PSTR,
+    pub pServerName: windows_sys::core::PSTR,
 }
-impl ::core::marker::Copy for WTS_SERVER_INFOA {}
-impl ::core::clone::Clone for WTS_SERVER_INFOA {
+impl Copy for WTS_SERVER_INFOA {}
+impl Clone for WTS_SERVER_INFOA {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct WTS_SERVER_INFOW {
-    pub pServerName: ::windows_sys::core::PWSTR,
+    pub pServerName: windows_sys::core::PWSTR,
 }
-impl ::core::marker::Copy for WTS_SERVER_INFOW {}
-impl ::core::clone::Clone for WTS_SERVER_INFOW {
+impl Copy for WTS_SERVER_INFOW {}
+impl Clone for WTS_SERVER_INFOW {
     fn clone(&self) -> Self {
         *self
     }
@@ -1961,8 +1961,8 @@ pub struct WTS_SERVICE_STATE {
     pub RcmServiceState: WTS_RCM_SERVICE_STATE,
     pub RcmDrainState: WTS_RCM_DRAIN_STATE,
 }
-impl ::core::marker::Copy for WTS_SERVICE_STATE {}
-impl ::core::clone::Clone for WTS_SERVICE_STATE {
+impl Copy for WTS_SERVICE_STATE {}
+impl Clone for WTS_SERVICE_STATE {
     fn clone(&self) -> Self {
         *self
     }
@@ -1972,19 +1972,19 @@ pub struct WTS_SESSION_ADDRESS {
     pub AddressFamily: u32,
     pub Address: [u8; 20],
 }
-impl ::core::marker::Copy for WTS_SESSION_ADDRESS {}
-impl ::core::clone::Clone for WTS_SESSION_ADDRESS {
+impl Copy for WTS_SESSION_ADDRESS {}
+impl Clone for WTS_SESSION_ADDRESS {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct WTS_SESSION_ID {
-    pub SessionUniqueGuid: ::windows_sys::core::GUID,
+    pub SessionUniqueGuid: windows_sys::core::GUID,
     pub SessionId: u32,
 }
-impl ::core::marker::Copy for WTS_SESSION_ID {}
-impl ::core::clone::Clone for WTS_SESSION_ID {
+impl Copy for WTS_SESSION_ID {}
+impl Clone for WTS_SESSION_ID {
     fn clone(&self) -> Self {
         *self
     }
@@ -1992,11 +1992,11 @@ impl ::core::clone::Clone for WTS_SESSION_ID {
 #[repr(C)]
 pub struct WTS_SESSION_INFOA {
     pub SessionId: u32,
-    pub pWinStationName: ::windows_sys::core::PSTR,
+    pub pWinStationName: windows_sys::core::PSTR,
     pub State: WTS_CONNECTSTATE_CLASS,
 }
-impl ::core::marker::Copy for WTS_SESSION_INFOA {}
-impl ::core::clone::Clone for WTS_SESSION_INFOA {
+impl Copy for WTS_SESSION_INFOA {}
+impl Clone for WTS_SESSION_INFOA {
     fn clone(&self) -> Self {
         *self
     }
@@ -2004,11 +2004,11 @@ impl ::core::clone::Clone for WTS_SESSION_INFOA {
 #[repr(C)]
 pub struct WTS_SESSION_INFOW {
     pub SessionId: u32,
-    pub pWinStationName: ::windows_sys::core::PWSTR,
+    pub pWinStationName: windows_sys::core::PWSTR,
     pub State: WTS_CONNECTSTATE_CLASS,
 }
-impl ::core::marker::Copy for WTS_SESSION_INFOW {}
-impl ::core::clone::Clone for WTS_SESSION_INFOW {
+impl Copy for WTS_SESSION_INFOW {}
+impl Clone for WTS_SESSION_INFOW {
     fn clone(&self) -> Self {
         *self
     }
@@ -2018,14 +2018,14 @@ pub struct WTS_SESSION_INFO_1A {
     pub ExecEnvId: u32,
     pub State: WTS_CONNECTSTATE_CLASS,
     pub SessionId: u32,
-    pub pSessionName: ::windows_sys::core::PSTR,
-    pub pHostName: ::windows_sys::core::PSTR,
-    pub pUserName: ::windows_sys::core::PSTR,
-    pub pDomainName: ::windows_sys::core::PSTR,
-    pub pFarmName: ::windows_sys::core::PSTR,
+    pub pSessionName: windows_sys::core::PSTR,
+    pub pHostName: windows_sys::core::PSTR,
+    pub pUserName: windows_sys::core::PSTR,
+    pub pDomainName: windows_sys::core::PSTR,
+    pub pFarmName: windows_sys::core::PSTR,
 }
-impl ::core::marker::Copy for WTS_SESSION_INFO_1A {}
-impl ::core::clone::Clone for WTS_SESSION_INFO_1A {
+impl Copy for WTS_SESSION_INFO_1A {}
+impl Clone for WTS_SESSION_INFO_1A {
     fn clone(&self) -> Self {
         *self
     }
@@ -2035,14 +2035,14 @@ pub struct WTS_SESSION_INFO_1W {
     pub ExecEnvId: u32,
     pub State: WTS_CONNECTSTATE_CLASS,
     pub SessionId: u32,
-    pub pSessionName: ::windows_sys::core::PWSTR,
-    pub pHostName: ::windows_sys::core::PWSTR,
-    pub pUserName: ::windows_sys::core::PWSTR,
-    pub pDomainName: ::windows_sys::core::PWSTR,
-    pub pFarmName: ::windows_sys::core::PWSTR,
+    pub pSessionName: windows_sys::core::PWSTR,
+    pub pHostName: windows_sys::core::PWSTR,
+    pub pUserName: windows_sys::core::PWSTR,
+    pub pDomainName: windows_sys::core::PWSTR,
+    pub pFarmName: windows_sys::core::PWSTR,
 }
-impl ::core::marker::Copy for WTS_SESSION_INFO_1W {}
-impl ::core::clone::Clone for WTS_SESSION_INFO_1W {
+impl Copy for WTS_SESSION_INFO_1W {}
+impl Clone for WTS_SESSION_INFO_1W {
     fn clone(&self) -> Self {
         *self
     }
@@ -2054,8 +2054,8 @@ pub struct WTS_SMALL_RECT {
     pub Right: i16,
     pub Bottom: i16,
 }
-impl ::core::marker::Copy for WTS_SMALL_RECT {}
-impl ::core::clone::Clone for WTS_SMALL_RECT {
+impl Copy for WTS_SMALL_RECT {}
+impl Clone for WTS_SMALL_RECT {
     fn clone(&self) -> Self {
         *self
     }
@@ -2065,8 +2065,8 @@ pub struct WTS_SOCKADDR {
     pub sin_family: u16,
     pub u: WTS_SOCKADDR_0,
 }
-impl ::core::marker::Copy for WTS_SOCKADDR {}
-impl ::core::clone::Clone for WTS_SOCKADDR {
+impl Copy for WTS_SOCKADDR {}
+impl Clone for WTS_SOCKADDR {
     fn clone(&self) -> Self {
         *self
     }
@@ -2076,8 +2076,8 @@ pub union WTS_SOCKADDR_0 {
     pub ipv4: WTS_SOCKADDR_0_0,
     pub ipv6: WTS_SOCKADDR_0_1,
 }
-impl ::core::marker::Copy for WTS_SOCKADDR_0 {}
-impl ::core::clone::Clone for WTS_SOCKADDR_0 {
+impl Copy for WTS_SOCKADDR_0 {}
+impl Clone for WTS_SOCKADDR_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -2088,8 +2088,8 @@ pub struct WTS_SOCKADDR_0_0 {
     pub IN_ADDR: u32,
     pub sin_zero: [u8; 8],
 }
-impl ::core::marker::Copy for WTS_SOCKADDR_0_0 {}
-impl ::core::clone::Clone for WTS_SOCKADDR_0_0 {
+impl Copy for WTS_SOCKADDR_0_0 {}
+impl Clone for WTS_SOCKADDR_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -2101,8 +2101,8 @@ pub struct WTS_SOCKADDR_0_1 {
     pub sin6_addr: [u16; 8],
     pub sin6_scope_id: u32,
 }
-impl ::core::marker::Copy for WTS_SOCKADDR_0_1 {}
-impl ::core::clone::Clone for WTS_SOCKADDR_0_1 {
+impl Copy for WTS_SOCKADDR_0_1 {}
+impl Clone for WTS_SOCKADDR_0_1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -2118,8 +2118,8 @@ pub struct WTS_SYSTEMTIME {
     pub wSecond: u16,
     pub wMilliseconds: u16,
 }
-impl ::core::marker::Copy for WTS_SYSTEMTIME {}
-impl ::core::clone::Clone for WTS_SYSTEMTIME {
+impl Copy for WTS_SYSTEMTIME {}
+impl Clone for WTS_SYSTEMTIME {
     fn clone(&self) -> Self {
         *self
     }
@@ -2134,8 +2134,8 @@ pub struct WTS_TIME_ZONE_INFORMATION {
     pub DaylightDate: WTS_SYSTEMTIME,
     pub DaylightBias: i32,
 }
-impl ::core::marker::Copy for WTS_TIME_ZONE_INFORMATION {}
-impl ::core::clone::Clone for WTS_TIME_ZONE_INFORMATION {
+impl Copy for WTS_TIME_ZONE_INFORMATION {}
+impl Clone for WTS_TIME_ZONE_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -2146,8 +2146,8 @@ pub struct WTS_USER_CREDENTIAL {
     pub Password: [u16; 256],
     pub Domain: [u16; 256],
 }
-impl ::core::marker::Copy for WTS_USER_CREDENTIAL {}
-impl ::core::clone::Clone for WTS_USER_CREDENTIAL {
+impl Copy for WTS_USER_CREDENTIAL {}
+impl Clone for WTS_USER_CREDENTIAL {
     fn clone(&self) -> Self {
         *self
     }
@@ -2158,8 +2158,8 @@ pub struct WTS_USER_DATA {
     pub InitialProgram: [u16; 257],
     pub UserTimeZone: WTS_TIME_ZONE_INFORMATION,
 }
-impl ::core::marker::Copy for WTS_USER_DATA {}
-impl ::core::clone::Clone for WTS_USER_DATA {
+impl Copy for WTS_USER_DATA {}
+impl Clone for WTS_USER_DATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -2172,8 +2172,8 @@ pub struct WTS_VALIDATION_INFORMATIONA {
     pub HardwareID: [u8; 20],
     pub HardwareIDLength: u32,
 }
-impl ::core::marker::Copy for WTS_VALIDATION_INFORMATIONA {}
-impl ::core::clone::Clone for WTS_VALIDATION_INFORMATIONA {
+impl Copy for WTS_VALIDATION_INFORMATIONA {}
+impl Clone for WTS_VALIDATION_INFORMATIONA {
     fn clone(&self) -> Self {
         *self
     }
@@ -2186,18 +2186,18 @@ pub struct WTS_VALIDATION_INFORMATIONW {
     pub HardwareID: [u8; 20],
     pub HardwareIDLength: u32,
 }
-impl ::core::marker::Copy for WTS_VALIDATION_INFORMATIONW {}
-impl ::core::clone::Clone for WTS_VALIDATION_INFORMATIONW {
+impl Copy for WTS_VALIDATION_INFORMATIONW {}
+impl Clone for WTS_VALIDATION_INFORMATIONW {
     fn clone(&self) -> Self {
         *self
     }
 }
-pub const Workspace: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x4f1dfca6_3aad_48e1_8406_4bc21a501d7c);
+pub const Workspace: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4f1dfca6_3aad_48e1_8406_4bc21a501d7c);
 #[repr(C)]
 pub struct pluginResource {
     pub alias: [u16; 256],
     pub name: [u16; 256],
-    pub resourceFileContents: ::windows_sys::core::PWSTR,
+    pub resourceFileContents: windows_sys::core::PWSTR,
     pub fileExtension: [u16; 256],
     pub resourcePluginType: [u16; 256],
     pub isDiscoverable: u8,
@@ -2207,8 +2207,8 @@ pub struct pluginResource {
     pub pcePluginBlobSize: u32,
     pub blobContents: *mut u8,
 }
-impl ::core::marker::Copy for pluginResource {}
-impl ::core::clone::Clone for pluginResource {
+impl Copy for pluginResource {}
+impl Clone for pluginResource {
     fn clone(&self) -> Self {
         *self
     }
@@ -2218,12 +2218,12 @@ pub struct pluginResource2 {
     pub resourceV1: pluginResource,
     pub pceFileAssocListSize: u32,
     pub fileAssocList: *mut pluginResource2FileAssociation,
-    pub securityDescriptor: ::windows_sys::core::PWSTR,
+    pub securityDescriptor: windows_sys::core::PWSTR,
     pub pceFolderListSize: u32,
     pub folderList: *mut *mut u16,
 }
-impl ::core::marker::Copy for pluginResource2 {}
-impl ::core::clone::Clone for pluginResource2 {
+impl Copy for pluginResource2 {}
+impl Clone for pluginResource2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -2235,16 +2235,16 @@ pub struct pluginResource2FileAssociation {
     pub pceIconSize: u32,
     pub iconContents: *mut u8,
 }
-impl ::core::marker::Copy for pluginResource2FileAssociation {}
-impl ::core::clone::Clone for pluginResource2FileAssociation {
+impl Copy for pluginResource2FileAssociation {}
+impl Clone for pluginResource2FileAssociation {
     fn clone(&self) -> Self {
         *self
     }
 }
-pub type PCHANNEL_INIT_EVENT_FN = ::core::option::Option<unsafe extern "system" fn(pinithandle: *mut ::core::ffi::c_void, event: u32, pdata: *mut ::core::ffi::c_void, datalength: u32)>;
-pub type PCHANNEL_OPEN_EVENT_FN = ::core::option::Option<unsafe extern "system" fn(openhandle: u32, event: u32, pdata: *mut ::core::ffi::c_void, datalength: u32, totallength: u32, dataflags: u32)>;
-pub type PVIRTUALCHANNELCLOSE = ::core::option::Option<unsafe extern "system" fn(openhandle: u32) -> u32>;
-pub type PVIRTUALCHANNELENTRY = ::core::option::Option<unsafe extern "system" fn(pentrypoints: *mut CHANNEL_ENTRY_POINTS) -> super::super::Foundation::BOOL>;
-pub type PVIRTUALCHANNELINIT = ::core::option::Option<unsafe extern "system" fn(ppinithandle: *mut *mut ::core::ffi::c_void, pchannel: *mut CHANNEL_DEF, channelcount: i32, versionrequested: u32, pchanneliniteventproc: PCHANNEL_INIT_EVENT_FN) -> u32>;
-pub type PVIRTUALCHANNELOPEN = ::core::option::Option<unsafe extern "system" fn(pinithandle: *mut ::core::ffi::c_void, popenhandle: *mut u32, pchannelname: ::windows_sys::core::PCSTR, pchannelopeneventproc: PCHANNEL_OPEN_EVENT_FN) -> u32>;
-pub type PVIRTUALCHANNELWRITE = ::core::option::Option<unsafe extern "system" fn(openhandle: u32, pdata: *mut ::core::ffi::c_void, datalength: u32, puserdata: *mut ::core::ffi::c_void) -> u32>;
+pub type PCHANNEL_INIT_EVENT_FN = Option<unsafe extern "system" fn(pinithandle: *mut core::ffi::c_void, event: u32, pdata: *mut core::ffi::c_void, datalength: u32)>;
+pub type PCHANNEL_OPEN_EVENT_FN = Option<unsafe extern "system" fn(openhandle: u32, event: u32, pdata: *mut core::ffi::c_void, datalength: u32, totallength: u32, dataflags: u32)>;
+pub type PVIRTUALCHANNELCLOSE = Option<unsafe extern "system" fn(openhandle: u32) -> u32>;
+pub type PVIRTUALCHANNELENTRY = Option<unsafe extern "system" fn(pentrypoints: *mut CHANNEL_ENTRY_POINTS) -> super::super::Foundation::BOOL>;
+pub type PVIRTUALCHANNELINIT = Option<unsafe extern "system" fn(ppinithandle: *mut *mut core::ffi::c_void, pchannel: *mut CHANNEL_DEF, channelcount: i32, versionrequested: u32, pchanneliniteventproc: PCHANNEL_INIT_EVENT_FN) -> u32>;
+pub type PVIRTUALCHANNELOPEN = Option<unsafe extern "system" fn(pinithandle: *mut core::ffi::c_void, popenhandle: *mut u32, pchannelname: windows_sys::core::PCSTR, pchannelopeneventproc: PCHANNEL_OPEN_EVENT_FN) -> u32>;
+pub type PVIRTUALCHANNELWRITE = Option<unsafe extern "system" fn(openhandle: u32, pdata: *mut core::ffi::c_void, datalength: u32, puserdata: *mut core::ffi::c_void) -> u32>;

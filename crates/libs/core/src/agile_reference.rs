@@ -4,12 +4,12 @@ use std::marker::PhantomData;
 /// A type representing an agile reference to a COM/WinRT object.
 #[repr(transparent)]
 #[derive(Clone, PartialEq, Eq)]
-pub struct AgileReference<T>(crate::imp::IAgileReference, PhantomData<T>);
+pub struct AgileReference<T>(imp::IAgileReference, PhantomData<T>);
 
 impl<T: Interface> AgileReference<T> {
     /// Creates an agile reference to the object.
     pub fn new(object: &T) -> Result<Self> {
-        unsafe { crate::imp::RoGetAgileReference(crate::imp::AGILEREFERENCE_DEFAULT, &T::IID, std::mem::transmute::<_, &IUnknown>(object)).map(|reference| Self(reference, Default::default())) }
+        unsafe { imp::RoGetAgileReference(imp::AGILEREFERENCE_DEFAULT, &T::IID, std::mem::transmute::<_, &IUnknown>(object)).map(|reference| Self(reference, Default::default())) }
     }
 
     /// Retrieves a proxy to the target of the `AgileReference` object that may safely be used within any thread context in which get is called.

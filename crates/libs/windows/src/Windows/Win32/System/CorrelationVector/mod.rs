@@ -9,9 +9,9 @@ pub unsafe fn RtlIncrementCorrelationVector(correlationvector: *mut CORRELATION_
     RtlIncrementCorrelationVector(correlationvector)
 }
 #[inline]
-pub unsafe fn RtlInitializeCorrelationVector(correlationvector: *mut CORRELATION_VECTOR, version: i32, guid: ::core::option::Option<*const ::windows_core::GUID>) -> u32 {
-    ::windows_targets::link!("ntdll.dll" "system" fn RtlInitializeCorrelationVector(correlationvector : *mut CORRELATION_VECTOR, version : i32, guid : *const ::windows_core::GUID) -> u32);
-    RtlInitializeCorrelationVector(correlationvector, version, ::core::mem::transmute(guid.unwrap_or(::std::ptr::null())))
+pub unsafe fn RtlInitializeCorrelationVector(correlationvector: *mut CORRELATION_VECTOR, version: i32, guid: Option<*const windows_core::GUID>) -> u32 {
+    ::windows_targets::link!("ntdll.dll" "system" fn RtlInitializeCorrelationVector(correlationvector : *mut CORRELATION_VECTOR, version : i32, guid : *const windows_core::GUID) -> u32);
+    RtlInitializeCorrelationVector(correlationvector, version, core::mem::transmute(guid.unwrap_or(std::ptr::null())))
 }
 #[inline]
 pub unsafe fn RtlValidateCorrelationVector(vector: *const CORRELATION_VECTOR) -> u32 {
@@ -28,28 +28,28 @@ pub struct CORRELATION_VECTOR {
     pub Version: i8,
     pub Vector: [i8; 129],
 }
-impl ::core::marker::Copy for CORRELATION_VECTOR {}
-impl ::core::clone::Clone for CORRELATION_VECTOR {
+impl Copy for CORRELATION_VECTOR {}
+impl Clone for CORRELATION_VECTOR {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for CORRELATION_VECTOR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for CORRELATION_VECTOR {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("CORRELATION_VECTOR").field("Version", &self.Version).field("Vector", &self.Vector).finish()
     }
 }
-impl ::windows_core::TypeKind for CORRELATION_VECTOR {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for CORRELATION_VECTOR {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for CORRELATION_VECTOR {
+impl PartialEq for CORRELATION_VECTOR {
     fn eq(&self, other: &Self) -> bool {
         self.Version == other.Version && self.Vector == other.Vector
     }
 }
-impl ::core::cmp::Eq for CORRELATION_VECTOR {}
-impl ::core::default::Default for CORRELATION_VECTOR {
+impl Eq for CORRELATION_VECTOR {}
+impl Default for CORRELATION_VECTOR {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }

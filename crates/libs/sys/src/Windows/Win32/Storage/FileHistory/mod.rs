@@ -1,45 +1,45 @@
 #[cfg(feature = "Win32_System_WindowsProgramming")]
-::windows_targets::link!("fhsvcctl.dll" "system" fn FhServiceBlockBackup(pipe : super::super::System::WindowsProgramming:: FH_SERVICE_PIPE_HANDLE) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("fhsvcctl.dll" "system" fn FhServiceBlockBackup(pipe : super::super::System::WindowsProgramming:: FH_SERVICE_PIPE_HANDLE) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_WindowsProgramming")]
-::windows_targets::link!("fhsvcctl.dll" "system" fn FhServiceClosePipe(pipe : super::super::System::WindowsProgramming:: FH_SERVICE_PIPE_HANDLE) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("fhsvcctl.dll" "system" fn FhServiceClosePipe(pipe : super::super::System::WindowsProgramming:: FH_SERVICE_PIPE_HANDLE) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_WindowsProgramming")]
-::windows_targets::link!("fhsvcctl.dll" "system" fn FhServiceOpenPipe(startserviceifstopped : super::super::Foundation:: BOOL, pipe : *mut super::super::System::WindowsProgramming:: FH_SERVICE_PIPE_HANDLE) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("fhsvcctl.dll" "system" fn FhServiceOpenPipe(startserviceifstopped : super::super::Foundation:: BOOL, pipe : *mut super::super::System::WindowsProgramming:: FH_SERVICE_PIPE_HANDLE) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_WindowsProgramming")]
-::windows_targets::link!("fhsvcctl.dll" "system" fn FhServiceReloadConfiguration(pipe : super::super::System::WindowsProgramming:: FH_SERVICE_PIPE_HANDLE) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("fhsvcctl.dll" "system" fn FhServiceReloadConfiguration(pipe : super::super::System::WindowsProgramming:: FH_SERVICE_PIPE_HANDLE) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_WindowsProgramming")]
-::windows_targets::link!("fhsvcctl.dll" "system" fn FhServiceStartBackup(pipe : super::super::System::WindowsProgramming:: FH_SERVICE_PIPE_HANDLE, lowpriorityio : super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("fhsvcctl.dll" "system" fn FhServiceStartBackup(pipe : super::super::System::WindowsProgramming:: FH_SERVICE_PIPE_HANDLE, lowpriorityio : super::super::Foundation:: BOOL) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_WindowsProgramming")]
-::windows_targets::link!("fhsvcctl.dll" "system" fn FhServiceStopBackup(pipe : super::super::System::WindowsProgramming:: FH_SERVICE_PIPE_HANDLE, stoptracking : super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("fhsvcctl.dll" "system" fn FhServiceStopBackup(pipe : super::super::System::WindowsProgramming:: FH_SERVICE_PIPE_HANDLE, stoptracking : super::super::Foundation:: BOOL) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_WindowsProgramming")]
-::windows_targets::link!("fhsvcctl.dll" "system" fn FhServiceUnblockBackup(pipe : super::super::System::WindowsProgramming:: FH_SERVICE_PIPE_HANDLE) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("fhsvcctl.dll" "system" fn FhServiceUnblockBackup(pipe : super::super::System::WindowsProgramming:: FH_SERVICE_PIPE_HANDLE) -> windows_sys::core::HRESULT);
 pub const BackupCancelled: FhBackupStopReason = 4i32;
 pub const BackupInvalidStopReason: FhBackupStopReason = 0i32;
 pub const BackupLimitUserBusyMachineOnAC: FhBackupStopReason = 1i32;
 pub const BackupLimitUserBusyMachineOnDC: FhBackupStopReason = 3i32;
 pub const BackupLimitUserIdleMachineOnDC: FhBackupStopReason = 2i32;
-pub const FHCFG_E_CONFIGURATION_PREVIOUSLY_LOADED: ::windows_sys::core::HRESULT = 0x80040305_u32 as _;
-pub const FHCFG_E_CONFIG_ALREADY_EXISTS: ::windows_sys::core::HRESULT = 0x80040302_u32 as _;
-pub const FHCFG_E_CONFIG_FILE_NOT_FOUND: ::windows_sys::core::HRESULT = 0x80040301_u32 as _;
-pub const FHCFG_E_CORRUPT_CONFIG_FILE: ::windows_sys::core::HRESULT = 0x80040300_u32 as _;
-pub const FHCFG_E_INVALID_REHYDRATION_STATE: ::windows_sys::core::HRESULT = 0x8004030A_u32 as _;
-pub const FHCFG_E_LEGACY_BACKUP_NOT_FOUND: ::windows_sys::core::HRESULT = 0x80040315_u32 as _;
-pub const FHCFG_E_LEGACY_BACKUP_USER_EXCLUDED: ::windows_sys::core::HRESULT = 0x80040314_u32 as _;
-pub const FHCFG_E_LEGACY_TARGET_UNSUPPORTED: ::windows_sys::core::HRESULT = 0x80040312_u32 as _;
-pub const FHCFG_E_LEGACY_TARGET_VALIDATION_UNSUPPORTED: ::windows_sys::core::HRESULT = 0x80040313_u32 as _;
-pub const FHCFG_E_NO_VALID_CONFIGURATION_LOADED: ::windows_sys::core::HRESULT = 0x80040303_u32 as _;
-pub const FHCFG_E_RECOMMENDATION_CHANGE_NOT_ALLOWED: ::windows_sys::core::HRESULT = 0x80040310_u32 as _;
-pub const FHCFG_E_TARGET_CANNOT_BE_USED: ::windows_sys::core::HRESULT = 0x80040309_u32 as _;
-pub const FHCFG_E_TARGET_NOT_CONFIGURED: ::windows_sys::core::HRESULT = 0x80040307_u32 as _;
-pub const FHCFG_E_TARGET_NOT_CONNECTED: ::windows_sys::core::HRESULT = 0x80040304_u32 as _;
-pub const FHCFG_E_TARGET_NOT_ENOUGH_FREE_SPACE: ::windows_sys::core::HRESULT = 0x80040308_u32 as _;
-pub const FHCFG_E_TARGET_REHYDRATED_ELSEWHERE: ::windows_sys::core::HRESULT = 0x80040311_u32 as _;
-pub const FHCFG_E_TARGET_VERIFICATION_FAILED: ::windows_sys::core::HRESULT = 0x80040306_u32 as _;
-pub const FHSVC_E_BACKUP_BLOCKED: ::windows_sys::core::HRESULT = 0x80040600_u32 as _;
-pub const FHSVC_E_CONFIG_DISABLED: ::windows_sys::core::HRESULT = 0x80040602_u32 as _;
-pub const FHSVC_E_CONFIG_DISABLED_GP: ::windows_sys::core::HRESULT = 0x80040603_u32 as _;
-pub const FHSVC_E_CONFIG_REHYDRATING: ::windows_sys::core::HRESULT = 0x80040605_u32 as _;
-pub const FHSVC_E_FATAL_CONFIG_ERROR: ::windows_sys::core::HRESULT = 0x80040604_u32 as _;
-pub const FHSVC_E_NOT_CONFIGURED: ::windows_sys::core::HRESULT = 0x80040601_u32 as _;
+pub const FHCFG_E_CONFIGURATION_PREVIOUSLY_LOADED: windows_sys::core::HRESULT = 0x80040305_u32 as _;
+pub const FHCFG_E_CONFIG_ALREADY_EXISTS: windows_sys::core::HRESULT = 0x80040302_u32 as _;
+pub const FHCFG_E_CONFIG_FILE_NOT_FOUND: windows_sys::core::HRESULT = 0x80040301_u32 as _;
+pub const FHCFG_E_CORRUPT_CONFIG_FILE: windows_sys::core::HRESULT = 0x80040300_u32 as _;
+pub const FHCFG_E_INVALID_REHYDRATION_STATE: windows_sys::core::HRESULT = 0x8004030A_u32 as _;
+pub const FHCFG_E_LEGACY_BACKUP_NOT_FOUND: windows_sys::core::HRESULT = 0x80040315_u32 as _;
+pub const FHCFG_E_LEGACY_BACKUP_USER_EXCLUDED: windows_sys::core::HRESULT = 0x80040314_u32 as _;
+pub const FHCFG_E_LEGACY_TARGET_UNSUPPORTED: windows_sys::core::HRESULT = 0x80040312_u32 as _;
+pub const FHCFG_E_LEGACY_TARGET_VALIDATION_UNSUPPORTED: windows_sys::core::HRESULT = 0x80040313_u32 as _;
+pub const FHCFG_E_NO_VALID_CONFIGURATION_LOADED: windows_sys::core::HRESULT = 0x80040303_u32 as _;
+pub const FHCFG_E_RECOMMENDATION_CHANGE_NOT_ALLOWED: windows_sys::core::HRESULT = 0x80040310_u32 as _;
+pub const FHCFG_E_TARGET_CANNOT_BE_USED: windows_sys::core::HRESULT = 0x80040309_u32 as _;
+pub const FHCFG_E_TARGET_NOT_CONFIGURED: windows_sys::core::HRESULT = 0x80040307_u32 as _;
+pub const FHCFG_E_TARGET_NOT_CONNECTED: windows_sys::core::HRESULT = 0x80040304_u32 as _;
+pub const FHCFG_E_TARGET_NOT_ENOUGH_FREE_SPACE: windows_sys::core::HRESULT = 0x80040308_u32 as _;
+pub const FHCFG_E_TARGET_REHYDRATED_ELSEWHERE: windows_sys::core::HRESULT = 0x80040311_u32 as _;
+pub const FHCFG_E_TARGET_VERIFICATION_FAILED: windows_sys::core::HRESULT = 0x80040306_u32 as _;
+pub const FHSVC_E_BACKUP_BLOCKED: windows_sys::core::HRESULT = 0x80040600_u32 as _;
+pub const FHSVC_E_CONFIG_DISABLED: windows_sys::core::HRESULT = 0x80040602_u32 as _;
+pub const FHSVC_E_CONFIG_DISABLED_GP: windows_sys::core::HRESULT = 0x80040603_u32 as _;
+pub const FHSVC_E_CONFIG_REHYDRATING: windows_sys::core::HRESULT = 0x80040605_u32 as _;
+pub const FHSVC_E_FATAL_CONFIG_ERROR: windows_sys::core::HRESULT = 0x80040604_u32 as _;
+pub const FHSVC_E_NOT_CONFIGURED: windows_sys::core::HRESULT = 0x80040601_u32 as _;
 pub const FH_ACCESS_DENIED: FH_DEVICE_VALIDATION_RESULT = 0i32;
 pub const FH_CURRENT_DEFAULT: FH_DEVICE_VALIDATION_RESULT = 3i32;
 pub const FH_DRIVE_FIXED: FH_TARGET_DRIVE_TYPES = 3i32;
@@ -99,5 +99,5 @@ pub type FH_RETENTION_TYPES = i32;
 pub type FH_TARGET_DRIVE_TYPES = i32;
 pub type FH_TARGET_PROPERTY_TYPE = i32;
 pub type FhBackupStopReason = i32;
-pub const FhConfigMgr: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xed43bb3c_09e9_498a_9df6_2177244c6db4);
-pub const FhReassociation: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x4d728e35_16fa_4320_9e8b_bfd7100a8846);
+pub const FhConfigMgr: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xed43bb3c_09e9_498a_9df6_2177244c6db4);
+pub const FhReassociation: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4d728e35_16fa_4320_9e8b_bfd7100a8846);

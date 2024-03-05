@@ -83,7 +83,7 @@ impl Writer {
             #tokens
         };
 
-        let file = rdl::File::parse_str(&tokens.into_string())?;
+        let file = File::parse_str(&tokens.into_string())?;
         write_to_file(output, file.fmt())
         //write_to_file(output, tokens.into_string())
     }
@@ -321,7 +321,7 @@ impl Writer {
 
     fn ty(&self, ty: &metadata::Type) -> TokenStream {
         match ty {
-            metadata::Type::Void => quote! { ::core::ffi::c_void },
+            metadata::Type::Void => quote! { core::ffi::c_void },
             metadata::Type::Bool => quote! { bool },
             metadata::Type::Char => quote! { u16 },
             metadata::Type::I8 => quote! { i8 },

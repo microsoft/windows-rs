@@ -1,48 +1,48 @@
-::windows_targets::link!("dinput8.dll" "system" fn DirectInput8Create(hinst : super::super::Foundation:: HINSTANCE, dwversion : u32, riidltf : *const ::windows_sys::core::GUID, ppvout : *mut *mut ::core::ffi::c_void, punkouter : * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("dinput8.dll" "system" fn DirectInput8Create(hinst : super::super::Foundation:: HINSTANCE, dwversion : u32, riidltf : *const windows_sys::core::GUID, ppvout : *mut *mut core::ffi::c_void, punkouter : * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 ::windows_targets::link!("hid.dll" "system" fn HidD_FlushQueue(hiddeviceobject : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOLEAN);
 ::windows_targets::link!("hid.dll" "system" fn HidD_FreePreparsedData(preparseddata : PHIDP_PREPARSED_DATA) -> super::super::Foundation:: BOOLEAN);
 ::windows_targets::link!("hid.dll" "system" fn HidD_GetAttributes(hiddeviceobject : super::super::Foundation:: HANDLE, attributes : *mut HIDD_ATTRIBUTES) -> super::super::Foundation:: BOOLEAN);
 ::windows_targets::link!("hid.dll" "system" fn HidD_GetConfiguration(hiddeviceobject : super::super::Foundation:: HANDLE, configuration : *mut HIDD_CONFIGURATION, configurationlength : u32) -> super::super::Foundation:: BOOLEAN);
-::windows_targets::link!("hid.dll" "system" fn HidD_GetFeature(hiddeviceobject : super::super::Foundation:: HANDLE, reportbuffer : *mut ::core::ffi::c_void, reportbufferlength : u32) -> super::super::Foundation:: BOOLEAN);
-::windows_targets::link!("hid.dll" "system" fn HidD_GetHidGuid(hidguid : *mut ::windows_sys::core::GUID));
-::windows_targets::link!("hid.dll" "system" fn HidD_GetIndexedString(hiddeviceobject : super::super::Foundation:: HANDLE, stringindex : u32, buffer : *mut ::core::ffi::c_void, bufferlength : u32) -> super::super::Foundation:: BOOLEAN);
-::windows_targets::link!("hid.dll" "system" fn HidD_GetInputReport(hiddeviceobject : super::super::Foundation:: HANDLE, reportbuffer : *mut ::core::ffi::c_void, reportbufferlength : u32) -> super::super::Foundation:: BOOLEAN);
-::windows_targets::link!("hid.dll" "system" fn HidD_GetManufacturerString(hiddeviceobject : super::super::Foundation:: HANDLE, buffer : *mut ::core::ffi::c_void, bufferlength : u32) -> super::super::Foundation:: BOOLEAN);
-::windows_targets::link!("hid.dll" "system" fn HidD_GetMsGenreDescriptor(hiddeviceobject : super::super::Foundation:: HANDLE, buffer : *mut ::core::ffi::c_void, bufferlength : u32) -> super::super::Foundation:: BOOLEAN);
+::windows_targets::link!("hid.dll" "system" fn HidD_GetFeature(hiddeviceobject : super::super::Foundation:: HANDLE, reportbuffer : *mut core::ffi::c_void, reportbufferlength : u32) -> super::super::Foundation:: BOOLEAN);
+::windows_targets::link!("hid.dll" "system" fn HidD_GetHidGuid(hidguid : *mut windows_sys::core::GUID));
+::windows_targets::link!("hid.dll" "system" fn HidD_GetIndexedString(hiddeviceobject : super::super::Foundation:: HANDLE, stringindex : u32, buffer : *mut core::ffi::c_void, bufferlength : u32) -> super::super::Foundation:: BOOLEAN);
+::windows_targets::link!("hid.dll" "system" fn HidD_GetInputReport(hiddeviceobject : super::super::Foundation:: HANDLE, reportbuffer : *mut core::ffi::c_void, reportbufferlength : u32) -> super::super::Foundation:: BOOLEAN);
+::windows_targets::link!("hid.dll" "system" fn HidD_GetManufacturerString(hiddeviceobject : super::super::Foundation:: HANDLE, buffer : *mut core::ffi::c_void, bufferlength : u32) -> super::super::Foundation:: BOOLEAN);
+::windows_targets::link!("hid.dll" "system" fn HidD_GetMsGenreDescriptor(hiddeviceobject : super::super::Foundation:: HANDLE, buffer : *mut core::ffi::c_void, bufferlength : u32) -> super::super::Foundation:: BOOLEAN);
 ::windows_targets::link!("hid.dll" "system" fn HidD_GetNumInputBuffers(hiddeviceobject : super::super::Foundation:: HANDLE, numberbuffers : *mut u32) -> super::super::Foundation:: BOOLEAN);
-::windows_targets::link!("hid.dll" "system" fn HidD_GetPhysicalDescriptor(hiddeviceobject : super::super::Foundation:: HANDLE, buffer : *mut ::core::ffi::c_void, bufferlength : u32) -> super::super::Foundation:: BOOLEAN);
+::windows_targets::link!("hid.dll" "system" fn HidD_GetPhysicalDescriptor(hiddeviceobject : super::super::Foundation:: HANDLE, buffer : *mut core::ffi::c_void, bufferlength : u32) -> super::super::Foundation:: BOOLEAN);
 ::windows_targets::link!("hid.dll" "system" fn HidD_GetPreparsedData(hiddeviceobject : super::super::Foundation:: HANDLE, preparseddata : *mut PHIDP_PREPARSED_DATA) -> super::super::Foundation:: BOOLEAN);
-::windows_targets::link!("hid.dll" "system" fn HidD_GetProductString(hiddeviceobject : super::super::Foundation:: HANDLE, buffer : *mut ::core::ffi::c_void, bufferlength : u32) -> super::super::Foundation:: BOOLEAN);
-::windows_targets::link!("hid.dll" "system" fn HidD_GetSerialNumberString(hiddeviceobject : super::super::Foundation:: HANDLE, buffer : *mut ::core::ffi::c_void, bufferlength : u32) -> super::super::Foundation:: BOOLEAN);
+::windows_targets::link!("hid.dll" "system" fn HidD_GetProductString(hiddeviceobject : super::super::Foundation:: HANDLE, buffer : *mut core::ffi::c_void, bufferlength : u32) -> super::super::Foundation:: BOOLEAN);
+::windows_targets::link!("hid.dll" "system" fn HidD_GetSerialNumberString(hiddeviceobject : super::super::Foundation:: HANDLE, buffer : *mut core::ffi::c_void, bufferlength : u32) -> super::super::Foundation:: BOOLEAN);
 ::windows_targets::link!("hid.dll" "system" fn HidD_SetConfiguration(hiddeviceobject : super::super::Foundation:: HANDLE, configuration : *const HIDD_CONFIGURATION, configurationlength : u32) -> super::super::Foundation:: BOOLEAN);
-::windows_targets::link!("hid.dll" "system" fn HidD_SetFeature(hiddeviceobject : super::super::Foundation:: HANDLE, reportbuffer : *const ::core::ffi::c_void, reportbufferlength : u32) -> super::super::Foundation:: BOOLEAN);
+::windows_targets::link!("hid.dll" "system" fn HidD_SetFeature(hiddeviceobject : super::super::Foundation:: HANDLE, reportbuffer : *const core::ffi::c_void, reportbufferlength : u32) -> super::super::Foundation:: BOOLEAN);
 ::windows_targets::link!("hid.dll" "system" fn HidD_SetNumInputBuffers(hiddeviceobject : super::super::Foundation:: HANDLE, numberbuffers : u32) -> super::super::Foundation:: BOOLEAN);
-::windows_targets::link!("hid.dll" "system" fn HidD_SetOutputReport(hiddeviceobject : super::super::Foundation:: HANDLE, reportbuffer : *const ::core::ffi::c_void, reportbufferlength : u32) -> super::super::Foundation:: BOOLEAN);
-::windows_targets::link!("hid.dll" "system" fn HidP_GetButtonArray(reporttype : HIDP_REPORT_TYPE, usagepage : u16, linkcollection : u16, usage : u16, buttondata : *mut HIDP_BUTTON_ARRAY_DATA, buttondatalength : *mut u16, preparseddata : PHIDP_PREPARSED_DATA, report : ::windows_sys::core::PCSTR, reportlength : u32) -> super::super::Foundation:: NTSTATUS);
+::windows_targets::link!("hid.dll" "system" fn HidD_SetOutputReport(hiddeviceobject : super::super::Foundation:: HANDLE, reportbuffer : *const core::ffi::c_void, reportbufferlength : u32) -> super::super::Foundation:: BOOLEAN);
+::windows_targets::link!("hid.dll" "system" fn HidP_GetButtonArray(reporttype : HIDP_REPORT_TYPE, usagepage : u16, linkcollection : u16, usage : u16, buttondata : *mut HIDP_BUTTON_ARRAY_DATA, buttondatalength : *mut u16, preparseddata : PHIDP_PREPARSED_DATA, report : windows_sys::core::PCSTR, reportlength : u32) -> super::super::Foundation:: NTSTATUS);
 ::windows_targets::link!("hid.dll" "system" fn HidP_GetButtonCaps(reporttype : HIDP_REPORT_TYPE, buttoncaps : *mut HIDP_BUTTON_CAPS, buttoncapslength : *mut u16, preparseddata : PHIDP_PREPARSED_DATA) -> super::super::Foundation:: NTSTATUS);
 ::windows_targets::link!("hid.dll" "system" fn HidP_GetCaps(preparseddata : PHIDP_PREPARSED_DATA, capabilities : *mut HIDP_CAPS) -> super::super::Foundation:: NTSTATUS);
-::windows_targets::link!("hid.dll" "system" fn HidP_GetData(reporttype : HIDP_REPORT_TYPE, datalist : *mut HIDP_DATA, datalength : *mut u32, preparseddata : PHIDP_PREPARSED_DATA, report : ::windows_sys::core::PSTR, reportlength : u32) -> super::super::Foundation:: NTSTATUS);
+::windows_targets::link!("hid.dll" "system" fn HidP_GetData(reporttype : HIDP_REPORT_TYPE, datalist : *mut HIDP_DATA, datalength : *mut u32, preparseddata : PHIDP_PREPARSED_DATA, report : windows_sys::core::PSTR, reportlength : u32) -> super::super::Foundation:: NTSTATUS);
 ::windows_targets::link!("hid.dll" "system" fn HidP_GetExtendedAttributes(reporttype : HIDP_REPORT_TYPE, dataindex : u16, preparseddata : PHIDP_PREPARSED_DATA, attributes : *mut HIDP_EXTENDED_ATTRIBUTES, lengthattributes : *mut u32) -> super::super::Foundation:: NTSTATUS);
 ::windows_targets::link!("hid.dll" "system" fn HidP_GetLinkCollectionNodes(linkcollectionnodes : *mut HIDP_LINK_COLLECTION_NODE, linkcollectionnodeslength : *mut u32, preparseddata : PHIDP_PREPARSED_DATA) -> super::super::Foundation:: NTSTATUS);
-::windows_targets::link!("hid.dll" "system" fn HidP_GetScaledUsageValue(reporttype : HIDP_REPORT_TYPE, usagepage : u16, linkcollection : u16, usage : u16, usagevalue : *mut i32, preparseddata : PHIDP_PREPARSED_DATA, report : ::windows_sys::core::PCSTR, reportlength : u32) -> super::super::Foundation:: NTSTATUS);
+::windows_targets::link!("hid.dll" "system" fn HidP_GetScaledUsageValue(reporttype : HIDP_REPORT_TYPE, usagepage : u16, linkcollection : u16, usage : u16, usagevalue : *mut i32, preparseddata : PHIDP_PREPARSED_DATA, report : windows_sys::core::PCSTR, reportlength : u32) -> super::super::Foundation:: NTSTATUS);
 ::windows_targets::link!("hid.dll" "system" fn HidP_GetSpecificButtonCaps(reporttype : HIDP_REPORT_TYPE, usagepage : u16, linkcollection : u16, usage : u16, buttoncaps : *mut HIDP_BUTTON_CAPS, buttoncapslength : *mut u16, preparseddata : PHIDP_PREPARSED_DATA) -> super::super::Foundation:: NTSTATUS);
 ::windows_targets::link!("hid.dll" "system" fn HidP_GetSpecificValueCaps(reporttype : HIDP_REPORT_TYPE, usagepage : u16, linkcollection : u16, usage : u16, valuecaps : *mut HIDP_VALUE_CAPS, valuecapslength : *mut u16, preparseddata : PHIDP_PREPARSED_DATA) -> super::super::Foundation:: NTSTATUS);
-::windows_targets::link!("hid.dll" "system" fn HidP_GetUsageValue(reporttype : HIDP_REPORT_TYPE, usagepage : u16, linkcollection : u16, usage : u16, usagevalue : *mut u32, preparseddata : PHIDP_PREPARSED_DATA, report : ::windows_sys::core::PCSTR, reportlength : u32) -> super::super::Foundation:: NTSTATUS);
-::windows_targets::link!("hid.dll" "system" fn HidP_GetUsageValueArray(reporttype : HIDP_REPORT_TYPE, usagepage : u16, linkcollection : u16, usage : u16, usagevalue : ::windows_sys::core::PSTR, usagevaluebytelength : u16, preparseddata : PHIDP_PREPARSED_DATA, report : ::windows_sys::core::PCSTR, reportlength : u32) -> super::super::Foundation:: NTSTATUS);
-::windows_targets::link!("hid.dll" "system" fn HidP_GetUsages(reporttype : HIDP_REPORT_TYPE, usagepage : u16, linkcollection : u16, usagelist : *mut u16, usagelength : *mut u32, preparseddata : PHIDP_PREPARSED_DATA, report : ::windows_sys::core::PSTR, reportlength : u32) -> super::super::Foundation:: NTSTATUS);
-::windows_targets::link!("hid.dll" "system" fn HidP_GetUsagesEx(reporttype : HIDP_REPORT_TYPE, linkcollection : u16, buttonlist : *mut USAGE_AND_PAGE, usagelength : *mut u32, preparseddata : PHIDP_PREPARSED_DATA, report : ::windows_sys::core::PCSTR, reportlength : u32) -> super::super::Foundation:: NTSTATUS);
+::windows_targets::link!("hid.dll" "system" fn HidP_GetUsageValue(reporttype : HIDP_REPORT_TYPE, usagepage : u16, linkcollection : u16, usage : u16, usagevalue : *mut u32, preparseddata : PHIDP_PREPARSED_DATA, report : windows_sys::core::PCSTR, reportlength : u32) -> super::super::Foundation:: NTSTATUS);
+::windows_targets::link!("hid.dll" "system" fn HidP_GetUsageValueArray(reporttype : HIDP_REPORT_TYPE, usagepage : u16, linkcollection : u16, usage : u16, usagevalue : windows_sys::core::PSTR, usagevaluebytelength : u16, preparseddata : PHIDP_PREPARSED_DATA, report : windows_sys::core::PCSTR, reportlength : u32) -> super::super::Foundation:: NTSTATUS);
+::windows_targets::link!("hid.dll" "system" fn HidP_GetUsages(reporttype : HIDP_REPORT_TYPE, usagepage : u16, linkcollection : u16, usagelist : *mut u16, usagelength : *mut u32, preparseddata : PHIDP_PREPARSED_DATA, report : windows_sys::core::PSTR, reportlength : u32) -> super::super::Foundation:: NTSTATUS);
+::windows_targets::link!("hid.dll" "system" fn HidP_GetUsagesEx(reporttype : HIDP_REPORT_TYPE, linkcollection : u16, buttonlist : *mut USAGE_AND_PAGE, usagelength : *mut u32, preparseddata : PHIDP_PREPARSED_DATA, report : windows_sys::core::PCSTR, reportlength : u32) -> super::super::Foundation:: NTSTATUS);
 ::windows_targets::link!("hid.dll" "system" fn HidP_GetValueCaps(reporttype : HIDP_REPORT_TYPE, valuecaps : *mut HIDP_VALUE_CAPS, valuecapslength : *mut u16, preparseddata : PHIDP_PREPARSED_DATA) -> super::super::Foundation:: NTSTATUS);
-::windows_targets::link!("hid.dll" "system" fn HidP_InitializeReportForID(reporttype : HIDP_REPORT_TYPE, reportid : u8, preparseddata : PHIDP_PREPARSED_DATA, report : ::windows_sys::core::PSTR, reportlength : u32) -> super::super::Foundation:: NTSTATUS);
+::windows_targets::link!("hid.dll" "system" fn HidP_InitializeReportForID(reporttype : HIDP_REPORT_TYPE, reportid : u8, preparseddata : PHIDP_PREPARSED_DATA, report : windows_sys::core::PSTR, reportlength : u32) -> super::super::Foundation:: NTSTATUS);
 ::windows_targets::link!("hid.dll" "system" fn HidP_MaxDataListLength(reporttype : HIDP_REPORT_TYPE, preparseddata : PHIDP_PREPARSED_DATA) -> u32);
 ::windows_targets::link!("hid.dll" "system" fn HidP_MaxUsageListLength(reporttype : HIDP_REPORT_TYPE, usagepage : u16, preparseddata : PHIDP_PREPARSED_DATA) -> u32);
-::windows_targets::link!("hid.dll" "system" fn HidP_SetButtonArray(reporttype : HIDP_REPORT_TYPE, usagepage : u16, linkcollection : u16, usage : u16, buttondata : *const HIDP_BUTTON_ARRAY_DATA, buttondatalength : u16, preparseddata : PHIDP_PREPARSED_DATA, report : ::windows_sys::core::PSTR, reportlength : u32) -> super::super::Foundation:: NTSTATUS);
-::windows_targets::link!("hid.dll" "system" fn HidP_SetData(reporttype : HIDP_REPORT_TYPE, datalist : *mut HIDP_DATA, datalength : *mut u32, preparseddata : PHIDP_PREPARSED_DATA, report : ::windows_sys::core::PCSTR, reportlength : u32) -> super::super::Foundation:: NTSTATUS);
-::windows_targets::link!("hid.dll" "system" fn HidP_SetScaledUsageValue(reporttype : HIDP_REPORT_TYPE, usagepage : u16, linkcollection : u16, usage : u16, usagevalue : i32, preparseddata : PHIDP_PREPARSED_DATA, report : ::windows_sys::core::PSTR, reportlength : u32) -> super::super::Foundation:: NTSTATUS);
-::windows_targets::link!("hid.dll" "system" fn HidP_SetUsageValue(reporttype : HIDP_REPORT_TYPE, usagepage : u16, linkcollection : u16, usage : u16, usagevalue : u32, preparseddata : PHIDP_PREPARSED_DATA, report : ::windows_sys::core::PSTR, reportlength : u32) -> super::super::Foundation:: NTSTATUS);
-::windows_targets::link!("hid.dll" "system" fn HidP_SetUsageValueArray(reporttype : HIDP_REPORT_TYPE, usagepage : u16, linkcollection : u16, usage : u16, usagevalue : ::windows_sys::core::PCSTR, usagevaluebytelength : u16, preparseddata : PHIDP_PREPARSED_DATA, report : ::windows_sys::core::PSTR, reportlength : u32) -> super::super::Foundation:: NTSTATUS);
-::windows_targets::link!("hid.dll" "system" fn HidP_SetUsages(reporttype : HIDP_REPORT_TYPE, usagepage : u16, linkcollection : u16, usagelist : *mut u16, usagelength : *mut u32, preparseddata : PHIDP_PREPARSED_DATA, report : ::windows_sys::core::PCSTR, reportlength : u32) -> super::super::Foundation:: NTSTATUS);
-::windows_targets::link!("hid.dll" "system" fn HidP_TranslateUsagesToI8042ScanCodes(changedusagelist : *const u16, usagelistlength : u32, keyaction : HIDP_KEYBOARD_DIRECTION, modifierstate : *mut HIDP_KEYBOARD_MODIFIER_STATE, insertcodesprocedure : PHIDP_INSERT_SCANCODES, insertcodescontext : *const ::core::ffi::c_void) -> super::super::Foundation:: NTSTATUS);
-::windows_targets::link!("hid.dll" "system" fn HidP_UnsetUsages(reporttype : HIDP_REPORT_TYPE, usagepage : u16, linkcollection : u16, usagelist : *mut u16, usagelength : *mut u32, preparseddata : PHIDP_PREPARSED_DATA, report : ::windows_sys::core::PCSTR, reportlength : u32) -> super::super::Foundation:: NTSTATUS);
+::windows_targets::link!("hid.dll" "system" fn HidP_SetButtonArray(reporttype : HIDP_REPORT_TYPE, usagepage : u16, linkcollection : u16, usage : u16, buttondata : *const HIDP_BUTTON_ARRAY_DATA, buttondatalength : u16, preparseddata : PHIDP_PREPARSED_DATA, report : windows_sys::core::PSTR, reportlength : u32) -> super::super::Foundation:: NTSTATUS);
+::windows_targets::link!("hid.dll" "system" fn HidP_SetData(reporttype : HIDP_REPORT_TYPE, datalist : *mut HIDP_DATA, datalength : *mut u32, preparseddata : PHIDP_PREPARSED_DATA, report : windows_sys::core::PCSTR, reportlength : u32) -> super::super::Foundation:: NTSTATUS);
+::windows_targets::link!("hid.dll" "system" fn HidP_SetScaledUsageValue(reporttype : HIDP_REPORT_TYPE, usagepage : u16, linkcollection : u16, usage : u16, usagevalue : i32, preparseddata : PHIDP_PREPARSED_DATA, report : windows_sys::core::PSTR, reportlength : u32) -> super::super::Foundation:: NTSTATUS);
+::windows_targets::link!("hid.dll" "system" fn HidP_SetUsageValue(reporttype : HIDP_REPORT_TYPE, usagepage : u16, linkcollection : u16, usage : u16, usagevalue : u32, preparseddata : PHIDP_PREPARSED_DATA, report : windows_sys::core::PSTR, reportlength : u32) -> super::super::Foundation:: NTSTATUS);
+::windows_targets::link!("hid.dll" "system" fn HidP_SetUsageValueArray(reporttype : HIDP_REPORT_TYPE, usagepage : u16, linkcollection : u16, usage : u16, usagevalue : windows_sys::core::PCSTR, usagevaluebytelength : u16, preparseddata : PHIDP_PREPARSED_DATA, report : windows_sys::core::PSTR, reportlength : u32) -> super::super::Foundation:: NTSTATUS);
+::windows_targets::link!("hid.dll" "system" fn HidP_SetUsages(reporttype : HIDP_REPORT_TYPE, usagepage : u16, linkcollection : u16, usagelist : *mut u16, usagelength : *mut u32, preparseddata : PHIDP_PREPARSED_DATA, report : windows_sys::core::PCSTR, reportlength : u32) -> super::super::Foundation:: NTSTATUS);
+::windows_targets::link!("hid.dll" "system" fn HidP_TranslateUsagesToI8042ScanCodes(changedusagelist : *const u16, usagelistlength : u32, keyaction : HIDP_KEYBOARD_DIRECTION, modifierstate : *mut HIDP_KEYBOARD_MODIFIER_STATE, insertcodesprocedure : PHIDP_INSERT_SCANCODES, insertcodescontext : *const core::ffi::c_void) -> super::super::Foundation:: NTSTATUS);
+::windows_targets::link!("hid.dll" "system" fn HidP_UnsetUsages(reporttype : HIDP_REPORT_TYPE, usagepage : u16, linkcollection : u16, usagelist : *mut u16, usagelength : *mut u32, preparseddata : PHIDP_PREPARSED_DATA, report : windows_sys::core::PCSTR, reportlength : u32) -> super::super::Foundation:: NTSTATUS);
 ::windows_targets::link!("hid.dll" "system" fn HidP_UsageListDifference(previoususagelist : *const u16, currentusagelist : *const u16, breakusagelist : *mut u16, makeusagelist : *mut u16, usagelistlength : u32) -> super::super::Foundation:: NTSTATUS);
 ::windows_targets::link!("winmm.dll" "system" fn joyConfigChanged(dwflags : u32) -> u32);
 pub const BALLPOINT_I8042_HARDWARE: u32 = 8u32;
@@ -64,30 +64,30 @@ pub const BUTTON_BIT_SEARCH: u32 = 64u32;
 pub const BUTTON_BIT_VOLUMEDOWN: u32 = 8u32;
 pub const BUTTON_BIT_VOLUMEUP: u32 = 4u32;
 pub const BUTTON_BIT_WINDOWS: u32 = 2u32;
-pub const CLSID_DirectInput: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x25e609e0_b259_11cf_bfc7_444553540000);
-pub const CLSID_DirectInput8: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x25e609e4_b259_11cf_bfc7_444553540000);
-pub const CLSID_DirectInputDevice: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x25e609e1_b259_11cf_bfc7_444553540000);
-pub const CLSID_DirectInputDevice8: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x25e609e5_b259_11cf_bfc7_444553540000);
-pub const DD_KEYBOARD_DEVICE_NAME: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("\\Device\\KeyboardClass");
-pub const DD_KEYBOARD_DEVICE_NAME_U: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("\\Device\\KeyboardClass");
-pub const DD_MOUSE_DEVICE_NAME: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("\\Device\\PointerClass");
-pub const DD_MOUSE_DEVICE_NAME_U: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("\\Device\\PointerClass");
+pub const CLSID_DirectInput: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x25e609e0_b259_11cf_bfc7_444553540000);
+pub const CLSID_DirectInput8: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x25e609e4_b259_11cf_bfc7_444553540000);
+pub const CLSID_DirectInputDevice: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x25e609e1_b259_11cf_bfc7_444553540000);
+pub const CLSID_DirectInputDevice8: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x25e609e5_b259_11cf_bfc7_444553540000);
+pub const DD_KEYBOARD_DEVICE_NAME: windows_sys::core::PCSTR = windows_sys::core::s!("\\Device\\KeyboardClass");
+pub const DD_KEYBOARD_DEVICE_NAME_U: windows_sys::core::PCWSTR = windows_sys::core::w!("\\Device\\KeyboardClass");
+pub const DD_MOUSE_DEVICE_NAME: windows_sys::core::PCSTR = windows_sys::core::s!("\\Device\\PointerClass");
+pub const DD_MOUSE_DEVICE_NAME_U: windows_sys::core::PCWSTR = windows_sys::core::w!("\\Device\\PointerClass");
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_DeviceInterface_HID_BackgroundAccess: super::Properties::DEVPROPKEY = super::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0xcbf38310_4a17_4310_a1eb_247f0b67593b), pid: 8 };
+pub const DEVPKEY_DeviceInterface_HID_BackgroundAccess: super::Properties::DEVPROPKEY = super::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0xcbf38310_4a17_4310_a1eb_247f0b67593b), pid: 8 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_DeviceInterface_HID_IsReadOnly: super::Properties::DEVPROPKEY = super::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0xcbf38310_4a17_4310_a1eb_247f0b67593b), pid: 4 };
+pub const DEVPKEY_DeviceInterface_HID_IsReadOnly: super::Properties::DEVPROPKEY = super::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0xcbf38310_4a17_4310_a1eb_247f0b67593b), pid: 4 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_DeviceInterface_HID_ProductId: super::Properties::DEVPROPKEY = super::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0xcbf38310_4a17_4310_a1eb_247f0b67593b), pid: 6 };
+pub const DEVPKEY_DeviceInterface_HID_ProductId: super::Properties::DEVPROPKEY = super::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0xcbf38310_4a17_4310_a1eb_247f0b67593b), pid: 6 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_DeviceInterface_HID_UsageId: super::Properties::DEVPROPKEY = super::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0xcbf38310_4a17_4310_a1eb_247f0b67593b), pid: 3 };
+pub const DEVPKEY_DeviceInterface_HID_UsageId: super::Properties::DEVPROPKEY = super::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0xcbf38310_4a17_4310_a1eb_247f0b67593b), pid: 3 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_DeviceInterface_HID_UsagePage: super::Properties::DEVPROPKEY = super::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0xcbf38310_4a17_4310_a1eb_247f0b67593b), pid: 2 };
+pub const DEVPKEY_DeviceInterface_HID_UsagePage: super::Properties::DEVPROPKEY = super::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0xcbf38310_4a17_4310_a1eb_247f0b67593b), pid: 2 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_DeviceInterface_HID_VendorId: super::Properties::DEVPROPKEY = super::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0xcbf38310_4a17_4310_a1eb_247f0b67593b), pid: 5 };
+pub const DEVPKEY_DeviceInterface_HID_VendorId: super::Properties::DEVPROPKEY = super::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0xcbf38310_4a17_4310_a1eb_247f0b67593b), pid: 5 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_DeviceInterface_HID_VersionNumber: super::Properties::DEVPROPKEY = super::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0xcbf38310_4a17_4310_a1eb_247f0b67593b), pid: 7 };
+pub const DEVPKEY_DeviceInterface_HID_VersionNumber: super::Properties::DEVPROPKEY = super::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0xcbf38310_4a17_4310_a1eb_247f0b67593b), pid: 7 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_DeviceInterface_HID_WakeScreenOnInputCapable: super::Properties::DEVPROPKEY = super::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0xcbf38310_4a17_4310_a1eb_247f0b67593b), pid: 9 };
+pub const DEVPKEY_DeviceInterface_HID_WakeScreenOnInputCapable: super::Properties::DEVPROPKEY = super::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0xcbf38310_4a17_4310_a1eb_247f0b67593b), pid: 9 };
 pub const DI8DEVCLASS_ALL: u32 = 0u32;
 pub const DI8DEVCLASS_DEVICE: u32 = 1u32;
 pub const DI8DEVCLASS_GAMECTRL: u32 = 4u32;
@@ -1152,11 +1152,11 @@ pub const DIEP_STARTDELAY: u32 = 512u32;
 pub const DIEP_TRIGGERBUTTON: u32 = 8u32;
 pub const DIEP_TRIGGERREPEATINTERVAL: u32 = 16u32;
 pub const DIEP_TYPESPECIFICPARAMS: u32 = 256u32;
-pub const DIERR_ACQUIRED: ::windows_sys::core::HRESULT = 0x800700AA_u32 as _;
-pub const DIERR_ALREADYINITIALIZED: ::windows_sys::core::HRESULT = 0x800704DF_u32 as _;
-pub const DIERR_BADDRIVERVER: ::windows_sys::core::HRESULT = 0x80070077_u32 as _;
+pub const DIERR_ACQUIRED: windows_sys::core::HRESULT = 0x800700AA_u32 as _;
+pub const DIERR_ALREADYINITIALIZED: windows_sys::core::HRESULT = 0x800704DF_u32 as _;
+pub const DIERR_BADDRIVERVER: windows_sys::core::HRESULT = 0x80070077_u32 as _;
 pub const DIERR_BADINF: i32 = -2147220478i32;
-pub const DIERR_BETADIRECTINPUTVERSION: ::windows_sys::core::HRESULT = 0x80070481_u32 as _;
+pub const DIERR_BETADIRECTINPUTVERSION: windows_sys::core::HRESULT = 0x80070481_u32 as _;
 pub const DIERR_CANCELLED: i32 = -2147220479i32;
 pub const DIERR_DEVICEFULL: i32 = -2147220991i32;
 pub const DIERR_DEVICENOTREG: i32 = -2147221164i32;
@@ -1167,7 +1167,7 @@ pub const DIERR_GENERIC: i32 = -2147467259i32;
 pub const DIERR_HANDLEEXISTS: i32 = -2147024891i32;
 pub const DIERR_HASEFFECTS: i32 = -2147220988i32;
 pub const DIERR_INCOMPLETEEFFECT: i32 = -2147220986i32;
-pub const DIERR_INPUTLOST: ::windows_sys::core::HRESULT = 0x8007001E_u32 as _;
+pub const DIERR_INPUTLOST: windows_sys::core::HRESULT = 0x8007001E_u32 as _;
 pub const DIERR_INSUFFICIENTPRIVS: i32 = -2147220992i32;
 pub const DIERR_INVALIDCLASSINSTALLER: i32 = -2147220480i32;
 pub const DIERR_INVALIDPARAM: i32 = -2147024809i32;
@@ -1175,15 +1175,15 @@ pub const DIERR_MAPFILEFAIL: i32 = -2147220981i32;
 pub const DIERR_MOREDATA: i32 = -2147220990i32;
 pub const DIERR_NOAGGREGATION: i32 = -2147221232i32;
 pub const DIERR_NOINTERFACE: i32 = -2147467262i32;
-pub const DIERR_NOMOREITEMS: ::windows_sys::core::HRESULT = 0x80070103_u32 as _;
-pub const DIERR_NOTACQUIRED: ::windows_sys::core::HRESULT = 0x8007000C_u32 as _;
+pub const DIERR_NOMOREITEMS: windows_sys::core::HRESULT = 0x80070103_u32 as _;
+pub const DIERR_NOTACQUIRED: windows_sys::core::HRESULT = 0x8007000C_u32 as _;
 pub const DIERR_NOTBUFFERED: i32 = -2147220985i32;
 pub const DIERR_NOTDOWNLOADED: i32 = -2147220989i32;
 pub const DIERR_NOTEXCLUSIVEACQUIRED: i32 = -2147220987i32;
-pub const DIERR_NOTFOUND: ::windows_sys::core::HRESULT = 0x80070002_u32 as _;
-pub const DIERR_NOTINITIALIZED: ::windows_sys::core::HRESULT = 0x80070015_u32 as _;
-pub const DIERR_OBJECTNOTFOUND: ::windows_sys::core::HRESULT = 0x80070002_u32 as _;
-pub const DIERR_OLDDIRECTINPUTVERSION: ::windows_sys::core::HRESULT = 0x8007047E_u32 as _;
+pub const DIERR_NOTFOUND: windows_sys::core::HRESULT = 0x80070002_u32 as _;
+pub const DIERR_NOTINITIALIZED: windows_sys::core::HRESULT = 0x80070015_u32 as _;
+pub const DIERR_OBJECTNOTFOUND: windows_sys::core::HRESULT = 0x80070002_u32 as _;
+pub const DIERR_OLDDIRECTINPUTVERSION: windows_sys::core::HRESULT = 0x8007047E_u32 as _;
 pub const DIERR_OTHERAPPHASPRIO: i32 = -2147024891i32;
 pub const DIERR_OUTOFMEMORY: i32 = -2147024882i32;
 pub const DIERR_READONLY: i32 = -2147024891i32;
@@ -1568,59 +1568,59 @@ pub const DIPROPAXISMODE_ABS: u32 = 0u32;
 pub const DIPROPAXISMODE_REL: u32 = 1u32;
 pub const DIPROPCALIBRATIONMODE_COOKED: u32 = 0u32;
 pub const DIPROPCALIBRATIONMODE_RAW: u32 = 1u32;
-pub const DIPROP_APPDATA: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000016);
-pub const DIPROP_AUTOCENTER: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000009);
-pub const DIPROP_AXISMODE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000002);
-pub const DIPROP_BUFFERSIZE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000001);
-pub const DIPROP_CALIBRATION: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x00000000_0000_0000_0000_00000000000b);
-pub const DIPROP_CALIBRATIONMODE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x00000000_0000_0000_0000_00000000000a);
-pub const DIPROP_CPOINTS: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000015);
-pub const DIPROP_DEADZONE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000005);
-pub const DIPROP_FFGAIN: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000007);
-pub const DIPROP_FFLOAD: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000008);
-pub const DIPROP_GETPORTDISPLAYNAME: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000010);
-pub const DIPROP_GRANULARITY: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000003);
-pub const DIPROP_GUIDANDPATH: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x00000000_0000_0000_0000_00000000000c);
-pub const DIPROP_INSTANCENAME: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x00000000_0000_0000_0000_00000000000d);
-pub const DIPROP_JOYSTICKID: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x00000000_0000_0000_0000_00000000000f);
-pub const DIPROP_KEYNAME: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000014);
-pub const DIPROP_LOGICALRANGE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000013);
-pub const DIPROP_PHYSICALRANGE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000012);
-pub const DIPROP_PRODUCTNAME: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x00000000_0000_0000_0000_00000000000e);
-pub const DIPROP_RANGE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000004);
-pub const DIPROP_SATURATION: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000006);
-pub const DIPROP_SCANCODE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000017);
-pub const DIPROP_TYPENAME: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x00000000_0000_0000_0000_00000000001a);
-pub const DIPROP_USERNAME: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000019);
-pub const DIPROP_VIDPID: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000018);
+pub const DIPROP_APPDATA: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000016);
+pub const DIPROP_AUTOCENTER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000009);
+pub const DIPROP_AXISMODE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000002);
+pub const DIPROP_BUFFERSIZE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000001);
+pub const DIPROP_CALIBRATION: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x00000000_0000_0000_0000_00000000000b);
+pub const DIPROP_CALIBRATIONMODE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x00000000_0000_0000_0000_00000000000a);
+pub const DIPROP_CPOINTS: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000015);
+pub const DIPROP_DEADZONE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000005);
+pub const DIPROP_FFGAIN: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000007);
+pub const DIPROP_FFLOAD: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000008);
+pub const DIPROP_GETPORTDISPLAYNAME: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000010);
+pub const DIPROP_GRANULARITY: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000003);
+pub const DIPROP_GUIDANDPATH: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x00000000_0000_0000_0000_00000000000c);
+pub const DIPROP_INSTANCENAME: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x00000000_0000_0000_0000_00000000000d);
+pub const DIPROP_JOYSTICKID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x00000000_0000_0000_0000_00000000000f);
+pub const DIPROP_KEYNAME: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000014);
+pub const DIPROP_LOGICALRANGE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000013);
+pub const DIPROP_PHYSICALRANGE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000012);
+pub const DIPROP_PRODUCTNAME: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x00000000_0000_0000_0000_00000000000e);
+pub const DIPROP_RANGE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000004);
+pub const DIPROP_SATURATION: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000006);
+pub const DIPROP_SCANCODE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000017);
+pub const DIPROP_TYPENAME: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x00000000_0000_0000_0000_00000000001a);
+pub const DIPROP_USERNAME: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000019);
+pub const DIPROP_VIDPID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000018);
 pub const DIRECTINPUT_HEADER_VERSION: u32 = 2048u32;
-pub const DIRECTINPUT_NOTIFICATION_MSGSTRING: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("DIRECTINPUT_NOTIFICATION_MSGSTRING");
-pub const DIRECTINPUT_NOTIFICATION_MSGSTRINGA: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("DIRECTINPUT_NOTIFICATION_MSGSTRING");
-pub const DIRECTINPUT_NOTIFICATION_MSGSTRINGW: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("DIRECTINPUT_NOTIFICATION_MSGSTRING");
-pub const DIRECTINPUT_REGSTR_KEY_LASTAPP: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("MostRecentApplication");
-pub const DIRECTINPUT_REGSTR_KEY_LASTAPPA: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("MostRecentApplication");
-pub const DIRECTINPUT_REGSTR_KEY_LASTAPPW: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("MostRecentApplication");
-pub const DIRECTINPUT_REGSTR_KEY_LASTMAPAPP: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("MostRecentMapperApplication");
-pub const DIRECTINPUT_REGSTR_KEY_LASTMAPAPPA: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("MostRecentMapperApplication");
-pub const DIRECTINPUT_REGSTR_KEY_LASTMAPAPPW: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("MostRecentMapperApplication");
-pub const DIRECTINPUT_REGSTR_VAL_APPIDFLAG: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("AppIdFlag");
-pub const DIRECTINPUT_REGSTR_VAL_APPIDFLAGA: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("AppIdFlag");
-pub const DIRECTINPUT_REGSTR_VAL_APPIDFLAGW: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("AppIdFlag");
-pub const DIRECTINPUT_REGSTR_VAL_ID: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Id");
-pub const DIRECTINPUT_REGSTR_VAL_IDA: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("Id");
-pub const DIRECTINPUT_REGSTR_VAL_IDW: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Id");
-pub const DIRECTINPUT_REGSTR_VAL_LASTSTART: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("MostRecentStart");
-pub const DIRECTINPUT_REGSTR_VAL_LASTSTARTA: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("MostRecentStart");
-pub const DIRECTINPUT_REGSTR_VAL_LASTSTARTW: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("MostRecentStart");
-pub const DIRECTINPUT_REGSTR_VAL_MAPPER: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("UsesMapper");
-pub const DIRECTINPUT_REGSTR_VAL_MAPPERA: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("UsesMapper");
-pub const DIRECTINPUT_REGSTR_VAL_MAPPERW: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("UsesMapper");
-pub const DIRECTINPUT_REGSTR_VAL_NAME: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Name");
-pub const DIRECTINPUT_REGSTR_VAL_NAMEA: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("Name");
-pub const DIRECTINPUT_REGSTR_VAL_NAMEW: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Name");
-pub const DIRECTINPUT_REGSTR_VAL_VERSION: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Version");
-pub const DIRECTINPUT_REGSTR_VAL_VERSIONA: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("Version");
-pub const DIRECTINPUT_REGSTR_VAL_VERSIONW: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Version");
+pub const DIRECTINPUT_NOTIFICATION_MSGSTRING: windows_sys::core::PCWSTR = windows_sys::core::w!("DIRECTINPUT_NOTIFICATION_MSGSTRING");
+pub const DIRECTINPUT_NOTIFICATION_MSGSTRINGA: windows_sys::core::PCSTR = windows_sys::core::s!("DIRECTINPUT_NOTIFICATION_MSGSTRING");
+pub const DIRECTINPUT_NOTIFICATION_MSGSTRINGW: windows_sys::core::PCWSTR = windows_sys::core::w!("DIRECTINPUT_NOTIFICATION_MSGSTRING");
+pub const DIRECTINPUT_REGSTR_KEY_LASTAPP: windows_sys::core::PCWSTR = windows_sys::core::w!("MostRecentApplication");
+pub const DIRECTINPUT_REGSTR_KEY_LASTAPPA: windows_sys::core::PCSTR = windows_sys::core::s!("MostRecentApplication");
+pub const DIRECTINPUT_REGSTR_KEY_LASTAPPW: windows_sys::core::PCWSTR = windows_sys::core::w!("MostRecentApplication");
+pub const DIRECTINPUT_REGSTR_KEY_LASTMAPAPP: windows_sys::core::PCWSTR = windows_sys::core::w!("MostRecentMapperApplication");
+pub const DIRECTINPUT_REGSTR_KEY_LASTMAPAPPA: windows_sys::core::PCSTR = windows_sys::core::s!("MostRecentMapperApplication");
+pub const DIRECTINPUT_REGSTR_KEY_LASTMAPAPPW: windows_sys::core::PCWSTR = windows_sys::core::w!("MostRecentMapperApplication");
+pub const DIRECTINPUT_REGSTR_VAL_APPIDFLAG: windows_sys::core::PCWSTR = windows_sys::core::w!("AppIdFlag");
+pub const DIRECTINPUT_REGSTR_VAL_APPIDFLAGA: windows_sys::core::PCSTR = windows_sys::core::s!("AppIdFlag");
+pub const DIRECTINPUT_REGSTR_VAL_APPIDFLAGW: windows_sys::core::PCWSTR = windows_sys::core::w!("AppIdFlag");
+pub const DIRECTINPUT_REGSTR_VAL_ID: windows_sys::core::PCWSTR = windows_sys::core::w!("Id");
+pub const DIRECTINPUT_REGSTR_VAL_IDA: windows_sys::core::PCSTR = windows_sys::core::s!("Id");
+pub const DIRECTINPUT_REGSTR_VAL_IDW: windows_sys::core::PCWSTR = windows_sys::core::w!("Id");
+pub const DIRECTINPUT_REGSTR_VAL_LASTSTART: windows_sys::core::PCWSTR = windows_sys::core::w!("MostRecentStart");
+pub const DIRECTINPUT_REGSTR_VAL_LASTSTARTA: windows_sys::core::PCSTR = windows_sys::core::s!("MostRecentStart");
+pub const DIRECTINPUT_REGSTR_VAL_LASTSTARTW: windows_sys::core::PCWSTR = windows_sys::core::w!("MostRecentStart");
+pub const DIRECTINPUT_REGSTR_VAL_MAPPER: windows_sys::core::PCWSTR = windows_sys::core::w!("UsesMapper");
+pub const DIRECTINPUT_REGSTR_VAL_MAPPERA: windows_sys::core::PCSTR = windows_sys::core::s!("UsesMapper");
+pub const DIRECTINPUT_REGSTR_VAL_MAPPERW: windows_sys::core::PCWSTR = windows_sys::core::w!("UsesMapper");
+pub const DIRECTINPUT_REGSTR_VAL_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("Name");
+pub const DIRECTINPUT_REGSTR_VAL_NAMEA: windows_sys::core::PCSTR = windows_sys::core::s!("Name");
+pub const DIRECTINPUT_REGSTR_VAL_NAMEW: windows_sys::core::PCWSTR = windows_sys::core::w!("Name");
+pub const DIRECTINPUT_REGSTR_VAL_VERSION: windows_sys::core::PCWSTR = windows_sys::core::w!("Version");
+pub const DIRECTINPUT_REGSTR_VAL_VERSIONA: windows_sys::core::PCSTR = windows_sys::core::s!("Version");
+pub const DIRECTINPUT_REGSTR_VAL_VERSIONW: windows_sys::core::PCWSTR = windows_sys::core::w!("Version");
 pub const DIRECTINPUT_VERSION: u32 = 2048u32;
 pub const DISCL_BACKGROUND: u32 = 8u32;
 pub const DISCL_EXCLUSIVE: u32 = 1u32;
@@ -1699,19 +1699,19 @@ pub const DIVOICE_TRANSMIT: u32 = 2197816333u32;
 pub const DIVOICE_VOICECOMMAND: u32 = 2197816336u32;
 pub const DI_BUFFEROVERFLOW: i32 = 1i32;
 pub const DI_DEGREES: u32 = 100u32;
-pub const DI_DOWNLOADSKIPPED: ::windows_sys::core::HRESULT = 0x3_u32 as _;
-pub const DI_EFFECTRESTARTED: ::windows_sys::core::HRESULT = 0x4_u32 as _;
+pub const DI_DOWNLOADSKIPPED: windows_sys::core::HRESULT = 0x3_u32 as _;
+pub const DI_EFFECTRESTARTED: windows_sys::core::HRESULT = 0x4_u32 as _;
 pub const DI_FFNOMINALMAX: u32 = 10000u32;
 pub const DI_NOEFFECT: i32 = 1i32;
 pub const DI_NOTATTACHED: i32 = 1i32;
 pub const DI_OK: i32 = 0i32;
-pub const DI_POLLEDDEVICE: ::windows_sys::core::HRESULT = 0x2_u32 as _;
+pub const DI_POLLEDDEVICE: windows_sys::core::HRESULT = 0x2_u32 as _;
 pub const DI_PROPNOEFFECT: i32 = 1i32;
 pub const DI_SECONDS: u32 = 1000000u32;
-pub const DI_SETTINGSNOTSAVED: ::windows_sys::core::HRESULT = 0xB_u32 as _;
-pub const DI_TRUNCATED: ::windows_sys::core::HRESULT = 0x8_u32 as _;
-pub const DI_TRUNCATEDANDRESTARTED: ::windows_sys::core::HRESULT = 0xC_u32 as _;
-pub const DI_WRITEPROTECT: ::windows_sys::core::HRESULT = 0x13_u32 as _;
+pub const DI_SETTINGSNOTSAVED: windows_sys::core::HRESULT = 0xB_u32 as _;
+pub const DI_TRUNCATED: windows_sys::core::HRESULT = 0x8_u32 as _;
+pub const DI_TRUNCATEDANDRESTARTED: windows_sys::core::HRESULT = 0xC_u32 as _;
+pub const DI_WRITEPROTECT: windows_sys::core::HRESULT = 0x13_u32 as _;
 pub const GPIO_BUTTON_BACK: GPIOBUTTONS_BUTTON_TYPE = 5i32;
 pub const GPIO_BUTTON_CAMERA_FOCUS: GPIOBUTTONS_BUTTON_TYPE = 7i32;
 pub const GPIO_BUTTON_CAMERA_LENS: GPIOBUTTONS_BUTTON_TYPE = 12i32;
@@ -1730,45 +1730,45 @@ pub const GPIO_BUTTON_SEARCH: GPIOBUTTONS_BUTTON_TYPE = 6i32;
 pub const GPIO_BUTTON_VOLUME_DOWN: GPIOBUTTONS_BUTTON_TYPE = 3i32;
 pub const GPIO_BUTTON_VOLUME_UP: GPIOBUTTONS_BUTTON_TYPE = 2i32;
 pub const GPIO_BUTTON_WINDOWS: GPIOBUTTONS_BUTTON_TYPE = 1i32;
-pub const GUID_Button: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xa36d02f0_c9f3_11cf_bfc7_444553540000);
-pub const GUID_ConstantForce: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x13541c20_8e33_11d0_9ad0_00a0c9a06e35);
-pub const GUID_CustomForce: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x13541c2b_8e33_11d0_9ad0_00a0c9a06e35);
-pub const GUID_DEVINTERFACE_HID: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x4d1e55b2_f16f_11cf_88cb_001111000030);
-pub const GUID_DEVINTERFACE_KEYBOARD: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x884b96c3_56ef_11d1_bc8c_00a0c91405dd);
-pub const GUID_DEVINTERFACE_MOUSE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x378de44c_56ef_11d1_bc8c_00a0c91405dd);
-pub const GUID_Damper: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x13541c28_8e33_11d0_9ad0_00a0c9a06e35);
-pub const GUID_Friction: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x13541c2a_8e33_11d0_9ad0_00a0c9a06e35);
-pub const GUID_HIDClass: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x745a17a0_74d3_11d0_b6fe_00a0c90f57da);
-pub const GUID_HID_INTERFACE_HIDPARSE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xf5c315a5_69ac_4bc2_9279_d0b64576f44b);
-pub const GUID_HID_INTERFACE_NOTIFY: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x2c4e2e88_25e6_4c33_882f_3d82e6073681);
-pub const GUID_Inertia: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x13541c29_8e33_11d0_9ad0_00a0c9a06e35);
-pub const GUID_Joystick: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x6f1d2b70_d5a0_11cf_bfc7_444553540000);
-pub const GUID_Key: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x55728220_d33c_11cf_bfc7_444553540000);
-pub const GUID_KeyboardClass: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x4d36e96b_e325_11ce_bfc1_08002be10318);
-pub const GUID_MediaClass: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x4d36e96c_e325_11ce_bfc1_08002be10318);
-pub const GUID_MouseClass: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x4d36e96f_e325_11ce_bfc1_08002be10318);
-pub const GUID_POV: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xa36d02f2_c9f3_11cf_bfc7_444553540000);
-pub const GUID_RampForce: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x13541c21_8e33_11d0_9ad0_00a0c9a06e35);
-pub const GUID_RxAxis: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xa36d02f4_c9f3_11cf_bfc7_444553540000);
-pub const GUID_RyAxis: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xa36d02f5_c9f3_11cf_bfc7_444553540000);
-pub const GUID_RzAxis: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xa36d02e3_c9f3_11cf_bfc7_444553540000);
-pub const GUID_SawtoothDown: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x13541c26_8e33_11d0_9ad0_00a0c9a06e35);
-pub const GUID_SawtoothUp: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x13541c25_8e33_11d0_9ad0_00a0c9a06e35);
-pub const GUID_Sine: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x13541c23_8e33_11d0_9ad0_00a0c9a06e35);
-pub const GUID_Slider: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xa36d02e4_c9f3_11cf_bfc7_444553540000);
-pub const GUID_Spring: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x13541c27_8e33_11d0_9ad0_00a0c9a06e35);
-pub const GUID_Square: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x13541c22_8e33_11d0_9ad0_00a0c9a06e35);
-pub const GUID_SysKeyboard: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x6f1d2b61_d5a0_11cf_bfc7_444553540000);
-pub const GUID_SysKeyboardEm: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x6f1d2b82_d5a0_11cf_bfc7_444553540000);
-pub const GUID_SysKeyboardEm2: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x6f1d2b83_d5a0_11cf_bfc7_444553540000);
-pub const GUID_SysMouse: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x6f1d2b60_d5a0_11cf_bfc7_444553540000);
-pub const GUID_SysMouseEm: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x6f1d2b80_d5a0_11cf_bfc7_444553540000);
-pub const GUID_SysMouseEm2: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x6f1d2b81_d5a0_11cf_bfc7_444553540000);
-pub const GUID_Triangle: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x13541c24_8e33_11d0_9ad0_00a0c9a06e35);
-pub const GUID_Unknown: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xa36d02f3_c9f3_11cf_bfc7_444553540000);
-pub const GUID_XAxis: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xa36d02e0_c9f3_11cf_bfc7_444553540000);
-pub const GUID_YAxis: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xa36d02e1_c9f3_11cf_bfc7_444553540000);
-pub const GUID_ZAxis: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xa36d02e2_c9f3_11cf_bfc7_444553540000);
+pub const GUID_Button: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa36d02f0_c9f3_11cf_bfc7_444553540000);
+pub const GUID_ConstantForce: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x13541c20_8e33_11d0_9ad0_00a0c9a06e35);
+pub const GUID_CustomForce: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x13541c2b_8e33_11d0_9ad0_00a0c9a06e35);
+pub const GUID_DEVINTERFACE_HID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4d1e55b2_f16f_11cf_88cb_001111000030);
+pub const GUID_DEVINTERFACE_KEYBOARD: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x884b96c3_56ef_11d1_bc8c_00a0c91405dd);
+pub const GUID_DEVINTERFACE_MOUSE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x378de44c_56ef_11d1_bc8c_00a0c91405dd);
+pub const GUID_Damper: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x13541c28_8e33_11d0_9ad0_00a0c9a06e35);
+pub const GUID_Friction: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x13541c2a_8e33_11d0_9ad0_00a0c9a06e35);
+pub const GUID_HIDClass: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x745a17a0_74d3_11d0_b6fe_00a0c90f57da);
+pub const GUID_HID_INTERFACE_HIDPARSE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf5c315a5_69ac_4bc2_9279_d0b64576f44b);
+pub const GUID_HID_INTERFACE_NOTIFY: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x2c4e2e88_25e6_4c33_882f_3d82e6073681);
+pub const GUID_Inertia: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x13541c29_8e33_11d0_9ad0_00a0c9a06e35);
+pub const GUID_Joystick: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6f1d2b70_d5a0_11cf_bfc7_444553540000);
+pub const GUID_Key: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x55728220_d33c_11cf_bfc7_444553540000);
+pub const GUID_KeyboardClass: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4d36e96b_e325_11ce_bfc1_08002be10318);
+pub const GUID_MediaClass: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4d36e96c_e325_11ce_bfc1_08002be10318);
+pub const GUID_MouseClass: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4d36e96f_e325_11ce_bfc1_08002be10318);
+pub const GUID_POV: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa36d02f2_c9f3_11cf_bfc7_444553540000);
+pub const GUID_RampForce: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x13541c21_8e33_11d0_9ad0_00a0c9a06e35);
+pub const GUID_RxAxis: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa36d02f4_c9f3_11cf_bfc7_444553540000);
+pub const GUID_RyAxis: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa36d02f5_c9f3_11cf_bfc7_444553540000);
+pub const GUID_RzAxis: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa36d02e3_c9f3_11cf_bfc7_444553540000);
+pub const GUID_SawtoothDown: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x13541c26_8e33_11d0_9ad0_00a0c9a06e35);
+pub const GUID_SawtoothUp: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x13541c25_8e33_11d0_9ad0_00a0c9a06e35);
+pub const GUID_Sine: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x13541c23_8e33_11d0_9ad0_00a0c9a06e35);
+pub const GUID_Slider: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa36d02e4_c9f3_11cf_bfc7_444553540000);
+pub const GUID_Spring: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x13541c27_8e33_11d0_9ad0_00a0c9a06e35);
+pub const GUID_Square: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x13541c22_8e33_11d0_9ad0_00a0c9a06e35);
+pub const GUID_SysKeyboard: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6f1d2b61_d5a0_11cf_bfc7_444553540000);
+pub const GUID_SysKeyboardEm: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6f1d2b82_d5a0_11cf_bfc7_444553540000);
+pub const GUID_SysKeyboardEm2: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6f1d2b83_d5a0_11cf_bfc7_444553540000);
+pub const GUID_SysMouse: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6f1d2b60_d5a0_11cf_bfc7_444553540000);
+pub const GUID_SysMouseEm: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6f1d2b80_d5a0_11cf_bfc7_444553540000);
+pub const GUID_SysMouseEm2: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6f1d2b81_d5a0_11cf_bfc7_444553540000);
+pub const GUID_Triangle: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x13541c24_8e33_11d0_9ad0_00a0c9a06e35);
+pub const GUID_Unknown: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa36d02f3_c9f3_11cf_bfc7_444553540000);
+pub const GUID_XAxis: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa36d02e0_c9f3_11cf_bfc7_444553540000);
+pub const GUID_YAxis: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa36d02e1_c9f3_11cf_bfc7_444553540000);
+pub const GUID_ZAxis: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa36d02e2_c9f3_11cf_bfc7_444553540000);
 pub const HIDP_STATUS_BAD_LOG_PHY_VALUES: super::super::Foundation::NTSTATUS = 0xC0110006_u32 as _;
 pub const HIDP_STATUS_BUFFER_TOO_SMALL: super::super::Foundation::NTSTATUS = 0xC0110007_u32 as _;
 pub const HIDP_STATUS_BUTTON_NOT_PRESSED: super::super::Foundation::NTSTATUS = 0xC011000F_u32 as _;
@@ -2567,8 +2567,8 @@ pub struct CPOINT {
     pub lP: i32,
     pub dwLog: u32,
 }
-impl ::core::marker::Copy for CPOINT {}
-impl ::core::clone::Clone for CPOINT {
+impl Copy for CPOINT {}
+impl Clone for CPOINT {
     fn clone(&self) -> Self {
         *self
     }
@@ -2579,23 +2579,23 @@ pub struct DIACTIONA {
     pub dwSemantic: u32,
     pub dwFlags: u32,
     pub Anonymous: DIACTIONA_0,
-    pub guidInstance: ::windows_sys::core::GUID,
+    pub guidInstance: windows_sys::core::GUID,
     pub dwObjID: u32,
     pub dwHow: u32,
 }
-impl ::core::marker::Copy for DIACTIONA {}
-impl ::core::clone::Clone for DIACTIONA {
+impl Copy for DIACTIONA {}
+impl Clone for DIACTIONA {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub union DIACTIONA_0 {
-    pub lptszActionName: ::windows_sys::core::PCSTR,
+    pub lptszActionName: windows_sys::core::PCSTR,
     pub uResIdString: u32,
 }
-impl ::core::marker::Copy for DIACTIONA_0 {}
-impl ::core::clone::Clone for DIACTIONA_0 {
+impl Copy for DIACTIONA_0 {}
+impl Clone for DIACTIONA_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -2607,7 +2607,7 @@ pub struct DIACTIONFORMATA {
     pub dwDataSize: u32,
     pub dwNumActions: u32,
     pub rgoAction: *mut DIACTIONA,
-    pub guidActionMap: ::windows_sys::core::GUID,
+    pub guidActionMap: windows_sys::core::GUID,
     pub dwGenre: u32,
     pub dwBufferSize: u32,
     pub lAxisMin: i32,
@@ -2617,8 +2617,8 @@ pub struct DIACTIONFORMATA {
     pub dwCRC: u32,
     pub tszActionMap: [i8; 260],
 }
-impl ::core::marker::Copy for DIACTIONFORMATA {}
-impl ::core::clone::Clone for DIACTIONFORMATA {
+impl Copy for DIACTIONFORMATA {}
+impl Clone for DIACTIONFORMATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -2630,7 +2630,7 @@ pub struct DIACTIONFORMATW {
     pub dwDataSize: u32,
     pub dwNumActions: u32,
     pub rgoAction: *mut DIACTIONW,
-    pub guidActionMap: ::windows_sys::core::GUID,
+    pub guidActionMap: windows_sys::core::GUID,
     pub dwGenre: u32,
     pub dwBufferSize: u32,
     pub lAxisMin: i32,
@@ -2640,8 +2640,8 @@ pub struct DIACTIONFORMATW {
     pub dwCRC: u32,
     pub tszActionMap: [u16; 260],
 }
-impl ::core::marker::Copy for DIACTIONFORMATW {}
-impl ::core::clone::Clone for DIACTIONFORMATW {
+impl Copy for DIACTIONFORMATW {}
+impl Clone for DIACTIONFORMATW {
     fn clone(&self) -> Self {
         *self
     }
@@ -2652,23 +2652,23 @@ pub struct DIACTIONW {
     pub dwSemantic: u32,
     pub dwFlags: u32,
     pub Anonymous: DIACTIONW_0,
-    pub guidInstance: ::windows_sys::core::GUID,
+    pub guidInstance: windows_sys::core::GUID,
     pub dwObjID: u32,
     pub dwHow: u32,
 }
-impl ::core::marker::Copy for DIACTIONW {}
-impl ::core::clone::Clone for DIACTIONW {
+impl Copy for DIACTIONW {}
+impl Clone for DIACTIONW {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub union DIACTIONW_0 {
-    pub lptszActionName: ::windows_sys::core::PCWSTR,
+    pub lptszActionName: windows_sys::core::PCWSTR,
     pub uResIdString: u32,
 }
-impl ::core::marker::Copy for DIACTIONW_0 {}
-impl ::core::clone::Clone for DIACTIONW_0 {
+impl Copy for DIACTIONW_0 {}
+impl Clone for DIACTIONW_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -2685,8 +2685,8 @@ pub struct DICOLORSET {
     pub cHighlightFill: u32,
     pub cAreaFill: u32,
 }
-impl ::core::marker::Copy for DICOLORSET {}
-impl ::core::clone::Clone for DICOLORSET {
+impl Copy for DICOLORSET {}
+impl Clone for DICOLORSET {
     fn clone(&self) -> Self {
         *self
     }
@@ -2700,8 +2700,8 @@ pub struct DICONDITION {
     pub dwNegativeSaturation: u32,
     pub lDeadBand: i32,
 }
-impl ::core::marker::Copy for DICONDITION {}
-impl ::core::clone::Clone for DICONDITION {
+impl Copy for DICONDITION {}
+impl Clone for DICONDITION {
     fn clone(&self) -> Self {
         *self
     }
@@ -2710,15 +2710,15 @@ impl ::core::clone::Clone for DICONDITION {
 pub struct DICONFIGUREDEVICESPARAMSA {
     pub dwSize: u32,
     pub dwcUsers: u32,
-    pub lptszUserNames: ::windows_sys::core::PSTR,
+    pub lptszUserNames: windows_sys::core::PSTR,
     pub dwcFormats: u32,
     pub lprgFormats: *mut DIACTIONFORMATA,
     pub hwnd: super::super::Foundation::HWND,
     pub dics: DICOLORSET,
-    pub lpUnkDDSTarget: *mut ::core::ffi::c_void,
+    pub lpUnkDDSTarget: *mut core::ffi::c_void,
 }
-impl ::core::marker::Copy for DICONFIGUREDEVICESPARAMSA {}
-impl ::core::clone::Clone for DICONFIGUREDEVICESPARAMSA {
+impl Copy for DICONFIGUREDEVICESPARAMSA {}
+impl Clone for DICONFIGUREDEVICESPARAMSA {
     fn clone(&self) -> Self {
         *self
     }
@@ -2727,15 +2727,15 @@ impl ::core::clone::Clone for DICONFIGUREDEVICESPARAMSA {
 pub struct DICONFIGUREDEVICESPARAMSW {
     pub dwSize: u32,
     pub dwcUsers: u32,
-    pub lptszUserNames: ::windows_sys::core::PWSTR,
+    pub lptszUserNames: windows_sys::core::PWSTR,
     pub dwcFormats: u32,
     pub lprgFormats: *mut DIACTIONFORMATW,
     pub hwnd: super::super::Foundation::HWND,
     pub dics: DICOLORSET,
-    pub lpUnkDDSTarget: *mut ::core::ffi::c_void,
+    pub lpUnkDDSTarget: *mut core::ffi::c_void,
 }
-impl ::core::marker::Copy for DICONFIGUREDEVICESPARAMSW {}
-impl ::core::clone::Clone for DICONFIGUREDEVICESPARAMSW {
+impl Copy for DICONFIGUREDEVICESPARAMSW {}
+impl Clone for DICONFIGUREDEVICESPARAMSW {
     fn clone(&self) -> Self {
         *self
     }
@@ -2744,8 +2744,8 @@ impl ::core::clone::Clone for DICONFIGUREDEVICESPARAMSW {
 pub struct DICONSTANTFORCE {
     pub lMagnitude: i32,
 }
-impl ::core::marker::Copy for DICONSTANTFORCE {}
-impl ::core::clone::Clone for DICONSTANTFORCE {
+impl Copy for DICONSTANTFORCE {}
+impl Clone for DICONSTANTFORCE {
     fn clone(&self) -> Self {
         *self
     }
@@ -2757,8 +2757,8 @@ pub struct DICUSTOMFORCE {
     pub cSamples: u32,
     pub rglForceData: *mut i32,
 }
-impl ::core::marker::Copy for DICUSTOMFORCE {}
-impl ::core::clone::Clone for DICUSTOMFORCE {
+impl Copy for DICUSTOMFORCE {}
+impl Clone for DICUSTOMFORCE {
     fn clone(&self) -> Self {
         *self
     }
@@ -2772,8 +2772,8 @@ pub struct DIDATAFORMAT {
     pub dwNumObjs: u32,
     pub rgodf: *mut DIOBJECTDATAFORMAT,
 }
-impl ::core::marker::Copy for DIDATAFORMAT {}
-impl ::core::clone::Clone for DIDATAFORMAT {
+impl Copy for DIDATAFORMAT {}
+impl Clone for DIDATAFORMAT {
     fn clone(&self) -> Self {
         *self
     }
@@ -2792,8 +2792,8 @@ pub struct DIDEVCAPS {
     pub dwHardwareRevision: u32,
     pub dwFFDriverVersion: u32,
 }
-impl ::core::marker::Copy for DIDEVCAPS {}
-impl ::core::clone::Clone for DIDEVCAPS {
+impl Copy for DIDEVCAPS {}
+impl Clone for DIDEVCAPS {
     fn clone(&self) -> Self {
         *self
     }
@@ -2807,8 +2807,8 @@ pub struct DIDEVCAPS_DX3 {
     pub dwButtons: u32,
     pub dwPOVs: u32,
 }
-impl ::core::marker::Copy for DIDEVCAPS_DX3 {}
-impl ::core::clone::Clone for DIDEVCAPS_DX3 {
+impl Copy for DIDEVCAPS_DX3 {}
+impl Clone for DIDEVCAPS_DX3 {
     fn clone(&self) -> Self {
         *self
     }
@@ -2825,8 +2825,8 @@ pub struct DIDEVICEIMAGEINFOA {
     pub rcCalloutRect: super::super::Foundation::RECT,
     pub dwTextAlign: u32,
 }
-impl ::core::marker::Copy for DIDEVICEIMAGEINFOA {}
-impl ::core::clone::Clone for DIDEVICEIMAGEINFOA {
+impl Copy for DIDEVICEIMAGEINFOA {}
+impl Clone for DIDEVICEIMAGEINFOA {
     fn clone(&self) -> Self {
         *self
     }
@@ -2843,8 +2843,8 @@ pub struct DIDEVICEIMAGEINFOHEADERA {
     pub dwBufferUsed: u32,
     pub lprgImageInfoArray: *mut DIDEVICEIMAGEINFOA,
 }
-impl ::core::marker::Copy for DIDEVICEIMAGEINFOHEADERA {}
-impl ::core::clone::Clone for DIDEVICEIMAGEINFOHEADERA {
+impl Copy for DIDEVICEIMAGEINFOHEADERA {}
+impl Clone for DIDEVICEIMAGEINFOHEADERA {
     fn clone(&self) -> Self {
         *self
     }
@@ -2861,8 +2861,8 @@ pub struct DIDEVICEIMAGEINFOHEADERW {
     pub dwBufferUsed: u32,
     pub lprgImageInfoArray: *mut DIDEVICEIMAGEINFOW,
 }
-impl ::core::marker::Copy for DIDEVICEIMAGEINFOHEADERW {}
-impl ::core::clone::Clone for DIDEVICEIMAGEINFOHEADERW {
+impl Copy for DIDEVICEIMAGEINFOHEADERW {}
+impl Clone for DIDEVICEIMAGEINFOHEADERW {
     fn clone(&self) -> Self {
         *self
     }
@@ -2879,8 +2879,8 @@ pub struct DIDEVICEIMAGEINFOW {
     pub rcCalloutRect: super::super::Foundation::RECT,
     pub dwTextAlign: u32,
 }
-impl ::core::marker::Copy for DIDEVICEIMAGEINFOW {}
-impl ::core::clone::Clone for DIDEVICEIMAGEINFOW {
+impl Copy for DIDEVICEIMAGEINFOW {}
+impl Clone for DIDEVICEIMAGEINFOW {
     fn clone(&self) -> Self {
         *self
     }
@@ -2888,17 +2888,17 @@ impl ::core::clone::Clone for DIDEVICEIMAGEINFOW {
 #[repr(C)]
 pub struct DIDEVICEINSTANCEA {
     pub dwSize: u32,
-    pub guidInstance: ::windows_sys::core::GUID,
-    pub guidProduct: ::windows_sys::core::GUID,
+    pub guidInstance: windows_sys::core::GUID,
+    pub guidProduct: windows_sys::core::GUID,
     pub dwDevType: u32,
     pub tszInstanceName: [i8; 260],
     pub tszProductName: [i8; 260],
-    pub guidFFDriver: ::windows_sys::core::GUID,
+    pub guidFFDriver: windows_sys::core::GUID,
     pub wUsagePage: u16,
     pub wUsage: u16,
 }
-impl ::core::marker::Copy for DIDEVICEINSTANCEA {}
-impl ::core::clone::Clone for DIDEVICEINSTANCEA {
+impl Copy for DIDEVICEINSTANCEA {}
+impl Clone for DIDEVICEINSTANCEA {
     fn clone(&self) -> Self {
         *self
     }
@@ -2906,17 +2906,17 @@ impl ::core::clone::Clone for DIDEVICEINSTANCEA {
 #[repr(C)]
 pub struct DIDEVICEINSTANCEW {
     pub dwSize: u32,
-    pub guidInstance: ::windows_sys::core::GUID,
-    pub guidProduct: ::windows_sys::core::GUID,
+    pub guidInstance: windows_sys::core::GUID,
+    pub guidProduct: windows_sys::core::GUID,
     pub dwDevType: u32,
     pub tszInstanceName: [u16; 260],
     pub tszProductName: [u16; 260],
-    pub guidFFDriver: ::windows_sys::core::GUID,
+    pub guidFFDriver: windows_sys::core::GUID,
     pub wUsagePage: u16,
     pub wUsage: u16,
 }
-impl ::core::marker::Copy for DIDEVICEINSTANCEW {}
-impl ::core::clone::Clone for DIDEVICEINSTANCEW {
+impl Copy for DIDEVICEINSTANCEW {}
+impl Clone for DIDEVICEINSTANCEW {
     fn clone(&self) -> Self {
         *self
     }
@@ -2924,14 +2924,14 @@ impl ::core::clone::Clone for DIDEVICEINSTANCEW {
 #[repr(C)]
 pub struct DIDEVICEINSTANCE_DX3A {
     pub dwSize: u32,
-    pub guidInstance: ::windows_sys::core::GUID,
-    pub guidProduct: ::windows_sys::core::GUID,
+    pub guidInstance: windows_sys::core::GUID,
+    pub guidProduct: windows_sys::core::GUID,
     pub dwDevType: u32,
     pub tszInstanceName: [i8; 260],
     pub tszProductName: [i8; 260],
 }
-impl ::core::marker::Copy for DIDEVICEINSTANCE_DX3A {}
-impl ::core::clone::Clone for DIDEVICEINSTANCE_DX3A {
+impl Copy for DIDEVICEINSTANCE_DX3A {}
+impl Clone for DIDEVICEINSTANCE_DX3A {
     fn clone(&self) -> Self {
         *self
     }
@@ -2939,14 +2939,14 @@ impl ::core::clone::Clone for DIDEVICEINSTANCE_DX3A {
 #[repr(C)]
 pub struct DIDEVICEINSTANCE_DX3W {
     pub dwSize: u32,
-    pub guidInstance: ::windows_sys::core::GUID,
-    pub guidProduct: ::windows_sys::core::GUID,
+    pub guidInstance: windows_sys::core::GUID,
+    pub guidProduct: windows_sys::core::GUID,
     pub dwDevType: u32,
     pub tszInstanceName: [u16; 260],
     pub tszProductName: [u16; 260],
 }
-impl ::core::marker::Copy for DIDEVICEINSTANCE_DX3W {}
-impl ::core::clone::Clone for DIDEVICEINSTANCE_DX3W {
+impl Copy for DIDEVICEINSTANCE_DX3W {}
+impl Clone for DIDEVICEINSTANCE_DX3W {
     fn clone(&self) -> Self {
         *self
     }
@@ -2959,8 +2959,8 @@ pub struct DIDEVICEOBJECTDATA {
     pub dwSequence: u32,
     pub uAppData: usize,
 }
-impl ::core::marker::Copy for DIDEVICEOBJECTDATA {}
-impl ::core::clone::Clone for DIDEVICEOBJECTDATA {
+impl Copy for DIDEVICEOBJECTDATA {}
+impl Clone for DIDEVICEOBJECTDATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -2972,8 +2972,8 @@ pub struct DIDEVICEOBJECTDATA_DX3 {
     pub dwTimeStamp: u32,
     pub dwSequence: u32,
 }
-impl ::core::marker::Copy for DIDEVICEOBJECTDATA_DX3 {}
-impl ::core::clone::Clone for DIDEVICEOBJECTDATA_DX3 {
+impl Copy for DIDEVICEOBJECTDATA_DX3 {}
+impl Clone for DIDEVICEOBJECTDATA_DX3 {
     fn clone(&self) -> Self {
         *self
     }
@@ -2981,7 +2981,7 @@ impl ::core::clone::Clone for DIDEVICEOBJECTDATA_DX3 {
 #[repr(C)]
 pub struct DIDEVICEOBJECTINSTANCEA {
     pub dwSize: u32,
-    pub guidType: ::windows_sys::core::GUID,
+    pub guidType: windows_sys::core::GUID,
     pub dwOfs: u32,
     pub dwType: u32,
     pub dwFlags: u32,
@@ -2996,8 +2996,8 @@ pub struct DIDEVICEOBJECTINSTANCEA {
     pub wExponent: u16,
     pub wReportId: u16,
 }
-impl ::core::marker::Copy for DIDEVICEOBJECTINSTANCEA {}
-impl ::core::clone::Clone for DIDEVICEOBJECTINSTANCEA {
+impl Copy for DIDEVICEOBJECTINSTANCEA {}
+impl Clone for DIDEVICEOBJECTINSTANCEA {
     fn clone(&self) -> Self {
         *self
     }
@@ -3005,7 +3005,7 @@ impl ::core::clone::Clone for DIDEVICEOBJECTINSTANCEA {
 #[repr(C)]
 pub struct DIDEVICEOBJECTINSTANCEW {
     pub dwSize: u32,
-    pub guidType: ::windows_sys::core::GUID,
+    pub guidType: windows_sys::core::GUID,
     pub dwOfs: u32,
     pub dwType: u32,
     pub dwFlags: u32,
@@ -3020,8 +3020,8 @@ pub struct DIDEVICEOBJECTINSTANCEW {
     pub wExponent: u16,
     pub wReportId: u16,
 }
-impl ::core::marker::Copy for DIDEVICEOBJECTINSTANCEW {}
-impl ::core::clone::Clone for DIDEVICEOBJECTINSTANCEW {
+impl Copy for DIDEVICEOBJECTINSTANCEW {}
+impl Clone for DIDEVICEOBJECTINSTANCEW {
     fn clone(&self) -> Self {
         *self
     }
@@ -3029,14 +3029,14 @@ impl ::core::clone::Clone for DIDEVICEOBJECTINSTANCEW {
 #[repr(C)]
 pub struct DIDEVICEOBJECTINSTANCE_DX3A {
     pub dwSize: u32,
-    pub guidType: ::windows_sys::core::GUID,
+    pub guidType: windows_sys::core::GUID,
     pub dwOfs: u32,
     pub dwType: u32,
     pub dwFlags: u32,
     pub tszName: [i8; 260],
 }
-impl ::core::marker::Copy for DIDEVICEOBJECTINSTANCE_DX3A {}
-impl ::core::clone::Clone for DIDEVICEOBJECTINSTANCE_DX3A {
+impl Copy for DIDEVICEOBJECTINSTANCE_DX3A {}
+impl Clone for DIDEVICEOBJECTINSTANCE_DX3A {
     fn clone(&self) -> Self {
         *self
     }
@@ -3044,14 +3044,14 @@ impl ::core::clone::Clone for DIDEVICEOBJECTINSTANCE_DX3A {
 #[repr(C)]
 pub struct DIDEVICEOBJECTINSTANCE_DX3W {
     pub dwSize: u32,
-    pub guidType: ::windows_sys::core::GUID,
+    pub guidType: windows_sys::core::GUID,
     pub dwOfs: u32,
     pub dwType: u32,
     pub dwFlags: u32,
     pub tszName: [u16; 260],
 }
-impl ::core::marker::Copy for DIDEVICEOBJECTINSTANCE_DX3W {}
-impl ::core::clone::Clone for DIDEVICEOBJECTINSTANCE_DX3W {
+impl Copy for DIDEVICEOBJECTINSTANCE_DX3W {}
+impl Clone for DIDEVICEOBJECTINSTANCE_DX3W {
     fn clone(&self) -> Self {
         *self
     }
@@ -3062,8 +3062,8 @@ pub struct DIDEVICESTATE {
     pub dwState: u32,
     pub dwLoad: u32,
 }
-impl ::core::marker::Copy for DIDEVICESTATE {}
-impl ::core::clone::Clone for DIDEVICESTATE {
+impl Copy for DIDEVICESTATE {}
+impl Clone for DIDEVICESTATE {
     fn clone(&self) -> Self {
         *self
     }
@@ -3075,8 +3075,8 @@ pub struct DIDRIVERVERSIONS {
     pub dwHardwareRevision: u32,
     pub dwFFDriverVersion: u32,
 }
-impl ::core::marker::Copy for DIDRIVERVERSIONS {}
-impl ::core::clone::Clone for DIDRIVERVERSIONS {
+impl Copy for DIDRIVERVERSIONS {}
+impl Clone for DIDRIVERVERSIONS {
     fn clone(&self) -> Self {
         *self
     }
@@ -3095,11 +3095,11 @@ pub struct DIEFFECT {
     pub rglDirection: *mut i32,
     pub lpEnvelope: *mut DIENVELOPE,
     pub cbTypeSpecificParams: u32,
-    pub lpvTypeSpecificParams: *mut ::core::ffi::c_void,
+    pub lpvTypeSpecificParams: *mut core::ffi::c_void,
     pub dwStartDelay: u32,
 }
-impl ::core::marker::Copy for DIEFFECT {}
-impl ::core::clone::Clone for DIEFFECT {
+impl Copy for DIEFFECT {}
+impl Clone for DIEFFECT {
     fn clone(&self) -> Self {
         *self
     }
@@ -3112,8 +3112,8 @@ pub struct DIEFFECTATTRIBUTES {
     pub dwDynamicParams: u32,
     pub dwCoords: u32,
 }
-impl ::core::marker::Copy for DIEFFECTATTRIBUTES {}
-impl ::core::clone::Clone for DIEFFECTATTRIBUTES {
+impl Copy for DIEFFECTATTRIBUTES {}
+impl Clone for DIEFFECTATTRIBUTES {
     fn clone(&self) -> Self {
         *self
     }
@@ -3121,14 +3121,14 @@ impl ::core::clone::Clone for DIEFFECTATTRIBUTES {
 #[repr(C)]
 pub struct DIEFFECTINFOA {
     pub dwSize: u32,
-    pub guid: ::windows_sys::core::GUID,
+    pub guid: windows_sys::core::GUID,
     pub dwEffType: u32,
     pub dwStaticParams: u32,
     pub dwDynamicParams: u32,
     pub tszName: [i8; 260],
 }
-impl ::core::marker::Copy for DIEFFECTINFOA {}
-impl ::core::clone::Clone for DIEFFECTINFOA {
+impl Copy for DIEFFECTINFOA {}
+impl Clone for DIEFFECTINFOA {
     fn clone(&self) -> Self {
         *self
     }
@@ -3136,14 +3136,14 @@ impl ::core::clone::Clone for DIEFFECTINFOA {
 #[repr(C)]
 pub struct DIEFFECTINFOW {
     pub dwSize: u32,
-    pub guid: ::windows_sys::core::GUID,
+    pub guid: windows_sys::core::GUID,
     pub dwEffType: u32,
     pub dwStaticParams: u32,
     pub dwDynamicParams: u32,
     pub tszName: [u16; 260],
 }
-impl ::core::marker::Copy for DIEFFECTINFOW {}
-impl ::core::clone::Clone for DIEFFECTINFOW {
+impl Copy for DIEFFECTINFOW {}
+impl Clone for DIEFFECTINFOW {
     fn clone(&self) -> Self {
         *self
     }
@@ -3162,10 +3162,10 @@ pub struct DIEFFECT_DX5 {
     pub rglDirection: *mut i32,
     pub lpEnvelope: *mut DIENVELOPE,
     pub cbTypeSpecificParams: u32,
-    pub lpvTypeSpecificParams: *mut ::core::ffi::c_void,
+    pub lpvTypeSpecificParams: *mut core::ffi::c_void,
 }
-impl ::core::marker::Copy for DIEFFECT_DX5 {}
-impl ::core::clone::Clone for DIEFFECT_DX5 {
+impl Copy for DIEFFECT_DX5 {}
+impl Clone for DIEFFECT_DX5 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3174,13 +3174,13 @@ impl ::core::clone::Clone for DIEFFECT_DX5 {
 pub struct DIEFFESCAPE {
     pub dwSize: u32,
     pub dwCommand: u32,
-    pub lpvInBuffer: *mut ::core::ffi::c_void,
+    pub lpvInBuffer: *mut core::ffi::c_void,
     pub cbInBuffer: u32,
-    pub lpvOutBuffer: *mut ::core::ffi::c_void,
+    pub lpvOutBuffer: *mut core::ffi::c_void,
     pub cbOutBuffer: u32,
 }
-impl ::core::marker::Copy for DIEFFESCAPE {}
-impl ::core::clone::Clone for DIEFFESCAPE {
+impl Copy for DIEFFESCAPE {}
+impl Clone for DIEFFESCAPE {
     fn clone(&self) -> Self {
         *self
     }
@@ -3193,8 +3193,8 @@ pub struct DIENVELOPE {
     pub dwFadeLevel: u32,
     pub dwFadeTime: u32,
 }
-impl ::core::marker::Copy for DIENVELOPE {}
-impl ::core::clone::Clone for DIENVELOPE {
+impl Copy for DIENVELOPE {}
+impl Clone for DIENVELOPE {
     fn clone(&self) -> Self {
         *self
     }
@@ -3205,8 +3205,8 @@ pub struct DIFFDEVICEATTRIBUTES {
     pub dwFFSamplePeriod: u32,
     pub dwFFMinTimeResolution: u32,
 }
-impl ::core::marker::Copy for DIFFDEVICEATTRIBUTES {}
-impl ::core::clone::Clone for DIFFDEVICEATTRIBUTES {
+impl Copy for DIFFDEVICEATTRIBUTES {}
+impl Clone for DIFFDEVICEATTRIBUTES {
     fn clone(&self) -> Self {
         *self
     }
@@ -3216,8 +3216,8 @@ pub struct DIFFOBJECTATTRIBUTES {
     pub dwFFMaxForce: u32,
     pub dwFFForceResolution: u32,
 }
-impl ::core::marker::Copy for DIFFOBJECTATTRIBUTES {}
-impl ::core::clone::Clone for DIFFOBJECTATTRIBUTES {
+impl Copy for DIFFOBJECTATTRIBUTES {}
+impl Clone for DIFFOBJECTATTRIBUTES {
     fn clone(&self) -> Self {
         *self
     }
@@ -3225,12 +3225,12 @@ impl ::core::clone::Clone for DIFFOBJECTATTRIBUTES {
 #[repr(C)]
 pub struct DIFILEEFFECT {
     pub dwSize: u32,
-    pub GuidEffect: ::windows_sys::core::GUID,
+    pub GuidEffect: windows_sys::core::GUID,
     pub lpDiEffect: *mut DIEFFECT,
     pub szFriendlyName: [i8; 260],
 }
-impl ::core::marker::Copy for DIFILEEFFECT {}
-impl ::core::clone::Clone for DIFILEEFFECT {
+impl Copy for DIFILEEFFECT {}
+impl Clone for DIFILEEFFECT {
     fn clone(&self) -> Self {
         *self
     }
@@ -3238,11 +3238,11 @@ impl ::core::clone::Clone for DIFILEEFFECT {
 #[repr(C)]
 pub struct DIHIDFFINITINFO {
     pub dwSize: u32,
-    pub pwszDeviceInterface: ::windows_sys::core::PWSTR,
-    pub GuidInstance: ::windows_sys::core::GUID,
+    pub pwszDeviceInterface: windows_sys::core::PWSTR,
+    pub GuidInstance: windows_sys::core::GUID,
 }
-impl ::core::marker::Copy for DIHIDFFINITINFO {}
-impl ::core::clone::Clone for DIHIDFFINITINFO {
+impl Copy for DIHIDFFINITINFO {}
+impl Clone for DIHIDFFINITINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -3250,15 +3250,15 @@ impl ::core::clone::Clone for DIHIDFFINITINFO {
 #[repr(C)]
 pub struct DIJOYCONFIG {
     pub dwSize: u32,
-    pub guidInstance: ::windows_sys::core::GUID,
+    pub guidInstance: windows_sys::core::GUID,
     pub hwc: JOYREGHWCONFIG,
     pub dwGain: u32,
     pub wszType: [u16; 256],
     pub wszCallout: [u16; 256],
-    pub guidGameport: ::windows_sys::core::GUID,
+    pub guidGameport: windows_sys::core::GUID,
 }
-impl ::core::marker::Copy for DIJOYCONFIG {}
-impl ::core::clone::Clone for DIJOYCONFIG {
+impl Copy for DIJOYCONFIG {}
+impl Clone for DIJOYCONFIG {
     fn clone(&self) -> Self {
         *self
     }
@@ -3266,14 +3266,14 @@ impl ::core::clone::Clone for DIJOYCONFIG {
 #[repr(C)]
 pub struct DIJOYCONFIG_DX5 {
     pub dwSize: u32,
-    pub guidInstance: ::windows_sys::core::GUID,
+    pub guidInstance: windows_sys::core::GUID,
     pub hwc: JOYREGHWCONFIG,
     pub dwGain: u32,
     pub wszType: [u16; 256],
     pub wszCallout: [u16; 256],
 }
-impl ::core::marker::Copy for DIJOYCONFIG_DX5 {}
-impl ::core::clone::Clone for DIJOYCONFIG_DX5 {
+impl Copy for DIJOYCONFIG_DX5 {}
+impl Clone for DIJOYCONFIG_DX5 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3290,8 +3290,8 @@ pub struct DIJOYSTATE {
     pub rgdwPOV: [u32; 4],
     pub rgbButtons: [u8; 32],
 }
-impl ::core::marker::Copy for DIJOYSTATE {}
-impl ::core::clone::Clone for DIJOYSTATE {
+impl Copy for DIJOYSTATE {}
+impl Clone for DIJOYSTATE {
     fn clone(&self) -> Self {
         *self
     }
@@ -3329,8 +3329,8 @@ pub struct DIJOYSTATE2 {
     pub lFRz: i32,
     pub rglFSlider: [i32; 2],
 }
-impl ::core::marker::Copy for DIJOYSTATE2 {}
-impl ::core::clone::Clone for DIJOYSTATE2 {
+impl Copy for DIJOYSTATE2 {}
+impl Clone for DIJOYSTATE2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3339,7 +3339,7 @@ impl ::core::clone::Clone for DIJOYSTATE2 {
 pub struct DIJOYTYPEINFO {
     pub dwSize: u32,
     pub hws: JOYREGHWSETTINGS,
-    pub clsidConfig: ::windows_sys::core::GUID,
+    pub clsidConfig: windows_sys::core::GUID,
     pub wszDisplayName: [u16; 256],
     pub wszCallout: [u16; 260],
     pub wszHardwareId: [u16; 256],
@@ -3347,8 +3347,8 @@ pub struct DIJOYTYPEINFO {
     pub dwFlags2: u32,
     pub wszMapFile: [u16; 256],
 }
-impl ::core::marker::Copy for DIJOYTYPEINFO {}
-impl ::core::clone::Clone for DIJOYTYPEINFO {
+impl Copy for DIJOYTYPEINFO {}
+impl Clone for DIJOYTYPEINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -3357,12 +3357,12 @@ impl ::core::clone::Clone for DIJOYTYPEINFO {
 pub struct DIJOYTYPEINFO_DX5 {
     pub dwSize: u32,
     pub hws: JOYREGHWSETTINGS,
-    pub clsidConfig: ::windows_sys::core::GUID,
+    pub clsidConfig: windows_sys::core::GUID,
     pub wszDisplayName: [u16; 256],
     pub wszCallout: [u16; 260],
 }
-impl ::core::marker::Copy for DIJOYTYPEINFO_DX5 {}
-impl ::core::clone::Clone for DIJOYTYPEINFO_DX5 {
+impl Copy for DIJOYTYPEINFO_DX5 {}
+impl Clone for DIJOYTYPEINFO_DX5 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3371,14 +3371,14 @@ impl ::core::clone::Clone for DIJOYTYPEINFO_DX5 {
 pub struct DIJOYTYPEINFO_DX6 {
     pub dwSize: u32,
     pub hws: JOYREGHWSETTINGS,
-    pub clsidConfig: ::windows_sys::core::GUID,
+    pub clsidConfig: windows_sys::core::GUID,
     pub wszDisplayName: [u16; 256],
     pub wszCallout: [u16; 260],
     pub wszHardwareId: [u16; 256],
     pub dwFlags1: u32,
 }
-impl ::core::marker::Copy for DIJOYTYPEINFO_DX6 {}
-impl ::core::clone::Clone for DIJOYTYPEINFO_DX6 {
+impl Copy for DIJOYTYPEINFO_DX6 {}
+impl Clone for DIJOYTYPEINFO_DX6 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3390,8 +3390,8 @@ pub struct DIJOYUSERVALUES {
     pub wszGlobalDriver: [u16; 256],
     pub wszGameportEmulator: [u16; 256],
 }
-impl ::core::marker::Copy for DIJOYUSERVALUES {}
-impl ::core::clone::Clone for DIJOYUSERVALUES {
+impl Copy for DIJOYUSERVALUES {}
+impl Clone for DIJOYUSERVALUES {
     fn clone(&self) -> Self {
         *self
     }
@@ -3403,8 +3403,8 @@ pub struct DIMOUSESTATE {
     pub lZ: i32,
     pub rgbButtons: [u8; 4],
 }
-impl ::core::marker::Copy for DIMOUSESTATE {}
-impl ::core::clone::Clone for DIMOUSESTATE {
+impl Copy for DIMOUSESTATE {}
+impl Clone for DIMOUSESTATE {
     fn clone(&self) -> Self {
         *self
     }
@@ -3416,8 +3416,8 @@ pub struct DIMOUSESTATE2 {
     pub lZ: i32,
     pub rgbButtons: [u8; 8],
 }
-impl ::core::marker::Copy for DIMOUSESTATE2 {}
-impl ::core::clone::Clone for DIMOUSESTATE2 {
+impl Copy for DIMOUSESTATE2 {}
+impl Clone for DIMOUSESTATE2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3428,8 +3428,8 @@ pub struct DIOBJECTATTRIBUTES {
     pub wUsagePage: u16,
     pub wUsage: u16,
 }
-impl ::core::marker::Copy for DIOBJECTATTRIBUTES {}
-impl ::core::clone::Clone for DIOBJECTATTRIBUTES {
+impl Copy for DIOBJECTATTRIBUTES {}
+impl Clone for DIOBJECTATTRIBUTES {
     fn clone(&self) -> Self {
         *self
     }
@@ -3440,21 +3440,21 @@ pub struct DIOBJECTCALIBRATION {
     pub lCenter: i32,
     pub lMax: i32,
 }
-impl ::core::marker::Copy for DIOBJECTCALIBRATION {}
-impl ::core::clone::Clone for DIOBJECTCALIBRATION {
+impl Copy for DIOBJECTCALIBRATION {}
+impl Clone for DIOBJECTCALIBRATION {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct DIOBJECTDATAFORMAT {
-    pub pguid: *const ::windows_sys::core::GUID,
+    pub pguid: *const windows_sys::core::GUID,
     pub dwOfs: u32,
     pub dwType: u32,
     pub dwFlags: u32,
 }
-impl ::core::marker::Copy for DIOBJECTDATAFORMAT {}
-impl ::core::clone::Clone for DIOBJECTDATAFORMAT {
+impl Copy for DIOBJECTDATAFORMAT {}
+impl Clone for DIOBJECTDATAFORMAT {
     fn clone(&self) -> Self {
         *self
     }
@@ -3466,8 +3466,8 @@ pub struct DIPERIODIC {
     pub dwPhase: u32,
     pub dwPeriod: u32,
 }
-impl ::core::marker::Copy for DIPERIODIC {}
-impl ::core::clone::Clone for DIPERIODIC {
+impl Copy for DIPERIODIC {}
+impl Clone for DIPERIODIC {
     fn clone(&self) -> Self {
         *self
     }
@@ -3477,8 +3477,8 @@ pub struct DIPOVCALIBRATION {
     pub lMin: [i32; 5],
     pub lMax: [i32; 5],
 }
-impl ::core::marker::Copy for DIPOVCALIBRATION {}
-impl ::core::clone::Clone for DIPOVCALIBRATION {
+impl Copy for DIPOVCALIBRATION {}
+impl Clone for DIPOVCALIBRATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -3490,8 +3490,8 @@ pub struct DIPROPCAL {
     pub lCenter: i32,
     pub lMax: i32,
 }
-impl ::core::marker::Copy for DIPROPCAL {}
-impl ::core::clone::Clone for DIPROPCAL {
+impl Copy for DIPROPCAL {}
+impl Clone for DIPROPCAL {
     fn clone(&self) -> Self {
         *self
     }
@@ -3502,8 +3502,8 @@ pub struct DIPROPCALPOV {
     pub lMin: [i32; 5],
     pub lMax: [i32; 5],
 }
-impl ::core::marker::Copy for DIPROPCALPOV {}
-impl ::core::clone::Clone for DIPROPCALPOV {
+impl Copy for DIPROPCALPOV {}
+impl Clone for DIPROPCALPOV {
     fn clone(&self) -> Self {
         *self
     }
@@ -3514,8 +3514,8 @@ pub struct DIPROPCPOINTS {
     pub dwCPointsNum: u32,
     pub cp: [CPOINT; 8],
 }
-impl ::core::marker::Copy for DIPROPCPOINTS {}
-impl ::core::clone::Clone for DIPROPCPOINTS {
+impl Copy for DIPROPCPOINTS {}
+impl Clone for DIPROPCPOINTS {
     fn clone(&self) -> Self {
         *self
     }
@@ -3525,8 +3525,8 @@ pub struct DIPROPDWORD {
     pub diph: DIPROPHEADER,
     pub dwData: u32,
 }
-impl ::core::marker::Copy for DIPROPDWORD {}
-impl ::core::clone::Clone for DIPROPDWORD {
+impl Copy for DIPROPDWORD {}
+impl Clone for DIPROPDWORD {
     fn clone(&self) -> Self {
         *self
     }
@@ -3534,11 +3534,11 @@ impl ::core::clone::Clone for DIPROPDWORD {
 #[repr(C)]
 pub struct DIPROPGUIDANDPATH {
     pub diph: DIPROPHEADER,
-    pub guidClass: ::windows_sys::core::GUID,
+    pub guidClass: windows_sys::core::GUID,
     pub wszPath: [u16; 260],
 }
-impl ::core::marker::Copy for DIPROPGUIDANDPATH {}
-impl ::core::clone::Clone for DIPROPGUIDANDPATH {
+impl Copy for DIPROPGUIDANDPATH {}
+impl Clone for DIPROPGUIDANDPATH {
     fn clone(&self) -> Self {
         *self
     }
@@ -3550,8 +3550,8 @@ pub struct DIPROPHEADER {
     pub dwObj: u32,
     pub dwHow: u32,
 }
-impl ::core::marker::Copy for DIPROPHEADER {}
-impl ::core::clone::Clone for DIPROPHEADER {
+impl Copy for DIPROPHEADER {}
+impl Clone for DIPROPHEADER {
     fn clone(&self) -> Self {
         *self
     }
@@ -3561,8 +3561,8 @@ pub struct DIPROPPOINTER {
     pub diph: DIPROPHEADER,
     pub uData: usize,
 }
-impl ::core::marker::Copy for DIPROPPOINTER {}
-impl ::core::clone::Clone for DIPROPPOINTER {
+impl Copy for DIPROPPOINTER {}
+impl Clone for DIPROPPOINTER {
     fn clone(&self) -> Self {
         *self
     }
@@ -3573,8 +3573,8 @@ pub struct DIPROPRANGE {
     pub lMin: i32,
     pub lMax: i32,
 }
-impl ::core::marker::Copy for DIPROPRANGE {}
-impl ::core::clone::Clone for DIPROPRANGE {
+impl Copy for DIPROPRANGE {}
+impl Clone for DIPROPRANGE {
     fn clone(&self) -> Self {
         *self
     }
@@ -3584,8 +3584,8 @@ pub struct DIPROPSTRING {
     pub diph: DIPROPHEADER,
     pub wsz: [u16; 260],
 }
-impl ::core::marker::Copy for DIPROPSTRING {}
-impl ::core::clone::Clone for DIPROPSTRING {
+impl Copy for DIPROPSTRING {}
+impl Clone for DIPROPSTRING {
     fn clone(&self) -> Self {
         *self
     }
@@ -3595,8 +3595,8 @@ pub struct DIRAMPFORCE {
     pub lStart: i32,
     pub lEnd: i32,
 }
-impl ::core::marker::Copy for DIRAMPFORCE {}
-impl ::core::clone::Clone for DIRAMPFORCE {
+impl Copy for DIRAMPFORCE {}
+impl Clone for DIRAMPFORCE {
     fn clone(&self) -> Self {
         *self
     }
@@ -3608,20 +3608,20 @@ pub struct HIDD_ATTRIBUTES {
     pub ProductID: u16,
     pub VersionNumber: u16,
 }
-impl ::core::marker::Copy for HIDD_ATTRIBUTES {}
-impl ::core::clone::Clone for HIDD_ATTRIBUTES {
+impl Copy for HIDD_ATTRIBUTES {}
+impl Clone for HIDD_ATTRIBUTES {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C, packed(4))]
 pub struct HIDD_CONFIGURATION {
-    pub cookie: *mut ::core::ffi::c_void,
+    pub cookie: *mut core::ffi::c_void,
     pub size: u32,
     pub RingBufferSize: u32,
 }
-impl ::core::marker::Copy for HIDD_CONFIGURATION {}
-impl ::core::clone::Clone for HIDD_CONFIGURATION {
+impl Copy for HIDD_CONFIGURATION {}
+impl Clone for HIDD_CONFIGURATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -3631,8 +3631,8 @@ pub struct HIDP_BUTTON_ARRAY_DATA {
     pub ArrayIndex: u16,
     pub On: super::super::Foundation::BOOLEAN,
 }
-impl ::core::marker::Copy for HIDP_BUTTON_ARRAY_DATA {}
-impl ::core::clone::Clone for HIDP_BUTTON_ARRAY_DATA {
+impl Copy for HIDP_BUTTON_ARRAY_DATA {}
+impl Clone for HIDP_BUTTON_ARRAY_DATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -3655,8 +3655,8 @@ pub struct HIDP_BUTTON_CAPS {
     pub Reserved: [u32; 9],
     pub Anonymous: HIDP_BUTTON_CAPS_0,
 }
-impl ::core::marker::Copy for HIDP_BUTTON_CAPS {}
-impl ::core::clone::Clone for HIDP_BUTTON_CAPS {
+impl Copy for HIDP_BUTTON_CAPS {}
+impl Clone for HIDP_BUTTON_CAPS {
     fn clone(&self) -> Self {
         *self
     }
@@ -3666,8 +3666,8 @@ pub union HIDP_BUTTON_CAPS_0 {
     pub Range: HIDP_BUTTON_CAPS_0_1,
     pub NotRange: HIDP_BUTTON_CAPS_0_0,
 }
-impl ::core::marker::Copy for HIDP_BUTTON_CAPS_0 {}
-impl ::core::clone::Clone for HIDP_BUTTON_CAPS_0 {
+impl Copy for HIDP_BUTTON_CAPS_0 {}
+impl Clone for HIDP_BUTTON_CAPS_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3683,8 +3683,8 @@ pub struct HIDP_BUTTON_CAPS_0_0 {
     pub DataIndex: u16,
     pub Reserved4: u16,
 }
-impl ::core::marker::Copy for HIDP_BUTTON_CAPS_0_0 {}
-impl ::core::clone::Clone for HIDP_BUTTON_CAPS_0_0 {
+impl Copy for HIDP_BUTTON_CAPS_0_0 {}
+impl Clone for HIDP_BUTTON_CAPS_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3700,8 +3700,8 @@ pub struct HIDP_BUTTON_CAPS_0_1 {
     pub DataIndexMin: u16,
     pub DataIndexMax: u16,
 }
-impl ::core::marker::Copy for HIDP_BUTTON_CAPS_0_1 {}
-impl ::core::clone::Clone for HIDP_BUTTON_CAPS_0_1 {
+impl Copy for HIDP_BUTTON_CAPS_0_1 {}
+impl Clone for HIDP_BUTTON_CAPS_0_1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3725,8 +3725,8 @@ pub struct HIDP_CAPS {
     pub NumberFeatureValueCaps: u16,
     pub NumberFeatureDataIndices: u16,
 }
-impl ::core::marker::Copy for HIDP_CAPS {}
-impl ::core::clone::Clone for HIDP_CAPS {
+impl Copy for HIDP_CAPS {}
+impl Clone for HIDP_CAPS {
     fn clone(&self) -> Self {
         *self
     }
@@ -3737,8 +3737,8 @@ pub struct HIDP_DATA {
     pub Reserved: u16,
     pub Anonymous: HIDP_DATA_0,
 }
-impl ::core::marker::Copy for HIDP_DATA {}
-impl ::core::clone::Clone for HIDP_DATA {
+impl Copy for HIDP_DATA {}
+impl Clone for HIDP_DATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -3748,8 +3748,8 @@ pub union HIDP_DATA_0 {
     pub RawValue: u32,
     pub On: super::super::Foundation::BOOLEAN,
 }
-impl ::core::marker::Copy for HIDP_DATA_0 {}
-impl ::core::clone::Clone for HIDP_DATA_0 {
+impl Copy for HIDP_DATA_0 {}
+impl Clone for HIDP_DATA_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3761,8 +3761,8 @@ pub struct HIDP_EXTENDED_ATTRIBUTES {
     pub GlobalUnknowns: *mut HIDP_UNKNOWN_TOKEN,
     pub Data: [u32; 1],
 }
-impl ::core::marker::Copy for HIDP_EXTENDED_ATTRIBUTES {}
-impl ::core::clone::Clone for HIDP_EXTENDED_ATTRIBUTES {
+impl Copy for HIDP_EXTENDED_ATTRIBUTES {}
+impl Clone for HIDP_EXTENDED_ATTRIBUTES {
     fn clone(&self) -> Self {
         *self
     }
@@ -3771,8 +3771,8 @@ impl ::core::clone::Clone for HIDP_EXTENDED_ATTRIBUTES {
 pub struct HIDP_KEYBOARD_MODIFIER_STATE {
     pub Anonymous: HIDP_KEYBOARD_MODIFIER_STATE_0,
 }
-impl ::core::marker::Copy for HIDP_KEYBOARD_MODIFIER_STATE {}
-impl ::core::clone::Clone for HIDP_KEYBOARD_MODIFIER_STATE {
+impl Copy for HIDP_KEYBOARD_MODIFIER_STATE {}
+impl Clone for HIDP_KEYBOARD_MODIFIER_STATE {
     fn clone(&self) -> Self {
         *self
     }
@@ -3782,8 +3782,8 @@ pub union HIDP_KEYBOARD_MODIFIER_STATE_0 {
     pub Anonymous: HIDP_KEYBOARD_MODIFIER_STATE_0_0,
     pub ul: u32,
 }
-impl ::core::marker::Copy for HIDP_KEYBOARD_MODIFIER_STATE_0 {}
-impl ::core::clone::Clone for HIDP_KEYBOARD_MODIFIER_STATE_0 {
+impl Copy for HIDP_KEYBOARD_MODIFIER_STATE_0 {}
+impl Clone for HIDP_KEYBOARD_MODIFIER_STATE_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3792,8 +3792,8 @@ impl ::core::clone::Clone for HIDP_KEYBOARD_MODIFIER_STATE_0 {
 pub struct HIDP_KEYBOARD_MODIFIER_STATE_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for HIDP_KEYBOARD_MODIFIER_STATE_0_0 {}
-impl ::core::clone::Clone for HIDP_KEYBOARD_MODIFIER_STATE_0_0 {
+impl Copy for HIDP_KEYBOARD_MODIFIER_STATE_0_0 {}
+impl Clone for HIDP_KEYBOARD_MODIFIER_STATE_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3807,10 +3807,10 @@ pub struct HIDP_LINK_COLLECTION_NODE {
     pub NextSibling: u16,
     pub FirstChild: u16,
     pub _bitfield: u32,
-    pub UserContext: *mut ::core::ffi::c_void,
+    pub UserContext: *mut core::ffi::c_void,
 }
-impl ::core::marker::Copy for HIDP_LINK_COLLECTION_NODE {}
-impl ::core::clone::Clone for HIDP_LINK_COLLECTION_NODE {
+impl Copy for HIDP_LINK_COLLECTION_NODE {}
+impl Clone for HIDP_LINK_COLLECTION_NODE {
     fn clone(&self) -> Self {
         *self
     }
@@ -3821,8 +3821,8 @@ pub struct HIDP_UNKNOWN_TOKEN {
     pub Reserved: [u8; 3],
     pub BitField: u32,
 }
-impl ::core::marker::Copy for HIDP_UNKNOWN_TOKEN {}
-impl ::core::clone::Clone for HIDP_UNKNOWN_TOKEN {
+impl Copy for HIDP_UNKNOWN_TOKEN {}
+impl Clone for HIDP_UNKNOWN_TOKEN {
     fn clone(&self) -> Self {
         *self
     }
@@ -3853,8 +3853,8 @@ pub struct HIDP_VALUE_CAPS {
     pub PhysicalMax: i32,
     pub Anonymous: HIDP_VALUE_CAPS_0,
 }
-impl ::core::marker::Copy for HIDP_VALUE_CAPS {}
-impl ::core::clone::Clone for HIDP_VALUE_CAPS {
+impl Copy for HIDP_VALUE_CAPS {}
+impl Clone for HIDP_VALUE_CAPS {
     fn clone(&self) -> Self {
         *self
     }
@@ -3864,8 +3864,8 @@ pub union HIDP_VALUE_CAPS_0 {
     pub Range: HIDP_VALUE_CAPS_0_1,
     pub NotRange: HIDP_VALUE_CAPS_0_0,
 }
-impl ::core::marker::Copy for HIDP_VALUE_CAPS_0 {}
-impl ::core::clone::Clone for HIDP_VALUE_CAPS_0 {
+impl Copy for HIDP_VALUE_CAPS_0 {}
+impl Clone for HIDP_VALUE_CAPS_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3881,8 +3881,8 @@ pub struct HIDP_VALUE_CAPS_0_0 {
     pub DataIndex: u16,
     pub Reserved4: u16,
 }
-impl ::core::marker::Copy for HIDP_VALUE_CAPS_0_0 {}
-impl ::core::clone::Clone for HIDP_VALUE_CAPS_0_0 {
+impl Copy for HIDP_VALUE_CAPS_0_0 {}
+impl Clone for HIDP_VALUE_CAPS_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3898,8 +3898,8 @@ pub struct HIDP_VALUE_CAPS_0_1 {
     pub DataIndexMin: u16,
     pub DataIndexMax: u16,
 }
-impl ::core::marker::Copy for HIDP_VALUE_CAPS_0_1 {}
-impl ::core::clone::Clone for HIDP_VALUE_CAPS_0_1 {
+impl Copy for HIDP_VALUE_CAPS_0_1 {}
+impl Clone for HIDP_VALUE_CAPS_0_1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3913,8 +3913,8 @@ pub struct HID_COLLECTION_INFORMATION {
     pub ProductID: u16,
     pub VersionNumber: u16,
 }
-impl ::core::marker::Copy for HID_COLLECTION_INFORMATION {}
-impl ::core::clone::Clone for HID_COLLECTION_INFORMATION {
+impl Copy for HID_COLLECTION_INFORMATION {}
+impl Clone for HID_COLLECTION_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -3924,8 +3924,8 @@ pub struct HID_DRIVER_CONFIG {
     pub Size: u32,
     pub RingBufferSize: u32,
 }
-impl ::core::marker::Copy for HID_DRIVER_CONFIG {}
-impl ::core::clone::Clone for HID_DRIVER_CONFIG {
+impl Copy for HID_DRIVER_CONFIG {}
+impl Clone for HID_DRIVER_CONFIG {
     fn clone(&self) -> Self {
         *self
     }
@@ -3936,8 +3936,8 @@ pub struct HID_XFER_PACKET {
     pub reportBufferLen: u32,
     pub reportId: u8,
 }
-impl ::core::marker::Copy for HID_XFER_PACKET {}
-impl ::core::clone::Clone for HID_XFER_PACKET {
+impl Copy for HID_XFER_PACKET {}
+impl Clone for HID_XFER_PACKET {
     fn clone(&self) -> Self {
         *self
     }
@@ -3947,8 +3947,8 @@ pub struct INDICATOR_LIST {
     pub MakeCode: u16,
     pub IndicatorFlags: u16,
 }
-impl ::core::marker::Copy for INDICATOR_LIST {}
-impl ::core::clone::Clone for INDICATOR_LIST {
+impl Copy for INDICATOR_LIST {}
+impl Clone for INDICATOR_LIST {
     fn clone(&self) -> Self {
         *self
     }
@@ -3958,8 +3958,8 @@ pub struct INPUT_BUTTON_ENABLE_INFO {
     pub ButtonType: GPIOBUTTONS_BUTTON_TYPE,
     pub Enabled: super::super::Foundation::BOOLEAN,
 }
-impl ::core::marker::Copy for INPUT_BUTTON_ENABLE_INFO {}
-impl ::core::clone::Clone for INPUT_BUTTON_ENABLE_INFO {
+impl Copy for INPUT_BUTTON_ENABLE_INFO {}
+impl Clone for INPUT_BUTTON_ENABLE_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -3973,8 +3973,8 @@ pub struct JOYCALIBRATE {
     pub wZbase: u32,
     pub wZdelta: u32,
 }
-impl ::core::marker::Copy for JOYCALIBRATE {}
-impl ::core::clone::Clone for JOYCALIBRATE {
+impl Copy for JOYCALIBRATE {}
+impl Clone for JOYCALIBRATE {
     fn clone(&self) -> Self {
         *self
     }
@@ -3988,8 +3988,8 @@ pub struct JOYPOS {
     pub dwU: u32,
     pub dwV: u32,
 }
-impl ::core::marker::Copy for JOYPOS {}
-impl ::core::clone::Clone for JOYPOS {
+impl Copy for JOYPOS {}
+impl Clone for JOYPOS {
     fn clone(&self) -> Self {
         *self
     }
@@ -4000,8 +4000,8 @@ pub struct JOYRANGE {
     pub jpMax: JOYPOS,
     pub jpCenter: JOYPOS,
 }
-impl ::core::marker::Copy for JOYRANGE {}
-impl ::core::clone::Clone for JOYRANGE {
+impl Copy for JOYRANGE {}
+impl Clone for JOYRANGE {
     fn clone(&self) -> Self {
         *self
     }
@@ -4014,8 +4014,8 @@ pub struct JOYREGHWCONFIG {
     pub dwType: u32,
     pub dwReserved: u32,
 }
-impl ::core::marker::Copy for JOYREGHWCONFIG {}
-impl ::core::clone::Clone for JOYREGHWCONFIG {
+impl Copy for JOYREGHWCONFIG {}
+impl Clone for JOYREGHWCONFIG {
     fn clone(&self) -> Self {
         *self
     }
@@ -4025,8 +4025,8 @@ pub struct JOYREGHWSETTINGS {
     pub dwFlags: u32,
     pub dwNumButtons: u32,
 }
-impl ::core::marker::Copy for JOYREGHWSETTINGS {}
-impl ::core::clone::Clone for JOYREGHWSETTINGS {
+impl Copy for JOYREGHWSETTINGS {}
+impl Clone for JOYREGHWSETTINGS {
     fn clone(&self) -> Self {
         *self
     }
@@ -4037,8 +4037,8 @@ pub struct JOYREGHWVALUES {
     pub dwPOVValues: [u32; 4],
     pub dwCalFlags: u32,
 }
-impl ::core::marker::Copy for JOYREGHWVALUES {}
-impl ::core::clone::Clone for JOYREGHWVALUES {
+impl Copy for JOYREGHWVALUES {}
+impl Clone for JOYREGHWVALUES {
     fn clone(&self) -> Self {
         *self
     }
@@ -4049,8 +4049,8 @@ pub struct JOYREGUSERVALUES {
     pub jrvRanges: JOYRANGE,
     pub jpDeadZone: JOYPOS,
 }
-impl ::core::marker::Copy for JOYREGUSERVALUES {}
-impl ::core::clone::Clone for JOYREGUSERVALUES {
+impl Copy for JOYREGUSERVALUES {}
+impl Clone for JOYREGUSERVALUES {
     fn clone(&self) -> Self {
         *self
     }
@@ -4066,8 +4066,8 @@ pub struct KEYBOARD_ATTRIBUTES {
     pub KeyRepeatMinimum: KEYBOARD_TYPEMATIC_PARAMETERS,
     pub KeyRepeatMaximum: KEYBOARD_TYPEMATIC_PARAMETERS,
 }
-impl ::core::marker::Copy for KEYBOARD_ATTRIBUTES {}
-impl ::core::clone::Clone for KEYBOARD_ATTRIBUTES {
+impl Copy for KEYBOARD_ATTRIBUTES {}
+impl Clone for KEYBOARD_ATTRIBUTES {
     fn clone(&self) -> Self {
         *self
     }
@@ -4082,8 +4082,8 @@ pub struct KEYBOARD_EXTENDED_ATTRIBUTES {
     pub IETFLanguageTagIndex: u8,
     pub ImplementedInputAssistControls: u8,
 }
-impl ::core::marker::Copy for KEYBOARD_EXTENDED_ATTRIBUTES {}
-impl ::core::clone::Clone for KEYBOARD_EXTENDED_ATTRIBUTES {
+impl Copy for KEYBOARD_EXTENDED_ATTRIBUTES {}
+impl Clone for KEYBOARD_EXTENDED_ATTRIBUTES {
     fn clone(&self) -> Self {
         *self
     }
@@ -4093,8 +4093,8 @@ pub struct KEYBOARD_ID {
     pub Type: u8,
     pub Subtype: u8,
 }
-impl ::core::marker::Copy for KEYBOARD_ID {}
-impl ::core::clone::Clone for KEYBOARD_ID {
+impl Copy for KEYBOARD_ID {}
+impl Clone for KEYBOARD_ID {
     fn clone(&self) -> Self {
         *self
     }
@@ -4105,8 +4105,8 @@ pub struct KEYBOARD_IME_STATUS {
     pub ImeOpen: u32,
     pub ImeConvMode: u32,
 }
-impl ::core::marker::Copy for KEYBOARD_IME_STATUS {}
-impl ::core::clone::Clone for KEYBOARD_IME_STATUS {
+impl Copy for KEYBOARD_IME_STATUS {}
+impl Clone for KEYBOARD_IME_STATUS {
     fn clone(&self) -> Self {
         *self
     }
@@ -4116,8 +4116,8 @@ pub struct KEYBOARD_INDICATOR_PARAMETERS {
     pub UnitId: u16,
     pub LedFlags: u16,
 }
-impl ::core::marker::Copy for KEYBOARD_INDICATOR_PARAMETERS {}
-impl ::core::clone::Clone for KEYBOARD_INDICATOR_PARAMETERS {
+impl Copy for KEYBOARD_INDICATOR_PARAMETERS {}
+impl Clone for KEYBOARD_INDICATOR_PARAMETERS {
     fn clone(&self) -> Self {
         *self
     }
@@ -4127,8 +4127,8 @@ pub struct KEYBOARD_INDICATOR_TRANSLATION {
     pub NumberOfIndicatorKeys: u16,
     pub IndicatorList: [INDICATOR_LIST; 1],
 }
-impl ::core::marker::Copy for KEYBOARD_INDICATOR_TRANSLATION {}
-impl ::core::clone::Clone for KEYBOARD_INDICATOR_TRANSLATION {
+impl Copy for KEYBOARD_INDICATOR_TRANSLATION {}
+impl Clone for KEYBOARD_INDICATOR_TRANSLATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -4141,8 +4141,8 @@ pub struct KEYBOARD_INPUT_DATA {
     pub Reserved: u16,
     pub ExtraInformation: u32,
 }
-impl ::core::marker::Copy for KEYBOARD_INPUT_DATA {}
-impl ::core::clone::Clone for KEYBOARD_INPUT_DATA {
+impl Copy for KEYBOARD_INPUT_DATA {}
+impl Clone for KEYBOARD_INPUT_DATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -4153,8 +4153,8 @@ pub struct KEYBOARD_TYPEMATIC_PARAMETERS {
     pub Rate: u16,
     pub Delay: u16,
 }
-impl ::core::marker::Copy for KEYBOARD_TYPEMATIC_PARAMETERS {}
-impl ::core::clone::Clone for KEYBOARD_TYPEMATIC_PARAMETERS {
+impl Copy for KEYBOARD_TYPEMATIC_PARAMETERS {}
+impl Clone for KEYBOARD_TYPEMATIC_PARAMETERS {
     fn clone(&self) -> Self {
         *self
     }
@@ -4163,8 +4163,8 @@ impl ::core::clone::Clone for KEYBOARD_TYPEMATIC_PARAMETERS {
 pub struct KEYBOARD_UNIT_ID_PARAMETER {
     pub UnitId: u16,
 }
-impl ::core::marker::Copy for KEYBOARD_UNIT_ID_PARAMETER {}
-impl ::core::clone::Clone for KEYBOARD_UNIT_ID_PARAMETER {
+impl Copy for KEYBOARD_UNIT_ID_PARAMETER {}
+impl Clone for KEYBOARD_UNIT_ID_PARAMETER {
     fn clone(&self) -> Self {
         *self
     }
@@ -4176,8 +4176,8 @@ pub struct MOUSE_ATTRIBUTES {
     pub SampleRate: u16,
     pub InputDataQueueLength: u32,
 }
-impl ::core::marker::Copy for MOUSE_ATTRIBUTES {}
-impl ::core::clone::Clone for MOUSE_ATTRIBUTES {
+impl Copy for MOUSE_ATTRIBUTES {}
+impl Clone for MOUSE_ATTRIBUTES {
     fn clone(&self) -> Self {
         *self
     }
@@ -4192,8 +4192,8 @@ pub struct MOUSE_INPUT_DATA {
     pub LastY: i32,
     pub ExtraInformation: u32,
 }
-impl ::core::marker::Copy for MOUSE_INPUT_DATA {}
-impl ::core::clone::Clone for MOUSE_INPUT_DATA {
+impl Copy for MOUSE_INPUT_DATA {}
+impl Clone for MOUSE_INPUT_DATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -4203,8 +4203,8 @@ pub union MOUSE_INPUT_DATA_0 {
     pub Buttons: u32,
     pub Anonymous: MOUSE_INPUT_DATA_0_0,
 }
-impl ::core::marker::Copy for MOUSE_INPUT_DATA_0 {}
-impl ::core::clone::Clone for MOUSE_INPUT_DATA_0 {
+impl Copy for MOUSE_INPUT_DATA_0 {}
+impl Clone for MOUSE_INPUT_DATA_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4214,8 +4214,8 @@ pub struct MOUSE_INPUT_DATA_0_0 {
     pub ButtonFlags: u16,
     pub ButtonData: u16,
 }
-impl ::core::marker::Copy for MOUSE_INPUT_DATA_0_0 {}
-impl ::core::clone::Clone for MOUSE_INPUT_DATA_0_0 {
+impl Copy for MOUSE_INPUT_DATA_0_0 {}
+impl Clone for MOUSE_INPUT_DATA_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4224,8 +4224,8 @@ impl ::core::clone::Clone for MOUSE_INPUT_DATA_0_0 {
 pub struct MOUSE_UNIT_ID_PARAMETER {
     pub UnitId: u16,
 }
-impl ::core::marker::Copy for MOUSE_UNIT_ID_PARAMETER {}
-impl ::core::clone::Clone for MOUSE_UNIT_ID_PARAMETER {
+impl Copy for MOUSE_UNIT_ID_PARAMETER {}
+impl Clone for MOUSE_UNIT_ID_PARAMETER {
     fn clone(&self) -> Self {
         *self
     }
@@ -4236,24 +4236,24 @@ pub struct USAGE_AND_PAGE {
     pub Usage: u16,
     pub UsagePage: u16,
 }
-impl ::core::marker::Copy for USAGE_AND_PAGE {}
-impl ::core::clone::Clone for USAGE_AND_PAGE {
+impl Copy for USAGE_AND_PAGE {}
+impl Clone for USAGE_AND_PAGE {
     fn clone(&self) -> Self {
         *self
     }
 }
-pub type LPDICONFIGUREDEVICESCALLBACK = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
-pub type LPDIENUMCREATEDEFFECTOBJECTSCALLBACK = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
-pub type LPDIENUMDEVICEOBJECTSCALLBACKA = ::core::option::Option<unsafe extern "system" fn(param0: *mut DIDEVICEOBJECTINSTANCEA, param1: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
-pub type LPDIENUMDEVICEOBJECTSCALLBACKW = ::core::option::Option<unsafe extern "system" fn(param0: *mut DIDEVICEOBJECTINSTANCEW, param1: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
-pub type LPDIENUMDEVICESBYSEMANTICSCBA = ::core::option::Option<unsafe extern "system" fn(param0: *mut DIDEVICEINSTANCEA, param1: *mut ::core::ffi::c_void, param2: u32, param3: u32, param4: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
-pub type LPDIENUMDEVICESBYSEMANTICSCBW = ::core::option::Option<unsafe extern "system" fn(param0: *mut DIDEVICEINSTANCEW, param1: *mut ::core::ffi::c_void, param2: u32, param3: u32, param4: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
-pub type LPDIENUMDEVICESCALLBACKA = ::core::option::Option<unsafe extern "system" fn(param0: *mut DIDEVICEINSTANCEA, param1: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
-pub type LPDIENUMDEVICESCALLBACKW = ::core::option::Option<unsafe extern "system" fn(param0: *mut DIDEVICEINSTANCEW, param1: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
-pub type LPDIENUMEFFECTSCALLBACKA = ::core::option::Option<unsafe extern "system" fn(param0: *mut DIEFFECTINFOA, param1: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
-pub type LPDIENUMEFFECTSCALLBACKW = ::core::option::Option<unsafe extern "system" fn(param0: *mut DIEFFECTINFOW, param1: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
-pub type LPDIENUMEFFECTSINFILECALLBACK = ::core::option::Option<unsafe extern "system" fn(param0: *mut DIFILEEFFECT, param1: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
-pub type LPDIJOYTYPECALLBACK = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_sys::core::PCWSTR, param1: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
-pub type LPFNSHOWJOYCPL = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND)>;
-pub type PFN_HidP_GetVersionInternal = ::core::option::Option<unsafe extern "system" fn(version: *mut u32) -> super::super::Foundation::NTSTATUS>;
-pub type PHIDP_INSERT_SCANCODES = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, newscancodes: ::windows_sys::core::PCSTR, length: u32) -> super::super::Foundation::BOOLEAN>;
+pub type LPDICONFIGUREDEVICESCALLBACK = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void, param1: *mut core::ffi::c_void) -> super::super::Foundation::BOOL>;
+pub type LPDIENUMCREATEDEFFECTOBJECTSCALLBACK = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void, param1: *mut core::ffi::c_void) -> super::super::Foundation::BOOL>;
+pub type LPDIENUMDEVICEOBJECTSCALLBACKA = Option<unsafe extern "system" fn(param0: *mut DIDEVICEOBJECTINSTANCEA, param1: *mut core::ffi::c_void) -> super::super::Foundation::BOOL>;
+pub type LPDIENUMDEVICEOBJECTSCALLBACKW = Option<unsafe extern "system" fn(param0: *mut DIDEVICEOBJECTINSTANCEW, param1: *mut core::ffi::c_void) -> super::super::Foundation::BOOL>;
+pub type LPDIENUMDEVICESBYSEMANTICSCBA = Option<unsafe extern "system" fn(param0: *mut DIDEVICEINSTANCEA, param1: *mut core::ffi::c_void, param2: u32, param3: u32, param4: *mut core::ffi::c_void) -> super::super::Foundation::BOOL>;
+pub type LPDIENUMDEVICESBYSEMANTICSCBW = Option<unsafe extern "system" fn(param0: *mut DIDEVICEINSTANCEW, param1: *mut core::ffi::c_void, param2: u32, param3: u32, param4: *mut core::ffi::c_void) -> super::super::Foundation::BOOL>;
+pub type LPDIENUMDEVICESCALLBACKA = Option<unsafe extern "system" fn(param0: *mut DIDEVICEINSTANCEA, param1: *mut core::ffi::c_void) -> super::super::Foundation::BOOL>;
+pub type LPDIENUMDEVICESCALLBACKW = Option<unsafe extern "system" fn(param0: *mut DIDEVICEINSTANCEW, param1: *mut core::ffi::c_void) -> super::super::Foundation::BOOL>;
+pub type LPDIENUMEFFECTSCALLBACKA = Option<unsafe extern "system" fn(param0: *mut DIEFFECTINFOA, param1: *mut core::ffi::c_void) -> super::super::Foundation::BOOL>;
+pub type LPDIENUMEFFECTSCALLBACKW = Option<unsafe extern "system" fn(param0: *mut DIEFFECTINFOW, param1: *mut core::ffi::c_void) -> super::super::Foundation::BOOL>;
+pub type LPDIENUMEFFECTSINFILECALLBACK = Option<unsafe extern "system" fn(param0: *mut DIFILEEFFECT, param1: *mut core::ffi::c_void) -> super::super::Foundation::BOOL>;
+pub type LPDIJOYTYPECALLBACK = Option<unsafe extern "system" fn(param0: windows_sys::core::PCWSTR, param1: *mut core::ffi::c_void) -> super::super::Foundation::BOOL>;
+pub type LPFNSHOWJOYCPL = Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND)>;
+pub type PFN_HidP_GetVersionInternal = Option<unsafe extern "system" fn(version: *mut u32) -> super::super::Foundation::NTSTATUS>;
+pub type PHIDP_INSERT_SCANCODES = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, newscancodes: windows_sys::core::PCSTR, length: u32) -> super::super::Foundation::BOOLEAN>;

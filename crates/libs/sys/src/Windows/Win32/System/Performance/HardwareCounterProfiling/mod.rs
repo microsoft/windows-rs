@@ -11,8 +11,8 @@ pub struct HARDWARE_COUNTER_DATA {
     pub Reserved: u32,
     pub Value: u64,
 }
-impl ::core::marker::Copy for HARDWARE_COUNTER_DATA {}
-impl ::core::clone::Clone for HARDWARE_COUNTER_DATA {
+impl Copy for HARDWARE_COUNTER_DATA {}
+impl Clone for HARDWARE_COUNTER_DATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -29,8 +29,8 @@ pub struct PERFORMANCE_DATA {
     pub Reserved: u32,
     pub HwCounters: [HARDWARE_COUNTER_DATA; 16],
 }
-impl ::core::marker::Copy for PERFORMANCE_DATA {}
-impl ::core::clone::Clone for PERFORMANCE_DATA {
+impl Copy for PERFORMANCE_DATA {}
+impl Clone for PERFORMANCE_DATA {
     fn clone(&self) -> Self {
         *self
     }

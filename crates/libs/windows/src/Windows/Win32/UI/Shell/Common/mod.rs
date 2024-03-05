@@ -1,64 +1,64 @@
-::windows_core::imp::com_interface!(IObjectArray, IObjectArray_Vtbl, 0x92ca9dcd_5622_4bba_a805_5e9f541bd8c9);
-::windows_core::imp::interface_hierarchy!(IObjectArray, ::windows_core::IUnknown);
+windows_core::imp::com_interface!(IObjectArray, IObjectArray_Vtbl, 0x92ca9dcd_5622_4bba_a805_5e9f541bd8c9);
+windows_core::imp::interface_hierarchy!(IObjectArray, windows_core::IUnknown);
 impl IObjectArray {
-    pub unsafe fn GetCount(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetCount)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+    pub unsafe fn GetCount(&self) -> windows_core::Result<u32> {
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).GetCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn GetAt<T>(&self, uiindex: u32) -> ::windows_core::Result<T>
+    pub unsafe fn GetAt<T>(&self, uiindex: u32) -> windows_core::Result<T>
     where
-        T: ::windows_core::Interface,
+        T: windows_core::Interface,
     {
-        let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).GetAt)(::windows_core::Interface::as_raw(self), uiindex, &T::IID, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
+        let mut result__ = std::ptr::null_mut();
+        (windows_core::Interface::vtable(self).GetAt)(windows_core::Interface::as_raw(self), uiindex, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
 pub struct IObjectArray_Vtbl {
-    pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
-    pub GetAt: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    pub GetAt: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-::windows_core::imp::com_interface!(IObjectCollection, IObjectCollection_Vtbl, 0x5632b1a4_e38a_400a_928a_d4cd63230295);
-::windows_core::imp::interface_hierarchy!(IObjectCollection, ::windows_core::IUnknown, IObjectArray);
+windows_core::imp::com_interface!(IObjectCollection, IObjectCollection_Vtbl, 0x5632b1a4_e38a_400a_928a_d4cd63230295);
+windows_core::imp::interface_hierarchy!(IObjectCollection, windows_core::IUnknown, IObjectArray);
 impl IObjectCollection {
-    pub unsafe fn GetCount(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.GetCount)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+    pub unsafe fn GetCount(&self) -> windows_core::Result<u32> {
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).base__.GetCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn GetAt<T>(&self, uiindex: u32) -> ::windows_core::Result<T>
+    pub unsafe fn GetAt<T>(&self, uiindex: u32) -> windows_core::Result<T>
     where
-        T: ::windows_core::Interface,
+        T: windows_core::Interface,
     {
-        let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).base__.GetAt)(::windows_core::Interface::as_raw(self), uiindex, &T::IID, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
+        let mut result__ = std::ptr::null_mut();
+        (windows_core::Interface::vtable(self).base__.GetAt)(windows_core::Interface::as_raw(self), uiindex, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn AddObject<P0>(&self, punk: P0) -> ::windows_core::Result<()>
+    pub unsafe fn AddObject<P0>(&self, punk: P0) -> windows_core::Result<()>
     where
-        P0: ::windows_core::IntoParam<::windows_core::IUnknown>,
+        P0: windows_core::IntoParam<windows_core::IUnknown>,
     {
-        (::windows_core::Interface::vtable(self).AddObject)(::windows_core::Interface::as_raw(self), punk.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AddObject)(windows_core::Interface::as_raw(self), punk.into_param().abi()).ok()
     }
-    pub unsafe fn AddFromArray<P0>(&self, poasource: P0) -> ::windows_core::Result<()>
+    pub unsafe fn AddFromArray<P0>(&self, poasource: P0) -> windows_core::Result<()>
     where
-        P0: ::windows_core::IntoParam<IObjectArray>,
+        P0: windows_core::IntoParam<IObjectArray>,
     {
-        (::windows_core::Interface::vtable(self).AddFromArray)(::windows_core::Interface::as_raw(self), poasource.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AddFromArray)(windows_core::Interface::as_raw(self), poasource.into_param().abi()).ok()
     }
-    pub unsafe fn RemoveObjectAt(&self, uiindex: u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).RemoveObjectAt)(::windows_core::Interface::as_raw(self), uiindex).ok()
+    pub unsafe fn RemoveObjectAt(&self, uiindex: u32) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).RemoveObjectAt)(windows_core::Interface::as_raw(self), uiindex).ok()
     }
-    pub unsafe fn Clear(&self) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Clear)(::windows_core::Interface::as_raw(self)).ok()
+    pub unsafe fn Clear(&self) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).Clear)(windows_core::Interface::as_raw(self)).ok()
     }
 }
 #[repr(C)]
 pub struct IObjectCollection_Vtbl {
     pub base__: IObjectArray_Vtbl,
-    pub AddObject: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub AddFromArray: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub RemoveObjectAt: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
-    pub Clear: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub AddObject: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub AddFromArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub RemoveObjectAt: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
+    pub Clear: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub const DEVICE_SCALE_FACTOR_INVALID: DEVICE_SCALE_FACTOR = DEVICE_SCALE_FACTOR(0i32);
 pub const PERCEIVEDFLAG_GDIPLUS: u32 = 16u32;
@@ -124,95 +124,95 @@ pub const STRRET_CSTR: STRRET_TYPE = STRRET_TYPE(2i32);
 pub const STRRET_OFFSET: STRRET_TYPE = STRRET_TYPE(1i32);
 pub const STRRET_WSTR: STRRET_TYPE = STRRET_TYPE(0i32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DEVICE_SCALE_FACTOR(pub i32);
-impl ::windows_core::TypeKind for DEVICE_SCALE_FACTOR {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for DEVICE_SCALE_FACTOR {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for DEVICE_SCALE_FACTOR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for DEVICE_SCALE_FACTOR {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("DEVICE_SCALE_FACTOR").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct PERCEIVED(pub i32);
-impl ::windows_core::TypeKind for PERCEIVED {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for PERCEIVED {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for PERCEIVED {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for PERCEIVED {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("PERCEIVED").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct SHCOLSTATE(pub i32);
-impl ::windows_core::TypeKind for SHCOLSTATE {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for SHCOLSTATE {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for SHCOLSTATE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for SHCOLSTATE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("SHCOLSTATE").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct STRRET_TYPE(pub i32);
-impl ::windows_core::TypeKind for STRRET_TYPE {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for STRRET_TYPE {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for STRRET_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for STRRET_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("STRRET_TYPE").field(&self.0).finish()
     }
 }
 #[repr(C)]
 pub struct COMDLG_FILTERSPEC {
-    pub pszName: ::windows_core::PCWSTR,
-    pub pszSpec: ::windows_core::PCWSTR,
+    pub pszName: windows_core::PCWSTR,
+    pub pszSpec: windows_core::PCWSTR,
 }
-impl ::core::marker::Copy for COMDLG_FILTERSPEC {}
-impl ::core::clone::Clone for COMDLG_FILTERSPEC {
+impl Copy for COMDLG_FILTERSPEC {}
+impl Clone for COMDLG_FILTERSPEC {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for COMDLG_FILTERSPEC {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for COMDLG_FILTERSPEC {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("COMDLG_FILTERSPEC").field("pszName", &self.pszName).field("pszSpec", &self.pszSpec).finish()
     }
 }
-impl ::windows_core::TypeKind for COMDLG_FILTERSPEC {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for COMDLG_FILTERSPEC {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for COMDLG_FILTERSPEC {
+impl PartialEq for COMDLG_FILTERSPEC {
     fn eq(&self, other: &Self) -> bool {
         self.pszName == other.pszName && self.pszSpec == other.pszSpec
     }
 }
-impl ::core::cmp::Eq for COMDLG_FILTERSPEC {}
-impl ::core::default::Default for COMDLG_FILTERSPEC {
+impl Eq for COMDLG_FILTERSPEC {}
+impl Default for COMDLG_FILTERSPEC {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
 pub struct ITEMIDLIST {
     pub mkid: SHITEMID,
 }
-impl ::core::marker::Copy for ITEMIDLIST {}
-impl ::core::clone::Clone for ITEMIDLIST {
+impl Copy for ITEMIDLIST {}
+impl Clone for ITEMIDLIST {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::windows_core::TypeKind for ITEMIDLIST {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for ITEMIDLIST {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::default::Default for ITEMIDLIST {
+impl Default for ITEMIDLIST {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
@@ -221,18 +221,18 @@ pub struct SHELLDETAILS {
     pub cxChar: i32,
     pub str: STRRET,
 }
-impl ::core::marker::Copy for SHELLDETAILS {}
-impl ::core::clone::Clone for SHELLDETAILS {
+impl Copy for SHELLDETAILS {}
+impl Clone for SHELLDETAILS {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::windows_core::TypeKind for SHELLDETAILS {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for SHELLDETAILS {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::default::Default for SHELLDETAILS {
+impl Default for SHELLDETAILS {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
@@ -240,18 +240,18 @@ pub struct SHITEMID {
     pub cb: u16,
     pub abID: [u8; 1],
 }
-impl ::core::marker::Copy for SHITEMID {}
-impl ::core::clone::Clone for SHITEMID {
+impl Copy for SHITEMID {}
+impl Clone for SHITEMID {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::windows_core::TypeKind for SHITEMID {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for SHITEMID {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::default::Default for SHITEMID {
+impl Default for SHITEMID {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -259,39 +259,39 @@ pub struct STRRET {
     pub uType: u32,
     pub Anonymous: STRRET_0,
 }
-impl ::core::marker::Copy for STRRET {}
-impl ::core::clone::Clone for STRRET {
+impl Copy for STRRET {}
+impl Clone for STRRET {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::windows_core::TypeKind for STRRET {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for STRRET {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::default::Default for STRRET {
+impl Default for STRRET {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 pub union STRRET_0 {
-    pub pOleStr: ::windows_core::PWSTR,
+    pub pOleStr: windows_core::PWSTR,
     pub uOffset: u32,
     pub cStr: [u8; 260],
 }
-impl ::core::marker::Copy for STRRET_0 {}
-impl ::core::clone::Clone for STRRET_0 {
+impl Copy for STRRET_0 {}
+impl Clone for STRRET_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::windows_core::TypeKind for STRRET_0 {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for STRRET_0 {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::default::Default for STRRET_0 {
+impl Default for STRRET_0 {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[cfg(feature = "implement")]
-::core::include!("impl.rs");
+core::include!("impl.rs");

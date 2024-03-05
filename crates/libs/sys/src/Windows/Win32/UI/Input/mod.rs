@@ -12,9 +12,9 @@ pub mod XboxController;
 ::windows_targets::link!("user32.dll" "system" fn GetCIMSSM(inputmessagesource : *mut INPUT_MESSAGE_SOURCE) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("user32.dll" "system" fn GetCurrentInputMessageSource(inputmessagesource : *mut INPUT_MESSAGE_SOURCE) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("user32.dll" "system" fn GetRawInputBuffer(pdata : *mut RAWINPUT, pcbsize : *mut u32, cbsizeheader : u32) -> u32);
-::windows_targets::link!("user32.dll" "system" fn GetRawInputData(hrawinput : HRAWINPUT, uicommand : RAW_INPUT_DATA_COMMAND_FLAGS, pdata : *mut ::core::ffi::c_void, pcbsize : *mut u32, cbsizeheader : u32) -> u32);
-::windows_targets::link!("user32.dll" "system" fn GetRawInputDeviceInfoA(hdevice : super::super::Foundation:: HANDLE, uicommand : RAW_INPUT_DEVICE_INFO_COMMAND, pdata : *mut ::core::ffi::c_void, pcbsize : *mut u32) -> u32);
-::windows_targets::link!("user32.dll" "system" fn GetRawInputDeviceInfoW(hdevice : super::super::Foundation:: HANDLE, uicommand : RAW_INPUT_DEVICE_INFO_COMMAND, pdata : *mut ::core::ffi::c_void, pcbsize : *mut u32) -> u32);
+::windows_targets::link!("user32.dll" "system" fn GetRawInputData(hrawinput : HRAWINPUT, uicommand : RAW_INPUT_DATA_COMMAND_FLAGS, pdata : *mut core::ffi::c_void, pcbsize : *mut u32, cbsizeheader : u32) -> u32);
+::windows_targets::link!("user32.dll" "system" fn GetRawInputDeviceInfoA(hdevice : super::super::Foundation:: HANDLE, uicommand : RAW_INPUT_DEVICE_INFO_COMMAND, pdata : *mut core::ffi::c_void, pcbsize : *mut u32) -> u32);
+::windows_targets::link!("user32.dll" "system" fn GetRawInputDeviceInfoW(hdevice : super::super::Foundation:: HANDLE, uicommand : RAW_INPUT_DEVICE_INFO_COMMAND, pdata : *mut core::ffi::c_void, pcbsize : *mut u32) -> u32);
 ::windows_targets::link!("user32.dll" "system" fn GetRawInputDeviceList(prawinputdevicelist : *mut RAWINPUTDEVICELIST, puinumdevices : *mut u32, cbsize : u32) -> u32);
 ::windows_targets::link!("user32.dll" "system" fn GetRegisteredRawInputDevices(prawinputdevices : *mut RAWINPUTDEVICE, puinumdevices : *mut u32, cbsize : u32) -> u32);
 ::windows_targets::link!("user32.dll" "system" fn RegisterRawInputDevices(prawinputdevices : *const RAWINPUTDEVICE, uinumdevices : u32, cbsize : u32) -> super::super::Foundation:: BOOL);
@@ -64,8 +64,8 @@ pub struct INPUT_MESSAGE_SOURCE {
     pub deviceType: INPUT_MESSAGE_DEVICE_TYPE,
     pub originId: INPUT_MESSAGE_ORIGIN_ID,
 }
-impl ::core::marker::Copy for INPUT_MESSAGE_SOURCE {}
-impl ::core::clone::Clone for INPUT_MESSAGE_SOURCE {
+impl Copy for INPUT_MESSAGE_SOURCE {}
+impl Clone for INPUT_MESSAGE_SOURCE {
     fn clone(&self) -> Self {
         *self
     }
@@ -76,8 +76,8 @@ pub struct RAWHID {
     pub dwCount: u32,
     pub bRawData: [u8; 1],
 }
-impl ::core::marker::Copy for RAWHID {}
-impl ::core::clone::Clone for RAWHID {
+impl Copy for RAWHID {}
+impl Clone for RAWHID {
     fn clone(&self) -> Self {
         *self
     }
@@ -87,8 +87,8 @@ pub struct RAWINPUT {
     pub header: RAWINPUTHEADER,
     pub data: RAWINPUT_0,
 }
-impl ::core::marker::Copy for RAWINPUT {}
-impl ::core::clone::Clone for RAWINPUT {
+impl Copy for RAWINPUT {}
+impl Clone for RAWINPUT {
     fn clone(&self) -> Self {
         *self
     }
@@ -99,8 +99,8 @@ pub union RAWINPUT_0 {
     pub keyboard: RAWKEYBOARD,
     pub hid: RAWHID,
 }
-impl ::core::marker::Copy for RAWINPUT_0 {}
-impl ::core::clone::Clone for RAWINPUT_0 {
+impl Copy for RAWINPUT_0 {}
+impl Clone for RAWINPUT_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -112,8 +112,8 @@ pub struct RAWINPUTDEVICE {
     pub dwFlags: RAWINPUTDEVICE_FLAGS,
     pub hwndTarget: super::super::Foundation::HWND,
 }
-impl ::core::marker::Copy for RAWINPUTDEVICE {}
-impl ::core::clone::Clone for RAWINPUTDEVICE {
+impl Copy for RAWINPUTDEVICE {}
+impl Clone for RAWINPUTDEVICE {
     fn clone(&self) -> Self {
         *self
     }
@@ -123,8 +123,8 @@ pub struct RAWINPUTDEVICELIST {
     pub hDevice: super::super::Foundation::HANDLE,
     pub dwType: RID_DEVICE_INFO_TYPE,
 }
-impl ::core::marker::Copy for RAWINPUTDEVICELIST {}
-impl ::core::clone::Clone for RAWINPUTDEVICELIST {
+impl Copy for RAWINPUTDEVICELIST {}
+impl Clone for RAWINPUTDEVICELIST {
     fn clone(&self) -> Self {
         *self
     }
@@ -136,8 +136,8 @@ pub struct RAWINPUTHEADER {
     pub hDevice: super::super::Foundation::HANDLE,
     pub wParam: super::super::Foundation::WPARAM,
 }
-impl ::core::marker::Copy for RAWINPUTHEADER {}
-impl ::core::clone::Clone for RAWINPUTHEADER {
+impl Copy for RAWINPUTHEADER {}
+impl Clone for RAWINPUTHEADER {
     fn clone(&self) -> Self {
         *self
     }
@@ -151,8 +151,8 @@ pub struct RAWKEYBOARD {
     pub Message: u32,
     pub ExtraInformation: u32,
 }
-impl ::core::marker::Copy for RAWKEYBOARD {}
-impl ::core::clone::Clone for RAWKEYBOARD {
+impl Copy for RAWKEYBOARD {}
+impl Clone for RAWKEYBOARD {
     fn clone(&self) -> Self {
         *self
     }
@@ -166,8 +166,8 @@ pub struct RAWMOUSE {
     pub lLastY: i32,
     pub ulExtraInformation: u32,
 }
-impl ::core::marker::Copy for RAWMOUSE {}
-impl ::core::clone::Clone for RAWMOUSE {
+impl Copy for RAWMOUSE {}
+impl Clone for RAWMOUSE {
     fn clone(&self) -> Self {
         *self
     }
@@ -177,8 +177,8 @@ pub union RAWMOUSE_0 {
     pub ulButtons: u32,
     pub Anonymous: RAWMOUSE_0_0,
 }
-impl ::core::marker::Copy for RAWMOUSE_0 {}
-impl ::core::clone::Clone for RAWMOUSE_0 {
+impl Copy for RAWMOUSE_0 {}
+impl Clone for RAWMOUSE_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -188,8 +188,8 @@ pub struct RAWMOUSE_0_0 {
     pub usButtonFlags: u16,
     pub usButtonData: u16,
 }
-impl ::core::marker::Copy for RAWMOUSE_0_0 {}
-impl ::core::clone::Clone for RAWMOUSE_0_0 {
+impl Copy for RAWMOUSE_0_0 {}
+impl Clone for RAWMOUSE_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -200,8 +200,8 @@ pub struct RID_DEVICE_INFO {
     pub dwType: RID_DEVICE_INFO_TYPE,
     pub Anonymous: RID_DEVICE_INFO_0,
 }
-impl ::core::marker::Copy for RID_DEVICE_INFO {}
-impl ::core::clone::Clone for RID_DEVICE_INFO {
+impl Copy for RID_DEVICE_INFO {}
+impl Clone for RID_DEVICE_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -212,8 +212,8 @@ pub union RID_DEVICE_INFO_0 {
     pub keyboard: RID_DEVICE_INFO_KEYBOARD,
     pub hid: RID_DEVICE_INFO_HID,
 }
-impl ::core::marker::Copy for RID_DEVICE_INFO_0 {}
-impl ::core::clone::Clone for RID_DEVICE_INFO_0 {
+impl Copy for RID_DEVICE_INFO_0 {}
+impl Clone for RID_DEVICE_INFO_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -226,8 +226,8 @@ pub struct RID_DEVICE_INFO_HID {
     pub usUsagePage: u16,
     pub usUsage: u16,
 }
-impl ::core::marker::Copy for RID_DEVICE_INFO_HID {}
-impl ::core::clone::Clone for RID_DEVICE_INFO_HID {
+impl Copy for RID_DEVICE_INFO_HID {}
+impl Clone for RID_DEVICE_INFO_HID {
     fn clone(&self) -> Self {
         *self
     }
@@ -241,8 +241,8 @@ pub struct RID_DEVICE_INFO_KEYBOARD {
     pub dwNumberOfIndicators: u32,
     pub dwNumberOfKeysTotal: u32,
 }
-impl ::core::marker::Copy for RID_DEVICE_INFO_KEYBOARD {}
-impl ::core::clone::Clone for RID_DEVICE_INFO_KEYBOARD {
+impl Copy for RID_DEVICE_INFO_KEYBOARD {}
+impl Clone for RID_DEVICE_INFO_KEYBOARD {
     fn clone(&self) -> Self {
         *self
     }
@@ -254,8 +254,8 @@ pub struct RID_DEVICE_INFO_MOUSE {
     pub dwSampleRate: u32,
     pub fHasHorizontalWheel: super::super::Foundation::BOOL,
 }
-impl ::core::marker::Copy for RID_DEVICE_INFO_MOUSE {}
-impl ::core::clone::Clone for RID_DEVICE_INFO_MOUSE {
+impl Copy for RID_DEVICE_INFO_MOUSE {}
+impl Clone for RID_DEVICE_INFO_MOUSE {
     fn clone(&self) -> Self {
         *self
     }

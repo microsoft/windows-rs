@@ -1,58 +1,58 @@
-::windows_targets::link!("advapi32.dll" "system" fn BackupEventLogA(heventlog : super::super::Foundation:: HANDLE, lpbackupfilename : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("advapi32.dll" "system" fn BackupEventLogW(heventlog : super::super::Foundation:: HANDLE, lpbackupfilename : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("advapi32.dll" "system" fn ClearEventLogA(heventlog : super::super::Foundation:: HANDLE, lpbackupfilename : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("advapi32.dll" "system" fn ClearEventLogW(heventlog : super::super::Foundation:: HANDLE, lpbackupfilename : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("advapi32.dll" "system" fn BackupEventLogA(heventlog : super::super::Foundation:: HANDLE, lpbackupfilename : windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("advapi32.dll" "system" fn BackupEventLogW(heventlog : super::super::Foundation:: HANDLE, lpbackupfilename : windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("advapi32.dll" "system" fn ClearEventLogA(heventlog : super::super::Foundation:: HANDLE, lpbackupfilename : windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("advapi32.dll" "system" fn ClearEventLogW(heventlog : super::super::Foundation:: HANDLE, lpbackupfilename : windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("advapi32.dll" "system" fn CloseEventLog(heventlog : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("advapi32.dll" "system" fn DeregisterEventSource(heventlog : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("wevtapi.dll" "system" fn EvtArchiveExportedLog(session : EVT_HANDLE, logfilepath : ::windows_sys::core::PCWSTR, locale : u32, flags : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wevtapi.dll" "system" fn EvtArchiveExportedLog(session : EVT_HANDLE, logfilepath : windows_sys::core::PCWSTR, locale : u32, flags : u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("wevtapi.dll" "system" fn EvtCancel(object : EVT_HANDLE) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("wevtapi.dll" "system" fn EvtClearLog(session : EVT_HANDLE, channelpath : ::windows_sys::core::PCWSTR, targetfilepath : ::windows_sys::core::PCWSTR, flags : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wevtapi.dll" "system" fn EvtClearLog(session : EVT_HANDLE, channelpath : windows_sys::core::PCWSTR, targetfilepath : windows_sys::core::PCWSTR, flags : u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("wevtapi.dll" "system" fn EvtClose(object : EVT_HANDLE) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("wevtapi.dll" "system" fn EvtCreateBookmark(bookmarkxml : ::windows_sys::core::PCWSTR) -> EVT_HANDLE);
-::windows_targets::link!("wevtapi.dll" "system" fn EvtCreateRenderContext(valuepathscount : u32, valuepaths : *const ::windows_sys::core::PCWSTR, flags : u32) -> EVT_HANDLE);
-::windows_targets::link!("wevtapi.dll" "system" fn EvtExportLog(session : EVT_HANDLE, path : ::windows_sys::core::PCWSTR, query : ::windows_sys::core::PCWSTR, targetfilepath : ::windows_sys::core::PCWSTR, flags : u32) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("wevtapi.dll" "system" fn EvtFormatMessage(publishermetadata : EVT_HANDLE, event : EVT_HANDLE, messageid : u32, valuecount : u32, values : *const EVT_VARIANT, flags : u32, buffersize : u32, buffer : ::windows_sys::core::PWSTR, bufferused : *mut u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wevtapi.dll" "system" fn EvtCreateBookmark(bookmarkxml : windows_sys::core::PCWSTR) -> EVT_HANDLE);
+::windows_targets::link!("wevtapi.dll" "system" fn EvtCreateRenderContext(valuepathscount : u32, valuepaths : *const windows_sys::core::PCWSTR, flags : u32) -> EVT_HANDLE);
+::windows_targets::link!("wevtapi.dll" "system" fn EvtExportLog(session : EVT_HANDLE, path : windows_sys::core::PCWSTR, query : windows_sys::core::PCWSTR, targetfilepath : windows_sys::core::PCWSTR, flags : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wevtapi.dll" "system" fn EvtFormatMessage(publishermetadata : EVT_HANDLE, event : EVT_HANDLE, messageid : u32, valuecount : u32, values : *const EVT_VARIANT, flags : u32, buffersize : u32, buffer : windows_sys::core::PWSTR, bufferused : *mut u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("wevtapi.dll" "system" fn EvtGetChannelConfigProperty(channelconfig : EVT_HANDLE, propertyid : EVT_CHANNEL_CONFIG_PROPERTY_ID, flags : u32, propertyvaluebuffersize : u32, propertyvaluebuffer : *mut EVT_VARIANT, propertyvaluebufferused : *mut u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("wevtapi.dll" "system" fn EvtGetEventInfo(event : EVT_HANDLE, propertyid : EVT_EVENT_PROPERTY_ID, propertyvaluebuffersize : u32, propertyvaluebuffer : *mut EVT_VARIANT, propertyvaluebufferused : *mut u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("wevtapi.dll" "system" fn EvtGetEventMetadataProperty(eventmetadata : EVT_HANDLE, propertyid : EVT_EVENT_METADATA_PROPERTY_ID, flags : u32, eventmetadatapropertybuffersize : u32, eventmetadatapropertybuffer : *mut EVT_VARIANT, eventmetadatapropertybufferused : *mut u32) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("wevtapi.dll" "system" fn EvtGetExtendedStatus(buffersize : u32, buffer : ::windows_sys::core::PWSTR, bufferused : *mut u32) -> u32);
+::windows_targets::link!("wevtapi.dll" "system" fn EvtGetExtendedStatus(buffersize : u32, buffer : windows_sys::core::PWSTR, bufferused : *mut u32) -> u32);
 ::windows_targets::link!("wevtapi.dll" "system" fn EvtGetLogInfo(log : EVT_HANDLE, propertyid : EVT_LOG_PROPERTY_ID, propertyvaluebuffersize : u32, propertyvaluebuffer : *mut EVT_VARIANT, propertyvaluebufferused : *mut u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("wevtapi.dll" "system" fn EvtGetObjectArrayProperty(objectarray : isize, propertyid : u32, arrayindex : u32, flags : u32, propertyvaluebuffersize : u32, propertyvaluebuffer : *mut EVT_VARIANT, propertyvaluebufferused : *mut u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("wevtapi.dll" "system" fn EvtGetObjectArraySize(objectarray : isize, objectarraysize : *mut u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("wevtapi.dll" "system" fn EvtGetPublisherMetadataProperty(publishermetadata : EVT_HANDLE, propertyid : EVT_PUBLISHER_METADATA_PROPERTY_ID, flags : u32, publishermetadatapropertybuffersize : u32, publishermetadatapropertybuffer : *mut EVT_VARIANT, publishermetadatapropertybufferused : *mut u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("wevtapi.dll" "system" fn EvtGetQueryInfo(queryorsubscription : EVT_HANDLE, propertyid : EVT_QUERY_PROPERTY_ID, propertyvaluebuffersize : u32, propertyvaluebuffer : *mut EVT_VARIANT, propertyvaluebufferused : *mut u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("wevtapi.dll" "system" fn EvtNext(resultset : EVT_HANDLE, eventssize : u32, events : *mut isize, timeout : u32, flags : u32, returned : *mut u32) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("wevtapi.dll" "system" fn EvtNextChannelPath(channelenum : EVT_HANDLE, channelpathbuffersize : u32, channelpathbuffer : ::windows_sys::core::PWSTR, channelpathbufferused : *mut u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wevtapi.dll" "system" fn EvtNextChannelPath(channelenum : EVT_HANDLE, channelpathbuffersize : u32, channelpathbuffer : windows_sys::core::PWSTR, channelpathbufferused : *mut u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("wevtapi.dll" "system" fn EvtNextEventMetadata(eventmetadataenum : EVT_HANDLE, flags : u32) -> EVT_HANDLE);
-::windows_targets::link!("wevtapi.dll" "system" fn EvtNextPublisherId(publisherenum : EVT_HANDLE, publisheridbuffersize : u32, publisheridbuffer : ::windows_sys::core::PWSTR, publisheridbufferused : *mut u32) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("wevtapi.dll" "system" fn EvtOpenChannelConfig(session : EVT_HANDLE, channelpath : ::windows_sys::core::PCWSTR, flags : u32) -> EVT_HANDLE);
+::windows_targets::link!("wevtapi.dll" "system" fn EvtNextPublisherId(publisherenum : EVT_HANDLE, publisheridbuffersize : u32, publisheridbuffer : windows_sys::core::PWSTR, publisheridbufferused : *mut u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wevtapi.dll" "system" fn EvtOpenChannelConfig(session : EVT_HANDLE, channelpath : windows_sys::core::PCWSTR, flags : u32) -> EVT_HANDLE);
 ::windows_targets::link!("wevtapi.dll" "system" fn EvtOpenChannelEnum(session : EVT_HANDLE, flags : u32) -> EVT_HANDLE);
 ::windows_targets::link!("wevtapi.dll" "system" fn EvtOpenEventMetadataEnum(publishermetadata : EVT_HANDLE, flags : u32) -> EVT_HANDLE);
-::windows_targets::link!("wevtapi.dll" "system" fn EvtOpenLog(session : EVT_HANDLE, path : ::windows_sys::core::PCWSTR, flags : u32) -> EVT_HANDLE);
+::windows_targets::link!("wevtapi.dll" "system" fn EvtOpenLog(session : EVT_HANDLE, path : windows_sys::core::PCWSTR, flags : u32) -> EVT_HANDLE);
 ::windows_targets::link!("wevtapi.dll" "system" fn EvtOpenPublisherEnum(session : EVT_HANDLE, flags : u32) -> EVT_HANDLE);
-::windows_targets::link!("wevtapi.dll" "system" fn EvtOpenPublisherMetadata(session : EVT_HANDLE, publisherid : ::windows_sys::core::PCWSTR, logfilepath : ::windows_sys::core::PCWSTR, locale : u32, flags : u32) -> EVT_HANDLE);
-::windows_targets::link!("wevtapi.dll" "system" fn EvtOpenSession(loginclass : EVT_LOGIN_CLASS, login : *const ::core::ffi::c_void, timeout : u32, flags : u32) -> EVT_HANDLE);
-::windows_targets::link!("wevtapi.dll" "system" fn EvtQuery(session : EVT_HANDLE, path : ::windows_sys::core::PCWSTR, query : ::windows_sys::core::PCWSTR, flags : u32) -> EVT_HANDLE);
-::windows_targets::link!("wevtapi.dll" "system" fn EvtRender(context : EVT_HANDLE, fragment : EVT_HANDLE, flags : u32, buffersize : u32, buffer : *mut ::core::ffi::c_void, bufferused : *mut u32, propertycount : *mut u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wevtapi.dll" "system" fn EvtOpenPublisherMetadata(session : EVT_HANDLE, publisherid : windows_sys::core::PCWSTR, logfilepath : windows_sys::core::PCWSTR, locale : u32, flags : u32) -> EVT_HANDLE);
+::windows_targets::link!("wevtapi.dll" "system" fn EvtOpenSession(loginclass : EVT_LOGIN_CLASS, login : *const core::ffi::c_void, timeout : u32, flags : u32) -> EVT_HANDLE);
+::windows_targets::link!("wevtapi.dll" "system" fn EvtQuery(session : EVT_HANDLE, path : windows_sys::core::PCWSTR, query : windows_sys::core::PCWSTR, flags : u32) -> EVT_HANDLE);
+::windows_targets::link!("wevtapi.dll" "system" fn EvtRender(context : EVT_HANDLE, fragment : EVT_HANDLE, flags : u32, buffersize : u32, buffer : *mut core::ffi::c_void, bufferused : *mut u32, propertycount : *mut u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("wevtapi.dll" "system" fn EvtSaveChannelConfig(channelconfig : EVT_HANDLE, flags : u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("wevtapi.dll" "system" fn EvtSeek(resultset : EVT_HANDLE, position : i64, bookmark : EVT_HANDLE, timeout : u32, flags : u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("wevtapi.dll" "system" fn EvtSetChannelConfigProperty(channelconfig : EVT_HANDLE, propertyid : EVT_CHANNEL_CONFIG_PROPERTY_ID, flags : u32, propertyvalue : *const EVT_VARIANT) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("wevtapi.dll" "system" fn EvtSubscribe(session : EVT_HANDLE, signalevent : super::super::Foundation:: HANDLE, channelpath : ::windows_sys::core::PCWSTR, query : ::windows_sys::core::PCWSTR, bookmark : EVT_HANDLE, context : *const ::core::ffi::c_void, callback : EVT_SUBSCRIBE_CALLBACK, flags : u32) -> EVT_HANDLE);
+::windows_targets::link!("wevtapi.dll" "system" fn EvtSubscribe(session : EVT_HANDLE, signalevent : super::super::Foundation:: HANDLE, channelpath : windows_sys::core::PCWSTR, query : windows_sys::core::PCWSTR, bookmark : EVT_HANDLE, context : *const core::ffi::c_void, callback : EVT_SUBSCRIBE_CALLBACK, flags : u32) -> EVT_HANDLE);
 ::windows_targets::link!("wevtapi.dll" "system" fn EvtUpdateBookmark(bookmark : EVT_HANDLE, event : EVT_HANDLE) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("advapi32.dll" "system" fn GetEventLogInformation(heventlog : super::super::Foundation:: HANDLE, dwinfolevel : u32, lpbuffer : *mut ::core::ffi::c_void, cbbufsize : u32, pcbbytesneeded : *mut u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("advapi32.dll" "system" fn GetEventLogInformation(heventlog : super::super::Foundation:: HANDLE, dwinfolevel : u32, lpbuffer : *mut core::ffi::c_void, cbbufsize : u32, pcbbytesneeded : *mut u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("advapi32.dll" "system" fn GetNumberOfEventLogRecords(heventlog : super::super::Foundation:: HANDLE, numberofrecords : *mut u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("advapi32.dll" "system" fn GetOldestEventLogRecord(heventlog : super::super::Foundation:: HANDLE, oldestrecord : *mut u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("advapi32.dll" "system" fn NotifyChangeEventLog(heventlog : super::super::Foundation:: HANDLE, hevent : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("advapi32.dll" "system" fn OpenBackupEventLogA(lpuncservername : ::windows_sys::core::PCSTR, lpfilename : ::windows_sys::core::PCSTR) -> super::super::Foundation:: HANDLE);
-::windows_targets::link!("advapi32.dll" "system" fn OpenBackupEventLogW(lpuncservername : ::windows_sys::core::PCWSTR, lpfilename : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: HANDLE);
-::windows_targets::link!("advapi32.dll" "system" fn OpenEventLogA(lpuncservername : ::windows_sys::core::PCSTR, lpsourcename : ::windows_sys::core::PCSTR) -> super::super::Foundation:: HANDLE);
-::windows_targets::link!("advapi32.dll" "system" fn OpenEventLogW(lpuncservername : ::windows_sys::core::PCWSTR, lpsourcename : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: HANDLE);
-::windows_targets::link!("advapi32.dll" "system" fn ReadEventLogA(heventlog : super::super::Foundation:: HANDLE, dwreadflags : READ_EVENT_LOG_READ_FLAGS, dwrecordoffset : u32, lpbuffer : *mut ::core::ffi::c_void, nnumberofbytestoread : u32, pnbytesread : *mut u32, pnminnumberofbytesneeded : *mut u32) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("advapi32.dll" "system" fn ReadEventLogW(heventlog : super::super::Foundation:: HANDLE, dwreadflags : READ_EVENT_LOG_READ_FLAGS, dwrecordoffset : u32, lpbuffer : *mut ::core::ffi::c_void, nnumberofbytestoread : u32, pnbytesread : *mut u32, pnminnumberofbytesneeded : *mut u32) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("advapi32.dll" "system" fn RegisterEventSourceA(lpuncservername : ::windows_sys::core::PCSTR, lpsourcename : ::windows_sys::core::PCSTR) -> super::super::Foundation:: HANDLE);
-::windows_targets::link!("advapi32.dll" "system" fn RegisterEventSourceW(lpuncservername : ::windows_sys::core::PCWSTR, lpsourcename : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: HANDLE);
-::windows_targets::link!("advapi32.dll" "system" fn ReportEventA(heventlog : super::super::Foundation:: HANDLE, wtype : REPORT_EVENT_TYPE, wcategory : u16, dweventid : u32, lpusersid : super::super::Foundation:: PSID, wnumstrings : u16, dwdatasize : u32, lpstrings : *const ::windows_sys::core::PCSTR, lprawdata : *const ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("advapi32.dll" "system" fn ReportEventW(heventlog : super::super::Foundation:: HANDLE, wtype : REPORT_EVENT_TYPE, wcategory : u16, dweventid : u32, lpusersid : super::super::Foundation:: PSID, wnumstrings : u16, dwdatasize : u32, lpstrings : *const ::windows_sys::core::PCWSTR, lprawdata : *const ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("advapi32.dll" "system" fn OpenBackupEventLogA(lpuncservername : windows_sys::core::PCSTR, lpfilename : windows_sys::core::PCSTR) -> super::super::Foundation:: HANDLE);
+::windows_targets::link!("advapi32.dll" "system" fn OpenBackupEventLogW(lpuncservername : windows_sys::core::PCWSTR, lpfilename : windows_sys::core::PCWSTR) -> super::super::Foundation:: HANDLE);
+::windows_targets::link!("advapi32.dll" "system" fn OpenEventLogA(lpuncservername : windows_sys::core::PCSTR, lpsourcename : windows_sys::core::PCSTR) -> super::super::Foundation:: HANDLE);
+::windows_targets::link!("advapi32.dll" "system" fn OpenEventLogW(lpuncservername : windows_sys::core::PCWSTR, lpsourcename : windows_sys::core::PCWSTR) -> super::super::Foundation:: HANDLE);
+::windows_targets::link!("advapi32.dll" "system" fn ReadEventLogA(heventlog : super::super::Foundation:: HANDLE, dwreadflags : READ_EVENT_LOG_READ_FLAGS, dwrecordoffset : u32, lpbuffer : *mut core::ffi::c_void, nnumberofbytestoread : u32, pnbytesread : *mut u32, pnminnumberofbytesneeded : *mut u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("advapi32.dll" "system" fn ReadEventLogW(heventlog : super::super::Foundation:: HANDLE, dwreadflags : READ_EVENT_LOG_READ_FLAGS, dwrecordoffset : u32, lpbuffer : *mut core::ffi::c_void, nnumberofbytestoread : u32, pnbytesread : *mut u32, pnminnumberofbytesneeded : *mut u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("advapi32.dll" "system" fn RegisterEventSourceA(lpuncservername : windows_sys::core::PCSTR, lpsourcename : windows_sys::core::PCSTR) -> super::super::Foundation:: HANDLE);
+::windows_targets::link!("advapi32.dll" "system" fn RegisterEventSourceW(lpuncservername : windows_sys::core::PCWSTR, lpsourcename : windows_sys::core::PCWSTR) -> super::super::Foundation:: HANDLE);
+::windows_targets::link!("advapi32.dll" "system" fn ReportEventA(heventlog : super::super::Foundation:: HANDLE, wtype : REPORT_EVENT_TYPE, wcategory : u16, dweventid : u32, lpusersid : super::super::Foundation:: PSID, wnumstrings : u16, dwdatasize : u32, lpstrings : *const windows_sys::core::PCSTR, lprawdata : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("advapi32.dll" "system" fn ReportEventW(heventlog : super::super::Foundation:: HANDLE, wtype : REPORT_EVENT_TYPE, wcategory : u16, dweventid : u32, lpusersid : super::super::Foundation:: PSID, wnumstrings : u16, dwdatasize : u32, lpstrings : *const windows_sys::core::PCWSTR, lprawdata : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
 pub const EVENTLOG_AUDIT_FAILURE: REPORT_EVENT_TYPE = 16u16;
 pub const EVENTLOG_AUDIT_SUCCESS: REPORT_EVENT_TYPE = 8u16;
 pub const EVENTLOG_ERROR_TYPE: REPORT_EVENT_TYPE = 1u16;
@@ -288,8 +288,8 @@ pub struct EVENTLOGRECORD {
     pub DataLength: u32,
     pub DataOffset: u32,
 }
-impl ::core::marker::Copy for EVENTLOGRECORD {}
-impl ::core::clone::Clone for EVENTLOGRECORD {
+impl Copy for EVENTLOGRECORD {}
+impl Clone for EVENTLOGRECORD {
     fn clone(&self) -> Self {
         *self
     }
@@ -298,8 +298,8 @@ impl ::core::clone::Clone for EVENTLOGRECORD {
 pub struct EVENTLOG_FULL_INFORMATION {
     pub dwFull: u32,
 }
-impl ::core::marker::Copy for EVENTLOG_FULL_INFORMATION {}
-impl ::core::clone::Clone for EVENTLOG_FULL_INFORMATION {
+impl Copy for EVENTLOG_FULL_INFORMATION {}
+impl Clone for EVENTLOG_FULL_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -311,8 +311,8 @@ pub struct EVENTSFORLOGFILE {
     pub ulNumRecords: u32,
     pub pEventLogRecords: [EVENTLOGRECORD; 1],
 }
-impl ::core::marker::Copy for EVENTSFORLOGFILE {}
-impl ::core::clone::Clone for EVENTSFORLOGFILE {
+impl Copy for EVENTSFORLOGFILE {}
+impl Clone for EVENTSFORLOGFILE {
     fn clone(&self) -> Self {
         *self
     }
@@ -320,14 +320,14 @@ impl ::core::clone::Clone for EVENTSFORLOGFILE {
 pub type EVT_HANDLE = isize;
 #[repr(C)]
 pub struct EVT_RPC_LOGIN {
-    pub Server: ::windows_sys::core::PWSTR,
-    pub User: ::windows_sys::core::PWSTR,
-    pub Domain: ::windows_sys::core::PWSTR,
-    pub Password: ::windows_sys::core::PWSTR,
+    pub Server: windows_sys::core::PWSTR,
+    pub User: windows_sys::core::PWSTR,
+    pub Domain: windows_sys::core::PWSTR,
+    pub Password: windows_sys::core::PWSTR,
     pub Flags: u32,
 }
-impl ::core::marker::Copy for EVT_RPC_LOGIN {}
-impl ::core::clone::Clone for EVT_RPC_LOGIN {
+impl Copy for EVT_RPC_LOGIN {}
+impl Clone for EVT_RPC_LOGIN {
     fn clone(&self) -> Self {
         *self
     }
@@ -338,8 +338,8 @@ pub struct EVT_VARIANT {
     pub Count: u32,
     pub Type: u32,
 }
-impl ::core::marker::Copy for EVT_VARIANT {}
-impl ::core::clone::Clone for EVT_VARIANT {
+impl Copy for EVT_VARIANT {}
+impl Clone for EVT_VARIANT {
     fn clone(&self) -> Self {
         *self
     }
@@ -359,9 +359,9 @@ pub union EVT_VARIANT_0 {
     pub DoubleVal: f64,
     pub FileTimeVal: u64,
     pub SysTimeVal: *mut super::super::Foundation::SYSTEMTIME,
-    pub GuidVal: *mut ::windows_sys::core::GUID,
-    pub StringVal: ::windows_sys::core::PCWSTR,
-    pub AnsiStringVal: ::windows_sys::core::PCSTR,
+    pub GuidVal: *mut windows_sys::core::GUID,
+    pub StringVal: windows_sys::core::PCWSTR,
+    pub AnsiStringVal: windows_sys::core::PCSTR,
     pub BinaryVal: *mut u8,
     pub SidVal: super::super::Foundation::PSID,
     pub SizeTVal: usize,
@@ -378,19 +378,19 @@ pub union EVT_VARIANT_0 {
     pub DoubleArr: *mut f64,
     pub FileTimeArr: *mut super::super::Foundation::FILETIME,
     pub SysTimeArr: *mut super::super::Foundation::SYSTEMTIME,
-    pub GuidArr: *mut ::windows_sys::core::GUID,
-    pub StringArr: *mut ::windows_sys::core::PWSTR,
-    pub AnsiStringArr: *mut ::windows_sys::core::PSTR,
+    pub GuidArr: *mut windows_sys::core::GUID,
+    pub StringArr: *mut windows_sys::core::PWSTR,
+    pub AnsiStringArr: *mut windows_sys::core::PSTR,
     pub SidArr: *mut super::super::Foundation::PSID,
     pub SizeTArr: *mut usize,
     pub EvtHandleVal: EVT_HANDLE,
-    pub XmlVal: ::windows_sys::core::PCWSTR,
-    pub XmlValArr: *const ::windows_sys::core::PCWSTR,
+    pub XmlVal: windows_sys::core::PCWSTR,
+    pub XmlValArr: *const windows_sys::core::PCWSTR,
 }
-impl ::core::marker::Copy for EVT_VARIANT_0 {}
-impl ::core::clone::Clone for EVT_VARIANT_0 {
+impl Copy for EVT_VARIANT_0 {}
+impl Clone for EVT_VARIANT_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-pub type EVT_SUBSCRIBE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(action: EVT_SUBSCRIBE_NOTIFY_ACTION, usercontext: *const ::core::ffi::c_void, event: EVT_HANDLE) -> u32>;
+pub type EVT_SUBSCRIBE_CALLBACK = Option<unsafe extern "system" fn(action: EVT_SUBSCRIBE_NOTIFY_ACTION, usercontext: *const core::ffi::c_void, event: EVT_HANDLE) -> u32>;

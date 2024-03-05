@@ -10,11 +10,11 @@ pub const CDB_REPORT_BYTES: u32 = 1u32;
 pub const COMDB_MAX_PORTS_ARBITRATED: u32 = 4096u32;
 pub const COMDB_MIN_PORTS_ARBITRATED: u32 = 256u32;
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_DeviceInterface_Serial_PortName: super::Properties::DEVPROPKEY = super::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0x4c6bf15c_4c03_4aac_91f5_64c0f852bcf4), pid: 4 };
+pub const DEVPKEY_DeviceInterface_Serial_PortName: super::Properties::DEVPROPKEY = super::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x4c6bf15c_4c03_4aac_91f5_64c0f852bcf4), pid: 4 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_DeviceInterface_Serial_UsbProductId: super::Properties::DEVPROPKEY = super::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0x4c6bf15c_4c03_4aac_91f5_64c0f852bcf4), pid: 3 };
+pub const DEVPKEY_DeviceInterface_Serial_UsbProductId: super::Properties::DEVPROPKEY = super::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x4c6bf15c_4c03_4aac_91f5_64c0f852bcf4), pid: 3 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_DeviceInterface_Serial_UsbVendorId: super::Properties::DEVPROPKEY = super::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0x4c6bf15c_4c03_4aac_91f5_64c0f852bcf4), pid: 2 };
+pub const DEVPKEY_DeviceInterface_Serial_UsbVendorId: super::Properties::DEVPROPKEY = super::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x4c6bf15c_4c03_4aac_91f5_64c0f852bcf4), pid: 2 };
 pub const EVEN_PARITY: u32 = 2u32;
 pub const IOCTL_INTERNAL_SERENUM_REMOVE_SELF: u32 = 3604999u32;
 pub const IOCTL_SERIAL_APPLY_DEFAULT_CONFIGURATION: u32 = 1769632u32;
@@ -97,12 +97,12 @@ pub type HCOMDB = isize;
 #[repr(C)]
 pub struct SERENUM_PORT_DESC {
     pub Size: u32,
-    pub PortHandle: *mut ::core::ffi::c_void,
+    pub PortHandle: *mut core::ffi::c_void,
     pub PortAddress: i64,
     pub Reserved: [u16; 1],
 }
-impl ::core::marker::Copy for SERENUM_PORT_DESC {}
-impl ::core::clone::Clone for SERENUM_PORT_DESC {
+impl Copy for SERENUM_PORT_DESC {}
+impl Clone for SERENUM_PORT_DESC {
     fn clone(&self) -> Self {
         *self
     }
@@ -112,14 +112,14 @@ pub struct SERENUM_PORT_PARAMETERS {
     pub Size: u32,
     pub ReadAccessor: PSERENUM_READPORT,
     pub WriteAccessor: PSERENUM_WRITEPORT,
-    pub SerPortAddress: *mut ::core::ffi::c_void,
-    pub HardwareHandle: *mut ::core::ffi::c_void,
+    pub SerPortAddress: *mut core::ffi::c_void,
+    pub HardwareHandle: *mut core::ffi::c_void,
     pub Portion: SERENUM_PORTION,
     pub NumberAxis: u16,
     pub Reserved: [u16; 3],
 }
-impl ::core::marker::Copy for SERENUM_PORT_PARAMETERS {}
-impl ::core::clone::Clone for SERENUM_PORT_PARAMETERS {
+impl Copy for SERENUM_PORT_PARAMETERS {}
+impl Clone for SERENUM_PORT_PARAMETERS {
     fn clone(&self) -> Self {
         *self
     }
@@ -133,8 +133,8 @@ pub struct SERIALCONFIG {
     pub ProviderSize: u32,
     pub ProviderData: [u16; 1],
 }
-impl ::core::marker::Copy for SERIALCONFIG {}
-impl ::core::clone::Clone for SERIALCONFIG {
+impl Copy for SERIALCONFIG {}
+impl Clone for SERIALCONFIG {
     fn clone(&self) -> Self {
         *self
     }
@@ -148,8 +148,8 @@ pub struct SERIALPERF_STATS {
     pub BufferOverrunErrorCount: u32,
     pub ParityErrorCount: u32,
 }
-impl ::core::marker::Copy for SERIALPERF_STATS {}
-impl ::core::clone::Clone for SERIALPERF_STATS {
+impl Copy for SERIALPERF_STATS {}
+impl Clone for SERIALPERF_STATS {
     fn clone(&self) -> Self {
         *self
     }
@@ -161,8 +161,8 @@ pub struct SERIAL_BASIC_SETTINGS {
     pub RxFifo: u32,
     pub TxFifo: u32,
 }
-impl ::core::marker::Copy for SERIAL_BASIC_SETTINGS {}
-impl ::core::clone::Clone for SERIAL_BASIC_SETTINGS {
+impl Copy for SERIAL_BASIC_SETTINGS {}
+impl Clone for SERIAL_BASIC_SETTINGS {
     fn clone(&self) -> Self {
         *self
     }
@@ -171,8 +171,8 @@ impl ::core::clone::Clone for SERIAL_BASIC_SETTINGS {
 pub struct SERIAL_BAUD_RATE {
     pub BaudRate: u32,
 }
-impl ::core::marker::Copy for SERIAL_BAUD_RATE {}
-impl ::core::clone::Clone for SERIAL_BAUD_RATE {
+impl Copy for SERIAL_BAUD_RATE {}
+impl Clone for SERIAL_BAUD_RATE {
     fn clone(&self) -> Self {
         *self
     }
@@ -186,8 +186,8 @@ pub struct SERIAL_CHARS {
     pub XonChar: u8,
     pub XoffChar: u8,
 }
-impl ::core::marker::Copy for SERIAL_CHARS {}
-impl ::core::clone::Clone for SERIAL_CHARS {
+impl Copy for SERIAL_CHARS {}
+impl Clone for SERIAL_CHARS {
     fn clone(&self) -> Self {
         *self
     }
@@ -213,8 +213,8 @@ pub struct SERIAL_COMMPROP {
     pub ProvSpec2: u32,
     pub ProvChar: [u16; 1],
 }
-impl ::core::marker::Copy for SERIAL_COMMPROP {}
-impl ::core::clone::Clone for SERIAL_COMMPROP {
+impl Copy for SERIAL_COMMPROP {}
+impl Clone for SERIAL_COMMPROP {
     fn clone(&self) -> Self {
         *self
     }
@@ -226,8 +226,8 @@ pub struct SERIAL_HANDFLOW {
     pub XonLimit: i32,
     pub XoffLimit: i32,
 }
-impl ::core::marker::Copy for SERIAL_HANDFLOW {}
-impl ::core::clone::Clone for SERIAL_HANDFLOW {
+impl Copy for SERIAL_HANDFLOW {}
+impl Clone for SERIAL_HANDFLOW {
     fn clone(&self) -> Self {
         *self
     }
@@ -238,8 +238,8 @@ pub struct SERIAL_LINE_CONTROL {
     pub Parity: u8,
     pub WordLength: u8,
 }
-impl ::core::marker::Copy for SERIAL_LINE_CONTROL {}
-impl ::core::clone::Clone for SERIAL_LINE_CONTROL {
+impl Copy for SERIAL_LINE_CONTROL {}
+impl Clone for SERIAL_LINE_CONTROL {
     fn clone(&self) -> Self {
         *self
     }
@@ -249,8 +249,8 @@ pub struct SERIAL_QUEUE_SIZE {
     pub InSize: u32,
     pub OutSize: u32,
 }
-impl ::core::marker::Copy for SERIAL_QUEUE_SIZE {}
-impl ::core::clone::Clone for SERIAL_QUEUE_SIZE {
+impl Copy for SERIAL_QUEUE_SIZE {}
+impl Clone for SERIAL_QUEUE_SIZE {
     fn clone(&self) -> Self {
         *self
     }
@@ -264,8 +264,8 @@ pub struct SERIAL_STATUS {
     pub EofReceived: super::super::Foundation::BOOLEAN,
     pub WaitForImmediate: super::super::Foundation::BOOLEAN,
 }
-impl ::core::marker::Copy for SERIAL_STATUS {}
-impl ::core::clone::Clone for SERIAL_STATUS {
+impl Copy for SERIAL_STATUS {}
+impl Clone for SERIAL_STATUS {
     fn clone(&self) -> Self {
         *self
     }
@@ -278,8 +278,8 @@ pub struct SERIAL_TIMEOUTS {
     pub WriteTotalTimeoutMultiplier: u32,
     pub WriteTotalTimeoutConstant: u32,
 }
-impl ::core::marker::Copy for SERIAL_TIMEOUTS {}
-impl ::core::clone::Clone for SERIAL_TIMEOUTS {
+impl Copy for SERIAL_TIMEOUTS {}
+impl Clone for SERIAL_TIMEOUTS {
     fn clone(&self) -> Self {
         *self
     }
@@ -290,11 +290,11 @@ pub struct SERIAL_XOFF_COUNTER {
     pub Counter: i32,
     pub XoffChar: u8,
 }
-impl ::core::marker::Copy for SERIAL_XOFF_COUNTER {}
-impl ::core::clone::Clone for SERIAL_XOFF_COUNTER {
+impl Copy for SERIAL_XOFF_COUNTER {}
+impl Clone for SERIAL_XOFF_COUNTER {
     fn clone(&self) -> Self {
         *self
     }
 }
-pub type PSERENUM_READPORT = ::core::option::Option<unsafe extern "system" fn(serportaddress: *const ::core::ffi::c_void) -> u8>;
-pub type PSERENUM_WRITEPORT = ::core::option::Option<unsafe extern "system" fn(serportaddress: *const ::core::ffi::c_void, value: u8)>;
+pub type PSERENUM_READPORT = Option<unsafe extern "system" fn(serportaddress: *const core::ffi::c_void) -> u8>;
+pub type PSERENUM_WRITEPORT = Option<unsafe extern "system" fn(serportaddress: *const core::ffi::c_void, value: u8)>;

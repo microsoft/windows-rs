@@ -14,8 +14,8 @@ pub struct GUID {
     pub data3: u16,
     pub data4: [u8; 8],
 }
-impl ::core::marker::Copy for GUID {}
-impl ::core::clone::Clone for GUID {
+impl Copy for GUID {}
+impl Clone for GUID {
     fn clone(&self) -> Self {
         *self
     }
@@ -51,19 +51,17 @@ pub const IID_IStringable: GUID = GUID::from_u128(0x96369f54_8eb6_48f0_abce_c1b2
 #[repr(C)]
 pub struct IStringable_Vtbl {
     pub base__: IInspectable_Vtbl,
-    pub ToString: unsafe extern "system" fn(
-        *mut ::core::ffi::c_void,
-        *mut *mut ::core::ffi::c_void,
-    ) -> HRESULT,
+    pub ToString:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> HRESULT,
 }
 pub const IID_IUnknown: GUID = GUID::from_u128(0x00000000_0000_0000_c000_000000000046);
 #[repr(C)]
 pub struct IUnknown_Vtbl {
     pub QueryInterface: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
+        this: *mut core::ffi::c_void,
         iid: *const GUID,
-        interface: *mut *mut ::core::ffi::c_void,
+        interface: *mut *mut core::ffi::c_void,
     ) -> HRESULT,
-    pub AddRef: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub AddRef: unsafe extern "system" fn(this: *mut core::ffi::c_void) -> u32,
+    pub Release: unsafe extern "system" fn(this: *mut core::ffi::c_void) -> u32,
 }

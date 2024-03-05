@@ -56,121 +56,121 @@ impl Vector3 {
     }
 }
 
-impl ::core::ops::Add<Vector3> for Vector3 {
+impl core::ops::Add<Vector3> for Vector3 {
     type Output = Vector3;
     fn add(self, rhs: Vector3) -> Vector3 {
         self.impl_add(&rhs)
     }
 }
-impl ::core::ops::Add<&Vector3> for Vector3 {
+impl core::ops::Add<&Vector3> for Vector3 {
     type Output = Vector3;
     fn add(self, rhs: &Vector3) -> Vector3 {
         self.impl_add(rhs)
     }
 }
-impl ::core::ops::Add<Vector3> for &Vector3 {
+impl core::ops::Add<Vector3> for &Vector3 {
     type Output = Vector3;
     fn add(self, rhs: Vector3) -> Vector3 {
         self.impl_add(&rhs)
     }
 }
-impl ::core::ops::Add<&Vector3> for &Vector3 {
+impl core::ops::Add<&Vector3> for &Vector3 {
     type Output = Vector3;
     fn add(self, rhs: &Vector3) -> Vector3 {
         self.impl_add(rhs)
     }
 }
-impl ::core::ops::Sub<Vector3> for Vector3 {
+impl core::ops::Sub<Vector3> for Vector3 {
     type Output = Vector3;
     fn sub(self, rhs: Vector3) -> Vector3 {
         self.impl_sub(&rhs)
     }
 }
-impl ::core::ops::Sub<&Vector3> for Vector3 {
+impl core::ops::Sub<&Vector3> for Vector3 {
     type Output = Vector3;
     fn sub(self, rhs: &Vector3) -> Vector3 {
         self.impl_sub(rhs)
     }
 }
-impl ::core::ops::Sub<Vector3> for &Vector3 {
+impl core::ops::Sub<Vector3> for &Vector3 {
     type Output = Vector3;
     fn sub(self, rhs: Vector3) -> Vector3 {
         self.impl_sub(&rhs)
     }
 }
-impl ::core::ops::Sub<&Vector3> for &Vector3 {
+impl core::ops::Sub<&Vector3> for &Vector3 {
     type Output = Vector3;
     fn sub(self, rhs: &Vector3) -> Vector3 {
         self.impl_sub(rhs)
     }
 }
-impl ::core::ops::Div<Vector3> for Vector3 {
+impl core::ops::Div<Vector3> for Vector3 {
     type Output = Vector3;
     fn div(self, rhs: Vector3) -> Vector3 {
         self.impl_div(&rhs)
     }
 }
-impl ::core::ops::Div<&Vector3> for Vector3 {
+impl core::ops::Div<&Vector3> for Vector3 {
     type Output = Vector3;
     fn div(self, rhs: &Vector3) -> Vector3 {
         self.impl_div(rhs)
     }
 }
-impl ::core::ops::Div<Vector3> for &Vector3 {
+impl core::ops::Div<Vector3> for &Vector3 {
     type Output = Vector3;
     fn div(self, rhs: Vector3) -> Vector3 {
         self.impl_div(&rhs)
     }
 }
-impl ::core::ops::Div<&Vector3> for &Vector3 {
+impl core::ops::Div<&Vector3> for &Vector3 {
     type Output = Vector3;
     fn div(self, rhs: &Vector3) -> Vector3 {
         self.impl_div(rhs)
     }
 }
-impl ::core::ops::Div<f32> for Vector3 {
+impl core::ops::Div<f32> for Vector3 {
     type Output = Vector3;
     fn div(self, rhs: f32) -> Vector3 {
         self.impl_div_f32(rhs)
     }
 }
-impl ::core::ops::Div<f32> for &Vector3 {
+impl core::ops::Div<f32> for &Vector3 {
     type Output = Vector3;
     fn div(self, rhs: f32) -> Vector3 {
         self.impl_div_f32(rhs)
     }
 }
-impl ::core::ops::Mul<Vector3> for Vector3 {
+impl core::ops::Mul<Vector3> for Vector3 {
     type Output = Vector3;
     fn mul(self, rhs: Vector3) -> Vector3 {
         self.impl_mul(&rhs)
     }
 }
-impl ::core::ops::Mul<&Vector3> for Vector3 {
+impl core::ops::Mul<&Vector3> for Vector3 {
     type Output = Vector3;
     fn mul(self, rhs: &Vector3) -> Vector3 {
         self.impl_mul(rhs)
     }
 }
-impl ::core::ops::Mul<Vector3> for &Vector3 {
+impl core::ops::Mul<Vector3> for &Vector3 {
     type Output = Vector3;
     fn mul(self, rhs: Vector3) -> Vector3 {
         self.impl_mul(&rhs)
     }
 }
-impl ::core::ops::Mul<&Vector3> for &Vector3 {
+impl core::ops::Mul<&Vector3> for &Vector3 {
     type Output = Vector3;
     fn mul(self, rhs: &Vector3) -> Vector3 {
         self.impl_mul(rhs)
     }
 }
-impl ::core::ops::Mul<f32> for Vector3 {
+impl core::ops::Mul<f32> for Vector3 {
     type Output = Vector3;
     fn mul(self, rhs: f32) -> Vector3 {
         self.impl_mul_f32(rhs)
     }
 }
-impl ::core::ops::Mul<f32> for &Vector3 {
+impl core::ops::Mul<f32> for &Vector3 {
     type Output = Vector3;
     fn mul(self, rhs: f32) -> Vector3 {
         self.impl_mul_f32(rhs)

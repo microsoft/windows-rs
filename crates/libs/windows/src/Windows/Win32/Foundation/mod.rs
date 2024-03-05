@@ -1,7 +1,7 @@
 #[inline]
-pub unsafe fn CloseHandle<P0>(hobject: P0) -> ::windows_core::Result<()>
+pub unsafe fn CloseHandle<P0>(hobject: P0) -> windows_core::Result<()>
 where
-    P0: ::windows_core::IntoParam<HANDLE>,
+    P0: windows_core::IntoParam<HANDLE>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn CloseHandle(hobject : HANDLE) -> BOOL);
     CloseHandle(hobject.into_param().abi()).ok()
@@ -9,35 +9,35 @@ where
 #[inline]
 pub unsafe fn CompareObjectHandles<P0, P1>(hfirstobjecthandle: P0, hsecondobjecthandle: P1) -> BOOL
 where
-    P0: ::windows_core::IntoParam<HANDLE>,
-    P1: ::windows_core::IntoParam<HANDLE>,
+    P0: windows_core::IntoParam<HANDLE>,
+    P1: windows_core::IntoParam<HANDLE>,
 {
     ::windows_targets::link!("api-ms-win-core-handle-l1-1-0.dll" "system" fn CompareObjectHandles(hfirstobjecthandle : HANDLE, hsecondobjecthandle : HANDLE) -> BOOL);
     CompareObjectHandles(hfirstobjecthandle.into_param().abi(), hsecondobjecthandle.into_param().abi())
 }
 #[inline]
-pub unsafe fn DuplicateHandle<P0, P1, P2, P3>(hsourceprocesshandle: P0, hsourcehandle: P1, htargetprocesshandle: P2, lptargethandle: *mut HANDLE, dwdesiredaccess: u32, binherithandle: P3, dwoptions: DUPLICATE_HANDLE_OPTIONS) -> ::windows_core::Result<()>
+pub unsafe fn DuplicateHandle<P0, P1, P2, P3>(hsourceprocesshandle: P0, hsourcehandle: P1, htargetprocesshandle: P2, lptargethandle: *mut HANDLE, dwdesiredaccess: u32, binherithandle: P3, dwoptions: DUPLICATE_HANDLE_OPTIONS) -> windows_core::Result<()>
 where
-    P0: ::windows_core::IntoParam<HANDLE>,
-    P1: ::windows_core::IntoParam<HANDLE>,
-    P2: ::windows_core::IntoParam<HANDLE>,
-    P3: ::windows_core::IntoParam<BOOL>,
+    P0: windows_core::IntoParam<HANDLE>,
+    P1: windows_core::IntoParam<HANDLE>,
+    P2: windows_core::IntoParam<HANDLE>,
+    P3: windows_core::IntoParam<BOOL>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn DuplicateHandle(hsourceprocesshandle : HANDLE, hsourcehandle : HANDLE, htargetprocesshandle : HANDLE, lptargethandle : *mut HANDLE, dwdesiredaccess : u32, binherithandle : BOOL, dwoptions : DUPLICATE_HANDLE_OPTIONS) -> BOOL);
     DuplicateHandle(hsourceprocesshandle.into_param().abi(), hsourcehandle.into_param().abi(), htargetprocesshandle.into_param().abi(), lptargethandle, dwdesiredaccess, binherithandle.into_param().abi(), dwoptions).ok()
 }
 #[inline]
-pub unsafe fn FreeLibrary<P0>(hlibmodule: P0) -> ::windows_core::Result<()>
+pub unsafe fn FreeLibrary<P0>(hlibmodule: P0) -> windows_core::Result<()>
 where
-    P0: ::windows_core::IntoParam<HMODULE>,
+    P0: windows_core::IntoParam<HMODULE>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn FreeLibrary(hlibmodule : HMODULE) -> BOOL);
     FreeLibrary(hlibmodule.into_param().abi()).ok()
 }
 #[inline]
-pub unsafe fn GetHandleInformation<P0>(hobject: P0, lpdwflags: *mut u32) -> ::windows_core::Result<()>
+pub unsafe fn GetHandleInformation<P0>(hobject: P0, lpdwflags: *mut u32) -> windows_core::Result<()>
 where
-    P0: ::windows_core::IntoParam<HANDLE>,
+    P0: windows_core::IntoParam<HANDLE>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn GetHandleInformation(hobject : HANDLE, lpdwflags : *mut u32) -> BOOL);
     GetHandleInformation(hobject.into_param().abi(), lpdwflags).ok()
@@ -48,18 +48,18 @@ pub unsafe fn GetLastError() -> WIN32_ERROR {
     GetLastError()
 }
 #[inline]
-pub unsafe fn GlobalFree<P0>(hmem: P0) -> ::windows_core::Result<HGLOBAL>
+pub unsafe fn GlobalFree<P0>(hmem: P0) -> windows_core::Result<HGLOBAL>
 where
-    P0: ::windows_core::IntoParam<HGLOBAL>,
+    P0: windows_core::IntoParam<HGLOBAL>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn GlobalFree(hmem : HGLOBAL) -> HGLOBAL);
     let result__ = GlobalFree(hmem.into_param().abi());
-    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
 pub unsafe fn LocalFree<P0>(hmem: P0) -> HLOCAL
 where
-    P0: ::windows_core::IntoParam<HLOCAL>,
+    P0: windows_core::IntoParam<HLOCAL>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn LocalFree(hmem : HLOCAL) -> HLOCAL);
     LocalFree(hmem.into_param().abi())
@@ -67,15 +67,15 @@ where
 #[inline]
 pub unsafe fn RtlNtStatusToDosError<P0>(status: P0) -> u32
 where
-    P0: ::windows_core::IntoParam<NTSTATUS>,
+    P0: windows_core::IntoParam<NTSTATUS>,
 {
     ::windows_targets::link!("ntdll.dll" "system" fn RtlNtStatusToDosError(status : NTSTATUS) -> u32);
     RtlNtStatusToDosError(status.into_param().abi())
 }
 #[inline]
-pub unsafe fn SetHandleInformation<P0>(hobject: P0, dwmask: u32, dwflags: HANDLE_FLAGS) -> ::windows_core::Result<()>
+pub unsafe fn SetHandleInformation<P0>(hobject: P0, dwmask: u32, dwflags: HANDLE_FLAGS) -> windows_core::Result<()>
 where
-    P0: ::windows_core::IntoParam<HANDLE>,
+    P0: windows_core::IntoParam<HANDLE>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn SetHandleInformation(hobject : HANDLE, dwmask : u32, dwflags : HANDLE_FLAGS) -> BOOL);
     SetHandleInformation(hobject.into_param().abi(), dwmask, dwflags).ok()
@@ -91,77 +91,77 @@ pub unsafe fn SetLastErrorEx(dwerrcode: WIN32_ERROR, dwtype: u32) {
     SetLastErrorEx(dwerrcode, dwtype)
 }
 #[inline]
-pub unsafe fn SysAddRefString<P0>(bstrstring: P0) -> ::windows_core::Result<()>
+pub unsafe fn SysAddRefString<P0>(bstrstring: P0) -> windows_core::Result<()>
 where
-    P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+    P0: windows_core::IntoParam<windows_core::BSTR>,
 {
-    ::windows_targets::link!("oleaut32.dll" "system" fn SysAddRefString(bstrstring : ::std::mem::MaybeUninit <::windows_core::BSTR >) -> ::windows_core::HRESULT);
+    ::windows_targets::link!("oleaut32.dll" "system" fn SysAddRefString(bstrstring : std::mem::MaybeUninit < windows_core::BSTR >) -> windows_core::HRESULT);
     SysAddRefString(bstrstring.into_param().abi()).ok()
 }
 #[inline]
-pub unsafe fn SysAllocString<P0>(psz: P0) -> ::windows_core::BSTR
+pub unsafe fn SysAllocString<P0>(psz: P0) -> windows_core::BSTR
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("oleaut32.dll" "system" fn SysAllocString(psz : ::windows_core::PCWSTR) -> ::windows_core::BSTR);
+    ::windows_targets::link!("oleaut32.dll" "system" fn SysAllocString(psz : windows_core::PCWSTR) -> windows_core::BSTR);
     SysAllocString(psz.into_param().abi())
 }
 #[inline]
-pub unsafe fn SysAllocStringByteLen(psz: ::core::option::Option<&[u8]>) -> ::windows_core::BSTR {
-    ::windows_targets::link!("oleaut32.dll" "system" fn SysAllocStringByteLen(psz : ::windows_core::PCSTR, len : u32) -> ::windows_core::BSTR);
-    SysAllocStringByteLen(::core::mem::transmute(psz.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), psz.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
+pub unsafe fn SysAllocStringByteLen(psz: Option<&[u8]>) -> windows_core::BSTR {
+    ::windows_targets::link!("oleaut32.dll" "system" fn SysAllocStringByteLen(psz : windows_core::PCSTR, len : u32) -> windows_core::BSTR);
+    SysAllocStringByteLen(core::mem::transmute(psz.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), psz.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
 }
 #[inline]
-pub unsafe fn SysAllocStringLen(strin: ::core::option::Option<&[u16]>) -> ::windows_core::BSTR {
-    ::windows_targets::link!("oleaut32.dll" "system" fn SysAllocStringLen(strin : ::windows_core::PCWSTR, ui : u32) -> ::windows_core::BSTR);
-    SysAllocStringLen(::core::mem::transmute(strin.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), strin.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
+pub unsafe fn SysAllocStringLen(strin: Option<&[u16]>) -> windows_core::BSTR {
+    ::windows_targets::link!("oleaut32.dll" "system" fn SysAllocStringLen(strin : windows_core::PCWSTR, ui : u32) -> windows_core::BSTR);
+    SysAllocStringLen(core::mem::transmute(strin.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), strin.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
 }
 #[inline]
 pub unsafe fn SysFreeString<P0>(bstrstring: P0)
 where
-    P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+    P0: windows_core::IntoParam<windows_core::BSTR>,
 {
-    ::windows_targets::link!("oleaut32.dll" "system" fn SysFreeString(bstrstring : ::std::mem::MaybeUninit <::windows_core::BSTR >));
+    ::windows_targets::link!("oleaut32.dll" "system" fn SysFreeString(bstrstring : std::mem::MaybeUninit < windows_core::BSTR >));
     SysFreeString(bstrstring.into_param().abi())
 }
 #[inline]
-pub unsafe fn SysReAllocString<P0>(pbstr: *mut ::windows_core::BSTR, psz: P0) -> i32
+pub unsafe fn SysReAllocString<P0>(pbstr: *mut windows_core::BSTR, psz: P0) -> i32
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("oleaut32.dll" "system" fn SysReAllocString(pbstr : *mut ::std::mem::MaybeUninit <::windows_core::BSTR >, psz : ::windows_core::PCWSTR) -> i32);
-    SysReAllocString(::core::mem::transmute(pbstr), psz.into_param().abi())
+    ::windows_targets::link!("oleaut32.dll" "system" fn SysReAllocString(pbstr : *mut std::mem::MaybeUninit < windows_core::BSTR >, psz : windows_core::PCWSTR) -> i32);
+    SysReAllocString(core::mem::transmute(pbstr), psz.into_param().abi())
 }
 #[inline]
-pub unsafe fn SysReAllocStringLen<P0>(pbstr: *mut ::windows_core::BSTR, psz: P0, len: u32) -> i32
+pub unsafe fn SysReAllocStringLen<P0>(pbstr: *mut windows_core::BSTR, psz: P0, len: u32) -> i32
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("oleaut32.dll" "system" fn SysReAllocStringLen(pbstr : *mut ::std::mem::MaybeUninit <::windows_core::BSTR >, psz : ::windows_core::PCWSTR, len : u32) -> i32);
-    SysReAllocStringLen(::core::mem::transmute(pbstr), psz.into_param().abi(), len)
+    ::windows_targets::link!("oleaut32.dll" "system" fn SysReAllocStringLen(pbstr : *mut std::mem::MaybeUninit < windows_core::BSTR >, psz : windows_core::PCWSTR, len : u32) -> i32);
+    SysReAllocStringLen(core::mem::transmute(pbstr), psz.into_param().abi(), len)
 }
 #[inline]
 pub unsafe fn SysReleaseString<P0>(bstrstring: P0)
 where
-    P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+    P0: windows_core::IntoParam<windows_core::BSTR>,
 {
-    ::windows_targets::link!("oleaut32.dll" "system" fn SysReleaseString(bstrstring : ::std::mem::MaybeUninit <::windows_core::BSTR >));
+    ::windows_targets::link!("oleaut32.dll" "system" fn SysReleaseString(bstrstring : std::mem::MaybeUninit < windows_core::BSTR >));
     SysReleaseString(bstrstring.into_param().abi())
 }
 #[inline]
 pub unsafe fn SysStringByteLen<P0>(bstr: P0) -> u32
 where
-    P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+    P0: windows_core::IntoParam<windows_core::BSTR>,
 {
-    ::windows_targets::link!("oleaut32.dll" "system" fn SysStringByteLen(bstr : ::std::mem::MaybeUninit <::windows_core::BSTR >) -> u32);
+    ::windows_targets::link!("oleaut32.dll" "system" fn SysStringByteLen(bstr : std::mem::MaybeUninit < windows_core::BSTR >) -> u32);
     SysStringByteLen(bstr.into_param().abi())
 }
 #[inline]
 pub unsafe fn SysStringLen<P0>(pbstr: P0) -> u32
 where
-    P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+    P0: windows_core::IntoParam<windows_core::BSTR>,
 {
-    ::windows_targets::link!("oleaut32.dll" "system" fn SysStringLen(pbstr : ::std::mem::MaybeUninit <::windows_core::BSTR >) -> u32);
+    ::windows_targets::link!("oleaut32.dll" "system" fn SysStringLen(pbstr : std::mem::MaybeUninit < windows_core::BSTR >) -> u32);
     SysStringLen(pbstr.into_param().abi())
 }
 pub const APPMODEL_ERROR_DYNAMIC_PROPERTY_INVALID: WIN32_ERROR = WIN32_ERROR(15705u32);
@@ -172,590 +172,590 @@ pub const APPMODEL_ERROR_NO_PACKAGE: WIN32_ERROR = WIN32_ERROR(15700u32);
 pub const APPMODEL_ERROR_PACKAGE_IDENTITY_CORRUPT: WIN32_ERROR = WIN32_ERROR(15702u32);
 pub const APPMODEL_ERROR_PACKAGE_NOT_AVAILABLE: WIN32_ERROR = WIN32_ERROR(15706u32);
 pub const APPMODEL_ERROR_PACKAGE_RUNTIME_CORRUPT: WIN32_ERROR = WIN32_ERROR(15701u32);
-pub const APPX_E_BLOCK_HASH_INVALID: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80080207_u32 as _);
-pub const APPX_E_CORRUPT_CONTENT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80080206_u32 as _);
-pub const APPX_E_DELTA_APPENDED_PACKAGE_NOT_ALLOWED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80080210_u32 as _);
-pub const APPX_E_DELTA_BASELINE_VERSION_MISMATCH: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8008020D_u32 as _);
-pub const APPX_E_DELTA_PACKAGE_MISSING_FILE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8008020E_u32 as _);
-pub const APPX_E_DIGEST_MISMATCH: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80080219_u32 as _);
-pub const APPX_E_FILE_COMPRESSION_MISMATCH: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80080214_u32 as _);
-pub const APPX_E_INTERLEAVING_NOT_ALLOWED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80080201_u32 as _);
-pub const APPX_E_INVALID_APPINSTALLER: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8008020C_u32 as _);
-pub const APPX_E_INVALID_BLOCKMAP: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80080205_u32 as _);
-pub const APPX_E_INVALID_CONTENTGROUPMAP: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8008020B_u32 as _);
-pub const APPX_E_INVALID_DELTA_PACKAGE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8008020F_u32 as _);
-pub const APPX_E_INVALID_ENCRYPTION_EXCLUSION_FILE_LIST: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80080216_u32 as _);
-pub const APPX_E_INVALID_KEY_INFO: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8008020A_u32 as _);
-pub const APPX_E_INVALID_MANIFEST: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80080204_u32 as _);
-pub const APPX_E_INVALID_PACKAGESIGNCONFIG: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80080212_u32 as _);
-pub const APPX_E_INVALID_PACKAGE_FOLDER_ACLS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80080217_u32 as _);
-pub const APPX_E_INVALID_PACKAGING_LAYOUT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80080211_u32 as _);
-pub const APPX_E_INVALID_PAYLOAD_PACKAGE_EXTENSION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80080215_u32 as _);
-pub const APPX_E_INVALID_PUBLISHER_BRIDGING: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80080218_u32 as _);
-pub const APPX_E_INVALID_SIP_CLIENT_DATA: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80080209_u32 as _);
-pub const APPX_E_MISSING_REQUIRED_FILE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80080203_u32 as _);
-pub const APPX_E_PACKAGING_INTERNAL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80080200_u32 as _);
-pub const APPX_E_RELATIONSHIPS_NOT_ALLOWED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80080202_u32 as _);
-pub const APPX_E_REQUESTED_RANGE_TOO_LARGE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80080208_u32 as _);
-pub const APPX_E_RESOURCESPRI_NOT_ALLOWED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80080213_u32 as _);
+pub const APPX_E_BLOCK_HASH_INVALID: windows_core::HRESULT = windows_core::HRESULT(0x80080207_u32 as _);
+pub const APPX_E_CORRUPT_CONTENT: windows_core::HRESULT = windows_core::HRESULT(0x80080206_u32 as _);
+pub const APPX_E_DELTA_APPENDED_PACKAGE_NOT_ALLOWED: windows_core::HRESULT = windows_core::HRESULT(0x80080210_u32 as _);
+pub const APPX_E_DELTA_BASELINE_VERSION_MISMATCH: windows_core::HRESULT = windows_core::HRESULT(0x8008020D_u32 as _);
+pub const APPX_E_DELTA_PACKAGE_MISSING_FILE: windows_core::HRESULT = windows_core::HRESULT(0x8008020E_u32 as _);
+pub const APPX_E_DIGEST_MISMATCH: windows_core::HRESULT = windows_core::HRESULT(0x80080219_u32 as _);
+pub const APPX_E_FILE_COMPRESSION_MISMATCH: windows_core::HRESULT = windows_core::HRESULT(0x80080214_u32 as _);
+pub const APPX_E_INTERLEAVING_NOT_ALLOWED: windows_core::HRESULT = windows_core::HRESULT(0x80080201_u32 as _);
+pub const APPX_E_INVALID_APPINSTALLER: windows_core::HRESULT = windows_core::HRESULT(0x8008020C_u32 as _);
+pub const APPX_E_INVALID_BLOCKMAP: windows_core::HRESULT = windows_core::HRESULT(0x80080205_u32 as _);
+pub const APPX_E_INVALID_CONTENTGROUPMAP: windows_core::HRESULT = windows_core::HRESULT(0x8008020B_u32 as _);
+pub const APPX_E_INVALID_DELTA_PACKAGE: windows_core::HRESULT = windows_core::HRESULT(0x8008020F_u32 as _);
+pub const APPX_E_INVALID_ENCRYPTION_EXCLUSION_FILE_LIST: windows_core::HRESULT = windows_core::HRESULT(0x80080216_u32 as _);
+pub const APPX_E_INVALID_KEY_INFO: windows_core::HRESULT = windows_core::HRESULT(0x8008020A_u32 as _);
+pub const APPX_E_INVALID_MANIFEST: windows_core::HRESULT = windows_core::HRESULT(0x80080204_u32 as _);
+pub const APPX_E_INVALID_PACKAGESIGNCONFIG: windows_core::HRESULT = windows_core::HRESULT(0x80080212_u32 as _);
+pub const APPX_E_INVALID_PACKAGE_FOLDER_ACLS: windows_core::HRESULT = windows_core::HRESULT(0x80080217_u32 as _);
+pub const APPX_E_INVALID_PACKAGING_LAYOUT: windows_core::HRESULT = windows_core::HRESULT(0x80080211_u32 as _);
+pub const APPX_E_INVALID_PAYLOAD_PACKAGE_EXTENSION: windows_core::HRESULT = windows_core::HRESULT(0x80080215_u32 as _);
+pub const APPX_E_INVALID_PUBLISHER_BRIDGING: windows_core::HRESULT = windows_core::HRESULT(0x80080218_u32 as _);
+pub const APPX_E_INVALID_SIP_CLIENT_DATA: windows_core::HRESULT = windows_core::HRESULT(0x80080209_u32 as _);
+pub const APPX_E_MISSING_REQUIRED_FILE: windows_core::HRESULT = windows_core::HRESULT(0x80080203_u32 as _);
+pub const APPX_E_PACKAGING_INTERNAL: windows_core::HRESULT = windows_core::HRESULT(0x80080200_u32 as _);
+pub const APPX_E_RELATIONSHIPS_NOT_ALLOWED: windows_core::HRESULT = windows_core::HRESULT(0x80080202_u32 as _);
+pub const APPX_E_REQUESTED_RANGE_TOO_LARGE: windows_core::HRESULT = windows_core::HRESULT(0x80080208_u32 as _);
+pub const APPX_E_RESOURCESPRI_NOT_ALLOWED: windows_core::HRESULT = windows_core::HRESULT(0x80080213_u32 as _);
 pub const APP_LOCAL_DEVICE_ID_SIZE: u32 = 32u32;
-pub const BT_E_SPURIOUS_ACTIVATION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80080300_u32 as _);
+pub const BT_E_SPURIOUS_ACTIVATION: windows_core::HRESULT = windows_core::HRESULT(0x80080300_u32 as _);
 pub const CACHE_E_FIRST: i32 = -2147221136i32;
 pub const CACHE_E_LAST: i32 = -2147221121i32;
-pub const CACHE_E_NOCACHE_UPDATED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80040170_u32 as _);
+pub const CACHE_E_NOCACHE_UPDATED: windows_core::HRESULT = windows_core::HRESULT(0x80040170_u32 as _);
 pub const CACHE_S_FIRST: i32 = 262512i32;
-pub const CACHE_S_FORMATETC_NOTSUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x40170_u32 as _);
+pub const CACHE_S_FORMATETC_NOTSUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x40170_u32 as _);
 pub const CACHE_S_LAST: i32 = 262527i32;
-pub const CACHE_S_SAMECACHE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x40171_u32 as _);
-pub const CACHE_S_SOMECACHES_NOTUPDATED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x40172_u32 as _);
-pub const CAT_E_CATIDNOEXIST: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80040160_u32 as _);
+pub const CACHE_S_SAMECACHE: windows_core::HRESULT = windows_core::HRESULT(0x40171_u32 as _);
+pub const CACHE_S_SOMECACHES_NOTUPDATED: windows_core::HRESULT = windows_core::HRESULT(0x40172_u32 as _);
+pub const CAT_E_CATIDNOEXIST: windows_core::HRESULT = windows_core::HRESULT(0x80040160_u32 as _);
 pub const CAT_E_FIRST: i32 = -2147221152i32;
 pub const CAT_E_LAST: i32 = -2147221151i32;
-pub const CAT_E_NODESCRIPTION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80040161_u32 as _);
-pub const CERTSRV_E_ADMIN_DENIED_REQUEST: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80094014_u32 as _);
-pub const CERTSRV_E_ALIGNMENT_FAULT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80094010_u32 as _);
-pub const CERTSRV_E_ARCHIVED_KEY_REQUIRED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80094804_u32 as _);
-pub const CERTSRV_E_ARCHIVED_KEY_UNEXPECTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80094810_u32 as _);
-pub const CERTSRV_E_BAD_RENEWAL_CERT_ATTRIBUTE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8009400E_u32 as _);
-pub const CERTSRV_E_BAD_RENEWAL_SUBJECT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80094806_u32 as _);
-pub const CERTSRV_E_BAD_REQUESTSTATUS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80094003_u32 as _);
-pub const CERTSRV_E_BAD_REQUESTSUBJECT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80094001_u32 as _);
-pub const CERTSRV_E_BAD_REQUEST_KEY_ARCHIVAL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8009400C_u32 as _);
-pub const CERTSRV_E_BAD_TEMPLATE_VERSION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80094807_u32 as _);
-pub const CERTSRV_E_CERT_TYPE_OVERLAP: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80094814_u32 as _);
-pub const CERTSRV_E_CORRUPT_KEY_ATTESTATION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8009481B_u32 as _);
-pub const CERTSRV_E_DOWNLEVEL_DC_SSL_OR_UPGRADE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80094013_u32 as _);
-pub const CERTSRV_E_ENCODING_LENGTH: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80094007_u32 as _);
-pub const CERTSRV_E_ENCRYPTION_CERT_REQUIRED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80094018_u32 as _);
-pub const CERTSRV_E_ENROLL_DENIED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80094011_u32 as _);
-pub const CERTSRV_E_EXPIRED_CHALLENGE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8009481C_u32 as _);
-pub const CERTSRV_E_INVALID_ATTESTATION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80094819_u32 as _);
-pub const CERTSRV_E_INVALID_CA_CERTIFICATE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80094005_u32 as _);
-pub const CERTSRV_E_INVALID_EK: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80094817_u32 as _);
-pub const CERTSRV_E_INVALID_IDBINDING: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80094818_u32 as _);
-pub const CERTSRV_E_INVALID_REQUESTID: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8009481E_u32 as _);
-pub const CERTSRV_E_INVALID_RESPONSE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8009481D_u32 as _);
-pub const CERTSRV_E_ISSUANCE_POLICY_REQUIRED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8009480C_u32 as _);
-pub const CERTSRV_E_KEY_ARCHIVAL_NOT_CONFIGURED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8009400A_u32 as _);
-pub const CERTSRV_E_KEY_ATTESTATION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8009481A_u32 as _);
-pub const CERTSRV_E_KEY_ATTESTATION_NOT_SUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80094017_u32 as _);
-pub const CERTSRV_E_KEY_LENGTH: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80094811_u32 as _);
-pub const CERTSRV_E_NO_CAADMIN_DEFINED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8009400D_u32 as _);
-pub const CERTSRV_E_NO_CERT_TYPE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80094801_u32 as _);
-pub const CERTSRV_E_NO_DB_SESSIONS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8009400F_u32 as _);
-pub const CERTSRV_E_NO_POLICY_SERVER: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80094015_u32 as _);
-pub const CERTSRV_E_NO_REQUEST: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80094002_u32 as _);
-pub const CERTSRV_E_NO_VALID_KRA: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8009400B_u32 as _);
-pub const CERTSRV_E_PENDING_CLIENT_RESPONSE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80094820_u32 as _);
-pub const CERTSRV_E_PROPERTY_EMPTY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80094004_u32 as _);
-pub const CERTSRV_E_RENEWAL_BAD_PUBLIC_KEY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80094816_u32 as _);
-pub const CERTSRV_E_REQUEST_PRECERTIFICATE_MISMATCH: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8009481F_u32 as _);
-pub const CERTSRV_E_RESTRICTEDOFFICER: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80094009_u32 as _);
-pub const CERTSRV_E_ROLECONFLICT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80094008_u32 as _);
-pub const CERTSRV_E_SEC_EXT_DIRECTORY_SID_REQUIRED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80094821_u32 as _);
-pub const CERTSRV_E_SERVER_SUSPENDED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80094006_u32 as _);
-pub const CERTSRV_E_SIGNATURE_COUNT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8009480A_u32 as _);
-pub const CERTSRV_E_SIGNATURE_POLICY_REQUIRED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80094809_u32 as _);
-pub const CERTSRV_E_SIGNATURE_REJECTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8009480B_u32 as _);
-pub const CERTSRV_E_SMIME_REQUIRED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80094805_u32 as _);
-pub const CERTSRV_E_SUBJECT_ALT_NAME_REQUIRED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80094803_u32 as _);
-pub const CERTSRV_E_SUBJECT_DIRECTORY_GUID_REQUIRED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8009480E_u32 as _);
-pub const CERTSRV_E_SUBJECT_DNS_REQUIRED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8009480F_u32 as _);
-pub const CERTSRV_E_SUBJECT_EMAIL_REQUIRED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80094812_u32 as _);
-pub const CERTSRV_E_SUBJECT_UPN_REQUIRED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8009480D_u32 as _);
-pub const CERTSRV_E_TEMPLATE_CONFLICT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80094802_u32 as _);
-pub const CERTSRV_E_TEMPLATE_DENIED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80094012_u32 as _);
-pub const CERTSRV_E_TEMPLATE_POLICY_REQUIRED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80094808_u32 as _);
-pub const CERTSRV_E_TOO_MANY_SIGNATURES: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80094815_u32 as _);
-pub const CERTSRV_E_UNKNOWN_CERT_TYPE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80094813_u32 as _);
-pub const CERTSRV_E_UNSUPPORTED_CERT_TYPE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80094800_u32 as _);
-pub const CERTSRV_E_WEAK_SIGNATURE_OR_KEY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80094016_u32 as _);
-pub const CERT_E_CHAINING: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800B010A_u32 as _);
-pub const CERT_E_CN_NO_MATCH: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800B010F_u32 as _);
-pub const CERT_E_CRITICAL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800B0105_u32 as _);
-pub const CERT_E_EXPIRED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800B0101_u32 as _);
-pub const CERT_E_INVALID_NAME: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800B0114_u32 as _);
-pub const CERT_E_INVALID_POLICY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800B0113_u32 as _);
-pub const CERT_E_ISSUERCHAINING: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800B0107_u32 as _);
-pub const CERT_E_MALFORMED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800B0108_u32 as _);
-pub const CERT_E_PATHLENCONST: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800B0104_u32 as _);
-pub const CERT_E_PURPOSE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800B0106_u32 as _);
-pub const CERT_E_REVOCATION_FAILURE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800B010E_u32 as _);
-pub const CERT_E_REVOKED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800B010C_u32 as _);
-pub const CERT_E_ROLE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800B0103_u32 as _);
-pub const CERT_E_UNTRUSTEDCA: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800B0112_u32 as _);
-pub const CERT_E_UNTRUSTEDROOT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800B0109_u32 as _);
-pub const CERT_E_UNTRUSTEDTESTROOT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800B010D_u32 as _);
-pub const CERT_E_VALIDITYPERIODNESTING: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800B0102_u32 as _);
-pub const CERT_E_WRONG_USAGE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800B0110_u32 as _);
-pub const CI_CORRUPT_CATALOG: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0041801_u32 as _);
-pub const CI_CORRUPT_DATABASE: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0041800_u32 as _);
-pub const CI_CORRUPT_FILTER_BUFFER: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0041807_u32 as _);
-pub const CI_E_ALREADY_INITIALIZED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004180A_u32 as _);
-pub const CI_E_BUFFERTOOSMALL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004180C_u32 as _);
-pub const CI_E_CARDINALITY_MISMATCH: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80041827_u32 as _);
-pub const CI_E_CLIENT_FILTER_ABORT: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0041824_u32 as _);
-pub const CI_E_CONFIG_DISK_FULL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80041828_u32 as _);
-pub const CI_E_DISK_FULL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80041811_u32 as _);
-pub const CI_E_DISTRIBUTED_GROUPBY_UNSUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80041829_u32 as _);
-pub const CI_E_DUPLICATE_NOTIFICATION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80041817_u32 as _);
-pub const CI_E_ENUMERATION_STARTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0041822_u32 as _);
-pub const CI_E_FILTERING_DISABLED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80041810_u32 as _);
-pub const CI_E_INVALID_FLAGS_COMBINATION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80041819_u32 as _);
-pub const CI_E_INVALID_STATE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004180F_u32 as _);
-pub const CI_E_LOGON_FAILURE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004181C_u32 as _);
-pub const CI_E_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80041815_u32 as _);
-pub const CI_E_NOT_INITIALIZED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004180B_u32 as _);
-pub const CI_E_NOT_RUNNING: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80041820_u32 as _);
-pub const CI_E_NO_CATALOG: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004181D_u32 as _);
-pub const CI_E_OUTOFSEQ_INCREMENT_DATA: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004181A_u32 as _);
-pub const CI_E_PROPERTY_NOT_CACHED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004180D_u32 as _);
-pub const CI_E_PROPERTY_TOOLARGE: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0041823_u32 as _);
-pub const CI_E_SHARING_VIOLATION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004181B_u32 as _);
-pub const CI_E_SHUTDOWN: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80041812_u32 as _);
-pub const CI_E_STRANGE_PAGEORSECTOR_SIZE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004181E_u32 as _);
-pub const CI_E_TIMEOUT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004181F_u32 as _);
-pub const CI_E_UPDATES_DISABLED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80041818_u32 as _);
-pub const CI_E_USE_DEFAULT_PID: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80041816_u32 as _);
-pub const CI_E_WORKID_NOTVALID: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80041813_u32 as _);
-pub const CI_INCORRECT_VERSION: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0041821_u32 as _);
-pub const CI_INVALID_INDEX: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0041808_u32 as _);
-pub const CI_INVALID_PARTITION: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0041802_u32 as _);
-pub const CI_INVALID_PRIORITY: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0041803_u32 as _);
-pub const CI_NO_CATALOG: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0041806_u32 as _);
-pub const CI_NO_STARTING_KEY: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0041804_u32 as _);
-pub const CI_OUT_OF_INDEX_IDS: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0041805_u32 as _);
-pub const CI_PROPSTORE_INCONSISTENCY: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0041809_u32 as _);
-pub const CI_S_CAT_STOPPED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x41826_u32 as _);
-pub const CI_S_END_OF_ENUMERATION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x41814_u32 as _);
-pub const CI_S_NO_DOCSTORE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x41825_u32 as _);
-pub const CI_S_WORKID_DELETED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x4180E_u32 as _);
+pub const CAT_E_NODESCRIPTION: windows_core::HRESULT = windows_core::HRESULT(0x80040161_u32 as _);
+pub const CERTSRV_E_ADMIN_DENIED_REQUEST: windows_core::HRESULT = windows_core::HRESULT(0x80094014_u32 as _);
+pub const CERTSRV_E_ALIGNMENT_FAULT: windows_core::HRESULT = windows_core::HRESULT(0x80094010_u32 as _);
+pub const CERTSRV_E_ARCHIVED_KEY_REQUIRED: windows_core::HRESULT = windows_core::HRESULT(0x80094804_u32 as _);
+pub const CERTSRV_E_ARCHIVED_KEY_UNEXPECTED: windows_core::HRESULT = windows_core::HRESULT(0x80094810_u32 as _);
+pub const CERTSRV_E_BAD_RENEWAL_CERT_ATTRIBUTE: windows_core::HRESULT = windows_core::HRESULT(0x8009400E_u32 as _);
+pub const CERTSRV_E_BAD_RENEWAL_SUBJECT: windows_core::HRESULT = windows_core::HRESULT(0x80094806_u32 as _);
+pub const CERTSRV_E_BAD_REQUESTSTATUS: windows_core::HRESULT = windows_core::HRESULT(0x80094003_u32 as _);
+pub const CERTSRV_E_BAD_REQUESTSUBJECT: windows_core::HRESULT = windows_core::HRESULT(0x80094001_u32 as _);
+pub const CERTSRV_E_BAD_REQUEST_KEY_ARCHIVAL: windows_core::HRESULT = windows_core::HRESULT(0x8009400C_u32 as _);
+pub const CERTSRV_E_BAD_TEMPLATE_VERSION: windows_core::HRESULT = windows_core::HRESULT(0x80094807_u32 as _);
+pub const CERTSRV_E_CERT_TYPE_OVERLAP: windows_core::HRESULT = windows_core::HRESULT(0x80094814_u32 as _);
+pub const CERTSRV_E_CORRUPT_KEY_ATTESTATION: windows_core::HRESULT = windows_core::HRESULT(0x8009481B_u32 as _);
+pub const CERTSRV_E_DOWNLEVEL_DC_SSL_OR_UPGRADE: windows_core::HRESULT = windows_core::HRESULT(0x80094013_u32 as _);
+pub const CERTSRV_E_ENCODING_LENGTH: windows_core::HRESULT = windows_core::HRESULT(0x80094007_u32 as _);
+pub const CERTSRV_E_ENCRYPTION_CERT_REQUIRED: windows_core::HRESULT = windows_core::HRESULT(0x80094018_u32 as _);
+pub const CERTSRV_E_ENROLL_DENIED: windows_core::HRESULT = windows_core::HRESULT(0x80094011_u32 as _);
+pub const CERTSRV_E_EXPIRED_CHALLENGE: windows_core::HRESULT = windows_core::HRESULT(0x8009481C_u32 as _);
+pub const CERTSRV_E_INVALID_ATTESTATION: windows_core::HRESULT = windows_core::HRESULT(0x80094819_u32 as _);
+pub const CERTSRV_E_INVALID_CA_CERTIFICATE: windows_core::HRESULT = windows_core::HRESULT(0x80094005_u32 as _);
+pub const CERTSRV_E_INVALID_EK: windows_core::HRESULT = windows_core::HRESULT(0x80094817_u32 as _);
+pub const CERTSRV_E_INVALID_IDBINDING: windows_core::HRESULT = windows_core::HRESULT(0x80094818_u32 as _);
+pub const CERTSRV_E_INVALID_REQUESTID: windows_core::HRESULT = windows_core::HRESULT(0x8009481E_u32 as _);
+pub const CERTSRV_E_INVALID_RESPONSE: windows_core::HRESULT = windows_core::HRESULT(0x8009481D_u32 as _);
+pub const CERTSRV_E_ISSUANCE_POLICY_REQUIRED: windows_core::HRESULT = windows_core::HRESULT(0x8009480C_u32 as _);
+pub const CERTSRV_E_KEY_ARCHIVAL_NOT_CONFIGURED: windows_core::HRESULT = windows_core::HRESULT(0x8009400A_u32 as _);
+pub const CERTSRV_E_KEY_ATTESTATION: windows_core::HRESULT = windows_core::HRESULT(0x8009481A_u32 as _);
+pub const CERTSRV_E_KEY_ATTESTATION_NOT_SUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x80094017_u32 as _);
+pub const CERTSRV_E_KEY_LENGTH: windows_core::HRESULT = windows_core::HRESULT(0x80094811_u32 as _);
+pub const CERTSRV_E_NO_CAADMIN_DEFINED: windows_core::HRESULT = windows_core::HRESULT(0x8009400D_u32 as _);
+pub const CERTSRV_E_NO_CERT_TYPE: windows_core::HRESULT = windows_core::HRESULT(0x80094801_u32 as _);
+pub const CERTSRV_E_NO_DB_SESSIONS: windows_core::HRESULT = windows_core::HRESULT(0x8009400F_u32 as _);
+pub const CERTSRV_E_NO_POLICY_SERVER: windows_core::HRESULT = windows_core::HRESULT(0x80094015_u32 as _);
+pub const CERTSRV_E_NO_REQUEST: windows_core::HRESULT = windows_core::HRESULT(0x80094002_u32 as _);
+pub const CERTSRV_E_NO_VALID_KRA: windows_core::HRESULT = windows_core::HRESULT(0x8009400B_u32 as _);
+pub const CERTSRV_E_PENDING_CLIENT_RESPONSE: windows_core::HRESULT = windows_core::HRESULT(0x80094820_u32 as _);
+pub const CERTSRV_E_PROPERTY_EMPTY: windows_core::HRESULT = windows_core::HRESULT(0x80094004_u32 as _);
+pub const CERTSRV_E_RENEWAL_BAD_PUBLIC_KEY: windows_core::HRESULT = windows_core::HRESULT(0x80094816_u32 as _);
+pub const CERTSRV_E_REQUEST_PRECERTIFICATE_MISMATCH: windows_core::HRESULT = windows_core::HRESULT(0x8009481F_u32 as _);
+pub const CERTSRV_E_RESTRICTEDOFFICER: windows_core::HRESULT = windows_core::HRESULT(0x80094009_u32 as _);
+pub const CERTSRV_E_ROLECONFLICT: windows_core::HRESULT = windows_core::HRESULT(0x80094008_u32 as _);
+pub const CERTSRV_E_SEC_EXT_DIRECTORY_SID_REQUIRED: windows_core::HRESULT = windows_core::HRESULT(0x80094821_u32 as _);
+pub const CERTSRV_E_SERVER_SUSPENDED: windows_core::HRESULT = windows_core::HRESULT(0x80094006_u32 as _);
+pub const CERTSRV_E_SIGNATURE_COUNT: windows_core::HRESULT = windows_core::HRESULT(0x8009480A_u32 as _);
+pub const CERTSRV_E_SIGNATURE_POLICY_REQUIRED: windows_core::HRESULT = windows_core::HRESULT(0x80094809_u32 as _);
+pub const CERTSRV_E_SIGNATURE_REJECTED: windows_core::HRESULT = windows_core::HRESULT(0x8009480B_u32 as _);
+pub const CERTSRV_E_SMIME_REQUIRED: windows_core::HRESULT = windows_core::HRESULT(0x80094805_u32 as _);
+pub const CERTSRV_E_SUBJECT_ALT_NAME_REQUIRED: windows_core::HRESULT = windows_core::HRESULT(0x80094803_u32 as _);
+pub const CERTSRV_E_SUBJECT_DIRECTORY_GUID_REQUIRED: windows_core::HRESULT = windows_core::HRESULT(0x8009480E_u32 as _);
+pub const CERTSRV_E_SUBJECT_DNS_REQUIRED: windows_core::HRESULT = windows_core::HRESULT(0x8009480F_u32 as _);
+pub const CERTSRV_E_SUBJECT_EMAIL_REQUIRED: windows_core::HRESULT = windows_core::HRESULT(0x80094812_u32 as _);
+pub const CERTSRV_E_SUBJECT_UPN_REQUIRED: windows_core::HRESULT = windows_core::HRESULT(0x8009480D_u32 as _);
+pub const CERTSRV_E_TEMPLATE_CONFLICT: windows_core::HRESULT = windows_core::HRESULT(0x80094802_u32 as _);
+pub const CERTSRV_E_TEMPLATE_DENIED: windows_core::HRESULT = windows_core::HRESULT(0x80094012_u32 as _);
+pub const CERTSRV_E_TEMPLATE_POLICY_REQUIRED: windows_core::HRESULT = windows_core::HRESULT(0x80094808_u32 as _);
+pub const CERTSRV_E_TOO_MANY_SIGNATURES: windows_core::HRESULT = windows_core::HRESULT(0x80094815_u32 as _);
+pub const CERTSRV_E_UNKNOWN_CERT_TYPE: windows_core::HRESULT = windows_core::HRESULT(0x80094813_u32 as _);
+pub const CERTSRV_E_UNSUPPORTED_CERT_TYPE: windows_core::HRESULT = windows_core::HRESULT(0x80094800_u32 as _);
+pub const CERTSRV_E_WEAK_SIGNATURE_OR_KEY: windows_core::HRESULT = windows_core::HRESULT(0x80094016_u32 as _);
+pub const CERT_E_CHAINING: windows_core::HRESULT = windows_core::HRESULT(0x800B010A_u32 as _);
+pub const CERT_E_CN_NO_MATCH: windows_core::HRESULT = windows_core::HRESULT(0x800B010F_u32 as _);
+pub const CERT_E_CRITICAL: windows_core::HRESULT = windows_core::HRESULT(0x800B0105_u32 as _);
+pub const CERT_E_EXPIRED: windows_core::HRESULT = windows_core::HRESULT(0x800B0101_u32 as _);
+pub const CERT_E_INVALID_NAME: windows_core::HRESULT = windows_core::HRESULT(0x800B0114_u32 as _);
+pub const CERT_E_INVALID_POLICY: windows_core::HRESULT = windows_core::HRESULT(0x800B0113_u32 as _);
+pub const CERT_E_ISSUERCHAINING: windows_core::HRESULT = windows_core::HRESULT(0x800B0107_u32 as _);
+pub const CERT_E_MALFORMED: windows_core::HRESULT = windows_core::HRESULT(0x800B0108_u32 as _);
+pub const CERT_E_PATHLENCONST: windows_core::HRESULT = windows_core::HRESULT(0x800B0104_u32 as _);
+pub const CERT_E_PURPOSE: windows_core::HRESULT = windows_core::HRESULT(0x800B0106_u32 as _);
+pub const CERT_E_REVOCATION_FAILURE: windows_core::HRESULT = windows_core::HRESULT(0x800B010E_u32 as _);
+pub const CERT_E_REVOKED: windows_core::HRESULT = windows_core::HRESULT(0x800B010C_u32 as _);
+pub const CERT_E_ROLE: windows_core::HRESULT = windows_core::HRESULT(0x800B0103_u32 as _);
+pub const CERT_E_UNTRUSTEDCA: windows_core::HRESULT = windows_core::HRESULT(0x800B0112_u32 as _);
+pub const CERT_E_UNTRUSTEDROOT: windows_core::HRESULT = windows_core::HRESULT(0x800B0109_u32 as _);
+pub const CERT_E_UNTRUSTEDTESTROOT: windows_core::HRESULT = windows_core::HRESULT(0x800B010D_u32 as _);
+pub const CERT_E_VALIDITYPERIODNESTING: windows_core::HRESULT = windows_core::HRESULT(0x800B0102_u32 as _);
+pub const CERT_E_WRONG_USAGE: windows_core::HRESULT = windows_core::HRESULT(0x800B0110_u32 as _);
+pub const CI_CORRUPT_CATALOG: windows_core::HRESULT = windows_core::HRESULT(0xC0041801_u32 as _);
+pub const CI_CORRUPT_DATABASE: windows_core::HRESULT = windows_core::HRESULT(0xC0041800_u32 as _);
+pub const CI_CORRUPT_FILTER_BUFFER: windows_core::HRESULT = windows_core::HRESULT(0xC0041807_u32 as _);
+pub const CI_E_ALREADY_INITIALIZED: windows_core::HRESULT = windows_core::HRESULT(0x8004180A_u32 as _);
+pub const CI_E_BUFFERTOOSMALL: windows_core::HRESULT = windows_core::HRESULT(0x8004180C_u32 as _);
+pub const CI_E_CARDINALITY_MISMATCH: windows_core::HRESULT = windows_core::HRESULT(0x80041827_u32 as _);
+pub const CI_E_CLIENT_FILTER_ABORT: windows_core::HRESULT = windows_core::HRESULT(0xC0041824_u32 as _);
+pub const CI_E_CONFIG_DISK_FULL: windows_core::HRESULT = windows_core::HRESULT(0x80041828_u32 as _);
+pub const CI_E_DISK_FULL: windows_core::HRESULT = windows_core::HRESULT(0x80041811_u32 as _);
+pub const CI_E_DISTRIBUTED_GROUPBY_UNSUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x80041829_u32 as _);
+pub const CI_E_DUPLICATE_NOTIFICATION: windows_core::HRESULT = windows_core::HRESULT(0x80041817_u32 as _);
+pub const CI_E_ENUMERATION_STARTED: windows_core::HRESULT = windows_core::HRESULT(0xC0041822_u32 as _);
+pub const CI_E_FILTERING_DISABLED: windows_core::HRESULT = windows_core::HRESULT(0x80041810_u32 as _);
+pub const CI_E_INVALID_FLAGS_COMBINATION: windows_core::HRESULT = windows_core::HRESULT(0x80041819_u32 as _);
+pub const CI_E_INVALID_STATE: windows_core::HRESULT = windows_core::HRESULT(0x8004180F_u32 as _);
+pub const CI_E_LOGON_FAILURE: windows_core::HRESULT = windows_core::HRESULT(0x8004181C_u32 as _);
+pub const CI_E_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0x80041815_u32 as _);
+pub const CI_E_NOT_INITIALIZED: windows_core::HRESULT = windows_core::HRESULT(0x8004180B_u32 as _);
+pub const CI_E_NOT_RUNNING: windows_core::HRESULT = windows_core::HRESULT(0x80041820_u32 as _);
+pub const CI_E_NO_CATALOG: windows_core::HRESULT = windows_core::HRESULT(0x8004181D_u32 as _);
+pub const CI_E_OUTOFSEQ_INCREMENT_DATA: windows_core::HRESULT = windows_core::HRESULT(0x8004181A_u32 as _);
+pub const CI_E_PROPERTY_NOT_CACHED: windows_core::HRESULT = windows_core::HRESULT(0x8004180D_u32 as _);
+pub const CI_E_PROPERTY_TOOLARGE: windows_core::HRESULT = windows_core::HRESULT(0xC0041823_u32 as _);
+pub const CI_E_SHARING_VIOLATION: windows_core::HRESULT = windows_core::HRESULT(0x8004181B_u32 as _);
+pub const CI_E_SHUTDOWN: windows_core::HRESULT = windows_core::HRESULT(0x80041812_u32 as _);
+pub const CI_E_STRANGE_PAGEORSECTOR_SIZE: windows_core::HRESULT = windows_core::HRESULT(0x8004181E_u32 as _);
+pub const CI_E_TIMEOUT: windows_core::HRESULT = windows_core::HRESULT(0x8004181F_u32 as _);
+pub const CI_E_UPDATES_DISABLED: windows_core::HRESULT = windows_core::HRESULT(0x80041818_u32 as _);
+pub const CI_E_USE_DEFAULT_PID: windows_core::HRESULT = windows_core::HRESULT(0x80041816_u32 as _);
+pub const CI_E_WORKID_NOTVALID: windows_core::HRESULT = windows_core::HRESULT(0x80041813_u32 as _);
+pub const CI_INCORRECT_VERSION: windows_core::HRESULT = windows_core::HRESULT(0xC0041821_u32 as _);
+pub const CI_INVALID_INDEX: windows_core::HRESULT = windows_core::HRESULT(0xC0041808_u32 as _);
+pub const CI_INVALID_PARTITION: windows_core::HRESULT = windows_core::HRESULT(0xC0041802_u32 as _);
+pub const CI_INVALID_PRIORITY: windows_core::HRESULT = windows_core::HRESULT(0xC0041803_u32 as _);
+pub const CI_NO_CATALOG: windows_core::HRESULT = windows_core::HRESULT(0xC0041806_u32 as _);
+pub const CI_NO_STARTING_KEY: windows_core::HRESULT = windows_core::HRESULT(0xC0041804_u32 as _);
+pub const CI_OUT_OF_INDEX_IDS: windows_core::HRESULT = windows_core::HRESULT(0xC0041805_u32 as _);
+pub const CI_PROPSTORE_INCONSISTENCY: windows_core::HRESULT = windows_core::HRESULT(0xC0041809_u32 as _);
+pub const CI_S_CAT_STOPPED: windows_core::HRESULT = windows_core::HRESULT(0x41826_u32 as _);
+pub const CI_S_END_OF_ENUMERATION: windows_core::HRESULT = windows_core::HRESULT(0x41814_u32 as _);
+pub const CI_S_NO_DOCSTORE: windows_core::HRESULT = windows_core::HRESULT(0x41825_u32 as _);
+pub const CI_S_WORKID_DELETED: windows_core::HRESULT = windows_core::HRESULT(0x4180E_u32 as _);
 pub const CLASSFACTORY_E_FIRST: i32 = -2147221232i32;
 pub const CLASSFACTORY_E_LAST: i32 = -2147221217i32;
 pub const CLASSFACTORY_S_FIRST: i32 = 262416i32;
 pub const CLASSFACTORY_S_LAST: i32 = 262431i32;
-pub const CLASS_E_CLASSNOTAVAILABLE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80040111_u32 as _);
-pub const CLASS_E_NOAGGREGATION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80040110_u32 as _);
-pub const CLASS_E_NOTLICENSED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80040112_u32 as _);
+pub const CLASS_E_CLASSNOTAVAILABLE: windows_core::HRESULT = windows_core::HRESULT(0x80040111_u32 as _);
+pub const CLASS_E_NOAGGREGATION: windows_core::HRESULT = windows_core::HRESULT(0x80040110_u32 as _);
+pub const CLASS_E_NOTLICENSED: windows_core::HRESULT = windows_core::HRESULT(0x80040112_u32 as _);
 pub const CLIENTSITE_E_FIRST: i32 = -2147221104i32;
 pub const CLIENTSITE_E_LAST: i32 = -2147221089i32;
 pub const CLIENTSITE_S_FIRST: i32 = 262544i32;
 pub const CLIENTSITE_S_LAST: i32 = 262559i32;
-pub const CLIPBRD_E_BAD_DATA: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800401D3_u32 as _);
-pub const CLIPBRD_E_CANT_CLOSE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800401D4_u32 as _);
-pub const CLIPBRD_E_CANT_EMPTY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800401D1_u32 as _);
-pub const CLIPBRD_E_CANT_OPEN: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800401D0_u32 as _);
-pub const CLIPBRD_E_CANT_SET: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800401D2_u32 as _);
+pub const CLIPBRD_E_BAD_DATA: windows_core::HRESULT = windows_core::HRESULT(0x800401D3_u32 as _);
+pub const CLIPBRD_E_CANT_CLOSE: windows_core::HRESULT = windows_core::HRESULT(0x800401D4_u32 as _);
+pub const CLIPBRD_E_CANT_EMPTY: windows_core::HRESULT = windows_core::HRESULT(0x800401D1_u32 as _);
+pub const CLIPBRD_E_CANT_OPEN: windows_core::HRESULT = windows_core::HRESULT(0x800401D0_u32 as _);
+pub const CLIPBRD_E_CANT_SET: windows_core::HRESULT = windows_core::HRESULT(0x800401D2_u32 as _);
 pub const CLIPBRD_E_FIRST: i32 = -2147221040i32;
 pub const CLIPBRD_E_LAST: i32 = -2147221025i32;
 pub const CLIPBRD_S_FIRST: i32 = 262608i32;
 pub const CLIPBRD_S_LAST: i32 = 262623i32;
-pub const COMADMIN_E_ALREADYINSTALLED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80110404_u32 as _);
-pub const COMADMIN_E_AMBIGUOUS_APPLICATION_NAME: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8011045C_u32 as _);
-pub const COMADMIN_E_AMBIGUOUS_PARTITION_NAME: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8011045D_u32 as _);
-pub const COMADMIN_E_APPDIRNOTFOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8011041F_u32 as _);
-pub const COMADMIN_E_APPLICATIONEXISTS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8011040B_u32 as _);
-pub const COMADMIN_E_APPLID_MATCHES_CLSID: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80110446_u32 as _);
-pub const COMADMIN_E_APP_FILE_READFAIL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80110408_u32 as _);
-pub const COMADMIN_E_APP_FILE_VERSION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80110409_u32 as _);
-pub const COMADMIN_E_APP_FILE_WRITEFAIL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80110407_u32 as _);
-pub const COMADMIN_E_APP_NOT_RUNNING: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8011080A_u32 as _);
-pub const COMADMIN_E_AUTHENTICATIONLEVEL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80110413_u32 as _);
-pub const COMADMIN_E_BADPATH: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8011040A_u32 as _);
-pub const COMADMIN_E_BADREGISTRYLIBID: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8011041E_u32 as _);
-pub const COMADMIN_E_BADREGISTRYPROGID: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80110412_u32 as _);
-pub const COMADMIN_E_BASEPARTITION_REQUIRED_IN_SET: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8011081F_u32 as _);
-pub const COMADMIN_E_BASE_PARTITION_ONLY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80110450_u32 as _);
-pub const COMADMIN_E_CANNOT_ALIAS_EVENTCLASS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80110820_u32 as _);
-pub const COMADMIN_E_CANTCOPYFILE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8011040D_u32 as _);
-pub const COMADMIN_E_CANTMAKEINPROCSERVICE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80110814_u32 as _);
-pub const COMADMIN_E_CANTRECYCLELIBRARYAPPS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8011080F_u32 as _);
-pub const COMADMIN_E_CANTRECYCLESERVICEAPPS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80110811_u32 as _);
-pub const COMADMIN_E_CANT_SUBSCRIBE_TO_COMPONENT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8011044D_u32 as _);
-pub const COMADMIN_E_CAN_NOT_EXPORT_APP_PROXY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8011044A_u32 as _);
-pub const COMADMIN_E_CAN_NOT_EXPORT_SYS_APP: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8011044C_u32 as _);
-pub const COMADMIN_E_CAN_NOT_START_APP: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8011044B_u32 as _);
-pub const COMADMIN_E_CAT_BITNESSMISMATCH: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80110482_u32 as _);
-pub const COMADMIN_E_CAT_DUPLICATE_PARTITION_NAME: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80110457_u32 as _);
-pub const COMADMIN_E_CAT_IMPORTED_COMPONENTS_NOT_ALLOWED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8011045B_u32 as _);
-pub const COMADMIN_E_CAT_INVALID_PARTITION_NAME: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80110458_u32 as _);
-pub const COMADMIN_E_CAT_PARTITION_IN_USE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80110459_u32 as _);
-pub const COMADMIN_E_CAT_PAUSE_RESUME_NOT_SUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80110485_u32 as _);
-pub const COMADMIN_E_CAT_SERVERFAULT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80110486_u32 as _);
-pub const COMADMIN_E_CAT_UNACCEPTABLEBITNESS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80110483_u32 as _);
-pub const COMADMIN_E_CAT_WRONGAPPBITNESS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80110484_u32 as _);
-pub const COMADMIN_E_CLSIDORIIDMISMATCH: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80110418_u32 as _);
-pub const COMADMIN_E_COMPFILE_BADTLB: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80110428_u32 as _);
-pub const COMADMIN_E_COMPFILE_CLASSNOTAVAIL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80110427_u32 as _);
-pub const COMADMIN_E_COMPFILE_DOESNOTEXIST: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80110424_u32 as _);
-pub const COMADMIN_E_COMPFILE_GETCLASSOBJ: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80110426_u32 as _);
-pub const COMADMIN_E_COMPFILE_LOADDLLFAIL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80110425_u32 as _);
-pub const COMADMIN_E_COMPFILE_NOREGISTRAR: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80110434_u32 as _);
-pub const COMADMIN_E_COMPFILE_NOTINSTALLABLE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80110429_u32 as _);
-pub const COMADMIN_E_COMPONENTEXISTS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80110439_u32 as _);
-pub const COMADMIN_E_COMP_MOVE_BAD_DEST: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8011042E_u32 as _);
-pub const COMADMIN_E_COMP_MOVE_DEST: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8011081D_u32 as _);
-pub const COMADMIN_E_COMP_MOVE_LOCKED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8011042D_u32 as _);
-pub const COMADMIN_E_COMP_MOVE_PRIVATE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8011081E_u32 as _);
-pub const COMADMIN_E_COMP_MOVE_SOURCE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8011081C_u32 as _);
-pub const COMADMIN_E_COREQCOMPINSTALLED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80110435_u32 as _);
-pub const COMADMIN_E_DEFAULT_PARTITION_NOT_IN_SET: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80110816_u32 as _);
-pub const COMADMIN_E_DLLLOADFAILED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8011041D_u32 as _);
-pub const COMADMIN_E_DLLREGISTERSERVER: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8011041A_u32 as _);
-pub const COMADMIN_E_EVENTCLASS_CANT_BE_SUBSCRIBER: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8011044E_u32 as _);
-pub const COMADMIN_E_FILE_PARTITION_DUPLICATE_FILES: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8011045A_u32 as _);
-pub const COMADMIN_E_INVALIDUSERIDS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80110410_u32 as _);
-pub const COMADMIN_E_INVALID_PARTITION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8011080B_u32 as _);
-pub const COMADMIN_E_KEYMISSING: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80110403_u32 as _);
-pub const COMADMIN_E_LEGACYCOMPS_NOT_ALLOWED_IN_1_0_FORMAT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8011081A_u32 as _);
-pub const COMADMIN_E_LEGACYCOMPS_NOT_ALLOWED_IN_NONBASE_PARTITIONS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8011081B_u32 as _);
-pub const COMADMIN_E_LIB_APP_PROXY_INCOMPATIBLE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8011044F_u32 as _);
-pub const COMADMIN_E_MIG_SCHEMANOTFOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80110481_u32 as _);
-pub const COMADMIN_E_MIG_VERSIONNOTSUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80110480_u32 as _);
-pub const COMADMIN_E_NOREGISTRYCLSID: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80110411_u32 as _);
-pub const COMADMIN_E_NOSERVERSHARE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8011041B_u32 as _);
-pub const COMADMIN_E_NOTCHANGEABLE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8011042A_u32 as _);
-pub const COMADMIN_E_NOTDELETEABLE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8011042B_u32 as _);
-pub const COMADMIN_E_NOTINREGISTRY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8011043E_u32 as _);
-pub const COMADMIN_E_NOUSER: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8011040F_u32 as _);
-pub const COMADMIN_E_OBJECTERRORS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80110401_u32 as _);
-pub const COMADMIN_E_OBJECTEXISTS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80110438_u32 as _);
-pub const COMADMIN_E_OBJECTINVALID: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80110402_u32 as _);
-pub const COMADMIN_E_OBJECTNOTPOOLABLE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8011043F_u32 as _);
-pub const COMADMIN_E_OBJECT_DOES_NOT_EXIST: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80110809_u32 as _);
-pub const COMADMIN_E_OBJECT_PARENT_MISSING: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80110808_u32 as _);
-pub const COMADMIN_E_PARTITIONS_DISABLED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80110824_u32 as _);
-pub const COMADMIN_E_PARTITION_ACCESSDENIED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80110818_u32 as _);
-pub const COMADMIN_E_PARTITION_MSI_ONLY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80110819_u32 as _);
-pub const COMADMIN_E_PAUSEDPROCESSMAYNOTBERECYCLED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80110813_u32 as _);
-pub const COMADMIN_E_PRIVATE_ACCESSDENIED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80110821_u32 as _);
-pub const COMADMIN_E_PROCESSALREADYRECYCLED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80110812_u32 as _);
-pub const COMADMIN_E_PROGIDINUSEBYCLSID: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80110815_u32 as _);
-pub const COMADMIN_E_PROPERTYSAVEFAILED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80110437_u32 as _);
-pub const COMADMIN_E_PROPERTY_OVERFLOW: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8011043C_u32 as _);
-pub const COMADMIN_E_RECYCLEDPROCESSMAYNOTBEPAUSED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80110817_u32 as _);
-pub const COMADMIN_E_REGDB_ALREADYRUNNING: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80110475_u32 as _);
-pub const COMADMIN_E_REGDB_NOTINITIALIZED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80110472_u32 as _);
-pub const COMADMIN_E_REGDB_NOTOPEN: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80110473_u32 as _);
-pub const COMADMIN_E_REGDB_SYSTEMERR: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80110474_u32 as _);
-pub const COMADMIN_E_REGFILE_CORRUPT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8011043B_u32 as _);
-pub const COMADMIN_E_REGISTERTLB: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80110430_u32 as _);
-pub const COMADMIN_E_REGISTRARFAILED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80110423_u32 as _);
-pub const COMADMIN_E_REGISTRY_ACCESSDENIED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80110823_u32 as _);
-pub const COMADMIN_E_REMOTEINTERFACE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80110419_u32 as _);
-pub const COMADMIN_E_REQUIRES_DIFFERENT_PLATFORM: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80110449_u32 as _);
-pub const COMADMIN_E_ROLEEXISTS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8011040C_u32 as _);
-pub const COMADMIN_E_ROLE_DOES_NOT_EXIST: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80110447_u32 as _);
-pub const COMADMIN_E_SAFERINVALID: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80110822_u32 as _);
-pub const COMADMIN_E_SERVICENOTINSTALLED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80110436_u32 as _);
-pub const COMADMIN_E_SESSION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8011042C_u32 as _);
-pub const COMADMIN_E_START_APP_DISABLED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80110451_u32 as _);
-pub const COMADMIN_E_START_APP_NEEDS_COMPONENTS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80110448_u32 as _);
-pub const COMADMIN_E_SVCAPP_NOT_POOLABLE_OR_RECYCLABLE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8011080D_u32 as _);
-pub const COMADMIN_E_SYSTEMAPP: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80110433_u32 as _);
-pub const COMADMIN_E_USERPASSWDNOTVALID: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80110414_u32 as _);
-pub const COMADMIN_E_USER_IN_SET: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8011080E_u32 as _);
-pub const COMQC_E_APPLICATION_NOT_QUEUED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80110600_u32 as _);
-pub const COMQC_E_BAD_MESSAGE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80110604_u32 as _);
-pub const COMQC_E_NO_IPERSISTSTREAM: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80110603_u32 as _);
-pub const COMQC_E_NO_QUEUEABLE_INTERFACES: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80110601_u32 as _);
-pub const COMQC_E_QUEUING_SERVICE_NOT_AVAILABLE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80110602_u32 as _);
-pub const COMQC_E_UNAUTHENTICATED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80110605_u32 as _);
-pub const COMQC_E_UNTRUSTED_ENQUEUER: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80110606_u32 as _);
-pub const CONTEXT_E_ABORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004E002_u32 as _);
-pub const CONTEXT_E_ABORTING: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004E003_u32 as _);
+pub const COMADMIN_E_ALREADYINSTALLED: windows_core::HRESULT = windows_core::HRESULT(0x80110404_u32 as _);
+pub const COMADMIN_E_AMBIGUOUS_APPLICATION_NAME: windows_core::HRESULT = windows_core::HRESULT(0x8011045C_u32 as _);
+pub const COMADMIN_E_AMBIGUOUS_PARTITION_NAME: windows_core::HRESULT = windows_core::HRESULT(0x8011045D_u32 as _);
+pub const COMADMIN_E_APPDIRNOTFOUND: windows_core::HRESULT = windows_core::HRESULT(0x8011041F_u32 as _);
+pub const COMADMIN_E_APPLICATIONEXISTS: windows_core::HRESULT = windows_core::HRESULT(0x8011040B_u32 as _);
+pub const COMADMIN_E_APPLID_MATCHES_CLSID: windows_core::HRESULT = windows_core::HRESULT(0x80110446_u32 as _);
+pub const COMADMIN_E_APP_FILE_READFAIL: windows_core::HRESULT = windows_core::HRESULT(0x80110408_u32 as _);
+pub const COMADMIN_E_APP_FILE_VERSION: windows_core::HRESULT = windows_core::HRESULT(0x80110409_u32 as _);
+pub const COMADMIN_E_APP_FILE_WRITEFAIL: windows_core::HRESULT = windows_core::HRESULT(0x80110407_u32 as _);
+pub const COMADMIN_E_APP_NOT_RUNNING: windows_core::HRESULT = windows_core::HRESULT(0x8011080A_u32 as _);
+pub const COMADMIN_E_AUTHENTICATIONLEVEL: windows_core::HRESULT = windows_core::HRESULT(0x80110413_u32 as _);
+pub const COMADMIN_E_BADPATH: windows_core::HRESULT = windows_core::HRESULT(0x8011040A_u32 as _);
+pub const COMADMIN_E_BADREGISTRYLIBID: windows_core::HRESULT = windows_core::HRESULT(0x8011041E_u32 as _);
+pub const COMADMIN_E_BADREGISTRYPROGID: windows_core::HRESULT = windows_core::HRESULT(0x80110412_u32 as _);
+pub const COMADMIN_E_BASEPARTITION_REQUIRED_IN_SET: windows_core::HRESULT = windows_core::HRESULT(0x8011081F_u32 as _);
+pub const COMADMIN_E_BASE_PARTITION_ONLY: windows_core::HRESULT = windows_core::HRESULT(0x80110450_u32 as _);
+pub const COMADMIN_E_CANNOT_ALIAS_EVENTCLASS: windows_core::HRESULT = windows_core::HRESULT(0x80110820_u32 as _);
+pub const COMADMIN_E_CANTCOPYFILE: windows_core::HRESULT = windows_core::HRESULT(0x8011040D_u32 as _);
+pub const COMADMIN_E_CANTMAKEINPROCSERVICE: windows_core::HRESULT = windows_core::HRESULT(0x80110814_u32 as _);
+pub const COMADMIN_E_CANTRECYCLELIBRARYAPPS: windows_core::HRESULT = windows_core::HRESULT(0x8011080F_u32 as _);
+pub const COMADMIN_E_CANTRECYCLESERVICEAPPS: windows_core::HRESULT = windows_core::HRESULT(0x80110811_u32 as _);
+pub const COMADMIN_E_CANT_SUBSCRIBE_TO_COMPONENT: windows_core::HRESULT = windows_core::HRESULT(0x8011044D_u32 as _);
+pub const COMADMIN_E_CAN_NOT_EXPORT_APP_PROXY: windows_core::HRESULT = windows_core::HRESULT(0x8011044A_u32 as _);
+pub const COMADMIN_E_CAN_NOT_EXPORT_SYS_APP: windows_core::HRESULT = windows_core::HRESULT(0x8011044C_u32 as _);
+pub const COMADMIN_E_CAN_NOT_START_APP: windows_core::HRESULT = windows_core::HRESULT(0x8011044B_u32 as _);
+pub const COMADMIN_E_CAT_BITNESSMISMATCH: windows_core::HRESULT = windows_core::HRESULT(0x80110482_u32 as _);
+pub const COMADMIN_E_CAT_DUPLICATE_PARTITION_NAME: windows_core::HRESULT = windows_core::HRESULT(0x80110457_u32 as _);
+pub const COMADMIN_E_CAT_IMPORTED_COMPONENTS_NOT_ALLOWED: windows_core::HRESULT = windows_core::HRESULT(0x8011045B_u32 as _);
+pub const COMADMIN_E_CAT_INVALID_PARTITION_NAME: windows_core::HRESULT = windows_core::HRESULT(0x80110458_u32 as _);
+pub const COMADMIN_E_CAT_PARTITION_IN_USE: windows_core::HRESULT = windows_core::HRESULT(0x80110459_u32 as _);
+pub const COMADMIN_E_CAT_PAUSE_RESUME_NOT_SUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x80110485_u32 as _);
+pub const COMADMIN_E_CAT_SERVERFAULT: windows_core::HRESULT = windows_core::HRESULT(0x80110486_u32 as _);
+pub const COMADMIN_E_CAT_UNACCEPTABLEBITNESS: windows_core::HRESULT = windows_core::HRESULT(0x80110483_u32 as _);
+pub const COMADMIN_E_CAT_WRONGAPPBITNESS: windows_core::HRESULT = windows_core::HRESULT(0x80110484_u32 as _);
+pub const COMADMIN_E_CLSIDORIIDMISMATCH: windows_core::HRESULT = windows_core::HRESULT(0x80110418_u32 as _);
+pub const COMADMIN_E_COMPFILE_BADTLB: windows_core::HRESULT = windows_core::HRESULT(0x80110428_u32 as _);
+pub const COMADMIN_E_COMPFILE_CLASSNOTAVAIL: windows_core::HRESULT = windows_core::HRESULT(0x80110427_u32 as _);
+pub const COMADMIN_E_COMPFILE_DOESNOTEXIST: windows_core::HRESULT = windows_core::HRESULT(0x80110424_u32 as _);
+pub const COMADMIN_E_COMPFILE_GETCLASSOBJ: windows_core::HRESULT = windows_core::HRESULT(0x80110426_u32 as _);
+pub const COMADMIN_E_COMPFILE_LOADDLLFAIL: windows_core::HRESULT = windows_core::HRESULT(0x80110425_u32 as _);
+pub const COMADMIN_E_COMPFILE_NOREGISTRAR: windows_core::HRESULT = windows_core::HRESULT(0x80110434_u32 as _);
+pub const COMADMIN_E_COMPFILE_NOTINSTALLABLE: windows_core::HRESULT = windows_core::HRESULT(0x80110429_u32 as _);
+pub const COMADMIN_E_COMPONENTEXISTS: windows_core::HRESULT = windows_core::HRESULT(0x80110439_u32 as _);
+pub const COMADMIN_E_COMP_MOVE_BAD_DEST: windows_core::HRESULT = windows_core::HRESULT(0x8011042E_u32 as _);
+pub const COMADMIN_E_COMP_MOVE_DEST: windows_core::HRESULT = windows_core::HRESULT(0x8011081D_u32 as _);
+pub const COMADMIN_E_COMP_MOVE_LOCKED: windows_core::HRESULT = windows_core::HRESULT(0x8011042D_u32 as _);
+pub const COMADMIN_E_COMP_MOVE_PRIVATE: windows_core::HRESULT = windows_core::HRESULT(0x8011081E_u32 as _);
+pub const COMADMIN_E_COMP_MOVE_SOURCE: windows_core::HRESULT = windows_core::HRESULT(0x8011081C_u32 as _);
+pub const COMADMIN_E_COREQCOMPINSTALLED: windows_core::HRESULT = windows_core::HRESULT(0x80110435_u32 as _);
+pub const COMADMIN_E_DEFAULT_PARTITION_NOT_IN_SET: windows_core::HRESULT = windows_core::HRESULT(0x80110816_u32 as _);
+pub const COMADMIN_E_DLLLOADFAILED: windows_core::HRESULT = windows_core::HRESULT(0x8011041D_u32 as _);
+pub const COMADMIN_E_DLLREGISTERSERVER: windows_core::HRESULT = windows_core::HRESULT(0x8011041A_u32 as _);
+pub const COMADMIN_E_EVENTCLASS_CANT_BE_SUBSCRIBER: windows_core::HRESULT = windows_core::HRESULT(0x8011044E_u32 as _);
+pub const COMADMIN_E_FILE_PARTITION_DUPLICATE_FILES: windows_core::HRESULT = windows_core::HRESULT(0x8011045A_u32 as _);
+pub const COMADMIN_E_INVALIDUSERIDS: windows_core::HRESULT = windows_core::HRESULT(0x80110410_u32 as _);
+pub const COMADMIN_E_INVALID_PARTITION: windows_core::HRESULT = windows_core::HRESULT(0x8011080B_u32 as _);
+pub const COMADMIN_E_KEYMISSING: windows_core::HRESULT = windows_core::HRESULT(0x80110403_u32 as _);
+pub const COMADMIN_E_LEGACYCOMPS_NOT_ALLOWED_IN_1_0_FORMAT: windows_core::HRESULT = windows_core::HRESULT(0x8011081A_u32 as _);
+pub const COMADMIN_E_LEGACYCOMPS_NOT_ALLOWED_IN_NONBASE_PARTITIONS: windows_core::HRESULT = windows_core::HRESULT(0x8011081B_u32 as _);
+pub const COMADMIN_E_LIB_APP_PROXY_INCOMPATIBLE: windows_core::HRESULT = windows_core::HRESULT(0x8011044F_u32 as _);
+pub const COMADMIN_E_MIG_SCHEMANOTFOUND: windows_core::HRESULT = windows_core::HRESULT(0x80110481_u32 as _);
+pub const COMADMIN_E_MIG_VERSIONNOTSUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x80110480_u32 as _);
+pub const COMADMIN_E_NOREGISTRYCLSID: windows_core::HRESULT = windows_core::HRESULT(0x80110411_u32 as _);
+pub const COMADMIN_E_NOSERVERSHARE: windows_core::HRESULT = windows_core::HRESULT(0x8011041B_u32 as _);
+pub const COMADMIN_E_NOTCHANGEABLE: windows_core::HRESULT = windows_core::HRESULT(0x8011042A_u32 as _);
+pub const COMADMIN_E_NOTDELETEABLE: windows_core::HRESULT = windows_core::HRESULT(0x8011042B_u32 as _);
+pub const COMADMIN_E_NOTINREGISTRY: windows_core::HRESULT = windows_core::HRESULT(0x8011043E_u32 as _);
+pub const COMADMIN_E_NOUSER: windows_core::HRESULT = windows_core::HRESULT(0x8011040F_u32 as _);
+pub const COMADMIN_E_OBJECTERRORS: windows_core::HRESULT = windows_core::HRESULT(0x80110401_u32 as _);
+pub const COMADMIN_E_OBJECTEXISTS: windows_core::HRESULT = windows_core::HRESULT(0x80110438_u32 as _);
+pub const COMADMIN_E_OBJECTINVALID: windows_core::HRESULT = windows_core::HRESULT(0x80110402_u32 as _);
+pub const COMADMIN_E_OBJECTNOTPOOLABLE: windows_core::HRESULT = windows_core::HRESULT(0x8011043F_u32 as _);
+pub const COMADMIN_E_OBJECT_DOES_NOT_EXIST: windows_core::HRESULT = windows_core::HRESULT(0x80110809_u32 as _);
+pub const COMADMIN_E_OBJECT_PARENT_MISSING: windows_core::HRESULT = windows_core::HRESULT(0x80110808_u32 as _);
+pub const COMADMIN_E_PARTITIONS_DISABLED: windows_core::HRESULT = windows_core::HRESULT(0x80110824_u32 as _);
+pub const COMADMIN_E_PARTITION_ACCESSDENIED: windows_core::HRESULT = windows_core::HRESULT(0x80110818_u32 as _);
+pub const COMADMIN_E_PARTITION_MSI_ONLY: windows_core::HRESULT = windows_core::HRESULT(0x80110819_u32 as _);
+pub const COMADMIN_E_PAUSEDPROCESSMAYNOTBERECYCLED: windows_core::HRESULT = windows_core::HRESULT(0x80110813_u32 as _);
+pub const COMADMIN_E_PRIVATE_ACCESSDENIED: windows_core::HRESULT = windows_core::HRESULT(0x80110821_u32 as _);
+pub const COMADMIN_E_PROCESSALREADYRECYCLED: windows_core::HRESULT = windows_core::HRESULT(0x80110812_u32 as _);
+pub const COMADMIN_E_PROGIDINUSEBYCLSID: windows_core::HRESULT = windows_core::HRESULT(0x80110815_u32 as _);
+pub const COMADMIN_E_PROPERTYSAVEFAILED: windows_core::HRESULT = windows_core::HRESULT(0x80110437_u32 as _);
+pub const COMADMIN_E_PROPERTY_OVERFLOW: windows_core::HRESULT = windows_core::HRESULT(0x8011043C_u32 as _);
+pub const COMADMIN_E_RECYCLEDPROCESSMAYNOTBEPAUSED: windows_core::HRESULT = windows_core::HRESULT(0x80110817_u32 as _);
+pub const COMADMIN_E_REGDB_ALREADYRUNNING: windows_core::HRESULT = windows_core::HRESULT(0x80110475_u32 as _);
+pub const COMADMIN_E_REGDB_NOTINITIALIZED: windows_core::HRESULT = windows_core::HRESULT(0x80110472_u32 as _);
+pub const COMADMIN_E_REGDB_NOTOPEN: windows_core::HRESULT = windows_core::HRESULT(0x80110473_u32 as _);
+pub const COMADMIN_E_REGDB_SYSTEMERR: windows_core::HRESULT = windows_core::HRESULT(0x80110474_u32 as _);
+pub const COMADMIN_E_REGFILE_CORRUPT: windows_core::HRESULT = windows_core::HRESULT(0x8011043B_u32 as _);
+pub const COMADMIN_E_REGISTERTLB: windows_core::HRESULT = windows_core::HRESULT(0x80110430_u32 as _);
+pub const COMADMIN_E_REGISTRARFAILED: windows_core::HRESULT = windows_core::HRESULT(0x80110423_u32 as _);
+pub const COMADMIN_E_REGISTRY_ACCESSDENIED: windows_core::HRESULT = windows_core::HRESULT(0x80110823_u32 as _);
+pub const COMADMIN_E_REMOTEINTERFACE: windows_core::HRESULT = windows_core::HRESULT(0x80110419_u32 as _);
+pub const COMADMIN_E_REQUIRES_DIFFERENT_PLATFORM: windows_core::HRESULT = windows_core::HRESULT(0x80110449_u32 as _);
+pub const COMADMIN_E_ROLEEXISTS: windows_core::HRESULT = windows_core::HRESULT(0x8011040C_u32 as _);
+pub const COMADMIN_E_ROLE_DOES_NOT_EXIST: windows_core::HRESULT = windows_core::HRESULT(0x80110447_u32 as _);
+pub const COMADMIN_E_SAFERINVALID: windows_core::HRESULT = windows_core::HRESULT(0x80110822_u32 as _);
+pub const COMADMIN_E_SERVICENOTINSTALLED: windows_core::HRESULT = windows_core::HRESULT(0x80110436_u32 as _);
+pub const COMADMIN_E_SESSION: windows_core::HRESULT = windows_core::HRESULT(0x8011042C_u32 as _);
+pub const COMADMIN_E_START_APP_DISABLED: windows_core::HRESULT = windows_core::HRESULT(0x80110451_u32 as _);
+pub const COMADMIN_E_START_APP_NEEDS_COMPONENTS: windows_core::HRESULT = windows_core::HRESULT(0x80110448_u32 as _);
+pub const COMADMIN_E_SVCAPP_NOT_POOLABLE_OR_RECYCLABLE: windows_core::HRESULT = windows_core::HRESULT(0x8011080D_u32 as _);
+pub const COMADMIN_E_SYSTEMAPP: windows_core::HRESULT = windows_core::HRESULT(0x80110433_u32 as _);
+pub const COMADMIN_E_USERPASSWDNOTVALID: windows_core::HRESULT = windows_core::HRESULT(0x80110414_u32 as _);
+pub const COMADMIN_E_USER_IN_SET: windows_core::HRESULT = windows_core::HRESULT(0x8011080E_u32 as _);
+pub const COMQC_E_APPLICATION_NOT_QUEUED: windows_core::HRESULT = windows_core::HRESULT(0x80110600_u32 as _);
+pub const COMQC_E_BAD_MESSAGE: windows_core::HRESULT = windows_core::HRESULT(0x80110604_u32 as _);
+pub const COMQC_E_NO_IPERSISTSTREAM: windows_core::HRESULT = windows_core::HRESULT(0x80110603_u32 as _);
+pub const COMQC_E_NO_QUEUEABLE_INTERFACES: windows_core::HRESULT = windows_core::HRESULT(0x80110601_u32 as _);
+pub const COMQC_E_QUEUING_SERVICE_NOT_AVAILABLE: windows_core::HRESULT = windows_core::HRESULT(0x80110602_u32 as _);
+pub const COMQC_E_UNAUTHENTICATED: windows_core::HRESULT = windows_core::HRESULT(0x80110605_u32 as _);
+pub const COMQC_E_UNTRUSTED_ENQUEUER: windows_core::HRESULT = windows_core::HRESULT(0x80110606_u32 as _);
+pub const CONTEXT_E_ABORTED: windows_core::HRESULT = windows_core::HRESULT(0x8004E002_u32 as _);
+pub const CONTEXT_E_ABORTING: windows_core::HRESULT = windows_core::HRESULT(0x8004E003_u32 as _);
 pub const CONTEXT_E_FIRST: i32 = -2147164160i32;
 pub const CONTEXT_E_LAST: i32 = -2147164113i32;
-pub const CONTEXT_E_NOCONTEXT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004E004_u32 as _);
-pub const CONTEXT_E_NOJIT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004E026_u32 as _);
-pub const CONTEXT_E_NOTRANSACTION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004E027_u32 as _);
-pub const CONTEXT_E_OLDREF: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004E007_u32 as _);
-pub const CONTEXT_E_ROLENOTFOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004E00C_u32 as _);
-pub const CONTEXT_E_SYNCH_TIMEOUT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004E006_u32 as _);
-pub const CONTEXT_E_TMNOTAVAILABLE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004E00F_u32 as _);
-pub const CONTEXT_E_WOULD_DEADLOCK: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004E005_u32 as _);
+pub const CONTEXT_E_NOCONTEXT: windows_core::HRESULT = windows_core::HRESULT(0x8004E004_u32 as _);
+pub const CONTEXT_E_NOJIT: windows_core::HRESULT = windows_core::HRESULT(0x8004E026_u32 as _);
+pub const CONTEXT_E_NOTRANSACTION: windows_core::HRESULT = windows_core::HRESULT(0x8004E027_u32 as _);
+pub const CONTEXT_E_OLDREF: windows_core::HRESULT = windows_core::HRESULT(0x8004E007_u32 as _);
+pub const CONTEXT_E_ROLENOTFOUND: windows_core::HRESULT = windows_core::HRESULT(0x8004E00C_u32 as _);
+pub const CONTEXT_E_SYNCH_TIMEOUT: windows_core::HRESULT = windows_core::HRESULT(0x8004E006_u32 as _);
+pub const CONTEXT_E_TMNOTAVAILABLE: windows_core::HRESULT = windows_core::HRESULT(0x8004E00F_u32 as _);
+pub const CONTEXT_E_WOULD_DEADLOCK: windows_core::HRESULT = windows_core::HRESULT(0x8004E005_u32 as _);
 pub const CONTEXT_S_FIRST: i32 = 319488i32;
 pub const CONTEXT_S_LAST: i32 = 319535i32;
 pub const CONTROL_C_EXIT: NTSTATUS = NTSTATUS(0xC000013A_u32 as _);
 pub const CONVERT10_E_FIRST: i32 = -2147221056i32;
 pub const CONVERT10_E_LAST: i32 = -2147221041i32;
-pub const CONVERT10_E_OLELINK_DISABLED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800401C7_u32 as _);
-pub const CONVERT10_E_OLESTREAM_BITMAP_TO_DIB: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800401C3_u32 as _);
-pub const CONVERT10_E_OLESTREAM_FMT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800401C2_u32 as _);
-pub const CONVERT10_E_OLESTREAM_GET: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800401C0_u32 as _);
-pub const CONVERT10_E_OLESTREAM_PUT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800401C1_u32 as _);
-pub const CONVERT10_E_STG_DIB_TO_BITMAP: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800401C6_u32 as _);
-pub const CONVERT10_E_STG_FMT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800401C4_u32 as _);
-pub const CONVERT10_E_STG_NO_STD_STREAM: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800401C5_u32 as _);
+pub const CONVERT10_E_OLELINK_DISABLED: windows_core::HRESULT = windows_core::HRESULT(0x800401C7_u32 as _);
+pub const CONVERT10_E_OLESTREAM_BITMAP_TO_DIB: windows_core::HRESULT = windows_core::HRESULT(0x800401C3_u32 as _);
+pub const CONVERT10_E_OLESTREAM_FMT: windows_core::HRESULT = windows_core::HRESULT(0x800401C2_u32 as _);
+pub const CONVERT10_E_OLESTREAM_GET: windows_core::HRESULT = windows_core::HRESULT(0x800401C0_u32 as _);
+pub const CONVERT10_E_OLESTREAM_PUT: windows_core::HRESULT = windows_core::HRESULT(0x800401C1_u32 as _);
+pub const CONVERT10_E_STG_DIB_TO_BITMAP: windows_core::HRESULT = windows_core::HRESULT(0x800401C6_u32 as _);
+pub const CONVERT10_E_STG_FMT: windows_core::HRESULT = windows_core::HRESULT(0x800401C4_u32 as _);
+pub const CONVERT10_E_STG_NO_STD_STREAM: windows_core::HRESULT = windows_core::HRESULT(0x800401C5_u32 as _);
 pub const CONVERT10_S_FIRST: i32 = 262592i32;
 pub const CONVERT10_S_LAST: i32 = 262607i32;
-pub const CONVERT10_S_NO_PRESENTATION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x401C0_u32 as _);
-pub const CO_E_ACCESSCHECKFAILED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8001012A_u32 as _);
-pub const CO_E_ACESINWRONGORDER: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8001013A_u32 as _);
-pub const CO_E_ACNOTINITIALIZED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8001013F_u32 as _);
-pub const CO_E_ACTIVATIONFAILED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004E021_u32 as _);
-pub const CO_E_ACTIVATIONFAILED_CATALOGERROR: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004E023_u32 as _);
-pub const CO_E_ACTIVATIONFAILED_EVENTLOGGED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004E022_u32 as _);
-pub const CO_E_ACTIVATIONFAILED_TIMEOUT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004E024_u32 as _);
-pub const CO_E_ALREADYINITIALIZED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800401F1_u32 as _);
-pub const CO_E_APPDIDNTREG: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800401FE_u32 as _);
-pub const CO_E_APPNOTFOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800401F5_u32 as _);
-pub const CO_E_APPSINGLEUSE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800401F6_u32 as _);
-pub const CO_E_ASYNC_WORK_REJECTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80004029_u32 as _);
-pub const CO_E_ATTEMPT_TO_CREATE_OUTSIDE_CLIENT_CONTEXT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80004024_u32 as _);
-pub const CO_E_BAD_PATH: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80080004_u32 as _);
-pub const CO_E_BAD_SERVER_NAME: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80004014_u32 as _);
-pub const CO_E_CALL_OUT_OF_TX_SCOPE_NOT_ALLOWED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004E030_u32 as _);
-pub const CO_E_CANCEL_DISABLED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80010140_u32 as _);
-pub const CO_E_CANTDETERMINECLASS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800401F2_u32 as _);
-pub const CO_E_CANT_REMOTE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80004013_u32 as _);
-pub const CO_E_CLASSSTRING: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800401F3_u32 as _);
-pub const CO_E_CLASS_CREATE_FAILED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80080001_u32 as _);
-pub const CO_E_CLASS_DISABLED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80004027_u32 as _);
-pub const CO_E_CLRNOTAVAILABLE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80004028_u32 as _);
-pub const CO_E_CLSREG_INCONSISTENT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8000401F_u32 as _);
-pub const CO_E_CONVERSIONFAILED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8001012E_u32 as _);
-pub const CO_E_CREATEPROCESS_FAILURE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80004018_u32 as _);
-pub const CO_E_DBERROR: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004E02B_u32 as _);
-pub const CO_E_DECODEFAILED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8001013D_u32 as _);
-pub const CO_E_DLLNOTFOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800401F8_u32 as _);
-pub const CO_E_ELEVATION_DISABLED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80080017_u32 as _);
-pub const CO_E_ERRORINAPP: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800401F7_u32 as _);
-pub const CO_E_ERRORINDLL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800401F9_u32 as _);
-pub const CO_E_EXCEEDSYSACLLIMIT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80010139_u32 as _);
-pub const CO_E_EXIT_TRANSACTION_SCOPE_NOT_CALLED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004E031_u32 as _);
-pub const CO_E_FAILEDTOCLOSEHANDLE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80010138_u32 as _);
-pub const CO_E_FAILEDTOCREATEFILE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80010137_u32 as _);
-pub const CO_E_FAILEDTOGENUUID: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80010136_u32 as _);
-pub const CO_E_FAILEDTOGETSECCTX: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80010124_u32 as _);
-pub const CO_E_FAILEDTOGETTOKENINFO: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80010126_u32 as _);
-pub const CO_E_FAILEDTOGETWINDIR: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80010134_u32 as _);
-pub const CO_E_FAILEDTOIMPERSONATE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80010123_u32 as _);
-pub const CO_E_FAILEDTOOPENPROCESSTOKEN: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8001013C_u32 as _);
-pub const CO_E_FAILEDTOOPENTHREADTOKEN: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80010125_u32 as _);
-pub const CO_E_FAILEDTOQUERYCLIENTBLANKET: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80010128_u32 as _);
-pub const CO_E_FAILEDTOSETDACL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80010129_u32 as _);
+pub const CONVERT10_S_NO_PRESENTATION: windows_core::HRESULT = windows_core::HRESULT(0x401C0_u32 as _);
+pub const CO_E_ACCESSCHECKFAILED: windows_core::HRESULT = windows_core::HRESULT(0x8001012A_u32 as _);
+pub const CO_E_ACESINWRONGORDER: windows_core::HRESULT = windows_core::HRESULT(0x8001013A_u32 as _);
+pub const CO_E_ACNOTINITIALIZED: windows_core::HRESULT = windows_core::HRESULT(0x8001013F_u32 as _);
+pub const CO_E_ACTIVATIONFAILED: windows_core::HRESULT = windows_core::HRESULT(0x8004E021_u32 as _);
+pub const CO_E_ACTIVATIONFAILED_CATALOGERROR: windows_core::HRESULT = windows_core::HRESULT(0x8004E023_u32 as _);
+pub const CO_E_ACTIVATIONFAILED_EVENTLOGGED: windows_core::HRESULT = windows_core::HRESULT(0x8004E022_u32 as _);
+pub const CO_E_ACTIVATIONFAILED_TIMEOUT: windows_core::HRESULT = windows_core::HRESULT(0x8004E024_u32 as _);
+pub const CO_E_ALREADYINITIALIZED: windows_core::HRESULT = windows_core::HRESULT(0x800401F1_u32 as _);
+pub const CO_E_APPDIDNTREG: windows_core::HRESULT = windows_core::HRESULT(0x800401FE_u32 as _);
+pub const CO_E_APPNOTFOUND: windows_core::HRESULT = windows_core::HRESULT(0x800401F5_u32 as _);
+pub const CO_E_APPSINGLEUSE: windows_core::HRESULT = windows_core::HRESULT(0x800401F6_u32 as _);
+pub const CO_E_ASYNC_WORK_REJECTED: windows_core::HRESULT = windows_core::HRESULT(0x80004029_u32 as _);
+pub const CO_E_ATTEMPT_TO_CREATE_OUTSIDE_CLIENT_CONTEXT: windows_core::HRESULT = windows_core::HRESULT(0x80004024_u32 as _);
+pub const CO_E_BAD_PATH: windows_core::HRESULT = windows_core::HRESULT(0x80080004_u32 as _);
+pub const CO_E_BAD_SERVER_NAME: windows_core::HRESULT = windows_core::HRESULT(0x80004014_u32 as _);
+pub const CO_E_CALL_OUT_OF_TX_SCOPE_NOT_ALLOWED: windows_core::HRESULT = windows_core::HRESULT(0x8004E030_u32 as _);
+pub const CO_E_CANCEL_DISABLED: windows_core::HRESULT = windows_core::HRESULT(0x80010140_u32 as _);
+pub const CO_E_CANTDETERMINECLASS: windows_core::HRESULT = windows_core::HRESULT(0x800401F2_u32 as _);
+pub const CO_E_CANT_REMOTE: windows_core::HRESULT = windows_core::HRESULT(0x80004013_u32 as _);
+pub const CO_E_CLASSSTRING: windows_core::HRESULT = windows_core::HRESULT(0x800401F3_u32 as _);
+pub const CO_E_CLASS_CREATE_FAILED: windows_core::HRESULT = windows_core::HRESULT(0x80080001_u32 as _);
+pub const CO_E_CLASS_DISABLED: windows_core::HRESULT = windows_core::HRESULT(0x80004027_u32 as _);
+pub const CO_E_CLRNOTAVAILABLE: windows_core::HRESULT = windows_core::HRESULT(0x80004028_u32 as _);
+pub const CO_E_CLSREG_INCONSISTENT: windows_core::HRESULT = windows_core::HRESULT(0x8000401F_u32 as _);
+pub const CO_E_CONVERSIONFAILED: windows_core::HRESULT = windows_core::HRESULT(0x8001012E_u32 as _);
+pub const CO_E_CREATEPROCESS_FAILURE: windows_core::HRESULT = windows_core::HRESULT(0x80004018_u32 as _);
+pub const CO_E_DBERROR: windows_core::HRESULT = windows_core::HRESULT(0x8004E02B_u32 as _);
+pub const CO_E_DECODEFAILED: windows_core::HRESULT = windows_core::HRESULT(0x8001013D_u32 as _);
+pub const CO_E_DLLNOTFOUND: windows_core::HRESULT = windows_core::HRESULT(0x800401F8_u32 as _);
+pub const CO_E_ELEVATION_DISABLED: windows_core::HRESULT = windows_core::HRESULT(0x80080017_u32 as _);
+pub const CO_E_ERRORINAPP: windows_core::HRESULT = windows_core::HRESULT(0x800401F7_u32 as _);
+pub const CO_E_ERRORINDLL: windows_core::HRESULT = windows_core::HRESULT(0x800401F9_u32 as _);
+pub const CO_E_EXCEEDSYSACLLIMIT: windows_core::HRESULT = windows_core::HRESULT(0x80010139_u32 as _);
+pub const CO_E_EXIT_TRANSACTION_SCOPE_NOT_CALLED: windows_core::HRESULT = windows_core::HRESULT(0x8004E031_u32 as _);
+pub const CO_E_FAILEDTOCLOSEHANDLE: windows_core::HRESULT = windows_core::HRESULT(0x80010138_u32 as _);
+pub const CO_E_FAILEDTOCREATEFILE: windows_core::HRESULT = windows_core::HRESULT(0x80010137_u32 as _);
+pub const CO_E_FAILEDTOGENUUID: windows_core::HRESULT = windows_core::HRESULT(0x80010136_u32 as _);
+pub const CO_E_FAILEDTOGETSECCTX: windows_core::HRESULT = windows_core::HRESULT(0x80010124_u32 as _);
+pub const CO_E_FAILEDTOGETTOKENINFO: windows_core::HRESULT = windows_core::HRESULT(0x80010126_u32 as _);
+pub const CO_E_FAILEDTOGETWINDIR: windows_core::HRESULT = windows_core::HRESULT(0x80010134_u32 as _);
+pub const CO_E_FAILEDTOIMPERSONATE: windows_core::HRESULT = windows_core::HRESULT(0x80010123_u32 as _);
+pub const CO_E_FAILEDTOOPENPROCESSTOKEN: windows_core::HRESULT = windows_core::HRESULT(0x8001013C_u32 as _);
+pub const CO_E_FAILEDTOOPENTHREADTOKEN: windows_core::HRESULT = windows_core::HRESULT(0x80010125_u32 as _);
+pub const CO_E_FAILEDTOQUERYCLIENTBLANKET: windows_core::HRESULT = windows_core::HRESULT(0x80010128_u32 as _);
+pub const CO_E_FAILEDTOSETDACL: windows_core::HRESULT = windows_core::HRESULT(0x80010129_u32 as _);
 pub const CO_E_FIRST: i32 = -2147221008i32;
-pub const CO_E_IIDREG_INCONSISTENT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80004020_u32 as _);
-pub const CO_E_IIDSTRING: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800401F4_u32 as _);
-pub const CO_E_INCOMPATIBLESTREAMVERSION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8001013B_u32 as _);
-pub const CO_E_INITIALIZATIONFAILED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004E025_u32 as _);
-pub const CO_E_INIT_CLASS_CACHE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80004009_u32 as _);
-pub const CO_E_INIT_MEMORY_ALLOCATOR: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80004008_u32 as _);
-pub const CO_E_INIT_ONLY_SINGLE_THREADED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80004012_u32 as _);
-pub const CO_E_INIT_RPC_CHANNEL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8000400A_u32 as _);
-pub const CO_E_INIT_SCM_EXEC_FAILURE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80004011_u32 as _);
-pub const CO_E_INIT_SCM_FILE_MAPPING_EXISTS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8000400F_u32 as _);
-pub const CO_E_INIT_SCM_MAP_VIEW_OF_FILE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80004010_u32 as _);
-pub const CO_E_INIT_SCM_MUTEX_EXISTS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8000400E_u32 as _);
-pub const CO_E_INIT_SHARED_ALLOCATOR: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80004007_u32 as _);
-pub const CO_E_INIT_TLS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80004006_u32 as _);
-pub const CO_E_INIT_TLS_CHANNEL_CONTROL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8000400C_u32 as _);
-pub const CO_E_INIT_TLS_SET_CHANNEL_CONTROL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8000400B_u32 as _);
-pub const CO_E_INIT_UNACCEPTED_USER_ALLOCATOR: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8000400D_u32 as _);
-pub const CO_E_INVALIDSID: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8001012D_u32 as _);
-pub const CO_E_ISOLEVELMISMATCH: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004E02F_u32 as _);
+pub const CO_E_IIDREG_INCONSISTENT: windows_core::HRESULT = windows_core::HRESULT(0x80004020_u32 as _);
+pub const CO_E_IIDSTRING: windows_core::HRESULT = windows_core::HRESULT(0x800401F4_u32 as _);
+pub const CO_E_INCOMPATIBLESTREAMVERSION: windows_core::HRESULT = windows_core::HRESULT(0x8001013B_u32 as _);
+pub const CO_E_INITIALIZATIONFAILED: windows_core::HRESULT = windows_core::HRESULT(0x8004E025_u32 as _);
+pub const CO_E_INIT_CLASS_CACHE: windows_core::HRESULT = windows_core::HRESULT(0x80004009_u32 as _);
+pub const CO_E_INIT_MEMORY_ALLOCATOR: windows_core::HRESULT = windows_core::HRESULT(0x80004008_u32 as _);
+pub const CO_E_INIT_ONLY_SINGLE_THREADED: windows_core::HRESULT = windows_core::HRESULT(0x80004012_u32 as _);
+pub const CO_E_INIT_RPC_CHANNEL: windows_core::HRESULT = windows_core::HRESULT(0x8000400A_u32 as _);
+pub const CO_E_INIT_SCM_EXEC_FAILURE: windows_core::HRESULT = windows_core::HRESULT(0x80004011_u32 as _);
+pub const CO_E_INIT_SCM_FILE_MAPPING_EXISTS: windows_core::HRESULT = windows_core::HRESULT(0x8000400F_u32 as _);
+pub const CO_E_INIT_SCM_MAP_VIEW_OF_FILE: windows_core::HRESULT = windows_core::HRESULT(0x80004010_u32 as _);
+pub const CO_E_INIT_SCM_MUTEX_EXISTS: windows_core::HRESULT = windows_core::HRESULT(0x8000400E_u32 as _);
+pub const CO_E_INIT_SHARED_ALLOCATOR: windows_core::HRESULT = windows_core::HRESULT(0x80004007_u32 as _);
+pub const CO_E_INIT_TLS: windows_core::HRESULT = windows_core::HRESULT(0x80004006_u32 as _);
+pub const CO_E_INIT_TLS_CHANNEL_CONTROL: windows_core::HRESULT = windows_core::HRESULT(0x8000400C_u32 as _);
+pub const CO_E_INIT_TLS_SET_CHANNEL_CONTROL: windows_core::HRESULT = windows_core::HRESULT(0x8000400B_u32 as _);
+pub const CO_E_INIT_UNACCEPTED_USER_ALLOCATOR: windows_core::HRESULT = windows_core::HRESULT(0x8000400D_u32 as _);
+pub const CO_E_INVALIDSID: windows_core::HRESULT = windows_core::HRESULT(0x8001012D_u32 as _);
+pub const CO_E_ISOLEVELMISMATCH: windows_core::HRESULT = windows_core::HRESULT(0x8004E02F_u32 as _);
 pub const CO_E_LAST: i32 = -2147220993i32;
-pub const CO_E_LAUNCH_PERMSSION_DENIED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8000401B_u32 as _);
-pub const CO_E_LOOKUPACCNAMEFAILED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80010132_u32 as _);
-pub const CO_E_LOOKUPACCSIDFAILED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80010130_u32 as _);
-pub const CO_E_MALFORMED_SPN: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80004033_u32 as _);
-pub const CO_E_MISSING_DISPLAYNAME: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80080015_u32 as _);
-pub const CO_E_MSI_ERROR: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80004023_u32 as _);
-pub const CO_E_NETACCESSAPIFAILED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8001012B_u32 as _);
-pub const CO_E_NOCOOKIES: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004E02A_u32 as _);
-pub const CO_E_NOIISINTRINSICS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004E029_u32 as _);
-pub const CO_E_NOMATCHINGNAMEFOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80010131_u32 as _);
-pub const CO_E_NOMATCHINGSIDFOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8001012F_u32 as _);
-pub const CO_E_NOSYNCHRONIZATION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004E02E_u32 as _);
-pub const CO_E_NOTCONSTRUCTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004E02D_u32 as _);
-pub const CO_E_NOTINITIALIZED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800401F0_u32 as _);
-pub const CO_E_NOTPOOLED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004E02C_u32 as _);
-pub const CO_E_NOT_SUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80004021_u32 as _);
-pub const CO_E_NO_SECCTX_IN_ACTIVATE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8000402B_u32 as _);
-pub const CO_E_OBJISREG: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800401FC_u32 as _);
-pub const CO_E_OBJNOTCONNECTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800401FD_u32 as _);
-pub const CO_E_OBJNOTREG: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800401FB_u32 as _);
-pub const CO_E_OBJSRV_RPC_FAILURE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80080006_u32 as _);
-pub const CO_E_OLE1DDE_DISABLED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80004016_u32 as _);
-pub const CO_E_PATHTOOLONG: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80010135_u32 as _);
-pub const CO_E_PREMATURE_STUB_RUNDOWN: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80004035_u32 as _);
-pub const CO_E_RELEASED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800401FF_u32 as _);
-pub const CO_E_RELOAD_DLL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80004022_u32 as _);
-pub const CO_E_REMOTE_COMMUNICATION_FAILURE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8000401D_u32 as _);
-pub const CO_E_RUNAS_CREATEPROCESS_FAILURE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80004019_u32 as _);
-pub const CO_E_RUNAS_LOGON_FAILURE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8000401A_u32 as _);
-pub const CO_E_RUNAS_SYNTAX: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80004017_u32 as _);
-pub const CO_E_RUNAS_VALUE_MUST_BE_AAA: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80080016_u32 as _);
-pub const CO_E_SCM_ERROR: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80080002_u32 as _);
-pub const CO_E_SCM_RPC_FAILURE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80080003_u32 as _);
-pub const CO_E_SERVER_EXEC_FAILURE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80080005_u32 as _);
-pub const CO_E_SERVER_INIT_TIMEOUT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8000402A_u32 as _);
-pub const CO_E_SERVER_NOT_PAUSED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80004026_u32 as _);
-pub const CO_E_SERVER_PAUSED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80004025_u32 as _);
-pub const CO_E_SERVER_START_TIMEOUT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8000401E_u32 as _);
-pub const CO_E_SERVER_STOPPING: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80080008_u32 as _);
-pub const CO_E_SETSERLHNDLFAILED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80010133_u32 as _);
-pub const CO_E_START_SERVICE_FAILURE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8000401C_u32 as _);
-pub const CO_E_SXS_CONFIG: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80004032_u32 as _);
-pub const CO_E_THREADINGMODEL_CHANGED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004E028_u32 as _);
-pub const CO_E_THREADPOOL_CONFIG: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80004031_u32 as _);
-pub const CO_E_TRACKER_CONFIG: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80004030_u32 as _);
-pub const CO_E_TRUSTEEDOESNTMATCHCLIENT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80010127_u32 as _);
-pub const CO_E_UNREVOKED_REGISTRATION_ON_APARTMENT_SHUTDOWN: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80004034_u32 as _);
-pub const CO_E_WRONGOSFORAPP: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800401FA_u32 as _);
-pub const CO_E_WRONGTRUSTEENAMESYNTAX: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8001012C_u32 as _);
-pub const CO_E_WRONG_SERVER_IDENTITY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80004015_u32 as _);
+pub const CO_E_LAUNCH_PERMSSION_DENIED: windows_core::HRESULT = windows_core::HRESULT(0x8000401B_u32 as _);
+pub const CO_E_LOOKUPACCNAMEFAILED: windows_core::HRESULT = windows_core::HRESULT(0x80010132_u32 as _);
+pub const CO_E_LOOKUPACCSIDFAILED: windows_core::HRESULT = windows_core::HRESULT(0x80010130_u32 as _);
+pub const CO_E_MALFORMED_SPN: windows_core::HRESULT = windows_core::HRESULT(0x80004033_u32 as _);
+pub const CO_E_MISSING_DISPLAYNAME: windows_core::HRESULT = windows_core::HRESULT(0x80080015_u32 as _);
+pub const CO_E_MSI_ERROR: windows_core::HRESULT = windows_core::HRESULT(0x80004023_u32 as _);
+pub const CO_E_NETACCESSAPIFAILED: windows_core::HRESULT = windows_core::HRESULT(0x8001012B_u32 as _);
+pub const CO_E_NOCOOKIES: windows_core::HRESULT = windows_core::HRESULT(0x8004E02A_u32 as _);
+pub const CO_E_NOIISINTRINSICS: windows_core::HRESULT = windows_core::HRESULT(0x8004E029_u32 as _);
+pub const CO_E_NOMATCHINGNAMEFOUND: windows_core::HRESULT = windows_core::HRESULT(0x80010131_u32 as _);
+pub const CO_E_NOMATCHINGSIDFOUND: windows_core::HRESULT = windows_core::HRESULT(0x8001012F_u32 as _);
+pub const CO_E_NOSYNCHRONIZATION: windows_core::HRESULT = windows_core::HRESULT(0x8004E02E_u32 as _);
+pub const CO_E_NOTCONSTRUCTED: windows_core::HRESULT = windows_core::HRESULT(0x8004E02D_u32 as _);
+pub const CO_E_NOTINITIALIZED: windows_core::HRESULT = windows_core::HRESULT(0x800401F0_u32 as _);
+pub const CO_E_NOTPOOLED: windows_core::HRESULT = windows_core::HRESULT(0x8004E02C_u32 as _);
+pub const CO_E_NOT_SUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x80004021_u32 as _);
+pub const CO_E_NO_SECCTX_IN_ACTIVATE: windows_core::HRESULT = windows_core::HRESULT(0x8000402B_u32 as _);
+pub const CO_E_OBJISREG: windows_core::HRESULT = windows_core::HRESULT(0x800401FC_u32 as _);
+pub const CO_E_OBJNOTCONNECTED: windows_core::HRESULT = windows_core::HRESULT(0x800401FD_u32 as _);
+pub const CO_E_OBJNOTREG: windows_core::HRESULT = windows_core::HRESULT(0x800401FB_u32 as _);
+pub const CO_E_OBJSRV_RPC_FAILURE: windows_core::HRESULT = windows_core::HRESULT(0x80080006_u32 as _);
+pub const CO_E_OLE1DDE_DISABLED: windows_core::HRESULT = windows_core::HRESULT(0x80004016_u32 as _);
+pub const CO_E_PATHTOOLONG: windows_core::HRESULT = windows_core::HRESULT(0x80010135_u32 as _);
+pub const CO_E_PREMATURE_STUB_RUNDOWN: windows_core::HRESULT = windows_core::HRESULT(0x80004035_u32 as _);
+pub const CO_E_RELEASED: windows_core::HRESULT = windows_core::HRESULT(0x800401FF_u32 as _);
+pub const CO_E_RELOAD_DLL: windows_core::HRESULT = windows_core::HRESULT(0x80004022_u32 as _);
+pub const CO_E_REMOTE_COMMUNICATION_FAILURE: windows_core::HRESULT = windows_core::HRESULT(0x8000401D_u32 as _);
+pub const CO_E_RUNAS_CREATEPROCESS_FAILURE: windows_core::HRESULT = windows_core::HRESULT(0x80004019_u32 as _);
+pub const CO_E_RUNAS_LOGON_FAILURE: windows_core::HRESULT = windows_core::HRESULT(0x8000401A_u32 as _);
+pub const CO_E_RUNAS_SYNTAX: windows_core::HRESULT = windows_core::HRESULT(0x80004017_u32 as _);
+pub const CO_E_RUNAS_VALUE_MUST_BE_AAA: windows_core::HRESULT = windows_core::HRESULT(0x80080016_u32 as _);
+pub const CO_E_SCM_ERROR: windows_core::HRESULT = windows_core::HRESULT(0x80080002_u32 as _);
+pub const CO_E_SCM_RPC_FAILURE: windows_core::HRESULT = windows_core::HRESULT(0x80080003_u32 as _);
+pub const CO_E_SERVER_EXEC_FAILURE: windows_core::HRESULT = windows_core::HRESULT(0x80080005_u32 as _);
+pub const CO_E_SERVER_INIT_TIMEOUT: windows_core::HRESULT = windows_core::HRESULT(0x8000402A_u32 as _);
+pub const CO_E_SERVER_NOT_PAUSED: windows_core::HRESULT = windows_core::HRESULT(0x80004026_u32 as _);
+pub const CO_E_SERVER_PAUSED: windows_core::HRESULT = windows_core::HRESULT(0x80004025_u32 as _);
+pub const CO_E_SERVER_START_TIMEOUT: windows_core::HRESULT = windows_core::HRESULT(0x8000401E_u32 as _);
+pub const CO_E_SERVER_STOPPING: windows_core::HRESULT = windows_core::HRESULT(0x80080008_u32 as _);
+pub const CO_E_SETSERLHNDLFAILED: windows_core::HRESULT = windows_core::HRESULT(0x80010133_u32 as _);
+pub const CO_E_START_SERVICE_FAILURE: windows_core::HRESULT = windows_core::HRESULT(0x8000401C_u32 as _);
+pub const CO_E_SXS_CONFIG: windows_core::HRESULT = windows_core::HRESULT(0x80004032_u32 as _);
+pub const CO_E_THREADINGMODEL_CHANGED: windows_core::HRESULT = windows_core::HRESULT(0x8004E028_u32 as _);
+pub const CO_E_THREADPOOL_CONFIG: windows_core::HRESULT = windows_core::HRESULT(0x80004031_u32 as _);
+pub const CO_E_TRACKER_CONFIG: windows_core::HRESULT = windows_core::HRESULT(0x80004030_u32 as _);
+pub const CO_E_TRUSTEEDOESNTMATCHCLIENT: windows_core::HRESULT = windows_core::HRESULT(0x80010127_u32 as _);
+pub const CO_E_UNREVOKED_REGISTRATION_ON_APARTMENT_SHUTDOWN: windows_core::HRESULT = windows_core::HRESULT(0x80004034_u32 as _);
+pub const CO_E_WRONGOSFORAPP: windows_core::HRESULT = windows_core::HRESULT(0x800401FA_u32 as _);
+pub const CO_E_WRONGTRUSTEENAMESYNTAX: windows_core::HRESULT = windows_core::HRESULT(0x8001012C_u32 as _);
+pub const CO_E_WRONG_SERVER_IDENTITY: windows_core::HRESULT = windows_core::HRESULT(0x80004015_u32 as _);
 pub const CO_S_FIRST: i32 = 262640i32;
 pub const CO_S_LAST: i32 = 262655i32;
-pub const CO_S_MACHINENAMENOTFOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80013_u32 as _);
-pub const CO_S_NOTALLINTERFACES: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80012_u32 as _);
-pub const CRYPT_E_ALREADY_DECRYPTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80091009_u32 as _);
-pub const CRYPT_E_ASN1_BADARGS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80093109_u32 as _);
-pub const CRYPT_E_ASN1_BADPDU: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80093108_u32 as _);
-pub const CRYPT_E_ASN1_BADREAL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8009310A_u32 as _);
-pub const CRYPT_E_ASN1_BADTAG: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8009310B_u32 as _);
-pub const CRYPT_E_ASN1_CHOICE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8009310C_u32 as _);
-pub const CRYPT_E_ASN1_CONSTRAINT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80093105_u32 as _);
-pub const CRYPT_E_ASN1_CORRUPT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80093103_u32 as _);
-pub const CRYPT_E_ASN1_EOD: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80093102_u32 as _);
-pub const CRYPT_E_ASN1_ERROR: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80093100_u32 as _);
-pub const CRYPT_E_ASN1_EXTENDED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80093201_u32 as _);
-pub const CRYPT_E_ASN1_INTERNAL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80093101_u32 as _);
-pub const CRYPT_E_ASN1_LARGE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80093104_u32 as _);
-pub const CRYPT_E_ASN1_MEMORY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80093106_u32 as _);
-pub const CRYPT_E_ASN1_NOEOD: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80093202_u32 as _);
-pub const CRYPT_E_ASN1_NYI: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80093134_u32 as _);
-pub const CRYPT_E_ASN1_OVERFLOW: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80093107_u32 as _);
-pub const CRYPT_E_ASN1_PDU_TYPE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80093133_u32 as _);
-pub const CRYPT_E_ASN1_RULE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8009310D_u32 as _);
-pub const CRYPT_E_ASN1_UTF8: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8009310E_u32 as _);
-pub const CRYPT_E_ATTRIBUTES_MISSING: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8009100F_u32 as _);
-pub const CRYPT_E_AUTH_ATTR_MISSING: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80091006_u32 as _);
-pub const CRYPT_E_BAD_ENCODE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80092002_u32 as _);
-pub const CRYPT_E_BAD_LEN: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80092001_u32 as _);
-pub const CRYPT_E_BAD_MSG: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8009200D_u32 as _);
-pub const CRYPT_E_CONTROL_TYPE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8009100C_u32 as _);
-pub const CRYPT_E_DELETED_PREV: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80092008_u32 as _);
-pub const CRYPT_E_EXISTS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80092005_u32 as _);
-pub const CRYPT_E_FILERESIZED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80092025_u32 as _);
-pub const CRYPT_E_FILE_ERROR: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80092003_u32 as _);
-pub const CRYPT_E_HASH_VALUE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80091007_u32 as _);
-pub const CRYPT_E_INVALID_IA5_STRING: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80092022_u32 as _);
-pub const CRYPT_E_INVALID_INDEX: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80091008_u32 as _);
-pub const CRYPT_E_INVALID_MSG_TYPE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80091004_u32 as _);
-pub const CRYPT_E_INVALID_NUMERIC_STRING: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80092020_u32 as _);
-pub const CRYPT_E_INVALID_PRINTABLE_STRING: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80092021_u32 as _);
-pub const CRYPT_E_INVALID_X500_STRING: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80092023_u32 as _);
-pub const CRYPT_E_ISSUER_SERIALNUMBER: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8009100D_u32 as _);
-pub const CRYPT_E_MISSING_PUBKEY_PARA: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8009202C_u32 as _);
-pub const CRYPT_E_MSG_ERROR: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80091001_u32 as _);
-pub const CRYPT_E_NOT_CHAR_STRING: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80092024_u32 as _);
-pub const CRYPT_E_NOT_DECRYPTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8009100A_u32 as _);
-pub const CRYPT_E_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80092004_u32 as _);
-pub const CRYPT_E_NOT_IN_CTL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8009202A_u32 as _);
-pub const CRYPT_E_NOT_IN_REVOCATION_DATABASE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80092014_u32 as _);
-pub const CRYPT_E_NO_DECRYPT_CERT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8009200C_u32 as _);
-pub const CRYPT_E_NO_KEY_PROPERTY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8009200B_u32 as _);
-pub const CRYPT_E_NO_MATCH: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80092009_u32 as _);
-pub const CRYPT_E_NO_PROVIDER: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80092006_u32 as _);
-pub const CRYPT_E_NO_REVOCATION_CHECK: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80092012_u32 as _);
-pub const CRYPT_E_NO_REVOCATION_DLL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80092011_u32 as _);
-pub const CRYPT_E_NO_SIGNER: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8009200E_u32 as _);
-pub const CRYPT_E_NO_TRUSTED_SIGNER: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8009202B_u32 as _);
-pub const CRYPT_E_NO_VERIFY_USAGE_CHECK: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80092028_u32 as _);
-pub const CRYPT_E_NO_VERIFY_USAGE_DLL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80092027_u32 as _);
-pub const CRYPT_E_OBJECT_LOCATOR_OBJECT_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8009202D_u32 as _);
-pub const CRYPT_E_OID_FORMAT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80091003_u32 as _);
-pub const CRYPT_E_OSS_ERROR: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80093000_u32 as _);
-pub const CRYPT_E_PENDING_CLOSE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8009200F_u32 as _);
-pub const CRYPT_E_RECIPIENT_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8009100B_u32 as _);
-pub const CRYPT_E_REVOCATION_OFFLINE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80092013_u32 as _);
-pub const CRYPT_E_REVOKED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80092010_u32 as _);
-pub const CRYPT_E_SECURITY_SETTINGS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80092026_u32 as _);
-pub const CRYPT_E_SELF_SIGNED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80092007_u32 as _);
-pub const CRYPT_E_SIGNER_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8009100E_u32 as _);
-pub const CRYPT_E_STREAM_INSUFFICIENT_DATA: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80091011_u32 as _);
-pub const CRYPT_E_STREAM_MSG_NOT_READY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80091010_u32 as _);
-pub const CRYPT_E_UNEXPECTED_ENCODING: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80091005_u32 as _);
-pub const CRYPT_E_UNEXPECTED_MSG_TYPE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8009200A_u32 as _);
-pub const CRYPT_E_UNKNOWN_ALGO: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80091002_u32 as _);
-pub const CRYPT_E_VERIFY_USAGE_OFFLINE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80092029_u32 as _);
-pub const CRYPT_I_NEW_PROTECTION_REQUIRED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x91012_u32 as _);
-pub const CS_E_ADMIN_LIMIT_EXCEEDED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004016D_u32 as _);
-pub const CS_E_CLASS_NOTFOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80040166_u32 as _);
+pub const CO_S_MACHINENAMENOTFOUND: windows_core::HRESULT = windows_core::HRESULT(0x80013_u32 as _);
+pub const CO_S_NOTALLINTERFACES: windows_core::HRESULT = windows_core::HRESULT(0x80012_u32 as _);
+pub const CRYPT_E_ALREADY_DECRYPTED: windows_core::HRESULT = windows_core::HRESULT(0x80091009_u32 as _);
+pub const CRYPT_E_ASN1_BADARGS: windows_core::HRESULT = windows_core::HRESULT(0x80093109_u32 as _);
+pub const CRYPT_E_ASN1_BADPDU: windows_core::HRESULT = windows_core::HRESULT(0x80093108_u32 as _);
+pub const CRYPT_E_ASN1_BADREAL: windows_core::HRESULT = windows_core::HRESULT(0x8009310A_u32 as _);
+pub const CRYPT_E_ASN1_BADTAG: windows_core::HRESULT = windows_core::HRESULT(0x8009310B_u32 as _);
+pub const CRYPT_E_ASN1_CHOICE: windows_core::HRESULT = windows_core::HRESULT(0x8009310C_u32 as _);
+pub const CRYPT_E_ASN1_CONSTRAINT: windows_core::HRESULT = windows_core::HRESULT(0x80093105_u32 as _);
+pub const CRYPT_E_ASN1_CORRUPT: windows_core::HRESULT = windows_core::HRESULT(0x80093103_u32 as _);
+pub const CRYPT_E_ASN1_EOD: windows_core::HRESULT = windows_core::HRESULT(0x80093102_u32 as _);
+pub const CRYPT_E_ASN1_ERROR: windows_core::HRESULT = windows_core::HRESULT(0x80093100_u32 as _);
+pub const CRYPT_E_ASN1_EXTENDED: windows_core::HRESULT = windows_core::HRESULT(0x80093201_u32 as _);
+pub const CRYPT_E_ASN1_INTERNAL: windows_core::HRESULT = windows_core::HRESULT(0x80093101_u32 as _);
+pub const CRYPT_E_ASN1_LARGE: windows_core::HRESULT = windows_core::HRESULT(0x80093104_u32 as _);
+pub const CRYPT_E_ASN1_MEMORY: windows_core::HRESULT = windows_core::HRESULT(0x80093106_u32 as _);
+pub const CRYPT_E_ASN1_NOEOD: windows_core::HRESULT = windows_core::HRESULT(0x80093202_u32 as _);
+pub const CRYPT_E_ASN1_NYI: windows_core::HRESULT = windows_core::HRESULT(0x80093134_u32 as _);
+pub const CRYPT_E_ASN1_OVERFLOW: windows_core::HRESULT = windows_core::HRESULT(0x80093107_u32 as _);
+pub const CRYPT_E_ASN1_PDU_TYPE: windows_core::HRESULT = windows_core::HRESULT(0x80093133_u32 as _);
+pub const CRYPT_E_ASN1_RULE: windows_core::HRESULT = windows_core::HRESULT(0x8009310D_u32 as _);
+pub const CRYPT_E_ASN1_UTF8: windows_core::HRESULT = windows_core::HRESULT(0x8009310E_u32 as _);
+pub const CRYPT_E_ATTRIBUTES_MISSING: windows_core::HRESULT = windows_core::HRESULT(0x8009100F_u32 as _);
+pub const CRYPT_E_AUTH_ATTR_MISSING: windows_core::HRESULT = windows_core::HRESULT(0x80091006_u32 as _);
+pub const CRYPT_E_BAD_ENCODE: windows_core::HRESULT = windows_core::HRESULT(0x80092002_u32 as _);
+pub const CRYPT_E_BAD_LEN: windows_core::HRESULT = windows_core::HRESULT(0x80092001_u32 as _);
+pub const CRYPT_E_BAD_MSG: windows_core::HRESULT = windows_core::HRESULT(0x8009200D_u32 as _);
+pub const CRYPT_E_CONTROL_TYPE: windows_core::HRESULT = windows_core::HRESULT(0x8009100C_u32 as _);
+pub const CRYPT_E_DELETED_PREV: windows_core::HRESULT = windows_core::HRESULT(0x80092008_u32 as _);
+pub const CRYPT_E_EXISTS: windows_core::HRESULT = windows_core::HRESULT(0x80092005_u32 as _);
+pub const CRYPT_E_FILERESIZED: windows_core::HRESULT = windows_core::HRESULT(0x80092025_u32 as _);
+pub const CRYPT_E_FILE_ERROR: windows_core::HRESULT = windows_core::HRESULT(0x80092003_u32 as _);
+pub const CRYPT_E_HASH_VALUE: windows_core::HRESULT = windows_core::HRESULT(0x80091007_u32 as _);
+pub const CRYPT_E_INVALID_IA5_STRING: windows_core::HRESULT = windows_core::HRESULT(0x80092022_u32 as _);
+pub const CRYPT_E_INVALID_INDEX: windows_core::HRESULT = windows_core::HRESULT(0x80091008_u32 as _);
+pub const CRYPT_E_INVALID_MSG_TYPE: windows_core::HRESULT = windows_core::HRESULT(0x80091004_u32 as _);
+pub const CRYPT_E_INVALID_NUMERIC_STRING: windows_core::HRESULT = windows_core::HRESULT(0x80092020_u32 as _);
+pub const CRYPT_E_INVALID_PRINTABLE_STRING: windows_core::HRESULT = windows_core::HRESULT(0x80092021_u32 as _);
+pub const CRYPT_E_INVALID_X500_STRING: windows_core::HRESULT = windows_core::HRESULT(0x80092023_u32 as _);
+pub const CRYPT_E_ISSUER_SERIALNUMBER: windows_core::HRESULT = windows_core::HRESULT(0x8009100D_u32 as _);
+pub const CRYPT_E_MISSING_PUBKEY_PARA: windows_core::HRESULT = windows_core::HRESULT(0x8009202C_u32 as _);
+pub const CRYPT_E_MSG_ERROR: windows_core::HRESULT = windows_core::HRESULT(0x80091001_u32 as _);
+pub const CRYPT_E_NOT_CHAR_STRING: windows_core::HRESULT = windows_core::HRESULT(0x80092024_u32 as _);
+pub const CRYPT_E_NOT_DECRYPTED: windows_core::HRESULT = windows_core::HRESULT(0x8009100A_u32 as _);
+pub const CRYPT_E_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0x80092004_u32 as _);
+pub const CRYPT_E_NOT_IN_CTL: windows_core::HRESULT = windows_core::HRESULT(0x8009202A_u32 as _);
+pub const CRYPT_E_NOT_IN_REVOCATION_DATABASE: windows_core::HRESULT = windows_core::HRESULT(0x80092014_u32 as _);
+pub const CRYPT_E_NO_DECRYPT_CERT: windows_core::HRESULT = windows_core::HRESULT(0x8009200C_u32 as _);
+pub const CRYPT_E_NO_KEY_PROPERTY: windows_core::HRESULT = windows_core::HRESULT(0x8009200B_u32 as _);
+pub const CRYPT_E_NO_MATCH: windows_core::HRESULT = windows_core::HRESULT(0x80092009_u32 as _);
+pub const CRYPT_E_NO_PROVIDER: windows_core::HRESULT = windows_core::HRESULT(0x80092006_u32 as _);
+pub const CRYPT_E_NO_REVOCATION_CHECK: windows_core::HRESULT = windows_core::HRESULT(0x80092012_u32 as _);
+pub const CRYPT_E_NO_REVOCATION_DLL: windows_core::HRESULT = windows_core::HRESULT(0x80092011_u32 as _);
+pub const CRYPT_E_NO_SIGNER: windows_core::HRESULT = windows_core::HRESULT(0x8009200E_u32 as _);
+pub const CRYPT_E_NO_TRUSTED_SIGNER: windows_core::HRESULT = windows_core::HRESULT(0x8009202B_u32 as _);
+pub const CRYPT_E_NO_VERIFY_USAGE_CHECK: windows_core::HRESULT = windows_core::HRESULT(0x80092028_u32 as _);
+pub const CRYPT_E_NO_VERIFY_USAGE_DLL: windows_core::HRESULT = windows_core::HRESULT(0x80092027_u32 as _);
+pub const CRYPT_E_OBJECT_LOCATOR_OBJECT_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0x8009202D_u32 as _);
+pub const CRYPT_E_OID_FORMAT: windows_core::HRESULT = windows_core::HRESULT(0x80091003_u32 as _);
+pub const CRYPT_E_OSS_ERROR: windows_core::HRESULT = windows_core::HRESULT(0x80093000_u32 as _);
+pub const CRYPT_E_PENDING_CLOSE: windows_core::HRESULT = windows_core::HRESULT(0x8009200F_u32 as _);
+pub const CRYPT_E_RECIPIENT_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0x8009100B_u32 as _);
+pub const CRYPT_E_REVOCATION_OFFLINE: windows_core::HRESULT = windows_core::HRESULT(0x80092013_u32 as _);
+pub const CRYPT_E_REVOKED: windows_core::HRESULT = windows_core::HRESULT(0x80092010_u32 as _);
+pub const CRYPT_E_SECURITY_SETTINGS: windows_core::HRESULT = windows_core::HRESULT(0x80092026_u32 as _);
+pub const CRYPT_E_SELF_SIGNED: windows_core::HRESULT = windows_core::HRESULT(0x80092007_u32 as _);
+pub const CRYPT_E_SIGNER_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0x8009100E_u32 as _);
+pub const CRYPT_E_STREAM_INSUFFICIENT_DATA: windows_core::HRESULT = windows_core::HRESULT(0x80091011_u32 as _);
+pub const CRYPT_E_STREAM_MSG_NOT_READY: windows_core::HRESULT = windows_core::HRESULT(0x80091010_u32 as _);
+pub const CRYPT_E_UNEXPECTED_ENCODING: windows_core::HRESULT = windows_core::HRESULT(0x80091005_u32 as _);
+pub const CRYPT_E_UNEXPECTED_MSG_TYPE: windows_core::HRESULT = windows_core::HRESULT(0x8009200A_u32 as _);
+pub const CRYPT_E_UNKNOWN_ALGO: windows_core::HRESULT = windows_core::HRESULT(0x80091002_u32 as _);
+pub const CRYPT_E_VERIFY_USAGE_OFFLINE: windows_core::HRESULT = windows_core::HRESULT(0x80092029_u32 as _);
+pub const CRYPT_I_NEW_PROTECTION_REQUIRED: windows_core::HRESULT = windows_core::HRESULT(0x91012_u32 as _);
+pub const CS_E_ADMIN_LIMIT_EXCEEDED: windows_core::HRESULT = windows_core::HRESULT(0x8004016D_u32 as _);
+pub const CS_E_CLASS_NOTFOUND: windows_core::HRESULT = windows_core::HRESULT(0x80040166_u32 as _);
 pub const CS_E_FIRST: i32 = -2147221148i32;
-pub const CS_E_INTERNAL_ERROR: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004016F_u32 as _);
-pub const CS_E_INVALID_PATH: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004016B_u32 as _);
-pub const CS_E_INVALID_VERSION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80040167_u32 as _);
+pub const CS_E_INTERNAL_ERROR: windows_core::HRESULT = windows_core::HRESULT(0x8004016F_u32 as _);
+pub const CS_E_INVALID_PATH: windows_core::HRESULT = windows_core::HRESULT(0x8004016B_u32 as _);
+pub const CS_E_INVALID_VERSION: windows_core::HRESULT = windows_core::HRESULT(0x80040167_u32 as _);
 pub const CS_E_LAST: i32 = -2147221137i32;
-pub const CS_E_NETWORK_ERROR: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004016C_u32 as _);
-pub const CS_E_NOT_DELETABLE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80040165_u32 as _);
-pub const CS_E_NO_CLASSSTORE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80040168_u32 as _);
-pub const CS_E_OBJECT_ALREADY_EXISTS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004016A_u32 as _);
-pub const CS_E_OBJECT_NOTFOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80040169_u32 as _);
-pub const CS_E_PACKAGE_NOTFOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80040164_u32 as _);
-pub const CS_E_SCHEMA_MISMATCH: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004016E_u32 as _);
-pub const D2DERR_BAD_NUMBER: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88990011_u32 as _);
-pub const D2DERR_BITMAP_BOUND_AS_TARGET: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88990025_u32 as _);
-pub const D2DERR_BITMAP_CANNOT_DRAW: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88990021_u32 as _);
-pub const D2DERR_CYCLIC_GRAPH: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88990020_u32 as _);
-pub const D2DERR_DISPLAY_FORMAT_NOT_SUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88990009_u32 as _);
-pub const D2DERR_DISPLAY_STATE_INVALID: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88990006_u32 as _);
-pub const D2DERR_EFFECT_IS_NOT_REGISTERED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88990028_u32 as _);
-pub const D2DERR_EXCEEDS_MAX_BITMAP_SIZE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8899001D_u32 as _);
-pub const D2DERR_INCOMPATIBLE_BRUSH_TYPES: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88990018_u32 as _);
-pub const D2DERR_INSUFFICIENT_DEVICE_CAPABILITIES: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88990026_u32 as _);
-pub const D2DERR_INTERMEDIATE_TOO_LARGE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88990027_u32 as _);
-pub const D2DERR_INTERNAL_ERROR: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88990008_u32 as _);
-pub const D2DERR_INVALID_CALL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8899000A_u32 as _);
-pub const D2DERR_INVALID_GLYPH_IMAGE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8899002E_u32 as _);
-pub const D2DERR_INVALID_GRAPH_CONFIGURATION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8899001E_u32 as _);
-pub const D2DERR_INVALID_INTERNAL_GRAPH_CONFIGURATION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8899001F_u32 as _);
-pub const D2DERR_INVALID_PROPERTY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88990029_u32 as _);
-pub const D2DERR_INVALID_TARGET: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88990024_u32 as _);
-pub const D2DERR_LAYER_ALREADY_IN_USE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88990013_u32 as _);
-pub const D2DERR_MAX_TEXTURE_SIZE_EXCEEDED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8899000F_u32 as _);
-pub const D2DERR_NOT_INITIALIZED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88990002_u32 as _);
-pub const D2DERR_NO_HARDWARE_DEVICE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8899000B_u32 as _);
-pub const D2DERR_NO_SUBPROPERTIES: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8899002A_u32 as _);
-pub const D2DERR_ORIGINAL_TARGET_NOT_BOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88990023_u32 as _);
-pub const D2DERR_OUTSTANDING_BITMAP_REFERENCES: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88990022_u32 as _);
-pub const D2DERR_POP_CALL_DID_NOT_MATCH_PUSH: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88990014_u32 as _);
-pub const D2DERR_PRINT_FORMAT_NOT_SUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8899002C_u32 as _);
-pub const D2DERR_PRINT_JOB_CLOSED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8899002B_u32 as _);
-pub const D2DERR_PUSH_POP_UNBALANCED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88990016_u32 as _);
-pub const D2DERR_RECREATE_TARGET: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8899000C_u32 as _);
-pub const D2DERR_RENDER_TARGET_HAS_LAYER_OR_CLIPRECT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88990017_u32 as _);
-pub const D2DERR_SCANNER_FAILED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88990004_u32 as _);
-pub const D2DERR_SCREEN_ACCESS_DENIED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88990005_u32 as _);
-pub const D2DERR_SHADER_COMPILE_FAILED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8899000E_u32 as _);
-pub const D2DERR_TARGET_NOT_GDI_COMPATIBLE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8899001A_u32 as _);
-pub const D2DERR_TEXT_EFFECT_IS_WRONG_TYPE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8899001B_u32 as _);
-pub const D2DERR_TEXT_RENDERER_NOT_RELEASED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8899001C_u32 as _);
-pub const D2DERR_TOO_MANY_SHADER_ELEMENTS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8899000D_u32 as _);
-pub const D2DERR_TOO_MANY_TRANSFORM_INPUTS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8899002D_u32 as _);
-pub const D2DERR_UNSUPPORTED_OPERATION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88990003_u32 as _);
-pub const D2DERR_UNSUPPORTED_VERSION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88990010_u32 as _);
-pub const D2DERR_WIN32_ERROR: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88990019_u32 as _);
-pub const D2DERR_WRONG_FACTORY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88990012_u32 as _);
-pub const D2DERR_WRONG_RESOURCE_DOMAIN: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88990015_u32 as _);
-pub const D2DERR_WRONG_STATE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88990001_u32 as _);
-pub const D2DERR_ZERO_VECTOR: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88990007_u32 as _);
-pub const D3D10_ERROR_FILE_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88790002_u32 as _);
-pub const D3D10_ERROR_TOO_MANY_UNIQUE_STATE_OBJECTS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88790001_u32 as _);
-pub const D3D11_ERROR_DEFERRED_CONTEXT_MAP_WITHOUT_INITIAL_DISCARD: ::windows_core::HRESULT = ::windows_core::HRESULT(0x887C0004_u32 as _);
-pub const D3D11_ERROR_FILE_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x887C0002_u32 as _);
-pub const D3D11_ERROR_TOO_MANY_UNIQUE_STATE_OBJECTS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x887C0001_u32 as _);
-pub const D3D11_ERROR_TOO_MANY_UNIQUE_VIEW_OBJECTS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x887C0003_u32 as _);
-pub const D3D12_ERROR_ADAPTER_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x887E0001_u32 as _);
-pub const D3D12_ERROR_DRIVER_VERSION_MISMATCH: ::windows_core::HRESULT = ::windows_core::HRESULT(0x887E0002_u32 as _);
-pub const D3D12_ERROR_INVALID_REDIST: ::windows_core::HRESULT = ::windows_core::HRESULT(0x887E0003_u32 as _);
+pub const CS_E_NETWORK_ERROR: windows_core::HRESULT = windows_core::HRESULT(0x8004016C_u32 as _);
+pub const CS_E_NOT_DELETABLE: windows_core::HRESULT = windows_core::HRESULT(0x80040165_u32 as _);
+pub const CS_E_NO_CLASSSTORE: windows_core::HRESULT = windows_core::HRESULT(0x80040168_u32 as _);
+pub const CS_E_OBJECT_ALREADY_EXISTS: windows_core::HRESULT = windows_core::HRESULT(0x8004016A_u32 as _);
+pub const CS_E_OBJECT_NOTFOUND: windows_core::HRESULT = windows_core::HRESULT(0x80040169_u32 as _);
+pub const CS_E_PACKAGE_NOTFOUND: windows_core::HRESULT = windows_core::HRESULT(0x80040164_u32 as _);
+pub const CS_E_SCHEMA_MISMATCH: windows_core::HRESULT = windows_core::HRESULT(0x8004016E_u32 as _);
+pub const D2DERR_BAD_NUMBER: windows_core::HRESULT = windows_core::HRESULT(0x88990011_u32 as _);
+pub const D2DERR_BITMAP_BOUND_AS_TARGET: windows_core::HRESULT = windows_core::HRESULT(0x88990025_u32 as _);
+pub const D2DERR_BITMAP_CANNOT_DRAW: windows_core::HRESULT = windows_core::HRESULT(0x88990021_u32 as _);
+pub const D2DERR_CYCLIC_GRAPH: windows_core::HRESULT = windows_core::HRESULT(0x88990020_u32 as _);
+pub const D2DERR_DISPLAY_FORMAT_NOT_SUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x88990009_u32 as _);
+pub const D2DERR_DISPLAY_STATE_INVALID: windows_core::HRESULT = windows_core::HRESULT(0x88990006_u32 as _);
+pub const D2DERR_EFFECT_IS_NOT_REGISTERED: windows_core::HRESULT = windows_core::HRESULT(0x88990028_u32 as _);
+pub const D2DERR_EXCEEDS_MAX_BITMAP_SIZE: windows_core::HRESULT = windows_core::HRESULT(0x8899001D_u32 as _);
+pub const D2DERR_INCOMPATIBLE_BRUSH_TYPES: windows_core::HRESULT = windows_core::HRESULT(0x88990018_u32 as _);
+pub const D2DERR_INSUFFICIENT_DEVICE_CAPABILITIES: windows_core::HRESULT = windows_core::HRESULT(0x88990026_u32 as _);
+pub const D2DERR_INTERMEDIATE_TOO_LARGE: windows_core::HRESULT = windows_core::HRESULT(0x88990027_u32 as _);
+pub const D2DERR_INTERNAL_ERROR: windows_core::HRESULT = windows_core::HRESULT(0x88990008_u32 as _);
+pub const D2DERR_INVALID_CALL: windows_core::HRESULT = windows_core::HRESULT(0x8899000A_u32 as _);
+pub const D2DERR_INVALID_GLYPH_IMAGE: windows_core::HRESULT = windows_core::HRESULT(0x8899002E_u32 as _);
+pub const D2DERR_INVALID_GRAPH_CONFIGURATION: windows_core::HRESULT = windows_core::HRESULT(0x8899001E_u32 as _);
+pub const D2DERR_INVALID_INTERNAL_GRAPH_CONFIGURATION: windows_core::HRESULT = windows_core::HRESULT(0x8899001F_u32 as _);
+pub const D2DERR_INVALID_PROPERTY: windows_core::HRESULT = windows_core::HRESULT(0x88990029_u32 as _);
+pub const D2DERR_INVALID_TARGET: windows_core::HRESULT = windows_core::HRESULT(0x88990024_u32 as _);
+pub const D2DERR_LAYER_ALREADY_IN_USE: windows_core::HRESULT = windows_core::HRESULT(0x88990013_u32 as _);
+pub const D2DERR_MAX_TEXTURE_SIZE_EXCEEDED: windows_core::HRESULT = windows_core::HRESULT(0x8899000F_u32 as _);
+pub const D2DERR_NOT_INITIALIZED: windows_core::HRESULT = windows_core::HRESULT(0x88990002_u32 as _);
+pub const D2DERR_NO_HARDWARE_DEVICE: windows_core::HRESULT = windows_core::HRESULT(0x8899000B_u32 as _);
+pub const D2DERR_NO_SUBPROPERTIES: windows_core::HRESULT = windows_core::HRESULT(0x8899002A_u32 as _);
+pub const D2DERR_ORIGINAL_TARGET_NOT_BOUND: windows_core::HRESULT = windows_core::HRESULT(0x88990023_u32 as _);
+pub const D2DERR_OUTSTANDING_BITMAP_REFERENCES: windows_core::HRESULT = windows_core::HRESULT(0x88990022_u32 as _);
+pub const D2DERR_POP_CALL_DID_NOT_MATCH_PUSH: windows_core::HRESULT = windows_core::HRESULT(0x88990014_u32 as _);
+pub const D2DERR_PRINT_FORMAT_NOT_SUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x8899002C_u32 as _);
+pub const D2DERR_PRINT_JOB_CLOSED: windows_core::HRESULT = windows_core::HRESULT(0x8899002B_u32 as _);
+pub const D2DERR_PUSH_POP_UNBALANCED: windows_core::HRESULT = windows_core::HRESULT(0x88990016_u32 as _);
+pub const D2DERR_RECREATE_TARGET: windows_core::HRESULT = windows_core::HRESULT(0x8899000C_u32 as _);
+pub const D2DERR_RENDER_TARGET_HAS_LAYER_OR_CLIPRECT: windows_core::HRESULT = windows_core::HRESULT(0x88990017_u32 as _);
+pub const D2DERR_SCANNER_FAILED: windows_core::HRESULT = windows_core::HRESULT(0x88990004_u32 as _);
+pub const D2DERR_SCREEN_ACCESS_DENIED: windows_core::HRESULT = windows_core::HRESULT(0x88990005_u32 as _);
+pub const D2DERR_SHADER_COMPILE_FAILED: windows_core::HRESULT = windows_core::HRESULT(0x8899000E_u32 as _);
+pub const D2DERR_TARGET_NOT_GDI_COMPATIBLE: windows_core::HRESULT = windows_core::HRESULT(0x8899001A_u32 as _);
+pub const D2DERR_TEXT_EFFECT_IS_WRONG_TYPE: windows_core::HRESULT = windows_core::HRESULT(0x8899001B_u32 as _);
+pub const D2DERR_TEXT_RENDERER_NOT_RELEASED: windows_core::HRESULT = windows_core::HRESULT(0x8899001C_u32 as _);
+pub const D2DERR_TOO_MANY_SHADER_ELEMENTS: windows_core::HRESULT = windows_core::HRESULT(0x8899000D_u32 as _);
+pub const D2DERR_TOO_MANY_TRANSFORM_INPUTS: windows_core::HRESULT = windows_core::HRESULT(0x8899002D_u32 as _);
+pub const D2DERR_UNSUPPORTED_OPERATION: windows_core::HRESULT = windows_core::HRESULT(0x88990003_u32 as _);
+pub const D2DERR_UNSUPPORTED_VERSION: windows_core::HRESULT = windows_core::HRESULT(0x88990010_u32 as _);
+pub const D2DERR_WIN32_ERROR: windows_core::HRESULT = windows_core::HRESULT(0x88990019_u32 as _);
+pub const D2DERR_WRONG_FACTORY: windows_core::HRESULT = windows_core::HRESULT(0x88990012_u32 as _);
+pub const D2DERR_WRONG_RESOURCE_DOMAIN: windows_core::HRESULT = windows_core::HRESULT(0x88990015_u32 as _);
+pub const D2DERR_WRONG_STATE: windows_core::HRESULT = windows_core::HRESULT(0x88990001_u32 as _);
+pub const D2DERR_ZERO_VECTOR: windows_core::HRESULT = windows_core::HRESULT(0x88990007_u32 as _);
+pub const D3D10_ERROR_FILE_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0x88790002_u32 as _);
+pub const D3D10_ERROR_TOO_MANY_UNIQUE_STATE_OBJECTS: windows_core::HRESULT = windows_core::HRESULT(0x88790001_u32 as _);
+pub const D3D11_ERROR_DEFERRED_CONTEXT_MAP_WITHOUT_INITIAL_DISCARD: windows_core::HRESULT = windows_core::HRESULT(0x887C0004_u32 as _);
+pub const D3D11_ERROR_FILE_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0x887C0002_u32 as _);
+pub const D3D11_ERROR_TOO_MANY_UNIQUE_STATE_OBJECTS: windows_core::HRESULT = windows_core::HRESULT(0x887C0001_u32 as _);
+pub const D3D11_ERROR_TOO_MANY_UNIQUE_VIEW_OBJECTS: windows_core::HRESULT = windows_core::HRESULT(0x887C0003_u32 as _);
+pub const D3D12_ERROR_ADAPTER_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0x887E0001_u32 as _);
+pub const D3D12_ERROR_DRIVER_VERSION_MISMATCH: windows_core::HRESULT = windows_core::HRESULT(0x887E0002_u32 as _);
+pub const D3D12_ERROR_INVALID_REDIST: windows_core::HRESULT = windows_core::HRESULT(0x887E0003_u32 as _);
 pub const DATA_E_FIRST: i32 = -2147221200i32;
 pub const DATA_E_LAST: i32 = -2147221185i32;
 pub const DATA_S_FIRST: i32 = 262448i32;
 pub const DATA_S_LAST: i32 = 262463i32;
-pub const DATA_S_SAMEFORMATETC: ::windows_core::HRESULT = ::windows_core::HRESULT(0x40130_u32 as _);
+pub const DATA_S_SAMEFORMATETC: windows_core::HRESULT = windows_core::HRESULT(0x40130_u32 as _);
 pub const DBG_APP_NOT_IDLE: NTSTATUS = NTSTATUS(0xC0010002_u32 as _);
 pub const DBG_COMMAND_EXCEPTION: NTSTATUS = NTSTATUS(0x40010009_u32 as _);
 pub const DBG_CONTINUE: NTSTATUS = NTSTATUS(0x10002_u32 as _);
@@ -771,31 +771,31 @@ pub const DBG_RIPEXCEPTION: NTSTATUS = NTSTATUS(0x40010007_u32 as _);
 pub const DBG_TERMINATE_PROCESS: NTSTATUS = NTSTATUS(0x40010004_u32 as _);
 pub const DBG_TERMINATE_THREAD: NTSTATUS = NTSTATUS(0x40010003_u32 as _);
 pub const DBG_UNABLE_TO_PROVIDE_HANDLE: NTSTATUS = NTSTATUS(0x40010002_u32 as _);
-pub const DCOMPOSITION_ERROR_SURFACE_BEING_RENDERED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88980801_u32 as _);
-pub const DCOMPOSITION_ERROR_SURFACE_NOT_BEING_RENDERED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88980802_u32 as _);
-pub const DCOMPOSITION_ERROR_WINDOW_ALREADY_COMPOSED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88980800_u32 as _);
-pub const DIGSIG_E_CRYPTO: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800B0008_u32 as _);
-pub const DIGSIG_E_DECODE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800B0006_u32 as _);
-pub const DIGSIG_E_ENCODE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800B0005_u32 as _);
-pub const DIGSIG_E_EXTENSIBILITY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800B0007_u32 as _);
-pub const DISP_E_ARRAYISLOCKED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8002000D_u32 as _);
-pub const DISP_E_BADCALLEE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80020010_u32 as _);
-pub const DISP_E_BADINDEX: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8002000B_u32 as _);
-pub const DISP_E_BADPARAMCOUNT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8002000E_u32 as _);
-pub const DISP_E_BADVARTYPE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80020008_u32 as _);
-pub const DISP_E_BUFFERTOOSMALL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80020013_u32 as _);
-pub const DISP_E_DIVBYZERO: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80020012_u32 as _);
-pub const DISP_E_EXCEPTION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80020009_u32 as _);
-pub const DISP_E_MEMBERNOTFOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80020003_u32 as _);
-pub const DISP_E_NONAMEDARGS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80020007_u32 as _);
-pub const DISP_E_NOTACOLLECTION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80020011_u32 as _);
-pub const DISP_E_OVERFLOW: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8002000A_u32 as _);
-pub const DISP_E_PARAMNOTFOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80020004_u32 as _);
-pub const DISP_E_PARAMNOTOPTIONAL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8002000F_u32 as _);
-pub const DISP_E_TYPEMISMATCH: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80020005_u32 as _);
-pub const DISP_E_UNKNOWNINTERFACE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80020001_u32 as _);
-pub const DISP_E_UNKNOWNLCID: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8002000C_u32 as _);
-pub const DISP_E_UNKNOWNNAME: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80020006_u32 as _);
+pub const DCOMPOSITION_ERROR_SURFACE_BEING_RENDERED: windows_core::HRESULT = windows_core::HRESULT(0x88980801_u32 as _);
+pub const DCOMPOSITION_ERROR_SURFACE_NOT_BEING_RENDERED: windows_core::HRESULT = windows_core::HRESULT(0x88980802_u32 as _);
+pub const DCOMPOSITION_ERROR_WINDOW_ALREADY_COMPOSED: windows_core::HRESULT = windows_core::HRESULT(0x88980800_u32 as _);
+pub const DIGSIG_E_CRYPTO: windows_core::HRESULT = windows_core::HRESULT(0x800B0008_u32 as _);
+pub const DIGSIG_E_DECODE: windows_core::HRESULT = windows_core::HRESULT(0x800B0006_u32 as _);
+pub const DIGSIG_E_ENCODE: windows_core::HRESULT = windows_core::HRESULT(0x800B0005_u32 as _);
+pub const DIGSIG_E_EXTENSIBILITY: windows_core::HRESULT = windows_core::HRESULT(0x800B0007_u32 as _);
+pub const DISP_E_ARRAYISLOCKED: windows_core::HRESULT = windows_core::HRESULT(0x8002000D_u32 as _);
+pub const DISP_E_BADCALLEE: windows_core::HRESULT = windows_core::HRESULT(0x80020010_u32 as _);
+pub const DISP_E_BADINDEX: windows_core::HRESULT = windows_core::HRESULT(0x8002000B_u32 as _);
+pub const DISP_E_BADPARAMCOUNT: windows_core::HRESULT = windows_core::HRESULT(0x8002000E_u32 as _);
+pub const DISP_E_BADVARTYPE: windows_core::HRESULT = windows_core::HRESULT(0x80020008_u32 as _);
+pub const DISP_E_BUFFERTOOSMALL: windows_core::HRESULT = windows_core::HRESULT(0x80020013_u32 as _);
+pub const DISP_E_DIVBYZERO: windows_core::HRESULT = windows_core::HRESULT(0x80020012_u32 as _);
+pub const DISP_E_EXCEPTION: windows_core::HRESULT = windows_core::HRESULT(0x80020009_u32 as _);
+pub const DISP_E_MEMBERNOTFOUND: windows_core::HRESULT = windows_core::HRESULT(0x80020003_u32 as _);
+pub const DISP_E_NONAMEDARGS: windows_core::HRESULT = windows_core::HRESULT(0x80020007_u32 as _);
+pub const DISP_E_NOTACOLLECTION: windows_core::HRESULT = windows_core::HRESULT(0x80020011_u32 as _);
+pub const DISP_E_OVERFLOW: windows_core::HRESULT = windows_core::HRESULT(0x8002000A_u32 as _);
+pub const DISP_E_PARAMNOTFOUND: windows_core::HRESULT = windows_core::HRESULT(0x80020004_u32 as _);
+pub const DISP_E_PARAMNOTOPTIONAL: windows_core::HRESULT = windows_core::HRESULT(0x8002000F_u32 as _);
+pub const DISP_E_TYPEMISMATCH: windows_core::HRESULT = windows_core::HRESULT(0x80020005_u32 as _);
+pub const DISP_E_UNKNOWNINTERFACE: windows_core::HRESULT = windows_core::HRESULT(0x80020001_u32 as _);
+pub const DISP_E_UNKNOWNLCID: windows_core::HRESULT = windows_core::HRESULT(0x8002000C_u32 as _);
+pub const DISP_E_UNKNOWNNAME: windows_core::HRESULT = windows_core::HRESULT(0x80020006_u32 as _);
 pub const DNS_ERROR_ADDRESS_REQUIRED: WIN32_ERROR = WIN32_ERROR(9573u32);
 pub const DNS_ERROR_ALIAS_LOOP: WIN32_ERROR = WIN32_ERROR(9722u32);
 pub const DNS_ERROR_AUTOZONE_ALREADY_EXISTS: WIN32_ERROR = WIN32_ERROR(9610u32);
@@ -997,80 +997,80 @@ pub const DNS_STATUS_FQDN: i32 = 9557i32;
 pub const DNS_STATUS_SINGLE_PART_NAME: i32 = 9559i32;
 pub const DNS_WARNING_DOMAIN_UNDELETED: i32 = 9716i32;
 pub const DNS_WARNING_PTR_CREATE_FAILED: i32 = 9715i32;
-pub const DRAGDROP_E_ALREADYREGISTERED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80040101_u32 as _);
-pub const DRAGDROP_E_CONCURRENT_DRAG_ATTEMPTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80040103_u32 as _);
+pub const DRAGDROP_E_ALREADYREGISTERED: windows_core::HRESULT = windows_core::HRESULT(0x80040101_u32 as _);
+pub const DRAGDROP_E_CONCURRENT_DRAG_ATTEMPTED: windows_core::HRESULT = windows_core::HRESULT(0x80040103_u32 as _);
 pub const DRAGDROP_E_FIRST: i32 = -2147221248i32;
-pub const DRAGDROP_E_INVALIDHWND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80040102_u32 as _);
+pub const DRAGDROP_E_INVALIDHWND: windows_core::HRESULT = windows_core::HRESULT(0x80040102_u32 as _);
 pub const DRAGDROP_E_LAST: i32 = -2147221233i32;
-pub const DRAGDROP_E_NOTREGISTERED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80040100_u32 as _);
-pub const DRAGDROP_S_CANCEL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x40101_u32 as _);
-pub const DRAGDROP_S_DROP: ::windows_core::HRESULT = ::windows_core::HRESULT(0x40100_u32 as _);
+pub const DRAGDROP_E_NOTREGISTERED: windows_core::HRESULT = windows_core::HRESULT(0x80040100_u32 as _);
+pub const DRAGDROP_S_CANCEL: windows_core::HRESULT = windows_core::HRESULT(0x40101_u32 as _);
+pub const DRAGDROP_S_DROP: windows_core::HRESULT = windows_core::HRESULT(0x40100_u32 as _);
 pub const DRAGDROP_S_FIRST: i32 = 262400i32;
 pub const DRAGDROP_S_LAST: i32 = 262415i32;
-pub const DRAGDROP_S_USEDEFAULTCURSORS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x40102_u32 as _);
+pub const DRAGDROP_S_USEDEFAULTCURSORS: windows_core::HRESULT = windows_core::HRESULT(0x40102_u32 as _);
 pub const DUPLICATE_CLOSE_SOURCE: DUPLICATE_HANDLE_OPTIONS = DUPLICATE_HANDLE_OPTIONS(1u32);
 pub const DUPLICATE_SAME_ACCESS: DUPLICATE_HANDLE_OPTIONS = DUPLICATE_HANDLE_OPTIONS(2u32);
-pub const DV_E_CLIPFORMAT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004006A_u32 as _);
-pub const DV_E_DVASPECT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004006B_u32 as _);
-pub const DV_E_DVTARGETDEVICE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80040065_u32 as _);
-pub const DV_E_DVTARGETDEVICE_SIZE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004006C_u32 as _);
-pub const DV_E_FORMATETC: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80040064_u32 as _);
-pub const DV_E_LINDEX: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80040068_u32 as _);
-pub const DV_E_NOIVIEWOBJECT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004006D_u32 as _);
-pub const DV_E_STATDATA: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80040067_u32 as _);
-pub const DV_E_STGMEDIUM: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80040066_u32 as _);
-pub const DV_E_TYMED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80040069_u32 as _);
-pub const DWMERR_CATASTROPHIC_FAILURE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88980702_u32 as _);
-pub const DWMERR_STATE_TRANSITION_FAILED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88980700_u32 as _);
-pub const DWMERR_THEME_FAILED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88980701_u32 as _);
-pub const DWM_E_ADAPTER_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80263005_u32 as _);
-pub const DWM_E_COMPOSITIONDISABLED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80263001_u32 as _);
-pub const DWM_E_NOT_QUEUING_PRESENTS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80263004_u32 as _);
-pub const DWM_E_NO_REDIRECTION_SURFACE_AVAILABLE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80263003_u32 as _);
-pub const DWM_E_REMOTING_NOT_SUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80263002_u32 as _);
-pub const DWM_E_TEXTURE_TOO_LARGE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80263007_u32 as _);
-pub const DWM_S_GDI_REDIRECTION_SURFACE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x263005_u32 as _);
-pub const DWM_S_GDI_REDIRECTION_SURFACE_BLT_VIA_GDI: ::windows_core::HRESULT = ::windows_core::HRESULT(0x263008_u32 as _);
-pub const DWRITE_E_ALREADYREGISTERED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88985006_u32 as _);
-pub const DWRITE_E_CACHEFORMAT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88985007_u32 as _);
-pub const DWRITE_E_CACHEVERSION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88985008_u32 as _);
-pub const DWRITE_E_FILEACCESS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88985004_u32 as _);
-pub const DWRITE_E_FILEFORMAT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88985000_u32 as _);
-pub const DWRITE_E_FILENOTFOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88985003_u32 as _);
-pub const DWRITE_E_FLOWDIRECTIONCONFLICTS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8898500B_u32 as _);
-pub const DWRITE_E_FONTCOLLECTIONOBSOLETE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88985005_u32 as _);
-pub const DWRITE_E_NOCOLOR: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8898500C_u32 as _);
-pub const DWRITE_E_NOFONT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88985002_u32 as _);
-pub const DWRITE_E_TEXTRENDERERINCOMPATIBLE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8898500A_u32 as _);
-pub const DWRITE_E_UNEXPECTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88985001_u32 as _);
-pub const DWRITE_E_UNSUPPORTEDOPERATION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88985009_u32 as _);
-pub const DXCORE_ERROR_EVENT_NOT_UNREGISTERED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88800001_u32 as _);
-pub const DXGI_DDI_ERR_NONEXCLUSIVE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x887B0003_u32 as _);
-pub const DXGI_DDI_ERR_UNSUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x887B0002_u32 as _);
-pub const DXGI_DDI_ERR_WASSTILLDRAWING: ::windows_core::HRESULT = ::windows_core::HRESULT(0x887B0001_u32 as _);
-pub const DXGI_STATUS_CLIPPED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87A0002_u32 as _);
-pub const DXGI_STATUS_DDA_WAS_STILL_DRAWING: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87A000A_u32 as _);
-pub const DXGI_STATUS_GRAPHICS_VIDPN_SOURCE_IN_USE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87A0006_u32 as _);
-pub const DXGI_STATUS_MODE_CHANGED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87A0007_u32 as _);
-pub const DXGI_STATUS_MODE_CHANGE_IN_PROGRESS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87A0008_u32 as _);
-pub const DXGI_STATUS_NO_DESKTOP_ACCESS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87A0005_u32 as _);
-pub const DXGI_STATUS_NO_REDIRECTION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87A0004_u32 as _);
-pub const DXGI_STATUS_OCCLUDED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87A0001_u32 as _);
-pub const DXGI_STATUS_PRESENT_REQUIRED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87A002F_u32 as _);
-pub const DXGI_STATUS_UNOCCLUDED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87A0009_u32 as _);
-pub const EAS_E_ADMINS_CANNOT_CHANGE_PASSWORD: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80550008_u32 as _);
-pub const EAS_E_ADMINS_HAVE_BLANK_PASSWORD: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80550007_u32 as _);
-pub const EAS_E_CONNECTED_ADMINS_NEED_TO_CHANGE_PASSWORD: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8055000B_u32 as _);
-pub const EAS_E_CURRENT_CONNECTED_USER_NEED_TO_CHANGE_PASSWORD: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8055000D_u32 as _);
-pub const EAS_E_CURRENT_USER_HAS_BLANK_PASSWORD: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80550004_u32 as _);
-pub const EAS_E_LOCAL_CONTROLLED_USERS_CANNOT_CHANGE_PASSWORD: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80550009_u32 as _);
-pub const EAS_E_PASSWORD_POLICY_NOT_ENFORCEABLE_FOR_CONNECTED_ADMINS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8055000A_u32 as _);
-pub const EAS_E_PASSWORD_POLICY_NOT_ENFORCEABLE_FOR_CURRENT_CONNECTED_USER: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8055000C_u32 as _);
-pub const EAS_E_POLICY_COMPLIANT_WITH_ACTIONS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80550002_u32 as _);
-pub const EAS_E_POLICY_NOT_MANAGED_BY_OS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80550001_u32 as _);
-pub const EAS_E_REQUESTED_POLICY_NOT_ENFORCEABLE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80550003_u32 as _);
-pub const EAS_E_REQUESTED_POLICY_PASSWORD_EXPIRATION_INCOMPATIBLE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80550005_u32 as _);
-pub const EAS_E_USER_CANNOT_CHANGE_PASSWORD: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80550006_u32 as _);
+pub const DV_E_CLIPFORMAT: windows_core::HRESULT = windows_core::HRESULT(0x8004006A_u32 as _);
+pub const DV_E_DVASPECT: windows_core::HRESULT = windows_core::HRESULT(0x8004006B_u32 as _);
+pub const DV_E_DVTARGETDEVICE: windows_core::HRESULT = windows_core::HRESULT(0x80040065_u32 as _);
+pub const DV_E_DVTARGETDEVICE_SIZE: windows_core::HRESULT = windows_core::HRESULT(0x8004006C_u32 as _);
+pub const DV_E_FORMATETC: windows_core::HRESULT = windows_core::HRESULT(0x80040064_u32 as _);
+pub const DV_E_LINDEX: windows_core::HRESULT = windows_core::HRESULT(0x80040068_u32 as _);
+pub const DV_E_NOIVIEWOBJECT: windows_core::HRESULT = windows_core::HRESULT(0x8004006D_u32 as _);
+pub const DV_E_STATDATA: windows_core::HRESULT = windows_core::HRESULT(0x80040067_u32 as _);
+pub const DV_E_STGMEDIUM: windows_core::HRESULT = windows_core::HRESULT(0x80040066_u32 as _);
+pub const DV_E_TYMED: windows_core::HRESULT = windows_core::HRESULT(0x80040069_u32 as _);
+pub const DWMERR_CATASTROPHIC_FAILURE: windows_core::HRESULT = windows_core::HRESULT(0x88980702_u32 as _);
+pub const DWMERR_STATE_TRANSITION_FAILED: windows_core::HRESULT = windows_core::HRESULT(0x88980700_u32 as _);
+pub const DWMERR_THEME_FAILED: windows_core::HRESULT = windows_core::HRESULT(0x88980701_u32 as _);
+pub const DWM_E_ADAPTER_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0x80263005_u32 as _);
+pub const DWM_E_COMPOSITIONDISABLED: windows_core::HRESULT = windows_core::HRESULT(0x80263001_u32 as _);
+pub const DWM_E_NOT_QUEUING_PRESENTS: windows_core::HRESULT = windows_core::HRESULT(0x80263004_u32 as _);
+pub const DWM_E_NO_REDIRECTION_SURFACE_AVAILABLE: windows_core::HRESULT = windows_core::HRESULT(0x80263003_u32 as _);
+pub const DWM_E_REMOTING_NOT_SUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x80263002_u32 as _);
+pub const DWM_E_TEXTURE_TOO_LARGE: windows_core::HRESULT = windows_core::HRESULT(0x80263007_u32 as _);
+pub const DWM_S_GDI_REDIRECTION_SURFACE: windows_core::HRESULT = windows_core::HRESULT(0x263005_u32 as _);
+pub const DWM_S_GDI_REDIRECTION_SURFACE_BLT_VIA_GDI: windows_core::HRESULT = windows_core::HRESULT(0x263008_u32 as _);
+pub const DWRITE_E_ALREADYREGISTERED: windows_core::HRESULT = windows_core::HRESULT(0x88985006_u32 as _);
+pub const DWRITE_E_CACHEFORMAT: windows_core::HRESULT = windows_core::HRESULT(0x88985007_u32 as _);
+pub const DWRITE_E_CACHEVERSION: windows_core::HRESULT = windows_core::HRESULT(0x88985008_u32 as _);
+pub const DWRITE_E_FILEACCESS: windows_core::HRESULT = windows_core::HRESULT(0x88985004_u32 as _);
+pub const DWRITE_E_FILEFORMAT: windows_core::HRESULT = windows_core::HRESULT(0x88985000_u32 as _);
+pub const DWRITE_E_FILENOTFOUND: windows_core::HRESULT = windows_core::HRESULT(0x88985003_u32 as _);
+pub const DWRITE_E_FLOWDIRECTIONCONFLICTS: windows_core::HRESULT = windows_core::HRESULT(0x8898500B_u32 as _);
+pub const DWRITE_E_FONTCOLLECTIONOBSOLETE: windows_core::HRESULT = windows_core::HRESULT(0x88985005_u32 as _);
+pub const DWRITE_E_NOCOLOR: windows_core::HRESULT = windows_core::HRESULT(0x8898500C_u32 as _);
+pub const DWRITE_E_NOFONT: windows_core::HRESULT = windows_core::HRESULT(0x88985002_u32 as _);
+pub const DWRITE_E_TEXTRENDERERINCOMPATIBLE: windows_core::HRESULT = windows_core::HRESULT(0x8898500A_u32 as _);
+pub const DWRITE_E_UNEXPECTED: windows_core::HRESULT = windows_core::HRESULT(0x88985001_u32 as _);
+pub const DWRITE_E_UNSUPPORTEDOPERATION: windows_core::HRESULT = windows_core::HRESULT(0x88985009_u32 as _);
+pub const DXCORE_ERROR_EVENT_NOT_UNREGISTERED: windows_core::HRESULT = windows_core::HRESULT(0x88800001_u32 as _);
+pub const DXGI_DDI_ERR_NONEXCLUSIVE: windows_core::HRESULT = windows_core::HRESULT(0x887B0003_u32 as _);
+pub const DXGI_DDI_ERR_UNSUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x887B0002_u32 as _);
+pub const DXGI_DDI_ERR_WASSTILLDRAWING: windows_core::HRESULT = windows_core::HRESULT(0x887B0001_u32 as _);
+pub const DXGI_STATUS_CLIPPED: windows_core::HRESULT = windows_core::HRESULT(0x87A0002_u32 as _);
+pub const DXGI_STATUS_DDA_WAS_STILL_DRAWING: windows_core::HRESULT = windows_core::HRESULT(0x87A000A_u32 as _);
+pub const DXGI_STATUS_GRAPHICS_VIDPN_SOURCE_IN_USE: windows_core::HRESULT = windows_core::HRESULT(0x87A0006_u32 as _);
+pub const DXGI_STATUS_MODE_CHANGED: windows_core::HRESULT = windows_core::HRESULT(0x87A0007_u32 as _);
+pub const DXGI_STATUS_MODE_CHANGE_IN_PROGRESS: windows_core::HRESULT = windows_core::HRESULT(0x87A0008_u32 as _);
+pub const DXGI_STATUS_NO_DESKTOP_ACCESS: windows_core::HRESULT = windows_core::HRESULT(0x87A0005_u32 as _);
+pub const DXGI_STATUS_NO_REDIRECTION: windows_core::HRESULT = windows_core::HRESULT(0x87A0004_u32 as _);
+pub const DXGI_STATUS_OCCLUDED: windows_core::HRESULT = windows_core::HRESULT(0x87A0001_u32 as _);
+pub const DXGI_STATUS_PRESENT_REQUIRED: windows_core::HRESULT = windows_core::HRESULT(0x87A002F_u32 as _);
+pub const DXGI_STATUS_UNOCCLUDED: windows_core::HRESULT = windows_core::HRESULT(0x87A0009_u32 as _);
+pub const EAS_E_ADMINS_CANNOT_CHANGE_PASSWORD: windows_core::HRESULT = windows_core::HRESULT(0x80550008_u32 as _);
+pub const EAS_E_ADMINS_HAVE_BLANK_PASSWORD: windows_core::HRESULT = windows_core::HRESULT(0x80550007_u32 as _);
+pub const EAS_E_CONNECTED_ADMINS_NEED_TO_CHANGE_PASSWORD: windows_core::HRESULT = windows_core::HRESULT(0x8055000B_u32 as _);
+pub const EAS_E_CURRENT_CONNECTED_USER_NEED_TO_CHANGE_PASSWORD: windows_core::HRESULT = windows_core::HRESULT(0x8055000D_u32 as _);
+pub const EAS_E_CURRENT_USER_HAS_BLANK_PASSWORD: windows_core::HRESULT = windows_core::HRESULT(0x80550004_u32 as _);
+pub const EAS_E_LOCAL_CONTROLLED_USERS_CANNOT_CHANGE_PASSWORD: windows_core::HRESULT = windows_core::HRESULT(0x80550009_u32 as _);
+pub const EAS_E_PASSWORD_POLICY_NOT_ENFORCEABLE_FOR_CONNECTED_ADMINS: windows_core::HRESULT = windows_core::HRESULT(0x8055000A_u32 as _);
+pub const EAS_E_PASSWORD_POLICY_NOT_ENFORCEABLE_FOR_CURRENT_CONNECTED_USER: windows_core::HRESULT = windows_core::HRESULT(0x8055000C_u32 as _);
+pub const EAS_E_POLICY_COMPLIANT_WITH_ACTIONS: windows_core::HRESULT = windows_core::HRESULT(0x80550002_u32 as _);
+pub const EAS_E_POLICY_NOT_MANAGED_BY_OS: windows_core::HRESULT = windows_core::HRESULT(0x80550001_u32 as _);
+pub const EAS_E_REQUESTED_POLICY_NOT_ENFORCEABLE: windows_core::HRESULT = windows_core::HRESULT(0x80550003_u32 as _);
+pub const EAS_E_REQUESTED_POLICY_PASSWORD_EXPIRATION_INCOMPATIBLE: windows_core::HRESULT = windows_core::HRESULT(0x80550005_u32 as _);
+pub const EAS_E_USER_CANNOT_CHANGE_PASSWORD: windows_core::HRESULT = windows_core::HRESULT(0x80550006_u32 as _);
 pub const ENUM_E_FIRST: i32 = -2147221072i32;
 pub const ENUM_E_LAST: i32 = -2147221057i32;
 pub const ENUM_S_FIRST: i32 = 262576i32;
@@ -1107,7 +1107,7 @@ pub const ERROR_ALLOCATE_BUCKET: WIN32_ERROR = WIN32_ERROR(602u32);
 pub const ERROR_ALLOTTED_SPACE_EXCEEDED: WIN32_ERROR = WIN32_ERROR(1344u32);
 pub const ERROR_ALLOWED_PORT_TYPE_RESTRICTION: u32 = 941u32;
 pub const ERROR_ALL_NODES_NOT_AVAILABLE: WIN32_ERROR = WIN32_ERROR(5037u32);
-pub const ERROR_ALL_SIDS_FILTERED: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0090002_u32 as _);
+pub const ERROR_ALL_SIDS_FILTERED: windows_core::HRESULT = windows_core::HRESULT(0xC0090002_u32 as _);
 pub const ERROR_ALL_USER_TRUST_QUOTA_EXCEEDED: WIN32_ERROR = WIN32_ERROR(1933u32);
 pub const ERROR_ALREADY_ASSIGNED: WIN32_ERROR = WIN32_ERROR(85u32);
 pub const ERROR_ALREADY_CONNECTED: u32 = 901u32;
@@ -1157,8 +1157,8 @@ pub const ERROR_ARENA_TRASHED: WIN32_ERROR = WIN32_ERROR(7u32);
 pub const ERROR_ARITHMETIC_OVERFLOW: WIN32_ERROR = WIN32_ERROR(534u32);
 pub const ERROR_ASSERTION_FAILURE: WIN32_ERROR = WIN32_ERROR(668u32);
 pub const ERROR_ATOMIC_LOCKS_NOT_SUPPORTED: WIN32_ERROR = WIN32_ERROR(174u32);
-pub const ERROR_ATTRIBUTE_NOT_PRESENT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8083000A_u32 as _);
-pub const ERROR_AUDITING_DISABLED: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0090001_u32 as _);
+pub const ERROR_ATTRIBUTE_NOT_PRESENT: windows_core::HRESULT = windows_core::HRESULT(0x8083000A_u32 as _);
+pub const ERROR_AUDITING_DISABLED: windows_core::HRESULT = windows_core::HRESULT(0xC0090001_u32 as _);
 pub const ERROR_AUDIT_FAILED: WIN32_ERROR = WIN32_ERROR(606u32);
 pub const ERROR_AUTHENTICATION_FIREWALL_FAILED: WIN32_ERROR = WIN32_ERROR(1935u32);
 pub const ERROR_AUTHENTICATOR_MISMATCH: u32 = 955u32;
@@ -1228,7 +1228,7 @@ pub const ERROR_BCD_TOO_MANY_ELEMENTS: WIN32_ERROR = WIN32_ERROR(3224961026u32);
 pub const ERROR_BEGINNING_OF_MEDIA: WIN32_ERROR = WIN32_ERROR(1102u32);
 pub const ERROR_BEYOND_VDL: WIN32_ERROR = WIN32_ERROR(1289u32);
 pub const ERROR_BIOS_FAILED_TO_CONNECT_INTERRUPT: WIN32_ERROR = WIN32_ERROR(585u32);
-pub const ERROR_BIZRULES_NOT_ENABLED: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0090003_u32 as _);
+pub const ERROR_BIZRULES_NOT_ENABLED: windows_core::HRESULT = windows_core::HRESULT(0xC0090003_u32 as _);
 pub const ERROR_BLOCKED_BY_PARENTAL_CONTROLS: WIN32_ERROR = WIN32_ERROR(346u32);
 pub const ERROR_BLOCK_SHARED: WIN32_ERROR = WIN32_ERROR(514u32);
 pub const ERROR_BLOCK_SOURCE_WEAK_REFERENCE_INVALID: WIN32_ERROR = WIN32_ERROR(512u32);
@@ -1327,15 +1327,15 @@ pub const ERROR_CLIENT_INTERFACE_ALREADY_EXISTS: u32 = 915u32;
 pub const ERROR_CLIENT_SERVER_PARAMETERS_INVALID: WIN32_ERROR = WIN32_ERROR(597u32);
 pub const ERROR_CLIPBOARD_NOT_OPEN: WIN32_ERROR = WIN32_ERROR(1418u32);
 pub const ERROR_CLIPPING_NOT_SUPPORTED: WIN32_ERROR = WIN32_ERROR(2005u32);
-pub const ERROR_CLIP_DEVICE_LICENSE_MISSING: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0EA0003_u32 as _);
-pub const ERROR_CLIP_KEYHOLDER_LICENSE_MISSING_OR_INVALID: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0EA0005_u32 as _);
-pub const ERROR_CLIP_LICENSE_DEVICE_ID_MISMATCH: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0EA000A_u32 as _);
-pub const ERROR_CLIP_LICENSE_EXPIRED: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0EA0006_u32 as _);
-pub const ERROR_CLIP_LICENSE_HARDWARE_ID_OUT_OF_TOLERANCE: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0EA0009_u32 as _);
-pub const ERROR_CLIP_LICENSE_INVALID_SIGNATURE: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0EA0004_u32 as _);
-pub const ERROR_CLIP_LICENSE_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0EA0002_u32 as _);
-pub const ERROR_CLIP_LICENSE_NOT_SIGNED: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0EA0008_u32 as _);
-pub const ERROR_CLIP_LICENSE_SIGNED_BY_UNKNOWN_SOURCE: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0EA0007_u32 as _);
+pub const ERROR_CLIP_DEVICE_LICENSE_MISSING: windows_core::HRESULT = windows_core::HRESULT(0xC0EA0003_u32 as _);
+pub const ERROR_CLIP_KEYHOLDER_LICENSE_MISSING_OR_INVALID: windows_core::HRESULT = windows_core::HRESULT(0xC0EA0005_u32 as _);
+pub const ERROR_CLIP_LICENSE_DEVICE_ID_MISMATCH: windows_core::HRESULT = windows_core::HRESULT(0xC0EA000A_u32 as _);
+pub const ERROR_CLIP_LICENSE_EXPIRED: windows_core::HRESULT = windows_core::HRESULT(0xC0EA0006_u32 as _);
+pub const ERROR_CLIP_LICENSE_HARDWARE_ID_OUT_OF_TOLERANCE: windows_core::HRESULT = windows_core::HRESULT(0xC0EA0009_u32 as _);
+pub const ERROR_CLIP_LICENSE_INVALID_SIGNATURE: windows_core::HRESULT = windows_core::HRESULT(0xC0EA0004_u32 as _);
+pub const ERROR_CLIP_LICENSE_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0xC0EA0002_u32 as _);
+pub const ERROR_CLIP_LICENSE_NOT_SIGNED: windows_core::HRESULT = windows_core::HRESULT(0xC0EA0008_u32 as _);
+pub const ERROR_CLIP_LICENSE_SIGNED_BY_UNKNOWN_SOURCE: windows_core::HRESULT = windows_core::HRESULT(0xC0EA0007_u32 as _);
 pub const ERROR_CLOUD_FILE_ACCESS_DENIED: WIN32_ERROR = WIN32_ERROR(395u32);
 pub const ERROR_CLOUD_FILE_ALREADY_CONNECTED: WIN32_ERROR = WIN32_ERROR(378u32);
 pub const ERROR_CLOUD_FILE_AUTHENTICATION_FAILED: WIN32_ERROR = WIN32_ERROR(386u32);
@@ -1549,7 +1549,7 @@ pub const ERROR_CPU_SET_INVALID: WIN32_ERROR = WIN32_ERROR(813u32);
 pub const ERROR_CRASH_DUMP: WIN32_ERROR = WIN32_ERROR(753u32);
 pub const ERROR_CRC: WIN32_ERROR = WIN32_ERROR(23u32);
 pub const ERROR_CREATE_FAILED: WIN32_ERROR = WIN32_ERROR(1631u32);
-pub const ERROR_CRED_REQUIRES_CONFIRMATION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80097019_u32 as _);
+pub const ERROR_CRED_REQUIRES_CONFIRMATION: windows_core::HRESULT = windows_core::HRESULT(0x80097019_u32 as _);
 pub const ERROR_CRM_PROTOCOL_ALREADY_EXISTS: WIN32_ERROR = WIN32_ERROR(6710u32);
 pub const ERROR_CRM_PROTOCOL_NOT_FOUND: WIN32_ERROR = WIN32_ERROR(6712u32);
 pub const ERROR_CROSS_PARTITION_VIOLATION: WIN32_ERROR = WIN32_ERROR(1661u32);
@@ -1624,19 +1624,19 @@ pub const ERROR_DATA_CHECKSUM_ERROR: WIN32_ERROR = WIN32_ERROR(323u32);
 pub const ERROR_DATA_LOST_REPAIR: WIN32_ERROR = WIN32_ERROR(6843u32);
 pub const ERROR_DATA_NOT_ACCEPTED: WIN32_ERROR = WIN32_ERROR(592u32);
 pub const ERROR_DAX_MAPPING_EXISTS: WIN32_ERROR = WIN32_ERROR(361u32);
-pub const ERROR_DBG_ATTACH_PROCESS_FAILURE_LOCKDOWN: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80B00002_u32 as _);
+pub const ERROR_DBG_ATTACH_PROCESS_FAILURE_LOCKDOWN: windows_core::HRESULT = windows_core::HRESULT(0x80B00002_u32 as _);
 pub const ERROR_DBG_COMMAND_EXCEPTION: WIN32_ERROR = WIN32_ERROR(697u32);
-pub const ERROR_DBG_CONNECT_SERVER_FAILURE_LOCKDOWN: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80B00003_u32 as _);
+pub const ERROR_DBG_CONNECT_SERVER_FAILURE_LOCKDOWN: windows_core::HRESULT = windows_core::HRESULT(0x80B00003_u32 as _);
 pub const ERROR_DBG_CONTINUE: WIN32_ERROR = WIN32_ERROR(767u32);
 pub const ERROR_DBG_CONTROL_BREAK: WIN32_ERROR = WIN32_ERROR(696u32);
 pub const ERROR_DBG_CONTROL_C: WIN32_ERROR = WIN32_ERROR(693u32);
-pub const ERROR_DBG_CREATE_PROCESS_FAILURE_LOCKDOWN: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80B00001_u32 as _);
+pub const ERROR_DBG_CREATE_PROCESS_FAILURE_LOCKDOWN: windows_core::HRESULT = windows_core::HRESULT(0x80B00001_u32 as _);
 pub const ERROR_DBG_EXCEPTION_HANDLED: WIN32_ERROR = WIN32_ERROR(766u32);
 pub const ERROR_DBG_EXCEPTION_NOT_HANDLED: WIN32_ERROR = WIN32_ERROR(688u32);
 pub const ERROR_DBG_PRINTEXCEPTION_C: WIN32_ERROR = WIN32_ERROR(694u32);
 pub const ERROR_DBG_REPLY_LATER: WIN32_ERROR = WIN32_ERROR(689u32);
 pub const ERROR_DBG_RIPEXCEPTION: WIN32_ERROR = WIN32_ERROR(695u32);
-pub const ERROR_DBG_START_SERVER_FAILURE_LOCKDOWN: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80B00004_u32 as _);
+pub const ERROR_DBG_START_SERVER_FAILURE_LOCKDOWN: windows_core::HRESULT = windows_core::HRESULT(0x80B00004_u32 as _);
 pub const ERROR_DBG_TERMINATE_PROCESS: WIN32_ERROR = WIN32_ERROR(692u32);
 pub const ERROR_DBG_TERMINATE_THREAD: WIN32_ERROR = WIN32_ERROR(691u32);
 pub const ERROR_DBG_UNABLE_TO_PROVIDE_HANDLE: WIN32_ERROR = WIN32_ERROR(690u32);
@@ -1747,7 +1747,7 @@ pub const ERROR_DLL_NOT_FOUND: WIN32_ERROR = WIN32_ERROR(1157u32);
 pub const ERROR_DLP_POLICY_DENIES_OPERATION: WIN32_ERROR = WIN32_ERROR(446u32);
 pub const ERROR_DLP_POLICY_SILENTLY_FAIL: WIN32_ERROR = WIN32_ERROR(449u32);
 pub const ERROR_DLP_POLICY_WARNS_AGAINST_OPERATION: WIN32_ERROR = WIN32_ERROR(445u32);
-pub const ERROR_DM_OPERATION_LIMIT_EXCEEDED: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0370600_u32 as _);
+pub const ERROR_DM_OPERATION_LIMIT_EXCEEDED: windows_core::HRESULT = windows_core::HRESULT(0xC0370600_u32 as _);
 pub const ERROR_DOMAIN_CONTROLLER_EXISTS: WIN32_ERROR = WIN32_ERROR(1250u32);
 pub const ERROR_DOMAIN_CONTROLLER_NOT_FOUND: WIN32_ERROR = WIN32_ERROR(1908u32);
 pub const ERROR_DOMAIN_CTRLR_CONFIG_ERROR: WIN32_ERROR = WIN32_ERROR(581u32);
@@ -2324,38 +2324,38 @@ pub const ERROR_FLOPPY_ID_MARK_NOT_FOUND: WIN32_ERROR = WIN32_ERROR(1122u32);
 pub const ERROR_FLOPPY_UNKNOWN_ERROR: WIN32_ERROR = WIN32_ERROR(1124u32);
 pub const ERROR_FLOPPY_VOLUME: WIN32_ERROR = WIN32_ERROR(584u32);
 pub const ERROR_FLOPPY_WRONG_CYLINDER: WIN32_ERROR = WIN32_ERROR(1123u32);
-pub const ERROR_FLT_ALREADY_ENLISTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x801F001B_u32 as _);
-pub const ERROR_FLT_CBDQ_DISABLED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x801F000E_u32 as _);
-pub const ERROR_FLT_CONTEXT_ALLOCATION_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x801F0016_u32 as _);
-pub const ERROR_FLT_CONTEXT_ALREADY_DEFINED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x801F0002_u32 as _);
-pub const ERROR_FLT_CONTEXT_ALREADY_LINKED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x801F001C_u32 as _);
-pub const ERROR_FLT_DELETING_OBJECT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x801F000B_u32 as _);
-pub const ERROR_FLT_DISALLOW_FAST_IO: ::windows_core::HRESULT = ::windows_core::HRESULT(0x801F0004_u32 as _);
-pub const ERROR_FLT_DO_NOT_ATTACH: ::windows_core::HRESULT = ::windows_core::HRESULT(0x801F000F_u32 as _);
-pub const ERROR_FLT_DO_NOT_DETACH: ::windows_core::HRESULT = ::windows_core::HRESULT(0x801F0010_u32 as _);
-pub const ERROR_FLT_DUPLICATE_ENTRY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x801F000D_u32 as _);
-pub const ERROR_FLT_FILTER_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x801F0013_u32 as _);
-pub const ERROR_FLT_FILTER_NOT_READY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x801F0008_u32 as _);
-pub const ERROR_FLT_INSTANCE_ALTITUDE_COLLISION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x801F0011_u32 as _);
-pub const ERROR_FLT_INSTANCE_NAME_COLLISION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x801F0012_u32 as _);
-pub const ERROR_FLT_INSTANCE_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x801F0015_u32 as _);
-pub const ERROR_FLT_INTERNAL_ERROR: ::windows_core::HRESULT = ::windows_core::HRESULT(0x801F000A_u32 as _);
-pub const ERROR_FLT_INVALID_ASYNCHRONOUS_REQUEST: ::windows_core::HRESULT = ::windows_core::HRESULT(0x801F0003_u32 as _);
-pub const ERROR_FLT_INVALID_CONTEXT_REGISTRATION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x801F0017_u32 as _);
-pub const ERROR_FLT_INVALID_NAME_REQUEST: ::windows_core::HRESULT = ::windows_core::HRESULT(0x801F0005_u32 as _);
-pub const ERROR_FLT_IO_COMPLETE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x1F0001_u32 as _);
-pub const ERROR_FLT_MUST_BE_NONPAGED_POOL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x801F000C_u32 as _);
-pub const ERROR_FLT_NAME_CACHE_MISS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x801F0018_u32 as _);
-pub const ERROR_FLT_NOT_INITIALIZED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x801F0007_u32 as _);
-pub const ERROR_FLT_NOT_SAFE_TO_POST_OPERATION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x801F0006_u32 as _);
-pub const ERROR_FLT_NO_DEVICE_OBJECT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x801F0019_u32 as _);
-pub const ERROR_FLT_NO_HANDLER_DEFINED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x801F0001_u32 as _);
-pub const ERROR_FLT_NO_WAITER_FOR_REPLY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x801F0020_u32 as _);
-pub const ERROR_FLT_POST_OPERATION_CLEANUP: ::windows_core::HRESULT = ::windows_core::HRESULT(0x801F0009_u32 as _);
-pub const ERROR_FLT_REGISTRATION_BUSY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x801F0023_u32 as _);
-pub const ERROR_FLT_VOLUME_ALREADY_MOUNTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x801F001A_u32 as _);
-pub const ERROR_FLT_VOLUME_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x801F0014_u32 as _);
-pub const ERROR_FLT_WCOS_NOT_SUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x801F0024_u32 as _);
+pub const ERROR_FLT_ALREADY_ENLISTED: windows_core::HRESULT = windows_core::HRESULT(0x801F001B_u32 as _);
+pub const ERROR_FLT_CBDQ_DISABLED: windows_core::HRESULT = windows_core::HRESULT(0x801F000E_u32 as _);
+pub const ERROR_FLT_CONTEXT_ALLOCATION_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0x801F0016_u32 as _);
+pub const ERROR_FLT_CONTEXT_ALREADY_DEFINED: windows_core::HRESULT = windows_core::HRESULT(0x801F0002_u32 as _);
+pub const ERROR_FLT_CONTEXT_ALREADY_LINKED: windows_core::HRESULT = windows_core::HRESULT(0x801F001C_u32 as _);
+pub const ERROR_FLT_DELETING_OBJECT: windows_core::HRESULT = windows_core::HRESULT(0x801F000B_u32 as _);
+pub const ERROR_FLT_DISALLOW_FAST_IO: windows_core::HRESULT = windows_core::HRESULT(0x801F0004_u32 as _);
+pub const ERROR_FLT_DO_NOT_ATTACH: windows_core::HRESULT = windows_core::HRESULT(0x801F000F_u32 as _);
+pub const ERROR_FLT_DO_NOT_DETACH: windows_core::HRESULT = windows_core::HRESULT(0x801F0010_u32 as _);
+pub const ERROR_FLT_DUPLICATE_ENTRY: windows_core::HRESULT = windows_core::HRESULT(0x801F000D_u32 as _);
+pub const ERROR_FLT_FILTER_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0x801F0013_u32 as _);
+pub const ERROR_FLT_FILTER_NOT_READY: windows_core::HRESULT = windows_core::HRESULT(0x801F0008_u32 as _);
+pub const ERROR_FLT_INSTANCE_ALTITUDE_COLLISION: windows_core::HRESULT = windows_core::HRESULT(0x801F0011_u32 as _);
+pub const ERROR_FLT_INSTANCE_NAME_COLLISION: windows_core::HRESULT = windows_core::HRESULT(0x801F0012_u32 as _);
+pub const ERROR_FLT_INSTANCE_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0x801F0015_u32 as _);
+pub const ERROR_FLT_INTERNAL_ERROR: windows_core::HRESULT = windows_core::HRESULT(0x801F000A_u32 as _);
+pub const ERROR_FLT_INVALID_ASYNCHRONOUS_REQUEST: windows_core::HRESULT = windows_core::HRESULT(0x801F0003_u32 as _);
+pub const ERROR_FLT_INVALID_CONTEXT_REGISTRATION: windows_core::HRESULT = windows_core::HRESULT(0x801F0017_u32 as _);
+pub const ERROR_FLT_INVALID_NAME_REQUEST: windows_core::HRESULT = windows_core::HRESULT(0x801F0005_u32 as _);
+pub const ERROR_FLT_IO_COMPLETE: windows_core::HRESULT = windows_core::HRESULT(0x1F0001_u32 as _);
+pub const ERROR_FLT_MUST_BE_NONPAGED_POOL: windows_core::HRESULT = windows_core::HRESULT(0x801F000C_u32 as _);
+pub const ERROR_FLT_NAME_CACHE_MISS: windows_core::HRESULT = windows_core::HRESULT(0x801F0018_u32 as _);
+pub const ERROR_FLT_NOT_INITIALIZED: windows_core::HRESULT = windows_core::HRESULT(0x801F0007_u32 as _);
+pub const ERROR_FLT_NOT_SAFE_TO_POST_OPERATION: windows_core::HRESULT = windows_core::HRESULT(0x801F0006_u32 as _);
+pub const ERROR_FLT_NO_DEVICE_OBJECT: windows_core::HRESULT = windows_core::HRESULT(0x801F0019_u32 as _);
+pub const ERROR_FLT_NO_HANDLER_DEFINED: windows_core::HRESULT = windows_core::HRESULT(0x801F0001_u32 as _);
+pub const ERROR_FLT_NO_WAITER_FOR_REPLY: windows_core::HRESULT = windows_core::HRESULT(0x801F0020_u32 as _);
+pub const ERROR_FLT_POST_OPERATION_CLEANUP: windows_core::HRESULT = windows_core::HRESULT(0x801F0009_u32 as _);
+pub const ERROR_FLT_REGISTRATION_BUSY: windows_core::HRESULT = windows_core::HRESULT(0x801F0023_u32 as _);
+pub const ERROR_FLT_VOLUME_ALREADY_MOUNTED: windows_core::HRESULT = windows_core::HRESULT(0x801F001A_u32 as _);
+pub const ERROR_FLT_VOLUME_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0x801F0014_u32 as _);
+pub const ERROR_FLT_WCOS_NOT_SUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x801F0024_u32 as _);
 pub const ERROR_FORMS_AUTH_REQUIRED: WIN32_ERROR = WIN32_ERROR(224u32);
 pub const ERROR_FOUND_OUT_OF_SCOPE: WIN32_ERROR = WIN32_ERROR(601u32);
 pub const ERROR_FSFILTER_OP_COMPLETED_SUCCESSFULLY: WIN32_ERROR = WIN32_ERROR(762u32);
@@ -2385,212 +2385,212 @@ pub const ERROR_GPIO_INVALID_REGISTRATION_PACKET: WIN32_ERROR = WIN32_ERROR(1532
 pub const ERROR_GPIO_OPERATION_DENIED: WIN32_ERROR = WIN32_ERROR(15325u32);
 pub const ERROR_GPIO_VERSION_NOT_SUPPORTED: WIN32_ERROR = WIN32_ERROR(15323u32);
 pub const ERROR_GRACEFUL_DISCONNECT: WIN32_ERROR = WIN32_ERROR(1226u32);
-pub const ERROR_GRAPHICS_ADAPTER_ACCESS_NOT_EXCLUDED: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC026243B_u32 as _);
-pub const ERROR_GRAPHICS_ADAPTER_CHAIN_NOT_READY: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262433_u32 as _);
-pub const ERROR_GRAPHICS_ADAPTER_MUST_HAVE_AT_LEAST_ONE_SOURCE: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262328_u32 as _);
-pub const ERROR_GRAPHICS_ADAPTER_MUST_HAVE_AT_LEAST_ONE_TARGET: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262329_u32 as _);
-pub const ERROR_GRAPHICS_ADAPTER_WAS_RESET: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262003_u32 as _);
-pub const ERROR_GRAPHICS_ALLOCATION_BUSY: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262102_u32 as _);
-pub const ERROR_GRAPHICS_ALLOCATION_CLOSED: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262112_u32 as _);
-pub const ERROR_GRAPHICS_ALLOCATION_CONTENT_LOST: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262116_u32 as _);
-pub const ERROR_GRAPHICS_ALLOCATION_INVALID: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262106_u32 as _);
-pub const ERROR_GRAPHICS_CANCEL_VIDPN_TOPOLOGY_AUGMENTATION: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC026235A_u32 as _);
-pub const ERROR_GRAPHICS_CANNOTCOLORCONVERT: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262008_u32 as _);
-pub const ERROR_GRAPHICS_CANT_ACCESS_ACTIVE_VIDPN: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262343_u32 as _);
-pub const ERROR_GRAPHICS_CANT_EVICT_PINNED_ALLOCATION: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262109_u32 as _);
-pub const ERROR_GRAPHICS_CANT_LOCK_MEMORY: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262101_u32 as _);
-pub const ERROR_GRAPHICS_CANT_RENDER_LOCKED_ALLOCATION: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262111_u32 as _);
-pub const ERROR_GRAPHICS_CHAINLINKS_NOT_ENUMERATED: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262432_u32 as _);
-pub const ERROR_GRAPHICS_CHAINLINKS_NOT_POWERED_ON: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262435_u32 as _);
-pub const ERROR_GRAPHICS_CHAINLINKS_NOT_STARTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262434_u32 as _);
-pub const ERROR_GRAPHICS_CHILD_DESCRIPTOR_NOT_SUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262401_u32 as _);
-pub const ERROR_GRAPHICS_CLIENTVIDPN_NOT_SET: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC026235C_u32 as _);
-pub const ERROR_GRAPHICS_COPP_NOT_SUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262501_u32 as _);
-pub const ERROR_GRAPHICS_DATASET_IS_EMPTY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x26234B_u32 as _);
-pub const ERROR_GRAPHICS_DDCCI_CURRENT_CURRENT_VALUE_GREATER_THAN_MAXIMUM_VALUE: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC02625D8_u32 as _);
-pub const ERROR_GRAPHICS_DDCCI_INVALID_DATA: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262585_u32 as _);
-pub const ERROR_GRAPHICS_DDCCI_INVALID_MESSAGE_CHECKSUM: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC026258B_u32 as _);
-pub const ERROR_GRAPHICS_DDCCI_INVALID_MESSAGE_COMMAND: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262589_u32 as _);
-pub const ERROR_GRAPHICS_DDCCI_INVALID_MESSAGE_LENGTH: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC026258A_u32 as _);
-pub const ERROR_GRAPHICS_DDCCI_MONITOR_RETURNED_INVALID_TIMING_STATUS_BYTE: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262586_u32 as _);
-pub const ERROR_GRAPHICS_DDCCI_VCP_NOT_SUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262584_u32 as _);
-pub const ERROR_GRAPHICS_DEPENDABLE_CHILD_STATUS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x4026243C_u32 as _);
-pub const ERROR_GRAPHICS_DISPLAY_DEVICE_NOT_ATTACHED_TO_DESKTOP: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC02625E2_u32 as _);
-pub const ERROR_GRAPHICS_DRIVER_MISMATCH: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262009_u32 as _);
-pub const ERROR_GRAPHICS_EMPTY_ADAPTER_MONITOR_MODE_SUPPORT_INTERSECTION: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262325_u32 as _);
-pub const ERROR_GRAPHICS_FREQUENCYRANGE_ALREADY_IN_SET: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC026231F_u32 as _);
-pub const ERROR_GRAPHICS_FREQUENCYRANGE_NOT_IN_SET: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC026231D_u32 as _);
-pub const ERROR_GRAPHICS_GAMMA_RAMP_NOT_SUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262348_u32 as _);
-pub const ERROR_GRAPHICS_GPU_EXCEPTION_ON_DEVICE: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262200_u32 as _);
-pub const ERROR_GRAPHICS_I2C_DEVICE_DOES_NOT_EXIST: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262581_u32 as _);
-pub const ERROR_GRAPHICS_I2C_ERROR_RECEIVING_DATA: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262583_u32 as _);
-pub const ERROR_GRAPHICS_I2C_ERROR_TRANSMITTING_DATA: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262582_u32 as _);
-pub const ERROR_GRAPHICS_I2C_NOT_SUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262580_u32 as _);
-pub const ERROR_GRAPHICS_INCOMPATIBLE_PRIVATE_FORMAT: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262355_u32 as _);
-pub const ERROR_GRAPHICS_INCONSISTENT_DEVICE_LINK_STATE: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262436_u32 as _);
-pub const ERROR_GRAPHICS_INDIRECT_DISPLAY_ABANDON_SWAPCHAIN: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262012_u32 as _);
-pub const ERROR_GRAPHICS_INDIRECT_DISPLAY_DEVICE_STOPPED: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262013_u32 as _);
-pub const ERROR_GRAPHICS_INSUFFICIENT_DMA_BUFFER: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262001_u32 as _);
-pub const ERROR_GRAPHICS_INTERNAL_ERROR: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC02625E7_u32 as _);
-pub const ERROR_GRAPHICS_INVALID_ACTIVE_REGION: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC026230B_u32 as _);
-pub const ERROR_GRAPHICS_INVALID_ALLOCATION_HANDLE: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262114_u32 as _);
-pub const ERROR_GRAPHICS_INVALID_ALLOCATION_INSTANCE: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262113_u32 as _);
-pub const ERROR_GRAPHICS_INVALID_ALLOCATION_USAGE: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262110_u32 as _);
-pub const ERROR_GRAPHICS_INVALID_CLIENT_TYPE: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC026235B_u32 as _);
-pub const ERROR_GRAPHICS_INVALID_COLORBASIS: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC026233E_u32 as _);
-pub const ERROR_GRAPHICS_INVALID_COPYPROTECTION_TYPE: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC026234F_u32 as _);
-pub const ERROR_GRAPHICS_INVALID_DISPLAY_ADAPTER: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262002_u32 as _);
-pub const ERROR_GRAPHICS_INVALID_DRIVER_MODEL: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262004_u32 as _);
-pub const ERROR_GRAPHICS_INVALID_FREQUENCY: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC026230A_u32 as _);
-pub const ERROR_GRAPHICS_INVALID_GAMMA_RAMP: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262347_u32 as _);
-pub const ERROR_GRAPHICS_INVALID_MODE_PRUNING_ALGORITHM: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262356_u32 as _);
-pub const ERROR_GRAPHICS_INVALID_MONITORDESCRIPTOR: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC026232B_u32 as _);
-pub const ERROR_GRAPHICS_INVALID_MONITORDESCRIPTORSET: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC026232A_u32 as _);
-pub const ERROR_GRAPHICS_INVALID_MONITOR_CAPABILITY_ORIGIN: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262357_u32 as _);
-pub const ERROR_GRAPHICS_INVALID_MONITOR_FREQUENCYRANGE: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC026231C_u32 as _);
-pub const ERROR_GRAPHICS_INVALID_MONITOR_FREQUENCYRANGESET: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC026231B_u32 as _);
-pub const ERROR_GRAPHICS_INVALID_MONITOR_FREQUENCYRANGE_CONSTRAINT: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262358_u32 as _);
-pub const ERROR_GRAPHICS_INVALID_MONITOR_SOURCEMODESET: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262321_u32 as _);
-pub const ERROR_GRAPHICS_INVALID_MONITOR_SOURCE_MODE: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262322_u32 as _);
-pub const ERROR_GRAPHICS_INVALID_PATH_CONTENT_GEOMETRY_TRANSFORMATION: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262345_u32 as _);
-pub const ERROR_GRAPHICS_INVALID_PATH_CONTENT_TYPE: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC026234E_u32 as _);
-pub const ERROR_GRAPHICS_INVALID_PATH_IMPORTANCE_ORDINAL: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262344_u32 as _);
-pub const ERROR_GRAPHICS_INVALID_PHYSICAL_MONITOR_HANDLE: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC026258C_u32 as _);
-pub const ERROR_GRAPHICS_INVALID_PIXELFORMAT: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC026233D_u32 as _);
-pub const ERROR_GRAPHICS_INVALID_PIXELVALUEACCESSMODE: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC026233F_u32 as _);
-pub const ERROR_GRAPHICS_INVALID_POINTER: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC02625E4_u32 as _);
-pub const ERROR_GRAPHICS_INVALID_PRIMARYSURFACE_SIZE: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC026233A_u32 as _);
-pub const ERROR_GRAPHICS_INVALID_SCANLINE_ORDERING: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262352_u32 as _);
-pub const ERROR_GRAPHICS_INVALID_STRIDE: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC026233C_u32 as _);
-pub const ERROR_GRAPHICS_INVALID_TOTAL_REGION: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC026230C_u32 as _);
-pub const ERROR_GRAPHICS_INVALID_VIDEOPRESENTSOURCESET: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262315_u32 as _);
-pub const ERROR_GRAPHICS_INVALID_VIDEOPRESENTTARGETSET: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262316_u32 as _);
-pub const ERROR_GRAPHICS_INVALID_VIDEO_PRESENT_SOURCE: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262304_u32 as _);
-pub const ERROR_GRAPHICS_INVALID_VIDEO_PRESENT_SOURCE_MODE: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262310_u32 as _);
-pub const ERROR_GRAPHICS_INVALID_VIDEO_PRESENT_TARGET: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262305_u32 as _);
-pub const ERROR_GRAPHICS_INVALID_VIDEO_PRESENT_TARGET_MODE: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262311_u32 as _);
-pub const ERROR_GRAPHICS_INVALID_VIDPN: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262303_u32 as _);
-pub const ERROR_GRAPHICS_INVALID_VIDPN_PRESENT_PATH: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262319_u32 as _);
-pub const ERROR_GRAPHICS_INVALID_VIDPN_SOURCEMODESET: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262308_u32 as _);
-pub const ERROR_GRAPHICS_INVALID_VIDPN_TARGETMODESET: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262309_u32 as _);
-pub const ERROR_GRAPHICS_INVALID_VIDPN_TARGET_SUBSET_TYPE: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC026232F_u32 as _);
-pub const ERROR_GRAPHICS_INVALID_VIDPN_TOPOLOGY: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262300_u32 as _);
-pub const ERROR_GRAPHICS_INVALID_VIDPN_TOPOLOGY_RECOMMENDATION_REASON: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC026234D_u32 as _);
-pub const ERROR_GRAPHICS_INVALID_VISIBLEREGION_SIZE: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC026233B_u32 as _);
-pub const ERROR_GRAPHICS_LEADLINK_NOT_ENUMERATED: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262431_u32 as _);
-pub const ERROR_GRAPHICS_LEADLINK_START_DEFERRED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x40262437_u32 as _);
-pub const ERROR_GRAPHICS_LINK_CONFIGURATION_IN_PROGRESS: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262017_u32 as _);
-pub const ERROR_GRAPHICS_MAX_NUM_PATHS_REACHED: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262359_u32 as _);
-pub const ERROR_GRAPHICS_MCA_INTERNAL_ERROR: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262588_u32 as _);
-pub const ERROR_GRAPHICS_MCA_INVALID_CAPABILITIES_STRING: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262587_u32 as _);
-pub const ERROR_GRAPHICS_MCA_INVALID_TECHNOLOGY_TYPE_RETURNED: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC02625DE_u32 as _);
-pub const ERROR_GRAPHICS_MCA_INVALID_VCP_VERSION: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC02625D9_u32 as _);
-pub const ERROR_GRAPHICS_MCA_MCCS_VERSION_MISMATCH: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC02625DB_u32 as _);
-pub const ERROR_GRAPHICS_MCA_MONITOR_VIOLATES_MCCS_SPECIFICATION: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC02625DA_u32 as _);
-pub const ERROR_GRAPHICS_MCA_UNSUPPORTED_COLOR_TEMPERATURE: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC02625DF_u32 as _);
-pub const ERROR_GRAPHICS_MCA_UNSUPPORTED_MCCS_VERSION: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC02625DC_u32 as _);
-pub const ERROR_GRAPHICS_MIRRORING_DEVICES_NOT_SUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC02625E3_u32 as _);
-pub const ERROR_GRAPHICS_MODE_ALREADY_IN_MODESET: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262314_u32 as _);
-pub const ERROR_GRAPHICS_MODE_ID_MUST_BE_UNIQUE: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262324_u32 as _);
-pub const ERROR_GRAPHICS_MODE_NOT_IN_MODESET: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC026234A_u32 as _);
-pub const ERROR_GRAPHICS_MODE_NOT_PINNED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x262307_u32 as _);
-pub const ERROR_GRAPHICS_MONITORDESCRIPTOR_ALREADY_IN_SET: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC026232D_u32 as _);
-pub const ERROR_GRAPHICS_MONITORDESCRIPTOR_ID_MUST_BE_UNIQUE: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC026232E_u32 as _);
-pub const ERROR_GRAPHICS_MONITORDESCRIPTOR_NOT_IN_SET: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC026232C_u32 as _);
-pub const ERROR_GRAPHICS_MONITOR_COULD_NOT_BE_ASSOCIATED_WITH_ADAPTER: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262334_u32 as _);
-pub const ERROR_GRAPHICS_MONITOR_NOT_CONNECTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262338_u32 as _);
-pub const ERROR_GRAPHICS_MONITOR_NO_LONGER_EXISTS: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC026258D_u32 as _);
-pub const ERROR_GRAPHICS_MPO_ALLOCATION_UNPINNED: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262018_u32 as _);
-pub const ERROR_GRAPHICS_MULTISAMPLING_NOT_SUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262349_u32 as _);
-pub const ERROR_GRAPHICS_NOT_A_LINKED_ADAPTER: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262430_u32 as _);
-pub const ERROR_GRAPHICS_NOT_EXCLUSIVE_MODE_OWNER: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262000_u32 as _);
-pub const ERROR_GRAPHICS_NOT_POST_DEVICE_DRIVER: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262438_u32 as _);
-pub const ERROR_GRAPHICS_NO_ACTIVE_VIDPN: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262336_u32 as _);
-pub const ERROR_GRAPHICS_NO_AVAILABLE_IMPORTANCE_ORDINALS: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262354_u32 as _);
-pub const ERROR_GRAPHICS_NO_AVAILABLE_VIDPN_TARGET: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262333_u32 as _);
-pub const ERROR_GRAPHICS_NO_DISPLAY_DEVICE_CORRESPONDS_TO_NAME: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC02625E1_u32 as _);
-pub const ERROR_GRAPHICS_NO_DISPLAY_MODE_MANAGEMENT_SUPPORT: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262341_u32 as _);
-pub const ERROR_GRAPHICS_NO_MONITORS_CORRESPOND_TO_DISPLAY_DEVICE: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC02625E5_u32 as _);
-pub const ERROR_GRAPHICS_NO_MORE_ELEMENTS_IN_DATASET: ::windows_core::HRESULT = ::windows_core::HRESULT(0x26234C_u32 as _);
-pub const ERROR_GRAPHICS_NO_PREFERRED_MODE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x26231E_u32 as _);
-pub const ERROR_GRAPHICS_NO_RECOMMENDED_FUNCTIONAL_VIDPN: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262323_u32 as _);
-pub const ERROR_GRAPHICS_NO_RECOMMENDED_VIDPN_TOPOLOGY: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC026231A_u32 as _);
-pub const ERROR_GRAPHICS_NO_VIDEO_MEMORY: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262100_u32 as _);
-pub const ERROR_GRAPHICS_NO_VIDPNMGR: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262335_u32 as _);
-pub const ERROR_GRAPHICS_ONLY_CONSOLE_SESSION_SUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC02625E0_u32 as _);
-pub const ERROR_GRAPHICS_OPM_ALL_HDCP_HARDWARE_ALREADY_IN_USE: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262518_u32 as _);
-pub const ERROR_GRAPHICS_OPM_DRIVER_INTERNAL_ERROR: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC026251E_u32 as _);
-pub const ERROR_GRAPHICS_OPM_HDCP_SRM_NEVER_SET: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262516_u32 as _);
-pub const ERROR_GRAPHICS_OPM_INTERNAL_ERROR: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC026250B_u32 as _);
-pub const ERROR_GRAPHICS_OPM_INVALID_CONFIGURATION_REQUEST: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262521_u32 as _);
-pub const ERROR_GRAPHICS_OPM_INVALID_ENCRYPTED_PARAMETERS: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262503_u32 as _);
-pub const ERROR_GRAPHICS_OPM_INVALID_HANDLE: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC026250C_u32 as _);
-pub const ERROR_GRAPHICS_OPM_INVALID_INFORMATION_REQUEST: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC026251D_u32 as _);
-pub const ERROR_GRAPHICS_OPM_INVALID_SRM: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262512_u32 as _);
-pub const ERROR_GRAPHICS_OPM_NOT_SUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262500_u32 as _);
-pub const ERROR_GRAPHICS_OPM_NO_VIDEO_OUTPUTS_EXIST: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262505_u32 as _);
-pub const ERROR_GRAPHICS_OPM_OUTPUT_DOES_NOT_SUPPORT_ACP: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262514_u32 as _);
-pub const ERROR_GRAPHICS_OPM_OUTPUT_DOES_NOT_SUPPORT_CGMSA: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262515_u32 as _);
-pub const ERROR_GRAPHICS_OPM_OUTPUT_DOES_NOT_SUPPORT_HDCP: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262513_u32 as _);
-pub const ERROR_GRAPHICS_OPM_RESOLUTION_TOO_HIGH: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262517_u32 as _);
-pub const ERROR_GRAPHICS_OPM_SESSION_TYPE_CHANGE_IN_PROGRESS: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC026251B_u32 as _);
-pub const ERROR_GRAPHICS_OPM_SIGNALING_NOT_SUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262520_u32 as _);
-pub const ERROR_GRAPHICS_OPM_SPANNING_MODE_ENABLED: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC026250F_u32 as _);
-pub const ERROR_GRAPHICS_OPM_THEATER_MODE_ENABLED: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262510_u32 as _);
-pub const ERROR_GRAPHICS_OPM_VIDEO_OUTPUT_DOES_NOT_HAVE_COPP_SEMANTICS: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC026251C_u32 as _);
-pub const ERROR_GRAPHICS_OPM_VIDEO_OUTPUT_DOES_NOT_HAVE_OPM_SEMANTICS: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC026251F_u32 as _);
-pub const ERROR_GRAPHICS_OPM_VIDEO_OUTPUT_NO_LONGER_EXISTS: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC026251A_u32 as _);
-pub const ERROR_GRAPHICS_PARAMETER_ARRAY_TOO_SMALL: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC02625E6_u32 as _);
-pub const ERROR_GRAPHICS_PARTIAL_DATA_POPULATED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x4026200A_u32 as _);
-pub const ERROR_GRAPHICS_PATH_ALREADY_IN_TOPOLOGY: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262313_u32 as _);
-pub const ERROR_GRAPHICS_PATH_CONTENT_GEOMETRY_TRANSFORMATION_NOT_PINNED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x262351_u32 as _);
-pub const ERROR_GRAPHICS_PATH_CONTENT_GEOMETRY_TRANSFORMATION_NOT_SUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262346_u32 as _);
-pub const ERROR_GRAPHICS_PATH_NOT_IN_TOPOLOGY: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262327_u32 as _);
-pub const ERROR_GRAPHICS_PINNED_MODE_MUST_REMAIN_IN_SET: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262312_u32 as _);
-pub const ERROR_GRAPHICS_POLLING_TOO_FREQUENTLY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x40262439_u32 as _);
-pub const ERROR_GRAPHICS_PRESENT_BUFFER_NOT_BOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262010_u32 as _);
-pub const ERROR_GRAPHICS_PRESENT_DENIED: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262007_u32 as _);
-pub const ERROR_GRAPHICS_PRESENT_INVALID_WINDOW: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC026200F_u32 as _);
-pub const ERROR_GRAPHICS_PRESENT_MODE_CHANGED: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262005_u32 as _);
-pub const ERROR_GRAPHICS_PRESENT_OCCLUDED: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262006_u32 as _);
-pub const ERROR_GRAPHICS_PRESENT_REDIRECTION_DISABLED: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC026200B_u32 as _);
-pub const ERROR_GRAPHICS_PRESENT_UNOCCLUDED: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC026200C_u32 as _);
-pub const ERROR_GRAPHICS_PVP_HFS_FAILED: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262511_u32 as _);
-pub const ERROR_GRAPHICS_PVP_INVALID_CERTIFICATE_LENGTH: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC026250E_u32 as _);
-pub const ERROR_GRAPHICS_RESOURCES_NOT_RELATED: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262330_u32 as _);
-pub const ERROR_GRAPHICS_SESSION_TYPE_CHANGE_IN_PROGRESS: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC02605E8_u32 as _);
-pub const ERROR_GRAPHICS_SKIP_ALLOCATION_PREPARATION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x40262201_u32 as _);
-pub const ERROR_GRAPHICS_SOURCE_ALREADY_IN_SET: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262317_u32 as _);
-pub const ERROR_GRAPHICS_SOURCE_ID_MUST_BE_UNIQUE: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262331_u32 as _);
-pub const ERROR_GRAPHICS_SOURCE_NOT_IN_TOPOLOGY: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262339_u32 as _);
-pub const ERROR_GRAPHICS_SPECIFIED_CHILD_ALREADY_CONNECTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262400_u32 as _);
-pub const ERROR_GRAPHICS_STALE_MODESET: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262320_u32 as _);
-pub const ERROR_GRAPHICS_STALE_VIDPN_TOPOLOGY: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262337_u32 as _);
-pub const ERROR_GRAPHICS_START_DEFERRED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x4026243A_u32 as _);
-pub const ERROR_GRAPHICS_TARGET_ALREADY_IN_SET: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262318_u32 as _);
-pub const ERROR_GRAPHICS_TARGET_ID_MUST_BE_UNIQUE: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262332_u32 as _);
-pub const ERROR_GRAPHICS_TARGET_NOT_IN_TOPOLOGY: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262340_u32 as _);
-pub const ERROR_GRAPHICS_TOO_MANY_REFERENCES: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262103_u32 as _);
-pub const ERROR_GRAPHICS_TOPOLOGY_CHANGES_NOT_ALLOWED: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262353_u32 as _);
-pub const ERROR_GRAPHICS_TRY_AGAIN_LATER: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262104_u32 as _);
-pub const ERROR_GRAPHICS_TRY_AGAIN_NOW: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262105_u32 as _);
-pub const ERROR_GRAPHICS_UAB_NOT_SUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262502_u32 as _);
-pub const ERROR_GRAPHICS_UNASSIGNED_MODESET_ALREADY_EXISTS: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262350_u32 as _);
-pub const ERROR_GRAPHICS_UNKNOWN_CHILD_STATUS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x4026242F_u32 as _);
-pub const ERROR_GRAPHICS_UNSWIZZLING_APERTURE_UNAVAILABLE: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262107_u32 as _);
-pub const ERROR_GRAPHICS_UNSWIZZLING_APERTURE_UNSUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262108_u32 as _);
-pub const ERROR_GRAPHICS_VAIL_FAILED_TO_SEND_COMPOSITION_WINDOW_DPI_MESSAGE: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262016_u32 as _);
-pub const ERROR_GRAPHICS_VAIL_FAILED_TO_SEND_CREATE_SUPERWETINK_MESSAGE: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262014_u32 as _);
-pub const ERROR_GRAPHICS_VAIL_FAILED_TO_SEND_DESTROY_SUPERWETINK_MESSAGE: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262015_u32 as _);
-pub const ERROR_GRAPHICS_VAIL_STATE_CHANGED: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262011_u32 as _);
-pub const ERROR_GRAPHICS_VIDEO_PRESENT_TARGETS_LESS_THAN_SOURCES: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262326_u32 as _);
-pub const ERROR_GRAPHICS_VIDPN_MODALITY_NOT_SUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262306_u32 as _);
-pub const ERROR_GRAPHICS_VIDPN_SOURCE_IN_USE: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262342_u32 as _);
-pub const ERROR_GRAPHICS_VIDPN_TOPOLOGY_CURRENTLY_NOT_SUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262302_u32 as _);
-pub const ERROR_GRAPHICS_VIDPN_TOPOLOGY_NOT_SUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262301_u32 as _);
-pub const ERROR_GRAPHICS_WINDOWDC_NOT_AVAILABLE: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC026200D_u32 as _);
-pub const ERROR_GRAPHICS_WINDOWLESS_PRESENT_DISABLED: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC026200E_u32 as _);
-pub const ERROR_GRAPHICS_WRONG_ALLOCATION_DEVICE: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0262115_u32 as _);
+pub const ERROR_GRAPHICS_ADAPTER_ACCESS_NOT_EXCLUDED: windows_core::HRESULT = windows_core::HRESULT(0xC026243B_u32 as _);
+pub const ERROR_GRAPHICS_ADAPTER_CHAIN_NOT_READY: windows_core::HRESULT = windows_core::HRESULT(0xC0262433_u32 as _);
+pub const ERROR_GRAPHICS_ADAPTER_MUST_HAVE_AT_LEAST_ONE_SOURCE: windows_core::HRESULT = windows_core::HRESULT(0xC0262328_u32 as _);
+pub const ERROR_GRAPHICS_ADAPTER_MUST_HAVE_AT_LEAST_ONE_TARGET: windows_core::HRESULT = windows_core::HRESULT(0xC0262329_u32 as _);
+pub const ERROR_GRAPHICS_ADAPTER_WAS_RESET: windows_core::HRESULT = windows_core::HRESULT(0xC0262003_u32 as _);
+pub const ERROR_GRAPHICS_ALLOCATION_BUSY: windows_core::HRESULT = windows_core::HRESULT(0xC0262102_u32 as _);
+pub const ERROR_GRAPHICS_ALLOCATION_CLOSED: windows_core::HRESULT = windows_core::HRESULT(0xC0262112_u32 as _);
+pub const ERROR_GRAPHICS_ALLOCATION_CONTENT_LOST: windows_core::HRESULT = windows_core::HRESULT(0xC0262116_u32 as _);
+pub const ERROR_GRAPHICS_ALLOCATION_INVALID: windows_core::HRESULT = windows_core::HRESULT(0xC0262106_u32 as _);
+pub const ERROR_GRAPHICS_CANCEL_VIDPN_TOPOLOGY_AUGMENTATION: windows_core::HRESULT = windows_core::HRESULT(0xC026235A_u32 as _);
+pub const ERROR_GRAPHICS_CANNOTCOLORCONVERT: windows_core::HRESULT = windows_core::HRESULT(0xC0262008_u32 as _);
+pub const ERROR_GRAPHICS_CANT_ACCESS_ACTIVE_VIDPN: windows_core::HRESULT = windows_core::HRESULT(0xC0262343_u32 as _);
+pub const ERROR_GRAPHICS_CANT_EVICT_PINNED_ALLOCATION: windows_core::HRESULT = windows_core::HRESULT(0xC0262109_u32 as _);
+pub const ERROR_GRAPHICS_CANT_LOCK_MEMORY: windows_core::HRESULT = windows_core::HRESULT(0xC0262101_u32 as _);
+pub const ERROR_GRAPHICS_CANT_RENDER_LOCKED_ALLOCATION: windows_core::HRESULT = windows_core::HRESULT(0xC0262111_u32 as _);
+pub const ERROR_GRAPHICS_CHAINLINKS_NOT_ENUMERATED: windows_core::HRESULT = windows_core::HRESULT(0xC0262432_u32 as _);
+pub const ERROR_GRAPHICS_CHAINLINKS_NOT_POWERED_ON: windows_core::HRESULT = windows_core::HRESULT(0xC0262435_u32 as _);
+pub const ERROR_GRAPHICS_CHAINLINKS_NOT_STARTED: windows_core::HRESULT = windows_core::HRESULT(0xC0262434_u32 as _);
+pub const ERROR_GRAPHICS_CHILD_DESCRIPTOR_NOT_SUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0xC0262401_u32 as _);
+pub const ERROR_GRAPHICS_CLIENTVIDPN_NOT_SET: windows_core::HRESULT = windows_core::HRESULT(0xC026235C_u32 as _);
+pub const ERROR_GRAPHICS_COPP_NOT_SUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0xC0262501_u32 as _);
+pub const ERROR_GRAPHICS_DATASET_IS_EMPTY: windows_core::HRESULT = windows_core::HRESULT(0x26234B_u32 as _);
+pub const ERROR_GRAPHICS_DDCCI_CURRENT_CURRENT_VALUE_GREATER_THAN_MAXIMUM_VALUE: windows_core::HRESULT = windows_core::HRESULT(0xC02625D8_u32 as _);
+pub const ERROR_GRAPHICS_DDCCI_INVALID_DATA: windows_core::HRESULT = windows_core::HRESULT(0xC0262585_u32 as _);
+pub const ERROR_GRAPHICS_DDCCI_INVALID_MESSAGE_CHECKSUM: windows_core::HRESULT = windows_core::HRESULT(0xC026258B_u32 as _);
+pub const ERROR_GRAPHICS_DDCCI_INVALID_MESSAGE_COMMAND: windows_core::HRESULT = windows_core::HRESULT(0xC0262589_u32 as _);
+pub const ERROR_GRAPHICS_DDCCI_INVALID_MESSAGE_LENGTH: windows_core::HRESULT = windows_core::HRESULT(0xC026258A_u32 as _);
+pub const ERROR_GRAPHICS_DDCCI_MONITOR_RETURNED_INVALID_TIMING_STATUS_BYTE: windows_core::HRESULT = windows_core::HRESULT(0xC0262586_u32 as _);
+pub const ERROR_GRAPHICS_DDCCI_VCP_NOT_SUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0xC0262584_u32 as _);
+pub const ERROR_GRAPHICS_DEPENDABLE_CHILD_STATUS: windows_core::HRESULT = windows_core::HRESULT(0x4026243C_u32 as _);
+pub const ERROR_GRAPHICS_DISPLAY_DEVICE_NOT_ATTACHED_TO_DESKTOP: windows_core::HRESULT = windows_core::HRESULT(0xC02625E2_u32 as _);
+pub const ERROR_GRAPHICS_DRIVER_MISMATCH: windows_core::HRESULT = windows_core::HRESULT(0xC0262009_u32 as _);
+pub const ERROR_GRAPHICS_EMPTY_ADAPTER_MONITOR_MODE_SUPPORT_INTERSECTION: windows_core::HRESULT = windows_core::HRESULT(0xC0262325_u32 as _);
+pub const ERROR_GRAPHICS_FREQUENCYRANGE_ALREADY_IN_SET: windows_core::HRESULT = windows_core::HRESULT(0xC026231F_u32 as _);
+pub const ERROR_GRAPHICS_FREQUENCYRANGE_NOT_IN_SET: windows_core::HRESULT = windows_core::HRESULT(0xC026231D_u32 as _);
+pub const ERROR_GRAPHICS_GAMMA_RAMP_NOT_SUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0xC0262348_u32 as _);
+pub const ERROR_GRAPHICS_GPU_EXCEPTION_ON_DEVICE: windows_core::HRESULT = windows_core::HRESULT(0xC0262200_u32 as _);
+pub const ERROR_GRAPHICS_I2C_DEVICE_DOES_NOT_EXIST: windows_core::HRESULT = windows_core::HRESULT(0xC0262581_u32 as _);
+pub const ERROR_GRAPHICS_I2C_ERROR_RECEIVING_DATA: windows_core::HRESULT = windows_core::HRESULT(0xC0262583_u32 as _);
+pub const ERROR_GRAPHICS_I2C_ERROR_TRANSMITTING_DATA: windows_core::HRESULT = windows_core::HRESULT(0xC0262582_u32 as _);
+pub const ERROR_GRAPHICS_I2C_NOT_SUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0xC0262580_u32 as _);
+pub const ERROR_GRAPHICS_INCOMPATIBLE_PRIVATE_FORMAT: windows_core::HRESULT = windows_core::HRESULT(0xC0262355_u32 as _);
+pub const ERROR_GRAPHICS_INCONSISTENT_DEVICE_LINK_STATE: windows_core::HRESULT = windows_core::HRESULT(0xC0262436_u32 as _);
+pub const ERROR_GRAPHICS_INDIRECT_DISPLAY_ABANDON_SWAPCHAIN: windows_core::HRESULT = windows_core::HRESULT(0xC0262012_u32 as _);
+pub const ERROR_GRAPHICS_INDIRECT_DISPLAY_DEVICE_STOPPED: windows_core::HRESULT = windows_core::HRESULT(0xC0262013_u32 as _);
+pub const ERROR_GRAPHICS_INSUFFICIENT_DMA_BUFFER: windows_core::HRESULT = windows_core::HRESULT(0xC0262001_u32 as _);
+pub const ERROR_GRAPHICS_INTERNAL_ERROR: windows_core::HRESULT = windows_core::HRESULT(0xC02625E7_u32 as _);
+pub const ERROR_GRAPHICS_INVALID_ACTIVE_REGION: windows_core::HRESULT = windows_core::HRESULT(0xC026230B_u32 as _);
+pub const ERROR_GRAPHICS_INVALID_ALLOCATION_HANDLE: windows_core::HRESULT = windows_core::HRESULT(0xC0262114_u32 as _);
+pub const ERROR_GRAPHICS_INVALID_ALLOCATION_INSTANCE: windows_core::HRESULT = windows_core::HRESULT(0xC0262113_u32 as _);
+pub const ERROR_GRAPHICS_INVALID_ALLOCATION_USAGE: windows_core::HRESULT = windows_core::HRESULT(0xC0262110_u32 as _);
+pub const ERROR_GRAPHICS_INVALID_CLIENT_TYPE: windows_core::HRESULT = windows_core::HRESULT(0xC026235B_u32 as _);
+pub const ERROR_GRAPHICS_INVALID_COLORBASIS: windows_core::HRESULT = windows_core::HRESULT(0xC026233E_u32 as _);
+pub const ERROR_GRAPHICS_INVALID_COPYPROTECTION_TYPE: windows_core::HRESULT = windows_core::HRESULT(0xC026234F_u32 as _);
+pub const ERROR_GRAPHICS_INVALID_DISPLAY_ADAPTER: windows_core::HRESULT = windows_core::HRESULT(0xC0262002_u32 as _);
+pub const ERROR_GRAPHICS_INVALID_DRIVER_MODEL: windows_core::HRESULT = windows_core::HRESULT(0xC0262004_u32 as _);
+pub const ERROR_GRAPHICS_INVALID_FREQUENCY: windows_core::HRESULT = windows_core::HRESULT(0xC026230A_u32 as _);
+pub const ERROR_GRAPHICS_INVALID_GAMMA_RAMP: windows_core::HRESULT = windows_core::HRESULT(0xC0262347_u32 as _);
+pub const ERROR_GRAPHICS_INVALID_MODE_PRUNING_ALGORITHM: windows_core::HRESULT = windows_core::HRESULT(0xC0262356_u32 as _);
+pub const ERROR_GRAPHICS_INVALID_MONITORDESCRIPTOR: windows_core::HRESULT = windows_core::HRESULT(0xC026232B_u32 as _);
+pub const ERROR_GRAPHICS_INVALID_MONITORDESCRIPTORSET: windows_core::HRESULT = windows_core::HRESULT(0xC026232A_u32 as _);
+pub const ERROR_GRAPHICS_INVALID_MONITOR_CAPABILITY_ORIGIN: windows_core::HRESULT = windows_core::HRESULT(0xC0262357_u32 as _);
+pub const ERROR_GRAPHICS_INVALID_MONITOR_FREQUENCYRANGE: windows_core::HRESULT = windows_core::HRESULT(0xC026231C_u32 as _);
+pub const ERROR_GRAPHICS_INVALID_MONITOR_FREQUENCYRANGESET: windows_core::HRESULT = windows_core::HRESULT(0xC026231B_u32 as _);
+pub const ERROR_GRAPHICS_INVALID_MONITOR_FREQUENCYRANGE_CONSTRAINT: windows_core::HRESULT = windows_core::HRESULT(0xC0262358_u32 as _);
+pub const ERROR_GRAPHICS_INVALID_MONITOR_SOURCEMODESET: windows_core::HRESULT = windows_core::HRESULT(0xC0262321_u32 as _);
+pub const ERROR_GRAPHICS_INVALID_MONITOR_SOURCE_MODE: windows_core::HRESULT = windows_core::HRESULT(0xC0262322_u32 as _);
+pub const ERROR_GRAPHICS_INVALID_PATH_CONTENT_GEOMETRY_TRANSFORMATION: windows_core::HRESULT = windows_core::HRESULT(0xC0262345_u32 as _);
+pub const ERROR_GRAPHICS_INVALID_PATH_CONTENT_TYPE: windows_core::HRESULT = windows_core::HRESULT(0xC026234E_u32 as _);
+pub const ERROR_GRAPHICS_INVALID_PATH_IMPORTANCE_ORDINAL: windows_core::HRESULT = windows_core::HRESULT(0xC0262344_u32 as _);
+pub const ERROR_GRAPHICS_INVALID_PHYSICAL_MONITOR_HANDLE: windows_core::HRESULT = windows_core::HRESULT(0xC026258C_u32 as _);
+pub const ERROR_GRAPHICS_INVALID_PIXELFORMAT: windows_core::HRESULT = windows_core::HRESULT(0xC026233D_u32 as _);
+pub const ERROR_GRAPHICS_INVALID_PIXELVALUEACCESSMODE: windows_core::HRESULT = windows_core::HRESULT(0xC026233F_u32 as _);
+pub const ERROR_GRAPHICS_INVALID_POINTER: windows_core::HRESULT = windows_core::HRESULT(0xC02625E4_u32 as _);
+pub const ERROR_GRAPHICS_INVALID_PRIMARYSURFACE_SIZE: windows_core::HRESULT = windows_core::HRESULT(0xC026233A_u32 as _);
+pub const ERROR_GRAPHICS_INVALID_SCANLINE_ORDERING: windows_core::HRESULT = windows_core::HRESULT(0xC0262352_u32 as _);
+pub const ERROR_GRAPHICS_INVALID_STRIDE: windows_core::HRESULT = windows_core::HRESULT(0xC026233C_u32 as _);
+pub const ERROR_GRAPHICS_INVALID_TOTAL_REGION: windows_core::HRESULT = windows_core::HRESULT(0xC026230C_u32 as _);
+pub const ERROR_GRAPHICS_INVALID_VIDEOPRESENTSOURCESET: windows_core::HRESULT = windows_core::HRESULT(0xC0262315_u32 as _);
+pub const ERROR_GRAPHICS_INVALID_VIDEOPRESENTTARGETSET: windows_core::HRESULT = windows_core::HRESULT(0xC0262316_u32 as _);
+pub const ERROR_GRAPHICS_INVALID_VIDEO_PRESENT_SOURCE: windows_core::HRESULT = windows_core::HRESULT(0xC0262304_u32 as _);
+pub const ERROR_GRAPHICS_INVALID_VIDEO_PRESENT_SOURCE_MODE: windows_core::HRESULT = windows_core::HRESULT(0xC0262310_u32 as _);
+pub const ERROR_GRAPHICS_INVALID_VIDEO_PRESENT_TARGET: windows_core::HRESULT = windows_core::HRESULT(0xC0262305_u32 as _);
+pub const ERROR_GRAPHICS_INVALID_VIDEO_PRESENT_TARGET_MODE: windows_core::HRESULT = windows_core::HRESULT(0xC0262311_u32 as _);
+pub const ERROR_GRAPHICS_INVALID_VIDPN: windows_core::HRESULT = windows_core::HRESULT(0xC0262303_u32 as _);
+pub const ERROR_GRAPHICS_INVALID_VIDPN_PRESENT_PATH: windows_core::HRESULT = windows_core::HRESULT(0xC0262319_u32 as _);
+pub const ERROR_GRAPHICS_INVALID_VIDPN_SOURCEMODESET: windows_core::HRESULT = windows_core::HRESULT(0xC0262308_u32 as _);
+pub const ERROR_GRAPHICS_INVALID_VIDPN_TARGETMODESET: windows_core::HRESULT = windows_core::HRESULT(0xC0262309_u32 as _);
+pub const ERROR_GRAPHICS_INVALID_VIDPN_TARGET_SUBSET_TYPE: windows_core::HRESULT = windows_core::HRESULT(0xC026232F_u32 as _);
+pub const ERROR_GRAPHICS_INVALID_VIDPN_TOPOLOGY: windows_core::HRESULT = windows_core::HRESULT(0xC0262300_u32 as _);
+pub const ERROR_GRAPHICS_INVALID_VIDPN_TOPOLOGY_RECOMMENDATION_REASON: windows_core::HRESULT = windows_core::HRESULT(0xC026234D_u32 as _);
+pub const ERROR_GRAPHICS_INVALID_VISIBLEREGION_SIZE: windows_core::HRESULT = windows_core::HRESULT(0xC026233B_u32 as _);
+pub const ERROR_GRAPHICS_LEADLINK_NOT_ENUMERATED: windows_core::HRESULT = windows_core::HRESULT(0xC0262431_u32 as _);
+pub const ERROR_GRAPHICS_LEADLINK_START_DEFERRED: windows_core::HRESULT = windows_core::HRESULT(0x40262437_u32 as _);
+pub const ERROR_GRAPHICS_LINK_CONFIGURATION_IN_PROGRESS: windows_core::HRESULT = windows_core::HRESULT(0xC0262017_u32 as _);
+pub const ERROR_GRAPHICS_MAX_NUM_PATHS_REACHED: windows_core::HRESULT = windows_core::HRESULT(0xC0262359_u32 as _);
+pub const ERROR_GRAPHICS_MCA_INTERNAL_ERROR: windows_core::HRESULT = windows_core::HRESULT(0xC0262588_u32 as _);
+pub const ERROR_GRAPHICS_MCA_INVALID_CAPABILITIES_STRING: windows_core::HRESULT = windows_core::HRESULT(0xC0262587_u32 as _);
+pub const ERROR_GRAPHICS_MCA_INVALID_TECHNOLOGY_TYPE_RETURNED: windows_core::HRESULT = windows_core::HRESULT(0xC02625DE_u32 as _);
+pub const ERROR_GRAPHICS_MCA_INVALID_VCP_VERSION: windows_core::HRESULT = windows_core::HRESULT(0xC02625D9_u32 as _);
+pub const ERROR_GRAPHICS_MCA_MCCS_VERSION_MISMATCH: windows_core::HRESULT = windows_core::HRESULT(0xC02625DB_u32 as _);
+pub const ERROR_GRAPHICS_MCA_MONITOR_VIOLATES_MCCS_SPECIFICATION: windows_core::HRESULT = windows_core::HRESULT(0xC02625DA_u32 as _);
+pub const ERROR_GRAPHICS_MCA_UNSUPPORTED_COLOR_TEMPERATURE: windows_core::HRESULT = windows_core::HRESULT(0xC02625DF_u32 as _);
+pub const ERROR_GRAPHICS_MCA_UNSUPPORTED_MCCS_VERSION: windows_core::HRESULT = windows_core::HRESULT(0xC02625DC_u32 as _);
+pub const ERROR_GRAPHICS_MIRRORING_DEVICES_NOT_SUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0xC02625E3_u32 as _);
+pub const ERROR_GRAPHICS_MODE_ALREADY_IN_MODESET: windows_core::HRESULT = windows_core::HRESULT(0xC0262314_u32 as _);
+pub const ERROR_GRAPHICS_MODE_ID_MUST_BE_UNIQUE: windows_core::HRESULT = windows_core::HRESULT(0xC0262324_u32 as _);
+pub const ERROR_GRAPHICS_MODE_NOT_IN_MODESET: windows_core::HRESULT = windows_core::HRESULT(0xC026234A_u32 as _);
+pub const ERROR_GRAPHICS_MODE_NOT_PINNED: windows_core::HRESULT = windows_core::HRESULT(0x262307_u32 as _);
+pub const ERROR_GRAPHICS_MONITORDESCRIPTOR_ALREADY_IN_SET: windows_core::HRESULT = windows_core::HRESULT(0xC026232D_u32 as _);
+pub const ERROR_GRAPHICS_MONITORDESCRIPTOR_ID_MUST_BE_UNIQUE: windows_core::HRESULT = windows_core::HRESULT(0xC026232E_u32 as _);
+pub const ERROR_GRAPHICS_MONITORDESCRIPTOR_NOT_IN_SET: windows_core::HRESULT = windows_core::HRESULT(0xC026232C_u32 as _);
+pub const ERROR_GRAPHICS_MONITOR_COULD_NOT_BE_ASSOCIATED_WITH_ADAPTER: windows_core::HRESULT = windows_core::HRESULT(0xC0262334_u32 as _);
+pub const ERROR_GRAPHICS_MONITOR_NOT_CONNECTED: windows_core::HRESULT = windows_core::HRESULT(0xC0262338_u32 as _);
+pub const ERROR_GRAPHICS_MONITOR_NO_LONGER_EXISTS: windows_core::HRESULT = windows_core::HRESULT(0xC026258D_u32 as _);
+pub const ERROR_GRAPHICS_MPO_ALLOCATION_UNPINNED: windows_core::HRESULT = windows_core::HRESULT(0xC0262018_u32 as _);
+pub const ERROR_GRAPHICS_MULTISAMPLING_NOT_SUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0xC0262349_u32 as _);
+pub const ERROR_GRAPHICS_NOT_A_LINKED_ADAPTER: windows_core::HRESULT = windows_core::HRESULT(0xC0262430_u32 as _);
+pub const ERROR_GRAPHICS_NOT_EXCLUSIVE_MODE_OWNER: windows_core::HRESULT = windows_core::HRESULT(0xC0262000_u32 as _);
+pub const ERROR_GRAPHICS_NOT_POST_DEVICE_DRIVER: windows_core::HRESULT = windows_core::HRESULT(0xC0262438_u32 as _);
+pub const ERROR_GRAPHICS_NO_ACTIVE_VIDPN: windows_core::HRESULT = windows_core::HRESULT(0xC0262336_u32 as _);
+pub const ERROR_GRAPHICS_NO_AVAILABLE_IMPORTANCE_ORDINALS: windows_core::HRESULT = windows_core::HRESULT(0xC0262354_u32 as _);
+pub const ERROR_GRAPHICS_NO_AVAILABLE_VIDPN_TARGET: windows_core::HRESULT = windows_core::HRESULT(0xC0262333_u32 as _);
+pub const ERROR_GRAPHICS_NO_DISPLAY_DEVICE_CORRESPONDS_TO_NAME: windows_core::HRESULT = windows_core::HRESULT(0xC02625E1_u32 as _);
+pub const ERROR_GRAPHICS_NO_DISPLAY_MODE_MANAGEMENT_SUPPORT: windows_core::HRESULT = windows_core::HRESULT(0xC0262341_u32 as _);
+pub const ERROR_GRAPHICS_NO_MONITORS_CORRESPOND_TO_DISPLAY_DEVICE: windows_core::HRESULT = windows_core::HRESULT(0xC02625E5_u32 as _);
+pub const ERROR_GRAPHICS_NO_MORE_ELEMENTS_IN_DATASET: windows_core::HRESULT = windows_core::HRESULT(0x26234C_u32 as _);
+pub const ERROR_GRAPHICS_NO_PREFERRED_MODE: windows_core::HRESULT = windows_core::HRESULT(0x26231E_u32 as _);
+pub const ERROR_GRAPHICS_NO_RECOMMENDED_FUNCTIONAL_VIDPN: windows_core::HRESULT = windows_core::HRESULT(0xC0262323_u32 as _);
+pub const ERROR_GRAPHICS_NO_RECOMMENDED_VIDPN_TOPOLOGY: windows_core::HRESULT = windows_core::HRESULT(0xC026231A_u32 as _);
+pub const ERROR_GRAPHICS_NO_VIDEO_MEMORY: windows_core::HRESULT = windows_core::HRESULT(0xC0262100_u32 as _);
+pub const ERROR_GRAPHICS_NO_VIDPNMGR: windows_core::HRESULT = windows_core::HRESULT(0xC0262335_u32 as _);
+pub const ERROR_GRAPHICS_ONLY_CONSOLE_SESSION_SUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0xC02625E0_u32 as _);
+pub const ERROR_GRAPHICS_OPM_ALL_HDCP_HARDWARE_ALREADY_IN_USE: windows_core::HRESULT = windows_core::HRESULT(0xC0262518_u32 as _);
+pub const ERROR_GRAPHICS_OPM_DRIVER_INTERNAL_ERROR: windows_core::HRESULT = windows_core::HRESULT(0xC026251E_u32 as _);
+pub const ERROR_GRAPHICS_OPM_HDCP_SRM_NEVER_SET: windows_core::HRESULT = windows_core::HRESULT(0xC0262516_u32 as _);
+pub const ERROR_GRAPHICS_OPM_INTERNAL_ERROR: windows_core::HRESULT = windows_core::HRESULT(0xC026250B_u32 as _);
+pub const ERROR_GRAPHICS_OPM_INVALID_CONFIGURATION_REQUEST: windows_core::HRESULT = windows_core::HRESULT(0xC0262521_u32 as _);
+pub const ERROR_GRAPHICS_OPM_INVALID_ENCRYPTED_PARAMETERS: windows_core::HRESULT = windows_core::HRESULT(0xC0262503_u32 as _);
+pub const ERROR_GRAPHICS_OPM_INVALID_HANDLE: windows_core::HRESULT = windows_core::HRESULT(0xC026250C_u32 as _);
+pub const ERROR_GRAPHICS_OPM_INVALID_INFORMATION_REQUEST: windows_core::HRESULT = windows_core::HRESULT(0xC026251D_u32 as _);
+pub const ERROR_GRAPHICS_OPM_INVALID_SRM: windows_core::HRESULT = windows_core::HRESULT(0xC0262512_u32 as _);
+pub const ERROR_GRAPHICS_OPM_NOT_SUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0xC0262500_u32 as _);
+pub const ERROR_GRAPHICS_OPM_NO_VIDEO_OUTPUTS_EXIST: windows_core::HRESULT = windows_core::HRESULT(0xC0262505_u32 as _);
+pub const ERROR_GRAPHICS_OPM_OUTPUT_DOES_NOT_SUPPORT_ACP: windows_core::HRESULT = windows_core::HRESULT(0xC0262514_u32 as _);
+pub const ERROR_GRAPHICS_OPM_OUTPUT_DOES_NOT_SUPPORT_CGMSA: windows_core::HRESULT = windows_core::HRESULT(0xC0262515_u32 as _);
+pub const ERROR_GRAPHICS_OPM_OUTPUT_DOES_NOT_SUPPORT_HDCP: windows_core::HRESULT = windows_core::HRESULT(0xC0262513_u32 as _);
+pub const ERROR_GRAPHICS_OPM_RESOLUTION_TOO_HIGH: windows_core::HRESULT = windows_core::HRESULT(0xC0262517_u32 as _);
+pub const ERROR_GRAPHICS_OPM_SESSION_TYPE_CHANGE_IN_PROGRESS: windows_core::HRESULT = windows_core::HRESULT(0xC026251B_u32 as _);
+pub const ERROR_GRAPHICS_OPM_SIGNALING_NOT_SUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0xC0262520_u32 as _);
+pub const ERROR_GRAPHICS_OPM_SPANNING_MODE_ENABLED: windows_core::HRESULT = windows_core::HRESULT(0xC026250F_u32 as _);
+pub const ERROR_GRAPHICS_OPM_THEATER_MODE_ENABLED: windows_core::HRESULT = windows_core::HRESULT(0xC0262510_u32 as _);
+pub const ERROR_GRAPHICS_OPM_VIDEO_OUTPUT_DOES_NOT_HAVE_COPP_SEMANTICS: windows_core::HRESULT = windows_core::HRESULT(0xC026251C_u32 as _);
+pub const ERROR_GRAPHICS_OPM_VIDEO_OUTPUT_DOES_NOT_HAVE_OPM_SEMANTICS: windows_core::HRESULT = windows_core::HRESULT(0xC026251F_u32 as _);
+pub const ERROR_GRAPHICS_OPM_VIDEO_OUTPUT_NO_LONGER_EXISTS: windows_core::HRESULT = windows_core::HRESULT(0xC026251A_u32 as _);
+pub const ERROR_GRAPHICS_PARAMETER_ARRAY_TOO_SMALL: windows_core::HRESULT = windows_core::HRESULT(0xC02625E6_u32 as _);
+pub const ERROR_GRAPHICS_PARTIAL_DATA_POPULATED: windows_core::HRESULT = windows_core::HRESULT(0x4026200A_u32 as _);
+pub const ERROR_GRAPHICS_PATH_ALREADY_IN_TOPOLOGY: windows_core::HRESULT = windows_core::HRESULT(0xC0262313_u32 as _);
+pub const ERROR_GRAPHICS_PATH_CONTENT_GEOMETRY_TRANSFORMATION_NOT_PINNED: windows_core::HRESULT = windows_core::HRESULT(0x262351_u32 as _);
+pub const ERROR_GRAPHICS_PATH_CONTENT_GEOMETRY_TRANSFORMATION_NOT_SUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0xC0262346_u32 as _);
+pub const ERROR_GRAPHICS_PATH_NOT_IN_TOPOLOGY: windows_core::HRESULT = windows_core::HRESULT(0xC0262327_u32 as _);
+pub const ERROR_GRAPHICS_PINNED_MODE_MUST_REMAIN_IN_SET: windows_core::HRESULT = windows_core::HRESULT(0xC0262312_u32 as _);
+pub const ERROR_GRAPHICS_POLLING_TOO_FREQUENTLY: windows_core::HRESULT = windows_core::HRESULT(0x40262439_u32 as _);
+pub const ERROR_GRAPHICS_PRESENT_BUFFER_NOT_BOUND: windows_core::HRESULT = windows_core::HRESULT(0xC0262010_u32 as _);
+pub const ERROR_GRAPHICS_PRESENT_DENIED: windows_core::HRESULT = windows_core::HRESULT(0xC0262007_u32 as _);
+pub const ERROR_GRAPHICS_PRESENT_INVALID_WINDOW: windows_core::HRESULT = windows_core::HRESULT(0xC026200F_u32 as _);
+pub const ERROR_GRAPHICS_PRESENT_MODE_CHANGED: windows_core::HRESULT = windows_core::HRESULT(0xC0262005_u32 as _);
+pub const ERROR_GRAPHICS_PRESENT_OCCLUDED: windows_core::HRESULT = windows_core::HRESULT(0xC0262006_u32 as _);
+pub const ERROR_GRAPHICS_PRESENT_REDIRECTION_DISABLED: windows_core::HRESULT = windows_core::HRESULT(0xC026200B_u32 as _);
+pub const ERROR_GRAPHICS_PRESENT_UNOCCLUDED: windows_core::HRESULT = windows_core::HRESULT(0xC026200C_u32 as _);
+pub const ERROR_GRAPHICS_PVP_HFS_FAILED: windows_core::HRESULT = windows_core::HRESULT(0xC0262511_u32 as _);
+pub const ERROR_GRAPHICS_PVP_INVALID_CERTIFICATE_LENGTH: windows_core::HRESULT = windows_core::HRESULT(0xC026250E_u32 as _);
+pub const ERROR_GRAPHICS_RESOURCES_NOT_RELATED: windows_core::HRESULT = windows_core::HRESULT(0xC0262330_u32 as _);
+pub const ERROR_GRAPHICS_SESSION_TYPE_CHANGE_IN_PROGRESS: windows_core::HRESULT = windows_core::HRESULT(0xC02605E8_u32 as _);
+pub const ERROR_GRAPHICS_SKIP_ALLOCATION_PREPARATION: windows_core::HRESULT = windows_core::HRESULT(0x40262201_u32 as _);
+pub const ERROR_GRAPHICS_SOURCE_ALREADY_IN_SET: windows_core::HRESULT = windows_core::HRESULT(0xC0262317_u32 as _);
+pub const ERROR_GRAPHICS_SOURCE_ID_MUST_BE_UNIQUE: windows_core::HRESULT = windows_core::HRESULT(0xC0262331_u32 as _);
+pub const ERROR_GRAPHICS_SOURCE_NOT_IN_TOPOLOGY: windows_core::HRESULT = windows_core::HRESULT(0xC0262339_u32 as _);
+pub const ERROR_GRAPHICS_SPECIFIED_CHILD_ALREADY_CONNECTED: windows_core::HRESULT = windows_core::HRESULT(0xC0262400_u32 as _);
+pub const ERROR_GRAPHICS_STALE_MODESET: windows_core::HRESULT = windows_core::HRESULT(0xC0262320_u32 as _);
+pub const ERROR_GRAPHICS_STALE_VIDPN_TOPOLOGY: windows_core::HRESULT = windows_core::HRESULT(0xC0262337_u32 as _);
+pub const ERROR_GRAPHICS_START_DEFERRED: windows_core::HRESULT = windows_core::HRESULT(0x4026243A_u32 as _);
+pub const ERROR_GRAPHICS_TARGET_ALREADY_IN_SET: windows_core::HRESULT = windows_core::HRESULT(0xC0262318_u32 as _);
+pub const ERROR_GRAPHICS_TARGET_ID_MUST_BE_UNIQUE: windows_core::HRESULT = windows_core::HRESULT(0xC0262332_u32 as _);
+pub const ERROR_GRAPHICS_TARGET_NOT_IN_TOPOLOGY: windows_core::HRESULT = windows_core::HRESULT(0xC0262340_u32 as _);
+pub const ERROR_GRAPHICS_TOO_MANY_REFERENCES: windows_core::HRESULT = windows_core::HRESULT(0xC0262103_u32 as _);
+pub const ERROR_GRAPHICS_TOPOLOGY_CHANGES_NOT_ALLOWED: windows_core::HRESULT = windows_core::HRESULT(0xC0262353_u32 as _);
+pub const ERROR_GRAPHICS_TRY_AGAIN_LATER: windows_core::HRESULT = windows_core::HRESULT(0xC0262104_u32 as _);
+pub const ERROR_GRAPHICS_TRY_AGAIN_NOW: windows_core::HRESULT = windows_core::HRESULT(0xC0262105_u32 as _);
+pub const ERROR_GRAPHICS_UAB_NOT_SUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0xC0262502_u32 as _);
+pub const ERROR_GRAPHICS_UNASSIGNED_MODESET_ALREADY_EXISTS: windows_core::HRESULT = windows_core::HRESULT(0xC0262350_u32 as _);
+pub const ERROR_GRAPHICS_UNKNOWN_CHILD_STATUS: windows_core::HRESULT = windows_core::HRESULT(0x4026242F_u32 as _);
+pub const ERROR_GRAPHICS_UNSWIZZLING_APERTURE_UNAVAILABLE: windows_core::HRESULT = windows_core::HRESULT(0xC0262107_u32 as _);
+pub const ERROR_GRAPHICS_UNSWIZZLING_APERTURE_UNSUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0xC0262108_u32 as _);
+pub const ERROR_GRAPHICS_VAIL_FAILED_TO_SEND_COMPOSITION_WINDOW_DPI_MESSAGE: windows_core::HRESULT = windows_core::HRESULT(0xC0262016_u32 as _);
+pub const ERROR_GRAPHICS_VAIL_FAILED_TO_SEND_CREATE_SUPERWETINK_MESSAGE: windows_core::HRESULT = windows_core::HRESULT(0xC0262014_u32 as _);
+pub const ERROR_GRAPHICS_VAIL_FAILED_TO_SEND_DESTROY_SUPERWETINK_MESSAGE: windows_core::HRESULT = windows_core::HRESULT(0xC0262015_u32 as _);
+pub const ERROR_GRAPHICS_VAIL_STATE_CHANGED: windows_core::HRESULT = windows_core::HRESULT(0xC0262011_u32 as _);
+pub const ERROR_GRAPHICS_VIDEO_PRESENT_TARGETS_LESS_THAN_SOURCES: windows_core::HRESULT = windows_core::HRESULT(0xC0262326_u32 as _);
+pub const ERROR_GRAPHICS_VIDPN_MODALITY_NOT_SUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0xC0262306_u32 as _);
+pub const ERROR_GRAPHICS_VIDPN_SOURCE_IN_USE: windows_core::HRESULT = windows_core::HRESULT(0xC0262342_u32 as _);
+pub const ERROR_GRAPHICS_VIDPN_TOPOLOGY_CURRENTLY_NOT_SUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0xC0262302_u32 as _);
+pub const ERROR_GRAPHICS_VIDPN_TOPOLOGY_NOT_SUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0xC0262301_u32 as _);
+pub const ERROR_GRAPHICS_WINDOWDC_NOT_AVAILABLE: windows_core::HRESULT = windows_core::HRESULT(0xC026200D_u32 as _);
+pub const ERROR_GRAPHICS_WINDOWLESS_PRESENT_DISABLED: windows_core::HRESULT = windows_core::HRESULT(0xC026200E_u32 as _);
+pub const ERROR_GRAPHICS_WRONG_ALLOCATION_DEVICE: windows_core::HRESULT = windows_core::HRESULT(0xC0262115_u32 as _);
 pub const ERROR_GROUPSET_CANT_PROVIDE: WIN32_ERROR = WIN32_ERROR(5993u32);
 pub const ERROR_GROUPSET_NOT_AVAILABLE: WIN32_ERROR = WIN32_ERROR(5991u32);
 pub const ERROR_GROUPSET_NOT_FOUND: WIN32_ERROR = WIN32_ERROR(5992u32);
@@ -2620,7 +2620,7 @@ pub const ERROR_HOST_NODE_NOT_RESOURCE_OWNER: WIN32_ERROR = WIN32_ERROR(5015u32)
 pub const ERROR_HOST_UNREACHABLE: WIN32_ERROR = WIN32_ERROR(1232u32);
 pub const ERROR_HOTKEY_ALREADY_REGISTERED: WIN32_ERROR = WIN32_ERROR(1409u32);
 pub const ERROR_HOTKEY_NOT_REGISTERED: WIN32_ERROR = WIN32_ERROR(1419u32);
-pub const ERROR_HUNG_DISPLAY_DRIVER_THREAD: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80260001_u32 as _);
+pub const ERROR_HUNG_DISPLAY_DRIVER_THREAD: windows_core::HRESULT = windows_core::HRESULT(0x80260001_u32 as _);
 pub const ERROR_HV_ACCESS_DENIED: WIN32_ERROR = WIN32_ERROR(3224698886u32);
 pub const ERROR_HV_ACKNOWLEDGED: WIN32_ERROR = WIN32_ERROR(3224698902u32);
 pub const ERROR_HV_CPUID_FEATURE_VALIDATION: WIN32_ERROR = WIN32_ERROR(3224698940u32);
@@ -2947,7 +2947,7 @@ pub const ERROR_IOPL_NOT_ENABLED: WIN32_ERROR = WIN32_ERROR(197u32);
 pub const ERROR_IO_DEVICE: WIN32_ERROR = WIN32_ERROR(1117u32);
 pub const ERROR_IO_INCOMPLETE: WIN32_ERROR = WIN32_ERROR(996u32);
 pub const ERROR_IO_PENDING: WIN32_ERROR = WIN32_ERROR(997u32);
-pub const ERROR_IO_PREEMPTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x89010001_u32 as _);
+pub const ERROR_IO_PREEMPTED: windows_core::HRESULT = windows_core::HRESULT(0x89010001_u32 as _);
 pub const ERROR_IO_PRIVILEGE_FAILED: WIN32_ERROR = WIN32_ERROR(571u32);
 pub const ERROR_IO_REISSUE_AS_CACHED: WIN32_ERROR = WIN32_ERROR(3950u32);
 pub const ERROR_IPSEC_AUTH_FIREWALL_DROP: WIN32_ERROR = WIN32_ERROR(13917u32);
@@ -3254,16 +3254,16 @@ pub const ERROR_META_EXPANSION_TOO_LONG: WIN32_ERROR = WIN32_ERROR(208u32);
 pub const ERROR_MINIVERSION_INACCESSIBLE_FROM_SPECIFIED_TRANSACTION: WIN32_ERROR = WIN32_ERROR(6810u32);
 pub const ERROR_MISSING_SYSTEMFILE: WIN32_ERROR = WIN32_ERROR(573u32);
 pub const ERROR_MOD_NOT_FOUND: WIN32_ERROR = WIN32_ERROR(126u32);
-pub const ERROR_MONITOR_INVALID_DESCRIPTOR_CHECKSUM: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0261003_u32 as _);
-pub const ERROR_MONITOR_INVALID_DETAILED_TIMING_BLOCK: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0261009_u32 as _);
-pub const ERROR_MONITOR_INVALID_MANUFACTURE_DATE: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC026100A_u32 as _);
-pub const ERROR_MONITOR_INVALID_SERIAL_NUMBER_MONDSC_BLOCK: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0261006_u32 as _);
-pub const ERROR_MONITOR_INVALID_STANDARD_TIMING_BLOCK: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0261004_u32 as _);
-pub const ERROR_MONITOR_INVALID_USER_FRIENDLY_MONDSC_BLOCK: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0261007_u32 as _);
-pub const ERROR_MONITOR_NO_DESCRIPTOR: ::windows_core::HRESULT = ::windows_core::HRESULT(0x261001_u32 as _);
-pub const ERROR_MONITOR_NO_MORE_DESCRIPTOR_DATA: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0261008_u32 as _);
-pub const ERROR_MONITOR_UNKNOWN_DESCRIPTOR_FORMAT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x261002_u32 as _);
-pub const ERROR_MONITOR_WMI_DATABLOCK_REGISTRATION_FAILED: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0261005_u32 as _);
+pub const ERROR_MONITOR_INVALID_DESCRIPTOR_CHECKSUM: windows_core::HRESULT = windows_core::HRESULT(0xC0261003_u32 as _);
+pub const ERROR_MONITOR_INVALID_DETAILED_TIMING_BLOCK: windows_core::HRESULT = windows_core::HRESULT(0xC0261009_u32 as _);
+pub const ERROR_MONITOR_INVALID_MANUFACTURE_DATE: windows_core::HRESULT = windows_core::HRESULT(0xC026100A_u32 as _);
+pub const ERROR_MONITOR_INVALID_SERIAL_NUMBER_MONDSC_BLOCK: windows_core::HRESULT = windows_core::HRESULT(0xC0261006_u32 as _);
+pub const ERROR_MONITOR_INVALID_STANDARD_TIMING_BLOCK: windows_core::HRESULT = windows_core::HRESULT(0xC0261004_u32 as _);
+pub const ERROR_MONITOR_INVALID_USER_FRIENDLY_MONDSC_BLOCK: windows_core::HRESULT = windows_core::HRESULT(0xC0261007_u32 as _);
+pub const ERROR_MONITOR_NO_DESCRIPTOR: windows_core::HRESULT = windows_core::HRESULT(0x261001_u32 as _);
+pub const ERROR_MONITOR_NO_MORE_DESCRIPTOR_DATA: windows_core::HRESULT = windows_core::HRESULT(0xC0261008_u32 as _);
+pub const ERROR_MONITOR_UNKNOWN_DESCRIPTOR_FORMAT: windows_core::HRESULT = windows_core::HRESULT(0x261002_u32 as _);
+pub const ERROR_MONITOR_WMI_DATABLOCK_REGISTRATION_FAILED: windows_core::HRESULT = windows_core::HRESULT(0xC0261005_u32 as _);
 pub const ERROR_MORE_DATA: WIN32_ERROR = WIN32_ERROR(234u32);
 pub const ERROR_MORE_WRITES: WIN32_ERROR = WIN32_ERROR(1120u32);
 pub const ERROR_MOUNT_POINT_NOT_RESOLVED: WIN32_ERROR = WIN32_ERROR(649u32);
@@ -3404,7 +3404,7 @@ pub const ERROR_NOT_A_CLOUD_SYNC_ROOT: WIN32_ERROR = WIN32_ERROR(405u32);
 pub const ERROR_NOT_A_DAX_VOLUME: WIN32_ERROR = WIN32_ERROR(420u32);
 pub const ERROR_NOT_A_DEV_VOLUME: WIN32_ERROR = WIN32_ERROR(476u32);
 pub const ERROR_NOT_A_REPARSE_POINT: WIN32_ERROR = WIN32_ERROR(4390u32);
-pub const ERROR_NOT_A_TIERED_VOLUME: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80830009_u32 as _);
+pub const ERROR_NOT_A_TIERED_VOLUME: windows_core::HRESULT = windows_core::HRESULT(0x80830009_u32 as _);
 pub const ERROR_NOT_CAPABLE: WIN32_ERROR = WIN32_ERROR(775u32);
 pub const ERROR_NOT_CHILD_WINDOW: WIN32_ERROR = WIN32_ERROR(1442u32);
 pub const ERROR_NOT_CLIENT_PORT: u32 = 913u32;
@@ -3458,7 +3458,7 @@ pub const ERROR_NOT_SUPPORTED_WITH_VIRTUALIZATION: WIN32_ERROR = WIN32_ERROR(505
 pub const ERROR_NOT_TINY_STREAM: WIN32_ERROR = WIN32_ERROR(598u32);
 pub const ERROR_NO_ACE_CONDITION: WIN32_ERROR = WIN32_ERROR(804u32);
 pub const ERROR_NO_ADMIN_ACCESS_POINT: WIN32_ERROR = WIN32_ERROR(5090u32);
-pub const ERROR_NO_APPLICABLE_APP_LICENSES_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0EA0001_u32 as _);
+pub const ERROR_NO_APPLICABLE_APP_LICENSES_FOUND: windows_core::HRESULT = windows_core::HRESULT(0xC0EA0001_u32 as _);
 pub const ERROR_NO_ASSOCIATED_CLASS: WIN32_ERROR = WIN32_ERROR(3758096896u32);
 pub const ERROR_NO_ASSOCIATED_SERVICE: WIN32_ERROR = WIN32_ERROR(3758096921u32);
 pub const ERROR_NO_ASSOCIATION: WIN32_ERROR = WIN32_ERROR(1155u32);
@@ -3726,14 +3726,14 @@ pub const ERROR_PWD_TOO_LONG: WIN32_ERROR = WIN32_ERROR(657u32);
 pub const ERROR_PWD_TOO_RECENT: WIN32_ERROR = WIN32_ERROR(616u32);
 pub const ERROR_PWD_TOO_SHORT: WIN32_ERROR = WIN32_ERROR(615u32);
 pub const ERROR_QUERY_STORAGE_ERROR: WIN32_ERROR = WIN32_ERROR(2151284737u32);
-pub const ERROR_QUIC_ALPN_NEG_FAILURE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80410007_u32 as _);
-pub const ERROR_QUIC_CONNECTION_IDLE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80410005_u32 as _);
-pub const ERROR_QUIC_CONNECTION_TIMEOUT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80410006_u32 as _);
-pub const ERROR_QUIC_HANDSHAKE_FAILURE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80410000_u32 as _);
-pub const ERROR_QUIC_INTERNAL_ERROR: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80410003_u32 as _);
-pub const ERROR_QUIC_PROTOCOL_VIOLATION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80410004_u32 as _);
-pub const ERROR_QUIC_USER_CANCELED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80410002_u32 as _);
-pub const ERROR_QUIC_VER_NEG_FAILURE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80410001_u32 as _);
+pub const ERROR_QUIC_ALPN_NEG_FAILURE: windows_core::HRESULT = windows_core::HRESULT(0x80410007_u32 as _);
+pub const ERROR_QUIC_CONNECTION_IDLE: windows_core::HRESULT = windows_core::HRESULT(0x80410005_u32 as _);
+pub const ERROR_QUIC_CONNECTION_TIMEOUT: windows_core::HRESULT = windows_core::HRESULT(0x80410006_u32 as _);
+pub const ERROR_QUIC_HANDSHAKE_FAILURE: windows_core::HRESULT = windows_core::HRESULT(0x80410000_u32 as _);
+pub const ERROR_QUIC_INTERNAL_ERROR: windows_core::HRESULT = windows_core::HRESULT(0x80410003_u32 as _);
+pub const ERROR_QUIC_PROTOCOL_VIOLATION: windows_core::HRESULT = windows_core::HRESULT(0x80410004_u32 as _);
+pub const ERROR_QUIC_USER_CANCELED: windows_core::HRESULT = windows_core::HRESULT(0x80410002_u32 as _);
+pub const ERROR_QUIC_VER_NEG_FAILURE: windows_core::HRESULT = windows_core::HRESULT(0x80410001_u32 as _);
 pub const ERROR_QUORUMLOG_OPEN_FAILED: WIN32_ERROR = WIN32_ERROR(5028u32);
 pub const ERROR_QUORUM_DISK_NOT_FOUND: WIN32_ERROR = WIN32_ERROR(5086u32);
 pub const ERROR_QUORUM_NOT_ALLOWED_IN_THIS_GROUP: WIN32_ERROR = WIN32_ERROR(5928u32);
@@ -3853,7 +3853,7 @@ pub const ERROR_SCE_DISABLED: WIN32_ERROR = WIN32_ERROR(3758096952u32);
 pub const ERROR_SCOPE_NOT_FOUND: WIN32_ERROR = WIN32_ERROR(318u32);
 pub const ERROR_SCREEN_ALREADY_LOCKED: WIN32_ERROR = WIN32_ERROR(1440u32);
 pub const ERROR_SCRUB_DATA_DISABLED: WIN32_ERROR = WIN32_ERROR(332u32);
-pub const ERROR_SECCORE_INVALID_COMMAND: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0E80000_u32 as _);
+pub const ERROR_SECCORE_INVALID_COMMAND: windows_core::HRESULT = windows_core::HRESULT(0xC0E80000_u32 as _);
 pub const ERROR_SECONDARY_IC_PROVIDER_NOT_REGISTERED: WIN32_ERROR = WIN32_ERROR(15321u32);
 pub const ERROR_SECRET_TOO_LONG: WIN32_ERROR = WIN32_ERROR(1382u32);
 pub const ERROR_SECTION_DIRECT_MAP_ONLY: WIN32_ERROR = WIN32_ERROR(819u32);
@@ -3944,49 +3944,49 @@ pub const ERROR_SINGLETON_RESOURCE_INSTALLED_IN_ACTIVE_USER: WIN32_ERROR = WIN32
 pub const ERROR_SINGLE_INSTANCE_APP: WIN32_ERROR = WIN32_ERROR(1152u32);
 pub const ERROR_SMARTCARD_SUBSYSTEM_FAILURE: WIN32_ERROR = WIN32_ERROR(1264u32);
 pub const ERROR_SMB1_NOT_AVAILABLE: WIN32_ERROR = WIN32_ERROR(384u32);
-pub const ERROR_SMB_BAD_CLUSTER_DIALECT: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC05D0001_u32 as _);
+pub const ERROR_SMB_BAD_CLUSTER_DIALECT: windows_core::HRESULT = windows_core::HRESULT(0xC05D0001_u32 as _);
 pub const ERROR_SMB_GUEST_LOGON_BLOCKED: WIN32_ERROR = WIN32_ERROR(1272u32);
-pub const ERROR_SMB_NO_PREAUTH_INTEGRITY_HASH_OVERLAP: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC05D0000_u32 as _);
-pub const ERROR_SMB_NO_SIGNING_ALGORITHM_OVERLAP: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC05D0002_u32 as _);
+pub const ERROR_SMB_NO_PREAUTH_INTEGRITY_HASH_OVERLAP: windows_core::HRESULT = windows_core::HRESULT(0xC05D0000_u32 as _);
+pub const ERROR_SMB_NO_SIGNING_ALGORITHM_OVERLAP: windows_core::HRESULT = windows_core::HRESULT(0xC05D0002_u32 as _);
 pub const ERROR_SMI_PRIMITIVE_INSTALLER_FAILED: WIN32_ERROR = WIN32_ERROR(14108u32);
 pub const ERROR_SMR_GARBAGE_COLLECTION_REQUIRED: WIN32_ERROR = WIN32_ERROR(4445u32);
 pub const ERROR_SOME_NOT_MAPPED: WIN32_ERROR = WIN32_ERROR(1301u32);
 pub const ERROR_SOURCE_ELEMENT_EMPTY: WIN32_ERROR = WIN32_ERROR(1160u32);
-pub const ERROR_SPACES_ALLOCATION_SIZE_INVALID: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80E7000E_u32 as _);
-pub const ERROR_SPACES_CACHE_FULL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80E70026_u32 as _);
-pub const ERROR_SPACES_CORRUPT_METADATA: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80E70018_u32 as _);
-pub const ERROR_SPACES_DRIVE_LOST_DATA: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80E7001F_u32 as _);
-pub const ERROR_SPACES_DRIVE_NOT_READY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80E7001D_u32 as _);
-pub const ERROR_SPACES_DRIVE_OPERATIONAL_STATE_INVALID: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80E70012_u32 as _);
-pub const ERROR_SPACES_DRIVE_REDUNDANCY_INVALID: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80E70006_u32 as _);
-pub const ERROR_SPACES_DRIVE_SECTOR_SIZE_INVALID: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80E70004_u32 as _);
-pub const ERROR_SPACES_DRIVE_SPLIT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80E7001E_u32 as _);
-pub const ERROR_SPACES_DRT_FULL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80E70019_u32 as _);
-pub const ERROR_SPACES_ENCLOSURE_AWARE_INVALID: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80E7000F_u32 as _);
-pub const ERROR_SPACES_ENTRY_INCOMPLETE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80E70013_u32 as _);
-pub const ERROR_SPACES_ENTRY_INVALID: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80E70014_u32 as _);
-pub const ERROR_SPACES_EXTENDED_ERROR: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80E7000C_u32 as _);
-pub const ERROR_SPACES_FAULT_DOMAIN_TYPE_INVALID: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80E70001_u32 as _);
-pub const ERROR_SPACES_FLUSH_METADATA: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80E70025_u32 as _);
-pub const ERROR_SPACES_INCONSISTENCY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80E7001A_u32 as _);
-pub const ERROR_SPACES_INTERLEAVE_LENGTH_INVALID: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80E70009_u32 as _);
-pub const ERROR_SPACES_INTERNAL_ERROR: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80E70002_u32 as _);
-pub const ERROR_SPACES_LOG_NOT_READY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80E7001B_u32 as _);
-pub const ERROR_SPACES_MAP_REQUIRED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80E70016_u32 as _);
-pub const ERROR_SPACES_MARK_DIRTY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80E70020_u32 as _);
-pub const ERROR_SPACES_NOT_ENOUGH_DRIVES: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80E7000B_u32 as _);
-pub const ERROR_SPACES_NO_REDUNDANCY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80E7001C_u32 as _);
-pub const ERROR_SPACES_NUMBER_OF_COLUMNS_INVALID: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80E7000A_u32 as _);
-pub const ERROR_SPACES_NUMBER_OF_DATA_COPIES_INVALID: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80E70007_u32 as _);
-pub const ERROR_SPACES_NUMBER_OF_GROUPS_INVALID: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80E70011_u32 as _);
-pub const ERROR_SPACES_PARITY_LAYOUT_INVALID: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80E70008_u32 as _);
-pub const ERROR_SPACES_POOL_WAS_DELETED: ::windows_core::HRESULT = ::windows_core::HRESULT(0xE70001_u32 as _);
-pub const ERROR_SPACES_PROVISIONING_TYPE_INVALID: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80E7000D_u32 as _);
-pub const ERROR_SPACES_REPAIR_IN_PROGRESS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80E70027_u32 as _);
-pub const ERROR_SPACES_RESILIENCY_TYPE_INVALID: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80E70003_u32 as _);
-pub const ERROR_SPACES_UNSUPPORTED_VERSION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80E70017_u32 as _);
-pub const ERROR_SPACES_UPDATE_COLUMN_STATE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80E70015_u32 as _);
-pub const ERROR_SPACES_WRITE_CACHE_SIZE_INVALID: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80E70010_u32 as _);
+pub const ERROR_SPACES_ALLOCATION_SIZE_INVALID: windows_core::HRESULT = windows_core::HRESULT(0x80E7000E_u32 as _);
+pub const ERROR_SPACES_CACHE_FULL: windows_core::HRESULT = windows_core::HRESULT(0x80E70026_u32 as _);
+pub const ERROR_SPACES_CORRUPT_METADATA: windows_core::HRESULT = windows_core::HRESULT(0x80E70018_u32 as _);
+pub const ERROR_SPACES_DRIVE_LOST_DATA: windows_core::HRESULT = windows_core::HRESULT(0x80E7001F_u32 as _);
+pub const ERROR_SPACES_DRIVE_NOT_READY: windows_core::HRESULT = windows_core::HRESULT(0x80E7001D_u32 as _);
+pub const ERROR_SPACES_DRIVE_OPERATIONAL_STATE_INVALID: windows_core::HRESULT = windows_core::HRESULT(0x80E70012_u32 as _);
+pub const ERROR_SPACES_DRIVE_REDUNDANCY_INVALID: windows_core::HRESULT = windows_core::HRESULT(0x80E70006_u32 as _);
+pub const ERROR_SPACES_DRIVE_SECTOR_SIZE_INVALID: windows_core::HRESULT = windows_core::HRESULT(0x80E70004_u32 as _);
+pub const ERROR_SPACES_DRIVE_SPLIT: windows_core::HRESULT = windows_core::HRESULT(0x80E7001E_u32 as _);
+pub const ERROR_SPACES_DRT_FULL: windows_core::HRESULT = windows_core::HRESULT(0x80E70019_u32 as _);
+pub const ERROR_SPACES_ENCLOSURE_AWARE_INVALID: windows_core::HRESULT = windows_core::HRESULT(0x80E7000F_u32 as _);
+pub const ERROR_SPACES_ENTRY_INCOMPLETE: windows_core::HRESULT = windows_core::HRESULT(0x80E70013_u32 as _);
+pub const ERROR_SPACES_ENTRY_INVALID: windows_core::HRESULT = windows_core::HRESULT(0x80E70014_u32 as _);
+pub const ERROR_SPACES_EXTENDED_ERROR: windows_core::HRESULT = windows_core::HRESULT(0x80E7000C_u32 as _);
+pub const ERROR_SPACES_FAULT_DOMAIN_TYPE_INVALID: windows_core::HRESULT = windows_core::HRESULT(0x80E70001_u32 as _);
+pub const ERROR_SPACES_FLUSH_METADATA: windows_core::HRESULT = windows_core::HRESULT(0x80E70025_u32 as _);
+pub const ERROR_SPACES_INCONSISTENCY: windows_core::HRESULT = windows_core::HRESULT(0x80E7001A_u32 as _);
+pub const ERROR_SPACES_INTERLEAVE_LENGTH_INVALID: windows_core::HRESULT = windows_core::HRESULT(0x80E70009_u32 as _);
+pub const ERROR_SPACES_INTERNAL_ERROR: windows_core::HRESULT = windows_core::HRESULT(0x80E70002_u32 as _);
+pub const ERROR_SPACES_LOG_NOT_READY: windows_core::HRESULT = windows_core::HRESULT(0x80E7001B_u32 as _);
+pub const ERROR_SPACES_MAP_REQUIRED: windows_core::HRESULT = windows_core::HRESULT(0x80E70016_u32 as _);
+pub const ERROR_SPACES_MARK_DIRTY: windows_core::HRESULT = windows_core::HRESULT(0x80E70020_u32 as _);
+pub const ERROR_SPACES_NOT_ENOUGH_DRIVES: windows_core::HRESULT = windows_core::HRESULT(0x80E7000B_u32 as _);
+pub const ERROR_SPACES_NO_REDUNDANCY: windows_core::HRESULT = windows_core::HRESULT(0x80E7001C_u32 as _);
+pub const ERROR_SPACES_NUMBER_OF_COLUMNS_INVALID: windows_core::HRESULT = windows_core::HRESULT(0x80E7000A_u32 as _);
+pub const ERROR_SPACES_NUMBER_OF_DATA_COPIES_INVALID: windows_core::HRESULT = windows_core::HRESULT(0x80E70007_u32 as _);
+pub const ERROR_SPACES_NUMBER_OF_GROUPS_INVALID: windows_core::HRESULT = windows_core::HRESULT(0x80E70011_u32 as _);
+pub const ERROR_SPACES_PARITY_LAYOUT_INVALID: windows_core::HRESULT = windows_core::HRESULT(0x80E70008_u32 as _);
+pub const ERROR_SPACES_POOL_WAS_DELETED: windows_core::HRESULT = windows_core::HRESULT(0xE70001_u32 as _);
+pub const ERROR_SPACES_PROVISIONING_TYPE_INVALID: windows_core::HRESULT = windows_core::HRESULT(0x80E7000D_u32 as _);
+pub const ERROR_SPACES_REPAIR_IN_PROGRESS: windows_core::HRESULT = windows_core::HRESULT(0x80E70027_u32 as _);
+pub const ERROR_SPACES_RESILIENCY_TYPE_INVALID: windows_core::HRESULT = windows_core::HRESULT(0x80E70003_u32 as _);
+pub const ERROR_SPACES_UNSUPPORTED_VERSION: windows_core::HRESULT = windows_core::HRESULT(0x80E70017_u32 as _);
+pub const ERROR_SPACES_UPDATE_COLUMN_STATE: windows_core::HRESULT = windows_core::HRESULT(0x80E70015_u32 as _);
+pub const ERROR_SPACES_WRITE_CACHE_SIZE_INVALID: windows_core::HRESULT = windows_core::HRESULT(0x80E70010_u32 as _);
 pub const ERROR_SPARSE_FILE_NOT_SUPPORTED: WIN32_ERROR = WIN32_ERROR(490u32);
 pub const ERROR_SPARSE_NOT_ALLOWED_IN_TRANSACTION: WIN32_ERROR = WIN32_ERROR(6844u32);
 pub const ERROR_SPECIAL_ACCOUNT: WIN32_ERROR = WIN32_ERROR(1371u32);
@@ -4037,18 +4037,18 @@ pub const ERROR_SUCCESS: WIN32_ERROR = WIN32_ERROR(0u32);
 pub const ERROR_SUCCESS_REBOOT_INITIATED: WIN32_ERROR = WIN32_ERROR(1641u32);
 pub const ERROR_SUCCESS_REBOOT_REQUIRED: WIN32_ERROR = WIN32_ERROR(3010u32);
 pub const ERROR_SUCCESS_RESTART_REQUIRED: WIN32_ERROR = WIN32_ERROR(3011u32);
-pub const ERROR_SVHDX_ERROR_NOT_AVAILABLE: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC05CFF00_u32 as _);
-pub const ERROR_SVHDX_ERROR_STORED: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC05C0000_u32 as _);
-pub const ERROR_SVHDX_NO_INITIATOR: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC05CFF0B_u32 as _);
-pub const ERROR_SVHDX_RESERVATION_CONFLICT: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC05CFF07_u32 as _);
-pub const ERROR_SVHDX_UNIT_ATTENTION_AVAILABLE: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC05CFF01_u32 as _);
-pub const ERROR_SVHDX_UNIT_ATTENTION_CAPACITY_DATA_CHANGED: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC05CFF02_u32 as _);
-pub const ERROR_SVHDX_UNIT_ATTENTION_OPERATING_DEFINITION_CHANGED: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC05CFF06_u32 as _);
-pub const ERROR_SVHDX_UNIT_ATTENTION_REGISTRATIONS_PREEMPTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC05CFF05_u32 as _);
-pub const ERROR_SVHDX_UNIT_ATTENTION_RESERVATIONS_PREEMPTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC05CFF03_u32 as _);
-pub const ERROR_SVHDX_UNIT_ATTENTION_RESERVATIONS_RELEASED: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC05CFF04_u32 as _);
-pub const ERROR_SVHDX_VERSION_MISMATCH: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC05CFF09_u32 as _);
-pub const ERROR_SVHDX_WRONG_FILE_TYPE: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC05CFF08_u32 as _);
+pub const ERROR_SVHDX_ERROR_NOT_AVAILABLE: windows_core::HRESULT = windows_core::HRESULT(0xC05CFF00_u32 as _);
+pub const ERROR_SVHDX_ERROR_STORED: windows_core::HRESULT = windows_core::HRESULT(0xC05C0000_u32 as _);
+pub const ERROR_SVHDX_NO_INITIATOR: windows_core::HRESULT = windows_core::HRESULT(0xC05CFF0B_u32 as _);
+pub const ERROR_SVHDX_RESERVATION_CONFLICT: windows_core::HRESULT = windows_core::HRESULT(0xC05CFF07_u32 as _);
+pub const ERROR_SVHDX_UNIT_ATTENTION_AVAILABLE: windows_core::HRESULT = windows_core::HRESULT(0xC05CFF01_u32 as _);
+pub const ERROR_SVHDX_UNIT_ATTENTION_CAPACITY_DATA_CHANGED: windows_core::HRESULT = windows_core::HRESULT(0xC05CFF02_u32 as _);
+pub const ERROR_SVHDX_UNIT_ATTENTION_OPERATING_DEFINITION_CHANGED: windows_core::HRESULT = windows_core::HRESULT(0xC05CFF06_u32 as _);
+pub const ERROR_SVHDX_UNIT_ATTENTION_REGISTRATIONS_PREEMPTED: windows_core::HRESULT = windows_core::HRESULT(0xC05CFF05_u32 as _);
+pub const ERROR_SVHDX_UNIT_ATTENTION_RESERVATIONS_PREEMPTED: windows_core::HRESULT = windows_core::HRESULT(0xC05CFF03_u32 as _);
+pub const ERROR_SVHDX_UNIT_ATTENTION_RESERVATIONS_RELEASED: windows_core::HRESULT = windows_core::HRESULT(0xC05CFF04_u32 as _);
+pub const ERROR_SVHDX_VERSION_MISMATCH: windows_core::HRESULT = windows_core::HRESULT(0xC05CFF09_u32 as _);
+pub const ERROR_SVHDX_WRONG_FILE_TYPE: windows_core::HRESULT = windows_core::HRESULT(0xC05CFF08_u32 as _);
 pub const ERROR_SWAPERROR: WIN32_ERROR = WIN32_ERROR(999u32);
 pub const ERROR_SXS_ACTIVATION_CONTEXT_DISABLED: WIN32_ERROR = WIN32_ERROR(14006u32);
 pub const ERROR_SXS_ASSEMBLY_IS_NOT_A_DEPLOYMENT: WIN32_ERROR = WIN32_ERROR(14103u32);
@@ -4190,14 +4190,14 @@ pub const ERROR_THREAD_MODE_ALREADY_BACKGROUND: WIN32_ERROR = WIN32_ERROR(400u32
 pub const ERROR_THREAD_MODE_NOT_BACKGROUND: WIN32_ERROR = WIN32_ERROR(401u32);
 pub const ERROR_THREAD_NOT_IN_PROCESS: WIN32_ERROR = WIN32_ERROR(566u32);
 pub const ERROR_THREAD_WAS_SUSPENDED: WIN32_ERROR = WIN32_ERROR(699u32);
-pub const ERROR_TIERING_ALREADY_PROCESSING: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80830006_u32 as _);
-pub const ERROR_TIERING_CANNOT_PIN_OBJECT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80830007_u32 as _);
-pub const ERROR_TIERING_FILE_IS_NOT_PINNED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80830008_u32 as _);
-pub const ERROR_TIERING_INVALID_FILE_ID: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80830004_u32 as _);
-pub const ERROR_TIERING_NOT_SUPPORTED_ON_VOLUME: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80830001_u32 as _);
-pub const ERROR_TIERING_STORAGE_TIER_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80830003_u32 as _);
-pub const ERROR_TIERING_VOLUME_DISMOUNT_IN_PROGRESS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80830002_u32 as _);
-pub const ERROR_TIERING_WRONG_CLUSTER_NODE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80830005_u32 as _);
+pub const ERROR_TIERING_ALREADY_PROCESSING: windows_core::HRESULT = windows_core::HRESULT(0x80830006_u32 as _);
+pub const ERROR_TIERING_CANNOT_PIN_OBJECT: windows_core::HRESULT = windows_core::HRESULT(0x80830007_u32 as _);
+pub const ERROR_TIERING_FILE_IS_NOT_PINNED: windows_core::HRESULT = windows_core::HRESULT(0x80830008_u32 as _);
+pub const ERROR_TIERING_INVALID_FILE_ID: windows_core::HRESULT = windows_core::HRESULT(0x80830004_u32 as _);
+pub const ERROR_TIERING_NOT_SUPPORTED_ON_VOLUME: windows_core::HRESULT = windows_core::HRESULT(0x80830001_u32 as _);
+pub const ERROR_TIERING_STORAGE_TIER_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0x80830003_u32 as _);
+pub const ERROR_TIERING_VOLUME_DISMOUNT_IN_PROGRESS: windows_core::HRESULT = windows_core::HRESULT(0x80830002_u32 as _);
+pub const ERROR_TIERING_WRONG_CLUSTER_NODE: windows_core::HRESULT = windows_core::HRESULT(0x80830005_u32 as _);
 pub const ERROR_TIMEOUT: WIN32_ERROR = WIN32_ERROR(1460u32);
 pub const ERROR_TIMER_NOT_CANCELED: WIN32_ERROR = WIN32_ERROR(541u32);
 pub const ERROR_TIMER_RESOLUTION_NOT_SET: WIN32_ERROR = WIN32_ERROR(607u32);
@@ -4325,7 +4325,7 @@ pub const ERROR_VDM_DISALLOWED: WIN32_ERROR = WIN32_ERROR(1286u32);
 pub const ERROR_VDM_HARD_ERROR: WIN32_ERROR = WIN32_ERROR(593u32);
 pub const ERROR_VERIFIER_STOP: WIN32_ERROR = WIN32_ERROR(537u32);
 pub const ERROR_VERSION_PARSE_ERROR: WIN32_ERROR = WIN32_ERROR(777u32);
-pub const ERROR_VHDSET_BACKING_STORAGE_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC05CFF0C_u32 as _);
+pub const ERROR_VHDSET_BACKING_STORAGE_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0xC05CFF0C_u32 as _);
 pub const ERROR_VHD_ALREADY_AT_OR_BELOW_MINIMUM_VIRTUAL_SIZE: WIN32_ERROR = WIN32_ERROR(3225026599u32);
 pub const ERROR_VHD_BITMAP_MISMATCH: WIN32_ERROR = WIN32_ERROR(3225026572u32);
 pub const ERROR_VHD_BLOCK_ALLOCATION_FAILURE: WIN32_ERROR = WIN32_ERROR(3225026569u32);
@@ -4355,7 +4355,7 @@ pub const ERROR_VHD_MISSING_CHANGE_TRACKING_INFORMATION: WIN32_ERROR = WIN32_ERR
 pub const ERROR_VHD_PARENT_VHD_ACCESS_DENIED: WIN32_ERROR = WIN32_ERROR(3225026582u32);
 pub const ERROR_VHD_PARENT_VHD_NOT_FOUND: WIN32_ERROR = WIN32_ERROR(3225026573u32);
 pub const ERROR_VHD_RESIZE_WOULD_TRUNCATE_DATA: WIN32_ERROR = WIN32_ERROR(3225026597u32);
-pub const ERROR_VHD_SHARED: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC05CFF0A_u32 as _);
+pub const ERROR_VHD_SHARED: windows_core::HRESULT = windows_core::HRESULT(0xC05CFF0A_u32 as _);
 pub const ERROR_VHD_SPARSE_HEADER_CHECKSUM_MISMATCH: WIN32_ERROR = WIN32_ERROR(3225026566u32);
 pub const ERROR_VHD_SPARSE_HEADER_CORRUPT: WIN32_ERROR = WIN32_ERROR(3225026568u32);
 pub const ERROR_VHD_SPARSE_HEADER_UNSUPPORTED_VERSION: WIN32_ERROR = WIN32_ERROR(3225026567u32);
@@ -4532,10 +4532,10 @@ pub const ERROR_VOLMGR_VOLUME_NOT_MIRRORED: WIN32_ERROR = WIN32_ERROR(3224895561
 pub const ERROR_VOLMGR_VOLUME_NOT_RETAINED: WIN32_ERROR = WIN32_ERROR(3224895562u32);
 pub const ERROR_VOLMGR_VOLUME_OFFLINE: WIN32_ERROR = WIN32_ERROR(3224895563u32);
 pub const ERROR_VOLMGR_VOLUME_RETAINED: WIN32_ERROR = WIN32_ERROR(3224895564u32);
-pub const ERROR_VOLSNAP_ACTIVATION_TIMEOUT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80820002_u32 as _);
-pub const ERROR_VOLSNAP_BOOTFILE_NOT_VALID: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80820001_u32 as _);
+pub const ERROR_VOLSNAP_ACTIVATION_TIMEOUT: windows_core::HRESULT = windows_core::HRESULT(0x80820002_u32 as _);
+pub const ERROR_VOLSNAP_BOOTFILE_NOT_VALID: windows_core::HRESULT = windows_core::HRESULT(0x80820001_u32 as _);
 pub const ERROR_VOLSNAP_HIBERNATE_READY: WIN32_ERROR = WIN32_ERROR(761u32);
-pub const ERROR_VOLSNAP_NO_BYPASSIO_WITH_SNAPSHOT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80820003_u32 as _);
+pub const ERROR_VOLSNAP_NO_BYPASSIO_WITH_SNAPSHOT: windows_core::HRESULT = windows_core::HRESULT(0x80820003_u32 as _);
 pub const ERROR_VOLSNAP_PREPARE_HIBERNATE: WIN32_ERROR = WIN32_ERROR(655u32);
 pub const ERROR_VOLUME_CONTAINS_SYS_FILES: WIN32_ERROR = WIN32_ERROR(4337u32);
 pub const ERROR_VOLUME_DIRTY: WIN32_ERROR = WIN32_ERROR(6851u32);
@@ -4611,27 +4611,27 @@ pub const ERROR_WX86_WARNING: WIN32_ERROR = WIN32_ERROR(539u32);
 pub const ERROR_XMLDSIG_ERROR: WIN32_ERROR = WIN32_ERROR(1466u32);
 pub const ERROR_XML_ENCODING_MISMATCH: WIN32_ERROR = WIN32_ERROR(14100u32);
 pub const ERROR_XML_PARSE_ERROR: WIN32_ERROR = WIN32_ERROR(1465u32);
-pub const EVENT_E_ALL_SUBSCRIBERS_FAILED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80040201_u32 as _);
-pub const EVENT_E_CANT_MODIFY_OR_DELETE_CONFIGURED_OBJECT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004020E_u32 as _);
-pub const EVENT_E_CANT_MODIFY_OR_DELETE_UNCONFIGURED_OBJECT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004020D_u32 as _);
-pub const EVENT_E_COMPLUS_NOT_INSTALLED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004020C_u32 as _);
+pub const EVENT_E_ALL_SUBSCRIBERS_FAILED: windows_core::HRESULT = windows_core::HRESULT(0x80040201_u32 as _);
+pub const EVENT_E_CANT_MODIFY_OR_DELETE_CONFIGURED_OBJECT: windows_core::HRESULT = windows_core::HRESULT(0x8004020E_u32 as _);
+pub const EVENT_E_CANT_MODIFY_OR_DELETE_UNCONFIGURED_OBJECT: windows_core::HRESULT = windows_core::HRESULT(0x8004020D_u32 as _);
+pub const EVENT_E_COMPLUS_NOT_INSTALLED: windows_core::HRESULT = windows_core::HRESULT(0x8004020C_u32 as _);
 pub const EVENT_E_FIRST: i32 = -2147220992i32;
-pub const EVENT_E_INTERNALERROR: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80040206_u32 as _);
-pub const EVENT_E_INTERNALEXCEPTION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80040205_u32 as _);
-pub const EVENT_E_INVALID_EVENT_CLASS_PARTITION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004020F_u32 as _);
-pub const EVENT_E_INVALID_PER_USER_SID: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80040207_u32 as _);
+pub const EVENT_E_INTERNALERROR: windows_core::HRESULT = windows_core::HRESULT(0x80040206_u32 as _);
+pub const EVENT_E_INTERNALEXCEPTION: windows_core::HRESULT = windows_core::HRESULT(0x80040205_u32 as _);
+pub const EVENT_E_INVALID_EVENT_CLASS_PARTITION: windows_core::HRESULT = windows_core::HRESULT(0x8004020F_u32 as _);
+pub const EVENT_E_INVALID_PER_USER_SID: windows_core::HRESULT = windows_core::HRESULT(0x80040207_u32 as _);
 pub const EVENT_E_LAST: i32 = -2147220961i32;
-pub const EVENT_E_MISSING_EVENTCLASS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004020A_u32 as _);
-pub const EVENT_E_NOT_ALL_REMOVED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004020B_u32 as _);
-pub const EVENT_E_PER_USER_SID_NOT_LOGGED_ON: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80040210_u32 as _);
-pub const EVENT_E_QUERYFIELD: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80040204_u32 as _);
-pub const EVENT_E_QUERYSYNTAX: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80040203_u32 as _);
-pub const EVENT_E_TOO_MANY_METHODS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80040209_u32 as _);
-pub const EVENT_E_USER_EXCEPTION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80040208_u32 as _);
+pub const EVENT_E_MISSING_EVENTCLASS: windows_core::HRESULT = windows_core::HRESULT(0x8004020A_u32 as _);
+pub const EVENT_E_NOT_ALL_REMOVED: windows_core::HRESULT = windows_core::HRESULT(0x8004020B_u32 as _);
+pub const EVENT_E_PER_USER_SID_NOT_LOGGED_ON: windows_core::HRESULT = windows_core::HRESULT(0x80040210_u32 as _);
+pub const EVENT_E_QUERYFIELD: windows_core::HRESULT = windows_core::HRESULT(0x80040204_u32 as _);
+pub const EVENT_E_QUERYSYNTAX: windows_core::HRESULT = windows_core::HRESULT(0x80040203_u32 as _);
+pub const EVENT_E_TOO_MANY_METHODS: windows_core::HRESULT = windows_core::HRESULT(0x80040209_u32 as _);
+pub const EVENT_E_USER_EXCEPTION: windows_core::HRESULT = windows_core::HRESULT(0x80040208_u32 as _);
 pub const EVENT_S_FIRST: i32 = 262656i32;
 pub const EVENT_S_LAST: i32 = 262687i32;
-pub const EVENT_S_NOSUBSCRIBERS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x40202_u32 as _);
-pub const EVENT_S_SOME_SUBSCRIBERS_FAILED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x40200_u32 as _);
+pub const EVENT_S_NOSUBSCRIBERS: windows_core::HRESULT = windows_core::HRESULT(0x40202_u32 as _);
+pub const EVENT_S_SOME_SUBSCRIBERS_FAILED: windows_core::HRESULT = windows_core::HRESULT(0x40200_u32 as _);
 pub const EXCEPTION_ACCESS_VIOLATION: NTSTATUS = NTSTATUS(0xC0000005_u32 as _);
 pub const EXCEPTION_ARRAY_BOUNDS_EXCEEDED: NTSTATUS = NTSTATUS(0xC000008C_u32 as _);
 pub const EXCEPTION_BREAKPOINT: NTSTATUS = NTSTATUS(0x80000003_u32 as _);
@@ -4656,124 +4656,124 @@ pub const EXCEPTION_PRIV_INSTRUCTION: NTSTATUS = NTSTATUS(0xC0000096_u32 as _);
 pub const EXCEPTION_SINGLE_STEP: NTSTATUS = NTSTATUS(0x80000004_u32 as _);
 pub const EXCEPTION_SPAPI_UNRECOVERABLE_STACK_OVERFLOW: NTSTATUS = NTSTATUS(0xE0000300_u32 as _);
 pub const EXCEPTION_STACK_OVERFLOW: NTSTATUS = NTSTATUS(0xC00000FD_u32 as _);
-pub const E_ABORT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80004004_u32 as _);
-pub const E_ACCESSDENIED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80070005_u32 as _);
-pub const E_APPLICATION_ACTIVATION_EXEC_FAILURE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8027025B_u32 as _);
-pub const E_APPLICATION_ACTIVATION_TIMED_OUT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8027025A_u32 as _);
-pub const E_APPLICATION_EXITING: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8000001A_u32 as _);
-pub const E_APPLICATION_MANAGER_NOT_RUNNING: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80270257_u32 as _);
-pub const E_APPLICATION_NOT_REGISTERED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80270254_u32 as _);
-pub const E_APPLICATION_TEMPORARY_LICENSE_ERROR: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8027025C_u32 as _);
-pub const E_APPLICATION_TRIAL_LICENSE_EXPIRED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8027025D_u32 as _);
-pub const E_APPLICATION_VIEW_EXITING: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8000001B_u32 as _);
-pub const E_ASYNC_OPERATION_NOT_STARTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80000019_u32 as _);
-pub const E_AUDIO_ENGINE_NODE_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80660001_u32 as _);
-pub const E_BLUETOOTH_ATT_ATTRIBUTE_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8065000A_u32 as _);
-pub const E_BLUETOOTH_ATT_ATTRIBUTE_NOT_LONG: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8065000B_u32 as _);
-pub const E_BLUETOOTH_ATT_INSUFFICIENT_AUTHENTICATION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80650005_u32 as _);
-pub const E_BLUETOOTH_ATT_INSUFFICIENT_AUTHORIZATION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80650008_u32 as _);
-pub const E_BLUETOOTH_ATT_INSUFFICIENT_ENCRYPTION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8065000F_u32 as _);
-pub const E_BLUETOOTH_ATT_INSUFFICIENT_ENCRYPTION_KEY_SIZE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8065000C_u32 as _);
-pub const E_BLUETOOTH_ATT_INSUFFICIENT_RESOURCES: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80650011_u32 as _);
-pub const E_BLUETOOTH_ATT_INVALID_ATTRIBUTE_VALUE_LENGTH: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8065000D_u32 as _);
-pub const E_BLUETOOTH_ATT_INVALID_HANDLE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80650001_u32 as _);
-pub const E_BLUETOOTH_ATT_INVALID_OFFSET: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80650007_u32 as _);
-pub const E_BLUETOOTH_ATT_INVALID_PDU: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80650004_u32 as _);
-pub const E_BLUETOOTH_ATT_PREPARE_QUEUE_FULL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80650009_u32 as _);
-pub const E_BLUETOOTH_ATT_READ_NOT_PERMITTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80650002_u32 as _);
-pub const E_BLUETOOTH_ATT_REQUEST_NOT_SUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80650006_u32 as _);
-pub const E_BLUETOOTH_ATT_UNKNOWN_ERROR: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80651000_u32 as _);
-pub const E_BLUETOOTH_ATT_UNLIKELY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8065000E_u32 as _);
-pub const E_BLUETOOTH_ATT_UNSUPPORTED_GROUP_TYPE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80650010_u32 as _);
-pub const E_BLUETOOTH_ATT_WRITE_NOT_PERMITTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80650003_u32 as _);
-pub const E_BOUNDS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8000000B_u32 as _);
-pub const E_CHANGED_STATE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8000000C_u32 as _);
-pub const E_ELEVATED_ACTIVATION_NOT_SUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80270251_u32 as _);
-pub const E_FAIL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80004005_u32 as _);
-pub const E_FULL_ADMIN_NOT_SUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80270253_u32 as _);
-pub const E_HANDLE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80070006_u32 as _);
-pub const E_HDAUDIO_CONNECTION_LIST_NOT_SUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80660003_u32 as _);
-pub const E_HDAUDIO_EMPTY_CONNECTION_LIST: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80660002_u32 as _);
-pub const E_HDAUDIO_NO_LOGICAL_DEVICES_CREATED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80660004_u32 as _);
-pub const E_HDAUDIO_NULL_LINKED_LIST_ENTRY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80660005_u32 as _);
-pub const E_ILLEGAL_DELEGATE_ASSIGNMENT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80000018_u32 as _);
-pub const E_ILLEGAL_METHOD_CALL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8000000E_u32 as _);
-pub const E_ILLEGAL_STATE_CHANGE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8000000D_u32 as _);
-pub const E_INVALIDARG: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80070057_u32 as _);
-pub const E_INVALID_PROTOCOL_FORMAT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x83760002_u32 as _);
-pub const E_INVALID_PROTOCOL_OPERATION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x83760001_u32 as _);
-pub const E_MBN_BAD_SIM: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80548202_u32 as _);
-pub const E_MBN_CONTEXT_NOT_ACTIVATED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80548201_u32 as _);
-pub const E_MBN_DATA_CLASS_NOT_AVAILABLE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80548203_u32 as _);
-pub const E_MBN_DEFAULT_PROFILE_EXIST: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80548219_u32 as _);
-pub const E_MBN_FAILURE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80548212_u32 as _);
-pub const E_MBN_INVALID_ACCESS_STRING: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80548204_u32 as _);
-pub const E_MBN_INVALID_CACHE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8054820C_u32 as _);
-pub const E_MBN_INVALID_PROFILE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80548218_u32 as _);
-pub const E_MBN_MAX_ACTIVATED_CONTEXTS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80548205_u32 as _);
-pub const E_MBN_NOT_REGISTERED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8054820D_u32 as _);
-pub const E_MBN_PACKET_SVC_DETACHED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80548206_u32 as _);
-pub const E_MBN_PIN_DISABLED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80548211_u32 as _);
-pub const E_MBN_PIN_NOT_SUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8054820F_u32 as _);
-pub const E_MBN_PIN_REQUIRED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80548210_u32 as _);
-pub const E_MBN_PROVIDERS_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8054820E_u32 as _);
-pub const E_MBN_PROVIDER_NOT_VISIBLE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80548207_u32 as _);
-pub const E_MBN_RADIO_POWER_OFF: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80548208_u32 as _);
-pub const E_MBN_SERVICE_NOT_ACTIVATED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80548209_u32 as _);
-pub const E_MBN_SIM_NOT_INSERTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8054820A_u32 as _);
-pub const E_MBN_SMS_ENCODING_NOT_SUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80548220_u32 as _);
-pub const E_MBN_SMS_FILTER_NOT_SUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80548221_u32 as _);
-pub const E_MBN_SMS_FORMAT_NOT_SUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80548227_u32 as _);
-pub const E_MBN_SMS_INVALID_MEMORY_INDEX: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80548222_u32 as _);
-pub const E_MBN_SMS_LANG_NOT_SUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80548223_u32 as _);
-pub const E_MBN_SMS_MEMORY_FAILURE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80548224_u32 as _);
-pub const E_MBN_SMS_MEMORY_FULL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80548229_u32 as _);
-pub const E_MBN_SMS_NETWORK_TIMEOUT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80548225_u32 as _);
-pub const E_MBN_SMS_OPERATION_NOT_ALLOWED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80548228_u32 as _);
-pub const E_MBN_SMS_UNKNOWN_SMSC_ADDRESS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80548226_u32 as _);
-pub const E_MBN_VOICE_CALL_IN_PROGRESS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8054820B_u32 as _);
-pub const E_MONITOR_RESOLUTION_TOO_LOW: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80270250_u32 as _);
-pub const E_MULTIPLE_EXTENSIONS_FOR_APPLICATION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80270255_u32 as _);
-pub const E_MULTIPLE_PACKAGES_FOR_FAMILY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80270256_u32 as _);
-pub const E_NOINTERFACE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80004002_u32 as _);
-pub const E_NOTIMPL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80004001_u32 as _);
-pub const E_OUTOFMEMORY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8007000E_u32 as _);
-pub const E_POINTER: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80004003_u32 as _);
-pub const E_PROTOCOL_EXTENSIONS_NOT_SUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x83760003_u32 as _);
-pub const E_PROTOCOL_VERSION_NOT_SUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x83760005_u32 as _);
-pub const E_SKYDRIVE_FILE_NOT_UPLOADED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80270263_u32 as _);
-pub const E_SKYDRIVE_ROOT_TARGET_CANNOT_INDEX: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80270262_u32 as _);
-pub const E_SKYDRIVE_ROOT_TARGET_FILE_SYSTEM_NOT_SUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80270260_u32 as _);
-pub const E_SKYDRIVE_ROOT_TARGET_OVERLAP: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80270261_u32 as _);
-pub const E_SKYDRIVE_ROOT_TARGET_VOLUME_ROOT_NOT_SUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80270265_u32 as _);
-pub const E_SKYDRIVE_UPDATE_AVAILABILITY_FAIL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80270264_u32 as _);
-pub const E_STRING_NOT_NULL_TERMINATED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80000017_u32 as _);
-pub const E_SUBPROTOCOL_NOT_SUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x83760004_u32 as _);
-pub const E_SYNCENGINE_CLIENT_UPDATE_NEEDED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8802D006_u32 as _);
-pub const E_SYNCENGINE_FILE_IDENTIFIER_UNKNOWN: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8802C002_u32 as _);
-pub const E_SYNCENGINE_FILE_SIZE_EXCEEDS_REMAINING_QUOTA: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8802B002_u32 as _);
-pub const E_SYNCENGINE_FILE_SIZE_OVER_LIMIT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8802B001_u32 as _);
-pub const E_SYNCENGINE_FILE_SYNC_PARTNER_ERROR: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8802B005_u32 as _);
-pub const E_SYNCENGINE_FOLDER_INACCESSIBLE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8802D001_u32 as _);
-pub const E_SYNCENGINE_FOLDER_IN_REDIRECTION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8802D00B_u32 as _);
-pub const E_SYNCENGINE_FOLDER_ITEM_COUNT_LIMIT_EXCEEDED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8802B004_u32 as _);
-pub const E_SYNCENGINE_PATH_LENGTH_LIMIT_EXCEEDED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8802D004_u32 as _);
-pub const E_SYNCENGINE_PROXY_AUTHENTICATION_REQUIRED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8802D007_u32 as _);
-pub const E_SYNCENGINE_REMOTE_PATH_LENGTH_LIMIT_EXCEEDED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8802D005_u32 as _);
-pub const E_SYNCENGINE_REQUEST_BLOCKED_BY_SERVICE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8802C006_u32 as _);
-pub const E_SYNCENGINE_REQUEST_BLOCKED_DUE_TO_CLIENT_ERROR: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8802C007_u32 as _);
-pub const E_SYNCENGINE_SERVICE_AUTHENTICATION_FAILED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8802C003_u32 as _);
-pub const E_SYNCENGINE_SERVICE_RETURNED_UNEXPECTED_SIZE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8802C005_u32 as _);
-pub const E_SYNCENGINE_STORAGE_SERVICE_BLOCKED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8802D00A_u32 as _);
-pub const E_SYNCENGINE_STORAGE_SERVICE_PROVISIONING_FAILED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8802D008_u32 as _);
-pub const E_SYNCENGINE_SYNC_PAUSED_BY_SERVICE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8802B006_u32 as _);
-pub const E_SYNCENGINE_UNKNOWN_SERVICE_ERROR: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8802C004_u32 as _);
-pub const E_SYNCENGINE_UNSUPPORTED_FILE_NAME: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8802B003_u32 as _);
-pub const E_SYNCENGINE_UNSUPPORTED_FOLDER_NAME: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8802D002_u32 as _);
-pub const E_SYNCENGINE_UNSUPPORTED_MARKET: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8802D003_u32 as _);
-pub const E_SYNCENGINE_UNSUPPORTED_REPARSE_POINT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8802D009_u32 as _);
-pub const E_UAC_DISABLED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80270252_u32 as _);
-pub const E_UNEXPECTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8000FFFF_u32 as _);
+pub const E_ABORT: windows_core::HRESULT = windows_core::HRESULT(0x80004004_u32 as _);
+pub const E_ACCESSDENIED: windows_core::HRESULT = windows_core::HRESULT(0x80070005_u32 as _);
+pub const E_APPLICATION_ACTIVATION_EXEC_FAILURE: windows_core::HRESULT = windows_core::HRESULT(0x8027025B_u32 as _);
+pub const E_APPLICATION_ACTIVATION_TIMED_OUT: windows_core::HRESULT = windows_core::HRESULT(0x8027025A_u32 as _);
+pub const E_APPLICATION_EXITING: windows_core::HRESULT = windows_core::HRESULT(0x8000001A_u32 as _);
+pub const E_APPLICATION_MANAGER_NOT_RUNNING: windows_core::HRESULT = windows_core::HRESULT(0x80270257_u32 as _);
+pub const E_APPLICATION_NOT_REGISTERED: windows_core::HRESULT = windows_core::HRESULT(0x80270254_u32 as _);
+pub const E_APPLICATION_TEMPORARY_LICENSE_ERROR: windows_core::HRESULT = windows_core::HRESULT(0x8027025C_u32 as _);
+pub const E_APPLICATION_TRIAL_LICENSE_EXPIRED: windows_core::HRESULT = windows_core::HRESULT(0x8027025D_u32 as _);
+pub const E_APPLICATION_VIEW_EXITING: windows_core::HRESULT = windows_core::HRESULT(0x8000001B_u32 as _);
+pub const E_ASYNC_OPERATION_NOT_STARTED: windows_core::HRESULT = windows_core::HRESULT(0x80000019_u32 as _);
+pub const E_AUDIO_ENGINE_NODE_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0x80660001_u32 as _);
+pub const E_BLUETOOTH_ATT_ATTRIBUTE_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0x8065000A_u32 as _);
+pub const E_BLUETOOTH_ATT_ATTRIBUTE_NOT_LONG: windows_core::HRESULT = windows_core::HRESULT(0x8065000B_u32 as _);
+pub const E_BLUETOOTH_ATT_INSUFFICIENT_AUTHENTICATION: windows_core::HRESULT = windows_core::HRESULT(0x80650005_u32 as _);
+pub const E_BLUETOOTH_ATT_INSUFFICIENT_AUTHORIZATION: windows_core::HRESULT = windows_core::HRESULT(0x80650008_u32 as _);
+pub const E_BLUETOOTH_ATT_INSUFFICIENT_ENCRYPTION: windows_core::HRESULT = windows_core::HRESULT(0x8065000F_u32 as _);
+pub const E_BLUETOOTH_ATT_INSUFFICIENT_ENCRYPTION_KEY_SIZE: windows_core::HRESULT = windows_core::HRESULT(0x8065000C_u32 as _);
+pub const E_BLUETOOTH_ATT_INSUFFICIENT_RESOURCES: windows_core::HRESULT = windows_core::HRESULT(0x80650011_u32 as _);
+pub const E_BLUETOOTH_ATT_INVALID_ATTRIBUTE_VALUE_LENGTH: windows_core::HRESULT = windows_core::HRESULT(0x8065000D_u32 as _);
+pub const E_BLUETOOTH_ATT_INVALID_HANDLE: windows_core::HRESULT = windows_core::HRESULT(0x80650001_u32 as _);
+pub const E_BLUETOOTH_ATT_INVALID_OFFSET: windows_core::HRESULT = windows_core::HRESULT(0x80650007_u32 as _);
+pub const E_BLUETOOTH_ATT_INVALID_PDU: windows_core::HRESULT = windows_core::HRESULT(0x80650004_u32 as _);
+pub const E_BLUETOOTH_ATT_PREPARE_QUEUE_FULL: windows_core::HRESULT = windows_core::HRESULT(0x80650009_u32 as _);
+pub const E_BLUETOOTH_ATT_READ_NOT_PERMITTED: windows_core::HRESULT = windows_core::HRESULT(0x80650002_u32 as _);
+pub const E_BLUETOOTH_ATT_REQUEST_NOT_SUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x80650006_u32 as _);
+pub const E_BLUETOOTH_ATT_UNKNOWN_ERROR: windows_core::HRESULT = windows_core::HRESULT(0x80651000_u32 as _);
+pub const E_BLUETOOTH_ATT_UNLIKELY: windows_core::HRESULT = windows_core::HRESULT(0x8065000E_u32 as _);
+pub const E_BLUETOOTH_ATT_UNSUPPORTED_GROUP_TYPE: windows_core::HRESULT = windows_core::HRESULT(0x80650010_u32 as _);
+pub const E_BLUETOOTH_ATT_WRITE_NOT_PERMITTED: windows_core::HRESULT = windows_core::HRESULT(0x80650003_u32 as _);
+pub const E_BOUNDS: windows_core::HRESULT = windows_core::HRESULT(0x8000000B_u32 as _);
+pub const E_CHANGED_STATE: windows_core::HRESULT = windows_core::HRESULT(0x8000000C_u32 as _);
+pub const E_ELEVATED_ACTIVATION_NOT_SUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x80270251_u32 as _);
+pub const E_FAIL: windows_core::HRESULT = windows_core::HRESULT(0x80004005_u32 as _);
+pub const E_FULL_ADMIN_NOT_SUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x80270253_u32 as _);
+pub const E_HANDLE: windows_core::HRESULT = windows_core::HRESULT(0x80070006_u32 as _);
+pub const E_HDAUDIO_CONNECTION_LIST_NOT_SUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x80660003_u32 as _);
+pub const E_HDAUDIO_EMPTY_CONNECTION_LIST: windows_core::HRESULT = windows_core::HRESULT(0x80660002_u32 as _);
+pub const E_HDAUDIO_NO_LOGICAL_DEVICES_CREATED: windows_core::HRESULT = windows_core::HRESULT(0x80660004_u32 as _);
+pub const E_HDAUDIO_NULL_LINKED_LIST_ENTRY: windows_core::HRESULT = windows_core::HRESULT(0x80660005_u32 as _);
+pub const E_ILLEGAL_DELEGATE_ASSIGNMENT: windows_core::HRESULT = windows_core::HRESULT(0x80000018_u32 as _);
+pub const E_ILLEGAL_METHOD_CALL: windows_core::HRESULT = windows_core::HRESULT(0x8000000E_u32 as _);
+pub const E_ILLEGAL_STATE_CHANGE: windows_core::HRESULT = windows_core::HRESULT(0x8000000D_u32 as _);
+pub const E_INVALIDARG: windows_core::HRESULT = windows_core::HRESULT(0x80070057_u32 as _);
+pub const E_INVALID_PROTOCOL_FORMAT: windows_core::HRESULT = windows_core::HRESULT(0x83760002_u32 as _);
+pub const E_INVALID_PROTOCOL_OPERATION: windows_core::HRESULT = windows_core::HRESULT(0x83760001_u32 as _);
+pub const E_MBN_BAD_SIM: windows_core::HRESULT = windows_core::HRESULT(0x80548202_u32 as _);
+pub const E_MBN_CONTEXT_NOT_ACTIVATED: windows_core::HRESULT = windows_core::HRESULT(0x80548201_u32 as _);
+pub const E_MBN_DATA_CLASS_NOT_AVAILABLE: windows_core::HRESULT = windows_core::HRESULT(0x80548203_u32 as _);
+pub const E_MBN_DEFAULT_PROFILE_EXIST: windows_core::HRESULT = windows_core::HRESULT(0x80548219_u32 as _);
+pub const E_MBN_FAILURE: windows_core::HRESULT = windows_core::HRESULT(0x80548212_u32 as _);
+pub const E_MBN_INVALID_ACCESS_STRING: windows_core::HRESULT = windows_core::HRESULT(0x80548204_u32 as _);
+pub const E_MBN_INVALID_CACHE: windows_core::HRESULT = windows_core::HRESULT(0x8054820C_u32 as _);
+pub const E_MBN_INVALID_PROFILE: windows_core::HRESULT = windows_core::HRESULT(0x80548218_u32 as _);
+pub const E_MBN_MAX_ACTIVATED_CONTEXTS: windows_core::HRESULT = windows_core::HRESULT(0x80548205_u32 as _);
+pub const E_MBN_NOT_REGISTERED: windows_core::HRESULT = windows_core::HRESULT(0x8054820D_u32 as _);
+pub const E_MBN_PACKET_SVC_DETACHED: windows_core::HRESULT = windows_core::HRESULT(0x80548206_u32 as _);
+pub const E_MBN_PIN_DISABLED: windows_core::HRESULT = windows_core::HRESULT(0x80548211_u32 as _);
+pub const E_MBN_PIN_NOT_SUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x8054820F_u32 as _);
+pub const E_MBN_PIN_REQUIRED: windows_core::HRESULT = windows_core::HRESULT(0x80548210_u32 as _);
+pub const E_MBN_PROVIDERS_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0x8054820E_u32 as _);
+pub const E_MBN_PROVIDER_NOT_VISIBLE: windows_core::HRESULT = windows_core::HRESULT(0x80548207_u32 as _);
+pub const E_MBN_RADIO_POWER_OFF: windows_core::HRESULT = windows_core::HRESULT(0x80548208_u32 as _);
+pub const E_MBN_SERVICE_NOT_ACTIVATED: windows_core::HRESULT = windows_core::HRESULT(0x80548209_u32 as _);
+pub const E_MBN_SIM_NOT_INSERTED: windows_core::HRESULT = windows_core::HRESULT(0x8054820A_u32 as _);
+pub const E_MBN_SMS_ENCODING_NOT_SUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x80548220_u32 as _);
+pub const E_MBN_SMS_FILTER_NOT_SUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x80548221_u32 as _);
+pub const E_MBN_SMS_FORMAT_NOT_SUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x80548227_u32 as _);
+pub const E_MBN_SMS_INVALID_MEMORY_INDEX: windows_core::HRESULT = windows_core::HRESULT(0x80548222_u32 as _);
+pub const E_MBN_SMS_LANG_NOT_SUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x80548223_u32 as _);
+pub const E_MBN_SMS_MEMORY_FAILURE: windows_core::HRESULT = windows_core::HRESULT(0x80548224_u32 as _);
+pub const E_MBN_SMS_MEMORY_FULL: windows_core::HRESULT = windows_core::HRESULT(0x80548229_u32 as _);
+pub const E_MBN_SMS_NETWORK_TIMEOUT: windows_core::HRESULT = windows_core::HRESULT(0x80548225_u32 as _);
+pub const E_MBN_SMS_OPERATION_NOT_ALLOWED: windows_core::HRESULT = windows_core::HRESULT(0x80548228_u32 as _);
+pub const E_MBN_SMS_UNKNOWN_SMSC_ADDRESS: windows_core::HRESULT = windows_core::HRESULT(0x80548226_u32 as _);
+pub const E_MBN_VOICE_CALL_IN_PROGRESS: windows_core::HRESULT = windows_core::HRESULT(0x8054820B_u32 as _);
+pub const E_MONITOR_RESOLUTION_TOO_LOW: windows_core::HRESULT = windows_core::HRESULT(0x80270250_u32 as _);
+pub const E_MULTIPLE_EXTENSIONS_FOR_APPLICATION: windows_core::HRESULT = windows_core::HRESULT(0x80270255_u32 as _);
+pub const E_MULTIPLE_PACKAGES_FOR_FAMILY: windows_core::HRESULT = windows_core::HRESULT(0x80270256_u32 as _);
+pub const E_NOINTERFACE: windows_core::HRESULT = windows_core::HRESULT(0x80004002_u32 as _);
+pub const E_NOTIMPL: windows_core::HRESULT = windows_core::HRESULT(0x80004001_u32 as _);
+pub const E_OUTOFMEMORY: windows_core::HRESULT = windows_core::HRESULT(0x8007000E_u32 as _);
+pub const E_POINTER: windows_core::HRESULT = windows_core::HRESULT(0x80004003_u32 as _);
+pub const E_PROTOCOL_EXTENSIONS_NOT_SUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x83760003_u32 as _);
+pub const E_PROTOCOL_VERSION_NOT_SUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x83760005_u32 as _);
+pub const E_SKYDRIVE_FILE_NOT_UPLOADED: windows_core::HRESULT = windows_core::HRESULT(0x80270263_u32 as _);
+pub const E_SKYDRIVE_ROOT_TARGET_CANNOT_INDEX: windows_core::HRESULT = windows_core::HRESULT(0x80270262_u32 as _);
+pub const E_SKYDRIVE_ROOT_TARGET_FILE_SYSTEM_NOT_SUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x80270260_u32 as _);
+pub const E_SKYDRIVE_ROOT_TARGET_OVERLAP: windows_core::HRESULT = windows_core::HRESULT(0x80270261_u32 as _);
+pub const E_SKYDRIVE_ROOT_TARGET_VOLUME_ROOT_NOT_SUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x80270265_u32 as _);
+pub const E_SKYDRIVE_UPDATE_AVAILABILITY_FAIL: windows_core::HRESULT = windows_core::HRESULT(0x80270264_u32 as _);
+pub const E_STRING_NOT_NULL_TERMINATED: windows_core::HRESULT = windows_core::HRESULT(0x80000017_u32 as _);
+pub const E_SUBPROTOCOL_NOT_SUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x83760004_u32 as _);
+pub const E_SYNCENGINE_CLIENT_UPDATE_NEEDED: windows_core::HRESULT = windows_core::HRESULT(0x8802D006_u32 as _);
+pub const E_SYNCENGINE_FILE_IDENTIFIER_UNKNOWN: windows_core::HRESULT = windows_core::HRESULT(0x8802C002_u32 as _);
+pub const E_SYNCENGINE_FILE_SIZE_EXCEEDS_REMAINING_QUOTA: windows_core::HRESULT = windows_core::HRESULT(0x8802B002_u32 as _);
+pub const E_SYNCENGINE_FILE_SIZE_OVER_LIMIT: windows_core::HRESULT = windows_core::HRESULT(0x8802B001_u32 as _);
+pub const E_SYNCENGINE_FILE_SYNC_PARTNER_ERROR: windows_core::HRESULT = windows_core::HRESULT(0x8802B005_u32 as _);
+pub const E_SYNCENGINE_FOLDER_INACCESSIBLE: windows_core::HRESULT = windows_core::HRESULT(0x8802D001_u32 as _);
+pub const E_SYNCENGINE_FOLDER_IN_REDIRECTION: windows_core::HRESULT = windows_core::HRESULT(0x8802D00B_u32 as _);
+pub const E_SYNCENGINE_FOLDER_ITEM_COUNT_LIMIT_EXCEEDED: windows_core::HRESULT = windows_core::HRESULT(0x8802B004_u32 as _);
+pub const E_SYNCENGINE_PATH_LENGTH_LIMIT_EXCEEDED: windows_core::HRESULT = windows_core::HRESULT(0x8802D004_u32 as _);
+pub const E_SYNCENGINE_PROXY_AUTHENTICATION_REQUIRED: windows_core::HRESULT = windows_core::HRESULT(0x8802D007_u32 as _);
+pub const E_SYNCENGINE_REMOTE_PATH_LENGTH_LIMIT_EXCEEDED: windows_core::HRESULT = windows_core::HRESULT(0x8802D005_u32 as _);
+pub const E_SYNCENGINE_REQUEST_BLOCKED_BY_SERVICE: windows_core::HRESULT = windows_core::HRESULT(0x8802C006_u32 as _);
+pub const E_SYNCENGINE_REQUEST_BLOCKED_DUE_TO_CLIENT_ERROR: windows_core::HRESULT = windows_core::HRESULT(0x8802C007_u32 as _);
+pub const E_SYNCENGINE_SERVICE_AUTHENTICATION_FAILED: windows_core::HRESULT = windows_core::HRESULT(0x8802C003_u32 as _);
+pub const E_SYNCENGINE_SERVICE_RETURNED_UNEXPECTED_SIZE: windows_core::HRESULT = windows_core::HRESULT(0x8802C005_u32 as _);
+pub const E_SYNCENGINE_STORAGE_SERVICE_BLOCKED: windows_core::HRESULT = windows_core::HRESULT(0x8802D00A_u32 as _);
+pub const E_SYNCENGINE_STORAGE_SERVICE_PROVISIONING_FAILED: windows_core::HRESULT = windows_core::HRESULT(0x8802D008_u32 as _);
+pub const E_SYNCENGINE_SYNC_PAUSED_BY_SERVICE: windows_core::HRESULT = windows_core::HRESULT(0x8802B006_u32 as _);
+pub const E_SYNCENGINE_UNKNOWN_SERVICE_ERROR: windows_core::HRESULT = windows_core::HRESULT(0x8802C004_u32 as _);
+pub const E_SYNCENGINE_UNSUPPORTED_FILE_NAME: windows_core::HRESULT = windows_core::HRESULT(0x8802B003_u32 as _);
+pub const E_SYNCENGINE_UNSUPPORTED_FOLDER_NAME: windows_core::HRESULT = windows_core::HRESULT(0x8802D002_u32 as _);
+pub const E_SYNCENGINE_UNSUPPORTED_MARKET: windows_core::HRESULT = windows_core::HRESULT(0x8802D003_u32 as _);
+pub const E_SYNCENGINE_UNSUPPORTED_REPARSE_POINT: windows_core::HRESULT = windows_core::HRESULT(0x8802D009_u32 as _);
+pub const E_UAC_DISABLED: windows_core::HRESULT = windows_core::HRESULT(0x80270252_u32 as _);
+pub const E_UNEXPECTED: windows_core::HRESULT = windows_core::HRESULT(0x8000FFFF_u32 as _);
 pub const FACILITY_ACPI_ERROR_CODE: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(20u32);
 pub const FACILITY_APP_EXEC: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(236u32);
 pub const FACILITY_AUDIO_KERNEL: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(68u32);
@@ -4832,32 +4832,32 @@ pub const FACILITY_WIN32K_NTUSER: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_COD
 pub const FACILITY_XVS: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(94u32);
 pub const FACILTIY_MUI_ERROR_CODE: u32 = 11u32;
 pub const FALSE: BOOL = BOOL(0i32);
-pub const FA_E_HOMEGROUP_NOT_AVAILABLE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80270222_u32 as _);
-pub const FA_E_MAX_PERSISTED_ITEMS_REACHED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80270220_u32 as _);
-pub const FDAEMON_E_CHANGEUPDATEFAILED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80041684_u32 as _);
-pub const FDAEMON_E_FATALERROR: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80041682_u32 as _);
-pub const FDAEMON_E_LOWRESOURCE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80041681_u32 as _);
-pub const FDAEMON_E_NOWORDLIST: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80041687_u32 as _);
-pub const FDAEMON_E_PARTITIONDELETED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80041683_u32 as _);
-pub const FDAEMON_E_TOOMANYFILTEREDBLOCKS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80041688_u32 as _);
-pub const FDAEMON_E_WORDLISTCOMMITFAILED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80041686_u32 as _);
-pub const FDAEMON_W_EMPTYWORDLIST: ::windows_core::HRESULT = ::windows_core::HRESULT(0x41685_u32 as _);
-pub const FDAEMON_W_WORDLISTFULL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x41680_u32 as _);
-pub const FILTER_E_ALREADY_OPEN: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80041736_u32 as _);
-pub const FILTER_E_CONTENTINDEXCORRUPT: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0041734_u32 as _);
-pub const FILTER_E_IN_USE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80041738_u32 as _);
-pub const FILTER_E_NOT_OPEN: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80041739_u32 as _);
-pub const FILTER_E_NO_SUCH_PROPERTY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004173B_u32 as _);
-pub const FILTER_E_OFFLINE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004173D_u32 as _);
-pub const FILTER_E_PARTIALLY_FILTERED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004173E_u32 as _);
-pub const FILTER_E_TOO_BIG: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80041730_u32 as _);
-pub const FILTER_E_UNREACHABLE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80041737_u32 as _);
-pub const FILTER_S_CONTENTSCAN_DELAYED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x41733_u32 as _);
-pub const FILTER_S_DISK_FULL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x41735_u32 as _);
-pub const FILTER_S_FULL_CONTENTSCAN_IMMEDIATE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x41732_u32 as _);
-pub const FILTER_S_NO_PROPSETS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x4173A_u32 as _);
-pub const FILTER_S_NO_SECURITY_DESCRIPTOR: ::windows_core::HRESULT = ::windows_core::HRESULT(0x4173C_u32 as _);
-pub const FILTER_S_PARTIAL_CONTENTSCAN_IMMEDIATE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x41731_u32 as _);
+pub const FA_E_HOMEGROUP_NOT_AVAILABLE: windows_core::HRESULT = windows_core::HRESULT(0x80270222_u32 as _);
+pub const FA_E_MAX_PERSISTED_ITEMS_REACHED: windows_core::HRESULT = windows_core::HRESULT(0x80270220_u32 as _);
+pub const FDAEMON_E_CHANGEUPDATEFAILED: windows_core::HRESULT = windows_core::HRESULT(0x80041684_u32 as _);
+pub const FDAEMON_E_FATALERROR: windows_core::HRESULT = windows_core::HRESULT(0x80041682_u32 as _);
+pub const FDAEMON_E_LOWRESOURCE: windows_core::HRESULT = windows_core::HRESULT(0x80041681_u32 as _);
+pub const FDAEMON_E_NOWORDLIST: windows_core::HRESULT = windows_core::HRESULT(0x80041687_u32 as _);
+pub const FDAEMON_E_PARTITIONDELETED: windows_core::HRESULT = windows_core::HRESULT(0x80041683_u32 as _);
+pub const FDAEMON_E_TOOMANYFILTEREDBLOCKS: windows_core::HRESULT = windows_core::HRESULT(0x80041688_u32 as _);
+pub const FDAEMON_E_WORDLISTCOMMITFAILED: windows_core::HRESULT = windows_core::HRESULT(0x80041686_u32 as _);
+pub const FDAEMON_W_EMPTYWORDLIST: windows_core::HRESULT = windows_core::HRESULT(0x41685_u32 as _);
+pub const FDAEMON_W_WORDLISTFULL: windows_core::HRESULT = windows_core::HRESULT(0x41680_u32 as _);
+pub const FILTER_E_ALREADY_OPEN: windows_core::HRESULT = windows_core::HRESULT(0x80041736_u32 as _);
+pub const FILTER_E_CONTENTINDEXCORRUPT: windows_core::HRESULT = windows_core::HRESULT(0xC0041734_u32 as _);
+pub const FILTER_E_IN_USE: windows_core::HRESULT = windows_core::HRESULT(0x80041738_u32 as _);
+pub const FILTER_E_NOT_OPEN: windows_core::HRESULT = windows_core::HRESULT(0x80041739_u32 as _);
+pub const FILTER_E_NO_SUCH_PROPERTY: windows_core::HRESULT = windows_core::HRESULT(0x8004173B_u32 as _);
+pub const FILTER_E_OFFLINE: windows_core::HRESULT = windows_core::HRESULT(0x8004173D_u32 as _);
+pub const FILTER_E_PARTIALLY_FILTERED: windows_core::HRESULT = windows_core::HRESULT(0x8004173E_u32 as _);
+pub const FILTER_E_TOO_BIG: windows_core::HRESULT = windows_core::HRESULT(0x80041730_u32 as _);
+pub const FILTER_E_UNREACHABLE: windows_core::HRESULT = windows_core::HRESULT(0x80041737_u32 as _);
+pub const FILTER_S_CONTENTSCAN_DELAYED: windows_core::HRESULT = windows_core::HRESULT(0x41733_u32 as _);
+pub const FILTER_S_DISK_FULL: windows_core::HRESULT = windows_core::HRESULT(0x41735_u32 as _);
+pub const FILTER_S_FULL_CONTENTSCAN_IMMEDIATE: windows_core::HRESULT = windows_core::HRESULT(0x41732_u32 as _);
+pub const FILTER_S_NO_PROPSETS: windows_core::HRESULT = windows_core::HRESULT(0x4173A_u32 as _);
+pub const FILTER_S_NO_SECURITY_DESCRIPTOR: windows_core::HRESULT = windows_core::HRESULT(0x4173C_u32 as _);
+pub const FILTER_S_PARTIAL_CONTENTSCAN_IMMEDIATE: windows_core::HRESULT = windows_core::HRESULT(0x41731_u32 as _);
 pub const FRS_ERR_AUTHENTICATION: i32 = 8008i32;
 pub const FRS_ERR_CHILD_TO_PARENT_COMM: i32 = 8011i32;
 pub const FRS_ERR_INSUFFICIENT_PRIV: i32 = 8007i32;
@@ -4875,480 +4875,480 @@ pub const FRS_ERR_SYSVOL_DEMOTE: i32 = 8016i32;
 pub const FRS_ERR_SYSVOL_IS_BUSY: i32 = 8015i32;
 pub const FRS_ERR_SYSVOL_POPULATE: i32 = 8013i32;
 pub const FRS_ERR_SYSVOL_POPULATE_TIMEOUT: i32 = 8014i32;
-pub const FVE_E_AAD_ENDPOINT_BUSY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803100E1_u32 as _);
-pub const FVE_E_AAD_SERVER_FAIL_BACKOFF: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803100EA_u32 as _);
-pub const FVE_E_AAD_SERVER_FAIL_RETRY_AFTER: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803100E9_u32 as _);
-pub const FVE_E_ACTION_NOT_ALLOWED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80310009_u32 as _);
-pub const FVE_E_ADBACKUP_NOT_ENABLED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803100D5_u32 as _);
-pub const FVE_E_AD_ATTR_NOT_SET: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8031000E_u32 as _);
-pub const FVE_E_AD_BACKUP_REQUIRED_POLICY_NOT_SET_FIXED_DRIVE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803100DB_u32 as _);
-pub const FVE_E_AD_BACKUP_REQUIRED_POLICY_NOT_SET_OS_DRIVE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803100DA_u32 as _);
-pub const FVE_E_AD_BACKUP_REQUIRED_POLICY_NOT_SET_REMOVABLE_DRIVE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803100DC_u32 as _);
-pub const FVE_E_AD_GUID_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8031000F_u32 as _);
-pub const FVE_E_AD_INSUFFICIENT_BUFFER: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8031001A_u32 as _);
-pub const FVE_E_AD_INVALID_DATASIZE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8031000C_u32 as _);
-pub const FVE_E_AD_INVALID_DATATYPE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8031000B_u32 as _);
-pub const FVE_E_AD_NO_VALUES: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8031000D_u32 as _);
-pub const FVE_E_AD_SCHEMA_NOT_INSTALLED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8031000A_u32 as _);
-pub const FVE_E_AUTH_INVALID_APPLICATION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80310044_u32 as _);
-pub const FVE_E_AUTH_INVALID_CONFIG: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80310045_u32 as _);
-pub const FVE_E_AUTOUNLOCK_ENABLED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80310029_u32 as _);
-pub const FVE_E_BAD_DATA: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80310016_u32 as _);
-pub const FVE_E_BAD_INFORMATION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80310010_u32 as _);
-pub const FVE_E_BAD_PARTITION_SIZE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80310014_u32 as _);
-pub const FVE_E_BCD_APPLICATIONS_PATH_INCORRECT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80310052_u32 as _);
-pub const FVE_E_BOOTABLE_CDDVD: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80310030_u32 as _);
-pub const FVE_E_BUFFER_TOO_LARGE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803100CF_u32 as _);
-pub const FVE_E_CANNOT_ENCRYPT_NO_KEY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8031002E_u32 as _);
-pub const FVE_E_CANNOT_SET_FVEK_ENCRYPTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8031002D_u32 as _);
-pub const FVE_E_CANT_LOCK_AUTOUNLOCK_ENABLED_VOLUME: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80310097_u32 as _);
-pub const FVE_E_CLUSTERING_NOT_SUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8031001E_u32 as _);
-pub const FVE_E_CONV_READ: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8031001B_u32 as _);
-pub const FVE_E_CONV_RECOVERY_FAILED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80310088_u32 as _);
-pub const FVE_E_CONV_WRITE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8031001C_u32 as _);
-pub const FVE_E_DATASET_FULL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803100EB_u32 as _);
-pub const FVE_E_DEBUGGER_ENABLED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8031004F_u32 as _);
-pub const FVE_E_DEVICELOCKOUT_COUNTER_MISMATCH: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803100CE_u32 as _);
-pub const FVE_E_DEVICE_LOCKOUT_COUNTER_UNAVAILABLE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803100CD_u32 as _);
-pub const FVE_E_DEVICE_NOT_JOINED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803100E0_u32 as _);
-pub const FVE_E_DE_DEVICE_LOCKEDOUT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803100CA_u32 as _);
-pub const FVE_E_DE_FIXED_DATA_NOT_SUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803100C5_u32 as _);
-pub const FVE_E_DE_HARDWARE_NOT_COMPLIANT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803100C6_u32 as _);
-pub const FVE_E_DE_OS_VOLUME_NOT_PROTECTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803100C9_u32 as _);
-pub const FVE_E_DE_PREVENTED_FOR_OS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803100D1_u32 as _);
-pub const FVE_E_DE_PROTECTION_NOT_YET_ENABLED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803100CB_u32 as _);
-pub const FVE_E_DE_PROTECTION_SUSPENDED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803100C8_u32 as _);
-pub const FVE_E_DE_VOLUME_NOT_SUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803100D3_u32 as _);
-pub const FVE_E_DE_VOLUME_OPTED_OUT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803100D2_u32 as _);
-pub const FVE_E_DE_WINRE_NOT_CONFIGURED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803100C7_u32 as _);
-pub const FVE_E_DRY_RUN_FAILED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8031004D_u32 as _);
-pub const FVE_E_DV_NOT_ALLOWED_BY_GP: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80310071_u32 as _);
-pub const FVE_E_DV_NOT_SUPPORTED_ON_FS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80310070_u32 as _);
-pub const FVE_E_EDRIVE_BAND_ENUMERATION_FAILED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803100E3_u32 as _);
-pub const FVE_E_EDRIVE_BAND_IN_USE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803100B0_u32 as _);
-pub const FVE_E_EDRIVE_DISALLOWED_BY_GP: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803100B1_u32 as _);
-pub const FVE_E_EDRIVE_DRY_RUN_FAILED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803100BC_u32 as _);
-pub const FVE_E_EDRIVE_DV_NOT_SUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803100B4_u32 as _);
-pub const FVE_E_EDRIVE_INCOMPATIBLE_FIRMWARE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803100BF_u32 as _);
-pub const FVE_E_EDRIVE_INCOMPATIBLE_VOLUME: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803100B2_u32 as _);
-pub const FVE_E_EDRIVE_NO_FAILOVER_TO_SW: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803100AF_u32 as _);
-pub const FVE_E_EFI_ONLY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8031009C_u32 as _);
-pub const FVE_E_ENH_PIN_INVALID: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80310099_u32 as _);
-pub const FVE_E_EOW_NOT_SUPPORTED_IN_VERSION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803100D4_u32 as _);
-pub const FVE_E_EXECUTE_REQUEST_SENT_TOO_SOON: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803100DE_u32 as _);
-pub const FVE_E_FAILED_AUTHENTICATION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80310027_u32 as _);
-pub const FVE_E_FAILED_SECTOR_SIZE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80310026_u32 as _);
-pub const FVE_E_FAILED_WRONG_FS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80310013_u32 as _);
-pub const FVE_E_FIPS_DISABLE_PROTECTION_NOT_ALLOWED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80310046_u32 as _);
-pub const FVE_E_FIPS_HASH_KDF_NOT_ALLOWED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80310098_u32 as _);
-pub const FVE_E_FIPS_PREVENTS_EXTERNAL_KEY_EXPORT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80310038_u32 as _);
-pub const FVE_E_FIPS_PREVENTS_PASSPHRASE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8031006C_u32 as _);
-pub const FVE_E_FIPS_PREVENTS_RECOVERY_PASSWORD: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80310037_u32 as _);
-pub const FVE_E_FIPS_RNG_CHECK_FAILED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80310036_u32 as _);
-pub const FVE_E_FIRMWARE_TYPE_NOT_SUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80310048_u32 as _);
-pub const FVE_E_FOREIGN_VOLUME: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80310023_u32 as _);
-pub const FVE_E_FS_MOUNTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8031004B_u32 as _);
-pub const FVE_E_FS_NOT_EXTENDED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80310047_u32 as _);
-pub const FVE_E_FULL_ENCRYPTION_NOT_ALLOWED_ON_TP_STORAGE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803100A5_u32 as _);
-pub const FVE_E_HIDDEN_VOLUME: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80310056_u32 as _);
-pub const FVE_E_INVALID_BITLOCKER_OID: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8031006E_u32 as _);
-pub const FVE_E_INVALID_DATUM_TYPE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8031009B_u32 as _);
-pub const FVE_E_INVALID_KEY_FORMAT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80310034_u32 as _);
-pub const FVE_E_INVALID_NBP_CERT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803100E2_u32 as _);
-pub const FVE_E_INVALID_NKP_CERT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8031009F_u32 as _);
-pub const FVE_E_INVALID_PASSWORD_FORMAT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80310035_u32 as _);
-pub const FVE_E_INVALID_PIN_CHARS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8031009A_u32 as _);
-pub const FVE_E_INVALID_PIN_CHARS_DETAILED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803100CC_u32 as _);
-pub const FVE_E_INVALID_PROTECTOR_TYPE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8031003A_u32 as _);
-pub const FVE_E_INVALID_STARTUP_OPTIONS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8031005B_u32 as _);
-pub const FVE_E_KEYFILE_INVALID: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8031003D_u32 as _);
-pub const FVE_E_KEYFILE_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8031003C_u32 as _);
-pub const FVE_E_KEYFILE_NO_VMK: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8031003E_u32 as _);
-pub const FVE_E_KEY_LENGTH_NOT_SUPPORTED_BY_EDRIVE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803100A7_u32 as _);
-pub const FVE_E_KEY_PROTECTOR_NOT_SUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80310069_u32 as _);
-pub const FVE_E_KEY_REQUIRED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8031001D_u32 as _);
-pub const FVE_E_KEY_ROTATION_NOT_ENABLED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803100DF_u32 as _);
-pub const FVE_E_KEY_ROTATION_NOT_SUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803100DD_u32 as _);
-pub const FVE_E_LIVEID_ACCOUNT_BLOCKED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803100C3_u32 as _);
-pub const FVE_E_LIVEID_ACCOUNT_SUSPENDED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803100C2_u32 as _);
-pub const FVE_E_LOCKED_VOLUME: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80310000_u32 as _);
-pub const FVE_E_METADATA_FULL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803100EC_u32 as _);
-pub const FVE_E_MOR_FAILED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80310055_u32 as _);
-pub const FVE_E_MULTIPLE_NKP_CERTS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8031009D_u32 as _);
-pub const FVE_E_NON_BITLOCKER_KU: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80310093_u32 as _);
-pub const FVE_E_NON_BITLOCKER_OID: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80310085_u32 as _);
-pub const FVE_E_NOT_ACTIVATED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80310008_u32 as _);
-pub const FVE_E_NOT_ALLOWED_IN_SAFE_MODE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80310040_u32 as _);
-pub const FVE_E_NOT_ALLOWED_IN_VERSION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80310053_u32 as _);
-pub const FVE_E_NOT_ALLOWED_ON_CLUSTER: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803100AE_u32 as _);
-pub const FVE_E_NOT_ALLOWED_ON_CSV_STACK: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803100AD_u32 as _);
-pub const FVE_E_NOT_ALLOWED_TO_UPGRADE_WHILE_CONVERTING: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803100B3_u32 as _);
-pub const FVE_E_NOT_DATA_VOLUME: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80310019_u32 as _);
-pub const FVE_E_NOT_DECRYPTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80310039_u32 as _);
-pub const FVE_E_NOT_DE_VOLUME: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803100D7_u32 as _);
-pub const FVE_E_NOT_ENCRYPTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80310001_u32 as _);
-pub const FVE_E_NOT_ON_STACK: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8031004A_u32 as _);
-pub const FVE_E_NOT_OS_VOLUME: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80310028_u32 as _);
-pub const FVE_E_NOT_PROVISIONED_ON_ALL_VOLUMES: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803100C4_u32 as _);
-pub const FVE_E_NOT_SUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80310015_u32 as _);
-pub const FVE_E_NO_AUTOUNLOCK_MASTER_KEY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80310054_u32 as _);
-pub const FVE_E_NO_BOOTMGR_METRIC: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80310005_u32 as _);
-pub const FVE_E_NO_BOOTSECTOR_METRIC: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80310004_u32 as _);
-pub const FVE_E_NO_EXISTING_PASSPHRASE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803100A8_u32 as _);
-pub const FVE_E_NO_EXISTING_PIN: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803100A0_u32 as _);
-pub const FVE_E_NO_FEATURE_LICENSE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8031005A_u32 as _);
-pub const FVE_E_NO_LICENSE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80310049_u32 as _);
-pub const FVE_E_NO_MBR_METRIC: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80310003_u32 as _);
-pub const FVE_E_NO_PASSPHRASE_WITH_TPM: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803100AB_u32 as _);
-pub const FVE_E_NO_PREBOOT_KEYBOARD_DETECTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803100B5_u32 as _);
-pub const FVE_E_NO_PREBOOT_KEYBOARD_OR_WINRE_DETECTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803100B6_u32 as _);
-pub const FVE_E_NO_PROTECTORS_TO_TEST: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8031003B_u32 as _);
-pub const FVE_E_NO_SUCH_CAPABILITY_ON_TARGET: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803100D0_u32 as _);
-pub const FVE_E_NO_TPM_BIOS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80310002_u32 as _);
-pub const FVE_E_NO_TPM_WITH_PASSPHRASE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803100AC_u32 as _);
-pub const FVE_E_OPERATION_NOT_SUPPORTED_ON_VISTA_VOLUME: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80310096_u32 as _);
-pub const FVE_E_OSV_KSR_NOT_ALLOWED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803100D9_u32 as _);
-pub const FVE_E_OS_NOT_PROTECTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80310020_u32 as _);
-pub const FVE_E_OS_VOLUME_PASSPHRASE_NOT_ALLOWED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8031006D_u32 as _);
-pub const FVE_E_OVERLAPPED_UPDATE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80310024_u32 as _);
-pub const FVE_E_PASSPHRASE_PROTECTOR_CHANGE_BY_STD_USER_DISALLOWED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803100C1_u32 as _);
-pub const FVE_E_PASSPHRASE_TOO_LONG: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803100AA_u32 as _);
-pub const FVE_E_PIN_INVALID: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80310043_u32 as _);
-pub const FVE_E_PIN_PROTECTOR_CHANGE_BY_STD_USER_DISALLOWED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803100A2_u32 as _);
-pub const FVE_E_POLICY_CONFLICT_FDV_RK_OFF_AUK_ON: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80310083_u32 as _);
-pub const FVE_E_POLICY_CONFLICT_FDV_RP_OFF_ADB_ON: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80310091_u32 as _);
-pub const FVE_E_POLICY_CONFLICT_OSV_RP_OFF_ADB_ON: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80310090_u32 as _);
-pub const FVE_E_POLICY_CONFLICT_RDV_RK_OFF_AUK_ON: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80310084_u32 as _);
-pub const FVE_E_POLICY_CONFLICT_RDV_RP_OFF_ADB_ON: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80310092_u32 as _);
-pub const FVE_E_POLICY_CONFLICT_RO_AND_STARTUP_KEY_REQUIRED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80310087_u32 as _);
-pub const FVE_E_POLICY_INVALID_ENHANCED_BCD_SETTINGS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803100BE_u32 as _);
-pub const FVE_E_POLICY_INVALID_PASSPHRASE_LENGTH: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80310080_u32 as _);
-pub const FVE_E_POLICY_INVALID_PIN_LENGTH: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80310068_u32 as _);
-pub const FVE_E_POLICY_ON_RDV_EXCLUSION_LIST: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803100E4_u32 as _);
-pub const FVE_E_POLICY_PASSPHRASE_NOT_ALLOWED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8031006A_u32 as _);
-pub const FVE_E_POLICY_PASSPHRASE_REQUIRED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8031006B_u32 as _);
-pub const FVE_E_POLICY_PASSPHRASE_REQUIRES_ASCII: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803100A4_u32 as _);
-pub const FVE_E_POLICY_PASSPHRASE_TOO_SIMPLE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80310081_u32 as _);
-pub const FVE_E_POLICY_PASSWORD_REQUIRED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8031002C_u32 as _);
-pub const FVE_E_POLICY_PROHIBITS_SELFSIGNED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80310086_u32 as _);
-pub const FVE_E_POLICY_RECOVERY_KEY_NOT_ALLOWED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8031005E_u32 as _);
-pub const FVE_E_POLICY_RECOVERY_KEY_REQUIRED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8031005F_u32 as _);
-pub const FVE_E_POLICY_RECOVERY_PASSWORD_NOT_ALLOWED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8031005C_u32 as _);
-pub const FVE_E_POLICY_RECOVERY_PASSWORD_REQUIRED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8031005D_u32 as _);
-pub const FVE_E_POLICY_REQUIRES_RECOVERY_PASSWORD_ON_TOUCH_DEVICE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803100B8_u32 as _);
-pub const FVE_E_POLICY_REQUIRES_STARTUP_PIN_ON_TOUCH_DEVICE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803100B7_u32 as _);
-pub const FVE_E_POLICY_STARTUP_KEY_NOT_ALLOWED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80310062_u32 as _);
-pub const FVE_E_POLICY_STARTUP_KEY_REQUIRED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80310063_u32 as _);
-pub const FVE_E_POLICY_STARTUP_PIN_KEY_NOT_ALLOWED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80310064_u32 as _);
-pub const FVE_E_POLICY_STARTUP_PIN_KEY_REQUIRED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80310065_u32 as _);
-pub const FVE_E_POLICY_STARTUP_PIN_NOT_ALLOWED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80310060_u32 as _);
-pub const FVE_E_POLICY_STARTUP_PIN_REQUIRED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80310061_u32 as _);
-pub const FVE_E_POLICY_STARTUP_TPM_NOT_ALLOWED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80310066_u32 as _);
-pub const FVE_E_POLICY_STARTUP_TPM_REQUIRED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80310067_u32 as _);
-pub const FVE_E_POLICY_USER_CERTIFICATE_NOT_ALLOWED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80310072_u32 as _);
-pub const FVE_E_POLICY_USER_CERTIFICATE_REQUIRED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80310073_u32 as _);
-pub const FVE_E_POLICY_USER_CERT_MUST_BE_HW: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80310074_u32 as _);
-pub const FVE_E_POLICY_USER_CONFIGURE_FDV_AUTOUNLOCK_NOT_ALLOWED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80310075_u32 as _);
-pub const FVE_E_POLICY_USER_CONFIGURE_RDV_AUTOUNLOCK_NOT_ALLOWED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80310076_u32 as _);
-pub const FVE_E_POLICY_USER_CONFIGURE_RDV_NOT_ALLOWED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80310077_u32 as _);
-pub const FVE_E_POLICY_USER_DISABLE_RDV_NOT_ALLOWED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80310079_u32 as _);
-pub const FVE_E_POLICY_USER_ENABLE_RDV_NOT_ALLOWED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80310078_u32 as _);
-pub const FVE_E_PREDICTED_TPM_PROTECTOR_NOT_SUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803100E5_u32 as _);
-pub const FVE_E_PRIVATEKEY_AUTH_FAILED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80310094_u32 as _);
-pub const FVE_E_PROTECTION_CANNOT_BE_DISABLED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803100D8_u32 as _);
-pub const FVE_E_PROTECTION_DISABLED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80310021_u32 as _);
-pub const FVE_E_PROTECTOR_CHANGE_MAX_PASSPHRASE_CHANGE_ATTEMPTS_REACHED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803100C0_u32 as _);
-pub const FVE_E_PROTECTOR_CHANGE_MAX_PIN_CHANGE_ATTEMPTS_REACHED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803100A3_u32 as _);
-pub const FVE_E_PROTECTOR_CHANGE_PASSPHRASE_MISMATCH: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803100A9_u32 as _);
-pub const FVE_E_PROTECTOR_CHANGE_PIN_MISMATCH: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803100A1_u32 as _);
-pub const FVE_E_PROTECTOR_EXISTS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80310031_u32 as _);
-pub const FVE_E_PROTECTOR_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80310033_u32 as _);
-pub const FVE_E_PUBKEY_NOT_ALLOWED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80310058_u32 as _);
-pub const FVE_E_RAW_ACCESS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80310050_u32 as _);
-pub const FVE_E_RAW_BLOCKED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80310051_u32 as _);
-pub const FVE_E_REBOOT_REQUIRED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8031004E_u32 as _);
-pub const FVE_E_RECOVERY_KEY_REQUIRED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80310022_u32 as _);
-pub const FVE_E_RECOVERY_PARTITION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80310082_u32 as _);
-pub const FVE_E_RELATIVE_PATH: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80310032_u32 as _);
-pub const FVE_E_REMOVAL_OF_DRA_FAILED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80310095_u32 as _);
-pub const FVE_E_REMOVAL_OF_NKP_FAILED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8031009E_u32 as _);
-pub const FVE_E_SECUREBOOT_CONFIGURATION_INVALID: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803100BB_u32 as _);
-pub const FVE_E_SECUREBOOT_DISABLED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803100BA_u32 as _);
-pub const FVE_E_SECURE_KEY_REQUIRED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80310007_u32 as _);
-pub const FVE_E_SETUP_TPM_CALLBACK_NOT_SUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803100E6_u32 as _);
-pub const FVE_E_SHADOW_COPY_PRESENT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803100BD_u32 as _);
-pub const FVE_E_SYSTEM_VOLUME: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80310012_u32 as _);
-pub const FVE_E_TOKEN_NOT_IMPERSONATED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8031004C_u32 as _);
-pub const FVE_E_TOO_SMALL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80310011_u32 as _);
-pub const FVE_E_TPM_CONTEXT_SETUP_NOT_SUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803100E7_u32 as _);
-pub const FVE_E_TPM_DISABLED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8031003F_u32 as _);
-pub const FVE_E_TPM_INVALID_PCR: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80310041_u32 as _);
-pub const FVE_E_TPM_NOT_OWNED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80310018_u32 as _);
-pub const FVE_E_TPM_NO_VMK: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80310042_u32 as _);
-pub const FVE_E_TPM_SRK_AUTH_NOT_ZERO: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80310025_u32 as _);
-pub const FVE_E_TRANSIENT_STATE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80310057_u32 as _);
-pub const FVE_E_UPDATE_INVALID_CONFIG: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803100E8_u32 as _);
-pub const FVE_E_VIRTUALIZED_SPACE_TOO_BIG: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80310089_u32 as _);
-pub const FVE_E_VOLUME_BOUND_ALREADY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8031001F_u32 as _);
-pub const FVE_E_VOLUME_EXTEND_PREVENTS_EOW_DECRYPT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803100D6_u32 as _);
-pub const FVE_E_VOLUME_HANDLE_OPEN: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80310059_u32 as _);
-pub const FVE_E_VOLUME_NOT_BOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80310017_u32 as _);
-pub const FVE_E_VOLUME_TOO_SMALL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8031006F_u32 as _);
-pub const FVE_E_WIPE_CANCEL_NOT_APPLICABLE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803100B9_u32 as _);
-pub const FVE_E_WIPE_NOT_ALLOWED_ON_TP_STORAGE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803100A6_u32 as _);
-pub const FVE_E_WRONG_BOOTMGR: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80310006_u32 as _);
-pub const FVE_E_WRONG_BOOTSECTOR: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8031002A_u32 as _);
-pub const FVE_E_WRONG_SYSTEM_FS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8031002B_u32 as _);
-pub const FWP_E_ACTION_INCOMPATIBLE_WITH_LAYER: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8032002C_u32 as _);
-pub const FWP_E_ACTION_INCOMPATIBLE_WITH_SUBLAYER: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8032002D_u32 as _);
-pub const FWP_E_ALREADY_EXISTS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80320009_u32 as _);
-pub const FWP_E_BUILTIN_OBJECT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80320017_u32 as _);
-pub const FWP_E_CALLOUT_NOTIFICATION_FAILED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80320037_u32 as _);
-pub const FWP_E_CALLOUT_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80320001_u32 as _);
-pub const FWP_E_CONDITION_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80320002_u32 as _);
-pub const FWP_E_CONNECTIONS_DISABLED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80320041_u32 as _);
-pub const FWP_E_CONTEXT_INCOMPATIBLE_WITH_CALLOUT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8032002F_u32 as _);
-pub const FWP_E_CONTEXT_INCOMPATIBLE_WITH_LAYER: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8032002E_u32 as _);
-pub const FWP_E_DROP_NOICMP: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80320104_u32 as _);
-pub const FWP_E_DUPLICATE_AUTH_METHOD: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8032003C_u32 as _);
-pub const FWP_E_DUPLICATE_CONDITION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8032002A_u32 as _);
-pub const FWP_E_DUPLICATE_KEYMOD: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8032002B_u32 as _);
-pub const FWP_E_DYNAMIC_SESSION_IN_PROGRESS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8032000B_u32 as _);
-pub const FWP_E_EM_NOT_SUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80320032_u32 as _);
-pub const FWP_E_FILTER_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80320003_u32 as _);
-pub const FWP_E_IKEEXT_NOT_RUNNING: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80320044_u32 as _);
-pub const FWP_E_INCOMPATIBLE_AUTH_METHOD: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80320030_u32 as _);
-pub const FWP_E_INCOMPATIBLE_CIPHER_TRANSFORM: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8032003A_u32 as _);
-pub const FWP_E_INCOMPATIBLE_DH_GROUP: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80320031_u32 as _);
-pub const FWP_E_INCOMPATIBLE_LAYER: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80320014_u32 as _);
-pub const FWP_E_INCOMPATIBLE_SA_STATE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8032001B_u32 as _);
-pub const FWP_E_INCOMPATIBLE_TXN: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80320011_u32 as _);
-pub const FWP_E_INVALID_ACTION_TYPE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80320024_u32 as _);
-pub const FWP_E_INVALID_AUTH_TRANSFORM: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80320038_u32 as _);
-pub const FWP_E_INVALID_CIPHER_TRANSFORM: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80320039_u32 as _);
-pub const FWP_E_INVALID_DNS_NAME: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80320042_u32 as _);
-pub const FWP_E_INVALID_ENUMERATOR: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8032001D_u32 as _);
-pub const FWP_E_INVALID_FLAGS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8032001E_u32 as _);
-pub const FWP_E_INVALID_INTERVAL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80320021_u32 as _);
-pub const FWP_E_INVALID_NET_MASK: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8032001F_u32 as _);
-pub const FWP_E_INVALID_PARAMETER: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80320035_u32 as _);
-pub const FWP_E_INVALID_RANGE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80320020_u32 as _);
-pub const FWP_E_INVALID_TRANSFORM_COMBINATION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8032003B_u32 as _);
-pub const FWP_E_INVALID_TUNNEL_ENDPOINT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8032003D_u32 as _);
-pub const FWP_E_INVALID_WEIGHT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80320025_u32 as _);
-pub const FWP_E_IN_USE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8032000A_u32 as _);
-pub const FWP_E_KEY_DICTATION_INVALID_KEYING_MATERIAL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80320040_u32 as _);
-pub const FWP_E_KEY_DICTATOR_ALREADY_REGISTERED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8032003F_u32 as _);
-pub const FWP_E_KM_CLIENTS_ONLY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80320015_u32 as _);
-pub const FWP_E_L2_DRIVER_NOT_READY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8032003E_u32 as _);
-pub const FWP_E_LAYER_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80320004_u32 as _);
-pub const FWP_E_LIFETIME_MISMATCH: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80320016_u32 as _);
-pub const FWP_E_MATCH_TYPE_MISMATCH: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80320026_u32 as _);
-pub const FWP_E_NET_EVENTS_DISABLED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80320013_u32 as _);
-pub const FWP_E_NEVER_MATCH: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80320033_u32 as _);
-pub const FWP_E_NOTIFICATION_DROPPED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80320019_u32 as _);
-pub const FWP_E_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80320008_u32 as _);
-pub const FWP_E_NO_TXN_IN_PROGRESS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8032000D_u32 as _);
-pub const FWP_E_NULL_DISPLAY_NAME: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80320023_u32 as _);
-pub const FWP_E_NULL_POINTER: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8032001C_u32 as _);
-pub const FWP_E_OUT_OF_BOUNDS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80320028_u32 as _);
-pub const FWP_E_PROVIDER_CONTEXT_MISMATCH: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80320034_u32 as _);
-pub const FWP_E_PROVIDER_CONTEXT_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80320006_u32 as _);
-pub const FWP_E_PROVIDER_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80320005_u32 as _);
-pub const FWP_E_RESERVED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80320029_u32 as _);
-pub const FWP_E_SESSION_ABORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80320010_u32 as _);
-pub const FWP_E_STILL_ON: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80320043_u32 as _);
-pub const FWP_E_SUBLAYER_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80320007_u32 as _);
-pub const FWP_E_TIMEOUT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80320012_u32 as _);
-pub const FWP_E_TOO_MANY_CALLOUTS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80320018_u32 as _);
-pub const FWP_E_TOO_MANY_SUBLAYERS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80320036_u32 as _);
-pub const FWP_E_TRAFFIC_MISMATCH: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8032001A_u32 as _);
-pub const FWP_E_TXN_ABORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8032000F_u32 as _);
-pub const FWP_E_TXN_IN_PROGRESS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8032000E_u32 as _);
-pub const FWP_E_TYPE_MISMATCH: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80320027_u32 as _);
-pub const FWP_E_WRONG_SESSION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8032000C_u32 as _);
-pub const FWP_E_ZERO_LENGTH_ARRAY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80320022_u32 as _);
-pub const GCN_E_DEFAULTNAMESPACE_EXISTS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803B0029_u32 as _);
-pub const GCN_E_MODULE_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803B0021_u32 as _);
-pub const GCN_E_NETADAPTER_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803B0026_u32 as _);
-pub const GCN_E_NETADAPTER_TIMEOUT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803B0025_u32 as _);
-pub const GCN_E_NETCOMPARTMENT_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803B0027_u32 as _);
-pub const GCN_E_NETINTERFACE_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803B0028_u32 as _);
-pub const GCN_E_NO_REQUEST_HANDLERS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803B0022_u32 as _);
-pub const GCN_E_REQUEST_UNSUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803B0023_u32 as _);
-pub const GCN_E_RUNTIMEKEYS_FAILED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803B0024_u32 as _);
+pub const FVE_E_AAD_ENDPOINT_BUSY: windows_core::HRESULT = windows_core::HRESULT(0x803100E1_u32 as _);
+pub const FVE_E_AAD_SERVER_FAIL_BACKOFF: windows_core::HRESULT = windows_core::HRESULT(0x803100EA_u32 as _);
+pub const FVE_E_AAD_SERVER_FAIL_RETRY_AFTER: windows_core::HRESULT = windows_core::HRESULT(0x803100E9_u32 as _);
+pub const FVE_E_ACTION_NOT_ALLOWED: windows_core::HRESULT = windows_core::HRESULT(0x80310009_u32 as _);
+pub const FVE_E_ADBACKUP_NOT_ENABLED: windows_core::HRESULT = windows_core::HRESULT(0x803100D5_u32 as _);
+pub const FVE_E_AD_ATTR_NOT_SET: windows_core::HRESULT = windows_core::HRESULT(0x8031000E_u32 as _);
+pub const FVE_E_AD_BACKUP_REQUIRED_POLICY_NOT_SET_FIXED_DRIVE: windows_core::HRESULT = windows_core::HRESULT(0x803100DB_u32 as _);
+pub const FVE_E_AD_BACKUP_REQUIRED_POLICY_NOT_SET_OS_DRIVE: windows_core::HRESULT = windows_core::HRESULT(0x803100DA_u32 as _);
+pub const FVE_E_AD_BACKUP_REQUIRED_POLICY_NOT_SET_REMOVABLE_DRIVE: windows_core::HRESULT = windows_core::HRESULT(0x803100DC_u32 as _);
+pub const FVE_E_AD_GUID_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0x8031000F_u32 as _);
+pub const FVE_E_AD_INSUFFICIENT_BUFFER: windows_core::HRESULT = windows_core::HRESULT(0x8031001A_u32 as _);
+pub const FVE_E_AD_INVALID_DATASIZE: windows_core::HRESULT = windows_core::HRESULT(0x8031000C_u32 as _);
+pub const FVE_E_AD_INVALID_DATATYPE: windows_core::HRESULT = windows_core::HRESULT(0x8031000B_u32 as _);
+pub const FVE_E_AD_NO_VALUES: windows_core::HRESULT = windows_core::HRESULT(0x8031000D_u32 as _);
+pub const FVE_E_AD_SCHEMA_NOT_INSTALLED: windows_core::HRESULT = windows_core::HRESULT(0x8031000A_u32 as _);
+pub const FVE_E_AUTH_INVALID_APPLICATION: windows_core::HRESULT = windows_core::HRESULT(0x80310044_u32 as _);
+pub const FVE_E_AUTH_INVALID_CONFIG: windows_core::HRESULT = windows_core::HRESULT(0x80310045_u32 as _);
+pub const FVE_E_AUTOUNLOCK_ENABLED: windows_core::HRESULT = windows_core::HRESULT(0x80310029_u32 as _);
+pub const FVE_E_BAD_DATA: windows_core::HRESULT = windows_core::HRESULT(0x80310016_u32 as _);
+pub const FVE_E_BAD_INFORMATION: windows_core::HRESULT = windows_core::HRESULT(0x80310010_u32 as _);
+pub const FVE_E_BAD_PARTITION_SIZE: windows_core::HRESULT = windows_core::HRESULT(0x80310014_u32 as _);
+pub const FVE_E_BCD_APPLICATIONS_PATH_INCORRECT: windows_core::HRESULT = windows_core::HRESULT(0x80310052_u32 as _);
+pub const FVE_E_BOOTABLE_CDDVD: windows_core::HRESULT = windows_core::HRESULT(0x80310030_u32 as _);
+pub const FVE_E_BUFFER_TOO_LARGE: windows_core::HRESULT = windows_core::HRESULT(0x803100CF_u32 as _);
+pub const FVE_E_CANNOT_ENCRYPT_NO_KEY: windows_core::HRESULT = windows_core::HRESULT(0x8031002E_u32 as _);
+pub const FVE_E_CANNOT_SET_FVEK_ENCRYPTED: windows_core::HRESULT = windows_core::HRESULT(0x8031002D_u32 as _);
+pub const FVE_E_CANT_LOCK_AUTOUNLOCK_ENABLED_VOLUME: windows_core::HRESULT = windows_core::HRESULT(0x80310097_u32 as _);
+pub const FVE_E_CLUSTERING_NOT_SUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x8031001E_u32 as _);
+pub const FVE_E_CONV_READ: windows_core::HRESULT = windows_core::HRESULT(0x8031001B_u32 as _);
+pub const FVE_E_CONV_RECOVERY_FAILED: windows_core::HRESULT = windows_core::HRESULT(0x80310088_u32 as _);
+pub const FVE_E_CONV_WRITE: windows_core::HRESULT = windows_core::HRESULT(0x8031001C_u32 as _);
+pub const FVE_E_DATASET_FULL: windows_core::HRESULT = windows_core::HRESULT(0x803100EB_u32 as _);
+pub const FVE_E_DEBUGGER_ENABLED: windows_core::HRESULT = windows_core::HRESULT(0x8031004F_u32 as _);
+pub const FVE_E_DEVICELOCKOUT_COUNTER_MISMATCH: windows_core::HRESULT = windows_core::HRESULT(0x803100CE_u32 as _);
+pub const FVE_E_DEVICE_LOCKOUT_COUNTER_UNAVAILABLE: windows_core::HRESULT = windows_core::HRESULT(0x803100CD_u32 as _);
+pub const FVE_E_DEVICE_NOT_JOINED: windows_core::HRESULT = windows_core::HRESULT(0x803100E0_u32 as _);
+pub const FVE_E_DE_DEVICE_LOCKEDOUT: windows_core::HRESULT = windows_core::HRESULT(0x803100CA_u32 as _);
+pub const FVE_E_DE_FIXED_DATA_NOT_SUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x803100C5_u32 as _);
+pub const FVE_E_DE_HARDWARE_NOT_COMPLIANT: windows_core::HRESULT = windows_core::HRESULT(0x803100C6_u32 as _);
+pub const FVE_E_DE_OS_VOLUME_NOT_PROTECTED: windows_core::HRESULT = windows_core::HRESULT(0x803100C9_u32 as _);
+pub const FVE_E_DE_PREVENTED_FOR_OS: windows_core::HRESULT = windows_core::HRESULT(0x803100D1_u32 as _);
+pub const FVE_E_DE_PROTECTION_NOT_YET_ENABLED: windows_core::HRESULT = windows_core::HRESULT(0x803100CB_u32 as _);
+pub const FVE_E_DE_PROTECTION_SUSPENDED: windows_core::HRESULT = windows_core::HRESULT(0x803100C8_u32 as _);
+pub const FVE_E_DE_VOLUME_NOT_SUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x803100D3_u32 as _);
+pub const FVE_E_DE_VOLUME_OPTED_OUT: windows_core::HRESULT = windows_core::HRESULT(0x803100D2_u32 as _);
+pub const FVE_E_DE_WINRE_NOT_CONFIGURED: windows_core::HRESULT = windows_core::HRESULT(0x803100C7_u32 as _);
+pub const FVE_E_DRY_RUN_FAILED: windows_core::HRESULT = windows_core::HRESULT(0x8031004D_u32 as _);
+pub const FVE_E_DV_NOT_ALLOWED_BY_GP: windows_core::HRESULT = windows_core::HRESULT(0x80310071_u32 as _);
+pub const FVE_E_DV_NOT_SUPPORTED_ON_FS: windows_core::HRESULT = windows_core::HRESULT(0x80310070_u32 as _);
+pub const FVE_E_EDRIVE_BAND_ENUMERATION_FAILED: windows_core::HRESULT = windows_core::HRESULT(0x803100E3_u32 as _);
+pub const FVE_E_EDRIVE_BAND_IN_USE: windows_core::HRESULT = windows_core::HRESULT(0x803100B0_u32 as _);
+pub const FVE_E_EDRIVE_DISALLOWED_BY_GP: windows_core::HRESULT = windows_core::HRESULT(0x803100B1_u32 as _);
+pub const FVE_E_EDRIVE_DRY_RUN_FAILED: windows_core::HRESULT = windows_core::HRESULT(0x803100BC_u32 as _);
+pub const FVE_E_EDRIVE_DV_NOT_SUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x803100B4_u32 as _);
+pub const FVE_E_EDRIVE_INCOMPATIBLE_FIRMWARE: windows_core::HRESULT = windows_core::HRESULT(0x803100BF_u32 as _);
+pub const FVE_E_EDRIVE_INCOMPATIBLE_VOLUME: windows_core::HRESULT = windows_core::HRESULT(0x803100B2_u32 as _);
+pub const FVE_E_EDRIVE_NO_FAILOVER_TO_SW: windows_core::HRESULT = windows_core::HRESULT(0x803100AF_u32 as _);
+pub const FVE_E_EFI_ONLY: windows_core::HRESULT = windows_core::HRESULT(0x8031009C_u32 as _);
+pub const FVE_E_ENH_PIN_INVALID: windows_core::HRESULT = windows_core::HRESULT(0x80310099_u32 as _);
+pub const FVE_E_EOW_NOT_SUPPORTED_IN_VERSION: windows_core::HRESULT = windows_core::HRESULT(0x803100D4_u32 as _);
+pub const FVE_E_EXECUTE_REQUEST_SENT_TOO_SOON: windows_core::HRESULT = windows_core::HRESULT(0x803100DE_u32 as _);
+pub const FVE_E_FAILED_AUTHENTICATION: windows_core::HRESULT = windows_core::HRESULT(0x80310027_u32 as _);
+pub const FVE_E_FAILED_SECTOR_SIZE: windows_core::HRESULT = windows_core::HRESULT(0x80310026_u32 as _);
+pub const FVE_E_FAILED_WRONG_FS: windows_core::HRESULT = windows_core::HRESULT(0x80310013_u32 as _);
+pub const FVE_E_FIPS_DISABLE_PROTECTION_NOT_ALLOWED: windows_core::HRESULT = windows_core::HRESULT(0x80310046_u32 as _);
+pub const FVE_E_FIPS_HASH_KDF_NOT_ALLOWED: windows_core::HRESULT = windows_core::HRESULT(0x80310098_u32 as _);
+pub const FVE_E_FIPS_PREVENTS_EXTERNAL_KEY_EXPORT: windows_core::HRESULT = windows_core::HRESULT(0x80310038_u32 as _);
+pub const FVE_E_FIPS_PREVENTS_PASSPHRASE: windows_core::HRESULT = windows_core::HRESULT(0x8031006C_u32 as _);
+pub const FVE_E_FIPS_PREVENTS_RECOVERY_PASSWORD: windows_core::HRESULT = windows_core::HRESULT(0x80310037_u32 as _);
+pub const FVE_E_FIPS_RNG_CHECK_FAILED: windows_core::HRESULT = windows_core::HRESULT(0x80310036_u32 as _);
+pub const FVE_E_FIRMWARE_TYPE_NOT_SUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x80310048_u32 as _);
+pub const FVE_E_FOREIGN_VOLUME: windows_core::HRESULT = windows_core::HRESULT(0x80310023_u32 as _);
+pub const FVE_E_FS_MOUNTED: windows_core::HRESULT = windows_core::HRESULT(0x8031004B_u32 as _);
+pub const FVE_E_FS_NOT_EXTENDED: windows_core::HRESULT = windows_core::HRESULT(0x80310047_u32 as _);
+pub const FVE_E_FULL_ENCRYPTION_NOT_ALLOWED_ON_TP_STORAGE: windows_core::HRESULT = windows_core::HRESULT(0x803100A5_u32 as _);
+pub const FVE_E_HIDDEN_VOLUME: windows_core::HRESULT = windows_core::HRESULT(0x80310056_u32 as _);
+pub const FVE_E_INVALID_BITLOCKER_OID: windows_core::HRESULT = windows_core::HRESULT(0x8031006E_u32 as _);
+pub const FVE_E_INVALID_DATUM_TYPE: windows_core::HRESULT = windows_core::HRESULT(0x8031009B_u32 as _);
+pub const FVE_E_INVALID_KEY_FORMAT: windows_core::HRESULT = windows_core::HRESULT(0x80310034_u32 as _);
+pub const FVE_E_INVALID_NBP_CERT: windows_core::HRESULT = windows_core::HRESULT(0x803100E2_u32 as _);
+pub const FVE_E_INVALID_NKP_CERT: windows_core::HRESULT = windows_core::HRESULT(0x8031009F_u32 as _);
+pub const FVE_E_INVALID_PASSWORD_FORMAT: windows_core::HRESULT = windows_core::HRESULT(0x80310035_u32 as _);
+pub const FVE_E_INVALID_PIN_CHARS: windows_core::HRESULT = windows_core::HRESULT(0x8031009A_u32 as _);
+pub const FVE_E_INVALID_PIN_CHARS_DETAILED: windows_core::HRESULT = windows_core::HRESULT(0x803100CC_u32 as _);
+pub const FVE_E_INVALID_PROTECTOR_TYPE: windows_core::HRESULT = windows_core::HRESULT(0x8031003A_u32 as _);
+pub const FVE_E_INVALID_STARTUP_OPTIONS: windows_core::HRESULT = windows_core::HRESULT(0x8031005B_u32 as _);
+pub const FVE_E_KEYFILE_INVALID: windows_core::HRESULT = windows_core::HRESULT(0x8031003D_u32 as _);
+pub const FVE_E_KEYFILE_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0x8031003C_u32 as _);
+pub const FVE_E_KEYFILE_NO_VMK: windows_core::HRESULT = windows_core::HRESULT(0x8031003E_u32 as _);
+pub const FVE_E_KEY_LENGTH_NOT_SUPPORTED_BY_EDRIVE: windows_core::HRESULT = windows_core::HRESULT(0x803100A7_u32 as _);
+pub const FVE_E_KEY_PROTECTOR_NOT_SUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x80310069_u32 as _);
+pub const FVE_E_KEY_REQUIRED: windows_core::HRESULT = windows_core::HRESULT(0x8031001D_u32 as _);
+pub const FVE_E_KEY_ROTATION_NOT_ENABLED: windows_core::HRESULT = windows_core::HRESULT(0x803100DF_u32 as _);
+pub const FVE_E_KEY_ROTATION_NOT_SUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x803100DD_u32 as _);
+pub const FVE_E_LIVEID_ACCOUNT_BLOCKED: windows_core::HRESULT = windows_core::HRESULT(0x803100C3_u32 as _);
+pub const FVE_E_LIVEID_ACCOUNT_SUSPENDED: windows_core::HRESULT = windows_core::HRESULT(0x803100C2_u32 as _);
+pub const FVE_E_LOCKED_VOLUME: windows_core::HRESULT = windows_core::HRESULT(0x80310000_u32 as _);
+pub const FVE_E_METADATA_FULL: windows_core::HRESULT = windows_core::HRESULT(0x803100EC_u32 as _);
+pub const FVE_E_MOR_FAILED: windows_core::HRESULT = windows_core::HRESULT(0x80310055_u32 as _);
+pub const FVE_E_MULTIPLE_NKP_CERTS: windows_core::HRESULT = windows_core::HRESULT(0x8031009D_u32 as _);
+pub const FVE_E_NON_BITLOCKER_KU: windows_core::HRESULT = windows_core::HRESULT(0x80310093_u32 as _);
+pub const FVE_E_NON_BITLOCKER_OID: windows_core::HRESULT = windows_core::HRESULT(0x80310085_u32 as _);
+pub const FVE_E_NOT_ACTIVATED: windows_core::HRESULT = windows_core::HRESULT(0x80310008_u32 as _);
+pub const FVE_E_NOT_ALLOWED_IN_SAFE_MODE: windows_core::HRESULT = windows_core::HRESULT(0x80310040_u32 as _);
+pub const FVE_E_NOT_ALLOWED_IN_VERSION: windows_core::HRESULT = windows_core::HRESULT(0x80310053_u32 as _);
+pub const FVE_E_NOT_ALLOWED_ON_CLUSTER: windows_core::HRESULT = windows_core::HRESULT(0x803100AE_u32 as _);
+pub const FVE_E_NOT_ALLOWED_ON_CSV_STACK: windows_core::HRESULT = windows_core::HRESULT(0x803100AD_u32 as _);
+pub const FVE_E_NOT_ALLOWED_TO_UPGRADE_WHILE_CONVERTING: windows_core::HRESULT = windows_core::HRESULT(0x803100B3_u32 as _);
+pub const FVE_E_NOT_DATA_VOLUME: windows_core::HRESULT = windows_core::HRESULT(0x80310019_u32 as _);
+pub const FVE_E_NOT_DECRYPTED: windows_core::HRESULT = windows_core::HRESULT(0x80310039_u32 as _);
+pub const FVE_E_NOT_DE_VOLUME: windows_core::HRESULT = windows_core::HRESULT(0x803100D7_u32 as _);
+pub const FVE_E_NOT_ENCRYPTED: windows_core::HRESULT = windows_core::HRESULT(0x80310001_u32 as _);
+pub const FVE_E_NOT_ON_STACK: windows_core::HRESULT = windows_core::HRESULT(0x8031004A_u32 as _);
+pub const FVE_E_NOT_OS_VOLUME: windows_core::HRESULT = windows_core::HRESULT(0x80310028_u32 as _);
+pub const FVE_E_NOT_PROVISIONED_ON_ALL_VOLUMES: windows_core::HRESULT = windows_core::HRESULT(0x803100C4_u32 as _);
+pub const FVE_E_NOT_SUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x80310015_u32 as _);
+pub const FVE_E_NO_AUTOUNLOCK_MASTER_KEY: windows_core::HRESULT = windows_core::HRESULT(0x80310054_u32 as _);
+pub const FVE_E_NO_BOOTMGR_METRIC: windows_core::HRESULT = windows_core::HRESULT(0x80310005_u32 as _);
+pub const FVE_E_NO_BOOTSECTOR_METRIC: windows_core::HRESULT = windows_core::HRESULT(0x80310004_u32 as _);
+pub const FVE_E_NO_EXISTING_PASSPHRASE: windows_core::HRESULT = windows_core::HRESULT(0x803100A8_u32 as _);
+pub const FVE_E_NO_EXISTING_PIN: windows_core::HRESULT = windows_core::HRESULT(0x803100A0_u32 as _);
+pub const FVE_E_NO_FEATURE_LICENSE: windows_core::HRESULT = windows_core::HRESULT(0x8031005A_u32 as _);
+pub const FVE_E_NO_LICENSE: windows_core::HRESULT = windows_core::HRESULT(0x80310049_u32 as _);
+pub const FVE_E_NO_MBR_METRIC: windows_core::HRESULT = windows_core::HRESULT(0x80310003_u32 as _);
+pub const FVE_E_NO_PASSPHRASE_WITH_TPM: windows_core::HRESULT = windows_core::HRESULT(0x803100AB_u32 as _);
+pub const FVE_E_NO_PREBOOT_KEYBOARD_DETECTED: windows_core::HRESULT = windows_core::HRESULT(0x803100B5_u32 as _);
+pub const FVE_E_NO_PREBOOT_KEYBOARD_OR_WINRE_DETECTED: windows_core::HRESULT = windows_core::HRESULT(0x803100B6_u32 as _);
+pub const FVE_E_NO_PROTECTORS_TO_TEST: windows_core::HRESULT = windows_core::HRESULT(0x8031003B_u32 as _);
+pub const FVE_E_NO_SUCH_CAPABILITY_ON_TARGET: windows_core::HRESULT = windows_core::HRESULT(0x803100D0_u32 as _);
+pub const FVE_E_NO_TPM_BIOS: windows_core::HRESULT = windows_core::HRESULT(0x80310002_u32 as _);
+pub const FVE_E_NO_TPM_WITH_PASSPHRASE: windows_core::HRESULT = windows_core::HRESULT(0x803100AC_u32 as _);
+pub const FVE_E_OPERATION_NOT_SUPPORTED_ON_VISTA_VOLUME: windows_core::HRESULT = windows_core::HRESULT(0x80310096_u32 as _);
+pub const FVE_E_OSV_KSR_NOT_ALLOWED: windows_core::HRESULT = windows_core::HRESULT(0x803100D9_u32 as _);
+pub const FVE_E_OS_NOT_PROTECTED: windows_core::HRESULT = windows_core::HRESULT(0x80310020_u32 as _);
+pub const FVE_E_OS_VOLUME_PASSPHRASE_NOT_ALLOWED: windows_core::HRESULT = windows_core::HRESULT(0x8031006D_u32 as _);
+pub const FVE_E_OVERLAPPED_UPDATE: windows_core::HRESULT = windows_core::HRESULT(0x80310024_u32 as _);
+pub const FVE_E_PASSPHRASE_PROTECTOR_CHANGE_BY_STD_USER_DISALLOWED: windows_core::HRESULT = windows_core::HRESULT(0x803100C1_u32 as _);
+pub const FVE_E_PASSPHRASE_TOO_LONG: windows_core::HRESULT = windows_core::HRESULT(0x803100AA_u32 as _);
+pub const FVE_E_PIN_INVALID: windows_core::HRESULT = windows_core::HRESULT(0x80310043_u32 as _);
+pub const FVE_E_PIN_PROTECTOR_CHANGE_BY_STD_USER_DISALLOWED: windows_core::HRESULT = windows_core::HRESULT(0x803100A2_u32 as _);
+pub const FVE_E_POLICY_CONFLICT_FDV_RK_OFF_AUK_ON: windows_core::HRESULT = windows_core::HRESULT(0x80310083_u32 as _);
+pub const FVE_E_POLICY_CONFLICT_FDV_RP_OFF_ADB_ON: windows_core::HRESULT = windows_core::HRESULT(0x80310091_u32 as _);
+pub const FVE_E_POLICY_CONFLICT_OSV_RP_OFF_ADB_ON: windows_core::HRESULT = windows_core::HRESULT(0x80310090_u32 as _);
+pub const FVE_E_POLICY_CONFLICT_RDV_RK_OFF_AUK_ON: windows_core::HRESULT = windows_core::HRESULT(0x80310084_u32 as _);
+pub const FVE_E_POLICY_CONFLICT_RDV_RP_OFF_ADB_ON: windows_core::HRESULT = windows_core::HRESULT(0x80310092_u32 as _);
+pub const FVE_E_POLICY_CONFLICT_RO_AND_STARTUP_KEY_REQUIRED: windows_core::HRESULT = windows_core::HRESULT(0x80310087_u32 as _);
+pub const FVE_E_POLICY_INVALID_ENHANCED_BCD_SETTINGS: windows_core::HRESULT = windows_core::HRESULT(0x803100BE_u32 as _);
+pub const FVE_E_POLICY_INVALID_PASSPHRASE_LENGTH: windows_core::HRESULT = windows_core::HRESULT(0x80310080_u32 as _);
+pub const FVE_E_POLICY_INVALID_PIN_LENGTH: windows_core::HRESULT = windows_core::HRESULT(0x80310068_u32 as _);
+pub const FVE_E_POLICY_ON_RDV_EXCLUSION_LIST: windows_core::HRESULT = windows_core::HRESULT(0x803100E4_u32 as _);
+pub const FVE_E_POLICY_PASSPHRASE_NOT_ALLOWED: windows_core::HRESULT = windows_core::HRESULT(0x8031006A_u32 as _);
+pub const FVE_E_POLICY_PASSPHRASE_REQUIRED: windows_core::HRESULT = windows_core::HRESULT(0x8031006B_u32 as _);
+pub const FVE_E_POLICY_PASSPHRASE_REQUIRES_ASCII: windows_core::HRESULT = windows_core::HRESULT(0x803100A4_u32 as _);
+pub const FVE_E_POLICY_PASSPHRASE_TOO_SIMPLE: windows_core::HRESULT = windows_core::HRESULT(0x80310081_u32 as _);
+pub const FVE_E_POLICY_PASSWORD_REQUIRED: windows_core::HRESULT = windows_core::HRESULT(0x8031002C_u32 as _);
+pub const FVE_E_POLICY_PROHIBITS_SELFSIGNED: windows_core::HRESULT = windows_core::HRESULT(0x80310086_u32 as _);
+pub const FVE_E_POLICY_RECOVERY_KEY_NOT_ALLOWED: windows_core::HRESULT = windows_core::HRESULT(0x8031005E_u32 as _);
+pub const FVE_E_POLICY_RECOVERY_KEY_REQUIRED: windows_core::HRESULT = windows_core::HRESULT(0x8031005F_u32 as _);
+pub const FVE_E_POLICY_RECOVERY_PASSWORD_NOT_ALLOWED: windows_core::HRESULT = windows_core::HRESULT(0x8031005C_u32 as _);
+pub const FVE_E_POLICY_RECOVERY_PASSWORD_REQUIRED: windows_core::HRESULT = windows_core::HRESULT(0x8031005D_u32 as _);
+pub const FVE_E_POLICY_REQUIRES_RECOVERY_PASSWORD_ON_TOUCH_DEVICE: windows_core::HRESULT = windows_core::HRESULT(0x803100B8_u32 as _);
+pub const FVE_E_POLICY_REQUIRES_STARTUP_PIN_ON_TOUCH_DEVICE: windows_core::HRESULT = windows_core::HRESULT(0x803100B7_u32 as _);
+pub const FVE_E_POLICY_STARTUP_KEY_NOT_ALLOWED: windows_core::HRESULT = windows_core::HRESULT(0x80310062_u32 as _);
+pub const FVE_E_POLICY_STARTUP_KEY_REQUIRED: windows_core::HRESULT = windows_core::HRESULT(0x80310063_u32 as _);
+pub const FVE_E_POLICY_STARTUP_PIN_KEY_NOT_ALLOWED: windows_core::HRESULT = windows_core::HRESULT(0x80310064_u32 as _);
+pub const FVE_E_POLICY_STARTUP_PIN_KEY_REQUIRED: windows_core::HRESULT = windows_core::HRESULT(0x80310065_u32 as _);
+pub const FVE_E_POLICY_STARTUP_PIN_NOT_ALLOWED: windows_core::HRESULT = windows_core::HRESULT(0x80310060_u32 as _);
+pub const FVE_E_POLICY_STARTUP_PIN_REQUIRED: windows_core::HRESULT = windows_core::HRESULT(0x80310061_u32 as _);
+pub const FVE_E_POLICY_STARTUP_TPM_NOT_ALLOWED: windows_core::HRESULT = windows_core::HRESULT(0x80310066_u32 as _);
+pub const FVE_E_POLICY_STARTUP_TPM_REQUIRED: windows_core::HRESULT = windows_core::HRESULT(0x80310067_u32 as _);
+pub const FVE_E_POLICY_USER_CERTIFICATE_NOT_ALLOWED: windows_core::HRESULT = windows_core::HRESULT(0x80310072_u32 as _);
+pub const FVE_E_POLICY_USER_CERTIFICATE_REQUIRED: windows_core::HRESULT = windows_core::HRESULT(0x80310073_u32 as _);
+pub const FVE_E_POLICY_USER_CERT_MUST_BE_HW: windows_core::HRESULT = windows_core::HRESULT(0x80310074_u32 as _);
+pub const FVE_E_POLICY_USER_CONFIGURE_FDV_AUTOUNLOCK_NOT_ALLOWED: windows_core::HRESULT = windows_core::HRESULT(0x80310075_u32 as _);
+pub const FVE_E_POLICY_USER_CONFIGURE_RDV_AUTOUNLOCK_NOT_ALLOWED: windows_core::HRESULT = windows_core::HRESULT(0x80310076_u32 as _);
+pub const FVE_E_POLICY_USER_CONFIGURE_RDV_NOT_ALLOWED: windows_core::HRESULT = windows_core::HRESULT(0x80310077_u32 as _);
+pub const FVE_E_POLICY_USER_DISABLE_RDV_NOT_ALLOWED: windows_core::HRESULT = windows_core::HRESULT(0x80310079_u32 as _);
+pub const FVE_E_POLICY_USER_ENABLE_RDV_NOT_ALLOWED: windows_core::HRESULT = windows_core::HRESULT(0x80310078_u32 as _);
+pub const FVE_E_PREDICTED_TPM_PROTECTOR_NOT_SUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x803100E5_u32 as _);
+pub const FVE_E_PRIVATEKEY_AUTH_FAILED: windows_core::HRESULT = windows_core::HRESULT(0x80310094_u32 as _);
+pub const FVE_E_PROTECTION_CANNOT_BE_DISABLED: windows_core::HRESULT = windows_core::HRESULT(0x803100D8_u32 as _);
+pub const FVE_E_PROTECTION_DISABLED: windows_core::HRESULT = windows_core::HRESULT(0x80310021_u32 as _);
+pub const FVE_E_PROTECTOR_CHANGE_MAX_PASSPHRASE_CHANGE_ATTEMPTS_REACHED: windows_core::HRESULT = windows_core::HRESULT(0x803100C0_u32 as _);
+pub const FVE_E_PROTECTOR_CHANGE_MAX_PIN_CHANGE_ATTEMPTS_REACHED: windows_core::HRESULT = windows_core::HRESULT(0x803100A3_u32 as _);
+pub const FVE_E_PROTECTOR_CHANGE_PASSPHRASE_MISMATCH: windows_core::HRESULT = windows_core::HRESULT(0x803100A9_u32 as _);
+pub const FVE_E_PROTECTOR_CHANGE_PIN_MISMATCH: windows_core::HRESULT = windows_core::HRESULT(0x803100A1_u32 as _);
+pub const FVE_E_PROTECTOR_EXISTS: windows_core::HRESULT = windows_core::HRESULT(0x80310031_u32 as _);
+pub const FVE_E_PROTECTOR_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0x80310033_u32 as _);
+pub const FVE_E_PUBKEY_NOT_ALLOWED: windows_core::HRESULT = windows_core::HRESULT(0x80310058_u32 as _);
+pub const FVE_E_RAW_ACCESS: windows_core::HRESULT = windows_core::HRESULT(0x80310050_u32 as _);
+pub const FVE_E_RAW_BLOCKED: windows_core::HRESULT = windows_core::HRESULT(0x80310051_u32 as _);
+pub const FVE_E_REBOOT_REQUIRED: windows_core::HRESULT = windows_core::HRESULT(0x8031004E_u32 as _);
+pub const FVE_E_RECOVERY_KEY_REQUIRED: windows_core::HRESULT = windows_core::HRESULT(0x80310022_u32 as _);
+pub const FVE_E_RECOVERY_PARTITION: windows_core::HRESULT = windows_core::HRESULT(0x80310082_u32 as _);
+pub const FVE_E_RELATIVE_PATH: windows_core::HRESULT = windows_core::HRESULT(0x80310032_u32 as _);
+pub const FVE_E_REMOVAL_OF_DRA_FAILED: windows_core::HRESULT = windows_core::HRESULT(0x80310095_u32 as _);
+pub const FVE_E_REMOVAL_OF_NKP_FAILED: windows_core::HRESULT = windows_core::HRESULT(0x8031009E_u32 as _);
+pub const FVE_E_SECUREBOOT_CONFIGURATION_INVALID: windows_core::HRESULT = windows_core::HRESULT(0x803100BB_u32 as _);
+pub const FVE_E_SECUREBOOT_DISABLED: windows_core::HRESULT = windows_core::HRESULT(0x803100BA_u32 as _);
+pub const FVE_E_SECURE_KEY_REQUIRED: windows_core::HRESULT = windows_core::HRESULT(0x80310007_u32 as _);
+pub const FVE_E_SETUP_TPM_CALLBACK_NOT_SUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x803100E6_u32 as _);
+pub const FVE_E_SHADOW_COPY_PRESENT: windows_core::HRESULT = windows_core::HRESULT(0x803100BD_u32 as _);
+pub const FVE_E_SYSTEM_VOLUME: windows_core::HRESULT = windows_core::HRESULT(0x80310012_u32 as _);
+pub const FVE_E_TOKEN_NOT_IMPERSONATED: windows_core::HRESULT = windows_core::HRESULT(0x8031004C_u32 as _);
+pub const FVE_E_TOO_SMALL: windows_core::HRESULT = windows_core::HRESULT(0x80310011_u32 as _);
+pub const FVE_E_TPM_CONTEXT_SETUP_NOT_SUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x803100E7_u32 as _);
+pub const FVE_E_TPM_DISABLED: windows_core::HRESULT = windows_core::HRESULT(0x8031003F_u32 as _);
+pub const FVE_E_TPM_INVALID_PCR: windows_core::HRESULT = windows_core::HRESULT(0x80310041_u32 as _);
+pub const FVE_E_TPM_NOT_OWNED: windows_core::HRESULT = windows_core::HRESULT(0x80310018_u32 as _);
+pub const FVE_E_TPM_NO_VMK: windows_core::HRESULT = windows_core::HRESULT(0x80310042_u32 as _);
+pub const FVE_E_TPM_SRK_AUTH_NOT_ZERO: windows_core::HRESULT = windows_core::HRESULT(0x80310025_u32 as _);
+pub const FVE_E_TRANSIENT_STATE: windows_core::HRESULT = windows_core::HRESULT(0x80310057_u32 as _);
+pub const FVE_E_UPDATE_INVALID_CONFIG: windows_core::HRESULT = windows_core::HRESULT(0x803100E8_u32 as _);
+pub const FVE_E_VIRTUALIZED_SPACE_TOO_BIG: windows_core::HRESULT = windows_core::HRESULT(0x80310089_u32 as _);
+pub const FVE_E_VOLUME_BOUND_ALREADY: windows_core::HRESULT = windows_core::HRESULT(0x8031001F_u32 as _);
+pub const FVE_E_VOLUME_EXTEND_PREVENTS_EOW_DECRYPT: windows_core::HRESULT = windows_core::HRESULT(0x803100D6_u32 as _);
+pub const FVE_E_VOLUME_HANDLE_OPEN: windows_core::HRESULT = windows_core::HRESULT(0x80310059_u32 as _);
+pub const FVE_E_VOLUME_NOT_BOUND: windows_core::HRESULT = windows_core::HRESULT(0x80310017_u32 as _);
+pub const FVE_E_VOLUME_TOO_SMALL: windows_core::HRESULT = windows_core::HRESULT(0x8031006F_u32 as _);
+pub const FVE_E_WIPE_CANCEL_NOT_APPLICABLE: windows_core::HRESULT = windows_core::HRESULT(0x803100B9_u32 as _);
+pub const FVE_E_WIPE_NOT_ALLOWED_ON_TP_STORAGE: windows_core::HRESULT = windows_core::HRESULT(0x803100A6_u32 as _);
+pub const FVE_E_WRONG_BOOTMGR: windows_core::HRESULT = windows_core::HRESULT(0x80310006_u32 as _);
+pub const FVE_E_WRONG_BOOTSECTOR: windows_core::HRESULT = windows_core::HRESULT(0x8031002A_u32 as _);
+pub const FVE_E_WRONG_SYSTEM_FS: windows_core::HRESULT = windows_core::HRESULT(0x8031002B_u32 as _);
+pub const FWP_E_ACTION_INCOMPATIBLE_WITH_LAYER: windows_core::HRESULT = windows_core::HRESULT(0x8032002C_u32 as _);
+pub const FWP_E_ACTION_INCOMPATIBLE_WITH_SUBLAYER: windows_core::HRESULT = windows_core::HRESULT(0x8032002D_u32 as _);
+pub const FWP_E_ALREADY_EXISTS: windows_core::HRESULT = windows_core::HRESULT(0x80320009_u32 as _);
+pub const FWP_E_BUILTIN_OBJECT: windows_core::HRESULT = windows_core::HRESULT(0x80320017_u32 as _);
+pub const FWP_E_CALLOUT_NOTIFICATION_FAILED: windows_core::HRESULT = windows_core::HRESULT(0x80320037_u32 as _);
+pub const FWP_E_CALLOUT_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0x80320001_u32 as _);
+pub const FWP_E_CONDITION_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0x80320002_u32 as _);
+pub const FWP_E_CONNECTIONS_DISABLED: windows_core::HRESULT = windows_core::HRESULT(0x80320041_u32 as _);
+pub const FWP_E_CONTEXT_INCOMPATIBLE_WITH_CALLOUT: windows_core::HRESULT = windows_core::HRESULT(0x8032002F_u32 as _);
+pub const FWP_E_CONTEXT_INCOMPATIBLE_WITH_LAYER: windows_core::HRESULT = windows_core::HRESULT(0x8032002E_u32 as _);
+pub const FWP_E_DROP_NOICMP: windows_core::HRESULT = windows_core::HRESULT(0x80320104_u32 as _);
+pub const FWP_E_DUPLICATE_AUTH_METHOD: windows_core::HRESULT = windows_core::HRESULT(0x8032003C_u32 as _);
+pub const FWP_E_DUPLICATE_CONDITION: windows_core::HRESULT = windows_core::HRESULT(0x8032002A_u32 as _);
+pub const FWP_E_DUPLICATE_KEYMOD: windows_core::HRESULT = windows_core::HRESULT(0x8032002B_u32 as _);
+pub const FWP_E_DYNAMIC_SESSION_IN_PROGRESS: windows_core::HRESULT = windows_core::HRESULT(0x8032000B_u32 as _);
+pub const FWP_E_EM_NOT_SUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x80320032_u32 as _);
+pub const FWP_E_FILTER_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0x80320003_u32 as _);
+pub const FWP_E_IKEEXT_NOT_RUNNING: windows_core::HRESULT = windows_core::HRESULT(0x80320044_u32 as _);
+pub const FWP_E_INCOMPATIBLE_AUTH_METHOD: windows_core::HRESULT = windows_core::HRESULT(0x80320030_u32 as _);
+pub const FWP_E_INCOMPATIBLE_CIPHER_TRANSFORM: windows_core::HRESULT = windows_core::HRESULT(0x8032003A_u32 as _);
+pub const FWP_E_INCOMPATIBLE_DH_GROUP: windows_core::HRESULT = windows_core::HRESULT(0x80320031_u32 as _);
+pub const FWP_E_INCOMPATIBLE_LAYER: windows_core::HRESULT = windows_core::HRESULT(0x80320014_u32 as _);
+pub const FWP_E_INCOMPATIBLE_SA_STATE: windows_core::HRESULT = windows_core::HRESULT(0x8032001B_u32 as _);
+pub const FWP_E_INCOMPATIBLE_TXN: windows_core::HRESULT = windows_core::HRESULT(0x80320011_u32 as _);
+pub const FWP_E_INVALID_ACTION_TYPE: windows_core::HRESULT = windows_core::HRESULT(0x80320024_u32 as _);
+pub const FWP_E_INVALID_AUTH_TRANSFORM: windows_core::HRESULT = windows_core::HRESULT(0x80320038_u32 as _);
+pub const FWP_E_INVALID_CIPHER_TRANSFORM: windows_core::HRESULT = windows_core::HRESULT(0x80320039_u32 as _);
+pub const FWP_E_INVALID_DNS_NAME: windows_core::HRESULT = windows_core::HRESULT(0x80320042_u32 as _);
+pub const FWP_E_INVALID_ENUMERATOR: windows_core::HRESULT = windows_core::HRESULT(0x8032001D_u32 as _);
+pub const FWP_E_INVALID_FLAGS: windows_core::HRESULT = windows_core::HRESULT(0x8032001E_u32 as _);
+pub const FWP_E_INVALID_INTERVAL: windows_core::HRESULT = windows_core::HRESULT(0x80320021_u32 as _);
+pub const FWP_E_INVALID_NET_MASK: windows_core::HRESULT = windows_core::HRESULT(0x8032001F_u32 as _);
+pub const FWP_E_INVALID_PARAMETER: windows_core::HRESULT = windows_core::HRESULT(0x80320035_u32 as _);
+pub const FWP_E_INVALID_RANGE: windows_core::HRESULT = windows_core::HRESULT(0x80320020_u32 as _);
+pub const FWP_E_INVALID_TRANSFORM_COMBINATION: windows_core::HRESULT = windows_core::HRESULT(0x8032003B_u32 as _);
+pub const FWP_E_INVALID_TUNNEL_ENDPOINT: windows_core::HRESULT = windows_core::HRESULT(0x8032003D_u32 as _);
+pub const FWP_E_INVALID_WEIGHT: windows_core::HRESULT = windows_core::HRESULT(0x80320025_u32 as _);
+pub const FWP_E_IN_USE: windows_core::HRESULT = windows_core::HRESULT(0x8032000A_u32 as _);
+pub const FWP_E_KEY_DICTATION_INVALID_KEYING_MATERIAL: windows_core::HRESULT = windows_core::HRESULT(0x80320040_u32 as _);
+pub const FWP_E_KEY_DICTATOR_ALREADY_REGISTERED: windows_core::HRESULT = windows_core::HRESULT(0x8032003F_u32 as _);
+pub const FWP_E_KM_CLIENTS_ONLY: windows_core::HRESULT = windows_core::HRESULT(0x80320015_u32 as _);
+pub const FWP_E_L2_DRIVER_NOT_READY: windows_core::HRESULT = windows_core::HRESULT(0x8032003E_u32 as _);
+pub const FWP_E_LAYER_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0x80320004_u32 as _);
+pub const FWP_E_LIFETIME_MISMATCH: windows_core::HRESULT = windows_core::HRESULT(0x80320016_u32 as _);
+pub const FWP_E_MATCH_TYPE_MISMATCH: windows_core::HRESULT = windows_core::HRESULT(0x80320026_u32 as _);
+pub const FWP_E_NET_EVENTS_DISABLED: windows_core::HRESULT = windows_core::HRESULT(0x80320013_u32 as _);
+pub const FWP_E_NEVER_MATCH: windows_core::HRESULT = windows_core::HRESULT(0x80320033_u32 as _);
+pub const FWP_E_NOTIFICATION_DROPPED: windows_core::HRESULT = windows_core::HRESULT(0x80320019_u32 as _);
+pub const FWP_E_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0x80320008_u32 as _);
+pub const FWP_E_NO_TXN_IN_PROGRESS: windows_core::HRESULT = windows_core::HRESULT(0x8032000D_u32 as _);
+pub const FWP_E_NULL_DISPLAY_NAME: windows_core::HRESULT = windows_core::HRESULT(0x80320023_u32 as _);
+pub const FWP_E_NULL_POINTER: windows_core::HRESULT = windows_core::HRESULT(0x8032001C_u32 as _);
+pub const FWP_E_OUT_OF_BOUNDS: windows_core::HRESULT = windows_core::HRESULT(0x80320028_u32 as _);
+pub const FWP_E_PROVIDER_CONTEXT_MISMATCH: windows_core::HRESULT = windows_core::HRESULT(0x80320034_u32 as _);
+pub const FWP_E_PROVIDER_CONTEXT_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0x80320006_u32 as _);
+pub const FWP_E_PROVIDER_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0x80320005_u32 as _);
+pub const FWP_E_RESERVED: windows_core::HRESULT = windows_core::HRESULT(0x80320029_u32 as _);
+pub const FWP_E_SESSION_ABORTED: windows_core::HRESULT = windows_core::HRESULT(0x80320010_u32 as _);
+pub const FWP_E_STILL_ON: windows_core::HRESULT = windows_core::HRESULT(0x80320043_u32 as _);
+pub const FWP_E_SUBLAYER_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0x80320007_u32 as _);
+pub const FWP_E_TIMEOUT: windows_core::HRESULT = windows_core::HRESULT(0x80320012_u32 as _);
+pub const FWP_E_TOO_MANY_CALLOUTS: windows_core::HRESULT = windows_core::HRESULT(0x80320018_u32 as _);
+pub const FWP_E_TOO_MANY_SUBLAYERS: windows_core::HRESULT = windows_core::HRESULT(0x80320036_u32 as _);
+pub const FWP_E_TRAFFIC_MISMATCH: windows_core::HRESULT = windows_core::HRESULT(0x8032001A_u32 as _);
+pub const FWP_E_TXN_ABORTED: windows_core::HRESULT = windows_core::HRESULT(0x8032000F_u32 as _);
+pub const FWP_E_TXN_IN_PROGRESS: windows_core::HRESULT = windows_core::HRESULT(0x8032000E_u32 as _);
+pub const FWP_E_TYPE_MISMATCH: windows_core::HRESULT = windows_core::HRESULT(0x80320027_u32 as _);
+pub const FWP_E_WRONG_SESSION: windows_core::HRESULT = windows_core::HRESULT(0x8032000C_u32 as _);
+pub const FWP_E_ZERO_LENGTH_ARRAY: windows_core::HRESULT = windows_core::HRESULT(0x80320022_u32 as _);
+pub const GCN_E_DEFAULTNAMESPACE_EXISTS: windows_core::HRESULT = windows_core::HRESULT(0x803B0029_u32 as _);
+pub const GCN_E_MODULE_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0x803B0021_u32 as _);
+pub const GCN_E_NETADAPTER_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0x803B0026_u32 as _);
+pub const GCN_E_NETADAPTER_TIMEOUT: windows_core::HRESULT = windows_core::HRESULT(0x803B0025_u32 as _);
+pub const GCN_E_NETCOMPARTMENT_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0x803B0027_u32 as _);
+pub const GCN_E_NETINTERFACE_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0x803B0028_u32 as _);
+pub const GCN_E_NO_REQUEST_HANDLERS: windows_core::HRESULT = windows_core::HRESULT(0x803B0022_u32 as _);
+pub const GCN_E_REQUEST_UNSUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x803B0023_u32 as _);
+pub const GCN_E_RUNTIMEKEYS_FAILED: windows_core::HRESULT = windows_core::HRESULT(0x803B0024_u32 as _);
 pub const GENERIC_ALL: GENERIC_ACCESS_RIGHTS = GENERIC_ACCESS_RIGHTS(268435456u32);
 pub const GENERIC_EXECUTE: GENERIC_ACCESS_RIGHTS = GENERIC_ACCESS_RIGHTS(536870912u32);
 pub const GENERIC_READ: GENERIC_ACCESS_RIGHTS = GENERIC_ACCESS_RIGHTS(2147483648u32);
 pub const GENERIC_WRITE: GENERIC_ACCESS_RIGHTS = GENERIC_ACCESS_RIGHTS(1073741824u32);
 pub const HANDLE_FLAG_INHERIT: HANDLE_FLAGS = HANDLE_FLAGS(1u32);
 pub const HANDLE_FLAG_PROTECT_FROM_CLOSE: HANDLE_FLAGS = HANDLE_FLAGS(2u32);
-pub const HCN_E_ADAPTER_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803B0006_u32 as _);
-pub const HCN_E_ADDR_INVALID_OR_RESERVED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803B002F_u32 as _);
-pub const HCN_E_DEGRADED_OPERATION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803B0017_u32 as _);
-pub const HCN_E_ENDPOINT_ALREADY_ATTACHED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803B0014_u32 as _);
-pub const HCN_E_ENDPOINT_NAMESPACE_ALREADY_EXISTS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803B002B_u32 as _);
-pub const HCN_E_ENDPOINT_NOT_ATTACHED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803B0034_u32 as _);
-pub const HCN_E_ENDPOINT_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803B0002_u32 as _);
-pub const HCN_E_ENDPOINT_NOT_LOCAL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803B0035_u32 as _);
-pub const HCN_E_ENDPOINT_SHARING_DISABLED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803B001D_u32 as _);
-pub const HCN_E_ENTITY_HAS_REFERENCES: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803B002C_u32 as _);
-pub const HCN_E_GUID_CONVERSION_FAILURE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803B0019_u32 as _);
-pub const HCN_E_ICS_DISABLED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803B002A_u32 as _);
-pub const HCN_E_INVALID_ENDPOINT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803B000C_u32 as _);
-pub const HCN_E_INVALID_INTERNAL_PORT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803B002D_u32 as _);
-pub const HCN_E_INVALID_IP: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803B001E_u32 as _);
-pub const HCN_E_INVALID_IP_SUBNET: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803B0033_u32 as _);
-pub const HCN_E_INVALID_JSON: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803B001B_u32 as _);
-pub const HCN_E_INVALID_JSON_REFERENCE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803B001C_u32 as _);
-pub const HCN_E_INVALID_NETWORK: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803B000A_u32 as _);
-pub const HCN_E_INVALID_NETWORK_TYPE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803B000B_u32 as _);
-pub const HCN_E_INVALID_POLICY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803B000D_u32 as _);
-pub const HCN_E_INVALID_POLICY_TYPE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803B000E_u32 as _);
-pub const HCN_E_INVALID_PREFIX: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803B0030_u32 as _);
-pub const HCN_E_INVALID_REMOTE_ENDPOINT_OPERATION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803B000F_u32 as _);
-pub const HCN_E_INVALID_SUBNET: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803B0032_u32 as _);
-pub const HCN_E_LAYER_ALREADY_EXISTS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803B0011_u32 as _);
-pub const HCN_E_LAYER_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803B0003_u32 as _);
-pub const HCN_E_MANAGER_STOPPED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803B0020_u32 as _);
-pub const HCN_E_MAPPING_NOT_SUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803B0016_u32 as _);
-pub const HCN_E_NAMESPACE_ATTACH_FAILED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803B002E_u32 as _);
-pub const HCN_E_NETWORK_ALREADY_EXISTS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803B0010_u32 as _);
-pub const HCN_E_NETWORK_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803B0001_u32 as _);
-pub const HCN_E_OBJECT_USED_AFTER_UNLOAD: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803B0031_u32 as _);
-pub const HCN_E_POLICY_ALREADY_EXISTS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803B0012_u32 as _);
-pub const HCN_E_POLICY_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803B0008_u32 as _);
-pub const HCN_E_PORT_ALREADY_EXISTS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803B0013_u32 as _);
-pub const HCN_E_PORT_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803B0007_u32 as _);
-pub const HCN_E_REGKEY_FAILURE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803B001A_u32 as _);
-pub const HCN_E_REQUEST_UNSUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803B0015_u32 as _);
-pub const HCN_E_SHARED_SWITCH_MODIFICATION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803B0018_u32 as _);
-pub const HCN_E_SUBNET_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803B0005_u32 as _);
-pub const HCN_E_SWITCH_EXTENSION_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803B001F_u32 as _);
-pub const HCN_E_SWITCH_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803B0004_u32 as _);
-pub const HCN_E_VFP_NOT_ALLOWED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803B0037_u32 as _);
-pub const HCN_E_VFP_PORTSETTING_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803B0009_u32 as _);
-pub const HCN_INTERFACEPARAMETERS_ALREADY_APPLIED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803B0036_u32 as _);
-pub const HCS_E_ACCESS_DENIED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8037011B_u32 as _);
-pub const HCS_E_CONNECTION_CLOSED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8037010A_u32 as _);
-pub const HCS_E_CONNECTION_TIMEOUT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80370109_u32 as _);
-pub const HCS_E_CONNECT_FAILED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80370108_u32 as _);
-pub const HCS_E_GUEST_CRITICAL_ERROR: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8037011C_u32 as _);
-pub const HCS_E_HYPERV_NOT_INSTALLED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80370102_u32 as _);
-pub const HCS_E_IMAGE_MISMATCH: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80370101_u32 as _);
-pub const HCS_E_INVALID_JSON: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8037010D_u32 as _);
-pub const HCS_E_INVALID_LAYER: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80370112_u32 as _);
-pub const HCS_E_INVALID_STATE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80370105_u32 as _);
-pub const HCS_E_OPERATION_ALREADY_CANCELLED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80370121_u32 as _);
-pub const HCS_E_OPERATION_ALREADY_STARTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80370116_u32 as _);
-pub const HCS_E_OPERATION_NOT_STARTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80370115_u32 as _);
-pub const HCS_E_OPERATION_PENDING: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80370117_u32 as _);
-pub const HCS_E_OPERATION_RESULT_ALLOCATION_FAILED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8037011A_u32 as _);
-pub const HCS_E_OPERATION_SYSTEM_CALLBACK_ALREADY_SET: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80370119_u32 as _);
-pub const HCS_E_OPERATION_TIMEOUT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80370118_u32 as _);
-pub const HCS_E_PROCESS_ALREADY_STOPPED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8037011F_u32 as _);
-pub const HCS_E_PROCESS_INFO_NOT_AVAILABLE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8037011D_u32 as _);
-pub const HCS_E_PROTOCOL_ERROR: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80370111_u32 as _);
-pub const HCS_E_SERVICE_DISCONNECT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8037011E_u32 as _);
-pub const HCS_E_SERVICE_NOT_AVAILABLE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80370114_u32 as _);
-pub const HCS_E_SYSTEM_ALREADY_EXISTS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8037010F_u32 as _);
-pub const HCS_E_SYSTEM_ALREADY_STOPPED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80370110_u32 as _);
-pub const HCS_E_SYSTEM_NOT_CONFIGURED_FOR_OPERATION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80370120_u32 as _);
-pub const HCS_E_SYSTEM_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8037010E_u32 as _);
-pub const HCS_E_TERMINATED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80370107_u32 as _);
-pub const HCS_E_TERMINATED_DURING_START: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80370100_u32 as _);
-pub const HCS_E_UNEXPECTED_EXIT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80370106_u32 as _);
-pub const HCS_E_UNKNOWN_MESSAGE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8037010B_u32 as _);
-pub const HCS_E_UNSUPPORTED_PROTOCOL_VERSION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8037010C_u32 as _);
-pub const HCS_E_WINDOWS_INSIDER_REQUIRED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80370113_u32 as _);
-pub const HSP_BASE_ERROR_MASK: ::windows_core::HRESULT = ::windows_core::HRESULT(0x81290100_u32 as _);
-pub const HSP_BASE_INTERNAL_ERROR: ::windows_core::HRESULT = ::windows_core::HRESULT(0x812901FF_u32 as _);
-pub const HSP_BS_ERROR_MASK: ::windows_core::HRESULT = ::windows_core::HRESULT(0x81281000_u32 as _);
-pub const HSP_BS_INTERNAL_ERROR: ::windows_core::HRESULT = ::windows_core::HRESULT(0x812810FF_u32 as _);
-pub const HSP_DRV_ERROR_MASK: ::windows_core::HRESULT = ::windows_core::HRESULT(0x81290000_u32 as _);
-pub const HSP_DRV_INTERNAL_ERROR: ::windows_core::HRESULT = ::windows_core::HRESULT(0x812900FF_u32 as _);
-pub const HSP_E_ERROR_MASK: ::windows_core::HRESULT = ::windows_core::HRESULT(0x81280000_u32 as _);
-pub const HSP_E_INTERNAL_ERROR: ::windows_core::HRESULT = ::windows_core::HRESULT(0x81280FFF_u32 as _);
-pub const HSP_KSP_ALGORITHM_NOT_SUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x81290209_u32 as _);
-pub const HSP_KSP_BUFFER_TOO_SMALL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x81290205_u32 as _);
-pub const HSP_KSP_DEVICE_NOT_READY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x81290201_u32 as _);
-pub const HSP_KSP_ERROR_MASK: ::windows_core::HRESULT = ::windows_core::HRESULT(0x81290200_u32 as _);
-pub const HSP_KSP_INTERNAL_ERROR: ::windows_core::HRESULT = ::windows_core::HRESULT(0x812902FF_u32 as _);
-pub const HSP_KSP_INVALID_DATA: ::windows_core::HRESULT = ::windows_core::HRESULT(0x81290207_u32 as _);
-pub const HSP_KSP_INVALID_FLAGS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x81290208_u32 as _);
-pub const HSP_KSP_INVALID_KEY_HANDLE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x81290203_u32 as _);
-pub const HSP_KSP_INVALID_KEY_TYPE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8129020C_u32 as _);
-pub const HSP_KSP_INVALID_PARAMETER: ::windows_core::HRESULT = ::windows_core::HRESULT(0x81290204_u32 as _);
-pub const HSP_KSP_INVALID_PROVIDER_HANDLE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x81290202_u32 as _);
-pub const HSP_KSP_KEY_ALREADY_FINALIZED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8129020A_u32 as _);
-pub const HSP_KSP_KEY_EXISTS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x81290215_u32 as _);
-pub const HSP_KSP_KEY_LOAD_FAIL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x81290217_u32 as _);
-pub const HSP_KSP_KEY_MISSING: ::windows_core::HRESULT = ::windows_core::HRESULT(0x81290216_u32 as _);
-pub const HSP_KSP_KEY_NOT_FINALIZED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8129020B_u32 as _);
-pub const HSP_KSP_NOT_SUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x81290206_u32 as _);
-pub const HSP_KSP_NO_MEMORY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x81290210_u32 as _);
-pub const HSP_KSP_NO_MORE_ITEMS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x81290218_u32 as _);
-pub const HSP_KSP_PARAMETER_NOT_SET: ::windows_core::HRESULT = ::windows_core::HRESULT(0x81290211_u32 as _);
-pub const HTTP_E_STATUS_AMBIGUOUS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8019012C_u32 as _);
-pub const HTTP_E_STATUS_BAD_GATEWAY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x801901F6_u32 as _);
-pub const HTTP_E_STATUS_BAD_METHOD: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80190195_u32 as _);
-pub const HTTP_E_STATUS_BAD_REQUEST: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80190190_u32 as _);
-pub const HTTP_E_STATUS_CONFLICT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80190199_u32 as _);
-pub const HTTP_E_STATUS_DENIED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80190191_u32 as _);
-pub const HTTP_E_STATUS_EXPECTATION_FAILED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x801901A1_u32 as _);
-pub const HTTP_E_STATUS_FORBIDDEN: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80190193_u32 as _);
-pub const HTTP_E_STATUS_GATEWAY_TIMEOUT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x801901F8_u32 as _);
-pub const HTTP_E_STATUS_GONE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8019019A_u32 as _);
-pub const HTTP_E_STATUS_LENGTH_REQUIRED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8019019B_u32 as _);
-pub const HTTP_E_STATUS_MOVED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8019012D_u32 as _);
-pub const HTTP_E_STATUS_NONE_ACCEPTABLE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80190196_u32 as _);
-pub const HTTP_E_STATUS_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80190194_u32 as _);
-pub const HTTP_E_STATUS_NOT_MODIFIED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80190130_u32 as _);
-pub const HTTP_E_STATUS_NOT_SUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x801901F5_u32 as _);
-pub const HTTP_E_STATUS_PAYMENT_REQ: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80190192_u32 as _);
-pub const HTTP_E_STATUS_PRECOND_FAILED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8019019C_u32 as _);
-pub const HTTP_E_STATUS_PROXY_AUTH_REQ: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80190197_u32 as _);
-pub const HTTP_E_STATUS_RANGE_NOT_SATISFIABLE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x801901A0_u32 as _);
-pub const HTTP_E_STATUS_REDIRECT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8019012E_u32 as _);
-pub const HTTP_E_STATUS_REDIRECT_KEEP_VERB: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80190133_u32 as _);
-pub const HTTP_E_STATUS_REDIRECT_METHOD: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8019012F_u32 as _);
-pub const HTTP_E_STATUS_REQUEST_TIMEOUT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80190198_u32 as _);
-pub const HTTP_E_STATUS_REQUEST_TOO_LARGE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8019019D_u32 as _);
-pub const HTTP_E_STATUS_SERVER_ERROR: ::windows_core::HRESULT = ::windows_core::HRESULT(0x801901F4_u32 as _);
-pub const HTTP_E_STATUS_SERVICE_UNAVAIL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x801901F7_u32 as _);
-pub const HTTP_E_STATUS_UNEXPECTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80190001_u32 as _);
-pub const HTTP_E_STATUS_UNEXPECTED_CLIENT_ERROR: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80190004_u32 as _);
-pub const HTTP_E_STATUS_UNEXPECTED_REDIRECTION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80190003_u32 as _);
-pub const HTTP_E_STATUS_UNEXPECTED_SERVER_ERROR: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80190005_u32 as _);
-pub const HTTP_E_STATUS_UNSUPPORTED_MEDIA: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8019019F_u32 as _);
-pub const HTTP_E_STATUS_URI_TOO_LONG: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8019019E_u32 as _);
-pub const HTTP_E_STATUS_USE_PROXY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80190131_u32 as _);
-pub const HTTP_E_STATUS_VERSION_NOT_SUP: ::windows_core::HRESULT = ::windows_core::HRESULT(0x801901F9_u32 as _);
+pub const HCN_E_ADAPTER_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0x803B0006_u32 as _);
+pub const HCN_E_ADDR_INVALID_OR_RESERVED: windows_core::HRESULT = windows_core::HRESULT(0x803B002F_u32 as _);
+pub const HCN_E_DEGRADED_OPERATION: windows_core::HRESULT = windows_core::HRESULT(0x803B0017_u32 as _);
+pub const HCN_E_ENDPOINT_ALREADY_ATTACHED: windows_core::HRESULT = windows_core::HRESULT(0x803B0014_u32 as _);
+pub const HCN_E_ENDPOINT_NAMESPACE_ALREADY_EXISTS: windows_core::HRESULT = windows_core::HRESULT(0x803B002B_u32 as _);
+pub const HCN_E_ENDPOINT_NOT_ATTACHED: windows_core::HRESULT = windows_core::HRESULT(0x803B0034_u32 as _);
+pub const HCN_E_ENDPOINT_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0x803B0002_u32 as _);
+pub const HCN_E_ENDPOINT_NOT_LOCAL: windows_core::HRESULT = windows_core::HRESULT(0x803B0035_u32 as _);
+pub const HCN_E_ENDPOINT_SHARING_DISABLED: windows_core::HRESULT = windows_core::HRESULT(0x803B001D_u32 as _);
+pub const HCN_E_ENTITY_HAS_REFERENCES: windows_core::HRESULT = windows_core::HRESULT(0x803B002C_u32 as _);
+pub const HCN_E_GUID_CONVERSION_FAILURE: windows_core::HRESULT = windows_core::HRESULT(0x803B0019_u32 as _);
+pub const HCN_E_ICS_DISABLED: windows_core::HRESULT = windows_core::HRESULT(0x803B002A_u32 as _);
+pub const HCN_E_INVALID_ENDPOINT: windows_core::HRESULT = windows_core::HRESULT(0x803B000C_u32 as _);
+pub const HCN_E_INVALID_INTERNAL_PORT: windows_core::HRESULT = windows_core::HRESULT(0x803B002D_u32 as _);
+pub const HCN_E_INVALID_IP: windows_core::HRESULT = windows_core::HRESULT(0x803B001E_u32 as _);
+pub const HCN_E_INVALID_IP_SUBNET: windows_core::HRESULT = windows_core::HRESULT(0x803B0033_u32 as _);
+pub const HCN_E_INVALID_JSON: windows_core::HRESULT = windows_core::HRESULT(0x803B001B_u32 as _);
+pub const HCN_E_INVALID_JSON_REFERENCE: windows_core::HRESULT = windows_core::HRESULT(0x803B001C_u32 as _);
+pub const HCN_E_INVALID_NETWORK: windows_core::HRESULT = windows_core::HRESULT(0x803B000A_u32 as _);
+pub const HCN_E_INVALID_NETWORK_TYPE: windows_core::HRESULT = windows_core::HRESULT(0x803B000B_u32 as _);
+pub const HCN_E_INVALID_POLICY: windows_core::HRESULT = windows_core::HRESULT(0x803B000D_u32 as _);
+pub const HCN_E_INVALID_POLICY_TYPE: windows_core::HRESULT = windows_core::HRESULT(0x803B000E_u32 as _);
+pub const HCN_E_INVALID_PREFIX: windows_core::HRESULT = windows_core::HRESULT(0x803B0030_u32 as _);
+pub const HCN_E_INVALID_REMOTE_ENDPOINT_OPERATION: windows_core::HRESULT = windows_core::HRESULT(0x803B000F_u32 as _);
+pub const HCN_E_INVALID_SUBNET: windows_core::HRESULT = windows_core::HRESULT(0x803B0032_u32 as _);
+pub const HCN_E_LAYER_ALREADY_EXISTS: windows_core::HRESULT = windows_core::HRESULT(0x803B0011_u32 as _);
+pub const HCN_E_LAYER_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0x803B0003_u32 as _);
+pub const HCN_E_MANAGER_STOPPED: windows_core::HRESULT = windows_core::HRESULT(0x803B0020_u32 as _);
+pub const HCN_E_MAPPING_NOT_SUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x803B0016_u32 as _);
+pub const HCN_E_NAMESPACE_ATTACH_FAILED: windows_core::HRESULT = windows_core::HRESULT(0x803B002E_u32 as _);
+pub const HCN_E_NETWORK_ALREADY_EXISTS: windows_core::HRESULT = windows_core::HRESULT(0x803B0010_u32 as _);
+pub const HCN_E_NETWORK_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0x803B0001_u32 as _);
+pub const HCN_E_OBJECT_USED_AFTER_UNLOAD: windows_core::HRESULT = windows_core::HRESULT(0x803B0031_u32 as _);
+pub const HCN_E_POLICY_ALREADY_EXISTS: windows_core::HRESULT = windows_core::HRESULT(0x803B0012_u32 as _);
+pub const HCN_E_POLICY_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0x803B0008_u32 as _);
+pub const HCN_E_PORT_ALREADY_EXISTS: windows_core::HRESULT = windows_core::HRESULT(0x803B0013_u32 as _);
+pub const HCN_E_PORT_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0x803B0007_u32 as _);
+pub const HCN_E_REGKEY_FAILURE: windows_core::HRESULT = windows_core::HRESULT(0x803B001A_u32 as _);
+pub const HCN_E_REQUEST_UNSUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x803B0015_u32 as _);
+pub const HCN_E_SHARED_SWITCH_MODIFICATION: windows_core::HRESULT = windows_core::HRESULT(0x803B0018_u32 as _);
+pub const HCN_E_SUBNET_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0x803B0005_u32 as _);
+pub const HCN_E_SWITCH_EXTENSION_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0x803B001F_u32 as _);
+pub const HCN_E_SWITCH_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0x803B0004_u32 as _);
+pub const HCN_E_VFP_NOT_ALLOWED: windows_core::HRESULT = windows_core::HRESULT(0x803B0037_u32 as _);
+pub const HCN_E_VFP_PORTSETTING_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0x803B0009_u32 as _);
+pub const HCN_INTERFACEPARAMETERS_ALREADY_APPLIED: windows_core::HRESULT = windows_core::HRESULT(0x803B0036_u32 as _);
+pub const HCS_E_ACCESS_DENIED: windows_core::HRESULT = windows_core::HRESULT(0x8037011B_u32 as _);
+pub const HCS_E_CONNECTION_CLOSED: windows_core::HRESULT = windows_core::HRESULT(0x8037010A_u32 as _);
+pub const HCS_E_CONNECTION_TIMEOUT: windows_core::HRESULT = windows_core::HRESULT(0x80370109_u32 as _);
+pub const HCS_E_CONNECT_FAILED: windows_core::HRESULT = windows_core::HRESULT(0x80370108_u32 as _);
+pub const HCS_E_GUEST_CRITICAL_ERROR: windows_core::HRESULT = windows_core::HRESULT(0x8037011C_u32 as _);
+pub const HCS_E_HYPERV_NOT_INSTALLED: windows_core::HRESULT = windows_core::HRESULT(0x80370102_u32 as _);
+pub const HCS_E_IMAGE_MISMATCH: windows_core::HRESULT = windows_core::HRESULT(0x80370101_u32 as _);
+pub const HCS_E_INVALID_JSON: windows_core::HRESULT = windows_core::HRESULT(0x8037010D_u32 as _);
+pub const HCS_E_INVALID_LAYER: windows_core::HRESULT = windows_core::HRESULT(0x80370112_u32 as _);
+pub const HCS_E_INVALID_STATE: windows_core::HRESULT = windows_core::HRESULT(0x80370105_u32 as _);
+pub const HCS_E_OPERATION_ALREADY_CANCELLED: windows_core::HRESULT = windows_core::HRESULT(0x80370121_u32 as _);
+pub const HCS_E_OPERATION_ALREADY_STARTED: windows_core::HRESULT = windows_core::HRESULT(0x80370116_u32 as _);
+pub const HCS_E_OPERATION_NOT_STARTED: windows_core::HRESULT = windows_core::HRESULT(0x80370115_u32 as _);
+pub const HCS_E_OPERATION_PENDING: windows_core::HRESULT = windows_core::HRESULT(0x80370117_u32 as _);
+pub const HCS_E_OPERATION_RESULT_ALLOCATION_FAILED: windows_core::HRESULT = windows_core::HRESULT(0x8037011A_u32 as _);
+pub const HCS_E_OPERATION_SYSTEM_CALLBACK_ALREADY_SET: windows_core::HRESULT = windows_core::HRESULT(0x80370119_u32 as _);
+pub const HCS_E_OPERATION_TIMEOUT: windows_core::HRESULT = windows_core::HRESULT(0x80370118_u32 as _);
+pub const HCS_E_PROCESS_ALREADY_STOPPED: windows_core::HRESULT = windows_core::HRESULT(0x8037011F_u32 as _);
+pub const HCS_E_PROCESS_INFO_NOT_AVAILABLE: windows_core::HRESULT = windows_core::HRESULT(0x8037011D_u32 as _);
+pub const HCS_E_PROTOCOL_ERROR: windows_core::HRESULT = windows_core::HRESULT(0x80370111_u32 as _);
+pub const HCS_E_SERVICE_DISCONNECT: windows_core::HRESULT = windows_core::HRESULT(0x8037011E_u32 as _);
+pub const HCS_E_SERVICE_NOT_AVAILABLE: windows_core::HRESULT = windows_core::HRESULT(0x80370114_u32 as _);
+pub const HCS_E_SYSTEM_ALREADY_EXISTS: windows_core::HRESULT = windows_core::HRESULT(0x8037010F_u32 as _);
+pub const HCS_E_SYSTEM_ALREADY_STOPPED: windows_core::HRESULT = windows_core::HRESULT(0x80370110_u32 as _);
+pub const HCS_E_SYSTEM_NOT_CONFIGURED_FOR_OPERATION: windows_core::HRESULT = windows_core::HRESULT(0x80370120_u32 as _);
+pub const HCS_E_SYSTEM_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0x8037010E_u32 as _);
+pub const HCS_E_TERMINATED: windows_core::HRESULT = windows_core::HRESULT(0x80370107_u32 as _);
+pub const HCS_E_TERMINATED_DURING_START: windows_core::HRESULT = windows_core::HRESULT(0x80370100_u32 as _);
+pub const HCS_E_UNEXPECTED_EXIT: windows_core::HRESULT = windows_core::HRESULT(0x80370106_u32 as _);
+pub const HCS_E_UNKNOWN_MESSAGE: windows_core::HRESULT = windows_core::HRESULT(0x8037010B_u32 as _);
+pub const HCS_E_UNSUPPORTED_PROTOCOL_VERSION: windows_core::HRESULT = windows_core::HRESULT(0x8037010C_u32 as _);
+pub const HCS_E_WINDOWS_INSIDER_REQUIRED: windows_core::HRESULT = windows_core::HRESULT(0x80370113_u32 as _);
+pub const HSP_BASE_ERROR_MASK: windows_core::HRESULT = windows_core::HRESULT(0x81290100_u32 as _);
+pub const HSP_BASE_INTERNAL_ERROR: windows_core::HRESULT = windows_core::HRESULT(0x812901FF_u32 as _);
+pub const HSP_BS_ERROR_MASK: windows_core::HRESULT = windows_core::HRESULT(0x81281000_u32 as _);
+pub const HSP_BS_INTERNAL_ERROR: windows_core::HRESULT = windows_core::HRESULT(0x812810FF_u32 as _);
+pub const HSP_DRV_ERROR_MASK: windows_core::HRESULT = windows_core::HRESULT(0x81290000_u32 as _);
+pub const HSP_DRV_INTERNAL_ERROR: windows_core::HRESULT = windows_core::HRESULT(0x812900FF_u32 as _);
+pub const HSP_E_ERROR_MASK: windows_core::HRESULT = windows_core::HRESULT(0x81280000_u32 as _);
+pub const HSP_E_INTERNAL_ERROR: windows_core::HRESULT = windows_core::HRESULT(0x81280FFF_u32 as _);
+pub const HSP_KSP_ALGORITHM_NOT_SUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x81290209_u32 as _);
+pub const HSP_KSP_BUFFER_TOO_SMALL: windows_core::HRESULT = windows_core::HRESULT(0x81290205_u32 as _);
+pub const HSP_KSP_DEVICE_NOT_READY: windows_core::HRESULT = windows_core::HRESULT(0x81290201_u32 as _);
+pub const HSP_KSP_ERROR_MASK: windows_core::HRESULT = windows_core::HRESULT(0x81290200_u32 as _);
+pub const HSP_KSP_INTERNAL_ERROR: windows_core::HRESULT = windows_core::HRESULT(0x812902FF_u32 as _);
+pub const HSP_KSP_INVALID_DATA: windows_core::HRESULT = windows_core::HRESULT(0x81290207_u32 as _);
+pub const HSP_KSP_INVALID_FLAGS: windows_core::HRESULT = windows_core::HRESULT(0x81290208_u32 as _);
+pub const HSP_KSP_INVALID_KEY_HANDLE: windows_core::HRESULT = windows_core::HRESULT(0x81290203_u32 as _);
+pub const HSP_KSP_INVALID_KEY_TYPE: windows_core::HRESULT = windows_core::HRESULT(0x8129020C_u32 as _);
+pub const HSP_KSP_INVALID_PARAMETER: windows_core::HRESULT = windows_core::HRESULT(0x81290204_u32 as _);
+pub const HSP_KSP_INVALID_PROVIDER_HANDLE: windows_core::HRESULT = windows_core::HRESULT(0x81290202_u32 as _);
+pub const HSP_KSP_KEY_ALREADY_FINALIZED: windows_core::HRESULT = windows_core::HRESULT(0x8129020A_u32 as _);
+pub const HSP_KSP_KEY_EXISTS: windows_core::HRESULT = windows_core::HRESULT(0x81290215_u32 as _);
+pub const HSP_KSP_KEY_LOAD_FAIL: windows_core::HRESULT = windows_core::HRESULT(0x81290217_u32 as _);
+pub const HSP_KSP_KEY_MISSING: windows_core::HRESULT = windows_core::HRESULT(0x81290216_u32 as _);
+pub const HSP_KSP_KEY_NOT_FINALIZED: windows_core::HRESULT = windows_core::HRESULT(0x8129020B_u32 as _);
+pub const HSP_KSP_NOT_SUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x81290206_u32 as _);
+pub const HSP_KSP_NO_MEMORY: windows_core::HRESULT = windows_core::HRESULT(0x81290210_u32 as _);
+pub const HSP_KSP_NO_MORE_ITEMS: windows_core::HRESULT = windows_core::HRESULT(0x81290218_u32 as _);
+pub const HSP_KSP_PARAMETER_NOT_SET: windows_core::HRESULT = windows_core::HRESULT(0x81290211_u32 as _);
+pub const HTTP_E_STATUS_AMBIGUOUS: windows_core::HRESULT = windows_core::HRESULT(0x8019012C_u32 as _);
+pub const HTTP_E_STATUS_BAD_GATEWAY: windows_core::HRESULT = windows_core::HRESULT(0x801901F6_u32 as _);
+pub const HTTP_E_STATUS_BAD_METHOD: windows_core::HRESULT = windows_core::HRESULT(0x80190195_u32 as _);
+pub const HTTP_E_STATUS_BAD_REQUEST: windows_core::HRESULT = windows_core::HRESULT(0x80190190_u32 as _);
+pub const HTTP_E_STATUS_CONFLICT: windows_core::HRESULT = windows_core::HRESULT(0x80190199_u32 as _);
+pub const HTTP_E_STATUS_DENIED: windows_core::HRESULT = windows_core::HRESULT(0x80190191_u32 as _);
+pub const HTTP_E_STATUS_EXPECTATION_FAILED: windows_core::HRESULT = windows_core::HRESULT(0x801901A1_u32 as _);
+pub const HTTP_E_STATUS_FORBIDDEN: windows_core::HRESULT = windows_core::HRESULT(0x80190193_u32 as _);
+pub const HTTP_E_STATUS_GATEWAY_TIMEOUT: windows_core::HRESULT = windows_core::HRESULT(0x801901F8_u32 as _);
+pub const HTTP_E_STATUS_GONE: windows_core::HRESULT = windows_core::HRESULT(0x8019019A_u32 as _);
+pub const HTTP_E_STATUS_LENGTH_REQUIRED: windows_core::HRESULT = windows_core::HRESULT(0x8019019B_u32 as _);
+pub const HTTP_E_STATUS_MOVED: windows_core::HRESULT = windows_core::HRESULT(0x8019012D_u32 as _);
+pub const HTTP_E_STATUS_NONE_ACCEPTABLE: windows_core::HRESULT = windows_core::HRESULT(0x80190196_u32 as _);
+pub const HTTP_E_STATUS_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0x80190194_u32 as _);
+pub const HTTP_E_STATUS_NOT_MODIFIED: windows_core::HRESULT = windows_core::HRESULT(0x80190130_u32 as _);
+pub const HTTP_E_STATUS_NOT_SUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x801901F5_u32 as _);
+pub const HTTP_E_STATUS_PAYMENT_REQ: windows_core::HRESULT = windows_core::HRESULT(0x80190192_u32 as _);
+pub const HTTP_E_STATUS_PRECOND_FAILED: windows_core::HRESULT = windows_core::HRESULT(0x8019019C_u32 as _);
+pub const HTTP_E_STATUS_PROXY_AUTH_REQ: windows_core::HRESULT = windows_core::HRESULT(0x80190197_u32 as _);
+pub const HTTP_E_STATUS_RANGE_NOT_SATISFIABLE: windows_core::HRESULT = windows_core::HRESULT(0x801901A0_u32 as _);
+pub const HTTP_E_STATUS_REDIRECT: windows_core::HRESULT = windows_core::HRESULT(0x8019012E_u32 as _);
+pub const HTTP_E_STATUS_REDIRECT_KEEP_VERB: windows_core::HRESULT = windows_core::HRESULT(0x80190133_u32 as _);
+pub const HTTP_E_STATUS_REDIRECT_METHOD: windows_core::HRESULT = windows_core::HRESULT(0x8019012F_u32 as _);
+pub const HTTP_E_STATUS_REQUEST_TIMEOUT: windows_core::HRESULT = windows_core::HRESULT(0x80190198_u32 as _);
+pub const HTTP_E_STATUS_REQUEST_TOO_LARGE: windows_core::HRESULT = windows_core::HRESULT(0x8019019D_u32 as _);
+pub const HTTP_E_STATUS_SERVER_ERROR: windows_core::HRESULT = windows_core::HRESULT(0x801901F4_u32 as _);
+pub const HTTP_E_STATUS_SERVICE_UNAVAIL: windows_core::HRESULT = windows_core::HRESULT(0x801901F7_u32 as _);
+pub const HTTP_E_STATUS_UNEXPECTED: windows_core::HRESULT = windows_core::HRESULT(0x80190001_u32 as _);
+pub const HTTP_E_STATUS_UNEXPECTED_CLIENT_ERROR: windows_core::HRESULT = windows_core::HRESULT(0x80190004_u32 as _);
+pub const HTTP_E_STATUS_UNEXPECTED_REDIRECTION: windows_core::HRESULT = windows_core::HRESULT(0x80190003_u32 as _);
+pub const HTTP_E_STATUS_UNEXPECTED_SERVER_ERROR: windows_core::HRESULT = windows_core::HRESULT(0x80190005_u32 as _);
+pub const HTTP_E_STATUS_UNSUPPORTED_MEDIA: windows_core::HRESULT = windows_core::HRESULT(0x8019019F_u32 as _);
+pub const HTTP_E_STATUS_URI_TOO_LONG: windows_core::HRESULT = windows_core::HRESULT(0x8019019E_u32 as _);
+pub const HTTP_E_STATUS_USE_PROXY: windows_core::HRESULT = windows_core::HRESULT(0x80190131_u32 as _);
+pub const HTTP_E_STATUS_VERSION_NOT_SUP: windows_core::HRESULT = windows_core::HRESULT(0x801901F9_u32 as _);
 pub const INPLACE_E_FIRST: i32 = -2147221088i32;
 pub const INPLACE_E_LAST: i32 = -2147221073i32;
-pub const INPLACE_E_NOTOOLSPACE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800401A1_u32 as _);
-pub const INPLACE_E_NOTUNDOABLE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800401A0_u32 as _);
+pub const INPLACE_E_NOTOOLSPACE: windows_core::HRESULT = windows_core::HRESULT(0x800401A1_u32 as _);
+pub const INPLACE_E_NOTUNDOABLE: windows_core::HRESULT = windows_core::HRESULT(0x800401A0_u32 as _);
 pub const INPLACE_S_FIRST: i32 = 262560i32;
 pub const INPLACE_S_LAST: i32 = 262575i32;
-pub const INPLACE_S_TRUNCATED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x401A0_u32 as _);
-pub const INPUT_E_DEVICE_INFO: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80400006_u32 as _);
-pub const INPUT_E_DEVICE_PROPERTY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80400008_u32 as _);
-pub const INPUT_E_FRAME: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80400004_u32 as _);
-pub const INPUT_E_HISTORY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80400005_u32 as _);
-pub const INPUT_E_MULTIMODAL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80400002_u32 as _);
-pub const INPUT_E_OUT_OF_ORDER: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80400000_u32 as _);
-pub const INPUT_E_PACKET: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80400003_u32 as _);
-pub const INPUT_E_REENTRANCY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80400001_u32 as _);
-pub const INPUT_E_TRANSFORM: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80400007_u32 as _);
+pub const INPLACE_S_TRUNCATED: windows_core::HRESULT = windows_core::HRESULT(0x401A0_u32 as _);
+pub const INPUT_E_DEVICE_INFO: windows_core::HRESULT = windows_core::HRESULT(0x80400006_u32 as _);
+pub const INPUT_E_DEVICE_PROPERTY: windows_core::HRESULT = windows_core::HRESULT(0x80400008_u32 as _);
+pub const INPUT_E_FRAME: windows_core::HRESULT = windows_core::HRESULT(0x80400004_u32 as _);
+pub const INPUT_E_HISTORY: windows_core::HRESULT = windows_core::HRESULT(0x80400005_u32 as _);
+pub const INPUT_E_MULTIMODAL: windows_core::HRESULT = windows_core::HRESULT(0x80400002_u32 as _);
+pub const INPUT_E_OUT_OF_ORDER: windows_core::HRESULT = windows_core::HRESULT(0x80400000_u32 as _);
+pub const INPUT_E_PACKET: windows_core::HRESULT = windows_core::HRESULT(0x80400003_u32 as _);
+pub const INPUT_E_REENTRANCY: windows_core::HRESULT = windows_core::HRESULT(0x80400001_u32 as _);
+pub const INPUT_E_TRANSFORM: windows_core::HRESULT = windows_core::HRESULT(0x80400007_u32 as _);
 pub const INVALID_HANDLE_VALUE: HANDLE = HANDLE(-1i32 as _);
-pub const IORING_E_COMPLETION_QUEUE_TOO_BIG: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80460005_u32 as _);
-pub const IORING_E_COMPLETION_QUEUE_TOO_FULL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80460008_u32 as _);
-pub const IORING_E_CORRUPT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80460007_u32 as _);
-pub const IORING_E_REQUIRED_FLAG_NOT_SUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80460001_u32 as _);
-pub const IORING_E_SUBMISSION_QUEUE_FULL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80460002_u32 as _);
-pub const IORING_E_SUBMISSION_QUEUE_TOO_BIG: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80460004_u32 as _);
-pub const IORING_E_SUBMIT_IN_PROGRESS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80460006_u32 as _);
-pub const IORING_E_VERSION_NOT_SUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80460003_u32 as _);
+pub const IORING_E_COMPLETION_QUEUE_TOO_BIG: windows_core::HRESULT = windows_core::HRESULT(0x80460005_u32 as _);
+pub const IORING_E_COMPLETION_QUEUE_TOO_FULL: windows_core::HRESULT = windows_core::HRESULT(0x80460008_u32 as _);
+pub const IORING_E_CORRUPT: windows_core::HRESULT = windows_core::HRESULT(0x80460007_u32 as _);
+pub const IORING_E_REQUIRED_FLAG_NOT_SUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x80460001_u32 as _);
+pub const IORING_E_SUBMISSION_QUEUE_FULL: windows_core::HRESULT = windows_core::HRESULT(0x80460002_u32 as _);
+pub const IORING_E_SUBMISSION_QUEUE_TOO_BIG: windows_core::HRESULT = windows_core::HRESULT(0x80460004_u32 as _);
+pub const IORING_E_SUBMIT_IN_PROGRESS: windows_core::HRESULT = windows_core::HRESULT(0x80460006_u32 as _);
+pub const IORING_E_VERSION_NOT_SUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x80460003_u32 as _);
 pub const IO_BAD_BLOCK_WITH_NAME: NTSTATUS = NTSTATUS(0xC004001F_u32 as _);
 pub const IO_CDROM_EXCLUSIVE_LOCK: NTSTATUS = NTSTATUS(0x40040085_u32 as _);
 pub const IO_DRIVER_CANCEL_TIMEOUT: NTSTATUS = NTSTATUS(0x80040036_u32 as _);
@@ -5440,9 +5440,9 @@ pub const IO_WRITE_CACHE_DISABLED: NTSTATUS = NTSTATUS(0x80040022_u32 as _);
 pub const IO_WRITE_CACHE_ENABLED: NTSTATUS = NTSTATUS(0x80040020_u32 as _);
 pub const IO_WRN_BAD_FIRMWARE: NTSTATUS = NTSTATUS(0x8004001A_u32 as _);
 pub const IO_WRN_FAILURE_PREDICTED: NTSTATUS = NTSTATUS(0x80040034_u32 as _);
-pub const JSCRIPT_E_CANTEXECUTE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x89020001_u32 as _);
-pub const LANGUAGE_E_DATABASE_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80041784_u32 as _);
-pub const LANGUAGE_S_LARGE_WORD: ::windows_core::HRESULT = ::windows_core::HRESULT(0x41781_u32 as _);
+pub const JSCRIPT_E_CANTEXECUTE: windows_core::HRESULT = windows_core::HRESULT(0x89020001_u32 as _);
+pub const LANGUAGE_E_DATABASE_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0x80041784_u32 as _);
+pub const LANGUAGE_S_LARGE_WORD: windows_core::HRESULT = windows_core::HRESULT(0x41781_u32 as _);
 pub const MARSHAL_E_FIRST: i32 = -2147221216i32;
 pub const MARSHAL_E_LAST: i32 = -2147221201i32;
 pub const MARSHAL_S_FIRST: i32 = 262432i32;
@@ -5512,308 +5512,308 @@ pub const MCA_WARNING_SYSTEM_EVENT: NTSTATUS = NTSTATUS(0x8005004E_u32 as _);
 pub const MCA_WARNING_TLB: NTSTATUS = NTSTATUS(0x8005003E_u32 as _);
 pub const MCA_WARNING_UNKNOWN: NTSTATUS = NTSTATUS(0x80050068_u32 as _);
 pub const MCA_WARNING_UNKNOWN_NO_CPU: NTSTATUS = NTSTATUS(0x8005006A_u32 as _);
-pub const MEM_E_INVALID_LINK: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80080010_u32 as _);
-pub const MEM_E_INVALID_ROOT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80080009_u32 as _);
-pub const MEM_E_INVALID_SIZE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80080011_u32 as _);
-pub const MENROLL_S_ENROLLMENT_SUSPENDED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x180011_u32 as _);
-pub const MILAVERR_INSUFFICIENTVIDEORESOURCES: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88980508_u32 as _);
-pub const MILAVERR_INVALIDWMPVERSION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88980507_u32 as _);
-pub const MILAVERR_MEDIAPLAYERCLOSED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8898050D_u32 as _);
-pub const MILAVERR_MODULENOTLOADED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88980505_u32 as _);
-pub const MILAVERR_NOCLOCK: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88980500_u32 as _);
-pub const MILAVERR_NOMEDIATYPE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88980501_u32 as _);
-pub const MILAVERR_NOREADYFRAMES: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88980504_u32 as _);
-pub const MILAVERR_NOVIDEOMIXER: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88980502_u32 as _);
-pub const MILAVERR_NOVIDEOPRESENTER: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88980503_u32 as _);
-pub const MILAVERR_REQUESTEDTEXTURETOOBIG: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8898050A_u32 as _);
-pub const MILAVERR_SEEKFAILED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8898050B_u32 as _);
-pub const MILAVERR_UNEXPECTEDWMPFAILURE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8898050C_u32 as _);
-pub const MILAVERR_UNKNOWNHARDWAREERROR: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8898050E_u32 as _);
-pub const MILAVERR_VIDEOACCELERATIONNOTAVAILABLE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88980509_u32 as _);
-pub const MILAVERR_WMPFACTORYNOTREGISTERED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88980506_u32 as _);
-pub const MILEFFECTSERR_ALREADYATTACHEDTOLISTENER: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88980618_u32 as _);
-pub const MILEFFECTSERR_CONNECTORNOTASSOCIATEDWITHEFFECT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88980612_u32 as _);
-pub const MILEFFECTSERR_CONNECTORNOTCONNECTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88980611_u32 as _);
-pub const MILEFFECTSERR_CYCLEDETECTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88980614_u32 as _);
-pub const MILEFFECTSERR_EFFECTALREADYINAGRAPH: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88980616_u32 as _);
-pub const MILEFFECTSERR_EFFECTHASNOCHILDREN: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88980617_u32 as _);
-pub const MILEFFECTSERR_EFFECTINMORETHANONEGRAPH: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88980615_u32 as _);
-pub const MILEFFECTSERR_EFFECTNOTPARTOFGROUP: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8898060F_u32 as _);
-pub const MILEFFECTSERR_EMPTYBOUNDS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8898061A_u32 as _);
-pub const MILEFFECTSERR_NOINPUTSOURCEATTACHED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88980610_u32 as _);
-pub const MILEFFECTSERR_NOTAFFINETRANSFORM: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88980619_u32 as _);
-pub const MILEFFECTSERR_OUTPUTSIZETOOLARGE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8898061B_u32 as _);
-pub const MILEFFECTSERR_RESERVED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88980613_u32 as _);
-pub const MILEFFECTSERR_UNKNOWNPROPERTY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8898060E_u32 as _);
-pub const MILERR_ADAPTER_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8898009E_u32 as _);
-pub const MILERR_ALREADYLOCKED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88980086_u32 as _);
-pub const MILERR_ALREADY_INITIALIZED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8898008F_u32 as _);
-pub const MILERR_BADNUMBER: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8898000A_u32 as _);
-pub const MILERR_COLORSPACE_NOT_SUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8898009F_u32 as _);
-pub const MILERR_DEVICECANNOTRENDERTEXT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88980088_u32 as _);
-pub const MILERR_DISPLAYFORMATNOTSUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88980084_u32 as _);
-pub const MILERR_DISPLAYID_ACCESS_DENIED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x889800A1_u32 as _);
-pub const MILERR_DISPLAYSTATEINVALID: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88980006_u32 as _);
-pub const MILERR_DXGI_ENUMERATION_OUT_OF_SYNC: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8898009D_u32 as _);
-pub const MILERR_GENERIC_IGNORE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8898008B_u32 as _);
-pub const MILERR_GLYPHBITMAPMISSED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88980089_u32 as _);
-pub const MILERR_INSUFFICIENTBUFFER: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88980002_u32 as _);
-pub const MILERR_INTERNALERROR: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88980080_u32 as _);
-pub const MILERR_INVALIDCALL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88980085_u32 as _);
-pub const MILERR_MALFORMEDGLYPHCACHE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8898008A_u32 as _);
-pub const MILERR_MALFORMED_GUIDELINE_DATA: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8898008C_u32 as _);
-pub const MILERR_MAX_TEXTURE_SIZE_EXCEEDED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8898009A_u32 as _);
-pub const MILERR_MISMATCHED_SIZE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88980090_u32 as _);
-pub const MILERR_MROW_READLOCK_FAILED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88980097_u32 as _);
-pub const MILERR_MROW_UPDATE_FAILED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88980098_u32 as _);
-pub const MILERR_NEED_RECREATE_AND_PRESENT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8898008E_u32 as _);
-pub const MILERR_NONINVERTIBLEMATRIX: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88980007_u32 as _);
-pub const MILERR_NOTLOCKED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88980087_u32 as _);
-pub const MILERR_NOT_QUEUING_PRESENTS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88980094_u32 as _);
-pub const MILERR_NO_HARDWARE_DEVICE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8898008D_u32 as _);
-pub const MILERR_NO_REDIRECTION_SURFACE_AVAILABLE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88980091_u32 as _);
-pub const MILERR_NO_REDIRECTION_SURFACE_RETRY_LATER: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88980095_u32 as _);
-pub const MILERR_OBJECTBUSY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88980001_u32 as _);
-pub const MILERR_PREFILTER_NOT_SUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x889800A0_u32 as _);
-pub const MILERR_QPC_TIME_WENT_BACKWARD: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8898009B_u32 as _);
-pub const MILERR_QUEUED_PRESENT_NOT_SUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88980093_u32 as _);
-pub const MILERR_REMOTING_NOT_SUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88980092_u32 as _);
-pub const MILERR_SCANNER_FAILED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88980004_u32 as _);
-pub const MILERR_SCREENACCESSDENIED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88980005_u32 as _);
-pub const MILERR_SHADER_COMPILE_FAILED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88980099_u32 as _);
-pub const MILERR_TERMINATED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88980009_u32 as _);
-pub const MILERR_TOOMANYSHADERELEMNTS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88980096_u32 as _);
-pub const MILERR_WIN32ERROR: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88980003_u32 as _);
-pub const MILERR_ZEROVECTOR: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88980008_u32 as _);
-pub const MK_E_CANTOPENFILE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800401EA_u32 as _);
-pub const MK_E_CONNECTMANUALLY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800401E0_u32 as _);
-pub const MK_E_ENUMERATION_FAILED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800401EF_u32 as _);
-pub const MK_E_EXCEEDEDDEADLINE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800401E1_u32 as _);
+pub const MEM_E_INVALID_LINK: windows_core::HRESULT = windows_core::HRESULT(0x80080010_u32 as _);
+pub const MEM_E_INVALID_ROOT: windows_core::HRESULT = windows_core::HRESULT(0x80080009_u32 as _);
+pub const MEM_E_INVALID_SIZE: windows_core::HRESULT = windows_core::HRESULT(0x80080011_u32 as _);
+pub const MENROLL_S_ENROLLMENT_SUSPENDED: windows_core::HRESULT = windows_core::HRESULT(0x180011_u32 as _);
+pub const MILAVERR_INSUFFICIENTVIDEORESOURCES: windows_core::HRESULT = windows_core::HRESULT(0x88980508_u32 as _);
+pub const MILAVERR_INVALIDWMPVERSION: windows_core::HRESULT = windows_core::HRESULT(0x88980507_u32 as _);
+pub const MILAVERR_MEDIAPLAYERCLOSED: windows_core::HRESULT = windows_core::HRESULT(0x8898050D_u32 as _);
+pub const MILAVERR_MODULENOTLOADED: windows_core::HRESULT = windows_core::HRESULT(0x88980505_u32 as _);
+pub const MILAVERR_NOCLOCK: windows_core::HRESULT = windows_core::HRESULT(0x88980500_u32 as _);
+pub const MILAVERR_NOMEDIATYPE: windows_core::HRESULT = windows_core::HRESULT(0x88980501_u32 as _);
+pub const MILAVERR_NOREADYFRAMES: windows_core::HRESULT = windows_core::HRESULT(0x88980504_u32 as _);
+pub const MILAVERR_NOVIDEOMIXER: windows_core::HRESULT = windows_core::HRESULT(0x88980502_u32 as _);
+pub const MILAVERR_NOVIDEOPRESENTER: windows_core::HRESULT = windows_core::HRESULT(0x88980503_u32 as _);
+pub const MILAVERR_REQUESTEDTEXTURETOOBIG: windows_core::HRESULT = windows_core::HRESULT(0x8898050A_u32 as _);
+pub const MILAVERR_SEEKFAILED: windows_core::HRESULT = windows_core::HRESULT(0x8898050B_u32 as _);
+pub const MILAVERR_UNEXPECTEDWMPFAILURE: windows_core::HRESULT = windows_core::HRESULT(0x8898050C_u32 as _);
+pub const MILAVERR_UNKNOWNHARDWAREERROR: windows_core::HRESULT = windows_core::HRESULT(0x8898050E_u32 as _);
+pub const MILAVERR_VIDEOACCELERATIONNOTAVAILABLE: windows_core::HRESULT = windows_core::HRESULT(0x88980509_u32 as _);
+pub const MILAVERR_WMPFACTORYNOTREGISTERED: windows_core::HRESULT = windows_core::HRESULT(0x88980506_u32 as _);
+pub const MILEFFECTSERR_ALREADYATTACHEDTOLISTENER: windows_core::HRESULT = windows_core::HRESULT(0x88980618_u32 as _);
+pub const MILEFFECTSERR_CONNECTORNOTASSOCIATEDWITHEFFECT: windows_core::HRESULT = windows_core::HRESULT(0x88980612_u32 as _);
+pub const MILEFFECTSERR_CONNECTORNOTCONNECTED: windows_core::HRESULT = windows_core::HRESULT(0x88980611_u32 as _);
+pub const MILEFFECTSERR_CYCLEDETECTED: windows_core::HRESULT = windows_core::HRESULT(0x88980614_u32 as _);
+pub const MILEFFECTSERR_EFFECTALREADYINAGRAPH: windows_core::HRESULT = windows_core::HRESULT(0x88980616_u32 as _);
+pub const MILEFFECTSERR_EFFECTHASNOCHILDREN: windows_core::HRESULT = windows_core::HRESULT(0x88980617_u32 as _);
+pub const MILEFFECTSERR_EFFECTINMORETHANONEGRAPH: windows_core::HRESULT = windows_core::HRESULT(0x88980615_u32 as _);
+pub const MILEFFECTSERR_EFFECTNOTPARTOFGROUP: windows_core::HRESULT = windows_core::HRESULT(0x8898060F_u32 as _);
+pub const MILEFFECTSERR_EMPTYBOUNDS: windows_core::HRESULT = windows_core::HRESULT(0x8898061A_u32 as _);
+pub const MILEFFECTSERR_NOINPUTSOURCEATTACHED: windows_core::HRESULT = windows_core::HRESULT(0x88980610_u32 as _);
+pub const MILEFFECTSERR_NOTAFFINETRANSFORM: windows_core::HRESULT = windows_core::HRESULT(0x88980619_u32 as _);
+pub const MILEFFECTSERR_OUTPUTSIZETOOLARGE: windows_core::HRESULT = windows_core::HRESULT(0x8898061B_u32 as _);
+pub const MILEFFECTSERR_RESERVED: windows_core::HRESULT = windows_core::HRESULT(0x88980613_u32 as _);
+pub const MILEFFECTSERR_UNKNOWNPROPERTY: windows_core::HRESULT = windows_core::HRESULT(0x8898060E_u32 as _);
+pub const MILERR_ADAPTER_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0x8898009E_u32 as _);
+pub const MILERR_ALREADYLOCKED: windows_core::HRESULT = windows_core::HRESULT(0x88980086_u32 as _);
+pub const MILERR_ALREADY_INITIALIZED: windows_core::HRESULT = windows_core::HRESULT(0x8898008F_u32 as _);
+pub const MILERR_BADNUMBER: windows_core::HRESULT = windows_core::HRESULT(0x8898000A_u32 as _);
+pub const MILERR_COLORSPACE_NOT_SUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x8898009F_u32 as _);
+pub const MILERR_DEVICECANNOTRENDERTEXT: windows_core::HRESULT = windows_core::HRESULT(0x88980088_u32 as _);
+pub const MILERR_DISPLAYFORMATNOTSUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x88980084_u32 as _);
+pub const MILERR_DISPLAYID_ACCESS_DENIED: windows_core::HRESULT = windows_core::HRESULT(0x889800A1_u32 as _);
+pub const MILERR_DISPLAYSTATEINVALID: windows_core::HRESULT = windows_core::HRESULT(0x88980006_u32 as _);
+pub const MILERR_DXGI_ENUMERATION_OUT_OF_SYNC: windows_core::HRESULT = windows_core::HRESULT(0x8898009D_u32 as _);
+pub const MILERR_GENERIC_IGNORE: windows_core::HRESULT = windows_core::HRESULT(0x8898008B_u32 as _);
+pub const MILERR_GLYPHBITMAPMISSED: windows_core::HRESULT = windows_core::HRESULT(0x88980089_u32 as _);
+pub const MILERR_INSUFFICIENTBUFFER: windows_core::HRESULT = windows_core::HRESULT(0x88980002_u32 as _);
+pub const MILERR_INTERNALERROR: windows_core::HRESULT = windows_core::HRESULT(0x88980080_u32 as _);
+pub const MILERR_INVALIDCALL: windows_core::HRESULT = windows_core::HRESULT(0x88980085_u32 as _);
+pub const MILERR_MALFORMEDGLYPHCACHE: windows_core::HRESULT = windows_core::HRESULT(0x8898008A_u32 as _);
+pub const MILERR_MALFORMED_GUIDELINE_DATA: windows_core::HRESULT = windows_core::HRESULT(0x8898008C_u32 as _);
+pub const MILERR_MAX_TEXTURE_SIZE_EXCEEDED: windows_core::HRESULT = windows_core::HRESULT(0x8898009A_u32 as _);
+pub const MILERR_MISMATCHED_SIZE: windows_core::HRESULT = windows_core::HRESULT(0x88980090_u32 as _);
+pub const MILERR_MROW_READLOCK_FAILED: windows_core::HRESULT = windows_core::HRESULT(0x88980097_u32 as _);
+pub const MILERR_MROW_UPDATE_FAILED: windows_core::HRESULT = windows_core::HRESULT(0x88980098_u32 as _);
+pub const MILERR_NEED_RECREATE_AND_PRESENT: windows_core::HRESULT = windows_core::HRESULT(0x8898008E_u32 as _);
+pub const MILERR_NONINVERTIBLEMATRIX: windows_core::HRESULT = windows_core::HRESULT(0x88980007_u32 as _);
+pub const MILERR_NOTLOCKED: windows_core::HRESULT = windows_core::HRESULT(0x88980087_u32 as _);
+pub const MILERR_NOT_QUEUING_PRESENTS: windows_core::HRESULT = windows_core::HRESULT(0x88980094_u32 as _);
+pub const MILERR_NO_HARDWARE_DEVICE: windows_core::HRESULT = windows_core::HRESULT(0x8898008D_u32 as _);
+pub const MILERR_NO_REDIRECTION_SURFACE_AVAILABLE: windows_core::HRESULT = windows_core::HRESULT(0x88980091_u32 as _);
+pub const MILERR_NO_REDIRECTION_SURFACE_RETRY_LATER: windows_core::HRESULT = windows_core::HRESULT(0x88980095_u32 as _);
+pub const MILERR_OBJECTBUSY: windows_core::HRESULT = windows_core::HRESULT(0x88980001_u32 as _);
+pub const MILERR_PREFILTER_NOT_SUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x889800A0_u32 as _);
+pub const MILERR_QPC_TIME_WENT_BACKWARD: windows_core::HRESULT = windows_core::HRESULT(0x8898009B_u32 as _);
+pub const MILERR_QUEUED_PRESENT_NOT_SUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x88980093_u32 as _);
+pub const MILERR_REMOTING_NOT_SUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x88980092_u32 as _);
+pub const MILERR_SCANNER_FAILED: windows_core::HRESULT = windows_core::HRESULT(0x88980004_u32 as _);
+pub const MILERR_SCREENACCESSDENIED: windows_core::HRESULT = windows_core::HRESULT(0x88980005_u32 as _);
+pub const MILERR_SHADER_COMPILE_FAILED: windows_core::HRESULT = windows_core::HRESULT(0x88980099_u32 as _);
+pub const MILERR_TERMINATED: windows_core::HRESULT = windows_core::HRESULT(0x88980009_u32 as _);
+pub const MILERR_TOOMANYSHADERELEMNTS: windows_core::HRESULT = windows_core::HRESULT(0x88980096_u32 as _);
+pub const MILERR_WIN32ERROR: windows_core::HRESULT = windows_core::HRESULT(0x88980003_u32 as _);
+pub const MILERR_ZEROVECTOR: windows_core::HRESULT = windows_core::HRESULT(0x88980008_u32 as _);
+pub const MK_E_CANTOPENFILE: windows_core::HRESULT = windows_core::HRESULT(0x800401EA_u32 as _);
+pub const MK_E_CONNECTMANUALLY: windows_core::HRESULT = windows_core::HRESULT(0x800401E0_u32 as _);
+pub const MK_E_ENUMERATION_FAILED: windows_core::HRESULT = windows_core::HRESULT(0x800401EF_u32 as _);
+pub const MK_E_EXCEEDEDDEADLINE: windows_core::HRESULT = windows_core::HRESULT(0x800401E1_u32 as _);
 pub const MK_E_FIRST: i32 = -2147221024i32;
-pub const MK_E_INTERMEDIATEINTERFACENOTSUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800401E7_u32 as _);
-pub const MK_E_INVALIDEXTENSION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800401E6_u32 as _);
+pub const MK_E_INTERMEDIATEINTERFACENOTSUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x800401E7_u32 as _);
+pub const MK_E_INVALIDEXTENSION: windows_core::HRESULT = windows_core::HRESULT(0x800401E6_u32 as _);
 pub const MK_E_LAST: i32 = -2147221009i32;
-pub const MK_E_MUSTBOTHERUSER: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800401EB_u32 as _);
-pub const MK_E_NEEDGENERIC: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800401E2_u32 as _);
-pub const MK_E_NOINVERSE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800401EC_u32 as _);
-pub const MK_E_NOOBJECT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800401E5_u32 as _);
-pub const MK_E_NOPREFIX: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800401EE_u32 as _);
-pub const MK_E_NOSTORAGE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800401ED_u32 as _);
-pub const MK_E_NOTBINDABLE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800401E8_u32 as _);
-pub const MK_E_NOTBOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800401E9_u32 as _);
-pub const MK_E_NO_NORMALIZED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80080007_u32 as _);
-pub const MK_E_SYNTAX: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800401E4_u32 as _);
-pub const MK_E_UNAVAILABLE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800401E3_u32 as _);
+pub const MK_E_MUSTBOTHERUSER: windows_core::HRESULT = windows_core::HRESULT(0x800401EB_u32 as _);
+pub const MK_E_NEEDGENERIC: windows_core::HRESULT = windows_core::HRESULT(0x800401E2_u32 as _);
+pub const MK_E_NOINVERSE: windows_core::HRESULT = windows_core::HRESULT(0x800401EC_u32 as _);
+pub const MK_E_NOOBJECT: windows_core::HRESULT = windows_core::HRESULT(0x800401E5_u32 as _);
+pub const MK_E_NOPREFIX: windows_core::HRESULT = windows_core::HRESULT(0x800401EE_u32 as _);
+pub const MK_E_NOSTORAGE: windows_core::HRESULT = windows_core::HRESULT(0x800401ED_u32 as _);
+pub const MK_E_NOTBINDABLE: windows_core::HRESULT = windows_core::HRESULT(0x800401E8_u32 as _);
+pub const MK_E_NOTBOUND: windows_core::HRESULT = windows_core::HRESULT(0x800401E9_u32 as _);
+pub const MK_E_NO_NORMALIZED: windows_core::HRESULT = windows_core::HRESULT(0x80080007_u32 as _);
+pub const MK_E_SYNTAX: windows_core::HRESULT = windows_core::HRESULT(0x800401E4_u32 as _);
+pub const MK_E_UNAVAILABLE: windows_core::HRESULT = windows_core::HRESULT(0x800401E3_u32 as _);
 pub const MK_S_FIRST: i32 = 262624i32;
-pub const MK_S_HIM: ::windows_core::HRESULT = ::windows_core::HRESULT(0x401E5_u32 as _);
+pub const MK_S_HIM: windows_core::HRESULT = windows_core::HRESULT(0x401E5_u32 as _);
 pub const MK_S_LAST: i32 = 262639i32;
-pub const MK_S_ME: ::windows_core::HRESULT = ::windows_core::HRESULT(0x401E4_u32 as _);
-pub const MK_S_MONIKERALREADYREGISTERED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x401E7_u32 as _);
-pub const MK_S_REDUCED_TO_SELF: ::windows_core::HRESULT = ::windows_core::HRESULT(0x401E2_u32 as _);
-pub const MK_S_US: ::windows_core::HRESULT = ::windows_core::HRESULT(0x401E6_u32 as _);
-pub const MSDTC_E_DUPLICATE_RESOURCE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80110701_u32 as _);
-pub const MSSIPOTF_E_BADVERSION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80097015_u32 as _);
-pub const MSSIPOTF_E_BAD_FIRST_TABLE_PLACEMENT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80097008_u32 as _);
-pub const MSSIPOTF_E_BAD_MAGICNUMBER: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80097004_u32 as _);
-pub const MSSIPOTF_E_BAD_OFFSET_TABLE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80097005_u32 as _);
-pub const MSSIPOTF_E_CANTGETOBJECT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80097002_u32 as _);
-pub const MSSIPOTF_E_CRYPT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80097014_u32 as _);
-pub const MSSIPOTF_E_DSIG_STRUCTURE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80097016_u32 as _);
-pub const MSSIPOTF_E_FAILED_HINTS_CHECK: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80097011_u32 as _);
-pub const MSSIPOTF_E_FAILED_POLICY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80097010_u32 as _);
-pub const MSSIPOTF_E_FILE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80097013_u32 as _);
-pub const MSSIPOTF_E_FILETOOSMALL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8009700B_u32 as _);
-pub const MSSIPOTF_E_FILE_CHECKSUM: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8009700D_u32 as _);
-pub const MSSIPOTF_E_NOHEADTABLE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80097003_u32 as _);
-pub const MSSIPOTF_E_NOT_OPENTYPE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80097012_u32 as _);
-pub const MSSIPOTF_E_OUTOFMEMRANGE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80097001_u32 as _);
-pub const MSSIPOTF_E_PCONST_CHECK: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80097017_u32 as _);
-pub const MSSIPOTF_E_STRUCTURE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80097018_u32 as _);
-pub const MSSIPOTF_E_TABLES_OVERLAP: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80097009_u32 as _);
-pub const MSSIPOTF_E_TABLE_CHECKSUM: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8009700C_u32 as _);
-pub const MSSIPOTF_E_TABLE_LONGWORD: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80097007_u32 as _);
-pub const MSSIPOTF_E_TABLE_PADBYTES: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8009700A_u32 as _);
-pub const MSSIPOTF_E_TABLE_TAGORDER: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80097006_u32 as _);
-pub const NAP_E_CONFLICTING_ID: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80270003_u32 as _);
-pub const NAP_E_ENTITY_DISABLED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8027000E_u32 as _);
-pub const NAP_E_ID_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8027000A_u32 as _);
-pub const NAP_E_INVALID_PACKET: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80270001_u32 as _);
-pub const NAP_E_MAXSIZE_TOO_SMALL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8027000B_u32 as _);
-pub const NAP_E_MISMATCHED_ID: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80270008_u32 as _);
-pub const NAP_E_MISSING_SOH: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80270002_u32 as _);
-pub const NAP_E_NETSH_GROUPPOLICY_ERROR: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8027000F_u32 as _);
-pub const NAP_E_NOT_INITIALIZED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80270007_u32 as _);
-pub const NAP_E_NOT_PENDING: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80270009_u32 as _);
-pub const NAP_E_NOT_REGISTERED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80270006_u32 as _);
-pub const NAP_E_NO_CACHED_SOH: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80270004_u32 as _);
-pub const NAP_E_SERVICE_NOT_RUNNING: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8027000C_u32 as _);
-pub const NAP_E_SHV_CONFIG_EXISTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80270011_u32 as _);
-pub const NAP_E_SHV_CONFIG_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80270012_u32 as _);
-pub const NAP_E_SHV_TIMEOUT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80270013_u32 as _);
-pub const NAP_E_STILL_BOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80270005_u32 as _);
-pub const NAP_E_TOO_MANY_CALLS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80270010_u32 as _);
-pub const NAP_S_CERT_ALREADY_PRESENT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x27000D_u32 as _);
+pub const MK_S_ME: windows_core::HRESULT = windows_core::HRESULT(0x401E4_u32 as _);
+pub const MK_S_MONIKERALREADYREGISTERED: windows_core::HRESULT = windows_core::HRESULT(0x401E7_u32 as _);
+pub const MK_S_REDUCED_TO_SELF: windows_core::HRESULT = windows_core::HRESULT(0x401E2_u32 as _);
+pub const MK_S_US: windows_core::HRESULT = windows_core::HRESULT(0x401E6_u32 as _);
+pub const MSDTC_E_DUPLICATE_RESOURCE: windows_core::HRESULT = windows_core::HRESULT(0x80110701_u32 as _);
+pub const MSSIPOTF_E_BADVERSION: windows_core::HRESULT = windows_core::HRESULT(0x80097015_u32 as _);
+pub const MSSIPOTF_E_BAD_FIRST_TABLE_PLACEMENT: windows_core::HRESULT = windows_core::HRESULT(0x80097008_u32 as _);
+pub const MSSIPOTF_E_BAD_MAGICNUMBER: windows_core::HRESULT = windows_core::HRESULT(0x80097004_u32 as _);
+pub const MSSIPOTF_E_BAD_OFFSET_TABLE: windows_core::HRESULT = windows_core::HRESULT(0x80097005_u32 as _);
+pub const MSSIPOTF_E_CANTGETOBJECT: windows_core::HRESULT = windows_core::HRESULT(0x80097002_u32 as _);
+pub const MSSIPOTF_E_CRYPT: windows_core::HRESULT = windows_core::HRESULT(0x80097014_u32 as _);
+pub const MSSIPOTF_E_DSIG_STRUCTURE: windows_core::HRESULT = windows_core::HRESULT(0x80097016_u32 as _);
+pub const MSSIPOTF_E_FAILED_HINTS_CHECK: windows_core::HRESULT = windows_core::HRESULT(0x80097011_u32 as _);
+pub const MSSIPOTF_E_FAILED_POLICY: windows_core::HRESULT = windows_core::HRESULT(0x80097010_u32 as _);
+pub const MSSIPOTF_E_FILE: windows_core::HRESULT = windows_core::HRESULT(0x80097013_u32 as _);
+pub const MSSIPOTF_E_FILETOOSMALL: windows_core::HRESULT = windows_core::HRESULT(0x8009700B_u32 as _);
+pub const MSSIPOTF_E_FILE_CHECKSUM: windows_core::HRESULT = windows_core::HRESULT(0x8009700D_u32 as _);
+pub const MSSIPOTF_E_NOHEADTABLE: windows_core::HRESULT = windows_core::HRESULT(0x80097003_u32 as _);
+pub const MSSIPOTF_E_NOT_OPENTYPE: windows_core::HRESULT = windows_core::HRESULT(0x80097012_u32 as _);
+pub const MSSIPOTF_E_OUTOFMEMRANGE: windows_core::HRESULT = windows_core::HRESULT(0x80097001_u32 as _);
+pub const MSSIPOTF_E_PCONST_CHECK: windows_core::HRESULT = windows_core::HRESULT(0x80097017_u32 as _);
+pub const MSSIPOTF_E_STRUCTURE: windows_core::HRESULT = windows_core::HRESULT(0x80097018_u32 as _);
+pub const MSSIPOTF_E_TABLES_OVERLAP: windows_core::HRESULT = windows_core::HRESULT(0x80097009_u32 as _);
+pub const MSSIPOTF_E_TABLE_CHECKSUM: windows_core::HRESULT = windows_core::HRESULT(0x8009700C_u32 as _);
+pub const MSSIPOTF_E_TABLE_LONGWORD: windows_core::HRESULT = windows_core::HRESULT(0x80097007_u32 as _);
+pub const MSSIPOTF_E_TABLE_PADBYTES: windows_core::HRESULT = windows_core::HRESULT(0x8009700A_u32 as _);
+pub const MSSIPOTF_E_TABLE_TAGORDER: windows_core::HRESULT = windows_core::HRESULT(0x80097006_u32 as _);
+pub const NAP_E_CONFLICTING_ID: windows_core::HRESULT = windows_core::HRESULT(0x80270003_u32 as _);
+pub const NAP_E_ENTITY_DISABLED: windows_core::HRESULT = windows_core::HRESULT(0x8027000E_u32 as _);
+pub const NAP_E_ID_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0x8027000A_u32 as _);
+pub const NAP_E_INVALID_PACKET: windows_core::HRESULT = windows_core::HRESULT(0x80270001_u32 as _);
+pub const NAP_E_MAXSIZE_TOO_SMALL: windows_core::HRESULT = windows_core::HRESULT(0x8027000B_u32 as _);
+pub const NAP_E_MISMATCHED_ID: windows_core::HRESULT = windows_core::HRESULT(0x80270008_u32 as _);
+pub const NAP_E_MISSING_SOH: windows_core::HRESULT = windows_core::HRESULT(0x80270002_u32 as _);
+pub const NAP_E_NETSH_GROUPPOLICY_ERROR: windows_core::HRESULT = windows_core::HRESULT(0x8027000F_u32 as _);
+pub const NAP_E_NOT_INITIALIZED: windows_core::HRESULT = windows_core::HRESULT(0x80270007_u32 as _);
+pub const NAP_E_NOT_PENDING: windows_core::HRESULT = windows_core::HRESULT(0x80270009_u32 as _);
+pub const NAP_E_NOT_REGISTERED: windows_core::HRESULT = windows_core::HRESULT(0x80270006_u32 as _);
+pub const NAP_E_NO_CACHED_SOH: windows_core::HRESULT = windows_core::HRESULT(0x80270004_u32 as _);
+pub const NAP_E_SERVICE_NOT_RUNNING: windows_core::HRESULT = windows_core::HRESULT(0x8027000C_u32 as _);
+pub const NAP_E_SHV_CONFIG_EXISTED: windows_core::HRESULT = windows_core::HRESULT(0x80270011_u32 as _);
+pub const NAP_E_SHV_CONFIG_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0x80270012_u32 as _);
+pub const NAP_E_SHV_TIMEOUT: windows_core::HRESULT = windows_core::HRESULT(0x80270013_u32 as _);
+pub const NAP_E_STILL_BOUND: windows_core::HRESULT = windows_core::HRESULT(0x80270005_u32 as _);
+pub const NAP_E_TOO_MANY_CALLS: windows_core::HRESULT = windows_core::HRESULT(0x80270010_u32 as _);
+pub const NAP_S_CERT_ALREADY_PRESENT: windows_core::HRESULT = windows_core::HRESULT(0x27000D_u32 as _);
 pub const NOERROR: u32 = 0u32;
-pub const NOT_AN_ERROR1: ::windows_core::HRESULT = ::windows_core::HRESULT(0x81600_u32 as _);
+pub const NOT_AN_ERROR1: windows_core::HRESULT = windows_core::HRESULT(0x81600_u32 as _);
 pub const NO_ERROR: WIN32_ERROR = WIN32_ERROR(0u32);
 pub const NTDDI_MAXVER: u32 = 2560u32;
-pub const NTE_AUTHENTICATION_IGNORED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80090031_u32 as _);
-pub const NTE_BAD_ALGID: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80090008_u32 as _);
-pub const NTE_BAD_DATA: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80090005_u32 as _);
-pub const NTE_BAD_FLAGS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80090009_u32 as _);
-pub const NTE_BAD_HASH: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80090002_u32 as _);
-pub const NTE_BAD_HASH_STATE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8009000C_u32 as _);
-pub const NTE_BAD_KEY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80090003_u32 as _);
-pub const NTE_BAD_KEYSET: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80090016_u32 as _);
-pub const NTE_BAD_KEYSET_PARAM: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8009001F_u32 as _);
-pub const NTE_BAD_KEY_STATE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8009000B_u32 as _);
-pub const NTE_BAD_LEN: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80090004_u32 as _);
-pub const NTE_BAD_PROVIDER: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80090013_u32 as _);
-pub const NTE_BAD_PROV_TYPE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80090014_u32 as _);
-pub const NTE_BAD_PUBLIC_KEY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80090015_u32 as _);
-pub const NTE_BAD_SIGNATURE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80090006_u32 as _);
-pub const NTE_BAD_TYPE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8009000A_u32 as _);
-pub const NTE_BAD_UID: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80090001_u32 as _);
-pub const NTE_BAD_VER: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80090007_u32 as _);
-pub const NTE_BUFFERS_OVERLAP: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8009002B_u32 as _);
-pub const NTE_BUFFER_TOO_SMALL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80090028_u32 as _);
-pub const NTE_DECRYPTION_FAILURE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8009002C_u32 as _);
-pub const NTE_DEVICE_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80090035_u32 as _);
-pub const NTE_DEVICE_NOT_READY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80090030_u32 as _);
-pub const NTE_DOUBLE_ENCRYPT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80090012_u32 as _);
-pub const NTE_ENCRYPTION_FAILURE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80090034_u32 as _);
-pub const NTE_EXISTS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8009000F_u32 as _);
-pub const NTE_FAIL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80090020_u32 as _);
-pub const NTE_FIXEDPARAMETER: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80090025_u32 as _);
-pub const NTE_HMAC_NOT_SUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8009002F_u32 as _);
-pub const NTE_INCORRECT_PASSWORD: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80090033_u32 as _);
-pub const NTE_INTERNAL_ERROR: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8009002D_u32 as _);
-pub const NTE_INVALID_HANDLE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80090026_u32 as _);
-pub const NTE_INVALID_PARAMETER: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80090027_u32 as _);
-pub const NTE_KEYSET_ENTRY_BAD: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8009001A_u32 as _);
-pub const NTE_KEYSET_NOT_DEF: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80090019_u32 as _);
-pub const NTE_NOT_ACTIVE_CONSOLE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80090038_u32 as _);
-pub const NTE_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80090011_u32 as _);
-pub const NTE_NOT_SUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80090029_u32 as _);
-pub const NTE_NO_KEY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8009000D_u32 as _);
-pub const NTE_NO_MEMORY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8009000E_u32 as _);
-pub const NTE_NO_MORE_ITEMS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8009002A_u32 as _);
+pub const NTE_AUTHENTICATION_IGNORED: windows_core::HRESULT = windows_core::HRESULT(0x80090031_u32 as _);
+pub const NTE_BAD_ALGID: windows_core::HRESULT = windows_core::HRESULT(0x80090008_u32 as _);
+pub const NTE_BAD_DATA: windows_core::HRESULT = windows_core::HRESULT(0x80090005_u32 as _);
+pub const NTE_BAD_FLAGS: windows_core::HRESULT = windows_core::HRESULT(0x80090009_u32 as _);
+pub const NTE_BAD_HASH: windows_core::HRESULT = windows_core::HRESULT(0x80090002_u32 as _);
+pub const NTE_BAD_HASH_STATE: windows_core::HRESULT = windows_core::HRESULT(0x8009000C_u32 as _);
+pub const NTE_BAD_KEY: windows_core::HRESULT = windows_core::HRESULT(0x80090003_u32 as _);
+pub const NTE_BAD_KEYSET: windows_core::HRESULT = windows_core::HRESULT(0x80090016_u32 as _);
+pub const NTE_BAD_KEYSET_PARAM: windows_core::HRESULT = windows_core::HRESULT(0x8009001F_u32 as _);
+pub const NTE_BAD_KEY_STATE: windows_core::HRESULT = windows_core::HRESULT(0x8009000B_u32 as _);
+pub const NTE_BAD_LEN: windows_core::HRESULT = windows_core::HRESULT(0x80090004_u32 as _);
+pub const NTE_BAD_PROVIDER: windows_core::HRESULT = windows_core::HRESULT(0x80090013_u32 as _);
+pub const NTE_BAD_PROV_TYPE: windows_core::HRESULT = windows_core::HRESULT(0x80090014_u32 as _);
+pub const NTE_BAD_PUBLIC_KEY: windows_core::HRESULT = windows_core::HRESULT(0x80090015_u32 as _);
+pub const NTE_BAD_SIGNATURE: windows_core::HRESULT = windows_core::HRESULT(0x80090006_u32 as _);
+pub const NTE_BAD_TYPE: windows_core::HRESULT = windows_core::HRESULT(0x8009000A_u32 as _);
+pub const NTE_BAD_UID: windows_core::HRESULT = windows_core::HRESULT(0x80090001_u32 as _);
+pub const NTE_BAD_VER: windows_core::HRESULT = windows_core::HRESULT(0x80090007_u32 as _);
+pub const NTE_BUFFERS_OVERLAP: windows_core::HRESULT = windows_core::HRESULT(0x8009002B_u32 as _);
+pub const NTE_BUFFER_TOO_SMALL: windows_core::HRESULT = windows_core::HRESULT(0x80090028_u32 as _);
+pub const NTE_DECRYPTION_FAILURE: windows_core::HRESULT = windows_core::HRESULT(0x8009002C_u32 as _);
+pub const NTE_DEVICE_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0x80090035_u32 as _);
+pub const NTE_DEVICE_NOT_READY: windows_core::HRESULT = windows_core::HRESULT(0x80090030_u32 as _);
+pub const NTE_DOUBLE_ENCRYPT: windows_core::HRESULT = windows_core::HRESULT(0x80090012_u32 as _);
+pub const NTE_ENCRYPTION_FAILURE: windows_core::HRESULT = windows_core::HRESULT(0x80090034_u32 as _);
+pub const NTE_EXISTS: windows_core::HRESULT = windows_core::HRESULT(0x8009000F_u32 as _);
+pub const NTE_FAIL: windows_core::HRESULT = windows_core::HRESULT(0x80090020_u32 as _);
+pub const NTE_FIXEDPARAMETER: windows_core::HRESULT = windows_core::HRESULT(0x80090025_u32 as _);
+pub const NTE_HMAC_NOT_SUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x8009002F_u32 as _);
+pub const NTE_INCORRECT_PASSWORD: windows_core::HRESULT = windows_core::HRESULT(0x80090033_u32 as _);
+pub const NTE_INTERNAL_ERROR: windows_core::HRESULT = windows_core::HRESULT(0x8009002D_u32 as _);
+pub const NTE_INVALID_HANDLE: windows_core::HRESULT = windows_core::HRESULT(0x80090026_u32 as _);
+pub const NTE_INVALID_PARAMETER: windows_core::HRESULT = windows_core::HRESULT(0x80090027_u32 as _);
+pub const NTE_KEYSET_ENTRY_BAD: windows_core::HRESULT = windows_core::HRESULT(0x8009001A_u32 as _);
+pub const NTE_KEYSET_NOT_DEF: windows_core::HRESULT = windows_core::HRESULT(0x80090019_u32 as _);
+pub const NTE_NOT_ACTIVE_CONSOLE: windows_core::HRESULT = windows_core::HRESULT(0x80090038_u32 as _);
+pub const NTE_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0x80090011_u32 as _);
+pub const NTE_NOT_SUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x80090029_u32 as _);
+pub const NTE_NO_KEY: windows_core::HRESULT = windows_core::HRESULT(0x8009000D_u32 as _);
+pub const NTE_NO_MEMORY: windows_core::HRESULT = windows_core::HRESULT(0x8009000E_u32 as _);
+pub const NTE_NO_MORE_ITEMS: windows_core::HRESULT = windows_core::HRESULT(0x8009002A_u32 as _);
 pub const NTE_OP_OK: u32 = 0u32;
-pub const NTE_PASSWORD_CHANGE_REQUIRED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80090037_u32 as _);
-pub const NTE_PERM: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80090010_u32 as _);
-pub const NTE_PROVIDER_DLL_FAIL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8009001D_u32 as _);
-pub const NTE_PROV_DLL_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8009001E_u32 as _);
-pub const NTE_PROV_TYPE_ENTRY_BAD: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80090018_u32 as _);
-pub const NTE_PROV_TYPE_NOT_DEF: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80090017_u32 as _);
-pub const NTE_PROV_TYPE_NO_MATCH: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8009001B_u32 as _);
-pub const NTE_SIGNATURE_FILE_BAD: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8009001C_u32 as _);
-pub const NTE_SILENT_CONTEXT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80090022_u32 as _);
-pub const NTE_SYS_ERR: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80090021_u32 as _);
-pub const NTE_TEMPORARY_PROFILE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80090024_u32 as _);
-pub const NTE_TOKEN_KEYSET_STORAGE_FULL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80090023_u32 as _);
-pub const NTE_UI_REQUIRED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8009002E_u32 as _);
-pub const NTE_USER_CANCELLED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80090036_u32 as _);
-pub const NTE_VALIDATION_FAILED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80090032_u32 as _);
+pub const NTE_PASSWORD_CHANGE_REQUIRED: windows_core::HRESULT = windows_core::HRESULT(0x80090037_u32 as _);
+pub const NTE_PERM: windows_core::HRESULT = windows_core::HRESULT(0x80090010_u32 as _);
+pub const NTE_PROVIDER_DLL_FAIL: windows_core::HRESULT = windows_core::HRESULT(0x8009001D_u32 as _);
+pub const NTE_PROV_DLL_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0x8009001E_u32 as _);
+pub const NTE_PROV_TYPE_ENTRY_BAD: windows_core::HRESULT = windows_core::HRESULT(0x80090018_u32 as _);
+pub const NTE_PROV_TYPE_NOT_DEF: windows_core::HRESULT = windows_core::HRESULT(0x80090017_u32 as _);
+pub const NTE_PROV_TYPE_NO_MATCH: windows_core::HRESULT = windows_core::HRESULT(0x8009001B_u32 as _);
+pub const NTE_SIGNATURE_FILE_BAD: windows_core::HRESULT = windows_core::HRESULT(0x8009001C_u32 as _);
+pub const NTE_SILENT_CONTEXT: windows_core::HRESULT = windows_core::HRESULT(0x80090022_u32 as _);
+pub const NTE_SYS_ERR: windows_core::HRESULT = windows_core::HRESULT(0x80090021_u32 as _);
+pub const NTE_TEMPORARY_PROFILE: windows_core::HRESULT = windows_core::HRESULT(0x80090024_u32 as _);
+pub const NTE_TOKEN_KEYSET_STORAGE_FULL: windows_core::HRESULT = windows_core::HRESULT(0x80090023_u32 as _);
+pub const NTE_UI_REQUIRED: windows_core::HRESULT = windows_core::HRESULT(0x8009002E_u32 as _);
+pub const NTE_USER_CANCELLED: windows_core::HRESULT = windows_core::HRESULT(0x80090036_u32 as _);
+pub const NTE_VALIDATION_FAILED: windows_core::HRESULT = windows_core::HRESULT(0x80090032_u32 as _);
 pub const OLEOBJ_E_FIRST: i32 = -2147221120i32;
-pub const OLEOBJ_E_INVALIDVERB: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80040181_u32 as _);
+pub const OLEOBJ_E_INVALIDVERB: windows_core::HRESULT = windows_core::HRESULT(0x80040181_u32 as _);
 pub const OLEOBJ_E_LAST: i32 = -2147221105i32;
-pub const OLEOBJ_E_NOVERBS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80040180_u32 as _);
-pub const OLEOBJ_S_CANNOT_DOVERB_NOW: ::windows_core::HRESULT = ::windows_core::HRESULT(0x40181_u32 as _);
+pub const OLEOBJ_E_NOVERBS: windows_core::HRESULT = windows_core::HRESULT(0x80040180_u32 as _);
+pub const OLEOBJ_S_CANNOT_DOVERB_NOW: windows_core::HRESULT = windows_core::HRESULT(0x40181_u32 as _);
 pub const OLEOBJ_S_FIRST: i32 = 262528i32;
-pub const OLEOBJ_S_INVALIDHWND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x40182_u32 as _);
-pub const OLEOBJ_S_INVALIDVERB: ::windows_core::HRESULT = ::windows_core::HRESULT(0x40180_u32 as _);
+pub const OLEOBJ_S_INVALIDHWND: windows_core::HRESULT = windows_core::HRESULT(0x40182_u32 as _);
+pub const OLEOBJ_S_INVALIDVERB: windows_core::HRESULT = windows_core::HRESULT(0x40180_u32 as _);
 pub const OLEOBJ_S_LAST: i32 = 262543i32;
-pub const OLE_E_ADVF: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80040001_u32 as _);
-pub const OLE_E_ADVISENOTSUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80040003_u32 as _);
-pub const OLE_E_BLANK: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80040007_u32 as _);
-pub const OLE_E_CANTCONVERT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80040011_u32 as _);
-pub const OLE_E_CANT_BINDTOSOURCE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004000A_u32 as _);
-pub const OLE_E_CANT_GETMONIKER: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80040009_u32 as _);
-pub const OLE_E_CLASSDIFF: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80040008_u32 as _);
-pub const OLE_E_ENUM_NOMORE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80040002_u32 as _);
-pub const OLE_E_FIRST: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80040000_u32 as _);
-pub const OLE_E_INVALIDHWND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004000F_u32 as _);
-pub const OLE_E_INVALIDRECT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004000D_u32 as _);
-pub const OLE_E_LAST: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800400FF_u32 as _);
-pub const OLE_E_NOCACHE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80040006_u32 as _);
-pub const OLE_E_NOCONNECTION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80040004_u32 as _);
-pub const OLE_E_NOSTORAGE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80040012_u32 as _);
-pub const OLE_E_NOTRUNNING: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80040005_u32 as _);
-pub const OLE_E_NOT_INPLACEACTIVE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80040010_u32 as _);
-pub const OLE_E_OLEVERB: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80040000_u32 as _);
-pub const OLE_E_PROMPTSAVECANCELLED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004000C_u32 as _);
-pub const OLE_E_STATIC: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004000B_u32 as _);
-pub const OLE_E_WRONGCOMPOBJ: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004000E_u32 as _);
-pub const OLE_S_FIRST: ::windows_core::HRESULT = ::windows_core::HRESULT(0x40000_u32 as _);
-pub const OLE_S_LAST: ::windows_core::HRESULT = ::windows_core::HRESULT(0x400FF_u32 as _);
-pub const OLE_S_MAC_CLIPFORMAT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x40002_u32 as _);
-pub const OLE_S_STATIC: ::windows_core::HRESULT = ::windows_core::HRESULT(0x40001_u32 as _);
-pub const OLE_S_USEREG: ::windows_core::HRESULT = ::windows_core::HRESULT(0x40000_u32 as _);
-pub const ONL_CONNECTION_COUNT_LIMIT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8086000D_u32 as _);
-pub const ONL_E_ACCESS_DENIED_BY_TOU: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80860002_u32 as _);
-pub const ONL_E_ACCOUNT_LOCKED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80860007_u32 as _);
-pub const ONL_E_ACCOUNT_SUSPENDED_ABUSE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8086000B_u32 as _);
-pub const ONL_E_ACCOUNT_SUSPENDED_COMPROIMISE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8086000A_u32 as _);
-pub const ONL_E_ACCOUNT_UPDATE_REQUIRED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80860005_u32 as _);
-pub const ONL_E_ACTION_REQUIRED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8086000C_u32 as _);
-pub const ONL_E_CONNECTED_ACCOUNT_CAN_NOT_SIGNOUT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8086000E_u32 as _);
-pub const ONL_E_EMAIL_VERIFICATION_REQUIRED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80860009_u32 as _);
-pub const ONL_E_FORCESIGNIN: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80860006_u32 as _);
-pub const ONL_E_INVALID_APPLICATION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80860003_u32 as _);
-pub const ONL_E_INVALID_AUTHENTICATION_TARGET: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80860001_u32 as _);
-pub const ONL_E_PARENTAL_CONSENT_REQUIRED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80860008_u32 as _);
-pub const ONL_E_PASSWORD_UPDATE_REQUIRED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80860004_u32 as _);
-pub const ONL_E_REQUEST_THROTTLED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80860010_u32 as _);
-pub const ONL_E_USER_AUTHENTICATION_REQUIRED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8086000F_u32 as _);
+pub const OLE_E_ADVF: windows_core::HRESULT = windows_core::HRESULT(0x80040001_u32 as _);
+pub const OLE_E_ADVISENOTSUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x80040003_u32 as _);
+pub const OLE_E_BLANK: windows_core::HRESULT = windows_core::HRESULT(0x80040007_u32 as _);
+pub const OLE_E_CANTCONVERT: windows_core::HRESULT = windows_core::HRESULT(0x80040011_u32 as _);
+pub const OLE_E_CANT_BINDTOSOURCE: windows_core::HRESULT = windows_core::HRESULT(0x8004000A_u32 as _);
+pub const OLE_E_CANT_GETMONIKER: windows_core::HRESULT = windows_core::HRESULT(0x80040009_u32 as _);
+pub const OLE_E_CLASSDIFF: windows_core::HRESULT = windows_core::HRESULT(0x80040008_u32 as _);
+pub const OLE_E_ENUM_NOMORE: windows_core::HRESULT = windows_core::HRESULT(0x80040002_u32 as _);
+pub const OLE_E_FIRST: windows_core::HRESULT = windows_core::HRESULT(0x80040000_u32 as _);
+pub const OLE_E_INVALIDHWND: windows_core::HRESULT = windows_core::HRESULT(0x8004000F_u32 as _);
+pub const OLE_E_INVALIDRECT: windows_core::HRESULT = windows_core::HRESULT(0x8004000D_u32 as _);
+pub const OLE_E_LAST: windows_core::HRESULT = windows_core::HRESULT(0x800400FF_u32 as _);
+pub const OLE_E_NOCACHE: windows_core::HRESULT = windows_core::HRESULT(0x80040006_u32 as _);
+pub const OLE_E_NOCONNECTION: windows_core::HRESULT = windows_core::HRESULT(0x80040004_u32 as _);
+pub const OLE_E_NOSTORAGE: windows_core::HRESULT = windows_core::HRESULT(0x80040012_u32 as _);
+pub const OLE_E_NOTRUNNING: windows_core::HRESULT = windows_core::HRESULT(0x80040005_u32 as _);
+pub const OLE_E_NOT_INPLACEACTIVE: windows_core::HRESULT = windows_core::HRESULT(0x80040010_u32 as _);
+pub const OLE_E_OLEVERB: windows_core::HRESULT = windows_core::HRESULT(0x80040000_u32 as _);
+pub const OLE_E_PROMPTSAVECANCELLED: windows_core::HRESULT = windows_core::HRESULT(0x8004000C_u32 as _);
+pub const OLE_E_STATIC: windows_core::HRESULT = windows_core::HRESULT(0x8004000B_u32 as _);
+pub const OLE_E_WRONGCOMPOBJ: windows_core::HRESULT = windows_core::HRESULT(0x8004000E_u32 as _);
+pub const OLE_S_FIRST: windows_core::HRESULT = windows_core::HRESULT(0x40000_u32 as _);
+pub const OLE_S_LAST: windows_core::HRESULT = windows_core::HRESULT(0x400FF_u32 as _);
+pub const OLE_S_MAC_CLIPFORMAT: windows_core::HRESULT = windows_core::HRESULT(0x40002_u32 as _);
+pub const OLE_S_STATIC: windows_core::HRESULT = windows_core::HRESULT(0x40001_u32 as _);
+pub const OLE_S_USEREG: windows_core::HRESULT = windows_core::HRESULT(0x40000_u32 as _);
+pub const ONL_CONNECTION_COUNT_LIMIT: windows_core::HRESULT = windows_core::HRESULT(0x8086000D_u32 as _);
+pub const ONL_E_ACCESS_DENIED_BY_TOU: windows_core::HRESULT = windows_core::HRESULT(0x80860002_u32 as _);
+pub const ONL_E_ACCOUNT_LOCKED: windows_core::HRESULT = windows_core::HRESULT(0x80860007_u32 as _);
+pub const ONL_E_ACCOUNT_SUSPENDED_ABUSE: windows_core::HRESULT = windows_core::HRESULT(0x8086000B_u32 as _);
+pub const ONL_E_ACCOUNT_SUSPENDED_COMPROIMISE: windows_core::HRESULT = windows_core::HRESULT(0x8086000A_u32 as _);
+pub const ONL_E_ACCOUNT_UPDATE_REQUIRED: windows_core::HRESULT = windows_core::HRESULT(0x80860005_u32 as _);
+pub const ONL_E_ACTION_REQUIRED: windows_core::HRESULT = windows_core::HRESULT(0x8086000C_u32 as _);
+pub const ONL_E_CONNECTED_ACCOUNT_CAN_NOT_SIGNOUT: windows_core::HRESULT = windows_core::HRESULT(0x8086000E_u32 as _);
+pub const ONL_E_EMAIL_VERIFICATION_REQUIRED: windows_core::HRESULT = windows_core::HRESULT(0x80860009_u32 as _);
+pub const ONL_E_FORCESIGNIN: windows_core::HRESULT = windows_core::HRESULT(0x80860006_u32 as _);
+pub const ONL_E_INVALID_APPLICATION: windows_core::HRESULT = windows_core::HRESULT(0x80860003_u32 as _);
+pub const ONL_E_INVALID_AUTHENTICATION_TARGET: windows_core::HRESULT = windows_core::HRESULT(0x80860001_u32 as _);
+pub const ONL_E_PARENTAL_CONSENT_REQUIRED: windows_core::HRESULT = windows_core::HRESULT(0x80860008_u32 as _);
+pub const ONL_E_PASSWORD_UPDATE_REQUIRED: windows_core::HRESULT = windows_core::HRESULT(0x80860004_u32 as _);
+pub const ONL_E_REQUEST_THROTTLED: windows_core::HRESULT = windows_core::HRESULT(0x80860010_u32 as _);
+pub const ONL_E_USER_AUTHENTICATION_REQUIRED: windows_core::HRESULT = windows_core::HRESULT(0x8086000F_u32 as _);
 pub const OR_INVALID_OID: i32 = 1911i32;
 pub const OR_INVALID_OXID: i32 = 1910i32;
 pub const OR_INVALID_SET: i32 = 1912i32;
-pub const OSS_ACCESS_SERIALIZATION_ERROR: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80093013_u32 as _);
-pub const OSS_API_DLL_NOT_LINKED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80093029_u32 as _);
-pub const OSS_BAD_ARG: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80093006_u32 as _);
-pub const OSS_BAD_ENCRULES: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80093016_u32 as _);
-pub const OSS_BAD_PTR: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8009300B_u32 as _);
-pub const OSS_BAD_TABLE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8009300F_u32 as _);
-pub const OSS_BAD_TIME: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8009300C_u32 as _);
-pub const OSS_BAD_VERSION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80093007_u32 as _);
-pub const OSS_BERDER_DLL_NOT_LINKED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8009302A_u32 as _);
-pub const OSS_CANT_CLOSE_TRACE_FILE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8009302E_u32 as _);
-pub const OSS_CANT_OPEN_TRACE_FILE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8009301B_u32 as _);
-pub const OSS_CANT_OPEN_TRACE_WINDOW: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80093018_u32 as _);
-pub const OSS_COMPARATOR_CODE_NOT_LINKED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80093025_u32 as _);
-pub const OSS_COMPARATOR_DLL_NOT_LINKED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80093024_u32 as _);
-pub const OSS_CONSTRAINT_DLL_NOT_LINKED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80093023_u32 as _);
-pub const OSS_CONSTRAINT_VIOLATED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80093011_u32 as _);
-pub const OSS_COPIER_DLL_NOT_LINKED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80093022_u32 as _);
-pub const OSS_DATA_ERROR: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80093005_u32 as _);
-pub const OSS_FATAL_ERROR: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80093012_u32 as _);
-pub const OSS_INDEFINITE_NOT_SUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8009300D_u32 as _);
-pub const OSS_LIMITED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8009300A_u32 as _);
-pub const OSS_MEM_ERROR: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8009300E_u32 as _);
-pub const OSS_MEM_MGR_DLL_NOT_LINKED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80093026_u32 as _);
-pub const OSS_MORE_BUF: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80093001_u32 as _);
-pub const OSS_MORE_INPUT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80093004_u32 as _);
-pub const OSS_MUTEX_NOT_CREATED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8009302D_u32 as _);
-pub const OSS_NEGATIVE_UINTEGER: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80093002_u32 as _);
-pub const OSS_NULL_FCN: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80093015_u32 as _);
-pub const OSS_NULL_TBL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80093014_u32 as _);
-pub const OSS_OID_DLL_NOT_LINKED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8009301A_u32 as _);
-pub const OSS_OPEN_TYPE_ERROR: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8009302C_u32 as _);
-pub const OSS_OUT_MEMORY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80093008_u32 as _);
-pub const OSS_OUT_OF_RANGE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80093021_u32 as _);
-pub const OSS_PDU_MISMATCH: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80093009_u32 as _);
-pub const OSS_PDU_RANGE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80093003_u32 as _);
-pub const OSS_PDV_CODE_NOT_LINKED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80093028_u32 as _);
-pub const OSS_PDV_DLL_NOT_LINKED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80093027_u32 as _);
-pub const OSS_PER_DLL_NOT_LINKED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8009302B_u32 as _);
-pub const OSS_REAL_CODE_NOT_LINKED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80093020_u32 as _);
-pub const OSS_REAL_DLL_NOT_LINKED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8009301F_u32 as _);
-pub const OSS_TABLE_MISMATCH: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8009301D_u32 as _);
-pub const OSS_TOO_LONG: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80093010_u32 as _);
-pub const OSS_TRACE_FILE_ALREADY_OPEN: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8009301C_u32 as _);
-pub const OSS_TYPE_NOT_SUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8009301E_u32 as _);
-pub const OSS_UNAVAIL_ENCRULES: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80093017_u32 as _);
-pub const OSS_UNIMPLEMENTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80093019_u32 as _);
+pub const OSS_ACCESS_SERIALIZATION_ERROR: windows_core::HRESULT = windows_core::HRESULT(0x80093013_u32 as _);
+pub const OSS_API_DLL_NOT_LINKED: windows_core::HRESULT = windows_core::HRESULT(0x80093029_u32 as _);
+pub const OSS_BAD_ARG: windows_core::HRESULT = windows_core::HRESULT(0x80093006_u32 as _);
+pub const OSS_BAD_ENCRULES: windows_core::HRESULT = windows_core::HRESULT(0x80093016_u32 as _);
+pub const OSS_BAD_PTR: windows_core::HRESULT = windows_core::HRESULT(0x8009300B_u32 as _);
+pub const OSS_BAD_TABLE: windows_core::HRESULT = windows_core::HRESULT(0x8009300F_u32 as _);
+pub const OSS_BAD_TIME: windows_core::HRESULT = windows_core::HRESULT(0x8009300C_u32 as _);
+pub const OSS_BAD_VERSION: windows_core::HRESULT = windows_core::HRESULT(0x80093007_u32 as _);
+pub const OSS_BERDER_DLL_NOT_LINKED: windows_core::HRESULT = windows_core::HRESULT(0x8009302A_u32 as _);
+pub const OSS_CANT_CLOSE_TRACE_FILE: windows_core::HRESULT = windows_core::HRESULT(0x8009302E_u32 as _);
+pub const OSS_CANT_OPEN_TRACE_FILE: windows_core::HRESULT = windows_core::HRESULT(0x8009301B_u32 as _);
+pub const OSS_CANT_OPEN_TRACE_WINDOW: windows_core::HRESULT = windows_core::HRESULT(0x80093018_u32 as _);
+pub const OSS_COMPARATOR_CODE_NOT_LINKED: windows_core::HRESULT = windows_core::HRESULT(0x80093025_u32 as _);
+pub const OSS_COMPARATOR_DLL_NOT_LINKED: windows_core::HRESULT = windows_core::HRESULT(0x80093024_u32 as _);
+pub const OSS_CONSTRAINT_DLL_NOT_LINKED: windows_core::HRESULT = windows_core::HRESULT(0x80093023_u32 as _);
+pub const OSS_CONSTRAINT_VIOLATED: windows_core::HRESULT = windows_core::HRESULT(0x80093011_u32 as _);
+pub const OSS_COPIER_DLL_NOT_LINKED: windows_core::HRESULT = windows_core::HRESULT(0x80093022_u32 as _);
+pub const OSS_DATA_ERROR: windows_core::HRESULT = windows_core::HRESULT(0x80093005_u32 as _);
+pub const OSS_FATAL_ERROR: windows_core::HRESULT = windows_core::HRESULT(0x80093012_u32 as _);
+pub const OSS_INDEFINITE_NOT_SUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x8009300D_u32 as _);
+pub const OSS_LIMITED: windows_core::HRESULT = windows_core::HRESULT(0x8009300A_u32 as _);
+pub const OSS_MEM_ERROR: windows_core::HRESULT = windows_core::HRESULT(0x8009300E_u32 as _);
+pub const OSS_MEM_MGR_DLL_NOT_LINKED: windows_core::HRESULT = windows_core::HRESULT(0x80093026_u32 as _);
+pub const OSS_MORE_BUF: windows_core::HRESULT = windows_core::HRESULT(0x80093001_u32 as _);
+pub const OSS_MORE_INPUT: windows_core::HRESULT = windows_core::HRESULT(0x80093004_u32 as _);
+pub const OSS_MUTEX_NOT_CREATED: windows_core::HRESULT = windows_core::HRESULT(0x8009302D_u32 as _);
+pub const OSS_NEGATIVE_UINTEGER: windows_core::HRESULT = windows_core::HRESULT(0x80093002_u32 as _);
+pub const OSS_NULL_FCN: windows_core::HRESULT = windows_core::HRESULT(0x80093015_u32 as _);
+pub const OSS_NULL_TBL: windows_core::HRESULT = windows_core::HRESULT(0x80093014_u32 as _);
+pub const OSS_OID_DLL_NOT_LINKED: windows_core::HRESULT = windows_core::HRESULT(0x8009301A_u32 as _);
+pub const OSS_OPEN_TYPE_ERROR: windows_core::HRESULT = windows_core::HRESULT(0x8009302C_u32 as _);
+pub const OSS_OUT_MEMORY: windows_core::HRESULT = windows_core::HRESULT(0x80093008_u32 as _);
+pub const OSS_OUT_OF_RANGE: windows_core::HRESULT = windows_core::HRESULT(0x80093021_u32 as _);
+pub const OSS_PDU_MISMATCH: windows_core::HRESULT = windows_core::HRESULT(0x80093009_u32 as _);
+pub const OSS_PDU_RANGE: windows_core::HRESULT = windows_core::HRESULT(0x80093003_u32 as _);
+pub const OSS_PDV_CODE_NOT_LINKED: windows_core::HRESULT = windows_core::HRESULT(0x80093028_u32 as _);
+pub const OSS_PDV_DLL_NOT_LINKED: windows_core::HRESULT = windows_core::HRESULT(0x80093027_u32 as _);
+pub const OSS_PER_DLL_NOT_LINKED: windows_core::HRESULT = windows_core::HRESULT(0x8009302B_u32 as _);
+pub const OSS_REAL_CODE_NOT_LINKED: windows_core::HRESULT = windows_core::HRESULT(0x80093020_u32 as _);
+pub const OSS_REAL_DLL_NOT_LINKED: windows_core::HRESULT = windows_core::HRESULT(0x8009301F_u32 as _);
+pub const OSS_TABLE_MISMATCH: windows_core::HRESULT = windows_core::HRESULT(0x8009301D_u32 as _);
+pub const OSS_TOO_LONG: windows_core::HRESULT = windows_core::HRESULT(0x80093010_u32 as _);
+pub const OSS_TRACE_FILE_ALREADY_OPEN: windows_core::HRESULT = windows_core::HRESULT(0x8009301C_u32 as _);
+pub const OSS_TYPE_NOT_SUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x8009301E_u32 as _);
+pub const OSS_UNAVAIL_ENCRULES: windows_core::HRESULT = windows_core::HRESULT(0x80093017_u32 as _);
+pub const OSS_UNIMPLEMENTED: windows_core::HRESULT = windows_core::HRESULT(0x80093019_u32 as _);
 pub const PEERDIST_ERROR_ALREADY_COMPLETED: i32 = 4060i32;
 pub const PEERDIST_ERROR_ALREADY_EXISTS: i32 = 4058i32;
 pub const PEERDIST_ERROR_ALREADY_INITIALIZED: i32 = 4055i32;
@@ -5831,258 +5831,258 @@ pub const PEERDIST_ERROR_SERVICE_UNAVAILABLE: i32 = 4065i32;
 pub const PEERDIST_ERROR_SHUTDOWN_IN_PROGRESS: i32 = 4056i32;
 pub const PEERDIST_ERROR_TRUST_FAILURE: i32 = 4066i32;
 pub const PEERDIST_ERROR_VERSION_UNSUPPORTED: i32 = 4062i32;
-pub const PEER_E_ALREADY_LISTENING: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80630107_u32 as _);
-pub const PEER_E_CANNOT_CONVERT_PEER_NAME: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80634001_u32 as _);
-pub const PEER_E_CANNOT_START_SERVICE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80630003_u32 as _);
-pub const PEER_E_CERT_STORE_CORRUPTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80630801_u32 as _);
-pub const PEER_E_CHAIN_TOO_LONG: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80630703_u32 as _);
-pub const PEER_E_CIRCULAR_CHAIN_DETECTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80630706_u32 as _);
-pub const PEER_E_CLASSIFIER_TOO_LONG: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80630201_u32 as _);
-pub const PEER_E_CLOUD_NAME_AMBIGUOUS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80631005_u32 as _);
-pub const PEER_E_CONNECTION_FAILED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80630109_u32 as _);
-pub const PEER_E_CONNECTION_NOT_AUTHENTICATED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8063010A_u32 as _);
-pub const PEER_E_CONNECTION_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80630103_u32 as _);
-pub const PEER_E_CONNECTION_REFUSED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8063010B_u32 as _);
-pub const PEER_E_CONNECT_SELF: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80630106_u32 as _);
-pub const PEER_E_CONTACT_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80636001_u32 as _);
-pub const PEER_E_DATABASE_ACCESSDENIED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80630302_u32 as _);
-pub const PEER_E_DATABASE_ALREADY_PRESENT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80630305_u32 as _);
-pub const PEER_E_DATABASE_NOT_PRESENT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80630306_u32 as _);
-pub const PEER_E_DBINITIALIZATION_FAILED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80630303_u32 as _);
-pub const PEER_E_DBNAME_CHANGED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80630011_u32 as _);
-pub const PEER_E_DEFERRED_VALIDATION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80632030_u32 as _);
-pub const PEER_E_DUPLICATE_GRAPH: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80630012_u32 as _);
-pub const PEER_E_EVENT_HANDLE_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80630501_u32 as _);
-pub const PEER_E_FW_BLOCKED_BY_POLICY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80637009_u32 as _);
-pub const PEER_E_FW_BLOCKED_BY_SHIELDS_UP: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8063700A_u32 as _);
-pub const PEER_E_FW_DECLINED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8063700B_u32 as _);
-pub const PEER_E_FW_EXCEPTION_DISABLED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80637008_u32 as _);
-pub const PEER_E_GRAPH_IN_USE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80630015_u32 as _);
-pub const PEER_E_GRAPH_NOT_READY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80630013_u32 as _);
-pub const PEER_E_GRAPH_SHUTTING_DOWN: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80630014_u32 as _);
-pub const PEER_E_GROUPS_EXIST: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80630204_u32 as _);
-pub const PEER_E_GROUP_IN_USE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80632092_u32 as _);
-pub const PEER_E_GROUP_NOT_READY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80632091_u32 as _);
-pub const PEER_E_IDENTITY_DELETED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x806320A0_u32 as _);
-pub const PEER_E_IDENTITY_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80630401_u32 as _);
-pub const PEER_E_INVALID_ADDRESS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80637007_u32 as _);
-pub const PEER_E_INVALID_ATTRIBUTES: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80630602_u32 as _);
-pub const PEER_E_INVALID_CLASSIFIER: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80632060_u32 as _);
-pub const PEER_E_INVALID_CLASSIFIER_PROPERTY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80632072_u32 as _);
-pub const PEER_E_INVALID_CREDENTIAL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80632082_u32 as _);
-pub const PEER_E_INVALID_CREDENTIAL_INFO: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80632081_u32 as _);
-pub const PEER_E_INVALID_DATABASE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80630016_u32 as _);
-pub const PEER_E_INVALID_FRIENDLY_NAME: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80632070_u32 as _);
-pub const PEER_E_INVALID_GRAPH: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80630010_u32 as _);
-pub const PEER_E_INVALID_GROUP: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80632093_u32 as _);
-pub const PEER_E_INVALID_GROUP_PROPERTIES: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80632040_u32 as _);
-pub const PEER_E_INVALID_PEER_HOST_NAME: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80634002_u32 as _);
-pub const PEER_E_INVALID_PEER_NAME: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80632050_u32 as _);
-pub const PEER_E_INVALID_RECORD: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80632010_u32 as _);
-pub const PEER_E_INVALID_RECORD_EXPIRATION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80632080_u32 as _);
-pub const PEER_E_INVALID_RECORD_SIZE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80632083_u32 as _);
-pub const PEER_E_INVALID_ROLE_PROPERTY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80632071_u32 as _);
-pub const PEER_E_INVALID_SEARCH: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80630601_u32 as _);
-pub const PEER_E_INVALID_TIME_PERIOD: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80630705_u32 as _);
-pub const PEER_E_INVITATION_NOT_TRUSTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80630701_u32 as _);
-pub const PEER_E_INVITE_CANCELLED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80637000_u32 as _);
-pub const PEER_E_INVITE_RESPONSE_NOT_AVAILABLE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80637001_u32 as _);
-pub const PEER_E_IPV6_NOT_INSTALLED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80630001_u32 as _);
-pub const PEER_E_MAX_RECORD_SIZE_EXCEEDED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80630304_u32 as _);
-pub const PEER_E_NODE_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80630108_u32 as _);
-pub const PEER_E_NOT_AUTHORIZED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80632020_u32 as _);
-pub const PEER_E_NOT_INITIALIZED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80630002_u32 as _);
-pub const PEER_E_NOT_LICENSED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80630004_u32 as _);
-pub const PEER_E_NOT_SIGNED_IN: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80637003_u32 as _);
-pub const PEER_E_NO_CLOUD: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80631001_u32 as _);
-pub const PEER_E_NO_KEY_ACCESS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80630203_u32 as _);
-pub const PEER_E_NO_MEMBERS_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80632094_u32 as _);
-pub const PEER_E_NO_MEMBER_CONNECTIONS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80632095_u32 as _);
-pub const PEER_E_NO_MORE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80634003_u32 as _);
-pub const PEER_E_PASSWORD_DOES_NOT_MEET_POLICY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80632021_u32 as _);
-pub const PEER_E_PNRP_DUPLICATE_PEER_NAME: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80634005_u32 as _);
-pub const PEER_E_PRIVACY_DECLINED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80637004_u32 as _);
-pub const PEER_E_RECORD_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80630301_u32 as _);
-pub const PEER_E_SERVICE_NOT_AVAILABLE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x806320A1_u32 as _);
-pub const PEER_E_TIMEOUT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80637005_u32 as _);
-pub const PEER_E_TOO_MANY_ATTRIBUTES: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80630017_u32 as _);
-pub const PEER_E_TOO_MANY_IDENTITIES: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80630202_u32 as _);
-pub const PEER_E_UNABLE_TO_LISTEN: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80632096_u32 as _);
-pub const PEER_E_UNSUPPORTED_VERSION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80632090_u32 as _);
-pub const PEER_S_ALREADY_A_MEMBER: ::windows_core::HRESULT = ::windows_core::HRESULT(0x630006_u32 as _);
-pub const PEER_S_ALREADY_CONNECTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x632000_u32 as _);
-pub const PEER_S_GRAPH_DATA_CREATED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x630001_u32 as _);
-pub const PEER_S_NO_CONNECTIVITY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x630005_u32 as _);
-pub const PEER_S_NO_EVENT_DATA: ::windows_core::HRESULT = ::windows_core::HRESULT(0x630002_u32 as _);
-pub const PEER_S_SUBSCRIPTION_EXISTS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x636000_u32 as _);
-pub const PERSIST_E_NOTSELFSIZING: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800B000B_u32 as _);
-pub const PERSIST_E_SIZEDEFINITE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800B0009_u32 as _);
-pub const PERSIST_E_SIZEINDEFINITE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800B000A_u32 as _);
-pub const PLA_E_CABAPI_FAILURE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80300113_u32 as _);
-pub const PLA_E_CONFLICT_INCL_EXCL_API: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80300105_u32 as _);
-pub const PLA_E_CREDENTIALS_REQUIRED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80300103_u32 as _);
-pub const PLA_E_DCS_ALREADY_EXISTS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803000B7_u32 as _);
-pub const PLA_E_DCS_IN_USE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803000AA_u32 as _);
-pub const PLA_E_DCS_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80300002_u32 as _);
-pub const PLA_E_DCS_NOT_RUNNING: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80300104_u32 as _);
-pub const PLA_E_DCS_SINGLETON_REQUIRED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80300102_u32 as _);
-pub const PLA_E_DCS_START_WAIT_TIMEOUT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8030010A_u32 as _);
-pub const PLA_E_DC_ALREADY_EXISTS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80300109_u32 as _);
-pub const PLA_E_DC_START_WAIT_TIMEOUT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8030010B_u32 as _);
-pub const PLA_E_EXE_ALREADY_CONFIGURED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80300107_u32 as _);
-pub const PLA_E_EXE_FULL_PATH_REQUIRED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8030010E_u32 as _);
-pub const PLA_E_EXE_PATH_NOT_VALID: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80300108_u32 as _);
-pub const PLA_E_INVALID_SESSION_NAME: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8030010F_u32 as _);
-pub const PLA_E_NETWORK_EXE_NOT_VALID: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80300106_u32 as _);
-pub const PLA_E_NO_DUPLICATES: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8030010D_u32 as _);
-pub const PLA_E_NO_MIN_DISK: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80300070_u32 as _);
-pub const PLA_E_PLA_CHANNEL_NOT_ENABLED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80300110_u32 as _);
-pub const PLA_E_PROPERTY_CONFLICT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80300101_u32 as _);
-pub const PLA_E_REPORT_WAIT_TIMEOUT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8030010C_u32 as _);
-pub const PLA_E_RULES_MANAGER_FAILED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80300112_u32 as _);
-pub const PLA_E_TASKSCHED_CHANNEL_NOT_ENABLED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80300111_u32 as _);
-pub const PLA_E_TOO_MANY_FOLDERS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80300045_u32 as _);
-pub const PLA_S_PROPERTY_IGNORED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x300100_u32 as _);
-pub const PRESENTATION_ERROR_LOST: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88810001_u32 as _);
-pub const PSINK_E_INDEX_ONLY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80041791_u32 as _);
-pub const PSINK_E_LARGE_ATTACHMENT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80041792_u32 as _);
-pub const PSINK_E_QUERY_ONLY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80041790_u32 as _);
-pub const PSINK_S_LARGE_WORD: ::windows_core::HRESULT = ::windows_core::HRESULT(0x41793_u32 as _);
-pub const QPARSE_E_EXPECTING_BRACE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80041666_u32 as _);
-pub const QPARSE_E_EXPECTING_COMMA: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80041671_u32 as _);
-pub const QPARSE_E_EXPECTING_CURRENCY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80041664_u32 as _);
-pub const QPARSE_E_EXPECTING_DATE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80041663_u32 as _);
-pub const QPARSE_E_EXPECTING_EOS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80041670_u32 as _);
-pub const QPARSE_E_EXPECTING_GUID: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80041665_u32 as _);
-pub const QPARSE_E_EXPECTING_INTEGER: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80041661_u32 as _);
-pub const QPARSE_E_EXPECTING_PAREN: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80041667_u32 as _);
-pub const QPARSE_E_EXPECTING_PHRASE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004166A_u32 as _);
-pub const QPARSE_E_EXPECTING_PROPERTY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80041668_u32 as _);
-pub const QPARSE_E_EXPECTING_REAL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80041662_u32 as _);
-pub const QPARSE_E_EXPECTING_REGEX: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004166C_u32 as _);
-pub const QPARSE_E_EXPECTING_REGEX_PROPERTY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004166D_u32 as _);
-pub const QPARSE_E_INVALID_GROUPING: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80041677_u32 as _);
-pub const QPARSE_E_INVALID_LITERAL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004166E_u32 as _);
-pub const QPARSE_E_INVALID_QUERY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004167A_u32 as _);
-pub const QPARSE_E_INVALID_RANKMETHOD: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004167B_u32 as _);
-pub const QPARSE_E_INVALID_SORT_ORDER: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80041675_u32 as _);
-pub const QPARSE_E_NOT_YET_IMPLEMENTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80041669_u32 as _);
-pub const QPARSE_E_NO_SUCH_PROPERTY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004166F_u32 as _);
-pub const QPARSE_E_NO_SUCH_SORT_PROPERTY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80041674_u32 as _);
-pub const QPARSE_E_UNEXPECTED_EOS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80041672_u32 as _);
-pub const QPARSE_E_UNEXPECTED_NOT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80041660_u32 as _);
-pub const QPARSE_E_UNSUPPORTED_PROPERTY_TYPE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004166B_u32 as _);
-pub const QPARSE_E_WEIGHT_OUT_OF_RANGE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80041673_u32 as _);
-pub const QPLIST_E_BAD_GUID: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80041659_u32 as _);
-pub const QPLIST_E_BYREF_USED_WITHOUT_PTRTYPE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004165E_u32 as _);
-pub const QPLIST_E_CANT_OPEN_FILE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80041651_u32 as _);
-pub const QPLIST_E_CANT_SET_PROPERTY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004165B_u32 as _);
-pub const QPLIST_E_DUPLICATE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004165C_u32 as _);
-pub const QPLIST_E_EXPECTING_CLOSE_PAREN: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80041657_u32 as _);
-pub const QPLIST_E_EXPECTING_GUID: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80041658_u32 as _);
-pub const QPLIST_E_EXPECTING_INTEGER: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80041656_u32 as _);
-pub const QPLIST_E_EXPECTING_NAME: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80041653_u32 as _);
-pub const QPLIST_E_EXPECTING_PROP_SPEC: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004165A_u32 as _);
-pub const QPLIST_E_EXPECTING_TYPE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80041654_u32 as _);
-pub const QPLIST_E_READ_ERROR: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80041652_u32 as _);
-pub const QPLIST_E_UNRECOGNIZED_TYPE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80041655_u32 as _);
-pub const QPLIST_E_VECTORBYREF_USED_ALONE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004165D_u32 as _);
-pub const QPLIST_S_DUPLICATE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x41679_u32 as _);
-pub const QUERY_E_ALLNOISE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80041605_u32 as _);
-pub const QUERY_E_DIR_ON_REMOVABLE_DRIVE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004160B_u32 as _);
-pub const QUERY_E_DUPLICATE_OUTPUT_COLUMN: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80041608_u32 as _);
-pub const QUERY_E_FAILED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80041600_u32 as _);
-pub const QUERY_E_INVALIDCATEGORIZE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80041604_u32 as _);
-pub const QUERY_E_INVALIDQUERY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80041601_u32 as _);
-pub const QUERY_E_INVALIDRESTRICTION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80041602_u32 as _);
-pub const QUERY_E_INVALIDSORT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80041603_u32 as _);
-pub const QUERY_E_INVALID_DIRECTORY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004160A_u32 as _);
-pub const QUERY_E_INVALID_OUTPUT_COLUMN: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80041609_u32 as _);
-pub const QUERY_E_TIMEDOUT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80041607_u32 as _);
-pub const QUERY_E_TOOCOMPLEX: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80041606_u32 as _);
-pub const QUERY_S_NO_QUERY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004160C_u32 as _);
-pub const QUTIL_E_CANT_CONVERT_VROOT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80041676_u32 as _);
-pub const QUTIL_E_INVALID_CODEPAGE: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0041678_u32 as _);
-pub const REGDB_E_BADTHREADINGMODEL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80040156_u32 as _);
-pub const REGDB_E_CLASSNOTREG: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80040154_u32 as _);
+pub const PEER_E_ALREADY_LISTENING: windows_core::HRESULT = windows_core::HRESULT(0x80630107_u32 as _);
+pub const PEER_E_CANNOT_CONVERT_PEER_NAME: windows_core::HRESULT = windows_core::HRESULT(0x80634001_u32 as _);
+pub const PEER_E_CANNOT_START_SERVICE: windows_core::HRESULT = windows_core::HRESULT(0x80630003_u32 as _);
+pub const PEER_E_CERT_STORE_CORRUPTED: windows_core::HRESULT = windows_core::HRESULT(0x80630801_u32 as _);
+pub const PEER_E_CHAIN_TOO_LONG: windows_core::HRESULT = windows_core::HRESULT(0x80630703_u32 as _);
+pub const PEER_E_CIRCULAR_CHAIN_DETECTED: windows_core::HRESULT = windows_core::HRESULT(0x80630706_u32 as _);
+pub const PEER_E_CLASSIFIER_TOO_LONG: windows_core::HRESULT = windows_core::HRESULT(0x80630201_u32 as _);
+pub const PEER_E_CLOUD_NAME_AMBIGUOUS: windows_core::HRESULT = windows_core::HRESULT(0x80631005_u32 as _);
+pub const PEER_E_CONNECTION_FAILED: windows_core::HRESULT = windows_core::HRESULT(0x80630109_u32 as _);
+pub const PEER_E_CONNECTION_NOT_AUTHENTICATED: windows_core::HRESULT = windows_core::HRESULT(0x8063010A_u32 as _);
+pub const PEER_E_CONNECTION_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0x80630103_u32 as _);
+pub const PEER_E_CONNECTION_REFUSED: windows_core::HRESULT = windows_core::HRESULT(0x8063010B_u32 as _);
+pub const PEER_E_CONNECT_SELF: windows_core::HRESULT = windows_core::HRESULT(0x80630106_u32 as _);
+pub const PEER_E_CONTACT_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0x80636001_u32 as _);
+pub const PEER_E_DATABASE_ACCESSDENIED: windows_core::HRESULT = windows_core::HRESULT(0x80630302_u32 as _);
+pub const PEER_E_DATABASE_ALREADY_PRESENT: windows_core::HRESULT = windows_core::HRESULT(0x80630305_u32 as _);
+pub const PEER_E_DATABASE_NOT_PRESENT: windows_core::HRESULT = windows_core::HRESULT(0x80630306_u32 as _);
+pub const PEER_E_DBINITIALIZATION_FAILED: windows_core::HRESULT = windows_core::HRESULT(0x80630303_u32 as _);
+pub const PEER_E_DBNAME_CHANGED: windows_core::HRESULT = windows_core::HRESULT(0x80630011_u32 as _);
+pub const PEER_E_DEFERRED_VALIDATION: windows_core::HRESULT = windows_core::HRESULT(0x80632030_u32 as _);
+pub const PEER_E_DUPLICATE_GRAPH: windows_core::HRESULT = windows_core::HRESULT(0x80630012_u32 as _);
+pub const PEER_E_EVENT_HANDLE_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0x80630501_u32 as _);
+pub const PEER_E_FW_BLOCKED_BY_POLICY: windows_core::HRESULT = windows_core::HRESULT(0x80637009_u32 as _);
+pub const PEER_E_FW_BLOCKED_BY_SHIELDS_UP: windows_core::HRESULT = windows_core::HRESULT(0x8063700A_u32 as _);
+pub const PEER_E_FW_DECLINED: windows_core::HRESULT = windows_core::HRESULT(0x8063700B_u32 as _);
+pub const PEER_E_FW_EXCEPTION_DISABLED: windows_core::HRESULT = windows_core::HRESULT(0x80637008_u32 as _);
+pub const PEER_E_GRAPH_IN_USE: windows_core::HRESULT = windows_core::HRESULT(0x80630015_u32 as _);
+pub const PEER_E_GRAPH_NOT_READY: windows_core::HRESULT = windows_core::HRESULT(0x80630013_u32 as _);
+pub const PEER_E_GRAPH_SHUTTING_DOWN: windows_core::HRESULT = windows_core::HRESULT(0x80630014_u32 as _);
+pub const PEER_E_GROUPS_EXIST: windows_core::HRESULT = windows_core::HRESULT(0x80630204_u32 as _);
+pub const PEER_E_GROUP_IN_USE: windows_core::HRESULT = windows_core::HRESULT(0x80632092_u32 as _);
+pub const PEER_E_GROUP_NOT_READY: windows_core::HRESULT = windows_core::HRESULT(0x80632091_u32 as _);
+pub const PEER_E_IDENTITY_DELETED: windows_core::HRESULT = windows_core::HRESULT(0x806320A0_u32 as _);
+pub const PEER_E_IDENTITY_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0x80630401_u32 as _);
+pub const PEER_E_INVALID_ADDRESS: windows_core::HRESULT = windows_core::HRESULT(0x80637007_u32 as _);
+pub const PEER_E_INVALID_ATTRIBUTES: windows_core::HRESULT = windows_core::HRESULT(0x80630602_u32 as _);
+pub const PEER_E_INVALID_CLASSIFIER: windows_core::HRESULT = windows_core::HRESULT(0x80632060_u32 as _);
+pub const PEER_E_INVALID_CLASSIFIER_PROPERTY: windows_core::HRESULT = windows_core::HRESULT(0x80632072_u32 as _);
+pub const PEER_E_INVALID_CREDENTIAL: windows_core::HRESULT = windows_core::HRESULT(0x80632082_u32 as _);
+pub const PEER_E_INVALID_CREDENTIAL_INFO: windows_core::HRESULT = windows_core::HRESULT(0x80632081_u32 as _);
+pub const PEER_E_INVALID_DATABASE: windows_core::HRESULT = windows_core::HRESULT(0x80630016_u32 as _);
+pub const PEER_E_INVALID_FRIENDLY_NAME: windows_core::HRESULT = windows_core::HRESULT(0x80632070_u32 as _);
+pub const PEER_E_INVALID_GRAPH: windows_core::HRESULT = windows_core::HRESULT(0x80630010_u32 as _);
+pub const PEER_E_INVALID_GROUP: windows_core::HRESULT = windows_core::HRESULT(0x80632093_u32 as _);
+pub const PEER_E_INVALID_GROUP_PROPERTIES: windows_core::HRESULT = windows_core::HRESULT(0x80632040_u32 as _);
+pub const PEER_E_INVALID_PEER_HOST_NAME: windows_core::HRESULT = windows_core::HRESULT(0x80634002_u32 as _);
+pub const PEER_E_INVALID_PEER_NAME: windows_core::HRESULT = windows_core::HRESULT(0x80632050_u32 as _);
+pub const PEER_E_INVALID_RECORD: windows_core::HRESULT = windows_core::HRESULT(0x80632010_u32 as _);
+pub const PEER_E_INVALID_RECORD_EXPIRATION: windows_core::HRESULT = windows_core::HRESULT(0x80632080_u32 as _);
+pub const PEER_E_INVALID_RECORD_SIZE: windows_core::HRESULT = windows_core::HRESULT(0x80632083_u32 as _);
+pub const PEER_E_INVALID_ROLE_PROPERTY: windows_core::HRESULT = windows_core::HRESULT(0x80632071_u32 as _);
+pub const PEER_E_INVALID_SEARCH: windows_core::HRESULT = windows_core::HRESULT(0x80630601_u32 as _);
+pub const PEER_E_INVALID_TIME_PERIOD: windows_core::HRESULT = windows_core::HRESULT(0x80630705_u32 as _);
+pub const PEER_E_INVITATION_NOT_TRUSTED: windows_core::HRESULT = windows_core::HRESULT(0x80630701_u32 as _);
+pub const PEER_E_INVITE_CANCELLED: windows_core::HRESULT = windows_core::HRESULT(0x80637000_u32 as _);
+pub const PEER_E_INVITE_RESPONSE_NOT_AVAILABLE: windows_core::HRESULT = windows_core::HRESULT(0x80637001_u32 as _);
+pub const PEER_E_IPV6_NOT_INSTALLED: windows_core::HRESULT = windows_core::HRESULT(0x80630001_u32 as _);
+pub const PEER_E_MAX_RECORD_SIZE_EXCEEDED: windows_core::HRESULT = windows_core::HRESULT(0x80630304_u32 as _);
+pub const PEER_E_NODE_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0x80630108_u32 as _);
+pub const PEER_E_NOT_AUTHORIZED: windows_core::HRESULT = windows_core::HRESULT(0x80632020_u32 as _);
+pub const PEER_E_NOT_INITIALIZED: windows_core::HRESULT = windows_core::HRESULT(0x80630002_u32 as _);
+pub const PEER_E_NOT_LICENSED: windows_core::HRESULT = windows_core::HRESULT(0x80630004_u32 as _);
+pub const PEER_E_NOT_SIGNED_IN: windows_core::HRESULT = windows_core::HRESULT(0x80637003_u32 as _);
+pub const PEER_E_NO_CLOUD: windows_core::HRESULT = windows_core::HRESULT(0x80631001_u32 as _);
+pub const PEER_E_NO_KEY_ACCESS: windows_core::HRESULT = windows_core::HRESULT(0x80630203_u32 as _);
+pub const PEER_E_NO_MEMBERS_FOUND: windows_core::HRESULT = windows_core::HRESULT(0x80632094_u32 as _);
+pub const PEER_E_NO_MEMBER_CONNECTIONS: windows_core::HRESULT = windows_core::HRESULT(0x80632095_u32 as _);
+pub const PEER_E_NO_MORE: windows_core::HRESULT = windows_core::HRESULT(0x80634003_u32 as _);
+pub const PEER_E_PASSWORD_DOES_NOT_MEET_POLICY: windows_core::HRESULT = windows_core::HRESULT(0x80632021_u32 as _);
+pub const PEER_E_PNRP_DUPLICATE_PEER_NAME: windows_core::HRESULT = windows_core::HRESULT(0x80634005_u32 as _);
+pub const PEER_E_PRIVACY_DECLINED: windows_core::HRESULT = windows_core::HRESULT(0x80637004_u32 as _);
+pub const PEER_E_RECORD_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0x80630301_u32 as _);
+pub const PEER_E_SERVICE_NOT_AVAILABLE: windows_core::HRESULT = windows_core::HRESULT(0x806320A1_u32 as _);
+pub const PEER_E_TIMEOUT: windows_core::HRESULT = windows_core::HRESULT(0x80637005_u32 as _);
+pub const PEER_E_TOO_MANY_ATTRIBUTES: windows_core::HRESULT = windows_core::HRESULT(0x80630017_u32 as _);
+pub const PEER_E_TOO_MANY_IDENTITIES: windows_core::HRESULT = windows_core::HRESULT(0x80630202_u32 as _);
+pub const PEER_E_UNABLE_TO_LISTEN: windows_core::HRESULT = windows_core::HRESULT(0x80632096_u32 as _);
+pub const PEER_E_UNSUPPORTED_VERSION: windows_core::HRESULT = windows_core::HRESULT(0x80632090_u32 as _);
+pub const PEER_S_ALREADY_A_MEMBER: windows_core::HRESULT = windows_core::HRESULT(0x630006_u32 as _);
+pub const PEER_S_ALREADY_CONNECTED: windows_core::HRESULT = windows_core::HRESULT(0x632000_u32 as _);
+pub const PEER_S_GRAPH_DATA_CREATED: windows_core::HRESULT = windows_core::HRESULT(0x630001_u32 as _);
+pub const PEER_S_NO_CONNECTIVITY: windows_core::HRESULT = windows_core::HRESULT(0x630005_u32 as _);
+pub const PEER_S_NO_EVENT_DATA: windows_core::HRESULT = windows_core::HRESULT(0x630002_u32 as _);
+pub const PEER_S_SUBSCRIPTION_EXISTS: windows_core::HRESULT = windows_core::HRESULT(0x636000_u32 as _);
+pub const PERSIST_E_NOTSELFSIZING: windows_core::HRESULT = windows_core::HRESULT(0x800B000B_u32 as _);
+pub const PERSIST_E_SIZEDEFINITE: windows_core::HRESULT = windows_core::HRESULT(0x800B0009_u32 as _);
+pub const PERSIST_E_SIZEINDEFINITE: windows_core::HRESULT = windows_core::HRESULT(0x800B000A_u32 as _);
+pub const PLA_E_CABAPI_FAILURE: windows_core::HRESULT = windows_core::HRESULT(0x80300113_u32 as _);
+pub const PLA_E_CONFLICT_INCL_EXCL_API: windows_core::HRESULT = windows_core::HRESULT(0x80300105_u32 as _);
+pub const PLA_E_CREDENTIALS_REQUIRED: windows_core::HRESULT = windows_core::HRESULT(0x80300103_u32 as _);
+pub const PLA_E_DCS_ALREADY_EXISTS: windows_core::HRESULT = windows_core::HRESULT(0x803000B7_u32 as _);
+pub const PLA_E_DCS_IN_USE: windows_core::HRESULT = windows_core::HRESULT(0x803000AA_u32 as _);
+pub const PLA_E_DCS_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0x80300002_u32 as _);
+pub const PLA_E_DCS_NOT_RUNNING: windows_core::HRESULT = windows_core::HRESULT(0x80300104_u32 as _);
+pub const PLA_E_DCS_SINGLETON_REQUIRED: windows_core::HRESULT = windows_core::HRESULT(0x80300102_u32 as _);
+pub const PLA_E_DCS_START_WAIT_TIMEOUT: windows_core::HRESULT = windows_core::HRESULT(0x8030010A_u32 as _);
+pub const PLA_E_DC_ALREADY_EXISTS: windows_core::HRESULT = windows_core::HRESULT(0x80300109_u32 as _);
+pub const PLA_E_DC_START_WAIT_TIMEOUT: windows_core::HRESULT = windows_core::HRESULT(0x8030010B_u32 as _);
+pub const PLA_E_EXE_ALREADY_CONFIGURED: windows_core::HRESULT = windows_core::HRESULT(0x80300107_u32 as _);
+pub const PLA_E_EXE_FULL_PATH_REQUIRED: windows_core::HRESULT = windows_core::HRESULT(0x8030010E_u32 as _);
+pub const PLA_E_EXE_PATH_NOT_VALID: windows_core::HRESULT = windows_core::HRESULT(0x80300108_u32 as _);
+pub const PLA_E_INVALID_SESSION_NAME: windows_core::HRESULT = windows_core::HRESULT(0x8030010F_u32 as _);
+pub const PLA_E_NETWORK_EXE_NOT_VALID: windows_core::HRESULT = windows_core::HRESULT(0x80300106_u32 as _);
+pub const PLA_E_NO_DUPLICATES: windows_core::HRESULT = windows_core::HRESULT(0x8030010D_u32 as _);
+pub const PLA_E_NO_MIN_DISK: windows_core::HRESULT = windows_core::HRESULT(0x80300070_u32 as _);
+pub const PLA_E_PLA_CHANNEL_NOT_ENABLED: windows_core::HRESULT = windows_core::HRESULT(0x80300110_u32 as _);
+pub const PLA_E_PROPERTY_CONFLICT: windows_core::HRESULT = windows_core::HRESULT(0x80300101_u32 as _);
+pub const PLA_E_REPORT_WAIT_TIMEOUT: windows_core::HRESULT = windows_core::HRESULT(0x8030010C_u32 as _);
+pub const PLA_E_RULES_MANAGER_FAILED: windows_core::HRESULT = windows_core::HRESULT(0x80300112_u32 as _);
+pub const PLA_E_TASKSCHED_CHANNEL_NOT_ENABLED: windows_core::HRESULT = windows_core::HRESULT(0x80300111_u32 as _);
+pub const PLA_E_TOO_MANY_FOLDERS: windows_core::HRESULT = windows_core::HRESULT(0x80300045_u32 as _);
+pub const PLA_S_PROPERTY_IGNORED: windows_core::HRESULT = windows_core::HRESULT(0x300100_u32 as _);
+pub const PRESENTATION_ERROR_LOST: windows_core::HRESULT = windows_core::HRESULT(0x88810001_u32 as _);
+pub const PSINK_E_INDEX_ONLY: windows_core::HRESULT = windows_core::HRESULT(0x80041791_u32 as _);
+pub const PSINK_E_LARGE_ATTACHMENT: windows_core::HRESULT = windows_core::HRESULT(0x80041792_u32 as _);
+pub const PSINK_E_QUERY_ONLY: windows_core::HRESULT = windows_core::HRESULT(0x80041790_u32 as _);
+pub const PSINK_S_LARGE_WORD: windows_core::HRESULT = windows_core::HRESULT(0x41793_u32 as _);
+pub const QPARSE_E_EXPECTING_BRACE: windows_core::HRESULT = windows_core::HRESULT(0x80041666_u32 as _);
+pub const QPARSE_E_EXPECTING_COMMA: windows_core::HRESULT = windows_core::HRESULT(0x80041671_u32 as _);
+pub const QPARSE_E_EXPECTING_CURRENCY: windows_core::HRESULT = windows_core::HRESULT(0x80041664_u32 as _);
+pub const QPARSE_E_EXPECTING_DATE: windows_core::HRESULT = windows_core::HRESULT(0x80041663_u32 as _);
+pub const QPARSE_E_EXPECTING_EOS: windows_core::HRESULT = windows_core::HRESULT(0x80041670_u32 as _);
+pub const QPARSE_E_EXPECTING_GUID: windows_core::HRESULT = windows_core::HRESULT(0x80041665_u32 as _);
+pub const QPARSE_E_EXPECTING_INTEGER: windows_core::HRESULT = windows_core::HRESULT(0x80041661_u32 as _);
+pub const QPARSE_E_EXPECTING_PAREN: windows_core::HRESULT = windows_core::HRESULT(0x80041667_u32 as _);
+pub const QPARSE_E_EXPECTING_PHRASE: windows_core::HRESULT = windows_core::HRESULT(0x8004166A_u32 as _);
+pub const QPARSE_E_EXPECTING_PROPERTY: windows_core::HRESULT = windows_core::HRESULT(0x80041668_u32 as _);
+pub const QPARSE_E_EXPECTING_REAL: windows_core::HRESULT = windows_core::HRESULT(0x80041662_u32 as _);
+pub const QPARSE_E_EXPECTING_REGEX: windows_core::HRESULT = windows_core::HRESULT(0x8004166C_u32 as _);
+pub const QPARSE_E_EXPECTING_REGEX_PROPERTY: windows_core::HRESULT = windows_core::HRESULT(0x8004166D_u32 as _);
+pub const QPARSE_E_INVALID_GROUPING: windows_core::HRESULT = windows_core::HRESULT(0x80041677_u32 as _);
+pub const QPARSE_E_INVALID_LITERAL: windows_core::HRESULT = windows_core::HRESULT(0x8004166E_u32 as _);
+pub const QPARSE_E_INVALID_QUERY: windows_core::HRESULT = windows_core::HRESULT(0x8004167A_u32 as _);
+pub const QPARSE_E_INVALID_RANKMETHOD: windows_core::HRESULT = windows_core::HRESULT(0x8004167B_u32 as _);
+pub const QPARSE_E_INVALID_SORT_ORDER: windows_core::HRESULT = windows_core::HRESULT(0x80041675_u32 as _);
+pub const QPARSE_E_NOT_YET_IMPLEMENTED: windows_core::HRESULT = windows_core::HRESULT(0x80041669_u32 as _);
+pub const QPARSE_E_NO_SUCH_PROPERTY: windows_core::HRESULT = windows_core::HRESULT(0x8004166F_u32 as _);
+pub const QPARSE_E_NO_SUCH_SORT_PROPERTY: windows_core::HRESULT = windows_core::HRESULT(0x80041674_u32 as _);
+pub const QPARSE_E_UNEXPECTED_EOS: windows_core::HRESULT = windows_core::HRESULT(0x80041672_u32 as _);
+pub const QPARSE_E_UNEXPECTED_NOT: windows_core::HRESULT = windows_core::HRESULT(0x80041660_u32 as _);
+pub const QPARSE_E_UNSUPPORTED_PROPERTY_TYPE: windows_core::HRESULT = windows_core::HRESULT(0x8004166B_u32 as _);
+pub const QPARSE_E_WEIGHT_OUT_OF_RANGE: windows_core::HRESULT = windows_core::HRESULT(0x80041673_u32 as _);
+pub const QPLIST_E_BAD_GUID: windows_core::HRESULT = windows_core::HRESULT(0x80041659_u32 as _);
+pub const QPLIST_E_BYREF_USED_WITHOUT_PTRTYPE: windows_core::HRESULT = windows_core::HRESULT(0x8004165E_u32 as _);
+pub const QPLIST_E_CANT_OPEN_FILE: windows_core::HRESULT = windows_core::HRESULT(0x80041651_u32 as _);
+pub const QPLIST_E_CANT_SET_PROPERTY: windows_core::HRESULT = windows_core::HRESULT(0x8004165B_u32 as _);
+pub const QPLIST_E_DUPLICATE: windows_core::HRESULT = windows_core::HRESULT(0x8004165C_u32 as _);
+pub const QPLIST_E_EXPECTING_CLOSE_PAREN: windows_core::HRESULT = windows_core::HRESULT(0x80041657_u32 as _);
+pub const QPLIST_E_EXPECTING_GUID: windows_core::HRESULT = windows_core::HRESULT(0x80041658_u32 as _);
+pub const QPLIST_E_EXPECTING_INTEGER: windows_core::HRESULT = windows_core::HRESULT(0x80041656_u32 as _);
+pub const QPLIST_E_EXPECTING_NAME: windows_core::HRESULT = windows_core::HRESULT(0x80041653_u32 as _);
+pub const QPLIST_E_EXPECTING_PROP_SPEC: windows_core::HRESULT = windows_core::HRESULT(0x8004165A_u32 as _);
+pub const QPLIST_E_EXPECTING_TYPE: windows_core::HRESULT = windows_core::HRESULT(0x80041654_u32 as _);
+pub const QPLIST_E_READ_ERROR: windows_core::HRESULT = windows_core::HRESULT(0x80041652_u32 as _);
+pub const QPLIST_E_UNRECOGNIZED_TYPE: windows_core::HRESULT = windows_core::HRESULT(0x80041655_u32 as _);
+pub const QPLIST_E_VECTORBYREF_USED_ALONE: windows_core::HRESULT = windows_core::HRESULT(0x8004165D_u32 as _);
+pub const QPLIST_S_DUPLICATE: windows_core::HRESULT = windows_core::HRESULT(0x41679_u32 as _);
+pub const QUERY_E_ALLNOISE: windows_core::HRESULT = windows_core::HRESULT(0x80041605_u32 as _);
+pub const QUERY_E_DIR_ON_REMOVABLE_DRIVE: windows_core::HRESULT = windows_core::HRESULT(0x8004160B_u32 as _);
+pub const QUERY_E_DUPLICATE_OUTPUT_COLUMN: windows_core::HRESULT = windows_core::HRESULT(0x80041608_u32 as _);
+pub const QUERY_E_FAILED: windows_core::HRESULT = windows_core::HRESULT(0x80041600_u32 as _);
+pub const QUERY_E_INVALIDCATEGORIZE: windows_core::HRESULT = windows_core::HRESULT(0x80041604_u32 as _);
+pub const QUERY_E_INVALIDQUERY: windows_core::HRESULT = windows_core::HRESULT(0x80041601_u32 as _);
+pub const QUERY_E_INVALIDRESTRICTION: windows_core::HRESULT = windows_core::HRESULT(0x80041602_u32 as _);
+pub const QUERY_E_INVALIDSORT: windows_core::HRESULT = windows_core::HRESULT(0x80041603_u32 as _);
+pub const QUERY_E_INVALID_DIRECTORY: windows_core::HRESULT = windows_core::HRESULT(0x8004160A_u32 as _);
+pub const QUERY_E_INVALID_OUTPUT_COLUMN: windows_core::HRESULT = windows_core::HRESULT(0x80041609_u32 as _);
+pub const QUERY_E_TIMEDOUT: windows_core::HRESULT = windows_core::HRESULT(0x80041607_u32 as _);
+pub const QUERY_E_TOOCOMPLEX: windows_core::HRESULT = windows_core::HRESULT(0x80041606_u32 as _);
+pub const QUERY_S_NO_QUERY: windows_core::HRESULT = windows_core::HRESULT(0x8004160C_u32 as _);
+pub const QUTIL_E_CANT_CONVERT_VROOT: windows_core::HRESULT = windows_core::HRESULT(0x80041676_u32 as _);
+pub const QUTIL_E_INVALID_CODEPAGE: windows_core::HRESULT = windows_core::HRESULT(0xC0041678_u32 as _);
+pub const REGDB_E_BADTHREADINGMODEL: windows_core::HRESULT = windows_core::HRESULT(0x80040156_u32 as _);
+pub const REGDB_E_CLASSNOTREG: windows_core::HRESULT = windows_core::HRESULT(0x80040154_u32 as _);
 pub const REGDB_E_FIRST: i32 = -2147221168i32;
-pub const REGDB_E_IIDNOTREG: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80040155_u32 as _);
-pub const REGDB_E_INVALIDVALUE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80040153_u32 as _);
-pub const REGDB_E_KEYMISSING: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80040152_u32 as _);
+pub const REGDB_E_IIDNOTREG: windows_core::HRESULT = windows_core::HRESULT(0x80040155_u32 as _);
+pub const REGDB_E_INVALIDVALUE: windows_core::HRESULT = windows_core::HRESULT(0x80040153_u32 as _);
+pub const REGDB_E_KEYMISSING: windows_core::HRESULT = windows_core::HRESULT(0x80040152_u32 as _);
 pub const REGDB_E_LAST: i32 = -2147221153i32;
-pub const REGDB_E_PACKAGEPOLICYVIOLATION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80040157_u32 as _);
-pub const REGDB_E_READREGDB: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80040150_u32 as _);
-pub const REGDB_E_WRITEREGDB: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80040151_u32 as _);
+pub const REGDB_E_PACKAGEPOLICYVIOLATION: windows_core::HRESULT = windows_core::HRESULT(0x80040157_u32 as _);
+pub const REGDB_E_READREGDB: windows_core::HRESULT = windows_core::HRESULT(0x80040150_u32 as _);
+pub const REGDB_E_WRITEREGDB: windows_core::HRESULT = windows_core::HRESULT(0x80040151_u32 as _);
 pub const REGDB_S_FIRST: i32 = 262480i32;
 pub const REGDB_S_LAST: i32 = 262495i32;
 pub const ROUTEBASE: u32 = 900u32;
 pub const ROUTEBASEEND: u32 = 957u32;
-pub const RO_E_BLOCKED_CROSS_ASTA_CALL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8000001F_u32 as _);
-pub const RO_E_CANNOT_ACTIVATE_FULL_TRUST_SERVER: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80000020_u32 as _);
-pub const RO_E_CANNOT_ACTIVATE_UNIVERSAL_APPLICATION_SERVER: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80000021_u32 as _);
-pub const RO_E_CHANGE_NOTIFICATION_IN_PROGRESS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80000015_u32 as _);
-pub const RO_E_CLOSED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80000013_u32 as _);
-pub const RO_E_COMMITTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8000001E_u32 as _);
-pub const RO_E_ERROR_STRING_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80000016_u32 as _);
-pub const RO_E_EXCLUSIVE_WRITE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80000014_u32 as _);
-pub const RO_E_INVALID_METADATA_FILE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80000012_u32 as _);
-pub const RO_E_METADATA_INVALID_TYPE_FORMAT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80000011_u32 as _);
-pub const RO_E_METADATA_NAME_IS_NAMESPACE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80000010_u32 as _);
-pub const RO_E_METADATA_NAME_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8000000F_u32 as _);
-pub const RO_E_MUST_BE_AGILE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8000001C_u32 as _);
-pub const RO_E_UNSUPPORTED_FROM_MTA: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8000001D_u32 as _);
-pub const RPC_E_ACCESS_DENIED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8001011B_u32 as _);
-pub const RPC_E_ATTEMPTED_MULTITHREAD: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80010102_u32 as _);
-pub const RPC_E_CALL_CANCELED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80010002_u32 as _);
-pub const RPC_E_CALL_COMPLETE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80010117_u32 as _);
-pub const RPC_E_CALL_REJECTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80010001_u32 as _);
-pub const RPC_E_CANTCALLOUT_AGAIN: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80010011_u32 as _);
-pub const RPC_E_CANTCALLOUT_INASYNCCALL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80010004_u32 as _);
-pub const RPC_E_CANTCALLOUT_INEXTERNALCALL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80010005_u32 as _);
-pub const RPC_E_CANTCALLOUT_ININPUTSYNCCALL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8001010D_u32 as _);
-pub const RPC_E_CANTPOST_INSENDCALL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80010003_u32 as _);
-pub const RPC_E_CANTTRANSMIT_CALL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8001000A_u32 as _);
-pub const RPC_E_CHANGED_MODE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80010106_u32 as _);
-pub const RPC_E_CLIENT_CANTMARSHAL_DATA: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8001000B_u32 as _);
-pub const RPC_E_CLIENT_CANTUNMARSHAL_DATA: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8001000C_u32 as _);
-pub const RPC_E_CLIENT_DIED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80010008_u32 as _);
-pub const RPC_E_CONNECTION_TERMINATED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80010006_u32 as _);
-pub const RPC_E_DISCONNECTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80010108_u32 as _);
-pub const RPC_E_FAULT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80010104_u32 as _);
-pub const RPC_E_FULLSIC_REQUIRED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80010121_u32 as _);
-pub const RPC_E_INVALIDMETHOD: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80010107_u32 as _);
-pub const RPC_E_INVALID_CALLDATA: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8001010C_u32 as _);
-pub const RPC_E_INVALID_DATA: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8001000F_u32 as _);
-pub const RPC_E_INVALID_DATAPACKET: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80010009_u32 as _);
-pub const RPC_E_INVALID_EXTENSION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80010112_u32 as _);
-pub const RPC_E_INVALID_HEADER: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80010111_u32 as _);
-pub const RPC_E_INVALID_IPID: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80010113_u32 as _);
-pub const RPC_E_INVALID_OBJECT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80010114_u32 as _);
-pub const RPC_E_INVALID_OBJREF: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8001011D_u32 as _);
-pub const RPC_E_INVALID_PARAMETER: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80010010_u32 as _);
-pub const RPC_E_INVALID_STD_NAME: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80010122_u32 as _);
-pub const RPC_E_NOT_REGISTERED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80010103_u32 as _);
-pub const RPC_E_NO_CONTEXT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8001011E_u32 as _);
-pub const RPC_E_NO_GOOD_SECURITY_PACKAGES: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8001011A_u32 as _);
-pub const RPC_E_NO_SYNC: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80010120_u32 as _);
-pub const RPC_E_OUT_OF_RESOURCES: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80010101_u32 as _);
-pub const RPC_E_REMOTE_DISABLED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8001011C_u32 as _);
-pub const RPC_E_RETRY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80010109_u32 as _);
-pub const RPC_E_SERVERCALL_REJECTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8001010B_u32 as _);
-pub const RPC_E_SERVERCALL_RETRYLATER: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8001010A_u32 as _);
-pub const RPC_E_SERVERFAULT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80010105_u32 as _);
-pub const RPC_E_SERVER_CANTMARSHAL_DATA: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8001000D_u32 as _);
-pub const RPC_E_SERVER_CANTUNMARSHAL_DATA: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8001000E_u32 as _);
-pub const RPC_E_SERVER_DIED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80010007_u32 as _);
-pub const RPC_E_SERVER_DIED_DNE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80010012_u32 as _);
-pub const RPC_E_SYS_CALL_FAILED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80010100_u32 as _);
-pub const RPC_E_THREAD_NOT_INIT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8001010F_u32 as _);
-pub const RPC_E_TIMEOUT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8001011F_u32 as _);
-pub const RPC_E_TOO_LATE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80010119_u32 as _);
-pub const RPC_E_UNEXPECTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8001FFFF_u32 as _);
-pub const RPC_E_UNSECURE_CALL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80010118_u32 as _);
-pub const RPC_E_VERSION_MISMATCH: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80010110_u32 as _);
-pub const RPC_E_WRONG_THREAD: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8001010E_u32 as _);
+pub const RO_E_BLOCKED_CROSS_ASTA_CALL: windows_core::HRESULT = windows_core::HRESULT(0x8000001F_u32 as _);
+pub const RO_E_CANNOT_ACTIVATE_FULL_TRUST_SERVER: windows_core::HRESULT = windows_core::HRESULT(0x80000020_u32 as _);
+pub const RO_E_CANNOT_ACTIVATE_UNIVERSAL_APPLICATION_SERVER: windows_core::HRESULT = windows_core::HRESULT(0x80000021_u32 as _);
+pub const RO_E_CHANGE_NOTIFICATION_IN_PROGRESS: windows_core::HRESULT = windows_core::HRESULT(0x80000015_u32 as _);
+pub const RO_E_CLOSED: windows_core::HRESULT = windows_core::HRESULT(0x80000013_u32 as _);
+pub const RO_E_COMMITTED: windows_core::HRESULT = windows_core::HRESULT(0x8000001E_u32 as _);
+pub const RO_E_ERROR_STRING_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0x80000016_u32 as _);
+pub const RO_E_EXCLUSIVE_WRITE: windows_core::HRESULT = windows_core::HRESULT(0x80000014_u32 as _);
+pub const RO_E_INVALID_METADATA_FILE: windows_core::HRESULT = windows_core::HRESULT(0x80000012_u32 as _);
+pub const RO_E_METADATA_INVALID_TYPE_FORMAT: windows_core::HRESULT = windows_core::HRESULT(0x80000011_u32 as _);
+pub const RO_E_METADATA_NAME_IS_NAMESPACE: windows_core::HRESULT = windows_core::HRESULT(0x80000010_u32 as _);
+pub const RO_E_METADATA_NAME_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0x8000000F_u32 as _);
+pub const RO_E_MUST_BE_AGILE: windows_core::HRESULT = windows_core::HRESULT(0x8000001C_u32 as _);
+pub const RO_E_UNSUPPORTED_FROM_MTA: windows_core::HRESULT = windows_core::HRESULT(0x8000001D_u32 as _);
+pub const RPC_E_ACCESS_DENIED: windows_core::HRESULT = windows_core::HRESULT(0x8001011B_u32 as _);
+pub const RPC_E_ATTEMPTED_MULTITHREAD: windows_core::HRESULT = windows_core::HRESULT(0x80010102_u32 as _);
+pub const RPC_E_CALL_CANCELED: windows_core::HRESULT = windows_core::HRESULT(0x80010002_u32 as _);
+pub const RPC_E_CALL_COMPLETE: windows_core::HRESULT = windows_core::HRESULT(0x80010117_u32 as _);
+pub const RPC_E_CALL_REJECTED: windows_core::HRESULT = windows_core::HRESULT(0x80010001_u32 as _);
+pub const RPC_E_CANTCALLOUT_AGAIN: windows_core::HRESULT = windows_core::HRESULT(0x80010011_u32 as _);
+pub const RPC_E_CANTCALLOUT_INASYNCCALL: windows_core::HRESULT = windows_core::HRESULT(0x80010004_u32 as _);
+pub const RPC_E_CANTCALLOUT_INEXTERNALCALL: windows_core::HRESULT = windows_core::HRESULT(0x80010005_u32 as _);
+pub const RPC_E_CANTCALLOUT_ININPUTSYNCCALL: windows_core::HRESULT = windows_core::HRESULT(0x8001010D_u32 as _);
+pub const RPC_E_CANTPOST_INSENDCALL: windows_core::HRESULT = windows_core::HRESULT(0x80010003_u32 as _);
+pub const RPC_E_CANTTRANSMIT_CALL: windows_core::HRESULT = windows_core::HRESULT(0x8001000A_u32 as _);
+pub const RPC_E_CHANGED_MODE: windows_core::HRESULT = windows_core::HRESULT(0x80010106_u32 as _);
+pub const RPC_E_CLIENT_CANTMARSHAL_DATA: windows_core::HRESULT = windows_core::HRESULT(0x8001000B_u32 as _);
+pub const RPC_E_CLIENT_CANTUNMARSHAL_DATA: windows_core::HRESULT = windows_core::HRESULT(0x8001000C_u32 as _);
+pub const RPC_E_CLIENT_DIED: windows_core::HRESULT = windows_core::HRESULT(0x80010008_u32 as _);
+pub const RPC_E_CONNECTION_TERMINATED: windows_core::HRESULT = windows_core::HRESULT(0x80010006_u32 as _);
+pub const RPC_E_DISCONNECTED: windows_core::HRESULT = windows_core::HRESULT(0x80010108_u32 as _);
+pub const RPC_E_FAULT: windows_core::HRESULT = windows_core::HRESULT(0x80010104_u32 as _);
+pub const RPC_E_FULLSIC_REQUIRED: windows_core::HRESULT = windows_core::HRESULT(0x80010121_u32 as _);
+pub const RPC_E_INVALIDMETHOD: windows_core::HRESULT = windows_core::HRESULT(0x80010107_u32 as _);
+pub const RPC_E_INVALID_CALLDATA: windows_core::HRESULT = windows_core::HRESULT(0x8001010C_u32 as _);
+pub const RPC_E_INVALID_DATA: windows_core::HRESULT = windows_core::HRESULT(0x8001000F_u32 as _);
+pub const RPC_E_INVALID_DATAPACKET: windows_core::HRESULT = windows_core::HRESULT(0x80010009_u32 as _);
+pub const RPC_E_INVALID_EXTENSION: windows_core::HRESULT = windows_core::HRESULT(0x80010112_u32 as _);
+pub const RPC_E_INVALID_HEADER: windows_core::HRESULT = windows_core::HRESULT(0x80010111_u32 as _);
+pub const RPC_E_INVALID_IPID: windows_core::HRESULT = windows_core::HRESULT(0x80010113_u32 as _);
+pub const RPC_E_INVALID_OBJECT: windows_core::HRESULT = windows_core::HRESULT(0x80010114_u32 as _);
+pub const RPC_E_INVALID_OBJREF: windows_core::HRESULT = windows_core::HRESULT(0x8001011D_u32 as _);
+pub const RPC_E_INVALID_PARAMETER: windows_core::HRESULT = windows_core::HRESULT(0x80010010_u32 as _);
+pub const RPC_E_INVALID_STD_NAME: windows_core::HRESULT = windows_core::HRESULT(0x80010122_u32 as _);
+pub const RPC_E_NOT_REGISTERED: windows_core::HRESULT = windows_core::HRESULT(0x80010103_u32 as _);
+pub const RPC_E_NO_CONTEXT: windows_core::HRESULT = windows_core::HRESULT(0x8001011E_u32 as _);
+pub const RPC_E_NO_GOOD_SECURITY_PACKAGES: windows_core::HRESULT = windows_core::HRESULT(0x8001011A_u32 as _);
+pub const RPC_E_NO_SYNC: windows_core::HRESULT = windows_core::HRESULT(0x80010120_u32 as _);
+pub const RPC_E_OUT_OF_RESOURCES: windows_core::HRESULT = windows_core::HRESULT(0x80010101_u32 as _);
+pub const RPC_E_REMOTE_DISABLED: windows_core::HRESULT = windows_core::HRESULT(0x8001011C_u32 as _);
+pub const RPC_E_RETRY: windows_core::HRESULT = windows_core::HRESULT(0x80010109_u32 as _);
+pub const RPC_E_SERVERCALL_REJECTED: windows_core::HRESULT = windows_core::HRESULT(0x8001010B_u32 as _);
+pub const RPC_E_SERVERCALL_RETRYLATER: windows_core::HRESULT = windows_core::HRESULT(0x8001010A_u32 as _);
+pub const RPC_E_SERVERFAULT: windows_core::HRESULT = windows_core::HRESULT(0x80010105_u32 as _);
+pub const RPC_E_SERVER_CANTMARSHAL_DATA: windows_core::HRESULT = windows_core::HRESULT(0x8001000D_u32 as _);
+pub const RPC_E_SERVER_CANTUNMARSHAL_DATA: windows_core::HRESULT = windows_core::HRESULT(0x8001000E_u32 as _);
+pub const RPC_E_SERVER_DIED: windows_core::HRESULT = windows_core::HRESULT(0x80010007_u32 as _);
+pub const RPC_E_SERVER_DIED_DNE: windows_core::HRESULT = windows_core::HRESULT(0x80010012_u32 as _);
+pub const RPC_E_SYS_CALL_FAILED: windows_core::HRESULT = windows_core::HRESULT(0x80010100_u32 as _);
+pub const RPC_E_THREAD_NOT_INIT: windows_core::HRESULT = windows_core::HRESULT(0x8001010F_u32 as _);
+pub const RPC_E_TIMEOUT: windows_core::HRESULT = windows_core::HRESULT(0x8001011F_u32 as _);
+pub const RPC_E_TOO_LATE: windows_core::HRESULT = windows_core::HRESULT(0x80010119_u32 as _);
+pub const RPC_E_UNEXPECTED: windows_core::HRESULT = windows_core::HRESULT(0x8001FFFF_u32 as _);
+pub const RPC_E_UNSECURE_CALL: windows_core::HRESULT = windows_core::HRESULT(0x80010118_u32 as _);
+pub const RPC_E_VERSION_MISMATCH: windows_core::HRESULT = windows_core::HRESULT(0x80010110_u32 as _);
+pub const RPC_E_WRONG_THREAD: windows_core::HRESULT = windows_core::HRESULT(0x8001010E_u32 as _);
 pub const RPC_NT_ADDRESS_ERROR: NTSTATUS = NTSTATUS(0xC0020045_u32 as _);
 pub const RPC_NT_ALREADY_LISTENING: NTSTATUS = NTSTATUS(0xC002000E_u32 as _);
 pub const RPC_NT_ALREADY_REGISTERED: NTSTATUS = NTSTATUS(0xC002000C_u32 as _);
@@ -6192,7 +6192,7 @@ pub const RPC_NT_ZERO_DIVIDE: NTSTATUS = NTSTATUS(0xC0020044_u32 as _);
 pub const RPC_S_ACCESS_DENIED: i32 = -1073741790i32;
 pub const RPC_S_ASYNC_CALL_PENDING: i32 = 259i32;
 pub const RPC_S_BUFFER_TOO_SMALL: i32 = -1073741789i32;
-pub const RPC_S_CALLPENDING: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80010115_u32 as _);
+pub const RPC_S_CALLPENDING: windows_core::HRESULT = windows_core::HRESULT(0x80010115_u32 as _);
 pub const RPC_S_INVALID_ARG: i32 = -1073741811i32;
 pub const RPC_S_INVALID_LEVEL: i32 = -1073741811i32;
 pub const RPC_S_INVALID_SECURITY_DESC: i32 = -1073741703i32;
@@ -6201,7 +6201,7 @@ pub const RPC_S_OUT_OF_MEMORY: i32 = -1073741801i32;
 pub const RPC_S_OUT_OF_THREADS: i32 = -1073741801i32;
 pub const RPC_S_SERVER_OUT_OF_MEMORY: i32 = -1073741307i32;
 pub const RPC_S_UNKNOWN_PRINCIPAL: i32 = -1073741709i32;
-pub const RPC_S_WAITONTIMER: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80010116_u32 as _);
+pub const RPC_S_WAITONTIMER: windows_core::HRESULT = windows_core::HRESULT(0x80010116_u32 as _);
 pub const RPC_X_BAD_STUB_DATA: i32 = 1783i32;
 pub const RPC_X_BYTE_COUNT_TOO_SMALL: i32 = 1782i32;
 pub const RPC_X_ENUM_VALUE_OUT_OF_RANGE: i32 = 1781i32;
@@ -6230,116 +6230,116 @@ pub const RPC_X_WRONG_ES_VERSION: i32 = 1828i32;
 pub const RPC_X_WRONG_PIPE_ORDER: i32 = 1831i32;
 pub const RPC_X_WRONG_PIPE_VERSION: i32 = 1832i32;
 pub const RPC_X_WRONG_STUB_VERSION: i32 = 1829i32;
-pub const SCARD_E_BAD_SEEK: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80100029_u32 as _);
-pub const SCARD_E_CANCELLED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80100002_u32 as _);
-pub const SCARD_E_CANT_DISPOSE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8010000E_u32 as _);
-pub const SCARD_E_CARD_UNSUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8010001C_u32 as _);
-pub const SCARD_E_CERTIFICATE_UNAVAILABLE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8010002D_u32 as _);
-pub const SCARD_E_COMM_DATA_LOST: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8010002F_u32 as _);
-pub const SCARD_E_DIR_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80100023_u32 as _);
-pub const SCARD_E_DUPLICATE_READER: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8010001B_u32 as _);
-pub const SCARD_E_FILE_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80100024_u32 as _);
-pub const SCARD_E_ICC_CREATEORDER: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80100021_u32 as _);
-pub const SCARD_E_ICC_INSTALLATION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80100020_u32 as _);
-pub const SCARD_E_INSUFFICIENT_BUFFER: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80100008_u32 as _);
-pub const SCARD_E_INVALID_ATR: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80100015_u32 as _);
-pub const SCARD_E_INVALID_CHV: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8010002A_u32 as _);
-pub const SCARD_E_INVALID_HANDLE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80100003_u32 as _);
-pub const SCARD_E_INVALID_PARAMETER: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80100004_u32 as _);
-pub const SCARD_E_INVALID_TARGET: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80100005_u32 as _);
-pub const SCARD_E_INVALID_VALUE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80100011_u32 as _);
-pub const SCARD_E_NOT_READY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80100010_u32 as _);
-pub const SCARD_E_NOT_TRANSACTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80100016_u32 as _);
-pub const SCARD_E_NO_ACCESS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80100027_u32 as _);
-pub const SCARD_E_NO_DIR: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80100025_u32 as _);
-pub const SCARD_E_NO_FILE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80100026_u32 as _);
-pub const SCARD_E_NO_KEY_CONTAINER: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80100030_u32 as _);
-pub const SCARD_E_NO_MEMORY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80100006_u32 as _);
-pub const SCARD_E_NO_PIN_CACHE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80100033_u32 as _);
-pub const SCARD_E_NO_READERS_AVAILABLE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8010002E_u32 as _);
-pub const SCARD_E_NO_SERVICE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8010001D_u32 as _);
-pub const SCARD_E_NO_SMARTCARD: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8010000C_u32 as _);
-pub const SCARD_E_NO_SUCH_CERTIFICATE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8010002C_u32 as _);
-pub const SCARD_E_PCI_TOO_SMALL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80100019_u32 as _);
-pub const SCARD_E_PIN_CACHE_EXPIRED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80100032_u32 as _);
-pub const SCARD_E_PROTO_MISMATCH: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8010000F_u32 as _);
-pub const SCARD_E_READER_UNAVAILABLE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80100017_u32 as _);
-pub const SCARD_E_READER_UNSUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8010001A_u32 as _);
-pub const SCARD_E_READ_ONLY_CARD: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80100034_u32 as _);
-pub const SCARD_E_SERVER_TOO_BUSY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80100031_u32 as _);
-pub const SCARD_E_SERVICE_STOPPED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8010001E_u32 as _);
-pub const SCARD_E_SHARING_VIOLATION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8010000B_u32 as _);
-pub const SCARD_E_SYSTEM_CANCELLED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80100012_u32 as _);
-pub const SCARD_E_TIMEOUT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8010000A_u32 as _);
-pub const SCARD_E_UNEXPECTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8010001F_u32 as _);
-pub const SCARD_E_UNKNOWN_CARD: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8010000D_u32 as _);
-pub const SCARD_E_UNKNOWN_READER: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80100009_u32 as _);
-pub const SCARD_E_UNKNOWN_RES_MNG: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8010002B_u32 as _);
-pub const SCARD_E_UNSUPPORTED_FEATURE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80100022_u32 as _);
-pub const SCARD_E_WRITE_TOO_MANY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80100028_u32 as _);
-pub const SCARD_F_COMM_ERROR: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80100013_u32 as _);
-pub const SCARD_F_INTERNAL_ERROR: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80100001_u32 as _);
-pub const SCARD_F_UNKNOWN_ERROR: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80100014_u32 as _);
-pub const SCARD_F_WAITED_TOO_LONG: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80100007_u32 as _);
-pub const SCARD_P_SHUTDOWN: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80100018_u32 as _);
-pub const SCARD_W_CACHE_ITEM_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80100070_u32 as _);
-pub const SCARD_W_CACHE_ITEM_STALE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80100071_u32 as _);
-pub const SCARD_W_CACHE_ITEM_TOO_BIG: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80100072_u32 as _);
-pub const SCARD_W_CANCELLED_BY_USER: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8010006E_u32 as _);
-pub const SCARD_W_CARD_NOT_AUTHENTICATED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8010006F_u32 as _);
-pub const SCARD_W_CHV_BLOCKED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8010006C_u32 as _);
-pub const SCARD_W_EOF: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8010006D_u32 as _);
-pub const SCARD_W_REMOVED_CARD: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80100069_u32 as _);
-pub const SCARD_W_RESET_CARD: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80100068_u32 as _);
-pub const SCARD_W_SECURITY_VIOLATION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8010006A_u32 as _);
-pub const SCARD_W_UNPOWERED_CARD: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80100067_u32 as _);
-pub const SCARD_W_UNRESPONSIVE_CARD: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80100066_u32 as _);
-pub const SCARD_W_UNSUPPORTED_CARD: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80100065_u32 as _);
-pub const SCARD_W_WRONG_CHV: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8010006B_u32 as _);
-pub const SCHED_E_ACCOUNT_DBASE_CORRUPT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80041311_u32 as _);
-pub const SCHED_E_ACCOUNT_INFORMATION_NOT_SET: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004130F_u32 as _);
-pub const SCHED_E_ACCOUNT_NAME_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80041310_u32 as _);
-pub const SCHED_E_ALREADY_RUNNING: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004131F_u32 as _);
-pub const SCHED_E_CANNOT_OPEN_TASK: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004130D_u32 as _);
-pub const SCHED_E_DEPRECATED_FEATURE_USED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80041330_u32 as _);
-pub const SCHED_E_INVALIDVALUE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80041318_u32 as _);
-pub const SCHED_E_INVALID_TASK: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004130E_u32 as _);
-pub const SCHED_E_INVALID_TASK_HASH: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80041321_u32 as _);
-pub const SCHED_E_MALFORMEDXML: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004131A_u32 as _);
-pub const SCHED_E_MISSINGNODE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80041319_u32 as _);
-pub const SCHED_E_NAMESPACE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80041317_u32 as _);
-pub const SCHED_E_NO_SECURITY_SERVICES: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80041312_u32 as _);
-pub const SCHED_E_PAST_END_BOUNDARY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004131E_u32 as _);
-pub const SCHED_E_SERVICE_NOT_AVAILABLE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80041322_u32 as _);
-pub const SCHED_E_SERVICE_NOT_INSTALLED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004130C_u32 as _);
+pub const SCARD_E_BAD_SEEK: windows_core::HRESULT = windows_core::HRESULT(0x80100029_u32 as _);
+pub const SCARD_E_CANCELLED: windows_core::HRESULT = windows_core::HRESULT(0x80100002_u32 as _);
+pub const SCARD_E_CANT_DISPOSE: windows_core::HRESULT = windows_core::HRESULT(0x8010000E_u32 as _);
+pub const SCARD_E_CARD_UNSUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x8010001C_u32 as _);
+pub const SCARD_E_CERTIFICATE_UNAVAILABLE: windows_core::HRESULT = windows_core::HRESULT(0x8010002D_u32 as _);
+pub const SCARD_E_COMM_DATA_LOST: windows_core::HRESULT = windows_core::HRESULT(0x8010002F_u32 as _);
+pub const SCARD_E_DIR_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0x80100023_u32 as _);
+pub const SCARD_E_DUPLICATE_READER: windows_core::HRESULT = windows_core::HRESULT(0x8010001B_u32 as _);
+pub const SCARD_E_FILE_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0x80100024_u32 as _);
+pub const SCARD_E_ICC_CREATEORDER: windows_core::HRESULT = windows_core::HRESULT(0x80100021_u32 as _);
+pub const SCARD_E_ICC_INSTALLATION: windows_core::HRESULT = windows_core::HRESULT(0x80100020_u32 as _);
+pub const SCARD_E_INSUFFICIENT_BUFFER: windows_core::HRESULT = windows_core::HRESULT(0x80100008_u32 as _);
+pub const SCARD_E_INVALID_ATR: windows_core::HRESULT = windows_core::HRESULT(0x80100015_u32 as _);
+pub const SCARD_E_INVALID_CHV: windows_core::HRESULT = windows_core::HRESULT(0x8010002A_u32 as _);
+pub const SCARD_E_INVALID_HANDLE: windows_core::HRESULT = windows_core::HRESULT(0x80100003_u32 as _);
+pub const SCARD_E_INVALID_PARAMETER: windows_core::HRESULT = windows_core::HRESULT(0x80100004_u32 as _);
+pub const SCARD_E_INVALID_TARGET: windows_core::HRESULT = windows_core::HRESULT(0x80100005_u32 as _);
+pub const SCARD_E_INVALID_VALUE: windows_core::HRESULT = windows_core::HRESULT(0x80100011_u32 as _);
+pub const SCARD_E_NOT_READY: windows_core::HRESULT = windows_core::HRESULT(0x80100010_u32 as _);
+pub const SCARD_E_NOT_TRANSACTED: windows_core::HRESULT = windows_core::HRESULT(0x80100016_u32 as _);
+pub const SCARD_E_NO_ACCESS: windows_core::HRESULT = windows_core::HRESULT(0x80100027_u32 as _);
+pub const SCARD_E_NO_DIR: windows_core::HRESULT = windows_core::HRESULT(0x80100025_u32 as _);
+pub const SCARD_E_NO_FILE: windows_core::HRESULT = windows_core::HRESULT(0x80100026_u32 as _);
+pub const SCARD_E_NO_KEY_CONTAINER: windows_core::HRESULT = windows_core::HRESULT(0x80100030_u32 as _);
+pub const SCARD_E_NO_MEMORY: windows_core::HRESULT = windows_core::HRESULT(0x80100006_u32 as _);
+pub const SCARD_E_NO_PIN_CACHE: windows_core::HRESULT = windows_core::HRESULT(0x80100033_u32 as _);
+pub const SCARD_E_NO_READERS_AVAILABLE: windows_core::HRESULT = windows_core::HRESULT(0x8010002E_u32 as _);
+pub const SCARD_E_NO_SERVICE: windows_core::HRESULT = windows_core::HRESULT(0x8010001D_u32 as _);
+pub const SCARD_E_NO_SMARTCARD: windows_core::HRESULT = windows_core::HRESULT(0x8010000C_u32 as _);
+pub const SCARD_E_NO_SUCH_CERTIFICATE: windows_core::HRESULT = windows_core::HRESULT(0x8010002C_u32 as _);
+pub const SCARD_E_PCI_TOO_SMALL: windows_core::HRESULT = windows_core::HRESULT(0x80100019_u32 as _);
+pub const SCARD_E_PIN_CACHE_EXPIRED: windows_core::HRESULT = windows_core::HRESULT(0x80100032_u32 as _);
+pub const SCARD_E_PROTO_MISMATCH: windows_core::HRESULT = windows_core::HRESULT(0x8010000F_u32 as _);
+pub const SCARD_E_READER_UNAVAILABLE: windows_core::HRESULT = windows_core::HRESULT(0x80100017_u32 as _);
+pub const SCARD_E_READER_UNSUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x8010001A_u32 as _);
+pub const SCARD_E_READ_ONLY_CARD: windows_core::HRESULT = windows_core::HRESULT(0x80100034_u32 as _);
+pub const SCARD_E_SERVER_TOO_BUSY: windows_core::HRESULT = windows_core::HRESULT(0x80100031_u32 as _);
+pub const SCARD_E_SERVICE_STOPPED: windows_core::HRESULT = windows_core::HRESULT(0x8010001E_u32 as _);
+pub const SCARD_E_SHARING_VIOLATION: windows_core::HRESULT = windows_core::HRESULT(0x8010000B_u32 as _);
+pub const SCARD_E_SYSTEM_CANCELLED: windows_core::HRESULT = windows_core::HRESULT(0x80100012_u32 as _);
+pub const SCARD_E_TIMEOUT: windows_core::HRESULT = windows_core::HRESULT(0x8010000A_u32 as _);
+pub const SCARD_E_UNEXPECTED: windows_core::HRESULT = windows_core::HRESULT(0x8010001F_u32 as _);
+pub const SCARD_E_UNKNOWN_CARD: windows_core::HRESULT = windows_core::HRESULT(0x8010000D_u32 as _);
+pub const SCARD_E_UNKNOWN_READER: windows_core::HRESULT = windows_core::HRESULT(0x80100009_u32 as _);
+pub const SCARD_E_UNKNOWN_RES_MNG: windows_core::HRESULT = windows_core::HRESULT(0x8010002B_u32 as _);
+pub const SCARD_E_UNSUPPORTED_FEATURE: windows_core::HRESULT = windows_core::HRESULT(0x80100022_u32 as _);
+pub const SCARD_E_WRITE_TOO_MANY: windows_core::HRESULT = windows_core::HRESULT(0x80100028_u32 as _);
+pub const SCARD_F_COMM_ERROR: windows_core::HRESULT = windows_core::HRESULT(0x80100013_u32 as _);
+pub const SCARD_F_INTERNAL_ERROR: windows_core::HRESULT = windows_core::HRESULT(0x80100001_u32 as _);
+pub const SCARD_F_UNKNOWN_ERROR: windows_core::HRESULT = windows_core::HRESULT(0x80100014_u32 as _);
+pub const SCARD_F_WAITED_TOO_LONG: windows_core::HRESULT = windows_core::HRESULT(0x80100007_u32 as _);
+pub const SCARD_P_SHUTDOWN: windows_core::HRESULT = windows_core::HRESULT(0x80100018_u32 as _);
+pub const SCARD_W_CACHE_ITEM_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0x80100070_u32 as _);
+pub const SCARD_W_CACHE_ITEM_STALE: windows_core::HRESULT = windows_core::HRESULT(0x80100071_u32 as _);
+pub const SCARD_W_CACHE_ITEM_TOO_BIG: windows_core::HRESULT = windows_core::HRESULT(0x80100072_u32 as _);
+pub const SCARD_W_CANCELLED_BY_USER: windows_core::HRESULT = windows_core::HRESULT(0x8010006E_u32 as _);
+pub const SCARD_W_CARD_NOT_AUTHENTICATED: windows_core::HRESULT = windows_core::HRESULT(0x8010006F_u32 as _);
+pub const SCARD_W_CHV_BLOCKED: windows_core::HRESULT = windows_core::HRESULT(0x8010006C_u32 as _);
+pub const SCARD_W_EOF: windows_core::HRESULT = windows_core::HRESULT(0x8010006D_u32 as _);
+pub const SCARD_W_REMOVED_CARD: windows_core::HRESULT = windows_core::HRESULT(0x80100069_u32 as _);
+pub const SCARD_W_RESET_CARD: windows_core::HRESULT = windows_core::HRESULT(0x80100068_u32 as _);
+pub const SCARD_W_SECURITY_VIOLATION: windows_core::HRESULT = windows_core::HRESULT(0x8010006A_u32 as _);
+pub const SCARD_W_UNPOWERED_CARD: windows_core::HRESULT = windows_core::HRESULT(0x80100067_u32 as _);
+pub const SCARD_W_UNRESPONSIVE_CARD: windows_core::HRESULT = windows_core::HRESULT(0x80100066_u32 as _);
+pub const SCARD_W_UNSUPPORTED_CARD: windows_core::HRESULT = windows_core::HRESULT(0x80100065_u32 as _);
+pub const SCARD_W_WRONG_CHV: windows_core::HRESULT = windows_core::HRESULT(0x8010006B_u32 as _);
+pub const SCHED_E_ACCOUNT_DBASE_CORRUPT: windows_core::HRESULT = windows_core::HRESULT(0x80041311_u32 as _);
+pub const SCHED_E_ACCOUNT_INFORMATION_NOT_SET: windows_core::HRESULT = windows_core::HRESULT(0x8004130F_u32 as _);
+pub const SCHED_E_ACCOUNT_NAME_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0x80041310_u32 as _);
+pub const SCHED_E_ALREADY_RUNNING: windows_core::HRESULT = windows_core::HRESULT(0x8004131F_u32 as _);
+pub const SCHED_E_CANNOT_OPEN_TASK: windows_core::HRESULT = windows_core::HRESULT(0x8004130D_u32 as _);
+pub const SCHED_E_DEPRECATED_FEATURE_USED: windows_core::HRESULT = windows_core::HRESULT(0x80041330_u32 as _);
+pub const SCHED_E_INVALIDVALUE: windows_core::HRESULT = windows_core::HRESULT(0x80041318_u32 as _);
+pub const SCHED_E_INVALID_TASK: windows_core::HRESULT = windows_core::HRESULT(0x8004130E_u32 as _);
+pub const SCHED_E_INVALID_TASK_HASH: windows_core::HRESULT = windows_core::HRESULT(0x80041321_u32 as _);
+pub const SCHED_E_MALFORMEDXML: windows_core::HRESULT = windows_core::HRESULT(0x8004131A_u32 as _);
+pub const SCHED_E_MISSINGNODE: windows_core::HRESULT = windows_core::HRESULT(0x80041319_u32 as _);
+pub const SCHED_E_NAMESPACE: windows_core::HRESULT = windows_core::HRESULT(0x80041317_u32 as _);
+pub const SCHED_E_NO_SECURITY_SERVICES: windows_core::HRESULT = windows_core::HRESULT(0x80041312_u32 as _);
+pub const SCHED_E_PAST_END_BOUNDARY: windows_core::HRESULT = windows_core::HRESULT(0x8004131E_u32 as _);
+pub const SCHED_E_SERVICE_NOT_AVAILABLE: windows_core::HRESULT = windows_core::HRESULT(0x80041322_u32 as _);
+pub const SCHED_E_SERVICE_NOT_INSTALLED: windows_core::HRESULT = windows_core::HRESULT(0x8004130C_u32 as _);
 pub const SCHED_E_SERVICE_NOT_LOCALSYSTEM: i32 = 6200i32;
-pub const SCHED_E_SERVICE_NOT_RUNNING: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80041315_u32 as _);
-pub const SCHED_E_SERVICE_TOO_BUSY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80041323_u32 as _);
-pub const SCHED_E_START_ON_DEMAND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80041328_u32 as _);
-pub const SCHED_E_TASK_ATTEMPTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80041324_u32 as _);
-pub const SCHED_E_TASK_DISABLED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80041326_u32 as _);
-pub const SCHED_E_TASK_NOT_READY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004130A_u32 as _);
-pub const SCHED_E_TASK_NOT_RUNNING: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004130B_u32 as _);
-pub const SCHED_E_TASK_NOT_UBPM_COMPAT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80041329_u32 as _);
-pub const SCHED_E_TASK_NOT_V1_COMPAT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80041327_u32 as _);
-pub const SCHED_E_TOO_MANY_NODES: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004131D_u32 as _);
-pub const SCHED_E_TRIGGER_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80041309_u32 as _);
-pub const SCHED_E_UNEXPECTEDNODE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80041316_u32 as _);
-pub const SCHED_E_UNKNOWN_OBJECT_VERSION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80041313_u32 as _);
-pub const SCHED_E_UNSUPPORTED_ACCOUNT_OPTION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80041314_u32 as _);
-pub const SCHED_E_USER_NOT_LOGGED_ON: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80041320_u32 as _);
-pub const SCHED_S_BATCH_LOGON_PROBLEM: ::windows_core::HRESULT = ::windows_core::HRESULT(0x4131C_u32 as _);
-pub const SCHED_S_EVENT_TRIGGER: ::windows_core::HRESULT = ::windows_core::HRESULT(0x41308_u32 as _);
-pub const SCHED_S_SOME_TRIGGERS_FAILED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x4131B_u32 as _);
-pub const SCHED_S_TASK_DISABLED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x41302_u32 as _);
-pub const SCHED_S_TASK_HAS_NOT_RUN: ::windows_core::HRESULT = ::windows_core::HRESULT(0x41303_u32 as _);
-pub const SCHED_S_TASK_NOT_SCHEDULED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x41305_u32 as _);
-pub const SCHED_S_TASK_NO_MORE_RUNS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x41304_u32 as _);
-pub const SCHED_S_TASK_NO_VALID_TRIGGERS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x41307_u32 as _);
-pub const SCHED_S_TASK_QUEUED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x41325_u32 as _);
-pub const SCHED_S_TASK_READY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x41300_u32 as _);
-pub const SCHED_S_TASK_RUNNING: ::windows_core::HRESULT = ::windows_core::HRESULT(0x41301_u32 as _);
-pub const SCHED_S_TASK_TERMINATED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x41306_u32 as _);
+pub const SCHED_E_SERVICE_NOT_RUNNING: windows_core::HRESULT = windows_core::HRESULT(0x80041315_u32 as _);
+pub const SCHED_E_SERVICE_TOO_BUSY: windows_core::HRESULT = windows_core::HRESULT(0x80041323_u32 as _);
+pub const SCHED_E_START_ON_DEMAND: windows_core::HRESULT = windows_core::HRESULT(0x80041328_u32 as _);
+pub const SCHED_E_TASK_ATTEMPTED: windows_core::HRESULT = windows_core::HRESULT(0x80041324_u32 as _);
+pub const SCHED_E_TASK_DISABLED: windows_core::HRESULT = windows_core::HRESULT(0x80041326_u32 as _);
+pub const SCHED_E_TASK_NOT_READY: windows_core::HRESULT = windows_core::HRESULT(0x8004130A_u32 as _);
+pub const SCHED_E_TASK_NOT_RUNNING: windows_core::HRESULT = windows_core::HRESULT(0x8004130B_u32 as _);
+pub const SCHED_E_TASK_NOT_UBPM_COMPAT: windows_core::HRESULT = windows_core::HRESULT(0x80041329_u32 as _);
+pub const SCHED_E_TASK_NOT_V1_COMPAT: windows_core::HRESULT = windows_core::HRESULT(0x80041327_u32 as _);
+pub const SCHED_E_TOO_MANY_NODES: windows_core::HRESULT = windows_core::HRESULT(0x8004131D_u32 as _);
+pub const SCHED_E_TRIGGER_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0x80041309_u32 as _);
+pub const SCHED_E_UNEXPECTEDNODE: windows_core::HRESULT = windows_core::HRESULT(0x80041316_u32 as _);
+pub const SCHED_E_UNKNOWN_OBJECT_VERSION: windows_core::HRESULT = windows_core::HRESULT(0x80041313_u32 as _);
+pub const SCHED_E_UNSUPPORTED_ACCOUNT_OPTION: windows_core::HRESULT = windows_core::HRESULT(0x80041314_u32 as _);
+pub const SCHED_E_USER_NOT_LOGGED_ON: windows_core::HRESULT = windows_core::HRESULT(0x80041320_u32 as _);
+pub const SCHED_S_BATCH_LOGON_PROBLEM: windows_core::HRESULT = windows_core::HRESULT(0x4131C_u32 as _);
+pub const SCHED_S_EVENT_TRIGGER: windows_core::HRESULT = windows_core::HRESULT(0x41308_u32 as _);
+pub const SCHED_S_SOME_TRIGGERS_FAILED: windows_core::HRESULT = windows_core::HRESULT(0x4131B_u32 as _);
+pub const SCHED_S_TASK_DISABLED: windows_core::HRESULT = windows_core::HRESULT(0x41302_u32 as _);
+pub const SCHED_S_TASK_HAS_NOT_RUN: windows_core::HRESULT = windows_core::HRESULT(0x41303_u32 as _);
+pub const SCHED_S_TASK_NOT_SCHEDULED: windows_core::HRESULT = windows_core::HRESULT(0x41305_u32 as _);
+pub const SCHED_S_TASK_NO_MORE_RUNS: windows_core::HRESULT = windows_core::HRESULT(0x41304_u32 as _);
+pub const SCHED_S_TASK_NO_VALID_TRIGGERS: windows_core::HRESULT = windows_core::HRESULT(0x41307_u32 as _);
+pub const SCHED_S_TASK_QUEUED: windows_core::HRESULT = windows_core::HRESULT(0x41325_u32 as _);
+pub const SCHED_S_TASK_READY: windows_core::HRESULT = windows_core::HRESULT(0x41300_u32 as _);
+pub const SCHED_S_TASK_RUNNING: windows_core::HRESULT = windows_core::HRESULT(0x41301_u32 as _);
+pub const SCHED_S_TASK_TERMINATED: windows_core::HRESULT = windows_core::HRESULT(0x41306_u32 as _);
 pub const SDIAG_E_CANCELLED: i32 = -2143551232i32;
 pub const SDIAG_E_CANNOTRUN: i32 = -2143551224i32;
 pub const SDIAG_E_DISABLED: i32 = -2143551226i32;
@@ -6352,299 +6352,299 @@ pub const SDIAG_E_SCRIPT: i32 = -2143551231i32;
 pub const SDIAG_E_TRUST: i32 = -2143551225i32;
 pub const SDIAG_E_VERSION: i32 = -2143551223i32;
 pub const SDIAG_S_CANNOTRUN: i32 = 3932421i32;
-pub const SEARCH_E_NOMONIKER: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800416A1_u32 as _);
-pub const SEARCH_E_NOREGION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800416A2_u32 as _);
-pub const SEARCH_S_NOMOREHITS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x416A0_u32 as _);
-pub const SEC_E_ALGORITHM_MISMATCH: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80090331_u32 as _);
-pub const SEC_E_APPLICATION_PROTOCOL_MISMATCH: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80090367_u32 as _);
-pub const SEC_E_BAD_BINDINGS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80090346_u32 as _);
-pub const SEC_E_BAD_PKGID: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80090316_u32 as _);
-pub const SEC_E_BUFFER_TOO_SMALL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80090321_u32 as _);
-pub const SEC_E_CANNOT_INSTALL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80090307_u32 as _);
-pub const SEC_E_CANNOT_PACK: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80090309_u32 as _);
-pub const SEC_E_CERT_EXPIRED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80090328_u32 as _);
-pub const SEC_E_CERT_UNKNOWN: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80090327_u32 as _);
-pub const SEC_E_CERT_WRONG_USAGE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80090349_u32 as _);
-pub const SEC_E_CONTEXT_EXPIRED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80090317_u32 as _);
-pub const SEC_E_CROSSREALM_DELEGATION_FAILURE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80090357_u32 as _);
-pub const SEC_E_CRYPTO_SYSTEM_INVALID: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80090337_u32 as _);
-pub const SEC_E_DECRYPT_FAILURE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80090330_u32 as _);
-pub const SEC_E_DELEGATION_POLICY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8009035E_u32 as _);
-pub const SEC_E_DELEGATION_REQUIRED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80090345_u32 as _);
-pub const SEC_E_DOWNGRADE_DETECTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80090350_u32 as _);
-pub const SEC_E_ENCRYPT_FAILURE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80090329_u32 as _);
-pub const SEC_E_EXT_BUFFER_TOO_SMALL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8009036A_u32 as _);
-pub const SEC_E_ILLEGAL_MESSAGE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80090326_u32 as _);
-pub const SEC_E_INCOMPLETE_CREDENTIALS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80090320_u32 as _);
-pub const SEC_E_INCOMPLETE_MESSAGE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80090318_u32 as _);
-pub const SEC_E_INSUFFICIENT_BUFFERS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8009036B_u32 as _);
-pub const SEC_E_INSUFFICIENT_MEMORY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80090300_u32 as _);
-pub const SEC_E_INTERNAL_ERROR: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80090304_u32 as _);
-pub const SEC_E_INVALID_HANDLE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80090301_u32 as _);
-pub const SEC_E_INVALID_PARAMETER: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8009035D_u32 as _);
-pub const SEC_E_INVALID_TOKEN: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80090308_u32 as _);
-pub const SEC_E_INVALID_UPN_NAME: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80090369_u32 as _);
-pub const SEC_E_ISSUING_CA_UNTRUSTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80090352_u32 as _);
-pub const SEC_E_ISSUING_CA_UNTRUSTED_KDC: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80090359_u32 as _);
-pub const SEC_E_KDC_CERT_EXPIRED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8009035A_u32 as _);
-pub const SEC_E_KDC_CERT_REVOKED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8009035B_u32 as _);
-pub const SEC_E_KDC_INVALID_REQUEST: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80090340_u32 as _);
-pub const SEC_E_KDC_UNABLE_TO_REFER: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80090341_u32 as _);
-pub const SEC_E_KDC_UNKNOWN_ETYPE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80090342_u32 as _);
-pub const SEC_E_LOGON_DENIED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8009030C_u32 as _);
-pub const SEC_E_MAX_REFERRALS_EXCEEDED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80090338_u32 as _);
-pub const SEC_E_MESSAGE_ALTERED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8009030F_u32 as _);
-pub const SEC_E_MULTIPLE_ACCOUNTS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80090347_u32 as _);
-pub const SEC_E_MUST_BE_KDC: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80090339_u32 as _);
-pub const SEC_E_MUTUAL_AUTH_FAILED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80090363_u32 as _);
-pub const SEC_E_NOT_OWNER: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80090306_u32 as _);
+pub const SEARCH_E_NOMONIKER: windows_core::HRESULT = windows_core::HRESULT(0x800416A1_u32 as _);
+pub const SEARCH_E_NOREGION: windows_core::HRESULT = windows_core::HRESULT(0x800416A2_u32 as _);
+pub const SEARCH_S_NOMOREHITS: windows_core::HRESULT = windows_core::HRESULT(0x416A0_u32 as _);
+pub const SEC_E_ALGORITHM_MISMATCH: windows_core::HRESULT = windows_core::HRESULT(0x80090331_u32 as _);
+pub const SEC_E_APPLICATION_PROTOCOL_MISMATCH: windows_core::HRESULT = windows_core::HRESULT(0x80090367_u32 as _);
+pub const SEC_E_BAD_BINDINGS: windows_core::HRESULT = windows_core::HRESULT(0x80090346_u32 as _);
+pub const SEC_E_BAD_PKGID: windows_core::HRESULT = windows_core::HRESULT(0x80090316_u32 as _);
+pub const SEC_E_BUFFER_TOO_SMALL: windows_core::HRESULT = windows_core::HRESULT(0x80090321_u32 as _);
+pub const SEC_E_CANNOT_INSTALL: windows_core::HRESULT = windows_core::HRESULT(0x80090307_u32 as _);
+pub const SEC_E_CANNOT_PACK: windows_core::HRESULT = windows_core::HRESULT(0x80090309_u32 as _);
+pub const SEC_E_CERT_EXPIRED: windows_core::HRESULT = windows_core::HRESULT(0x80090328_u32 as _);
+pub const SEC_E_CERT_UNKNOWN: windows_core::HRESULT = windows_core::HRESULT(0x80090327_u32 as _);
+pub const SEC_E_CERT_WRONG_USAGE: windows_core::HRESULT = windows_core::HRESULT(0x80090349_u32 as _);
+pub const SEC_E_CONTEXT_EXPIRED: windows_core::HRESULT = windows_core::HRESULT(0x80090317_u32 as _);
+pub const SEC_E_CROSSREALM_DELEGATION_FAILURE: windows_core::HRESULT = windows_core::HRESULT(0x80090357_u32 as _);
+pub const SEC_E_CRYPTO_SYSTEM_INVALID: windows_core::HRESULT = windows_core::HRESULT(0x80090337_u32 as _);
+pub const SEC_E_DECRYPT_FAILURE: windows_core::HRESULT = windows_core::HRESULT(0x80090330_u32 as _);
+pub const SEC_E_DELEGATION_POLICY: windows_core::HRESULT = windows_core::HRESULT(0x8009035E_u32 as _);
+pub const SEC_E_DELEGATION_REQUIRED: windows_core::HRESULT = windows_core::HRESULT(0x80090345_u32 as _);
+pub const SEC_E_DOWNGRADE_DETECTED: windows_core::HRESULT = windows_core::HRESULT(0x80090350_u32 as _);
+pub const SEC_E_ENCRYPT_FAILURE: windows_core::HRESULT = windows_core::HRESULT(0x80090329_u32 as _);
+pub const SEC_E_EXT_BUFFER_TOO_SMALL: windows_core::HRESULT = windows_core::HRESULT(0x8009036A_u32 as _);
+pub const SEC_E_ILLEGAL_MESSAGE: windows_core::HRESULT = windows_core::HRESULT(0x80090326_u32 as _);
+pub const SEC_E_INCOMPLETE_CREDENTIALS: windows_core::HRESULT = windows_core::HRESULT(0x80090320_u32 as _);
+pub const SEC_E_INCOMPLETE_MESSAGE: windows_core::HRESULT = windows_core::HRESULT(0x80090318_u32 as _);
+pub const SEC_E_INSUFFICIENT_BUFFERS: windows_core::HRESULT = windows_core::HRESULT(0x8009036B_u32 as _);
+pub const SEC_E_INSUFFICIENT_MEMORY: windows_core::HRESULT = windows_core::HRESULT(0x80090300_u32 as _);
+pub const SEC_E_INTERNAL_ERROR: windows_core::HRESULT = windows_core::HRESULT(0x80090304_u32 as _);
+pub const SEC_E_INVALID_HANDLE: windows_core::HRESULT = windows_core::HRESULT(0x80090301_u32 as _);
+pub const SEC_E_INVALID_PARAMETER: windows_core::HRESULT = windows_core::HRESULT(0x8009035D_u32 as _);
+pub const SEC_E_INVALID_TOKEN: windows_core::HRESULT = windows_core::HRESULT(0x80090308_u32 as _);
+pub const SEC_E_INVALID_UPN_NAME: windows_core::HRESULT = windows_core::HRESULT(0x80090369_u32 as _);
+pub const SEC_E_ISSUING_CA_UNTRUSTED: windows_core::HRESULT = windows_core::HRESULT(0x80090352_u32 as _);
+pub const SEC_E_ISSUING_CA_UNTRUSTED_KDC: windows_core::HRESULT = windows_core::HRESULT(0x80090359_u32 as _);
+pub const SEC_E_KDC_CERT_EXPIRED: windows_core::HRESULT = windows_core::HRESULT(0x8009035A_u32 as _);
+pub const SEC_E_KDC_CERT_REVOKED: windows_core::HRESULT = windows_core::HRESULT(0x8009035B_u32 as _);
+pub const SEC_E_KDC_INVALID_REQUEST: windows_core::HRESULT = windows_core::HRESULT(0x80090340_u32 as _);
+pub const SEC_E_KDC_UNABLE_TO_REFER: windows_core::HRESULT = windows_core::HRESULT(0x80090341_u32 as _);
+pub const SEC_E_KDC_UNKNOWN_ETYPE: windows_core::HRESULT = windows_core::HRESULT(0x80090342_u32 as _);
+pub const SEC_E_LOGON_DENIED: windows_core::HRESULT = windows_core::HRESULT(0x8009030C_u32 as _);
+pub const SEC_E_MAX_REFERRALS_EXCEEDED: windows_core::HRESULT = windows_core::HRESULT(0x80090338_u32 as _);
+pub const SEC_E_MESSAGE_ALTERED: windows_core::HRESULT = windows_core::HRESULT(0x8009030F_u32 as _);
+pub const SEC_E_MULTIPLE_ACCOUNTS: windows_core::HRESULT = windows_core::HRESULT(0x80090347_u32 as _);
+pub const SEC_E_MUST_BE_KDC: windows_core::HRESULT = windows_core::HRESULT(0x80090339_u32 as _);
+pub const SEC_E_MUTUAL_AUTH_FAILED: windows_core::HRESULT = windows_core::HRESULT(0x80090363_u32 as _);
+pub const SEC_E_NOT_OWNER: windows_core::HRESULT = windows_core::HRESULT(0x80090306_u32 as _);
 pub const SEC_E_NOT_SUPPORTED: i32 = -2146893054i32;
-pub const SEC_E_NO_AUTHENTICATING_AUTHORITY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80090311_u32 as _);
-pub const SEC_E_NO_CONTEXT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80090361_u32 as _);
-pub const SEC_E_NO_CREDENTIALS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8009030E_u32 as _);
-pub const SEC_E_NO_IMPERSONATION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8009030B_u32 as _);
-pub const SEC_E_NO_IP_ADDRESSES: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80090335_u32 as _);
-pub const SEC_E_NO_KERB_KEY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80090348_u32 as _);
-pub const SEC_E_NO_PA_DATA: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8009033C_u32 as _);
-pub const SEC_E_NO_S4U_PROT_SUPPORT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80090356_u32 as _);
+pub const SEC_E_NO_AUTHENTICATING_AUTHORITY: windows_core::HRESULT = windows_core::HRESULT(0x80090311_u32 as _);
+pub const SEC_E_NO_CONTEXT: windows_core::HRESULT = windows_core::HRESULT(0x80090361_u32 as _);
+pub const SEC_E_NO_CREDENTIALS: windows_core::HRESULT = windows_core::HRESULT(0x8009030E_u32 as _);
+pub const SEC_E_NO_IMPERSONATION: windows_core::HRESULT = windows_core::HRESULT(0x8009030B_u32 as _);
+pub const SEC_E_NO_IP_ADDRESSES: windows_core::HRESULT = windows_core::HRESULT(0x80090335_u32 as _);
+pub const SEC_E_NO_KERB_KEY: windows_core::HRESULT = windows_core::HRESULT(0x80090348_u32 as _);
+pub const SEC_E_NO_PA_DATA: windows_core::HRESULT = windows_core::HRESULT(0x8009033C_u32 as _);
+pub const SEC_E_NO_S4U_PROT_SUPPORT: windows_core::HRESULT = windows_core::HRESULT(0x80090356_u32 as _);
 pub const SEC_E_NO_SPM: i32 = -2146893052i32;
-pub const SEC_E_NO_TGT_REPLY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80090334_u32 as _);
-pub const SEC_E_OK: ::windows_core::HRESULT = ::windows_core::HRESULT(0x0_u32 as _);
-pub const SEC_E_ONLY_HTTPS_ALLOWED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80090365_u32 as _);
-pub const SEC_E_OUT_OF_SEQUENCE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80090310_u32 as _);
-pub const SEC_E_PKINIT_CLIENT_FAILURE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80090354_u32 as _);
-pub const SEC_E_PKINIT_NAME_MISMATCH: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8009033D_u32 as _);
-pub const SEC_E_PKU2U_CERT_FAILURE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80090362_u32 as _);
-pub const SEC_E_POLICY_NLTM_ONLY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8009035F_u32 as _);
-pub const SEC_E_QOP_NOT_SUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8009030A_u32 as _);
-pub const SEC_E_REVOCATION_OFFLINE_C: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80090353_u32 as _);
-pub const SEC_E_REVOCATION_OFFLINE_KDC: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80090358_u32 as _);
-pub const SEC_E_SECPKG_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80090305_u32 as _);
-pub const SEC_E_SECURITY_QOS_FAILED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80090332_u32 as _);
-pub const SEC_E_SHUTDOWN_IN_PROGRESS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8009033F_u32 as _);
-pub const SEC_E_SMARTCARD_CERT_EXPIRED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80090355_u32 as _);
-pub const SEC_E_SMARTCARD_CERT_REVOKED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80090351_u32 as _);
-pub const SEC_E_SMARTCARD_LOGON_REQUIRED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8009033E_u32 as _);
-pub const SEC_E_STRONG_CRYPTO_NOT_SUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8009033A_u32 as _);
-pub const SEC_E_TARGET_UNKNOWN: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80090303_u32 as _);
-pub const SEC_E_TIME_SKEW: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80090324_u32 as _);
-pub const SEC_E_TOO_MANY_PRINCIPALS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8009033B_u32 as _);
-pub const SEC_E_UNFINISHED_CONTEXT_DELETED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80090333_u32 as _);
-pub const SEC_E_UNKNOWN_CREDENTIALS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8009030D_u32 as _);
-pub const SEC_E_UNSUPPORTED_FUNCTION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80090302_u32 as _);
-pub const SEC_E_UNSUPPORTED_PREAUTH: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80090343_u32 as _);
-pub const SEC_E_UNTRUSTED_ROOT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80090325_u32 as _);
-pub const SEC_E_WRONG_CREDENTIAL_HANDLE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80090336_u32 as _);
-pub const SEC_E_WRONG_PRINCIPAL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80090322_u32 as _);
-pub const SEC_I_ASYNC_CALL_PENDING: ::windows_core::HRESULT = ::windows_core::HRESULT(0x90368_u32 as _);
-pub const SEC_I_COMPLETE_AND_CONTINUE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x90314_u32 as _);
-pub const SEC_I_COMPLETE_NEEDED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x90313_u32 as _);
-pub const SEC_I_CONTEXT_EXPIRED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x90317_u32 as _);
-pub const SEC_I_CONTINUE_NEEDED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x90312_u32 as _);
-pub const SEC_I_CONTINUE_NEEDED_MESSAGE_OK: ::windows_core::HRESULT = ::windows_core::HRESULT(0x90366_u32 as _);
-pub const SEC_I_GENERIC_EXTENSION_RECEIVED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x90316_u32 as _);
-pub const SEC_I_INCOMPLETE_CREDENTIALS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x90320_u32 as _);
-pub const SEC_I_LOCAL_LOGON: ::windows_core::HRESULT = ::windows_core::HRESULT(0x90315_u32 as _);
-pub const SEC_I_MESSAGE_FRAGMENT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x90364_u32 as _);
-pub const SEC_I_NO_LSA_CONTEXT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x90323_u32 as _);
-pub const SEC_I_NO_RENEGOTIATION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x90360_u32 as _);
-pub const SEC_I_RENEGOTIATE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x90321_u32 as _);
-pub const SEC_I_SIGNATURE_NEEDED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x9035C_u32 as _);
+pub const SEC_E_NO_TGT_REPLY: windows_core::HRESULT = windows_core::HRESULT(0x80090334_u32 as _);
+pub const SEC_E_OK: windows_core::HRESULT = windows_core::HRESULT(0x0_u32 as _);
+pub const SEC_E_ONLY_HTTPS_ALLOWED: windows_core::HRESULT = windows_core::HRESULT(0x80090365_u32 as _);
+pub const SEC_E_OUT_OF_SEQUENCE: windows_core::HRESULT = windows_core::HRESULT(0x80090310_u32 as _);
+pub const SEC_E_PKINIT_CLIENT_FAILURE: windows_core::HRESULT = windows_core::HRESULT(0x80090354_u32 as _);
+pub const SEC_E_PKINIT_NAME_MISMATCH: windows_core::HRESULT = windows_core::HRESULT(0x8009033D_u32 as _);
+pub const SEC_E_PKU2U_CERT_FAILURE: windows_core::HRESULT = windows_core::HRESULT(0x80090362_u32 as _);
+pub const SEC_E_POLICY_NLTM_ONLY: windows_core::HRESULT = windows_core::HRESULT(0x8009035F_u32 as _);
+pub const SEC_E_QOP_NOT_SUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x8009030A_u32 as _);
+pub const SEC_E_REVOCATION_OFFLINE_C: windows_core::HRESULT = windows_core::HRESULT(0x80090353_u32 as _);
+pub const SEC_E_REVOCATION_OFFLINE_KDC: windows_core::HRESULT = windows_core::HRESULT(0x80090358_u32 as _);
+pub const SEC_E_SECPKG_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0x80090305_u32 as _);
+pub const SEC_E_SECURITY_QOS_FAILED: windows_core::HRESULT = windows_core::HRESULT(0x80090332_u32 as _);
+pub const SEC_E_SHUTDOWN_IN_PROGRESS: windows_core::HRESULT = windows_core::HRESULT(0x8009033F_u32 as _);
+pub const SEC_E_SMARTCARD_CERT_EXPIRED: windows_core::HRESULT = windows_core::HRESULT(0x80090355_u32 as _);
+pub const SEC_E_SMARTCARD_CERT_REVOKED: windows_core::HRESULT = windows_core::HRESULT(0x80090351_u32 as _);
+pub const SEC_E_SMARTCARD_LOGON_REQUIRED: windows_core::HRESULT = windows_core::HRESULT(0x8009033E_u32 as _);
+pub const SEC_E_STRONG_CRYPTO_NOT_SUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x8009033A_u32 as _);
+pub const SEC_E_TARGET_UNKNOWN: windows_core::HRESULT = windows_core::HRESULT(0x80090303_u32 as _);
+pub const SEC_E_TIME_SKEW: windows_core::HRESULT = windows_core::HRESULT(0x80090324_u32 as _);
+pub const SEC_E_TOO_MANY_PRINCIPALS: windows_core::HRESULT = windows_core::HRESULT(0x8009033B_u32 as _);
+pub const SEC_E_UNFINISHED_CONTEXT_DELETED: windows_core::HRESULT = windows_core::HRESULT(0x80090333_u32 as _);
+pub const SEC_E_UNKNOWN_CREDENTIALS: windows_core::HRESULT = windows_core::HRESULT(0x8009030D_u32 as _);
+pub const SEC_E_UNSUPPORTED_FUNCTION: windows_core::HRESULT = windows_core::HRESULT(0x80090302_u32 as _);
+pub const SEC_E_UNSUPPORTED_PREAUTH: windows_core::HRESULT = windows_core::HRESULT(0x80090343_u32 as _);
+pub const SEC_E_UNTRUSTED_ROOT: windows_core::HRESULT = windows_core::HRESULT(0x80090325_u32 as _);
+pub const SEC_E_WRONG_CREDENTIAL_HANDLE: windows_core::HRESULT = windows_core::HRESULT(0x80090336_u32 as _);
+pub const SEC_E_WRONG_PRINCIPAL: windows_core::HRESULT = windows_core::HRESULT(0x80090322_u32 as _);
+pub const SEC_I_ASYNC_CALL_PENDING: windows_core::HRESULT = windows_core::HRESULT(0x90368_u32 as _);
+pub const SEC_I_COMPLETE_AND_CONTINUE: windows_core::HRESULT = windows_core::HRESULT(0x90314_u32 as _);
+pub const SEC_I_COMPLETE_NEEDED: windows_core::HRESULT = windows_core::HRESULT(0x90313_u32 as _);
+pub const SEC_I_CONTEXT_EXPIRED: windows_core::HRESULT = windows_core::HRESULT(0x90317_u32 as _);
+pub const SEC_I_CONTINUE_NEEDED: windows_core::HRESULT = windows_core::HRESULT(0x90312_u32 as _);
+pub const SEC_I_CONTINUE_NEEDED_MESSAGE_OK: windows_core::HRESULT = windows_core::HRESULT(0x90366_u32 as _);
+pub const SEC_I_GENERIC_EXTENSION_RECEIVED: windows_core::HRESULT = windows_core::HRESULT(0x90316_u32 as _);
+pub const SEC_I_INCOMPLETE_CREDENTIALS: windows_core::HRESULT = windows_core::HRESULT(0x90320_u32 as _);
+pub const SEC_I_LOCAL_LOGON: windows_core::HRESULT = windows_core::HRESULT(0x90315_u32 as _);
+pub const SEC_I_MESSAGE_FRAGMENT: windows_core::HRESULT = windows_core::HRESULT(0x90364_u32 as _);
+pub const SEC_I_NO_LSA_CONTEXT: windows_core::HRESULT = windows_core::HRESULT(0x90323_u32 as _);
+pub const SEC_I_NO_RENEGOTIATION: windows_core::HRESULT = windows_core::HRESULT(0x90360_u32 as _);
+pub const SEC_I_RENEGOTIATE: windows_core::HRESULT = windows_core::HRESULT(0x90321_u32 as _);
+pub const SEC_I_SIGNATURE_NEEDED: windows_core::HRESULT = windows_core::HRESULT(0x9035C_u32 as _);
 pub const SEVERITY_ERROR: u32 = 1u32;
 pub const SEVERITY_SUCCESS: u32 = 0u32;
-pub const SPAPI_E_AUTHENTICODE_DISALLOWED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800F0240_u32 as _);
-pub const SPAPI_E_AUTHENTICODE_PUBLISHER_NOT_TRUSTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800F0243_u32 as _);
-pub const SPAPI_E_AUTHENTICODE_TRUSTED_PUBLISHER: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800F0241_u32 as _);
-pub const SPAPI_E_AUTHENTICODE_TRUST_NOT_ESTABLISHED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800F0242_u32 as _);
-pub const SPAPI_E_BAD_INTERFACE_INSTALLSECT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800F021D_u32 as _);
-pub const SPAPI_E_BAD_SECTION_NAME_LINE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800F0001_u32 as _);
-pub const SPAPI_E_BAD_SERVICE_INSTALLSECT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800F0217_u32 as _);
-pub const SPAPI_E_CANT_LOAD_CLASS_ICON: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800F020C_u32 as _);
-pub const SPAPI_E_CANT_REMOVE_DEVINST: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800F0232_u32 as _);
-pub const SPAPI_E_CLASS_MISMATCH: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800F0201_u32 as _);
-pub const SPAPI_E_DEVICE_INSTALLER_NOT_READY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800F0246_u32 as _);
-pub const SPAPI_E_DEVICE_INSTALL_BLOCKED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800F0248_u32 as _);
-pub const SPAPI_E_DEVICE_INTERFACE_ACTIVE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800F021B_u32 as _);
-pub const SPAPI_E_DEVICE_INTERFACE_REMOVED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800F021C_u32 as _);
-pub const SPAPI_E_DEVINFO_DATA_LOCKED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800F0213_u32 as _);
-pub const SPAPI_E_DEVINFO_LIST_LOCKED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800F0212_u32 as _);
-pub const SPAPI_E_DEVINFO_NOT_REGISTERED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800F0208_u32 as _);
-pub const SPAPI_E_DEVINSTALL_QUEUE_NONNATIVE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800F0230_u32 as _);
-pub const SPAPI_E_DEVINST_ALREADY_EXISTS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800F0207_u32 as _);
-pub const SPAPI_E_DI_BAD_PATH: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800F0214_u32 as _);
-pub const SPAPI_E_DI_DONT_INSTALL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800F022B_u32 as _);
-pub const SPAPI_E_DI_DO_DEFAULT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800F020E_u32 as _);
-pub const SPAPI_E_DI_FUNCTION_OBSOLETE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800F023E_u32 as _);
-pub const SPAPI_E_DI_NOFILECOPY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800F020F_u32 as _);
-pub const SPAPI_E_DI_POSTPROCESSING_REQUIRED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800F0226_u32 as _);
-pub const SPAPI_E_DRIVER_INSTALL_BLOCKED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800F0249_u32 as _);
-pub const SPAPI_E_DRIVER_NONNATIVE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800F0234_u32 as _);
-pub const SPAPI_E_DRIVER_STORE_ADD_FAILED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800F0247_u32 as _);
-pub const SPAPI_E_DRIVER_STORE_DELETE_FAILED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800F024C_u32 as _);
-pub const SPAPI_E_DUPLICATE_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800F0202_u32 as _);
-pub const SPAPI_E_ERROR_NOT_INSTALLED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800F1000_u32 as _);
-pub const SPAPI_E_EXPECTED_SECTION_NAME: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800F0000_u32 as _);
-pub const SPAPI_E_FILEQUEUE_LOCKED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800F0216_u32 as _);
-pub const SPAPI_E_FILE_HASH_NOT_IN_CATALOG: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800F024B_u32 as _);
-pub const SPAPI_E_GENERAL_SYNTAX: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800F0003_u32 as _);
-pub const SPAPI_E_INCORRECTLY_COPIED_INF: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800F0237_u32 as _);
-pub const SPAPI_E_INF_IN_USE_BY_DEVICES: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800F023D_u32 as _);
-pub const SPAPI_E_INVALID_CLASS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800F0206_u32 as _);
-pub const SPAPI_E_INVALID_CLASS_INSTALLER: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800F020D_u32 as _);
-pub const SPAPI_E_INVALID_COINSTALLER: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800F0227_u32 as _);
-pub const SPAPI_E_INVALID_DEVINST_NAME: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800F0205_u32 as _);
-pub const SPAPI_E_INVALID_FILTER_DRIVER: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800F022C_u32 as _);
-pub const SPAPI_E_INVALID_HWPROFILE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800F0210_u32 as _);
-pub const SPAPI_E_INVALID_INF_LOGCONFIG: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800F022A_u32 as _);
-pub const SPAPI_E_INVALID_MACHINENAME: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800F0220_u32 as _);
-pub const SPAPI_E_INVALID_PROPPAGE_PROVIDER: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800F0224_u32 as _);
-pub const SPAPI_E_INVALID_REFERENCE_STRING: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800F021F_u32 as _);
-pub const SPAPI_E_INVALID_REG_PROPERTY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800F0209_u32 as _);
-pub const SPAPI_E_INVALID_TARGET: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800F0233_u32 as _);
-pub const SPAPI_E_IN_WOW64: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800F0235_u32 as _);
-pub const SPAPI_E_KEY_DOES_NOT_EXIST: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800F0204_u32 as _);
-pub const SPAPI_E_LINE_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800F0102_u32 as _);
-pub const SPAPI_E_MACHINE_UNAVAILABLE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800F0222_u32 as _);
-pub const SPAPI_E_NON_WINDOWS_DRIVER: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800F022E_u32 as _);
-pub const SPAPI_E_NON_WINDOWS_NT_DRIVER: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800F022D_u32 as _);
-pub const SPAPI_E_NOT_AN_INSTALLED_OEM_INF: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800F023C_u32 as _);
-pub const SPAPI_E_NOT_DISABLEABLE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800F0231_u32 as _);
-pub const SPAPI_E_NO_ASSOCIATED_CLASS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800F0200_u32 as _);
-pub const SPAPI_E_NO_ASSOCIATED_SERVICE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800F0219_u32 as _);
-pub const SPAPI_E_NO_AUTHENTICODE_CATALOG: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800F023F_u32 as _);
-pub const SPAPI_E_NO_BACKUP: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800F0103_u32 as _);
-pub const SPAPI_E_NO_CATALOG_FOR_OEM_INF: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800F022F_u32 as _);
-pub const SPAPI_E_NO_CLASSINSTALL_PARAMS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800F0215_u32 as _);
-pub const SPAPI_E_NO_CLASS_DRIVER_LIST: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800F0218_u32 as _);
-pub const SPAPI_E_NO_COMPAT_DRIVERS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800F0228_u32 as _);
-pub const SPAPI_E_NO_CONFIGMGR_SERVICES: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800F0223_u32 as _);
-pub const SPAPI_E_NO_DEFAULT_DEVICE_INTERFACE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800F021A_u32 as _);
-pub const SPAPI_E_NO_DEVICE_ICON: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800F0229_u32 as _);
-pub const SPAPI_E_NO_DEVICE_SELECTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800F0211_u32 as _);
-pub const SPAPI_E_NO_DRIVER_SELECTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800F0203_u32 as _);
-pub const SPAPI_E_NO_INF: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800F020A_u32 as _);
-pub const SPAPI_E_NO_SUCH_DEVICE_INTERFACE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800F0225_u32 as _);
-pub const SPAPI_E_NO_SUCH_DEVINST: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800F020B_u32 as _);
-pub const SPAPI_E_NO_SUCH_INTERFACE_CLASS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800F021E_u32 as _);
-pub const SPAPI_E_ONLY_VALIDATE_VIA_AUTHENTICODE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800F0245_u32 as _);
-pub const SPAPI_E_PNP_REGISTRY_ERROR: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800F023A_u32 as _);
-pub const SPAPI_E_REMOTE_COMM_FAILURE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800F0221_u32 as _);
-pub const SPAPI_E_REMOTE_REQUEST_UNSUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800F023B_u32 as _);
-pub const SPAPI_E_SCE_DISABLED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800F0238_u32 as _);
-pub const SPAPI_E_SECTION_NAME_TOO_LONG: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800F0002_u32 as _);
-pub const SPAPI_E_SECTION_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800F0101_u32 as _);
-pub const SPAPI_E_SET_SYSTEM_RESTORE_POINT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800F0236_u32 as _);
-pub const SPAPI_E_SIGNATURE_OSATTRIBUTE_MISMATCH: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800F0244_u32 as _);
-pub const SPAPI_E_UNKNOWN_EXCEPTION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800F0239_u32 as _);
-pub const SPAPI_E_UNRECOVERABLE_STACK_OVERFLOW: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800F0300_u32 as _);
-pub const SPAPI_E_WRONG_INF_STYLE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800F0100_u32 as _);
-pub const SPAPI_E_WRONG_INF_TYPE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800F024A_u32 as _);
-pub const SQLITE_E_ABORT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87AF0004_u32 as _);
-pub const SQLITE_E_ABORT_ROLLBACK: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87AF0204_u32 as _);
-pub const SQLITE_E_AUTH: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87AF0017_u32 as _);
-pub const SQLITE_E_BUSY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87AF0005_u32 as _);
-pub const SQLITE_E_BUSY_RECOVERY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87AF0105_u32 as _);
-pub const SQLITE_E_BUSY_SNAPSHOT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87AF0205_u32 as _);
-pub const SQLITE_E_CANTOPEN: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87AF000E_u32 as _);
-pub const SQLITE_E_CANTOPEN_CONVPATH: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87AF040E_u32 as _);
-pub const SQLITE_E_CANTOPEN_FULLPATH: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87AF030E_u32 as _);
-pub const SQLITE_E_CANTOPEN_ISDIR: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87AF020E_u32 as _);
-pub const SQLITE_E_CANTOPEN_NOTEMPDIR: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87AF010E_u32 as _);
-pub const SQLITE_E_CONSTRAINT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87AF0013_u32 as _);
-pub const SQLITE_E_CONSTRAINT_CHECK: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87AF0113_u32 as _);
-pub const SQLITE_E_CONSTRAINT_COMMITHOOK: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87AF0213_u32 as _);
-pub const SQLITE_E_CONSTRAINT_FOREIGNKEY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87AF0313_u32 as _);
-pub const SQLITE_E_CONSTRAINT_FUNCTION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87AF0413_u32 as _);
-pub const SQLITE_E_CONSTRAINT_NOTNULL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87AF0513_u32 as _);
-pub const SQLITE_E_CONSTRAINT_PRIMARYKEY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87AF0613_u32 as _);
-pub const SQLITE_E_CONSTRAINT_ROWID: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87AF0A13_u32 as _);
-pub const SQLITE_E_CONSTRAINT_TRIGGER: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87AF0713_u32 as _);
-pub const SQLITE_E_CONSTRAINT_UNIQUE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87AF0813_u32 as _);
-pub const SQLITE_E_CONSTRAINT_VTAB: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87AF0913_u32 as _);
-pub const SQLITE_E_CORRUPT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87AF000B_u32 as _);
-pub const SQLITE_E_CORRUPT_VTAB: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87AF010B_u32 as _);
-pub const SQLITE_E_DONE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87AF0065_u32 as _);
-pub const SQLITE_E_EMPTY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87AF0010_u32 as _);
-pub const SQLITE_E_ERROR: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87AF0001_u32 as _);
-pub const SQLITE_E_FORMAT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87AF0018_u32 as _);
-pub const SQLITE_E_FULL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87AF000D_u32 as _);
-pub const SQLITE_E_INTERNAL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87AF0002_u32 as _);
-pub const SQLITE_E_INTERRUPT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87AF0009_u32 as _);
-pub const SQLITE_E_IOERR: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87AF000A_u32 as _);
-pub const SQLITE_E_IOERR_ACCESS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87AF0D0A_u32 as _);
-pub const SQLITE_E_IOERR_AUTH: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87AF1A03_u32 as _);
-pub const SQLITE_E_IOERR_BLOCKED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87AF0B0A_u32 as _);
-pub const SQLITE_E_IOERR_CHECKRESERVEDLOCK: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87AF0E0A_u32 as _);
-pub const SQLITE_E_IOERR_CLOSE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87AF100A_u32 as _);
-pub const SQLITE_E_IOERR_CONVPATH: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87AF1A0A_u32 as _);
-pub const SQLITE_E_IOERR_DELETE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87AF0A0A_u32 as _);
-pub const SQLITE_E_IOERR_DELETE_NOENT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87AF170A_u32 as _);
-pub const SQLITE_E_IOERR_DIR_CLOSE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87AF110A_u32 as _);
-pub const SQLITE_E_IOERR_DIR_FSYNC: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87AF050A_u32 as _);
-pub const SQLITE_E_IOERR_FSTAT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87AF070A_u32 as _);
-pub const SQLITE_E_IOERR_FSYNC: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87AF040A_u32 as _);
-pub const SQLITE_E_IOERR_GETTEMPPATH: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87AF190A_u32 as _);
-pub const SQLITE_E_IOERR_LOCK: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87AF0F0A_u32 as _);
-pub const SQLITE_E_IOERR_MMAP: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87AF180A_u32 as _);
-pub const SQLITE_E_IOERR_NOMEM: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87AF0C0A_u32 as _);
-pub const SQLITE_E_IOERR_RDLOCK: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87AF090A_u32 as _);
-pub const SQLITE_E_IOERR_READ: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87AF010A_u32 as _);
-pub const SQLITE_E_IOERR_SEEK: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87AF160A_u32 as _);
-pub const SQLITE_E_IOERR_SHMLOCK: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87AF140A_u32 as _);
-pub const SQLITE_E_IOERR_SHMMAP: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87AF150A_u32 as _);
-pub const SQLITE_E_IOERR_SHMOPEN: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87AF120A_u32 as _);
-pub const SQLITE_E_IOERR_SHMSIZE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87AF130A_u32 as _);
-pub const SQLITE_E_IOERR_SHORT_READ: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87AF020A_u32 as _);
-pub const SQLITE_E_IOERR_TRUNCATE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87AF060A_u32 as _);
-pub const SQLITE_E_IOERR_UNLOCK: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87AF080A_u32 as _);
-pub const SQLITE_E_IOERR_VNODE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87AF1A02_u32 as _);
-pub const SQLITE_E_IOERR_WRITE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87AF030A_u32 as _);
-pub const SQLITE_E_LOCKED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87AF0006_u32 as _);
-pub const SQLITE_E_LOCKED_SHAREDCACHE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87AF0106_u32 as _);
-pub const SQLITE_E_MISMATCH: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87AF0014_u32 as _);
-pub const SQLITE_E_MISUSE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87AF0015_u32 as _);
-pub const SQLITE_E_NOLFS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87AF0016_u32 as _);
-pub const SQLITE_E_NOMEM: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87AF0007_u32 as _);
-pub const SQLITE_E_NOTADB: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87AF001A_u32 as _);
-pub const SQLITE_E_NOTFOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87AF000C_u32 as _);
-pub const SQLITE_E_NOTICE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87AF001B_u32 as _);
-pub const SQLITE_E_NOTICE_RECOVER_ROLLBACK: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87AF021B_u32 as _);
-pub const SQLITE_E_NOTICE_RECOVER_WAL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87AF011B_u32 as _);
-pub const SQLITE_E_PERM: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87AF0003_u32 as _);
-pub const SQLITE_E_PROTOCOL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87AF000F_u32 as _);
-pub const SQLITE_E_RANGE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87AF0019_u32 as _);
-pub const SQLITE_E_READONLY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87AF0008_u32 as _);
-pub const SQLITE_E_READONLY_CANTLOCK: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87AF0208_u32 as _);
-pub const SQLITE_E_READONLY_DBMOVED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87AF0408_u32 as _);
-pub const SQLITE_E_READONLY_RECOVERY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87AF0108_u32 as _);
-pub const SQLITE_E_READONLY_ROLLBACK: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87AF0308_u32 as _);
-pub const SQLITE_E_ROW: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87AF0064_u32 as _);
-pub const SQLITE_E_SCHEMA: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87AF0011_u32 as _);
-pub const SQLITE_E_TOOBIG: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87AF0012_u32 as _);
-pub const SQLITE_E_WARNING: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87AF001C_u32 as _);
-pub const SQLITE_E_WARNING_AUTOINDEX: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87AF011C_u32 as _);
-pub const STATEREPOSITORY_ERROR_CACHE_CORRUPTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80670012_u32 as _);
-pub const STATEREPOSITORY_ERROR_DICTIONARY_CORRUPTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80670005_u32 as _);
-pub const STATEREPOSITORY_E_BLOCKED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80670006_u32 as _);
-pub const STATEREPOSITORY_E_BUSY_RECOVERY_RETRY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80670008_u32 as _);
-pub const STATEREPOSITORY_E_BUSY_RECOVERY_TIMEOUT_EXCEEDED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8067000D_u32 as _);
-pub const STATEREPOSITORY_E_BUSY_RETRY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80670007_u32 as _);
-pub const STATEREPOSITORY_E_BUSY_TIMEOUT_EXCEEDED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8067000C_u32 as _);
-pub const STATEREPOSITORY_E_CACHE_NOT_INIITALIZED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80670015_u32 as _);
-pub const STATEREPOSITORY_E_CONCURRENCY_LOCKING_FAILURE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80670001_u32 as _);
-pub const STATEREPOSITORY_E_CONFIGURATION_INVALID: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80670003_u32 as _);
-pub const STATEREPOSITORY_E_DEPENDENCY_NOT_RESOLVED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80670016_u32 as _);
-pub const STATEREPOSITORY_E_LOCKED_RETRY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80670009_u32 as _);
-pub const STATEREPOSITORY_E_LOCKED_SHAREDCACHE_RETRY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8067000A_u32 as _);
-pub const STATEREPOSITORY_E_LOCKED_SHAREDCACHE_TIMEOUT_EXCEEDED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8067000F_u32 as _);
-pub const STATEREPOSITORY_E_LOCKED_TIMEOUT_EXCEEDED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8067000E_u32 as _);
-pub const STATEREPOSITORY_E_SERVICE_STOP_IN_PROGRESS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80670010_u32 as _);
-pub const STATEREPOSITORY_E_STATEMENT_INPROGRESS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80670002_u32 as _);
-pub const STATEREPOSITORY_E_TRANSACTION_REQUIRED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8067000B_u32 as _);
-pub const STATEREPOSITORY_E_UNKNOWN_SCHEMA_VERSION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80670004_u32 as _);
-pub const STATEREPOSITORY_TRANSACTION_CALLER_ID_CHANGED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x670013_u32 as _);
-pub const STATEREPOSITORY_TRANSACTION_IN_PROGRESS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80670014_u32 as _);
-pub const STATEREPOSTORY_E_NESTED_TRANSACTION_NOT_SUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80670011_u32 as _);
+pub const SPAPI_E_AUTHENTICODE_DISALLOWED: windows_core::HRESULT = windows_core::HRESULT(0x800F0240_u32 as _);
+pub const SPAPI_E_AUTHENTICODE_PUBLISHER_NOT_TRUSTED: windows_core::HRESULT = windows_core::HRESULT(0x800F0243_u32 as _);
+pub const SPAPI_E_AUTHENTICODE_TRUSTED_PUBLISHER: windows_core::HRESULT = windows_core::HRESULT(0x800F0241_u32 as _);
+pub const SPAPI_E_AUTHENTICODE_TRUST_NOT_ESTABLISHED: windows_core::HRESULT = windows_core::HRESULT(0x800F0242_u32 as _);
+pub const SPAPI_E_BAD_INTERFACE_INSTALLSECT: windows_core::HRESULT = windows_core::HRESULT(0x800F021D_u32 as _);
+pub const SPAPI_E_BAD_SECTION_NAME_LINE: windows_core::HRESULT = windows_core::HRESULT(0x800F0001_u32 as _);
+pub const SPAPI_E_BAD_SERVICE_INSTALLSECT: windows_core::HRESULT = windows_core::HRESULT(0x800F0217_u32 as _);
+pub const SPAPI_E_CANT_LOAD_CLASS_ICON: windows_core::HRESULT = windows_core::HRESULT(0x800F020C_u32 as _);
+pub const SPAPI_E_CANT_REMOVE_DEVINST: windows_core::HRESULT = windows_core::HRESULT(0x800F0232_u32 as _);
+pub const SPAPI_E_CLASS_MISMATCH: windows_core::HRESULT = windows_core::HRESULT(0x800F0201_u32 as _);
+pub const SPAPI_E_DEVICE_INSTALLER_NOT_READY: windows_core::HRESULT = windows_core::HRESULT(0x800F0246_u32 as _);
+pub const SPAPI_E_DEVICE_INSTALL_BLOCKED: windows_core::HRESULT = windows_core::HRESULT(0x800F0248_u32 as _);
+pub const SPAPI_E_DEVICE_INTERFACE_ACTIVE: windows_core::HRESULT = windows_core::HRESULT(0x800F021B_u32 as _);
+pub const SPAPI_E_DEVICE_INTERFACE_REMOVED: windows_core::HRESULT = windows_core::HRESULT(0x800F021C_u32 as _);
+pub const SPAPI_E_DEVINFO_DATA_LOCKED: windows_core::HRESULT = windows_core::HRESULT(0x800F0213_u32 as _);
+pub const SPAPI_E_DEVINFO_LIST_LOCKED: windows_core::HRESULT = windows_core::HRESULT(0x800F0212_u32 as _);
+pub const SPAPI_E_DEVINFO_NOT_REGISTERED: windows_core::HRESULT = windows_core::HRESULT(0x800F0208_u32 as _);
+pub const SPAPI_E_DEVINSTALL_QUEUE_NONNATIVE: windows_core::HRESULT = windows_core::HRESULT(0x800F0230_u32 as _);
+pub const SPAPI_E_DEVINST_ALREADY_EXISTS: windows_core::HRESULT = windows_core::HRESULT(0x800F0207_u32 as _);
+pub const SPAPI_E_DI_BAD_PATH: windows_core::HRESULT = windows_core::HRESULT(0x800F0214_u32 as _);
+pub const SPAPI_E_DI_DONT_INSTALL: windows_core::HRESULT = windows_core::HRESULT(0x800F022B_u32 as _);
+pub const SPAPI_E_DI_DO_DEFAULT: windows_core::HRESULT = windows_core::HRESULT(0x800F020E_u32 as _);
+pub const SPAPI_E_DI_FUNCTION_OBSOLETE: windows_core::HRESULT = windows_core::HRESULT(0x800F023E_u32 as _);
+pub const SPAPI_E_DI_NOFILECOPY: windows_core::HRESULT = windows_core::HRESULT(0x800F020F_u32 as _);
+pub const SPAPI_E_DI_POSTPROCESSING_REQUIRED: windows_core::HRESULT = windows_core::HRESULT(0x800F0226_u32 as _);
+pub const SPAPI_E_DRIVER_INSTALL_BLOCKED: windows_core::HRESULT = windows_core::HRESULT(0x800F0249_u32 as _);
+pub const SPAPI_E_DRIVER_NONNATIVE: windows_core::HRESULT = windows_core::HRESULT(0x800F0234_u32 as _);
+pub const SPAPI_E_DRIVER_STORE_ADD_FAILED: windows_core::HRESULT = windows_core::HRESULT(0x800F0247_u32 as _);
+pub const SPAPI_E_DRIVER_STORE_DELETE_FAILED: windows_core::HRESULT = windows_core::HRESULT(0x800F024C_u32 as _);
+pub const SPAPI_E_DUPLICATE_FOUND: windows_core::HRESULT = windows_core::HRESULT(0x800F0202_u32 as _);
+pub const SPAPI_E_ERROR_NOT_INSTALLED: windows_core::HRESULT = windows_core::HRESULT(0x800F1000_u32 as _);
+pub const SPAPI_E_EXPECTED_SECTION_NAME: windows_core::HRESULT = windows_core::HRESULT(0x800F0000_u32 as _);
+pub const SPAPI_E_FILEQUEUE_LOCKED: windows_core::HRESULT = windows_core::HRESULT(0x800F0216_u32 as _);
+pub const SPAPI_E_FILE_HASH_NOT_IN_CATALOG: windows_core::HRESULT = windows_core::HRESULT(0x800F024B_u32 as _);
+pub const SPAPI_E_GENERAL_SYNTAX: windows_core::HRESULT = windows_core::HRESULT(0x800F0003_u32 as _);
+pub const SPAPI_E_INCORRECTLY_COPIED_INF: windows_core::HRESULT = windows_core::HRESULT(0x800F0237_u32 as _);
+pub const SPAPI_E_INF_IN_USE_BY_DEVICES: windows_core::HRESULT = windows_core::HRESULT(0x800F023D_u32 as _);
+pub const SPAPI_E_INVALID_CLASS: windows_core::HRESULT = windows_core::HRESULT(0x800F0206_u32 as _);
+pub const SPAPI_E_INVALID_CLASS_INSTALLER: windows_core::HRESULT = windows_core::HRESULT(0x800F020D_u32 as _);
+pub const SPAPI_E_INVALID_COINSTALLER: windows_core::HRESULT = windows_core::HRESULT(0x800F0227_u32 as _);
+pub const SPAPI_E_INVALID_DEVINST_NAME: windows_core::HRESULT = windows_core::HRESULT(0x800F0205_u32 as _);
+pub const SPAPI_E_INVALID_FILTER_DRIVER: windows_core::HRESULT = windows_core::HRESULT(0x800F022C_u32 as _);
+pub const SPAPI_E_INVALID_HWPROFILE: windows_core::HRESULT = windows_core::HRESULT(0x800F0210_u32 as _);
+pub const SPAPI_E_INVALID_INF_LOGCONFIG: windows_core::HRESULT = windows_core::HRESULT(0x800F022A_u32 as _);
+pub const SPAPI_E_INVALID_MACHINENAME: windows_core::HRESULT = windows_core::HRESULT(0x800F0220_u32 as _);
+pub const SPAPI_E_INVALID_PROPPAGE_PROVIDER: windows_core::HRESULT = windows_core::HRESULT(0x800F0224_u32 as _);
+pub const SPAPI_E_INVALID_REFERENCE_STRING: windows_core::HRESULT = windows_core::HRESULT(0x800F021F_u32 as _);
+pub const SPAPI_E_INVALID_REG_PROPERTY: windows_core::HRESULT = windows_core::HRESULT(0x800F0209_u32 as _);
+pub const SPAPI_E_INVALID_TARGET: windows_core::HRESULT = windows_core::HRESULT(0x800F0233_u32 as _);
+pub const SPAPI_E_IN_WOW64: windows_core::HRESULT = windows_core::HRESULT(0x800F0235_u32 as _);
+pub const SPAPI_E_KEY_DOES_NOT_EXIST: windows_core::HRESULT = windows_core::HRESULT(0x800F0204_u32 as _);
+pub const SPAPI_E_LINE_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0x800F0102_u32 as _);
+pub const SPAPI_E_MACHINE_UNAVAILABLE: windows_core::HRESULT = windows_core::HRESULT(0x800F0222_u32 as _);
+pub const SPAPI_E_NON_WINDOWS_DRIVER: windows_core::HRESULT = windows_core::HRESULT(0x800F022E_u32 as _);
+pub const SPAPI_E_NON_WINDOWS_NT_DRIVER: windows_core::HRESULT = windows_core::HRESULT(0x800F022D_u32 as _);
+pub const SPAPI_E_NOT_AN_INSTALLED_OEM_INF: windows_core::HRESULT = windows_core::HRESULT(0x800F023C_u32 as _);
+pub const SPAPI_E_NOT_DISABLEABLE: windows_core::HRESULT = windows_core::HRESULT(0x800F0231_u32 as _);
+pub const SPAPI_E_NO_ASSOCIATED_CLASS: windows_core::HRESULT = windows_core::HRESULT(0x800F0200_u32 as _);
+pub const SPAPI_E_NO_ASSOCIATED_SERVICE: windows_core::HRESULT = windows_core::HRESULT(0x800F0219_u32 as _);
+pub const SPAPI_E_NO_AUTHENTICODE_CATALOG: windows_core::HRESULT = windows_core::HRESULT(0x800F023F_u32 as _);
+pub const SPAPI_E_NO_BACKUP: windows_core::HRESULT = windows_core::HRESULT(0x800F0103_u32 as _);
+pub const SPAPI_E_NO_CATALOG_FOR_OEM_INF: windows_core::HRESULT = windows_core::HRESULT(0x800F022F_u32 as _);
+pub const SPAPI_E_NO_CLASSINSTALL_PARAMS: windows_core::HRESULT = windows_core::HRESULT(0x800F0215_u32 as _);
+pub const SPAPI_E_NO_CLASS_DRIVER_LIST: windows_core::HRESULT = windows_core::HRESULT(0x800F0218_u32 as _);
+pub const SPAPI_E_NO_COMPAT_DRIVERS: windows_core::HRESULT = windows_core::HRESULT(0x800F0228_u32 as _);
+pub const SPAPI_E_NO_CONFIGMGR_SERVICES: windows_core::HRESULT = windows_core::HRESULT(0x800F0223_u32 as _);
+pub const SPAPI_E_NO_DEFAULT_DEVICE_INTERFACE: windows_core::HRESULT = windows_core::HRESULT(0x800F021A_u32 as _);
+pub const SPAPI_E_NO_DEVICE_ICON: windows_core::HRESULT = windows_core::HRESULT(0x800F0229_u32 as _);
+pub const SPAPI_E_NO_DEVICE_SELECTED: windows_core::HRESULT = windows_core::HRESULT(0x800F0211_u32 as _);
+pub const SPAPI_E_NO_DRIVER_SELECTED: windows_core::HRESULT = windows_core::HRESULT(0x800F0203_u32 as _);
+pub const SPAPI_E_NO_INF: windows_core::HRESULT = windows_core::HRESULT(0x800F020A_u32 as _);
+pub const SPAPI_E_NO_SUCH_DEVICE_INTERFACE: windows_core::HRESULT = windows_core::HRESULT(0x800F0225_u32 as _);
+pub const SPAPI_E_NO_SUCH_DEVINST: windows_core::HRESULT = windows_core::HRESULT(0x800F020B_u32 as _);
+pub const SPAPI_E_NO_SUCH_INTERFACE_CLASS: windows_core::HRESULT = windows_core::HRESULT(0x800F021E_u32 as _);
+pub const SPAPI_E_ONLY_VALIDATE_VIA_AUTHENTICODE: windows_core::HRESULT = windows_core::HRESULT(0x800F0245_u32 as _);
+pub const SPAPI_E_PNP_REGISTRY_ERROR: windows_core::HRESULT = windows_core::HRESULT(0x800F023A_u32 as _);
+pub const SPAPI_E_REMOTE_COMM_FAILURE: windows_core::HRESULT = windows_core::HRESULT(0x800F0221_u32 as _);
+pub const SPAPI_E_REMOTE_REQUEST_UNSUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x800F023B_u32 as _);
+pub const SPAPI_E_SCE_DISABLED: windows_core::HRESULT = windows_core::HRESULT(0x800F0238_u32 as _);
+pub const SPAPI_E_SECTION_NAME_TOO_LONG: windows_core::HRESULT = windows_core::HRESULT(0x800F0002_u32 as _);
+pub const SPAPI_E_SECTION_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0x800F0101_u32 as _);
+pub const SPAPI_E_SET_SYSTEM_RESTORE_POINT: windows_core::HRESULT = windows_core::HRESULT(0x800F0236_u32 as _);
+pub const SPAPI_E_SIGNATURE_OSATTRIBUTE_MISMATCH: windows_core::HRESULT = windows_core::HRESULT(0x800F0244_u32 as _);
+pub const SPAPI_E_UNKNOWN_EXCEPTION: windows_core::HRESULT = windows_core::HRESULT(0x800F0239_u32 as _);
+pub const SPAPI_E_UNRECOVERABLE_STACK_OVERFLOW: windows_core::HRESULT = windows_core::HRESULT(0x800F0300_u32 as _);
+pub const SPAPI_E_WRONG_INF_STYLE: windows_core::HRESULT = windows_core::HRESULT(0x800F0100_u32 as _);
+pub const SPAPI_E_WRONG_INF_TYPE: windows_core::HRESULT = windows_core::HRESULT(0x800F024A_u32 as _);
+pub const SQLITE_E_ABORT: windows_core::HRESULT = windows_core::HRESULT(0x87AF0004_u32 as _);
+pub const SQLITE_E_ABORT_ROLLBACK: windows_core::HRESULT = windows_core::HRESULT(0x87AF0204_u32 as _);
+pub const SQLITE_E_AUTH: windows_core::HRESULT = windows_core::HRESULT(0x87AF0017_u32 as _);
+pub const SQLITE_E_BUSY: windows_core::HRESULT = windows_core::HRESULT(0x87AF0005_u32 as _);
+pub const SQLITE_E_BUSY_RECOVERY: windows_core::HRESULT = windows_core::HRESULT(0x87AF0105_u32 as _);
+pub const SQLITE_E_BUSY_SNAPSHOT: windows_core::HRESULT = windows_core::HRESULT(0x87AF0205_u32 as _);
+pub const SQLITE_E_CANTOPEN: windows_core::HRESULT = windows_core::HRESULT(0x87AF000E_u32 as _);
+pub const SQLITE_E_CANTOPEN_CONVPATH: windows_core::HRESULT = windows_core::HRESULT(0x87AF040E_u32 as _);
+pub const SQLITE_E_CANTOPEN_FULLPATH: windows_core::HRESULT = windows_core::HRESULT(0x87AF030E_u32 as _);
+pub const SQLITE_E_CANTOPEN_ISDIR: windows_core::HRESULT = windows_core::HRESULT(0x87AF020E_u32 as _);
+pub const SQLITE_E_CANTOPEN_NOTEMPDIR: windows_core::HRESULT = windows_core::HRESULT(0x87AF010E_u32 as _);
+pub const SQLITE_E_CONSTRAINT: windows_core::HRESULT = windows_core::HRESULT(0x87AF0013_u32 as _);
+pub const SQLITE_E_CONSTRAINT_CHECK: windows_core::HRESULT = windows_core::HRESULT(0x87AF0113_u32 as _);
+pub const SQLITE_E_CONSTRAINT_COMMITHOOK: windows_core::HRESULT = windows_core::HRESULT(0x87AF0213_u32 as _);
+pub const SQLITE_E_CONSTRAINT_FOREIGNKEY: windows_core::HRESULT = windows_core::HRESULT(0x87AF0313_u32 as _);
+pub const SQLITE_E_CONSTRAINT_FUNCTION: windows_core::HRESULT = windows_core::HRESULT(0x87AF0413_u32 as _);
+pub const SQLITE_E_CONSTRAINT_NOTNULL: windows_core::HRESULT = windows_core::HRESULT(0x87AF0513_u32 as _);
+pub const SQLITE_E_CONSTRAINT_PRIMARYKEY: windows_core::HRESULT = windows_core::HRESULT(0x87AF0613_u32 as _);
+pub const SQLITE_E_CONSTRAINT_ROWID: windows_core::HRESULT = windows_core::HRESULT(0x87AF0A13_u32 as _);
+pub const SQLITE_E_CONSTRAINT_TRIGGER: windows_core::HRESULT = windows_core::HRESULT(0x87AF0713_u32 as _);
+pub const SQLITE_E_CONSTRAINT_UNIQUE: windows_core::HRESULT = windows_core::HRESULT(0x87AF0813_u32 as _);
+pub const SQLITE_E_CONSTRAINT_VTAB: windows_core::HRESULT = windows_core::HRESULT(0x87AF0913_u32 as _);
+pub const SQLITE_E_CORRUPT: windows_core::HRESULT = windows_core::HRESULT(0x87AF000B_u32 as _);
+pub const SQLITE_E_CORRUPT_VTAB: windows_core::HRESULT = windows_core::HRESULT(0x87AF010B_u32 as _);
+pub const SQLITE_E_DONE: windows_core::HRESULT = windows_core::HRESULT(0x87AF0065_u32 as _);
+pub const SQLITE_E_EMPTY: windows_core::HRESULT = windows_core::HRESULT(0x87AF0010_u32 as _);
+pub const SQLITE_E_ERROR: windows_core::HRESULT = windows_core::HRESULT(0x87AF0001_u32 as _);
+pub const SQLITE_E_FORMAT: windows_core::HRESULT = windows_core::HRESULT(0x87AF0018_u32 as _);
+pub const SQLITE_E_FULL: windows_core::HRESULT = windows_core::HRESULT(0x87AF000D_u32 as _);
+pub const SQLITE_E_INTERNAL: windows_core::HRESULT = windows_core::HRESULT(0x87AF0002_u32 as _);
+pub const SQLITE_E_INTERRUPT: windows_core::HRESULT = windows_core::HRESULT(0x87AF0009_u32 as _);
+pub const SQLITE_E_IOERR: windows_core::HRESULT = windows_core::HRESULT(0x87AF000A_u32 as _);
+pub const SQLITE_E_IOERR_ACCESS: windows_core::HRESULT = windows_core::HRESULT(0x87AF0D0A_u32 as _);
+pub const SQLITE_E_IOERR_AUTH: windows_core::HRESULT = windows_core::HRESULT(0x87AF1A03_u32 as _);
+pub const SQLITE_E_IOERR_BLOCKED: windows_core::HRESULT = windows_core::HRESULT(0x87AF0B0A_u32 as _);
+pub const SQLITE_E_IOERR_CHECKRESERVEDLOCK: windows_core::HRESULT = windows_core::HRESULT(0x87AF0E0A_u32 as _);
+pub const SQLITE_E_IOERR_CLOSE: windows_core::HRESULT = windows_core::HRESULT(0x87AF100A_u32 as _);
+pub const SQLITE_E_IOERR_CONVPATH: windows_core::HRESULT = windows_core::HRESULT(0x87AF1A0A_u32 as _);
+pub const SQLITE_E_IOERR_DELETE: windows_core::HRESULT = windows_core::HRESULT(0x87AF0A0A_u32 as _);
+pub const SQLITE_E_IOERR_DELETE_NOENT: windows_core::HRESULT = windows_core::HRESULT(0x87AF170A_u32 as _);
+pub const SQLITE_E_IOERR_DIR_CLOSE: windows_core::HRESULT = windows_core::HRESULT(0x87AF110A_u32 as _);
+pub const SQLITE_E_IOERR_DIR_FSYNC: windows_core::HRESULT = windows_core::HRESULT(0x87AF050A_u32 as _);
+pub const SQLITE_E_IOERR_FSTAT: windows_core::HRESULT = windows_core::HRESULT(0x87AF070A_u32 as _);
+pub const SQLITE_E_IOERR_FSYNC: windows_core::HRESULT = windows_core::HRESULT(0x87AF040A_u32 as _);
+pub const SQLITE_E_IOERR_GETTEMPPATH: windows_core::HRESULT = windows_core::HRESULT(0x87AF190A_u32 as _);
+pub const SQLITE_E_IOERR_LOCK: windows_core::HRESULT = windows_core::HRESULT(0x87AF0F0A_u32 as _);
+pub const SQLITE_E_IOERR_MMAP: windows_core::HRESULT = windows_core::HRESULT(0x87AF180A_u32 as _);
+pub const SQLITE_E_IOERR_NOMEM: windows_core::HRESULT = windows_core::HRESULT(0x87AF0C0A_u32 as _);
+pub const SQLITE_E_IOERR_RDLOCK: windows_core::HRESULT = windows_core::HRESULT(0x87AF090A_u32 as _);
+pub const SQLITE_E_IOERR_READ: windows_core::HRESULT = windows_core::HRESULT(0x87AF010A_u32 as _);
+pub const SQLITE_E_IOERR_SEEK: windows_core::HRESULT = windows_core::HRESULT(0x87AF160A_u32 as _);
+pub const SQLITE_E_IOERR_SHMLOCK: windows_core::HRESULT = windows_core::HRESULT(0x87AF140A_u32 as _);
+pub const SQLITE_E_IOERR_SHMMAP: windows_core::HRESULT = windows_core::HRESULT(0x87AF150A_u32 as _);
+pub const SQLITE_E_IOERR_SHMOPEN: windows_core::HRESULT = windows_core::HRESULT(0x87AF120A_u32 as _);
+pub const SQLITE_E_IOERR_SHMSIZE: windows_core::HRESULT = windows_core::HRESULT(0x87AF130A_u32 as _);
+pub const SQLITE_E_IOERR_SHORT_READ: windows_core::HRESULT = windows_core::HRESULT(0x87AF020A_u32 as _);
+pub const SQLITE_E_IOERR_TRUNCATE: windows_core::HRESULT = windows_core::HRESULT(0x87AF060A_u32 as _);
+pub const SQLITE_E_IOERR_UNLOCK: windows_core::HRESULT = windows_core::HRESULT(0x87AF080A_u32 as _);
+pub const SQLITE_E_IOERR_VNODE: windows_core::HRESULT = windows_core::HRESULT(0x87AF1A02_u32 as _);
+pub const SQLITE_E_IOERR_WRITE: windows_core::HRESULT = windows_core::HRESULT(0x87AF030A_u32 as _);
+pub const SQLITE_E_LOCKED: windows_core::HRESULT = windows_core::HRESULT(0x87AF0006_u32 as _);
+pub const SQLITE_E_LOCKED_SHAREDCACHE: windows_core::HRESULT = windows_core::HRESULT(0x87AF0106_u32 as _);
+pub const SQLITE_E_MISMATCH: windows_core::HRESULT = windows_core::HRESULT(0x87AF0014_u32 as _);
+pub const SQLITE_E_MISUSE: windows_core::HRESULT = windows_core::HRESULT(0x87AF0015_u32 as _);
+pub const SQLITE_E_NOLFS: windows_core::HRESULT = windows_core::HRESULT(0x87AF0016_u32 as _);
+pub const SQLITE_E_NOMEM: windows_core::HRESULT = windows_core::HRESULT(0x87AF0007_u32 as _);
+pub const SQLITE_E_NOTADB: windows_core::HRESULT = windows_core::HRESULT(0x87AF001A_u32 as _);
+pub const SQLITE_E_NOTFOUND: windows_core::HRESULT = windows_core::HRESULT(0x87AF000C_u32 as _);
+pub const SQLITE_E_NOTICE: windows_core::HRESULT = windows_core::HRESULT(0x87AF001B_u32 as _);
+pub const SQLITE_E_NOTICE_RECOVER_ROLLBACK: windows_core::HRESULT = windows_core::HRESULT(0x87AF021B_u32 as _);
+pub const SQLITE_E_NOTICE_RECOVER_WAL: windows_core::HRESULT = windows_core::HRESULT(0x87AF011B_u32 as _);
+pub const SQLITE_E_PERM: windows_core::HRESULT = windows_core::HRESULT(0x87AF0003_u32 as _);
+pub const SQLITE_E_PROTOCOL: windows_core::HRESULT = windows_core::HRESULT(0x87AF000F_u32 as _);
+pub const SQLITE_E_RANGE: windows_core::HRESULT = windows_core::HRESULT(0x87AF0019_u32 as _);
+pub const SQLITE_E_READONLY: windows_core::HRESULT = windows_core::HRESULT(0x87AF0008_u32 as _);
+pub const SQLITE_E_READONLY_CANTLOCK: windows_core::HRESULT = windows_core::HRESULT(0x87AF0208_u32 as _);
+pub const SQLITE_E_READONLY_DBMOVED: windows_core::HRESULT = windows_core::HRESULT(0x87AF0408_u32 as _);
+pub const SQLITE_E_READONLY_RECOVERY: windows_core::HRESULT = windows_core::HRESULT(0x87AF0108_u32 as _);
+pub const SQLITE_E_READONLY_ROLLBACK: windows_core::HRESULT = windows_core::HRESULT(0x87AF0308_u32 as _);
+pub const SQLITE_E_ROW: windows_core::HRESULT = windows_core::HRESULT(0x87AF0064_u32 as _);
+pub const SQLITE_E_SCHEMA: windows_core::HRESULT = windows_core::HRESULT(0x87AF0011_u32 as _);
+pub const SQLITE_E_TOOBIG: windows_core::HRESULT = windows_core::HRESULT(0x87AF0012_u32 as _);
+pub const SQLITE_E_WARNING: windows_core::HRESULT = windows_core::HRESULT(0x87AF001C_u32 as _);
+pub const SQLITE_E_WARNING_AUTOINDEX: windows_core::HRESULT = windows_core::HRESULT(0x87AF011C_u32 as _);
+pub const STATEREPOSITORY_ERROR_CACHE_CORRUPTED: windows_core::HRESULT = windows_core::HRESULT(0x80670012_u32 as _);
+pub const STATEREPOSITORY_ERROR_DICTIONARY_CORRUPTED: windows_core::HRESULT = windows_core::HRESULT(0x80670005_u32 as _);
+pub const STATEREPOSITORY_E_BLOCKED: windows_core::HRESULT = windows_core::HRESULT(0x80670006_u32 as _);
+pub const STATEREPOSITORY_E_BUSY_RECOVERY_RETRY: windows_core::HRESULT = windows_core::HRESULT(0x80670008_u32 as _);
+pub const STATEREPOSITORY_E_BUSY_RECOVERY_TIMEOUT_EXCEEDED: windows_core::HRESULT = windows_core::HRESULT(0x8067000D_u32 as _);
+pub const STATEREPOSITORY_E_BUSY_RETRY: windows_core::HRESULT = windows_core::HRESULT(0x80670007_u32 as _);
+pub const STATEREPOSITORY_E_BUSY_TIMEOUT_EXCEEDED: windows_core::HRESULT = windows_core::HRESULT(0x8067000C_u32 as _);
+pub const STATEREPOSITORY_E_CACHE_NOT_INIITALIZED: windows_core::HRESULT = windows_core::HRESULT(0x80670015_u32 as _);
+pub const STATEREPOSITORY_E_CONCURRENCY_LOCKING_FAILURE: windows_core::HRESULT = windows_core::HRESULT(0x80670001_u32 as _);
+pub const STATEREPOSITORY_E_CONFIGURATION_INVALID: windows_core::HRESULT = windows_core::HRESULT(0x80670003_u32 as _);
+pub const STATEREPOSITORY_E_DEPENDENCY_NOT_RESOLVED: windows_core::HRESULT = windows_core::HRESULT(0x80670016_u32 as _);
+pub const STATEREPOSITORY_E_LOCKED_RETRY: windows_core::HRESULT = windows_core::HRESULT(0x80670009_u32 as _);
+pub const STATEREPOSITORY_E_LOCKED_SHAREDCACHE_RETRY: windows_core::HRESULT = windows_core::HRESULT(0x8067000A_u32 as _);
+pub const STATEREPOSITORY_E_LOCKED_SHAREDCACHE_TIMEOUT_EXCEEDED: windows_core::HRESULT = windows_core::HRESULT(0x8067000F_u32 as _);
+pub const STATEREPOSITORY_E_LOCKED_TIMEOUT_EXCEEDED: windows_core::HRESULT = windows_core::HRESULT(0x8067000E_u32 as _);
+pub const STATEREPOSITORY_E_SERVICE_STOP_IN_PROGRESS: windows_core::HRESULT = windows_core::HRESULT(0x80670010_u32 as _);
+pub const STATEREPOSITORY_E_STATEMENT_INPROGRESS: windows_core::HRESULT = windows_core::HRESULT(0x80670002_u32 as _);
+pub const STATEREPOSITORY_E_TRANSACTION_REQUIRED: windows_core::HRESULT = windows_core::HRESULT(0x8067000B_u32 as _);
+pub const STATEREPOSITORY_E_UNKNOWN_SCHEMA_VERSION: windows_core::HRESULT = windows_core::HRESULT(0x80670004_u32 as _);
+pub const STATEREPOSITORY_TRANSACTION_CALLER_ID_CHANGED: windows_core::HRESULT = windows_core::HRESULT(0x670013_u32 as _);
+pub const STATEREPOSITORY_TRANSACTION_IN_PROGRESS: windows_core::HRESULT = windows_core::HRESULT(0x80670014_u32 as _);
+pub const STATEREPOSTORY_E_NESTED_TRANSACTION_NOT_SUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x80670011_u32 as _);
 pub const STATUS_ABANDONED: NTSTATUS = NTSTATUS(0x80_u32 as _);
 pub const STATUS_ABANDONED_WAIT_0: NTSTATUS = NTSTATUS(0x80_u32 as _);
 pub const STATUS_ABANDONED_WAIT_63: NTSTATUS = NTSTATUS(0xBF_u32 as _);
@@ -9360,64 +9360,64 @@ pub const STATUS_WX86_UNSIMULATE: NTSTATUS = NTSTATUS(0x4000001C_u32 as _);
 pub const STATUS_XMLDSIG_ERROR: NTSTATUS = NTSTATUS(0xC000A084_u32 as _);
 pub const STATUS_XML_ENCODING_MISMATCH: NTSTATUS = NTSTATUS(0xC0150021_u32 as _);
 pub const STATUS_XML_PARSE_ERROR: NTSTATUS = NTSTATUS(0xC000A083_u32 as _);
-pub const STG_E_ABNORMALAPIEXIT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800300FA_u32 as _);
-pub const STG_E_ACCESSDENIED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80030005_u32 as _);
-pub const STG_E_BADBASEADDRESS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80030110_u32 as _);
-pub const STG_E_CANTSAVE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80030103_u32 as _);
-pub const STG_E_CSS_AUTHENTICATION_FAILURE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80030306_u32 as _);
-pub const STG_E_CSS_KEY_NOT_ESTABLISHED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80030308_u32 as _);
-pub const STG_E_CSS_KEY_NOT_PRESENT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80030307_u32 as _);
-pub const STG_E_CSS_REGION_MISMATCH: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8003030A_u32 as _);
-pub const STG_E_CSS_SCRAMBLED_SECTOR: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80030309_u32 as _);
-pub const STG_E_DEVICE_UNRESPONSIVE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8003020A_u32 as _);
-pub const STG_E_DISKISWRITEPROTECTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80030013_u32 as _);
-pub const STG_E_DOCFILECORRUPT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80030109_u32 as _);
-pub const STG_E_DOCFILETOOLARGE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80030111_u32 as _);
-pub const STG_E_EXTANTMARSHALLINGS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80030108_u32 as _);
-pub const STG_E_FILEALREADYEXISTS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80030050_u32 as _);
-pub const STG_E_FILENOTFOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80030002_u32 as _);
-pub const STG_E_FIRMWARE_IMAGE_INVALID: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80030209_u32 as _);
-pub const STG_E_FIRMWARE_SLOT_INVALID: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80030208_u32 as _);
-pub const STG_E_INCOMPLETE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80030201_u32 as _);
-pub const STG_E_INSUFFICIENTMEMORY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80030008_u32 as _);
-pub const STG_E_INUSE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80030100_u32 as _);
-pub const STG_E_INVALIDFLAG: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800300FF_u32 as _);
-pub const STG_E_INVALIDFUNCTION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80030001_u32 as _);
-pub const STG_E_INVALIDHANDLE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80030006_u32 as _);
-pub const STG_E_INVALIDHEADER: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800300FB_u32 as _);
-pub const STG_E_INVALIDNAME: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800300FC_u32 as _);
-pub const STG_E_INVALIDPARAMETER: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80030057_u32 as _);
-pub const STG_E_INVALIDPOINTER: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80030009_u32 as _);
-pub const STG_E_LOCKVIOLATION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80030021_u32 as _);
-pub const STG_E_MEDIUMFULL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80030070_u32 as _);
-pub const STG_E_NOMOREFILES: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80030012_u32 as _);
-pub const STG_E_NOTCURRENT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80030101_u32 as _);
-pub const STG_E_NOTFILEBASEDSTORAGE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80030107_u32 as _);
-pub const STG_E_NOTSIMPLEFORMAT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80030112_u32 as _);
-pub const STG_E_OLDDLL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80030105_u32 as _);
-pub const STG_E_OLDFORMAT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80030104_u32 as _);
-pub const STG_E_PATHNOTFOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80030003_u32 as _);
-pub const STG_E_PROPSETMISMATCHED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800300F0_u32 as _);
-pub const STG_E_READFAULT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8003001E_u32 as _);
-pub const STG_E_RESETS_EXHAUSTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8003030B_u32 as _);
-pub const STG_E_REVERTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80030102_u32 as _);
-pub const STG_E_SEEKERROR: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80030019_u32 as _);
-pub const STG_E_SHAREREQUIRED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80030106_u32 as _);
-pub const STG_E_SHAREVIOLATION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80030020_u32 as _);
-pub const STG_E_STATUS_COPY_PROTECTION_FAILURE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80030305_u32 as _);
-pub const STG_E_TERMINATED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80030202_u32 as _);
-pub const STG_E_TOOMANYOPENFILES: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80030004_u32 as _);
-pub const STG_E_UNIMPLEMENTEDFUNCTION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800300FE_u32 as _);
-pub const STG_E_UNKNOWN: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800300FD_u32 as _);
-pub const STG_E_WRITEFAULT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8003001D_u32 as _);
-pub const STG_S_BLOCK: ::windows_core::HRESULT = ::windows_core::HRESULT(0x30201_u32 as _);
-pub const STG_S_CANNOTCONSOLIDATE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x30206_u32 as _);
-pub const STG_S_CONSOLIDATIONFAILED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x30205_u32 as _);
-pub const STG_S_CONVERTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x30200_u32 as _);
-pub const STG_S_MONITORING: ::windows_core::HRESULT = ::windows_core::HRESULT(0x30203_u32 as _);
-pub const STG_S_MULTIPLEOPENS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x30204_u32 as _);
-pub const STG_S_POWER_CYCLE_REQUIRED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x30207_u32 as _);
-pub const STG_S_RETRYNOW: ::windows_core::HRESULT = ::windows_core::HRESULT(0x30202_u32 as _);
+pub const STG_E_ABNORMALAPIEXIT: windows_core::HRESULT = windows_core::HRESULT(0x800300FA_u32 as _);
+pub const STG_E_ACCESSDENIED: windows_core::HRESULT = windows_core::HRESULT(0x80030005_u32 as _);
+pub const STG_E_BADBASEADDRESS: windows_core::HRESULT = windows_core::HRESULT(0x80030110_u32 as _);
+pub const STG_E_CANTSAVE: windows_core::HRESULT = windows_core::HRESULT(0x80030103_u32 as _);
+pub const STG_E_CSS_AUTHENTICATION_FAILURE: windows_core::HRESULT = windows_core::HRESULT(0x80030306_u32 as _);
+pub const STG_E_CSS_KEY_NOT_ESTABLISHED: windows_core::HRESULT = windows_core::HRESULT(0x80030308_u32 as _);
+pub const STG_E_CSS_KEY_NOT_PRESENT: windows_core::HRESULT = windows_core::HRESULT(0x80030307_u32 as _);
+pub const STG_E_CSS_REGION_MISMATCH: windows_core::HRESULT = windows_core::HRESULT(0x8003030A_u32 as _);
+pub const STG_E_CSS_SCRAMBLED_SECTOR: windows_core::HRESULT = windows_core::HRESULT(0x80030309_u32 as _);
+pub const STG_E_DEVICE_UNRESPONSIVE: windows_core::HRESULT = windows_core::HRESULT(0x8003020A_u32 as _);
+pub const STG_E_DISKISWRITEPROTECTED: windows_core::HRESULT = windows_core::HRESULT(0x80030013_u32 as _);
+pub const STG_E_DOCFILECORRUPT: windows_core::HRESULT = windows_core::HRESULT(0x80030109_u32 as _);
+pub const STG_E_DOCFILETOOLARGE: windows_core::HRESULT = windows_core::HRESULT(0x80030111_u32 as _);
+pub const STG_E_EXTANTMARSHALLINGS: windows_core::HRESULT = windows_core::HRESULT(0x80030108_u32 as _);
+pub const STG_E_FILEALREADYEXISTS: windows_core::HRESULT = windows_core::HRESULT(0x80030050_u32 as _);
+pub const STG_E_FILENOTFOUND: windows_core::HRESULT = windows_core::HRESULT(0x80030002_u32 as _);
+pub const STG_E_FIRMWARE_IMAGE_INVALID: windows_core::HRESULT = windows_core::HRESULT(0x80030209_u32 as _);
+pub const STG_E_FIRMWARE_SLOT_INVALID: windows_core::HRESULT = windows_core::HRESULT(0x80030208_u32 as _);
+pub const STG_E_INCOMPLETE: windows_core::HRESULT = windows_core::HRESULT(0x80030201_u32 as _);
+pub const STG_E_INSUFFICIENTMEMORY: windows_core::HRESULT = windows_core::HRESULT(0x80030008_u32 as _);
+pub const STG_E_INUSE: windows_core::HRESULT = windows_core::HRESULT(0x80030100_u32 as _);
+pub const STG_E_INVALIDFLAG: windows_core::HRESULT = windows_core::HRESULT(0x800300FF_u32 as _);
+pub const STG_E_INVALIDFUNCTION: windows_core::HRESULT = windows_core::HRESULT(0x80030001_u32 as _);
+pub const STG_E_INVALIDHANDLE: windows_core::HRESULT = windows_core::HRESULT(0x80030006_u32 as _);
+pub const STG_E_INVALIDHEADER: windows_core::HRESULT = windows_core::HRESULT(0x800300FB_u32 as _);
+pub const STG_E_INVALIDNAME: windows_core::HRESULT = windows_core::HRESULT(0x800300FC_u32 as _);
+pub const STG_E_INVALIDPARAMETER: windows_core::HRESULT = windows_core::HRESULT(0x80030057_u32 as _);
+pub const STG_E_INVALIDPOINTER: windows_core::HRESULT = windows_core::HRESULT(0x80030009_u32 as _);
+pub const STG_E_LOCKVIOLATION: windows_core::HRESULT = windows_core::HRESULT(0x80030021_u32 as _);
+pub const STG_E_MEDIUMFULL: windows_core::HRESULT = windows_core::HRESULT(0x80030070_u32 as _);
+pub const STG_E_NOMOREFILES: windows_core::HRESULT = windows_core::HRESULT(0x80030012_u32 as _);
+pub const STG_E_NOTCURRENT: windows_core::HRESULT = windows_core::HRESULT(0x80030101_u32 as _);
+pub const STG_E_NOTFILEBASEDSTORAGE: windows_core::HRESULT = windows_core::HRESULT(0x80030107_u32 as _);
+pub const STG_E_NOTSIMPLEFORMAT: windows_core::HRESULT = windows_core::HRESULT(0x80030112_u32 as _);
+pub const STG_E_OLDDLL: windows_core::HRESULT = windows_core::HRESULT(0x80030105_u32 as _);
+pub const STG_E_OLDFORMAT: windows_core::HRESULT = windows_core::HRESULT(0x80030104_u32 as _);
+pub const STG_E_PATHNOTFOUND: windows_core::HRESULT = windows_core::HRESULT(0x80030003_u32 as _);
+pub const STG_E_PROPSETMISMATCHED: windows_core::HRESULT = windows_core::HRESULT(0x800300F0_u32 as _);
+pub const STG_E_READFAULT: windows_core::HRESULT = windows_core::HRESULT(0x8003001E_u32 as _);
+pub const STG_E_RESETS_EXHAUSTED: windows_core::HRESULT = windows_core::HRESULT(0x8003030B_u32 as _);
+pub const STG_E_REVERTED: windows_core::HRESULT = windows_core::HRESULT(0x80030102_u32 as _);
+pub const STG_E_SEEKERROR: windows_core::HRESULT = windows_core::HRESULT(0x80030019_u32 as _);
+pub const STG_E_SHAREREQUIRED: windows_core::HRESULT = windows_core::HRESULT(0x80030106_u32 as _);
+pub const STG_E_SHAREVIOLATION: windows_core::HRESULT = windows_core::HRESULT(0x80030020_u32 as _);
+pub const STG_E_STATUS_COPY_PROTECTION_FAILURE: windows_core::HRESULT = windows_core::HRESULT(0x80030305_u32 as _);
+pub const STG_E_TERMINATED: windows_core::HRESULT = windows_core::HRESULT(0x80030202_u32 as _);
+pub const STG_E_TOOMANYOPENFILES: windows_core::HRESULT = windows_core::HRESULT(0x80030004_u32 as _);
+pub const STG_E_UNIMPLEMENTEDFUNCTION: windows_core::HRESULT = windows_core::HRESULT(0x800300FE_u32 as _);
+pub const STG_E_UNKNOWN: windows_core::HRESULT = windows_core::HRESULT(0x800300FD_u32 as _);
+pub const STG_E_WRITEFAULT: windows_core::HRESULT = windows_core::HRESULT(0x8003001D_u32 as _);
+pub const STG_S_BLOCK: windows_core::HRESULT = windows_core::HRESULT(0x30201_u32 as _);
+pub const STG_S_CANNOTCONSOLIDATE: windows_core::HRESULT = windows_core::HRESULT(0x30206_u32 as _);
+pub const STG_S_CONSOLIDATIONFAILED: windows_core::HRESULT = windows_core::HRESULT(0x30205_u32 as _);
+pub const STG_S_CONVERTED: windows_core::HRESULT = windows_core::HRESULT(0x30200_u32 as _);
+pub const STG_S_MONITORING: windows_core::HRESULT = windows_core::HRESULT(0x30203_u32 as _);
+pub const STG_S_MULTIPLEOPENS: windows_core::HRESULT = windows_core::HRESULT(0x30204_u32 as _);
+pub const STG_S_POWER_CYCLE_REQUIRED: windows_core::HRESULT = windows_core::HRESULT(0x30207_u32 as _);
+pub const STG_S_RETRYNOW: windows_core::HRESULT = windows_core::HRESULT(0x30202_u32 as _);
 pub const STILL_ACTIVE: NTSTATUS = NTSTATUS(0x103_u32 as _);
 pub const STORE_ERROR_LICENSE_REVOKED: i32 = 15864i32;
 pub const STORE_ERROR_PENDING_COM_TRANSACTION: i32 = 15863i32;
@@ -9425,562 +9425,562 @@ pub const STORE_ERROR_UNLICENSED: i32 = 15861i32;
 pub const STORE_ERROR_UNLICENSED_USER: i32 = 15862i32;
 pub const STRICT: u32 = 1u32;
 pub const SUCCESS: u32 = 0u32;
-pub const S_APPLICATION_ACTIVATION_ERROR_HANDLED_BY_DIALOG: ::windows_core::HRESULT = ::windows_core::HRESULT(0x270259_u32 as _);
-pub const S_FALSE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x1_u32 as _);
-pub const S_OK: ::windows_core::HRESULT = ::windows_core::HRESULT(0x0_u32 as _);
-pub const S_STORE_LAUNCHED_FOR_REMEDIATION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x270258_u32 as _);
-pub const TBSIMP_E_BUFFER_TOO_SMALL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80290200_u32 as _);
-pub const TBSIMP_E_CLEANUP_FAILED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80290201_u32 as _);
-pub const TBSIMP_E_COMMAND_CANCELED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8029020B_u32 as _);
-pub const TBSIMP_E_COMMAND_FAILED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80290211_u32 as _);
-pub const TBSIMP_E_DUPLICATE_VHANDLE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80290206_u32 as _);
-pub const TBSIMP_E_HASH_BAD_KEY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80290205_u32 as _);
-pub const TBSIMP_E_HASH_TABLE_FULL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80290216_u32 as _);
-pub const TBSIMP_E_INVALID_CONTEXT_HANDLE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80290202_u32 as _);
-pub const TBSIMP_E_INVALID_CONTEXT_PARAM: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80290203_u32 as _);
-pub const TBSIMP_E_INVALID_OUTPUT_POINTER: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80290207_u32 as _);
-pub const TBSIMP_E_INVALID_PARAMETER: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80290208_u32 as _);
-pub const TBSIMP_E_INVALID_RESOURCE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80290214_u32 as _);
-pub const TBSIMP_E_LIST_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8029020E_u32 as _);
-pub const TBSIMP_E_LIST_NO_MORE_ITEMS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8029020D_u32 as _);
-pub const TBSIMP_E_NOTHING_TO_UNLOAD: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80290215_u32 as _);
-pub const TBSIMP_E_NOT_ENOUGH_SPACE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8029020F_u32 as _);
-pub const TBSIMP_E_NOT_ENOUGH_TPM_CONTEXTS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80290210_u32 as _);
-pub const TBSIMP_E_NO_EVENT_LOG: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8029021B_u32 as _);
-pub const TBSIMP_E_OUT_OF_MEMORY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8029020C_u32 as _);
-pub const TBSIMP_E_PPI_NOT_SUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80290219_u32 as _);
-pub const TBSIMP_E_RESOURCE_EXPIRED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80290213_u32 as _);
-pub const TBSIMP_E_RPC_INIT_FAILED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80290209_u32 as _);
-pub const TBSIMP_E_SCHEDULER_NOT_RUNNING: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8029020A_u32 as _);
-pub const TBSIMP_E_TOO_MANY_RESOURCES: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80290218_u32 as _);
-pub const TBSIMP_E_TOO_MANY_TBS_CONTEXTS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80290217_u32 as _);
-pub const TBSIMP_E_TPM_ERROR: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80290204_u32 as _);
-pub const TBSIMP_E_TPM_INCOMPATIBLE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8029021A_u32 as _);
-pub const TBSIMP_E_UNKNOWN_ORDINAL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80290212_u32 as _);
-pub const TBS_E_ACCESS_DENIED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80284012_u32 as _);
-pub const TBS_E_BAD_PARAMETER: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80284002_u32 as _);
-pub const TBS_E_BUFFER_TOO_LARGE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8028400E_u32 as _);
-pub const TBS_E_COMMAND_CANCELED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8028400D_u32 as _);
-pub const TBS_E_INSUFFICIENT_BUFFER: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80284005_u32 as _);
-pub const TBS_E_INTERNAL_ERROR: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80284001_u32 as _);
-pub const TBS_E_INVALID_CONTEXT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80284004_u32 as _);
-pub const TBS_E_INVALID_CONTEXT_PARAM: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80284007_u32 as _);
-pub const TBS_E_INVALID_OUTPUT_POINTER: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80284003_u32 as _);
-pub const TBS_E_IOERROR: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80284006_u32 as _);
-pub const TBS_E_NO_EVENT_LOG: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80284011_u32 as _);
-pub const TBS_E_OWNERAUTH_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80284015_u32 as _);
-pub const TBS_E_PPI_FUNCTION_UNSUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80284014_u32 as _);
-pub const TBS_E_PPI_NOT_SUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8028400C_u32 as _);
-pub const TBS_E_PROVISIONING_INCOMPLETE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80284016_u32 as _);
-pub const TBS_E_PROVISIONING_NOT_ALLOWED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80284013_u32 as _);
-pub const TBS_E_SERVICE_DISABLED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80284010_u32 as _);
-pub const TBS_E_SERVICE_NOT_RUNNING: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80284008_u32 as _);
-pub const TBS_E_SERVICE_START_PENDING: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8028400B_u32 as _);
-pub const TBS_E_TOO_MANY_RESOURCES: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8028400A_u32 as _);
-pub const TBS_E_TOO_MANY_TBS_CONTEXTS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80284009_u32 as _);
-pub const TBS_E_TPM_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8028400F_u32 as _);
-pub const TPC_E_INITIALIZE_FAIL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80040223_u32 as _);
-pub const TPC_E_INVALID_CONFIGURATION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80040239_u32 as _);
-pub const TPC_E_INVALID_DATA_FROM_RECOGNIZER: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004023A_u32 as _);
-pub const TPC_E_INVALID_INPUT_RECT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80040219_u32 as _);
-pub const TPC_E_INVALID_PACKET_DESCRIPTION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80040233_u32 as _);
-pub const TPC_E_INVALID_PROPERTY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80040241_u32 as _);
-pub const TPC_E_INVALID_RIGHTS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80040236_u32 as _);
-pub const TPC_E_INVALID_STROKE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80040222_u32 as _);
-pub const TPC_E_NOT_RELEVANT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80040232_u32 as _);
-pub const TPC_E_NO_DEFAULT_TABLET: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80040212_u32 as _);
-pub const TPC_E_OUT_OF_ORDER_CALL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80040237_u32 as _);
-pub const TPC_E_QUEUE_FULL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80040238_u32 as _);
-pub const TPC_E_RECOGNIZER_NOT_REGISTERED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80040235_u32 as _);
-pub const TPC_E_UNKNOWN_PROPERTY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004021B_u32 as _);
-pub const TPC_S_INTERRUPTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x40253_u32 as _);
-pub const TPC_S_NO_DATA_TO_PROCESS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x40254_u32 as _);
-pub const TPC_S_TRUNCATED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x40252_u32 as _);
-pub const TPMAPI_E_ACCESS_DENIED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80290108_u32 as _);
-pub const TPMAPI_E_AUTHORIZATION_FAILED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80290109_u32 as _);
-pub const TPMAPI_E_AUTHORIZATION_REVOKED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80290126_u32 as _);
-pub const TPMAPI_E_AUTHORIZING_KEY_NOT_SUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80290128_u32 as _);
-pub const TPMAPI_E_BUFFER_TOO_SMALL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80290106_u32 as _);
-pub const TPMAPI_E_EMPTY_TCG_LOG: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8029011A_u32 as _);
-pub const TPMAPI_E_ENCRYPTION_FAILED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80290110_u32 as _);
-pub const TPMAPI_E_ENDORSEMENT_AUTH_NOT_NULL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80290125_u32 as _);
-pub const TPMAPI_E_FIPS_RNG_CHECK_FAILED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80290119_u32 as _);
-pub const TPMAPI_E_INTERNAL_ERROR: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80290107_u32 as _);
-pub const TPMAPI_E_INVALID_AUTHORIZATION_SIGNATURE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80290129_u32 as _);
-pub const TPMAPI_E_INVALID_CONTEXT_HANDLE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8029010A_u32 as _);
-pub const TPMAPI_E_INVALID_CONTEXT_PARAMS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80290115_u32 as _);
-pub const TPMAPI_E_INVALID_DELEGATE_BLOB: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80290114_u32 as _);
-pub const TPMAPI_E_INVALID_ENCODING: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8029010E_u32 as _);
-pub const TPMAPI_E_INVALID_KEY_BLOB: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80290116_u32 as _);
-pub const TPMAPI_E_INVALID_KEY_PARAMS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80290111_u32 as _);
-pub const TPMAPI_E_INVALID_KEY_SIZE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8029010F_u32 as _);
-pub const TPMAPI_E_INVALID_MIGRATION_AUTHORIZATION_BLOB: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80290112_u32 as _);
-pub const TPMAPI_E_INVALID_OUTPUT_POINTER: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80290103_u32 as _);
-pub const TPMAPI_E_INVALID_OWNER_AUTH: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80290118_u32 as _);
-pub const TPMAPI_E_INVALID_PARAMETER: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80290104_u32 as _);
-pub const TPMAPI_E_INVALID_PCR_DATA: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80290117_u32 as _);
-pub const TPMAPI_E_INVALID_PCR_INDEX: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80290113_u32 as _);
-pub const TPMAPI_E_INVALID_POLICYAUTH_BLOB_TYPE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8029012E_u32 as _);
-pub const TPMAPI_E_INVALID_STATE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80290100_u32 as _);
-pub const TPMAPI_E_INVALID_TCG_LOG_ENTRY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8029011B_u32 as _);
-pub const TPMAPI_E_INVALID_TPM_VERSION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8029012D_u32 as _);
-pub const TPMAPI_E_MALFORMED_AUTHORIZATION_KEY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80290127_u32 as _);
-pub const TPMAPI_E_MALFORMED_AUTHORIZATION_OTHER: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8029012B_u32 as _);
-pub const TPMAPI_E_MALFORMED_AUTHORIZATION_POLICY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8029012A_u32 as _);
-pub const TPMAPI_E_MESSAGE_TOO_LARGE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8029010D_u32 as _);
-pub const TPMAPI_E_NOT_ENOUGH_DATA: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80290101_u32 as _);
-pub const TPMAPI_E_NO_AUTHORIZATION_CHAIN_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80290122_u32 as _);
-pub const TPMAPI_E_NV_BITS_NOT_DEFINED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8029011F_u32 as _);
-pub const TPMAPI_E_NV_BITS_NOT_READY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80290120_u32 as _);
-pub const TPMAPI_E_OUT_OF_MEMORY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80290105_u32 as _);
-pub const TPMAPI_E_OWNER_AUTH_NOT_NULL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80290124_u32 as _);
-pub const TPMAPI_E_POLICY_DENIES_OPERATION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8029011E_u32 as _);
-pub const TPMAPI_E_SEALING_KEY_CHANGED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8029012C_u32 as _);
-pub const TPMAPI_E_SEALING_KEY_NOT_AVAILABLE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80290121_u32 as _);
-pub const TPMAPI_E_SVN_COUNTER_NOT_AVAILABLE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80290123_u32 as _);
-pub const TPMAPI_E_TBS_COMMUNICATION_ERROR: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8029010B_u32 as _);
-pub const TPMAPI_E_TCG_INVALID_DIGEST_ENTRY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8029011D_u32 as _);
-pub const TPMAPI_E_TCG_SEPARATOR_ABSENT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8029011C_u32 as _);
-pub const TPMAPI_E_TOO_MUCH_DATA: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80290102_u32 as _);
-pub const TPMAPI_E_TPM_COMMAND_ERROR: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8029010C_u32 as _);
-pub const TPM_20_E_ASYMMETRIC: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280081_u32 as _);
-pub const TPM_20_E_ATTRIBUTES: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280082_u32 as _);
-pub const TPM_20_E_AUTHSIZE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280144_u32 as _);
-pub const TPM_20_E_AUTH_CONTEXT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280145_u32 as _);
-pub const TPM_20_E_AUTH_FAIL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8028008E_u32 as _);
-pub const TPM_20_E_AUTH_MISSING: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280125_u32 as _);
-pub const TPM_20_E_AUTH_TYPE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280124_u32 as _);
-pub const TPM_20_E_AUTH_UNAVAILABLE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8028012F_u32 as _);
-pub const TPM_20_E_BAD_AUTH: ::windows_core::HRESULT = ::windows_core::HRESULT(0x802800A2_u32 as _);
-pub const TPM_20_E_BAD_CONTEXT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280150_u32 as _);
-pub const TPM_20_E_BINDING: ::windows_core::HRESULT = ::windows_core::HRESULT(0x802800A5_u32 as _);
-pub const TPM_20_E_CANCELED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280909_u32 as _);
-pub const TPM_20_E_COMMAND_CODE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280143_u32 as _);
-pub const TPM_20_E_COMMAND_SIZE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280142_u32 as _);
-pub const TPM_20_E_CONTEXT_GAP: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280901_u32 as _);
-pub const TPM_20_E_CPHASH: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280151_u32 as _);
-pub const TPM_20_E_CURVE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x802800A6_u32 as _);
-pub const TPM_20_E_DISABLED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280120_u32 as _);
-pub const TPM_20_E_ECC_CURVE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280123_u32 as _);
-pub const TPM_20_E_ECC_POINT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x802800A7_u32 as _);
-pub const TPM_20_E_EXCLUSIVE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280121_u32 as _);
-pub const TPM_20_E_EXPIRED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x802800A3_u32 as _);
-pub const TPM_20_E_FAILURE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280101_u32 as _);
-pub const TPM_20_E_HANDLE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8028008B_u32 as _);
-pub const TPM_20_E_HASH: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280083_u32 as _);
-pub const TPM_20_E_HIERARCHY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280085_u32 as _);
-pub const TPM_20_E_HMAC: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280119_u32 as _);
-pub const TPM_20_E_INITIALIZE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280100_u32 as _);
-pub const TPM_20_E_INSUFFICIENT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8028009A_u32 as _);
-pub const TPM_20_E_INTEGRITY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8028009F_u32 as _);
-pub const TPM_20_E_KDF: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8028008C_u32 as _);
-pub const TPM_20_E_KEY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8028009C_u32 as _);
-pub const TPM_20_E_KEY_SIZE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280087_u32 as _);
-pub const TPM_20_E_LOCALITY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280907_u32 as _);
-pub const TPM_20_E_LOCKOUT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280921_u32 as _);
-pub const TPM_20_E_MEMORY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280904_u32 as _);
-pub const TPM_20_E_MGF: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280088_u32 as _);
-pub const TPM_20_E_MODE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280089_u32 as _);
-pub const TPM_20_E_NEEDS_TEST: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280153_u32 as _);
-pub const TPM_20_E_NONCE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8028008F_u32 as _);
-pub const TPM_20_E_NO_RESULT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280154_u32 as _);
-pub const TPM_20_E_NV_AUTHORIZATION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280149_u32 as _);
-pub const TPM_20_E_NV_DEFINED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8028014C_u32 as _);
-pub const TPM_20_E_NV_LOCKED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280148_u32 as _);
-pub const TPM_20_E_NV_RANGE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280146_u32 as _);
-pub const TPM_20_E_NV_RATE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280920_u32 as _);
-pub const TPM_20_E_NV_SIZE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280147_u32 as _);
-pub const TPM_20_E_NV_SPACE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8028014B_u32 as _);
-pub const TPM_20_E_NV_UNAVAILABLE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280923_u32 as _);
-pub const TPM_20_E_NV_UNINITIALIZED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8028014A_u32 as _);
-pub const TPM_20_E_OBJECT_HANDLES: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280906_u32 as _);
-pub const TPM_20_E_OBJECT_MEMORY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280902_u32 as _);
-pub const TPM_20_E_PARENT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280152_u32 as _);
-pub const TPM_20_E_PCR: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280127_u32 as _);
-pub const TPM_20_E_PCR_CHANGED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280128_u32 as _);
-pub const TPM_20_E_POLICY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280126_u32 as _);
-pub const TPM_20_E_POLICY_CC: ::windows_core::HRESULT = ::windows_core::HRESULT(0x802800A4_u32 as _);
-pub const TPM_20_E_POLICY_FAIL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8028009D_u32 as _);
-pub const TPM_20_E_PP: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280090_u32 as _);
-pub const TPM_20_E_PRIVATE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8028010B_u32 as _);
-pub const TPM_20_E_RANGE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8028008D_u32 as _);
-pub const TPM_20_E_REBOOT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280130_u32 as _);
-pub const TPM_20_E_RESERVED_BITS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x802800A1_u32 as _);
-pub const TPM_20_E_RETRY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280922_u32 as _);
-pub const TPM_20_E_SCHEME: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280092_u32 as _);
-pub const TPM_20_E_SELECTOR: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280098_u32 as _);
-pub const TPM_20_E_SENSITIVE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280155_u32 as _);
-pub const TPM_20_E_SEQUENCE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280103_u32 as _);
-pub const TPM_20_E_SESSION_HANDLES: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280905_u32 as _);
-pub const TPM_20_E_SESSION_MEMORY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280903_u32 as _);
-pub const TPM_20_E_SIGNATURE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8028009B_u32 as _);
-pub const TPM_20_E_SIZE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280095_u32 as _);
-pub const TPM_20_E_SYMMETRIC: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280096_u32 as _);
-pub const TPM_20_E_TAG: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280097_u32 as _);
-pub const TPM_20_E_TESTING: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8028090A_u32 as _);
-pub const TPM_20_E_TICKET: ::windows_core::HRESULT = ::windows_core::HRESULT(0x802800A0_u32 as _);
-pub const TPM_20_E_TOO_MANY_CONTEXTS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8028012E_u32 as _);
-pub const TPM_20_E_TYPE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8028008A_u32 as _);
-pub const TPM_20_E_UNBALANCED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280131_u32 as _);
-pub const TPM_20_E_UPGRADE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8028012D_u32 as _);
-pub const TPM_20_E_VALUE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280084_u32 as _);
-pub const TPM_20_E_YIELDED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280908_u32 as _);
-pub const TPM_E_AREA_LOCKED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8028003C_u32 as _);
-pub const TPM_E_ATTESTATION_CHALLENGE_NOT_SET: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80290412_u32 as _);
-pub const TPM_E_AUDITFAILURE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280004_u32 as _);
-pub const TPM_E_AUDITFAIL_SUCCESSFUL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280031_u32 as _);
-pub const TPM_E_AUDITFAIL_UNSUCCESSFUL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280030_u32 as _);
-pub const TPM_E_AUTH2FAIL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8028001D_u32 as _);
-pub const TPM_E_AUTHFAIL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280001_u32 as _);
-pub const TPM_E_AUTH_CONFLICT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8028003B_u32 as _);
-pub const TPM_E_BADCONTEXT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8028005A_u32 as _);
-pub const TPM_E_BADINDEX: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280002_u32 as _);
-pub const TPM_E_BADTAG: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8028001E_u32 as _);
-pub const TPM_E_BAD_ATTRIBUTES: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280042_u32 as _);
-pub const TPM_E_BAD_COUNTER: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280045_u32 as _);
-pub const TPM_E_BAD_DATASIZE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8028002B_u32 as _);
-pub const TPM_E_BAD_DELEGATE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280059_u32 as _);
-pub const TPM_E_BAD_HANDLE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280058_u32 as _);
-pub const TPM_E_BAD_KEY_PROPERTY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280028_u32 as _);
-pub const TPM_E_BAD_LOCALITY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8028003D_u32 as _);
-pub const TPM_E_BAD_MIGRATION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280029_u32 as _);
-pub const TPM_E_BAD_MODE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8028002C_u32 as _);
-pub const TPM_E_BAD_ORDINAL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8028000A_u32 as _);
-pub const TPM_E_BAD_PARAMETER: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280003_u32 as _);
-pub const TPM_E_BAD_PARAM_SIZE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280019_u32 as _);
-pub const TPM_E_BAD_PRESENCE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8028002D_u32 as _);
-pub const TPM_E_BAD_SCHEME: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8028002A_u32 as _);
-pub const TPM_E_BAD_SIGNATURE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280062_u32 as _);
-pub const TPM_E_BAD_TYPE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280034_u32 as _);
-pub const TPM_E_BAD_VERSION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8028002E_u32 as _);
-pub const TPM_E_BUFFER_LENGTH_MISMATCH: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8029041E_u32 as _);
-pub const TPM_E_CLAIM_TYPE_NOT_SUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8029041C_u32 as _);
-pub const TPM_E_CLEAR_DISABLED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280005_u32 as _);
-pub const TPM_E_COMMAND_BLOCKED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280400_u32 as _);
-pub const TPM_E_CONTEXT_GAP: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280047_u32 as _);
-pub const TPM_E_DAA_INPUT_DATA0: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280051_u32 as _);
-pub const TPM_E_DAA_INPUT_DATA1: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280052_u32 as _);
-pub const TPM_E_DAA_ISSUER_SETTINGS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280053_u32 as _);
-pub const TPM_E_DAA_ISSUER_VALIDITY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280056_u32 as _);
-pub const TPM_E_DAA_RESOURCES: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280050_u32 as _);
-pub const TPM_E_DAA_STAGE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280055_u32 as _);
-pub const TPM_E_DAA_TPM_SETTINGS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280054_u32 as _);
-pub const TPM_E_DAA_WRONG_W: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280057_u32 as _);
-pub const TPM_E_DEACTIVATED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280006_u32 as _);
-pub const TPM_E_DECRYPT_ERROR: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280021_u32 as _);
-pub const TPM_E_DEFEND_LOCK_RUNNING: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280803_u32 as _);
-pub const TPM_E_DELEGATE_ADMIN: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8028004D_u32 as _);
-pub const TPM_E_DELEGATE_FAMILY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8028004C_u32 as _);
-pub const TPM_E_DELEGATE_LOCK: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8028004B_u32 as _);
-pub const TPM_E_DISABLED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280007_u32 as _);
-pub const TPM_E_DISABLED_CMD: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280008_u32 as _);
-pub const TPM_E_DOING_SELFTEST: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280802_u32 as _);
-pub const TPM_E_DUPLICATE_VHANDLE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280402_u32 as _);
-pub const TPM_E_EMBEDDED_COMMAND_BLOCKED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280403_u32 as _);
-pub const TPM_E_EMBEDDED_COMMAND_UNSUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280404_u32 as _);
-pub const TPM_E_ENCRYPT_ERROR: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280020_u32 as _);
-pub const TPM_E_ERROR_MASK: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280000_u32 as _);
-pub const TPM_E_FAIL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280009_u32 as _);
-pub const TPM_E_FAILEDSELFTEST: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8028001C_u32 as _);
-pub const TPM_E_FAMILYCOUNT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280040_u32 as _);
-pub const TPM_E_INAPPROPRIATE_ENC: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8028000E_u32 as _);
-pub const TPM_E_INAPPROPRIATE_SIG: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280027_u32 as _);
-pub const TPM_E_INSTALL_DISABLED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8028000B_u32 as _);
-pub const TPM_E_INVALID_AUTHHANDLE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280022_u32 as _);
-pub const TPM_E_INVALID_FAMILY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280037_u32 as _);
-pub const TPM_E_INVALID_HANDLE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280401_u32 as _);
-pub const TPM_E_INVALID_KEYHANDLE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8028000C_u32 as _);
-pub const TPM_E_INVALID_KEYUSAGE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280024_u32 as _);
-pub const TPM_E_INVALID_OWNER_AUTH: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80290601_u32 as _);
-pub const TPM_E_INVALID_PCR_INFO: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280010_u32 as _);
-pub const TPM_E_INVALID_POSTINIT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280026_u32 as _);
-pub const TPM_E_INVALID_RESOURCE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280035_u32 as _);
-pub const TPM_E_INVALID_STRUCTURE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280043_u32 as _);
-pub const TPM_E_IOERROR: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8028001F_u32 as _);
-pub const TPM_E_KEYNOTFOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8028000D_u32 as _);
-pub const TPM_E_KEY_ALREADY_FINALIZED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80290414_u32 as _);
-pub const TPM_E_KEY_NOTSUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8028003A_u32 as _);
-pub const TPM_E_KEY_NOT_AUTHENTICATED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80290418_u32 as _);
-pub const TPM_E_KEY_NOT_FINALIZED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80290411_u32 as _);
-pub const TPM_E_KEY_NOT_LOADED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8029040F_u32 as _);
-pub const TPM_E_KEY_NOT_SIGNING_KEY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8029041A_u32 as _);
-pub const TPM_E_KEY_OWNER_CONTROL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280044_u32 as _);
-pub const TPM_E_KEY_USAGE_POLICY_INVALID: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80290416_u32 as _);
-pub const TPM_E_KEY_USAGE_POLICY_NOT_SUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80290415_u32 as _);
-pub const TPM_E_LOCKED_OUT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8029041B_u32 as _);
-pub const TPM_E_MAXNVWRITES: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280048_u32 as _);
-pub const TPM_E_MA_AUTHORITY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8028005F_u32 as _);
-pub const TPM_E_MA_DESTINATION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8028005D_u32 as _);
-pub const TPM_E_MA_SOURCE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8028005E_u32 as _);
-pub const TPM_E_MA_TICKET_SIGNATURE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8028005C_u32 as _);
-pub const TPM_E_MIGRATEFAIL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8028000F_u32 as _);
-pub const TPM_E_NEEDS_SELFTEST: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280801_u32 as _);
-pub const TPM_E_NOCONTEXTSPACE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280063_u32 as _);
-pub const TPM_E_NOOPERATOR: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280049_u32 as _);
-pub const TPM_E_NOSPACE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280011_u32 as _);
-pub const TPM_E_NOSRK: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280012_u32 as _);
-pub const TPM_E_NOTFIPS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280036_u32 as _);
-pub const TPM_E_NOTLOCAL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280033_u32 as _);
-pub const TPM_E_NOTRESETABLE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280032_u32 as _);
-pub const TPM_E_NOTSEALED_BLOB: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280013_u32 as _);
-pub const TPM_E_NOT_FULLWRITE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280046_u32 as _);
-pub const TPM_E_NOT_PCR_BOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80290413_u32 as _);
-pub const TPM_E_NO_ENDORSEMENT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280023_u32 as _);
-pub const TPM_E_NO_KEY_CERTIFICATION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80290410_u32 as _);
-pub const TPM_E_NO_NV_PERMISSION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280038_u32 as _);
-pub const TPM_E_NO_WRAP_TRANSPORT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8028002F_u32 as _);
-pub const TPM_E_OWNER_CONTROL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8028004F_u32 as _);
-pub const TPM_E_OWNER_SET: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280014_u32 as _);
-pub const TPM_E_PCP_AUTHENTICATION_FAILED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80290408_u32 as _);
-pub const TPM_E_PCP_AUTHENTICATION_IGNORED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80290409_u32 as _);
-pub const TPM_E_PCP_BUFFER_TOO_SMALL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80290406_u32 as _);
-pub const TPM_E_PCP_DEVICE_NOT_READY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80290401_u32 as _);
-pub const TPM_E_PCP_ERROR_MASK: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80290400_u32 as _);
-pub const TPM_E_PCP_FLAG_NOT_SUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80290404_u32 as _);
-pub const TPM_E_PCP_IFX_RSA_KEY_CREATION_BLOCKED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8029041F_u32 as _);
-pub const TPM_E_PCP_INTERNAL_ERROR: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80290407_u32 as _);
-pub const TPM_E_PCP_INVALID_HANDLE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80290402_u32 as _);
-pub const TPM_E_PCP_INVALID_PARAMETER: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80290403_u32 as _);
-pub const TPM_E_PCP_KEY_HANDLE_INVALIDATED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80290422_u32 as _);
-pub const TPM_E_PCP_KEY_NOT_AIK: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80290419_u32 as _);
-pub const TPM_E_PCP_NOT_SUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80290405_u32 as _);
-pub const TPM_E_PCP_PLATFORM_CLAIM_MAY_BE_OUTDATED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x40290424_u32 as _);
-pub const TPM_E_PCP_PLATFORM_CLAIM_OUTDATED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x40290425_u32 as _);
-pub const TPM_E_PCP_PLATFORM_CLAIM_REBOOT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x40290426_u32 as _);
-pub const TPM_E_PCP_POLICY_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8029040A_u32 as _);
-pub const TPM_E_PCP_PROFILE_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8029040B_u32 as _);
-pub const TPM_E_PCP_RAW_POLICY_NOT_SUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80290421_u32 as _);
-pub const TPM_E_PCP_TICKET_MISSING: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80290420_u32 as _);
-pub const TPM_E_PCP_UNSUPPORTED_PSS_SALT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x40290423_u32 as _);
-pub const TPM_E_PCP_VALIDATION_FAILED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8029040C_u32 as _);
-pub const TPM_E_PCP_WRONG_PARENT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8029040E_u32 as _);
-pub const TPM_E_PERMANENTEK: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280061_u32 as _);
-pub const TPM_E_PER_NOWRITE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8028003F_u32 as _);
-pub const TPM_E_PPI_ACPI_FAILURE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80290300_u32 as _);
-pub const TPM_E_PPI_BIOS_FAILURE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80290302_u32 as _);
-pub const TPM_E_PPI_BLOCKED_IN_BIOS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80290304_u32 as _);
-pub const TPM_E_PPI_NOT_SUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80290303_u32 as _);
-pub const TPM_E_PPI_USER_ABORT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80290301_u32 as _);
-pub const TPM_E_PROVISIONING_INCOMPLETE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80290600_u32 as _);
-pub const TPM_E_READ_ONLY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8028003E_u32 as _);
-pub const TPM_E_REQUIRES_SIGN: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280039_u32 as _);
-pub const TPM_E_RESOURCEMISSING: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8028004A_u32 as _);
-pub const TPM_E_RESOURCES: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280015_u32 as _);
-pub const TPM_E_RETRY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280800_u32 as _);
-pub const TPM_E_SHA_ERROR: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8028001B_u32 as _);
-pub const TPM_E_SHA_THREAD: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8028001A_u32 as _);
-pub const TPM_E_SHORTRANDOM: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280016_u32 as _);
-pub const TPM_E_SIZE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280017_u32 as _);
-pub const TPM_E_SOFT_KEY_ERROR: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80290417_u32 as _);
-pub const TPM_E_TOOMANYCONTEXTS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8028005B_u32 as _);
-pub const TPM_E_TOO_MUCH_DATA: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80290602_u32 as _);
-pub const TPM_E_TPM_GENERATED_EPS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80290603_u32 as _);
-pub const TPM_E_TRANSPORT_NOTEXCLUSIVE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8028004E_u32 as _);
-pub const TPM_E_VERSION_NOT_SUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8029041D_u32 as _);
-pub const TPM_E_WRITE_LOCKED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280041_u32 as _);
-pub const TPM_E_WRONGPCRVAL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280018_u32 as _);
-pub const TPM_E_WRONG_ENTITYTYPE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80280025_u32 as _);
-pub const TPM_E_ZERO_EXHAUST_ENABLED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80290500_u32 as _);
+pub const S_APPLICATION_ACTIVATION_ERROR_HANDLED_BY_DIALOG: windows_core::HRESULT = windows_core::HRESULT(0x270259_u32 as _);
+pub const S_FALSE: windows_core::HRESULT = windows_core::HRESULT(0x1_u32 as _);
+pub const S_OK: windows_core::HRESULT = windows_core::HRESULT(0x0_u32 as _);
+pub const S_STORE_LAUNCHED_FOR_REMEDIATION: windows_core::HRESULT = windows_core::HRESULT(0x270258_u32 as _);
+pub const TBSIMP_E_BUFFER_TOO_SMALL: windows_core::HRESULT = windows_core::HRESULT(0x80290200_u32 as _);
+pub const TBSIMP_E_CLEANUP_FAILED: windows_core::HRESULT = windows_core::HRESULT(0x80290201_u32 as _);
+pub const TBSIMP_E_COMMAND_CANCELED: windows_core::HRESULT = windows_core::HRESULT(0x8029020B_u32 as _);
+pub const TBSIMP_E_COMMAND_FAILED: windows_core::HRESULT = windows_core::HRESULT(0x80290211_u32 as _);
+pub const TBSIMP_E_DUPLICATE_VHANDLE: windows_core::HRESULT = windows_core::HRESULT(0x80290206_u32 as _);
+pub const TBSIMP_E_HASH_BAD_KEY: windows_core::HRESULT = windows_core::HRESULT(0x80290205_u32 as _);
+pub const TBSIMP_E_HASH_TABLE_FULL: windows_core::HRESULT = windows_core::HRESULT(0x80290216_u32 as _);
+pub const TBSIMP_E_INVALID_CONTEXT_HANDLE: windows_core::HRESULT = windows_core::HRESULT(0x80290202_u32 as _);
+pub const TBSIMP_E_INVALID_CONTEXT_PARAM: windows_core::HRESULT = windows_core::HRESULT(0x80290203_u32 as _);
+pub const TBSIMP_E_INVALID_OUTPUT_POINTER: windows_core::HRESULT = windows_core::HRESULT(0x80290207_u32 as _);
+pub const TBSIMP_E_INVALID_PARAMETER: windows_core::HRESULT = windows_core::HRESULT(0x80290208_u32 as _);
+pub const TBSIMP_E_INVALID_RESOURCE: windows_core::HRESULT = windows_core::HRESULT(0x80290214_u32 as _);
+pub const TBSIMP_E_LIST_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0x8029020E_u32 as _);
+pub const TBSIMP_E_LIST_NO_MORE_ITEMS: windows_core::HRESULT = windows_core::HRESULT(0x8029020D_u32 as _);
+pub const TBSIMP_E_NOTHING_TO_UNLOAD: windows_core::HRESULT = windows_core::HRESULT(0x80290215_u32 as _);
+pub const TBSIMP_E_NOT_ENOUGH_SPACE: windows_core::HRESULT = windows_core::HRESULT(0x8029020F_u32 as _);
+pub const TBSIMP_E_NOT_ENOUGH_TPM_CONTEXTS: windows_core::HRESULT = windows_core::HRESULT(0x80290210_u32 as _);
+pub const TBSIMP_E_NO_EVENT_LOG: windows_core::HRESULT = windows_core::HRESULT(0x8029021B_u32 as _);
+pub const TBSIMP_E_OUT_OF_MEMORY: windows_core::HRESULT = windows_core::HRESULT(0x8029020C_u32 as _);
+pub const TBSIMP_E_PPI_NOT_SUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x80290219_u32 as _);
+pub const TBSIMP_E_RESOURCE_EXPIRED: windows_core::HRESULT = windows_core::HRESULT(0x80290213_u32 as _);
+pub const TBSIMP_E_RPC_INIT_FAILED: windows_core::HRESULT = windows_core::HRESULT(0x80290209_u32 as _);
+pub const TBSIMP_E_SCHEDULER_NOT_RUNNING: windows_core::HRESULT = windows_core::HRESULT(0x8029020A_u32 as _);
+pub const TBSIMP_E_TOO_MANY_RESOURCES: windows_core::HRESULT = windows_core::HRESULT(0x80290218_u32 as _);
+pub const TBSIMP_E_TOO_MANY_TBS_CONTEXTS: windows_core::HRESULT = windows_core::HRESULT(0x80290217_u32 as _);
+pub const TBSIMP_E_TPM_ERROR: windows_core::HRESULT = windows_core::HRESULT(0x80290204_u32 as _);
+pub const TBSIMP_E_TPM_INCOMPATIBLE: windows_core::HRESULT = windows_core::HRESULT(0x8029021A_u32 as _);
+pub const TBSIMP_E_UNKNOWN_ORDINAL: windows_core::HRESULT = windows_core::HRESULT(0x80290212_u32 as _);
+pub const TBS_E_ACCESS_DENIED: windows_core::HRESULT = windows_core::HRESULT(0x80284012_u32 as _);
+pub const TBS_E_BAD_PARAMETER: windows_core::HRESULT = windows_core::HRESULT(0x80284002_u32 as _);
+pub const TBS_E_BUFFER_TOO_LARGE: windows_core::HRESULT = windows_core::HRESULT(0x8028400E_u32 as _);
+pub const TBS_E_COMMAND_CANCELED: windows_core::HRESULT = windows_core::HRESULT(0x8028400D_u32 as _);
+pub const TBS_E_INSUFFICIENT_BUFFER: windows_core::HRESULT = windows_core::HRESULT(0x80284005_u32 as _);
+pub const TBS_E_INTERNAL_ERROR: windows_core::HRESULT = windows_core::HRESULT(0x80284001_u32 as _);
+pub const TBS_E_INVALID_CONTEXT: windows_core::HRESULT = windows_core::HRESULT(0x80284004_u32 as _);
+pub const TBS_E_INVALID_CONTEXT_PARAM: windows_core::HRESULT = windows_core::HRESULT(0x80284007_u32 as _);
+pub const TBS_E_INVALID_OUTPUT_POINTER: windows_core::HRESULT = windows_core::HRESULT(0x80284003_u32 as _);
+pub const TBS_E_IOERROR: windows_core::HRESULT = windows_core::HRESULT(0x80284006_u32 as _);
+pub const TBS_E_NO_EVENT_LOG: windows_core::HRESULT = windows_core::HRESULT(0x80284011_u32 as _);
+pub const TBS_E_OWNERAUTH_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0x80284015_u32 as _);
+pub const TBS_E_PPI_FUNCTION_UNSUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x80284014_u32 as _);
+pub const TBS_E_PPI_NOT_SUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x8028400C_u32 as _);
+pub const TBS_E_PROVISIONING_INCOMPLETE: windows_core::HRESULT = windows_core::HRESULT(0x80284016_u32 as _);
+pub const TBS_E_PROVISIONING_NOT_ALLOWED: windows_core::HRESULT = windows_core::HRESULT(0x80284013_u32 as _);
+pub const TBS_E_SERVICE_DISABLED: windows_core::HRESULT = windows_core::HRESULT(0x80284010_u32 as _);
+pub const TBS_E_SERVICE_NOT_RUNNING: windows_core::HRESULT = windows_core::HRESULT(0x80284008_u32 as _);
+pub const TBS_E_SERVICE_START_PENDING: windows_core::HRESULT = windows_core::HRESULT(0x8028400B_u32 as _);
+pub const TBS_E_TOO_MANY_RESOURCES: windows_core::HRESULT = windows_core::HRESULT(0x8028400A_u32 as _);
+pub const TBS_E_TOO_MANY_TBS_CONTEXTS: windows_core::HRESULT = windows_core::HRESULT(0x80284009_u32 as _);
+pub const TBS_E_TPM_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0x8028400F_u32 as _);
+pub const TPC_E_INITIALIZE_FAIL: windows_core::HRESULT = windows_core::HRESULT(0x80040223_u32 as _);
+pub const TPC_E_INVALID_CONFIGURATION: windows_core::HRESULT = windows_core::HRESULT(0x80040239_u32 as _);
+pub const TPC_E_INVALID_DATA_FROM_RECOGNIZER: windows_core::HRESULT = windows_core::HRESULT(0x8004023A_u32 as _);
+pub const TPC_E_INVALID_INPUT_RECT: windows_core::HRESULT = windows_core::HRESULT(0x80040219_u32 as _);
+pub const TPC_E_INVALID_PACKET_DESCRIPTION: windows_core::HRESULT = windows_core::HRESULT(0x80040233_u32 as _);
+pub const TPC_E_INVALID_PROPERTY: windows_core::HRESULT = windows_core::HRESULT(0x80040241_u32 as _);
+pub const TPC_E_INVALID_RIGHTS: windows_core::HRESULT = windows_core::HRESULT(0x80040236_u32 as _);
+pub const TPC_E_INVALID_STROKE: windows_core::HRESULT = windows_core::HRESULT(0x80040222_u32 as _);
+pub const TPC_E_NOT_RELEVANT: windows_core::HRESULT = windows_core::HRESULT(0x80040232_u32 as _);
+pub const TPC_E_NO_DEFAULT_TABLET: windows_core::HRESULT = windows_core::HRESULT(0x80040212_u32 as _);
+pub const TPC_E_OUT_OF_ORDER_CALL: windows_core::HRESULT = windows_core::HRESULT(0x80040237_u32 as _);
+pub const TPC_E_QUEUE_FULL: windows_core::HRESULT = windows_core::HRESULT(0x80040238_u32 as _);
+pub const TPC_E_RECOGNIZER_NOT_REGISTERED: windows_core::HRESULT = windows_core::HRESULT(0x80040235_u32 as _);
+pub const TPC_E_UNKNOWN_PROPERTY: windows_core::HRESULT = windows_core::HRESULT(0x8004021B_u32 as _);
+pub const TPC_S_INTERRUPTED: windows_core::HRESULT = windows_core::HRESULT(0x40253_u32 as _);
+pub const TPC_S_NO_DATA_TO_PROCESS: windows_core::HRESULT = windows_core::HRESULT(0x40254_u32 as _);
+pub const TPC_S_TRUNCATED: windows_core::HRESULT = windows_core::HRESULT(0x40252_u32 as _);
+pub const TPMAPI_E_ACCESS_DENIED: windows_core::HRESULT = windows_core::HRESULT(0x80290108_u32 as _);
+pub const TPMAPI_E_AUTHORIZATION_FAILED: windows_core::HRESULT = windows_core::HRESULT(0x80290109_u32 as _);
+pub const TPMAPI_E_AUTHORIZATION_REVOKED: windows_core::HRESULT = windows_core::HRESULT(0x80290126_u32 as _);
+pub const TPMAPI_E_AUTHORIZING_KEY_NOT_SUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x80290128_u32 as _);
+pub const TPMAPI_E_BUFFER_TOO_SMALL: windows_core::HRESULT = windows_core::HRESULT(0x80290106_u32 as _);
+pub const TPMAPI_E_EMPTY_TCG_LOG: windows_core::HRESULT = windows_core::HRESULT(0x8029011A_u32 as _);
+pub const TPMAPI_E_ENCRYPTION_FAILED: windows_core::HRESULT = windows_core::HRESULT(0x80290110_u32 as _);
+pub const TPMAPI_E_ENDORSEMENT_AUTH_NOT_NULL: windows_core::HRESULT = windows_core::HRESULT(0x80290125_u32 as _);
+pub const TPMAPI_E_FIPS_RNG_CHECK_FAILED: windows_core::HRESULT = windows_core::HRESULT(0x80290119_u32 as _);
+pub const TPMAPI_E_INTERNAL_ERROR: windows_core::HRESULT = windows_core::HRESULT(0x80290107_u32 as _);
+pub const TPMAPI_E_INVALID_AUTHORIZATION_SIGNATURE: windows_core::HRESULT = windows_core::HRESULT(0x80290129_u32 as _);
+pub const TPMAPI_E_INVALID_CONTEXT_HANDLE: windows_core::HRESULT = windows_core::HRESULT(0x8029010A_u32 as _);
+pub const TPMAPI_E_INVALID_CONTEXT_PARAMS: windows_core::HRESULT = windows_core::HRESULT(0x80290115_u32 as _);
+pub const TPMAPI_E_INVALID_DELEGATE_BLOB: windows_core::HRESULT = windows_core::HRESULT(0x80290114_u32 as _);
+pub const TPMAPI_E_INVALID_ENCODING: windows_core::HRESULT = windows_core::HRESULT(0x8029010E_u32 as _);
+pub const TPMAPI_E_INVALID_KEY_BLOB: windows_core::HRESULT = windows_core::HRESULT(0x80290116_u32 as _);
+pub const TPMAPI_E_INVALID_KEY_PARAMS: windows_core::HRESULT = windows_core::HRESULT(0x80290111_u32 as _);
+pub const TPMAPI_E_INVALID_KEY_SIZE: windows_core::HRESULT = windows_core::HRESULT(0x8029010F_u32 as _);
+pub const TPMAPI_E_INVALID_MIGRATION_AUTHORIZATION_BLOB: windows_core::HRESULT = windows_core::HRESULT(0x80290112_u32 as _);
+pub const TPMAPI_E_INVALID_OUTPUT_POINTER: windows_core::HRESULT = windows_core::HRESULT(0x80290103_u32 as _);
+pub const TPMAPI_E_INVALID_OWNER_AUTH: windows_core::HRESULT = windows_core::HRESULT(0x80290118_u32 as _);
+pub const TPMAPI_E_INVALID_PARAMETER: windows_core::HRESULT = windows_core::HRESULT(0x80290104_u32 as _);
+pub const TPMAPI_E_INVALID_PCR_DATA: windows_core::HRESULT = windows_core::HRESULT(0x80290117_u32 as _);
+pub const TPMAPI_E_INVALID_PCR_INDEX: windows_core::HRESULT = windows_core::HRESULT(0x80290113_u32 as _);
+pub const TPMAPI_E_INVALID_POLICYAUTH_BLOB_TYPE: windows_core::HRESULT = windows_core::HRESULT(0x8029012E_u32 as _);
+pub const TPMAPI_E_INVALID_STATE: windows_core::HRESULT = windows_core::HRESULT(0x80290100_u32 as _);
+pub const TPMAPI_E_INVALID_TCG_LOG_ENTRY: windows_core::HRESULT = windows_core::HRESULT(0x8029011B_u32 as _);
+pub const TPMAPI_E_INVALID_TPM_VERSION: windows_core::HRESULT = windows_core::HRESULT(0x8029012D_u32 as _);
+pub const TPMAPI_E_MALFORMED_AUTHORIZATION_KEY: windows_core::HRESULT = windows_core::HRESULT(0x80290127_u32 as _);
+pub const TPMAPI_E_MALFORMED_AUTHORIZATION_OTHER: windows_core::HRESULT = windows_core::HRESULT(0x8029012B_u32 as _);
+pub const TPMAPI_E_MALFORMED_AUTHORIZATION_POLICY: windows_core::HRESULT = windows_core::HRESULT(0x8029012A_u32 as _);
+pub const TPMAPI_E_MESSAGE_TOO_LARGE: windows_core::HRESULT = windows_core::HRESULT(0x8029010D_u32 as _);
+pub const TPMAPI_E_NOT_ENOUGH_DATA: windows_core::HRESULT = windows_core::HRESULT(0x80290101_u32 as _);
+pub const TPMAPI_E_NO_AUTHORIZATION_CHAIN_FOUND: windows_core::HRESULT = windows_core::HRESULT(0x80290122_u32 as _);
+pub const TPMAPI_E_NV_BITS_NOT_DEFINED: windows_core::HRESULT = windows_core::HRESULT(0x8029011F_u32 as _);
+pub const TPMAPI_E_NV_BITS_NOT_READY: windows_core::HRESULT = windows_core::HRESULT(0x80290120_u32 as _);
+pub const TPMAPI_E_OUT_OF_MEMORY: windows_core::HRESULT = windows_core::HRESULT(0x80290105_u32 as _);
+pub const TPMAPI_E_OWNER_AUTH_NOT_NULL: windows_core::HRESULT = windows_core::HRESULT(0x80290124_u32 as _);
+pub const TPMAPI_E_POLICY_DENIES_OPERATION: windows_core::HRESULT = windows_core::HRESULT(0x8029011E_u32 as _);
+pub const TPMAPI_E_SEALING_KEY_CHANGED: windows_core::HRESULT = windows_core::HRESULT(0x8029012C_u32 as _);
+pub const TPMAPI_E_SEALING_KEY_NOT_AVAILABLE: windows_core::HRESULT = windows_core::HRESULT(0x80290121_u32 as _);
+pub const TPMAPI_E_SVN_COUNTER_NOT_AVAILABLE: windows_core::HRESULT = windows_core::HRESULT(0x80290123_u32 as _);
+pub const TPMAPI_E_TBS_COMMUNICATION_ERROR: windows_core::HRESULT = windows_core::HRESULT(0x8029010B_u32 as _);
+pub const TPMAPI_E_TCG_INVALID_DIGEST_ENTRY: windows_core::HRESULT = windows_core::HRESULT(0x8029011D_u32 as _);
+pub const TPMAPI_E_TCG_SEPARATOR_ABSENT: windows_core::HRESULT = windows_core::HRESULT(0x8029011C_u32 as _);
+pub const TPMAPI_E_TOO_MUCH_DATA: windows_core::HRESULT = windows_core::HRESULT(0x80290102_u32 as _);
+pub const TPMAPI_E_TPM_COMMAND_ERROR: windows_core::HRESULT = windows_core::HRESULT(0x8029010C_u32 as _);
+pub const TPM_20_E_ASYMMETRIC: windows_core::HRESULT = windows_core::HRESULT(0x80280081_u32 as _);
+pub const TPM_20_E_ATTRIBUTES: windows_core::HRESULT = windows_core::HRESULT(0x80280082_u32 as _);
+pub const TPM_20_E_AUTHSIZE: windows_core::HRESULT = windows_core::HRESULT(0x80280144_u32 as _);
+pub const TPM_20_E_AUTH_CONTEXT: windows_core::HRESULT = windows_core::HRESULT(0x80280145_u32 as _);
+pub const TPM_20_E_AUTH_FAIL: windows_core::HRESULT = windows_core::HRESULT(0x8028008E_u32 as _);
+pub const TPM_20_E_AUTH_MISSING: windows_core::HRESULT = windows_core::HRESULT(0x80280125_u32 as _);
+pub const TPM_20_E_AUTH_TYPE: windows_core::HRESULT = windows_core::HRESULT(0x80280124_u32 as _);
+pub const TPM_20_E_AUTH_UNAVAILABLE: windows_core::HRESULT = windows_core::HRESULT(0x8028012F_u32 as _);
+pub const TPM_20_E_BAD_AUTH: windows_core::HRESULT = windows_core::HRESULT(0x802800A2_u32 as _);
+pub const TPM_20_E_BAD_CONTEXT: windows_core::HRESULT = windows_core::HRESULT(0x80280150_u32 as _);
+pub const TPM_20_E_BINDING: windows_core::HRESULT = windows_core::HRESULT(0x802800A5_u32 as _);
+pub const TPM_20_E_CANCELED: windows_core::HRESULT = windows_core::HRESULT(0x80280909_u32 as _);
+pub const TPM_20_E_COMMAND_CODE: windows_core::HRESULT = windows_core::HRESULT(0x80280143_u32 as _);
+pub const TPM_20_E_COMMAND_SIZE: windows_core::HRESULT = windows_core::HRESULT(0x80280142_u32 as _);
+pub const TPM_20_E_CONTEXT_GAP: windows_core::HRESULT = windows_core::HRESULT(0x80280901_u32 as _);
+pub const TPM_20_E_CPHASH: windows_core::HRESULT = windows_core::HRESULT(0x80280151_u32 as _);
+pub const TPM_20_E_CURVE: windows_core::HRESULT = windows_core::HRESULT(0x802800A6_u32 as _);
+pub const TPM_20_E_DISABLED: windows_core::HRESULT = windows_core::HRESULT(0x80280120_u32 as _);
+pub const TPM_20_E_ECC_CURVE: windows_core::HRESULT = windows_core::HRESULT(0x80280123_u32 as _);
+pub const TPM_20_E_ECC_POINT: windows_core::HRESULT = windows_core::HRESULT(0x802800A7_u32 as _);
+pub const TPM_20_E_EXCLUSIVE: windows_core::HRESULT = windows_core::HRESULT(0x80280121_u32 as _);
+pub const TPM_20_E_EXPIRED: windows_core::HRESULT = windows_core::HRESULT(0x802800A3_u32 as _);
+pub const TPM_20_E_FAILURE: windows_core::HRESULT = windows_core::HRESULT(0x80280101_u32 as _);
+pub const TPM_20_E_HANDLE: windows_core::HRESULT = windows_core::HRESULT(0x8028008B_u32 as _);
+pub const TPM_20_E_HASH: windows_core::HRESULT = windows_core::HRESULT(0x80280083_u32 as _);
+pub const TPM_20_E_HIERARCHY: windows_core::HRESULT = windows_core::HRESULT(0x80280085_u32 as _);
+pub const TPM_20_E_HMAC: windows_core::HRESULT = windows_core::HRESULT(0x80280119_u32 as _);
+pub const TPM_20_E_INITIALIZE: windows_core::HRESULT = windows_core::HRESULT(0x80280100_u32 as _);
+pub const TPM_20_E_INSUFFICIENT: windows_core::HRESULT = windows_core::HRESULT(0x8028009A_u32 as _);
+pub const TPM_20_E_INTEGRITY: windows_core::HRESULT = windows_core::HRESULT(0x8028009F_u32 as _);
+pub const TPM_20_E_KDF: windows_core::HRESULT = windows_core::HRESULT(0x8028008C_u32 as _);
+pub const TPM_20_E_KEY: windows_core::HRESULT = windows_core::HRESULT(0x8028009C_u32 as _);
+pub const TPM_20_E_KEY_SIZE: windows_core::HRESULT = windows_core::HRESULT(0x80280087_u32 as _);
+pub const TPM_20_E_LOCALITY: windows_core::HRESULT = windows_core::HRESULT(0x80280907_u32 as _);
+pub const TPM_20_E_LOCKOUT: windows_core::HRESULT = windows_core::HRESULT(0x80280921_u32 as _);
+pub const TPM_20_E_MEMORY: windows_core::HRESULT = windows_core::HRESULT(0x80280904_u32 as _);
+pub const TPM_20_E_MGF: windows_core::HRESULT = windows_core::HRESULT(0x80280088_u32 as _);
+pub const TPM_20_E_MODE: windows_core::HRESULT = windows_core::HRESULT(0x80280089_u32 as _);
+pub const TPM_20_E_NEEDS_TEST: windows_core::HRESULT = windows_core::HRESULT(0x80280153_u32 as _);
+pub const TPM_20_E_NONCE: windows_core::HRESULT = windows_core::HRESULT(0x8028008F_u32 as _);
+pub const TPM_20_E_NO_RESULT: windows_core::HRESULT = windows_core::HRESULT(0x80280154_u32 as _);
+pub const TPM_20_E_NV_AUTHORIZATION: windows_core::HRESULT = windows_core::HRESULT(0x80280149_u32 as _);
+pub const TPM_20_E_NV_DEFINED: windows_core::HRESULT = windows_core::HRESULT(0x8028014C_u32 as _);
+pub const TPM_20_E_NV_LOCKED: windows_core::HRESULT = windows_core::HRESULT(0x80280148_u32 as _);
+pub const TPM_20_E_NV_RANGE: windows_core::HRESULT = windows_core::HRESULT(0x80280146_u32 as _);
+pub const TPM_20_E_NV_RATE: windows_core::HRESULT = windows_core::HRESULT(0x80280920_u32 as _);
+pub const TPM_20_E_NV_SIZE: windows_core::HRESULT = windows_core::HRESULT(0x80280147_u32 as _);
+pub const TPM_20_E_NV_SPACE: windows_core::HRESULT = windows_core::HRESULT(0x8028014B_u32 as _);
+pub const TPM_20_E_NV_UNAVAILABLE: windows_core::HRESULT = windows_core::HRESULT(0x80280923_u32 as _);
+pub const TPM_20_E_NV_UNINITIALIZED: windows_core::HRESULT = windows_core::HRESULT(0x8028014A_u32 as _);
+pub const TPM_20_E_OBJECT_HANDLES: windows_core::HRESULT = windows_core::HRESULT(0x80280906_u32 as _);
+pub const TPM_20_E_OBJECT_MEMORY: windows_core::HRESULT = windows_core::HRESULT(0x80280902_u32 as _);
+pub const TPM_20_E_PARENT: windows_core::HRESULT = windows_core::HRESULT(0x80280152_u32 as _);
+pub const TPM_20_E_PCR: windows_core::HRESULT = windows_core::HRESULT(0x80280127_u32 as _);
+pub const TPM_20_E_PCR_CHANGED: windows_core::HRESULT = windows_core::HRESULT(0x80280128_u32 as _);
+pub const TPM_20_E_POLICY: windows_core::HRESULT = windows_core::HRESULT(0x80280126_u32 as _);
+pub const TPM_20_E_POLICY_CC: windows_core::HRESULT = windows_core::HRESULT(0x802800A4_u32 as _);
+pub const TPM_20_E_POLICY_FAIL: windows_core::HRESULT = windows_core::HRESULT(0x8028009D_u32 as _);
+pub const TPM_20_E_PP: windows_core::HRESULT = windows_core::HRESULT(0x80280090_u32 as _);
+pub const TPM_20_E_PRIVATE: windows_core::HRESULT = windows_core::HRESULT(0x8028010B_u32 as _);
+pub const TPM_20_E_RANGE: windows_core::HRESULT = windows_core::HRESULT(0x8028008D_u32 as _);
+pub const TPM_20_E_REBOOT: windows_core::HRESULT = windows_core::HRESULT(0x80280130_u32 as _);
+pub const TPM_20_E_RESERVED_BITS: windows_core::HRESULT = windows_core::HRESULT(0x802800A1_u32 as _);
+pub const TPM_20_E_RETRY: windows_core::HRESULT = windows_core::HRESULT(0x80280922_u32 as _);
+pub const TPM_20_E_SCHEME: windows_core::HRESULT = windows_core::HRESULT(0x80280092_u32 as _);
+pub const TPM_20_E_SELECTOR: windows_core::HRESULT = windows_core::HRESULT(0x80280098_u32 as _);
+pub const TPM_20_E_SENSITIVE: windows_core::HRESULT = windows_core::HRESULT(0x80280155_u32 as _);
+pub const TPM_20_E_SEQUENCE: windows_core::HRESULT = windows_core::HRESULT(0x80280103_u32 as _);
+pub const TPM_20_E_SESSION_HANDLES: windows_core::HRESULT = windows_core::HRESULT(0x80280905_u32 as _);
+pub const TPM_20_E_SESSION_MEMORY: windows_core::HRESULT = windows_core::HRESULT(0x80280903_u32 as _);
+pub const TPM_20_E_SIGNATURE: windows_core::HRESULT = windows_core::HRESULT(0x8028009B_u32 as _);
+pub const TPM_20_E_SIZE: windows_core::HRESULT = windows_core::HRESULT(0x80280095_u32 as _);
+pub const TPM_20_E_SYMMETRIC: windows_core::HRESULT = windows_core::HRESULT(0x80280096_u32 as _);
+pub const TPM_20_E_TAG: windows_core::HRESULT = windows_core::HRESULT(0x80280097_u32 as _);
+pub const TPM_20_E_TESTING: windows_core::HRESULT = windows_core::HRESULT(0x8028090A_u32 as _);
+pub const TPM_20_E_TICKET: windows_core::HRESULT = windows_core::HRESULT(0x802800A0_u32 as _);
+pub const TPM_20_E_TOO_MANY_CONTEXTS: windows_core::HRESULT = windows_core::HRESULT(0x8028012E_u32 as _);
+pub const TPM_20_E_TYPE: windows_core::HRESULT = windows_core::HRESULT(0x8028008A_u32 as _);
+pub const TPM_20_E_UNBALANCED: windows_core::HRESULT = windows_core::HRESULT(0x80280131_u32 as _);
+pub const TPM_20_E_UPGRADE: windows_core::HRESULT = windows_core::HRESULT(0x8028012D_u32 as _);
+pub const TPM_20_E_VALUE: windows_core::HRESULT = windows_core::HRESULT(0x80280084_u32 as _);
+pub const TPM_20_E_YIELDED: windows_core::HRESULT = windows_core::HRESULT(0x80280908_u32 as _);
+pub const TPM_E_AREA_LOCKED: windows_core::HRESULT = windows_core::HRESULT(0x8028003C_u32 as _);
+pub const TPM_E_ATTESTATION_CHALLENGE_NOT_SET: windows_core::HRESULT = windows_core::HRESULT(0x80290412_u32 as _);
+pub const TPM_E_AUDITFAILURE: windows_core::HRESULT = windows_core::HRESULT(0x80280004_u32 as _);
+pub const TPM_E_AUDITFAIL_SUCCESSFUL: windows_core::HRESULT = windows_core::HRESULT(0x80280031_u32 as _);
+pub const TPM_E_AUDITFAIL_UNSUCCESSFUL: windows_core::HRESULT = windows_core::HRESULT(0x80280030_u32 as _);
+pub const TPM_E_AUTH2FAIL: windows_core::HRESULT = windows_core::HRESULT(0x8028001D_u32 as _);
+pub const TPM_E_AUTHFAIL: windows_core::HRESULT = windows_core::HRESULT(0x80280001_u32 as _);
+pub const TPM_E_AUTH_CONFLICT: windows_core::HRESULT = windows_core::HRESULT(0x8028003B_u32 as _);
+pub const TPM_E_BADCONTEXT: windows_core::HRESULT = windows_core::HRESULT(0x8028005A_u32 as _);
+pub const TPM_E_BADINDEX: windows_core::HRESULT = windows_core::HRESULT(0x80280002_u32 as _);
+pub const TPM_E_BADTAG: windows_core::HRESULT = windows_core::HRESULT(0x8028001E_u32 as _);
+pub const TPM_E_BAD_ATTRIBUTES: windows_core::HRESULT = windows_core::HRESULT(0x80280042_u32 as _);
+pub const TPM_E_BAD_COUNTER: windows_core::HRESULT = windows_core::HRESULT(0x80280045_u32 as _);
+pub const TPM_E_BAD_DATASIZE: windows_core::HRESULT = windows_core::HRESULT(0x8028002B_u32 as _);
+pub const TPM_E_BAD_DELEGATE: windows_core::HRESULT = windows_core::HRESULT(0x80280059_u32 as _);
+pub const TPM_E_BAD_HANDLE: windows_core::HRESULT = windows_core::HRESULT(0x80280058_u32 as _);
+pub const TPM_E_BAD_KEY_PROPERTY: windows_core::HRESULT = windows_core::HRESULT(0x80280028_u32 as _);
+pub const TPM_E_BAD_LOCALITY: windows_core::HRESULT = windows_core::HRESULT(0x8028003D_u32 as _);
+pub const TPM_E_BAD_MIGRATION: windows_core::HRESULT = windows_core::HRESULT(0x80280029_u32 as _);
+pub const TPM_E_BAD_MODE: windows_core::HRESULT = windows_core::HRESULT(0x8028002C_u32 as _);
+pub const TPM_E_BAD_ORDINAL: windows_core::HRESULT = windows_core::HRESULT(0x8028000A_u32 as _);
+pub const TPM_E_BAD_PARAMETER: windows_core::HRESULT = windows_core::HRESULT(0x80280003_u32 as _);
+pub const TPM_E_BAD_PARAM_SIZE: windows_core::HRESULT = windows_core::HRESULT(0x80280019_u32 as _);
+pub const TPM_E_BAD_PRESENCE: windows_core::HRESULT = windows_core::HRESULT(0x8028002D_u32 as _);
+pub const TPM_E_BAD_SCHEME: windows_core::HRESULT = windows_core::HRESULT(0x8028002A_u32 as _);
+pub const TPM_E_BAD_SIGNATURE: windows_core::HRESULT = windows_core::HRESULT(0x80280062_u32 as _);
+pub const TPM_E_BAD_TYPE: windows_core::HRESULT = windows_core::HRESULT(0x80280034_u32 as _);
+pub const TPM_E_BAD_VERSION: windows_core::HRESULT = windows_core::HRESULT(0x8028002E_u32 as _);
+pub const TPM_E_BUFFER_LENGTH_MISMATCH: windows_core::HRESULT = windows_core::HRESULT(0x8029041E_u32 as _);
+pub const TPM_E_CLAIM_TYPE_NOT_SUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x8029041C_u32 as _);
+pub const TPM_E_CLEAR_DISABLED: windows_core::HRESULT = windows_core::HRESULT(0x80280005_u32 as _);
+pub const TPM_E_COMMAND_BLOCKED: windows_core::HRESULT = windows_core::HRESULT(0x80280400_u32 as _);
+pub const TPM_E_CONTEXT_GAP: windows_core::HRESULT = windows_core::HRESULT(0x80280047_u32 as _);
+pub const TPM_E_DAA_INPUT_DATA0: windows_core::HRESULT = windows_core::HRESULT(0x80280051_u32 as _);
+pub const TPM_E_DAA_INPUT_DATA1: windows_core::HRESULT = windows_core::HRESULT(0x80280052_u32 as _);
+pub const TPM_E_DAA_ISSUER_SETTINGS: windows_core::HRESULT = windows_core::HRESULT(0x80280053_u32 as _);
+pub const TPM_E_DAA_ISSUER_VALIDITY: windows_core::HRESULT = windows_core::HRESULT(0x80280056_u32 as _);
+pub const TPM_E_DAA_RESOURCES: windows_core::HRESULT = windows_core::HRESULT(0x80280050_u32 as _);
+pub const TPM_E_DAA_STAGE: windows_core::HRESULT = windows_core::HRESULT(0x80280055_u32 as _);
+pub const TPM_E_DAA_TPM_SETTINGS: windows_core::HRESULT = windows_core::HRESULT(0x80280054_u32 as _);
+pub const TPM_E_DAA_WRONG_W: windows_core::HRESULT = windows_core::HRESULT(0x80280057_u32 as _);
+pub const TPM_E_DEACTIVATED: windows_core::HRESULT = windows_core::HRESULT(0x80280006_u32 as _);
+pub const TPM_E_DECRYPT_ERROR: windows_core::HRESULT = windows_core::HRESULT(0x80280021_u32 as _);
+pub const TPM_E_DEFEND_LOCK_RUNNING: windows_core::HRESULT = windows_core::HRESULT(0x80280803_u32 as _);
+pub const TPM_E_DELEGATE_ADMIN: windows_core::HRESULT = windows_core::HRESULT(0x8028004D_u32 as _);
+pub const TPM_E_DELEGATE_FAMILY: windows_core::HRESULT = windows_core::HRESULT(0x8028004C_u32 as _);
+pub const TPM_E_DELEGATE_LOCK: windows_core::HRESULT = windows_core::HRESULT(0x8028004B_u32 as _);
+pub const TPM_E_DISABLED: windows_core::HRESULT = windows_core::HRESULT(0x80280007_u32 as _);
+pub const TPM_E_DISABLED_CMD: windows_core::HRESULT = windows_core::HRESULT(0x80280008_u32 as _);
+pub const TPM_E_DOING_SELFTEST: windows_core::HRESULT = windows_core::HRESULT(0x80280802_u32 as _);
+pub const TPM_E_DUPLICATE_VHANDLE: windows_core::HRESULT = windows_core::HRESULT(0x80280402_u32 as _);
+pub const TPM_E_EMBEDDED_COMMAND_BLOCKED: windows_core::HRESULT = windows_core::HRESULT(0x80280403_u32 as _);
+pub const TPM_E_EMBEDDED_COMMAND_UNSUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x80280404_u32 as _);
+pub const TPM_E_ENCRYPT_ERROR: windows_core::HRESULT = windows_core::HRESULT(0x80280020_u32 as _);
+pub const TPM_E_ERROR_MASK: windows_core::HRESULT = windows_core::HRESULT(0x80280000_u32 as _);
+pub const TPM_E_FAIL: windows_core::HRESULT = windows_core::HRESULT(0x80280009_u32 as _);
+pub const TPM_E_FAILEDSELFTEST: windows_core::HRESULT = windows_core::HRESULT(0x8028001C_u32 as _);
+pub const TPM_E_FAMILYCOUNT: windows_core::HRESULT = windows_core::HRESULT(0x80280040_u32 as _);
+pub const TPM_E_INAPPROPRIATE_ENC: windows_core::HRESULT = windows_core::HRESULT(0x8028000E_u32 as _);
+pub const TPM_E_INAPPROPRIATE_SIG: windows_core::HRESULT = windows_core::HRESULT(0x80280027_u32 as _);
+pub const TPM_E_INSTALL_DISABLED: windows_core::HRESULT = windows_core::HRESULT(0x8028000B_u32 as _);
+pub const TPM_E_INVALID_AUTHHANDLE: windows_core::HRESULT = windows_core::HRESULT(0x80280022_u32 as _);
+pub const TPM_E_INVALID_FAMILY: windows_core::HRESULT = windows_core::HRESULT(0x80280037_u32 as _);
+pub const TPM_E_INVALID_HANDLE: windows_core::HRESULT = windows_core::HRESULT(0x80280401_u32 as _);
+pub const TPM_E_INVALID_KEYHANDLE: windows_core::HRESULT = windows_core::HRESULT(0x8028000C_u32 as _);
+pub const TPM_E_INVALID_KEYUSAGE: windows_core::HRESULT = windows_core::HRESULT(0x80280024_u32 as _);
+pub const TPM_E_INVALID_OWNER_AUTH: windows_core::HRESULT = windows_core::HRESULT(0x80290601_u32 as _);
+pub const TPM_E_INVALID_PCR_INFO: windows_core::HRESULT = windows_core::HRESULT(0x80280010_u32 as _);
+pub const TPM_E_INVALID_POSTINIT: windows_core::HRESULT = windows_core::HRESULT(0x80280026_u32 as _);
+pub const TPM_E_INVALID_RESOURCE: windows_core::HRESULT = windows_core::HRESULT(0x80280035_u32 as _);
+pub const TPM_E_INVALID_STRUCTURE: windows_core::HRESULT = windows_core::HRESULT(0x80280043_u32 as _);
+pub const TPM_E_IOERROR: windows_core::HRESULT = windows_core::HRESULT(0x8028001F_u32 as _);
+pub const TPM_E_KEYNOTFOUND: windows_core::HRESULT = windows_core::HRESULT(0x8028000D_u32 as _);
+pub const TPM_E_KEY_ALREADY_FINALIZED: windows_core::HRESULT = windows_core::HRESULT(0x80290414_u32 as _);
+pub const TPM_E_KEY_NOTSUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x8028003A_u32 as _);
+pub const TPM_E_KEY_NOT_AUTHENTICATED: windows_core::HRESULT = windows_core::HRESULT(0x80290418_u32 as _);
+pub const TPM_E_KEY_NOT_FINALIZED: windows_core::HRESULT = windows_core::HRESULT(0x80290411_u32 as _);
+pub const TPM_E_KEY_NOT_LOADED: windows_core::HRESULT = windows_core::HRESULT(0x8029040F_u32 as _);
+pub const TPM_E_KEY_NOT_SIGNING_KEY: windows_core::HRESULT = windows_core::HRESULT(0x8029041A_u32 as _);
+pub const TPM_E_KEY_OWNER_CONTROL: windows_core::HRESULT = windows_core::HRESULT(0x80280044_u32 as _);
+pub const TPM_E_KEY_USAGE_POLICY_INVALID: windows_core::HRESULT = windows_core::HRESULT(0x80290416_u32 as _);
+pub const TPM_E_KEY_USAGE_POLICY_NOT_SUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x80290415_u32 as _);
+pub const TPM_E_LOCKED_OUT: windows_core::HRESULT = windows_core::HRESULT(0x8029041B_u32 as _);
+pub const TPM_E_MAXNVWRITES: windows_core::HRESULT = windows_core::HRESULT(0x80280048_u32 as _);
+pub const TPM_E_MA_AUTHORITY: windows_core::HRESULT = windows_core::HRESULT(0x8028005F_u32 as _);
+pub const TPM_E_MA_DESTINATION: windows_core::HRESULT = windows_core::HRESULT(0x8028005D_u32 as _);
+pub const TPM_E_MA_SOURCE: windows_core::HRESULT = windows_core::HRESULT(0x8028005E_u32 as _);
+pub const TPM_E_MA_TICKET_SIGNATURE: windows_core::HRESULT = windows_core::HRESULT(0x8028005C_u32 as _);
+pub const TPM_E_MIGRATEFAIL: windows_core::HRESULT = windows_core::HRESULT(0x8028000F_u32 as _);
+pub const TPM_E_NEEDS_SELFTEST: windows_core::HRESULT = windows_core::HRESULT(0x80280801_u32 as _);
+pub const TPM_E_NOCONTEXTSPACE: windows_core::HRESULT = windows_core::HRESULT(0x80280063_u32 as _);
+pub const TPM_E_NOOPERATOR: windows_core::HRESULT = windows_core::HRESULT(0x80280049_u32 as _);
+pub const TPM_E_NOSPACE: windows_core::HRESULT = windows_core::HRESULT(0x80280011_u32 as _);
+pub const TPM_E_NOSRK: windows_core::HRESULT = windows_core::HRESULT(0x80280012_u32 as _);
+pub const TPM_E_NOTFIPS: windows_core::HRESULT = windows_core::HRESULT(0x80280036_u32 as _);
+pub const TPM_E_NOTLOCAL: windows_core::HRESULT = windows_core::HRESULT(0x80280033_u32 as _);
+pub const TPM_E_NOTRESETABLE: windows_core::HRESULT = windows_core::HRESULT(0x80280032_u32 as _);
+pub const TPM_E_NOTSEALED_BLOB: windows_core::HRESULT = windows_core::HRESULT(0x80280013_u32 as _);
+pub const TPM_E_NOT_FULLWRITE: windows_core::HRESULT = windows_core::HRESULT(0x80280046_u32 as _);
+pub const TPM_E_NOT_PCR_BOUND: windows_core::HRESULT = windows_core::HRESULT(0x80290413_u32 as _);
+pub const TPM_E_NO_ENDORSEMENT: windows_core::HRESULT = windows_core::HRESULT(0x80280023_u32 as _);
+pub const TPM_E_NO_KEY_CERTIFICATION: windows_core::HRESULT = windows_core::HRESULT(0x80290410_u32 as _);
+pub const TPM_E_NO_NV_PERMISSION: windows_core::HRESULT = windows_core::HRESULT(0x80280038_u32 as _);
+pub const TPM_E_NO_WRAP_TRANSPORT: windows_core::HRESULT = windows_core::HRESULT(0x8028002F_u32 as _);
+pub const TPM_E_OWNER_CONTROL: windows_core::HRESULT = windows_core::HRESULT(0x8028004F_u32 as _);
+pub const TPM_E_OWNER_SET: windows_core::HRESULT = windows_core::HRESULT(0x80280014_u32 as _);
+pub const TPM_E_PCP_AUTHENTICATION_FAILED: windows_core::HRESULT = windows_core::HRESULT(0x80290408_u32 as _);
+pub const TPM_E_PCP_AUTHENTICATION_IGNORED: windows_core::HRESULT = windows_core::HRESULT(0x80290409_u32 as _);
+pub const TPM_E_PCP_BUFFER_TOO_SMALL: windows_core::HRESULT = windows_core::HRESULT(0x80290406_u32 as _);
+pub const TPM_E_PCP_DEVICE_NOT_READY: windows_core::HRESULT = windows_core::HRESULT(0x80290401_u32 as _);
+pub const TPM_E_PCP_ERROR_MASK: windows_core::HRESULT = windows_core::HRESULT(0x80290400_u32 as _);
+pub const TPM_E_PCP_FLAG_NOT_SUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x80290404_u32 as _);
+pub const TPM_E_PCP_IFX_RSA_KEY_CREATION_BLOCKED: windows_core::HRESULT = windows_core::HRESULT(0x8029041F_u32 as _);
+pub const TPM_E_PCP_INTERNAL_ERROR: windows_core::HRESULT = windows_core::HRESULT(0x80290407_u32 as _);
+pub const TPM_E_PCP_INVALID_HANDLE: windows_core::HRESULT = windows_core::HRESULT(0x80290402_u32 as _);
+pub const TPM_E_PCP_INVALID_PARAMETER: windows_core::HRESULT = windows_core::HRESULT(0x80290403_u32 as _);
+pub const TPM_E_PCP_KEY_HANDLE_INVALIDATED: windows_core::HRESULT = windows_core::HRESULT(0x80290422_u32 as _);
+pub const TPM_E_PCP_KEY_NOT_AIK: windows_core::HRESULT = windows_core::HRESULT(0x80290419_u32 as _);
+pub const TPM_E_PCP_NOT_SUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x80290405_u32 as _);
+pub const TPM_E_PCP_PLATFORM_CLAIM_MAY_BE_OUTDATED: windows_core::HRESULT = windows_core::HRESULT(0x40290424_u32 as _);
+pub const TPM_E_PCP_PLATFORM_CLAIM_OUTDATED: windows_core::HRESULT = windows_core::HRESULT(0x40290425_u32 as _);
+pub const TPM_E_PCP_PLATFORM_CLAIM_REBOOT: windows_core::HRESULT = windows_core::HRESULT(0x40290426_u32 as _);
+pub const TPM_E_PCP_POLICY_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0x8029040A_u32 as _);
+pub const TPM_E_PCP_PROFILE_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0x8029040B_u32 as _);
+pub const TPM_E_PCP_RAW_POLICY_NOT_SUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x80290421_u32 as _);
+pub const TPM_E_PCP_TICKET_MISSING: windows_core::HRESULT = windows_core::HRESULT(0x80290420_u32 as _);
+pub const TPM_E_PCP_UNSUPPORTED_PSS_SALT: windows_core::HRESULT = windows_core::HRESULT(0x40290423_u32 as _);
+pub const TPM_E_PCP_VALIDATION_FAILED: windows_core::HRESULT = windows_core::HRESULT(0x8029040C_u32 as _);
+pub const TPM_E_PCP_WRONG_PARENT: windows_core::HRESULT = windows_core::HRESULT(0x8029040E_u32 as _);
+pub const TPM_E_PERMANENTEK: windows_core::HRESULT = windows_core::HRESULT(0x80280061_u32 as _);
+pub const TPM_E_PER_NOWRITE: windows_core::HRESULT = windows_core::HRESULT(0x8028003F_u32 as _);
+pub const TPM_E_PPI_ACPI_FAILURE: windows_core::HRESULT = windows_core::HRESULT(0x80290300_u32 as _);
+pub const TPM_E_PPI_BIOS_FAILURE: windows_core::HRESULT = windows_core::HRESULT(0x80290302_u32 as _);
+pub const TPM_E_PPI_BLOCKED_IN_BIOS: windows_core::HRESULT = windows_core::HRESULT(0x80290304_u32 as _);
+pub const TPM_E_PPI_NOT_SUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x80290303_u32 as _);
+pub const TPM_E_PPI_USER_ABORT: windows_core::HRESULT = windows_core::HRESULT(0x80290301_u32 as _);
+pub const TPM_E_PROVISIONING_INCOMPLETE: windows_core::HRESULT = windows_core::HRESULT(0x80290600_u32 as _);
+pub const TPM_E_READ_ONLY: windows_core::HRESULT = windows_core::HRESULT(0x8028003E_u32 as _);
+pub const TPM_E_REQUIRES_SIGN: windows_core::HRESULT = windows_core::HRESULT(0x80280039_u32 as _);
+pub const TPM_E_RESOURCEMISSING: windows_core::HRESULT = windows_core::HRESULT(0x8028004A_u32 as _);
+pub const TPM_E_RESOURCES: windows_core::HRESULT = windows_core::HRESULT(0x80280015_u32 as _);
+pub const TPM_E_RETRY: windows_core::HRESULT = windows_core::HRESULT(0x80280800_u32 as _);
+pub const TPM_E_SHA_ERROR: windows_core::HRESULT = windows_core::HRESULT(0x8028001B_u32 as _);
+pub const TPM_E_SHA_THREAD: windows_core::HRESULT = windows_core::HRESULT(0x8028001A_u32 as _);
+pub const TPM_E_SHORTRANDOM: windows_core::HRESULT = windows_core::HRESULT(0x80280016_u32 as _);
+pub const TPM_E_SIZE: windows_core::HRESULT = windows_core::HRESULT(0x80280017_u32 as _);
+pub const TPM_E_SOFT_KEY_ERROR: windows_core::HRESULT = windows_core::HRESULT(0x80290417_u32 as _);
+pub const TPM_E_TOOMANYCONTEXTS: windows_core::HRESULT = windows_core::HRESULT(0x8028005B_u32 as _);
+pub const TPM_E_TOO_MUCH_DATA: windows_core::HRESULT = windows_core::HRESULT(0x80290602_u32 as _);
+pub const TPM_E_TPM_GENERATED_EPS: windows_core::HRESULT = windows_core::HRESULT(0x80290603_u32 as _);
+pub const TPM_E_TRANSPORT_NOTEXCLUSIVE: windows_core::HRESULT = windows_core::HRESULT(0x8028004E_u32 as _);
+pub const TPM_E_VERSION_NOT_SUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x8029041D_u32 as _);
+pub const TPM_E_WRITE_LOCKED: windows_core::HRESULT = windows_core::HRESULT(0x80280041_u32 as _);
+pub const TPM_E_WRONGPCRVAL: windows_core::HRESULT = windows_core::HRESULT(0x80280018_u32 as _);
+pub const TPM_E_WRONG_ENTITYTYPE: windows_core::HRESULT = windows_core::HRESULT(0x80280025_u32 as _);
+pub const TPM_E_ZERO_EXHAUST_ENABLED: windows_core::HRESULT = windows_core::HRESULT(0x80290500_u32 as _);
 pub const TRUE: BOOL = BOOL(1i32);
-pub const TRUST_E_ACTION_UNKNOWN: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800B0002_u32 as _);
-pub const TRUST_E_BAD_DIGEST: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80096010_u32 as _);
-pub const TRUST_E_BASIC_CONSTRAINTS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80096019_u32 as _);
-pub const TRUST_E_CERT_SIGNATURE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80096004_u32 as _);
-pub const TRUST_E_COUNTER_SIGNER: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80096003_u32 as _);
-pub const TRUST_E_EXPLICIT_DISTRUST: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800B0111_u32 as _);
-pub const TRUST_E_FAIL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800B010B_u32 as _);
-pub const TRUST_E_FINANCIAL_CRITERIA: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8009601E_u32 as _);
-pub const TRUST_E_MALFORMED_SIGNATURE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80096011_u32 as _);
-pub const TRUST_E_NOSIGNATURE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800B0100_u32 as _);
-pub const TRUST_E_NO_SIGNER_CERT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80096002_u32 as _);
-pub const TRUST_E_PROVIDER_UNKNOWN: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800B0001_u32 as _);
-pub const TRUST_E_SUBJECT_FORM_UNKNOWN: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800B0003_u32 as _);
-pub const TRUST_E_SUBJECT_NOT_TRUSTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800B0004_u32 as _);
-pub const TRUST_E_SYSTEM_ERROR: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80096001_u32 as _);
-pub const TRUST_E_TIME_STAMP: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80096005_u32 as _);
-pub const TYPE_E_AMBIGUOUSNAME: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8002802C_u32 as _);
-pub const TYPE_E_BADMODULEKIND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800288BD_u32 as _);
-pub const TYPE_E_BUFFERTOOSMALL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80028016_u32 as _);
-pub const TYPE_E_CANTCREATETMPFILE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80028CA3_u32 as _);
-pub const TYPE_E_CANTLOADLIBRARY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80029C4A_u32 as _);
-pub const TYPE_E_CIRCULARTYPE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80029C84_u32 as _);
-pub const TYPE_E_DLLFUNCTIONNOTFOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8002802F_u32 as _);
-pub const TYPE_E_DUPLICATEID: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800288C6_u32 as _);
-pub const TYPE_E_ELEMENTNOTFOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8002802B_u32 as _);
-pub const TYPE_E_FIELDNOTFOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80028017_u32 as _);
-pub const TYPE_E_INCONSISTENTPROPFUNCS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80029C83_u32 as _);
-pub const TYPE_E_INVALIDID: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800288CF_u32 as _);
-pub const TYPE_E_INVALIDSTATE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80028029_u32 as _);
-pub const TYPE_E_INVDATAREAD: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80028018_u32 as _);
-pub const TYPE_E_IOERROR: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80028CA2_u32 as _);
-pub const TYPE_E_LIBNOTREGISTERED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8002801D_u32 as _);
-pub const TYPE_E_NAMECONFLICT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8002802D_u32 as _);
-pub const TYPE_E_OUTOFBOUNDS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80028CA1_u32 as _);
-pub const TYPE_E_QUALIFIEDNAMEDISALLOWED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80028028_u32 as _);
-pub const TYPE_E_REGISTRYACCESS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8002801C_u32 as _);
-pub const TYPE_E_SIZETOOBIG: ::windows_core::HRESULT = ::windows_core::HRESULT(0x800288C5_u32 as _);
-pub const TYPE_E_TYPEMISMATCH: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80028CA0_u32 as _);
-pub const TYPE_E_UNDEFINEDTYPE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80028027_u32 as _);
-pub const TYPE_E_UNKNOWNLCID: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8002802E_u32 as _);
-pub const TYPE_E_UNSUPFORMAT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80028019_u32 as _);
-pub const TYPE_E_WRONGTYPEKIND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8002802A_u32 as _);
-pub const UCEERR_BLOCKSFULL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88980409_u32 as _);
-pub const UCEERR_CHANNELSYNCABANDONED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88980414_u32 as _);
-pub const UCEERR_CHANNELSYNCTIMEDOUT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88980413_u32 as _);
-pub const UCEERR_COMMANDTRANSPORTDENIED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88980418_u32 as _);
-pub const UCEERR_CONNECTIONIDLOOKUPFAILED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88980408_u32 as _);
-pub const UCEERR_CTXSTACKFRSTTARGETNULL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88980407_u32 as _);
-pub const UCEERR_FEEDBACK_UNSUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88980417_u32 as _);
-pub const UCEERR_GRAPHICSSTREAMALREADYOPEN: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88980420_u32 as _);
-pub const UCEERR_GRAPHICSSTREAMUNAVAILABLE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88980419_u32 as _);
-pub const UCEERR_HANDLELOOKUPFAILED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88980405_u32 as _);
-pub const UCEERR_ILLEGALHANDLE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88980404_u32 as _);
-pub const UCEERR_ILLEGALPACKET: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88980402_u32 as _);
-pub const UCEERR_ILLEGALRECORDTYPE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8898040C_u32 as _);
-pub const UCEERR_INVALIDPACKETHEADER: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88980400_u32 as _);
-pub const UCEERR_MALFORMEDPACKET: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88980403_u32 as _);
-pub const UCEERR_MEMORYFAILURE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8898040A_u32 as _);
-pub const UCEERR_MISSINGBEGINCOMMAND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88980412_u32 as _);
-pub const UCEERR_MISSINGENDCOMMAND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88980411_u32 as _);
-pub const UCEERR_NO_MULTIPLE_WORKER_THREADS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8898040F_u32 as _);
-pub const UCEERR_OUTOFHANDLES: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8898040D_u32 as _);
-pub const UCEERR_PACKETRECORDOUTOFRANGE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8898040B_u32 as _);
-pub const UCEERR_PARTITION_ZOMBIED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88980423_u32 as _);
-pub const UCEERR_REMOTINGNOTSUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88980410_u32 as _);
-pub const UCEERR_RENDERTHREADFAILURE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88980406_u32 as _);
-pub const UCEERR_TRANSPORTDISCONNECTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88980421_u32 as _);
-pub const UCEERR_TRANSPORTOVERLOADED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88980422_u32 as _);
-pub const UCEERR_TRANSPORTUNAVAILABLE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88980416_u32 as _);
-pub const UCEERR_UNCHANGABLE_UPDATE_ATTEMPTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8898040E_u32 as _);
-pub const UCEERR_UNKNOWNPACKET: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88980401_u32 as _);
-pub const UCEERR_UNSUPPORTEDTRANSPORTVERSION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88980415_u32 as _);
-pub const UI_E_AMBIGUOUS_MATCH: ::windows_core::HRESULT = ::windows_core::HRESULT(0x802A000A_u32 as _);
-pub const UI_E_BOOLEAN_EXPECTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x802A0008_u32 as _);
-pub const UI_E_CREATE_FAILED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x802A0001_u32 as _);
-pub const UI_E_DIFFERENT_OWNER: ::windows_core::HRESULT = ::windows_core::HRESULT(0x802A0009_u32 as _);
-pub const UI_E_END_KEYFRAME_NOT_DETERMINED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x802A0104_u32 as _);
-pub const UI_E_FP_OVERFLOW: ::windows_core::HRESULT = ::windows_core::HRESULT(0x802A000B_u32 as _);
-pub const UI_E_ILLEGAL_REENTRANCY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x802A0003_u32 as _);
-pub const UI_E_INVALID_DIMENSION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x802A010B_u32 as _);
-pub const UI_E_INVALID_OUTPUT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x802A0007_u32 as _);
-pub const UI_E_LOOPS_OVERLAP: ::windows_core::HRESULT = ::windows_core::HRESULT(0x802A0105_u32 as _);
-pub const UI_E_OBJECT_SEALED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x802A0004_u32 as _);
-pub const UI_E_PRIMITIVE_OUT_OF_BOUNDS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x802A010C_u32 as _);
-pub const UI_E_SHUTDOWN_CALLED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x802A0002_u32 as _);
-pub const UI_E_START_KEYFRAME_AFTER_END: ::windows_core::HRESULT = ::windows_core::HRESULT(0x802A0103_u32 as _);
-pub const UI_E_STORYBOARD_ACTIVE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x802A0101_u32 as _);
-pub const UI_E_STORYBOARD_NOT_PLAYING: ::windows_core::HRESULT = ::windows_core::HRESULT(0x802A0102_u32 as _);
-pub const UI_E_TIMER_CLIENT_ALREADY_CONNECTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x802A010A_u32 as _);
-pub const UI_E_TIME_BEFORE_LAST_UPDATE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x802A0109_u32 as _);
-pub const UI_E_TRANSITION_ALREADY_USED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x802A0106_u32 as _);
-pub const UI_E_TRANSITION_ECLIPSED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x802A0108_u32 as _);
-pub const UI_E_TRANSITION_NOT_IN_STORYBOARD: ::windows_core::HRESULT = ::windows_core::HRESULT(0x802A0107_u32 as _);
-pub const UI_E_VALUE_NOT_DETERMINED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x802A0006_u32 as _);
-pub const UI_E_VALUE_NOT_SET: ::windows_core::HRESULT = ::windows_core::HRESULT(0x802A0005_u32 as _);
-pub const UI_E_WINDOW_CLOSED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x802A0201_u32 as _);
-pub const UI_E_WRONG_THREAD: ::windows_core::HRESULT = ::windows_core::HRESULT(0x802A000C_u32 as _);
-pub const UTC_E_ACTION_NOT_SUPPORTED_IN_DESTINATION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87C51044_u32 as _);
-pub const UTC_E_AGENT_DIAGNOSTICS_TOO_LARGE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87C51055_u32 as _);
-pub const UTC_E_ALTERNATIVE_TRACE_CANNOT_PREEMPT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87C51002_u32 as _);
-pub const UTC_E_AOT_NOT_RUNNING: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87C51003_u32 as _);
-pub const UTC_E_API_BUSY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87C5102B_u32 as _);
-pub const UTC_E_API_NOT_SUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87C5103C_u32 as _);
-pub const UTC_E_API_RESULT_UNAVAILABLE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87C51028_u32 as _);
-pub const UTC_E_BINARY_MISSING: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87C51034_u32 as _);
-pub const UTC_E_CANNOT_LOAD_SCENARIO_EDITOR_XML: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87C5101F_u32 as _);
-pub const UTC_E_CERT_REV_FAILED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87C5103F_u32 as _);
-pub const UTC_E_CHILD_PROCESS_FAILED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87C5101D_u32 as _);
-pub const UTC_E_COMMAND_LINE_NOT_AUTHORIZED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87C5101E_u32 as _);
-pub const UTC_E_DELAY_TERMINATED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87C51025_u32 as _);
-pub const UTC_E_DEVICE_TICKET_ERROR: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87C51026_u32 as _);
-pub const UTC_E_DIAGRULES_SCHEMAVERSION_MISMATCH: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87C5100A_u32 as _);
-pub const UTC_E_ESCALATION_ALREADY_RUNNING: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87C5100F_u32 as _);
-pub const UTC_E_ESCALATION_CANCELLED_AT_SHUTDOWN: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87C5105A_u32 as _);
-pub const UTC_E_ESCALATION_DIRECTORY_ALREADY_EXISTS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87C5102F_u32 as _);
-pub const UTC_E_ESCALATION_NOT_AUTHORIZED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87C5101B_u32 as _);
-pub const UTC_E_ESCALATION_TIMED_OUT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87C51020_u32 as _);
-pub const UTC_E_EVENTLOG_ENTRY_MALFORMED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87C51009_u32 as _);
-pub const UTC_E_EXCLUSIVITY_NOT_AVAILABLE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87C5102D_u32 as _);
-pub const UTC_E_EXE_TERMINATED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87C5101A_u32 as _);
-pub const UTC_E_FAILED_TO_RECEIVE_AGENT_DIAGNOSTICS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87C51056_u32 as _);
-pub const UTC_E_FAILED_TO_RESOLVE_CONTAINER_ID: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87C51036_u32 as _);
-pub const UTC_E_FAILED_TO_START_NDISCAP: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87C51040_u32 as _);
-pub const UTC_E_FILTER_FUNCTION_RESTRICTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87C51048_u32 as _);
-pub const UTC_E_FILTER_ILLEGAL_EVAL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87C51053_u32 as _);
-pub const UTC_E_FILTER_INVALID_COMMAND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87C51052_u32 as _);
-pub const UTC_E_FILTER_INVALID_FUNCTION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87C51050_u32 as _);
-pub const UTC_E_FILTER_INVALID_FUNCTION_PARAMS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87C51051_u32 as _);
-pub const UTC_E_FILTER_INVALID_TYPE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87C51046_u32 as _);
-pub const UTC_E_FILTER_MISSING_ATTRIBUTE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87C51045_u32 as _);
-pub const UTC_E_FILTER_VARIABLE_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87C51047_u32 as _);
-pub const UTC_E_FILTER_VERSION_MISMATCH: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87C51049_u32 as _);
-pub const UTC_E_FORWARDER_ALREADY_DISABLED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87C51008_u32 as _);
-pub const UTC_E_FORWARDER_ALREADY_ENABLED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87C51007_u32 as _);
-pub const UTC_E_FORWARDER_PRODUCER_MISMATCH: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87C51012_u32 as _);
-pub const UTC_E_GETFILEINFOACTION_FILE_NOT_APPROVED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87C5105B_u32 as _);
-pub const UTC_E_GETFILE_EXTERNAL_PATH_NOT_APPROVED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87C5103D_u32 as _);
-pub const UTC_E_GETFILE_FILE_PATH_NOT_APPROVED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87C5102E_u32 as _);
-pub const UTC_E_INSUFFICIENT_SPACE_TO_START_TRACE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87C51059_u32 as _);
-pub const UTC_E_INTENTIONAL_SCRIPT_FAILURE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87C51013_u32 as _);
-pub const UTC_E_INVALID_AGGREGATION_STRUCT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87C51043_u32 as _);
-pub const UTC_E_INVALID_CUSTOM_FILTER: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87C5100C_u32 as _);
-pub const UTC_E_INVALID_FILTER: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87C51019_u32 as _);
-pub const UTC_E_KERNELDUMP_LIMIT_REACHED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87C51041_u32 as _);
-pub const UTC_E_MISSING_AGGREGATE_EVENT_TAG: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87C51042_u32 as _);
-pub const UTC_E_MULTIPLE_TIME_TRIGGER_ON_SINGLE_STATE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87C51033_u32 as _);
-pub const UTC_E_NO_WER_LOGGER_SUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87C51015_u32 as _);
-pub const UTC_E_PERFTRACK_ALREADY_TRACING: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87C51010_u32 as _);
-pub const UTC_E_REACHED_MAX_ESCALATIONS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87C51011_u32 as _);
-pub const UTC_E_REESCALATED_TOO_QUICKLY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87C5100E_u32 as _);
-pub const UTC_E_RPC_TIMEOUT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87C51029_u32 as _);
-pub const UTC_E_RPC_WAIT_FAILED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87C5102A_u32 as _);
-pub const UTC_E_SCENARIODEF_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87C51005_u32 as _);
-pub const UTC_E_SCENARIODEF_SCHEMAVERSION_MISMATCH: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87C51018_u32 as _);
-pub const UTC_E_SCENARIO_HAS_NO_ACTIONS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87C51057_u32 as _);
-pub const UTC_E_SCENARIO_THROTTLED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87C5103B_u32 as _);
-pub const UTC_E_SCRIPT_MISSING: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87C5103A_u32 as _);
-pub const UTC_E_SCRIPT_TERMINATED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87C5100B_u32 as _);
-pub const UTC_E_SCRIPT_TYPE_INVALID: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87C51004_u32 as _);
-pub const UTC_E_SETREGKEYACTION_TYPE_NOT_APPROVED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87C5105C_u32 as _);
-pub const UTC_E_SETUP_NOT_AUTHORIZED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87C5101C_u32 as _);
-pub const UTC_E_SETUP_TIMED_OUT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87C51021_u32 as _);
-pub const UTC_E_SIF_NOT_SUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87C51024_u32 as _);
-pub const UTC_E_SQM_INIT_FAILED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87C51014_u32 as _);
-pub const UTC_E_THROTTLED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87C51038_u32 as _);
-pub const UTC_E_TIME_TRIGGER_INVALID_TIME_RANGE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87C51032_u32 as _);
-pub const UTC_E_TIME_TRIGGER_ONLY_VALID_ON_SINGLE_TRANSITION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87C51031_u32 as _);
-pub const UTC_E_TIME_TRIGGER_ON_START_INVALID: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87C51030_u32 as _);
-pub const UTC_E_TOGGLE_TRACE_STARTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87C51001_u32 as _);
-pub const UTC_E_TRACEPROFILE_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87C51006_u32 as _);
-pub const UTC_E_TRACERS_DONT_EXIST: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87C51016_u32 as _);
-pub const UTC_E_TRACE_BUFFER_LIMIT_EXCEEDED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87C51027_u32 as _);
-pub const UTC_E_TRACE_MIN_DURATION_REQUIREMENT_NOT_MET: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87C5102C_u32 as _);
-pub const UTC_E_TRACE_NOT_RUNNING: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87C5100D_u32 as _);
-pub const UTC_E_TRACE_THROTTLED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87C5105D_u32 as _);
-pub const UTC_E_TRIGGER_MISMATCH: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87C51022_u32 as _);
-pub const UTC_E_TRIGGER_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87C51023_u32 as _);
-pub const UTC_E_TRY_GET_SCENARIO_TIMEOUT_EXCEEDED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87C5103E_u32 as _);
-pub const UTC_E_TTTRACER_RETURNED_ERROR: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87C51054_u32 as _);
-pub const UTC_E_TTTRACER_STORAGE_FULL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87C51058_u32 as _);
-pub const UTC_E_UNABLE_TO_RESOLVE_SESSION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87C51037_u32 as _);
-pub const UTC_E_UNAPPROVED_SCRIPT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87C51039_u32 as _);
-pub const UTC_E_WINRT_INIT_FAILED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x87C51017_u32 as _);
+pub const TRUST_E_ACTION_UNKNOWN: windows_core::HRESULT = windows_core::HRESULT(0x800B0002_u32 as _);
+pub const TRUST_E_BAD_DIGEST: windows_core::HRESULT = windows_core::HRESULT(0x80096010_u32 as _);
+pub const TRUST_E_BASIC_CONSTRAINTS: windows_core::HRESULT = windows_core::HRESULT(0x80096019_u32 as _);
+pub const TRUST_E_CERT_SIGNATURE: windows_core::HRESULT = windows_core::HRESULT(0x80096004_u32 as _);
+pub const TRUST_E_COUNTER_SIGNER: windows_core::HRESULT = windows_core::HRESULT(0x80096003_u32 as _);
+pub const TRUST_E_EXPLICIT_DISTRUST: windows_core::HRESULT = windows_core::HRESULT(0x800B0111_u32 as _);
+pub const TRUST_E_FAIL: windows_core::HRESULT = windows_core::HRESULT(0x800B010B_u32 as _);
+pub const TRUST_E_FINANCIAL_CRITERIA: windows_core::HRESULT = windows_core::HRESULT(0x8009601E_u32 as _);
+pub const TRUST_E_MALFORMED_SIGNATURE: windows_core::HRESULT = windows_core::HRESULT(0x80096011_u32 as _);
+pub const TRUST_E_NOSIGNATURE: windows_core::HRESULT = windows_core::HRESULT(0x800B0100_u32 as _);
+pub const TRUST_E_NO_SIGNER_CERT: windows_core::HRESULT = windows_core::HRESULT(0x80096002_u32 as _);
+pub const TRUST_E_PROVIDER_UNKNOWN: windows_core::HRESULT = windows_core::HRESULT(0x800B0001_u32 as _);
+pub const TRUST_E_SUBJECT_FORM_UNKNOWN: windows_core::HRESULT = windows_core::HRESULT(0x800B0003_u32 as _);
+pub const TRUST_E_SUBJECT_NOT_TRUSTED: windows_core::HRESULT = windows_core::HRESULT(0x800B0004_u32 as _);
+pub const TRUST_E_SYSTEM_ERROR: windows_core::HRESULT = windows_core::HRESULT(0x80096001_u32 as _);
+pub const TRUST_E_TIME_STAMP: windows_core::HRESULT = windows_core::HRESULT(0x80096005_u32 as _);
+pub const TYPE_E_AMBIGUOUSNAME: windows_core::HRESULT = windows_core::HRESULT(0x8002802C_u32 as _);
+pub const TYPE_E_BADMODULEKIND: windows_core::HRESULT = windows_core::HRESULT(0x800288BD_u32 as _);
+pub const TYPE_E_BUFFERTOOSMALL: windows_core::HRESULT = windows_core::HRESULT(0x80028016_u32 as _);
+pub const TYPE_E_CANTCREATETMPFILE: windows_core::HRESULT = windows_core::HRESULT(0x80028CA3_u32 as _);
+pub const TYPE_E_CANTLOADLIBRARY: windows_core::HRESULT = windows_core::HRESULT(0x80029C4A_u32 as _);
+pub const TYPE_E_CIRCULARTYPE: windows_core::HRESULT = windows_core::HRESULT(0x80029C84_u32 as _);
+pub const TYPE_E_DLLFUNCTIONNOTFOUND: windows_core::HRESULT = windows_core::HRESULT(0x8002802F_u32 as _);
+pub const TYPE_E_DUPLICATEID: windows_core::HRESULT = windows_core::HRESULT(0x800288C6_u32 as _);
+pub const TYPE_E_ELEMENTNOTFOUND: windows_core::HRESULT = windows_core::HRESULT(0x8002802B_u32 as _);
+pub const TYPE_E_FIELDNOTFOUND: windows_core::HRESULT = windows_core::HRESULT(0x80028017_u32 as _);
+pub const TYPE_E_INCONSISTENTPROPFUNCS: windows_core::HRESULT = windows_core::HRESULT(0x80029C83_u32 as _);
+pub const TYPE_E_INVALIDID: windows_core::HRESULT = windows_core::HRESULT(0x800288CF_u32 as _);
+pub const TYPE_E_INVALIDSTATE: windows_core::HRESULT = windows_core::HRESULT(0x80028029_u32 as _);
+pub const TYPE_E_INVDATAREAD: windows_core::HRESULT = windows_core::HRESULT(0x80028018_u32 as _);
+pub const TYPE_E_IOERROR: windows_core::HRESULT = windows_core::HRESULT(0x80028CA2_u32 as _);
+pub const TYPE_E_LIBNOTREGISTERED: windows_core::HRESULT = windows_core::HRESULT(0x8002801D_u32 as _);
+pub const TYPE_E_NAMECONFLICT: windows_core::HRESULT = windows_core::HRESULT(0x8002802D_u32 as _);
+pub const TYPE_E_OUTOFBOUNDS: windows_core::HRESULT = windows_core::HRESULT(0x80028CA1_u32 as _);
+pub const TYPE_E_QUALIFIEDNAMEDISALLOWED: windows_core::HRESULT = windows_core::HRESULT(0x80028028_u32 as _);
+pub const TYPE_E_REGISTRYACCESS: windows_core::HRESULT = windows_core::HRESULT(0x8002801C_u32 as _);
+pub const TYPE_E_SIZETOOBIG: windows_core::HRESULT = windows_core::HRESULT(0x800288C5_u32 as _);
+pub const TYPE_E_TYPEMISMATCH: windows_core::HRESULT = windows_core::HRESULT(0x80028CA0_u32 as _);
+pub const TYPE_E_UNDEFINEDTYPE: windows_core::HRESULT = windows_core::HRESULT(0x80028027_u32 as _);
+pub const TYPE_E_UNKNOWNLCID: windows_core::HRESULT = windows_core::HRESULT(0x8002802E_u32 as _);
+pub const TYPE_E_UNSUPFORMAT: windows_core::HRESULT = windows_core::HRESULT(0x80028019_u32 as _);
+pub const TYPE_E_WRONGTYPEKIND: windows_core::HRESULT = windows_core::HRESULT(0x8002802A_u32 as _);
+pub const UCEERR_BLOCKSFULL: windows_core::HRESULT = windows_core::HRESULT(0x88980409_u32 as _);
+pub const UCEERR_CHANNELSYNCABANDONED: windows_core::HRESULT = windows_core::HRESULT(0x88980414_u32 as _);
+pub const UCEERR_CHANNELSYNCTIMEDOUT: windows_core::HRESULT = windows_core::HRESULT(0x88980413_u32 as _);
+pub const UCEERR_COMMANDTRANSPORTDENIED: windows_core::HRESULT = windows_core::HRESULT(0x88980418_u32 as _);
+pub const UCEERR_CONNECTIONIDLOOKUPFAILED: windows_core::HRESULT = windows_core::HRESULT(0x88980408_u32 as _);
+pub const UCEERR_CTXSTACKFRSTTARGETNULL: windows_core::HRESULT = windows_core::HRESULT(0x88980407_u32 as _);
+pub const UCEERR_FEEDBACK_UNSUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x88980417_u32 as _);
+pub const UCEERR_GRAPHICSSTREAMALREADYOPEN: windows_core::HRESULT = windows_core::HRESULT(0x88980420_u32 as _);
+pub const UCEERR_GRAPHICSSTREAMUNAVAILABLE: windows_core::HRESULT = windows_core::HRESULT(0x88980419_u32 as _);
+pub const UCEERR_HANDLELOOKUPFAILED: windows_core::HRESULT = windows_core::HRESULT(0x88980405_u32 as _);
+pub const UCEERR_ILLEGALHANDLE: windows_core::HRESULT = windows_core::HRESULT(0x88980404_u32 as _);
+pub const UCEERR_ILLEGALPACKET: windows_core::HRESULT = windows_core::HRESULT(0x88980402_u32 as _);
+pub const UCEERR_ILLEGALRECORDTYPE: windows_core::HRESULT = windows_core::HRESULT(0x8898040C_u32 as _);
+pub const UCEERR_INVALIDPACKETHEADER: windows_core::HRESULT = windows_core::HRESULT(0x88980400_u32 as _);
+pub const UCEERR_MALFORMEDPACKET: windows_core::HRESULT = windows_core::HRESULT(0x88980403_u32 as _);
+pub const UCEERR_MEMORYFAILURE: windows_core::HRESULT = windows_core::HRESULT(0x8898040A_u32 as _);
+pub const UCEERR_MISSINGBEGINCOMMAND: windows_core::HRESULT = windows_core::HRESULT(0x88980412_u32 as _);
+pub const UCEERR_MISSINGENDCOMMAND: windows_core::HRESULT = windows_core::HRESULT(0x88980411_u32 as _);
+pub const UCEERR_NO_MULTIPLE_WORKER_THREADS: windows_core::HRESULT = windows_core::HRESULT(0x8898040F_u32 as _);
+pub const UCEERR_OUTOFHANDLES: windows_core::HRESULT = windows_core::HRESULT(0x8898040D_u32 as _);
+pub const UCEERR_PACKETRECORDOUTOFRANGE: windows_core::HRESULT = windows_core::HRESULT(0x8898040B_u32 as _);
+pub const UCEERR_PARTITION_ZOMBIED: windows_core::HRESULT = windows_core::HRESULT(0x88980423_u32 as _);
+pub const UCEERR_REMOTINGNOTSUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x88980410_u32 as _);
+pub const UCEERR_RENDERTHREADFAILURE: windows_core::HRESULT = windows_core::HRESULT(0x88980406_u32 as _);
+pub const UCEERR_TRANSPORTDISCONNECTED: windows_core::HRESULT = windows_core::HRESULT(0x88980421_u32 as _);
+pub const UCEERR_TRANSPORTOVERLOADED: windows_core::HRESULT = windows_core::HRESULT(0x88980422_u32 as _);
+pub const UCEERR_TRANSPORTUNAVAILABLE: windows_core::HRESULT = windows_core::HRESULT(0x88980416_u32 as _);
+pub const UCEERR_UNCHANGABLE_UPDATE_ATTEMPTED: windows_core::HRESULT = windows_core::HRESULT(0x8898040E_u32 as _);
+pub const UCEERR_UNKNOWNPACKET: windows_core::HRESULT = windows_core::HRESULT(0x88980401_u32 as _);
+pub const UCEERR_UNSUPPORTEDTRANSPORTVERSION: windows_core::HRESULT = windows_core::HRESULT(0x88980415_u32 as _);
+pub const UI_E_AMBIGUOUS_MATCH: windows_core::HRESULT = windows_core::HRESULT(0x802A000A_u32 as _);
+pub const UI_E_BOOLEAN_EXPECTED: windows_core::HRESULT = windows_core::HRESULT(0x802A0008_u32 as _);
+pub const UI_E_CREATE_FAILED: windows_core::HRESULT = windows_core::HRESULT(0x802A0001_u32 as _);
+pub const UI_E_DIFFERENT_OWNER: windows_core::HRESULT = windows_core::HRESULT(0x802A0009_u32 as _);
+pub const UI_E_END_KEYFRAME_NOT_DETERMINED: windows_core::HRESULT = windows_core::HRESULT(0x802A0104_u32 as _);
+pub const UI_E_FP_OVERFLOW: windows_core::HRESULT = windows_core::HRESULT(0x802A000B_u32 as _);
+pub const UI_E_ILLEGAL_REENTRANCY: windows_core::HRESULT = windows_core::HRESULT(0x802A0003_u32 as _);
+pub const UI_E_INVALID_DIMENSION: windows_core::HRESULT = windows_core::HRESULT(0x802A010B_u32 as _);
+pub const UI_E_INVALID_OUTPUT: windows_core::HRESULT = windows_core::HRESULT(0x802A0007_u32 as _);
+pub const UI_E_LOOPS_OVERLAP: windows_core::HRESULT = windows_core::HRESULT(0x802A0105_u32 as _);
+pub const UI_E_OBJECT_SEALED: windows_core::HRESULT = windows_core::HRESULT(0x802A0004_u32 as _);
+pub const UI_E_PRIMITIVE_OUT_OF_BOUNDS: windows_core::HRESULT = windows_core::HRESULT(0x802A010C_u32 as _);
+pub const UI_E_SHUTDOWN_CALLED: windows_core::HRESULT = windows_core::HRESULT(0x802A0002_u32 as _);
+pub const UI_E_START_KEYFRAME_AFTER_END: windows_core::HRESULT = windows_core::HRESULT(0x802A0103_u32 as _);
+pub const UI_E_STORYBOARD_ACTIVE: windows_core::HRESULT = windows_core::HRESULT(0x802A0101_u32 as _);
+pub const UI_E_STORYBOARD_NOT_PLAYING: windows_core::HRESULT = windows_core::HRESULT(0x802A0102_u32 as _);
+pub const UI_E_TIMER_CLIENT_ALREADY_CONNECTED: windows_core::HRESULT = windows_core::HRESULT(0x802A010A_u32 as _);
+pub const UI_E_TIME_BEFORE_LAST_UPDATE: windows_core::HRESULT = windows_core::HRESULT(0x802A0109_u32 as _);
+pub const UI_E_TRANSITION_ALREADY_USED: windows_core::HRESULT = windows_core::HRESULT(0x802A0106_u32 as _);
+pub const UI_E_TRANSITION_ECLIPSED: windows_core::HRESULT = windows_core::HRESULT(0x802A0108_u32 as _);
+pub const UI_E_TRANSITION_NOT_IN_STORYBOARD: windows_core::HRESULT = windows_core::HRESULT(0x802A0107_u32 as _);
+pub const UI_E_VALUE_NOT_DETERMINED: windows_core::HRESULT = windows_core::HRESULT(0x802A0006_u32 as _);
+pub const UI_E_VALUE_NOT_SET: windows_core::HRESULT = windows_core::HRESULT(0x802A0005_u32 as _);
+pub const UI_E_WINDOW_CLOSED: windows_core::HRESULT = windows_core::HRESULT(0x802A0201_u32 as _);
+pub const UI_E_WRONG_THREAD: windows_core::HRESULT = windows_core::HRESULT(0x802A000C_u32 as _);
+pub const UTC_E_ACTION_NOT_SUPPORTED_IN_DESTINATION: windows_core::HRESULT = windows_core::HRESULT(0x87C51044_u32 as _);
+pub const UTC_E_AGENT_DIAGNOSTICS_TOO_LARGE: windows_core::HRESULT = windows_core::HRESULT(0x87C51055_u32 as _);
+pub const UTC_E_ALTERNATIVE_TRACE_CANNOT_PREEMPT: windows_core::HRESULT = windows_core::HRESULT(0x87C51002_u32 as _);
+pub const UTC_E_AOT_NOT_RUNNING: windows_core::HRESULT = windows_core::HRESULT(0x87C51003_u32 as _);
+pub const UTC_E_API_BUSY: windows_core::HRESULT = windows_core::HRESULT(0x87C5102B_u32 as _);
+pub const UTC_E_API_NOT_SUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x87C5103C_u32 as _);
+pub const UTC_E_API_RESULT_UNAVAILABLE: windows_core::HRESULT = windows_core::HRESULT(0x87C51028_u32 as _);
+pub const UTC_E_BINARY_MISSING: windows_core::HRESULT = windows_core::HRESULT(0x87C51034_u32 as _);
+pub const UTC_E_CANNOT_LOAD_SCENARIO_EDITOR_XML: windows_core::HRESULT = windows_core::HRESULT(0x87C5101F_u32 as _);
+pub const UTC_E_CERT_REV_FAILED: windows_core::HRESULT = windows_core::HRESULT(0x87C5103F_u32 as _);
+pub const UTC_E_CHILD_PROCESS_FAILED: windows_core::HRESULT = windows_core::HRESULT(0x87C5101D_u32 as _);
+pub const UTC_E_COMMAND_LINE_NOT_AUTHORIZED: windows_core::HRESULT = windows_core::HRESULT(0x87C5101E_u32 as _);
+pub const UTC_E_DELAY_TERMINATED: windows_core::HRESULT = windows_core::HRESULT(0x87C51025_u32 as _);
+pub const UTC_E_DEVICE_TICKET_ERROR: windows_core::HRESULT = windows_core::HRESULT(0x87C51026_u32 as _);
+pub const UTC_E_DIAGRULES_SCHEMAVERSION_MISMATCH: windows_core::HRESULT = windows_core::HRESULT(0x87C5100A_u32 as _);
+pub const UTC_E_ESCALATION_ALREADY_RUNNING: windows_core::HRESULT = windows_core::HRESULT(0x87C5100F_u32 as _);
+pub const UTC_E_ESCALATION_CANCELLED_AT_SHUTDOWN: windows_core::HRESULT = windows_core::HRESULT(0x87C5105A_u32 as _);
+pub const UTC_E_ESCALATION_DIRECTORY_ALREADY_EXISTS: windows_core::HRESULT = windows_core::HRESULT(0x87C5102F_u32 as _);
+pub const UTC_E_ESCALATION_NOT_AUTHORIZED: windows_core::HRESULT = windows_core::HRESULT(0x87C5101B_u32 as _);
+pub const UTC_E_ESCALATION_TIMED_OUT: windows_core::HRESULT = windows_core::HRESULT(0x87C51020_u32 as _);
+pub const UTC_E_EVENTLOG_ENTRY_MALFORMED: windows_core::HRESULT = windows_core::HRESULT(0x87C51009_u32 as _);
+pub const UTC_E_EXCLUSIVITY_NOT_AVAILABLE: windows_core::HRESULT = windows_core::HRESULT(0x87C5102D_u32 as _);
+pub const UTC_E_EXE_TERMINATED: windows_core::HRESULT = windows_core::HRESULT(0x87C5101A_u32 as _);
+pub const UTC_E_FAILED_TO_RECEIVE_AGENT_DIAGNOSTICS: windows_core::HRESULT = windows_core::HRESULT(0x87C51056_u32 as _);
+pub const UTC_E_FAILED_TO_RESOLVE_CONTAINER_ID: windows_core::HRESULT = windows_core::HRESULT(0x87C51036_u32 as _);
+pub const UTC_E_FAILED_TO_START_NDISCAP: windows_core::HRESULT = windows_core::HRESULT(0x87C51040_u32 as _);
+pub const UTC_E_FILTER_FUNCTION_RESTRICTED: windows_core::HRESULT = windows_core::HRESULT(0x87C51048_u32 as _);
+pub const UTC_E_FILTER_ILLEGAL_EVAL: windows_core::HRESULT = windows_core::HRESULT(0x87C51053_u32 as _);
+pub const UTC_E_FILTER_INVALID_COMMAND: windows_core::HRESULT = windows_core::HRESULT(0x87C51052_u32 as _);
+pub const UTC_E_FILTER_INVALID_FUNCTION: windows_core::HRESULT = windows_core::HRESULT(0x87C51050_u32 as _);
+pub const UTC_E_FILTER_INVALID_FUNCTION_PARAMS: windows_core::HRESULT = windows_core::HRESULT(0x87C51051_u32 as _);
+pub const UTC_E_FILTER_INVALID_TYPE: windows_core::HRESULT = windows_core::HRESULT(0x87C51046_u32 as _);
+pub const UTC_E_FILTER_MISSING_ATTRIBUTE: windows_core::HRESULT = windows_core::HRESULT(0x87C51045_u32 as _);
+pub const UTC_E_FILTER_VARIABLE_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0x87C51047_u32 as _);
+pub const UTC_E_FILTER_VERSION_MISMATCH: windows_core::HRESULT = windows_core::HRESULT(0x87C51049_u32 as _);
+pub const UTC_E_FORWARDER_ALREADY_DISABLED: windows_core::HRESULT = windows_core::HRESULT(0x87C51008_u32 as _);
+pub const UTC_E_FORWARDER_ALREADY_ENABLED: windows_core::HRESULT = windows_core::HRESULT(0x87C51007_u32 as _);
+pub const UTC_E_FORWARDER_PRODUCER_MISMATCH: windows_core::HRESULT = windows_core::HRESULT(0x87C51012_u32 as _);
+pub const UTC_E_GETFILEINFOACTION_FILE_NOT_APPROVED: windows_core::HRESULT = windows_core::HRESULT(0x87C5105B_u32 as _);
+pub const UTC_E_GETFILE_EXTERNAL_PATH_NOT_APPROVED: windows_core::HRESULT = windows_core::HRESULT(0x87C5103D_u32 as _);
+pub const UTC_E_GETFILE_FILE_PATH_NOT_APPROVED: windows_core::HRESULT = windows_core::HRESULT(0x87C5102E_u32 as _);
+pub const UTC_E_INSUFFICIENT_SPACE_TO_START_TRACE: windows_core::HRESULT = windows_core::HRESULT(0x87C51059_u32 as _);
+pub const UTC_E_INTENTIONAL_SCRIPT_FAILURE: windows_core::HRESULT = windows_core::HRESULT(0x87C51013_u32 as _);
+pub const UTC_E_INVALID_AGGREGATION_STRUCT: windows_core::HRESULT = windows_core::HRESULT(0x87C51043_u32 as _);
+pub const UTC_E_INVALID_CUSTOM_FILTER: windows_core::HRESULT = windows_core::HRESULT(0x87C5100C_u32 as _);
+pub const UTC_E_INVALID_FILTER: windows_core::HRESULT = windows_core::HRESULT(0x87C51019_u32 as _);
+pub const UTC_E_KERNELDUMP_LIMIT_REACHED: windows_core::HRESULT = windows_core::HRESULT(0x87C51041_u32 as _);
+pub const UTC_E_MISSING_AGGREGATE_EVENT_TAG: windows_core::HRESULT = windows_core::HRESULT(0x87C51042_u32 as _);
+pub const UTC_E_MULTIPLE_TIME_TRIGGER_ON_SINGLE_STATE: windows_core::HRESULT = windows_core::HRESULT(0x87C51033_u32 as _);
+pub const UTC_E_NO_WER_LOGGER_SUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x87C51015_u32 as _);
+pub const UTC_E_PERFTRACK_ALREADY_TRACING: windows_core::HRESULT = windows_core::HRESULT(0x87C51010_u32 as _);
+pub const UTC_E_REACHED_MAX_ESCALATIONS: windows_core::HRESULT = windows_core::HRESULT(0x87C51011_u32 as _);
+pub const UTC_E_REESCALATED_TOO_QUICKLY: windows_core::HRESULT = windows_core::HRESULT(0x87C5100E_u32 as _);
+pub const UTC_E_RPC_TIMEOUT: windows_core::HRESULT = windows_core::HRESULT(0x87C51029_u32 as _);
+pub const UTC_E_RPC_WAIT_FAILED: windows_core::HRESULT = windows_core::HRESULT(0x87C5102A_u32 as _);
+pub const UTC_E_SCENARIODEF_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0x87C51005_u32 as _);
+pub const UTC_E_SCENARIODEF_SCHEMAVERSION_MISMATCH: windows_core::HRESULT = windows_core::HRESULT(0x87C51018_u32 as _);
+pub const UTC_E_SCENARIO_HAS_NO_ACTIONS: windows_core::HRESULT = windows_core::HRESULT(0x87C51057_u32 as _);
+pub const UTC_E_SCENARIO_THROTTLED: windows_core::HRESULT = windows_core::HRESULT(0x87C5103B_u32 as _);
+pub const UTC_E_SCRIPT_MISSING: windows_core::HRESULT = windows_core::HRESULT(0x87C5103A_u32 as _);
+pub const UTC_E_SCRIPT_TERMINATED: windows_core::HRESULT = windows_core::HRESULT(0x87C5100B_u32 as _);
+pub const UTC_E_SCRIPT_TYPE_INVALID: windows_core::HRESULT = windows_core::HRESULT(0x87C51004_u32 as _);
+pub const UTC_E_SETREGKEYACTION_TYPE_NOT_APPROVED: windows_core::HRESULT = windows_core::HRESULT(0x87C5105C_u32 as _);
+pub const UTC_E_SETUP_NOT_AUTHORIZED: windows_core::HRESULT = windows_core::HRESULT(0x87C5101C_u32 as _);
+pub const UTC_E_SETUP_TIMED_OUT: windows_core::HRESULT = windows_core::HRESULT(0x87C51021_u32 as _);
+pub const UTC_E_SIF_NOT_SUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x87C51024_u32 as _);
+pub const UTC_E_SQM_INIT_FAILED: windows_core::HRESULT = windows_core::HRESULT(0x87C51014_u32 as _);
+pub const UTC_E_THROTTLED: windows_core::HRESULT = windows_core::HRESULT(0x87C51038_u32 as _);
+pub const UTC_E_TIME_TRIGGER_INVALID_TIME_RANGE: windows_core::HRESULT = windows_core::HRESULT(0x87C51032_u32 as _);
+pub const UTC_E_TIME_TRIGGER_ONLY_VALID_ON_SINGLE_TRANSITION: windows_core::HRESULT = windows_core::HRESULT(0x87C51031_u32 as _);
+pub const UTC_E_TIME_TRIGGER_ON_START_INVALID: windows_core::HRESULT = windows_core::HRESULT(0x87C51030_u32 as _);
+pub const UTC_E_TOGGLE_TRACE_STARTED: windows_core::HRESULT = windows_core::HRESULT(0x87C51001_u32 as _);
+pub const UTC_E_TRACEPROFILE_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0x87C51006_u32 as _);
+pub const UTC_E_TRACERS_DONT_EXIST: windows_core::HRESULT = windows_core::HRESULT(0x87C51016_u32 as _);
+pub const UTC_E_TRACE_BUFFER_LIMIT_EXCEEDED: windows_core::HRESULT = windows_core::HRESULT(0x87C51027_u32 as _);
+pub const UTC_E_TRACE_MIN_DURATION_REQUIREMENT_NOT_MET: windows_core::HRESULT = windows_core::HRESULT(0x87C5102C_u32 as _);
+pub const UTC_E_TRACE_NOT_RUNNING: windows_core::HRESULT = windows_core::HRESULT(0x87C5100D_u32 as _);
+pub const UTC_E_TRACE_THROTTLED: windows_core::HRESULT = windows_core::HRESULT(0x87C5105D_u32 as _);
+pub const UTC_E_TRIGGER_MISMATCH: windows_core::HRESULT = windows_core::HRESULT(0x87C51022_u32 as _);
+pub const UTC_E_TRIGGER_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0x87C51023_u32 as _);
+pub const UTC_E_TRY_GET_SCENARIO_TIMEOUT_EXCEEDED: windows_core::HRESULT = windows_core::HRESULT(0x87C5103E_u32 as _);
+pub const UTC_E_TTTRACER_RETURNED_ERROR: windows_core::HRESULT = windows_core::HRESULT(0x87C51054_u32 as _);
+pub const UTC_E_TTTRACER_STORAGE_FULL: windows_core::HRESULT = windows_core::HRESULT(0x87C51058_u32 as _);
+pub const UTC_E_UNABLE_TO_RESOLVE_SESSION: windows_core::HRESULT = windows_core::HRESULT(0x87C51037_u32 as _);
+pub const UTC_E_UNAPPROVED_SCRIPT: windows_core::HRESULT = windows_core::HRESULT(0x87C51039_u32 as _);
+pub const UTC_E_WINRT_INIT_FAILED: windows_core::HRESULT = windows_core::HRESULT(0x87C51017_u32 as _);
 pub const VARIANT_FALSE: VARIANT_BOOL = VARIANT_BOOL(0i16);
 pub const VARIANT_TRUE: VARIANT_BOOL = VARIANT_BOOL(-1i16);
-pub const VIEW_E_DRAW: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80040140_u32 as _);
+pub const VIEW_E_DRAW: windows_core::HRESULT = windows_core::HRESULT(0x80040140_u32 as _);
 pub const VIEW_E_FIRST: i32 = -2147221184i32;
 pub const VIEW_E_LAST: i32 = -2147221169i32;
-pub const VIEW_S_ALREADY_FROZEN: ::windows_core::HRESULT = ::windows_core::HRESULT(0x40140_u32 as _);
+pub const VIEW_S_ALREADY_FROZEN: windows_core::HRESULT = windows_core::HRESULT(0x40140_u32 as _);
 pub const VIEW_S_FIRST: i32 = 262464i32;
 pub const VIEW_S_LAST: i32 = 262479i32;
-pub const VM_SAVED_STATE_DUMP_E_GUEST_MEMORY_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0370501_u32 as _);
-pub const VM_SAVED_STATE_DUMP_E_INVALID_VP_STATE: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0370506_u32 as _);
-pub const VM_SAVED_STATE_DUMP_E_NESTED_VIRTUALIZATION_NOT_SUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0370503_u32 as _);
-pub const VM_SAVED_STATE_DUMP_E_NO_VP_FOUND_IN_PARTITION_STATE: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0370502_u32 as _);
-pub const VM_SAVED_STATE_DUMP_E_PARTITION_STATE_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0370500_u32 as _);
-pub const VM_SAVED_STATE_DUMP_E_VA_NOT_MAPPED: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0370505_u32 as _);
-pub const VM_SAVED_STATE_DUMP_E_VP_VTL_NOT_ENABLED: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0370509_u32 as _);
-pub const VM_SAVED_STATE_DUMP_E_WINDOWS_KERNEL_IMAGE_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0xC0370504_u32 as _);
+pub const VM_SAVED_STATE_DUMP_E_GUEST_MEMORY_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0xC0370501_u32 as _);
+pub const VM_SAVED_STATE_DUMP_E_INVALID_VP_STATE: windows_core::HRESULT = windows_core::HRESULT(0xC0370506_u32 as _);
+pub const VM_SAVED_STATE_DUMP_E_NESTED_VIRTUALIZATION_NOT_SUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0xC0370503_u32 as _);
+pub const VM_SAVED_STATE_DUMP_E_NO_VP_FOUND_IN_PARTITION_STATE: windows_core::HRESULT = windows_core::HRESULT(0xC0370502_u32 as _);
+pub const VM_SAVED_STATE_DUMP_E_PARTITION_STATE_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0xC0370500_u32 as _);
+pub const VM_SAVED_STATE_DUMP_E_VA_NOT_MAPPED: windows_core::HRESULT = windows_core::HRESULT(0xC0370505_u32 as _);
+pub const VM_SAVED_STATE_DUMP_E_VP_VTL_NOT_ENABLED: windows_core::HRESULT = windows_core::HRESULT(0xC0370509_u32 as _);
+pub const VM_SAVED_STATE_DUMP_E_WINDOWS_KERNEL_IMAGE_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0xC0370504_u32 as _);
 pub const VOLMGR_KSR_BYPASS: NTSTATUS = NTSTATUS(0x80380003_u32 as _);
 pub const VOLMGR_KSR_ERROR: NTSTATUS = NTSTATUS(0x80380001_u32 as _);
 pub const VOLMGR_KSR_READ_ERROR: NTSTATUS = NTSTATUS(0x80380002_u32 as _);
@@ -9993,346 +9993,346 @@ pub const WAIT_TIMEOUT: WAIT_EVENT = WAIT_EVENT(258u32);
 pub const WARNING_IPSEC_MM_POLICY_PRUNED: i32 = 13024i32;
 pub const WARNING_IPSEC_QM_POLICY_PRUNED: i32 = 13025i32;
 pub const WARNING_NO_MD5_MIGRATION: u32 = 946u32;
-pub const WBREAK_E_BUFFER_TOO_SMALL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80041783_u32 as _);
-pub const WBREAK_E_END_OF_TEXT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80041780_u32 as _);
-pub const WBREAK_E_INIT_FAILED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80041785_u32 as _);
-pub const WBREAK_E_QUERY_ONLY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80041782_u32 as _);
-pub const WEB_E_INVALID_JSON_NUMBER: ::windows_core::HRESULT = ::windows_core::HRESULT(0x83750008_u32 as _);
-pub const WEB_E_INVALID_JSON_STRING: ::windows_core::HRESULT = ::windows_core::HRESULT(0x83750007_u32 as _);
-pub const WEB_E_INVALID_XML: ::windows_core::HRESULT = ::windows_core::HRESULT(0x83750002_u32 as _);
-pub const WEB_E_JSON_VALUE_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x83750009_u32 as _);
-pub const WEB_E_MISSING_REQUIRED_ATTRIBUTE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x83750004_u32 as _);
-pub const WEB_E_MISSING_REQUIRED_ELEMENT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x83750003_u32 as _);
-pub const WEB_E_RESOURCE_TOO_LARGE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x83750006_u32 as _);
-pub const WEB_E_UNEXPECTED_CONTENT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x83750005_u32 as _);
-pub const WEB_E_UNSUPPORTED_FORMAT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x83750001_u32 as _);
-pub const WEP_E_BUFFER_TOO_LARGE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88010009_u32 as _);
-pub const WEP_E_FIXED_DATA_NOT_SUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88010002_u32 as _);
-pub const WEP_E_HARDWARE_NOT_COMPLIANT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88010003_u32 as _);
-pub const WEP_E_LOCK_NOT_CONFIGURED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88010004_u32 as _);
-pub const WEP_E_NOT_PROVISIONED_ON_ALL_VOLUMES: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88010001_u32 as _);
-pub const WEP_E_NO_LICENSE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88010006_u32 as _);
-pub const WEP_E_OS_NOT_PROTECTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88010007_u32 as _);
-pub const WEP_E_PROTECTION_SUSPENDED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88010005_u32 as _);
-pub const WEP_E_UNEXPECTED_FAIL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88010008_u32 as _);
-pub const WER_E_ALREADY_REPORTING: ::windows_core::HRESULT = ::windows_core::HRESULT(0x801B8004_u32 as _);
-pub const WER_E_CANCELED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x801B8001_u32 as _);
-pub const WER_E_CRASH_FAILURE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x801B8000_u32 as _);
-pub const WER_E_DUMP_THROTTLED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x801B8005_u32 as _);
-pub const WER_E_INSUFFICIENT_CONSENT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x801B8006_u32 as _);
-pub const WER_E_NETWORK_FAILURE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x801B8002_u32 as _);
-pub const WER_E_NOT_INITIALIZED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x801B8003_u32 as _);
-pub const WER_E_TOO_HEAVY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x801B8007_u32 as _);
-pub const WER_S_ASSERT_CONTINUE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x1B000A_u32 as _);
-pub const WER_S_DISABLED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x1B0003_u32 as _);
-pub const WER_S_DISABLED_ARCHIVE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x1B0006_u32 as _);
-pub const WER_S_DISABLED_QUEUE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x1B0005_u32 as _);
-pub const WER_S_IGNORE_ALL_ASSERTS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x1B0009_u32 as _);
-pub const WER_S_IGNORE_ASSERT_INSTANCE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x1B0008_u32 as _);
-pub const WER_S_REPORT_ASYNC: ::windows_core::HRESULT = ::windows_core::HRESULT(0x1B0007_u32 as _);
-pub const WER_S_REPORT_DEBUG: ::windows_core::HRESULT = ::windows_core::HRESULT(0x1B0000_u32 as _);
-pub const WER_S_REPORT_QUEUED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x1B0002_u32 as _);
-pub const WER_S_REPORT_UPLOADED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x1B0001_u32 as _);
-pub const WER_S_REPORT_UPLOADED_CAB: ::windows_core::HRESULT = ::windows_core::HRESULT(0x1B000C_u32 as _);
-pub const WER_S_SUSPENDED_UPLOAD: ::windows_core::HRESULT = ::windows_core::HRESULT(0x1B0004_u32 as _);
-pub const WER_S_THROTTLED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x1B000B_u32 as _);
-pub const WHV_E_GPA_RANGE_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80370305_u32 as _);
-pub const WHV_E_INSUFFICIENT_BUFFER: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80370301_u32 as _);
-pub const WHV_E_INVALID_PARTITION_CONFIG: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80370304_u32 as _);
-pub const WHV_E_INVALID_VP_REGISTER_NAME: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80370309_u32 as _);
-pub const WHV_E_INVALID_VP_STATE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80370308_u32 as _);
-pub const WHV_E_UNKNOWN_CAPABILITY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80370300_u32 as _);
-pub const WHV_E_UNKNOWN_PROPERTY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80370302_u32 as _);
-pub const WHV_E_UNSUPPORTED_HYPERVISOR_CONFIG: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80370303_u32 as _);
-pub const WHV_E_UNSUPPORTED_PROCESSOR_CONFIG: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80370310_u32 as _);
-pub const WHV_E_VP_ALREADY_EXISTS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80370306_u32 as _);
-pub const WHV_E_VP_DOES_NOT_EXIST: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80370307_u32 as _);
-pub const WINCODEC_ERR_ALREADYLOCKED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88982F0D_u32 as _);
-pub const WINCODEC_ERR_BADHEADER: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88982F61_u32 as _);
-pub const WINCODEC_ERR_BADIMAGE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88982F60_u32 as _);
-pub const WINCODEC_ERR_BADMETADATAHEADER: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88982F63_u32 as _);
-pub const WINCODEC_ERR_BADSTREAMDATA: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88982F70_u32 as _);
-pub const WINCODEC_ERR_CODECNOTHUMBNAIL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88982F44_u32 as _);
-pub const WINCODEC_ERR_CODECPRESENT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88982F43_u32 as _);
-pub const WINCODEC_ERR_CODECTOOMANYSCANLINES: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88982F46_u32 as _);
-pub const WINCODEC_ERR_COMPONENTINITIALIZEFAILURE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88982F8B_u32 as _);
-pub const WINCODEC_ERR_COMPONENTNOTFOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88982F50_u32 as _);
-pub const WINCODEC_ERR_DUPLICATEMETADATAPRESENT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88982F8D_u32 as _);
-pub const WINCODEC_ERR_FRAMEMISSING: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88982F62_u32 as _);
-pub const WINCODEC_ERR_IMAGESIZEOUTOFRANGE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88982F51_u32 as _);
-pub const WINCODEC_ERR_INSUFFICIENTBUFFER: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88982F8C_u32 as _);
-pub const WINCODEC_ERR_INTERNALERROR: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88982F48_u32 as _);
-pub const WINCODEC_ERR_INVALIDJPEGSCANINDEX: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88982F96_u32 as _);
-pub const WINCODEC_ERR_INVALIDPROGRESSIVELEVEL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88982F95_u32 as _);
-pub const WINCODEC_ERR_INVALIDQUERYCHARACTER: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88982F93_u32 as _);
-pub const WINCODEC_ERR_INVALIDQUERYREQUEST: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88982F90_u32 as _);
-pub const WINCODEC_ERR_INVALIDREGISTRATION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88982F8A_u32 as _);
-pub const WINCODEC_ERR_NOTINITIALIZED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88982F0C_u32 as _);
-pub const WINCODEC_ERR_PALETTEUNAVAILABLE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88982F45_u32 as _);
-pub const WINCODEC_ERR_PROPERTYNOTFOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88982F40_u32 as _);
-pub const WINCODEC_ERR_PROPERTYNOTSUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88982F41_u32 as _);
-pub const WINCODEC_ERR_PROPERTYSIZE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88982F42_u32 as _);
-pub const WINCODEC_ERR_PROPERTYUNEXPECTEDTYPE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88982F8E_u32 as _);
-pub const WINCODEC_ERR_REQUESTONLYVALIDATMETADATAROOT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88982F92_u32 as _);
-pub const WINCODEC_ERR_SOURCERECTDOESNOTMATCHDIMENSIONS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88982F49_u32 as _);
-pub const WINCODEC_ERR_STREAMNOTAVAILABLE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88982F73_u32 as _);
-pub const WINCODEC_ERR_STREAMREAD: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88982F72_u32 as _);
-pub const WINCODEC_ERR_STREAMWRITE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88982F71_u32 as _);
-pub const WINCODEC_ERR_TOOMUCHMETADATA: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88982F52_u32 as _);
-pub const WINCODEC_ERR_UNEXPECTEDMETADATATYPE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88982F91_u32 as _);
-pub const WINCODEC_ERR_UNEXPECTEDSIZE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88982F8F_u32 as _);
-pub const WINCODEC_ERR_UNKNOWNIMAGEFORMAT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88982F07_u32 as _);
-pub const WINCODEC_ERR_UNSUPPORTEDOPERATION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88982F81_u32 as _);
-pub const WINCODEC_ERR_UNSUPPORTEDPIXELFORMAT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88982F80_u32 as _);
-pub const WINCODEC_ERR_UNSUPPORTEDVERSION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88982F0B_u32 as _);
-pub const WINCODEC_ERR_VALUEOUTOFRANGE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88982F05_u32 as _);
-pub const WINCODEC_ERR_WIN32ERROR: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88982F94_u32 as _);
-pub const WINCODEC_ERR_WRONGSTATE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88982F04_u32 as _);
-pub const WININET_E_ASYNC_THREAD_FAILED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80072F0F_u32 as _);
-pub const WININET_E_BAD_AUTO_PROXY_SCRIPT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80072F86_u32 as _);
-pub const WININET_E_BAD_OPTION_LENGTH: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80072EEA_u32 as _);
-pub const WININET_E_BAD_REGISTRY_PARAMETER: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80072EF6_u32 as _);
-pub const WININET_E_CANNOT_CONNECT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80072EFD_u32 as _);
-pub const WININET_E_CHG_POST_IS_NON_SECURE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80072F0A_u32 as _);
-pub const WININET_E_CLIENT_AUTH_CERT_NEEDED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80072F0C_u32 as _);
-pub const WININET_E_CLIENT_AUTH_NOT_SETUP: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80072F0E_u32 as _);
-pub const WININET_E_CONNECTION_ABORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80072EFE_u32 as _);
-pub const WININET_E_CONNECTION_RESET: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80072EFF_u32 as _);
-pub const WININET_E_COOKIE_DECLINED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80072F82_u32 as _);
-pub const WININET_E_COOKIE_NEEDS_CONFIRMATION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80072F81_u32 as _);
-pub const WININET_E_DECODING_FAILED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80072F8F_u32 as _);
-pub const WININET_E_DIALOG_PENDING: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80072F11_u32 as _);
-pub const WININET_E_DISCONNECTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80072F83_u32 as _);
-pub const WININET_E_DOWNLEVEL_SERVER: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80072F77_u32 as _);
-pub const WININET_E_EXTENDED_ERROR: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80072EE3_u32 as _);
-pub const WININET_E_FAILED_DUETOSECURITYCHECK: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80072F8B_u32 as _);
-pub const WININET_E_FORCE_RETRY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80072F00_u32 as _);
-pub const WININET_E_HANDLE_EXISTS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80072F04_u32 as _);
-pub const WININET_E_HEADER_ALREADY_EXISTS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80072F7B_u32 as _);
-pub const WININET_E_HEADER_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80072F76_u32 as _);
-pub const WININET_E_HTTPS_HTTP_SUBMIT_REDIR: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80072F14_u32 as _);
-pub const WININET_E_HTTPS_TO_HTTP_ON_REDIR: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80072F08_u32 as _);
-pub const WININET_E_HTTP_TO_HTTPS_ON_REDIR: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80072F07_u32 as _);
-pub const WININET_E_INCORRECT_FORMAT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80072EFB_u32 as _);
-pub const WININET_E_INCORRECT_HANDLE_STATE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80072EF3_u32 as _);
-pub const WININET_E_INCORRECT_HANDLE_TYPE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80072EF2_u32 as _);
-pub const WININET_E_INCORRECT_PASSWORD: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80072EEE_u32 as _);
-pub const WININET_E_INCORRECT_USER_NAME: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80072EED_u32 as _);
-pub const WININET_E_INTERNAL_ERROR: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80072EE4_u32 as _);
-pub const WININET_E_INVALID_CA: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80072F0D_u32 as _);
-pub const WININET_E_INVALID_HEADER: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80072F79_u32 as _);
-pub const WININET_E_INVALID_OPERATION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80072EF0_u32 as _);
-pub const WININET_E_INVALID_OPTION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80072EE9_u32 as _);
-pub const WININET_E_INVALID_PROXY_REQUEST: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80072F01_u32 as _);
-pub const WININET_E_INVALID_QUERY_REQUEST: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80072F7A_u32 as _);
-pub const WININET_E_INVALID_SERVER_RESPONSE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80072F78_u32 as _);
-pub const WININET_E_INVALID_URL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80072EE5_u32 as _);
-pub const WININET_E_ITEM_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80072EFC_u32 as _);
-pub const WININET_E_LOGIN_FAILURE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80072EEF_u32 as _);
-pub const WININET_E_LOGIN_FAILURE_DISPLAY_ENTITY_BODY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80072F8E_u32 as _);
-pub const WININET_E_MIXED_SECURITY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80072F09_u32 as _);
-pub const WININET_E_NAME_NOT_RESOLVED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80072EE7_u32 as _);
-pub const WININET_E_NEED_UI: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80072F02_u32 as _);
-pub const WININET_E_NOT_INITIALIZED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80072F8C_u32 as _);
-pub const WININET_E_NOT_PROXY_REQUEST: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80072EF4_u32 as _);
-pub const WININET_E_NOT_REDIRECTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80072F80_u32 as _);
-pub const WININET_E_NO_CALLBACK: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80072EF9_u32 as _);
-pub const WININET_E_NO_CONTEXT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80072EF8_u32 as _);
-pub const WININET_E_NO_DIRECT_ACCESS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80072EF7_u32 as _);
-pub const WININET_E_NO_NEW_CONTAINERS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80072F13_u32 as _);
-pub const WININET_E_OPERATION_CANCELLED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80072EF1_u32 as _);
-pub const WININET_E_OPTION_NOT_SETTABLE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80072EEB_u32 as _);
-pub const WININET_E_OUT_OF_HANDLES: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80072EE1_u32 as _);
-pub const WININET_E_POST_IS_NON_SECURE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80072F0B_u32 as _);
-pub const WININET_E_PROTOCOL_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80072EE8_u32 as _);
-pub const WININET_E_PROXY_SERVER_UNREACHABLE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80072F85_u32 as _);
-pub const WININET_E_REDIRECT_FAILED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80072F7C_u32 as _);
-pub const WININET_E_REDIRECT_NEEDS_CONFIRMATION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80072F88_u32 as _);
-pub const WININET_E_REDIRECT_SCHEME_CHANGE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80072F10_u32 as _);
-pub const WININET_E_REGISTRY_VALUE_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80072EF5_u32 as _);
-pub const WININET_E_REQUEST_PENDING: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80072EFA_u32 as _);
-pub const WININET_E_RETRY_DIALOG: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80072F12_u32 as _);
-pub const WININET_E_SECURITY_CHANNEL_ERROR: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80072F7D_u32 as _);
-pub const WININET_E_SEC_CERT_CN_INVALID: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80072F06_u32 as _);
-pub const WININET_E_SEC_CERT_DATE_INVALID: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80072F05_u32 as _);
-pub const WININET_E_SEC_CERT_ERRORS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80072F17_u32 as _);
-pub const WININET_E_SEC_CERT_REVOKED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80072F8A_u32 as _);
-pub const WININET_E_SEC_CERT_REV_FAILED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80072F19_u32 as _);
-pub const WININET_E_SEC_INVALID_CERT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80072F89_u32 as _);
-pub const WININET_E_SERVER_UNREACHABLE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80072F84_u32 as _);
-pub const WININET_E_SHUTDOWN: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80072EEC_u32 as _);
-pub const WININET_E_TCPIP_NOT_INSTALLED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80072F7F_u32 as _);
-pub const WININET_E_TIMEOUT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80072EE2_u32 as _);
-pub const WININET_E_UNABLE_TO_CACHE_FILE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80072F7E_u32 as _);
-pub const WININET_E_UNABLE_TO_DOWNLOAD_SCRIPT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80072F87_u32 as _);
-pub const WININET_E_UNRECOGNIZED_SCHEME: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80072EE6_u32 as _);
-pub const WINML_ERR_INVALID_BINDING: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88900002_u32 as _);
-pub const WINML_ERR_INVALID_DEVICE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88900001_u32 as _);
-pub const WINML_ERR_SIZE_MISMATCH: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88900004_u32 as _);
-pub const WINML_ERR_VALUE_NOTFOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x88900003_u32 as _);
+pub const WBREAK_E_BUFFER_TOO_SMALL: windows_core::HRESULT = windows_core::HRESULT(0x80041783_u32 as _);
+pub const WBREAK_E_END_OF_TEXT: windows_core::HRESULT = windows_core::HRESULT(0x80041780_u32 as _);
+pub const WBREAK_E_INIT_FAILED: windows_core::HRESULT = windows_core::HRESULT(0x80041785_u32 as _);
+pub const WBREAK_E_QUERY_ONLY: windows_core::HRESULT = windows_core::HRESULT(0x80041782_u32 as _);
+pub const WEB_E_INVALID_JSON_NUMBER: windows_core::HRESULT = windows_core::HRESULT(0x83750008_u32 as _);
+pub const WEB_E_INVALID_JSON_STRING: windows_core::HRESULT = windows_core::HRESULT(0x83750007_u32 as _);
+pub const WEB_E_INVALID_XML: windows_core::HRESULT = windows_core::HRESULT(0x83750002_u32 as _);
+pub const WEB_E_JSON_VALUE_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0x83750009_u32 as _);
+pub const WEB_E_MISSING_REQUIRED_ATTRIBUTE: windows_core::HRESULT = windows_core::HRESULT(0x83750004_u32 as _);
+pub const WEB_E_MISSING_REQUIRED_ELEMENT: windows_core::HRESULT = windows_core::HRESULT(0x83750003_u32 as _);
+pub const WEB_E_RESOURCE_TOO_LARGE: windows_core::HRESULT = windows_core::HRESULT(0x83750006_u32 as _);
+pub const WEB_E_UNEXPECTED_CONTENT: windows_core::HRESULT = windows_core::HRESULT(0x83750005_u32 as _);
+pub const WEB_E_UNSUPPORTED_FORMAT: windows_core::HRESULT = windows_core::HRESULT(0x83750001_u32 as _);
+pub const WEP_E_BUFFER_TOO_LARGE: windows_core::HRESULT = windows_core::HRESULT(0x88010009_u32 as _);
+pub const WEP_E_FIXED_DATA_NOT_SUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x88010002_u32 as _);
+pub const WEP_E_HARDWARE_NOT_COMPLIANT: windows_core::HRESULT = windows_core::HRESULT(0x88010003_u32 as _);
+pub const WEP_E_LOCK_NOT_CONFIGURED: windows_core::HRESULT = windows_core::HRESULT(0x88010004_u32 as _);
+pub const WEP_E_NOT_PROVISIONED_ON_ALL_VOLUMES: windows_core::HRESULT = windows_core::HRESULT(0x88010001_u32 as _);
+pub const WEP_E_NO_LICENSE: windows_core::HRESULT = windows_core::HRESULT(0x88010006_u32 as _);
+pub const WEP_E_OS_NOT_PROTECTED: windows_core::HRESULT = windows_core::HRESULT(0x88010007_u32 as _);
+pub const WEP_E_PROTECTION_SUSPENDED: windows_core::HRESULT = windows_core::HRESULT(0x88010005_u32 as _);
+pub const WEP_E_UNEXPECTED_FAIL: windows_core::HRESULT = windows_core::HRESULT(0x88010008_u32 as _);
+pub const WER_E_ALREADY_REPORTING: windows_core::HRESULT = windows_core::HRESULT(0x801B8004_u32 as _);
+pub const WER_E_CANCELED: windows_core::HRESULT = windows_core::HRESULT(0x801B8001_u32 as _);
+pub const WER_E_CRASH_FAILURE: windows_core::HRESULT = windows_core::HRESULT(0x801B8000_u32 as _);
+pub const WER_E_DUMP_THROTTLED: windows_core::HRESULT = windows_core::HRESULT(0x801B8005_u32 as _);
+pub const WER_E_INSUFFICIENT_CONSENT: windows_core::HRESULT = windows_core::HRESULT(0x801B8006_u32 as _);
+pub const WER_E_NETWORK_FAILURE: windows_core::HRESULT = windows_core::HRESULT(0x801B8002_u32 as _);
+pub const WER_E_NOT_INITIALIZED: windows_core::HRESULT = windows_core::HRESULT(0x801B8003_u32 as _);
+pub const WER_E_TOO_HEAVY: windows_core::HRESULT = windows_core::HRESULT(0x801B8007_u32 as _);
+pub const WER_S_ASSERT_CONTINUE: windows_core::HRESULT = windows_core::HRESULT(0x1B000A_u32 as _);
+pub const WER_S_DISABLED: windows_core::HRESULT = windows_core::HRESULT(0x1B0003_u32 as _);
+pub const WER_S_DISABLED_ARCHIVE: windows_core::HRESULT = windows_core::HRESULT(0x1B0006_u32 as _);
+pub const WER_S_DISABLED_QUEUE: windows_core::HRESULT = windows_core::HRESULT(0x1B0005_u32 as _);
+pub const WER_S_IGNORE_ALL_ASSERTS: windows_core::HRESULT = windows_core::HRESULT(0x1B0009_u32 as _);
+pub const WER_S_IGNORE_ASSERT_INSTANCE: windows_core::HRESULT = windows_core::HRESULT(0x1B0008_u32 as _);
+pub const WER_S_REPORT_ASYNC: windows_core::HRESULT = windows_core::HRESULT(0x1B0007_u32 as _);
+pub const WER_S_REPORT_DEBUG: windows_core::HRESULT = windows_core::HRESULT(0x1B0000_u32 as _);
+pub const WER_S_REPORT_QUEUED: windows_core::HRESULT = windows_core::HRESULT(0x1B0002_u32 as _);
+pub const WER_S_REPORT_UPLOADED: windows_core::HRESULT = windows_core::HRESULT(0x1B0001_u32 as _);
+pub const WER_S_REPORT_UPLOADED_CAB: windows_core::HRESULT = windows_core::HRESULT(0x1B000C_u32 as _);
+pub const WER_S_SUSPENDED_UPLOAD: windows_core::HRESULT = windows_core::HRESULT(0x1B0004_u32 as _);
+pub const WER_S_THROTTLED: windows_core::HRESULT = windows_core::HRESULT(0x1B000B_u32 as _);
+pub const WHV_E_GPA_RANGE_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0x80370305_u32 as _);
+pub const WHV_E_INSUFFICIENT_BUFFER: windows_core::HRESULT = windows_core::HRESULT(0x80370301_u32 as _);
+pub const WHV_E_INVALID_PARTITION_CONFIG: windows_core::HRESULT = windows_core::HRESULT(0x80370304_u32 as _);
+pub const WHV_E_INVALID_VP_REGISTER_NAME: windows_core::HRESULT = windows_core::HRESULT(0x80370309_u32 as _);
+pub const WHV_E_INVALID_VP_STATE: windows_core::HRESULT = windows_core::HRESULT(0x80370308_u32 as _);
+pub const WHV_E_UNKNOWN_CAPABILITY: windows_core::HRESULT = windows_core::HRESULT(0x80370300_u32 as _);
+pub const WHV_E_UNKNOWN_PROPERTY: windows_core::HRESULT = windows_core::HRESULT(0x80370302_u32 as _);
+pub const WHV_E_UNSUPPORTED_HYPERVISOR_CONFIG: windows_core::HRESULT = windows_core::HRESULT(0x80370303_u32 as _);
+pub const WHV_E_UNSUPPORTED_PROCESSOR_CONFIG: windows_core::HRESULT = windows_core::HRESULT(0x80370310_u32 as _);
+pub const WHV_E_VP_ALREADY_EXISTS: windows_core::HRESULT = windows_core::HRESULT(0x80370306_u32 as _);
+pub const WHV_E_VP_DOES_NOT_EXIST: windows_core::HRESULT = windows_core::HRESULT(0x80370307_u32 as _);
+pub const WINCODEC_ERR_ALREADYLOCKED: windows_core::HRESULT = windows_core::HRESULT(0x88982F0D_u32 as _);
+pub const WINCODEC_ERR_BADHEADER: windows_core::HRESULT = windows_core::HRESULT(0x88982F61_u32 as _);
+pub const WINCODEC_ERR_BADIMAGE: windows_core::HRESULT = windows_core::HRESULT(0x88982F60_u32 as _);
+pub const WINCODEC_ERR_BADMETADATAHEADER: windows_core::HRESULT = windows_core::HRESULT(0x88982F63_u32 as _);
+pub const WINCODEC_ERR_BADSTREAMDATA: windows_core::HRESULT = windows_core::HRESULT(0x88982F70_u32 as _);
+pub const WINCODEC_ERR_CODECNOTHUMBNAIL: windows_core::HRESULT = windows_core::HRESULT(0x88982F44_u32 as _);
+pub const WINCODEC_ERR_CODECPRESENT: windows_core::HRESULT = windows_core::HRESULT(0x88982F43_u32 as _);
+pub const WINCODEC_ERR_CODECTOOMANYSCANLINES: windows_core::HRESULT = windows_core::HRESULT(0x88982F46_u32 as _);
+pub const WINCODEC_ERR_COMPONENTINITIALIZEFAILURE: windows_core::HRESULT = windows_core::HRESULT(0x88982F8B_u32 as _);
+pub const WINCODEC_ERR_COMPONENTNOTFOUND: windows_core::HRESULT = windows_core::HRESULT(0x88982F50_u32 as _);
+pub const WINCODEC_ERR_DUPLICATEMETADATAPRESENT: windows_core::HRESULT = windows_core::HRESULT(0x88982F8D_u32 as _);
+pub const WINCODEC_ERR_FRAMEMISSING: windows_core::HRESULT = windows_core::HRESULT(0x88982F62_u32 as _);
+pub const WINCODEC_ERR_IMAGESIZEOUTOFRANGE: windows_core::HRESULT = windows_core::HRESULT(0x88982F51_u32 as _);
+pub const WINCODEC_ERR_INSUFFICIENTBUFFER: windows_core::HRESULT = windows_core::HRESULT(0x88982F8C_u32 as _);
+pub const WINCODEC_ERR_INTERNALERROR: windows_core::HRESULT = windows_core::HRESULT(0x88982F48_u32 as _);
+pub const WINCODEC_ERR_INVALIDJPEGSCANINDEX: windows_core::HRESULT = windows_core::HRESULT(0x88982F96_u32 as _);
+pub const WINCODEC_ERR_INVALIDPROGRESSIVELEVEL: windows_core::HRESULT = windows_core::HRESULT(0x88982F95_u32 as _);
+pub const WINCODEC_ERR_INVALIDQUERYCHARACTER: windows_core::HRESULT = windows_core::HRESULT(0x88982F93_u32 as _);
+pub const WINCODEC_ERR_INVALIDQUERYREQUEST: windows_core::HRESULT = windows_core::HRESULT(0x88982F90_u32 as _);
+pub const WINCODEC_ERR_INVALIDREGISTRATION: windows_core::HRESULT = windows_core::HRESULT(0x88982F8A_u32 as _);
+pub const WINCODEC_ERR_NOTINITIALIZED: windows_core::HRESULT = windows_core::HRESULT(0x88982F0C_u32 as _);
+pub const WINCODEC_ERR_PALETTEUNAVAILABLE: windows_core::HRESULT = windows_core::HRESULT(0x88982F45_u32 as _);
+pub const WINCODEC_ERR_PROPERTYNOTFOUND: windows_core::HRESULT = windows_core::HRESULT(0x88982F40_u32 as _);
+pub const WINCODEC_ERR_PROPERTYNOTSUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x88982F41_u32 as _);
+pub const WINCODEC_ERR_PROPERTYSIZE: windows_core::HRESULT = windows_core::HRESULT(0x88982F42_u32 as _);
+pub const WINCODEC_ERR_PROPERTYUNEXPECTEDTYPE: windows_core::HRESULT = windows_core::HRESULT(0x88982F8E_u32 as _);
+pub const WINCODEC_ERR_REQUESTONLYVALIDATMETADATAROOT: windows_core::HRESULT = windows_core::HRESULT(0x88982F92_u32 as _);
+pub const WINCODEC_ERR_SOURCERECTDOESNOTMATCHDIMENSIONS: windows_core::HRESULT = windows_core::HRESULT(0x88982F49_u32 as _);
+pub const WINCODEC_ERR_STREAMNOTAVAILABLE: windows_core::HRESULT = windows_core::HRESULT(0x88982F73_u32 as _);
+pub const WINCODEC_ERR_STREAMREAD: windows_core::HRESULT = windows_core::HRESULT(0x88982F72_u32 as _);
+pub const WINCODEC_ERR_STREAMWRITE: windows_core::HRESULT = windows_core::HRESULT(0x88982F71_u32 as _);
+pub const WINCODEC_ERR_TOOMUCHMETADATA: windows_core::HRESULT = windows_core::HRESULT(0x88982F52_u32 as _);
+pub const WINCODEC_ERR_UNEXPECTEDMETADATATYPE: windows_core::HRESULT = windows_core::HRESULT(0x88982F91_u32 as _);
+pub const WINCODEC_ERR_UNEXPECTEDSIZE: windows_core::HRESULT = windows_core::HRESULT(0x88982F8F_u32 as _);
+pub const WINCODEC_ERR_UNKNOWNIMAGEFORMAT: windows_core::HRESULT = windows_core::HRESULT(0x88982F07_u32 as _);
+pub const WINCODEC_ERR_UNSUPPORTEDOPERATION: windows_core::HRESULT = windows_core::HRESULT(0x88982F81_u32 as _);
+pub const WINCODEC_ERR_UNSUPPORTEDPIXELFORMAT: windows_core::HRESULT = windows_core::HRESULT(0x88982F80_u32 as _);
+pub const WINCODEC_ERR_UNSUPPORTEDVERSION: windows_core::HRESULT = windows_core::HRESULT(0x88982F0B_u32 as _);
+pub const WINCODEC_ERR_VALUEOUTOFRANGE: windows_core::HRESULT = windows_core::HRESULT(0x88982F05_u32 as _);
+pub const WINCODEC_ERR_WIN32ERROR: windows_core::HRESULT = windows_core::HRESULT(0x88982F94_u32 as _);
+pub const WINCODEC_ERR_WRONGSTATE: windows_core::HRESULT = windows_core::HRESULT(0x88982F04_u32 as _);
+pub const WININET_E_ASYNC_THREAD_FAILED: windows_core::HRESULT = windows_core::HRESULT(0x80072F0F_u32 as _);
+pub const WININET_E_BAD_AUTO_PROXY_SCRIPT: windows_core::HRESULT = windows_core::HRESULT(0x80072F86_u32 as _);
+pub const WININET_E_BAD_OPTION_LENGTH: windows_core::HRESULT = windows_core::HRESULT(0x80072EEA_u32 as _);
+pub const WININET_E_BAD_REGISTRY_PARAMETER: windows_core::HRESULT = windows_core::HRESULT(0x80072EF6_u32 as _);
+pub const WININET_E_CANNOT_CONNECT: windows_core::HRESULT = windows_core::HRESULT(0x80072EFD_u32 as _);
+pub const WININET_E_CHG_POST_IS_NON_SECURE: windows_core::HRESULT = windows_core::HRESULT(0x80072F0A_u32 as _);
+pub const WININET_E_CLIENT_AUTH_CERT_NEEDED: windows_core::HRESULT = windows_core::HRESULT(0x80072F0C_u32 as _);
+pub const WININET_E_CLIENT_AUTH_NOT_SETUP: windows_core::HRESULT = windows_core::HRESULT(0x80072F0E_u32 as _);
+pub const WININET_E_CONNECTION_ABORTED: windows_core::HRESULT = windows_core::HRESULT(0x80072EFE_u32 as _);
+pub const WININET_E_CONNECTION_RESET: windows_core::HRESULT = windows_core::HRESULT(0x80072EFF_u32 as _);
+pub const WININET_E_COOKIE_DECLINED: windows_core::HRESULT = windows_core::HRESULT(0x80072F82_u32 as _);
+pub const WININET_E_COOKIE_NEEDS_CONFIRMATION: windows_core::HRESULT = windows_core::HRESULT(0x80072F81_u32 as _);
+pub const WININET_E_DECODING_FAILED: windows_core::HRESULT = windows_core::HRESULT(0x80072F8F_u32 as _);
+pub const WININET_E_DIALOG_PENDING: windows_core::HRESULT = windows_core::HRESULT(0x80072F11_u32 as _);
+pub const WININET_E_DISCONNECTED: windows_core::HRESULT = windows_core::HRESULT(0x80072F83_u32 as _);
+pub const WININET_E_DOWNLEVEL_SERVER: windows_core::HRESULT = windows_core::HRESULT(0x80072F77_u32 as _);
+pub const WININET_E_EXTENDED_ERROR: windows_core::HRESULT = windows_core::HRESULT(0x80072EE3_u32 as _);
+pub const WININET_E_FAILED_DUETOSECURITYCHECK: windows_core::HRESULT = windows_core::HRESULT(0x80072F8B_u32 as _);
+pub const WININET_E_FORCE_RETRY: windows_core::HRESULT = windows_core::HRESULT(0x80072F00_u32 as _);
+pub const WININET_E_HANDLE_EXISTS: windows_core::HRESULT = windows_core::HRESULT(0x80072F04_u32 as _);
+pub const WININET_E_HEADER_ALREADY_EXISTS: windows_core::HRESULT = windows_core::HRESULT(0x80072F7B_u32 as _);
+pub const WININET_E_HEADER_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0x80072F76_u32 as _);
+pub const WININET_E_HTTPS_HTTP_SUBMIT_REDIR: windows_core::HRESULT = windows_core::HRESULT(0x80072F14_u32 as _);
+pub const WININET_E_HTTPS_TO_HTTP_ON_REDIR: windows_core::HRESULT = windows_core::HRESULT(0x80072F08_u32 as _);
+pub const WININET_E_HTTP_TO_HTTPS_ON_REDIR: windows_core::HRESULT = windows_core::HRESULT(0x80072F07_u32 as _);
+pub const WININET_E_INCORRECT_FORMAT: windows_core::HRESULT = windows_core::HRESULT(0x80072EFB_u32 as _);
+pub const WININET_E_INCORRECT_HANDLE_STATE: windows_core::HRESULT = windows_core::HRESULT(0x80072EF3_u32 as _);
+pub const WININET_E_INCORRECT_HANDLE_TYPE: windows_core::HRESULT = windows_core::HRESULT(0x80072EF2_u32 as _);
+pub const WININET_E_INCORRECT_PASSWORD: windows_core::HRESULT = windows_core::HRESULT(0x80072EEE_u32 as _);
+pub const WININET_E_INCORRECT_USER_NAME: windows_core::HRESULT = windows_core::HRESULT(0x80072EED_u32 as _);
+pub const WININET_E_INTERNAL_ERROR: windows_core::HRESULT = windows_core::HRESULT(0x80072EE4_u32 as _);
+pub const WININET_E_INVALID_CA: windows_core::HRESULT = windows_core::HRESULT(0x80072F0D_u32 as _);
+pub const WININET_E_INVALID_HEADER: windows_core::HRESULT = windows_core::HRESULT(0x80072F79_u32 as _);
+pub const WININET_E_INVALID_OPERATION: windows_core::HRESULT = windows_core::HRESULT(0x80072EF0_u32 as _);
+pub const WININET_E_INVALID_OPTION: windows_core::HRESULT = windows_core::HRESULT(0x80072EE9_u32 as _);
+pub const WININET_E_INVALID_PROXY_REQUEST: windows_core::HRESULT = windows_core::HRESULT(0x80072F01_u32 as _);
+pub const WININET_E_INVALID_QUERY_REQUEST: windows_core::HRESULT = windows_core::HRESULT(0x80072F7A_u32 as _);
+pub const WININET_E_INVALID_SERVER_RESPONSE: windows_core::HRESULT = windows_core::HRESULT(0x80072F78_u32 as _);
+pub const WININET_E_INVALID_URL: windows_core::HRESULT = windows_core::HRESULT(0x80072EE5_u32 as _);
+pub const WININET_E_ITEM_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0x80072EFC_u32 as _);
+pub const WININET_E_LOGIN_FAILURE: windows_core::HRESULT = windows_core::HRESULT(0x80072EEF_u32 as _);
+pub const WININET_E_LOGIN_FAILURE_DISPLAY_ENTITY_BODY: windows_core::HRESULT = windows_core::HRESULT(0x80072F8E_u32 as _);
+pub const WININET_E_MIXED_SECURITY: windows_core::HRESULT = windows_core::HRESULT(0x80072F09_u32 as _);
+pub const WININET_E_NAME_NOT_RESOLVED: windows_core::HRESULT = windows_core::HRESULT(0x80072EE7_u32 as _);
+pub const WININET_E_NEED_UI: windows_core::HRESULT = windows_core::HRESULT(0x80072F02_u32 as _);
+pub const WININET_E_NOT_INITIALIZED: windows_core::HRESULT = windows_core::HRESULT(0x80072F8C_u32 as _);
+pub const WININET_E_NOT_PROXY_REQUEST: windows_core::HRESULT = windows_core::HRESULT(0x80072EF4_u32 as _);
+pub const WININET_E_NOT_REDIRECTED: windows_core::HRESULT = windows_core::HRESULT(0x80072F80_u32 as _);
+pub const WININET_E_NO_CALLBACK: windows_core::HRESULT = windows_core::HRESULT(0x80072EF9_u32 as _);
+pub const WININET_E_NO_CONTEXT: windows_core::HRESULT = windows_core::HRESULT(0x80072EF8_u32 as _);
+pub const WININET_E_NO_DIRECT_ACCESS: windows_core::HRESULT = windows_core::HRESULT(0x80072EF7_u32 as _);
+pub const WININET_E_NO_NEW_CONTAINERS: windows_core::HRESULT = windows_core::HRESULT(0x80072F13_u32 as _);
+pub const WININET_E_OPERATION_CANCELLED: windows_core::HRESULT = windows_core::HRESULT(0x80072EF1_u32 as _);
+pub const WININET_E_OPTION_NOT_SETTABLE: windows_core::HRESULT = windows_core::HRESULT(0x80072EEB_u32 as _);
+pub const WININET_E_OUT_OF_HANDLES: windows_core::HRESULT = windows_core::HRESULT(0x80072EE1_u32 as _);
+pub const WININET_E_POST_IS_NON_SECURE: windows_core::HRESULT = windows_core::HRESULT(0x80072F0B_u32 as _);
+pub const WININET_E_PROTOCOL_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0x80072EE8_u32 as _);
+pub const WININET_E_PROXY_SERVER_UNREACHABLE: windows_core::HRESULT = windows_core::HRESULT(0x80072F85_u32 as _);
+pub const WININET_E_REDIRECT_FAILED: windows_core::HRESULT = windows_core::HRESULT(0x80072F7C_u32 as _);
+pub const WININET_E_REDIRECT_NEEDS_CONFIRMATION: windows_core::HRESULT = windows_core::HRESULT(0x80072F88_u32 as _);
+pub const WININET_E_REDIRECT_SCHEME_CHANGE: windows_core::HRESULT = windows_core::HRESULT(0x80072F10_u32 as _);
+pub const WININET_E_REGISTRY_VALUE_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0x80072EF5_u32 as _);
+pub const WININET_E_REQUEST_PENDING: windows_core::HRESULT = windows_core::HRESULT(0x80072EFA_u32 as _);
+pub const WININET_E_RETRY_DIALOG: windows_core::HRESULT = windows_core::HRESULT(0x80072F12_u32 as _);
+pub const WININET_E_SECURITY_CHANNEL_ERROR: windows_core::HRESULT = windows_core::HRESULT(0x80072F7D_u32 as _);
+pub const WININET_E_SEC_CERT_CN_INVALID: windows_core::HRESULT = windows_core::HRESULT(0x80072F06_u32 as _);
+pub const WININET_E_SEC_CERT_DATE_INVALID: windows_core::HRESULT = windows_core::HRESULT(0x80072F05_u32 as _);
+pub const WININET_E_SEC_CERT_ERRORS: windows_core::HRESULT = windows_core::HRESULT(0x80072F17_u32 as _);
+pub const WININET_E_SEC_CERT_REVOKED: windows_core::HRESULT = windows_core::HRESULT(0x80072F8A_u32 as _);
+pub const WININET_E_SEC_CERT_REV_FAILED: windows_core::HRESULT = windows_core::HRESULT(0x80072F19_u32 as _);
+pub const WININET_E_SEC_INVALID_CERT: windows_core::HRESULT = windows_core::HRESULT(0x80072F89_u32 as _);
+pub const WININET_E_SERVER_UNREACHABLE: windows_core::HRESULT = windows_core::HRESULT(0x80072F84_u32 as _);
+pub const WININET_E_SHUTDOWN: windows_core::HRESULT = windows_core::HRESULT(0x80072EEC_u32 as _);
+pub const WININET_E_TCPIP_NOT_INSTALLED: windows_core::HRESULT = windows_core::HRESULT(0x80072F7F_u32 as _);
+pub const WININET_E_TIMEOUT: windows_core::HRESULT = windows_core::HRESULT(0x80072EE2_u32 as _);
+pub const WININET_E_UNABLE_TO_CACHE_FILE: windows_core::HRESULT = windows_core::HRESULT(0x80072F7E_u32 as _);
+pub const WININET_E_UNABLE_TO_DOWNLOAD_SCRIPT: windows_core::HRESULT = windows_core::HRESULT(0x80072F87_u32 as _);
+pub const WININET_E_UNRECOGNIZED_SCHEME: windows_core::HRESULT = windows_core::HRESULT(0x80072EE6_u32 as _);
+pub const WINML_ERR_INVALID_BINDING: windows_core::HRESULT = windows_core::HRESULT(0x88900002_u32 as _);
+pub const WINML_ERR_INVALID_DEVICE: windows_core::HRESULT = windows_core::HRESULT(0x88900001_u32 as _);
+pub const WINML_ERR_SIZE_MISMATCH: windows_core::HRESULT = windows_core::HRESULT(0x88900004_u32 as _);
+pub const WINML_ERR_VALUE_NOTFOUND: windows_core::HRESULT = windows_core::HRESULT(0x88900003_u32 as _);
 pub const WINVER: u32 = 1280u32;
 pub const WINVER_MAXVER: u32 = 2560u32;
-pub const WPN_E_ACCESS_DENIED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803E0117_u32 as _);
-pub const WPN_E_ALL_URL_NOT_COMPLETED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803E0203_u32 as _);
-pub const WPN_E_CALLBACK_ALREADY_REGISTERED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803E0206_u32 as _);
-pub const WPN_E_CHANNEL_CLOSED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803E0100_u32 as _);
-pub const WPN_E_CHANNEL_REQUEST_NOT_COMPLETE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803E0101_u32 as _);
-pub const WPN_E_CLOUD_AUTH_UNAVAILABLE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803E011A_u32 as _);
-pub const WPN_E_CLOUD_DISABLED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803E0109_u32 as _);
-pub const WPN_E_CLOUD_DISABLED_FOR_APP: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803E020B_u32 as _);
-pub const WPN_E_CLOUD_INCAPABLE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803E0110_u32 as _);
-pub const WPN_E_CLOUD_SERVICE_UNAVAILABLE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803E011B_u32 as _);
-pub const WPN_E_DEV_ID_SIZE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803E0120_u32 as _);
-pub const WPN_E_DUPLICATE_CHANNEL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803E0104_u32 as _);
-pub const WPN_E_DUPLICATE_REGISTRATION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803E0118_u32 as _);
-pub const WPN_E_FAILED_LOCK_SCREEN_UPDATE_INTIALIZATION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803E011C_u32 as _);
-pub const WPN_E_GROUP_ALPHANUMERIC: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803E020A_u32 as _);
-pub const WPN_E_GROUP_SIZE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803E0209_u32 as _);
-pub const WPN_E_IMAGE_NOT_FOUND_IN_CACHE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803E0202_u32 as _);
-pub const WPN_E_INTERNET_INCAPABLE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803E0113_u32 as _);
-pub const WPN_E_INVALID_APP: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803E0102_u32 as _);
-pub const WPN_E_INVALID_CLOUD_IMAGE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803E0204_u32 as _);
-pub const WPN_E_INVALID_HTTP_STATUS_CODE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803E012B_u32 as _);
-pub const WPN_E_NOTIFICATION_DISABLED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803E0111_u32 as _);
-pub const WPN_E_NOTIFICATION_HIDDEN: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803E0107_u32 as _);
-pub const WPN_E_NOTIFICATION_ID_MATCHED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803E0205_u32 as _);
-pub const WPN_E_NOTIFICATION_INCAPABLE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803E0112_u32 as _);
-pub const WPN_E_NOTIFICATION_NOT_POSTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803E0108_u32 as _);
-pub const WPN_E_NOTIFICATION_POSTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803E0106_u32 as _);
-pub const WPN_E_NOTIFICATION_SIZE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803E0115_u32 as _);
-pub const WPN_E_NOTIFICATION_TYPE_DISABLED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803E0114_u32 as _);
-pub const WPN_E_OUTSTANDING_CHANNEL_REQUEST: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803E0103_u32 as _);
-pub const WPN_E_OUT_OF_SESSION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803E0200_u32 as _);
-pub const WPN_E_PLATFORM_UNAVAILABLE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803E0105_u32 as _);
-pub const WPN_E_POWER_SAVE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803E0201_u32 as _);
-pub const WPN_E_PUSH_NOTIFICATION_INCAPABLE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803E0119_u32 as _);
-pub const WPN_E_STORAGE_LOCKED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803E0208_u32 as _);
-pub const WPN_E_TAG_ALPHANUMERIC: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803E012A_u32 as _);
-pub const WPN_E_TAG_SIZE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803E0116_u32 as _);
-pub const WPN_E_TOAST_NOTIFICATION_DROPPED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803E0207_u32 as _);
-pub const WS_E_ADDRESS_IN_USE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803D000B_u32 as _);
-pub const WS_E_ADDRESS_NOT_AVAILABLE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803D000C_u32 as _);
-pub const WS_E_ENDPOINT_ACCESS_DENIED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803D0005_u32 as _);
-pub const WS_E_ENDPOINT_ACTION_NOT_SUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803D0011_u32 as _);
-pub const WS_E_ENDPOINT_DISCONNECTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803D0014_u32 as _);
-pub const WS_E_ENDPOINT_FAILURE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803D000F_u32 as _);
-pub const WS_E_ENDPOINT_FAULT_RECEIVED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803D0013_u32 as _);
-pub const WS_E_ENDPOINT_NOT_AVAILABLE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803D000E_u32 as _);
-pub const WS_E_ENDPOINT_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803D000D_u32 as _);
-pub const WS_E_ENDPOINT_TOO_BUSY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803D0012_u32 as _);
-pub const WS_E_ENDPOINT_UNREACHABLE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803D0010_u32 as _);
-pub const WS_E_INVALID_ENDPOINT_URL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803D0020_u32 as _);
-pub const WS_E_INVALID_FORMAT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803D0000_u32 as _);
-pub const WS_E_INVALID_OPERATION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803D0003_u32 as _);
-pub const WS_E_NOT_SUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803D0017_u32 as _);
-pub const WS_E_NO_TRANSLATION_AVAILABLE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803D0009_u32 as _);
-pub const WS_E_NUMERIC_OVERFLOW: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803D0002_u32 as _);
-pub const WS_E_OBJECT_FAULTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803D0001_u32 as _);
-pub const WS_E_OPERATION_ABANDONED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803D0007_u32 as _);
-pub const WS_E_OPERATION_ABORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803D0004_u32 as _);
-pub const WS_E_OPERATION_TIMED_OUT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803D0006_u32 as _);
-pub const WS_E_OTHER: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803D0021_u32 as _);
-pub const WS_E_PROXY_ACCESS_DENIED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803D0016_u32 as _);
-pub const WS_E_PROXY_FAILURE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803D0015_u32 as _);
-pub const WS_E_PROXY_REQUIRES_BASIC_AUTH: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803D0018_u32 as _);
-pub const WS_E_PROXY_REQUIRES_DIGEST_AUTH: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803D0019_u32 as _);
-pub const WS_E_PROXY_REQUIRES_NEGOTIATE_AUTH: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803D001B_u32 as _);
-pub const WS_E_PROXY_REQUIRES_NTLM_AUTH: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803D001A_u32 as _);
-pub const WS_E_QUOTA_EXCEEDED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803D0008_u32 as _);
-pub const WS_E_SECURITY_SYSTEM_FAILURE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803D0023_u32 as _);
-pub const WS_E_SECURITY_TOKEN_EXPIRED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803D0022_u32 as _);
-pub const WS_E_SECURITY_VERIFICATION_FAILURE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803D000A_u32 as _);
-pub const WS_E_SERVER_REQUIRES_BASIC_AUTH: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803D001C_u32 as _);
-pub const WS_E_SERVER_REQUIRES_DIGEST_AUTH: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803D001D_u32 as _);
-pub const WS_E_SERVER_REQUIRES_NEGOTIATE_AUTH: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803D001F_u32 as _);
-pub const WS_E_SERVER_REQUIRES_NTLM_AUTH: ::windows_core::HRESULT = ::windows_core::HRESULT(0x803D001E_u32 as _);
-pub const WS_S_ASYNC: ::windows_core::HRESULT = ::windows_core::HRESULT(0x3D0000_u32 as _);
-pub const WS_S_END: ::windows_core::HRESULT = ::windows_core::HRESULT(0x3D0001_u32 as _);
-pub const XACT_E_ABORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004D019_u32 as _);
-pub const XACT_E_ABORTING: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004D029_u32 as _);
-pub const XACT_E_ALREADYINPROGRESS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004D018_u32 as _);
-pub const XACT_E_ALREADYOTHERSINGLEPHASE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004D000_u32 as _);
-pub const XACT_E_CANTRETAIN: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004D001_u32 as _);
-pub const XACT_E_CLERKEXISTS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004D081_u32 as _);
-pub const XACT_E_CLERKNOTFOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004D080_u32 as _);
-pub const XACT_E_COMMITFAILED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004D002_u32 as _);
-pub const XACT_E_COMMITPREVENTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004D003_u32 as _);
-pub const XACT_E_CONNECTION_DENIED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004D01D_u32 as _);
-pub const XACT_E_CONNECTION_DOWN: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004D01C_u32 as _);
-pub const XACT_E_DEST_TMNOTAVAILABLE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004D022_u32 as _);
+pub const WPN_E_ACCESS_DENIED: windows_core::HRESULT = windows_core::HRESULT(0x803E0117_u32 as _);
+pub const WPN_E_ALL_URL_NOT_COMPLETED: windows_core::HRESULT = windows_core::HRESULT(0x803E0203_u32 as _);
+pub const WPN_E_CALLBACK_ALREADY_REGISTERED: windows_core::HRESULT = windows_core::HRESULT(0x803E0206_u32 as _);
+pub const WPN_E_CHANNEL_CLOSED: windows_core::HRESULT = windows_core::HRESULT(0x803E0100_u32 as _);
+pub const WPN_E_CHANNEL_REQUEST_NOT_COMPLETE: windows_core::HRESULT = windows_core::HRESULT(0x803E0101_u32 as _);
+pub const WPN_E_CLOUD_AUTH_UNAVAILABLE: windows_core::HRESULT = windows_core::HRESULT(0x803E011A_u32 as _);
+pub const WPN_E_CLOUD_DISABLED: windows_core::HRESULT = windows_core::HRESULT(0x803E0109_u32 as _);
+pub const WPN_E_CLOUD_DISABLED_FOR_APP: windows_core::HRESULT = windows_core::HRESULT(0x803E020B_u32 as _);
+pub const WPN_E_CLOUD_INCAPABLE: windows_core::HRESULT = windows_core::HRESULT(0x803E0110_u32 as _);
+pub const WPN_E_CLOUD_SERVICE_UNAVAILABLE: windows_core::HRESULT = windows_core::HRESULT(0x803E011B_u32 as _);
+pub const WPN_E_DEV_ID_SIZE: windows_core::HRESULT = windows_core::HRESULT(0x803E0120_u32 as _);
+pub const WPN_E_DUPLICATE_CHANNEL: windows_core::HRESULT = windows_core::HRESULT(0x803E0104_u32 as _);
+pub const WPN_E_DUPLICATE_REGISTRATION: windows_core::HRESULT = windows_core::HRESULT(0x803E0118_u32 as _);
+pub const WPN_E_FAILED_LOCK_SCREEN_UPDATE_INTIALIZATION: windows_core::HRESULT = windows_core::HRESULT(0x803E011C_u32 as _);
+pub const WPN_E_GROUP_ALPHANUMERIC: windows_core::HRESULT = windows_core::HRESULT(0x803E020A_u32 as _);
+pub const WPN_E_GROUP_SIZE: windows_core::HRESULT = windows_core::HRESULT(0x803E0209_u32 as _);
+pub const WPN_E_IMAGE_NOT_FOUND_IN_CACHE: windows_core::HRESULT = windows_core::HRESULT(0x803E0202_u32 as _);
+pub const WPN_E_INTERNET_INCAPABLE: windows_core::HRESULT = windows_core::HRESULT(0x803E0113_u32 as _);
+pub const WPN_E_INVALID_APP: windows_core::HRESULT = windows_core::HRESULT(0x803E0102_u32 as _);
+pub const WPN_E_INVALID_CLOUD_IMAGE: windows_core::HRESULT = windows_core::HRESULT(0x803E0204_u32 as _);
+pub const WPN_E_INVALID_HTTP_STATUS_CODE: windows_core::HRESULT = windows_core::HRESULT(0x803E012B_u32 as _);
+pub const WPN_E_NOTIFICATION_DISABLED: windows_core::HRESULT = windows_core::HRESULT(0x803E0111_u32 as _);
+pub const WPN_E_NOTIFICATION_HIDDEN: windows_core::HRESULT = windows_core::HRESULT(0x803E0107_u32 as _);
+pub const WPN_E_NOTIFICATION_ID_MATCHED: windows_core::HRESULT = windows_core::HRESULT(0x803E0205_u32 as _);
+pub const WPN_E_NOTIFICATION_INCAPABLE: windows_core::HRESULT = windows_core::HRESULT(0x803E0112_u32 as _);
+pub const WPN_E_NOTIFICATION_NOT_POSTED: windows_core::HRESULT = windows_core::HRESULT(0x803E0108_u32 as _);
+pub const WPN_E_NOTIFICATION_POSTED: windows_core::HRESULT = windows_core::HRESULT(0x803E0106_u32 as _);
+pub const WPN_E_NOTIFICATION_SIZE: windows_core::HRESULT = windows_core::HRESULT(0x803E0115_u32 as _);
+pub const WPN_E_NOTIFICATION_TYPE_DISABLED: windows_core::HRESULT = windows_core::HRESULT(0x803E0114_u32 as _);
+pub const WPN_E_OUTSTANDING_CHANNEL_REQUEST: windows_core::HRESULT = windows_core::HRESULT(0x803E0103_u32 as _);
+pub const WPN_E_OUT_OF_SESSION: windows_core::HRESULT = windows_core::HRESULT(0x803E0200_u32 as _);
+pub const WPN_E_PLATFORM_UNAVAILABLE: windows_core::HRESULT = windows_core::HRESULT(0x803E0105_u32 as _);
+pub const WPN_E_POWER_SAVE: windows_core::HRESULT = windows_core::HRESULT(0x803E0201_u32 as _);
+pub const WPN_E_PUSH_NOTIFICATION_INCAPABLE: windows_core::HRESULT = windows_core::HRESULT(0x803E0119_u32 as _);
+pub const WPN_E_STORAGE_LOCKED: windows_core::HRESULT = windows_core::HRESULT(0x803E0208_u32 as _);
+pub const WPN_E_TAG_ALPHANUMERIC: windows_core::HRESULT = windows_core::HRESULT(0x803E012A_u32 as _);
+pub const WPN_E_TAG_SIZE: windows_core::HRESULT = windows_core::HRESULT(0x803E0116_u32 as _);
+pub const WPN_E_TOAST_NOTIFICATION_DROPPED: windows_core::HRESULT = windows_core::HRESULT(0x803E0207_u32 as _);
+pub const WS_E_ADDRESS_IN_USE: windows_core::HRESULT = windows_core::HRESULT(0x803D000B_u32 as _);
+pub const WS_E_ADDRESS_NOT_AVAILABLE: windows_core::HRESULT = windows_core::HRESULT(0x803D000C_u32 as _);
+pub const WS_E_ENDPOINT_ACCESS_DENIED: windows_core::HRESULT = windows_core::HRESULT(0x803D0005_u32 as _);
+pub const WS_E_ENDPOINT_ACTION_NOT_SUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x803D0011_u32 as _);
+pub const WS_E_ENDPOINT_DISCONNECTED: windows_core::HRESULT = windows_core::HRESULT(0x803D0014_u32 as _);
+pub const WS_E_ENDPOINT_FAILURE: windows_core::HRESULT = windows_core::HRESULT(0x803D000F_u32 as _);
+pub const WS_E_ENDPOINT_FAULT_RECEIVED: windows_core::HRESULT = windows_core::HRESULT(0x803D0013_u32 as _);
+pub const WS_E_ENDPOINT_NOT_AVAILABLE: windows_core::HRESULT = windows_core::HRESULT(0x803D000E_u32 as _);
+pub const WS_E_ENDPOINT_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0x803D000D_u32 as _);
+pub const WS_E_ENDPOINT_TOO_BUSY: windows_core::HRESULT = windows_core::HRESULT(0x803D0012_u32 as _);
+pub const WS_E_ENDPOINT_UNREACHABLE: windows_core::HRESULT = windows_core::HRESULT(0x803D0010_u32 as _);
+pub const WS_E_INVALID_ENDPOINT_URL: windows_core::HRESULT = windows_core::HRESULT(0x803D0020_u32 as _);
+pub const WS_E_INVALID_FORMAT: windows_core::HRESULT = windows_core::HRESULT(0x803D0000_u32 as _);
+pub const WS_E_INVALID_OPERATION: windows_core::HRESULT = windows_core::HRESULT(0x803D0003_u32 as _);
+pub const WS_E_NOT_SUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x803D0017_u32 as _);
+pub const WS_E_NO_TRANSLATION_AVAILABLE: windows_core::HRESULT = windows_core::HRESULT(0x803D0009_u32 as _);
+pub const WS_E_NUMERIC_OVERFLOW: windows_core::HRESULT = windows_core::HRESULT(0x803D0002_u32 as _);
+pub const WS_E_OBJECT_FAULTED: windows_core::HRESULT = windows_core::HRESULT(0x803D0001_u32 as _);
+pub const WS_E_OPERATION_ABANDONED: windows_core::HRESULT = windows_core::HRESULT(0x803D0007_u32 as _);
+pub const WS_E_OPERATION_ABORTED: windows_core::HRESULT = windows_core::HRESULT(0x803D0004_u32 as _);
+pub const WS_E_OPERATION_TIMED_OUT: windows_core::HRESULT = windows_core::HRESULT(0x803D0006_u32 as _);
+pub const WS_E_OTHER: windows_core::HRESULT = windows_core::HRESULT(0x803D0021_u32 as _);
+pub const WS_E_PROXY_ACCESS_DENIED: windows_core::HRESULT = windows_core::HRESULT(0x803D0016_u32 as _);
+pub const WS_E_PROXY_FAILURE: windows_core::HRESULT = windows_core::HRESULT(0x803D0015_u32 as _);
+pub const WS_E_PROXY_REQUIRES_BASIC_AUTH: windows_core::HRESULT = windows_core::HRESULT(0x803D0018_u32 as _);
+pub const WS_E_PROXY_REQUIRES_DIGEST_AUTH: windows_core::HRESULT = windows_core::HRESULT(0x803D0019_u32 as _);
+pub const WS_E_PROXY_REQUIRES_NEGOTIATE_AUTH: windows_core::HRESULT = windows_core::HRESULT(0x803D001B_u32 as _);
+pub const WS_E_PROXY_REQUIRES_NTLM_AUTH: windows_core::HRESULT = windows_core::HRESULT(0x803D001A_u32 as _);
+pub const WS_E_QUOTA_EXCEEDED: windows_core::HRESULT = windows_core::HRESULT(0x803D0008_u32 as _);
+pub const WS_E_SECURITY_SYSTEM_FAILURE: windows_core::HRESULT = windows_core::HRESULT(0x803D0023_u32 as _);
+pub const WS_E_SECURITY_TOKEN_EXPIRED: windows_core::HRESULT = windows_core::HRESULT(0x803D0022_u32 as _);
+pub const WS_E_SECURITY_VERIFICATION_FAILURE: windows_core::HRESULT = windows_core::HRESULT(0x803D000A_u32 as _);
+pub const WS_E_SERVER_REQUIRES_BASIC_AUTH: windows_core::HRESULT = windows_core::HRESULT(0x803D001C_u32 as _);
+pub const WS_E_SERVER_REQUIRES_DIGEST_AUTH: windows_core::HRESULT = windows_core::HRESULT(0x803D001D_u32 as _);
+pub const WS_E_SERVER_REQUIRES_NEGOTIATE_AUTH: windows_core::HRESULT = windows_core::HRESULT(0x803D001F_u32 as _);
+pub const WS_E_SERVER_REQUIRES_NTLM_AUTH: windows_core::HRESULT = windows_core::HRESULT(0x803D001E_u32 as _);
+pub const WS_S_ASYNC: windows_core::HRESULT = windows_core::HRESULT(0x3D0000_u32 as _);
+pub const WS_S_END: windows_core::HRESULT = windows_core::HRESULT(0x3D0001_u32 as _);
+pub const XACT_E_ABORTED: windows_core::HRESULT = windows_core::HRESULT(0x8004D019_u32 as _);
+pub const XACT_E_ABORTING: windows_core::HRESULT = windows_core::HRESULT(0x8004D029_u32 as _);
+pub const XACT_E_ALREADYINPROGRESS: windows_core::HRESULT = windows_core::HRESULT(0x8004D018_u32 as _);
+pub const XACT_E_ALREADYOTHERSINGLEPHASE: windows_core::HRESULT = windows_core::HRESULT(0x8004D000_u32 as _);
+pub const XACT_E_CANTRETAIN: windows_core::HRESULT = windows_core::HRESULT(0x8004D001_u32 as _);
+pub const XACT_E_CLERKEXISTS: windows_core::HRESULT = windows_core::HRESULT(0x8004D081_u32 as _);
+pub const XACT_E_CLERKNOTFOUND: windows_core::HRESULT = windows_core::HRESULT(0x8004D080_u32 as _);
+pub const XACT_E_COMMITFAILED: windows_core::HRESULT = windows_core::HRESULT(0x8004D002_u32 as _);
+pub const XACT_E_COMMITPREVENTED: windows_core::HRESULT = windows_core::HRESULT(0x8004D003_u32 as _);
+pub const XACT_E_CONNECTION_DENIED: windows_core::HRESULT = windows_core::HRESULT(0x8004D01D_u32 as _);
+pub const XACT_E_CONNECTION_DOWN: windows_core::HRESULT = windows_core::HRESULT(0x8004D01C_u32 as _);
+pub const XACT_E_DEST_TMNOTAVAILABLE: windows_core::HRESULT = windows_core::HRESULT(0x8004D022_u32 as _);
 pub const XACT_E_FIRST: u32 = 2147799040u32;
-pub const XACT_E_HEURISTICABORT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004D004_u32 as _);
-pub const XACT_E_HEURISTICCOMMIT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004D005_u32 as _);
-pub const XACT_E_HEURISTICDAMAGE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004D006_u32 as _);
-pub const XACT_E_HEURISTICDANGER: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004D007_u32 as _);
-pub const XACT_E_INDOUBT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004D016_u32 as _);
-pub const XACT_E_INVALIDCOOKIE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004D015_u32 as _);
-pub const XACT_E_INVALIDLSN: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004D084_u32 as _);
-pub const XACT_E_ISOLATIONLEVEL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004D008_u32 as _);
+pub const XACT_E_HEURISTICABORT: windows_core::HRESULT = windows_core::HRESULT(0x8004D004_u32 as _);
+pub const XACT_E_HEURISTICCOMMIT: windows_core::HRESULT = windows_core::HRESULT(0x8004D005_u32 as _);
+pub const XACT_E_HEURISTICDAMAGE: windows_core::HRESULT = windows_core::HRESULT(0x8004D006_u32 as _);
+pub const XACT_E_HEURISTICDANGER: windows_core::HRESULT = windows_core::HRESULT(0x8004D007_u32 as _);
+pub const XACT_E_INDOUBT: windows_core::HRESULT = windows_core::HRESULT(0x8004D016_u32 as _);
+pub const XACT_E_INVALIDCOOKIE: windows_core::HRESULT = windows_core::HRESULT(0x8004D015_u32 as _);
+pub const XACT_E_INVALIDLSN: windows_core::HRESULT = windows_core::HRESULT(0x8004D084_u32 as _);
+pub const XACT_E_ISOLATIONLEVEL: windows_core::HRESULT = windows_core::HRESULT(0x8004D008_u32 as _);
 pub const XACT_E_LAST: u32 = 2147799083u32;
-pub const XACT_E_LOGFULL: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004D01A_u32 as _);
-pub const XACT_E_LU_TX_DISABLED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004D02C_u32 as _);
-pub const XACT_E_NETWORK_TX_DISABLED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004D024_u32 as _);
-pub const XACT_E_NOASYNC: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004D009_u32 as _);
-pub const XACT_E_NOENLIST: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004D00A_u32 as _);
-pub const XACT_E_NOIMPORTOBJECT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004D014_u32 as _);
-pub const XACT_E_NOISORETAIN: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004D00B_u32 as _);
-pub const XACT_E_NORESOURCE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004D00C_u32 as _);
-pub const XACT_E_NOTCURRENT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004D00D_u32 as _);
-pub const XACT_E_NOTIMEOUT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004D017_u32 as _);
-pub const XACT_E_NOTRANSACTION: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004D00E_u32 as _);
-pub const XACT_E_NOTSUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004D00F_u32 as _);
-pub const XACT_E_PARTNER_NETWORK_TX_DISABLED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004D025_u32 as _);
-pub const XACT_E_PULL_COMM_FAILURE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004D02B_u32 as _);
-pub const XACT_E_PUSH_COMM_FAILURE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004D02A_u32 as _);
-pub const XACT_E_RECOVERYINPROGRESS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004D082_u32 as _);
-pub const XACT_E_REENLISTTIMEOUT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004D01E_u32 as _);
-pub const XACT_E_REPLAYREQUEST: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004D085_u32 as _);
-pub const XACT_E_TIP_CONNECT_FAILED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004D01F_u32 as _);
-pub const XACT_E_TIP_DISABLED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004D023_u32 as _);
-pub const XACT_E_TIP_PROTOCOL_ERROR: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004D020_u32 as _);
-pub const XACT_E_TIP_PULL_FAILED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004D021_u32 as _);
-pub const XACT_E_TMNOTAVAILABLE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004D01B_u32 as _);
-pub const XACT_E_TRANSACTIONCLOSED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004D083_u32 as _);
-pub const XACT_E_UNABLE_TO_LOAD_DTC_PROXY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004D028_u32 as _);
-pub const XACT_E_UNABLE_TO_READ_DTC_CONFIG: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004D027_u32 as _);
-pub const XACT_E_UNKNOWNRMGRID: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004D010_u32 as _);
-pub const XACT_E_WRONGSTATE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004D011_u32 as _);
-pub const XACT_E_WRONGUOW: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004D012_u32 as _);
-pub const XACT_E_XA_TX_DISABLED: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004D026_u32 as _);
-pub const XACT_E_XTIONEXISTS: ::windows_core::HRESULT = ::windows_core::HRESULT(0x8004D013_u32 as _);
-pub const XACT_S_ABORTING: ::windows_core::HRESULT = ::windows_core::HRESULT(0x4D008_u32 as _);
-pub const XACT_S_ALLNORETAIN: ::windows_core::HRESULT = ::windows_core::HRESULT(0x4D007_u32 as _);
-pub const XACT_S_ASYNC: ::windows_core::HRESULT = ::windows_core::HRESULT(0x4D000_u32 as _);
-pub const XACT_S_DEFECT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x4D001_u32 as _);
+pub const XACT_E_LOGFULL: windows_core::HRESULT = windows_core::HRESULT(0x8004D01A_u32 as _);
+pub const XACT_E_LU_TX_DISABLED: windows_core::HRESULT = windows_core::HRESULT(0x8004D02C_u32 as _);
+pub const XACT_E_NETWORK_TX_DISABLED: windows_core::HRESULT = windows_core::HRESULT(0x8004D024_u32 as _);
+pub const XACT_E_NOASYNC: windows_core::HRESULT = windows_core::HRESULT(0x8004D009_u32 as _);
+pub const XACT_E_NOENLIST: windows_core::HRESULT = windows_core::HRESULT(0x8004D00A_u32 as _);
+pub const XACT_E_NOIMPORTOBJECT: windows_core::HRESULT = windows_core::HRESULT(0x8004D014_u32 as _);
+pub const XACT_E_NOISORETAIN: windows_core::HRESULT = windows_core::HRESULT(0x8004D00B_u32 as _);
+pub const XACT_E_NORESOURCE: windows_core::HRESULT = windows_core::HRESULT(0x8004D00C_u32 as _);
+pub const XACT_E_NOTCURRENT: windows_core::HRESULT = windows_core::HRESULT(0x8004D00D_u32 as _);
+pub const XACT_E_NOTIMEOUT: windows_core::HRESULT = windows_core::HRESULT(0x8004D017_u32 as _);
+pub const XACT_E_NOTRANSACTION: windows_core::HRESULT = windows_core::HRESULT(0x8004D00E_u32 as _);
+pub const XACT_E_NOTSUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x8004D00F_u32 as _);
+pub const XACT_E_PARTNER_NETWORK_TX_DISABLED: windows_core::HRESULT = windows_core::HRESULT(0x8004D025_u32 as _);
+pub const XACT_E_PULL_COMM_FAILURE: windows_core::HRESULT = windows_core::HRESULT(0x8004D02B_u32 as _);
+pub const XACT_E_PUSH_COMM_FAILURE: windows_core::HRESULT = windows_core::HRESULT(0x8004D02A_u32 as _);
+pub const XACT_E_RECOVERYINPROGRESS: windows_core::HRESULT = windows_core::HRESULT(0x8004D082_u32 as _);
+pub const XACT_E_REENLISTTIMEOUT: windows_core::HRESULT = windows_core::HRESULT(0x8004D01E_u32 as _);
+pub const XACT_E_REPLAYREQUEST: windows_core::HRESULT = windows_core::HRESULT(0x8004D085_u32 as _);
+pub const XACT_E_TIP_CONNECT_FAILED: windows_core::HRESULT = windows_core::HRESULT(0x8004D01F_u32 as _);
+pub const XACT_E_TIP_DISABLED: windows_core::HRESULT = windows_core::HRESULT(0x8004D023_u32 as _);
+pub const XACT_E_TIP_PROTOCOL_ERROR: windows_core::HRESULT = windows_core::HRESULT(0x8004D020_u32 as _);
+pub const XACT_E_TIP_PULL_FAILED: windows_core::HRESULT = windows_core::HRESULT(0x8004D021_u32 as _);
+pub const XACT_E_TMNOTAVAILABLE: windows_core::HRESULT = windows_core::HRESULT(0x8004D01B_u32 as _);
+pub const XACT_E_TRANSACTIONCLOSED: windows_core::HRESULT = windows_core::HRESULT(0x8004D083_u32 as _);
+pub const XACT_E_UNABLE_TO_LOAD_DTC_PROXY: windows_core::HRESULT = windows_core::HRESULT(0x8004D028_u32 as _);
+pub const XACT_E_UNABLE_TO_READ_DTC_CONFIG: windows_core::HRESULT = windows_core::HRESULT(0x8004D027_u32 as _);
+pub const XACT_E_UNKNOWNRMGRID: windows_core::HRESULT = windows_core::HRESULT(0x8004D010_u32 as _);
+pub const XACT_E_WRONGSTATE: windows_core::HRESULT = windows_core::HRESULT(0x8004D011_u32 as _);
+pub const XACT_E_WRONGUOW: windows_core::HRESULT = windows_core::HRESULT(0x8004D012_u32 as _);
+pub const XACT_E_XA_TX_DISABLED: windows_core::HRESULT = windows_core::HRESULT(0x8004D026_u32 as _);
+pub const XACT_E_XTIONEXISTS: windows_core::HRESULT = windows_core::HRESULT(0x8004D013_u32 as _);
+pub const XACT_S_ABORTING: windows_core::HRESULT = windows_core::HRESULT(0x4D008_u32 as _);
+pub const XACT_S_ALLNORETAIN: windows_core::HRESULT = windows_core::HRESULT(0x4D007_u32 as _);
+pub const XACT_S_ASYNC: windows_core::HRESULT = windows_core::HRESULT(0x4D000_u32 as _);
+pub const XACT_S_DEFECT: windows_core::HRESULT = windows_core::HRESULT(0x4D001_u32 as _);
 pub const XACT_S_FIRST: u32 = 315392u32;
 pub const XACT_S_LAST: u32 = 315408u32;
-pub const XACT_S_LASTRESOURCEMANAGER: ::windows_core::HRESULT = ::windows_core::HRESULT(0x4D010_u32 as _);
-pub const XACT_S_LOCALLY_OK: ::windows_core::HRESULT = ::windows_core::HRESULT(0x4D00A_u32 as _);
-pub const XACT_S_MADECHANGESCONTENT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x4D005_u32 as _);
-pub const XACT_S_MADECHANGESINFORM: ::windows_core::HRESULT = ::windows_core::HRESULT(0x4D006_u32 as _);
-pub const XACT_S_OKINFORM: ::windows_core::HRESULT = ::windows_core::HRESULT(0x4D004_u32 as _);
-pub const XACT_S_READONLY: ::windows_core::HRESULT = ::windows_core::HRESULT(0x4D002_u32 as _);
-pub const XACT_S_SINGLEPHASE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x4D009_u32 as _);
-pub const XACT_S_SOMENORETAIN: ::windows_core::HRESULT = ::windows_core::HRESULT(0x4D003_u32 as _);
-pub const XENROLL_E_CANNOT_ADD_ROOT_CERT: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80095001_u32 as _);
-pub const XENROLL_E_KEYSPEC_SMIME_MISMATCH: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80095005_u32 as _);
-pub const XENROLL_E_KEY_NOT_EXPORTABLE: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80095000_u32 as _);
-pub const XENROLL_E_RESPONSE_KA_HASH_MISMATCH: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80095004_u32 as _);
-pub const XENROLL_E_RESPONSE_KA_HASH_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80095002_u32 as _);
-pub const XENROLL_E_RESPONSE_UNEXPECTED_KA_HASH: ::windows_core::HRESULT = ::windows_core::HRESULT(0x80095003_u32 as _);
+pub const XACT_S_LASTRESOURCEMANAGER: windows_core::HRESULT = windows_core::HRESULT(0x4D010_u32 as _);
+pub const XACT_S_LOCALLY_OK: windows_core::HRESULT = windows_core::HRESULT(0x4D00A_u32 as _);
+pub const XACT_S_MADECHANGESCONTENT: windows_core::HRESULT = windows_core::HRESULT(0x4D005_u32 as _);
+pub const XACT_S_MADECHANGESINFORM: windows_core::HRESULT = windows_core::HRESULT(0x4D006_u32 as _);
+pub const XACT_S_OKINFORM: windows_core::HRESULT = windows_core::HRESULT(0x4D004_u32 as _);
+pub const XACT_S_READONLY: windows_core::HRESULT = windows_core::HRESULT(0x4D002_u32 as _);
+pub const XACT_S_SINGLEPHASE: windows_core::HRESULT = windows_core::HRESULT(0x4D009_u32 as _);
+pub const XACT_S_SOMENORETAIN: windows_core::HRESULT = windows_core::HRESULT(0x4D003_u32 as _);
+pub const XENROLL_E_CANNOT_ADD_ROOT_CERT: windows_core::HRESULT = windows_core::HRESULT(0x80095001_u32 as _);
+pub const XENROLL_E_KEYSPEC_SMIME_MISMATCH: windows_core::HRESULT = windows_core::HRESULT(0x80095005_u32 as _);
+pub const XENROLL_E_KEY_NOT_EXPORTABLE: windows_core::HRESULT = windows_core::HRESULT(0x80095000_u32 as _);
+pub const XENROLL_E_RESPONSE_KA_HASH_MISMATCH: windows_core::HRESULT = windows_core::HRESULT(0x80095004_u32 as _);
+pub const XENROLL_E_RESPONSE_KA_HASH_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0x80095002_u32 as _);
+pub const XENROLL_E_RESPONSE_UNEXPECTED_KA_HASH: windows_core::HRESULT = windows_core::HRESULT(0x80095003_u32 as _);
 pub const _WIN32_IE_MAXVER: u32 = 2560u32;
 pub const _WIN32_MAXVER: u32 = 2560u32;
 pub const _WIN32_WINDOWS_MAXVER: u32 = 2560u32;
 pub const _WIN32_WINNT_MAXVER: u32 = 2560u32;
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DUPLICATE_HANDLE_OPTIONS(pub u32);
-impl ::windows_core::TypeKind for DUPLICATE_HANDLE_OPTIONS {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for DUPLICATE_HANDLE_OPTIONS {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for DUPLICATE_HANDLE_OPTIONS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for DUPLICATE_HANDLE_OPTIONS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("DUPLICATE_HANDLE_OPTIONS").field(&self.0).finish()
     }
 }
@@ -10341,42 +10341,42 @@ impl DUPLICATE_HANDLE_OPTIONS {
         self.0 & other.0 == other.0
     }
 }
-impl ::core::ops::BitOr for DUPLICATE_HANDLE_OPTIONS {
+impl core::ops::BitOr for DUPLICATE_HANDLE_OPTIONS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
         Self(self.0 | other.0)
     }
 }
-impl ::core::ops::BitAnd for DUPLICATE_HANDLE_OPTIONS {
+impl core::ops::BitAnd for DUPLICATE_HANDLE_OPTIONS {
     type Output = Self;
     fn bitand(self, other: Self) -> Self {
         Self(self.0 & other.0)
     }
 }
-impl ::core::ops::BitOrAssign for DUPLICATE_HANDLE_OPTIONS {
+impl core::ops::BitOrAssign for DUPLICATE_HANDLE_OPTIONS {
     fn bitor_assign(&mut self, other: Self) {
         self.0.bitor_assign(other.0)
     }
 }
-impl ::core::ops::BitAndAssign for DUPLICATE_HANDLE_OPTIONS {
+impl core::ops::BitAndAssign for DUPLICATE_HANDLE_OPTIONS {
     fn bitand_assign(&mut self, other: Self) {
         self.0.bitand_assign(other.0)
     }
 }
-impl ::core::ops::Not for DUPLICATE_HANDLE_OPTIONS {
+impl core::ops::Not for DUPLICATE_HANDLE_OPTIONS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct GENERIC_ACCESS_RIGHTS(pub u32);
-impl ::windows_core::TypeKind for GENERIC_ACCESS_RIGHTS {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for GENERIC_ACCESS_RIGHTS {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for GENERIC_ACCESS_RIGHTS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for GENERIC_ACCESS_RIGHTS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("GENERIC_ACCESS_RIGHTS").field(&self.0).finish()
     }
 }
@@ -10385,42 +10385,42 @@ impl GENERIC_ACCESS_RIGHTS {
         self.0 & other.0 == other.0
     }
 }
-impl ::core::ops::BitOr for GENERIC_ACCESS_RIGHTS {
+impl core::ops::BitOr for GENERIC_ACCESS_RIGHTS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
         Self(self.0 | other.0)
     }
 }
-impl ::core::ops::BitAnd for GENERIC_ACCESS_RIGHTS {
+impl core::ops::BitAnd for GENERIC_ACCESS_RIGHTS {
     type Output = Self;
     fn bitand(self, other: Self) -> Self {
         Self(self.0 & other.0)
     }
 }
-impl ::core::ops::BitOrAssign for GENERIC_ACCESS_RIGHTS {
+impl core::ops::BitOrAssign for GENERIC_ACCESS_RIGHTS {
     fn bitor_assign(&mut self, other: Self) {
         self.0.bitor_assign(other.0)
     }
 }
-impl ::core::ops::BitAndAssign for GENERIC_ACCESS_RIGHTS {
+impl core::ops::BitAndAssign for GENERIC_ACCESS_RIGHTS {
     fn bitand_assign(&mut self, other: Self) {
         self.0.bitand_assign(other.0)
     }
 }
-impl ::core::ops::Not for GENERIC_ACCESS_RIGHTS {
+impl core::ops::Not for GENERIC_ACCESS_RIGHTS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct HANDLE_FLAGS(pub u32);
-impl ::windows_core::TypeKind for HANDLE_FLAGS {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for HANDLE_FLAGS {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for HANDLE_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for HANDLE_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("HANDLE_FLAGS").field(&self.0).finish()
     }
 }
@@ -10429,76 +10429,76 @@ impl HANDLE_FLAGS {
         self.0 & other.0 == other.0
     }
 }
-impl ::core::ops::BitOr for HANDLE_FLAGS {
+impl core::ops::BitOr for HANDLE_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
         Self(self.0 | other.0)
     }
 }
-impl ::core::ops::BitAnd for HANDLE_FLAGS {
+impl core::ops::BitAnd for HANDLE_FLAGS {
     type Output = Self;
     fn bitand(self, other: Self) -> Self {
         Self(self.0 & other.0)
     }
 }
-impl ::core::ops::BitOrAssign for HANDLE_FLAGS {
+impl core::ops::BitOrAssign for HANDLE_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
         self.0.bitor_assign(other.0)
     }
 }
-impl ::core::ops::BitAndAssign for HANDLE_FLAGS {
+impl core::ops::BitAndAssign for HANDLE_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
         self.0.bitand_assign(other.0)
     }
 }
-impl ::core::ops::Not for HANDLE_FLAGS {
+impl core::ops::Not for HANDLE_FLAGS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct NTSTATUS_FACILITY_CODE(pub u32);
-impl ::windows_core::TypeKind for NTSTATUS_FACILITY_CODE {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for NTSTATUS_FACILITY_CODE {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for NTSTATUS_FACILITY_CODE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for NTSTATUS_FACILITY_CODE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("NTSTATUS_FACILITY_CODE").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct NTSTATUS_SEVERITY_CODE(pub u32);
-impl ::windows_core::TypeKind for NTSTATUS_SEVERITY_CODE {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for NTSTATUS_SEVERITY_CODE {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for NTSTATUS_SEVERITY_CODE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for NTSTATUS_SEVERITY_CODE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("NTSTATUS_SEVERITY_CODE").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct WAIT_EVENT(pub u32);
-impl ::windows_core::TypeKind for WAIT_EVENT {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for WAIT_EVENT {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for WAIT_EVENT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for WAIT_EVENT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("WAIT_EVENT").field(&self.0).finish()
     }
 }
 #[must_use]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct WIN32_ERROR(pub u32);
-impl ::windows_core::TypeKind for WIN32_ERROR {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for WIN32_ERROR {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for WIN32_ERROR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for WIN32_ERROR {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("WIN32_ERROR").field(&self.0).finish()
     }
 }
@@ -10506,97 +10506,97 @@ impl ::core::fmt::Debug for WIN32_ERROR {
 pub struct APP_LOCAL_DEVICE_ID {
     pub value: [u8; 32],
 }
-impl ::core::marker::Copy for APP_LOCAL_DEVICE_ID {}
-impl ::core::clone::Clone for APP_LOCAL_DEVICE_ID {
+impl Copy for APP_LOCAL_DEVICE_ID {}
+impl Clone for APP_LOCAL_DEVICE_ID {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for APP_LOCAL_DEVICE_ID {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for APP_LOCAL_DEVICE_ID {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("APP_LOCAL_DEVICE_ID").field("value", &self.value).finish()
     }
 }
-impl ::windows_core::TypeKind for APP_LOCAL_DEVICE_ID {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for APP_LOCAL_DEVICE_ID {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for APP_LOCAL_DEVICE_ID {
+impl PartialEq for APP_LOCAL_DEVICE_ID {
     fn eq(&self, other: &Self) -> bool {
         self.value == other.value
     }
 }
-impl ::core::cmp::Eq for APP_LOCAL_DEVICE_ID {}
-impl ::core::default::Default for APP_LOCAL_DEVICE_ID {
+impl Eq for APP_LOCAL_DEVICE_ID {}
+impl Default for APP_LOCAL_DEVICE_ID {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[must_use]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(PartialEq, Eq)]
 pub struct BOOL(pub i32);
-impl ::core::default::Default for BOOL {
+impl Default for BOOL {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
-impl ::core::clone::Clone for BOOL {
+impl Clone for BOOL {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::marker::Copy for BOOL {}
-impl ::core::fmt::Debug for BOOL {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl Copy for BOOL {}
+impl core::fmt::Debug for BOOL {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("BOOL").field(&self.0).finish()
     }
 }
-impl ::windows_core::TypeKind for BOOL {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for BOOL {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(PartialEq, Eq)]
 pub struct BOOLEAN(pub u8);
-impl ::core::default::Default for BOOLEAN {
+impl Default for BOOLEAN {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
-impl ::core::clone::Clone for BOOLEAN {
+impl Clone for BOOLEAN {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::marker::Copy for BOOLEAN {}
-impl ::core::fmt::Debug for BOOLEAN {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl Copy for BOOLEAN {}
+impl core::fmt::Debug for BOOLEAN {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("BOOLEAN").field(&self.0).finish()
     }
 }
-impl ::windows_core::TypeKind for BOOLEAN {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for BOOLEAN {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(PartialEq, Eq)]
 pub struct COLORREF(pub u32);
-impl ::core::default::Default for COLORREF {
+impl Default for COLORREF {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
-impl ::core::clone::Clone for COLORREF {
+impl Clone for COLORREF {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::marker::Copy for COLORREF {}
-impl ::core::fmt::Debug for COLORREF {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl Copy for COLORREF {}
+impl core::fmt::Debug for COLORREF {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("COLORREF").field(&self.0).finish()
     }
 }
-impl ::windows_core::TypeKind for COLORREF {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for COLORREF {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 pub struct DECIMAL {
@@ -10605,18 +10605,18 @@ pub struct DECIMAL {
     pub Hi32: u32,
     pub Anonymous2: DECIMAL_1,
 }
-impl ::core::marker::Copy for DECIMAL {}
-impl ::core::clone::Clone for DECIMAL {
+impl Copy for DECIMAL {}
+impl Clone for DECIMAL {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::windows_core::TypeKind for DECIMAL {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for DECIMAL {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::default::Default for DECIMAL {
+impl Default for DECIMAL {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -10624,18 +10624,18 @@ pub union DECIMAL_0 {
     pub Anonymous: DECIMAL_0_0,
     pub signscale: u16,
 }
-impl ::core::marker::Copy for DECIMAL_0 {}
-impl ::core::clone::Clone for DECIMAL_0 {
+impl Copy for DECIMAL_0 {}
+impl Clone for DECIMAL_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::windows_core::TypeKind for DECIMAL_0 {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for DECIMAL_0 {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::default::Default for DECIMAL_0 {
+impl Default for DECIMAL_0 {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -10643,29 +10643,29 @@ pub struct DECIMAL_0_0 {
     pub scale: u8,
     pub sign: u8,
 }
-impl ::core::marker::Copy for DECIMAL_0_0 {}
-impl ::core::clone::Clone for DECIMAL_0_0 {
+impl Copy for DECIMAL_0_0 {}
+impl Clone for DECIMAL_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for DECIMAL_0_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for DECIMAL_0_0 {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("DECIMAL_0_0").field("scale", &self.scale).field("sign", &self.sign).finish()
     }
 }
-impl ::windows_core::TypeKind for DECIMAL_0_0 {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for DECIMAL_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for DECIMAL_0_0 {
+impl PartialEq for DECIMAL_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self.scale == other.scale && self.sign == other.sign
     }
 }
-impl ::core::cmp::Eq for DECIMAL_0_0 {}
-impl ::core::default::Default for DECIMAL_0_0 {
+impl Eq for DECIMAL_0_0 {}
+impl Default for DECIMAL_0_0 {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -10673,18 +10673,18 @@ pub union DECIMAL_1 {
     pub Anonymous: DECIMAL_1_0,
     pub Lo64: u64,
 }
-impl ::core::marker::Copy for DECIMAL_1 {}
-impl ::core::clone::Clone for DECIMAL_1 {
+impl Copy for DECIMAL_1 {}
+impl Clone for DECIMAL_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::windows_core::TypeKind for DECIMAL_1 {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for DECIMAL_1 {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::default::Default for DECIMAL_1 {
+impl Default for DECIMAL_1 {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -10692,29 +10692,29 @@ pub struct DECIMAL_1_0 {
     pub Lo32: u32,
     pub Mid32: u32,
 }
-impl ::core::marker::Copy for DECIMAL_1_0 {}
-impl ::core::clone::Clone for DECIMAL_1_0 {
+impl Copy for DECIMAL_1_0 {}
+impl Clone for DECIMAL_1_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for DECIMAL_1_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for DECIMAL_1_0 {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("DECIMAL_1_0").field("Lo32", &self.Lo32).field("Mid32", &self.Mid32).finish()
     }
 }
-impl ::windows_core::TypeKind for DECIMAL_1_0 {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for DECIMAL_1_0 {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for DECIMAL_1_0 {
+impl PartialEq for DECIMAL_1_0 {
     fn eq(&self, other: &Self) -> bool {
         self.Lo32 == other.Lo32 && self.Mid32 == other.Mid32
     }
 }
-impl ::core::cmp::Eq for DECIMAL_1_0 {}
-impl ::core::default::Default for DECIMAL_1_0 {
+impl Eq for DECIMAL_1_0 {}
+impl Default for DECIMAL_1_0 {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -10722,29 +10722,29 @@ pub struct FILETIME {
     pub dwLowDateTime: u32,
     pub dwHighDateTime: u32,
 }
-impl ::core::marker::Copy for FILETIME {}
-impl ::core::clone::Clone for FILETIME {
+impl Copy for FILETIME {}
+impl Clone for FILETIME {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for FILETIME {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for FILETIME {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("FILETIME").field("dwLowDateTime", &self.dwLowDateTime).field("dwHighDateTime", &self.dwHighDateTime).finish()
     }
 }
-impl ::windows_core::TypeKind for FILETIME {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for FILETIME {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for FILETIME {
+impl PartialEq for FILETIME {
     fn eq(&self, other: &Self) -> bool {
         self.dwLowDateTime == other.dwLowDateTime && self.dwHighDateTime == other.dwHighDateTime
     }
 }
-impl ::core::cmp::Eq for FILETIME {}
-impl ::core::default::Default for FILETIME {
+impl Eq for FILETIME {}
+impl Default for FILETIME {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -10752,468 +10752,468 @@ pub struct FLOAT128 {
     pub LowPart: i64,
     pub HighPart: i64,
 }
-impl ::core::marker::Copy for FLOAT128 {}
-impl ::core::clone::Clone for FLOAT128 {
+impl Copy for FLOAT128 {}
+impl Clone for FLOAT128 {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for FLOAT128 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for FLOAT128 {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("FLOAT128").field("LowPart", &self.LowPart).field("HighPart", &self.HighPart).finish()
     }
 }
-impl ::windows_core::TypeKind for FLOAT128 {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for FLOAT128 {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for FLOAT128 {
+impl PartialEq for FLOAT128 {
     fn eq(&self, other: &Self) -> bool {
         self.LowPart == other.LowPart && self.HighPart == other.HighPart
     }
 }
-impl ::core::cmp::Eq for FLOAT128 {}
-impl ::core::default::Default for FLOAT128 {
+impl Eq for FLOAT128 {}
+impl Default for FLOAT128 {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(PartialEq, Eq)]
 pub struct HANDLE(pub isize);
 impl HANDLE {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 || self.0 == 0
     }
 }
-impl ::core::default::Default for HANDLE {
+impl Default for HANDLE {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
-impl ::core::clone::Clone for HANDLE {
+impl Clone for HANDLE {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::marker::Copy for HANDLE {}
-impl ::core::fmt::Debug for HANDLE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl Copy for HANDLE {}
+impl core::fmt::Debug for HANDLE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("HANDLE").field(&self.0).finish()
     }
 }
-impl ::windows_core::TypeKind for HANDLE {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for HANDLE {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(PartialEq, Eq)]
 pub struct HANDLE_PTR(pub usize);
-impl ::core::default::Default for HANDLE_PTR {
+impl Default for HANDLE_PTR {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
-impl ::core::clone::Clone for HANDLE_PTR {
+impl Clone for HANDLE_PTR {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::marker::Copy for HANDLE_PTR {}
-impl ::core::fmt::Debug for HANDLE_PTR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl Copy for HANDLE_PTR {}
+impl core::fmt::Debug for HANDLE_PTR {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("HANDLE_PTR").field(&self.0).finish()
     }
 }
-impl ::windows_core::TypeKind for HANDLE_PTR {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for HANDLE_PTR {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct HGLOBAL(pub *mut ::core::ffi::c_void);
+#[derive(PartialEq, Eq)]
+pub struct HGLOBAL(pub *mut core::ffi::c_void);
 impl HGLOBAL {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-impl ::core::default::Default for HGLOBAL {
+impl Default for HGLOBAL {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
-impl ::core::clone::Clone for HGLOBAL {
+impl Clone for HGLOBAL {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::marker::Copy for HGLOBAL {}
-impl ::core::fmt::Debug for HGLOBAL {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl Copy for HGLOBAL {}
+impl core::fmt::Debug for HGLOBAL {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("HGLOBAL").field(&self.0).finish()
     }
 }
-impl ::windows_core::TypeKind for HGLOBAL {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for HGLOBAL {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(PartialEq, Eq)]
 pub struct HINSTANCE(pub isize);
 impl HINSTANCE {
     pub fn is_invalid(&self) -> bool {
         self.0 == 0
     }
 }
-impl ::core::default::Default for HINSTANCE {
+impl Default for HINSTANCE {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
-impl ::core::clone::Clone for HINSTANCE {
+impl Clone for HINSTANCE {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::marker::Copy for HINSTANCE {}
-impl ::core::fmt::Debug for HINSTANCE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl Copy for HINSTANCE {}
+impl core::fmt::Debug for HINSTANCE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("HINSTANCE").field(&self.0).finish()
     }
 }
-impl ::windows_core::TypeKind for HINSTANCE {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for HINSTANCE {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::windows_core::CanInto<HMODULE> for HINSTANCE {}
-impl ::core::convert::From<HINSTANCE> for HMODULE {
+impl windows_core::CanInto<HMODULE> for HINSTANCE {}
+impl From<HINSTANCE> for HMODULE {
     fn from(value: HINSTANCE) -> Self {
         Self(value.0)
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct HLOCAL(pub *mut ::core::ffi::c_void);
+#[derive(PartialEq, Eq)]
+pub struct HLOCAL(pub *mut core::ffi::c_void);
 impl HLOCAL {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-impl ::core::default::Default for HLOCAL {
+impl Default for HLOCAL {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
-impl ::core::clone::Clone for HLOCAL {
+impl Clone for HLOCAL {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::marker::Copy for HLOCAL {}
-impl ::core::fmt::Debug for HLOCAL {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl Copy for HLOCAL {}
+impl core::fmt::Debug for HLOCAL {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("HLOCAL").field(&self.0).finish()
     }
 }
-impl ::windows_core::TypeKind for HLOCAL {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for HLOCAL {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(PartialEq, Eq)]
 pub struct HLSURF(pub isize);
-impl ::core::default::Default for HLSURF {
+impl Default for HLSURF {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
-impl ::core::clone::Clone for HLSURF {
+impl Clone for HLSURF {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::marker::Copy for HLSURF {}
-impl ::core::fmt::Debug for HLSURF {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl Copy for HLSURF {}
+impl core::fmt::Debug for HLSURF {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("HLSURF").field(&self.0).finish()
     }
 }
-impl ::windows_core::TypeKind for HLSURF {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for HLSURF {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(PartialEq, Eq)]
 pub struct HMODULE(pub isize);
 impl HMODULE {
     pub fn is_invalid(&self) -> bool {
         self.0 == 0
     }
 }
-impl ::core::default::Default for HMODULE {
+impl Default for HMODULE {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
-impl ::core::clone::Clone for HMODULE {
+impl Clone for HMODULE {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::marker::Copy for HMODULE {}
-impl ::core::fmt::Debug for HMODULE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl Copy for HMODULE {}
+impl core::fmt::Debug for HMODULE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("HMODULE").field(&self.0).finish()
     }
 }
-impl ::windows_core::TypeKind for HMODULE {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for HMODULE {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::windows_core::CanInto<HINSTANCE> for HMODULE {}
-impl ::core::convert::From<HMODULE> for HINSTANCE {
+impl windows_core::CanInto<HINSTANCE> for HMODULE {}
+impl From<HMODULE> for HINSTANCE {
     fn from(value: HMODULE) -> Self {
         Self(value.0)
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(PartialEq, Eq)]
 pub struct HRSRC(pub isize);
 impl HRSRC {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 || self.0 == 0
     }
 }
-impl ::core::default::Default for HRSRC {
+impl Default for HRSRC {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
-impl ::core::clone::Clone for HRSRC {
+impl Clone for HRSRC {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::marker::Copy for HRSRC {}
-impl ::core::fmt::Debug for HRSRC {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl Copy for HRSRC {}
+impl core::fmt::Debug for HRSRC {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("HRSRC").field(&self.0).finish()
     }
 }
-impl ::windows_core::TypeKind for HRSRC {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for HRSRC {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(PartialEq, Eq)]
 pub struct HSPRITE(pub isize);
-impl ::core::default::Default for HSPRITE {
+impl Default for HSPRITE {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
-impl ::core::clone::Clone for HSPRITE {
+impl Clone for HSPRITE {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::marker::Copy for HSPRITE {}
-impl ::core::fmt::Debug for HSPRITE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl Copy for HSPRITE {}
+impl core::fmt::Debug for HSPRITE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("HSPRITE").field(&self.0).finish()
     }
 }
-impl ::windows_core::TypeKind for HSPRITE {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for HSPRITE {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(PartialEq, Eq)]
 pub struct HSTR(pub isize);
-impl ::core::default::Default for HSTR {
+impl Default for HSTR {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
-impl ::core::clone::Clone for HSTR {
+impl Clone for HSTR {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::marker::Copy for HSTR {}
-impl ::core::fmt::Debug for HSTR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl Copy for HSTR {}
+impl core::fmt::Debug for HSTR {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("HSTR").field(&self.0).finish()
     }
 }
-impl ::windows_core::TypeKind for HSTR {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for HSTR {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(PartialEq, Eq)]
 pub struct HUMPD(pub isize);
-impl ::core::default::Default for HUMPD {
+impl Default for HUMPD {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
-impl ::core::clone::Clone for HUMPD {
+impl Clone for HUMPD {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::marker::Copy for HUMPD {}
-impl ::core::fmt::Debug for HUMPD {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl Copy for HUMPD {}
+impl core::fmt::Debug for HUMPD {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("HUMPD").field(&self.0).finish()
     }
 }
-impl ::windows_core::TypeKind for HUMPD {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for HUMPD {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(PartialEq, Eq)]
 pub struct HWND(pub isize);
-impl ::core::default::Default for HWND {
+impl Default for HWND {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
-impl ::core::clone::Clone for HWND {
+impl Clone for HWND {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::marker::Copy for HWND {}
-impl ::core::fmt::Debug for HWND {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl Copy for HWND {}
+impl core::fmt::Debug for HWND {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("HWND").field(&self.0).finish()
     }
 }
-impl ::windows_core::TypeKind for HWND {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for HWND {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::windows_core::CanInto<HANDLE> for HWND {}
-impl ::core::convert::From<HWND> for HANDLE {
+impl windows_core::CanInto<HANDLE> for HWND {}
+impl From<HWND> for HANDLE {
     fn from(value: HWND) -> Self {
         Self(value.0)
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(PartialEq, Eq)]
 pub struct LPARAM(pub isize);
-impl ::core::default::Default for LPARAM {
+impl Default for LPARAM {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
-impl ::core::clone::Clone for LPARAM {
+impl Clone for LPARAM {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::marker::Copy for LPARAM {}
-impl ::core::fmt::Debug for LPARAM {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl Copy for LPARAM {}
+impl core::fmt::Debug for LPARAM {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("LPARAM").field(&self.0).finish()
     }
 }
-impl ::windows_core::TypeKind for LPARAM {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for LPARAM {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(PartialEq, Eq)]
 pub struct LRESULT(pub isize);
-impl ::core::default::Default for LRESULT {
+impl Default for LRESULT {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
-impl ::core::clone::Clone for LRESULT {
+impl Clone for LRESULT {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::marker::Copy for LRESULT {}
-impl ::core::fmt::Debug for LRESULT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl Copy for LRESULT {}
+impl core::fmt::Debug for LRESULT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("LRESULT").field(&self.0).finish()
     }
 }
-impl ::windows_core::TypeKind for LRESULT {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for LRESULT {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 pub struct LUID {
     pub LowPart: u32,
     pub HighPart: i32,
 }
-impl ::core::marker::Copy for LUID {}
-impl ::core::clone::Clone for LUID {
+impl Copy for LUID {}
+impl Clone for LUID {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for LUID {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for LUID {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("LUID").field("LowPart", &self.LowPart).field("HighPart", &self.HighPart).finish()
     }
 }
-impl ::windows_core::TypeKind for LUID {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for LUID {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for LUID {
+impl PartialEq for LUID {
     fn eq(&self, other: &Self) -> bool {
         self.LowPart == other.LowPart && self.HighPart == other.HighPart
     }
 }
-impl ::core::cmp::Eq for LUID {}
-impl ::core::default::Default for LUID {
+impl Eq for LUID {}
+impl Default for LUID {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[must_use]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(PartialEq, Eq)]
 pub struct NTSTATUS(pub i32);
-impl ::core::default::Default for NTSTATUS {
+impl Default for NTSTATUS {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
-impl ::core::clone::Clone for NTSTATUS {
+impl Clone for NTSTATUS {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::marker::Copy for NTSTATUS {}
-impl ::core::fmt::Debug for NTSTATUS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl Copy for NTSTATUS {}
+impl core::fmt::Debug for NTSTATUS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("NTSTATUS").field(&self.0).finish()
     }
 }
-impl ::windows_core::TypeKind for NTSTATUS {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for NTSTATUS {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 pub struct POINT {
     pub x: i32,
     pub y: i32,
 }
-impl ::core::marker::Copy for POINT {}
-impl ::core::clone::Clone for POINT {
+impl Copy for POINT {}
+impl Clone for POINT {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for POINT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for POINT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("POINT").field("x", &self.x).field("y", &self.y).finish()
     }
 }
-impl ::windows_core::TypeKind for POINT {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for POINT {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for POINT {
+impl PartialEq for POINT {
     fn eq(&self, other: &Self) -> bool {
         self.x == other.x && self.y == other.y
     }
 }
-impl ::core::cmp::Eq for POINT {}
-impl ::core::default::Default for POINT {
+impl Eq for POINT {}
+impl Default for POINT {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -11221,29 +11221,29 @@ pub struct POINTL {
     pub x: i32,
     pub y: i32,
 }
-impl ::core::marker::Copy for POINTL {}
-impl ::core::clone::Clone for POINTL {
+impl Copy for POINTL {}
+impl Clone for POINTL {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for POINTL {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for POINTL {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("POINTL").field("x", &self.x).field("y", &self.y).finish()
     }
 }
-impl ::windows_core::TypeKind for POINTL {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for POINTL {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for POINTL {
+impl PartialEq for POINTL {
     fn eq(&self, other: &Self) -> bool {
         self.x == other.x && self.y == other.y
     }
 }
-impl ::core::cmp::Eq for POINTL {}
-impl ::core::default::Default for POINTL {
+impl Eq for POINTL {}
+impl Default for POINTL {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -11251,57 +11251,57 @@ pub struct POINTS {
     pub x: i16,
     pub y: i16,
 }
-impl ::core::marker::Copy for POINTS {}
-impl ::core::clone::Clone for POINTS {
+impl Copy for POINTS {}
+impl Clone for POINTS {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for POINTS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for POINTS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("POINTS").field("x", &self.x).field("y", &self.y).finish()
     }
 }
-impl ::windows_core::TypeKind for POINTS {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for POINTS {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for POINTS {
+impl PartialEq for POINTS {
     fn eq(&self, other: &Self) -> bool {
         self.x == other.x && self.y == other.y
     }
 }
-impl ::core::cmp::Eq for POINTS {}
-impl ::core::default::Default for POINTS {
+impl Eq for POINTS {}
+impl Default for POINTS {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PSID(pub *mut ::core::ffi::c_void);
+#[derive(PartialEq, Eq)]
+pub struct PSID(pub *mut core::ffi::c_void);
 impl PSID {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-impl ::core::default::Default for PSID {
+impl Default for PSID {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
-impl ::core::clone::Clone for PSID {
+impl Clone for PSID {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::marker::Copy for PSID {}
-impl ::core::fmt::Debug for PSID {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl Copy for PSID {}
+impl core::fmt::Debug for PSID {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("PSID").field(&self.0).finish()
     }
 }
-impl ::windows_core::TypeKind for PSID {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for PSID {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 pub struct RECT {
@@ -11310,29 +11310,29 @@ pub struct RECT {
     pub right: i32,
     pub bottom: i32,
 }
-impl ::core::marker::Copy for RECT {}
-impl ::core::clone::Clone for RECT {
+impl Copy for RECT {}
+impl Clone for RECT {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for RECT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for RECT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("RECT").field("left", &self.left).field("top", &self.top).field("right", &self.right).field("bottom", &self.bottom).finish()
     }
 }
-impl ::windows_core::TypeKind for RECT {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for RECT {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for RECT {
+impl PartialEq for RECT {
     fn eq(&self, other: &Self) -> bool {
         self.left == other.left && self.top == other.top && self.right == other.right && self.bottom == other.bottom
     }
 }
-impl ::core::cmp::Eq for RECT {}
-impl ::core::default::Default for RECT {
+impl Eq for RECT {}
+impl Default for RECT {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -11342,81 +11342,81 @@ pub struct RECTL {
     pub right: i32,
     pub bottom: i32,
 }
-impl ::core::marker::Copy for RECTL {}
-impl ::core::clone::Clone for RECTL {
+impl Copy for RECTL {}
+impl Clone for RECTL {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for RECTL {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for RECTL {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("RECTL").field("left", &self.left).field("top", &self.top).field("right", &self.right).field("bottom", &self.bottom).finish()
     }
 }
-impl ::windows_core::TypeKind for RECTL {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for RECTL {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for RECTL {
+impl PartialEq for RECTL {
     fn eq(&self, other: &Self) -> bool {
         self.left == other.left && self.top == other.top && self.right == other.right && self.bottom == other.bottom
     }
 }
-impl ::core::cmp::Eq for RECTL {}
-impl ::core::default::Default for RECTL {
+impl Eq for RECTL {}
+impl Default for RECTL {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(PartialEq, Eq)]
 pub struct SHANDLE_PTR(pub isize);
-impl ::core::default::Default for SHANDLE_PTR {
+impl Default for SHANDLE_PTR {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
-impl ::core::clone::Clone for SHANDLE_PTR {
+impl Clone for SHANDLE_PTR {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::marker::Copy for SHANDLE_PTR {}
-impl ::core::fmt::Debug for SHANDLE_PTR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl Copy for SHANDLE_PTR {}
+impl core::fmt::Debug for SHANDLE_PTR {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("SHANDLE_PTR").field(&self.0).finish()
     }
 }
-impl ::windows_core::TypeKind for SHANDLE_PTR {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for SHANDLE_PTR {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 pub struct SIZE {
     pub cx: i32,
     pub cy: i32,
 }
-impl ::core::marker::Copy for SIZE {}
-impl ::core::clone::Clone for SIZE {
+impl Copy for SIZE {}
+impl Clone for SIZE {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for SIZE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for SIZE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("SIZE").field("cx", &self.cx).field("cy", &self.cy).finish()
     }
 }
-impl ::windows_core::TypeKind for SIZE {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for SIZE {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for SIZE {
+impl PartialEq for SIZE {
     fn eq(&self, other: &Self) -> bool {
         self.cx == other.cx && self.cy == other.cy
     }
 }
-impl ::core::cmp::Eq for SIZE {}
-impl ::core::default::Default for SIZE {
+impl Eq for SIZE {}
+impl Default for SIZE {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -11430,121 +11430,121 @@ pub struct SYSTEMTIME {
     pub wSecond: u16,
     pub wMilliseconds: u16,
 }
-impl ::core::marker::Copy for SYSTEMTIME {}
-impl ::core::clone::Clone for SYSTEMTIME {
+impl Copy for SYSTEMTIME {}
+impl Clone for SYSTEMTIME {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for SYSTEMTIME {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for SYSTEMTIME {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("SYSTEMTIME").field("wYear", &self.wYear).field("wMonth", &self.wMonth).field("wDayOfWeek", &self.wDayOfWeek).field("wDay", &self.wDay).field("wHour", &self.wHour).field("wMinute", &self.wMinute).field("wSecond", &self.wSecond).field("wMilliseconds", &self.wMilliseconds).finish()
     }
 }
-impl ::windows_core::TypeKind for SYSTEMTIME {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for SYSTEMTIME {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for SYSTEMTIME {
+impl PartialEq for SYSTEMTIME {
     fn eq(&self, other: &Self) -> bool {
         self.wYear == other.wYear && self.wMonth == other.wMonth && self.wDayOfWeek == other.wDayOfWeek && self.wDay == other.wDay && self.wHour == other.wHour && self.wMinute == other.wMinute && self.wSecond == other.wSecond && self.wMilliseconds == other.wMilliseconds
     }
 }
-impl ::core::cmp::Eq for SYSTEMTIME {}
-impl ::core::default::Default for SYSTEMTIME {
+impl Eq for SYSTEMTIME {}
+impl Default for SYSTEMTIME {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 pub struct UNICODE_STRING {
     pub Length: u16,
     pub MaximumLength: u16,
-    pub Buffer: ::windows_core::PWSTR,
+    pub Buffer: windows_core::PWSTR,
 }
-impl ::core::marker::Copy for UNICODE_STRING {}
-impl ::core::clone::Clone for UNICODE_STRING {
+impl Copy for UNICODE_STRING {}
+impl Clone for UNICODE_STRING {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for UNICODE_STRING {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for UNICODE_STRING {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("UNICODE_STRING").field("Length", &self.Length).field("MaximumLength", &self.MaximumLength).field("Buffer", &self.Buffer).finish()
     }
 }
-impl ::windows_core::TypeKind for UNICODE_STRING {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for UNICODE_STRING {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for UNICODE_STRING {
+impl PartialEq for UNICODE_STRING {
     fn eq(&self, other: &Self) -> bool {
         self.Length == other.Length && self.MaximumLength == other.MaximumLength && self.Buffer == other.Buffer
     }
 }
-impl ::core::cmp::Eq for UNICODE_STRING {}
-impl ::core::default::Default for UNICODE_STRING {
+impl Eq for UNICODE_STRING {}
+impl Default for UNICODE_STRING {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(PartialEq, Eq)]
 pub struct VARIANT_BOOL(pub i16);
-impl ::core::default::Default for VARIANT_BOOL {
+impl Default for VARIANT_BOOL {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
-impl ::core::clone::Clone for VARIANT_BOOL {
+impl Clone for VARIANT_BOOL {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::marker::Copy for VARIANT_BOOL {}
-impl ::core::fmt::Debug for VARIANT_BOOL {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl Copy for VARIANT_BOOL {}
+impl core::fmt::Debug for VARIANT_BOOL {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("VARIANT_BOOL").field(&self.0).finish()
     }
 }
-impl ::windows_core::TypeKind for VARIANT_BOOL {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for VARIANT_BOOL {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(PartialEq, Eq)]
 pub struct WPARAM(pub usize);
-impl ::core::default::Default for WPARAM {
+impl Default for WPARAM {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
-impl ::core::clone::Clone for WPARAM {
+impl Clone for WPARAM {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::marker::Copy for WPARAM {}
-impl ::core::fmt::Debug for WPARAM {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl Copy for WPARAM {}
+impl core::fmt::Debug for WPARAM {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("WPARAM").field(&self.0).finish()
     }
 }
-impl ::windows_core::TypeKind for WPARAM {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for WPARAM {
+    type TypeKind = windows_core::CopyType;
 }
-pub type FARPROC = ::core::option::Option<unsafe extern "system" fn() -> isize>;
-pub type NEARPROC = ::core::option::Option<unsafe extern "system" fn() -> isize>;
-pub type PAPCFUNC = ::core::option::Option<unsafe extern "system" fn(parameter: usize)>;
-pub type PROC = ::core::option::Option<unsafe extern "system" fn() -> isize>;
+pub type FARPROC = Option<unsafe extern "system" fn() -> isize>;
+pub type NEARPROC = Option<unsafe extern "system" fn() -> isize>;
+pub type PAPCFUNC = Option<unsafe extern "system" fn(parameter: usize)>;
+pub type PROC = Option<unsafe extern "system" fn() -> isize>;
 impl BOOL {
     #[inline]
     pub fn as_bool(self) -> bool {
         self.0 != 0
     }
     #[inline]
-    pub fn ok(self) -> ::windows_core::Result<()> {
+    pub fn ok(self) -> windows_core::Result<()> {
         if self.as_bool() {
             Ok(())
         } else {
-            Err(::windows_core::Error::from_win32())
+            Err(windows_core::Error::from_win32())
         }
     }
     #[inline]
@@ -11558,17 +11558,17 @@ impl BOOL {
         self.ok().expect(msg);
     }
 }
-impl ::core::convert::From<BOOL> for bool {
+impl From<BOOL> for bool {
     fn from(value: BOOL) -> Self {
         value.as_bool()
     }
 }
-impl ::core::convert::From<&BOOL> for bool {
+impl From<&BOOL> for bool {
     fn from(value: &BOOL) -> Self {
         value.as_bool()
     }
 }
-impl ::core::convert::From<bool> for BOOL {
+impl From<bool> for BOOL {
     fn from(value: bool) -> Self {
         if value {
             Self(1)
@@ -11577,22 +11577,22 @@ impl ::core::convert::From<bool> for BOOL {
         }
     }
 }
-impl ::core::convert::From<&bool> for BOOL {
+impl From<&bool> for BOOL {
     fn from(value: &bool) -> Self {
         (*value).into()
     }
 }
-impl ::core::cmp::PartialEq<bool> for BOOL {
+impl PartialEq<bool> for BOOL {
     fn eq(&self, other: &bool) -> bool {
         self.as_bool() == *other
     }
 }
-impl ::core::cmp::PartialEq<BOOL> for bool {
+impl PartialEq<BOOL> for bool {
     fn eq(&self, other: &BOOL) -> bool {
         *self == other.as_bool()
     }
 }
-impl ::core::ops::Not for BOOL {
+impl core::ops::Not for BOOL {
     type Output = Self;
     fn not(self) -> Self::Output {
         if self.as_bool() {
@@ -11602,9 +11602,9 @@ impl ::core::ops::Not for BOOL {
         }
     }
 }
-impl ::windows_core::IntoParam<BOOL> for bool {
-    unsafe fn into_param(self) -> ::windows_core::Param<BOOL> {
-        ::windows_core::Param::Owned(self.into())
+impl windows_core::IntoParam<BOOL> for bool {
+    unsafe fn into_param(self) -> windows_core::Param<BOOL> {
+        windows_core::Param::Owned(self.into())
     }
 }
 impl BOOLEAN {
@@ -11613,11 +11613,11 @@ impl BOOLEAN {
         self.0 != 0
     }
     #[inline]
-    pub fn ok(self) -> ::windows_core::Result<()> {
+    pub fn ok(self) -> windows_core::Result<()> {
         if self.as_bool() {
             Ok(())
         } else {
-            Err(::windows_core::Error::from_win32())
+            Err(windows_core::Error::from_win32())
         }
     }
     #[inline]
@@ -11631,17 +11631,17 @@ impl BOOLEAN {
         self.ok().expect(msg);
     }
 }
-impl ::core::convert::From<BOOLEAN> for bool {
+impl From<BOOLEAN> for bool {
     fn from(value: BOOLEAN) -> Self {
         value.as_bool()
     }
 }
-impl ::core::convert::From<&BOOLEAN> for bool {
+impl From<&BOOLEAN> for bool {
     fn from(value: &BOOLEAN) -> Self {
         value.as_bool()
     }
 }
-impl ::core::convert::From<bool> for BOOLEAN {
+impl From<bool> for BOOLEAN {
     fn from(value: bool) -> Self {
         if value {
             Self(1)
@@ -11650,22 +11650,22 @@ impl ::core::convert::From<bool> for BOOLEAN {
         }
     }
 }
-impl ::core::convert::From<&bool> for BOOLEAN {
+impl From<&bool> for BOOLEAN {
     fn from(value: &bool) -> Self {
         (*value).into()
     }
 }
-impl ::core::cmp::PartialEq<bool> for BOOLEAN {
+impl PartialEq<bool> for BOOLEAN {
     fn eq(&self, other: &bool) -> bool {
         self.as_bool() == *other
     }
 }
-impl ::core::cmp::PartialEq<BOOLEAN> for bool {
+impl PartialEq<BOOLEAN> for bool {
     fn eq(&self, other: &BOOLEAN) -> bool {
         *self == other.as_bool()
     }
 }
-impl ::core::ops::Not for BOOLEAN {
+impl core::ops::Not for BOOLEAN {
     type Output = Self;
     fn not(self) -> Self::Output {
         if self.as_bool() {
@@ -11675,9 +11675,9 @@ impl ::core::ops::Not for BOOLEAN {
         }
     }
 }
-impl ::windows_core::IntoParam<BOOLEAN> for bool {
-    unsafe fn into_param(self) -> ::windows_core::Param<BOOLEAN> {
-        ::windows_core::Param::Owned(self.into())
+impl windows_core::IntoParam<BOOLEAN> for bool {
+    unsafe fn into_param(self) -> windows_core::Param<BOOLEAN> {
+        windows_core::Param::Owned(self.into())
     }
 }
 impl NTSTATUS {
@@ -11690,11 +11690,11 @@ impl NTSTATUS {
         !self.is_ok()
     }
     #[inline]
-    pub const fn to_hresult(self) -> ::windows_core::HRESULT {
-        ::windows_core::HRESULT::from_nt(self.0)
+    pub const fn to_hresult(self) -> windows_core::HRESULT {
+        windows_core::HRESULT::from_nt(self.0)
     }
     #[inline]
-    pub fn ok(self) -> ::windows_core::Result<()> {
+    pub fn ok(self) -> windows_core::Result<()> {
         if self.is_ok() {
             Ok(())
         } else {
@@ -11702,12 +11702,12 @@ impl NTSTATUS {
         }
     }
 }
-impl ::core::convert::From<NTSTATUS> for ::windows_core::HRESULT {
+impl From<NTSTATUS> for windows_core::HRESULT {
     fn from(value: NTSTATUS) -> Self {
         value.to_hresult()
     }
 }
-impl ::core::convert::From<NTSTATUS> for ::windows_core::Error {
+impl From<NTSTATUS> for windows_core::Error {
     fn from(value: NTSTATUS) -> Self {
         value.to_hresult().into()
     }
@@ -11718,11 +11718,11 @@ impl VARIANT_BOOL {
         self.0 != 0
     }
     #[inline]
-    pub fn ok(self) -> ::windows_core::Result<()> {
+    pub fn ok(self) -> windows_core::Result<()> {
         if self.as_bool() {
             Ok(())
         } else {
-            Err(::windows_core::Error::from_win32())
+            Err(windows_core::Error::from_win32())
         }
     }
     #[inline]
@@ -11736,17 +11736,17 @@ impl VARIANT_BOOL {
         self.ok().expect(msg);
     }
 }
-impl ::core::convert::From<VARIANT_BOOL> for bool {
+impl From<VARIANT_BOOL> for bool {
     fn from(value: VARIANT_BOOL) -> Self {
         value.as_bool()
     }
 }
-impl ::core::convert::From<&VARIANT_BOOL> for bool {
+impl From<&VARIANT_BOOL> for bool {
     fn from(value: &VARIANT_BOOL) -> Self {
         value.as_bool()
     }
 }
-impl ::core::convert::From<bool> for VARIANT_BOOL {
+impl From<bool> for VARIANT_BOOL {
     fn from(value: bool) -> Self {
         if value {
             VARIANT_TRUE
@@ -11755,22 +11755,22 @@ impl ::core::convert::From<bool> for VARIANT_BOOL {
         }
     }
 }
-impl ::core::convert::From<&bool> for VARIANT_BOOL {
+impl From<&bool> for VARIANT_BOOL {
     fn from(value: &bool) -> Self {
         (*value).into()
     }
 }
-impl ::core::cmp::PartialEq<bool> for VARIANT_BOOL {
+impl PartialEq<bool> for VARIANT_BOOL {
     fn eq(&self, other: &bool) -> bool {
         self.as_bool() == *other
     }
 }
-impl ::core::cmp::PartialEq<VARIANT_BOOL> for bool {
+impl PartialEq<VARIANT_BOOL> for bool {
     fn eq(&self, other: &VARIANT_BOOL) -> bool {
         *self == other.as_bool()
     }
 }
-impl ::core::ops::Not for VARIANT_BOOL {
+impl core::ops::Not for VARIANT_BOOL {
     type Output = Self;
     fn not(self) -> Self::Output {
         if self.as_bool() {
@@ -11790,11 +11790,11 @@ impl WIN32_ERROR {
         !self.is_ok()
     }
     #[inline]
-    pub const fn to_hresult(self) -> ::windows_core::HRESULT {
-        ::windows_core::HRESULT::from_win32(self.0)
+    pub const fn to_hresult(self) -> windows_core::HRESULT {
+        windows_core::HRESULT::from_win32(self.0)
     }
     #[inline]
-    pub fn from_error(error: &::windows_core::Error) -> ::core::option::Option<Self> {
+    pub fn from_error(error: &windows_core::Error) -> Option<Self> {
         let hresult = error.code().0 as u32;
         if ((hresult >> 16) & 0x7FF) == 7 {
             Some(Self(hresult & 0xFFFF))
@@ -11803,7 +11803,7 @@ impl WIN32_ERROR {
         }
     }
     #[inline]
-    pub fn ok(self) -> ::windows_core::Result<()> {
+    pub fn ok(self) -> windows_core::Result<()> {
         if self.is_ok() {
             Ok(())
         } else {
@@ -11811,12 +11811,12 @@ impl WIN32_ERROR {
         }
     }
 }
-impl ::core::convert::From<WIN32_ERROR> for ::windows_core::HRESULT {
+impl From<WIN32_ERROR> for windows_core::HRESULT {
     fn from(value: WIN32_ERROR) -> Self {
         value.to_hresult()
     }
 }
-impl ::core::convert::From<WIN32_ERROR> for ::windows_core::Error {
+impl From<WIN32_ERROR> for windows_core::Error {
     fn from(value: WIN32_ERROR) -> Self {
         value.to_hresult().into()
     }

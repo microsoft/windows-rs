@@ -5,24 +5,24 @@ pub mod Dialogs;
 #[cfg(feature = "Win32_Graphics_Gdi")]
 ::windows_targets::link!("uxtheme.dll" "system" fn BeginBufferedPaint(hdctarget : super::super::Graphics::Gdi:: HDC, prctarget : *const super::super::Foundation:: RECT, dwformat : BP_BUFFERFORMAT, ppaintparams : *const BP_PAINTPARAMS, phdc : *mut super::super::Graphics::Gdi:: HDC) -> isize);
 ::windows_targets::link!("uxtheme.dll" "system" fn BeginPanningFeedback(hwnd : super::super::Foundation:: HWND) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("uxtheme.dll" "system" fn BufferedPaintClear(hbufferedpaint : isize, prc : *const super::super::Foundation:: RECT) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("uxtheme.dll" "system" fn BufferedPaintInit() -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("uxtheme.dll" "system" fn BufferedPaintClear(hbufferedpaint : isize, prc : *const super::super::Foundation:: RECT) -> windows_sys::core::HRESULT);
+::windows_targets::link!("uxtheme.dll" "system" fn BufferedPaintInit() -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Graphics_Gdi")]
 ::windows_targets::link!("uxtheme.dll" "system" fn BufferedPaintRenderAnimation(hwnd : super::super::Foundation:: HWND, hdctarget : super::super::Graphics::Gdi:: HDC) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("uxtheme.dll" "system" fn BufferedPaintSetAlpha(hbufferedpaint : isize, prc : *const super::super::Foundation:: RECT, alpha : u8) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("uxtheme.dll" "system" fn BufferedPaintStopAllAnimations(hwnd : super::super::Foundation:: HWND) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("uxtheme.dll" "system" fn BufferedPaintUnInit() -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("uxtheme.dll" "system" fn BufferedPaintSetAlpha(hbufferedpaint : isize, prc : *const super::super::Foundation:: RECT, alpha : u8) -> windows_sys::core::HRESULT);
+::windows_targets::link!("uxtheme.dll" "system" fn BufferedPaintStopAllAnimations(hwnd : super::super::Foundation:: HWND) -> windows_sys::core::HRESULT);
+::windows_targets::link!("uxtheme.dll" "system" fn BufferedPaintUnInit() -> windows_sys::core::HRESULT);
 ::windows_targets::link!("user32.dll" "system" fn CheckDlgButton(hdlg : super::super::Foundation:: HWND, nidbutton : i32, ucheck : DLG_BUTTON_CHECK_STATE) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("user32.dll" "system" fn CheckRadioButton(hdlg : super::super::Foundation:: HWND, nidfirstbutton : i32, nidlastbutton : i32, nidcheckbutton : i32) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("uxtheme.dll" "system" fn CloseThemeData(htheme : HTHEME) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("uxtheme.dll" "system" fn CloseThemeData(htheme : HTHEME) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Graphics_Gdi")]
 ::windows_targets::link!("comctl32.dll" "system" fn CreateMappedBitmap(hinstance : super::super::Foundation:: HINSTANCE, idbitmap : isize, wflags : u32, lpcolormap : *const COLORMAP, inummaps : i32) -> super::super::Graphics::Gdi:: HBITMAP);
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 ::windows_targets::link!("comctl32.dll" "system" fn CreatePropertySheetPageA(constpropsheetpagepointer : *mut PROPSHEETPAGEA) -> HPROPSHEETPAGE);
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 ::windows_targets::link!("comctl32.dll" "system" fn CreatePropertySheetPageW(constpropsheetpagepointer : *mut PROPSHEETPAGEW) -> HPROPSHEETPAGE);
-::windows_targets::link!("comctl32.dll" "system" fn CreateStatusWindowA(style : i32, lpsztext : ::windows_sys::core::PCSTR, hwndparent : super::super::Foundation:: HWND, wid : u32) -> super::super::Foundation:: HWND);
-::windows_targets::link!("comctl32.dll" "system" fn CreateStatusWindowW(style : i32, lpsztext : ::windows_sys::core::PCWSTR, hwndparent : super::super::Foundation:: HWND, wid : u32) -> super::super::Foundation:: HWND);
+::windows_targets::link!("comctl32.dll" "system" fn CreateStatusWindowA(style : i32, lpsztext : windows_sys::core::PCSTR, hwndparent : super::super::Foundation:: HWND, wid : u32) -> super::super::Foundation:: HWND);
+::windows_targets::link!("comctl32.dll" "system" fn CreateStatusWindowW(style : i32, lpsztext : windows_sys::core::PCWSTR, hwndparent : super::super::Foundation:: HWND, wid : u32) -> super::super::Foundation:: HWND);
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 ::windows_targets::link!("user32.dll" "system" fn CreateSyntheticPointerDevice(pointertype : super::WindowsAndMessaging:: POINTER_INPUT_TYPE, maxcount : u32, mode : POINTER_FEEDBACK_MODE) -> HSYNTHETICPOINTERDEVICE);
 ::windows_targets::link!("comctl32.dll" "system" fn CreateToolbarEx(hwnd : super::super::Foundation:: HWND, ws : u32, wid : u32, nbitmaps : i32, hbminst : super::super::Foundation:: HINSTANCE, wbmid : usize, lpbuttons : *mut TBBUTTON, inumbuttons : i32, dxbutton : i32, dybutton : i32, dxbitmap : i32, dybitmap : i32, ustructsize : u32) -> super::super::Foundation:: HWND);
@@ -31,72 +31,72 @@ pub mod Dialogs;
 ::windows_targets::link!("comctl32.dll" "system" fn DPA_Create(citemgrow : i32) -> HDPA);
 ::windows_targets::link!("comctl32.dll" "system" fn DPA_CreateEx(cpgrow : i32, hheap : super::super::Foundation:: HANDLE) -> HDPA);
 ::windows_targets::link!("comctl32.dll" "system" fn DPA_DeleteAllPtrs(hdpa : HDPA) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("comctl32.dll" "system" fn DPA_DeletePtr(hdpa : HDPA, i : i32) -> *mut ::core::ffi::c_void);
+::windows_targets::link!("comctl32.dll" "system" fn DPA_DeletePtr(hdpa : HDPA, i : i32) -> *mut core::ffi::c_void);
 ::windows_targets::link!("comctl32.dll" "system" fn DPA_Destroy(hdpa : HDPA) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("comctl32.dll" "system" fn DPA_DestroyCallback(hdpa : HDPA, pfncb : PFNDAENUMCALLBACK, pdata : *const ::core::ffi::c_void));
-::windows_targets::link!("comctl32.dll" "system" fn DPA_EnumCallback(hdpa : HDPA, pfncb : PFNDAENUMCALLBACK, pdata : *const ::core::ffi::c_void));
-::windows_targets::link!("comctl32.dll" "system" fn DPA_GetPtr(hdpa : HDPA, i : isize) -> *mut ::core::ffi::c_void);
-::windows_targets::link!("comctl32.dll" "system" fn DPA_GetPtrIndex(hdpa : HDPA, p : *const ::core::ffi::c_void) -> i32);
+::windows_targets::link!("comctl32.dll" "system" fn DPA_DestroyCallback(hdpa : HDPA, pfncb : PFNDAENUMCALLBACK, pdata : *const core::ffi::c_void));
+::windows_targets::link!("comctl32.dll" "system" fn DPA_EnumCallback(hdpa : HDPA, pfncb : PFNDAENUMCALLBACK, pdata : *const core::ffi::c_void));
+::windows_targets::link!("comctl32.dll" "system" fn DPA_GetPtr(hdpa : HDPA, i : isize) -> *mut core::ffi::c_void);
+::windows_targets::link!("comctl32.dll" "system" fn DPA_GetPtrIndex(hdpa : HDPA, p : *const core::ffi::c_void) -> i32);
 ::windows_targets::link!("comctl32.dll" "system" fn DPA_GetSize(hdpa : HDPA) -> u64);
 ::windows_targets::link!("comctl32.dll" "system" fn DPA_Grow(pdpa : HDPA, cp : i32) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("comctl32.dll" "system" fn DPA_InsertPtr(hdpa : HDPA, i : i32, p : *const ::core::ffi::c_void) -> i32);
-::windows_targets::link!("comctl32.dll" "system" fn DPA_LoadStream(phdpa : *mut HDPA, pfn : PFNDPASTREAM, pstream : * mut::core::ffi::c_void, pvinstdata : *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("comctl32.dll" "system" fn DPA_InsertPtr(hdpa : HDPA, i : i32, p : *const core::ffi::c_void) -> i32);
+::windows_targets::link!("comctl32.dll" "system" fn DPA_LoadStream(phdpa : *mut HDPA, pfn : PFNDPASTREAM, pstream : * mut core::ffi::c_void, pvinstdata : *const core::ffi::c_void) -> windows_sys::core::HRESULT);
 ::windows_targets::link!("comctl32.dll" "system" fn DPA_Merge(hdpadest : HDPA, hdpasrc : HDPA, dwflags : u32, pfncompare : PFNDACOMPARE, pfnmerge : PFNDPAMERGE, lparam : super::super::Foundation:: LPARAM) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("comctl32.dll" "system" fn DPA_SaveStream(hdpa : HDPA, pfn : PFNDPASTREAM, pstream : * mut::core::ffi::c_void, pvinstdata : *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("comctl32.dll" "system" fn DPA_Search(hdpa : HDPA, pfind : *const ::core::ffi::c_void, istart : i32, pfncompare : PFNDACOMPARE, lparam : super::super::Foundation:: LPARAM, options : u32) -> i32);
-::windows_targets::link!("comctl32.dll" "system" fn DPA_SetPtr(hdpa : HDPA, i : i32, p : *const ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("comctl32.dll" "system" fn DPA_SaveStream(hdpa : HDPA, pfn : PFNDPASTREAM, pstream : * mut core::ffi::c_void, pvinstdata : *const core::ffi::c_void) -> windows_sys::core::HRESULT);
+::windows_targets::link!("comctl32.dll" "system" fn DPA_Search(hdpa : HDPA, pfind : *const core::ffi::c_void, istart : i32, pfncompare : PFNDACOMPARE, lparam : super::super::Foundation:: LPARAM, options : u32) -> i32);
+::windows_targets::link!("comctl32.dll" "system" fn DPA_SetPtr(hdpa : HDPA, i : i32, p : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("comctl32.dll" "system" fn DPA_Sort(hdpa : HDPA, pfncompare : PFNDACOMPARE, lparam : super::super::Foundation:: LPARAM) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("comctl32.dll" "system" fn DSA_Clone(hdsa : HDSA) -> HDSA);
 ::windows_targets::link!("comctl32.dll" "system" fn DSA_Create(cbitem : i32, citemgrow : i32) -> HDSA);
 ::windows_targets::link!("comctl32.dll" "system" fn DSA_DeleteAllItems(hdsa : HDSA) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("comctl32.dll" "system" fn DSA_DeleteItem(hdsa : HDSA, i : i32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("comctl32.dll" "system" fn DSA_Destroy(hdsa : HDSA) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("comctl32.dll" "system" fn DSA_DestroyCallback(hdsa : HDSA, pfncb : PFNDAENUMCALLBACK, pdata : *const ::core::ffi::c_void));
-::windows_targets::link!("comctl32.dll" "system" fn DSA_EnumCallback(hdsa : HDSA, pfncb : PFNDAENUMCALLBACK, pdata : *const ::core::ffi::c_void));
-::windows_targets::link!("comctl32.dll" "system" fn DSA_GetItem(hdsa : HDSA, i : i32, pitem : *mut ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("comctl32.dll" "system" fn DSA_GetItemPtr(hdsa : HDSA, i : i32) -> *mut ::core::ffi::c_void);
+::windows_targets::link!("comctl32.dll" "system" fn DSA_DestroyCallback(hdsa : HDSA, pfncb : PFNDAENUMCALLBACK, pdata : *const core::ffi::c_void));
+::windows_targets::link!("comctl32.dll" "system" fn DSA_EnumCallback(hdsa : HDSA, pfncb : PFNDAENUMCALLBACK, pdata : *const core::ffi::c_void));
+::windows_targets::link!("comctl32.dll" "system" fn DSA_GetItem(hdsa : HDSA, i : i32, pitem : *mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("comctl32.dll" "system" fn DSA_GetItemPtr(hdsa : HDSA, i : i32) -> *mut core::ffi::c_void);
 ::windows_targets::link!("comctl32.dll" "system" fn DSA_GetSize(hdsa : HDSA) -> u64);
-::windows_targets::link!("comctl32.dll" "system" fn DSA_InsertItem(hdsa : HDSA, i : i32, pitem : *const ::core::ffi::c_void) -> i32);
-::windows_targets::link!("comctl32.dll" "system" fn DSA_SetItem(hdsa : HDSA, i : i32, pitem : *const ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("comctl32.dll" "system" fn DSA_InsertItem(hdsa : HDSA, i : i32, pitem : *const core::ffi::c_void) -> i32);
+::windows_targets::link!("comctl32.dll" "system" fn DSA_SetItem(hdsa : HDSA, i : i32, pitem : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("comctl32.dll" "system" fn DSA_Sort(pdsa : HDSA, pfncompare : PFNDACOMPARE, lparam : super::super::Foundation:: LPARAM) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("comctl32.dll" "system" fn DestroyPropertySheetPage(param0 : HPROPSHEETPAGE) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("user32.dll" "system" fn DestroySyntheticPointerDevice(device : HSYNTHETICPOINTERDEVICE));
-::windows_targets::link!("user32.dll" "system" fn DlgDirListA(hdlg : super::super::Foundation:: HWND, lppathspec : ::windows_sys::core::PSTR, nidlistbox : i32, nidstaticpath : i32, ufiletype : DLG_DIR_LIST_FILE_TYPE) -> i32);
-::windows_targets::link!("user32.dll" "system" fn DlgDirListComboBoxA(hdlg : super::super::Foundation:: HWND, lppathspec : ::windows_sys::core::PSTR, nidcombobox : i32, nidstaticpath : i32, ufiletype : DLG_DIR_LIST_FILE_TYPE) -> i32);
-::windows_targets::link!("user32.dll" "system" fn DlgDirListComboBoxW(hdlg : super::super::Foundation:: HWND, lppathspec : ::windows_sys::core::PWSTR, nidcombobox : i32, nidstaticpath : i32, ufiletype : DLG_DIR_LIST_FILE_TYPE) -> i32);
-::windows_targets::link!("user32.dll" "system" fn DlgDirListW(hdlg : super::super::Foundation:: HWND, lppathspec : ::windows_sys::core::PWSTR, nidlistbox : i32, nidstaticpath : i32, ufiletype : DLG_DIR_LIST_FILE_TYPE) -> i32);
-::windows_targets::link!("user32.dll" "system" fn DlgDirSelectComboBoxExA(hwnddlg : super::super::Foundation:: HWND, lpstring : ::windows_sys::core::PSTR, cchout : i32, idcombobox : i32) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("user32.dll" "system" fn DlgDirSelectComboBoxExW(hwnddlg : super::super::Foundation:: HWND, lpstring : ::windows_sys::core::PWSTR, cchout : i32, idcombobox : i32) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("user32.dll" "system" fn DlgDirSelectExA(hwnddlg : super::super::Foundation:: HWND, lpstring : ::windows_sys::core::PSTR, chcount : i32, idlistbox : i32) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("user32.dll" "system" fn DlgDirSelectExW(hwnddlg : super::super::Foundation:: HWND, lpstring : ::windows_sys::core::PWSTR, chcount : i32, idlistbox : i32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("user32.dll" "system" fn DlgDirListA(hdlg : super::super::Foundation:: HWND, lppathspec : windows_sys::core::PSTR, nidlistbox : i32, nidstaticpath : i32, ufiletype : DLG_DIR_LIST_FILE_TYPE) -> i32);
+::windows_targets::link!("user32.dll" "system" fn DlgDirListComboBoxA(hdlg : super::super::Foundation:: HWND, lppathspec : windows_sys::core::PSTR, nidcombobox : i32, nidstaticpath : i32, ufiletype : DLG_DIR_LIST_FILE_TYPE) -> i32);
+::windows_targets::link!("user32.dll" "system" fn DlgDirListComboBoxW(hdlg : super::super::Foundation:: HWND, lppathspec : windows_sys::core::PWSTR, nidcombobox : i32, nidstaticpath : i32, ufiletype : DLG_DIR_LIST_FILE_TYPE) -> i32);
+::windows_targets::link!("user32.dll" "system" fn DlgDirListW(hdlg : super::super::Foundation:: HWND, lppathspec : windows_sys::core::PWSTR, nidlistbox : i32, nidstaticpath : i32, ufiletype : DLG_DIR_LIST_FILE_TYPE) -> i32);
+::windows_targets::link!("user32.dll" "system" fn DlgDirSelectComboBoxExA(hwnddlg : super::super::Foundation:: HWND, lpstring : windows_sys::core::PSTR, cchout : i32, idcombobox : i32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("user32.dll" "system" fn DlgDirSelectComboBoxExW(hwnddlg : super::super::Foundation:: HWND, lpstring : windows_sys::core::PWSTR, cchout : i32, idcombobox : i32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("user32.dll" "system" fn DlgDirSelectExA(hwnddlg : super::super::Foundation:: HWND, lpstring : windows_sys::core::PSTR, chcount : i32, idlistbox : i32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("user32.dll" "system" fn DlgDirSelectExW(hwnddlg : super::super::Foundation:: HWND, lpstring : windows_sys::core::PWSTR, chcount : i32, idlistbox : i32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("comctl32.dll" "system" fn DrawInsert(handparent : super::super::Foundation:: HWND, hlb : super::super::Foundation:: HWND, nitem : i32));
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("comctl32.dll" "system" fn DrawShadowText(hdc : super::super::Graphics::Gdi:: HDC, psztext : ::windows_sys::core::PCWSTR, cch : u32, prc : *const super::super::Foundation:: RECT, dwflags : u32, crtext : super::super::Foundation:: COLORREF, crshadow : super::super::Foundation:: COLORREF, ixoffset : i32, iyoffset : i32) -> i32);
+::windows_targets::link!("comctl32.dll" "system" fn DrawShadowText(hdc : super::super::Graphics::Gdi:: HDC, psztext : windows_sys::core::PCWSTR, cch : u32, prc : *const super::super::Foundation:: RECT, dwflags : u32, crtext : super::super::Foundation:: COLORREF, crshadow : super::super::Foundation:: COLORREF, ixoffset : i32, iyoffset : i32) -> i32);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("comctl32.dll" "system" fn DrawStatusTextA(hdc : super::super::Graphics::Gdi:: HDC, lprc : *mut super::super::Foundation:: RECT, psztext : ::windows_sys::core::PCSTR, uflags : u32));
+::windows_targets::link!("comctl32.dll" "system" fn DrawStatusTextA(hdc : super::super::Graphics::Gdi:: HDC, lprc : *mut super::super::Foundation:: RECT, psztext : windows_sys::core::PCSTR, uflags : u32));
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("comctl32.dll" "system" fn DrawStatusTextW(hdc : super::super::Graphics::Gdi:: HDC, lprc : *mut super::super::Foundation:: RECT, psztext : ::windows_sys::core::PCWSTR, uflags : u32));
+::windows_targets::link!("comctl32.dll" "system" fn DrawStatusTextW(hdc : super::super::Graphics::Gdi:: HDC, lprc : *mut super::super::Foundation:: RECT, psztext : windows_sys::core::PCWSTR, uflags : u32));
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("uxtheme.dll" "system" fn DrawThemeBackground(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, prect : *const super::super::Foundation:: RECT, pcliprect : *const super::super::Foundation:: RECT) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("uxtheme.dll" "system" fn DrawThemeBackground(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, prect : *const super::super::Foundation:: RECT, pcliprect : *const super::super::Foundation:: RECT) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("uxtheme.dll" "system" fn DrawThemeBackgroundEx(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, prect : *const super::super::Foundation:: RECT, poptions : *const DTBGOPTS) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("uxtheme.dll" "system" fn DrawThemeBackgroundEx(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, prect : *const super::super::Foundation:: RECT, poptions : *const DTBGOPTS) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("uxtheme.dll" "system" fn DrawThemeEdge(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, pdestrect : *const super::super::Foundation:: RECT, uedge : super::super::Graphics::Gdi:: DRAWEDGE_FLAGS, uflags : super::super::Graphics::Gdi:: DRAW_EDGE_FLAGS, pcontentrect : *mut super::super::Foundation:: RECT) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("uxtheme.dll" "system" fn DrawThemeEdge(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, pdestrect : *const super::super::Foundation:: RECT, uedge : super::super::Graphics::Gdi:: DRAWEDGE_FLAGS, uflags : super::super::Graphics::Gdi:: DRAW_EDGE_FLAGS, pcontentrect : *mut super::super::Foundation:: RECT) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("uxtheme.dll" "system" fn DrawThemeIcon(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, prect : *const super::super::Foundation:: RECT, himl : HIMAGELIST, iimageindex : i32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("uxtheme.dll" "system" fn DrawThemeIcon(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, prect : *const super::super::Foundation:: RECT, himl : HIMAGELIST, iimageindex : i32) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("uxtheme.dll" "system" fn DrawThemeParentBackground(hwnd : super::super::Foundation:: HWND, hdc : super::super::Graphics::Gdi:: HDC, prc : *const super::super::Foundation:: RECT) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("uxtheme.dll" "system" fn DrawThemeParentBackground(hwnd : super::super::Foundation:: HWND, hdc : super::super::Graphics::Gdi:: HDC, prc : *const super::super::Foundation:: RECT) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("uxtheme.dll" "system" fn DrawThemeParentBackgroundEx(hwnd : super::super::Foundation:: HWND, hdc : super::super::Graphics::Gdi:: HDC, dwflags : DRAW_THEME_PARENT_BACKGROUND_FLAGS, prc : *const super::super::Foundation:: RECT) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("uxtheme.dll" "system" fn DrawThemeParentBackgroundEx(hwnd : super::super::Foundation:: HWND, hdc : super::super::Graphics::Gdi:: HDC, dwflags : DRAW_THEME_PARENT_BACKGROUND_FLAGS, prc : *const super::super::Foundation:: RECT) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("uxtheme.dll" "system" fn DrawThemeText(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, psztext : ::windows_sys::core::PCWSTR, cchtext : i32, dwtextflags : super::super::Graphics::Gdi:: DRAW_TEXT_FORMAT, dwtextflags2 : u32, prect : *const super::super::Foundation:: RECT) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("uxtheme.dll" "system" fn DrawThemeText(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, psztext : windows_sys::core::PCWSTR, cchtext : i32, dwtextflags : super::super::Graphics::Gdi:: DRAW_TEXT_FORMAT, dwtextflags2 : u32, prect : *const super::super::Foundation:: RECT) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("uxtheme.dll" "system" fn DrawThemeTextEx(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, psztext : ::windows_sys::core::PCWSTR, cchtext : i32, dwtextflags : super::super::Graphics::Gdi:: DRAW_TEXT_FORMAT, prect : *mut super::super::Foundation:: RECT, poptions : *const DTTOPTS) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("uxtheme.dll" "system" fn DrawThemeTextEx(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, psztext : windows_sys::core::PCWSTR, cchtext : i32, dwtextflags : super::super::Graphics::Gdi:: DRAW_TEXT_FORMAT, prect : *mut super::super::Foundation:: RECT, poptions : *const DTTOPTS) -> windows_sys::core::HRESULT);
 ::windows_targets::link!("user32.dll" "system" fn EnableScrollBar(hwnd : super::super::Foundation:: HWND, wsbflags : u32, warrows : ENABLE_SCROLL_BAR_ARROWS) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("uxtheme.dll" "system" fn EnableThemeDialogTexture(hwnd : super::super::Foundation:: HWND, dwflags : u32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("uxtheme.dll" "system" fn EnableTheming(fenable : super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("uxtheme.dll" "system" fn EndBufferedAnimation(hbpanimation : isize, fupdatetarget : super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("uxtheme.dll" "system" fn EndBufferedPaint(hbufferedpaint : isize, fupdatetarget : super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("uxtheme.dll" "system" fn EnableThemeDialogTexture(hwnd : super::super::Foundation:: HWND, dwflags : u32) -> windows_sys::core::HRESULT);
+::windows_targets::link!("uxtheme.dll" "system" fn EnableTheming(fenable : super::super::Foundation:: BOOL) -> windows_sys::core::HRESULT);
+::windows_targets::link!("uxtheme.dll" "system" fn EndBufferedAnimation(hbpanimation : isize, fupdatetarget : super::super::Foundation:: BOOL) -> windows_sys::core::HRESULT);
+::windows_targets::link!("uxtheme.dll" "system" fn EndBufferedPaint(hbufferedpaint : isize, fupdatetarget : super::super::Foundation:: BOOL) -> windows_sys::core::HRESULT);
 ::windows_targets::link!("uxtheme.dll" "system" fn EndPanningFeedback(hwnd : super::super::Foundation:: HWND, fanimateback : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("user32.dll" "system" fn EvaluateProximityToPolygon(numvertices : u32, controlpolygon : *const super::super::Foundation:: POINT, phittestinginput : *const TOUCH_HIT_TESTING_INPUT, pproximityeval : *mut TOUCH_HIT_TESTING_PROXIMITY_EVALUATION) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("user32.dll" "system" fn EvaluateProximityToRect(controlboundingbox : *const super::super::Foundation:: RECT, phittestinginput : *const TOUCH_HIT_TESTING_INPUT, pproximityeval : *mut TOUCH_HIT_TESTING_PROXIMITY_EVALUATION) -> super::super::Foundation:: BOOL);
@@ -118,74 +118,74 @@ pub mod Dialogs;
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 ::windows_targets::link!("comctl32.dll" "system" fn FlatSB_ShowScrollBar(param0 : super::super::Foundation:: HWND, code : super::WindowsAndMessaging:: SCROLLBAR_CONSTANTS, param2 : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("uxtheme.dll" "system" fn GetBufferedPaintBits(hbufferedpaint : isize, ppbbuffer : *mut *mut super::super::Graphics::Gdi:: RGBQUAD, pcxrow : *mut i32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("uxtheme.dll" "system" fn GetBufferedPaintBits(hbufferedpaint : isize, ppbbuffer : *mut *mut super::super::Graphics::Gdi:: RGBQUAD, pcxrow : *mut i32) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Graphics_Gdi")]
 ::windows_targets::link!("uxtheme.dll" "system" fn GetBufferedPaintDC(hbufferedpaint : isize) -> super::super::Graphics::Gdi:: HDC);
 #[cfg(feature = "Win32_Graphics_Gdi")]
 ::windows_targets::link!("uxtheme.dll" "system" fn GetBufferedPaintTargetDC(hbufferedpaint : isize) -> super::super::Graphics::Gdi:: HDC);
-::windows_targets::link!("uxtheme.dll" "system" fn GetBufferedPaintTargetRect(hbufferedpaint : isize, prc : *mut super::super::Foundation:: RECT) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("uxtheme.dll" "system" fn GetBufferedPaintTargetRect(hbufferedpaint : isize, prc : *mut super::super::Foundation:: RECT) -> windows_sys::core::HRESULT);
 ::windows_targets::link!("user32.dll" "system" fn GetComboBoxInfo(hwndcombo : super::super::Foundation:: HWND, pcbi : *mut COMBOBOXINFO) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("uxtheme.dll" "system" fn GetCurrentThemeName(pszthemefilename : ::windows_sys::core::PWSTR, cchmaxnamechars : i32, pszcolorbuff : ::windows_sys::core::PWSTR, cchmaxcolorchars : i32, pszsizebuff : ::windows_sys::core::PWSTR, cchmaxsizechars : i32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("uxtheme.dll" "system" fn GetCurrentThemeName(pszthemefilename : windows_sys::core::PWSTR, cchmaxnamechars : i32, pszcolorbuff : windows_sys::core::PWSTR, cchmaxcolorchars : i32, pszsizebuff : windows_sys::core::PWSTR, cchmaxsizechars : i32) -> windows_sys::core::HRESULT);
 ::windows_targets::link!("comctl32.dll" "system" fn GetEffectiveClientRect(hwnd : super::super::Foundation:: HWND, lprc : *mut super::super::Foundation:: RECT, lpinfo : *const i32));
 ::windows_targets::link!("user32.dll" "system" fn GetListBoxInfo(hwnd : super::super::Foundation:: HWND) -> u32);
 ::windows_targets::link!("comctl32.dll" "system" fn GetMUILanguage() -> u16);
-::windows_targets::link!("uxtheme.dll" "system" fn GetThemeAnimationProperty(htheme : HTHEME, istoryboardid : i32, itargetid : i32, eproperty : TA_PROPERTY, pvproperty : *mut ::core::ffi::c_void, cbsize : u32, pcbsizeout : *mut u32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("uxtheme.dll" "system" fn GetThemeAnimationTransform(htheme : HTHEME, istoryboardid : i32, itargetid : i32, dwtransformindex : u32, ptransform : *mut TA_TRANSFORM, cbsize : u32, pcbsizeout : *mut u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("uxtheme.dll" "system" fn GetThemeAnimationProperty(htheme : HTHEME, istoryboardid : i32, itargetid : i32, eproperty : TA_PROPERTY, pvproperty : *mut core::ffi::c_void, cbsize : u32, pcbsizeout : *mut u32) -> windows_sys::core::HRESULT);
+::windows_targets::link!("uxtheme.dll" "system" fn GetThemeAnimationTransform(htheme : HTHEME, istoryboardid : i32, itargetid : i32, dwtransformindex : u32, ptransform : *mut TA_TRANSFORM, cbsize : u32, pcbsizeout : *mut u32) -> windows_sys::core::HRESULT);
 ::windows_targets::link!("uxtheme.dll" "system" fn GetThemeAppProperties() -> SET_THEME_APP_PROPERTIES_FLAGS);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("uxtheme.dll" "system" fn GetThemeBackgroundContentRect(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, pboundingrect : *const super::super::Foundation:: RECT, pcontentrect : *mut super::super::Foundation:: RECT) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("uxtheme.dll" "system" fn GetThemeBackgroundContentRect(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, pboundingrect : *const super::super::Foundation:: RECT, pcontentrect : *mut super::super::Foundation:: RECT) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("uxtheme.dll" "system" fn GetThemeBackgroundExtent(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, pcontentrect : *const super::super::Foundation:: RECT, pextentrect : *mut super::super::Foundation:: RECT) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("uxtheme.dll" "system" fn GetThemeBackgroundExtent(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, pcontentrect : *const super::super::Foundation:: RECT, pextentrect : *mut super::super::Foundation:: RECT) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("uxtheme.dll" "system" fn GetThemeBackgroundRegion(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, prect : *const super::super::Foundation:: RECT, pregion : *mut super::super::Graphics::Gdi:: HRGN) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("uxtheme.dll" "system" fn GetThemeBackgroundRegion(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, prect : *const super::super::Foundation:: RECT, pregion : *mut super::super::Graphics::Gdi:: HRGN) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("uxtheme.dll" "system" fn GetThemeBitmap(htheme : HTHEME, ipartid : i32, istateid : i32, ipropid : i32, dwflags : GET_THEME_BITMAP_FLAGS, phbitmap : *mut super::super::Graphics::Gdi:: HBITMAP) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("uxtheme.dll" "system" fn GetThemeBool(htheme : HTHEME, ipartid : i32, istateid : i32, ipropid : i32, pfval : *mut super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("uxtheme.dll" "system" fn GetThemeColor(htheme : HTHEME, ipartid : i32, istateid : i32, ipropid : i32, pcolor : *mut super::super::Foundation:: COLORREF) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("uxtheme.dll" "system" fn GetThemeDocumentationProperty(pszthemename : ::windows_sys::core::PCWSTR, pszpropertyname : ::windows_sys::core::PCWSTR, pszvaluebuff : ::windows_sys::core::PWSTR, cchmaxvalchars : i32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("uxtheme.dll" "system" fn GetThemeEnumValue(htheme : HTHEME, ipartid : i32, istateid : i32, ipropid : i32, pival : *mut i32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("uxtheme.dll" "system" fn GetThemeFilename(htheme : HTHEME, ipartid : i32, istateid : i32, ipropid : i32, pszthemefilename : ::windows_sys::core::PWSTR, cchmaxbuffchars : i32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("uxtheme.dll" "system" fn GetThemeBitmap(htheme : HTHEME, ipartid : i32, istateid : i32, ipropid : i32, dwflags : GET_THEME_BITMAP_FLAGS, phbitmap : *mut super::super::Graphics::Gdi:: HBITMAP) -> windows_sys::core::HRESULT);
+::windows_targets::link!("uxtheme.dll" "system" fn GetThemeBool(htheme : HTHEME, ipartid : i32, istateid : i32, ipropid : i32, pfval : *mut super::super::Foundation:: BOOL) -> windows_sys::core::HRESULT);
+::windows_targets::link!("uxtheme.dll" "system" fn GetThemeColor(htheme : HTHEME, ipartid : i32, istateid : i32, ipropid : i32, pcolor : *mut super::super::Foundation:: COLORREF) -> windows_sys::core::HRESULT);
+::windows_targets::link!("uxtheme.dll" "system" fn GetThemeDocumentationProperty(pszthemename : windows_sys::core::PCWSTR, pszpropertyname : windows_sys::core::PCWSTR, pszvaluebuff : windows_sys::core::PWSTR, cchmaxvalchars : i32) -> windows_sys::core::HRESULT);
+::windows_targets::link!("uxtheme.dll" "system" fn GetThemeEnumValue(htheme : HTHEME, ipartid : i32, istateid : i32, ipropid : i32, pival : *mut i32) -> windows_sys::core::HRESULT);
+::windows_targets::link!("uxtheme.dll" "system" fn GetThemeFilename(htheme : HTHEME, ipartid : i32, istateid : i32, ipropid : i32, pszthemefilename : windows_sys::core::PWSTR, cchmaxbuffchars : i32) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("uxtheme.dll" "system" fn GetThemeFont(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, ipropid : i32, pfont : *mut super::super::Graphics::Gdi:: LOGFONTW) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("uxtheme.dll" "system" fn GetThemeInt(htheme : HTHEME, ipartid : i32, istateid : i32, ipropid : i32, pival : *mut i32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("uxtheme.dll" "system" fn GetThemeIntList(htheme : HTHEME, ipartid : i32, istateid : i32, ipropid : i32, pintlist : *mut INTLIST) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("uxtheme.dll" "system" fn GetThemeFont(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, ipropid : i32, pfont : *mut super::super::Graphics::Gdi:: LOGFONTW) -> windows_sys::core::HRESULT);
+::windows_targets::link!("uxtheme.dll" "system" fn GetThemeInt(htheme : HTHEME, ipartid : i32, istateid : i32, ipropid : i32, pival : *mut i32) -> windows_sys::core::HRESULT);
+::windows_targets::link!("uxtheme.dll" "system" fn GetThemeIntList(htheme : HTHEME, ipartid : i32, istateid : i32, ipropid : i32, pintlist : *mut INTLIST) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("uxtheme.dll" "system" fn GetThemeMargins(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, ipropid : i32, prc : *const super::super::Foundation:: RECT, pmargins : *mut MARGINS) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("uxtheme.dll" "system" fn GetThemeMargins(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, ipropid : i32, prc : *const super::super::Foundation:: RECT, pmargins : *mut MARGINS) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("uxtheme.dll" "system" fn GetThemeMetric(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, ipropid : i32, pival : *mut i32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("uxtheme.dll" "system" fn GetThemeMetric(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, ipropid : i32, pival : *mut i32) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("uxtheme.dll" "system" fn GetThemePartSize(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, prc : *const super::super::Foundation:: RECT, esize : THEMESIZE, psz : *mut super::super::Foundation:: SIZE) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("uxtheme.dll" "system" fn GetThemePosition(htheme : HTHEME, ipartid : i32, istateid : i32, ipropid : i32, ppoint : *mut super::super::Foundation:: POINT) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("uxtheme.dll" "system" fn GetThemePropertyOrigin(htheme : HTHEME, ipartid : i32, istateid : i32, ipropid : i32, porigin : *mut PROPERTYORIGIN) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("uxtheme.dll" "system" fn GetThemeRect(htheme : HTHEME, ipartid : i32, istateid : i32, ipropid : i32, prect : *mut super::super::Foundation:: RECT) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("uxtheme.dll" "system" fn GetThemeStream(htheme : HTHEME, ipartid : i32, istateid : i32, ipropid : i32, ppvstream : *mut *mut ::core::ffi::c_void, pcbstream : *mut u32, hinst : super::super::Foundation:: HINSTANCE) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("uxtheme.dll" "system" fn GetThemeString(htheme : HTHEME, ipartid : i32, istateid : i32, ipropid : i32, pszbuff : ::windows_sys::core::PWSTR, cchmaxbuffchars : i32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("uxtheme.dll" "system" fn GetThemePartSize(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, prc : *const super::super::Foundation:: RECT, esize : THEMESIZE, psz : *mut super::super::Foundation:: SIZE) -> windows_sys::core::HRESULT);
+::windows_targets::link!("uxtheme.dll" "system" fn GetThemePosition(htheme : HTHEME, ipartid : i32, istateid : i32, ipropid : i32, ppoint : *mut super::super::Foundation:: POINT) -> windows_sys::core::HRESULT);
+::windows_targets::link!("uxtheme.dll" "system" fn GetThemePropertyOrigin(htheme : HTHEME, ipartid : i32, istateid : i32, ipropid : i32, porigin : *mut PROPERTYORIGIN) -> windows_sys::core::HRESULT);
+::windows_targets::link!("uxtheme.dll" "system" fn GetThemeRect(htheme : HTHEME, ipartid : i32, istateid : i32, ipropid : i32, prect : *mut super::super::Foundation:: RECT) -> windows_sys::core::HRESULT);
+::windows_targets::link!("uxtheme.dll" "system" fn GetThemeStream(htheme : HTHEME, ipartid : i32, istateid : i32, ipropid : i32, ppvstream : *mut *mut core::ffi::c_void, pcbstream : *mut u32, hinst : super::super::Foundation:: HINSTANCE) -> windows_sys::core::HRESULT);
+::windows_targets::link!("uxtheme.dll" "system" fn GetThemeString(htheme : HTHEME, ipartid : i32, istateid : i32, ipropid : i32, pszbuff : windows_sys::core::PWSTR, cchmaxbuffchars : i32) -> windows_sys::core::HRESULT);
 ::windows_targets::link!("uxtheme.dll" "system" fn GetThemeSysBool(htheme : HTHEME, iboolid : i32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("uxtheme.dll" "system" fn GetThemeSysColor(htheme : HTHEME, icolorid : i32) -> super::super::Foundation:: COLORREF);
 #[cfg(feature = "Win32_Graphics_Gdi")]
 ::windows_targets::link!("uxtheme.dll" "system" fn GetThemeSysColorBrush(htheme : HTHEME, icolorid : i32) -> super::super::Graphics::Gdi:: HBRUSH);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("uxtheme.dll" "system" fn GetThemeSysFont(htheme : HTHEME, ifontid : i32, plf : *mut super::super::Graphics::Gdi:: LOGFONTW) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("uxtheme.dll" "system" fn GetThemeSysInt(htheme : HTHEME, iintid : i32, pivalue : *mut i32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("uxtheme.dll" "system" fn GetThemeSysFont(htheme : HTHEME, ifontid : i32, plf : *mut super::super::Graphics::Gdi:: LOGFONTW) -> windows_sys::core::HRESULT);
+::windows_targets::link!("uxtheme.dll" "system" fn GetThemeSysInt(htheme : HTHEME, iintid : i32, pivalue : *mut i32) -> windows_sys::core::HRESULT);
 ::windows_targets::link!("uxtheme.dll" "system" fn GetThemeSysSize(htheme : HTHEME, isizeid : i32) -> i32);
-::windows_targets::link!("uxtheme.dll" "system" fn GetThemeSysString(htheme : HTHEME, istringid : i32, pszstringbuff : ::windows_sys::core::PWSTR, cchmaxstringchars : i32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("uxtheme.dll" "system" fn GetThemeSysString(htheme : HTHEME, istringid : i32, pszstringbuff : windows_sys::core::PWSTR, cchmaxstringchars : i32) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("uxtheme.dll" "system" fn GetThemeTextExtent(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, psztext : ::windows_sys::core::PCWSTR, cchcharcount : i32, dwtextflags : super::super::Graphics::Gdi:: DRAW_TEXT_FORMAT, pboundingrect : *const super::super::Foundation:: RECT, pextentrect : *mut super::super::Foundation:: RECT) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("uxtheme.dll" "system" fn GetThemeTextExtent(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, psztext : windows_sys::core::PCWSTR, cchcharcount : i32, dwtextflags : super::super::Graphics::Gdi:: DRAW_TEXT_FORMAT, pboundingrect : *const super::super::Foundation:: RECT, pextentrect : *mut super::super::Foundation:: RECT) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("uxtheme.dll" "system" fn GetThemeTextMetrics(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, ptm : *mut super::super::Graphics::Gdi:: TEXTMETRICW) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("uxtheme.dll" "system" fn GetThemeTimingFunction(htheme : HTHEME, itimingfunctionid : i32, ptimingfunction : *mut TA_TIMINGFUNCTION, cbsize : u32, pcbsizeout : *mut u32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("uxtheme.dll" "system" fn GetThemeTransitionDuration(htheme : HTHEME, ipartid : i32, istateidfrom : i32, istateidto : i32, ipropid : i32, pdwduration : *mut u32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("user32.dll" "system" fn GetWindowFeedbackSetting(hwnd : super::super::Foundation:: HWND, feedback : FEEDBACK_TYPE, dwflags : u32, psize : *mut u32, config : *mut ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("uxtheme.dll" "system" fn GetThemeTextMetrics(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, ptm : *mut super::super::Graphics::Gdi:: TEXTMETRICW) -> windows_sys::core::HRESULT);
+::windows_targets::link!("uxtheme.dll" "system" fn GetThemeTimingFunction(htheme : HTHEME, itimingfunctionid : i32, ptimingfunction : *mut TA_TIMINGFUNCTION, cbsize : u32, pcbsizeout : *mut u32) -> windows_sys::core::HRESULT);
+::windows_targets::link!("uxtheme.dll" "system" fn GetThemeTransitionDuration(htheme : HTHEME, ipartid : i32, istateidfrom : i32, istateidto : i32, ipropid : i32, pdwduration : *mut u32) -> windows_sys::core::HRESULT);
+::windows_targets::link!("user32.dll" "system" fn GetWindowFeedbackSetting(hwnd : super::super::Foundation:: HWND, feedback : FEEDBACK_TYPE, dwflags : u32, psize : *mut u32, config : *mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("uxtheme.dll" "system" fn GetWindowTheme(hwnd : super::super::Foundation:: HWND) -> HTHEME);
-::windows_targets::link!("comctl32.dll" "system" fn HIMAGELIST_QueryInterface(himl : HIMAGELIST, riid : *const ::windows_sys::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("comctl32.dll" "system" fn HIMAGELIST_QueryInterface(himl : HIMAGELIST, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("uxtheme.dll" "system" fn HitTestThemeBackground(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, dwoptions : HIT_TEST_BACKGROUND_OPTIONS, prect : *const super::super::Foundation:: RECT, hrgn : super::super::Graphics::Gdi:: HRGN, pttest : super::super::Foundation:: POINT, pwhittestcode : *mut u16) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("uxtheme.dll" "system" fn HitTestThemeBackground(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, dwoptions : HIT_TEST_BACKGROUND_OPTIONS, prect : *const super::super::Foundation:: RECT, hrgn : super::super::Graphics::Gdi:: HRGN, pttest : super::super::Foundation:: POINT, pwhittestcode : *mut u16) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Graphics_Gdi")]
 ::windows_targets::link!("comctl32.dll" "system" fn ImageList_Add(himl : HIMAGELIST, hbmimage : super::super::Graphics::Gdi:: HBITMAP, hbmmask : super::super::Graphics::Gdi:: HBITMAP) -> i32);
 #[cfg(feature = "Win32_Graphics_Gdi")]
 ::windows_targets::link!("comctl32.dll" "system" fn ImageList_AddMasked(himl : HIMAGELIST, hbmimage : super::super::Graphics::Gdi:: HBITMAP, crmask : super::super::Foundation:: COLORREF) -> i32);
 ::windows_targets::link!("comctl32.dll" "system" fn ImageList_BeginDrag(himltrack : HIMAGELIST, itrack : i32, dxhotspot : i32, dyhotspot : i32) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("comctl32.dll" "system" fn ImageList_CoCreateInstance(rclsid : *const ::windows_sys::core::GUID, punkouter : * mut::core::ffi::c_void, riid : *const ::windows_sys::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("comctl32.dll" "system" fn ImageList_CoCreateInstance(rclsid : *const windows_sys::core::GUID, punkouter : * mut core::ffi::c_void, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 ::windows_targets::link!("comctl32.dll" "system" fn ImageList_Copy(himldst : HIMAGELIST, idst : i32, himlsrc : HIMAGELIST, isrc : i32, uflags : IMAGE_LIST_COPY_FLAGS) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("comctl32.dll" "system" fn ImageList_Create(cx : i32, cy : i32, flags : IMAGELIST_CREATION_FLAGS, cinitial : i32, cgrow : i32) -> HIMAGELIST);
 ::windows_targets::link!("comctl32.dll" "system" fn ImageList_Destroy(himl : HIMAGELIST) -> super::super::Foundation:: BOOL);
@@ -210,12 +210,12 @@ pub mod Dialogs;
 #[cfg(feature = "Win32_Graphics_Gdi")]
 ::windows_targets::link!("comctl32.dll" "system" fn ImageList_GetImageInfo(himl : HIMAGELIST, i : i32, pimageinfo : *mut IMAGEINFO) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-::windows_targets::link!("comctl32.dll" "system" fn ImageList_LoadImageA(hi : super::super::Foundation:: HINSTANCE, lpbmp : ::windows_sys::core::PCSTR, cx : i32, cgrow : i32, crmask : super::super::Foundation:: COLORREF, utype : u32, uflags : super::WindowsAndMessaging:: IMAGE_FLAGS) -> HIMAGELIST);
+::windows_targets::link!("comctl32.dll" "system" fn ImageList_LoadImageA(hi : super::super::Foundation:: HINSTANCE, lpbmp : windows_sys::core::PCSTR, cx : i32, cgrow : i32, crmask : super::super::Foundation:: COLORREF, utype : u32, uflags : super::WindowsAndMessaging:: IMAGE_FLAGS) -> HIMAGELIST);
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-::windows_targets::link!("comctl32.dll" "system" fn ImageList_LoadImageW(hi : super::super::Foundation:: HINSTANCE, lpbmp : ::windows_sys::core::PCWSTR, cx : i32, cgrow : i32, crmask : super::super::Foundation:: COLORREF, utype : u32, uflags : super::WindowsAndMessaging:: IMAGE_FLAGS) -> HIMAGELIST);
+::windows_targets::link!("comctl32.dll" "system" fn ImageList_LoadImageW(hi : super::super::Foundation:: HINSTANCE, lpbmp : windows_sys::core::PCWSTR, cx : i32, cgrow : i32, crmask : super::super::Foundation:: COLORREF, utype : u32, uflags : super::WindowsAndMessaging:: IMAGE_FLAGS) -> HIMAGELIST);
 ::windows_targets::link!("comctl32.dll" "system" fn ImageList_Merge(himl1 : HIMAGELIST, i1 : i32, himl2 : HIMAGELIST, i2 : i32, dx : i32, dy : i32) -> HIMAGELIST);
-::windows_targets::link!("comctl32.dll" "system" fn ImageList_Read(pstm : * mut::core::ffi::c_void) -> HIMAGELIST);
-::windows_targets::link!("comctl32.dll" "system" fn ImageList_ReadEx(dwflags : u32, pstm : * mut::core::ffi::c_void, riid : *const ::windows_sys::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("comctl32.dll" "system" fn ImageList_Read(pstm : * mut core::ffi::c_void) -> HIMAGELIST);
+::windows_targets::link!("comctl32.dll" "system" fn ImageList_ReadEx(dwflags : u32, pstm : * mut core::ffi::c_void, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 ::windows_targets::link!("comctl32.dll" "system" fn ImageList_Remove(himl : HIMAGELIST, i : i32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Graphics_Gdi")]
 ::windows_targets::link!("comctl32.dll" "system" fn ImageList_Replace(himl : HIMAGELIST, i : i32, hbmimage : super::super::Graphics::Gdi:: HBITMAP, hbmmask : super::super::Graphics::Gdi:: HBITMAP) -> super::super::Foundation:: BOOL);
@@ -226,8 +226,8 @@ pub mod Dialogs;
 ::windows_targets::link!("comctl32.dll" "system" fn ImageList_SetIconSize(himl : HIMAGELIST, cx : i32, cy : i32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("comctl32.dll" "system" fn ImageList_SetImageCount(himl : HIMAGELIST, unewcount : u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("comctl32.dll" "system" fn ImageList_SetOverlayImage(himl : HIMAGELIST, iimage : i32, ioverlay : i32) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("comctl32.dll" "system" fn ImageList_Write(himl : HIMAGELIST, pstm : * mut::core::ffi::c_void) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("comctl32.dll" "system" fn ImageList_WriteEx(himl : HIMAGELIST, dwflags : IMAGE_LIST_WRITE_STREAM_FLAGS, pstm : * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("comctl32.dll" "system" fn ImageList_Write(himl : HIMAGELIST, pstm : * mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("comctl32.dll" "system" fn ImageList_WriteEx(himl : HIMAGELIST, dwflags : IMAGE_LIST_WRITE_STREAM_FLAGS, pstm : * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 ::windows_targets::link!("comctl32.dll" "system" fn InitCommonControls());
 ::windows_targets::link!("comctl32.dll" "system" fn InitCommonControlsEx(picce : *const INITCOMMONCONTROLSEX) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("comctl32.dll" "system" fn InitMUILanguage(uilang : u16));
@@ -242,14 +242,14 @@ pub mod Dialogs;
 ::windows_targets::link!("uxtheme.dll" "system" fn IsThemePartDefined(htheme : HTHEME, ipartid : i32, istateid : i32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("comctl32.dll" "system" fn LBItemFromPt(hlb : super::super::Foundation:: HWND, pt : super::super::Foundation:: POINT, bautoscroll : super::super::Foundation:: BOOL) -> i32);
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-::windows_targets::link!("comctl32.dll" "system" fn LoadIconMetric(hinst : super::super::Foundation:: HINSTANCE, pszname : ::windows_sys::core::PCWSTR, lims : _LI_METRIC, phico : *mut super::WindowsAndMessaging:: HICON) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("comctl32.dll" "system" fn LoadIconMetric(hinst : super::super::Foundation:: HINSTANCE, pszname : windows_sys::core::PCWSTR, lims : _LI_METRIC, phico : *mut super::WindowsAndMessaging:: HICON) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-::windows_targets::link!("comctl32.dll" "system" fn LoadIconWithScaleDown(hinst : super::super::Foundation:: HINSTANCE, pszname : ::windows_sys::core::PCWSTR, cx : i32, cy : i32, phico : *mut super::WindowsAndMessaging:: HICON) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("comctl32.dll" "system" fn LoadIconWithScaleDown(hinst : super::super::Foundation:: HINSTANCE, pszname : windows_sys::core::PCWSTR, cx : i32, cy : i32, phico : *mut super::WindowsAndMessaging:: HICON) -> windows_sys::core::HRESULT);
 ::windows_targets::link!("comctl32.dll" "system" fn MakeDragList(hlb : super::super::Foundation:: HWND) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 ::windows_targets::link!("comctl32.dll" "system" fn MenuHelp(umsg : u32, wparam : super::super::Foundation:: WPARAM, lparam : super::super::Foundation:: LPARAM, hmainmenu : super::WindowsAndMessaging:: HMENU, hinst : super::super::Foundation:: HINSTANCE, hwndstatus : super::super::Foundation:: HWND, lpwids : *const u32));
-::windows_targets::link!("uxtheme.dll" "system" fn OpenThemeData(hwnd : super::super::Foundation:: HWND, pszclasslist : ::windows_sys::core::PCWSTR) -> HTHEME);
-::windows_targets::link!("uxtheme.dll" "system" fn OpenThemeDataEx(hwnd : super::super::Foundation:: HWND, pszclasslist : ::windows_sys::core::PCWSTR, dwflags : OPEN_THEME_DATA_FLAGS) -> HTHEME);
+::windows_targets::link!("uxtheme.dll" "system" fn OpenThemeData(hwnd : super::super::Foundation:: HWND, pszclasslist : windows_sys::core::PCWSTR) -> HTHEME);
+::windows_targets::link!("uxtheme.dll" "system" fn OpenThemeDataEx(hwnd : super::super::Foundation:: HWND, pszclasslist : windows_sys::core::PCWSTR, dwflags : OPEN_THEME_DATA_FLAGS) -> HTHEME);
 ::windows_targets::link!("user32.dll" "system" fn PackTouchHitTestingProximityEvaluation(phittestinginput : *const TOUCH_HIT_TESTING_INPUT, pproximityeval : *const TOUCH_HIT_TESTING_PROXIMITY_EVALUATION) -> super::super::Foundation:: LRESULT);
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 ::windows_targets::link!("comctl32.dll" "system" fn PropertySheetA(param0 : *mut PROPSHEETHEADERA_V2) -> isize);
@@ -264,17 +264,17 @@ pub mod Dialogs;
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 ::windows_targets::link!("user32.dll" "system" fn SetScrollRange(hwnd : super::super::Foundation:: HWND, nbar : super::WindowsAndMessaging:: SCROLLBAR_CONSTANTS, nminpos : i32, nmaxpos : i32, bredraw : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("uxtheme.dll" "system" fn SetThemeAppProperties(dwflags : SET_THEME_APP_PROPERTIES_FLAGS));
-::windows_targets::link!("user32.dll" "system" fn SetWindowFeedbackSetting(hwnd : super::super::Foundation:: HWND, feedback : FEEDBACK_TYPE, dwflags : u32, size : u32, configuration : *const ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("uxtheme.dll" "system" fn SetWindowTheme(hwnd : super::super::Foundation:: HWND, pszsubappname : ::windows_sys::core::PCWSTR, pszsubidlist : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("uxtheme.dll" "system" fn SetWindowThemeAttribute(hwnd : super::super::Foundation:: HWND, eattribute : WINDOWTHEMEATTRIBUTETYPE, pvattribute : *const ::core::ffi::c_void, cbattribute : u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("user32.dll" "system" fn SetWindowFeedbackSetting(hwnd : super::super::Foundation:: HWND, feedback : FEEDBACK_TYPE, dwflags : u32, size : u32, configuration : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("uxtheme.dll" "system" fn SetWindowTheme(hwnd : super::super::Foundation:: HWND, pszsubappname : windows_sys::core::PCWSTR, pszsubidlist : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
+::windows_targets::link!("uxtheme.dll" "system" fn SetWindowThemeAttribute(hwnd : super::super::Foundation:: HWND, eattribute : WINDOWTHEMEATTRIBUTETYPE, pvattribute : *const core::ffi::c_void, cbattribute : u32) -> windows_sys::core::HRESULT);
 ::windows_targets::link!("comctl32.dll" "system" fn ShowHideMenuCtl(hwnd : super::super::Foundation:: HWND, uflags : usize, lpinfo : *const i32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 ::windows_targets::link!("user32.dll" "system" fn ShowScrollBar(hwnd : super::super::Foundation:: HWND, wbar : super::WindowsAndMessaging:: SCROLLBAR_CONSTANTS, bshow : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("comctl32.dll" "system" fn Str_SetPtrW(ppsz : *mut ::windows_sys::core::PWSTR, psz : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("comctl32.dll" "system" fn TaskDialog(hwndowner : super::super::Foundation:: HWND, hinstance : super::super::Foundation:: HINSTANCE, pszwindowtitle : ::windows_sys::core::PCWSTR, pszmaininstruction : ::windows_sys::core::PCWSTR, pszcontent : ::windows_sys::core::PCWSTR, dwcommonbuttons : TASKDIALOG_COMMON_BUTTON_FLAGS, pszicon : ::windows_sys::core::PCWSTR, pnbutton : *mut i32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("comctl32.dll" "system" fn Str_SetPtrW(ppsz : *mut windows_sys::core::PWSTR, psz : windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("comctl32.dll" "system" fn TaskDialog(hwndowner : super::super::Foundation:: HWND, hinstance : super::super::Foundation:: HINSTANCE, pszwindowtitle : windows_sys::core::PCWSTR, pszmaininstruction : windows_sys::core::PCWSTR, pszcontent : windows_sys::core::PCWSTR, dwcommonbuttons : TASKDIALOG_COMMON_BUTTON_FLAGS, pszicon : windows_sys::core::PCWSTR, pnbutton : *mut i32) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-::windows_targets::link!("comctl32.dll" "system" fn TaskDialogIndirect(ptaskconfig : *const TASKDIALOGCONFIG, pnbutton : *mut i32, pnradiobutton : *mut i32, pfverificationflagchecked : *mut super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("comctl32.dll" "system" fn UninitializeFlatSB(param0 : super::super::Foundation:: HWND) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("comctl32.dll" "system" fn TaskDialogIndirect(ptaskconfig : *const TASKDIALOGCONFIG, pnbutton : *mut i32, pnradiobutton : *mut i32, pfverificationflagchecked : *mut super::super::Foundation:: BOOL) -> windows_sys::core::HRESULT);
+::windows_targets::link!("comctl32.dll" "system" fn UninitializeFlatSB(param0 : super::super::Foundation:: HWND) -> windows_sys::core::HRESULT);
 ::windows_targets::link!("uxtheme.dll" "system" fn UpdatePanningFeedback(hwnd : super::super::Foundation:: HWND, ltotaloverpanoffsetx : i32, ltotaloverpanoffsety : i32, fininertia : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
 pub const ABS_DOWNDISABLED: ARROWBTNSTATES = 8i32;
 pub const ABS_DOWNHOT: ARROWBTNSTATES = 6i32;
@@ -311,9 +311,9 @@ pub const ACS_TRANSPARENT: u32 = 2u32;
 pub const ALLOW_CONTROLS: SET_THEME_APP_PROPERTIES_FLAGS = 2u32;
 pub const ALLOW_NONCLIENT: SET_THEME_APP_PROPERTIES_FLAGS = 1u32;
 pub const ALLOW_WEBCONTENT: SET_THEME_APP_PROPERTIES_FLAGS = 4u32;
-pub const ANIMATE_CLASS: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("SysAnimate32");
-pub const ANIMATE_CLASSA: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("SysAnimate32");
-pub const ANIMATE_CLASSW: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("SysAnimate32");
+pub const ANIMATE_CLASS: windows_sys::core::PCWSTR = windows_sys::core::w!("SysAnimate32");
+pub const ANIMATE_CLASSA: windows_sys::core::PCSTR = windows_sys::core::s!("SysAnimate32");
+pub const ANIMATE_CLASSW: windows_sys::core::PCWSTR = windows_sys::core::w!("SysAnimate32");
 pub const AW_BUTTON: AEROWIZARDPARTS = 5i32;
 pub const AW_COMMANDAREA: AEROWIZARDPARTS = 4i32;
 pub const AW_CONTENTAREA: AEROWIZARDPARTS = 3i32;
@@ -649,9 +649,9 @@ pub const CSTB_SELECTED: TABSTATES = 3i32;
 pub const CS_ACTIVE: CAPTIONSTATES = 1i32;
 pub const CS_DISABLED: CAPTIONSTATES = 3i32;
 pub const CS_INACTIVE: CAPTIONSTATES = 2i32;
-pub const DATETIMEPICK_CLASS: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("SysDateTimePick32");
-pub const DATETIMEPICK_CLASSA: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("SysDateTimePick32");
-pub const DATETIMEPICK_CLASSW: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("SysDateTimePick32");
+pub const DATETIMEPICK_CLASS: windows_sys::core::PCWSTR = windows_sys::core::w!("SysDateTimePick32");
+pub const DATETIMEPICK_CLASSA: windows_sys::core::PCSTR = windows_sys::core::s!("SysDateTimePick32");
+pub const DATETIMEPICK_CLASSW: windows_sys::core::PCWSTR = windows_sys::core::w!("SysDateTimePick32");
 pub const DA_ERR: i32 = -1i32;
 pub const DA_LAST: u32 = 2147483647u32;
 pub const DDCOPY_HIGHLIGHT: COPYSTATES = 1i32;
@@ -725,7 +725,7 @@ pub const DPSCBR_PRESSED: SHOWCALENDARBUTTONRIGHTSTATES = 3i32;
 pub const DP_DATEBORDER: DATEPICKERPARTS = 2i32;
 pub const DP_DATETEXT: DATEPICKERPARTS = 1i32;
 pub const DP_SHOWCALENDARBUTTONRIGHT: DATEPICKERPARTS = 3i32;
-pub const DRAGLISTMSGSTRING: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("commctrl_DragListMsg");
+pub const DRAGLISTMSGSTRING: windows_sys::core::PCWSTR = windows_sys::core::w!("commctrl_DragListMsg");
 pub const DSA_APPEND: u32 = 2147483647u32;
 pub const DSA_ERR: i32 = -1i32;
 pub const DTBG_CLIPRECT: u32 = 1u32;
@@ -1243,9 +1243,9 @@ pub const HOTKEYF_ALT: u32 = 4u32;
 pub const HOTKEYF_CONTROL: u32 = 2u32;
 pub const HOTKEYF_EXT: u32 = 8u32;
 pub const HOTKEYF_SHIFT: u32 = 1u32;
-pub const HOTKEY_CLASS: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("msctls_hotkey32");
-pub const HOTKEY_CLASSA: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("msctls_hotkey32");
-pub const HOTKEY_CLASSW: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("msctls_hotkey32");
+pub const HOTKEY_CLASS: windows_sys::core::PCWSTR = windows_sys::core::w!("msctls_hotkey32");
+pub const HOTKEY_CLASSA: windows_sys::core::PCSTR = windows_sys::core::s!("msctls_hotkey32");
+pub const HOTKEY_CLASSW: windows_sys::core::PCWSTR = windows_sys::core::w!("msctls_hotkey32");
 pub const HOVER_DEFAULT: u32 = 4294967295u32;
 pub const HP_HEADERDROPDOWN: HEADERPARTS = 5i32;
 pub const HP_HEADERDROPDOWNFILTER: HEADERPARTS = 6i32;
@@ -2138,9 +2138,9 @@ pub const MINBS_PUSHED: MINBUTTONSTATES = 3i32;
 pub const MNCS_ACTIVE: MINCAPTIONSTATES = 1i32;
 pub const MNCS_DISABLED: MINCAPTIONSTATES = 3i32;
 pub const MNCS_INACTIVE: MINCAPTIONSTATES = 2i32;
-pub const MONTHCAL_CLASS: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("SysMonthCal32");
-pub const MONTHCAL_CLASSA: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("SysMonthCal32");
-pub const MONTHCAL_CLASSW: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("SysMonthCal32");
+pub const MONTHCAL_CLASS: windows_sys::core::PCWSTR = windows_sys::core::w!("SysMonthCal32");
+pub const MONTHCAL_CLASSA: windows_sys::core::PCSTR = windows_sys::core::s!("SysMonthCal32");
+pub const MONTHCAL_CLASSW: windows_sys::core::PCWSTR = windows_sys::core::w!("SysMonthCal32");
 pub const MPIF_DISABLED: POPUPITEMFOCUSABLESTATES = 3i32;
 pub const MPIF_DISABLEDHOT: POPUPITEMFOCUSABLESTATES = 4i32;
 pub const MPIF_HOT: POPUPITEMFOCUSABLESTATES = 2i32;
@@ -2383,9 +2383,9 @@ pub const PP_TRANSPARENTBARVERT: PROGRESSPARTS = 12i32;
 pub const PRINTDLGEXORD: u32 = 1549u32;
 pub const PRINTDLGORD: u32 = 1538u32;
 pub const PRNSETUPDLGORD: u32 = 1539u32;
-pub const PROGRESS_CLASS: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("msctls_progress32");
-pub const PROGRESS_CLASSA: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("msctls_progress32");
-pub const PROGRESS_CLASSW: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("msctls_progress32");
+pub const PROGRESS_CLASS: windows_sys::core::PCWSTR = windows_sys::core::w!("msctls_progress32");
+pub const PROGRESS_CLASSA: windows_sys::core::PCSTR = windows_sys::core::s!("msctls_progress32");
+pub const PROGRESS_CLASSW: windows_sys::core::PCWSTR = windows_sys::core::w!("msctls_progress32");
 pub const PROP_LG_CXDLG: u32 = 252u32;
 pub const PROP_LG_CYDLG: u32 = 218u32;
 pub const PROP_MED_CXDLG: u32 = 227u32;
@@ -2640,9 +2640,9 @@ pub const RB_SETUNICODEFORMAT: u32 = 8197u32;
 pub const RB_SETWINDOWTHEME: u32 = 8203u32;
 pub const RB_SHOWBAND: u32 = 1059u32;
 pub const RB_SIZETORECT: u32 = 1047u32;
-pub const REBARCLASSNAME: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("ReBarWindow32");
-pub const REBARCLASSNAMEA: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("ReBarWindow32");
-pub const REBARCLASSNAMEW: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("ReBarWindow32");
+pub const REBARCLASSNAME: windows_sys::core::PCWSTR = windows_sys::core::w!("ReBarWindow32");
+pub const REBARCLASSNAMEA: windows_sys::core::PCSTR = windows_sys::core::s!("ReBarWindow32");
+pub const REBARCLASSNAMEW: windows_sys::core::PCWSTR = windows_sys::core::w!("ReBarWindow32");
 pub const REPLACEDLGORD: u32 = 1541u32;
 pub const RP_BACKGROUND: REBARPARTS = 6i32;
 pub const RP_BAND: REBARPARTS = 3i32;
@@ -2784,9 +2784,9 @@ pub const STATE_SYSTEM_INVISIBLE: COMBOBOXINFO_BUTTON_STATE = 32768u32;
 pub const STATE_SYSTEM_OFFSCREEN: COMBOBOXINFO_BUTTON_STATE = 65536u32;
 pub const STATE_SYSTEM_PRESSED: COMBOBOXINFO_BUTTON_STATE = 8u32;
 pub const STATE_SYSTEM_UNAVAILABLE: COMBOBOXINFO_BUTTON_STATE = 1u32;
-pub const STATUSCLASSNAME: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("msctls_statusbar32");
-pub const STATUSCLASSNAMEA: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("msctls_statusbar32");
-pub const STATUSCLASSNAMEW: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("msctls_statusbar32");
+pub const STATUSCLASSNAME: windows_sys::core::PCWSTR = windows_sys::core::w!("msctls_statusbar32");
+pub const STATUSCLASSNAMEA: windows_sys::core::PCSTR = windows_sys::core::s!("msctls_statusbar32");
+pub const STATUSCLASSNAMEW: windows_sys::core::PCWSTR = windows_sys::core::w!("msctls_statusbar32");
 pub const STAT_TEXT: STATICPARTS = 1i32;
 pub const STD_COPY: u32 = 1u32;
 pub const STD_CUT: u32 = 0u32;
@@ -2814,10 +2814,10 @@ pub const SZB_LEFTALIGN: SIZEBOXSTATES = 2i32;
 pub const SZB_RIGHTALIGN: SIZEBOXSTATES = 1i32;
 pub const SZB_TOPLEFTALIGN: SIZEBOXSTATES = 4i32;
 pub const SZB_TOPRIGHTALIGN: SIZEBOXSTATES = 3i32;
-pub const SZ_THDOCPROP_AUTHOR: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("author");
-pub const SZ_THDOCPROP_CANONICALNAME: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("ThemeName");
-pub const SZ_THDOCPROP_DISPLAYNAME: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("DisplayName");
-pub const SZ_THDOCPROP_TOOLTIP: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("ToolTip");
+pub const SZ_THDOCPROP_AUTHOR: windows_sys::core::PCWSTR = windows_sys::core::w!("author");
+pub const SZ_THDOCPROP_CANONICALNAME: windows_sys::core::PCWSTR = windows_sys::core::w!("ThemeName");
+pub const SZ_THDOCPROP_DISPLAYNAME: windows_sys::core::PCWSTR = windows_sys::core::w!("DisplayName");
+pub const SZ_THDOCPROP_TOOLTIP: windows_sys::core::PCWSTR = windows_sys::core::w!("ToolTip");
 pub const TABP_AEROWIZARDBODY: TABPARTS = 11i32;
 pub const TABP_BODY: TABPARTS = 10i32;
 pub const TABP_PANE: TABPARTS = 9i32;
@@ -3299,10 +3299,10 @@ pub const TDN_VERIFICATION_CLICKED: TASKDIALOG_NOTIFICATIONS = 8i32;
 pub const TDP_FLASHBUTTON: TASKBANDPARTS = 2i32;
 pub const TDP_FLASHBUTTONGROUPMENU: TASKBANDPARTS = 3i32;
 pub const TDP_GROUPCOUNT: TASKBANDPARTS = 1i32;
-pub const TD_ERROR_ICON: ::windows_sys::core::PCWSTR = 65534u16 as _;
-pub const TD_INFORMATION_ICON: ::windows_sys::core::PCWSTR = 65533u16 as _;
-pub const TD_SHIELD_ICON: ::windows_sys::core::PCWSTR = 65532u16 as _;
-pub const TD_WARNING_ICON: ::windows_sys::core::PCWSTR = 65535u16 as _;
+pub const TD_ERROR_ICON: windows_sys::core::PCWSTR = 65534u16 as _;
+pub const TD_INFORMATION_ICON: windows_sys::core::PCWSTR = 65533u16 as _;
+pub const TD_SHIELD_ICON: windows_sys::core::PCWSTR = 65532u16 as _;
+pub const TD_WARNING_ICON: windows_sys::core::PCWSTR = 65535u16 as _;
 pub const TEXT_BODYTEXT: TEXTSTYLEPARTS = 4i32;
 pub const TEXT_BODYTITLE: TEXTSTYLEPARTS = 3i32;
 pub const TEXT_CONTROLLABEL: TEXTSTYLEPARTS = 9i32;
@@ -3604,12 +3604,12 @@ pub const TMT_WINDOWTEXT: THEME_PROPERTY_SYMBOL_ID = 1609u32;
 pub const TMT_XMLNAME: THEME_PROPERTY_SYMBOL_ID = 1402u32;
 pub const TNP_ANIMBACKGROUND: TRAYNOTIFYPARTS = 2i32;
 pub const TNP_BACKGROUND: TRAYNOTIFYPARTS = 1i32;
-pub const TOOLBARCLASSNAME: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("ToolbarWindow32");
-pub const TOOLBARCLASSNAMEA: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("ToolbarWindow32");
-pub const TOOLBARCLASSNAMEW: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("ToolbarWindow32");
-pub const TOOLTIPS_CLASS: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("tooltips_class32");
-pub const TOOLTIPS_CLASSA: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("tooltips_class32");
-pub const TOOLTIPS_CLASSW: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("tooltips_class32");
+pub const TOOLBARCLASSNAME: windows_sys::core::PCWSTR = windows_sys::core::w!("ToolbarWindow32");
+pub const TOOLBARCLASSNAMEA: windows_sys::core::PCSTR = windows_sys::core::s!("ToolbarWindow32");
+pub const TOOLBARCLASSNAMEW: windows_sys::core::PCWSTR = windows_sys::core::w!("ToolbarWindow32");
+pub const TOOLTIPS_CLASS: windows_sys::core::PCWSTR = windows_sys::core::w!("tooltips_class32");
+pub const TOOLTIPS_CLASSA: windows_sys::core::PCSTR = windows_sys::core::s!("tooltips_class32");
+pub const TOOLTIPS_CLASSW: windows_sys::core::PCWSTR = windows_sys::core::w!("tooltips_class32");
 pub const TP_BUTTON: TOOLBARPARTS = 1i32;
 pub const TP_DROPDOWNBUTTON: TOOLBARPARTS = 2i32;
 pub const TP_DROPDOWNBUTTONGLYPH: TOOLBARPARTS = 7i32;
@@ -3617,9 +3617,9 @@ pub const TP_SEPARATOR: TOOLBARPARTS = 5i32;
 pub const TP_SEPARATORVERT: TOOLBARPARTS = 6i32;
 pub const TP_SPLITBUTTON: TOOLBARPARTS = 3i32;
 pub const TP_SPLITBUTTONDROPDOWN: TOOLBARPARTS = 4i32;
-pub const TRACKBAR_CLASS: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("msctls_trackbar32");
-pub const TRACKBAR_CLASSA: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("msctls_trackbar32");
-pub const TRACKBAR_CLASSW: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("msctls_trackbar32");
+pub const TRACKBAR_CLASS: windows_sys::core::PCWSTR = windows_sys::core::w!("msctls_trackbar32");
+pub const TRACKBAR_CLASSA: windows_sys::core::PCSTR = windows_sys::core::s!("msctls_trackbar32");
+pub const TRACKBAR_CLASSW: windows_sys::core::PCWSTR = windows_sys::core::w!("msctls_trackbar32");
 pub const TRBN_FIRST: u32 = 4294965795u32;
 pub const TRBN_LAST: u32 = 4294965777u32;
 pub const TRBN_THUMBPOSCHANGING: u32 = 4294965794u32;
@@ -4067,9 +4067,9 @@ pub const UDS_NOTHOUSANDS: u32 = 128u32;
 pub const UDS_SETBUDDYINT: u32 = 2u32;
 pub const UDS_WRAP: u32 = 1u32;
 pub const UD_MAXVAL: u32 = 32767u32;
-pub const UPDOWN_CLASS: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("msctls_updown32");
-pub const UPDOWN_CLASSA: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("msctls_updown32");
-pub const UPDOWN_CLASSW: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("msctls_updown32");
+pub const UPDOWN_CLASS: windows_sys::core::PCWSTR = windows_sys::core::w!("msctls_updown32");
+pub const UPDOWN_CLASSA: windows_sys::core::PCSTR = windows_sys::core::s!("msctls_updown32");
+pub const UPDOWN_CLASSW: windows_sys::core::PCWSTR = windows_sys::core::w!("msctls_updown32");
 pub const UPHZS_DISABLED: UPHORZSTATES = 4i32;
 pub const UPHZS_HOT: UPHORZSTATES = 2i32;
 pub const UPHZS_NORMAL: UPHORZSTATES = 1i32;
@@ -4100,73 +4100,73 @@ pub const VIEW_SORTNAME: u32 = 4u32;
 pub const VIEW_SORTSIZE: u32 = 5u32;
 pub const VIEW_SORTTYPE: u32 = 7u32;
 pub const VIEW_VIEWMENU: u32 = 12u32;
-pub const VSCLASS_AEROWIZARD: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("AEROWIZARD");
-pub const VSCLASS_AEROWIZARDSTYLE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("AEROWIZARDSTYLE");
-pub const VSCLASS_BUTTON: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("BUTTON");
-pub const VSCLASS_BUTTONSTYLE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("BUTTONSTYLE");
-pub const VSCLASS_CLOCK: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("CLOCK");
-pub const VSCLASS_COMBOBOX: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("COMBOBOX");
-pub const VSCLASS_COMBOBOXSTYLE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("COMBOBOXSTYLE");
-pub const VSCLASS_COMMUNICATIONS: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("COMMUNICATIONS");
-pub const VSCLASS_COMMUNICATIONSSTYLE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("COMMUNICATIONSSTYLE");
-pub const VSCLASS_CONTROLPANEL: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("CONTROLPANEL");
-pub const VSCLASS_CONTROLPANELSTYLE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("CONTROLPANELSTYLE");
-pub const VSCLASS_DATEPICKER: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("DATEPICKER");
-pub const VSCLASS_DATEPICKERSTYLE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("DATEPICKERSTYLE");
-pub const VSCLASS_DRAGDROP: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("DRAGDROP");
-pub const VSCLASS_DRAGDROPSTYLE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("DRAGDROPSTYLE");
-pub const VSCLASS_EDIT: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("EDIT");
-pub const VSCLASS_EDITSTYLE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("EDITSTYLE");
-pub const VSCLASS_EMPTYMARKUP: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("EMPTYMARKUP");
-pub const VSCLASS_EXPLORERBAR: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("EXPLORERBAR");
-pub const VSCLASS_EXPLORERBARSTYLE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("EXPLORERBARSTYLE");
-pub const VSCLASS_FLYOUT: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("FLYOUT");
-pub const VSCLASS_FLYOUTSTYLE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("FLYOUTSTYLE");
-pub const VSCLASS_HEADER: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("HEADER");
-pub const VSCLASS_HEADERSTYLE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("HEADERSTYLE");
-pub const VSCLASS_LINK: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("LINK");
-pub const VSCLASS_LISTBOX: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("LISTBOX");
-pub const VSCLASS_LISTBOXSTYLE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("LISTBOXSTYLE");
-pub const VSCLASS_LISTVIEW: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("LISTVIEW");
-pub const VSCLASS_LISTVIEWSTYLE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("LISTVIEWSTYLE");
-pub const VSCLASS_MENU: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("MENU");
-pub const VSCLASS_MENUBAND: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("MENUBAND");
-pub const VSCLASS_MENUSTYLE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("MENUSTYLE");
-pub const VSCLASS_MONTHCAL: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("MONTHCAL");
-pub const VSCLASS_NAVIGATION: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("NAVIGATION");
-pub const VSCLASS_PAGE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("PAGE");
-pub const VSCLASS_PROGRESS: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("PROGRESS");
-pub const VSCLASS_PROGRESSSTYLE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("PROGRESSSTYLE");
-pub const VSCLASS_REBAR: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("REBAR");
-pub const VSCLASS_REBARSTYLE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("REBARSTYLE");
-pub const VSCLASS_SCROLLBAR: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("SCROLLBAR");
-pub const VSCLASS_SCROLLBARSTYLE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("SCROLLBARSTYLE");
-pub const VSCLASS_SPIN: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("SPIN");
-pub const VSCLASS_SPINSTYLE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("SPINSTYLE");
-pub const VSCLASS_STARTPANEL: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("STARTPANEL");
-pub const VSCLASS_STATIC: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("STATIC");
-pub const VSCLASS_STATUS: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("STATUS");
-pub const VSCLASS_STATUSSTYLE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("STATUSSTYLE");
-pub const VSCLASS_TAB: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("TAB");
-pub const VSCLASS_TABSTYLE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("TABSTYLE");
-pub const VSCLASS_TASKBAND: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("TASKBAND");
-pub const VSCLASS_TASKBAR: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("TASKBAR");
-pub const VSCLASS_TASKDIALOG: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("TASKDIALOG");
-pub const VSCLASS_TASKDIALOGSTYLE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("TASKDIALOGSTYLE");
-pub const VSCLASS_TEXTSELECTIONGRIPPER: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("TEXTSELECTIONGRIPPER");
-pub const VSCLASS_TEXTSTYLE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("TEXTSTYLE");
-pub const VSCLASS_TOOLBAR: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("TOOLBAR");
-pub const VSCLASS_TOOLBARSTYLE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("TOOLBARSTYLE");
-pub const VSCLASS_TOOLTIP: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("TOOLTIP");
-pub const VSCLASS_TOOLTIPSTYLE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("TOOLTIPSTYLE");
-pub const VSCLASS_TRACKBAR: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("TRACKBAR");
-pub const VSCLASS_TRACKBARSTYLE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("TRACKBARSTYLE");
-pub const VSCLASS_TRAYNOTIFY: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("TRAYNOTIFY");
-pub const VSCLASS_TREEVIEW: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("TREEVIEW");
-pub const VSCLASS_TREEVIEWSTYLE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("TREEVIEWSTYLE");
-pub const VSCLASS_USERTILE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("USERTILE");
-pub const VSCLASS_WINDOW: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("WINDOW");
-pub const VSCLASS_WINDOWSTYLE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("WINDOWSTYLE");
+pub const VSCLASS_AEROWIZARD: windows_sys::core::PCWSTR = windows_sys::core::w!("AEROWIZARD");
+pub const VSCLASS_AEROWIZARDSTYLE: windows_sys::core::PCWSTR = windows_sys::core::w!("AEROWIZARDSTYLE");
+pub const VSCLASS_BUTTON: windows_sys::core::PCWSTR = windows_sys::core::w!("BUTTON");
+pub const VSCLASS_BUTTONSTYLE: windows_sys::core::PCWSTR = windows_sys::core::w!("BUTTONSTYLE");
+pub const VSCLASS_CLOCK: windows_sys::core::PCWSTR = windows_sys::core::w!("CLOCK");
+pub const VSCLASS_COMBOBOX: windows_sys::core::PCWSTR = windows_sys::core::w!("COMBOBOX");
+pub const VSCLASS_COMBOBOXSTYLE: windows_sys::core::PCWSTR = windows_sys::core::w!("COMBOBOXSTYLE");
+pub const VSCLASS_COMMUNICATIONS: windows_sys::core::PCWSTR = windows_sys::core::w!("COMMUNICATIONS");
+pub const VSCLASS_COMMUNICATIONSSTYLE: windows_sys::core::PCWSTR = windows_sys::core::w!("COMMUNICATIONSSTYLE");
+pub const VSCLASS_CONTROLPANEL: windows_sys::core::PCWSTR = windows_sys::core::w!("CONTROLPANEL");
+pub const VSCLASS_CONTROLPANELSTYLE: windows_sys::core::PCWSTR = windows_sys::core::w!("CONTROLPANELSTYLE");
+pub const VSCLASS_DATEPICKER: windows_sys::core::PCWSTR = windows_sys::core::w!("DATEPICKER");
+pub const VSCLASS_DATEPICKERSTYLE: windows_sys::core::PCWSTR = windows_sys::core::w!("DATEPICKERSTYLE");
+pub const VSCLASS_DRAGDROP: windows_sys::core::PCWSTR = windows_sys::core::w!("DRAGDROP");
+pub const VSCLASS_DRAGDROPSTYLE: windows_sys::core::PCWSTR = windows_sys::core::w!("DRAGDROPSTYLE");
+pub const VSCLASS_EDIT: windows_sys::core::PCWSTR = windows_sys::core::w!("EDIT");
+pub const VSCLASS_EDITSTYLE: windows_sys::core::PCWSTR = windows_sys::core::w!("EDITSTYLE");
+pub const VSCLASS_EMPTYMARKUP: windows_sys::core::PCWSTR = windows_sys::core::w!("EMPTYMARKUP");
+pub const VSCLASS_EXPLORERBAR: windows_sys::core::PCWSTR = windows_sys::core::w!("EXPLORERBAR");
+pub const VSCLASS_EXPLORERBARSTYLE: windows_sys::core::PCWSTR = windows_sys::core::w!("EXPLORERBARSTYLE");
+pub const VSCLASS_FLYOUT: windows_sys::core::PCWSTR = windows_sys::core::w!("FLYOUT");
+pub const VSCLASS_FLYOUTSTYLE: windows_sys::core::PCWSTR = windows_sys::core::w!("FLYOUTSTYLE");
+pub const VSCLASS_HEADER: windows_sys::core::PCWSTR = windows_sys::core::w!("HEADER");
+pub const VSCLASS_HEADERSTYLE: windows_sys::core::PCWSTR = windows_sys::core::w!("HEADERSTYLE");
+pub const VSCLASS_LINK: windows_sys::core::PCWSTR = windows_sys::core::w!("LINK");
+pub const VSCLASS_LISTBOX: windows_sys::core::PCWSTR = windows_sys::core::w!("LISTBOX");
+pub const VSCLASS_LISTBOXSTYLE: windows_sys::core::PCWSTR = windows_sys::core::w!("LISTBOXSTYLE");
+pub const VSCLASS_LISTVIEW: windows_sys::core::PCWSTR = windows_sys::core::w!("LISTVIEW");
+pub const VSCLASS_LISTVIEWSTYLE: windows_sys::core::PCWSTR = windows_sys::core::w!("LISTVIEWSTYLE");
+pub const VSCLASS_MENU: windows_sys::core::PCWSTR = windows_sys::core::w!("MENU");
+pub const VSCLASS_MENUBAND: windows_sys::core::PCWSTR = windows_sys::core::w!("MENUBAND");
+pub const VSCLASS_MENUSTYLE: windows_sys::core::PCWSTR = windows_sys::core::w!("MENUSTYLE");
+pub const VSCLASS_MONTHCAL: windows_sys::core::PCWSTR = windows_sys::core::w!("MONTHCAL");
+pub const VSCLASS_NAVIGATION: windows_sys::core::PCWSTR = windows_sys::core::w!("NAVIGATION");
+pub const VSCLASS_PAGE: windows_sys::core::PCWSTR = windows_sys::core::w!("PAGE");
+pub const VSCLASS_PROGRESS: windows_sys::core::PCWSTR = windows_sys::core::w!("PROGRESS");
+pub const VSCLASS_PROGRESSSTYLE: windows_sys::core::PCWSTR = windows_sys::core::w!("PROGRESSSTYLE");
+pub const VSCLASS_REBAR: windows_sys::core::PCWSTR = windows_sys::core::w!("REBAR");
+pub const VSCLASS_REBARSTYLE: windows_sys::core::PCWSTR = windows_sys::core::w!("REBARSTYLE");
+pub const VSCLASS_SCROLLBAR: windows_sys::core::PCWSTR = windows_sys::core::w!("SCROLLBAR");
+pub const VSCLASS_SCROLLBARSTYLE: windows_sys::core::PCWSTR = windows_sys::core::w!("SCROLLBARSTYLE");
+pub const VSCLASS_SPIN: windows_sys::core::PCWSTR = windows_sys::core::w!("SPIN");
+pub const VSCLASS_SPINSTYLE: windows_sys::core::PCWSTR = windows_sys::core::w!("SPINSTYLE");
+pub const VSCLASS_STARTPANEL: windows_sys::core::PCWSTR = windows_sys::core::w!("STARTPANEL");
+pub const VSCLASS_STATIC: windows_sys::core::PCWSTR = windows_sys::core::w!("STATIC");
+pub const VSCLASS_STATUS: windows_sys::core::PCWSTR = windows_sys::core::w!("STATUS");
+pub const VSCLASS_STATUSSTYLE: windows_sys::core::PCWSTR = windows_sys::core::w!("STATUSSTYLE");
+pub const VSCLASS_TAB: windows_sys::core::PCWSTR = windows_sys::core::w!("TAB");
+pub const VSCLASS_TABSTYLE: windows_sys::core::PCWSTR = windows_sys::core::w!("TABSTYLE");
+pub const VSCLASS_TASKBAND: windows_sys::core::PCWSTR = windows_sys::core::w!("TASKBAND");
+pub const VSCLASS_TASKBAR: windows_sys::core::PCWSTR = windows_sys::core::w!("TASKBAR");
+pub const VSCLASS_TASKDIALOG: windows_sys::core::PCWSTR = windows_sys::core::w!("TASKDIALOG");
+pub const VSCLASS_TASKDIALOGSTYLE: windows_sys::core::PCWSTR = windows_sys::core::w!("TASKDIALOGSTYLE");
+pub const VSCLASS_TEXTSELECTIONGRIPPER: windows_sys::core::PCWSTR = windows_sys::core::w!("TEXTSELECTIONGRIPPER");
+pub const VSCLASS_TEXTSTYLE: windows_sys::core::PCWSTR = windows_sys::core::w!("TEXTSTYLE");
+pub const VSCLASS_TOOLBAR: windows_sys::core::PCWSTR = windows_sys::core::w!("TOOLBAR");
+pub const VSCLASS_TOOLBARSTYLE: windows_sys::core::PCWSTR = windows_sys::core::w!("TOOLBARSTYLE");
+pub const VSCLASS_TOOLTIP: windows_sys::core::PCWSTR = windows_sys::core::w!("TOOLTIP");
+pub const VSCLASS_TOOLTIPSTYLE: windows_sys::core::PCWSTR = windows_sys::core::w!("TOOLTIPSTYLE");
+pub const VSCLASS_TRACKBAR: windows_sys::core::PCWSTR = windows_sys::core::w!("TRACKBAR");
+pub const VSCLASS_TRACKBARSTYLE: windows_sys::core::PCWSTR = windows_sys::core::w!("TRACKBARSTYLE");
+pub const VSCLASS_TRAYNOTIFY: windows_sys::core::PCWSTR = windows_sys::core::w!("TRAYNOTIFY");
+pub const VSCLASS_TREEVIEW: windows_sys::core::PCWSTR = windows_sys::core::w!("TREEVIEW");
+pub const VSCLASS_TREEVIEWSTYLE: windows_sys::core::PCWSTR = windows_sys::core::w!("TREEVIEWSTYLE");
+pub const VSCLASS_USERTILE: windows_sys::core::PCWSTR = windows_sys::core::w!("USERTILE");
+pub const VSCLASS_WINDOW: windows_sys::core::PCWSTR = windows_sys::core::w!("WINDOW");
+pub const VSCLASS_WINDOWSTYLE: windows_sys::core::PCWSTR = windows_sys::core::w!("WINDOWSTYLE");
 pub const VSS_DISABLED: VERTSCROLLSTATES = 4i32;
 pub const VSS_HOT: VERTSCROLLSTATES = 2i32;
 pub const VSS_NORMAL: VERTSCROLLSTATES = 1i32;
@@ -4183,49 +4183,49 @@ pub const WB_MOVEWORDLEFT: WORD_BREAK_ACTION = 4i32;
 pub const WB_MOVEWORDRIGHT: WORD_BREAK_ACTION = 5i32;
 pub const WB_RIGHT: WORD_BREAK_ACTION = 1i32;
 pub const WB_RIGHTBREAK: WORD_BREAK_ACTION = 7i32;
-pub const WC_BUTTON: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Button");
-pub const WC_BUTTONA: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("Button");
-pub const WC_BUTTONW: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Button");
-pub const WC_COMBOBOX: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("ComboBox");
-pub const WC_COMBOBOXA: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("ComboBox");
-pub const WC_COMBOBOXEX: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("ComboBoxEx32");
-pub const WC_COMBOBOXEXA: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("ComboBoxEx32");
-pub const WC_COMBOBOXEXW: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("ComboBoxEx32");
-pub const WC_COMBOBOXW: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("ComboBox");
-pub const WC_EDIT: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Edit");
-pub const WC_EDITA: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("Edit");
-pub const WC_EDITW: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Edit");
-pub const WC_HEADER: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("SysHeader32");
-pub const WC_HEADERA: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("SysHeader32");
-pub const WC_HEADERW: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("SysHeader32");
-pub const WC_IPADDRESS: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("SysIPAddress32");
-pub const WC_IPADDRESSA: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("SysIPAddress32");
-pub const WC_IPADDRESSW: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("SysIPAddress32");
-pub const WC_LINK: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("SysLink");
-pub const WC_LISTBOX: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("ListBox");
-pub const WC_LISTBOXA: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("ListBox");
-pub const WC_LISTBOXW: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("ListBox");
-pub const WC_LISTVIEW: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("SysListView32");
-pub const WC_LISTVIEWA: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("SysListView32");
-pub const WC_LISTVIEWW: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("SysListView32");
-pub const WC_NATIVEFONTCTL: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("NativeFontCtl");
-pub const WC_NATIVEFONTCTLA: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("NativeFontCtl");
-pub const WC_NATIVEFONTCTLW: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("NativeFontCtl");
-pub const WC_PAGESCROLLER: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("SysPager");
-pub const WC_PAGESCROLLERA: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("SysPager");
-pub const WC_PAGESCROLLERW: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("SysPager");
-pub const WC_SCROLLBAR: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("ScrollBar");
-pub const WC_SCROLLBARA: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("ScrollBar");
-pub const WC_SCROLLBARW: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("ScrollBar");
-pub const WC_STATIC: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Static");
-pub const WC_STATICA: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("Static");
-pub const WC_STATICW: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Static");
-pub const WC_TABCONTROL: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("SysTabControl32");
-pub const WC_TABCONTROLA: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("SysTabControl32");
-pub const WC_TABCONTROLW: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("SysTabControl32");
-pub const WC_TREEVIEW: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("SysTreeView32");
-pub const WC_TREEVIEWA: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("SysTreeView32");
-pub const WC_TREEVIEWW: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("SysTreeView32");
+pub const WC_BUTTON: windows_sys::core::PCWSTR = windows_sys::core::w!("Button");
+pub const WC_BUTTONA: windows_sys::core::PCSTR = windows_sys::core::s!("Button");
+pub const WC_BUTTONW: windows_sys::core::PCWSTR = windows_sys::core::w!("Button");
+pub const WC_COMBOBOX: windows_sys::core::PCWSTR = windows_sys::core::w!("ComboBox");
+pub const WC_COMBOBOXA: windows_sys::core::PCSTR = windows_sys::core::s!("ComboBox");
+pub const WC_COMBOBOXEX: windows_sys::core::PCWSTR = windows_sys::core::w!("ComboBoxEx32");
+pub const WC_COMBOBOXEXA: windows_sys::core::PCSTR = windows_sys::core::s!("ComboBoxEx32");
+pub const WC_COMBOBOXEXW: windows_sys::core::PCWSTR = windows_sys::core::w!("ComboBoxEx32");
+pub const WC_COMBOBOXW: windows_sys::core::PCWSTR = windows_sys::core::w!("ComboBox");
+pub const WC_EDIT: windows_sys::core::PCWSTR = windows_sys::core::w!("Edit");
+pub const WC_EDITA: windows_sys::core::PCSTR = windows_sys::core::s!("Edit");
+pub const WC_EDITW: windows_sys::core::PCWSTR = windows_sys::core::w!("Edit");
+pub const WC_HEADER: windows_sys::core::PCWSTR = windows_sys::core::w!("SysHeader32");
+pub const WC_HEADERA: windows_sys::core::PCSTR = windows_sys::core::s!("SysHeader32");
+pub const WC_HEADERW: windows_sys::core::PCWSTR = windows_sys::core::w!("SysHeader32");
+pub const WC_IPADDRESS: windows_sys::core::PCWSTR = windows_sys::core::w!("SysIPAddress32");
+pub const WC_IPADDRESSA: windows_sys::core::PCSTR = windows_sys::core::s!("SysIPAddress32");
+pub const WC_IPADDRESSW: windows_sys::core::PCWSTR = windows_sys::core::w!("SysIPAddress32");
+pub const WC_LINK: windows_sys::core::PCWSTR = windows_sys::core::w!("SysLink");
+pub const WC_LISTBOX: windows_sys::core::PCWSTR = windows_sys::core::w!("ListBox");
+pub const WC_LISTBOXA: windows_sys::core::PCSTR = windows_sys::core::s!("ListBox");
+pub const WC_LISTBOXW: windows_sys::core::PCWSTR = windows_sys::core::w!("ListBox");
+pub const WC_LISTVIEW: windows_sys::core::PCWSTR = windows_sys::core::w!("SysListView32");
+pub const WC_LISTVIEWA: windows_sys::core::PCSTR = windows_sys::core::s!("SysListView32");
+pub const WC_LISTVIEWW: windows_sys::core::PCWSTR = windows_sys::core::w!("SysListView32");
+pub const WC_NATIVEFONTCTL: windows_sys::core::PCWSTR = windows_sys::core::w!("NativeFontCtl");
+pub const WC_NATIVEFONTCTLA: windows_sys::core::PCSTR = windows_sys::core::s!("NativeFontCtl");
+pub const WC_NATIVEFONTCTLW: windows_sys::core::PCWSTR = windows_sys::core::w!("NativeFontCtl");
+pub const WC_PAGESCROLLER: windows_sys::core::PCWSTR = windows_sys::core::w!("SysPager");
+pub const WC_PAGESCROLLERA: windows_sys::core::PCSTR = windows_sys::core::s!("SysPager");
+pub const WC_PAGESCROLLERW: windows_sys::core::PCWSTR = windows_sys::core::w!("SysPager");
+pub const WC_SCROLLBAR: windows_sys::core::PCWSTR = windows_sys::core::w!("ScrollBar");
+pub const WC_SCROLLBARA: windows_sys::core::PCSTR = windows_sys::core::s!("ScrollBar");
+pub const WC_SCROLLBARW: windows_sys::core::PCWSTR = windows_sys::core::w!("ScrollBar");
+pub const WC_STATIC: windows_sys::core::PCWSTR = windows_sys::core::w!("Static");
+pub const WC_STATICA: windows_sys::core::PCSTR = windows_sys::core::s!("Static");
+pub const WC_STATICW: windows_sys::core::PCWSTR = windows_sys::core::w!("Static");
+pub const WC_TABCONTROL: windows_sys::core::PCWSTR = windows_sys::core::w!("SysTabControl32");
+pub const WC_TABCONTROLA: windows_sys::core::PCSTR = windows_sys::core::s!("SysTabControl32");
+pub const WC_TABCONTROLW: windows_sys::core::PCWSTR = windows_sys::core::w!("SysTabControl32");
+pub const WC_TREEVIEW: windows_sys::core::PCWSTR = windows_sys::core::w!("SysTreeView32");
+pub const WC_TREEVIEWA: windows_sys::core::PCSTR = windows_sys::core::s!("SysTreeView32");
+pub const WC_TREEVIEWW: windows_sys::core::PCWSTR = windows_sys::core::w!("SysTreeView32");
 pub const WIZ_BODYCX: u32 = 184u32;
 pub const WIZ_BODYX: u32 = 92u32;
 pub const WIZ_CXBMP: u32 = 80u32;
@@ -4794,8 +4794,8 @@ pub struct BP_ANIMATIONPARAMS {
     pub style: BP_ANIMATIONSTYLE,
     pub dwDuration: u32,
 }
-impl ::core::marker::Copy for BP_ANIMATIONPARAMS {}
-impl ::core::clone::Clone for BP_ANIMATIONPARAMS {
+impl Copy for BP_ANIMATIONPARAMS {}
+impl Clone for BP_ANIMATIONPARAMS {
     fn clone(&self) -> Self {
         *self
     }
@@ -4809,9 +4809,9 @@ pub struct BP_PAINTPARAMS {
     pub pBlendFunction: *const super::super::Graphics::Gdi::BLENDFUNCTION,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::marker::Copy for BP_PAINTPARAMS {}
+impl Copy for BP_PAINTPARAMS {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::clone::Clone for BP_PAINTPARAMS {
+impl Clone for BP_PAINTPARAMS {
     fn clone(&self) -> Self {
         *self
     }
@@ -4822,8 +4822,8 @@ pub struct BUTTON_IMAGELIST {
     pub margin: super::super::Foundation::RECT,
     pub uAlign: BUTTON_IMAGELIST_ALIGN,
 }
-impl ::core::marker::Copy for BUTTON_IMAGELIST {}
-impl ::core::clone::Clone for BUTTON_IMAGELIST {
+impl Copy for BUTTON_IMAGELIST {}
+impl Clone for BUTTON_IMAGELIST {
     fn clone(&self) -> Self {
         *self
     }
@@ -4835,8 +4835,8 @@ pub struct BUTTON_SPLITINFO {
     pub uSplitStyle: u32,
     pub size: super::super::Foundation::SIZE,
 }
-impl ::core::marker::Copy for BUTTON_SPLITINFO {}
-impl ::core::clone::Clone for BUTTON_SPLITINFO {
+impl Copy for BUTTON_SPLITINFO {}
+impl Clone for BUTTON_SPLITINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -4861,9 +4861,9 @@ pub struct CCINFOA {
     pub dwReserved2: u32,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::marker::Copy for CCINFOA {}
+impl Copy for CCINFOA {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::clone::Clone for CCINFOA {
+impl Clone for CCINFOA {
     fn clone(&self) -> Self {
         *self
     }
@@ -4888,9 +4888,9 @@ pub struct CCINFOW {
     pub dwReserved2: u32,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::marker::Copy for CCINFOW {}
+impl Copy for CCINFOW {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::clone::Clone for CCINFOW {
+impl Clone for CCINFOW {
     fn clone(&self) -> Self {
         *self
     }
@@ -4903,8 +4903,8 @@ pub struct CCSTYLEA {
     pub lgid: u16,
     pub wReserved1: u16,
 }
-impl ::core::marker::Copy for CCSTYLEA {}
-impl ::core::clone::Clone for CCSTYLEA {
+impl Copy for CCSTYLEA {}
+impl Clone for CCSTYLEA {
     fn clone(&self) -> Self {
         *self
     }
@@ -4913,10 +4913,10 @@ impl ::core::clone::Clone for CCSTYLEA {
 pub struct CCSTYLEFLAGA {
     pub flStyle: u32,
     pub flStyleMask: u32,
-    pub pszStyle: ::windows_sys::core::PSTR,
+    pub pszStyle: windows_sys::core::PSTR,
 }
-impl ::core::marker::Copy for CCSTYLEFLAGA {}
-impl ::core::clone::Clone for CCSTYLEFLAGA {
+impl Copy for CCSTYLEFLAGA {}
+impl Clone for CCSTYLEFLAGA {
     fn clone(&self) -> Self {
         *self
     }
@@ -4925,10 +4925,10 @@ impl ::core::clone::Clone for CCSTYLEFLAGA {
 pub struct CCSTYLEFLAGW {
     pub flStyle: u32,
     pub flStyleMask: u32,
-    pub pszStyle: ::windows_sys::core::PWSTR,
+    pub pszStyle: windows_sys::core::PWSTR,
 }
-impl ::core::marker::Copy for CCSTYLEFLAGW {}
-impl ::core::clone::Clone for CCSTYLEFLAGW {
+impl Copy for CCSTYLEFLAGW {}
+impl Clone for CCSTYLEFLAGW {
     fn clone(&self) -> Self {
         *self
     }
@@ -4941,8 +4941,8 @@ pub struct CCSTYLEW {
     pub lgid: u16,
     pub wReserved1: u16,
 }
-impl ::core::marker::Copy for CCSTYLEW {}
-impl ::core::clone::Clone for CCSTYLEW {
+impl Copy for CCSTYLEW {}
+impl Clone for CCSTYLEW {
     fn clone(&self) -> Self {
         *self
     }
@@ -4952,8 +4952,8 @@ pub struct COLORMAP {
     pub from: super::super::Foundation::COLORREF,
     pub to: super::super::Foundation::COLORREF,
 }
-impl ::core::marker::Copy for COLORMAP {}
-impl ::core::clone::Clone for COLORMAP {
+impl Copy for COLORMAP {}
+impl Clone for COLORMAP {
     fn clone(&self) -> Self {
         *self
     }
@@ -4964,8 +4964,8 @@ pub struct COLORSCHEME {
     pub clrBtnHighlight: super::super::Foundation::COLORREF,
     pub clrBtnShadow: super::super::Foundation::COLORREF,
 }
-impl ::core::marker::Copy for COLORSCHEME {}
-impl ::core::clone::Clone for COLORSCHEME {
+impl Copy for COLORSCHEME {}
+impl Clone for COLORSCHEME {
     fn clone(&self) -> Self {
         *self
     }
@@ -4974,7 +4974,7 @@ impl ::core::clone::Clone for COLORSCHEME {
 pub struct COMBOBOXEXITEMA {
     pub mask: COMBOBOX_EX_ITEM_FLAGS,
     pub iItem: isize,
-    pub pszText: ::windows_sys::core::PSTR,
+    pub pszText: windows_sys::core::PSTR,
     pub cchTextMax: i32,
     pub iImage: i32,
     pub iSelectedImage: i32,
@@ -4982,8 +4982,8 @@ pub struct COMBOBOXEXITEMA {
     pub iIndent: i32,
     pub lParam: super::super::Foundation::LPARAM,
 }
-impl ::core::marker::Copy for COMBOBOXEXITEMA {}
-impl ::core::clone::Clone for COMBOBOXEXITEMA {
+impl Copy for COMBOBOXEXITEMA {}
+impl Clone for COMBOBOXEXITEMA {
     fn clone(&self) -> Self {
         *self
     }
@@ -4992,7 +4992,7 @@ impl ::core::clone::Clone for COMBOBOXEXITEMA {
 pub struct COMBOBOXEXITEMW {
     pub mask: COMBOBOX_EX_ITEM_FLAGS,
     pub iItem: isize,
-    pub pszText: ::windows_sys::core::PWSTR,
+    pub pszText: windows_sys::core::PWSTR,
     pub cchTextMax: i32,
     pub iImage: i32,
     pub iSelectedImage: i32,
@@ -5000,8 +5000,8 @@ pub struct COMBOBOXEXITEMW {
     pub iIndent: i32,
     pub lParam: super::super::Foundation::LPARAM,
 }
-impl ::core::marker::Copy for COMBOBOXEXITEMW {}
-impl ::core::clone::Clone for COMBOBOXEXITEMW {
+impl Copy for COMBOBOXEXITEMW {}
+impl Clone for COMBOBOXEXITEMW {
     fn clone(&self) -> Self {
         *self
     }
@@ -5016,8 +5016,8 @@ pub struct COMBOBOXINFO {
     pub hwndItem: super::super::Foundation::HWND,
     pub hwndList: super::super::Foundation::HWND,
 }
-impl ::core::marker::Copy for COMBOBOXINFO {}
-impl ::core::clone::Clone for COMBOBOXINFO {
+impl Copy for COMBOBOXINFO {}
+impl Clone for COMBOBOXINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -5033,8 +5033,8 @@ pub struct COMPAREITEMSTRUCT {
     pub itemData2: usize,
     pub dwLocaleId: u32,
 }
-impl ::core::marker::Copy for COMPAREITEMSTRUCT {}
-impl ::core::clone::Clone for COMPAREITEMSTRUCT {
+impl Copy for COMPAREITEMSTRUCT {}
+impl Clone for COMPAREITEMSTRUCT {
     fn clone(&self) -> Self {
         *self
     }
@@ -5050,8 +5050,8 @@ pub struct DATETIMEPICKERINFO {
     pub hwndUD: super::super::Foundation::HWND,
     pub hwndDropDown: super::super::Foundation::HWND,
 }
-impl ::core::marker::Copy for DATETIMEPICKERINFO {}
-impl ::core::clone::Clone for DATETIMEPICKERINFO {
+impl Copy for DATETIMEPICKERINFO {}
+impl Clone for DATETIMEPICKERINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -5064,8 +5064,8 @@ pub struct DELETEITEMSTRUCT {
     pub hwndItem: super::super::Foundation::HWND,
     pub itemData: usize,
 }
-impl ::core::marker::Copy for DELETEITEMSTRUCT {}
-impl ::core::clone::Clone for DELETEITEMSTRUCT {
+impl Copy for DELETEITEMSTRUCT {}
+impl Clone for DELETEITEMSTRUCT {
     fn clone(&self) -> Self {
         *self
     }
@@ -5073,10 +5073,10 @@ impl ::core::clone::Clone for DELETEITEMSTRUCT {
 #[repr(C)]
 pub struct DPASTREAMINFO {
     pub iPos: i32,
-    pub pvItem: *mut ::core::ffi::c_void,
+    pub pvItem: *mut core::ffi::c_void,
 }
-impl ::core::marker::Copy for DPASTREAMINFO {}
-impl ::core::clone::Clone for DPASTREAMINFO {
+impl Copy for DPASTREAMINFO {}
+impl Clone for DPASTREAMINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -5087,8 +5087,8 @@ pub struct DRAGLISTINFO {
     pub hWnd: super::super::Foundation::HWND,
     pub ptCursor: super::super::Foundation::POINT,
 }
-impl ::core::marker::Copy for DRAGLISTINFO {}
-impl ::core::clone::Clone for DRAGLISTINFO {
+impl Copy for DRAGLISTINFO {}
+impl Clone for DRAGLISTINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -5107,9 +5107,9 @@ pub struct DRAWITEMSTRUCT {
     pub itemData: usize,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::marker::Copy for DRAWITEMSTRUCT {}
+impl Copy for DRAWITEMSTRUCT {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::clone::Clone for DRAWITEMSTRUCT {
+impl Clone for DRAWITEMSTRUCT {
     fn clone(&self) -> Self {
         *self
     }
@@ -5120,8 +5120,8 @@ pub struct DTBGOPTS {
     pub dwFlags: u32,
     pub rcClip: super::super::Foundation::RECT,
 }
-impl ::core::marker::Copy for DTBGOPTS {}
-impl ::core::clone::Clone for DTBGOPTS {
+impl Copy for DTBGOPTS {}
+impl Clone for DTBGOPTS {
     fn clone(&self) -> Self {
         *self
     }
@@ -5146,9 +5146,9 @@ pub struct DTTOPTS {
     pub lParam: super::super::Foundation::LPARAM,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::marker::Copy for DTTOPTS {}
+impl Copy for DTTOPTS {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::clone::Clone for DTTOPTS {
+impl Clone for DTTOPTS {
     fn clone(&self) -> Self {
         *self
     }
@@ -5156,12 +5156,12 @@ impl ::core::clone::Clone for DTTOPTS {
 #[repr(C)]
 pub struct EDITBALLOONTIP {
     pub cbStruct: u32,
-    pub pszTitle: ::windows_sys::core::PCWSTR,
-    pub pszText: ::windows_sys::core::PCWSTR,
+    pub pszTitle: windows_sys::core::PCWSTR,
+    pub pszText: windows_sys::core::PCWSTR,
     pub ttiIcon: EDITBALLOONTIP_ICON,
 }
-impl ::core::marker::Copy for EDITBALLOONTIP {}
-impl ::core::clone::Clone for EDITBALLOONTIP {
+impl Copy for EDITBALLOONTIP {}
+impl Clone for EDITBALLOONTIP {
     fn clone(&self) -> Self {
         *self
     }
@@ -5172,8 +5172,8 @@ pub struct HDHITTESTINFO {
     pub flags: HEADER_HITTEST_INFO_FLAGS,
     pub iItem: i32,
 }
-impl ::core::marker::Copy for HDHITTESTINFO {}
-impl ::core::clone::Clone for HDHITTESTINFO {
+impl Copy for HDHITTESTINFO {}
+impl Clone for HDHITTESTINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -5183,7 +5183,7 @@ impl ::core::clone::Clone for HDHITTESTINFO {
 pub struct HDITEMA {
     pub mask: HDI_MASK,
     pub cxy: i32,
-    pub pszText: ::windows_sys::core::PSTR,
+    pub pszText: windows_sys::core::PSTR,
     pub hbm: super::super::Graphics::Gdi::HBITMAP,
     pub cchTextMax: i32,
     pub fmt: HEADER_CONTROL_FORMAT_FLAGS,
@@ -5191,13 +5191,13 @@ pub struct HDITEMA {
     pub iImage: i32,
     pub iOrder: i32,
     pub r#type: HEADER_CONTROL_FORMAT_TYPE,
-    pub pvFilter: *mut ::core::ffi::c_void,
+    pub pvFilter: *mut core::ffi::c_void,
     pub state: HEADER_CONTROL_FORMAT_STATE,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::marker::Copy for HDITEMA {}
+impl Copy for HDITEMA {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::clone::Clone for HDITEMA {
+impl Clone for HDITEMA {
     fn clone(&self) -> Self {
         *self
     }
@@ -5207,7 +5207,7 @@ impl ::core::clone::Clone for HDITEMA {
 pub struct HDITEMW {
     pub mask: HDI_MASK,
     pub cxy: i32,
-    pub pszText: ::windows_sys::core::PWSTR,
+    pub pszText: windows_sys::core::PWSTR,
     pub hbm: super::super::Graphics::Gdi::HBITMAP,
     pub cchTextMax: i32,
     pub fmt: HEADER_CONTROL_FORMAT_FLAGS,
@@ -5215,13 +5215,13 @@ pub struct HDITEMW {
     pub iImage: i32,
     pub iOrder: i32,
     pub r#type: HEADER_CONTROL_FORMAT_TYPE,
-    pub pvFilter: *mut ::core::ffi::c_void,
+    pub pvFilter: *mut core::ffi::c_void,
     pub state: HEADER_CONTROL_FORMAT_STATE,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::marker::Copy for HDITEMW {}
+impl Copy for HDITEMW {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::clone::Clone for HDITEMW {
+impl Clone for HDITEMW {
     fn clone(&self) -> Self {
         *self
     }
@@ -5233,9 +5233,9 @@ pub struct HDLAYOUT {
     pub pwpos: *mut super::WindowsAndMessaging::WINDOWPOS,
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ::core::marker::Copy for HDLAYOUT {}
+impl Copy for HDLAYOUT {}
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ::core::clone::Clone for HDLAYOUT {
+impl Clone for HDLAYOUT {
     fn clone(&self) -> Self {
         *self
     }
@@ -5244,22 +5244,22 @@ pub type HDPA = isize;
 pub type HDSA = isize;
 #[repr(C)]
 pub struct HD_TEXTFILTERA {
-    pub pszText: ::windows_sys::core::PSTR,
+    pub pszText: windows_sys::core::PSTR,
     pub cchTextMax: i32,
 }
-impl ::core::marker::Copy for HD_TEXTFILTERA {}
-impl ::core::clone::Clone for HD_TEXTFILTERA {
+impl Copy for HD_TEXTFILTERA {}
+impl Clone for HD_TEXTFILTERA {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct HD_TEXTFILTERW {
-    pub pszText: ::windows_sys::core::PWSTR,
+    pub pszText: windows_sys::core::PWSTR,
     pub cchTextMax: i32,
 }
-impl ::core::marker::Copy for HD_TEXTFILTERW {}
-impl ::core::clone::Clone for HD_TEXTFILTERW {
+impl Copy for HD_TEXTFILTERW {}
+impl Clone for HD_TEXTFILTERW {
     fn clone(&self) -> Self {
         *self
     }
@@ -5279,9 +5279,9 @@ pub struct IMAGEINFO {
     pub rcImage: super::super::Foundation::RECT,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::marker::Copy for IMAGEINFO {}
+impl Copy for IMAGEINFO {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::clone::Clone for IMAGEINFO {
+impl Clone for IMAGEINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -5308,9 +5308,9 @@ pub struct IMAGELISTDRAWPARAMS {
     pub crEffect: super::super::Foundation::COLORREF,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::marker::Copy for IMAGELISTDRAWPARAMS {}
+impl Copy for IMAGELISTDRAWPARAMS {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::clone::Clone for IMAGELISTDRAWPARAMS {
+impl Clone for IMAGELISTDRAWPARAMS {
     fn clone(&self) -> Self {
         *self
     }
@@ -5322,8 +5322,8 @@ pub struct IMAGELISTSTATS {
     pub cUsed: i32,
     pub cStandby: i32,
 }
-impl ::core::marker::Copy for IMAGELISTSTATS {}
-impl ::core::clone::Clone for IMAGELISTSTATS {
+impl Copy for IMAGELISTSTATS {}
+impl Clone for IMAGELISTSTATS {
     fn clone(&self) -> Self {
         *self
     }
@@ -5333,8 +5333,8 @@ pub struct INITCOMMONCONTROLSEX {
     pub dwSize: u32,
     pub dwICC: INITCOMMONCONTROLSEX_ICC,
 }
-impl ::core::marker::Copy for INITCOMMONCONTROLSEX {}
-impl ::core::clone::Clone for INITCOMMONCONTROLSEX {
+impl Copy for INITCOMMONCONTROLSEX {}
+impl Clone for INITCOMMONCONTROLSEX {
     fn clone(&self) -> Self {
         *self
     }
@@ -5344,20 +5344,20 @@ pub struct INTLIST {
     pub iValueCount: i32,
     pub iValues: [i32; 402],
 }
-impl ::core::marker::Copy for INTLIST {}
-impl ::core::clone::Clone for INTLIST {
+impl Copy for INTLIST {}
+impl Clone for INTLIST {
     fn clone(&self) -> Self {
         *self
     }
 }
-pub const ImageList: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x7c476ba2_02b1_48f4_8048_b24619ddc058);
+pub const ImageList: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7c476ba2_02b1_48f4_8048_b24619ddc058);
 #[repr(C)]
 pub struct LHITTESTINFO {
     pub pt: super::super::Foundation::POINT,
     pub item: LITEM,
 }
-impl ::core::marker::Copy for LHITTESTINFO {}
-impl ::core::clone::Clone for LHITTESTINFO {
+impl Copy for LHITTESTINFO {}
+impl Clone for LHITTESTINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -5371,8 +5371,8 @@ pub struct LITEM {
     pub szID: [u16; 48],
     pub szUrl: [u16; 2084],
 }
-impl ::core::marker::Copy for LITEM {}
-impl ::core::clone::Clone for LITEM {
+impl Copy for LITEM {}
+impl Clone for LITEM {
     fn clone(&self) -> Self {
         *self
     }
@@ -5382,15 +5382,15 @@ impl ::core::clone::Clone for LITEM {
 pub struct LVBKIMAGEA {
     pub ulFlags: LIST_VIEW_BACKGROUND_IMAGE_FLAGS,
     pub hbm: super::super::Graphics::Gdi::HBITMAP,
-    pub pszImage: ::windows_sys::core::PSTR,
+    pub pszImage: windows_sys::core::PSTR,
     pub cchImageMax: u32,
     pub xOffsetPercent: i32,
     pub yOffsetPercent: i32,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::marker::Copy for LVBKIMAGEA {}
+impl Copy for LVBKIMAGEA {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::clone::Clone for LVBKIMAGEA {
+impl Clone for LVBKIMAGEA {
     fn clone(&self) -> Self {
         *self
     }
@@ -5400,15 +5400,15 @@ impl ::core::clone::Clone for LVBKIMAGEA {
 pub struct LVBKIMAGEW {
     pub ulFlags: LIST_VIEW_BACKGROUND_IMAGE_FLAGS,
     pub hbm: super::super::Graphics::Gdi::HBITMAP,
-    pub pszImage: ::windows_sys::core::PWSTR,
+    pub pszImage: windows_sys::core::PWSTR,
     pub cchImageMax: u32,
     pub xOffsetPercent: i32,
     pub yOffsetPercent: i32,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::marker::Copy for LVBKIMAGEW {}
+impl Copy for LVBKIMAGEW {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::clone::Clone for LVBKIMAGEW {
+impl Clone for LVBKIMAGEW {
     fn clone(&self) -> Self {
         *self
     }
@@ -5418,7 +5418,7 @@ pub struct LVCOLUMNA {
     pub mask: LVCOLUMNW_MASK,
     pub fmt: LVCOLUMNW_FORMAT,
     pub cx: i32,
-    pub pszText: ::windows_sys::core::PSTR,
+    pub pszText: windows_sys::core::PSTR,
     pub cchTextMax: i32,
     pub iSubItem: i32,
     pub iImage: i32,
@@ -5427,8 +5427,8 @@ pub struct LVCOLUMNA {
     pub cxDefault: i32,
     pub cxIdeal: i32,
 }
-impl ::core::marker::Copy for LVCOLUMNA {}
-impl ::core::clone::Clone for LVCOLUMNA {
+impl Copy for LVCOLUMNA {}
+impl Clone for LVCOLUMNA {
     fn clone(&self) -> Self {
         *self
     }
@@ -5438,7 +5438,7 @@ pub struct LVCOLUMNW {
     pub mask: LVCOLUMNW_MASK,
     pub fmt: LVCOLUMNW_FORMAT,
     pub cx: i32,
-    pub pszText: ::windows_sys::core::PWSTR,
+    pub pszText: windows_sys::core::PWSTR,
     pub cchTextMax: i32,
     pub iSubItem: i32,
     pub iImage: i32,
@@ -5447,8 +5447,8 @@ pub struct LVCOLUMNW {
     pub cxDefault: i32,
     pub cxIdeal: i32,
 }
-impl ::core::marker::Copy for LVCOLUMNW {}
-impl ::core::clone::Clone for LVCOLUMNW {
+impl Copy for LVCOLUMNW {}
+impl Clone for LVCOLUMNW {
     fn clone(&self) -> Self {
         *self
     }
@@ -5456,13 +5456,13 @@ impl ::core::clone::Clone for LVCOLUMNW {
 #[repr(C)]
 pub struct LVFINDINFOA {
     pub flags: LVFINDINFOW_FLAGS,
-    pub psz: ::windows_sys::core::PCSTR,
+    pub psz: windows_sys::core::PCSTR,
     pub lParam: super::super::Foundation::LPARAM,
     pub pt: super::super::Foundation::POINT,
     pub vkDirection: u32,
 }
-impl ::core::marker::Copy for LVFINDINFOA {}
-impl ::core::clone::Clone for LVFINDINFOA {
+impl Copy for LVFINDINFOA {}
+impl Clone for LVFINDINFOA {
     fn clone(&self) -> Self {
         *self
     }
@@ -5470,13 +5470,13 @@ impl ::core::clone::Clone for LVFINDINFOA {
 #[repr(C)]
 pub struct LVFINDINFOW {
     pub flags: LVFINDINFOW_FLAGS,
-    pub psz: ::windows_sys::core::PCWSTR,
+    pub psz: windows_sys::core::PCWSTR,
     pub lParam: super::super::Foundation::LPARAM,
     pub pt: super::super::Foundation::POINT,
     pub vkDirection: u32,
 }
-impl ::core::marker::Copy for LVFINDINFOW {}
-impl ::core::clone::Clone for LVFINDINFOW {
+impl Copy for LVFINDINFOW {}
+impl Clone for LVFINDINFOW {
     fn clone(&self) -> Self {
         *self
     }
@@ -5484,12 +5484,12 @@ impl ::core::clone::Clone for LVFINDINFOW {
 #[repr(C)]
 pub struct LVFOOTERINFO {
     pub mask: u32,
-    pub pszText: ::windows_sys::core::PWSTR,
+    pub pszText: windows_sys::core::PWSTR,
     pub cchTextMax: i32,
     pub cItems: u32,
 }
-impl ::core::marker::Copy for LVFOOTERINFO {}
-impl ::core::clone::Clone for LVFOOTERINFO {
+impl Copy for LVFOOTERINFO {}
+impl Clone for LVFOOTERINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -5498,13 +5498,13 @@ impl ::core::clone::Clone for LVFOOTERINFO {
 pub struct LVFOOTERITEM {
     pub mask: LVFOOTERITEM_MASK,
     pub iItem: i32,
-    pub pszText: ::windows_sys::core::PWSTR,
+    pub pszText: windows_sys::core::PWSTR,
     pub cchTextMax: i32,
     pub state: u32,
     pub stateMask: u32,
 }
-impl ::core::marker::Copy for LVFOOTERITEM {}
-impl ::core::clone::Clone for LVFOOTERITEM {
+impl Copy for LVFOOTERITEM {}
+impl Clone for LVFOOTERITEM {
     fn clone(&self) -> Self {
         *self
     }
@@ -5513,31 +5513,31 @@ impl ::core::clone::Clone for LVFOOTERITEM {
 pub struct LVGROUP {
     pub cbSize: u32,
     pub mask: LVGROUP_MASK,
-    pub pszHeader: ::windows_sys::core::PWSTR,
+    pub pszHeader: windows_sys::core::PWSTR,
     pub cchHeader: i32,
-    pub pszFooter: ::windows_sys::core::PWSTR,
+    pub pszFooter: windows_sys::core::PWSTR,
     pub cchFooter: i32,
     pub iGroupId: i32,
     pub stateMask: LIST_VIEW_GROUP_STATE_FLAGS,
     pub state: LIST_VIEW_GROUP_STATE_FLAGS,
     pub uAlign: LIST_VIEW_GROUP_ALIGN_FLAGS,
-    pub pszSubtitle: ::windows_sys::core::PWSTR,
+    pub pszSubtitle: windows_sys::core::PWSTR,
     pub cchSubtitle: u32,
-    pub pszTask: ::windows_sys::core::PWSTR,
+    pub pszTask: windows_sys::core::PWSTR,
     pub cchTask: u32,
-    pub pszDescriptionTop: ::windows_sys::core::PWSTR,
+    pub pszDescriptionTop: windows_sys::core::PWSTR,
     pub cchDescriptionTop: u32,
-    pub pszDescriptionBottom: ::windows_sys::core::PWSTR,
+    pub pszDescriptionBottom: windows_sys::core::PWSTR,
     pub cchDescriptionBottom: u32,
     pub iTitleImage: i32,
     pub iExtendedImage: i32,
     pub iFirstItem: i32,
     pub cItems: u32,
-    pub pszSubsetTitle: ::windows_sys::core::PWSTR,
+    pub pszSubsetTitle: windows_sys::core::PWSTR,
     pub cchSubsetTitle: u32,
 }
-impl ::core::marker::Copy for LVGROUP {}
-impl ::core::clone::Clone for LVGROUP {
+impl Copy for LVGROUP {}
+impl Clone for LVGROUP {
     fn clone(&self) -> Self {
         *self
     }
@@ -5557,8 +5557,8 @@ pub struct LVGROUPMETRICS {
     pub crHeader: super::super::Foundation::COLORREF,
     pub crFooter: super::super::Foundation::COLORREF,
 }
-impl ::core::marker::Copy for LVGROUPMETRICS {}
-impl ::core::clone::Clone for LVGROUPMETRICS {
+impl Copy for LVGROUPMETRICS {}
+impl Clone for LVGROUPMETRICS {
     fn clone(&self) -> Self {
         *self
     }
@@ -5571,8 +5571,8 @@ pub struct LVHITTESTINFO {
     pub iSubItem: i32,
     pub iGroup: i32,
 }
-impl ::core::marker::Copy for LVHITTESTINFO {}
-impl ::core::clone::Clone for LVHITTESTINFO {
+impl Copy for LVHITTESTINFO {}
+impl Clone for LVHITTESTINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -5580,11 +5580,11 @@ impl ::core::clone::Clone for LVHITTESTINFO {
 #[repr(C)]
 pub struct LVINSERTGROUPSORTED {
     pub pfnGroupCompare: PFNLVGROUPCOMPARE,
-    pub pvData: *mut ::core::ffi::c_void,
+    pub pvData: *mut core::ffi::c_void,
     pub lvGroup: LVGROUP,
 }
-impl ::core::marker::Copy for LVINSERTGROUPSORTED {}
-impl ::core::clone::Clone for LVINSERTGROUPSORTED {
+impl Copy for LVINSERTGROUPSORTED {}
+impl Clone for LVINSERTGROUPSORTED {
     fn clone(&self) -> Self {
         *self
     }
@@ -5596,8 +5596,8 @@ pub struct LVINSERTMARK {
     pub iItem: i32,
     pub dwReserved: u32,
 }
-impl ::core::marker::Copy for LVINSERTMARK {}
-impl ::core::clone::Clone for LVINSERTMARK {
+impl Copy for LVINSERTMARK {}
+impl Clone for LVINSERTMARK {
     fn clone(&self) -> Self {
         *self
     }
@@ -5609,7 +5609,7 @@ pub struct LVITEMA {
     pub iSubItem: i32,
     pub state: LIST_VIEW_ITEM_STATE_FLAGS,
     pub stateMask: LIST_VIEW_ITEM_STATE_FLAGS,
-    pub pszText: ::windows_sys::core::PSTR,
+    pub pszText: windows_sys::core::PSTR,
     pub cchTextMax: i32,
     pub iImage: i32,
     pub lParam: super::super::Foundation::LPARAM,
@@ -5620,8 +5620,8 @@ pub struct LVITEMA {
     pub piColFmt: *mut LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS,
     pub iGroup: i32,
 }
-impl ::core::marker::Copy for LVITEMA {}
-impl ::core::clone::Clone for LVITEMA {
+impl Copy for LVITEMA {}
+impl Clone for LVITEMA {
     fn clone(&self) -> Self {
         *self
     }
@@ -5631,8 +5631,8 @@ pub struct LVITEMINDEX {
     pub iItem: i32,
     pub iGroup: i32,
 }
-impl ::core::marker::Copy for LVITEMINDEX {}
-impl ::core::clone::Clone for LVITEMINDEX {
+impl Copy for LVITEMINDEX {}
+impl Clone for LVITEMINDEX {
     fn clone(&self) -> Self {
         *self
     }
@@ -5644,7 +5644,7 @@ pub struct LVITEMW {
     pub iSubItem: i32,
     pub state: LIST_VIEW_ITEM_STATE_FLAGS,
     pub stateMask: LIST_VIEW_ITEM_STATE_FLAGS,
-    pub pszText: ::windows_sys::core::PWSTR,
+    pub pszText: windows_sys::core::PWSTR,
     pub cchTextMax: i32,
     pub iImage: i32,
     pub lParam: super::super::Foundation::LPARAM,
@@ -5655,8 +5655,8 @@ pub struct LVITEMW {
     pub piColFmt: *mut LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS,
     pub iGroup: i32,
 }
-impl ::core::marker::Copy for LVITEMW {}
-impl ::core::clone::Clone for LVITEMW {
+impl Copy for LVITEMW {}
+impl Clone for LVITEMW {
     fn clone(&self) -> Self {
         *self
     }
@@ -5665,12 +5665,12 @@ impl ::core::clone::Clone for LVITEMW {
 pub struct LVSETINFOTIP {
     pub cbSize: u32,
     pub dwFlags: u32,
-    pub pszText: ::windows_sys::core::PWSTR,
+    pub pszText: windows_sys::core::PWSTR,
     pub iItem: i32,
     pub iSubItem: i32,
 }
-impl ::core::marker::Copy for LVSETINFOTIP {}
-impl ::core::clone::Clone for LVSETINFOTIP {
+impl Copy for LVSETINFOTIP {}
+impl Clone for LVSETINFOTIP {
     fn clone(&self) -> Self {
         *self
     }
@@ -5683,8 +5683,8 @@ pub struct LVTILEINFO {
     pub puColumns: *mut u32,
     pub piColFmt: *mut i32,
 }
-impl ::core::marker::Copy for LVTILEINFO {}
-impl ::core::clone::Clone for LVTILEINFO {
+impl Copy for LVTILEINFO {}
+impl Clone for LVTILEINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -5698,8 +5698,8 @@ pub struct LVTILEVIEWINFO {
     pub cLines: i32,
     pub rcLabelMargin: super::super::Foundation::RECT,
 }
-impl ::core::marker::Copy for LVTILEVIEWINFO {}
-impl ::core::clone::Clone for LVTILEVIEWINFO {
+impl Copy for LVTILEVIEWINFO {}
+impl Clone for LVTILEVIEWINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -5711,8 +5711,8 @@ pub struct MARGINS {
     pub cyTopHeight: i32,
     pub cyBottomHeight: i32,
 }
-impl ::core::marker::Copy for MARGINS {}
-impl ::core::clone::Clone for MARGINS {
+impl Copy for MARGINS {}
+impl Clone for MARGINS {
     fn clone(&self) -> Self {
         *self
     }
@@ -5729,11 +5729,11 @@ pub struct MCGRIDINFO {
     pub stStart: super::super::Foundation::SYSTEMTIME,
     pub stEnd: super::super::Foundation::SYSTEMTIME,
     pub rc: super::super::Foundation::RECT,
-    pub pszName: ::windows_sys::core::PWSTR,
+    pub pszName: windows_sys::core::PWSTR,
     pub cchName: usize,
 }
-impl ::core::marker::Copy for MCGRIDINFO {}
-impl ::core::clone::Clone for MCGRIDINFO {
+impl Copy for MCGRIDINFO {}
+impl Clone for MCGRIDINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -5749,8 +5749,8 @@ pub struct MCHITTESTINFO {
     pub iRow: i32,
     pub iCol: i32,
 }
-impl ::core::marker::Copy for MCHITTESTINFO {}
-impl ::core::clone::Clone for MCHITTESTINFO {
+impl Copy for MCHITTESTINFO {}
+impl Clone for MCHITTESTINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -5764,8 +5764,8 @@ pub struct MEASUREITEMSTRUCT {
     pub itemHeight: u32,
     pub itemData: usize,
 }
-impl ::core::marker::Copy for MEASUREITEMSTRUCT {}
-impl ::core::clone::Clone for MEASUREITEMSTRUCT {
+impl Copy for MEASUREITEMSTRUCT {}
+impl Clone for MEASUREITEMSTRUCT {
     fn clone(&self) -> Self {
         *self
     }
@@ -5775,8 +5775,8 @@ pub struct NMBCDROPDOWN {
     pub hdr: NMHDR,
     pub rcButton: super::super::Foundation::RECT,
 }
-impl ::core::marker::Copy for NMBCDROPDOWN {}
-impl ::core::clone::Clone for NMBCDROPDOWN {
+impl Copy for NMBCDROPDOWN {}
+impl Clone for NMBCDROPDOWN {
     fn clone(&self) -> Self {
         *self
     }
@@ -5786,8 +5786,8 @@ pub struct NMBCHOTITEM {
     pub hdr: NMHDR,
     pub dwFlags: NMTBHOTITEM_FLAGS,
 }
-impl ::core::marker::Copy for NMBCHOTITEM {}
-impl ::core::clone::Clone for NMBCHOTITEM {
+impl Copy for NMBCHOTITEM {}
+impl Clone for NMBCHOTITEM {
     fn clone(&self) -> Self {
         *self
     }
@@ -5798,8 +5798,8 @@ pub struct NMCBEDRAGBEGINA {
     pub iItemid: i32,
     pub szText: [i8; 260],
 }
-impl ::core::marker::Copy for NMCBEDRAGBEGINA {}
-impl ::core::clone::Clone for NMCBEDRAGBEGINA {
+impl Copy for NMCBEDRAGBEGINA {}
+impl Clone for NMCBEDRAGBEGINA {
     fn clone(&self) -> Self {
         *self
     }
@@ -5810,8 +5810,8 @@ pub struct NMCBEDRAGBEGINW {
     pub iItemid: i32,
     pub szText: [u16; 260],
 }
-impl ::core::marker::Copy for NMCBEDRAGBEGINW {}
-impl ::core::clone::Clone for NMCBEDRAGBEGINW {
+impl Copy for NMCBEDRAGBEGINW {}
+impl Clone for NMCBEDRAGBEGINW {
     fn clone(&self) -> Self {
         *self
     }
@@ -5824,8 +5824,8 @@ pub struct NMCBEENDEDITA {
     pub szText: [i8; 260],
     pub iWhy: i32,
 }
-impl ::core::marker::Copy for NMCBEENDEDITA {}
-impl ::core::clone::Clone for NMCBEENDEDITA {
+impl Copy for NMCBEENDEDITA {}
+impl Clone for NMCBEENDEDITA {
     fn clone(&self) -> Self {
         *self
     }
@@ -5838,8 +5838,8 @@ pub struct NMCBEENDEDITW {
     pub szText: [u16; 260],
     pub iWhy: i32,
 }
-impl ::core::marker::Copy for NMCBEENDEDITW {}
-impl ::core::clone::Clone for NMCBEENDEDITW {
+impl Copy for NMCBEENDEDITW {}
+impl Clone for NMCBEENDEDITW {
     fn clone(&self) -> Self {
         *self
     }
@@ -5851,8 +5851,8 @@ pub struct NMCHAR {
     pub dwItemPrev: u32,
     pub dwItemNext: u32,
 }
-impl ::core::marker::Copy for NMCHAR {}
-impl ::core::clone::Clone for NMCHAR {
+impl Copy for NMCHAR {}
+impl Clone for NMCHAR {
     fn clone(&self) -> Self {
         *self
     }
@@ -5862,8 +5862,8 @@ pub struct NMCOMBOBOXEXA {
     pub hdr: NMHDR,
     pub ceItem: COMBOBOXEXITEMA,
 }
-impl ::core::marker::Copy for NMCOMBOBOXEXA {}
-impl ::core::clone::Clone for NMCOMBOBOXEXA {
+impl Copy for NMCOMBOBOXEXA {}
+impl Clone for NMCOMBOBOXEXA {
     fn clone(&self) -> Self {
         *self
     }
@@ -5873,8 +5873,8 @@ pub struct NMCOMBOBOXEXW {
     pub hdr: NMHDR,
     pub ceItem: COMBOBOXEXITEMW,
 }
-impl ::core::marker::Copy for NMCOMBOBOXEXW {}
-impl ::core::clone::Clone for NMCOMBOBOXEXW {
+impl Copy for NMCOMBOBOXEXW {}
+impl Clone for NMCOMBOBOXEXW {
     fn clone(&self) -> Self {
         *self
     }
@@ -5891,9 +5891,9 @@ pub struct NMCUSTOMDRAW {
     pub lItemlParam: super::super::Foundation::LPARAM,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::marker::Copy for NMCUSTOMDRAW {}
+impl Copy for NMCUSTOMDRAW {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::clone::Clone for NMCUSTOMDRAW {
+impl Clone for NMCUSTOMDRAW {
     fn clone(&self) -> Self {
         *self
     }
@@ -5905,8 +5905,8 @@ pub struct NMCUSTOMSPLITRECTINFO {
     pub rcButton: super::super::Foundation::RECT,
     pub rcSplit: super::super::Foundation::RECT,
 }
-impl ::core::marker::Copy for NMCUSTOMSPLITRECTINFO {}
-impl ::core::clone::Clone for NMCUSTOMSPLITRECTINFO {
+impl Copy for NMCUSTOMSPLITRECTINFO {}
+impl Clone for NMCUSTOMSPLITRECTINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -5916,16 +5916,16 @@ impl ::core::clone::Clone for NMCUSTOMSPLITRECTINFO {
 pub struct NMCUSTOMTEXT {
     pub hdr: NMHDR,
     pub hDC: super::super::Graphics::Gdi::HDC,
-    pub lpString: ::windows_sys::core::PCWSTR,
+    pub lpString: windows_sys::core::PCWSTR,
     pub nCount: i32,
     pub lpRect: *mut super::super::Foundation::RECT,
     pub uFormat: u32,
     pub fLink: super::super::Foundation::BOOL,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::marker::Copy for NMCUSTOMTEXT {}
+impl Copy for NMCUSTOMTEXT {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::clone::Clone for NMCUSTOMTEXT {
+impl Clone for NMCUSTOMTEXT {
     fn clone(&self) -> Self {
         *self
     }
@@ -5936,8 +5936,8 @@ pub struct NMDATETIMECHANGE {
     pub dwFlags: NMDATETIMECHANGE_FLAGS,
     pub st: super::super::Foundation::SYSTEMTIME,
 }
-impl ::core::marker::Copy for NMDATETIMECHANGE {}
-impl ::core::clone::Clone for NMDATETIMECHANGE {
+impl Copy for NMDATETIMECHANGE {}
+impl Clone for NMDATETIMECHANGE {
     fn clone(&self) -> Self {
         *self
     }
@@ -5945,13 +5945,13 @@ impl ::core::clone::Clone for NMDATETIMECHANGE {
 #[repr(C)]
 pub struct NMDATETIMEFORMATA {
     pub nmhdr: NMHDR,
-    pub pszFormat: ::windows_sys::core::PCSTR,
+    pub pszFormat: windows_sys::core::PCSTR,
     pub st: super::super::Foundation::SYSTEMTIME,
-    pub pszDisplay: ::windows_sys::core::PCSTR,
+    pub pszDisplay: windows_sys::core::PCSTR,
     pub szDisplay: [i8; 64],
 }
-impl ::core::marker::Copy for NMDATETIMEFORMATA {}
-impl ::core::clone::Clone for NMDATETIMEFORMATA {
+impl Copy for NMDATETIMEFORMATA {}
+impl Clone for NMDATETIMEFORMATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -5959,11 +5959,11 @@ impl ::core::clone::Clone for NMDATETIMEFORMATA {
 #[repr(C)]
 pub struct NMDATETIMEFORMATQUERYA {
     pub nmhdr: NMHDR,
-    pub pszFormat: ::windows_sys::core::PCSTR,
+    pub pszFormat: windows_sys::core::PCSTR,
     pub szMax: super::super::Foundation::SIZE,
 }
-impl ::core::marker::Copy for NMDATETIMEFORMATQUERYA {}
-impl ::core::clone::Clone for NMDATETIMEFORMATQUERYA {
+impl Copy for NMDATETIMEFORMATQUERYA {}
+impl Clone for NMDATETIMEFORMATQUERYA {
     fn clone(&self) -> Self {
         *self
     }
@@ -5971,11 +5971,11 @@ impl ::core::clone::Clone for NMDATETIMEFORMATQUERYA {
 #[repr(C)]
 pub struct NMDATETIMEFORMATQUERYW {
     pub nmhdr: NMHDR,
-    pub pszFormat: ::windows_sys::core::PCWSTR,
+    pub pszFormat: windows_sys::core::PCWSTR,
     pub szMax: super::super::Foundation::SIZE,
 }
-impl ::core::marker::Copy for NMDATETIMEFORMATQUERYW {}
-impl ::core::clone::Clone for NMDATETIMEFORMATQUERYW {
+impl Copy for NMDATETIMEFORMATQUERYW {}
+impl Clone for NMDATETIMEFORMATQUERYW {
     fn clone(&self) -> Self {
         *self
     }
@@ -5983,13 +5983,13 @@ impl ::core::clone::Clone for NMDATETIMEFORMATQUERYW {
 #[repr(C)]
 pub struct NMDATETIMEFORMATW {
     pub nmhdr: NMHDR,
-    pub pszFormat: ::windows_sys::core::PCWSTR,
+    pub pszFormat: windows_sys::core::PCWSTR,
     pub st: super::super::Foundation::SYSTEMTIME,
-    pub pszDisplay: ::windows_sys::core::PCWSTR,
+    pub pszDisplay: windows_sys::core::PCWSTR,
     pub szDisplay: [u16; 64],
 }
-impl ::core::marker::Copy for NMDATETIMEFORMATW {}
-impl ::core::clone::Clone for NMDATETIMEFORMATW {
+impl Copy for NMDATETIMEFORMATW {}
+impl Clone for NMDATETIMEFORMATW {
     fn clone(&self) -> Self {
         *self
     }
@@ -5997,12 +5997,12 @@ impl ::core::clone::Clone for NMDATETIMEFORMATW {
 #[repr(C)]
 pub struct NMDATETIMESTRINGA {
     pub nmhdr: NMHDR,
-    pub pszUserString: ::windows_sys::core::PCSTR,
+    pub pszUserString: windows_sys::core::PCSTR,
     pub st: super::super::Foundation::SYSTEMTIME,
     pub dwFlags: u32,
 }
-impl ::core::marker::Copy for NMDATETIMESTRINGA {}
-impl ::core::clone::Clone for NMDATETIMESTRINGA {
+impl Copy for NMDATETIMESTRINGA {}
+impl Clone for NMDATETIMESTRINGA {
     fn clone(&self) -> Self {
         *self
     }
@@ -6010,12 +6010,12 @@ impl ::core::clone::Clone for NMDATETIMESTRINGA {
 #[repr(C)]
 pub struct NMDATETIMESTRINGW {
     pub nmhdr: NMHDR,
-    pub pszUserString: ::windows_sys::core::PCWSTR,
+    pub pszUserString: windows_sys::core::PCWSTR,
     pub st: super::super::Foundation::SYSTEMTIME,
     pub dwFlags: u32,
 }
-impl ::core::marker::Copy for NMDATETIMESTRINGW {}
-impl ::core::clone::Clone for NMDATETIMESTRINGW {
+impl Copy for NMDATETIMESTRINGW {}
+impl Clone for NMDATETIMESTRINGW {
     fn clone(&self) -> Self {
         *self
     }
@@ -6024,11 +6024,11 @@ impl ::core::clone::Clone for NMDATETIMESTRINGW {
 pub struct NMDATETIMEWMKEYDOWNA {
     pub nmhdr: NMHDR,
     pub nVirtKey: i32,
-    pub pszFormat: ::windows_sys::core::PCSTR,
+    pub pszFormat: windows_sys::core::PCSTR,
     pub st: super::super::Foundation::SYSTEMTIME,
 }
-impl ::core::marker::Copy for NMDATETIMEWMKEYDOWNA {}
-impl ::core::clone::Clone for NMDATETIMEWMKEYDOWNA {
+impl Copy for NMDATETIMEWMKEYDOWNA {}
+impl Clone for NMDATETIMEWMKEYDOWNA {
     fn clone(&self) -> Self {
         *self
     }
@@ -6037,11 +6037,11 @@ impl ::core::clone::Clone for NMDATETIMEWMKEYDOWNA {
 pub struct NMDATETIMEWMKEYDOWNW {
     pub nmhdr: NMHDR,
     pub nVirtKey: i32,
-    pub pszFormat: ::windows_sys::core::PCWSTR,
+    pub pszFormat: windows_sys::core::PCWSTR,
     pub st: super::super::Foundation::SYSTEMTIME,
 }
-impl ::core::marker::Copy for NMDATETIMEWMKEYDOWNW {}
-impl ::core::clone::Clone for NMDATETIMEWMKEYDOWNW {
+impl Copy for NMDATETIMEWMKEYDOWNW {}
+impl Clone for NMDATETIMEWMKEYDOWNW {
     fn clone(&self) -> Self {
         *self
     }
@@ -6053,8 +6053,8 @@ pub struct NMDAYSTATE {
     pub cDayState: i32,
     pub prgDayState: *mut u32,
 }
-impl ::core::marker::Copy for NMDAYSTATE {}
-impl ::core::clone::Clone for NMDAYSTATE {
+impl Copy for NMDAYSTATE {}
+impl Clone for NMDAYSTATE {
     fn clone(&self) -> Self {
         *self
     }
@@ -6064,13 +6064,13 @@ pub struct NMHDDISPINFOA {
     pub hdr: NMHDR,
     pub iItem: i32,
     pub mask: HDI_MASK,
-    pub pszText: ::windows_sys::core::PSTR,
+    pub pszText: windows_sys::core::PSTR,
     pub cchTextMax: i32,
     pub iImage: i32,
     pub lParam: super::super::Foundation::LPARAM,
 }
-impl ::core::marker::Copy for NMHDDISPINFOA {}
-impl ::core::clone::Clone for NMHDDISPINFOA {
+impl Copy for NMHDDISPINFOA {}
+impl Clone for NMHDDISPINFOA {
     fn clone(&self) -> Self {
         *self
     }
@@ -6080,13 +6080,13 @@ pub struct NMHDDISPINFOW {
     pub hdr: NMHDR,
     pub iItem: i32,
     pub mask: HDI_MASK,
-    pub pszText: ::windows_sys::core::PWSTR,
+    pub pszText: windows_sys::core::PWSTR,
     pub cchTextMax: i32,
     pub iImage: i32,
     pub lParam: super::super::Foundation::LPARAM,
 }
-impl ::core::marker::Copy for NMHDDISPINFOW {}
-impl ::core::clone::Clone for NMHDDISPINFOW {
+impl Copy for NMHDDISPINFOW {}
+impl Clone for NMHDDISPINFOW {
     fn clone(&self) -> Self {
         *self
     }
@@ -6097,8 +6097,8 @@ pub struct NMHDFILTERBTNCLICK {
     pub iItem: i32,
     pub rc: super::super::Foundation::RECT,
 }
-impl ::core::marker::Copy for NMHDFILTERBTNCLICK {}
-impl ::core::clone::Clone for NMHDFILTERBTNCLICK {
+impl Copy for NMHDFILTERBTNCLICK {}
+impl Clone for NMHDFILTERBTNCLICK {
     fn clone(&self) -> Self {
         *self
     }
@@ -6109,8 +6109,8 @@ pub struct NMHDR {
     pub idFrom: usize,
     pub code: u32,
 }
-impl ::core::marker::Copy for NMHDR {}
-impl ::core::clone::Clone for NMHDR {
+impl Copy for NMHDR {}
+impl Clone for NMHDR {
     fn clone(&self) -> Self {
         *self
     }
@@ -6124,9 +6124,9 @@ pub struct NMHEADERA {
     pub pitem: *mut HDITEMA,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::marker::Copy for NMHEADERA {}
+impl Copy for NMHEADERA {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::clone::Clone for NMHEADERA {
+impl Clone for NMHEADERA {
     fn clone(&self) -> Self {
         *self
     }
@@ -6140,9 +6140,9 @@ pub struct NMHEADERW {
     pub pitem: *mut HDITEMW,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::marker::Copy for NMHEADERW {}
+impl Copy for NMHEADERW {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::clone::Clone for NMHEADERW {
+impl Clone for NMHEADERW {
     fn clone(&self) -> Self {
         *self
     }
@@ -6153,8 +6153,8 @@ pub struct NMIPADDRESS {
     pub iField: i32,
     pub iValue: i32,
 }
-impl ::core::marker::Copy for NMIPADDRESS {}
-impl ::core::clone::Clone for NMIPADDRESS {
+impl Copy for NMIPADDRESS {}
+impl Clone for NMIPADDRESS {
     fn clone(&self) -> Self {
         *self
     }
@@ -6171,8 +6171,8 @@ pub struct NMITEMACTIVATE {
     pub lParam: super::super::Foundation::LPARAM,
     pub uKeyFlags: u32,
 }
-impl ::core::marker::Copy for NMITEMACTIVATE {}
-impl ::core::clone::Clone for NMITEMACTIVATE {
+impl Copy for NMITEMACTIVATE {}
+impl Clone for NMITEMACTIVATE {
     fn clone(&self) -> Self {
         *self
     }
@@ -6183,8 +6183,8 @@ pub struct NMKEY {
     pub nVKey: u32,
     pub uFlags: u32,
 }
-impl ::core::marker::Copy for NMKEY {}
-impl ::core::clone::Clone for NMKEY {
+impl Copy for NMKEY {}
+impl Clone for NMKEY {
     fn clone(&self) -> Self {
         *self
     }
@@ -6194,8 +6194,8 @@ pub struct NMLINK {
     pub hdr: NMHDR,
     pub item: LITEM,
 }
-impl ::core::marker::Copy for NMLINK {}
-impl ::core::clone::Clone for NMLINK {
+impl Copy for NMLINK {}
+impl Clone for NMLINK {
     fn clone(&self) -> Self {
         *self
     }
@@ -6211,8 +6211,8 @@ pub struct NMLISTVIEW {
     pub ptAction: super::super::Foundation::POINT,
     pub lParam: super::super::Foundation::LPARAM,
 }
-impl ::core::marker::Copy for NMLISTVIEW {}
-impl ::core::clone::Clone for NMLISTVIEW {
+impl Copy for NMLISTVIEW {}
+impl Clone for NMLISTVIEW {
     fn clone(&self) -> Self {
         *self
     }
@@ -6223,8 +6223,8 @@ pub struct NMLVCACHEHINT {
     pub iFrom: i32,
     pub iTo: i32,
 }
-impl ::core::marker::Copy for NMLVCACHEHINT {}
-impl ::core::clone::Clone for NMLVCACHEHINT {
+impl Copy for NMLVCACHEHINT {}
+impl Clone for NMLVCACHEHINT {
     fn clone(&self) -> Self {
         *self
     }
@@ -6246,9 +6246,9 @@ pub struct NMLVCUSTOMDRAW {
     pub uAlign: LIST_VIEW_GROUP_ALIGN_FLAGS,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::marker::Copy for NMLVCUSTOMDRAW {}
+impl Copy for NMLVCUSTOMDRAW {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::clone::Clone for NMLVCUSTOMDRAW {
+impl Clone for NMLVCUSTOMDRAW {
     fn clone(&self) -> Self {
         *self
     }
@@ -6258,8 +6258,8 @@ pub struct NMLVDISPINFOA {
     pub hdr: NMHDR,
     pub item: LVITEMA,
 }
-impl ::core::marker::Copy for NMLVDISPINFOA {}
-impl ::core::clone::Clone for NMLVDISPINFOA {
+impl Copy for NMLVDISPINFOA {}
+impl Clone for NMLVDISPINFOA {
     fn clone(&self) -> Self {
         *self
     }
@@ -6269,8 +6269,8 @@ pub struct NMLVDISPINFOW {
     pub hdr: NMHDR,
     pub item: LVITEMW,
 }
-impl ::core::marker::Copy for NMLVDISPINFOW {}
-impl ::core::clone::Clone for NMLVDISPINFOW {
+impl Copy for NMLVDISPINFOW {}
+impl Clone for NMLVDISPINFOW {
     fn clone(&self) -> Self {
         *self
     }
@@ -6281,8 +6281,8 @@ pub struct NMLVEMPTYMARKUP {
     pub dwFlags: NMLVEMPTYMARKUP_FLAGS,
     pub szMarkup: [u16; 2084],
 }
-impl ::core::marker::Copy for NMLVEMPTYMARKUP {}
-impl ::core::clone::Clone for NMLVEMPTYMARKUP {
+impl Copy for NMLVEMPTYMARKUP {}
+impl Clone for NMLVEMPTYMARKUP {
     fn clone(&self) -> Self {
         *self
     }
@@ -6293,8 +6293,8 @@ pub struct NMLVFINDITEMA {
     pub iStart: i32,
     pub lvfi: LVFINDINFOA,
 }
-impl ::core::marker::Copy for NMLVFINDITEMA {}
-impl ::core::clone::Clone for NMLVFINDITEMA {
+impl Copy for NMLVFINDITEMA {}
+impl Clone for NMLVFINDITEMA {
     fn clone(&self) -> Self {
         *self
     }
@@ -6305,8 +6305,8 @@ pub struct NMLVFINDITEMW {
     pub iStart: i32,
     pub lvfi: LVFINDINFOW,
 }
-impl ::core::marker::Copy for NMLVFINDITEMW {}
-impl ::core::clone::Clone for NMLVFINDITEMW {
+impl Copy for NMLVFINDITEMW {}
+impl Clone for NMLVFINDITEMW {
     fn clone(&self) -> Self {
         *self
     }
@@ -6315,14 +6315,14 @@ impl ::core::clone::Clone for NMLVFINDITEMW {
 pub struct NMLVGETINFOTIPA {
     pub hdr: NMHDR,
     pub dwFlags: NMLVGETINFOTIP_FLAGS,
-    pub pszText: ::windows_sys::core::PSTR,
+    pub pszText: windows_sys::core::PSTR,
     pub cchTextMax: i32,
     pub iItem: i32,
     pub iSubItem: i32,
     pub lParam: super::super::Foundation::LPARAM,
 }
-impl ::core::marker::Copy for NMLVGETINFOTIPA {}
-impl ::core::clone::Clone for NMLVGETINFOTIPA {
+impl Copy for NMLVGETINFOTIPA {}
+impl Clone for NMLVGETINFOTIPA {
     fn clone(&self) -> Self {
         *self
     }
@@ -6331,14 +6331,14 @@ impl ::core::clone::Clone for NMLVGETINFOTIPA {
 pub struct NMLVGETINFOTIPW {
     pub hdr: NMHDR,
     pub dwFlags: NMLVGETINFOTIP_FLAGS,
-    pub pszText: ::windows_sys::core::PWSTR,
+    pub pszText: windows_sys::core::PWSTR,
     pub cchTextMax: i32,
     pub iItem: i32,
     pub iSubItem: i32,
     pub lParam: super::super::Foundation::LPARAM,
 }
-impl ::core::marker::Copy for NMLVGETINFOTIPW {}
-impl ::core::clone::Clone for NMLVGETINFOTIPW {
+impl Copy for NMLVGETINFOTIPW {}
+impl Clone for NMLVGETINFOTIPW {
     fn clone(&self) -> Self {
         *self
     }
@@ -6349,8 +6349,8 @@ pub struct NMLVKEYDOWN {
     pub wVKey: u16,
     pub flags: u32,
 }
-impl ::core::marker::Copy for NMLVKEYDOWN {}
-impl ::core::clone::Clone for NMLVKEYDOWN {
+impl Copy for NMLVKEYDOWN {}
+impl Clone for NMLVKEYDOWN {
     fn clone(&self) -> Self {
         *self
     }
@@ -6362,8 +6362,8 @@ pub struct NMLVLINK {
     pub iItem: i32,
     pub iSubItem: i32,
 }
-impl ::core::marker::Copy for NMLVLINK {}
-impl ::core::clone::Clone for NMLVLINK {
+impl Copy for NMLVLINK {}
+impl Clone for NMLVLINK {
     fn clone(&self) -> Self {
         *self
     }
@@ -6376,8 +6376,8 @@ pub struct NMLVODSTATECHANGE {
     pub uNewState: LIST_VIEW_ITEM_STATE_FLAGS,
     pub uOldState: LIST_VIEW_ITEM_STATE_FLAGS,
 }
-impl ::core::marker::Copy for NMLVODSTATECHANGE {}
-impl ::core::clone::Clone for NMLVODSTATECHANGE {
+impl Copy for NMLVODSTATECHANGE {}
+impl Clone for NMLVODSTATECHANGE {
     fn clone(&self) -> Self {
         *self
     }
@@ -6388,8 +6388,8 @@ pub struct NMLVSCROLL {
     pub dx: i32,
     pub dy: i32,
 }
-impl ::core::marker::Copy for NMLVSCROLL {}
-impl ::core::clone::Clone for NMLVSCROLL {
+impl Copy for NMLVSCROLL {}
+impl Clone for NMLVSCROLL {
     fn clone(&self) -> Self {
         *self
     }
@@ -6402,8 +6402,8 @@ pub struct NMMOUSE {
     pub pt: super::super::Foundation::POINT,
     pub dwHitInfo: super::super::Foundation::LPARAM,
 }
-impl ::core::marker::Copy for NMMOUSE {}
-impl ::core::clone::Clone for NMMOUSE {
+impl Copy for NMMOUSE {}
+impl Clone for NMMOUSE {
     fn clone(&self) -> Self {
         *self
     }
@@ -6412,13 +6412,13 @@ impl ::core::clone::Clone for NMMOUSE {
 pub struct NMOBJECTNOTIFY {
     pub hdr: NMHDR,
     pub iItem: i32,
-    pub piid: *const ::windows_sys::core::GUID,
-    pub pObject: *mut ::core::ffi::c_void,
-    pub hResult: ::windows_sys::core::HRESULT,
+    pub piid: *const windows_sys::core::GUID,
+    pub pObject: *mut core::ffi::c_void,
+    pub hResult: windows_sys::core::HRESULT,
     pub dwFlags: u32,
 }
-impl ::core::marker::Copy for NMOBJECTNOTIFY {}
-impl ::core::clone::Clone for NMOBJECTNOTIFY {
+impl Copy for NMOBJECTNOTIFY {}
+impl Clone for NMOBJECTNOTIFY {
     fn clone(&self) -> Self {
         *self
     }
@@ -6430,8 +6430,8 @@ pub struct NMPGCALCSIZE {
     pub iWidth: i32,
     pub iHeight: i32,
 }
-impl ::core::marker::Copy for NMPGCALCSIZE {}
-impl ::core::clone::Clone for NMPGCALCSIZE {
+impl Copy for NMPGCALCSIZE {}
+impl Clone for NMPGCALCSIZE {
     fn clone(&self) -> Self {
         *self
     }
@@ -6443,8 +6443,8 @@ pub struct NMPGHOTITEM {
     pub idNew: i32,
     pub dwFlags: u32,
 }
-impl ::core::marker::Copy for NMPGHOTITEM {}
-impl ::core::clone::Clone for NMPGHOTITEM {
+impl Copy for NMPGHOTITEM {}
+impl Clone for NMPGHOTITEM {
     fn clone(&self) -> Self {
         *self
     }
@@ -6459,8 +6459,8 @@ pub struct NMPGSCROLL {
     pub iYpos: i32,
     pub iScroll: i32,
 }
-impl ::core::marker::Copy for NMPGSCROLL {}
-impl ::core::clone::Clone for NMPGSCROLL {
+impl Copy for NMPGSCROLL {}
+impl Clone for NMPGSCROLL {
     fn clone(&self) -> Self {
         *self
     }
@@ -6472,8 +6472,8 @@ pub struct NMRBAUTOSIZE {
     pub rcTarget: super::super::Foundation::RECT,
     pub rcActual: super::super::Foundation::RECT,
 }
-impl ::core::marker::Copy for NMRBAUTOSIZE {}
-impl ::core::clone::Clone for NMRBAUTOSIZE {
+impl Copy for NMRBAUTOSIZE {}
+impl Clone for NMRBAUTOSIZE {
     fn clone(&self) -> Self {
         *self
     }
@@ -6487,8 +6487,8 @@ pub struct NMREBAR {
     pub wID: u32,
     pub lParam: super::super::Foundation::LPARAM,
 }
-impl ::core::marker::Copy for NMREBAR {}
-impl ::core::clone::Clone for NMREBAR {
+impl Copy for NMREBAR {}
+impl Clone for NMREBAR {
     fn clone(&self) -> Self {
         *self
     }
@@ -6503,8 +6503,8 @@ pub struct NMREBARAUTOBREAK {
     pub fStyleCurrent: u32,
     pub fAutoBreak: super::super::Foundation::BOOL,
 }
-impl ::core::marker::Copy for NMREBARAUTOBREAK {}
-impl ::core::clone::Clone for NMREBARAUTOBREAK {
+impl Copy for NMREBARAUTOBREAK {}
+impl Clone for NMREBARAUTOBREAK {
     fn clone(&self) -> Self {
         *self
     }
@@ -6518,8 +6518,8 @@ pub struct NMREBARCHEVRON {
     pub rc: super::super::Foundation::RECT,
     pub lParamNM: super::super::Foundation::LPARAM,
 }
-impl ::core::marker::Copy for NMREBARCHEVRON {}
-impl ::core::clone::Clone for NMREBARCHEVRON {
+impl Copy for NMREBARCHEVRON {}
+impl Clone for NMREBARCHEVRON {
     fn clone(&self) -> Self {
         *self
     }
@@ -6532,8 +6532,8 @@ pub struct NMREBARCHILDSIZE {
     pub rcChild: super::super::Foundation::RECT,
     pub rcBand: super::super::Foundation::RECT,
 }
-impl ::core::marker::Copy for NMREBARCHILDSIZE {}
-impl ::core::clone::Clone for NMREBARCHILDSIZE {
+impl Copy for NMREBARCHILDSIZE {}
+impl Clone for NMREBARCHILDSIZE {
     fn clone(&self) -> Self {
         *self
     }
@@ -6543,8 +6543,8 @@ pub struct NMREBARSPLITTER {
     pub hdr: NMHDR,
     pub rcSizing: super::super::Foundation::RECT,
 }
-impl ::core::marker::Copy for NMREBARSPLITTER {}
-impl ::core::clone::Clone for NMREBARSPLITTER {
+impl Copy for NMREBARSPLITTER {}
+impl Clone for NMREBARSPLITTER {
     fn clone(&self) -> Self {
         *self
     }
@@ -6556,8 +6556,8 @@ pub struct NMSEARCHWEB {
     pub hasQueryText: super::super::Foundation::BOOL,
     pub invokeSucceeded: super::super::Foundation::BOOL,
 }
-impl ::core::marker::Copy for NMSEARCHWEB {}
-impl ::core::clone::Clone for NMSEARCHWEB {
+impl Copy for NMSEARCHWEB {}
+impl Clone for NMSEARCHWEB {
     fn clone(&self) -> Self {
         *self
     }
@@ -6568,8 +6568,8 @@ pub struct NMSELCHANGE {
     pub stSelStart: super::super::Foundation::SYSTEMTIME,
     pub stSelEnd: super::super::Foundation::SYSTEMTIME,
 }
-impl ::core::marker::Copy for NMSELCHANGE {}
-impl ::core::clone::Clone for NMSELCHANGE {
+impl Copy for NMSELCHANGE {}
+impl Clone for NMSELCHANGE {
     fn clone(&self) -> Self {
         *self
     }
@@ -6593,9 +6593,9 @@ pub struct NMTBCUSTOMDRAW {
     pub iListGap: i32,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::marker::Copy for NMTBCUSTOMDRAW {}
+impl Copy for NMTBCUSTOMDRAW {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::clone::Clone for NMTBCUSTOMDRAW {
+impl Clone for NMTBCUSTOMDRAW {
     fn clone(&self) -> Self {
         *self
     }
@@ -6607,11 +6607,11 @@ pub struct NMTBDISPINFOA {
     pub idCommand: i32,
     pub lParam: usize,
     pub iImage: i32,
-    pub pszText: ::windows_sys::core::PSTR,
+    pub pszText: windows_sys::core::PSTR,
     pub cchText: i32,
 }
-impl ::core::marker::Copy for NMTBDISPINFOA {}
-impl ::core::clone::Clone for NMTBDISPINFOA {
+impl Copy for NMTBDISPINFOA {}
+impl Clone for NMTBDISPINFOA {
     fn clone(&self) -> Self {
         *self
     }
@@ -6623,11 +6623,11 @@ pub struct NMTBDISPINFOW {
     pub idCommand: i32,
     pub lParam: usize,
     pub iImage: i32,
-    pub pszText: ::windows_sys::core::PWSTR,
+    pub pszText: windows_sys::core::PWSTR,
     pub cchText: i32,
 }
-impl ::core::marker::Copy for NMTBDISPINFOW {}
-impl ::core::clone::Clone for NMTBDISPINFOW {
+impl Copy for NMTBDISPINFOW {}
+impl Clone for NMTBDISPINFOW {
     fn clone(&self) -> Self {
         *self
     }
@@ -6635,13 +6635,13 @@ impl ::core::clone::Clone for NMTBDISPINFOW {
 #[repr(C)]
 pub struct NMTBGETINFOTIPA {
     pub hdr: NMHDR,
-    pub pszText: ::windows_sys::core::PSTR,
+    pub pszText: windows_sys::core::PSTR,
     pub cchTextMax: i32,
     pub iItem: i32,
     pub lParam: super::super::Foundation::LPARAM,
 }
-impl ::core::marker::Copy for NMTBGETINFOTIPA {}
-impl ::core::clone::Clone for NMTBGETINFOTIPA {
+impl Copy for NMTBGETINFOTIPA {}
+impl Clone for NMTBGETINFOTIPA {
     fn clone(&self) -> Self {
         *self
     }
@@ -6649,13 +6649,13 @@ impl ::core::clone::Clone for NMTBGETINFOTIPA {
 #[repr(C)]
 pub struct NMTBGETINFOTIPW {
     pub hdr: NMHDR,
-    pub pszText: ::windows_sys::core::PWSTR,
+    pub pszText: windows_sys::core::PWSTR,
     pub cchTextMax: i32,
     pub iItem: i32,
     pub lParam: super::super::Foundation::LPARAM,
 }
-impl ::core::marker::Copy for NMTBGETINFOTIPW {}
-impl ::core::clone::Clone for NMTBGETINFOTIPW {
+impl Copy for NMTBGETINFOTIPW {}
+impl Clone for NMTBGETINFOTIPW {
     fn clone(&self) -> Self {
         *self
     }
@@ -6667,8 +6667,8 @@ pub struct NMTBHOTITEM {
     pub idNew: i32,
     pub dwFlags: NMTBHOTITEM_FLAGS,
 }
-impl ::core::marker::Copy for NMTBHOTITEM {}
-impl ::core::clone::Clone for NMTBHOTITEM {
+impl Copy for NMTBHOTITEM {}
+impl Clone for NMTBHOTITEM {
     fn clone(&self) -> Self {
         *self
     }
@@ -6684,8 +6684,8 @@ pub struct NMTBRESTORE {
     pub cbBytesPerRecord: i32,
     pub tbButton: TBBUTTON,
 }
-impl ::core::marker::Copy for NMTBRESTORE {}
-impl ::core::clone::Clone for NMTBRESTORE {
+impl Copy for NMTBRESTORE {}
+impl Clone for NMTBRESTORE {
     fn clone(&self) -> Self {
         *self
     }
@@ -6700,8 +6700,8 @@ pub struct NMTBSAVE {
     pub cButtons: i32,
     pub tbButton: TBBUTTON,
 }
-impl ::core::marker::Copy for NMTBSAVE {}
-impl ::core::clone::Clone for NMTBSAVE {
+impl Copy for NMTBSAVE {}
+impl Clone for NMTBSAVE {
     fn clone(&self) -> Self {
         *self
     }
@@ -6712,8 +6712,8 @@ pub struct NMTCKEYDOWN {
     pub wVKey: u16,
     pub flags: u32,
 }
-impl ::core::marker::Copy for NMTCKEYDOWN {}
-impl ::core::clone::Clone for NMTCKEYDOWN {
+impl Copy for NMTCKEYDOWN {}
+impl Clone for NMTCKEYDOWN {
     fn clone(&self) -> Self {
         *self
     }
@@ -6724,11 +6724,11 @@ pub struct NMTOOLBARA {
     pub iItem: i32,
     pub tbButton: TBBUTTON,
     pub cchText: i32,
-    pub pszText: ::windows_sys::core::PSTR,
+    pub pszText: windows_sys::core::PSTR,
     pub rcButton: super::super::Foundation::RECT,
 }
-impl ::core::marker::Copy for NMTOOLBARA {}
-impl ::core::clone::Clone for NMTOOLBARA {
+impl Copy for NMTOOLBARA {}
+impl Clone for NMTOOLBARA {
     fn clone(&self) -> Self {
         *self
     }
@@ -6739,11 +6739,11 @@ pub struct NMTOOLBARW {
     pub iItem: i32,
     pub tbButton: TBBUTTON,
     pub cchText: i32,
-    pub pszText: ::windows_sys::core::PWSTR,
+    pub pszText: windows_sys::core::PWSTR,
     pub rcButton: super::super::Foundation::RECT,
 }
-impl ::core::marker::Copy for NMTOOLBARW {}
-impl ::core::clone::Clone for NMTOOLBARW {
+impl Copy for NMTOOLBARW {}
+impl Clone for NMTOOLBARW {
     fn clone(&self) -> Self {
         *self
     }
@@ -6753,8 +6753,8 @@ pub struct NMTOOLTIPSCREATED {
     pub hdr: NMHDR,
     pub hwndToolTips: super::super::Foundation::HWND,
 }
-impl ::core::marker::Copy for NMTOOLTIPSCREATED {}
-impl ::core::clone::Clone for NMTOOLTIPSCREATED {
+impl Copy for NMTOOLTIPSCREATED {}
+impl Clone for NMTOOLTIPSCREATED {
     fn clone(&self) -> Self {
         *self
     }
@@ -6765,8 +6765,8 @@ pub struct NMTRBTHUMBPOSCHANGING {
     pub dwPos: u32,
     pub nReason: i32,
 }
-impl ::core::marker::Copy for NMTRBTHUMBPOSCHANGING {}
-impl ::core::clone::Clone for NMTRBTHUMBPOSCHANGING {
+impl Copy for NMTRBTHUMBPOSCHANGING {}
+impl Clone for NMTRBTHUMBPOSCHANGING {
     fn clone(&self) -> Self {
         *self
     }
@@ -6779,8 +6779,8 @@ pub struct NMTREEVIEWA {
     pub itemNew: TVITEMA,
     pub ptDrag: super::super::Foundation::POINT,
 }
-impl ::core::marker::Copy for NMTREEVIEWA {}
-impl ::core::clone::Clone for NMTREEVIEWA {
+impl Copy for NMTREEVIEWA {}
+impl Clone for NMTREEVIEWA {
     fn clone(&self) -> Self {
         *self
     }
@@ -6793,8 +6793,8 @@ pub struct NMTREEVIEWW {
     pub itemNew: TVITEMW,
     pub ptDrag: super::super::Foundation::POINT,
 }
-impl ::core::marker::Copy for NMTREEVIEWW {}
-impl ::core::clone::Clone for NMTREEVIEWW {
+impl Copy for NMTREEVIEWW {}
+impl Clone for NMTREEVIEWW {
     fn clone(&self) -> Self {
         *self
     }
@@ -6806,9 +6806,9 @@ pub struct NMTTCUSTOMDRAW {
     pub uDrawFlags: u32,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::marker::Copy for NMTTCUSTOMDRAW {}
+impl Copy for NMTTCUSTOMDRAW {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::clone::Clone for NMTTCUSTOMDRAW {
+impl Clone for NMTTCUSTOMDRAW {
     fn clone(&self) -> Self {
         *self
     }
@@ -6816,14 +6816,14 @@ impl ::core::clone::Clone for NMTTCUSTOMDRAW {
 #[repr(C)]
 pub struct NMTTDISPINFOA {
     pub hdr: NMHDR,
-    pub lpszText: ::windows_sys::core::PSTR,
+    pub lpszText: windows_sys::core::PSTR,
     pub szText: [i8; 80],
     pub hinst: super::super::Foundation::HINSTANCE,
     pub uFlags: TOOLTIP_FLAGS,
     pub lParam: super::super::Foundation::LPARAM,
 }
-impl ::core::marker::Copy for NMTTDISPINFOA {}
-impl ::core::clone::Clone for NMTTDISPINFOA {
+impl Copy for NMTTDISPINFOA {}
+impl Clone for NMTTDISPINFOA {
     fn clone(&self) -> Self {
         *self
     }
@@ -6831,14 +6831,14 @@ impl ::core::clone::Clone for NMTTDISPINFOA {
 #[repr(C)]
 pub struct NMTTDISPINFOW {
     pub hdr: NMHDR,
-    pub lpszText: ::windows_sys::core::PWSTR,
+    pub lpszText: windows_sys::core::PWSTR,
     pub szText: [u16; 80],
     pub hinst: super::super::Foundation::HINSTANCE,
     pub uFlags: TOOLTIP_FLAGS,
     pub lParam: super::super::Foundation::LPARAM,
 }
-impl ::core::marker::Copy for NMTTDISPINFOW {}
-impl ::core::clone::Clone for NMTTDISPINFOW {
+impl Copy for NMTTDISPINFOW {}
+impl Clone for NMTTDISPINFOW {
     fn clone(&self) -> Self {
         *self
     }
@@ -6848,16 +6848,16 @@ impl ::core::clone::Clone for NMTTDISPINFOW {
 pub struct NMTVASYNCDRAW {
     pub hdr: NMHDR,
     pub pimldp: *mut IMAGELISTDRAWPARAMS,
-    pub hr: ::windows_sys::core::HRESULT,
+    pub hr: windows_sys::core::HRESULT,
     pub hItem: HTREEITEM,
     pub lParam: super::super::Foundation::LPARAM,
     pub dwRetFlags: u32,
     pub iRetImageIndex: i32,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::marker::Copy for NMTVASYNCDRAW {}
+impl Copy for NMTVASYNCDRAW {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::clone::Clone for NMTVASYNCDRAW {
+impl Clone for NMTVASYNCDRAW {
     fn clone(&self) -> Self {
         *self
     }
@@ -6871,9 +6871,9 @@ pub struct NMTVCUSTOMDRAW {
     pub iLevel: i32,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::marker::Copy for NMTVCUSTOMDRAW {}
+impl Copy for NMTVCUSTOMDRAW {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::clone::Clone for NMTVCUSTOMDRAW {
+impl Clone for NMTVCUSTOMDRAW {
     fn clone(&self) -> Self {
         *self
     }
@@ -6883,8 +6883,8 @@ pub struct NMTVDISPINFOA {
     pub hdr: NMHDR,
     pub item: TVITEMA,
 }
-impl ::core::marker::Copy for NMTVDISPINFOA {}
-impl ::core::clone::Clone for NMTVDISPINFOA {
+impl Copy for NMTVDISPINFOA {}
+impl Clone for NMTVDISPINFOA {
     fn clone(&self) -> Self {
         *self
     }
@@ -6894,8 +6894,8 @@ pub struct NMTVDISPINFOEXA {
     pub hdr: NMHDR,
     pub item: TVITEMEXA,
 }
-impl ::core::marker::Copy for NMTVDISPINFOEXA {}
-impl ::core::clone::Clone for NMTVDISPINFOEXA {
+impl Copy for NMTVDISPINFOEXA {}
+impl Clone for NMTVDISPINFOEXA {
     fn clone(&self) -> Self {
         *self
     }
@@ -6905,8 +6905,8 @@ pub struct NMTVDISPINFOEXW {
     pub hdr: NMHDR,
     pub item: TVITEMEXW,
 }
-impl ::core::marker::Copy for NMTVDISPINFOEXW {}
-impl ::core::clone::Clone for NMTVDISPINFOEXW {
+impl Copy for NMTVDISPINFOEXW {}
+impl Clone for NMTVDISPINFOEXW {
     fn clone(&self) -> Self {
         *self
     }
@@ -6916,8 +6916,8 @@ pub struct NMTVDISPINFOW {
     pub hdr: NMHDR,
     pub item: TVITEMW,
 }
-impl ::core::marker::Copy for NMTVDISPINFOW {}
-impl ::core::clone::Clone for NMTVDISPINFOW {
+impl Copy for NMTVDISPINFOW {}
+impl Clone for NMTVDISPINFOW {
     fn clone(&self) -> Self {
         *self
     }
@@ -6925,13 +6925,13 @@ impl ::core::clone::Clone for NMTVDISPINFOW {
 #[repr(C)]
 pub struct NMTVGETINFOTIPA {
     pub hdr: NMHDR,
-    pub pszText: ::windows_sys::core::PSTR,
+    pub pszText: windows_sys::core::PSTR,
     pub cchTextMax: i32,
     pub hItem: HTREEITEM,
     pub lParam: super::super::Foundation::LPARAM,
 }
-impl ::core::marker::Copy for NMTVGETINFOTIPA {}
-impl ::core::clone::Clone for NMTVGETINFOTIPA {
+impl Copy for NMTVGETINFOTIPA {}
+impl Clone for NMTVGETINFOTIPA {
     fn clone(&self) -> Self {
         *self
     }
@@ -6939,13 +6939,13 @@ impl ::core::clone::Clone for NMTVGETINFOTIPA {
 #[repr(C)]
 pub struct NMTVGETINFOTIPW {
     pub hdr: NMHDR,
-    pub pszText: ::windows_sys::core::PWSTR,
+    pub pszText: windows_sys::core::PWSTR,
     pub cchTextMax: i32,
     pub hItem: HTREEITEM,
     pub lParam: super::super::Foundation::LPARAM,
 }
-impl ::core::marker::Copy for NMTVGETINFOTIPW {}
-impl ::core::clone::Clone for NMTVGETINFOTIPW {
+impl Copy for NMTVGETINFOTIPW {}
+impl Clone for NMTVGETINFOTIPW {
     fn clone(&self) -> Self {
         *self
     }
@@ -6959,8 +6959,8 @@ pub struct NMTVITEMCHANGE {
     pub uStateOld: u32,
     pub lParam: super::super::Foundation::LPARAM,
 }
-impl ::core::marker::Copy for NMTVITEMCHANGE {}
-impl ::core::clone::Clone for NMTVITEMCHANGE {
+impl Copy for NMTVITEMCHANGE {}
+impl Clone for NMTVITEMCHANGE {
     fn clone(&self) -> Self {
         *self
     }
@@ -6971,8 +6971,8 @@ pub struct NMTVKEYDOWN {
     pub wVKey: u16,
     pub flags: u32,
 }
-impl ::core::marker::Copy for NMTVKEYDOWN {}
-impl ::core::clone::Clone for NMTVKEYDOWN {
+impl Copy for NMTVKEYDOWN {}
+impl Clone for NMTVKEYDOWN {
     fn clone(&self) -> Self {
         *self
     }
@@ -6984,8 +6984,8 @@ pub struct NMTVSTATEIMAGECHANGING {
     pub iOldStateImageIndex: i32,
     pub iNewStateImageIndex: i32,
 }
-impl ::core::marker::Copy for NMTVSTATEIMAGECHANGING {}
-impl ::core::clone::Clone for NMTVSTATEIMAGECHANGING {
+impl Copy for NMTVSTATEIMAGECHANGING {}
+impl Clone for NMTVSTATEIMAGECHANGING {
     fn clone(&self) -> Self {
         *self
     }
@@ -6996,8 +6996,8 @@ pub struct NMUPDOWN {
     pub iPos: i32,
     pub iDelta: i32,
 }
-impl ::core::marker::Copy for NMUPDOWN {}
-impl ::core::clone::Clone for NMUPDOWN {
+impl Copy for NMUPDOWN {}
+impl Clone for NMUPDOWN {
     fn clone(&self) -> Self {
         *self
     }
@@ -7008,8 +7008,8 @@ pub struct NMVIEWCHANGE {
     pub dwOldView: MONTH_CALDENDAR_MESSAGES_VIEW,
     pub dwNewView: MONTH_CALDENDAR_MESSAGES_VIEW,
 }
-impl ::core::marker::Copy for NMVIEWCHANGE {}
-impl ::core::clone::Clone for NMVIEWCHANGE {
+impl Copy for NMVIEWCHANGE {}
+impl Clone for NMVIEWCHANGE {
     fn clone(&self) -> Self {
         *self
     }
@@ -7019,8 +7019,8 @@ pub struct PBRANGE {
     pub iLow: i32,
     pub iHigh: i32,
 }
-impl ::core::marker::Copy for PBRANGE {}
-impl ::core::clone::Clone for PBRANGE {
+impl Copy for PBRANGE {}
+impl Clone for PBRANGE {
     fn clone(&self) -> Self {
         *self
     }
@@ -7030,8 +7030,8 @@ pub struct POINTER_DEVICE_CURSOR_INFO {
     pub cursorId: u32,
     pub cursor: POINTER_DEVICE_CURSOR_TYPE,
 }
-impl ::core::marker::Copy for POINTER_DEVICE_CURSOR_INFO {}
-impl ::core::clone::Clone for POINTER_DEVICE_CURSOR_INFO {
+impl Copy for POINTER_DEVICE_CURSOR_INFO {}
+impl Clone for POINTER_DEVICE_CURSOR_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -7048,9 +7048,9 @@ pub struct POINTER_DEVICE_INFO {
     pub productString: [u16; 520],
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::marker::Copy for POINTER_DEVICE_INFO {}
+impl Copy for POINTER_DEVICE_INFO {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::clone::Clone for POINTER_DEVICE_INFO {
+impl Clone for POINTER_DEVICE_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -7066,8 +7066,8 @@ pub struct POINTER_DEVICE_PROPERTY {
     pub usagePageId: u16,
     pub usageId: u16,
 }
-impl ::core::marker::Copy for POINTER_DEVICE_PROPERTY {}
-impl ::core::clone::Clone for POINTER_DEVICE_PROPERTY {
+impl Copy for POINTER_DEVICE_PROPERTY {}
+impl Clone for POINTER_DEVICE_PROPERTY {
     fn clone(&self) -> Self {
         *self
     }
@@ -7079,9 +7079,9 @@ pub struct POINTER_TYPE_INFO {
     pub Anonymous: POINTER_TYPE_INFO_0,
 }
 #[cfg(all(feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::marker::Copy for POINTER_TYPE_INFO {}
+impl Copy for POINTER_TYPE_INFO {}
 #[cfg(all(feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::clone::Clone for POINTER_TYPE_INFO {
+impl Clone for POINTER_TYPE_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -7093,9 +7093,9 @@ pub union POINTER_TYPE_INFO_0 {
     pub penInfo: super::Input::Pointer::POINTER_PEN_INFO,
 }
 #[cfg(all(feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::marker::Copy for POINTER_TYPE_INFO_0 {}
+impl Copy for POINTER_TYPE_INFO_0 {}
 #[cfg(all(feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::clone::Clone for POINTER_TYPE_INFO_0 {
+impl Clone for POINTER_TYPE_INFO_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -7108,16 +7108,16 @@ pub struct PROPSHEETHEADERA_V1 {
     pub hwndParent: super::super::Foundation::HWND,
     pub hInstance: super::super::Foundation::HINSTANCE,
     pub Anonymous1: PROPSHEETHEADERA_V1_0,
-    pub pszCaption: ::windows_sys::core::PCSTR,
+    pub pszCaption: windows_sys::core::PCSTR,
     pub nPages: u32,
     pub Anonymous2: PROPSHEETHEADERA_V1_1,
     pub Anonymous3: PROPSHEETHEADERA_V1_2,
     pub pfnCallback: PFNPROPSHEETCALLBACK,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::marker::Copy for PROPSHEETHEADERA_V1 {}
+impl Copy for PROPSHEETHEADERA_V1 {}
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::clone::Clone for PROPSHEETHEADERA_V1 {
+impl Clone for PROPSHEETHEADERA_V1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -7126,12 +7126,12 @@ impl ::core::clone::Clone for PROPSHEETHEADERA_V1 {
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETHEADERA_V1_0 {
     pub hIcon: super::WindowsAndMessaging::HICON,
-    pub pszIcon: ::windows_sys::core::PCSTR,
+    pub pszIcon: windows_sys::core::PCSTR,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::marker::Copy for PROPSHEETHEADERA_V1_0 {}
+impl Copy for PROPSHEETHEADERA_V1_0 {}
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::clone::Clone for PROPSHEETHEADERA_V1_0 {
+impl Clone for PROPSHEETHEADERA_V1_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -7140,12 +7140,12 @@ impl ::core::clone::Clone for PROPSHEETHEADERA_V1_0 {
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETHEADERA_V1_1 {
     pub nStartPage: u32,
-    pub pStartPage: ::windows_sys::core::PCSTR,
+    pub pStartPage: windows_sys::core::PCSTR,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::marker::Copy for PROPSHEETHEADERA_V1_1 {}
+impl Copy for PROPSHEETHEADERA_V1_1 {}
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::clone::Clone for PROPSHEETHEADERA_V1_1 {
+impl Clone for PROPSHEETHEADERA_V1_1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -7157,9 +7157,9 @@ pub union PROPSHEETHEADERA_V1_2 {
     pub phpage: *mut HPROPSHEETPAGE,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::marker::Copy for PROPSHEETHEADERA_V1_2 {}
+impl Copy for PROPSHEETHEADERA_V1_2 {}
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::clone::Clone for PROPSHEETHEADERA_V1_2 {
+impl Clone for PROPSHEETHEADERA_V1_2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -7172,7 +7172,7 @@ pub struct PROPSHEETHEADERA_V2 {
     pub hwndParent: super::super::Foundation::HWND,
     pub hInstance: super::super::Foundation::HINSTANCE,
     pub Anonymous1: PROPSHEETHEADERA_V2_0,
-    pub pszCaption: ::windows_sys::core::PCSTR,
+    pub pszCaption: windows_sys::core::PCSTR,
     pub nPages: u32,
     pub Anonymous2: PROPSHEETHEADERA_V2_1,
     pub Anonymous3: PROPSHEETHEADERA_V2_2,
@@ -7182,9 +7182,9 @@ pub struct PROPSHEETHEADERA_V2 {
     pub Anonymous5: PROPSHEETHEADERA_V2_4,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::marker::Copy for PROPSHEETHEADERA_V2 {}
+impl Copy for PROPSHEETHEADERA_V2 {}
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::clone::Clone for PROPSHEETHEADERA_V2 {
+impl Clone for PROPSHEETHEADERA_V2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -7193,12 +7193,12 @@ impl ::core::clone::Clone for PROPSHEETHEADERA_V2 {
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETHEADERA_V2_0 {
     pub hIcon: super::WindowsAndMessaging::HICON,
-    pub pszIcon: ::windows_sys::core::PCSTR,
+    pub pszIcon: windows_sys::core::PCSTR,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::marker::Copy for PROPSHEETHEADERA_V2_0 {}
+impl Copy for PROPSHEETHEADERA_V2_0 {}
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::clone::Clone for PROPSHEETHEADERA_V2_0 {
+impl Clone for PROPSHEETHEADERA_V2_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -7207,12 +7207,12 @@ impl ::core::clone::Clone for PROPSHEETHEADERA_V2_0 {
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETHEADERA_V2_1 {
     pub nStartPage: u32,
-    pub pStartPage: ::windows_sys::core::PCSTR,
+    pub pStartPage: windows_sys::core::PCSTR,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::marker::Copy for PROPSHEETHEADERA_V2_1 {}
+impl Copy for PROPSHEETHEADERA_V2_1 {}
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::clone::Clone for PROPSHEETHEADERA_V2_1 {
+impl Clone for PROPSHEETHEADERA_V2_1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -7224,9 +7224,9 @@ pub union PROPSHEETHEADERA_V2_2 {
     pub phpage: *mut HPROPSHEETPAGE,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::marker::Copy for PROPSHEETHEADERA_V2_2 {}
+impl Copy for PROPSHEETHEADERA_V2_2 {}
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::clone::Clone for PROPSHEETHEADERA_V2_2 {
+impl Clone for PROPSHEETHEADERA_V2_2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -7235,12 +7235,12 @@ impl ::core::clone::Clone for PROPSHEETHEADERA_V2_2 {
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETHEADERA_V2_3 {
     pub hbmWatermark: super::super::Graphics::Gdi::HBITMAP,
-    pub pszbmWatermark: ::windows_sys::core::PCSTR,
+    pub pszbmWatermark: windows_sys::core::PCSTR,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::marker::Copy for PROPSHEETHEADERA_V2_3 {}
+impl Copy for PROPSHEETHEADERA_V2_3 {}
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::clone::Clone for PROPSHEETHEADERA_V2_3 {
+impl Clone for PROPSHEETHEADERA_V2_3 {
     fn clone(&self) -> Self {
         *self
     }
@@ -7249,12 +7249,12 @@ impl ::core::clone::Clone for PROPSHEETHEADERA_V2_3 {
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETHEADERA_V2_4 {
     pub hbmHeader: super::super::Graphics::Gdi::HBITMAP,
-    pub pszbmHeader: ::windows_sys::core::PCSTR,
+    pub pszbmHeader: windows_sys::core::PCSTR,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::marker::Copy for PROPSHEETHEADERA_V2_4 {}
+impl Copy for PROPSHEETHEADERA_V2_4 {}
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::clone::Clone for PROPSHEETHEADERA_V2_4 {
+impl Clone for PROPSHEETHEADERA_V2_4 {
     fn clone(&self) -> Self {
         *self
     }
@@ -7267,16 +7267,16 @@ pub struct PROPSHEETHEADERW_V1 {
     pub hwndParent: super::super::Foundation::HWND,
     pub hInstance: super::super::Foundation::HINSTANCE,
     pub Anonymous1: PROPSHEETHEADERW_V1_0,
-    pub pszCaption: ::windows_sys::core::PCWSTR,
+    pub pszCaption: windows_sys::core::PCWSTR,
     pub nPages: u32,
     pub Anonymous2: PROPSHEETHEADERW_V1_1,
     pub Anonymous3: PROPSHEETHEADERW_V1_2,
     pub pfnCallback: PFNPROPSHEETCALLBACK,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::marker::Copy for PROPSHEETHEADERW_V1 {}
+impl Copy for PROPSHEETHEADERW_V1 {}
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::clone::Clone for PROPSHEETHEADERW_V1 {
+impl Clone for PROPSHEETHEADERW_V1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -7285,12 +7285,12 @@ impl ::core::clone::Clone for PROPSHEETHEADERW_V1 {
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETHEADERW_V1_0 {
     pub hIcon: super::WindowsAndMessaging::HICON,
-    pub pszIcon: ::windows_sys::core::PCWSTR,
+    pub pszIcon: windows_sys::core::PCWSTR,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::marker::Copy for PROPSHEETHEADERW_V1_0 {}
+impl Copy for PROPSHEETHEADERW_V1_0 {}
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::clone::Clone for PROPSHEETHEADERW_V1_0 {
+impl Clone for PROPSHEETHEADERW_V1_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -7299,12 +7299,12 @@ impl ::core::clone::Clone for PROPSHEETHEADERW_V1_0 {
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETHEADERW_V1_1 {
     pub nStartPage: u32,
-    pub pStartPage: ::windows_sys::core::PCWSTR,
+    pub pStartPage: windows_sys::core::PCWSTR,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::marker::Copy for PROPSHEETHEADERW_V1_1 {}
+impl Copy for PROPSHEETHEADERW_V1_1 {}
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::clone::Clone for PROPSHEETHEADERW_V1_1 {
+impl Clone for PROPSHEETHEADERW_V1_1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -7316,9 +7316,9 @@ pub union PROPSHEETHEADERW_V1_2 {
     pub phpage: *mut HPROPSHEETPAGE,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::marker::Copy for PROPSHEETHEADERW_V1_2 {}
+impl Copy for PROPSHEETHEADERW_V1_2 {}
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::clone::Clone for PROPSHEETHEADERW_V1_2 {
+impl Clone for PROPSHEETHEADERW_V1_2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -7331,7 +7331,7 @@ pub struct PROPSHEETHEADERW_V2 {
     pub hwndParent: super::super::Foundation::HWND,
     pub hInstance: super::super::Foundation::HINSTANCE,
     pub Anonymous1: PROPSHEETHEADERW_V2_0,
-    pub pszCaption: ::windows_sys::core::PCWSTR,
+    pub pszCaption: windows_sys::core::PCWSTR,
     pub nPages: u32,
     pub Anonymous2: PROPSHEETHEADERW_V2_1,
     pub Anonymous3: PROPSHEETHEADERW_V2_2,
@@ -7341,9 +7341,9 @@ pub struct PROPSHEETHEADERW_V2 {
     pub Anonymous5: PROPSHEETHEADERW_V2_4,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::marker::Copy for PROPSHEETHEADERW_V2 {}
+impl Copy for PROPSHEETHEADERW_V2 {}
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::clone::Clone for PROPSHEETHEADERW_V2 {
+impl Clone for PROPSHEETHEADERW_V2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -7352,12 +7352,12 @@ impl ::core::clone::Clone for PROPSHEETHEADERW_V2 {
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETHEADERW_V2_0 {
     pub hIcon: super::WindowsAndMessaging::HICON,
-    pub pszIcon: ::windows_sys::core::PCWSTR,
+    pub pszIcon: windows_sys::core::PCWSTR,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::marker::Copy for PROPSHEETHEADERW_V2_0 {}
+impl Copy for PROPSHEETHEADERW_V2_0 {}
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::clone::Clone for PROPSHEETHEADERW_V2_0 {
+impl Clone for PROPSHEETHEADERW_V2_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -7366,12 +7366,12 @@ impl ::core::clone::Clone for PROPSHEETHEADERW_V2_0 {
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETHEADERW_V2_1 {
     pub nStartPage: u32,
-    pub pStartPage: ::windows_sys::core::PCWSTR,
+    pub pStartPage: windows_sys::core::PCWSTR,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::marker::Copy for PROPSHEETHEADERW_V2_1 {}
+impl Copy for PROPSHEETHEADERW_V2_1 {}
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::clone::Clone for PROPSHEETHEADERW_V2_1 {
+impl Clone for PROPSHEETHEADERW_V2_1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -7383,9 +7383,9 @@ pub union PROPSHEETHEADERW_V2_2 {
     pub phpage: *mut HPROPSHEETPAGE,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::marker::Copy for PROPSHEETHEADERW_V2_2 {}
+impl Copy for PROPSHEETHEADERW_V2_2 {}
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::clone::Clone for PROPSHEETHEADERW_V2_2 {
+impl Clone for PROPSHEETHEADERW_V2_2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -7394,12 +7394,12 @@ impl ::core::clone::Clone for PROPSHEETHEADERW_V2_2 {
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETHEADERW_V2_3 {
     pub hbmWatermark: super::super::Graphics::Gdi::HBITMAP,
-    pub pszbmWatermark: ::windows_sys::core::PCWSTR,
+    pub pszbmWatermark: windows_sys::core::PCWSTR,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::marker::Copy for PROPSHEETHEADERW_V2_3 {}
+impl Copy for PROPSHEETHEADERW_V2_3 {}
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::clone::Clone for PROPSHEETHEADERW_V2_3 {
+impl Clone for PROPSHEETHEADERW_V2_3 {
     fn clone(&self) -> Self {
         *self
     }
@@ -7408,12 +7408,12 @@ impl ::core::clone::Clone for PROPSHEETHEADERW_V2_3 {
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETHEADERW_V2_4 {
     pub hbmHeader: super::super::Graphics::Gdi::HBITMAP,
-    pub pszbmHeader: ::windows_sys::core::PCWSTR,
+    pub pszbmHeader: windows_sys::core::PCWSTR,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::marker::Copy for PROPSHEETHEADERW_V2_4 {}
+impl Copy for PROPSHEETHEADERW_V2_4 {}
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::clone::Clone for PROPSHEETHEADERW_V2_4 {
+impl Clone for PROPSHEETHEADERW_V2_4 {
     fn clone(&self) -> Self {
         *self
     }
@@ -7426,20 +7426,20 @@ pub struct PROPSHEETPAGEA {
     pub hInstance: super::super::Foundation::HINSTANCE,
     pub Anonymous1: PROPSHEETPAGEA_0,
     pub Anonymous2: PROPSHEETPAGEA_1,
-    pub pszTitle: ::windows_sys::core::PCSTR,
+    pub pszTitle: windows_sys::core::PCSTR,
     pub pfnDlgProc: super::WindowsAndMessaging::DLGPROC,
     pub lParam: super::super::Foundation::LPARAM,
     pub pfnCallback: LPFNPSPCALLBACKA,
     pub pcRefParent: *mut u32,
-    pub pszHeaderTitle: ::windows_sys::core::PCSTR,
-    pub pszHeaderSubTitle: ::windows_sys::core::PCSTR,
+    pub pszHeaderTitle: windows_sys::core::PCSTR,
+    pub pszHeaderSubTitle: windows_sys::core::PCSTR,
     pub hActCtx: super::super::Foundation::HANDLE,
     pub Anonymous3: PROPSHEETPAGEA_2,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::marker::Copy for PROPSHEETPAGEA {}
+impl Copy for PROPSHEETPAGEA {}
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::clone::Clone for PROPSHEETPAGEA {
+impl Clone for PROPSHEETPAGEA {
     fn clone(&self) -> Self {
         *self
     }
@@ -7447,13 +7447,13 @@ impl ::core::clone::Clone for PROPSHEETPAGEA {
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETPAGEA_0 {
-    pub pszTemplate: ::windows_sys::core::PCSTR,
+    pub pszTemplate: windows_sys::core::PCSTR,
     pub pResource: *mut super::WindowsAndMessaging::DLGTEMPLATE,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::marker::Copy for PROPSHEETPAGEA_0 {}
+impl Copy for PROPSHEETPAGEA_0 {}
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::clone::Clone for PROPSHEETPAGEA_0 {
+impl Clone for PROPSHEETPAGEA_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -7462,12 +7462,12 @@ impl ::core::clone::Clone for PROPSHEETPAGEA_0 {
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETPAGEA_1 {
     pub hIcon: super::WindowsAndMessaging::HICON,
-    pub pszIcon: ::windows_sys::core::PCSTR,
+    pub pszIcon: windows_sys::core::PCSTR,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::marker::Copy for PROPSHEETPAGEA_1 {}
+impl Copy for PROPSHEETPAGEA_1 {}
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::clone::Clone for PROPSHEETPAGEA_1 {
+impl Clone for PROPSHEETPAGEA_1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -7476,12 +7476,12 @@ impl ::core::clone::Clone for PROPSHEETPAGEA_1 {
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETPAGEA_2 {
     pub hbmHeader: super::super::Graphics::Gdi::HBITMAP,
-    pub pszbmHeader: ::windows_sys::core::PCSTR,
+    pub pszbmHeader: windows_sys::core::PCSTR,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::marker::Copy for PROPSHEETPAGEA_2 {}
+impl Copy for PROPSHEETPAGEA_2 {}
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::clone::Clone for PROPSHEETPAGEA_2 {
+impl Clone for PROPSHEETPAGEA_2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -7494,16 +7494,16 @@ pub struct PROPSHEETPAGEA_V1 {
     pub hInstance: super::super::Foundation::HINSTANCE,
     pub Anonymous1: PROPSHEETPAGEA_V1_0,
     pub Anonymous2: PROPSHEETPAGEA_V1_1,
-    pub pszTitle: ::windows_sys::core::PCSTR,
+    pub pszTitle: windows_sys::core::PCSTR,
     pub pfnDlgProc: super::WindowsAndMessaging::DLGPROC,
     pub lParam: super::super::Foundation::LPARAM,
     pub pfnCallback: LPFNPSPCALLBACKA,
     pub pcRefParent: *mut u32,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::marker::Copy for PROPSHEETPAGEA_V1 {}
+impl Copy for PROPSHEETPAGEA_V1 {}
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::clone::Clone for PROPSHEETPAGEA_V1 {
+impl Clone for PROPSHEETPAGEA_V1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -7511,13 +7511,13 @@ impl ::core::clone::Clone for PROPSHEETPAGEA_V1 {
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETPAGEA_V1_0 {
-    pub pszTemplate: ::windows_sys::core::PCSTR,
+    pub pszTemplate: windows_sys::core::PCSTR,
     pub pResource: *mut super::WindowsAndMessaging::DLGTEMPLATE,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::marker::Copy for PROPSHEETPAGEA_V1_0 {}
+impl Copy for PROPSHEETPAGEA_V1_0 {}
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::clone::Clone for PROPSHEETPAGEA_V1_0 {
+impl Clone for PROPSHEETPAGEA_V1_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -7526,12 +7526,12 @@ impl ::core::clone::Clone for PROPSHEETPAGEA_V1_0 {
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETPAGEA_V1_1 {
     pub hIcon: super::WindowsAndMessaging::HICON,
-    pub pszIcon: ::windows_sys::core::PCSTR,
+    pub pszIcon: windows_sys::core::PCSTR,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::marker::Copy for PROPSHEETPAGEA_V1_1 {}
+impl Copy for PROPSHEETPAGEA_V1_1 {}
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::clone::Clone for PROPSHEETPAGEA_V1_1 {
+impl Clone for PROPSHEETPAGEA_V1_1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -7544,18 +7544,18 @@ pub struct PROPSHEETPAGEA_V2 {
     pub hInstance: super::super::Foundation::HINSTANCE,
     pub Anonymous1: PROPSHEETPAGEA_V2_0,
     pub Anonymous2: PROPSHEETPAGEA_V2_1,
-    pub pszTitle: ::windows_sys::core::PCSTR,
+    pub pszTitle: windows_sys::core::PCSTR,
     pub pfnDlgProc: super::WindowsAndMessaging::DLGPROC,
     pub lParam: super::super::Foundation::LPARAM,
     pub pfnCallback: LPFNPSPCALLBACKA,
     pub pcRefParent: *mut u32,
-    pub pszHeaderTitle: ::windows_sys::core::PCSTR,
-    pub pszHeaderSubTitle: ::windows_sys::core::PCSTR,
+    pub pszHeaderTitle: windows_sys::core::PCSTR,
+    pub pszHeaderSubTitle: windows_sys::core::PCSTR,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::marker::Copy for PROPSHEETPAGEA_V2 {}
+impl Copy for PROPSHEETPAGEA_V2 {}
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::clone::Clone for PROPSHEETPAGEA_V2 {
+impl Clone for PROPSHEETPAGEA_V2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -7563,13 +7563,13 @@ impl ::core::clone::Clone for PROPSHEETPAGEA_V2 {
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETPAGEA_V2_0 {
-    pub pszTemplate: ::windows_sys::core::PCSTR,
+    pub pszTemplate: windows_sys::core::PCSTR,
     pub pResource: *mut super::WindowsAndMessaging::DLGTEMPLATE,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::marker::Copy for PROPSHEETPAGEA_V2_0 {}
+impl Copy for PROPSHEETPAGEA_V2_0 {}
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::clone::Clone for PROPSHEETPAGEA_V2_0 {
+impl Clone for PROPSHEETPAGEA_V2_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -7578,12 +7578,12 @@ impl ::core::clone::Clone for PROPSHEETPAGEA_V2_0 {
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETPAGEA_V2_1 {
     pub hIcon: super::WindowsAndMessaging::HICON,
-    pub pszIcon: ::windows_sys::core::PCSTR,
+    pub pszIcon: windows_sys::core::PCSTR,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::marker::Copy for PROPSHEETPAGEA_V2_1 {}
+impl Copy for PROPSHEETPAGEA_V2_1 {}
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::clone::Clone for PROPSHEETPAGEA_V2_1 {
+impl Clone for PROPSHEETPAGEA_V2_1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -7596,19 +7596,19 @@ pub struct PROPSHEETPAGEA_V3 {
     pub hInstance: super::super::Foundation::HINSTANCE,
     pub Anonymous1: PROPSHEETPAGEA_V3_0,
     pub Anonymous2: PROPSHEETPAGEA_V3_1,
-    pub pszTitle: ::windows_sys::core::PCSTR,
+    pub pszTitle: windows_sys::core::PCSTR,
     pub pfnDlgProc: super::WindowsAndMessaging::DLGPROC,
     pub lParam: super::super::Foundation::LPARAM,
     pub pfnCallback: LPFNPSPCALLBACKA,
     pub pcRefParent: *mut u32,
-    pub pszHeaderTitle: ::windows_sys::core::PCSTR,
-    pub pszHeaderSubTitle: ::windows_sys::core::PCSTR,
+    pub pszHeaderTitle: windows_sys::core::PCSTR,
+    pub pszHeaderSubTitle: windows_sys::core::PCSTR,
     pub hActCtx: super::super::Foundation::HANDLE,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::marker::Copy for PROPSHEETPAGEA_V3 {}
+impl Copy for PROPSHEETPAGEA_V3 {}
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::clone::Clone for PROPSHEETPAGEA_V3 {
+impl Clone for PROPSHEETPAGEA_V3 {
     fn clone(&self) -> Self {
         *self
     }
@@ -7616,13 +7616,13 @@ impl ::core::clone::Clone for PROPSHEETPAGEA_V3 {
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETPAGEA_V3_0 {
-    pub pszTemplate: ::windows_sys::core::PCSTR,
+    pub pszTemplate: windows_sys::core::PCSTR,
     pub pResource: *mut super::WindowsAndMessaging::DLGTEMPLATE,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::marker::Copy for PROPSHEETPAGEA_V3_0 {}
+impl Copy for PROPSHEETPAGEA_V3_0 {}
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::clone::Clone for PROPSHEETPAGEA_V3_0 {
+impl Clone for PROPSHEETPAGEA_V3_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -7631,12 +7631,12 @@ impl ::core::clone::Clone for PROPSHEETPAGEA_V3_0 {
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETPAGEA_V3_1 {
     pub hIcon: super::WindowsAndMessaging::HICON,
-    pub pszIcon: ::windows_sys::core::PCSTR,
+    pub pszIcon: windows_sys::core::PCSTR,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::marker::Copy for PROPSHEETPAGEA_V3_1 {}
+impl Copy for PROPSHEETPAGEA_V3_1 {}
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::clone::Clone for PROPSHEETPAGEA_V3_1 {
+impl Clone for PROPSHEETPAGEA_V3_1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -7649,20 +7649,20 @@ pub struct PROPSHEETPAGEW {
     pub hInstance: super::super::Foundation::HINSTANCE,
     pub Anonymous1: PROPSHEETPAGEW_0,
     pub Anonymous2: PROPSHEETPAGEW_1,
-    pub pszTitle: ::windows_sys::core::PCWSTR,
+    pub pszTitle: windows_sys::core::PCWSTR,
     pub pfnDlgProc: super::WindowsAndMessaging::DLGPROC,
     pub lParam: super::super::Foundation::LPARAM,
     pub pfnCallback: LPFNPSPCALLBACKW,
     pub pcRefParent: *mut u32,
-    pub pszHeaderTitle: ::windows_sys::core::PCWSTR,
-    pub pszHeaderSubTitle: ::windows_sys::core::PCWSTR,
+    pub pszHeaderTitle: windows_sys::core::PCWSTR,
+    pub pszHeaderSubTitle: windows_sys::core::PCWSTR,
     pub hActCtx: super::super::Foundation::HANDLE,
     pub Anonymous3: PROPSHEETPAGEW_2,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::marker::Copy for PROPSHEETPAGEW {}
+impl Copy for PROPSHEETPAGEW {}
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::clone::Clone for PROPSHEETPAGEW {
+impl Clone for PROPSHEETPAGEW {
     fn clone(&self) -> Self {
         *self
     }
@@ -7670,13 +7670,13 @@ impl ::core::clone::Clone for PROPSHEETPAGEW {
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETPAGEW_0 {
-    pub pszTemplate: ::windows_sys::core::PCWSTR,
+    pub pszTemplate: windows_sys::core::PCWSTR,
     pub pResource: *mut super::WindowsAndMessaging::DLGTEMPLATE,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::marker::Copy for PROPSHEETPAGEW_0 {}
+impl Copy for PROPSHEETPAGEW_0 {}
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::clone::Clone for PROPSHEETPAGEW_0 {
+impl Clone for PROPSHEETPAGEW_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -7685,12 +7685,12 @@ impl ::core::clone::Clone for PROPSHEETPAGEW_0 {
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETPAGEW_1 {
     pub hIcon: super::WindowsAndMessaging::HICON,
-    pub pszIcon: ::windows_sys::core::PCWSTR,
+    pub pszIcon: windows_sys::core::PCWSTR,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::marker::Copy for PROPSHEETPAGEW_1 {}
+impl Copy for PROPSHEETPAGEW_1 {}
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::clone::Clone for PROPSHEETPAGEW_1 {
+impl Clone for PROPSHEETPAGEW_1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -7699,12 +7699,12 @@ impl ::core::clone::Clone for PROPSHEETPAGEW_1 {
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETPAGEW_2 {
     pub hbmHeader: super::super::Graphics::Gdi::HBITMAP,
-    pub pszbmHeader: ::windows_sys::core::PCWSTR,
+    pub pszbmHeader: windows_sys::core::PCWSTR,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::marker::Copy for PROPSHEETPAGEW_2 {}
+impl Copy for PROPSHEETPAGEW_2 {}
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::clone::Clone for PROPSHEETPAGEW_2 {
+impl Clone for PROPSHEETPAGEW_2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -7717,16 +7717,16 @@ pub struct PROPSHEETPAGEW_V1 {
     pub hInstance: super::super::Foundation::HINSTANCE,
     pub Anonymous1: PROPSHEETPAGEW_V1_0,
     pub Anonymous2: PROPSHEETPAGEW_V1_1,
-    pub pszTitle: ::windows_sys::core::PCWSTR,
+    pub pszTitle: windows_sys::core::PCWSTR,
     pub pfnDlgProc: super::WindowsAndMessaging::DLGPROC,
     pub lParam: super::super::Foundation::LPARAM,
     pub pfnCallback: LPFNPSPCALLBACKW,
     pub pcRefParent: *mut u32,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::marker::Copy for PROPSHEETPAGEW_V1 {}
+impl Copy for PROPSHEETPAGEW_V1 {}
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::clone::Clone for PROPSHEETPAGEW_V1 {
+impl Clone for PROPSHEETPAGEW_V1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -7734,13 +7734,13 @@ impl ::core::clone::Clone for PROPSHEETPAGEW_V1 {
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETPAGEW_V1_0 {
-    pub pszTemplate: ::windows_sys::core::PCWSTR,
+    pub pszTemplate: windows_sys::core::PCWSTR,
     pub pResource: *mut super::WindowsAndMessaging::DLGTEMPLATE,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::marker::Copy for PROPSHEETPAGEW_V1_0 {}
+impl Copy for PROPSHEETPAGEW_V1_0 {}
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::clone::Clone for PROPSHEETPAGEW_V1_0 {
+impl Clone for PROPSHEETPAGEW_V1_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -7749,12 +7749,12 @@ impl ::core::clone::Clone for PROPSHEETPAGEW_V1_0 {
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETPAGEW_V1_1 {
     pub hIcon: super::WindowsAndMessaging::HICON,
-    pub pszIcon: ::windows_sys::core::PCWSTR,
+    pub pszIcon: windows_sys::core::PCWSTR,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::marker::Copy for PROPSHEETPAGEW_V1_1 {}
+impl Copy for PROPSHEETPAGEW_V1_1 {}
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::clone::Clone for PROPSHEETPAGEW_V1_1 {
+impl Clone for PROPSHEETPAGEW_V1_1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -7767,18 +7767,18 @@ pub struct PROPSHEETPAGEW_V2 {
     pub hInstance: super::super::Foundation::HINSTANCE,
     pub Anonymous1: PROPSHEETPAGEW_V2_0,
     pub Anonymous2: PROPSHEETPAGEW_V2_1,
-    pub pszTitle: ::windows_sys::core::PCWSTR,
+    pub pszTitle: windows_sys::core::PCWSTR,
     pub pfnDlgProc: super::WindowsAndMessaging::DLGPROC,
     pub lParam: super::super::Foundation::LPARAM,
     pub pfnCallback: LPFNPSPCALLBACKW,
     pub pcRefParent: *mut u32,
-    pub pszHeaderTitle: ::windows_sys::core::PCWSTR,
-    pub pszHeaderSubTitle: ::windows_sys::core::PCWSTR,
+    pub pszHeaderTitle: windows_sys::core::PCWSTR,
+    pub pszHeaderSubTitle: windows_sys::core::PCWSTR,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::marker::Copy for PROPSHEETPAGEW_V2 {}
+impl Copy for PROPSHEETPAGEW_V2 {}
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::clone::Clone for PROPSHEETPAGEW_V2 {
+impl Clone for PROPSHEETPAGEW_V2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -7786,13 +7786,13 @@ impl ::core::clone::Clone for PROPSHEETPAGEW_V2 {
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETPAGEW_V2_0 {
-    pub pszTemplate: ::windows_sys::core::PCWSTR,
+    pub pszTemplate: windows_sys::core::PCWSTR,
     pub pResource: *mut super::WindowsAndMessaging::DLGTEMPLATE,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::marker::Copy for PROPSHEETPAGEW_V2_0 {}
+impl Copy for PROPSHEETPAGEW_V2_0 {}
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::clone::Clone for PROPSHEETPAGEW_V2_0 {
+impl Clone for PROPSHEETPAGEW_V2_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -7801,12 +7801,12 @@ impl ::core::clone::Clone for PROPSHEETPAGEW_V2_0 {
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETPAGEW_V2_1 {
     pub hIcon: super::WindowsAndMessaging::HICON,
-    pub pszIcon: ::windows_sys::core::PCWSTR,
+    pub pszIcon: windows_sys::core::PCWSTR,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::marker::Copy for PROPSHEETPAGEW_V2_1 {}
+impl Copy for PROPSHEETPAGEW_V2_1 {}
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::clone::Clone for PROPSHEETPAGEW_V2_1 {
+impl Clone for PROPSHEETPAGEW_V2_1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -7819,19 +7819,19 @@ pub struct PROPSHEETPAGEW_V3 {
     pub hInstance: super::super::Foundation::HINSTANCE,
     pub Anonymous1: PROPSHEETPAGEW_V3_0,
     pub Anonymous2: PROPSHEETPAGEW_V3_1,
-    pub pszTitle: ::windows_sys::core::PCWSTR,
+    pub pszTitle: windows_sys::core::PCWSTR,
     pub pfnDlgProc: super::WindowsAndMessaging::DLGPROC,
     pub lParam: super::super::Foundation::LPARAM,
     pub pfnCallback: LPFNPSPCALLBACKW,
     pub pcRefParent: *mut u32,
-    pub pszHeaderTitle: ::windows_sys::core::PCWSTR,
-    pub pszHeaderSubTitle: ::windows_sys::core::PCWSTR,
+    pub pszHeaderTitle: windows_sys::core::PCWSTR,
+    pub pszHeaderSubTitle: windows_sys::core::PCWSTR,
     pub hActCtx: super::super::Foundation::HANDLE,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::marker::Copy for PROPSHEETPAGEW_V3 {}
+impl Copy for PROPSHEETPAGEW_V3 {}
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::clone::Clone for PROPSHEETPAGEW_V3 {
+impl Clone for PROPSHEETPAGEW_V3 {
     fn clone(&self) -> Self {
         *self
     }
@@ -7839,13 +7839,13 @@ impl ::core::clone::Clone for PROPSHEETPAGEW_V3 {
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETPAGEW_V3_0 {
-    pub pszTemplate: ::windows_sys::core::PCWSTR,
+    pub pszTemplate: windows_sys::core::PCWSTR,
     pub pResource: *mut super::WindowsAndMessaging::DLGTEMPLATE,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::marker::Copy for PROPSHEETPAGEW_V3_0 {}
+impl Copy for PROPSHEETPAGEW_V3_0 {}
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::clone::Clone for PROPSHEETPAGEW_V3_0 {
+impl Clone for PROPSHEETPAGEW_V3_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -7854,12 +7854,12 @@ impl ::core::clone::Clone for PROPSHEETPAGEW_V3_0 {
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETPAGEW_V3_1 {
     pub hIcon: super::WindowsAndMessaging::HICON,
-    pub pszIcon: ::windows_sys::core::PCWSTR,
+    pub pszIcon: windows_sys::core::PCWSTR,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::marker::Copy for PROPSHEETPAGEW_V3_1 {}
+impl Copy for PROPSHEETPAGEW_V3_1 {}
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::clone::Clone for PROPSHEETPAGEW_V3_1 {
+impl Clone for PROPSHEETPAGEW_V3_1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -7869,8 +7869,8 @@ pub struct PSHNOTIFY {
     pub hdr: NMHDR,
     pub lParam: super::super::Foundation::LPARAM,
 }
-impl ::core::marker::Copy for PSHNOTIFY {}
-impl ::core::clone::Clone for PSHNOTIFY {
+impl Copy for PSHNOTIFY {}
+impl Clone for PSHNOTIFY {
     fn clone(&self) -> Self {
         *self
     }
@@ -7881,8 +7881,8 @@ pub struct RBHITTESTINFO {
     pub flags: u32,
     pub iBand: i32,
 }
-impl ::core::marker::Copy for RBHITTESTINFO {}
-impl ::core::clone::Clone for RBHITTESTINFO {
+impl Copy for RBHITTESTINFO {}
+impl Clone for RBHITTESTINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -7895,7 +7895,7 @@ pub struct REBARBANDINFOA {
     pub fStyle: u32,
     pub clrFore: super::super::Foundation::COLORREF,
     pub clrBack: super::super::Foundation::COLORREF,
-    pub lpText: ::windows_sys::core::PSTR,
+    pub lpText: windows_sys::core::PSTR,
     pub cch: u32,
     pub iImage: i32,
     pub hwndChild: super::super::Foundation::HWND,
@@ -7914,9 +7914,9 @@ pub struct REBARBANDINFOA {
     pub uChevronState: u32,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::marker::Copy for REBARBANDINFOA {}
+impl Copy for REBARBANDINFOA {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::clone::Clone for REBARBANDINFOA {
+impl Clone for REBARBANDINFOA {
     fn clone(&self) -> Self {
         *self
     }
@@ -7929,7 +7929,7 @@ pub struct REBARBANDINFOW {
     pub fStyle: u32,
     pub clrFore: super::super::Foundation::COLORREF,
     pub clrBack: super::super::Foundation::COLORREF,
-    pub lpText: ::windows_sys::core::PWSTR,
+    pub lpText: windows_sys::core::PWSTR,
     pub cch: u32,
     pub iImage: i32,
     pub hwndChild: super::super::Foundation::HWND,
@@ -7948,9 +7948,9 @@ pub struct REBARBANDINFOW {
     pub uChevronState: u32,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::marker::Copy for REBARBANDINFOW {}
+impl Copy for REBARBANDINFOW {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::clone::Clone for REBARBANDINFOW {
+impl Clone for REBARBANDINFOW {
     fn clone(&self) -> Self {
         *self
     }
@@ -7961,8 +7961,8 @@ pub struct REBARINFO {
     pub fMask: u32,
     pub himl: HIMAGELIST,
 }
-impl ::core::marker::Copy for REBARINFO {}
-impl ::core::clone::Clone for REBARINFO {
+impl Copy for REBARINFO {}
+impl Clone for REBARINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -7975,30 +7975,30 @@ pub struct TASKDIALOGCONFIG {
     pub hInstance: super::super::Foundation::HINSTANCE,
     pub dwFlags: TASKDIALOG_FLAGS,
     pub dwCommonButtons: TASKDIALOG_COMMON_BUTTON_FLAGS,
-    pub pszWindowTitle: ::windows_sys::core::PCWSTR,
+    pub pszWindowTitle: windows_sys::core::PCWSTR,
     pub Anonymous1: TASKDIALOGCONFIG_0,
-    pub pszMainInstruction: ::windows_sys::core::PCWSTR,
-    pub pszContent: ::windows_sys::core::PCWSTR,
+    pub pszMainInstruction: windows_sys::core::PCWSTR,
+    pub pszContent: windows_sys::core::PCWSTR,
     pub cButtons: u32,
     pub pButtons: *const TASKDIALOG_BUTTON,
     pub nDefaultButton: i32,
     pub cRadioButtons: u32,
     pub pRadioButtons: *const TASKDIALOG_BUTTON,
     pub nDefaultRadioButton: i32,
-    pub pszVerificationText: ::windows_sys::core::PCWSTR,
-    pub pszExpandedInformation: ::windows_sys::core::PCWSTR,
-    pub pszExpandedControlText: ::windows_sys::core::PCWSTR,
-    pub pszCollapsedControlText: ::windows_sys::core::PCWSTR,
+    pub pszVerificationText: windows_sys::core::PCWSTR,
+    pub pszExpandedInformation: windows_sys::core::PCWSTR,
+    pub pszExpandedControlText: windows_sys::core::PCWSTR,
+    pub pszCollapsedControlText: windows_sys::core::PCWSTR,
     pub Anonymous2: TASKDIALOGCONFIG_1,
-    pub pszFooter: ::windows_sys::core::PCWSTR,
+    pub pszFooter: windows_sys::core::PCWSTR,
     pub pfCallback: PFTASKDIALOGCALLBACK,
     pub lpCallbackData: isize,
     pub cxWidth: u32,
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ::core::marker::Copy for TASKDIALOGCONFIG {}
+impl Copy for TASKDIALOGCONFIG {}
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ::core::clone::Clone for TASKDIALOGCONFIG {
+impl Clone for TASKDIALOGCONFIG {
     fn clone(&self) -> Self {
         *self
     }
@@ -8007,12 +8007,12 @@ impl ::core::clone::Clone for TASKDIALOGCONFIG {
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub union TASKDIALOGCONFIG_0 {
     pub hMainIcon: super::WindowsAndMessaging::HICON,
-    pub pszMainIcon: ::windows_sys::core::PCWSTR,
+    pub pszMainIcon: windows_sys::core::PCWSTR,
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ::core::marker::Copy for TASKDIALOGCONFIG_0 {}
+impl Copy for TASKDIALOGCONFIG_0 {}
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ::core::clone::Clone for TASKDIALOGCONFIG_0 {
+impl Clone for TASKDIALOGCONFIG_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -8021,12 +8021,12 @@ impl ::core::clone::Clone for TASKDIALOGCONFIG_0 {
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub union TASKDIALOGCONFIG_1 {
     pub hFooterIcon: super::WindowsAndMessaging::HICON,
-    pub pszFooterIcon: ::windows_sys::core::PCWSTR,
+    pub pszFooterIcon: windows_sys::core::PCWSTR,
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ::core::marker::Copy for TASKDIALOGCONFIG_1 {}
+impl Copy for TASKDIALOGCONFIG_1 {}
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ::core::clone::Clone for TASKDIALOGCONFIG_1 {
+impl Clone for TASKDIALOGCONFIG_1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -8034,10 +8034,10 @@ impl ::core::clone::Clone for TASKDIALOGCONFIG_1 {
 #[repr(C, packed(1))]
 pub struct TASKDIALOG_BUTTON {
     pub nButtonID: i32,
-    pub pszButtonText: ::windows_sys::core::PCWSTR,
+    pub pszButtonText: windows_sys::core::PCWSTR,
 }
-impl ::core::marker::Copy for TASKDIALOG_BUTTON {}
-impl ::core::clone::Clone for TASKDIALOG_BUTTON {
+impl Copy for TASKDIALOG_BUTTON {}
+impl Clone for TASKDIALOG_BUTTON {
     fn clone(&self) -> Self {
         *self
     }
@@ -8050,8 +8050,8 @@ pub struct TA_CUBIC_BEZIER {
     pub rX1: f32,
     pub rY1: f32,
 }
-impl ::core::marker::Copy for TA_CUBIC_BEZIER {}
-impl ::core::clone::Clone for TA_CUBIC_BEZIER {
+impl Copy for TA_CUBIC_BEZIER {}
+impl Clone for TA_CUBIC_BEZIER {
     fn clone(&self) -> Self {
         *self
     }
@@ -8060,8 +8060,8 @@ impl ::core::clone::Clone for TA_CUBIC_BEZIER {
 pub struct TA_TIMINGFUNCTION {
     pub eTimingFunctionType: TA_TIMINGFUNCTION_TYPE,
 }
-impl ::core::marker::Copy for TA_TIMINGFUNCTION {}
-impl ::core::clone::Clone for TA_TIMINGFUNCTION {
+impl Copy for TA_TIMINGFUNCTION {}
+impl Clone for TA_TIMINGFUNCTION {
     fn clone(&self) -> Self {
         *self
     }
@@ -8074,8 +8074,8 @@ pub struct TA_TRANSFORM {
     pub dwDurationTime: u32,
     pub eFlags: TA_TRANSFORM_FLAG,
 }
-impl ::core::marker::Copy for TA_TRANSFORM {}
-impl ::core::clone::Clone for TA_TRANSFORM {
+impl Copy for TA_TRANSFORM {}
+impl Clone for TA_TRANSFORM {
     fn clone(&self) -> Self {
         *self
     }
@@ -8090,8 +8090,8 @@ pub struct TA_TRANSFORM_2D {
     pub rOriginX: f32,
     pub rOriginY: f32,
 }
-impl ::core::marker::Copy for TA_TRANSFORM_2D {}
-impl ::core::clone::Clone for TA_TRANSFORM_2D {
+impl Copy for TA_TRANSFORM_2D {}
+impl Clone for TA_TRANSFORM_2D {
     fn clone(&self) -> Self {
         *self
     }
@@ -8108,8 +8108,8 @@ pub struct TA_TRANSFORM_CLIP {
     pub rInitialRight: f32,
     pub rInitialBottom: f32,
 }
-impl ::core::marker::Copy for TA_TRANSFORM_CLIP {}
-impl ::core::clone::Clone for TA_TRANSFORM_CLIP {
+impl Copy for TA_TRANSFORM_CLIP {}
+impl Clone for TA_TRANSFORM_CLIP {
     fn clone(&self) -> Self {
         *self
     }
@@ -8120,8 +8120,8 @@ pub struct TA_TRANSFORM_OPACITY {
     pub rOpacity: f32,
     pub rInitialOpacity: f32,
 }
-impl ::core::marker::Copy for TA_TRANSFORM_OPACITY {}
-impl ::core::clone::Clone for TA_TRANSFORM_OPACITY {
+impl Copy for TA_TRANSFORM_OPACITY {}
+impl Clone for TA_TRANSFORM_OPACITY {
     fn clone(&self) -> Self {
         *self
     }
@@ -8131,8 +8131,8 @@ pub struct TBADDBITMAP {
     pub hInst: super::super::Foundation::HINSTANCE,
     pub nID: usize,
 }
-impl ::core::marker::Copy for TBADDBITMAP {}
-impl ::core::clone::Clone for TBADDBITMAP {
+impl Copy for TBADDBITMAP {}
+impl Clone for TBADDBITMAP {
     fn clone(&self) -> Self {
         *self
     }
@@ -8149,9 +8149,9 @@ pub struct TBBUTTON {
     pub iString: isize,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::marker::Copy for TBBUTTON {}
+impl Copy for TBBUTTON {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::clone::Clone for TBBUTTON {
+impl Clone for TBBUTTON {
     fn clone(&self) -> Self {
         *self
     }
@@ -8168,9 +8168,9 @@ pub struct TBBUTTON {
     pub iString: isize,
 }
 #[cfg(target_arch = "x86")]
-impl ::core::marker::Copy for TBBUTTON {}
+impl Copy for TBBUTTON {}
 #[cfg(target_arch = "x86")]
-impl ::core::clone::Clone for TBBUTTON {
+impl Clone for TBBUTTON {
     fn clone(&self) -> Self {
         *self
     }
@@ -8185,11 +8185,11 @@ pub struct TBBUTTONINFOA {
     pub fsStyle: u8,
     pub cx: u16,
     pub lParam: usize,
-    pub pszText: ::windows_sys::core::PSTR,
+    pub pszText: windows_sys::core::PSTR,
     pub cchText: i32,
 }
-impl ::core::marker::Copy for TBBUTTONINFOA {}
-impl ::core::clone::Clone for TBBUTTONINFOA {
+impl Copy for TBBUTTONINFOA {}
+impl Clone for TBBUTTONINFOA {
     fn clone(&self) -> Self {
         *self
     }
@@ -8204,11 +8204,11 @@ pub struct TBBUTTONINFOW {
     pub fsStyle: u8,
     pub cx: u16,
     pub lParam: usize,
-    pub pszText: ::windows_sys::core::PWSTR,
+    pub pszText: windows_sys::core::PWSTR,
     pub cchText: i32,
 }
-impl ::core::marker::Copy for TBBUTTONINFOW {}
-impl ::core::clone::Clone for TBBUTTONINFOW {
+impl Copy for TBBUTTONINFOW {}
+impl Clone for TBBUTTONINFOW {
     fn clone(&self) -> Self {
         *self
     }
@@ -8218,8 +8218,8 @@ pub struct TBINSERTMARK {
     pub iButton: i32,
     pub dwFlags: TBINSERTMARK_FLAGS,
 }
-impl ::core::marker::Copy for TBINSERTMARK {}
-impl ::core::clone::Clone for TBINSERTMARK {
+impl Copy for TBINSERTMARK {}
+impl Clone for TBINSERTMARK {
     fn clone(&self) -> Self {
         *self
     }
@@ -8235,8 +8235,8 @@ pub struct TBMETRICS {
     pub cxButtonSpacing: i32,
     pub cyButtonSpacing: i32,
 }
-impl ::core::marker::Copy for TBMETRICS {}
-impl ::core::clone::Clone for TBMETRICS {
+impl Copy for TBMETRICS {}
+impl Clone for TBMETRICS {
     fn clone(&self) -> Self {
         *self
     }
@@ -8249,8 +8249,8 @@ pub struct TBREPLACEBITMAP {
     pub nIDNew: usize,
     pub nButtons: i32,
 }
-impl ::core::marker::Copy for TBREPLACEBITMAP {}
-impl ::core::clone::Clone for TBREPLACEBITMAP {
+impl Copy for TBREPLACEBITMAP {}
+impl Clone for TBREPLACEBITMAP {
     fn clone(&self) -> Self {
         *self
     }
@@ -8259,13 +8259,13 @@ impl ::core::clone::Clone for TBREPLACEBITMAP {
 #[cfg(feature = "Win32_System_Registry")]
 pub struct TBSAVEPARAMSA {
     pub hkr: super::super::System::Registry::HKEY,
-    pub pszSubKey: ::windows_sys::core::PCSTR,
-    pub pszValueName: ::windows_sys::core::PCSTR,
+    pub pszSubKey: windows_sys::core::PCSTR,
+    pub pszValueName: windows_sys::core::PCSTR,
 }
 #[cfg(feature = "Win32_System_Registry")]
-impl ::core::marker::Copy for TBSAVEPARAMSA {}
+impl Copy for TBSAVEPARAMSA {}
 #[cfg(feature = "Win32_System_Registry")]
-impl ::core::clone::Clone for TBSAVEPARAMSA {
+impl Clone for TBSAVEPARAMSA {
     fn clone(&self) -> Self {
         *self
     }
@@ -8274,13 +8274,13 @@ impl ::core::clone::Clone for TBSAVEPARAMSA {
 #[cfg(feature = "Win32_System_Registry")]
 pub struct TBSAVEPARAMSW {
     pub hkr: super::super::System::Registry::HKEY,
-    pub pszSubKey: ::windows_sys::core::PCWSTR,
-    pub pszValueName: ::windows_sys::core::PCWSTR,
+    pub pszSubKey: windows_sys::core::PCWSTR,
+    pub pszValueName: windows_sys::core::PCWSTR,
 }
 #[cfg(feature = "Win32_System_Registry")]
-impl ::core::marker::Copy for TBSAVEPARAMSW {}
+impl Copy for TBSAVEPARAMSW {}
 #[cfg(feature = "Win32_System_Registry")]
-impl ::core::clone::Clone for TBSAVEPARAMSW {
+impl Clone for TBSAVEPARAMSW {
     fn clone(&self) -> Self {
         *self
     }
@@ -8290,8 +8290,8 @@ pub struct TCHITTESTINFO {
     pub pt: super::super::Foundation::POINT,
     pub flags: TCHITTESTINFO_FLAGS,
 }
-impl ::core::marker::Copy for TCHITTESTINFO {}
-impl ::core::clone::Clone for TCHITTESTINFO {
+impl Copy for TCHITTESTINFO {}
+impl Clone for TCHITTESTINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -8301,13 +8301,13 @@ pub struct TCITEMA {
     pub mask: TCITEMHEADERA_MASK,
     pub dwState: TAB_CONTROL_ITEM_STATE,
     pub dwStateMask: TAB_CONTROL_ITEM_STATE,
-    pub pszText: ::windows_sys::core::PSTR,
+    pub pszText: windows_sys::core::PSTR,
     pub cchTextMax: i32,
     pub iImage: i32,
     pub lParam: super::super::Foundation::LPARAM,
 }
-impl ::core::marker::Copy for TCITEMA {}
-impl ::core::clone::Clone for TCITEMA {
+impl Copy for TCITEMA {}
+impl Clone for TCITEMA {
     fn clone(&self) -> Self {
         *self
     }
@@ -8317,12 +8317,12 @@ pub struct TCITEMHEADERA {
     pub mask: TCITEMHEADERA_MASK,
     pub lpReserved1: u32,
     pub lpReserved2: u32,
-    pub pszText: ::windows_sys::core::PSTR,
+    pub pszText: windows_sys::core::PSTR,
     pub cchTextMax: i32,
     pub iImage: i32,
 }
-impl ::core::marker::Copy for TCITEMHEADERA {}
-impl ::core::clone::Clone for TCITEMHEADERA {
+impl Copy for TCITEMHEADERA {}
+impl Clone for TCITEMHEADERA {
     fn clone(&self) -> Self {
         *self
     }
@@ -8332,12 +8332,12 @@ pub struct TCITEMHEADERW {
     pub mask: TCITEMHEADERA_MASK,
     pub lpReserved1: u32,
     pub lpReserved2: u32,
-    pub pszText: ::windows_sys::core::PWSTR,
+    pub pszText: windows_sys::core::PWSTR,
     pub cchTextMax: i32,
     pub iImage: i32,
 }
-impl ::core::marker::Copy for TCITEMHEADERW {}
-impl ::core::clone::Clone for TCITEMHEADERW {
+impl Copy for TCITEMHEADERW {}
+impl Clone for TCITEMHEADERW {
     fn clone(&self) -> Self {
         *self
     }
@@ -8347,13 +8347,13 @@ pub struct TCITEMW {
     pub mask: TCITEMHEADERA_MASK,
     pub dwState: TAB_CONTROL_ITEM_STATE,
     pub dwStateMask: TAB_CONTROL_ITEM_STATE,
-    pub pszText: ::windows_sys::core::PWSTR,
+    pub pszText: windows_sys::core::PWSTR,
     pub cchTextMax: i32,
     pub iImage: i32,
     pub lParam: super::super::Foundation::LPARAM,
 }
-impl ::core::marker::Copy for TCITEMW {}
-impl ::core::clone::Clone for TCITEMW {
+impl Copy for TCITEMW {}
+impl Clone for TCITEMW {
     fn clone(&self) -> Self {
         *self
     }
@@ -8366,8 +8366,8 @@ pub struct TOUCH_HIT_TESTING_INPUT {
     pub nonOccludedBoundingBox: super::super::Foundation::RECT,
     pub orientation: u32,
 }
-impl ::core::marker::Copy for TOUCH_HIT_TESTING_INPUT {}
-impl ::core::clone::Clone for TOUCH_HIT_TESTING_INPUT {
+impl Copy for TOUCH_HIT_TESTING_INPUT {}
+impl Clone for TOUCH_HIT_TESTING_INPUT {
     fn clone(&self) -> Self {
         *self
     }
@@ -8377,8 +8377,8 @@ pub struct TOUCH_HIT_TESTING_PROXIMITY_EVALUATION {
     pub score: u16,
     pub adjustedPoint: super::super::Foundation::POINT,
 }
-impl ::core::marker::Copy for TOUCH_HIT_TESTING_PROXIMITY_EVALUATION {}
-impl ::core::clone::Clone for TOUCH_HIT_TESTING_PROXIMITY_EVALUATION {
+impl Copy for TOUCH_HIT_TESTING_PROXIMITY_EVALUATION {}
+impl Clone for TOUCH_HIT_TESTING_PROXIMITY_EVALUATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -8388,10 +8388,10 @@ pub struct TTGETTITLE {
     pub dwSize: u32,
     pub uTitleBitmap: u32,
     pub cch: u32,
-    pub pszTitle: ::windows_sys::core::PWSTR,
+    pub pszTitle: windows_sys::core::PWSTR,
 }
-impl ::core::marker::Copy for TTGETTITLE {}
-impl ::core::clone::Clone for TTGETTITLE {
+impl Copy for TTGETTITLE {}
+impl Clone for TTGETTITLE {
     fn clone(&self) -> Self {
         *self
     }
@@ -8402,8 +8402,8 @@ pub struct TTHITTESTINFOA {
     pub pt: super::super::Foundation::POINT,
     pub ti: TTTOOLINFOA,
 }
-impl ::core::marker::Copy for TTHITTESTINFOA {}
-impl ::core::clone::Clone for TTHITTESTINFOA {
+impl Copy for TTHITTESTINFOA {}
+impl Clone for TTHITTESTINFOA {
     fn clone(&self) -> Self {
         *self
     }
@@ -8414,8 +8414,8 @@ pub struct TTHITTESTINFOW {
     pub pt: super::super::Foundation::POINT,
     pub ti: TTTOOLINFOW,
 }
-impl ::core::marker::Copy for TTHITTESTINFOW {}
-impl ::core::clone::Clone for TTHITTESTINFOW {
+impl Copy for TTHITTESTINFOW {}
+impl Clone for TTHITTESTINFOW {
     fn clone(&self) -> Self {
         *self
     }
@@ -8428,12 +8428,12 @@ pub struct TTTOOLINFOA {
     pub uId: usize,
     pub rect: super::super::Foundation::RECT,
     pub hinst: super::super::Foundation::HINSTANCE,
-    pub lpszText: ::windows_sys::core::PSTR,
+    pub lpszText: windows_sys::core::PSTR,
     pub lParam: super::super::Foundation::LPARAM,
-    pub lpReserved: *mut ::core::ffi::c_void,
+    pub lpReserved: *mut core::ffi::c_void,
 }
-impl ::core::marker::Copy for TTTOOLINFOA {}
-impl ::core::clone::Clone for TTTOOLINFOA {
+impl Copy for TTTOOLINFOA {}
+impl Clone for TTTOOLINFOA {
     fn clone(&self) -> Self {
         *self
     }
@@ -8446,12 +8446,12 @@ pub struct TTTOOLINFOW {
     pub uId: usize,
     pub rect: super::super::Foundation::RECT,
     pub hinst: super::super::Foundation::HINSTANCE,
-    pub lpszText: ::windows_sys::core::PWSTR,
+    pub lpszText: windows_sys::core::PWSTR,
     pub lParam: super::super::Foundation::LPARAM,
-    pub lpReserved: *mut ::core::ffi::c_void,
+    pub lpReserved: *mut core::ffi::c_void,
 }
-impl ::core::marker::Copy for TTTOOLINFOW {}
-impl ::core::clone::Clone for TTTOOLINFOW {
+impl Copy for TTTOOLINFOW {}
+impl Clone for TTTOOLINFOW {
     fn clone(&self) -> Self {
         *self
     }
@@ -8462,8 +8462,8 @@ pub struct TVGETITEMPARTRECTINFO {
     pub prc: *mut super::super::Foundation::RECT,
     pub partID: TVITEMPART,
 }
-impl ::core::marker::Copy for TVGETITEMPARTRECTINFO {}
-impl ::core::clone::Clone for TVGETITEMPARTRECTINFO {
+impl Copy for TVGETITEMPARTRECTINFO {}
+impl Clone for TVGETITEMPARTRECTINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -8474,8 +8474,8 @@ pub struct TVHITTESTINFO {
     pub flags: TVHITTESTINFO_FLAGS,
     pub hItem: HTREEITEM,
 }
-impl ::core::marker::Copy for TVHITTESTINFO {}
-impl ::core::clone::Clone for TVHITTESTINFO {
+impl Copy for TVHITTESTINFO {}
+impl Clone for TVHITTESTINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -8486,8 +8486,8 @@ pub struct TVINSERTSTRUCTA {
     pub hInsertAfter: HTREEITEM,
     pub Anonymous: TVINSERTSTRUCTA_0,
 }
-impl ::core::marker::Copy for TVINSERTSTRUCTA {}
-impl ::core::clone::Clone for TVINSERTSTRUCTA {
+impl Copy for TVINSERTSTRUCTA {}
+impl Clone for TVINSERTSTRUCTA {
     fn clone(&self) -> Self {
         *self
     }
@@ -8497,8 +8497,8 @@ pub union TVINSERTSTRUCTA_0 {
     pub itemex: TVITEMEXA,
     pub item: TVITEMA,
 }
-impl ::core::marker::Copy for TVINSERTSTRUCTA_0 {}
-impl ::core::clone::Clone for TVINSERTSTRUCTA_0 {
+impl Copy for TVINSERTSTRUCTA_0 {}
+impl Clone for TVINSERTSTRUCTA_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -8509,8 +8509,8 @@ pub struct TVINSERTSTRUCTW {
     pub hInsertAfter: HTREEITEM,
     pub Anonymous: TVINSERTSTRUCTW_0,
 }
-impl ::core::marker::Copy for TVINSERTSTRUCTW {}
-impl ::core::clone::Clone for TVINSERTSTRUCTW {
+impl Copy for TVINSERTSTRUCTW {}
+impl Clone for TVINSERTSTRUCTW {
     fn clone(&self) -> Self {
         *self
     }
@@ -8520,8 +8520,8 @@ pub union TVINSERTSTRUCTW_0 {
     pub itemex: TVITEMEXW,
     pub item: TVITEMW,
 }
-impl ::core::marker::Copy for TVINSERTSTRUCTW_0 {}
-impl ::core::clone::Clone for TVINSERTSTRUCTW_0 {
+impl Copy for TVINSERTSTRUCTW_0 {}
+impl Clone for TVINSERTSTRUCTW_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -8532,15 +8532,15 @@ pub struct TVITEMA {
     pub hItem: HTREEITEM,
     pub state: TREE_VIEW_ITEM_STATE_FLAGS,
     pub stateMask: TREE_VIEW_ITEM_STATE_FLAGS,
-    pub pszText: ::windows_sys::core::PSTR,
+    pub pszText: windows_sys::core::PSTR,
     pub cchTextMax: i32,
     pub iImage: i32,
     pub iSelectedImage: i32,
     pub cChildren: TVITEMEXW_CHILDREN,
     pub lParam: super::super::Foundation::LPARAM,
 }
-impl ::core::marker::Copy for TVITEMA {}
-impl ::core::clone::Clone for TVITEMA {
+impl Copy for TVITEMA {}
+impl Clone for TVITEMA {
     fn clone(&self) -> Self {
         *self
     }
@@ -8551,7 +8551,7 @@ pub struct TVITEMEXA {
     pub hItem: HTREEITEM,
     pub state: u32,
     pub stateMask: u32,
-    pub pszText: ::windows_sys::core::PSTR,
+    pub pszText: windows_sys::core::PSTR,
     pub cchTextMax: i32,
     pub iImage: i32,
     pub iSelectedImage: i32,
@@ -8563,8 +8563,8 @@ pub struct TVITEMEXA {
     pub iExpandedImage: i32,
     pub iReserved: i32,
 }
-impl ::core::marker::Copy for TVITEMEXA {}
-impl ::core::clone::Clone for TVITEMEXA {
+impl Copy for TVITEMEXA {}
+impl Clone for TVITEMEXA {
     fn clone(&self) -> Self {
         *self
     }
@@ -8575,7 +8575,7 @@ pub struct TVITEMEXW {
     pub hItem: HTREEITEM,
     pub state: u32,
     pub stateMask: u32,
-    pub pszText: ::windows_sys::core::PWSTR,
+    pub pszText: windows_sys::core::PWSTR,
     pub cchTextMax: i32,
     pub iImage: i32,
     pub iSelectedImage: i32,
@@ -8587,8 +8587,8 @@ pub struct TVITEMEXW {
     pub iExpandedImage: i32,
     pub iReserved: i32,
 }
-impl ::core::marker::Copy for TVITEMEXW {}
-impl ::core::clone::Clone for TVITEMEXW {
+impl Copy for TVITEMEXW {}
+impl Clone for TVITEMEXW {
     fn clone(&self) -> Self {
         *self
     }
@@ -8599,15 +8599,15 @@ pub struct TVITEMW {
     pub hItem: HTREEITEM,
     pub state: TREE_VIEW_ITEM_STATE_FLAGS,
     pub stateMask: TREE_VIEW_ITEM_STATE_FLAGS,
-    pub pszText: ::windows_sys::core::PWSTR,
+    pub pszText: windows_sys::core::PWSTR,
     pub cchTextMax: i32,
     pub iImage: i32,
     pub iSelectedImage: i32,
     pub cChildren: TVITEMEXW_CHILDREN,
     pub lParam: super::super::Foundation::LPARAM,
 }
-impl ::core::marker::Copy for TVITEMW {}
-impl ::core::clone::Clone for TVITEMW {
+impl Copy for TVITEMW {}
+impl Clone for TVITEMW {
     fn clone(&self) -> Self {
         *self
     }
@@ -8618,8 +8618,8 @@ pub struct TVSORTCB {
     pub lpfnCompare: PFNTVCOMPARE,
     pub lParam: super::super::Foundation::LPARAM,
 }
-impl ::core::marker::Copy for TVSORTCB {}
-impl ::core::clone::Clone for TVSORTCB {
+impl Copy for TVSORTCB {}
+impl Clone for TVSORTCB {
     fn clone(&self) -> Self {
         *self
     }
@@ -8629,8 +8629,8 @@ pub struct UDACCEL {
     pub nSec: u32,
     pub nInc: u32,
 }
-impl ::core::marker::Copy for UDACCEL {}
-impl ::core::clone::Clone for UDACCEL {
+impl Copy for UDACCEL {}
+impl Clone for UDACCEL {
     fn clone(&self) -> Self {
         *self
     }
@@ -8648,8 +8648,8 @@ pub struct USAGE_PROPERTIES {
     pub physicalMinimum: i32,
     pub physicalMaximum: i32,
 }
-impl ::core::marker::Copy for USAGE_PROPERTIES {}
-impl ::core::clone::Clone for USAGE_PROPERTIES {
+impl Copy for USAGE_PROPERTIES {}
+impl Clone for USAGE_PROPERTIES {
     fn clone(&self) -> Self {
         *self
     }
@@ -8659,41 +8659,41 @@ pub struct WTA_OPTIONS {
     pub dwFlags: u32,
     pub dwMask: u32,
 }
-impl ::core::marker::Copy for WTA_OPTIONS {}
-impl ::core::clone::Clone for WTA_OPTIONS {
+impl Copy for WTA_OPTIONS {}
+impl Clone for WTA_OPTIONS {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-pub type DTT_CALLBACK_PROC = ::core::option::Option<unsafe extern "system" fn(hdc: super::super::Graphics::Gdi::HDC, psztext: ::windows_sys::core::PWSTR, cchtext: i32, prc: *mut super::super::Foundation::RECT, dwflags: u32, lparam: super::super::Foundation::LPARAM) -> i32>;
-pub type EDITWORDBREAKPROCA = ::core::option::Option<unsafe extern "system" fn(lpch: ::windows_sys::core::PCSTR, ichcurrent: i32, cch: i32, code: WORD_BREAK_ACTION) -> i32>;
-pub type EDITWORDBREAKPROCW = ::core::option::Option<unsafe extern "system" fn(lpch: ::windows_sys::core::PCWSTR, ichcurrent: i32, cch: i32, code: WORD_BREAK_ACTION) -> i32>;
-pub type LPFNADDPROPSHEETPAGES = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: LPFNSVADDPROPSHEETPAGE, param2: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
+pub type DTT_CALLBACK_PROC = Option<unsafe extern "system" fn(hdc: super::super::Graphics::Gdi::HDC, psztext: windows_sys::core::PWSTR, cchtext: i32, prc: *mut super::super::Foundation::RECT, dwflags: u32, lparam: super::super::Foundation::LPARAM) -> i32>;
+pub type EDITWORDBREAKPROCA = Option<unsafe extern "system" fn(lpch: windows_sys::core::PCSTR, ichcurrent: i32, cch: i32, code: WORD_BREAK_ACTION) -> i32>;
+pub type EDITWORDBREAKPROCW = Option<unsafe extern "system" fn(lpch: windows_sys::core::PCWSTR, ichcurrent: i32, cch: i32, code: WORD_BREAK_ACTION) -> i32>;
+pub type LPFNADDPROPSHEETPAGES = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void, param1: LPFNSVADDPROPSHEETPAGE, param2: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Graphics_Gdi")]
-pub type LPFNCCINFOA = ::core::option::Option<unsafe extern "system" fn(acci: *mut CCINFOA) -> u32>;
+pub type LPFNCCINFOA = Option<unsafe extern "system" fn(acci: *mut CCINFOA) -> u32>;
 #[cfg(feature = "Win32_Graphics_Gdi")]
-pub type LPFNCCINFOW = ::core::option::Option<unsafe extern "system" fn(acci: *mut CCINFOW) -> u32>;
+pub type LPFNCCINFOW = Option<unsafe extern "system" fn(acci: *mut CCINFOW) -> u32>;
 #[cfg(feature = "Win32_Graphics_Gdi")]
-pub type LPFNCCSIZETOTEXTA = ::core::option::Option<unsafe extern "system" fn(flstyle: u32, flextstyle: u32, hfont: super::super::Graphics::Gdi::HFONT, psztext: ::windows_sys::core::PCSTR) -> i32>;
+pub type LPFNCCSIZETOTEXTA = Option<unsafe extern "system" fn(flstyle: u32, flextstyle: u32, hfont: super::super::Graphics::Gdi::HFONT, psztext: windows_sys::core::PCSTR) -> i32>;
 #[cfg(feature = "Win32_Graphics_Gdi")]
-pub type LPFNCCSIZETOTEXTW = ::core::option::Option<unsafe extern "system" fn(flstyle: u32, flextstyle: u32, hfont: super::super::Graphics::Gdi::HFONT, psztext: ::windows_sys::core::PCWSTR) -> i32>;
-pub type LPFNCCSTYLEA = ::core::option::Option<unsafe extern "system" fn(hwndparent: super::super::Foundation::HWND, pccs: *mut CCSTYLEA) -> super::super::Foundation::BOOL>;
-pub type LPFNCCSTYLEW = ::core::option::Option<unsafe extern "system" fn(hwndparent: super::super::Foundation::HWND, pccs: *mut CCSTYLEW) -> super::super::Foundation::BOOL>;
+pub type LPFNCCSIZETOTEXTW = Option<unsafe extern "system" fn(flstyle: u32, flextstyle: u32, hfont: super::super::Graphics::Gdi::HFONT, psztext: windows_sys::core::PCWSTR) -> i32>;
+pub type LPFNCCSTYLEA = Option<unsafe extern "system" fn(hwndparent: super::super::Foundation::HWND, pccs: *mut CCSTYLEA) -> super::super::Foundation::BOOL>;
+pub type LPFNCCSTYLEW = Option<unsafe extern "system" fn(hwndparent: super::super::Foundation::HWND, pccs: *mut CCSTYLEW) -> super::super::Foundation::BOOL>;
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-pub type LPFNPSPCALLBACKA = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: PSPCB_MESSAGE, ppsp: *mut PROPSHEETPAGEA) -> u32>;
+pub type LPFNPSPCALLBACKA = Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: PSPCB_MESSAGE, ppsp: *mut PROPSHEETPAGEA) -> u32>;
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-pub type LPFNPSPCALLBACKW = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: PSPCB_MESSAGE, ppsp: *mut PROPSHEETPAGEW) -> u32>;
-pub type LPFNSVADDPROPSHEETPAGE = ::core::option::Option<unsafe extern "system" fn(param0: HPROPSHEETPAGE, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
-pub type PFNDACOMPARE = ::core::option::Option<unsafe extern "system" fn(p1: *const ::core::ffi::c_void, p2: *const ::core::ffi::c_void, lparam: super::super::Foundation::LPARAM) -> i32>;
-pub type PFNDACOMPARECONST = ::core::option::Option<unsafe extern "system" fn(p1: *const ::core::ffi::c_void, p2: *const ::core::ffi::c_void, lparam: super::super::Foundation::LPARAM) -> i32>;
-pub type PFNDAENUMCALLBACK = ::core::option::Option<unsafe extern "system" fn(p: *const ::core::ffi::c_void, pdata: *const ::core::ffi::c_void) -> i32>;
-pub type PFNDAENUMCALLBACKCONST = ::core::option::Option<unsafe extern "system" fn(p: *const ::core::ffi::c_void, pdata: *const ::core::ffi::c_void) -> i32>;
-pub type PFNDPAMERGE = ::core::option::Option<unsafe extern "system" fn(umsg: DPAMM_MESSAGE, pvdest: *const ::core::ffi::c_void, pvsrc: *const ::core::ffi::c_void, lparam: super::super::Foundation::LPARAM) -> *mut ::core::ffi::c_void>;
-pub type PFNDPAMERGECONST = ::core::option::Option<unsafe extern "system" fn(umsg: DPAMM_MESSAGE, pvdest: *const ::core::ffi::c_void, pvsrc: *const ::core::ffi::c_void, lparam: super::super::Foundation::LPARAM) -> *mut ::core::ffi::c_void>;
-pub type PFNDPASTREAM = ::core::option::Option<unsafe extern "system" fn(pinfo: *const DPASTREAMINFO, pstream: *mut ::core::ffi::c_void, pvinstdata: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT>;
-pub type PFNLVCOMPARE = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::LPARAM, param1: super::super::Foundation::LPARAM, param2: super::super::Foundation::LPARAM) -> i32>;
-pub type PFNLVGROUPCOMPARE = ::core::option::Option<unsafe extern "system" fn(param0: i32, param1: i32, param2: *mut ::core::ffi::c_void) -> i32>;
-pub type PFNPROPSHEETCALLBACK = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: u32, param2: super::super::Foundation::LPARAM) -> i32>;
-pub type PFNTVCOMPARE = ::core::option::Option<unsafe extern "system" fn(lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM, lparamsort: super::super::Foundation::LPARAM) -> i32>;
-pub type PFTASKDIALOGCALLBACK = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, msg: TASKDIALOG_NOTIFICATIONS, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, lprefdata: isize) -> ::windows_sys::core::HRESULT>;
+pub type LPFNPSPCALLBACKW = Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: PSPCB_MESSAGE, ppsp: *mut PROPSHEETPAGEW) -> u32>;
+pub type LPFNSVADDPROPSHEETPAGE = Option<unsafe extern "system" fn(param0: HPROPSHEETPAGE, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
+pub type PFNDACOMPARE = Option<unsafe extern "system" fn(p1: *const core::ffi::c_void, p2: *const core::ffi::c_void, lparam: super::super::Foundation::LPARAM) -> i32>;
+pub type PFNDACOMPARECONST = Option<unsafe extern "system" fn(p1: *const core::ffi::c_void, p2: *const core::ffi::c_void, lparam: super::super::Foundation::LPARAM) -> i32>;
+pub type PFNDAENUMCALLBACK = Option<unsafe extern "system" fn(p: *const core::ffi::c_void, pdata: *const core::ffi::c_void) -> i32>;
+pub type PFNDAENUMCALLBACKCONST = Option<unsafe extern "system" fn(p: *const core::ffi::c_void, pdata: *const core::ffi::c_void) -> i32>;
+pub type PFNDPAMERGE = Option<unsafe extern "system" fn(umsg: DPAMM_MESSAGE, pvdest: *const core::ffi::c_void, pvsrc: *const core::ffi::c_void, lparam: super::super::Foundation::LPARAM) -> *mut core::ffi::c_void>;
+pub type PFNDPAMERGECONST = Option<unsafe extern "system" fn(umsg: DPAMM_MESSAGE, pvdest: *const core::ffi::c_void, pvsrc: *const core::ffi::c_void, lparam: super::super::Foundation::LPARAM) -> *mut core::ffi::c_void>;
+pub type PFNDPASTREAM = Option<unsafe extern "system" fn(pinfo: *const DPASTREAMINFO, pstream: *mut core::ffi::c_void, pvinstdata: *const core::ffi::c_void) -> windows_sys::core::HRESULT>;
+pub type PFNLVCOMPARE = Option<unsafe extern "system" fn(param0: super::super::Foundation::LPARAM, param1: super::super::Foundation::LPARAM, param2: super::super::Foundation::LPARAM) -> i32>;
+pub type PFNLVGROUPCOMPARE = Option<unsafe extern "system" fn(param0: i32, param1: i32, param2: *mut core::ffi::c_void) -> i32>;
+pub type PFNPROPSHEETCALLBACK = Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: u32, param2: super::super::Foundation::LPARAM) -> i32>;
+pub type PFNTVCOMPARE = Option<unsafe extern "system" fn(lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM, lparamsort: super::super::Foundation::LPARAM) -> i32>;
+pub type PFTASKDIALOGCALLBACK = Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, msg: TASKDIALOG_NOTIFICATIONS, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, lprefdata: isize) -> windows_sys::core::HRESULT>;

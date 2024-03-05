@@ -9,7 +9,7 @@ impl IGenericFactory {
     pub fn ActivateInstance<I: Interface>(&self) -> crate::Result<I> {
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (crate::Interface::vtable(self).ActivateInstance)(std::mem::transmute_copy(self), &mut result__ as *mut _ as *mut _).and_then(|| crate::Type::from_abi(result__)).and_then(|interface: crate::IInspectable| interface.cast())
+            (Interface::vtable(self).ActivateInstance)(std::mem::transmute_copy(self), &mut result__ as *mut _ as *mut _).and_then(|| crate::Type::from_abi(result__)).and_then(|interface: crate::IInspectable| interface.cast())
         }
     }
 }

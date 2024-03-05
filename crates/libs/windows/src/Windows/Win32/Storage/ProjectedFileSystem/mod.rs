@@ -1,162 +1,162 @@
 #[inline]
-pub unsafe fn PrjAllocateAlignedBuffer<P0>(namespacevirtualizationcontext: P0, size: usize) -> *mut ::core::ffi::c_void
+pub unsafe fn PrjAllocateAlignedBuffer<P0>(namespacevirtualizationcontext: P0, size: usize) -> *mut core::ffi::c_void
 where
-    P0: ::windows_core::IntoParam<PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT>,
+    P0: windows_core::IntoParam<PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT>,
 {
-    ::windows_targets::link!("projectedfslib.dll" "system" fn PrjAllocateAlignedBuffer(namespacevirtualizationcontext : PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, size : usize) -> *mut ::core::ffi::c_void);
+    ::windows_targets::link!("projectedfslib.dll" "system" fn PrjAllocateAlignedBuffer(namespacevirtualizationcontext : PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, size : usize) -> *mut core::ffi::c_void);
     PrjAllocateAlignedBuffer(namespacevirtualizationcontext.into_param().abi(), size)
 }
 #[inline]
-pub unsafe fn PrjClearNegativePathCache<P0>(namespacevirtualizationcontext: P0, totalentrynumber: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()>
+pub unsafe fn PrjClearNegativePathCache<P0>(namespacevirtualizationcontext: P0, totalentrynumber: Option<*mut u32>) -> windows_core::Result<()>
 where
-    P0: ::windows_core::IntoParam<PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT>,
+    P0: windows_core::IntoParam<PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT>,
 {
-    ::windows_targets::link!("projectedfslib.dll" "system" fn PrjClearNegativePathCache(namespacevirtualizationcontext : PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, totalentrynumber : *mut u32) -> ::windows_core::HRESULT);
-    PrjClearNegativePathCache(namespacevirtualizationcontext.into_param().abi(), ::core::mem::transmute(totalentrynumber.unwrap_or(::std::ptr::null_mut()))).ok()
+    ::windows_targets::link!("projectedfslib.dll" "system" fn PrjClearNegativePathCache(namespacevirtualizationcontext : PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, totalentrynumber : *mut u32) -> windows_core::HRESULT);
+    PrjClearNegativePathCache(namespacevirtualizationcontext.into_param().abi(), core::mem::transmute(totalentrynumber.unwrap_or(std::ptr::null_mut()))).ok()
 }
 #[inline]
-pub unsafe fn PrjCompleteCommand<P0>(namespacevirtualizationcontext: P0, commandid: i32, completionresult: ::windows_core::HRESULT, extendedparameters: ::core::option::Option<*const PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS>) -> ::windows_core::Result<()>
+pub unsafe fn PrjCompleteCommand<P0>(namespacevirtualizationcontext: P0, commandid: i32, completionresult: windows_core::HRESULT, extendedparameters: Option<*const PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS>) -> windows_core::Result<()>
 where
-    P0: ::windows_core::IntoParam<PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT>,
+    P0: windows_core::IntoParam<PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT>,
 {
-    ::windows_targets::link!("projectedfslib.dll" "system" fn PrjCompleteCommand(namespacevirtualizationcontext : PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, commandid : i32, completionresult : ::windows_core::HRESULT, extendedparameters : *const PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS) -> ::windows_core::HRESULT);
-    PrjCompleteCommand(namespacevirtualizationcontext.into_param().abi(), commandid, completionresult, ::core::mem::transmute(extendedparameters.unwrap_or(::std::ptr::null()))).ok()
+    ::windows_targets::link!("projectedfslib.dll" "system" fn PrjCompleteCommand(namespacevirtualizationcontext : PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, commandid : i32, completionresult : windows_core::HRESULT, extendedparameters : *const PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS) -> windows_core::HRESULT);
+    PrjCompleteCommand(namespacevirtualizationcontext.into_param().abi(), commandid, completionresult, core::mem::transmute(extendedparameters.unwrap_or(std::ptr::null()))).ok()
 }
 #[inline]
-pub unsafe fn PrjDeleteFile<P0, P1>(namespacevirtualizationcontext: P0, destinationfilename: P1, updateflags: PRJ_UPDATE_TYPES, failurereason: ::core::option::Option<*mut PRJ_UPDATE_FAILURE_CAUSES>) -> ::windows_core::Result<()>
+pub unsafe fn PrjDeleteFile<P0, P1>(namespacevirtualizationcontext: P0, destinationfilename: P1, updateflags: PRJ_UPDATE_TYPES, failurereason: Option<*mut PRJ_UPDATE_FAILURE_CAUSES>) -> windows_core::Result<()>
 where
-    P0: ::windows_core::IntoParam<PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT>,
-    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P0: windows_core::IntoParam<PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT>,
+    P1: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("projectedfslib.dll" "system" fn PrjDeleteFile(namespacevirtualizationcontext : PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, destinationfilename : ::windows_core::PCWSTR, updateflags : PRJ_UPDATE_TYPES, failurereason : *mut PRJ_UPDATE_FAILURE_CAUSES) -> ::windows_core::HRESULT);
-    PrjDeleteFile(namespacevirtualizationcontext.into_param().abi(), destinationfilename.into_param().abi(), updateflags, ::core::mem::transmute(failurereason.unwrap_or(::std::ptr::null_mut()))).ok()
+    ::windows_targets::link!("projectedfslib.dll" "system" fn PrjDeleteFile(namespacevirtualizationcontext : PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, destinationfilename : windows_core::PCWSTR, updateflags : PRJ_UPDATE_TYPES, failurereason : *mut PRJ_UPDATE_FAILURE_CAUSES) -> windows_core::HRESULT);
+    PrjDeleteFile(namespacevirtualizationcontext.into_param().abi(), destinationfilename.into_param().abi(), updateflags, core::mem::transmute(failurereason.unwrap_or(std::ptr::null_mut()))).ok()
 }
 #[inline]
 pub unsafe fn PrjDoesNameContainWildCards<P0>(filename: P0) -> super::super::Foundation::BOOLEAN
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("projectedfslib.dll" "system" fn PrjDoesNameContainWildCards(filename : ::windows_core::PCWSTR) -> super::super::Foundation:: BOOLEAN);
+    ::windows_targets::link!("projectedfslib.dll" "system" fn PrjDoesNameContainWildCards(filename : windows_core::PCWSTR) -> super::super::Foundation:: BOOLEAN);
     PrjDoesNameContainWildCards(filename.into_param().abi())
 }
 #[inline]
 pub unsafe fn PrjFileNameCompare<P0, P1>(filename1: P0, filename2: P1) -> i32
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
-    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P1: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("projectedfslib.dll" "system" fn PrjFileNameCompare(filename1 : ::windows_core::PCWSTR, filename2 : ::windows_core::PCWSTR) -> i32);
+    ::windows_targets::link!("projectedfslib.dll" "system" fn PrjFileNameCompare(filename1 : windows_core::PCWSTR, filename2 : windows_core::PCWSTR) -> i32);
     PrjFileNameCompare(filename1.into_param().abi(), filename2.into_param().abi())
 }
 #[inline]
 pub unsafe fn PrjFileNameMatch<P0, P1>(filenametocheck: P0, pattern: P1) -> super::super::Foundation::BOOLEAN
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
-    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P1: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("projectedfslib.dll" "system" fn PrjFileNameMatch(filenametocheck : ::windows_core::PCWSTR, pattern : ::windows_core::PCWSTR) -> super::super::Foundation:: BOOLEAN);
+    ::windows_targets::link!("projectedfslib.dll" "system" fn PrjFileNameMatch(filenametocheck : windows_core::PCWSTR, pattern : windows_core::PCWSTR) -> super::super::Foundation:: BOOLEAN);
     PrjFileNameMatch(filenametocheck.into_param().abi(), pattern.into_param().abi())
 }
 #[inline]
-pub unsafe fn PrjFillDirEntryBuffer<P0, P1>(filename: P0, filebasicinfo: ::core::option::Option<*const PRJ_FILE_BASIC_INFO>, direntrybufferhandle: P1) -> ::windows_core::Result<()>
+pub unsafe fn PrjFillDirEntryBuffer<P0, P1>(filename: P0, filebasicinfo: Option<*const PRJ_FILE_BASIC_INFO>, direntrybufferhandle: P1) -> windows_core::Result<()>
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
-    P1: ::windows_core::IntoParam<PRJ_DIR_ENTRY_BUFFER_HANDLE>,
+    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P1: windows_core::IntoParam<PRJ_DIR_ENTRY_BUFFER_HANDLE>,
 {
-    ::windows_targets::link!("projectedfslib.dll" "system" fn PrjFillDirEntryBuffer(filename : ::windows_core::PCWSTR, filebasicinfo : *const PRJ_FILE_BASIC_INFO, direntrybufferhandle : PRJ_DIR_ENTRY_BUFFER_HANDLE) -> ::windows_core::HRESULT);
-    PrjFillDirEntryBuffer(filename.into_param().abi(), ::core::mem::transmute(filebasicinfo.unwrap_or(::std::ptr::null())), direntrybufferhandle.into_param().abi()).ok()
+    ::windows_targets::link!("projectedfslib.dll" "system" fn PrjFillDirEntryBuffer(filename : windows_core::PCWSTR, filebasicinfo : *const PRJ_FILE_BASIC_INFO, direntrybufferhandle : PRJ_DIR_ENTRY_BUFFER_HANDLE) -> windows_core::HRESULT);
+    PrjFillDirEntryBuffer(filename.into_param().abi(), core::mem::transmute(filebasicinfo.unwrap_or(std::ptr::null())), direntrybufferhandle.into_param().abi()).ok()
 }
 #[inline]
-pub unsafe fn PrjFillDirEntryBuffer2<P0, P1>(direntrybufferhandle: P0, filename: P1, filebasicinfo: ::core::option::Option<*const PRJ_FILE_BASIC_INFO>, extendedinfo: ::core::option::Option<*const PRJ_EXTENDED_INFO>) -> ::windows_core::Result<()>
+pub unsafe fn PrjFillDirEntryBuffer2<P0, P1>(direntrybufferhandle: P0, filename: P1, filebasicinfo: Option<*const PRJ_FILE_BASIC_INFO>, extendedinfo: Option<*const PRJ_EXTENDED_INFO>) -> windows_core::Result<()>
 where
-    P0: ::windows_core::IntoParam<PRJ_DIR_ENTRY_BUFFER_HANDLE>,
-    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P0: windows_core::IntoParam<PRJ_DIR_ENTRY_BUFFER_HANDLE>,
+    P1: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("projectedfslib.dll" "system" fn PrjFillDirEntryBuffer2(direntrybufferhandle : PRJ_DIR_ENTRY_BUFFER_HANDLE, filename : ::windows_core::PCWSTR, filebasicinfo : *const PRJ_FILE_BASIC_INFO, extendedinfo : *const PRJ_EXTENDED_INFO) -> ::windows_core::HRESULT);
-    PrjFillDirEntryBuffer2(direntrybufferhandle.into_param().abi(), filename.into_param().abi(), ::core::mem::transmute(filebasicinfo.unwrap_or(::std::ptr::null())), ::core::mem::transmute(extendedinfo.unwrap_or(::std::ptr::null()))).ok()
+    ::windows_targets::link!("projectedfslib.dll" "system" fn PrjFillDirEntryBuffer2(direntrybufferhandle : PRJ_DIR_ENTRY_BUFFER_HANDLE, filename : windows_core::PCWSTR, filebasicinfo : *const PRJ_FILE_BASIC_INFO, extendedinfo : *const PRJ_EXTENDED_INFO) -> windows_core::HRESULT);
+    PrjFillDirEntryBuffer2(direntrybufferhandle.into_param().abi(), filename.into_param().abi(), core::mem::transmute(filebasicinfo.unwrap_or(std::ptr::null())), core::mem::transmute(extendedinfo.unwrap_or(std::ptr::null()))).ok()
 }
 #[inline]
-pub unsafe fn PrjFreeAlignedBuffer(buffer: *const ::core::ffi::c_void) {
-    ::windows_targets::link!("projectedfslib.dll" "system" fn PrjFreeAlignedBuffer(buffer : *const ::core::ffi::c_void));
+pub unsafe fn PrjFreeAlignedBuffer(buffer: *const core::ffi::c_void) {
+    ::windows_targets::link!("projectedfslib.dll" "system" fn PrjFreeAlignedBuffer(buffer : *const core::ffi::c_void));
     PrjFreeAlignedBuffer(buffer)
 }
 #[inline]
-pub unsafe fn PrjGetOnDiskFileState<P0>(destinationfilename: P0) -> ::windows_core::Result<PRJ_FILE_STATE>
+pub unsafe fn PrjGetOnDiskFileState<P0>(destinationfilename: P0) -> windows_core::Result<PRJ_FILE_STATE>
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("projectedfslib.dll" "system" fn PrjGetOnDiskFileState(destinationfilename : ::windows_core::PCWSTR, filestate : *mut PRJ_FILE_STATE) -> ::windows_core::HRESULT);
-    let mut result__ = ::std::mem::zeroed();
+    ::windows_targets::link!("projectedfslib.dll" "system" fn PrjGetOnDiskFileState(destinationfilename : windows_core::PCWSTR, filestate : *mut PRJ_FILE_STATE) -> windows_core::HRESULT);
+    let mut result__ = std::mem::zeroed();
     PrjGetOnDiskFileState(destinationfilename.into_param().abi(), &mut result__).map(|| result__)
 }
 #[inline]
-pub unsafe fn PrjGetVirtualizationInstanceInfo<P0>(namespacevirtualizationcontext: P0, virtualizationinstanceinfo: *mut PRJ_VIRTUALIZATION_INSTANCE_INFO) -> ::windows_core::Result<()>
+pub unsafe fn PrjGetVirtualizationInstanceInfo<P0>(namespacevirtualizationcontext: P0, virtualizationinstanceinfo: *mut PRJ_VIRTUALIZATION_INSTANCE_INFO) -> windows_core::Result<()>
 where
-    P0: ::windows_core::IntoParam<PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT>,
+    P0: windows_core::IntoParam<PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT>,
 {
-    ::windows_targets::link!("projectedfslib.dll" "system" fn PrjGetVirtualizationInstanceInfo(namespacevirtualizationcontext : PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, virtualizationinstanceinfo : *mut PRJ_VIRTUALIZATION_INSTANCE_INFO) -> ::windows_core::HRESULT);
+    ::windows_targets::link!("projectedfslib.dll" "system" fn PrjGetVirtualizationInstanceInfo(namespacevirtualizationcontext : PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, virtualizationinstanceinfo : *mut PRJ_VIRTUALIZATION_INSTANCE_INFO) -> windows_core::HRESULT);
     PrjGetVirtualizationInstanceInfo(namespacevirtualizationcontext.into_param().abi(), virtualizationinstanceinfo).ok()
 }
 #[inline]
-pub unsafe fn PrjMarkDirectoryAsPlaceholder<P0, P1>(rootpathname: P0, targetpathname: P1, versioninfo: ::core::option::Option<*const PRJ_PLACEHOLDER_VERSION_INFO>, virtualizationinstanceid: *const ::windows_core::GUID) -> ::windows_core::Result<()>
+pub unsafe fn PrjMarkDirectoryAsPlaceholder<P0, P1>(rootpathname: P0, targetpathname: P1, versioninfo: Option<*const PRJ_PLACEHOLDER_VERSION_INFO>, virtualizationinstanceid: *const windows_core::GUID) -> windows_core::Result<()>
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
-    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P1: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("projectedfslib.dll" "system" fn PrjMarkDirectoryAsPlaceholder(rootpathname : ::windows_core::PCWSTR, targetpathname : ::windows_core::PCWSTR, versioninfo : *const PRJ_PLACEHOLDER_VERSION_INFO, virtualizationinstanceid : *const ::windows_core::GUID) -> ::windows_core::HRESULT);
-    PrjMarkDirectoryAsPlaceholder(rootpathname.into_param().abi(), targetpathname.into_param().abi(), ::core::mem::transmute(versioninfo.unwrap_or(::std::ptr::null())), virtualizationinstanceid).ok()
+    ::windows_targets::link!("projectedfslib.dll" "system" fn PrjMarkDirectoryAsPlaceholder(rootpathname : windows_core::PCWSTR, targetpathname : windows_core::PCWSTR, versioninfo : *const PRJ_PLACEHOLDER_VERSION_INFO, virtualizationinstanceid : *const windows_core::GUID) -> windows_core::HRESULT);
+    PrjMarkDirectoryAsPlaceholder(rootpathname.into_param().abi(), targetpathname.into_param().abi(), core::mem::transmute(versioninfo.unwrap_or(std::ptr::null())), virtualizationinstanceid).ok()
 }
 #[inline]
-pub unsafe fn PrjStartVirtualizing<P0>(virtualizationrootpath: P0, callbacks: *const PRJ_CALLBACKS, instancecontext: ::core::option::Option<*const ::core::ffi::c_void>, options: ::core::option::Option<*const PRJ_STARTVIRTUALIZING_OPTIONS>) -> ::windows_core::Result<PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT>
+pub unsafe fn PrjStartVirtualizing<P0>(virtualizationrootpath: P0, callbacks: *const PRJ_CALLBACKS, instancecontext: Option<*const core::ffi::c_void>, options: Option<*const PRJ_STARTVIRTUALIZING_OPTIONS>) -> windows_core::Result<PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT>
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("projectedfslib.dll" "system" fn PrjStartVirtualizing(virtualizationrootpath : ::windows_core::PCWSTR, callbacks : *const PRJ_CALLBACKS, instancecontext : *const ::core::ffi::c_void, options : *const PRJ_STARTVIRTUALIZING_OPTIONS, namespacevirtualizationcontext : *mut PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT) -> ::windows_core::HRESULT);
-    let mut result__ = ::std::mem::zeroed();
-    PrjStartVirtualizing(virtualizationrootpath.into_param().abi(), callbacks, ::core::mem::transmute(instancecontext.unwrap_or(::std::ptr::null())), ::core::mem::transmute(options.unwrap_or(::std::ptr::null())), &mut result__).map(|| result__)
+    ::windows_targets::link!("projectedfslib.dll" "system" fn PrjStartVirtualizing(virtualizationrootpath : windows_core::PCWSTR, callbacks : *const PRJ_CALLBACKS, instancecontext : *const core::ffi::c_void, options : *const PRJ_STARTVIRTUALIZING_OPTIONS, namespacevirtualizationcontext : *mut PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT) -> windows_core::HRESULT);
+    let mut result__ = std::mem::zeroed();
+    PrjStartVirtualizing(virtualizationrootpath.into_param().abi(), callbacks, core::mem::transmute(instancecontext.unwrap_or(std::ptr::null())), core::mem::transmute(options.unwrap_or(std::ptr::null())), &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn PrjStopVirtualizing<P0>(namespacevirtualizationcontext: P0)
 where
-    P0: ::windows_core::IntoParam<PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT>,
+    P0: windows_core::IntoParam<PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT>,
 {
     ::windows_targets::link!("projectedfslib.dll" "system" fn PrjStopVirtualizing(namespacevirtualizationcontext : PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT));
     PrjStopVirtualizing(namespacevirtualizationcontext.into_param().abi())
 }
 #[inline]
-pub unsafe fn PrjUpdateFileIfNeeded<P0, P1>(namespacevirtualizationcontext: P0, destinationfilename: P1, placeholderinfo: *const PRJ_PLACEHOLDER_INFO, placeholderinfosize: u32, updateflags: PRJ_UPDATE_TYPES, failurereason: ::core::option::Option<*mut PRJ_UPDATE_FAILURE_CAUSES>) -> ::windows_core::Result<()>
+pub unsafe fn PrjUpdateFileIfNeeded<P0, P1>(namespacevirtualizationcontext: P0, destinationfilename: P1, placeholderinfo: *const PRJ_PLACEHOLDER_INFO, placeholderinfosize: u32, updateflags: PRJ_UPDATE_TYPES, failurereason: Option<*mut PRJ_UPDATE_FAILURE_CAUSES>) -> windows_core::Result<()>
 where
-    P0: ::windows_core::IntoParam<PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT>,
-    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P0: windows_core::IntoParam<PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT>,
+    P1: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("projectedfslib.dll" "system" fn PrjUpdateFileIfNeeded(namespacevirtualizationcontext : PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, destinationfilename : ::windows_core::PCWSTR, placeholderinfo : *const PRJ_PLACEHOLDER_INFO, placeholderinfosize : u32, updateflags : PRJ_UPDATE_TYPES, failurereason : *mut PRJ_UPDATE_FAILURE_CAUSES) -> ::windows_core::HRESULT);
-    PrjUpdateFileIfNeeded(namespacevirtualizationcontext.into_param().abi(), destinationfilename.into_param().abi(), placeholderinfo, placeholderinfosize, updateflags, ::core::mem::transmute(failurereason.unwrap_or(::std::ptr::null_mut()))).ok()
+    ::windows_targets::link!("projectedfslib.dll" "system" fn PrjUpdateFileIfNeeded(namespacevirtualizationcontext : PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, destinationfilename : windows_core::PCWSTR, placeholderinfo : *const PRJ_PLACEHOLDER_INFO, placeholderinfosize : u32, updateflags : PRJ_UPDATE_TYPES, failurereason : *mut PRJ_UPDATE_FAILURE_CAUSES) -> windows_core::HRESULT);
+    PrjUpdateFileIfNeeded(namespacevirtualizationcontext.into_param().abi(), destinationfilename.into_param().abi(), placeholderinfo, placeholderinfosize, updateflags, core::mem::transmute(failurereason.unwrap_or(std::ptr::null_mut()))).ok()
 }
 #[inline]
-pub unsafe fn PrjWriteFileData<P0>(namespacevirtualizationcontext: P0, datastreamid: *const ::windows_core::GUID, buffer: *const ::core::ffi::c_void, byteoffset: u64, length: u32) -> ::windows_core::Result<()>
+pub unsafe fn PrjWriteFileData<P0>(namespacevirtualizationcontext: P0, datastreamid: *const windows_core::GUID, buffer: *const core::ffi::c_void, byteoffset: u64, length: u32) -> windows_core::Result<()>
 where
-    P0: ::windows_core::IntoParam<PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT>,
+    P0: windows_core::IntoParam<PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT>,
 {
-    ::windows_targets::link!("projectedfslib.dll" "system" fn PrjWriteFileData(namespacevirtualizationcontext : PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, datastreamid : *const ::windows_core::GUID, buffer : *const ::core::ffi::c_void, byteoffset : u64, length : u32) -> ::windows_core::HRESULT);
+    ::windows_targets::link!("projectedfslib.dll" "system" fn PrjWriteFileData(namespacevirtualizationcontext : PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, datastreamid : *const windows_core::GUID, buffer : *const core::ffi::c_void, byteoffset : u64, length : u32) -> windows_core::HRESULT);
     PrjWriteFileData(namespacevirtualizationcontext.into_param().abi(), datastreamid, buffer, byteoffset, length).ok()
 }
 #[inline]
-pub unsafe fn PrjWritePlaceholderInfo<P0, P1>(namespacevirtualizationcontext: P0, destinationfilename: P1, placeholderinfo: *const PRJ_PLACEHOLDER_INFO, placeholderinfosize: u32) -> ::windows_core::Result<()>
+pub unsafe fn PrjWritePlaceholderInfo<P0, P1>(namespacevirtualizationcontext: P0, destinationfilename: P1, placeholderinfo: *const PRJ_PLACEHOLDER_INFO, placeholderinfosize: u32) -> windows_core::Result<()>
 where
-    P0: ::windows_core::IntoParam<PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT>,
-    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P0: windows_core::IntoParam<PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT>,
+    P1: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("projectedfslib.dll" "system" fn PrjWritePlaceholderInfo(namespacevirtualizationcontext : PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, destinationfilename : ::windows_core::PCWSTR, placeholderinfo : *const PRJ_PLACEHOLDER_INFO, placeholderinfosize : u32) -> ::windows_core::HRESULT);
+    ::windows_targets::link!("projectedfslib.dll" "system" fn PrjWritePlaceholderInfo(namespacevirtualizationcontext : PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, destinationfilename : windows_core::PCWSTR, placeholderinfo : *const PRJ_PLACEHOLDER_INFO, placeholderinfosize : u32) -> windows_core::HRESULT);
     PrjWritePlaceholderInfo(namespacevirtualizationcontext.into_param().abi(), destinationfilename.into_param().abi(), placeholderinfo, placeholderinfosize).ok()
 }
 #[inline]
-pub unsafe fn PrjWritePlaceholderInfo2<P0, P1>(namespacevirtualizationcontext: P0, destinationfilename: P1, placeholderinfo: *const PRJ_PLACEHOLDER_INFO, placeholderinfosize: u32, extendedinfo: ::core::option::Option<*const PRJ_EXTENDED_INFO>) -> ::windows_core::Result<()>
+pub unsafe fn PrjWritePlaceholderInfo2<P0, P1>(namespacevirtualizationcontext: P0, destinationfilename: P1, placeholderinfo: *const PRJ_PLACEHOLDER_INFO, placeholderinfosize: u32, extendedinfo: Option<*const PRJ_EXTENDED_INFO>) -> windows_core::Result<()>
 where
-    P0: ::windows_core::IntoParam<PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT>,
-    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P0: windows_core::IntoParam<PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT>,
+    P1: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("projectedfslib.dll" "system" fn PrjWritePlaceholderInfo2(namespacevirtualizationcontext : PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, destinationfilename : ::windows_core::PCWSTR, placeholderinfo : *const PRJ_PLACEHOLDER_INFO, placeholderinfosize : u32, extendedinfo : *const PRJ_EXTENDED_INFO) -> ::windows_core::HRESULT);
-    PrjWritePlaceholderInfo2(namespacevirtualizationcontext.into_param().abi(), destinationfilename.into_param().abi(), placeholderinfo, placeholderinfosize, ::core::mem::transmute(extendedinfo.unwrap_or(::std::ptr::null()))).ok()
+    ::windows_targets::link!("projectedfslib.dll" "system" fn PrjWritePlaceholderInfo2(namespacevirtualizationcontext : PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, destinationfilename : windows_core::PCWSTR, placeholderinfo : *const PRJ_PLACEHOLDER_INFO, placeholderinfosize : u32, extendedinfo : *const PRJ_EXTENDED_INFO) -> windows_core::HRESULT);
+    PrjWritePlaceholderInfo2(namespacevirtualizationcontext.into_param().abi(), destinationfilename.into_param().abi(), placeholderinfo, placeholderinfosize, core::mem::transmute(extendedinfo.unwrap_or(std::ptr::null()))).ok()
 }
 pub const PRJ_CB_DATA_FLAG_ENUM_RESTART_SCAN: PRJ_CALLBACK_DATA_FLAGS = PRJ_CALLBACK_DATA_FLAGS(1i32);
 pub const PRJ_CB_DATA_FLAG_ENUM_RETURN_SINGLE_ENTRY: PRJ_CALLBACK_DATA_FLAGS = PRJ_CALLBACK_DATA_FLAGS(2i32);
@@ -212,46 +212,46 @@ pub const PRJ_UPDATE_NONE: PRJ_UPDATE_TYPES = PRJ_UPDATE_TYPES(0i32);
 pub const PRJ_UPDATE_RESERVED1: PRJ_UPDATE_TYPES = PRJ_UPDATE_TYPES(8i32);
 pub const PRJ_UPDATE_RESERVED2: PRJ_UPDATE_TYPES = PRJ_UPDATE_TYPES(16i32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct PRJ_CALLBACK_DATA_FLAGS(pub i32);
-impl ::windows_core::TypeKind for PRJ_CALLBACK_DATA_FLAGS {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for PRJ_CALLBACK_DATA_FLAGS {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for PRJ_CALLBACK_DATA_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for PRJ_CALLBACK_DATA_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("PRJ_CALLBACK_DATA_FLAGS").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct PRJ_COMPLETE_COMMAND_TYPE(pub i32);
-impl ::windows_core::TypeKind for PRJ_COMPLETE_COMMAND_TYPE {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for PRJ_COMPLETE_COMMAND_TYPE {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for PRJ_COMPLETE_COMMAND_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for PRJ_COMPLETE_COMMAND_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("PRJ_COMPLETE_COMMAND_TYPE").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct PRJ_EXT_INFO_TYPE(pub i32);
-impl ::windows_core::TypeKind for PRJ_EXT_INFO_TYPE {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for PRJ_EXT_INFO_TYPE {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for PRJ_EXT_INFO_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for PRJ_EXT_INFO_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("PRJ_EXT_INFO_TYPE").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct PRJ_FILE_STATE(pub i32);
-impl ::windows_core::TypeKind for PRJ_FILE_STATE {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for PRJ_FILE_STATE {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for PRJ_FILE_STATE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for PRJ_FILE_STATE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("PRJ_FILE_STATE").field(&self.0).finish()
     }
 }
@@ -260,53 +260,53 @@ impl PRJ_FILE_STATE {
         self.0 & other.0 == other.0
     }
 }
-impl ::core::ops::BitOr for PRJ_FILE_STATE {
+impl core::ops::BitOr for PRJ_FILE_STATE {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
         Self(self.0 | other.0)
     }
 }
-impl ::core::ops::BitAnd for PRJ_FILE_STATE {
+impl core::ops::BitAnd for PRJ_FILE_STATE {
     type Output = Self;
     fn bitand(self, other: Self) -> Self {
         Self(self.0 & other.0)
     }
 }
-impl ::core::ops::BitOrAssign for PRJ_FILE_STATE {
+impl core::ops::BitOrAssign for PRJ_FILE_STATE {
     fn bitor_assign(&mut self, other: Self) {
         self.0.bitor_assign(other.0)
     }
 }
-impl ::core::ops::BitAndAssign for PRJ_FILE_STATE {
+impl core::ops::BitAndAssign for PRJ_FILE_STATE {
     fn bitand_assign(&mut self, other: Self) {
         self.0.bitand_assign(other.0)
     }
 }
-impl ::core::ops::Not for PRJ_FILE_STATE {
+impl core::ops::Not for PRJ_FILE_STATE {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct PRJ_NOTIFICATION(pub i32);
-impl ::windows_core::TypeKind for PRJ_NOTIFICATION {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for PRJ_NOTIFICATION {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for PRJ_NOTIFICATION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for PRJ_NOTIFICATION {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("PRJ_NOTIFICATION").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct PRJ_NOTIFY_TYPES(pub u32);
-impl ::windows_core::TypeKind for PRJ_NOTIFY_TYPES {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for PRJ_NOTIFY_TYPES {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for PRJ_NOTIFY_TYPES {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for PRJ_NOTIFY_TYPES {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("PRJ_NOTIFY_TYPES").field(&self.0).finish()
     }
 }
@@ -315,53 +315,53 @@ impl PRJ_NOTIFY_TYPES {
         self.0 & other.0 == other.0
     }
 }
-impl ::core::ops::BitOr for PRJ_NOTIFY_TYPES {
+impl core::ops::BitOr for PRJ_NOTIFY_TYPES {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
         Self(self.0 | other.0)
     }
 }
-impl ::core::ops::BitAnd for PRJ_NOTIFY_TYPES {
+impl core::ops::BitAnd for PRJ_NOTIFY_TYPES {
     type Output = Self;
     fn bitand(self, other: Self) -> Self {
         Self(self.0 & other.0)
     }
 }
-impl ::core::ops::BitOrAssign for PRJ_NOTIFY_TYPES {
+impl core::ops::BitOrAssign for PRJ_NOTIFY_TYPES {
     fn bitor_assign(&mut self, other: Self) {
         self.0.bitor_assign(other.0)
     }
 }
-impl ::core::ops::BitAndAssign for PRJ_NOTIFY_TYPES {
+impl core::ops::BitAndAssign for PRJ_NOTIFY_TYPES {
     fn bitand_assign(&mut self, other: Self) {
         self.0.bitand_assign(other.0)
     }
 }
-impl ::core::ops::Not for PRJ_NOTIFY_TYPES {
+impl core::ops::Not for PRJ_NOTIFY_TYPES {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct PRJ_PLACEHOLDER_ID(pub i32);
-impl ::windows_core::TypeKind for PRJ_PLACEHOLDER_ID {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for PRJ_PLACEHOLDER_ID {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for PRJ_PLACEHOLDER_ID {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for PRJ_PLACEHOLDER_ID {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("PRJ_PLACEHOLDER_ID").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct PRJ_STARTVIRTUALIZING_FLAGS(pub i32);
-impl ::windows_core::TypeKind for PRJ_STARTVIRTUALIZING_FLAGS {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for PRJ_STARTVIRTUALIZING_FLAGS {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for PRJ_STARTVIRTUALIZING_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for PRJ_STARTVIRTUALIZING_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("PRJ_STARTVIRTUALIZING_FLAGS").field(&self.0).finish()
     }
 }
@@ -370,42 +370,42 @@ impl PRJ_STARTVIRTUALIZING_FLAGS {
         self.0 & other.0 == other.0
     }
 }
-impl ::core::ops::BitOr for PRJ_STARTVIRTUALIZING_FLAGS {
+impl core::ops::BitOr for PRJ_STARTVIRTUALIZING_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
         Self(self.0 | other.0)
     }
 }
-impl ::core::ops::BitAnd for PRJ_STARTVIRTUALIZING_FLAGS {
+impl core::ops::BitAnd for PRJ_STARTVIRTUALIZING_FLAGS {
     type Output = Self;
     fn bitand(self, other: Self) -> Self {
         Self(self.0 & other.0)
     }
 }
-impl ::core::ops::BitOrAssign for PRJ_STARTVIRTUALIZING_FLAGS {
+impl core::ops::BitOrAssign for PRJ_STARTVIRTUALIZING_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
         self.0.bitor_assign(other.0)
     }
 }
-impl ::core::ops::BitAndAssign for PRJ_STARTVIRTUALIZING_FLAGS {
+impl core::ops::BitAndAssign for PRJ_STARTVIRTUALIZING_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
         self.0.bitand_assign(other.0)
     }
 }
-impl ::core::ops::Not for PRJ_STARTVIRTUALIZING_FLAGS {
+impl core::ops::Not for PRJ_STARTVIRTUALIZING_FLAGS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct PRJ_UPDATE_FAILURE_CAUSES(pub i32);
-impl ::windows_core::TypeKind for PRJ_UPDATE_FAILURE_CAUSES {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for PRJ_UPDATE_FAILURE_CAUSES {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for PRJ_UPDATE_FAILURE_CAUSES {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for PRJ_UPDATE_FAILURE_CAUSES {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("PRJ_UPDATE_FAILURE_CAUSES").field(&self.0).finish()
     }
 }
@@ -414,42 +414,42 @@ impl PRJ_UPDATE_FAILURE_CAUSES {
         self.0 & other.0 == other.0
     }
 }
-impl ::core::ops::BitOr for PRJ_UPDATE_FAILURE_CAUSES {
+impl core::ops::BitOr for PRJ_UPDATE_FAILURE_CAUSES {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
         Self(self.0 | other.0)
     }
 }
-impl ::core::ops::BitAnd for PRJ_UPDATE_FAILURE_CAUSES {
+impl core::ops::BitAnd for PRJ_UPDATE_FAILURE_CAUSES {
     type Output = Self;
     fn bitand(self, other: Self) -> Self {
         Self(self.0 & other.0)
     }
 }
-impl ::core::ops::BitOrAssign for PRJ_UPDATE_FAILURE_CAUSES {
+impl core::ops::BitOrAssign for PRJ_UPDATE_FAILURE_CAUSES {
     fn bitor_assign(&mut self, other: Self) {
         self.0.bitor_assign(other.0)
     }
 }
-impl ::core::ops::BitAndAssign for PRJ_UPDATE_FAILURE_CAUSES {
+impl core::ops::BitAndAssign for PRJ_UPDATE_FAILURE_CAUSES {
     fn bitand_assign(&mut self, other: Self) {
         self.0.bitand_assign(other.0)
     }
 }
-impl ::core::ops::Not for PRJ_UPDATE_FAILURE_CAUSES {
+impl core::ops::Not for PRJ_UPDATE_FAILURE_CAUSES {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct PRJ_UPDATE_TYPES(pub i32);
-impl ::windows_core::TypeKind for PRJ_UPDATE_TYPES {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for PRJ_UPDATE_TYPES {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for PRJ_UPDATE_TYPES {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for PRJ_UPDATE_TYPES {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("PRJ_UPDATE_TYPES").field(&self.0).finish()
     }
 }
@@ -458,29 +458,29 @@ impl PRJ_UPDATE_TYPES {
         self.0 & other.0 == other.0
     }
 }
-impl ::core::ops::BitOr for PRJ_UPDATE_TYPES {
+impl core::ops::BitOr for PRJ_UPDATE_TYPES {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
         Self(self.0 | other.0)
     }
 }
-impl ::core::ops::BitAnd for PRJ_UPDATE_TYPES {
+impl core::ops::BitAnd for PRJ_UPDATE_TYPES {
     type Output = Self;
     fn bitand(self, other: Self) -> Self {
         Self(self.0 & other.0)
     }
 }
-impl ::core::ops::BitOrAssign for PRJ_UPDATE_TYPES {
+impl core::ops::BitOrAssign for PRJ_UPDATE_TYPES {
     fn bitor_assign(&mut self, other: Self) {
         self.0.bitor_assign(other.0)
     }
 }
-impl ::core::ops::BitAndAssign for PRJ_UPDATE_TYPES {
+impl core::ops::BitAndAssign for PRJ_UPDATE_TYPES {
     fn bitand_assign(&mut self, other: Self) {
         self.0.bitand_assign(other.0)
     }
 }
-impl ::core::ops::Not for PRJ_UPDATE_TYPES {
+impl core::ops::Not for PRJ_UPDATE_TYPES {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
@@ -497,23 +497,23 @@ pub struct PRJ_CALLBACKS {
     pub NotificationCallback: PRJ_NOTIFICATION_CB,
     pub CancelCommandCallback: PRJ_CANCEL_COMMAND_CB,
 }
-impl ::core::marker::Copy for PRJ_CALLBACKS {}
-impl ::core::clone::Clone for PRJ_CALLBACKS {
+impl Copy for PRJ_CALLBACKS {}
+impl Clone for PRJ_CALLBACKS {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for PRJ_CALLBACKS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for PRJ_CALLBACKS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("PRJ_CALLBACKS").finish()
     }
 }
-impl ::windows_core::TypeKind for PRJ_CALLBACKS {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for PRJ_CALLBACKS {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::default::Default for PRJ_CALLBACKS {
+impl Default for PRJ_CALLBACKS {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -522,22 +522,22 @@ pub struct PRJ_CALLBACK_DATA {
     pub Flags: PRJ_CALLBACK_DATA_FLAGS,
     pub NamespaceVirtualizationContext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT,
     pub CommandId: i32,
-    pub FileId: ::windows_core::GUID,
-    pub DataStreamId: ::windows_core::GUID,
-    pub FilePathName: ::windows_core::PCWSTR,
+    pub FileId: windows_core::GUID,
+    pub DataStreamId: windows_core::GUID,
+    pub FilePathName: windows_core::PCWSTR,
     pub VersionInfo: *mut PRJ_PLACEHOLDER_VERSION_INFO,
     pub TriggeringProcessId: u32,
-    pub TriggeringProcessImageFileName: ::windows_core::PCWSTR,
-    pub InstanceContext: *mut ::core::ffi::c_void,
+    pub TriggeringProcessImageFileName: windows_core::PCWSTR,
+    pub InstanceContext: *mut core::ffi::c_void,
 }
-impl ::core::marker::Copy for PRJ_CALLBACK_DATA {}
-impl ::core::clone::Clone for PRJ_CALLBACK_DATA {
+impl Copy for PRJ_CALLBACK_DATA {}
+impl Clone for PRJ_CALLBACK_DATA {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for PRJ_CALLBACK_DATA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for PRJ_CALLBACK_DATA {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("PRJ_CALLBACK_DATA")
             .field("Size", &self.Size)
             .field("Flags", &self.Flags)
@@ -553,18 +553,18 @@ impl ::core::fmt::Debug for PRJ_CALLBACK_DATA {
             .finish()
     }
 }
-impl ::windows_core::TypeKind for PRJ_CALLBACK_DATA {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for PRJ_CALLBACK_DATA {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for PRJ_CALLBACK_DATA {
+impl PartialEq for PRJ_CALLBACK_DATA {
     fn eq(&self, other: &Self) -> bool {
         self.Size == other.Size && self.Flags == other.Flags && self.NamespaceVirtualizationContext == other.NamespaceVirtualizationContext && self.CommandId == other.CommandId && self.FileId == other.FileId && self.DataStreamId == other.DataStreamId && self.FilePathName == other.FilePathName && self.VersionInfo == other.VersionInfo && self.TriggeringProcessId == other.TriggeringProcessId && self.TriggeringProcessImageFileName == other.TriggeringProcessImageFileName && self.InstanceContext == other.InstanceContext
     }
 }
-impl ::core::cmp::Eq for PRJ_CALLBACK_DATA {}
-impl ::core::default::Default for PRJ_CALLBACK_DATA {
+impl Eq for PRJ_CALLBACK_DATA {}
+impl Default for PRJ_CALLBACK_DATA {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -572,18 +572,18 @@ pub struct PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS {
     pub CommandType: PRJ_COMPLETE_COMMAND_TYPE,
     pub Anonymous: PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0,
 }
-impl ::core::marker::Copy for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS {}
-impl ::core::clone::Clone for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS {
+impl Copy for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS {}
+impl Clone for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::windows_core::TypeKind for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::default::Default for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS {
+impl Default for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -591,104 +591,104 @@ pub union PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0 {
     pub Notification: PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_1,
     pub Enumeration: PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_0,
 }
-impl ::core::marker::Copy for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0 {}
-impl ::core::clone::Clone for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0 {
+impl Copy for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0 {}
+impl Clone for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::windows_core::TypeKind for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0 {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0 {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::default::Default for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0 {
+impl Default for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0 {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 pub struct PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_0 {
     pub DirEntryBufferHandle: PRJ_DIR_ENTRY_BUFFER_HANDLE,
 }
-impl ::core::marker::Copy for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_0 {}
-impl ::core::clone::Clone for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_0 {
+impl Copy for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_0 {}
+impl Clone for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_0 {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_0").field("DirEntryBufferHandle", &self.DirEntryBufferHandle).finish()
     }
 }
-impl ::windows_core::TypeKind for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_0 {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_0 {
+impl PartialEq for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self.DirEntryBufferHandle == other.DirEntryBufferHandle
     }
 }
-impl ::core::cmp::Eq for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_0 {}
-impl ::core::default::Default for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_0 {
+impl Eq for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_0 {}
+impl Default for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_0 {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 pub struct PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_1 {
     pub NotificationMask: PRJ_NOTIFY_TYPES,
 }
-impl ::core::marker::Copy for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_1 {}
-impl ::core::clone::Clone for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_1 {
+impl Copy for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_1 {}
+impl Clone for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_1 {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_1").field("NotificationMask", &self.NotificationMask).finish()
     }
 }
-impl ::windows_core::TypeKind for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_1 {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_1 {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_1 {
+impl PartialEq for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_1 {
     fn eq(&self, other: &Self) -> bool {
         self.NotificationMask == other.NotificationMask
     }
 }
-impl ::core::cmp::Eq for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_1 {}
-impl ::core::default::Default for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_1 {
+impl Eq for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_1 {}
+impl Default for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_1 {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(PartialEq, Eq)]
 pub struct PRJ_DIR_ENTRY_BUFFER_HANDLE(pub isize);
 impl PRJ_DIR_ENTRY_BUFFER_HANDLE {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 || self.0 == 0
     }
 }
-impl ::core::default::Default for PRJ_DIR_ENTRY_BUFFER_HANDLE {
+impl Default for PRJ_DIR_ENTRY_BUFFER_HANDLE {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
-impl ::core::clone::Clone for PRJ_DIR_ENTRY_BUFFER_HANDLE {
+impl Clone for PRJ_DIR_ENTRY_BUFFER_HANDLE {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::marker::Copy for PRJ_DIR_ENTRY_BUFFER_HANDLE {}
-impl ::core::fmt::Debug for PRJ_DIR_ENTRY_BUFFER_HANDLE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl Copy for PRJ_DIR_ENTRY_BUFFER_HANDLE {}
+impl core::fmt::Debug for PRJ_DIR_ENTRY_BUFFER_HANDLE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("PRJ_DIR_ENTRY_BUFFER_HANDLE").field(&self.0).finish()
     }
 }
-impl ::windows_core::TypeKind for PRJ_DIR_ENTRY_BUFFER_HANDLE {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for PRJ_DIR_ENTRY_BUFFER_HANDLE {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 pub struct PRJ_EXTENDED_INFO {
@@ -696,65 +696,65 @@ pub struct PRJ_EXTENDED_INFO {
     pub NextInfoOffset: u32,
     pub Anonymous: PRJ_EXTENDED_INFO_0,
 }
-impl ::core::marker::Copy for PRJ_EXTENDED_INFO {}
-impl ::core::clone::Clone for PRJ_EXTENDED_INFO {
+impl Copy for PRJ_EXTENDED_INFO {}
+impl Clone for PRJ_EXTENDED_INFO {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::windows_core::TypeKind for PRJ_EXTENDED_INFO {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for PRJ_EXTENDED_INFO {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::default::Default for PRJ_EXTENDED_INFO {
+impl Default for PRJ_EXTENDED_INFO {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 pub union PRJ_EXTENDED_INFO_0 {
     pub Symlink: PRJ_EXTENDED_INFO_0_0,
 }
-impl ::core::marker::Copy for PRJ_EXTENDED_INFO_0 {}
-impl ::core::clone::Clone for PRJ_EXTENDED_INFO_0 {
+impl Copy for PRJ_EXTENDED_INFO_0 {}
+impl Clone for PRJ_EXTENDED_INFO_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::windows_core::TypeKind for PRJ_EXTENDED_INFO_0 {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for PRJ_EXTENDED_INFO_0 {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::default::Default for PRJ_EXTENDED_INFO_0 {
+impl Default for PRJ_EXTENDED_INFO_0 {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 pub struct PRJ_EXTENDED_INFO_0_0 {
-    pub TargetName: ::windows_core::PCWSTR,
+    pub TargetName: windows_core::PCWSTR,
 }
-impl ::core::marker::Copy for PRJ_EXTENDED_INFO_0_0 {}
-impl ::core::clone::Clone for PRJ_EXTENDED_INFO_0_0 {
+impl Copy for PRJ_EXTENDED_INFO_0_0 {}
+impl Clone for PRJ_EXTENDED_INFO_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for PRJ_EXTENDED_INFO_0_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for PRJ_EXTENDED_INFO_0_0 {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("PRJ_EXTENDED_INFO_0_0").field("TargetName", &self.TargetName).finish()
     }
 }
-impl ::windows_core::TypeKind for PRJ_EXTENDED_INFO_0_0 {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for PRJ_EXTENDED_INFO_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for PRJ_EXTENDED_INFO_0_0 {
+impl PartialEq for PRJ_EXTENDED_INFO_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self.TargetName == other.TargetName
     }
 }
-impl ::core::cmp::Eq for PRJ_EXTENDED_INFO_0_0 {}
-impl ::core::default::Default for PRJ_EXTENDED_INFO_0_0 {
+impl Eq for PRJ_EXTENDED_INFO_0_0 {}
+impl Default for PRJ_EXTENDED_INFO_0_0 {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -767,86 +767,86 @@ pub struct PRJ_FILE_BASIC_INFO {
     pub ChangeTime: i64,
     pub FileAttributes: u32,
 }
-impl ::core::marker::Copy for PRJ_FILE_BASIC_INFO {}
-impl ::core::clone::Clone for PRJ_FILE_BASIC_INFO {
+impl Copy for PRJ_FILE_BASIC_INFO {}
+impl Clone for PRJ_FILE_BASIC_INFO {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for PRJ_FILE_BASIC_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for PRJ_FILE_BASIC_INFO {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("PRJ_FILE_BASIC_INFO").field("IsDirectory", &self.IsDirectory).field("FileSize", &self.FileSize).field("CreationTime", &self.CreationTime).field("LastAccessTime", &self.LastAccessTime).field("LastWriteTime", &self.LastWriteTime).field("ChangeTime", &self.ChangeTime).field("FileAttributes", &self.FileAttributes).finish()
     }
 }
-impl ::windows_core::TypeKind for PRJ_FILE_BASIC_INFO {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for PRJ_FILE_BASIC_INFO {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for PRJ_FILE_BASIC_INFO {
+impl PartialEq for PRJ_FILE_BASIC_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.IsDirectory == other.IsDirectory && self.FileSize == other.FileSize && self.CreationTime == other.CreationTime && self.LastAccessTime == other.LastAccessTime && self.LastWriteTime == other.LastWriteTime && self.ChangeTime == other.ChangeTime && self.FileAttributes == other.FileAttributes
     }
 }
-impl ::core::cmp::Eq for PRJ_FILE_BASIC_INFO {}
-impl ::core::default::Default for PRJ_FILE_BASIC_INFO {
+impl Eq for PRJ_FILE_BASIC_INFO {}
+impl Default for PRJ_FILE_BASIC_INFO {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(PartialEq, Eq)]
 pub struct PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT(pub isize);
 impl PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 || self.0 == 0
     }
 }
-impl ::core::default::Default for PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT {
+impl Default for PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
-impl ::core::clone::Clone for PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT {
+impl Clone for PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::marker::Copy for PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT {}
-impl ::core::fmt::Debug for PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl Copy for PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT {}
+impl core::fmt::Debug for PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT").field(&self.0).finish()
     }
 }
-impl ::windows_core::TypeKind for PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 pub struct PRJ_NOTIFICATION_MAPPING {
     pub NotificationBitMask: PRJ_NOTIFY_TYPES,
-    pub NotificationRoot: ::windows_core::PCWSTR,
+    pub NotificationRoot: windows_core::PCWSTR,
 }
-impl ::core::marker::Copy for PRJ_NOTIFICATION_MAPPING {}
-impl ::core::clone::Clone for PRJ_NOTIFICATION_MAPPING {
+impl Copy for PRJ_NOTIFICATION_MAPPING {}
+impl Clone for PRJ_NOTIFICATION_MAPPING {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for PRJ_NOTIFICATION_MAPPING {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for PRJ_NOTIFICATION_MAPPING {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("PRJ_NOTIFICATION_MAPPING").field("NotificationBitMask", &self.NotificationBitMask).field("NotificationRoot", &self.NotificationRoot).finish()
     }
 }
-impl ::windows_core::TypeKind for PRJ_NOTIFICATION_MAPPING {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for PRJ_NOTIFICATION_MAPPING {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for PRJ_NOTIFICATION_MAPPING {
+impl PartialEq for PRJ_NOTIFICATION_MAPPING {
     fn eq(&self, other: &Self) -> bool {
         self.NotificationBitMask == other.NotificationBitMask && self.NotificationRoot == other.NotificationRoot
     }
 }
-impl ::core::cmp::Eq for PRJ_NOTIFICATION_MAPPING {}
-impl ::core::default::Default for PRJ_NOTIFICATION_MAPPING {
+impl Eq for PRJ_NOTIFICATION_MAPPING {}
+impl Default for PRJ_NOTIFICATION_MAPPING {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -855,105 +855,105 @@ pub union PRJ_NOTIFICATION_PARAMETERS {
     pub FileRenamed: PRJ_NOTIFICATION_PARAMETERS_1,
     pub FileDeletedOnHandleClose: PRJ_NOTIFICATION_PARAMETERS_0,
 }
-impl ::core::marker::Copy for PRJ_NOTIFICATION_PARAMETERS {}
-impl ::core::clone::Clone for PRJ_NOTIFICATION_PARAMETERS {
+impl Copy for PRJ_NOTIFICATION_PARAMETERS {}
+impl Clone for PRJ_NOTIFICATION_PARAMETERS {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::windows_core::TypeKind for PRJ_NOTIFICATION_PARAMETERS {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for PRJ_NOTIFICATION_PARAMETERS {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::default::Default for PRJ_NOTIFICATION_PARAMETERS {
+impl Default for PRJ_NOTIFICATION_PARAMETERS {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 pub struct PRJ_NOTIFICATION_PARAMETERS_0 {
     pub IsFileModified: super::super::Foundation::BOOLEAN,
 }
-impl ::core::marker::Copy for PRJ_NOTIFICATION_PARAMETERS_0 {}
-impl ::core::clone::Clone for PRJ_NOTIFICATION_PARAMETERS_0 {
+impl Copy for PRJ_NOTIFICATION_PARAMETERS_0 {}
+impl Clone for PRJ_NOTIFICATION_PARAMETERS_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for PRJ_NOTIFICATION_PARAMETERS_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for PRJ_NOTIFICATION_PARAMETERS_0 {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("PRJ_NOTIFICATION_PARAMETERS_0").field("IsFileModified", &self.IsFileModified).finish()
     }
 }
-impl ::windows_core::TypeKind for PRJ_NOTIFICATION_PARAMETERS_0 {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for PRJ_NOTIFICATION_PARAMETERS_0 {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for PRJ_NOTIFICATION_PARAMETERS_0 {
+impl PartialEq for PRJ_NOTIFICATION_PARAMETERS_0 {
     fn eq(&self, other: &Self) -> bool {
         self.IsFileModified == other.IsFileModified
     }
 }
-impl ::core::cmp::Eq for PRJ_NOTIFICATION_PARAMETERS_0 {}
-impl ::core::default::Default for PRJ_NOTIFICATION_PARAMETERS_0 {
+impl Eq for PRJ_NOTIFICATION_PARAMETERS_0 {}
+impl Default for PRJ_NOTIFICATION_PARAMETERS_0 {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 pub struct PRJ_NOTIFICATION_PARAMETERS_1 {
     pub NotificationMask: PRJ_NOTIFY_TYPES,
 }
-impl ::core::marker::Copy for PRJ_NOTIFICATION_PARAMETERS_1 {}
-impl ::core::clone::Clone for PRJ_NOTIFICATION_PARAMETERS_1 {
+impl Copy for PRJ_NOTIFICATION_PARAMETERS_1 {}
+impl Clone for PRJ_NOTIFICATION_PARAMETERS_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for PRJ_NOTIFICATION_PARAMETERS_1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for PRJ_NOTIFICATION_PARAMETERS_1 {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("PRJ_NOTIFICATION_PARAMETERS_1").field("NotificationMask", &self.NotificationMask).finish()
     }
 }
-impl ::windows_core::TypeKind for PRJ_NOTIFICATION_PARAMETERS_1 {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for PRJ_NOTIFICATION_PARAMETERS_1 {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for PRJ_NOTIFICATION_PARAMETERS_1 {
+impl PartialEq for PRJ_NOTIFICATION_PARAMETERS_1 {
     fn eq(&self, other: &Self) -> bool {
         self.NotificationMask == other.NotificationMask
     }
 }
-impl ::core::cmp::Eq for PRJ_NOTIFICATION_PARAMETERS_1 {}
-impl ::core::default::Default for PRJ_NOTIFICATION_PARAMETERS_1 {
+impl Eq for PRJ_NOTIFICATION_PARAMETERS_1 {}
+impl Default for PRJ_NOTIFICATION_PARAMETERS_1 {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 pub struct PRJ_NOTIFICATION_PARAMETERS_2 {
     pub NotificationMask: PRJ_NOTIFY_TYPES,
 }
-impl ::core::marker::Copy for PRJ_NOTIFICATION_PARAMETERS_2 {}
-impl ::core::clone::Clone for PRJ_NOTIFICATION_PARAMETERS_2 {
+impl Copy for PRJ_NOTIFICATION_PARAMETERS_2 {}
+impl Clone for PRJ_NOTIFICATION_PARAMETERS_2 {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for PRJ_NOTIFICATION_PARAMETERS_2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for PRJ_NOTIFICATION_PARAMETERS_2 {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("PRJ_NOTIFICATION_PARAMETERS_2").field("NotificationMask", &self.NotificationMask).finish()
     }
 }
-impl ::windows_core::TypeKind for PRJ_NOTIFICATION_PARAMETERS_2 {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for PRJ_NOTIFICATION_PARAMETERS_2 {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for PRJ_NOTIFICATION_PARAMETERS_2 {
+impl PartialEq for PRJ_NOTIFICATION_PARAMETERS_2 {
     fn eq(&self, other: &Self) -> bool {
         self.NotificationMask == other.NotificationMask
     }
 }
-impl ::core::cmp::Eq for PRJ_NOTIFICATION_PARAMETERS_2 {}
-impl ::core::default::Default for PRJ_NOTIFICATION_PARAMETERS_2 {
+impl Eq for PRJ_NOTIFICATION_PARAMETERS_2 {}
+impl Default for PRJ_NOTIFICATION_PARAMETERS_2 {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -965,29 +965,29 @@ pub struct PRJ_PLACEHOLDER_INFO {
     pub VersionInfo: PRJ_PLACEHOLDER_VERSION_INFO,
     pub VariableData: [u8; 1],
 }
-impl ::core::marker::Copy for PRJ_PLACEHOLDER_INFO {}
-impl ::core::clone::Clone for PRJ_PLACEHOLDER_INFO {
+impl Copy for PRJ_PLACEHOLDER_INFO {}
+impl Clone for PRJ_PLACEHOLDER_INFO {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for PRJ_PLACEHOLDER_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for PRJ_PLACEHOLDER_INFO {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("PRJ_PLACEHOLDER_INFO").field("FileBasicInfo", &self.FileBasicInfo).field("EaInformation", &self.EaInformation).field("SecurityInformation", &self.SecurityInformation).field("StreamsInformation", &self.StreamsInformation).field("VersionInfo", &self.VersionInfo).field("VariableData", &self.VariableData).finish()
     }
 }
-impl ::windows_core::TypeKind for PRJ_PLACEHOLDER_INFO {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for PRJ_PLACEHOLDER_INFO {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for PRJ_PLACEHOLDER_INFO {
+impl PartialEq for PRJ_PLACEHOLDER_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.FileBasicInfo == other.FileBasicInfo && self.EaInformation == other.EaInformation && self.SecurityInformation == other.SecurityInformation && self.StreamsInformation == other.StreamsInformation && self.VersionInfo == other.VersionInfo && self.VariableData == other.VariableData
     }
 }
-impl ::core::cmp::Eq for PRJ_PLACEHOLDER_INFO {}
-impl ::core::default::Default for PRJ_PLACEHOLDER_INFO {
+impl Eq for PRJ_PLACEHOLDER_INFO {}
+impl Default for PRJ_PLACEHOLDER_INFO {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -995,29 +995,29 @@ pub struct PRJ_PLACEHOLDER_INFO_0 {
     pub EaBufferSize: u32,
     pub OffsetToFirstEa: u32,
 }
-impl ::core::marker::Copy for PRJ_PLACEHOLDER_INFO_0 {}
-impl ::core::clone::Clone for PRJ_PLACEHOLDER_INFO_0 {
+impl Copy for PRJ_PLACEHOLDER_INFO_0 {}
+impl Clone for PRJ_PLACEHOLDER_INFO_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for PRJ_PLACEHOLDER_INFO_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for PRJ_PLACEHOLDER_INFO_0 {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("PRJ_PLACEHOLDER_INFO_0").field("EaBufferSize", &self.EaBufferSize).field("OffsetToFirstEa", &self.OffsetToFirstEa).finish()
     }
 }
-impl ::windows_core::TypeKind for PRJ_PLACEHOLDER_INFO_0 {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for PRJ_PLACEHOLDER_INFO_0 {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for PRJ_PLACEHOLDER_INFO_0 {
+impl PartialEq for PRJ_PLACEHOLDER_INFO_0 {
     fn eq(&self, other: &Self) -> bool {
         self.EaBufferSize == other.EaBufferSize && self.OffsetToFirstEa == other.OffsetToFirstEa
     }
 }
-impl ::core::cmp::Eq for PRJ_PLACEHOLDER_INFO_0 {}
-impl ::core::default::Default for PRJ_PLACEHOLDER_INFO_0 {
+impl Eq for PRJ_PLACEHOLDER_INFO_0 {}
+impl Default for PRJ_PLACEHOLDER_INFO_0 {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -1025,29 +1025,29 @@ pub struct PRJ_PLACEHOLDER_INFO_1 {
     pub SecurityBufferSize: u32,
     pub OffsetToSecurityDescriptor: u32,
 }
-impl ::core::marker::Copy for PRJ_PLACEHOLDER_INFO_1 {}
-impl ::core::clone::Clone for PRJ_PLACEHOLDER_INFO_1 {
+impl Copy for PRJ_PLACEHOLDER_INFO_1 {}
+impl Clone for PRJ_PLACEHOLDER_INFO_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for PRJ_PLACEHOLDER_INFO_1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for PRJ_PLACEHOLDER_INFO_1 {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("PRJ_PLACEHOLDER_INFO_1").field("SecurityBufferSize", &self.SecurityBufferSize).field("OffsetToSecurityDescriptor", &self.OffsetToSecurityDescriptor).finish()
     }
 }
-impl ::windows_core::TypeKind for PRJ_PLACEHOLDER_INFO_1 {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for PRJ_PLACEHOLDER_INFO_1 {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for PRJ_PLACEHOLDER_INFO_1 {
+impl PartialEq for PRJ_PLACEHOLDER_INFO_1 {
     fn eq(&self, other: &Self) -> bool {
         self.SecurityBufferSize == other.SecurityBufferSize && self.OffsetToSecurityDescriptor == other.OffsetToSecurityDescriptor
     }
 }
-impl ::core::cmp::Eq for PRJ_PLACEHOLDER_INFO_1 {}
-impl ::core::default::Default for PRJ_PLACEHOLDER_INFO_1 {
+impl Eq for PRJ_PLACEHOLDER_INFO_1 {}
+impl Default for PRJ_PLACEHOLDER_INFO_1 {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -1055,29 +1055,29 @@ pub struct PRJ_PLACEHOLDER_INFO_2 {
     pub StreamsInfoBufferSize: u32,
     pub OffsetToFirstStreamInfo: u32,
 }
-impl ::core::marker::Copy for PRJ_PLACEHOLDER_INFO_2 {}
-impl ::core::clone::Clone for PRJ_PLACEHOLDER_INFO_2 {
+impl Copy for PRJ_PLACEHOLDER_INFO_2 {}
+impl Clone for PRJ_PLACEHOLDER_INFO_2 {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for PRJ_PLACEHOLDER_INFO_2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for PRJ_PLACEHOLDER_INFO_2 {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("PRJ_PLACEHOLDER_INFO_2").field("StreamsInfoBufferSize", &self.StreamsInfoBufferSize).field("OffsetToFirstStreamInfo", &self.OffsetToFirstStreamInfo).finish()
     }
 }
-impl ::windows_core::TypeKind for PRJ_PLACEHOLDER_INFO_2 {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for PRJ_PLACEHOLDER_INFO_2 {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for PRJ_PLACEHOLDER_INFO_2 {
+impl PartialEq for PRJ_PLACEHOLDER_INFO_2 {
     fn eq(&self, other: &Self) -> bool {
         self.StreamsInfoBufferSize == other.StreamsInfoBufferSize && self.OffsetToFirstStreamInfo == other.OffsetToFirstStreamInfo
     }
 }
-impl ::core::cmp::Eq for PRJ_PLACEHOLDER_INFO_2 {}
-impl ::core::default::Default for PRJ_PLACEHOLDER_INFO_2 {
+impl Eq for PRJ_PLACEHOLDER_INFO_2 {}
+impl Default for PRJ_PLACEHOLDER_INFO_2 {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -1085,29 +1085,29 @@ pub struct PRJ_PLACEHOLDER_VERSION_INFO {
     pub ProviderID: [u8; 128],
     pub ContentID: [u8; 128],
 }
-impl ::core::marker::Copy for PRJ_PLACEHOLDER_VERSION_INFO {}
-impl ::core::clone::Clone for PRJ_PLACEHOLDER_VERSION_INFO {
+impl Copy for PRJ_PLACEHOLDER_VERSION_INFO {}
+impl Clone for PRJ_PLACEHOLDER_VERSION_INFO {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for PRJ_PLACEHOLDER_VERSION_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for PRJ_PLACEHOLDER_VERSION_INFO {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("PRJ_PLACEHOLDER_VERSION_INFO").field("ProviderID", &self.ProviderID).field("ContentID", &self.ContentID).finish()
     }
 }
-impl ::windows_core::TypeKind for PRJ_PLACEHOLDER_VERSION_INFO {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for PRJ_PLACEHOLDER_VERSION_INFO {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for PRJ_PLACEHOLDER_VERSION_INFO {
+impl PartialEq for PRJ_PLACEHOLDER_VERSION_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.ProviderID == other.ProviderID && self.ContentID == other.ContentID
     }
 }
-impl ::core::cmp::Eq for PRJ_PLACEHOLDER_VERSION_INFO {}
-impl ::core::default::Default for PRJ_PLACEHOLDER_VERSION_INFO {
+impl Eq for PRJ_PLACEHOLDER_VERSION_INFO {}
+impl Default for PRJ_PLACEHOLDER_VERSION_INFO {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -1118,66 +1118,66 @@ pub struct PRJ_STARTVIRTUALIZING_OPTIONS {
     pub NotificationMappings: *mut PRJ_NOTIFICATION_MAPPING,
     pub NotificationMappingsCount: u32,
 }
-impl ::core::marker::Copy for PRJ_STARTVIRTUALIZING_OPTIONS {}
-impl ::core::clone::Clone for PRJ_STARTVIRTUALIZING_OPTIONS {
+impl Copy for PRJ_STARTVIRTUALIZING_OPTIONS {}
+impl Clone for PRJ_STARTVIRTUALIZING_OPTIONS {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for PRJ_STARTVIRTUALIZING_OPTIONS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for PRJ_STARTVIRTUALIZING_OPTIONS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("PRJ_STARTVIRTUALIZING_OPTIONS").field("Flags", &self.Flags).field("PoolThreadCount", &self.PoolThreadCount).field("ConcurrentThreadCount", &self.ConcurrentThreadCount).field("NotificationMappings", &self.NotificationMappings).field("NotificationMappingsCount", &self.NotificationMappingsCount).finish()
     }
 }
-impl ::windows_core::TypeKind for PRJ_STARTVIRTUALIZING_OPTIONS {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for PRJ_STARTVIRTUALIZING_OPTIONS {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for PRJ_STARTVIRTUALIZING_OPTIONS {
+impl PartialEq for PRJ_STARTVIRTUALIZING_OPTIONS {
     fn eq(&self, other: &Self) -> bool {
         self.Flags == other.Flags && self.PoolThreadCount == other.PoolThreadCount && self.ConcurrentThreadCount == other.ConcurrentThreadCount && self.NotificationMappings == other.NotificationMappings && self.NotificationMappingsCount == other.NotificationMappingsCount
     }
 }
-impl ::core::cmp::Eq for PRJ_STARTVIRTUALIZING_OPTIONS {}
-impl ::core::default::Default for PRJ_STARTVIRTUALIZING_OPTIONS {
+impl Eq for PRJ_STARTVIRTUALIZING_OPTIONS {}
+impl Default for PRJ_STARTVIRTUALIZING_OPTIONS {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 pub struct PRJ_VIRTUALIZATION_INSTANCE_INFO {
-    pub InstanceID: ::windows_core::GUID,
+    pub InstanceID: windows_core::GUID,
     pub WriteAlignment: u32,
 }
-impl ::core::marker::Copy for PRJ_VIRTUALIZATION_INSTANCE_INFO {}
-impl ::core::clone::Clone for PRJ_VIRTUALIZATION_INSTANCE_INFO {
+impl Copy for PRJ_VIRTUALIZATION_INSTANCE_INFO {}
+impl Clone for PRJ_VIRTUALIZATION_INSTANCE_INFO {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for PRJ_VIRTUALIZATION_INSTANCE_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for PRJ_VIRTUALIZATION_INSTANCE_INFO {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("PRJ_VIRTUALIZATION_INSTANCE_INFO").field("InstanceID", &self.InstanceID).field("WriteAlignment", &self.WriteAlignment).finish()
     }
 }
-impl ::windows_core::TypeKind for PRJ_VIRTUALIZATION_INSTANCE_INFO {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for PRJ_VIRTUALIZATION_INSTANCE_INFO {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for PRJ_VIRTUALIZATION_INSTANCE_INFO {
+impl PartialEq for PRJ_VIRTUALIZATION_INSTANCE_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.InstanceID == other.InstanceID && self.WriteAlignment == other.WriteAlignment
     }
 }
-impl ::core::cmp::Eq for PRJ_VIRTUALIZATION_INSTANCE_INFO {}
-impl ::core::default::Default for PRJ_VIRTUALIZATION_INSTANCE_INFO {
+impl Eq for PRJ_VIRTUALIZATION_INSTANCE_INFO {}
+impl Default for PRJ_VIRTUALIZATION_INSTANCE_INFO {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
-pub type PRJ_CANCEL_COMMAND_CB = ::core::option::Option<unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA)>;
-pub type PRJ_END_DIRECTORY_ENUMERATION_CB = ::core::option::Option<unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA, enumerationid: *const ::windows_core::GUID) -> ::windows_core::HRESULT>;
-pub type PRJ_GET_DIRECTORY_ENUMERATION_CB = ::core::option::Option<unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA, enumerationid: *const ::windows_core::GUID, searchexpression: ::windows_core::PCWSTR, direntrybufferhandle: PRJ_DIR_ENTRY_BUFFER_HANDLE) -> ::windows_core::HRESULT>;
-pub type PRJ_GET_FILE_DATA_CB = ::core::option::Option<unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA, byteoffset: u64, length: u32) -> ::windows_core::HRESULT>;
-pub type PRJ_GET_PLACEHOLDER_INFO_CB = ::core::option::Option<unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA) -> ::windows_core::HRESULT>;
-pub type PRJ_NOTIFICATION_CB = ::core::option::Option<unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA, isdirectory: super::super::Foundation::BOOLEAN, notification: PRJ_NOTIFICATION, destinationfilename: ::windows_core::PCWSTR, operationparameters: *mut PRJ_NOTIFICATION_PARAMETERS) -> ::windows_core::HRESULT>;
-pub type PRJ_QUERY_FILE_NAME_CB = ::core::option::Option<unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA) -> ::windows_core::HRESULT>;
-pub type PRJ_START_DIRECTORY_ENUMERATION_CB = ::core::option::Option<unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA, enumerationid: *const ::windows_core::GUID) -> ::windows_core::HRESULT>;
+pub type PRJ_CANCEL_COMMAND_CB = Option<unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA)>;
+pub type PRJ_END_DIRECTORY_ENUMERATION_CB = Option<unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA, enumerationid: *const windows_core::GUID) -> windows_core::HRESULT>;
+pub type PRJ_GET_DIRECTORY_ENUMERATION_CB = Option<unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA, enumerationid: *const windows_core::GUID, searchexpression: windows_core::PCWSTR, direntrybufferhandle: PRJ_DIR_ENTRY_BUFFER_HANDLE) -> windows_core::HRESULT>;
+pub type PRJ_GET_FILE_DATA_CB = Option<unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA, byteoffset: u64, length: u32) -> windows_core::HRESULT>;
+pub type PRJ_GET_PLACEHOLDER_INFO_CB = Option<unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA) -> windows_core::HRESULT>;
+pub type PRJ_NOTIFICATION_CB = Option<unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA, isdirectory: super::super::Foundation::BOOLEAN, notification: PRJ_NOTIFICATION, destinationfilename: windows_core::PCWSTR, operationparameters: *mut PRJ_NOTIFICATION_PARAMETERS) -> windows_core::HRESULT>;
+pub type PRJ_QUERY_FILE_NAME_CB = Option<unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA) -> windows_core::HRESULT>;
+pub type PRJ_START_DIRECTORY_ENUMERATION_CB = Option<unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA, enumerationid: *const windows_core::GUID) -> windows_core::HRESULT>;

@@ -1,18 +1,18 @@
 ::windows_targets::link!("ksuser.dll" "system" fn KsCreateAllocator(connectionhandle : super::super::Foundation:: HANDLE, allocatorframing : *const KSALLOCATOR_FRAMING, allocatorhandle : *mut super::super::Foundation:: HANDLE) -> u32);
-::windows_targets::link!("ksuser.dll" "system" fn KsCreateAllocator2(connectionhandle : super::super::Foundation:: HANDLE, allocatorframing : *const KSALLOCATOR_FRAMING, allocatorhandle : *mut super::super::Foundation:: HANDLE) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("ksuser.dll" "system" fn KsCreateAllocator2(connectionhandle : super::super::Foundation:: HANDLE, allocatorframing : *const KSALLOCATOR_FRAMING, allocatorhandle : *mut super::super::Foundation:: HANDLE) -> windows_sys::core::HRESULT);
 ::windows_targets::link!("ksuser.dll" "system" fn KsCreateClock(connectionhandle : super::super::Foundation:: HANDLE, clockcreate : *const KSCLOCK_CREATE, clockhandle : *mut super::super::Foundation:: HANDLE) -> u32);
-::windows_targets::link!("ksuser.dll" "system" fn KsCreateClock2(connectionhandle : super::super::Foundation:: HANDLE, clockcreate : *const KSCLOCK_CREATE, clockhandle : *mut super::super::Foundation:: HANDLE) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("ksuser.dll" "system" fn KsCreateClock2(connectionhandle : super::super::Foundation:: HANDLE, clockcreate : *const KSCLOCK_CREATE, clockhandle : *mut super::super::Foundation:: HANDLE) -> windows_sys::core::HRESULT);
 ::windows_targets::link!("ksuser.dll" "system" fn KsCreatePin(filterhandle : super::super::Foundation:: HANDLE, connect : *const KSPIN_CONNECT, desiredaccess : u32, connectionhandle : *mut super::super::Foundation:: HANDLE) -> u32);
-::windows_targets::link!("ksuser.dll" "system" fn KsCreatePin2(filterhandle : super::super::Foundation:: HANDLE, connect : *const KSPIN_CONNECT, desiredaccess : u32, connectionhandle : *mut super::super::Foundation:: HANDLE) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("ksuser.dll" "system" fn KsCreatePin2(filterhandle : super::super::Foundation:: HANDLE, connect : *const KSPIN_CONNECT, desiredaccess : u32, connectionhandle : *mut super::super::Foundation:: HANDLE) -> windows_sys::core::HRESULT);
 ::windows_targets::link!("ksuser.dll" "system" fn KsCreateTopologyNode(parenthandle : super::super::Foundation:: HANDLE, nodecreate : *const KSNODE_CREATE, desiredaccess : u32, nodehandle : *mut super::super::Foundation:: HANDLE) -> u32);
-::windows_targets::link!("ksuser.dll" "system" fn KsCreateTopologyNode2(parenthandle : super::super::Foundation:: HANDLE, nodecreate : *const KSNODE_CREATE, desiredaccess : u32, nodehandle : *mut super::super::Foundation:: HANDLE) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("ksuser.dll" "system" fn KsCreateTopologyNode2(parenthandle : super::super::Foundation:: HANDLE, nodecreate : *const KSNODE_CREATE, desiredaccess : u32, nodehandle : *mut super::super::Foundation:: HANDLE) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Media_MediaFoundation")]
-::windows_targets::link!("ksproxy.ax" "system" fn KsGetMediaType(position : i32, ammediatype : *mut super::MediaFoundation:: AM_MEDIA_TYPE, filterhandle : super::super::Foundation:: HANDLE, pinfactoryid : u32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("ksproxy.ax" "system" fn KsGetMediaTypeCount(filterhandle : super::super::Foundation:: HANDLE, pinfactoryid : u32, mediatypecount : *mut u32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("ksproxy.ax" "system" fn KsGetMultiplePinFactoryItems(filterhandle : super::super::Foundation:: HANDLE, pinfactoryid : u32, propertyid : u32, items : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("ksproxy.ax" "system" fn KsOpenDefaultDevice(category : *const ::windows_sys::core::GUID, access : u32, devicehandle : *mut super::super::Foundation:: HANDLE) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("ksproxy.ax" "system" fn KsResolveRequiredAttributes(datarange : *const KSDATAFORMAT, attributes : *const KSMULTIPLE_ITEM) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("ksproxy.ax" "system" fn KsSynchronousDeviceControl(handle : super::super::Foundation:: HANDLE, iocontrol : u32, inbuffer : *const ::core::ffi::c_void, inlength : u32, outbuffer : *mut ::core::ffi::c_void, outlength : u32, bytesreturned : *mut u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("ksproxy.ax" "system" fn KsGetMediaType(position : i32, ammediatype : *mut super::MediaFoundation:: AM_MEDIA_TYPE, filterhandle : super::super::Foundation:: HANDLE, pinfactoryid : u32) -> windows_sys::core::HRESULT);
+::windows_targets::link!("ksproxy.ax" "system" fn KsGetMediaTypeCount(filterhandle : super::super::Foundation:: HANDLE, pinfactoryid : u32, mediatypecount : *mut u32) -> windows_sys::core::HRESULT);
+::windows_targets::link!("ksproxy.ax" "system" fn KsGetMultiplePinFactoryItems(filterhandle : super::super::Foundation:: HANDLE, pinfactoryid : u32, propertyid : u32, items : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+::windows_targets::link!("ksproxy.ax" "system" fn KsOpenDefaultDevice(category : *const windows_sys::core::GUID, access : u32, devicehandle : *mut super::super::Foundation:: HANDLE) -> windows_sys::core::HRESULT);
+::windows_targets::link!("ksproxy.ax" "system" fn KsResolveRequiredAttributes(datarange : *const KSDATAFORMAT, attributes : *const KSMULTIPLE_ITEM) -> windows_sys::core::HRESULT);
+::windows_targets::link!("ksproxy.ax" "system" fn KsSynchronousDeviceControl(handle : super::super::Foundation:: HANDLE, iocontrol : u32, inbuffer : *const core::ffi::c_void, inlength : u32, outbuffer : *mut core::ffi::c_void, outlength : u32, bytesreturned : *mut u32) -> windows_sys::core::HRESULT);
 pub const AEC_MODE_FULL_DUPLEX: u32 = 2u32;
 pub const AEC_MODE_HALF_DUPLEX: u32 = 1u32;
 pub const AEC_MODE_PASS_THROUGH: u32 = 0u32;
@@ -39,11 +39,11 @@ pub const CC_MAX_HW_DECODE_LINES: u32 = 12u32;
 pub const CONSTRICTOR_OPTION_DISABLE: CONSTRICTOR_OPTION = 0i32;
 pub const CONSTRICTOR_OPTION_MUTE: CONSTRICTOR_OPTION = 1i32;
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_KsAudio_Controller_DeviceInterface_Path: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0x13e004d6_b066_43bd_913b_a415cd13da87), pid: 3 };
+pub const DEVPKEY_KsAudio_Controller_DeviceInterface_Path: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x13e004d6_b066_43bd_913b_a415cd13da87), pid: 3 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_KsAudio_PacketSize_Constraints: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0x13e004d6_b066_43bd_913b_a415cd13da87), pid: 2 };
+pub const DEVPKEY_KsAudio_PacketSize_Constraints: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x13e004d6_b066_43bd_913b_a415cd13da87), pid: 2 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_KsAudio_PacketSize_Constraints2: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0x9404f781_7191_409b_8b0b_80bf6ec229ae), pid: 2 };
+pub const DEVPKEY_KsAudio_PacketSize_Constraints2: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x9404f781_7191_409b_8b0b_80bf6ec229ae), pid: 2 };
 pub const DIRECT_FORM: KSDS3D_HRTF_FILTER_METHOD = 0i32;
 pub const DS3D_HRTF_VERSION_1: KSDS3D_HRTF_FILTER_VERSION = 0i32;
 pub const EPcxGenLocation_enum_count: EPcxGenLocation = 4i32;
@@ -1091,12 +1091,12 @@ pub const KSSTREAM_READ: u32 = 0u32;
 pub const KSSTREAM_SYNCHRONOUS: u32 = 4096u32;
 pub const KSSTREAM_UVC_SECURE_ATTRIBUTE_SIZE: u32 = 8192u32;
 pub const KSSTREAM_WRITE: u32 = 1u32;
-pub const KSSTRING_Allocator: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("{642F5D00-4791-11D0-A5D6-28DB04C10000}");
-pub const KSSTRING_AllocatorEx: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("{091BB63B-603F-11D1-B067-00A0C9062802}");
-pub const KSSTRING_Clock: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("{53172480-4791-11D0-A5D6-28DB04C10000}");
-pub const KSSTRING_Filter: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("{9B365890-165F-11D0-A195-0020AFD156E4}");
-pub const KSSTRING_Pin: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("{146F1A80-4791-11D0-A5D6-28DB04C10000}");
-pub const KSSTRING_TopologyNode: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("{0621061A-EE75-11D0-B915-00A0C9223196}");
+pub const KSSTRING_Allocator: windows_sys::core::PCWSTR = windows_sys::core::w!("{642F5D00-4791-11D0-A5D6-28DB04C10000}");
+pub const KSSTRING_AllocatorEx: windows_sys::core::PCWSTR = windows_sys::core::w!("{091BB63B-603F-11D1-B067-00A0C9062802}");
+pub const KSSTRING_Clock: windows_sys::core::PCWSTR = windows_sys::core::w!("{53172480-4791-11D0-A5D6-28DB04C10000}");
+pub const KSSTRING_Filter: windows_sys::core::PCWSTR = windows_sys::core::w!("{9B365890-165F-11D0-A195-0020AFD156E4}");
+pub const KSSTRING_Pin: windows_sys::core::PCWSTR = windows_sys::core::w!("{146F1A80-4791-11D0-A5D6-28DB04C10000}");
+pub const KSSTRING_TopologyNode: windows_sys::core::PCWSTR = windows_sys::core::w!("{0621061A-EE75-11D0-B915-00A0C9223196}");
 pub const KSWAVE_BUFFER_ATTRIBUTEF_LOOPING: u32 = 1u32;
 pub const KSWAVE_BUFFER_ATTRIBUTEF_STATIC: u32 = 2u32;
 pub const KSWAVE_COMPATCAPS_INPUT: u32 = 0u32;
@@ -1422,8 +1422,8 @@ pub const Pipe_Allocator_FirstPin: PIPE_ALLOCATOR_PLACE = 1i32;
 pub const Pipe_Allocator_LastPin: PIPE_ALLOCATOR_PLACE = 2i32;
 pub const Pipe_Allocator_MiddlePin: PIPE_ALLOCATOR_PLACE = 3i32;
 pub const Pipe_Allocator_None: PIPE_ALLOCATOR_PLACE = 0i32;
-pub const RT_RCDATA: ::windows_sys::core::PCWSTR = 10u16 as _;
-pub const RT_STRING: ::windows_sys::core::PCWSTR = 6u16 as _;
+pub const RT_RCDATA: windows_sys::core::PCWSTR = 10u16 as _;
+pub const RT_STRING: windows_sys::core::PCWSTR = 6u16 as _;
 pub const SHORT_COEFF: KSDS3D_HRTF_COEFF_FORMAT = 1i32;
 pub const SPEAKER_ALL: u32 = 2147483648u32;
 pub const SPEAKER_BACK_CENTER: u32 = 256u32;
@@ -1671,8 +1671,8 @@ pub struct ALLOCATOR_PROPERTIES_EX {
     pub cbBuffer: i32,
     pub cbAlign: i32,
     pub cbPrefix: i32,
-    pub MemoryType: ::windows_sys::core::GUID,
-    pub BusType: ::windows_sys::core::GUID,
+    pub MemoryType: windows_sys::core::GUID,
+    pub BusType: windows_sys::core::GUID,
     pub State: PIPE_STATE,
     pub Input: PIPE_TERMINATION,
     pub Output: PIPE_TERMINATION,
@@ -1683,67 +1683,67 @@ pub struct ALLOCATOR_PROPERTIES_EX {
     pub AllocatorPlace: PIPE_ALLOCATOR_PLACE,
     pub Dimensions: PIPE_DIMENSIONS,
     pub PhysicalRange: KS_FRAMING_RANGE,
-    pub PrevSegment: *mut ::core::ffi::c_void,
+    pub PrevSegment: *mut core::ffi::c_void,
     pub CountNextSegments: u32,
-    pub NextSegments: *mut *mut ::core::ffi::c_void,
+    pub NextSegments: *mut *mut core::ffi::c_void,
     pub InsideFactors: u32,
     pub NumberPins: u32,
 }
-impl ::core::marker::Copy for ALLOCATOR_PROPERTIES_EX {}
-impl ::core::clone::Clone for ALLOCATOR_PROPERTIES_EX {
+impl Copy for ALLOCATOR_PROPERTIES_EX {}
+impl Clone for ALLOCATOR_PROPERTIES_EX {
     fn clone(&self) -> Self {
         *self
     }
 }
-pub const APO_CLASS_UUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x5989fce8_9cd0_467d_8a6a_5419e31529d4);
-pub const AUDIOENDPOINT_CLASS_UUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xc166523c_fe0c_4a94_a586_f1a80cfbbf3e);
+pub const APO_CLASS_UUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5989fce8_9cd0_467d_8a6a_5419e31529d4);
+pub const AUDIOENDPOINT_CLASS_UUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc166523c_fe0c_4a94_a586_f1a80cfbbf3e);
 #[repr(C)]
 pub struct AUDIORESOURCEMANAGEMENT_RESOURCEGROUP {
     pub ResourceGroupAcquired: super::super::Foundation::BOOL,
     pub ResourceGroupName: [u16; 256],
 }
-impl ::core::marker::Copy for AUDIORESOURCEMANAGEMENT_RESOURCEGROUP {}
-impl ::core::clone::Clone for AUDIORESOURCEMANAGEMENT_RESOURCEGROUP {
+impl Copy for AUDIORESOURCEMANAGEMENT_RESOURCEGROUP {}
+impl Clone for AUDIORESOURCEMANAGEMENT_RESOURCEGROUP {
     fn clone(&self) -> Self {
         *self
     }
 }
-pub const AUDIO_EFFECT_TYPE_ACOUSTIC_ECHO_CANCELLATION: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x6f64adbe_8211_11e2_8c70_2c27d7f001fa);
-pub const AUDIO_EFFECT_TYPE_AUTOMATIC_GAIN_CONTROL: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x6f64adc0_8211_11e2_8c70_2c27d7f001fa);
-pub const AUDIO_EFFECT_TYPE_BASS_BOOST: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x6f64adc5_8211_11e2_8c70_2c27d7f001fa);
-pub const AUDIO_EFFECT_TYPE_BASS_MANAGEMENT: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x6f64adca_8211_11e2_8c70_2c27d7f001fa);
-pub const AUDIO_EFFECT_TYPE_BEAMFORMING: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x6f64adc1_8211_11e2_8c70_2c27d7f001fa);
-pub const AUDIO_EFFECT_TYPE_CONSTANT_TONE_REMOVAL: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x6f64adc2_8211_11e2_8c70_2c27d7f001fa);
-pub const AUDIO_EFFECT_TYPE_DEEP_NOISE_SUPPRESSION: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x6f64add0_8211_11e2_8c70_2c27d7f001fa);
-pub const AUDIO_EFFECT_TYPE_DYNAMIC_RANGE_COMPRESSION: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x6f64adce_8211_11e2_8c70_2c27d7f001fa);
-pub const AUDIO_EFFECT_TYPE_ENVIRONMENTAL_EFFECTS: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x6f64adcb_8211_11e2_8c70_2c27d7f001fa);
-pub const AUDIO_EFFECT_TYPE_EQUALIZER: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x6f64adc3_8211_11e2_8c70_2c27d7f001fa);
-pub const AUDIO_EFFECT_TYPE_FAR_FIELD_BEAMFORMING: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x6f64adcf_8211_11e2_8c70_2c27d7f001fa);
-pub const AUDIO_EFFECT_TYPE_LOUDNESS_EQUALIZER: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x6f64adc4_8211_11e2_8c70_2c27d7f001fa);
-pub const AUDIO_EFFECT_TYPE_NOISE_SUPPRESSION: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x6f64adbf_8211_11e2_8c70_2c27d7f001fa);
-pub const AUDIO_EFFECT_TYPE_ROOM_CORRECTION: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x6f64adc9_8211_11e2_8c70_2c27d7f001fa);
-pub const AUDIO_EFFECT_TYPE_SPEAKER_COMPENSATION: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x6f64adcd_8211_11e2_8c70_2c27d7f001fa);
-pub const AUDIO_EFFECT_TYPE_SPEAKER_FILL: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x6f64adc8_8211_11e2_8c70_2c27d7f001fa);
-pub const AUDIO_EFFECT_TYPE_SPEAKER_PROTECTION: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x6f64adcc_8211_11e2_8c70_2c27d7f001fa);
-pub const AUDIO_EFFECT_TYPE_VIRTUAL_HEADPHONES: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x6f64adc7_8211_11e2_8c70_2c27d7f001fa);
-pub const AUDIO_EFFECT_TYPE_VIRTUAL_SURROUND: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x6f64adc6_8211_11e2_8c70_2c27d7f001fa);
-pub const AUDIO_SIGNALPROCESSINGMODE_COMMUNICATIONS: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x98951333_b9cd_48b1_a0a3_ff40682d73f7);
-pub const AUDIO_SIGNALPROCESSINGMODE_DEFAULT: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xc18e2f7e_933d_4965_b7d1_1eef228d2af3);
-pub const AUDIO_SIGNALPROCESSINGMODE_FAR_FIELD_SPEECH: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x28941cba_3be6_4a78_9a76_30fd91559b64);
-pub const AUDIO_SIGNALPROCESSINGMODE_MEDIA: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x4780004e_7133_41d8_8c74_660dadd2c0ee);
-pub const AUDIO_SIGNALPROCESSINGMODE_MOVIE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xb26feb0d_ec94_477c_9494_d1ab8e753f6e);
-pub const AUDIO_SIGNALPROCESSINGMODE_NOTIFICATION: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x9cf2a70b_f377_403b_bd6b_360863e0355c);
-pub const AUDIO_SIGNALPROCESSINGMODE_RAW: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x9e90ea20_b493_4fd1_a1a8_7e1361a956cf);
-pub const AUDIO_SIGNALPROCESSINGMODE_SPEECH: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xfc1cfc9b_b9d6_4cfa_b5e0_4bb2166878b2);
-pub const BLUETOOTHLE_MIDI_SERVICE_UUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x03b80e5a_ede8_4b33_a751_6ce34ec4c700);
-pub const BLUETOOTH_MIDI_DATAIO_CHARACTERISTIC: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x7772e5db_3868_4112_a1a9_f2669d106bf3);
+pub const AUDIO_EFFECT_TYPE_ACOUSTIC_ECHO_CANCELLATION: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6f64adbe_8211_11e2_8c70_2c27d7f001fa);
+pub const AUDIO_EFFECT_TYPE_AUTOMATIC_GAIN_CONTROL: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6f64adc0_8211_11e2_8c70_2c27d7f001fa);
+pub const AUDIO_EFFECT_TYPE_BASS_BOOST: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6f64adc5_8211_11e2_8c70_2c27d7f001fa);
+pub const AUDIO_EFFECT_TYPE_BASS_MANAGEMENT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6f64adca_8211_11e2_8c70_2c27d7f001fa);
+pub const AUDIO_EFFECT_TYPE_BEAMFORMING: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6f64adc1_8211_11e2_8c70_2c27d7f001fa);
+pub const AUDIO_EFFECT_TYPE_CONSTANT_TONE_REMOVAL: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6f64adc2_8211_11e2_8c70_2c27d7f001fa);
+pub const AUDIO_EFFECT_TYPE_DEEP_NOISE_SUPPRESSION: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6f64add0_8211_11e2_8c70_2c27d7f001fa);
+pub const AUDIO_EFFECT_TYPE_DYNAMIC_RANGE_COMPRESSION: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6f64adce_8211_11e2_8c70_2c27d7f001fa);
+pub const AUDIO_EFFECT_TYPE_ENVIRONMENTAL_EFFECTS: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6f64adcb_8211_11e2_8c70_2c27d7f001fa);
+pub const AUDIO_EFFECT_TYPE_EQUALIZER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6f64adc3_8211_11e2_8c70_2c27d7f001fa);
+pub const AUDIO_EFFECT_TYPE_FAR_FIELD_BEAMFORMING: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6f64adcf_8211_11e2_8c70_2c27d7f001fa);
+pub const AUDIO_EFFECT_TYPE_LOUDNESS_EQUALIZER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6f64adc4_8211_11e2_8c70_2c27d7f001fa);
+pub const AUDIO_EFFECT_TYPE_NOISE_SUPPRESSION: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6f64adbf_8211_11e2_8c70_2c27d7f001fa);
+pub const AUDIO_EFFECT_TYPE_ROOM_CORRECTION: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6f64adc9_8211_11e2_8c70_2c27d7f001fa);
+pub const AUDIO_EFFECT_TYPE_SPEAKER_COMPENSATION: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6f64adcd_8211_11e2_8c70_2c27d7f001fa);
+pub const AUDIO_EFFECT_TYPE_SPEAKER_FILL: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6f64adc8_8211_11e2_8c70_2c27d7f001fa);
+pub const AUDIO_EFFECT_TYPE_SPEAKER_PROTECTION: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6f64adcc_8211_11e2_8c70_2c27d7f001fa);
+pub const AUDIO_EFFECT_TYPE_VIRTUAL_HEADPHONES: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6f64adc7_8211_11e2_8c70_2c27d7f001fa);
+pub const AUDIO_EFFECT_TYPE_VIRTUAL_SURROUND: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6f64adc6_8211_11e2_8c70_2c27d7f001fa);
+pub const AUDIO_SIGNALPROCESSINGMODE_COMMUNICATIONS: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x98951333_b9cd_48b1_a0a3_ff40682d73f7);
+pub const AUDIO_SIGNALPROCESSINGMODE_DEFAULT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc18e2f7e_933d_4965_b7d1_1eef228d2af3);
+pub const AUDIO_SIGNALPROCESSINGMODE_FAR_FIELD_SPEECH: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x28941cba_3be6_4a78_9a76_30fd91559b64);
+pub const AUDIO_SIGNALPROCESSINGMODE_MEDIA: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4780004e_7133_41d8_8c74_660dadd2c0ee);
+pub const AUDIO_SIGNALPROCESSINGMODE_MOVIE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb26feb0d_ec94_477c_9494_d1ab8e753f6e);
+pub const AUDIO_SIGNALPROCESSINGMODE_NOTIFICATION: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9cf2a70b_f377_403b_bd6b_360863e0355c);
+pub const AUDIO_SIGNALPROCESSINGMODE_RAW: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9e90ea20_b493_4fd1_a1a8_7e1361a956cf);
+pub const AUDIO_SIGNALPROCESSINGMODE_SPEECH: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xfc1cfc9b_b9d6_4cfa_b5e0_4bb2166878b2);
+pub const BLUETOOTHLE_MIDI_SERVICE_UUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x03b80e5a_ede8_4b33_a751_6ce34ec4c700);
+pub const BLUETOOTH_MIDI_DATAIO_CHARACTERISTIC: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7772e5db_3868_4112_a1a9_f2669d106bf3);
 #[repr(C)]
 pub struct CC_BYTE_PAIR {
     pub Decoded: [u8; 2],
     pub Reserved: u16,
 }
-impl ::core::marker::Copy for CC_BYTE_PAIR {}
-impl ::core::clone::Clone for CC_BYTE_PAIR {
+impl Copy for CC_BYTE_PAIR {}
+impl Clone for CC_BYTE_PAIR {
     fn clone(&self) -> Self {
         *self
     }
@@ -1755,14 +1755,14 @@ pub struct CC_HW_FIELD {
     pub PictureNumber: i64,
     pub Lines: [CC_BYTE_PAIR; 12],
 }
-impl ::core::marker::Copy for CC_HW_FIELD {}
-impl ::core::clone::Clone for CC_HW_FIELD {
+impl Copy for CC_HW_FIELD {}
+impl Clone for CC_HW_FIELD {
     fn clone(&self) -> Self {
         *self
     }
 }
-pub const CLSID_KsIBasicAudioInterfaceHandler: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xb9f8ac3e_0f71_11d2_b72c_00c04fb6bd3d);
-pub const CLSID_Proxy: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x17cca71b_ecd7_11d0_b908_00a0c9223196);
+pub const CLSID_KsIBasicAudioInterfaceHandler: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb9f8ac3e_0f71_11d2_b72c_00c04fb6bd3d);
+pub const CLSID_Proxy: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x17cca71b_ecd7_11d0_b908_00a0c9223196);
 #[repr(C)]
 pub struct DEVCAPS {
     pub CanRecord: i32,
@@ -1789,8 +1789,8 @@ pub struct DEVCAPS {
     pub SeekType: i32,
     pub SimulatedHardware: i32,
 }
-impl ::core::marker::Copy for DEVCAPS {}
-impl ::core::clone::Clone for DEVCAPS {
+impl Copy for DEVCAPS {}
+impl Clone for DEVCAPS {
     fn clone(&self) -> Self {
         *self
     }
@@ -1801,8 +1801,8 @@ pub struct DS3DVECTOR {
     pub Anonymous2: DS3DVECTOR_1,
     pub Anonymous3: DS3DVECTOR_2,
 }
-impl ::core::marker::Copy for DS3DVECTOR {}
-impl ::core::clone::Clone for DS3DVECTOR {
+impl Copy for DS3DVECTOR {}
+impl Clone for DS3DVECTOR {
     fn clone(&self) -> Self {
         *self
     }
@@ -1812,8 +1812,8 @@ pub union DS3DVECTOR_0 {
     pub x: f32,
     pub dvX: f32,
 }
-impl ::core::marker::Copy for DS3DVECTOR_0 {}
-impl ::core::clone::Clone for DS3DVECTOR_0 {
+impl Copy for DS3DVECTOR_0 {}
+impl Clone for DS3DVECTOR_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -1823,8 +1823,8 @@ pub union DS3DVECTOR_1 {
     pub y: f32,
     pub dvY: f32,
 }
-impl ::core::marker::Copy for DS3DVECTOR_1 {}
-impl ::core::clone::Clone for DS3DVECTOR_1 {
+impl Copy for DS3DVECTOR_1 {}
+impl Clone for DS3DVECTOR_1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -1834,17 +1834,17 @@ pub union DS3DVECTOR_2 {
     pub z: f32,
     pub dvZ: f32,
 }
-impl ::core::marker::Copy for DS3DVECTOR_2 {}
-impl ::core::clone::Clone for DS3DVECTOR_2 {
+impl Copy for DS3DVECTOR_2 {}
+impl Clone for DS3DVECTOR_2 {
     fn clone(&self) -> Self {
         *self
     }
 }
-pub const EVENTSETID_CROSSBAR: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x6a2e0641_28e4_11d0_a18c_00a0c9118956);
-pub const EVENTSETID_TUNER: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x6a2e0606_28e4_11d0_a18c_00a0c9118956);
-pub const EVENTSETID_VIDCAP_CAMERACONTROL_REGION_OF_INTEREST: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x2fdffc5d_c732_4ba6_b5df_6b4d7fc88b8b);
-pub const EVENTSETID_VIDEODECODER: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x6a2e0621_28e4_11d0_a18c_00a0c9118956);
-pub const GUID_NULL: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000000);
+pub const EVENTSETID_CROSSBAR: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6a2e0641_28e4_11d0_a18c_00a0c9118956);
+pub const EVENTSETID_TUNER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6a2e0606_28e4_11d0_a18c_00a0c9118956);
+pub const EVENTSETID_VIDCAP_CAMERACONTROL_REGION_OF_INTEREST: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x2fdffc5d_c732_4ba6_b5df_6b4d7fc88b8b);
+pub const EVENTSETID_VIDEODECODER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6a2e0621_28e4_11d0_a18c_00a0c9118956);
+pub const GUID_NULL: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000000);
 #[repr(C)]
 pub struct INTERLEAVED_AUDIO_FORMAT_INFORMATION {
     pub Size: u32,
@@ -1855,8 +1855,8 @@ pub struct INTERLEAVED_AUDIO_FORMAT_INFORMATION {
     pub InterleavedChannelStartPosition: u32,
     pub InterleavedChannelMask: u32,
 }
-impl ::core::marker::Copy for INTERLEAVED_AUDIO_FORMAT_INFORMATION {}
-impl ::core::clone::Clone for INTERLEAVED_AUDIO_FORMAT_INFORMATION {
+impl Copy for INTERLEAVED_AUDIO_FORMAT_INFORMATION {}
+impl Clone for INTERLEAVED_AUDIO_FORMAT_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -1866,8 +1866,8 @@ pub struct KSAC3_ALTERNATE_AUDIO {
     pub fStereo: super::super::Foundation::BOOL,
     pub DualMode: u32,
 }
-impl ::core::marker::Copy for KSAC3_ALTERNATE_AUDIO {}
-impl ::core::clone::Clone for KSAC3_ALTERNATE_AUDIO {
+impl Copy for KSAC3_ALTERNATE_AUDIO {}
+impl Clone for KSAC3_ALTERNATE_AUDIO {
     fn clone(&self) -> Self {
         *self
     }
@@ -1876,8 +1876,8 @@ impl ::core::clone::Clone for KSAC3_ALTERNATE_AUDIO {
 pub struct KSAC3_BIT_STREAM_MODE {
     pub BitStreamMode: i32,
 }
-impl ::core::marker::Copy for KSAC3_BIT_STREAM_MODE {}
-impl ::core::clone::Clone for KSAC3_BIT_STREAM_MODE {
+impl Copy for KSAC3_BIT_STREAM_MODE {}
+impl Clone for KSAC3_BIT_STREAM_MODE {
     fn clone(&self) -> Self {
         *self
     }
@@ -1886,8 +1886,8 @@ impl ::core::clone::Clone for KSAC3_BIT_STREAM_MODE {
 pub struct KSAC3_DIALOGUE_LEVEL {
     pub DialogueLevel: u32,
 }
-impl ::core::marker::Copy for KSAC3_DIALOGUE_LEVEL {}
-impl ::core::clone::Clone for KSAC3_DIALOGUE_LEVEL {
+impl Copy for KSAC3_DIALOGUE_LEVEL {}
+impl Clone for KSAC3_DIALOGUE_LEVEL {
     fn clone(&self) -> Self {
         *self
     }
@@ -1897,8 +1897,8 @@ pub struct KSAC3_DOWNMIX {
     pub fDownMix: super::super::Foundation::BOOL,
     pub fDolbySurround: super::super::Foundation::BOOL,
 }
-impl ::core::marker::Copy for KSAC3_DOWNMIX {}
-impl ::core::clone::Clone for KSAC3_DOWNMIX {
+impl Copy for KSAC3_DOWNMIX {}
+impl Clone for KSAC3_DOWNMIX {
     fn clone(&self) -> Self {
         *self
     }
@@ -1908,8 +1908,8 @@ pub struct KSAC3_ERROR_CONCEALMENT {
     pub fRepeatPreviousBlock: super::super::Foundation::BOOL,
     pub fErrorInCurrentBlock: super::super::Foundation::BOOL,
 }
-impl ::core::marker::Copy for KSAC3_ERROR_CONCEALMENT {}
-impl ::core::clone::Clone for KSAC3_ERROR_CONCEALMENT {
+impl Copy for KSAC3_ERROR_CONCEALMENT {}
+impl Clone for KSAC3_ERROR_CONCEALMENT {
     fn clone(&self) -> Self {
         *self
     }
@@ -1918,16 +1918,16 @@ impl ::core::clone::Clone for KSAC3_ERROR_CONCEALMENT {
 pub struct KSAC3_ROOM_TYPE {
     pub fLargeRoom: super::super::Foundation::BOOL,
 }
-impl ::core::marker::Copy for KSAC3_ROOM_TYPE {}
-impl ::core::clone::Clone for KSAC3_ROOM_TYPE {
+impl Copy for KSAC3_ROOM_TYPE {}
+impl Clone for KSAC3_ROOM_TYPE {
     fn clone(&self) -> Self {
         *self
     }
 }
-pub const KSALGORITHMINSTANCE_SYSTEM_ACOUSTIC_ECHO_CANCEL: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x1c22c56d_9879_4f5b_a389_27996ddc2810);
-pub const KSALGORITHMINSTANCE_SYSTEM_AGC: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x950e55b9_877c_4c67_be08_e47b5611130a);
-pub const KSALGORITHMINSTANCE_SYSTEM_MICROPHONE_ARRAY_PROCESSOR: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xb6f5a0a0_9e61_4f8c_91e3_76cf0f3c471f);
-pub const KSALGORITHMINSTANCE_SYSTEM_NOISE_SUPPRESS: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x5ab0882e_7274_4516_877d_4eee99ba4fd0);
+pub const KSALGORITHMINSTANCE_SYSTEM_ACOUSTIC_ECHO_CANCEL: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1c22c56d_9879_4f5b_a389_27996ddc2810);
+pub const KSALGORITHMINSTANCE_SYSTEM_AGC: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x950e55b9_877c_4c67_be08_e47b5611130a);
+pub const KSALGORITHMINSTANCE_SYSTEM_MICROPHONE_ARRAY_PROCESSOR: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb6f5a0a0_9e61_4f8c_91e3_76cf0f3c471f);
+pub const KSALGORITHMINSTANCE_SYSTEM_NOISE_SUPPRESS: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5ab0882e_7274_4516_877d_4eee99ba4fd0);
 #[repr(C)]
 pub struct KSALLOCATOR_FRAMING {
     pub Anonymous1: KSALLOCATOR_FRAMING_0,
@@ -1937,8 +1937,8 @@ pub struct KSALLOCATOR_FRAMING {
     pub Anonymous2: KSALLOCATOR_FRAMING_1,
     pub Reserved: u32,
 }
-impl ::core::marker::Copy for KSALLOCATOR_FRAMING {}
-impl ::core::clone::Clone for KSALLOCATOR_FRAMING {
+impl Copy for KSALLOCATOR_FRAMING {}
+impl Clone for KSALLOCATOR_FRAMING {
     fn clone(&self) -> Self {
         *self
     }
@@ -1948,8 +1948,8 @@ pub union KSALLOCATOR_FRAMING_0 {
     pub OptionsFlags: u32,
     pub RequirementsFlags: u32,
 }
-impl ::core::marker::Copy for KSALLOCATOR_FRAMING_0 {}
-impl ::core::clone::Clone for KSALLOCATOR_FRAMING_0 {
+impl Copy for KSALLOCATOR_FRAMING_0 {}
+impl Clone for KSALLOCATOR_FRAMING_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -1959,8 +1959,8 @@ pub union KSALLOCATOR_FRAMING_1 {
     pub FileAlignment: u32,
     pub FramePitch: i32,
 }
-impl ::core::marker::Copy for KSALLOCATOR_FRAMING_1 {}
-impl ::core::clone::Clone for KSALLOCATOR_FRAMING_1 {
+impl Copy for KSALLOCATOR_FRAMING_1 {}
+impl Clone for KSALLOCATOR_FRAMING_1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -1973,8 +1973,8 @@ pub struct KSALLOCATOR_FRAMING_EX {
     pub PinWeight: u32,
     pub FramingItem: [KS_FRAMING_ITEM; 1],
 }
-impl ::core::marker::Copy for KSALLOCATOR_FRAMING_EX {}
-impl ::core::clone::Clone for KSALLOCATOR_FRAMING_EX {
+impl Copy for KSALLOCATOR_FRAMING_EX {}
+impl Clone for KSALLOCATOR_FRAMING_EX {
     fn clone(&self) -> Self {
         *self
     }
@@ -1983,84 +1983,84 @@ impl ::core::clone::Clone for KSALLOCATOR_FRAMING_EX {
 pub struct KSATTRIBUTE {
     pub Size: u32,
     pub Flags: u32,
-    pub Attribute: ::windows_sys::core::GUID,
+    pub Attribute: windows_sys::core::GUID,
 }
-impl ::core::marker::Copy for KSATTRIBUTE {}
-impl ::core::clone::Clone for KSATTRIBUTE {
+impl Copy for KSATTRIBUTE {}
+impl Clone for KSATTRIBUTE {
     fn clone(&self) -> Self {
         *self
     }
 }
-pub const KSATTRIBUTEID_AUDIOSIGNALPROCESSING_MODE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xe1f89eb5_5f46_419b_967b_ff6770b98401);
+pub const KSATTRIBUTEID_AUDIOSIGNALPROCESSING_MODE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe1f89eb5_5f46_419b_967b_ff6770b98401);
 #[repr(C)]
 pub struct KSATTRIBUTE_AUDIOSIGNALPROCESSING_MODE {
     pub AttributeHeader: KSATTRIBUTE,
-    pub SignalProcessingMode: ::windows_sys::core::GUID,
+    pub SignalProcessingMode: windows_sys::core::GUID,
 }
-impl ::core::marker::Copy for KSATTRIBUTE_AUDIOSIGNALPROCESSING_MODE {}
-impl ::core::clone::Clone for KSATTRIBUTE_AUDIOSIGNALPROCESSING_MODE {
+impl Copy for KSATTRIBUTE_AUDIOSIGNALPROCESSING_MODE {}
+impl Clone for KSATTRIBUTE_AUDIOSIGNALPROCESSING_MODE {
     fn clone(&self) -> Self {
         *self
     }
 }
-pub const KSAUDFNAME_3D_CENTER: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x9f0670b4_991f_11d2_ac4d_00c04f8efb68);
-pub const KSAUDFNAME_3D_DEPTH: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x63ff5747_991f_11d2_ac4d_00c04f8efb68);
-pub const KSAUDFNAME_3D_STEREO: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x185fede2_9905_11d1_95a9_00c04fb925d3);
-pub const KSAUDFNAME_ALTERNATE_MICROPHONE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x2bc31d6b_96e3_11d2_ac4c_00c04f8efb68);
-pub const KSAUDFNAME_AUX: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x185fedfe_9905_11d1_95a9_00c04fb925d3);
-pub const KSAUDFNAME_AUX_MUTE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x185fedfd_9905_11d1_95a9_00c04fb925d3);
-pub const KSAUDFNAME_AUX_VOLUME: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x185fedfc_9905_11d1_95a9_00c04fb925d3);
-pub const KSAUDFNAME_BASS: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x185fede0_9905_11d1_95a9_00c04fb925d3);
-pub const KSAUDFNAME_CD_AUDIO: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x185fedfb_9905_11d1_95a9_00c04fb925d3);
-pub const KSAUDFNAME_CD_IN_VOLUME: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x185fedf3_9905_11d1_95a9_00c04fb925d3);
-pub const KSAUDFNAME_CD_MUTE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x185fedea_9905_11d1_95a9_00c04fb925d3);
-pub const KSAUDFNAME_CD_VOLUME: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x185fede9_9905_11d1_95a9_00c04fb925d3);
-pub const KSAUDFNAME_LINE_IN: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x185fedf9_9905_11d1_95a9_00c04fb925d3);
-pub const KSAUDFNAME_LINE_IN_VOLUME: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x185fedf4_9905_11d1_95a9_00c04fb925d3);
-pub const KSAUDFNAME_LINE_MUTE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x185fedec_9905_11d1_95a9_00c04fb925d3);
-pub const KSAUDFNAME_LINE_VOLUME: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x185fedeb_9905_11d1_95a9_00c04fb925d3);
-pub const KSAUDFNAME_MASTER_MUTE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x185fede4_9905_11d1_95a9_00c04fb925d3);
-pub const KSAUDFNAME_MASTER_VOLUME: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x185fede3_9905_11d1_95a9_00c04fb925d3);
-pub const KSAUDFNAME_MICROPHONE_BOOST: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x2bc31d6a_96e3_11d2_ac4c_00c04f8efb68);
-pub const KSAUDFNAME_MIC_IN_VOLUME: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x185fedf5_9905_11d1_95a9_00c04fb925d3);
-pub const KSAUDFNAME_MIC_MUTE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x185fedee_9905_11d1_95a9_00c04fb925d3);
-pub const KSAUDFNAME_MIC_VOLUME: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x185feded_9905_11d1_95a9_00c04fb925d3);
-pub const KSAUDFNAME_MIDI: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x185fedf8_9905_11d1_95a9_00c04fb925d3);
-pub const KSAUDFNAME_MIDI_IN_VOLUME: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x185fedf2_9905_11d1_95a9_00c04fb925d3);
-pub const KSAUDFNAME_MIDI_MUTE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x185fede8_9905_11d1_95a9_00c04fb925d3);
-pub const KSAUDFNAME_MIDI_VOLUME: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x185fede7_9905_11d1_95a9_00c04fb925d3);
-pub const KSAUDFNAME_MIDRANGE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xa2cbe478_ae84_49a1_8b72_4ad09b78ed34);
-pub const KSAUDFNAME_MONO_MIX: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x00dff078_96e3_11d2_ac4c_00c04f8efb68);
-pub const KSAUDFNAME_MONO_MIX_MUTE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x2bc31d69_96e3_11d2_ac4c_00c04f8efb68);
-pub const KSAUDFNAME_MONO_MIX_VOLUME: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x22b0eafe_96e3_11d2_ac4c_00c04f8efb68);
-pub const KSAUDFNAME_MONO_OUT: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xf9b41dc3_96e2_11d2_ac4c_00c04f8efb68);
-pub const KSAUDFNAME_MONO_OUT_MUTE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x1ad247ec_96e3_11d2_ac4c_00c04f8efb68);
-pub const KSAUDFNAME_MONO_OUT_VOLUME: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x1ad247eb_96e3_11d2_ac4c_00c04f8efb68);
-pub const KSAUDFNAME_PC_SPEAKER: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x185fedff_9905_11d1_95a9_00c04fb925d3);
-pub const KSAUDFNAME_PC_SPEAKER_MUTE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x185fedf1_9905_11d1_95a9_00c04fb925d3);
-pub const KSAUDFNAME_PC_SPEAKER_VOLUME: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x185fedf0_9905_11d1_95a9_00c04fb925d3);
-pub const KSAUDFNAME_PEAKMETER: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x57e24340_fc5b_4612_a562_72b11a29dfae);
-pub const KSAUDFNAME_RECORDING_CONTROL: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x185fedfa_9905_11d1_95a9_00c04fb925d3);
-pub const KSAUDFNAME_RECORDING_SOURCE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x185fedef_9905_11d1_95a9_00c04fb925d3);
-pub const KSAUDFNAME_STEREO_MIX: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x00dff077_96e3_11d2_ac4c_00c04f8efb68);
-pub const KSAUDFNAME_STEREO_MIX_MUTE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x22b0eafd_96e3_11d2_ac4c_00c04f8efb68);
-pub const KSAUDFNAME_STEREO_MIX_VOLUME: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x1ad247ed_96e3_11d2_ac4c_00c04f8efb68);
-pub const KSAUDFNAME_TREBLE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x185fede1_9905_11d1_95a9_00c04fb925d3);
-pub const KSAUDFNAME_VIDEO: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x915daec4_a434_11d2_ac52_00c04f8efb68);
-pub const KSAUDFNAME_VIDEO_MUTE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x9b46e709_992a_11d2_ac4d_00c04f8efb68);
-pub const KSAUDFNAME_VIDEO_VOLUME: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x9b46e708_992a_11d2_ac4d_00c04f8efb68);
-pub const KSAUDFNAME_VOLUME_CONTROL: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x185fedf7_9905_11d1_95a9_00c04fb925d3);
-pub const KSAUDFNAME_WAVE_IN_VOLUME: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x185fedf6_9905_11d1_95a9_00c04fb925d3);
-pub const KSAUDFNAME_WAVE_MUTE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x185fede6_9905_11d1_95a9_00c04fb925d3);
-pub const KSAUDFNAME_WAVE_OUT_MIX: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x185fee00_9905_11d1_95a9_00c04fb925d3);
-pub const KSAUDFNAME_WAVE_VOLUME: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x185fede5_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_3D_CENTER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9f0670b4_991f_11d2_ac4d_00c04f8efb68);
+pub const KSAUDFNAME_3D_DEPTH: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x63ff5747_991f_11d2_ac4d_00c04f8efb68);
+pub const KSAUDFNAME_3D_STEREO: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x185fede2_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_ALTERNATE_MICROPHONE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x2bc31d6b_96e3_11d2_ac4c_00c04f8efb68);
+pub const KSAUDFNAME_AUX: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x185fedfe_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_AUX_MUTE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x185fedfd_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_AUX_VOLUME: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x185fedfc_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_BASS: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x185fede0_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_CD_AUDIO: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x185fedfb_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_CD_IN_VOLUME: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x185fedf3_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_CD_MUTE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x185fedea_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_CD_VOLUME: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x185fede9_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_LINE_IN: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x185fedf9_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_LINE_IN_VOLUME: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x185fedf4_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_LINE_MUTE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x185fedec_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_LINE_VOLUME: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x185fedeb_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_MASTER_MUTE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x185fede4_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_MASTER_VOLUME: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x185fede3_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_MICROPHONE_BOOST: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x2bc31d6a_96e3_11d2_ac4c_00c04f8efb68);
+pub const KSAUDFNAME_MIC_IN_VOLUME: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x185fedf5_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_MIC_MUTE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x185fedee_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_MIC_VOLUME: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x185feded_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_MIDI: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x185fedf8_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_MIDI_IN_VOLUME: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x185fedf2_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_MIDI_MUTE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x185fede8_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_MIDI_VOLUME: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x185fede7_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_MIDRANGE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa2cbe478_ae84_49a1_8b72_4ad09b78ed34);
+pub const KSAUDFNAME_MONO_MIX: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x00dff078_96e3_11d2_ac4c_00c04f8efb68);
+pub const KSAUDFNAME_MONO_MIX_MUTE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x2bc31d69_96e3_11d2_ac4c_00c04f8efb68);
+pub const KSAUDFNAME_MONO_MIX_VOLUME: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x22b0eafe_96e3_11d2_ac4c_00c04f8efb68);
+pub const KSAUDFNAME_MONO_OUT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf9b41dc3_96e2_11d2_ac4c_00c04f8efb68);
+pub const KSAUDFNAME_MONO_OUT_MUTE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1ad247ec_96e3_11d2_ac4c_00c04f8efb68);
+pub const KSAUDFNAME_MONO_OUT_VOLUME: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1ad247eb_96e3_11d2_ac4c_00c04f8efb68);
+pub const KSAUDFNAME_PC_SPEAKER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x185fedff_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_PC_SPEAKER_MUTE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x185fedf1_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_PC_SPEAKER_VOLUME: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x185fedf0_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_PEAKMETER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x57e24340_fc5b_4612_a562_72b11a29dfae);
+pub const KSAUDFNAME_RECORDING_CONTROL: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x185fedfa_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_RECORDING_SOURCE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x185fedef_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_STEREO_MIX: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x00dff077_96e3_11d2_ac4c_00c04f8efb68);
+pub const KSAUDFNAME_STEREO_MIX_MUTE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x22b0eafd_96e3_11d2_ac4c_00c04f8efb68);
+pub const KSAUDFNAME_STEREO_MIX_VOLUME: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1ad247ed_96e3_11d2_ac4c_00c04f8efb68);
+pub const KSAUDFNAME_TREBLE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x185fede1_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_VIDEO: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x915daec4_a434_11d2_ac52_00c04f8efb68);
+pub const KSAUDFNAME_VIDEO_MUTE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9b46e709_992a_11d2_ac4d_00c04f8efb68);
+pub const KSAUDFNAME_VIDEO_VOLUME: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9b46e708_992a_11d2_ac4d_00c04f8efb68);
+pub const KSAUDFNAME_VOLUME_CONTROL: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x185fedf7_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_WAVE_IN_VOLUME: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x185fedf6_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_WAVE_MUTE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x185fede6_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_WAVE_OUT_MIX: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x185fee00_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_WAVE_VOLUME: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x185fede5_9905_11d1_95a9_00c04fb925d3);
 #[repr(C)]
 pub struct KSAUDIOENGINE_BUFFER_SIZE_RANGE {
     pub MinBufferBytes: u32,
     pub MaxBufferBytes: u32,
 }
-impl ::core::marker::Copy for KSAUDIOENGINE_BUFFER_SIZE_RANGE {}
-impl ::core::clone::Clone for KSAUDIOENGINE_BUFFER_SIZE_RANGE {
+impl Copy for KSAUDIOENGINE_BUFFER_SIZE_RANGE {}
+impl Clone for KSAUDIOENGINE_BUFFER_SIZE_RANGE {
     fn clone(&self) -> Self {
         *self
     }
@@ -2071,8 +2071,8 @@ pub struct KSAUDIOENGINE_DESCRIPTOR {
     pub nOffloadPinId: u32,
     pub nLoopbackPinId: u32,
 }
-impl ::core::marker::Copy for KSAUDIOENGINE_DESCRIPTOR {}
-impl ::core::clone::Clone for KSAUDIOENGINE_DESCRIPTOR {
+impl Copy for KSAUDIOENGINE_DESCRIPTOR {}
+impl Clone for KSAUDIOENGINE_DESCRIPTOR {
     fn clone(&self) -> Self {
         *self
     }
@@ -2083,8 +2083,8 @@ pub struct KSAUDIOENGINE_DEVICECONTROLS {
     pub Mute: EDeviceControlUseType,
     pub PeakMeter: EDeviceControlUseType,
 }
-impl ::core::marker::Copy for KSAUDIOENGINE_DEVICECONTROLS {}
-impl ::core::clone::Clone for KSAUDIOENGINE_DEVICECONTROLS {
+impl Copy for KSAUDIOENGINE_DEVICECONTROLS {}
+impl Clone for KSAUDIOENGINE_DEVICECONTROLS {
     fn clone(&self) -> Self {
         *self
     }
@@ -2095,22 +2095,22 @@ pub struct KSAUDIOENGINE_VOLUMELEVEL {
     pub CurveType: AUDIO_CURVE_TYPE,
     pub CurveDuration: u64,
 }
-impl ::core::marker::Copy for KSAUDIOENGINE_VOLUMELEVEL {}
-impl ::core::clone::Clone for KSAUDIOENGINE_VOLUMELEVEL {
+impl Copy for KSAUDIOENGINE_VOLUMELEVEL {}
+impl Clone for KSAUDIOENGINE_VOLUMELEVEL {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct KSAUDIOMODULE_DESCRIPTOR {
-    pub ClassId: ::windows_sys::core::GUID,
+    pub ClassId: windows_sys::core::GUID,
     pub InstanceId: u32,
     pub VersionMajor: u32,
     pub VersionMinor: u32,
     pub Name: [u16; 128],
 }
-impl ::core::marker::Copy for KSAUDIOMODULE_DESCRIPTOR {}
-impl ::core::clone::Clone for KSAUDIOMODULE_DESCRIPTOR {
+impl Copy for KSAUDIOMODULE_DESCRIPTOR {}
+impl Clone for KSAUDIOMODULE_DESCRIPTOR {
     fn clone(&self) -> Self {
         *self
     }
@@ -2119,8 +2119,8 @@ impl ::core::clone::Clone for KSAUDIOMODULE_DESCRIPTOR {
 pub struct KSAUDIOMODULE_NOTIFICATION {
     pub Anonymous: KSAUDIOMODULE_NOTIFICATION_0,
 }
-impl ::core::marker::Copy for KSAUDIOMODULE_NOTIFICATION {}
-impl ::core::clone::Clone for KSAUDIOMODULE_NOTIFICATION {
+impl Copy for KSAUDIOMODULE_NOTIFICATION {}
+impl Clone for KSAUDIOMODULE_NOTIFICATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -2130,21 +2130,21 @@ pub union KSAUDIOMODULE_NOTIFICATION_0 {
     pub ProviderId: KSAUDIOMODULE_NOTIFICATION_0_0,
     pub Alignment: i64,
 }
-impl ::core::marker::Copy for KSAUDIOMODULE_NOTIFICATION_0 {}
-impl ::core::clone::Clone for KSAUDIOMODULE_NOTIFICATION_0 {
+impl Copy for KSAUDIOMODULE_NOTIFICATION_0 {}
+impl Clone for KSAUDIOMODULE_NOTIFICATION_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct KSAUDIOMODULE_NOTIFICATION_0_0 {
-    pub DeviceId: ::windows_sys::core::GUID,
-    pub ClassId: ::windows_sys::core::GUID,
+    pub DeviceId: windows_sys::core::GUID,
+    pub ClassId: windows_sys::core::GUID,
     pub InstanceId: u32,
     pub Reserved: u32,
 }
-impl ::core::marker::Copy for KSAUDIOMODULE_NOTIFICATION_0_0 {}
-impl ::core::clone::Clone for KSAUDIOMODULE_NOTIFICATION_0_0 {
+impl Copy for KSAUDIOMODULE_NOTIFICATION_0_0 {}
+impl Clone for KSAUDIOMODULE_NOTIFICATION_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -2152,11 +2152,11 @@ impl ::core::clone::Clone for KSAUDIOMODULE_NOTIFICATION_0_0 {
 #[repr(C)]
 pub struct KSAUDIOMODULE_PROPERTY {
     pub Property: KSIDENTIFIER,
-    pub ClassId: ::windows_sys::core::GUID,
+    pub ClassId: windows_sys::core::GUID,
     pub InstanceId: u32,
 }
-impl ::core::marker::Copy for KSAUDIOMODULE_PROPERTY {}
-impl ::core::clone::Clone for KSAUDIOMODULE_PROPERTY {
+impl Copy for KSAUDIOMODULE_PROPERTY {}
+impl Clone for KSAUDIOMODULE_PROPERTY {
     fn clone(&self) -> Self {
         *self
     }
@@ -2165,8 +2165,8 @@ impl ::core::clone::Clone for KSAUDIOMODULE_PROPERTY {
 pub struct KSAUDIO_CHANNEL_CONFIG {
     pub ActiveSpeakerPositions: i32,
 }
-impl ::core::marker::Copy for KSAUDIO_CHANNEL_CONFIG {}
-impl ::core::clone::Clone for KSAUDIO_CHANNEL_CONFIG {
+impl Copy for KSAUDIO_CHANNEL_CONFIG {}
+impl Clone for KSAUDIO_CHANNEL_CONFIG {
     fn clone(&self) -> Self {
         *self
     }
@@ -2176,8 +2176,8 @@ pub struct KSAUDIO_COPY_PROTECTION {
     pub fCopyrighted: super::super::Foundation::BOOL,
     pub fOriginal: super::super::Foundation::BOOL,
 }
-impl ::core::marker::Copy for KSAUDIO_COPY_PROTECTION {}
-impl ::core::clone::Clone for KSAUDIO_COPY_PROTECTION {
+impl Copy for KSAUDIO_COPY_PROTECTION {}
+impl Clone for KSAUDIO_COPY_PROTECTION {
     fn clone(&self) -> Self {
         *self
     }
@@ -2187,8 +2187,8 @@ pub struct KSAUDIO_DYNAMIC_RANGE {
     pub QuietCompression: u32,
     pub LoudCompression: u32,
 }
-impl ::core::marker::Copy for KSAUDIO_DYNAMIC_RANGE {}
-impl ::core::clone::Clone for KSAUDIO_DYNAMIC_RANGE {
+impl Copy for KSAUDIO_DYNAMIC_RANGE {}
+impl Clone for KSAUDIO_DYNAMIC_RANGE {
     fn clone(&self) -> Self {
         *self
     }
@@ -2202,8 +2202,8 @@ pub struct KSAUDIO_MICROPHONE_COORDINATES {
     pub wVerticalAngle: i16,
     pub wHorizontalAngle: i16,
 }
-impl ::core::marker::Copy for KSAUDIO_MICROPHONE_COORDINATES {}
-impl ::core::clone::Clone for KSAUDIO_MICROPHONE_COORDINATES {
+impl Copy for KSAUDIO_MICROPHONE_COORDINATES {}
+impl Clone for KSAUDIO_MICROPHONE_COORDINATES {
     fn clone(&self) -> Self {
         *self
     }
@@ -2221,8 +2221,8 @@ pub struct KSAUDIO_MIC_ARRAY_GEOMETRY {
     pub usNumberOfMicrophones: u16,
     pub KsMicCoord: [KSAUDIO_MICROPHONE_COORDINATES; 1],
 }
-impl ::core::marker::Copy for KSAUDIO_MIC_ARRAY_GEOMETRY {}
-impl ::core::clone::Clone for KSAUDIO_MIC_ARRAY_GEOMETRY {
+impl Copy for KSAUDIO_MIC_ARRAY_GEOMETRY {}
+impl Clone for KSAUDIO_MIC_ARRAY_GEOMETRY {
     fn clone(&self) -> Self {
         *self
     }
@@ -2233,8 +2233,8 @@ pub struct KSAUDIO_MIXCAP_TABLE {
     pub OutputChannels: u32,
     pub Capabilities: [KSAUDIO_MIX_CAPS; 1],
 }
-impl ::core::marker::Copy for KSAUDIO_MIXCAP_TABLE {}
-impl ::core::clone::Clone for KSAUDIO_MIXCAP_TABLE {
+impl Copy for KSAUDIO_MIXCAP_TABLE {}
+impl Clone for KSAUDIO_MIXCAP_TABLE {
     fn clone(&self) -> Self {
         *self
     }
@@ -2244,8 +2244,8 @@ pub struct KSAUDIO_MIXLEVEL {
     pub Mute: super::super::Foundation::BOOL,
     pub Level: i32,
 }
-impl ::core::marker::Copy for KSAUDIO_MIXLEVEL {}
-impl ::core::clone::Clone for KSAUDIO_MIXLEVEL {
+impl Copy for KSAUDIO_MIXLEVEL {}
+impl Clone for KSAUDIO_MIXLEVEL {
     fn clone(&self) -> Self {
         *self
     }
@@ -2257,8 +2257,8 @@ pub struct KSAUDIO_MIX_CAPS {
     pub Maximum: i32,
     pub Anonymous: KSAUDIO_MIX_CAPS_0,
 }
-impl ::core::marker::Copy for KSAUDIO_MIX_CAPS {}
-impl ::core::clone::Clone for KSAUDIO_MIX_CAPS {
+impl Copy for KSAUDIO_MIX_CAPS {}
+impl Clone for KSAUDIO_MIX_CAPS {
     fn clone(&self) -> Self {
         *self
     }
@@ -2268,8 +2268,8 @@ pub union KSAUDIO_MIX_CAPS_0 {
     pub Reset: i32,
     pub Resolution: i32,
 }
-impl ::core::marker::Copy for KSAUDIO_MIX_CAPS_0 {}
-impl ::core::clone::Clone for KSAUDIO_MIX_CAPS_0 {
+impl Copy for KSAUDIO_MIX_CAPS_0 {}
+impl Clone for KSAUDIO_MIX_CAPS_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -2282,8 +2282,8 @@ pub struct KSAUDIO_PACKETSIZE_CONSTRAINTS {
     pub NumProcessingModeConstraints: u32,
     pub ProcessingModeConstraints: [KSAUDIO_PACKETSIZE_PROCESSINGMODE_CONSTRAINT; 1],
 }
-impl ::core::marker::Copy for KSAUDIO_PACKETSIZE_CONSTRAINTS {}
-impl ::core::clone::Clone for KSAUDIO_PACKETSIZE_CONSTRAINTS {
+impl Copy for KSAUDIO_PACKETSIZE_CONSTRAINTS {}
+impl Clone for KSAUDIO_PACKETSIZE_CONSTRAINTS {
     fn clone(&self) -> Self {
         *self
     }
@@ -2296,20 +2296,20 @@ pub struct KSAUDIO_PACKETSIZE_CONSTRAINTS2 {
     pub NumProcessingModeConstraints: u32,
     pub ProcessingModeConstraints: [KSAUDIO_PACKETSIZE_PROCESSINGMODE_CONSTRAINT; 1],
 }
-impl ::core::marker::Copy for KSAUDIO_PACKETSIZE_CONSTRAINTS2 {}
-impl ::core::clone::Clone for KSAUDIO_PACKETSIZE_CONSTRAINTS2 {
+impl Copy for KSAUDIO_PACKETSIZE_CONSTRAINTS2 {}
+impl Clone for KSAUDIO_PACKETSIZE_CONSTRAINTS2 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct KSAUDIO_PACKETSIZE_PROCESSINGMODE_CONSTRAINT {
-    pub ProcessingMode: ::windows_sys::core::GUID,
+    pub ProcessingMode: windows_sys::core::GUID,
     pub SamplesPerProcessingPacket: u32,
     pub ProcessingPacketDurationInHns: u32,
 }
-impl ::core::marker::Copy for KSAUDIO_PACKETSIZE_PROCESSINGMODE_CONSTRAINT {}
-impl ::core::clone::Clone for KSAUDIO_PACKETSIZE_PROCESSINGMODE_CONSTRAINT {
+impl Copy for KSAUDIO_PACKETSIZE_PROCESSINGMODE_CONSTRAINT {}
+impl Clone for KSAUDIO_PACKETSIZE_PROCESSINGMODE_CONSTRAINT {
     fn clone(&self) -> Self {
         *self
     }
@@ -2319,8 +2319,8 @@ pub struct KSAUDIO_POSITION {
     pub PlayOffset: u64,
     pub WriteOffset: u64,
 }
-impl ::core::marker::Copy for KSAUDIO_POSITION {}
-impl ::core::clone::Clone for KSAUDIO_POSITION {
+impl Copy for KSAUDIO_POSITION {}
+impl Clone for KSAUDIO_POSITION {
     fn clone(&self) -> Self {
         *self
     }
@@ -2332,8 +2332,8 @@ pub struct KSAUDIO_POSITIONEX {
     pub Position: KSAUDIO_POSITION,
     pub TimeStamp2: i64,
 }
-impl ::core::marker::Copy for KSAUDIO_POSITIONEX {}
-impl ::core::clone::Clone for KSAUDIO_POSITIONEX {
+impl Copy for KSAUDIO_POSITIONEX {}
+impl Clone for KSAUDIO_POSITIONEX {
     fn clone(&self) -> Self {
         *self
     }
@@ -2343,34 +2343,34 @@ pub struct KSAUDIO_PRESENTATION_POSITION {
     pub u64PositionInBlocks: u64,
     pub u64QPCPosition: u64,
 }
-impl ::core::marker::Copy for KSAUDIO_PRESENTATION_POSITION {}
-impl ::core::clone::Clone for KSAUDIO_PRESENTATION_POSITION {
+impl Copy for KSAUDIO_PRESENTATION_POSITION {}
+impl Clone for KSAUDIO_PRESENTATION_POSITION {
     fn clone(&self) -> Self {
         *self
     }
 }
-pub const KSCAMERAPROFILE_BalancedVideoAndPhoto: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x6b52b017_42c7_4a21_bfe3_23f009149887);
-pub const KSCAMERAPROFILE_CompressedCamera: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x0e34cdc1_27ad_437f_abde_02b629f37b44);
-pub const KSCAMERAPROFILE_FaceAuth_Mode: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x81361b22_700b_4546_a2d4_c52e907bfc27);
-pub const KSCAMERAPROFILE_HDRWithWCGPhoto: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x9bf6f1ff_b555_4625_b326_a46def318fb7);
-pub const KSCAMERAPROFILE_HDRWithWCGVideo: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x4b27c336_4924_4989_b994_fdaf1dc7cd85);
-pub const KSCAMERAPROFILE_HighFrameRate: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x566e6113_8c35_48e7_b89f_d23fdc1219dc);
-pub const KSCAMERAPROFILE_HighQualityPhoto: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x32440725_961b_4ca3_b5b2_854e719d9e1b);
-pub const KSCAMERAPROFILE_Legacy: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xb4894d81_62b7_4eec_8740_80658c4a9d3e);
-pub const KSCAMERAPROFILE_PhotoSequence: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x02399d9d_4ee8_49ba_bc07_5ff156531413);
-pub const KSCAMERAPROFILE_VariablePhotoSequence: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x9ff2cb56_e75a_49b1_a928_9985d5946f87);
-pub const KSCAMERAPROFILE_VideoConferencing: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xc5444a88_e1bf_4597_b2dd_9e1ead864bb8);
-pub const KSCAMERAPROFILE_VideoHDR8: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xd4f3f4ec_bdff_4314_b1d4_008e281f74e7);
-pub const KSCAMERAPROFILE_VideoRecording: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xa0e517e8_8f8c_4f6f_9a57_46fc2f647ec0);
+pub const KSCAMERAPROFILE_BalancedVideoAndPhoto: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6b52b017_42c7_4a21_bfe3_23f009149887);
+pub const KSCAMERAPROFILE_CompressedCamera: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0e34cdc1_27ad_437f_abde_02b629f37b44);
+pub const KSCAMERAPROFILE_FaceAuth_Mode: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x81361b22_700b_4546_a2d4_c52e907bfc27);
+pub const KSCAMERAPROFILE_HDRWithWCGPhoto: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9bf6f1ff_b555_4625_b326_a46def318fb7);
+pub const KSCAMERAPROFILE_HDRWithWCGVideo: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4b27c336_4924_4989_b994_fdaf1dc7cd85);
+pub const KSCAMERAPROFILE_HighFrameRate: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x566e6113_8c35_48e7_b89f_d23fdc1219dc);
+pub const KSCAMERAPROFILE_HighQualityPhoto: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x32440725_961b_4ca3_b5b2_854e719d9e1b);
+pub const KSCAMERAPROFILE_Legacy: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb4894d81_62b7_4eec_8740_80658c4a9d3e);
+pub const KSCAMERAPROFILE_PhotoSequence: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x02399d9d_4ee8_49ba_bc07_5ff156531413);
+pub const KSCAMERAPROFILE_VariablePhotoSequence: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9ff2cb56_e75a_49b1_a928_9985d5946f87);
+pub const KSCAMERAPROFILE_VideoConferencing: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc5444a88_e1bf_4597_b2dd_9e1ead864bb8);
+pub const KSCAMERAPROFILE_VideoHDR8: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd4f3f4ec_bdff_4314_b1d4_008e281f74e7);
+pub const KSCAMERAPROFILE_VideoRecording: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa0e517e8_8f8c_4f6f_9a57_46fc2f647ec0);
 #[repr(C)]
 pub struct KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_CONFIGCAPS {
     pub Resolution: super::super::Foundation::SIZE,
     pub MaxFrameRate: KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_CONFIGCAPS_0,
     pub MaskResolution: super::super::Foundation::SIZE,
-    pub SubType: ::windows_sys::core::GUID,
+    pub SubType: windows_sys::core::GUID,
 }
-impl ::core::marker::Copy for KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_CONFIGCAPS {}
-impl ::core::clone::Clone for KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_CONFIGCAPS {
+impl Copy for KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_CONFIGCAPS {}
+impl Clone for KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_CONFIGCAPS {
     fn clone(&self) -> Self {
         *self
     }
@@ -2380,8 +2380,8 @@ pub struct KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_CONFIGCAPS_0 {
     pub Numerator: i32,
     pub Denominator: i32,
 }
-impl ::core::marker::Copy for KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_CONFIGCAPS_0 {}
-impl ::core::clone::Clone for KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_CONFIGCAPS_0 {
+impl Copy for KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_CONFIGCAPS_0 {}
+impl Clone for KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_CONFIGCAPS_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -2393,8 +2393,8 @@ pub struct KSCAMERA_EXTENDEDPROP_CAMERAOFFSET {
     pub Flag: u32,
     pub Reserved: u32,
 }
-impl ::core::marker::Copy for KSCAMERA_EXTENDEDPROP_CAMERAOFFSET {}
-impl ::core::clone::Clone for KSCAMERA_EXTENDEDPROP_CAMERAOFFSET {
+impl Copy for KSCAMERA_EXTENDEDPROP_CAMERAOFFSET {}
+impl Clone for KSCAMERA_EXTENDEDPROP_CAMERAOFFSET {
     fn clone(&self) -> Self {
         *self
     }
@@ -2412,8 +2412,8 @@ pub struct KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_CONFIGCAPS {
     pub MaxWindowSize: i32,
     pub Reserved: i32,
 }
-impl ::core::marker::Copy for KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_CONFIGCAPS {}
-impl ::core::clone::Clone for KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_CONFIGCAPS {
+impl Copy for KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_CONFIGCAPS {}
+impl Clone for KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_CONFIGCAPS {
     fn clone(&self) -> Self {
         *self
     }
@@ -2423,8 +2423,8 @@ pub struct KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_CONFIGCAPSHEADER {
     pub Size: u32,
     pub Count: u32,
 }
-impl ::core::marker::Copy for KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_CONFIGCAPSHEADER {}
-impl ::core::clone::Clone for KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_CONFIGCAPSHEADER {
+impl Copy for KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_CONFIGCAPSHEADER {}
+impl Clone for KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_CONFIGCAPSHEADER {
     fn clone(&self) -> Self {
         *self
     }
@@ -2436,8 +2436,8 @@ pub struct KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_SETTING {
     pub WindowSize: i32,
     pub Reserved: u32,
 }
-impl ::core::marker::Copy for KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_SETTING {}
-impl ::core::clone::Clone for KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_SETTING {
+impl Copy for KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_SETTING {}
+impl Clone for KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_SETTING {
     fn clone(&self) -> Self {
         *self
     }
@@ -2450,8 +2450,8 @@ pub struct KSCAMERA_EXTENDEDPROP_EVCOMPENSATION {
     pub Value: i32,
     pub Reserved: u64,
 }
-impl ::core::marker::Copy for KSCAMERA_EXTENDEDPROP_EVCOMPENSATION {}
-impl ::core::clone::Clone for KSCAMERA_EXTENDEDPROP_EVCOMPENSATION {
+impl Copy for KSCAMERA_EXTENDEDPROP_EVCOMPENSATION {}
+impl Clone for KSCAMERA_EXTENDEDPROP_EVCOMPENSATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -2463,8 +2463,8 @@ pub struct KSCAMERA_EXTENDEDPROP_FIELDOFVIEW {
     pub Flag: u32,
     pub Reserved: u32,
 }
-impl ::core::marker::Copy for KSCAMERA_EXTENDEDPROP_FIELDOFVIEW {}
-impl ::core::clone::Clone for KSCAMERA_EXTENDEDPROP_FIELDOFVIEW {
+impl Copy for KSCAMERA_EXTENDEDPROP_FIELDOFVIEW {}
+impl Clone for KSCAMERA_EXTENDEDPROP_FIELDOFVIEW {
     fn clone(&self) -> Self {
         *self
     }
@@ -2478,8 +2478,8 @@ pub struct KSCAMERA_EXTENDEDPROP_HEADER {
     pub Flags: u64,
     pub Capability: u64,
 }
-impl ::core::marker::Copy for KSCAMERA_EXTENDEDPROP_HEADER {}
-impl ::core::clone::Clone for KSCAMERA_EXTENDEDPROP_HEADER {
+impl Copy for KSCAMERA_EXTENDEDPROP_HEADER {}
+impl Clone for KSCAMERA_EXTENDEDPROP_HEADER {
     fn clone(&self) -> Self {
         *self
     }
@@ -2489,8 +2489,8 @@ pub struct KSCAMERA_EXTENDEDPROP_METADATAINFO {
     pub BufferAlignment: i32,
     pub MaxMetadataBufferSize: u32,
 }
-impl ::core::marker::Copy for KSCAMERA_EXTENDEDPROP_METADATAINFO {}
-impl ::core::clone::Clone for KSCAMERA_EXTENDEDPROP_METADATAINFO {
+impl Copy for KSCAMERA_EXTENDEDPROP_METADATAINFO {}
+impl Clone for KSCAMERA_EXTENDEDPROP_METADATAINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -2502,20 +2502,20 @@ pub struct KSCAMERA_EXTENDEDPROP_PHOTOMODE {
     pub SubMode: u32,
     pub Reserved: u32,
 }
-impl ::core::marker::Copy for KSCAMERA_EXTENDEDPROP_PHOTOMODE {}
-impl ::core::clone::Clone for KSCAMERA_EXTENDEDPROP_PHOTOMODE {
+impl Copy for KSCAMERA_EXTENDEDPROP_PHOTOMODE {}
+impl Clone for KSCAMERA_EXTENDEDPROP_PHOTOMODE {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct KSCAMERA_EXTENDEDPROP_PROFILE {
-    pub ProfileId: ::windows_sys::core::GUID,
+    pub ProfileId: windows_sys::core::GUID,
     pub Index: u32,
     pub Reserved: u32,
 }
-impl ::core::marker::Copy for KSCAMERA_EXTENDEDPROP_PROFILE {}
-impl ::core::clone::Clone for KSCAMERA_EXTENDEDPROP_PROFILE {
+impl Copy for KSCAMERA_EXTENDEDPROP_PROFILE {}
+impl Clone for KSCAMERA_EXTENDEDPROP_PROFILE {
     fn clone(&self) -> Self {
         *self
     }
@@ -2526,8 +2526,8 @@ pub struct KSCAMERA_EXTENDEDPROP_ROI_CONFIGCAPS {
     pub MaxNumberOfROIs: u32,
     pub Capability: u64,
 }
-impl ::core::marker::Copy for KSCAMERA_EXTENDEDPROP_ROI_CONFIGCAPS {}
-impl ::core::clone::Clone for KSCAMERA_EXTENDEDPROP_ROI_CONFIGCAPS {
+impl Copy for KSCAMERA_EXTENDEDPROP_ROI_CONFIGCAPS {}
+impl Clone for KSCAMERA_EXTENDEDPROP_ROI_CONFIGCAPS {
     fn clone(&self) -> Self {
         *self
     }
@@ -2538,8 +2538,8 @@ pub struct KSCAMERA_EXTENDEDPROP_ROI_CONFIGCAPSHEADER {
     pub ConfigCapCount: u32,
     pub Reserved: u64,
 }
-impl ::core::marker::Copy for KSCAMERA_EXTENDEDPROP_ROI_CONFIGCAPSHEADER {}
-impl ::core::clone::Clone for KSCAMERA_EXTENDEDPROP_ROI_CONFIGCAPSHEADER {
+impl Copy for KSCAMERA_EXTENDEDPROP_ROI_CONFIGCAPSHEADER {}
+impl Clone for KSCAMERA_EXTENDEDPROP_ROI_CONFIGCAPSHEADER {
     fn clone(&self) -> Self {
         *self
     }
@@ -2549,8 +2549,8 @@ pub struct KSCAMERA_EXTENDEDPROP_ROI_EXPOSURE {
     pub ROIInfo: KSCAMERA_EXTENDEDPROP_ROI_INFO,
     pub Reserved: u64,
 }
-impl ::core::marker::Copy for KSCAMERA_EXTENDEDPROP_ROI_EXPOSURE {}
-impl ::core::clone::Clone for KSCAMERA_EXTENDEDPROP_ROI_EXPOSURE {
+impl Copy for KSCAMERA_EXTENDEDPROP_ROI_EXPOSURE {}
+impl Clone for KSCAMERA_EXTENDEDPROP_ROI_EXPOSURE {
     fn clone(&self) -> Self {
         *self
     }
@@ -2560,8 +2560,8 @@ pub struct KSCAMERA_EXTENDEDPROP_ROI_FOCUS {
     pub ROIInfo: KSCAMERA_EXTENDEDPROP_ROI_INFO,
     pub Reserved: u64,
 }
-impl ::core::marker::Copy for KSCAMERA_EXTENDEDPROP_ROI_FOCUS {}
-impl ::core::clone::Clone for KSCAMERA_EXTENDEDPROP_ROI_FOCUS {
+impl Copy for KSCAMERA_EXTENDEDPROP_ROI_FOCUS {}
+impl Clone for KSCAMERA_EXTENDEDPROP_ROI_FOCUS {
     fn clone(&self) -> Self {
         *self
     }
@@ -2573,8 +2573,8 @@ pub struct KSCAMERA_EXTENDEDPROP_ROI_INFO {
     pub Weight: i32,
     pub RegionOfInterestType: i32,
 }
-impl ::core::marker::Copy for KSCAMERA_EXTENDEDPROP_ROI_INFO {}
-impl ::core::clone::Clone for KSCAMERA_EXTENDEDPROP_ROI_INFO {
+impl Copy for KSCAMERA_EXTENDEDPROP_ROI_INFO {}
+impl Clone for KSCAMERA_EXTENDEDPROP_ROI_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -2586,8 +2586,8 @@ pub struct KSCAMERA_EXTENDEDPROP_ROI_ISPCONTROL {
     pub Result: u32,
     pub Reserved: u32,
 }
-impl ::core::marker::Copy for KSCAMERA_EXTENDEDPROP_ROI_ISPCONTROL {}
-impl ::core::clone::Clone for KSCAMERA_EXTENDEDPROP_ROI_ISPCONTROL {
+impl Copy for KSCAMERA_EXTENDEDPROP_ROI_ISPCONTROL {}
+impl Clone for KSCAMERA_EXTENDEDPROP_ROI_ISPCONTROL {
     fn clone(&self) -> Self {
         *self
     }
@@ -2598,8 +2598,8 @@ pub struct KSCAMERA_EXTENDEDPROP_ROI_ISPCONTROLHEADER {
     pub ControlCount: u32,
     pub Reserved: u64,
 }
-impl ::core::marker::Copy for KSCAMERA_EXTENDEDPROP_ROI_ISPCONTROLHEADER {}
-impl ::core::clone::Clone for KSCAMERA_EXTENDEDPROP_ROI_ISPCONTROLHEADER {
+impl Copy for KSCAMERA_EXTENDEDPROP_ROI_ISPCONTROLHEADER {}
+impl Clone for KSCAMERA_EXTENDEDPROP_ROI_ISPCONTROLHEADER {
     fn clone(&self) -> Self {
         *self
     }
@@ -2609,8 +2609,8 @@ pub struct KSCAMERA_EXTENDEDPROP_ROI_WHITEBALANCE {
     pub ROIInfo: KSCAMERA_EXTENDEDPROP_ROI_INFO,
     pub Reserved: u64,
 }
-impl ::core::marker::Copy for KSCAMERA_EXTENDEDPROP_ROI_WHITEBALANCE {}
-impl ::core::clone::Clone for KSCAMERA_EXTENDEDPROP_ROI_WHITEBALANCE {
+impl Copy for KSCAMERA_EXTENDEDPROP_ROI_WHITEBALANCE {}
+impl Clone for KSCAMERA_EXTENDEDPROP_ROI_WHITEBALANCE {
     fn clone(&self) -> Self {
         *self
     }
@@ -2619,8 +2619,8 @@ impl ::core::clone::Clone for KSCAMERA_EXTENDEDPROP_ROI_WHITEBALANCE {
 pub struct KSCAMERA_EXTENDEDPROP_VALUE {
     pub Value: KSCAMERA_EXTENDEDPROP_VALUE_0,
 }
-impl ::core::marker::Copy for KSCAMERA_EXTENDEDPROP_VALUE {}
-impl ::core::clone::Clone for KSCAMERA_EXTENDEDPROP_VALUE {
+impl Copy for KSCAMERA_EXTENDEDPROP_VALUE {}
+impl Clone for KSCAMERA_EXTENDEDPROP_VALUE {
     fn clone(&self) -> Self {
         *self
     }
@@ -2634,8 +2634,8 @@ pub union KSCAMERA_EXTENDEDPROP_VALUE_0 {
     pub l: i32,
     pub ll: i64,
 }
-impl ::core::marker::Copy for KSCAMERA_EXTENDEDPROP_VALUE_0 {}
-impl ::core::clone::Clone for KSCAMERA_EXTENDEDPROP_VALUE_0 {
+impl Copy for KSCAMERA_EXTENDEDPROP_VALUE_0 {}
+impl Clone for KSCAMERA_EXTENDEDPROP_VALUE_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -2649,8 +2649,8 @@ pub struct KSCAMERA_EXTENDEDPROP_VIDEOPROCSETTING {
     pub VideoProc: KSCAMERA_EXTENDEDPROP_VALUE,
     pub Reserved: u64,
 }
-impl ::core::marker::Copy for KSCAMERA_EXTENDEDPROP_VIDEOPROCSETTING {}
-impl ::core::clone::Clone for KSCAMERA_EXTENDEDPROP_VIDEOPROCSETTING {
+impl Copy for KSCAMERA_EXTENDEDPROP_VIDEOPROCSETTING {}
+impl Clone for KSCAMERA_EXTENDEDPROP_VIDEOPROCSETTING {
     fn clone(&self) -> Self {
         *self
     }
@@ -2664,8 +2664,8 @@ pub struct KSCAMERA_MAXVIDEOFPS_FORPHOTORES {
     pub CaptureFPSNum: u32,
     pub CaptureFPSDenom: u32,
 }
-impl ::core::marker::Copy for KSCAMERA_MAXVIDEOFPS_FORPHOTORES {}
-impl ::core::clone::Clone for KSCAMERA_MAXVIDEOFPS_FORPHOTORES {
+impl Copy for KSCAMERA_MAXVIDEOFPS_FORPHOTORES {}
+impl Clone for KSCAMERA_MAXVIDEOFPS_FORPHOTORES {
     fn clone(&self) -> Self {
         *self
     }
@@ -2678,8 +2678,8 @@ pub struct KSCAMERA_METADATA_BACKGROUNDSEGMENTATIONMASK {
     pub ForegroundBoundingBox: super::super::Foundation::RECT,
     pub MaskData: [u8; 1],
 }
-impl ::core::marker::Copy for KSCAMERA_METADATA_BACKGROUNDSEGMENTATIONMASK {}
-impl ::core::clone::Clone for KSCAMERA_METADATA_BACKGROUNDSEGMENTATIONMASK {
+impl Copy for KSCAMERA_METADATA_BACKGROUNDSEGMENTATIONMASK {}
+impl Clone for KSCAMERA_METADATA_BACKGROUNDSEGMENTATIONMASK {
     fn clone(&self) -> Self {
         *self
     }
@@ -2702,8 +2702,8 @@ pub struct KSCAMERA_METADATA_CAPTURESTATS {
     pub SceneMode: u64,
     pub SensorFramerate: u64,
 }
-impl ::core::marker::Copy for KSCAMERA_METADATA_CAPTURESTATS {}
-impl ::core::clone::Clone for KSCAMERA_METADATA_CAPTURESTATS {
+impl Copy for KSCAMERA_METADATA_CAPTURESTATS {}
+impl Clone for KSCAMERA_METADATA_CAPTURESTATS {
     fn clone(&self) -> Self {
         *self
     }
@@ -2713,8 +2713,8 @@ pub struct KSCAMERA_METADATA_DIGITALWINDOW {
     pub Header: KSCAMERA_METADATA_ITEMHEADER,
     pub Window: KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_SETTING,
 }
-impl ::core::marker::Copy for KSCAMERA_METADATA_DIGITALWINDOW {}
-impl ::core::clone::Clone for KSCAMERA_METADATA_DIGITALWINDOW {
+impl Copy for KSCAMERA_METADATA_DIGITALWINDOW {}
+impl Clone for KSCAMERA_METADATA_DIGITALWINDOW {
     fn clone(&self) -> Self {
         *self
     }
@@ -2725,8 +2725,8 @@ pub struct KSCAMERA_METADATA_FRAMEILLUMINATION {
     pub Flags: u32,
     pub Reserved: u32,
 }
-impl ::core::marker::Copy for KSCAMERA_METADATA_FRAMEILLUMINATION {}
-impl ::core::clone::Clone for KSCAMERA_METADATA_FRAMEILLUMINATION {
+impl Copy for KSCAMERA_METADATA_FRAMEILLUMINATION {}
+impl Clone for KSCAMERA_METADATA_FRAMEILLUMINATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -2736,8 +2736,8 @@ pub struct KSCAMERA_METADATA_ITEMHEADER {
     pub MetadataId: u32,
     pub Size: u32,
 }
-impl ::core::marker::Copy for KSCAMERA_METADATA_ITEMHEADER {}
-impl ::core::clone::Clone for KSCAMERA_METADATA_ITEMHEADER {
+impl Copy for KSCAMERA_METADATA_ITEMHEADER {}
+impl Clone for KSCAMERA_METADATA_ITEMHEADER {
     fn clone(&self) -> Self {
         *self
     }
@@ -2748,8 +2748,8 @@ pub struct KSCAMERA_METADATA_PHOTOCONFIRMATION {
     pub PhotoConfirmationIndex: u32,
     pub Reserved: u32,
 }
-impl ::core::marker::Copy for KSCAMERA_METADATA_PHOTOCONFIRMATION {}
-impl ::core::clone::Clone for KSCAMERA_METADATA_PHOTOCONFIRMATION {
+impl Copy for KSCAMERA_METADATA_PHOTOCONFIRMATION {}
+impl Clone for KSCAMERA_METADATA_PHOTOCONFIRMATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -2760,8 +2760,8 @@ pub struct KSCAMERA_PERFRAMESETTING_CAP_HEADER {
     pub ItemCount: u32,
     pub Flags: u64,
 }
-impl ::core::marker::Copy for KSCAMERA_PERFRAMESETTING_CAP_HEADER {}
-impl ::core::clone::Clone for KSCAMERA_PERFRAMESETTING_CAP_HEADER {
+impl Copy for KSCAMERA_PERFRAMESETTING_CAP_HEADER {}
+impl Clone for KSCAMERA_PERFRAMESETTING_CAP_HEADER {
     fn clone(&self) -> Self {
         *self
     }
@@ -2772,8 +2772,8 @@ pub struct KSCAMERA_PERFRAMESETTING_CAP_ITEM_HEADER {
     pub Type: u32,
     pub Flags: u64,
 }
-impl ::core::marker::Copy for KSCAMERA_PERFRAMESETTING_CAP_ITEM_HEADER {}
-impl ::core::clone::Clone for KSCAMERA_PERFRAMESETTING_CAP_ITEM_HEADER {
+impl Copy for KSCAMERA_PERFRAMESETTING_CAP_ITEM_HEADER {}
+impl Clone for KSCAMERA_PERFRAMESETTING_CAP_ITEM_HEADER {
     fn clone(&self) -> Self {
         *self
     }
@@ -2782,10 +2782,10 @@ impl ::core::clone::Clone for KSCAMERA_PERFRAMESETTING_CAP_ITEM_HEADER {
 pub struct KSCAMERA_PERFRAMESETTING_CUSTOM_ITEM {
     pub Size: u32,
     pub Reserved: u32,
-    pub Id: ::windows_sys::core::GUID,
+    pub Id: windows_sys::core::GUID,
 }
-impl ::core::marker::Copy for KSCAMERA_PERFRAMESETTING_CUSTOM_ITEM {}
-impl ::core::clone::Clone for KSCAMERA_PERFRAMESETTING_CUSTOM_ITEM {
+impl Copy for KSCAMERA_PERFRAMESETTING_CUSTOM_ITEM {}
+impl Clone for KSCAMERA_PERFRAMESETTING_CUSTOM_ITEM {
     fn clone(&self) -> Self {
         *self
     }
@@ -2797,8 +2797,8 @@ pub struct KSCAMERA_PERFRAMESETTING_FRAME_HEADER {
     pub ItemCount: u32,
     pub Reserved: u32,
 }
-impl ::core::marker::Copy for KSCAMERA_PERFRAMESETTING_FRAME_HEADER {}
-impl ::core::clone::Clone for KSCAMERA_PERFRAMESETTING_FRAME_HEADER {
+impl Copy for KSCAMERA_PERFRAMESETTING_FRAME_HEADER {}
+impl Clone for KSCAMERA_PERFRAMESETTING_FRAME_HEADER {
     fn clone(&self) -> Self {
         *self
     }
@@ -2807,13 +2807,13 @@ impl ::core::clone::Clone for KSCAMERA_PERFRAMESETTING_FRAME_HEADER {
 pub struct KSCAMERA_PERFRAMESETTING_HEADER {
     pub Size: u32,
     pub FrameCount: u32,
-    pub Id: ::windows_sys::core::GUID,
+    pub Id: windows_sys::core::GUID,
     pub Flags: u64,
     pub LoopCount: u32,
     pub Reserved: u32,
 }
-impl ::core::marker::Copy for KSCAMERA_PERFRAMESETTING_HEADER {}
-impl ::core::clone::Clone for KSCAMERA_PERFRAMESETTING_HEADER {
+impl Copy for KSCAMERA_PERFRAMESETTING_HEADER {}
+impl Clone for KSCAMERA_PERFRAMESETTING_HEADER {
     fn clone(&self) -> Self {
         *self
     }
@@ -2824,34 +2824,34 @@ pub struct KSCAMERA_PERFRAMESETTING_ITEM_HEADER {
     pub Type: u32,
     pub Flags: u64,
 }
-impl ::core::marker::Copy for KSCAMERA_PERFRAMESETTING_ITEM_HEADER {}
-impl ::core::clone::Clone for KSCAMERA_PERFRAMESETTING_ITEM_HEADER {
+impl Copy for KSCAMERA_PERFRAMESETTING_ITEM_HEADER {}
+impl Clone for KSCAMERA_PERFRAMESETTING_ITEM_HEADER {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct KSCAMERA_PROFILE_CONCURRENCYINFO {
-    pub ReferenceGuid: ::windows_sys::core::GUID,
+    pub ReferenceGuid: windows_sys::core::GUID,
     pub Reserved: u32,
     pub ProfileCount: u32,
     pub Profiles: *mut KSCAMERA_PROFILE_INFO,
 }
-impl ::core::marker::Copy for KSCAMERA_PROFILE_CONCURRENCYINFO {}
-impl ::core::clone::Clone for KSCAMERA_PROFILE_CONCURRENCYINFO {
+impl Copy for KSCAMERA_PROFILE_CONCURRENCYINFO {}
+impl Clone for KSCAMERA_PROFILE_CONCURRENCYINFO {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct KSCAMERA_PROFILE_INFO {
-    pub ProfileId: ::windows_sys::core::GUID,
+    pub ProfileId: windows_sys::core::GUID,
     pub Index: u32,
     pub PinCount: u32,
     pub Pins: *mut KSCAMERA_PROFILE_PININFO,
 }
-impl ::core::marker::Copy for KSCAMERA_PROFILE_INFO {}
-impl ::core::clone::Clone for KSCAMERA_PROFILE_INFO {
+impl Copy for KSCAMERA_PROFILE_INFO {}
+impl Clone for KSCAMERA_PROFILE_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -2866,8 +2866,8 @@ pub struct KSCAMERA_PROFILE_MEDIAINFO {
     pub Data2: u32,
     pub Data3: u32,
 }
-impl ::core::marker::Copy for KSCAMERA_PROFILE_MEDIAINFO {}
-impl ::core::clone::Clone for KSCAMERA_PROFILE_MEDIAINFO {
+impl Copy for KSCAMERA_PROFILE_MEDIAINFO {}
+impl Clone for KSCAMERA_PROFILE_MEDIAINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -2877,8 +2877,8 @@ pub struct KSCAMERA_PROFILE_MEDIAINFO_0 {
     pub Numerator: u32,
     pub Denominator: u32,
 }
-impl ::core::marker::Copy for KSCAMERA_PROFILE_MEDIAINFO_0 {}
-impl ::core::clone::Clone for KSCAMERA_PROFILE_MEDIAINFO_0 {
+impl Copy for KSCAMERA_PROFILE_MEDIAINFO_0 {}
+impl Clone for KSCAMERA_PROFILE_MEDIAINFO_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -2888,21 +2888,21 @@ pub struct KSCAMERA_PROFILE_MEDIAINFO_1 {
     pub X: u32,
     pub Y: u32,
 }
-impl ::core::marker::Copy for KSCAMERA_PROFILE_MEDIAINFO_1 {}
-impl ::core::clone::Clone for KSCAMERA_PROFILE_MEDIAINFO_1 {
+impl Copy for KSCAMERA_PROFILE_MEDIAINFO_1 {}
+impl Clone for KSCAMERA_PROFILE_MEDIAINFO_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct KSCAMERA_PROFILE_PININFO {
-    pub PinCategory: ::windows_sys::core::GUID,
+    pub PinCategory: windows_sys::core::GUID,
     pub Anonymous: KSCAMERA_PROFILE_PININFO_0,
     pub MediaInfoCount: u32,
     pub MediaInfos: *mut KSCAMERA_PROFILE_MEDIAINFO,
 }
-impl ::core::marker::Copy for KSCAMERA_PROFILE_PININFO {}
-impl ::core::clone::Clone for KSCAMERA_PROFILE_PININFO {
+impl Copy for KSCAMERA_PROFILE_PININFO {}
+impl Clone for KSCAMERA_PROFILE_PININFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -2912,8 +2912,8 @@ pub union KSCAMERA_PROFILE_PININFO_0 {
     pub Anonymous: KSCAMERA_PROFILE_PININFO_0_0,
     pub Reserved: u32,
 }
-impl ::core::marker::Copy for KSCAMERA_PROFILE_PININFO_0 {}
-impl ::core::clone::Clone for KSCAMERA_PROFILE_PININFO_0 {
+impl Copy for KSCAMERA_PROFILE_PININFO_0 {}
+impl Clone for KSCAMERA_PROFILE_PININFO_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -2923,82 +2923,82 @@ pub struct KSCAMERA_PROFILE_PININFO_0_0 {
     pub PinIndex: u16,
     pub ProfileSensorType: u16,
 }
-impl ::core::marker::Copy for KSCAMERA_PROFILE_PININFO_0_0 {}
-impl ::core::clone::Clone for KSCAMERA_PROFILE_PININFO_0_0 {
+impl Copy for KSCAMERA_PROFILE_PININFO_0_0 {}
+impl Clone for KSCAMERA_PROFILE_PININFO_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-pub const KSCATEGORY_ACOUSTIC_ECHO_CANCEL: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xbf963d80_c559_11d0_8a2b_00a0c9255ac1);
-pub const KSCATEGORY_AUDIO: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x6994ad04_93ef_11d0_a3cc_00a0c9223196);
-pub const KSCATEGORY_BRIDGE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x085aff00_62ce_11cf_a5d6_28db04c10000);
-pub const KSCATEGORY_CAPTURE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x65e8773d_8f56_11d0_a3b9_00a0c9223196);
-pub const KSCATEGORY_CLOCK: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x53172480_4791_11d0_a5d6_28db04c10000);
-pub const KSCATEGORY_COMMUNICATIONSTRANSFORM: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xcf1dda2c_9743_11d0_a3ee_00a0c9223196);
-pub const KSCATEGORY_CROSSBAR: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xa799a801_a46d_11d0_a18c_00a02401dcd4);
-pub const KSCATEGORY_DATACOMPRESSOR: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x1e84c900_7e70_11d0_a5d6_28db04c10000);
-pub const KSCATEGORY_DATADECOMPRESSOR: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x2721ae20_7e70_11d0_a5d6_28db04c10000);
-pub const KSCATEGORY_DATATRANSFORM: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x2eb07ea0_7e70_11d0_a5d6_28db04c10000);
-pub const KSCATEGORY_ENCODER: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x19689bf6_c384_48fd_ad51_90e58c79f70b);
-pub const KSCATEGORY_ESCALANTE_PLATFORM_DRIVER: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x74f3aea8_9768_11d1_8e07_00a0c95ec22e);
-pub const KSCATEGORY_FILESYSTEM: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x760fed5e_9357_11d0_a3cc_00a0c9223196);
-pub const KSCATEGORY_INTERFACETRANSFORM: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xcf1dda2d_9743_11d0_a3ee_00a0c9223196);
-pub const KSCATEGORY_MEDIUMTRANSFORM: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xcf1dda2e_9743_11d0_a3ee_00a0c9223196);
-pub const KSCATEGORY_MICROPHONE_ARRAY_PROCESSOR: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x830a44f2_a32d_476b_be97_42845673b35a);
-pub const KSCATEGORY_MIXER: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xad809c00_7b88_11d0_a5d6_28db04c10000);
-pub const KSCATEGORY_MULTIPLEXER: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x7a5de1d3_01a1_452c_b481_4fa2b96271e8);
-pub const KSCATEGORY_NETWORK: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x67c9cc3c_69c4_11d2_8759_00a0c9223196);
-pub const KSCATEGORY_NETWORK_CAMERA: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xb8238652_b500_41eb_b4f3_4234f7f5ae99);
-pub const KSCATEGORY_PROXY: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x97ebaaca_95bd_11d0_a3ea_00a0c9223196);
-pub const KSCATEGORY_QUALITY: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x97ebaacb_95bd_11d0_a3ea_00a0c9223196);
-pub const KSCATEGORY_REALTIME: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xeb115ffc_10c8_4964_831d_6dcb02e6f23f);
-pub const KSCATEGORY_RENDER: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x65e8773e_8f56_11d0_a3b9_00a0c9223196);
-pub const KSCATEGORY_SENSOR_CAMERA: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x24e552d7_6523_47f7_a647_d3465bf1f5ca);
-pub const KSCATEGORY_SENSOR_GROUP: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x669c7214_0a88_4311_a7f3_4e79820e33bd);
-pub const KSCATEGORY_SPLITTER: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x0a4252a0_7e70_11d0_a5d6_28db04c10000);
-pub const KSCATEGORY_TEXT: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x6994ad06_93ef_11d0_a3cc_00a0c9223196);
-pub const KSCATEGORY_TOPOLOGY: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xdda54a40_1e4c_11d1_a050_405705c10000);
-pub const KSCATEGORY_TVAUDIO: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xa799a802_a46d_11d0_a18c_00a02401dcd4);
-pub const KSCATEGORY_TVTUNER: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xa799a800_a46d_11d0_a18c_00a02401dcd4);
-pub const KSCATEGORY_VBICODEC: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x07dad660_22f1_11d1_a9f4_00c04fbbde8f);
-pub const KSCATEGORY_VIDEO: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x6994ad05_93ef_11d0_a3cc_00a0c9223196);
-pub const KSCATEGORY_VIDEO_CAMERA: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xe5323777_f976_4f5b_9b55_b94699c46e44);
-pub const KSCATEGORY_VIRTUAL: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x3503eac4_1f26_11d1_8ab0_00a0c9223196);
-pub const KSCATEGORY_VPMUX: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xa799a803_a46d_11d0_a18c_00a02401dcd4);
-pub const KSCATEGORY_WDMAUD_USE_PIN_NAME: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x47a4fa20_a251_11d1_a050_0000f8004788);
+pub const KSCATEGORY_ACOUSTIC_ECHO_CANCEL: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xbf963d80_c559_11d0_8a2b_00a0c9255ac1);
+pub const KSCATEGORY_AUDIO: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6994ad04_93ef_11d0_a3cc_00a0c9223196);
+pub const KSCATEGORY_BRIDGE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x085aff00_62ce_11cf_a5d6_28db04c10000);
+pub const KSCATEGORY_CAPTURE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x65e8773d_8f56_11d0_a3b9_00a0c9223196);
+pub const KSCATEGORY_CLOCK: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x53172480_4791_11d0_a5d6_28db04c10000);
+pub const KSCATEGORY_COMMUNICATIONSTRANSFORM: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xcf1dda2c_9743_11d0_a3ee_00a0c9223196);
+pub const KSCATEGORY_CROSSBAR: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa799a801_a46d_11d0_a18c_00a02401dcd4);
+pub const KSCATEGORY_DATACOMPRESSOR: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1e84c900_7e70_11d0_a5d6_28db04c10000);
+pub const KSCATEGORY_DATADECOMPRESSOR: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x2721ae20_7e70_11d0_a5d6_28db04c10000);
+pub const KSCATEGORY_DATATRANSFORM: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x2eb07ea0_7e70_11d0_a5d6_28db04c10000);
+pub const KSCATEGORY_ENCODER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x19689bf6_c384_48fd_ad51_90e58c79f70b);
+pub const KSCATEGORY_ESCALANTE_PLATFORM_DRIVER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x74f3aea8_9768_11d1_8e07_00a0c95ec22e);
+pub const KSCATEGORY_FILESYSTEM: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x760fed5e_9357_11d0_a3cc_00a0c9223196);
+pub const KSCATEGORY_INTERFACETRANSFORM: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xcf1dda2d_9743_11d0_a3ee_00a0c9223196);
+pub const KSCATEGORY_MEDIUMTRANSFORM: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xcf1dda2e_9743_11d0_a3ee_00a0c9223196);
+pub const KSCATEGORY_MICROPHONE_ARRAY_PROCESSOR: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x830a44f2_a32d_476b_be97_42845673b35a);
+pub const KSCATEGORY_MIXER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xad809c00_7b88_11d0_a5d6_28db04c10000);
+pub const KSCATEGORY_MULTIPLEXER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7a5de1d3_01a1_452c_b481_4fa2b96271e8);
+pub const KSCATEGORY_NETWORK: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x67c9cc3c_69c4_11d2_8759_00a0c9223196);
+pub const KSCATEGORY_NETWORK_CAMERA: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb8238652_b500_41eb_b4f3_4234f7f5ae99);
+pub const KSCATEGORY_PROXY: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x97ebaaca_95bd_11d0_a3ea_00a0c9223196);
+pub const KSCATEGORY_QUALITY: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x97ebaacb_95bd_11d0_a3ea_00a0c9223196);
+pub const KSCATEGORY_REALTIME: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xeb115ffc_10c8_4964_831d_6dcb02e6f23f);
+pub const KSCATEGORY_RENDER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x65e8773e_8f56_11d0_a3b9_00a0c9223196);
+pub const KSCATEGORY_SENSOR_CAMERA: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x24e552d7_6523_47f7_a647_d3465bf1f5ca);
+pub const KSCATEGORY_SENSOR_GROUP: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x669c7214_0a88_4311_a7f3_4e79820e33bd);
+pub const KSCATEGORY_SPLITTER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0a4252a0_7e70_11d0_a5d6_28db04c10000);
+pub const KSCATEGORY_TEXT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6994ad06_93ef_11d0_a3cc_00a0c9223196);
+pub const KSCATEGORY_TOPOLOGY: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdda54a40_1e4c_11d1_a050_405705c10000);
+pub const KSCATEGORY_TVAUDIO: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa799a802_a46d_11d0_a18c_00a02401dcd4);
+pub const KSCATEGORY_TVTUNER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa799a800_a46d_11d0_a18c_00a02401dcd4);
+pub const KSCATEGORY_VBICODEC: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x07dad660_22f1_11d1_a9f4_00c04fbbde8f);
+pub const KSCATEGORY_VIDEO: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6994ad05_93ef_11d0_a3cc_00a0c9223196);
+pub const KSCATEGORY_VIDEO_CAMERA: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe5323777_f976_4f5b_9b55_b94699c46e44);
+pub const KSCATEGORY_VIRTUAL: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3503eac4_1f26_11d1_8ab0_00a0c9223196);
+pub const KSCATEGORY_VPMUX: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa799a803_a46d_11d0_a18c_00a02401dcd4);
+pub const KSCATEGORY_WDMAUD_USE_PIN_NAME: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x47a4fa20_a251_11d1_a050_0000f8004788);
 #[repr(C)]
 pub struct KSCLOCK_CREATE {
     pub CreateFlags: u32,
 }
-impl ::core::marker::Copy for KSCLOCK_CREATE {}
-impl ::core::clone::Clone for KSCLOCK_CREATE {
+impl Copy for KSCLOCK_CREATE {}
+impl Clone for KSCLOCK_CREATE {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct KSCOMPONENTID {
-    pub Manufacturer: ::windows_sys::core::GUID,
-    pub Product: ::windows_sys::core::GUID,
-    pub Component: ::windows_sys::core::GUID,
-    pub Name: ::windows_sys::core::GUID,
+    pub Manufacturer: windows_sys::core::GUID,
+    pub Product: windows_sys::core::GUID,
+    pub Component: windows_sys::core::GUID,
+    pub Name: windows_sys::core::GUID,
     pub Version: u32,
     pub Revision: u32,
 }
-impl ::core::marker::Copy for KSCOMPONENTID {}
-impl ::core::clone::Clone for KSCOMPONENTID {
+impl Copy for KSCOMPONENTID {}
+impl Clone for KSCOMPONENTID {
     fn clone(&self) -> Self {
         *self
     }
 }
-pub const KSCOMPONENTID_USBAUDIO: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x8f1275f0_26e9_4264_ba4d_39fff01d94aa);
+pub const KSCOMPONENTID_USBAUDIO: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8f1275f0_26e9_4264_ba4d_39fff01d94aa);
 #[repr(C)]
 pub struct KSCORRELATED_TIME {
     pub Time: i64,
     pub SystemTime: i64,
 }
-impl ::core::marker::Copy for KSCORRELATED_TIME {}
-impl ::core::clone::Clone for KSCORRELATED_TIME {
+impl Copy for KSCORRELATED_TIME {}
+impl Clone for KSCORRELATED_TIME {
     fn clone(&self) -> Self {
         *self
     }
@@ -3008,8 +3008,8 @@ pub union KSDATAFORMAT {
     pub Anonymous: KSDATAFORMAT_0,
     pub Alignment: i64,
 }
-impl ::core::marker::Copy for KSDATAFORMAT {}
-impl ::core::clone::Clone for KSDATAFORMAT {
+impl Copy for KSDATAFORMAT {}
+impl Clone for KSDATAFORMAT {
     fn clone(&self) -> Self {
         *self
     }
@@ -3020,129 +3020,129 @@ pub struct KSDATAFORMAT_0 {
     pub Flags: u32,
     pub SampleSize: u32,
     pub Reserved: u32,
-    pub MajorFormat: ::windows_sys::core::GUID,
-    pub SubFormat: ::windows_sys::core::GUID,
-    pub Specifier: ::windows_sys::core::GUID,
+    pub MajorFormat: windows_sys::core::GUID,
+    pub SubFormat: windows_sys::core::GUID,
+    pub Specifier: windows_sys::core::GUID,
 }
-impl ::core::marker::Copy for KSDATAFORMAT_0 {}
-impl ::core::clone::Clone for KSDATAFORMAT_0 {
+impl Copy for KSDATAFORMAT_0 {}
+impl Clone for KSDATAFORMAT_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-pub const KSDATAFORMAT_SPECIFIER_AC3_AUDIO: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xe06d80e4_db46_11cf_b4d1_00805f6cbbea);
-pub const KSDATAFORMAT_SPECIFIER_ANALOGVIDEO: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x0482dde0_7817_11cf_8a03_00aa006ecb65);
-pub const KSDATAFORMAT_SPECIFIER_DIALECT_AC3_AUDIO: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x36523b35_8ee5_11d1_8ca3_0060b057664a);
-pub const KSDATAFORMAT_SPECIFIER_DIALECT_MPEG1_AUDIO: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x36523b32_8ee5_11d1_8ca3_0060b057664a);
-pub const KSDATAFORMAT_SPECIFIER_DIALECT_MPEG1_VIDEO: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x36523b31_8ee5_11d1_8ca3_0060b057664a);
-pub const KSDATAFORMAT_SPECIFIER_DIALECT_MPEG2_AUDIO: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x36523b34_8ee5_11d1_8ca3_0060b057664a);
-pub const KSDATAFORMAT_SPECIFIER_DIALECT_MPEG2_VIDEO: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x36523b33_8ee5_11d1_8ca3_0060b057664a);
-pub const KSDATAFORMAT_SPECIFIER_DSOUND: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x518590a2_a184_11d0_8522_00c04fd9baf3);
-pub const KSDATAFORMAT_SPECIFIER_FILEHANDLE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x65e8773c_8f56_11d0_a3b9_00a0c9223196);
-pub const KSDATAFORMAT_SPECIFIER_FILENAME: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xaa797b40_e974_11cf_a5d6_28db04c10000);
-pub const KSDATAFORMAT_SPECIFIER_H264_VIDEO: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x2017be05_6629_4248_aaed_7e1a47bc9b9c);
-pub const KSDATAFORMAT_SPECIFIER_IMAGE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x692fa379_d3e8_4651_b5b4_0b94b013eeaf);
-pub const KSDATAFORMAT_SPECIFIER_JPEG_IMAGE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x692fa379_d3e8_4651_b5b4_0b94b013eeaf);
-pub const KSDATAFORMAT_SPECIFIER_LPCM_AUDIO: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xe06d80e6_db46_11cf_b4d1_00805f6cbbea);
-pub const KSDATAFORMAT_SPECIFIER_MPEG1_VIDEO: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x05589f82_c356_11ce_bf01_00aa0055595a);
-pub const KSDATAFORMAT_SPECIFIER_MPEG2_AUDIO: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xe06d80e5_db46_11cf_b4d1_00805f6cbbea);
-pub const KSDATAFORMAT_SPECIFIER_MPEG2_VIDEO: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xe06d80e3_db46_11cf_b4d1_00805f6cbbea);
-pub const KSDATAFORMAT_SPECIFIER_NONE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x0f6417d6_c318_11d0_a43f_00a0c9223196);
-pub const KSDATAFORMAT_SPECIFIER_VBI: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xf72a76e0_eb0a_11d0_ace4_0000c0cc16ba);
-pub const KSDATAFORMAT_SPECIFIER_VC_ID: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xad98d184_aac3_11d0_a41c_00a0c9223196);
-pub const KSDATAFORMAT_SPECIFIER_VIDEOINFO: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x05589f80_c356_11ce_bf01_00aa0055595a);
-pub const KSDATAFORMAT_SPECIFIER_VIDEOINFO2: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xf72a76a0_eb0a_11d0_ace4_0000c0cc16ba);
-pub const KSDATAFORMAT_SPECIFIER_WAVEFORMATEX: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x05589f81_c356_11ce_bf01_00aa0055595a);
-pub const KSDATAFORMAT_SUBTYPE_AC3_AUDIO: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xe06d802c_db46_11cf_b4d1_00805f6cbbea);
-pub const KSDATAFORMAT_SUBTYPE_ANALOG: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x6dba3190_67bd_11cf_a0f7_0020afd156e4);
-pub const KSDATAFORMAT_SUBTYPE_CC: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x33214cc1_011f_11d2_b4b1_00a0d102cfbe);
-pub const KSDATAFORMAT_SUBTYPE_D16: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x00000050_0004_0010_8000_00aa00389b71);
-pub const KSDATAFORMAT_SUBTYPE_DSS_AUDIO: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xa0af4f82_e163_11d0_bad9_00609744111a);
-pub const KSDATAFORMAT_SUBTYPE_DSS_VIDEO: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xa0af4f81_e163_11d0_bad9_00609744111a);
-pub const KSDATAFORMAT_SUBTYPE_DTS_AUDIO: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xe06d8033_db46_11cf_b4d1_00805f6cbbea);
-pub const KSDATAFORMAT_SUBTYPE_IEC61937_AAC: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x00000006_0cea_0010_8000_00aa00389b71);
-pub const KSDATAFORMAT_SUBTYPE_IEC61937_ATRAC: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x00000008_0cea_0010_8000_00aa00389b71);
-pub const KSDATAFORMAT_SUBTYPE_IEC61937_DOLBY_DIGITAL: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x00000092_0000_0010_8000_00aa00389b71);
-pub const KSDATAFORMAT_SUBTYPE_IEC61937_DOLBY_DIGITAL_PLUS: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x0000000a_0cea_0010_8000_00aa00389b71);
-pub const KSDATAFORMAT_SUBTYPE_IEC61937_DOLBY_DIGITAL_PLUS_ATMOS: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x0000010a_0cea_0010_8000_00aa00389b71);
-pub const KSDATAFORMAT_SUBTYPE_IEC61937_DOLBY_MAT20: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x0000010c_0cea_0010_8000_00aa00389b71);
-pub const KSDATAFORMAT_SUBTYPE_IEC61937_DOLBY_MAT21: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x0000030c_0cea_0010_8000_00aa00389b71);
-pub const KSDATAFORMAT_SUBTYPE_IEC61937_DOLBY_MLP: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x0000000c_0cea_0010_8000_00aa00389b71);
-pub const KSDATAFORMAT_SUBTYPE_IEC61937_DST: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x0000000d_0cea_0010_8000_00aa00389b71);
-pub const KSDATAFORMAT_SUBTYPE_IEC61937_DTS: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x00000008_0000_0010_8000_00aa00389b71);
-pub const KSDATAFORMAT_SUBTYPE_IEC61937_DTSX_E1: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x0000010b_0cea_0010_8000_00aa00389b71);
-pub const KSDATAFORMAT_SUBTYPE_IEC61937_DTSX_E2: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x0000030b_0cea_0010_8000_00aa00389b71);
-pub const KSDATAFORMAT_SUBTYPE_IEC61937_DTS_HD: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x0000000b_0cea_0010_8000_00aa00389b71);
-pub const KSDATAFORMAT_SUBTYPE_IEC61937_MPEG1: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x00000003_0cea_0010_8000_00aa00389b71);
-pub const KSDATAFORMAT_SUBTYPE_IEC61937_MPEG2: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x00000004_0cea_0010_8000_00aa00389b71);
-pub const KSDATAFORMAT_SUBTYPE_IEC61937_MPEG3: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x00000005_0cea_0010_8000_00aa00389b71);
-pub const KSDATAFORMAT_SUBTYPE_IEC61937_ONE_BIT_AUDIO: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x00000009_0cea_0010_8000_00aa00389b71);
-pub const KSDATAFORMAT_SUBTYPE_IEC61937_WMA_PRO: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x00000164_0000_0010_8000_00aa00389b71);
-pub const KSDATAFORMAT_SUBTYPE_IMAGE_RGB32: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x00000016_0000_0010_8000_00aa00389b71);
-pub const KSDATAFORMAT_SUBTYPE_JPEG: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x19e4a5aa_5662_4fc5_a0c0_1758028e1057);
-pub const KSDATAFORMAT_SUBTYPE_L16: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x00000051_0000_0010_8000_00aa00389b71);
-pub const KSDATAFORMAT_SUBTYPE_L16_CUSTOM: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x00000051_8000_0010_8000_00aa00389b71);
-pub const KSDATAFORMAT_SUBTYPE_L16_IR: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x00000051_0002_0010_8000_00aa00389b71);
-pub const KSDATAFORMAT_SUBTYPE_L8: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x00000032_0000_0010_8000_00aa00389b71);
-pub const KSDATAFORMAT_SUBTYPE_L8_CUSTOM: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x00000032_8000_0010_8000_00aa00389b71);
-pub const KSDATAFORMAT_SUBTYPE_L8_IR: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x00000032_0002_0010_8000_00aa00389b71);
-pub const KSDATAFORMAT_SUBTYPE_LPCM_AUDIO: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xe06d8032_db46_11cf_b4d1_00805f6cbbea);
-pub const KSDATAFORMAT_SUBTYPE_Line21_BytePair: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x6e8d4a22_310c_11d0_b79a_00aa003767a7);
-pub const KSDATAFORMAT_SUBTYPE_Line21_GOPPacket: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x6e8d4a23_310c_11d0_b79a_00aa003767a7);
-pub const KSDATAFORMAT_SUBTYPE_MIDI: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x1d262760_e957_11cf_a5d6_28db04c10000);
-pub const KSDATAFORMAT_SUBTYPE_MIDI_BUS: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x2ca15fa0_6cfe_11cf_a5d6_28db04c10000);
-pub const KSDATAFORMAT_SUBTYPE_MJPG_CUSTOM: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x47504a4d_8000_0010_8000_00aa00389b71);
-pub const KSDATAFORMAT_SUBTYPE_MJPG_DEPTH: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x47504a4d_0004_0010_8000_00aa00389b71);
-pub const KSDATAFORMAT_SUBTYPE_MJPG_IR: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x47504a4d_0002_0010_8000_00aa00389b71);
-pub const KSDATAFORMAT_SUBTYPE_MPEG1Packet: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xe436eb80_524f_11ce_9f53_0020af0ba770);
-pub const KSDATAFORMAT_SUBTYPE_MPEG1Payload: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xe436eb81_524f_11ce_9f53_0020af0ba770);
-pub const KSDATAFORMAT_SUBTYPE_MPEG1Video: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xe436eb86_524f_11ce_9f53_0020af0ba770);
-pub const KSDATAFORMAT_SUBTYPE_MPEG2_AUDIO: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xe06d802b_db46_11cf_b4d1_00805f6cbbea);
-pub const KSDATAFORMAT_SUBTYPE_MPEG2_VIDEO: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xe06d8026_db46_11cf_b4d1_00805f6cbbea);
-pub const KSDATAFORMAT_SUBTYPE_MPEGLAYER3: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x00000055_0000_0010_8000_00aa00389b71);
-pub const KSDATAFORMAT_SUBTYPE_MPEG_HEAAC: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x00001610_0000_0010_8000_00aa00389b71);
-pub const KSDATAFORMAT_SUBTYPE_NABTS: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xf72a76e2_eb0a_11d0_ace4_0000c0cc16ba);
-pub const KSDATAFORMAT_SUBTYPE_NABTS_FEC: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xe757bca1_39ac_11d1_a9f5_00c04fbbde8f);
-pub const KSDATAFORMAT_SUBTYPE_NONE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xe436eb8e_524f_11ce_9f53_0020af0ba770);
-pub const KSDATAFORMAT_SUBTYPE_OVERLAY: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xe436eb7f_524f_11ce_9f53_0020af0ba770);
-pub const KSDATAFORMAT_SUBTYPE_PCM: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x00000001_0000_0010_8000_00aa00389b71);
-pub const KSDATAFORMAT_SUBTYPE_RAW8: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xca20d9a0_3e3e_11d1_9bf9_00c04fbbdebf);
-pub const KSDATAFORMAT_SUBTYPE_RIFF: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x4995daee_9ee6_11d0_a40e_00a0c9223196);
-pub const KSDATAFORMAT_SUBTYPE_RIFFMIDI: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x4995daf0_9ee6_11d0_a40e_00a0c9223196);
-pub const KSDATAFORMAT_SUBTYPE_RIFFWAVE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xe436eb8b_524f_11ce_9f53_0020af0ba770);
-pub const KSDATAFORMAT_SUBTYPE_SDDS_AUDIO: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xe06d8034_db46_11cf_b4d1_00805f6cbbea);
-pub const KSDATAFORMAT_SUBTYPE_STANDARD_AC3_AUDIO: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x36523b25_8ee5_11d1_8ca3_0060b057664a);
-pub const KSDATAFORMAT_SUBTYPE_STANDARD_MPEG1_AUDIO: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x36523b22_8ee5_11d1_8ca3_0060b057664a);
-pub const KSDATAFORMAT_SUBTYPE_STANDARD_MPEG1_VIDEO: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x36523b21_8ee5_11d1_8ca3_0060b057664a);
-pub const KSDATAFORMAT_SUBTYPE_STANDARD_MPEG2_AUDIO: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x36523b24_8ee5_11d1_8ca3_0060b057664a);
-pub const KSDATAFORMAT_SUBTYPE_STANDARD_MPEG2_VIDEO: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x36523b23_8ee5_11d1_8ca3_0060b057664a);
-pub const KSDATAFORMAT_SUBTYPE_SUBPICTURE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xe06d802d_db46_11cf_b4d1_00805f6cbbea);
-pub const KSDATAFORMAT_SUBTYPE_TELETEXT: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xf72a76e3_eb0a_11d0_ace4_0000c0cc16ba);
-pub const KSDATAFORMAT_SUBTYPE_VPVBI: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x5a9b6a41_1a22_11d1_bad9_00609744111a);
-pub const KSDATAFORMAT_SUBTYPE_VPVideo: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x5a9b6a40_1a22_11d1_bad9_00609744111a);
-pub const KSDATAFORMAT_SUBTYPE_WAVEFORMATEX: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x00000000_0000_0010_8000_00aa00389b71);
-pub const KSDATAFORMAT_SUBTYPE_WMAUDIO2: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x00000161_0000_0010_8000_00aa00389b71);
-pub const KSDATAFORMAT_SUBTYPE_WMAUDIO3: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x00000162_0000_0010_8000_00aa00389b71);
-pub const KSDATAFORMAT_SUBTYPE_WMAUDIO_LOSSLESS: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x00000163_0000_0010_8000_00aa00389b71);
-pub const KSDATAFORMAT_TYPE_ANALOGAUDIO: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x0482dee1_7817_11cf_8a03_00aa006ecb65);
-pub const KSDATAFORMAT_TYPE_ANALOGVIDEO: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x0482dde1_7817_11cf_8a03_00aa006ecb65);
-pub const KSDATAFORMAT_TYPE_AUDIO: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x73647561_0000_0010_8000_00aa00389b71);
-pub const KSDATAFORMAT_TYPE_AUXLine21Data: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x670aea80_3a82_11d0_b79b_00aa003767a7);
-pub const KSDATAFORMAT_TYPE_DVD_ENCRYPTED_PACK: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xed0b916a_044d_11d1_aa78_00c04fc31d60);
-pub const KSDATAFORMAT_TYPE_IMAGE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x72178c23_e45b_11d5_bc2a_00b0d0f3f4ab);
-pub const KSDATAFORMAT_TYPE_MIDI: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x7364696d_0000_0010_8000_00aa00389b71);
-pub const KSDATAFORMAT_TYPE_MPEG2_PES: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xe06d8020_db46_11cf_b4d1_00805f6cbbea);
-pub const KSDATAFORMAT_TYPE_MPEG2_PROGRAM: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xe06d8022_db46_11cf_b4d1_00805f6cbbea);
-pub const KSDATAFORMAT_TYPE_MPEG2_TRANSPORT: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xe06d8023_db46_11cf_b4d1_00805f6cbbea);
-pub const KSDATAFORMAT_TYPE_MUSIC: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xe725d360_62cc_11cf_a5d6_28db04c10000);
-pub const KSDATAFORMAT_TYPE_NABTS: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xe757bca0_39ac_11d1_a9f5_00c04fbbde8f);
-pub const KSDATAFORMAT_TYPE_STANDARD_ELEMENTARY_STREAM: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x36523b11_8ee5_11d1_8ca3_0060b057664a);
-pub const KSDATAFORMAT_TYPE_STANDARD_PACK_HEADER: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x36523b13_8ee5_11d1_8ca3_0060b057664a);
-pub const KSDATAFORMAT_TYPE_STANDARD_PES_PACKET: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x36523b12_8ee5_11d1_8ca3_0060b057664a);
-pub const KSDATAFORMAT_TYPE_STREAM: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xe436eb83_524f_11ce_9f53_0020af0ba770);
-pub const KSDATAFORMAT_TYPE_TEXT: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x73747874_0000_0010_8000_00aa00389b71);
-pub const KSDATAFORMAT_TYPE_VBI: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xf72a76e1_eb0a_11d0_ace4_0000c0cc16ba);
-pub const KSDATAFORMAT_TYPE_VIDEO: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x73646976_0000_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SPECIFIER_AC3_AUDIO: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe06d80e4_db46_11cf_b4d1_00805f6cbbea);
+pub const KSDATAFORMAT_SPECIFIER_ANALOGVIDEO: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0482dde0_7817_11cf_8a03_00aa006ecb65);
+pub const KSDATAFORMAT_SPECIFIER_DIALECT_AC3_AUDIO: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x36523b35_8ee5_11d1_8ca3_0060b057664a);
+pub const KSDATAFORMAT_SPECIFIER_DIALECT_MPEG1_AUDIO: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x36523b32_8ee5_11d1_8ca3_0060b057664a);
+pub const KSDATAFORMAT_SPECIFIER_DIALECT_MPEG1_VIDEO: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x36523b31_8ee5_11d1_8ca3_0060b057664a);
+pub const KSDATAFORMAT_SPECIFIER_DIALECT_MPEG2_AUDIO: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x36523b34_8ee5_11d1_8ca3_0060b057664a);
+pub const KSDATAFORMAT_SPECIFIER_DIALECT_MPEG2_VIDEO: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x36523b33_8ee5_11d1_8ca3_0060b057664a);
+pub const KSDATAFORMAT_SPECIFIER_DSOUND: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x518590a2_a184_11d0_8522_00c04fd9baf3);
+pub const KSDATAFORMAT_SPECIFIER_FILEHANDLE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x65e8773c_8f56_11d0_a3b9_00a0c9223196);
+pub const KSDATAFORMAT_SPECIFIER_FILENAME: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xaa797b40_e974_11cf_a5d6_28db04c10000);
+pub const KSDATAFORMAT_SPECIFIER_H264_VIDEO: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x2017be05_6629_4248_aaed_7e1a47bc9b9c);
+pub const KSDATAFORMAT_SPECIFIER_IMAGE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x692fa379_d3e8_4651_b5b4_0b94b013eeaf);
+pub const KSDATAFORMAT_SPECIFIER_JPEG_IMAGE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x692fa379_d3e8_4651_b5b4_0b94b013eeaf);
+pub const KSDATAFORMAT_SPECIFIER_LPCM_AUDIO: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe06d80e6_db46_11cf_b4d1_00805f6cbbea);
+pub const KSDATAFORMAT_SPECIFIER_MPEG1_VIDEO: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x05589f82_c356_11ce_bf01_00aa0055595a);
+pub const KSDATAFORMAT_SPECIFIER_MPEG2_AUDIO: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe06d80e5_db46_11cf_b4d1_00805f6cbbea);
+pub const KSDATAFORMAT_SPECIFIER_MPEG2_VIDEO: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe06d80e3_db46_11cf_b4d1_00805f6cbbea);
+pub const KSDATAFORMAT_SPECIFIER_NONE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0f6417d6_c318_11d0_a43f_00a0c9223196);
+pub const KSDATAFORMAT_SPECIFIER_VBI: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf72a76e0_eb0a_11d0_ace4_0000c0cc16ba);
+pub const KSDATAFORMAT_SPECIFIER_VC_ID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xad98d184_aac3_11d0_a41c_00a0c9223196);
+pub const KSDATAFORMAT_SPECIFIER_VIDEOINFO: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x05589f80_c356_11ce_bf01_00aa0055595a);
+pub const KSDATAFORMAT_SPECIFIER_VIDEOINFO2: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf72a76a0_eb0a_11d0_ace4_0000c0cc16ba);
+pub const KSDATAFORMAT_SPECIFIER_WAVEFORMATEX: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x05589f81_c356_11ce_bf01_00aa0055595a);
+pub const KSDATAFORMAT_SUBTYPE_AC3_AUDIO: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe06d802c_db46_11cf_b4d1_00805f6cbbea);
+pub const KSDATAFORMAT_SUBTYPE_ANALOG: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6dba3190_67bd_11cf_a0f7_0020afd156e4);
+pub const KSDATAFORMAT_SUBTYPE_CC: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x33214cc1_011f_11d2_b4b1_00a0d102cfbe);
+pub const KSDATAFORMAT_SUBTYPE_D16: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x00000050_0004_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_DSS_AUDIO: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa0af4f82_e163_11d0_bad9_00609744111a);
+pub const KSDATAFORMAT_SUBTYPE_DSS_VIDEO: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa0af4f81_e163_11d0_bad9_00609744111a);
+pub const KSDATAFORMAT_SUBTYPE_DTS_AUDIO: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe06d8033_db46_11cf_b4d1_00805f6cbbea);
+pub const KSDATAFORMAT_SUBTYPE_IEC61937_AAC: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x00000006_0cea_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_IEC61937_ATRAC: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x00000008_0cea_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_IEC61937_DOLBY_DIGITAL: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x00000092_0000_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_IEC61937_DOLBY_DIGITAL_PLUS: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0000000a_0cea_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_IEC61937_DOLBY_DIGITAL_PLUS_ATMOS: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0000010a_0cea_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_IEC61937_DOLBY_MAT20: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0000010c_0cea_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_IEC61937_DOLBY_MAT21: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0000030c_0cea_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_IEC61937_DOLBY_MLP: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0000000c_0cea_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_IEC61937_DST: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0000000d_0cea_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_IEC61937_DTS: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x00000008_0000_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_IEC61937_DTSX_E1: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0000010b_0cea_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_IEC61937_DTSX_E2: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0000030b_0cea_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_IEC61937_DTS_HD: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0000000b_0cea_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_IEC61937_MPEG1: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x00000003_0cea_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_IEC61937_MPEG2: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x00000004_0cea_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_IEC61937_MPEG3: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x00000005_0cea_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_IEC61937_ONE_BIT_AUDIO: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x00000009_0cea_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_IEC61937_WMA_PRO: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x00000164_0000_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_IMAGE_RGB32: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x00000016_0000_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_JPEG: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x19e4a5aa_5662_4fc5_a0c0_1758028e1057);
+pub const KSDATAFORMAT_SUBTYPE_L16: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x00000051_0000_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_L16_CUSTOM: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x00000051_8000_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_L16_IR: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x00000051_0002_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_L8: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x00000032_0000_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_L8_CUSTOM: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x00000032_8000_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_L8_IR: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x00000032_0002_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_LPCM_AUDIO: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe06d8032_db46_11cf_b4d1_00805f6cbbea);
+pub const KSDATAFORMAT_SUBTYPE_Line21_BytePair: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6e8d4a22_310c_11d0_b79a_00aa003767a7);
+pub const KSDATAFORMAT_SUBTYPE_Line21_GOPPacket: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6e8d4a23_310c_11d0_b79a_00aa003767a7);
+pub const KSDATAFORMAT_SUBTYPE_MIDI: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1d262760_e957_11cf_a5d6_28db04c10000);
+pub const KSDATAFORMAT_SUBTYPE_MIDI_BUS: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x2ca15fa0_6cfe_11cf_a5d6_28db04c10000);
+pub const KSDATAFORMAT_SUBTYPE_MJPG_CUSTOM: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x47504a4d_8000_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_MJPG_DEPTH: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x47504a4d_0004_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_MJPG_IR: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x47504a4d_0002_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_MPEG1Packet: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe436eb80_524f_11ce_9f53_0020af0ba770);
+pub const KSDATAFORMAT_SUBTYPE_MPEG1Payload: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe436eb81_524f_11ce_9f53_0020af0ba770);
+pub const KSDATAFORMAT_SUBTYPE_MPEG1Video: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe436eb86_524f_11ce_9f53_0020af0ba770);
+pub const KSDATAFORMAT_SUBTYPE_MPEG2_AUDIO: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe06d802b_db46_11cf_b4d1_00805f6cbbea);
+pub const KSDATAFORMAT_SUBTYPE_MPEG2_VIDEO: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe06d8026_db46_11cf_b4d1_00805f6cbbea);
+pub const KSDATAFORMAT_SUBTYPE_MPEGLAYER3: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x00000055_0000_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_MPEG_HEAAC: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x00001610_0000_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_NABTS: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf72a76e2_eb0a_11d0_ace4_0000c0cc16ba);
+pub const KSDATAFORMAT_SUBTYPE_NABTS_FEC: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe757bca1_39ac_11d1_a9f5_00c04fbbde8f);
+pub const KSDATAFORMAT_SUBTYPE_NONE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe436eb8e_524f_11ce_9f53_0020af0ba770);
+pub const KSDATAFORMAT_SUBTYPE_OVERLAY: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe436eb7f_524f_11ce_9f53_0020af0ba770);
+pub const KSDATAFORMAT_SUBTYPE_PCM: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x00000001_0000_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_RAW8: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xca20d9a0_3e3e_11d1_9bf9_00c04fbbdebf);
+pub const KSDATAFORMAT_SUBTYPE_RIFF: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4995daee_9ee6_11d0_a40e_00a0c9223196);
+pub const KSDATAFORMAT_SUBTYPE_RIFFMIDI: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4995daf0_9ee6_11d0_a40e_00a0c9223196);
+pub const KSDATAFORMAT_SUBTYPE_RIFFWAVE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe436eb8b_524f_11ce_9f53_0020af0ba770);
+pub const KSDATAFORMAT_SUBTYPE_SDDS_AUDIO: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe06d8034_db46_11cf_b4d1_00805f6cbbea);
+pub const KSDATAFORMAT_SUBTYPE_STANDARD_AC3_AUDIO: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x36523b25_8ee5_11d1_8ca3_0060b057664a);
+pub const KSDATAFORMAT_SUBTYPE_STANDARD_MPEG1_AUDIO: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x36523b22_8ee5_11d1_8ca3_0060b057664a);
+pub const KSDATAFORMAT_SUBTYPE_STANDARD_MPEG1_VIDEO: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x36523b21_8ee5_11d1_8ca3_0060b057664a);
+pub const KSDATAFORMAT_SUBTYPE_STANDARD_MPEG2_AUDIO: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x36523b24_8ee5_11d1_8ca3_0060b057664a);
+pub const KSDATAFORMAT_SUBTYPE_STANDARD_MPEG2_VIDEO: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x36523b23_8ee5_11d1_8ca3_0060b057664a);
+pub const KSDATAFORMAT_SUBTYPE_SUBPICTURE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe06d802d_db46_11cf_b4d1_00805f6cbbea);
+pub const KSDATAFORMAT_SUBTYPE_TELETEXT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf72a76e3_eb0a_11d0_ace4_0000c0cc16ba);
+pub const KSDATAFORMAT_SUBTYPE_VPVBI: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5a9b6a41_1a22_11d1_bad9_00609744111a);
+pub const KSDATAFORMAT_SUBTYPE_VPVideo: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5a9b6a40_1a22_11d1_bad9_00609744111a);
+pub const KSDATAFORMAT_SUBTYPE_WAVEFORMATEX: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x00000000_0000_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_WMAUDIO2: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x00000161_0000_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_WMAUDIO3: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x00000162_0000_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_WMAUDIO_LOSSLESS: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x00000163_0000_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_TYPE_ANALOGAUDIO: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0482dee1_7817_11cf_8a03_00aa006ecb65);
+pub const KSDATAFORMAT_TYPE_ANALOGVIDEO: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0482dde1_7817_11cf_8a03_00aa006ecb65);
+pub const KSDATAFORMAT_TYPE_AUDIO: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x73647561_0000_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_TYPE_AUXLine21Data: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x670aea80_3a82_11d0_b79b_00aa003767a7);
+pub const KSDATAFORMAT_TYPE_DVD_ENCRYPTED_PACK: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xed0b916a_044d_11d1_aa78_00c04fc31d60);
+pub const KSDATAFORMAT_TYPE_IMAGE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x72178c23_e45b_11d5_bc2a_00b0d0f3f4ab);
+pub const KSDATAFORMAT_TYPE_MIDI: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7364696d_0000_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_TYPE_MPEG2_PES: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe06d8020_db46_11cf_b4d1_00805f6cbbea);
+pub const KSDATAFORMAT_TYPE_MPEG2_PROGRAM: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe06d8022_db46_11cf_b4d1_00805f6cbbea);
+pub const KSDATAFORMAT_TYPE_MPEG2_TRANSPORT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe06d8023_db46_11cf_b4d1_00805f6cbbea);
+pub const KSDATAFORMAT_TYPE_MUSIC: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe725d360_62cc_11cf_a5d6_28db04c10000);
+pub const KSDATAFORMAT_TYPE_NABTS: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe757bca0_39ac_11d1_a9f5_00c04fbbde8f);
+pub const KSDATAFORMAT_TYPE_STANDARD_ELEMENTARY_STREAM: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x36523b11_8ee5_11d1_8ca3_0060b057664a);
+pub const KSDATAFORMAT_TYPE_STANDARD_PACK_HEADER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x36523b13_8ee5_11d1_8ca3_0060b057664a);
+pub const KSDATAFORMAT_TYPE_STANDARD_PES_PACKET: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x36523b12_8ee5_11d1_8ca3_0060b057664a);
+pub const KSDATAFORMAT_TYPE_STREAM: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe436eb83_524f_11ce_9f53_0020af0ba770);
+pub const KSDATAFORMAT_TYPE_TEXT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x73747874_0000_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_TYPE_VBI: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf72a76e1_eb0a_11d0_ace4_0000c0cc16ba);
+pub const KSDATAFORMAT_TYPE_VIDEO: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x73646976_0000_0010_8000_00aa00389b71);
 #[repr(C)]
 pub struct KSDATARANGE_AUDIO {
     pub DataRange: KSDATAFORMAT,
@@ -3152,8 +3152,8 @@ pub struct KSDATARANGE_AUDIO {
     pub MinimumSampleFrequency: u32,
     pub MaximumSampleFrequency: u32,
 }
-impl ::core::marker::Copy for KSDATARANGE_AUDIO {}
-impl ::core::clone::Clone for KSDATARANGE_AUDIO {
+impl Copy for KSDATARANGE_AUDIO {}
+impl Clone for KSDATARANGE_AUDIO {
     fn clone(&self) -> Self {
         *self
     }
@@ -3161,26 +3161,26 @@ impl ::core::clone::Clone for KSDATARANGE_AUDIO {
 #[repr(C)]
 pub struct KSDATARANGE_MUSIC {
     pub DataRange: KSDATAFORMAT,
-    pub Technology: ::windows_sys::core::GUID,
+    pub Technology: windows_sys::core::GUID,
     pub Channels: u32,
     pub Notes: u32,
     pub ChannelMask: u32,
 }
-impl ::core::marker::Copy for KSDATARANGE_MUSIC {}
-impl ::core::clone::Clone for KSDATARANGE_MUSIC {
+impl Copy for KSDATARANGE_MUSIC {}
+impl Clone for KSDATARANGE_MUSIC {
     fn clone(&self) -> Self {
         *self
     }
 }
-pub const KSDEGRADESETID_Standard: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x9f564180_704c_11d0_a5d6_28db04c10000);
+pub const KSDEGRADESETID_Standard: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9f564180_704c_11d0_a5d6_28db04c10000);
 #[repr(C)]
 pub struct KSDEVICE_PROFILE_INFO {
     pub Type: u32,
     pub Size: u32,
     pub Anonymous: KSDEVICE_PROFILE_INFO_0,
 }
-impl ::core::marker::Copy for KSDEVICE_PROFILE_INFO {}
-impl ::core::clone::Clone for KSDEVICE_PROFILE_INFO {
+impl Copy for KSDEVICE_PROFILE_INFO {}
+impl Clone for KSDEVICE_PROFILE_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -3189,8 +3189,8 @@ impl ::core::clone::Clone for KSDEVICE_PROFILE_INFO {
 pub union KSDEVICE_PROFILE_INFO_0 {
     pub Camera: KSDEVICE_PROFILE_INFO_0_0,
 }
-impl ::core::marker::Copy for KSDEVICE_PROFILE_INFO_0 {}
-impl ::core::clone::Clone for KSDEVICE_PROFILE_INFO_0 {
+impl Copy for KSDEVICE_PROFILE_INFO_0 {}
+impl Clone for KSDEVICE_PROFILE_INFO_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3202,8 +3202,8 @@ pub struct KSDEVICE_PROFILE_INFO_0_0 {
     pub ConcurrencyCount: u32,
     pub Concurrency: *mut KSCAMERA_PROFILE_CONCURRENCYINFO,
 }
-impl ::core::marker::Copy for KSDEVICE_PROFILE_INFO_0_0 {}
-impl ::core::clone::Clone for KSDEVICE_PROFILE_INFO_0_0 {
+impl Copy for KSDEVICE_PROFILE_INFO_0_0 {}
+impl Clone for KSDEVICE_PROFILE_INFO_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3215,8 +3215,8 @@ pub struct KSDISPLAYCHANGE {
     pub BitsPerPel: u32,
     pub DeviceID: [u16; 1],
 }
-impl ::core::marker::Copy for KSDISPLAYCHANGE {}
-impl ::core::clone::Clone for KSDISPLAYCHANGE {
+impl Copy for KSDISPLAYCHANGE {}
+impl Clone for KSDISPLAYCHANGE {
     fn clone(&self) -> Self {
         *self
     }
@@ -3233,8 +3233,8 @@ pub struct KSDS3D_BUFFER_ALL {
     pub MaxDistance: f32,
     pub Mode: u32,
 }
-impl ::core::marker::Copy for KSDS3D_BUFFER_ALL {}
-impl ::core::clone::Clone for KSDS3D_BUFFER_ALL {
+impl Copy for KSDS3D_BUFFER_ALL {}
+impl Clone for KSDS3D_BUFFER_ALL {
     fn clone(&self) -> Self {
         *self
     }
@@ -3244,8 +3244,8 @@ pub struct KSDS3D_BUFFER_CONE_ANGLES {
     pub InsideConeAngle: u32,
     pub OutsideConeAngle: u32,
 }
-impl ::core::marker::Copy for KSDS3D_BUFFER_CONE_ANGLES {}
-impl ::core::clone::Clone for KSDS3D_BUFFER_CONE_ANGLES {
+impl Copy for KSDS3D_BUFFER_CONE_ANGLES {}
+impl Clone for KSDS3D_BUFFER_CONE_ANGLES {
     fn clone(&self) -> Self {
         *self
     }
@@ -3257,8 +3257,8 @@ pub struct KSDS3D_HRTF_FILTER_FORMAT_MSG {
     pub Version: KSDS3D_HRTF_FILTER_VERSION,
     pub Reserved: u32,
 }
-impl ::core::marker::Copy for KSDS3D_HRTF_FILTER_FORMAT_MSG {}
-impl ::core::clone::Clone for KSDS3D_HRTF_FILTER_FORMAT_MSG {
+impl Copy for KSDS3D_HRTF_FILTER_FORMAT_MSG {}
+impl Clone for KSDS3D_HRTF_FILTER_FORMAT_MSG {
     fn clone(&self) -> Self {
         *self
     }
@@ -3274,8 +3274,8 @@ pub struct KSDS3D_HRTF_INIT_MSG {
     pub OutputOverlapBufferLength: u32,
     pub Reserved: u32,
 }
-impl ::core::marker::Copy for KSDS3D_HRTF_INIT_MSG {}
-impl ::core::clone::Clone for KSDS3D_HRTF_INIT_MSG {
+impl Copy for KSDS3D_HRTF_INIT_MSG {}
+impl Clone for KSDS3D_HRTF_INIT_MSG {
     fn clone(&self) -> Self {
         *self
     }
@@ -3289,8 +3289,8 @@ pub struct KSDS3D_HRTF_PARAMS_MSG {
     pub CrossFadeOutput: super::super::Foundation::BOOL,
     pub FilterSize: u32,
 }
-impl ::core::marker::Copy for KSDS3D_HRTF_PARAMS_MSG {}
-impl ::core::clone::Clone for KSDS3D_HRTF_PARAMS_MSG {
+impl Copy for KSDS3D_HRTF_PARAMS_MSG {}
+impl Clone for KSDS3D_HRTF_PARAMS_MSG {
     fn clone(&self) -> Self {
         *self
     }
@@ -3304,8 +3304,8 @@ pub struct KSDS3D_ITD_PARAMS {
     pub SmoothFrequency: i32,
     pub Delay: i32,
 }
-impl ::core::marker::Copy for KSDS3D_ITD_PARAMS {}
-impl ::core::clone::Clone for KSDS3D_ITD_PARAMS {
+impl Copy for KSDS3D_ITD_PARAMS {}
+impl Clone for KSDS3D_ITD_PARAMS {
     fn clone(&self) -> Self {
         *self
     }
@@ -3317,8 +3317,8 @@ pub struct KSDS3D_ITD_PARAMS_MSG {
     pub RightParams: KSDS3D_ITD_PARAMS,
     pub Reserved: u32,
 }
-impl ::core::marker::Copy for KSDS3D_ITD_PARAMS_MSG {}
-impl ::core::clone::Clone for KSDS3D_ITD_PARAMS_MSG {
+impl Copy for KSDS3D_ITD_PARAMS_MSG {}
+impl Clone for KSDS3D_ITD_PARAMS_MSG {
     fn clone(&self) -> Self {
         *self
     }
@@ -3333,8 +3333,8 @@ pub struct KSDS3D_LISTENER_ALL {
     pub RolloffFactor: f32,
     pub DopplerFactor: f32,
 }
-impl ::core::marker::Copy for KSDS3D_LISTENER_ALL {}
-impl ::core::clone::Clone for KSDS3D_LISTENER_ALL {
+impl Copy for KSDS3D_LISTENER_ALL {}
+impl Clone for KSDS3D_LISTENER_ALL {
     fn clone(&self) -> Self {
         *self
     }
@@ -3344,19 +3344,19 @@ pub struct KSDS3D_LISTENER_ORIENTATION {
     pub Front: DS3DVECTOR,
     pub Top: DS3DVECTOR,
 }
-impl ::core::marker::Copy for KSDS3D_LISTENER_ORIENTATION {}
-impl ::core::clone::Clone for KSDS3D_LISTENER_ORIENTATION {
+impl Copy for KSDS3D_LISTENER_ORIENTATION {}
+impl Clone for KSDS3D_LISTENER_ORIENTATION {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct KSERROR {
-    pub Context: *mut ::core::ffi::c_void,
+    pub Context: *mut core::ffi::c_void,
     pub Status: u32,
 }
-impl ::core::marker::Copy for KSERROR {}
-impl ::core::clone::Clone for KSERROR {
+impl Copy for KSERROR {}
+impl Clone for KSERROR {
     fn clone(&self) -> Self {
         *self
     }
@@ -3366,8 +3366,8 @@ pub struct KSEVENTDATA {
     pub NotificationType: u32,
     pub Anonymous: KSEVENTDATA_0,
 }
-impl ::core::marker::Copy for KSEVENTDATA {}
-impl ::core::clone::Clone for KSEVENTDATA {
+impl Copy for KSEVENTDATA {}
+impl Clone for KSEVENTDATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -3378,19 +3378,19 @@ pub union KSEVENTDATA_0 {
     pub SemaphoreHandle: KSEVENTDATA_0_2,
     pub Alignment: KSEVENTDATA_0_0,
 }
-impl ::core::marker::Copy for KSEVENTDATA_0 {}
-impl ::core::clone::Clone for KSEVENTDATA_0 {
+impl Copy for KSEVENTDATA_0 {}
+impl Clone for KSEVENTDATA_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct KSEVENTDATA_0_0 {
-    pub Unused: *mut ::core::ffi::c_void,
+    pub Unused: *mut core::ffi::c_void,
     pub Alignment: [isize; 2],
 }
-impl ::core::marker::Copy for KSEVENTDATA_0_0 {}
-impl ::core::clone::Clone for KSEVENTDATA_0_0 {
+impl Copy for KSEVENTDATA_0_0 {}
+impl Clone for KSEVENTDATA_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3400,8 +3400,8 @@ pub struct KSEVENTDATA_0_1 {
     pub Event: super::super::Foundation::HANDLE,
     pub Reserved: [usize; 2],
 }
-impl ::core::marker::Copy for KSEVENTDATA_0_1 {}
-impl ::core::clone::Clone for KSEVENTDATA_0_1 {
+impl Copy for KSEVENTDATA_0_1 {}
+impl Clone for KSEVENTDATA_0_1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3412,39 +3412,39 @@ pub struct KSEVENTDATA_0_2 {
     pub Reserved: u32,
     pub Adjustment: i32,
 }
-impl ::core::marker::Copy for KSEVENTDATA_0_2 {}
-impl ::core::clone::Clone for KSEVENTDATA_0_2 {
+impl Copy for KSEVENTDATA_0_2 {}
+impl Clone for KSEVENTDATA_0_2 {
     fn clone(&self) -> Self {
         *self
     }
 }
-pub const KSEVENTSETID_AudioControlChange: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xe85e9698_fa2f_11d1_95bd_00c04fb925d3);
-pub const KSEVENTSETID_CameraAsyncControl: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x22a11754_9701_4088_b33f_6b9cbc52df5e);
-pub const KSEVENTSETID_CameraEvent: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x7899b2e0_6b43_4964_9d2a_a21f4061f576);
-pub const KSEVENTSETID_Clock: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x364d8e20_62c7_11cf_a5d6_28db04c10000);
-pub const KSEVENTSETID_Connection: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x7f4bcbe0_9ea5_11cf_a5d6_28db04c10000);
-pub const KSEVENTSETID_Device: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x288296ec_9f94_41b4_a153_aa31aeecb33f);
-pub const KSEVENTSETID_DynamicFormatChange: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x162ac456_83d7_4239_96df_c75ffa138bc6);
-pub const KSEVENTSETID_EXTDEV_Command: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x109c7988_b3cb_11d2_b48e_006097b3391b);
-pub const KSEVENTSETID_ExtendedCameraControl: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x571c92c9_13a2_47e3_a649_d2a778166384);
-pub const KSEVENTSETID_LoopedStreaming: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x4682b940_c6ef_11d0_96d8_00aa0051e51d);
-pub const KSEVENTSETID_PinCapsChange: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xdd4f192e_3b78_49ad_a534_2c315b822000);
-pub const KSEVENTSETID_SoundDetector: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x69785c9b_fc2d_49d6_ac32_4799f87de9f6);
-pub const KSEVENTSETID_StreamAllocator: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x75d95571_073c_11d0_a161_0020afd156e4);
-pub const KSEVENTSETID_Telephony: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xb77f12b4_ceb4_4484_8d5e_52c1e7d8762d);
-pub const KSEVENTSETID_VIDCAPTOSTI: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xdb47de20_f628_11d1_ba41_00a0c90d2b05);
-pub const KSEVENTSETID_VIDCAP_TVAUDIO: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x6a2e0651_28e4_11d0_a18c_00a0c9118956);
-pub const KSEVENTSETID_VPNotify: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x20c5598e_d3c8_11d0_8dfc_00c04fd7c08b);
-pub const KSEVENTSETID_VPVBINotify: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xec529b01_1a1f_11d1_bad9_00609744111a);
-pub const KSEVENTSETID_VolumeLimit: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xda168465_3a7c_4858_9d4a_3e8e24701aef);
+pub const KSEVENTSETID_AudioControlChange: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe85e9698_fa2f_11d1_95bd_00c04fb925d3);
+pub const KSEVENTSETID_CameraAsyncControl: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x22a11754_9701_4088_b33f_6b9cbc52df5e);
+pub const KSEVENTSETID_CameraEvent: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7899b2e0_6b43_4964_9d2a_a21f4061f576);
+pub const KSEVENTSETID_Clock: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x364d8e20_62c7_11cf_a5d6_28db04c10000);
+pub const KSEVENTSETID_Connection: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7f4bcbe0_9ea5_11cf_a5d6_28db04c10000);
+pub const KSEVENTSETID_Device: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x288296ec_9f94_41b4_a153_aa31aeecb33f);
+pub const KSEVENTSETID_DynamicFormatChange: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x162ac456_83d7_4239_96df_c75ffa138bc6);
+pub const KSEVENTSETID_EXTDEV_Command: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x109c7988_b3cb_11d2_b48e_006097b3391b);
+pub const KSEVENTSETID_ExtendedCameraControl: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x571c92c9_13a2_47e3_a649_d2a778166384);
+pub const KSEVENTSETID_LoopedStreaming: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4682b940_c6ef_11d0_96d8_00aa0051e51d);
+pub const KSEVENTSETID_PinCapsChange: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdd4f192e_3b78_49ad_a534_2c315b822000);
+pub const KSEVENTSETID_SoundDetector: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x69785c9b_fc2d_49d6_ac32_4799f87de9f6);
+pub const KSEVENTSETID_StreamAllocator: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x75d95571_073c_11d0_a161_0020afd156e4);
+pub const KSEVENTSETID_Telephony: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb77f12b4_ceb4_4484_8d5e_52c1e7d8762d);
+pub const KSEVENTSETID_VIDCAPTOSTI: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdb47de20_f628_11d1_ba41_00a0c90d2b05);
+pub const KSEVENTSETID_VIDCAP_TVAUDIO: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6a2e0651_28e4_11d0_a18c_00a0c9118956);
+pub const KSEVENTSETID_VPNotify: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x20c5598e_d3c8_11d0_8dfc_00c04fd7c08b);
+pub const KSEVENTSETID_VPVBINotify: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xec529b01_1a1f_11d1_bad9_00609744111a);
+pub const KSEVENTSETID_VolumeLimit: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xda168465_3a7c_4858_9d4a_3e8e24701aef);
 #[repr(C)]
 pub struct KSEVENT_TIME_INTERVAL {
     pub EventData: KSEVENTDATA,
     pub TimeBase: i64,
     pub Interval: i64,
 }
-impl ::core::marker::Copy for KSEVENT_TIME_INTERVAL {}
-impl ::core::clone::Clone for KSEVENT_TIME_INTERVAL {
+impl Copy for KSEVENT_TIME_INTERVAL {}
+impl Clone for KSEVENT_TIME_INTERVAL {
     fn clone(&self) -> Self {
         *self
     }
@@ -3454,8 +3454,8 @@ pub struct KSEVENT_TIME_MARK {
     pub EventData: KSEVENTDATA,
     pub MarkTime: i64,
 }
-impl ::core::marker::Copy for KSEVENT_TIME_MARK {}
-impl ::core::clone::Clone for KSEVENT_TIME_MARK {
+impl Copy for KSEVENT_TIME_MARK {}
+impl Clone for KSEVENT_TIME_MARK {
     fn clone(&self) -> Self {
         *self
     }
@@ -3466,8 +3466,8 @@ pub struct KSEVENT_TUNER_INITIATE_SCAN_S {
     pub StartFrequency: u32,
     pub EndFrequency: u32,
 }
-impl ::core::marker::Copy for KSEVENT_TUNER_INITIATE_SCAN_S {}
-impl ::core::clone::Clone for KSEVENT_TUNER_INITIATE_SCAN_S {
+impl Copy for KSEVENT_TUNER_INITIATE_SCAN_S {}
+impl Clone for KSEVENT_TUNER_INITIATE_SCAN_S {
     fn clone(&self) -> Self {
         *self
     }
@@ -3478,8 +3478,8 @@ pub struct KSE_NODE {
     pub NodeId: u32,
     pub Reserved: u32,
 }
-impl ::core::marker::Copy for KSE_NODE {}
-impl ::core::clone::Clone for KSE_NODE {
+impl Copy for KSE_NODE {}
+impl Clone for KSE_NODE {
     fn clone(&self) -> Self {
         *self
     }
@@ -3490,8 +3490,8 @@ pub struct KSE_PIN {
     pub PinId: u32,
     pub Reserved: u32,
 }
-impl ::core::marker::Copy for KSE_PIN {}
-impl ::core::clone::Clone for KSE_PIN {
+impl Copy for KSE_PIN {}
+impl Clone for KSE_PIN {
     fn clone(&self) -> Self {
         *self
     }
@@ -3502,8 +3502,8 @@ pub struct KSFRAMETIME {
     pub FrameFlags: u32,
     pub Reserved: u32,
 }
-impl ::core::marker::Copy for KSFRAMETIME {}
-impl ::core::clone::Clone for KSFRAMETIME {
+impl Copy for KSFRAMETIME {}
+impl Clone for KSFRAMETIME {
     fn clone(&self) -> Self {
         *self
     }
@@ -3515,8 +3515,8 @@ pub struct KSGOP_USERDATA {
     pub cFields: u8,
     pub l21Data: [i8; 3],
 }
-impl ::core::marker::Copy for KSGOP_USERDATA {}
-impl ::core::clone::Clone for KSGOP_USERDATA {
+impl Copy for KSGOP_USERDATA {}
+impl Clone for KSGOP_USERDATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -3525,8 +3525,8 @@ impl ::core::clone::Clone for KSGOP_USERDATA {
 pub struct KSIDENTIFIER {
     pub Anonymous: KSIDENTIFIER_0,
 }
-impl ::core::marker::Copy for KSIDENTIFIER {}
-impl ::core::clone::Clone for KSIDENTIFIER {
+impl Copy for KSIDENTIFIER {}
+impl Clone for KSIDENTIFIER {
     fn clone(&self) -> Self {
         *self
     }
@@ -3536,34 +3536,34 @@ pub union KSIDENTIFIER_0 {
     pub Anonymous: KSIDENTIFIER_0_0,
     pub Alignment: i64,
 }
-impl ::core::marker::Copy for KSIDENTIFIER_0 {}
-impl ::core::clone::Clone for KSIDENTIFIER_0 {
+impl Copy for KSIDENTIFIER_0 {}
+impl Clone for KSIDENTIFIER_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct KSIDENTIFIER_0_0 {
-    pub Set: ::windows_sys::core::GUID,
+    pub Set: windows_sys::core::GUID,
     pub Id: u32,
     pub Flags: u32,
 }
-impl ::core::marker::Copy for KSIDENTIFIER_0_0 {}
-impl ::core::clone::Clone for KSIDENTIFIER_0_0 {
+impl Copy for KSIDENTIFIER_0_0 {}
+impl Clone for KSIDENTIFIER_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-pub const KSINTERFACESETID_FileIo: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x8c6f932c_e771_11d0_b8ff_00a0c9223196);
-pub const KSINTERFACESETID_Media: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x3a13eb40_30a7_11d0_a5d6_28db04c10000);
-pub const KSINTERFACESETID_Standard: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x1a8766a0_62ce_11cf_a5d6_28db04c10000);
+pub const KSINTERFACESETID_FileIo: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8c6f932c_e771_11d0_b8ff_00a0c9223196);
+pub const KSINTERFACESETID_Media: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3a13eb40_30a7_11d0_a5d6_28db04c10000);
+pub const KSINTERFACESETID_Standard: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1a8766a0_62ce_11cf_a5d6_28db04c10000);
 #[repr(C)]
 pub struct KSINTERVAL {
     pub TimeBase: i64,
     pub Interval: i64,
 }
-impl ::core::marker::Copy for KSINTERVAL {}
-impl ::core::clone::Clone for KSINTERVAL {
+impl Copy for KSINTERVAL {}
+impl Clone for KSINTERVAL {
     fn clone(&self) -> Self {
         *self
     }
@@ -3578,8 +3578,8 @@ pub struct KSJACK_DESCRIPTION {
     pub PortConnection: EPxcPortConnection,
     pub IsConnected: super::super::Foundation::BOOL,
 }
-impl ::core::marker::Copy for KSJACK_DESCRIPTION {}
-impl ::core::clone::Clone for KSJACK_DESCRIPTION {
+impl Copy for KSJACK_DESCRIPTION {}
+impl Clone for KSJACK_DESCRIPTION {
     fn clone(&self) -> Self {
         *self
     }
@@ -3589,8 +3589,8 @@ pub struct KSJACK_DESCRIPTION2 {
     pub DeviceStateInfo: u32,
     pub JackCapabilities: u32,
 }
-impl ::core::marker::Copy for KSJACK_DESCRIPTION2 {}
-impl ::core::clone::Clone for KSJACK_DESCRIPTION2 {
+impl Copy for KSJACK_DESCRIPTION2 {}
+impl Clone for KSJACK_DESCRIPTION2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3599,8 +3599,8 @@ impl ::core::clone::Clone for KSJACK_DESCRIPTION2 {
 pub struct KSJACK_DESCRIPTION3 {
     pub ConfigId: u32,
 }
-impl ::core::marker::Copy for KSJACK_DESCRIPTION3 {}
-impl ::core::clone::Clone for KSJACK_DESCRIPTION3 {
+impl Copy for KSJACK_DESCRIPTION3 {}
+impl Clone for KSJACK_DESCRIPTION3 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3617,33 +3617,33 @@ pub struct KSJACK_SINK_INFORMATION {
     pub SinkDescription: [u16; 32],
     pub PortId: super::super::Foundation::LUID,
 }
-impl ::core::marker::Copy for KSJACK_SINK_INFORMATION {}
-impl ::core::clone::Clone for KSJACK_SINK_INFORMATION {
+impl Copy for KSJACK_SINK_INFORMATION {}
+impl Clone for KSJACK_SINK_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
 }
-pub const KSMEDIUMSETID_MidiBus: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x05908040_3246_11d0_a5d6_28db04c10000);
-pub const KSMEDIUMSETID_Standard: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x4747b320_62ce_11cf_a5d6_28db04c10000);
-pub const KSMEDIUMSETID_VPBus: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xa18c15ec_ce43_11d0_abe7_00a0c9223196);
-pub const KSMEMORY_TYPE_DEVICE_UNKNOWN: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x091bb639_603f_11d1_b067_00a0c9062802);
-pub const KSMEMORY_TYPE_KERNEL_NONPAGED: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x4a6d5fc4_7895_11d1_b069_00a0c9062802);
-pub const KSMEMORY_TYPE_KERNEL_PAGED: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xd833f8f8_7894_11d1_b069_00a0c9062802);
-pub const KSMEMORY_TYPE_SYSTEM: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x091bb638_603f_11d1_b067_00a0c9062802);
-pub const KSMEMORY_TYPE_USER: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x8cb0fc28_7893_11d1_b069_00a0c9062802);
-pub const KSMETHODSETID_StreamAllocator: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xcf6e4341_ec87_11cf_a130_0020afd156e4);
-pub const KSMETHODSETID_StreamIo: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x65d003ca_1523_11d2_b27a_00a0c9223196);
-pub const KSMETHODSETID_Wavetable: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xdcef31eb_d907_11d0_9583_00c04fb925d3);
-pub const KSMFT_CATEGORY_AUDIO_DECODER: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x9ea73fb4_ef7a_4559_8d5d_719d8f0426c7);
-pub const KSMFT_CATEGORY_AUDIO_EFFECT: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x11064c48_3648_4ed0_932e_05ce8ac811b7);
-pub const KSMFT_CATEGORY_AUDIO_ENCODER: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x91c64bd0_f91e_4d8c_9276_db248279d975);
-pub const KSMFT_CATEGORY_DEMULTIPLEXER: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xa8700a7a_939b_44c5_99d7_76226b23b3f1);
-pub const KSMFT_CATEGORY_MULTIPLEXER: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x059c561e_05ae_4b61_b69d_55b61ee54a7b);
-pub const KSMFT_CATEGORY_OTHER: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x90175d57_b7ea_4901_aeb3_933a8747756f);
-pub const KSMFT_CATEGORY_VIDEO_DECODER: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xd6c02d4b_6833_45b4_971a_05a4b04bab91);
-pub const KSMFT_CATEGORY_VIDEO_EFFECT: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x12e17c21_532c_4a6e_8a1c_40825a736397);
-pub const KSMFT_CATEGORY_VIDEO_ENCODER: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xf79eac7d_e545_4387_bdee_d647d7bde42a);
-pub const KSMFT_CATEGORY_VIDEO_PROCESSOR: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x302ea3fc_aa5f_47f9_9f7a_c2188bb16302);
+pub const KSMEDIUMSETID_MidiBus: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x05908040_3246_11d0_a5d6_28db04c10000);
+pub const KSMEDIUMSETID_Standard: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4747b320_62ce_11cf_a5d6_28db04c10000);
+pub const KSMEDIUMSETID_VPBus: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa18c15ec_ce43_11d0_abe7_00a0c9223196);
+pub const KSMEMORY_TYPE_DEVICE_UNKNOWN: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x091bb639_603f_11d1_b067_00a0c9062802);
+pub const KSMEMORY_TYPE_KERNEL_NONPAGED: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4a6d5fc4_7895_11d1_b069_00a0c9062802);
+pub const KSMEMORY_TYPE_KERNEL_PAGED: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd833f8f8_7894_11d1_b069_00a0c9062802);
+pub const KSMEMORY_TYPE_SYSTEM: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x091bb638_603f_11d1_b067_00a0c9062802);
+pub const KSMEMORY_TYPE_USER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8cb0fc28_7893_11d1_b069_00a0c9062802);
+pub const KSMETHODSETID_StreamAllocator: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xcf6e4341_ec87_11cf_a130_0020afd156e4);
+pub const KSMETHODSETID_StreamIo: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x65d003ca_1523_11d2_b27a_00a0c9223196);
+pub const KSMETHODSETID_Wavetable: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdcef31eb_d907_11d0_9583_00c04fb925d3);
+pub const KSMFT_CATEGORY_AUDIO_DECODER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9ea73fb4_ef7a_4559_8d5d_719d8f0426c7);
+pub const KSMFT_CATEGORY_AUDIO_EFFECT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x11064c48_3648_4ed0_932e_05ce8ac811b7);
+pub const KSMFT_CATEGORY_AUDIO_ENCODER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x91c64bd0_f91e_4d8c_9276_db248279d975);
+pub const KSMFT_CATEGORY_DEMULTIPLEXER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa8700a7a_939b_44c5_99d7_76226b23b3f1);
+pub const KSMFT_CATEGORY_MULTIPLEXER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x059c561e_05ae_4b61_b69d_55b61ee54a7b);
+pub const KSMFT_CATEGORY_OTHER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x90175d57_b7ea_4901_aeb3_933a8747756f);
+pub const KSMFT_CATEGORY_VIDEO_DECODER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd6c02d4b_6833_45b4_971a_05a4b04bab91);
+pub const KSMFT_CATEGORY_VIDEO_EFFECT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x12e17c21_532c_4a6e_8a1c_40825a736397);
+pub const KSMFT_CATEGORY_VIDEO_ENCODER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf79eac7d_e545_4387_bdee_d647d7bde42a);
+pub const KSMFT_CATEGORY_VIDEO_PROCESSOR: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x302ea3fc_aa5f_47f9_9f7a_c2188bb16302);
 #[repr(C)]
 pub struct KSMPEGVID_RECT {
     pub StartX: u32,
@@ -3651,8 +3651,8 @@ pub struct KSMPEGVID_RECT {
     pub EndX: u32,
     pub EndY: u32,
 }
-impl ::core::marker::Copy for KSMPEGVID_RECT {}
-impl ::core::clone::Clone for KSMPEGVID_RECT {
+impl Copy for KSMPEGVID_RECT {}
+impl Clone for KSMPEGVID_RECT {
     fn clone(&self) -> Self {
         *self
     }
@@ -3662,8 +3662,8 @@ pub struct KSMULTIPLE_DATA_PROP {
     pub Property: KSIDENTIFIER,
     pub MultipleItem: KSMULTIPLE_ITEM,
 }
-impl ::core::marker::Copy for KSMULTIPLE_DATA_PROP {}
-impl ::core::clone::Clone for KSMULTIPLE_DATA_PROP {
+impl Copy for KSMULTIPLE_DATA_PROP {}
+impl Clone for KSMULTIPLE_DATA_PROP {
     fn clone(&self) -> Self {
         *self
     }
@@ -3673,8 +3673,8 @@ pub struct KSMULTIPLE_ITEM {
     pub Size: u32,
     pub Count: u32,
 }
-impl ::core::marker::Copy for KSMULTIPLE_ITEM {}
-impl ::core::clone::Clone for KSMULTIPLE_ITEM {
+impl Copy for KSMULTIPLE_ITEM {}
+impl Clone for KSMULTIPLE_ITEM {
     fn clone(&self) -> Self {
         *self
     }
@@ -3684,42 +3684,42 @@ pub struct KSMUSICFORMAT {
     pub TimeDeltaMs: u32,
     pub ByteCount: u32,
 }
-impl ::core::marker::Copy for KSMUSICFORMAT {}
-impl ::core::clone::Clone for KSMUSICFORMAT {
+impl Copy for KSMUSICFORMAT {}
+impl Clone for KSMUSICFORMAT {
     fn clone(&self) -> Self {
         *self
     }
 }
-pub const KSMUSIC_TECHNOLOGY_FMSYNTH: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x252c5c80_62e9_11cf_a5d6_28db04c10000);
-pub const KSMUSIC_TECHNOLOGY_PORT: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x86c92e60_62e8_11cf_a5d6_28db04c10000);
-pub const KSMUSIC_TECHNOLOGY_SQSYNTH: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x0ecf4380_62e9_11cf_a5d6_28db04c10000);
-pub const KSMUSIC_TECHNOLOGY_SWSYNTH: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x37407736_3620_11d1_85d3_0000f8754380);
-pub const KSMUSIC_TECHNOLOGY_WAVETABLE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x394ec7c0_62e9_11cf_a5d6_28db04c10000);
+pub const KSMUSIC_TECHNOLOGY_FMSYNTH: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x252c5c80_62e9_11cf_a5d6_28db04c10000);
+pub const KSMUSIC_TECHNOLOGY_PORT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x86c92e60_62e8_11cf_a5d6_28db04c10000);
+pub const KSMUSIC_TECHNOLOGY_SQSYNTH: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0ecf4380_62e9_11cf_a5d6_28db04c10000);
+pub const KSMUSIC_TECHNOLOGY_SWSYNTH: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x37407736_3620_11d1_85d3_0000f8754380);
+pub const KSMUSIC_TECHNOLOGY_WAVETABLE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x394ec7c0_62e9_11cf_a5d6_28db04c10000);
 #[repr(C)]
 pub struct KSM_NODE {
     pub Method: KSIDENTIFIER,
     pub NodeId: u32,
     pub Reserved: u32,
 }
-impl ::core::marker::Copy for KSM_NODE {}
-impl ::core::clone::Clone for KSM_NODE {
+impl Copy for KSM_NODE {}
+impl Clone for KSM_NODE {
     fn clone(&self) -> Self {
         *self
     }
 }
-pub const KSNAME_Allocator: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x642f5d00_4791_11d0_a5d6_28db04c10000);
-pub const KSNAME_Clock: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x53172480_4791_11d0_a5d6_28db04c10000);
-pub const KSNAME_Filter: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x9b365890_165f_11d0_a195_0020afd156e4);
-pub const KSNAME_Pin: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x146f1a80_4791_11d0_a5d6_28db04c10000);
-pub const KSNAME_TopologyNode: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x0621061a_ee75_11d0_b915_00a0c9223196);
+pub const KSNAME_Allocator: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x642f5d00_4791_11d0_a5d6_28db04c10000);
+pub const KSNAME_Clock: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x53172480_4791_11d0_a5d6_28db04c10000);
+pub const KSNAME_Filter: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9b365890_165f_11d0_a195_0020afd156e4);
+pub const KSNAME_Pin: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x146f1a80_4791_11d0_a5d6_28db04c10000);
+pub const KSNAME_TopologyNode: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0621061a_ee75_11d0_b915_00a0c9223196);
 #[repr(C)]
 pub struct KSNODEPROPERTY {
     pub Property: KSIDENTIFIER,
     pub NodeId: u32,
     pub Reserved: u32,
 }
-impl ::core::marker::Copy for KSNODEPROPERTY {}
-impl ::core::clone::Clone for KSNODEPROPERTY {
+impl Copy for KSNODEPROPERTY {}
+impl Clone for KSNODEPROPERTY {
     fn clone(&self) -> Self {
         *self
     }
@@ -3728,12 +3728,12 @@ impl ::core::clone::Clone for KSNODEPROPERTY {
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct KSNODEPROPERTY_AUDIO_3D_LISTENER {
     pub NodeProperty: KSNODEPROPERTY,
-    pub ListenerId: *mut ::core::ffi::c_void,
+    pub ListenerId: *mut core::ffi::c_void,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::marker::Copy for KSNODEPROPERTY_AUDIO_3D_LISTENER {}
+impl Copy for KSNODEPROPERTY_AUDIO_3D_LISTENER {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::clone::Clone for KSNODEPROPERTY_AUDIO_3D_LISTENER {
+impl Clone for KSNODEPROPERTY_AUDIO_3D_LISTENER {
     fn clone(&self) -> Self {
         *self
     }
@@ -3742,13 +3742,13 @@ impl ::core::clone::Clone for KSNODEPROPERTY_AUDIO_3D_LISTENER {
 #[cfg(target_arch = "x86")]
 pub struct KSNODEPROPERTY_AUDIO_3D_LISTENER {
     pub NodeProperty: KSNODEPROPERTY,
-    pub ListenerId: *mut ::core::ffi::c_void,
+    pub ListenerId: *mut core::ffi::c_void,
     pub Reserved: u32,
 }
 #[cfg(target_arch = "x86")]
-impl ::core::marker::Copy for KSNODEPROPERTY_AUDIO_3D_LISTENER {}
+impl Copy for KSNODEPROPERTY_AUDIO_3D_LISTENER {}
 #[cfg(target_arch = "x86")]
-impl ::core::clone::Clone for KSNODEPROPERTY_AUDIO_3D_LISTENER {
+impl Clone for KSNODEPROPERTY_AUDIO_3D_LISTENER {
     fn clone(&self) -> Self {
         *self
     }
@@ -3759,8 +3759,8 @@ pub struct KSNODEPROPERTY_AUDIO_CHANNEL {
     pub Channel: i32,
     pub Reserved: u32,
 }
-impl ::core::marker::Copy for KSNODEPROPERTY_AUDIO_CHANNEL {}
-impl ::core::clone::Clone for KSNODEPROPERTY_AUDIO_CHANNEL {
+impl Copy for KSNODEPROPERTY_AUDIO_CHANNEL {}
+impl Clone for KSNODEPROPERTY_AUDIO_CHANNEL {
     fn clone(&self) -> Self {
         *self
     }
@@ -3772,8 +3772,8 @@ pub struct KSNODEPROPERTY_AUDIO_DEV_SPECIFIC {
     pub DeviceInfo: u32,
     pub Length: u32,
 }
-impl ::core::marker::Copy for KSNODEPROPERTY_AUDIO_DEV_SPECIFIC {}
-impl ::core::clone::Clone for KSNODEPROPERTY_AUDIO_DEV_SPECIFIC {
+impl Copy for KSNODEPROPERTY_AUDIO_DEV_SPECIFIC {}
+impl Clone for KSNODEPROPERTY_AUDIO_DEV_SPECIFIC {
     fn clone(&self) -> Self {
         *self
     }
@@ -3782,13 +3782,13 @@ impl ::core::clone::Clone for KSNODEPROPERTY_AUDIO_DEV_SPECIFIC {
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct KSNODEPROPERTY_AUDIO_PROPERTY {
     pub NodeProperty: KSNODEPROPERTY,
-    pub AppContext: *mut ::core::ffi::c_void,
+    pub AppContext: *mut core::ffi::c_void,
     pub Length: u32,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::marker::Copy for KSNODEPROPERTY_AUDIO_PROPERTY {}
+impl Copy for KSNODEPROPERTY_AUDIO_PROPERTY {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::clone::Clone for KSNODEPROPERTY_AUDIO_PROPERTY {
+impl Clone for KSNODEPROPERTY_AUDIO_PROPERTY {
     fn clone(&self) -> Self {
         *self
     }
@@ -3797,137 +3797,137 @@ impl ::core::clone::Clone for KSNODEPROPERTY_AUDIO_PROPERTY {
 #[cfg(target_arch = "x86")]
 pub struct KSNODEPROPERTY_AUDIO_PROPERTY {
     pub NodeProperty: KSNODEPROPERTY,
-    pub AppContext: *mut ::core::ffi::c_void,
+    pub AppContext: *mut core::ffi::c_void,
     pub Length: u32,
     pub Reserved: u32,
 }
 #[cfg(target_arch = "x86")]
-impl ::core::marker::Copy for KSNODEPROPERTY_AUDIO_PROPERTY {}
+impl Copy for KSNODEPROPERTY_AUDIO_PROPERTY {}
 #[cfg(target_arch = "x86")]
-impl ::core::clone::Clone for KSNODEPROPERTY_AUDIO_PROPERTY {
+impl Clone for KSNODEPROPERTY_AUDIO_PROPERTY {
     fn clone(&self) -> Self {
         *self
     }
 }
-pub const KSNODETYPE_1394_DA_STREAM: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xdff21fe6_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_1394_DV_STREAM_SOUNDTRACK: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xdff21fe7_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_3D_EFFECTS: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x55515860_c559_11d0_8a2b_00a0c9255ac1);
-pub const KSNODETYPE_ADC: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x4d837fe0_c555_11d0_8a2b_00a0c9255ac1);
-pub const KSNODETYPE_AGC: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xe88c9ba0_c557_11d0_8a2b_00a0c9255ac1);
-pub const KSNODETYPE_ANALOG_CONNECTOR: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xdff21fe1_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_ANALOG_TAPE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xdff220e7_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_AUDIO_ENGINE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x35caf6e4_f3b3_4168_bb4b_55e77a461c7e);
-pub const KSNODETYPE_AUDIO_KEYWORDDETECTOR: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x3817e0b8_df58_4375_b669_c49634331f9d);
-pub const KSNODETYPE_AUDIO_LOOPBACK: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x8f42c0b2_91ce_4bcf_9ccd_0e599037ab35);
-pub const KSNODETYPE_AUDIO_MODULE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x45aab42e_caeb_4052_8aa9_b38cb5109619);
-pub const KSNODETYPE_BIDIRECTIONAL_UNDEFINED: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xdff21de0_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_CABLE_TUNER_AUDIO: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xdff220ee_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_CD_PLAYER: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xdff220e3_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_CHORUS: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x20173f20_c559_11d0_8a2b_00a0c9255ac1);
-pub const KSNODETYPE_COMMUNICATION_SPEAKER: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xdff21ce6_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_DAC: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x507ae360_c554_11d0_8a2b_00a0c9255ac1);
-pub const KSNODETYPE_DAT_IO_DIGITAL_AUDIO_TAPE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xdff220e4_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_DCC_IO_DIGITAL_COMPACT_CASSETTE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xdff220e5_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_DELAY: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x144981e0_c558_11d0_8a2b_00a0c9255ac1);
-pub const KSNODETYPE_DEMUX: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xc0eb67d4_e807_11d0_958a_00c04fb925d3);
-pub const KSNODETYPE_DESKTOP_MICROPHONE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xdff21be2_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_DESKTOP_SPEAKER: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xdff21ce4_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_DEV_SPECIFIC: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x941c7ac0_c559_11d0_8a2b_00a0c9255ac1);
-pub const KSNODETYPE_DIGITAL_AUDIO_INTERFACE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xdff21fe2_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_DISPLAYPORT_INTERFACE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xe47e4031_3ea6_418d_8f9b_b73843ccba97);
-pub const KSNODETYPE_DOWN_LINE_PHONE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xdff21ee3_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_DRM_DESCRAMBLE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xffbb6e3f_ccfe_4d84_90d9_421418b03a8e);
-pub const KSNODETYPE_DSS_AUDIO: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xdff220ef_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_DVD_AUDIO: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xdff220eb_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_DYN_RANGE_COMPRESSOR: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x08c8a6a8_601f_4af8_8793_d905ff4ca97d);
-pub const KSNODETYPE_ECHO_CANCELING_SPEAKERPHONE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xdff21de5_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_ECHO_SUPPRESSING_SPEAKERPHONE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xdff21de4_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_EMBEDDED_UNDEFINED: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xdff220e0_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_EQUALIZATION_NOISE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xdff220e2_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_EQUALIZER: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x9d41b4a0_c557_11d0_8a2b_00a0c9255ac1);
-pub const KSNODETYPE_EXTERNAL_UNDEFINED: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xdff21fe0_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_FM_RX: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x834a733c_f485_41c0_a62b_513025014e40);
-pub const KSNODETYPE_HANDSET: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xdff21de1_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_HDMI_INTERFACE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xd1b9cc2a_f519_417f_91c9_55fa65481001);
-pub const KSNODETYPE_HEADPHONES: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xdff21ce2_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_HEADSET: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xdff21de2_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_HEAD_MOUNTED_DISPLAY_AUDIO: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xdff21ce3_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_INPUT_UNDEFINED: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xdff21be0_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_LEGACY_AUDIO_CONNECTOR: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xdff21fe4_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_LEVEL_CALIBRATION_NOISE_SOURCE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xdff220e1_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_LINE_CONNECTOR: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xdff21fe3_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_LOUDNESS: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x41887440_c558_11d0_8a2b_00a0c9255ac1);
-pub const KSNODETYPE_LOW_FREQUENCY_EFFECTS_SPEAKER: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xdff21ce7_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_MICROPHONE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xdff21be1_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_MICROPHONE_ARRAY: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xdff21be5_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_MIDI_ELEMENT: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x01c6fe66_6e48_4c65_ac9b_52db5d656c7e);
-pub const KSNODETYPE_MIDI_JACK: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x265e0c3f_fa39_4df3_ab04_be01b91e299a);
-pub const KSNODETYPE_MINIDISK: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xdff220e6_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_MULTITRACK_RECORDER: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xdff220f2_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_MUTE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x02b223c0_c557_11d0_8a2b_00a0c9255ac1);
-pub const KSNODETYPE_MUX: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x2ceaf780_c556_11d0_8a2b_00a0c9255ac1);
-pub const KSNODETYPE_NOISE_SUPPRESS: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xe07f903f_62fd_4e60_8cdd_dea7236665b5);
-pub const KSNODETYPE_OMNI_DIRECTIONAL_MICROPHONE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xdff21be4_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_OUTPUT_UNDEFINED: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xdff21ce0_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_PARAMETRIC_EQUALIZER: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x19bb3a6a_ce2b_4442_87ec_6727c3cab477);
-pub const KSNODETYPE_PEAKMETER: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xa085651e_5f0d_4b36_a869_d195d6ab4b9e);
-pub const KSNODETYPE_PERSONAL_MICROPHONE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xdff21be3_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_PHONE_LINE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xdff21ee1_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_PHONOGRAPH: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xdff220e8_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_PROCESSING_MICROPHONE_ARRAY: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xdff21be6_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_PROLOGIC_DECODER: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x831c2c80_c558_11d0_8a2b_00a0c9255ac1);
-pub const KSNODETYPE_PROLOGIC_ENCODER: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x8074c5b2_3c66_11d2_b45a_3078302c2030);
-pub const KSNODETYPE_RADIO_RECEIVER: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xdff220f0_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_RADIO_TRANSMITTER: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xdff220f1_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_REVERB: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xef0328e0_c558_11d0_8a2b_00a0c9255ac1);
-pub const KSNODETYPE_ROOM_SPEAKER: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xdff21ce5_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_SATELLITE_RECEIVER_AUDIO: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xdff220ed_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_SPDIF_INTERFACE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xdff21fe5_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_SPEAKER: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xdff21ce1_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_SPEAKERPHONE_NO_ECHO_REDUCTION: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xdff21de3_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_SPEAKERS_STATIC_JACK: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x28e04f87_4dbe_4f8d_8589_025d209dfb4a);
-pub const KSNODETYPE_SRC: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x9db7b9e0_c555_11d0_8a2b_00a0c9255ac1);
-pub const KSNODETYPE_STEREO_WIDE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xa9e69800_c558_11d0_8a2b_00a0c9255ac1);
-pub const KSNODETYPE_SUM: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xda441a60_c556_11d0_8a2b_00a0c9255ac1);
-pub const KSNODETYPE_SUPERMIX: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xe573adc0_c555_11d0_8a2b_00a0c9255ac1);
-pub const KSNODETYPE_SYNTHESIZER: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xdff220f3_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_TELEPHONE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xdff21ee2_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_TELEPHONY_BIDI: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x686d7cc0_d903_4258_b443_3a3d3580741c);
-pub const KSNODETYPE_TELEPHONY_UNDEFINED: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xdff21ee0_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_TONE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x7607e580_c557_11d0_8a2b_00a0c9255ac1);
-pub const KSNODETYPE_TV_TUNER_AUDIO: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xdff220ec_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_UPDOWN_MIX: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xb7edc5cf_7b63_4ee2_a100_29ee2cb6b2de);
-pub const KSNODETYPE_VCR_AUDIO: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xdff220e9_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_VIDEO_CAMERA_TERMINAL: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xdff229e6_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_VIDEO_DISC_AUDIO: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xdff220ea_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_VIDEO_INPUT_MTT: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xdff229e7_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_VIDEO_INPUT_TERMINAL: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xdff229e2_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_VIDEO_OUTPUT_MTT: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xdff229e8_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_VIDEO_OUTPUT_TERMINAL: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xdff229e3_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_VIDEO_PROCESSING: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xdff229e5_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_VIDEO_SELECTOR: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xdff229e4_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_VIDEO_STREAMING: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xdff229e1_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_VOLUME: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x3a5acc00_c557_11d0_8a2b_00a0c9255ac1);
+pub const KSNODETYPE_1394_DA_STREAM: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdff21fe6_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_1394_DV_STREAM_SOUNDTRACK: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdff21fe7_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_3D_EFFECTS: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x55515860_c559_11d0_8a2b_00a0c9255ac1);
+pub const KSNODETYPE_ADC: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4d837fe0_c555_11d0_8a2b_00a0c9255ac1);
+pub const KSNODETYPE_AGC: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe88c9ba0_c557_11d0_8a2b_00a0c9255ac1);
+pub const KSNODETYPE_ANALOG_CONNECTOR: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdff21fe1_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_ANALOG_TAPE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdff220e7_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_AUDIO_ENGINE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x35caf6e4_f3b3_4168_bb4b_55e77a461c7e);
+pub const KSNODETYPE_AUDIO_KEYWORDDETECTOR: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3817e0b8_df58_4375_b669_c49634331f9d);
+pub const KSNODETYPE_AUDIO_LOOPBACK: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8f42c0b2_91ce_4bcf_9ccd_0e599037ab35);
+pub const KSNODETYPE_AUDIO_MODULE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x45aab42e_caeb_4052_8aa9_b38cb5109619);
+pub const KSNODETYPE_BIDIRECTIONAL_UNDEFINED: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdff21de0_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_CABLE_TUNER_AUDIO: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdff220ee_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_CD_PLAYER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdff220e3_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_CHORUS: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x20173f20_c559_11d0_8a2b_00a0c9255ac1);
+pub const KSNODETYPE_COMMUNICATION_SPEAKER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdff21ce6_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_DAC: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x507ae360_c554_11d0_8a2b_00a0c9255ac1);
+pub const KSNODETYPE_DAT_IO_DIGITAL_AUDIO_TAPE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdff220e4_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_DCC_IO_DIGITAL_COMPACT_CASSETTE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdff220e5_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_DELAY: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x144981e0_c558_11d0_8a2b_00a0c9255ac1);
+pub const KSNODETYPE_DEMUX: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc0eb67d4_e807_11d0_958a_00c04fb925d3);
+pub const KSNODETYPE_DESKTOP_MICROPHONE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdff21be2_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_DESKTOP_SPEAKER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdff21ce4_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_DEV_SPECIFIC: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x941c7ac0_c559_11d0_8a2b_00a0c9255ac1);
+pub const KSNODETYPE_DIGITAL_AUDIO_INTERFACE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdff21fe2_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_DISPLAYPORT_INTERFACE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe47e4031_3ea6_418d_8f9b_b73843ccba97);
+pub const KSNODETYPE_DOWN_LINE_PHONE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdff21ee3_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_DRM_DESCRAMBLE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xffbb6e3f_ccfe_4d84_90d9_421418b03a8e);
+pub const KSNODETYPE_DSS_AUDIO: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdff220ef_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_DVD_AUDIO: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdff220eb_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_DYN_RANGE_COMPRESSOR: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x08c8a6a8_601f_4af8_8793_d905ff4ca97d);
+pub const KSNODETYPE_ECHO_CANCELING_SPEAKERPHONE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdff21de5_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_ECHO_SUPPRESSING_SPEAKERPHONE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdff21de4_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_EMBEDDED_UNDEFINED: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdff220e0_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_EQUALIZATION_NOISE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdff220e2_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_EQUALIZER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9d41b4a0_c557_11d0_8a2b_00a0c9255ac1);
+pub const KSNODETYPE_EXTERNAL_UNDEFINED: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdff21fe0_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_FM_RX: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x834a733c_f485_41c0_a62b_513025014e40);
+pub const KSNODETYPE_HANDSET: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdff21de1_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_HDMI_INTERFACE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd1b9cc2a_f519_417f_91c9_55fa65481001);
+pub const KSNODETYPE_HEADPHONES: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdff21ce2_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_HEADSET: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdff21de2_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_HEAD_MOUNTED_DISPLAY_AUDIO: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdff21ce3_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_INPUT_UNDEFINED: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdff21be0_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_LEGACY_AUDIO_CONNECTOR: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdff21fe4_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_LEVEL_CALIBRATION_NOISE_SOURCE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdff220e1_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_LINE_CONNECTOR: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdff21fe3_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_LOUDNESS: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x41887440_c558_11d0_8a2b_00a0c9255ac1);
+pub const KSNODETYPE_LOW_FREQUENCY_EFFECTS_SPEAKER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdff21ce7_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_MICROPHONE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdff21be1_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_MICROPHONE_ARRAY: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdff21be5_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_MIDI_ELEMENT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x01c6fe66_6e48_4c65_ac9b_52db5d656c7e);
+pub const KSNODETYPE_MIDI_JACK: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x265e0c3f_fa39_4df3_ab04_be01b91e299a);
+pub const KSNODETYPE_MINIDISK: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdff220e6_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_MULTITRACK_RECORDER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdff220f2_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_MUTE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x02b223c0_c557_11d0_8a2b_00a0c9255ac1);
+pub const KSNODETYPE_MUX: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x2ceaf780_c556_11d0_8a2b_00a0c9255ac1);
+pub const KSNODETYPE_NOISE_SUPPRESS: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe07f903f_62fd_4e60_8cdd_dea7236665b5);
+pub const KSNODETYPE_OMNI_DIRECTIONAL_MICROPHONE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdff21be4_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_OUTPUT_UNDEFINED: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdff21ce0_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_PARAMETRIC_EQUALIZER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x19bb3a6a_ce2b_4442_87ec_6727c3cab477);
+pub const KSNODETYPE_PEAKMETER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa085651e_5f0d_4b36_a869_d195d6ab4b9e);
+pub const KSNODETYPE_PERSONAL_MICROPHONE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdff21be3_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_PHONE_LINE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdff21ee1_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_PHONOGRAPH: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdff220e8_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_PROCESSING_MICROPHONE_ARRAY: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdff21be6_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_PROLOGIC_DECODER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x831c2c80_c558_11d0_8a2b_00a0c9255ac1);
+pub const KSNODETYPE_PROLOGIC_ENCODER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8074c5b2_3c66_11d2_b45a_3078302c2030);
+pub const KSNODETYPE_RADIO_RECEIVER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdff220f0_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_RADIO_TRANSMITTER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdff220f1_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_REVERB: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xef0328e0_c558_11d0_8a2b_00a0c9255ac1);
+pub const KSNODETYPE_ROOM_SPEAKER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdff21ce5_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_SATELLITE_RECEIVER_AUDIO: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdff220ed_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_SPDIF_INTERFACE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdff21fe5_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_SPEAKER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdff21ce1_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_SPEAKERPHONE_NO_ECHO_REDUCTION: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdff21de3_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_SPEAKERS_STATIC_JACK: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x28e04f87_4dbe_4f8d_8589_025d209dfb4a);
+pub const KSNODETYPE_SRC: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9db7b9e0_c555_11d0_8a2b_00a0c9255ac1);
+pub const KSNODETYPE_STEREO_WIDE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa9e69800_c558_11d0_8a2b_00a0c9255ac1);
+pub const KSNODETYPE_SUM: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xda441a60_c556_11d0_8a2b_00a0c9255ac1);
+pub const KSNODETYPE_SUPERMIX: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe573adc0_c555_11d0_8a2b_00a0c9255ac1);
+pub const KSNODETYPE_SYNTHESIZER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdff220f3_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_TELEPHONE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdff21ee2_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_TELEPHONY_BIDI: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x686d7cc0_d903_4258_b443_3a3d3580741c);
+pub const KSNODETYPE_TELEPHONY_UNDEFINED: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdff21ee0_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_TONE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7607e580_c557_11d0_8a2b_00a0c9255ac1);
+pub const KSNODETYPE_TV_TUNER_AUDIO: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdff220ec_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_UPDOWN_MIX: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb7edc5cf_7b63_4ee2_a100_29ee2cb6b2de);
+pub const KSNODETYPE_VCR_AUDIO: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdff220e9_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_VIDEO_CAMERA_TERMINAL: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdff229e6_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_VIDEO_DISC_AUDIO: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdff220ea_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_VIDEO_INPUT_MTT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdff229e7_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_VIDEO_INPUT_TERMINAL: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdff229e2_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_VIDEO_OUTPUT_MTT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdff229e8_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_VIDEO_OUTPUT_TERMINAL: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdff229e3_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_VIDEO_PROCESSING: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdff229e5_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_VIDEO_SELECTOR: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdff229e4_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_VIDEO_STREAMING: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdff229e1_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_VOLUME: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3a5acc00_c557_11d0_8a2b_00a0c9255ac1);
 #[repr(C)]
 pub struct KSNODE_CREATE {
     pub CreateFlags: u32,
     pub Node: u32,
 }
-impl ::core::marker::Copy for KSNODE_CREATE {}
-impl ::core::clone::Clone for KSNODE_CREATE {
+impl Copy for KSNODE_CREATE {}
+impl Clone for KSNODE_CREATE {
     fn clone(&self) -> Self {
         *self
     }
 }
-pub const KSNOTIFICATIONID_AudioModule: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x9c2220f0_d9a6_4d5c_a036_573857fd50d2);
-pub const KSNOTIFICATIONID_SoundDetector: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x6389d844_bb32_4c4c_a802_f4b4b77afead);
+pub const KSNOTIFICATIONID_AudioModule: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9c2220f0_d9a6_4d5c_a036_573857fd50d2);
+pub const KSNOTIFICATIONID_SoundDetector: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6389d844_bb32_4c4c_a802_f4b4b77afead);
 #[repr(C)]
 pub struct KSPIN_CINSTANCES {
     pub PossibleCount: u32,
     pub CurrentCount: u32,
 }
-impl ::core::marker::Copy for KSPIN_CINSTANCES {}
-impl ::core::clone::Clone for KSPIN_CINSTANCES {
+impl Copy for KSPIN_CINSTANCES {}
+impl Clone for KSPIN_CINSTANCES {
     fn clone(&self) -> Self {
         *self
     }
@@ -3940,8 +3940,8 @@ pub struct KSPIN_CONNECT {
     pub PinToHandle: super::super::Foundation::HANDLE,
     pub Priority: KSPRIORITY,
 }
-impl ::core::marker::Copy for KSPIN_CONNECT {}
-impl ::core::clone::Clone for KSPIN_CONNECT {
+impl Copy for KSPIN_CONNECT {}
+impl Clone for KSPIN_CONNECT {
     fn clone(&self) -> Self {
         *self
     }
@@ -3949,10 +3949,10 @@ impl ::core::clone::Clone for KSPIN_CONNECT {
 #[repr(C)]
 pub struct KSPIN_MDL_CACHING_NOTIFICATION {
     pub Event: KSPIN_MDL_CACHING_EVENT,
-    pub Buffer: *mut ::core::ffi::c_void,
+    pub Buffer: *mut core::ffi::c_void,
 }
-impl ::core::marker::Copy for KSPIN_MDL_CACHING_NOTIFICATION {}
-impl ::core::clone::Clone for KSPIN_MDL_CACHING_NOTIFICATION {
+impl Copy for KSPIN_MDL_CACHING_NOTIFICATION {}
+impl Clone for KSPIN_MDL_CACHING_NOTIFICATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -3962,8 +3962,8 @@ pub struct KSPIN_MDL_CACHING_NOTIFICATION32 {
     pub Event: KSPIN_MDL_CACHING_EVENT,
     pub Buffer: u32,
 }
-impl ::core::marker::Copy for KSPIN_MDL_CACHING_NOTIFICATION32 {}
-impl ::core::clone::Clone for KSPIN_MDL_CACHING_NOTIFICATION32 {
+impl Copy for KSPIN_MDL_CACHING_NOTIFICATION32 {}
+impl Clone for KSPIN_MDL_CACHING_NOTIFICATION32 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3974,8 +3974,8 @@ pub struct KSPIN_PHYSICALCONNECTION {
     pub Pin: u32,
     pub SymbolicLinkName: [u16; 1],
 }
-impl ::core::marker::Copy for KSPIN_PHYSICALCONNECTION {}
-impl ::core::clone::Clone for KSPIN_PHYSICALCONNECTION {
+impl Copy for KSPIN_PHYSICALCONNECTION {}
+impl Clone for KSPIN_PHYSICALCONNECTION {
     fn clone(&self) -> Self {
         *self
     }
@@ -3985,21 +3985,21 @@ pub struct KSPRIORITY {
     pub PriorityClass: u32,
     pub PrioritySubClass: u32,
 }
-impl ::core::marker::Copy for KSPRIORITY {}
-impl ::core::clone::Clone for KSPRIORITY {
+impl Copy for KSPRIORITY {}
+impl Clone for KSPRIORITY {
     fn clone(&self) -> Self {
         *self
     }
 }
-pub const KSPROPERTYSETID_ExtendedCameraControl: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x1cb79112_c0d2_4213_9ca6_cd4fdb927972);
-pub const KSPROPERTYSETID_NetworkCameraControl: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x0e780f09_5745_4e3a_bc9f_f226ea43a6ec);
-pub const KSPROPERTYSETID_PerFrameSettingControl: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xf1f3e261_dee6_4537_bff5_ee206db54aac);
+pub const KSPROPERTYSETID_ExtendedCameraControl: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1cb79112_c0d2_4213_9ca6_cd4fdb927972);
+pub const KSPROPERTYSETID_NetworkCameraControl: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0e780f09_5745_4e3a_bc9f_f226ea43a6ec);
+pub const KSPROPERTYSETID_PerFrameSettingControl: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf1f3e261_dee6_4537_bff5_ee206db54aac);
 #[repr(C)]
 pub struct KSPROPERTY_ALLOCATOR_CONTROL_CAPTURE_CAPS_S {
     pub InterleavedCapSupported: u32,
 }
-impl ::core::marker::Copy for KSPROPERTY_ALLOCATOR_CONTROL_CAPTURE_CAPS_S {}
-impl ::core::clone::Clone for KSPROPERTY_ALLOCATOR_CONTROL_CAPTURE_CAPS_S {
+impl Copy for KSPROPERTY_ALLOCATOR_CONTROL_CAPTURE_CAPS_S {}
+impl Clone for KSPROPERTY_ALLOCATOR_CONTROL_CAPTURE_CAPS_S {
     fn clone(&self) -> Self {
         *self
     }
@@ -4008,8 +4008,8 @@ impl ::core::clone::Clone for KSPROPERTY_ALLOCATOR_CONTROL_CAPTURE_CAPS_S {
 pub struct KSPROPERTY_ALLOCATOR_CONTROL_CAPTURE_INTERLEAVE_S {
     pub InterleavedCapPossible: u32,
 }
-impl ::core::marker::Copy for KSPROPERTY_ALLOCATOR_CONTROL_CAPTURE_INTERLEAVE_S {}
-impl ::core::clone::Clone for KSPROPERTY_ALLOCATOR_CONTROL_CAPTURE_INTERLEAVE_S {
+impl Copy for KSPROPERTY_ALLOCATOR_CONTROL_CAPTURE_INTERLEAVE_S {}
+impl Clone for KSPROPERTY_ALLOCATOR_CONTROL_CAPTURE_INTERLEAVE_S {
     fn clone(&self) -> Self {
         *self
     }
@@ -4019,8 +4019,8 @@ pub struct KSPROPERTY_ALLOCATOR_CONTROL_SURFACE_SIZE_S {
     pub CX: u32,
     pub CY: u32,
 }
-impl ::core::marker::Copy for KSPROPERTY_ALLOCATOR_CONTROL_SURFACE_SIZE_S {}
-impl ::core::clone::Clone for KSPROPERTY_ALLOCATOR_CONTROL_SURFACE_SIZE_S {
+impl Copy for KSPROPERTY_ALLOCATOR_CONTROL_SURFACE_SIZE_S {}
+impl Clone for KSPROPERTY_ALLOCATOR_CONTROL_SURFACE_SIZE_S {
     fn clone(&self) -> Self {
         *self
     }
@@ -4030,8 +4030,8 @@ pub union KSPROPERTY_BOUNDS_LONG {
     pub Anonymous1: KSPROPERTY_BOUNDS_LONG_0,
     pub Anonymous2: KSPROPERTY_BOUNDS_LONG_1,
 }
-impl ::core::marker::Copy for KSPROPERTY_BOUNDS_LONG {}
-impl ::core::clone::Clone for KSPROPERTY_BOUNDS_LONG {
+impl Copy for KSPROPERTY_BOUNDS_LONG {}
+impl Clone for KSPROPERTY_BOUNDS_LONG {
     fn clone(&self) -> Self {
         *self
     }
@@ -4041,8 +4041,8 @@ pub struct KSPROPERTY_BOUNDS_LONG_0 {
     pub SignedMinimum: i32,
     pub SignedMaximum: i32,
 }
-impl ::core::marker::Copy for KSPROPERTY_BOUNDS_LONG_0 {}
-impl ::core::clone::Clone for KSPROPERTY_BOUNDS_LONG_0 {
+impl Copy for KSPROPERTY_BOUNDS_LONG_0 {}
+impl Clone for KSPROPERTY_BOUNDS_LONG_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4052,8 +4052,8 @@ pub struct KSPROPERTY_BOUNDS_LONG_1 {
     pub UnsignedMinimum: u32,
     pub UnsignedMaximum: u32,
 }
-impl ::core::marker::Copy for KSPROPERTY_BOUNDS_LONG_1 {}
-impl ::core::clone::Clone for KSPROPERTY_BOUNDS_LONG_1 {
+impl Copy for KSPROPERTY_BOUNDS_LONG_1 {}
+impl Clone for KSPROPERTY_BOUNDS_LONG_1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4063,8 +4063,8 @@ pub union KSPROPERTY_BOUNDS_LONGLONG {
     pub Anonymous1: KSPROPERTY_BOUNDS_LONGLONG_0,
     pub Anonymous2: KSPROPERTY_BOUNDS_LONGLONG_1,
 }
-impl ::core::marker::Copy for KSPROPERTY_BOUNDS_LONGLONG {}
-impl ::core::clone::Clone for KSPROPERTY_BOUNDS_LONGLONG {
+impl Copy for KSPROPERTY_BOUNDS_LONGLONG {}
+impl Clone for KSPROPERTY_BOUNDS_LONGLONG {
     fn clone(&self) -> Self {
         *self
     }
@@ -4074,8 +4074,8 @@ pub struct KSPROPERTY_BOUNDS_LONGLONG_0 {
     pub SignedMinimum: i64,
     pub SignedMaximum: i64,
 }
-impl ::core::marker::Copy for KSPROPERTY_BOUNDS_LONGLONG_0 {}
-impl ::core::clone::Clone for KSPROPERTY_BOUNDS_LONGLONG_0 {
+impl Copy for KSPROPERTY_BOUNDS_LONGLONG_0 {}
+impl Clone for KSPROPERTY_BOUNDS_LONGLONG_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4085,8 +4085,8 @@ pub struct KSPROPERTY_BOUNDS_LONGLONG_1 {
     pub UnsignedMinimum: u64,
     pub UnsignedMaximum: u64,
 }
-impl ::core::marker::Copy for KSPROPERTY_BOUNDS_LONGLONG_1 {}
-impl ::core::clone::Clone for KSPROPERTY_BOUNDS_LONGLONG_1 {
+impl Copy for KSPROPERTY_BOUNDS_LONGLONG_1 {}
+impl Clone for KSPROPERTY_BOUNDS_LONGLONG_1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4096,8 +4096,8 @@ pub struct KSPROPERTY_CAMERACONTROL_FLASH_S {
     pub Flash: u32,
     pub Capabilities: u32,
 }
-impl ::core::marker::Copy for KSPROPERTY_CAMERACONTROL_FLASH_S {}
-impl ::core::clone::Clone for KSPROPERTY_CAMERACONTROL_FLASH_S {
+impl Copy for KSPROPERTY_CAMERACONTROL_FLASH_S {}
+impl Clone for KSPROPERTY_CAMERACONTROL_FLASH_S {
     fn clone(&self) -> Self {
         *self
     }
@@ -4109,8 +4109,8 @@ pub struct KSPROPERTY_CAMERACONTROL_FOCAL_LENGTH_S {
     pub lObjectiveFocalLengthMin: i32,
     pub lObjectiveFocalLengthMax: i32,
 }
-impl ::core::marker::Copy for KSPROPERTY_CAMERACONTROL_FOCAL_LENGTH_S {}
-impl ::core::clone::Clone for KSPROPERTY_CAMERACONTROL_FOCAL_LENGTH_S {
+impl Copy for KSPROPERTY_CAMERACONTROL_FOCAL_LENGTH_S {}
+impl Clone for KSPROPERTY_CAMERACONTROL_FOCAL_LENGTH_S {
     fn clone(&self) -> Self {
         *self
     }
@@ -4120,8 +4120,8 @@ pub struct KSPROPERTY_CAMERACONTROL_IMAGE_PIN_CAPABILITY_S {
     pub Capabilities: u32,
     pub Reserved0: u32,
 }
-impl ::core::marker::Copy for KSPROPERTY_CAMERACONTROL_IMAGE_PIN_CAPABILITY_S {}
-impl ::core::clone::Clone for KSPROPERTY_CAMERACONTROL_IMAGE_PIN_CAPABILITY_S {
+impl Copy for KSPROPERTY_CAMERACONTROL_IMAGE_PIN_CAPABILITY_S {}
+impl Clone for KSPROPERTY_CAMERACONTROL_IMAGE_PIN_CAPABILITY_S {
     fn clone(&self) -> Self {
         *self
     }
@@ -4133,8 +4133,8 @@ pub struct KSPROPERTY_CAMERACONTROL_NODE_FOCAL_LENGTH_S {
     pub lObjectiveFocalLengthMin: i32,
     pub lObjectiveFocalLengthMax: i32,
 }
-impl ::core::marker::Copy for KSPROPERTY_CAMERACONTROL_NODE_FOCAL_LENGTH_S {}
-impl ::core::clone::Clone for KSPROPERTY_CAMERACONTROL_NODE_FOCAL_LENGTH_S {
+impl Copy for KSPROPERTY_CAMERACONTROL_NODE_FOCAL_LENGTH_S {}
+impl Clone for KSPROPERTY_CAMERACONTROL_NODE_FOCAL_LENGTH_S {
     fn clone(&self) -> Self {
         *self
     }
@@ -4146,8 +4146,8 @@ pub struct KSPROPERTY_CAMERACONTROL_NODE_S {
     pub Flags: u32,
     pub Capabilities: u32,
 }
-impl ::core::marker::Copy for KSPROPERTY_CAMERACONTROL_NODE_S {}
-impl ::core::clone::Clone for KSPROPERTY_CAMERACONTROL_NODE_S {
+impl Copy for KSPROPERTY_CAMERACONTROL_NODE_S {}
+impl Clone for KSPROPERTY_CAMERACONTROL_NODE_S {
     fn clone(&self) -> Self {
         *self
     }
@@ -4160,8 +4160,8 @@ pub struct KSPROPERTY_CAMERACONTROL_NODE_S2 {
     pub Capabilities: u32,
     pub Value2: i32,
 }
-impl ::core::marker::Copy for KSPROPERTY_CAMERACONTROL_NODE_S2 {}
-impl ::core::clone::Clone for KSPROPERTY_CAMERACONTROL_NODE_S2 {
+impl Copy for KSPROPERTY_CAMERACONTROL_NODE_S2 {}
+impl Clone for KSPROPERTY_CAMERACONTROL_NODE_S2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4174,8 +4174,8 @@ pub struct KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_S {
     pub AutoWhitebalanceLock: super::super::Foundation::BOOL,
     pub Anonymous: KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_S_0,
 }
-impl ::core::marker::Copy for KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_S {}
-impl ::core::clone::Clone for KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_S {
+impl Copy for KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_S {}
+impl Clone for KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_S {
     fn clone(&self) -> Self {
         *self
     }
@@ -4185,8 +4185,8 @@ pub union KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_S_0 {
     pub Capabilities: u32,
     pub Configuration: u32,
 }
-impl ::core::marker::Copy for KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_S_0 {}
-impl ::core::clone::Clone for KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_S_0 {
+impl Copy for KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_S_0 {}
+impl Clone for KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_S_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4198,8 +4198,8 @@ pub struct KSPROPERTY_CAMERACONTROL_S {
     pub Flags: u32,
     pub Capabilities: u32,
 }
-impl ::core::marker::Copy for KSPROPERTY_CAMERACONTROL_S {}
-impl ::core::clone::Clone for KSPROPERTY_CAMERACONTROL_S {
+impl Copy for KSPROPERTY_CAMERACONTROL_S {}
+impl Clone for KSPROPERTY_CAMERACONTROL_S {
     fn clone(&self) -> Self {
         *self
     }
@@ -4212,8 +4212,8 @@ pub struct KSPROPERTY_CAMERACONTROL_S2 {
     pub Capabilities: u32,
     pub Value2: i32,
 }
-impl ::core::marker::Copy for KSPROPERTY_CAMERACONTROL_S2 {}
-impl ::core::clone::Clone for KSPROPERTY_CAMERACONTROL_S2 {
+impl Copy for KSPROPERTY_CAMERACONTROL_S2 {}
+impl Clone for KSPROPERTY_CAMERACONTROL_S2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4226,8 +4226,8 @@ pub struct KSPROPERTY_CAMERACONTROL_S_EX {
     pub Capabilities: u32,
     pub FocusRect: super::super::Foundation::RECT,
 }
-impl ::core::marker::Copy for KSPROPERTY_CAMERACONTROL_S_EX {}
-impl ::core::clone::Clone for KSPROPERTY_CAMERACONTROL_S_EX {
+impl Copy for KSPROPERTY_CAMERACONTROL_S_EX {}
+impl Clone for KSPROPERTY_CAMERACONTROL_S_EX {
     fn clone(&self) -> Self {
         *self
     }
@@ -4237,8 +4237,8 @@ pub struct KSPROPERTY_CAMERACONTROL_VIDEOSTABILIZATION_MODE_S {
     pub VideoStabilizationMode: u32,
     pub Capabilities: u32,
 }
-impl ::core::marker::Copy for KSPROPERTY_CAMERACONTROL_VIDEOSTABILIZATION_MODE_S {}
-impl ::core::clone::Clone for KSPROPERTY_CAMERACONTROL_VIDEOSTABILIZATION_MODE_S {
+impl Copy for KSPROPERTY_CAMERACONTROL_VIDEOSTABILIZATION_MODE_S {}
+impl Clone for KSPROPERTY_CAMERACONTROL_VIDEOSTABILIZATION_MODE_S {
     fn clone(&self) -> Self {
         *self
     }
@@ -4249,8 +4249,8 @@ pub struct KSPROPERTY_CROSSBAR_ACTIVE_S {
     pub IndexInputPin: u32,
     pub Active: u32,
 }
-impl ::core::marker::Copy for KSPROPERTY_CROSSBAR_ACTIVE_S {}
-impl ::core::clone::Clone for KSPROPERTY_CROSSBAR_ACTIVE_S {
+impl Copy for KSPROPERTY_CROSSBAR_ACTIVE_S {}
+impl Clone for KSPROPERTY_CROSSBAR_ACTIVE_S {
     fn clone(&self) -> Self {
         *self
     }
@@ -4261,8 +4261,8 @@ pub struct KSPROPERTY_CROSSBAR_CAPS_S {
     pub NumberOfInputs: u32,
     pub NumberOfOutputs: u32,
 }
-impl ::core::marker::Copy for KSPROPERTY_CROSSBAR_CAPS_S {}
-impl ::core::clone::Clone for KSPROPERTY_CROSSBAR_CAPS_S {
+impl Copy for KSPROPERTY_CROSSBAR_CAPS_S {}
+impl Clone for KSPROPERTY_CROSSBAR_CAPS_S {
     fn clone(&self) -> Self {
         *self
     }
@@ -4276,8 +4276,8 @@ pub struct KSPROPERTY_CROSSBAR_PININFO_S {
     pub RelatedPinIndex: u32,
     pub Medium: KSIDENTIFIER,
 }
-impl ::core::marker::Copy for KSPROPERTY_CROSSBAR_PININFO_S {}
-impl ::core::clone::Clone for KSPROPERTY_CROSSBAR_PININFO_S {
+impl Copy for KSPROPERTY_CROSSBAR_PININFO_S {}
+impl Clone for KSPROPERTY_CROSSBAR_PININFO_S {
     fn clone(&self) -> Self {
         *self
     }
@@ -4289,8 +4289,8 @@ pub struct KSPROPERTY_CROSSBAR_ROUTE_S {
     pub IndexOutputPin: u32,
     pub CanRoute: u32,
 }
-impl ::core::marker::Copy for KSPROPERTY_CROSSBAR_ROUTE_S {}
-impl ::core::clone::Clone for KSPROPERTY_CROSSBAR_ROUTE_S {
+impl Copy for KSPROPERTY_CROSSBAR_ROUTE_S {}
+impl Clone for KSPROPERTY_CROSSBAR_ROUTE_S {
     fn clone(&self) -> Self {
         *self
     }
@@ -4303,8 +4303,8 @@ pub struct KSPROPERTY_DESCRIPTION {
     pub MembersListCount: u32,
     pub Reserved: u32,
 }
-impl ::core::marker::Copy for KSPROPERTY_DESCRIPTION {}
-impl ::core::clone::Clone for KSPROPERTY_DESCRIPTION {
+impl Copy for KSPROPERTY_DESCRIPTION {}
+impl Clone for KSPROPERTY_DESCRIPTION {
     fn clone(&self) -> Self {
         *self
     }
@@ -4316,8 +4316,8 @@ pub struct KSPROPERTY_DROPPEDFRAMES_CURRENT_S {
     pub DropCount: i64,
     pub AverageFrameSize: u32,
 }
-impl ::core::marker::Copy for KSPROPERTY_DROPPEDFRAMES_CURRENT_S {}
-impl ::core::clone::Clone for KSPROPERTY_DROPPEDFRAMES_CURRENT_S {
+impl Copy for KSPROPERTY_DROPPEDFRAMES_CURRENT_S {}
+impl Clone for KSPROPERTY_DROPPEDFRAMES_CURRENT_S {
     fn clone(&self) -> Self {
         *self
     }
@@ -4327,8 +4327,8 @@ pub struct KSPROPERTY_EXTDEVICE_S {
     pub Property: KSIDENTIFIER,
     pub u: KSPROPERTY_EXTDEVICE_S_0,
 }
-impl ::core::marker::Copy for KSPROPERTY_EXTDEVICE_S {}
-impl ::core::clone::Clone for KSPROPERTY_EXTDEVICE_S {
+impl Copy for KSPROPERTY_EXTDEVICE_S {}
+impl Clone for KSPROPERTY_EXTDEVICE_S {
     fn clone(&self) -> Self {
         *self
     }
@@ -4341,8 +4341,8 @@ pub union KSPROPERTY_EXTDEVICE_S_0 {
     pub pawchString: [u16; 260],
     pub NodeUniqueID: [u32; 2],
 }
-impl ::core::marker::Copy for KSPROPERTY_EXTDEVICE_S_0 {}
-impl ::core::clone::Clone for KSPROPERTY_EXTDEVICE_S_0 {
+impl Copy for KSPROPERTY_EXTDEVICE_S_0 {}
+impl Clone for KSPROPERTY_EXTDEVICE_S_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4352,8 +4352,8 @@ pub struct KSPROPERTY_EXTXPORT_NODE_S {
     pub NodeProperty: KSP_NODE,
     pub u: KSPROPERTY_EXTXPORT_NODE_S_0,
 }
-impl ::core::marker::Copy for KSPROPERTY_EXTXPORT_NODE_S {}
-impl ::core::clone::Clone for KSPROPERTY_EXTXPORT_NODE_S {
+impl Copy for KSPROPERTY_EXTXPORT_NODE_S {}
+impl Clone for KSPROPERTY_EXTXPORT_NODE_S {
     fn clone(&self) -> Self {
         *self
     }
@@ -4370,8 +4370,8 @@ pub union KSPROPERTY_EXTXPORT_NODE_S_0 {
     pub dwAbsTrackNumber: u32,
     pub RawAVC: KSPROPERTY_EXTXPORT_NODE_S_0_0,
 }
-impl ::core::marker::Copy for KSPROPERTY_EXTXPORT_NODE_S_0 {}
-impl ::core::clone::Clone for KSPROPERTY_EXTXPORT_NODE_S_0 {
+impl Copy for KSPROPERTY_EXTXPORT_NODE_S_0 {}
+impl Clone for KSPROPERTY_EXTXPORT_NODE_S_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4381,8 +4381,8 @@ pub struct KSPROPERTY_EXTXPORT_NODE_S_0_0 {
     pub PayloadSize: u32,
     pub Payload: [u8; 512],
 }
-impl ::core::marker::Copy for KSPROPERTY_EXTXPORT_NODE_S_0_0 {}
-impl ::core::clone::Clone for KSPROPERTY_EXTXPORT_NODE_S_0_0 {
+impl Copy for KSPROPERTY_EXTXPORT_NODE_S_0_0 {}
+impl Clone for KSPROPERTY_EXTXPORT_NODE_S_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4394,8 +4394,8 @@ pub struct KSPROPERTY_EXTXPORT_NODE_S_0_1 {
     pub minute: u8,
     pub hour: u8,
 }
-impl ::core::marker::Copy for KSPROPERTY_EXTXPORT_NODE_S_0_1 {}
-impl ::core::clone::Clone for KSPROPERTY_EXTXPORT_NODE_S_0_1 {
+impl Copy for KSPROPERTY_EXTXPORT_NODE_S_0_1 {}
+impl Clone for KSPROPERTY_EXTXPORT_NODE_S_0_1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4405,8 +4405,8 @@ pub struct KSPROPERTY_EXTXPORT_S {
     pub Property: KSIDENTIFIER,
     pub u: KSPROPERTY_EXTXPORT_S_0,
 }
-impl ::core::marker::Copy for KSPROPERTY_EXTXPORT_S {}
-impl ::core::clone::Clone for KSPROPERTY_EXTXPORT_S {
+impl Copy for KSPROPERTY_EXTXPORT_S {}
+impl Clone for KSPROPERTY_EXTXPORT_S {
     fn clone(&self) -> Self {
         *self
     }
@@ -4423,8 +4423,8 @@ pub union KSPROPERTY_EXTXPORT_S_0 {
     pub dwAbsTrackNumber: u32,
     pub RawAVC: KSPROPERTY_EXTXPORT_S_0_0,
 }
-impl ::core::marker::Copy for KSPROPERTY_EXTXPORT_S_0 {}
-impl ::core::clone::Clone for KSPROPERTY_EXTXPORT_S_0 {
+impl Copy for KSPROPERTY_EXTXPORT_S_0 {}
+impl Clone for KSPROPERTY_EXTXPORT_S_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4434,8 +4434,8 @@ pub struct KSPROPERTY_EXTXPORT_S_0_0 {
     pub PayloadSize: u32,
     pub Payload: [u8; 512],
 }
-impl ::core::marker::Copy for KSPROPERTY_EXTXPORT_S_0_0 {}
-impl ::core::clone::Clone for KSPROPERTY_EXTXPORT_S_0_0 {
+impl Copy for KSPROPERTY_EXTXPORT_S_0_0 {}
+impl Clone for KSPROPERTY_EXTXPORT_S_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4447,8 +4447,8 @@ pub struct KSPROPERTY_EXTXPORT_S_0_1 {
     pub minute: u8,
     pub hour: u8,
 }
-impl ::core::marker::Copy for KSPROPERTY_EXTXPORT_S_0_1 {}
-impl ::core::clone::Clone for KSPROPERTY_EXTXPORT_S_0_1 {
+impl Copy for KSPROPERTY_EXTXPORT_S_0_1 {}
+impl Clone for KSPROPERTY_EXTXPORT_S_0_1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4458,8 +4458,8 @@ pub struct KSPROPERTY_MEDIAAVAILABLE {
     pub Earliest: i64,
     pub Latest: i64,
 }
-impl ::core::marker::Copy for KSPROPERTY_MEDIAAVAILABLE {}
-impl ::core::clone::Clone for KSPROPERTY_MEDIAAVAILABLE {
+impl Copy for KSPROPERTY_MEDIAAVAILABLE {}
+impl Clone for KSPROPERTY_MEDIAAVAILABLE {
     fn clone(&self) -> Self {
         *self
     }
@@ -4471,8 +4471,8 @@ pub struct KSPROPERTY_MEMBERSHEADER {
     pub MembersCount: u32,
     pub Flags: u32,
 }
-impl ::core::marker::Copy for KSPROPERTY_MEMBERSHEADER {}
-impl ::core::clone::Clone for KSPROPERTY_MEMBERSHEADER {
+impl Copy for KSPROPERTY_MEMBERSHEADER {}
+impl Clone for KSPROPERTY_MEMBERSHEADER {
     fn clone(&self) -> Self {
         *self
     }
@@ -4482,8 +4482,8 @@ pub struct KSPROPERTY_NETWORKCAMERACONTROL_EVENT_INFO {
     pub Header: KSCAMERA_METADATA_ITEMHEADER,
     pub EventFilter: [u16; 1],
 }
-impl ::core::marker::Copy for KSPROPERTY_NETWORKCAMERACONTROL_EVENT_INFO {}
-impl ::core::clone::Clone for KSPROPERTY_NETWORKCAMERACONTROL_EVENT_INFO {
+impl Copy for KSPROPERTY_NETWORKCAMERACONTROL_EVENT_INFO {}
+impl Clone for KSPROPERTY_NETWORKCAMERACONTROL_EVENT_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -4497,8 +4497,8 @@ pub struct KSPROPERTY_NETWORKCAMERACONTROL_METADATA_INFO {
     pub Analytics: super::super::Foundation::BOOL,
     pub Reserved: super::super::Foundation::BOOL,
 }
-impl ::core::marker::Copy for KSPROPERTY_NETWORKCAMERACONTROL_METADATA_INFO {}
-impl ::core::clone::Clone for KSPROPERTY_NETWORKCAMERACONTROL_METADATA_INFO {
+impl Copy for KSPROPERTY_NETWORKCAMERACONTROL_METADATA_INFO {}
+impl Clone for KSPROPERTY_NETWORKCAMERACONTROL_METADATA_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -4508,8 +4508,8 @@ pub struct KSPROPERTY_NETWORKCAMERACONTROL_NTPINFO_HEADER {
     pub Size: u32,
     pub Type: KSPROPERTY_NETWORKCAMERACONTROL_NTPINFO_TYPE,
 }
-impl ::core::marker::Copy for KSPROPERTY_NETWORKCAMERACONTROL_NTPINFO_HEADER {}
-impl ::core::clone::Clone for KSPROPERTY_NETWORKCAMERACONTROL_NTPINFO_HEADER {
+impl Copy for KSPROPERTY_NETWORKCAMERACONTROL_NTPINFO_HEADER {}
+impl Clone for KSPROPERTY_NETWORKCAMERACONTROL_NTPINFO_HEADER {
     fn clone(&self) -> Self {
         *self
     }
@@ -4521,8 +4521,8 @@ pub struct KSPROPERTY_POSITIONS {
     pub CurrentFlags: KS_SEEKING_FLAGS,
     pub StopFlags: KS_SEEKING_FLAGS,
 }
-impl ::core::marker::Copy for KSPROPERTY_POSITIONS {}
-impl ::core::clone::Clone for KSPROPERTY_POSITIONS {
+impl Copy for KSPROPERTY_POSITIONS {}
+impl Clone for KSPROPERTY_POSITIONS {
     fn clone(&self) -> Self {
         *self
     }
@@ -4534,8 +4534,8 @@ pub struct KSPROPERTY_SELECTOR_NODE_S {
     pub Flags: u32,
     pub Capabilities: u32,
 }
-impl ::core::marker::Copy for KSPROPERTY_SELECTOR_NODE_S {}
-impl ::core::clone::Clone for KSPROPERTY_SELECTOR_NODE_S {
+impl Copy for KSPROPERTY_SELECTOR_NODE_S {}
+impl Clone for KSPROPERTY_SELECTOR_NODE_S {
     fn clone(&self) -> Self {
         *self
     }
@@ -4547,8 +4547,8 @@ pub struct KSPROPERTY_SELECTOR_S {
     pub Flags: u32,
     pub Capabilities: u32,
 }
-impl ::core::marker::Copy for KSPROPERTY_SELECTOR_S {}
-impl ::core::clone::Clone for KSPROPERTY_SELECTOR_S {
+impl Copy for KSPROPERTY_SELECTOR_S {}
+impl Clone for KSPROPERTY_SELECTOR_S {
     fn clone(&self) -> Self {
         *self
     }
@@ -4559,19 +4559,19 @@ pub struct KSPROPERTY_SERIAL {
     pub Id: u32,
     pub PropertyLength: u32,
 }
-impl ::core::marker::Copy for KSPROPERTY_SERIAL {}
-impl ::core::clone::Clone for KSPROPERTY_SERIAL {
+impl Copy for KSPROPERTY_SERIAL {}
+impl Clone for KSPROPERTY_SERIAL {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C, packed(1))]
 pub struct KSPROPERTY_SERIALHDR {
-    pub PropertySet: ::windows_sys::core::GUID,
+    pub PropertySet: windows_sys::core::GUID,
     pub Count: u32,
 }
-impl ::core::marker::Copy for KSPROPERTY_SERIALHDR {}
-impl ::core::clone::Clone for KSPROPERTY_SERIALHDR {
+impl Copy for KSPROPERTY_SERIALHDR {}
+impl Clone for KSPROPERTY_SERIALHDR {
     fn clone(&self) -> Self {
         *self
     }
@@ -4588,8 +4588,8 @@ pub struct KSPROPERTY_SPHLI {
     pub StopY: u16,
     pub ColCon: KS_COLCON,
 }
-impl ::core::marker::Copy for KSPROPERTY_SPHLI {}
-impl ::core::clone::Clone for KSPROPERTY_SPHLI {
+impl Copy for KSPROPERTY_SPHLI {}
+impl Clone for KSPROPERTY_SPHLI {
     fn clone(&self) -> Self {
         *self
     }
@@ -4598,8 +4598,8 @@ impl ::core::clone::Clone for KSPROPERTY_SPHLI {
 pub struct KSPROPERTY_SPPAL {
     pub sppal: [KS_DVD_YUV; 16],
 }
-impl ::core::marker::Copy for KSPROPERTY_SPPAL {}
-impl ::core::clone::Clone for KSPROPERTY_SPPAL {
+impl Copy for KSPROPERTY_SPPAL {}
+impl Clone for KSPROPERTY_SPPAL {
     fn clone(&self) -> Self {
         *self
     }
@@ -4610,8 +4610,8 @@ pub struct KSPROPERTY_STEPPING_LONG {
     pub Reserved: u32,
     pub Bounds: KSPROPERTY_BOUNDS_LONG,
 }
-impl ::core::marker::Copy for KSPROPERTY_STEPPING_LONG {}
-impl ::core::clone::Clone for KSPROPERTY_STEPPING_LONG {
+impl Copy for KSPROPERTY_STEPPING_LONG {}
+impl Clone for KSPROPERTY_STEPPING_LONG {
     fn clone(&self) -> Self {
         *self
     }
@@ -4621,8 +4621,8 @@ pub struct KSPROPERTY_STEPPING_LONGLONG {
     pub SteppingDelta: u64,
     pub Bounds: KSPROPERTY_BOUNDS_LONGLONG,
 }
-impl ::core::marker::Copy for KSPROPERTY_STEPPING_LONGLONG {}
-impl ::core::clone::Clone for KSPROPERTY_STEPPING_LONGLONG {
+impl Copy for KSPROPERTY_STEPPING_LONGLONG {}
+impl Clone for KSPROPERTY_STEPPING_LONGLONG {
     fn clone(&self) -> Self {
         *self
     }
@@ -4632,8 +4632,8 @@ pub struct KSPROPERTY_TIMECODE_NODE_S {
     pub NodeProperty: KSP_NODE,
     pub TimecodeSamp: super::TIMECODE_SAMPLE,
 }
-impl ::core::marker::Copy for KSPROPERTY_TIMECODE_NODE_S {}
-impl ::core::clone::Clone for KSPROPERTY_TIMECODE_NODE_S {
+impl Copy for KSPROPERTY_TIMECODE_NODE_S {}
+impl Clone for KSPROPERTY_TIMECODE_NODE_S {
     fn clone(&self) -> Self {
         *self
     }
@@ -4643,8 +4643,8 @@ pub struct KSPROPERTY_TIMECODE_S {
     pub Property: KSIDENTIFIER,
     pub TimecodeSamp: super::TIMECODE_SAMPLE,
 }
-impl ::core::marker::Copy for KSPROPERTY_TIMECODE_S {}
-impl ::core::clone::Clone for KSPROPERTY_TIMECODE_S {
+impl Copy for KSPROPERTY_TIMECODE_S {}
+impl Clone for KSPROPERTY_TIMECODE_S {
     fn clone(&self) -> Self {
         *self
     }
@@ -4657,8 +4657,8 @@ pub struct KSPROPERTY_TUNER_CAPS_S {
     pub TVAudioMedium: KSIDENTIFIER,
     pub RadioAudioMedium: KSIDENTIFIER,
 }
-impl ::core::marker::Copy for KSPROPERTY_TUNER_CAPS_S {}
-impl ::core::clone::Clone for KSPROPERTY_TUNER_CAPS_S {
+impl Copy for KSPROPERTY_TUNER_CAPS_S {}
+impl Clone for KSPROPERTY_TUNER_CAPS_S {
     fn clone(&self) -> Self {
         *self
     }
@@ -4674,8 +4674,8 @@ pub struct KSPROPERTY_TUNER_FREQUENCY_S {
     pub Channel: u32,
     pub Country: u32,
 }
-impl ::core::marker::Copy for KSPROPERTY_TUNER_FREQUENCY_S {}
-impl ::core::clone::Clone for KSPROPERTY_TUNER_FREQUENCY_S {
+impl Copy for KSPROPERTY_TUNER_FREQUENCY_S {}
+impl Clone for KSPROPERTY_TUNER_FREQUENCY_S {
     fn clone(&self) -> Self {
         *self
     }
@@ -4685,8 +4685,8 @@ pub struct KSPROPERTY_TUNER_IF_MEDIUM_S {
     pub Property: KSIDENTIFIER,
     pub IFMedium: KSIDENTIFIER,
 }
-impl ::core::marker::Copy for KSPROPERTY_TUNER_IF_MEDIUM_S {}
-impl ::core::clone::Clone for KSPROPERTY_TUNER_IF_MEDIUM_S {
+impl Copy for KSPROPERTY_TUNER_IF_MEDIUM_S {}
+impl Clone for KSPROPERTY_TUNER_IF_MEDIUM_S {
     fn clone(&self) -> Self {
         *self
     }
@@ -4696,8 +4696,8 @@ pub struct KSPROPERTY_TUNER_INPUT_S {
     pub Property: KSIDENTIFIER,
     pub InputIndex: u32,
 }
-impl ::core::marker::Copy for KSPROPERTY_TUNER_INPUT_S {}
-impl ::core::clone::Clone for KSPROPERTY_TUNER_INPUT_S {
+impl Copy for KSPROPERTY_TUNER_INPUT_S {}
+impl Clone for KSPROPERTY_TUNER_INPUT_S {
     fn clone(&self) -> Self {
         *self
     }
@@ -4714,8 +4714,8 @@ pub struct KSPROPERTY_TUNER_MODE_CAPS_S {
     pub SettlingTime: u32,
     pub Strategy: u32,
 }
-impl ::core::marker::Copy for KSPROPERTY_TUNER_MODE_CAPS_S {}
-impl ::core::clone::Clone for KSPROPERTY_TUNER_MODE_CAPS_S {
+impl Copy for KSPROPERTY_TUNER_MODE_CAPS_S {}
+impl Clone for KSPROPERTY_TUNER_MODE_CAPS_S {
     fn clone(&self) -> Self {
         *self
     }
@@ -4725,8 +4725,8 @@ pub struct KSPROPERTY_TUNER_MODE_S {
     pub Property: KSIDENTIFIER,
     pub Mode: u32,
 }
-impl ::core::marker::Copy for KSPROPERTY_TUNER_MODE_S {}
-impl ::core::clone::Clone for KSPROPERTY_TUNER_MODE_S {
+impl Copy for KSPROPERTY_TUNER_MODE_S {}
+impl Clone for KSPROPERTY_TUNER_MODE_S {
     fn clone(&self) -> Self {
         *self
     }
@@ -4734,12 +4734,12 @@ impl ::core::clone::Clone for KSPROPERTY_TUNER_MODE_S {
 #[repr(C)]
 pub struct KSPROPERTY_TUNER_NETWORKTYPE_SCAN_CAPS_S {
     pub Property: KSIDENTIFIER,
-    pub NetworkType: ::windows_sys::core::GUID,
+    pub NetworkType: windows_sys::core::GUID,
     pub BufferSize: u32,
-    pub NetworkTunerCapabilities: *mut ::core::ffi::c_void,
+    pub NetworkTunerCapabilities: *mut core::ffi::c_void,
 }
-impl ::core::marker::Copy for KSPROPERTY_TUNER_NETWORKTYPE_SCAN_CAPS_S {}
-impl ::core::clone::Clone for KSPROPERTY_TUNER_NETWORKTYPE_SCAN_CAPS_S {
+impl Copy for KSPROPERTY_TUNER_NETWORKTYPE_SCAN_CAPS_S {}
+impl Clone for KSPROPERTY_TUNER_NETWORKTYPE_SCAN_CAPS_S {
     fn clone(&self) -> Self {
         *self
     }
@@ -4749,11 +4749,11 @@ pub struct KSPROPERTY_TUNER_SCAN_CAPS_S {
     pub Property: KSIDENTIFIER,
     pub fSupportsHardwareAssistedScanning: super::super::Foundation::BOOL,
     pub SupportedBroadcastStandards: u32,
-    pub GUIDBucket: *mut ::core::ffi::c_void,
+    pub GUIDBucket: *mut core::ffi::c_void,
     pub lengthofBucket: u32,
 }
-impl ::core::marker::Copy for KSPROPERTY_TUNER_SCAN_CAPS_S {}
-impl ::core::clone::Clone for KSPROPERTY_TUNER_SCAN_CAPS_S {
+impl Copy for KSPROPERTY_TUNER_SCAN_CAPS_S {}
+impl Clone for KSPROPERTY_TUNER_SCAN_CAPS_S {
     fn clone(&self) -> Self {
         *self
     }
@@ -4764,8 +4764,8 @@ pub struct KSPROPERTY_TUNER_SCAN_STATUS_S {
     pub LockStatus: TunerLockType,
     pub CurrentFrequency: u32,
 }
-impl ::core::marker::Copy for KSPROPERTY_TUNER_SCAN_STATUS_S {}
-impl ::core::clone::Clone for KSPROPERTY_TUNER_SCAN_STATUS_S {
+impl Copy for KSPROPERTY_TUNER_SCAN_STATUS_S {}
+impl Clone for KSPROPERTY_TUNER_SCAN_STATUS_S {
     fn clone(&self) -> Self {
         *self
     }
@@ -4775,8 +4775,8 @@ pub struct KSPROPERTY_TUNER_STANDARD_MODE_S {
     pub Property: KSIDENTIFIER,
     pub AutoDetect: super::super::Foundation::BOOL,
 }
-impl ::core::marker::Copy for KSPROPERTY_TUNER_STANDARD_MODE_S {}
-impl ::core::clone::Clone for KSPROPERTY_TUNER_STANDARD_MODE_S {
+impl Copy for KSPROPERTY_TUNER_STANDARD_MODE_S {}
+impl Clone for KSPROPERTY_TUNER_STANDARD_MODE_S {
     fn clone(&self) -> Self {
         *self
     }
@@ -4786,8 +4786,8 @@ pub struct KSPROPERTY_TUNER_STANDARD_S {
     pub Property: KSIDENTIFIER,
     pub Standard: u32,
 }
-impl ::core::marker::Copy for KSPROPERTY_TUNER_STANDARD_S {}
-impl ::core::clone::Clone for KSPROPERTY_TUNER_STANDARD_S {
+impl Copy for KSPROPERTY_TUNER_STANDARD_S {}
+impl Clone for KSPROPERTY_TUNER_STANDARD_S {
     fn clone(&self) -> Self {
         *self
     }
@@ -4800,8 +4800,8 @@ pub struct KSPROPERTY_TUNER_STATUS_S {
     pub SignalStrength: u32,
     pub Busy: u32,
 }
-impl ::core::marker::Copy for KSPROPERTY_TUNER_STATUS_S {}
-impl ::core::clone::Clone for KSPROPERTY_TUNER_STATUS_S {
+impl Copy for KSPROPERTY_TUNER_STATUS_S {}
+impl Clone for KSPROPERTY_TUNER_STATUS_S {
     fn clone(&self) -> Self {
         *self
     }
@@ -4813,8 +4813,8 @@ pub struct KSPROPERTY_TVAUDIO_CAPS_S {
     pub InputMedium: KSIDENTIFIER,
     pub OutputMedium: KSIDENTIFIER,
 }
-impl ::core::marker::Copy for KSPROPERTY_TVAUDIO_CAPS_S {}
-impl ::core::clone::Clone for KSPROPERTY_TVAUDIO_CAPS_S {
+impl Copy for KSPROPERTY_TVAUDIO_CAPS_S {}
+impl Clone for KSPROPERTY_TVAUDIO_CAPS_S {
     fn clone(&self) -> Self {
         *self
     }
@@ -4824,8 +4824,8 @@ pub struct KSPROPERTY_TVAUDIO_S {
     pub Property: KSIDENTIFIER,
     pub Mode: u32,
 }
-impl ::core::marker::Copy for KSPROPERTY_TVAUDIO_S {}
-impl ::core::clone::Clone for KSPROPERTY_TVAUDIO_S {
+impl Copy for KSPROPERTY_TVAUDIO_S {}
+impl Clone for KSPROPERTY_TVAUDIO_S {
     fn clone(&self) -> Self {
         *self
     }
@@ -4835,8 +4835,8 @@ pub struct KSPROPERTY_VBICODECFILTERING_CC_SUBSTREAMS_S {
     pub Property: KSIDENTIFIER,
     pub Substreams: VBICODECFILTERING_CC_SUBSTREAMS,
 }
-impl ::core::marker::Copy for KSPROPERTY_VBICODECFILTERING_CC_SUBSTREAMS_S {}
-impl ::core::clone::Clone for KSPROPERTY_VBICODECFILTERING_CC_SUBSTREAMS_S {
+impl Copy for KSPROPERTY_VBICODECFILTERING_CC_SUBSTREAMS_S {}
+impl Clone for KSPROPERTY_VBICODECFILTERING_CC_SUBSTREAMS_S {
     fn clone(&self) -> Self {
         *self
     }
@@ -4846,8 +4846,8 @@ pub struct KSPROPERTY_VBICODECFILTERING_NABTS_SUBSTREAMS_S {
     pub Property: KSIDENTIFIER,
     pub Substreams: VBICODECFILTERING_NABTS_SUBSTREAMS,
 }
-impl ::core::marker::Copy for KSPROPERTY_VBICODECFILTERING_NABTS_SUBSTREAMS_S {}
-impl ::core::clone::Clone for KSPROPERTY_VBICODECFILTERING_NABTS_SUBSTREAMS_S {
+impl Copy for KSPROPERTY_VBICODECFILTERING_NABTS_SUBSTREAMS_S {}
+impl Clone for KSPROPERTY_VBICODECFILTERING_NABTS_SUBSTREAMS_S {
     fn clone(&self) -> Self {
         *self
     }
@@ -4857,8 +4857,8 @@ pub struct KSPROPERTY_VBICODECFILTERING_SCANLINES_S {
     pub Property: KSIDENTIFIER,
     pub Scanlines: VBICODECFILTERING_SCANLINES,
 }
-impl ::core::marker::Copy for KSPROPERTY_VBICODECFILTERING_SCANLINES_S {}
-impl ::core::clone::Clone for KSPROPERTY_VBICODECFILTERING_SCANLINES_S {
+impl Copy for KSPROPERTY_VBICODECFILTERING_SCANLINES_S {}
+impl Clone for KSPROPERTY_VBICODECFILTERING_SCANLINES_S {
     fn clone(&self) -> Self {
         *self
     }
@@ -4868,8 +4868,8 @@ pub struct KSPROPERTY_VBICODECFILTERING_STATISTICS_CC_PIN_S {
     pub Property: KSIDENTIFIER,
     pub Statistics: VBICODECFILTERING_STATISTICS_CC_PIN,
 }
-impl ::core::marker::Copy for KSPROPERTY_VBICODECFILTERING_STATISTICS_CC_PIN_S {}
-impl ::core::clone::Clone for KSPROPERTY_VBICODECFILTERING_STATISTICS_CC_PIN_S {
+impl Copy for KSPROPERTY_VBICODECFILTERING_STATISTICS_CC_PIN_S {}
+impl Clone for KSPROPERTY_VBICODECFILTERING_STATISTICS_CC_PIN_S {
     fn clone(&self) -> Self {
         *self
     }
@@ -4879,8 +4879,8 @@ pub struct KSPROPERTY_VBICODECFILTERING_STATISTICS_CC_S {
     pub Property: KSIDENTIFIER,
     pub Statistics: VBICODECFILTERING_STATISTICS_CC,
 }
-impl ::core::marker::Copy for KSPROPERTY_VBICODECFILTERING_STATISTICS_CC_S {}
-impl ::core::clone::Clone for KSPROPERTY_VBICODECFILTERING_STATISTICS_CC_S {
+impl Copy for KSPROPERTY_VBICODECFILTERING_STATISTICS_CC_S {}
+impl Clone for KSPROPERTY_VBICODECFILTERING_STATISTICS_CC_S {
     fn clone(&self) -> Self {
         *self
     }
@@ -4890,8 +4890,8 @@ pub struct KSPROPERTY_VBICODECFILTERING_STATISTICS_COMMON_PIN_S {
     pub Property: KSIDENTIFIER,
     pub Statistics: VBICODECFILTERING_STATISTICS_COMMON_PIN,
 }
-impl ::core::marker::Copy for KSPROPERTY_VBICODECFILTERING_STATISTICS_COMMON_PIN_S {}
-impl ::core::clone::Clone for KSPROPERTY_VBICODECFILTERING_STATISTICS_COMMON_PIN_S {
+impl Copy for KSPROPERTY_VBICODECFILTERING_STATISTICS_COMMON_PIN_S {}
+impl Clone for KSPROPERTY_VBICODECFILTERING_STATISTICS_COMMON_PIN_S {
     fn clone(&self) -> Self {
         *self
     }
@@ -4901,8 +4901,8 @@ pub struct KSPROPERTY_VBICODECFILTERING_STATISTICS_COMMON_S {
     pub Property: KSIDENTIFIER,
     pub Statistics: VBICODECFILTERING_STATISTICS_COMMON,
 }
-impl ::core::marker::Copy for KSPROPERTY_VBICODECFILTERING_STATISTICS_COMMON_S {}
-impl ::core::clone::Clone for KSPROPERTY_VBICODECFILTERING_STATISTICS_COMMON_S {
+impl Copy for KSPROPERTY_VBICODECFILTERING_STATISTICS_COMMON_S {}
+impl Clone for KSPROPERTY_VBICODECFILTERING_STATISTICS_COMMON_S {
     fn clone(&self) -> Self {
         *self
     }
@@ -4912,8 +4912,8 @@ pub struct KSPROPERTY_VBICODECFILTERING_STATISTICS_NABTS_PIN_S {
     pub Property: KSIDENTIFIER,
     pub Statistics: VBICODECFILTERING_STATISTICS_NABTS_PIN,
 }
-impl ::core::marker::Copy for KSPROPERTY_VBICODECFILTERING_STATISTICS_NABTS_PIN_S {}
-impl ::core::clone::Clone for KSPROPERTY_VBICODECFILTERING_STATISTICS_NABTS_PIN_S {
+impl Copy for KSPROPERTY_VBICODECFILTERING_STATISTICS_NABTS_PIN_S {}
+impl Clone for KSPROPERTY_VBICODECFILTERING_STATISTICS_NABTS_PIN_S {
     fn clone(&self) -> Self {
         *self
     }
@@ -4923,8 +4923,8 @@ pub struct KSPROPERTY_VBICODECFILTERING_STATISTICS_NABTS_S {
     pub Property: KSIDENTIFIER,
     pub Statistics: VBICODECFILTERING_STATISTICS_NABTS,
 }
-impl ::core::marker::Copy for KSPROPERTY_VBICODECFILTERING_STATISTICS_NABTS_S {}
-impl ::core::clone::Clone for KSPROPERTY_VBICODECFILTERING_STATISTICS_NABTS_S {
+impl Copy for KSPROPERTY_VBICODECFILTERING_STATISTICS_NABTS_S {}
+impl Clone for KSPROPERTY_VBICODECFILTERING_STATISTICS_NABTS_S {
     fn clone(&self) -> Self {
         *self
     }
@@ -4939,8 +4939,8 @@ pub struct KSPROPERTY_VIDEOCOMPRESSION_GETINFO_S {
     pub NumberOfQualitySettings: i32,
     pub Capabilities: i32,
 }
-impl ::core::marker::Copy for KSPROPERTY_VIDEOCOMPRESSION_GETINFO_S {}
-impl ::core::clone::Clone for KSPROPERTY_VIDEOCOMPRESSION_GETINFO_S {
+impl Copy for KSPROPERTY_VIDEOCOMPRESSION_GETINFO_S {}
+impl Clone for KSPROPERTY_VIDEOCOMPRESSION_GETINFO_S {
     fn clone(&self) -> Self {
         *self
     }
@@ -4951,8 +4951,8 @@ pub struct KSPROPERTY_VIDEOCOMPRESSION_S {
     pub StreamIndex: u32,
     pub Value: i32,
 }
-impl ::core::marker::Copy for KSPROPERTY_VIDEOCOMPRESSION_S {}
-impl ::core::clone::Clone for KSPROPERTY_VIDEOCOMPRESSION_S {
+impl Copy for KSPROPERTY_VIDEOCOMPRESSION_S {}
+impl Clone for KSPROPERTY_VIDEOCOMPRESSION_S {
     fn clone(&self) -> Self {
         *self
     }
@@ -4964,8 +4964,8 @@ pub struct KSPROPERTY_VIDEOCOMPRESSION_S1 {
     pub Value: i32,
     pub Flags: u32,
 }
-impl ::core::marker::Copy for KSPROPERTY_VIDEOCOMPRESSION_S1 {}
-impl ::core::clone::Clone for KSPROPERTY_VIDEOCOMPRESSION_S1 {
+impl Copy for KSPROPERTY_VIDEOCOMPRESSION_S1 {}
+impl Clone for KSPROPERTY_VIDEOCOMPRESSION_S1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4979,8 +4979,8 @@ pub struct KSPROPERTY_VIDEOCONTROL_ACTUAL_FRAME_RATE_S {
     pub CurrentActualFrameRate: i64,
     pub CurrentMaxAvailableFrameRate: i64,
 }
-impl ::core::marker::Copy for KSPROPERTY_VIDEOCONTROL_ACTUAL_FRAME_RATE_S {}
-impl ::core::clone::Clone for KSPROPERTY_VIDEOCONTROL_ACTUAL_FRAME_RATE_S {
+impl Copy for KSPROPERTY_VIDEOCONTROL_ACTUAL_FRAME_RATE_S {}
+impl Clone for KSPROPERTY_VIDEOCONTROL_ACTUAL_FRAME_RATE_S {
     fn clone(&self) -> Self {
         *self
     }
@@ -4991,8 +4991,8 @@ pub struct KSPROPERTY_VIDEOCONTROL_CAPS_S {
     pub StreamIndex: u32,
     pub VideoControlCaps: u32,
 }
-impl ::core::marker::Copy for KSPROPERTY_VIDEOCONTROL_CAPS_S {}
-impl ::core::clone::Clone for KSPROPERTY_VIDEOCONTROL_CAPS_S {
+impl Copy for KSPROPERTY_VIDEOCONTROL_CAPS_S {}
+impl Clone for KSPROPERTY_VIDEOCONTROL_CAPS_S {
     fn clone(&self) -> Self {
         *self
     }
@@ -5004,8 +5004,8 @@ pub struct KSPROPERTY_VIDEOCONTROL_FRAME_RATES_S {
     pub RangeIndex: u32,
     pub Dimensions: super::super::Foundation::SIZE,
 }
-impl ::core::marker::Copy for KSPROPERTY_VIDEOCONTROL_FRAME_RATES_S {}
-impl ::core::clone::Clone for KSPROPERTY_VIDEOCONTROL_FRAME_RATES_S {
+impl Copy for KSPROPERTY_VIDEOCONTROL_FRAME_RATES_S {}
+impl Clone for KSPROPERTY_VIDEOCONTROL_FRAME_RATES_S {
     fn clone(&self) -> Self {
         *self
     }
@@ -5016,8 +5016,8 @@ pub struct KSPROPERTY_VIDEOCONTROL_MODE_S {
     pub StreamIndex: u32,
     pub Mode: i32,
 }
-impl ::core::marker::Copy for KSPROPERTY_VIDEOCONTROL_MODE_S {}
-impl ::core::clone::Clone for KSPROPERTY_VIDEOCONTROL_MODE_S {
+impl Copy for KSPROPERTY_VIDEOCONTROL_MODE_S {}
+impl Clone for KSPROPERTY_VIDEOCONTROL_MODE_S {
     fn clone(&self) -> Self {
         *self
     }
@@ -5030,8 +5030,8 @@ pub struct KSPROPERTY_VIDEODECODER_CAPS_S {
     pub SettlingTime: u32,
     pub HSyncPerVSync: u32,
 }
-impl ::core::marker::Copy for KSPROPERTY_VIDEODECODER_CAPS_S {}
-impl ::core::clone::Clone for KSPROPERTY_VIDEODECODER_CAPS_S {
+impl Copy for KSPROPERTY_VIDEODECODER_CAPS_S {}
+impl Clone for KSPROPERTY_VIDEODECODER_CAPS_S {
     fn clone(&self) -> Self {
         *self
     }
@@ -5041,8 +5041,8 @@ pub struct KSPROPERTY_VIDEODECODER_S {
     pub Property: KSIDENTIFIER,
     pub Value: u32,
 }
-impl ::core::marker::Copy for KSPROPERTY_VIDEODECODER_S {}
-impl ::core::clone::Clone for KSPROPERTY_VIDEODECODER_S {
+impl Copy for KSPROPERTY_VIDEODECODER_S {}
+impl Clone for KSPROPERTY_VIDEODECODER_S {
     fn clone(&self) -> Self {
         *self
     }
@@ -5054,8 +5054,8 @@ pub struct KSPROPERTY_VIDEODECODER_STATUS2_S {
     pub SignalLocked: u32,
     pub ChromaLock: u32,
 }
-impl ::core::marker::Copy for KSPROPERTY_VIDEODECODER_STATUS2_S {}
-impl ::core::clone::Clone for KSPROPERTY_VIDEODECODER_STATUS2_S {
+impl Copy for KSPROPERTY_VIDEODECODER_STATUS2_S {}
+impl Clone for KSPROPERTY_VIDEODECODER_STATUS2_S {
     fn clone(&self) -> Self {
         *self
     }
@@ -5066,8 +5066,8 @@ pub struct KSPROPERTY_VIDEODECODER_STATUS_S {
     pub NumberOfLines: u32,
     pub SignalLocked: u32,
 }
-impl ::core::marker::Copy for KSPROPERTY_VIDEODECODER_STATUS_S {}
-impl ::core::clone::Clone for KSPROPERTY_VIDEODECODER_STATUS_S {
+impl Copy for KSPROPERTY_VIDEODECODER_STATUS_S {}
+impl Clone for KSPROPERTY_VIDEODECODER_STATUS_S {
     fn clone(&self) -> Self {
         *self
     }
@@ -5079,8 +5079,8 @@ pub struct KSPROPERTY_VIDEOENCODER_S {
     pub Flags: u32,
     pub Capabilities: u32,
 }
-impl ::core::marker::Copy for KSPROPERTY_VIDEOENCODER_S {}
-impl ::core::clone::Clone for KSPROPERTY_VIDEOENCODER_S {
+impl Copy for KSPROPERTY_VIDEOENCODER_S {}
+impl Clone for KSPROPERTY_VIDEOENCODER_S {
     fn clone(&self) -> Self {
         *self
     }
@@ -5092,8 +5092,8 @@ pub struct KSPROPERTY_VIDEOPROCAMP_NODE_S {
     pub Flags: u32,
     pub Capabilities: u32,
 }
-impl ::core::marker::Copy for KSPROPERTY_VIDEOPROCAMP_NODE_S {}
-impl ::core::clone::Clone for KSPROPERTY_VIDEOPROCAMP_NODE_S {
+impl Copy for KSPROPERTY_VIDEOPROCAMP_NODE_S {}
+impl Clone for KSPROPERTY_VIDEOPROCAMP_NODE_S {
     fn clone(&self) -> Self {
         *self
     }
@@ -5106,8 +5106,8 @@ pub struct KSPROPERTY_VIDEOPROCAMP_NODE_S2 {
     pub Capabilities: u32,
     pub Value2: i32,
 }
-impl ::core::marker::Copy for KSPROPERTY_VIDEOPROCAMP_NODE_S2 {}
-impl ::core::clone::Clone for KSPROPERTY_VIDEOPROCAMP_NODE_S2 {
+impl Copy for KSPROPERTY_VIDEOPROCAMP_NODE_S2 {}
+impl Clone for KSPROPERTY_VIDEOPROCAMP_NODE_S2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -5119,8 +5119,8 @@ pub struct KSPROPERTY_VIDEOPROCAMP_S {
     pub Flags: u32,
     pub Capabilities: u32,
 }
-impl ::core::marker::Copy for KSPROPERTY_VIDEOPROCAMP_S {}
-impl ::core::clone::Clone for KSPROPERTY_VIDEOPROCAMP_S {
+impl Copy for KSPROPERTY_VIDEOPROCAMP_S {}
+impl Clone for KSPROPERTY_VIDEOPROCAMP_S {
     fn clone(&self) -> Self {
         *self
     }
@@ -5133,72 +5133,72 @@ pub struct KSPROPERTY_VIDEOPROCAMP_S2 {
     pub Capabilities: u32,
     pub Value2: i32,
 }
-impl ::core::marker::Copy for KSPROPERTY_VIDEOPROCAMP_S2 {}
-impl ::core::clone::Clone for KSPROPERTY_VIDEOPROCAMP_S2 {
+impl Copy for KSPROPERTY_VIDEOPROCAMP_S2 {}
+impl Clone for KSPROPERTY_VIDEOPROCAMP_S2 {
     fn clone(&self) -> Self {
         *self
     }
 }
-pub const KSPROPSETID_AC3: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xbfabe720_6e1f_11d0_bcf2_444553540000);
-pub const KSPROPSETID_Audio: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x45ffaaa0_6e1b_11d0_bcf2_444553540000);
-pub const KSPROPSETID_AudioBufferDuration: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x4e73c07f_23cc_4955_a7ea_3da502496290);
-pub const KSPROPSETID_AudioDecoderOut: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x6ca6e020_43bd_11d0_bd6a_003505c103a9);
-pub const KSPROPSETID_AudioEngine: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x3a2f82dc_886f_4baa_9eb4_082b9025c536);
-pub const KSPROPSETID_AudioModule: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xc034fdb0_ff75_47c8_aa3c_ee46716b50c6);
-pub const KSPROPSETID_AudioPosture: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xa3fb7b0d_474e_4f51_a379_51282dd4fa8f);
-pub const KSPROPSETID_AudioResourceManagement: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xd0b305e1_b2cc_484c_8f23_e5d28ad9cf88);
-pub const KSPROPSETID_AudioSignalProcessing: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x4f67b528_30c9_40de_b2fb_859ddd1f3470);
-pub const KSPROPSETID_Bibliographic: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x07ba150e_e2b1_11d0_ac17_00a0c9223196);
-pub const KSPROPSETID_BtAudio: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x7fa06c40_b8f6_4c7e_8556_e8c33a12e54d);
-pub const KSPROPSETID_Clock: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xdf12a4c0_ac17_11cf_a5d6_28db04c10000);
-pub const KSPROPSETID_Connection: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x1d58c920_ac9b_11cf_a5d6_28db04c10000);
-pub const KSPROPSETID_CopyProt: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x0e8a0a40_6aef_11d0_9ed0_00a024ca19b3);
-pub const KSPROPSETID_Cyclic: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x3ffeaea0_2bee_11cf_a5d6_28db04c10000);
-pub const KSPROPSETID_DirectSound3DBuffer: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x437b3411_d060_11d0_8583_00c04fd9baf3);
-pub const KSPROPSETID_DirectSound3DListener: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x437b3414_d060_11d0_8583_00c04fd9baf3);
-pub const KSPROPSETID_DrmAudioStream: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x2f2c8ddd_4198_4fac_ba29_61bb05b7de06);
-pub const KSPROPSETID_DvdSubPic: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xac390460_43af_11d0_bd6a_003505c103a9);
-pub const KSPROPSETID_FMRXControl: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x947bba3a_e8ee_4786_90c4_8428185f05be);
-pub const KSPROPSETID_FMRXTopology: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x0c46ce8f_dc2d_4204_9dc9_f58963366563);
-pub const KSPROPSETID_General: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x1464eda5_6a8f_11d1_9aa7_00a0c9223196);
-pub const KSPROPSETID_Hrtf3d: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xb66decb0_a083_11d0_851e_00c04fd9baf3);
-pub const KSPROPSETID_InterleavedAudio: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xe9ebe550_d619_4c0a_976b_7062322b3006);
-pub const KSPROPSETID_Itd3d: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x6429f090_9fd9_11d0_a75b_00a0c90365e3);
-pub const KSPROPSETID_Jack: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x4509f757_2d46_4637_8e62_ce7db944f57b);
-pub const KSPROPSETID_MPEG4_MediaType_Attributes: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xff6c4bfa_07a9_4c7b_a237_672f9d68065f);
-pub const KSPROPSETID_MediaSeeking: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xee904f0c_d09b_11d0_abe9_00a0c9223196);
-pub const KSPROPSETID_MemoryTransport: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x0a3d1c5d_5243_4819_9ed0_aee8044cee2b);
-pub const KSPROPSETID_Mpeg2Vid: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xc8e11b60_0cc9_11d0_bd69_003505c103a9);
-pub const KSPROPSETID_OverlayUpdate: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x490ea5cf_7681_11d1_a21c_00a0c9223196);
-pub const KSPROPSETID_Pin: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x8c134960_51ad_11cf_878a_94f801c10000);
-pub const KSPROPSETID_PinMDLCacheClearProp: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xbd718a7b_97fc_40c7_88ce_d3ff06f55b16);
-pub const KSPROPSETID_Quality: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xd16ad380_ac1a_11cf_a5d6_28db04c10000);
-pub const KSPROPSETID_RtAudio: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xa855a48c_2f78_4729_9051_1968746b9eef);
-pub const KSPROPSETID_SoundDetector: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x113c425e_fd17_4057_b422_ed4074f1afdf);
-pub const KSPROPSETID_SoundDetector2: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xfe07e322_450c_4bd5_84ca_a948500ea6aa);
-pub const KSPROPSETID_Stream: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x65aaba60_98ae_11cf_a10d_0020afd156e4);
-pub const KSPROPSETID_StreamAllocator: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xcf6e4342_ec87_11cf_a130_0020afd156e4);
-pub const KSPROPSETID_StreamInterface: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x1fdd8ee1_9cd3_11d0_82aa_0000f822fe8a);
-pub const KSPROPSETID_TSRateChange: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xa503c5c0_1d1d_11d1_ad80_444553540000);
-pub const KSPROPSETID_TelephonyControl: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xb6df7eb1_d099_489f_a6a0_c0106f0887a7);
-pub const KSPROPSETID_TelephonyTopology: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xabf25c7e_0e64_4e32_b190_d0f6d7c53e97);
-pub const KSPROPSETID_Topology: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x720d4ac0_7533_11d0_a5d6_28db04c10000);
-pub const KSPROPSETID_TopologyNode: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x45ffaaa1_6e1b_11d0_bcf2_444553540000);
-pub const KSPROPSETID_VBICAP_PROPERTIES: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xf162c607_7b35_496f_ad7f_2dca3b46b718);
-pub const KSPROPSETID_VBICodecFiltering: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xcafeb0ca_8715_11d0_bd6a_0035c0edbabe);
-pub const KSPROPSETID_VPConfig: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xbc29a660_30e3_11d0_9e69_00c04fd7c15b);
-pub const KSPROPSETID_VPVBIConfig: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xec529b00_1a1f_11d1_bad9_00609744111a);
-pub const KSPROPSETID_VramCapture: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xe73face3_2880_4902_b799_88d0cd634e0f);
-pub const KSPROPSETID_Wave: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x924e54b0_630f_11cf_ada7_08003e30494a);
-pub const KSPROPTYPESETID_General: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x97e99ba0_bdea_11cf_a5d6_28db04c10000);
+pub const KSPROPSETID_AC3: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xbfabe720_6e1f_11d0_bcf2_444553540000);
+pub const KSPROPSETID_Audio: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x45ffaaa0_6e1b_11d0_bcf2_444553540000);
+pub const KSPROPSETID_AudioBufferDuration: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4e73c07f_23cc_4955_a7ea_3da502496290);
+pub const KSPROPSETID_AudioDecoderOut: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6ca6e020_43bd_11d0_bd6a_003505c103a9);
+pub const KSPROPSETID_AudioEngine: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3a2f82dc_886f_4baa_9eb4_082b9025c536);
+pub const KSPROPSETID_AudioModule: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc034fdb0_ff75_47c8_aa3c_ee46716b50c6);
+pub const KSPROPSETID_AudioPosture: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa3fb7b0d_474e_4f51_a379_51282dd4fa8f);
+pub const KSPROPSETID_AudioResourceManagement: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd0b305e1_b2cc_484c_8f23_e5d28ad9cf88);
+pub const KSPROPSETID_AudioSignalProcessing: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4f67b528_30c9_40de_b2fb_859ddd1f3470);
+pub const KSPROPSETID_Bibliographic: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x07ba150e_e2b1_11d0_ac17_00a0c9223196);
+pub const KSPROPSETID_BtAudio: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7fa06c40_b8f6_4c7e_8556_e8c33a12e54d);
+pub const KSPROPSETID_Clock: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdf12a4c0_ac17_11cf_a5d6_28db04c10000);
+pub const KSPROPSETID_Connection: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1d58c920_ac9b_11cf_a5d6_28db04c10000);
+pub const KSPROPSETID_CopyProt: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0e8a0a40_6aef_11d0_9ed0_00a024ca19b3);
+pub const KSPROPSETID_Cyclic: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3ffeaea0_2bee_11cf_a5d6_28db04c10000);
+pub const KSPROPSETID_DirectSound3DBuffer: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x437b3411_d060_11d0_8583_00c04fd9baf3);
+pub const KSPROPSETID_DirectSound3DListener: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x437b3414_d060_11d0_8583_00c04fd9baf3);
+pub const KSPROPSETID_DrmAudioStream: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x2f2c8ddd_4198_4fac_ba29_61bb05b7de06);
+pub const KSPROPSETID_DvdSubPic: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xac390460_43af_11d0_bd6a_003505c103a9);
+pub const KSPROPSETID_FMRXControl: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x947bba3a_e8ee_4786_90c4_8428185f05be);
+pub const KSPROPSETID_FMRXTopology: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0c46ce8f_dc2d_4204_9dc9_f58963366563);
+pub const KSPROPSETID_General: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1464eda5_6a8f_11d1_9aa7_00a0c9223196);
+pub const KSPROPSETID_Hrtf3d: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb66decb0_a083_11d0_851e_00c04fd9baf3);
+pub const KSPROPSETID_InterleavedAudio: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe9ebe550_d619_4c0a_976b_7062322b3006);
+pub const KSPROPSETID_Itd3d: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6429f090_9fd9_11d0_a75b_00a0c90365e3);
+pub const KSPROPSETID_Jack: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4509f757_2d46_4637_8e62_ce7db944f57b);
+pub const KSPROPSETID_MPEG4_MediaType_Attributes: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xff6c4bfa_07a9_4c7b_a237_672f9d68065f);
+pub const KSPROPSETID_MediaSeeking: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xee904f0c_d09b_11d0_abe9_00a0c9223196);
+pub const KSPROPSETID_MemoryTransport: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0a3d1c5d_5243_4819_9ed0_aee8044cee2b);
+pub const KSPROPSETID_Mpeg2Vid: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc8e11b60_0cc9_11d0_bd69_003505c103a9);
+pub const KSPROPSETID_OverlayUpdate: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x490ea5cf_7681_11d1_a21c_00a0c9223196);
+pub const KSPROPSETID_Pin: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8c134960_51ad_11cf_878a_94f801c10000);
+pub const KSPROPSETID_PinMDLCacheClearProp: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xbd718a7b_97fc_40c7_88ce_d3ff06f55b16);
+pub const KSPROPSETID_Quality: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd16ad380_ac1a_11cf_a5d6_28db04c10000);
+pub const KSPROPSETID_RtAudio: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa855a48c_2f78_4729_9051_1968746b9eef);
+pub const KSPROPSETID_SoundDetector: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x113c425e_fd17_4057_b422_ed4074f1afdf);
+pub const KSPROPSETID_SoundDetector2: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xfe07e322_450c_4bd5_84ca_a948500ea6aa);
+pub const KSPROPSETID_Stream: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x65aaba60_98ae_11cf_a10d_0020afd156e4);
+pub const KSPROPSETID_StreamAllocator: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xcf6e4342_ec87_11cf_a130_0020afd156e4);
+pub const KSPROPSETID_StreamInterface: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1fdd8ee1_9cd3_11d0_82aa_0000f822fe8a);
+pub const KSPROPSETID_TSRateChange: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa503c5c0_1d1d_11d1_ad80_444553540000);
+pub const KSPROPSETID_TelephonyControl: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb6df7eb1_d099_489f_a6a0_c0106f0887a7);
+pub const KSPROPSETID_TelephonyTopology: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xabf25c7e_0e64_4e32_b190_d0f6d7c53e97);
+pub const KSPROPSETID_Topology: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x720d4ac0_7533_11d0_a5d6_28db04c10000);
+pub const KSPROPSETID_TopologyNode: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x45ffaaa1_6e1b_11d0_bcf2_444553540000);
+pub const KSPROPSETID_VBICAP_PROPERTIES: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf162c607_7b35_496f_ad7f_2dca3b46b718);
+pub const KSPROPSETID_VBICodecFiltering: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xcafeb0ca_8715_11d0_bd6a_0035c0edbabe);
+pub const KSPROPSETID_VPConfig: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xbc29a660_30e3_11d0_9e69_00c04fd7c15b);
+pub const KSPROPSETID_VPVBIConfig: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xec529b00_1a1f_11d1_bad9_00609744111a);
+pub const KSPROPSETID_VramCapture: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe73face3_2880_4902_b799_88d0cd634e0f);
+pub const KSPROPSETID_Wave: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x924e54b0_630f_11cf_ada7_08003e30494a);
+pub const KSPROPTYPESETID_General: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x97e99ba0_bdea_11cf_a5d6_28db04c10000);
 #[repr(C)]
 pub struct KSP_NODE {
     pub Property: KSIDENTIFIER,
     pub NodeId: u32,
     pub Reserved: u32,
 }
-impl ::core::marker::Copy for KSP_NODE {}
-impl ::core::clone::Clone for KSP_NODE {
+impl Copy for KSP_NODE {}
+impl Clone for KSP_NODE {
     fn clone(&self) -> Self {
         *self
     }
@@ -5209,8 +5209,8 @@ pub struct KSP_PIN {
     pub PinId: u32,
     pub Anonymous: KSP_PIN_0,
 }
-impl ::core::marker::Copy for KSP_PIN {}
-impl ::core::clone::Clone for KSP_PIN {
+impl Copy for KSP_PIN {}
+impl Clone for KSP_PIN {
     fn clone(&self) -> Self {
         *self
     }
@@ -5220,8 +5220,8 @@ pub union KSP_PIN_0 {
     pub Reserved: u32,
     pub Flags: u32,
 }
-impl ::core::marker::Copy for KSP_PIN_0 {}
-impl ::core::clone::Clone for KSP_PIN_0 {
+impl Copy for KSP_PIN_0 {}
+impl Clone for KSP_PIN_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -5229,24 +5229,24 @@ impl ::core::clone::Clone for KSP_PIN_0 {
 #[repr(C)]
 pub struct KSP_TIMEFORMAT {
     pub Property: KSIDENTIFIER,
-    pub SourceFormat: ::windows_sys::core::GUID,
-    pub TargetFormat: ::windows_sys::core::GUID,
+    pub SourceFormat: windows_sys::core::GUID,
+    pub TargetFormat: windows_sys::core::GUID,
     pub Time: i64,
 }
-impl ::core::marker::Copy for KSP_TIMEFORMAT {}
-impl ::core::clone::Clone for KSP_TIMEFORMAT {
+impl Copy for KSP_TIMEFORMAT {}
+impl Clone for KSP_TIMEFORMAT {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct KSQUALITY {
-    pub Context: *mut ::core::ffi::c_void,
+    pub Context: *mut core::ffi::c_void,
     pub Proportion: u32,
     pub DeltaTime: i64,
 }
-impl ::core::marker::Copy for KSQUALITY {}
-impl ::core::clone::Clone for KSQUALITY {
+impl Copy for KSQUALITY {}
+impl Clone for KSQUALITY {
     fn clone(&self) -> Self {
         *self
     }
@@ -5254,10 +5254,10 @@ impl ::core::clone::Clone for KSQUALITY {
 #[repr(C)]
 pub struct KSQUALITY_MANAGER {
     pub QualityManager: super::super::Foundation::HANDLE,
-    pub Context: *mut ::core::ffi::c_void,
+    pub Context: *mut core::ffi::c_void,
 }
-impl ::core::marker::Copy for KSQUALITY_MANAGER {}
-impl ::core::clone::Clone for KSQUALITY_MANAGER {
+impl Copy for KSQUALITY_MANAGER {}
+impl Clone for KSQUALITY_MANAGER {
     fn clone(&self) -> Self {
         *self
     }
@@ -5266,10 +5266,10 @@ impl ::core::clone::Clone for KSQUALITY_MANAGER {
 pub struct KSQUERYBUFFER {
     pub Event: KSIDENTIFIER,
     pub EventData: *mut KSEVENTDATA,
-    pub Reserved: *mut ::core::ffi::c_void,
+    pub Reserved: *mut core::ffi::c_void,
 }
-impl ::core::marker::Copy for KSQUERYBUFFER {}
-impl ::core::clone::Clone for KSQUERYBUFFER {
+impl Copy for KSQUERYBUFFER {}
+impl Clone for KSQUERYBUFFER {
     fn clone(&self) -> Self {
         *self
     }
@@ -5282,8 +5282,8 @@ pub struct KSRATE {
     pub Rate: i32,
     pub Flags: u32,
 }
-impl ::core::marker::Copy for KSRATE {}
-impl ::core::clone::Clone for KSRATE {
+impl Copy for KSRATE {}
+impl Clone for KSRATE {
     fn clone(&self) -> Self {
         *self
     }
@@ -5293,8 +5293,8 @@ pub struct KSRATE_CAPABILITY {
     pub Property: KSIDENTIFIER,
     pub Rate: KSRATE,
 }
-impl ::core::marker::Copy for KSRATE_CAPABILITY {}
-impl ::core::clone::Clone for KSRATE_CAPABILITY {
+impl Copy for KSRATE_CAPABILITY {}
+impl Clone for KSRATE_CAPABILITY {
     fn clone(&self) -> Self {
         *self
     }
@@ -5304,12 +5304,12 @@ pub struct KSRELATIVEEVENT {
     pub Size: u32,
     pub Flags: u32,
     pub Anonymous: KSRELATIVEEVENT_0,
-    pub Reserved: *mut ::core::ffi::c_void,
+    pub Reserved: *mut core::ffi::c_void,
     pub Event: KSIDENTIFIER,
     pub EventData: KSEVENTDATA,
 }
-impl ::core::marker::Copy for KSRELATIVEEVENT {}
-impl ::core::clone::Clone for KSRELATIVEEVENT {
+impl Copy for KSRELATIVEEVENT {}
+impl Clone for KSRELATIVEEVENT {
     fn clone(&self) -> Self {
         *self
     }
@@ -5317,10 +5317,10 @@ impl ::core::clone::Clone for KSRELATIVEEVENT {
 #[repr(C)]
 pub union KSRELATIVEEVENT_0 {
     pub ObjectHandle: super::super::Foundation::HANDLE,
-    pub ObjectPointer: *mut ::core::ffi::c_void,
+    pub ObjectPointer: *mut core::ffi::c_void,
 }
-impl ::core::marker::Copy for KSRELATIVEEVENT_0 {}
-impl ::core::clone::Clone for KSRELATIVEEVENT_0 {
+impl Copy for KSRELATIVEEVENT_0 {}
+impl Clone for KSRELATIVEEVENT_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -5330,20 +5330,20 @@ pub struct KSRESOLUTION {
     pub Granularity: i64,
     pub Error: i64,
 }
-impl ::core::marker::Copy for KSRESOLUTION {}
-impl ::core::clone::Clone for KSRESOLUTION {
+impl Copy for KSRESOLUTION {}
+impl Clone for KSRESOLUTION {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct KSRTAUDIO_BUFFER {
-    pub BufferAddress: *mut ::core::ffi::c_void,
+    pub BufferAddress: *mut core::ffi::c_void,
     pub ActualBufferSize: u32,
     pub CallMemoryBarrier: super::super::Foundation::BOOL,
 }
-impl ::core::marker::Copy for KSRTAUDIO_BUFFER {}
-impl ::core::clone::Clone for KSRTAUDIO_BUFFER {
+impl Copy for KSRTAUDIO_BUFFER {}
+impl Clone for KSRTAUDIO_BUFFER {
     fn clone(&self) -> Self {
         *self
     }
@@ -5354,8 +5354,8 @@ pub struct KSRTAUDIO_BUFFER32 {
     pub ActualBufferSize: u32,
     pub CallMemoryBarrier: super::super::Foundation::BOOL,
 }
-impl ::core::marker::Copy for KSRTAUDIO_BUFFER32 {}
-impl ::core::clone::Clone for KSRTAUDIO_BUFFER32 {
+impl Copy for KSRTAUDIO_BUFFER32 {}
+impl Clone for KSRTAUDIO_BUFFER32 {
     fn clone(&self) -> Self {
         *self
     }
@@ -5363,11 +5363,11 @@ impl ::core::clone::Clone for KSRTAUDIO_BUFFER32 {
 #[repr(C)]
 pub struct KSRTAUDIO_BUFFER_PROPERTY {
     pub Property: KSIDENTIFIER,
-    pub BaseAddress: *mut ::core::ffi::c_void,
+    pub BaseAddress: *mut core::ffi::c_void,
     pub RequestedBufferSize: u32,
 }
-impl ::core::marker::Copy for KSRTAUDIO_BUFFER_PROPERTY {}
-impl ::core::clone::Clone for KSRTAUDIO_BUFFER_PROPERTY {
+impl Copy for KSRTAUDIO_BUFFER_PROPERTY {}
+impl Clone for KSRTAUDIO_BUFFER_PROPERTY {
     fn clone(&self) -> Self {
         *self
     }
@@ -5378,8 +5378,8 @@ pub struct KSRTAUDIO_BUFFER_PROPERTY32 {
     pub BaseAddress: u32,
     pub RequestedBufferSize: u32,
 }
-impl ::core::marker::Copy for KSRTAUDIO_BUFFER_PROPERTY32 {}
-impl ::core::clone::Clone for KSRTAUDIO_BUFFER_PROPERTY32 {
+impl Copy for KSRTAUDIO_BUFFER_PROPERTY32 {}
+impl Clone for KSRTAUDIO_BUFFER_PROPERTY32 {
     fn clone(&self) -> Self {
         *self
     }
@@ -5387,12 +5387,12 @@ impl ::core::clone::Clone for KSRTAUDIO_BUFFER_PROPERTY32 {
 #[repr(C)]
 pub struct KSRTAUDIO_BUFFER_PROPERTY_WITH_NOTIFICATION {
     pub Property: KSIDENTIFIER,
-    pub BaseAddress: *mut ::core::ffi::c_void,
+    pub BaseAddress: *mut core::ffi::c_void,
     pub RequestedBufferSize: u32,
     pub NotificationCount: u32,
 }
-impl ::core::marker::Copy for KSRTAUDIO_BUFFER_PROPERTY_WITH_NOTIFICATION {}
-impl ::core::clone::Clone for KSRTAUDIO_BUFFER_PROPERTY_WITH_NOTIFICATION {
+impl Copy for KSRTAUDIO_BUFFER_PROPERTY_WITH_NOTIFICATION {}
+impl Clone for KSRTAUDIO_BUFFER_PROPERTY_WITH_NOTIFICATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -5404,8 +5404,8 @@ pub struct KSRTAUDIO_BUFFER_PROPERTY_WITH_NOTIFICATION32 {
     pub RequestedBufferSize: u32,
     pub NotificationCount: u32,
 }
-impl ::core::marker::Copy for KSRTAUDIO_BUFFER_PROPERTY_WITH_NOTIFICATION32 {}
-impl ::core::clone::Clone for KSRTAUDIO_BUFFER_PROPERTY_WITH_NOTIFICATION32 {
+impl Copy for KSRTAUDIO_BUFFER_PROPERTY_WITH_NOTIFICATION32 {}
+impl Clone for KSRTAUDIO_BUFFER_PROPERTY_WITH_NOTIFICATION32 {
     fn clone(&self) -> Self {
         *self
     }
@@ -5417,8 +5417,8 @@ pub struct KSRTAUDIO_GETREADPACKET_INFO {
     pub PerformanceCounterValue: u64,
     pub MoreData: super::super::Foundation::BOOL,
 }
-impl ::core::marker::Copy for KSRTAUDIO_GETREADPACKET_INFO {}
-impl ::core::clone::Clone for KSRTAUDIO_GETREADPACKET_INFO {
+impl Copy for KSRTAUDIO_GETREADPACKET_INFO {}
+impl Clone for KSRTAUDIO_GETREADPACKET_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -5429,22 +5429,22 @@ pub struct KSRTAUDIO_HWLATENCY {
     pub ChipsetDelay: u32,
     pub CodecDelay: u32,
 }
-impl ::core::marker::Copy for KSRTAUDIO_HWLATENCY {}
-impl ::core::clone::Clone for KSRTAUDIO_HWLATENCY {
+impl Copy for KSRTAUDIO_HWLATENCY {}
+impl Clone for KSRTAUDIO_HWLATENCY {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct KSRTAUDIO_HWREGISTER {
-    pub Register: *mut ::core::ffi::c_void,
+    pub Register: *mut core::ffi::c_void,
     pub Width: u32,
     pub Numerator: u64,
     pub Denominator: u64,
     pub Accuracy: u32,
 }
-impl ::core::marker::Copy for KSRTAUDIO_HWREGISTER {}
-impl ::core::clone::Clone for KSRTAUDIO_HWREGISTER {
+impl Copy for KSRTAUDIO_HWREGISTER {}
+impl Clone for KSRTAUDIO_HWREGISTER {
     fn clone(&self) -> Self {
         *self
     }
@@ -5457,8 +5457,8 @@ pub struct KSRTAUDIO_HWREGISTER32 {
     pub Denominator: u64,
     pub Accuracy: u32,
 }
-impl ::core::marker::Copy for KSRTAUDIO_HWREGISTER32 {}
-impl ::core::clone::Clone for KSRTAUDIO_HWREGISTER32 {
+impl Copy for KSRTAUDIO_HWREGISTER32 {}
+impl Clone for KSRTAUDIO_HWREGISTER32 {
     fn clone(&self) -> Self {
         *self
     }
@@ -5466,10 +5466,10 @@ impl ::core::clone::Clone for KSRTAUDIO_HWREGISTER32 {
 #[repr(C)]
 pub struct KSRTAUDIO_HWREGISTER_PROPERTY {
     pub Property: KSIDENTIFIER,
-    pub BaseAddress: *mut ::core::ffi::c_void,
+    pub BaseAddress: *mut core::ffi::c_void,
 }
-impl ::core::marker::Copy for KSRTAUDIO_HWREGISTER_PROPERTY {}
-impl ::core::clone::Clone for KSRTAUDIO_HWREGISTER_PROPERTY {
+impl Copy for KSRTAUDIO_HWREGISTER_PROPERTY {}
+impl Clone for KSRTAUDIO_HWREGISTER_PROPERTY {
     fn clone(&self) -> Self {
         *self
     }
@@ -5479,8 +5479,8 @@ pub struct KSRTAUDIO_HWREGISTER_PROPERTY32 {
     pub Property: KSIDENTIFIER,
     pub BaseAddress: u32,
 }
-impl ::core::marker::Copy for KSRTAUDIO_HWREGISTER_PROPERTY32 {}
-impl ::core::clone::Clone for KSRTAUDIO_HWREGISTER_PROPERTY32 {
+impl Copy for KSRTAUDIO_HWREGISTER_PROPERTY32 {}
+impl Clone for KSRTAUDIO_HWREGISTER_PROPERTY32 {
     fn clone(&self) -> Self {
         *self
     }
@@ -5490,8 +5490,8 @@ pub struct KSRTAUDIO_NOTIFICATION_EVENT_PROPERTY {
     pub Property: KSIDENTIFIER,
     pub NotificationEvent: super::super::Foundation::HANDLE,
 }
-impl ::core::marker::Copy for KSRTAUDIO_NOTIFICATION_EVENT_PROPERTY {}
-impl ::core::clone::Clone for KSRTAUDIO_NOTIFICATION_EVENT_PROPERTY {
+impl Copy for KSRTAUDIO_NOTIFICATION_EVENT_PROPERTY {}
+impl Clone for KSRTAUDIO_NOTIFICATION_EVENT_PROPERTY {
     fn clone(&self) -> Self {
         *self
     }
@@ -5501,8 +5501,8 @@ pub struct KSRTAUDIO_NOTIFICATION_EVENT_PROPERTY32 {
     pub Property: KSIDENTIFIER,
     pub NotificationEvent: u32,
 }
-impl ::core::marker::Copy for KSRTAUDIO_NOTIFICATION_EVENT_PROPERTY32 {}
-impl ::core::clone::Clone for KSRTAUDIO_NOTIFICATION_EVENT_PROPERTY32 {
+impl Copy for KSRTAUDIO_NOTIFICATION_EVENT_PROPERTY32 {}
+impl Clone for KSRTAUDIO_NOTIFICATION_EVENT_PROPERTY32 {
     fn clone(&self) -> Self {
         *self
     }
@@ -5513,8 +5513,8 @@ pub struct KSRTAUDIO_PACKETVREGISTER {
     pub CompletedPacketQPC: *mut u64,
     pub CompletedPacketHash: *mut u64,
 }
-impl ::core::marker::Copy for KSRTAUDIO_PACKETVREGISTER {}
-impl ::core::clone::Clone for KSRTAUDIO_PACKETVREGISTER {
+impl Copy for KSRTAUDIO_PACKETVREGISTER {}
+impl Clone for KSRTAUDIO_PACKETVREGISTER {
     fn clone(&self) -> Self {
         *self
     }
@@ -5522,10 +5522,10 @@ impl ::core::clone::Clone for KSRTAUDIO_PACKETVREGISTER {
 #[repr(C)]
 pub struct KSRTAUDIO_PACKETVREGISTER_PROPERTY {
     pub Property: KSIDENTIFIER,
-    pub BaseAddress: *mut ::core::ffi::c_void,
+    pub BaseAddress: *mut core::ffi::c_void,
 }
-impl ::core::marker::Copy for KSRTAUDIO_PACKETVREGISTER_PROPERTY {}
-impl ::core::clone::Clone for KSRTAUDIO_PACKETVREGISTER_PROPERTY {
+impl Copy for KSRTAUDIO_PACKETVREGISTER_PROPERTY {}
+impl Clone for KSRTAUDIO_PACKETVREGISTER_PROPERTY {
     fn clone(&self) -> Self {
         *self
     }
@@ -5536,8 +5536,8 @@ pub struct KSRTAUDIO_SETWRITEPACKET_INFO {
     pub Flags: u32,
     pub EosPacketLength: u32,
 }
-impl ::core::marker::Copy for KSRTAUDIO_SETWRITEPACKET_INFO {}
-impl ::core::clone::Clone for KSRTAUDIO_SETWRITEPACKET_INFO {
+impl Copy for KSRTAUDIO_SETWRITEPACKET_INFO {}
+impl Clone for KSRTAUDIO_SETWRITEPACKET_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -5545,10 +5545,10 @@ impl ::core::clone::Clone for KSRTAUDIO_SETWRITEPACKET_INFO {
 #[repr(C)]
 pub struct KSSOUNDDETECTORPROPERTY {
     pub Property: KSIDENTIFIER,
-    pub EventId: ::windows_sys::core::GUID,
+    pub EventId: windows_sys::core::GUID,
 }
-impl ::core::marker::Copy for KSSOUNDDETECTORPROPERTY {}
-impl ::core::clone::Clone for KSSOUNDDETECTORPROPERTY {
+impl Copy for KSSOUNDDETECTORPROPERTY {}
+impl Clone for KSSOUNDDETECTORPROPERTY {
     fn clone(&self) -> Self {
         *self
     }
@@ -5559,8 +5559,8 @@ pub struct KSSTREAMALLOCATOR_STATUS {
     pub AllocatedFrames: u32,
     pub Reserved: u32,
 }
-impl ::core::marker::Copy for KSSTREAMALLOCATOR_STATUS {}
-impl ::core::clone::Clone for KSSTREAMALLOCATOR_STATUS {
+impl Copy for KSSTREAMALLOCATOR_STATUS {}
+impl Clone for KSSTREAMALLOCATOR_STATUS {
     fn clone(&self) -> Self {
         *self
     }
@@ -5571,8 +5571,8 @@ pub struct KSSTREAMALLOCATOR_STATUS_EX {
     pub AllocatedFrames: u32,
     pub Reserved: u32,
 }
-impl ::core::marker::Copy for KSSTREAMALLOCATOR_STATUS_EX {}
-impl ::core::clone::Clone for KSSTREAMALLOCATOR_STATUS_EX {
+impl Copy for KSSTREAMALLOCATOR_STATUS_EX {}
+impl Clone for KSSTREAMALLOCATOR_STATUS_EX {
     fn clone(&self) -> Self {
         *self
     }
@@ -5586,14 +5586,14 @@ pub struct KSSTREAM_HEADER {
     pub Duration: i64,
     pub FrameExtent: u32,
     pub DataUsed: u32,
-    pub Data: *mut ::core::ffi::c_void,
+    pub Data: *mut core::ffi::c_void,
     pub OptionsFlags: u32,
     pub Reserved: u32,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::marker::Copy for KSSTREAM_HEADER {}
+impl Copy for KSSTREAM_HEADER {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::clone::Clone for KSSTREAM_HEADER {
+impl Clone for KSSTREAM_HEADER {
     fn clone(&self) -> Self {
         *self
     }
@@ -5607,13 +5607,13 @@ pub struct KSSTREAM_HEADER {
     pub Duration: i64,
     pub FrameExtent: u32,
     pub DataUsed: u32,
-    pub Data: *mut ::core::ffi::c_void,
+    pub Data: *mut core::ffi::c_void,
     pub OptionsFlags: u32,
 }
 #[cfg(target_arch = "x86")]
-impl ::core::marker::Copy for KSSTREAM_HEADER {}
+impl Copy for KSSTREAM_HEADER {}
 #[cfg(target_arch = "x86")]
-impl ::core::clone::Clone for KSSTREAM_HEADER {
+impl Clone for KSSTREAM_HEADER {
     fn clone(&self) -> Self {
         *self
     }
@@ -5622,26 +5622,26 @@ impl ::core::clone::Clone for KSSTREAM_HEADER {
 pub struct KSSTREAM_METADATA_INFO {
     pub BufferSize: u32,
     pub UsedSize: u32,
-    pub Data: *mut ::core::ffi::c_void,
-    pub SystemVa: *mut ::core::ffi::c_void,
+    pub Data: *mut core::ffi::c_void,
+    pub SystemVa: *mut core::ffi::c_void,
     pub Flags: u32,
     pub Reserved: u32,
 }
-impl ::core::marker::Copy for KSSTREAM_METADATA_INFO {}
-impl ::core::clone::Clone for KSSTREAM_METADATA_INFO {
+impl Copy for KSSTREAM_METADATA_INFO {}
+impl Clone for KSSTREAM_METADATA_INFO {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct KSSTREAM_SEGMENT {
-    pub KsInterfaceHandler: *mut ::core::ffi::c_void,
-    pub KsDataTypeHandler: *mut ::core::ffi::c_void,
+    pub KsInterfaceHandler: *mut core::ffi::c_void,
+    pub KsDataTypeHandler: *mut core::ffi::c_void,
     pub IoOperation: KSIOOPERATION,
     pub CompletionEvent: super::super::Foundation::HANDLE,
 }
-impl ::core::marker::Copy for KSSTREAM_SEGMENT {}
-impl ::core::clone::Clone for KSSTREAM_SEGMENT {
+impl Copy for KSSTREAM_SEGMENT {}
+impl Clone for KSSTREAM_SEGMENT {
     fn clone(&self) -> Self {
         *self
     }
@@ -5651,8 +5651,8 @@ pub struct KSSTREAM_UVC_METADATA {
     pub StartOfFrameTimestamp: KSSTREAM_UVC_METADATATYPE_TIMESTAMP,
     pub EndOfFrameTimestamp: KSSTREAM_UVC_METADATATYPE_TIMESTAMP,
 }
-impl ::core::marker::Copy for KSSTREAM_UVC_METADATA {}
-impl ::core::clone::Clone for KSSTREAM_UVC_METADATA {
+impl Copy for KSSTREAM_UVC_METADATA {}
+impl Clone for KSSTREAM_UVC_METADATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -5665,8 +5665,8 @@ pub struct KSSTREAM_UVC_METADATATYPE_TIMESTAMP {
     pub Reserved0: u16,
     pub Reserved1: u32,
 }
-impl ::core::marker::Copy for KSSTREAM_UVC_METADATATYPE_TIMESTAMP {}
-impl ::core::clone::Clone for KSSTREAM_UVC_METADATATYPE_TIMESTAMP {
+impl Copy for KSSTREAM_UVC_METADATATYPE_TIMESTAMP {}
+impl Clone for KSSTREAM_UVC_METADATATYPE_TIMESTAMP {
     fn clone(&self) -> Self {
         *self
     }
@@ -5676,8 +5676,8 @@ pub union KSSTREAM_UVC_METADATATYPE_TIMESTAMP_0 {
     pub Anonymous: KSSTREAM_UVC_METADATATYPE_TIMESTAMP_0_0,
     pub SCRToken: u16,
 }
-impl ::core::marker::Copy for KSSTREAM_UVC_METADATATYPE_TIMESTAMP_0 {}
-impl ::core::clone::Clone for KSSTREAM_UVC_METADATATYPE_TIMESTAMP_0 {
+impl Copy for KSSTREAM_UVC_METADATATYPE_TIMESTAMP_0 {}
+impl Clone for KSSTREAM_UVC_METADATATYPE_TIMESTAMP_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -5686,8 +5686,8 @@ impl ::core::clone::Clone for KSSTREAM_UVC_METADATATYPE_TIMESTAMP_0 {
 pub struct KSSTREAM_UVC_METADATATYPE_TIMESTAMP_0_0 {
     pub _bitfield: u16,
 }
-impl ::core::marker::Copy for KSSTREAM_UVC_METADATATYPE_TIMESTAMP_0_0 {}
-impl ::core::clone::Clone for KSSTREAM_UVC_METADATATYPE_TIMESTAMP_0_0 {
+impl Copy for KSSTREAM_UVC_METADATATYPE_TIMESTAMP_0_0 {}
+impl Clone for KSSTREAM_UVC_METADATATYPE_TIMESTAMP_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -5697,8 +5697,8 @@ pub struct KSTELEPHONY_CALLCONTROL {
     pub CallType: TELEPHONY_CALLTYPE,
     pub CallControlOp: TELEPHONY_CALLCONTROLOP,
 }
-impl ::core::marker::Copy for KSTELEPHONY_CALLCONTROL {}
-impl ::core::clone::Clone for KSTELEPHONY_CALLCONTROL {
+impl Copy for KSTELEPHONY_CALLCONTROL {}
+impl Clone for KSTELEPHONY_CALLCONTROL {
     fn clone(&self) -> Self {
         *self
     }
@@ -5708,8 +5708,8 @@ pub struct KSTELEPHONY_CALLINFO {
     pub CallType: TELEPHONY_CALLTYPE,
     pub CallState: TELEPHONY_CALLSTATE,
 }
-impl ::core::marker::Copy for KSTELEPHONY_CALLINFO {}
-impl ::core::clone::Clone for KSTELEPHONY_CALLINFO {
+impl Copy for KSTELEPHONY_CALLINFO {}
+impl Clone for KSTELEPHONY_CALLINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -5719,8 +5719,8 @@ pub struct KSTELEPHONY_PROVIDERCHANGE {
     pub CallType: TELEPHONY_CALLTYPE,
     pub ProviderChangeOp: TELEPHONY_PROVIDERCHANGEOP,
 }
-impl ::core::marker::Copy for KSTELEPHONY_PROVIDERCHANGE {}
-impl ::core::clone::Clone for KSTELEPHONY_PROVIDERCHANGE {
+impl Copy for KSTELEPHONY_PROVIDERCHANGE {}
+impl Clone for KSTELEPHONY_PROVIDERCHANGE {
     fn clone(&self) -> Self {
         *self
     }
@@ -5731,30 +5731,30 @@ pub struct KSTIME {
     pub Numerator: u32,
     pub Denominator: u32,
 }
-impl ::core::marker::Copy for KSTIME {}
-impl ::core::clone::Clone for KSTIME {
+impl Copy for KSTIME {}
+impl Clone for KSTIME {
     fn clone(&self) -> Self {
         *self
     }
 }
-pub const KSTIME_FORMAT_BYTE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x7b785571_8c82_11cf_bc0c_00aa00ac74f6);
-pub const KSTIME_FORMAT_FIELD: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x7b785573_8c82_11cf_bc0c_00aa00ac74f6);
-pub const KSTIME_FORMAT_FRAME: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x7b785570_8c82_11cf_bc0c_00aa00ac74f6);
-pub const KSTIME_FORMAT_MEDIA_TIME: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x7b785574_8c82_11cf_bc0c_00aa00ac74f6);
-pub const KSTIME_FORMAT_SAMPLE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x7b785572_8c82_11cf_bc0c_00aa00ac74f6);
+pub const KSTIME_FORMAT_BYTE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7b785571_8c82_11cf_bc0c_00aa00ac74f6);
+pub const KSTIME_FORMAT_FIELD: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7b785573_8c82_11cf_bc0c_00aa00ac74f6);
+pub const KSTIME_FORMAT_FRAME: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7b785570_8c82_11cf_bc0c_00aa00ac74f6);
+pub const KSTIME_FORMAT_MEDIA_TIME: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7b785574_8c82_11cf_bc0c_00aa00ac74f6);
+pub const KSTIME_FORMAT_SAMPLE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7b785572_8c82_11cf_bc0c_00aa00ac74f6);
 #[repr(C)]
 pub struct KSTOPOLOGY {
     pub CategoriesCount: u32,
-    pub Categories: *const ::windows_sys::core::GUID,
+    pub Categories: *const windows_sys::core::GUID,
     pub TopologyNodesCount: u32,
-    pub TopologyNodes: *const ::windows_sys::core::GUID,
+    pub TopologyNodes: *const windows_sys::core::GUID,
     pub TopologyConnectionsCount: u32,
     pub TopologyConnections: *const KSTOPOLOGY_CONNECTION,
-    pub TopologyNodesNames: *const ::windows_sys::core::GUID,
+    pub TopologyNodesNames: *const windows_sys::core::GUID,
     pub Reserved: u32,
 }
-impl ::core::marker::Copy for KSTOPOLOGY {}
-impl ::core::clone::Clone for KSTOPOLOGY {
+impl Copy for KSTOPOLOGY {}
+impl Clone for KSTOPOLOGY {
     fn clone(&self) -> Self {
         *self
     }
@@ -5766,8 +5766,8 @@ pub struct KSTOPOLOGY_CONNECTION {
     pub ToNode: u32,
     pub ToNodePin: u32,
 }
-impl ::core::marker::Copy for KSTOPOLOGY_CONNECTION {}
-impl ::core::clone::Clone for KSTOPOLOGY_CONNECTION {
+impl Copy for KSTOPOLOGY_CONNECTION {}
+impl Clone for KSTOPOLOGY_CONNECTION {
     fn clone(&self) -> Self {
         *self
     }
@@ -5777,8 +5777,8 @@ pub struct KSTOPOLOGY_ENDPOINTID {
     pub TopologyName: [u16; 260],
     pub PinId: u32,
 }
-impl ::core::marker::Copy for KSTOPOLOGY_ENDPOINTID {}
-impl ::core::clone::Clone for KSTOPOLOGY_ENDPOINTID {
+impl Copy for KSTOPOLOGY_ENDPOINTID {}
+impl Clone for KSTOPOLOGY_ENDPOINTID {
     fn clone(&self) -> Self {
         *self
     }
@@ -5788,8 +5788,8 @@ pub struct KSTOPOLOGY_ENDPOINTIDPAIR {
     pub RenderEndpoint: KSTOPOLOGY_ENDPOINTID,
     pub CaptureEndpoint: KSTOPOLOGY_ENDPOINTID,
 }
-impl ::core::marker::Copy for KSTOPOLOGY_ENDPOINTIDPAIR {}
-impl ::core::clone::Clone for KSTOPOLOGY_ENDPOINTIDPAIR {
+impl Copy for KSTOPOLOGY_ENDPOINTIDPAIR {}
+impl Clone for KSTOPOLOGY_ENDPOINTIDPAIR {
     fn clone(&self) -> Self {
         *self
     }
@@ -5800,8 +5800,8 @@ pub struct KSVPMAXPIXELRATE {
     pub MaxPixelsPerSecond: u32,
     pub Reserved: u32,
 }
-impl ::core::marker::Copy for KSVPMAXPIXELRATE {}
-impl ::core::clone::Clone for KSVPMAXPIXELRATE {
+impl Copy for KSVPMAXPIXELRATE {}
+impl Clone for KSVPMAXPIXELRATE {
     fn clone(&self) -> Self {
         *self
     }
@@ -5811,8 +5811,8 @@ pub struct KSVPSIZE_PROP {
     pub Property: KSIDENTIFIER,
     pub Size: KS_AMVPSIZE,
 }
-impl ::core::marker::Copy for KSVPSIZE_PROP {}
-impl ::core::clone::Clone for KSVPSIZE_PROP {
+impl Copy for KSVPSIZE_PROP {}
+impl Clone for KSVPSIZE_PROP {
     fn clone(&self) -> Self {
         *self
     }
@@ -5823,8 +5823,8 @@ pub struct KSVPSURFACEPARAMS {
     pub dwXOrigin: u32,
     pub dwYOrigin: u32,
 }
-impl ::core::marker::Copy for KSVPSURFACEPARAMS {}
-impl ::core::clone::Clone for KSVPSURFACEPARAMS {
+impl Copy for KSVPSURFACEPARAMS {}
+impl Clone for KSVPSURFACEPARAMS {
     fn clone(&self) -> Self {
         *self
     }
@@ -5838,8 +5838,8 @@ pub struct KSWAVETABLE_WAVE_DESC {
     pub InROM: super::super::Foundation::BOOL,
     pub Format: KSDATAFORMAT,
 }
-impl ::core::marker::Copy for KSWAVETABLE_WAVE_DESC {}
-impl ::core::clone::Clone for KSWAVETABLE_WAVE_DESC {
+impl Copy for KSWAVETABLE_WAVE_DESC {}
+impl Clone for KSWAVETABLE_WAVE_DESC {
     fn clone(&self) -> Self {
         *self
     }
@@ -5848,10 +5848,10 @@ impl ::core::clone::Clone for KSWAVETABLE_WAVE_DESC {
 pub struct KSWAVE_BUFFER {
     pub Attributes: u32,
     pub BufferSize: u32,
-    pub BufferAddress: *mut ::core::ffi::c_void,
+    pub BufferAddress: *mut core::ffi::c_void,
 }
-impl ::core::marker::Copy for KSWAVE_BUFFER {}
-impl ::core::clone::Clone for KSWAVE_BUFFER {
+impl Copy for KSWAVE_BUFFER {}
+impl Clone for KSWAVE_BUFFER {
     fn clone(&self) -> Self {
         *self
     }
@@ -5860,8 +5860,8 @@ impl ::core::clone::Clone for KSWAVE_BUFFER {
 pub struct KSWAVE_COMPATCAPS {
     pub ulDeviceType: u32,
 }
-impl ::core::marker::Copy for KSWAVE_COMPATCAPS {}
-impl ::core::clone::Clone for KSWAVE_COMPATCAPS {
+impl Copy for KSWAVE_COMPATCAPS {}
+impl Clone for KSWAVE_COMPATCAPS {
     fn clone(&self) -> Self {
         *self
     }
@@ -5876,8 +5876,8 @@ pub struct KSWAVE_INPUT_CAPABILITIES {
     pub TotalConnections: u32,
     pub ActiveConnections: u32,
 }
-impl ::core::marker::Copy for KSWAVE_INPUT_CAPABILITIES {}
-impl ::core::clone::Clone for KSWAVE_INPUT_CAPABILITIES {
+impl Copy for KSWAVE_INPUT_CAPABILITIES {}
+impl Clone for KSWAVE_INPUT_CAPABILITIES {
     fn clone(&self) -> Self {
         *self
     }
@@ -5905,8 +5905,8 @@ pub struct KSWAVE_OUTPUT_CAPABILITIES {
     pub FreeSampleMemory: u32,
     pub LargestFreeContiguousSampleMemory: u32,
 }
-impl ::core::marker::Copy for KSWAVE_OUTPUT_CAPABILITIES {}
-impl ::core::clone::Clone for KSWAVE_OUTPUT_CAPABILITIES {
+impl Copy for KSWAVE_OUTPUT_CAPABILITIES {}
+impl Clone for KSWAVE_OUTPUT_CAPABILITIES {
     fn clone(&self) -> Self {
         *self
     }
@@ -5916,8 +5916,8 @@ pub struct KSWAVE_VOLUME {
     pub LeftAttenuation: i32,
     pub RightAttenuation: i32,
 }
-impl ::core::marker::Copy for KSWAVE_VOLUME {}
-impl ::core::clone::Clone for KSWAVE_VOLUME {
+impl Copy for KSWAVE_VOLUME {}
+impl Clone for KSWAVE_VOLUME {
     fn clone(&self) -> Self {
         *self
     }
@@ -5938,8 +5938,8 @@ pub struct KS_AMVPDATAINFO {
     pub lHalfLinesEven: i32,
     pub dwReserved1: u32,
 }
-impl ::core::marker::Copy for KS_AMVPDATAINFO {}
-impl ::core::clone::Clone for KS_AMVPDATAINFO {
+impl Copy for KS_AMVPDATAINFO {}
+impl Clone for KS_AMVPDATAINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -5952,8 +5952,8 @@ pub struct KS_AMVPDIMINFO {
     pub dwVBIHeight: u32,
     pub rcValidRegion: super::super::Foundation::RECT,
 }
-impl ::core::marker::Copy for KS_AMVPDIMINFO {}
-impl ::core::clone::Clone for KS_AMVPDIMINFO {
+impl Copy for KS_AMVPDIMINFO {}
+impl Clone for KS_AMVPDIMINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -5963,8 +5963,8 @@ pub struct KS_AMVPSIZE {
     pub dwWidth: u32,
     pub dwHeight: u32,
 }
-impl ::core::marker::Copy for KS_AMVPSIZE {}
-impl ::core::clone::Clone for KS_AMVPSIZE {
+impl Copy for KS_AMVPSIZE {}
+impl Clone for KS_AMVPSIZE {
     fn clone(&self) -> Self {
         *self
     }
@@ -5974,8 +5974,8 @@ pub struct KS_AM_ExactRateChange {
     pub OutputZeroTime: i64,
     pub Rate: i32,
 }
-impl ::core::marker::Copy for KS_AM_ExactRateChange {}
-impl ::core::clone::Clone for KS_AM_ExactRateChange {
+impl Copy for KS_AM_ExactRateChange {}
+impl Clone for KS_AM_ExactRateChange {
     fn clone(&self) -> Self {
         *self
     }
@@ -5985,8 +5985,8 @@ pub struct KS_AM_SimpleRateChange {
     pub StartTime: i64,
     pub Rate: i32,
 }
-impl ::core::marker::Copy for KS_AM_SimpleRateChange {}
-impl ::core::clone::Clone for KS_AM_SimpleRateChange {
+impl Copy for KS_AM_SimpleRateChange {}
+impl Clone for KS_AM_SimpleRateChange {
     fn clone(&self) -> Self {
         *self
     }
@@ -5999,8 +5999,8 @@ pub struct KS_ANALOGVIDEOINFO {
     pub dwActiveHeight: u32,
     pub AvgTimePerFrame: i64,
 }
-impl ::core::marker::Copy for KS_ANALOGVIDEOINFO {}
-impl ::core::clone::Clone for KS_ANALOGVIDEOINFO {
+impl Copy for KS_ANALOGVIDEOINFO {}
+impl Clone for KS_ANALOGVIDEOINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -6019,8 +6019,8 @@ pub struct KS_BITMAPINFOHEADER {
     pub biClrUsed: u32,
     pub biClrImportant: u32,
 }
-impl ::core::marker::Copy for KS_BITMAPINFOHEADER {}
-impl ::core::clone::Clone for KS_BITMAPINFOHEADER {
+impl Copy for KS_BITMAPINFOHEADER {}
+impl Clone for KS_BITMAPINFOHEADER {
     fn clone(&self) -> Self {
         *self
     }
@@ -6032,8 +6032,8 @@ pub struct KS_COLCON {
     pub _bitfield3: u8,
     pub _bitfield4: u8,
 }
-impl ::core::marker::Copy for KS_COLCON {}
-impl ::core::clone::Clone for KS_COLCON {
+impl Copy for KS_COLCON {}
+impl Clone for KS_COLCON {
     fn clone(&self) -> Self {
         *self
     }
@@ -6044,8 +6044,8 @@ pub struct KS_COMPRESSION {
     pub RatioDenominator: u32,
     pub RatioConstantMargin: u32,
 }
-impl ::core::marker::Copy for KS_COMPRESSION {}
-impl ::core::clone::Clone for KS_COMPRESSION {
+impl Copy for KS_COMPRESSION {}
+impl Clone for KS_COMPRESSION {
     fn clone(&self) -> Self {
         *self
     }
@@ -6054,8 +6054,8 @@ impl ::core::clone::Clone for KS_COMPRESSION {
 pub struct KS_COPY_MACROVISION {
     pub MACROVISIONLevel: u32,
 }
-impl ::core::marker::Copy for KS_COPY_MACROVISION {}
-impl ::core::clone::Clone for KS_COPY_MACROVISION {
+impl Copy for KS_COPY_MACROVISION {}
+impl Clone for KS_COPY_MACROVISION {
     fn clone(&self) -> Self {
         *self
     }
@@ -6065,8 +6065,8 @@ pub struct KS_DATAFORMAT_H264VIDEOINFO {
     pub DataFormat: KSDATAFORMAT,
     pub H264VideoInfoHeader: KS_H264VIDEOINFO,
 }
-impl ::core::marker::Copy for KS_DATAFORMAT_H264VIDEOINFO {}
-impl ::core::clone::Clone for KS_DATAFORMAT_H264VIDEOINFO {
+impl Copy for KS_DATAFORMAT_H264VIDEOINFO {}
+impl Clone for KS_DATAFORMAT_H264VIDEOINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -6076,8 +6076,8 @@ pub struct KS_DATAFORMAT_IMAGEINFO {
     pub DataFormat: KSDATAFORMAT,
     pub ImageInfoHeader: KS_BITMAPINFOHEADER,
 }
-impl ::core::marker::Copy for KS_DATAFORMAT_IMAGEINFO {}
-impl ::core::clone::Clone for KS_DATAFORMAT_IMAGEINFO {
+impl Copy for KS_DATAFORMAT_IMAGEINFO {}
+impl Clone for KS_DATAFORMAT_IMAGEINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -6087,8 +6087,8 @@ pub struct KS_DATAFORMAT_MPEGVIDEOINFO2 {
     pub DataFormat: KSDATAFORMAT,
     pub MpegVideoInfoHeader2: KS_MPEGVIDEOINFO2,
 }
-impl ::core::marker::Copy for KS_DATAFORMAT_MPEGVIDEOINFO2 {}
-impl ::core::clone::Clone for KS_DATAFORMAT_MPEGVIDEOINFO2 {
+impl Copy for KS_DATAFORMAT_MPEGVIDEOINFO2 {}
+impl Clone for KS_DATAFORMAT_MPEGVIDEOINFO2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -6098,8 +6098,8 @@ pub struct KS_DATAFORMAT_VBIINFOHEADER {
     pub DataFormat: KSDATAFORMAT,
     pub VBIInfoHeader: KS_VBIINFOHEADER,
 }
-impl ::core::marker::Copy for KS_DATAFORMAT_VBIINFOHEADER {}
-impl ::core::clone::Clone for KS_DATAFORMAT_VBIINFOHEADER {
+impl Copy for KS_DATAFORMAT_VBIINFOHEADER {}
+impl Clone for KS_DATAFORMAT_VBIINFOHEADER {
     fn clone(&self) -> Self {
         *self
     }
@@ -6109,8 +6109,8 @@ pub struct KS_DATAFORMAT_VIDEOINFOHEADER {
     pub DataFormat: KSDATAFORMAT,
     pub VideoInfoHeader: KS_VIDEOINFOHEADER,
 }
-impl ::core::marker::Copy for KS_DATAFORMAT_VIDEOINFOHEADER {}
-impl ::core::clone::Clone for KS_DATAFORMAT_VIDEOINFOHEADER {
+impl Copy for KS_DATAFORMAT_VIDEOINFOHEADER {}
+impl Clone for KS_DATAFORMAT_VIDEOINFOHEADER {
     fn clone(&self) -> Self {
         *self
     }
@@ -6120,8 +6120,8 @@ pub struct KS_DATAFORMAT_VIDEOINFOHEADER2 {
     pub DataFormat: KSDATAFORMAT,
     pub VideoInfoHeader2: KS_VIDEOINFOHEADER2,
 }
-impl ::core::marker::Copy for KS_DATAFORMAT_VIDEOINFOHEADER2 {}
-impl ::core::clone::Clone for KS_DATAFORMAT_VIDEOINFOHEADER2 {
+impl Copy for KS_DATAFORMAT_VIDEOINFOHEADER2 {}
+impl Clone for KS_DATAFORMAT_VIDEOINFOHEADER2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -6131,8 +6131,8 @@ pub struct KS_DATAFORMAT_VIDEOINFO_PALETTE {
     pub DataFormat: KSDATAFORMAT,
     pub VideoInfo: KS_VIDEOINFO,
 }
-impl ::core::marker::Copy for KS_DATAFORMAT_VIDEOINFO_PALETTE {}
-impl ::core::clone::Clone for KS_DATAFORMAT_VIDEOINFO_PALETTE {
+impl Copy for KS_DATAFORMAT_VIDEOINFO_PALETTE {}
+impl Clone for KS_DATAFORMAT_VIDEOINFO_PALETTE {
     fn clone(&self) -> Self {
         *self
     }
@@ -6142,8 +6142,8 @@ pub struct KS_DATARANGE_ANALOGVIDEO {
     pub DataRange: KSDATAFORMAT,
     pub AnalogVideoInfo: KS_ANALOGVIDEOINFO,
 }
-impl ::core::marker::Copy for KS_DATARANGE_ANALOGVIDEO {}
-impl ::core::clone::Clone for KS_DATARANGE_ANALOGVIDEO {
+impl Copy for KS_DATARANGE_ANALOGVIDEO {}
+impl Clone for KS_DATARANGE_ANALOGVIDEO {
     fn clone(&self) -> Self {
         *self
     }
@@ -6158,8 +6158,8 @@ pub struct KS_DATARANGE_H264_VIDEO {
     pub ConfigCaps: KS_VIDEO_STREAM_CONFIG_CAPS,
     pub VideoInfoHeader: KS_H264VIDEOINFO,
 }
-impl ::core::marker::Copy for KS_DATARANGE_H264_VIDEO {}
-impl ::core::clone::Clone for KS_DATARANGE_H264_VIDEO {
+impl Copy for KS_DATARANGE_H264_VIDEO {}
+impl Clone for KS_DATARANGE_H264_VIDEO {
     fn clone(&self) -> Self {
         *self
     }
@@ -6170,8 +6170,8 @@ pub struct KS_DATARANGE_IMAGE {
     pub ConfigCaps: KS_VIDEO_STREAM_CONFIG_CAPS,
     pub ImageInfoHeader: KS_BITMAPINFOHEADER,
 }
-impl ::core::marker::Copy for KS_DATARANGE_IMAGE {}
-impl ::core::clone::Clone for KS_DATARANGE_IMAGE {
+impl Copy for KS_DATARANGE_IMAGE {}
+impl Clone for KS_DATARANGE_IMAGE {
     fn clone(&self) -> Self {
         *self
     }
@@ -6186,8 +6186,8 @@ pub struct KS_DATARANGE_MPEG1_VIDEO {
     pub ConfigCaps: KS_VIDEO_STREAM_CONFIG_CAPS,
     pub VideoInfoHeader: KS_MPEG1VIDEOINFO,
 }
-impl ::core::marker::Copy for KS_DATARANGE_MPEG1_VIDEO {}
-impl ::core::clone::Clone for KS_DATARANGE_MPEG1_VIDEO {
+impl Copy for KS_DATARANGE_MPEG1_VIDEO {}
+impl Clone for KS_DATARANGE_MPEG1_VIDEO {
     fn clone(&self) -> Self {
         *self
     }
@@ -6202,8 +6202,8 @@ pub struct KS_DATARANGE_MPEG2_VIDEO {
     pub ConfigCaps: KS_VIDEO_STREAM_CONFIG_CAPS,
     pub VideoInfoHeader: KS_MPEGVIDEOINFO2,
 }
-impl ::core::marker::Copy for KS_DATARANGE_MPEG2_VIDEO {}
-impl ::core::clone::Clone for KS_DATARANGE_MPEG2_VIDEO {
+impl Copy for KS_DATARANGE_MPEG2_VIDEO {}
+impl Clone for KS_DATARANGE_MPEG2_VIDEO {
     fn clone(&self) -> Self {
         *self
     }
@@ -6218,8 +6218,8 @@ pub struct KS_DATARANGE_VIDEO {
     pub ConfigCaps: KS_VIDEO_STREAM_CONFIG_CAPS,
     pub VideoInfoHeader: KS_VIDEOINFOHEADER,
 }
-impl ::core::marker::Copy for KS_DATARANGE_VIDEO {}
-impl ::core::clone::Clone for KS_DATARANGE_VIDEO {
+impl Copy for KS_DATARANGE_VIDEO {}
+impl Clone for KS_DATARANGE_VIDEO {
     fn clone(&self) -> Self {
         *self
     }
@@ -6234,8 +6234,8 @@ pub struct KS_DATARANGE_VIDEO2 {
     pub ConfigCaps: KS_VIDEO_STREAM_CONFIG_CAPS,
     pub VideoInfoHeader: KS_VIDEOINFOHEADER2,
 }
-impl ::core::marker::Copy for KS_DATARANGE_VIDEO2 {}
-impl ::core::clone::Clone for KS_DATARANGE_VIDEO2 {
+impl Copy for KS_DATARANGE_VIDEO2 {}
+impl Clone for KS_DATARANGE_VIDEO2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -6250,8 +6250,8 @@ pub struct KS_DATARANGE_VIDEO_PALETTE {
     pub ConfigCaps: KS_VIDEO_STREAM_CONFIG_CAPS,
     pub VideoInfo: KS_VIDEOINFO,
 }
-impl ::core::marker::Copy for KS_DATARANGE_VIDEO_PALETTE {}
-impl ::core::clone::Clone for KS_DATARANGE_VIDEO_PALETTE {
+impl Copy for KS_DATARANGE_VIDEO_PALETTE {}
+impl Clone for KS_DATARANGE_VIDEO_PALETTE {
     fn clone(&self) -> Self {
         *self
     }
@@ -6266,8 +6266,8 @@ pub struct KS_DATARANGE_VIDEO_VBI {
     pub ConfigCaps: KS_VIDEO_STREAM_CONFIG_CAPS,
     pub VBIInfoHeader: KS_VBIINFOHEADER,
 }
-impl ::core::marker::Copy for KS_DATARANGE_VIDEO_VBI {}
-impl ::core::clone::Clone for KS_DATARANGE_VIDEO_VBI {
+impl Copy for KS_DATARANGE_VIDEO_VBI {}
+impl Clone for KS_DATARANGE_VIDEO_VBI {
     fn clone(&self) -> Self {
         *self
     }
@@ -6277,8 +6277,8 @@ pub struct KS_DVDCOPY_BUSKEY {
     pub BusKey: [u8; 5],
     pub Reserved: [u8; 1],
 }
-impl ::core::marker::Copy for KS_DVDCOPY_BUSKEY {}
-impl ::core::clone::Clone for KS_DVDCOPY_BUSKEY {
+impl Copy for KS_DVDCOPY_BUSKEY {}
+impl Clone for KS_DVDCOPY_BUSKEY {
     fn clone(&self) -> Self {
         *self
     }
@@ -6288,8 +6288,8 @@ pub struct KS_DVDCOPY_CHLGKEY {
     pub ChlgKey: [u8; 10],
     pub Reserved: [u8; 2],
 }
-impl ::core::marker::Copy for KS_DVDCOPY_CHLGKEY {}
-impl ::core::clone::Clone for KS_DVDCOPY_CHLGKEY {
+impl Copy for KS_DVDCOPY_CHLGKEY {}
+impl Clone for KS_DVDCOPY_CHLGKEY {
     fn clone(&self) -> Self {
         *self
     }
@@ -6298,8 +6298,8 @@ impl ::core::clone::Clone for KS_DVDCOPY_CHLGKEY {
 pub struct KS_DVDCOPY_DISCKEY {
     pub DiscKey: [u8; 2048],
 }
-impl ::core::marker::Copy for KS_DVDCOPY_DISCKEY {}
-impl ::core::clone::Clone for KS_DVDCOPY_DISCKEY {
+impl Copy for KS_DVDCOPY_DISCKEY {}
+impl Clone for KS_DVDCOPY_DISCKEY {
     fn clone(&self) -> Self {
         *self
     }
@@ -6310,8 +6310,8 @@ pub struct KS_DVDCOPY_REGION {
     pub RegionData: u8,
     pub Reserved2: [u8; 2],
 }
-impl ::core::marker::Copy for KS_DVDCOPY_REGION {}
-impl ::core::clone::Clone for KS_DVDCOPY_REGION {
+impl Copy for KS_DVDCOPY_REGION {}
+impl Clone for KS_DVDCOPY_REGION {
     fn clone(&self) -> Self {
         *self
     }
@@ -6320,8 +6320,8 @@ impl ::core::clone::Clone for KS_DVDCOPY_REGION {
 pub struct KS_DVDCOPY_SET_COPY_STATE {
     pub DVDCopyState: u32,
 }
-impl ::core::marker::Copy for KS_DVDCOPY_SET_COPY_STATE {}
-impl ::core::clone::Clone for KS_DVDCOPY_SET_COPY_STATE {
+impl Copy for KS_DVDCOPY_SET_COPY_STATE {}
+impl Clone for KS_DVDCOPY_SET_COPY_STATE {
     fn clone(&self) -> Self {
         *self
     }
@@ -6333,8 +6333,8 @@ pub struct KS_DVDCOPY_TITLEKEY {
     pub TitleKey: [u8; 6],
     pub Reserved: [u8; 2],
 }
-impl ::core::marker::Copy for KS_DVDCOPY_TITLEKEY {}
-impl ::core::clone::Clone for KS_DVDCOPY_TITLEKEY {
+impl Copy for KS_DVDCOPY_TITLEKEY {}
+impl Clone for KS_DVDCOPY_TITLEKEY {
     fn clone(&self) -> Self {
         *self
     }
@@ -6346,8 +6346,8 @@ pub struct KS_DVD_YCrCb {
     pub Cr: u8,
     pub Cb: u8,
 }
-impl ::core::marker::Copy for KS_DVD_YCrCb {}
-impl ::core::clone::Clone for KS_DVD_YCrCb {
+impl Copy for KS_DVD_YCrCb {}
+impl Clone for KS_DVD_YCrCb {
     fn clone(&self) -> Self {
         *self
     }
@@ -6359,8 +6359,8 @@ pub struct KS_DVD_YUV {
     pub V: u8,
     pub U: u8,
 }
-impl ::core::marker::Copy for KS_DVD_YUV {}
-impl ::core::clone::Clone for KS_DVD_YUV {
+impl Copy for KS_DVD_YUV {}
+impl Clone for KS_DVD_YUV {
     fn clone(&self) -> Self {
         *self
     }
@@ -6378,8 +6378,8 @@ pub struct KS_FRAME_INFO {
     pub Reserved2: u32,
     pub Anonymous2: KS_FRAME_INFO_1,
 }
-impl ::core::marker::Copy for KS_FRAME_INFO {}
-impl ::core::clone::Clone for KS_FRAME_INFO {
+impl Copy for KS_FRAME_INFO {}
+impl Clone for KS_FRAME_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -6389,8 +6389,8 @@ pub union KS_FRAME_INFO_0 {
     pub lSurfacePitch: i32,
     pub Reserved1: u32,
 }
-impl ::core::marker::Copy for KS_FRAME_INFO_0 {}
-impl ::core::clone::Clone for KS_FRAME_INFO_0 {
+impl Copy for KS_FRAME_INFO_0 {}
+impl Clone for KS_FRAME_INFO_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -6400,8 +6400,8 @@ pub union KS_FRAME_INFO_1 {
     pub Anonymous: KS_FRAME_INFO_1_0,
     pub FrameCompletionNumber: u64,
 }
-impl ::core::marker::Copy for KS_FRAME_INFO_1 {}
-impl ::core::clone::Clone for KS_FRAME_INFO_1 {
+impl Copy for KS_FRAME_INFO_1 {}
+impl Clone for KS_FRAME_INFO_1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -6411,16 +6411,16 @@ pub struct KS_FRAME_INFO_1_0 {
     pub Reserved3: u32,
     pub Reserved4: u32,
 }
-impl ::core::marker::Copy for KS_FRAME_INFO_1_0 {}
-impl ::core::clone::Clone for KS_FRAME_INFO_1_0 {
+impl Copy for KS_FRAME_INFO_1_0 {}
+impl Clone for KS_FRAME_INFO_1_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct KS_FRAMING_ITEM {
-    pub MemoryType: ::windows_sys::core::GUID,
-    pub BusType: ::windows_sys::core::GUID,
+    pub MemoryType: windows_sys::core::GUID,
+    pub BusType: windows_sys::core::GUID,
     pub MemoryFlags: u32,
     pub BusFlags: u32,
     pub Flags: u32,
@@ -6430,8 +6430,8 @@ pub struct KS_FRAMING_ITEM {
     pub PhysicalRange: KS_FRAMING_RANGE,
     pub FramingRange: KS_FRAMING_RANGE_WEIGHTED,
 }
-impl ::core::marker::Copy for KS_FRAMING_ITEM {}
-impl ::core::clone::Clone for KS_FRAMING_ITEM {
+impl Copy for KS_FRAMING_ITEM {}
+impl Clone for KS_FRAMING_ITEM {
     fn clone(&self) -> Self {
         *self
     }
@@ -6441,8 +6441,8 @@ pub union KS_FRAMING_ITEM_0 {
     pub FileAlignment: u32,
     pub FramePitch: i32,
 }
-impl ::core::marker::Copy for KS_FRAMING_ITEM_0 {}
-impl ::core::clone::Clone for KS_FRAMING_ITEM_0 {
+impl Copy for KS_FRAMING_ITEM_0 {}
+impl Clone for KS_FRAMING_ITEM_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -6453,8 +6453,8 @@ pub struct KS_FRAMING_RANGE {
     pub MaxFrameSize: u32,
     pub Stepping: u32,
 }
-impl ::core::marker::Copy for KS_FRAMING_RANGE {}
-impl ::core::clone::Clone for KS_FRAMING_RANGE {
+impl Copy for KS_FRAMING_RANGE {}
+impl Clone for KS_FRAMING_RANGE {
     fn clone(&self) -> Self {
         *self
     }
@@ -6465,8 +6465,8 @@ pub struct KS_FRAMING_RANGE_WEIGHTED {
     pub InPlaceWeight: u32,
     pub NotInPlaceWeight: u32,
 }
-impl ::core::marker::Copy for KS_FRAMING_RANGE_WEIGHTED {}
-impl ::core::clone::Clone for KS_FRAMING_RANGE_WEIGHTED {
+impl Copy for KS_FRAMING_RANGE_WEIGHTED {}
+impl Clone for KS_FRAMING_RANGE_WEIGHTED {
     fn clone(&self) -> Self {
         *self
     }
@@ -6512,8 +6512,8 @@ pub struct KS_H264VIDEOINFO {
     pub wMaxMBperSecThreeResolutionsFullScalability: u16,
     pub wMaxMBperSecFourResolutionsFullScalability: u16,
 }
-impl ::core::marker::Copy for KS_H264VIDEOINFO {}
-impl ::core::clone::Clone for KS_H264VIDEOINFO {
+impl Copy for KS_H264VIDEOINFO {}
+impl Clone for KS_H264VIDEOINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -6525,8 +6525,8 @@ pub struct KS_MPEG1VIDEOINFO {
     pub cbSequenceHeader: u32,
     pub bSequenceHeader: [u8; 1],
 }
-impl ::core::marker::Copy for KS_MPEG1VIDEOINFO {}
-impl ::core::clone::Clone for KS_MPEG1VIDEOINFO {
+impl Copy for KS_MPEG1VIDEOINFO {}
+impl Clone for KS_MPEG1VIDEOINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -6538,8 +6538,8 @@ pub struct KS_MPEGAUDIOINFO {
     pub dwReserved2: u32,
     pub dwReserved3: u32,
 }
-impl ::core::marker::Copy for KS_MPEGAUDIOINFO {}
-impl ::core::clone::Clone for KS_MPEGAUDIOINFO {
+impl Copy for KS_MPEGAUDIOINFO {}
+impl Clone for KS_MPEGAUDIOINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -6554,8 +6554,8 @@ pub struct KS_MPEGVIDEOINFO2 {
     pub dwFlags: u32,
     pub bSequenceHeader: [u32; 1],
 }
-impl ::core::marker::Copy for KS_MPEGVIDEOINFO2 {}
-impl ::core::clone::Clone for KS_MPEGVIDEOINFO2 {
+impl Copy for KS_MPEGVIDEOINFO2 {}
+impl Clone for KS_MPEGVIDEOINFO2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -6567,20 +6567,20 @@ pub struct KS_RGBQUAD {
     pub rgbRed: u8,
     pub rgbReserved: u8,
 }
-impl ::core::marker::Copy for KS_RGBQUAD {}
-impl ::core::clone::Clone for KS_RGBQUAD {
+impl Copy for KS_RGBQUAD {}
+impl Clone for KS_RGBQUAD {
     fn clone(&self) -> Self {
         *self
     }
 }
-pub const KS_SECURE_CAMERA_SCENARIO_ID: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xae53fc6e_8d89_4488_9d2e_4d008731c5fd);
+pub const KS_SECURE_CAMERA_SCENARIO_ID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xae53fc6e_8d89_4488_9d2e_4d008731c5fd);
 #[repr(C)]
 pub struct KS_TRUECOLORINFO {
     pub dwBitMasks: [u32; 3],
     pub bmiColors: [KS_RGBQUAD; 256],
 }
-impl ::core::marker::Copy for KS_TRUECOLORINFO {}
-impl ::core::clone::Clone for KS_TRUECOLORINFO {
+impl Copy for KS_TRUECOLORINFO {}
+impl Clone for KS_TRUECOLORINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -6592,8 +6592,8 @@ pub struct KS_TVTUNER_CHANGE_INFO {
     pub dwAnalogVideoStandard: u32,
     pub dwChannel: u32,
 }
-impl ::core::marker::Copy for KS_TVTUNER_CHANGE_INFO {}
-impl ::core::clone::Clone for KS_TVTUNER_CHANGE_INFO {
+impl Copy for KS_TVTUNER_CHANGE_INFO {}
+impl Clone for KS_TVTUNER_CHANGE_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -6612,8 +6612,8 @@ pub struct KS_VBIINFOHEADER {
     pub StrideInBytes: u32,
     pub BufferSize: u32,
 }
-impl ::core::marker::Copy for KS_VBIINFOHEADER {}
-impl ::core::clone::Clone for KS_VBIINFOHEADER {
+impl Copy for KS_VBIINFOHEADER {}
+impl Clone for KS_VBIINFOHEADER {
     fn clone(&self) -> Self {
         *self
     }
@@ -6628,8 +6628,8 @@ pub struct KS_VBI_FRAME_INFO {
     pub TvTunerChangeInfo: KS_TVTUNER_CHANGE_INFO,
     pub VBIInfoHeader: KS_VBIINFOHEADER,
 }
-impl ::core::marker::Copy for KS_VBI_FRAME_INFO {}
-impl ::core::clone::Clone for KS_VBI_FRAME_INFO {
+impl Copy for KS_VBI_FRAME_INFO {}
+impl Clone for KS_VBI_FRAME_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -6644,8 +6644,8 @@ pub struct KS_VIDEOINFO {
     pub bmiHeader: KS_BITMAPINFOHEADER,
     pub Anonymous: KS_VIDEOINFO_0,
 }
-impl ::core::marker::Copy for KS_VIDEOINFO {}
-impl ::core::clone::Clone for KS_VIDEOINFO {
+impl Copy for KS_VIDEOINFO {}
+impl Clone for KS_VIDEOINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -6656,8 +6656,8 @@ pub union KS_VIDEOINFO_0 {
     pub dwBitMasks: [u32; 3],
     pub TrueColorInfo: KS_TRUECOLORINFO,
 }
-impl ::core::marker::Copy for KS_VIDEOINFO_0 {}
-impl ::core::clone::Clone for KS_VIDEOINFO_0 {
+impl Copy for KS_VIDEOINFO_0 {}
+impl Clone for KS_VIDEOINFO_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -6671,8 +6671,8 @@ pub struct KS_VIDEOINFOHEADER {
     pub AvgTimePerFrame: i64,
     pub bmiHeader: KS_BITMAPINFOHEADER,
 }
-impl ::core::marker::Copy for KS_VIDEOINFOHEADER {}
-impl ::core::clone::Clone for KS_VIDEOINFOHEADER {
+impl Copy for KS_VIDEOINFOHEADER {}
+impl Clone for KS_VIDEOINFOHEADER {
     fn clone(&self) -> Self {
         *self
     }
@@ -6692,8 +6692,8 @@ pub struct KS_VIDEOINFOHEADER2 {
     pub dwReserved2: u32,
     pub bmiHeader: KS_BITMAPINFOHEADER,
 }
-impl ::core::marker::Copy for KS_VIDEOINFOHEADER2 {}
-impl ::core::clone::Clone for KS_VIDEOINFOHEADER2 {
+impl Copy for KS_VIDEOINFOHEADER2 {}
+impl Clone for KS_VIDEOINFOHEADER2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -6703,15 +6703,15 @@ pub union KS_VIDEOINFOHEADER2_0 {
     pub dwControlFlags: u32,
     pub dwReserved1: u32,
 }
-impl ::core::marker::Copy for KS_VIDEOINFOHEADER2_0 {}
-impl ::core::clone::Clone for KS_VIDEOINFOHEADER2_0 {
+impl Copy for KS_VIDEOINFOHEADER2_0 {}
+impl Clone for KS_VIDEOINFOHEADER2_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct KS_VIDEO_STREAM_CONFIG_CAPS {
-    pub guid: ::windows_sys::core::GUID,
+    pub guid: windows_sys::core::GUID,
     pub VideoStandard: u32,
     pub InputSize: super::super::Foundation::SIZE,
     pub MinCroppingSize: super::super::Foundation::SIZE,
@@ -6733,8 +6733,8 @@ pub struct KS_VIDEO_STREAM_CONFIG_CAPS {
     pub MinBitsPerSecond: i32,
     pub MaxBitsPerSecond: i32,
 }
-impl ::core::marker::Copy for KS_VIDEO_STREAM_CONFIG_CAPS {}
-impl ::core::clone::Clone for KS_VIDEO_STREAM_CONFIG_CAPS {
+impl Copy for KS_VIDEO_STREAM_CONFIG_CAPS {}
+impl Clone for KS_VIDEO_STREAM_CONFIG_CAPS {
     fn clone(&self) -> Self {
         *self
     }
@@ -6744,8 +6744,8 @@ pub struct LOOPEDSTREAMING_POSITION_EVENT_DATA {
     pub KsEventData: KSEVENTDATA,
     pub Position: u64,
 }
-impl ::core::marker::Copy for LOOPEDSTREAMING_POSITION_EVENT_DATA {}
-impl ::core::clone::Clone for LOOPEDSTREAMING_POSITION_EVENT_DATA {
+impl Copy for LOOPEDSTREAMING_POSITION_EVENT_DATA {}
+impl Clone for LOOPEDSTREAMING_POSITION_EVENT_DATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -6756,8 +6756,8 @@ pub struct MEDIUM_INFO {
     pub MediaType: u32,
     pub RecordInhibit: super::super::Foundation::BOOL,
 }
-impl ::core::marker::Copy for MEDIUM_INFO {}
-impl ::core::clone::Clone for MEDIUM_INFO {
+impl Copy for MEDIUM_INFO {}
+impl Clone for MEDIUM_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -6765,10 +6765,10 @@ impl ::core::clone::Clone for MEDIUM_INFO {
 #[repr(C)]
 pub union MF_MDL_SHARED_PAYLOAD_KEY {
     pub combined: MF_MDL_SHARED_PAYLOAD_KEY_0,
-    pub GMDLHandle: ::windows_sys::core::GUID,
+    pub GMDLHandle: windows_sys::core::GUID,
 }
-impl ::core::marker::Copy for MF_MDL_SHARED_PAYLOAD_KEY {}
-impl ::core::clone::Clone for MF_MDL_SHARED_PAYLOAD_KEY {
+impl Copy for MF_MDL_SHARED_PAYLOAD_KEY {}
+impl Clone for MF_MDL_SHARED_PAYLOAD_KEY {
     fn clone(&self) -> Self {
         *self
     }
@@ -6779,8 +6779,8 @@ pub struct MF_MDL_SHARED_PAYLOAD_KEY_0 {
     pub fHandle: u32,
     pub uPayload: u64,
 }
-impl ::core::marker::Copy for MF_MDL_SHARED_PAYLOAD_KEY_0 {}
-impl ::core::clone::Clone for MF_MDL_SHARED_PAYLOAD_KEY_0 {
+impl Copy for MF_MDL_SHARED_PAYLOAD_KEY_0 {}
+impl Clone for MF_MDL_SHARED_PAYLOAD_KEY_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -6792,8 +6792,8 @@ pub struct NABTSFEC_BUFFER {
     pub Reserved: u16,
     pub data: [u8; 448],
 }
-impl ::core::marker::Copy for NABTSFEC_BUFFER {}
-impl ::core::clone::Clone for NABTSFEC_BUFFER {
+impl Copy for NABTSFEC_BUFFER {}
+impl Clone for NABTSFEC_BUFFER {
     fn clone(&self) -> Self {
         *self
     }
@@ -6804,8 +6804,8 @@ pub struct NABTS_BUFFER {
     pub PictureNumber: i64,
     pub NabtsLines: [NABTS_BUFFER_LINE; 11],
 }
-impl ::core::marker::Copy for NABTS_BUFFER {}
-impl ::core::clone::Clone for NABTS_BUFFER {
+impl Copy for NABTS_BUFFER {}
+impl Clone for NABTS_BUFFER {
     fn clone(&self) -> Self {
         *self
     }
@@ -6815,8 +6815,8 @@ pub struct NABTS_BUFFER_LINE {
     pub Confidence: u8,
     pub Bytes: [u8; 36],
 }
-impl ::core::marker::Copy for NABTS_BUFFER_LINE {}
-impl ::core::clone::Clone for NABTS_BUFFER_LINE {
+impl Copy for NABTS_BUFFER_LINE {}
+impl Clone for NABTS_BUFFER_LINE {
     fn clone(&self) -> Self {
         *self
     }
@@ -6827,39 +6827,39 @@ pub struct OPTIMAL_WEIGHT_TOTALS {
     pub MaxTotalNominator: i64,
     pub TotalDenominator: i64,
 }
-impl ::core::marker::Copy for OPTIMAL_WEIGHT_TOTALS {}
-impl ::core::clone::Clone for OPTIMAL_WEIGHT_TOTALS {
+impl Copy for OPTIMAL_WEIGHT_TOTALS {}
+impl Clone for OPTIMAL_WEIGHT_TOTALS {
     fn clone(&self) -> Self {
         *self
     }
 }
-pub const PINNAME_DISPLAYPORT_OUT: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x21fbb329_1a4a_48da_a076_2318a3c59b26);
-pub const PINNAME_HDMI_OUT: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x387bfc03_e7ef_4901_86e0_35b7c32b00ef);
-pub const PINNAME_IMAGE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x38a0cd98_d49b_4ce8_b48a_344667a17830);
-pub const PINNAME_SPDIF_IN: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x15dc9025_22ad_41b3_8875_f4ceb0299e20);
-pub const PINNAME_SPDIF_OUT: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x3a264481_e52c_4b82_8e7a_c8e2f91dc380);
-pub const PINNAME_VIDEO_ANALOGVIDEOIN: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xfb6c4283_0353_11d1_905f_0000c0cc16ba);
-pub const PINNAME_VIDEO_CAPTURE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xfb6c4281_0353_11d1_905f_0000c0cc16ba);
-pub const PINNAME_VIDEO_CC: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xfb6c4289_0353_11d1_905f_0000c0cc16ba);
-pub const PINNAME_VIDEO_CC_CAPTURE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x1aad8061_012d_11d2_b4b1_00a0d102cfbe);
-pub const PINNAME_VIDEO_EDS: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xfb6c4287_0353_11d1_905f_0000c0cc16ba);
-pub const PINNAME_VIDEO_NABTS: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xfb6c4286_0353_11d1_905f_0000c0cc16ba);
-pub const PINNAME_VIDEO_NABTS_CAPTURE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x29703660_498a_11d2_b4b1_00a0d102cfbe);
-pub const PINNAME_VIDEO_PREVIEW: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xfb6c4282_0353_11d1_905f_0000c0cc16ba);
-pub const PINNAME_VIDEO_STILL: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xfb6c428a_0353_11d1_905f_0000c0cc16ba);
-pub const PINNAME_VIDEO_TELETEXT: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xfb6c4288_0353_11d1_905f_0000c0cc16ba);
-pub const PINNAME_VIDEO_TIMECODE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xfb6c428b_0353_11d1_905f_0000c0cc16ba);
-pub const PINNAME_VIDEO_VBI: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xfb6c4284_0353_11d1_905f_0000c0cc16ba);
-pub const PINNAME_VIDEO_VIDEOPORT: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xfb6c4285_0353_11d1_905f_0000c0cc16ba);
-pub const PINNAME_VIDEO_VIDEOPORT_VBI: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xfb6c428c_0353_11d1_905f_0000c0cc16ba);
+pub const PINNAME_DISPLAYPORT_OUT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x21fbb329_1a4a_48da_a076_2318a3c59b26);
+pub const PINNAME_HDMI_OUT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x387bfc03_e7ef_4901_86e0_35b7c32b00ef);
+pub const PINNAME_IMAGE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x38a0cd98_d49b_4ce8_b48a_344667a17830);
+pub const PINNAME_SPDIF_IN: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x15dc9025_22ad_41b3_8875_f4ceb0299e20);
+pub const PINNAME_SPDIF_OUT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3a264481_e52c_4b82_8e7a_c8e2f91dc380);
+pub const PINNAME_VIDEO_ANALOGVIDEOIN: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xfb6c4283_0353_11d1_905f_0000c0cc16ba);
+pub const PINNAME_VIDEO_CAPTURE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xfb6c4281_0353_11d1_905f_0000c0cc16ba);
+pub const PINNAME_VIDEO_CC: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xfb6c4289_0353_11d1_905f_0000c0cc16ba);
+pub const PINNAME_VIDEO_CC_CAPTURE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1aad8061_012d_11d2_b4b1_00a0d102cfbe);
+pub const PINNAME_VIDEO_EDS: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xfb6c4287_0353_11d1_905f_0000c0cc16ba);
+pub const PINNAME_VIDEO_NABTS: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xfb6c4286_0353_11d1_905f_0000c0cc16ba);
+pub const PINNAME_VIDEO_NABTS_CAPTURE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x29703660_498a_11d2_b4b1_00a0d102cfbe);
+pub const PINNAME_VIDEO_PREVIEW: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xfb6c4282_0353_11d1_905f_0000c0cc16ba);
+pub const PINNAME_VIDEO_STILL: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xfb6c428a_0353_11d1_905f_0000c0cc16ba);
+pub const PINNAME_VIDEO_TELETEXT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xfb6c4288_0353_11d1_905f_0000c0cc16ba);
+pub const PINNAME_VIDEO_TIMECODE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xfb6c428b_0353_11d1_905f_0000c0cc16ba);
+pub const PINNAME_VIDEO_VBI: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xfb6c4284_0353_11d1_905f_0000c0cc16ba);
+pub const PINNAME_VIDEO_VIDEOPORT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xfb6c4285_0353_11d1_905f_0000c0cc16ba);
+pub const PINNAME_VIDEO_VIDEOPORT_VBI: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xfb6c428c_0353_11d1_905f_0000c0cc16ba);
 #[repr(C)]
 pub struct PIPE_DIMENSIONS {
     pub AllocatorPin: KS_COMPRESSION,
     pub MaxExpansionPin: KS_COMPRESSION,
     pub EndPin: KS_COMPRESSION,
 }
-impl ::core::marker::Copy for PIPE_DIMENSIONS {}
-impl ::core::clone::Clone for PIPE_DIMENSIONS {
+impl Copy for PIPE_DIMENSIONS {}
+impl Clone for PIPE_DIMENSIONS {
     fn clone(&self) -> Self {
         *self
     }
@@ -6873,40 +6873,40 @@ pub struct PIPE_TERMINATION {
     pub OptimalRange: KS_FRAMING_RANGE_WEIGHTED,
     pub Compression: KS_COMPRESSION,
 }
-impl ::core::marker::Copy for PIPE_TERMINATION {}
-impl ::core::clone::Clone for PIPE_TERMINATION {
+impl Copy for PIPE_TERMINATION {}
+impl Clone for PIPE_TERMINATION {
     fn clone(&self) -> Self {
         *self
     }
 }
-pub const PROPSETID_ALLOCATOR_CONTROL: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x53171960_148e_11d2_9979_0000c0cc16ba);
-pub const PROPSETID_EXT_DEVICE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xb5730a90_1a2c_11cf_8c23_00aa006b6814);
-pub const PROPSETID_EXT_TRANSPORT: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xa03cd5f0_3045_11cf_8c44_00aa006b6814);
-pub const PROPSETID_TIMECODE_READER: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x9b496ce1_811b_11cf_8c77_00aa006b6814);
-pub const PROPSETID_TUNER: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x6a2e0605_28e4_11d0_a18c_00a0c9118956);
-pub const PROPSETID_VIDCAP_CAMERACONTROL: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xc6e13370_30ac_11d0_a18c_00a0c9118956);
-pub const PROPSETID_VIDCAP_CAMERACONTROL_FLASH: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x785e8f49_63a2_4144_ab70_ffb278fa26ce);
-pub const PROPSETID_VIDCAP_CAMERACONTROL_IMAGE_PIN_CAPABILITY: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x9d3d7bbf_5c6d_4138_bb00_584edd20f7c5);
-pub const PROPSETID_VIDCAP_CAMERACONTROL_REGION_OF_INTEREST: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x9d12d198_f86c_4fed_b023_5d87653da793);
-pub const PROPSETID_VIDCAP_CAMERACONTROL_VIDEO_STABILIZATION: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x43964bd3_7716_404e_8be1_d299b20e50fd);
-pub const PROPSETID_VIDCAP_CROSSBAR: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x6a2e0640_28e4_11d0_a18c_00a0c9118956);
-pub const PROPSETID_VIDCAP_DROPPEDFRAMES: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xc6e13344_30ac_11d0_a18c_00a0c9118956);
-pub const PROPSETID_VIDCAP_SELECTOR: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x1abdaeca_68b6_4f83_9371_b413907c7b9f);
-pub const PROPSETID_VIDCAP_TVAUDIO: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x6a2e0650_28e4_11d0_a18c_00a0c9118956);
-pub const PROPSETID_VIDCAP_VIDEOCOMPRESSION: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xc6e13343_30ac_11d0_a18c_00a0c9118956);
-pub const PROPSETID_VIDCAP_VIDEOCONTROL: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x6a2e0670_28e4_11d0_a18c_00a0c9118956);
-pub const PROPSETID_VIDCAP_VIDEODECODER: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xc6e13350_30ac_11d0_a18c_00a0c9118956);
-pub const PROPSETID_VIDCAP_VIDEOENCODER: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x6a2e0610_28e4_11d0_a18c_00a0c9118956);
-pub const PROPSETID_VIDCAP_VIDEOPROCAMP: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xc6e13360_30ac_11d0_a18c_00a0c9118956);
+pub const PROPSETID_ALLOCATOR_CONTROL: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x53171960_148e_11d2_9979_0000c0cc16ba);
+pub const PROPSETID_EXT_DEVICE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb5730a90_1a2c_11cf_8c23_00aa006b6814);
+pub const PROPSETID_EXT_TRANSPORT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa03cd5f0_3045_11cf_8c44_00aa006b6814);
+pub const PROPSETID_TIMECODE_READER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9b496ce1_811b_11cf_8c77_00aa006b6814);
+pub const PROPSETID_TUNER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6a2e0605_28e4_11d0_a18c_00a0c9118956);
+pub const PROPSETID_VIDCAP_CAMERACONTROL: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc6e13370_30ac_11d0_a18c_00a0c9118956);
+pub const PROPSETID_VIDCAP_CAMERACONTROL_FLASH: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x785e8f49_63a2_4144_ab70_ffb278fa26ce);
+pub const PROPSETID_VIDCAP_CAMERACONTROL_IMAGE_PIN_CAPABILITY: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9d3d7bbf_5c6d_4138_bb00_584edd20f7c5);
+pub const PROPSETID_VIDCAP_CAMERACONTROL_REGION_OF_INTEREST: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9d12d198_f86c_4fed_b023_5d87653da793);
+pub const PROPSETID_VIDCAP_CAMERACONTROL_VIDEO_STABILIZATION: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x43964bd3_7716_404e_8be1_d299b20e50fd);
+pub const PROPSETID_VIDCAP_CROSSBAR: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6a2e0640_28e4_11d0_a18c_00a0c9118956);
+pub const PROPSETID_VIDCAP_DROPPEDFRAMES: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc6e13344_30ac_11d0_a18c_00a0c9118956);
+pub const PROPSETID_VIDCAP_SELECTOR: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1abdaeca_68b6_4f83_9371_b413907c7b9f);
+pub const PROPSETID_VIDCAP_TVAUDIO: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6a2e0650_28e4_11d0_a18c_00a0c9118956);
+pub const PROPSETID_VIDCAP_VIDEOCOMPRESSION: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc6e13343_30ac_11d0_a18c_00a0c9118956);
+pub const PROPSETID_VIDCAP_VIDEOCONTROL: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6a2e0670_28e4_11d0_a18c_00a0c9118956);
+pub const PROPSETID_VIDCAP_VIDEODECODER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc6e13350_30ac_11d0_a18c_00a0c9118956);
+pub const PROPSETID_VIDCAP_VIDEOENCODER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6a2e0610_28e4_11d0_a18c_00a0c9118956);
+pub const PROPSETID_VIDCAP_VIDEOPROCAMP: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc6e13360_30ac_11d0_a18c_00a0c9118956);
 #[repr(C)]
 pub struct SECURE_BUFFER_INFO {
-    pub guidBufferIdentifier: ::windows_sys::core::GUID,
+    pub guidBufferIdentifier: windows_sys::core::GUID,
     pub cbBufferSize: u32,
     pub cbCaptured: u32,
     pub ullReserved: [u64; 16],
 }
-impl ::core::marker::Copy for SECURE_BUFFER_INFO {}
-impl ::core::clone::Clone for SECURE_BUFFER_INFO {
+impl Copy for SECURE_BUFFER_INFO {}
+impl Clone for SECURE_BUFFER_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -6914,10 +6914,10 @@ impl ::core::clone::Clone for SECURE_BUFFER_INFO {
 #[repr(C)]
 pub struct SOUNDDETECTOR_PATTERNHEADER {
     pub Size: u32,
-    pub PatternType: ::windows_sys::core::GUID,
+    pub PatternType: windows_sys::core::GUID,
 }
-impl ::core::marker::Copy for SOUNDDETECTOR_PATTERNHEADER {}
-impl ::core::clone::Clone for SOUNDDETECTOR_PATTERNHEADER {
+impl Copy for SOUNDDETECTOR_PATTERNHEADER {}
+impl Clone for SOUNDDETECTOR_PATTERNHEADER {
     fn clone(&self) -> Self {
         *self
     }
@@ -6930,8 +6930,8 @@ pub struct TRANSPORTAUDIOPARMS {
     pub Input: i32,
     pub MonitorSource: i32,
 }
-impl ::core::marker::Copy for TRANSPORTAUDIOPARMS {}
-impl ::core::clone::Clone for TRANSPORTAUDIOPARMS {
+impl Copy for TRANSPORTAUDIOPARMS {}
+impl Clone for TRANSPORTAUDIOPARMS {
     fn clone(&self) -> Self {
         *self
     }
@@ -6969,8 +6969,8 @@ pub struct TRANSPORTBASICPARMS {
     pub TimerStopDay: i32,
     pub TimerStopTime: i32,
 }
-impl ::core::marker::Copy for TRANSPORTBASICPARMS {}
-impl ::core::clone::Clone for TRANSPORTBASICPARMS {
+impl Copy for TRANSPORTBASICPARMS {}
+impl Clone for TRANSPORTBASICPARMS {
     fn clone(&self) -> Self {
         *self
     }
@@ -6991,8 +6991,8 @@ pub struct TRANSPORTSTATUS {
     pub LinkMode: i32,
     pub NotifyOn: i32,
 }
-impl ::core::marker::Copy for TRANSPORTSTATUS {}
-impl ::core::clone::Clone for TRANSPORTSTATUS {
+impl Copy for TRANSPORTSTATUS {}
+impl Clone for TRANSPORTSTATUS {
     fn clone(&self) -> Self {
         *self
     }
@@ -7002,8 +7002,8 @@ pub struct TRANSPORTVIDEOPARMS {
     pub OutputMode: i32,
     pub Input: i32,
 }
-impl ::core::marker::Copy for TRANSPORTVIDEOPARMS {}
-impl ::core::clone::Clone for TRANSPORTVIDEOPARMS {
+impl Copy for TRANSPORTVIDEOPARMS {}
+impl Clone for TRANSPORTVIDEOPARMS {
     fn clone(&self) -> Self {
         *self
     }
@@ -7013,8 +7013,8 @@ pub struct TRANSPORT_STATE {
     pub Mode: u32,
     pub State: u32,
 }
-impl ::core::marker::Copy for TRANSPORT_STATE {}
-impl ::core::clone::Clone for TRANSPORT_STATE {
+impl Copy for TRANSPORT_STATE {}
+impl Clone for TRANSPORT_STATE {
     fn clone(&self) -> Self {
         *self
     }
@@ -7030,8 +7030,8 @@ pub struct TUNER_ANALOG_CAPS_S {
     pub ScanSensingRange: u32,
     pub FineTuneSensingRange: u32,
 }
-impl ::core::marker::Copy for TUNER_ANALOG_CAPS_S {}
-impl ::core::clone::Clone for TUNER_ANALOG_CAPS_S {
+impl Copy for TUNER_ANALOG_CAPS_S {}
+impl Clone for TUNER_ANALOG_CAPS_S {
     fn clone(&self) -> Self {
         *self
     }
@@ -7042,8 +7042,8 @@ pub struct VBICAP_PROPERTIES_PROTECTION_S {
     pub StreamIndex: u32,
     pub Status: u32,
 }
-impl ::core::marker::Copy for VBICAP_PROPERTIES_PROTECTION_S {}
-impl ::core::clone::Clone for VBICAP_PROPERTIES_PROTECTION_S {
+impl Copy for VBICAP_PROPERTIES_PROTECTION_S {}
+impl Clone for VBICAP_PROPERTIES_PROTECTION_S {
     fn clone(&self) -> Self {
         *self
     }
@@ -7052,8 +7052,8 @@ impl ::core::clone::Clone for VBICAP_PROPERTIES_PROTECTION_S {
 pub struct VBICODECFILTERING_CC_SUBSTREAMS {
     pub SubstreamMask: u32,
 }
-impl ::core::marker::Copy for VBICODECFILTERING_CC_SUBSTREAMS {}
-impl ::core::clone::Clone for VBICODECFILTERING_CC_SUBSTREAMS {
+impl Copy for VBICODECFILTERING_CC_SUBSTREAMS {}
+impl Clone for VBICODECFILTERING_CC_SUBSTREAMS {
     fn clone(&self) -> Self {
         *self
     }
@@ -7062,8 +7062,8 @@ impl ::core::clone::Clone for VBICODECFILTERING_CC_SUBSTREAMS {
 pub struct VBICODECFILTERING_NABTS_SUBSTREAMS {
     pub SubstreamMask: [u32; 128],
 }
-impl ::core::marker::Copy for VBICODECFILTERING_NABTS_SUBSTREAMS {}
-impl ::core::clone::Clone for VBICODECFILTERING_NABTS_SUBSTREAMS {
+impl Copy for VBICODECFILTERING_NABTS_SUBSTREAMS {}
+impl Clone for VBICODECFILTERING_NABTS_SUBSTREAMS {
     fn clone(&self) -> Self {
         *self
     }
@@ -7072,8 +7072,8 @@ impl ::core::clone::Clone for VBICODECFILTERING_NABTS_SUBSTREAMS {
 pub struct VBICODECFILTERING_SCANLINES {
     pub DwordBitArray: [u32; 32],
 }
-impl ::core::marker::Copy for VBICODECFILTERING_SCANLINES {}
-impl ::core::clone::Clone for VBICODECFILTERING_SCANLINES {
+impl Copy for VBICODECFILTERING_SCANLINES {}
+impl Clone for VBICODECFILTERING_SCANLINES {
     fn clone(&self) -> Self {
         *self
     }
@@ -7082,8 +7082,8 @@ impl ::core::clone::Clone for VBICODECFILTERING_SCANLINES {
 pub struct VBICODECFILTERING_STATISTICS_CC {
     pub Common: VBICODECFILTERING_STATISTICS_COMMON,
 }
-impl ::core::marker::Copy for VBICODECFILTERING_STATISTICS_CC {}
-impl ::core::clone::Clone for VBICODECFILTERING_STATISTICS_CC {
+impl Copy for VBICODECFILTERING_STATISTICS_CC {}
+impl Clone for VBICODECFILTERING_STATISTICS_CC {
     fn clone(&self) -> Self {
         *self
     }
@@ -7092,8 +7092,8 @@ impl ::core::clone::Clone for VBICODECFILTERING_STATISTICS_CC {
 pub struct VBICODECFILTERING_STATISTICS_CC_PIN {
     pub Common: VBICODECFILTERING_STATISTICS_COMMON_PIN,
 }
-impl ::core::marker::Copy for VBICODECFILTERING_STATISTICS_CC_PIN {}
-impl ::core::clone::Clone for VBICODECFILTERING_STATISTICS_CC_PIN {
+impl Copy for VBICODECFILTERING_STATISTICS_CC_PIN {}
+impl Clone for VBICODECFILTERING_STATISTICS_CC_PIN {
     fn clone(&self) -> Self {
         *self
     }
@@ -7115,8 +7115,8 @@ pub struct VBICODECFILTERING_STATISTICS_COMMON {
     pub LineConfidenceAvg: u32,
     pub BytesOutput: u32,
 }
-impl ::core::marker::Copy for VBICODECFILTERING_STATISTICS_COMMON {}
-impl ::core::clone::Clone for VBICODECFILTERING_STATISTICS_COMMON {
+impl Copy for VBICODECFILTERING_STATISTICS_COMMON {}
+impl Clone for VBICODECFILTERING_STATISTICS_COMMON {
     fn clone(&self) -> Self {
         *self
     }
@@ -7132,8 +7132,8 @@ pub struct VBICODECFILTERING_STATISTICS_COMMON_PIN {
     pub LineConfidenceAvg: u32,
     pub BytesOutput: u32,
 }
-impl ::core::marker::Copy for VBICODECFILTERING_STATISTICS_COMMON_PIN {}
-impl ::core::clone::Clone for VBICODECFILTERING_STATISTICS_COMMON_PIN {
+impl Copy for VBICODECFILTERING_STATISTICS_COMMON_PIN {}
+impl Clone for VBICODECFILTERING_STATISTICS_COMMON_PIN {
     fn clone(&self) -> Self {
         *self
     }
@@ -7149,8 +7149,8 @@ pub struct VBICODECFILTERING_STATISTICS_NABTS {
     pub BundlesSent2IP: u32,
     pub FilteredLines: u32,
 }
-impl ::core::marker::Copy for VBICODECFILTERING_STATISTICS_NABTS {}
-impl ::core::clone::Clone for VBICODECFILTERING_STATISTICS_NABTS {
+impl Copy for VBICODECFILTERING_STATISTICS_NABTS {}
+impl Clone for VBICODECFILTERING_STATISTICS_NABTS {
     fn clone(&self) -> Self {
         *self
     }
@@ -7159,8 +7159,8 @@ impl ::core::clone::Clone for VBICODECFILTERING_STATISTICS_NABTS {
 pub struct VBICODECFILTERING_STATISTICS_NABTS_PIN {
     pub Common: VBICODECFILTERING_STATISTICS_COMMON_PIN,
 }
-impl ::core::marker::Copy for VBICODECFILTERING_STATISTICS_NABTS_PIN {}
-impl ::core::clone::Clone for VBICODECFILTERING_STATISTICS_NABTS_PIN {
+impl Copy for VBICODECFILTERING_STATISTICS_NABTS_PIN {}
+impl Clone for VBICODECFILTERING_STATISTICS_NABTS_PIN {
     fn clone(&self) -> Self {
         *self
     }
@@ -7169,8 +7169,8 @@ impl ::core::clone::Clone for VBICODECFILTERING_STATISTICS_NABTS_PIN {
 pub struct VBICODECFILTERING_STATISTICS_TELETEXT {
     pub Common: VBICODECFILTERING_STATISTICS_COMMON,
 }
-impl ::core::marker::Copy for VBICODECFILTERING_STATISTICS_TELETEXT {}
-impl ::core::clone::Clone for VBICODECFILTERING_STATISTICS_TELETEXT {
+impl Copy for VBICODECFILTERING_STATISTICS_TELETEXT {}
+impl Clone for VBICODECFILTERING_STATISTICS_TELETEXT {
     fn clone(&self) -> Self {
         *self
     }
@@ -7179,8 +7179,8 @@ impl ::core::clone::Clone for VBICODECFILTERING_STATISTICS_TELETEXT {
 pub struct VBICODECFILTERING_STATISTICS_TELETEXT_PIN {
     pub Common: VBICODECFILTERING_STATISTICS_COMMON_PIN,
 }
-impl ::core::marker::Copy for VBICODECFILTERING_STATISTICS_TELETEXT_PIN {}
-impl ::core::clone::Clone for VBICODECFILTERING_STATISTICS_TELETEXT_PIN {
+impl Copy for VBICODECFILTERING_STATISTICS_TELETEXT_PIN {}
+impl Clone for VBICODECFILTERING_STATISTICS_TELETEXT_PIN {
     fn clone(&self) -> Self {
         *self
     }
@@ -7196,8 +7196,8 @@ pub struct VRAM_SURFACE_INFO {
     pub lPitch: i32,
     pub ullReserved: [u64; 16],
 }
-impl ::core::marker::Copy for VRAM_SURFACE_INFO {}
-impl ::core::clone::Clone for VRAM_SURFACE_INFO {
+impl Copy for VRAM_SURFACE_INFO {}
+impl Clone for VRAM_SURFACE_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -7207,8 +7207,8 @@ pub struct VRAM_SURFACE_INFO_PROPERTY_S {
     pub Property: KSIDENTIFIER,
     pub pVramSurfaceInfo: *mut VRAM_SURFACE_INFO,
 }
-impl ::core::marker::Copy for VRAM_SURFACE_INFO_PROPERTY_S {}
-impl ::core::clone::Clone for VRAM_SURFACE_INFO_PROPERTY_S {
+impl Copy for VRAM_SURFACE_INFO_PROPERTY_S {}
+impl Clone for VRAM_SURFACE_INFO_PROPERTY_S {
     fn clone(&self) -> Self {
         *self
     }
@@ -7220,8 +7220,8 @@ pub struct WNF_KSCAMERA_STREAMSTATE_INFO {
     pub StreamState: u32,
     pub Reserved: u32,
 }
-impl ::core::marker::Copy for WNF_KSCAMERA_STREAMSTATE_INFO {}
-impl ::core::clone::Clone for WNF_KSCAMERA_STREAMSTATE_INFO {
+impl Copy for WNF_KSCAMERA_STREAMSTATE_INFO {}
+impl Clone for WNF_KSCAMERA_STREAMSTATE_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -7231,8 +7231,8 @@ pub struct WST_BUFFER {
     pub ScanlinesRequested: VBICODECFILTERING_SCANLINES,
     pub WstLines: [WST_BUFFER_LINE; 17],
 }
-impl ::core::marker::Copy for WST_BUFFER {}
-impl ::core::clone::Clone for WST_BUFFER {
+impl Copy for WST_BUFFER {}
+impl Clone for WST_BUFFER {
     fn clone(&self) -> Self {
         *self
     }
@@ -7242,8 +7242,8 @@ pub struct WST_BUFFER_LINE {
     pub Confidence: u8,
     pub Bytes: [u8; 42],
 }
-impl ::core::marker::Copy for WST_BUFFER_LINE {}
-impl ::core::clone::Clone for WST_BUFFER_LINE {
+impl Copy for WST_BUFFER_LINE {}
+impl Clone for WST_BUFFER_LINE {
     fn clone(&self) -> Self {
         *self
     }

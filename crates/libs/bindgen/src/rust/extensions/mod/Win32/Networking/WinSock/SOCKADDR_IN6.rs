@@ -1,5 +1,5 @@
-impl ::core::convert::From<::std::net::SocketAddrV6> for SOCKADDR_IN6 {
-    fn from(addr: ::std::net::SocketAddrV6) -> Self {
+impl From<std::net::SocketAddrV6> for SOCKADDR_IN6 {
+    fn from(addr: std::net::SocketAddrV6) -> Self {
         // addr.port() and addr.flowinfo() are in host byte order
         // sin6_port and sin6_flowinfo must be big-endian, network byte order
         // sin6_scope_id is a bitfield without endianness

@@ -1,11 +1,11 @@
 ::windows_targets::link!("gdi32.dll" "system" fn BRUSHOBJ_hGetColorTransform(pbo : *mut BRUSHOBJ) -> super::super::Foundation:: HANDLE);
-::windows_targets::link!("gdi32.dll" "system" fn BRUSHOBJ_pvAllocRbrush(pbo : *mut BRUSHOBJ, cj : u32) -> *mut ::core::ffi::c_void);
-::windows_targets::link!("gdi32.dll" "system" fn BRUSHOBJ_pvGetRbrush(pbo : *mut BRUSHOBJ) -> *mut ::core::ffi::c_void);
+::windows_targets::link!("gdi32.dll" "system" fn BRUSHOBJ_pvAllocRbrush(pbo : *mut BRUSHOBJ, cj : u32) -> *mut core::ffi::c_void);
+::windows_targets::link!("gdi32.dll" "system" fn BRUSHOBJ_pvGetRbrush(pbo : *mut BRUSHOBJ) -> *mut core::ffi::c_void);
 ::windows_targets::link!("gdi32.dll" "system" fn BRUSHOBJ_ulGetBrushColor(pbo : *mut BRUSHOBJ) -> u32);
 ::windows_targets::link!("gdi32.dll" "system" fn CLIPOBJ_bEnum(pco : *mut CLIPOBJ, cj : u32, pul : *mut u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("gdi32.dll" "system" fn CLIPOBJ_cEnumStart(pco : *mut CLIPOBJ, ball : super::super::Foundation:: BOOL, itype : u32, idirection : u32, climit : u32) -> u32);
 ::windows_targets::link!("gdi32.dll" "system" fn CLIPOBJ_ppoGetPath(pco : *mut CLIPOBJ) -> *mut PATHOBJ);
-::windows_targets::link!("dxva2.dll" "system" fn CapabilitiesRequestAndCapabilitiesReply(hmonitor : super::super::Foundation:: HANDLE, pszasciicapabilitiesstring : ::windows_sys::core::PSTR, dwcapabilitiesstringlengthincharacters : u32) -> i32);
+::windows_targets::link!("dxva2.dll" "system" fn CapabilitiesRequestAndCapabilitiesReply(hmonitor : super::super::Foundation:: HANDLE, pszasciicapabilitiesstring : windows_sys::core::PSTR, dwcapabilitiesstringlengthincharacters : u32) -> i32);
 ::windows_targets::link!("dxva2.dll" "system" fn DegaussMonitor(hmonitor : super::super::Foundation:: HANDLE) -> i32);
 ::windows_targets::link!("dxva2.dll" "system" fn DestroyPhysicalMonitor(hmonitor : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("dxva2.dll" "system" fn DestroyPhysicalMonitors(dwphysicalmonitorarraysize : u32, pphysicalmonitorarray : *const PHYSICAL_MONITOR) -> super::super::Foundation:: BOOL);
@@ -20,7 +20,7 @@
 ::windows_targets::link!("gdi32.dll" "system" fn EngComputeGlyphSet(ncodepage : i32, nfirstchar : i32, cchars : i32) -> *mut FD_GLYPHSET);
 ::windows_targets::link!("gdi32.dll" "system" fn EngCopyBits(psodest : *mut SURFOBJ, psosrc : *mut SURFOBJ, pco : *mut CLIPOBJ, pxlo : *mut XLATEOBJ, prcldest : *mut super::super::Foundation:: RECTL, pptlsrc : *mut super::super::Foundation:: POINTL) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("gdi32.dll" "system" fn EngCreateBitmap(sizl : super::super::Foundation:: SIZE, lwidth : i32, iformat : u32, fl : u32, pvbits : *mut ::core::ffi::c_void) -> super::super::Graphics::Gdi:: HBITMAP);
+::windows_targets::link!("gdi32.dll" "system" fn EngCreateBitmap(sizl : super::super::Foundation:: SIZE, lwidth : i32, iformat : u32, fl : u32, pvbits : *mut core::ffi::c_void) -> super::super::Graphics::Gdi:: HBITMAP);
 ::windows_targets::link!("gdi32.dll" "system" fn EngCreateClip() -> *mut CLIPOBJ);
 #[cfg(feature = "Win32_Graphics_Gdi")]
 ::windows_targets::link!("gdi32.dll" "system" fn EngCreateDeviceBitmap(dhsurf : DHSURF, sizl : super::super::Foundation:: SIZE, iformatcompat : u32) -> super::super::Graphics::Gdi:: HBITMAP);
@@ -36,19 +36,19 @@
 ::windows_targets::link!("gdi32.dll" "system" fn EngDeleteSurface(hsurf : HSURF) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("gdi32.dll" "system" fn EngEraseSurface(pso : *mut SURFOBJ, prcl : *mut super::super::Foundation:: RECTL, icolor : u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("gdi32.dll" "system" fn EngFillPath(pso : *mut SURFOBJ, ppo : *mut PATHOBJ, pco : *mut CLIPOBJ, pbo : *mut BRUSHOBJ, pptlbrushorg : *mut super::super::Foundation:: POINTL, mix : u32, floptions : u32) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("gdi32.dll" "system" fn EngFindResource(h : super::super::Foundation:: HANDLE, iname : i32, itype : i32, pulsize : *mut u32) -> *mut ::core::ffi::c_void);
+::windows_targets::link!("gdi32.dll" "system" fn EngFindResource(h : super::super::Foundation:: HANDLE, iname : i32, itype : i32, pulsize : *mut u32) -> *mut core::ffi::c_void);
 ::windows_targets::link!("gdi32.dll" "system" fn EngFreeModule(h : super::super::Foundation:: HANDLE));
 ::windows_targets::link!("gdi32.dll" "system" fn EngGetCurrentCodePage(oemcodepage : *mut u16, ansicodepage : *mut u16));
-::windows_targets::link!("gdi32.dll" "system" fn EngGetDriverName(hdev : HDEV) -> ::windows_sys::core::PWSTR);
-::windows_targets::link!("gdi32.dll" "system" fn EngGetPrinterDataFileName(hdev : HDEV) -> ::windows_sys::core::PWSTR);
+::windows_targets::link!("gdi32.dll" "system" fn EngGetDriverName(hdev : HDEV) -> windows_sys::core::PWSTR);
+::windows_targets::link!("gdi32.dll" "system" fn EngGetPrinterDataFileName(hdev : HDEV) -> windows_sys::core::PWSTR);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("gdi32.dll" "system" fn EngGradientFill(psodest : *mut SURFOBJ, pco : *mut CLIPOBJ, pxlo : *mut XLATEOBJ, pvertex : *mut super::super::Graphics::Gdi:: TRIVERTEX, nvertex : u32, pmesh : *mut ::core::ffi::c_void, nmesh : u32, prclextents : *mut super::super::Foundation:: RECTL, pptlditherorg : *mut super::super::Foundation:: POINTL, ulmode : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("gdi32.dll" "system" fn EngGradientFill(psodest : *mut SURFOBJ, pco : *mut CLIPOBJ, pxlo : *mut XLATEOBJ, pvertex : *mut super::super::Graphics::Gdi:: TRIVERTEX, nvertex : u32, pmesh : *mut core::ffi::c_void, nmesh : u32, prclextents : *mut super::super::Foundation:: RECTL, pptlditherorg : *mut super::super::Foundation:: POINTL, ulmode : u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("gdi32.dll" "system" fn EngLineTo(pso : *mut SURFOBJ, pco : *mut CLIPOBJ, pbo : *mut BRUSHOBJ, x1 : i32, y1 : i32, x2 : i32, y2 : i32, prclbounds : *mut super::super::Foundation:: RECTL, mix : u32) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("gdi32.dll" "system" fn EngLoadModule(pwsz : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: HANDLE);
+::windows_targets::link!("gdi32.dll" "system" fn EngLoadModule(pwsz : windows_sys::core::PCWSTR) -> super::super::Foundation:: HANDLE);
 ::windows_targets::link!("gdi32.dll" "system" fn EngLockSurface(hsurf : HSURF) -> *mut SURFOBJ);
 ::windows_targets::link!("gdi32.dll" "system" fn EngMarkBandingSurface(hsurf : HSURF) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("gdi32.dll" "system" fn EngMultiByteToUnicodeN(unicodestring : ::windows_sys::core::PWSTR, maxbytesinunicodestring : u32, bytesinunicodestring : *mut u32, multibytestring : ::windows_sys::core::PCSTR, bytesinmultibytestring : u32));
-::windows_targets::link!("gdi32.dll" "system" fn EngMultiByteToWideChar(codepage : u32, widecharstring : ::windows_sys::core::PWSTR, bytesinwidecharstring : i32, multibytestring : ::windows_sys::core::PCSTR, bytesinmultibytestring : i32) -> i32);
+::windows_targets::link!("gdi32.dll" "system" fn EngMultiByteToUnicodeN(unicodestring : windows_sys::core::PWSTR, maxbytesinunicodestring : u32, bytesinunicodestring : *mut u32, multibytestring : windows_sys::core::PCSTR, bytesinmultibytestring : u32));
+::windows_targets::link!("gdi32.dll" "system" fn EngMultiByteToWideChar(codepage : u32, widecharstring : windows_sys::core::PWSTR, bytesinwidecharstring : i32, multibytestring : windows_sys::core::PCSTR, bytesinmultibytestring : i32) -> i32);
 ::windows_targets::link!("gdi32.dll" "system" fn EngPaint(pso : *mut SURFOBJ, pco : *mut CLIPOBJ, pbo : *mut BRUSHOBJ, pptlbrushorg : *mut super::super::Foundation:: POINTL, mix : u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Graphics_Gdi")]
 ::windows_targets::link!("gdi32.dll" "system" fn EngPlgBlt(psotrg : *mut SURFOBJ, psosrc : *mut SURFOBJ, psomsk : *mut SURFOBJ, pco : *mut CLIPOBJ, pxlo : *mut XLATEOBJ, pca : *mut super::super::Graphics::Gdi:: COLORADJUSTMENT, pptlbrushorg : *mut super::super::Foundation:: POINTL, pptfx : *mut POINTFIX, prcl : *mut super::super::Foundation:: RECTL, pptl : *mut super::super::Foundation:: POINTL, imode : u32) -> super::super::Foundation:: BOOL);
@@ -64,16 +64,16 @@
 ::windows_targets::link!("gdi32.dll" "system" fn EngStrokePath(pso : *mut SURFOBJ, ppo : *mut PATHOBJ, pco : *mut CLIPOBJ, pxo : *mut XFORMOBJ, pbo : *mut BRUSHOBJ, pptlbrushorg : *mut super::super::Foundation:: POINTL, plineattrs : *mut LINEATTRS, mix : u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("gdi32.dll" "system" fn EngTextOut(pso : *mut SURFOBJ, pstro : *mut STROBJ, pfo : *mut FONTOBJ, pco : *mut CLIPOBJ, prclextra : *mut super::super::Foundation:: RECTL, prclopaque : *mut super::super::Foundation:: RECTL, pbofore : *mut BRUSHOBJ, pboopaque : *mut BRUSHOBJ, pptlorg : *mut super::super::Foundation:: POINTL, mix : u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("gdi32.dll" "system" fn EngTransparentBlt(psodst : *const SURFOBJ, psosrc : *const SURFOBJ, pco : *const CLIPOBJ, pxlo : *const XLATEOBJ, prcldst : *const super::super::Foundation:: RECTL, prclsrc : *const super::super::Foundation:: RECTL, transcolor : u32, bcalledfrombitblt : u32) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("gdi32.dll" "system" fn EngUnicodeToMultiByteN(multibytestring : ::windows_sys::core::PSTR, maxbytesinmultibytestring : u32, bytesinmultibytestring : *mut u32, unicodestring : ::windows_sys::core::PCWSTR, bytesinunicodestring : u32));
+::windows_targets::link!("gdi32.dll" "system" fn EngUnicodeToMultiByteN(multibytestring : windows_sys::core::PSTR, maxbytesinmultibytestring : u32, bytesinmultibytestring : *mut u32, unicodestring : windows_sys::core::PCWSTR, bytesinunicodestring : u32));
 ::windows_targets::link!("gdi32.dll" "system" fn EngUnlockSurface(pso : *mut SURFOBJ));
-::windows_targets::link!("gdi32.dll" "system" fn EngWideCharToMultiByte(codepage : u32, widecharstring : ::windows_sys::core::PCWSTR, bytesinwidecharstring : i32, multibytestring : ::windows_sys::core::PSTR, bytesinmultibytestring : i32) -> i32);
+::windows_targets::link!("gdi32.dll" "system" fn EngWideCharToMultiByte(codepage : u32, widecharstring : windows_sys::core::PCWSTR, bytesinwidecharstring : i32, multibytestring : windows_sys::core::PSTR, bytesinmultibytestring : i32) -> i32);
 ::windows_targets::link!("gdi32.dll" "system" fn FONTOBJ_cGetAllGlyphHandles(pfo : *mut FONTOBJ, phg : *mut u32) -> u32);
-::windows_targets::link!("gdi32.dll" "system" fn FONTOBJ_cGetGlyphs(pfo : *mut FONTOBJ, imode : u32, cglyph : u32, phg : *mut u32, ppvglyph : *mut *mut ::core::ffi::c_void) -> u32);
+::windows_targets::link!("gdi32.dll" "system" fn FONTOBJ_cGetGlyphs(pfo : *mut FONTOBJ, imode : u32, cglyph : u32, phg : *mut u32, ppvglyph : *mut *mut core::ffi::c_void) -> u32);
 ::windows_targets::link!("gdi32.dll" "system" fn FONTOBJ_pQueryGlyphAttrs(pfo : *mut FONTOBJ, imode : u32) -> *mut FD_GLYPHATTR);
 ::windows_targets::link!("gdi32.dll" "system" fn FONTOBJ_pfdg(pfo : *mut FONTOBJ) -> *mut FD_GLYPHSET);
 #[cfg(feature = "Win32_Graphics_Gdi")]
 ::windows_targets::link!("gdi32.dll" "system" fn FONTOBJ_pifi(pfo : *const FONTOBJ) -> *mut IFIMETRICS);
-::windows_targets::link!("gdi32.dll" "system" fn FONTOBJ_pvTrueTypeFontFile(pfo : *mut FONTOBJ, pcjfile : *mut u32) -> *mut ::core::ffi::c_void);
+::windows_targets::link!("gdi32.dll" "system" fn FONTOBJ_pvTrueTypeFontFile(pfo : *mut FONTOBJ, pcjfile : *mut u32) -> *mut core::ffi::c_void);
 ::windows_targets::link!("gdi32.dll" "system" fn FONTOBJ_pxoGetXform(pfo : *const FONTOBJ) -> *mut XFORMOBJ);
 ::windows_targets::link!("gdi32.dll" "system" fn FONTOBJ_vGetInfo(pfo : *mut FONTOBJ, cjsize : u32, pfi : *mut FONTINFO));
 ::windows_targets::link!("user32.dll" "system" fn GetAutoRotationState(pstate : *mut AR_STATE) -> super::super::Foundation:: BOOL);
@@ -91,10 +91,10 @@
 ::windows_targets::link!("dxva2.dll" "system" fn GetMonitorTechnologyType(hmonitor : super::super::Foundation:: HANDLE, pdtydisplaytechnologytype : *mut MC_DISPLAY_TECHNOLOGY_TYPE) -> i32);
 #[cfg(feature = "Win32_Graphics_Gdi")]
 ::windows_targets::link!("dxva2.dll" "system" fn GetNumberOfPhysicalMonitorsFromHMONITOR(hmonitor : super::super::Graphics::Gdi:: HMONITOR, pdwnumberofphysicalmonitors : *mut u32) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("dxva2.dll" "system" fn GetNumberOfPhysicalMonitorsFromIDirect3DDevice9(pdirect3ddevice9 : * mut::core::ffi::c_void, pdwnumberofphysicalmonitors : *mut u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("dxva2.dll" "system" fn GetNumberOfPhysicalMonitorsFromIDirect3DDevice9(pdirect3ddevice9 : * mut core::ffi::c_void, pdwnumberofphysicalmonitors : *mut u32) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Graphics_Gdi")]
 ::windows_targets::link!("dxva2.dll" "system" fn GetPhysicalMonitorsFromHMONITOR(hmonitor : super::super::Graphics::Gdi:: HMONITOR, dwphysicalmonitorarraysize : u32, pphysicalmonitorarray : *mut PHYSICAL_MONITOR) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("dxva2.dll" "system" fn GetPhysicalMonitorsFromIDirect3DDevice9(pdirect3ddevice9 : * mut::core::ffi::c_void, dwphysicalmonitorarraysize : u32, pphysicalmonitorarray : *mut PHYSICAL_MONITOR) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("dxva2.dll" "system" fn GetPhysicalMonitorsFromIDirect3DDevice9(pdirect3ddevice9 : * mut core::ffi::c_void, dwphysicalmonitorarraysize : u32, pphysicalmonitorarray : *mut PHYSICAL_MONITOR) -> windows_sys::core::HRESULT);
 ::windows_targets::link!("dxva2.dll" "system" fn GetTimingReport(hmonitor : super::super::Foundation:: HANDLE, pmtrmonitortimingreport : *mut MC_TIMING_REPORT) -> i32);
 ::windows_targets::link!("dxva2.dll" "system" fn GetVCPFeatureAndVCPFeatureReply(hmonitor : super::super::Foundation:: HANDLE, bvcpcode : u8, pvct : *mut MC_VCP_CODE_TYPE, pdwcurrentvalue : *mut u32, pdwmaximumvalue : *mut u32) -> i32);
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -126,7 +126,7 @@
 ::windows_targets::link!("dxva2.dll" "system" fn SetMonitorRedGreenOrBlueDrive(hmonitor : super::super::Foundation:: HANDLE, dtdrivetype : MC_DRIVE_TYPE, dwnewdrive : u32) -> i32);
 ::windows_targets::link!("dxva2.dll" "system" fn SetMonitorRedGreenOrBlueGain(hmonitor : super::super::Foundation:: HANDLE, gtgaintype : MC_GAIN_TYPE, dwnewgain : u32) -> i32);
 ::windows_targets::link!("dxva2.dll" "system" fn SetVCPFeature(hmonitor : super::super::Foundation:: HANDLE, bvcpcode : u8, dwnewvalue : u32) -> i32);
-::windows_targets::link!("gdi32.dll" "system" fn XFORMOBJ_bApplyXform(pxo : *mut XFORMOBJ, imode : u32, cpoints : u32, pvin : *mut ::core::ffi::c_void, pvout : *mut ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("gdi32.dll" "system" fn XFORMOBJ_bApplyXform(pxo : *mut XFORMOBJ, imode : u32, cpoints : u32, pvin : *mut core::ffi::c_void, pvout : *mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("gdi32.dll" "system" fn XFORMOBJ_iGetXform(pxo : *const XFORMOBJ, pxform : *mut XFORML) -> u32);
 ::windows_targets::link!("gdi32.dll" "system" fn XLATEOBJ_cGetPalette(pxlo : *mut XLATEOBJ, ipal : u32, cpal : u32, ppal : *mut u32) -> u32);
 ::windows_targets::link!("gdi32.dll" "system" fn XLATEOBJ_hGetColorTransform(pxlo : *mut XLATEOBJ) -> super::super::Foundation:: HANDLE);
@@ -229,17 +229,17 @@ pub const DDI_DRIVER_VERSION_NT5_01: u32 = 196864u32;
 pub const DDI_DRIVER_VERSION_NT5_01_SP1: u32 = 196865u32;
 pub const DDI_DRIVER_VERSION_SP3: u32 = 131075u32;
 pub const DDI_ERROR: u32 = 4294967295u32;
-pub const DD_FULLSCREEN_VIDEO_DEVICE_NAME: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("\\Device\\FSVideo");
+pub const DD_FULLSCREEN_VIDEO_DEVICE_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("\\Device\\FSVideo");
 pub const DEVHTADJF_ADDITIVE_DEVICE: u32 = 2u32;
 pub const DEVHTADJF_COLOR_DEVICE: u32 = 1u32;
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_Device_ActivityId: super::Properties::DEVPROPKEY = super::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0xc50a3f10_aa5c_4247_b830_d6a6f8eaa310), pid: 4 };
+pub const DEVPKEY_Device_ActivityId: super::Properties::DEVPROPKEY = super::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0xc50a3f10_aa5c_4247_b830_d6a6f8eaa310), pid: 4 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_Device_AdapterLuid: super::Properties::DEVPROPKEY = super::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0xc50a3f10_aa5c_4247_b830_d6a6f8eaa310), pid: 3 };
+pub const DEVPKEY_Device_AdapterLuid: super::Properties::DEVPROPKEY = super::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0xc50a3f10_aa5c_4247_b830_d6a6f8eaa310), pid: 3 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_Device_TerminalLuid: super::Properties::DEVPROPKEY = super::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0xc50a3f10_aa5c_4247_b830_d6a6f8eaa310), pid: 2 };
+pub const DEVPKEY_Device_TerminalLuid: super::Properties::DEVPROPKEY = super::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0xc50a3f10_aa5c_4247_b830_d6a6f8eaa310), pid: 2 };
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_IndirectDisplay: super::Properties::DEVPROPKEY = super::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0xc50a3f10_aa5c_4247_b830_d6a6f8eaa310), pid: 1 };
+pub const DEVPKEY_IndirectDisplay: super::Properties::DEVPROPKEY = super::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0xc50a3f10_aa5c_4247_b830_d6a6f8eaa310), pid: 1 };
 pub const DISPLAYCONFIG_DEVICE_INFO_GET_ADAPTER_NAME: DISPLAYCONFIG_DEVICE_INFO_TYPE = 4i32;
 pub const DISPLAYCONFIG_DEVICE_INFO_GET_ADVANCED_COLOR_INFO: DISPLAYCONFIG_DEVICE_INFO_TYPE = 9i32;
 pub const DISPLAYCONFIG_DEVICE_INFO_GET_MONITOR_SPECIALIZATION: DISPLAYCONFIG_DEVICE_INFO_TYPE = 12i32;
@@ -492,11 +492,11 @@ pub const GETCONNECTEDIDS_TARGET: u32 = 0u32;
 pub const GS_16BIT_HANDLES: u32 = 4u32;
 pub const GS_8BIT_HANDLES: u32 = 2u32;
 pub const GS_UNICODE_HANDLES: u32 = 1u32;
-pub const GUID_DEVINTERFACE_DISPLAY_ADAPTER: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x5b45201d_f2f2_4f3b_85bb_30ff1f953599);
-pub const GUID_DEVINTERFACE_MONITOR: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xe6f07b5f_ee97_4a90_b076_33f57bf4eaa7);
-pub const GUID_DEVINTERFACE_VIDEO_OUTPUT_ARRIVAL: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x1ad9e4f0_f88d_4360_bab9_4c2d55e564cd);
-pub const GUID_DISPLAY_DEVICE_ARRIVAL: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x1ca05180_a699_450a_9a0c_de4fbe3ddd89);
-pub const GUID_MONITOR_OVERRIDE_PSEUDO_SPECIALIZED: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xf196c02f_f86f_4f9a_aa15_e9cebdfe3b96);
+pub const GUID_DEVINTERFACE_DISPLAY_ADAPTER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5b45201d_f2f2_4f3b_85bb_30ff1f953599);
+pub const GUID_DEVINTERFACE_MONITOR: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe6f07b5f_ee97_4a90_b076_33f57bf4eaa7);
+pub const GUID_DEVINTERFACE_VIDEO_OUTPUT_ARRIVAL: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1ad9e4f0_f88d_4360_bab9_4c2d55e564cd);
+pub const GUID_DISPLAY_DEVICE_ARRIVAL: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1ca05180_a699_450a_9a0c_de4fbe3ddd89);
+pub const GUID_MONITOR_OVERRIDE_PSEUDO_SPECIALIZED: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf196c02f_f86f_4f9a_aa15_e9cebdfe3b96);
 pub const GX_GENERAL: i32 = 3i32;
 pub const GX_IDENTITY: i32 = 0i32;
 pub const GX_OFFSET: i32 = 1i32;
@@ -974,7 +974,7 @@ pub const TTO_UNHINTED: u32 = 4u32;
 pub const VIDEO_COLOR_LUT_DATA_FORMAT_PRIVATEFORMAT: u32 = 2147483648u32;
 pub const VIDEO_COLOR_LUT_DATA_FORMAT_RGB256WORDS: u32 = 1u32;
 pub const VIDEO_DEVICE_COLOR: u32 = 1u32;
-pub const VIDEO_DEVICE_NAME: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("DISPLAY%d");
+pub const VIDEO_DEVICE_NAME: windows_sys::core::PCSTR = windows_sys::core::s!("DISPLAY%d");
 pub const VIDEO_DUALVIEW_PRIMARY: u32 = 2147483648u32;
 pub const VIDEO_DUALVIEW_REMOVABLE: u32 = 1u32;
 pub const VIDEO_DUALVIEW_SECONDARY: u32 = 1073741824u32;
@@ -1058,7 +1058,7 @@ pub const WO_RGN_SURFACE_DELTA: u32 = 4u32;
 pub const WO_RGN_UPDATE_ALL: u32 = 16u32;
 pub const WO_RGN_WINDOW: u32 = 32u32;
 pub const WO_SPRITE_NOTIFY: u32 = 128u32;
-pub const WVIDEO_DEVICE_NAME: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("DISPLAY%d");
+pub const WVIDEO_DEVICE_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("DISPLAY%d");
 pub const XF_INV_FXTOL: i32 = 3i32;
 pub const XF_INV_LTOL: i32 = 1i32;
 pub const XF_LTOFX: i32 = 2i32;
@@ -1114,8 +1114,8 @@ pub struct Adapter {
     pub numSources: i32,
     pub sources: [Sources; 1],
 }
-impl ::core::marker::Copy for Adapter {}
-impl ::core::clone::Clone for Adapter {
+impl Copy for Adapter {}
+impl Clone for Adapter {
     fn clone(&self) -> Self {
         *self
     }
@@ -1125,8 +1125,8 @@ pub struct Adapters {
     pub numAdapters: i32,
     pub adapter: [Adapter; 1],
 }
-impl ::core::marker::Copy for Adapters {}
-impl ::core::clone::Clone for Adapters {
+impl Copy for Adapters {}
+impl Clone for Adapters {
     fn clone(&self) -> Self {
         *self
     }
@@ -1137,8 +1137,8 @@ pub struct BACKLIGHT_REDUCTION_GAMMA_RAMP {
     pub G: [u16; 256],
     pub B: [u16; 256],
 }
-impl ::core::marker::Copy for BACKLIGHT_REDUCTION_GAMMA_RAMP {}
-impl ::core::clone::Clone for BACKLIGHT_REDUCTION_GAMMA_RAMP {
+impl Copy for BACKLIGHT_REDUCTION_GAMMA_RAMP {}
+impl Clone for BACKLIGHT_REDUCTION_GAMMA_RAMP {
     fn clone(&self) -> Self {
         *self
     }
@@ -1148,8 +1148,8 @@ pub struct BANK_POSITION {
     pub ReadBankPosition: u32,
     pub WriteBankPosition: u32,
 }
-impl ::core::marker::Copy for BANK_POSITION {}
-impl ::core::clone::Clone for BANK_POSITION {
+impl Copy for BANK_POSITION {}
+impl Clone for BANK_POSITION {
     fn clone(&self) -> Self {
         *self
     }
@@ -1160,9 +1160,9 @@ pub struct BLENDOBJ {
     pub BlendFunction: super::super::Graphics::Gdi::BLENDFUNCTION,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::marker::Copy for BLENDOBJ {}
+impl Copy for BLENDOBJ {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::clone::Clone for BLENDOBJ {
+impl Clone for BLENDOBJ {
     fn clone(&self) -> Self {
         *self
     }
@@ -1172,8 +1172,8 @@ pub struct BRIGHTNESS_LEVEL {
     pub Count: u8,
     pub Level: [u8; 103],
 }
-impl ::core::marker::Copy for BRIGHTNESS_LEVEL {}
-impl ::core::clone::Clone for BRIGHTNESS_LEVEL {
+impl Copy for BRIGHTNESS_LEVEL {}
+impl Clone for BRIGHTNESS_LEVEL {
     fn clone(&self) -> Self {
         *self
     }
@@ -1184,8 +1184,8 @@ pub struct BRIGHTNESS_NIT_RANGE {
     pub MaxLevelInMillinit: u32,
     pub StepSizeInMillinit: u32,
 }
-impl ::core::marker::Copy for BRIGHTNESS_NIT_RANGE {}
-impl ::core::clone::Clone for BRIGHTNESS_NIT_RANGE {
+impl Copy for BRIGHTNESS_NIT_RANGE {}
+impl Clone for BRIGHTNESS_NIT_RANGE {
     fn clone(&self) -> Self {
         *self
     }
@@ -1197,8 +1197,8 @@ pub struct BRIGHTNESS_NIT_RANGES {
     pub PreferredMaximumBrightness: u32,
     pub SupportedRanges: [BRIGHTNESS_NIT_RANGE; 16],
 }
-impl ::core::marker::Copy for BRIGHTNESS_NIT_RANGES {}
-impl ::core::clone::Clone for BRIGHTNESS_NIT_RANGES {
+impl Copy for BRIGHTNESS_NIT_RANGES {}
+impl Clone for BRIGHTNESS_NIT_RANGES {
     fn clone(&self) -> Self {
         *self
     }
@@ -1206,11 +1206,11 @@ impl ::core::clone::Clone for BRIGHTNESS_NIT_RANGES {
 #[repr(C)]
 pub struct BRUSHOBJ {
     pub iSolidColor: u32,
-    pub pvRbrush: *mut ::core::ffi::c_void,
+    pub pvRbrush: *mut core::ffi::c_void,
     pub flColorType: u32,
 }
-impl ::core::marker::Copy for BRUSHOBJ {}
-impl ::core::clone::Clone for BRUSHOBJ {
+impl Copy for BRUSHOBJ {}
+impl Clone for BRUSHOBJ {
     fn clone(&self) -> Self {
         *self
     }
@@ -1223,8 +1223,8 @@ pub struct CDDDXGK_REDIRBITMAPPRESENTINFO {
     pub hContext: [super::super::Foundation::HANDLE; 65],
     pub bDoNotSynchronizeWithDxContent: super::super::Foundation::BOOLEAN,
 }
-impl ::core::marker::Copy for CDDDXGK_REDIRBITMAPPRESENTINFO {}
-impl ::core::clone::Clone for CDDDXGK_REDIRBITMAPPRESENTINFO {
+impl Copy for CDDDXGK_REDIRBITMAPPRESENTINFO {}
+impl Clone for CDDDXGK_REDIRBITMAPPRESENTINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -1236,9 +1236,9 @@ pub struct CHAR_IMAGE_INFO {
     pub FontImageInfo: FONT_IMAGE_INFO,
 }
 #[cfg(feature = "Win32_System_Console")]
-impl ::core::marker::Copy for CHAR_IMAGE_INFO {}
+impl Copy for CHAR_IMAGE_INFO {}
 #[cfg(feature = "Win32_System_Console")]
-impl ::core::clone::Clone for CHAR_IMAGE_INFO {
+impl Clone for CHAR_IMAGE_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -1248,8 +1248,8 @@ pub struct CHROMATICITY_COORDINATE {
     pub x: f32,
     pub y: f32,
 }
-impl ::core::marker::Copy for CHROMATICITY_COORDINATE {}
-impl ::core::clone::Clone for CHROMATICITY_COORDINATE {
+impl Copy for CHROMATICITY_COORDINATE {}
+impl Clone for CHROMATICITY_COORDINATE {
     fn clone(&self) -> Self {
         *self
     }
@@ -1260,8 +1260,8 @@ pub struct CIECHROMA {
     pub y: i32,
     pub Y: i32,
 }
-impl ::core::marker::Copy for CIECHROMA {}
-impl ::core::clone::Clone for CIECHROMA {
+impl Copy for CIECHROMA {}
+impl Clone for CIECHROMA {
     fn clone(&self) -> Self {
         *self
     }
@@ -1274,8 +1274,8 @@ pub struct CLIPLINE {
     pub c: u32,
     pub arun: [RUN; 1],
 }
-impl ::core::marker::Copy for CLIPLINE {}
-impl ::core::clone::Clone for CLIPLINE {
+impl Copy for CLIPLINE {}
+impl Clone for CLIPLINE {
     fn clone(&self) -> Self {
         *self
     }
@@ -1289,8 +1289,8 @@ pub struct CLIPOBJ {
     pub iMode: u8,
     pub fjOptions: u8,
 }
-impl ::core::marker::Copy for CLIPOBJ {}
-impl ::core::clone::Clone for CLIPOBJ {
+impl Copy for CLIPOBJ {}
+impl Clone for CLIPOBJ {
     fn clone(&self) -> Self {
         *self
     }
@@ -1314,8 +1314,8 @@ pub struct COLORINFO {
     pub CyanInYellowDye: i32,
     pub MagentaInYellowDye: i32,
 }
-impl ::core::marker::Copy for COLORINFO {}
-impl ::core::clone::Clone for COLORINFO {
+impl Copy for COLORINFO {}
+impl Clone for COLORINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -1325,8 +1325,8 @@ pub struct COLORSPACE_TRANSFORM {
     pub Type: COLORSPACE_TRANSFORM_TYPE,
     pub Data: COLORSPACE_TRANSFORM_0,
 }
-impl ::core::marker::Copy for COLORSPACE_TRANSFORM {}
-impl ::core::clone::Clone for COLORSPACE_TRANSFORM {
+impl Copy for COLORSPACE_TRANSFORM {}
+impl Clone for COLORSPACE_TRANSFORM {
     fn clone(&self) -> Self {
         *self
     }
@@ -1338,8 +1338,8 @@ pub union COLORSPACE_TRANSFORM_0 {
     pub T3x4: COLORSPACE_TRANSFORM_3x4,
     pub MatrixV2: COLORSPACE_TRANSFORM_MATRIX_V2,
 }
-impl ::core::marker::Copy for COLORSPACE_TRANSFORM_0 {}
-impl ::core::clone::Clone for COLORSPACE_TRANSFORM_0 {
+impl Copy for COLORSPACE_TRANSFORM_0 {}
+impl Clone for COLORSPACE_TRANSFORM_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -1349,8 +1349,8 @@ pub struct COLORSPACE_TRANSFORM_1DLUT_CAP {
     pub NumberOfLUTEntries: u32,
     pub DataCap: COLORSPACE_TRANSFORM_DATA_CAP,
 }
-impl ::core::marker::Copy for COLORSPACE_TRANSFORM_1DLUT_CAP {}
-impl ::core::clone::Clone for COLORSPACE_TRANSFORM_1DLUT_CAP {
+impl Copy for COLORSPACE_TRANSFORM_1DLUT_CAP {}
+impl Clone for COLORSPACE_TRANSFORM_1DLUT_CAP {
     fn clone(&self) -> Self {
         *self
     }
@@ -1361,8 +1361,8 @@ pub struct COLORSPACE_TRANSFORM_3x4 {
     pub ScalarMultiplier: f32,
     pub LookupTable1D: [GAMMA_RAMP_RGB; 4096],
 }
-impl ::core::marker::Copy for COLORSPACE_TRANSFORM_3x4 {}
-impl ::core::clone::Clone for COLORSPACE_TRANSFORM_3x4 {
+impl Copy for COLORSPACE_TRANSFORM_3x4 {}
+impl Clone for COLORSPACE_TRANSFORM_3x4 {
     fn clone(&self) -> Self {
         *self
     }
@@ -1374,8 +1374,8 @@ pub struct COLORSPACE_TRANSFORM_DATA_CAP {
     pub NumericRangeMin: f32,
     pub NumericRangeMax: f32,
 }
-impl ::core::marker::Copy for COLORSPACE_TRANSFORM_DATA_CAP {}
-impl ::core::clone::Clone for COLORSPACE_TRANSFORM_DATA_CAP {
+impl Copy for COLORSPACE_TRANSFORM_DATA_CAP {}
+impl Clone for COLORSPACE_TRANSFORM_DATA_CAP {
     fn clone(&self) -> Self {
         *self
     }
@@ -1386,8 +1386,8 @@ pub union COLORSPACE_TRANSFORM_DATA_CAP_0 {
     pub Anonymous2: COLORSPACE_TRANSFORM_DATA_CAP_0_1,
     pub Value: u32,
 }
-impl ::core::marker::Copy for COLORSPACE_TRANSFORM_DATA_CAP_0 {}
-impl ::core::clone::Clone for COLORSPACE_TRANSFORM_DATA_CAP_0 {
+impl Copy for COLORSPACE_TRANSFORM_DATA_CAP_0 {}
+impl Clone for COLORSPACE_TRANSFORM_DATA_CAP_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -1396,8 +1396,8 @@ impl ::core::clone::Clone for COLORSPACE_TRANSFORM_DATA_CAP_0 {
 pub struct COLORSPACE_TRANSFORM_DATA_CAP_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for COLORSPACE_TRANSFORM_DATA_CAP_0_0 {}
-impl ::core::clone::Clone for COLORSPACE_TRANSFORM_DATA_CAP_0_0 {
+impl Copy for COLORSPACE_TRANSFORM_DATA_CAP_0_0 {}
+impl Clone for COLORSPACE_TRANSFORM_DATA_CAP_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -1406,8 +1406,8 @@ impl ::core::clone::Clone for COLORSPACE_TRANSFORM_DATA_CAP_0_0 {
 pub struct COLORSPACE_TRANSFORM_DATA_CAP_0_1 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for COLORSPACE_TRANSFORM_DATA_CAP_0_1 {}
-impl ::core::clone::Clone for COLORSPACE_TRANSFORM_DATA_CAP_0_1 {
+impl Copy for COLORSPACE_TRANSFORM_DATA_CAP_0_1 {}
+impl Clone for COLORSPACE_TRANSFORM_DATA_CAP_0_1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -1417,8 +1417,8 @@ pub struct COLORSPACE_TRANSFORM_MATRIX_CAP {
     pub Anonymous: COLORSPACE_TRANSFORM_MATRIX_CAP_0,
     pub DataCap: COLORSPACE_TRANSFORM_DATA_CAP,
 }
-impl ::core::marker::Copy for COLORSPACE_TRANSFORM_MATRIX_CAP {}
-impl ::core::clone::Clone for COLORSPACE_TRANSFORM_MATRIX_CAP {
+impl Copy for COLORSPACE_TRANSFORM_MATRIX_CAP {}
+impl Clone for COLORSPACE_TRANSFORM_MATRIX_CAP {
     fn clone(&self) -> Self {
         *self
     }
@@ -1428,8 +1428,8 @@ pub union COLORSPACE_TRANSFORM_MATRIX_CAP_0 {
     pub Anonymous: COLORSPACE_TRANSFORM_MATRIX_CAP_0_0,
     pub Value: u32,
 }
-impl ::core::marker::Copy for COLORSPACE_TRANSFORM_MATRIX_CAP_0 {}
-impl ::core::clone::Clone for COLORSPACE_TRANSFORM_MATRIX_CAP_0 {
+impl Copy for COLORSPACE_TRANSFORM_MATRIX_CAP_0 {}
+impl Clone for COLORSPACE_TRANSFORM_MATRIX_CAP_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -1438,8 +1438,8 @@ impl ::core::clone::Clone for COLORSPACE_TRANSFORM_MATRIX_CAP_0 {
 pub struct COLORSPACE_TRANSFORM_MATRIX_CAP_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for COLORSPACE_TRANSFORM_MATRIX_CAP_0_0 {}
-impl ::core::clone::Clone for COLORSPACE_TRANSFORM_MATRIX_CAP_0_0 {
+impl Copy for COLORSPACE_TRANSFORM_MATRIX_CAP_0_0 {}
+impl Clone for COLORSPACE_TRANSFORM_MATRIX_CAP_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -1453,8 +1453,8 @@ pub struct COLORSPACE_TRANSFORM_MATRIX_V2 {
     pub StageControlLookupTable1DRegamma: COLORSPACE_TRANSFORM_STAGE_CONTROL,
     pub LookupTable1DRegamma: [GAMMA_RAMP_RGB; 4096],
 }
-impl ::core::marker::Copy for COLORSPACE_TRANSFORM_MATRIX_V2 {}
-impl ::core::clone::Clone for COLORSPACE_TRANSFORM_MATRIX_V2 {
+impl Copy for COLORSPACE_TRANSFORM_MATRIX_V2 {}
+impl Clone for COLORSPACE_TRANSFORM_MATRIX_V2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -1465,8 +1465,8 @@ pub struct COLORSPACE_TRANSFORM_SET_INPUT {
     pub OutputWireFormatExpected: OUTPUT_WIRE_FORMAT,
     pub ColorSpaceTransform: COLORSPACE_TRANSFORM,
 }
-impl ::core::marker::Copy for COLORSPACE_TRANSFORM_SET_INPUT {}
-impl ::core::clone::Clone for COLORSPACE_TRANSFORM_SET_INPUT {
+impl Copy for COLORSPACE_TRANSFORM_SET_INPUT {}
+impl Clone for COLORSPACE_TRANSFORM_SET_INPUT {
     fn clone(&self) -> Self {
         *self
     }
@@ -1478,8 +1478,8 @@ pub struct COLORSPACE_TRANSFORM_TARGET_CAPS {
     pub ColorMatrix3x3Cap: COLORSPACE_TRANSFORM_MATRIX_CAP,
     pub LookupTable1DRegammaCap: COLORSPACE_TRANSFORM_1DLUT_CAP,
 }
-impl ::core::marker::Copy for COLORSPACE_TRANSFORM_TARGET_CAPS {}
-impl ::core::clone::Clone for COLORSPACE_TRANSFORM_TARGET_CAPS {
+impl Copy for COLORSPACE_TRANSFORM_TARGET_CAPS {}
+impl Clone for COLORSPACE_TRANSFORM_TARGET_CAPS {
     fn clone(&self) -> Self {
         *self
     }
@@ -1492,8 +1492,8 @@ pub struct DEVHTADJDATA {
     pub pDefHTInfo: *mut DEVHTINFO,
     pub pAdjHTInfo: *mut DEVHTINFO,
 }
-impl ::core::marker::Copy for DEVHTADJDATA {}
-impl ::core::clone::Clone for DEVHTADJDATA {
+impl Copy for DEVHTADJDATA {}
+impl Clone for DEVHTADJDATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -1505,8 +1505,8 @@ pub struct DEVHTINFO {
     pub DevPelsDPI: u32,
     pub ColorInfo: COLORINFO,
 }
-impl ::core::marker::Copy for DEVHTINFO {}
-impl ::core::clone::Clone for DEVHTINFO {
+impl Copy for DEVHTINFO {}
+impl Clone for DEVHTINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -1526,9 +1526,9 @@ pub struct DEVINFO {
     pub flGraphicsCaps2: u32,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::marker::Copy for DEVINFO {}
+impl Copy for DEVINFO {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::clone::Clone for DEVINFO {
+impl Clone for DEVINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -1540,8 +1540,8 @@ pub struct DISPLAYCONFIG_2DREGION {
     pub cx: u32,
     pub cy: u32,
 }
-impl ::core::marker::Copy for DISPLAYCONFIG_2DREGION {}
-impl ::core::clone::Clone for DISPLAYCONFIG_2DREGION {
+impl Copy for DISPLAYCONFIG_2DREGION {}
+impl Clone for DISPLAYCONFIG_2DREGION {
     fn clone(&self) -> Self {
         *self
     }
@@ -1551,8 +1551,8 @@ pub struct DISPLAYCONFIG_ADAPTER_NAME {
     pub header: DISPLAYCONFIG_DEVICE_INFO_HEADER,
     pub adapterDevicePath: [u16; 128],
 }
-impl ::core::marker::Copy for DISPLAYCONFIG_ADAPTER_NAME {}
-impl ::core::clone::Clone for DISPLAYCONFIG_ADAPTER_NAME {
+impl Copy for DISPLAYCONFIG_ADAPTER_NAME {}
+impl Clone for DISPLAYCONFIG_ADAPTER_NAME {
     fn clone(&self) -> Self {
         *self
     }
@@ -1563,8 +1563,8 @@ pub struct DISPLAYCONFIG_DESKTOP_IMAGE_INFO {
     pub DesktopImageRegion: super::super::Foundation::RECTL,
     pub DesktopImageClip: super::super::Foundation::RECTL,
 }
-impl ::core::marker::Copy for DISPLAYCONFIG_DESKTOP_IMAGE_INFO {}
-impl ::core::clone::Clone for DISPLAYCONFIG_DESKTOP_IMAGE_INFO {
+impl Copy for DISPLAYCONFIG_DESKTOP_IMAGE_INFO {}
+impl Clone for DISPLAYCONFIG_DESKTOP_IMAGE_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -1576,8 +1576,8 @@ pub struct DISPLAYCONFIG_DEVICE_INFO_HEADER {
     pub adapterId: super::super::Foundation::LUID,
     pub id: u32,
 }
-impl ::core::marker::Copy for DISPLAYCONFIG_DEVICE_INFO_HEADER {}
-impl ::core::clone::Clone for DISPLAYCONFIG_DEVICE_INFO_HEADER {
+impl Copy for DISPLAYCONFIG_DEVICE_INFO_HEADER {}
+impl Clone for DISPLAYCONFIG_DEVICE_INFO_HEADER {
     fn clone(&self) -> Self {
         *self
     }
@@ -1591,9 +1591,9 @@ pub struct DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO {
     pub bitsPerColorChannel: u32,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::marker::Copy for DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO {}
+impl Copy for DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::clone::Clone for DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO {
+impl Clone for DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -1605,9 +1605,9 @@ pub union DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_0 {
     pub value: u32,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::marker::Copy for DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_0 {}
+impl Copy for DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_0 {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::clone::Clone for DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_0 {
+impl Clone for DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -1618,9 +1618,9 @@ pub struct DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_0_0 {
     pub _bitfield: u32,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::marker::Copy for DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_0_0 {}
+impl Copy for DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_0_0 {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::clone::Clone for DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_0_0 {
+impl Clone for DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -1630,8 +1630,8 @@ pub struct DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION {
     pub header: DISPLAYCONFIG_DEVICE_INFO_HEADER,
     pub Anonymous: DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION_0,
 }
-impl ::core::marker::Copy for DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION {}
-impl ::core::clone::Clone for DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION {
+impl Copy for DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION {}
+impl Clone for DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -1641,8 +1641,8 @@ pub union DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION_0 {
     pub Anonymous: DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION_0_0,
     pub value: u32,
 }
-impl ::core::marker::Copy for DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION_0 {}
-impl ::core::clone::Clone for DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION_0 {
+impl Copy for DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION_0 {}
+impl Clone for DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -1651,8 +1651,8 @@ impl ::core::clone::Clone for DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION_0 {
 pub struct DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION_0_0 {}
-impl ::core::clone::Clone for DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION_0_0 {
+impl Copy for DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION_0_0 {}
+impl Clone for DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -1664,8 +1664,8 @@ pub struct DISPLAYCONFIG_MODE_INFO {
     pub adapterId: super::super::Foundation::LUID,
     pub Anonymous: DISPLAYCONFIG_MODE_INFO_0,
 }
-impl ::core::marker::Copy for DISPLAYCONFIG_MODE_INFO {}
-impl ::core::clone::Clone for DISPLAYCONFIG_MODE_INFO {
+impl Copy for DISPLAYCONFIG_MODE_INFO {}
+impl Clone for DISPLAYCONFIG_MODE_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -1676,8 +1676,8 @@ pub union DISPLAYCONFIG_MODE_INFO_0 {
     pub sourceMode: DISPLAYCONFIG_SOURCE_MODE,
     pub desktopImageInfo: DISPLAYCONFIG_DESKTOP_IMAGE_INFO,
 }
-impl ::core::marker::Copy for DISPLAYCONFIG_MODE_INFO_0 {}
-impl ::core::clone::Clone for DISPLAYCONFIG_MODE_INFO_0 {
+impl Copy for DISPLAYCONFIG_MODE_INFO_0 {}
+impl Clone for DISPLAYCONFIG_MODE_INFO_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -1688,8 +1688,8 @@ pub struct DISPLAYCONFIG_PATH_INFO {
     pub targetInfo: DISPLAYCONFIG_PATH_TARGET_INFO,
     pub flags: u32,
 }
-impl ::core::marker::Copy for DISPLAYCONFIG_PATH_INFO {}
-impl ::core::clone::Clone for DISPLAYCONFIG_PATH_INFO {
+impl Copy for DISPLAYCONFIG_PATH_INFO {}
+impl Clone for DISPLAYCONFIG_PATH_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -1701,8 +1701,8 @@ pub struct DISPLAYCONFIG_PATH_SOURCE_INFO {
     pub Anonymous: DISPLAYCONFIG_PATH_SOURCE_INFO_0,
     pub statusFlags: u32,
 }
-impl ::core::marker::Copy for DISPLAYCONFIG_PATH_SOURCE_INFO {}
-impl ::core::clone::Clone for DISPLAYCONFIG_PATH_SOURCE_INFO {
+impl Copy for DISPLAYCONFIG_PATH_SOURCE_INFO {}
+impl Clone for DISPLAYCONFIG_PATH_SOURCE_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -1712,8 +1712,8 @@ pub union DISPLAYCONFIG_PATH_SOURCE_INFO_0 {
     pub modeInfoIdx: u32,
     pub Anonymous: DISPLAYCONFIG_PATH_SOURCE_INFO_0_0,
 }
-impl ::core::marker::Copy for DISPLAYCONFIG_PATH_SOURCE_INFO_0 {}
-impl ::core::clone::Clone for DISPLAYCONFIG_PATH_SOURCE_INFO_0 {
+impl Copy for DISPLAYCONFIG_PATH_SOURCE_INFO_0 {}
+impl Clone for DISPLAYCONFIG_PATH_SOURCE_INFO_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -1722,8 +1722,8 @@ impl ::core::clone::Clone for DISPLAYCONFIG_PATH_SOURCE_INFO_0 {
 pub struct DISPLAYCONFIG_PATH_SOURCE_INFO_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for DISPLAYCONFIG_PATH_SOURCE_INFO_0_0 {}
-impl ::core::clone::Clone for DISPLAYCONFIG_PATH_SOURCE_INFO_0_0 {
+impl Copy for DISPLAYCONFIG_PATH_SOURCE_INFO_0_0 {}
+impl Clone for DISPLAYCONFIG_PATH_SOURCE_INFO_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -1741,8 +1741,8 @@ pub struct DISPLAYCONFIG_PATH_TARGET_INFO {
     pub targetAvailable: super::super::Foundation::BOOL,
     pub statusFlags: u32,
 }
-impl ::core::marker::Copy for DISPLAYCONFIG_PATH_TARGET_INFO {}
-impl ::core::clone::Clone for DISPLAYCONFIG_PATH_TARGET_INFO {
+impl Copy for DISPLAYCONFIG_PATH_TARGET_INFO {}
+impl Clone for DISPLAYCONFIG_PATH_TARGET_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -1752,8 +1752,8 @@ pub union DISPLAYCONFIG_PATH_TARGET_INFO_0 {
     pub modeInfoIdx: u32,
     pub Anonymous: DISPLAYCONFIG_PATH_TARGET_INFO_0_0,
 }
-impl ::core::marker::Copy for DISPLAYCONFIG_PATH_TARGET_INFO_0 {}
-impl ::core::clone::Clone for DISPLAYCONFIG_PATH_TARGET_INFO_0 {
+impl Copy for DISPLAYCONFIG_PATH_TARGET_INFO_0 {}
+impl Clone for DISPLAYCONFIG_PATH_TARGET_INFO_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -1762,8 +1762,8 @@ impl ::core::clone::Clone for DISPLAYCONFIG_PATH_TARGET_INFO_0 {
 pub struct DISPLAYCONFIG_PATH_TARGET_INFO_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for DISPLAYCONFIG_PATH_TARGET_INFO_0_0 {}
-impl ::core::clone::Clone for DISPLAYCONFIG_PATH_TARGET_INFO_0_0 {
+impl Copy for DISPLAYCONFIG_PATH_TARGET_INFO_0_0 {}
+impl Clone for DISPLAYCONFIG_PATH_TARGET_INFO_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -1773,8 +1773,8 @@ pub struct DISPLAYCONFIG_RATIONAL {
     pub Numerator: u32,
     pub Denominator: u32,
 }
-impl ::core::marker::Copy for DISPLAYCONFIG_RATIONAL {}
-impl ::core::clone::Clone for DISPLAYCONFIG_RATIONAL {
+impl Copy for DISPLAYCONFIG_RATIONAL {}
+impl Clone for DISPLAYCONFIG_RATIONAL {
     fn clone(&self) -> Self {
         *self
     }
@@ -1784,8 +1784,8 @@ pub struct DISPLAYCONFIG_SDR_WHITE_LEVEL {
     pub header: DISPLAYCONFIG_DEVICE_INFO_HEADER,
     pub SDRWhiteLevel: u32,
 }
-impl ::core::marker::Copy for DISPLAYCONFIG_SDR_WHITE_LEVEL {}
-impl ::core::clone::Clone for DISPLAYCONFIG_SDR_WHITE_LEVEL {
+impl Copy for DISPLAYCONFIG_SDR_WHITE_LEVEL {}
+impl Clone for DISPLAYCONFIG_SDR_WHITE_LEVEL {
     fn clone(&self) -> Self {
         *self
     }
@@ -1795,8 +1795,8 @@ pub struct DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE {
     pub header: DISPLAYCONFIG_DEVICE_INFO_HEADER,
     pub Anonymous: DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE_0,
 }
-impl ::core::marker::Copy for DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE {}
-impl ::core::clone::Clone for DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE {
+impl Copy for DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE {}
+impl Clone for DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE {
     fn clone(&self) -> Self {
         *self
     }
@@ -1806,8 +1806,8 @@ pub union DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE_0 {
     pub Anonymous: DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE_0_0,
     pub value: u32,
 }
-impl ::core::marker::Copy for DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE_0 {}
-impl ::core::clone::Clone for DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE_0 {
+impl Copy for DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE_0 {}
+impl Clone for DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -1816,8 +1816,8 @@ impl ::core::clone::Clone for DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE_0 {
 pub struct DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE_0_0 {}
-impl ::core::clone::Clone for DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE_0_0 {
+impl Copy for DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE_0_0 {}
+impl Clone for DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -1826,12 +1826,12 @@ impl ::core::clone::Clone for DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE_0_0 {
 pub struct DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION {
     pub header: DISPLAYCONFIG_DEVICE_INFO_HEADER,
     pub Anonymous: DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION_0,
-    pub specializationType: ::windows_sys::core::GUID,
-    pub specializationSubType: ::windows_sys::core::GUID,
+    pub specializationType: windows_sys::core::GUID,
+    pub specializationSubType: windows_sys::core::GUID,
     pub specializationApplicationName: [u16; 128],
 }
-impl ::core::marker::Copy for DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION {}
-impl ::core::clone::Clone for DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION {
+impl Copy for DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION {}
+impl Clone for DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -1841,8 +1841,8 @@ pub union DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION_0 {
     pub Anonymous: DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION_0_0,
     pub value: u32,
 }
-impl ::core::marker::Copy for DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION_0 {}
-impl ::core::clone::Clone for DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION_0 {
+impl Copy for DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION_0 {}
+impl Clone for DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -1851,8 +1851,8 @@ impl ::core::clone::Clone for DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION_0 {
 pub struct DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION_0_0 {}
-impl ::core::clone::Clone for DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION_0_0 {
+impl Copy for DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION_0_0 {}
+impl Clone for DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -1862,8 +1862,8 @@ pub struct DISPLAYCONFIG_SET_TARGET_PERSISTENCE {
     pub header: DISPLAYCONFIG_DEVICE_INFO_HEADER,
     pub Anonymous: DISPLAYCONFIG_SET_TARGET_PERSISTENCE_0,
 }
-impl ::core::marker::Copy for DISPLAYCONFIG_SET_TARGET_PERSISTENCE {}
-impl ::core::clone::Clone for DISPLAYCONFIG_SET_TARGET_PERSISTENCE {
+impl Copy for DISPLAYCONFIG_SET_TARGET_PERSISTENCE {}
+impl Clone for DISPLAYCONFIG_SET_TARGET_PERSISTENCE {
     fn clone(&self) -> Self {
         *self
     }
@@ -1873,8 +1873,8 @@ pub union DISPLAYCONFIG_SET_TARGET_PERSISTENCE_0 {
     pub Anonymous: DISPLAYCONFIG_SET_TARGET_PERSISTENCE_0_0,
     pub value: u32,
 }
-impl ::core::marker::Copy for DISPLAYCONFIG_SET_TARGET_PERSISTENCE_0 {}
-impl ::core::clone::Clone for DISPLAYCONFIG_SET_TARGET_PERSISTENCE_0 {
+impl Copy for DISPLAYCONFIG_SET_TARGET_PERSISTENCE_0 {}
+impl Clone for DISPLAYCONFIG_SET_TARGET_PERSISTENCE_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -1883,8 +1883,8 @@ impl ::core::clone::Clone for DISPLAYCONFIG_SET_TARGET_PERSISTENCE_0 {
 pub struct DISPLAYCONFIG_SET_TARGET_PERSISTENCE_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for DISPLAYCONFIG_SET_TARGET_PERSISTENCE_0_0 {}
-impl ::core::clone::Clone for DISPLAYCONFIG_SET_TARGET_PERSISTENCE_0_0 {
+impl Copy for DISPLAYCONFIG_SET_TARGET_PERSISTENCE_0_0 {}
+impl Clone for DISPLAYCONFIG_SET_TARGET_PERSISTENCE_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -1894,8 +1894,8 @@ pub struct DISPLAYCONFIG_SOURCE_DEVICE_NAME {
     pub header: DISPLAYCONFIG_DEVICE_INFO_HEADER,
     pub viewGdiDeviceName: [u16; 32],
 }
-impl ::core::marker::Copy for DISPLAYCONFIG_SOURCE_DEVICE_NAME {}
-impl ::core::clone::Clone for DISPLAYCONFIG_SOURCE_DEVICE_NAME {
+impl Copy for DISPLAYCONFIG_SOURCE_DEVICE_NAME {}
+impl Clone for DISPLAYCONFIG_SOURCE_DEVICE_NAME {
     fn clone(&self) -> Self {
         *self
     }
@@ -1907,8 +1907,8 @@ pub struct DISPLAYCONFIG_SOURCE_MODE {
     pub pixelFormat: DISPLAYCONFIG_PIXELFORMAT,
     pub position: super::super::Foundation::POINTL,
 }
-impl ::core::marker::Copy for DISPLAYCONFIG_SOURCE_MODE {}
-impl ::core::clone::Clone for DISPLAYCONFIG_SOURCE_MODE {
+impl Copy for DISPLAYCONFIG_SOURCE_MODE {}
+impl Clone for DISPLAYCONFIG_SOURCE_MODE {
     fn clone(&self) -> Self {
         *self
     }
@@ -1918,8 +1918,8 @@ pub struct DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION {
     pub header: DISPLAYCONFIG_DEVICE_INFO_HEADER,
     pub Anonymous: DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION_0,
 }
-impl ::core::marker::Copy for DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION {}
-impl ::core::clone::Clone for DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION {
+impl Copy for DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION {}
+impl Clone for DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION {
     fn clone(&self) -> Self {
         *self
     }
@@ -1929,8 +1929,8 @@ pub union DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION_0 {
     pub Anonymous: DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION_0_0,
     pub value: u32,
 }
-impl ::core::marker::Copy for DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION_0 {}
-impl ::core::clone::Clone for DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION_0 {
+impl Copy for DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION_0 {}
+impl Clone for DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -1939,8 +1939,8 @@ impl ::core::clone::Clone for DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION_0 {
 pub struct DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION_0_0 {}
-impl ::core::clone::Clone for DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION_0_0 {
+impl Copy for DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION_0_0 {}
+impl Clone for DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -1950,8 +1950,8 @@ pub struct DISPLAYCONFIG_TARGET_BASE_TYPE {
     pub header: DISPLAYCONFIG_DEVICE_INFO_HEADER,
     pub baseOutputTechnology: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY,
 }
-impl ::core::marker::Copy for DISPLAYCONFIG_TARGET_BASE_TYPE {}
-impl ::core::clone::Clone for DISPLAYCONFIG_TARGET_BASE_TYPE {
+impl Copy for DISPLAYCONFIG_TARGET_BASE_TYPE {}
+impl Clone for DISPLAYCONFIG_TARGET_BASE_TYPE {
     fn clone(&self) -> Self {
         *self
     }
@@ -1967,8 +1967,8 @@ pub struct DISPLAYCONFIG_TARGET_DEVICE_NAME {
     pub monitorFriendlyDeviceName: [u16; 64],
     pub monitorDevicePath: [u16; 128],
 }
-impl ::core::marker::Copy for DISPLAYCONFIG_TARGET_DEVICE_NAME {}
-impl ::core::clone::Clone for DISPLAYCONFIG_TARGET_DEVICE_NAME {
+impl Copy for DISPLAYCONFIG_TARGET_DEVICE_NAME {}
+impl Clone for DISPLAYCONFIG_TARGET_DEVICE_NAME {
     fn clone(&self) -> Self {
         *self
     }
@@ -1977,8 +1977,8 @@ impl ::core::clone::Clone for DISPLAYCONFIG_TARGET_DEVICE_NAME {
 pub struct DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS {
     pub Anonymous: DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS_0,
 }
-impl ::core::marker::Copy for DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS {}
-impl ::core::clone::Clone for DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS {
+impl Copy for DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS {}
+impl Clone for DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS {
     fn clone(&self) -> Self {
         *self
     }
@@ -1988,8 +1988,8 @@ pub union DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS_0 {
     pub Anonymous: DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS_0_0,
     pub value: u32,
 }
-impl ::core::marker::Copy for DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS_0 {}
-impl ::core::clone::Clone for DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS_0 {
+impl Copy for DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS_0 {}
+impl Clone for DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -1998,8 +1998,8 @@ impl ::core::clone::Clone for DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS_0 {
 pub struct DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS_0_0 {}
-impl ::core::clone::Clone for DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS_0_0 {
+impl Copy for DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS_0_0 {}
+impl Clone for DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -2008,8 +2008,8 @@ impl ::core::clone::Clone for DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS_0_0 {
 pub struct DISPLAYCONFIG_TARGET_MODE {
     pub targetVideoSignalInfo: DISPLAYCONFIG_VIDEO_SIGNAL_INFO,
 }
-impl ::core::marker::Copy for DISPLAYCONFIG_TARGET_MODE {}
-impl ::core::clone::Clone for DISPLAYCONFIG_TARGET_MODE {
+impl Copy for DISPLAYCONFIG_TARGET_MODE {}
+impl Clone for DISPLAYCONFIG_TARGET_MODE {
     fn clone(&self) -> Self {
         *self
     }
@@ -2021,8 +2021,8 @@ pub struct DISPLAYCONFIG_TARGET_PREFERRED_MODE {
     pub height: u32,
     pub targetMode: DISPLAYCONFIG_TARGET_MODE,
 }
-impl ::core::marker::Copy for DISPLAYCONFIG_TARGET_PREFERRED_MODE {}
-impl ::core::clone::Clone for DISPLAYCONFIG_TARGET_PREFERRED_MODE {
+impl Copy for DISPLAYCONFIG_TARGET_PREFERRED_MODE {}
+impl Clone for DISPLAYCONFIG_TARGET_PREFERRED_MODE {
     fn clone(&self) -> Self {
         *self
     }
@@ -2037,8 +2037,8 @@ pub struct DISPLAYCONFIG_VIDEO_SIGNAL_INFO {
     pub Anonymous: DISPLAYCONFIG_VIDEO_SIGNAL_INFO_0,
     pub scanLineOrdering: DISPLAYCONFIG_SCANLINE_ORDERING,
 }
-impl ::core::marker::Copy for DISPLAYCONFIG_VIDEO_SIGNAL_INFO {}
-impl ::core::clone::Clone for DISPLAYCONFIG_VIDEO_SIGNAL_INFO {
+impl Copy for DISPLAYCONFIG_VIDEO_SIGNAL_INFO {}
+impl Clone for DISPLAYCONFIG_VIDEO_SIGNAL_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -2048,8 +2048,8 @@ pub union DISPLAYCONFIG_VIDEO_SIGNAL_INFO_0 {
     pub AdditionalSignalInfo: DISPLAYCONFIG_VIDEO_SIGNAL_INFO_0_0,
     pub videoStandard: u32,
 }
-impl ::core::marker::Copy for DISPLAYCONFIG_VIDEO_SIGNAL_INFO_0 {}
-impl ::core::clone::Clone for DISPLAYCONFIG_VIDEO_SIGNAL_INFO_0 {
+impl Copy for DISPLAYCONFIG_VIDEO_SIGNAL_INFO_0 {}
+impl Clone for DISPLAYCONFIG_VIDEO_SIGNAL_INFO_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -2058,8 +2058,8 @@ impl ::core::clone::Clone for DISPLAYCONFIG_VIDEO_SIGNAL_INFO_0 {
 pub struct DISPLAYCONFIG_VIDEO_SIGNAL_INFO_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for DISPLAYCONFIG_VIDEO_SIGNAL_INFO_0_0 {}
-impl ::core::clone::Clone for DISPLAYCONFIG_VIDEO_SIGNAL_INFO_0_0 {
+impl Copy for DISPLAYCONFIG_VIDEO_SIGNAL_INFO_0_0 {}
+impl Clone for DISPLAYCONFIG_VIDEO_SIGNAL_INFO_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -2070,8 +2070,8 @@ pub struct DISPLAY_BRIGHTNESS {
     pub ucACBrightness: u8,
     pub ucDCBrightness: u8,
 }
-impl ::core::marker::Copy for DISPLAY_BRIGHTNESS {}
-impl ::core::clone::Clone for DISPLAY_BRIGHTNESS {
+impl Copy for DISPLAY_BRIGHTNESS {}
+impl Clone for DISPLAY_BRIGHTNESS {
     fn clone(&self) -> Self {
         *self
     }
@@ -2081,21 +2081,21 @@ pub struct DRH_APIBITMAPDATA {
     pub pso: *mut SURFOBJ,
     pub b: super::super::Foundation::BOOL,
 }
-impl ::core::marker::Copy for DRH_APIBITMAPDATA {}
-impl ::core::clone::Clone for DRH_APIBITMAPDATA {
+impl Copy for DRH_APIBITMAPDATA {}
+impl Clone for DRH_APIBITMAPDATA {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct DRIVEROBJ {
-    pub pvObj: *mut ::core::ffi::c_void,
+    pub pvObj: *mut core::ffi::c_void,
     pub pFreeProc: FREEOBJPROC,
     pub hdev: HDEV,
     pub dhpdev: DHPDEV,
 }
-impl ::core::marker::Copy for DRIVEROBJ {}
-impl ::core::clone::Clone for DRIVEROBJ {
+impl Copy for DRIVEROBJ {}
+impl Clone for DRIVEROBJ {
     fn clone(&self) -> Self {
         *self
     }
@@ -2106,8 +2106,8 @@ pub struct DRVENABLEDATA {
     pub c: u32,
     pub pdrvfn: *mut DRVFN,
 }
-impl ::core::marker::Copy for DRVENABLEDATA {}
-impl ::core::clone::Clone for DRVENABLEDATA {
+impl Copy for DRVENABLEDATA {}
+impl Clone for DRVENABLEDATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -2117,22 +2117,22 @@ pub struct DRVFN {
     pub iFunc: u32,
     pub pfn: PFN,
 }
-impl ::core::marker::Copy for DRVFN {}
-impl ::core::clone::Clone for DRVFN {
+impl Copy for DRVFN {}
+impl Clone for DRVFN {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct DXGK_WIN32K_PARAM_DATA {
-    pub PathsArray: *mut ::core::ffi::c_void,
-    pub ModesArray: *mut ::core::ffi::c_void,
+    pub PathsArray: *mut core::ffi::c_void,
+    pub ModesArray: *mut core::ffi::c_void,
     pub NumPathArrayElements: u32,
     pub NumModeArrayElements: u32,
     pub SDCFlags: u32,
 }
-impl ::core::marker::Copy for DXGK_WIN32K_PARAM_DATA {}
-impl ::core::clone::Clone for DXGK_WIN32K_PARAM_DATA {
+impl Copy for DXGK_WIN32K_PARAM_DATA {}
+impl Clone for DXGK_WIN32K_PARAM_DATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -2144,9 +2144,9 @@ pub struct DisplayMode {
     pub devMode: super::super::Graphics::Gdi::DEVMODEW,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::marker::Copy for DisplayMode {}
+impl Copy for DisplayMode {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::clone::Clone for DisplayMode {
+impl Clone for DisplayMode {
     fn clone(&self) -> Self {
         *self
     }
@@ -2158,9 +2158,9 @@ pub struct DisplayModes {
     pub displayMode: [DisplayMode; 1],
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::marker::Copy for DisplayModes {}
+impl Copy for DisplayModes {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::clone::Clone for DisplayModes {
+impl Clone for DisplayModes {
     fn clone(&self) -> Self {
         *self
     }
@@ -2174,9 +2174,9 @@ pub struct EMFINFO {
     pub pvCurrentRecord: *mut u8,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::marker::Copy for EMFINFO {}
+impl Copy for EMFINFO {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::clone::Clone for EMFINFO {
+impl Clone for EMFINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -2186,19 +2186,19 @@ pub struct ENGSAFESEMAPHORE {
     pub hsem: HSEMAPHORE,
     pub lCount: i32,
 }
-impl ::core::marker::Copy for ENGSAFESEMAPHORE {}
-impl ::core::clone::Clone for ENGSAFESEMAPHORE {
+impl Copy for ENGSAFESEMAPHORE {}
+impl Clone for ENGSAFESEMAPHORE {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct ENG_EVENT {
-    pub pKEvent: *mut ::core::ffi::c_void,
+    pub pKEvent: *mut core::ffi::c_void,
     pub fFlags: u32,
 }
-impl ::core::marker::Copy for ENG_EVENT {}
-impl ::core::clone::Clone for ENG_EVENT {
+impl Copy for ENG_EVENT {}
+impl Clone for ENG_EVENT {
     fn clone(&self) -> Self {
         *self
     }
@@ -2214,8 +2214,8 @@ pub struct ENG_TIME_FIELDS {
     pub usMilliseconds: u16,
     pub usWeekday: u16,
 }
-impl ::core::marker::Copy for ENG_TIME_FIELDS {}
-impl ::core::clone::Clone for ENG_TIME_FIELDS {
+impl Copy for ENG_TIME_FIELDS {}
+impl Clone for ENG_TIME_FIELDS {
     fn clone(&self) -> Self {
         *self
     }
@@ -2225,8 +2225,8 @@ pub struct ENUMRECTS {
     pub c: u32,
     pub arcl: [super::super::Foundation::RECTL; 1],
 }
-impl ::core::marker::Copy for ENUMRECTS {}
-impl ::core::clone::Clone for ENUMRECTS {
+impl Copy for ENUMRECTS {}
+impl Clone for ENUMRECTS {
     fn clone(&self) -> Self {
         *self
     }
@@ -2256,8 +2256,8 @@ pub struct FD_DEVICEMETRICS {
     pub lMinD: i32,
     pub alReserved: [i32; 1],
 }
-impl ::core::marker::Copy for FD_DEVICEMETRICS {}
-impl ::core::clone::Clone for FD_DEVICEMETRICS {
+impl Copy for FD_DEVICEMETRICS {}
+impl Clone for FD_DEVICEMETRICS {
     fn clone(&self) -> Self {
         *self
     }
@@ -2269,8 +2269,8 @@ pub struct FD_GLYPHATTR {
     pub iMode: u32,
     pub aGlyphAttr: [u8; 1],
 }
-impl ::core::marker::Copy for FD_GLYPHATTR {}
-impl ::core::clone::Clone for FD_GLYPHATTR {
+impl Copy for FD_GLYPHATTR {}
+impl Clone for FD_GLYPHATTR {
     fn clone(&self) -> Self {
         *self
     }
@@ -2283,8 +2283,8 @@ pub struct FD_GLYPHSET {
     pub cRuns: u32,
     pub awcrun: [WCRUN; 1],
 }
-impl ::core::marker::Copy for FD_GLYPHSET {}
-impl ::core::clone::Clone for FD_GLYPHSET {
+impl Copy for FD_GLYPHSET {}
+impl Clone for FD_GLYPHSET {
     fn clone(&self) -> Self {
         *self
     }
@@ -2295,8 +2295,8 @@ pub struct FD_KERNINGPAIR {
     pub wcSecond: u16,
     pub fwdKern: i16,
 }
-impl ::core::marker::Copy for FD_KERNINGPAIR {}
-impl ::core::clone::Clone for FD_KERNINGPAIR {
+impl Copy for FD_KERNINGPAIR {}
+impl Clone for FD_KERNINGPAIR {
     fn clone(&self) -> Self {
         *self
     }
@@ -2308,8 +2308,8 @@ pub struct FD_LIGATURE {
     pub cLigatures: u32,
     pub alig: [LIGATURE; 1],
 }
-impl ::core::marker::Copy for FD_LIGATURE {}
-impl ::core::clone::Clone for FD_LIGATURE {
+impl Copy for FD_LIGATURE {}
+impl Clone for FD_LIGATURE {
     fn clone(&self) -> Self {
         *self
     }
@@ -2323,9 +2323,9 @@ pub struct FD_XFORM {
     pub eYY: f32,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::marker::Copy for FD_XFORM {}
+impl Copy for FD_XFORM {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::clone::Clone for FD_XFORM {
+impl Clone for FD_XFORM {
     fn clone(&self) -> Self {
         *self
     }
@@ -2339,9 +2339,9 @@ pub struct FD_XFORM {
     pub eYY: u32,
 }
 #[cfg(target_arch = "x86")]
-impl ::core::marker::Copy for FD_XFORM {}
+impl Copy for FD_XFORM {}
 #[cfg(target_arch = "x86")]
-impl ::core::clone::Clone for FD_XFORM {
+impl Clone for FD_XFORM {
     fn clone(&self) -> Self {
         *self
     }
@@ -2353,9 +2353,9 @@ pub struct FLOATOBJ {
     pub ul2: u32,
 }
 #[cfg(target_arch = "x86")]
-impl ::core::marker::Copy for FLOATOBJ {}
+impl Copy for FLOATOBJ {}
 #[cfg(target_arch = "x86")]
-impl ::core::clone::Clone for FLOATOBJ {
+impl Clone for FLOATOBJ {
     fn clone(&self) -> Self {
         *self
     }
@@ -2371,9 +2371,9 @@ pub struct FLOATOBJ_XFORM {
     pub eDy: f32,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::marker::Copy for FLOATOBJ_XFORM {}
+impl Copy for FLOATOBJ_XFORM {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::clone::Clone for FLOATOBJ_XFORM {
+impl Clone for FLOATOBJ_XFORM {
     fn clone(&self) -> Self {
         *self
     }
@@ -2389,9 +2389,9 @@ pub struct FLOATOBJ_XFORM {
     pub eDy: FLOATOBJ,
 }
 #[cfg(target_arch = "x86")]
-impl ::core::marker::Copy for FLOATOBJ_XFORM {}
+impl Copy for FLOATOBJ_XFORM {}
 #[cfg(target_arch = "x86")]
-impl ::core::clone::Clone for FLOATOBJ_XFORM {
+impl Clone for FLOATOBJ_XFORM {
     fn clone(&self) -> Self {
         *self
     }
@@ -2403,9 +2403,9 @@ pub union FLOAT_LONG {
     pub l: i32,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::marker::Copy for FLOAT_LONG {}
+impl Copy for FLOAT_LONG {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::clone::Clone for FLOAT_LONG {
+impl Clone for FLOAT_LONG {
     fn clone(&self) -> Self {
         *self
     }
@@ -2417,9 +2417,9 @@ pub union FLOAT_LONG {
     pub l: i32,
 }
 #[cfg(target_arch = "x86")]
-impl ::core::marker::Copy for FLOAT_LONG {}
+impl Copy for FLOAT_LONG {}
 #[cfg(target_arch = "x86")]
-impl ::core::clone::Clone for FLOAT_LONG {
+impl Clone for FLOAT_LONG {
     fn clone(&self) -> Self {
         *self
     }
@@ -2436,8 +2436,8 @@ pub struct FONTDIFF {
     pub fwdMaxCharInc: i16,
     pub ptlCaret: super::super::Foundation::POINTL,
 }
-impl ::core::marker::Copy for FONTDIFF {}
-impl ::core::clone::Clone for FONTDIFF {
+impl Copy for FONTDIFF {}
+impl Clone for FONTDIFF {
     fn clone(&self) -> Self {
         *self
     }
@@ -2452,8 +2452,8 @@ pub struct FONTINFO {
     pub cjMaxGlyph8: u32,
     pub cjMaxGlyph32: u32,
 }
-impl ::core::marker::Copy for FONTINFO {}
-impl ::core::clone::Clone for FONTINFO {
+impl Copy for FONTINFO {}
+impl Clone for FONTINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -2468,11 +2468,11 @@ pub struct FONTOBJ {
     pub iFile: usize,
     pub sizLogResPpi: super::super::Foundation::SIZE,
     pub ulStyleSize: u32,
-    pub pvConsumer: *mut ::core::ffi::c_void,
-    pub pvProducer: *mut ::core::ffi::c_void,
+    pub pvConsumer: *mut core::ffi::c_void,
+    pub pvProducer: *mut core::ffi::c_void,
 }
-impl ::core::marker::Copy for FONTOBJ {}
-impl ::core::clone::Clone for FONTOBJ {
+impl Copy for FONTOBJ {}
+impl Clone for FONTOBJ {
     fn clone(&self) -> Self {
         *self
     }
@@ -2483,8 +2483,8 @@ pub struct FONTSIM {
     pub dpItalic: i32,
     pub dpBoldItalic: i32,
 }
-impl ::core::marker::Copy for FONTSIM {}
-impl ::core::clone::Clone for FONTSIM {
+impl Copy for FONTSIM {}
+impl Clone for FONTSIM {
     fn clone(&self) -> Self {
         *self
     }
@@ -2496,9 +2496,9 @@ pub struct FONT_IMAGE_INFO {
     pub ImageBits: *mut u8,
 }
 #[cfg(feature = "Win32_System_Console")]
-impl ::core::marker::Copy for FONT_IMAGE_INFO {}
+impl Copy for FONT_IMAGE_INFO {}
 #[cfg(feature = "Win32_System_Console")]
-impl ::core::clone::Clone for FONT_IMAGE_INFO {
+impl Clone for FONT_IMAGE_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -2511,9 +2511,9 @@ pub struct FSCNTL_SCREEN_INFO {
     pub nNumberOfChars: u32,
 }
 #[cfg(feature = "Win32_System_Console")]
-impl ::core::marker::Copy for FSCNTL_SCREEN_INFO {}
+impl Copy for FSCNTL_SCREEN_INFO {}
 #[cfg(feature = "Win32_System_Console")]
-impl ::core::clone::Clone for FSCNTL_SCREEN_INFO {
+impl Clone for FSCNTL_SCREEN_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -2525,9 +2525,9 @@ pub struct FSVIDEO_COPY_FRAME_BUFFER {
     pub DestScreen: FSCNTL_SCREEN_INFO,
 }
 #[cfg(feature = "Win32_System_Console")]
-impl ::core::marker::Copy for FSVIDEO_COPY_FRAME_BUFFER {}
+impl Copy for FSVIDEO_COPY_FRAME_BUFFER {}
 #[cfg(feature = "Win32_System_Console")]
-impl ::core::clone::Clone for FSVIDEO_COPY_FRAME_BUFFER {
+impl Clone for FSVIDEO_COPY_FRAME_BUFFER {
     fn clone(&self) -> Self {
         *self
     }
@@ -2537,8 +2537,8 @@ pub struct FSVIDEO_CURSOR_POSITION {
     pub Coord: VIDEO_CURSOR_POSITION,
     pub dwType: u32,
 }
-impl ::core::marker::Copy for FSVIDEO_CURSOR_POSITION {}
-impl ::core::clone::Clone for FSVIDEO_CURSOR_POSITION {
+impl Copy for FSVIDEO_CURSOR_POSITION {}
+impl Clone for FSVIDEO_CURSOR_POSITION {
     fn clone(&self) -> Self {
         *self
     }
@@ -2548,8 +2548,8 @@ pub struct FSVIDEO_MODE_INFORMATION {
     pub VideoMode: VIDEO_MODE_INFORMATION,
     pub VideoMemory: VIDEO_MEMORY_INFORMATION,
 }
-impl ::core::marker::Copy for FSVIDEO_MODE_INFORMATION {}
-impl ::core::clone::Clone for FSVIDEO_MODE_INFORMATION {
+impl Copy for FSVIDEO_MODE_INFORMATION {}
+impl Clone for FSVIDEO_MODE_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -2561,9 +2561,9 @@ pub struct FSVIDEO_REVERSE_MOUSE_POINTER {
     pub dwType: u32,
 }
 #[cfg(feature = "Win32_System_Console")]
-impl ::core::marker::Copy for FSVIDEO_REVERSE_MOUSE_POINTER {}
+impl Copy for FSVIDEO_REVERSE_MOUSE_POINTER {}
 #[cfg(feature = "Win32_System_Console")]
-impl ::core::clone::Clone for FSVIDEO_REVERSE_MOUSE_POINTER {
+impl Clone for FSVIDEO_REVERSE_MOUSE_POINTER {
     fn clone(&self) -> Self {
         *self
     }
@@ -2575,9 +2575,9 @@ pub struct FSVIDEO_SCREEN_INFORMATION {
     pub FontSize: super::super::System::Console::COORD,
 }
 #[cfg(feature = "Win32_System_Console")]
-impl ::core::marker::Copy for FSVIDEO_SCREEN_INFORMATION {}
+impl Copy for FSVIDEO_SCREEN_INFORMATION {}
 #[cfg(feature = "Win32_System_Console")]
-impl ::core::clone::Clone for FSVIDEO_SCREEN_INFORMATION {
+impl Clone for FSVIDEO_SCREEN_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -2589,9 +2589,9 @@ pub struct FSVIDEO_WRITE_TO_FRAME_BUFFER {
     pub DestScreen: FSCNTL_SCREEN_INFO,
 }
 #[cfg(feature = "Win32_System_Console")]
-impl ::core::marker::Copy for FSVIDEO_WRITE_TO_FRAME_BUFFER {}
+impl Copy for FSVIDEO_WRITE_TO_FRAME_BUFFER {}
 #[cfg(feature = "Win32_System_Console")]
-impl ::core::clone::Clone for FSVIDEO_WRITE_TO_FRAME_BUFFER {
+impl Clone for FSVIDEO_WRITE_TO_FRAME_BUFFER {
     fn clone(&self) -> Self {
         *self
     }
@@ -2602,8 +2602,8 @@ pub struct GAMMARAMP {
     pub Green: [u16; 256],
     pub Blue: [u16; 256],
 }
-impl ::core::marker::Copy for GAMMARAMP {}
-impl ::core::clone::Clone for GAMMARAMP {
+impl Copy for GAMMARAMP {}
+impl Clone for GAMMARAMP {
     fn clone(&self) -> Self {
         *self
     }
@@ -2614,8 +2614,8 @@ pub struct GAMMA_RAMP_DXGI_1 {
     pub Offset: GAMMA_RAMP_RGB,
     pub GammaCurve: [GAMMA_RAMP_RGB; 1025],
 }
-impl ::core::marker::Copy for GAMMA_RAMP_DXGI_1 {}
-impl ::core::clone::Clone for GAMMA_RAMP_DXGI_1 {
+impl Copy for GAMMA_RAMP_DXGI_1 {}
+impl Clone for GAMMA_RAMP_DXGI_1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -2626,8 +2626,8 @@ pub struct GAMMA_RAMP_RGB {
     pub Green: f32,
     pub Blue: f32,
 }
-impl ::core::marker::Copy for GAMMA_RAMP_RGB {}
-impl ::core::clone::Clone for GAMMA_RAMP_RGB {
+impl Copy for GAMMA_RAMP_RGB {}
+impl Clone for GAMMA_RAMP_RGB {
     fn clone(&self) -> Self {
         *self
     }
@@ -2638,8 +2638,8 @@ pub struct GAMMA_RAMP_RGB256x3x16 {
     pub Green: [u16; 256],
     pub Blue: [u16; 256],
 }
-impl ::core::marker::Copy for GAMMA_RAMP_RGB256x3x16 {}
-impl ::core::clone::Clone for GAMMA_RAMP_RGB256x3x16 {
+impl Copy for GAMMA_RAMP_RGB256x3x16 {}
+impl Clone for GAMMA_RAMP_RGB256x3x16 {
     fn clone(&self) -> Self {
         *self
     }
@@ -2692,8 +2692,8 @@ pub struct GDIINFO {
     pub ulPhysicalPixelCharacteristics: u32,
     pub ulPhysicalPixelGamma: u32,
 }
-impl ::core::marker::Copy for GDIINFO {}
-impl ::core::clone::Clone for GDIINFO {
+impl Copy for GDIINFO {}
+impl Clone for GDIINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -2704,8 +2704,8 @@ pub struct GLYPHBITS {
     pub sizlBitmap: super::super::Foundation::SIZE,
     pub aj: [u8; 1],
 }
-impl ::core::marker::Copy for GLYPHBITS {}
-impl ::core::clone::Clone for GLYPHBITS {
+impl Copy for GLYPHBITS {}
+impl Clone for GLYPHBITS {
     fn clone(&self) -> Self {
         *self
     }
@@ -2722,8 +2722,8 @@ pub struct GLYPHDATA {
     pub rclInk: super::super::Foundation::RECTL,
     pub ptqD: POINTQF,
 }
-impl ::core::marker::Copy for GLYPHDATA {}
-impl ::core::clone::Clone for GLYPHDATA {
+impl Copy for GLYPHDATA {}
+impl Clone for GLYPHDATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -2733,8 +2733,8 @@ pub union GLYPHDEF {
     pub pgb: *mut GLYPHBITS,
     pub ppo: *mut PATHOBJ,
 }
-impl ::core::marker::Copy for GLYPHDEF {}
-impl ::core::clone::Clone for GLYPHDEF {
+impl Copy for GLYPHDEF {}
+impl Clone for GLYPHDEF {
     fn clone(&self) -> Self {
         *self
     }
@@ -2745,8 +2745,8 @@ pub struct GLYPHPOS {
     pub pgdf: *mut GLYPHDEF,
     pub ptl: super::super::Foundation::POINTL,
 }
-impl ::core::marker::Copy for GLYPHPOS {}
-impl ::core::clone::Clone for GLYPHPOS {
+impl Copy for GLYPHPOS {}
+impl Clone for GLYPHPOS {
     fn clone(&self) -> Self {
         *self
     }
@@ -2766,8 +2766,8 @@ pub struct IFIEXTRA {
     pub dpAxesInfoW: i32,
     pub aulReserved: [u32; 1],
 }
-impl ::core::marker::Copy for IFIEXTRA {}
-impl ::core::clone::Clone for IFIEXTRA {
+impl Copy for IFIEXTRA {}
+impl Clone for IFIEXTRA {
     fn clone(&self) -> Self {
         *self
     }
@@ -2835,14 +2835,14 @@ pub struct IFIMETRICS {
     pub cKerningPairs: u32,
     pub ulPanoseCulture: u32,
     pub panose: super::super::Graphics::Gdi::PANOSE,
-    pub Align: *mut ::core::ffi::c_void,
+    pub Align: *mut core::ffi::c_void,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::marker::Copy for IFIMETRICS {}
+impl Copy for IFIMETRICS {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::clone::Clone for IFIMETRICS {
+impl Clone for IFIMETRICS {
     fn clone(&self) -> Self {
         *self
     }
@@ -2913,10 +2913,10 @@ pub struct IFIMETRICS {
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::marker::Copy for IFIMETRICS {}
+impl Copy for IFIMETRICS {}
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::clone::Clone for IFIMETRICS {
+impl Clone for IFIMETRICS {
     fn clone(&self) -> Self {
         *self
     }
@@ -2928,8 +2928,8 @@ pub struct INDIRECT_DISPLAY_INFO {
     pub NumMonitors: u32,
     pub DisplayAdapterTargetBase: u32,
 }
-impl ::core::marker::Copy for INDIRECT_DISPLAY_INFO {}
-impl ::core::clone::Clone for INDIRECT_DISPLAY_INFO {
+impl Copy for INDIRECT_DISPLAY_INFO {}
+impl Clone for INDIRECT_DISPLAY_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -2937,12 +2937,12 @@ impl ::core::clone::Clone for INDIRECT_DISPLAY_INFO {
 #[repr(C)]
 pub struct LIGATURE {
     pub culSize: u32,
-    pub pwsz: ::windows_sys::core::PWSTR,
+    pub pwsz: windows_sys::core::PWSTR,
     pub chglyph: u32,
     pub ahglyph: [u32; 1],
 }
-impl ::core::marker::Copy for LIGATURE {}
-impl ::core::clone::Clone for LIGATURE {
+impl Copy for LIGATURE {}
+impl Clone for LIGATURE {
     fn clone(&self) -> Self {
         *self
     }
@@ -2960,9 +2960,9 @@ pub struct LINEATTRS {
     pub elStyleState: FLOAT_LONG,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::marker::Copy for LINEATTRS {}
+impl Copy for LINEATTRS {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::clone::Clone for LINEATTRS {
+impl Clone for LINEATTRS {
     fn clone(&self) -> Self {
         *self
     }
@@ -2980,9 +2980,9 @@ pub struct LINEATTRS {
     pub elStyleState: FLOAT_LONG,
 }
 #[cfg(target_arch = "x86")]
-impl ::core::marker::Copy for LINEATTRS {}
+impl Copy for LINEATTRS {}
 #[cfg(target_arch = "x86")]
-impl ::core::clone::Clone for LINEATTRS {
+impl Clone for LINEATTRS {
     fn clone(&self) -> Self {
         *self
     }
@@ -2993,8 +2993,8 @@ pub struct MC_TIMING_REPORT {
     pub dwVerticalFrequencyInHZ: u32,
     pub bTimingStatusByte: u8,
 }
-impl ::core::marker::Copy for MC_TIMING_REPORT {}
-impl ::core::clone::Clone for MC_TIMING_REPORT {
+impl Copy for MC_TIMING_REPORT {}
+impl Clone for MC_TIMING_REPORT {
     fn clone(&self) -> Self {
         *self
     }
@@ -3020,8 +3020,8 @@ pub struct MIPI_DSI_CAPS {
     pub LengthHi: u8,
     pub LengthLo: u8,
 }
-impl ::core::marker::Copy for MIPI_DSI_CAPS {}
-impl ::core::clone::Clone for MIPI_DSI_CAPS {
+impl Copy for MIPI_DSI_CAPS {}
+impl Clone for MIPI_DSI_CAPS {
     fn clone(&self) -> Self {
         *self
     }
@@ -3033,8 +3033,8 @@ pub struct MIPI_DSI_PACKET {
     pub EccFiller: u8,
     pub Payload: [u8; 8],
 }
-impl ::core::marker::Copy for MIPI_DSI_PACKET {}
-impl ::core::clone::Clone for MIPI_DSI_PACKET {
+impl Copy for MIPI_DSI_PACKET {}
+impl Clone for MIPI_DSI_PACKET {
     fn clone(&self) -> Self {
         *self
     }
@@ -3044,8 +3044,8 @@ pub union MIPI_DSI_PACKET_0 {
     pub DataId: u8,
     pub Anonymous: MIPI_DSI_PACKET_0_0,
 }
-impl ::core::marker::Copy for MIPI_DSI_PACKET_0 {}
-impl ::core::clone::Clone for MIPI_DSI_PACKET_0 {
+impl Copy for MIPI_DSI_PACKET_0 {}
+impl Clone for MIPI_DSI_PACKET_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3054,8 +3054,8 @@ impl ::core::clone::Clone for MIPI_DSI_PACKET_0 {
 pub struct MIPI_DSI_PACKET_0_0 {
     pub _bitfield: u8,
 }
-impl ::core::marker::Copy for MIPI_DSI_PACKET_0_0 {}
-impl ::core::clone::Clone for MIPI_DSI_PACKET_0_0 {
+impl Copy for MIPI_DSI_PACKET_0_0 {}
+impl Clone for MIPI_DSI_PACKET_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3065,8 +3065,8 @@ pub union MIPI_DSI_PACKET_1 {
     pub Anonymous: MIPI_DSI_PACKET_1_0,
     pub LongWriteWordCount: u16,
 }
-impl ::core::marker::Copy for MIPI_DSI_PACKET_1 {}
-impl ::core::clone::Clone for MIPI_DSI_PACKET_1 {
+impl Copy for MIPI_DSI_PACKET_1 {}
+impl Clone for MIPI_DSI_PACKET_1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3076,8 +3076,8 @@ pub struct MIPI_DSI_PACKET_1_0 {
     pub Data0: u8,
     pub Data1: u8,
 }
-impl ::core::marker::Copy for MIPI_DSI_PACKET_1_0 {}
-impl ::core::clone::Clone for MIPI_DSI_PACKET_1_0 {
+impl Copy for MIPI_DSI_PACKET_1_0 {}
+impl Clone for MIPI_DSI_PACKET_1_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3087,8 +3087,8 @@ pub struct MIPI_DSI_RESET {
     pub Flags: u32,
     pub Anonymous: MIPI_DSI_RESET_0,
 }
-impl ::core::marker::Copy for MIPI_DSI_RESET {}
-impl ::core::clone::Clone for MIPI_DSI_RESET {
+impl Copy for MIPI_DSI_RESET {}
+impl Clone for MIPI_DSI_RESET {
     fn clone(&self) -> Self {
         *self
     }
@@ -3098,8 +3098,8 @@ pub union MIPI_DSI_RESET_0 {
     pub Anonymous: MIPI_DSI_RESET_0_0,
     pub Results: u32,
 }
-impl ::core::marker::Copy for MIPI_DSI_RESET_0 {}
-impl ::core::clone::Clone for MIPI_DSI_RESET_0 {
+impl Copy for MIPI_DSI_RESET_0 {}
+impl Clone for MIPI_DSI_RESET_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3108,8 +3108,8 @@ impl ::core::clone::Clone for MIPI_DSI_RESET_0 {
 pub struct MIPI_DSI_RESET_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for MIPI_DSI_RESET_0_0 {}
-impl ::core::clone::Clone for MIPI_DSI_RESET_0_0 {
+impl Copy for MIPI_DSI_RESET_0_0 {}
+impl Clone for MIPI_DSI_RESET_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3126,8 +3126,8 @@ pub struct MIPI_DSI_TRANSMISSION {
     pub HostErrors: u16,
     pub Packets: [MIPI_DSI_PACKET; 1],
 }
-impl ::core::marker::Copy for MIPI_DSI_TRANSMISSION {}
-impl ::core::clone::Clone for MIPI_DSI_TRANSMISSION {
+impl Copy for MIPI_DSI_TRANSMISSION {}
+impl Clone for MIPI_DSI_TRANSMISSION {
     fn clone(&self) -> Self {
         *self
     }
@@ -3136,8 +3136,8 @@ impl ::core::clone::Clone for MIPI_DSI_TRANSMISSION {
 pub struct MIPI_DSI_TRANSMISSION_0 {
     pub _bitfield: u16,
 }
-impl ::core::marker::Copy for MIPI_DSI_TRANSMISSION_0 {}
-impl ::core::clone::Clone for MIPI_DSI_TRANSMISSION_0 {
+impl Copy for MIPI_DSI_TRANSMISSION_0 {}
+impl Clone for MIPI_DSI_TRANSMISSION_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3147,8 +3147,8 @@ pub struct OUTPUT_WIRE_FORMAT {
     pub ColorEncoding: OUTPUT_COLOR_ENCODING,
     pub BitsPerPixel: u32,
 }
-impl ::core::marker::Copy for OUTPUT_WIRE_FORMAT {}
-impl ::core::clone::Clone for OUTPUT_WIRE_FORMAT {
+impl Copy for OUTPUT_WIRE_FORMAT {}
+impl Clone for OUTPUT_WIRE_FORMAT {
     fn clone(&self) -> Self {
         *self
     }
@@ -3157,8 +3157,8 @@ impl ::core::clone::Clone for OUTPUT_WIRE_FORMAT {
 pub struct PALOBJ {
     pub ulReserved: u32,
 }
-impl ::core::marker::Copy for PALOBJ {}
-impl ::core::clone::Clone for PALOBJ {
+impl Copy for PALOBJ {}
+impl Clone for PALOBJ {
     fn clone(&self) -> Self {
         *self
     }
@@ -3170,8 +3170,8 @@ pub struct PANEL_BRIGHTNESS_SENSOR_DATA {
     pub ChromaticityCoordinate: CHROMATICITY_COORDINATE,
     pub ColorTemperature: f32,
 }
-impl ::core::marker::Copy for PANEL_BRIGHTNESS_SENSOR_DATA {}
-impl ::core::clone::Clone for PANEL_BRIGHTNESS_SENSOR_DATA {
+impl Copy for PANEL_BRIGHTNESS_SENSOR_DATA {}
+impl Clone for PANEL_BRIGHTNESS_SENSOR_DATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -3181,8 +3181,8 @@ pub union PANEL_BRIGHTNESS_SENSOR_DATA_0 {
     pub Anonymous: PANEL_BRIGHTNESS_SENSOR_DATA_0_0,
     pub Value: u32,
 }
-impl ::core::marker::Copy for PANEL_BRIGHTNESS_SENSOR_DATA_0 {}
-impl ::core::clone::Clone for PANEL_BRIGHTNESS_SENSOR_DATA_0 {
+impl Copy for PANEL_BRIGHTNESS_SENSOR_DATA_0 {}
+impl Clone for PANEL_BRIGHTNESS_SENSOR_DATA_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3191,8 +3191,8 @@ impl ::core::clone::Clone for PANEL_BRIGHTNESS_SENSOR_DATA_0 {
 pub struct PANEL_BRIGHTNESS_SENSOR_DATA_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for PANEL_BRIGHTNESS_SENSOR_DATA_0_0 {}
-impl ::core::clone::Clone for PANEL_BRIGHTNESS_SENSOR_DATA_0_0 {
+impl Copy for PANEL_BRIGHTNESS_SENSOR_DATA_0_0 {}
+impl Clone for PANEL_BRIGHTNESS_SENSOR_DATA_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3203,8 +3203,8 @@ pub struct PANEL_GET_BACKLIGHT_REDUCTION {
     pub BacklightEffective: u16,
     pub GammaRamp: BACKLIGHT_REDUCTION_GAMMA_RAMP,
 }
-impl ::core::marker::Copy for PANEL_GET_BACKLIGHT_REDUCTION {}
-impl ::core::clone::Clone for PANEL_GET_BACKLIGHT_REDUCTION {
+impl Copy for PANEL_GET_BACKLIGHT_REDUCTION {}
+impl Clone for PANEL_GET_BACKLIGHT_REDUCTION {
     fn clone(&self) -> Self {
         *self
     }
@@ -3214,8 +3214,8 @@ pub struct PANEL_GET_BRIGHTNESS {
     pub Version: BRIGHTNESS_INTERFACE_VERSION,
     pub Anonymous: PANEL_GET_BRIGHTNESS_0,
 }
-impl ::core::marker::Copy for PANEL_GET_BRIGHTNESS {}
-impl ::core::clone::Clone for PANEL_GET_BRIGHTNESS {
+impl Copy for PANEL_GET_BRIGHTNESS {}
+impl Clone for PANEL_GET_BRIGHTNESS {
     fn clone(&self) -> Self {
         *self
     }
@@ -3225,8 +3225,8 @@ pub union PANEL_GET_BRIGHTNESS_0 {
     pub Level: u8,
     pub Anonymous: PANEL_GET_BRIGHTNESS_0_0,
 }
-impl ::core::marker::Copy for PANEL_GET_BRIGHTNESS_0 {}
-impl ::core::clone::Clone for PANEL_GET_BRIGHTNESS_0 {
+impl Copy for PANEL_GET_BRIGHTNESS_0 {}
+impl Clone for PANEL_GET_BRIGHTNESS_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3236,8 +3236,8 @@ pub struct PANEL_GET_BRIGHTNESS_0_0 {
     pub CurrentInMillinits: u32,
     pub TargetInMillinits: u32,
 }
-impl ::core::marker::Copy for PANEL_GET_BRIGHTNESS_0_0 {}
-impl ::core::clone::Clone for PANEL_GET_BRIGHTNESS_0_0 {
+impl Copy for PANEL_GET_BRIGHTNESS_0_0 {}
+impl Clone for PANEL_GET_BRIGHTNESS_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3247,8 +3247,8 @@ pub struct PANEL_QUERY_BRIGHTNESS_CAPS {
     pub Version: BRIGHTNESS_INTERFACE_VERSION,
     pub Anonymous: PANEL_QUERY_BRIGHTNESS_CAPS_0,
 }
-impl ::core::marker::Copy for PANEL_QUERY_BRIGHTNESS_CAPS {}
-impl ::core::clone::Clone for PANEL_QUERY_BRIGHTNESS_CAPS {
+impl Copy for PANEL_QUERY_BRIGHTNESS_CAPS {}
+impl Clone for PANEL_QUERY_BRIGHTNESS_CAPS {
     fn clone(&self) -> Self {
         *self
     }
@@ -3258,8 +3258,8 @@ pub union PANEL_QUERY_BRIGHTNESS_CAPS_0 {
     pub Anonymous: PANEL_QUERY_BRIGHTNESS_CAPS_0_0,
     pub Value: u32,
 }
-impl ::core::marker::Copy for PANEL_QUERY_BRIGHTNESS_CAPS_0 {}
-impl ::core::clone::Clone for PANEL_QUERY_BRIGHTNESS_CAPS_0 {
+impl Copy for PANEL_QUERY_BRIGHTNESS_CAPS_0 {}
+impl Clone for PANEL_QUERY_BRIGHTNESS_CAPS_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3268,8 +3268,8 @@ impl ::core::clone::Clone for PANEL_QUERY_BRIGHTNESS_CAPS_0 {
 pub struct PANEL_QUERY_BRIGHTNESS_CAPS_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for PANEL_QUERY_BRIGHTNESS_CAPS_0_0 {}
-impl ::core::clone::Clone for PANEL_QUERY_BRIGHTNESS_CAPS_0_0 {
+impl Copy for PANEL_QUERY_BRIGHTNESS_CAPS_0_0 {}
+impl Clone for PANEL_QUERY_BRIGHTNESS_CAPS_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3279,8 +3279,8 @@ pub struct PANEL_QUERY_BRIGHTNESS_RANGES {
     pub Version: BRIGHTNESS_INTERFACE_VERSION,
     pub Anonymous: PANEL_QUERY_BRIGHTNESS_RANGES_0,
 }
-impl ::core::marker::Copy for PANEL_QUERY_BRIGHTNESS_RANGES {}
-impl ::core::clone::Clone for PANEL_QUERY_BRIGHTNESS_RANGES {
+impl Copy for PANEL_QUERY_BRIGHTNESS_RANGES {}
+impl Clone for PANEL_QUERY_BRIGHTNESS_RANGES {
     fn clone(&self) -> Self {
         *self
     }
@@ -3290,8 +3290,8 @@ pub union PANEL_QUERY_BRIGHTNESS_RANGES_0 {
     pub BrightnessLevel: BRIGHTNESS_LEVEL,
     pub NitRanges: BRIGHTNESS_NIT_RANGES,
 }
-impl ::core::marker::Copy for PANEL_QUERY_BRIGHTNESS_RANGES_0 {}
-impl ::core::clone::Clone for PANEL_QUERY_BRIGHTNESS_RANGES_0 {
+impl Copy for PANEL_QUERY_BRIGHTNESS_RANGES_0 {}
+impl Clone for PANEL_QUERY_BRIGHTNESS_RANGES_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3300,8 +3300,8 @@ impl ::core::clone::Clone for PANEL_QUERY_BRIGHTNESS_RANGES_0 {
 pub struct PANEL_SET_BACKLIGHT_OPTIMIZATION {
     pub Level: BACKLIGHT_OPTIMIZATION_LEVEL,
 }
-impl ::core::marker::Copy for PANEL_SET_BACKLIGHT_OPTIMIZATION {}
-impl ::core::clone::Clone for PANEL_SET_BACKLIGHT_OPTIMIZATION {
+impl Copy for PANEL_SET_BACKLIGHT_OPTIMIZATION {}
+impl Clone for PANEL_SET_BACKLIGHT_OPTIMIZATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -3311,8 +3311,8 @@ pub struct PANEL_SET_BRIGHTNESS {
     pub Version: BRIGHTNESS_INTERFACE_VERSION,
     pub Anonymous: PANEL_SET_BRIGHTNESS_0,
 }
-impl ::core::marker::Copy for PANEL_SET_BRIGHTNESS {}
-impl ::core::clone::Clone for PANEL_SET_BRIGHTNESS {
+impl Copy for PANEL_SET_BRIGHTNESS {}
+impl Clone for PANEL_SET_BRIGHTNESS {
     fn clone(&self) -> Self {
         *self
     }
@@ -3322,8 +3322,8 @@ pub union PANEL_SET_BRIGHTNESS_0 {
     pub Level: u8,
     pub Anonymous: PANEL_SET_BRIGHTNESS_0_0,
 }
-impl ::core::marker::Copy for PANEL_SET_BRIGHTNESS_0 {}
-impl ::core::clone::Clone for PANEL_SET_BRIGHTNESS_0 {
+impl Copy for PANEL_SET_BRIGHTNESS_0 {}
+impl Clone for PANEL_SET_BRIGHTNESS_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3334,8 +3334,8 @@ pub struct PANEL_SET_BRIGHTNESS_0_0 {
     pub TransitionTimeInMs: u32,
     pub SensorData: PANEL_BRIGHTNESS_SENSOR_DATA,
 }
-impl ::core::marker::Copy for PANEL_SET_BRIGHTNESS_0_0 {}
-impl ::core::clone::Clone for PANEL_SET_BRIGHTNESS_0_0 {
+impl Copy for PANEL_SET_BRIGHTNESS_0_0 {}
+impl Clone for PANEL_SET_BRIGHTNESS_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3344,8 +3344,8 @@ impl ::core::clone::Clone for PANEL_SET_BRIGHTNESS_0_0 {
 pub struct PANEL_SET_BRIGHTNESS_STATE {
     pub Anonymous: PANEL_SET_BRIGHTNESS_STATE_0,
 }
-impl ::core::marker::Copy for PANEL_SET_BRIGHTNESS_STATE {}
-impl ::core::clone::Clone for PANEL_SET_BRIGHTNESS_STATE {
+impl Copy for PANEL_SET_BRIGHTNESS_STATE {}
+impl Clone for PANEL_SET_BRIGHTNESS_STATE {
     fn clone(&self) -> Self {
         *self
     }
@@ -3355,8 +3355,8 @@ pub union PANEL_SET_BRIGHTNESS_STATE_0 {
     pub Anonymous: PANEL_SET_BRIGHTNESS_STATE_0_0,
     pub Value: u32,
 }
-impl ::core::marker::Copy for PANEL_SET_BRIGHTNESS_STATE_0 {}
-impl ::core::clone::Clone for PANEL_SET_BRIGHTNESS_STATE_0 {
+impl Copy for PANEL_SET_BRIGHTNESS_STATE_0 {}
+impl Clone for PANEL_SET_BRIGHTNESS_STATE_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3365,8 +3365,8 @@ impl ::core::clone::Clone for PANEL_SET_BRIGHTNESS_STATE_0 {
 pub struct PANEL_SET_BRIGHTNESS_STATE_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for PANEL_SET_BRIGHTNESS_STATE_0_0 {}
-impl ::core::clone::Clone for PANEL_SET_BRIGHTNESS_STATE_0_0 {
+impl Copy for PANEL_SET_BRIGHTNESS_STATE_0_0 {}
+impl Clone for PANEL_SET_BRIGHTNESS_STATE_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3377,8 +3377,8 @@ pub struct PATHDATA {
     pub count: u32,
     pub pptfx: *mut POINTFIX,
 }
-impl ::core::marker::Copy for PATHDATA {}
-impl ::core::clone::Clone for PATHDATA {
+impl Copy for PATHDATA {}
+impl Clone for PATHDATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -3388,8 +3388,8 @@ pub struct PATHOBJ {
     pub fl: u32,
     pub cCurves: u32,
 }
-impl ::core::marker::Copy for PATHOBJ {}
-impl ::core::clone::Clone for PATHOBJ {
+impl Copy for PATHOBJ {}
+impl Clone for PATHOBJ {
     fn clone(&self) -> Self {
         *self
     }
@@ -3401,8 +3401,8 @@ pub struct PERBANDINFO {
     pub ulHorzRes: u32,
     pub ulVertRes: u32,
 }
-impl ::core::marker::Copy for PERBANDINFO {}
-impl ::core::clone::Clone for PERBANDINFO {
+impl Copy for PERBANDINFO {}
+impl Clone for PERBANDINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -3412,8 +3412,8 @@ pub struct PHYSICAL_MONITOR {
     pub hPhysicalMonitor: super::super::Foundation::HANDLE,
     pub szPhysicalMonitorDescription: [u16; 128],
 }
-impl ::core::marker::Copy for PHYSICAL_MONITOR {}
-impl ::core::clone::Clone for PHYSICAL_MONITOR {
+impl Copy for PHYSICAL_MONITOR {}
+impl Clone for PHYSICAL_MONITOR {
     fn clone(&self) -> Self {
         *self
     }
@@ -3425,9 +3425,9 @@ pub struct POINTE {
     pub y: f32,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::marker::Copy for POINTE {}
+impl Copy for POINTE {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::clone::Clone for POINTE {
+impl Clone for POINTE {
     fn clone(&self) -> Self {
         *self
     }
@@ -3439,9 +3439,9 @@ pub struct POINTE {
     pub y: u32,
 }
 #[cfg(target_arch = "x86")]
-impl ::core::marker::Copy for POINTE {}
+impl Copy for POINTE {}
 #[cfg(target_arch = "x86")]
-impl ::core::clone::Clone for POINTE {
+impl Clone for POINTE {
     fn clone(&self) -> Self {
         *self
     }
@@ -3451,8 +3451,8 @@ pub struct POINTFIX {
     pub x: i32,
     pub y: i32,
 }
-impl ::core::marker::Copy for POINTFIX {}
-impl ::core::clone::Clone for POINTFIX {
+impl Copy for POINTFIX {}
+impl Clone for POINTFIX {
     fn clone(&self) -> Self {
         *self
     }
@@ -3462,8 +3462,8 @@ pub struct POINTQF {
     pub x: i64,
     pub y: i64,
 }
-impl ::core::marker::Copy for POINTQF {}
-impl ::core::clone::Clone for POINTQF {
+impl Copy for POINTQF {}
+impl Clone for POINTQF {
     fn clone(&self) -> Self {
         *self
     }
@@ -3475,8 +3475,8 @@ pub struct RECTFX {
     pub xRight: i32,
     pub yBottom: i32,
 }
-impl ::core::marker::Copy for RECTFX {}
-impl ::core::clone::Clone for RECTFX {
+impl Copy for RECTFX {}
+impl Clone for RECTFX {
     fn clone(&self) -> Self {
         *self
     }
@@ -3486,8 +3486,8 @@ pub struct RUN {
     pub iStart: i32,
     pub iStop: i32,
 }
-impl ::core::marker::Copy for RUN {}
-impl ::core::clone::Clone for RUN {
+impl Copy for RUN {}
+impl Clone for RUN {
     fn clone(&self) -> Self {
         *self
     }
@@ -3496,8 +3496,8 @@ impl ::core::clone::Clone for RUN {
 pub struct SET_ACTIVE_COLOR_PROFILE_NAME {
     pub ColorProfileName: [u16; 1],
 }
-impl ::core::marker::Copy for SET_ACTIVE_COLOR_PROFILE_NAME {}
-impl ::core::clone::Clone for SET_ACTIVE_COLOR_PROFILE_NAME {
+impl Copy for SET_ACTIVE_COLOR_PROFILE_NAME {}
+impl Clone for SET_ACTIVE_COLOR_PROFILE_NAME {
     fn clone(&self) -> Self {
         *self
     }
@@ -3509,10 +3509,10 @@ pub struct STROBJ {
     pub ulCharInc: u32,
     pub rclBkGround: super::super::Foundation::RECTL,
     pub pgp: *mut GLYPHPOS,
-    pub pwszOrg: ::windows_sys::core::PWSTR,
+    pub pwszOrg: windows_sys::core::PWSTR,
 }
-impl ::core::marker::Copy for STROBJ {}
-impl ::core::clone::Clone for STROBJ {
+impl Copy for STROBJ {}
+impl Clone for STROBJ {
     fn clone(&self) -> Self {
         *self
     }
@@ -3525,16 +3525,16 @@ pub struct SURFOBJ {
     pub hdev: HDEV,
     pub sizlBitmap: super::super::Foundation::SIZE,
     pub cjBits: u32,
-    pub pvBits: *mut ::core::ffi::c_void,
-    pub pvScan0: *mut ::core::ffi::c_void,
+    pub pvBits: *mut core::ffi::c_void,
+    pub pvScan0: *mut core::ffi::c_void,
     pub lDelta: i32,
     pub iUniq: u32,
     pub iBitmapFormat: u32,
     pub iType: u16,
     pub fjBitmap: u16,
 }
-impl ::core::marker::Copy for SURFOBJ {}
-impl ::core::clone::Clone for SURFOBJ {
+impl Copy for SURFOBJ {}
+impl Clone for SURFOBJ {
     fn clone(&self) -> Self {
         *self
     }
@@ -3545,8 +3545,8 @@ pub struct Sources {
     pub numTargets: i32,
     pub aTargets: [u32; 1],
 }
-impl ::core::marker::Copy for Sources {}
-impl ::core::clone::Clone for Sources {
+impl Copy for Sources {}
+impl Clone for Sources {
     fn clone(&self) -> Self {
         *self
     }
@@ -3557,8 +3557,8 @@ pub struct TYPE1_FONT {
     pub hPFB: super::super::Foundation::HANDLE,
     pub ulIdentifier: u32,
 }
-impl ::core::marker::Copy for TYPE1_FONT {}
-impl ::core::clone::Clone for TYPE1_FONT {
+impl Copy for TYPE1_FONT {}
+impl Clone for TYPE1_FONT {
     fn clone(&self) -> Self {
         *self
     }
@@ -3568,15 +3568,15 @@ pub struct VGA_CHAR {
     pub Char: i8,
     pub Attributes: i8,
 }
-impl ::core::marker::Copy for VGA_CHAR {}
-impl ::core::clone::Clone for VGA_CHAR {
+impl Copy for VGA_CHAR {}
+impl Clone for VGA_CHAR {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct VIDEOPARAMETERS {
-    pub Guid: ::windows_sys::core::GUID,
+    pub Guid: windows_sys::core::GUID,
     pub dwOffset: u32,
     pub dwCommand: u32,
     pub dwFlags: u32,
@@ -3600,8 +3600,8 @@ pub struct VIDEOPARAMETERS {
     pub bCP_APSTriggerBits: u32,
     pub bOEMCopyProtection: [u8; 256],
 }
-impl ::core::marker::Copy for VIDEOPARAMETERS {}
-impl ::core::clone::Clone for VIDEOPARAMETERS {
+impl Copy for VIDEOPARAMETERS {}
+impl Clone for VIDEOPARAMETERS {
     fn clone(&self) -> Self {
         *self
     }
@@ -3622,8 +3622,8 @@ pub struct VIDEO_BANK_SELECT {
     pub PlanarHCEnableCodeOffset: u32,
     pub PlanarHCDisableCodeOffset: u32,
 }
-impl ::core::marker::Copy for VIDEO_BANK_SELECT {}
-impl ::core::clone::Clone for VIDEO_BANK_SELECT {
+impl Copy for VIDEO_BANK_SELECT {}
+impl Clone for VIDEO_BANK_SELECT {
     fn clone(&self) -> Self {
         *self
     }
@@ -3634,8 +3634,8 @@ pub struct VIDEO_BRIGHTNESS_POLICY {
     pub LevelCount: u8,
     pub Level: [VIDEO_BRIGHTNESS_POLICY_0; 1],
 }
-impl ::core::marker::Copy for VIDEO_BRIGHTNESS_POLICY {}
-impl ::core::clone::Clone for VIDEO_BRIGHTNESS_POLICY {
+impl Copy for VIDEO_BRIGHTNESS_POLICY {}
+impl Clone for VIDEO_BRIGHTNESS_POLICY {
     fn clone(&self) -> Self {
         *self
     }
@@ -3645,8 +3645,8 @@ pub struct VIDEO_BRIGHTNESS_POLICY_0 {
     pub BatteryLevel: u8,
     pub Brightness: u8,
 }
-impl ::core::marker::Copy for VIDEO_BRIGHTNESS_POLICY_0 {}
-impl ::core::clone::Clone for VIDEO_BRIGHTNESS_POLICY_0 {
+impl Copy for VIDEO_BRIGHTNESS_POLICY_0 {}
+impl Clone for VIDEO_BRIGHTNESS_POLICY_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3657,8 +3657,8 @@ pub struct VIDEO_CLUT {
     pub FirstEntry: u16,
     pub LookupTable: [VIDEO_CLUT_0; 1],
 }
-impl ::core::marker::Copy for VIDEO_CLUT {}
-impl ::core::clone::Clone for VIDEO_CLUT {
+impl Copy for VIDEO_CLUT {}
+impl Clone for VIDEO_CLUT {
     fn clone(&self) -> Self {
         *self
     }
@@ -3668,8 +3668,8 @@ pub union VIDEO_CLUT_0 {
     pub RgbArray: VIDEO_CLUTDATA,
     pub RgbLong: u32,
 }
-impl ::core::marker::Copy for VIDEO_CLUT_0 {}
-impl ::core::clone::Clone for VIDEO_CLUT_0 {
+impl Copy for VIDEO_CLUT_0 {}
+impl Clone for VIDEO_CLUT_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3681,8 +3681,8 @@ pub struct VIDEO_CLUTDATA {
     pub Blue: u8,
     pub Unused: u8,
 }
-impl ::core::marker::Copy for VIDEO_CLUTDATA {}
-impl ::core::clone::Clone for VIDEO_CLUTDATA {
+impl Copy for VIDEO_CLUTDATA {}
+impl Clone for VIDEO_CLUTDATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -3708,8 +3708,8 @@ pub struct VIDEO_COLOR_CAPABILITIES {
     pub GreenGamma: i32,
     pub BlueGamma: i32,
 }
-impl ::core::marker::Copy for VIDEO_COLOR_CAPABILITIES {}
-impl ::core::clone::Clone for VIDEO_COLOR_CAPABILITIES {
+impl Copy for VIDEO_COLOR_CAPABILITIES {}
+impl Clone for VIDEO_COLOR_CAPABILITIES {
     fn clone(&self) -> Self {
         *self
     }
@@ -3720,8 +3720,8 @@ pub struct VIDEO_COLOR_LUT_DATA {
     pub LutDataFormat: u32,
     pub LutData: [u8; 1],
 }
-impl ::core::marker::Copy for VIDEO_COLOR_LUT_DATA {}
-impl ::core::clone::Clone for VIDEO_COLOR_LUT_DATA {
+impl Copy for VIDEO_COLOR_LUT_DATA {}
+impl Clone for VIDEO_COLOR_LUT_DATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -3735,8 +3735,8 @@ pub struct VIDEO_CURSOR_ATTRIBUTES {
     pub Rate: u8,
     pub Enable: u8,
 }
-impl ::core::marker::Copy for VIDEO_CURSOR_ATTRIBUTES {}
-impl ::core::clone::Clone for VIDEO_CURSOR_ATTRIBUTES {
+impl Copy for VIDEO_CURSOR_ATTRIBUTES {}
+impl Clone for VIDEO_CURSOR_ATTRIBUTES {
     fn clone(&self) -> Self {
         *self
     }
@@ -3746,8 +3746,8 @@ pub struct VIDEO_CURSOR_POSITION {
     pub Column: i16,
     pub Row: i16,
 }
-impl ::core::marker::Copy for VIDEO_CURSOR_POSITION {}
-impl ::core::clone::Clone for VIDEO_CURSOR_POSITION {
+impl Copy for VIDEO_CURSOR_POSITION {}
+impl Clone for VIDEO_CURSOR_POSITION {
     fn clone(&self) -> Self {
         *self
     }
@@ -3757,8 +3757,8 @@ pub struct VIDEO_DEVICE_SESSION_STATUS {
     pub bEnable: u32,
     pub bSuccess: u32,
 }
-impl ::core::marker::Copy for VIDEO_DEVICE_SESSION_STATUS {}
-impl ::core::clone::Clone for VIDEO_DEVICE_SESSION_STATUS {
+impl Copy for VIDEO_DEVICE_SESSION_STATUS {}
+impl Clone for VIDEO_DEVICE_SESSION_STATUS {
     fn clone(&self) -> Self {
         *self
     }
@@ -3768,8 +3768,8 @@ pub struct VIDEO_HARDWARE_STATE {
     pub StateHeader: *mut VIDEO_HARDWARE_STATE_HEADER,
     pub StateLength: u32,
 }
-impl ::core::marker::Copy for VIDEO_HARDWARE_STATE {}
-impl ::core::clone::Clone for VIDEO_HARDWARE_STATE {
+impl Copy for VIDEO_HARDWARE_STATE {}
+impl Clone for VIDEO_HARDWARE_STATE {
     fn clone(&self) -> Self {
         *self
     }
@@ -3805,10 +3805,10 @@ pub struct VIDEO_HARDWARE_STATE_HEADER {
     pub DIBXlatOffset: u32,
     pub DIBXlatLength: u32,
     pub VesaInfoOffset: u32,
-    pub FrameBufferData: *mut ::core::ffi::c_void,
+    pub FrameBufferData: *mut core::ffi::c_void,
 }
-impl ::core::marker::Copy for VIDEO_HARDWARE_STATE_HEADER {}
-impl ::core::clone::Clone for VIDEO_HARDWARE_STATE_HEADER {
+impl Copy for VIDEO_HARDWARE_STATE_HEADER {}
+impl Clone for VIDEO_HARDWARE_STATE_HEADER {
     fn clone(&self) -> Self {
         *self
     }
@@ -3820,8 +3820,8 @@ pub struct VIDEO_LOAD_FONT_INFORMATION {
     pub FontSize: u32,
     pub Font: [u8; 1],
 }
-impl ::core::marker::Copy for VIDEO_LOAD_FONT_INFORMATION {}
-impl ::core::clone::Clone for VIDEO_LOAD_FONT_INFORMATION {
+impl Copy for VIDEO_LOAD_FONT_INFORMATION {}
+impl Clone for VIDEO_LOAD_FONT_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -3832,31 +3832,31 @@ pub struct VIDEO_LUT_RGB256WORDS {
     pub Green: [u16; 256],
     pub Blue: [u16; 256],
 }
-impl ::core::marker::Copy for VIDEO_LUT_RGB256WORDS {}
-impl ::core::clone::Clone for VIDEO_LUT_RGB256WORDS {
+impl Copy for VIDEO_LUT_RGB256WORDS {}
+impl Clone for VIDEO_LUT_RGB256WORDS {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct VIDEO_MEMORY {
-    pub RequestedVirtualAddress: *mut ::core::ffi::c_void,
+    pub RequestedVirtualAddress: *mut core::ffi::c_void,
 }
-impl ::core::marker::Copy for VIDEO_MEMORY {}
-impl ::core::clone::Clone for VIDEO_MEMORY {
+impl Copy for VIDEO_MEMORY {}
+impl Clone for VIDEO_MEMORY {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct VIDEO_MEMORY_INFORMATION {
-    pub VideoRamBase: *mut ::core::ffi::c_void,
+    pub VideoRamBase: *mut core::ffi::c_void,
     pub VideoRamLength: u32,
-    pub FrameBufferBase: *mut ::core::ffi::c_void,
+    pub FrameBufferBase: *mut core::ffi::c_void,
     pub FrameBufferLength: u32,
 }
-impl ::core::marker::Copy for VIDEO_MEMORY_INFORMATION {}
-impl ::core::clone::Clone for VIDEO_MEMORY_INFORMATION {
+impl Copy for VIDEO_MEMORY_INFORMATION {}
+impl Clone for VIDEO_MEMORY_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -3865,8 +3865,8 @@ impl ::core::clone::Clone for VIDEO_MEMORY_INFORMATION {
 pub struct VIDEO_MODE {
     pub RequestedMode: u32,
 }
-impl ::core::marker::Copy for VIDEO_MODE {}
-impl ::core::clone::Clone for VIDEO_MODE {
+impl Copy for VIDEO_MODE {}
+impl Clone for VIDEO_MODE {
     fn clone(&self) -> Self {
         *self
     }
@@ -3894,8 +3894,8 @@ pub struct VIDEO_MODE_INFORMATION {
     pub VideoMemoryBitmapHeight: u32,
     pub DriverSpecificAttributeFlags: u32,
 }
-impl ::core::marker::Copy for VIDEO_MODE_INFORMATION {}
-impl ::core::clone::Clone for VIDEO_MODE_INFORMATION {
+impl Copy for VIDEO_MODE_INFORMATION {}
+impl Clone for VIDEO_MODE_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -3905,8 +3905,8 @@ pub struct VIDEO_MONITOR_DESCRIPTOR {
     pub DescriptorSize: u32,
     pub Descriptor: [u8; 1],
 }
-impl ::core::marker::Copy for VIDEO_MONITOR_DESCRIPTOR {}
-impl ::core::clone::Clone for VIDEO_MONITOR_DESCRIPTOR {
+impl Copy for VIDEO_MONITOR_DESCRIPTOR {}
+impl Clone for VIDEO_MONITOR_DESCRIPTOR {
     fn clone(&self) -> Self {
         *self
     }
@@ -3916,8 +3916,8 @@ pub struct VIDEO_NUM_MODES {
     pub NumModes: u32,
     pub ModeInformationLength: u32,
 }
-impl ::core::marker::Copy for VIDEO_NUM_MODES {}
-impl ::core::clone::Clone for VIDEO_NUM_MODES {
+impl Copy for VIDEO_NUM_MODES {}
+impl Clone for VIDEO_NUM_MODES {
     fn clone(&self) -> Self {
         *self
     }
@@ -3928,8 +3928,8 @@ pub struct VIDEO_PALETTE_DATA {
     pub FirstEntry: u16,
     pub Colors: [u16; 1],
 }
-impl ::core::marker::Copy for VIDEO_PALETTE_DATA {}
-impl ::core::clone::Clone for VIDEO_PALETTE_DATA {
+impl Copy for VIDEO_PALETTE_DATA {}
+impl Clone for VIDEO_PALETTE_DATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -3958,8 +3958,8 @@ pub struct VIDEO_PERFORMANCE_COUNTER {
     pub NbOfRotateOut: u64,
     pub KBytesRotateOut: u64,
 }
-impl ::core::marker::Copy for VIDEO_PERFORMANCE_COUNTER {}
-impl ::core::clone::Clone for VIDEO_PERFORMANCE_COUNTER {
+impl Copy for VIDEO_PERFORMANCE_COUNTER {}
+impl Clone for VIDEO_PERFORMANCE_COUNTER {
     fn clone(&self) -> Self {
         *self
     }
@@ -3975,8 +3975,8 @@ pub struct VIDEO_POINTER_ATTRIBUTES {
     pub Row: i16,
     pub Pixels: [u8; 1],
 }
-impl ::core::marker::Copy for VIDEO_POINTER_ATTRIBUTES {}
-impl ::core::clone::Clone for VIDEO_POINTER_ATTRIBUTES {
+impl Copy for VIDEO_POINTER_ATTRIBUTES {}
+impl Clone for VIDEO_POINTER_ATTRIBUTES {
     fn clone(&self) -> Self {
         *self
     }
@@ -3989,8 +3989,8 @@ pub struct VIDEO_POINTER_CAPABILITIES {
     pub HWPtrBitmapStart: u32,
     pub HWPtrBitmapEnd: u32,
 }
-impl ::core::marker::Copy for VIDEO_POINTER_CAPABILITIES {}
-impl ::core::clone::Clone for VIDEO_POINTER_CAPABILITIES {
+impl Copy for VIDEO_POINTER_CAPABILITIES {}
+impl Clone for VIDEO_POINTER_CAPABILITIES {
     fn clone(&self) -> Self {
         *self
     }
@@ -4000,8 +4000,8 @@ pub struct VIDEO_POINTER_POSITION {
     pub Column: i16,
     pub Row: i16,
 }
-impl ::core::marker::Copy for VIDEO_POINTER_POSITION {}
-impl ::core::clone::Clone for VIDEO_POINTER_POSITION {
+impl Copy for VIDEO_POINTER_POSITION {}
+impl Clone for VIDEO_POINTER_POSITION {
     fn clone(&self) -> Self {
         *self
     }
@@ -4012,8 +4012,8 @@ pub struct VIDEO_POWER_MANAGEMENT {
     pub DPMSVersion: u32,
     pub PowerState: u32,
 }
-impl ::core::marker::Copy for VIDEO_POWER_MANAGEMENT {}
-impl ::core::clone::Clone for VIDEO_POWER_MANAGEMENT {
+impl Copy for VIDEO_POWER_MANAGEMENT {}
+impl Clone for VIDEO_POWER_MANAGEMENT {
     fn clone(&self) -> Self {
         *self
     }
@@ -4022,10 +4022,10 @@ impl ::core::clone::Clone for VIDEO_POWER_MANAGEMENT {
 pub struct VIDEO_PUBLIC_ACCESS_RANGES {
     pub InIoSpace: u32,
     pub MappedInIoSpace: u32,
-    pub VirtualAddress: *mut ::core::ffi::c_void,
+    pub VirtualAddress: *mut core::ffi::c_void,
 }
-impl ::core::marker::Copy for VIDEO_PUBLIC_ACCESS_RANGES {}
-impl ::core::clone::Clone for VIDEO_PUBLIC_ACCESS_RANGES {
+impl Copy for VIDEO_PUBLIC_ACCESS_RANGES {}
+impl Clone for VIDEO_PUBLIC_ACCESS_RANGES {
     fn clone(&self) -> Self {
         *self
     }
@@ -4035,8 +4035,8 @@ pub struct VIDEO_QUERY_PERFORMANCE_COUNTER {
     pub BufferSize: u32,
     pub Buffer: *mut VIDEO_PERFORMANCE_COUNTER,
 }
-impl ::core::marker::Copy for VIDEO_QUERY_PERFORMANCE_COUNTER {}
-impl ::core::clone::Clone for VIDEO_QUERY_PERFORMANCE_COUNTER {
+impl Copy for VIDEO_QUERY_PERFORMANCE_COUNTER {}
+impl Clone for VIDEO_QUERY_PERFORMANCE_COUNTER {
     fn clone(&self) -> Self {
         *self
     }
@@ -4045,8 +4045,8 @@ impl ::core::clone::Clone for VIDEO_QUERY_PERFORMANCE_COUNTER {
 pub struct VIDEO_REGISTER_VDM {
     pub MinimumStateSize: u32,
 }
-impl ::core::marker::Copy for VIDEO_REGISTER_VDM {}
-impl ::core::clone::Clone for VIDEO_REGISTER_VDM {
+impl Copy for VIDEO_REGISTER_VDM {}
+impl Clone for VIDEO_REGISTER_VDM {
     fn clone(&self) -> Self {
         *self
     }
@@ -4056,10 +4056,10 @@ pub struct VIDEO_SHARE_MEMORY {
     pub ProcessHandle: super::super::Foundation::HANDLE,
     pub ViewOffset: u32,
     pub ViewSize: u32,
-    pub RequestedVirtualAddress: *mut ::core::ffi::c_void,
+    pub RequestedVirtualAddress: *mut core::ffi::c_void,
 }
-impl ::core::marker::Copy for VIDEO_SHARE_MEMORY {}
-impl ::core::clone::Clone for VIDEO_SHARE_MEMORY {
+impl Copy for VIDEO_SHARE_MEMORY {}
+impl Clone for VIDEO_SHARE_MEMORY {
     fn clone(&self) -> Self {
         *self
     }
@@ -4068,10 +4068,10 @@ impl ::core::clone::Clone for VIDEO_SHARE_MEMORY {
 pub struct VIDEO_SHARE_MEMORY_INFORMATION {
     pub SharedViewOffset: u32,
     pub SharedViewSize: u32,
-    pub VirtualAddress: *mut ::core::ffi::c_void,
+    pub VirtualAddress: *mut core::ffi::c_void,
 }
-impl ::core::marker::Copy for VIDEO_SHARE_MEMORY_INFORMATION {}
-impl ::core::clone::Clone for VIDEO_SHARE_MEMORY_INFORMATION {
+impl Copy for VIDEO_SHARE_MEMORY_INFORMATION {}
+impl Clone for VIDEO_SHARE_MEMORY_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -4080,22 +4080,22 @@ impl ::core::clone::Clone for VIDEO_SHARE_MEMORY_INFORMATION {
 pub struct VIDEO_VDM {
     pub ProcessHandle: super::super::Foundation::HANDLE,
 }
-impl ::core::marker::Copy for VIDEO_VDM {}
-impl ::core::clone::Clone for VIDEO_VDM {
+impl Copy for VIDEO_VDM {}
+impl Clone for VIDEO_VDM {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct VIDEO_WIN32K_CALLBACKS {
-    pub PhysDisp: *mut ::core::ffi::c_void,
+    pub PhysDisp: *mut core::ffi::c_void,
     pub Callout: PVIDEO_WIN32K_CALLOUT,
     pub bACPI: u32,
     pub pPhysDeviceObject: super::super::Foundation::HANDLE,
     pub DualviewFlags: u32,
 }
-impl ::core::marker::Copy for VIDEO_WIN32K_CALLBACKS {}
-impl ::core::clone::Clone for VIDEO_WIN32K_CALLBACKS {
+impl Copy for VIDEO_WIN32K_CALLBACKS {}
+impl Clone for VIDEO_WIN32K_CALLBACKS {
     fn clone(&self) -> Self {
         *self
     }
@@ -4103,7 +4103,7 @@ impl ::core::clone::Clone for VIDEO_WIN32K_CALLBACKS {
 #[repr(C)]
 pub struct VIDEO_WIN32K_CALLBACKS_PARAMS {
     pub CalloutType: VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE,
-    pub PhysDisp: *mut ::core::ffi::c_void,
+    pub PhysDisp: *mut core::ffi::c_void,
     pub Param: usize,
     pub Status: i32,
     pub LockUserSession: super::super::Foundation::BOOLEAN,
@@ -4111,8 +4111,8 @@ pub struct VIDEO_WIN32K_CALLBACKS_PARAMS {
     pub SurpriseRemoval: super::super::Foundation::BOOLEAN,
     pub WaitForQueueReady: super::super::Foundation::BOOLEAN,
 }
-impl ::core::marker::Copy for VIDEO_WIN32K_CALLBACKS_PARAMS {}
-impl ::core::clone::Clone for VIDEO_WIN32K_CALLBACKS_PARAMS {
+impl Copy for VIDEO_WIN32K_CALLBACKS_PARAMS {}
+impl Clone for VIDEO_WIN32K_CALLBACKS_PARAMS {
     fn clone(&self) -> Self {
         *self
     }
@@ -4123,8 +4123,8 @@ pub struct WCRUN {
     pub cGlyphs: u16,
     pub phg: *mut u32,
 }
-impl ::core::marker::Copy for WCRUN {}
-impl ::core::clone::Clone for WCRUN {
+impl Copy for WCRUN {}
+impl Clone for WCRUN {
     fn clone(&self) -> Self {
         *self
     }
@@ -4132,12 +4132,12 @@ impl ::core::clone::Clone for WCRUN {
 #[repr(C)]
 pub struct WNDOBJ {
     pub coClient: CLIPOBJ,
-    pub pvConsumer: *mut ::core::ffi::c_void,
+    pub pvConsumer: *mut core::ffi::c_void,
     pub rclClient: super::super::Foundation::RECTL,
     pub psoOwner: *mut SURFOBJ,
 }
-impl ::core::marker::Copy for WNDOBJ {}
-impl ::core::clone::Clone for WNDOBJ {
+impl Copy for WNDOBJ {}
+impl Clone for WNDOBJ {
     fn clone(&self) -> Self {
         *self
     }
@@ -4153,9 +4153,9 @@ pub struct XFORML {
     pub eDy: f32,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::marker::Copy for XFORML {}
+impl Copy for XFORML {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::clone::Clone for XFORML {
+impl Clone for XFORML {
     fn clone(&self) -> Self {
         *self
     }
@@ -4171,9 +4171,9 @@ pub struct XFORML {
     pub eDy: u32,
 }
 #[cfg(target_arch = "x86")]
-impl ::core::marker::Copy for XFORML {}
+impl Copy for XFORML {}
 #[cfg(target_arch = "x86")]
-impl ::core::clone::Clone for XFORML {
+impl Clone for XFORML {
     fn clone(&self) -> Self {
         *self
     }
@@ -4182,8 +4182,8 @@ impl ::core::clone::Clone for XFORML {
 pub struct XFORMOBJ {
     pub ulReserved: u32,
 }
-impl ::core::marker::Copy for XFORMOBJ {}
-impl ::core::clone::Clone for XFORMOBJ {
+impl Copy for XFORMOBJ {}
+impl Clone for XFORMOBJ {
     fn clone(&self) -> Self {
         *self
     }
@@ -4197,125 +4197,125 @@ pub struct XLATEOBJ {
     pub cEntries: u32,
     pub pulXlate: *mut u32,
 }
-impl ::core::marker::Copy for XLATEOBJ {}
-impl ::core::clone::Clone for XLATEOBJ {
+impl Copy for XLATEOBJ {}
+impl Clone for XLATEOBJ {
     fn clone(&self) -> Self {
         *self
     }
 }
-pub type FREEOBJPROC = ::core::option::Option<unsafe extern "system" fn(pdriverobj: *mut DRIVEROBJ) -> super::super::Foundation::BOOL>;
-pub type PFN = ::core::option::Option<unsafe extern "system" fn() -> isize>;
-pub type PFN_DrvAccumulateD3DDirtyRect = ::core::option::Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut CDDDXGK_REDIRBITMAPPRESENTINFO) -> super::super::Foundation::BOOL>;
+pub type FREEOBJPROC = Option<unsafe extern "system" fn(pdriverobj: *mut DRIVEROBJ) -> super::super::Foundation::BOOL>;
+pub type PFN = Option<unsafe extern "system" fn() -> isize>;
+pub type PFN_DrvAccumulateD3DDirtyRect = Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut CDDDXGK_REDIRBITMAPPRESENTINFO) -> super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Graphics_Gdi")]
-pub type PFN_DrvAlphaBlend = ::core::option::Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut SURFOBJ, param2: *mut CLIPOBJ, param3: *mut XLATEOBJ, param4: *mut super::super::Foundation::RECTL, param5: *mut super::super::Foundation::RECTL, param6: *mut BLENDOBJ) -> super::super::Foundation::BOOL>;
-pub type PFN_DrvAssertMode = ::core::option::Option<unsafe extern "system" fn(param0: DHPDEV, param1: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL>;
-pub type PFN_DrvAssociateSharedSurface = ::core::option::Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: super::super::Foundation::HANDLE, param2: super::super::Foundation::HANDLE, param3: super::super::Foundation::SIZE) -> super::super::Foundation::BOOL>;
-pub type PFN_DrvBitBlt = ::core::option::Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut SURFOBJ, param2: *mut SURFOBJ, param3: *mut CLIPOBJ, param4: *mut XLATEOBJ, param5: *mut super::super::Foundation::RECTL, param6: *mut super::super::Foundation::POINTL, param7: *mut super::super::Foundation::POINTL, param8: *mut BRUSHOBJ, param9: *mut super::super::Foundation::POINTL, param10: u32) -> super::super::Foundation::BOOL>;
-pub type PFN_DrvCompletePDEV = ::core::option::Option<unsafe extern "system" fn(param0: DHPDEV, param1: HDEV)>;
-pub type PFN_DrvCopyBits = ::core::option::Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut SURFOBJ, param2: *mut CLIPOBJ, param3: *mut XLATEOBJ, param4: *mut super::super::Foundation::RECTL, param5: *mut super::super::Foundation::POINTL) -> super::super::Foundation::BOOL>;
+pub type PFN_DrvAlphaBlend = Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut SURFOBJ, param2: *mut CLIPOBJ, param3: *mut XLATEOBJ, param4: *mut super::super::Foundation::RECTL, param5: *mut super::super::Foundation::RECTL, param6: *mut BLENDOBJ) -> super::super::Foundation::BOOL>;
+pub type PFN_DrvAssertMode = Option<unsafe extern "system" fn(param0: DHPDEV, param1: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL>;
+pub type PFN_DrvAssociateSharedSurface = Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: super::super::Foundation::HANDLE, param2: super::super::Foundation::HANDLE, param3: super::super::Foundation::SIZE) -> super::super::Foundation::BOOL>;
+pub type PFN_DrvBitBlt = Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut SURFOBJ, param2: *mut SURFOBJ, param3: *mut CLIPOBJ, param4: *mut XLATEOBJ, param5: *mut super::super::Foundation::RECTL, param6: *mut super::super::Foundation::POINTL, param7: *mut super::super::Foundation::POINTL, param8: *mut BRUSHOBJ, param9: *mut super::super::Foundation::POINTL, param10: u32) -> super::super::Foundation::BOOL>;
+pub type PFN_DrvCompletePDEV = Option<unsafe extern "system" fn(param0: DHPDEV, param1: HDEV)>;
+pub type PFN_DrvCopyBits = Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut SURFOBJ, param2: *mut CLIPOBJ, param3: *mut XLATEOBJ, param4: *mut super::super::Foundation::RECTL, param5: *mut super::super::Foundation::POINTL) -> super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Graphics_Gdi")]
-pub type PFN_DrvCreateDeviceBitmap = ::core::option::Option<unsafe extern "system" fn(param0: DHPDEV, param1: super::super::Foundation::SIZE, param2: u32) -> super::super::Graphics::Gdi::HBITMAP>;
+pub type PFN_DrvCreateDeviceBitmap = Option<unsafe extern "system" fn(param0: DHPDEV, param1: super::super::Foundation::SIZE, param2: u32) -> super::super::Graphics::Gdi::HBITMAP>;
 #[cfg(feature = "Win32_Graphics_Gdi")]
-pub type PFN_DrvCreateDeviceBitmapEx = ::core::option::Option<unsafe extern "system" fn(param0: DHPDEV, param1: super::super::Foundation::SIZE, param2: u32, param3: u32, param4: DHSURF, param5: u32, param6: u32, param7: *mut super::super::Foundation::HANDLE) -> super::super::Graphics::Gdi::HBITMAP>;
-pub type PFN_DrvDeleteDeviceBitmap = ::core::option::Option<unsafe extern "system" fn(param0: DHSURF)>;
-pub type PFN_DrvDeleteDeviceBitmapEx = ::core::option::Option<unsafe extern "system" fn(param0: DHSURF)>;
+pub type PFN_DrvCreateDeviceBitmapEx = Option<unsafe extern "system" fn(param0: DHPDEV, param1: super::super::Foundation::SIZE, param2: u32, param3: u32, param4: DHSURF, param5: u32, param6: u32, param7: *mut super::super::Foundation::HANDLE) -> super::super::Graphics::Gdi::HBITMAP>;
+pub type PFN_DrvDeleteDeviceBitmap = Option<unsafe extern "system" fn(param0: DHSURF)>;
+pub type PFN_DrvDeleteDeviceBitmapEx = Option<unsafe extern "system" fn(param0: DHSURF)>;
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-pub type PFN_DrvDeriveSurface = ::core::option::Option<unsafe extern "system" fn(param0: *mut super::super::Graphics::DirectDraw::DD_DIRECTDRAW_GLOBAL, param1: *mut super::super::Graphics::DirectDraw::DD_SURFACE_LOCAL) -> super::super::Graphics::Gdi::HBITMAP>;
+pub type PFN_DrvDeriveSurface = Option<unsafe extern "system" fn(param0: *mut super::super::Graphics::DirectDraw::DD_DIRECTDRAW_GLOBAL, param1: *mut super::super::Graphics::DirectDraw::DD_SURFACE_LOCAL) -> super::super::Graphics::Gdi::HBITMAP>;
 #[cfg(feature = "Win32_Graphics_OpenGL")]
-pub type PFN_DrvDescribePixelFormat = ::core::option::Option<unsafe extern "system" fn(param0: DHPDEV, param1: i32, param2: u32, param3: *mut super::super::Graphics::OpenGL::PIXELFORMATDESCRIPTOR) -> i32>;
-pub type PFN_DrvDestroyFont = ::core::option::Option<unsafe extern "system" fn(param0: *mut FONTOBJ)>;
-pub type PFN_DrvDisableDirectDraw = ::core::option::Option<unsafe extern "system" fn(param0: DHPDEV)>;
-pub type PFN_DrvDisableDriver = ::core::option::Option<unsafe extern "system" fn()>;
-pub type PFN_DrvDisablePDEV = ::core::option::Option<unsafe extern "system" fn(param0: DHPDEV)>;
-pub type PFN_DrvDisableSurface = ::core::option::Option<unsafe extern "system" fn(param0: DHPDEV)>;
-pub type PFN_DrvDitherColor = ::core::option::Option<unsafe extern "system" fn(param0: DHPDEV, param1: u32, param2: u32, param3: *mut u32) -> u32>;
-pub type PFN_DrvDrawEscape = ::core::option::Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: u32, param2: *mut CLIPOBJ, param3: *mut super::super::Foundation::RECTL, param4: u32, param5: *mut ::core::ffi::c_void) -> u32>;
+pub type PFN_DrvDescribePixelFormat = Option<unsafe extern "system" fn(param0: DHPDEV, param1: i32, param2: u32, param3: *mut super::super::Graphics::OpenGL::PIXELFORMATDESCRIPTOR) -> i32>;
+pub type PFN_DrvDestroyFont = Option<unsafe extern "system" fn(param0: *mut FONTOBJ)>;
+pub type PFN_DrvDisableDirectDraw = Option<unsafe extern "system" fn(param0: DHPDEV)>;
+pub type PFN_DrvDisableDriver = Option<unsafe extern "system" fn()>;
+pub type PFN_DrvDisablePDEV = Option<unsafe extern "system" fn(param0: DHPDEV)>;
+pub type PFN_DrvDisableSurface = Option<unsafe extern "system" fn(param0: DHPDEV)>;
+pub type PFN_DrvDitherColor = Option<unsafe extern "system" fn(param0: DHPDEV, param1: u32, param2: u32, param3: *mut u32) -> u32>;
+pub type PFN_DrvDrawEscape = Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: u32, param2: *mut CLIPOBJ, param3: *mut super::super::Foundation::RECTL, param4: u32, param5: *mut core::ffi::c_void) -> u32>;
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-pub type PFN_DrvEnableDirectDraw = ::core::option::Option<unsafe extern "system" fn(param0: DHPDEV, param1: *mut super::super::Graphics::DirectDraw::DD_CALLBACKS, param2: *mut super::super::Graphics::DirectDraw::DD_SURFACECALLBACKS, param3: *mut super::super::Graphics::DirectDraw::DD_PALETTECALLBACKS) -> super::super::Foundation::BOOL>;
-pub type PFN_DrvEnableDriver = ::core::option::Option<unsafe extern "system" fn(param0: u32, param1: u32, param2: *mut DRVENABLEDATA) -> super::super::Foundation::BOOL>;
+pub type PFN_DrvEnableDirectDraw = Option<unsafe extern "system" fn(param0: DHPDEV, param1: *mut super::super::Graphics::DirectDraw::DD_CALLBACKS, param2: *mut super::super::Graphics::DirectDraw::DD_SURFACECALLBACKS, param3: *mut super::super::Graphics::DirectDraw::DD_PALETTECALLBACKS) -> super::super::Foundation::BOOL>;
+pub type PFN_DrvEnableDriver = Option<unsafe extern "system" fn(param0: u32, param1: u32, param2: *mut DRVENABLEDATA) -> super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Graphics_Gdi")]
-pub type PFN_DrvEnablePDEV = ::core::option::Option<unsafe extern "system" fn(param0: *mut super::super::Graphics::Gdi::DEVMODEW, param1: ::windows_sys::core::PCWSTR, param2: u32, param3: *mut HSURF, param4: u32, param5: *mut GDIINFO, param6: u32, param7: *mut DEVINFO, param8: HDEV, param9: ::windows_sys::core::PCWSTR, param10: super::super::Foundation::HANDLE) -> DHPDEV>;
-pub type PFN_DrvEnableSurface = ::core::option::Option<unsafe extern "system" fn(param0: DHPDEV) -> HSURF>;
-pub type PFN_DrvEndDoc = ::core::option::Option<unsafe extern "system" fn(pso: *mut SURFOBJ, fl: u32) -> super::super::Foundation::BOOL>;
-pub type PFN_DrvEndDxInterop = ::core::option::Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: super::super::Foundation::BOOL, param2: *mut super::super::Foundation::BOOL, kernelmodedevicehandle: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
-pub type PFN_DrvEscape = ::core::option::Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: u32, param2: u32, param3: *mut ::core::ffi::c_void, param4: u32, param5: *mut ::core::ffi::c_void) -> u32>;
-pub type PFN_DrvFillPath = ::core::option::Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut PATHOBJ, param2: *mut CLIPOBJ, param3: *mut BRUSHOBJ, param4: *mut super::super::Foundation::POINTL, param5: u32, param6: u32) -> super::super::Foundation::BOOL>;
-pub type PFN_DrvFontManagement = ::core::option::Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut FONTOBJ, param2: u32, param3: u32, param4: *mut ::core::ffi::c_void, param5: u32, param6: *mut ::core::ffi::c_void) -> u32>;
-pub type PFN_DrvFree = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: usize)>;
+pub type PFN_DrvEnablePDEV = Option<unsafe extern "system" fn(param0: *mut super::super::Graphics::Gdi::DEVMODEW, param1: windows_sys::core::PCWSTR, param2: u32, param3: *mut HSURF, param4: u32, param5: *mut GDIINFO, param6: u32, param7: *mut DEVINFO, param8: HDEV, param9: windows_sys::core::PCWSTR, param10: super::super::Foundation::HANDLE) -> DHPDEV>;
+pub type PFN_DrvEnableSurface = Option<unsafe extern "system" fn(param0: DHPDEV) -> HSURF>;
+pub type PFN_DrvEndDoc = Option<unsafe extern "system" fn(pso: *mut SURFOBJ, fl: u32) -> super::super::Foundation::BOOL>;
+pub type PFN_DrvEndDxInterop = Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: super::super::Foundation::BOOL, param2: *mut super::super::Foundation::BOOL, kernelmodedevicehandle: *mut core::ffi::c_void) -> super::super::Foundation::BOOL>;
+pub type PFN_DrvEscape = Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: u32, param2: u32, param3: *mut core::ffi::c_void, param4: u32, param5: *mut core::ffi::c_void) -> u32>;
+pub type PFN_DrvFillPath = Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut PATHOBJ, param2: *mut CLIPOBJ, param3: *mut BRUSHOBJ, param4: *mut super::super::Foundation::POINTL, param5: u32, param6: u32) -> super::super::Foundation::BOOL>;
+pub type PFN_DrvFontManagement = Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut FONTOBJ, param2: u32, param3: u32, param4: *mut core::ffi::c_void, param5: u32, param6: *mut core::ffi::c_void) -> u32>;
+pub type PFN_DrvFree = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void, param1: usize)>;
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
-pub type PFN_DrvGetDirectDrawInfo = ::core::option::Option<unsafe extern "system" fn(param0: DHPDEV, param1: *mut super::super::Graphics::DirectDraw::DD_HALINFO, param2: *mut u32, param3: *mut super::super::Graphics::DirectDraw::VIDEOMEMORY, param4: *mut u32, param5: *mut u32) -> super::super::Foundation::BOOL>;
-pub type PFN_DrvGetGlyphMode = ::core::option::Option<unsafe extern "system" fn(dhpdev: DHPDEV, pfo: *mut FONTOBJ) -> u32>;
+pub type PFN_DrvGetDirectDrawInfo = Option<unsafe extern "system" fn(param0: DHPDEV, param1: *mut super::super::Graphics::DirectDraw::DD_HALINFO, param2: *mut u32, param3: *mut super::super::Graphics::DirectDraw::VIDEOMEMORY, param4: *mut u32, param5: *mut u32) -> super::super::Foundation::BOOL>;
+pub type PFN_DrvGetGlyphMode = Option<unsafe extern "system" fn(dhpdev: DHPDEV, pfo: *mut FONTOBJ) -> u32>;
 #[cfg(feature = "Win32_Graphics_Gdi")]
-pub type PFN_DrvGetModes = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: u32, param2: *mut super::super::Graphics::Gdi::DEVMODEW) -> u32>;
-pub type PFN_DrvGetTrueTypeFile = ::core::option::Option<unsafe extern "system" fn(param0: usize, param1: *mut u32) -> *mut ::core::ffi::c_void>;
+pub type PFN_DrvGetModes = Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: u32, param2: *mut super::super::Graphics::Gdi::DEVMODEW) -> u32>;
+pub type PFN_DrvGetTrueTypeFile = Option<unsafe extern "system" fn(param0: usize, param1: *mut u32) -> *mut core::ffi::c_void>;
 #[cfg(feature = "Win32_Graphics_Gdi")]
-pub type PFN_DrvGradientFill = ::core::option::Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut CLIPOBJ, param2: *mut XLATEOBJ, param3: *mut super::super::Graphics::Gdi::TRIVERTEX, param4: u32, param5: *mut ::core::ffi::c_void, param6: u32, param7: *mut super::super::Foundation::RECTL, param8: *mut super::super::Foundation::POINTL, param9: u32) -> super::super::Foundation::BOOL>;
-pub type PFN_DrvIcmCheckBitmapBits = ::core::option::Option<unsafe extern "system" fn(param0: DHPDEV, param1: super::super::Foundation::HANDLE, param2: *mut SURFOBJ, param3: *mut u8) -> super::super::Foundation::BOOL>;
+pub type PFN_DrvGradientFill = Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut CLIPOBJ, param2: *mut XLATEOBJ, param3: *mut super::super::Graphics::Gdi::TRIVERTEX, param4: u32, param5: *mut core::ffi::c_void, param6: u32, param7: *mut super::super::Foundation::RECTL, param8: *mut super::super::Foundation::POINTL, param9: u32) -> super::super::Foundation::BOOL>;
+pub type PFN_DrvIcmCheckBitmapBits = Option<unsafe extern "system" fn(param0: DHPDEV, param1: super::super::Foundation::HANDLE, param2: *mut SURFOBJ, param3: *mut u8) -> super::super::Foundation::BOOL>;
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_ColorSystem"))]
-pub type PFN_DrvIcmCreateColorTransform = ::core::option::Option<unsafe extern "system" fn(param0: DHPDEV, param1: *mut super::super::UI::ColorSystem::LOGCOLORSPACEW, param2: *mut ::core::ffi::c_void, param3: u32, param4: *mut ::core::ffi::c_void, param5: u32, param6: *mut ::core::ffi::c_void, param7: u32, param8: u32) -> super::super::Foundation::HANDLE>;
-pub type PFN_DrvIcmDeleteColorTransform = ::core::option::Option<unsafe extern "system" fn(param0: DHPDEV, param1: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL>;
-pub type PFN_DrvIcmSetDeviceGammaRamp = ::core::option::Option<unsafe extern "system" fn(param0: DHPDEV, param1: u32, param2: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
-pub type PFN_DrvLineTo = ::core::option::Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut CLIPOBJ, param2: *mut BRUSHOBJ, param3: i32, param4: i32, param5: i32, param6: i32, param7: *mut super::super::Foundation::RECTL, param8: u32) -> super::super::Foundation::BOOL>;
+pub type PFN_DrvIcmCreateColorTransform = Option<unsafe extern "system" fn(param0: DHPDEV, param1: *mut super::super::UI::ColorSystem::LOGCOLORSPACEW, param2: *mut core::ffi::c_void, param3: u32, param4: *mut core::ffi::c_void, param5: u32, param6: *mut core::ffi::c_void, param7: u32, param8: u32) -> super::super::Foundation::HANDLE>;
+pub type PFN_DrvIcmDeleteColorTransform = Option<unsafe extern "system" fn(param0: DHPDEV, param1: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL>;
+pub type PFN_DrvIcmSetDeviceGammaRamp = Option<unsafe extern "system" fn(param0: DHPDEV, param1: u32, param2: *mut core::ffi::c_void) -> super::super::Foundation::BOOL>;
+pub type PFN_DrvLineTo = Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut CLIPOBJ, param2: *mut BRUSHOBJ, param3: i32, param4: i32, param5: i32, param6: i32, param7: *mut super::super::Foundation::RECTL, param8: u32) -> super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Graphics_Gdi")]
-pub type PFN_DrvLoadFontFile = ::core::option::Option<unsafe extern "system" fn(param0: u32, param1: *mut usize, param2: *mut *mut ::core::ffi::c_void, param3: *mut u32, param4: *mut super::super::Graphics::Gdi::DESIGNVECTOR, param5: u32, param6: u32) -> usize>;
-pub type PFN_DrvLockDisplayArea = ::core::option::Option<unsafe extern "system" fn(param0: DHPDEV, param1: *mut super::super::Foundation::RECTL)>;
-pub type PFN_DrvMovePointer = ::core::option::Option<unsafe extern "system" fn(pso: *mut SURFOBJ, x: i32, y: i32, prcl: *mut super::super::Foundation::RECTL)>;
-pub type PFN_DrvNextBand = ::core::option::Option<unsafe extern "system" fn(param0: *mut SURFOBJ, ppointl: *mut super::super::Foundation::POINTL) -> super::super::Foundation::BOOL>;
-pub type PFN_DrvNotify = ::core::option::Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: u32, param2: *mut ::core::ffi::c_void)>;
-pub type PFN_DrvPaint = ::core::option::Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut CLIPOBJ, param2: *mut BRUSHOBJ, param3: *mut super::super::Foundation::POINTL, param4: u32) -> super::super::Foundation::BOOL>;
+pub type PFN_DrvLoadFontFile = Option<unsafe extern "system" fn(param0: u32, param1: *mut usize, param2: *mut *mut core::ffi::c_void, param3: *mut u32, param4: *mut super::super::Graphics::Gdi::DESIGNVECTOR, param5: u32, param6: u32) -> usize>;
+pub type PFN_DrvLockDisplayArea = Option<unsafe extern "system" fn(param0: DHPDEV, param1: *mut super::super::Foundation::RECTL)>;
+pub type PFN_DrvMovePointer = Option<unsafe extern "system" fn(pso: *mut SURFOBJ, x: i32, y: i32, prcl: *mut super::super::Foundation::RECTL)>;
+pub type PFN_DrvNextBand = Option<unsafe extern "system" fn(param0: *mut SURFOBJ, ppointl: *mut super::super::Foundation::POINTL) -> super::super::Foundation::BOOL>;
+pub type PFN_DrvNotify = Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: u32, param2: *mut core::ffi::c_void)>;
+pub type PFN_DrvPaint = Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut CLIPOBJ, param2: *mut BRUSHOBJ, param3: *mut super::super::Foundation::POINTL, param4: u32) -> super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Graphics_Gdi")]
-pub type PFN_DrvPlgBlt = ::core::option::Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut SURFOBJ, param2: *mut SURFOBJ, param3: *mut CLIPOBJ, param4: *mut XLATEOBJ, param5: *mut super::super::Graphics::Gdi::COLORADJUSTMENT, param6: *mut super::super::Foundation::POINTL, param7: *mut POINTFIX, param8: *mut super::super::Foundation::RECTL, param9: *mut super::super::Foundation::POINTL, param10: u32) -> super::super::Foundation::BOOL>;
-pub type PFN_DrvQueryAdvanceWidths = ::core::option::Option<unsafe extern "system" fn(param0: DHPDEV, param1: *mut FONTOBJ, param2: u32, param3: *mut u32, param4: *mut ::core::ffi::c_void, param5: u32) -> super::super::Foundation::BOOL>;
-pub type PFN_DrvQueryDeviceSupport = ::core::option::Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut XLATEOBJ, param2: *mut XFORMOBJ, param3: u32, param4: u32, param5: *mut ::core::ffi::c_void, param6: u32, param7: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
+pub type PFN_DrvPlgBlt = Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut SURFOBJ, param2: *mut SURFOBJ, param3: *mut CLIPOBJ, param4: *mut XLATEOBJ, param5: *mut super::super::Graphics::Gdi::COLORADJUSTMENT, param6: *mut super::super::Foundation::POINTL, param7: *mut POINTFIX, param8: *mut super::super::Foundation::RECTL, param9: *mut super::super::Foundation::POINTL, param10: u32) -> super::super::Foundation::BOOL>;
+pub type PFN_DrvQueryAdvanceWidths = Option<unsafe extern "system" fn(param0: DHPDEV, param1: *mut FONTOBJ, param2: u32, param3: *mut u32, param4: *mut core::ffi::c_void, param5: u32) -> super::super::Foundation::BOOL>;
+pub type PFN_DrvQueryDeviceSupport = Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut XLATEOBJ, param2: *mut XFORMOBJ, param3: u32, param4: u32, param5: *mut core::ffi::c_void, param6: u32, param7: *mut core::ffi::c_void) -> super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Graphics_Gdi")]
-pub type PFN_DrvQueryFont = ::core::option::Option<unsafe extern "system" fn(param0: DHPDEV, param1: usize, param2: u32, param3: *mut usize) -> *mut IFIMETRICS>;
-pub type PFN_DrvQueryFontCaps = ::core::option::Option<unsafe extern "system" fn(param0: u32, param1: *mut u32) -> i32>;
-pub type PFN_DrvQueryFontData = ::core::option::Option<unsafe extern "system" fn(param0: DHPDEV, param1: *mut FONTOBJ, param2: u32, param3: u32, param4: *mut GLYPHDATA, param5: *mut ::core::ffi::c_void, param6: u32) -> i32>;
-pub type PFN_DrvQueryFontFile = ::core::option::Option<unsafe extern "system" fn(param0: usize, param1: u32, param2: u32, param3: *mut u32) -> i32>;
-pub type PFN_DrvQueryFontTree = ::core::option::Option<unsafe extern "system" fn(param0: DHPDEV, param1: usize, param2: u32, param3: u32, param4: *mut usize) -> *mut ::core::ffi::c_void>;
-pub type PFN_DrvQueryGlyphAttrs = ::core::option::Option<unsafe extern "system" fn(param0: *mut FONTOBJ, param1: u32) -> *mut FD_GLYPHATTR>;
-pub type PFN_DrvQueryPerBandInfo = ::core::option::Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut PERBANDINFO) -> super::super::Foundation::BOOL>;
-pub type PFN_DrvQuerySpoolType = ::core::option::Option<unsafe extern "system" fn(dhpdev: DHPDEV, pwchtype: ::windows_sys::core::PCWSTR) -> super::super::Foundation::BOOL>;
+pub type PFN_DrvQueryFont = Option<unsafe extern "system" fn(param0: DHPDEV, param1: usize, param2: u32, param3: *mut usize) -> *mut IFIMETRICS>;
+pub type PFN_DrvQueryFontCaps = Option<unsafe extern "system" fn(param0: u32, param1: *mut u32) -> i32>;
+pub type PFN_DrvQueryFontData = Option<unsafe extern "system" fn(param0: DHPDEV, param1: *mut FONTOBJ, param2: u32, param3: u32, param4: *mut GLYPHDATA, param5: *mut core::ffi::c_void, param6: u32) -> i32>;
+pub type PFN_DrvQueryFontFile = Option<unsafe extern "system" fn(param0: usize, param1: u32, param2: u32, param3: *mut u32) -> i32>;
+pub type PFN_DrvQueryFontTree = Option<unsafe extern "system" fn(param0: DHPDEV, param1: usize, param2: u32, param3: u32, param4: *mut usize) -> *mut core::ffi::c_void>;
+pub type PFN_DrvQueryGlyphAttrs = Option<unsafe extern "system" fn(param0: *mut FONTOBJ, param1: u32) -> *mut FD_GLYPHATTR>;
+pub type PFN_DrvQueryPerBandInfo = Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut PERBANDINFO) -> super::super::Foundation::BOOL>;
+pub type PFN_DrvQuerySpoolType = Option<unsafe extern "system" fn(dhpdev: DHPDEV, pwchtype: windows_sys::core::PCWSTR) -> super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Graphics_Gdi")]
-pub type PFN_DrvQueryTrueTypeOutline = ::core::option::Option<unsafe extern "system" fn(param0: DHPDEV, param1: *mut FONTOBJ, param2: u32, param3: super::super::Foundation::BOOL, param4: *mut GLYPHDATA, param5: u32, param6: *mut super::super::Graphics::Gdi::TTPOLYGONHEADER) -> i32>;
-pub type PFN_DrvQueryTrueTypeSection = ::core::option::Option<unsafe extern "system" fn(param0: u32, param1: u32, param2: u32, param3: *mut super::super::Foundation::HANDLE, param4: *mut i32) -> i32>;
-pub type PFN_DrvQueryTrueTypeTable = ::core::option::Option<unsafe extern "system" fn(param0: usize, param1: u32, param2: u32, param3: i32, param4: u32, param5: *mut u8, param6: *mut *mut u8, param7: *mut u32) -> i32>;
-pub type PFN_DrvRealizeBrush = ::core::option::Option<unsafe extern "system" fn(param0: *mut BRUSHOBJ, param1: *mut SURFOBJ, param2: *mut SURFOBJ, param3: *mut SURFOBJ, param4: *mut XLATEOBJ, param5: u32) -> super::super::Foundation::BOOL>;
-pub type PFN_DrvRenderHint = ::core::option::Option<unsafe extern "system" fn(dhpdev: DHPDEV, notifycode: u32, length: usize, data: *const ::core::ffi::c_void) -> i32>;
-pub type PFN_DrvResetDevice = ::core::option::Option<unsafe extern "system" fn(param0: DHPDEV, param1: *mut ::core::ffi::c_void) -> u32>;
-pub type PFN_DrvResetPDEV = ::core::option::Option<unsafe extern "system" fn(dhpdevold: DHPDEV, dhpdevnew: DHPDEV) -> super::super::Foundation::BOOL>;
-pub type PFN_DrvSaveScreenBits = ::core::option::Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: u32, param2: usize, param3: *mut super::super::Foundation::RECTL) -> usize>;
-pub type PFN_DrvSendPage = ::core::option::Option<unsafe extern "system" fn(param0: *mut SURFOBJ) -> super::super::Foundation::BOOL>;
-pub type PFN_DrvSetPalette = ::core::option::Option<unsafe extern "system" fn(param0: DHPDEV, param1: *mut PALOBJ, param2: u32, param3: u32, param4: u32) -> super::super::Foundation::BOOL>;
-pub type PFN_DrvSetPixelFormat = ::core::option::Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: i32, param2: super::super::Foundation::HWND) -> super::super::Foundation::BOOL>;
-pub type PFN_DrvSetPointerShape = ::core::option::Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut SURFOBJ, param2: *mut SURFOBJ, param3: *mut XLATEOBJ, param4: i32, param5: i32, param6: i32, param7: i32, param8: *mut super::super::Foundation::RECTL, param9: u32) -> u32>;
-pub type PFN_DrvStartBanding = ::core::option::Option<unsafe extern "system" fn(param0: *mut SURFOBJ, ppointl: *mut super::super::Foundation::POINTL) -> super::super::Foundation::BOOL>;
-pub type PFN_DrvStartDoc = ::core::option::Option<unsafe extern "system" fn(pso: *mut SURFOBJ, pwszdocname: ::windows_sys::core::PCWSTR, dwjobid: u32) -> super::super::Foundation::BOOL>;
-pub type PFN_DrvStartDxInterop = ::core::option::Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: super::super::Foundation::BOOL, kernelmodedevicehandle: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
-pub type PFN_DrvStartPage = ::core::option::Option<unsafe extern "system" fn(pso: *mut SURFOBJ) -> super::super::Foundation::BOOL>;
+pub type PFN_DrvQueryTrueTypeOutline = Option<unsafe extern "system" fn(param0: DHPDEV, param1: *mut FONTOBJ, param2: u32, param3: super::super::Foundation::BOOL, param4: *mut GLYPHDATA, param5: u32, param6: *mut super::super::Graphics::Gdi::TTPOLYGONHEADER) -> i32>;
+pub type PFN_DrvQueryTrueTypeSection = Option<unsafe extern "system" fn(param0: u32, param1: u32, param2: u32, param3: *mut super::super::Foundation::HANDLE, param4: *mut i32) -> i32>;
+pub type PFN_DrvQueryTrueTypeTable = Option<unsafe extern "system" fn(param0: usize, param1: u32, param2: u32, param3: i32, param4: u32, param5: *mut u8, param6: *mut *mut u8, param7: *mut u32) -> i32>;
+pub type PFN_DrvRealizeBrush = Option<unsafe extern "system" fn(param0: *mut BRUSHOBJ, param1: *mut SURFOBJ, param2: *mut SURFOBJ, param3: *mut SURFOBJ, param4: *mut XLATEOBJ, param5: u32) -> super::super::Foundation::BOOL>;
+pub type PFN_DrvRenderHint = Option<unsafe extern "system" fn(dhpdev: DHPDEV, notifycode: u32, length: usize, data: *const core::ffi::c_void) -> i32>;
+pub type PFN_DrvResetDevice = Option<unsafe extern "system" fn(param0: DHPDEV, param1: *mut core::ffi::c_void) -> u32>;
+pub type PFN_DrvResetPDEV = Option<unsafe extern "system" fn(dhpdevold: DHPDEV, dhpdevnew: DHPDEV) -> super::super::Foundation::BOOL>;
+pub type PFN_DrvSaveScreenBits = Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: u32, param2: usize, param3: *mut super::super::Foundation::RECTL) -> usize>;
+pub type PFN_DrvSendPage = Option<unsafe extern "system" fn(param0: *mut SURFOBJ) -> super::super::Foundation::BOOL>;
+pub type PFN_DrvSetPalette = Option<unsafe extern "system" fn(param0: DHPDEV, param1: *mut PALOBJ, param2: u32, param3: u32, param4: u32) -> super::super::Foundation::BOOL>;
+pub type PFN_DrvSetPixelFormat = Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: i32, param2: super::super::Foundation::HWND) -> super::super::Foundation::BOOL>;
+pub type PFN_DrvSetPointerShape = Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut SURFOBJ, param2: *mut SURFOBJ, param3: *mut XLATEOBJ, param4: i32, param5: i32, param6: i32, param7: i32, param8: *mut super::super::Foundation::RECTL, param9: u32) -> u32>;
+pub type PFN_DrvStartBanding = Option<unsafe extern "system" fn(param0: *mut SURFOBJ, ppointl: *mut super::super::Foundation::POINTL) -> super::super::Foundation::BOOL>;
+pub type PFN_DrvStartDoc = Option<unsafe extern "system" fn(pso: *mut SURFOBJ, pwszdocname: windows_sys::core::PCWSTR, dwjobid: u32) -> super::super::Foundation::BOOL>;
+pub type PFN_DrvStartDxInterop = Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: super::super::Foundation::BOOL, kernelmodedevicehandle: *mut core::ffi::c_void) -> super::super::Foundation::BOOL>;
+pub type PFN_DrvStartPage = Option<unsafe extern "system" fn(pso: *mut SURFOBJ) -> super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Graphics_Gdi")]
-pub type PFN_DrvStretchBlt = ::core::option::Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut SURFOBJ, param2: *mut SURFOBJ, param3: *mut CLIPOBJ, param4: *mut XLATEOBJ, param5: *mut super::super::Graphics::Gdi::COLORADJUSTMENT, param6: *mut super::super::Foundation::POINTL, param7: *mut super::super::Foundation::RECTL, param8: *mut super::super::Foundation::RECTL, param9: *mut super::super::Foundation::POINTL, param10: u32) -> super::super::Foundation::BOOL>;
+pub type PFN_DrvStretchBlt = Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut SURFOBJ, param2: *mut SURFOBJ, param3: *mut CLIPOBJ, param4: *mut XLATEOBJ, param5: *mut super::super::Graphics::Gdi::COLORADJUSTMENT, param6: *mut super::super::Foundation::POINTL, param7: *mut super::super::Foundation::RECTL, param8: *mut super::super::Foundation::RECTL, param9: *mut super::super::Foundation::POINTL, param10: u32) -> super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Graphics_Gdi")]
-pub type PFN_DrvStretchBltROP = ::core::option::Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut SURFOBJ, param2: *mut SURFOBJ, param3: *mut CLIPOBJ, param4: *mut XLATEOBJ, param5: *mut super::super::Graphics::Gdi::COLORADJUSTMENT, param6: *mut super::super::Foundation::POINTL, param7: *mut super::super::Foundation::RECTL, param8: *mut super::super::Foundation::RECTL, param9: *mut super::super::Foundation::POINTL, param10: u32, param11: *mut BRUSHOBJ, param12: u32) -> super::super::Foundation::BOOL>;
-pub type PFN_DrvStrokeAndFillPath = ::core::option::Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut PATHOBJ, param2: *mut CLIPOBJ, param3: *mut XFORMOBJ, param4: *mut BRUSHOBJ, param5: *mut LINEATTRS, param6: *mut BRUSHOBJ, param7: *mut super::super::Foundation::POINTL, param8: u32, param9: u32) -> super::super::Foundation::BOOL>;
-pub type PFN_DrvStrokePath = ::core::option::Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut PATHOBJ, param2: *mut CLIPOBJ, param3: *mut XFORMOBJ, param4: *mut BRUSHOBJ, param5: *mut super::super::Foundation::POINTL, param6: *mut LINEATTRS, param7: u32) -> super::super::Foundation::BOOL>;
-pub type PFN_DrvSurfaceComplete = ::core::option::Option<unsafe extern "system" fn(param0: DHPDEV, param1: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL>;
-pub type PFN_DrvSwapBuffers = ::core::option::Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut WNDOBJ) -> super::super::Foundation::BOOL>;
-pub type PFN_DrvSynchronize = ::core::option::Option<unsafe extern "system" fn(param0: DHPDEV, param1: *mut super::super::Foundation::RECTL)>;
-pub type PFN_DrvSynchronizeRedirectionBitmaps = ::core::option::Option<unsafe extern "system" fn(param0: DHPDEV, param1: *mut u64) -> super::super::Foundation::NTSTATUS>;
-pub type PFN_DrvSynchronizeSurface = ::core::option::Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut super::super::Foundation::RECTL, param2: u32)>;
-pub type PFN_DrvTextOut = ::core::option::Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut STROBJ, param2: *mut FONTOBJ, param3: *mut CLIPOBJ, param4: *mut super::super::Foundation::RECTL, param5: *mut super::super::Foundation::RECTL, param6: *mut BRUSHOBJ, param7: *mut BRUSHOBJ, param8: *mut super::super::Foundation::POINTL, param9: u32) -> super::super::Foundation::BOOL>;
-pub type PFN_DrvTransparentBlt = ::core::option::Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut SURFOBJ, param2: *mut CLIPOBJ, param3: *mut XLATEOBJ, param4: *mut super::super::Foundation::RECTL, param5: *mut super::super::Foundation::RECTL, param6: u32, param7: u32) -> super::super::Foundation::BOOL>;
-pub type PFN_DrvUnloadFontFile = ::core::option::Option<unsafe extern "system" fn(param0: usize) -> super::super::Foundation::BOOL>;
-pub type PFN_DrvUnlockDisplayArea = ::core::option::Option<unsafe extern "system" fn(param0: DHPDEV, param1: *mut super::super::Foundation::RECTL)>;
-pub type PFN_EngCombineRgn = ::core::option::Option<unsafe extern "system" fn(hrgntrg: super::super::Foundation::HANDLE, hrgnsrc1: super::super::Foundation::HANDLE, hrgnsrc2: super::super::Foundation::HANDLE, imode: i32) -> i32>;
-pub type PFN_EngCopyRgn = ::core::option::Option<unsafe extern "system" fn(hrgndst: super::super::Foundation::HANDLE, hrgnsrc: super::super::Foundation::HANDLE) -> i32>;
-pub type PFN_EngCreateRectRgn = ::core::option::Option<unsafe extern "system" fn(left: i32, top: i32, right: i32, bottom: i32) -> super::super::Foundation::HANDLE>;
-pub type PFN_EngDeleteRgn = ::core::option::Option<unsafe extern "system" fn(hrgn: super::super::Foundation::HANDLE)>;
-pub type PFN_EngIntersectRgn = ::core::option::Option<unsafe extern "system" fn(hrgnresult: super::super::Foundation::HANDLE, hrgna: super::super::Foundation::HANDLE, hrgnb: super::super::Foundation::HANDLE) -> i32>;
-pub type PFN_EngSubtractRgn = ::core::option::Option<unsafe extern "system" fn(hrgnresult: super::super::Foundation::HANDLE, hrgna: super::super::Foundation::HANDLE, hrgnb: super::super::Foundation::HANDLE) -> i32>;
-pub type PFN_EngUnionRgn = ::core::option::Option<unsafe extern "system" fn(hrgnresult: super::super::Foundation::HANDLE, hrgna: super::super::Foundation::HANDLE, hrgnb: super::super::Foundation::HANDLE) -> i32>;
-pub type PFN_EngXorRgn = ::core::option::Option<unsafe extern "system" fn(hrgnresult: super::super::Foundation::HANDLE, hrgna: super::super::Foundation::HANDLE, hrgnb: super::super::Foundation::HANDLE) -> i32>;
-pub type PVIDEO_WIN32K_CALLOUT = ::core::option::Option<unsafe extern "system" fn(params: *const ::core::ffi::c_void)>;
-pub type SORTCOMP = ::core::option::Option<unsafe extern "system" fn(pv1: *const ::core::ffi::c_void, pv2: *const ::core::ffi::c_void) -> i32>;
-pub type WNDOBJCHANGEPROC = ::core::option::Option<unsafe extern "system" fn(pwo: *mut WNDOBJ, fl: u32)>;
+pub type PFN_DrvStretchBltROP = Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut SURFOBJ, param2: *mut SURFOBJ, param3: *mut CLIPOBJ, param4: *mut XLATEOBJ, param5: *mut super::super::Graphics::Gdi::COLORADJUSTMENT, param6: *mut super::super::Foundation::POINTL, param7: *mut super::super::Foundation::RECTL, param8: *mut super::super::Foundation::RECTL, param9: *mut super::super::Foundation::POINTL, param10: u32, param11: *mut BRUSHOBJ, param12: u32) -> super::super::Foundation::BOOL>;
+pub type PFN_DrvStrokeAndFillPath = Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut PATHOBJ, param2: *mut CLIPOBJ, param3: *mut XFORMOBJ, param4: *mut BRUSHOBJ, param5: *mut LINEATTRS, param6: *mut BRUSHOBJ, param7: *mut super::super::Foundation::POINTL, param8: u32, param9: u32) -> super::super::Foundation::BOOL>;
+pub type PFN_DrvStrokePath = Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut PATHOBJ, param2: *mut CLIPOBJ, param3: *mut XFORMOBJ, param4: *mut BRUSHOBJ, param5: *mut super::super::Foundation::POINTL, param6: *mut LINEATTRS, param7: u32) -> super::super::Foundation::BOOL>;
+pub type PFN_DrvSurfaceComplete = Option<unsafe extern "system" fn(param0: DHPDEV, param1: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL>;
+pub type PFN_DrvSwapBuffers = Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut WNDOBJ) -> super::super::Foundation::BOOL>;
+pub type PFN_DrvSynchronize = Option<unsafe extern "system" fn(param0: DHPDEV, param1: *mut super::super::Foundation::RECTL)>;
+pub type PFN_DrvSynchronizeRedirectionBitmaps = Option<unsafe extern "system" fn(param0: DHPDEV, param1: *mut u64) -> super::super::Foundation::NTSTATUS>;
+pub type PFN_DrvSynchronizeSurface = Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut super::super::Foundation::RECTL, param2: u32)>;
+pub type PFN_DrvTextOut = Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut STROBJ, param2: *mut FONTOBJ, param3: *mut CLIPOBJ, param4: *mut super::super::Foundation::RECTL, param5: *mut super::super::Foundation::RECTL, param6: *mut BRUSHOBJ, param7: *mut BRUSHOBJ, param8: *mut super::super::Foundation::POINTL, param9: u32) -> super::super::Foundation::BOOL>;
+pub type PFN_DrvTransparentBlt = Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut SURFOBJ, param2: *mut CLIPOBJ, param3: *mut XLATEOBJ, param4: *mut super::super::Foundation::RECTL, param5: *mut super::super::Foundation::RECTL, param6: u32, param7: u32) -> super::super::Foundation::BOOL>;
+pub type PFN_DrvUnloadFontFile = Option<unsafe extern "system" fn(param0: usize) -> super::super::Foundation::BOOL>;
+pub type PFN_DrvUnlockDisplayArea = Option<unsafe extern "system" fn(param0: DHPDEV, param1: *mut super::super::Foundation::RECTL)>;
+pub type PFN_EngCombineRgn = Option<unsafe extern "system" fn(hrgntrg: super::super::Foundation::HANDLE, hrgnsrc1: super::super::Foundation::HANDLE, hrgnsrc2: super::super::Foundation::HANDLE, imode: i32) -> i32>;
+pub type PFN_EngCopyRgn = Option<unsafe extern "system" fn(hrgndst: super::super::Foundation::HANDLE, hrgnsrc: super::super::Foundation::HANDLE) -> i32>;
+pub type PFN_EngCreateRectRgn = Option<unsafe extern "system" fn(left: i32, top: i32, right: i32, bottom: i32) -> super::super::Foundation::HANDLE>;
+pub type PFN_EngDeleteRgn = Option<unsafe extern "system" fn(hrgn: super::super::Foundation::HANDLE)>;
+pub type PFN_EngIntersectRgn = Option<unsafe extern "system" fn(hrgnresult: super::super::Foundation::HANDLE, hrgna: super::super::Foundation::HANDLE, hrgnb: super::super::Foundation::HANDLE) -> i32>;
+pub type PFN_EngSubtractRgn = Option<unsafe extern "system" fn(hrgnresult: super::super::Foundation::HANDLE, hrgna: super::super::Foundation::HANDLE, hrgnb: super::super::Foundation::HANDLE) -> i32>;
+pub type PFN_EngUnionRgn = Option<unsafe extern "system" fn(hrgnresult: super::super::Foundation::HANDLE, hrgna: super::super::Foundation::HANDLE, hrgnb: super::super::Foundation::HANDLE) -> i32>;
+pub type PFN_EngXorRgn = Option<unsafe extern "system" fn(hrgnresult: super::super::Foundation::HANDLE, hrgna: super::super::Foundation::HANDLE, hrgnb: super::super::Foundation::HANDLE) -> i32>;
+pub type PVIDEO_WIN32K_CALLOUT = Option<unsafe extern "system" fn(params: *const core::ffi::c_void)>;
+pub type SORTCOMP = Option<unsafe extern "system" fn(pv1: *const core::ffi::c_void, pv2: *const core::ffi::c_void) -> i32>;
+pub type WNDOBJCHANGEPROC = Option<unsafe extern "system" fn(pwo: *mut WNDOBJ, fl: u32)>;

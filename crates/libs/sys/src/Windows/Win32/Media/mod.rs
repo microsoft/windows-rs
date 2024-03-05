@@ -128,8 +128,8 @@ pub struct MMTIME {
     pub wType: u32,
     pub u: MMTIME_0,
 }
-impl ::core::marker::Copy for MMTIME {}
-impl ::core::clone::Clone for MMTIME {
+impl Copy for MMTIME {}
+impl Clone for MMTIME {
     fn clone(&self) -> Self {
         *self
     }
@@ -143,8 +143,8 @@ pub union MMTIME_0 {
     pub smpte: MMTIME_0_1,
     pub midi: MMTIME_0_0,
 }
-impl ::core::marker::Copy for MMTIME_0 {}
-impl ::core::clone::Clone for MMTIME_0 {
+impl Copy for MMTIME_0 {}
+impl Clone for MMTIME_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -153,8 +153,8 @@ impl ::core::clone::Clone for MMTIME_0 {
 pub struct MMTIME_0_0 {
     pub songptrpos: u32,
 }
-impl ::core::marker::Copy for MMTIME_0_0 {}
-impl ::core::clone::Clone for MMTIME_0_0 {
+impl Copy for MMTIME_0_0 {}
+impl Clone for MMTIME_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -169,8 +169,8 @@ pub struct MMTIME_0_1 {
     pub dummy: u8,
     pub pad: [u8; 2],
 }
-impl ::core::marker::Copy for MMTIME_0_1 {}
-impl ::core::clone::Clone for MMTIME_0_1 {
+impl Copy for MMTIME_0_1 {}
+impl Clone for MMTIME_0_1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -180,8 +180,8 @@ pub struct TIMECAPS {
     pub wPeriodMin: u32,
     pub wPeriodMax: u32,
 }
-impl ::core::marker::Copy for TIMECAPS {}
-impl ::core::clone::Clone for TIMECAPS {
+impl Copy for TIMECAPS {}
+impl Clone for TIMECAPS {
     fn clone(&self) -> Self {
         *self
     }
@@ -191,8 +191,8 @@ pub union TIMECODE {
     pub Anonymous: TIMECODE_0,
     pub qw: u64,
 }
-impl ::core::marker::Copy for TIMECODE {}
-impl ::core::clone::Clone for TIMECODE {
+impl Copy for TIMECODE {}
+impl Clone for TIMECODE {
     fn clone(&self) -> Self {
         *self
     }
@@ -203,8 +203,8 @@ pub struct TIMECODE_0 {
     pub wFrameFract: u16,
     pub dwFrames: u32,
 }
-impl ::core::marker::Copy for TIMECODE_0 {}
-impl ::core::clone::Clone for TIMECODE_0 {
+impl Copy for TIMECODE_0 {}
+impl Clone for TIMECODE_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -216,12 +216,12 @@ pub struct TIMECODE_SAMPLE {
     pub dwUser: u32,
     pub dwFlags: TIMECODE_SAMPLE_FLAGS,
 }
-impl ::core::marker::Copy for TIMECODE_SAMPLE {}
-impl ::core::clone::Clone for TIMECODE_SAMPLE {
+impl Copy for TIMECODE_SAMPLE {}
+impl Clone for TIMECODE_SAMPLE {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[cfg(feature = "Win32_Media_Multimedia")]
-pub type LPDRVCALLBACK = ::core::option::Option<unsafe extern "system" fn(hdrvr: Multimedia::HDRVR, umsg: u32, dwuser: usize, dw1: usize, dw2: usize)>;
-pub type LPTIMECALLBACK = ::core::option::Option<unsafe extern "system" fn(utimerid: u32, umsg: u32, dwuser: usize, dw1: usize, dw2: usize)>;
+pub type LPDRVCALLBACK = Option<unsafe extern "system" fn(hdrvr: Multimedia::HDRVR, umsg: u32, dwuser: usize, dw1: usize, dw2: usize)>;
+pub type LPTIMECALLBACK = Option<unsafe extern "system" fn(utimerid: u32, umsg: u32, dwuser: usize, dw1: usize, dw2: usize)>;

@@ -17,8 +17,8 @@ pub struct AE_RESACCESS {
     pub ae_ra_restype: u32,
     pub ae_ra_fileid: u32,
 }
-impl ::core::marker::Copy for AE_RESACCESS {}
-impl ::core::clone::Clone for AE_RESACCESS {
+impl Copy for AE_RESACCESS {}
+impl Clone for AE_RESACCESS {
     fn clone(&self) -> Self {
         *self
     }

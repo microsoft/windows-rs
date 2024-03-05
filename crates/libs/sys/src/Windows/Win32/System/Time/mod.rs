@@ -18,12 +18,12 @@ pub const TSF_Authenticated: u32 = 2u32;
 pub const TSF_Hardware: u32 = 1u32;
 pub const TSF_IPv6: u32 = 4u32;
 pub const TSF_SignatureAuthenticated: u32 = 8u32;
-pub const wszW32TimeRegKeyPolicyTimeProviders: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Software\\Policies\\Microsoft\\W32Time\\TimeProviders");
-pub const wszW32TimeRegKeyTimeProviders: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("System\\CurrentControlSet\\Services\\W32Time\\TimeProviders");
-pub const wszW32TimeRegValueDllName: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("DllName");
-pub const wszW32TimeRegValueEnabled: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Enabled");
-pub const wszW32TimeRegValueInputProvider: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("InputProvider");
-pub const wszW32TimeRegValueMetaDataProvider: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("MetaDataProvider");
+pub const wszW32TimeRegKeyPolicyTimeProviders: windows_sys::core::PCWSTR = windows_sys::core::w!("Software\\Policies\\Microsoft\\W32Time\\TimeProviders");
+pub const wszW32TimeRegKeyTimeProviders: windows_sys::core::PCWSTR = windows_sys::core::w!("System\\CurrentControlSet\\Services\\W32Time\\TimeProviders");
+pub const wszW32TimeRegValueDllName: windows_sys::core::PCWSTR = windows_sys::core::w!("DllName");
+pub const wszW32TimeRegValueEnabled: windows_sys::core::PCWSTR = windows_sys::core::w!("Enabled");
+pub const wszW32TimeRegValueInputProvider: windows_sys::core::PCWSTR = windows_sys::core::w!("InputProvider");
+pub const wszW32TimeRegValueMetaDataProvider: windows_sys::core::PCWSTR = windows_sys::core::w!("MetaDataProvider");
 #[repr(C)]
 pub struct DYNAMIC_TIME_ZONE_INFORMATION {
     pub Bias: i32,
@@ -36,8 +36,8 @@ pub struct DYNAMIC_TIME_ZONE_INFORMATION {
     pub TimeZoneKeyName: [u16; 128],
     pub DynamicDaylightTimeDisabled: super::super::Foundation::BOOLEAN,
 }
-impl ::core::marker::Copy for DYNAMIC_TIME_ZONE_INFORMATION {}
-impl ::core::clone::Clone for DYNAMIC_TIME_ZONE_INFORMATION {
+impl Copy for DYNAMIC_TIME_ZONE_INFORMATION {}
+impl Clone for DYNAMIC_TIME_ZONE_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -52,8 +52,8 @@ pub struct TIME_ZONE_INFORMATION {
     pub DaylightDate: super::super::Foundation::SYSTEMTIME,
     pub DaylightBias: i32,
 }
-impl ::core::marker::Copy for TIME_ZONE_INFORMATION {}
-impl ::core::clone::Clone for TIME_ZONE_INFORMATION {
+impl Copy for TIME_ZONE_INFORMATION {}
+impl Clone for TIME_ZONE_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }

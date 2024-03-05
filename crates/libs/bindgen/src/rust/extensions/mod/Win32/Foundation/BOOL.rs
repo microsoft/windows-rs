@@ -4,11 +4,11 @@ impl BOOL {
         self.0 != 0
     }
     #[inline]
-    pub fn ok(self) -> ::windows_core::Result<()> {
+    pub fn ok(self) -> windows_core::Result<()> {
         if self.as_bool() {
             Ok(())
         } else {
-            Err(::windows_core::Error::from_win32())
+            Err(windows_core::Error::from_win32())
         }
     }
     #[inline]
@@ -22,17 +22,17 @@ impl BOOL {
         self.ok().expect(msg);
     }
 }
-impl ::core::convert::From<BOOL> for bool {
+impl From<BOOL> for bool {
     fn from(value: BOOL) -> Self {
         value.as_bool()
     }
 }
-impl ::core::convert::From<&BOOL> for bool {
+impl From<&BOOL> for bool {
     fn from(value: &BOOL) -> Self {
         value.as_bool()
     }
 }
-impl ::core::convert::From<bool> for BOOL {
+impl From<bool> for BOOL {
     fn from(value: bool) -> Self {
         if value {
             Self(1)
@@ -41,22 +41,22 @@ impl ::core::convert::From<bool> for BOOL {
         }
     }
 }
-impl ::core::convert::From<&bool> for BOOL {
+impl From<&bool> for BOOL {
     fn from(value: &bool) -> Self {
         (*value).into()
     }
 }
-impl ::core::cmp::PartialEq<bool> for BOOL {
+impl PartialEq<bool> for BOOL {
     fn eq(&self, other: &bool) -> bool {
         self.as_bool() == *other
     }
 }
-impl ::core::cmp::PartialEq<BOOL> for bool {
+impl PartialEq<BOOL> for bool {
     fn eq(&self, other: &BOOL) -> bool {
         *self == other.as_bool()
     }
 }
-impl ::core::ops::Not for BOOL {
+impl core::ops::Not for BOOL {
     type Output = Self;
     fn not(self) -> Self::Output {
         if self.as_bool() {
@@ -66,8 +66,8 @@ impl ::core::ops::Not for BOOL {
         }
     }
 }
-impl ::windows_core::IntoParam<BOOL> for bool {
-    unsafe fn into_param(self) -> ::windows_core::Param<BOOL> {
-        ::windows_core::Param::Owned(self.into())
+impl windows_core::IntoParam<BOOL> for bool {
+    unsafe fn into_param(self) -> windows_core::Param<BOOL> {
+        windows_core::Param::Owned(self.into())
     }
 }

@@ -1,5 +1,5 @@
-::windows_targets::link!("kernel32.dll" "system" fn AddAtomA(lpstring : ::windows_sys::core::PCSTR) -> u16);
-::windows_targets::link!("kernel32.dll" "system" fn AddAtomW(lpstring : ::windows_sys::core::PCWSTR) -> u16);
+::windows_targets::link!("kernel32.dll" "system" fn AddAtomA(lpstring : windows_sys::core::PCSTR) -> u16);
+::windows_targets::link!("kernel32.dll" "system" fn AddAtomW(lpstring : windows_sys::core::PCWSTR) -> u16);
 ::windows_targets::link!("user32.dll" "system" fn AddClipboardFormatListener(hwnd : super::super::Foundation:: HWND) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("user32.dll" "system" fn ChangeClipboardChain(hwndremove : super::super::Foundation:: HWND, hwndnewnext : super::super::Foundation:: HWND) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("user32.dll" "system" fn CloseClipboard() -> super::super::Foundation:: BOOL);
@@ -14,8 +14,8 @@
 #[cfg(feature = "Win32_Security")]
 ::windows_targets::link!("user32.dll" "system" fn DdeConnectList(idinst : u32, hszservice : HSZ, hsztopic : HSZ, hconvlist : HCONVLIST, pcc : *const CONVCONTEXT) -> HCONVLIST);
 ::windows_targets::link!("user32.dll" "system" fn DdeCreateDataHandle(idinst : u32, psrc : *const u8, cb : u32, cboff : u32, hszitem : HSZ, wfmt : u32, afcmd : u32) -> HDDEDATA);
-::windows_targets::link!("user32.dll" "system" fn DdeCreateStringHandleA(idinst : u32, psz : ::windows_sys::core::PCSTR, icodepage : i32) -> HSZ);
-::windows_targets::link!("user32.dll" "system" fn DdeCreateStringHandleW(idinst : u32, psz : ::windows_sys::core::PCWSTR, icodepage : i32) -> HSZ);
+::windows_targets::link!("user32.dll" "system" fn DdeCreateStringHandleA(idinst : u32, psz : windows_sys::core::PCSTR, icodepage : i32) -> HSZ);
+::windows_targets::link!("user32.dll" "system" fn DdeCreateStringHandleW(idinst : u32, psz : windows_sys::core::PCWSTR, icodepage : i32) -> HSZ);
 ::windows_targets::link!("user32.dll" "system" fn DdeDisconnect(hconv : HCONV) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("user32.dll" "system" fn DdeDisconnectList(hconvlist : HCONVLIST) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("user32.dll" "system" fn DdeEnableCallback(idinst : u32, hconv : HCONV, wcmd : DDE_ENABLE_CALLBACK_CMD) -> super::super::Foundation:: BOOL);
@@ -32,8 +32,8 @@
 #[cfg(feature = "Win32_Security")]
 ::windows_targets::link!("user32.dll" "system" fn DdeQueryConvInfo(hconv : HCONV, idtransaction : u32, pconvinfo : *mut CONVINFO) -> u32);
 ::windows_targets::link!("user32.dll" "system" fn DdeQueryNextServer(hconvlist : HCONVLIST, hconvprev : HCONV) -> HCONV);
-::windows_targets::link!("user32.dll" "system" fn DdeQueryStringA(idinst : u32, hsz : HSZ, psz : ::windows_sys::core::PSTR, cchmax : u32, icodepage : i32) -> u32);
-::windows_targets::link!("user32.dll" "system" fn DdeQueryStringW(idinst : u32, hsz : HSZ, psz : ::windows_sys::core::PWSTR, cchmax : u32, icodepage : i32) -> u32);
+::windows_targets::link!("user32.dll" "system" fn DdeQueryStringA(idinst : u32, hsz : HSZ, psz : windows_sys::core::PSTR, cchmax : u32, icodepage : i32) -> u32);
+::windows_targets::link!("user32.dll" "system" fn DdeQueryStringW(idinst : u32, hsz : HSZ, psz : windows_sys::core::PWSTR, cchmax : u32, icodepage : i32) -> u32);
 ::windows_targets::link!("user32.dll" "system" fn DdeReconnect(hconv : HCONV) -> HCONV);
 #[cfg(feature = "Win32_Security")]
 ::windows_targets::link!("user32.dll" "system" fn DdeSetQualityOfService(hwndclient : super::super::Foundation:: HWND, pqosnew : *const super::super::Security:: SECURITY_QUALITY_OF_SERVICE, pqosprev : *mut super::super::Security:: SECURITY_QUALITY_OF_SERVICE) -> super::super::Foundation:: BOOL);
@@ -43,36 +43,36 @@
 ::windows_targets::link!("kernel32.dll" "system" fn DeleteAtom(natom : u16) -> u16);
 ::windows_targets::link!("user32.dll" "system" fn EmptyClipboard() -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("user32.dll" "system" fn EnumClipboardFormats(format : u32) -> u32);
-::windows_targets::link!("kernel32.dll" "system" fn FindAtomA(lpstring : ::windows_sys::core::PCSTR) -> u16);
-::windows_targets::link!("kernel32.dll" "system" fn FindAtomW(lpstring : ::windows_sys::core::PCWSTR) -> u16);
+::windows_targets::link!("kernel32.dll" "system" fn FindAtomA(lpstring : windows_sys::core::PCSTR) -> u16);
+::windows_targets::link!("kernel32.dll" "system" fn FindAtomW(lpstring : windows_sys::core::PCWSTR) -> u16);
 ::windows_targets::link!("user32.dll" "system" fn FreeDDElParam(msg : u32, lparam : super::super::Foundation:: LPARAM) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("kernel32.dll" "system" fn GetAtomNameA(natom : u16, lpbuffer : ::windows_sys::core::PSTR, nsize : i32) -> u32);
-::windows_targets::link!("kernel32.dll" "system" fn GetAtomNameW(natom : u16, lpbuffer : ::windows_sys::core::PWSTR, nsize : i32) -> u32);
+::windows_targets::link!("kernel32.dll" "system" fn GetAtomNameA(natom : u16, lpbuffer : windows_sys::core::PSTR, nsize : i32) -> u32);
+::windows_targets::link!("kernel32.dll" "system" fn GetAtomNameW(natom : u16, lpbuffer : windows_sys::core::PWSTR, nsize : i32) -> u32);
 ::windows_targets::link!("user32.dll" "system" fn GetClipboardData(uformat : u32) -> super::super::Foundation:: HANDLE);
-::windows_targets::link!("user32.dll" "system" fn GetClipboardFormatNameA(format : u32, lpszformatname : ::windows_sys::core::PSTR, cchmaxcount : i32) -> i32);
-::windows_targets::link!("user32.dll" "system" fn GetClipboardFormatNameW(format : u32, lpszformatname : ::windows_sys::core::PWSTR, cchmaxcount : i32) -> i32);
+::windows_targets::link!("user32.dll" "system" fn GetClipboardFormatNameA(format : u32, lpszformatname : windows_sys::core::PSTR, cchmaxcount : i32) -> i32);
+::windows_targets::link!("user32.dll" "system" fn GetClipboardFormatNameW(format : u32, lpszformatname : windows_sys::core::PWSTR, cchmaxcount : i32) -> i32);
 ::windows_targets::link!("user32.dll" "system" fn GetClipboardOwner() -> super::super::Foundation:: HWND);
 ::windows_targets::link!("user32.dll" "system" fn GetClipboardSequenceNumber() -> u32);
 ::windows_targets::link!("user32.dll" "system" fn GetClipboardViewer() -> super::super::Foundation:: HWND);
 ::windows_targets::link!("user32.dll" "system" fn GetOpenClipboardWindow() -> super::super::Foundation:: HWND);
 ::windows_targets::link!("user32.dll" "system" fn GetPriorityClipboardFormat(paformatprioritylist : *const u32, cformats : i32) -> i32);
 ::windows_targets::link!("user32.dll" "system" fn GetUpdatedClipboardFormats(lpuiformats : *mut u32, cformats : u32, pcformatsout : *mut u32) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("kernel32.dll" "system" fn GlobalAddAtomA(lpstring : ::windows_sys::core::PCSTR) -> u16);
-::windows_targets::link!("kernel32.dll" "system" fn GlobalAddAtomExA(lpstring : ::windows_sys::core::PCSTR, flags : u32) -> u16);
-::windows_targets::link!("kernel32.dll" "system" fn GlobalAddAtomExW(lpstring : ::windows_sys::core::PCWSTR, flags : u32) -> u16);
-::windows_targets::link!("kernel32.dll" "system" fn GlobalAddAtomW(lpstring : ::windows_sys::core::PCWSTR) -> u16);
+::windows_targets::link!("kernel32.dll" "system" fn GlobalAddAtomA(lpstring : windows_sys::core::PCSTR) -> u16);
+::windows_targets::link!("kernel32.dll" "system" fn GlobalAddAtomExA(lpstring : windows_sys::core::PCSTR, flags : u32) -> u16);
+::windows_targets::link!("kernel32.dll" "system" fn GlobalAddAtomExW(lpstring : windows_sys::core::PCWSTR, flags : u32) -> u16);
+::windows_targets::link!("kernel32.dll" "system" fn GlobalAddAtomW(lpstring : windows_sys::core::PCWSTR) -> u16);
 ::windows_targets::link!("kernel32.dll" "system" fn GlobalDeleteAtom(natom : u16) -> u16);
-::windows_targets::link!("kernel32.dll" "system" fn GlobalFindAtomA(lpstring : ::windows_sys::core::PCSTR) -> u16);
-::windows_targets::link!("kernel32.dll" "system" fn GlobalFindAtomW(lpstring : ::windows_sys::core::PCWSTR) -> u16);
-::windows_targets::link!("kernel32.dll" "system" fn GlobalGetAtomNameA(natom : u16, lpbuffer : ::windows_sys::core::PSTR, nsize : i32) -> u32);
-::windows_targets::link!("kernel32.dll" "system" fn GlobalGetAtomNameW(natom : u16, lpbuffer : ::windows_sys::core::PWSTR, nsize : i32) -> u32);
+::windows_targets::link!("kernel32.dll" "system" fn GlobalFindAtomA(lpstring : windows_sys::core::PCSTR) -> u16);
+::windows_targets::link!("kernel32.dll" "system" fn GlobalFindAtomW(lpstring : windows_sys::core::PCWSTR) -> u16);
+::windows_targets::link!("kernel32.dll" "system" fn GlobalGetAtomNameA(natom : u16, lpbuffer : windows_sys::core::PSTR, nsize : i32) -> u32);
+::windows_targets::link!("kernel32.dll" "system" fn GlobalGetAtomNameW(natom : u16, lpbuffer : windows_sys::core::PWSTR, nsize : i32) -> u32);
 ::windows_targets::link!("user32.dll" "system" fn ImpersonateDdeClientWindow(hwndclient : super::super::Foundation:: HWND, hwndserver : super::super::Foundation:: HWND) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("kernel32.dll" "system" fn InitAtomTable(nsize : u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("user32.dll" "system" fn IsClipboardFormatAvailable(format : u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("user32.dll" "system" fn OpenClipboard(hwndnewowner : super::super::Foundation:: HWND) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("user32.dll" "system" fn PackDDElParam(msg : u32, uilo : usize, uihi : usize) -> super::super::Foundation:: LPARAM);
-::windows_targets::link!("user32.dll" "system" fn RegisterClipboardFormatA(lpszformat : ::windows_sys::core::PCSTR) -> u32);
-::windows_targets::link!("user32.dll" "system" fn RegisterClipboardFormatW(lpszformat : ::windows_sys::core::PCWSTR) -> u32);
+::windows_targets::link!("user32.dll" "system" fn RegisterClipboardFormatA(lpszformat : windows_sys::core::PCSTR) -> u32);
+::windows_targets::link!("user32.dll" "system" fn RegisterClipboardFormatW(lpszformat : windows_sys::core::PCWSTR) -> u32);
 ::windows_targets::link!("user32.dll" "system" fn RemoveClipboardFormatListener(hwnd : super::super::Foundation:: HWND) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("user32.dll" "system" fn ReuseDDElParam(lparam : super::super::Foundation:: LPARAM, msgin : u32, msgout : u32, uilo : usize, uihi : usize) -> super::super::Foundation:: LPARAM);
 ::windows_targets::link!("user32.dll" "system" fn SetClipboardData(uformat : u32, hmem : super::super::Foundation:: HANDLE) -> super::super::Foundation:: HANDLE);
@@ -164,14 +164,14 @@ pub const ST_INLIST: CONVINFO_STATUS = 64u32;
 pub const ST_ISLOCAL: CONVINFO_STATUS = 4u32;
 pub const ST_ISSELF: CONVINFO_STATUS = 256u32;
 pub const ST_TERMINATED: CONVINFO_STATUS = 32u32;
-pub const SZDDESYS_ITEM_FORMATS: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Formats");
-pub const SZDDESYS_ITEM_HELP: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Help");
-pub const SZDDESYS_ITEM_RTNMSG: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("ReturnMessage");
-pub const SZDDESYS_ITEM_STATUS: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Status");
-pub const SZDDESYS_ITEM_SYSITEMS: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("SysItems");
-pub const SZDDESYS_ITEM_TOPICS: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Topics");
-pub const SZDDESYS_TOPIC: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("System");
-pub const SZDDE_ITEM_ITEMLIST: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("TopicItemList");
+pub const SZDDESYS_ITEM_FORMATS: windows_sys::core::PCWSTR = windows_sys::core::w!("Formats");
+pub const SZDDESYS_ITEM_HELP: windows_sys::core::PCWSTR = windows_sys::core::w!("Help");
+pub const SZDDESYS_ITEM_RTNMSG: windows_sys::core::PCWSTR = windows_sys::core::w!("ReturnMessage");
+pub const SZDDESYS_ITEM_STATUS: windows_sys::core::PCWSTR = windows_sys::core::w!("Status");
+pub const SZDDESYS_ITEM_SYSITEMS: windows_sys::core::PCWSTR = windows_sys::core::w!("SysItems");
+pub const SZDDESYS_ITEM_TOPICS: windows_sys::core::PCWSTR = windows_sys::core::w!("Topics");
+pub const SZDDESYS_TOPIC: windows_sys::core::PCWSTR = windows_sys::core::w!("System");
+pub const SZDDE_ITEM_ITEMLIST: windows_sys::core::PCWSTR = windows_sys::core::w!("TopicItemList");
 pub const TIMEOUT_ASYNC: u32 = 4294967295u32;
 pub const WM_DDE_ACK: u32 = 996u32;
 pub const WM_DDE_ADVISE: u32 = 994u32;
@@ -244,9 +244,9 @@ pub struct CONVCONTEXT {
     pub qos: super::super::Security::SECURITY_QUALITY_OF_SERVICE,
 }
 #[cfg(feature = "Win32_Security")]
-impl ::core::marker::Copy for CONVCONTEXT {}
+impl Copy for CONVCONTEXT {}
 #[cfg(feature = "Win32_Security")]
-impl ::core::clone::Clone for CONVCONTEXT {
+impl Clone for CONVCONTEXT {
     fn clone(&self) -> Self {
         *self
     }
@@ -272,9 +272,9 @@ pub struct CONVINFO {
     pub hwndPartner: super::super::Foundation::HWND,
 }
 #[cfg(feature = "Win32_Security")]
-impl ::core::marker::Copy for CONVINFO {}
+impl Copy for CONVINFO {}
 #[cfg(feature = "Win32_Security")]
-impl ::core::clone::Clone for CONVINFO {
+impl Clone for CONVINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -283,10 +283,10 @@ impl ::core::clone::Clone for CONVINFO {
 pub struct COPYDATASTRUCT {
     pub dwData: usize,
     pub cbData: u32,
-    pub lpData: *mut ::core::ffi::c_void,
+    pub lpData: *mut core::ffi::c_void,
 }
-impl ::core::marker::Copy for COPYDATASTRUCT {}
-impl ::core::clone::Clone for COPYDATASTRUCT {
+impl Copy for COPYDATASTRUCT {}
+impl Clone for COPYDATASTRUCT {
     fn clone(&self) -> Self {
         *self
     }
@@ -295,8 +295,8 @@ impl ::core::clone::Clone for COPYDATASTRUCT {
 pub struct DDEACK {
     pub _bitfield: u16,
 }
-impl ::core::marker::Copy for DDEACK {}
-impl ::core::clone::Clone for DDEACK {
+impl Copy for DDEACK {}
+impl Clone for DDEACK {
     fn clone(&self) -> Self {
         *self
     }
@@ -306,8 +306,8 @@ pub struct DDEADVISE {
     pub _bitfield: u16,
     pub cfFormat: i16,
 }
-impl ::core::marker::Copy for DDEADVISE {}
-impl ::core::clone::Clone for DDEADVISE {
+impl Copy for DDEADVISE {}
+impl Clone for DDEADVISE {
     fn clone(&self) -> Self {
         *self
     }
@@ -318,8 +318,8 @@ pub struct DDEDATA {
     pub cfFormat: i16,
     pub Value: [u8; 1],
 }
-impl ::core::marker::Copy for DDEDATA {}
-impl ::core::clone::Clone for DDEDATA {
+impl Copy for DDEDATA {}
+impl Clone for DDEDATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -329,8 +329,8 @@ pub struct DDELN {
     pub _bitfield: u16,
     pub cfFormat: i16,
 }
-impl ::core::marker::Copy for DDELN {}
-impl ::core::clone::Clone for DDELN {
+impl Copy for DDELN {}
+impl Clone for DDELN {
     fn clone(&self) -> Self {
         *self
     }
@@ -342,8 +342,8 @@ pub struct DDEML_MSG_HOOK_DATA {
     pub cbData: u32,
     pub Data: [u32; 8],
 }
-impl ::core::marker::Copy for DDEML_MSG_HOOK_DATA {}
-impl ::core::clone::Clone for DDEML_MSG_HOOK_DATA {
+impl Copy for DDEML_MSG_HOOK_DATA {}
+impl Clone for DDEML_MSG_HOOK_DATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -354,8 +354,8 @@ pub struct DDEPOKE {
     pub cfFormat: i16,
     pub Value: [u8; 1],
 }
-impl ::core::marker::Copy for DDEPOKE {}
-impl ::core::clone::Clone for DDEPOKE {
+impl Copy for DDEPOKE {}
+impl Clone for DDEPOKE {
     fn clone(&self) -> Self {
         *self
     }
@@ -366,8 +366,8 @@ pub struct DDEUP {
     pub cfFormat: i16,
     pub rgb: [u8; 1],
 }
-impl ::core::marker::Copy for DDEUP {}
-impl ::core::clone::Clone for DDEUP {
+impl Copy for DDEUP {}
+impl Clone for DDEUP {
     fn clone(&self) -> Self {
         *self
     }
@@ -381,8 +381,8 @@ pub struct HSZPAIR {
     pub hszSvc: HSZ,
     pub hszTopic: HSZ,
 }
-impl ::core::marker::Copy for HSZPAIR {}
-impl ::core::clone::Clone for HSZPAIR {
+impl Copy for HSZPAIR {}
+impl Clone for HSZPAIR {
     fn clone(&self) -> Self {
         *self
     }
@@ -396,9 +396,9 @@ pub struct METAFILEPICT {
     pub hMF: super::super::Graphics::Gdi::HMETAFILE,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::marker::Copy for METAFILEPICT {}
+impl Copy for METAFILEPICT {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::clone::Clone for METAFILEPICT {
+impl Clone for METAFILEPICT {
     fn clone(&self) -> Self {
         *self
     }
@@ -423,9 +423,9 @@ pub struct MONCBSTRUCT {
     pub Data: [u32; 8],
 }
 #[cfg(feature = "Win32_Security")]
-impl ::core::marker::Copy for MONCBSTRUCT {}
+impl Copy for MONCBSTRUCT {}
 #[cfg(feature = "Win32_Security")]
-impl ::core::clone::Clone for MONCBSTRUCT {
+impl Clone for MONCBSTRUCT {
     fn clone(&self) -> Self {
         *self
     }
@@ -441,8 +441,8 @@ pub struct MONCONVSTRUCT {
     pub hConvClient: HCONV,
     pub hConvServer: HCONV,
 }
-impl ::core::marker::Copy for MONCONVSTRUCT {}
-impl ::core::clone::Clone for MONCONVSTRUCT {
+impl Copy for MONCONVSTRUCT {}
+impl Clone for MONCONVSTRUCT {
     fn clone(&self) -> Self {
         *self
     }
@@ -454,8 +454,8 @@ pub struct MONERRSTRUCT {
     pub dwTime: u32,
     pub hTask: super::super::Foundation::HANDLE,
 }
-impl ::core::marker::Copy for MONERRSTRUCT {}
-impl ::core::clone::Clone for MONERRSTRUCT {
+impl Copy for MONERRSTRUCT {}
+impl Clone for MONERRSTRUCT {
     fn clone(&self) -> Self {
         *self
     }
@@ -469,8 +469,8 @@ pub struct MONHSZSTRUCTA {
     pub hTask: super::super::Foundation::HANDLE,
     pub str: [i8; 1],
 }
-impl ::core::marker::Copy for MONHSZSTRUCTA {}
-impl ::core::clone::Clone for MONHSZSTRUCTA {
+impl Copy for MONHSZSTRUCTA {}
+impl Clone for MONHSZSTRUCTA {
     fn clone(&self) -> Self {
         *self
     }
@@ -484,8 +484,8 @@ pub struct MONHSZSTRUCTW {
     pub hTask: super::super::Foundation::HANDLE,
     pub str: [u16; 1],
 }
-impl ::core::marker::Copy for MONHSZSTRUCTW {}
-impl ::core::clone::Clone for MONHSZSTRUCTW {
+impl Copy for MONHSZSTRUCTW {}
+impl Clone for MONHSZSTRUCTW {
     fn clone(&self) -> Self {
         *self
     }
@@ -505,8 +505,8 @@ pub struct MONLINKSTRUCT {
     pub hConvServer: HCONV,
     pub hConvClient: HCONV,
 }
-impl ::core::marker::Copy for MONLINKSTRUCT {}
-impl ::core::clone::Clone for MONLINKSTRUCT {
+impl Copy for MONLINKSTRUCT {}
+impl Clone for MONLINKSTRUCT {
     fn clone(&self) -> Self {
         *self
     }
@@ -522,10 +522,10 @@ pub struct MONMSGSTRUCT {
     pub lParam: super::super::Foundation::LPARAM,
     pub dmhd: DDEML_MSG_HOOK_DATA,
 }
-impl ::core::marker::Copy for MONMSGSTRUCT {}
-impl ::core::clone::Clone for MONMSGSTRUCT {
+impl Copy for MONMSGSTRUCT {}
+impl Clone for MONMSGSTRUCT {
     fn clone(&self) -> Self {
         *self
     }
 }
-pub type PFNCALLBACK = ::core::option::Option<unsafe extern "system" fn(wtype: u32, wfmt: u32, hconv: HCONV, hsz1: HSZ, hsz2: HSZ, hdata: HDDEDATA, dwdata1: usize, dwdata2: usize) -> HDDEDATA>;
+pub type PFNCALLBACK = Option<unsafe extern "system" fn(wtype: u32, wfmt: u32, hconv: HCONV, hsz1: HSZ, hsz2: HSZ, hdata: HDDEDATA, dwdata1: usize, dwdata2: usize) -> HDDEDATA>;
