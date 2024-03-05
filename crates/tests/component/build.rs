@@ -40,6 +40,7 @@ fn main() {
         "test_component",
         "--config",
         "implement",
+        "no-bindgen-comment",
     ]);
 
     if !command.status().unwrap().success() {

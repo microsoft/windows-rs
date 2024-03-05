@@ -1,7 +1,7 @@
 // These will use `windows` style bindings and include COM APIs.
 
 --out crates/libs/core/src/imp/com_bindings.rs
---config flatten minimal
+--config flatten minimal no-bindgen-comment
 
 --filter
     Windows.Foundation.IReference

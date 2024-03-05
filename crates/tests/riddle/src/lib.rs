@@ -42,7 +42,18 @@ pub fn run_riddle(name: &str, dialect: &str, etc: &[&str]) -> Vec<windows_metada
     std::fs::remove_file(&rs).expect("Failed to delete output");
     let mut command = Command::new("cargo");
     command.args([
-        "run", "-p", "riddle", "--", "--in", &rdl, "--out", &rs, "--filter", "Test",
+        "run",
+        "-p",
+        "riddle",
+        "--",
+        "--in",
+        &rdl,
+        "--out",
+        &rs,
+        "--filter",
+        "Test",
+        "--config",
+        "no-bindgen-comment",
     ]);
     command.args(etc);
     assert!(command.status().unwrap().success());

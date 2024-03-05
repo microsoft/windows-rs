@@ -15,6 +15,8 @@ fn main() {
         "src/bindings.rs",
         "--filter",
         "test_component",
+        "--config",
+        "no-bindgen-comment",
     ]);
 
     if !command.status().unwrap().success() {
