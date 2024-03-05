@@ -2,14 +2,14 @@ use super::*;
 
 #[doc(hidden)]
 pub trait RuntimeType: Type<Self> {
-    const SIGNATURE: crate::imp::ConstBuffer;
+    const SIGNATURE: imp::ConstBuffer;
 }
 
 macro_rules! primitives {
     ($(($t:ty, $s:literal)),+) => {
         $(
             impl RuntimeType for $t {
-                const SIGNATURE: crate::imp::ConstBuffer = crate::imp::ConstBuffer::from_slice($s);
+                const SIGNATURE: imp::ConstBuffer = imp::ConstBuffer::from_slice($s);
             }
         )*
     };
@@ -30,5 +30,5 @@ primitives! {
 }
 
 impl RuntimeType for HSTRING {
-    const SIGNATURE: crate::imp::ConstBuffer = crate::imp::ConstBuffer::from_slice(b"string");
+    const SIGNATURE: imp::ConstBuffer = imp::ConstBuffer::from_slice(b"string");
 }

@@ -27,7 +27,7 @@ impl<T: Type<T>> Array<T> {
         // SAFETY: the call to CoTaskMemAlloc is safe to perform
         // if len is zero and overflow was checked above.
         // We ensured we alloc enough space by multiplying len * size_of::<T>
-        let data = unsafe { crate::imp::CoTaskMemAlloc(bytes_amount) as *mut T::Default };
+        let data = unsafe { imp::CoTaskMemAlloc(bytes_amount) as *mut T::Default };
 
         assert!(!data.is_null(), "Could not successfully allocate for Array");
 
@@ -96,7 +96,7 @@ impl<T: Type<T>> Array<T> {
             // Free the data memory where the elements were
             // SAFETY: we have unique access to the data pointer at this point
             // so freeing it is the right thing to do
-            crate::imp::CoTaskMemFree(data as _);
+            imp::CoTaskMemFree(data as _);
         }
     }
 

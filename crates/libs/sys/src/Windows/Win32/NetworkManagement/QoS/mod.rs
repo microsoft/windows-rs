@@ -4,15 +4,15 @@
 ::windows_targets::link!("qwave.dll" "system" fn QOSCancel(qoshandle : super::super::Foundation:: HANDLE, overlapped : *const super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("qwave.dll" "system" fn QOSCloseHandle(qoshandle : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("qwave.dll" "system" fn QOSCreateHandle(version : *const QOS_VERSION, qoshandle : *mut super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("qwave.dll" "system" fn QOSEnumerateFlows(qoshandle : super::super::Foundation:: HANDLE, size : *mut u32, buffer : *mut ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("qwave.dll" "system" fn QOSEnumerateFlows(qoshandle : super::super::Foundation:: HANDLE, size : *mut u32, buffer : *mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_System_IO")]
-::windows_targets::link!("qwave.dll" "system" fn QOSNotifyFlow(qoshandle : super::super::Foundation:: HANDLE, flowid : u32, operation : QOS_NOTIFY_FLOW, size : *mut u32, buffer : *mut ::core::ffi::c_void, flags : u32, overlapped : *mut super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("qwave.dll" "system" fn QOSNotifyFlow(qoshandle : super::super::Foundation:: HANDLE, flowid : u32, operation : QOS_NOTIFY_FLOW, size : *mut u32, buffer : *mut core::ffi::c_void, flags : u32, overlapped : *mut super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_System_IO")]
-::windows_targets::link!("qwave.dll" "system" fn QOSQueryFlow(qoshandle : super::super::Foundation:: HANDLE, flowid : u32, operation : QOS_QUERY_FLOW, size : *mut u32, buffer : *mut ::core::ffi::c_void, flags : u32, overlapped : *mut super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("qwave.dll" "system" fn QOSQueryFlow(qoshandle : super::super::Foundation:: HANDLE, flowid : u32, operation : QOS_QUERY_FLOW, size : *mut u32, buffer : *mut core::ffi::c_void, flags : u32, overlapped : *mut super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Networking_WinSock")]
 ::windows_targets::link!("qwave.dll" "system" fn QOSRemoveSocketFromFlow(qoshandle : super::super::Foundation:: HANDLE, socket : super::super::Networking::WinSock:: SOCKET, flowid : u32, flags : u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_System_IO")]
-::windows_targets::link!("qwave.dll" "system" fn QOSSetFlow(qoshandle : super::super::Foundation:: HANDLE, flowid : u32, operation : QOS_SET_FLOW, size : u32, buffer : *const ::core::ffi::c_void, flags : u32, overlapped : *mut super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("qwave.dll" "system" fn QOSSetFlow(qoshandle : super::super::Foundation:: HANDLE, flowid : u32, operation : QOS_SET_FLOW, size : u32, buffer : *const core::ffi::c_void, flags : u32, overlapped : *mut super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Networking_WinSock")]
 ::windows_targets::link!("qwave.dll" "system" fn QOSStartTrackingClient(qoshandle : super::super::Foundation:: HANDLE, destaddr : *const super::super::Networking::WinSock:: SOCKADDR, flags : u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Networking_WinSock")]
@@ -28,19 +28,19 @@
 ::windows_targets::link!("traffic.dll" "system" fn TcEnumerateFlows(ifchandle : super::super::Foundation:: HANDLE, penumhandle : *mut super::super::Foundation:: HANDLE, pflowcount : *mut u32, pbufsize : *mut u32, buffer : *mut ENUMERATION_BUFFER) -> u32);
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 ::windows_targets::link!("traffic.dll" "system" fn TcEnumerateInterfaces(clienthandle : super::super::Foundation:: HANDLE, pbuffersize : *mut u32, interfacebuffer : *mut TC_IFC_DESCRIPTOR) -> u32);
-::windows_targets::link!("traffic.dll" "system" fn TcGetFlowNameA(flowhandle : super::super::Foundation:: HANDLE, strsize : u32, pflowname : ::windows_sys::core::PSTR) -> u32);
-::windows_targets::link!("traffic.dll" "system" fn TcGetFlowNameW(flowhandle : super::super::Foundation:: HANDLE, strsize : u32, pflowname : ::windows_sys::core::PWSTR) -> u32);
+::windows_targets::link!("traffic.dll" "system" fn TcGetFlowNameA(flowhandle : super::super::Foundation:: HANDLE, strsize : u32, pflowname : windows_sys::core::PSTR) -> u32);
+::windows_targets::link!("traffic.dll" "system" fn TcGetFlowNameW(flowhandle : super::super::Foundation:: HANDLE, strsize : u32, pflowname : windows_sys::core::PWSTR) -> u32);
 #[cfg(feature = "Win32_Networking_WinSock")]
 ::windows_targets::link!("traffic.dll" "system" fn TcModifyFlow(flowhandle : super::super::Foundation:: HANDLE, pgenericflow : *const TC_GEN_FLOW) -> u32);
-::windows_targets::link!("traffic.dll" "system" fn TcOpenInterfaceA(pinterfacename : ::windows_sys::core::PCSTR, clienthandle : super::super::Foundation:: HANDLE, clifcctx : super::super::Foundation:: HANDLE, pifchandle : *mut super::super::Foundation:: HANDLE) -> u32);
-::windows_targets::link!("traffic.dll" "system" fn TcOpenInterfaceW(pinterfacename : ::windows_sys::core::PCWSTR, clienthandle : super::super::Foundation:: HANDLE, clifcctx : super::super::Foundation:: HANDLE, pifchandle : *mut super::super::Foundation:: HANDLE) -> u32);
-::windows_targets::link!("traffic.dll" "system" fn TcQueryFlowA(pflowname : ::windows_sys::core::PCSTR, pguidparam : *const ::windows_sys::core::GUID, pbuffersize : *mut u32, buffer : *mut ::core::ffi::c_void) -> u32);
-::windows_targets::link!("traffic.dll" "system" fn TcQueryFlowW(pflowname : ::windows_sys::core::PCWSTR, pguidparam : *const ::windows_sys::core::GUID, pbuffersize : *mut u32, buffer : *mut ::core::ffi::c_void) -> u32);
-::windows_targets::link!("traffic.dll" "system" fn TcQueryInterface(ifchandle : super::super::Foundation:: HANDLE, pguidparam : *const ::windows_sys::core::GUID, notifychange : super::super::Foundation:: BOOLEAN, pbuffersize : *mut u32, buffer : *mut ::core::ffi::c_void) -> u32);
+::windows_targets::link!("traffic.dll" "system" fn TcOpenInterfaceA(pinterfacename : windows_sys::core::PCSTR, clienthandle : super::super::Foundation:: HANDLE, clifcctx : super::super::Foundation:: HANDLE, pifchandle : *mut super::super::Foundation:: HANDLE) -> u32);
+::windows_targets::link!("traffic.dll" "system" fn TcOpenInterfaceW(pinterfacename : windows_sys::core::PCWSTR, clienthandle : super::super::Foundation:: HANDLE, clifcctx : super::super::Foundation:: HANDLE, pifchandle : *mut super::super::Foundation:: HANDLE) -> u32);
+::windows_targets::link!("traffic.dll" "system" fn TcQueryFlowA(pflowname : windows_sys::core::PCSTR, pguidparam : *const windows_sys::core::GUID, pbuffersize : *mut u32, buffer : *mut core::ffi::c_void) -> u32);
+::windows_targets::link!("traffic.dll" "system" fn TcQueryFlowW(pflowname : windows_sys::core::PCWSTR, pguidparam : *const windows_sys::core::GUID, pbuffersize : *mut u32, buffer : *mut core::ffi::c_void) -> u32);
+::windows_targets::link!("traffic.dll" "system" fn TcQueryInterface(ifchandle : super::super::Foundation:: HANDLE, pguidparam : *const windows_sys::core::GUID, notifychange : super::super::Foundation:: BOOLEAN, pbuffersize : *mut u32, buffer : *mut core::ffi::c_void) -> u32);
 ::windows_targets::link!("traffic.dll" "system" fn TcRegisterClient(tciversion : u32, clregctx : super::super::Foundation:: HANDLE, clienthandlerlist : *const TCI_CLIENT_FUNC_LIST, pclienthandle : *mut super::super::Foundation:: HANDLE) -> u32);
-::windows_targets::link!("traffic.dll" "system" fn TcSetFlowA(pflowname : ::windows_sys::core::PCSTR, pguidparam : *const ::windows_sys::core::GUID, buffersize : u32, buffer : *const ::core::ffi::c_void) -> u32);
-::windows_targets::link!("traffic.dll" "system" fn TcSetFlowW(pflowname : ::windows_sys::core::PCWSTR, pguidparam : *const ::windows_sys::core::GUID, buffersize : u32, buffer : *const ::core::ffi::c_void) -> u32);
-::windows_targets::link!("traffic.dll" "system" fn TcSetInterface(ifchandle : super::super::Foundation:: HANDLE, pguidparam : *const ::windows_sys::core::GUID, buffersize : u32, buffer : *const ::core::ffi::c_void) -> u32);
+::windows_targets::link!("traffic.dll" "system" fn TcSetFlowA(pflowname : windows_sys::core::PCSTR, pguidparam : *const windows_sys::core::GUID, buffersize : u32, buffer : *const core::ffi::c_void) -> u32);
+::windows_targets::link!("traffic.dll" "system" fn TcSetFlowW(pflowname : windows_sys::core::PCWSTR, pguidparam : *const windows_sys::core::GUID, buffersize : u32, buffer : *const core::ffi::c_void) -> u32);
+::windows_targets::link!("traffic.dll" "system" fn TcSetInterface(ifchandle : super::super::Foundation:: HANDLE, pguidparam : *const windows_sys::core::GUID, buffersize : u32, buffer : *const core::ffi::c_void) -> u32);
 pub const ABLE_TO_RECV_RSVP: u32 = 50002u32;
 pub const ADM_CTRL_FAILED: u32 = 3u32;
 pub const AD_FLAG_BREAK_BIT: u32 = 1u32;
@@ -54,7 +54,7 @@ pub const CREDENTIAL_SUB_TYPE_PGP_CERT: u32 = 5u32;
 pub const CREDENTIAL_SUB_TYPE_UNICODE_ID: u32 = 2u32;
 pub const CREDENTIAL_SUB_TYPE_X509_V3_CERT: u32 = 4u32;
 pub const CURRENT_TCI_VERSION: u32 = 2u32;
-pub const DD_TCP_DEVICE_NAME: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("\\Device\\Tcp");
+pub const DD_TCP_DEVICE_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("\\Device\\Tcp");
 pub const DUP_RESULTS: u32 = 4u32;
 pub const END_TO_END_QOSABILITY: u32 = 50006u32;
 pub const ERROR_ADDRESS_TYPE_NOT_SUPPORTED: u32 = 7511u32;
@@ -125,22 +125,22 @@ pub const GUAR_ADSPARM_Ctot: i32 = 133i32;
 pub const GUAR_ADSPARM_D: i32 = 132i32;
 pub const GUAR_ADSPARM_Dsum: i32 = 136i32;
 pub const GUAR_ADSPARM_Dtot: i32 = 134i32;
-pub const GUID_QOS_BESTEFFORT_BANDWIDTH: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xed885290_40ec_11d1_2c91_00aa00574915);
-pub const GUID_QOS_ENABLE_AVG_STATS: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xbafb6d11_27c4_4801_a46f_ef8080c188c8);
-pub const GUID_QOS_ENABLE_WINDOW_ADJUSTMENT: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xaa966725_d3e9_4c55_b335_2a00279a1e64);
-pub const GUID_QOS_FLOW_8021P_CONFORMING: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x08c1e013_fcd2_11d2_be1e_00a0c99ee63b);
-pub const GUID_QOS_FLOW_8021P_NONCONFORMING: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x09023f91_fcd2_11d2_be1e_00a0c99ee63b);
-pub const GUID_QOS_FLOW_COUNT: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x1147f880_40ed_11d1_2c91_00aa00574915);
-pub const GUID_QOS_FLOW_IP_CONFORMING: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x07f99a8b_fcd2_11d2_be1e_00a0c99ee63b);
-pub const GUID_QOS_FLOW_IP_NONCONFORMING: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x087a5987_fcd2_11d2_be1e_00a0c99ee63b);
-pub const GUID_QOS_FLOW_MODE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x5c82290a_515a_11d2_8e58_00c04fc9bfcb);
-pub const GUID_QOS_ISSLOW_FLOW: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xabf273a4_ee07_11d2_be1b_00a0c99ee63b);
-pub const GUID_QOS_LATENCY: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xfc408ef0_40ec_11d1_2c91_00aa00574915);
-pub const GUID_QOS_MAX_OUTSTANDING_SENDS: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x161ffa86_6120_11d1_2c91_00aa00574915);
-pub const GUID_QOS_NON_BESTEFFORT_LIMIT: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x185c44e0_40ed_11d1_2c91_00aa00574915);
-pub const GUID_QOS_REMAINING_BANDWIDTH: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xc4c51720_40ec_11d1_2c91_00aa00574915);
-pub const GUID_QOS_STATISTICS_BUFFER: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xbb2c0980_e900_11d1_b07e_0080c71382bf);
-pub const GUID_QOS_TIMER_RESOLUTION: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xba10cc88_f13e_11d2_be1b_00a0c99ee63b);
+pub const GUID_QOS_BESTEFFORT_BANDWIDTH: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xed885290_40ec_11d1_2c91_00aa00574915);
+pub const GUID_QOS_ENABLE_AVG_STATS: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xbafb6d11_27c4_4801_a46f_ef8080c188c8);
+pub const GUID_QOS_ENABLE_WINDOW_ADJUSTMENT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xaa966725_d3e9_4c55_b335_2a00279a1e64);
+pub const GUID_QOS_FLOW_8021P_CONFORMING: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x08c1e013_fcd2_11d2_be1e_00a0c99ee63b);
+pub const GUID_QOS_FLOW_8021P_NONCONFORMING: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x09023f91_fcd2_11d2_be1e_00a0c99ee63b);
+pub const GUID_QOS_FLOW_COUNT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1147f880_40ed_11d1_2c91_00aa00574915);
+pub const GUID_QOS_FLOW_IP_CONFORMING: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x07f99a8b_fcd2_11d2_be1e_00a0c99ee63b);
+pub const GUID_QOS_FLOW_IP_NONCONFORMING: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x087a5987_fcd2_11d2_be1e_00a0c99ee63b);
+pub const GUID_QOS_FLOW_MODE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5c82290a_515a_11d2_8e58_00c04fc9bfcb);
+pub const GUID_QOS_ISSLOW_FLOW: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xabf273a4_ee07_11d2_be1b_00a0c99ee63b);
+pub const GUID_QOS_LATENCY: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xfc408ef0_40ec_11d1_2c91_00aa00574915);
+pub const GUID_QOS_MAX_OUTSTANDING_SENDS: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x161ffa86_6120_11d1_2c91_00aa00574915);
+pub const GUID_QOS_NON_BESTEFFORT_LIMIT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x185c44e0_40ed_11d1_2c91_00aa00574915);
+pub const GUID_QOS_REMAINING_BANDWIDTH: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc4c51720_40ec_11d1_2c91_00aa00574915);
+pub const GUID_QOS_STATISTICS_BUFFER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xbb2c0980_e900_11d1_b07e_0080c71382bf);
+pub const GUID_QOS_TIMER_RESOLUTION: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xba10cc88_f13e_11d2_be1b_00a0c99ee63b);
 pub const HIGHLY_DELAY_SENSITIVE: u32 = 4294967294u32;
 pub const IDENTITY_CHANGED: u32 = 5u32;
 pub const IF_MIB_STATS_ID: u32 = 1u32;
@@ -619,9 +619,9 @@ pub struct ADDRESS_LIST_DESCRIPTOR {
     pub AddressList: super::Ndis::NETWORK_ADDRESS_LIST,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for ADDRESS_LIST_DESCRIPTOR {}
+impl Copy for ADDRESS_LIST_DESCRIPTOR {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for ADDRESS_LIST_DESCRIPTOR {
+impl Clone for ADDRESS_LIST_DESCRIPTOR {
     fn clone(&self) -> Self {
         *self
     }
@@ -631,8 +631,8 @@ pub struct ADSPEC {
     pub adspec_header: RsvpObjHdr,
     pub adspec_body: IS_ADSPEC_BODY,
 }
-impl ::core::marker::Copy for ADSPEC {}
-impl ::core::clone::Clone for ADSPEC {
+impl Copy for ADSPEC {}
+impl Clone for ADSPEC {
     fn clone(&self) -> Self {
         *self
     }
@@ -645,8 +645,8 @@ pub struct AD_GENERAL_PARAMS {
     pub PathMTU: u32,
     pub Flags: u32,
 }
-impl ::core::marker::Copy for AD_GENERAL_PARAMS {}
-impl ::core::clone::Clone for AD_GENERAL_PARAMS {
+impl Copy for AD_GENERAL_PARAMS {}
+impl Clone for AD_GENERAL_PARAMS {
     fn clone(&self) -> Self {
         *self
     }
@@ -658,8 +658,8 @@ pub struct AD_GUARANTEED {
     pub CSum: u32,
     pub DSum: u32,
 }
-impl ::core::marker::Copy for AD_GUARANTEED {}
-impl ::core::clone::Clone for AD_GUARANTEED {
+impl Copy for AD_GUARANTEED {}
+impl Clone for AD_GUARANTEED {
     fn clone(&self) -> Self {
         *self
     }
@@ -671,8 +671,8 @@ pub struct CONTROL_SERVICE {
     pub Overrides: AD_GENERAL_PARAMS,
     pub Anonymous: CONTROL_SERVICE_0,
 }
-impl ::core::marker::Copy for CONTROL_SERVICE {}
-impl ::core::clone::Clone for CONTROL_SERVICE {
+impl Copy for CONTROL_SERVICE {}
+impl Clone for CONTROL_SERVICE {
     fn clone(&self) -> Self {
         *self
     }
@@ -682,8 +682,8 @@ pub union CONTROL_SERVICE_0 {
     pub Guaranteed: AD_GUARANTEED,
     pub ParamBuffer: [PARAM_BUFFER; 1],
 }
-impl ::core::marker::Copy for CONTROL_SERVICE_0 {}
-impl ::core::clone::Clone for CONTROL_SERVICE_0 {
+impl Copy for CONTROL_SERVICE_0 {}
+impl Clone for CONTROL_SERVICE_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -694,8 +694,8 @@ pub struct CtrlLoadFlowspec {
     pub CL_spec_parm_hdr: IntServParmHdr,
     pub CL_spec_parms: GenTspecParms,
 }
-impl ::core::marker::Copy for CtrlLoadFlowspec {}
-impl ::core::clone::Clone for CtrlLoadFlowspec {
+impl Copy for CtrlLoadFlowspec {}
+impl Clone for CtrlLoadFlowspec {
     fn clone(&self) -> Self {
         *self
     }
@@ -712,9 +712,9 @@ pub struct ENUMERATION_BUFFER {
     pub GenericFilter: [TC_GEN_FILTER; 1],
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::marker::Copy for ENUMERATION_BUFFER {}
+impl Copy for ENUMERATION_BUFFER {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::clone::Clone for ENUMERATION_BUFFER {
+impl Clone for ENUMERATION_BUFFER {
     fn clone(&self) -> Self {
         *self
     }
@@ -726,9 +726,9 @@ pub struct ERROR_SPEC {
     pub errs_u: ERROR_SPEC_0,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::marker::Copy for ERROR_SPEC {}
+impl Copy for ERROR_SPEC {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::clone::Clone for ERROR_SPEC {
+impl Clone for ERROR_SPEC {
     fn clone(&self) -> Self {
         *self
     }
@@ -739,9 +739,9 @@ pub union ERROR_SPEC_0 {
     pub errs_ipv4: Error_Spec_IPv4,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::marker::Copy for ERROR_SPEC_0 {}
+impl Copy for ERROR_SPEC_0 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::clone::Clone for ERROR_SPEC_0 {
+impl Clone for ERROR_SPEC_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -755,9 +755,9 @@ pub struct Error_Spec_IPv4 {
     pub errs_value: u16,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::marker::Copy for Error_Spec_IPv4 {}
+impl Copy for Error_Spec_IPv4 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::clone::Clone for Error_Spec_IPv4 {
+impl Clone for Error_Spec_IPv4 {
     fn clone(&self) -> Self {
         *self
     }
@@ -769,9 +769,9 @@ pub struct FILTER_SPEC {
     pub filt_u: FILTER_SPEC_0,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::marker::Copy for FILTER_SPEC {}
+impl Copy for FILTER_SPEC {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::clone::Clone for FILTER_SPEC {
+impl Clone for FILTER_SPEC {
     fn clone(&self) -> Self {
         *self
     }
@@ -783,9 +783,9 @@ pub union FILTER_SPEC_0 {
     pub filt_ipv4gpi: Filter_Spec_IPv4GPI,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::marker::Copy for FILTER_SPEC_0 {}
+impl Copy for FILTER_SPEC_0 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::clone::Clone for FILTER_SPEC_0 {
+impl Clone for FILTER_SPEC_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -798,9 +798,9 @@ pub struct FLOWDESCRIPTOR {
     pub FilterList: *mut RSVP_FILTERSPEC,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::marker::Copy for FLOWDESCRIPTOR {}
+impl Copy for FLOWDESCRIPTOR {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::clone::Clone for FLOWDESCRIPTOR {
+impl Clone for FLOWDESCRIPTOR {
     fn clone(&self) -> Self {
         *self
     }
@@ -812,9 +812,9 @@ pub struct FLOW_DESC {
     pub u2: FLOW_DESC_1,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::marker::Copy for FLOW_DESC {}
+impl Copy for FLOW_DESC {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::clone::Clone for FLOW_DESC {
+impl Clone for FLOW_DESC {
     fn clone(&self) -> Self {
         *self
     }
@@ -826,9 +826,9 @@ pub union FLOW_DESC_0 {
     pub isflow: *mut IS_FLOWSPEC,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::marker::Copy for FLOW_DESC_0 {}
+impl Copy for FLOW_DESC_0 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::clone::Clone for FLOW_DESC_0 {
+impl Clone for FLOW_DESC_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -840,9 +840,9 @@ pub union FLOW_DESC_1 {
     pub fspec: *mut FILTER_SPEC,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::marker::Copy for FLOW_DESC_1 {}
+impl Copy for FLOW_DESC_1 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::clone::Clone for FLOW_DESC_1 {
+impl Clone for FLOW_DESC_1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -855,9 +855,9 @@ pub struct Filter_Spec_IPv4 {
     pub filt_port: u16,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::marker::Copy for Filter_Spec_IPv4 {}
+impl Copy for Filter_Spec_IPv4 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::clone::Clone for Filter_Spec_IPv4 {
+impl Clone for Filter_Spec_IPv4 {
     fn clone(&self) -> Self {
         *self
     }
@@ -869,9 +869,9 @@ pub struct Filter_Spec_IPv4GPI {
     pub filt_gpi: u32,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::marker::Copy for Filter_Spec_IPv4GPI {}
+impl Copy for Filter_Spec_IPv4GPI {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::clone::Clone for Filter_Spec_IPv4GPI {
+impl Clone for Filter_Spec_IPv4GPI {
     fn clone(&self) -> Self {
         *self
     }
@@ -888,8 +888,8 @@ pub struct Gads_parms_t {
     pub Gads_Dsum_hdr: IntServParmHdr,
     pub Gads_Dsum: u32,
 }
-impl ::core::marker::Copy for Gads_parms_t {}
-impl ::core::clone::Clone for Gads_parms_t {
+impl Copy for Gads_parms_t {}
+impl Clone for Gads_parms_t {
     fn clone(&self) -> Self {
         *self
     }
@@ -906,8 +906,8 @@ pub struct GenAdspecParams {
     pub gen_parm_compmtu_hdr: IntServParmHdr,
     pub gen_parm_composed_MTU: u32,
 }
-impl ::core::marker::Copy for GenAdspecParams {}
-impl ::core::clone::Clone for GenAdspecParams {
+impl Copy for GenAdspecParams {}
+impl Clone for GenAdspecParams {
     fn clone(&self) -> Self {
         *self
     }
@@ -918,8 +918,8 @@ pub struct GenTspec {
     pub gen_Tspec_parm_hdr: IntServParmHdr,
     pub gen_Tspec_parms: GenTspecParms,
 }
-impl ::core::marker::Copy for GenTspec {}
-impl ::core::clone::Clone for GenTspec {
+impl Copy for GenTspec {}
+impl Clone for GenTspec {
     fn clone(&self) -> Self {
         *self
     }
@@ -932,8 +932,8 @@ pub struct GenTspecParms {
     pub TB_Tspec_m: u32,
     pub TB_Tspec_M: u32,
 }
-impl ::core::marker::Copy for GenTspecParms {}
-impl ::core::clone::Clone for GenTspecParms {
+impl Copy for GenTspecParms {}
+impl Clone for GenTspecParms {
     fn clone(&self) -> Self {
         *self
     }
@@ -946,8 +946,8 @@ pub struct GuarFlowSpec {
     pub Guar_Rspec_hdr: IntServParmHdr,
     pub Guar_Rspec: GuarRspec,
 }
-impl ::core::marker::Copy for GuarFlowSpec {}
-impl ::core::clone::Clone for GuarFlowSpec {
+impl Copy for GuarFlowSpec {}
+impl Clone for GuarFlowSpec {
     fn clone(&self) -> Self {
         *self
     }
@@ -957,8 +957,8 @@ pub struct GuarRspec {
     pub Guar_R: f32,
     pub Guar_S: u32,
 }
-impl ::core::marker::Copy for GuarRspec {}
-impl ::core::clone::Clone for GuarRspec {
+impl Copy for GuarRspec {}
+impl Clone for GuarRspec {
     fn clone(&self) -> Self {
         *self
     }
@@ -970,8 +970,8 @@ pub struct HSP_UPGRADE_IMAGEDATA {
     pub digest: [u8; 64],
     pub fileName: [u16; 64],
 }
-impl ::core::marker::Copy for HSP_UPGRADE_IMAGEDATA {}
-impl ::core::clone::Clone for HSP_UPGRADE_IMAGEDATA {
+impl Copy for HSP_UPGRADE_IMAGEDATA {}
+impl Clone for HSP_UPGRADE_IMAGEDATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -983,8 +983,8 @@ pub struct IDPE_ATTR {
     pub PeAttribSubType: u8,
     pub PeAttribValue: [u8; 4],
 }
-impl ::core::marker::Copy for IDPE_ATTR {}
-impl ::core::clone::Clone for IDPE_ATTR {
+impl Copy for IDPE_ATTR {}
+impl Clone for IDPE_ATTR {
     fn clone(&self) -> Self {
         *self
     }
@@ -998,8 +998,8 @@ pub struct ID_ERROR_OBJECT {
     pub usIdErrorValue: u16,
     pub ucIdErrData: [u8; 4],
 }
-impl ::core::marker::Copy for ID_ERROR_OBJECT {}
-impl ::core::clone::Clone for ID_ERROR_OBJECT {
+impl Copy for ID_ERROR_OBJECT {}
+impl Clone for ID_ERROR_OBJECT {
     fn clone(&self) -> Self {
         *self
     }
@@ -1009,8 +1009,8 @@ pub union IN_ADDR_IPV4 {
     pub Addr: u32,
     pub AddrBytes: [u8; 4],
 }
-impl ::core::marker::Copy for IN_ADDR_IPV4 {}
-impl ::core::clone::Clone for IN_ADDR_IPV4 {
+impl Copy for IN_ADDR_IPV4 {}
+impl Clone for IN_ADDR_IPV4 {
     fn clone(&self) -> Self {
         *self
     }
@@ -1019,8 +1019,8 @@ impl ::core::clone::Clone for IN_ADDR_IPV4 {
 pub struct IN_ADDR_IPV6 {
     pub Addr: [u8; 16],
 }
-impl ::core::marker::Copy for IN_ADDR_IPV6 {}
-impl ::core::clone::Clone for IN_ADDR_IPV6 {
+impl Copy for IN_ADDR_IPV6 {}
+impl Clone for IN_ADDR_IPV6 {
     fn clone(&self) -> Self {
         *self
     }
@@ -1030,8 +1030,8 @@ pub struct IPX_PATTERN {
     pub Src: IPX_PATTERN_0,
     pub Dest: IPX_PATTERN_0,
 }
-impl ::core::marker::Copy for IPX_PATTERN {}
-impl ::core::clone::Clone for IPX_PATTERN {
+impl Copy for IPX_PATTERN {}
+impl Clone for IPX_PATTERN {
     fn clone(&self) -> Self {
         *self
     }
@@ -1042,8 +1042,8 @@ pub struct IPX_PATTERN_0 {
     pub NodeAddress: [u8; 6],
     pub Socket: u16,
 }
-impl ::core::marker::Copy for IPX_PATTERN_0 {}
-impl ::core::clone::Clone for IPX_PATTERN_0 {
+impl Copy for IPX_PATTERN_0 {}
+impl Clone for IPX_PATTERN_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -1058,8 +1058,8 @@ pub struct IP_PATTERN {
     pub ProtocolId: u8,
     pub Reserved3: [u8; 3],
 }
-impl ::core::marker::Copy for IP_PATTERN {}
-impl ::core::clone::Clone for IP_PATTERN {
+impl Copy for IP_PATTERN {}
+impl Clone for IP_PATTERN {
     fn clone(&self) -> Self {
         *self
     }
@@ -1070,8 +1070,8 @@ pub union IP_PATTERN_0 {
     pub S_un_icmp: IP_PATTERN_0_0,
     pub S_Spi: u32,
 }
-impl ::core::marker::Copy for IP_PATTERN_0 {}
-impl ::core::clone::Clone for IP_PATTERN_0 {
+impl Copy for IP_PATTERN_0 {}
+impl Clone for IP_PATTERN_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -1082,8 +1082,8 @@ pub struct IP_PATTERN_0_0 {
     pub s_code: u8,
     pub filler: u16,
 }
-impl ::core::marker::Copy for IP_PATTERN_0_0 {}
-impl ::core::clone::Clone for IP_PATTERN_0_0 {
+impl Copy for IP_PATTERN_0_0 {}
+impl Clone for IP_PATTERN_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -1093,8 +1093,8 @@ pub struct IP_PATTERN_0_1 {
     pub s_srcport: u16,
     pub s_dstport: u16,
 }
-impl ::core::marker::Copy for IP_PATTERN_0_1 {}
-impl ::core::clone::Clone for IP_PATTERN_0_1 {
+impl Copy for IP_PATTERN_0_1 {}
+impl Clone for IP_PATTERN_0_1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -1104,8 +1104,8 @@ pub struct IS_ADSPEC_BODY {
     pub adspec_mh: IntServMainHdr,
     pub adspec_genparms: GenAdspecParams,
 }
-impl ::core::marker::Copy for IS_ADSPEC_BODY {}
-impl ::core::clone::Clone for IS_ADSPEC_BODY {
+impl Copy for IS_ADSPEC_BODY {}
+impl Clone for IS_ADSPEC_BODY {
     fn clone(&self) -> Self {
         *self
     }
@@ -1115,8 +1115,8 @@ pub struct IS_FLOWSPEC {
     pub flow_header: RsvpObjHdr,
     pub flow_body: IntServFlowSpec,
 }
-impl ::core::marker::Copy for IS_FLOWSPEC {}
-impl ::core::clone::Clone for IS_FLOWSPEC {
+impl Copy for IS_FLOWSPEC {}
+impl Clone for IS_FLOWSPEC {
     fn clone(&self) -> Self {
         *self
     }
@@ -1126,8 +1126,8 @@ pub struct IntServFlowSpec {
     pub spec_mh: IntServMainHdr,
     pub spec_u: IntServFlowSpec_0,
 }
-impl ::core::marker::Copy for IntServFlowSpec {}
-impl ::core::clone::Clone for IntServFlowSpec {
+impl Copy for IntServFlowSpec {}
+impl Clone for IntServFlowSpec {
     fn clone(&self) -> Self {
         *self
     }
@@ -1138,8 +1138,8 @@ pub union IntServFlowSpec_0 {
     pub G_spec: GuarFlowSpec,
     pub Q_spec: QualAppFlowSpec,
 }
-impl ::core::marker::Copy for IntServFlowSpec_0 {}
-impl ::core::clone::Clone for IntServFlowSpec_0 {
+impl Copy for IntServFlowSpec_0 {}
+impl Clone for IntServFlowSpec_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -1150,8 +1150,8 @@ pub struct IntServMainHdr {
     pub ismh_unused: u8,
     pub ismh_len32b: u16,
 }
-impl ::core::marker::Copy for IntServMainHdr {}
-impl ::core::clone::Clone for IntServMainHdr {
+impl Copy for IntServMainHdr {}
+impl Clone for IntServMainHdr {
     fn clone(&self) -> Self {
         *self
     }
@@ -1162,8 +1162,8 @@ pub struct IntServParmHdr {
     pub isph_flags: u8,
     pub isph_len32b: u16,
 }
-impl ::core::marker::Copy for IntServParmHdr {}
-impl ::core::clone::Clone for IntServParmHdr {
+impl Copy for IntServParmHdr {}
+impl Clone for IntServParmHdr {
     fn clone(&self) -> Self {
         *self
     }
@@ -1174,8 +1174,8 @@ pub struct IntServServiceHdr {
     pub issh_flags: u8,
     pub issh_len32b: u16,
 }
-impl ::core::marker::Copy for IntServServiceHdr {}
-impl ::core::clone::Clone for IntServServiceHdr {
+impl Copy for IntServServiceHdr {}
+impl Clone for IntServServiceHdr {
     fn clone(&self) -> Self {
         *self
     }
@@ -1185,8 +1185,8 @@ pub struct IntServTspecBody {
     pub st_mh: IntServMainHdr,
     pub tspec_u: IntServTspecBody_0,
 }
-impl ::core::marker::Copy for IntServTspecBody {}
-impl ::core::clone::Clone for IntServTspecBody {
+impl Copy for IntServTspecBody {}
+impl Clone for IntServTspecBody {
     fn clone(&self) -> Self {
         *self
     }
@@ -1196,8 +1196,8 @@ pub union IntServTspecBody_0 {
     pub gen_stspec: GenTspec,
     pub qual_stspec: QualTspec,
 }
-impl ::core::marker::Copy for IntServTspecBody_0 {}
-impl ::core::clone::Clone for IntServTspecBody_0 {
+impl Copy for IntServTspecBody_0 {}
+impl Clone for IntServTspecBody_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -1211,9 +1211,9 @@ pub struct LPMIPTABLE {
     pub IfNetMask: super::super::Networking::WinSock::IN_ADDR,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::marker::Copy for LPMIPTABLE {}
+impl Copy for LPMIPTABLE {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::clone::Clone for LPMIPTABLE {
+impl Clone for LPMIPTABLE {
     fn clone(&self) -> Self {
         *self
     }
@@ -1229,8 +1229,8 @@ pub struct LPM_INIT_INFO {
     pub PcmAdmitResultCallback: CBADMITRESULT,
     pub GetRsvpObjectsCallback: CBGETRSVPOBJECTS,
 }
-impl ::core::marker::Copy for LPM_INIT_INFO {}
-impl ::core::clone::Clone for LPM_INIT_INFO {
+impl Copy for LPM_INIT_INFO {}
+impl Clone for LPM_INIT_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -1241,8 +1241,8 @@ pub struct PARAM_BUFFER {
     pub Length: u32,
     pub Buffer: [u8; 1],
 }
-impl ::core::marker::Copy for PARAM_BUFFER {}
-impl ::core::clone::Clone for PARAM_BUFFER {
+impl Copy for PARAM_BUFFER {}
+impl Clone for PARAM_BUFFER {
     fn clone(&self) -> Self {
         *self
     }
@@ -1253,8 +1253,8 @@ pub struct POLICY_DATA {
     pub usPeOffset: u16,
     pub usReserved: u16,
 }
-impl ::core::marker::Copy for POLICY_DATA {}
-impl ::core::clone::Clone for POLICY_DATA {
+impl Copy for POLICY_DATA {}
+impl Clone for POLICY_DATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -1265,8 +1265,8 @@ pub struct POLICY_DECISION {
     pub wPolicyErrCode: u16,
     pub wPolicyErrValue: u16,
 }
-impl ::core::marker::Copy for POLICY_DECISION {}
-impl ::core::clone::Clone for POLICY_DECISION {
+impl Copy for POLICY_DECISION {}
+impl Clone for POLICY_DECISION {
     fn clone(&self) -> Self {
         *self
     }
@@ -1277,8 +1277,8 @@ pub struct POLICY_ELEMENT {
     pub usPeType: u16,
     pub ucPeData: [u8; 4],
 }
-impl ::core::marker::Copy for POLICY_ELEMENT {}
-impl ::core::clone::Clone for POLICY_ELEMENT {
+impl Copy for POLICY_ELEMENT {}
+impl Clone for POLICY_ELEMENT {
     fn clone(&self) -> Self {
         *self
     }
@@ -1291,9 +1291,9 @@ pub struct QOS_DESTADDR {
     pub SocketAddressLength: u32,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::marker::Copy for QOS_DESTADDR {}
+impl Copy for QOS_DESTADDR {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::clone::Clone for QOS_DESTADDR {
+impl Clone for QOS_DESTADDR {
     fn clone(&self) -> Self {
         *self
     }
@@ -1304,8 +1304,8 @@ pub struct QOS_DIFFSERV {
     pub DSFieldCount: u32,
     pub DiffservRule: [u8; 1],
 }
-impl ::core::marker::Copy for QOS_DIFFSERV {}
-impl ::core::clone::Clone for QOS_DIFFSERV {
+impl Copy for QOS_DIFFSERV {}
+impl Clone for QOS_DIFFSERV {
     fn clone(&self) -> Self {
         *self
     }
@@ -1318,8 +1318,8 @@ pub struct QOS_DIFFSERV_RULE {
     pub ConformingUserPriority: u8,
     pub NonConformingUserPriority: u8,
 }
-impl ::core::marker::Copy for QOS_DIFFSERV_RULE {}
-impl ::core::clone::Clone for QOS_DIFFSERV_RULE {
+impl Copy for QOS_DIFFSERV_RULE {}
+impl Clone for QOS_DIFFSERV_RULE {
     fn clone(&self) -> Self {
         *self
     }
@@ -1329,8 +1329,8 @@ pub struct QOS_DS_CLASS {
     pub ObjectHdr: QOS_OBJECT_HDR,
     pub DSField: u32,
 }
-impl ::core::marker::Copy for QOS_DS_CLASS {}
-impl ::core::clone::Clone for QOS_DS_CLASS {
+impl Copy for QOS_DS_CLASS {}
+impl Clone for QOS_DS_CLASS {
     fn clone(&self) -> Self {
         *self
     }
@@ -1341,8 +1341,8 @@ pub struct QOS_FLOWRATE_OUTGOING {
     pub ShapingBehavior: QOS_SHAPING,
     pub Reason: QOS_FLOWRATE_REASON,
 }
-impl ::core::marker::Copy for QOS_FLOWRATE_OUTGOING {}
-impl ::core::clone::Clone for QOS_FLOWRATE_OUTGOING {
+impl Copy for QOS_FLOWRATE_OUTGOING {}
+impl Clone for QOS_FLOWRATE_OUTGOING {
     fn clone(&self) -> Self {
         *self
     }
@@ -1356,8 +1356,8 @@ pub struct QOS_FLOW_FUNDAMENTALS {
     pub RTTSet: super::super::Foundation::BOOL,
     pub RTT: u32,
 }
-impl ::core::marker::Copy for QOS_FLOW_FUNDAMENTALS {}
-impl ::core::clone::Clone for QOS_FLOW_FUNDAMENTALS {
+impl Copy for QOS_FLOW_FUNDAMENTALS {}
+impl Clone for QOS_FLOW_FUNDAMENTALS {
     fn clone(&self) -> Self {
         *self
     }
@@ -1367,8 +1367,8 @@ pub struct QOS_FRIENDLY_NAME {
     pub ObjectHdr: QOS_OBJECT_HDR,
     pub FriendlyName: [u16; 256],
 }
-impl ::core::marker::Copy for QOS_FRIENDLY_NAME {}
-impl ::core::clone::Clone for QOS_FRIENDLY_NAME {
+impl Copy for QOS_FRIENDLY_NAME {}
+impl Clone for QOS_FRIENDLY_NAME {
     fn clone(&self) -> Self {
         *self
     }
@@ -1378,8 +1378,8 @@ pub struct QOS_OBJECT_HDR {
     pub ObjectType: u32,
     pub ObjectLength: u32,
 }
-impl ::core::marker::Copy for QOS_OBJECT_HDR {}
-impl ::core::clone::Clone for QOS_OBJECT_HDR {
+impl Copy for QOS_OBJECT_HDR {}
+impl Clone for QOS_OBJECT_HDR {
     fn clone(&self) -> Self {
         *self
     }
@@ -1391,8 +1391,8 @@ pub struct QOS_PACKET_PRIORITY {
     pub ConformantL2Value: u32,
     pub NonConformantL2Value: u32,
 }
-impl ::core::marker::Copy for QOS_PACKET_PRIORITY {}
-impl ::core::clone::Clone for QOS_PACKET_PRIORITY {
+impl Copy for QOS_PACKET_PRIORITY {}
+impl Clone for QOS_PACKET_PRIORITY {
     fn clone(&self) -> Self {
         *self
     }
@@ -1402,8 +1402,8 @@ pub struct QOS_SD_MODE {
     pub ObjectHdr: QOS_OBJECT_HDR,
     pub ShapeDiscardMode: u32,
 }
-impl ::core::marker::Copy for QOS_SD_MODE {}
-impl ::core::clone::Clone for QOS_SD_MODE {
+impl Copy for QOS_SD_MODE {}
+impl Clone for QOS_SD_MODE {
     fn clone(&self) -> Self {
         *self
     }
@@ -1413,8 +1413,8 @@ pub struct QOS_SHAPING_RATE {
     pub ObjectHdr: QOS_OBJECT_HDR,
     pub ShapingRate: u32,
 }
-impl ::core::marker::Copy for QOS_SHAPING_RATE {}
-impl ::core::clone::Clone for QOS_SHAPING_RATE {
+impl Copy for QOS_SHAPING_RATE {}
+impl Clone for QOS_SHAPING_RATE {
     fn clone(&self) -> Self {
         *self
     }
@@ -1423,8 +1423,8 @@ impl ::core::clone::Clone for QOS_SHAPING_RATE {
 pub struct QOS_TCP_TRAFFIC {
     pub ObjectHdr: QOS_OBJECT_HDR,
 }
-impl ::core::marker::Copy for QOS_TCP_TRAFFIC {}
-impl ::core::clone::Clone for QOS_TCP_TRAFFIC {
+impl Copy for QOS_TCP_TRAFFIC {}
+impl Clone for QOS_TCP_TRAFFIC {
     fn clone(&self) -> Self {
         *self
     }
@@ -1434,8 +1434,8 @@ pub struct QOS_TRAFFIC_CLASS {
     pub ObjectHdr: QOS_OBJECT_HDR,
     pub TrafficClass: u32,
 }
-impl ::core::marker::Copy for QOS_TRAFFIC_CLASS {}
-impl ::core::clone::Clone for QOS_TRAFFIC_CLASS {
+impl Copy for QOS_TRAFFIC_CLASS {}
+impl Clone for QOS_TRAFFIC_CLASS {
     fn clone(&self) -> Self {
         *self
     }
@@ -1445,8 +1445,8 @@ pub struct QOS_VERSION {
     pub MajorVersion: u16,
     pub MinorVersion: u16,
 }
-impl ::core::marker::Copy for QOS_VERSION {}
-impl ::core::clone::Clone for QOS_VERSION {
+impl Copy for QOS_VERSION {}
+impl Clone for QOS_VERSION {
     fn clone(&self) -> Self {
         *self
     }
@@ -1457,8 +1457,8 @@ pub struct QualAppFlowSpec {
     pub Q_spec_parm_hdr: IntServParmHdr,
     pub Q_spec_parms: QualTspecParms,
 }
-impl ::core::marker::Copy for QualAppFlowSpec {}
-impl ::core::clone::Clone for QualAppFlowSpec {
+impl Copy for QualAppFlowSpec {}
+impl Clone for QualAppFlowSpec {
     fn clone(&self) -> Self {
         *self
     }
@@ -1469,8 +1469,8 @@ pub struct QualTspec {
     pub qual_Tspec_parm_hdr: IntServParmHdr,
     pub qual_Tspec_parms: QualTspecParms,
 }
-impl ::core::marker::Copy for QualTspec {}
-impl ::core::clone::Clone for QualTspec {
+impl Copy for QualTspec {}
+impl Clone for QualTspec {
     fn clone(&self) -> Self {
         *self
     }
@@ -1479,8 +1479,8 @@ impl ::core::clone::Clone for QualTspec {
 pub struct QualTspecParms {
     pub TB_Tspec_M: u32,
 }
-impl ::core::marker::Copy for QualTspecParms {}
-impl ::core::clone::Clone for QualTspecParms {
+impl Copy for QualTspecParms {}
+impl Clone for QualTspecParms {
     fn clone(&self) -> Self {
         *self
     }
@@ -1490,8 +1490,8 @@ pub struct RESV_STYLE {
     pub style_header: RsvpObjHdr,
     pub style_word: u32,
 }
-impl ::core::marker::Copy for RESV_STYLE {}
-impl ::core::clone::Clone for RESV_STYLE {
+impl Copy for RESV_STYLE {}
+impl Clone for RESV_STYLE {
     fn clone(&self) -> Self {
         *self
     }
@@ -1504,8 +1504,8 @@ pub struct RSVP_ADSPEC {
     pub NumberOfServices: u32,
     pub Services: [CONTROL_SERVICE; 1],
 }
-impl ::core::marker::Copy for RSVP_ADSPEC {}
-impl ::core::clone::Clone for RSVP_ADSPEC {
+impl Copy for RSVP_ADSPEC {}
+impl Clone for RSVP_ADSPEC {
     fn clone(&self) -> Self {
         *self
     }
@@ -1515,8 +1515,8 @@ pub struct RSVP_FILTERSPEC {
     pub Type: FilterType,
     pub Anonymous: RSVP_FILTERSPEC_0,
 }
-impl ::core::marker::Copy for RSVP_FILTERSPEC {}
-impl ::core::clone::Clone for RSVP_FILTERSPEC {
+impl Copy for RSVP_FILTERSPEC {}
+impl Clone for RSVP_FILTERSPEC {
     fn clone(&self) -> Self {
         *self
     }
@@ -1529,8 +1529,8 @@ pub union RSVP_FILTERSPEC_0 {
     pub FilterSpecV4Gpi: RSVP_FILTERSPEC_V4_GPI,
     pub FilterSpecV6Gpi: RSVP_FILTERSPEC_V6_GPI,
 }
-impl ::core::marker::Copy for RSVP_FILTERSPEC_0 {}
-impl ::core::clone::Clone for RSVP_FILTERSPEC_0 {
+impl Copy for RSVP_FILTERSPEC_0 {}
+impl Clone for RSVP_FILTERSPEC_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -1541,8 +1541,8 @@ pub struct RSVP_FILTERSPEC_V4 {
     pub Unused: u16,
     pub Port: u16,
 }
-impl ::core::marker::Copy for RSVP_FILTERSPEC_V4 {}
-impl ::core::clone::Clone for RSVP_FILTERSPEC_V4 {
+impl Copy for RSVP_FILTERSPEC_V4 {}
+impl Clone for RSVP_FILTERSPEC_V4 {
     fn clone(&self) -> Self {
         *self
     }
@@ -1552,8 +1552,8 @@ pub struct RSVP_FILTERSPEC_V4_GPI {
     pub Address: IN_ADDR_IPV4,
     pub GeneralPortId: u32,
 }
-impl ::core::marker::Copy for RSVP_FILTERSPEC_V4_GPI {}
-impl ::core::clone::Clone for RSVP_FILTERSPEC_V4_GPI {
+impl Copy for RSVP_FILTERSPEC_V4_GPI {}
+impl Clone for RSVP_FILTERSPEC_V4_GPI {
     fn clone(&self) -> Self {
         *self
     }
@@ -1564,8 +1564,8 @@ pub struct RSVP_FILTERSPEC_V6 {
     pub UnUsed: u16,
     pub Port: u16,
 }
-impl ::core::marker::Copy for RSVP_FILTERSPEC_V6 {}
-impl ::core::clone::Clone for RSVP_FILTERSPEC_V6 {
+impl Copy for RSVP_FILTERSPEC_V6 {}
+impl Clone for RSVP_FILTERSPEC_V6 {
     fn clone(&self) -> Self {
         *self
     }
@@ -1576,8 +1576,8 @@ pub struct RSVP_FILTERSPEC_V6_FLOW {
     pub UnUsed: u8,
     pub FlowLabel: [u8; 3],
 }
-impl ::core::marker::Copy for RSVP_FILTERSPEC_V6_FLOW {}
-impl ::core::clone::Clone for RSVP_FILTERSPEC_V6_FLOW {
+impl Copy for RSVP_FILTERSPEC_V6_FLOW {}
+impl Clone for RSVP_FILTERSPEC_V6_FLOW {
     fn clone(&self) -> Self {
         *self
     }
@@ -1587,8 +1587,8 @@ pub struct RSVP_FILTERSPEC_V6_GPI {
     pub Address: IN_ADDR_IPV6,
     pub GeneralPortId: u32,
 }
-impl ::core::marker::Copy for RSVP_FILTERSPEC_V6_GPI {}
-impl ::core::clone::Clone for RSVP_FILTERSPEC_V6_GPI {
+impl Copy for RSVP_FILTERSPEC_V6_GPI {}
+impl Clone for RSVP_FILTERSPEC_V6_GPI {
     fn clone(&self) -> Self {
         *self
     }
@@ -1600,9 +1600,9 @@ pub struct RSVP_HOP {
     pub hop_u: RSVP_HOP_0,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::marker::Copy for RSVP_HOP {}
+impl Copy for RSVP_HOP {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::clone::Clone for RSVP_HOP {
+impl Clone for RSVP_HOP {
     fn clone(&self) -> Self {
         *self
     }
@@ -1613,9 +1613,9 @@ pub union RSVP_HOP_0 {
     pub hop_ipv4: Rsvp_Hop_IPv4,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::marker::Copy for RSVP_HOP_0 {}
+impl Copy for RSVP_HOP_0 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::clone::Clone for RSVP_HOP_0 {
+impl Clone for RSVP_HOP_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -1637,9 +1637,9 @@ pub struct RSVP_MSG_OBJS {
     pub pAdspec: *mut ADSPEC,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::marker::Copy for RSVP_MSG_OBJS {}
+impl Copy for RSVP_MSG_OBJS {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::clone::Clone for RSVP_MSG_OBJS {
+impl Clone for RSVP_MSG_OBJS {
     fn clone(&self) -> Self {
         *self
     }
@@ -1650,8 +1650,8 @@ pub struct RSVP_POLICY {
     pub Type: u16,
     pub Info: [u8; 4],
 }
-impl ::core::marker::Copy for RSVP_POLICY {}
-impl ::core::clone::Clone for RSVP_POLICY {
+impl Copy for RSVP_POLICY {}
+impl Clone for RSVP_POLICY {
     fn clone(&self) -> Self {
         *self
     }
@@ -1662,8 +1662,8 @@ pub struct RSVP_POLICY_INFO {
     pub NumPolicyElement: u32,
     pub PolicyElement: [RSVP_POLICY; 1],
 }
-impl ::core::marker::Copy for RSVP_POLICY_INFO {}
-impl ::core::clone::Clone for RSVP_POLICY_INFO {
+impl Copy for RSVP_POLICY_INFO {}
+impl Clone for RSVP_POLICY_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -1679,9 +1679,9 @@ pub struct RSVP_RESERVE_INFO {
     pub FlowDescList: *mut FLOWDESCRIPTOR,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::marker::Copy for RSVP_RESERVE_INFO {}
+impl Copy for RSVP_RESERVE_INFO {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::clone::Clone for RSVP_RESERVE_INFO {
+impl Clone for RSVP_RESERVE_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -1693,9 +1693,9 @@ pub struct RSVP_SCOPE {
     pub scope_u: RSVP_SCOPE_0,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::marker::Copy for RSVP_SCOPE {}
+impl Copy for RSVP_SCOPE {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::clone::Clone for RSVP_SCOPE {
+impl Clone for RSVP_SCOPE {
     fn clone(&self) -> Self {
         *self
     }
@@ -1706,9 +1706,9 @@ pub union RSVP_SCOPE_0 {
     pub scopl_ipv4: Scope_list_ipv4,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::marker::Copy for RSVP_SCOPE_0 {}
+impl Copy for RSVP_SCOPE_0 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::clone::Clone for RSVP_SCOPE_0 {
+impl Clone for RSVP_SCOPE_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -1720,9 +1720,9 @@ pub struct RSVP_SESSION {
     pub sess_u: RSVP_SESSION_0,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::marker::Copy for RSVP_SESSION {}
+impl Copy for RSVP_SESSION {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::clone::Clone for RSVP_SESSION {
+impl Clone for RSVP_SESSION {
     fn clone(&self) -> Self {
         *self
     }
@@ -1733,9 +1733,9 @@ pub union RSVP_SESSION_0 {
     pub sess_ipv4: Session_IPv4,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::marker::Copy for RSVP_SESSION_0 {}
+impl Copy for RSVP_SESSION_0 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::clone::Clone for RSVP_SESSION_0 {
+impl Clone for RSVP_SESSION_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -1747,8 +1747,8 @@ pub struct RSVP_STATUS_INFO {
     pub ExtendedStatus1: u32,
     pub ExtendedStatus2: u32,
 }
-impl ::core::marker::Copy for RSVP_STATUS_INFO {}
-impl ::core::clone::Clone for RSVP_STATUS_INFO {
+impl Copy for RSVP_STATUS_INFO {}
+impl Clone for RSVP_STATUS_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -1759,8 +1759,8 @@ pub struct RsvpObjHdr {
     pub obj_class: u8,
     pub obj_ctype: u8,
 }
-impl ::core::marker::Copy for RsvpObjHdr {}
-impl ::core::clone::Clone for RsvpObjHdr {
+impl Copy for RsvpObjHdr {}
+impl Clone for RsvpObjHdr {
     fn clone(&self) -> Self {
         *self
     }
@@ -1772,9 +1772,9 @@ pub struct Rsvp_Hop_IPv4 {
     pub hop_LIH: u32,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::marker::Copy for Rsvp_Hop_IPv4 {}
+impl Copy for Rsvp_Hop_IPv4 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::clone::Clone for Rsvp_Hop_IPv4 {
+impl Clone for Rsvp_Hop_IPv4 {
     fn clone(&self) -> Self {
         *self
     }
@@ -1784,8 +1784,8 @@ pub struct SENDER_TSPEC {
     pub stspec_header: RsvpObjHdr,
     pub stspec_body: IntServTspecBody,
 }
-impl ::core::marker::Copy for SENDER_TSPEC {}
-impl ::core::clone::Clone for SENDER_TSPEC {
+impl Copy for SENDER_TSPEC {}
+impl Clone for SENDER_TSPEC {
     fn clone(&self) -> Self {
         *self
     }
@@ -1796,8 +1796,8 @@ pub struct SIPAEVENT_KSR_SIGNATURE_PAYLOAD {
     pub SignatureLength: u32,
     pub Signature: [u8; 1],
 }
-impl ::core::marker::Copy for SIPAEVENT_KSR_SIGNATURE_PAYLOAD {}
-impl ::core::clone::Clone for SIPAEVENT_KSR_SIGNATURE_PAYLOAD {
+impl Copy for SIPAEVENT_KSR_SIGNATURE_PAYLOAD {}
+impl Clone for SIPAEVENT_KSR_SIGNATURE_PAYLOAD {
     fn clone(&self) -> Self {
         *self
     }
@@ -1809,8 +1809,8 @@ pub struct SIPAEVENT_REVOCATION_LIST_PAYLOAD {
     pub HashAlgID: u16,
     pub Digest: [u8; 1],
 }
-impl ::core::marker::Copy for SIPAEVENT_REVOCATION_LIST_PAYLOAD {}
-impl ::core::clone::Clone for SIPAEVENT_REVOCATION_LIST_PAYLOAD {
+impl Copy for SIPAEVENT_REVOCATION_LIST_PAYLOAD {}
+impl Clone for SIPAEVENT_REVOCATION_LIST_PAYLOAD {
     fn clone(&self) -> Self {
         *self
     }
@@ -1825,8 +1825,8 @@ pub struct SIPAEVENT_SBCP_INFO_PAYLOAD_V1 {
     pub SignersCount: u32,
     pub VarData: [u8; 1],
 }
-impl ::core::marker::Copy for SIPAEVENT_SBCP_INFO_PAYLOAD_V1 {}
-impl ::core::clone::Clone for SIPAEVENT_SBCP_INFO_PAYLOAD_V1 {
+impl Copy for SIPAEVENT_SBCP_INFO_PAYLOAD_V1 {}
+impl Clone for SIPAEVENT_SBCP_INFO_PAYLOAD_V1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -1839,8 +1839,8 @@ pub struct SIPAEVENT_SI_POLICY_PAYLOAD {
     pub DigestLength: u32,
     pub VarLengthData: [u8; 1],
 }
-impl ::core::marker::Copy for SIPAEVENT_SI_POLICY_PAYLOAD {}
-impl ::core::clone::Clone for SIPAEVENT_SI_POLICY_PAYLOAD {
+impl Copy for SIPAEVENT_SI_POLICY_PAYLOAD {}
+impl Clone for SIPAEVENT_SI_POLICY_PAYLOAD {
     fn clone(&self) -> Self {
         *self
     }
@@ -1850,8 +1850,8 @@ pub struct SIPAEVENT_VSM_IDK_INFO_PAYLOAD {
     pub KeyAlgID: u32,
     pub Anonymous: SIPAEVENT_VSM_IDK_INFO_PAYLOAD_0,
 }
-impl ::core::marker::Copy for SIPAEVENT_VSM_IDK_INFO_PAYLOAD {}
-impl ::core::clone::Clone for SIPAEVENT_VSM_IDK_INFO_PAYLOAD {
+impl Copy for SIPAEVENT_VSM_IDK_INFO_PAYLOAD {}
+impl Clone for SIPAEVENT_VSM_IDK_INFO_PAYLOAD {
     fn clone(&self) -> Self {
         *self
     }
@@ -1860,8 +1860,8 @@ impl ::core::clone::Clone for SIPAEVENT_VSM_IDK_INFO_PAYLOAD {
 pub union SIPAEVENT_VSM_IDK_INFO_PAYLOAD_0 {
     pub RsaKeyInfo: SIPAEVENT_VSM_IDK_RSA_INFO,
 }
-impl ::core::marker::Copy for SIPAEVENT_VSM_IDK_INFO_PAYLOAD_0 {}
-impl ::core::clone::Clone for SIPAEVENT_VSM_IDK_INFO_PAYLOAD_0 {
+impl Copy for SIPAEVENT_VSM_IDK_INFO_PAYLOAD_0 {}
+impl Clone for SIPAEVENT_VSM_IDK_INFO_PAYLOAD_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -1873,8 +1873,8 @@ pub struct SIPAEVENT_VSM_IDK_RSA_INFO {
     pub ModulusSizeBytes: u32,
     pub PublicKeyData: [u8; 1],
 }
-impl ::core::marker::Copy for SIPAEVENT_VSM_IDK_RSA_INFO {}
-impl ::core::clone::Clone for SIPAEVENT_VSM_IDK_RSA_INFO {
+impl Copy for SIPAEVENT_VSM_IDK_RSA_INFO {}
+impl Clone for SIPAEVENT_VSM_IDK_RSA_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -1885,9 +1885,9 @@ pub struct Scope_list_ipv4 {
     pub scopl_ipaddr: [super::super::Networking::WinSock::IN_ADDR; 1],
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::marker::Copy for Scope_list_ipv4 {}
+impl Copy for Scope_list_ipv4 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::clone::Clone for Scope_list_ipv4 {
+impl Clone for Scope_list_ipv4 {
     fn clone(&self) -> Self {
         *self
     }
@@ -1901,9 +1901,9 @@ pub struct Session_IPv4 {
     pub sess_destport: u16,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::marker::Copy for Session_IPv4 {}
+impl Copy for Session_IPv4 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::clone::Clone for Session_IPv4 {
+impl Clone for Session_IPv4 {
     fn clone(&self) -> Self {
         *self
     }
@@ -1916,8 +1916,8 @@ pub struct TCG_PCClientPCREventStruct {
     pub eventDataSize: u32,
     pub event: [u8; 1],
 }
-impl ::core::marker::Copy for TCG_PCClientPCREventStruct {}
-impl ::core::clone::Clone for TCG_PCClientPCREventStruct {
+impl Copy for TCG_PCClientPCREventStruct {}
+impl Clone for TCG_PCClientPCREventStruct {
     fn clone(&self) -> Self {
         *self
     }
@@ -1928,8 +1928,8 @@ pub struct TCG_PCClientTaggedEventStruct {
     pub EventDataSize: u32,
     pub EventData: [u8; 1],
 }
-impl ::core::marker::Copy for TCG_PCClientTaggedEventStruct {}
-impl ::core::clone::Clone for TCG_PCClientTaggedEventStruct {
+impl Copy for TCG_PCClientTaggedEventStruct {}
+impl Clone for TCG_PCClientTaggedEventStruct {
     fn clone(&self) -> Self {
         *self
     }
@@ -1941,8 +1941,8 @@ pub struct TCI_CLIENT_FUNC_LIST {
     pub ClModifyFlowCompleteHandler: TCI_MOD_FLOW_COMPLETE_HANDLER,
     pub ClDeleteFlowCompleteHandler: TCI_DEL_FLOW_COMPLETE_HANDLER,
 }
-impl ::core::marker::Copy for TCI_CLIENT_FUNC_LIST {}
-impl ::core::clone::Clone for TCI_CLIENT_FUNC_LIST {
+impl Copy for TCI_CLIENT_FUNC_LIST {}
+impl Clone for TCI_CLIENT_FUNC_LIST {
     fn clone(&self) -> Self {
         *self
     }
@@ -1951,11 +1951,11 @@ impl ::core::clone::Clone for TCI_CLIENT_FUNC_LIST {
 pub struct TC_GEN_FILTER {
     pub AddressType: u16,
     pub PatternSize: u32,
-    pub Pattern: *mut ::core::ffi::c_void,
-    pub Mask: *mut ::core::ffi::c_void,
+    pub Pattern: *mut core::ffi::c_void,
+    pub Mask: *mut core::ffi::c_void,
 }
-impl ::core::marker::Copy for TC_GEN_FILTER {}
-impl ::core::clone::Clone for TC_GEN_FILTER {
+impl Copy for TC_GEN_FILTER {}
+impl Clone for TC_GEN_FILTER {
     fn clone(&self) -> Self {
         *self
     }
@@ -1969,9 +1969,9 @@ pub struct TC_GEN_FLOW {
     pub TcObjects: [QOS_OBJECT_HDR; 1],
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::marker::Copy for TC_GEN_FLOW {}
+impl Copy for TC_GEN_FLOW {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::clone::Clone for TC_GEN_FLOW {
+impl Clone for TC_GEN_FLOW {
     fn clone(&self) -> Self {
         *self
     }
@@ -1980,14 +1980,14 @@ impl ::core::clone::Clone for TC_GEN_FLOW {
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct TC_IFC_DESCRIPTOR {
     pub Length: u32,
-    pub pInterfaceName: ::windows_sys::core::PWSTR,
-    pub pInterfaceID: ::windows_sys::core::PWSTR,
+    pub pInterfaceName: windows_sys::core::PWSTR,
+    pub pInterfaceID: windows_sys::core::PWSTR,
     pub AddressListDesc: ADDRESS_LIST_DESCRIPTOR,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for TC_IFC_DESCRIPTOR {}
+impl Copy for TC_IFC_DESCRIPTOR {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for TC_IFC_DESCRIPTOR {
+impl Clone for TC_IFC_DESCRIPTOR {
     fn clone(&self) -> Self {
         *self
     }
@@ -2001,28 +2001,28 @@ pub struct TC_SUPPORTED_INFO_BUFFER {
     pub AddrListDesc: ADDRESS_LIST_DESCRIPTOR,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for TC_SUPPORTED_INFO_BUFFER {}
+impl Copy for TC_SUPPORTED_INFO_BUFFER {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for TC_SUPPORTED_INFO_BUFFER {
+impl Clone for TC_SUPPORTED_INFO_BUFFER {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C, packed(1))]
 pub struct WBCL_Iterator {
-    pub firstElementPtr: *mut ::core::ffi::c_void,
+    pub firstElementPtr: *mut core::ffi::c_void,
     pub logSize: u32,
-    pub currentElementPtr: *mut ::core::ffi::c_void,
+    pub currentElementPtr: *mut core::ffi::c_void,
     pub currentElementSize: u32,
     pub digestSize: u16,
     pub logFormat: u16,
     pub numberOfDigests: u32,
-    pub digestSizes: *mut ::core::ffi::c_void,
+    pub digestSizes: *mut core::ffi::c_void,
     pub supportedAlgorithms: u32,
     pub hashAlgorithm: u16,
 }
-impl ::core::marker::Copy for WBCL_Iterator {}
-impl ::core::clone::Clone for WBCL_Iterator {
+impl Copy for WBCL_Iterator {}
+impl Clone for WBCL_Iterator {
     fn clone(&self) -> Self {
         *self
     }
@@ -2034,17 +2034,17 @@ pub struct WBCL_LogHdr {
     pub entries: u32,
     pub length: u32,
 }
-impl ::core::marker::Copy for WBCL_LogHdr {}
-impl ::core::clone::Clone for WBCL_LogHdr {
+impl Copy for WBCL_LogHdr {}
+impl Clone for WBCL_LogHdr {
     fn clone(&self) -> Self {
         *self
     }
 }
-pub type CBADMITRESULT = ::core::option::Option<unsafe extern "system" fn(lpmhandle: LPM_HANDLE, requesthandle: RHANDLE, ulpcmactionflags: u32, lpmerror: i32, policydecisionscount: i32, ppolicydecisions: *mut POLICY_DECISION) -> *mut u32>;
-pub type CBGETRSVPOBJECTS = ::core::option::Option<unsafe extern "system" fn(lpmhandle: LPM_HANDLE, requesthandle: RHANDLE, lpmerror: i32, rsvpobjectscount: i32, pprsvpobjects: *mut *mut RsvpObjHdr) -> *mut u32>;
-pub type PALLOCMEM = ::core::option::Option<unsafe extern "system" fn(size: u32) -> *mut ::core::ffi::c_void>;
-pub type PFREEMEM = ::core::option::Option<unsafe extern "system" fn(pv: *mut ::core::ffi::c_void)>;
-pub type TCI_ADD_FLOW_COMPLETE_HANDLER = ::core::option::Option<unsafe extern "system" fn(clflowctx: super::super::Foundation::HANDLE, status: u32)>;
-pub type TCI_DEL_FLOW_COMPLETE_HANDLER = ::core::option::Option<unsafe extern "system" fn(clflowctx: super::super::Foundation::HANDLE, status: u32)>;
-pub type TCI_MOD_FLOW_COMPLETE_HANDLER = ::core::option::Option<unsafe extern "system" fn(clflowctx: super::super::Foundation::HANDLE, status: u32)>;
-pub type TCI_NOTIFY_HANDLER = ::core::option::Option<unsafe extern "system" fn(clregctx: super::super::Foundation::HANDLE, clifcctx: super::super::Foundation::HANDLE, event: u32, subcode: super::super::Foundation::HANDLE, bufsize: u32, buffer: *const ::core::ffi::c_void)>;
+pub type CBADMITRESULT = Option<unsafe extern "system" fn(lpmhandle: LPM_HANDLE, requesthandle: RHANDLE, ulpcmactionflags: u32, lpmerror: i32, policydecisionscount: i32, ppolicydecisions: *mut POLICY_DECISION) -> *mut u32>;
+pub type CBGETRSVPOBJECTS = Option<unsafe extern "system" fn(lpmhandle: LPM_HANDLE, requesthandle: RHANDLE, lpmerror: i32, rsvpobjectscount: i32, pprsvpobjects: *mut *mut RsvpObjHdr) -> *mut u32>;
+pub type PALLOCMEM = Option<unsafe extern "system" fn(size: u32) -> *mut core::ffi::c_void>;
+pub type PFREEMEM = Option<unsafe extern "system" fn(pv: *mut core::ffi::c_void)>;
+pub type TCI_ADD_FLOW_COMPLETE_HANDLER = Option<unsafe extern "system" fn(clflowctx: super::super::Foundation::HANDLE, status: u32)>;
+pub type TCI_DEL_FLOW_COMPLETE_HANDLER = Option<unsafe extern "system" fn(clflowctx: super::super::Foundation::HANDLE, status: u32)>;
+pub type TCI_MOD_FLOW_COMPLETE_HANDLER = Option<unsafe extern "system" fn(clflowctx: super::super::Foundation::HANDLE, status: u32)>;
+pub type TCI_NOTIFY_HANDLER = Option<unsafe extern "system" fn(clregctx: super::super::Foundation::HANDLE, clifcctx: super::super::Foundation::HANDLE, event: u32, subcode: super::super::Foundation::HANDLE, bufsize: u32, buffer: *const core::ffi::c_void)>;

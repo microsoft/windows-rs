@@ -6,7 +6,7 @@ pub unsafe fn RtlFirstEntrySList(listhead: *const SLIST_HEADER) -> *mut SLIST_EN
 #[inline]
 pub unsafe fn RtlInitializeSListHead() -> SLIST_HEADER {
     ::windows_targets::link!("ntdll.dll" "system" fn RtlInitializeSListHead(listhead : *mut SLIST_HEADER));
-    let mut result__ = ::std::mem::zeroed();
+    let mut result__ = std::mem::zeroed();
     RtlInitializeSListHead(&mut result__);
     result__
 }
@@ -90,79 +90,79 @@ pub const WaitDequeue: WAIT_TYPE = WAIT_TYPE(3i32);
 pub const WaitDpc: WAIT_TYPE = WAIT_TYPE(4i32);
 pub const WaitNotification: WAIT_TYPE = WAIT_TYPE(2i32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct COMPARTMENT_ID(pub i32);
-impl ::windows_core::TypeKind for COMPARTMENT_ID {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for COMPARTMENT_ID {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for COMPARTMENT_ID {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for COMPARTMENT_ID {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("COMPARTMENT_ID").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct EVENT_TYPE(pub i32);
-impl ::windows_core::TypeKind for EVENT_TYPE {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for EVENT_TYPE {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for EVENT_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for EVENT_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("EVENT_TYPE").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct EXCEPTION_DISPOSITION(pub i32);
-impl ::windows_core::TypeKind for EXCEPTION_DISPOSITION {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for EXCEPTION_DISPOSITION {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for EXCEPTION_DISPOSITION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for EXCEPTION_DISPOSITION {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("EXCEPTION_DISPOSITION").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct NT_PRODUCT_TYPE(pub i32);
-impl ::windows_core::TypeKind for NT_PRODUCT_TYPE {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for NT_PRODUCT_TYPE {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for NT_PRODUCT_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for NT_PRODUCT_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("NT_PRODUCT_TYPE").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct SUITE_TYPE(pub i32);
-impl ::windows_core::TypeKind for SUITE_TYPE {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for SUITE_TYPE {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for SUITE_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for SUITE_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("SUITE_TYPE").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct TIMER_TYPE(pub i32);
-impl ::windows_core::TypeKind for TIMER_TYPE {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for TIMER_TYPE {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for TIMER_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for TIMER_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("TIMER_TYPE").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct WAIT_TYPE(pub i32);
-impl ::windows_core::TypeKind for WAIT_TYPE {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for WAIT_TYPE {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for WAIT_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for WAIT_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("WAIT_TYPE").field(&self.0).finish()
     }
 }
@@ -170,31 +170,31 @@ impl ::core::fmt::Debug for WAIT_TYPE {
 pub struct CSTRING {
     pub Length: u16,
     pub MaximumLength: u16,
-    pub Buffer: ::windows_core::PCSTR,
+    pub Buffer: windows_core::PCSTR,
 }
-impl ::core::marker::Copy for CSTRING {}
-impl ::core::clone::Clone for CSTRING {
+impl Copy for CSTRING {}
+impl Clone for CSTRING {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for CSTRING {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for CSTRING {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("CSTRING").field("Length", &self.Length).field("MaximumLength", &self.MaximumLength).field("Buffer", &self.Buffer).finish()
     }
 }
-impl ::windows_core::TypeKind for CSTRING {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for CSTRING {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for CSTRING {
+impl PartialEq for CSTRING {
     fn eq(&self, other: &Self) -> bool {
         self.Length == other.Length && self.MaximumLength == other.MaximumLength && self.Buffer == other.Buffer
     }
 }
-impl ::core::cmp::Eq for CSTRING {}
-impl ::core::default::Default for CSTRING {
+impl Eq for CSTRING {}
+impl Default for CSTRING {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -204,27 +204,27 @@ pub struct EXCEPTION_REGISTRATION_RECORD {
     pub Handler: EXCEPTION_ROUTINE,
 }
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl ::core::marker::Copy for EXCEPTION_REGISTRATION_RECORD {}
+impl Copy for EXCEPTION_REGISTRATION_RECORD {}
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl ::core::clone::Clone for EXCEPTION_REGISTRATION_RECORD {
+impl Clone for EXCEPTION_REGISTRATION_RECORD {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl ::core::fmt::Debug for EXCEPTION_REGISTRATION_RECORD {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for EXCEPTION_REGISTRATION_RECORD {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("EXCEPTION_REGISTRATION_RECORD").field("Next", &self.Next).finish()
     }
 }
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl ::windows_core::TypeKind for EXCEPTION_REGISTRATION_RECORD {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for EXCEPTION_REGISTRATION_RECORD {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl ::core::default::Default for EXCEPTION_REGISTRATION_RECORD {
+impl Default for EXCEPTION_REGISTRATION_RECORD {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -241,35 +241,35 @@ pub struct FLOATING_SAVE_AREA {
     pub Cr0NpxState: u32,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::marker::Copy for FLOATING_SAVE_AREA {}
+impl Copy for FLOATING_SAVE_AREA {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::clone::Clone for FLOATING_SAVE_AREA {
+impl Clone for FLOATING_SAVE_AREA {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::fmt::Debug for FLOATING_SAVE_AREA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for FLOATING_SAVE_AREA {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("FLOATING_SAVE_AREA").field("ControlWord", &self.ControlWord).field("StatusWord", &self.StatusWord).field("TagWord", &self.TagWord).field("ErrorOffset", &self.ErrorOffset).field("ErrorSelector", &self.ErrorSelector).field("DataOffset", &self.DataOffset).field("DataSelector", &self.DataSelector).field("RegisterArea", &self.RegisterArea).field("Cr0NpxState", &self.Cr0NpxState).finish()
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::windows_core::TypeKind for FLOATING_SAVE_AREA {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for FLOATING_SAVE_AREA {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::cmp::PartialEq for FLOATING_SAVE_AREA {
+impl PartialEq for FLOATING_SAVE_AREA {
     fn eq(&self, other: &Self) -> bool {
         self.ControlWord == other.ControlWord && self.StatusWord == other.StatusWord && self.TagWord == other.TagWord && self.ErrorOffset == other.ErrorOffset && self.ErrorSelector == other.ErrorSelector && self.DataOffset == other.DataOffset && self.DataSelector == other.DataSelector && self.RegisterArea == other.RegisterArea && self.Cr0NpxState == other.Cr0NpxState
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::cmp::Eq for FLOATING_SAVE_AREA {}
+impl Eq for FLOATING_SAVE_AREA {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::default::Default for FLOATING_SAVE_AREA {
+impl Default for FLOATING_SAVE_AREA {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -286,35 +286,35 @@ pub struct FLOATING_SAVE_AREA {
     pub Spare0: u32,
 }
 #[cfg(target_arch = "x86")]
-impl ::core::marker::Copy for FLOATING_SAVE_AREA {}
+impl Copy for FLOATING_SAVE_AREA {}
 #[cfg(target_arch = "x86")]
-impl ::core::clone::Clone for FLOATING_SAVE_AREA {
+impl Clone for FLOATING_SAVE_AREA {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[cfg(target_arch = "x86")]
-impl ::core::fmt::Debug for FLOATING_SAVE_AREA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for FLOATING_SAVE_AREA {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("FLOATING_SAVE_AREA").field("ControlWord", &self.ControlWord).field("StatusWord", &self.StatusWord).field("TagWord", &self.TagWord).field("ErrorOffset", &self.ErrorOffset).field("ErrorSelector", &self.ErrorSelector).field("DataOffset", &self.DataOffset).field("DataSelector", &self.DataSelector).field("RegisterArea", &self.RegisterArea).field("Spare0", &self.Spare0).finish()
     }
 }
 #[cfg(target_arch = "x86")]
-impl ::windows_core::TypeKind for FLOATING_SAVE_AREA {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for FLOATING_SAVE_AREA {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(target_arch = "x86")]
-impl ::core::cmp::PartialEq for FLOATING_SAVE_AREA {
+impl PartialEq for FLOATING_SAVE_AREA {
     fn eq(&self, other: &Self) -> bool {
         self.ControlWord == other.ControlWord && self.StatusWord == other.StatusWord && self.TagWord == other.TagWord && self.ErrorOffset == other.ErrorOffset && self.ErrorSelector == other.ErrorSelector && self.DataOffset == other.DataOffset && self.DataSelector == other.DataSelector && self.RegisterArea == other.RegisterArea && self.Spare0 == other.Spare0
     }
 }
 #[cfg(target_arch = "x86")]
-impl ::core::cmp::Eq for FLOATING_SAVE_AREA {}
+impl Eq for FLOATING_SAVE_AREA {}
 #[cfg(target_arch = "x86")]
-impl ::core::default::Default for FLOATING_SAVE_AREA {
+impl Default for FLOATING_SAVE_AREA {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -322,29 +322,29 @@ pub struct LIST_ENTRY {
     pub Flink: *mut LIST_ENTRY,
     pub Blink: *mut LIST_ENTRY,
 }
-impl ::core::marker::Copy for LIST_ENTRY {}
-impl ::core::clone::Clone for LIST_ENTRY {
+impl Copy for LIST_ENTRY {}
+impl Clone for LIST_ENTRY {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for LIST_ENTRY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for LIST_ENTRY {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("LIST_ENTRY").field("Flink", &self.Flink).field("Blink", &self.Blink).finish()
     }
 }
-impl ::windows_core::TypeKind for LIST_ENTRY {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for LIST_ENTRY {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for LIST_ENTRY {
+impl PartialEq for LIST_ENTRY {
     fn eq(&self, other: &Self) -> bool {
         self.Flink == other.Flink && self.Blink == other.Blink
     }
 }
-impl ::core::cmp::Eq for LIST_ENTRY {}
-impl ::core::default::Default for LIST_ENTRY {
+impl Eq for LIST_ENTRY {}
+impl Default for LIST_ENTRY {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -352,29 +352,29 @@ pub struct LIST_ENTRY32 {
     pub Flink: u32,
     pub Blink: u32,
 }
-impl ::core::marker::Copy for LIST_ENTRY32 {}
-impl ::core::clone::Clone for LIST_ENTRY32 {
+impl Copy for LIST_ENTRY32 {}
+impl Clone for LIST_ENTRY32 {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for LIST_ENTRY32 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for LIST_ENTRY32 {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("LIST_ENTRY32").field("Flink", &self.Flink).field("Blink", &self.Blink).finish()
     }
 }
-impl ::windows_core::TypeKind for LIST_ENTRY32 {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for LIST_ENTRY32 {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for LIST_ENTRY32 {
+impl PartialEq for LIST_ENTRY32 {
     fn eq(&self, other: &Self) -> bool {
         self.Flink == other.Flink && self.Blink == other.Blink
     }
 }
-impl ::core::cmp::Eq for LIST_ENTRY32 {}
-impl ::core::default::Default for LIST_ENTRY32 {
+impl Eq for LIST_ENTRY32 {}
+impl Default for LIST_ENTRY32 {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -382,112 +382,112 @@ pub struct LIST_ENTRY64 {
     pub Flink: u64,
     pub Blink: u64,
 }
-impl ::core::marker::Copy for LIST_ENTRY64 {}
-impl ::core::clone::Clone for LIST_ENTRY64 {
+impl Copy for LIST_ENTRY64 {}
+impl Clone for LIST_ENTRY64 {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for LIST_ENTRY64 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for LIST_ENTRY64 {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("LIST_ENTRY64").field("Flink", &self.Flink).field("Blink", &self.Blink).finish()
     }
 }
-impl ::windows_core::TypeKind for LIST_ENTRY64 {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for LIST_ENTRY64 {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for LIST_ENTRY64 {
+impl PartialEq for LIST_ENTRY64 {
     fn eq(&self, other: &Self) -> bool {
         self.Flink == other.Flink && self.Blink == other.Blink
     }
 }
-impl ::core::cmp::Eq for LIST_ENTRY64 {}
-impl ::core::default::Default for LIST_ENTRY64 {
+impl Eq for LIST_ENTRY64 {}
+impl Default for LIST_ENTRY64 {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
 pub struct NT_TIB {
     pub ExceptionList: *mut EXCEPTION_REGISTRATION_RECORD,
-    pub StackBase: *mut ::core::ffi::c_void,
-    pub StackLimit: *mut ::core::ffi::c_void,
-    pub SubSystemTib: *mut ::core::ffi::c_void,
+    pub StackBase: *mut core::ffi::c_void,
+    pub StackLimit: *mut core::ffi::c_void,
+    pub SubSystemTib: *mut core::ffi::c_void,
     pub Anonymous: NT_TIB_0,
-    pub ArbitraryUserPointer: *mut ::core::ffi::c_void,
+    pub ArbitraryUserPointer: *mut core::ffi::c_void,
     pub Self_: *mut NT_TIB,
 }
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl ::core::marker::Copy for NT_TIB {}
+impl Copy for NT_TIB {}
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl ::core::clone::Clone for NT_TIB {
+impl Clone for NT_TIB {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl ::windows_core::TypeKind for NT_TIB {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for NT_TIB {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl ::core::default::Default for NT_TIB {
+impl Default for NT_TIB {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
 pub union NT_TIB_0 {
-    pub FiberData: *mut ::core::ffi::c_void,
+    pub FiberData: *mut core::ffi::c_void,
     pub Version: u32,
 }
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl ::core::marker::Copy for NT_TIB_0 {}
+impl Copy for NT_TIB_0 {}
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl ::core::clone::Clone for NT_TIB_0 {
+impl Clone for NT_TIB_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl ::windows_core::TypeKind for NT_TIB_0 {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for NT_TIB_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl ::core::default::Default for NT_TIB_0 {
+impl Default for NT_TIB_0 {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 pub struct OBJECTID {
-    pub Lineage: ::windows_core::GUID,
+    pub Lineage: windows_core::GUID,
     pub Uniquifier: u32,
 }
-impl ::core::marker::Copy for OBJECTID {}
-impl ::core::clone::Clone for OBJECTID {
+impl Copy for OBJECTID {}
+impl Clone for OBJECTID {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for OBJECTID {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for OBJECTID {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("OBJECTID").field("Lineage", &self.Lineage).field("Uniquifier", &self.Uniquifier).finish()
     }
 }
-impl ::windows_core::TypeKind for OBJECTID {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for OBJECTID {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for OBJECTID {
+impl PartialEq for OBJECTID {
     fn eq(&self, other: &Self) -> bool {
         self.Lineage == other.Lineage && self.Uniquifier == other.Uniquifier
     }
 }
-impl ::core::cmp::Eq for OBJECTID {}
-impl ::core::default::Default for OBJECTID {
+impl Eq for OBJECTID {}
+impl Default for OBJECTID {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -496,47 +496,47 @@ pub struct PROCESSOR_NUMBER {
     pub Number: u8,
     pub Reserved: u8,
 }
-impl ::core::marker::Copy for PROCESSOR_NUMBER {}
-impl ::core::clone::Clone for PROCESSOR_NUMBER {
+impl Copy for PROCESSOR_NUMBER {}
+impl Clone for PROCESSOR_NUMBER {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for PROCESSOR_NUMBER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for PROCESSOR_NUMBER {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("PROCESSOR_NUMBER").field("Group", &self.Group).field("Number", &self.Number).field("Reserved", &self.Reserved).finish()
     }
 }
-impl ::windows_core::TypeKind for PROCESSOR_NUMBER {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for PROCESSOR_NUMBER {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for PROCESSOR_NUMBER {
+impl PartialEq for PROCESSOR_NUMBER {
     fn eq(&self, other: &Self) -> bool {
         self.Group == other.Group && self.Number == other.Number && self.Reserved == other.Reserved
     }
 }
-impl ::core::cmp::Eq for PROCESSOR_NUMBER {}
-impl ::core::default::Default for PROCESSOR_NUMBER {
+impl Eq for PROCESSOR_NUMBER {}
+impl Default for PROCESSOR_NUMBER {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 pub struct QUAD {
     pub Anonymous: QUAD_0,
 }
-impl ::core::marker::Copy for QUAD {}
-impl ::core::clone::Clone for QUAD {
+impl Copy for QUAD {}
+impl Clone for QUAD {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::windows_core::TypeKind for QUAD {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for QUAD {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::default::Default for QUAD {
+impl Default for QUAD {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -544,18 +544,18 @@ pub union QUAD_0 {
     pub UseThisFieldToCopy: i64,
     pub DoNotUseThisField: f64,
 }
-impl ::core::marker::Copy for QUAD_0 {}
-impl ::core::clone::Clone for QUAD_0 {
+impl Copy for QUAD_0 {}
+impl Clone for QUAD_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::windows_core::TypeKind for QUAD_0 {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for QUAD_0 {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::default::Default for QUAD_0 {
+impl Default for QUAD_0 {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -563,18 +563,18 @@ pub struct RTL_BALANCED_NODE {
     pub Anonymous1: RTL_BALANCED_NODE_0,
     pub Anonymous2: RTL_BALANCED_NODE_1,
 }
-impl ::core::marker::Copy for RTL_BALANCED_NODE {}
-impl ::core::clone::Clone for RTL_BALANCED_NODE {
+impl Copy for RTL_BALANCED_NODE {}
+impl Clone for RTL_BALANCED_NODE {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::windows_core::TypeKind for RTL_BALANCED_NODE {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for RTL_BALANCED_NODE {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::default::Default for RTL_BALANCED_NODE {
+impl Default for RTL_BALANCED_NODE {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -582,18 +582,18 @@ pub union RTL_BALANCED_NODE_0 {
     pub Children: [*mut RTL_BALANCED_NODE; 2],
     pub Anonymous: RTL_BALANCED_NODE_0_0,
 }
-impl ::core::marker::Copy for RTL_BALANCED_NODE_0 {}
-impl ::core::clone::Clone for RTL_BALANCED_NODE_0 {
+impl Copy for RTL_BALANCED_NODE_0 {}
+impl Clone for RTL_BALANCED_NODE_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::windows_core::TypeKind for RTL_BALANCED_NODE_0 {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for RTL_BALANCED_NODE_0 {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::default::Default for RTL_BALANCED_NODE_0 {
+impl Default for RTL_BALANCED_NODE_0 {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -601,29 +601,29 @@ pub struct RTL_BALANCED_NODE_0_0 {
     pub Left: *mut RTL_BALANCED_NODE,
     pub Right: *mut RTL_BALANCED_NODE,
 }
-impl ::core::marker::Copy for RTL_BALANCED_NODE_0_0 {}
-impl ::core::clone::Clone for RTL_BALANCED_NODE_0_0 {
+impl Copy for RTL_BALANCED_NODE_0_0 {}
+impl Clone for RTL_BALANCED_NODE_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for RTL_BALANCED_NODE_0_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for RTL_BALANCED_NODE_0_0 {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("RTL_BALANCED_NODE_0_0").field("Left", &self.Left).field("Right", &self.Right).finish()
     }
 }
-impl ::windows_core::TypeKind for RTL_BALANCED_NODE_0_0 {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for RTL_BALANCED_NODE_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for RTL_BALANCED_NODE_0_0 {
+impl PartialEq for RTL_BALANCED_NODE_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self.Left == other.Left && self.Right == other.Right
     }
 }
-impl ::core::cmp::Eq for RTL_BALANCED_NODE_0_0 {}
-impl ::core::default::Default for RTL_BALANCED_NODE_0_0 {
+impl Eq for RTL_BALANCED_NODE_0_0 {}
+impl Default for RTL_BALANCED_NODE_0_0 {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -631,105 +631,105 @@ pub union RTL_BALANCED_NODE_1 {
     pub _bitfield: u8,
     pub ParentValue: usize,
 }
-impl ::core::marker::Copy for RTL_BALANCED_NODE_1 {}
-impl ::core::clone::Clone for RTL_BALANCED_NODE_1 {
+impl Copy for RTL_BALANCED_NODE_1 {}
+impl Clone for RTL_BALANCED_NODE_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::windows_core::TypeKind for RTL_BALANCED_NODE_1 {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for RTL_BALANCED_NODE_1 {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::default::Default for RTL_BALANCED_NODE_1 {
+impl Default for RTL_BALANCED_NODE_1 {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 pub struct SINGLE_LIST_ENTRY {
     pub Next: *mut SINGLE_LIST_ENTRY,
 }
-impl ::core::marker::Copy for SINGLE_LIST_ENTRY {}
-impl ::core::clone::Clone for SINGLE_LIST_ENTRY {
+impl Copy for SINGLE_LIST_ENTRY {}
+impl Clone for SINGLE_LIST_ENTRY {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for SINGLE_LIST_ENTRY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for SINGLE_LIST_ENTRY {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("SINGLE_LIST_ENTRY").field("Next", &self.Next).finish()
     }
 }
-impl ::windows_core::TypeKind for SINGLE_LIST_ENTRY {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for SINGLE_LIST_ENTRY {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for SINGLE_LIST_ENTRY {
+impl PartialEq for SINGLE_LIST_ENTRY {
     fn eq(&self, other: &Self) -> bool {
         self.Next == other.Next
     }
 }
-impl ::core::cmp::Eq for SINGLE_LIST_ENTRY {}
-impl ::core::default::Default for SINGLE_LIST_ENTRY {
+impl Eq for SINGLE_LIST_ENTRY {}
+impl Default for SINGLE_LIST_ENTRY {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 pub struct SINGLE_LIST_ENTRY32 {
     pub Next: u32,
 }
-impl ::core::marker::Copy for SINGLE_LIST_ENTRY32 {}
-impl ::core::clone::Clone for SINGLE_LIST_ENTRY32 {
+impl Copy for SINGLE_LIST_ENTRY32 {}
+impl Clone for SINGLE_LIST_ENTRY32 {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for SINGLE_LIST_ENTRY32 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for SINGLE_LIST_ENTRY32 {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("SINGLE_LIST_ENTRY32").field("Next", &self.Next).finish()
     }
 }
-impl ::windows_core::TypeKind for SINGLE_LIST_ENTRY32 {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for SINGLE_LIST_ENTRY32 {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for SINGLE_LIST_ENTRY32 {
+impl PartialEq for SINGLE_LIST_ENTRY32 {
     fn eq(&self, other: &Self) -> bool {
         self.Next == other.Next
     }
 }
-impl ::core::cmp::Eq for SINGLE_LIST_ENTRY32 {}
-impl ::core::default::Default for SINGLE_LIST_ENTRY32 {
+impl Eq for SINGLE_LIST_ENTRY32 {}
+impl Default for SINGLE_LIST_ENTRY32 {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 pub struct SLIST_ENTRY {
     pub Next: *mut SLIST_ENTRY,
 }
-impl ::core::marker::Copy for SLIST_ENTRY {}
-impl ::core::clone::Clone for SLIST_ENTRY {
+impl Copy for SLIST_ENTRY {}
+impl Clone for SLIST_ENTRY {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for SLIST_ENTRY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for SLIST_ENTRY {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("SLIST_ENTRY").field("Next", &self.Next).finish()
     }
 }
-impl ::windows_core::TypeKind for SLIST_ENTRY {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for SLIST_ENTRY {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for SLIST_ENTRY {
+impl PartialEq for SLIST_ENTRY {
     fn eq(&self, other: &Self) -> bool {
         self.Next == other.Next
     }
 }
-impl ::core::cmp::Eq for SLIST_ENTRY {}
-impl ::core::default::Default for SLIST_ENTRY {
+impl Eq for SLIST_ENTRY {}
+impl Default for SLIST_ENTRY {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -739,21 +739,21 @@ pub union SLIST_HEADER {
     pub HeaderArm64: SLIST_HEADER_1,
 }
 #[cfg(target_arch = "aarch64")]
-impl ::core::marker::Copy for SLIST_HEADER {}
+impl Copy for SLIST_HEADER {}
 #[cfg(target_arch = "aarch64")]
-impl ::core::clone::Clone for SLIST_HEADER {
+impl Clone for SLIST_HEADER {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[cfg(target_arch = "aarch64")]
-impl ::windows_core::TypeKind for SLIST_HEADER {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for SLIST_HEADER {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(target_arch = "aarch64")]
-impl ::core::default::Default for SLIST_HEADER {
+impl Default for SLIST_HEADER {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -763,35 +763,35 @@ pub struct SLIST_HEADER_0 {
     pub Region: u64,
 }
 #[cfg(target_arch = "aarch64")]
-impl ::core::marker::Copy for SLIST_HEADER_0 {}
+impl Copy for SLIST_HEADER_0 {}
 #[cfg(target_arch = "aarch64")]
-impl ::core::clone::Clone for SLIST_HEADER_0 {
+impl Clone for SLIST_HEADER_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[cfg(target_arch = "aarch64")]
-impl ::core::fmt::Debug for SLIST_HEADER_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for SLIST_HEADER_0 {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("SLIST_HEADER_0").field("Alignment", &self.Alignment).field("Region", &self.Region).finish()
     }
 }
 #[cfg(target_arch = "aarch64")]
-impl ::windows_core::TypeKind for SLIST_HEADER_0 {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for SLIST_HEADER_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(target_arch = "aarch64")]
-impl ::core::cmp::PartialEq for SLIST_HEADER_0 {
+impl PartialEq for SLIST_HEADER_0 {
     fn eq(&self, other: &Self) -> bool {
         self.Alignment == other.Alignment && self.Region == other.Region
     }
 }
 #[cfg(target_arch = "aarch64")]
-impl ::core::cmp::Eq for SLIST_HEADER_0 {}
+impl Eq for SLIST_HEADER_0 {}
 #[cfg(target_arch = "aarch64")]
-impl ::core::default::Default for SLIST_HEADER_0 {
+impl Default for SLIST_HEADER_0 {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -801,35 +801,35 @@ pub struct SLIST_HEADER_1 {
     pub _bitfield2: u64,
 }
 #[cfg(target_arch = "aarch64")]
-impl ::core::marker::Copy for SLIST_HEADER_1 {}
+impl Copy for SLIST_HEADER_1 {}
 #[cfg(target_arch = "aarch64")]
-impl ::core::clone::Clone for SLIST_HEADER_1 {
+impl Clone for SLIST_HEADER_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[cfg(target_arch = "aarch64")]
-impl ::core::fmt::Debug for SLIST_HEADER_1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for SLIST_HEADER_1 {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("SLIST_HEADER_1").field("_bitfield1", &self._bitfield1).field("_bitfield2", &self._bitfield2).finish()
     }
 }
 #[cfg(target_arch = "aarch64")]
-impl ::windows_core::TypeKind for SLIST_HEADER_1 {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for SLIST_HEADER_1 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(target_arch = "aarch64")]
-impl ::core::cmp::PartialEq for SLIST_HEADER_1 {
+impl PartialEq for SLIST_HEADER_1 {
     fn eq(&self, other: &Self) -> bool {
         self._bitfield1 == other._bitfield1 && self._bitfield2 == other._bitfield2
     }
 }
 #[cfg(target_arch = "aarch64")]
-impl ::core::cmp::Eq for SLIST_HEADER_1 {}
+impl Eq for SLIST_HEADER_1 {}
 #[cfg(target_arch = "aarch64")]
-impl ::core::default::Default for SLIST_HEADER_1 {
+impl Default for SLIST_HEADER_1 {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -839,21 +839,21 @@ pub union SLIST_HEADER {
     pub HeaderX64: SLIST_HEADER_1,
 }
 #[cfg(target_arch = "x86_64")]
-impl ::core::marker::Copy for SLIST_HEADER {}
+impl Copy for SLIST_HEADER {}
 #[cfg(target_arch = "x86_64")]
-impl ::core::clone::Clone for SLIST_HEADER {
+impl Clone for SLIST_HEADER {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[cfg(target_arch = "x86_64")]
-impl ::windows_core::TypeKind for SLIST_HEADER {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for SLIST_HEADER {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(target_arch = "x86_64")]
-impl ::core::default::Default for SLIST_HEADER {
+impl Default for SLIST_HEADER {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -863,35 +863,35 @@ pub struct SLIST_HEADER_0 {
     pub Region: u64,
 }
 #[cfg(target_arch = "x86_64")]
-impl ::core::marker::Copy for SLIST_HEADER_0 {}
+impl Copy for SLIST_HEADER_0 {}
 #[cfg(target_arch = "x86_64")]
-impl ::core::clone::Clone for SLIST_HEADER_0 {
+impl Clone for SLIST_HEADER_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[cfg(target_arch = "x86_64")]
-impl ::core::fmt::Debug for SLIST_HEADER_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for SLIST_HEADER_0 {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("SLIST_HEADER_0").field("Alignment", &self.Alignment).field("Region", &self.Region).finish()
     }
 }
 #[cfg(target_arch = "x86_64")]
-impl ::windows_core::TypeKind for SLIST_HEADER_0 {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for SLIST_HEADER_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(target_arch = "x86_64")]
-impl ::core::cmp::PartialEq for SLIST_HEADER_0 {
+impl PartialEq for SLIST_HEADER_0 {
     fn eq(&self, other: &Self) -> bool {
         self.Alignment == other.Alignment && self.Region == other.Region
     }
 }
 #[cfg(target_arch = "x86_64")]
-impl ::core::cmp::Eq for SLIST_HEADER_0 {}
+impl Eq for SLIST_HEADER_0 {}
 #[cfg(target_arch = "x86_64")]
-impl ::core::default::Default for SLIST_HEADER_0 {
+impl Default for SLIST_HEADER_0 {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -901,35 +901,35 @@ pub struct SLIST_HEADER_1 {
     pub _bitfield2: u64,
 }
 #[cfg(target_arch = "x86_64")]
-impl ::core::marker::Copy for SLIST_HEADER_1 {}
+impl Copy for SLIST_HEADER_1 {}
 #[cfg(target_arch = "x86_64")]
-impl ::core::clone::Clone for SLIST_HEADER_1 {
+impl Clone for SLIST_HEADER_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[cfg(target_arch = "x86_64")]
-impl ::core::fmt::Debug for SLIST_HEADER_1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for SLIST_HEADER_1 {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("SLIST_HEADER_1").field("_bitfield1", &self._bitfield1).field("_bitfield2", &self._bitfield2).finish()
     }
 }
 #[cfg(target_arch = "x86_64")]
-impl ::windows_core::TypeKind for SLIST_HEADER_1 {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for SLIST_HEADER_1 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(target_arch = "x86_64")]
-impl ::core::cmp::PartialEq for SLIST_HEADER_1 {
+impl PartialEq for SLIST_HEADER_1 {
     fn eq(&self, other: &Self) -> bool {
         self._bitfield1 == other._bitfield1 && self._bitfield2 == other._bitfield2
     }
 }
 #[cfg(target_arch = "x86_64")]
-impl ::core::cmp::Eq for SLIST_HEADER_1 {}
+impl Eq for SLIST_HEADER_1 {}
 #[cfg(target_arch = "x86_64")]
-impl ::core::default::Default for SLIST_HEADER_1 {
+impl Default for SLIST_HEADER_1 {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -939,21 +939,21 @@ pub union SLIST_HEADER {
     pub Anonymous: SLIST_HEADER_0,
 }
 #[cfg(target_arch = "x86")]
-impl ::core::marker::Copy for SLIST_HEADER {}
+impl Copy for SLIST_HEADER {}
 #[cfg(target_arch = "x86")]
-impl ::core::clone::Clone for SLIST_HEADER {
+impl Clone for SLIST_HEADER {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[cfg(target_arch = "x86")]
-impl ::windows_core::TypeKind for SLIST_HEADER {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for SLIST_HEADER {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(target_arch = "x86")]
-impl ::core::default::Default for SLIST_HEADER {
+impl Default for SLIST_HEADER {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -964,66 +964,66 @@ pub struct SLIST_HEADER_0 {
     pub CpuId: u16,
 }
 #[cfg(target_arch = "x86")]
-impl ::core::marker::Copy for SLIST_HEADER_0 {}
+impl Copy for SLIST_HEADER_0 {}
 #[cfg(target_arch = "x86")]
-impl ::core::clone::Clone for SLIST_HEADER_0 {
+impl Clone for SLIST_HEADER_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[cfg(target_arch = "x86")]
-impl ::core::fmt::Debug for SLIST_HEADER_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for SLIST_HEADER_0 {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("SLIST_HEADER_0").field("Next", &self.Next).field("Depth", &self.Depth).field("CpuId", &self.CpuId).finish()
     }
 }
 #[cfg(target_arch = "x86")]
-impl ::windows_core::TypeKind for SLIST_HEADER_0 {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for SLIST_HEADER_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(target_arch = "x86")]
-impl ::core::cmp::PartialEq for SLIST_HEADER_0 {
+impl PartialEq for SLIST_HEADER_0 {
     fn eq(&self, other: &Self) -> bool {
         self.Next == other.Next && self.Depth == other.Depth && self.CpuId == other.CpuId
     }
 }
 #[cfg(target_arch = "x86")]
-impl ::core::cmp::Eq for SLIST_HEADER_0 {}
+impl Eq for SLIST_HEADER_0 {}
 #[cfg(target_arch = "x86")]
-impl ::core::default::Default for SLIST_HEADER_0 {
+impl Default for SLIST_HEADER_0 {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 pub struct STRING {
     pub Length: u16,
     pub MaximumLength: u16,
-    pub Buffer: ::windows_core::PSTR,
+    pub Buffer: windows_core::PSTR,
 }
-impl ::core::marker::Copy for STRING {}
-impl ::core::clone::Clone for STRING {
+impl Copy for STRING {}
+impl Clone for STRING {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for STRING {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for STRING {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("STRING").field("Length", &self.Length).field("MaximumLength", &self.MaximumLength).field("Buffer", &self.Buffer).finish()
     }
 }
-impl ::windows_core::TypeKind for STRING {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for STRING {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for STRING {
+impl PartialEq for STRING {
     fn eq(&self, other: &Self) -> bool {
         self.Length == other.Length && self.MaximumLength == other.MaximumLength && self.Buffer == other.Buffer
     }
 }
-impl ::core::cmp::Eq for STRING {}
-impl ::core::default::Default for STRING {
+impl Eq for STRING {}
+impl Default for STRING {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -1032,29 +1032,29 @@ pub struct STRING32 {
     pub MaximumLength: u16,
     pub Buffer: u32,
 }
-impl ::core::marker::Copy for STRING32 {}
-impl ::core::clone::Clone for STRING32 {
+impl Copy for STRING32 {}
+impl Clone for STRING32 {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for STRING32 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for STRING32 {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("STRING32").field("Length", &self.Length).field("MaximumLength", &self.MaximumLength).field("Buffer", &self.Buffer).finish()
     }
 }
-impl ::windows_core::TypeKind for STRING32 {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for STRING32 {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for STRING32 {
+impl PartialEq for STRING32 {
     fn eq(&self, other: &Self) -> bool {
         self.Length == other.Length && self.MaximumLength == other.MaximumLength && self.Buffer == other.Buffer
     }
 }
-impl ::core::cmp::Eq for STRING32 {}
-impl ::core::default::Default for STRING32 {
+impl Eq for STRING32 {}
+impl Default for STRING32 {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -1063,59 +1063,59 @@ pub struct STRING64 {
     pub MaximumLength: u16,
     pub Buffer: u64,
 }
-impl ::core::marker::Copy for STRING64 {}
-impl ::core::clone::Clone for STRING64 {
+impl Copy for STRING64 {}
+impl Clone for STRING64 {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for STRING64 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for STRING64 {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("STRING64").field("Length", &self.Length).field("MaximumLength", &self.MaximumLength).field("Buffer", &self.Buffer).finish()
     }
 }
-impl ::windows_core::TypeKind for STRING64 {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for STRING64 {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for STRING64 {
+impl PartialEq for STRING64 {
     fn eq(&self, other: &Self) -> bool {
         self.Length == other.Length && self.MaximumLength == other.MaximumLength && self.Buffer == other.Buffer
     }
 }
-impl ::core::cmp::Eq for STRING64 {}
-impl ::core::default::Default for STRING64 {
+impl Eq for STRING64 {}
+impl Default for STRING64 {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 pub struct WNF_STATE_NAME {
     pub Data: [u32; 2],
 }
-impl ::core::marker::Copy for WNF_STATE_NAME {}
-impl ::core::clone::Clone for WNF_STATE_NAME {
+impl Copy for WNF_STATE_NAME {}
+impl Clone for WNF_STATE_NAME {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for WNF_STATE_NAME {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for WNF_STATE_NAME {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("WNF_STATE_NAME").field("Data", &self.Data).finish()
     }
 }
-impl ::windows_core::TypeKind for WNF_STATE_NAME {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for WNF_STATE_NAME {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for WNF_STATE_NAME {
+impl PartialEq for WNF_STATE_NAME {
     fn eq(&self, other: &Self) -> bool {
         self.Data == other.Data
     }
 }
-impl ::core::cmp::Eq for WNF_STATE_NAME {}
-impl ::core::default::Default for WNF_STATE_NAME {
+impl Eq for WNF_STATE_NAME {}
+impl Default for WNF_STATE_NAME {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-pub type EXCEPTION_ROUTINE = ::core::option::Option<unsafe extern "system" fn(exceptionrecord: *mut super::Diagnostics::Debug::EXCEPTION_RECORD, establisherframe: *const ::core::ffi::c_void, contextrecord: *mut super::Diagnostics::Debug::CONTEXT, dispatchercontext: *const ::core::ffi::c_void) -> EXCEPTION_DISPOSITION>;
+pub type EXCEPTION_ROUTINE = Option<unsafe extern "system" fn(exceptionrecord: *mut super::Diagnostics::Debug::EXCEPTION_RECORD, establisherframe: *const core::ffi::c_void, contextrecord: *mut super::Diagnostics::Debug::CONTEXT, dispatchercontext: *const core::ffi::c_void) -> EXCEPTION_DISPOSITION>;

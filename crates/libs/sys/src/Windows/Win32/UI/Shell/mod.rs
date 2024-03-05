@@ -2,97 +2,97 @@
 pub mod Common;
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub mod PropertiesSystem;
-::windows_targets::link!("shlwapi.dll" "system" fn AssocCreate(clsid : ::windows_sys::core::GUID, riid : *const ::windows_sys::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shlwapi.dll" "system" fn AssocCreate(clsid : windows_sys::core::GUID, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Registry")]
-::windows_targets::link!("shell32.dll" "system" fn AssocCreateForClasses(rgclasses : *const ASSOCIATIONELEMENT, cclasses : u32, riid : *const ::windows_sys::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" fn AssocCreateForClasses(rgclasses : *const ASSOCIATIONELEMENT, cclasses : u32, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_Common", feature = "Win32_UI_Shell_PropertiesSystem"))]
-::windows_targets::link!("shell32.dll" "system" fn AssocGetDetailsOfPropKey(psf : * mut::core::ffi::c_void, pidl : *const Common:: ITEMIDLIST, pkey : *const PropertiesSystem:: PROPERTYKEY, pv : *mut super::super::System::Variant:: VARIANT, pffoundpropkey : *mut super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" fn AssocGetDetailsOfPropKey(psf : * mut core::ffi::c_void, pidl : *const Common:: ITEMIDLIST, pkey : *const PropertiesSystem:: PROPERTYKEY, pv : *mut super::super::System::Variant:: VARIANT, pffoundpropkey : *mut super::super::Foundation:: BOOL) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_UI_Shell_Common")]
-::windows_targets::link!("shlwapi.dll" "system" fn AssocGetPerceivedType(pszext : ::windows_sys::core::PCWSTR, ptype : *mut Common:: PERCEIVED, pflag : *mut u32, ppsztype : *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("shlwapi.dll" "system" fn AssocIsDangerous(pszassoc : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" fn AssocGetPerceivedType(pszext : windows_sys::core::PCWSTR, ptype : *mut Common:: PERCEIVED, pflag : *mut u32, ppsztype : *mut windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
+::windows_targets::link!("shlwapi.dll" "system" fn AssocIsDangerous(pszassoc : windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_System_Registry")]
-::windows_targets::link!("shlwapi.dll" "system" fn AssocQueryKeyA(flags : ASSOCF, key : ASSOCKEY, pszassoc : ::windows_sys::core::PCSTR, pszextra : ::windows_sys::core::PCSTR, phkeyout : *mut super::super::System::Registry:: HKEY) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shlwapi.dll" "system" fn AssocQueryKeyA(flags : ASSOCF, key : ASSOCKEY, pszassoc : windows_sys::core::PCSTR, pszextra : windows_sys::core::PCSTR, phkeyout : *mut super::super::System::Registry:: HKEY) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Registry")]
-::windows_targets::link!("shlwapi.dll" "system" fn AssocQueryKeyW(flags : ASSOCF, key : ASSOCKEY, pszassoc : ::windows_sys::core::PCWSTR, pszextra : ::windows_sys::core::PCWSTR, phkeyout : *mut super::super::System::Registry:: HKEY) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("shlwapi.dll" "system" fn AssocQueryStringA(flags : ASSOCF, str : ASSOCSTR, pszassoc : ::windows_sys::core::PCSTR, pszextra : ::windows_sys::core::PCSTR, pszout : ::windows_sys::core::PSTR, pcchout : *mut u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shlwapi.dll" "system" fn AssocQueryKeyW(flags : ASSOCF, key : ASSOCKEY, pszassoc : windows_sys::core::PCWSTR, pszextra : windows_sys::core::PCWSTR, phkeyout : *mut super::super::System::Registry:: HKEY) -> windows_sys::core::HRESULT);
+::windows_targets::link!("shlwapi.dll" "system" fn AssocQueryStringA(flags : ASSOCF, str : ASSOCSTR, pszassoc : windows_sys::core::PCSTR, pszextra : windows_sys::core::PCSTR, pszout : windows_sys::core::PSTR, pcchout : *mut u32) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Registry")]
-::windows_targets::link!("shlwapi.dll" "system" fn AssocQueryStringByKeyA(flags : ASSOCF, str : ASSOCSTR, hkassoc : super::super::System::Registry:: HKEY, pszextra : ::windows_sys::core::PCSTR, pszout : ::windows_sys::core::PSTR, pcchout : *mut u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shlwapi.dll" "system" fn AssocQueryStringByKeyA(flags : ASSOCF, str : ASSOCSTR, hkassoc : super::super::System::Registry:: HKEY, pszextra : windows_sys::core::PCSTR, pszout : windows_sys::core::PSTR, pcchout : *mut u32) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Registry")]
-::windows_targets::link!("shlwapi.dll" "system" fn AssocQueryStringByKeyW(flags : ASSOCF, str : ASSOCSTR, hkassoc : super::super::System::Registry:: HKEY, pszextra : ::windows_sys::core::PCWSTR, pszout : ::windows_sys::core::PWSTR, pcchout : *mut u32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("shlwapi.dll" "system" fn AssocQueryStringW(flags : ASSOCF, str : ASSOCSTR, pszassoc : ::windows_sys::core::PCWSTR, pszextra : ::windows_sys::core::PCWSTR, pszout : ::windows_sys::core::PWSTR, pcchout : *mut u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shlwapi.dll" "system" fn AssocQueryStringByKeyW(flags : ASSOCF, str : ASSOCSTR, hkassoc : super::super::System::Registry:: HKEY, pszextra : windows_sys::core::PCWSTR, pszout : windows_sys::core::PWSTR, pcchout : *mut u32) -> windows_sys::core::HRESULT);
+::windows_targets::link!("shlwapi.dll" "system" fn AssocQueryStringW(flags : ASSOCF, str : ASSOCSTR, pszassoc : windows_sys::core::PCWSTR, pszextra : windows_sys::core::PCWSTR, pszout : windows_sys::core::PWSTR, pcchout : *mut u32) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_System_Registry", feature = "Win32_UI_Shell_Common"))]
-::windows_targets::link!("shell32.dll" "system" fn CDefFolderMenu_Create2(pidlfolder : *const Common:: ITEMIDLIST, hwnd : super::super::Foundation:: HWND, cidl : u32, apidl : *const *const Common:: ITEMIDLIST, psf : * mut::core::ffi::c_void, pfn : LPFNDFMCALLBACK, nkeys : u32, ahkeys : *const super::super::System::Registry:: HKEY, ppcm : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" fn CDefFolderMenu_Create2(pidlfolder : *const Common:: ITEMIDLIST, hwnd : super::super::Foundation:: HWND, cidl : u32, apidl : *const *const Common:: ITEMIDLIST, psf : * mut core::ffi::c_void, pfn : LPFNDFMCALLBACK, nkeys : u32, ahkeys : *const super::super::System::Registry:: HKEY, ppcm : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_UI_Shell_Common")]
-::windows_targets::link!("shell32.dll" "system" fn CIDLData_CreateFromIDArray(pidlfolder : *const Common:: ITEMIDLIST, cidl : u32, apidl : *const *const Common:: ITEMIDLIST, ppdtobj : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" fn CIDLData_CreateFromIDArray(pidlfolder : *const Common:: ITEMIDLIST, cidl : u32, apidl : *const *const Common:: ITEMIDLIST, ppdtobj : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 ::windows_targets::link!("shlwapi.dll" "system" fn ChrCmpIA(w1 : u16, w2 : u16) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("shlwapi.dll" "system" fn ChrCmpIW(w1 : u16, w2 : u16) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("shlwapi.dll" "system" fn ColorAdjustLuma(clrrgb : super::super::Foundation:: COLORREF, n : i32, fscale : super::super::Foundation:: BOOL) -> super::super::Foundation:: COLORREF);
 ::windows_targets::link!("shlwapi.dll" "system" fn ColorHLSToRGB(whue : u16, wluminance : u16, wsaturation : u16) -> super::super::Foundation:: COLORREF);
 ::windows_targets::link!("shlwapi.dll" "system" fn ColorRGBToHLS(clrrgb : super::super::Foundation:: COLORREF, pwhue : *mut u16, pwluminance : *mut u16, pwsaturation : *mut u16));
-::windows_targets::link!("shell32.dll" "system" fn CommandLineToArgvW(lpcmdline : ::windows_sys::core::PCWSTR, pnumargs : *mut i32) -> *mut ::windows_sys::core::PWSTR);
-::windows_targets::link!("shlwapi.dll" "system" fn ConnectToConnectionPoint(punk : * mut::core::ffi::c_void, riidevent : *const ::windows_sys::core::GUID, fconnect : super::super::Foundation:: BOOL, punktarget : * mut::core::ffi::c_void, pdwcookie : *mut u32, ppcpout : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("userenv.dll" "system" fn CreateProfile(pszusersid : ::windows_sys::core::PCWSTR, pszusername : ::windows_sys::core::PCWSTR, pszprofilepath : ::windows_sys::core::PWSTR, cchprofilepath : u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" fn CommandLineToArgvW(lpcmdline : windows_sys::core::PCWSTR, pnumargs : *mut i32) -> *mut windows_sys::core::PWSTR);
+::windows_targets::link!("shlwapi.dll" "system" fn ConnectToConnectionPoint(punk : * mut core::ffi::c_void, riidevent : *const windows_sys::core::GUID, fconnect : super::super::Foundation:: BOOL, punktarget : * mut core::ffi::c_void, pdwcookie : *mut u32, ppcpout : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+::windows_targets::link!("userenv.dll" "system" fn CreateProfile(pszusersid : windows_sys::core::PCWSTR, pszusername : windows_sys::core::PCWSTR, pszprofilepath : windows_sys::core::PWSTR, cchprofilepath : u32) -> windows_sys::core::HRESULT);
 ::windows_targets::link!("shell32.dll" "system" fn DAD_AutoScroll(hwnd : super::super::Foundation:: HWND, pad : *mut AUTO_SCROLL_DATA, pptnow : *const super::super::Foundation:: POINT) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("shell32.dll" "system" fn DAD_DragEnterEx(hwndtarget : super::super::Foundation:: HWND, ptstart : super::super::Foundation:: POINT) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("shell32.dll" "system" fn DAD_DragEnterEx2(hwndtarget : super::super::Foundation:: HWND, ptstart : super::super::Foundation:: POINT, pdtobject : * mut::core::ffi::c_void) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shell32.dll" "system" fn DAD_DragEnterEx2(hwndtarget : super::super::Foundation:: HWND, ptstart : super::super::Foundation:: POINT, pdtobject : * mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("shell32.dll" "system" fn DAD_DragLeave() -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("shell32.dll" "system" fn DAD_DragMove(pt : super::super::Foundation:: POINT) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_UI_Controls")]
 ::windows_targets::link!("shell32.dll" "system" fn DAD_SetDragImage(him : super::Controls:: HIMAGELIST, pptoffset : *mut super::super::Foundation:: POINT) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("shell32.dll" "system" fn DAD_ShowDragImage(fshow : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("comctl32.dll" "system" fn DefSubclassProc(hwnd : super::super::Foundation:: HWND, umsg : u32, wparam : super::super::Foundation:: WPARAM, lparam : super::super::Foundation:: LPARAM) -> super::super::Foundation:: LRESULT);
-::windows_targets::link!("userenv.dll" "system" fn DeleteProfileA(lpsidstring : ::windows_sys::core::PCSTR, lpprofilepath : ::windows_sys::core::PCSTR, lpcomputername : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("userenv.dll" "system" fn DeleteProfileW(lpsidstring : ::windows_sys::core::PCWSTR, lpprofilepath : ::windows_sys::core::PCWSTR, lpcomputername : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("shell32.dll" "system" fn DoEnvironmentSubstA(pszsrc : ::windows_sys::core::PSTR, cchsrc : u32) -> u32);
-::windows_targets::link!("shell32.dll" "system" fn DoEnvironmentSubstW(pszsrc : ::windows_sys::core::PWSTR, cchsrc : u32) -> u32);
+::windows_targets::link!("userenv.dll" "system" fn DeleteProfileA(lpsidstring : windows_sys::core::PCSTR, lpprofilepath : windows_sys::core::PCSTR, lpcomputername : windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("userenv.dll" "system" fn DeleteProfileW(lpsidstring : windows_sys::core::PCWSTR, lpprofilepath : windows_sys::core::PCWSTR, lpcomputername : windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shell32.dll" "system" fn DoEnvironmentSubstA(pszsrc : windows_sys::core::PSTR, cchsrc : u32) -> u32);
+::windows_targets::link!("shell32.dll" "system" fn DoEnvironmentSubstW(pszsrc : windows_sys::core::PWSTR, cchsrc : u32) -> u32);
 ::windows_targets::link!("shell32.dll" "system" fn DragAcceptFiles(hwnd : super::super::Foundation:: HWND, faccept : super::super::Foundation:: BOOL));
 ::windows_targets::link!("shell32.dll" "system" fn DragFinish(hdrop : HDROP));
-::windows_targets::link!("shell32.dll" "system" fn DragQueryFileA(hdrop : HDROP, ifile : u32, lpszfile : ::windows_sys::core::PSTR, cch : u32) -> u32);
-::windows_targets::link!("shell32.dll" "system" fn DragQueryFileW(hdrop : HDROP, ifile : u32, lpszfile : ::windows_sys::core::PWSTR, cch : u32) -> u32);
+::windows_targets::link!("shell32.dll" "system" fn DragQueryFileA(hdrop : HDROP, ifile : u32, lpszfile : windows_sys::core::PSTR, cch : u32) -> u32);
+::windows_targets::link!("shell32.dll" "system" fn DragQueryFileW(hdrop : HDROP, ifile : u32, lpszfile : windows_sys::core::PWSTR, cch : u32) -> u32);
 ::windows_targets::link!("shell32.dll" "system" fn DragQueryPoint(hdrop : HDROP, ppt : *mut super::super::Foundation:: POINT) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("shell32.dll" "system" fn DriveType(idrive : i32) -> i32);
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 ::windows_targets::link!("shell32.dll" "system" fn DuplicateIcon(hinst : super::super::Foundation:: HINSTANCE, hicon : super::WindowsAndMessaging:: HICON) -> super::WindowsAndMessaging:: HICON);
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-::windows_targets::link!("shell32.dll" "system" fn ExtractAssociatedIconA(hinst : super::super::Foundation:: HINSTANCE, psziconpath : ::windows_sys::core::PSTR, piicon : *mut u16) -> super::WindowsAndMessaging:: HICON);
+::windows_targets::link!("shell32.dll" "system" fn ExtractAssociatedIconA(hinst : super::super::Foundation:: HINSTANCE, psziconpath : windows_sys::core::PSTR, piicon : *mut u16) -> super::WindowsAndMessaging:: HICON);
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-::windows_targets::link!("shell32.dll" "system" fn ExtractAssociatedIconExA(hinst : super::super::Foundation:: HINSTANCE, psziconpath : ::windows_sys::core::PSTR, piiconindex : *mut u16, piiconid : *mut u16) -> super::WindowsAndMessaging:: HICON);
+::windows_targets::link!("shell32.dll" "system" fn ExtractAssociatedIconExA(hinst : super::super::Foundation:: HINSTANCE, psziconpath : windows_sys::core::PSTR, piiconindex : *mut u16, piiconid : *mut u16) -> super::WindowsAndMessaging:: HICON);
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-::windows_targets::link!("shell32.dll" "system" fn ExtractAssociatedIconExW(hinst : super::super::Foundation:: HINSTANCE, psziconpath : ::windows_sys::core::PWSTR, piiconindex : *mut u16, piiconid : *mut u16) -> super::WindowsAndMessaging:: HICON);
+::windows_targets::link!("shell32.dll" "system" fn ExtractAssociatedIconExW(hinst : super::super::Foundation:: HINSTANCE, psziconpath : windows_sys::core::PWSTR, piiconindex : *mut u16, piiconid : *mut u16) -> super::WindowsAndMessaging:: HICON);
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-::windows_targets::link!("shell32.dll" "system" fn ExtractAssociatedIconW(hinst : super::super::Foundation:: HINSTANCE, psziconpath : ::windows_sys::core::PWSTR, piicon : *mut u16) -> super::WindowsAndMessaging:: HICON);
+::windows_targets::link!("shell32.dll" "system" fn ExtractAssociatedIconW(hinst : super::super::Foundation:: HINSTANCE, psziconpath : windows_sys::core::PWSTR, piicon : *mut u16) -> super::WindowsAndMessaging:: HICON);
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-::windows_targets::link!("shell32.dll" "system" fn ExtractIconA(hinst : super::super::Foundation:: HINSTANCE, pszexefilename : ::windows_sys::core::PCSTR, niconindex : u32) -> super::WindowsAndMessaging:: HICON);
+::windows_targets::link!("shell32.dll" "system" fn ExtractIconA(hinst : super::super::Foundation:: HINSTANCE, pszexefilename : windows_sys::core::PCSTR, niconindex : u32) -> super::WindowsAndMessaging:: HICON);
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-::windows_targets::link!("shell32.dll" "system" fn ExtractIconExA(lpszfile : ::windows_sys::core::PCSTR, niconindex : i32, phiconlarge : *mut super::WindowsAndMessaging:: HICON, phiconsmall : *mut super::WindowsAndMessaging:: HICON, nicons : u32) -> u32);
+::windows_targets::link!("shell32.dll" "system" fn ExtractIconExA(lpszfile : windows_sys::core::PCSTR, niconindex : i32, phiconlarge : *mut super::WindowsAndMessaging:: HICON, phiconsmall : *mut super::WindowsAndMessaging:: HICON, nicons : u32) -> u32);
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-::windows_targets::link!("shell32.dll" "system" fn ExtractIconExW(lpszfile : ::windows_sys::core::PCWSTR, niconindex : i32, phiconlarge : *mut super::WindowsAndMessaging:: HICON, phiconsmall : *mut super::WindowsAndMessaging:: HICON, nicons : u32) -> u32);
+::windows_targets::link!("shell32.dll" "system" fn ExtractIconExW(lpszfile : windows_sys::core::PCWSTR, niconindex : i32, phiconlarge : *mut super::WindowsAndMessaging:: HICON, phiconsmall : *mut super::WindowsAndMessaging:: HICON, nicons : u32) -> u32);
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-::windows_targets::link!("shell32.dll" "system" fn ExtractIconW(hinst : super::super::Foundation:: HINSTANCE, pszexefilename : ::windows_sys::core::PCWSTR, niconindex : u32) -> super::WindowsAndMessaging:: HICON);
-::windows_targets::link!("shell32.dll" "system" fn FindExecutableA(lpfile : ::windows_sys::core::PCSTR, lpdirectory : ::windows_sys::core::PCSTR, lpresult : ::windows_sys::core::PSTR) -> super::super::Foundation:: HINSTANCE);
-::windows_targets::link!("shell32.dll" "system" fn FindExecutableW(lpfile : ::windows_sys::core::PCWSTR, lpdirectory : ::windows_sys::core::PCWSTR, lpresult : ::windows_sys::core::PWSTR) -> super::super::Foundation:: HINSTANCE);
-::windows_targets::link!("shlwapi.dll" "system" fn GetAcceptLanguagesA(pszlanguages : ::windows_sys::core::PSTR, pcchlanguages : *mut u32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("shlwapi.dll" "system" fn GetAcceptLanguagesW(pszlanguages : ::windows_sys::core::PWSTR, pcchlanguages : *mut u32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("userenv.dll" "system" fn GetAllUsersProfileDirectoryA(lpprofiledir : ::windows_sys::core::PSTR, lpcchsize : *mut u32) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("userenv.dll" "system" fn GetAllUsersProfileDirectoryW(lpprofiledir : ::windows_sys::core::PWSTR, lpcchsize : *mut u32) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("shell32.dll" "system" fn GetCurrentProcessExplicitAppUserModelID(appid : *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("userenv.dll" "system" fn GetDefaultUserProfileDirectoryA(lpprofiledir : ::windows_sys::core::PSTR, lpcchsize : *mut u32) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("userenv.dll" "system" fn GetDefaultUserProfileDirectoryW(lpprofiledir : ::windows_sys::core::PWSTR, lpcchsize : *mut u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shell32.dll" "system" fn ExtractIconW(hinst : super::super::Foundation:: HINSTANCE, pszexefilename : windows_sys::core::PCWSTR, niconindex : u32) -> super::WindowsAndMessaging:: HICON);
+::windows_targets::link!("shell32.dll" "system" fn FindExecutableA(lpfile : windows_sys::core::PCSTR, lpdirectory : windows_sys::core::PCSTR, lpresult : windows_sys::core::PSTR) -> super::super::Foundation:: HINSTANCE);
+::windows_targets::link!("shell32.dll" "system" fn FindExecutableW(lpfile : windows_sys::core::PCWSTR, lpdirectory : windows_sys::core::PCWSTR, lpresult : windows_sys::core::PWSTR) -> super::super::Foundation:: HINSTANCE);
+::windows_targets::link!("shlwapi.dll" "system" fn GetAcceptLanguagesA(pszlanguages : windows_sys::core::PSTR, pcchlanguages : *mut u32) -> windows_sys::core::HRESULT);
+::windows_targets::link!("shlwapi.dll" "system" fn GetAcceptLanguagesW(pszlanguages : windows_sys::core::PWSTR, pcchlanguages : *mut u32) -> windows_sys::core::HRESULT);
+::windows_targets::link!("userenv.dll" "system" fn GetAllUsersProfileDirectoryA(lpprofiledir : windows_sys::core::PSTR, lpcchsize : *mut u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("userenv.dll" "system" fn GetAllUsersProfileDirectoryW(lpprofiledir : windows_sys::core::PWSTR, lpcchsize : *mut u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shell32.dll" "system" fn GetCurrentProcessExplicitAppUserModelID(appid : *mut windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
+::windows_targets::link!("userenv.dll" "system" fn GetDefaultUserProfileDirectoryA(lpprofiledir : windows_sys::core::PSTR, lpcchsize : *mut u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("userenv.dll" "system" fn GetDefaultUserProfileDirectoryW(lpprofiledir : windows_sys::core::PWSTR, lpcchsize : *mut u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("api-ms-win-shcore-scaling-l1-1-2.dll" "system" fn GetDpiForShellUIComponent(param0 : SHELL_UI_COMPONENT) -> u32);
-::windows_targets::link!("shell32.dll" "system" fn GetFileNameFromBrowse(hwnd : super::super::Foundation:: HWND, pszfilepath : ::windows_sys::core::PWSTR, cchfilepath : u32, pszworkingdir : ::windows_sys::core::PCWSTR, pszdefext : ::windows_sys::core::PCWSTR, pszfilters : ::windows_sys::core::PCWSTR, psztitle : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shell32.dll" "system" fn GetFileNameFromBrowse(hwnd : super::super::Foundation:: HWND, pszfilepath : windows_sys::core::PWSTR, cchfilepath : u32, pszworkingdir : windows_sys::core::PCWSTR, pszdefext : windows_sys::core::PCWSTR, pszfilters : windows_sys::core::PCWSTR, psztitle : windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 ::windows_targets::link!("user32.dll" "system" fn GetMenuContextHelpId(param0 : super::WindowsAndMessaging:: HMENU) -> u32);
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 ::windows_targets::link!("shlwapi.dll" "system" fn GetMenuPosFromID(hmenu : super::WindowsAndMessaging:: HMENU, id : u32) -> i32);
 ::windows_targets::link!("userenv.dll" "system" fn GetProfileType(dwflags : *mut u32) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("userenv.dll" "system" fn GetProfilesDirectoryA(lpprofiledir : ::windows_sys::core::PSTR, lpcchsize : *mut u32) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("userenv.dll" "system" fn GetProfilesDirectoryW(lpprofiledir : ::windows_sys::core::PWSTR, lpcchsize : *mut u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("userenv.dll" "system" fn GetProfilesDirectoryA(lpprofiledir : windows_sys::core::PSTR, lpcchsize : *mut u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("userenv.dll" "system" fn GetProfilesDirectoryW(lpprofiledir : windows_sys::core::PWSTR, lpcchsize : *mut u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_UI_Shell_Common")]
 ::windows_targets::link!("api-ms-win-shcore-scaling-l1-1-0.dll" "system" fn GetScaleFactorForDevice(devicetype : DISPLAY_DEVICE_TYPE) -> Common:: DEVICE_SCALE_FACTOR);
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Shell_Common"))]
-::windows_targets::link!("api-ms-win-shcore-scaling-l1-1-1.dll" "system" fn GetScaleFactorForMonitor(hmon : super::super::Graphics::Gdi:: HMONITOR, pscale : *mut Common:: DEVICE_SCALE_FACTOR) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("userenv.dll" "system" fn GetUserProfileDirectoryA(htoken : super::super::Foundation:: HANDLE, lpprofiledir : ::windows_sys::core::PSTR, lpcchsize : *mut u32) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("userenv.dll" "system" fn GetUserProfileDirectoryW(htoken : super::super::Foundation:: HANDLE, lpprofiledir : ::windows_sys::core::PWSTR, lpcchsize : *mut u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("api-ms-win-shcore-scaling-l1-1-1.dll" "system" fn GetScaleFactorForMonitor(hmon : super::super::Graphics::Gdi:: HMONITOR, pscale : *mut Common:: DEVICE_SCALE_FACTOR) -> windows_sys::core::HRESULT);
+::windows_targets::link!("userenv.dll" "system" fn GetUserProfileDirectoryA(htoken : super::super::Foundation:: HANDLE, lpprofiledir : windows_sys::core::PSTR, lpcchsize : *mut u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("userenv.dll" "system" fn GetUserProfileDirectoryW(htoken : super::super::Foundation:: HANDLE, lpprofiledir : windows_sys::core::PWSTR, lpcchsize : *mut u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("user32.dll" "system" fn GetWindowContextHelpId(param0 : super::super::Foundation:: HWND) -> u32);
 ::windows_targets::link!("comctl32.dll" "system" fn GetWindowSubclass(hwnd : super::super::Foundation:: HWND, pfnsubclass : SUBCLASSPROC, uidsubclass : usize, pdwrefdata : *mut usize) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -111,36 +111,36 @@ pub mod PropertiesSystem;
 ::windows_targets::link!("ole32.dll" "system" fn HMONITOR_UserUnmarshal(param0 : *const u32, param1 : *const u8, param2 : *mut super::super::Graphics::Gdi:: HMONITOR) -> *mut u8);
 #[cfg(feature = "Win32_Graphics_Gdi")]
 ::windows_targets::link!("ole32.dll" "system" fn HMONITOR_UserUnmarshal64(param0 : *const u32, param1 : *const u8, param2 : *mut super::super::Graphics::Gdi:: HMONITOR) -> *mut u8);
-::windows_targets::link!("shlwapi.dll" "system" fn HashData(pbdata : *const u8, cbdata : u32, pbhash : *mut u8, cbhash : u32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("hlink.dll" "system" fn HlinkClone(pihl : * mut::core::ffi::c_void, riid : *const ::windows_sys::core::GUID, pihlsiteforclone : * mut::core::ffi::c_void, dwsitedata : u32, ppvobj : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("hlink.dll" "system" fn HlinkCreateBrowseContext(piunkouter : * mut::core::ffi::c_void, riid : *const ::windows_sys::core::GUID, ppvobj : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("hlink.dll" "system" fn HlinkCreateExtensionServices(pwzadditionalheaders : ::windows_sys::core::PCWSTR, phwnd : super::super::Foundation:: HWND, pszusername : ::windows_sys::core::PCWSTR, pszpassword : ::windows_sys::core::PCWSTR, piunkouter : * mut::core::ffi::c_void, riid : *const ::windows_sys::core::GUID, ppvobj : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("hlink.dll" "system" fn HlinkCreateFromData(pidataobj : * mut::core::ffi::c_void, pihlsite : * mut::core::ffi::c_void, dwsitedata : u32, piunkouter : * mut::core::ffi::c_void, riid : *const ::windows_sys::core::GUID, ppvobj : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("hlink.dll" "system" fn HlinkCreateFromMoniker(pimktrgt : * mut::core::ffi::c_void, pwzlocation : ::windows_sys::core::PCWSTR, pwzfriendlyname : ::windows_sys::core::PCWSTR, pihlsite : * mut::core::ffi::c_void, dwsitedata : u32, piunkouter : * mut::core::ffi::c_void, riid : *const ::windows_sys::core::GUID, ppvobj : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("hlink.dll" "system" fn HlinkCreateFromString(pwztarget : ::windows_sys::core::PCWSTR, pwzlocation : ::windows_sys::core::PCWSTR, pwzfriendlyname : ::windows_sys::core::PCWSTR, pihlsite : * mut::core::ffi::c_void, dwsitedata : u32, piunkouter : * mut::core::ffi::c_void, riid : *const ::windows_sys::core::GUID, ppvobj : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("hlink.dll" "system" fn HlinkCreateShortcut(grfhlshortcutf : u32, pihl : * mut::core::ffi::c_void, pwzdir : ::windows_sys::core::PCWSTR, pwzfilename : ::windows_sys::core::PCWSTR, ppwzshortcutfile : *mut ::windows_sys::core::PWSTR, dwreserved : u32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("hlink.dll" "system" fn HlinkCreateShortcutFromMoniker(grfhlshortcutf : u32, pimktarget : * mut::core::ffi::c_void, pwzlocation : ::windows_sys::core::PCWSTR, pwzdir : ::windows_sys::core::PCWSTR, pwzfilename : ::windows_sys::core::PCWSTR, ppwzshortcutfile : *mut ::windows_sys::core::PWSTR, dwreserved : u32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("hlink.dll" "system" fn HlinkCreateShortcutFromString(grfhlshortcutf : u32, pwztarget : ::windows_sys::core::PCWSTR, pwzlocation : ::windows_sys::core::PCWSTR, pwzdir : ::windows_sys::core::PCWSTR, pwzfilename : ::windows_sys::core::PCWSTR, ppwzshortcutfile : *mut ::windows_sys::core::PWSTR, dwreserved : u32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("hlink.dll" "system" fn HlinkGetSpecialReference(ureference : u32, ppwzreference : *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("hlink.dll" "system" fn HlinkGetValueFromParams(pwzparams : ::windows_sys::core::PCWSTR, pwzname : ::windows_sys::core::PCWSTR, ppwzvalue : *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("hlink.dll" "system" fn HlinkIsShortcut(pwzfilename : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("hlink.dll" "system" fn HlinkNavigate(pihl : * mut::core::ffi::c_void, pihlframe : * mut::core::ffi::c_void, grfhlnf : u32, pbc : * mut::core::ffi::c_void, pibsc : * mut::core::ffi::c_void, pihlbc : * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("hlink.dll" "system" fn HlinkNavigateToStringReference(pwztarget : ::windows_sys::core::PCWSTR, pwzlocation : ::windows_sys::core::PCWSTR, pihlsite : * mut::core::ffi::c_void, dwsitedata : u32, pihlframe : * mut::core::ffi::c_void, grfhlnf : u32, pibc : * mut::core::ffi::c_void, pibsc : * mut::core::ffi::c_void, pihlbc : * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("hlink.dll" "system" fn HlinkOnNavigate(pihlframe : * mut::core::ffi::c_void, pihlbc : * mut::core::ffi::c_void, grfhlnf : u32, pimktarget : * mut::core::ffi::c_void, pwzlocation : ::windows_sys::core::PCWSTR, pwzfriendlyname : ::windows_sys::core::PCWSTR, puhlid : *mut u32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("hlink.dll" "system" fn HlinkOnRenameDocument(dwreserved : u32, pihlbc : * mut::core::ffi::c_void, pimkold : * mut::core::ffi::c_void, pimknew : * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("hlink.dll" "system" fn HlinkParseDisplayName(pibc : * mut::core::ffi::c_void, pwzdisplayname : ::windows_sys::core::PCWSTR, fnoforceabs : super::super::Foundation:: BOOL, pccheaten : *mut u32, ppimk : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("hlink.dll" "system" fn HlinkPreprocessMoniker(pibc : * mut::core::ffi::c_void, pimkin : * mut::core::ffi::c_void, ppimkout : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("hlink.dll" "system" fn HlinkQueryCreateFromData(pidataobj : * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shlwapi.dll" "system" fn HashData(pbdata : *const u8, cbdata : u32, pbhash : *mut u8, cbhash : u32) -> windows_sys::core::HRESULT);
+::windows_targets::link!("hlink.dll" "system" fn HlinkClone(pihl : * mut core::ffi::c_void, riid : *const windows_sys::core::GUID, pihlsiteforclone : * mut core::ffi::c_void, dwsitedata : u32, ppvobj : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+::windows_targets::link!("hlink.dll" "system" fn HlinkCreateBrowseContext(piunkouter : * mut core::ffi::c_void, riid : *const windows_sys::core::GUID, ppvobj : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+::windows_targets::link!("hlink.dll" "system" fn HlinkCreateExtensionServices(pwzadditionalheaders : windows_sys::core::PCWSTR, phwnd : super::super::Foundation:: HWND, pszusername : windows_sys::core::PCWSTR, pszpassword : windows_sys::core::PCWSTR, piunkouter : * mut core::ffi::c_void, riid : *const windows_sys::core::GUID, ppvobj : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+::windows_targets::link!("hlink.dll" "system" fn HlinkCreateFromData(pidataobj : * mut core::ffi::c_void, pihlsite : * mut core::ffi::c_void, dwsitedata : u32, piunkouter : * mut core::ffi::c_void, riid : *const windows_sys::core::GUID, ppvobj : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+::windows_targets::link!("hlink.dll" "system" fn HlinkCreateFromMoniker(pimktrgt : * mut core::ffi::c_void, pwzlocation : windows_sys::core::PCWSTR, pwzfriendlyname : windows_sys::core::PCWSTR, pihlsite : * mut core::ffi::c_void, dwsitedata : u32, piunkouter : * mut core::ffi::c_void, riid : *const windows_sys::core::GUID, ppvobj : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+::windows_targets::link!("hlink.dll" "system" fn HlinkCreateFromString(pwztarget : windows_sys::core::PCWSTR, pwzlocation : windows_sys::core::PCWSTR, pwzfriendlyname : windows_sys::core::PCWSTR, pihlsite : * mut core::ffi::c_void, dwsitedata : u32, piunkouter : * mut core::ffi::c_void, riid : *const windows_sys::core::GUID, ppvobj : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+::windows_targets::link!("hlink.dll" "system" fn HlinkCreateShortcut(grfhlshortcutf : u32, pihl : * mut core::ffi::c_void, pwzdir : windows_sys::core::PCWSTR, pwzfilename : windows_sys::core::PCWSTR, ppwzshortcutfile : *mut windows_sys::core::PWSTR, dwreserved : u32) -> windows_sys::core::HRESULT);
+::windows_targets::link!("hlink.dll" "system" fn HlinkCreateShortcutFromMoniker(grfhlshortcutf : u32, pimktarget : * mut core::ffi::c_void, pwzlocation : windows_sys::core::PCWSTR, pwzdir : windows_sys::core::PCWSTR, pwzfilename : windows_sys::core::PCWSTR, ppwzshortcutfile : *mut windows_sys::core::PWSTR, dwreserved : u32) -> windows_sys::core::HRESULT);
+::windows_targets::link!("hlink.dll" "system" fn HlinkCreateShortcutFromString(grfhlshortcutf : u32, pwztarget : windows_sys::core::PCWSTR, pwzlocation : windows_sys::core::PCWSTR, pwzdir : windows_sys::core::PCWSTR, pwzfilename : windows_sys::core::PCWSTR, ppwzshortcutfile : *mut windows_sys::core::PWSTR, dwreserved : u32) -> windows_sys::core::HRESULT);
+::windows_targets::link!("hlink.dll" "system" fn HlinkGetSpecialReference(ureference : u32, ppwzreference : *mut windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
+::windows_targets::link!("hlink.dll" "system" fn HlinkGetValueFromParams(pwzparams : windows_sys::core::PCWSTR, pwzname : windows_sys::core::PCWSTR, ppwzvalue : *mut windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
+::windows_targets::link!("hlink.dll" "system" fn HlinkIsShortcut(pwzfilename : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
+::windows_targets::link!("hlink.dll" "system" fn HlinkNavigate(pihl : * mut core::ffi::c_void, pihlframe : * mut core::ffi::c_void, grfhlnf : u32, pbc : * mut core::ffi::c_void, pibsc : * mut core::ffi::c_void, pihlbc : * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+::windows_targets::link!("hlink.dll" "system" fn HlinkNavigateToStringReference(pwztarget : windows_sys::core::PCWSTR, pwzlocation : windows_sys::core::PCWSTR, pihlsite : * mut core::ffi::c_void, dwsitedata : u32, pihlframe : * mut core::ffi::c_void, grfhlnf : u32, pibc : * mut core::ffi::c_void, pibsc : * mut core::ffi::c_void, pihlbc : * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+::windows_targets::link!("hlink.dll" "system" fn HlinkOnNavigate(pihlframe : * mut core::ffi::c_void, pihlbc : * mut core::ffi::c_void, grfhlnf : u32, pimktarget : * mut core::ffi::c_void, pwzlocation : windows_sys::core::PCWSTR, pwzfriendlyname : windows_sys::core::PCWSTR, puhlid : *mut u32) -> windows_sys::core::HRESULT);
+::windows_targets::link!("hlink.dll" "system" fn HlinkOnRenameDocument(dwreserved : u32, pihlbc : * mut core::ffi::c_void, pimkold : * mut core::ffi::c_void, pimknew : * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+::windows_targets::link!("hlink.dll" "system" fn HlinkParseDisplayName(pibc : * mut core::ffi::c_void, pwzdisplayname : windows_sys::core::PCWSTR, fnoforceabs : super::super::Foundation:: BOOL, pccheaten : *mut u32, ppimk : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+::windows_targets::link!("hlink.dll" "system" fn HlinkPreprocessMoniker(pibc : * mut core::ffi::c_void, pimkin : * mut core::ffi::c_void, ppimkout : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+::windows_targets::link!("hlink.dll" "system" fn HlinkQueryCreateFromData(pidataobj : * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("hlink.dll" "system" fn HlinkResolveMonikerForData(pimkreference : * mut::core::ffi::c_void, reserved : u32, pibc : * mut::core::ffi::c_void, cfmtetc : u32, rgfmtetc : *mut super::super::System::Com:: FORMATETC, pibsc : * mut::core::ffi::c_void, pimkbase : * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("hlink.dll" "system" fn HlinkResolveShortcut(pwzshortcutfilename : ::windows_sys::core::PCWSTR, pihlsite : * mut::core::ffi::c_void, dwsitedata : u32, piunkouter : * mut::core::ffi::c_void, riid : *const ::windows_sys::core::GUID, ppvobj : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("hlink.dll" "system" fn HlinkResolveShortcutToMoniker(pwzshortcutfilename : ::windows_sys::core::PCWSTR, ppimktarget : *mut * mut::core::ffi::c_void, ppwzlocation : *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("hlink.dll" "system" fn HlinkResolveShortcutToString(pwzshortcutfilename : ::windows_sys::core::PCWSTR, ppwztarget : *mut ::windows_sys::core::PWSTR, ppwzlocation : *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("hlink.dll" "system" fn HlinkResolveMonikerForData(pimkreference : * mut core::ffi::c_void, reserved : u32, pibc : * mut core::ffi::c_void, cfmtetc : u32, rgfmtetc : *mut super::super::System::Com:: FORMATETC, pibsc : * mut core::ffi::c_void, pimkbase : * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+::windows_targets::link!("hlink.dll" "system" fn HlinkResolveShortcut(pwzshortcutfilename : windows_sys::core::PCWSTR, pihlsite : * mut core::ffi::c_void, dwsitedata : u32, piunkouter : * mut core::ffi::c_void, riid : *const windows_sys::core::GUID, ppvobj : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+::windows_targets::link!("hlink.dll" "system" fn HlinkResolveShortcutToMoniker(pwzshortcutfilename : windows_sys::core::PCWSTR, ppimktarget : *mut * mut core::ffi::c_void, ppwzlocation : *mut windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
+::windows_targets::link!("hlink.dll" "system" fn HlinkResolveShortcutToString(pwzshortcutfilename : windows_sys::core::PCWSTR, ppwztarget : *mut windows_sys::core::PWSTR, ppwzlocation : *mut windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("hlink.dll" "system" fn HlinkResolveStringForData(pwzreference : ::windows_sys::core::PCWSTR, reserved : u32, pibc : * mut::core::ffi::c_void, cfmtetc : u32, rgfmtetc : *mut super::super::System::Com:: FORMATETC, pibsc : * mut::core::ffi::c_void, pimkbase : * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("hlink.dll" "system" fn HlinkSetSpecialReference(ureference : u32, pwzreference : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("hlink.dll" "system" fn HlinkTranslateURL(pwzurl : ::windows_sys::core::PCWSTR, grfflags : u32, ppwztranslatedurl : *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("hlink.dll" "system" fn HlinkUpdateStackItem(pihlframe : * mut::core::ffi::c_void, pihlbc : * mut::core::ffi::c_void, uhlid : u32, pimktrgt : * mut::core::ffi::c_void, pwzlocation : ::windows_sys::core::PCWSTR, pwzfriendlyname : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("hlink.dll" "system" fn HlinkResolveStringForData(pwzreference : windows_sys::core::PCWSTR, reserved : u32, pibc : * mut core::ffi::c_void, cfmtetc : u32, rgfmtetc : *mut super::super::System::Com:: FORMATETC, pibsc : * mut core::ffi::c_void, pimkbase : * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+::windows_targets::link!("hlink.dll" "system" fn HlinkSetSpecialReference(ureference : u32, pwzreference : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
+::windows_targets::link!("hlink.dll" "system" fn HlinkTranslateURL(pwzurl : windows_sys::core::PCWSTR, grfflags : u32, ppwztranslatedurl : *mut windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
+::windows_targets::link!("hlink.dll" "system" fn HlinkUpdateStackItem(pihlframe : * mut core::ffi::c_void, pihlbc : * mut core::ffi::c_void, uhlid : u32, pimktrgt : * mut core::ffi::c_void, pwzlocation : windows_sys::core::PCWSTR, pwzfriendlyname : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_UI_Shell_Common")]
 ::windows_targets::link!("shell32.dll" "system" fn ILAppendID(pidl : *const Common:: ITEMIDLIST, pmkid : *const Common:: SHITEMID, fappend : super::super::Foundation:: BOOL) -> *mut Common:: ITEMIDLIST);
 #[cfg(feature = "Win32_UI_Shell_Common")]
@@ -150,9 +150,9 @@ pub mod PropertiesSystem;
 #[cfg(feature = "Win32_UI_Shell_Common")]
 ::windows_targets::link!("shell32.dll" "system" fn ILCombine(pidl1 : *const Common:: ITEMIDLIST, pidl2 : *const Common:: ITEMIDLIST) -> *mut Common:: ITEMIDLIST);
 #[cfg(feature = "Win32_UI_Shell_Common")]
-::windows_targets::link!("shell32.dll" "system" fn ILCreateFromPathA(pszpath : ::windows_sys::core::PCSTR) -> *mut Common:: ITEMIDLIST);
+::windows_targets::link!("shell32.dll" "system" fn ILCreateFromPathA(pszpath : windows_sys::core::PCSTR) -> *mut Common:: ITEMIDLIST);
 #[cfg(feature = "Win32_UI_Shell_Common")]
-::windows_targets::link!("shell32.dll" "system" fn ILCreateFromPathW(pszpath : ::windows_sys::core::PCWSTR) -> *mut Common:: ITEMIDLIST);
+::windows_targets::link!("shell32.dll" "system" fn ILCreateFromPathW(pszpath : windows_sys::core::PCWSTR) -> *mut Common:: ITEMIDLIST);
 #[cfg(feature = "Win32_UI_Shell_Common")]
 ::windows_targets::link!("shell32.dll" "system" fn ILFindChild(pidlparent : *const Common:: ITEMIDLIST, pidlchild : *const Common:: ITEMIDLIST) -> *mut Common:: ITEMIDLIST);
 #[cfg(feature = "Win32_UI_Shell_Common")]
@@ -168,700 +168,700 @@ pub mod PropertiesSystem;
 #[cfg(feature = "Win32_UI_Shell_Common")]
 ::windows_targets::link!("shell32.dll" "system" fn ILIsParent(pidl1 : *const Common:: ITEMIDLIST, pidl2 : *const Common:: ITEMIDLIST, fimmediate : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_UI_Shell_Common")]
-::windows_targets::link!("shell32.dll" "system" fn ILLoadFromStreamEx(pstm : * mut::core::ffi::c_void, pidl : *mut *mut Common:: ITEMIDLIST) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" fn ILLoadFromStreamEx(pstm : * mut core::ffi::c_void, pidl : *mut *mut Common:: ITEMIDLIST) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_UI_Shell_Common")]
 ::windows_targets::link!("shell32.dll" "system" fn ILRemoveLastID(pidl : *mut Common:: ITEMIDLIST) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_UI_Shell_Common")]
-::windows_targets::link!("shell32.dll" "system" fn ILSaveToStream(pstm : * mut::core::ffi::c_void, pidl : *const Common:: ITEMIDLIST) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("shlwapi.dll" "system" fn IStream_Copy(pstmfrom : * mut::core::ffi::c_void, pstmto : * mut::core::ffi::c_void, cb : u32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("shlwapi.dll" "system" fn IStream_Read(pstm : * mut::core::ffi::c_void, pv : *mut ::core::ffi::c_void, cb : u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" fn ILSaveToStream(pstm : * mut core::ffi::c_void, pidl : *const Common:: ITEMIDLIST) -> windows_sys::core::HRESULT);
+::windows_targets::link!("shlwapi.dll" "system" fn IStream_Copy(pstmfrom : * mut core::ffi::c_void, pstmto : * mut core::ffi::c_void, cb : u32) -> windows_sys::core::HRESULT);
+::windows_targets::link!("shlwapi.dll" "system" fn IStream_Read(pstm : * mut core::ffi::c_void, pv : *mut core::ffi::c_void, cb : u32) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_UI_Shell_Common")]
-::windows_targets::link!("shlwapi.dll" "system" fn IStream_ReadPidl(pstm : * mut::core::ffi::c_void, ppidlout : *mut *mut Common:: ITEMIDLIST) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("shlwapi.dll" "system" fn IStream_ReadStr(pstm : * mut::core::ffi::c_void, ppsz : *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("shlwapi.dll" "system" fn IStream_Reset(pstm : * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("shlwapi.dll" "system" fn IStream_Size(pstm : * mut::core::ffi::c_void, pui : *mut u64) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("shlwapi.dll" "system" fn IStream_Write(pstm : * mut::core::ffi::c_void, pv : *const ::core::ffi::c_void, cb : u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shlwapi.dll" "system" fn IStream_ReadPidl(pstm : * mut core::ffi::c_void, ppidlout : *mut *mut Common:: ITEMIDLIST) -> windows_sys::core::HRESULT);
+::windows_targets::link!("shlwapi.dll" "system" fn IStream_ReadStr(pstm : * mut core::ffi::c_void, ppsz : *mut windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
+::windows_targets::link!("shlwapi.dll" "system" fn IStream_Reset(pstm : * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+::windows_targets::link!("shlwapi.dll" "system" fn IStream_Size(pstm : * mut core::ffi::c_void, pui : *mut u64) -> windows_sys::core::HRESULT);
+::windows_targets::link!("shlwapi.dll" "system" fn IStream_Write(pstm : * mut core::ffi::c_void, pv : *const core::ffi::c_void, cb : u32) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_UI_Shell_Common")]
-::windows_targets::link!("shlwapi.dll" "system" fn IStream_WritePidl(pstm : * mut::core::ffi::c_void, pidlwrite : *const Common:: ITEMIDLIST) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("shlwapi.dll" "system" fn IStream_WriteStr(pstm : * mut::core::ffi::c_void, psz : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("shlwapi.dll" "system" fn IUnknown_AtomicRelease(ppunk : *mut *mut ::core::ffi::c_void));
-::windows_targets::link!("shlwapi.dll" "system" fn IUnknown_GetSite(punk : * mut::core::ffi::c_void, riid : *const ::windows_sys::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("shlwapi.dll" "system" fn IUnknown_GetWindow(punk : * mut::core::ffi::c_void, phwnd : *mut super::super::Foundation:: HWND) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("shlwapi.dll" "system" fn IUnknown_QueryService(punk : * mut::core::ffi::c_void, guidservice : *const ::windows_sys::core::GUID, riid : *const ::windows_sys::core::GUID, ppvout : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("shlwapi.dll" "system" fn IUnknown_Set(ppunk : *mut * mut::core::ffi::c_void, punk : * mut::core::ffi::c_void));
-::windows_targets::link!("shlwapi.dll" "system" fn IUnknown_SetSite(punk : * mut::core::ffi::c_void, punksite : * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("shdocvw.dll" "system" fn ImportPrivacySettings(pszfilename : ::windows_sys::core::PCWSTR, pfparseprivacypreferences : *mut super::super::Foundation:: BOOL, pfparsepersiterules : *mut super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" fn IStream_WritePidl(pstm : * mut core::ffi::c_void, pidlwrite : *const Common:: ITEMIDLIST) -> windows_sys::core::HRESULT);
+::windows_targets::link!("shlwapi.dll" "system" fn IStream_WriteStr(pstm : * mut core::ffi::c_void, psz : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
+::windows_targets::link!("shlwapi.dll" "system" fn IUnknown_AtomicRelease(ppunk : *mut *mut core::ffi::c_void));
+::windows_targets::link!("shlwapi.dll" "system" fn IUnknown_GetSite(punk : * mut core::ffi::c_void, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+::windows_targets::link!("shlwapi.dll" "system" fn IUnknown_GetWindow(punk : * mut core::ffi::c_void, phwnd : *mut super::super::Foundation:: HWND) -> windows_sys::core::HRESULT);
+::windows_targets::link!("shlwapi.dll" "system" fn IUnknown_QueryService(punk : * mut core::ffi::c_void, guidservice : *const windows_sys::core::GUID, riid : *const windows_sys::core::GUID, ppvout : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+::windows_targets::link!("shlwapi.dll" "system" fn IUnknown_Set(ppunk : *mut * mut core::ffi::c_void, punk : * mut core::ffi::c_void));
+::windows_targets::link!("shlwapi.dll" "system" fn IUnknown_SetSite(punk : * mut core::ffi::c_void, punksite : * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+::windows_targets::link!("shdocvw.dll" "system" fn ImportPrivacySettings(pszfilename : windows_sys::core::PCWSTR, pfparseprivacypreferences : *mut super::super::Foundation:: BOOL, pfparsepersiterules : *mut super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("shell32.dll" "system" fn InitNetworkAddressControl() -> super::super::Foundation:: BOOL);
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_Common"))]
-::windows_targets::link!("propsys.dll" "system" fn InitPropVariantFromStrRet(pstrret : *mut Common:: STRRET, pidl : *const Common:: ITEMIDLIST, ppropvar : *mut super::super::System::Com::StructuredStorage:: PROPVARIANT) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("propsys.dll" "system" fn InitPropVariantFromStrRet(pstrret : *mut Common:: STRRET, pidl : *const Common:: ITEMIDLIST, ppropvar : *mut super::super::System::Com::StructuredStorage:: PROPVARIANT) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_Common"))]
-::windows_targets::link!("propsys.dll" "system" fn InitVariantFromStrRet(pstrret : *const Common:: STRRET, pidl : *const Common:: ITEMIDLIST, pvar : *mut super::super::System::Variant:: VARIANT) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("shlwapi.dll" "system" fn IntlStrEqWorkerA(fcasesens : super::super::Foundation:: BOOL, lpstring1 : ::windows_sys::core::PCSTR, lpstring2 : ::windows_sys::core::PCSTR, nchar : i32) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("shlwapi.dll" "system" fn IntlStrEqWorkerW(fcasesens : super::super::Foundation:: BOOL, lpstring1 : ::windows_sys::core::PCWSTR, lpstring2 : ::windows_sys::core::PCWSTR, nchar : i32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("propsys.dll" "system" fn InitVariantFromStrRet(pstrret : *const Common:: STRRET, pidl : *const Common:: ITEMIDLIST, pvar : *mut super::super::System::Variant:: VARIANT) -> windows_sys::core::HRESULT);
+::windows_targets::link!("shlwapi.dll" "system" fn IntlStrEqWorkerA(fcasesens : super::super::Foundation:: BOOL, lpstring1 : windows_sys::core::PCSTR, lpstring2 : windows_sys::core::PCSTR, nchar : i32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" fn IntlStrEqWorkerW(fcasesens : super::super::Foundation:: BOOL, lpstring1 : windows_sys::core::PCWSTR, lpstring2 : windows_sys::core::PCWSTR, nchar : i32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("shlwapi.dll" "system" fn IsCharSpaceA(wch : i8) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("shlwapi.dll" "system" fn IsCharSpaceW(wch : u16) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("shlwapi.dll" "system" fn IsInternetESCEnabled() -> super::super::Foundation:: BOOL);
-::windows_targets::link!("shell32.dll" "system" fn IsLFNDriveA(pszpath : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("shell32.dll" "system" fn IsLFNDriveW(pszpath : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shell32.dll" "system" fn IsLFNDriveA(pszpath : windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shell32.dll" "system" fn IsLFNDriveW(pszpath : windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("shell32.dll" "system" fn IsNetDrive(idrive : i32) -> i32);
 ::windows_targets::link!("shlwapi.dll" "system" fn IsOS(dwos : OS) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("shell32.dll" "system" fn IsUserAnAdmin() -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("userenv.dll" "system" fn LoadUserProfileA(htoken : super::super::Foundation:: HANDLE, lpprofileinfo : *mut PROFILEINFOA) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("userenv.dll" "system" fn LoadUserProfileW(htoken : super::super::Foundation:: HANDLE, lpprofileinfo : *mut PROFILEINFOW) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("hlink.dll" "system" fn OleSaveToStreamEx(piunk : * mut::core::ffi::c_void, pistm : * mut::core::ffi::c_void, fcleardirty : super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("hlink.dll" "system" fn OleSaveToStreamEx(piunk : * mut core::ffi::c_void, pistm : * mut core::ffi::c_void, fcleardirty : super::super::Foundation:: BOOL) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Registry")]
-::windows_targets::link!("shell32.dll" "system" fn OpenRegStream(hkey : super::super::System::Registry:: HKEY, pszsubkey : ::windows_sys::core::PCWSTR, pszvalue : ::windows_sys::core::PCWSTR, grfmode : u32) -> * mut::core::ffi::c_void);
-::windows_targets::link!("shlwapi.dll" "system" fn ParseURLA(pcszurl : ::windows_sys::core::PCSTR, ppu : *mut PARSEDURLA) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("shlwapi.dll" "system" fn ParseURLW(pcszurl : ::windows_sys::core::PCWSTR, ppu : *mut PARSEDURLW) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("shlwapi.dll" "system" fn PathAddBackslashA(pszpath : ::windows_sys::core::PSTR) -> ::windows_sys::core::PSTR);
-::windows_targets::link!("shlwapi.dll" "system" fn PathAddBackslashW(pszpath : ::windows_sys::core::PWSTR) -> ::windows_sys::core::PWSTR);
-::windows_targets::link!("shlwapi.dll" "system" fn PathAddExtensionA(pszpath : ::windows_sys::core::PSTR, pszext : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("shlwapi.dll" "system" fn PathAddExtensionW(pszpath : ::windows_sys::core::PWSTR, pszext : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("api-ms-win-core-path-l1-1-0.dll" "system" fn PathAllocCanonicalize(pszpathin : ::windows_sys::core::PCWSTR, dwflags : PATHCCH_OPTIONS, ppszpathout : *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("api-ms-win-core-path-l1-1-0.dll" "system" fn PathAllocCombine(pszpathin : ::windows_sys::core::PCWSTR, pszmore : ::windows_sys::core::PCWSTR, dwflags : PATHCCH_OPTIONS, ppszpathout : *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("shlwapi.dll" "system" fn PathAppendA(pszpath : ::windows_sys::core::PSTR, pszmore : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("shlwapi.dll" "system" fn PathAppendW(pszpath : ::windows_sys::core::PWSTR, pszmore : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("shlwapi.dll" "system" fn PathBuildRootA(pszroot : ::windows_sys::core::PSTR, idrive : i32) -> ::windows_sys::core::PSTR);
-::windows_targets::link!("shlwapi.dll" "system" fn PathBuildRootW(pszroot : ::windows_sys::core::PWSTR, idrive : i32) -> ::windows_sys::core::PWSTR);
-::windows_targets::link!("shlwapi.dll" "system" fn PathCanonicalizeA(pszbuf : ::windows_sys::core::PSTR, pszpath : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("shlwapi.dll" "system" fn PathCanonicalizeW(pszbuf : ::windows_sys::core::PWSTR, pszpath : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("api-ms-win-core-path-l1-1-0.dll" "system" fn PathCchAddBackslash(pszpath : ::windows_sys::core::PWSTR, cchpath : usize) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("api-ms-win-core-path-l1-1-0.dll" "system" fn PathCchAddBackslashEx(pszpath : ::windows_sys::core::PWSTR, cchpath : usize, ppszend : *mut ::windows_sys::core::PWSTR, pcchremaining : *mut usize) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("api-ms-win-core-path-l1-1-0.dll" "system" fn PathCchAddExtension(pszpath : ::windows_sys::core::PWSTR, cchpath : usize, pszext : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("api-ms-win-core-path-l1-1-0.dll" "system" fn PathCchAppend(pszpath : ::windows_sys::core::PWSTR, cchpath : usize, pszmore : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("api-ms-win-core-path-l1-1-0.dll" "system" fn PathCchAppendEx(pszpath : ::windows_sys::core::PWSTR, cchpath : usize, pszmore : ::windows_sys::core::PCWSTR, dwflags : PATHCCH_OPTIONS) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("api-ms-win-core-path-l1-1-0.dll" "system" fn PathCchCanonicalize(pszpathout : ::windows_sys::core::PWSTR, cchpathout : usize, pszpathin : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("api-ms-win-core-path-l1-1-0.dll" "system" fn PathCchCanonicalizeEx(pszpathout : ::windows_sys::core::PWSTR, cchpathout : usize, pszpathin : ::windows_sys::core::PCWSTR, dwflags : PATHCCH_OPTIONS) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("api-ms-win-core-path-l1-1-0.dll" "system" fn PathCchCombine(pszpathout : ::windows_sys::core::PWSTR, cchpathout : usize, pszpathin : ::windows_sys::core::PCWSTR, pszmore : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("api-ms-win-core-path-l1-1-0.dll" "system" fn PathCchCombineEx(pszpathout : ::windows_sys::core::PWSTR, cchpathout : usize, pszpathin : ::windows_sys::core::PCWSTR, pszmore : ::windows_sys::core::PCWSTR, dwflags : PATHCCH_OPTIONS) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("api-ms-win-core-path-l1-1-0.dll" "system" fn PathCchFindExtension(pszpath : ::windows_sys::core::PCWSTR, cchpath : usize, ppszext : *mut ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("api-ms-win-core-path-l1-1-0.dll" "system" fn PathCchIsRoot(pszpath : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("api-ms-win-core-path-l1-1-0.dll" "system" fn PathCchRemoveBackslash(pszpath : ::windows_sys::core::PWSTR, cchpath : usize) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("api-ms-win-core-path-l1-1-0.dll" "system" fn PathCchRemoveBackslashEx(pszpath : ::windows_sys::core::PWSTR, cchpath : usize, ppszend : *mut ::windows_sys::core::PWSTR, pcchremaining : *mut usize) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("api-ms-win-core-path-l1-1-0.dll" "system" fn PathCchRemoveExtension(pszpath : ::windows_sys::core::PWSTR, cchpath : usize) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("api-ms-win-core-path-l1-1-0.dll" "system" fn PathCchRemoveFileSpec(pszpath : ::windows_sys::core::PWSTR, cchpath : usize) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("api-ms-win-core-path-l1-1-0.dll" "system" fn PathCchRenameExtension(pszpath : ::windows_sys::core::PWSTR, cchpath : usize, pszext : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("api-ms-win-core-path-l1-1-0.dll" "system" fn PathCchSkipRoot(pszpath : ::windows_sys::core::PCWSTR, ppszrootend : *mut ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("api-ms-win-core-path-l1-1-0.dll" "system" fn PathCchStripPrefix(pszpath : ::windows_sys::core::PWSTR, cchpath : usize) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("api-ms-win-core-path-l1-1-0.dll" "system" fn PathCchStripToRoot(pszpath : ::windows_sys::core::PWSTR, cchpath : usize) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("shell32.dll" "system" fn PathCleanupSpec(pszdir : ::windows_sys::core::PCWSTR, pszspec : ::windows_sys::core::PWSTR) -> i32);
-::windows_targets::link!("shlwapi.dll" "system" fn PathCombineA(pszdest : ::windows_sys::core::PSTR, pszdir : ::windows_sys::core::PCSTR, pszfile : ::windows_sys::core::PCSTR) -> ::windows_sys::core::PSTR);
-::windows_targets::link!("shlwapi.dll" "system" fn PathCombineW(pszdest : ::windows_sys::core::PWSTR, pszdir : ::windows_sys::core::PCWSTR, pszfile : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::PWSTR);
-::windows_targets::link!("shlwapi.dll" "system" fn PathCommonPrefixA(pszfile1 : ::windows_sys::core::PCSTR, pszfile2 : ::windows_sys::core::PCSTR, achpath : ::windows_sys::core::PSTR) -> i32);
-::windows_targets::link!("shlwapi.dll" "system" fn PathCommonPrefixW(pszfile1 : ::windows_sys::core::PCWSTR, pszfile2 : ::windows_sys::core::PCWSTR, achpath : ::windows_sys::core::PWSTR) -> i32);
+::windows_targets::link!("shell32.dll" "system" fn OpenRegStream(hkey : super::super::System::Registry:: HKEY, pszsubkey : windows_sys::core::PCWSTR, pszvalue : windows_sys::core::PCWSTR, grfmode : u32) -> * mut core::ffi::c_void);
+::windows_targets::link!("shlwapi.dll" "system" fn ParseURLA(pcszurl : windows_sys::core::PCSTR, ppu : *mut PARSEDURLA) -> windows_sys::core::HRESULT);
+::windows_targets::link!("shlwapi.dll" "system" fn ParseURLW(pcszurl : windows_sys::core::PCWSTR, ppu : *mut PARSEDURLW) -> windows_sys::core::HRESULT);
+::windows_targets::link!("shlwapi.dll" "system" fn PathAddBackslashA(pszpath : windows_sys::core::PSTR) -> windows_sys::core::PSTR);
+::windows_targets::link!("shlwapi.dll" "system" fn PathAddBackslashW(pszpath : windows_sys::core::PWSTR) -> windows_sys::core::PWSTR);
+::windows_targets::link!("shlwapi.dll" "system" fn PathAddExtensionA(pszpath : windows_sys::core::PSTR, pszext : windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" fn PathAddExtensionW(pszpath : windows_sys::core::PWSTR, pszext : windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("api-ms-win-core-path-l1-1-0.dll" "system" fn PathAllocCanonicalize(pszpathin : windows_sys::core::PCWSTR, dwflags : PATHCCH_OPTIONS, ppszpathout : *mut windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
+::windows_targets::link!("api-ms-win-core-path-l1-1-0.dll" "system" fn PathAllocCombine(pszpathin : windows_sys::core::PCWSTR, pszmore : windows_sys::core::PCWSTR, dwflags : PATHCCH_OPTIONS, ppszpathout : *mut windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
+::windows_targets::link!("shlwapi.dll" "system" fn PathAppendA(pszpath : windows_sys::core::PSTR, pszmore : windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" fn PathAppendW(pszpath : windows_sys::core::PWSTR, pszmore : windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" fn PathBuildRootA(pszroot : windows_sys::core::PSTR, idrive : i32) -> windows_sys::core::PSTR);
+::windows_targets::link!("shlwapi.dll" "system" fn PathBuildRootW(pszroot : windows_sys::core::PWSTR, idrive : i32) -> windows_sys::core::PWSTR);
+::windows_targets::link!("shlwapi.dll" "system" fn PathCanonicalizeA(pszbuf : windows_sys::core::PSTR, pszpath : windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" fn PathCanonicalizeW(pszbuf : windows_sys::core::PWSTR, pszpath : windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("api-ms-win-core-path-l1-1-0.dll" "system" fn PathCchAddBackslash(pszpath : windows_sys::core::PWSTR, cchpath : usize) -> windows_sys::core::HRESULT);
+::windows_targets::link!("api-ms-win-core-path-l1-1-0.dll" "system" fn PathCchAddBackslashEx(pszpath : windows_sys::core::PWSTR, cchpath : usize, ppszend : *mut windows_sys::core::PWSTR, pcchremaining : *mut usize) -> windows_sys::core::HRESULT);
+::windows_targets::link!("api-ms-win-core-path-l1-1-0.dll" "system" fn PathCchAddExtension(pszpath : windows_sys::core::PWSTR, cchpath : usize, pszext : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
+::windows_targets::link!("api-ms-win-core-path-l1-1-0.dll" "system" fn PathCchAppend(pszpath : windows_sys::core::PWSTR, cchpath : usize, pszmore : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
+::windows_targets::link!("api-ms-win-core-path-l1-1-0.dll" "system" fn PathCchAppendEx(pszpath : windows_sys::core::PWSTR, cchpath : usize, pszmore : windows_sys::core::PCWSTR, dwflags : PATHCCH_OPTIONS) -> windows_sys::core::HRESULT);
+::windows_targets::link!("api-ms-win-core-path-l1-1-0.dll" "system" fn PathCchCanonicalize(pszpathout : windows_sys::core::PWSTR, cchpathout : usize, pszpathin : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
+::windows_targets::link!("api-ms-win-core-path-l1-1-0.dll" "system" fn PathCchCanonicalizeEx(pszpathout : windows_sys::core::PWSTR, cchpathout : usize, pszpathin : windows_sys::core::PCWSTR, dwflags : PATHCCH_OPTIONS) -> windows_sys::core::HRESULT);
+::windows_targets::link!("api-ms-win-core-path-l1-1-0.dll" "system" fn PathCchCombine(pszpathout : windows_sys::core::PWSTR, cchpathout : usize, pszpathin : windows_sys::core::PCWSTR, pszmore : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
+::windows_targets::link!("api-ms-win-core-path-l1-1-0.dll" "system" fn PathCchCombineEx(pszpathout : windows_sys::core::PWSTR, cchpathout : usize, pszpathin : windows_sys::core::PCWSTR, pszmore : windows_sys::core::PCWSTR, dwflags : PATHCCH_OPTIONS) -> windows_sys::core::HRESULT);
+::windows_targets::link!("api-ms-win-core-path-l1-1-0.dll" "system" fn PathCchFindExtension(pszpath : windows_sys::core::PCWSTR, cchpath : usize, ppszext : *mut windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
+::windows_targets::link!("api-ms-win-core-path-l1-1-0.dll" "system" fn PathCchIsRoot(pszpath : windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("api-ms-win-core-path-l1-1-0.dll" "system" fn PathCchRemoveBackslash(pszpath : windows_sys::core::PWSTR, cchpath : usize) -> windows_sys::core::HRESULT);
+::windows_targets::link!("api-ms-win-core-path-l1-1-0.dll" "system" fn PathCchRemoveBackslashEx(pszpath : windows_sys::core::PWSTR, cchpath : usize, ppszend : *mut windows_sys::core::PWSTR, pcchremaining : *mut usize) -> windows_sys::core::HRESULT);
+::windows_targets::link!("api-ms-win-core-path-l1-1-0.dll" "system" fn PathCchRemoveExtension(pszpath : windows_sys::core::PWSTR, cchpath : usize) -> windows_sys::core::HRESULT);
+::windows_targets::link!("api-ms-win-core-path-l1-1-0.dll" "system" fn PathCchRemoveFileSpec(pszpath : windows_sys::core::PWSTR, cchpath : usize) -> windows_sys::core::HRESULT);
+::windows_targets::link!("api-ms-win-core-path-l1-1-0.dll" "system" fn PathCchRenameExtension(pszpath : windows_sys::core::PWSTR, cchpath : usize, pszext : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
+::windows_targets::link!("api-ms-win-core-path-l1-1-0.dll" "system" fn PathCchSkipRoot(pszpath : windows_sys::core::PCWSTR, ppszrootend : *mut windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
+::windows_targets::link!("api-ms-win-core-path-l1-1-0.dll" "system" fn PathCchStripPrefix(pszpath : windows_sys::core::PWSTR, cchpath : usize) -> windows_sys::core::HRESULT);
+::windows_targets::link!("api-ms-win-core-path-l1-1-0.dll" "system" fn PathCchStripToRoot(pszpath : windows_sys::core::PWSTR, cchpath : usize) -> windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" fn PathCleanupSpec(pszdir : windows_sys::core::PCWSTR, pszspec : windows_sys::core::PWSTR) -> i32);
+::windows_targets::link!("shlwapi.dll" "system" fn PathCombineA(pszdest : windows_sys::core::PSTR, pszdir : windows_sys::core::PCSTR, pszfile : windows_sys::core::PCSTR) -> windows_sys::core::PSTR);
+::windows_targets::link!("shlwapi.dll" "system" fn PathCombineW(pszdest : windows_sys::core::PWSTR, pszdir : windows_sys::core::PCWSTR, pszfile : windows_sys::core::PCWSTR) -> windows_sys::core::PWSTR);
+::windows_targets::link!("shlwapi.dll" "system" fn PathCommonPrefixA(pszfile1 : windows_sys::core::PCSTR, pszfile2 : windows_sys::core::PCSTR, achpath : windows_sys::core::PSTR) -> i32);
+::windows_targets::link!("shlwapi.dll" "system" fn PathCommonPrefixW(pszfile1 : windows_sys::core::PCWSTR, pszfile2 : windows_sys::core::PCWSTR, achpath : windows_sys::core::PWSTR) -> i32);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("shlwapi.dll" "system" fn PathCompactPathA(hdc : super::super::Graphics::Gdi:: HDC, pszpath : ::windows_sys::core::PSTR, dx : u32) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("shlwapi.dll" "system" fn PathCompactPathExA(pszout : ::windows_sys::core::PSTR, pszsrc : ::windows_sys::core::PCSTR, cchmax : u32, dwflags : u32) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("shlwapi.dll" "system" fn PathCompactPathExW(pszout : ::windows_sys::core::PWSTR, pszsrc : ::windows_sys::core::PCWSTR, cchmax : u32, dwflags : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" fn PathCompactPathA(hdc : super::super::Graphics::Gdi:: HDC, pszpath : windows_sys::core::PSTR, dx : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" fn PathCompactPathExA(pszout : windows_sys::core::PSTR, pszsrc : windows_sys::core::PCSTR, cchmax : u32, dwflags : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" fn PathCompactPathExW(pszout : windows_sys::core::PWSTR, pszsrc : windows_sys::core::PCWSTR, cchmax : u32, dwflags : u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("shlwapi.dll" "system" fn PathCompactPathW(hdc : super::super::Graphics::Gdi:: HDC, pszpath : ::windows_sys::core::PWSTR, dx : u32) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("shlwapi.dll" "system" fn PathCreateFromUrlA(pszurl : ::windows_sys::core::PCSTR, pszpath : ::windows_sys::core::PSTR, pcchpath : *mut u32, dwflags : u32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("shlwapi.dll" "system" fn PathCreateFromUrlAlloc(pszin : ::windows_sys::core::PCWSTR, ppszout : *mut ::windows_sys::core::PWSTR, dwflags : u32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("shlwapi.dll" "system" fn PathCreateFromUrlW(pszurl : ::windows_sys::core::PCWSTR, pszpath : ::windows_sys::core::PWSTR, pcchpath : *mut u32, dwflags : u32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("shlwapi.dll" "system" fn PathFileExistsA(pszpath : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("shlwapi.dll" "system" fn PathFileExistsW(pszpath : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("shlwapi.dll" "system" fn PathFindExtensionA(pszpath : ::windows_sys::core::PCSTR) -> ::windows_sys::core::PSTR);
-::windows_targets::link!("shlwapi.dll" "system" fn PathFindExtensionW(pszpath : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::PWSTR);
-::windows_targets::link!("shlwapi.dll" "system" fn PathFindFileNameA(pszpath : ::windows_sys::core::PCSTR) -> ::windows_sys::core::PSTR);
-::windows_targets::link!("shlwapi.dll" "system" fn PathFindFileNameW(pszpath : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::PWSTR);
-::windows_targets::link!("shlwapi.dll" "system" fn PathFindNextComponentA(pszpath : ::windows_sys::core::PCSTR) -> ::windows_sys::core::PSTR);
-::windows_targets::link!("shlwapi.dll" "system" fn PathFindNextComponentW(pszpath : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::PWSTR);
-::windows_targets::link!("shlwapi.dll" "system" fn PathFindOnPathA(pszpath : ::windows_sys::core::PSTR, ppszotherdirs : *const *const i8) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("shlwapi.dll" "system" fn PathFindOnPathW(pszpath : ::windows_sys::core::PWSTR, ppszotherdirs : *const *const u16) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("shlwapi.dll" "system" fn PathFindSuffixArrayA(pszpath : ::windows_sys::core::PCSTR, apszsuffix : *const ::windows_sys::core::PCSTR, iarraysize : i32) -> ::windows_sys::core::PCSTR);
-::windows_targets::link!("shlwapi.dll" "system" fn PathFindSuffixArrayW(pszpath : ::windows_sys::core::PCWSTR, apszsuffix : *const ::windows_sys::core::PCWSTR, iarraysize : i32) -> ::windows_sys::core::PCWSTR);
-::windows_targets::link!("shlwapi.dll" "system" fn PathGetArgsA(pszpath : ::windows_sys::core::PCSTR) -> ::windows_sys::core::PSTR);
-::windows_targets::link!("shlwapi.dll" "system" fn PathGetArgsW(pszpath : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::PWSTR);
+::windows_targets::link!("shlwapi.dll" "system" fn PathCompactPathW(hdc : super::super::Graphics::Gdi:: HDC, pszpath : windows_sys::core::PWSTR, dx : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" fn PathCreateFromUrlA(pszurl : windows_sys::core::PCSTR, pszpath : windows_sys::core::PSTR, pcchpath : *mut u32, dwflags : u32) -> windows_sys::core::HRESULT);
+::windows_targets::link!("shlwapi.dll" "system" fn PathCreateFromUrlAlloc(pszin : windows_sys::core::PCWSTR, ppszout : *mut windows_sys::core::PWSTR, dwflags : u32) -> windows_sys::core::HRESULT);
+::windows_targets::link!("shlwapi.dll" "system" fn PathCreateFromUrlW(pszurl : windows_sys::core::PCWSTR, pszpath : windows_sys::core::PWSTR, pcchpath : *mut u32, dwflags : u32) -> windows_sys::core::HRESULT);
+::windows_targets::link!("shlwapi.dll" "system" fn PathFileExistsA(pszpath : windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" fn PathFileExistsW(pszpath : windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" fn PathFindExtensionA(pszpath : windows_sys::core::PCSTR) -> windows_sys::core::PSTR);
+::windows_targets::link!("shlwapi.dll" "system" fn PathFindExtensionW(pszpath : windows_sys::core::PCWSTR) -> windows_sys::core::PWSTR);
+::windows_targets::link!("shlwapi.dll" "system" fn PathFindFileNameA(pszpath : windows_sys::core::PCSTR) -> windows_sys::core::PSTR);
+::windows_targets::link!("shlwapi.dll" "system" fn PathFindFileNameW(pszpath : windows_sys::core::PCWSTR) -> windows_sys::core::PWSTR);
+::windows_targets::link!("shlwapi.dll" "system" fn PathFindNextComponentA(pszpath : windows_sys::core::PCSTR) -> windows_sys::core::PSTR);
+::windows_targets::link!("shlwapi.dll" "system" fn PathFindNextComponentW(pszpath : windows_sys::core::PCWSTR) -> windows_sys::core::PWSTR);
+::windows_targets::link!("shlwapi.dll" "system" fn PathFindOnPathA(pszpath : windows_sys::core::PSTR, ppszotherdirs : *const *const i8) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" fn PathFindOnPathW(pszpath : windows_sys::core::PWSTR, ppszotherdirs : *const *const u16) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" fn PathFindSuffixArrayA(pszpath : windows_sys::core::PCSTR, apszsuffix : *const windows_sys::core::PCSTR, iarraysize : i32) -> windows_sys::core::PCSTR);
+::windows_targets::link!("shlwapi.dll" "system" fn PathFindSuffixArrayW(pszpath : windows_sys::core::PCWSTR, apszsuffix : *const windows_sys::core::PCWSTR, iarraysize : i32) -> windows_sys::core::PCWSTR);
+::windows_targets::link!("shlwapi.dll" "system" fn PathGetArgsA(pszpath : windows_sys::core::PCSTR) -> windows_sys::core::PSTR);
+::windows_targets::link!("shlwapi.dll" "system" fn PathGetArgsW(pszpath : windows_sys::core::PCWSTR) -> windows_sys::core::PWSTR);
 ::windows_targets::link!("shlwapi.dll" "system" fn PathGetCharTypeA(ch : u8) -> u32);
 ::windows_targets::link!("shlwapi.dll" "system" fn PathGetCharTypeW(ch : u16) -> u32);
-::windows_targets::link!("shlwapi.dll" "system" fn PathGetDriveNumberA(pszpath : ::windows_sys::core::PCSTR) -> i32);
-::windows_targets::link!("shlwapi.dll" "system" fn PathGetDriveNumberW(pszpath : ::windows_sys::core::PCWSTR) -> i32);
-::windows_targets::link!("shell32.dll" "system" fn PathGetShortPath(pszlongpath : ::windows_sys::core::PWSTR));
-::windows_targets::link!("shlwapi.dll" "system" fn PathIsContentTypeA(pszpath : ::windows_sys::core::PCSTR, pszcontenttype : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("shlwapi.dll" "system" fn PathIsContentTypeW(pszpath : ::windows_sys::core::PCWSTR, pszcontenttype : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("shlwapi.dll" "system" fn PathIsDirectoryA(pszpath : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("shlwapi.dll" "system" fn PathIsDirectoryEmptyA(pszpath : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("shlwapi.dll" "system" fn PathIsDirectoryEmptyW(pszpath : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("shlwapi.dll" "system" fn PathIsDirectoryW(pszpath : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("shell32.dll" "system" fn PathIsExe(pszpath : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("shlwapi.dll" "system" fn PathIsFileSpecA(pszpath : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("shlwapi.dll" "system" fn PathIsFileSpecW(pszpath : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("shlwapi.dll" "system" fn PathIsLFNFileSpecA(pszname : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("shlwapi.dll" "system" fn PathIsLFNFileSpecW(pszname : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("shlwapi.dll" "system" fn PathIsNetworkPathA(pszpath : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("shlwapi.dll" "system" fn PathIsNetworkPathW(pszpath : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("shlwapi.dll" "system" fn PathIsPrefixA(pszprefix : ::windows_sys::core::PCSTR, pszpath : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("shlwapi.dll" "system" fn PathIsPrefixW(pszprefix : ::windows_sys::core::PCWSTR, pszpath : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("shlwapi.dll" "system" fn PathIsRelativeA(pszpath : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("shlwapi.dll" "system" fn PathIsRelativeW(pszpath : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("shlwapi.dll" "system" fn PathIsRootA(pszpath : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("shlwapi.dll" "system" fn PathIsRootW(pszpath : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("shlwapi.dll" "system" fn PathIsSameRootA(pszpath1 : ::windows_sys::core::PCSTR, pszpath2 : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("shlwapi.dll" "system" fn PathIsSameRootW(pszpath1 : ::windows_sys::core::PCWSTR, pszpath2 : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("shell32.dll" "system" fn PathIsSlowA(pszfile : ::windows_sys::core::PCSTR, dwattr : u32) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("shell32.dll" "system" fn PathIsSlowW(pszfile : ::windows_sys::core::PCWSTR, dwattr : u32) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("shlwapi.dll" "system" fn PathIsSystemFolderA(pszpath : ::windows_sys::core::PCSTR, dwattrb : u32) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("shlwapi.dll" "system" fn PathIsSystemFolderW(pszpath : ::windows_sys::core::PCWSTR, dwattrb : u32) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("shlwapi.dll" "system" fn PathIsUNCA(pszpath : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("api-ms-win-core-path-l1-1-0.dll" "system" fn PathIsUNCEx(pszpath : ::windows_sys::core::PCWSTR, ppszserver : *mut ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("shlwapi.dll" "system" fn PathIsUNCServerA(pszpath : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("shlwapi.dll" "system" fn PathIsUNCServerShareA(pszpath : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("shlwapi.dll" "system" fn PathIsUNCServerShareW(pszpath : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("shlwapi.dll" "system" fn PathIsUNCServerW(pszpath : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("shlwapi.dll" "system" fn PathIsUNCW(pszpath : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("shlwapi.dll" "system" fn PathIsURLA(pszpath : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("shlwapi.dll" "system" fn PathIsURLW(pszpath : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("shlwapi.dll" "system" fn PathMakePrettyA(pszpath : ::windows_sys::core::PSTR) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("shlwapi.dll" "system" fn PathMakePrettyW(pszpath : ::windows_sys::core::PWSTR) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("shlwapi.dll" "system" fn PathMakeSystemFolderA(pszpath : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("shlwapi.dll" "system" fn PathMakeSystemFolderW(pszpath : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("shell32.dll" "system" fn PathMakeUniqueName(pszuniquename : ::windows_sys::core::PWSTR, cchmax : u32, psztemplate : ::windows_sys::core::PCWSTR, pszlongplate : ::windows_sys::core::PCWSTR, pszdir : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("shlwapi.dll" "system" fn PathMatchSpecA(pszfile : ::windows_sys::core::PCSTR, pszspec : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("shlwapi.dll" "system" fn PathMatchSpecExA(pszfile : ::windows_sys::core::PCSTR, pszspec : ::windows_sys::core::PCSTR, dwflags : u32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("shlwapi.dll" "system" fn PathMatchSpecExW(pszfile : ::windows_sys::core::PCWSTR, pszspec : ::windows_sys::core::PCWSTR, dwflags : u32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("shlwapi.dll" "system" fn PathMatchSpecW(pszfile : ::windows_sys::core::PCWSTR, pszspec : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("shlwapi.dll" "system" fn PathParseIconLocationA(psziconfile : ::windows_sys::core::PSTR) -> i32);
-::windows_targets::link!("shlwapi.dll" "system" fn PathParseIconLocationW(psziconfile : ::windows_sys::core::PWSTR) -> i32);
-::windows_targets::link!("shell32.dll" "system" fn PathQualify(psz : ::windows_sys::core::PWSTR));
-::windows_targets::link!("shlwapi.dll" "system" fn PathQuoteSpacesA(lpsz : ::windows_sys::core::PSTR) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("shlwapi.dll" "system" fn PathQuoteSpacesW(lpsz : ::windows_sys::core::PWSTR) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("shlwapi.dll" "system" fn PathRelativePathToA(pszpath : ::windows_sys::core::PSTR, pszfrom : ::windows_sys::core::PCSTR, dwattrfrom : u32, pszto : ::windows_sys::core::PCSTR, dwattrto : u32) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("shlwapi.dll" "system" fn PathRelativePathToW(pszpath : ::windows_sys::core::PWSTR, pszfrom : ::windows_sys::core::PCWSTR, dwattrfrom : u32, pszto : ::windows_sys::core::PCWSTR, dwattrto : u32) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("shlwapi.dll" "system" fn PathRemoveArgsA(pszpath : ::windows_sys::core::PSTR));
-::windows_targets::link!("shlwapi.dll" "system" fn PathRemoveArgsW(pszpath : ::windows_sys::core::PWSTR));
-::windows_targets::link!("shlwapi.dll" "system" fn PathRemoveBackslashA(pszpath : ::windows_sys::core::PSTR) -> ::windows_sys::core::PSTR);
-::windows_targets::link!("shlwapi.dll" "system" fn PathRemoveBackslashW(pszpath : ::windows_sys::core::PWSTR) -> ::windows_sys::core::PWSTR);
-::windows_targets::link!("shlwapi.dll" "system" fn PathRemoveBlanksA(pszpath : ::windows_sys::core::PSTR));
-::windows_targets::link!("shlwapi.dll" "system" fn PathRemoveBlanksW(pszpath : ::windows_sys::core::PWSTR));
-::windows_targets::link!("shlwapi.dll" "system" fn PathRemoveExtensionA(pszpath : ::windows_sys::core::PSTR));
-::windows_targets::link!("shlwapi.dll" "system" fn PathRemoveExtensionW(pszpath : ::windows_sys::core::PWSTR));
-::windows_targets::link!("shlwapi.dll" "system" fn PathRemoveFileSpecA(pszpath : ::windows_sys::core::PSTR) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("shlwapi.dll" "system" fn PathRemoveFileSpecW(pszpath : ::windows_sys::core::PWSTR) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("shlwapi.dll" "system" fn PathRenameExtensionA(pszpath : ::windows_sys::core::PSTR, pszext : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("shlwapi.dll" "system" fn PathRenameExtensionW(pszpath : ::windows_sys::core::PWSTR, pszext : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("shell32.dll" "system" fn PathResolve(pszpath : ::windows_sys::core::PWSTR, dirs : *const *const u16, fflags : u32) -> i32);
-::windows_targets::link!("shlwapi.dll" "system" fn PathSearchAndQualifyA(pszpath : ::windows_sys::core::PCSTR, pszbuf : ::windows_sys::core::PSTR, cchbuf : u32) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("shlwapi.dll" "system" fn PathSearchAndQualifyW(pszpath : ::windows_sys::core::PCWSTR, pszbuf : ::windows_sys::core::PWSTR, cchbuf : u32) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("shlwapi.dll" "system" fn PathSetDlgItemPathA(hdlg : super::super::Foundation:: HWND, id : i32, pszpath : ::windows_sys::core::PCSTR));
-::windows_targets::link!("shlwapi.dll" "system" fn PathSetDlgItemPathW(hdlg : super::super::Foundation:: HWND, id : i32, pszpath : ::windows_sys::core::PCWSTR));
-::windows_targets::link!("shlwapi.dll" "system" fn PathSkipRootA(pszpath : ::windows_sys::core::PCSTR) -> ::windows_sys::core::PSTR);
-::windows_targets::link!("shlwapi.dll" "system" fn PathSkipRootW(pszpath : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::PWSTR);
-::windows_targets::link!("shlwapi.dll" "system" fn PathStripPathA(pszpath : ::windows_sys::core::PSTR));
-::windows_targets::link!("shlwapi.dll" "system" fn PathStripPathW(pszpath : ::windows_sys::core::PWSTR));
-::windows_targets::link!("shlwapi.dll" "system" fn PathStripToRootA(pszpath : ::windows_sys::core::PSTR) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("shlwapi.dll" "system" fn PathStripToRootW(pszpath : ::windows_sys::core::PWSTR) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("shlwapi.dll" "system" fn PathUnExpandEnvStringsA(pszpath : ::windows_sys::core::PCSTR, pszbuf : ::windows_sys::core::PSTR, cchbuf : u32) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("shlwapi.dll" "system" fn PathUnExpandEnvStringsW(pszpath : ::windows_sys::core::PCWSTR, pszbuf : ::windows_sys::core::PWSTR, cchbuf : u32) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("shlwapi.dll" "system" fn PathUndecorateA(pszpath : ::windows_sys::core::PSTR));
-::windows_targets::link!("shlwapi.dll" "system" fn PathUndecorateW(pszpath : ::windows_sys::core::PWSTR));
-::windows_targets::link!("shlwapi.dll" "system" fn PathUnmakeSystemFolderA(pszpath : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("shlwapi.dll" "system" fn PathUnmakeSystemFolderW(pszpath : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("shlwapi.dll" "system" fn PathUnquoteSpacesA(lpsz : ::windows_sys::core::PSTR) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("shlwapi.dll" "system" fn PathUnquoteSpacesW(lpsz : ::windows_sys::core::PWSTR) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("shell32.dll" "system" fn PathYetAnotherMakeUniqueName(pszuniquename : ::windows_sys::core::PWSTR, pszpath : ::windows_sys::core::PCWSTR, pszshort : ::windows_sys::core::PCWSTR, pszfilespec : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("shell32.dll" "system" fn PickIconDlg(hwnd : super::super::Foundation:: HWND, psziconpath : ::windows_sys::core::PWSTR, cchiconpath : u32, piiconindex : *mut i32) -> i32);
+::windows_targets::link!("shlwapi.dll" "system" fn PathGetDriveNumberA(pszpath : windows_sys::core::PCSTR) -> i32);
+::windows_targets::link!("shlwapi.dll" "system" fn PathGetDriveNumberW(pszpath : windows_sys::core::PCWSTR) -> i32);
+::windows_targets::link!("shell32.dll" "system" fn PathGetShortPath(pszlongpath : windows_sys::core::PWSTR));
+::windows_targets::link!("shlwapi.dll" "system" fn PathIsContentTypeA(pszpath : windows_sys::core::PCSTR, pszcontenttype : windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" fn PathIsContentTypeW(pszpath : windows_sys::core::PCWSTR, pszcontenttype : windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" fn PathIsDirectoryA(pszpath : windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" fn PathIsDirectoryEmptyA(pszpath : windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" fn PathIsDirectoryEmptyW(pszpath : windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" fn PathIsDirectoryW(pszpath : windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shell32.dll" "system" fn PathIsExe(pszpath : windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" fn PathIsFileSpecA(pszpath : windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" fn PathIsFileSpecW(pszpath : windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" fn PathIsLFNFileSpecA(pszname : windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" fn PathIsLFNFileSpecW(pszname : windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" fn PathIsNetworkPathA(pszpath : windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" fn PathIsNetworkPathW(pszpath : windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" fn PathIsPrefixA(pszprefix : windows_sys::core::PCSTR, pszpath : windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" fn PathIsPrefixW(pszprefix : windows_sys::core::PCWSTR, pszpath : windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" fn PathIsRelativeA(pszpath : windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" fn PathIsRelativeW(pszpath : windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" fn PathIsRootA(pszpath : windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" fn PathIsRootW(pszpath : windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" fn PathIsSameRootA(pszpath1 : windows_sys::core::PCSTR, pszpath2 : windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" fn PathIsSameRootW(pszpath1 : windows_sys::core::PCWSTR, pszpath2 : windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shell32.dll" "system" fn PathIsSlowA(pszfile : windows_sys::core::PCSTR, dwattr : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shell32.dll" "system" fn PathIsSlowW(pszfile : windows_sys::core::PCWSTR, dwattr : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" fn PathIsSystemFolderA(pszpath : windows_sys::core::PCSTR, dwattrb : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" fn PathIsSystemFolderW(pszpath : windows_sys::core::PCWSTR, dwattrb : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" fn PathIsUNCA(pszpath : windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("api-ms-win-core-path-l1-1-0.dll" "system" fn PathIsUNCEx(pszpath : windows_sys::core::PCWSTR, ppszserver : *mut windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" fn PathIsUNCServerA(pszpath : windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" fn PathIsUNCServerShareA(pszpath : windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" fn PathIsUNCServerShareW(pszpath : windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" fn PathIsUNCServerW(pszpath : windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" fn PathIsUNCW(pszpath : windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" fn PathIsURLA(pszpath : windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" fn PathIsURLW(pszpath : windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" fn PathMakePrettyA(pszpath : windows_sys::core::PSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" fn PathMakePrettyW(pszpath : windows_sys::core::PWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" fn PathMakeSystemFolderA(pszpath : windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" fn PathMakeSystemFolderW(pszpath : windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shell32.dll" "system" fn PathMakeUniqueName(pszuniquename : windows_sys::core::PWSTR, cchmax : u32, psztemplate : windows_sys::core::PCWSTR, pszlongplate : windows_sys::core::PCWSTR, pszdir : windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" fn PathMatchSpecA(pszfile : windows_sys::core::PCSTR, pszspec : windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" fn PathMatchSpecExA(pszfile : windows_sys::core::PCSTR, pszspec : windows_sys::core::PCSTR, dwflags : u32) -> windows_sys::core::HRESULT);
+::windows_targets::link!("shlwapi.dll" "system" fn PathMatchSpecExW(pszfile : windows_sys::core::PCWSTR, pszspec : windows_sys::core::PCWSTR, dwflags : u32) -> windows_sys::core::HRESULT);
+::windows_targets::link!("shlwapi.dll" "system" fn PathMatchSpecW(pszfile : windows_sys::core::PCWSTR, pszspec : windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" fn PathParseIconLocationA(psziconfile : windows_sys::core::PSTR) -> i32);
+::windows_targets::link!("shlwapi.dll" "system" fn PathParseIconLocationW(psziconfile : windows_sys::core::PWSTR) -> i32);
+::windows_targets::link!("shell32.dll" "system" fn PathQualify(psz : windows_sys::core::PWSTR));
+::windows_targets::link!("shlwapi.dll" "system" fn PathQuoteSpacesA(lpsz : windows_sys::core::PSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" fn PathQuoteSpacesW(lpsz : windows_sys::core::PWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" fn PathRelativePathToA(pszpath : windows_sys::core::PSTR, pszfrom : windows_sys::core::PCSTR, dwattrfrom : u32, pszto : windows_sys::core::PCSTR, dwattrto : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" fn PathRelativePathToW(pszpath : windows_sys::core::PWSTR, pszfrom : windows_sys::core::PCWSTR, dwattrfrom : u32, pszto : windows_sys::core::PCWSTR, dwattrto : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" fn PathRemoveArgsA(pszpath : windows_sys::core::PSTR));
+::windows_targets::link!("shlwapi.dll" "system" fn PathRemoveArgsW(pszpath : windows_sys::core::PWSTR));
+::windows_targets::link!("shlwapi.dll" "system" fn PathRemoveBackslashA(pszpath : windows_sys::core::PSTR) -> windows_sys::core::PSTR);
+::windows_targets::link!("shlwapi.dll" "system" fn PathRemoveBackslashW(pszpath : windows_sys::core::PWSTR) -> windows_sys::core::PWSTR);
+::windows_targets::link!("shlwapi.dll" "system" fn PathRemoveBlanksA(pszpath : windows_sys::core::PSTR));
+::windows_targets::link!("shlwapi.dll" "system" fn PathRemoveBlanksW(pszpath : windows_sys::core::PWSTR));
+::windows_targets::link!("shlwapi.dll" "system" fn PathRemoveExtensionA(pszpath : windows_sys::core::PSTR));
+::windows_targets::link!("shlwapi.dll" "system" fn PathRemoveExtensionW(pszpath : windows_sys::core::PWSTR));
+::windows_targets::link!("shlwapi.dll" "system" fn PathRemoveFileSpecA(pszpath : windows_sys::core::PSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" fn PathRemoveFileSpecW(pszpath : windows_sys::core::PWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" fn PathRenameExtensionA(pszpath : windows_sys::core::PSTR, pszext : windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" fn PathRenameExtensionW(pszpath : windows_sys::core::PWSTR, pszext : windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shell32.dll" "system" fn PathResolve(pszpath : windows_sys::core::PWSTR, dirs : *const *const u16, fflags : u32) -> i32);
+::windows_targets::link!("shlwapi.dll" "system" fn PathSearchAndQualifyA(pszpath : windows_sys::core::PCSTR, pszbuf : windows_sys::core::PSTR, cchbuf : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" fn PathSearchAndQualifyW(pszpath : windows_sys::core::PCWSTR, pszbuf : windows_sys::core::PWSTR, cchbuf : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" fn PathSetDlgItemPathA(hdlg : super::super::Foundation:: HWND, id : i32, pszpath : windows_sys::core::PCSTR));
+::windows_targets::link!("shlwapi.dll" "system" fn PathSetDlgItemPathW(hdlg : super::super::Foundation:: HWND, id : i32, pszpath : windows_sys::core::PCWSTR));
+::windows_targets::link!("shlwapi.dll" "system" fn PathSkipRootA(pszpath : windows_sys::core::PCSTR) -> windows_sys::core::PSTR);
+::windows_targets::link!("shlwapi.dll" "system" fn PathSkipRootW(pszpath : windows_sys::core::PCWSTR) -> windows_sys::core::PWSTR);
+::windows_targets::link!("shlwapi.dll" "system" fn PathStripPathA(pszpath : windows_sys::core::PSTR));
+::windows_targets::link!("shlwapi.dll" "system" fn PathStripPathW(pszpath : windows_sys::core::PWSTR));
+::windows_targets::link!("shlwapi.dll" "system" fn PathStripToRootA(pszpath : windows_sys::core::PSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" fn PathStripToRootW(pszpath : windows_sys::core::PWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" fn PathUnExpandEnvStringsA(pszpath : windows_sys::core::PCSTR, pszbuf : windows_sys::core::PSTR, cchbuf : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" fn PathUnExpandEnvStringsW(pszpath : windows_sys::core::PCWSTR, pszbuf : windows_sys::core::PWSTR, cchbuf : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" fn PathUndecorateA(pszpath : windows_sys::core::PSTR));
+::windows_targets::link!("shlwapi.dll" "system" fn PathUndecorateW(pszpath : windows_sys::core::PWSTR));
+::windows_targets::link!("shlwapi.dll" "system" fn PathUnmakeSystemFolderA(pszpath : windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" fn PathUnmakeSystemFolderW(pszpath : windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" fn PathUnquoteSpacesA(lpsz : windows_sys::core::PSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" fn PathUnquoteSpacesW(lpsz : windows_sys::core::PWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shell32.dll" "system" fn PathYetAnotherMakeUniqueName(pszuniquename : windows_sys::core::PWSTR, pszpath : windows_sys::core::PCWSTR, pszshort : windows_sys::core::PCWSTR, pszfilespec : windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shell32.dll" "system" fn PickIconDlg(hwnd : super::super::Foundation:: HWND, psziconpath : windows_sys::core::PWSTR, cchiconpath : u32, piiconindex : *mut i32) -> i32);
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_Common"))]
-::windows_targets::link!("propsys.dll" "system" fn PropVariantToStrRet(propvar : *const super::super::System::Com::StructuredStorage:: PROPVARIANT, pstrret : *mut Common:: STRRET) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("shlwapi.dll" "system" fn QISearch(that : *mut ::core::ffi::c_void, pqit : *const QITAB, riid : *const ::windows_sys::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("propsys.dll" "system" fn PropVariantToStrRet(propvar : *const super::super::System::Com::StructuredStorage:: PROPVARIANT, pstrret : *mut Common:: STRRET) -> windows_sys::core::HRESULT);
+::windows_targets::link!("shlwapi.dll" "system" fn QISearch(that : *mut core::ffi::c_void, pqit : *const QITAB, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 ::windows_targets::link!("shell32.dll" "system" fn ReadCabinetState(pcs : *mut CABINETSTATE, clength : i32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("shell32.dll" "system" fn RealDriveType(idrive : i32, foktohitnet : super::super::Foundation:: BOOL) -> i32);
-::windows_targets::link!("api-ms-win-core-psm-appnotify-l1-1-1.dll" "system" fn RegisterAppConstrainedChangeNotification(routine : PAPPCONSTRAIN_CHANGE_ROUTINE, context : *const ::core::ffi::c_void, registration : *mut PAPPCONSTRAIN_REGISTRATION) -> u32);
-::windows_targets::link!("api-ms-win-core-psm-appnotify-l1-1-0.dll" "system" fn RegisterAppStateChangeNotification(routine : PAPPSTATE_CHANGE_ROUTINE, context : *const ::core::ffi::c_void, registration : *mut PAPPSTATE_REGISTRATION) -> u32);
-::windows_targets::link!("api-ms-win-shcore-scaling-l1-1-1.dll" "system" fn RegisterScaleChangeEvent(hevent : super::super::Foundation:: HANDLE, pdwcookie : *mut usize) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("api-ms-win-shcore-scaling-l1-1-0.dll" "system" fn RegisterScaleChangeNotifications(displaydevice : DISPLAY_DEVICE_TYPE, hwndnotify : super::super::Foundation:: HWND, umsgnotify : u32, pdwcookie : *mut u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("api-ms-win-core-psm-appnotify-l1-1-1.dll" "system" fn RegisterAppConstrainedChangeNotification(routine : PAPPCONSTRAIN_CHANGE_ROUTINE, context : *const core::ffi::c_void, registration : *mut PAPPCONSTRAIN_REGISTRATION) -> u32);
+::windows_targets::link!("api-ms-win-core-psm-appnotify-l1-1-0.dll" "system" fn RegisterAppStateChangeNotification(routine : PAPPSTATE_CHANGE_ROUTINE, context : *const core::ffi::c_void, registration : *mut PAPPSTATE_REGISTRATION) -> u32);
+::windows_targets::link!("api-ms-win-shcore-scaling-l1-1-1.dll" "system" fn RegisterScaleChangeEvent(hevent : super::super::Foundation:: HANDLE, pdwcookie : *mut usize) -> windows_sys::core::HRESULT);
+::windows_targets::link!("api-ms-win-shcore-scaling-l1-1-0.dll" "system" fn RegisterScaleChangeNotifications(displaydevice : DISPLAY_DEVICE_TYPE, hwndnotify : super::super::Foundation:: HWND, umsgnotify : u32, pdwcookie : *mut u32) -> windows_sys::core::HRESULT);
 ::windows_targets::link!("comctl32.dll" "system" fn RemoveWindowSubclass(hwnd : super::super::Foundation:: HWND, pfnsubclass : SUBCLASSPROC, uidsubclass : usize) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("shell32.dll" "system" fn RestartDialog(hwnd : super::super::Foundation:: HWND, pszprompt : ::windows_sys::core::PCWSTR, dwreturn : u32) -> i32);
-::windows_targets::link!("shell32.dll" "system" fn RestartDialogEx(hwnd : super::super::Foundation:: HWND, pszprompt : ::windows_sys::core::PCWSTR, dwreturn : u32, dwreasoncode : u32) -> i32);
-::windows_targets::link!("api-ms-win-shcore-scaling-l1-1-0.dll" "system" fn RevokeScaleChangeNotifications(displaydevice : DISPLAY_DEVICE_TYPE, dwcookie : u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" fn RestartDialog(hwnd : super::super::Foundation:: HWND, pszprompt : windows_sys::core::PCWSTR, dwreturn : u32) -> i32);
+::windows_targets::link!("shell32.dll" "system" fn RestartDialogEx(hwnd : super::super::Foundation:: HWND, pszprompt : windows_sys::core::PCWSTR, dwreturn : u32, dwreasoncode : u32) -> i32);
+::windows_targets::link!("api-ms-win-shcore-scaling-l1-1-0.dll" "system" fn RevokeScaleChangeNotifications(displaydevice : DISPLAY_DEVICE_TYPE, dwcookie : u32) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_UI_Controls")]
 ::windows_targets::link!("shell32.dll" "system" fn SHAddFromPropSheetExtArray(hpsxa : HPSXA, lpfnaddpage : super::Controls:: LPFNSVADDPROPSHEETPAGE, lparam : super::super::Foundation:: LPARAM) -> u32);
-::windows_targets::link!("shell32.dll" "system" fn SHAddToRecentDocs(uflags : u32, pv : *const ::core::ffi::c_void));
-::windows_targets::link!("shell32.dll" "system" fn SHAlloc(cb : usize) -> *mut ::core::ffi::c_void);
-::windows_targets::link!("shlwapi.dll" "system" fn SHAllocShared(pvdata : *const ::core::ffi::c_void, dwsize : u32, dwprocessid : u32) -> super::super::Foundation:: HANDLE);
-::windows_targets::link!("shlwapi.dll" "system" fn SHAnsiToAnsi(pszsrc : ::windows_sys::core::PCSTR, pszdst : ::windows_sys::core::PSTR, cchbuf : i32) -> i32);
-::windows_targets::link!("shlwapi.dll" "system" fn SHAnsiToUnicode(pszsrc : ::windows_sys::core::PCSTR, pwszdst : ::windows_sys::core::PWSTR, cwchbuf : i32) -> i32);
+::windows_targets::link!("shell32.dll" "system" fn SHAddToRecentDocs(uflags : u32, pv : *const core::ffi::c_void));
+::windows_targets::link!("shell32.dll" "system" fn SHAlloc(cb : usize) -> *mut core::ffi::c_void);
+::windows_targets::link!("shlwapi.dll" "system" fn SHAllocShared(pvdata : *const core::ffi::c_void, dwsize : u32, dwprocessid : u32) -> super::super::Foundation:: HANDLE);
+::windows_targets::link!("shlwapi.dll" "system" fn SHAnsiToAnsi(pszsrc : windows_sys::core::PCSTR, pszdst : windows_sys::core::PSTR, cchbuf : i32) -> i32);
+::windows_targets::link!("shlwapi.dll" "system" fn SHAnsiToUnicode(pszsrc : windows_sys::core::PCSTR, pwszdst : windows_sys::core::PWSTR, cwchbuf : i32) -> i32);
 ::windows_targets::link!("shell32.dll" "system" fn SHAppBarMessage(dwmessage : u32, pdata : *mut APPBARDATA) -> usize);
-::windows_targets::link!("shell32.dll" "system" fn SHAssocEnumHandlers(pszextra : ::windows_sys::core::PCWSTR, affilter : ASSOC_FILTER, ppenumhandler : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("shell32.dll" "system" fn SHAssocEnumHandlersForProtocolByApplication(protocol : ::windows_sys::core::PCWSTR, riid : *const ::windows_sys::core::GUID, enumhandlers : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("shlwapi.dll" "system" fn SHAutoComplete(hwndedit : super::super::Foundation:: HWND, dwflags : SHELL_AUTOCOMPLETE_FLAGS) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" fn SHAssocEnumHandlers(pszextra : windows_sys::core::PCWSTR, affilter : ASSOC_FILTER, ppenumhandler : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" fn SHAssocEnumHandlersForProtocolByApplication(protocol : windows_sys::core::PCWSTR, riid : *const windows_sys::core::GUID, enumhandlers : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+::windows_targets::link!("shlwapi.dll" "system" fn SHAutoComplete(hwndedit : super::super::Foundation:: HWND, dwflags : SHELL_AUTOCOMPLETE_FLAGS) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_UI_Shell_Common")]
-::windows_targets::link!("shell32.dll" "system" fn SHBindToFolderIDListParent(psfroot : * mut::core::ffi::c_void, pidl : *const Common:: ITEMIDLIST, riid : *const ::windows_sys::core::GUID, ppv : *mut *mut ::core::ffi::c_void, ppidllast : *mut *mut Common:: ITEMIDLIST) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" fn SHBindToFolderIDListParent(psfroot : * mut core::ffi::c_void, pidl : *const Common:: ITEMIDLIST, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void, ppidllast : *mut *mut Common:: ITEMIDLIST) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_UI_Shell_Common")]
-::windows_targets::link!("shell32.dll" "system" fn SHBindToFolderIDListParentEx(psfroot : * mut::core::ffi::c_void, pidl : *const Common:: ITEMIDLIST, ppbc : * mut::core::ffi::c_void, riid : *const ::windows_sys::core::GUID, ppv : *mut *mut ::core::ffi::c_void, ppidllast : *mut *mut Common:: ITEMIDLIST) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" fn SHBindToFolderIDListParentEx(psfroot : * mut core::ffi::c_void, pidl : *const Common:: ITEMIDLIST, ppbc : * mut core::ffi::c_void, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void, ppidllast : *mut *mut Common:: ITEMIDLIST) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_UI_Shell_Common")]
-::windows_targets::link!("shell32.dll" "system" fn SHBindToObject(psf : * mut::core::ffi::c_void, pidl : *const Common:: ITEMIDLIST, pbc : * mut::core::ffi::c_void, riid : *const ::windows_sys::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" fn SHBindToObject(psf : * mut core::ffi::c_void, pidl : *const Common:: ITEMIDLIST, pbc : * mut core::ffi::c_void, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_UI_Shell_Common")]
-::windows_targets::link!("shell32.dll" "system" fn SHBindToParent(pidl : *const Common:: ITEMIDLIST, riid : *const ::windows_sys::core::GUID, ppv : *mut *mut ::core::ffi::c_void, ppidllast : *mut *mut Common:: ITEMIDLIST) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" fn SHBindToParent(pidl : *const Common:: ITEMIDLIST, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void, ppidllast : *mut *mut Common:: ITEMIDLIST) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_UI_Shell_Common")]
 ::windows_targets::link!("shell32.dll" "system" fn SHBrowseForFolderA(lpbi : *const BROWSEINFOA) -> *mut Common:: ITEMIDLIST);
 #[cfg(feature = "Win32_UI_Shell_Common")]
 ::windows_targets::link!("shell32.dll" "system" fn SHBrowseForFolderW(lpbi : *const BROWSEINFOW) -> *mut Common:: ITEMIDLIST);
-::windows_targets::link!("shell32.dll" "system" fn SHCLSIDFromString(psz : ::windows_sys::core::PCWSTR, pclsid : *mut ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" fn SHCLSIDFromString(psz : windows_sys::core::PCWSTR, pclsid : *mut windows_sys::core::GUID) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_UI_Shell_Common")]
 ::windows_targets::link!("shell32.dll" "system" fn SHChangeNotification_Lock(hchange : super::super::Foundation:: HANDLE, dwprocid : u32, pppidl : *mut *mut *mut Common:: ITEMIDLIST, plevent : *mut i32) -> super::super::Foundation:: HANDLE);
 ::windows_targets::link!("shell32.dll" "system" fn SHChangeNotification_Unlock(hlock : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("shell32.dll" "system" fn SHChangeNotify(weventid : i32, uflags : SHCNF_FLAGS, dwitem1 : *const ::core::ffi::c_void, dwitem2 : *const ::core::ffi::c_void));
+::windows_targets::link!("shell32.dll" "system" fn SHChangeNotify(weventid : i32, uflags : SHCNF_FLAGS, dwitem1 : *const core::ffi::c_void, dwitem2 : *const core::ffi::c_void));
 ::windows_targets::link!("shell32.dll" "system" fn SHChangeNotifyDeregister(ulid : u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_UI_Shell_Common")]
 ::windows_targets::link!("shell32.dll" "system" fn SHChangeNotifyRegister(hwnd : super::super::Foundation:: HWND, fsources : SHCNRF_SOURCE, fevents : i32, wmsg : u32, centries : i32, pshcne : *const SHChangeNotifyEntry) -> u32);
 ::windows_targets::link!("shell32.dll" "system" fn SHChangeNotifyRegisterThread(status : SCNRT_STATUS));
 #[cfg(feature = "Win32_UI_Shell_Common")]
 ::windows_targets::link!("shell32.dll" "system" fn SHCloneSpecialIDList(hwnd : super::super::Foundation:: HWND, csidl : i32, fcreate : super::super::Foundation:: BOOL) -> *mut Common:: ITEMIDLIST);
-::windows_targets::link!("shell32.dll" "system" fn SHCoCreateInstance(pszclsid : ::windows_sys::core::PCWSTR, pclsid : *const ::windows_sys::core::GUID, punkouter : * mut::core::ffi::c_void, riid : *const ::windows_sys::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" fn SHCoCreateInstance(pszclsid : windows_sys::core::PCWSTR, pclsid : *const windows_sys::core::GUID, punkouter : * mut core::ffi::c_void, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Registry")]
-::windows_targets::link!("shlwapi.dll" "system" fn SHCopyKeyA(hkeysrc : super::super::System::Registry:: HKEY, pszsrcsubkey : ::windows_sys::core::PCSTR, hkeydest : super::super::System::Registry:: HKEY, freserved : u32) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("shlwapi.dll" "system" fn SHCopyKeyA(hkeysrc : super::super::System::Registry:: HKEY, pszsrcsubkey : windows_sys::core::PCSTR, hkeydest : super::super::System::Registry:: HKEY, freserved : u32) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_System_Registry")]
-::windows_targets::link!("shlwapi.dll" "system" fn SHCopyKeyW(hkeysrc : super::super::System::Registry:: HKEY, pszsrcsubkey : ::windows_sys::core::PCWSTR, hkeydest : super::super::System::Registry:: HKEY, freserved : u32) -> super::super::Foundation:: WIN32_ERROR);
-::windows_targets::link!("shell32.dll" "system" fn SHCreateAssociationRegistration(riid : *const ::windows_sys::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shlwapi.dll" "system" fn SHCopyKeyW(hkeysrc : super::super::System::Registry:: HKEY, pszsrcsubkey : windows_sys::core::PCWSTR, hkeydest : super::super::System::Registry:: HKEY, freserved : u32) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("shell32.dll" "system" fn SHCreateAssociationRegistration(riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_UI_Shell_Common")]
-::windows_targets::link!("shell32.dll" "system" fn SHCreateDataObject(pidlfolder : *const Common:: ITEMIDLIST, cidl : u32, apidl : *const *const Common:: ITEMIDLIST, pdtinner : * mut::core::ffi::c_void, riid : *const ::windows_sys::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" fn SHCreateDataObject(pidlfolder : *const Common:: ITEMIDLIST, cidl : u32, apidl : *const *const Common:: ITEMIDLIST, pdtinner : * mut core::ffi::c_void, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_System_Registry", feature = "Win32_UI_Shell_Common"))]
-::windows_targets::link!("shell32.dll" "system" fn SHCreateDefaultContextMenu(pdcm : *const DEFCONTEXTMENU, riid : *const ::windows_sys::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("shell32.dll" "system" fn SHCreateDefaultExtractIcon(riid : *const ::windows_sys::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("shell32.dll" "system" fn SHCreateDefaultPropertiesOp(psi : * mut::core::ffi::c_void, ppfileop : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("shell32.dll" "system" fn SHCreateDirectory(hwnd : super::super::Foundation:: HWND, pszpath : ::windows_sys::core::PCWSTR) -> i32);
+::windows_targets::link!("shell32.dll" "system" fn SHCreateDefaultContextMenu(pdcm : *const DEFCONTEXTMENU, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" fn SHCreateDefaultExtractIcon(riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" fn SHCreateDefaultPropertiesOp(psi : * mut core::ffi::c_void, ppfileop : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" fn SHCreateDirectory(hwnd : super::super::Foundation:: HWND, pszpath : windows_sys::core::PCWSTR) -> i32);
 #[cfg(feature = "Win32_Security")]
-::windows_targets::link!("shell32.dll" "system" fn SHCreateDirectoryExA(hwnd : super::super::Foundation:: HWND, pszpath : ::windows_sys::core::PCSTR, psa : *const super::super::Security:: SECURITY_ATTRIBUTES) -> i32);
+::windows_targets::link!("shell32.dll" "system" fn SHCreateDirectoryExA(hwnd : super::super::Foundation:: HWND, pszpath : windows_sys::core::PCSTR, psa : *const super::super::Security:: SECURITY_ATTRIBUTES) -> i32);
 #[cfg(feature = "Win32_Security")]
-::windows_targets::link!("shell32.dll" "system" fn SHCreateDirectoryExW(hwnd : super::super::Foundation:: HWND, pszpath : ::windows_sys::core::PCWSTR, psa : *const super::super::Security:: SECURITY_ATTRIBUTES) -> i32);
-::windows_targets::link!("shell32.dll" "system" fn SHCreateFileExtractIconW(pszfile : ::windows_sys::core::PCWSTR, dwfileattributes : u32, riid : *const ::windows_sys::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" fn SHCreateDirectoryExW(hwnd : super::super::Foundation:: HWND, pszpath : windows_sys::core::PCWSTR, psa : *const super::super::Security:: SECURITY_ATTRIBUTES) -> i32);
+::windows_targets::link!("shell32.dll" "system" fn SHCreateFileExtractIconW(pszfile : windows_sys::core::PCWSTR, dwfileattributes : u32, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_UI_Shell_Common")]
-::windows_targets::link!("shell32.dll" "system" fn SHCreateItemFromIDList(pidl : *const Common:: ITEMIDLIST, riid : *const ::windows_sys::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("shell32.dll" "system" fn SHCreateItemFromParsingName(pszpath : ::windows_sys::core::PCWSTR, pbc : * mut::core::ffi::c_void, riid : *const ::windows_sys::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("shell32.dll" "system" fn SHCreateItemFromRelativeName(psiparent : * mut::core::ffi::c_void, pszname : ::windows_sys::core::PCWSTR, pbc : * mut::core::ffi::c_void, riid : *const ::windows_sys::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("shell32.dll" "system" fn SHCreateItemInKnownFolder(kfid : *const ::windows_sys::core::GUID, dwkfflags : u32, pszitem : ::windows_sys::core::PCWSTR, riid : *const ::windows_sys::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" fn SHCreateItemFromIDList(pidl : *const Common:: ITEMIDLIST, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" fn SHCreateItemFromParsingName(pszpath : windows_sys::core::PCWSTR, pbc : * mut core::ffi::c_void, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" fn SHCreateItemFromRelativeName(psiparent : * mut core::ffi::c_void, pszname : windows_sys::core::PCWSTR, pbc : * mut core::ffi::c_void, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" fn SHCreateItemInKnownFolder(kfid : *const windows_sys::core::GUID, dwkfflags : u32, pszitem : windows_sys::core::PCWSTR, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_UI_Shell_Common")]
-::windows_targets::link!("shell32.dll" "system" fn SHCreateItemWithParent(pidlparent : *const Common:: ITEMIDLIST, psfparent : * mut::core::ffi::c_void, pidl : *const Common:: ITEMIDLIST, riid : *const ::windows_sys::core::GUID, ppvitem : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("shlwapi.dll" "system" fn SHCreateMemStream(pinit : *const u8, cbinit : u32) -> * mut::core::ffi::c_void);
+::windows_targets::link!("shell32.dll" "system" fn SHCreateItemWithParent(pidlparent : *const Common:: ITEMIDLIST, psfparent : * mut core::ffi::c_void, pidl : *const Common:: ITEMIDLIST, riid : *const windows_sys::core::GUID, ppvitem : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+::windows_targets::link!("shlwapi.dll" "system" fn SHCreateMemStream(pinit : *const u8, cbinit : u32) -> * mut core::ffi::c_void);
 #[cfg(all(feature = "Win32_Security", feature = "Win32_System_Threading"))]
 ::windows_targets::link!("shell32.dll" "system" fn SHCreateProcessAsUserW(pscpi : *mut SHCREATEPROCESSINFOW) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_System_Registry")]
-::windows_targets::link!("shell32.dll" "system" fn SHCreatePropSheetExtArray(hkey : super::super::System::Registry:: HKEY, pszsubkey : ::windows_sys::core::PCWSTR, max_iface : u32) -> HPSXA);
-::windows_targets::link!("shell32.dll" "system" fn SHCreateQueryCancelAutoPlayMoniker(ppmoniker : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("shell32.dll" "system" fn SHCreateShellFolderView(pcsfv : *const SFV_CREATE, ppsv : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" fn SHCreatePropSheetExtArray(hkey : super::super::System::Registry:: HKEY, pszsubkey : windows_sys::core::PCWSTR, max_iface : u32) -> HPSXA);
+::windows_targets::link!("shell32.dll" "system" fn SHCreateQueryCancelAutoPlayMoniker(ppmoniker : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" fn SHCreateShellFolderView(pcsfv : *const SFV_CREATE, ppsv : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_UI_Shell_Common")]
-::windows_targets::link!("shell32.dll" "system" fn SHCreateShellFolderViewEx(pcsfv : *const CSFV, ppsv : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" fn SHCreateShellFolderViewEx(pcsfv : *const CSFV, ppsv : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_UI_Shell_Common")]
-::windows_targets::link!("shell32.dll" "system" fn SHCreateShellItem(pidlparent : *const Common:: ITEMIDLIST, psfparent : * mut::core::ffi::c_void, pidl : *const Common:: ITEMIDLIST, ppsi : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" fn SHCreateShellItem(pidlparent : *const Common:: ITEMIDLIST, psfparent : * mut core::ffi::c_void, pidl : *const Common:: ITEMIDLIST, ppsi : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_UI_Shell_Common")]
-::windows_targets::link!("shell32.dll" "system" fn SHCreateShellItemArray(pidlparent : *const Common:: ITEMIDLIST, psf : * mut::core::ffi::c_void, cidl : u32, ppidl : *const *const Common:: ITEMIDLIST, ppsiitemarray : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("shell32.dll" "system" fn SHCreateShellItemArrayFromDataObject(pdo : * mut::core::ffi::c_void, riid : *const ::windows_sys::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" fn SHCreateShellItemArray(pidlparent : *const Common:: ITEMIDLIST, psf : * mut core::ffi::c_void, cidl : u32, ppidl : *const *const Common:: ITEMIDLIST, ppsiitemarray : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" fn SHCreateShellItemArrayFromDataObject(pdo : * mut core::ffi::c_void, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_UI_Shell_Common")]
-::windows_targets::link!("shell32.dll" "system" fn SHCreateShellItemArrayFromIDLists(cidl : u32, rgpidl : *const *const Common:: ITEMIDLIST, ppsiitemarray : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("shell32.dll" "system" fn SHCreateShellItemArrayFromShellItem(psi : * mut::core::ffi::c_void, riid : *const ::windows_sys::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" fn SHCreateShellItemArrayFromIDLists(cidl : u32, rgpidl : *const *const Common:: ITEMIDLIST, ppsiitemarray : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" fn SHCreateShellItemArrayFromShellItem(psi : * mut core::ffi::c_void, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Graphics_Gdi")]
 ::windows_targets::link!("shlwapi.dll" "system" fn SHCreateShellPalette(hdc : super::super::Graphics::Gdi:: HDC) -> super::super::Graphics::Gdi:: HPALETTE);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("shell32.dll" "system" fn SHCreateStdEnumFmtEtc(cfmt : u32, afmt : *const super::super::System::Com:: FORMATETC, ppenumformatetc : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("shlwapi.dll" "system" fn SHCreateStreamOnFileA(pszfile : ::windows_sys::core::PCSTR, grfmode : u32, ppstm : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("shlwapi.dll" "system" fn SHCreateStreamOnFileEx(pszfile : ::windows_sys::core::PCWSTR, grfmode : u32, dwattributes : u32, fcreate : super::super::Foundation:: BOOL, pstmtemplate : * mut::core::ffi::c_void, ppstm : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("shlwapi.dll" "system" fn SHCreateStreamOnFileW(pszfile : ::windows_sys::core::PCWSTR, grfmode : u32, ppstm : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" fn SHCreateStdEnumFmtEtc(cfmt : u32, afmt : *const super::super::System::Com:: FORMATETC, ppenumformatetc : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+::windows_targets::link!("shlwapi.dll" "system" fn SHCreateStreamOnFileA(pszfile : windows_sys::core::PCSTR, grfmode : u32, ppstm : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+::windows_targets::link!("shlwapi.dll" "system" fn SHCreateStreamOnFileEx(pszfile : windows_sys::core::PCWSTR, grfmode : u32, dwattributes : u32, fcreate : super::super::Foundation:: BOOL, pstmtemplate : * mut core::ffi::c_void, ppstm : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+::windows_targets::link!("shlwapi.dll" "system" fn SHCreateStreamOnFileW(pszfile : windows_sys::core::PCWSTR, grfmode : u32, ppstm : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Threading")]
-::windows_targets::link!("shlwapi.dll" "system" fn SHCreateThread(pfnthreadproc : super::super::System::Threading:: LPTHREAD_START_ROUTINE, pdata : *const ::core::ffi::c_void, flags : u32, pfncallback : super::super::System::Threading:: LPTHREAD_START_ROUTINE) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("shlwapi.dll" "system" fn SHCreateThreadRef(pcref : *mut i32, ppunk : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shlwapi.dll" "system" fn SHCreateThread(pfnthreadproc : super::super::System::Threading:: LPTHREAD_START_ROUTINE, pdata : *const core::ffi::c_void, flags : u32, pfncallback : super::super::System::Threading:: LPTHREAD_START_ROUTINE) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" fn SHCreateThreadRef(pcref : *mut i32, ppunk : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Threading")]
-::windows_targets::link!("shlwapi.dll" "system" fn SHCreateThreadWithHandle(pfnthreadproc : super::super::System::Threading:: LPTHREAD_START_ROUTINE, pdata : *const ::core::ffi::c_void, flags : u32, pfncallback : super::super::System::Threading:: LPTHREAD_START_ROUTINE, phandle : *mut super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" fn SHCreateThreadWithHandle(pfnthreadproc : super::super::System::Threading:: LPTHREAD_START_ROUTINE, pdata : *const core::ffi::c_void, flags : u32, pfncallback : super::super::System::Threading:: LPTHREAD_START_ROUTINE, phandle : *mut super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-::windows_targets::link!("shell32.dll" "system" fn SHDefExtractIconA(psziconfile : ::windows_sys::core::PCSTR, iindex : i32, uflags : u32, phiconlarge : *mut super::WindowsAndMessaging:: HICON, phiconsmall : *mut super::WindowsAndMessaging:: HICON, niconsize : u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" fn SHDefExtractIconA(psziconfile : windows_sys::core::PCSTR, iindex : i32, uflags : u32, phiconlarge : *mut super::WindowsAndMessaging:: HICON, phiconsmall : *mut super::WindowsAndMessaging:: HICON, niconsize : u32) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-::windows_targets::link!("shell32.dll" "system" fn SHDefExtractIconW(psziconfile : ::windows_sys::core::PCWSTR, iindex : i32, uflags : u32, phiconlarge : *mut super::WindowsAndMessaging:: HICON, phiconsmall : *mut super::WindowsAndMessaging:: HICON, niconsize : u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" fn SHDefExtractIconW(psziconfile : windows_sys::core::PCWSTR, iindex : i32, uflags : u32, phiconlarge : *mut super::WindowsAndMessaging:: HICON, phiconsmall : *mut super::WindowsAndMessaging:: HICON, niconsize : u32) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Registry")]
-::windows_targets::link!("shlwapi.dll" "system" fn SHDeleteEmptyKeyA(hkey : super::super::System::Registry:: HKEY, pszsubkey : ::windows_sys::core::PCSTR) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("shlwapi.dll" "system" fn SHDeleteEmptyKeyA(hkey : super::super::System::Registry:: HKEY, pszsubkey : windows_sys::core::PCSTR) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_System_Registry")]
-::windows_targets::link!("shlwapi.dll" "system" fn SHDeleteEmptyKeyW(hkey : super::super::System::Registry:: HKEY, pszsubkey : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("shlwapi.dll" "system" fn SHDeleteEmptyKeyW(hkey : super::super::System::Registry:: HKEY, pszsubkey : windows_sys::core::PCWSTR) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_System_Registry")]
-::windows_targets::link!("shlwapi.dll" "system" fn SHDeleteKeyA(hkey : super::super::System::Registry:: HKEY, pszsubkey : ::windows_sys::core::PCSTR) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("shlwapi.dll" "system" fn SHDeleteKeyA(hkey : super::super::System::Registry:: HKEY, pszsubkey : windows_sys::core::PCSTR) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_System_Registry")]
-::windows_targets::link!("shlwapi.dll" "system" fn SHDeleteKeyW(hkey : super::super::System::Registry:: HKEY, pszsubkey : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("shlwapi.dll" "system" fn SHDeleteKeyW(hkey : super::super::System::Registry:: HKEY, pszsubkey : windows_sys::core::PCWSTR) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_System_Registry")]
-::windows_targets::link!("shlwapi.dll" "system" fn SHDeleteValueA(hkey : super::super::System::Registry:: HKEY, pszsubkey : ::windows_sys::core::PCSTR, pszvalue : ::windows_sys::core::PCSTR) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("shlwapi.dll" "system" fn SHDeleteValueA(hkey : super::super::System::Registry:: HKEY, pszsubkey : windows_sys::core::PCSTR, pszvalue : windows_sys::core::PCSTR) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_System_Registry")]
-::windows_targets::link!("shlwapi.dll" "system" fn SHDeleteValueW(hkey : super::super::System::Registry:: HKEY, pszsubkey : ::windows_sys::core::PCWSTR, pszvalue : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("shlwapi.dll" "system" fn SHDeleteValueW(hkey : super::super::System::Registry:: HKEY, pszsubkey : windows_sys::core::PCWSTR, pszvalue : windows_sys::core::PCWSTR) -> super::super::Foundation:: WIN32_ERROR);
 ::windows_targets::link!("shell32.dll" "system" fn SHDestroyPropSheetExtArray(hpsxa : HPSXA));
 #[cfg(feature = "Win32_System_Ole")]
-::windows_targets::link!("shell32.dll" "system" fn SHDoDragDrop(hwnd : super::super::Foundation:: HWND, pdata : * mut::core::ffi::c_void, pdsrc : * mut::core::ffi::c_void, dweffect : super::super::System::Ole:: DROPEFFECT, pdweffect : *mut super::super::System::Ole:: DROPEFFECT) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("shell32.dll" "system" fn SHEmptyRecycleBinA(hwnd : super::super::Foundation:: HWND, pszrootpath : ::windows_sys::core::PCSTR, dwflags : u32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("shell32.dll" "system" fn SHEmptyRecycleBinW(hwnd : super::super::Foundation:: HWND, pszrootpath : ::windows_sys::core::PCWSTR, dwflags : u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" fn SHDoDragDrop(hwnd : super::super::Foundation:: HWND, pdata : * mut core::ffi::c_void, pdsrc : * mut core::ffi::c_void, dweffect : super::super::System::Ole:: DROPEFFECT, pdweffect : *mut super::super::System::Ole:: DROPEFFECT) -> windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" fn SHEmptyRecycleBinA(hwnd : super::super::Foundation:: HWND, pszrootpath : windows_sys::core::PCSTR, dwflags : u32) -> windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" fn SHEmptyRecycleBinW(hwnd : super::super::Foundation:: HWND, pszrootpath : windows_sys::core::PCWSTR, dwflags : u32) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Registry")]
-::windows_targets::link!("shlwapi.dll" "system" fn SHEnumKeyExA(hkey : super::super::System::Registry:: HKEY, dwindex : u32, pszname : ::windows_sys::core::PSTR, pcchname : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("shlwapi.dll" "system" fn SHEnumKeyExA(hkey : super::super::System::Registry:: HKEY, dwindex : u32, pszname : windows_sys::core::PSTR, pcchname : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_System_Registry")]
-::windows_targets::link!("shlwapi.dll" "system" fn SHEnumKeyExW(hkey : super::super::System::Registry:: HKEY, dwindex : u32, pszname : ::windows_sys::core::PWSTR, pcchname : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("shlwapi.dll" "system" fn SHEnumKeyExW(hkey : super::super::System::Registry:: HKEY, dwindex : u32, pszname : windows_sys::core::PWSTR, pcchname : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_System_Registry")]
-::windows_targets::link!("shlwapi.dll" "system" fn SHEnumValueA(hkey : super::super::System::Registry:: HKEY, dwindex : u32, pszvaluename : ::windows_sys::core::PSTR, pcchvaluename : *mut u32, pdwtype : *mut u32, pvdata : *mut ::core::ffi::c_void, pcbdata : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("shlwapi.dll" "system" fn SHEnumValueA(hkey : super::super::System::Registry:: HKEY, dwindex : u32, pszvaluename : windows_sys::core::PSTR, pcchvaluename : *mut u32, pdwtype : *mut u32, pvdata : *mut core::ffi::c_void, pcbdata : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_System_Registry")]
-::windows_targets::link!("shlwapi.dll" "system" fn SHEnumValueW(hkey : super::super::System::Registry:: HKEY, dwindex : u32, pszvaluename : ::windows_sys::core::PWSTR, pcchvaluename : *mut u32, pdwtype : *mut u32, pvdata : *mut ::core::ffi::c_void, pcbdata : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("shlwapi.dll" "system" fn SHEnumValueW(hkey : super::super::System::Registry:: HKEY, dwindex : u32, pszvaluename : windows_sys::core::PWSTR, pcchvaluename : *mut u32, pdwtype : *mut u32, pvdata : *mut core::ffi::c_void, pcbdata : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_System_Registry")]
-::windows_targets::link!("shell32.dll" "system" fn SHEnumerateUnreadMailAccountsW(hkeyuser : super::super::System::Registry:: HKEY, dwindex : u32, pszmailaddress : ::windows_sys::core::PWSTR, cchmailaddress : i32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("shell32.dll" "system" fn SHEvaluateSystemCommandTemplate(pszcmdtemplate : ::windows_sys::core::PCWSTR, ppszapplication : *mut ::windows_sys::core::PWSTR, ppszcommandline : *mut ::windows_sys::core::PWSTR, ppszparameters : *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" fn SHEnumerateUnreadMailAccountsW(hkeyuser : super::super::System::Registry:: HKEY, dwindex : u32, pszmailaddress : windows_sys::core::PWSTR, cchmailaddress : i32) -> windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" fn SHEvaluateSystemCommandTemplate(pszcmdtemplate : windows_sys::core::PCWSTR, ppszapplication : *mut windows_sys::core::PWSTR, ppszcommandline : *mut windows_sys::core::PWSTR, ppszparameters : *mut windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
 ::windows_targets::link!("shell32.dll" "system" fn SHFileOperationA(lpfileop : *mut SHFILEOPSTRUCTA) -> i32);
 ::windows_targets::link!("shell32.dll" "system" fn SHFileOperationW(lpfileop : *mut SHFILEOPSTRUCTW) -> i32);
 #[cfg(feature = "Win32_UI_Shell_Common")]
 ::windows_targets::link!("shell32.dll" "system" fn SHFindFiles(pidlfolder : *const Common:: ITEMIDLIST, pidlsavefile : *const Common:: ITEMIDLIST) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-::windows_targets::link!("shell32.dll" "system" fn SHFind_InitMenuPopup(hmenu : super::WindowsAndMessaging:: HMENU, hwndowner : super::super::Foundation:: HWND, idcmdfirst : u32, idcmdlast : u32) -> * mut::core::ffi::c_void);
+::windows_targets::link!("shell32.dll" "system" fn SHFind_InitMenuPopup(hmenu : super::WindowsAndMessaging:: HMENU, hwndowner : super::super::Foundation:: HWND, idcmdfirst : u32, idcmdlast : u32) -> * mut core::ffi::c_void);
 ::windows_targets::link!("shell32.dll" "system" fn SHFlushSFCache());
-::windows_targets::link!("shlwapi.dll" "system" fn SHFormatDateTimeA(pft : *const super::super::Foundation:: FILETIME, pdwflags : *mut u32, pszbuf : ::windows_sys::core::PSTR, cchbuf : u32) -> i32);
-::windows_targets::link!("shlwapi.dll" "system" fn SHFormatDateTimeW(pft : *const super::super::Foundation:: FILETIME, pdwflags : *mut u32, pszbuf : ::windows_sys::core::PWSTR, cchbuf : u32) -> i32);
+::windows_targets::link!("shlwapi.dll" "system" fn SHFormatDateTimeA(pft : *const super::super::Foundation:: FILETIME, pdwflags : *mut u32, pszbuf : windows_sys::core::PSTR, cchbuf : u32) -> i32);
+::windows_targets::link!("shlwapi.dll" "system" fn SHFormatDateTimeW(pft : *const super::super::Foundation:: FILETIME, pdwflags : *mut u32, pszbuf : windows_sys::core::PWSTR, cchbuf : u32) -> i32);
 ::windows_targets::link!("shell32.dll" "system" fn SHFormatDrive(hwnd : super::super::Foundation:: HWND, drive : u32, fmtid : SHFMT_ID, options : u32) -> u32);
-::windows_targets::link!("shell32.dll" "system" fn SHFree(pv : *const ::core::ffi::c_void));
+::windows_targets::link!("shell32.dll" "system" fn SHFree(pv : *const core::ffi::c_void));
 ::windows_targets::link!("shell32.dll" "system" fn SHFreeNameMappings(hnamemappings : super::super::Foundation:: HANDLE));
 ::windows_targets::link!("shlwapi.dll" "system" fn SHFreeShared(hdata : super::super::Foundation:: HANDLE, dwprocessid : u32) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("shell32.dll" "system" fn SHGetAttributesFromDataObject(pdo : * mut::core::ffi::c_void, dwattributemask : u32, pdwattributes : *mut u32, pcitems : *mut u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" fn SHGetAttributesFromDataObject(pdo : * mut core::ffi::c_void, dwattributemask : u32, pdwattributes : *mut u32, pcitems : *mut u32) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_UI_Shell_Common")]
-::windows_targets::link!("shell32.dll" "system" fn SHGetDataFromIDListA(psf : * mut::core::ffi::c_void, pidl : *const Common:: ITEMIDLIST, nformat : SHGDFIL_FORMAT, pv : *mut ::core::ffi::c_void, cb : i32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" fn SHGetDataFromIDListA(psf : * mut core::ffi::c_void, pidl : *const Common:: ITEMIDLIST, nformat : SHGDFIL_FORMAT, pv : *mut core::ffi::c_void, cb : i32) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_UI_Shell_Common")]
-::windows_targets::link!("shell32.dll" "system" fn SHGetDataFromIDListW(psf : * mut::core::ffi::c_void, pidl : *const Common:: ITEMIDLIST, nformat : SHGDFIL_FORMAT, pv : *mut ::core::ffi::c_void, cb : i32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("shell32.dll" "system" fn SHGetDesktopFolder(ppshf : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("shell32.dll" "system" fn SHGetDiskFreeSpaceExA(pszdirectoryname : ::windows_sys::core::PCSTR, pulfreebytesavailabletocaller : *mut u64, pultotalnumberofbytes : *mut u64, pultotalnumberoffreebytes : *mut u64) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("shell32.dll" "system" fn SHGetDiskFreeSpaceExW(pszdirectoryname : ::windows_sys::core::PCWSTR, pulfreebytesavailabletocaller : *mut u64, pultotalnumberofbytes : *mut u64, pultotalnumberoffreebytes : *mut u64) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("shell32.dll" "system" fn SHGetDriveMedia(pszdrive : ::windows_sys::core::PCWSTR, pdwmediacontent : *mut u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" fn SHGetDataFromIDListW(psf : * mut core::ffi::c_void, pidl : *const Common:: ITEMIDLIST, nformat : SHGDFIL_FORMAT, pv : *mut core::ffi::c_void, cb : i32) -> windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" fn SHGetDesktopFolder(ppshf : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" fn SHGetDiskFreeSpaceExA(pszdirectoryname : windows_sys::core::PCSTR, pulfreebytesavailabletocaller : *mut u64, pultotalnumberofbytes : *mut u64, pultotalnumberoffreebytes : *mut u64) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shell32.dll" "system" fn SHGetDiskFreeSpaceExW(pszdirectoryname : windows_sys::core::PCWSTR, pulfreebytesavailabletocaller : *mut u64, pultotalnumberofbytes : *mut u64, pultotalnumberoffreebytes : *mut u64) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shell32.dll" "system" fn SHGetDriveMedia(pszdrive : windows_sys::core::PCWSTR, pdwmediacontent : *mut u32) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_Storage_FileSystem", feature = "Win32_UI_WindowsAndMessaging"))]
-::windows_targets::link!("shell32.dll" "system" fn SHGetFileInfoA(pszpath : ::windows_sys::core::PCSTR, dwfileattributes : super::super::Storage::FileSystem:: FILE_FLAGS_AND_ATTRIBUTES, psfi : *mut SHFILEINFOA, cbfileinfo : u32, uflags : SHGFI_FLAGS) -> usize);
+::windows_targets::link!("shell32.dll" "system" fn SHGetFileInfoA(pszpath : windows_sys::core::PCSTR, dwfileattributes : super::super::Storage::FileSystem:: FILE_FLAGS_AND_ATTRIBUTES, psfi : *mut SHFILEINFOA, cbfileinfo : u32, uflags : SHGFI_FLAGS) -> usize);
 #[cfg(all(feature = "Win32_Storage_FileSystem", feature = "Win32_UI_WindowsAndMessaging"))]
-::windows_targets::link!("shell32.dll" "system" fn SHGetFileInfoW(pszpath : ::windows_sys::core::PCWSTR, dwfileattributes : super::super::Storage::FileSystem:: FILE_FLAGS_AND_ATTRIBUTES, psfi : *mut SHFILEINFOW, cbfileinfo : u32, uflags : SHGFI_FLAGS) -> usize);
+::windows_targets::link!("shell32.dll" "system" fn SHGetFileInfoW(pszpath : windows_sys::core::PCWSTR, dwfileattributes : super::super::Storage::FileSystem:: FILE_FLAGS_AND_ATTRIBUTES, psfi : *mut SHFILEINFOW, cbfileinfo : u32, uflags : SHGFI_FLAGS) -> usize);
 #[cfg(feature = "Win32_UI_Shell_Common")]
-::windows_targets::link!("shell32.dll" "system" fn SHGetFolderLocation(hwnd : super::super::Foundation:: HWND, csidl : i32, htoken : super::super::Foundation:: HANDLE, dwflags : u32, ppidl : *mut *mut Common:: ITEMIDLIST) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("shell32.dll" "system" fn SHGetFolderPathA(hwnd : super::super::Foundation:: HWND, csidl : i32, htoken : super::super::Foundation:: HANDLE, dwflags : u32, pszpath : ::windows_sys::core::PSTR) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("shell32.dll" "system" fn SHGetFolderPathAndSubDirA(hwnd : super::super::Foundation:: HWND, csidl : i32, htoken : super::super::Foundation:: HANDLE, dwflags : u32, pszsubdir : ::windows_sys::core::PCSTR, pszpath : ::windows_sys::core::PSTR) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("shell32.dll" "system" fn SHGetFolderPathAndSubDirW(hwnd : super::super::Foundation:: HWND, csidl : i32, htoken : super::super::Foundation:: HANDLE, dwflags : u32, pszsubdir : ::windows_sys::core::PCWSTR, pszpath : ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("shell32.dll" "system" fn SHGetFolderPathW(hwnd : super::super::Foundation:: HWND, csidl : i32, htoken : super::super::Foundation:: HANDLE, dwflags : u32, pszpath : ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" fn SHGetFolderLocation(hwnd : super::super::Foundation:: HWND, csidl : i32, htoken : super::super::Foundation:: HANDLE, dwflags : u32, ppidl : *mut *mut Common:: ITEMIDLIST) -> windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" fn SHGetFolderPathA(hwnd : super::super::Foundation:: HWND, csidl : i32, htoken : super::super::Foundation:: HANDLE, dwflags : u32, pszpath : windows_sys::core::PSTR) -> windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" fn SHGetFolderPathAndSubDirA(hwnd : super::super::Foundation:: HWND, csidl : i32, htoken : super::super::Foundation:: HANDLE, dwflags : u32, pszsubdir : windows_sys::core::PCSTR, pszpath : windows_sys::core::PSTR) -> windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" fn SHGetFolderPathAndSubDirW(hwnd : super::super::Foundation:: HWND, csidl : i32, htoken : super::super::Foundation:: HANDLE, dwflags : u32, pszsubdir : windows_sys::core::PCWSTR, pszpath : windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" fn SHGetFolderPathW(hwnd : super::super::Foundation:: HWND, csidl : i32, htoken : super::super::Foundation:: HANDLE, dwflags : u32, pszpath : windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_UI_Shell_Common")]
-::windows_targets::link!("shell32.dll" "system" fn SHGetIDListFromObject(punk : * mut::core::ffi::c_void, ppidl : *mut *mut Common:: ITEMIDLIST) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("shell32.dll" "system" fn SHGetIconOverlayIndexA(psziconpath : ::windows_sys::core::PCSTR, iiconindex : i32) -> i32);
-::windows_targets::link!("shell32.dll" "system" fn SHGetIconOverlayIndexW(psziconpath : ::windows_sys::core::PCWSTR, iiconindex : i32) -> i32);
-::windows_targets::link!("shell32.dll" "system" fn SHGetImageList(iimagelist : i32, riid : *const ::windows_sys::core::GUID, ppvobj : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("shell32.dll" "system" fn SHGetInstanceExplorer(ppunk : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("shlwapi.dll" "system" fn SHGetInverseCMAP(pbmap : *mut u8, cbmap : u32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("shell32.dll" "system" fn SHGetItemFromDataObject(pdtobj : * mut::core::ffi::c_void, dwflags : DATAOBJ_GET_ITEM_FLAGS, riid : *const ::windows_sys::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("shell32.dll" "system" fn SHGetItemFromObject(punk : * mut::core::ffi::c_void, riid : *const ::windows_sys::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" fn SHGetIDListFromObject(punk : * mut core::ffi::c_void, ppidl : *mut *mut Common:: ITEMIDLIST) -> windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" fn SHGetIconOverlayIndexA(psziconpath : windows_sys::core::PCSTR, iiconindex : i32) -> i32);
+::windows_targets::link!("shell32.dll" "system" fn SHGetIconOverlayIndexW(psziconpath : windows_sys::core::PCWSTR, iiconindex : i32) -> i32);
+::windows_targets::link!("shell32.dll" "system" fn SHGetImageList(iimagelist : i32, riid : *const windows_sys::core::GUID, ppvobj : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" fn SHGetInstanceExplorer(ppunk : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+::windows_targets::link!("shlwapi.dll" "system" fn SHGetInverseCMAP(pbmap : *mut u8, cbmap : u32) -> windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" fn SHGetItemFromDataObject(pdtobj : * mut core::ffi::c_void, dwflags : DATAOBJ_GET_ITEM_FLAGS, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" fn SHGetItemFromObject(punk : * mut core::ffi::c_void, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_UI_Shell_Common")]
-::windows_targets::link!("shell32.dll" "system" fn SHGetKnownFolderIDList(rfid : *const ::windows_sys::core::GUID, dwflags : u32, htoken : super::super::Foundation:: HANDLE, ppidl : *mut *mut Common:: ITEMIDLIST) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("shell32.dll" "system" fn SHGetKnownFolderItem(rfid : *const ::windows_sys::core::GUID, flags : KNOWN_FOLDER_FLAG, htoken : super::super::Foundation:: HANDLE, riid : *const ::windows_sys::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("shell32.dll" "system" fn SHGetKnownFolderPath(rfid : *const ::windows_sys::core::GUID, dwflags : u32, htoken : super::super::Foundation:: HANDLE, ppszpath : *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("shell32.dll" "system" fn SHGetLocalizedName(pszpath : ::windows_sys::core::PCWSTR, pszresmodule : ::windows_sys::core::PWSTR, cch : u32, pidsres : *mut i32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("shell32.dll" "system" fn SHGetMalloc(ppmalloc : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" fn SHGetKnownFolderIDList(rfid : *const windows_sys::core::GUID, dwflags : u32, htoken : super::super::Foundation:: HANDLE, ppidl : *mut *mut Common:: ITEMIDLIST) -> windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" fn SHGetKnownFolderItem(rfid : *const windows_sys::core::GUID, flags : KNOWN_FOLDER_FLAG, htoken : super::super::Foundation:: HANDLE, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" fn SHGetKnownFolderPath(rfid : *const windows_sys::core::GUID, dwflags : u32, htoken : super::super::Foundation:: HANDLE, ppszpath : *mut windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" fn SHGetLocalizedName(pszpath : windows_sys::core::PCWSTR, pszresmodule : windows_sys::core::PWSTR, cch : u32, pidsres : *mut i32) -> windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" fn SHGetMalloc(ppmalloc : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_UI_Shell_Common")]
-::windows_targets::link!("shell32.dll" "system" fn SHGetNameFromIDList(pidl : *const Common:: ITEMIDLIST, sigdnname : SIGDN, ppszname : *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("shell32.dll" "system" fn SHGetNewLinkInfoA(pszlinkto : ::windows_sys::core::PCSTR, pszdir : ::windows_sys::core::PCSTR, pszname : ::windows_sys::core::PSTR, pfmustcopy : *mut super::super::Foundation:: BOOL, uflags : u32) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("shell32.dll" "system" fn SHGetNewLinkInfoW(pszlinkto : ::windows_sys::core::PCWSTR, pszdir : ::windows_sys::core::PCWSTR, pszname : ::windows_sys::core::PWSTR, pfmustcopy : *mut super::super::Foundation:: BOOL, uflags : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shell32.dll" "system" fn SHGetNameFromIDList(pidl : *const Common:: ITEMIDLIST, sigdnname : SIGDN, ppszname : *mut windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" fn SHGetNewLinkInfoA(pszlinkto : windows_sys::core::PCSTR, pszdir : windows_sys::core::PCSTR, pszname : windows_sys::core::PSTR, pfmustcopy : *mut super::super::Foundation:: BOOL, uflags : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shell32.dll" "system" fn SHGetNewLinkInfoW(pszlinkto : windows_sys::core::PCWSTR, pszdir : windows_sys::core::PCWSTR, pszname : windows_sys::core::PWSTR, pfmustcopy : *mut super::super::Foundation:: BOOL, uflags : u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_UI_Shell_Common")]
-::windows_targets::link!("shell32.dll" "system" fn SHGetPathFromIDListA(pidl : *const Common:: ITEMIDLIST, pszpath : ::windows_sys::core::PSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shell32.dll" "system" fn SHGetPathFromIDListA(pidl : *const Common:: ITEMIDLIST, pszpath : windows_sys::core::PSTR) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_UI_Shell_Common")]
-::windows_targets::link!("shell32.dll" "system" fn SHGetPathFromIDListEx(pidl : *const Common:: ITEMIDLIST, pszpath : ::windows_sys::core::PWSTR, cchpath : u32, uopts : GPFIDL_FLAGS) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shell32.dll" "system" fn SHGetPathFromIDListEx(pidl : *const Common:: ITEMIDLIST, pszpath : windows_sys::core::PWSTR, cchpath : u32, uopts : GPFIDL_FLAGS) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_UI_Shell_Common")]
-::windows_targets::link!("shell32.dll" "system" fn SHGetPathFromIDListW(pidl : *const Common:: ITEMIDLIST, pszpath : ::windows_sys::core::PWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shell32.dll" "system" fn SHGetPathFromIDListW(pidl : *const Common:: ITEMIDLIST, pszpath : windows_sys::core::PWSTR) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_UI_Shell_Common")]
-::windows_targets::link!("shell32.dll" "system" fn SHGetRealIDL(psf : * mut::core::ffi::c_void, pidlsimple : *const Common:: ITEMIDLIST, ppidlreal : *mut *mut Common:: ITEMIDLIST) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("shell32.dll" "system" fn SHGetSetFolderCustomSettings(pfcs : *mut SHFOLDERCUSTOMSETTINGS, pszpath : ::windows_sys::core::PCWSTR, dwreadwrite : u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" fn SHGetRealIDL(psf : * mut core::ffi::c_void, pidlsimple : *const Common:: ITEMIDLIST, ppidlreal : *mut *mut Common:: ITEMIDLIST) -> windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" fn SHGetSetFolderCustomSettings(pfcs : *mut SHFOLDERCUSTOMSETTINGS, pszpath : windows_sys::core::PCWSTR, dwreadwrite : u32) -> windows_sys::core::HRESULT);
 ::windows_targets::link!("shell32.dll" "system" fn SHGetSetSettings(lpss : *mut SHELLSTATEA, dwmask : SSF_MASK, bset : super::super::Foundation:: BOOL));
 ::windows_targets::link!("shell32.dll" "system" fn SHGetSettings(psfs : *mut SHELLFLAGSTATE, dwmask : u32));
 #[cfg(feature = "Win32_UI_Shell_Common")]
-::windows_targets::link!("shell32.dll" "system" fn SHGetSpecialFolderLocation(hwnd : super::super::Foundation:: HWND, csidl : i32, ppidl : *mut *mut Common:: ITEMIDLIST) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("shell32.dll" "system" fn SHGetSpecialFolderPathA(hwnd : super::super::Foundation:: HWND, pszpath : ::windows_sys::core::PSTR, csidl : i32, fcreate : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("shell32.dll" "system" fn SHGetSpecialFolderPathW(hwnd : super::super::Foundation:: HWND, pszpath : ::windows_sys::core::PWSTR, csidl : i32, fcreate : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shell32.dll" "system" fn SHGetSpecialFolderLocation(hwnd : super::super::Foundation:: HWND, csidl : i32, ppidl : *mut *mut Common:: ITEMIDLIST) -> windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" fn SHGetSpecialFolderPathA(hwnd : super::super::Foundation:: HWND, pszpath : windows_sys::core::PSTR, csidl : i32, fcreate : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shell32.dll" "system" fn SHGetSpecialFolderPathW(hwnd : super::super::Foundation:: HWND, pszpath : windows_sys::core::PWSTR, csidl : i32, fcreate : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-::windows_targets::link!("shell32.dll" "system" fn SHGetStockIconInfo(siid : SHSTOCKICONID, uflags : SHGSI_FLAGS, psii : *mut SHSTOCKICONINFO) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" fn SHGetStockIconInfo(siid : SHSTOCKICONID, uflags : SHGSI_FLAGS, psii : *mut SHSTOCKICONINFO) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
-::windows_targets::link!("shell32.dll" "system" fn SHGetTemporaryPropertyForItem(psi : * mut::core::ffi::c_void, propkey : *const PropertiesSystem:: PROPERTYKEY, ppropvar : *mut super::super::System::Com::StructuredStorage:: PROPVARIANT) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("shlwapi.dll" "system" fn SHGetThreadRef(ppunk : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" fn SHGetTemporaryPropertyForItem(psi : * mut core::ffi::c_void, propkey : *const PropertiesSystem:: PROPERTYKEY, ppropvar : *mut super::super::System::Com::StructuredStorage:: PROPVARIANT) -> windows_sys::core::HRESULT);
+::windows_targets::link!("shlwapi.dll" "system" fn SHGetThreadRef(ppunk : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Registry")]
-::windows_targets::link!("shell32.dll" "system" fn SHGetUnreadMailCountW(hkeyuser : super::super::System::Registry:: HKEY, pszmailaddress : ::windows_sys::core::PCWSTR, pdwcount : *mut u32, pfiletime : *mut super::super::Foundation:: FILETIME, pszshellexecutecommand : ::windows_sys::core::PWSTR, cchshellexecutecommand : i32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" fn SHGetUnreadMailCountW(hkeyuser : super::super::System::Registry:: HKEY, pszmailaddress : windows_sys::core::PCWSTR, pdwcount : *mut u32, pfiletime : *mut super::super::Foundation:: FILETIME, pszshellexecutecommand : windows_sys::core::PWSTR, cchshellexecutecommand : i32) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Registry")]
-::windows_targets::link!("shlwapi.dll" "system" fn SHGetValueA(hkey : super::super::System::Registry:: HKEY, pszsubkey : ::windows_sys::core::PCSTR, pszvalue : ::windows_sys::core::PCSTR, pdwtype : *mut u32, pvdata : *mut ::core::ffi::c_void, pcbdata : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("shlwapi.dll" "system" fn SHGetValueA(hkey : super::super::System::Registry:: HKEY, pszsubkey : windows_sys::core::PCSTR, pszvalue : windows_sys::core::PCSTR, pdwtype : *mut u32, pvdata : *mut core::ffi::c_void, pcbdata : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_System_Registry")]
-::windows_targets::link!("shlwapi.dll" "system" fn SHGetValueW(hkey : super::super::System::Registry:: HKEY, pszsubkey : ::windows_sys::core::PCWSTR, pszvalue : ::windows_sys::core::PCWSTR, pdwtype : *mut u32, pvdata : *mut ::core::ffi::c_void, pcbdata : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("shlwapi.dll" "system" fn SHGetValueW(hkey : super::super::System::Registry:: HKEY, pszsubkey : windows_sys::core::PCWSTR, pszvalue : windows_sys::core::PCWSTR, pdwtype : *mut u32, pvdata : *mut core::ffi::c_void, pcbdata : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_UI_Shell_Common")]
-::windows_targets::link!("shlwapi.dll" "system" fn SHGetViewStatePropertyBag(pidl : *const Common:: ITEMIDLIST, pszbagname : ::windows_sys::core::PCWSTR, dwflags : u32, riid : *const ::windows_sys::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shlwapi.dll" "system" fn SHGetViewStatePropertyBag(pidl : *const Common:: ITEMIDLIST, pszbagname : windows_sys::core::PCWSTR, dwflags : u32, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 ::windows_targets::link!("shlwapi.dll" "system" fn SHGlobalCounterDecrement(id : SHGLOBALCOUNTER) -> i32);
 ::windows_targets::link!("shlwapi.dll" "system" fn SHGlobalCounterGetValue(id : SHGLOBALCOUNTER) -> i32);
 ::windows_targets::link!("shlwapi.dll" "system" fn SHGlobalCounterIncrement(id : SHGLOBALCOUNTER) -> i32);
 #[cfg(feature = "Win32_UI_Shell_Common")]
 ::windows_targets::link!("shell32.dll" "system" fn SHHandleUpdateImage(pidlextra : *const Common:: ITEMIDLIST) -> i32);
 #[cfg(feature = "Win32_UI_Shell_Common")]
-::windows_targets::link!("shell32.dll" "system" fn SHILCreateFromPath(pszpath : ::windows_sys::core::PCWSTR, ppidl : *mut *mut Common:: ITEMIDLIST, rgfinout : *mut u32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("shell32.dll" "system" fn SHInvokePrinterCommandA(hwnd : super::super::Foundation:: HWND, uaction : u32, lpbuf1 : ::windows_sys::core::PCSTR, lpbuf2 : ::windows_sys::core::PCSTR, fmodal : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("shell32.dll" "system" fn SHInvokePrinterCommandW(hwnd : super::super::Foundation:: HWND, uaction : u32, lpbuf1 : ::windows_sys::core::PCWSTR, lpbuf2 : ::windows_sys::core::PCWSTR, fmodal : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("shell32.dll" "system" fn SHIsFileAvailableOffline(pwszpath : ::windows_sys::core::PCWSTR, pdwstatus : *mut u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" fn SHILCreateFromPath(pszpath : windows_sys::core::PCWSTR, ppidl : *mut *mut Common:: ITEMIDLIST, rgfinout : *mut u32) -> windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" fn SHInvokePrinterCommandA(hwnd : super::super::Foundation:: HWND, uaction : u32, lpbuf1 : windows_sys::core::PCSTR, lpbuf2 : windows_sys::core::PCSTR, fmodal : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shell32.dll" "system" fn SHInvokePrinterCommandW(hwnd : super::super::Foundation:: HWND, uaction : u32, lpbuf1 : windows_sys::core::PCWSTR, lpbuf2 : windows_sys::core::PCWSTR, fmodal : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shell32.dll" "system" fn SHIsFileAvailableOffline(pwszpath : windows_sys::core::PCWSTR, pdwstatus : *mut u32) -> windows_sys::core::HRESULT);
 ::windows_targets::link!("shlwapi.dll" "system" fn SHIsLowMemoryMachine(dwtype : u32) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("shell32.dll" "system" fn SHLimitInputEdit(hwndedit : super::super::Foundation:: HWND, psf : * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("shell32.dll" "system" fn SHLoadInProc(rclsid : *const ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("shlwapi.dll" "system" fn SHLoadIndirectString(pszsource : ::windows_sys::core::PCWSTR, pszoutbuf : ::windows_sys::core::PWSTR, cchoutbuf : u32, ppvreserved : *const *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("shell32.dll" "system" fn SHLoadNonloadedIconOverlayIdentifiers() -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("shlwapi.dll" "system" fn SHLockShared(hdata : super::super::Foundation:: HANDLE, dwprocessid : u32) -> *mut ::core::ffi::c_void);
+::windows_targets::link!("shell32.dll" "system" fn SHLimitInputEdit(hwndedit : super::super::Foundation:: HWND, psf : * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" fn SHLoadInProc(rclsid : *const windows_sys::core::GUID) -> windows_sys::core::HRESULT);
+::windows_targets::link!("shlwapi.dll" "system" fn SHLoadIndirectString(pszsource : windows_sys::core::PCWSTR, pszoutbuf : windows_sys::core::PWSTR, cchoutbuf : u32, ppvreserved : *const *const core::ffi::c_void) -> windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" fn SHLoadNonloadedIconOverlayIdentifiers() -> windows_sys::core::HRESULT);
+::windows_targets::link!("shlwapi.dll" "system" fn SHLockShared(hdata : super::super::Foundation:: HANDLE, dwprocessid : u32) -> *mut core::ffi::c_void);
 #[cfg(feature = "Win32_UI_Shell_Common")]
-::windows_targets::link!("shell32.dll" "system" fn SHMapPIDLToSystemImageListIndex(pshf : * mut::core::ffi::c_void, pidl : *const Common:: ITEMIDLIST, piindexsel : *mut i32) -> i32);
-::windows_targets::link!("shlwapi.dll" "system" fn SHMessageBoxCheckA(hwnd : super::super::Foundation:: HWND, psztext : ::windows_sys::core::PCSTR, pszcaption : ::windows_sys::core::PCSTR, utype : u32, idefault : i32, pszregval : ::windows_sys::core::PCSTR) -> i32);
-::windows_targets::link!("shlwapi.dll" "system" fn SHMessageBoxCheckW(hwnd : super::super::Foundation:: HWND, psztext : ::windows_sys::core::PCWSTR, pszcaption : ::windows_sys::core::PCWSTR, utype : u32, idefault : i32, pszregval : ::windows_sys::core::PCWSTR) -> i32);
-::windows_targets::link!("shell32.dll" "system" fn SHMultiFileProperties(pdtobj : * mut::core::ffi::c_void, dwflags : u32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("shell32.dll" "system" fn SHObjectProperties(hwnd : super::super::Foundation:: HWND, shopobjecttype : u32, pszobjectname : ::windows_sys::core::PCWSTR, pszpropertypage : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shell32.dll" "system" fn SHMapPIDLToSystemImageListIndex(pshf : * mut core::ffi::c_void, pidl : *const Common:: ITEMIDLIST, piindexsel : *mut i32) -> i32);
+::windows_targets::link!("shlwapi.dll" "system" fn SHMessageBoxCheckA(hwnd : super::super::Foundation:: HWND, psztext : windows_sys::core::PCSTR, pszcaption : windows_sys::core::PCSTR, utype : u32, idefault : i32, pszregval : windows_sys::core::PCSTR) -> i32);
+::windows_targets::link!("shlwapi.dll" "system" fn SHMessageBoxCheckW(hwnd : super::super::Foundation:: HWND, psztext : windows_sys::core::PCWSTR, pszcaption : windows_sys::core::PCWSTR, utype : u32, idefault : i32, pszregval : windows_sys::core::PCWSTR) -> i32);
+::windows_targets::link!("shell32.dll" "system" fn SHMultiFileProperties(pdtobj : * mut core::ffi::c_void, dwflags : u32) -> windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" fn SHObjectProperties(hwnd : super::super::Foundation:: HWND, shopobjecttype : u32, pszobjectname : windows_sys::core::PCWSTR, pszpropertypage : windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_UI_Shell_Common")]
-::windows_targets::link!("shell32.dll" "system" fn SHOpenFolderAndSelectItems(pidlfolder : *const Common:: ITEMIDLIST, cidl : u32, apidl : *const *const Common:: ITEMIDLIST, dwflags : u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" fn SHOpenFolderAndSelectItems(pidlfolder : *const Common:: ITEMIDLIST, cidl : u32, apidl : *const *const Common:: ITEMIDLIST, dwflags : u32) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Registry")]
-::windows_targets::link!("shell32.dll" "system" fn SHOpenPropSheetW(pszcaption : ::windows_sys::core::PCWSTR, ahkeys : *const super::super::System::Registry:: HKEY, ckeys : u32, pclsiddefault : *const ::windows_sys::core::GUID, pdtobj : * mut::core::ffi::c_void, psb : * mut::core::ffi::c_void, pstartpage : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shell32.dll" "system" fn SHOpenPropSheetW(pszcaption : windows_sys::core::PCWSTR, ahkeys : *const super::super::System::Registry:: HKEY, ckeys : u32, pclsiddefault : *const windows_sys::core::GUID, pdtobj : * mut core::ffi::c_void, psb : * mut core::ffi::c_void, pstartpage : windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_System_Registry")]
-::windows_targets::link!("shlwapi.dll" "system" fn SHOpenRegStream2A(hkey : super::super::System::Registry:: HKEY, pszsubkey : ::windows_sys::core::PCSTR, pszvalue : ::windows_sys::core::PCSTR, grfmode : u32) -> * mut::core::ffi::c_void);
+::windows_targets::link!("shlwapi.dll" "system" fn SHOpenRegStream2A(hkey : super::super::System::Registry:: HKEY, pszsubkey : windows_sys::core::PCSTR, pszvalue : windows_sys::core::PCSTR, grfmode : u32) -> * mut core::ffi::c_void);
 #[cfg(feature = "Win32_System_Registry")]
-::windows_targets::link!("shlwapi.dll" "system" fn SHOpenRegStream2W(hkey : super::super::System::Registry:: HKEY, pszsubkey : ::windows_sys::core::PCWSTR, pszvalue : ::windows_sys::core::PCWSTR, grfmode : u32) -> * mut::core::ffi::c_void);
+::windows_targets::link!("shlwapi.dll" "system" fn SHOpenRegStream2W(hkey : super::super::System::Registry:: HKEY, pszsubkey : windows_sys::core::PCWSTR, pszvalue : windows_sys::core::PCWSTR, grfmode : u32) -> * mut core::ffi::c_void);
 #[cfg(feature = "Win32_System_Registry")]
-::windows_targets::link!("shlwapi.dll" "system" fn SHOpenRegStreamA(hkey : super::super::System::Registry:: HKEY, pszsubkey : ::windows_sys::core::PCSTR, pszvalue : ::windows_sys::core::PCSTR, grfmode : u32) -> * mut::core::ffi::c_void);
+::windows_targets::link!("shlwapi.dll" "system" fn SHOpenRegStreamA(hkey : super::super::System::Registry:: HKEY, pszsubkey : windows_sys::core::PCSTR, pszvalue : windows_sys::core::PCSTR, grfmode : u32) -> * mut core::ffi::c_void);
 #[cfg(feature = "Win32_System_Registry")]
-::windows_targets::link!("shlwapi.dll" "system" fn SHOpenRegStreamW(hkey : super::super::System::Registry:: HKEY, pszsubkey : ::windows_sys::core::PCWSTR, pszvalue : ::windows_sys::core::PCWSTR, grfmode : u32) -> * mut::core::ffi::c_void);
-::windows_targets::link!("shell32.dll" "system" fn SHOpenWithDialog(hwndparent : super::super::Foundation:: HWND, poainfo : *const OPENASINFO) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shlwapi.dll" "system" fn SHOpenRegStreamW(hkey : super::super::System::Registry:: HKEY, pszsubkey : windows_sys::core::PCWSTR, pszvalue : windows_sys::core::PCWSTR, grfmode : u32) -> * mut core::ffi::c_void);
+::windows_targets::link!("shell32.dll" "system" fn SHOpenWithDialog(hwndparent : super::super::Foundation:: HWND, poainfo : *const OPENASINFO) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_UI_Shell_Common")]
-::windows_targets::link!("shell32.dll" "system" fn SHParseDisplayName(pszname : ::windows_sys::core::PCWSTR, pbc : * mut::core::ffi::c_void, ppidl : *mut *mut Common:: ITEMIDLIST, sfgaoin : u32, psfgaoout : *mut u32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("shell32.dll" "system" fn SHPathPrepareForWriteA(hwnd : super::super::Foundation:: HWND, punkenablemodless : * mut::core::ffi::c_void, pszpath : ::windows_sys::core::PCSTR, dwflags : u32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("shell32.dll" "system" fn SHPathPrepareForWriteW(hwnd : super::super::Foundation:: HWND, punkenablemodless : * mut::core::ffi::c_void, pszpath : ::windows_sys::core::PCWSTR, dwflags : u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" fn SHParseDisplayName(pszname : windows_sys::core::PCWSTR, pbc : * mut core::ffi::c_void, ppidl : *mut *mut Common:: ITEMIDLIST, sfgaoin : u32, psfgaoout : *mut u32) -> windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" fn SHPathPrepareForWriteA(hwnd : super::super::Foundation:: HWND, punkenablemodless : * mut core::ffi::c_void, pszpath : windows_sys::core::PCSTR, dwflags : u32) -> windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" fn SHPathPrepareForWriteW(hwnd : super::super::Foundation:: HWND, punkenablemodless : * mut core::ffi::c_void, pszpath : windows_sys::core::PCWSTR, dwflags : u32) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Registry")]
 ::windows_targets::link!("shlwapi.dll" "system" fn SHQueryInfoKeyA(hkey : super::super::System::Registry:: HKEY, pcsubkeys : *mut u32, pcchmaxsubkeylen : *mut u32, pcvalues : *mut u32, pcchmaxvaluenamelen : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_System_Registry")]
 ::windows_targets::link!("shlwapi.dll" "system" fn SHQueryInfoKeyW(hkey : super::super::System::Registry:: HKEY, pcsubkeys : *mut u32, pcchmaxsubkeylen : *mut u32, pcvalues : *mut u32, pcchmaxvaluenamelen : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
-::windows_targets::link!("shell32.dll" "system" fn SHQueryRecycleBinA(pszrootpath : ::windows_sys::core::PCSTR, pshqueryrbinfo : *mut SHQUERYRBINFO) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("shell32.dll" "system" fn SHQueryRecycleBinW(pszrootpath : ::windows_sys::core::PCWSTR, pshqueryrbinfo : *mut SHQUERYRBINFO) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("shell32.dll" "system" fn SHQueryUserNotificationState(pquns : *mut QUERY_USER_NOTIFICATION_STATE) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" fn SHQueryRecycleBinA(pszrootpath : windows_sys::core::PCSTR, pshqueryrbinfo : *mut SHQUERYRBINFO) -> windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" fn SHQueryRecycleBinW(pszrootpath : windows_sys::core::PCWSTR, pshqueryrbinfo : *mut SHQUERYRBINFO) -> windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" fn SHQueryUserNotificationState(pquns : *mut QUERY_USER_NOTIFICATION_STATE) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Registry")]
-::windows_targets::link!("shlwapi.dll" "system" fn SHQueryValueExA(hkey : super::super::System::Registry:: HKEY, pszvalue : ::windows_sys::core::PCSTR, pdwreserved : *const u32, pdwtype : *mut u32, pvdata : *mut ::core::ffi::c_void, pcbdata : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("shlwapi.dll" "system" fn SHQueryValueExA(hkey : super::super::System::Registry:: HKEY, pszvalue : windows_sys::core::PCSTR, pdwreserved : *const u32, pdwtype : *mut u32, pvdata : *mut core::ffi::c_void, pcbdata : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_System_Registry")]
-::windows_targets::link!("shlwapi.dll" "system" fn SHQueryValueExW(hkey : super::super::System::Registry:: HKEY, pszvalue : ::windows_sys::core::PCWSTR, pdwreserved : *const u32, pdwtype : *mut u32, pvdata : *mut ::core::ffi::c_void, pcbdata : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("shlwapi.dll" "system" fn SHQueryValueExW(hkey : super::super::System::Registry:: HKEY, pszvalue : windows_sys::core::PCWSTR, pdwreserved : *const u32, pdwtype : *mut u32, pvdata : *mut core::ffi::c_void, pcbdata : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
 ::windows_targets::link!("shlwapi.dll" "system" fn SHRegCloseUSKey(huskey : isize) -> super::super::Foundation:: WIN32_ERROR);
-::windows_targets::link!("shlwapi.dll" "system" fn SHRegCreateUSKeyA(pszpath : ::windows_sys::core::PCSTR, samdesired : u32, hrelativeuskey : isize, phnewuskey : *mut isize, dwflags : u32) -> super::super::Foundation:: WIN32_ERROR);
-::windows_targets::link!("shlwapi.dll" "system" fn SHRegCreateUSKeyW(pwzpath : ::windows_sys::core::PCWSTR, samdesired : u32, hrelativeuskey : isize, phnewuskey : *mut isize, dwflags : u32) -> super::super::Foundation:: WIN32_ERROR);
-::windows_targets::link!("shlwapi.dll" "system" fn SHRegDeleteEmptyUSKeyA(huskey : isize, pszsubkey : ::windows_sys::core::PCSTR, delregflags : SHREGDEL_FLAGS) -> super::super::Foundation:: WIN32_ERROR);
-::windows_targets::link!("shlwapi.dll" "system" fn SHRegDeleteEmptyUSKeyW(huskey : isize, pwzsubkey : ::windows_sys::core::PCWSTR, delregflags : SHREGDEL_FLAGS) -> super::super::Foundation:: WIN32_ERROR);
-::windows_targets::link!("shlwapi.dll" "system" fn SHRegDeleteUSValueA(huskey : isize, pszvalue : ::windows_sys::core::PCSTR, delregflags : SHREGDEL_FLAGS) -> super::super::Foundation:: WIN32_ERROR);
-::windows_targets::link!("shlwapi.dll" "system" fn SHRegDeleteUSValueW(huskey : isize, pwzvalue : ::windows_sys::core::PCWSTR, delregflags : SHREGDEL_FLAGS) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("shlwapi.dll" "system" fn SHRegCreateUSKeyA(pszpath : windows_sys::core::PCSTR, samdesired : u32, hrelativeuskey : isize, phnewuskey : *mut isize, dwflags : u32) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("shlwapi.dll" "system" fn SHRegCreateUSKeyW(pwzpath : windows_sys::core::PCWSTR, samdesired : u32, hrelativeuskey : isize, phnewuskey : *mut isize, dwflags : u32) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("shlwapi.dll" "system" fn SHRegDeleteEmptyUSKeyA(huskey : isize, pszsubkey : windows_sys::core::PCSTR, delregflags : SHREGDEL_FLAGS) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("shlwapi.dll" "system" fn SHRegDeleteEmptyUSKeyW(huskey : isize, pwzsubkey : windows_sys::core::PCWSTR, delregflags : SHREGDEL_FLAGS) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("shlwapi.dll" "system" fn SHRegDeleteUSValueA(huskey : isize, pszvalue : windows_sys::core::PCSTR, delregflags : SHREGDEL_FLAGS) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("shlwapi.dll" "system" fn SHRegDeleteUSValueW(huskey : isize, pwzvalue : windows_sys::core::PCWSTR, delregflags : SHREGDEL_FLAGS) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_System_Registry")]
 ::windows_targets::link!("shlwapi.dll" "system" fn SHRegDuplicateHKey(hkey : super::super::System::Registry:: HKEY) -> super::super::System::Registry:: HKEY);
-::windows_targets::link!("shlwapi.dll" "system" fn SHRegEnumUSKeyA(huskey : isize, dwindex : u32, pszname : ::windows_sys::core::PSTR, pcchname : *mut u32, enumregflags : SHREGENUM_FLAGS) -> super::super::Foundation:: WIN32_ERROR);
-::windows_targets::link!("shlwapi.dll" "system" fn SHRegEnumUSKeyW(huskey : isize, dwindex : u32, pwzname : ::windows_sys::core::PWSTR, pcchname : *mut u32, enumregflags : SHREGENUM_FLAGS) -> super::super::Foundation:: WIN32_ERROR);
-::windows_targets::link!("shlwapi.dll" "system" fn SHRegEnumUSValueA(huskey : isize, dwindex : u32, pszvaluename : ::windows_sys::core::PSTR, pcchvaluename : *mut u32, pdwtype : *mut u32, pvdata : *mut ::core::ffi::c_void, pcbdata : *mut u32, enumregflags : SHREGENUM_FLAGS) -> super::super::Foundation:: WIN32_ERROR);
-::windows_targets::link!("shlwapi.dll" "system" fn SHRegEnumUSValueW(huskey : isize, dwindex : u32, pszvaluename : ::windows_sys::core::PWSTR, pcchvaluename : *mut u32, pdwtype : *mut u32, pvdata : *mut ::core::ffi::c_void, pcbdata : *mut u32, enumregflags : SHREGENUM_FLAGS) -> super::super::Foundation:: WIN32_ERROR);
-::windows_targets::link!("shlwapi.dll" "system" fn SHRegGetBoolUSValueA(pszsubkey : ::windows_sys::core::PCSTR, pszvalue : ::windows_sys::core::PCSTR, fignorehkcu : super::super::Foundation:: BOOL, fdefault : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("shlwapi.dll" "system" fn SHRegGetBoolUSValueW(pszsubkey : ::windows_sys::core::PCWSTR, pszvalue : ::windows_sys::core::PCWSTR, fignorehkcu : super::super::Foundation:: BOOL, fdefault : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" fn SHRegEnumUSKeyA(huskey : isize, dwindex : u32, pszname : windows_sys::core::PSTR, pcchname : *mut u32, enumregflags : SHREGENUM_FLAGS) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("shlwapi.dll" "system" fn SHRegEnumUSKeyW(huskey : isize, dwindex : u32, pwzname : windows_sys::core::PWSTR, pcchname : *mut u32, enumregflags : SHREGENUM_FLAGS) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("shlwapi.dll" "system" fn SHRegEnumUSValueA(huskey : isize, dwindex : u32, pszvaluename : windows_sys::core::PSTR, pcchvaluename : *mut u32, pdwtype : *mut u32, pvdata : *mut core::ffi::c_void, pcbdata : *mut u32, enumregflags : SHREGENUM_FLAGS) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("shlwapi.dll" "system" fn SHRegEnumUSValueW(huskey : isize, dwindex : u32, pszvaluename : windows_sys::core::PWSTR, pcchvaluename : *mut u32, pdwtype : *mut u32, pvdata : *mut core::ffi::c_void, pcbdata : *mut u32, enumregflags : SHREGENUM_FLAGS) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("shlwapi.dll" "system" fn SHRegGetBoolUSValueA(pszsubkey : windows_sys::core::PCSTR, pszvalue : windows_sys::core::PCSTR, fignorehkcu : super::super::Foundation:: BOOL, fdefault : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" fn SHRegGetBoolUSValueW(pszsubkey : windows_sys::core::PCWSTR, pszvalue : windows_sys::core::PCWSTR, fignorehkcu : super::super::Foundation:: BOOL, fdefault : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_System_Registry")]
-::windows_targets::link!("shlwapi.dll" "system" fn SHRegGetIntW(hk : super::super::System::Registry:: HKEY, pwzkey : ::windows_sys::core::PCWSTR, idefault : i32) -> i32);
+::windows_targets::link!("shlwapi.dll" "system" fn SHRegGetIntW(hk : super::super::System::Registry:: HKEY, pwzkey : windows_sys::core::PCWSTR, idefault : i32) -> i32);
 #[cfg(feature = "Win32_System_Registry")]
-::windows_targets::link!("shlwapi.dll" "system" fn SHRegGetPathA(hkey : super::super::System::Registry:: HKEY, pcszsubkey : ::windows_sys::core::PCSTR, pcszvalue : ::windows_sys::core::PCSTR, pszpath : ::windows_sys::core::PSTR, dwflags : u32) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("shlwapi.dll" "system" fn SHRegGetPathA(hkey : super::super::System::Registry:: HKEY, pcszsubkey : windows_sys::core::PCSTR, pcszvalue : windows_sys::core::PCSTR, pszpath : windows_sys::core::PSTR, dwflags : u32) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_System_Registry")]
-::windows_targets::link!("shlwapi.dll" "system" fn SHRegGetPathW(hkey : super::super::System::Registry:: HKEY, pcszsubkey : ::windows_sys::core::PCWSTR, pcszvalue : ::windows_sys::core::PCWSTR, pszpath : ::windows_sys::core::PWSTR, dwflags : u32) -> super::super::Foundation:: WIN32_ERROR);
-::windows_targets::link!("shlwapi.dll" "system" fn SHRegGetUSValueA(pszsubkey : ::windows_sys::core::PCSTR, pszvalue : ::windows_sys::core::PCSTR, pdwtype : *mut u32, pvdata : *mut ::core::ffi::c_void, pcbdata : *mut u32, fignorehkcu : super::super::Foundation:: BOOL, pvdefaultdata : *const ::core::ffi::c_void, dwdefaultdatasize : u32) -> super::super::Foundation:: WIN32_ERROR);
-::windows_targets::link!("shlwapi.dll" "system" fn SHRegGetUSValueW(pszsubkey : ::windows_sys::core::PCWSTR, pszvalue : ::windows_sys::core::PCWSTR, pdwtype : *mut u32, pvdata : *mut ::core::ffi::c_void, pcbdata : *mut u32, fignorehkcu : super::super::Foundation:: BOOL, pvdefaultdata : *const ::core::ffi::c_void, dwdefaultdatasize : u32) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("shlwapi.dll" "system" fn SHRegGetPathW(hkey : super::super::System::Registry:: HKEY, pcszsubkey : windows_sys::core::PCWSTR, pcszvalue : windows_sys::core::PCWSTR, pszpath : windows_sys::core::PWSTR, dwflags : u32) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("shlwapi.dll" "system" fn SHRegGetUSValueA(pszsubkey : windows_sys::core::PCSTR, pszvalue : windows_sys::core::PCSTR, pdwtype : *mut u32, pvdata : *mut core::ffi::c_void, pcbdata : *mut u32, fignorehkcu : super::super::Foundation:: BOOL, pvdefaultdata : *const core::ffi::c_void, dwdefaultdatasize : u32) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("shlwapi.dll" "system" fn SHRegGetUSValueW(pszsubkey : windows_sys::core::PCWSTR, pszvalue : windows_sys::core::PCWSTR, pdwtype : *mut u32, pvdata : *mut core::ffi::c_void, pcbdata : *mut u32, fignorehkcu : super::super::Foundation:: BOOL, pvdefaultdata : *const core::ffi::c_void, dwdefaultdatasize : u32) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_System_Registry")]
-::windows_targets::link!("shlwapi.dll" "system" fn SHRegGetValueA(hkey : super::super::System::Registry:: HKEY, pszsubkey : ::windows_sys::core::PCSTR, pszvalue : ::windows_sys::core::PCSTR, srrfflags : i32, pdwtype : *mut u32, pvdata : *mut ::core::ffi::c_void, pcbdata : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
-::windows_targets::link!("shlwapi.dll" "system" fn SHRegGetValueFromHKCUHKLM(pwszkey : ::windows_sys::core::PCWSTR, pwszvalue : ::windows_sys::core::PCWSTR, srrfflags : i32, pdwtype : *mut u32, pvdata : *mut ::core::ffi::c_void, pcbdata : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("shlwapi.dll" "system" fn SHRegGetValueA(hkey : super::super::System::Registry:: HKEY, pszsubkey : windows_sys::core::PCSTR, pszvalue : windows_sys::core::PCSTR, srrfflags : i32, pdwtype : *mut u32, pvdata : *mut core::ffi::c_void, pcbdata : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("shlwapi.dll" "system" fn SHRegGetValueFromHKCUHKLM(pwszkey : windows_sys::core::PCWSTR, pwszvalue : windows_sys::core::PCWSTR, srrfflags : i32, pdwtype : *mut u32, pvdata : *mut core::ffi::c_void, pcbdata : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_System_Registry")]
-::windows_targets::link!("shlwapi.dll" "system" fn SHRegGetValueW(hkey : super::super::System::Registry:: HKEY, pszsubkey : ::windows_sys::core::PCWSTR, pszvalue : ::windows_sys::core::PCWSTR, srrfflags : i32, pdwtype : *mut u32, pvdata : *mut ::core::ffi::c_void, pcbdata : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
-::windows_targets::link!("shlwapi.dll" "system" fn SHRegOpenUSKeyA(pszpath : ::windows_sys::core::PCSTR, samdesired : u32, hrelativeuskey : isize, phnewuskey : *mut isize, fignorehkcu : super::super::Foundation:: BOOL) -> super::super::Foundation:: WIN32_ERROR);
-::windows_targets::link!("shlwapi.dll" "system" fn SHRegOpenUSKeyW(pwzpath : ::windows_sys::core::PCWSTR, samdesired : u32, hrelativeuskey : isize, phnewuskey : *mut isize, fignorehkcu : super::super::Foundation:: BOOL) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("shlwapi.dll" "system" fn SHRegGetValueW(hkey : super::super::System::Registry:: HKEY, pszsubkey : windows_sys::core::PCWSTR, pszvalue : windows_sys::core::PCWSTR, srrfflags : i32, pdwtype : *mut u32, pvdata : *mut core::ffi::c_void, pcbdata : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("shlwapi.dll" "system" fn SHRegOpenUSKeyA(pszpath : windows_sys::core::PCSTR, samdesired : u32, hrelativeuskey : isize, phnewuskey : *mut isize, fignorehkcu : super::super::Foundation:: BOOL) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("shlwapi.dll" "system" fn SHRegOpenUSKeyW(pwzpath : windows_sys::core::PCWSTR, samdesired : u32, hrelativeuskey : isize, phnewuskey : *mut isize, fignorehkcu : super::super::Foundation:: BOOL) -> super::super::Foundation:: WIN32_ERROR);
 ::windows_targets::link!("shlwapi.dll" "system" fn SHRegQueryInfoUSKeyA(huskey : isize, pcsubkeys : *mut u32, pcchmaxsubkeylen : *mut u32, pcvalues : *mut u32, pcchmaxvaluenamelen : *mut u32, enumregflags : SHREGENUM_FLAGS) -> super::super::Foundation:: WIN32_ERROR);
 ::windows_targets::link!("shlwapi.dll" "system" fn SHRegQueryInfoUSKeyW(huskey : isize, pcsubkeys : *mut u32, pcchmaxsubkeylen : *mut u32, pcvalues : *mut u32, pcchmaxvaluenamelen : *mut u32, enumregflags : SHREGENUM_FLAGS) -> super::super::Foundation:: WIN32_ERROR);
-::windows_targets::link!("shlwapi.dll" "system" fn SHRegQueryUSValueA(huskey : isize, pszvalue : ::windows_sys::core::PCSTR, pdwtype : *mut u32, pvdata : *mut ::core::ffi::c_void, pcbdata : *mut u32, fignorehkcu : super::super::Foundation:: BOOL, pvdefaultdata : *const ::core::ffi::c_void, dwdefaultdatasize : u32) -> super::super::Foundation:: WIN32_ERROR);
-::windows_targets::link!("shlwapi.dll" "system" fn SHRegQueryUSValueW(huskey : isize, pszvalue : ::windows_sys::core::PCWSTR, pdwtype : *mut u32, pvdata : *mut ::core::ffi::c_void, pcbdata : *mut u32, fignorehkcu : super::super::Foundation:: BOOL, pvdefaultdata : *const ::core::ffi::c_void, dwdefaultdatasize : u32) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("shlwapi.dll" "system" fn SHRegQueryUSValueA(huskey : isize, pszvalue : windows_sys::core::PCSTR, pdwtype : *mut u32, pvdata : *mut core::ffi::c_void, pcbdata : *mut u32, fignorehkcu : super::super::Foundation:: BOOL, pvdefaultdata : *const core::ffi::c_void, dwdefaultdatasize : u32) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("shlwapi.dll" "system" fn SHRegQueryUSValueW(huskey : isize, pszvalue : windows_sys::core::PCWSTR, pdwtype : *mut u32, pvdata : *mut core::ffi::c_void, pcbdata : *mut u32, fignorehkcu : super::super::Foundation:: BOOL, pvdefaultdata : *const core::ffi::c_void, dwdefaultdatasize : u32) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_System_Registry")]
-::windows_targets::link!("shlwapi.dll" "system" fn SHRegSetPathA(hkey : super::super::System::Registry:: HKEY, pcszsubkey : ::windows_sys::core::PCSTR, pcszvalue : ::windows_sys::core::PCSTR, pcszpath : ::windows_sys::core::PCSTR, dwflags : u32) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("shlwapi.dll" "system" fn SHRegSetPathA(hkey : super::super::System::Registry:: HKEY, pcszsubkey : windows_sys::core::PCSTR, pcszvalue : windows_sys::core::PCSTR, pcszpath : windows_sys::core::PCSTR, dwflags : u32) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_System_Registry")]
-::windows_targets::link!("shlwapi.dll" "system" fn SHRegSetPathW(hkey : super::super::System::Registry:: HKEY, pcszsubkey : ::windows_sys::core::PCWSTR, pcszvalue : ::windows_sys::core::PCWSTR, pcszpath : ::windows_sys::core::PCWSTR, dwflags : u32) -> super::super::Foundation:: WIN32_ERROR);
-::windows_targets::link!("shlwapi.dll" "system" fn SHRegSetUSValueA(pszsubkey : ::windows_sys::core::PCSTR, pszvalue : ::windows_sys::core::PCSTR, dwtype : u32, pvdata : *const ::core::ffi::c_void, cbdata : u32, dwflags : u32) -> super::super::Foundation:: WIN32_ERROR);
-::windows_targets::link!("shlwapi.dll" "system" fn SHRegSetUSValueW(pwzsubkey : ::windows_sys::core::PCWSTR, pwzvalue : ::windows_sys::core::PCWSTR, dwtype : u32, pvdata : *const ::core::ffi::c_void, cbdata : u32, dwflags : u32) -> super::super::Foundation:: WIN32_ERROR);
-::windows_targets::link!("shlwapi.dll" "system" fn SHRegWriteUSValueA(huskey : isize, pszvalue : ::windows_sys::core::PCSTR, dwtype : u32, pvdata : *const ::core::ffi::c_void, cbdata : u32, dwflags : u32) -> super::super::Foundation:: WIN32_ERROR);
-::windows_targets::link!("shlwapi.dll" "system" fn SHRegWriteUSValueW(huskey : isize, pwzvalue : ::windows_sys::core::PCWSTR, dwtype : u32, pvdata : *const ::core::ffi::c_void, cbdata : u32, dwflags : u32) -> super::super::Foundation:: WIN32_ERROR);
-::windows_targets::link!("shlwapi.dll" "system" fn SHReleaseThreadRef() -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("shell32.dll" "system" fn SHRemoveLocalizedName(pszpath : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shlwapi.dll" "system" fn SHRegSetPathW(hkey : super::super::System::Registry:: HKEY, pcszsubkey : windows_sys::core::PCWSTR, pcszvalue : windows_sys::core::PCWSTR, pcszpath : windows_sys::core::PCWSTR, dwflags : u32) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("shlwapi.dll" "system" fn SHRegSetUSValueA(pszsubkey : windows_sys::core::PCSTR, pszvalue : windows_sys::core::PCSTR, dwtype : u32, pvdata : *const core::ffi::c_void, cbdata : u32, dwflags : u32) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("shlwapi.dll" "system" fn SHRegSetUSValueW(pwzsubkey : windows_sys::core::PCWSTR, pwzvalue : windows_sys::core::PCWSTR, dwtype : u32, pvdata : *const core::ffi::c_void, cbdata : u32, dwflags : u32) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("shlwapi.dll" "system" fn SHRegWriteUSValueA(huskey : isize, pszvalue : windows_sys::core::PCSTR, dwtype : u32, pvdata : *const core::ffi::c_void, cbdata : u32, dwflags : u32) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("shlwapi.dll" "system" fn SHRegWriteUSValueW(huskey : isize, pwzvalue : windows_sys::core::PCWSTR, dwtype : u32, pvdata : *const core::ffi::c_void, cbdata : u32, dwflags : u32) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("shlwapi.dll" "system" fn SHReleaseThreadRef() -> windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" fn SHRemoveLocalizedName(pszpath : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_UI_Controls")]
 ::windows_targets::link!("shell32.dll" "system" fn SHReplaceFromPropSheetExtArray(hpsxa : HPSXA, upageid : u32, lpfnreplacewith : super::Controls:: LPFNSVADDPROPSHEETPAGE, lparam : super::super::Foundation:: LPARAM) -> u32);
-::windows_targets::link!("shell32.dll" "system" fn SHResolveLibrary(psilibrary : * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" fn SHResolveLibrary(psilibrary : * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 ::windows_targets::link!("shell32.dll" "system" fn SHRestricted(rest : RESTRICTIONS) -> u32);
 ::windows_targets::link!("shlwapi.dll" "system" fn SHSendMessageBroadcastA(umsg : u32, wparam : super::super::Foundation:: WPARAM, lparam : super::super::Foundation:: LPARAM) -> super::super::Foundation:: LRESULT);
 ::windows_targets::link!("shlwapi.dll" "system" fn SHSendMessageBroadcastW(umsg : u32, wparam : super::super::Foundation:: WPARAM, lparam : super::super::Foundation:: LPARAM) -> super::super::Foundation:: LRESULT);
-::windows_targets::link!("shell32.dll" "system" fn SHSetDefaultProperties(hwnd : super::super::Foundation:: HWND, psi : * mut::core::ffi::c_void, dwfileopflags : u32, pfops : * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("shell32.dll" "system" fn SHSetFolderPathA(csidl : i32, htoken : super::super::Foundation:: HANDLE, dwflags : u32, pszpath : ::windows_sys::core::PCSTR) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("shell32.dll" "system" fn SHSetFolderPathW(csidl : i32, htoken : super::super::Foundation:: HANDLE, dwflags : u32, pszpath : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("shell32.dll" "system" fn SHSetInstanceExplorer(punk : * mut::core::ffi::c_void));
-::windows_targets::link!("shell32.dll" "system" fn SHSetKnownFolderPath(rfid : *const ::windows_sys::core::GUID, dwflags : u32, htoken : super::super::Foundation:: HANDLE, pszpath : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("shell32.dll" "system" fn SHSetLocalizedName(pszpath : ::windows_sys::core::PCWSTR, pszresmodule : ::windows_sys::core::PCWSTR, idsres : i32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" fn SHSetDefaultProperties(hwnd : super::super::Foundation:: HWND, psi : * mut core::ffi::c_void, dwfileopflags : u32, pfops : * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" fn SHSetFolderPathA(csidl : i32, htoken : super::super::Foundation:: HANDLE, dwflags : u32, pszpath : windows_sys::core::PCSTR) -> windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" fn SHSetFolderPathW(csidl : i32, htoken : super::super::Foundation:: HANDLE, dwflags : u32, pszpath : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" fn SHSetInstanceExplorer(punk : * mut core::ffi::c_void));
+::windows_targets::link!("shell32.dll" "system" fn SHSetKnownFolderPath(rfid : *const windows_sys::core::GUID, dwflags : u32, htoken : super::super::Foundation:: HANDLE, pszpath : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" fn SHSetLocalizedName(pszpath : windows_sys::core::PCWSTR, pszresmodule : windows_sys::core::PCWSTR, idsres : i32) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
-::windows_targets::link!("shell32.dll" "system" fn SHSetTemporaryPropertyForItem(psi : * mut::core::ffi::c_void, propkey : *const PropertiesSystem:: PROPERTYKEY, propvar : *const super::super::System::Com::StructuredStorage:: PROPVARIANT) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("shlwapi.dll" "system" fn SHSetThreadRef(punk : * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("shell32.dll" "system" fn SHSetUnreadMailCountW(pszmailaddress : ::windows_sys::core::PCWSTR, dwcount : u32, pszshellexecutecommand : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" fn SHSetTemporaryPropertyForItem(psi : * mut core::ffi::c_void, propkey : *const PropertiesSystem:: PROPERTYKEY, propvar : *const super::super::System::Com::StructuredStorage:: PROPVARIANT) -> windows_sys::core::HRESULT);
+::windows_targets::link!("shlwapi.dll" "system" fn SHSetThreadRef(punk : * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" fn SHSetUnreadMailCountW(pszmailaddress : windows_sys::core::PCWSTR, dwcount : u32, pszshellexecutecommand : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Registry")]
-::windows_targets::link!("shlwapi.dll" "system" fn SHSetValueA(hkey : super::super::System::Registry:: HKEY, pszsubkey : ::windows_sys::core::PCSTR, pszvalue : ::windows_sys::core::PCSTR, dwtype : u32, pvdata : *const ::core::ffi::c_void, cbdata : u32) -> i32);
+::windows_targets::link!("shlwapi.dll" "system" fn SHSetValueA(hkey : super::super::System::Registry:: HKEY, pszsubkey : windows_sys::core::PCSTR, pszvalue : windows_sys::core::PCSTR, dwtype : u32, pvdata : *const core::ffi::c_void, cbdata : u32) -> i32);
 #[cfg(feature = "Win32_System_Registry")]
-::windows_targets::link!("shlwapi.dll" "system" fn SHSetValueW(hkey : super::super::System::Registry:: HKEY, pszsubkey : ::windows_sys::core::PCWSTR, pszvalue : ::windows_sys::core::PCWSTR, dwtype : u32, pvdata : *const ::core::ffi::c_void, cbdata : u32) -> i32);
+::windows_targets::link!("shlwapi.dll" "system" fn SHSetValueW(hkey : super::super::System::Registry:: HKEY, pszsubkey : windows_sys::core::PCWSTR, pszvalue : windows_sys::core::PCWSTR, dwtype : u32, pvdata : *const core::ffi::c_void, cbdata : u32) -> i32);
 ::windows_targets::link!("shell32.dll" "system" fn SHShellFolderView_Message(hwndmain : super::super::Foundation:: HWND, umsg : u32, lparam : super::super::Foundation:: LPARAM) -> super::super::Foundation:: LRESULT);
-::windows_targets::link!("shell32.dll" "system" fn SHShowManageLibraryUI(psilibrary : * mut::core::ffi::c_void, hwndowner : super::super::Foundation:: HWND, psztitle : ::windows_sys::core::PCWSTR, pszinstruction : ::windows_sys::core::PCWSTR, lmdoptions : LIBRARYMANAGEDIALOGOPTIONS) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" fn SHShowManageLibraryUI(psilibrary : * mut core::ffi::c_void, hwndowner : super::super::Foundation:: HWND, psztitle : windows_sys::core::PCWSTR, pszinstruction : windows_sys::core::PCWSTR, lmdoptions : LIBRARYMANAGEDIALOGOPTIONS) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_UI_Shell_Common")]
-::windows_targets::link!("shell32.dll" "system" fn SHSimpleIDListFromPath(pszpath : ::windows_sys::core::PCWSTR) -> *mut Common:: ITEMIDLIST);
-::windows_targets::link!("shlwapi.dll" "system" fn SHSkipJunction(pbc : * mut::core::ffi::c_void, pclsid : *const ::windows_sys::core::GUID) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("shell32.dll" "system" fn SHStartNetConnectionDialogW(hwnd : super::super::Foundation:: HWND, pszremotename : ::windows_sys::core::PCWSTR, dwtype : u32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("shlwapi.dll" "system" fn SHStrDupA(psz : ::windows_sys::core::PCSTR, ppwsz : *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("shlwapi.dll" "system" fn SHStrDupW(psz : ::windows_sys::core::PCWSTR, ppwsz : *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("shlwapi.dll" "system" fn SHStripMneumonicA(pszmenu : ::windows_sys::core::PSTR) -> i8);
-::windows_targets::link!("shlwapi.dll" "system" fn SHStripMneumonicW(pszmenu : ::windows_sys::core::PWSTR) -> u16);
+::windows_targets::link!("shell32.dll" "system" fn SHSimpleIDListFromPath(pszpath : windows_sys::core::PCWSTR) -> *mut Common:: ITEMIDLIST);
+::windows_targets::link!("shlwapi.dll" "system" fn SHSkipJunction(pbc : * mut core::ffi::c_void, pclsid : *const windows_sys::core::GUID) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shell32.dll" "system" fn SHStartNetConnectionDialogW(hwnd : super::super::Foundation:: HWND, pszremotename : windows_sys::core::PCWSTR, dwtype : u32) -> windows_sys::core::HRESULT);
+::windows_targets::link!("shlwapi.dll" "system" fn SHStrDupA(psz : windows_sys::core::PCSTR, ppwsz : *mut windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
+::windows_targets::link!("shlwapi.dll" "system" fn SHStrDupW(psz : windows_sys::core::PCWSTR, ppwsz : *mut windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
+::windows_targets::link!("shlwapi.dll" "system" fn SHStripMneumonicA(pszmenu : windows_sys::core::PSTR) -> i8);
+::windows_targets::link!("shlwapi.dll" "system" fn SHStripMneumonicW(pszmenu : windows_sys::core::PWSTR) -> u16);
 ::windows_targets::link!("shell32.dll" "system" fn SHTestTokenMembership(htoken : super::super::Foundation:: HANDLE, ulrid : u32) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("shlwapi.dll" "system" fn SHUnicodeToAnsi(pwszsrc : ::windows_sys::core::PCWSTR, pszdst : ::windows_sys::core::PSTR, cchbuf : i32) -> i32);
-::windows_targets::link!("shlwapi.dll" "system" fn SHUnicodeToUnicode(pwzsrc : ::windows_sys::core::PCWSTR, pwzdst : ::windows_sys::core::PWSTR, cwchbuf : i32) -> i32);
-::windows_targets::link!("shlwapi.dll" "system" fn SHUnlockShared(pvdata : *const ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("shell32.dll" "system" fn SHUpdateImageA(pszhashitem : ::windows_sys::core::PCSTR, iindex : i32, uflags : u32, iimageindex : i32));
-::windows_targets::link!("shell32.dll" "system" fn SHUpdateImageW(pszhashitem : ::windows_sys::core::PCWSTR, iindex : i32, uflags : u32, iimageindex : i32));
-::windows_targets::link!("shell32.dll" "system" fn SHValidateUNC(hwndowner : super::super::Foundation:: HWND, pszfile : ::windows_sys::core::PWSTR, fconnect : u32) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("shell32.dll" "system" fn SetCurrentProcessExplicitAppUserModelID(appid : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shlwapi.dll" "system" fn SHUnicodeToAnsi(pwszsrc : windows_sys::core::PCWSTR, pszdst : windows_sys::core::PSTR, cchbuf : i32) -> i32);
+::windows_targets::link!("shlwapi.dll" "system" fn SHUnicodeToUnicode(pwzsrc : windows_sys::core::PCWSTR, pwzdst : windows_sys::core::PWSTR, cwchbuf : i32) -> i32);
+::windows_targets::link!("shlwapi.dll" "system" fn SHUnlockShared(pvdata : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shell32.dll" "system" fn SHUpdateImageA(pszhashitem : windows_sys::core::PCSTR, iindex : i32, uflags : u32, iimageindex : i32));
+::windows_targets::link!("shell32.dll" "system" fn SHUpdateImageW(pszhashitem : windows_sys::core::PCWSTR, iindex : i32, uflags : u32, iimageindex : i32));
+::windows_targets::link!("shell32.dll" "system" fn SHValidateUNC(hwndowner : super::super::Foundation:: HWND, pszfile : windows_sys::core::PWSTR, fconnect : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shell32.dll" "system" fn SetCurrentProcessExplicitAppUserModelID(appid : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 ::windows_targets::link!("user32.dll" "system" fn SetMenuContextHelpId(param0 : super::WindowsAndMessaging:: HMENU, param1 : u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("user32.dll" "system" fn SetWindowContextHelpId(param0 : super::super::Foundation:: HWND, param1 : u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("comctl32.dll" "system" fn SetWindowSubclass(hwnd : super::super::Foundation:: HWND, pfnsubclass : SUBCLASSPROC, uidsubclass : usize, dwrefdata : usize) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-::windows_targets::link!("shell32.dll" "system" fn ShellAboutA(hwnd : super::super::Foundation:: HWND, szapp : ::windows_sys::core::PCSTR, szotherstuff : ::windows_sys::core::PCSTR, hicon : super::WindowsAndMessaging:: HICON) -> i32);
+::windows_targets::link!("shell32.dll" "system" fn ShellAboutA(hwnd : super::super::Foundation:: HWND, szapp : windows_sys::core::PCSTR, szotherstuff : windows_sys::core::PCSTR, hicon : super::WindowsAndMessaging:: HICON) -> i32);
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-::windows_targets::link!("shell32.dll" "system" fn ShellAboutW(hwnd : super::super::Foundation:: HWND, szapp : ::windows_sys::core::PCWSTR, szotherstuff : ::windows_sys::core::PCWSTR, hicon : super::WindowsAndMessaging:: HICON) -> i32);
+::windows_targets::link!("shell32.dll" "system" fn ShellAboutW(hwnd : super::super::Foundation:: HWND, szapp : windows_sys::core::PCWSTR, szotherstuff : windows_sys::core::PCWSTR, hicon : super::WindowsAndMessaging:: HICON) -> i32);
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-::windows_targets::link!("shell32.dll" "system" fn ShellExecuteA(hwnd : super::super::Foundation:: HWND, lpoperation : ::windows_sys::core::PCSTR, lpfile : ::windows_sys::core::PCSTR, lpparameters : ::windows_sys::core::PCSTR, lpdirectory : ::windows_sys::core::PCSTR, nshowcmd : super::WindowsAndMessaging:: SHOW_WINDOW_CMD) -> super::super::Foundation:: HINSTANCE);
+::windows_targets::link!("shell32.dll" "system" fn ShellExecuteA(hwnd : super::super::Foundation:: HWND, lpoperation : windows_sys::core::PCSTR, lpfile : windows_sys::core::PCSTR, lpparameters : windows_sys::core::PCSTR, lpdirectory : windows_sys::core::PCSTR, nshowcmd : super::WindowsAndMessaging:: SHOW_WINDOW_CMD) -> super::super::Foundation:: HINSTANCE);
 #[cfg(feature = "Win32_System_Registry")]
 ::windows_targets::link!("shell32.dll" "system" fn ShellExecuteExA(pexecinfo : *mut SHELLEXECUTEINFOA) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_System_Registry")]
 ::windows_targets::link!("shell32.dll" "system" fn ShellExecuteExW(pexecinfo : *mut SHELLEXECUTEINFOW) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-::windows_targets::link!("shell32.dll" "system" fn ShellExecuteW(hwnd : super::super::Foundation:: HWND, lpoperation : ::windows_sys::core::PCWSTR, lpfile : ::windows_sys::core::PCWSTR, lpparameters : ::windows_sys::core::PCWSTR, lpdirectory : ::windows_sys::core::PCWSTR, nshowcmd : super::WindowsAndMessaging:: SHOW_WINDOW_CMD) -> super::super::Foundation:: HINSTANCE);
+::windows_targets::link!("shell32.dll" "system" fn ShellExecuteW(hwnd : super::super::Foundation:: HWND, lpoperation : windows_sys::core::PCWSTR, lpfile : windows_sys::core::PCWSTR, lpparameters : windows_sys::core::PCWSTR, lpdirectory : windows_sys::core::PCWSTR, nshowcmd : super::WindowsAndMessaging:: SHOW_WINDOW_CMD) -> super::super::Foundation:: HINSTANCE);
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-::windows_targets::link!("shlwapi.dll" "cdecl" fn ShellMessageBoxA(happinst : super::super::Foundation:: HINSTANCE, hwnd : super::super::Foundation:: HWND, lpctext : ::windows_sys::core::PCSTR, lpctitle : ::windows_sys::core::PCSTR, fustyle : super::WindowsAndMessaging:: MESSAGEBOX_STYLE, ...) -> i32);
+::windows_targets::link!("shlwapi.dll" "cdecl" fn ShellMessageBoxA(happinst : super::super::Foundation:: HINSTANCE, hwnd : super::super::Foundation:: HWND, lpctext : windows_sys::core::PCSTR, lpctitle : windows_sys::core::PCSTR, fustyle : super::WindowsAndMessaging:: MESSAGEBOX_STYLE, ...) -> i32);
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-::windows_targets::link!("shlwapi.dll" "cdecl" fn ShellMessageBoxW(happinst : super::super::Foundation:: HINSTANCE, hwnd : super::super::Foundation:: HWND, lpctext : ::windows_sys::core::PCWSTR, lpctitle : ::windows_sys::core::PCWSTR, fustyle : super::WindowsAndMessaging:: MESSAGEBOX_STYLE, ...) -> i32);
-::windows_targets::link!("shell32.dll" "system" fn Shell_GetCachedImageIndex(pwsziconpath : ::windows_sys::core::PCWSTR, iiconindex : i32, uiconflags : u32) -> i32);
-::windows_targets::link!("shell32.dll" "system" fn Shell_GetCachedImageIndexA(psziconpath : ::windows_sys::core::PCSTR, iiconindex : i32, uiconflags : u32) -> i32);
-::windows_targets::link!("shell32.dll" "system" fn Shell_GetCachedImageIndexW(psziconpath : ::windows_sys::core::PCWSTR, iiconindex : i32, uiconflags : u32) -> i32);
+::windows_targets::link!("shlwapi.dll" "cdecl" fn ShellMessageBoxW(happinst : super::super::Foundation:: HINSTANCE, hwnd : super::super::Foundation:: HWND, lpctext : windows_sys::core::PCWSTR, lpctitle : windows_sys::core::PCWSTR, fustyle : super::WindowsAndMessaging:: MESSAGEBOX_STYLE, ...) -> i32);
+::windows_targets::link!("shell32.dll" "system" fn Shell_GetCachedImageIndex(pwsziconpath : windows_sys::core::PCWSTR, iiconindex : i32, uiconflags : u32) -> i32);
+::windows_targets::link!("shell32.dll" "system" fn Shell_GetCachedImageIndexA(psziconpath : windows_sys::core::PCSTR, iiconindex : i32, uiconflags : u32) -> i32);
+::windows_targets::link!("shell32.dll" "system" fn Shell_GetCachedImageIndexW(psziconpath : windows_sys::core::PCWSTR, iiconindex : i32, uiconflags : u32) -> i32);
 #[cfg(feature = "Win32_UI_Controls")]
 ::windows_targets::link!("shell32.dll" "system" fn Shell_GetImageLists(phiml : *mut super::Controls:: HIMAGELIST, phimlsmall : *mut super::Controls:: HIMAGELIST) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 ::windows_targets::link!("shell32.dll" "system" fn Shell_MergeMenus(hmdst : super::WindowsAndMessaging:: HMENU, hmsrc : super::WindowsAndMessaging:: HMENU, uinsert : u32, uidadjust : u32, uidadjustmax : u32, uflags : MM_FLAGS) -> u32);
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 ::windows_targets::link!("shell32.dll" "system" fn Shell_NotifyIconA(dwmessage : NOTIFY_ICON_MESSAGE, lpdata : *const NOTIFYICONDATAA) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("shell32.dll" "system" fn Shell_NotifyIconGetRect(identifier : *const NOTIFYICONIDENTIFIER, iconlocation : *mut super::super::Foundation:: RECT) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" fn Shell_NotifyIconGetRect(identifier : *const NOTIFYICONIDENTIFIER, iconlocation : *mut super::super::Foundation:: RECT) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 ::windows_targets::link!("shell32.dll" "system" fn Shell_NotifyIconW(dwmessage : NOTIFY_ICON_MESSAGE, lpdata : *const NOTIFYICONDATAW) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_UI_Shell_Common")]
 ::windows_targets::link!("shell32.dll" "system" fn SignalFileOpen(pidl : *const Common:: ITEMIDLIST) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_System_Com_Urlmon")]
-::windows_targets::link!("shdocvw.dll" "system" fn SoftwareUpdateMessageBox(hwnd : super::super::Foundation:: HWND, pszdistunit : ::windows_sys::core::PCWSTR, dwflags : u32, psdi : *mut super::super::System::Com::Urlmon:: SOFTDISTINFO) -> u32);
-::windows_targets::link!("shell32.dll" "system" fn StgMakeUniqueName(pstgparent : * mut::core::ffi::c_void, pszfilespec : ::windows_sys::core::PCWSTR, grfmode : u32, riid : *const ::windows_sys::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("shlwapi.dll" "system" fn StrCSpnA(pszstr : ::windows_sys::core::PCSTR, pszset : ::windows_sys::core::PCSTR) -> i32);
-::windows_targets::link!("shlwapi.dll" "system" fn StrCSpnIA(pszstr : ::windows_sys::core::PCSTR, pszset : ::windows_sys::core::PCSTR) -> i32);
-::windows_targets::link!("shlwapi.dll" "system" fn StrCSpnIW(pszstr : ::windows_sys::core::PCWSTR, pszset : ::windows_sys::core::PCWSTR) -> i32);
-::windows_targets::link!("shlwapi.dll" "system" fn StrCSpnW(pszstr : ::windows_sys::core::PCWSTR, pszset : ::windows_sys::core::PCWSTR) -> i32);
-::windows_targets::link!("shlwapi.dll" "system" fn StrCatBuffA(pszdest : ::windows_sys::core::PSTR, pszsrc : ::windows_sys::core::PCSTR, cchdestbuffsize : i32) -> ::windows_sys::core::PSTR);
-::windows_targets::link!("shlwapi.dll" "system" fn StrCatBuffW(pszdest : ::windows_sys::core::PWSTR, pszsrc : ::windows_sys::core::PCWSTR, cchdestbuffsize : i32) -> ::windows_sys::core::PWSTR);
-::windows_targets::link!("shlwapi.dll" "system" fn StrCatChainW(pszdst : ::windows_sys::core::PWSTR, cchdst : u32, ichat : u32, pszsrc : ::windows_sys::core::PCWSTR) -> u32);
-::windows_targets::link!("shlwapi.dll" "system" fn StrCatW(psz1 : ::windows_sys::core::PWSTR, psz2 : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::PWSTR);
-::windows_targets::link!("shlwapi.dll" "system" fn StrChrA(pszstart : ::windows_sys::core::PCSTR, wmatch : u16) -> ::windows_sys::core::PSTR);
-::windows_targets::link!("shlwapi.dll" "system" fn StrChrIA(pszstart : ::windows_sys::core::PCSTR, wmatch : u16) -> ::windows_sys::core::PSTR);
-::windows_targets::link!("shlwapi.dll" "system" fn StrChrIW(pszstart : ::windows_sys::core::PCWSTR, wmatch : u16) -> ::windows_sys::core::PWSTR);
-::windows_targets::link!("shlwapi.dll" "system" fn StrChrNIW(pszstart : ::windows_sys::core::PCWSTR, wmatch : u16, cchmax : u32) -> ::windows_sys::core::PWSTR);
-::windows_targets::link!("shlwapi.dll" "system" fn StrChrNW(pszstart : ::windows_sys::core::PCWSTR, wmatch : u16, cchmax : u32) -> ::windows_sys::core::PWSTR);
-::windows_targets::link!("shlwapi.dll" "system" fn StrChrW(pszstart : ::windows_sys::core::PCWSTR, wmatch : u16) -> ::windows_sys::core::PWSTR);
-::windows_targets::link!("shlwapi.dll" "system" fn StrCmpCA(pszstr1 : ::windows_sys::core::PCSTR, pszstr2 : ::windows_sys::core::PCSTR) -> i32);
-::windows_targets::link!("shlwapi.dll" "system" fn StrCmpCW(pszstr1 : ::windows_sys::core::PCWSTR, pszstr2 : ::windows_sys::core::PCWSTR) -> i32);
-::windows_targets::link!("shlwapi.dll" "system" fn StrCmpICA(pszstr1 : ::windows_sys::core::PCSTR, pszstr2 : ::windows_sys::core::PCSTR) -> i32);
-::windows_targets::link!("shlwapi.dll" "system" fn StrCmpICW(pszstr1 : ::windows_sys::core::PCWSTR, pszstr2 : ::windows_sys::core::PCWSTR) -> i32);
-::windows_targets::link!("shlwapi.dll" "system" fn StrCmpIW(psz1 : ::windows_sys::core::PCWSTR, psz2 : ::windows_sys::core::PCWSTR) -> i32);
-::windows_targets::link!("shlwapi.dll" "system" fn StrCmpLogicalW(psz1 : ::windows_sys::core::PCWSTR, psz2 : ::windows_sys::core::PCWSTR) -> i32);
-::windows_targets::link!("shlwapi.dll" "system" fn StrCmpNA(psz1 : ::windows_sys::core::PCSTR, psz2 : ::windows_sys::core::PCSTR, nchar : i32) -> i32);
-::windows_targets::link!("shlwapi.dll" "system" fn StrCmpNCA(pszstr1 : ::windows_sys::core::PCSTR, pszstr2 : ::windows_sys::core::PCSTR, nchar : i32) -> i32);
-::windows_targets::link!("shlwapi.dll" "system" fn StrCmpNCW(pszstr1 : ::windows_sys::core::PCWSTR, pszstr2 : ::windows_sys::core::PCWSTR, nchar : i32) -> i32);
-::windows_targets::link!("shlwapi.dll" "system" fn StrCmpNIA(psz1 : ::windows_sys::core::PCSTR, psz2 : ::windows_sys::core::PCSTR, nchar : i32) -> i32);
-::windows_targets::link!("shlwapi.dll" "system" fn StrCmpNICA(pszstr1 : ::windows_sys::core::PCSTR, pszstr2 : ::windows_sys::core::PCSTR, nchar : i32) -> i32);
-::windows_targets::link!("shlwapi.dll" "system" fn StrCmpNICW(pszstr1 : ::windows_sys::core::PCWSTR, pszstr2 : ::windows_sys::core::PCWSTR, nchar : i32) -> i32);
-::windows_targets::link!("shlwapi.dll" "system" fn StrCmpNIW(psz1 : ::windows_sys::core::PCWSTR, psz2 : ::windows_sys::core::PCWSTR, nchar : i32) -> i32);
-::windows_targets::link!("shlwapi.dll" "system" fn StrCmpNW(psz1 : ::windows_sys::core::PCWSTR, psz2 : ::windows_sys::core::PCWSTR, nchar : i32) -> i32);
-::windows_targets::link!("shlwapi.dll" "system" fn StrCmpW(psz1 : ::windows_sys::core::PCWSTR, psz2 : ::windows_sys::core::PCWSTR) -> i32);
-::windows_targets::link!("shlwapi.dll" "system" fn StrCpyNW(pszdst : ::windows_sys::core::PWSTR, pszsrc : ::windows_sys::core::PCWSTR, cchmax : i32) -> ::windows_sys::core::PWSTR);
-::windows_targets::link!("shlwapi.dll" "system" fn StrCpyW(psz1 : ::windows_sys::core::PWSTR, psz2 : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::PWSTR);
-::windows_targets::link!("shlwapi.dll" "system" fn StrDupA(pszsrch : ::windows_sys::core::PCSTR) -> ::windows_sys::core::PSTR);
-::windows_targets::link!("shlwapi.dll" "system" fn StrDupW(pszsrch : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::PWSTR);
-::windows_targets::link!("shlwapi.dll" "system" fn StrFormatByteSize64A(qdw : i64, pszbuf : ::windows_sys::core::PSTR, cchbuf : u32) -> ::windows_sys::core::PSTR);
-::windows_targets::link!("shlwapi.dll" "system" fn StrFormatByteSizeA(dw : u32, pszbuf : ::windows_sys::core::PSTR, cchbuf : u32) -> ::windows_sys::core::PSTR);
-::windows_targets::link!("shlwapi.dll" "system" fn StrFormatByteSizeEx(ull : u64, flags : SFBS_FLAGS, pszbuf : ::windows_sys::core::PWSTR, cchbuf : u32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("shlwapi.dll" "system" fn StrFormatByteSizeW(qdw : i64, pszbuf : ::windows_sys::core::PWSTR, cchbuf : u32) -> ::windows_sys::core::PWSTR);
-::windows_targets::link!("shlwapi.dll" "system" fn StrFormatKBSizeA(qdw : i64, pszbuf : ::windows_sys::core::PSTR, cchbuf : u32) -> ::windows_sys::core::PSTR);
-::windows_targets::link!("shlwapi.dll" "system" fn StrFormatKBSizeW(qdw : i64, pszbuf : ::windows_sys::core::PWSTR, cchbuf : u32) -> ::windows_sys::core::PWSTR);
-::windows_targets::link!("shlwapi.dll" "system" fn StrFromTimeIntervalA(pszout : ::windows_sys::core::PSTR, cchmax : u32, dwtimems : u32, digits : i32) -> i32);
-::windows_targets::link!("shlwapi.dll" "system" fn StrFromTimeIntervalW(pszout : ::windows_sys::core::PWSTR, cchmax : u32, dwtimems : u32, digits : i32) -> i32);
-::windows_targets::link!("shlwapi.dll" "system" fn StrIsIntlEqualA(fcasesens : super::super::Foundation:: BOOL, pszstring1 : ::windows_sys::core::PCSTR, pszstring2 : ::windows_sys::core::PCSTR, nchar : i32) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("shlwapi.dll" "system" fn StrIsIntlEqualW(fcasesens : super::super::Foundation:: BOOL, pszstring1 : ::windows_sys::core::PCWSTR, pszstring2 : ::windows_sys::core::PCWSTR, nchar : i32) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("shlwapi.dll" "system" fn StrNCatA(psz1 : ::windows_sys::core::PSTR, psz2 : ::windows_sys::core::PCSTR, cchmax : i32) -> ::windows_sys::core::PSTR);
-::windows_targets::link!("shlwapi.dll" "system" fn StrNCatW(psz1 : ::windows_sys::core::PWSTR, psz2 : ::windows_sys::core::PCWSTR, cchmax : i32) -> ::windows_sys::core::PWSTR);
-::windows_targets::link!("shlwapi.dll" "system" fn StrPBrkA(psz : ::windows_sys::core::PCSTR, pszset : ::windows_sys::core::PCSTR) -> ::windows_sys::core::PSTR);
-::windows_targets::link!("shlwapi.dll" "system" fn StrPBrkW(psz : ::windows_sys::core::PCWSTR, pszset : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::PWSTR);
-::windows_targets::link!("shlwapi.dll" "system" fn StrRChrA(pszstart : ::windows_sys::core::PCSTR, pszend : ::windows_sys::core::PCSTR, wmatch : u16) -> ::windows_sys::core::PSTR);
-::windows_targets::link!("shlwapi.dll" "system" fn StrRChrIA(pszstart : ::windows_sys::core::PCSTR, pszend : ::windows_sys::core::PCSTR, wmatch : u16) -> ::windows_sys::core::PSTR);
-::windows_targets::link!("shlwapi.dll" "system" fn StrRChrIW(pszstart : ::windows_sys::core::PCWSTR, pszend : ::windows_sys::core::PCWSTR, wmatch : u16) -> ::windows_sys::core::PWSTR);
-::windows_targets::link!("shlwapi.dll" "system" fn StrRChrW(pszstart : ::windows_sys::core::PCWSTR, pszend : ::windows_sys::core::PCWSTR, wmatch : u16) -> ::windows_sys::core::PWSTR);
-::windows_targets::link!("shlwapi.dll" "system" fn StrRStrIA(pszsource : ::windows_sys::core::PCSTR, pszlast : ::windows_sys::core::PCSTR, pszsrch : ::windows_sys::core::PCSTR) -> ::windows_sys::core::PSTR);
-::windows_targets::link!("shlwapi.dll" "system" fn StrRStrIW(pszsource : ::windows_sys::core::PCWSTR, pszlast : ::windows_sys::core::PCWSTR, pszsrch : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::PWSTR);
+::windows_targets::link!("shdocvw.dll" "system" fn SoftwareUpdateMessageBox(hwnd : super::super::Foundation:: HWND, pszdistunit : windows_sys::core::PCWSTR, dwflags : u32, psdi : *mut super::super::System::Com::Urlmon:: SOFTDISTINFO) -> u32);
+::windows_targets::link!("shell32.dll" "system" fn StgMakeUniqueName(pstgparent : * mut core::ffi::c_void, pszfilespec : windows_sys::core::PCWSTR, grfmode : u32, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+::windows_targets::link!("shlwapi.dll" "system" fn StrCSpnA(pszstr : windows_sys::core::PCSTR, pszset : windows_sys::core::PCSTR) -> i32);
+::windows_targets::link!("shlwapi.dll" "system" fn StrCSpnIA(pszstr : windows_sys::core::PCSTR, pszset : windows_sys::core::PCSTR) -> i32);
+::windows_targets::link!("shlwapi.dll" "system" fn StrCSpnIW(pszstr : windows_sys::core::PCWSTR, pszset : windows_sys::core::PCWSTR) -> i32);
+::windows_targets::link!("shlwapi.dll" "system" fn StrCSpnW(pszstr : windows_sys::core::PCWSTR, pszset : windows_sys::core::PCWSTR) -> i32);
+::windows_targets::link!("shlwapi.dll" "system" fn StrCatBuffA(pszdest : windows_sys::core::PSTR, pszsrc : windows_sys::core::PCSTR, cchdestbuffsize : i32) -> windows_sys::core::PSTR);
+::windows_targets::link!("shlwapi.dll" "system" fn StrCatBuffW(pszdest : windows_sys::core::PWSTR, pszsrc : windows_sys::core::PCWSTR, cchdestbuffsize : i32) -> windows_sys::core::PWSTR);
+::windows_targets::link!("shlwapi.dll" "system" fn StrCatChainW(pszdst : windows_sys::core::PWSTR, cchdst : u32, ichat : u32, pszsrc : windows_sys::core::PCWSTR) -> u32);
+::windows_targets::link!("shlwapi.dll" "system" fn StrCatW(psz1 : windows_sys::core::PWSTR, psz2 : windows_sys::core::PCWSTR) -> windows_sys::core::PWSTR);
+::windows_targets::link!("shlwapi.dll" "system" fn StrChrA(pszstart : windows_sys::core::PCSTR, wmatch : u16) -> windows_sys::core::PSTR);
+::windows_targets::link!("shlwapi.dll" "system" fn StrChrIA(pszstart : windows_sys::core::PCSTR, wmatch : u16) -> windows_sys::core::PSTR);
+::windows_targets::link!("shlwapi.dll" "system" fn StrChrIW(pszstart : windows_sys::core::PCWSTR, wmatch : u16) -> windows_sys::core::PWSTR);
+::windows_targets::link!("shlwapi.dll" "system" fn StrChrNIW(pszstart : windows_sys::core::PCWSTR, wmatch : u16, cchmax : u32) -> windows_sys::core::PWSTR);
+::windows_targets::link!("shlwapi.dll" "system" fn StrChrNW(pszstart : windows_sys::core::PCWSTR, wmatch : u16, cchmax : u32) -> windows_sys::core::PWSTR);
+::windows_targets::link!("shlwapi.dll" "system" fn StrChrW(pszstart : windows_sys::core::PCWSTR, wmatch : u16) -> windows_sys::core::PWSTR);
+::windows_targets::link!("shlwapi.dll" "system" fn StrCmpCA(pszstr1 : windows_sys::core::PCSTR, pszstr2 : windows_sys::core::PCSTR) -> i32);
+::windows_targets::link!("shlwapi.dll" "system" fn StrCmpCW(pszstr1 : windows_sys::core::PCWSTR, pszstr2 : windows_sys::core::PCWSTR) -> i32);
+::windows_targets::link!("shlwapi.dll" "system" fn StrCmpICA(pszstr1 : windows_sys::core::PCSTR, pszstr2 : windows_sys::core::PCSTR) -> i32);
+::windows_targets::link!("shlwapi.dll" "system" fn StrCmpICW(pszstr1 : windows_sys::core::PCWSTR, pszstr2 : windows_sys::core::PCWSTR) -> i32);
+::windows_targets::link!("shlwapi.dll" "system" fn StrCmpIW(psz1 : windows_sys::core::PCWSTR, psz2 : windows_sys::core::PCWSTR) -> i32);
+::windows_targets::link!("shlwapi.dll" "system" fn StrCmpLogicalW(psz1 : windows_sys::core::PCWSTR, psz2 : windows_sys::core::PCWSTR) -> i32);
+::windows_targets::link!("shlwapi.dll" "system" fn StrCmpNA(psz1 : windows_sys::core::PCSTR, psz2 : windows_sys::core::PCSTR, nchar : i32) -> i32);
+::windows_targets::link!("shlwapi.dll" "system" fn StrCmpNCA(pszstr1 : windows_sys::core::PCSTR, pszstr2 : windows_sys::core::PCSTR, nchar : i32) -> i32);
+::windows_targets::link!("shlwapi.dll" "system" fn StrCmpNCW(pszstr1 : windows_sys::core::PCWSTR, pszstr2 : windows_sys::core::PCWSTR, nchar : i32) -> i32);
+::windows_targets::link!("shlwapi.dll" "system" fn StrCmpNIA(psz1 : windows_sys::core::PCSTR, psz2 : windows_sys::core::PCSTR, nchar : i32) -> i32);
+::windows_targets::link!("shlwapi.dll" "system" fn StrCmpNICA(pszstr1 : windows_sys::core::PCSTR, pszstr2 : windows_sys::core::PCSTR, nchar : i32) -> i32);
+::windows_targets::link!("shlwapi.dll" "system" fn StrCmpNICW(pszstr1 : windows_sys::core::PCWSTR, pszstr2 : windows_sys::core::PCWSTR, nchar : i32) -> i32);
+::windows_targets::link!("shlwapi.dll" "system" fn StrCmpNIW(psz1 : windows_sys::core::PCWSTR, psz2 : windows_sys::core::PCWSTR, nchar : i32) -> i32);
+::windows_targets::link!("shlwapi.dll" "system" fn StrCmpNW(psz1 : windows_sys::core::PCWSTR, psz2 : windows_sys::core::PCWSTR, nchar : i32) -> i32);
+::windows_targets::link!("shlwapi.dll" "system" fn StrCmpW(psz1 : windows_sys::core::PCWSTR, psz2 : windows_sys::core::PCWSTR) -> i32);
+::windows_targets::link!("shlwapi.dll" "system" fn StrCpyNW(pszdst : windows_sys::core::PWSTR, pszsrc : windows_sys::core::PCWSTR, cchmax : i32) -> windows_sys::core::PWSTR);
+::windows_targets::link!("shlwapi.dll" "system" fn StrCpyW(psz1 : windows_sys::core::PWSTR, psz2 : windows_sys::core::PCWSTR) -> windows_sys::core::PWSTR);
+::windows_targets::link!("shlwapi.dll" "system" fn StrDupA(pszsrch : windows_sys::core::PCSTR) -> windows_sys::core::PSTR);
+::windows_targets::link!("shlwapi.dll" "system" fn StrDupW(pszsrch : windows_sys::core::PCWSTR) -> windows_sys::core::PWSTR);
+::windows_targets::link!("shlwapi.dll" "system" fn StrFormatByteSize64A(qdw : i64, pszbuf : windows_sys::core::PSTR, cchbuf : u32) -> windows_sys::core::PSTR);
+::windows_targets::link!("shlwapi.dll" "system" fn StrFormatByteSizeA(dw : u32, pszbuf : windows_sys::core::PSTR, cchbuf : u32) -> windows_sys::core::PSTR);
+::windows_targets::link!("shlwapi.dll" "system" fn StrFormatByteSizeEx(ull : u64, flags : SFBS_FLAGS, pszbuf : windows_sys::core::PWSTR, cchbuf : u32) -> windows_sys::core::HRESULT);
+::windows_targets::link!("shlwapi.dll" "system" fn StrFormatByteSizeW(qdw : i64, pszbuf : windows_sys::core::PWSTR, cchbuf : u32) -> windows_sys::core::PWSTR);
+::windows_targets::link!("shlwapi.dll" "system" fn StrFormatKBSizeA(qdw : i64, pszbuf : windows_sys::core::PSTR, cchbuf : u32) -> windows_sys::core::PSTR);
+::windows_targets::link!("shlwapi.dll" "system" fn StrFormatKBSizeW(qdw : i64, pszbuf : windows_sys::core::PWSTR, cchbuf : u32) -> windows_sys::core::PWSTR);
+::windows_targets::link!("shlwapi.dll" "system" fn StrFromTimeIntervalA(pszout : windows_sys::core::PSTR, cchmax : u32, dwtimems : u32, digits : i32) -> i32);
+::windows_targets::link!("shlwapi.dll" "system" fn StrFromTimeIntervalW(pszout : windows_sys::core::PWSTR, cchmax : u32, dwtimems : u32, digits : i32) -> i32);
+::windows_targets::link!("shlwapi.dll" "system" fn StrIsIntlEqualA(fcasesens : super::super::Foundation:: BOOL, pszstring1 : windows_sys::core::PCSTR, pszstring2 : windows_sys::core::PCSTR, nchar : i32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" fn StrIsIntlEqualW(fcasesens : super::super::Foundation:: BOOL, pszstring1 : windows_sys::core::PCWSTR, pszstring2 : windows_sys::core::PCWSTR, nchar : i32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" fn StrNCatA(psz1 : windows_sys::core::PSTR, psz2 : windows_sys::core::PCSTR, cchmax : i32) -> windows_sys::core::PSTR);
+::windows_targets::link!("shlwapi.dll" "system" fn StrNCatW(psz1 : windows_sys::core::PWSTR, psz2 : windows_sys::core::PCWSTR, cchmax : i32) -> windows_sys::core::PWSTR);
+::windows_targets::link!("shlwapi.dll" "system" fn StrPBrkA(psz : windows_sys::core::PCSTR, pszset : windows_sys::core::PCSTR) -> windows_sys::core::PSTR);
+::windows_targets::link!("shlwapi.dll" "system" fn StrPBrkW(psz : windows_sys::core::PCWSTR, pszset : windows_sys::core::PCWSTR) -> windows_sys::core::PWSTR);
+::windows_targets::link!("shlwapi.dll" "system" fn StrRChrA(pszstart : windows_sys::core::PCSTR, pszend : windows_sys::core::PCSTR, wmatch : u16) -> windows_sys::core::PSTR);
+::windows_targets::link!("shlwapi.dll" "system" fn StrRChrIA(pszstart : windows_sys::core::PCSTR, pszend : windows_sys::core::PCSTR, wmatch : u16) -> windows_sys::core::PSTR);
+::windows_targets::link!("shlwapi.dll" "system" fn StrRChrIW(pszstart : windows_sys::core::PCWSTR, pszend : windows_sys::core::PCWSTR, wmatch : u16) -> windows_sys::core::PWSTR);
+::windows_targets::link!("shlwapi.dll" "system" fn StrRChrW(pszstart : windows_sys::core::PCWSTR, pszend : windows_sys::core::PCWSTR, wmatch : u16) -> windows_sys::core::PWSTR);
+::windows_targets::link!("shlwapi.dll" "system" fn StrRStrIA(pszsource : windows_sys::core::PCSTR, pszlast : windows_sys::core::PCSTR, pszsrch : windows_sys::core::PCSTR) -> windows_sys::core::PSTR);
+::windows_targets::link!("shlwapi.dll" "system" fn StrRStrIW(pszsource : windows_sys::core::PCWSTR, pszlast : windows_sys::core::PCWSTR, pszsrch : windows_sys::core::PCWSTR) -> windows_sys::core::PWSTR);
 #[cfg(feature = "Win32_UI_Shell_Common")]
-::windows_targets::link!("shlwapi.dll" "system" fn StrRetToBSTR(pstr : *mut Common:: STRRET, pidl : *const Common:: ITEMIDLIST, pbstr : *mut ::windows_sys::core::BSTR) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shlwapi.dll" "system" fn StrRetToBSTR(pstr : *mut Common:: STRRET, pidl : *const Common:: ITEMIDLIST, pbstr : *mut windows_sys::core::BSTR) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_UI_Shell_Common")]
-::windows_targets::link!("shlwapi.dll" "system" fn StrRetToBufA(pstr : *mut Common:: STRRET, pidl : *const Common:: ITEMIDLIST, pszbuf : ::windows_sys::core::PSTR, cchbuf : u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shlwapi.dll" "system" fn StrRetToBufA(pstr : *mut Common:: STRRET, pidl : *const Common:: ITEMIDLIST, pszbuf : windows_sys::core::PSTR, cchbuf : u32) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_UI_Shell_Common")]
-::windows_targets::link!("shlwapi.dll" "system" fn StrRetToBufW(pstr : *mut Common:: STRRET, pidl : *const Common:: ITEMIDLIST, pszbuf : ::windows_sys::core::PWSTR, cchbuf : u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shlwapi.dll" "system" fn StrRetToBufW(pstr : *mut Common:: STRRET, pidl : *const Common:: ITEMIDLIST, pszbuf : windows_sys::core::PWSTR, cchbuf : u32) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_UI_Shell_Common")]
-::windows_targets::link!("shlwapi.dll" "system" fn StrRetToStrA(pstr : *mut Common:: STRRET, pidl : *const Common:: ITEMIDLIST, ppsz : *mut ::windows_sys::core::PSTR) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shlwapi.dll" "system" fn StrRetToStrA(pstr : *mut Common:: STRRET, pidl : *const Common:: ITEMIDLIST, ppsz : *mut windows_sys::core::PSTR) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_UI_Shell_Common")]
-::windows_targets::link!("shlwapi.dll" "system" fn StrRetToStrW(pstr : *mut Common:: STRRET, pidl : *const Common:: ITEMIDLIST, ppsz : *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("shlwapi.dll" "system" fn StrSpnA(psz : ::windows_sys::core::PCSTR, pszset : ::windows_sys::core::PCSTR) -> i32);
-::windows_targets::link!("shlwapi.dll" "system" fn StrSpnW(psz : ::windows_sys::core::PCWSTR, pszset : ::windows_sys::core::PCWSTR) -> i32);
-::windows_targets::link!("shlwapi.dll" "system" fn StrStrA(pszfirst : ::windows_sys::core::PCSTR, pszsrch : ::windows_sys::core::PCSTR) -> ::windows_sys::core::PSTR);
-::windows_targets::link!("shlwapi.dll" "system" fn StrStrIA(pszfirst : ::windows_sys::core::PCSTR, pszsrch : ::windows_sys::core::PCSTR) -> ::windows_sys::core::PSTR);
-::windows_targets::link!("shlwapi.dll" "system" fn StrStrIW(pszfirst : ::windows_sys::core::PCWSTR, pszsrch : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::PWSTR);
-::windows_targets::link!("shlwapi.dll" "system" fn StrStrNIW(pszfirst : ::windows_sys::core::PCWSTR, pszsrch : ::windows_sys::core::PCWSTR, cchmax : u32) -> ::windows_sys::core::PWSTR);
-::windows_targets::link!("shlwapi.dll" "system" fn StrStrNW(pszfirst : ::windows_sys::core::PCWSTR, pszsrch : ::windows_sys::core::PCWSTR, cchmax : u32) -> ::windows_sys::core::PWSTR);
-::windows_targets::link!("shlwapi.dll" "system" fn StrStrW(pszfirst : ::windows_sys::core::PCWSTR, pszsrch : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::PWSTR);
-::windows_targets::link!("shlwapi.dll" "system" fn StrToInt64ExA(pszstring : ::windows_sys::core::PCSTR, dwflags : i32, pllret : *mut i64) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("shlwapi.dll" "system" fn StrToInt64ExW(pszstring : ::windows_sys::core::PCWSTR, dwflags : i32, pllret : *mut i64) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("shlwapi.dll" "system" fn StrToIntA(pszsrc : ::windows_sys::core::PCSTR) -> i32);
-::windows_targets::link!("shlwapi.dll" "system" fn StrToIntExA(pszstring : ::windows_sys::core::PCSTR, dwflags : i32, piret : *mut i32) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("shlwapi.dll" "system" fn StrToIntExW(pszstring : ::windows_sys::core::PCWSTR, dwflags : i32, piret : *mut i32) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("shlwapi.dll" "system" fn StrToIntW(pszsrc : ::windows_sys::core::PCWSTR) -> i32);
-::windows_targets::link!("shlwapi.dll" "system" fn StrTrimA(psz : ::windows_sys::core::PSTR, psztrimchars : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("shlwapi.dll" "system" fn StrTrimW(psz : ::windows_sys::core::PWSTR, psztrimchars : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" fn StrRetToStrW(pstr : *mut Common:: STRRET, pidl : *const Common:: ITEMIDLIST, ppsz : *mut windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
+::windows_targets::link!("shlwapi.dll" "system" fn StrSpnA(psz : windows_sys::core::PCSTR, pszset : windows_sys::core::PCSTR) -> i32);
+::windows_targets::link!("shlwapi.dll" "system" fn StrSpnW(psz : windows_sys::core::PCWSTR, pszset : windows_sys::core::PCWSTR) -> i32);
+::windows_targets::link!("shlwapi.dll" "system" fn StrStrA(pszfirst : windows_sys::core::PCSTR, pszsrch : windows_sys::core::PCSTR) -> windows_sys::core::PSTR);
+::windows_targets::link!("shlwapi.dll" "system" fn StrStrIA(pszfirst : windows_sys::core::PCSTR, pszsrch : windows_sys::core::PCSTR) -> windows_sys::core::PSTR);
+::windows_targets::link!("shlwapi.dll" "system" fn StrStrIW(pszfirst : windows_sys::core::PCWSTR, pszsrch : windows_sys::core::PCWSTR) -> windows_sys::core::PWSTR);
+::windows_targets::link!("shlwapi.dll" "system" fn StrStrNIW(pszfirst : windows_sys::core::PCWSTR, pszsrch : windows_sys::core::PCWSTR, cchmax : u32) -> windows_sys::core::PWSTR);
+::windows_targets::link!("shlwapi.dll" "system" fn StrStrNW(pszfirst : windows_sys::core::PCWSTR, pszsrch : windows_sys::core::PCWSTR, cchmax : u32) -> windows_sys::core::PWSTR);
+::windows_targets::link!("shlwapi.dll" "system" fn StrStrW(pszfirst : windows_sys::core::PCWSTR, pszsrch : windows_sys::core::PCWSTR) -> windows_sys::core::PWSTR);
+::windows_targets::link!("shlwapi.dll" "system" fn StrToInt64ExA(pszstring : windows_sys::core::PCSTR, dwflags : i32, pllret : *mut i64) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" fn StrToInt64ExW(pszstring : windows_sys::core::PCWSTR, dwflags : i32, pllret : *mut i64) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" fn StrToIntA(pszsrc : windows_sys::core::PCSTR) -> i32);
+::windows_targets::link!("shlwapi.dll" "system" fn StrToIntExA(pszstring : windows_sys::core::PCSTR, dwflags : i32, piret : *mut i32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" fn StrToIntExW(pszstring : windows_sys::core::PCWSTR, dwflags : i32, piret : *mut i32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" fn StrToIntW(pszsrc : windows_sys::core::PCWSTR) -> i32);
+::windows_targets::link!("shlwapi.dll" "system" fn StrTrimA(psz : windows_sys::core::PSTR, psztrimchars : windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" fn StrTrimW(psz : windows_sys::core::PWSTR, psztrimchars : windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("userenv.dll" "system" fn UnloadUserProfile(htoken : super::super::Foundation:: HANDLE, hprofile : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("api-ms-win-core-psm-appnotify-l1-1-1.dll" "system" fn UnregisterAppConstrainedChangeNotification(registration : PAPPCONSTRAIN_REGISTRATION));
 ::windows_targets::link!("api-ms-win-core-psm-appnotify-l1-1-0.dll" "system" fn UnregisterAppStateChangeNotification(registration : PAPPSTATE_REGISTRATION));
-::windows_targets::link!("api-ms-win-shcore-scaling-l1-1-1.dll" "system" fn UnregisterScaleChangeEvent(dwcookie : usize) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("shlwapi.dll" "system" fn UrlApplySchemeA(pszin : ::windows_sys::core::PCSTR, pszout : ::windows_sys::core::PSTR, pcchout : *mut u32, dwflags : u32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("shlwapi.dll" "system" fn UrlApplySchemeW(pszin : ::windows_sys::core::PCWSTR, pszout : ::windows_sys::core::PWSTR, pcchout : *mut u32, dwflags : u32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("shlwapi.dll" "system" fn UrlCanonicalizeA(pszurl : ::windows_sys::core::PCSTR, pszcanonicalized : ::windows_sys::core::PSTR, pcchcanonicalized : *mut u32, dwflags : u32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("shlwapi.dll" "system" fn UrlCanonicalizeW(pszurl : ::windows_sys::core::PCWSTR, pszcanonicalized : ::windows_sys::core::PWSTR, pcchcanonicalized : *mut u32, dwflags : u32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("shlwapi.dll" "system" fn UrlCombineA(pszbase : ::windows_sys::core::PCSTR, pszrelative : ::windows_sys::core::PCSTR, pszcombined : ::windows_sys::core::PSTR, pcchcombined : *mut u32, dwflags : u32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("shlwapi.dll" "system" fn UrlCombineW(pszbase : ::windows_sys::core::PCWSTR, pszrelative : ::windows_sys::core::PCWSTR, pszcombined : ::windows_sys::core::PWSTR, pcchcombined : *mut u32, dwflags : u32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("shlwapi.dll" "system" fn UrlCompareA(psz1 : ::windows_sys::core::PCSTR, psz2 : ::windows_sys::core::PCSTR, fignoreslash : super::super::Foundation:: BOOL) -> i32);
-::windows_targets::link!("shlwapi.dll" "system" fn UrlCompareW(psz1 : ::windows_sys::core::PCWSTR, psz2 : ::windows_sys::core::PCWSTR, fignoreslash : super::super::Foundation:: BOOL) -> i32);
-::windows_targets::link!("shlwapi.dll" "system" fn UrlCreateFromPathA(pszpath : ::windows_sys::core::PCSTR, pszurl : ::windows_sys::core::PSTR, pcchurl : *mut u32, dwflags : u32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("shlwapi.dll" "system" fn UrlCreateFromPathW(pszpath : ::windows_sys::core::PCWSTR, pszurl : ::windows_sys::core::PWSTR, pcchurl : *mut u32, dwflags : u32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("shlwapi.dll" "system" fn UrlEscapeA(pszurl : ::windows_sys::core::PCSTR, pszescaped : ::windows_sys::core::PSTR, pcchescaped : *mut u32, dwflags : u32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("shlwapi.dll" "system" fn UrlEscapeW(pszurl : ::windows_sys::core::PCWSTR, pszescaped : ::windows_sys::core::PWSTR, pcchescaped : *mut u32, dwflags : u32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("shlwapi.dll" "system" fn UrlFixupW(pcszurl : ::windows_sys::core::PCWSTR, psztranslatedurl : ::windows_sys::core::PWSTR, cchmax : u32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("shlwapi.dll" "system" fn UrlGetLocationA(pszurl : ::windows_sys::core::PCSTR) -> ::windows_sys::core::PCSTR);
-::windows_targets::link!("shlwapi.dll" "system" fn UrlGetLocationW(pszurl : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::PCWSTR);
-::windows_targets::link!("shlwapi.dll" "system" fn UrlGetPartA(pszin : ::windows_sys::core::PCSTR, pszout : ::windows_sys::core::PSTR, pcchout : *mut u32, dwpart : u32, dwflags : u32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("shlwapi.dll" "system" fn UrlGetPartW(pszin : ::windows_sys::core::PCWSTR, pszout : ::windows_sys::core::PWSTR, pcchout : *mut u32, dwpart : u32, dwflags : u32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("shlwapi.dll" "system" fn UrlHashA(pszurl : ::windows_sys::core::PCSTR, pbhash : *mut u8, cbhash : u32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("shlwapi.dll" "system" fn UrlHashW(pszurl : ::windows_sys::core::PCWSTR, pbhash : *mut u8, cbhash : u32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("shlwapi.dll" "system" fn UrlIsA(pszurl : ::windows_sys::core::PCSTR, urlis : URLIS) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("shlwapi.dll" "system" fn UrlIsNoHistoryA(pszurl : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("shlwapi.dll" "system" fn UrlIsNoHistoryW(pszurl : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("shlwapi.dll" "system" fn UrlIsOpaqueA(pszurl : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("shlwapi.dll" "system" fn UrlIsOpaqueW(pszurl : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("shlwapi.dll" "system" fn UrlIsW(pszurl : ::windows_sys::core::PCWSTR, urlis : URLIS) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("shlwapi.dll" "system" fn UrlUnescapeA(pszurl : ::windows_sys::core::PSTR, pszunescaped : ::windows_sys::core::PSTR, pcchunescaped : *mut u32, dwflags : u32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("shlwapi.dll" "system" fn UrlUnescapeW(pszurl : ::windows_sys::core::PWSTR, pszunescaped : ::windows_sys::core::PWSTR, pcchunescaped : *mut u32, dwflags : u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("api-ms-win-shcore-scaling-l1-1-1.dll" "system" fn UnregisterScaleChangeEvent(dwcookie : usize) -> windows_sys::core::HRESULT);
+::windows_targets::link!("shlwapi.dll" "system" fn UrlApplySchemeA(pszin : windows_sys::core::PCSTR, pszout : windows_sys::core::PSTR, pcchout : *mut u32, dwflags : u32) -> windows_sys::core::HRESULT);
+::windows_targets::link!("shlwapi.dll" "system" fn UrlApplySchemeW(pszin : windows_sys::core::PCWSTR, pszout : windows_sys::core::PWSTR, pcchout : *mut u32, dwflags : u32) -> windows_sys::core::HRESULT);
+::windows_targets::link!("shlwapi.dll" "system" fn UrlCanonicalizeA(pszurl : windows_sys::core::PCSTR, pszcanonicalized : windows_sys::core::PSTR, pcchcanonicalized : *mut u32, dwflags : u32) -> windows_sys::core::HRESULT);
+::windows_targets::link!("shlwapi.dll" "system" fn UrlCanonicalizeW(pszurl : windows_sys::core::PCWSTR, pszcanonicalized : windows_sys::core::PWSTR, pcchcanonicalized : *mut u32, dwflags : u32) -> windows_sys::core::HRESULT);
+::windows_targets::link!("shlwapi.dll" "system" fn UrlCombineA(pszbase : windows_sys::core::PCSTR, pszrelative : windows_sys::core::PCSTR, pszcombined : windows_sys::core::PSTR, pcchcombined : *mut u32, dwflags : u32) -> windows_sys::core::HRESULT);
+::windows_targets::link!("shlwapi.dll" "system" fn UrlCombineW(pszbase : windows_sys::core::PCWSTR, pszrelative : windows_sys::core::PCWSTR, pszcombined : windows_sys::core::PWSTR, pcchcombined : *mut u32, dwflags : u32) -> windows_sys::core::HRESULT);
+::windows_targets::link!("shlwapi.dll" "system" fn UrlCompareA(psz1 : windows_sys::core::PCSTR, psz2 : windows_sys::core::PCSTR, fignoreslash : super::super::Foundation:: BOOL) -> i32);
+::windows_targets::link!("shlwapi.dll" "system" fn UrlCompareW(psz1 : windows_sys::core::PCWSTR, psz2 : windows_sys::core::PCWSTR, fignoreslash : super::super::Foundation:: BOOL) -> i32);
+::windows_targets::link!("shlwapi.dll" "system" fn UrlCreateFromPathA(pszpath : windows_sys::core::PCSTR, pszurl : windows_sys::core::PSTR, pcchurl : *mut u32, dwflags : u32) -> windows_sys::core::HRESULT);
+::windows_targets::link!("shlwapi.dll" "system" fn UrlCreateFromPathW(pszpath : windows_sys::core::PCWSTR, pszurl : windows_sys::core::PWSTR, pcchurl : *mut u32, dwflags : u32) -> windows_sys::core::HRESULT);
+::windows_targets::link!("shlwapi.dll" "system" fn UrlEscapeA(pszurl : windows_sys::core::PCSTR, pszescaped : windows_sys::core::PSTR, pcchescaped : *mut u32, dwflags : u32) -> windows_sys::core::HRESULT);
+::windows_targets::link!("shlwapi.dll" "system" fn UrlEscapeW(pszurl : windows_sys::core::PCWSTR, pszescaped : windows_sys::core::PWSTR, pcchescaped : *mut u32, dwflags : u32) -> windows_sys::core::HRESULT);
+::windows_targets::link!("shlwapi.dll" "system" fn UrlFixupW(pcszurl : windows_sys::core::PCWSTR, psztranslatedurl : windows_sys::core::PWSTR, cchmax : u32) -> windows_sys::core::HRESULT);
+::windows_targets::link!("shlwapi.dll" "system" fn UrlGetLocationA(pszurl : windows_sys::core::PCSTR) -> windows_sys::core::PCSTR);
+::windows_targets::link!("shlwapi.dll" "system" fn UrlGetLocationW(pszurl : windows_sys::core::PCWSTR) -> windows_sys::core::PCWSTR);
+::windows_targets::link!("shlwapi.dll" "system" fn UrlGetPartA(pszin : windows_sys::core::PCSTR, pszout : windows_sys::core::PSTR, pcchout : *mut u32, dwpart : u32, dwflags : u32) -> windows_sys::core::HRESULT);
+::windows_targets::link!("shlwapi.dll" "system" fn UrlGetPartW(pszin : windows_sys::core::PCWSTR, pszout : windows_sys::core::PWSTR, pcchout : *mut u32, dwpart : u32, dwflags : u32) -> windows_sys::core::HRESULT);
+::windows_targets::link!("shlwapi.dll" "system" fn UrlHashA(pszurl : windows_sys::core::PCSTR, pbhash : *mut u8, cbhash : u32) -> windows_sys::core::HRESULT);
+::windows_targets::link!("shlwapi.dll" "system" fn UrlHashW(pszurl : windows_sys::core::PCWSTR, pbhash : *mut u8, cbhash : u32) -> windows_sys::core::HRESULT);
+::windows_targets::link!("shlwapi.dll" "system" fn UrlIsA(pszurl : windows_sys::core::PCSTR, urlis : URLIS) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" fn UrlIsNoHistoryA(pszurl : windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" fn UrlIsNoHistoryW(pszurl : windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" fn UrlIsOpaqueA(pszurl : windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" fn UrlIsOpaqueW(pszurl : windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" fn UrlIsW(pszurl : windows_sys::core::PCWSTR, urlis : URLIS) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" fn UrlUnescapeA(pszurl : windows_sys::core::PSTR, pszunescaped : windows_sys::core::PSTR, pcchunescaped : *mut u32, dwflags : u32) -> windows_sys::core::HRESULT);
+::windows_targets::link!("shlwapi.dll" "system" fn UrlUnescapeW(pszurl : windows_sys::core::PWSTR, pszunescaped : windows_sys::core::PWSTR, pcchunescaped : *mut u32, dwflags : u32) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_Common"))]
-::windows_targets::link!("propsys.dll" "system" fn VariantToStrRet(varin : *const super::super::System::Variant:: VARIANT, pstrret : *mut Common:: STRRET) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("propsys.dll" "system" fn VariantToStrRet(varin : *const super::super::System::Variant:: VARIANT, pstrret : *mut Common:: STRRET) -> windows_sys::core::HRESULT);
 ::windows_targets::link!("shlwapi.dll" "system" fn WhichPlatform() -> u32);
-::windows_targets::link!("shell32.dll" "system" fn Win32DeleteFile(pszpath : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("user32.dll" "system" fn WinHelpA(hwndmain : super::super::Foundation:: HWND, lpszhelp : ::windows_sys::core::PCSTR, ucommand : u32, dwdata : usize) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("user32.dll" "system" fn WinHelpW(hwndmain : super::super::Foundation:: HWND, lpszhelp : ::windows_sys::core::PCWSTR, ucommand : u32, dwdata : usize) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shell32.dll" "system" fn Win32DeleteFile(pszpath : windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("user32.dll" "system" fn WinHelpA(hwndmain : super::super::Foundation:: HWND, lpszhelp : windows_sys::core::PCSTR, ucommand : u32, dwdata : usize) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("user32.dll" "system" fn WinHelpW(hwndmain : super::super::Foundation:: HWND, lpszhelp : windows_sys::core::PCWSTR, ucommand : u32, dwdata : usize) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("shell32.dll" "system" fn WriteCabinetState(pcs : *const CABINETSTATE) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("shlwapi.dll" "cdecl" fn wnsprintfA(pszdest : ::windows_sys::core::PSTR, cchdest : i32, pszfmt : ::windows_sys::core::PCSTR, ...) -> i32);
-::windows_targets::link!("shlwapi.dll" "cdecl" fn wnsprintfW(pszdest : ::windows_sys::core::PWSTR, cchdest : i32, pszfmt : ::windows_sys::core::PCWSTR, ...) -> i32);
-::windows_targets::link!("shlwapi.dll" "system" fn wvnsprintfA(pszdest : ::windows_sys::core::PSTR, cchdest : i32, pszfmt : ::windows_sys::core::PCSTR, arglist : *const i8) -> i32);
-::windows_targets::link!("shlwapi.dll" "system" fn wvnsprintfW(pszdest : ::windows_sys::core::PWSTR, cchdest : i32, pszfmt : ::windows_sys::core::PCWSTR, arglist : *const i8) -> i32);
+::windows_targets::link!("shlwapi.dll" "cdecl" fn wnsprintfA(pszdest : windows_sys::core::PSTR, cchdest : i32, pszfmt : windows_sys::core::PCSTR, ...) -> i32);
+::windows_targets::link!("shlwapi.dll" "cdecl" fn wnsprintfW(pszdest : windows_sys::core::PWSTR, cchdest : i32, pszfmt : windows_sys::core::PCWSTR, ...) -> i32);
+::windows_targets::link!("shlwapi.dll" "system" fn wvnsprintfA(pszdest : windows_sys::core::PSTR, cchdest : i32, pszfmt : windows_sys::core::PCSTR, arglist : *const i8) -> i32);
+::windows_targets::link!("shlwapi.dll" "system" fn wvnsprintfW(pszdest : windows_sys::core::PWSTR, cchdest : i32, pszfmt : windows_sys::core::PCWSTR, arglist : *const i8) -> i32);
 pub const ABE_BOTTOM: u32 = 3u32;
 pub const ABE_LEFT: u32 = 0u32;
 pub const ABE_RIGHT: u32 = 2u32;
@@ -1123,24 +1123,24 @@ pub const BFO_USE_IE_LOGOBANDING: _BROWSERFRAMEOPTIONS = 256i32;
 pub const BFO_USE_IE_OFFLINE_SUPPORT: _BROWSERFRAMEOPTIONS = 64i32;
 pub const BFO_USE_IE_STATUSBAR: _BROWSERFRAMEOPTIONS = 131072i32;
 pub const BFO_USE_IE_TOOLBAR: _BROWSERFRAMEOPTIONS = 2048i32;
-pub const BHID_AssociationArray: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xbea9ef17_82f1_4f60_9284_4f8db75c3be9);
-pub const BHID_DataObject: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xb8c0bd9f_ed24_455c_83e6_d5390c4fe8c4);
-pub const BHID_EnumAssocHandlers: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xb8ab0b9c_c2ec_4f7a_918d_314900e6280a);
-pub const BHID_EnumItems: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x94f60519_2850_4924_aa5a_d15e84868039);
-pub const BHID_FilePlaceholder: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x8677dceb_aae0_4005_8d3d_547fa852f825);
-pub const BHID_Filter: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x38d08778_f557_4690_9ebf_ba54706ad8f7);
-pub const BHID_LinkTargetItem: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x3981e228_f559_11d3_8e3a_00c04f6837d5);
-pub const BHID_PropertyStore: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x0384e1a4_1523_439c_a4c8_ab911052f586);
-pub const BHID_RandomAccessStream: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xf16fc93b_77ae_4cfe_bda7_a866eea6878d);
-pub const BHID_SFObject: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x3981e224_f559_11d3_8e3a_00c04f6837d5);
-pub const BHID_SFUIObject: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x3981e225_f559_11d3_8e3a_00c04f6837d5);
-pub const BHID_SFViewObject: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x3981e226_f559_11d3_8e3a_00c04f6837d5);
-pub const BHID_Storage: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x3981e227_f559_11d3_8e3a_00c04f6837d5);
-pub const BHID_StorageEnum: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x4621a4e3_f0d6_4773_8a9c_46e77b174840);
-pub const BHID_StorageItem: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x404e2109_77d2_4699_a5a0_4fdf10db9837);
-pub const BHID_Stream: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x1cebb3ab_7c10_499a_a417_92ca16c4cb83);
-pub const BHID_ThumbnailHandler: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x7b2e650a_8e20_4f4a_b09e_6597afc72fb0);
-pub const BHID_Transfer: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xd5e346a1_f753_4932_b403_4574800e2498);
+pub const BHID_AssociationArray: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xbea9ef17_82f1_4f60_9284_4f8db75c3be9);
+pub const BHID_DataObject: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb8c0bd9f_ed24_455c_83e6_d5390c4fe8c4);
+pub const BHID_EnumAssocHandlers: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb8ab0b9c_c2ec_4f7a_918d_314900e6280a);
+pub const BHID_EnumItems: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x94f60519_2850_4924_aa5a_d15e84868039);
+pub const BHID_FilePlaceholder: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8677dceb_aae0_4005_8d3d_547fa852f825);
+pub const BHID_Filter: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x38d08778_f557_4690_9ebf_ba54706ad8f7);
+pub const BHID_LinkTargetItem: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3981e228_f559_11d3_8e3a_00c04f6837d5);
+pub const BHID_PropertyStore: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0384e1a4_1523_439c_a4c8_ab911052f586);
+pub const BHID_RandomAccessStream: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf16fc93b_77ae_4cfe_bda7_a866eea6878d);
+pub const BHID_SFObject: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3981e224_f559_11d3_8e3a_00c04f6837d5);
+pub const BHID_SFUIObject: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3981e225_f559_11d3_8e3a_00c04f6837d5);
+pub const BHID_SFViewObject: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3981e226_f559_11d3_8e3a_00c04f6837d5);
+pub const BHID_Storage: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3981e227_f559_11d3_8e3a_00c04f6837d5);
+pub const BHID_StorageEnum: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4621a4e3_f0d6_4773_8a9c_46e77b174840);
+pub const BHID_StorageItem: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x404e2109_77d2_4699_a5a0_4fdf10db9837);
+pub const BHID_Stream: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1cebb3ab_7c10_499a_a417_92ca16c4cb83);
+pub const BHID_ThumbnailHandler: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7b2e650a_8e20_4f4a_b09e_6597afc72fb0);
+pub const BHID_Transfer: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd5e346a1_f753_4932_b403_4574800e2498);
 pub const BIF_BROWSEFILEJUNCTIONS: u32 = 65536u32;
 pub const BIF_BROWSEFORCOMPUTER: u32 = 4096u32;
 pub const BIF_BROWSEFORPRINTER: u32 = 8192u32;
@@ -1207,16 +1207,16 @@ pub const BSSF_UNDELETEABLE: u32 = 4096u32;
 pub const BSSF_VISIBLE: u32 = 1u32;
 pub const BUFFLEN: u32 = 255u32;
 pub const CABINETSTATE_VERSION: u32 = 2u32;
-pub const CAMERAROLL_E_NO_DOWNSAMPLING_REQUIRED: ::windows_sys::core::HRESULT = 0x80270120_u32 as _;
-pub const CATID_BrowsableShellExt: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x00021490_0000_0000_c000_000000000046);
-pub const CATID_BrowseInPlace: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x00021491_0000_0000_c000_000000000046);
-pub const CATID_CommBand: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x00021494_0000_0000_c000_000000000046);
-pub const CATID_DeskBand: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x00021492_0000_0000_c000_000000000046);
-pub const CATID_FilePlaceholderMergeHandler: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x3e9c9a51_d4aa_4870_b47c_7424b491f1cc);
-pub const CATID_InfoBand: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x00021493_0000_0000_c000_000000000046);
-pub const CATID_LocationFactory: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x965c4d51_8b76_4e57_80b7_564d2ea4b55e);
-pub const CATID_LocationProvider: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x1b3ca474_2614_414b_b813_1aceca3e3dd8);
-pub const CATID_SearchableApplication: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x366c292a_d9b3_4dbf_bb70_e62ec3d0bbbf);
+pub const CAMERAROLL_E_NO_DOWNSAMPLING_REQUIRED: windows_sys::core::HRESULT = 0x80270120_u32 as _;
+pub const CATID_BrowsableShellExt: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x00021490_0000_0000_c000_000000000046);
+pub const CATID_BrowseInPlace: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x00021491_0000_0000_c000_000000000046);
+pub const CATID_CommBand: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x00021494_0000_0000_c000_000000000046);
+pub const CATID_DeskBand: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x00021492_0000_0000_c000_000000000046);
+pub const CATID_FilePlaceholderMergeHandler: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3e9c9a51_d4aa_4870_b47c_7424b491f1cc);
+pub const CATID_InfoBand: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x00021493_0000_0000_c000_000000000046);
+pub const CATID_LocationFactory: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x965c4d51_8b76_4e57_80b7_564d2ea4b55e);
+pub const CATID_LocationProvider: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1b3ca474_2614_414b_b813_1aceca3e3dd8);
+pub const CATID_SearchableApplication: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x366c292a_d9b3_4dbf_bb70_e62ec3d0bbbf);
 pub const CATINFO_COLLAPSED: CATEGORYINFO_FLAGS = 1i32;
 pub const CATINFO_EXPANDED: CATEGORYINFO_FLAGS = 4i32;
 pub const CATINFO_HIDDEN: CATEGORYINFO_FLAGS = 2i32;
@@ -1253,103 +1253,103 @@ pub const CDCS_ENABLED: CDCONTROLSTATEF = 1i32;
 pub const CDCS_ENABLEDVISIBLE: CDCONTROLSTATEF = 3i32;
 pub const CDCS_INACTIVE: CDCONTROLSTATEF = 0i32;
 pub const CDCS_VISIBLE: CDCONTROLSTATEF = 2i32;
-pub const CFSTR_AUTOPLAY_SHELLIDLISTS: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Autoplay Enumerated IDList Array");
-pub const CFSTR_DROPDESCRIPTION: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("DropDescription");
-pub const CFSTR_FILECONTENTS: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("FileContents");
-pub const CFSTR_FILEDESCRIPTOR: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("FileGroupDescriptorW");
-pub const CFSTR_FILEDESCRIPTORA: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("FileGroupDescriptor");
-pub const CFSTR_FILEDESCRIPTORW: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("FileGroupDescriptorW");
-pub const CFSTR_FILENAME: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("FileNameW");
-pub const CFSTR_FILENAMEA: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("FileName");
-pub const CFSTR_FILENAMEMAP: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("FileNameMapW");
-pub const CFSTR_FILENAMEMAPA: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("FileNameMap");
-pub const CFSTR_FILENAMEMAPW: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("FileNameMapW");
-pub const CFSTR_FILENAMEW: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("FileNameW");
-pub const CFSTR_FILE_ATTRIBUTES_ARRAY: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("File Attributes Array");
-pub const CFSTR_INDRAGLOOP: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("InShellDragLoop");
-pub const CFSTR_INETURL: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("UniformResourceLocatorW");
-pub const CFSTR_INETURLA: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("UniformResourceLocator");
-pub const CFSTR_INETURLW: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("UniformResourceLocatorW");
-pub const CFSTR_INVOKECOMMAND_DROPPARAM: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("InvokeCommand DropParam");
-pub const CFSTR_LOGICALPERFORMEDDROPEFFECT: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Logical Performed DropEffect");
-pub const CFSTR_MOUNTEDVOLUME: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("MountedVolume");
-pub const CFSTR_NETRESOURCES: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Net Resource");
-pub const CFSTR_PASTESUCCEEDED: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Paste Succeeded");
-pub const CFSTR_PERFORMEDDROPEFFECT: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Performed DropEffect");
-pub const CFSTR_PERSISTEDDATAOBJECT: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("PersistedDataObject");
-pub const CFSTR_PREFERREDDROPEFFECT: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Preferred DropEffect");
-pub const CFSTR_PRINTERGROUP: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("PrinterFriendlyName");
-pub const CFSTR_SHELLDROPHANDLER: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("DropHandlerCLSID");
-pub const CFSTR_SHELLIDLIST: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Shell IDList Array");
-pub const CFSTR_SHELLIDLISTOFFSET: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Shell Object Offsets");
-pub const CFSTR_SHELLURL: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("UniformResourceLocator");
-pub const CFSTR_TARGETCLSID: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("TargetCLSID");
-pub const CFSTR_UNTRUSTEDDRAGDROP: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("UntrustedDragDrop");
-pub const CFSTR_ZONEIDENTIFIER: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("ZoneIdentifier");
-pub const CGID_DefView: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x4af07f10_d231_11d0_b942_00a0c90312e1);
-pub const CGID_Explorer: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x000214d0_0000_0000_c000_000000000046);
-pub const CGID_ExplorerBarDoc: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x000214d3_0000_0000_c000_000000000046);
-pub const CGID_MENUDESKBAR: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x5c9f0a12_959e_11d0_a3a4_00a0c9082636);
-pub const CGID_ShellDocView: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x000214d1_0000_0000_c000_000000000046);
-pub const CGID_ShellServiceObject: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x000214d2_0000_0000_c000_000000000046);
-pub const CGID_ShortCut: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x93a68750_951a_11d1_946f_000000000000);
+pub const CFSTR_AUTOPLAY_SHELLIDLISTS: windows_sys::core::PCWSTR = windows_sys::core::w!("Autoplay Enumerated IDList Array");
+pub const CFSTR_DROPDESCRIPTION: windows_sys::core::PCWSTR = windows_sys::core::w!("DropDescription");
+pub const CFSTR_FILECONTENTS: windows_sys::core::PCWSTR = windows_sys::core::w!("FileContents");
+pub const CFSTR_FILEDESCRIPTOR: windows_sys::core::PCWSTR = windows_sys::core::w!("FileGroupDescriptorW");
+pub const CFSTR_FILEDESCRIPTORA: windows_sys::core::PCWSTR = windows_sys::core::w!("FileGroupDescriptor");
+pub const CFSTR_FILEDESCRIPTORW: windows_sys::core::PCWSTR = windows_sys::core::w!("FileGroupDescriptorW");
+pub const CFSTR_FILENAME: windows_sys::core::PCWSTR = windows_sys::core::w!("FileNameW");
+pub const CFSTR_FILENAMEA: windows_sys::core::PCWSTR = windows_sys::core::w!("FileName");
+pub const CFSTR_FILENAMEMAP: windows_sys::core::PCWSTR = windows_sys::core::w!("FileNameMapW");
+pub const CFSTR_FILENAMEMAPA: windows_sys::core::PCWSTR = windows_sys::core::w!("FileNameMap");
+pub const CFSTR_FILENAMEMAPW: windows_sys::core::PCWSTR = windows_sys::core::w!("FileNameMapW");
+pub const CFSTR_FILENAMEW: windows_sys::core::PCWSTR = windows_sys::core::w!("FileNameW");
+pub const CFSTR_FILE_ATTRIBUTES_ARRAY: windows_sys::core::PCWSTR = windows_sys::core::w!("File Attributes Array");
+pub const CFSTR_INDRAGLOOP: windows_sys::core::PCWSTR = windows_sys::core::w!("InShellDragLoop");
+pub const CFSTR_INETURL: windows_sys::core::PCWSTR = windows_sys::core::w!("UniformResourceLocatorW");
+pub const CFSTR_INETURLA: windows_sys::core::PCWSTR = windows_sys::core::w!("UniformResourceLocator");
+pub const CFSTR_INETURLW: windows_sys::core::PCWSTR = windows_sys::core::w!("UniformResourceLocatorW");
+pub const CFSTR_INVOKECOMMAND_DROPPARAM: windows_sys::core::PCWSTR = windows_sys::core::w!("InvokeCommand DropParam");
+pub const CFSTR_LOGICALPERFORMEDDROPEFFECT: windows_sys::core::PCWSTR = windows_sys::core::w!("Logical Performed DropEffect");
+pub const CFSTR_MOUNTEDVOLUME: windows_sys::core::PCWSTR = windows_sys::core::w!("MountedVolume");
+pub const CFSTR_NETRESOURCES: windows_sys::core::PCWSTR = windows_sys::core::w!("Net Resource");
+pub const CFSTR_PASTESUCCEEDED: windows_sys::core::PCWSTR = windows_sys::core::w!("Paste Succeeded");
+pub const CFSTR_PERFORMEDDROPEFFECT: windows_sys::core::PCWSTR = windows_sys::core::w!("Performed DropEffect");
+pub const CFSTR_PERSISTEDDATAOBJECT: windows_sys::core::PCWSTR = windows_sys::core::w!("PersistedDataObject");
+pub const CFSTR_PREFERREDDROPEFFECT: windows_sys::core::PCWSTR = windows_sys::core::w!("Preferred DropEffect");
+pub const CFSTR_PRINTERGROUP: windows_sys::core::PCWSTR = windows_sys::core::w!("PrinterFriendlyName");
+pub const CFSTR_SHELLDROPHANDLER: windows_sys::core::PCWSTR = windows_sys::core::w!("DropHandlerCLSID");
+pub const CFSTR_SHELLIDLIST: windows_sys::core::PCWSTR = windows_sys::core::w!("Shell IDList Array");
+pub const CFSTR_SHELLIDLISTOFFSET: windows_sys::core::PCWSTR = windows_sys::core::w!("Shell Object Offsets");
+pub const CFSTR_SHELLURL: windows_sys::core::PCWSTR = windows_sys::core::w!("UniformResourceLocator");
+pub const CFSTR_TARGETCLSID: windows_sys::core::PCWSTR = windows_sys::core::w!("TargetCLSID");
+pub const CFSTR_UNTRUSTEDDRAGDROP: windows_sys::core::PCWSTR = windows_sys::core::w!("UntrustedDragDrop");
+pub const CFSTR_ZONEIDENTIFIER: windows_sys::core::PCWSTR = windows_sys::core::w!("ZoneIdentifier");
+pub const CGID_DefView: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4af07f10_d231_11d0_b942_00a0c90312e1);
+pub const CGID_Explorer: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x000214d0_0000_0000_c000_000000000046);
+pub const CGID_ExplorerBarDoc: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x000214d3_0000_0000_c000_000000000046);
+pub const CGID_MENUDESKBAR: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5c9f0a12_959e_11d0_a3a4_00a0c9082636);
+pub const CGID_ShellDocView: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x000214d1_0000_0000_c000_000000000046);
+pub const CGID_ShellServiceObject: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x000214d2_0000_0000_c000_000000000046);
+pub const CGID_ShortCut: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x93a68750_951a_11d1_946f_000000000000);
 pub const CLOSEPROPS_DISCARD: u32 = 1u32;
 pub const CLOSEPROPS_NONE: u32 = 0u32;
-pub const CLSID_ACLCustomMRU: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x6935db93_21e8_4ccc_beb9_9fe3c77a297a);
-pub const CLSID_ACLHistory: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x00bb2764_6a77_11d0_a535_00c04fd7d062);
-pub const CLSID_ACLMRU: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x6756a641_de71_11d0_831b_00aa005b4383);
-pub const CLSID_ACLMulti: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x00bb2765_6a77_11d0_a535_00c04fd7d062);
-pub const CLSID_ACListISF: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x03c036f1_a186_11d0_824a_00aa005b4383);
-pub const CLSID_ActiveDesktop: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x75048700_ef1f_11d0_9888_006097deacf9);
-pub const CLSID_AutoComplete: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x00bb2763_6a77_11d0_a535_00c04fd7d062);
-pub const CLSID_CAnchorBrowsePropertyPage: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x3050f3bb_98b5_11cf_bb82_00aa00bdce0b);
-pub const CLSID_CDocBrowsePropertyPage: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x3050f3b4_98b5_11cf_bb82_00aa00bdce0b);
-pub const CLSID_CFSIconOverlayManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x63b51f81_c868_11d0_999c_00c04fd655e1);
-pub const CLSID_CImageBrowsePropertyPage: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x3050f3b3_98b5_11cf_bb82_00aa00bdce0b);
-pub const CLSID_CURLSearchHook: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xcfbfae00_17a6_11d0_99cb_00c04fd64497);
-pub const CLSID_CUrlHistory: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x3c374a40_bae4_11cf_bf7d_00aa006946ee);
-pub const CLSID_CUrlHistoryBoth: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x6659983c_8476_4eb4_b78c_e5968f326ba0);
-pub const CLSID_ControlPanel: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x21ec2020_3aea_1069_a2dd_08002b30309d);
-pub const CLSID_DarwinAppPublisher: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xcfccc7a0_a282_11d1_9082_006008059382);
-pub const CLSID_DocHostUIHandler: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x7057e952_bd1b_11d1_8919_00c04fc2c836);
-pub const CLSID_DragDropHelper: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x4657278a_411b_11d2_839a_00c04fd918d0);
-pub const CLSID_FileTypes: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xb091e540_83e3_11cf_a713_0020afd79762);
-pub const CLSID_FolderItemsMultiLevel: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x53c74826_ab99_4d33_aca4_3117f51d3788);
-pub const CLSID_FolderShortcut: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x0afaced1_e828_11d1_9187_b532f1e9575d);
-pub const CLSID_HWShellExecute: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xffb8655f_81b9_4fce_b89c_9a6ba76d13e7);
-pub const CLSID_ISFBand: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xd82be2b0_5764_11d0_a96e_00c04fd705a2);
-pub const CLSID_Internet: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x871c5380_42a0_1069_a2ea_08002b30309d);
-pub const CLSID_InternetButtons: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x1e796980_9cc5_11d1_a83f_00c04fc99d61);
-pub const CLSID_InternetShortcut: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xfbf23b40_e3f0_101b_8488_00aa003e56f8);
-pub const CLSID_LinkColumnProvider: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x24f14f02_7b1c_11d1_838f_0000f80461cf);
-pub const CLSID_MSOButtons: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x178f34b8_a282_11d2_86c5_00c04f8eea99);
-pub const CLSID_MenuBand: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x5b4dae26_b807_11d0_9815_00c04fd91972);
-pub const CLSID_MenuBandSite: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xe13ef4e4_d2f2_11d0_9816_00c04fd91972);
-pub const CLSID_MenuToolbarBase: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x40b96610_b522_11d1_b3b4_00aa006efde7);
-pub const CLSID_MyComputer: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x20d04fe0_3aea_1069_a2d8_08002b30309d);
-pub const CLSID_MyDocuments: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x450d8fba_ad25_11d0_98a8_0800361b1103);
-pub const CLSID_NetworkDomain: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x46e06680_4bf0_11d1_83ee_00a0c90dc849);
-pub const CLSID_NetworkServer: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xc0542a90_4bf0_11d1_83ee_00a0c90dc849);
-pub const CLSID_NetworkShare: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x54a754c0_4bf0_11d1_83ee_00a0c90dc849);
-pub const CLSID_NewMenu: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xd969a300_e7ff_11d0_a93b_00a0c90f2719);
-pub const CLSID_Printers: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x2227a280_3aea_1069_a2de_08002b30309d);
-pub const CLSID_ProgressDialog: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xf8383852_fcd3_11d1_a6b9_006097df5bd4);
-pub const CLSID_QueryAssociations: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xa07034fd_6caa_4954_ac3f_97a27216f98a);
-pub const CLSID_QuickLinks: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x0e5cbf21_d15f_11d0_8301_00aa005b4383);
-pub const CLSID_RecycleBin: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x645ff040_5081_101b_9f08_00aa002f954e);
-pub const CLSID_ShellFldSetExt: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x6d5313c0_8c62_11d1_b2cd_006097df8c11);
-pub const CLSID_ShellThumbnailDiskCache: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x1ebdcf80_a200_11d0_a3a4_00c04fd706ec);
-pub const CLSID_ToolbarExtButtons: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x2ce4b5d8_a28f_11d2_86c5_00c04f8eea99);
+pub const CLSID_ACLCustomMRU: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6935db93_21e8_4ccc_beb9_9fe3c77a297a);
+pub const CLSID_ACLHistory: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x00bb2764_6a77_11d0_a535_00c04fd7d062);
+pub const CLSID_ACLMRU: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6756a641_de71_11d0_831b_00aa005b4383);
+pub const CLSID_ACLMulti: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x00bb2765_6a77_11d0_a535_00c04fd7d062);
+pub const CLSID_ACListISF: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x03c036f1_a186_11d0_824a_00aa005b4383);
+pub const CLSID_ActiveDesktop: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x75048700_ef1f_11d0_9888_006097deacf9);
+pub const CLSID_AutoComplete: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x00bb2763_6a77_11d0_a535_00c04fd7d062);
+pub const CLSID_CAnchorBrowsePropertyPage: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3050f3bb_98b5_11cf_bb82_00aa00bdce0b);
+pub const CLSID_CDocBrowsePropertyPage: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3050f3b4_98b5_11cf_bb82_00aa00bdce0b);
+pub const CLSID_CFSIconOverlayManager: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x63b51f81_c868_11d0_999c_00c04fd655e1);
+pub const CLSID_CImageBrowsePropertyPage: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3050f3b3_98b5_11cf_bb82_00aa00bdce0b);
+pub const CLSID_CURLSearchHook: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xcfbfae00_17a6_11d0_99cb_00c04fd64497);
+pub const CLSID_CUrlHistory: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3c374a40_bae4_11cf_bf7d_00aa006946ee);
+pub const CLSID_CUrlHistoryBoth: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6659983c_8476_4eb4_b78c_e5968f326ba0);
+pub const CLSID_ControlPanel: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x21ec2020_3aea_1069_a2dd_08002b30309d);
+pub const CLSID_DarwinAppPublisher: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xcfccc7a0_a282_11d1_9082_006008059382);
+pub const CLSID_DocHostUIHandler: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7057e952_bd1b_11d1_8919_00c04fc2c836);
+pub const CLSID_DragDropHelper: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4657278a_411b_11d2_839a_00c04fd918d0);
+pub const CLSID_FileTypes: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb091e540_83e3_11cf_a713_0020afd79762);
+pub const CLSID_FolderItemsMultiLevel: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x53c74826_ab99_4d33_aca4_3117f51d3788);
+pub const CLSID_FolderShortcut: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0afaced1_e828_11d1_9187_b532f1e9575d);
+pub const CLSID_HWShellExecute: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xffb8655f_81b9_4fce_b89c_9a6ba76d13e7);
+pub const CLSID_ISFBand: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd82be2b0_5764_11d0_a96e_00c04fd705a2);
+pub const CLSID_Internet: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x871c5380_42a0_1069_a2ea_08002b30309d);
+pub const CLSID_InternetButtons: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1e796980_9cc5_11d1_a83f_00c04fc99d61);
+pub const CLSID_InternetShortcut: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xfbf23b40_e3f0_101b_8488_00aa003e56f8);
+pub const CLSID_LinkColumnProvider: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x24f14f02_7b1c_11d1_838f_0000f80461cf);
+pub const CLSID_MSOButtons: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x178f34b8_a282_11d2_86c5_00c04f8eea99);
+pub const CLSID_MenuBand: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5b4dae26_b807_11d0_9815_00c04fd91972);
+pub const CLSID_MenuBandSite: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe13ef4e4_d2f2_11d0_9816_00c04fd91972);
+pub const CLSID_MenuToolbarBase: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x40b96610_b522_11d1_b3b4_00aa006efde7);
+pub const CLSID_MyComputer: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x20d04fe0_3aea_1069_a2d8_08002b30309d);
+pub const CLSID_MyDocuments: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x450d8fba_ad25_11d0_98a8_0800361b1103);
+pub const CLSID_NetworkDomain: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x46e06680_4bf0_11d1_83ee_00a0c90dc849);
+pub const CLSID_NetworkServer: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc0542a90_4bf0_11d1_83ee_00a0c90dc849);
+pub const CLSID_NetworkShare: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x54a754c0_4bf0_11d1_83ee_00a0c90dc849);
+pub const CLSID_NewMenu: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd969a300_e7ff_11d0_a93b_00a0c90f2719);
+pub const CLSID_Printers: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x2227a280_3aea_1069_a2de_08002b30309d);
+pub const CLSID_ProgressDialog: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf8383852_fcd3_11d1_a6b9_006097df5bd4);
+pub const CLSID_QueryAssociations: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa07034fd_6caa_4954_ac3f_97a27216f98a);
+pub const CLSID_QuickLinks: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0e5cbf21_d15f_11d0_8301_00aa005b4383);
+pub const CLSID_RecycleBin: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x645ff040_5081_101b_9f08_00aa002f954e);
+pub const CLSID_ShellFldSetExt: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6d5313c0_8c62_11d1_b2cd_006097df8c11);
+pub const CLSID_ShellThumbnailDiskCache: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1ebdcf80_a200_11d0_a3a4_00c04fd706ec);
+pub const CLSID_ToolbarExtButtons: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x2ce4b5d8_a28f_11d2_86c5_00c04f8eea99);
 pub const CMDID_INTSHORTCUTCREATE: i32 = 1i32;
-pub const CMDSTR_NEWFOLDER: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("NewFolder");
-pub const CMDSTR_NEWFOLDERA: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("NewFolder");
-pub const CMDSTR_NEWFOLDERW: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("NewFolder");
-pub const CMDSTR_VIEWDETAILS: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("ViewDetails");
-pub const CMDSTR_VIEWDETAILSA: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("ViewDetails");
-pub const CMDSTR_VIEWDETAILSW: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("ViewDetails");
-pub const CMDSTR_VIEWLIST: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("ViewList");
-pub const CMDSTR_VIEWLISTA: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("ViewList");
-pub const CMDSTR_VIEWLISTW: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("ViewList");
+pub const CMDSTR_NEWFOLDER: windows_sys::core::PCWSTR = windows_sys::core::w!("NewFolder");
+pub const CMDSTR_NEWFOLDERA: windows_sys::core::PCSTR = windows_sys::core::s!("NewFolder");
+pub const CMDSTR_NEWFOLDERW: windows_sys::core::PCWSTR = windows_sys::core::w!("NewFolder");
+pub const CMDSTR_VIEWDETAILS: windows_sys::core::PCWSTR = windows_sys::core::w!("ViewDetails");
+pub const CMDSTR_VIEWDETAILSA: windows_sys::core::PCSTR = windows_sys::core::s!("ViewDetails");
+pub const CMDSTR_VIEWDETAILSW: windows_sys::core::PCWSTR = windows_sys::core::w!("ViewDetails");
+pub const CMDSTR_VIEWLIST: windows_sys::core::PCWSTR = windows_sys::core::w!("ViewList");
+pub const CMDSTR_VIEWLISTA: windows_sys::core::PCSTR = windows_sys::core::s!("ViewList");
+pub const CMDSTR_VIEWLISTW: windows_sys::core::PCWSTR = windows_sys::core::w!("ViewList");
 pub const CMF_ASYNCVERBSTATE: u32 = 1024u32;
 pub const CMF_CANRENAME: u32 = 16u32;
 pub const CMF_DEFAULTONLY: u32 = 1u32;
@@ -1407,97 +1407,97 @@ pub const COMP_TYPE_HTMLDOC: u32 = 0u32;
 pub const COMP_TYPE_MAX: u32 = 4u32;
 pub const COMP_TYPE_PICTURE: u32 = 1u32;
 pub const COMP_TYPE_WEBSITE: u32 = 2u32;
-pub const CONFLICT_RESOLUTION_CLSID_KEY: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("ConflictResolutionCLSID");
-pub const COPYENGINE_E_ACCESSDENIED_READONLY: ::windows_sys::core::HRESULT = 0x8027003F_u32 as _;
-pub const COPYENGINE_E_ACCESS_DENIED_DEST: ::windows_sys::core::HRESULT = 0x80270022_u32 as _;
-pub const COPYENGINE_E_ACCESS_DENIED_SRC: ::windows_sys::core::HRESULT = 0x80270021_u32 as _;
-pub const COPYENGINE_E_ALREADY_EXISTS_FOLDER: ::windows_sys::core::HRESULT = 0x8027002C_u32 as _;
-pub const COPYENGINE_E_ALREADY_EXISTS_NORMAL: ::windows_sys::core::HRESULT = 0x80270029_u32 as _;
-pub const COPYENGINE_E_ALREADY_EXISTS_READONLY: ::windows_sys::core::HRESULT = 0x8027002A_u32 as _;
-pub const COPYENGINE_E_ALREADY_EXISTS_SYSTEM: ::windows_sys::core::HRESULT = 0x8027002B_u32 as _;
-pub const COPYENGINE_E_BLOCKED_BY_DLP_POLICY: ::windows_sys::core::HRESULT = 0x8027004E_u32 as _;
-pub const COPYENGINE_E_BLOCKED_BY_EDP_FOR_REMOVABLE_DRIVE: ::windows_sys::core::HRESULT = 0x8027004A_u32 as _;
-pub const COPYENGINE_E_BLOCKED_BY_EDP_POLICY: ::windows_sys::core::HRESULT = 0x80270048_u32 as _;
-pub const COPYENGINE_E_CANCELLED: ::windows_sys::core::HRESULT = 0x80270001_u32 as _;
-pub const COPYENGINE_E_CANNOT_MOVE_FROM_RECYCLE_BIN: ::windows_sys::core::HRESULT = 0x80270043_u32 as _;
-pub const COPYENGINE_E_CANNOT_MOVE_SHARED_FOLDER: ::windows_sys::core::HRESULT = 0x80270044_u32 as _;
-pub const COPYENGINE_E_CANT_REACH_SOURCE: ::windows_sys::core::HRESULT = 0x80270035_u32 as _;
-pub const COPYENGINE_E_DEST_IS_RO_CD: ::windows_sys::core::HRESULT = 0x8027000F_u32 as _;
-pub const COPYENGINE_E_DEST_IS_RO_DVD: ::windows_sys::core::HRESULT = 0x80270012_u32 as _;
-pub const COPYENGINE_E_DEST_IS_RW_CD: ::windows_sys::core::HRESULT = 0x80270010_u32 as _;
-pub const COPYENGINE_E_DEST_IS_RW_DVD: ::windows_sys::core::HRESULT = 0x80270013_u32 as _;
-pub const COPYENGINE_E_DEST_IS_R_CD: ::windows_sys::core::HRESULT = 0x80270011_u32 as _;
-pub const COPYENGINE_E_DEST_IS_R_DVD: ::windows_sys::core::HRESULT = 0x80270014_u32 as _;
-pub const COPYENGINE_E_DEST_SAME_TREE: ::windows_sys::core::HRESULT = 0x8027000A_u32 as _;
-pub const COPYENGINE_E_DEST_SUBTREE: ::windows_sys::core::HRESULT = 0x80270009_u32 as _;
-pub const COPYENGINE_E_DIFF_DIR: ::windows_sys::core::HRESULT = 0x80270004_u32 as _;
-pub const COPYENGINE_E_DIR_NOT_EMPTY: ::windows_sys::core::HRESULT = 0x8027003D_u32 as _;
-pub const COPYENGINE_E_DISK_FULL: ::windows_sys::core::HRESULT = 0x80270032_u32 as _;
-pub const COPYENGINE_E_DISK_FULL_CLEAN: ::windows_sys::core::HRESULT = 0x80270033_u32 as _;
-pub const COPYENGINE_E_EA_LOSS: ::windows_sys::core::HRESULT = 0x8027002E_u32 as _;
-pub const COPYENGINE_E_EA_NOT_SUPPORTED: ::windows_sys::core::HRESULT = 0x80270034_u32 as _;
-pub const COPYENGINE_E_ENCRYPTION_LOSS: ::windows_sys::core::HRESULT = 0x80270031_u32 as _;
-pub const COPYENGINE_E_FAT_MAX_IN_ROOT: ::windows_sys::core::HRESULT = 0x8027003E_u32 as _;
-pub const COPYENGINE_E_FILE_IS_FLD_DEST: ::windows_sys::core::HRESULT = 0x8027000C_u32 as _;
-pub const COPYENGINE_E_FILE_TOO_LARGE: ::windows_sys::core::HRESULT = 0x8027000D_u32 as _;
-pub const COPYENGINE_E_FLD_IS_FILE_DEST: ::windows_sys::core::HRESULT = 0x8027000B_u32 as _;
-pub const COPYENGINE_E_INTERNET_ITEM_STORAGE_PROVIDER_ERROR: ::windows_sys::core::HRESULT = 0x80270045_u32 as _;
-pub const COPYENGINE_E_INTERNET_ITEM_STORAGE_PROVIDER_PAUSED: ::windows_sys::core::HRESULT = 0x80270046_u32 as _;
-pub const COPYENGINE_E_INTERNET_ITEM_UNAVAILABLE: ::windows_sys::core::HRESULT = 0x80270042_u32 as _;
-pub const COPYENGINE_E_INVALID_FILES_DEST: ::windows_sys::core::HRESULT = 0x8027001C_u32 as _;
-pub const COPYENGINE_E_INVALID_FILES_SRC: ::windows_sys::core::HRESULT = 0x8027001B_u32 as _;
-pub const COPYENGINE_E_MANY_SRC_1_DEST: ::windows_sys::core::HRESULT = 0x80270005_u32 as _;
-pub const COPYENGINE_E_NET_DISCONNECT_DEST: ::windows_sys::core::HRESULT = 0x80270026_u32 as _;
-pub const COPYENGINE_E_NET_DISCONNECT_SRC: ::windows_sys::core::HRESULT = 0x80270025_u32 as _;
-pub const COPYENGINE_E_NEWFILE_NAME_TOO_LONG: ::windows_sys::core::HRESULT = 0x8027003B_u32 as _;
-pub const COPYENGINE_E_NEWFOLDER_NAME_TOO_LONG: ::windows_sys::core::HRESULT = 0x8027003C_u32 as _;
-pub const COPYENGINE_E_PATH_NOT_FOUND_DEST: ::windows_sys::core::HRESULT = 0x80270024_u32 as _;
-pub const COPYENGINE_E_PATH_NOT_FOUND_SRC: ::windows_sys::core::HRESULT = 0x80270023_u32 as _;
-pub const COPYENGINE_E_PATH_TOO_DEEP_DEST: ::windows_sys::core::HRESULT = 0x8027001E_u32 as _;
-pub const COPYENGINE_E_PATH_TOO_DEEP_SRC: ::windows_sys::core::HRESULT = 0x8027001D_u32 as _;
-pub const COPYENGINE_E_PROPERTIES_LOSS: ::windows_sys::core::HRESULT = 0x80270030_u32 as _;
-pub const COPYENGINE_E_PROPERTY_LOSS: ::windows_sys::core::HRESULT = 0x8027002F_u32 as _;
-pub const COPYENGINE_E_RECYCLE_BIN_NOT_FOUND: ::windows_sys::core::HRESULT = 0x8027003A_u32 as _;
-pub const COPYENGINE_E_RECYCLE_FORCE_NUKE: ::windows_sys::core::HRESULT = 0x80270036_u32 as _;
-pub const COPYENGINE_E_RECYCLE_PATH_TOO_LONG: ::windows_sys::core::HRESULT = 0x80270038_u32 as _;
-pub const COPYENGINE_E_RECYCLE_SIZE_TOO_BIG: ::windows_sys::core::HRESULT = 0x80270037_u32 as _;
-pub const COPYENGINE_E_RECYCLE_UNKNOWN_ERROR: ::windows_sys::core::HRESULT = 0x80270035_u32 as _;
-pub const COPYENGINE_E_REDIRECTED_TO_WEBPAGE: ::windows_sys::core::HRESULT = 0x80270040_u32 as _;
-pub const COPYENGINE_E_REMOVABLE_FULL: ::windows_sys::core::HRESULT = 0x8027000E_u32 as _;
-pub const COPYENGINE_E_REQUIRES_EDP_CONSENT: ::windows_sys::core::HRESULT = 0x80270047_u32 as _;
-pub const COPYENGINE_E_REQUIRES_EDP_CONSENT_FOR_REMOVABLE_DRIVE: ::windows_sys::core::HRESULT = 0x80270049_u32 as _;
-pub const COPYENGINE_E_REQUIRES_ELEVATION: ::windows_sys::core::HRESULT = 0x80270002_u32 as _;
-pub const COPYENGINE_E_RMS_BLOCKED_BY_EDP_FOR_REMOVABLE_DRIVE: ::windows_sys::core::HRESULT = 0x8027004C_u32 as _;
-pub const COPYENGINE_E_RMS_REQUIRES_EDP_CONSENT_FOR_REMOVABLE_DRIVE: ::windows_sys::core::HRESULT = 0x8027004B_u32 as _;
-pub const COPYENGINE_E_ROOT_DIR_DEST: ::windows_sys::core::HRESULT = 0x80270020_u32 as _;
-pub const COPYENGINE_E_ROOT_DIR_SRC: ::windows_sys::core::HRESULT = 0x8027001F_u32 as _;
-pub const COPYENGINE_E_SAME_FILE: ::windows_sys::core::HRESULT = 0x80270003_u32 as _;
-pub const COPYENGINE_E_SERVER_BAD_FILE_TYPE: ::windows_sys::core::HRESULT = 0x80270041_u32 as _;
-pub const COPYENGINE_E_SHARING_VIOLATION_DEST: ::windows_sys::core::HRESULT = 0x80270028_u32 as _;
-pub const COPYENGINE_E_SHARING_VIOLATION_SRC: ::windows_sys::core::HRESULT = 0x80270027_u32 as _;
-pub const COPYENGINE_E_SILENT_FAIL_BY_DLP_POLICY: ::windows_sys::core::HRESULT = 0x8027004F_u32 as _;
-pub const COPYENGINE_E_SRC_IS_RO_CD: ::windows_sys::core::HRESULT = 0x80270015_u32 as _;
-pub const COPYENGINE_E_SRC_IS_RO_DVD: ::windows_sys::core::HRESULT = 0x80270018_u32 as _;
-pub const COPYENGINE_E_SRC_IS_RW_CD: ::windows_sys::core::HRESULT = 0x80270016_u32 as _;
-pub const COPYENGINE_E_SRC_IS_RW_DVD: ::windows_sys::core::HRESULT = 0x80270019_u32 as _;
-pub const COPYENGINE_E_SRC_IS_R_CD: ::windows_sys::core::HRESULT = 0x80270017_u32 as _;
-pub const COPYENGINE_E_SRC_IS_R_DVD: ::windows_sys::core::HRESULT = 0x8027001A_u32 as _;
-pub const COPYENGINE_E_STREAM_LOSS: ::windows_sys::core::HRESULT = 0x8027002D_u32 as _;
-pub const COPYENGINE_E_USER_CANCELLED: ::windows_sys::core::HRESULT = 0x80270000_u32 as _;
-pub const COPYENGINE_E_WARNED_BY_DLP_POLICY: ::windows_sys::core::HRESULT = 0x8027004D_u32 as _;
-pub const COPYENGINE_S_ALREADY_DONE: ::windows_sys::core::HRESULT = 0x27000A_u32 as _;
-pub const COPYENGINE_S_CLOSE_PROGRAM: ::windows_sys::core::HRESULT = 0x27000D_u32 as _;
-pub const COPYENGINE_S_COLLISIONRESOLVED: ::windows_sys::core::HRESULT = 0x27000E_u32 as _;
-pub const COPYENGINE_S_DONT_PROCESS_CHILDREN: ::windows_sys::core::HRESULT = 0x270008_u32 as _;
-pub const COPYENGINE_S_KEEP_BOTH: ::windows_sys::core::HRESULT = 0x27000C_u32 as _;
-pub const COPYENGINE_S_MERGE: ::windows_sys::core::HRESULT = 0x270006_u32 as _;
-pub const COPYENGINE_S_NOT_HANDLED: ::windows_sys::core::HRESULT = 0x270003_u32 as _;
-pub const COPYENGINE_S_PENDING: ::windows_sys::core::HRESULT = 0x27000B_u32 as _;
-pub const COPYENGINE_S_PENDING_DELETE: ::windows_sys::core::HRESULT = 0x270010_u32 as _;
-pub const COPYENGINE_S_PROGRESS_PAUSE: ::windows_sys::core::HRESULT = 0x27000F_u32 as _;
-pub const COPYENGINE_S_USER_IGNORED: ::windows_sys::core::HRESULT = 0x270005_u32 as _;
-pub const COPYENGINE_S_USER_RETRY: ::windows_sys::core::HRESULT = 0x270004_u32 as _;
-pub const COPYENGINE_S_YES: ::windows_sys::core::HRESULT = 0x270001_u32 as _;
+pub const CONFLICT_RESOLUTION_CLSID_KEY: windows_sys::core::PCWSTR = windows_sys::core::w!("ConflictResolutionCLSID");
+pub const COPYENGINE_E_ACCESSDENIED_READONLY: windows_sys::core::HRESULT = 0x8027003F_u32 as _;
+pub const COPYENGINE_E_ACCESS_DENIED_DEST: windows_sys::core::HRESULT = 0x80270022_u32 as _;
+pub const COPYENGINE_E_ACCESS_DENIED_SRC: windows_sys::core::HRESULT = 0x80270021_u32 as _;
+pub const COPYENGINE_E_ALREADY_EXISTS_FOLDER: windows_sys::core::HRESULT = 0x8027002C_u32 as _;
+pub const COPYENGINE_E_ALREADY_EXISTS_NORMAL: windows_sys::core::HRESULT = 0x80270029_u32 as _;
+pub const COPYENGINE_E_ALREADY_EXISTS_READONLY: windows_sys::core::HRESULT = 0x8027002A_u32 as _;
+pub const COPYENGINE_E_ALREADY_EXISTS_SYSTEM: windows_sys::core::HRESULT = 0x8027002B_u32 as _;
+pub const COPYENGINE_E_BLOCKED_BY_DLP_POLICY: windows_sys::core::HRESULT = 0x8027004E_u32 as _;
+pub const COPYENGINE_E_BLOCKED_BY_EDP_FOR_REMOVABLE_DRIVE: windows_sys::core::HRESULT = 0x8027004A_u32 as _;
+pub const COPYENGINE_E_BLOCKED_BY_EDP_POLICY: windows_sys::core::HRESULT = 0x80270048_u32 as _;
+pub const COPYENGINE_E_CANCELLED: windows_sys::core::HRESULT = 0x80270001_u32 as _;
+pub const COPYENGINE_E_CANNOT_MOVE_FROM_RECYCLE_BIN: windows_sys::core::HRESULT = 0x80270043_u32 as _;
+pub const COPYENGINE_E_CANNOT_MOVE_SHARED_FOLDER: windows_sys::core::HRESULT = 0x80270044_u32 as _;
+pub const COPYENGINE_E_CANT_REACH_SOURCE: windows_sys::core::HRESULT = 0x80270035_u32 as _;
+pub const COPYENGINE_E_DEST_IS_RO_CD: windows_sys::core::HRESULT = 0x8027000F_u32 as _;
+pub const COPYENGINE_E_DEST_IS_RO_DVD: windows_sys::core::HRESULT = 0x80270012_u32 as _;
+pub const COPYENGINE_E_DEST_IS_RW_CD: windows_sys::core::HRESULT = 0x80270010_u32 as _;
+pub const COPYENGINE_E_DEST_IS_RW_DVD: windows_sys::core::HRESULT = 0x80270013_u32 as _;
+pub const COPYENGINE_E_DEST_IS_R_CD: windows_sys::core::HRESULT = 0x80270011_u32 as _;
+pub const COPYENGINE_E_DEST_IS_R_DVD: windows_sys::core::HRESULT = 0x80270014_u32 as _;
+pub const COPYENGINE_E_DEST_SAME_TREE: windows_sys::core::HRESULT = 0x8027000A_u32 as _;
+pub const COPYENGINE_E_DEST_SUBTREE: windows_sys::core::HRESULT = 0x80270009_u32 as _;
+pub const COPYENGINE_E_DIFF_DIR: windows_sys::core::HRESULT = 0x80270004_u32 as _;
+pub const COPYENGINE_E_DIR_NOT_EMPTY: windows_sys::core::HRESULT = 0x8027003D_u32 as _;
+pub const COPYENGINE_E_DISK_FULL: windows_sys::core::HRESULT = 0x80270032_u32 as _;
+pub const COPYENGINE_E_DISK_FULL_CLEAN: windows_sys::core::HRESULT = 0x80270033_u32 as _;
+pub const COPYENGINE_E_EA_LOSS: windows_sys::core::HRESULT = 0x8027002E_u32 as _;
+pub const COPYENGINE_E_EA_NOT_SUPPORTED: windows_sys::core::HRESULT = 0x80270034_u32 as _;
+pub const COPYENGINE_E_ENCRYPTION_LOSS: windows_sys::core::HRESULT = 0x80270031_u32 as _;
+pub const COPYENGINE_E_FAT_MAX_IN_ROOT: windows_sys::core::HRESULT = 0x8027003E_u32 as _;
+pub const COPYENGINE_E_FILE_IS_FLD_DEST: windows_sys::core::HRESULT = 0x8027000C_u32 as _;
+pub const COPYENGINE_E_FILE_TOO_LARGE: windows_sys::core::HRESULT = 0x8027000D_u32 as _;
+pub const COPYENGINE_E_FLD_IS_FILE_DEST: windows_sys::core::HRESULT = 0x8027000B_u32 as _;
+pub const COPYENGINE_E_INTERNET_ITEM_STORAGE_PROVIDER_ERROR: windows_sys::core::HRESULT = 0x80270045_u32 as _;
+pub const COPYENGINE_E_INTERNET_ITEM_STORAGE_PROVIDER_PAUSED: windows_sys::core::HRESULT = 0x80270046_u32 as _;
+pub const COPYENGINE_E_INTERNET_ITEM_UNAVAILABLE: windows_sys::core::HRESULT = 0x80270042_u32 as _;
+pub const COPYENGINE_E_INVALID_FILES_DEST: windows_sys::core::HRESULT = 0x8027001C_u32 as _;
+pub const COPYENGINE_E_INVALID_FILES_SRC: windows_sys::core::HRESULT = 0x8027001B_u32 as _;
+pub const COPYENGINE_E_MANY_SRC_1_DEST: windows_sys::core::HRESULT = 0x80270005_u32 as _;
+pub const COPYENGINE_E_NET_DISCONNECT_DEST: windows_sys::core::HRESULT = 0x80270026_u32 as _;
+pub const COPYENGINE_E_NET_DISCONNECT_SRC: windows_sys::core::HRESULT = 0x80270025_u32 as _;
+pub const COPYENGINE_E_NEWFILE_NAME_TOO_LONG: windows_sys::core::HRESULT = 0x8027003B_u32 as _;
+pub const COPYENGINE_E_NEWFOLDER_NAME_TOO_LONG: windows_sys::core::HRESULT = 0x8027003C_u32 as _;
+pub const COPYENGINE_E_PATH_NOT_FOUND_DEST: windows_sys::core::HRESULT = 0x80270024_u32 as _;
+pub const COPYENGINE_E_PATH_NOT_FOUND_SRC: windows_sys::core::HRESULT = 0x80270023_u32 as _;
+pub const COPYENGINE_E_PATH_TOO_DEEP_DEST: windows_sys::core::HRESULT = 0x8027001E_u32 as _;
+pub const COPYENGINE_E_PATH_TOO_DEEP_SRC: windows_sys::core::HRESULT = 0x8027001D_u32 as _;
+pub const COPYENGINE_E_PROPERTIES_LOSS: windows_sys::core::HRESULT = 0x80270030_u32 as _;
+pub const COPYENGINE_E_PROPERTY_LOSS: windows_sys::core::HRESULT = 0x8027002F_u32 as _;
+pub const COPYENGINE_E_RECYCLE_BIN_NOT_FOUND: windows_sys::core::HRESULT = 0x8027003A_u32 as _;
+pub const COPYENGINE_E_RECYCLE_FORCE_NUKE: windows_sys::core::HRESULT = 0x80270036_u32 as _;
+pub const COPYENGINE_E_RECYCLE_PATH_TOO_LONG: windows_sys::core::HRESULT = 0x80270038_u32 as _;
+pub const COPYENGINE_E_RECYCLE_SIZE_TOO_BIG: windows_sys::core::HRESULT = 0x80270037_u32 as _;
+pub const COPYENGINE_E_RECYCLE_UNKNOWN_ERROR: windows_sys::core::HRESULT = 0x80270035_u32 as _;
+pub const COPYENGINE_E_REDIRECTED_TO_WEBPAGE: windows_sys::core::HRESULT = 0x80270040_u32 as _;
+pub const COPYENGINE_E_REMOVABLE_FULL: windows_sys::core::HRESULT = 0x8027000E_u32 as _;
+pub const COPYENGINE_E_REQUIRES_EDP_CONSENT: windows_sys::core::HRESULT = 0x80270047_u32 as _;
+pub const COPYENGINE_E_REQUIRES_EDP_CONSENT_FOR_REMOVABLE_DRIVE: windows_sys::core::HRESULT = 0x80270049_u32 as _;
+pub const COPYENGINE_E_REQUIRES_ELEVATION: windows_sys::core::HRESULT = 0x80270002_u32 as _;
+pub const COPYENGINE_E_RMS_BLOCKED_BY_EDP_FOR_REMOVABLE_DRIVE: windows_sys::core::HRESULT = 0x8027004C_u32 as _;
+pub const COPYENGINE_E_RMS_REQUIRES_EDP_CONSENT_FOR_REMOVABLE_DRIVE: windows_sys::core::HRESULT = 0x8027004B_u32 as _;
+pub const COPYENGINE_E_ROOT_DIR_DEST: windows_sys::core::HRESULT = 0x80270020_u32 as _;
+pub const COPYENGINE_E_ROOT_DIR_SRC: windows_sys::core::HRESULT = 0x8027001F_u32 as _;
+pub const COPYENGINE_E_SAME_FILE: windows_sys::core::HRESULT = 0x80270003_u32 as _;
+pub const COPYENGINE_E_SERVER_BAD_FILE_TYPE: windows_sys::core::HRESULT = 0x80270041_u32 as _;
+pub const COPYENGINE_E_SHARING_VIOLATION_DEST: windows_sys::core::HRESULT = 0x80270028_u32 as _;
+pub const COPYENGINE_E_SHARING_VIOLATION_SRC: windows_sys::core::HRESULT = 0x80270027_u32 as _;
+pub const COPYENGINE_E_SILENT_FAIL_BY_DLP_POLICY: windows_sys::core::HRESULT = 0x8027004F_u32 as _;
+pub const COPYENGINE_E_SRC_IS_RO_CD: windows_sys::core::HRESULT = 0x80270015_u32 as _;
+pub const COPYENGINE_E_SRC_IS_RO_DVD: windows_sys::core::HRESULT = 0x80270018_u32 as _;
+pub const COPYENGINE_E_SRC_IS_RW_CD: windows_sys::core::HRESULT = 0x80270016_u32 as _;
+pub const COPYENGINE_E_SRC_IS_RW_DVD: windows_sys::core::HRESULT = 0x80270019_u32 as _;
+pub const COPYENGINE_E_SRC_IS_R_CD: windows_sys::core::HRESULT = 0x80270017_u32 as _;
+pub const COPYENGINE_E_SRC_IS_R_DVD: windows_sys::core::HRESULT = 0x8027001A_u32 as _;
+pub const COPYENGINE_E_STREAM_LOSS: windows_sys::core::HRESULT = 0x8027002D_u32 as _;
+pub const COPYENGINE_E_USER_CANCELLED: windows_sys::core::HRESULT = 0x80270000_u32 as _;
+pub const COPYENGINE_E_WARNED_BY_DLP_POLICY: windows_sys::core::HRESULT = 0x8027004D_u32 as _;
+pub const COPYENGINE_S_ALREADY_DONE: windows_sys::core::HRESULT = 0x27000A_u32 as _;
+pub const COPYENGINE_S_CLOSE_PROGRAM: windows_sys::core::HRESULT = 0x27000D_u32 as _;
+pub const COPYENGINE_S_COLLISIONRESOLVED: windows_sys::core::HRESULT = 0x27000E_u32 as _;
+pub const COPYENGINE_S_DONT_PROCESS_CHILDREN: windows_sys::core::HRESULT = 0x270008_u32 as _;
+pub const COPYENGINE_S_KEEP_BOTH: windows_sys::core::HRESULT = 0x27000C_u32 as _;
+pub const COPYENGINE_S_MERGE: windows_sys::core::HRESULT = 0x270006_u32 as _;
+pub const COPYENGINE_S_NOT_HANDLED: windows_sys::core::HRESULT = 0x270003_u32 as _;
+pub const COPYENGINE_S_PENDING: windows_sys::core::HRESULT = 0x27000B_u32 as _;
+pub const COPYENGINE_S_PENDING_DELETE: windows_sys::core::HRESULT = 0x270010_u32 as _;
+pub const COPYENGINE_S_PROGRESS_PAUSE: windows_sys::core::HRESULT = 0x27000F_u32 as _;
+pub const COPYENGINE_S_USER_IGNORED: windows_sys::core::HRESULT = 0x270005_u32 as _;
+pub const COPYENGINE_S_USER_RETRY: windows_sys::core::HRESULT = 0x270004_u32 as _;
+pub const COPYENGINE_S_YES: windows_sys::core::HRESULT = 0x270001_u32 as _;
 pub const CPAO_EMPTY_CONNECTED: CREDENTIAL_PROVIDER_ACCOUNT_OPTIONS = 2i32;
 pub const CPAO_EMPTY_LOCAL: CREDENTIAL_PROVIDER_ACCOUNT_OPTIONS = 1i32;
 pub const CPAO_NONE: CREDENTIAL_PROVIDER_ACCOUNT_OPTIONS = 0i32;
@@ -1507,14 +1507,14 @@ pub const CPCFO_IS_EMAIL_ADDRESS: CREDENTIAL_PROVIDER_CREDENTIAL_FIELD_OPTIONS =
 pub const CPCFO_NONE: CREDENTIAL_PROVIDER_CREDENTIAL_FIELD_OPTIONS = 0i32;
 pub const CPCFO_NUMBERS_ONLY: CREDENTIAL_PROVIDER_CREDENTIAL_FIELD_OPTIONS = 8i32;
 pub const CPCFO_SHOW_ENGLISH_KEYBOARD: CREDENTIAL_PROVIDER_CREDENTIAL_FIELD_OPTIONS = 16i32;
-pub const CPFG_CREDENTIAL_PROVIDER_LABEL: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x286bbff3_bad4_438f_b007_79b7267c3d48);
-pub const CPFG_CREDENTIAL_PROVIDER_LOGO: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x2d837775_f6cd_464e_a745_482fd0b47493);
-pub const CPFG_LOGON_PASSWORD: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x60624cfa_a477_47b1_8a8e_3a4a19981827);
-pub const CPFG_LOGON_USERNAME: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xda15bbe8_954d_4fd3_b0f4_1fb5b90b174b);
-pub const CPFG_SMARTCARD_PIN: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x4fe5263b_9181_46c1_b0a4_9dedd4db7dea);
-pub const CPFG_SMARTCARD_USERNAME: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x3e1ecf69_568c_4d96_9d59_46444174e2d6);
-pub const CPFG_STANDALONE_SUBMIT_BUTTON: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x0b7b0ad8_cc36_4d59_802b_82f714fa7022);
-pub const CPFG_STYLE_LINK_AS_BUTTON: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x088fa508_94a6_4430_a4cb_6fc6e3c0b9e2);
+pub const CPFG_CREDENTIAL_PROVIDER_LABEL: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x286bbff3_bad4_438f_b007_79b7267c3d48);
+pub const CPFG_CREDENTIAL_PROVIDER_LOGO: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x2d837775_f6cd_464e_a745_482fd0b47493);
+pub const CPFG_LOGON_PASSWORD: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x60624cfa_a477_47b1_8a8e_3a4a19981827);
+pub const CPFG_LOGON_USERNAME: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xda15bbe8_954d_4fd3_b0f4_1fb5b90b174b);
+pub const CPFG_SMARTCARD_PIN: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4fe5263b_9181_46c1_b0a4_9dedd4db7dea);
+pub const CPFG_SMARTCARD_USERNAME: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3e1ecf69_568c_4d96_9d59_46444174e2d6);
+pub const CPFG_STANDALONE_SUBMIT_BUTTON: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0b7b0ad8_cc36_4d59_802b_82f714fa7022);
+pub const CPFG_STYLE_LINK_AS_BUTTON: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x088fa508_94a6_4430_a4cb_6fc6e3c0b9e2);
 pub const CPFIS_DISABLED: CREDENTIAL_PROVIDER_FIELD_INTERACTIVE_STATE = 2i32;
 pub const CPFIS_FOCUSED: CREDENTIAL_PROVIDER_FIELD_INTERACTIVE_STATE = 3i32;
 pub const CPFIS_NONE: CREDENTIAL_PROVIDER_FIELD_INTERACTIVE_STATE = 0i32;
@@ -1780,7 +1780,7 @@ pub const DISPID_VERBINVOKED: u32 = 202u32;
 pub const DISPID_VIEWMODECHANGED: u32 = 205u32;
 pub const DISPID_VIEWPAINTDONE: u32 = 211u32;
 pub const DISPID_WORDWHEELEDITED: u32 = 219u32;
-pub const DI_GETDRAGIMAGE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("ShellGetDragImage");
+pub const DI_GETDRAGIMAGE: windows_sys::core::PCWSTR = windows_sys::core::w!("ShellGetDragImage");
 pub const DLG_SCRNSAVECONFIGURE: u32 = 2003u32;
 pub const DLLVER_BUILD_MASK: u64 = 4294901760u64;
 pub const DLLVER_MAJOR_MASK: u64 = 18446462598732840960u64;
@@ -1867,46 +1867,46 @@ pub const EPS_DONTCARE: _EXPLORERPANESTATE = 0i32;
 pub const EPS_FORCE: _EXPLORERPANESTATE = 131072i32;
 pub const EPS_INITIALSTATE: _EXPLORERPANESTATE = 65536i32;
 pub const EPS_STATEMASK: _EXPLORERPANESTATE = 65535i32;
-pub const EP_AdvQueryPane: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xb4e9db8b_34ba_4c39_b5cc_16a1bd2c411c);
-pub const EP_Commands: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xd9745868_ca5f_4a76_91cd_f5a129fbb076);
-pub const EP_Commands_Organize: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x72e81700_e3ec_4660_bf24_3c3b7b648806);
-pub const EP_Commands_View: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x21f7c32d_eeaa_439b_bb51_37b96fd6a943);
-pub const EP_DetailsPane: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x43abf98b_89b8_472d_b9ce_e69b8229f019);
-pub const EP_NavPane: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xcb316b22_25f7_42b8_8a09_540d23a43c2f);
-pub const EP_PreviewPane: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x893c63d1_45c8_4d17_be19_223be71be365);
-pub const EP_QueryPane: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x65bcde4f_4f07_4f27_83a7_1afca4df7ddd);
-pub const EP_Ribbon: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xd27524a8_c9f2_4834_a106_df8889fd4f37);
-pub const EP_StatusBar: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x65fe56ce_5cfe_4bc4_ad8a_7ae3fe7e8f7c);
-pub const EXECUTE_E_LAUNCH_APPLICATION: ::windows_sys::core::HRESULT = 0x80270101_u32 as _;
+pub const EP_AdvQueryPane: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb4e9db8b_34ba_4c39_b5cc_16a1bd2c411c);
+pub const EP_Commands: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd9745868_ca5f_4a76_91cd_f5a129fbb076);
+pub const EP_Commands_Organize: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x72e81700_e3ec_4660_bf24_3c3b7b648806);
+pub const EP_Commands_View: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x21f7c32d_eeaa_439b_bb51_37b96fd6a943);
+pub const EP_DetailsPane: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x43abf98b_89b8_472d_b9ce_e69b8229f019);
+pub const EP_NavPane: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xcb316b22_25f7_42b8_8a09_540d23a43c2f);
+pub const EP_PreviewPane: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x893c63d1_45c8_4d17_be19_223be71be365);
+pub const EP_QueryPane: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x65bcde4f_4f07_4f27_83a7_1afca4df7ddd);
+pub const EP_Ribbon: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd27524a8_c9f2_4834_a106_df8889fd4f37);
+pub const EP_StatusBar: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x65fe56ce_5cfe_4bc4_ad8a_7ae3fe7e8f7c);
+pub const EXECUTE_E_LAUNCH_APPLICATION: windows_sys::core::HRESULT = 0x80270101_u32 as _;
 pub const EXPPS_FILETYPES: _EXPPS = 1i32;
 pub const EXP_DARWIN_ID_SIG: u32 = 2684354566u32;
 pub const EXP_PROPERTYSTORAGE_SIG: u32 = 2684354569u32;
 pub const EXP_SPECIAL_FOLDER_SIG: u32 = 2684354565u32;
 pub const EXP_SZ_ICON_SIG: u32 = 2684354567u32;
 pub const EXP_SZ_LINK_SIG: u32 = 2684354561u32;
-pub const E_ACTIVATIONDENIED_SHELLERROR: ::windows_sys::core::HRESULT = 0x80270131_u32 as _;
-pub const E_ACTIVATIONDENIED_SHELLNOTREADY: ::windows_sys::core::HRESULT = 0x80270134_u32 as _;
-pub const E_ACTIVATIONDENIED_SHELLRESTART: ::windows_sys::core::HRESULT = 0x80270132_u32 as _;
-pub const E_ACTIVATIONDENIED_UNEXPECTED: ::windows_sys::core::HRESULT = 0x80270133_u32 as _;
-pub const E_ACTIVATIONDENIED_USERCLOSE: ::windows_sys::core::HRESULT = 0x80270130_u32 as _;
-pub const E_FILE_PLACEHOLDER_NOT_INITIALIZED: ::windows_sys::core::HRESULT = 0x80270110_u32 as _;
-pub const E_FILE_PLACEHOLDER_SERVER_TIMED_OUT: ::windows_sys::core::HRESULT = 0x80270112_u32 as _;
-pub const E_FILE_PLACEHOLDER_STORAGEPROVIDER_NOT_FOUND: ::windows_sys::core::HRESULT = 0x80270113_u32 as _;
-pub const E_FILE_PLACEHOLDER_VERSION_MISMATCH: ::windows_sys::core::HRESULT = 0x80270111_u32 as _;
-pub const E_FLAGS: ::windows_sys::core::HRESULT = 0x80041000_u32 as _;
-pub const E_IMAGEFEED_CHANGEDISABLED: ::windows_sys::core::HRESULT = 0x80270310_u32 as _;
-pub const E_NOTVALIDFORANIMATEDIMAGE: ::windows_sys::core::HRESULT = 0x80040001_u32 as _;
-pub const E_PREVIEWHANDLER_CORRUPT: ::windows_sys::core::HRESULT = 0x86420004_u32 as _;
-pub const E_PREVIEWHANDLER_DRM_FAIL: ::windows_sys::core::HRESULT = 0x86420001_u32 as _;
-pub const E_PREVIEWHANDLER_NOAUTH: ::windows_sys::core::HRESULT = 0x86420002_u32 as _;
-pub const E_PREVIEWHANDLER_NOTFOUND: ::windows_sys::core::HRESULT = 0x86420003_u32 as _;
-pub const E_SHELL_EXTENSION_BLOCKED: ::windows_sys::core::HRESULT = 0x80270301_u32 as _;
-pub const E_TILE_NOTIFICATIONS_PLATFORM_FAILURE: ::windows_sys::core::HRESULT = 0x80270249_u32 as _;
-pub const E_USERTILE_CHANGEDISABLED: ::windows_sys::core::HRESULT = 0x80270211_u32 as _;
-pub const E_USERTILE_FILESIZE: ::windows_sys::core::HRESULT = 0x80270214_u32 as _;
-pub const E_USERTILE_LARGEORDYNAMIC: ::windows_sys::core::HRESULT = 0x80270212_u32 as _;
-pub const E_USERTILE_UNSUPPORTEDFILETYPE: ::windows_sys::core::HRESULT = 0x80270210_u32 as _;
-pub const E_USERTILE_VIDEOFRAMESIZE: ::windows_sys::core::HRESULT = 0x80270213_u32 as _;
+pub const E_ACTIVATIONDENIED_SHELLERROR: windows_sys::core::HRESULT = 0x80270131_u32 as _;
+pub const E_ACTIVATIONDENIED_SHELLNOTREADY: windows_sys::core::HRESULT = 0x80270134_u32 as _;
+pub const E_ACTIVATIONDENIED_SHELLRESTART: windows_sys::core::HRESULT = 0x80270132_u32 as _;
+pub const E_ACTIVATIONDENIED_UNEXPECTED: windows_sys::core::HRESULT = 0x80270133_u32 as _;
+pub const E_ACTIVATIONDENIED_USERCLOSE: windows_sys::core::HRESULT = 0x80270130_u32 as _;
+pub const E_FILE_PLACEHOLDER_NOT_INITIALIZED: windows_sys::core::HRESULT = 0x80270110_u32 as _;
+pub const E_FILE_PLACEHOLDER_SERVER_TIMED_OUT: windows_sys::core::HRESULT = 0x80270112_u32 as _;
+pub const E_FILE_PLACEHOLDER_STORAGEPROVIDER_NOT_FOUND: windows_sys::core::HRESULT = 0x80270113_u32 as _;
+pub const E_FILE_PLACEHOLDER_VERSION_MISMATCH: windows_sys::core::HRESULT = 0x80270111_u32 as _;
+pub const E_FLAGS: windows_sys::core::HRESULT = 0x80041000_u32 as _;
+pub const E_IMAGEFEED_CHANGEDISABLED: windows_sys::core::HRESULT = 0x80270310_u32 as _;
+pub const E_NOTVALIDFORANIMATEDIMAGE: windows_sys::core::HRESULT = 0x80040001_u32 as _;
+pub const E_PREVIEWHANDLER_CORRUPT: windows_sys::core::HRESULT = 0x86420004_u32 as _;
+pub const E_PREVIEWHANDLER_DRM_FAIL: windows_sys::core::HRESULT = 0x86420001_u32 as _;
+pub const E_PREVIEWHANDLER_NOAUTH: windows_sys::core::HRESULT = 0x86420002_u32 as _;
+pub const E_PREVIEWHANDLER_NOTFOUND: windows_sys::core::HRESULT = 0x86420003_u32 as _;
+pub const E_SHELL_EXTENSION_BLOCKED: windows_sys::core::HRESULT = 0x80270301_u32 as _;
+pub const E_TILE_NOTIFICATIONS_PLATFORM_FAILURE: windows_sys::core::HRESULT = 0x80270249_u32 as _;
+pub const E_USERTILE_CHANGEDISABLED: windows_sys::core::HRESULT = 0x80270211_u32 as _;
+pub const E_USERTILE_FILESIZE: windows_sys::core::HRESULT = 0x80270214_u32 as _;
+pub const E_USERTILE_LARGEORDYNAMIC: windows_sys::core::HRESULT = 0x80270212_u32 as _;
+pub const E_USERTILE_UNSUPPORTEDFILETYPE: windows_sys::core::HRESULT = 0x80270210_u32 as _;
+pub const E_USERTILE_VIDEOFRAMESIZE: windows_sys::core::HRESULT = 0x80270213_u32 as _;
 pub const ExtractIfNotCached: ThumbnailStreamCacheOptions = 0i32;
 pub const FCIDM_BROWSERFIRST: u32 = 40960u32;
 pub const FCIDM_BROWSERLAST: u32 = 48896u32;
@@ -1982,21 +1982,21 @@ pub const FLVM_LAST: FOLDERLOGICALVIEWMODE = 5i32;
 pub const FLVM_LIST: FOLDERLOGICALVIEWMODE = 4i32;
 pub const FLVM_TILES: FOLDERLOGICALVIEWMODE = 2i32;
 pub const FLVM_UNSPECIFIED: FOLDERLOGICALVIEWMODE = -1i32;
-pub const FMTID_Briefcase: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x328d8b21_7729_4bfc_954c_902b329d56b0);
-pub const FMTID_CustomImageProperties: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x7ecd8b0e_c136_4a9b_9411_4ebd6673ccc3);
-pub const FMTID_DRM: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xaeac19e4_89ae_4508_b9b7_bb867abee2ed);
-pub const FMTID_Displaced: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x9b174b33_40ff_11d2_a27e_00c04fc30871);
-pub const FMTID_ImageProperties: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x14b81da1_0135_4d31_96d9_6cbfc9671a99);
-pub const FMTID_InternetSite: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x000214a1_0000_0000_c000_000000000046);
-pub const FMTID_Intshcut: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x000214a0_0000_0000_c000_000000000046);
-pub const FMTID_LibraryProperties: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x5d76b67f_9b3d_44bb_b6ae_25da4f638a67);
-pub const FMTID_MUSIC: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x56a3372e_ce9c_11d2_9f0e_006097c686f6);
-pub const FMTID_Misc: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x9b174b34_40ff_11d2_a27e_00c04fc30871);
-pub const FMTID_Query: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x49691c90_7e17_101a_a91c_08002b2ecda9);
-pub const FMTID_ShellDetails: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x28636aa6_953d_11d2_b5d6_00c04fd918d0);
-pub const FMTID_Storage: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xb725f130_47ef_101a_a5f1_02608c9eebac);
-pub const FMTID_Volume: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x9b174b35_40ff_11d2_a27e_00c04fc30871);
-pub const FMTID_WebView: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xf2275480_f782_4291_bd94_f13693513aec);
+pub const FMTID_Briefcase: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x328d8b21_7729_4bfc_954c_902b329d56b0);
+pub const FMTID_CustomImageProperties: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7ecd8b0e_c136_4a9b_9411_4ebd6673ccc3);
+pub const FMTID_DRM: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xaeac19e4_89ae_4508_b9b7_bb867abee2ed);
+pub const FMTID_Displaced: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9b174b33_40ff_11d2_a27e_00c04fc30871);
+pub const FMTID_ImageProperties: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x14b81da1_0135_4d31_96d9_6cbfc9671a99);
+pub const FMTID_InternetSite: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x000214a1_0000_0000_c000_000000000046);
+pub const FMTID_Intshcut: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x000214a0_0000_0000_c000_000000000046);
+pub const FMTID_LibraryProperties: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5d76b67f_9b3d_44bb_b6ae_25da4f638a67);
+pub const FMTID_MUSIC: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x56a3372e_ce9c_11d2_9f0e_006097c686f6);
+pub const FMTID_Misc: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9b174b34_40ff_11d2_a27e_00c04fc30871);
+pub const FMTID_Query: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x49691c90_7e17_101a_a91c_08002b2ecda9);
+pub const FMTID_ShellDetails: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x28636aa6_953d_11d2_b5d6_00c04fd918d0);
+pub const FMTID_Storage: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb725f130_47ef_101a_a5f1_02608c9eebac);
+pub const FMTID_Volume: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9b174b35_40ff_11d2_a27e_00c04fc30871);
+pub const FMTID_WebView: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf2275480_f782_4291_bd94_f13693513aec);
 pub const FOF2_MERGEFOLDERSONCOLLISION: FILE_OPERATION_FLAGS2 = 1i32;
 pub const FOF2_NONE: FILE_OPERATION_FLAGS2 = 0i32;
 pub const FOFX_ADDUNDORECORD: FILEOPERATION_FLAGS = 536870912u32;
@@ -2032,184 +2032,184 @@ pub const FOF_SILENT: FILEOPERATION_FLAGS = 4u32;
 pub const FOF_SIMPLEPROGRESS: FILEOPERATION_FLAGS = 256u32;
 pub const FOF_WANTMAPPINGHANDLE: FILEOPERATION_FLAGS = 32u32;
 pub const FOF_WANTNUKEWARNING: FILEOPERATION_FLAGS = 16384u32;
-pub const FOLDERID_AccountPictures: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x008ca0b1_55b4_4c56_b8a8_4de4b299d3be);
-pub const FOLDERID_AddNewPrograms: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xde61d971_5ebc_4f02_a3a9_6c82895e5c04);
-pub const FOLDERID_AdminTools: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x724ef170_a42d_4fef_9f26_b60e846fba4f);
-pub const FOLDERID_AllAppMods: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x7ad67899_66af_43ba_9156_6aad42e6c596);
-pub const FOLDERID_AppCaptures: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xedc0fe71_98d8_4f4a_b920_c8dc133cb165);
-pub const FOLDERID_AppDataDesktop: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xb2c5e279_7add_439f_b28c_c41fe1bbf672);
-pub const FOLDERID_AppDataDocuments: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x7be16610_1f7f_44ac_bff0_83e15f2ffca1);
-pub const FOLDERID_AppDataFavorites: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x7cfbefbc_de1f_45aa_b843_a542ac536cc9);
-pub const FOLDERID_AppDataProgramData: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x559d40a3_a036_40fa_af61_84cb430a4d34);
-pub const FOLDERID_AppUpdates: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xa305ce99_f527_492b_8b1a_7e76fa98d6e4);
-pub const FOLDERID_ApplicationShortcuts: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xa3918781_e5f2_4890_b3d9_a7e54332328c);
-pub const FOLDERID_AppsFolder: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x1e87508d_89c2_42f0_8a7e_645a0f50ca58);
-pub const FOLDERID_CDBurning: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x9e52ab10_f80d_49df_acb8_4330f5687855);
-pub const FOLDERID_CameraRoll: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xab5fb87b_7ce2_4f83_915d_550846c9537b);
-pub const FOLDERID_CameraRollLibrary: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x2b20df75_1eda_4039_8097_38798227d5b7);
-pub const FOLDERID_ChangeRemovePrograms: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xdf7266ac_9274_4867_8d55_3bd661de872d);
-pub const FOLDERID_CommonAdminTools: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xd0384e7d_bac3_4797_8f14_cba229b392b5);
-pub const FOLDERID_CommonOEMLinks: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xc1bae2d0_10df_4334_bedd_7aa20b227a9d);
-pub const FOLDERID_CommonPrograms: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x0139d44e_6afe_49f2_8690_3dafcae6ffb8);
-pub const FOLDERID_CommonStartMenu: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xa4115719_d62e_491d_aa7c_e74b8be3b067);
-pub const FOLDERID_CommonStartMenuPlaces: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xa440879f_87a0_4f7d_b700_0207b966194a);
-pub const FOLDERID_CommonStartup: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x82a5ea35_d9cd_47c5_9629_e15d2f714e6e);
-pub const FOLDERID_CommonTemplates: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xb94237e7_57ac_4347_9151_b08c6c32d1f7);
-pub const FOLDERID_ComputerFolder: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x0ac0837c_bbf8_452a_850d_79d08e667ca7);
-pub const FOLDERID_ConflictFolder: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x4bfefb45_347d_4006_a5be_ac0cb0567192);
-pub const FOLDERID_ConnectionsFolder: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x6f0cd92b_2e97_45d1_88ff_b0d186b8dedd);
-pub const FOLDERID_Contacts: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x56784854_c6cb_462b_8169_88e350acb882);
-pub const FOLDERID_ControlPanelFolder: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x82a74aeb_aeb4_465c_a014_d097ee346d63);
-pub const FOLDERID_Cookies: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x2b0f765d_c0e9_4171_908e_08a611b84ff6);
-pub const FOLDERID_CurrentAppMods: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x3db40b20_2a30_4dbe_917e_771dd21dd099);
-pub const FOLDERID_Desktop: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xb4bfcc3a_db2c_424c_b029_7fe99a87c641);
-pub const FOLDERID_DevelopmentFiles: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xdbe8e08e_3053_4bbc_b183_2a7b2b191e59);
-pub const FOLDERID_Device: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x1c2ac1dc_4358_4b6c_9733_af21156576f0);
-pub const FOLDERID_DeviceMetadataStore: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x5ce4a5e9_e4eb_479d_b89f_130c02886155);
-pub const FOLDERID_Documents: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xfdd39ad0_238f_46af_adb4_6c85480369c7);
-pub const FOLDERID_DocumentsLibrary: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x7b0db17d_9cd2_4a93_9733_46cc89022e7c);
-pub const FOLDERID_Downloads: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x374de290_123f_4565_9164_39c4925e467b);
-pub const FOLDERID_Favorites: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x1777f761_68ad_4d8a_87bd_30b759fa33dd);
-pub const FOLDERID_Fonts: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xfd228cb7_ae11_4ae3_864c_16f3910ab8fe);
-pub const FOLDERID_GameTasks: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x054fae61_4dd8_4787_80b6_090220c4b700);
-pub const FOLDERID_Games: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xcac52c1a_b53d_4edc_92d7_6b2e8ac19434);
-pub const FOLDERID_History: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xd9dc8a3b_b784_432e_a781_5a1130a75963);
-pub const FOLDERID_HomeGroup: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x52528a6b_b9e3_4add_b60d_588c2dba842d);
-pub const FOLDERID_HomeGroupCurrentUser: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x9b74b6a3_0dfd_4f11_9e78_5f7800f2e772);
-pub const FOLDERID_ImplicitAppShortcuts: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xbcb5256f_79f6_4cee_b725_dc34e402fd46);
-pub const FOLDERID_InternetCache: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x352481e8_33be_4251_ba85_6007caedcf9d);
-pub const FOLDERID_InternetFolder: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x4d9f7874_4e0c_4904_967b_40b0d20c3e4b);
-pub const FOLDERID_Libraries: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x1b3ea5dc_b587_4786_b4ef_bd1dc332aeae);
-pub const FOLDERID_Links: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xbfb9d5e0_c6a9_404c_b2b2_ae6db6af4968);
-pub const FOLDERID_LocalAppData: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xf1b32785_6fba_4fcf_9d55_7b8e7f157091);
-pub const FOLDERID_LocalAppDataLow: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xa520a1a4_1780_4ff6_bd18_167343c5af16);
-pub const FOLDERID_LocalDocuments: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xf42ee2d3_909f_4907_8871_4c22fc0bf756);
-pub const FOLDERID_LocalDownloads: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x7d83ee9b_2244_4e70_b1f5_5393042af1e4);
-pub const FOLDERID_LocalMusic: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xa0c69a99_21c8_4671_8703_7934162fcf1d);
-pub const FOLDERID_LocalPictures: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x0ddd015d_b06c_45d5_8c4c_f59713854639);
-pub const FOLDERID_LocalStorage: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xb3eb08d3_a1f3_496b_865a_42b536cda0ec);
-pub const FOLDERID_LocalVideos: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x35286a68_3c57_41a1_bbb1_0eae73d76c95);
-pub const FOLDERID_LocalizedResourcesDir: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x2a00375e_224c_49de_b8d1_440df7ef3ddc);
-pub const FOLDERID_Music: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x4bd8d571_6d19_48d3_be97_422220080e43);
-pub const FOLDERID_MusicLibrary: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x2112ab0a_c86a_4ffe_a368_0de96e47012e);
-pub const FOLDERID_NetHood: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xc5abbf53_e17f_4121_8900_86626fc2c973);
-pub const FOLDERID_NetworkFolder: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xd20beec4_5ca8_4905_ae3b_bf251ea09b53);
-pub const FOLDERID_Objects3D: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x31c0dd25_9439_4f12_bf41_7ff4eda38722);
-pub const FOLDERID_OneDrive: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xa52bba46_e9e1_435f_b3d9_28daa648c0f6);
-pub const FOLDERID_OriginalImages: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x2c36c0aa_5812_4b87_bfd0_4cd0dfb19b39);
-pub const FOLDERID_PhotoAlbums: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x69d2cf90_fc33_4fb7_9a0c_ebb0f0fcb43c);
-pub const FOLDERID_Pictures: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x33e28130_4e1e_4676_835a_98395c3bc3bb);
-pub const FOLDERID_PicturesLibrary: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xa990ae9f_a03b_4e80_94bc_9912d7504104);
-pub const FOLDERID_Playlists: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xde92c1c7_837f_4f69_a3bb_86e631204a23);
-pub const FOLDERID_PrintHood: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x9274bd8d_cfd1_41c3_b35e_b13f55a758f4);
-pub const FOLDERID_PrintersFolder: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x76fc4e2d_d6ad_4519_a663_37bd56068185);
-pub const FOLDERID_Profile: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x5e6c858f_0e22_4760_9afe_ea3317b67173);
-pub const FOLDERID_ProgramData: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x62ab5d82_fdc1_4dc3_a9dd_070d1d495d97);
-pub const FOLDERID_ProgramFiles: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x905e63b6_c1bf_494e_b29c_65b732d3d21a);
-pub const FOLDERID_ProgramFilesCommon: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xf7f1ed05_9f6d_47a2_aaae_29d317c6f066);
-pub const FOLDERID_ProgramFilesCommonX64: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x6365d5a7_0f0d_45e5_87f6_0da56b6a4f7d);
-pub const FOLDERID_ProgramFilesCommonX86: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xde974d24_d9c6_4d3e_bf91_f4455120b917);
-pub const FOLDERID_ProgramFilesX64: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x6d809377_6af0_444b_8957_a3773f02200e);
-pub const FOLDERID_ProgramFilesX86: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x7c5a40ef_a0fb_4bfc_874a_c0f2e0b9fa8e);
-pub const FOLDERID_Programs: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xa77f5d77_2e2b_44c3_a6a2_aba601054a51);
-pub const FOLDERID_Public: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xdfdf76a2_c82a_4d63_906a_5644ac457385);
-pub const FOLDERID_PublicDesktop: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xc4aa340d_f20f_4863_afef_f87ef2e6ba25);
-pub const FOLDERID_PublicDocuments: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xed4824af_dce4_45a8_81e2_fc7965083634);
-pub const FOLDERID_PublicDownloads: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x3d644c9b_1fb8_4f30_9b45_f670235f79c0);
-pub const FOLDERID_PublicGameTasks: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xdebf2536_e1a8_4c59_b6a2_414586476aea);
-pub const FOLDERID_PublicLibraries: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x48daf80b_e6cf_4f4e_b800_0e69d84ee384);
-pub const FOLDERID_PublicMusic: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x3214fab5_9757_4298_bb61_92a9deaa44ff);
-pub const FOLDERID_PublicPictures: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xb6ebfb86_6907_413c_9af7_4fc2abf07cc5);
-pub const FOLDERID_PublicRingtones: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xe555ab60_153b_4d17_9f04_a5fe99fc15ec);
-pub const FOLDERID_PublicUserTiles: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x0482af6c_08f1_4c34_8c90_e17ec98b1e17);
-pub const FOLDERID_PublicVideos: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x2400183a_6185_49fb_a2d8_4a392a602ba3);
-pub const FOLDERID_QuickLaunch: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x52a4f021_7b75_48a9_9f6b_4b87a210bc8f);
-pub const FOLDERID_Recent: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xae50c081_ebd2_438a_8655_8a092e34987a);
-pub const FOLDERID_RecordedCalls: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x2f8b40c2_83ed_48ee_b383_a1f157ec6f9a);
-pub const FOLDERID_RecordedTVLibrary: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x1a6fdba2_f42d_4358_a798_b74d745926c5);
-pub const FOLDERID_RecycleBinFolder: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xb7534046_3ecb_4c18_be4e_64cd4cb7d6ac);
-pub const FOLDERID_ResourceDir: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x8ad10c31_2adb_4296_a8f7_e4701232c972);
-pub const FOLDERID_RetailDemo: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x12d4c69e_24ad_4923_be19_31321c43a767);
-pub const FOLDERID_Ringtones: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xc870044b_f49e_4126_a9c3_b52a1ff411e8);
-pub const FOLDERID_RoamedTileImages: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xaaa8d5a5_f1d6_4259_baa8_78e7ef60835e);
-pub const FOLDERID_RoamingAppData: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x3eb685db_65f9_4cf6_a03a_e3ef65729f3d);
-pub const FOLDERID_RoamingTiles: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x00bcfc5a_ed94_4e48_96a1_3f6217f21990);
-pub const FOLDERID_SEARCH_CSC: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xee32e446_31ca_4aba_814f_a5ebd2fd6d5e);
-pub const FOLDERID_SEARCH_MAPI: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x98ec0e18_2098_4d44_8644_66979315a281);
-pub const FOLDERID_SampleMusic: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xb250c668_f57d_4ee1_a63c_290ee7d1aa1f);
-pub const FOLDERID_SamplePictures: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xc4900540_2379_4c75_844b_64e6faf8716b);
-pub const FOLDERID_SamplePlaylists: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x15ca69b3_30ee_49c1_ace1_6b5ec372afb5);
-pub const FOLDERID_SampleVideos: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x859ead94_2e85_48ad_a71a_0969cb56a6cd);
-pub const FOLDERID_SavedGames: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x4c5c32ff_bb9d_43b0_b5b4_2d72e54eaaa4);
-pub const FOLDERID_SavedPictures: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x3b193882_d3ad_4eab_965a_69829d1fb59f);
-pub const FOLDERID_SavedPicturesLibrary: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xe25b5812_be88_4bd9_94b0_29233477b6c3);
-pub const FOLDERID_SavedSearches: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x7d1d3a04_debb_4115_95cf_2f29da2920da);
-pub const FOLDERID_Screenshots: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xb7bede81_df94_4682_a7d8_57a52620b86f);
-pub const FOLDERID_SearchHistory: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x0d4c3db6_03a3_462f_a0e6_08924c41b5d4);
-pub const FOLDERID_SearchHome: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x190337d1_b8ca_4121_a639_6d472d16972a);
-pub const FOLDERID_SearchTemplates: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x7e636bfe_dfa9_4d5e_b456_d7b39851d8a9);
-pub const FOLDERID_SendTo: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x8983036c_27c0_404b_8f08_102d10dcfd74);
-pub const FOLDERID_SidebarDefaultParts: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x7b396e54_9ec5_4300_be0a_2482ebae1a26);
-pub const FOLDERID_SidebarParts: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xa75d362e_50fc_4fb7_ac2c_a8beaa314493);
-pub const FOLDERID_SkyDrive: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xa52bba46_e9e1_435f_b3d9_28daa648c0f6);
-pub const FOLDERID_SkyDriveCameraRoll: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x767e6811_49cb_4273_87c2_20f355e1085b);
-pub const FOLDERID_SkyDriveDocuments: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x24d89e24_2f19_4534_9dde_6a6671fbb8fe);
-pub const FOLDERID_SkyDriveMusic: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xc3f2459e_80d6_45dc_bfef_1f769f2be730);
-pub const FOLDERID_SkyDrivePictures: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x339719b5_8c47_4894_94c2_d8f77add44a6);
-pub const FOLDERID_StartMenu: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x625b53c3_ab48_4ec1_ba1f_a1ef4146fc19);
-pub const FOLDERID_StartMenuAllPrograms: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xf26305ef_6948_40b9_b255_81453d09c785);
-pub const FOLDERID_Startup: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xb97d20bb_f46a_4c97_ba10_5e3608430854);
-pub const FOLDERID_SyncManagerFolder: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x43668bf8_c14e_49b2_97c9_747784d784b7);
-pub const FOLDERID_SyncResultsFolder: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x289a9a43_be44_4057_a41b_587a76d7e7f9);
-pub const FOLDERID_SyncSetupFolder: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x0f214138_b1d3_4a90_bba9_27cbc0c5389a);
-pub const FOLDERID_System: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x1ac14e77_02e7_4e5d_b744_2eb1ae5198b7);
-pub const FOLDERID_SystemX86: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xd65231b0_b2f1_4857_a4ce_a8e7c6ea7d27);
-pub const FOLDERID_Templates: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xa63293e8_664e_48db_a079_df759e0509f7);
-pub const FOLDERID_UserPinned: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x9e3995ab_1f9c_4f13_b827_48b24b6c7174);
-pub const FOLDERID_UserProfiles: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x0762d272_c50a_4bb0_a382_697dcd729b80);
-pub const FOLDERID_UserProgramFiles: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x5cd7aee2_2219_4a67_b85d_6c9ce15660cb);
-pub const FOLDERID_UserProgramFilesCommon: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xbcbd3057_ca5c_4622_b42d_bc56db0ae516);
-pub const FOLDERID_UsersFiles: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xf3ce0f7c_4901_4acc_8648_d5d44b04ef8f);
-pub const FOLDERID_UsersLibraries: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xa302545d_deff_464b_abe8_61c8648d939b);
-pub const FOLDERID_Videos: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x18989b1d_99b5_455b_841c_ab7c74e4ddfc);
-pub const FOLDERID_VideosLibrary: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x491e922f_5643_4af4_a7eb_4e7a138d8174);
-pub const FOLDERID_Windows: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xf38bf404_1d43_42f2_9305_67de0b28fc23);
-pub const FOLDERTYPEID_AccountPictures: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xdb2a5d8f_06e6_4007_aba6_af877d526ea6);
-pub const FOLDERTYPEID_Communications: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x91475fe5_586b_4eba_8d75_d17434b8cdf6);
-pub const FOLDERTYPEID_CompressedFolder: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x80213e82_bcfd_4c4f_8817_bb27601267a9);
-pub const FOLDERTYPEID_Contacts: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xde2b70ec_9bf7_4a93_bd3d_243f7881d492);
-pub const FOLDERTYPEID_ControlPanelCategory: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xde4f0660_fa10_4b8f_a494_068b20b22307);
-pub const FOLDERTYPEID_ControlPanelClassic: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x0c3794f3_b545_43aa_a329_c37430c58d2a);
-pub const FOLDERTYPEID_Documents: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x7d49d726_3c21_4f05_99aa_fdc2c9474656);
-pub const FOLDERTYPEID_Downloads: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x885a186e_a440_4ada_812b_db871b942259);
-pub const FOLDERTYPEID_Games: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xb689b0d0_76d3_4cbb_87f7_585d0e0ce070);
-pub const FOLDERTYPEID_Generic: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x5c4f28b5_f869_4e84_8e60_f11db97c5cc7);
-pub const FOLDERTYPEID_GenericLibrary: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x5f4eab9a_6833_4f61_899d_31cf46979d49);
-pub const FOLDERTYPEID_GenericSearchResults: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x7fde1a1e_8b31_49a5_93b8_6be14cfa4943);
-pub const FOLDERTYPEID_Invalid: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x57807898_8c4f_4462_bb63_71042380b109);
-pub const FOLDERTYPEID_Music: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x94d6ddcc_4a68_4175_a374_bd584a510b78);
-pub const FOLDERTYPEID_NetworkExplorer: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x25cc242b_9a7c_4f51_80e0_7a2928febe42);
-pub const FOLDERTYPEID_OpenSearch: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x8faf9629_1980_46ff_8023_9dceab9c3ee3);
-pub const FOLDERTYPEID_OtherUsers: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xb337fd00_9dd5_4635_a6d4_da33fd102b7a);
-pub const FOLDERTYPEID_Pictures: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xb3690e58_e961_423b_b687_386ebfd83239);
-pub const FOLDERTYPEID_Printers: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x2c7bbec6_c844_4a0a_91fa_cef6f59cfda1);
-pub const FOLDERTYPEID_PublishedItems: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x7f2f5b96_ff74_41da_afd8_1c78a5f3aea2);
-pub const FOLDERTYPEID_RecordedTV: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x5557a28f_5da6_4f83_8809_c2c98a11a6fa);
-pub const FOLDERTYPEID_RecycleBin: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xd6d9e004_cd87_442b_9d57_5e0aeb4f6f72);
-pub const FOLDERTYPEID_SavedGames: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xd0363307_28cb_4106_9f23_2956e3e5e0e7);
-pub const FOLDERTYPEID_SearchConnector: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x982725ee_6f47_479e_b447_812bfa7d2e8f);
-pub const FOLDERTYPEID_SearchHome: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x834d8a44_0974_4ed6_866e_f203d80b3810);
-pub const FOLDERTYPEID_Searches: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x0b0ba2e3_405f_415e_a6ee_cad625207853);
-pub const FOLDERTYPEID_SoftwareExplorer: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xd674391b_52d9_4e07_834e_67c98610f39d);
-pub const FOLDERTYPEID_StartMenu: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xef87b4cb_f2ce_4785_8658_4ca6c63e38c6);
-pub const FOLDERTYPEID_StorageProviderDocuments: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xdd61bd66_70e8_48dd_9655_65c5e1aac2d1);
-pub const FOLDERTYPEID_StorageProviderGeneric: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x4f01ebc5_2385_41f2_a28e_2c5c91fb56e0);
-pub const FOLDERTYPEID_StorageProviderMusic: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x672ecd7e_af04_4399_875c_0290845b6247);
-pub const FOLDERTYPEID_StorageProviderPictures: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x71d642a9_f2b1_42cd_ad92_eb9300c7cc0a);
-pub const FOLDERTYPEID_StorageProviderVideos: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x51294da1_d7b1_485b_9e9a_17cffe33e187);
-pub const FOLDERTYPEID_UserFiles: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xcd0fc69b_71e2_46e5_9690_5bcd9f57aab3);
-pub const FOLDERTYPEID_UsersLibraries: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xc4d98f09_6124_4fe0_9942_826416082da9);
-pub const FOLDERTYPEID_Videos: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x5fa96407_7e77_483c_ac93_691d05850de8);
+pub const FOLDERID_AccountPictures: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x008ca0b1_55b4_4c56_b8a8_4de4b299d3be);
+pub const FOLDERID_AddNewPrograms: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xde61d971_5ebc_4f02_a3a9_6c82895e5c04);
+pub const FOLDERID_AdminTools: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x724ef170_a42d_4fef_9f26_b60e846fba4f);
+pub const FOLDERID_AllAppMods: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7ad67899_66af_43ba_9156_6aad42e6c596);
+pub const FOLDERID_AppCaptures: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xedc0fe71_98d8_4f4a_b920_c8dc133cb165);
+pub const FOLDERID_AppDataDesktop: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb2c5e279_7add_439f_b28c_c41fe1bbf672);
+pub const FOLDERID_AppDataDocuments: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7be16610_1f7f_44ac_bff0_83e15f2ffca1);
+pub const FOLDERID_AppDataFavorites: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7cfbefbc_de1f_45aa_b843_a542ac536cc9);
+pub const FOLDERID_AppDataProgramData: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x559d40a3_a036_40fa_af61_84cb430a4d34);
+pub const FOLDERID_AppUpdates: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa305ce99_f527_492b_8b1a_7e76fa98d6e4);
+pub const FOLDERID_ApplicationShortcuts: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa3918781_e5f2_4890_b3d9_a7e54332328c);
+pub const FOLDERID_AppsFolder: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1e87508d_89c2_42f0_8a7e_645a0f50ca58);
+pub const FOLDERID_CDBurning: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9e52ab10_f80d_49df_acb8_4330f5687855);
+pub const FOLDERID_CameraRoll: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xab5fb87b_7ce2_4f83_915d_550846c9537b);
+pub const FOLDERID_CameraRollLibrary: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x2b20df75_1eda_4039_8097_38798227d5b7);
+pub const FOLDERID_ChangeRemovePrograms: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdf7266ac_9274_4867_8d55_3bd661de872d);
+pub const FOLDERID_CommonAdminTools: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd0384e7d_bac3_4797_8f14_cba229b392b5);
+pub const FOLDERID_CommonOEMLinks: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc1bae2d0_10df_4334_bedd_7aa20b227a9d);
+pub const FOLDERID_CommonPrograms: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0139d44e_6afe_49f2_8690_3dafcae6ffb8);
+pub const FOLDERID_CommonStartMenu: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa4115719_d62e_491d_aa7c_e74b8be3b067);
+pub const FOLDERID_CommonStartMenuPlaces: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa440879f_87a0_4f7d_b700_0207b966194a);
+pub const FOLDERID_CommonStartup: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x82a5ea35_d9cd_47c5_9629_e15d2f714e6e);
+pub const FOLDERID_CommonTemplates: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb94237e7_57ac_4347_9151_b08c6c32d1f7);
+pub const FOLDERID_ComputerFolder: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0ac0837c_bbf8_452a_850d_79d08e667ca7);
+pub const FOLDERID_ConflictFolder: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4bfefb45_347d_4006_a5be_ac0cb0567192);
+pub const FOLDERID_ConnectionsFolder: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6f0cd92b_2e97_45d1_88ff_b0d186b8dedd);
+pub const FOLDERID_Contacts: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x56784854_c6cb_462b_8169_88e350acb882);
+pub const FOLDERID_ControlPanelFolder: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x82a74aeb_aeb4_465c_a014_d097ee346d63);
+pub const FOLDERID_Cookies: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x2b0f765d_c0e9_4171_908e_08a611b84ff6);
+pub const FOLDERID_CurrentAppMods: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3db40b20_2a30_4dbe_917e_771dd21dd099);
+pub const FOLDERID_Desktop: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb4bfcc3a_db2c_424c_b029_7fe99a87c641);
+pub const FOLDERID_DevelopmentFiles: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdbe8e08e_3053_4bbc_b183_2a7b2b191e59);
+pub const FOLDERID_Device: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1c2ac1dc_4358_4b6c_9733_af21156576f0);
+pub const FOLDERID_DeviceMetadataStore: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5ce4a5e9_e4eb_479d_b89f_130c02886155);
+pub const FOLDERID_Documents: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xfdd39ad0_238f_46af_adb4_6c85480369c7);
+pub const FOLDERID_DocumentsLibrary: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7b0db17d_9cd2_4a93_9733_46cc89022e7c);
+pub const FOLDERID_Downloads: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x374de290_123f_4565_9164_39c4925e467b);
+pub const FOLDERID_Favorites: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1777f761_68ad_4d8a_87bd_30b759fa33dd);
+pub const FOLDERID_Fonts: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xfd228cb7_ae11_4ae3_864c_16f3910ab8fe);
+pub const FOLDERID_GameTasks: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x054fae61_4dd8_4787_80b6_090220c4b700);
+pub const FOLDERID_Games: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xcac52c1a_b53d_4edc_92d7_6b2e8ac19434);
+pub const FOLDERID_History: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd9dc8a3b_b784_432e_a781_5a1130a75963);
+pub const FOLDERID_HomeGroup: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x52528a6b_b9e3_4add_b60d_588c2dba842d);
+pub const FOLDERID_HomeGroupCurrentUser: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9b74b6a3_0dfd_4f11_9e78_5f7800f2e772);
+pub const FOLDERID_ImplicitAppShortcuts: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xbcb5256f_79f6_4cee_b725_dc34e402fd46);
+pub const FOLDERID_InternetCache: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x352481e8_33be_4251_ba85_6007caedcf9d);
+pub const FOLDERID_InternetFolder: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4d9f7874_4e0c_4904_967b_40b0d20c3e4b);
+pub const FOLDERID_Libraries: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1b3ea5dc_b587_4786_b4ef_bd1dc332aeae);
+pub const FOLDERID_Links: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xbfb9d5e0_c6a9_404c_b2b2_ae6db6af4968);
+pub const FOLDERID_LocalAppData: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf1b32785_6fba_4fcf_9d55_7b8e7f157091);
+pub const FOLDERID_LocalAppDataLow: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa520a1a4_1780_4ff6_bd18_167343c5af16);
+pub const FOLDERID_LocalDocuments: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf42ee2d3_909f_4907_8871_4c22fc0bf756);
+pub const FOLDERID_LocalDownloads: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7d83ee9b_2244_4e70_b1f5_5393042af1e4);
+pub const FOLDERID_LocalMusic: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa0c69a99_21c8_4671_8703_7934162fcf1d);
+pub const FOLDERID_LocalPictures: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0ddd015d_b06c_45d5_8c4c_f59713854639);
+pub const FOLDERID_LocalStorage: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb3eb08d3_a1f3_496b_865a_42b536cda0ec);
+pub const FOLDERID_LocalVideos: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x35286a68_3c57_41a1_bbb1_0eae73d76c95);
+pub const FOLDERID_LocalizedResourcesDir: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x2a00375e_224c_49de_b8d1_440df7ef3ddc);
+pub const FOLDERID_Music: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4bd8d571_6d19_48d3_be97_422220080e43);
+pub const FOLDERID_MusicLibrary: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x2112ab0a_c86a_4ffe_a368_0de96e47012e);
+pub const FOLDERID_NetHood: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc5abbf53_e17f_4121_8900_86626fc2c973);
+pub const FOLDERID_NetworkFolder: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd20beec4_5ca8_4905_ae3b_bf251ea09b53);
+pub const FOLDERID_Objects3D: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x31c0dd25_9439_4f12_bf41_7ff4eda38722);
+pub const FOLDERID_OneDrive: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa52bba46_e9e1_435f_b3d9_28daa648c0f6);
+pub const FOLDERID_OriginalImages: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x2c36c0aa_5812_4b87_bfd0_4cd0dfb19b39);
+pub const FOLDERID_PhotoAlbums: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x69d2cf90_fc33_4fb7_9a0c_ebb0f0fcb43c);
+pub const FOLDERID_Pictures: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x33e28130_4e1e_4676_835a_98395c3bc3bb);
+pub const FOLDERID_PicturesLibrary: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa990ae9f_a03b_4e80_94bc_9912d7504104);
+pub const FOLDERID_Playlists: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xde92c1c7_837f_4f69_a3bb_86e631204a23);
+pub const FOLDERID_PrintHood: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9274bd8d_cfd1_41c3_b35e_b13f55a758f4);
+pub const FOLDERID_PrintersFolder: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x76fc4e2d_d6ad_4519_a663_37bd56068185);
+pub const FOLDERID_Profile: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5e6c858f_0e22_4760_9afe_ea3317b67173);
+pub const FOLDERID_ProgramData: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x62ab5d82_fdc1_4dc3_a9dd_070d1d495d97);
+pub const FOLDERID_ProgramFiles: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x905e63b6_c1bf_494e_b29c_65b732d3d21a);
+pub const FOLDERID_ProgramFilesCommon: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf7f1ed05_9f6d_47a2_aaae_29d317c6f066);
+pub const FOLDERID_ProgramFilesCommonX64: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6365d5a7_0f0d_45e5_87f6_0da56b6a4f7d);
+pub const FOLDERID_ProgramFilesCommonX86: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xde974d24_d9c6_4d3e_bf91_f4455120b917);
+pub const FOLDERID_ProgramFilesX64: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6d809377_6af0_444b_8957_a3773f02200e);
+pub const FOLDERID_ProgramFilesX86: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7c5a40ef_a0fb_4bfc_874a_c0f2e0b9fa8e);
+pub const FOLDERID_Programs: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa77f5d77_2e2b_44c3_a6a2_aba601054a51);
+pub const FOLDERID_Public: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdfdf76a2_c82a_4d63_906a_5644ac457385);
+pub const FOLDERID_PublicDesktop: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc4aa340d_f20f_4863_afef_f87ef2e6ba25);
+pub const FOLDERID_PublicDocuments: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xed4824af_dce4_45a8_81e2_fc7965083634);
+pub const FOLDERID_PublicDownloads: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3d644c9b_1fb8_4f30_9b45_f670235f79c0);
+pub const FOLDERID_PublicGameTasks: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdebf2536_e1a8_4c59_b6a2_414586476aea);
+pub const FOLDERID_PublicLibraries: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x48daf80b_e6cf_4f4e_b800_0e69d84ee384);
+pub const FOLDERID_PublicMusic: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3214fab5_9757_4298_bb61_92a9deaa44ff);
+pub const FOLDERID_PublicPictures: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb6ebfb86_6907_413c_9af7_4fc2abf07cc5);
+pub const FOLDERID_PublicRingtones: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe555ab60_153b_4d17_9f04_a5fe99fc15ec);
+pub const FOLDERID_PublicUserTiles: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0482af6c_08f1_4c34_8c90_e17ec98b1e17);
+pub const FOLDERID_PublicVideos: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x2400183a_6185_49fb_a2d8_4a392a602ba3);
+pub const FOLDERID_QuickLaunch: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x52a4f021_7b75_48a9_9f6b_4b87a210bc8f);
+pub const FOLDERID_Recent: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xae50c081_ebd2_438a_8655_8a092e34987a);
+pub const FOLDERID_RecordedCalls: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x2f8b40c2_83ed_48ee_b383_a1f157ec6f9a);
+pub const FOLDERID_RecordedTVLibrary: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1a6fdba2_f42d_4358_a798_b74d745926c5);
+pub const FOLDERID_RecycleBinFolder: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb7534046_3ecb_4c18_be4e_64cd4cb7d6ac);
+pub const FOLDERID_ResourceDir: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8ad10c31_2adb_4296_a8f7_e4701232c972);
+pub const FOLDERID_RetailDemo: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x12d4c69e_24ad_4923_be19_31321c43a767);
+pub const FOLDERID_Ringtones: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc870044b_f49e_4126_a9c3_b52a1ff411e8);
+pub const FOLDERID_RoamedTileImages: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xaaa8d5a5_f1d6_4259_baa8_78e7ef60835e);
+pub const FOLDERID_RoamingAppData: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3eb685db_65f9_4cf6_a03a_e3ef65729f3d);
+pub const FOLDERID_RoamingTiles: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x00bcfc5a_ed94_4e48_96a1_3f6217f21990);
+pub const FOLDERID_SEARCH_CSC: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xee32e446_31ca_4aba_814f_a5ebd2fd6d5e);
+pub const FOLDERID_SEARCH_MAPI: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x98ec0e18_2098_4d44_8644_66979315a281);
+pub const FOLDERID_SampleMusic: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb250c668_f57d_4ee1_a63c_290ee7d1aa1f);
+pub const FOLDERID_SamplePictures: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc4900540_2379_4c75_844b_64e6faf8716b);
+pub const FOLDERID_SamplePlaylists: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x15ca69b3_30ee_49c1_ace1_6b5ec372afb5);
+pub const FOLDERID_SampleVideos: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x859ead94_2e85_48ad_a71a_0969cb56a6cd);
+pub const FOLDERID_SavedGames: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4c5c32ff_bb9d_43b0_b5b4_2d72e54eaaa4);
+pub const FOLDERID_SavedPictures: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3b193882_d3ad_4eab_965a_69829d1fb59f);
+pub const FOLDERID_SavedPicturesLibrary: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe25b5812_be88_4bd9_94b0_29233477b6c3);
+pub const FOLDERID_SavedSearches: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7d1d3a04_debb_4115_95cf_2f29da2920da);
+pub const FOLDERID_Screenshots: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb7bede81_df94_4682_a7d8_57a52620b86f);
+pub const FOLDERID_SearchHistory: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0d4c3db6_03a3_462f_a0e6_08924c41b5d4);
+pub const FOLDERID_SearchHome: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x190337d1_b8ca_4121_a639_6d472d16972a);
+pub const FOLDERID_SearchTemplates: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7e636bfe_dfa9_4d5e_b456_d7b39851d8a9);
+pub const FOLDERID_SendTo: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8983036c_27c0_404b_8f08_102d10dcfd74);
+pub const FOLDERID_SidebarDefaultParts: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7b396e54_9ec5_4300_be0a_2482ebae1a26);
+pub const FOLDERID_SidebarParts: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa75d362e_50fc_4fb7_ac2c_a8beaa314493);
+pub const FOLDERID_SkyDrive: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa52bba46_e9e1_435f_b3d9_28daa648c0f6);
+pub const FOLDERID_SkyDriveCameraRoll: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x767e6811_49cb_4273_87c2_20f355e1085b);
+pub const FOLDERID_SkyDriveDocuments: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x24d89e24_2f19_4534_9dde_6a6671fbb8fe);
+pub const FOLDERID_SkyDriveMusic: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc3f2459e_80d6_45dc_bfef_1f769f2be730);
+pub const FOLDERID_SkyDrivePictures: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x339719b5_8c47_4894_94c2_d8f77add44a6);
+pub const FOLDERID_StartMenu: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x625b53c3_ab48_4ec1_ba1f_a1ef4146fc19);
+pub const FOLDERID_StartMenuAllPrograms: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf26305ef_6948_40b9_b255_81453d09c785);
+pub const FOLDERID_Startup: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb97d20bb_f46a_4c97_ba10_5e3608430854);
+pub const FOLDERID_SyncManagerFolder: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x43668bf8_c14e_49b2_97c9_747784d784b7);
+pub const FOLDERID_SyncResultsFolder: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x289a9a43_be44_4057_a41b_587a76d7e7f9);
+pub const FOLDERID_SyncSetupFolder: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0f214138_b1d3_4a90_bba9_27cbc0c5389a);
+pub const FOLDERID_System: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1ac14e77_02e7_4e5d_b744_2eb1ae5198b7);
+pub const FOLDERID_SystemX86: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd65231b0_b2f1_4857_a4ce_a8e7c6ea7d27);
+pub const FOLDERID_Templates: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa63293e8_664e_48db_a079_df759e0509f7);
+pub const FOLDERID_UserPinned: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9e3995ab_1f9c_4f13_b827_48b24b6c7174);
+pub const FOLDERID_UserProfiles: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0762d272_c50a_4bb0_a382_697dcd729b80);
+pub const FOLDERID_UserProgramFiles: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5cd7aee2_2219_4a67_b85d_6c9ce15660cb);
+pub const FOLDERID_UserProgramFilesCommon: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xbcbd3057_ca5c_4622_b42d_bc56db0ae516);
+pub const FOLDERID_UsersFiles: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf3ce0f7c_4901_4acc_8648_d5d44b04ef8f);
+pub const FOLDERID_UsersLibraries: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa302545d_deff_464b_abe8_61c8648d939b);
+pub const FOLDERID_Videos: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x18989b1d_99b5_455b_841c_ab7c74e4ddfc);
+pub const FOLDERID_VideosLibrary: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x491e922f_5643_4af4_a7eb_4e7a138d8174);
+pub const FOLDERID_Windows: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf38bf404_1d43_42f2_9305_67de0b28fc23);
+pub const FOLDERTYPEID_AccountPictures: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdb2a5d8f_06e6_4007_aba6_af877d526ea6);
+pub const FOLDERTYPEID_Communications: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x91475fe5_586b_4eba_8d75_d17434b8cdf6);
+pub const FOLDERTYPEID_CompressedFolder: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x80213e82_bcfd_4c4f_8817_bb27601267a9);
+pub const FOLDERTYPEID_Contacts: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xde2b70ec_9bf7_4a93_bd3d_243f7881d492);
+pub const FOLDERTYPEID_ControlPanelCategory: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xde4f0660_fa10_4b8f_a494_068b20b22307);
+pub const FOLDERTYPEID_ControlPanelClassic: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0c3794f3_b545_43aa_a329_c37430c58d2a);
+pub const FOLDERTYPEID_Documents: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7d49d726_3c21_4f05_99aa_fdc2c9474656);
+pub const FOLDERTYPEID_Downloads: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x885a186e_a440_4ada_812b_db871b942259);
+pub const FOLDERTYPEID_Games: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb689b0d0_76d3_4cbb_87f7_585d0e0ce070);
+pub const FOLDERTYPEID_Generic: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5c4f28b5_f869_4e84_8e60_f11db97c5cc7);
+pub const FOLDERTYPEID_GenericLibrary: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5f4eab9a_6833_4f61_899d_31cf46979d49);
+pub const FOLDERTYPEID_GenericSearchResults: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7fde1a1e_8b31_49a5_93b8_6be14cfa4943);
+pub const FOLDERTYPEID_Invalid: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x57807898_8c4f_4462_bb63_71042380b109);
+pub const FOLDERTYPEID_Music: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x94d6ddcc_4a68_4175_a374_bd584a510b78);
+pub const FOLDERTYPEID_NetworkExplorer: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x25cc242b_9a7c_4f51_80e0_7a2928febe42);
+pub const FOLDERTYPEID_OpenSearch: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8faf9629_1980_46ff_8023_9dceab9c3ee3);
+pub const FOLDERTYPEID_OtherUsers: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb337fd00_9dd5_4635_a6d4_da33fd102b7a);
+pub const FOLDERTYPEID_Pictures: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb3690e58_e961_423b_b687_386ebfd83239);
+pub const FOLDERTYPEID_Printers: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x2c7bbec6_c844_4a0a_91fa_cef6f59cfda1);
+pub const FOLDERTYPEID_PublishedItems: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7f2f5b96_ff74_41da_afd8_1c78a5f3aea2);
+pub const FOLDERTYPEID_RecordedTV: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5557a28f_5da6_4f83_8809_c2c98a11a6fa);
+pub const FOLDERTYPEID_RecycleBin: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd6d9e004_cd87_442b_9d57_5e0aeb4f6f72);
+pub const FOLDERTYPEID_SavedGames: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd0363307_28cb_4106_9f23_2956e3e5e0e7);
+pub const FOLDERTYPEID_SearchConnector: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x982725ee_6f47_479e_b447_812bfa7d2e8f);
+pub const FOLDERTYPEID_SearchHome: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x834d8a44_0974_4ed6_866e_f203d80b3810);
+pub const FOLDERTYPEID_Searches: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0b0ba2e3_405f_415e_a6ee_cad625207853);
+pub const FOLDERTYPEID_SoftwareExplorer: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd674391b_52d9_4e07_834e_67c98610f39d);
+pub const FOLDERTYPEID_StartMenu: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xef87b4cb_f2ce_4785_8658_4ca6c63e38c6);
+pub const FOLDERTYPEID_StorageProviderDocuments: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdd61bd66_70e8_48dd_9655_65c5e1aac2d1);
+pub const FOLDERTYPEID_StorageProviderGeneric: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4f01ebc5_2385_41f2_a28e_2c5c91fb56e0);
+pub const FOLDERTYPEID_StorageProviderMusic: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x672ecd7e_af04_4399_875c_0290845b6247);
+pub const FOLDERTYPEID_StorageProviderPictures: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x71d642a9_f2b1_42cd_ad92_eb9300c7cc0a);
+pub const FOLDERTYPEID_StorageProviderVideos: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x51294da1_d7b1_485b_9e9a_17cffe33e187);
+pub const FOLDERTYPEID_UserFiles: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xcd0fc69b_71e2_46e5_9690_5bcd9f57aab3);
+pub const FOLDERTYPEID_UsersLibraries: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc4d98f09_6124_4fe0_9942_826416082da9);
+pub const FOLDERTYPEID_Videos: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5fa96407_7e77_483c_ac93_691d05850de8);
 pub const FOS_ALLNONSTORAGEITEMS: FILEOPENDIALOGOPTIONS = 128u32;
 pub const FOS_ALLOWMULTISELECT: FILEOPENDIALOGOPTIONS = 512u32;
 pub const FOS_CREATEPROMPT: FILEOPENDIALOGOPTIONS = 8192u32;
@@ -2447,9 +2447,9 @@ pub const HLINKSETF_LOCATION: HLINKSETF = 2i32;
 pub const HLINKSETF_TARGET: HLINKSETF = 1i32;
 pub const HLINKWHICHMK_BASE: HLINKWHICHMK = 2i32;
 pub const HLINKWHICHMK_CONTAINER: HLINKWHICHMK = 1i32;
-pub const HLINK_E_FIRST: ::windows_sys::core::HRESULT = 0x80040100_u32 as _;
+pub const HLINK_E_FIRST: windows_sys::core::HRESULT = 0x80040100_u32 as _;
 pub const HLINK_S_DONTHIDE: i32 = 262400i32;
-pub const HLINK_S_FIRST: ::windows_sys::core::HRESULT = 0x40100_u32 as _;
+pub const HLINK_S_FIRST: windows_sys::core::HRESULT = 0x40100_u32 as _;
 pub const HLNF_ALLOW_AUTONAVIGATE: u32 = 536870912u32;
 pub const HLNF_CALLERUNTRUSTED: u32 = 2097152u32;
 pub const HLNF_CREATENOHISTORY: HLNF = 32u32;
@@ -2481,8 +2481,8 @@ pub const HLTB_DOCKEDTOP: HLTB_INFO = 1i32;
 pub const HLTB_FLOATING: HLTB_INFO = 4i32;
 pub const HLTRANSLATEF_DEFAULT: HLTRANSLATEF = 0i32;
 pub const HLTRANSLATEF_DONTAPPLYDEFAULTPREFIX: HLTRANSLATEF = 1i32;
-pub const HOMEGROUP_SECURITY_GROUP: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("HomeUsers");
-pub const HOMEGROUP_SECURITY_GROUP_MULTI: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("HUG");
+pub const HOMEGROUP_SECURITY_GROUP: windows_sys::core::PCWSTR = windows_sys::core::w!("HomeUsers");
+pub const HOMEGROUP_SECURITY_GROUP_MULTI: windows_sys::core::PCWSTR = windows_sys::core::w!("HUG");
 pub const IDC_OFFLINE_HAND: u32 = 103u32;
 pub const IDC_PANTOOL_HAND_CLOSED: u32 = 105u32;
 pub const IDC_PANTOOL_HAND_OPEN: u32 = 104u32;
@@ -2514,9 +2514,9 @@ pub const IESHORTCUT_FORCENAVIGATE: IESHORTCUTFLAGS = 4i32;
 pub const IESHORTCUT_NEWBROWSER: IESHORTCUTFLAGS = 1i32;
 pub const IESHORTCUT_OPENNEWTAB: IESHORTCUTFLAGS = 2i32;
 pub const ILMM_IE4: u32 = 0u32;
-pub const IMM_ACC_DOCKING_E_DOCKOCCUPIED: ::windows_sys::core::HRESULT = 0x80270231_u32 as _;
-pub const IMM_ACC_DOCKING_E_INSUFFICIENTHEIGHT: ::windows_sys::core::HRESULT = 0x80270230_u32 as _;
-pub const IMSC_E_SHELL_COMPONENT_STARTUP_FAILURE: ::windows_sys::core::HRESULT = 0x80270233_u32 as _;
+pub const IMM_ACC_DOCKING_E_DOCKOCCUPIED: windows_sys::core::HRESULT = 0x80270231_u32 as _;
+pub const IMM_ACC_DOCKING_E_INSUFFICIENTHEIGHT: windows_sys::core::HRESULT = 0x80270230_u32 as _;
+pub const IMSC_E_SHELL_COMPONENT_STARTUP_FAILURE: windows_sys::core::HRESULT = 0x80270233_u32 as _;
 pub const INTERNET_MAX_PATH_LENGTH: u32 = 2048u32;
 pub const INTERNET_MAX_SCHEME_LENGTH: u32 = 32u32;
 pub const IRTIR_TASK_FINISHED: u32 = 4u32;
@@ -2548,7 +2548,7 @@ pub const ISHCUTCMDID_INTSHORTCUTCREATE: i32 = 1i32;
 pub const ISHCUTCMDID_SETUSERAWURL: i32 = 3i32;
 pub const ISIOI_ICONFILE: u32 = 1u32;
 pub const ISIOI_ICONINDEX: u32 = 2u32;
-pub const IS_E_EXEC_FAILED: ::windows_sys::core::HRESULT = 0x80042002_u32 as _;
+pub const IS_E_EXEC_FAILED: windows_sys::core::HRESULT = 0x80042002_u32 as _;
 pub const IS_FULLSCREEN: u32 = 2u32;
 pub const IS_NORMAL: u32 = 1u32;
 pub const IS_SPLIT: u32 = 4u32;
@@ -2566,9 +2566,9 @@ pub const IURL_INVOKECOMMAND_FL_LOG_USAGE: IURL_INVOKECOMMAND_FLAGS = 16i32;
 pub const IURL_INVOKECOMMAND_FL_USE_DEFAULT_VERB: IURL_INVOKECOMMAND_FLAGS = 2i32;
 pub const IURL_SETURL_FL_GUESS_PROTOCOL: IURL_SETURL_FLAGS = 1i32;
 pub const IURL_SETURL_FL_USE_DEFAULT_PROTOCOL: IURL_SETURL_FLAGS = 2i32;
-pub const Identity_LocalUserProvider: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xa198529b_730f_4089_b646_a12557f5665e);
-pub const ItemCount_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xabbf5c45_5ccc_47b7_bb4e_87cb87bbd162);
-pub const ItemIndex_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x92a053da_2969_4021_bf27_514cfc2e4a69);
+pub const Identity_LocalUserProvider: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa198529b_730f_4089_b646_a12557f5665e);
+pub const ItemCount_Property_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xabbf5c45_5ccc_47b7_bb4e_87cb87bbd162);
+pub const ItemIndex_Property_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x92a053da_2969_4021_bf27_514cfc2e4a69);
 pub const KDC_FREQUENT: KNOWNDESTCATEGORY = 1i32;
 pub const KDC_RECENT: KNOWNDESTCATEGORY = 2i32;
 pub const KFDF_LOCAL_REDIRECT_ONLY: _KF_DEFINITION_FLAGS = 2i32;
@@ -2617,9 +2617,9 @@ pub const KF_REDIRECT_WITH_UI: _KF_REDIRECT_FLAGS = 32i32;
 pub const LFF_ALLITEMS: LIBRARYFOLDERFILTER = 3i32;
 pub const LFF_FORCEFILESYSTEM: LIBRARYFOLDERFILTER = 1i32;
 pub const LFF_STORAGEITEMS: LIBRARYFOLDERFILTER = 2i32;
-pub const LIBRARY_E_NO_ACCESSIBLE_LOCATION: ::windows_sys::core::HRESULT = 0x80270201_u32 as _;
-pub const LIBRARY_E_NO_SAVE_LOCATION: ::windows_sys::core::HRESULT = 0x80270200_u32 as _;
-pub const LINK_E_DELETE: ::windows_sys::core::HRESULT = 0x80270103_u32 as _;
+pub const LIBRARY_E_NO_ACCESSIBLE_LOCATION: windows_sys::core::HRESULT = 0x80270201_u32 as _;
+pub const LIBRARY_E_NO_SAVE_LOCATION: windows_sys::core::HRESULT = 0x80270200_u32 as _;
+pub const LINK_E_DELETE: windows_sys::core::HRESULT = 0x80270103_u32 as _;
 pub const LMD_ALLOWUNINDEXABLENETWORKLOCATIONS: LIBRARYMANAGEDIALOGOPTIONS = 1i32;
 pub const LMD_DEFAULT: LIBRARYMANAGEDIALOGOPTIONS = 0i32;
 pub const LOF_DEFAULT: LIBRARYOPTIONFLAGS = 0i32;
@@ -2673,7 +2673,7 @@ pub const NCM_GETALLOWTYPE: u32 = 1027u32;
 pub const NCM_SETALLOWTYPE: u32 = 1026u32;
 pub const NDO_LANDSCAPE: NATIVE_DISPLAY_ORIENTATION = 0i32;
 pub const NDO_PORTRAIT: NATIVE_DISPLAY_ORIENTATION = 1i32;
-pub const NETCACHE_E_NEGATIVE_CACHE: ::windows_sys::core::HRESULT = 0x80270100_u32 as _;
+pub const NETCACHE_E_NEGATIVE_CACHE: windows_sys::core::HRESULT = 0x80270100_u32 as _;
 pub const NIF_GUID: NOTIFY_ICON_DATA_FLAGS = 32u32;
 pub const NIF_ICON: NOTIFY_ICON_DATA_FLAGS = 2u32;
 pub const NIF_INFO: NOTIFY_ICON_DATA_FLAGS = 16u32;
@@ -3071,29 +3071,29 @@ pub const PROGDLG_NOMINIMIZE: u32 = 8u32;
 pub const PROGDLG_NOPROGRESSBAR: u32 = 16u32;
 pub const PROGDLG_NORMAL: u32 = 0u32;
 pub const PROGDLG_NOTIME: u32 = 4u32;
-pub const PROPSTR_EXTENSIONCOMPLETIONSTATE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("ExtensionCompletionState");
-pub const PROP_CONTRACT_DELEGATE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("ContractDelegate");
-pub const PSGUID_AUDIO: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x64440490_4c8b_11d1_8b70_080036b11a03);
-pub const PSGUID_BRIEFCASE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x328d8b21_7729_4bfc_954c_902b329d56b0);
-pub const PSGUID_CONTROLPANEL: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x305ca226_d286_468e_b848_2b2e8e697b74);
-pub const PSGUID_CUSTOMIMAGEPROPERTIES: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x7ecd8b0e_c136_4a9b_9411_4ebd6673ccc3);
-pub const PSGUID_DISPLACED: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x9b174b33_40ff_11d2_a27e_00c04fc30871);
-pub const PSGUID_DOCUMENTSUMMARYINFORMATION: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xd5cdd502_2e9c_101b_9397_08002b2cf9ae);
-pub const PSGUID_DRM: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xaeac19e4_89ae_4508_b9b7_bb867abee2ed);
-pub const PSGUID_IMAGEPROPERTIES: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x14b81da1_0135_4d31_96d9_6cbfc9671a99);
-pub const PSGUID_IMAGESUMMARYINFORMATION: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x6444048f_4c8b_11d1_8b70_080036b11a03);
-pub const PSGUID_LIBRARYPROPERTIES: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x5d76b67f_9b3d_44bb_b6ae_25da4f638a67);
-pub const PSGUID_LINK: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xb9b4b3fc_2b51_4a42_b5d8_324146afcf25);
-pub const PSGUID_MEDIAFILESUMMARYINFORMATION: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x64440492_4c8b_11d1_8b70_080036b11a03);
-pub const PSGUID_MISC: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x9b174b34_40ff_11d2_a27e_00c04fc30871);
-pub const PSGUID_MUSIC: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x56a3372e_ce9c_11d2_9f0e_006097c686f6);
-pub const PSGUID_QUERY_D: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x49691c90_7e17_101a_a91c_08002b2ecda9);
-pub const PSGUID_SHARE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xd8c3986f_813b_449c_845d_87b95d674ade);
-pub const PSGUID_SHELLDETAILS: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x28636aa6_953d_11d2_b5d6_00c04fd918d0);
-pub const PSGUID_SUMMARYINFORMATION: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xf29f85e0_4ff9_1068_ab91_08002b27b3d9);
-pub const PSGUID_VIDEO: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x64440491_4c8b_11d1_8b70_080036b11a03);
-pub const PSGUID_VOLUME: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x9b174b35_40ff_11d2_a27e_00c04fc30871);
-pub const PSGUID_WEBVIEW: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xf2275480_f782_4291_bd94_f13693513aec);
+pub const PROPSTR_EXTENSIONCOMPLETIONSTATE: windows_sys::core::PCWSTR = windows_sys::core::w!("ExtensionCompletionState");
+pub const PROP_CONTRACT_DELEGATE: windows_sys::core::PCWSTR = windows_sys::core::w!("ContractDelegate");
+pub const PSGUID_AUDIO: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x64440490_4c8b_11d1_8b70_080036b11a03);
+pub const PSGUID_BRIEFCASE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x328d8b21_7729_4bfc_954c_902b329d56b0);
+pub const PSGUID_CONTROLPANEL: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x305ca226_d286_468e_b848_2b2e8e697b74);
+pub const PSGUID_CUSTOMIMAGEPROPERTIES: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7ecd8b0e_c136_4a9b_9411_4ebd6673ccc3);
+pub const PSGUID_DISPLACED: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9b174b33_40ff_11d2_a27e_00c04fc30871);
+pub const PSGUID_DOCUMENTSUMMARYINFORMATION: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd5cdd502_2e9c_101b_9397_08002b2cf9ae);
+pub const PSGUID_DRM: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xaeac19e4_89ae_4508_b9b7_bb867abee2ed);
+pub const PSGUID_IMAGEPROPERTIES: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x14b81da1_0135_4d31_96d9_6cbfc9671a99);
+pub const PSGUID_IMAGESUMMARYINFORMATION: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6444048f_4c8b_11d1_8b70_080036b11a03);
+pub const PSGUID_LIBRARYPROPERTIES: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5d76b67f_9b3d_44bb_b6ae_25da4f638a67);
+pub const PSGUID_LINK: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb9b4b3fc_2b51_4a42_b5d8_324146afcf25);
+pub const PSGUID_MEDIAFILESUMMARYINFORMATION: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x64440492_4c8b_11d1_8b70_080036b11a03);
+pub const PSGUID_MISC: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9b174b34_40ff_11d2_a27e_00c04fc30871);
+pub const PSGUID_MUSIC: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x56a3372e_ce9c_11d2_9f0e_006097c686f6);
+pub const PSGUID_QUERY_D: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x49691c90_7e17_101a_a91c_08002b2ecda9);
+pub const PSGUID_SHARE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd8c3986f_813b_449c_845d_87b95d674ade);
+pub const PSGUID_SHELLDETAILS: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x28636aa6_953d_11d2_b5d6_00c04fd918d0);
+pub const PSGUID_SUMMARYINFORMATION: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf29f85e0_4ff9_1068_ab91_08002b27b3d9);
+pub const PSGUID_VIDEO: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x64440491_4c8b_11d1_8b70_080036b11a03);
+pub const PSGUID_VOLUME: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9b174b35_40ff_11d2_a27e_00c04fc30871);
+pub const PSGUID_WEBVIEW: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf2275480_f782_4291_bd94_f13693513aec);
 pub const ProtectedModeRedirect: NewProcessCauseConstants = 1i32;
 pub const QCMINFO_PLACE_AFTER: u32 = 1u32;
 pub const QCMINFO_PLACE_BEFORE: u32 = 0u32;
@@ -3519,7 +3519,7 @@ pub const SHCONTF_NETPRINTERSRCH: _SHCONTF = 512i32;
 pub const SHCONTF_NONFOLDERS: _SHCONTF = 64i32;
 pub const SHCONTF_SHAREABLE: _SHCONTF = 1024i32;
 pub const SHCONTF_STORAGE: _SHCONTF = 2048i32;
-pub const SHC_E_SHELL_COMPONENT_STARTUP_FAILURE: ::windows_sys::core::HRESULT = 0x80270234_u32 as _;
+pub const SHC_E_SHELL_COMPONENT_STARTUP_FAILURE: windows_sys::core::HRESULT = 0x80270234_u32 as _;
 pub const SHDID_COMPUTER_AUDIO: SHDID_ID = 19i32;
 pub const SHDID_COMPUTER_CDROM: SHDID_ID = 10i32;
 pub const SHDID_COMPUTER_DRIVE35: SHDID_ID = 5i32;
@@ -3544,7 +3544,7 @@ pub const SHDID_REMOTE_DESKTOP_DRIVE: SHDID_ID = 22i32;
 pub const SHDID_ROOT_REGITEM: SHDID_ID = 1i32;
 pub const SHELLSTATEVERSION_IE4: u32 = 9u32;
 pub const SHELLSTATEVERSION_WIN2K: u32 = 10u32;
-pub const SHELL_E_WRONG_BITDEPTH: ::windows_sys::core::HRESULT = 0x80270102_u32 as _;
+pub const SHELL_E_WRONG_BITDEPTH: windows_sys::core::HRESULT = 0x80270102_u32 as _;
 pub const SHELL_UI_COMPONENT_DESKBAND: SHELL_UI_COMPONENT = 2i32;
 pub const SHELL_UI_COMPONENT_NOTIFICATIONAREA: SHELL_UI_COMPONENT = 1i32;
 pub const SHELL_UI_COMPONENT_TASKBARS: SHELL_UI_COMPONENT = 0i32;
@@ -3618,8 +3618,8 @@ pub const SHIL_SYSSMALL: u32 = 3u32;
 pub const SHIMGDEC_DEFAULT: u32 = 0u32;
 pub const SHIMGDEC_LOADFULL: u32 = 2u32;
 pub const SHIMGDEC_THUMBNAIL: u32 = 1u32;
-pub const SHIMGKEY_QUALITY: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Compression");
-pub const SHIMGKEY_RAWFORMAT: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("RawDataFormat");
+pub const SHIMGKEY_QUALITY: windows_sys::core::PCWSTR = windows_sys::core::w!("Compression");
+pub const SHIMGKEY_RAWFORMAT: windows_sys::core::PCWSTR = windows_sys::core::w!("RawDataFormat");
 pub const SHIMSTCAPFLAG_LOCKABLE: u32 = 1u32;
 pub const SHIMSTCAPFLAG_PURGEABLE: u32 = 2u32;
 pub const SHOP_FILEPATH: SHOP_TYPE = 2i32;
@@ -3658,30 +3658,30 @@ pub const SICHINT_ALLFIELDS: _SICHINTF = -2147483648i32;
 pub const SICHINT_CANONICAL: _SICHINTF = 268435456i32;
 pub const SICHINT_DISPLAY: _SICHINTF = 0i32;
 pub const SICHINT_TEST_FILESYSPATH_IF_NOT_EQUAL: _SICHINTF = 536870912i32;
-pub const SID_CommandsPropertyBag: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x6e043250_4416_485c_b143_e62a760d9fe5);
-pub const SID_CtxQueryAssociations: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xfaadfc40_b777_4b69_aa81_77035ef0e6e8);
-pub const SID_DefView: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x6d12fe80_7911_11cf_9534_0000c05bae0b);
-pub const SID_LaunchSourceAppUserModelId: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x2ce78010_74db_48bc_9c6a_10f372495723);
-pub const SID_LaunchSourceViewSizePreference: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x80605492_67d9_414f_af89_a1cdf1242bc1);
-pub const SID_LaunchTargetViewSizePreference: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x26db2472_b7b7_406b_9702_730a4e20d3bf);
-pub const SID_MenuShellFolder: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xa6c17eb4_2d65_11d2_838f_00c04fd918d0);
-pub const SID_SCommDlgBrowser: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x80f30233_b7df_11d2_a33b_006097df5bd4);
-pub const SID_SCommandBarState: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xb99eaa5c_3850_4400_bc33_2ce534048bf8);
-pub const SID_SGetViewFromViewDual: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x889a935d_971e_4b12_b90c_24dfc9e1e5e8);
-pub const SID_SInPlaceBrowser: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x1d2ae02b_3655_46cc_b63a_285988153bca);
-pub const SID_SMenuBandBKContextMenu: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x164bbd86_1d0d_4de0_9a3b_d9729647c2b8);
-pub const SID_SMenuBandBottom: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x743ca664_0deb_11d1_9825_00c04fd91972);
-pub const SID_SMenuBandBottomSelected: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x165ebaf4_6d51_11d2_83ad_00c04fd918d0);
-pub const SID_SMenuBandChild: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xed9cc020_08b9_11d1_9823_00c04fd91972);
-pub const SID_SMenuBandContextMenuModifier: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x39545874_7162_465e_b783_2aa1874fef81);
-pub const SID_SMenuBandParent: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x8c278eec_3eab_11d1_8cb0_00c04fd918d0);
-pub const SID_SMenuBandTop: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x9493a810_ec38_11d0_bc46_00aa006ce2f5);
-pub const SID_SMenuPopup: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xd1e7afeb_6a2e_11d0_8c78_00c04fd918b4);
-pub const SID_SSearchBoxInfo: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x142daa61_516b_4713_b49c_fb985ef82998);
-pub const SID_STopLevelBrowser: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x4c96be40_915c_11cf_99d3_00aa004ae837);
-pub const SID_STopWindow: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x49e1b500_4636_11d3_97f7_00c04f45d0b3);
-pub const SID_ShellExecuteNamedPropertyStore: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xeb84ada2_00ff_4992_8324_ed5ce061cb29);
-pub const SID_URLExecutionContext: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xfb5f8ebc_bbb6_4d10_a461_777291a09030);
+pub const SID_CommandsPropertyBag: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6e043250_4416_485c_b143_e62a760d9fe5);
+pub const SID_CtxQueryAssociations: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xfaadfc40_b777_4b69_aa81_77035ef0e6e8);
+pub const SID_DefView: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6d12fe80_7911_11cf_9534_0000c05bae0b);
+pub const SID_LaunchSourceAppUserModelId: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x2ce78010_74db_48bc_9c6a_10f372495723);
+pub const SID_LaunchSourceViewSizePreference: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x80605492_67d9_414f_af89_a1cdf1242bc1);
+pub const SID_LaunchTargetViewSizePreference: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x26db2472_b7b7_406b_9702_730a4e20d3bf);
+pub const SID_MenuShellFolder: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa6c17eb4_2d65_11d2_838f_00c04fd918d0);
+pub const SID_SCommDlgBrowser: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x80f30233_b7df_11d2_a33b_006097df5bd4);
+pub const SID_SCommandBarState: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb99eaa5c_3850_4400_bc33_2ce534048bf8);
+pub const SID_SGetViewFromViewDual: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x889a935d_971e_4b12_b90c_24dfc9e1e5e8);
+pub const SID_SInPlaceBrowser: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1d2ae02b_3655_46cc_b63a_285988153bca);
+pub const SID_SMenuBandBKContextMenu: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x164bbd86_1d0d_4de0_9a3b_d9729647c2b8);
+pub const SID_SMenuBandBottom: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x743ca664_0deb_11d1_9825_00c04fd91972);
+pub const SID_SMenuBandBottomSelected: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x165ebaf4_6d51_11d2_83ad_00c04fd918d0);
+pub const SID_SMenuBandChild: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xed9cc020_08b9_11d1_9823_00c04fd91972);
+pub const SID_SMenuBandContextMenuModifier: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x39545874_7162_465e_b783_2aa1874fef81);
+pub const SID_SMenuBandParent: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8c278eec_3eab_11d1_8cb0_00c04fd918d0);
+pub const SID_SMenuBandTop: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9493a810_ec38_11d0_bc46_00aa006ce2f5);
+pub const SID_SMenuPopup: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd1e7afeb_6a2e_11d0_8c78_00c04fd918b4);
+pub const SID_SSearchBoxInfo: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x142daa61_516b_4713_b49c_fb985ef82998);
+pub const SID_STopLevelBrowser: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4c96be40_915c_11cf_99d3_00aa004ae837);
+pub const SID_STopWindow: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x49e1b500_4636_11d3_97f7_00c04f45d0b3);
+pub const SID_ShellExecuteNamedPropertyStore: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xeb84ada2_00ff_4992_8324_ed5ce061cb29);
+pub const SID_URLExecutionContext: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xfb5f8ebc_bbb6_4d10_a461_777291a09030);
 pub const SIGDN_DESKTOPABSOLUTEEDITING: SIGDN = -2147172352i32;
 pub const SIGDN_DESKTOPABSOLUTEPARSING: SIGDN = -2147319808i32;
 pub const SIGDN_FILESYSPATH: SIGDN = -2147123200i32;
@@ -4018,55 +4018,55 @@ pub const STGOP_RENAME: STGOP = 6i32;
 pub const STGOP_SYNC: STGOP = 3i32;
 pub const STIF_DEFAULT: i32 = 0i32;
 pub const STIF_SUPPORT_HEX: i32 = 1i32;
-pub const STORE_E_NEWER_VERSION_AVAILABLE: ::windows_sys::core::HRESULT = 0x80270104_u32 as _;
+pub const STORE_E_NEWER_VERSION_AVAILABLE: windows_sys::core::HRESULT = 0x80270104_u32 as _;
 pub const STPF_NONE: STPFLAG = 0i32;
 pub const STPF_USEAPPPEEKALWAYS: STPFLAG = 4i32;
 pub const STPF_USEAPPPEEKWHENACTIVE: STPFLAG = 8i32;
 pub const STPF_USEAPPTHUMBNAILALWAYS: STPFLAG = 1i32;
 pub const STPF_USEAPPTHUMBNAILWHENACTIVE: STPFLAG = 2i32;
-pub const STR_AVOID_DRIVE_RESTRICTION_POLICY: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Avoid Drive Restriction Policy");
-pub const STR_BIND_DELEGATE_CREATE_OBJECT: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Delegate Object Creation");
-pub const STR_BIND_FOLDERS_READ_ONLY: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Folders As Read Only");
-pub const STR_BIND_FOLDER_ENUM_MODE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Folder Enum Mode");
-pub const STR_BIND_FORCE_FOLDER_SHORTCUT_RESOLVE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Force Folder Shortcut Resolve");
-pub const STR_DONT_PARSE_RELATIVE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Don\'t Parse Relative");
-pub const STR_DONT_RESOLVE_LINK: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Don\'t Resolve Link");
-pub const STR_ENUM_ITEMS_FLAGS: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("SHCONTF");
-pub const STR_FILE_SYS_BIND_DATA: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("File System Bind Data");
-pub const STR_FILE_SYS_BIND_DATA_WIN7_FORMAT: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Win7FileSystemIdList");
-pub const STR_GET_ASYNC_HANDLER: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("GetAsyncHandler");
-pub const STR_GPS_BESTEFFORT: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("GPS_BESTEFFORT");
-pub const STR_GPS_DELAYCREATION: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("GPS_DELAYCREATION");
-pub const STR_GPS_FASTPROPERTIESONLY: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("GPS_FASTPROPERTIESONLY");
-pub const STR_GPS_HANDLERPROPERTIESONLY: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("GPS_HANDLERPROPERTIESONLY");
-pub const STR_GPS_NO_OPLOCK: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("GPS_NO_OPLOCK");
-pub const STR_GPS_OPENSLOWITEM: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("GPS_OPENSLOWITEM");
-pub const STR_INTERNAL_NAVIGATE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Internal Navigation");
-pub const STR_INTERNETFOLDER_PARSE_ONLY_URLMON_BINDABLE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Validate URL");
-pub const STR_ITEM_CACHE_CONTEXT: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("ItemCacheContext");
-pub const STR_MYDOCS_CLSID: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("{450D8FBA-AD25-11D0-98A8-0800361B1103}");
-pub const STR_NO_VALIDATE_FILENAME_CHARS: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("NoValidateFilenameChars");
-pub const STR_PARSE_ALLOW_INTERNET_SHELL_FOLDERS: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Allow binding to Internet shell folder handlers and negate STR_PARSE_PREFER_WEB_BROWSING");
-pub const STR_PARSE_AND_CREATE_ITEM: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("ParseAndCreateItem");
-pub const STR_PARSE_DONT_REQUIRE_VALIDATED_URLS: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Do not require validated URLs");
-pub const STR_PARSE_EXPLICIT_ASSOCIATION_SUCCESSFUL: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("ExplicitAssociationSuccessful");
-pub const STR_PARSE_PARTIAL_IDLIST: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("ParseOriginalItem");
-pub const STR_PARSE_PREFER_FOLDER_BROWSING: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Parse Prefer Folder Browsing");
-pub const STR_PARSE_PREFER_WEB_BROWSING: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Do not bind to Internet shell folder handlers");
-pub const STR_PARSE_PROPERTYSTORE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("DelegateNamedProperties");
-pub const STR_PARSE_SHELL_PROTOCOL_TO_FILE_OBJECTS: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Parse Shell Protocol To File Objects");
-pub const STR_PARSE_SHOW_NET_DIAGNOSTICS_UI: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Show network diagnostics UI");
-pub const STR_PARSE_SKIP_NET_CACHE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Skip Net Resource Cache");
-pub const STR_PARSE_TRANSLATE_ALIASES: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Parse Translate Aliases");
-pub const STR_PARSE_WITH_EXPLICIT_ASSOCAPP: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("ExplicitAssociationApp");
-pub const STR_PARSE_WITH_EXPLICIT_PROGID: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("ExplicitProgid");
-pub const STR_PARSE_WITH_PROPERTIES: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("ParseWithProperties");
-pub const STR_PROPERTYBAG_PARAM: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("SHBindCtxPropertyBag");
-pub const STR_REFERRER_IDENTIFIER: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Referrer Identifier");
-pub const STR_SKIP_BINDING_CLSID: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Skip Binding CLSID");
-pub const STR_STORAGEITEM_CREATION_FLAGS: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("SHGETSTORAGEITEM");
-pub const STR_TAB_REUSE_IDENTIFIER: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Tab Reuse Identifier");
-pub const STR_TRACK_CLSID: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Track the CLSID");
+pub const STR_AVOID_DRIVE_RESTRICTION_POLICY: windows_sys::core::PCWSTR = windows_sys::core::w!("Avoid Drive Restriction Policy");
+pub const STR_BIND_DELEGATE_CREATE_OBJECT: windows_sys::core::PCWSTR = windows_sys::core::w!("Delegate Object Creation");
+pub const STR_BIND_FOLDERS_READ_ONLY: windows_sys::core::PCWSTR = windows_sys::core::w!("Folders As Read Only");
+pub const STR_BIND_FOLDER_ENUM_MODE: windows_sys::core::PCWSTR = windows_sys::core::w!("Folder Enum Mode");
+pub const STR_BIND_FORCE_FOLDER_SHORTCUT_RESOLVE: windows_sys::core::PCWSTR = windows_sys::core::w!("Force Folder Shortcut Resolve");
+pub const STR_DONT_PARSE_RELATIVE: windows_sys::core::PCWSTR = windows_sys::core::w!("Don\'t Parse Relative");
+pub const STR_DONT_RESOLVE_LINK: windows_sys::core::PCWSTR = windows_sys::core::w!("Don\'t Resolve Link");
+pub const STR_ENUM_ITEMS_FLAGS: windows_sys::core::PCWSTR = windows_sys::core::w!("SHCONTF");
+pub const STR_FILE_SYS_BIND_DATA: windows_sys::core::PCWSTR = windows_sys::core::w!("File System Bind Data");
+pub const STR_FILE_SYS_BIND_DATA_WIN7_FORMAT: windows_sys::core::PCWSTR = windows_sys::core::w!("Win7FileSystemIdList");
+pub const STR_GET_ASYNC_HANDLER: windows_sys::core::PCWSTR = windows_sys::core::w!("GetAsyncHandler");
+pub const STR_GPS_BESTEFFORT: windows_sys::core::PCWSTR = windows_sys::core::w!("GPS_BESTEFFORT");
+pub const STR_GPS_DELAYCREATION: windows_sys::core::PCWSTR = windows_sys::core::w!("GPS_DELAYCREATION");
+pub const STR_GPS_FASTPROPERTIESONLY: windows_sys::core::PCWSTR = windows_sys::core::w!("GPS_FASTPROPERTIESONLY");
+pub const STR_GPS_HANDLERPROPERTIESONLY: windows_sys::core::PCWSTR = windows_sys::core::w!("GPS_HANDLERPROPERTIESONLY");
+pub const STR_GPS_NO_OPLOCK: windows_sys::core::PCWSTR = windows_sys::core::w!("GPS_NO_OPLOCK");
+pub const STR_GPS_OPENSLOWITEM: windows_sys::core::PCWSTR = windows_sys::core::w!("GPS_OPENSLOWITEM");
+pub const STR_INTERNAL_NAVIGATE: windows_sys::core::PCWSTR = windows_sys::core::w!("Internal Navigation");
+pub const STR_INTERNETFOLDER_PARSE_ONLY_URLMON_BINDABLE: windows_sys::core::PCWSTR = windows_sys::core::w!("Validate URL");
+pub const STR_ITEM_CACHE_CONTEXT: windows_sys::core::PCWSTR = windows_sys::core::w!("ItemCacheContext");
+pub const STR_MYDOCS_CLSID: windows_sys::core::PCSTR = windows_sys::core::s!("{450D8FBA-AD25-11D0-98A8-0800361B1103}");
+pub const STR_NO_VALIDATE_FILENAME_CHARS: windows_sys::core::PCWSTR = windows_sys::core::w!("NoValidateFilenameChars");
+pub const STR_PARSE_ALLOW_INTERNET_SHELL_FOLDERS: windows_sys::core::PCWSTR = windows_sys::core::w!("Allow binding to Internet shell folder handlers and negate STR_PARSE_PREFER_WEB_BROWSING");
+pub const STR_PARSE_AND_CREATE_ITEM: windows_sys::core::PCWSTR = windows_sys::core::w!("ParseAndCreateItem");
+pub const STR_PARSE_DONT_REQUIRE_VALIDATED_URLS: windows_sys::core::PCWSTR = windows_sys::core::w!("Do not require validated URLs");
+pub const STR_PARSE_EXPLICIT_ASSOCIATION_SUCCESSFUL: windows_sys::core::PCWSTR = windows_sys::core::w!("ExplicitAssociationSuccessful");
+pub const STR_PARSE_PARTIAL_IDLIST: windows_sys::core::PCWSTR = windows_sys::core::w!("ParseOriginalItem");
+pub const STR_PARSE_PREFER_FOLDER_BROWSING: windows_sys::core::PCWSTR = windows_sys::core::w!("Parse Prefer Folder Browsing");
+pub const STR_PARSE_PREFER_WEB_BROWSING: windows_sys::core::PCWSTR = windows_sys::core::w!("Do not bind to Internet shell folder handlers");
+pub const STR_PARSE_PROPERTYSTORE: windows_sys::core::PCWSTR = windows_sys::core::w!("DelegateNamedProperties");
+pub const STR_PARSE_SHELL_PROTOCOL_TO_FILE_OBJECTS: windows_sys::core::PCWSTR = windows_sys::core::w!("Parse Shell Protocol To File Objects");
+pub const STR_PARSE_SHOW_NET_DIAGNOSTICS_UI: windows_sys::core::PCWSTR = windows_sys::core::w!("Show network diagnostics UI");
+pub const STR_PARSE_SKIP_NET_CACHE: windows_sys::core::PCWSTR = windows_sys::core::w!("Skip Net Resource Cache");
+pub const STR_PARSE_TRANSLATE_ALIASES: windows_sys::core::PCWSTR = windows_sys::core::w!("Parse Translate Aliases");
+pub const STR_PARSE_WITH_EXPLICIT_ASSOCAPP: windows_sys::core::PCWSTR = windows_sys::core::w!("ExplicitAssociationApp");
+pub const STR_PARSE_WITH_EXPLICIT_PROGID: windows_sys::core::PCWSTR = windows_sys::core::w!("ExplicitProgid");
+pub const STR_PARSE_WITH_PROPERTIES: windows_sys::core::PCWSTR = windows_sys::core::w!("ParseWithProperties");
+pub const STR_PROPERTYBAG_PARAM: windows_sys::core::PCWSTR = windows_sys::core::w!("SHBindCtxPropertyBag");
+pub const STR_REFERRER_IDENTIFIER: windows_sys::core::PCWSTR = windows_sys::core::w!("Referrer Identifier");
+pub const STR_SKIP_BINDING_CLSID: windows_sys::core::PCWSTR = windows_sys::core::w!("Skip Binding CLSID");
+pub const STR_STORAGEITEM_CREATION_FLAGS: windows_sys::core::PCWSTR = windows_sys::core::w!("SHGETSTORAGEITEM");
+pub const STR_TAB_REUSE_IDENTIFIER: windows_sys::core::PCWSTR = windows_sys::core::w!("Tab Reuse Identifier");
+pub const STR_TRACK_CLSID: windows_sys::core::PCWSTR = windows_sys::core::w!("Track the CLSID");
 pub const SV3CVW3_DEFAULT: _SV3CVW3_FLAGS = 0i32;
 pub const SV3CVW3_FORCEFOLDERFLAGS: _SV3CVW3_FLAGS = 4i32;
 pub const SV3CVW3_FORCEVIEWMODE: _SV3CVW3_FLAGS = 2i32;
@@ -4229,17 +4229,17 @@ pub const SYNCMGR_IPM_PREVENT_ENABLE: SYNCMGR_ITEM_POLICIES = 1i32;
 pub const SYNCMGR_IPM_PREVENT_START_SYNC: SYNCMGR_ITEM_POLICIES = 4i32;
 pub const SYNCMGR_IPM_PREVENT_STOP_SYNC: SYNCMGR_ITEM_POLICIES = 8i32;
 pub const SYNCMGR_IPM_VALID_MASK: SYNCMGR_ITEM_POLICIES = 66303i32;
-pub const SYNCMGR_OBJECTID_BrowseContent: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x57cbb584_e9b4_47ae_a120_c4df3335dee2);
-pub const SYNCMGR_OBJECTID_ConflictStore: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xd78181f4_2389_47e4_a960_60bcc2ed930b);
-pub const SYNCMGR_OBJECTID_EventLinkClick: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x2203bdc1_1af1_4082_8c30_28399f41384c);
-pub const SYNCMGR_OBJECTID_EventStore: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x4bef34b9_a786_4075_ba88_0c2b9d89a98f);
-pub const SYNCMGR_OBJECTID_Icon: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x6dbc85c3_5d07_4c72_a777_7fec78072c06);
-pub const SYNCMGR_OBJECTID_QueryBeforeActivate: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xd882d80b_e7aa_49ed_86b7_e6e1f714cdfe);
-pub const SYNCMGR_OBJECTID_QueryBeforeDeactivate: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xa0efc282_60e0_460e_9374_ea88513cfc80);
-pub const SYNCMGR_OBJECTID_QueryBeforeDelete: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xf76c3397_afb3_45d7_a59f_5a49e905437e);
-pub const SYNCMGR_OBJECTID_QueryBeforeDisable: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xbb5f64aa_f004_4eb5_8e4d_26751966344c);
-pub const SYNCMGR_OBJECTID_QueryBeforeEnable: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x04cbf7f0_5beb_4de1_bc90_908345c480f6);
-pub const SYNCMGR_OBJECTID_ShowSchedule: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xedc6f3e3_8441_4109_adf3_6c1ca0b7de47);
+pub const SYNCMGR_OBJECTID_BrowseContent: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x57cbb584_e9b4_47ae_a120_c4df3335dee2);
+pub const SYNCMGR_OBJECTID_ConflictStore: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd78181f4_2389_47e4_a960_60bcc2ed930b);
+pub const SYNCMGR_OBJECTID_EventLinkClick: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x2203bdc1_1af1_4082_8c30_28399f41384c);
+pub const SYNCMGR_OBJECTID_EventStore: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4bef34b9_a786_4075_ba88_0c2b9d89a98f);
+pub const SYNCMGR_OBJECTID_Icon: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6dbc85c3_5d07_4c72_a777_7fec78072c06);
+pub const SYNCMGR_OBJECTID_QueryBeforeActivate: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd882d80b_e7aa_49ed_86b7_e6e1f714cdfe);
+pub const SYNCMGR_OBJECTID_QueryBeforeDeactivate: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa0efc282_60e0_460e_9374_ea88513cfc80);
+pub const SYNCMGR_OBJECTID_QueryBeforeDelete: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf76c3397_afb3_45d7_a59f_5a49e905437e);
+pub const SYNCMGR_OBJECTID_QueryBeforeDisable: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xbb5f64aa_f004_4eb5_8e4d_26751966344c);
+pub const SYNCMGR_OBJECTID_QueryBeforeEnable: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x04cbf7f0_5beb_4de1_bc90_908345c480f6);
+pub const SYNCMGR_OBJECTID_ShowSchedule: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xedc6f3e3_8441_4109_adf3_6c1ca0b7de47);
 pub const SYNCMGR_PC_KEEP_MULTIPLE: SYNCMGR_PRESENTER_CHOICE = 2i32;
 pub const SYNCMGR_PC_KEEP_ONE: SYNCMGR_PRESENTER_CHOICE = 1i32;
 pub const SYNCMGR_PC_KEEP_RECENT: SYNCMGR_PRESENTER_CHOICE = 3i32;
@@ -4272,19 +4272,19 @@ pub const SYNCMGR_UR_ADDED: SYNCMGR_UPDATE_REASON = 0i32;
 pub const SYNCMGR_UR_CHANGED: SYNCMGR_UPDATE_REASON = 1i32;
 pub const SYNCMGR_UR_MAX: SYNCMGR_UPDATE_REASON = 2i32;
 pub const SYNCMGR_UR_REMOVED: SYNCMGR_UPDATE_REASON = 2i32;
-pub const SZ_CONTENTTYPE_CDF: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("application/x-cdf");
-pub const SZ_CONTENTTYPE_CDFA: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("application/x-cdf");
-pub const SZ_CONTENTTYPE_CDFW: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("application/x-cdf");
-pub const SZ_CONTENTTYPE_HTML: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("text/html");
-pub const SZ_CONTENTTYPE_HTMLA: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("text/html");
-pub const SZ_CONTENTTYPE_HTMLW: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("text/html");
-pub const S_SYNCMGR_CANCELALL: ::windows_sys::core::HRESULT = 0x40204_u32 as _;
-pub const S_SYNCMGR_CANCELITEM: ::windows_sys::core::HRESULT = 0x40203_u32 as _;
-pub const S_SYNCMGR_ENUMITEMS: ::windows_sys::core::HRESULT = 0x40211_u32 as _;
-pub const S_SYNCMGR_ITEMDELETED: ::windows_sys::core::HRESULT = 0x40210_u32 as _;
-pub const S_SYNCMGR_MISSINGITEMS: ::windows_sys::core::HRESULT = 0x40201_u32 as _;
-pub const S_SYNCMGR_RETRYSYNC: ::windows_sys::core::HRESULT = 0x40202_u32 as _;
-pub const SelectedItemCount_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x8fe316d2_0e52_460a_9c1e_48f273d470a3);
+pub const SZ_CONTENTTYPE_CDF: windows_sys::core::PCWSTR = windows_sys::core::w!("application/x-cdf");
+pub const SZ_CONTENTTYPE_CDFA: windows_sys::core::PCSTR = windows_sys::core::s!("application/x-cdf");
+pub const SZ_CONTENTTYPE_CDFW: windows_sys::core::PCWSTR = windows_sys::core::w!("application/x-cdf");
+pub const SZ_CONTENTTYPE_HTML: windows_sys::core::PCWSTR = windows_sys::core::w!("text/html");
+pub const SZ_CONTENTTYPE_HTMLA: windows_sys::core::PCSTR = windows_sys::core::s!("text/html");
+pub const SZ_CONTENTTYPE_HTMLW: windows_sys::core::PCWSTR = windows_sys::core::w!("text/html");
+pub const S_SYNCMGR_CANCELALL: windows_sys::core::HRESULT = 0x40204_u32 as _;
+pub const S_SYNCMGR_CANCELITEM: windows_sys::core::HRESULT = 0x40203_u32 as _;
+pub const S_SYNCMGR_ENUMITEMS: windows_sys::core::HRESULT = 0x40211_u32 as _;
+pub const S_SYNCMGR_ITEMDELETED: windows_sys::core::HRESULT = 0x40210_u32 as _;
+pub const S_SYNCMGR_MISSINGITEMS: windows_sys::core::HRESULT = 0x40201_u32 as _;
+pub const S_SYNCMGR_RETRYSYNC: windows_sys::core::HRESULT = 0x40202_u32 as _;
+pub const SelectedItemCount_Property_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8fe316d2_0e52_460a_9c1e_48f273d470a3);
 pub const TBIF_APPEND: u32 = 0u32;
 pub const TBIF_DEFAULT: u32 = 0u32;
 pub const TBIF_INTERNETBAR: u32 = 65536u32;
@@ -4369,8 +4369,8 @@ pub const URL_ESCAPE_PERCENT: u32 = 4096u32;
 pub const URL_ESCAPE_SEGMENT_ONLY: u32 = 8192u32;
 pub const URL_ESCAPE_SPACES_ONLY: u32 = 67108864u32;
 pub const URL_ESCAPE_UNSAFE: u32 = 536870912u32;
-pub const URL_E_INVALID_SYNTAX: ::windows_sys::core::HRESULT = 0x80041001_u32 as _;
-pub const URL_E_UNREGISTERED_PROTOCOL: ::windows_sys::core::HRESULT = 0x80041002_u32 as _;
+pub const URL_E_INVALID_SYNTAX: windows_sys::core::HRESULT = 0x80041001_u32 as _;
+pub const URL_E_UNREGISTERED_PROTOCOL: windows_sys::core::HRESULT = 0x80041002_u32 as _;
 pub const URL_FILE_USE_PATHURL: u32 = 65536u32;
 pub const URL_INTERNAL_PATH: u32 = 8388608u32;
 pub const URL_NO_META: u32 = 134217728u32;
@@ -4425,14 +4425,14 @@ pub const VALIDATEUNC_NOUI: VALIDATEUNC_OPTION = 2i32;
 pub const VALIDATEUNC_PERSIST: VALIDATEUNC_OPTION = 8i32;
 pub const VALIDATEUNC_PRINT: VALIDATEUNC_OPTION = 4i32;
 pub const VALIDATEUNC_VALID: VALIDATEUNC_OPTION = 15i32;
-pub const VID_Content: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x30c2c434_0889_4c8d_985d_a9f71830b0a9);
-pub const VID_Details: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x137e7700_3573_11cf_ae69_08002b2e1262);
-pub const VID_LargeIcons: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x0057d0e0_3573_11cf_ae69_08002b2e1262);
-pub const VID_List: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x0e1fa5e0_3573_11cf_ae69_08002b2e1262);
-pub const VID_SmallIcons: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x089000c0_3573_11cf_ae69_08002b2e1262);
-pub const VID_ThumbStrip: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x8eefa624_d1e9_445b_94b7_74fbce2ea11a);
-pub const VID_Thumbnails: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x8bebb290_52d0_11d0_b7f4_00c04fd706ec);
-pub const VID_Tile: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x65f125e5_7be1_4810_ba9d_d271c8432ce3);
+pub const VID_Content: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x30c2c434_0889_4c8d_985d_a9f71830b0a9);
+pub const VID_Details: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x137e7700_3573_11cf_ae69_08002b2e1262);
+pub const VID_LargeIcons: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0057d0e0_3573_11cf_ae69_08002b2e1262);
+pub const VID_List: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0e1fa5e0_3573_11cf_ae69_08002b2e1262);
+pub const VID_SmallIcons: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x089000c0_3573_11cf_ae69_08002b2e1262);
+pub const VID_ThumbStrip: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8eefa624_d1e9_445b_94b7_74fbce2ea11a);
+pub const VID_Thumbnails: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8bebb290_52d0_11d0_b7f4_00c04fd706ec);
+pub const VID_Tile: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x65f125e5_7be1_4810_ba9d_d271c8432ce3);
 pub const VIEW_PRIORITY_CACHEHIT: u32 = 80u32;
 pub const VIEW_PRIORITY_CACHEMISS: u32 = 48u32;
 pub const VIEW_PRIORITY_DESPERATE: u32 = 16u32;
@@ -4443,7 +4443,7 @@ pub const VIEW_PRIORITY_SHELLEXT: u32 = 64u32;
 pub const VIEW_PRIORITY_SHELLEXT_ASBACKUP: u32 = 21u32;
 pub const VIEW_PRIORITY_STALECACHEHIT: u32 = 69u32;
 pub const VIEW_PRIORITY_USEASDEFAULT: u32 = 67u32;
-pub const VOLUME_PREFIX: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("\\\\?\\Volume");
+pub const VOLUME_PREFIX: windows_sys::core::PCWSTR = windows_sys::core::w!("\\\\?\\Volume");
 pub const VPCF_BACKGROUND: VPCOLORFLAGS = 2i32;
 pub const VPCF_SORTCOLUMN: VPCOLORFLAGS = 3i32;
 pub const VPCF_SUBTEXT: VPCOLORFLAGS = 4i32;
@@ -4451,7 +4451,7 @@ pub const VPCF_TEXT: VPCOLORFLAGS = 1i32;
 pub const VPCF_TEXTBACKGROUND: VPCOLORFLAGS = 5i32;
 pub const VPWF_ALPHABLEND: VPWATERMARKFLAGS = 1i32;
 pub const VPWF_DEFAULT: VPWATERMARKFLAGS = 0i32;
-pub const WC_NETADDRESS: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("msctls_netaddress");
+pub const WC_NETADDRESS: windows_sys::core::PCWSTR = windows_sys::core::w!("msctls_netaddress");
 pub const WM_CPL_LAUNCH: u32 = 2024u32;
 pub const WM_CPL_LAUNCHED: u32 = 2025u32;
 pub const WPSTYLE_CENTER: u32 = 0u32;
@@ -4476,14 +4476,14 @@ pub const WTS_DEFAULT: WTS_CACHEFLAGS = 0i32;
 pub const WTS_EXTRACT: WTS_FLAGS = 0i32;
 pub const WTS_EXTRACTDONOTCACHE: WTS_FLAGS = 32i32;
 pub const WTS_EXTRACTINPROC: WTS_FLAGS = 256i32;
-pub const WTS_E_DATAFILEUNAVAILABLE: ::windows_sys::core::HRESULT = 0x8004B204_u32 as _;
-pub const WTS_E_EXTRACTIONBLOCKED: ::windows_sys::core::HRESULT = 0x8004B206_u32 as _;
-pub const WTS_E_EXTRACTIONPENDING: ::windows_sys::core::HRESULT = 0x8004B205_u32 as _;
-pub const WTS_E_EXTRACTIONTIMEDOUT: ::windows_sys::core::HRESULT = 0x8004B201_u32 as _;
-pub const WTS_E_FAILEDEXTRACTION: ::windows_sys::core::HRESULT = 0x8004B200_u32 as _;
-pub const WTS_E_FASTEXTRACTIONNOTSUPPORTED: ::windows_sys::core::HRESULT = 0x8004B203_u32 as _;
-pub const WTS_E_NOSTORAGEPROVIDERTHUMBNAILHANDLER: ::windows_sys::core::HRESULT = 0x8004B207_u32 as _;
-pub const WTS_E_SURROGATEUNAVAILABLE: ::windows_sys::core::HRESULT = 0x8004B202_u32 as _;
+pub const WTS_E_DATAFILEUNAVAILABLE: windows_sys::core::HRESULT = 0x8004B204_u32 as _;
+pub const WTS_E_EXTRACTIONBLOCKED: windows_sys::core::HRESULT = 0x8004B206_u32 as _;
+pub const WTS_E_EXTRACTIONPENDING: windows_sys::core::HRESULT = 0x8004B205_u32 as _;
+pub const WTS_E_EXTRACTIONTIMEDOUT: windows_sys::core::HRESULT = 0x8004B201_u32 as _;
+pub const WTS_E_FAILEDEXTRACTION: windows_sys::core::HRESULT = 0x8004B200_u32 as _;
+pub const WTS_E_FASTEXTRACTIONNOTSUPPORTED: windows_sys::core::HRESULT = 0x8004B203_u32 as _;
+pub const WTS_E_NOSTORAGEPROVIDERTHUMBNAILHANDLER: windows_sys::core::HRESULT = 0x8004B207_u32 as _;
+pub const WTS_E_SURROGATEUNAVAILABLE: windows_sys::core::HRESULT = 0x8004B202_u32 as _;
 pub const WTS_FASTEXTRACT: WTS_FLAGS = 2i32;
 pub const WTS_FORCEEXTRACTION: WTS_FLAGS = 4i32;
 pub const WTS_IDEALCACHESIZEONLY: WTS_FLAGS = 32768i32;
@@ -4861,22 +4861,22 @@ pub struct AASHELLMENUFILENAME {
     pub rgbReserved: [u8; 12],
     pub szFileName: [u16; 1],
 }
-impl ::core::marker::Copy for AASHELLMENUFILENAME {}
-impl ::core::clone::Clone for AASHELLMENUFILENAME {
+impl Copy for AASHELLMENUFILENAME {}
+impl Clone for AASHELLMENUFILENAME {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct AASHELLMENUITEM {
-    pub lpReserved1: *mut ::core::ffi::c_void,
+    pub lpReserved1: *mut core::ffi::c_void,
     pub iReserved: i32,
     pub uiReserved: u32,
     pub lpName: *mut AASHELLMENUFILENAME,
-    pub psz: ::windows_sys::core::PWSTR,
+    pub psz: windows_sys::core::PWSTR,
 }
-impl ::core::marker::Copy for AASHELLMENUITEM {}
-impl ::core::clone::Clone for AASHELLMENUITEM {
+impl Copy for AASHELLMENUITEM {}
+impl Clone for AASHELLMENUITEM {
     fn clone(&self) -> Self {
         *self
     }
@@ -4892,9 +4892,9 @@ pub struct APPBARDATA {
     pub lParam: super::super::Foundation::LPARAM,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::marker::Copy for APPBARDATA {}
+impl Copy for APPBARDATA {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::clone::Clone for APPBARDATA {
+impl Clone for APPBARDATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -4910,9 +4910,9 @@ pub struct APPBARDATA {
     pub lParam: super::super::Foundation::LPARAM,
 }
 #[cfg(target_arch = "x86")]
-impl ::core::marker::Copy for APPBARDATA {}
+impl Copy for APPBARDATA {}
 #[cfg(target_arch = "x86")]
-impl ::core::clone::Clone for APPBARDATA {
+impl Clone for APPBARDATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -4920,11 +4920,11 @@ impl ::core::clone::Clone for APPBARDATA {
 #[repr(C)]
 pub struct APPCATEGORYINFO {
     pub Locale: u32,
-    pub pszDescription: ::windows_sys::core::PWSTR,
-    pub AppCategoryId: ::windows_sys::core::GUID,
+    pub pszDescription: windows_sys::core::PWSTR,
+    pub AppCategoryId: windows_sys::core::GUID,
 }
-impl ::core::marker::Copy for APPCATEGORYINFO {}
-impl ::core::clone::Clone for APPCATEGORYINFO {
+impl Copy for APPCATEGORYINFO {}
+impl Clone for APPCATEGORYINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -4934,8 +4934,8 @@ pub struct APPCATEGORYINFOLIST {
     pub cCategory: u32,
     pub pCategoryInfo: *mut APPCATEGORYINFO,
 }
-impl ::core::marker::Copy for APPCATEGORYINFOLIST {}
-impl ::core::clone::Clone for APPCATEGORYINFOLIST {
+impl Copy for APPCATEGORYINFOLIST {}
+impl Clone for APPCATEGORYINFOLIST {
     fn clone(&self) -> Self {
         *self
     }
@@ -4944,27 +4944,27 @@ impl ::core::clone::Clone for APPCATEGORYINFOLIST {
 pub struct APPINFODATA {
     pub cbSize: u32,
     pub dwMask: u32,
-    pub pszDisplayName: ::windows_sys::core::PWSTR,
-    pub pszVersion: ::windows_sys::core::PWSTR,
-    pub pszPublisher: ::windows_sys::core::PWSTR,
-    pub pszProductID: ::windows_sys::core::PWSTR,
-    pub pszRegisteredOwner: ::windows_sys::core::PWSTR,
-    pub pszRegisteredCompany: ::windows_sys::core::PWSTR,
-    pub pszLanguage: ::windows_sys::core::PWSTR,
-    pub pszSupportUrl: ::windows_sys::core::PWSTR,
-    pub pszSupportTelephone: ::windows_sys::core::PWSTR,
-    pub pszHelpLink: ::windows_sys::core::PWSTR,
-    pub pszInstallLocation: ::windows_sys::core::PWSTR,
-    pub pszInstallSource: ::windows_sys::core::PWSTR,
-    pub pszInstallDate: ::windows_sys::core::PWSTR,
-    pub pszContact: ::windows_sys::core::PWSTR,
-    pub pszComments: ::windows_sys::core::PWSTR,
-    pub pszImage: ::windows_sys::core::PWSTR,
-    pub pszReadmeUrl: ::windows_sys::core::PWSTR,
-    pub pszUpdateInfoUrl: ::windows_sys::core::PWSTR,
+    pub pszDisplayName: windows_sys::core::PWSTR,
+    pub pszVersion: windows_sys::core::PWSTR,
+    pub pszPublisher: windows_sys::core::PWSTR,
+    pub pszProductID: windows_sys::core::PWSTR,
+    pub pszRegisteredOwner: windows_sys::core::PWSTR,
+    pub pszRegisteredCompany: windows_sys::core::PWSTR,
+    pub pszLanguage: windows_sys::core::PWSTR,
+    pub pszSupportUrl: windows_sys::core::PWSTR,
+    pub pszSupportTelephone: windows_sys::core::PWSTR,
+    pub pszHelpLink: windows_sys::core::PWSTR,
+    pub pszInstallLocation: windows_sys::core::PWSTR,
+    pub pszInstallSource: windows_sys::core::PWSTR,
+    pub pszInstallDate: windows_sys::core::PWSTR,
+    pub pszContact: windows_sys::core::PWSTR,
+    pub pszComments: windows_sys::core::PWSTR,
+    pub pszImage: windows_sys::core::PWSTR,
+    pub pszReadmeUrl: windows_sys::core::PWSTR,
+    pub pszUpdateInfoUrl: windows_sys::core::PWSTR,
 }
-impl ::core::marker::Copy for APPINFODATA {}
-impl ::core::clone::Clone for APPINFODATA {
+impl Copy for APPINFODATA {}
+impl Clone for APPINFODATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -4975,14 +4975,14 @@ impl ::core::clone::Clone for APPINFODATA {
 pub struct ASSOCIATIONELEMENT {
     pub ac: ASSOCCLASS,
     pub hkClass: super::super::System::Registry::HKEY,
-    pub pszClass: ::windows_sys::core::PCWSTR,
+    pub pszClass: windows_sys::core::PCWSTR,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Registry")]
-impl ::core::marker::Copy for ASSOCIATIONELEMENT {}
+impl Copy for ASSOCIATIONELEMENT {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Registry")]
-impl ::core::clone::Clone for ASSOCIATIONELEMENT {
+impl Clone for ASSOCIATIONELEMENT {
     fn clone(&self) -> Self {
         *self
     }
@@ -4993,14 +4993,14 @@ impl ::core::clone::Clone for ASSOCIATIONELEMENT {
 pub struct ASSOCIATIONELEMENT {
     pub ac: ASSOCCLASS,
     pub hkClass: super::super::System::Registry::HKEY,
-    pub pszClass: ::windows_sys::core::PCWSTR,
+    pub pszClass: windows_sys::core::PCWSTR,
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_System_Registry")]
-impl ::core::marker::Copy for ASSOCIATIONELEMENT {}
+impl Copy for ASSOCIATIONELEMENT {}
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_System_Registry")]
-impl ::core::clone::Clone for ASSOCIATIONELEMENT {
+impl Clone for ASSOCIATIONELEMENT {
     fn clone(&self) -> Self {
         *self
     }
@@ -5013,24 +5013,24 @@ pub struct AUTO_SCROLL_DATA {
     pub pts: [super::super::Foundation::POINT; 3],
     pub dwTimes: [u32; 3],
 }
-impl ::core::marker::Copy for AUTO_SCROLL_DATA {}
-impl ::core::clone::Clone for AUTO_SCROLL_DATA {
+impl Copy for AUTO_SCROLL_DATA {}
+impl Clone for AUTO_SCROLL_DATA {
     fn clone(&self) -> Self {
         *self
     }
 }
-pub const AccessibilityDockingService: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x29ce1d46_b481_4aa0_a08a_d3ebc8aca402);
-pub const AlphabeticalCategorizer: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x3c2654c6_7372_4f6b_b310_55d6128f49d2);
-pub const AppShellVerbHandler: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x4ed3a719_cea8_4bd9_910d_e252f997afc2);
-pub const AppStartupLink: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x273eb5e7_88b0_4843_bfef_e2c81d43aae5);
-pub const AppVisibility: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x7e5fe3d9_985f_4908_91f9_ee19f9fd1514);
-pub const ApplicationActivationManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x45ba127d_10a8_46ea_8ab7_56ea9078943c);
-pub const ApplicationAssociationRegistration: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x591209c7_767b_42b2_9fba_44ee4615f2c7);
-pub const ApplicationAssociationRegistrationUI: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x1968106d_f3b5_44cf_890e_116fcb9ecef1);
-pub const ApplicationDesignModeSettings: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x958a6fb5_dcb2_4faf_aafd_7fb054ad1a3b);
-pub const ApplicationDestinations: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x86c14003_4d6b_4ef3_a7b4_0506663b2e68);
-pub const ApplicationDocumentLists: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x86bec222_30f2_47e0_9f25_60d11cd75c28);
-pub const AttachmentServices: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x4125dd96_e03a_4103_8f70_e0597d803b9c);
+pub const AccessibilityDockingService: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x29ce1d46_b481_4aa0_a08a_d3ebc8aca402);
+pub const AlphabeticalCategorizer: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3c2654c6_7372_4f6b_b310_55d6128f49d2);
+pub const AppShellVerbHandler: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4ed3a719_cea8_4bd9_910d_e252f997afc2);
+pub const AppStartupLink: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x273eb5e7_88b0_4843_bfef_e2c81d43aae5);
+pub const AppVisibility: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7e5fe3d9_985f_4908_91f9_ee19f9fd1514);
+pub const ApplicationActivationManager: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x45ba127d_10a8_46ea_8ab7_56ea9078943c);
+pub const ApplicationAssociationRegistration: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x591209c7_767b_42b2_9fba_44ee4615f2c7);
+pub const ApplicationAssociationRegistrationUI: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1968106d_f3b5_44cf_890e_116fcb9ecef1);
+pub const ApplicationDesignModeSettings: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x958a6fb5_dcb2_4faf_aafd_7fb054ad1a3b);
+pub const ApplicationDestinations: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x86c14003_4d6b_4ef3_a7b4_0506663b2e68);
+pub const ApplicationDocumentLists: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x86bec222_30f2_47e0_9f25_60d11cd75c28);
+pub const AttachmentServices: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4125dd96_e03a_4103_8f70_e0597d803b9c);
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell_Common")]
 pub struct BANDINFOSFB {
@@ -5042,13 +5042,13 @@ pub struct BANDINFOSFB {
     pub crBtnDk: super::super::Foundation::COLORREF,
     pub wViewMode: u16,
     pub wAlign: u16,
-    pub psf: *mut ::core::ffi::c_void,
+    pub psf: *mut core::ffi::c_void,
     pub pidl: *mut Common::ITEMIDLIST,
 }
 #[cfg(feature = "Win32_UI_Shell_Common")]
-impl ::core::marker::Copy for BANDINFOSFB {}
+impl Copy for BANDINFOSFB {}
 #[cfg(feature = "Win32_UI_Shell_Common")]
-impl ::core::clone::Clone for BANDINFOSFB {
+impl Clone for BANDINFOSFB {
     fn clone(&self) -> Self {
         *self
     }
@@ -5059,8 +5059,8 @@ pub struct BANDSITEINFO {
     pub dwState: u32,
     pub dwStyle: u32,
 }
-impl ::core::marker::Copy for BANDSITEINFO {}
-impl ::core::clone::Clone for BANDSITEINFO {
+impl Copy for BANDSITEINFO {}
+impl Clone for BANDSITEINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -5068,11 +5068,11 @@ impl ::core::clone::Clone for BANDSITEINFO {
 #[repr(C)]
 pub struct BANNER_NOTIFICATION {
     pub event: BANNER_NOTIFICATION_EVENT,
-    pub providerIdentity: ::windows_sys::core::PCWSTR,
-    pub contentId: ::windows_sys::core::PCWSTR,
+    pub providerIdentity: windows_sys::core::PCWSTR,
+    pub contentId: windows_sys::core::PCWSTR,
 }
-impl ::core::marker::Copy for BANNER_NOTIFICATION {}
-impl ::core::clone::Clone for BANNER_NOTIFICATION {
+impl Copy for BANNER_NOTIFICATION {}
+impl Clone for BANNER_NOTIFICATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -5081,37 +5081,37 @@ impl ::core::clone::Clone for BANNER_NOTIFICATION {
 #[cfg(feature = "Win32_UI_Shell_Common")]
 pub struct BASEBROWSERDATALH {
     pub _hwnd: super::super::Foundation::HWND,
-    pub _ptl: *mut ::core::ffi::c_void,
-    pub _phlf: *mut ::core::ffi::c_void,
-    pub _pautoWB2: *mut ::core::ffi::c_void,
-    pub _pautoEDS: *mut ::core::ffi::c_void,
-    pub _pautoSS: *mut ::core::ffi::c_void,
+    pub _ptl: *mut core::ffi::c_void,
+    pub _phlf: *mut core::ffi::c_void,
+    pub _pautoWB2: *mut core::ffi::c_void,
+    pub _pautoEDS: *mut core::ffi::c_void,
+    pub _pautoSS: *mut core::ffi::c_void,
     pub _eSecureLockIcon: i32,
     pub _bitfield: u32,
     pub _uActivateState: u32,
     pub _pidlViewState: *mut Common::ITEMIDLIST,
-    pub _pctView: *mut ::core::ffi::c_void,
+    pub _pctView: *mut core::ffi::c_void,
     pub _pidlCur: *mut Common::ITEMIDLIST,
-    pub _psv: *mut ::core::ffi::c_void,
-    pub _psf: *mut ::core::ffi::c_void,
+    pub _psv: *mut core::ffi::c_void,
+    pub _psf: *mut core::ffi::c_void,
     pub _hwndView: super::super::Foundation::HWND,
-    pub _pszTitleCur: ::windows_sys::core::PWSTR,
+    pub _pszTitleCur: windows_sys::core::PWSTR,
     pub _pidlPending: *mut Common::ITEMIDLIST,
-    pub _psvPending: *mut ::core::ffi::c_void,
-    pub _psfPending: *mut ::core::ffi::c_void,
+    pub _psvPending: *mut core::ffi::c_void,
+    pub _psfPending: *mut core::ffi::c_void,
     pub _hwndViewPending: super::super::Foundation::HWND,
-    pub _pszTitlePending: ::windows_sys::core::PWSTR,
+    pub _pszTitlePending: windows_sys::core::PWSTR,
     pub _fIsViewMSHTML: super::super::Foundation::BOOL,
     pub _fPrivacyImpacted: super::super::Foundation::BOOL,
-    pub _clsidView: ::windows_sys::core::GUID,
-    pub _clsidViewPending: ::windows_sys::core::GUID,
+    pub _clsidView: windows_sys::core::GUID,
+    pub _clsidViewPending: windows_sys::core::GUID,
     pub _hwndFrame: super::super::Foundation::HWND,
     pub _lPhishingFilterStatus: i32,
 }
 #[cfg(feature = "Win32_UI_Shell_Common")]
-impl ::core::marker::Copy for BASEBROWSERDATALH {}
+impl Copy for BASEBROWSERDATALH {}
 #[cfg(feature = "Win32_UI_Shell_Common")]
-impl ::core::clone::Clone for BASEBROWSERDATALH {
+impl Clone for BASEBROWSERDATALH {
     fn clone(&self) -> Self {
         *self
     }
@@ -5120,36 +5120,36 @@ impl ::core::clone::Clone for BASEBROWSERDATALH {
 #[cfg(feature = "Win32_UI_Shell_Common")]
 pub struct BASEBROWSERDATAXP {
     pub _hwnd: super::super::Foundation::HWND,
-    pub _ptl: *mut ::core::ffi::c_void,
-    pub _phlf: *mut ::core::ffi::c_void,
-    pub _pautoWB2: *mut ::core::ffi::c_void,
-    pub _pautoEDS: *mut ::core::ffi::c_void,
-    pub _pautoSS: *mut ::core::ffi::c_void,
+    pub _ptl: *mut core::ffi::c_void,
+    pub _phlf: *mut core::ffi::c_void,
+    pub _pautoWB2: *mut core::ffi::c_void,
+    pub _pautoEDS: *mut core::ffi::c_void,
+    pub _pautoSS: *mut core::ffi::c_void,
     pub _eSecureLockIcon: i32,
     pub _bitfield: u32,
     pub _uActivateState: u32,
     pub _pidlViewState: *mut Common::ITEMIDLIST,
-    pub _pctView: *mut ::core::ffi::c_void,
+    pub _pctView: *mut core::ffi::c_void,
     pub _pidlCur: *mut Common::ITEMIDLIST,
-    pub _psv: *mut ::core::ffi::c_void,
-    pub _psf: *mut ::core::ffi::c_void,
+    pub _psv: *mut core::ffi::c_void,
+    pub _psf: *mut core::ffi::c_void,
     pub _hwndView: super::super::Foundation::HWND,
-    pub _pszTitleCur: ::windows_sys::core::PWSTR,
+    pub _pszTitleCur: windows_sys::core::PWSTR,
     pub _pidlPending: *mut Common::ITEMIDLIST,
-    pub _psvPending: *mut ::core::ffi::c_void,
-    pub _psfPending: *mut ::core::ffi::c_void,
+    pub _psvPending: *mut core::ffi::c_void,
+    pub _psfPending: *mut core::ffi::c_void,
     pub _hwndViewPending: super::super::Foundation::HWND,
-    pub _pszTitlePending: ::windows_sys::core::PWSTR,
+    pub _pszTitlePending: windows_sys::core::PWSTR,
     pub _fIsViewMSHTML: super::super::Foundation::BOOL,
     pub _fPrivacyImpacted: super::super::Foundation::BOOL,
-    pub _clsidView: ::windows_sys::core::GUID,
-    pub _clsidViewPending: ::windows_sys::core::GUID,
+    pub _clsidView: windows_sys::core::GUID,
+    pub _clsidViewPending: windows_sys::core::GUID,
     pub _hwndFrame: super::super::Foundation::HWND,
 }
 #[cfg(feature = "Win32_UI_Shell_Common")]
-impl ::core::marker::Copy for BASEBROWSERDATAXP {}
+impl Copy for BASEBROWSERDATAXP {}
 #[cfg(feature = "Win32_UI_Shell_Common")]
-impl ::core::clone::Clone for BASEBROWSERDATAXP {
+impl Clone for BASEBROWSERDATAXP {
     fn clone(&self) -> Self {
         *self
     }
@@ -5159,17 +5159,17 @@ impl ::core::clone::Clone for BASEBROWSERDATAXP {
 pub struct BROWSEINFOA {
     pub hwndOwner: super::super::Foundation::HWND,
     pub pidlRoot: *mut Common::ITEMIDLIST,
-    pub pszDisplayName: ::windows_sys::core::PSTR,
-    pub lpszTitle: ::windows_sys::core::PCSTR,
+    pub pszDisplayName: windows_sys::core::PSTR,
+    pub lpszTitle: windows_sys::core::PCSTR,
     pub ulFlags: u32,
     pub lpfn: BFFCALLBACK,
     pub lParam: super::super::Foundation::LPARAM,
     pub iImage: i32,
 }
 #[cfg(feature = "Win32_UI_Shell_Common")]
-impl ::core::marker::Copy for BROWSEINFOA {}
+impl Copy for BROWSEINFOA {}
 #[cfg(feature = "Win32_UI_Shell_Common")]
-impl ::core::clone::Clone for BROWSEINFOA {
+impl Clone for BROWSEINFOA {
     fn clone(&self) -> Self {
         *self
     }
@@ -5179,17 +5179,17 @@ impl ::core::clone::Clone for BROWSEINFOA {
 pub struct BROWSEINFOW {
     pub hwndOwner: super::super::Foundation::HWND,
     pub pidlRoot: *mut Common::ITEMIDLIST,
-    pub pszDisplayName: ::windows_sys::core::PWSTR,
-    pub lpszTitle: ::windows_sys::core::PCWSTR,
+    pub pszDisplayName: windows_sys::core::PWSTR,
+    pub lpszTitle: windows_sys::core::PCWSTR,
     pub ulFlags: u32,
     pub lpfn: BFFCALLBACK,
     pub lParam: super::super::Foundation::LPARAM,
     pub iImage: i32,
 }
 #[cfg(feature = "Win32_UI_Shell_Common")]
-impl ::core::marker::Copy for BROWSEINFOW {}
+impl Copy for BROWSEINFOW {}
 #[cfg(feature = "Win32_UI_Shell_Common")]
-impl ::core::clone::Clone for BROWSEINFOW {
+impl Clone for BROWSEINFOW {
     fn clone(&self) -> Self {
         *self
     }
@@ -5201,8 +5201,8 @@ pub struct CABINETSTATE {
     pub _bitfield: i32,
     pub fMenuEnumFilter: u32,
 }
-impl ::core::marker::Copy for CABINETSTATE {}
-impl ::core::clone::Clone for CABINETSTATE {
+impl Copy for CABINETSTATE {}
+impl Clone for CABINETSTATE {
     fn clone(&self) -> Self {
         *self
     }
@@ -5212,20 +5212,20 @@ pub struct CATEGORY_INFO {
     pub cif: CATEGORYINFO_FLAGS,
     pub wszName: [u16; 260],
 }
-impl ::core::marker::Copy for CATEGORY_INFO {}
-impl ::core::clone::Clone for CATEGORY_INFO {
+impl Copy for CATEGORY_INFO {}
+impl Clone for CATEGORY_INFO {
     fn clone(&self) -> Self {
         *self
     }
 }
-pub const CDBurn: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xfbeb8a05_beee_4442_804e_409d6c4515e9);
+pub const CDBurn: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xfbeb8a05_beee_4442_804e_409d6c4515e9);
 #[repr(C, packed(1))]
 pub struct CIDA {
     pub cidl: u32,
     pub aoffset: [u32; 1],
 }
-impl ::core::marker::Copy for CIDA {}
-impl ::core::clone::Clone for CIDA {
+impl Copy for CIDA {}
+impl Clone for CIDA {
     fn clone(&self) -> Self {
         *self
     }
@@ -5235,15 +5235,15 @@ pub struct CMINVOKECOMMANDINFO {
     pub cbSize: u32,
     pub fMask: u32,
     pub hwnd: super::super::Foundation::HWND,
-    pub lpVerb: ::windows_sys::core::PCSTR,
-    pub lpParameters: ::windows_sys::core::PCSTR,
-    pub lpDirectory: ::windows_sys::core::PCSTR,
+    pub lpVerb: windows_sys::core::PCSTR,
+    pub lpParameters: windows_sys::core::PCSTR,
+    pub lpDirectory: windows_sys::core::PCSTR,
     pub nShow: i32,
     pub dwHotKey: u32,
     pub hIcon: super::super::Foundation::HANDLE,
 }
-impl ::core::marker::Copy for CMINVOKECOMMANDINFO {}
-impl ::core::clone::Clone for CMINVOKECOMMANDINFO {
+impl Copy for CMINVOKECOMMANDINFO {}
+impl Clone for CMINVOKECOMMANDINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -5253,21 +5253,21 @@ pub struct CMINVOKECOMMANDINFOEX {
     pub cbSize: u32,
     pub fMask: u32,
     pub hwnd: super::super::Foundation::HWND,
-    pub lpVerb: ::windows_sys::core::PCSTR,
-    pub lpParameters: ::windows_sys::core::PCSTR,
-    pub lpDirectory: ::windows_sys::core::PCSTR,
+    pub lpVerb: windows_sys::core::PCSTR,
+    pub lpParameters: windows_sys::core::PCSTR,
+    pub lpDirectory: windows_sys::core::PCSTR,
     pub nShow: i32,
     pub dwHotKey: u32,
     pub hIcon: super::super::Foundation::HANDLE,
-    pub lpTitle: ::windows_sys::core::PCSTR,
-    pub lpVerbW: ::windows_sys::core::PCWSTR,
-    pub lpParametersW: ::windows_sys::core::PCWSTR,
-    pub lpDirectoryW: ::windows_sys::core::PCWSTR,
-    pub lpTitleW: ::windows_sys::core::PCWSTR,
+    pub lpTitle: windows_sys::core::PCSTR,
+    pub lpVerbW: windows_sys::core::PCWSTR,
+    pub lpParametersW: windows_sys::core::PCWSTR,
+    pub lpDirectoryW: windows_sys::core::PCWSTR,
+    pub lpTitleW: windows_sys::core::PCWSTR,
     pub ptInvoke: super::super::Foundation::POINT,
 }
-impl ::core::marker::Copy for CMINVOKECOMMANDINFOEX {}
-impl ::core::clone::Clone for CMINVOKECOMMANDINFOEX {
+impl Copy for CMINVOKECOMMANDINFOEX {}
+impl Clone for CMINVOKECOMMANDINFOEX {
     fn clone(&self) -> Self {
         *self
     }
@@ -5277,22 +5277,22 @@ pub struct CMINVOKECOMMANDINFOEX_REMOTE {
     pub cbSize: u32,
     pub fMask: u32,
     pub hwnd: super::super::Foundation::HWND,
-    pub lpVerbString: ::windows_sys::core::PCSTR,
-    pub lpParameters: ::windows_sys::core::PCSTR,
-    pub lpDirectory: ::windows_sys::core::PCSTR,
+    pub lpVerbString: windows_sys::core::PCSTR,
+    pub lpParameters: windows_sys::core::PCSTR,
+    pub lpDirectory: windows_sys::core::PCSTR,
     pub nShow: i32,
     pub dwHotKey: u32,
-    pub lpTitle: ::windows_sys::core::PCSTR,
-    pub lpVerbWString: ::windows_sys::core::PCWSTR,
-    pub lpParametersW: ::windows_sys::core::PCWSTR,
-    pub lpDirectoryW: ::windows_sys::core::PCWSTR,
-    pub lpTitleW: ::windows_sys::core::PCWSTR,
+    pub lpTitle: windows_sys::core::PCSTR,
+    pub lpVerbWString: windows_sys::core::PCWSTR,
+    pub lpParametersW: windows_sys::core::PCWSTR,
+    pub lpDirectoryW: windows_sys::core::PCWSTR,
+    pub lpTitleW: windows_sys::core::PCWSTR,
     pub ptInvoke: super::super::Foundation::POINT,
     pub lpVerbInt: u32,
     pub lpVerbWInt: u32,
 }
-impl ::core::marker::Copy for CMINVOKECOMMANDINFOEX_REMOTE {}
-impl ::core::clone::Clone for CMINVOKECOMMANDINFOEX_REMOTE {
+impl Copy for CMINVOKECOMMANDINFOEX_REMOTE {}
+impl Clone for CMINVOKECOMMANDINFOEX_REMOTE {
     fn clone(&self) -> Self {
         *self
     }
@@ -5307,34 +5307,34 @@ pub struct CM_COLUMNINFO {
     pub uIdealWidth: u32,
     pub wszName: [u16; 80],
 }
-impl ::core::marker::Copy for CM_COLUMNINFO {}
-impl ::core::clone::Clone for CM_COLUMNINFO {
+impl Copy for CM_COLUMNINFO {}
+impl Clone for CM_COLUMNINFO {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct CONFIRM_CONFLICT_ITEM {
-    pub pShellItem: *mut ::core::ffi::c_void,
-    pub pszOriginalName: ::windows_sys::core::PWSTR,
-    pub pszAlternateName: ::windows_sys::core::PWSTR,
-    pub pszLocationShort: ::windows_sys::core::PWSTR,
-    pub pszLocationFull: ::windows_sys::core::PWSTR,
+    pub pShellItem: *mut core::ffi::c_void,
+    pub pszOriginalName: windows_sys::core::PWSTR,
+    pub pszAlternateName: windows_sys::core::PWSTR,
+    pub pszLocationShort: windows_sys::core::PWSTR,
+    pub pszLocationFull: windows_sys::core::PWSTR,
     pub nType: SYNCMGR_CONFLICT_ITEM_TYPE,
 }
-impl ::core::marker::Copy for CONFIRM_CONFLICT_ITEM {}
-impl ::core::clone::Clone for CONFIRM_CONFLICT_ITEM {
+impl Copy for CONFIRM_CONFLICT_ITEM {}
+impl Clone for CONFIRM_CONFLICT_ITEM {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct CONFIRM_CONFLICT_RESULT_INFO {
-    pub pszNewName: ::windows_sys::core::PWSTR,
+    pub pszNewName: windows_sys::core::PWSTR,
     pub iItemIndex: u32,
 }
-impl ::core::marker::Copy for CONFIRM_CONFLICT_RESULT_INFO {}
-impl ::core::clone::Clone for CONFIRM_CONFLICT_RESULT_INFO {
+impl Copy for CONFIRM_CONFLICT_RESULT_INFO {}
+impl Clone for CONFIRM_CONFLICT_RESULT_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -5346,8 +5346,8 @@ pub struct CPLINFO {
     pub idInfo: i32,
     pub lData: isize,
 }
-impl ::core::marker::Copy for CPLINFO {}
-impl ::core::clone::Clone for CPLINFO {
+impl Copy for CPLINFO {}
+impl Clone for CPLINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -5355,12 +5355,12 @@ impl ::core::clone::Clone for CPLINFO {
 #[repr(C)]
 pub struct CREDENTIAL_PROVIDER_CREDENTIAL_SERIALIZATION {
     pub ulAuthenticationPackage: u32,
-    pub clsidCredentialProvider: ::windows_sys::core::GUID,
+    pub clsidCredentialProvider: windows_sys::core::GUID,
     pub cbSerialization: u32,
     pub rgbSerialization: *mut u8,
 }
-impl ::core::marker::Copy for CREDENTIAL_PROVIDER_CREDENTIAL_SERIALIZATION {}
-impl ::core::clone::Clone for CREDENTIAL_PROVIDER_CREDENTIAL_SERIALIZATION {
+impl Copy for CREDENTIAL_PROVIDER_CREDENTIAL_SERIALIZATION {}
+impl Clone for CREDENTIAL_PROVIDER_CREDENTIAL_SERIALIZATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -5369,11 +5369,11 @@ impl ::core::clone::Clone for CREDENTIAL_PROVIDER_CREDENTIAL_SERIALIZATION {
 pub struct CREDENTIAL_PROVIDER_FIELD_DESCRIPTOR {
     pub dwFieldID: u32,
     pub cpft: CREDENTIAL_PROVIDER_FIELD_TYPE,
-    pub pszLabel: ::windows_sys::core::PWSTR,
-    pub guidFieldType: ::windows_sys::core::GUID,
+    pub pszLabel: windows_sys::core::PWSTR,
+    pub guidFieldType: windows_sys::core::GUID,
 }
-impl ::core::marker::Copy for CREDENTIAL_PROVIDER_FIELD_DESCRIPTOR {}
-impl ::core::clone::Clone for CREDENTIAL_PROVIDER_FIELD_DESCRIPTOR {
+impl Copy for CREDENTIAL_PROVIDER_FIELD_DESCRIPTOR {}
+impl Clone for CREDENTIAL_PROVIDER_FIELD_DESCRIPTOR {
     fn clone(&self) -> Self {
         *self
     }
@@ -5382,30 +5382,30 @@ impl ::core::clone::Clone for CREDENTIAL_PROVIDER_FIELD_DESCRIPTOR {
 #[cfg(feature = "Win32_UI_Shell_Common")]
 pub struct CSFV {
     pub cbSize: u32,
-    pub pshf: *mut ::core::ffi::c_void,
-    pub psvOuter: *mut ::core::ffi::c_void,
+    pub pshf: *mut core::ffi::c_void,
+    pub psvOuter: *mut core::ffi::c_void,
     pub pidl: *mut Common::ITEMIDLIST,
     pub lEvents: i32,
     pub pfnCallback: LPFNVIEWCALLBACK,
     pub fvm: FOLDERVIEWMODE,
 }
 #[cfg(feature = "Win32_UI_Shell_Common")]
-impl ::core::marker::Copy for CSFV {}
+impl Copy for CSFV {}
 #[cfg(feature = "Win32_UI_Shell_Common")]
-impl ::core::clone::Clone for CSFV {
+impl Clone for CSFV {
     fn clone(&self) -> Self {
         *self
     }
 }
-pub const CScriptErrorList: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xefd01300_160f_11d2_bb2e_00805ff7efca);
-pub const ConflictFolder: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x289978ac_a101_4341_a817_21eba7fd046d);
+pub const CScriptErrorList: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xefd01300_160f_11d2_bb2e_00805ff7efca);
+pub const ConflictFolder: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x289978ac_a101_4341_a817_21eba7fd046d);
 #[repr(C, packed(1))]
 pub struct DATABLOCK_HEADER {
     pub cbSize: u32,
     pub dwSignature: u32,
 }
-impl ::core::marker::Copy for DATABLOCK_HEADER {}
-impl ::core::clone::Clone for DATABLOCK_HEADER {
+impl Copy for DATABLOCK_HEADER {}
+impl Clone for DATABLOCK_HEADER {
     fn clone(&self) -> Self {
         *self
     }
@@ -5414,19 +5414,19 @@ impl ::core::clone::Clone for DATABLOCK_HEADER {
 #[cfg(all(feature = "Win32_System_Registry", feature = "Win32_UI_Shell_Common"))]
 pub struct DEFCONTEXTMENU {
     pub hwnd: super::super::Foundation::HWND,
-    pub pcmcb: *mut ::core::ffi::c_void,
+    pub pcmcb: *mut core::ffi::c_void,
     pub pidlFolder: *mut Common::ITEMIDLIST,
-    pub psf: *mut ::core::ffi::c_void,
+    pub psf: *mut core::ffi::c_void,
     pub cidl: u32,
     pub apidl: *mut *mut Common::ITEMIDLIST,
-    pub punkAssociationInfo: *mut ::core::ffi::c_void,
+    pub punkAssociationInfo: *mut core::ffi::c_void,
     pub cKeys: u32,
     pub aKeys: *const super::super::System::Registry::HKEY,
 }
 #[cfg(all(feature = "Win32_System_Registry", feature = "Win32_UI_Shell_Common"))]
-impl ::core::marker::Copy for DEFCONTEXTMENU {}
+impl Copy for DEFCONTEXTMENU {}
 #[cfg(all(feature = "Win32_System_Registry", feature = "Win32_UI_Shell_Common"))]
-impl ::core::clone::Clone for DEFCONTEXTMENU {
+impl Clone for DEFCONTEXTMENU {
     fn clone(&self) -> Self {
         *self
     }
@@ -5438,8 +5438,8 @@ pub struct DELEGATEITEMID {
     pub cbInner: u16,
     pub rgb: [u8; 1],
 }
-impl ::core::marker::Copy for DELEGATEITEMID {}
-impl ::core::clone::Clone for DELEGATEITEMID {
+impl Copy for DELEGATEITEMID {}
+impl Clone for DELEGATEITEMID {
     fn clone(&self) -> Self {
         *self
     }
@@ -5455,8 +5455,8 @@ pub struct DESKBANDINFO {
     pub dwModeFlags: u32,
     pub crBkgnd: super::super::Foundation::COLORREF,
 }
-impl ::core::marker::Copy for DESKBANDINFO {}
-impl ::core::clone::Clone for DESKBANDINFO {
+impl Copy for DESKBANDINFO {}
+impl Clone for DESKBANDINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -5471,9 +5471,9 @@ pub struct DETAILSINFO {
     pub iImage: i32,
 }
 #[cfg(feature = "Win32_UI_Shell_Common")]
-impl ::core::marker::Copy for DETAILSINFO {}
+impl Copy for DETAILSINFO {}
 #[cfg(feature = "Win32_UI_Shell_Common")]
-impl ::core::clone::Clone for DETAILSINFO {
+impl Clone for DETAILSINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -5486,10 +5486,10 @@ pub struct DFMICS {
     pub idCmdFirst: u32,
     pub idDefMax: u32,
     pub pici: *mut CMINVOKECOMMANDINFO,
-    pub punkSite: *mut ::core::ffi::c_void,
+    pub punkSite: *mut core::ffi::c_void,
 }
-impl ::core::marker::Copy for DFMICS {}
-impl ::core::clone::Clone for DFMICS {
+impl Copy for DFMICS {}
+impl Clone for DFMICS {
     fn clone(&self) -> Self {
         *self
     }
@@ -5502,8 +5502,8 @@ pub struct DLLVERSIONINFO {
     pub dwBuildNumber: u32,
     pub dwPlatformID: u32,
 }
-impl ::core::marker::Copy for DLLVERSIONINFO {}
-impl ::core::clone::Clone for DLLVERSIONINFO {
+impl Copy for DLLVERSIONINFO {}
+impl Clone for DLLVERSIONINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -5514,8 +5514,8 @@ pub struct DLLVERSIONINFO2 {
     pub dwFlags: u32,
     pub ullVersion: u64,
 }
-impl ::core::marker::Copy for DLLVERSIONINFO2 {}
-impl ::core::clone::Clone for DLLVERSIONINFO2 {
+impl Copy for DLLVERSIONINFO2 {}
+impl Clone for DLLVERSIONINFO2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -5526,13 +5526,13 @@ pub struct DRAGINFOA {
     pub uSize: u32,
     pub pt: super::super::Foundation::POINT,
     pub fNC: super::super::Foundation::BOOL,
-    pub lpFileList: ::windows_sys::core::PSTR,
+    pub lpFileList: windows_sys::core::PSTR,
     pub grfKeyState: u32,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::marker::Copy for DRAGINFOA {}
+impl Copy for DRAGINFOA {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::clone::Clone for DRAGINFOA {
+impl Clone for DRAGINFOA {
     fn clone(&self) -> Self {
         *self
     }
@@ -5543,13 +5543,13 @@ pub struct DRAGINFOA {
     pub uSize: u32,
     pub pt: super::super::Foundation::POINT,
     pub fNC: super::super::Foundation::BOOL,
-    pub lpFileList: ::windows_sys::core::PSTR,
+    pub lpFileList: windows_sys::core::PSTR,
     pub grfKeyState: u32,
 }
 #[cfg(target_arch = "x86")]
-impl ::core::marker::Copy for DRAGINFOA {}
+impl Copy for DRAGINFOA {}
 #[cfg(target_arch = "x86")]
-impl ::core::clone::Clone for DRAGINFOA {
+impl Clone for DRAGINFOA {
     fn clone(&self) -> Self {
         *self
     }
@@ -5560,13 +5560,13 @@ pub struct DRAGINFOW {
     pub uSize: u32,
     pub pt: super::super::Foundation::POINT,
     pub fNC: super::super::Foundation::BOOL,
-    pub lpFileList: ::windows_sys::core::PWSTR,
+    pub lpFileList: windows_sys::core::PWSTR,
     pub grfKeyState: u32,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::marker::Copy for DRAGINFOW {}
+impl Copy for DRAGINFOW {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::clone::Clone for DRAGINFOW {
+impl Clone for DRAGINFOW {
     fn clone(&self) -> Self {
         *self
     }
@@ -5577,13 +5577,13 @@ pub struct DRAGINFOW {
     pub uSize: u32,
     pub pt: super::super::Foundation::POINT,
     pub fNC: super::super::Foundation::BOOL,
-    pub lpFileList: ::windows_sys::core::PWSTR,
+    pub lpFileList: windows_sys::core::PWSTR,
     pub grfKeyState: u32,
 }
 #[cfg(target_arch = "x86")]
-impl ::core::marker::Copy for DRAGINFOW {}
+impl Copy for DRAGINFOW {}
 #[cfg(target_arch = "x86")]
-impl ::core::clone::Clone for DRAGINFOW {
+impl Clone for DRAGINFOW {
     fn clone(&self) -> Self {
         *self
     }
@@ -5594,8 +5594,8 @@ pub struct DROPDESCRIPTION {
     pub szMessage: [u16; 260],
     pub szInsert: [u16; 260],
 }
-impl ::core::marker::Copy for DROPDESCRIPTION {}
-impl ::core::clone::Clone for DROPDESCRIPTION {
+impl Copy for DROPDESCRIPTION {}
+impl Clone for DROPDESCRIPTION {
     fn clone(&self) -> Self {
         *self
     }
@@ -5607,27 +5607,27 @@ pub struct DROPFILES {
     pub fNC: super::super::Foundation::BOOL,
     pub fWide: super::super::Foundation::BOOL,
 }
-impl ::core::marker::Copy for DROPFILES {}
-impl ::core::clone::Clone for DROPFILES {
+impl Copy for DROPFILES {}
+impl Clone for DROPFILES {
     fn clone(&self) -> Self {
         *self
     }
 }
-pub const DefFolderMenu: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xc63382be_7933_48d0_9ac8_85fb46be2fdd);
-pub const DesktopGadget: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x924ccc1b_6562_4c85_8657_d177925222b6);
-pub const DesktopWallpaper: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xc2cf3110_460e_4fc1_b9d0_8a1c0c9cc4bd);
-pub const DestinationList: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x77f10cf0_3db5_4966_b520_b7c54fd35ed6);
-pub const DocPropShellExtension: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x883373c3_bf89_11d1_be35_080036b11a03);
-pub const DriveSizeCategorizer: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x94357b53_ca29_4b78_83ae_e8fe7409134f);
-pub const DriveTypeCategorizer: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xb0a8f3cf_4333_4bab_8873_1ccb1cada48b);
+pub const DefFolderMenu: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc63382be_7933_48d0_9ac8_85fb46be2fdd);
+pub const DesktopGadget: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x924ccc1b_6562_4c85_8657_d177925222b6);
+pub const DesktopWallpaper: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc2cf3110_460e_4fc1_b9d0_8a1c0c9cc4bd);
+pub const DestinationList: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x77f10cf0_3db5_4966_b520_b7c54fd35ed6);
+pub const DocPropShellExtension: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x883373c3_bf89_11d1_be35_080036b11a03);
+pub const DriveSizeCategorizer: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x94357b53_ca29_4b78_83ae_e8fe7409134f);
+pub const DriveTypeCategorizer: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb0a8f3cf_4333_4bab_8873_1ccb1cada48b);
 #[repr(C, packed(1))]
 pub struct EXP_DARWIN_LINK {
     pub dbh: DATABLOCK_HEADER,
     pub szDarwinID: [i8; 260],
     pub szwDarwinID: [u16; 260],
 }
-impl ::core::marker::Copy for EXP_DARWIN_LINK {}
-impl ::core::clone::Clone for EXP_DARWIN_LINK {
+impl Copy for EXP_DARWIN_LINK {}
+impl Clone for EXP_DARWIN_LINK {
     fn clone(&self) -> Self {
         *self
     }
@@ -5638,8 +5638,8 @@ pub struct EXP_PROPERTYSTORAGE {
     pub dwSignature: u32,
     pub abPropertyStorage: [u8; 1],
 }
-impl ::core::marker::Copy for EXP_PROPERTYSTORAGE {}
-impl ::core::clone::Clone for EXP_PROPERTYSTORAGE {
+impl Copy for EXP_PROPERTYSTORAGE {}
+impl Clone for EXP_PROPERTYSTORAGE {
     fn clone(&self) -> Self {
         *self
     }
@@ -5651,8 +5651,8 @@ pub struct EXP_SPECIAL_FOLDER {
     pub idSpecialFolder: u32,
     pub cbOffset: u32,
 }
-impl ::core::marker::Copy for EXP_SPECIAL_FOLDER {}
-impl ::core::clone::Clone for EXP_SPECIAL_FOLDER {
+impl Copy for EXP_SPECIAL_FOLDER {}
+impl Clone for EXP_SPECIAL_FOLDER {
     fn clone(&self) -> Self {
         *self
     }
@@ -5664,32 +5664,32 @@ pub struct EXP_SZ_LINK {
     pub szTarget: [i8; 260],
     pub swzTarget: [u16; 260],
 }
-impl ::core::marker::Copy for EXP_SZ_LINK {}
-impl ::core::clone::Clone for EXP_SZ_LINK {
+impl Copy for EXP_SZ_LINK {}
+impl Clone for EXP_SZ_LINK {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct EXTRASEARCH {
-    pub guidSearch: ::windows_sys::core::GUID,
+    pub guidSearch: windows_sys::core::GUID,
     pub wszFriendlyName: [u16; 80],
     pub wszUrl: [u16; 2084],
 }
-impl ::core::marker::Copy for EXTRASEARCH {}
-impl ::core::clone::Clone for EXTRASEARCH {
+impl Copy for EXTRASEARCH {}
+impl Clone for EXTRASEARCH {
     fn clone(&self) -> Self {
         *self
     }
 }
-pub const EnumerableObjectCollection: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x2d3468c1_36a7_43b6_ac24_d3f02fd9607a);
-pub const ExecuteFolder: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x11dbb47c_a525_400b_9e80_a54615a090c0);
-pub const ExecuteUnknown: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xe44e9428_bdbc_4987_a099_40dc8fd255e7);
-pub const ExplorerBrowser: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x71f96385_ddd6_48d3_a0c1_ae06e8b055fb);
+pub const EnumerableObjectCollection: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x2d3468c1_36a7_43b6_ac24_d3f02fd9607a);
+pub const ExecuteFolder: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x11dbb47c_a525_400b_9e80_a54615a090c0);
+pub const ExecuteUnknown: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe44e9428_bdbc_4987_a099_40dc8fd255e7);
+pub const ExplorerBrowser: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x71f96385_ddd6_48d3_a0c1_ae06e8b055fb);
 #[repr(C, packed(1))]
 pub struct FILEDESCRIPTORA {
     pub dwFlags: u32,
-    pub clsid: ::windows_sys::core::GUID,
+    pub clsid: windows_sys::core::GUID,
     pub sizel: super::super::Foundation::SIZE,
     pub pointl: super::super::Foundation::POINTL,
     pub dwFileAttributes: u32,
@@ -5700,8 +5700,8 @@ pub struct FILEDESCRIPTORA {
     pub nFileSizeLow: u32,
     pub cFileName: [i8; 260],
 }
-impl ::core::marker::Copy for FILEDESCRIPTORA {}
-impl ::core::clone::Clone for FILEDESCRIPTORA {
+impl Copy for FILEDESCRIPTORA {}
+impl Clone for FILEDESCRIPTORA {
     fn clone(&self) -> Self {
         *self
     }
@@ -5709,7 +5709,7 @@ impl ::core::clone::Clone for FILEDESCRIPTORA {
 #[repr(C, packed(1))]
 pub struct FILEDESCRIPTORW {
     pub dwFlags: u32,
-    pub clsid: ::windows_sys::core::GUID,
+    pub clsid: windows_sys::core::GUID,
     pub sizel: super::super::Foundation::SIZE,
     pub pointl: super::super::Foundation::POINTL,
     pub dwFileAttributes: u32,
@@ -5720,8 +5720,8 @@ pub struct FILEDESCRIPTORW {
     pub nFileSizeLow: u32,
     pub cFileName: [u16; 260],
 }
-impl ::core::marker::Copy for FILEDESCRIPTORW {}
-impl ::core::clone::Clone for FILEDESCRIPTORW {
+impl Copy for FILEDESCRIPTORW {}
+impl Clone for FILEDESCRIPTORW {
     fn clone(&self) -> Self {
         *self
     }
@@ -5731,8 +5731,8 @@ pub struct FILEGROUPDESCRIPTORA {
     pub cItems: u32,
     pub fgd: [FILEDESCRIPTORA; 1],
 }
-impl ::core::marker::Copy for FILEGROUPDESCRIPTORA {}
-impl ::core::clone::Clone for FILEGROUPDESCRIPTORA {
+impl Copy for FILEGROUPDESCRIPTORA {}
+impl Clone for FILEGROUPDESCRIPTORA {
     fn clone(&self) -> Self {
         *self
     }
@@ -5742,8 +5742,8 @@ pub struct FILEGROUPDESCRIPTORW {
     pub cItems: u32,
     pub fgd: [FILEDESCRIPTORW; 1],
 }
-impl ::core::marker::Copy for FILEGROUPDESCRIPTORW {}
-impl ::core::clone::Clone for FILEGROUPDESCRIPTORW {
+impl Copy for FILEGROUPDESCRIPTORW {}
+impl Clone for FILEGROUPDESCRIPTORW {
     fn clone(&self) -> Self {
         *self
     }
@@ -5755,8 +5755,8 @@ pub struct FILE_ATTRIBUTES_ARRAY {
     pub dwProductFileAttributes: u32,
     pub rgdwFileAttributes: [u32; 1],
 }
-impl ::core::marker::Copy for FILE_ATTRIBUTES_ARRAY {}
-impl ::core::clone::Clone for FILE_ATTRIBUTES_ARRAY {
+impl Copy for FILE_ATTRIBUTES_ARRAY {}
+impl Clone for FILE_ATTRIBUTES_ARRAY {
     fn clone(&self) -> Self {
         *self
     }
@@ -5764,11 +5764,11 @@ impl ::core::clone::Clone for FILE_ATTRIBUTES_ARRAY {
 #[repr(C)]
 pub struct FOLDERSETDATA {
     pub _fs: FOLDERSETTINGS,
-    pub _vidRestore: ::windows_sys::core::GUID,
+    pub _vidRestore: windows_sys::core::GUID,
     pub _dwViewPriority: u32,
 }
-impl ::core::marker::Copy for FOLDERSETDATA {}
-impl ::core::clone::Clone for FOLDERSETDATA {
+impl Copy for FOLDERSETDATA {}
+impl Clone for FOLDERSETDATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -5778,21 +5778,21 @@ pub struct FOLDERSETTINGS {
     pub ViewMode: u32,
     pub fFlags: u32,
 }
-impl ::core::marker::Copy for FOLDERSETTINGS {}
-impl ::core::clone::Clone for FOLDERSETTINGS {
+impl Copy for FOLDERSETTINGS {}
+impl Clone for FOLDERSETTINGS {
     fn clone(&self) -> Self {
         *self
     }
 }
-pub const FSCopyHandler: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xd197380a_0a79_4dc8_a033_ed882c2fa14b);
-pub const FileOpenDialog: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xdc1c5a9c_e88a_4dde_a5a1_60f82a20aef7);
-pub const FileOperation: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x3ad05575_8857_4850_9277_11b85bdb8e09);
-pub const FileSaveDialog: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xc0b4e2f3_ba21_4773_8dba_335ec946eb8b);
-pub const FileSearchBand: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xc4ee31f3_4768_11d2_be5c_00a0c9a83da1);
-pub const FolderViewHost: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x20b1cb23_6968_4eb9_b7d4_a66d00d07cee);
-pub const FrameworkInputPane: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xd5120aa3_46ba_44c5_822d_ca8092c1fc72);
-pub const FreeSpaceCategorizer: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xb5607793_24ac_44c7_82e2_831726aa6cb7);
-pub const GenericCredentialProvider: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x25cbb996_92ed_457e_b28c_4774084bd562);
+pub const FSCopyHandler: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd197380a_0a79_4dc8_a033_ed882c2fa14b);
+pub const FileOpenDialog: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdc1c5a9c_e88a_4dde_a5a1_60f82a20aef7);
+pub const FileOperation: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3ad05575_8857_4850_9277_11b85bdb8e09);
+pub const FileSaveDialog: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc0b4e2f3_ba21_4773_8dba_335ec946eb8b);
+pub const FileSearchBand: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc4ee31f3_4768_11d2_be5c_00a0c9a83da1);
+pub const FolderViewHost: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x20b1cb23_6968_4eb9_b7d4_a66d00d07cee);
+pub const FrameworkInputPane: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd5120aa3_46ba_44c5_822d_ca8092c1fc72);
+pub const FreeSpaceCategorizer: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb5607793_24ac_44c7_82e2_831726aa6cb7);
+pub const GenericCredentialProvider: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x25cbb996_92ed_457e_b28c_4774084bd562);
 pub type HDROP = isize;
 #[repr(C)]
 pub struct HELPINFO {
@@ -5803,8 +5803,8 @@ pub struct HELPINFO {
     pub dwContextId: usize,
     pub MousePos: super::super::Foundation::POINT,
 }
-impl ::core::marker::Copy for HELPINFO {}
-impl ::core::clone::Clone for HELPINFO {
+impl Copy for HELPINFO {}
+impl Clone for HELPINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -5819,8 +5819,8 @@ pub struct HELPWININFOA {
     pub wMax: i32,
     pub rgchMember: [i8; 2],
 }
-impl ::core::marker::Copy for HELPWININFOA {}
-impl ::core::clone::Clone for HELPWININFOA {
+impl Copy for HELPWININFOA {}
+impl Clone for HELPWININFOA {
     fn clone(&self) -> Self {
         *self
     }
@@ -5835,8 +5835,8 @@ pub struct HELPWININFOW {
     pub wMax: i32,
     pub rgchMember: [u16; 2],
 }
-impl ::core::marker::Copy for HELPWININFOW {}
-impl ::core::clone::Clone for HELPWININFOW {
+impl Copy for HELPWININFOW {}
+impl Clone for HELPWININFOW {
     fn clone(&self) -> Self {
         *self
     }
@@ -5849,8 +5849,8 @@ pub struct HLBWINFO {
     pub rcDocPos: super::super::Foundation::RECT,
     pub hltbinfo: HLTBINFO,
 }
-impl ::core::marker::Copy for HLBWINFO {}
-impl ::core::clone::Clone for HLBWINFO {
+impl Copy for HLBWINFO {}
+impl Clone for HLBWINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -5858,10 +5858,10 @@ impl ::core::clone::Clone for HLBWINFO {
 #[repr(C)]
 pub struct HLITEM {
     pub uHLID: u32,
-    pub pwzFriendlyName: ::windows_sys::core::PWSTR,
+    pub pwzFriendlyName: windows_sys::core::PWSTR,
 }
-impl ::core::marker::Copy for HLITEM {}
-impl ::core::clone::Clone for HLITEM {
+impl Copy for HLITEM {}
+impl Clone for HLITEM {
     fn clone(&self) -> Self {
         *self
     }
@@ -5871,16 +5871,16 @@ pub struct HLTBINFO {
     pub uDockType: u32,
     pub rcTbPos: super::super::Foundation::RECT,
 }
-impl ::core::marker::Copy for HLTBINFO {}
-impl ::core::clone::Clone for HLTBINFO {
+impl Copy for HLTBINFO {}
+impl Clone for HLTBINFO {
     fn clone(&self) -> Self {
         *self
     }
 }
 pub type HPSXA = isize;
-pub const HideInputPaneAnimationCoordinator: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x384742b1_2a77_4cb3_8cf8_1136f5e17e59);
-pub const HomeGroup: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xde77ba04_3c92_4d11_a1a5_42352a53e0e3);
-pub const IENamespaceTreeControl: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xace52d03_e5cd_4b20_82ff_e71b11beae1d);
+pub const HideInputPaneAnimationCoordinator: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x384742b1_2a77_4cb3_8cf8_1136f5e17e59);
+pub const HomeGroup: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xde77ba04_3c92_4d11_a1a5_42352a53e0e3);
+pub const IENamespaceTreeControl: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xace52d03_e5cd_4b20_82ff_e71b11beae1d);
 #[repr(C)]
 pub struct ITEMSPACING {
     pub cxSmall: i32,
@@ -5888,51 +5888,51 @@ pub struct ITEMSPACING {
     pub cxLarge: i32,
     pub cyLarge: i32,
 }
-impl ::core::marker::Copy for ITEMSPACING {}
-impl ::core::clone::Clone for ITEMSPACING {
+impl Copy for ITEMSPACING {}
+impl Clone for ITEMSPACING {
     fn clone(&self) -> Self {
         *self
     }
 }
-pub const ImageProperties: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x7ab770c7_0e23_4d7a_8aa2_19bfad479829);
-pub const ImageRecompress: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x6e33091c_d2f8_4740_b55e_2e11d1477a2c);
-pub const ImageTranscode: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x17b75166_928f_417d_9685_64aa135565c1);
-pub const InputPanelConfiguration: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x2853add3_f096_4c63_a78f_7fa3ea837fb7);
-pub const InternetExplorer: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x0002df01_0000_0000_c000_000000000046);
-pub const InternetExplorerMedium: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xd5e8041d_920f_45e9_b8fb_b1deb82c6e5e);
-pub const InternetPrintOrdering: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xadd36aa8_751a_4579_a266_d66f5202ccbb);
+pub const ImageProperties: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7ab770c7_0e23_4d7a_8aa2_19bfad479829);
+pub const ImageRecompress: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6e33091c_d2f8_4740_b55e_2e11d1477a2c);
+pub const ImageTranscode: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x17b75166_928f_417d_9685_64aa135565c1);
+pub const InputPanelConfiguration: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x2853add3_f096_4c63_a78f_7fa3ea837fb7);
+pub const InternetExplorer: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0002df01_0000_0000_c000_000000000046);
+pub const InternetExplorerMedium: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd5e8041d_920f_45e9_b8fb_b1deb82c6e5e);
+pub const InternetPrintOrdering: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xadd36aa8_751a_4579_a266_d66f5202ccbb);
 #[repr(C)]
 pub struct KNOWNFOLDER_DEFINITION {
     pub category: KF_CATEGORY,
-    pub pszName: ::windows_sys::core::PWSTR,
-    pub pszDescription: ::windows_sys::core::PWSTR,
-    pub fidParent: ::windows_sys::core::GUID,
-    pub pszRelativePath: ::windows_sys::core::PWSTR,
-    pub pszParsingName: ::windows_sys::core::PWSTR,
-    pub pszTooltip: ::windows_sys::core::PWSTR,
-    pub pszLocalizedName: ::windows_sys::core::PWSTR,
-    pub pszIcon: ::windows_sys::core::PWSTR,
-    pub pszSecurity: ::windows_sys::core::PWSTR,
+    pub pszName: windows_sys::core::PWSTR,
+    pub pszDescription: windows_sys::core::PWSTR,
+    pub fidParent: windows_sys::core::GUID,
+    pub pszRelativePath: windows_sys::core::PWSTR,
+    pub pszParsingName: windows_sys::core::PWSTR,
+    pub pszTooltip: windows_sys::core::PWSTR,
+    pub pszLocalizedName: windows_sys::core::PWSTR,
+    pub pszIcon: windows_sys::core::PWSTR,
+    pub pszSecurity: windows_sys::core::PWSTR,
     pub dwAttributes: u32,
     pub kfdFlags: u32,
-    pub ftidType: ::windows_sys::core::GUID,
+    pub ftidType: windows_sys::core::GUID,
 }
-impl ::core::marker::Copy for KNOWNFOLDER_DEFINITION {}
-impl ::core::clone::Clone for KNOWNFOLDER_DEFINITION {
+impl Copy for KNOWNFOLDER_DEFINITION {}
+impl Clone for KNOWNFOLDER_DEFINITION {
     fn clone(&self) -> Self {
         *self
     }
 }
-pub const KnownFolderManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x4df0c730_df9d_4ae3_9153_aa6b82e9795a);
-pub const LocalThumbnailCache: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x50ef4544_ac9f_4a8e_b21b_8a26180db13f);
+pub const KnownFolderManager: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4df0c730_df9d_4ae3_9153_aa6b82e9795a);
+pub const LocalThumbnailCache: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x50ef4544_ac9f_4a8e_b21b_8a26180db13f);
 #[repr(C)]
 pub struct MULTIKEYHELPA {
     pub mkSize: u32,
     pub mkKeylist: i8,
     pub szKeyphrase: [i8; 1],
 }
-impl ::core::marker::Copy for MULTIKEYHELPA {}
-impl ::core::clone::Clone for MULTIKEYHELPA {
+impl Copy for MULTIKEYHELPA {}
+impl Clone for MULTIKEYHELPA {
     fn clone(&self) -> Self {
         *self
     }
@@ -5943,14 +5943,14 @@ pub struct MULTIKEYHELPW {
     pub mkKeylist: u16,
     pub szKeyphrase: [u16; 1],
 }
-impl ::core::marker::Copy for MULTIKEYHELPW {}
-impl ::core::clone::Clone for MULTIKEYHELPW {
+impl Copy for MULTIKEYHELPW {}
+impl Clone for MULTIKEYHELPW {
     fn clone(&self) -> Self {
         *self
     }
 }
-pub const MailRecipient: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x9e56be60_c50f_11cf_9a2c_00a0c90a90ce);
-pub const MergedCategorizer: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x8e827c11_33e7_4bc1_b242_8cd9a1c2b304);
+pub const MailRecipient: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9e56be60_c50f_11cf_9a2c_00a0c90a90ce);
+pub const MergedCategorizer: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8e827c11_33e7_4bc1_b242_8cd9a1c2b304);
 #[repr(C)]
 #[cfg(all(feature = "Win32_NetworkManagement_IpHelper", feature = "Win32_Networking_WinSock"))]
 pub struct NC_ADDRESS {
@@ -5959,9 +5959,9 @@ pub struct NC_ADDRESS {
     pub PrefixLength: u8,
 }
 #[cfg(all(feature = "Win32_NetworkManagement_IpHelper", feature = "Win32_Networking_WinSock"))]
-impl ::core::marker::Copy for NC_ADDRESS {}
+impl Copy for NC_ADDRESS {}
 #[cfg(all(feature = "Win32_NetworkManagement_IpHelper", feature = "Win32_Networking_WinSock"))]
-impl ::core::clone::Clone for NC_ADDRESS {
+impl Clone for NC_ADDRESS {
     fn clone(&self) -> Self {
         *self
     }
@@ -5979,9 +5979,9 @@ pub struct NEWCPLINFOA {
     pub szHelpFile: [i8; 128],
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ::core::marker::Copy for NEWCPLINFOA {}
+impl Copy for NEWCPLINFOA {}
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ::core::clone::Clone for NEWCPLINFOA {
+impl Clone for NEWCPLINFOA {
     fn clone(&self) -> Self {
         *self
     }
@@ -5999,9 +5999,9 @@ pub struct NEWCPLINFOW {
     pub szHelpFile: [u16; 128],
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ::core::marker::Copy for NEWCPLINFOW {}
+impl Copy for NEWCPLINFOW {}
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ::core::clone::Clone for NEWCPLINFOW {
+impl Clone for NEWCPLINFOW {
     fn clone(&self) -> Self {
         *self
     }
@@ -6023,15 +6023,15 @@ pub struct NOTIFYICONDATAA {
     pub Anonymous: NOTIFYICONDATAA_0,
     pub szInfoTitle: [i8; 64],
     pub dwInfoFlags: NOTIFY_ICON_INFOTIP_FLAGS,
-    pub guidItem: ::windows_sys::core::GUID,
+    pub guidItem: windows_sys::core::GUID,
     pub hBalloonIcon: super::WindowsAndMessaging::HICON,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ::core::marker::Copy for NOTIFYICONDATAA {}
+impl Copy for NOTIFYICONDATAA {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ::core::clone::Clone for NOTIFYICONDATAA {
+impl Clone for NOTIFYICONDATAA {
     fn clone(&self) -> Self {
         *self
     }
@@ -6045,10 +6045,10 @@ pub union NOTIFYICONDATAA_0 {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ::core::marker::Copy for NOTIFYICONDATAA_0 {}
+impl Copy for NOTIFYICONDATAA_0 {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ::core::clone::Clone for NOTIFYICONDATAA_0 {
+impl Clone for NOTIFYICONDATAA_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -6070,15 +6070,15 @@ pub struct NOTIFYICONDATAA {
     pub Anonymous: NOTIFYICONDATAA_0,
     pub szInfoTitle: [i8; 64],
     pub dwInfoFlags: NOTIFY_ICON_INFOTIP_FLAGS,
-    pub guidItem: ::windows_sys::core::GUID,
+    pub guidItem: windows_sys::core::GUID,
     pub hBalloonIcon: super::WindowsAndMessaging::HICON,
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ::core::marker::Copy for NOTIFYICONDATAA {}
+impl Copy for NOTIFYICONDATAA {}
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ::core::clone::Clone for NOTIFYICONDATAA {
+impl Clone for NOTIFYICONDATAA {
     fn clone(&self) -> Self {
         *self
     }
@@ -6092,10 +6092,10 @@ pub union NOTIFYICONDATAA_0 {
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ::core::marker::Copy for NOTIFYICONDATAA_0 {}
+impl Copy for NOTIFYICONDATAA_0 {}
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ::core::clone::Clone for NOTIFYICONDATAA_0 {
+impl Clone for NOTIFYICONDATAA_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -6117,15 +6117,15 @@ pub struct NOTIFYICONDATAW {
     pub Anonymous: NOTIFYICONDATAW_0,
     pub szInfoTitle: [u16; 64],
     pub dwInfoFlags: NOTIFY_ICON_INFOTIP_FLAGS,
-    pub guidItem: ::windows_sys::core::GUID,
+    pub guidItem: windows_sys::core::GUID,
     pub hBalloonIcon: super::WindowsAndMessaging::HICON,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ::core::marker::Copy for NOTIFYICONDATAW {}
+impl Copy for NOTIFYICONDATAW {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ::core::clone::Clone for NOTIFYICONDATAW {
+impl Clone for NOTIFYICONDATAW {
     fn clone(&self) -> Self {
         *self
     }
@@ -6139,10 +6139,10 @@ pub union NOTIFYICONDATAW_0 {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ::core::marker::Copy for NOTIFYICONDATAW_0 {}
+impl Copy for NOTIFYICONDATAW_0 {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ::core::clone::Clone for NOTIFYICONDATAW_0 {
+impl Clone for NOTIFYICONDATAW_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -6164,15 +6164,15 @@ pub struct NOTIFYICONDATAW {
     pub Anonymous: NOTIFYICONDATAW_0,
     pub szInfoTitle: [u16; 64],
     pub dwInfoFlags: NOTIFY_ICON_INFOTIP_FLAGS,
-    pub guidItem: ::windows_sys::core::GUID,
+    pub guidItem: windows_sys::core::GUID,
     pub hBalloonIcon: super::WindowsAndMessaging::HICON,
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ::core::marker::Copy for NOTIFYICONDATAW {}
+impl Copy for NOTIFYICONDATAW {}
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ::core::clone::Clone for NOTIFYICONDATAW {
+impl Clone for NOTIFYICONDATAW {
     fn clone(&self) -> Self {
         *self
     }
@@ -6186,10 +6186,10 @@ pub union NOTIFYICONDATAW_0 {
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ::core::marker::Copy for NOTIFYICONDATAW_0 {}
+impl Copy for NOTIFYICONDATAW_0 {}
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ::core::clone::Clone for NOTIFYICONDATAW_0 {
+impl Clone for NOTIFYICONDATAW_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -6200,12 +6200,12 @@ pub struct NOTIFYICONIDENTIFIER {
     pub cbSize: u32,
     pub hWnd: super::super::Foundation::HWND,
     pub uID: u32,
-    pub guidItem: ::windows_sys::core::GUID,
+    pub guidItem: windows_sys::core::GUID,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::marker::Copy for NOTIFYICONIDENTIFIER {}
+impl Copy for NOTIFYICONIDENTIFIER {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::clone::Clone for NOTIFYICONIDENTIFIER {
+impl Clone for NOTIFYICONIDENTIFIER {
     fn clone(&self) -> Self {
         *self
     }
@@ -6216,17 +6216,17 @@ pub struct NOTIFYICONIDENTIFIER {
     pub cbSize: u32,
     pub hWnd: super::super::Foundation::HWND,
     pub uID: u32,
-    pub guidItem: ::windows_sys::core::GUID,
+    pub guidItem: windows_sys::core::GUID,
 }
 #[cfg(target_arch = "x86")]
-impl ::core::marker::Copy for NOTIFYICONIDENTIFIER {}
+impl Copy for NOTIFYICONIDENTIFIER {}
 #[cfg(target_arch = "x86")]
-impl ::core::clone::Clone for NOTIFYICONIDENTIFIER {
+impl Clone for NOTIFYICONIDENTIFIER {
     fn clone(&self) -> Self {
         *self
     }
 }
-pub const NPCredentialProvider: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x3dd6bec0_8193_4ffe_ae25_e08e39ea4063);
+pub const NPCredentialProvider: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3dd6bec0_8193_4ffe_ae25_e08e39ea4063);
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_WNet")]
 pub struct NRESARRAY {
@@ -6234,9 +6234,9 @@ pub struct NRESARRAY {
     pub nr: [super::super::NetworkManagement::WNet::NETRESOURCEA; 1],
 }
 #[cfg(feature = "Win32_NetworkManagement_WNet")]
-impl ::core::marker::Copy for NRESARRAY {}
+impl Copy for NRESARRAY {}
 #[cfg(feature = "Win32_NetworkManagement_WNet")]
-impl ::core::clone::Clone for NRESARRAY {
+impl Clone for NRESARRAY {
     fn clone(&self) -> Self {
         *self
     }
@@ -6244,19 +6244,19 @@ impl ::core::clone::Clone for NRESARRAY {
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Controls")]
 pub struct NSTCCUSTOMDRAW {
-    pub psi: *mut ::core::ffi::c_void,
+    pub psi: *mut core::ffi::c_void,
     pub uItemState: u32,
     pub nstcis: u32,
-    pub pszText: ::windows_sys::core::PCWSTR,
+    pub pszText: windows_sys::core::PCWSTR,
     pub iImage: i32,
     pub himl: super::Controls::HIMAGELIST,
     pub iLevel: i32,
     pub iIndent: i32,
 }
 #[cfg(feature = "Win32_UI_Controls")]
-impl ::core::marker::Copy for NSTCCUSTOMDRAW {}
+impl Copy for NSTCCUSTOMDRAW {}
 #[cfg(feature = "Win32_UI_Controls")]
-impl ::core::clone::Clone for NSTCCUSTOMDRAW {
+impl Clone for NSTCCUSTOMDRAW {
     fn clone(&self) -> Self {
         *self
     }
@@ -6287,9 +6287,9 @@ pub struct NT_CONSOLE_PROPS {
     pub ColorTable: [super::super::Foundation::COLORREF; 16],
 }
 #[cfg(feature = "Win32_System_Console")]
-impl ::core::marker::Copy for NT_CONSOLE_PROPS {}
+impl Copy for NT_CONSOLE_PROPS {}
 #[cfg(feature = "Win32_System_Console")]
-impl ::core::clone::Clone for NT_CONSOLE_PROPS {
+impl Clone for NT_CONSOLE_PROPS {
     fn clone(&self) -> Self {
         *self
     }
@@ -6299,25 +6299,25 @@ pub struct NT_FE_CONSOLE_PROPS {
     pub dbh: DATABLOCK_HEADER,
     pub uCodePage: u32,
 }
-impl ::core::marker::Copy for NT_FE_CONSOLE_PROPS {}
-impl ::core::clone::Clone for NT_FE_CONSOLE_PROPS {
+impl Copy for NT_FE_CONSOLE_PROPS {}
+impl Clone for NT_FE_CONSOLE_PROPS {
     fn clone(&self) -> Self {
         *self
     }
 }
-pub const NamespaceTreeControl: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xae054212_3535_4430_83ed_d501aa6680e6);
-pub const NamespaceWalker: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x72eb61e0_8672_4303_9175_f2e4c68b2e7c);
-pub const NetworkConnections: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x7007acc7_3202_11d1_aad2_00805fc1270e);
-pub const NetworkExplorerFolder: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xf02c1a0d_be21_4350_88b0_7367fc96ef3c);
-pub const NetworkPlaces: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x208d2c60_3aea_1069_a2d7_08002b30309d);
+pub const NamespaceTreeControl: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xae054212_3535_4430_83ed_d501aa6680e6);
+pub const NamespaceWalker: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x72eb61e0_8672_4303_9175_f2e4c68b2e7c);
+pub const NetworkConnections: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7007acc7_3202_11d1_aad2_00805fc1270e);
+pub const NetworkExplorerFolder: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf02c1a0d_be21_4350_88b0_7367fc96ef3c);
+pub const NetworkPlaces: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x208d2c60_3aea_1069_a2d7_08002b30309d);
 #[repr(C)]
 pub struct OPENASINFO {
-    pub pcszFile: ::windows_sys::core::PCWSTR,
-    pub pcszClass: ::windows_sys::core::PCWSTR,
+    pub pcszFile: windows_sys::core::PCWSTR,
+    pub pcszClass: windows_sys::core::PCWSTR,
     pub oaifInFlags: OPEN_AS_INFO_FLAGS,
 }
-impl ::core::marker::Copy for OPENASINFO {}
-impl ::core::clone::Clone for OPENASINFO {
+impl Copy for OPENASINFO {}
+impl Clone for OPENASINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -6326,15 +6326,15 @@ impl ::core::clone::Clone for OPENASINFO {
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct OPEN_PRINTER_PROPS_INFOA {
     pub dwSize: u32,
-    pub pszSheetName: ::windows_sys::core::PSTR,
+    pub pszSheetName: windows_sys::core::PSTR,
     pub uSheetIndex: u32,
     pub dwFlags: u32,
     pub bModal: super::super::Foundation::BOOL,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::marker::Copy for OPEN_PRINTER_PROPS_INFOA {}
+impl Copy for OPEN_PRINTER_PROPS_INFOA {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::clone::Clone for OPEN_PRINTER_PROPS_INFOA {
+impl Clone for OPEN_PRINTER_PROPS_INFOA {
     fn clone(&self) -> Self {
         *self
     }
@@ -6343,15 +6343,15 @@ impl ::core::clone::Clone for OPEN_PRINTER_PROPS_INFOA {
 #[cfg(target_arch = "x86")]
 pub struct OPEN_PRINTER_PROPS_INFOA {
     pub dwSize: u32,
-    pub pszSheetName: ::windows_sys::core::PSTR,
+    pub pszSheetName: windows_sys::core::PSTR,
     pub uSheetIndex: u32,
     pub dwFlags: u32,
     pub bModal: super::super::Foundation::BOOL,
 }
 #[cfg(target_arch = "x86")]
-impl ::core::marker::Copy for OPEN_PRINTER_PROPS_INFOA {}
+impl Copy for OPEN_PRINTER_PROPS_INFOA {}
 #[cfg(target_arch = "x86")]
-impl ::core::clone::Clone for OPEN_PRINTER_PROPS_INFOA {
+impl Clone for OPEN_PRINTER_PROPS_INFOA {
     fn clone(&self) -> Self {
         *self
     }
@@ -6360,15 +6360,15 @@ impl ::core::clone::Clone for OPEN_PRINTER_PROPS_INFOA {
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct OPEN_PRINTER_PROPS_INFOW {
     pub dwSize: u32,
-    pub pszSheetName: ::windows_sys::core::PWSTR,
+    pub pszSheetName: windows_sys::core::PWSTR,
     pub uSheetIndex: u32,
     pub dwFlags: u32,
     pub bModal: super::super::Foundation::BOOL,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::marker::Copy for OPEN_PRINTER_PROPS_INFOW {}
+impl Copy for OPEN_PRINTER_PROPS_INFOW {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::clone::Clone for OPEN_PRINTER_PROPS_INFOW {
+impl Clone for OPEN_PRINTER_PROPS_INFOW {
     fn clone(&self) -> Self {
         *self
     }
@@ -6377,35 +6377,35 @@ impl ::core::clone::Clone for OPEN_PRINTER_PROPS_INFOW {
 #[cfg(target_arch = "x86")]
 pub struct OPEN_PRINTER_PROPS_INFOW {
     pub dwSize: u32,
-    pub pszSheetName: ::windows_sys::core::PWSTR,
+    pub pszSheetName: windows_sys::core::PWSTR,
     pub uSheetIndex: u32,
     pub dwFlags: u32,
     pub bModal: super::super::Foundation::BOOL,
 }
 #[cfg(target_arch = "x86")]
-impl ::core::marker::Copy for OPEN_PRINTER_PROPS_INFOW {}
+impl Copy for OPEN_PRINTER_PROPS_INFOW {}
 #[cfg(target_arch = "x86")]
-impl ::core::clone::Clone for OPEN_PRINTER_PROPS_INFOW {
+impl Clone for OPEN_PRINTER_PROPS_INFOW {
     fn clone(&self) -> Self {
         *self
     }
 }
-pub const OnexCredentialProvider: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x07aa0886_cc8d_4e19_a410_1c75af686e62);
-pub const OnexPlapSmartcardCredentialProvider: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x33c86cd6_705f_4ba1_9adb_67070b837775);
-pub const OpenControlPanel: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x06622d85_6856_4460_8de1_a81921b41c4b);
+pub const OnexCredentialProvider: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x07aa0886_cc8d_4e19_a410_1c75af686e62);
+pub const OnexPlapSmartcardCredentialProvider: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x33c86cd6_705f_4ba1_9adb_67070b837775);
+pub const OpenControlPanel: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x06622d85_6856_4460_8de1_a81921b41c4b);
 pub type PAPPCONSTRAIN_REGISTRATION = isize;
 pub type PAPPSTATE_REGISTRATION = isize;
 #[repr(C)]
 pub struct PARSEDURLA {
     pub cbSize: u32,
-    pub pszProtocol: ::windows_sys::core::PCSTR,
+    pub pszProtocol: windows_sys::core::PCSTR,
     pub cchProtocol: u32,
-    pub pszSuffix: ::windows_sys::core::PCSTR,
+    pub pszSuffix: windows_sys::core::PCSTR,
     pub cchSuffix: u32,
     pub nScheme: u32,
 }
-impl ::core::marker::Copy for PARSEDURLA {}
-impl ::core::clone::Clone for PARSEDURLA {
+impl Copy for PARSEDURLA {}
+impl Clone for PARSEDURLA {
     fn clone(&self) -> Self {
         *self
     }
@@ -6413,14 +6413,14 @@ impl ::core::clone::Clone for PARSEDURLA {
 #[repr(C)]
 pub struct PARSEDURLW {
     pub cbSize: u32,
-    pub pszProtocol: ::windows_sys::core::PCWSTR,
+    pub pszProtocol: windows_sys::core::PCWSTR,
     pub cchProtocol: u32,
-    pub pszSuffix: ::windows_sys::core::PCWSTR,
+    pub pszSuffix: windows_sys::core::PCWSTR,
     pub cchSuffix: u32,
     pub nScheme: u32,
 }
-impl ::core::marker::Copy for PARSEDURLW {}
-impl ::core::clone::Clone for PARSEDURLW {
+impl Copy for PARSEDURLW {}
+impl Clone for PARSEDURLW {
     fn clone(&self) -> Self {
         *self
     }
@@ -6435,14 +6435,14 @@ pub struct PERSIST_FOLDER_TARGET_INFO {
     pub csidl: i32,
 }
 #[cfg(feature = "Win32_UI_Shell_Common")]
-impl ::core::marker::Copy for PERSIST_FOLDER_TARGET_INFO {}
+impl Copy for PERSIST_FOLDER_TARGET_INFO {}
 #[cfg(feature = "Win32_UI_Shell_Common")]
-impl ::core::clone::Clone for PERSIST_FOLDER_TARGET_INFO {
+impl Clone for PERSIST_FOLDER_TARGET_INFO {
     fn clone(&self) -> Self {
         *self
     }
 }
-pub const PINLogonCredentialProvider: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xcb82ea12_9f71_446d_89e1_8d0924e1256e);
+pub const PINLogonCredentialProvider: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xcb82ea12_9f71_446d_89e1_8d0924e1256e);
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub struct PREVIEWHANDLERFRAMEINFO {
@@ -6450,9 +6450,9 @@ pub struct PREVIEWHANDLERFRAMEINFO {
     pub cAccelEntries: u32,
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ::core::marker::Copy for PREVIEWHANDLERFRAMEINFO {}
+impl Copy for PREVIEWHANDLERFRAMEINFO {}
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ::core::clone::Clone for PREVIEWHANDLERFRAMEINFO {
+impl Clone for PREVIEWHANDLERFRAMEINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -6461,15 +6461,15 @@ impl ::core::clone::Clone for PREVIEWHANDLERFRAMEINFO {
 pub struct PROFILEINFOA {
     pub dwSize: u32,
     pub dwFlags: u32,
-    pub lpUserName: ::windows_sys::core::PSTR,
-    pub lpProfilePath: ::windows_sys::core::PSTR,
-    pub lpDefaultPath: ::windows_sys::core::PSTR,
-    pub lpServerName: ::windows_sys::core::PSTR,
-    pub lpPolicyPath: ::windows_sys::core::PSTR,
+    pub lpUserName: windows_sys::core::PSTR,
+    pub lpProfilePath: windows_sys::core::PSTR,
+    pub lpDefaultPath: windows_sys::core::PSTR,
+    pub lpServerName: windows_sys::core::PSTR,
+    pub lpPolicyPath: windows_sys::core::PSTR,
     pub hProfile: super::super::Foundation::HANDLE,
 }
-impl ::core::marker::Copy for PROFILEINFOA {}
-impl ::core::clone::Clone for PROFILEINFOA {
+impl Copy for PROFILEINFOA {}
+impl Clone for PROFILEINFOA {
     fn clone(&self) -> Self {
         *self
     }
@@ -6478,15 +6478,15 @@ impl ::core::clone::Clone for PROFILEINFOA {
 pub struct PROFILEINFOW {
     pub dwSize: u32,
     pub dwFlags: u32,
-    pub lpUserName: ::windows_sys::core::PWSTR,
-    pub lpProfilePath: ::windows_sys::core::PWSTR,
-    pub lpDefaultPath: ::windows_sys::core::PWSTR,
-    pub lpServerName: ::windows_sys::core::PWSTR,
-    pub lpPolicyPath: ::windows_sys::core::PWSTR,
+    pub lpUserName: windows_sys::core::PWSTR,
+    pub lpProfilePath: windows_sys::core::PWSTR,
+    pub lpDefaultPath: windows_sys::core::PWSTR,
+    pub lpServerName: windows_sys::core::PWSTR,
+    pub lpPolicyPath: windows_sys::core::PWSTR,
     pub hProfile: super::super::Foundation::HANDLE,
 }
-impl ::core::marker::Copy for PROFILEINFOW {}
-impl ::core::clone::Clone for PROFILEINFOW {
+impl Copy for PROFILEINFOW {}
+impl Clone for PROFILEINFOW {
     fn clone(&self) -> Self {
         *self
     }
@@ -6495,24 +6495,24 @@ impl ::core::clone::Clone for PROFILEINFOW {
 pub struct PUBAPPINFO {
     pub cbSize: u32,
     pub dwMask: u32,
-    pub pszSource: ::windows_sys::core::PWSTR,
+    pub pszSource: windows_sys::core::PWSTR,
     pub stAssigned: super::super::Foundation::SYSTEMTIME,
     pub stPublished: super::super::Foundation::SYSTEMTIME,
     pub stScheduled: super::super::Foundation::SYSTEMTIME,
     pub stExpire: super::super::Foundation::SYSTEMTIME,
 }
-impl ::core::marker::Copy for PUBAPPINFO {}
-impl ::core::clone::Clone for PUBAPPINFO {
+impl Copy for PUBAPPINFO {}
+impl Clone for PUBAPPINFO {
     fn clone(&self) -> Self {
         *self
     }
 }
-pub const PackageDebugSettings: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xb1aec16f_2383_4852_b0e9_8f0b1dc66b4d);
-pub const PasswordCredentialProvider: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x60b78e88_ead8_445c_9cfd_0b87f74ea6cd);
-pub const PreviousVersions: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x596ab062_b4d2_4215_9f74_e9109b0a8153);
-pub const PropertiesUI: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xd912f8cf_0396_4915_884e_fb425d32943b);
-pub const PublishDropTarget: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xcc6eeffb_43f6_46c5_9619_51d571967f7d);
-pub const PublishingWizard: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x6b33163c_76a5_4b6c_bf21_45de9cd503a1);
+pub const PackageDebugSettings: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb1aec16f_2383_4852_b0e9_8f0b1dc66b4d);
+pub const PasswordCredentialProvider: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x60b78e88_ead8_445c_9cfd_0b87f74ea6cd);
+pub const PreviousVersions: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x596ab062_b4d2_4215_9f74_e9109b0a8153);
+pub const PropertiesUI: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd912f8cf_0396_4915_884e_fb425d32943b);
+pub const PublishDropTarget: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xcc6eeffb_43f6_46c5_9619_51d571967f7d);
+pub const PublishingWizard: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6b33163c_76a5_4b6c_bf21_45de9cd503a1);
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub struct QCMINFO {
@@ -6523,9 +6523,9 @@ pub struct QCMINFO {
     pub pIdMap: *const QCMINFO_IDMAP,
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ::core::marker::Copy for QCMINFO {}
+impl Copy for QCMINFO {}
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ::core::clone::Clone for QCMINFO {
+impl Clone for QCMINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -6535,8 +6535,8 @@ pub struct QCMINFO_IDMAP {
     pub nMaxIds: u32,
     pub pIdList: [QCMINFO_IDMAP_PLACEMENT; 1],
 }
-impl ::core::marker::Copy for QCMINFO_IDMAP {}
-impl ::core::clone::Clone for QCMINFO_IDMAP {
+impl Copy for QCMINFO_IDMAP {}
+impl Clone for QCMINFO_IDMAP {
     fn clone(&self) -> Self {
         *self
     }
@@ -6546,32 +6546,32 @@ pub struct QCMINFO_IDMAP_PLACEMENT {
     pub id: u32,
     pub fFlags: u32,
 }
-impl ::core::marker::Copy for QCMINFO_IDMAP_PLACEMENT {}
-impl ::core::clone::Clone for QCMINFO_IDMAP_PLACEMENT {
+impl Copy for QCMINFO_IDMAP_PLACEMENT {}
+impl Clone for QCMINFO_IDMAP_PLACEMENT {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct QITAB {
-    pub piid: *const ::windows_sys::core::GUID,
+    pub piid: *const windows_sys::core::GUID,
     pub dwOffset: u32,
 }
-impl ::core::marker::Copy for QITAB {}
-impl ::core::clone::Clone for QITAB {
+impl Copy for QITAB {}
+impl Clone for QITAB {
     fn clone(&self) -> Self {
         *self
     }
 }
-pub const QueryCancelAutoPlay: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x331f1768_05a9_4ddd_b86e_dae34ddc998a);
-pub const RASProvider: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x5537e283_b1e7_4ef8_9c6e_7ab0afe5056d);
+pub const QueryCancelAutoPlay: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x331f1768_05a9_4ddd_b86e_dae34ddc998a);
+pub const RASProvider: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5537e283_b1e7_4ef8_9c6e_7ab0afe5056d);
 #[repr(C)]
 pub struct SFVM_HELPTOPIC_DATA {
     pub wszHelpFile: [u16; 260],
     pub wszHelpTopic: [u16; 260],
 }
-impl ::core::marker::Copy for SFVM_HELPTOPIC_DATA {}
-impl ::core::clone::Clone for SFVM_HELPTOPIC_DATA {
+impl Copy for SFVM_HELPTOPIC_DATA {}
+impl Clone for SFVM_HELPTOPIC_DATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -6584,9 +6584,9 @@ pub struct SFVM_PROPPAGE_DATA {
     pub lParam: super::super::Foundation::LPARAM,
 }
 #[cfg(feature = "Win32_UI_Controls")]
-impl ::core::marker::Copy for SFVM_PROPPAGE_DATA {}
+impl Copy for SFVM_PROPPAGE_DATA {}
 #[cfg(feature = "Win32_UI_Controls")]
-impl ::core::clone::Clone for SFVM_PROPPAGE_DATA {
+impl Clone for SFVM_PROPPAGE_DATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -6594,12 +6594,12 @@ impl ::core::clone::Clone for SFVM_PROPPAGE_DATA {
 #[repr(C)]
 pub struct SFV_CREATE {
     pub cbSize: u32,
-    pub pshf: *mut ::core::ffi::c_void,
-    pub psvOuter: *mut ::core::ffi::c_void,
-    pub psfvcb: *mut ::core::ffi::c_void,
+    pub pshf: *mut core::ffi::c_void,
+    pub psvOuter: *mut core::ffi::c_void,
+    pub psfvcb: *mut core::ffi::c_void,
 }
-impl ::core::marker::Copy for SFV_CREATE {}
-impl ::core::clone::Clone for SFV_CREATE {
+impl Copy for SFV_CREATE {}
+impl Clone for SFV_CREATE {
     fn clone(&self) -> Self {
         *self
     }
@@ -6611,20 +6611,20 @@ pub struct SFV_SETITEMPOS {
     pub pt: super::super::Foundation::POINT,
 }
 #[cfg(feature = "Win32_UI_Shell_Common")]
-impl ::core::marker::Copy for SFV_SETITEMPOS {}
+impl Copy for SFV_SETITEMPOS {}
 #[cfg(feature = "Win32_UI_Shell_Common")]
-impl ::core::clone::Clone for SFV_SETITEMPOS {
+impl Clone for SFV_SETITEMPOS {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C, packed(1))]
 pub struct SHARDAPPIDINFO {
-    pub psi: *mut ::core::ffi::c_void,
-    pub pszAppID: ::windows_sys::core::PCWSTR,
+    pub psi: *mut core::ffi::c_void,
+    pub pszAppID: windows_sys::core::PCWSTR,
 }
-impl ::core::marker::Copy for SHARDAPPIDINFO {}
-impl ::core::clone::Clone for SHARDAPPIDINFO {
+impl Copy for SHARDAPPIDINFO {}
+impl Clone for SHARDAPPIDINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -6633,23 +6633,23 @@ impl ::core::clone::Clone for SHARDAPPIDINFO {
 #[cfg(feature = "Win32_UI_Shell_Common")]
 pub struct SHARDAPPIDINFOIDLIST {
     pub pidl: *mut Common::ITEMIDLIST,
-    pub pszAppID: ::windows_sys::core::PCWSTR,
+    pub pszAppID: windows_sys::core::PCWSTR,
 }
 #[cfg(feature = "Win32_UI_Shell_Common")]
-impl ::core::marker::Copy for SHARDAPPIDINFOIDLIST {}
+impl Copy for SHARDAPPIDINFOIDLIST {}
 #[cfg(feature = "Win32_UI_Shell_Common")]
-impl ::core::clone::Clone for SHARDAPPIDINFOIDLIST {
+impl Clone for SHARDAPPIDINFOIDLIST {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C, packed(1))]
 pub struct SHARDAPPIDINFOLINK {
-    pub psl: *mut ::core::ffi::c_void,
-    pub pszAppID: ::windows_sys::core::PCWSTR,
+    pub psl: *mut core::ffi::c_void,
+    pub pszAppID: windows_sys::core::PCWSTR,
 }
-impl ::core::marker::Copy for SHARDAPPIDINFOLINK {}
-impl ::core::clone::Clone for SHARDAPPIDINFOLINK {
+impl Copy for SHARDAPPIDINFOLINK {}
+impl Clone for SHARDAPPIDINFOLINK {
     fn clone(&self) -> Self {
         *self
     }
@@ -6659,11 +6659,11 @@ pub struct SHCOLUMNDATA {
     pub dwFlags: u32,
     pub dwFileAttributes: u32,
     pub dwReserved: u32,
-    pub pwszExt: ::windows_sys::core::PWSTR,
+    pub pwszExt: windows_sys::core::PWSTR,
     pub wszFile: [u16; 260],
 }
-impl ::core::marker::Copy for SHCOLUMNDATA {}
-impl ::core::clone::Clone for SHCOLUMNDATA {
+impl Copy for SHCOLUMNDATA {}
+impl Clone for SHCOLUMNDATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -6680,9 +6680,9 @@ pub struct SHCOLUMNINFO {
     pub wszDescription: [u16; 128],
 }
 #[cfg(all(feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
-impl ::core::marker::Copy for SHCOLUMNINFO {}
+impl Copy for SHCOLUMNINFO {}
 #[cfg(all(feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
-impl ::core::clone::Clone for SHCOLUMNINFO {
+impl Clone for SHCOLUMNINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -6693,8 +6693,8 @@ pub struct SHCOLUMNINIT {
     pub dwReserved: u32,
     pub wszFolder: [u16; 260],
 }
-impl ::core::marker::Copy for SHCOLUMNINIT {}
-impl ::core::clone::Clone for SHCOLUMNINIT {
+impl Copy for SHCOLUMNINIT {}
+impl Clone for SHCOLUMNINIT {
     fn clone(&self) -> Self {
         *self
     }
@@ -6706,9 +6706,9 @@ pub struct SHCREATEPROCESSINFOW {
     pub cbSize: u32,
     pub fMask: u32,
     pub hwnd: super::super::Foundation::HWND,
-    pub pszFile: ::windows_sys::core::PCWSTR,
-    pub pszParameters: ::windows_sys::core::PCWSTR,
-    pub pszCurrentDirectory: ::windows_sys::core::PCWSTR,
+    pub pszFile: windows_sys::core::PCWSTR,
+    pub pszParameters: windows_sys::core::PCWSTR,
+    pub pszCurrentDirectory: windows_sys::core::PCWSTR,
     pub hUserToken: super::super::Foundation::HANDLE,
     pub lpProcessAttributes: *mut super::super::Security::SECURITY_ATTRIBUTES,
     pub lpThreadAttributes: *mut super::super::Security::SECURITY_ATTRIBUTES,
@@ -6719,10 +6719,10 @@ pub struct SHCREATEPROCESSINFOW {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Security", feature = "Win32_System_Threading"))]
-impl ::core::marker::Copy for SHCREATEPROCESSINFOW {}
+impl Copy for SHCREATEPROCESSINFOW {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Security", feature = "Win32_System_Threading"))]
-impl ::core::clone::Clone for SHCREATEPROCESSINFOW {
+impl Clone for SHCREATEPROCESSINFOW {
     fn clone(&self) -> Self {
         *self
     }
@@ -6734,9 +6734,9 @@ pub struct SHCREATEPROCESSINFOW {
     pub cbSize: u32,
     pub fMask: u32,
     pub hwnd: super::super::Foundation::HWND,
-    pub pszFile: ::windows_sys::core::PCWSTR,
-    pub pszParameters: ::windows_sys::core::PCWSTR,
-    pub pszCurrentDirectory: ::windows_sys::core::PCWSTR,
+    pub pszFile: windows_sys::core::PCWSTR,
+    pub pszParameters: windows_sys::core::PCWSTR,
+    pub pszCurrentDirectory: windows_sys::core::PCWSTR,
     pub hUserToken: super::super::Foundation::HANDLE,
     pub lpProcessAttributes: *mut super::super::Security::SECURITY_ATTRIBUTES,
     pub lpThreadAttributes: *mut super::super::Security::SECURITY_ATTRIBUTES,
@@ -6747,10 +6747,10 @@ pub struct SHCREATEPROCESSINFOW {
 }
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Security", feature = "Win32_System_Threading"))]
-impl ::core::marker::Copy for SHCREATEPROCESSINFOW {}
+impl Copy for SHCREATEPROCESSINFOW {}
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Security", feature = "Win32_System_Threading"))]
-impl ::core::clone::Clone for SHCREATEPROCESSINFOW {
+impl Clone for SHCREATEPROCESSINFOW {
     fn clone(&self) -> Self {
         *self
     }
@@ -6762,8 +6762,8 @@ pub struct SHChangeDWORDAsIDList {
     pub dwItem2: u32,
     pub cbZero: u16,
 }
-impl ::core::marker::Copy for SHChangeDWORDAsIDList {}
-impl ::core::clone::Clone for SHChangeDWORDAsIDList {
+impl Copy for SHChangeDWORDAsIDList {}
+impl Clone for SHChangeDWORDAsIDList {
     fn clone(&self) -> Self {
         *self
     }
@@ -6775,9 +6775,9 @@ pub struct SHChangeNotifyEntry {
     pub fRecursive: super::super::Foundation::BOOL,
 }
 #[cfg(feature = "Win32_UI_Shell_Common")]
-impl ::core::marker::Copy for SHChangeNotifyEntry {}
+impl Copy for SHChangeNotifyEntry {}
 #[cfg(feature = "Win32_UI_Shell_Common")]
-impl ::core::clone::Clone for SHChangeNotifyEntry {
+impl Clone for SHChangeNotifyEntry {
     fn clone(&self) -> Self {
         *self
     }
@@ -6788,8 +6788,8 @@ pub struct SHChangeProductKeyAsIDList {
     pub wszProductKey: [u16; 39],
     pub cbZero: u16,
 }
-impl ::core::marker::Copy for SHChangeProductKeyAsIDList {}
-impl ::core::clone::Clone for SHChangeProductKeyAsIDList {
+impl Copy for SHChangeProductKeyAsIDList {}
+impl Clone for SHChangeProductKeyAsIDList {
     fn clone(&self) -> Self {
         *self
     }
@@ -6804,8 +6804,8 @@ pub struct SHChangeUpdateImageIDList {
     pub szName: [u16; 260],
     pub cbZero: u16,
 }
-impl ::core::marker::Copy for SHChangeUpdateImageIDList {}
-impl ::core::clone::Clone for SHChangeUpdateImageIDList {
+impl Copy for SHChangeUpdateImageIDList {}
+impl Clone for SHChangeUpdateImageIDList {
     fn clone(&self) -> Self {
         *self
     }
@@ -6813,10 +6813,10 @@ impl ::core::clone::Clone for SHChangeUpdateImageIDList {
 #[repr(C)]
 pub struct SHDESCRIPTIONID {
     pub dwDescriptionId: u32,
-    pub clsid: ::windows_sys::core::GUID,
+    pub clsid: windows_sys::core::GUID,
 }
-impl ::core::marker::Copy for SHDESCRIPTIONID {}
-impl ::core::clone::Clone for SHDESCRIPTIONID {
+impl Copy for SHDESCRIPTIONID {}
+impl Clone for SHDESCRIPTIONID {
     fn clone(&self) -> Self {
         *self
     }
@@ -6830,9 +6830,9 @@ pub struct SHDRAGIMAGE {
     pub crColorKey: super::super::Foundation::COLORREF,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::marker::Copy for SHDRAGIMAGE {}
+impl Copy for SHDRAGIMAGE {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::clone::Clone for SHDRAGIMAGE {
+impl Clone for SHDRAGIMAGE {
     fn clone(&self) -> Self {
         *self
     }
@@ -6844,14 +6844,14 @@ pub struct SHELLEXECUTEINFOA {
     pub cbSize: u32,
     pub fMask: u32,
     pub hwnd: super::super::Foundation::HWND,
-    pub lpVerb: ::windows_sys::core::PCSTR,
-    pub lpFile: ::windows_sys::core::PCSTR,
-    pub lpParameters: ::windows_sys::core::PCSTR,
-    pub lpDirectory: ::windows_sys::core::PCSTR,
+    pub lpVerb: windows_sys::core::PCSTR,
+    pub lpFile: windows_sys::core::PCSTR,
+    pub lpParameters: windows_sys::core::PCSTR,
+    pub lpDirectory: windows_sys::core::PCSTR,
     pub nShow: i32,
     pub hInstApp: super::super::Foundation::HINSTANCE,
-    pub lpIDList: *mut ::core::ffi::c_void,
-    pub lpClass: ::windows_sys::core::PCSTR,
+    pub lpIDList: *mut core::ffi::c_void,
+    pub lpClass: windows_sys::core::PCSTR,
     pub hkeyClass: super::super::System::Registry::HKEY,
     pub dwHotKey: u32,
     pub Anonymous: SHELLEXECUTEINFOA_0,
@@ -6859,10 +6859,10 @@ pub struct SHELLEXECUTEINFOA {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Registry")]
-impl ::core::marker::Copy for SHELLEXECUTEINFOA {}
+impl Copy for SHELLEXECUTEINFOA {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Registry")]
-impl ::core::clone::Clone for SHELLEXECUTEINFOA {
+impl Clone for SHELLEXECUTEINFOA {
     fn clone(&self) -> Self {
         *self
     }
@@ -6876,10 +6876,10 @@ pub union SHELLEXECUTEINFOA_0 {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Registry")]
-impl ::core::marker::Copy for SHELLEXECUTEINFOA_0 {}
+impl Copy for SHELLEXECUTEINFOA_0 {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Registry")]
-impl ::core::clone::Clone for SHELLEXECUTEINFOA_0 {
+impl Clone for SHELLEXECUTEINFOA_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -6891,14 +6891,14 @@ pub struct SHELLEXECUTEINFOA {
     pub cbSize: u32,
     pub fMask: u32,
     pub hwnd: super::super::Foundation::HWND,
-    pub lpVerb: ::windows_sys::core::PCSTR,
-    pub lpFile: ::windows_sys::core::PCSTR,
-    pub lpParameters: ::windows_sys::core::PCSTR,
-    pub lpDirectory: ::windows_sys::core::PCSTR,
+    pub lpVerb: windows_sys::core::PCSTR,
+    pub lpFile: windows_sys::core::PCSTR,
+    pub lpParameters: windows_sys::core::PCSTR,
+    pub lpDirectory: windows_sys::core::PCSTR,
     pub nShow: i32,
     pub hInstApp: super::super::Foundation::HINSTANCE,
-    pub lpIDList: *mut ::core::ffi::c_void,
-    pub lpClass: ::windows_sys::core::PCSTR,
+    pub lpIDList: *mut core::ffi::c_void,
+    pub lpClass: windows_sys::core::PCSTR,
     pub hkeyClass: super::super::System::Registry::HKEY,
     pub dwHotKey: u32,
     pub Anonymous: SHELLEXECUTEINFOA_0,
@@ -6906,10 +6906,10 @@ pub struct SHELLEXECUTEINFOA {
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_System_Registry")]
-impl ::core::marker::Copy for SHELLEXECUTEINFOA {}
+impl Copy for SHELLEXECUTEINFOA {}
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_System_Registry")]
-impl ::core::clone::Clone for SHELLEXECUTEINFOA {
+impl Clone for SHELLEXECUTEINFOA {
     fn clone(&self) -> Self {
         *self
     }
@@ -6923,10 +6923,10 @@ pub union SHELLEXECUTEINFOA_0 {
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_System_Registry")]
-impl ::core::marker::Copy for SHELLEXECUTEINFOA_0 {}
+impl Copy for SHELLEXECUTEINFOA_0 {}
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_System_Registry")]
-impl ::core::clone::Clone for SHELLEXECUTEINFOA_0 {
+impl Clone for SHELLEXECUTEINFOA_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -6938,14 +6938,14 @@ pub struct SHELLEXECUTEINFOW {
     pub cbSize: u32,
     pub fMask: u32,
     pub hwnd: super::super::Foundation::HWND,
-    pub lpVerb: ::windows_sys::core::PCWSTR,
-    pub lpFile: ::windows_sys::core::PCWSTR,
-    pub lpParameters: ::windows_sys::core::PCWSTR,
-    pub lpDirectory: ::windows_sys::core::PCWSTR,
+    pub lpVerb: windows_sys::core::PCWSTR,
+    pub lpFile: windows_sys::core::PCWSTR,
+    pub lpParameters: windows_sys::core::PCWSTR,
+    pub lpDirectory: windows_sys::core::PCWSTR,
     pub nShow: i32,
     pub hInstApp: super::super::Foundation::HINSTANCE,
-    pub lpIDList: *mut ::core::ffi::c_void,
-    pub lpClass: ::windows_sys::core::PCWSTR,
+    pub lpIDList: *mut core::ffi::c_void,
+    pub lpClass: windows_sys::core::PCWSTR,
     pub hkeyClass: super::super::System::Registry::HKEY,
     pub dwHotKey: u32,
     pub Anonymous: SHELLEXECUTEINFOW_0,
@@ -6953,10 +6953,10 @@ pub struct SHELLEXECUTEINFOW {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Registry")]
-impl ::core::marker::Copy for SHELLEXECUTEINFOW {}
+impl Copy for SHELLEXECUTEINFOW {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Registry")]
-impl ::core::clone::Clone for SHELLEXECUTEINFOW {
+impl Clone for SHELLEXECUTEINFOW {
     fn clone(&self) -> Self {
         *self
     }
@@ -6970,10 +6970,10 @@ pub union SHELLEXECUTEINFOW_0 {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Registry")]
-impl ::core::marker::Copy for SHELLEXECUTEINFOW_0 {}
+impl Copy for SHELLEXECUTEINFOW_0 {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Registry")]
-impl ::core::clone::Clone for SHELLEXECUTEINFOW_0 {
+impl Clone for SHELLEXECUTEINFOW_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -6985,14 +6985,14 @@ pub struct SHELLEXECUTEINFOW {
     pub cbSize: u32,
     pub fMask: u32,
     pub hwnd: super::super::Foundation::HWND,
-    pub lpVerb: ::windows_sys::core::PCWSTR,
-    pub lpFile: ::windows_sys::core::PCWSTR,
-    pub lpParameters: ::windows_sys::core::PCWSTR,
-    pub lpDirectory: ::windows_sys::core::PCWSTR,
+    pub lpVerb: windows_sys::core::PCWSTR,
+    pub lpFile: windows_sys::core::PCWSTR,
+    pub lpParameters: windows_sys::core::PCWSTR,
+    pub lpDirectory: windows_sys::core::PCWSTR,
     pub nShow: i32,
     pub hInstApp: super::super::Foundation::HINSTANCE,
-    pub lpIDList: *mut ::core::ffi::c_void,
-    pub lpClass: ::windows_sys::core::PCWSTR,
+    pub lpIDList: *mut core::ffi::c_void,
+    pub lpClass: windows_sys::core::PCWSTR,
     pub hkeyClass: super::super::System::Registry::HKEY,
     pub dwHotKey: u32,
     pub Anonymous: SHELLEXECUTEINFOW_0,
@@ -7000,10 +7000,10 @@ pub struct SHELLEXECUTEINFOW {
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_System_Registry")]
-impl ::core::marker::Copy for SHELLEXECUTEINFOW {}
+impl Copy for SHELLEXECUTEINFOW {}
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_System_Registry")]
-impl ::core::clone::Clone for SHELLEXECUTEINFOW {
+impl Clone for SHELLEXECUTEINFOW {
     fn clone(&self) -> Self {
         *self
     }
@@ -7017,10 +7017,10 @@ pub union SHELLEXECUTEINFOW_0 {
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_System_Registry")]
-impl ::core::marker::Copy for SHELLEXECUTEINFOW_0 {}
+impl Copy for SHELLEXECUTEINFOW_0 {}
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_System_Registry")]
-impl ::core::clone::Clone for SHELLEXECUTEINFOW_0 {
+impl Clone for SHELLEXECUTEINFOW_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -7029,8 +7029,8 @@ impl ::core::clone::Clone for SHELLEXECUTEINFOW_0 {
 pub struct SHELLFLAGSTATE {
     pub _bitfield: i32,
 }
-impl ::core::marker::Copy for SHELLFLAGSTATE {}
-impl ::core::clone::Clone for SHELLFLAGSTATE {
+impl Copy for SHELLFLAGSTATE {}
+impl Clone for SHELLFLAGSTATE {
     fn clone(&self) -> Self {
         *self
     }
@@ -7046,8 +7046,8 @@ pub struct SHELLSTATEA {
     pub uNotUsed: u32,
     pub _bitfield2: i32,
 }
-impl ::core::marker::Copy for SHELLSTATEA {}
-impl ::core::clone::Clone for SHELLSTATEA {
+impl Copy for SHELLSTATEA {}
+impl Clone for SHELLSTATEA {
     fn clone(&self) -> Self {
         *self
     }
@@ -7063,19 +7063,19 @@ pub struct SHELLSTATEW {
     pub uNotUsed: u32,
     pub _bitfield2: i32,
 }
-impl ::core::marker::Copy for SHELLSTATEW {}
-impl ::core::clone::Clone for SHELLSTATEW {
+impl Copy for SHELLSTATEW {}
+impl Clone for SHELLSTATEW {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct SHELL_ITEM_RESOURCE {
-    pub guidType: ::windows_sys::core::GUID,
+    pub guidType: windows_sys::core::GUID,
     pub szName: [u16; 260],
 }
-impl ::core::marker::Copy for SHELL_ITEM_RESOURCE {}
-impl ::core::clone::Clone for SHELL_ITEM_RESOURCE {
+impl Copy for SHELL_ITEM_RESOURCE {}
+impl Clone for SHELL_ITEM_RESOURCE {
     fn clone(&self) -> Self {
         *self
     }
@@ -7092,10 +7092,10 @@ pub struct SHFILEINFOA {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ::core::marker::Copy for SHFILEINFOA {}
+impl Copy for SHFILEINFOA {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ::core::clone::Clone for SHFILEINFOA {
+impl Clone for SHFILEINFOA {
     fn clone(&self) -> Self {
         *self
     }
@@ -7112,10 +7112,10 @@ pub struct SHFILEINFOA {
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ::core::marker::Copy for SHFILEINFOA {}
+impl Copy for SHFILEINFOA {}
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ::core::clone::Clone for SHFILEINFOA {
+impl Clone for SHFILEINFOA {
     fn clone(&self) -> Self {
         *self
     }
@@ -7132,10 +7132,10 @@ pub struct SHFILEINFOW {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ::core::marker::Copy for SHFILEINFOW {}
+impl Copy for SHFILEINFOW {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ::core::clone::Clone for SHFILEINFOW {
+impl Clone for SHFILEINFOW {
     fn clone(&self) -> Self {
         *self
     }
@@ -7152,10 +7152,10 @@ pub struct SHFILEINFOW {
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ::core::marker::Copy for SHFILEINFOW {}
+impl Copy for SHFILEINFOW {}
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ::core::clone::Clone for SHFILEINFOW {
+impl Clone for SHFILEINFOW {
     fn clone(&self) -> Self {
         *self
     }
@@ -7169,13 +7169,13 @@ pub struct SHFILEOPSTRUCTA {
     pub pTo: *mut i8,
     pub fFlags: u16,
     pub fAnyOperationsAborted: super::super::Foundation::BOOL,
-    pub hNameMappings: *mut ::core::ffi::c_void,
-    pub lpszProgressTitle: ::windows_sys::core::PCSTR,
+    pub hNameMappings: *mut core::ffi::c_void,
+    pub lpszProgressTitle: windows_sys::core::PCSTR,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::marker::Copy for SHFILEOPSTRUCTA {}
+impl Copy for SHFILEOPSTRUCTA {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::clone::Clone for SHFILEOPSTRUCTA {
+impl Clone for SHFILEOPSTRUCTA {
     fn clone(&self) -> Self {
         *self
     }
@@ -7189,13 +7189,13 @@ pub struct SHFILEOPSTRUCTA {
     pub pTo: *mut i8,
     pub fFlags: u16,
     pub fAnyOperationsAborted: super::super::Foundation::BOOL,
-    pub hNameMappings: *mut ::core::ffi::c_void,
-    pub lpszProgressTitle: ::windows_sys::core::PCSTR,
+    pub hNameMappings: *mut core::ffi::c_void,
+    pub lpszProgressTitle: windows_sys::core::PCSTR,
 }
 #[cfg(target_arch = "x86")]
-impl ::core::marker::Copy for SHFILEOPSTRUCTA {}
+impl Copy for SHFILEOPSTRUCTA {}
 #[cfg(target_arch = "x86")]
-impl ::core::clone::Clone for SHFILEOPSTRUCTA {
+impl Clone for SHFILEOPSTRUCTA {
     fn clone(&self) -> Self {
         *self
     }
@@ -7205,17 +7205,17 @@ impl ::core::clone::Clone for SHFILEOPSTRUCTA {
 pub struct SHFILEOPSTRUCTW {
     pub hwnd: super::super::Foundation::HWND,
     pub wFunc: u32,
-    pub pFrom: ::windows_sys::core::PCWSTR,
-    pub pTo: ::windows_sys::core::PCWSTR,
+    pub pFrom: windows_sys::core::PCWSTR,
+    pub pTo: windows_sys::core::PCWSTR,
     pub fFlags: u16,
     pub fAnyOperationsAborted: super::super::Foundation::BOOL,
-    pub hNameMappings: *mut ::core::ffi::c_void,
-    pub lpszProgressTitle: ::windows_sys::core::PCWSTR,
+    pub hNameMappings: *mut core::ffi::c_void,
+    pub lpszProgressTitle: windows_sys::core::PCWSTR,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::marker::Copy for SHFILEOPSTRUCTW {}
+impl Copy for SHFILEOPSTRUCTW {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::clone::Clone for SHFILEOPSTRUCTW {
+impl Clone for SHFILEOPSTRUCTW {
     fn clone(&self) -> Self {
         *self
     }
@@ -7225,17 +7225,17 @@ impl ::core::clone::Clone for SHFILEOPSTRUCTW {
 pub struct SHFILEOPSTRUCTW {
     pub hwnd: super::super::Foundation::HWND,
     pub wFunc: u32,
-    pub pFrom: ::windows_sys::core::PCWSTR,
-    pub pTo: ::windows_sys::core::PCWSTR,
+    pub pFrom: windows_sys::core::PCWSTR,
+    pub pTo: windows_sys::core::PCWSTR,
     pub fFlags: u16,
     pub fAnyOperationsAborted: super::super::Foundation::BOOL,
-    pub hNameMappings: *mut ::core::ffi::c_void,
-    pub lpszProgressTitle: ::windows_sys::core::PCWSTR,
+    pub hNameMappings: *mut core::ffi::c_void,
+    pub lpszProgressTitle: windows_sys::core::PCWSTR,
 }
 #[cfg(target_arch = "x86")]
-impl ::core::marker::Copy for SHFILEOPSTRUCTW {}
+impl Copy for SHFILEOPSTRUCTW {}
 #[cfg(target_arch = "x86")]
-impl ::core::clone::Clone for SHFILEOPSTRUCTW {
+impl Clone for SHFILEOPSTRUCTW {
     fn clone(&self) -> Self {
         *self
     }
@@ -7244,22 +7244,22 @@ impl ::core::clone::Clone for SHFILEOPSTRUCTW {
 pub struct SHFOLDERCUSTOMSETTINGS {
     pub dwSize: u32,
     pub dwMask: u32,
-    pub pvid: *mut ::windows_sys::core::GUID,
-    pub pszWebViewTemplate: ::windows_sys::core::PWSTR,
+    pub pvid: *mut windows_sys::core::GUID,
+    pub pszWebViewTemplate: windows_sys::core::PWSTR,
     pub cchWebViewTemplate: u32,
-    pub pszWebViewTemplateVersion: ::windows_sys::core::PWSTR,
-    pub pszInfoTip: ::windows_sys::core::PWSTR,
+    pub pszWebViewTemplateVersion: windows_sys::core::PWSTR,
+    pub pszInfoTip: windows_sys::core::PWSTR,
     pub cchInfoTip: u32,
-    pub pclsid: *mut ::windows_sys::core::GUID,
+    pub pclsid: *mut windows_sys::core::GUID,
     pub dwFlags: u32,
-    pub pszIconFile: ::windows_sys::core::PWSTR,
+    pub pszIconFile: windows_sys::core::PWSTR,
     pub cchIconFile: u32,
     pub iIconIndex: i32,
-    pub pszLogo: ::windows_sys::core::PWSTR,
+    pub pszLogo: windows_sys::core::PWSTR,
     pub cchLogo: u32,
 }
-impl ::core::marker::Copy for SHFOLDERCUSTOMSETTINGS {}
-impl ::core::clone::Clone for SHFOLDERCUSTOMSETTINGS {
+impl Copy for SHFOLDERCUSTOMSETTINGS {}
+impl Clone for SHFOLDERCUSTOMSETTINGS {
     fn clone(&self) -> Self {
         *self
     }
@@ -7267,15 +7267,15 @@ impl ::core::clone::Clone for SHFOLDERCUSTOMSETTINGS {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct SHNAMEMAPPINGA {
-    pub pszOldPath: ::windows_sys::core::PSTR,
-    pub pszNewPath: ::windows_sys::core::PSTR,
+    pub pszOldPath: windows_sys::core::PSTR,
+    pub pszNewPath: windows_sys::core::PSTR,
     pub cchOldPath: i32,
     pub cchNewPath: i32,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::marker::Copy for SHNAMEMAPPINGA {}
+impl Copy for SHNAMEMAPPINGA {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::clone::Clone for SHNAMEMAPPINGA {
+impl Clone for SHNAMEMAPPINGA {
     fn clone(&self) -> Self {
         *self
     }
@@ -7283,15 +7283,15 @@ impl ::core::clone::Clone for SHNAMEMAPPINGA {
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 pub struct SHNAMEMAPPINGA {
-    pub pszOldPath: ::windows_sys::core::PSTR,
-    pub pszNewPath: ::windows_sys::core::PSTR,
+    pub pszOldPath: windows_sys::core::PSTR,
+    pub pszNewPath: windows_sys::core::PSTR,
     pub cchOldPath: i32,
     pub cchNewPath: i32,
 }
 #[cfg(target_arch = "x86")]
-impl ::core::marker::Copy for SHNAMEMAPPINGA {}
+impl Copy for SHNAMEMAPPINGA {}
 #[cfg(target_arch = "x86")]
-impl ::core::clone::Clone for SHNAMEMAPPINGA {
+impl Clone for SHNAMEMAPPINGA {
     fn clone(&self) -> Self {
         *self
     }
@@ -7299,15 +7299,15 @@ impl ::core::clone::Clone for SHNAMEMAPPINGA {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct SHNAMEMAPPINGW {
-    pub pszOldPath: ::windows_sys::core::PWSTR,
-    pub pszNewPath: ::windows_sys::core::PWSTR,
+    pub pszOldPath: windows_sys::core::PWSTR,
+    pub pszNewPath: windows_sys::core::PWSTR,
     pub cchOldPath: i32,
     pub cchNewPath: i32,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::marker::Copy for SHNAMEMAPPINGW {}
+impl Copy for SHNAMEMAPPINGW {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::clone::Clone for SHNAMEMAPPINGW {
+impl Clone for SHNAMEMAPPINGW {
     fn clone(&self) -> Self {
         *self
     }
@@ -7315,15 +7315,15 @@ impl ::core::clone::Clone for SHNAMEMAPPINGW {
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 pub struct SHNAMEMAPPINGW {
-    pub pszOldPath: ::windows_sys::core::PWSTR,
-    pub pszNewPath: ::windows_sys::core::PWSTR,
+    pub pszOldPath: windows_sys::core::PWSTR,
+    pub pszNewPath: windows_sys::core::PWSTR,
     pub cchOldPath: i32,
     pub cchNewPath: i32,
 }
 #[cfg(target_arch = "x86")]
-impl ::core::marker::Copy for SHNAMEMAPPINGW {}
+impl Copy for SHNAMEMAPPINGW {}
 #[cfg(target_arch = "x86")]
-impl ::core::clone::Clone for SHNAMEMAPPINGW {
+impl Clone for SHNAMEMAPPINGW {
     fn clone(&self) -> Self {
         *self
     }
@@ -7336,9 +7336,9 @@ pub struct SHQUERYRBINFO {
     pub i64NumItems: i64,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::marker::Copy for SHQUERYRBINFO {}
+impl Copy for SHQUERYRBINFO {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::clone::Clone for SHQUERYRBINFO {
+impl Clone for SHQUERYRBINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -7351,9 +7351,9 @@ pub struct SHQUERYRBINFO {
     pub i64NumItems: i64,
 }
 #[cfg(target_arch = "x86")]
-impl ::core::marker::Copy for SHQUERYRBINFO {}
+impl Copy for SHQUERYRBINFO {}
 #[cfg(target_arch = "x86")]
-impl ::core::clone::Clone for SHQUERYRBINFO {
+impl Clone for SHQUERYRBINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -7370,10 +7370,10 @@ pub struct SHSTOCKICONINFO {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ::core::marker::Copy for SHSTOCKICONINFO {}
+impl Copy for SHSTOCKICONINFO {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ::core::clone::Clone for SHSTOCKICONINFO {
+impl Clone for SHSTOCKICONINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -7390,10 +7390,10 @@ pub struct SHSTOCKICONINFO {
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ::core::marker::Copy for SHSTOCKICONINFO {}
+impl Copy for SHSTOCKICONINFO {}
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ::core::clone::Clone for SHSTOCKICONINFO {
+impl Clone for SHSTOCKICONINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -7403,10 +7403,10 @@ pub struct SLOWAPPINFO {
     pub ullSize: u64,
     pub ftLastUsed: super::super::Foundation::FILETIME,
     pub iTimesUsed: i32,
-    pub pszImage: ::windows_sys::core::PWSTR,
+    pub pszImage: windows_sys::core::PWSTR,
 }
-impl ::core::marker::Copy for SLOWAPPINFO {}
-impl ::core::clone::Clone for SLOWAPPINFO {
+impl Copy for SLOWAPPINFO {}
+impl Clone for SLOWAPPINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -7419,9 +7419,9 @@ pub struct SMCSHCHANGENOTIFYSTRUCT {
     pub pidl2: *mut Common::ITEMIDLIST,
 }
 #[cfg(feature = "Win32_UI_Shell_Common")]
-impl ::core::marker::Copy for SMCSHCHANGENOTIFYSTRUCT {}
+impl Copy for SMCSHCHANGENOTIFYSTRUCT {}
 #[cfg(feature = "Win32_UI_Shell_Common")]
-impl ::core::clone::Clone for SMCSHCHANGENOTIFYSTRUCT {
+impl Clone for SMCSHCHANGENOTIFYSTRUCT {
     fn clone(&self) -> Self {
         *self
     }
@@ -7436,16 +7436,16 @@ pub struct SMDATA {
     pub uId: u32,
     pub uIdParent: u32,
     pub uIdAncestor: u32,
-    pub punk: *mut ::core::ffi::c_void,
+    pub punk: *mut core::ffi::c_void,
     pub pidlFolder: *mut Common::ITEMIDLIST,
     pub pidlItem: *mut Common::ITEMIDLIST,
-    pub psf: *mut ::core::ffi::c_void,
-    pub pvUserData: *mut ::core::ffi::c_void,
+    pub psf: *mut core::ffi::c_void,
+    pub pvUserData: *mut core::ffi::c_void,
 }
 #[cfg(all(feature = "Win32_UI_Shell_Common", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::marker::Copy for SMDATA {}
+impl Copy for SMDATA {}
 #[cfg(all(feature = "Win32_UI_Shell_Common", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::clone::Clone for SMDATA {
+impl Clone for SMDATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -7457,8 +7457,8 @@ pub struct SMINFO {
     pub dwFlags: u32,
     pub iIcon: i32,
 }
-impl ::core::marker::Copy for SMINFO {}
-impl ::core::clone::Clone for SMINFO {
+impl Copy for SMINFO {}
+impl Clone for SMINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -7470,9 +7470,9 @@ pub struct SORTCOLUMN {
     pub direction: SORTDIRECTION,
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl ::core::marker::Copy for SORTCOLUMN {}
+impl Copy for SORTCOLUMN {}
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl ::core::clone::Clone for SORTCOLUMN {
+impl Clone for SORTCOLUMN {
     fn clone(&self) -> Self {
         *self
     }
@@ -7480,15 +7480,15 @@ impl ::core::clone::Clone for SORTCOLUMN {
 #[repr(C)]
 pub struct SV2CVW2_PARAMS {
     pub cbSize: u32,
-    pub psvPrev: *mut ::core::ffi::c_void,
+    pub psvPrev: *mut core::ffi::c_void,
     pub pfs: *mut FOLDERSETTINGS,
-    pub psbOwner: *mut ::core::ffi::c_void,
+    pub psbOwner: *mut core::ffi::c_void,
     pub prcView: *mut super::super::Foundation::RECT,
-    pub pvid: *const ::windows_sys::core::GUID,
+    pub pvid: *const windows_sys::core::GUID,
     pub hwndView: super::super::Foundation::HWND,
 }
-impl ::core::marker::Copy for SV2CVW2_PARAMS {}
-impl ::core::clone::Clone for SV2CVW2_PARAMS {
+impl Copy for SV2CVW2_PARAMS {}
+impl Clone for SV2CVW2_PARAMS {
     fn clone(&self) -> Self {
         *self
     }
@@ -7502,9 +7502,9 @@ pub struct SYNCMGRHANDLERINFO {
     pub wszHandlerName: [u16; 32],
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ::core::marker::Copy for SYNCMGRHANDLERINFO {}
+impl Copy for SYNCMGRHANDLERINFO {}
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ::core::clone::Clone for SYNCMGRHANDLERINFO {
+impl Clone for SYNCMGRHANDLERINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -7514,16 +7514,16 @@ impl ::core::clone::Clone for SYNCMGRHANDLERINFO {
 pub struct SYNCMGRITEM {
     pub cbSize: u32,
     pub dwFlags: u32,
-    pub ItemID: ::windows_sys::core::GUID,
+    pub ItemID: windows_sys::core::GUID,
     pub dwItemState: u32,
     pub hIcon: super::WindowsAndMessaging::HICON,
     pub wszItemName: [u16; 128],
     pub ftLastUpdate: super::super::Foundation::FILETIME,
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ::core::marker::Copy for SYNCMGRITEM {}
+impl Copy for SYNCMGRITEM {}
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ::core::clone::Clone for SYNCMGRITEM {
+impl Clone for SYNCMGRITEM {
     fn clone(&self) -> Self {
         *self
     }
@@ -7533,11 +7533,11 @@ pub struct SYNCMGRLOGERRORINFO {
     pub cbSize: u32,
     pub mask: u32,
     pub dwSyncMgrErrorFlags: u32,
-    pub ErrorID: ::windows_sys::core::GUID,
-    pub ItemID: ::windows_sys::core::GUID,
+    pub ErrorID: windows_sys::core::GUID,
+    pub ItemID: windows_sys::core::GUID,
 }
-impl ::core::marker::Copy for SYNCMGRLOGERRORINFO {}
-impl ::core::clone::Clone for SYNCMGRLOGERRORINFO {
+impl Copy for SYNCMGRLOGERRORINFO {}
+impl Clone for SYNCMGRLOGERRORINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -7546,13 +7546,13 @@ impl ::core::clone::Clone for SYNCMGRLOGERRORINFO {
 pub struct SYNCMGRPROGRESSITEM {
     pub cbSize: u32,
     pub mask: u32,
-    pub lpcStatusText: ::windows_sys::core::PCWSTR,
+    pub lpcStatusText: windows_sys::core::PCWSTR,
     pub dwStatusType: u32,
     pub iProgValue: i32,
     pub iMaxValue: i32,
 }
-impl ::core::marker::Copy for SYNCMGRPROGRESSITEM {}
-impl ::core::clone::Clone for SYNCMGRPROGRESSITEM {
+impl Copy for SYNCMGRPROGRESSITEM {}
+impl Clone for SYNCMGRPROGRESSITEM {
     fn clone(&self) -> Self {
         *self
     }
@@ -7564,57 +7564,57 @@ pub struct SYNCMGR_CONFLICT_ID_INFO {
     pub pblobExtra: *mut super::super::System::Com::BYTE_BLOB,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::marker::Copy for SYNCMGR_CONFLICT_ID_INFO {}
+impl Copy for SYNCMGR_CONFLICT_ID_INFO {}
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for SYNCMGR_CONFLICT_ID_INFO {
+impl Clone for SYNCMGR_CONFLICT_ID_INFO {
     fn clone(&self) -> Self {
         *self
     }
 }
-pub const ScheduledTasks: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xd6277990_4c6a_11cf_8d87_00aa0060f5bf);
-pub const SearchFolderItemFactory: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x14010e02_bbbd_41f0_88e3_eda371216584);
-pub const SharedBitmap: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x4db26476_6787_4046_b836_e8412a9e8a27);
-pub const SharingConfigurationManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x49f371e1_8c5c_4d9c_9a3b_54a6827f513c);
-pub const Shell: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x13709620_c279_11ce_a49e_444553540000);
-pub const ShellBrowserWindow: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xc08afd90_f2a1_11d1_8455_00a0c91f3880);
-pub const ShellDesktop: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x00021400_0000_0000_c000_000000000046);
-pub const ShellDispatchInproc: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x0a89a860_d7b1_11ce_8350_444553540000);
-pub const ShellFSFolder: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xf3364ba0_65b9_11ce_a9ba_00aa004ae837);
-pub const ShellFolderItem: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x2fe352ea_fd1f_11d2_b1f4_00c04f8eeb3e);
-pub const ShellFolderView: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x62112aa1_ebe4_11cf_a5fb_0020afe7292d);
-pub const ShellFolderViewOC: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x9ba05971_f6a8_11cf_a442_00a0c90a8f39);
-pub const ShellImageDataFactory: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x66e4e4fb_f385_4dd0_8d74_a2efd1bc6178);
-pub const ShellItem: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x9ac9fbe1_e0a2_4ad6_b4ee_e212013ea917);
-pub const ShellLibrary: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xd9b3211d_e57f_4426_aaef_30a806add397);
-pub const ShellLink: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x00021401_0000_0000_c000_000000000046);
-pub const ShellLinkObject: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x11219420_1768_11d1_95be_00609797ea4f);
-pub const ShellNameSpace: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x55136805_b2de_11d1_b9f2_00a0c98bc547);
-pub const ShellUIHelper: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x64ab4bb7_111e_11d1_8f79_00c04fc2fbe1);
-pub const ShellWindows: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x9ba05972_f6a8_11cf_a442_00a0c90a8f39);
-pub const ShowInputPaneAnimationCoordinator: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x1f046abf_3202_4dc1_8cb5_3c67617ce1fa);
-pub const SimpleConflictPresenter: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x7a0f6ab7_ed84_46b6_b47e_02aa159a152b);
-pub const SizeCategorizer: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x55d7b852_f6d1_42f2_aa75_8728a1b2d264);
-pub const SmartcardCredentialProvider: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x8fd7e19c_3bf7_489b_a72c_846ab3678c96);
-pub const SmartcardPinProvider: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x94596c7e_3744_41ce_893e_bbf09122f76a);
-pub const SmartcardReaderSelectionProvider: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x1b283861_754f_4022_ad47_a5eaaa618894);
-pub const SmartcardWinRTProvider: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x1ee7337f_85ac_45e2_a23c_37c753209769);
-pub const StartMenuPin: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xa2a9545d_a0c2_42b4_9708_a0b2badd77c8);
-pub const StorageProviderBanners: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x7ccdf9f4_e576_455a_8bc7_f6ec68d6f063);
-pub const SuspensionDependencyManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x6b273fc5_61fd_4918_95a2_c3b5e9d7f581);
-pub const SyncMgr: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x6295df27_35ee_11d1_8707_00c04fd93327);
-pub const SyncMgrClient: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x1202db60_1dac_42c5_aed5_1abdd432248e);
-pub const SyncMgrControl: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x1a1f4206_0688_4e7f_be03_d82ec69df9a5);
-pub const SyncMgrFolder: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x9c73f5e5_7ae7_4e32_a8e8_8d23b85255bf);
-pub const SyncMgrScheduleWizard: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x8d8b8e30_c451_421b_8553_d2976afa648c);
-pub const SyncResultsFolder: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x71d99464_3b6b_475c_b241_e15883207529);
-pub const SyncSetupFolder: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x2e9e59c0_b437_4981_a647_9c34b9b90891);
+pub const ScheduledTasks: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd6277990_4c6a_11cf_8d87_00aa0060f5bf);
+pub const SearchFolderItemFactory: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x14010e02_bbbd_41f0_88e3_eda371216584);
+pub const SharedBitmap: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4db26476_6787_4046_b836_e8412a9e8a27);
+pub const SharingConfigurationManager: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x49f371e1_8c5c_4d9c_9a3b_54a6827f513c);
+pub const Shell: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x13709620_c279_11ce_a49e_444553540000);
+pub const ShellBrowserWindow: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc08afd90_f2a1_11d1_8455_00a0c91f3880);
+pub const ShellDesktop: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x00021400_0000_0000_c000_000000000046);
+pub const ShellDispatchInproc: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0a89a860_d7b1_11ce_8350_444553540000);
+pub const ShellFSFolder: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf3364ba0_65b9_11ce_a9ba_00aa004ae837);
+pub const ShellFolderItem: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x2fe352ea_fd1f_11d2_b1f4_00c04f8eeb3e);
+pub const ShellFolderView: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x62112aa1_ebe4_11cf_a5fb_0020afe7292d);
+pub const ShellFolderViewOC: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9ba05971_f6a8_11cf_a442_00a0c90a8f39);
+pub const ShellImageDataFactory: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x66e4e4fb_f385_4dd0_8d74_a2efd1bc6178);
+pub const ShellItem: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9ac9fbe1_e0a2_4ad6_b4ee_e212013ea917);
+pub const ShellLibrary: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd9b3211d_e57f_4426_aaef_30a806add397);
+pub const ShellLink: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x00021401_0000_0000_c000_000000000046);
+pub const ShellLinkObject: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x11219420_1768_11d1_95be_00609797ea4f);
+pub const ShellNameSpace: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x55136805_b2de_11d1_b9f2_00a0c98bc547);
+pub const ShellUIHelper: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x64ab4bb7_111e_11d1_8f79_00c04fc2fbe1);
+pub const ShellWindows: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9ba05972_f6a8_11cf_a442_00a0c90a8f39);
+pub const ShowInputPaneAnimationCoordinator: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1f046abf_3202_4dc1_8cb5_3c67617ce1fa);
+pub const SimpleConflictPresenter: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7a0f6ab7_ed84_46b6_b47e_02aa159a152b);
+pub const SizeCategorizer: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x55d7b852_f6d1_42f2_aa75_8728a1b2d264);
+pub const SmartcardCredentialProvider: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8fd7e19c_3bf7_489b_a72c_846ab3678c96);
+pub const SmartcardPinProvider: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x94596c7e_3744_41ce_893e_bbf09122f76a);
+pub const SmartcardReaderSelectionProvider: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1b283861_754f_4022_ad47_a5eaaa618894);
+pub const SmartcardWinRTProvider: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1ee7337f_85ac_45e2_a23c_37c753209769);
+pub const StartMenuPin: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa2a9545d_a0c2_42b4_9708_a0b2badd77c8);
+pub const StorageProviderBanners: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7ccdf9f4_e576_455a_8bc7_f6ec68d6f063);
+pub const SuspensionDependencyManager: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6b273fc5_61fd_4918_95a2_c3b5e9d7f581);
+pub const SyncMgr: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6295df27_35ee_11d1_8707_00c04fd93327);
+pub const SyncMgrClient: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1202db60_1dac_42c5_aed5_1abdd432248e);
+pub const SyncMgrControl: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1a1f4206_0688_4e7f_be03_d82ec69df9a5);
+pub const SyncMgrFolder: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9c73f5e5_7ae7_4e32_a8e8_8d23b85255bf);
+pub const SyncMgrScheduleWizard: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8d8b8e30_c451_421b_8553_d2976afa648c);
+pub const SyncResultsFolder: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x71d99464_3b6b_475c_b241_e15883207529);
+pub const SyncSetupFolder: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x2e9e59c0_b437_4981_a647_9c34b9b90891);
 #[repr(C)]
 pub struct TBINFO {
     pub cbuttons: u32,
     pub uFlags: u32,
 }
-impl ::core::marker::Copy for TBINFO {}
-impl ::core::clone::Clone for TBINFO {
+impl Copy for TBINFO {}
+impl Clone for TBINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -7630,9 +7630,9 @@ pub struct THUMBBUTTON {
     pub dwFlags: THUMBBUTTONFLAGS,
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ::core::marker::Copy for THUMBBUTTON {}
+impl Copy for THUMBBUTTON {}
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ::core::clone::Clone for THUMBBUTTON {
+impl Clone for THUMBBUTTON {
     fn clone(&self) -> Self {
         *self
     }
@@ -7640,35 +7640,35 @@ impl ::core::clone::Clone for THUMBBUTTON {
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct TOOLBARITEM {
-    pub ptbar: *mut ::core::ffi::c_void,
+    pub ptbar: *mut core::ffi::c_void,
     pub rcBorderTool: super::super::Foundation::RECT,
-    pub pwszItem: ::windows_sys::core::PWSTR,
+    pub pwszItem: windows_sys::core::PWSTR,
     pub fShow: super::super::Foundation::BOOL,
     pub hMon: super::super::Graphics::Gdi::HMONITOR,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::marker::Copy for TOOLBARITEM {}
+impl Copy for TOOLBARITEM {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::clone::Clone for TOOLBARITEM {
+impl Clone for TOOLBARITEM {
     fn clone(&self) -> Self {
         *self
     }
 }
-pub const TaskbarList: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x56fdf344_fd6d_11d0_958a_006097c9a090);
-pub const ThumbnailStreamCache: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xcbe0fed3_4b91_4e90_8354_8a8c84ec6872);
-pub const TimeCategorizer: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x3bb4118f_ddfd_4d30_a348_9fb5d6bf1afe);
-pub const TrackShellMenu: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x8278f931_2a3e_11d2_838f_00c04fd918d0);
-pub const TrayBandSiteService: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xf60ad0a0_e5e1_45cb_b51a_e15b9f8b2934);
-pub const TrayDeskBand: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xe6442437_6c68_4f52_94dd_2cfed267efb9);
+pub const TaskbarList: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x56fdf344_fd6d_11d0_958a_006097c9a090);
+pub const ThumbnailStreamCache: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xcbe0fed3_4b91_4e90_8354_8a8c84ec6872);
+pub const TimeCategorizer: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3bb4118f_ddfd_4d30_a348_9fb5d6bf1afe);
+pub const TrackShellMenu: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8278f931_2a3e_11d2_838f_00c04fd918d0);
+pub const TrayBandSiteService: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf60ad0a0_e5e1_45cb_b51a_e15b9f8b2934);
+pub const TrayDeskBand: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe6442437_6c68_4f52_94dd_2cfed267efb9);
 #[repr(C)]
 pub struct URLINVOKECOMMANDINFOA {
     pub dwcbSize: u32,
     pub dwFlags: u32,
     pub hwndParent: super::super::Foundation::HWND,
-    pub pcszVerb: ::windows_sys::core::PCSTR,
+    pub pcszVerb: windows_sys::core::PCSTR,
 }
-impl ::core::marker::Copy for URLINVOKECOMMANDINFOA {}
-impl ::core::clone::Clone for URLINVOKECOMMANDINFOA {
+impl Copy for URLINVOKECOMMANDINFOA {}
+impl Clone for URLINVOKECOMMANDINFOA {
     fn clone(&self) -> Self {
         *self
     }
@@ -7678,34 +7678,34 @@ pub struct URLINVOKECOMMANDINFOW {
     pub dwcbSize: u32,
     pub dwFlags: u32,
     pub hwndParent: super::super::Foundation::HWND,
-    pub pcszVerb: ::windows_sys::core::PCWSTR,
+    pub pcszVerb: windows_sys::core::PCWSTR,
 }
-impl ::core::marker::Copy for URLINVOKECOMMANDINFOW {}
-impl ::core::clone::Clone for URLINVOKECOMMANDINFOW {
+impl Copy for URLINVOKECOMMANDINFOW {}
+impl Clone for URLINVOKECOMMANDINFOW {
     fn clone(&self) -> Self {
         *self
     }
 }
-pub const UserNotification: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x0010890e_8789_413c_adbc_48f5b511b3af);
-pub const V1PasswordCredentialProvider: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x6f45dc1e_5384_457a_bc13_2cd81b0d28ed);
-pub const V1SmartcardCredentialProvider: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x8bf9a910_a8ff_457f_999f_a5ca10b4a885);
-pub const V1WinBioCredentialProvider: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xac3ac249_e820_4343_a65b_377ac634dc09);
-pub const VaultProvider: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x503739d0_4c5e_4cfd_b3ba_d881334f0df2);
-pub const VirtualDesktopManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xaa509086_5ca9_4c25_8f95_589d3c07b48a);
+pub const UserNotification: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0010890e_8789_413c_adbc_48f5b511b3af);
+pub const V1PasswordCredentialProvider: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6f45dc1e_5384_457a_bc13_2cd81b0d28ed);
+pub const V1SmartcardCredentialProvider: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8bf9a910_a8ff_457f_999f_a5ca10b4a885);
+pub const V1WinBioCredentialProvider: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xac3ac249_e820_4343_a65b_377ac634dc09);
+pub const VaultProvider: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x503739d0_4c5e_4cfd_b3ba_d881334f0df2);
+pub const VirtualDesktopManager: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xaa509086_5ca9_4c25_8f95_589d3c07b48a);
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell_Common")]
 pub struct WINDOWDATA {
     pub dwWindowID: u32,
     pub uiCP: u32,
     pub pidl: *mut Common::ITEMIDLIST,
-    pub lpszUrl: ::windows_sys::core::PWSTR,
-    pub lpszUrlLocation: ::windows_sys::core::PWSTR,
-    pub lpszTitle: ::windows_sys::core::PWSTR,
+    pub lpszUrl: windows_sys::core::PWSTR,
+    pub lpszUrlLocation: windows_sys::core::PWSTR,
+    pub lpszTitle: windows_sys::core::PWSTR,
 }
 #[cfg(feature = "Win32_UI_Shell_Common")]
-impl ::core::marker::Copy for WINDOWDATA {}
+impl Copy for WINDOWDATA {}
 #[cfg(feature = "Win32_UI_Shell_Common")]
-impl ::core::clone::Clone for WINDOWDATA {
+impl Clone for WINDOWDATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -7714,23 +7714,23 @@ impl ::core::clone::Clone for WINDOWDATA {
 pub struct WTS_THUMBNAILID {
     pub rgbKey: [u8; 16],
 }
-impl ::core::marker::Copy for WTS_THUMBNAILID {}
-impl ::core::clone::Clone for WTS_THUMBNAILID {
+impl Copy for WTS_THUMBNAILID {}
+impl Clone for WTS_THUMBNAILID {
     fn clone(&self) -> Self {
         *self
     }
 }
-pub const WebBrowser: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x8856f961_340a_11d0_a96b_00c04fd705a2);
-pub const WebBrowser_V1: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xeab22ac3_30c1_11cf_a7eb_0000c05bae0b);
-pub const WebWizardHost: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xc827f149_55c1_4d28_935e_57e47caed973);
-pub const WinBioCredentialProvider: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xbec09223_b018_416d_a0ac_523971b639f5);
-pub type APPLET_PROC = ::core::option::Option<unsafe extern "system" fn(hwndcpl: super::super::Foundation::HWND, msg: u32, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> i32>;
-pub type BFFCALLBACK = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: u32, lparam: super::super::Foundation::LPARAM, lpdata: super::super::Foundation::LPARAM) -> i32>;
-pub type DLLGETVERSIONPROC = ::core::option::Option<unsafe extern "system" fn(param0: *mut DLLVERSIONINFO) -> ::windows_sys::core::HRESULT>;
-pub type LPFNDFMCALLBACK = ::core::option::Option<unsafe extern "system" fn(psf: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, pdtobj: *mut ::core::ffi::c_void, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> ::windows_sys::core::HRESULT>;
-pub type LPFNVIEWCALLBACK = ::core::option::Option<unsafe extern "system" fn(psvouter: *mut ::core::ffi::c_void, psf: *mut ::core::ffi::c_void, hwndmain: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> ::windows_sys::core::HRESULT>;
-pub type PAPPCONSTRAIN_CHANGE_ROUTINE = ::core::option::Option<unsafe extern "system" fn(constrained: super::super::Foundation::BOOLEAN, context: *const ::core::ffi::c_void)>;
-pub type PAPPSTATE_CHANGE_ROUTINE = ::core::option::Option<unsafe extern "system" fn(quiesced: super::super::Foundation::BOOLEAN, context: *const ::core::ffi::c_void)>;
-pub type PFNCANSHAREFOLDERW = ::core::option::Option<unsafe extern "system" fn(pszpath: ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT>;
-pub type PFNSHOWSHAREFOLDERUIW = ::core::option::Option<unsafe extern "system" fn(hwndparent: super::super::Foundation::HWND, pszpath: ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT>;
-pub type SUBCLASSPROC = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, uidsubclass: usize, dwrefdata: usize) -> super::super::Foundation::LRESULT>;
+pub const WebBrowser: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8856f961_340a_11d0_a96b_00c04fd705a2);
+pub const WebBrowser_V1: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xeab22ac3_30c1_11cf_a7eb_0000c05bae0b);
+pub const WebWizardHost: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc827f149_55c1_4d28_935e_57e47caed973);
+pub const WinBioCredentialProvider: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xbec09223_b018_416d_a0ac_523971b639f5);
+pub type APPLET_PROC = Option<unsafe extern "system" fn(hwndcpl: super::super::Foundation::HWND, msg: u32, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> i32>;
+pub type BFFCALLBACK = Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: u32, lparam: super::super::Foundation::LPARAM, lpdata: super::super::Foundation::LPARAM) -> i32>;
+pub type DLLGETVERSIONPROC = Option<unsafe extern "system" fn(param0: *mut DLLVERSIONINFO) -> windows_sys::core::HRESULT>;
+pub type LPFNDFMCALLBACK = Option<unsafe extern "system" fn(psf: *mut core::ffi::c_void, hwnd: super::super::Foundation::HWND, pdtobj: *mut core::ffi::c_void, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> windows_sys::core::HRESULT>;
+pub type LPFNVIEWCALLBACK = Option<unsafe extern "system" fn(psvouter: *mut core::ffi::c_void, psf: *mut core::ffi::c_void, hwndmain: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> windows_sys::core::HRESULT>;
+pub type PAPPCONSTRAIN_CHANGE_ROUTINE = Option<unsafe extern "system" fn(constrained: super::super::Foundation::BOOLEAN, context: *const core::ffi::c_void)>;
+pub type PAPPSTATE_CHANGE_ROUTINE = Option<unsafe extern "system" fn(quiesced: super::super::Foundation::BOOLEAN, context: *const core::ffi::c_void)>;
+pub type PFNCANSHAREFOLDERW = Option<unsafe extern "system" fn(pszpath: windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT>;
+pub type PFNSHOWSHAREFOLDERUIW = Option<unsafe extern "system" fn(hwndparent: super::super::Foundation::HWND, pszpath: windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT>;
+pub type SUBCLASSPROC = Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, uidsubclass: usize, dwrefdata: usize) -> super::super::Foundation::LRESULT>;

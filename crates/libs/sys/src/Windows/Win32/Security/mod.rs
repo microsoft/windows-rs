@@ -27,27 +27,27 @@ pub mod WinTrust;
 #[cfg(feature = "Win32_Security_WinWlx")]
 pub mod WinWlx;
 ::windows_targets::link!("advapi32.dll" "system" fn AccessCheck(psecuritydescriptor : PSECURITY_DESCRIPTOR, clienttoken : super::Foundation:: HANDLE, desiredaccess : u32, genericmapping : *const GENERIC_MAPPING, privilegeset : *mut PRIVILEGE_SET, privilegesetlength : *mut u32, grantedaccess : *mut u32, accessstatus : *mut super::Foundation:: BOOL) -> super::Foundation:: BOOL);
-::windows_targets::link!("advapi32.dll" "system" fn AccessCheckAndAuditAlarmA(subsystemname : ::windows_sys::core::PCSTR, handleid : *const ::core::ffi::c_void, objecttypename : ::windows_sys::core::PCSTR, objectname : ::windows_sys::core::PCSTR, securitydescriptor : PSECURITY_DESCRIPTOR, desiredaccess : u32, genericmapping : *const GENERIC_MAPPING, objectcreation : super::Foundation:: BOOL, grantedaccess : *mut u32, accessstatus : *mut super::Foundation:: BOOL, pfgenerateonclose : *mut super::Foundation:: BOOL) -> super::Foundation:: BOOL);
-::windows_targets::link!("advapi32.dll" "system" fn AccessCheckAndAuditAlarmW(subsystemname : ::windows_sys::core::PCWSTR, handleid : *const ::core::ffi::c_void, objecttypename : ::windows_sys::core::PCWSTR, objectname : ::windows_sys::core::PCWSTR, securitydescriptor : PSECURITY_DESCRIPTOR, desiredaccess : u32, genericmapping : *const GENERIC_MAPPING, objectcreation : super::Foundation:: BOOL, grantedaccess : *mut u32, accessstatus : *mut super::Foundation:: BOOL, pfgenerateonclose : *mut super::Foundation:: BOOL) -> super::Foundation:: BOOL);
+::windows_targets::link!("advapi32.dll" "system" fn AccessCheckAndAuditAlarmA(subsystemname : windows_sys::core::PCSTR, handleid : *const core::ffi::c_void, objecttypename : windows_sys::core::PCSTR, objectname : windows_sys::core::PCSTR, securitydescriptor : PSECURITY_DESCRIPTOR, desiredaccess : u32, genericmapping : *const GENERIC_MAPPING, objectcreation : super::Foundation:: BOOL, grantedaccess : *mut u32, accessstatus : *mut super::Foundation:: BOOL, pfgenerateonclose : *mut super::Foundation:: BOOL) -> super::Foundation:: BOOL);
+::windows_targets::link!("advapi32.dll" "system" fn AccessCheckAndAuditAlarmW(subsystemname : windows_sys::core::PCWSTR, handleid : *const core::ffi::c_void, objecttypename : windows_sys::core::PCWSTR, objectname : windows_sys::core::PCWSTR, securitydescriptor : PSECURITY_DESCRIPTOR, desiredaccess : u32, genericmapping : *const GENERIC_MAPPING, objectcreation : super::Foundation:: BOOL, grantedaccess : *mut u32, accessstatus : *mut super::Foundation:: BOOL, pfgenerateonclose : *mut super::Foundation:: BOOL) -> super::Foundation:: BOOL);
 ::windows_targets::link!("advapi32.dll" "system" fn AccessCheckByType(psecuritydescriptor : PSECURITY_DESCRIPTOR, principalselfsid : super::Foundation:: PSID, clienttoken : super::Foundation:: HANDLE, desiredaccess : u32, objecttypelist : *mut OBJECT_TYPE_LIST, objecttypelistlength : u32, genericmapping : *const GENERIC_MAPPING, privilegeset : *mut PRIVILEGE_SET, privilegesetlength : *mut u32, grantedaccess : *mut u32, accessstatus : *mut super::Foundation:: BOOL) -> super::Foundation:: BOOL);
-::windows_targets::link!("advapi32.dll" "system" fn AccessCheckByTypeAndAuditAlarmA(subsystemname : ::windows_sys::core::PCSTR, handleid : *const ::core::ffi::c_void, objecttypename : ::windows_sys::core::PCSTR, objectname : ::windows_sys::core::PCSTR, securitydescriptor : PSECURITY_DESCRIPTOR, principalselfsid : super::Foundation:: PSID, desiredaccess : u32, audittype : AUDIT_EVENT_TYPE, flags : u32, objecttypelist : *mut OBJECT_TYPE_LIST, objecttypelistlength : u32, genericmapping : *const GENERIC_MAPPING, objectcreation : super::Foundation:: BOOL, grantedaccess : *mut u32, accessstatus : *mut super::Foundation:: BOOL, pfgenerateonclose : *mut super::Foundation:: BOOL) -> super::Foundation:: BOOL);
-::windows_targets::link!("advapi32.dll" "system" fn AccessCheckByTypeAndAuditAlarmW(subsystemname : ::windows_sys::core::PCWSTR, handleid : *const ::core::ffi::c_void, objecttypename : ::windows_sys::core::PCWSTR, objectname : ::windows_sys::core::PCWSTR, securitydescriptor : PSECURITY_DESCRIPTOR, principalselfsid : super::Foundation:: PSID, desiredaccess : u32, audittype : AUDIT_EVENT_TYPE, flags : u32, objecttypelist : *mut OBJECT_TYPE_LIST, objecttypelistlength : u32, genericmapping : *const GENERIC_MAPPING, objectcreation : super::Foundation:: BOOL, grantedaccess : *mut u32, accessstatus : *mut super::Foundation:: BOOL, pfgenerateonclose : *mut super::Foundation:: BOOL) -> super::Foundation:: BOOL);
+::windows_targets::link!("advapi32.dll" "system" fn AccessCheckByTypeAndAuditAlarmA(subsystemname : windows_sys::core::PCSTR, handleid : *const core::ffi::c_void, objecttypename : windows_sys::core::PCSTR, objectname : windows_sys::core::PCSTR, securitydescriptor : PSECURITY_DESCRIPTOR, principalselfsid : super::Foundation:: PSID, desiredaccess : u32, audittype : AUDIT_EVENT_TYPE, flags : u32, objecttypelist : *mut OBJECT_TYPE_LIST, objecttypelistlength : u32, genericmapping : *const GENERIC_MAPPING, objectcreation : super::Foundation:: BOOL, grantedaccess : *mut u32, accessstatus : *mut super::Foundation:: BOOL, pfgenerateonclose : *mut super::Foundation:: BOOL) -> super::Foundation:: BOOL);
+::windows_targets::link!("advapi32.dll" "system" fn AccessCheckByTypeAndAuditAlarmW(subsystemname : windows_sys::core::PCWSTR, handleid : *const core::ffi::c_void, objecttypename : windows_sys::core::PCWSTR, objectname : windows_sys::core::PCWSTR, securitydescriptor : PSECURITY_DESCRIPTOR, principalselfsid : super::Foundation:: PSID, desiredaccess : u32, audittype : AUDIT_EVENT_TYPE, flags : u32, objecttypelist : *mut OBJECT_TYPE_LIST, objecttypelistlength : u32, genericmapping : *const GENERIC_MAPPING, objectcreation : super::Foundation:: BOOL, grantedaccess : *mut u32, accessstatus : *mut super::Foundation:: BOOL, pfgenerateonclose : *mut super::Foundation:: BOOL) -> super::Foundation:: BOOL);
 ::windows_targets::link!("advapi32.dll" "system" fn AccessCheckByTypeResultList(psecuritydescriptor : PSECURITY_DESCRIPTOR, principalselfsid : super::Foundation:: PSID, clienttoken : super::Foundation:: HANDLE, desiredaccess : u32, objecttypelist : *mut OBJECT_TYPE_LIST, objecttypelistlength : u32, genericmapping : *const GENERIC_MAPPING, privilegeset : *mut PRIVILEGE_SET, privilegesetlength : *mut u32, grantedaccesslist : *mut u32, accessstatuslist : *mut u32) -> super::Foundation:: BOOL);
-::windows_targets::link!("advapi32.dll" "system" fn AccessCheckByTypeResultListAndAuditAlarmA(subsystemname : ::windows_sys::core::PCSTR, handleid : *const ::core::ffi::c_void, objecttypename : ::windows_sys::core::PCSTR, objectname : ::windows_sys::core::PCSTR, securitydescriptor : PSECURITY_DESCRIPTOR, principalselfsid : super::Foundation:: PSID, desiredaccess : u32, audittype : AUDIT_EVENT_TYPE, flags : u32, objecttypelist : *mut OBJECT_TYPE_LIST, objecttypelistlength : u32, genericmapping : *const GENERIC_MAPPING, objectcreation : super::Foundation:: BOOL, grantedaccess : *mut u32, accessstatuslist : *mut u32, pfgenerateonclose : *mut super::Foundation:: BOOL) -> super::Foundation:: BOOL);
-::windows_targets::link!("advapi32.dll" "system" fn AccessCheckByTypeResultListAndAuditAlarmByHandleA(subsystemname : ::windows_sys::core::PCSTR, handleid : *const ::core::ffi::c_void, clienttoken : super::Foundation:: HANDLE, objecttypename : ::windows_sys::core::PCSTR, objectname : ::windows_sys::core::PCSTR, securitydescriptor : PSECURITY_DESCRIPTOR, principalselfsid : super::Foundation:: PSID, desiredaccess : u32, audittype : AUDIT_EVENT_TYPE, flags : u32, objecttypelist : *mut OBJECT_TYPE_LIST, objecttypelistlength : u32, genericmapping : *const GENERIC_MAPPING, objectcreation : super::Foundation:: BOOL, grantedaccess : *mut u32, accessstatuslist : *mut u32, pfgenerateonclose : *mut super::Foundation:: BOOL) -> super::Foundation:: BOOL);
-::windows_targets::link!("advapi32.dll" "system" fn AccessCheckByTypeResultListAndAuditAlarmByHandleW(subsystemname : ::windows_sys::core::PCWSTR, handleid : *const ::core::ffi::c_void, clienttoken : super::Foundation:: HANDLE, objecttypename : ::windows_sys::core::PCWSTR, objectname : ::windows_sys::core::PCWSTR, securitydescriptor : PSECURITY_DESCRIPTOR, principalselfsid : super::Foundation:: PSID, desiredaccess : u32, audittype : AUDIT_EVENT_TYPE, flags : u32, objecttypelist : *mut OBJECT_TYPE_LIST, objecttypelistlength : u32, genericmapping : *const GENERIC_MAPPING, objectcreation : super::Foundation:: BOOL, grantedaccesslist : *mut u32, accessstatuslist : *mut u32, pfgenerateonclose : *mut super::Foundation:: BOOL) -> super::Foundation:: BOOL);
-::windows_targets::link!("advapi32.dll" "system" fn AccessCheckByTypeResultListAndAuditAlarmW(subsystemname : ::windows_sys::core::PCWSTR, handleid : *const ::core::ffi::c_void, objecttypename : ::windows_sys::core::PCWSTR, objectname : ::windows_sys::core::PCWSTR, securitydescriptor : PSECURITY_DESCRIPTOR, principalselfsid : super::Foundation:: PSID, desiredaccess : u32, audittype : AUDIT_EVENT_TYPE, flags : u32, objecttypelist : *mut OBJECT_TYPE_LIST, objecttypelistlength : u32, genericmapping : *const GENERIC_MAPPING, objectcreation : super::Foundation:: BOOL, grantedaccesslist : *mut u32, accessstatuslist : *mut u32, pfgenerateonclose : *mut super::Foundation:: BOOL) -> super::Foundation:: BOOL);
+::windows_targets::link!("advapi32.dll" "system" fn AccessCheckByTypeResultListAndAuditAlarmA(subsystemname : windows_sys::core::PCSTR, handleid : *const core::ffi::c_void, objecttypename : windows_sys::core::PCSTR, objectname : windows_sys::core::PCSTR, securitydescriptor : PSECURITY_DESCRIPTOR, principalselfsid : super::Foundation:: PSID, desiredaccess : u32, audittype : AUDIT_EVENT_TYPE, flags : u32, objecttypelist : *mut OBJECT_TYPE_LIST, objecttypelistlength : u32, genericmapping : *const GENERIC_MAPPING, objectcreation : super::Foundation:: BOOL, grantedaccess : *mut u32, accessstatuslist : *mut u32, pfgenerateonclose : *mut super::Foundation:: BOOL) -> super::Foundation:: BOOL);
+::windows_targets::link!("advapi32.dll" "system" fn AccessCheckByTypeResultListAndAuditAlarmByHandleA(subsystemname : windows_sys::core::PCSTR, handleid : *const core::ffi::c_void, clienttoken : super::Foundation:: HANDLE, objecttypename : windows_sys::core::PCSTR, objectname : windows_sys::core::PCSTR, securitydescriptor : PSECURITY_DESCRIPTOR, principalselfsid : super::Foundation:: PSID, desiredaccess : u32, audittype : AUDIT_EVENT_TYPE, flags : u32, objecttypelist : *mut OBJECT_TYPE_LIST, objecttypelistlength : u32, genericmapping : *const GENERIC_MAPPING, objectcreation : super::Foundation:: BOOL, grantedaccess : *mut u32, accessstatuslist : *mut u32, pfgenerateonclose : *mut super::Foundation:: BOOL) -> super::Foundation:: BOOL);
+::windows_targets::link!("advapi32.dll" "system" fn AccessCheckByTypeResultListAndAuditAlarmByHandleW(subsystemname : windows_sys::core::PCWSTR, handleid : *const core::ffi::c_void, clienttoken : super::Foundation:: HANDLE, objecttypename : windows_sys::core::PCWSTR, objectname : windows_sys::core::PCWSTR, securitydescriptor : PSECURITY_DESCRIPTOR, principalselfsid : super::Foundation:: PSID, desiredaccess : u32, audittype : AUDIT_EVENT_TYPE, flags : u32, objecttypelist : *mut OBJECT_TYPE_LIST, objecttypelistlength : u32, genericmapping : *const GENERIC_MAPPING, objectcreation : super::Foundation:: BOOL, grantedaccesslist : *mut u32, accessstatuslist : *mut u32, pfgenerateonclose : *mut super::Foundation:: BOOL) -> super::Foundation:: BOOL);
+::windows_targets::link!("advapi32.dll" "system" fn AccessCheckByTypeResultListAndAuditAlarmW(subsystemname : windows_sys::core::PCWSTR, handleid : *const core::ffi::c_void, objecttypename : windows_sys::core::PCWSTR, objectname : windows_sys::core::PCWSTR, securitydescriptor : PSECURITY_DESCRIPTOR, principalselfsid : super::Foundation:: PSID, desiredaccess : u32, audittype : AUDIT_EVENT_TYPE, flags : u32, objecttypelist : *mut OBJECT_TYPE_LIST, objecttypelistlength : u32, genericmapping : *const GENERIC_MAPPING, objectcreation : super::Foundation:: BOOL, grantedaccesslist : *mut u32, accessstatuslist : *mut u32, pfgenerateonclose : *mut super::Foundation:: BOOL) -> super::Foundation:: BOOL);
 ::windows_targets::link!("advapi32.dll" "system" fn AddAccessAllowedAce(pacl : *mut ACL, dwacerevision : ACE_REVISION, accessmask : u32, psid : super::Foundation:: PSID) -> super::Foundation:: BOOL);
 ::windows_targets::link!("advapi32.dll" "system" fn AddAccessAllowedAceEx(pacl : *mut ACL, dwacerevision : ACE_REVISION, aceflags : ACE_FLAGS, accessmask : u32, psid : super::Foundation:: PSID) -> super::Foundation:: BOOL);
-::windows_targets::link!("advapi32.dll" "system" fn AddAccessAllowedObjectAce(pacl : *mut ACL, dwacerevision : ACE_REVISION, aceflags : ACE_FLAGS, accessmask : u32, objecttypeguid : *const ::windows_sys::core::GUID, inheritedobjecttypeguid : *const ::windows_sys::core::GUID, psid : super::Foundation:: PSID) -> super::Foundation:: BOOL);
+::windows_targets::link!("advapi32.dll" "system" fn AddAccessAllowedObjectAce(pacl : *mut ACL, dwacerevision : ACE_REVISION, aceflags : ACE_FLAGS, accessmask : u32, objecttypeguid : *const windows_sys::core::GUID, inheritedobjecttypeguid : *const windows_sys::core::GUID, psid : super::Foundation:: PSID) -> super::Foundation:: BOOL);
 ::windows_targets::link!("advapi32.dll" "system" fn AddAccessDeniedAce(pacl : *mut ACL, dwacerevision : ACE_REVISION, accessmask : u32, psid : super::Foundation:: PSID) -> super::Foundation:: BOOL);
 ::windows_targets::link!("advapi32.dll" "system" fn AddAccessDeniedAceEx(pacl : *mut ACL, dwacerevision : ACE_REVISION, aceflags : ACE_FLAGS, accessmask : u32, psid : super::Foundation:: PSID) -> super::Foundation:: BOOL);
-::windows_targets::link!("advapi32.dll" "system" fn AddAccessDeniedObjectAce(pacl : *mut ACL, dwacerevision : ACE_REVISION, aceflags : ACE_FLAGS, accessmask : u32, objecttypeguid : *const ::windows_sys::core::GUID, inheritedobjecttypeguid : *const ::windows_sys::core::GUID, psid : super::Foundation:: PSID) -> super::Foundation:: BOOL);
-::windows_targets::link!("advapi32.dll" "system" fn AddAce(pacl : *mut ACL, dwacerevision : ACE_REVISION, dwstartingaceindex : u32, pacelist : *const ::core::ffi::c_void, nacelistlength : u32) -> super::Foundation:: BOOL);
+::windows_targets::link!("advapi32.dll" "system" fn AddAccessDeniedObjectAce(pacl : *mut ACL, dwacerevision : ACE_REVISION, aceflags : ACE_FLAGS, accessmask : u32, objecttypeguid : *const windows_sys::core::GUID, inheritedobjecttypeguid : *const windows_sys::core::GUID, psid : super::Foundation:: PSID) -> super::Foundation:: BOOL);
+::windows_targets::link!("advapi32.dll" "system" fn AddAce(pacl : *mut ACL, dwacerevision : ACE_REVISION, dwstartingaceindex : u32, pacelist : *const core::ffi::c_void, nacelistlength : u32) -> super::Foundation:: BOOL);
 ::windows_targets::link!("advapi32.dll" "system" fn AddAuditAccessAce(pacl : *mut ACL, dwacerevision : ACE_REVISION, dwaccessmask : u32, psid : super::Foundation:: PSID, bauditsuccess : super::Foundation:: BOOL, bauditfailure : super::Foundation:: BOOL) -> super::Foundation:: BOOL);
 ::windows_targets::link!("advapi32.dll" "system" fn AddAuditAccessAceEx(pacl : *mut ACL, dwacerevision : ACE_REVISION, aceflags : ACE_FLAGS, dwaccessmask : u32, psid : super::Foundation:: PSID, bauditsuccess : super::Foundation:: BOOL, bauditfailure : super::Foundation:: BOOL) -> super::Foundation:: BOOL);
-::windows_targets::link!("advapi32.dll" "system" fn AddAuditAccessObjectAce(pacl : *mut ACL, dwacerevision : ACE_REVISION, aceflags : ACE_FLAGS, accessmask : u32, objecttypeguid : *const ::windows_sys::core::GUID, inheritedobjecttypeguid : *const ::windows_sys::core::GUID, psid : super::Foundation:: PSID, bauditsuccess : super::Foundation:: BOOL, bauditfailure : super::Foundation:: BOOL) -> super::Foundation:: BOOL);
-::windows_targets::link!("advapi32.dll" "system" fn AddConditionalAce(pacl : *mut ACL, dwacerevision : ACE_REVISION, aceflags : ACE_FLAGS, acetype : u8, accessmask : u32, psid : super::Foundation:: PSID, conditionstr : ::windows_sys::core::PCWSTR, returnlength : *mut u32) -> super::Foundation:: BOOL);
+::windows_targets::link!("advapi32.dll" "system" fn AddAuditAccessObjectAce(pacl : *mut ACL, dwacerevision : ACE_REVISION, aceflags : ACE_FLAGS, accessmask : u32, objecttypeguid : *const windows_sys::core::GUID, inheritedobjecttypeguid : *const windows_sys::core::GUID, psid : super::Foundation:: PSID, bauditsuccess : super::Foundation:: BOOL, bauditfailure : super::Foundation:: BOOL) -> super::Foundation:: BOOL);
+::windows_targets::link!("advapi32.dll" "system" fn AddConditionalAce(pacl : *mut ACL, dwacerevision : ACE_REVISION, aceflags : ACE_FLAGS, acetype : u8, accessmask : u32, psid : super::Foundation:: PSID, conditionstr : windows_sys::core::PCWSTR, returnlength : *mut u32) -> super::Foundation:: BOOL);
 ::windows_targets::link!("advapi32.dll" "system" fn AddMandatoryAce(pacl : *mut ACL, dwacerevision : ACE_REVISION, aceflags : ACE_FLAGS, mandatorypolicy : u32, plabelsid : super::Foundation:: PSID) -> super::Foundation:: BOOL);
 ::windows_targets::link!("kernel32.dll" "system" fn AddResourceAttributeAce(pacl : *mut ACL, dwacerevision : ACE_REVISION, aceflags : ACE_FLAGS, accessmask : u32, psid : super::Foundation:: PSID, pattributeinfo : *const CLAIM_SECURITY_ATTRIBUTES_INFORMATION, preturnlength : *mut u32) -> super::Foundation:: BOOL);
 ::windows_targets::link!("kernel32.dll" "system" fn AddScopedPolicyIDAce(pacl : *mut ACL, dwacerevision : ACE_REVISION, aceflags : ACE_FLAGS, accessmask : u32, psid : super::Foundation:: PSID) -> super::Foundation:: BOOL);
@@ -60,29 +60,29 @@ pub mod WinWlx;
 ::windows_targets::link!("kernel32.dll" "system" fn CheckTokenCapability(tokenhandle : super::Foundation:: HANDLE, capabilitysidtocheck : super::Foundation:: PSID, hascapability : *mut super::Foundation:: BOOL) -> super::Foundation:: BOOL);
 ::windows_targets::link!("advapi32.dll" "system" fn CheckTokenMembership(tokenhandle : super::Foundation:: HANDLE, sidtocheck : super::Foundation:: PSID, ismember : *mut super::Foundation:: BOOL) -> super::Foundation:: BOOL);
 ::windows_targets::link!("kernel32.dll" "system" fn CheckTokenMembershipEx(tokenhandle : super::Foundation:: HANDLE, sidtocheck : super::Foundation:: PSID, flags : u32, ismember : *mut super::Foundation:: BOOL) -> super::Foundation:: BOOL);
-::windows_targets::link!("advapi32.dll" "system" fn ConvertToAutoInheritPrivateObjectSecurity(parentdescriptor : PSECURITY_DESCRIPTOR, currentsecuritydescriptor : PSECURITY_DESCRIPTOR, newsecuritydescriptor : *mut PSECURITY_DESCRIPTOR, objecttype : *const ::windows_sys::core::GUID, isdirectoryobject : super::Foundation:: BOOLEAN, genericmapping : *const GENERIC_MAPPING) -> super::Foundation:: BOOL);
+::windows_targets::link!("advapi32.dll" "system" fn ConvertToAutoInheritPrivateObjectSecurity(parentdescriptor : PSECURITY_DESCRIPTOR, currentsecuritydescriptor : PSECURITY_DESCRIPTOR, newsecuritydescriptor : *mut PSECURITY_DESCRIPTOR, objecttype : *const windows_sys::core::GUID, isdirectoryobject : super::Foundation:: BOOLEAN, genericmapping : *const GENERIC_MAPPING) -> super::Foundation:: BOOL);
 ::windows_targets::link!("advapi32.dll" "system" fn CopySid(ndestinationsidlength : u32, pdestinationsid : super::Foundation:: PSID, psourcesid : super::Foundation:: PSID) -> super::Foundation:: BOOL);
 ::windows_targets::link!("advapi32.dll" "system" fn CreatePrivateObjectSecurity(parentdescriptor : PSECURITY_DESCRIPTOR, creatordescriptor : PSECURITY_DESCRIPTOR, newdescriptor : *mut PSECURITY_DESCRIPTOR, isdirectoryobject : super::Foundation:: BOOL, token : super::Foundation:: HANDLE, genericmapping : *const GENERIC_MAPPING) -> super::Foundation:: BOOL);
-::windows_targets::link!("advapi32.dll" "system" fn CreatePrivateObjectSecurityEx(parentdescriptor : PSECURITY_DESCRIPTOR, creatordescriptor : PSECURITY_DESCRIPTOR, newdescriptor : *mut PSECURITY_DESCRIPTOR, objecttype : *const ::windows_sys::core::GUID, iscontainerobject : super::Foundation:: BOOL, autoinheritflags : SECURITY_AUTO_INHERIT_FLAGS, token : super::Foundation:: HANDLE, genericmapping : *const GENERIC_MAPPING) -> super::Foundation:: BOOL);
-::windows_targets::link!("advapi32.dll" "system" fn CreatePrivateObjectSecurityWithMultipleInheritance(parentdescriptor : PSECURITY_DESCRIPTOR, creatordescriptor : PSECURITY_DESCRIPTOR, newdescriptor : *mut PSECURITY_DESCRIPTOR, objecttypes : *const *const ::windows_sys::core::GUID, guidcount : u32, iscontainerobject : super::Foundation:: BOOL, autoinheritflags : SECURITY_AUTO_INHERIT_FLAGS, token : super::Foundation:: HANDLE, genericmapping : *const GENERIC_MAPPING) -> super::Foundation:: BOOL);
+::windows_targets::link!("advapi32.dll" "system" fn CreatePrivateObjectSecurityEx(parentdescriptor : PSECURITY_DESCRIPTOR, creatordescriptor : PSECURITY_DESCRIPTOR, newdescriptor : *mut PSECURITY_DESCRIPTOR, objecttype : *const windows_sys::core::GUID, iscontainerobject : super::Foundation:: BOOL, autoinheritflags : SECURITY_AUTO_INHERIT_FLAGS, token : super::Foundation:: HANDLE, genericmapping : *const GENERIC_MAPPING) -> super::Foundation:: BOOL);
+::windows_targets::link!("advapi32.dll" "system" fn CreatePrivateObjectSecurityWithMultipleInheritance(parentdescriptor : PSECURITY_DESCRIPTOR, creatordescriptor : PSECURITY_DESCRIPTOR, newdescriptor : *mut PSECURITY_DESCRIPTOR, objecttypes : *const *const windows_sys::core::GUID, guidcount : u32, iscontainerobject : super::Foundation:: BOOL, autoinheritflags : SECURITY_AUTO_INHERIT_FLAGS, token : super::Foundation:: HANDLE, genericmapping : *const GENERIC_MAPPING) -> super::Foundation:: BOOL);
 ::windows_targets::link!("advapi32.dll" "system" fn CreateRestrictedToken(existingtokenhandle : super::Foundation:: HANDLE, flags : CREATE_RESTRICTED_TOKEN_FLAGS, disablesidcount : u32, sidstodisable : *const SID_AND_ATTRIBUTES, deleteprivilegecount : u32, privilegestodelete : *const LUID_AND_ATTRIBUTES, restrictedsidcount : u32, sidstorestrict : *const SID_AND_ATTRIBUTES, newtokenhandle : *mut super::Foundation:: HANDLE) -> super::Foundation:: BOOL);
 ::windows_targets::link!("advapi32.dll" "system" fn CreateWellKnownSid(wellknownsidtype : WELL_KNOWN_SID_TYPE, domainsid : super::Foundation:: PSID, psid : super::Foundation:: PSID, cbsid : *mut u32) -> super::Foundation:: BOOL);
 ::windows_targets::link!("advapi32.dll" "system" fn DeleteAce(pacl : *mut ACL, dwaceindex : u32) -> super::Foundation:: BOOL);
-::windows_targets::link!("api-ms-win-security-base-l1-2-2.dll" "system" fn DeriveCapabilitySidsFromName(capname : ::windows_sys::core::PCWSTR, capabilitygroupsids : *mut *mut super::Foundation:: PSID, capabilitygroupsidcount : *mut u32, capabilitysids : *mut *mut super::Foundation:: PSID, capabilitysidcount : *mut u32) -> super::Foundation:: BOOL);
+::windows_targets::link!("api-ms-win-security-base-l1-2-2.dll" "system" fn DeriveCapabilitySidsFromName(capname : windows_sys::core::PCWSTR, capabilitygroupsids : *mut *mut super::Foundation:: PSID, capabilitygroupsidcount : *mut u32, capabilitysids : *mut *mut super::Foundation:: PSID, capabilitysidcount : *mut u32) -> super::Foundation:: BOOL);
 ::windows_targets::link!("advapi32.dll" "system" fn DestroyPrivateObjectSecurity(objectdescriptor : *const PSECURITY_DESCRIPTOR) -> super::Foundation:: BOOL);
 ::windows_targets::link!("advapi32.dll" "system" fn DuplicateToken(existingtokenhandle : super::Foundation:: HANDLE, impersonationlevel : SECURITY_IMPERSONATION_LEVEL, duplicatetokenhandle : *mut super::Foundation:: HANDLE) -> super::Foundation:: BOOL);
 ::windows_targets::link!("advapi32.dll" "system" fn DuplicateTokenEx(hexistingtoken : super::Foundation:: HANDLE, dwdesiredaccess : TOKEN_ACCESS_MASK, lptokenattributes : *const SECURITY_ATTRIBUTES, impersonationlevel : SECURITY_IMPERSONATION_LEVEL, tokentype : TOKEN_TYPE, phnewtoken : *mut super::Foundation:: HANDLE) -> super::Foundation:: BOOL);
 ::windows_targets::link!("advapi32.dll" "system" fn EqualDomainSid(psid1 : super::Foundation:: PSID, psid2 : super::Foundation:: PSID, pfequal : *mut super::Foundation:: BOOL) -> super::Foundation:: BOOL);
 ::windows_targets::link!("advapi32.dll" "system" fn EqualPrefixSid(psid1 : super::Foundation:: PSID, psid2 : super::Foundation:: PSID) -> super::Foundation:: BOOL);
 ::windows_targets::link!("advapi32.dll" "system" fn EqualSid(psid1 : super::Foundation:: PSID, psid2 : super::Foundation:: PSID) -> super::Foundation:: BOOL);
-::windows_targets::link!("advapi32.dll" "system" fn FindFirstFreeAce(pacl : *const ACL, pace : *mut *mut ::core::ffi::c_void) -> super::Foundation:: BOOL);
-::windows_targets::link!("advapi32.dll" "system" fn FreeSid(psid : super::Foundation:: PSID) -> *mut ::core::ffi::c_void);
-::windows_targets::link!("advapi32.dll" "system" fn GetAce(pacl : *const ACL, dwaceindex : u32, pace : *mut *mut ::core::ffi::c_void) -> super::Foundation:: BOOL);
-::windows_targets::link!("advapi32.dll" "system" fn GetAclInformation(pacl : *const ACL, paclinformation : *mut ::core::ffi::c_void, naclinformationlength : u32, dwaclinformationclass : ACL_INFORMATION_CLASS) -> super::Foundation:: BOOL);
-::windows_targets::link!("kernel32.dll" "system" fn GetAppContainerAce(acl : *const ACL, startingaceindex : u32, appcontainerace : *mut *mut ::core::ffi::c_void, appcontaineraceindex : *mut u32) -> super::Foundation:: BOOL);
+::windows_targets::link!("advapi32.dll" "system" fn FindFirstFreeAce(pacl : *const ACL, pace : *mut *mut core::ffi::c_void) -> super::Foundation:: BOOL);
+::windows_targets::link!("advapi32.dll" "system" fn FreeSid(psid : super::Foundation:: PSID) -> *mut core::ffi::c_void);
+::windows_targets::link!("advapi32.dll" "system" fn GetAce(pacl : *const ACL, dwaceindex : u32, pace : *mut *mut core::ffi::c_void) -> super::Foundation:: BOOL);
+::windows_targets::link!("advapi32.dll" "system" fn GetAclInformation(pacl : *const ACL, paclinformation : *mut core::ffi::c_void, naclinformationlength : u32, dwaclinformationclass : ACL_INFORMATION_CLASS) -> super::Foundation:: BOOL);
+::windows_targets::link!("kernel32.dll" "system" fn GetAppContainerAce(acl : *const ACL, startingaceindex : u32, appcontainerace : *mut *mut core::ffi::c_void, appcontaineraceindex : *mut u32) -> super::Foundation:: BOOL);
 ::windows_targets::link!("kernel32.dll" "system" fn GetCachedSigningLevel(file : super::Foundation:: HANDLE, flags : *mut u32, signinglevel : *mut u32, thumbprint : *mut u8, thumbprintsize : *mut u32, thumbprintalgorithm : *mut u32) -> super::Foundation:: BOOL);
-::windows_targets::link!("advapi32.dll" "system" fn GetFileSecurityA(lpfilename : ::windows_sys::core::PCSTR, requestedinformation : u32, psecuritydescriptor : PSECURITY_DESCRIPTOR, nlength : u32, lpnlengthneeded : *mut u32) -> super::Foundation:: BOOL);
-::windows_targets::link!("advapi32.dll" "system" fn GetFileSecurityW(lpfilename : ::windows_sys::core::PCWSTR, requestedinformation : u32, psecuritydescriptor : PSECURITY_DESCRIPTOR, nlength : u32, lpnlengthneeded : *mut u32) -> super::Foundation:: BOOL);
+::windows_targets::link!("advapi32.dll" "system" fn GetFileSecurityA(lpfilename : windows_sys::core::PCSTR, requestedinformation : u32, psecuritydescriptor : PSECURITY_DESCRIPTOR, nlength : u32, lpnlengthneeded : *mut u32) -> super::Foundation:: BOOL);
+::windows_targets::link!("advapi32.dll" "system" fn GetFileSecurityW(lpfilename : windows_sys::core::PCWSTR, requestedinformation : u32, psecuritydescriptor : PSECURITY_DESCRIPTOR, nlength : u32, lpnlengthneeded : *mut u32) -> super::Foundation:: BOOL);
 ::windows_targets::link!("advapi32.dll" "system" fn GetKernelObjectSecurity(handle : super::Foundation:: HANDLE, requestedinformation : u32, psecuritydescriptor : PSECURITY_DESCRIPTOR, nlength : u32, lpnlengthneeded : *mut u32) -> super::Foundation:: BOOL);
 ::windows_targets::link!("advapi32.dll" "system" fn GetLengthSid(psid : super::Foundation:: PSID) -> u32);
 ::windows_targets::link!("advapi32.dll" "system" fn GetPrivateObjectSecurity(objectdescriptor : PSECURITY_DESCRIPTOR, securityinformation : OBJECT_SECURITY_INFORMATION, resultantdescriptor : PSECURITY_DESCRIPTOR, descriptorlength : u32, returnlength : *mut u32) -> super::Foundation:: BOOL);
@@ -97,7 +97,7 @@ pub mod WinWlx;
 ::windows_targets::link!("advapi32.dll" "system" fn GetSidLengthRequired(nsubauthoritycount : u8) -> u32);
 ::windows_targets::link!("advapi32.dll" "system" fn GetSidSubAuthority(psid : super::Foundation:: PSID, nsubauthority : u32) -> *mut u32);
 ::windows_targets::link!("advapi32.dll" "system" fn GetSidSubAuthorityCount(psid : super::Foundation:: PSID) -> *mut u8);
-::windows_targets::link!("advapi32.dll" "system" fn GetTokenInformation(tokenhandle : super::Foundation:: HANDLE, tokeninformationclass : TOKEN_INFORMATION_CLASS, tokeninformation : *mut ::core::ffi::c_void, tokeninformationlength : u32, returnlength : *mut u32) -> super::Foundation:: BOOL);
+::windows_targets::link!("advapi32.dll" "system" fn GetTokenInformation(tokenhandle : super::Foundation:: HANDLE, tokeninformationclass : TOKEN_INFORMATION_CLASS, tokeninformation : *mut core::ffi::c_void, tokeninformationlength : u32, returnlength : *mut u32) -> super::Foundation:: BOOL);
 ::windows_targets::link!("user32.dll" "system" fn GetUserObjectSecurity(hobj : super::Foundation:: HANDLE, psirequested : *const u32, psid : PSECURITY_DESCRIPTOR, nlength : u32, lpnlengthneeded : *mut u32) -> super::Foundation:: BOOL);
 ::windows_targets::link!("advapi32.dll" "system" fn GetWindowsAccountDomainSid(psid : super::Foundation:: PSID, pdomainsid : super::Foundation:: PSID, cbdomainsid : *mut u32) -> super::Foundation:: BOOL);
 ::windows_targets::link!("advapi32.dll" "system" fn ImpersonateAnonymousToken(threadhandle : super::Foundation:: HANDLE) -> super::Foundation:: BOOL);
@@ -111,42 +111,42 @@ pub mod WinWlx;
 ::windows_targets::link!("advapi32.dll" "system" fn IsValidSecurityDescriptor(psecuritydescriptor : PSECURITY_DESCRIPTOR) -> super::Foundation:: BOOL);
 ::windows_targets::link!("advapi32.dll" "system" fn IsValidSid(psid : super::Foundation:: PSID) -> super::Foundation:: BOOL);
 ::windows_targets::link!("advapi32.dll" "system" fn IsWellKnownSid(psid : super::Foundation:: PSID, wellknownsidtype : WELL_KNOWN_SID_TYPE) -> super::Foundation:: BOOL);
-::windows_targets::link!("advapi32.dll" "system" fn LogonUserA(lpszusername : ::windows_sys::core::PCSTR, lpszdomain : ::windows_sys::core::PCSTR, lpszpassword : ::windows_sys::core::PCSTR, dwlogontype : LOGON32_LOGON, dwlogonprovider : LOGON32_PROVIDER, phtoken : *mut super::Foundation:: HANDLE) -> super::Foundation:: BOOL);
-::windows_targets::link!("advapi32.dll" "system" fn LogonUserExA(lpszusername : ::windows_sys::core::PCSTR, lpszdomain : ::windows_sys::core::PCSTR, lpszpassword : ::windows_sys::core::PCSTR, dwlogontype : LOGON32_LOGON, dwlogonprovider : LOGON32_PROVIDER, phtoken : *mut super::Foundation:: HANDLE, pplogonsid : *mut super::Foundation:: PSID, ppprofilebuffer : *mut *mut ::core::ffi::c_void, pdwprofilelength : *mut u32, pquotalimits : *mut QUOTA_LIMITS) -> super::Foundation:: BOOL);
-::windows_targets::link!("advapi32.dll" "system" fn LogonUserExW(lpszusername : ::windows_sys::core::PCWSTR, lpszdomain : ::windows_sys::core::PCWSTR, lpszpassword : ::windows_sys::core::PCWSTR, dwlogontype : LOGON32_LOGON, dwlogonprovider : LOGON32_PROVIDER, phtoken : *mut super::Foundation:: HANDLE, pplogonsid : *mut super::Foundation:: PSID, ppprofilebuffer : *mut *mut ::core::ffi::c_void, pdwprofilelength : *mut u32, pquotalimits : *mut QUOTA_LIMITS) -> super::Foundation:: BOOL);
-::windows_targets::link!("advapi32.dll" "system" fn LogonUserW(lpszusername : ::windows_sys::core::PCWSTR, lpszdomain : ::windows_sys::core::PCWSTR, lpszpassword : ::windows_sys::core::PCWSTR, dwlogontype : LOGON32_LOGON, dwlogonprovider : LOGON32_PROVIDER, phtoken : *mut super::Foundation:: HANDLE) -> super::Foundation:: BOOL);
-::windows_targets::link!("advapi32.dll" "system" fn LookupAccountNameA(lpsystemname : ::windows_sys::core::PCSTR, lpaccountname : ::windows_sys::core::PCSTR, sid : super::Foundation:: PSID, cbsid : *mut u32, referenceddomainname : ::windows_sys::core::PSTR, cchreferenceddomainname : *mut u32, peuse : *mut SID_NAME_USE) -> super::Foundation:: BOOL);
-::windows_targets::link!("advapi32.dll" "system" fn LookupAccountNameW(lpsystemname : ::windows_sys::core::PCWSTR, lpaccountname : ::windows_sys::core::PCWSTR, sid : super::Foundation:: PSID, cbsid : *mut u32, referenceddomainname : ::windows_sys::core::PWSTR, cchreferenceddomainname : *mut u32, peuse : *mut SID_NAME_USE) -> super::Foundation:: BOOL);
-::windows_targets::link!("advapi32.dll" "system" fn LookupAccountSidA(lpsystemname : ::windows_sys::core::PCSTR, sid : super::Foundation:: PSID, name : ::windows_sys::core::PSTR, cchname : *mut u32, referenceddomainname : ::windows_sys::core::PSTR, cchreferenceddomainname : *mut u32, peuse : *mut SID_NAME_USE) -> super::Foundation:: BOOL);
-::windows_targets::link!("advapi32.dll" "system" fn LookupAccountSidW(lpsystemname : ::windows_sys::core::PCWSTR, sid : super::Foundation:: PSID, name : ::windows_sys::core::PWSTR, cchname : *mut u32, referenceddomainname : ::windows_sys::core::PWSTR, cchreferenceddomainname : *mut u32, peuse : *mut SID_NAME_USE) -> super::Foundation:: BOOL);
-::windows_targets::link!("advapi32.dll" "system" fn LookupPrivilegeDisplayNameA(lpsystemname : ::windows_sys::core::PCSTR, lpname : ::windows_sys::core::PCSTR, lpdisplayname : ::windows_sys::core::PSTR, cchdisplayname : *mut u32, lplanguageid : *mut u32) -> super::Foundation:: BOOL);
-::windows_targets::link!("advapi32.dll" "system" fn LookupPrivilegeDisplayNameW(lpsystemname : ::windows_sys::core::PCWSTR, lpname : ::windows_sys::core::PCWSTR, lpdisplayname : ::windows_sys::core::PWSTR, cchdisplayname : *mut u32, lplanguageid : *mut u32) -> super::Foundation:: BOOL);
-::windows_targets::link!("advapi32.dll" "system" fn LookupPrivilegeNameA(lpsystemname : ::windows_sys::core::PCSTR, lpluid : *const super::Foundation:: LUID, lpname : ::windows_sys::core::PSTR, cchname : *mut u32) -> super::Foundation:: BOOL);
-::windows_targets::link!("advapi32.dll" "system" fn LookupPrivilegeNameW(lpsystemname : ::windows_sys::core::PCWSTR, lpluid : *const super::Foundation:: LUID, lpname : ::windows_sys::core::PWSTR, cchname : *mut u32) -> super::Foundation:: BOOL);
-::windows_targets::link!("advapi32.dll" "system" fn LookupPrivilegeValueA(lpsystemname : ::windows_sys::core::PCSTR, lpname : ::windows_sys::core::PCSTR, lpluid : *mut super::Foundation:: LUID) -> super::Foundation:: BOOL);
-::windows_targets::link!("advapi32.dll" "system" fn LookupPrivilegeValueW(lpsystemname : ::windows_sys::core::PCWSTR, lpname : ::windows_sys::core::PCWSTR, lpluid : *mut super::Foundation:: LUID) -> super::Foundation:: BOOL);
+::windows_targets::link!("advapi32.dll" "system" fn LogonUserA(lpszusername : windows_sys::core::PCSTR, lpszdomain : windows_sys::core::PCSTR, lpszpassword : windows_sys::core::PCSTR, dwlogontype : LOGON32_LOGON, dwlogonprovider : LOGON32_PROVIDER, phtoken : *mut super::Foundation:: HANDLE) -> super::Foundation:: BOOL);
+::windows_targets::link!("advapi32.dll" "system" fn LogonUserExA(lpszusername : windows_sys::core::PCSTR, lpszdomain : windows_sys::core::PCSTR, lpszpassword : windows_sys::core::PCSTR, dwlogontype : LOGON32_LOGON, dwlogonprovider : LOGON32_PROVIDER, phtoken : *mut super::Foundation:: HANDLE, pplogonsid : *mut super::Foundation:: PSID, ppprofilebuffer : *mut *mut core::ffi::c_void, pdwprofilelength : *mut u32, pquotalimits : *mut QUOTA_LIMITS) -> super::Foundation:: BOOL);
+::windows_targets::link!("advapi32.dll" "system" fn LogonUserExW(lpszusername : windows_sys::core::PCWSTR, lpszdomain : windows_sys::core::PCWSTR, lpszpassword : windows_sys::core::PCWSTR, dwlogontype : LOGON32_LOGON, dwlogonprovider : LOGON32_PROVIDER, phtoken : *mut super::Foundation:: HANDLE, pplogonsid : *mut super::Foundation:: PSID, ppprofilebuffer : *mut *mut core::ffi::c_void, pdwprofilelength : *mut u32, pquotalimits : *mut QUOTA_LIMITS) -> super::Foundation:: BOOL);
+::windows_targets::link!("advapi32.dll" "system" fn LogonUserW(lpszusername : windows_sys::core::PCWSTR, lpszdomain : windows_sys::core::PCWSTR, lpszpassword : windows_sys::core::PCWSTR, dwlogontype : LOGON32_LOGON, dwlogonprovider : LOGON32_PROVIDER, phtoken : *mut super::Foundation:: HANDLE) -> super::Foundation:: BOOL);
+::windows_targets::link!("advapi32.dll" "system" fn LookupAccountNameA(lpsystemname : windows_sys::core::PCSTR, lpaccountname : windows_sys::core::PCSTR, sid : super::Foundation:: PSID, cbsid : *mut u32, referenceddomainname : windows_sys::core::PSTR, cchreferenceddomainname : *mut u32, peuse : *mut SID_NAME_USE) -> super::Foundation:: BOOL);
+::windows_targets::link!("advapi32.dll" "system" fn LookupAccountNameW(lpsystemname : windows_sys::core::PCWSTR, lpaccountname : windows_sys::core::PCWSTR, sid : super::Foundation:: PSID, cbsid : *mut u32, referenceddomainname : windows_sys::core::PWSTR, cchreferenceddomainname : *mut u32, peuse : *mut SID_NAME_USE) -> super::Foundation:: BOOL);
+::windows_targets::link!("advapi32.dll" "system" fn LookupAccountSidA(lpsystemname : windows_sys::core::PCSTR, sid : super::Foundation:: PSID, name : windows_sys::core::PSTR, cchname : *mut u32, referenceddomainname : windows_sys::core::PSTR, cchreferenceddomainname : *mut u32, peuse : *mut SID_NAME_USE) -> super::Foundation:: BOOL);
+::windows_targets::link!("advapi32.dll" "system" fn LookupAccountSidW(lpsystemname : windows_sys::core::PCWSTR, sid : super::Foundation:: PSID, name : windows_sys::core::PWSTR, cchname : *mut u32, referenceddomainname : windows_sys::core::PWSTR, cchreferenceddomainname : *mut u32, peuse : *mut SID_NAME_USE) -> super::Foundation:: BOOL);
+::windows_targets::link!("advapi32.dll" "system" fn LookupPrivilegeDisplayNameA(lpsystemname : windows_sys::core::PCSTR, lpname : windows_sys::core::PCSTR, lpdisplayname : windows_sys::core::PSTR, cchdisplayname : *mut u32, lplanguageid : *mut u32) -> super::Foundation:: BOOL);
+::windows_targets::link!("advapi32.dll" "system" fn LookupPrivilegeDisplayNameW(lpsystemname : windows_sys::core::PCWSTR, lpname : windows_sys::core::PCWSTR, lpdisplayname : windows_sys::core::PWSTR, cchdisplayname : *mut u32, lplanguageid : *mut u32) -> super::Foundation:: BOOL);
+::windows_targets::link!("advapi32.dll" "system" fn LookupPrivilegeNameA(lpsystemname : windows_sys::core::PCSTR, lpluid : *const super::Foundation:: LUID, lpname : windows_sys::core::PSTR, cchname : *mut u32) -> super::Foundation:: BOOL);
+::windows_targets::link!("advapi32.dll" "system" fn LookupPrivilegeNameW(lpsystemname : windows_sys::core::PCWSTR, lpluid : *const super::Foundation:: LUID, lpname : windows_sys::core::PWSTR, cchname : *mut u32) -> super::Foundation:: BOOL);
+::windows_targets::link!("advapi32.dll" "system" fn LookupPrivilegeValueA(lpsystemname : windows_sys::core::PCSTR, lpname : windows_sys::core::PCSTR, lpluid : *mut super::Foundation:: LUID) -> super::Foundation:: BOOL);
+::windows_targets::link!("advapi32.dll" "system" fn LookupPrivilegeValueW(lpsystemname : windows_sys::core::PCWSTR, lpname : windows_sys::core::PCWSTR, lpluid : *mut super::Foundation:: LUID) -> super::Foundation:: BOOL);
 ::windows_targets::link!("advapi32.dll" "system" fn MakeAbsoluteSD(pselfrelativesecuritydescriptor : PSECURITY_DESCRIPTOR, pabsolutesecuritydescriptor : PSECURITY_DESCRIPTOR, lpdwabsolutesecuritydescriptorsize : *mut u32, pdacl : *mut ACL, lpdwdaclsize : *mut u32, psacl : *mut ACL, lpdwsaclsize : *mut u32, powner : super::Foundation:: PSID, lpdwownersize : *mut u32, pprimarygroup : super::Foundation:: PSID, lpdwprimarygroupsize : *mut u32) -> super::Foundation:: BOOL);
 ::windows_targets::link!("advapi32.dll" "system" fn MakeSelfRelativeSD(pabsolutesecuritydescriptor : PSECURITY_DESCRIPTOR, pselfrelativesecuritydescriptor : PSECURITY_DESCRIPTOR, lpdwbufferlength : *mut u32) -> super::Foundation:: BOOL);
 ::windows_targets::link!("advapi32.dll" "system" fn MapGenericMask(accessmask : *mut u32, genericmapping : *const GENERIC_MAPPING));
-::windows_targets::link!("advapi32.dll" "system" fn ObjectCloseAuditAlarmA(subsystemname : ::windows_sys::core::PCSTR, handleid : *const ::core::ffi::c_void, generateonclose : super::Foundation:: BOOL) -> super::Foundation:: BOOL);
-::windows_targets::link!("advapi32.dll" "system" fn ObjectCloseAuditAlarmW(subsystemname : ::windows_sys::core::PCWSTR, handleid : *const ::core::ffi::c_void, generateonclose : super::Foundation:: BOOL) -> super::Foundation:: BOOL);
-::windows_targets::link!("advapi32.dll" "system" fn ObjectDeleteAuditAlarmA(subsystemname : ::windows_sys::core::PCSTR, handleid : *const ::core::ffi::c_void, generateonclose : super::Foundation:: BOOL) -> super::Foundation:: BOOL);
-::windows_targets::link!("advapi32.dll" "system" fn ObjectDeleteAuditAlarmW(subsystemname : ::windows_sys::core::PCWSTR, handleid : *const ::core::ffi::c_void, generateonclose : super::Foundation:: BOOL) -> super::Foundation:: BOOL);
-::windows_targets::link!("advapi32.dll" "system" fn ObjectOpenAuditAlarmA(subsystemname : ::windows_sys::core::PCSTR, handleid : *const ::core::ffi::c_void, objecttypename : ::windows_sys::core::PCSTR, objectname : ::windows_sys::core::PCSTR, psecuritydescriptor : PSECURITY_DESCRIPTOR, clienttoken : super::Foundation:: HANDLE, desiredaccess : u32, grantedaccess : u32, privileges : *const PRIVILEGE_SET, objectcreation : super::Foundation:: BOOL, accessgranted : super::Foundation:: BOOL, generateonclose : *mut super::Foundation:: BOOL) -> super::Foundation:: BOOL);
-::windows_targets::link!("advapi32.dll" "system" fn ObjectOpenAuditAlarmW(subsystemname : ::windows_sys::core::PCWSTR, handleid : *const ::core::ffi::c_void, objecttypename : ::windows_sys::core::PCWSTR, objectname : ::windows_sys::core::PCWSTR, psecuritydescriptor : PSECURITY_DESCRIPTOR, clienttoken : super::Foundation:: HANDLE, desiredaccess : u32, grantedaccess : u32, privileges : *const PRIVILEGE_SET, objectcreation : super::Foundation:: BOOL, accessgranted : super::Foundation:: BOOL, generateonclose : *mut super::Foundation:: BOOL) -> super::Foundation:: BOOL);
-::windows_targets::link!("advapi32.dll" "system" fn ObjectPrivilegeAuditAlarmA(subsystemname : ::windows_sys::core::PCSTR, handleid : *const ::core::ffi::c_void, clienttoken : super::Foundation:: HANDLE, desiredaccess : u32, privileges : *const PRIVILEGE_SET, accessgranted : super::Foundation:: BOOL) -> super::Foundation:: BOOL);
-::windows_targets::link!("advapi32.dll" "system" fn ObjectPrivilegeAuditAlarmW(subsystemname : ::windows_sys::core::PCWSTR, handleid : *const ::core::ffi::c_void, clienttoken : super::Foundation:: HANDLE, desiredaccess : u32, privileges : *const PRIVILEGE_SET, accessgranted : super::Foundation:: BOOL) -> super::Foundation:: BOOL);
+::windows_targets::link!("advapi32.dll" "system" fn ObjectCloseAuditAlarmA(subsystemname : windows_sys::core::PCSTR, handleid : *const core::ffi::c_void, generateonclose : super::Foundation:: BOOL) -> super::Foundation:: BOOL);
+::windows_targets::link!("advapi32.dll" "system" fn ObjectCloseAuditAlarmW(subsystemname : windows_sys::core::PCWSTR, handleid : *const core::ffi::c_void, generateonclose : super::Foundation:: BOOL) -> super::Foundation:: BOOL);
+::windows_targets::link!("advapi32.dll" "system" fn ObjectDeleteAuditAlarmA(subsystemname : windows_sys::core::PCSTR, handleid : *const core::ffi::c_void, generateonclose : super::Foundation:: BOOL) -> super::Foundation:: BOOL);
+::windows_targets::link!("advapi32.dll" "system" fn ObjectDeleteAuditAlarmW(subsystemname : windows_sys::core::PCWSTR, handleid : *const core::ffi::c_void, generateonclose : super::Foundation:: BOOL) -> super::Foundation:: BOOL);
+::windows_targets::link!("advapi32.dll" "system" fn ObjectOpenAuditAlarmA(subsystemname : windows_sys::core::PCSTR, handleid : *const core::ffi::c_void, objecttypename : windows_sys::core::PCSTR, objectname : windows_sys::core::PCSTR, psecuritydescriptor : PSECURITY_DESCRIPTOR, clienttoken : super::Foundation:: HANDLE, desiredaccess : u32, grantedaccess : u32, privileges : *const PRIVILEGE_SET, objectcreation : super::Foundation:: BOOL, accessgranted : super::Foundation:: BOOL, generateonclose : *mut super::Foundation:: BOOL) -> super::Foundation:: BOOL);
+::windows_targets::link!("advapi32.dll" "system" fn ObjectOpenAuditAlarmW(subsystemname : windows_sys::core::PCWSTR, handleid : *const core::ffi::c_void, objecttypename : windows_sys::core::PCWSTR, objectname : windows_sys::core::PCWSTR, psecuritydescriptor : PSECURITY_DESCRIPTOR, clienttoken : super::Foundation:: HANDLE, desiredaccess : u32, grantedaccess : u32, privileges : *const PRIVILEGE_SET, objectcreation : super::Foundation:: BOOL, accessgranted : super::Foundation:: BOOL, generateonclose : *mut super::Foundation:: BOOL) -> super::Foundation:: BOOL);
+::windows_targets::link!("advapi32.dll" "system" fn ObjectPrivilegeAuditAlarmA(subsystemname : windows_sys::core::PCSTR, handleid : *const core::ffi::c_void, clienttoken : super::Foundation:: HANDLE, desiredaccess : u32, privileges : *const PRIVILEGE_SET, accessgranted : super::Foundation:: BOOL) -> super::Foundation:: BOOL);
+::windows_targets::link!("advapi32.dll" "system" fn ObjectPrivilegeAuditAlarmW(subsystemname : windows_sys::core::PCWSTR, handleid : *const core::ffi::c_void, clienttoken : super::Foundation:: HANDLE, desiredaccess : u32, privileges : *const PRIVILEGE_SET, accessgranted : super::Foundation:: BOOL) -> super::Foundation:: BOOL);
 ::windows_targets::link!("advapi32.dll" "system" fn PrivilegeCheck(clienttoken : super::Foundation:: HANDLE, requiredprivileges : *mut PRIVILEGE_SET, pfresult : *mut super::Foundation:: BOOL) -> super::Foundation:: BOOL);
-::windows_targets::link!("advapi32.dll" "system" fn PrivilegedServiceAuditAlarmA(subsystemname : ::windows_sys::core::PCSTR, servicename : ::windows_sys::core::PCSTR, clienttoken : super::Foundation:: HANDLE, privileges : *const PRIVILEGE_SET, accessgranted : super::Foundation:: BOOL) -> super::Foundation:: BOOL);
-::windows_targets::link!("advapi32.dll" "system" fn PrivilegedServiceAuditAlarmW(subsystemname : ::windows_sys::core::PCWSTR, servicename : ::windows_sys::core::PCWSTR, clienttoken : super::Foundation:: HANDLE, privileges : *const PRIVILEGE_SET, accessgranted : super::Foundation:: BOOL) -> super::Foundation:: BOOL);
+::windows_targets::link!("advapi32.dll" "system" fn PrivilegedServiceAuditAlarmA(subsystemname : windows_sys::core::PCSTR, servicename : windows_sys::core::PCSTR, clienttoken : super::Foundation:: HANDLE, privileges : *const PRIVILEGE_SET, accessgranted : super::Foundation:: BOOL) -> super::Foundation:: BOOL);
+::windows_targets::link!("advapi32.dll" "system" fn PrivilegedServiceAuditAlarmW(subsystemname : windows_sys::core::PCWSTR, servicename : windows_sys::core::PCWSTR, clienttoken : super::Foundation:: HANDLE, privileges : *const PRIVILEGE_SET, accessgranted : super::Foundation:: BOOL) -> super::Foundation:: BOOL);
 ::windows_targets::link!("advapi32.dll" "system" fn QuerySecurityAccessMask(securityinformation : OBJECT_SECURITY_INFORMATION, desiredaccess : *mut u32));
 ::windows_targets::link!("advapi32.dll" "system" fn RevertToSelf() -> super::Foundation:: BOOL);
 ::windows_targets::link!("ntdll.dll" "system" fn RtlConvertSidToUnicodeString(unicodestring : *mut super::Foundation:: UNICODE_STRING, sid : super::Foundation:: PSID, allocatedestinationstring : super::Foundation:: BOOLEAN) -> super::Foundation:: NTSTATUS);
 ::windows_targets::link!("ntdll.dll" "system" fn RtlNormalizeSecurityDescriptor(securitydescriptor : *mut PSECURITY_DESCRIPTOR, securitydescriptorlength : u32, newsecuritydescriptor : *mut PSECURITY_DESCRIPTOR, newsecuritydescriptorlength : *mut u32, checkonly : super::Foundation:: BOOLEAN) -> super::Foundation:: BOOLEAN);
-::windows_targets::link!("advapi32.dll" "system" fn SetAclInformation(pacl : *mut ACL, paclinformation : *const ::core::ffi::c_void, naclinformationlength : u32, dwaclinformationclass : ACL_INFORMATION_CLASS) -> super::Foundation:: BOOL);
+::windows_targets::link!("advapi32.dll" "system" fn SetAclInformation(pacl : *mut ACL, paclinformation : *const core::ffi::c_void, naclinformationlength : u32, dwaclinformationclass : ACL_INFORMATION_CLASS) -> super::Foundation:: BOOL);
 ::windows_targets::link!("kernel32.dll" "system" fn SetCachedSigningLevel(sourcefiles : *const super::Foundation:: HANDLE, sourcefilecount : u32, flags : u32, targetfile : super::Foundation:: HANDLE) -> super::Foundation:: BOOL);
-::windows_targets::link!("advapi32.dll" "system" fn SetFileSecurityA(lpfilename : ::windows_sys::core::PCSTR, securityinformation : OBJECT_SECURITY_INFORMATION, psecuritydescriptor : PSECURITY_DESCRIPTOR) -> super::Foundation:: BOOL);
-::windows_targets::link!("advapi32.dll" "system" fn SetFileSecurityW(lpfilename : ::windows_sys::core::PCWSTR, securityinformation : OBJECT_SECURITY_INFORMATION, psecuritydescriptor : PSECURITY_DESCRIPTOR) -> super::Foundation:: BOOL);
+::windows_targets::link!("advapi32.dll" "system" fn SetFileSecurityA(lpfilename : windows_sys::core::PCSTR, securityinformation : OBJECT_SECURITY_INFORMATION, psecuritydescriptor : PSECURITY_DESCRIPTOR) -> super::Foundation:: BOOL);
+::windows_targets::link!("advapi32.dll" "system" fn SetFileSecurityW(lpfilename : windows_sys::core::PCWSTR, securityinformation : OBJECT_SECURITY_INFORMATION, psecuritydescriptor : PSECURITY_DESCRIPTOR) -> super::Foundation:: BOOL);
 ::windows_targets::link!("advapi32.dll" "system" fn SetKernelObjectSecurity(handle : super::Foundation:: HANDLE, securityinformation : OBJECT_SECURITY_INFORMATION, securitydescriptor : PSECURITY_DESCRIPTOR) -> super::Foundation:: BOOL);
 ::windows_targets::link!("advapi32.dll" "system" fn SetPrivateObjectSecurity(securityinformation : OBJECT_SECURITY_INFORMATION, modificationdescriptor : PSECURITY_DESCRIPTOR, objectssecuritydescriptor : *mut PSECURITY_DESCRIPTOR, genericmapping : *const GENERIC_MAPPING, token : super::Foundation:: HANDLE) -> super::Foundation:: BOOL);
 ::windows_targets::link!("advapi32.dll" "system" fn SetPrivateObjectSecurityEx(securityinformation : OBJECT_SECURITY_INFORMATION, modificationdescriptor : PSECURITY_DESCRIPTOR, objectssecuritydescriptor : *mut PSECURITY_DESCRIPTOR, autoinheritflags : SECURITY_AUTO_INHERIT_FLAGS, genericmapping : *const GENERIC_MAPPING, token : super::Foundation:: HANDLE) -> super::Foundation:: BOOL);
@@ -157,7 +157,7 @@ pub mod WinWlx;
 ::windows_targets::link!("advapi32.dll" "system" fn SetSecurityDescriptorOwner(psecuritydescriptor : PSECURITY_DESCRIPTOR, powner : super::Foundation:: PSID, bownerdefaulted : super::Foundation:: BOOL) -> super::Foundation:: BOOL);
 ::windows_targets::link!("advapi32.dll" "system" fn SetSecurityDescriptorRMControl(securitydescriptor : PSECURITY_DESCRIPTOR, rmcontrol : *const u8) -> u32);
 ::windows_targets::link!("advapi32.dll" "system" fn SetSecurityDescriptorSacl(psecuritydescriptor : PSECURITY_DESCRIPTOR, bsaclpresent : super::Foundation:: BOOL, psacl : *const ACL, bsacldefaulted : super::Foundation:: BOOL) -> super::Foundation:: BOOL);
-::windows_targets::link!("advapi32.dll" "system" fn SetTokenInformation(tokenhandle : super::Foundation:: HANDLE, tokeninformationclass : TOKEN_INFORMATION_CLASS, tokeninformation : *const ::core::ffi::c_void, tokeninformationlength : u32) -> super::Foundation:: BOOL);
+::windows_targets::link!("advapi32.dll" "system" fn SetTokenInformation(tokenhandle : super::Foundation:: HANDLE, tokeninformationclass : TOKEN_INFORMATION_CLASS, tokeninformation : *const core::ffi::c_void, tokeninformationlength : u32) -> super::Foundation:: BOOL);
 ::windows_targets::link!("user32.dll" "system" fn SetUserObjectSecurity(hobj : super::Foundation:: HANDLE, psirequested : *const OBJECT_SECURITY_INFORMATION, psid : PSECURITY_DESCRIPTOR) -> super::Foundation:: BOOL);
 pub const ACE_INHERITED_OBJECT_TYPE_PRESENT: SYSTEM_AUDIT_OBJECT_ACE_FLAGS = 2u32;
 pub const ACE_OBJECT_TYPE_PRESENT: SYSTEM_AUDIT_OBJECT_ACE_FLAGS = 1u32;
@@ -254,60 +254,60 @@ pub const SEF_MACL_NO_EXECUTE_UP: SECURITY_AUTO_INHERIT_FLAGS = 1024u32;
 pub const SEF_MACL_NO_READ_UP: SECURITY_AUTO_INHERIT_FLAGS = 512u32;
 pub const SEF_MACL_NO_WRITE_UP: SECURITY_AUTO_INHERIT_FLAGS = 256u32;
 pub const SEF_SACL_AUTO_INHERIT: SECURITY_AUTO_INHERIT_FLAGS = 2u32;
-pub const SE_ASSIGNPRIMARYTOKEN_NAME: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("SeAssignPrimaryTokenPrivilege");
-pub const SE_AUDIT_NAME: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("SeAuditPrivilege");
-pub const SE_BACKUP_NAME: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("SeBackupPrivilege");
-pub const SE_CHANGE_NOTIFY_NAME: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("SeChangeNotifyPrivilege");
-pub const SE_CREATE_GLOBAL_NAME: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("SeCreateGlobalPrivilege");
-pub const SE_CREATE_PAGEFILE_NAME: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("SeCreatePagefilePrivilege");
-pub const SE_CREATE_PERMANENT_NAME: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("SeCreatePermanentPrivilege");
-pub const SE_CREATE_SYMBOLIC_LINK_NAME: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("SeCreateSymbolicLinkPrivilege");
-pub const SE_CREATE_TOKEN_NAME: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("SeCreateTokenPrivilege");
+pub const SE_ASSIGNPRIMARYTOKEN_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeAssignPrimaryTokenPrivilege");
+pub const SE_AUDIT_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeAuditPrivilege");
+pub const SE_BACKUP_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeBackupPrivilege");
+pub const SE_CHANGE_NOTIFY_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeChangeNotifyPrivilege");
+pub const SE_CREATE_GLOBAL_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeCreateGlobalPrivilege");
+pub const SE_CREATE_PAGEFILE_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeCreatePagefilePrivilege");
+pub const SE_CREATE_PERMANENT_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeCreatePermanentPrivilege");
+pub const SE_CREATE_SYMBOLIC_LINK_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeCreateSymbolicLinkPrivilege");
+pub const SE_CREATE_TOKEN_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeCreateTokenPrivilege");
 pub const SE_DACL_AUTO_INHERITED: SECURITY_DESCRIPTOR_CONTROL = 1024u16;
 pub const SE_DACL_AUTO_INHERIT_REQ: SECURITY_DESCRIPTOR_CONTROL = 256u16;
 pub const SE_DACL_DEFAULTED: SECURITY_DESCRIPTOR_CONTROL = 8u16;
 pub const SE_DACL_PRESENT: SECURITY_DESCRIPTOR_CONTROL = 4u16;
 pub const SE_DACL_PROTECTED: SECURITY_DESCRIPTOR_CONTROL = 4096u16;
-pub const SE_DEBUG_NAME: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("SeDebugPrivilege");
-pub const SE_DELEGATE_SESSION_USER_IMPERSONATE_NAME: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("SeDelegateSessionUserImpersonatePrivilege");
-pub const SE_ENABLE_DELEGATION_NAME: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("SeEnableDelegationPrivilege");
+pub const SE_DEBUG_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeDebugPrivilege");
+pub const SE_DELEGATE_SESSION_USER_IMPERSONATE_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeDelegateSessionUserImpersonatePrivilege");
+pub const SE_ENABLE_DELEGATION_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeEnableDelegationPrivilege");
 pub const SE_GROUP_DEFAULTED: SECURITY_DESCRIPTOR_CONTROL = 2u16;
-pub const SE_IMPERSONATE_NAME: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("SeImpersonatePrivilege");
-pub const SE_INCREASE_QUOTA_NAME: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("SeIncreaseQuotaPrivilege");
-pub const SE_INC_BASE_PRIORITY_NAME: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("SeIncreaseBasePriorityPrivilege");
-pub const SE_INC_WORKING_SET_NAME: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("SeIncreaseWorkingSetPrivilege");
-pub const SE_LOAD_DRIVER_NAME: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("SeLoadDriverPrivilege");
-pub const SE_LOCK_MEMORY_NAME: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("SeLockMemoryPrivilege");
-pub const SE_MACHINE_ACCOUNT_NAME: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("SeMachineAccountPrivilege");
-pub const SE_MANAGE_VOLUME_NAME: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("SeManageVolumePrivilege");
+pub const SE_IMPERSONATE_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeImpersonatePrivilege");
+pub const SE_INCREASE_QUOTA_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeIncreaseQuotaPrivilege");
+pub const SE_INC_BASE_PRIORITY_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeIncreaseBasePriorityPrivilege");
+pub const SE_INC_WORKING_SET_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeIncreaseWorkingSetPrivilege");
+pub const SE_LOAD_DRIVER_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeLoadDriverPrivilege");
+pub const SE_LOCK_MEMORY_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeLockMemoryPrivilege");
+pub const SE_MACHINE_ACCOUNT_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeMachineAccountPrivilege");
+pub const SE_MANAGE_VOLUME_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeManageVolumePrivilege");
 pub const SE_OWNER_DEFAULTED: SECURITY_DESCRIPTOR_CONTROL = 1u16;
 pub const SE_PRIVILEGE_ENABLED: TOKEN_PRIVILEGES_ATTRIBUTES = 2u32;
 pub const SE_PRIVILEGE_ENABLED_BY_DEFAULT: TOKEN_PRIVILEGES_ATTRIBUTES = 1u32;
 pub const SE_PRIVILEGE_REMOVED: TOKEN_PRIVILEGES_ATTRIBUTES = 4u32;
 pub const SE_PRIVILEGE_USED_FOR_ACCESS: TOKEN_PRIVILEGES_ATTRIBUTES = 2147483648u32;
-pub const SE_PROF_SINGLE_PROCESS_NAME: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("SeProfileSingleProcessPrivilege");
-pub const SE_RELABEL_NAME: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("SeRelabelPrivilege");
-pub const SE_REMOTE_SHUTDOWN_NAME: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("SeRemoteShutdownPrivilege");
-pub const SE_RESTORE_NAME: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("SeRestorePrivilege");
+pub const SE_PROF_SINGLE_PROCESS_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeProfileSingleProcessPrivilege");
+pub const SE_RELABEL_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeRelabelPrivilege");
+pub const SE_REMOTE_SHUTDOWN_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeRemoteShutdownPrivilege");
+pub const SE_RESTORE_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeRestorePrivilege");
 pub const SE_RM_CONTROL_VALID: SECURITY_DESCRIPTOR_CONTROL = 16384u16;
 pub const SE_SACL_AUTO_INHERITED: SECURITY_DESCRIPTOR_CONTROL = 2048u16;
 pub const SE_SACL_AUTO_INHERIT_REQ: SECURITY_DESCRIPTOR_CONTROL = 512u16;
 pub const SE_SACL_DEFAULTED: SECURITY_DESCRIPTOR_CONTROL = 32u16;
 pub const SE_SACL_PRESENT: SECURITY_DESCRIPTOR_CONTROL = 16u16;
 pub const SE_SACL_PROTECTED: SECURITY_DESCRIPTOR_CONTROL = 8192u16;
-pub const SE_SECURITY_NAME: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("SeSecurityPrivilege");
+pub const SE_SECURITY_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeSecurityPrivilege");
 pub const SE_SELF_RELATIVE: SECURITY_DESCRIPTOR_CONTROL = 32768u16;
-pub const SE_SHUTDOWN_NAME: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("SeShutdownPrivilege");
-pub const SE_SYNC_AGENT_NAME: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("SeSyncAgentPrivilege");
-pub const SE_SYSTEMTIME_NAME: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("SeSystemtimePrivilege");
-pub const SE_SYSTEM_ENVIRONMENT_NAME: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("SeSystemEnvironmentPrivilege");
-pub const SE_SYSTEM_PROFILE_NAME: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("SeSystemProfilePrivilege");
-pub const SE_TAKE_OWNERSHIP_NAME: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("SeTakeOwnershipPrivilege");
-pub const SE_TCB_NAME: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("SeTcbPrivilege");
-pub const SE_TIME_ZONE_NAME: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("SeTimeZonePrivilege");
-pub const SE_TRUSTED_CREDMAN_ACCESS_NAME: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("SeTrustedCredManAccessPrivilege");
-pub const SE_UNDOCK_NAME: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("SeUndockPrivilege");
-pub const SE_UNSOLICITED_INPUT_NAME: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("SeUnsolicitedInputPrivilege");
+pub const SE_SHUTDOWN_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeShutdownPrivilege");
+pub const SE_SYNC_AGENT_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeSyncAgentPrivilege");
+pub const SE_SYSTEMTIME_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeSystemtimePrivilege");
+pub const SE_SYSTEM_ENVIRONMENT_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeSystemEnvironmentPrivilege");
+pub const SE_SYSTEM_PROFILE_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeSystemProfilePrivilege");
+pub const SE_TAKE_OWNERSHIP_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeTakeOwnershipPrivilege");
+pub const SE_TCB_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeTcbPrivilege");
+pub const SE_TIME_ZONE_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeTimeZonePrivilege");
+pub const SE_TRUSTED_CREDMAN_ACCESS_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeTrustedCredManAccessPrivilege");
+pub const SE_UNDOCK_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeUndockPrivilege");
+pub const SE_UNSOLICITED_INPUT_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeUnsolicitedInputPrivilege");
 pub const SIGNING_LEVEL_FILE_CACHE_FLAG_NOT_VALIDATED: u32 = 1u32;
 pub const SIGNING_LEVEL_FILE_CACHE_FLAG_VALIDATE_ONLY: u32 = 4u32;
 pub const SIGNING_LEVEL_MICROSOFT: u32 = 8u32;
@@ -533,29 +533,29 @@ pub const WinWorldSid: WELL_KNOWN_SID_TYPE = 1i32;
 pub const WinWriteRestrictedCodeSid: WELL_KNOWN_SID_TYPE = 70i32;
 pub const cwcFILENAMESUFFIXMAX: u32 = 20u32;
 pub const cwcHRESULTSTRING: u32 = 40u32;
-pub const szLBRACE: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("{");
-pub const szLPAREN: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("(");
-pub const szRBRACE: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("}");
-pub const szRPAREN: ::windows_sys::core::PCSTR = ::windows_sys::core::s!(")");
-pub const wszCERTENROLLSHAREPATH: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("CertSrv\\CertEnroll");
-pub const wszFCSAPARM_CERTFILENAMESUFFIX: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("%4");
-pub const wszFCSAPARM_CONFIGDN: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("%6");
-pub const wszFCSAPARM_CRLDELTAFILENAMESUFFIX: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("%9");
-pub const wszFCSAPARM_CRLFILENAMESUFFIX: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("%8");
-pub const wszFCSAPARM_DOMAINDN: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("%5");
-pub const wszFCSAPARM_DSCACERTATTRIBUTE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("%11");
-pub const wszFCSAPARM_DSCRLATTRIBUTE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("%10");
-pub const wszFCSAPARM_DSCROSSCERTPAIRATTRIBUTE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("%14");
-pub const wszFCSAPARM_DSKRACERTATTRIBUTE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("%13");
-pub const wszFCSAPARM_DSUSERCERTATTRIBUTE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("%12");
-pub const wszFCSAPARM_SANITIZEDCANAME: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("%3");
-pub const wszFCSAPARM_SANITIZEDCANAMEHASH: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("%7");
-pub const wszFCSAPARM_SERVERDNSNAME: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("%1");
-pub const wszFCSAPARM_SERVERSHORTNAME: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("%2");
-pub const wszLBRACE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("{");
-pub const wszLPAREN: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("(");
-pub const wszRBRACE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("}");
-pub const wszRPAREN: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!(")");
+pub const szLBRACE: windows_sys::core::PCSTR = windows_sys::core::s!("{");
+pub const szLPAREN: windows_sys::core::PCSTR = windows_sys::core::s!("(");
+pub const szRBRACE: windows_sys::core::PCSTR = windows_sys::core::s!("}");
+pub const szRPAREN: windows_sys::core::PCSTR = windows_sys::core::s!(")");
+pub const wszCERTENROLLSHAREPATH: windows_sys::core::PCWSTR = windows_sys::core::w!("CertSrv\\CertEnroll");
+pub const wszFCSAPARM_CERTFILENAMESUFFIX: windows_sys::core::PCWSTR = windows_sys::core::w!("%4");
+pub const wszFCSAPARM_CONFIGDN: windows_sys::core::PCWSTR = windows_sys::core::w!("%6");
+pub const wszFCSAPARM_CRLDELTAFILENAMESUFFIX: windows_sys::core::PCWSTR = windows_sys::core::w!("%9");
+pub const wszFCSAPARM_CRLFILENAMESUFFIX: windows_sys::core::PCWSTR = windows_sys::core::w!("%8");
+pub const wszFCSAPARM_DOMAINDN: windows_sys::core::PCWSTR = windows_sys::core::w!("%5");
+pub const wszFCSAPARM_DSCACERTATTRIBUTE: windows_sys::core::PCWSTR = windows_sys::core::w!("%11");
+pub const wszFCSAPARM_DSCRLATTRIBUTE: windows_sys::core::PCWSTR = windows_sys::core::w!("%10");
+pub const wszFCSAPARM_DSCROSSCERTPAIRATTRIBUTE: windows_sys::core::PCWSTR = windows_sys::core::w!("%14");
+pub const wszFCSAPARM_DSKRACERTATTRIBUTE: windows_sys::core::PCWSTR = windows_sys::core::w!("%13");
+pub const wszFCSAPARM_DSUSERCERTATTRIBUTE: windows_sys::core::PCWSTR = windows_sys::core::w!("%12");
+pub const wszFCSAPARM_SANITIZEDCANAME: windows_sys::core::PCWSTR = windows_sys::core::w!("%3");
+pub const wszFCSAPARM_SANITIZEDCANAMEHASH: windows_sys::core::PCWSTR = windows_sys::core::w!("%7");
+pub const wszFCSAPARM_SERVERDNSNAME: windows_sys::core::PCWSTR = windows_sys::core::w!("%1");
+pub const wszFCSAPARM_SERVERSHORTNAME: windows_sys::core::PCWSTR = windows_sys::core::w!("%2");
+pub const wszLBRACE: windows_sys::core::PCWSTR = windows_sys::core::w!("{");
+pub const wszLPAREN: windows_sys::core::PCWSTR = windows_sys::core::w!("(");
+pub const wszRBRACE: windows_sys::core::PCWSTR = windows_sys::core::w!("}");
+pub const wszRPAREN: windows_sys::core::PCWSTR = windows_sys::core::w!(")");
 pub type ACE_FLAGS = u32;
 pub type ACE_REVISION = u32;
 pub type ACL_INFORMATION_CLASS = i32;
@@ -586,8 +586,8 @@ pub struct ACCESS_ALLOWED_ACE {
     pub Mask: u32,
     pub SidStart: u32,
 }
-impl ::core::marker::Copy for ACCESS_ALLOWED_ACE {}
-impl ::core::clone::Clone for ACCESS_ALLOWED_ACE {
+impl Copy for ACCESS_ALLOWED_ACE {}
+impl Clone for ACCESS_ALLOWED_ACE {
     fn clone(&self) -> Self {
         *self
     }
@@ -598,8 +598,8 @@ pub struct ACCESS_ALLOWED_CALLBACK_ACE {
     pub Mask: u32,
     pub SidStart: u32,
 }
-impl ::core::marker::Copy for ACCESS_ALLOWED_CALLBACK_ACE {}
-impl ::core::clone::Clone for ACCESS_ALLOWED_CALLBACK_ACE {
+impl Copy for ACCESS_ALLOWED_CALLBACK_ACE {}
+impl Clone for ACCESS_ALLOWED_CALLBACK_ACE {
     fn clone(&self) -> Self {
         *self
     }
@@ -609,12 +609,12 @@ pub struct ACCESS_ALLOWED_CALLBACK_OBJECT_ACE {
     pub Header: ACE_HEADER,
     pub Mask: u32,
     pub Flags: SYSTEM_AUDIT_OBJECT_ACE_FLAGS,
-    pub ObjectType: ::windows_sys::core::GUID,
-    pub InheritedObjectType: ::windows_sys::core::GUID,
+    pub ObjectType: windows_sys::core::GUID,
+    pub InheritedObjectType: windows_sys::core::GUID,
     pub SidStart: u32,
 }
-impl ::core::marker::Copy for ACCESS_ALLOWED_CALLBACK_OBJECT_ACE {}
-impl ::core::clone::Clone for ACCESS_ALLOWED_CALLBACK_OBJECT_ACE {
+impl Copy for ACCESS_ALLOWED_CALLBACK_OBJECT_ACE {}
+impl Clone for ACCESS_ALLOWED_CALLBACK_OBJECT_ACE {
     fn clone(&self) -> Self {
         *self
     }
@@ -624,12 +624,12 @@ pub struct ACCESS_ALLOWED_OBJECT_ACE {
     pub Header: ACE_HEADER,
     pub Mask: u32,
     pub Flags: SYSTEM_AUDIT_OBJECT_ACE_FLAGS,
-    pub ObjectType: ::windows_sys::core::GUID,
-    pub InheritedObjectType: ::windows_sys::core::GUID,
+    pub ObjectType: windows_sys::core::GUID,
+    pub InheritedObjectType: windows_sys::core::GUID,
     pub SidStart: u32,
 }
-impl ::core::marker::Copy for ACCESS_ALLOWED_OBJECT_ACE {}
-impl ::core::clone::Clone for ACCESS_ALLOWED_OBJECT_ACE {
+impl Copy for ACCESS_ALLOWED_OBJECT_ACE {}
+impl Clone for ACCESS_ALLOWED_OBJECT_ACE {
     fn clone(&self) -> Self {
         *self
     }
@@ -640,8 +640,8 @@ pub struct ACCESS_DENIED_ACE {
     pub Mask: u32,
     pub SidStart: u32,
 }
-impl ::core::marker::Copy for ACCESS_DENIED_ACE {}
-impl ::core::clone::Clone for ACCESS_DENIED_ACE {
+impl Copy for ACCESS_DENIED_ACE {}
+impl Clone for ACCESS_DENIED_ACE {
     fn clone(&self) -> Self {
         *self
     }
@@ -652,8 +652,8 @@ pub struct ACCESS_DENIED_CALLBACK_ACE {
     pub Mask: u32,
     pub SidStart: u32,
 }
-impl ::core::marker::Copy for ACCESS_DENIED_CALLBACK_ACE {}
-impl ::core::clone::Clone for ACCESS_DENIED_CALLBACK_ACE {
+impl Copy for ACCESS_DENIED_CALLBACK_ACE {}
+impl Clone for ACCESS_DENIED_CALLBACK_ACE {
     fn clone(&self) -> Self {
         *self
     }
@@ -663,12 +663,12 @@ pub struct ACCESS_DENIED_CALLBACK_OBJECT_ACE {
     pub Header: ACE_HEADER,
     pub Mask: u32,
     pub Flags: SYSTEM_AUDIT_OBJECT_ACE_FLAGS,
-    pub ObjectType: ::windows_sys::core::GUID,
-    pub InheritedObjectType: ::windows_sys::core::GUID,
+    pub ObjectType: windows_sys::core::GUID,
+    pub InheritedObjectType: windows_sys::core::GUID,
     pub SidStart: u32,
 }
-impl ::core::marker::Copy for ACCESS_DENIED_CALLBACK_OBJECT_ACE {}
-impl ::core::clone::Clone for ACCESS_DENIED_CALLBACK_OBJECT_ACE {
+impl Copy for ACCESS_DENIED_CALLBACK_OBJECT_ACE {}
+impl Clone for ACCESS_DENIED_CALLBACK_OBJECT_ACE {
     fn clone(&self) -> Self {
         *self
     }
@@ -678,12 +678,12 @@ pub struct ACCESS_DENIED_OBJECT_ACE {
     pub Header: ACE_HEADER,
     pub Mask: u32,
     pub Flags: SYSTEM_AUDIT_OBJECT_ACE_FLAGS,
-    pub ObjectType: ::windows_sys::core::GUID,
-    pub InheritedObjectType: ::windows_sys::core::GUID,
+    pub ObjectType: windows_sys::core::GUID,
+    pub InheritedObjectType: windows_sys::core::GUID,
     pub SidStart: u32,
 }
-impl ::core::marker::Copy for ACCESS_DENIED_OBJECT_ACE {}
-impl ::core::clone::Clone for ACCESS_DENIED_OBJECT_ACE {
+impl Copy for ACCESS_DENIED_OBJECT_ACE {}
+impl Clone for ACCESS_DENIED_OBJECT_ACE {
     fn clone(&self) -> Self {
         *self
     }
@@ -692,8 +692,8 @@ impl ::core::clone::Clone for ACCESS_DENIED_OBJECT_ACE {
 pub struct ACCESS_REASONS {
     pub Data: [u32; 32],
 }
-impl ::core::marker::Copy for ACCESS_REASONS {}
-impl ::core::clone::Clone for ACCESS_REASONS {
+impl Copy for ACCESS_REASONS {}
+impl Clone for ACCESS_REASONS {
     fn clone(&self) -> Self {
         *self
     }
@@ -704,8 +704,8 @@ pub struct ACE_HEADER {
     pub AceFlags: u8,
     pub AceSize: u16,
 }
-impl ::core::marker::Copy for ACE_HEADER {}
-impl ::core::clone::Clone for ACE_HEADER {
+impl Copy for ACE_HEADER {}
+impl Clone for ACE_HEADER {
     fn clone(&self) -> Self {
         *self
     }
@@ -718,8 +718,8 @@ pub struct ACL {
     pub AceCount: u16,
     pub Sbz2: u16,
 }
-impl ::core::marker::Copy for ACL {}
-impl ::core::clone::Clone for ACL {
+impl Copy for ACL {}
+impl Clone for ACL {
     fn clone(&self) -> Self {
         *self
     }
@@ -728,8 +728,8 @@ impl ::core::clone::Clone for ACL {
 pub struct ACL_REVISION_INFORMATION {
     pub AclRevision: u32,
 }
-impl ::core::marker::Copy for ACL_REVISION_INFORMATION {}
-impl ::core::clone::Clone for ACL_REVISION_INFORMATION {
+impl Copy for ACL_REVISION_INFORMATION {}
+impl Clone for ACL_REVISION_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -740,8 +740,8 @@ pub struct ACL_SIZE_INFORMATION {
     pub AclBytesInUse: u32,
     pub AclBytesFree: u32,
 }
-impl ::core::marker::Copy for ACL_SIZE_INFORMATION {}
-impl ::core::clone::Clone for ACL_SIZE_INFORMATION {
+impl Copy for ACL_SIZE_INFORMATION {}
+impl Clone for ACL_SIZE_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -753,8 +753,8 @@ pub struct CLAIM_SECURITY_ATTRIBUTES_INFORMATION {
     pub AttributeCount: u32,
     pub Attribute: CLAIM_SECURITY_ATTRIBUTES_INFORMATION_0,
 }
-impl ::core::marker::Copy for CLAIM_SECURITY_ATTRIBUTES_INFORMATION {}
-impl ::core::clone::Clone for CLAIM_SECURITY_ATTRIBUTES_INFORMATION {
+impl Copy for CLAIM_SECURITY_ATTRIBUTES_INFORMATION {}
+impl Clone for CLAIM_SECURITY_ATTRIBUTES_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -763,8 +763,8 @@ impl ::core::clone::Clone for CLAIM_SECURITY_ATTRIBUTES_INFORMATION {
 pub union CLAIM_SECURITY_ATTRIBUTES_INFORMATION_0 {
     pub pAttributeV1: *mut CLAIM_SECURITY_ATTRIBUTE_V1,
 }
-impl ::core::marker::Copy for CLAIM_SECURITY_ATTRIBUTES_INFORMATION_0 {}
-impl ::core::clone::Clone for CLAIM_SECURITY_ATTRIBUTES_INFORMATION_0 {
+impl Copy for CLAIM_SECURITY_ATTRIBUTES_INFORMATION_0 {}
+impl Clone for CLAIM_SECURITY_ATTRIBUTES_INFORMATION_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -772,21 +772,21 @@ impl ::core::clone::Clone for CLAIM_SECURITY_ATTRIBUTES_INFORMATION_0 {
 #[repr(C)]
 pub struct CLAIM_SECURITY_ATTRIBUTE_FQBN_VALUE {
     pub Version: u64,
-    pub Name: ::windows_sys::core::PWSTR,
+    pub Name: windows_sys::core::PWSTR,
 }
-impl ::core::marker::Copy for CLAIM_SECURITY_ATTRIBUTE_FQBN_VALUE {}
-impl ::core::clone::Clone for CLAIM_SECURITY_ATTRIBUTE_FQBN_VALUE {
+impl Copy for CLAIM_SECURITY_ATTRIBUTE_FQBN_VALUE {}
+impl Clone for CLAIM_SECURITY_ATTRIBUTE_FQBN_VALUE {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct CLAIM_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {
-    pub pValue: *mut ::core::ffi::c_void,
+    pub pValue: *mut core::ffi::c_void,
     pub ValueLength: u32,
 }
-impl ::core::marker::Copy for CLAIM_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {}
-impl ::core::clone::Clone for CLAIM_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {
+impl Copy for CLAIM_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {}
+impl Clone for CLAIM_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {
     fn clone(&self) -> Self {
         *self
     }
@@ -800,8 +800,8 @@ pub struct CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1 {
     pub ValueCount: u32,
     pub Values: CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1_0,
 }
-impl ::core::marker::Copy for CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1 {}
-impl ::core::clone::Clone for CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1 {
+impl Copy for CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1 {}
+impl Clone for CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -814,23 +814,23 @@ pub union CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1_0 {
     pub pFqbn: [u32; 1],
     pub pOctetString: [u32; 1],
 }
-impl ::core::marker::Copy for CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1_0 {}
-impl ::core::clone::Clone for CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1_0 {
+impl Copy for CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1_0 {}
+impl Clone for CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct CLAIM_SECURITY_ATTRIBUTE_V1 {
-    pub Name: ::windows_sys::core::PWSTR,
+    pub Name: windows_sys::core::PWSTR,
     pub ValueType: CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE,
     pub Reserved: u16,
     pub Flags: u32,
     pub ValueCount: u32,
     pub Values: CLAIM_SECURITY_ATTRIBUTE_V1_0,
 }
-impl ::core::marker::Copy for CLAIM_SECURITY_ATTRIBUTE_V1 {}
-impl ::core::clone::Clone for CLAIM_SECURITY_ATTRIBUTE_V1 {
+impl Copy for CLAIM_SECURITY_ATTRIBUTE_V1 {}
+impl Clone for CLAIM_SECURITY_ATTRIBUTE_V1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -839,12 +839,12 @@ impl ::core::clone::Clone for CLAIM_SECURITY_ATTRIBUTE_V1 {
 pub union CLAIM_SECURITY_ATTRIBUTE_V1_0 {
     pub pInt64: *mut i64,
     pub pUint64: *mut u64,
-    pub ppString: *mut ::windows_sys::core::PWSTR,
+    pub ppString: *mut windows_sys::core::PWSTR,
     pub pFqbn: *mut CLAIM_SECURITY_ATTRIBUTE_FQBN_VALUE,
     pub pOctetString: *mut CLAIM_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE,
 }
-impl ::core::marker::Copy for CLAIM_SECURITY_ATTRIBUTE_V1_0 {}
-impl ::core::clone::Clone for CLAIM_SECURITY_ATTRIBUTE_V1_0 {
+impl Copy for CLAIM_SECURITY_ATTRIBUTE_V1_0 {}
+impl Clone for CLAIM_SECURITY_ATTRIBUTE_V1_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -856,8 +856,8 @@ pub struct GENERIC_MAPPING {
     pub GenericExecute: u32,
     pub GenericAll: u32,
 }
-impl ::core::marker::Copy for GENERIC_MAPPING {}
-impl ::core::clone::Clone for GENERIC_MAPPING {
+impl Copy for GENERIC_MAPPING {}
+impl Clone for GENERIC_MAPPING {
     fn clone(&self) -> Self {
         *self
     }
@@ -872,8 +872,8 @@ pub type HDIAGNOSTIC_REPORT = isize;
 pub struct LLFILETIME {
     pub Anonymous: LLFILETIME_0,
 }
-impl ::core::marker::Copy for LLFILETIME {}
-impl ::core::clone::Clone for LLFILETIME {
+impl Copy for LLFILETIME {}
+impl Clone for LLFILETIME {
     fn clone(&self) -> Self {
         *self
     }
@@ -883,8 +883,8 @@ pub union LLFILETIME_0 {
     pub ll: i64,
     pub ft: super::Foundation::FILETIME,
 }
-impl ::core::marker::Copy for LLFILETIME_0 {}
-impl ::core::clone::Clone for LLFILETIME_0 {
+impl Copy for LLFILETIME_0 {}
+impl Clone for LLFILETIME_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -894,8 +894,8 @@ pub struct LUID_AND_ATTRIBUTES {
     pub Luid: super::Foundation::LUID,
     pub Attributes: TOKEN_PRIVILEGES_ATTRIBUTES,
 }
-impl ::core::marker::Copy for LUID_AND_ATTRIBUTES {}
-impl ::core::clone::Clone for LUID_AND_ATTRIBUTES {
+impl Copy for LUID_AND_ATTRIBUTES {}
+impl Clone for LUID_AND_ATTRIBUTES {
     fn clone(&self) -> Self {
         *self
     }
@@ -906,10 +906,10 @@ pub type NCRYPT_STREAM_HANDLE = isize;
 pub struct OBJECT_TYPE_LIST {
     pub Level: u16,
     pub Sbz: u16,
-    pub ObjectType: *mut ::windows_sys::core::GUID,
+    pub ObjectType: *mut windows_sys::core::GUID,
 }
-impl ::core::marker::Copy for OBJECT_TYPE_LIST {}
-impl ::core::clone::Clone for OBJECT_TYPE_LIST {
+impl Copy for OBJECT_TYPE_LIST {}
+impl Clone for OBJECT_TYPE_LIST {
     fn clone(&self) -> Self {
         *self
     }
@@ -920,13 +920,13 @@ pub struct PRIVILEGE_SET {
     pub Control: u32,
     pub Privilege: [LUID_AND_ATTRIBUTES; 1],
 }
-impl ::core::marker::Copy for PRIVILEGE_SET {}
-impl ::core::clone::Clone for PRIVILEGE_SET {
+impl Copy for PRIVILEGE_SET {}
+impl Clone for PRIVILEGE_SET {
     fn clone(&self) -> Self {
         *self
     }
 }
-pub type PSECURITY_DESCRIPTOR = *mut ::core::ffi::c_void;
+pub type PSECURITY_DESCRIPTOR = *mut core::ffi::c_void;
 #[repr(C)]
 pub struct QUOTA_LIMITS {
     pub PagedPoolLimit: usize,
@@ -936,8 +936,8 @@ pub struct QUOTA_LIMITS {
     pub PagefileLimit: usize,
     pub TimeLimit: i64,
 }
-impl ::core::marker::Copy for QUOTA_LIMITS {}
-impl ::core::clone::Clone for QUOTA_LIMITS {
+impl Copy for QUOTA_LIMITS {}
+impl Clone for QUOTA_LIMITS {
     fn clone(&self) -> Self {
         *self
     }
@@ -947,11 +947,11 @@ pub type SC_HANDLE = isize;
 #[repr(C)]
 pub struct SECURITY_ATTRIBUTES {
     pub nLength: u32,
-    pub lpSecurityDescriptor: *mut ::core::ffi::c_void,
+    pub lpSecurityDescriptor: *mut core::ffi::c_void,
     pub bInheritHandle: super::Foundation::BOOL,
 }
-impl ::core::marker::Copy for SECURITY_ATTRIBUTES {}
-impl ::core::clone::Clone for SECURITY_ATTRIBUTES {
+impl Copy for SECURITY_ATTRIBUTES {}
+impl Clone for SECURITY_ATTRIBUTES {
     fn clone(&self) -> Self {
         *self
     }
@@ -963,8 +963,8 @@ pub struct SECURITY_CAPABILITIES {
     pub CapabilityCount: u32,
     pub Reserved: u32,
 }
-impl ::core::marker::Copy for SECURITY_CAPABILITIES {}
-impl ::core::clone::Clone for SECURITY_CAPABILITIES {
+impl Copy for SECURITY_CAPABILITIES {}
+impl Clone for SECURITY_CAPABILITIES {
     fn clone(&self) -> Self {
         *self
     }
@@ -979,8 +979,8 @@ pub struct SECURITY_DESCRIPTOR {
     pub Sacl: *mut ACL,
     pub Dacl: *mut ACL,
 }
-impl ::core::marker::Copy for SECURITY_DESCRIPTOR {}
-impl ::core::clone::Clone for SECURITY_DESCRIPTOR {
+impl Copy for SECURITY_DESCRIPTOR {}
+impl Clone for SECURITY_DESCRIPTOR {
     fn clone(&self) -> Self {
         *self
     }
@@ -995,8 +995,8 @@ pub struct SECURITY_DESCRIPTOR_RELATIVE {
     pub Sacl: u32,
     pub Dacl: u32,
 }
-impl ::core::marker::Copy for SECURITY_DESCRIPTOR_RELATIVE {}
-impl ::core::clone::Clone for SECURITY_DESCRIPTOR_RELATIVE {
+impl Copy for SECURITY_DESCRIPTOR_RELATIVE {}
+impl Clone for SECURITY_DESCRIPTOR_RELATIVE {
     fn clone(&self) -> Self {
         *self
     }
@@ -1008,8 +1008,8 @@ pub struct SECURITY_QUALITY_OF_SERVICE {
     pub ContextTrackingMode: u8,
     pub EffectiveOnly: super::Foundation::BOOLEAN,
 }
-impl ::core::marker::Copy for SECURITY_QUALITY_OF_SERVICE {}
-impl ::core::clone::Clone for SECURITY_QUALITY_OF_SERVICE {
+impl Copy for SECURITY_QUALITY_OF_SERVICE {}
+impl Clone for SECURITY_QUALITY_OF_SERVICE {
     fn clone(&self) -> Self {
         *self
     }
@@ -1023,8 +1023,8 @@ pub struct SE_ACCESS_REPLY {
     pub AccessReason: *mut ACCESS_REASONS,
     pub Privileges: *mut *mut PRIVILEGE_SET,
 }
-impl ::core::marker::Copy for SE_ACCESS_REPLY {}
-impl ::core::clone::Clone for SE_ACCESS_REPLY {
+impl Copy for SE_ACCESS_REPLY {}
+impl Clone for SE_ACCESS_REPLY {
     fn clone(&self) -> Self {
         *self
     }
@@ -1040,21 +1040,21 @@ pub struct SE_ACCESS_REQUEST {
     pub ObjectTypeListCount: u32,
     pub ObjectTypeList: *mut OBJECT_TYPE_LIST,
 }
-impl ::core::marker::Copy for SE_ACCESS_REQUEST {}
-impl ::core::clone::Clone for SE_ACCESS_REQUEST {
+impl Copy for SE_ACCESS_REQUEST {}
+impl Clone for SE_ACCESS_REQUEST {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct SE_IMPERSONATION_STATE {
-    pub Token: *mut ::core::ffi::c_void,
+    pub Token: *mut core::ffi::c_void,
     pub CopyOnOpen: super::Foundation::BOOLEAN,
     pub EffectiveOnly: super::Foundation::BOOLEAN,
     pub Level: SECURITY_IMPERSONATION_LEVEL,
 }
-impl ::core::marker::Copy for SE_IMPERSONATION_STATE {}
-impl ::core::clone::Clone for SE_IMPERSONATION_STATE {
+impl Copy for SE_IMPERSONATION_STATE {}
+impl Clone for SE_IMPERSONATION_STATE {
     fn clone(&self) -> Self {
         *self
     }
@@ -1065,8 +1065,8 @@ pub struct SE_SECURITY_DESCRIPTOR {
     pub Flags: u32,
     pub SecurityDescriptor: PSECURITY_DESCRIPTOR,
 }
-impl ::core::marker::Copy for SE_SECURITY_DESCRIPTOR {}
-impl ::core::clone::Clone for SE_SECURITY_DESCRIPTOR {
+impl Copy for SE_SECURITY_DESCRIPTOR {}
+impl Clone for SE_SECURITY_DESCRIPTOR {
     fn clone(&self) -> Self {
         *self
     }
@@ -1076,8 +1076,8 @@ pub union SE_SID {
     pub Sid: SID,
     pub Buffer: [u8; 68],
 }
-impl ::core::marker::Copy for SE_SID {}
-impl ::core::clone::Clone for SE_SID {
+impl Copy for SE_SID {}
+impl Clone for SE_SID {
     fn clone(&self) -> Self {
         *self
     }
@@ -1089,8 +1089,8 @@ pub struct SID {
     pub IdentifierAuthority: SID_IDENTIFIER_AUTHORITY,
     pub SubAuthority: [u32; 1],
 }
-impl ::core::marker::Copy for SID {}
-impl ::core::clone::Clone for SID {
+impl Copy for SID {}
+impl Clone for SID {
     fn clone(&self) -> Self {
         *self
     }
@@ -1100,8 +1100,8 @@ pub struct SID_AND_ATTRIBUTES {
     pub Sid: super::Foundation::PSID,
     pub Attributes: u32,
 }
-impl ::core::marker::Copy for SID_AND_ATTRIBUTES {}
-impl ::core::clone::Clone for SID_AND_ATTRIBUTES {
+impl Copy for SID_AND_ATTRIBUTES {}
+impl Clone for SID_AND_ATTRIBUTES {
     fn clone(&self) -> Self {
         *self
     }
@@ -1112,8 +1112,8 @@ pub struct SID_AND_ATTRIBUTES_HASH {
     pub SidAttr: *mut SID_AND_ATTRIBUTES,
     pub Hash: [usize; 32],
 }
-impl ::core::marker::Copy for SID_AND_ATTRIBUTES_HASH {}
-impl ::core::clone::Clone for SID_AND_ATTRIBUTES_HASH {
+impl Copy for SID_AND_ATTRIBUTES_HASH {}
+impl Clone for SID_AND_ATTRIBUTES_HASH {
     fn clone(&self) -> Self {
         *self
     }
@@ -1122,8 +1122,8 @@ impl ::core::clone::Clone for SID_AND_ATTRIBUTES_HASH {
 pub struct SID_IDENTIFIER_AUTHORITY {
     pub Value: [u8; 6],
 }
-impl ::core::marker::Copy for SID_IDENTIFIER_AUTHORITY {}
-impl ::core::clone::Clone for SID_IDENTIFIER_AUTHORITY {
+impl Copy for SID_IDENTIFIER_AUTHORITY {}
+impl Clone for SID_IDENTIFIER_AUTHORITY {
     fn clone(&self) -> Self {
         *self
     }
@@ -1134,8 +1134,8 @@ pub struct SYSTEM_ACCESS_FILTER_ACE {
     pub Mask: u32,
     pub SidStart: u32,
 }
-impl ::core::marker::Copy for SYSTEM_ACCESS_FILTER_ACE {}
-impl ::core::clone::Clone for SYSTEM_ACCESS_FILTER_ACE {
+impl Copy for SYSTEM_ACCESS_FILTER_ACE {}
+impl Clone for SYSTEM_ACCESS_FILTER_ACE {
     fn clone(&self) -> Self {
         *self
     }
@@ -1146,8 +1146,8 @@ pub struct SYSTEM_ALARM_ACE {
     pub Mask: u32,
     pub SidStart: u32,
 }
-impl ::core::marker::Copy for SYSTEM_ALARM_ACE {}
-impl ::core::clone::Clone for SYSTEM_ALARM_ACE {
+impl Copy for SYSTEM_ALARM_ACE {}
+impl Clone for SYSTEM_ALARM_ACE {
     fn clone(&self) -> Self {
         *self
     }
@@ -1158,8 +1158,8 @@ pub struct SYSTEM_ALARM_CALLBACK_ACE {
     pub Mask: u32,
     pub SidStart: u32,
 }
-impl ::core::marker::Copy for SYSTEM_ALARM_CALLBACK_ACE {}
-impl ::core::clone::Clone for SYSTEM_ALARM_CALLBACK_ACE {
+impl Copy for SYSTEM_ALARM_CALLBACK_ACE {}
+impl Clone for SYSTEM_ALARM_CALLBACK_ACE {
     fn clone(&self) -> Self {
         *self
     }
@@ -1169,12 +1169,12 @@ pub struct SYSTEM_ALARM_CALLBACK_OBJECT_ACE {
     pub Header: ACE_HEADER,
     pub Mask: u32,
     pub Flags: SYSTEM_AUDIT_OBJECT_ACE_FLAGS,
-    pub ObjectType: ::windows_sys::core::GUID,
-    pub InheritedObjectType: ::windows_sys::core::GUID,
+    pub ObjectType: windows_sys::core::GUID,
+    pub InheritedObjectType: windows_sys::core::GUID,
     pub SidStart: u32,
 }
-impl ::core::marker::Copy for SYSTEM_ALARM_CALLBACK_OBJECT_ACE {}
-impl ::core::clone::Clone for SYSTEM_ALARM_CALLBACK_OBJECT_ACE {
+impl Copy for SYSTEM_ALARM_CALLBACK_OBJECT_ACE {}
+impl Clone for SYSTEM_ALARM_CALLBACK_OBJECT_ACE {
     fn clone(&self) -> Self {
         *self
     }
@@ -1184,12 +1184,12 @@ pub struct SYSTEM_ALARM_OBJECT_ACE {
     pub Header: ACE_HEADER,
     pub Mask: u32,
     pub Flags: u32,
-    pub ObjectType: ::windows_sys::core::GUID,
-    pub InheritedObjectType: ::windows_sys::core::GUID,
+    pub ObjectType: windows_sys::core::GUID,
+    pub InheritedObjectType: windows_sys::core::GUID,
     pub SidStart: u32,
 }
-impl ::core::marker::Copy for SYSTEM_ALARM_OBJECT_ACE {}
-impl ::core::clone::Clone for SYSTEM_ALARM_OBJECT_ACE {
+impl Copy for SYSTEM_ALARM_OBJECT_ACE {}
+impl Clone for SYSTEM_ALARM_OBJECT_ACE {
     fn clone(&self) -> Self {
         *self
     }
@@ -1200,8 +1200,8 @@ pub struct SYSTEM_AUDIT_ACE {
     pub Mask: u32,
     pub SidStart: u32,
 }
-impl ::core::marker::Copy for SYSTEM_AUDIT_ACE {}
-impl ::core::clone::Clone for SYSTEM_AUDIT_ACE {
+impl Copy for SYSTEM_AUDIT_ACE {}
+impl Clone for SYSTEM_AUDIT_ACE {
     fn clone(&self) -> Self {
         *self
     }
@@ -1212,8 +1212,8 @@ pub struct SYSTEM_AUDIT_CALLBACK_ACE {
     pub Mask: u32,
     pub SidStart: u32,
 }
-impl ::core::marker::Copy for SYSTEM_AUDIT_CALLBACK_ACE {}
-impl ::core::clone::Clone for SYSTEM_AUDIT_CALLBACK_ACE {
+impl Copy for SYSTEM_AUDIT_CALLBACK_ACE {}
+impl Clone for SYSTEM_AUDIT_CALLBACK_ACE {
     fn clone(&self) -> Self {
         *self
     }
@@ -1223,12 +1223,12 @@ pub struct SYSTEM_AUDIT_CALLBACK_OBJECT_ACE {
     pub Header: ACE_HEADER,
     pub Mask: u32,
     pub Flags: SYSTEM_AUDIT_OBJECT_ACE_FLAGS,
-    pub ObjectType: ::windows_sys::core::GUID,
-    pub InheritedObjectType: ::windows_sys::core::GUID,
+    pub ObjectType: windows_sys::core::GUID,
+    pub InheritedObjectType: windows_sys::core::GUID,
     pub SidStart: u32,
 }
-impl ::core::marker::Copy for SYSTEM_AUDIT_CALLBACK_OBJECT_ACE {}
-impl ::core::clone::Clone for SYSTEM_AUDIT_CALLBACK_OBJECT_ACE {
+impl Copy for SYSTEM_AUDIT_CALLBACK_OBJECT_ACE {}
+impl Clone for SYSTEM_AUDIT_CALLBACK_OBJECT_ACE {
     fn clone(&self) -> Self {
         *self
     }
@@ -1238,12 +1238,12 @@ pub struct SYSTEM_AUDIT_OBJECT_ACE {
     pub Header: ACE_HEADER,
     pub Mask: u32,
     pub Flags: SYSTEM_AUDIT_OBJECT_ACE_FLAGS,
-    pub ObjectType: ::windows_sys::core::GUID,
-    pub InheritedObjectType: ::windows_sys::core::GUID,
+    pub ObjectType: windows_sys::core::GUID,
+    pub InheritedObjectType: windows_sys::core::GUID,
     pub SidStart: u32,
 }
-impl ::core::marker::Copy for SYSTEM_AUDIT_OBJECT_ACE {}
-impl ::core::clone::Clone for SYSTEM_AUDIT_OBJECT_ACE {
+impl Copy for SYSTEM_AUDIT_OBJECT_ACE {}
+impl Clone for SYSTEM_AUDIT_OBJECT_ACE {
     fn clone(&self) -> Self {
         *self
     }
@@ -1254,8 +1254,8 @@ pub struct SYSTEM_MANDATORY_LABEL_ACE {
     pub Mask: u32,
     pub SidStart: u32,
 }
-impl ::core::marker::Copy for SYSTEM_MANDATORY_LABEL_ACE {}
-impl ::core::clone::Clone for SYSTEM_MANDATORY_LABEL_ACE {
+impl Copy for SYSTEM_MANDATORY_LABEL_ACE {}
+impl Clone for SYSTEM_MANDATORY_LABEL_ACE {
     fn clone(&self) -> Self {
         *self
     }
@@ -1266,8 +1266,8 @@ pub struct SYSTEM_PROCESS_TRUST_LABEL_ACE {
     pub Mask: u32,
     pub SidStart: u32,
 }
-impl ::core::marker::Copy for SYSTEM_PROCESS_TRUST_LABEL_ACE {}
-impl ::core::clone::Clone for SYSTEM_PROCESS_TRUST_LABEL_ACE {
+impl Copy for SYSTEM_PROCESS_TRUST_LABEL_ACE {}
+impl Clone for SYSTEM_PROCESS_TRUST_LABEL_ACE {
     fn clone(&self) -> Self {
         *self
     }
@@ -1278,8 +1278,8 @@ pub struct SYSTEM_RESOURCE_ATTRIBUTE_ACE {
     pub Mask: u32,
     pub SidStart: u32,
 }
-impl ::core::marker::Copy for SYSTEM_RESOURCE_ATTRIBUTE_ACE {}
-impl ::core::clone::Clone for SYSTEM_RESOURCE_ATTRIBUTE_ACE {
+impl Copy for SYSTEM_RESOURCE_ATTRIBUTE_ACE {}
+impl Clone for SYSTEM_RESOURCE_ATTRIBUTE_ACE {
     fn clone(&self) -> Self {
         *self
     }
@@ -1290,8 +1290,8 @@ pub struct SYSTEM_SCOPED_POLICY_ID_ACE {
     pub Mask: u32,
     pub SidStart: u32,
 }
-impl ::core::marker::Copy for SYSTEM_SCOPED_POLICY_ID_ACE {}
-impl ::core::clone::Clone for SYSTEM_SCOPED_POLICY_ID_ACE {
+impl Copy for SYSTEM_SCOPED_POLICY_ID_ACE {}
+impl Clone for SYSTEM_SCOPED_POLICY_ID_ACE {
     fn clone(&self) -> Self {
         *self
     }
@@ -1310,10 +1310,10 @@ pub struct TOKEN_ACCESS_INFORMATION {
     pub PackageSid: super::Foundation::PSID,
     pub CapabilitiesHash: *mut SID_AND_ATTRIBUTES_HASH,
     pub TrustLevelSid: super::Foundation::PSID,
-    pub SecurityAttributes: *mut ::core::ffi::c_void,
+    pub SecurityAttributes: *mut core::ffi::c_void,
 }
-impl ::core::marker::Copy for TOKEN_ACCESS_INFORMATION {}
-impl ::core::clone::Clone for TOKEN_ACCESS_INFORMATION {
+impl Copy for TOKEN_ACCESS_INFORMATION {}
+impl Clone for TOKEN_ACCESS_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -1322,8 +1322,8 @@ impl ::core::clone::Clone for TOKEN_ACCESS_INFORMATION {
 pub struct TOKEN_APPCONTAINER_INFORMATION {
     pub TokenAppContainer: super::Foundation::PSID,
 }
-impl ::core::marker::Copy for TOKEN_APPCONTAINER_INFORMATION {}
-impl ::core::clone::Clone for TOKEN_APPCONTAINER_INFORMATION {
+impl Copy for TOKEN_APPCONTAINER_INFORMATION {}
+impl Clone for TOKEN_APPCONTAINER_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -1332,8 +1332,8 @@ impl ::core::clone::Clone for TOKEN_APPCONTAINER_INFORMATION {
 pub struct TOKEN_AUDIT_POLICY {
     pub PerUserPolicy: [u8; 30],
 }
-impl ::core::marker::Copy for TOKEN_AUDIT_POLICY {}
-impl ::core::clone::Clone for TOKEN_AUDIT_POLICY {
+impl Copy for TOKEN_AUDIT_POLICY {}
+impl Clone for TOKEN_AUDIT_POLICY {
     fn clone(&self) -> Self {
         *self
     }
@@ -1345,8 +1345,8 @@ pub struct TOKEN_CONTROL {
     pub ModifiedId: super::Foundation::LUID,
     pub TokenSource: TOKEN_SOURCE,
 }
-impl ::core::marker::Copy for TOKEN_CONTROL {}
-impl ::core::clone::Clone for TOKEN_CONTROL {
+impl Copy for TOKEN_CONTROL {}
+impl Clone for TOKEN_CONTROL {
     fn clone(&self) -> Self {
         *self
     }
@@ -1355,18 +1355,18 @@ impl ::core::clone::Clone for TOKEN_CONTROL {
 pub struct TOKEN_DEFAULT_DACL {
     pub DefaultDacl: *mut ACL,
 }
-impl ::core::marker::Copy for TOKEN_DEFAULT_DACL {}
-impl ::core::clone::Clone for TOKEN_DEFAULT_DACL {
+impl Copy for TOKEN_DEFAULT_DACL {}
+impl Clone for TOKEN_DEFAULT_DACL {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct TOKEN_DEVICE_CLAIMS {
-    pub DeviceClaims: *mut ::core::ffi::c_void,
+    pub DeviceClaims: *mut core::ffi::c_void,
 }
-impl ::core::marker::Copy for TOKEN_DEVICE_CLAIMS {}
-impl ::core::clone::Clone for TOKEN_DEVICE_CLAIMS {
+impl Copy for TOKEN_DEVICE_CLAIMS {}
+impl Clone for TOKEN_DEVICE_CLAIMS {
     fn clone(&self) -> Self {
         *self
     }
@@ -1375,8 +1375,8 @@ impl ::core::clone::Clone for TOKEN_DEVICE_CLAIMS {
 pub struct TOKEN_ELEVATION {
     pub TokenIsElevated: u32,
 }
-impl ::core::marker::Copy for TOKEN_ELEVATION {}
-impl ::core::clone::Clone for TOKEN_ELEVATION {
+impl Copy for TOKEN_ELEVATION {}
+impl Clone for TOKEN_ELEVATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -1386,8 +1386,8 @@ pub struct TOKEN_GROUPS {
     pub GroupCount: u32,
     pub Groups: [SID_AND_ATTRIBUTES; 1],
 }
-impl ::core::marker::Copy for TOKEN_GROUPS {}
-impl ::core::clone::Clone for TOKEN_GROUPS {
+impl Copy for TOKEN_GROUPS {}
+impl Clone for TOKEN_GROUPS {
     fn clone(&self) -> Self {
         *self
     }
@@ -1405,8 +1405,8 @@ pub struct TOKEN_GROUPS_AND_PRIVILEGES {
     pub Privileges: *mut LUID_AND_ATTRIBUTES,
     pub AuthenticationId: super::Foundation::LUID,
 }
-impl ::core::marker::Copy for TOKEN_GROUPS_AND_PRIVILEGES {}
-impl ::core::clone::Clone for TOKEN_GROUPS_AND_PRIVILEGES {
+impl Copy for TOKEN_GROUPS_AND_PRIVILEGES {}
+impl Clone for TOKEN_GROUPS_AND_PRIVILEGES {
     fn clone(&self) -> Self {
         *self
     }
@@ -1415,8 +1415,8 @@ impl ::core::clone::Clone for TOKEN_GROUPS_AND_PRIVILEGES {
 pub struct TOKEN_LINKED_TOKEN {
     pub LinkedToken: super::Foundation::HANDLE,
 }
-impl ::core::marker::Copy for TOKEN_LINKED_TOKEN {}
-impl ::core::clone::Clone for TOKEN_LINKED_TOKEN {
+impl Copy for TOKEN_LINKED_TOKEN {}
+impl Clone for TOKEN_LINKED_TOKEN {
     fn clone(&self) -> Self {
         *self
     }
@@ -1425,8 +1425,8 @@ impl ::core::clone::Clone for TOKEN_LINKED_TOKEN {
 pub struct TOKEN_MANDATORY_LABEL {
     pub Label: SID_AND_ATTRIBUTES,
 }
-impl ::core::marker::Copy for TOKEN_MANDATORY_LABEL {}
-impl ::core::clone::Clone for TOKEN_MANDATORY_LABEL {
+impl Copy for TOKEN_MANDATORY_LABEL {}
+impl Clone for TOKEN_MANDATORY_LABEL {
     fn clone(&self) -> Self {
         *self
     }
@@ -1435,8 +1435,8 @@ impl ::core::clone::Clone for TOKEN_MANDATORY_LABEL {
 pub struct TOKEN_MANDATORY_POLICY {
     pub Policy: TOKEN_MANDATORY_POLICY_ID,
 }
-impl ::core::marker::Copy for TOKEN_MANDATORY_POLICY {}
-impl ::core::clone::Clone for TOKEN_MANDATORY_POLICY {
+impl Copy for TOKEN_MANDATORY_POLICY {}
+impl Clone for TOKEN_MANDATORY_POLICY {
     fn clone(&self) -> Self {
         *self
     }
@@ -1445,8 +1445,8 @@ impl ::core::clone::Clone for TOKEN_MANDATORY_POLICY {
 pub struct TOKEN_ORIGIN {
     pub OriginatingLogonSession: super::Foundation::LUID,
 }
-impl ::core::marker::Copy for TOKEN_ORIGIN {}
-impl ::core::clone::Clone for TOKEN_ORIGIN {
+impl Copy for TOKEN_ORIGIN {}
+impl Clone for TOKEN_ORIGIN {
     fn clone(&self) -> Self {
         *self
     }
@@ -1455,8 +1455,8 @@ impl ::core::clone::Clone for TOKEN_ORIGIN {
 pub struct TOKEN_OWNER {
     pub Owner: super::Foundation::PSID,
 }
-impl ::core::marker::Copy for TOKEN_OWNER {}
-impl ::core::clone::Clone for TOKEN_OWNER {
+impl Copy for TOKEN_OWNER {}
+impl Clone for TOKEN_OWNER {
     fn clone(&self) -> Self {
         *self
     }
@@ -1465,8 +1465,8 @@ impl ::core::clone::Clone for TOKEN_OWNER {
 pub struct TOKEN_PRIMARY_GROUP {
     pub PrimaryGroup: super::Foundation::PSID,
 }
-impl ::core::marker::Copy for TOKEN_PRIMARY_GROUP {}
-impl ::core::clone::Clone for TOKEN_PRIMARY_GROUP {
+impl Copy for TOKEN_PRIMARY_GROUP {}
+impl Clone for TOKEN_PRIMARY_GROUP {
     fn clone(&self) -> Self {
         *self
     }
@@ -1476,8 +1476,8 @@ pub struct TOKEN_PRIVILEGES {
     pub PrivilegeCount: u32,
     pub Privileges: [LUID_AND_ATTRIBUTES; 1],
 }
-impl ::core::marker::Copy for TOKEN_PRIVILEGES {}
-impl ::core::clone::Clone for TOKEN_PRIVILEGES {
+impl Copy for TOKEN_PRIVILEGES {}
+impl Clone for TOKEN_PRIVILEGES {
     fn clone(&self) -> Self {
         *self
     }
@@ -1487,8 +1487,8 @@ pub struct TOKEN_SOURCE {
     pub SourceName: [i8; 8],
     pub SourceIdentifier: super::Foundation::LUID,
 }
-impl ::core::marker::Copy for TOKEN_SOURCE {}
-impl ::core::clone::Clone for TOKEN_SOURCE {
+impl Copy for TOKEN_SOURCE {}
+impl Clone for TOKEN_SOURCE {
     fn clone(&self) -> Self {
         *self
     }
@@ -1506,8 +1506,8 @@ pub struct TOKEN_STATISTICS {
     pub PrivilegeCount: u32,
     pub ModifiedId: super::Foundation::LUID,
 }
-impl ::core::marker::Copy for TOKEN_STATISTICS {}
-impl ::core::clone::Clone for TOKEN_STATISTICS {
+impl Copy for TOKEN_STATISTICS {}
+impl Clone for TOKEN_STATISTICS {
     fn clone(&self) -> Self {
         *self
     }
@@ -1516,21 +1516,21 @@ impl ::core::clone::Clone for TOKEN_STATISTICS {
 pub struct TOKEN_USER {
     pub User: SID_AND_ATTRIBUTES,
 }
-impl ::core::marker::Copy for TOKEN_USER {}
-impl ::core::clone::Clone for TOKEN_USER {
+impl Copy for TOKEN_USER {}
+impl Clone for TOKEN_USER {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct TOKEN_USER_CLAIMS {
-    pub UserClaims: *mut ::core::ffi::c_void,
+    pub UserClaims: *mut core::ffi::c_void,
 }
-impl ::core::marker::Copy for TOKEN_USER_CLAIMS {}
-impl ::core::clone::Clone for TOKEN_USER_CLAIMS {
+impl Copy for TOKEN_USER_CLAIMS {}
+impl Clone for TOKEN_USER_CLAIMS {
     fn clone(&self) -> Self {
         *self
     }
 }
-pub type PLSA_AP_CALL_PACKAGE_UNTRUSTED = ::core::option::Option<unsafe extern "system" fn(clientrequest: *const *const ::core::ffi::c_void, protocolsubmitbuffer: *const ::core::ffi::c_void, clientbufferbase: *const ::core::ffi::c_void, submitbufferlength: u32, protocolreturnbuffer: *mut *mut ::core::ffi::c_void, returnbufferlength: *mut u32, protocolstatus: *mut i32) -> super::Foundation::NTSTATUS>;
-pub type SEC_THREAD_START = ::core::option::Option<unsafe extern "system" fn(lpthreadparameter: *mut ::core::ffi::c_void) -> u32>;
+pub type PLSA_AP_CALL_PACKAGE_UNTRUSTED = Option<unsafe extern "system" fn(clientrequest: *const *const core::ffi::c_void, protocolsubmitbuffer: *const core::ffi::c_void, clientbufferbase: *const core::ffi::c_void, submitbufferlength: u32, protocolreturnbuffer: *mut *mut core::ffi::c_void, returnbufferlength: *mut u32, protocolstatus: *mut i32) -> super::Foundation::NTSTATUS>;
+pub type SEC_THREAD_START = Option<unsafe extern "system" fn(lpthreadparameter: *mut core::ffi::c_void) -> u32>;

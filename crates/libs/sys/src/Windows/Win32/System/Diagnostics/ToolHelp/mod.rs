@@ -13,7 +13,7 @@
 ::windows_targets::link!("kernel32.dll" "system" fn Process32NextW(hsnapshot : super::super::super::Foundation:: HANDLE, lppe : *mut PROCESSENTRY32W) -> super::super::super::Foundation:: BOOL);
 ::windows_targets::link!("kernel32.dll" "system" fn Thread32First(hsnapshot : super::super::super::Foundation:: HANDLE, lpte : *mut THREADENTRY32) -> super::super::super::Foundation:: BOOL);
 ::windows_targets::link!("kernel32.dll" "system" fn Thread32Next(hsnapshot : super::super::super::Foundation:: HANDLE, lpte : *mut THREADENTRY32) -> super::super::super::Foundation:: BOOL);
-::windows_targets::link!("kernel32.dll" "system" fn Toolhelp32ReadProcessMemory(th32processid : u32, lpbaseaddress : *const ::core::ffi::c_void, lpbuffer : *mut ::core::ffi::c_void, cbread : usize, lpnumberofbytesread : *mut usize) -> super::super::super::Foundation:: BOOL);
+::windows_targets::link!("kernel32.dll" "system" fn Toolhelp32ReadProcessMemory(th32processid : u32, lpbaseaddress : *const core::ffi::c_void, lpbuffer : *mut core::ffi::c_void, cbread : usize, lpnumberofbytesread : *mut usize) -> super::super::super::Foundation:: BOOL);
 pub const HF32_DEFAULT: u32 = 1u32;
 pub const HF32_SHARED: u32 = 2u32;
 pub const LF32_FIXED: HEAPENTRY32_FLAGS = 1u32;
@@ -41,8 +41,8 @@ pub struct HEAPENTRY32 {
     pub th32ProcessID: u32,
     pub th32HeapID: usize,
 }
-impl ::core::marker::Copy for HEAPENTRY32 {}
-impl ::core::clone::Clone for HEAPENTRY32 {
+impl Copy for HEAPENTRY32 {}
+impl Clone for HEAPENTRY32 {
     fn clone(&self) -> Self {
         *self
     }
@@ -54,8 +54,8 @@ pub struct HEAPLIST32 {
     pub th32HeapID: usize,
     pub dwFlags: u32,
 }
-impl ::core::marker::Copy for HEAPLIST32 {}
-impl ::core::clone::Clone for HEAPLIST32 {
+impl Copy for HEAPLIST32 {}
+impl Clone for HEAPLIST32 {
     fn clone(&self) -> Self {
         *self
     }
@@ -73,8 +73,8 @@ pub struct MODULEENTRY32 {
     pub szModule: [i8; 256],
     pub szExePath: [i8; 260],
 }
-impl ::core::marker::Copy for MODULEENTRY32 {}
-impl ::core::clone::Clone for MODULEENTRY32 {
+impl Copy for MODULEENTRY32 {}
+impl Clone for MODULEENTRY32 {
     fn clone(&self) -> Self {
         *self
     }
@@ -92,8 +92,8 @@ pub struct MODULEENTRY32W {
     pub szModule: [u16; 256],
     pub szExePath: [u16; 260],
 }
-impl ::core::marker::Copy for MODULEENTRY32W {}
-impl ::core::clone::Clone for MODULEENTRY32W {
+impl Copy for MODULEENTRY32W {}
+impl Clone for MODULEENTRY32W {
     fn clone(&self) -> Self {
         *self
     }
@@ -111,8 +111,8 @@ pub struct PROCESSENTRY32 {
     pub dwFlags: u32,
     pub szExeFile: [i8; 260],
 }
-impl ::core::marker::Copy for PROCESSENTRY32 {}
-impl ::core::clone::Clone for PROCESSENTRY32 {
+impl Copy for PROCESSENTRY32 {}
+impl Clone for PROCESSENTRY32 {
     fn clone(&self) -> Self {
         *self
     }
@@ -130,8 +130,8 @@ pub struct PROCESSENTRY32W {
     pub dwFlags: u32,
     pub szExeFile: [u16; 260],
 }
-impl ::core::marker::Copy for PROCESSENTRY32W {}
-impl ::core::clone::Clone for PROCESSENTRY32W {
+impl Copy for PROCESSENTRY32W {}
+impl Clone for PROCESSENTRY32W {
     fn clone(&self) -> Self {
         *self
     }
@@ -146,8 +146,8 @@ pub struct THREADENTRY32 {
     pub tpDeltaPri: i32,
     pub dwFlags: u32,
 }
-impl ::core::marker::Copy for THREADENTRY32 {}
-impl ::core::clone::Clone for THREADENTRY32 {
+impl Copy for THREADENTRY32 {}
+impl Clone for THREADENTRY32 {
     fn clone(&self) -> Self {
         *self
     }

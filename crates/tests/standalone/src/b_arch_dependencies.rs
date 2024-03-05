@@ -14,8 +14,8 @@ pub union ARM64_NT_NEON128 {
     pub H: [u16; 8],
     pub B: [u8; 16],
 }
-impl ::core::marker::Copy for ARM64_NT_NEON128 {}
-impl ::core::clone::Clone for ARM64_NT_NEON128 {
+impl Copy for ARM64_NT_NEON128 {}
+impl Clone for ARM64_NT_NEON128 {
     fn clone(&self) -> Self {
         *self
     }
@@ -25,8 +25,8 @@ pub struct ARM64_NT_NEON128_0 {
     pub Low: u64,
     pub High: i64,
 }
-impl ::core::marker::Copy for ARM64_NT_NEON128_0 {}
-impl ::core::clone::Clone for ARM64_NT_NEON128_0 {
+impl Copy for ARM64_NT_NEON128_0 {}
+impl Clone for ARM64_NT_NEON128_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -48,9 +48,9 @@ pub struct CONTEXT {
     pub Wvr: [u64; 2],
 }
 #[cfg(target_arch = "aarch64")]
-impl ::core::marker::Copy for CONTEXT {}
+impl Copy for CONTEXT {}
 #[cfg(target_arch = "aarch64")]
-impl ::core::clone::Clone for CONTEXT {
+impl Clone for CONTEXT {
     fn clone(&self) -> Self {
         *self
     }
@@ -62,9 +62,9 @@ pub union CONTEXT_0 {
     pub X: [u64; 31],
 }
 #[cfg(target_arch = "aarch64")]
-impl ::core::marker::Copy for CONTEXT_0 {}
+impl Copy for CONTEXT_0 {}
 #[cfg(target_arch = "aarch64")]
-impl ::core::clone::Clone for CONTEXT_0 {
+impl Clone for CONTEXT_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -105,9 +105,9 @@ pub struct CONTEXT_0_0 {
     pub Lr: u64,
 }
 #[cfg(target_arch = "aarch64")]
-impl ::core::marker::Copy for CONTEXT_0_0 {}
+impl Copy for CONTEXT_0_0 {}
 #[cfg(target_arch = "aarch64")]
-impl ::core::clone::Clone for CONTEXT_0_0 {
+impl Clone for CONTEXT_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -163,9 +163,9 @@ pub struct CONTEXT {
     pub LastExceptionFromRip: u64,
 }
 #[cfg(target_arch = "x86_64")]
-impl ::core::marker::Copy for CONTEXT {}
+impl Copy for CONTEXT {}
 #[cfg(target_arch = "x86_64")]
-impl ::core::clone::Clone for CONTEXT {
+impl Clone for CONTEXT {
     fn clone(&self) -> Self {
         *self
     }
@@ -177,9 +177,9 @@ pub union CONTEXT_0 {
     pub Anonymous: CONTEXT_0_0,
 }
 #[cfg(target_arch = "x86_64")]
-impl ::core::marker::Copy for CONTEXT_0 {}
+impl Copy for CONTEXT_0 {}
 #[cfg(target_arch = "x86_64")]
-impl ::core::clone::Clone for CONTEXT_0 {
+impl Clone for CONTEXT_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -207,9 +207,9 @@ pub struct CONTEXT_0_0 {
     pub Xmm15: M128A,
 }
 #[cfg(target_arch = "x86_64")]
-impl ::core::marker::Copy for CONTEXT_0_0 {}
+impl Copy for CONTEXT_0_0 {}
 #[cfg(target_arch = "x86_64")]
-impl ::core::clone::Clone for CONTEXT_0_0 {
+impl Clone for CONTEXT_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -244,9 +244,9 @@ pub struct CONTEXT {
     pub ExtendedRegisters: [u8; 512],
 }
 #[cfg(target_arch = "x86")]
-impl ::core::marker::Copy for CONTEXT {}
+impl Copy for CONTEXT {}
 #[cfg(target_arch = "x86")]
-impl ::core::clone::Clone for CONTEXT {
+impl Clone for CONTEXT {
     fn clone(&self) -> Self {
         *self
     }
@@ -266,9 +266,9 @@ pub struct FLOATING_SAVE_AREA {
     pub Cr0NpxState: u32,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::marker::Copy for FLOATING_SAVE_AREA {}
+impl Copy for FLOATING_SAVE_AREA {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::clone::Clone for FLOATING_SAVE_AREA {
+impl Clone for FLOATING_SAVE_AREA {
     fn clone(&self) -> Self {
         *self
     }
@@ -287,9 +287,9 @@ pub struct FLOATING_SAVE_AREA {
     pub Spare0: u32,
 }
 #[cfg(target_arch = "x86")]
-impl ::core::marker::Copy for FLOATING_SAVE_AREA {}
+impl Copy for FLOATING_SAVE_AREA {}
 #[cfg(target_arch = "x86")]
-impl ::core::clone::Clone for FLOATING_SAVE_AREA {
+impl Clone for FLOATING_SAVE_AREA {
     fn clone(&self) -> Self {
         *self
     }
@@ -299,8 +299,8 @@ pub struct M128A {
     pub Low: u64,
     pub High: i64,
 }
-impl ::core::marker::Copy for M128A {}
-impl ::core::clone::Clone for M128A {
+impl Copy for M128A {}
+impl Clone for M128A {
     fn clone(&self) -> Self {
         *self
     }
@@ -326,9 +326,9 @@ pub struct XSAVE_FORMAT {
     pub Reserved4: [u8; 96],
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::marker::Copy for XSAVE_FORMAT {}
+impl Copy for XSAVE_FORMAT {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::clone::Clone for XSAVE_FORMAT {
+impl Clone for XSAVE_FORMAT {
     fn clone(&self) -> Self {
         *self
     }
@@ -354,9 +354,9 @@ pub struct XSAVE_FORMAT {
     pub Reserved4: [u8; 224],
 }
 #[cfg(target_arch = "x86")]
-impl ::core::marker::Copy for XSAVE_FORMAT {}
+impl Copy for XSAVE_FORMAT {}
 #[cfg(target_arch = "x86")]
-impl ::core::clone::Clone for XSAVE_FORMAT {
+impl Clone for XSAVE_FORMAT {
     fn clone(&self) -> Self {
         *self
     }

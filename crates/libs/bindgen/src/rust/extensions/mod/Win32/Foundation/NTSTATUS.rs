@@ -8,11 +8,11 @@ impl NTSTATUS {
         !self.is_ok()
     }
     #[inline]
-    pub const fn to_hresult(self) -> ::windows_core::HRESULT {
-        ::windows_core::HRESULT::from_nt(self.0)
+    pub const fn to_hresult(self) -> windows_core::HRESULT {
+        windows_core::HRESULT::from_nt(self.0)
     }
     #[inline]
-    pub fn ok(self) -> ::windows_core::Result<()> {
+    pub fn ok(self) -> windows_core::Result<()> {
         if self.is_ok() {
             Ok(())
         } else {
@@ -20,12 +20,12 @@ impl NTSTATUS {
         }
     }
 }
-impl ::core::convert::From<NTSTATUS> for ::windows_core::HRESULT {
+impl From<NTSTATUS> for windows_core::HRESULT {
     fn from(value: NTSTATUS) -> Self {
         value.to_hresult()
     }
 }
-impl ::core::convert::From<NTSTATUS> for ::windows_core::Error {
+impl From<NTSTATUS> for windows_core::Error {
     fn from(value: NTSTATUS) -> Self {
         value.to_hresult().into()
     }

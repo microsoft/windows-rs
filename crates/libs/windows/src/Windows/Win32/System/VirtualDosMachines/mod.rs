@@ -109,18 +109,18 @@ pub struct GLOBALENTRY {
     pub dwNext: u32,
     pub dwNextAlt: u32,
 }
-impl ::core::marker::Copy for GLOBALENTRY {}
-impl ::core::clone::Clone for GLOBALENTRY {
+impl Copy for GLOBALENTRY {}
+impl Clone for GLOBALENTRY {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::windows_core::TypeKind for GLOBALENTRY {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for GLOBALENTRY {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::default::Default for GLOBALENTRY {
+impl Default for GLOBALENTRY {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -130,29 +130,29 @@ pub struct IMAGE_NOTE {
     pub hModule: u16,
     pub hTask: u16,
 }
-impl ::core::marker::Copy for IMAGE_NOTE {}
-impl ::core::clone::Clone for IMAGE_NOTE {
+impl Copy for IMAGE_NOTE {}
+impl Clone for IMAGE_NOTE {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for IMAGE_NOTE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for IMAGE_NOTE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("IMAGE_NOTE").field("Module", &self.Module).field("FileName", &self.FileName).field("hModule", &self.hModule).field("hTask", &self.hTask).finish()
     }
 }
-impl ::windows_core::TypeKind for IMAGE_NOTE {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for IMAGE_NOTE {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for IMAGE_NOTE {
+impl PartialEq for IMAGE_NOTE {
     fn eq(&self, other: &Self) -> bool {
         self.Module == other.Module && self.FileName == other.FileName && self.hModule == other.hModule && self.hTask == other.hTask
     }
 }
-impl ::core::cmp::Eq for IMAGE_NOTE {}
-impl ::core::default::Default for IMAGE_NOTE {
+impl Eq for IMAGE_NOTE {}
+impl Default for IMAGE_NOTE {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(4))]
@@ -164,18 +164,18 @@ pub struct MODULEENTRY {
     pub szExePath: [i8; 256],
     pub wNext: u16,
 }
-impl ::core::marker::Copy for MODULEENTRY {}
-impl ::core::clone::Clone for MODULEENTRY {
+impl Copy for MODULEENTRY {}
+impl Clone for MODULEENTRY {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::windows_core::TypeKind for MODULEENTRY {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for MODULEENTRY {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::default::Default for MODULEENTRY {
+impl Default for MODULEENTRY {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -188,29 +188,29 @@ pub struct SEGMENT_NOTE {
     pub Type: u16,
     pub Length: u32,
 }
-impl ::core::marker::Copy for SEGMENT_NOTE {}
-impl ::core::clone::Clone for SEGMENT_NOTE {
+impl Copy for SEGMENT_NOTE {}
+impl Clone for SEGMENT_NOTE {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for SEGMENT_NOTE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for SEGMENT_NOTE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("SEGMENT_NOTE").field("Selector1", &self.Selector1).field("Selector2", &self.Selector2).field("Segment", &self.Segment).field("Module", &self.Module).field("FileName", &self.FileName).field("Type", &self.Type).field("Length", &self.Length).finish()
     }
 }
-impl ::windows_core::TypeKind for SEGMENT_NOTE {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for SEGMENT_NOTE {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for SEGMENT_NOTE {
+impl PartialEq for SEGMENT_NOTE {
     fn eq(&self, other: &Self) -> bool {
         self.Selector1 == other.Selector1 && self.Selector2 == other.Selector2 && self.Segment == other.Segment && self.Module == other.Module && self.FileName == other.FileName && self.Type == other.Type && self.Length == other.Length
     }
 }
-impl ::core::cmp::Eq for SEGMENT_NOTE {}
-impl ::core::default::Default for SEGMENT_NOTE {
+impl Eq for SEGMENT_NOTE {}
+impl Default for SEGMENT_NOTE {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -219,29 +219,29 @@ pub struct TEMP_BP_NOTE {
     pub Offset: u32,
     pub bPM: super::super::Foundation::BOOL,
 }
-impl ::core::marker::Copy for TEMP_BP_NOTE {}
-impl ::core::clone::Clone for TEMP_BP_NOTE {
+impl Copy for TEMP_BP_NOTE {}
+impl Clone for TEMP_BP_NOTE {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for TEMP_BP_NOTE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for TEMP_BP_NOTE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("TEMP_BP_NOTE").field("Seg", &self.Seg).field("Offset", &self.Offset).field("bPM", &self.bPM).finish()
     }
 }
-impl ::windows_core::TypeKind for TEMP_BP_NOTE {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for TEMP_BP_NOTE {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for TEMP_BP_NOTE {
+impl PartialEq for TEMP_BP_NOTE {
     fn eq(&self, other: &Self) -> bool {
         self.Seg == other.Seg && self.Offset == other.Offset && self.bPM == other.bPM
     }
 }
-impl ::core::cmp::Eq for TEMP_BP_NOTE {}
-impl ::core::default::Default for TEMP_BP_NOTE {
+impl Eq for TEMP_BP_NOTE {}
+impl Default for TEMP_BP_NOTE {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -276,18 +276,18 @@ pub struct VDMCONTEXT {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Kernel")]
-impl ::core::marker::Copy for VDMCONTEXT {}
+impl Copy for VDMCONTEXT {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Kernel")]
-impl ::core::clone::Clone for VDMCONTEXT {
+impl Clone for VDMCONTEXT {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Kernel")]
-impl ::core::fmt::Debug for VDMCONTEXT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for VDMCONTEXT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("VDMCONTEXT")
             .field("ContextFlags", &self.ContextFlags)
             .field("Dr0", &self.Dr0)
@@ -319,24 +319,24 @@ impl ::core::fmt::Debug for VDMCONTEXT {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Kernel")]
-impl ::windows_core::TypeKind for VDMCONTEXT {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for VDMCONTEXT {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Kernel")]
-impl ::core::cmp::PartialEq for VDMCONTEXT {
+impl PartialEq for VDMCONTEXT {
     fn eq(&self, other: &Self) -> bool {
         self.ContextFlags == other.ContextFlags && self.Dr0 == other.Dr0 && self.Dr1 == other.Dr1 && self.Dr2 == other.Dr2 && self.Dr3 == other.Dr3 && self.Dr6 == other.Dr6 && self.Dr7 == other.Dr7 && self.FloatSave == other.FloatSave && self.SegGs == other.SegGs && self.SegFs == other.SegFs && self.SegEs == other.SegEs && self.SegDs == other.SegDs && self.Edi == other.Edi && self.Esi == other.Esi && self.Ebx == other.Ebx && self.Edx == other.Edx && self.Ecx == other.Ecx && self.Eax == other.Eax && self.Ebp == other.Ebp && self.Eip == other.Eip && self.SegCs == other.SegCs && self.EFlags == other.EFlags && self.Esp == other.Esp && self.SegSs == other.SegSs && self.ExtendedRegisters == other.ExtendedRegisters
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Kernel")]
-impl ::core::cmp::Eq for VDMCONTEXT {}
+impl Eq for VDMCONTEXT {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Kernel")]
-impl ::core::default::Default for VDMCONTEXT {
+impl Default for VDMCONTEXT {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -368,16 +368,16 @@ pub struct VDMCONTEXT_WITHOUT_XSAVE {
     pub SegSs: u32,
 }
 #[cfg(feature = "Win32_System_Kernel")]
-impl ::core::marker::Copy for VDMCONTEXT_WITHOUT_XSAVE {}
+impl Copy for VDMCONTEXT_WITHOUT_XSAVE {}
 #[cfg(feature = "Win32_System_Kernel")]
-impl ::core::clone::Clone for VDMCONTEXT_WITHOUT_XSAVE {
+impl Clone for VDMCONTEXT_WITHOUT_XSAVE {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[cfg(feature = "Win32_System_Kernel")]
-impl ::core::fmt::Debug for VDMCONTEXT_WITHOUT_XSAVE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for VDMCONTEXT_WITHOUT_XSAVE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("VDMCONTEXT_WITHOUT_XSAVE")
             .field("ContextFlags", &self.ContextFlags)
             .field("Dr0", &self.Dr0)
@@ -407,21 +407,21 @@ impl ::core::fmt::Debug for VDMCONTEXT_WITHOUT_XSAVE {
     }
 }
 #[cfg(feature = "Win32_System_Kernel")]
-impl ::windows_core::TypeKind for VDMCONTEXT_WITHOUT_XSAVE {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for VDMCONTEXT_WITHOUT_XSAVE {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Kernel")]
-impl ::core::cmp::PartialEq for VDMCONTEXT_WITHOUT_XSAVE {
+impl PartialEq for VDMCONTEXT_WITHOUT_XSAVE {
     fn eq(&self, other: &Self) -> bool {
         self.ContextFlags == other.ContextFlags && self.Dr0 == other.Dr0 && self.Dr1 == other.Dr1 && self.Dr2 == other.Dr2 && self.Dr3 == other.Dr3 && self.Dr6 == other.Dr6 && self.Dr7 == other.Dr7 && self.FloatSave == other.FloatSave && self.SegGs == other.SegGs && self.SegFs == other.SegFs && self.SegEs == other.SegEs && self.SegDs == other.SegDs && self.Edi == other.Edi && self.Esi == other.Esi && self.Ebx == other.Ebx && self.Edx == other.Edx && self.Ecx == other.Ecx && self.Eax == other.Eax && self.Ebp == other.Ebp && self.Eip == other.Eip && self.SegCs == other.SegCs && self.EFlags == other.EFlags && self.Esp == other.Esp && self.SegSs == other.SegSs
     }
 }
 #[cfg(feature = "Win32_System_Kernel")]
-impl ::core::cmp::Eq for VDMCONTEXT_WITHOUT_XSAVE {}
+impl Eq for VDMCONTEXT_WITHOUT_XSAVE {}
 #[cfg(feature = "Win32_System_Kernel")]
-impl ::core::default::Default for VDMCONTEXT_WITHOUT_XSAVE {
+impl Default for VDMCONTEXT_WITHOUT_XSAVE {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -432,21 +432,21 @@ pub struct VDMLDT_ENTRY {
     pub HighWord: VDMLDT_ENTRY_0,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::marker::Copy for VDMLDT_ENTRY {}
+impl Copy for VDMLDT_ENTRY {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::clone::Clone for VDMLDT_ENTRY {
+impl Clone for VDMLDT_ENTRY {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::windows_core::TypeKind for VDMLDT_ENTRY {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for VDMLDT_ENTRY {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::default::Default for VDMLDT_ENTRY {
+impl Default for VDMLDT_ENTRY {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -456,21 +456,21 @@ pub union VDMLDT_ENTRY_0 {
     pub Bits: VDMLDT_ENTRY_0_0,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::marker::Copy for VDMLDT_ENTRY_0 {}
+impl Copy for VDMLDT_ENTRY_0 {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::clone::Clone for VDMLDT_ENTRY_0 {
+impl Clone for VDMLDT_ENTRY_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::windows_core::TypeKind for VDMLDT_ENTRY_0 {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for VDMLDT_ENTRY_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::default::Default for VDMLDT_ENTRY_0 {
+impl Default for VDMLDT_ENTRY_0 {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -479,35 +479,35 @@ pub struct VDMLDT_ENTRY_0_0 {
     pub _bitfield: u32,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::marker::Copy for VDMLDT_ENTRY_0_0 {}
+impl Copy for VDMLDT_ENTRY_0_0 {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::clone::Clone for VDMLDT_ENTRY_0_0 {
+impl Clone for VDMLDT_ENTRY_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::fmt::Debug for VDMLDT_ENTRY_0_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for VDMLDT_ENTRY_0_0 {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("VDMLDT_ENTRY_0_0").field("_bitfield", &self._bitfield).finish()
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::windows_core::TypeKind for VDMLDT_ENTRY_0_0 {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for VDMLDT_ENTRY_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::cmp::PartialEq for VDMLDT_ENTRY_0_0 {
+impl PartialEq for VDMLDT_ENTRY_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self._bitfield == other._bitfield
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::cmp::Eq for VDMLDT_ENTRY_0_0 {}
+impl Eq for VDMLDT_ENTRY_0_0 {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::default::Default for VDMLDT_ENTRY_0_0 {
+impl Default for VDMLDT_ENTRY_0_0 {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -519,35 +519,35 @@ pub struct VDMLDT_ENTRY_0_1 {
     pub BaseHi: u8,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::marker::Copy for VDMLDT_ENTRY_0_1 {}
+impl Copy for VDMLDT_ENTRY_0_1 {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::clone::Clone for VDMLDT_ENTRY_0_1 {
+impl Clone for VDMLDT_ENTRY_0_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::fmt::Debug for VDMLDT_ENTRY_0_1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for VDMLDT_ENTRY_0_1 {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("VDMLDT_ENTRY_0_1").field("BaseMid", &self.BaseMid).field("Flags1", &self.Flags1).field("Flags2", &self.Flags2).field("BaseHi", &self.BaseHi).finish()
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::windows_core::TypeKind for VDMLDT_ENTRY_0_1 {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for VDMLDT_ENTRY_0_1 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::cmp::PartialEq for VDMLDT_ENTRY_0_1 {
+impl PartialEq for VDMLDT_ENTRY_0_1 {
     fn eq(&self, other: &Self) -> bool {
         self.BaseMid == other.BaseMid && self.Flags1 == other.Flags1 && self.Flags2 == other.Flags2 && self.BaseHi == other.BaseHi
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::cmp::Eq for VDMLDT_ENTRY_0_1 {}
+impl Eq for VDMLDT_ENTRY_0_1 {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::default::Default for VDMLDT_ENTRY_0_1 {
+impl Default for VDMLDT_ENTRY_0_1 {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -559,77 +559,77 @@ pub struct VDM_SEGINFO {
     pub ModuleName: [i8; 9],
     pub FileName: [i8; 255],
 }
-impl ::core::marker::Copy for VDM_SEGINFO {}
-impl ::core::clone::Clone for VDM_SEGINFO {
+impl Copy for VDM_SEGINFO {}
+impl Clone for VDM_SEGINFO {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for VDM_SEGINFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for VDM_SEGINFO {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("VDM_SEGINFO").field("Selector", &self.Selector).field("SegNumber", &self.SegNumber).field("Length", &self.Length).field("Type", &self.Type).field("ModuleName", &self.ModuleName).field("FileName", &self.FileName).finish()
     }
 }
-impl ::windows_core::TypeKind for VDM_SEGINFO {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for VDM_SEGINFO {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for VDM_SEGINFO {
+impl PartialEq for VDM_SEGINFO {
     fn eq(&self, other: &Self) -> bool {
         self.Selector == other.Selector && self.SegNumber == other.SegNumber && self.Length == other.Length && self.Type == other.Type && self.ModuleName == other.ModuleName && self.FileName == other.FileName
     }
 }
-impl ::core::cmp::Eq for VDM_SEGINFO {}
-impl ::core::default::Default for VDM_SEGINFO {
+impl Eq for VDM_SEGINFO {}
+impl Default for VDM_SEGINFO {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Threading"))]
-pub type DEBUGEVENTPROC = ::core::option::Option<unsafe extern "system" fn(param0: *mut super::Diagnostics::Debug::DEBUG_EVENT, param1: *mut ::core::ffi::c_void) -> u32>;
-pub type PROCESSENUMPROC = ::core::option::Option<unsafe extern "system" fn(dwprocessid: u32, dwattributes: u32, lpuserdefined: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
-pub type TASKENUMPROC = ::core::option::Option<unsafe extern "system" fn(dwthreadid: u32, hmod16: u16, htask16: u16, lpuserdefined: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
-pub type TASKENUMPROCEX = ::core::option::Option<unsafe extern "system" fn(dwthreadid: u32, hmod16: u16, htask16: u16, pszmodname: *mut i8, pszfilename: *mut i8, lpuserdefined: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
-pub type VDMBREAKTHREADPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL>;
-pub type VDMDETECTWOWPROC = ::core::option::Option<unsafe extern "system" fn() -> super::super::Foundation::BOOL>;
-pub type VDMENUMPROCESSWOWPROC = ::core::option::Option<unsafe extern "system" fn(param0: PROCESSENUMPROC, param1: super::super::Foundation::LPARAM) -> i32>;
-pub type VDMENUMTASKWOWEXPROC = ::core::option::Option<unsafe extern "system" fn(param0: u32, param1: TASKENUMPROCEX, param2: super::super::Foundation::LPARAM) -> i32>;
-pub type VDMENUMTASKWOWPROC = ::core::option::Option<unsafe extern "system" fn(param0: u32, param1: TASKENUMPROC, param2: super::super::Foundation::LPARAM) -> i32>;
-pub type VDMGETADDREXPRESSIONPROC = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_core::PCSTR, param1: ::windows_core::PCSTR, param2: *mut u16, param3: *mut u32, param4: *mut u16) -> super::super::Foundation::BOOL>;
+pub type DEBUGEVENTPROC = Option<unsafe extern "system" fn(param0: *mut super::Diagnostics::Debug::DEBUG_EVENT, param1: *mut core::ffi::c_void) -> u32>;
+pub type PROCESSENUMPROC = Option<unsafe extern "system" fn(dwprocessid: u32, dwattributes: u32, lpuserdefined: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
+pub type TASKENUMPROC = Option<unsafe extern "system" fn(dwthreadid: u32, hmod16: u16, htask16: u16, lpuserdefined: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
+pub type TASKENUMPROCEX = Option<unsafe extern "system" fn(dwthreadid: u32, hmod16: u16, htask16: u16, pszmodname: *mut i8, pszfilename: *mut i8, lpuserdefined: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
+pub type VDMBREAKTHREADPROC = Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL>;
+pub type VDMDETECTWOWPROC = Option<unsafe extern "system" fn() -> super::super::Foundation::BOOL>;
+pub type VDMENUMPROCESSWOWPROC = Option<unsafe extern "system" fn(param0: PROCESSENUMPROC, param1: super::super::Foundation::LPARAM) -> i32>;
+pub type VDMENUMTASKWOWEXPROC = Option<unsafe extern "system" fn(param0: u32, param1: TASKENUMPROCEX, param2: super::super::Foundation::LPARAM) -> i32>;
+pub type VDMENUMTASKWOWPROC = Option<unsafe extern "system" fn(param0: u32, param1: TASKENUMPROC, param2: super::super::Foundation::LPARAM) -> i32>;
+pub type VDMGETADDREXPRESSIONPROC = Option<unsafe extern "system" fn(param0: windows_core::PCSTR, param1: windows_core::PCSTR, param2: *mut u16, param3: *mut u32, param4: *mut u16) -> super::super::Foundation::BOOL>;
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Kernel")]
-pub type VDMGETCONTEXTPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: *mut VDMCONTEXT) -> super::super::Foundation::BOOL>;
+pub type VDMGETCONTEXTPROC = Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: *mut VDMCONTEXT) -> super::super::Foundation::BOOL>;
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-pub type VDMGETCONTEXTPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: *mut super::Diagnostics::Debug::CONTEXT) -> super::super::Foundation::BOOL>;
-pub type VDMGETDBGFLAGSPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE) -> u32>;
-pub type VDMGETMODULESELECTORPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: u32, param3: ::windows_core::PCSTR, param4: *mut u16) -> super::super::Foundation::BOOL>;
-pub type VDMGETPOINTERPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: u16, param3: u32, param4: super::super::Foundation::BOOL) -> u32>;
-pub type VDMGETSEGMENTINFOPROC = ::core::option::Option<unsafe extern "system" fn(param0: u16, param1: u32, param2: super::super::Foundation::BOOL, param3: VDM_SEGINFO) -> super::super::Foundation::BOOL>;
-pub type VDMGETSELECTORMODULEPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: u16, param3: *mut u32, param4: ::windows_core::PCSTR, param5: u32, param6: ::windows_core::PCSTR, param7: u32) -> super::super::Foundation::BOOL>;
-pub type VDMGETSYMBOLPROC = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_core::PCSTR, param1: u16, param2: u32, param3: super::super::Foundation::BOOL, param4: super::super::Foundation::BOOL, param5: ::windows_core::PSTR, param6: *mut u32) -> super::super::Foundation::BOOL>;
+pub type VDMGETCONTEXTPROC = Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: *mut super::Diagnostics::Debug::CONTEXT) -> super::super::Foundation::BOOL>;
+pub type VDMGETDBGFLAGSPROC = Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE) -> u32>;
+pub type VDMGETMODULESELECTORPROC = Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: u32, param3: windows_core::PCSTR, param4: *mut u16) -> super::super::Foundation::BOOL>;
+pub type VDMGETPOINTERPROC = Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: u16, param3: u32, param4: super::super::Foundation::BOOL) -> u32>;
+pub type VDMGETSEGMENTINFOPROC = Option<unsafe extern "system" fn(param0: u16, param1: u32, param2: super::super::Foundation::BOOL, param3: VDM_SEGINFO) -> super::super::Foundation::BOOL>;
+pub type VDMGETSELECTORMODULEPROC = Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: u16, param3: *mut u32, param4: windows_core::PCSTR, param5: u32, param6: windows_core::PCSTR, param7: u32) -> super::super::Foundation::BOOL>;
+pub type VDMGETSYMBOLPROC = Option<unsafe extern "system" fn(param0: windows_core::PCSTR, param1: u16, param2: u32, param3: super::super::Foundation::BOOL, param4: super::super::Foundation::BOOL, param5: windows_core::PSTR, param6: *mut u32) -> super::super::Foundation::BOOL>;
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-pub type VDMGETTHREADSELECTORENTRYPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: u32, param3: *mut VDMLDT_ENTRY) -> super::super::Foundation::BOOL>;
+pub type VDMGETTHREADSELECTORENTRYPROC = Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: u32, param3: *mut VDMLDT_ENTRY) -> super::super::Foundation::BOOL>;
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-pub type VDMGETTHREADSELECTORENTRYPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: u32, param3: *mut super::Diagnostics::Debug::LDT_ENTRY) -> super::super::Foundation::BOOL>;
+pub type VDMGETTHREADSELECTORENTRYPROC = Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: u32, param3: *mut super::Diagnostics::Debug::LDT_ENTRY) -> super::super::Foundation::BOOL>;
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Threading"))]
-pub type VDMGLOBALFIRSTPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: *mut GLOBALENTRY, param3: u16, param4: DEBUGEVENTPROC, param5: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
+pub type VDMGLOBALFIRSTPROC = Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: *mut GLOBALENTRY, param3: u16, param4: DEBUGEVENTPROC, param5: *mut core::ffi::c_void) -> super::super::Foundation::BOOL>;
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Threading"))]
-pub type VDMGLOBALNEXTPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: *mut GLOBALENTRY, param3: u16, param4: DEBUGEVENTPROC, param5: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
-pub type VDMISMODULELOADEDPROC = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_core::PCSTR) -> super::super::Foundation::BOOL>;
-pub type VDMKILLWOWPROC = ::core::option::Option<unsafe extern "system" fn() -> super::super::Foundation::BOOL>;
+pub type VDMGLOBALNEXTPROC = Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: *mut GLOBALENTRY, param3: u16, param4: DEBUGEVENTPROC, param5: *mut core::ffi::c_void) -> super::super::Foundation::BOOL>;
+pub type VDMISMODULELOADEDPROC = Option<unsafe extern "system" fn(param0: windows_core::PCSTR) -> super::super::Foundation::BOOL>;
+pub type VDMKILLWOWPROC = Option<unsafe extern "system" fn() -> super::super::Foundation::BOOL>;
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Threading"))]
-pub type VDMMODULEFIRSTPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: *mut MODULEENTRY, param3: DEBUGEVENTPROC, param4: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
+pub type VDMMODULEFIRSTPROC = Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: *mut MODULEENTRY, param3: DEBUGEVENTPROC, param4: *mut core::ffi::c_void) -> super::super::Foundation::BOOL>;
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Threading"))]
-pub type VDMMODULENEXTPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: *mut MODULEENTRY, param3: DEBUGEVENTPROC, param4: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
+pub type VDMMODULENEXTPROC = Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: *mut MODULEENTRY, param3: DEBUGEVENTPROC, param4: *mut core::ffi::c_void) -> super::super::Foundation::BOOL>;
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Threading"))]
-pub type VDMPROCESSEXCEPTIONPROC = ::core::option::Option<unsafe extern "system" fn(param0: *mut super::Diagnostics::Debug::DEBUG_EVENT) -> super::super::Foundation::BOOL>;
+pub type VDMPROCESSEXCEPTIONPROC = Option<unsafe extern "system" fn(param0: *mut super::Diagnostics::Debug::DEBUG_EVENT) -> super::super::Foundation::BOOL>;
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Kernel")]
-pub type VDMSETCONTEXTPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: *mut VDMCONTEXT) -> super::super::Foundation::BOOL>;
+pub type VDMSETCONTEXTPROC = Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: *mut VDMCONTEXT) -> super::super::Foundation::BOOL>;
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-pub type VDMSETCONTEXTPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: *mut super::Diagnostics::Debug::CONTEXT) -> super::super::Foundation::BOOL>;
-pub type VDMSETDBGFLAGSPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: u32) -> super::super::Foundation::BOOL>;
-pub type VDMSTARTTASKINWOWPROC = ::core::option::Option<unsafe extern "system" fn(param0: u32, param1: ::windows_core::PCSTR, param2: u16) -> super::super::Foundation::BOOL>;
-pub type VDMTERMINATETASKINWOWPROC = ::core::option::Option<unsafe extern "system" fn(param0: u32, param1: u16) -> super::super::Foundation::BOOL>;
+pub type VDMSETCONTEXTPROC = Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: *mut super::Diagnostics::Debug::CONTEXT) -> super::super::Foundation::BOOL>;
+pub type VDMSETDBGFLAGSPROC = Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: u32) -> super::super::Foundation::BOOL>;
+pub type VDMSTARTTASKINWOWPROC = Option<unsafe extern "system" fn(param0: u32, param1: windows_core::PCSTR, param2: u16) -> super::super::Foundation::BOOL>;
+pub type VDMTERMINATETASKINWOWPROC = Option<unsafe extern "system" fn(param0: u32, param1: u16) -> super::super::Foundation::BOOL>;

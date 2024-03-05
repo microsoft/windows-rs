@@ -21,14 +21,14 @@ pub struct Primitives {
     pub field_isize: isize,
     pub field_usize: usize,
 }
-impl ::core::marker::Copy for Primitives {}
-impl ::core::clone::Clone for Primitives {
+impl Copy for Primitives {}
+impl Clone for Primitives {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for Primitives {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for Primitives {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("Primitives")
             .field("field_bool", &self.field_bool)
             .field("field_i8", &self.field_i8)
@@ -46,16 +46,15 @@ impl ::core::fmt::Debug for Primitives {
             .finish()
     }
 }
-impl ::windows_core::TypeKind for Primitives {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for Primitives {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::windows_core::RuntimeType for Primitives {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer =
-        ::windows_core::imp::ConstBuffer::from_slice(
-            b"struct(Test.Primitives;b1;i1;u1;i2;u2;i4;u4;i8;u8;f4;f8;is;us)",
-        );
+impl windows_core::RuntimeType for Primitives {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(
+        b"struct(Test.Primitives;b1;i1;u1;i2;u2;i4;u4;i8;u8;f4;f8;is;us)",
+    );
 }
-impl ::core::cmp::PartialEq for Primitives {
+impl PartialEq for Primitives {
     fn eq(&self, other: &Self) -> bool {
         self.field_bool == other.field_bool
             && self.field_i8 == other.field_i8
@@ -72,9 +71,9 @@ impl ::core::cmp::PartialEq for Primitives {
             && self.field_usize == other.field_usize
     }
 }
-impl ::core::cmp::Eq for Primitives {}
-impl ::core::default::Default for Primitives {
+impl Eq for Primitives {}
+impl Default for Primitives {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }

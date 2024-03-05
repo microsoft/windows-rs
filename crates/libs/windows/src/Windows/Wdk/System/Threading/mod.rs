@@ -1,42 +1,42 @@
 #[inline]
-pub unsafe fn NtQueryInformationProcess<P0>(processhandle: P0, processinformationclass: PROCESSINFOCLASS, processinformation: *mut ::core::ffi::c_void, processinformationlength: u32, returnlength: *mut u32) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn NtQueryInformationProcess<P0>(processhandle: P0, processinformationclass: PROCESSINFOCLASS, processinformation: *mut core::ffi::c_void, processinformationlength: u32, returnlength: *mut u32) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P0: ::windows_core::IntoParam<super::super::super::Win32::Foundation::HANDLE>,
+    P0: windows_core::IntoParam<super::super::super::Win32::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("ntdll.dll" "system" fn NtQueryInformationProcess(processhandle : super::super::super::Win32::Foundation:: HANDLE, processinformationclass : PROCESSINFOCLASS, processinformation : *mut ::core::ffi::c_void, processinformationlength : u32, returnlength : *mut u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
+    ::windows_targets::link!("ntdll.dll" "system" fn NtQueryInformationProcess(processhandle : super::super::super::Win32::Foundation:: HANDLE, processinformationclass : PROCESSINFOCLASS, processinformation : *mut core::ffi::c_void, processinformationlength : u32, returnlength : *mut u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
     NtQueryInformationProcess(processhandle.into_param().abi(), processinformationclass, processinformation, processinformationlength, returnlength)
 }
 #[inline]
-pub unsafe fn NtQueryInformationThread<P0>(threadhandle: P0, threadinformationclass: THREADINFOCLASS, threadinformation: *mut ::core::ffi::c_void, threadinformationlength: u32, returnlength: *mut u32) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn NtQueryInformationThread<P0>(threadhandle: P0, threadinformationclass: THREADINFOCLASS, threadinformation: *mut core::ffi::c_void, threadinformationlength: u32, returnlength: *mut u32) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P0: ::windows_core::IntoParam<super::super::super::Win32::Foundation::HANDLE>,
+    P0: windows_core::IntoParam<super::super::super::Win32::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("ntdll.dll" "system" fn NtQueryInformationThread(threadhandle : super::super::super::Win32::Foundation:: HANDLE, threadinformationclass : THREADINFOCLASS, threadinformation : *mut ::core::ffi::c_void, threadinformationlength : u32, returnlength : *mut u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
+    ::windows_targets::link!("ntdll.dll" "system" fn NtQueryInformationThread(threadhandle : super::super::super::Win32::Foundation:: HANDLE, threadinformationclass : THREADINFOCLASS, threadinformation : *mut core::ffi::c_void, threadinformationlength : u32, returnlength : *mut u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
     NtQueryInformationThread(threadhandle.into_param().abi(), threadinformationclass, threadinformation, threadinformationlength, returnlength)
 }
 #[inline]
-pub unsafe fn NtSetInformationThread<P0>(threadhandle: P0, threadinformationclass: THREADINFOCLASS, threadinformation: *const ::core::ffi::c_void, threadinformationlength: u32) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn NtSetInformationThread<P0>(threadhandle: P0, threadinformationclass: THREADINFOCLASS, threadinformation: *const core::ffi::c_void, threadinformationlength: u32) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P0: ::windows_core::IntoParam<super::super::super::Win32::Foundation::HANDLE>,
+    P0: windows_core::IntoParam<super::super::super::Win32::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("ntdll.dll" "system" fn NtSetInformationThread(threadhandle : super::super::super::Win32::Foundation:: HANDLE, threadinformationclass : THREADINFOCLASS, threadinformation : *const ::core::ffi::c_void, threadinformationlength : u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
+    ::windows_targets::link!("ntdll.dll" "system" fn NtSetInformationThread(threadhandle : super::super::super::Win32::Foundation:: HANDLE, threadinformationclass : THREADINFOCLASS, threadinformation : *const core::ffi::c_void, threadinformationlength : u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
     NtSetInformationThread(threadhandle.into_param().abi(), threadinformationclass, threadinformation, threadinformationlength)
 }
 #[inline]
 pub unsafe fn NtWaitForSingleObject<P0, P1>(handle: P0, alertable: P1, timeout: *mut i64) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P0: ::windows_core::IntoParam<super::super::super::Win32::Foundation::HANDLE>,
-    P1: ::windows_core::IntoParam<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::IntoParam<super::super::super::Win32::Foundation::HANDLE>,
+    P1: windows_core::IntoParam<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     ::windows_targets::link!("ntdll.dll" "system" fn NtWaitForSingleObject(handle : super::super::super::Win32::Foundation:: HANDLE, alertable : super::super::super::Win32::Foundation:: BOOLEAN, timeout : *mut i64) -> super::super::super::Win32::Foundation:: NTSTATUS);
     NtWaitForSingleObject(handle.into_param().abi(), alertable.into_param().abi(), timeout)
 }
 #[inline]
-pub unsafe fn ZwSetInformationThread<P0>(threadhandle: P0, threadinformationclass: THREADINFOCLASS, threadinformation: *const ::core::ffi::c_void, threadinformationlength: u32) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn ZwSetInformationThread<P0>(threadhandle: P0, threadinformationclass: THREADINFOCLASS, threadinformation: *const core::ffi::c_void, threadinformationlength: u32) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P0: ::windows_core::IntoParam<super::super::super::Win32::Foundation::HANDLE>,
+    P0: windows_core::IntoParam<super::super::super::Win32::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("ntdll.dll" "system" fn ZwSetInformationThread(threadhandle : super::super::super::Win32::Foundation:: HANDLE, threadinformationclass : THREADINFOCLASS, threadinformation : *const ::core::ffi::c_void, threadinformationlength : u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
+    ::windows_targets::link!("ntdll.dll" "system" fn ZwSetInformationThread(threadhandle : super::super::super::Win32::Foundation:: HANDLE, threadinformationclass : THREADINFOCLASS, threadinformation : *const core::ffi::c_void, threadinformationlength : u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
     ZwSetInformationThread(threadhandle.into_param().abi(), threadinformationclass, threadinformation, threadinformationlength)
 }
 pub const MaxProcessInfoClass: PROCESSINFOCLASS = PROCESSINFOCLASS(83i32);
@@ -155,24 +155,24 @@ pub const ThreadUmsInformation: THREADINFOCLASS = THREADINFOCLASS(31i32);
 pub const ThreadWow64Context: THREADINFOCLASS = THREADINFOCLASS(29i32);
 pub const ThreadZeroTlsCell: THREADINFOCLASS = THREADINFOCLASS(10i32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct PROCESSINFOCLASS(pub i32);
-impl ::windows_core::TypeKind for PROCESSINFOCLASS {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for PROCESSINFOCLASS {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for PROCESSINFOCLASS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for PROCESSINFOCLASS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("PROCESSINFOCLASS").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct THREADINFOCLASS(pub i32);
-impl ::windows_core::TypeKind for THREADINFOCLASS {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for THREADINFOCLASS {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for THREADINFOCLASS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for THREADINFOCLASS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("THREADINFOCLASS").field(&self.0).finish()
     }
 }

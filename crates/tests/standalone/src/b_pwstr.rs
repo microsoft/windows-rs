@@ -10,8 +10,8 @@ pub struct CALPOLESTR {
     pub cElems: u32,
     pub pElems: *mut PWSTR,
 }
-impl ::core::marker::Copy for CALPOLESTR {}
-impl ::core::clone::Clone for CALPOLESTR {
+impl Copy for CALPOLESTR {}
+impl Clone for CALPOLESTR {
     fn clone(&self) -> Self {
         *self
     }

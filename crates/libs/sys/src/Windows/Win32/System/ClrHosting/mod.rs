@@ -1,31 +1,31 @@
-::windows_targets::link!("mscoree.dll" "system" fn CLRCreateInstance(clsid : *const ::windows_sys::core::GUID, riid : *const ::windows_sys::core::GUID, ppinterface : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("mscoree.dll" "system" fn CallFunctionShim(szdllname : ::windows_sys::core::PCWSTR, szfunctionname : ::windows_sys::core::PCSTR, lpvargument1 : *mut ::core::ffi::c_void, lpvargument2 : *mut ::core::ffi::c_void, szversion : ::windows_sys::core::PCWSTR, pvreserved : *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("mscoree.dll" "system" fn ClrCreateManagedInstance(ptypename : ::windows_sys::core::PCWSTR, riid : *const ::windows_sys::core::GUID, ppobject : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("mscoree.dll" "system" fn CorBindToCurrentRuntime(pwszfilename : ::windows_sys::core::PCWSTR, rclsid : *const ::windows_sys::core::GUID, riid : *const ::windows_sys::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("mscoree.dll" "system" fn CorBindToRuntime(pwszversion : ::windows_sys::core::PCWSTR, pwszbuildflavor : ::windows_sys::core::PCWSTR, rclsid : *const ::windows_sys::core::GUID, riid : *const ::windows_sys::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("mscoree.dll" "system" fn CorBindToRuntimeByCfg(pcfgstream : * mut::core::ffi::c_void, reserved : u32, startupflags : u32, rclsid : *const ::windows_sys::core::GUID, riid : *const ::windows_sys::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("mscoree.dll" "system" fn CorBindToRuntimeEx(pwszversion : ::windows_sys::core::PCWSTR, pwszbuildflavor : ::windows_sys::core::PCWSTR, startupflags : u32, rclsid : *const ::windows_sys::core::GUID, riid : *const ::windows_sys::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("mscoree.dll" "system" fn CorBindToRuntimeHost(pwszversion : ::windows_sys::core::PCWSTR, pwszbuildflavor : ::windows_sys::core::PCWSTR, pwszhostconfigfile : ::windows_sys::core::PCWSTR, preserved : *mut ::core::ffi::c_void, startupflags : u32, rclsid : *const ::windows_sys::core::GUID, riid : *const ::windows_sys::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("mscoree.dll" "system" fn CLRCreateInstance(clsid : *const windows_sys::core::GUID, riid : *const windows_sys::core::GUID, ppinterface : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+::windows_targets::link!("mscoree.dll" "system" fn CallFunctionShim(szdllname : windows_sys::core::PCWSTR, szfunctionname : windows_sys::core::PCSTR, lpvargument1 : *mut core::ffi::c_void, lpvargument2 : *mut core::ffi::c_void, szversion : windows_sys::core::PCWSTR, pvreserved : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+::windows_targets::link!("mscoree.dll" "system" fn ClrCreateManagedInstance(ptypename : windows_sys::core::PCWSTR, riid : *const windows_sys::core::GUID, ppobject : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+::windows_targets::link!("mscoree.dll" "system" fn CorBindToCurrentRuntime(pwszfilename : windows_sys::core::PCWSTR, rclsid : *const windows_sys::core::GUID, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+::windows_targets::link!("mscoree.dll" "system" fn CorBindToRuntime(pwszversion : windows_sys::core::PCWSTR, pwszbuildflavor : windows_sys::core::PCWSTR, rclsid : *const windows_sys::core::GUID, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+::windows_targets::link!("mscoree.dll" "system" fn CorBindToRuntimeByCfg(pcfgstream : * mut core::ffi::c_void, reserved : u32, startupflags : u32, rclsid : *const windows_sys::core::GUID, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+::windows_targets::link!("mscoree.dll" "system" fn CorBindToRuntimeEx(pwszversion : windows_sys::core::PCWSTR, pwszbuildflavor : windows_sys::core::PCWSTR, startupflags : u32, rclsid : *const windows_sys::core::GUID, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+::windows_targets::link!("mscoree.dll" "system" fn CorBindToRuntimeHost(pwszversion : windows_sys::core::PCWSTR, pwszbuildflavor : windows_sys::core::PCWSTR, pwszhostconfigfile : windows_sys::core::PCWSTR, preserved : *mut core::ffi::c_void, startupflags : u32, rclsid : *const windows_sys::core::GUID, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 ::windows_targets::link!("mscoree.dll" "system" fn CorExitProcess(exitcode : i32));
 #[cfg(feature = "Win32_System_Threading")]
-::windows_targets::link!("mscoree.dll" "system" fn CorLaunchApplication(dwclickoncehost : HOST_TYPE, pwzappfullname : ::windows_sys::core::PCWSTR, dwmanifestpaths : u32, ppwzmanifestpaths : *const ::windows_sys::core::PCWSTR, dwactivationdata : u32, ppwzactivationdata : *const ::windows_sys::core::PCWSTR, lpprocessinformation : *mut super::Threading:: PROCESS_INFORMATION) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("mscoree.dll" "system" fn CorLaunchApplication(dwclickoncehost : HOST_TYPE, pwzappfullname : windows_sys::core::PCWSTR, dwmanifestpaths : u32, ppwzmanifestpaths : *const windows_sys::core::PCWSTR, dwactivationdata : u32, ppwzactivationdata : *const windows_sys::core::PCWSTR, lpprocessinformation : *mut super::Threading:: PROCESS_INFORMATION) -> windows_sys::core::HRESULT);
 ::windows_targets::link!("mscoree.dll" "system" fn CorMarkThreadInThreadPool());
-::windows_targets::link!("mscoree.dll" "system" fn CreateDebuggingInterfaceFromVersion(idebuggerversion : i32, szdebuggeeversion : ::windows_sys::core::PCWSTR, ppcordb : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("mscoree.dll" "system" fn GetCLRIdentityManager(riid : *const ::windows_sys::core::GUID, ppmanager : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("mscoree.dll" "system" fn GetCORRequiredVersion(pbuffer : ::windows_sys::core::PWSTR, cchbuffer : u32, dwlength : *mut u32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("mscoree.dll" "system" fn GetCORSystemDirectory(pbuffer : ::windows_sys::core::PWSTR, cchbuffer : u32, dwlength : *mut u32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("mscoree.dll" "system" fn GetCORVersion(pbbuffer : ::windows_sys::core::PWSTR, cchbuffer : u32, dwlength : *mut u32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("mscoree.dll" "system" fn GetFileVersion(szfilename : ::windows_sys::core::PCWSTR, szbuffer : ::windows_sys::core::PWSTR, cchbuffer : u32, dwlength : *mut u32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("mscoree.dll" "system" fn GetRealProcAddress(pwszprocname : ::windows_sys::core::PCSTR, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("mscoree.dll" "system" fn GetRequestedRuntimeInfo(pexe : ::windows_sys::core::PCWSTR, pwszversion : ::windows_sys::core::PCWSTR, pconfigurationfile : ::windows_sys::core::PCWSTR, startupflags : u32, runtimeinfoflags : u32, pdirectory : ::windows_sys::core::PWSTR, dwdirectory : u32, dwdirectorylength : *mut u32, pversion : ::windows_sys::core::PWSTR, cchbuffer : u32, dwlength : *mut u32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("mscoree.dll" "system" fn GetRequestedRuntimeVersion(pexe : ::windows_sys::core::PCWSTR, pversion : ::windows_sys::core::PWSTR, cchbuffer : u32, dwlength : *mut u32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("mscoree.dll" "system" fn GetRequestedRuntimeVersionForCLSID(rclsid : *const ::windows_sys::core::GUID, pversion : ::windows_sys::core::PWSTR, cchbuffer : u32, dwlength : *mut u32, dwresolutionflags : CLSID_RESOLUTION_FLAGS) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("mscoree.dll" "system" fn GetVersionFromProcess(hprocess : super::super::Foundation:: HANDLE, pversion : ::windows_sys::core::PWSTR, cchbuffer : u32, dwlength : *mut u32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("mscoree.dll" "system" fn LoadLibraryShim(szdllname : ::windows_sys::core::PCWSTR, szversion : ::windows_sys::core::PCWSTR, pvreserved : *mut ::core::ffi::c_void, phmoddll : *mut super::super::Foundation:: HMODULE) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("mscoree.dll" "system" fn LoadStringRC(iresouceid : u32, szbuffer : ::windows_sys::core::PWSTR, imax : i32, bquiet : i32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("mscoree.dll" "system" fn LoadStringRCEx(lcid : u32, iresouceid : u32, szbuffer : ::windows_sys::core::PWSTR, imax : i32, bquiet : i32, pcwchused : *mut i32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("mscoree.dll" "system" fn LockClrVersion(hostcallback : FLockClrVersionCallback, pbeginhostsetup : *mut FLockClrVersionCallback, pendhostsetup : *mut FLockClrVersionCallback) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("mscoree.dll" "system" fn RunDll32ShimW(hwnd : super::super::Foundation:: HWND, hinst : super::super::Foundation:: HINSTANCE, lpszcmdline : ::windows_sys::core::PCWSTR, ncmdshow : i32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("mscoree.dll" "system" fn CreateDebuggingInterfaceFromVersion(idebuggerversion : i32, szdebuggeeversion : windows_sys::core::PCWSTR, ppcordb : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+::windows_targets::link!("mscoree.dll" "system" fn GetCLRIdentityManager(riid : *const windows_sys::core::GUID, ppmanager : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+::windows_targets::link!("mscoree.dll" "system" fn GetCORRequiredVersion(pbuffer : windows_sys::core::PWSTR, cchbuffer : u32, dwlength : *mut u32) -> windows_sys::core::HRESULT);
+::windows_targets::link!("mscoree.dll" "system" fn GetCORSystemDirectory(pbuffer : windows_sys::core::PWSTR, cchbuffer : u32, dwlength : *mut u32) -> windows_sys::core::HRESULT);
+::windows_targets::link!("mscoree.dll" "system" fn GetCORVersion(pbbuffer : windows_sys::core::PWSTR, cchbuffer : u32, dwlength : *mut u32) -> windows_sys::core::HRESULT);
+::windows_targets::link!("mscoree.dll" "system" fn GetFileVersion(szfilename : windows_sys::core::PCWSTR, szbuffer : windows_sys::core::PWSTR, cchbuffer : u32, dwlength : *mut u32) -> windows_sys::core::HRESULT);
+::windows_targets::link!("mscoree.dll" "system" fn GetRealProcAddress(pwszprocname : windows_sys::core::PCSTR, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+::windows_targets::link!("mscoree.dll" "system" fn GetRequestedRuntimeInfo(pexe : windows_sys::core::PCWSTR, pwszversion : windows_sys::core::PCWSTR, pconfigurationfile : windows_sys::core::PCWSTR, startupflags : u32, runtimeinfoflags : u32, pdirectory : windows_sys::core::PWSTR, dwdirectory : u32, dwdirectorylength : *mut u32, pversion : windows_sys::core::PWSTR, cchbuffer : u32, dwlength : *mut u32) -> windows_sys::core::HRESULT);
+::windows_targets::link!("mscoree.dll" "system" fn GetRequestedRuntimeVersion(pexe : windows_sys::core::PCWSTR, pversion : windows_sys::core::PWSTR, cchbuffer : u32, dwlength : *mut u32) -> windows_sys::core::HRESULT);
+::windows_targets::link!("mscoree.dll" "system" fn GetRequestedRuntimeVersionForCLSID(rclsid : *const windows_sys::core::GUID, pversion : windows_sys::core::PWSTR, cchbuffer : u32, dwlength : *mut u32, dwresolutionflags : CLSID_RESOLUTION_FLAGS) -> windows_sys::core::HRESULT);
+::windows_targets::link!("mscoree.dll" "system" fn GetVersionFromProcess(hprocess : super::super::Foundation:: HANDLE, pversion : windows_sys::core::PWSTR, cchbuffer : u32, dwlength : *mut u32) -> windows_sys::core::HRESULT);
+::windows_targets::link!("mscoree.dll" "system" fn LoadLibraryShim(szdllname : windows_sys::core::PCWSTR, szversion : windows_sys::core::PCWSTR, pvreserved : *mut core::ffi::c_void, phmoddll : *mut super::super::Foundation:: HMODULE) -> windows_sys::core::HRESULT);
+::windows_targets::link!("mscoree.dll" "system" fn LoadStringRC(iresouceid : u32, szbuffer : windows_sys::core::PWSTR, imax : i32, bquiet : i32) -> windows_sys::core::HRESULT);
+::windows_targets::link!("mscoree.dll" "system" fn LoadStringRCEx(lcid : u32, iresouceid : u32, szbuffer : windows_sys::core::PWSTR, imax : i32, bquiet : i32, pcwchused : *mut i32) -> windows_sys::core::HRESULT);
+::windows_targets::link!("mscoree.dll" "system" fn LockClrVersion(hostcallback : FLockClrVersionCallback, pbeginhostsetup : *mut FLockClrVersionCallback, pendhostsetup : *mut FLockClrVersionCallback) -> windows_sys::core::HRESULT);
+::windows_targets::link!("mscoree.dll" "system" fn RunDll32ShimW(hwnd : super::super::Foundation:: HWND, hinst : super::super::Foundation:: HINSTANCE, lpszcmdline : windows_sys::core::PCWSTR, ncmdshow : i32) -> windows_sys::core::HRESULT);
 pub const APPDOMAIN_FORCE_TRIVIAL_WAIT_OPERATIONS: APPDOMAIN_SECURITY_FLAGS = 8i32;
 pub const APPDOMAIN_SECURITY_DEFAULT: APPDOMAIN_SECURITY_FLAGS = 0i32;
 pub const APPDOMAIN_SECURITY_FORBID_CROSSAD_REVERSE_PINVOKE: APPDOMAIN_SECURITY_FLAGS = 2i32;
@@ -41,18 +41,18 @@ pub const CLR_DEBUGGING_MANAGED_EVENT_DEBUGGER_LAUNCH: CLR_DEBUGGING_PROCESS_FLA
 pub const CLR_DEBUGGING_MANAGED_EVENT_PENDING: CLR_DEBUGGING_PROCESS_FLAGS = 1i32;
 pub const CLR_MAJOR_VERSION: u32 = 4u32;
 pub const CLR_MINOR_VERSION: u32 = 0u32;
-pub const CLSID_CLRDebugging: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xbacc578d_fbdd_48a4_969f_02d932b74634);
-pub const CLSID_CLRDebuggingLegacy: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xdf8395b5_a4ba_450b_a77c_a9a47762c520);
-pub const CLSID_CLRMetaHost: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x9280188d_0e8e_4867_b30c_7fa83884e8de);
-pub const CLSID_CLRMetaHostPolicy: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x2ebcd49a_1b47_4a61_b13a_4a03701e594b);
-pub const CLSID_CLRProfiling: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xbd097ed8_733e_43fe_8ed7_a95ff9a8448c);
-pub const CLSID_CLRStrongName: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xb79b0acd_f5cd_409b_b5a5_a16244610b92);
+pub const CLSID_CLRDebugging: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xbacc578d_fbdd_48a4_969f_02d932b74634);
+pub const CLSID_CLRDebuggingLegacy: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdf8395b5_a4ba_450b_a77c_a9a47762c520);
+pub const CLSID_CLRMetaHost: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9280188d_0e8e_4867_b30c_7fa83884e8de);
+pub const CLSID_CLRMetaHostPolicy: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x2ebcd49a_1b47_4a61_b13a_4a03701e594b);
+pub const CLSID_CLRProfiling: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xbd097ed8_733e_43fe_8ed7_a95ff9a8448c);
+pub const CLSID_CLRStrongName: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb79b0acd_f5cd_409b_b5a5_a16244610b92);
 pub const CLSID_RESOLUTION_DEFAULT: CLSID_RESOLUTION_FLAGS = 0i32;
 pub const CLSID_RESOLUTION_REGISTERED: CLSID_RESOLUTION_FLAGS = 1i32;
 pub const COR_GC_COUNTS: COR_GC_STAT_TYPES = 1i32;
 pub const COR_GC_MEMORYUSAGE: COR_GC_STAT_TYPES = 2i32;
 pub const COR_GC_THREAD_HAS_PROMOTED_BYTES: COR_GC_THREAD_STATS_TYPES = 1i32;
-pub const DEPRECATED_CLR_API_MESG: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("This API has been deprecated. Refer to https://go.microsoft.com/fwlink/?LinkId=143720 for more details.");
+pub const DEPRECATED_CLR_API_MESG: windows_sys::core::PCSTR = windows_sys::core::s!("This API has been deprecated. Refer to https://go.microsoft.com/fwlink/?LinkId=143720 for more details.");
 pub const DUMP_FLAVOR_CriticalCLRState: ECustomDumpFlavor = 1i32;
 pub const DUMP_FLAVOR_Default: ECustomDumpFlavor = 0i32;
 pub const DUMP_FLAVOR_Mini: ECustomDumpFlavor = 0i32;
@@ -78,7 +78,7 @@ pub const HOST_TYPE_APPLAUNCH: HOST_TYPE = 1i32;
 pub const HOST_TYPE_CORFLAG: HOST_TYPE = 2i32;
 pub const HOST_TYPE_DEFAULT: HOST_TYPE = 0i32;
 pub const InvalidBucketParamIndex: BucketParameterIndex = 9i32;
-pub const LIBID_mscoree: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x5477469e_83b1_11d2_8b49_00a0c9b7c9c4);
+pub const LIBID_mscoree: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5477469e_83b1_11d2_8b49_00a0c9b7c9c4);
 pub const MALLOC_EXECUTABLE: MALLOC_TYPE = 2i32;
 pub const MALLOC_THREADSAFE: MALLOC_TYPE = 1i32;
 pub const METAHOST_CONFIG_FLAGS_LEGACY_V2_ACTIVATION_POLICY_FALSE: METAHOST_CONFIG_FLAGS = 2i32;
@@ -233,12 +233,12 @@ pub type WAIT_OPTION = i32;
 #[repr(C)]
 pub struct AssemblyBindInfo {
     pub dwAppDomainId: u32,
-    pub lpReferencedIdentity: ::windows_sys::core::PCWSTR,
-    pub lpPostPolicyIdentity: ::windows_sys::core::PCWSTR,
+    pub lpReferencedIdentity: windows_sys::core::PCWSTR,
+    pub lpPostPolicyIdentity: windows_sys::core::PCWSTR,
     pub ePolicyLevel: u32,
 }
-impl ::core::marker::Copy for AssemblyBindInfo {}
-impl ::core::clone::Clone for AssemblyBindInfo {
+impl Copy for AssemblyBindInfo {}
+impl Clone for AssemblyBindInfo {
     fn clone(&self) -> Self {
         *self
     }
@@ -249,13 +249,13 @@ pub struct BucketParameters {
     pub pszEventTypeName: [u16; 255],
     pub pszParams: [u16; 2550],
 }
-impl ::core::marker::Copy for BucketParameters {}
-impl ::core::clone::Clone for BucketParameters {
+impl Copy for BucketParameters {}
+impl Clone for BucketParameters {
     fn clone(&self) -> Self {
         *self
     }
 }
-pub const CLRRuntimeHost: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x90f1a06e_7712_4762_86b5_7a5eba6bdb02);
+pub const CLRRuntimeHost: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x90f1a06e_7712_4762_86b5_7a5eba6bdb02);
 #[repr(C)]
 pub struct CLR_DEBUGGING_VERSION {
     pub wStructVersion: u16,
@@ -264,8 +264,8 @@ pub struct CLR_DEBUGGING_VERSION {
     pub wBuild: u16,
     pub wRevision: u16,
 }
-impl ::core::marker::Copy for CLR_DEBUGGING_VERSION {}
-impl ::core::clone::Clone for CLR_DEBUGGING_VERSION {
+impl Copy for CLR_DEBUGGING_VERSION {}
+impl Clone for CLR_DEBUGGING_VERSION {
     fn clone(&self) -> Self {
         *self
     }
@@ -284,8 +284,8 @@ pub struct COR_GC_STATS {
     pub KBytesPromotedFromGen0: usize,
     pub KBytesPromotedFromGen1: usize,
 }
-impl ::core::marker::Copy for COR_GC_STATS {}
-impl ::core::clone::Clone for COR_GC_STATS {
+impl Copy for COR_GC_STATS {}
+impl Clone for COR_GC_STATS {
     fn clone(&self) -> Self {
         *self
     }
@@ -295,22 +295,22 @@ pub struct COR_GC_THREAD_STATS {
     pub PerThreadAllocation: u64,
     pub Flags: u32,
 }
-impl ::core::marker::Copy for COR_GC_THREAD_STATS {}
-impl ::core::clone::Clone for COR_GC_THREAD_STATS {
+impl Copy for COR_GC_THREAD_STATS {}
+impl Clone for COR_GC_THREAD_STATS {
     fn clone(&self) -> Self {
         *self
     }
 }
-pub const ComCallUnmarshal: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x3f281000_e95a_11d2_886b_00c04f869f04);
-pub const ComCallUnmarshalV4: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x45fb4600_e6e8_4928_b25e_50476ff79425);
-pub const CorRuntimeHost: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xcb2f6723_ab3a_11d2_9c40_00c04fa30a3e);
+pub const ComCallUnmarshal: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3f281000_e95a_11d2_886b_00c04f869f04);
+pub const ComCallUnmarshalV4: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x45fb4600_e6e8_4928_b25e_50476ff79425);
+pub const CorRuntimeHost: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xcb2f6723_ab3a_11d2_9c40_00c04fa30a3e);
 #[repr(C)]
 pub struct CustomDumpItem {
     pub itemKind: ECustomDumpItemKind,
     pub Anonymous: CustomDumpItem_0,
 }
-impl ::core::marker::Copy for CustomDumpItem {}
-impl ::core::clone::Clone for CustomDumpItem {
+impl Copy for CustomDumpItem {}
+impl Clone for CustomDumpItem {
     fn clone(&self) -> Self {
         *self
     }
@@ -319,20 +319,20 @@ impl ::core::clone::Clone for CustomDumpItem {
 pub union CustomDumpItem_0 {
     pub pReserved: usize,
 }
-impl ::core::marker::Copy for CustomDumpItem_0 {}
-impl ::core::clone::Clone for CustomDumpItem_0 {
+impl Copy for CustomDumpItem_0 {}
+impl Clone for CustomDumpItem_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct MDAInfo {
-    pub lpMDACaption: ::windows_sys::core::PCWSTR,
-    pub lpMDAMessage: ::windows_sys::core::PCWSTR,
-    pub lpStackTrace: ::windows_sys::core::PCWSTR,
+    pub lpMDACaption: windows_sys::core::PCWSTR,
+    pub lpMDAMessage: windows_sys::core::PCWSTR,
+    pub lpStackTrace: windows_sys::core::PCWSTR,
 }
-impl ::core::marker::Copy for MDAInfo {}
-impl ::core::clone::Clone for MDAInfo {
+impl Copy for MDAInfo {}
+impl Clone for MDAInfo {
     fn clone(&self) -> Self {
         *self
     }
@@ -340,11 +340,11 @@ impl ::core::clone::Clone for MDAInfo {
 #[repr(C)]
 pub struct ModuleBindInfo {
     pub dwAppDomainId: u32,
-    pub lpAssemblyIdentity: ::windows_sys::core::PCWSTR,
-    pub lpModuleName: ::windows_sys::core::PCWSTR,
+    pub lpAssemblyIdentity: windows_sys::core::PCWSTR,
+    pub lpModuleName: windows_sys::core::PCWSTR,
 }
-impl ::core::marker::Copy for ModuleBindInfo {}
-impl ::core::clone::Clone for ModuleBindInfo {
+impl Copy for ModuleBindInfo {}
+impl Clone for ModuleBindInfo {
     fn clone(&self) -> Self {
         *self
     }
@@ -356,19 +356,19 @@ pub struct StackOverflowInfo {
     pub pExceptionInfo: *mut super::Diagnostics::Debug::EXCEPTION_POINTERS,
 }
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-impl ::core::marker::Copy for StackOverflowInfo {}
+impl Copy for StackOverflowInfo {}
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-impl ::core::clone::Clone for StackOverflowInfo {
+impl Clone for StackOverflowInfo {
     fn clone(&self) -> Self {
         *self
     }
 }
-pub const TypeNameFactory: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xb81ff171_20f3_11d2_8dcc_00a0c9b00525);
-pub type CLRCreateInstanceFnPtr = ::core::option::Option<unsafe extern "system" fn(clsid: *const ::windows_sys::core::GUID, riid: *const ::windows_sys::core::GUID, ppinterface: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT>;
-pub type CallbackThreadSetFnPtr = ::core::option::Option<unsafe extern "system" fn() -> ::windows_sys::core::HRESULT>;
-pub type CallbackThreadUnsetFnPtr = ::core::option::Option<unsafe extern "system" fn() -> ::windows_sys::core::HRESULT>;
-pub type CreateInterfaceFnPtr = ::core::option::Option<unsafe extern "system" fn(clsid: *const ::windows_sys::core::GUID, riid: *const ::windows_sys::core::GUID, ppinterface: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT>;
-pub type FExecuteInAppDomainCallback = ::core::option::Option<unsafe extern "system" fn(cookie: *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT>;
-pub type FLockClrVersionCallback = ::core::option::Option<unsafe extern "system" fn() -> ::windows_sys::core::HRESULT>;
-pub type PTLS_CALLBACK_FUNCTION = ::core::option::Option<unsafe extern "system" fn(__midl____midl_itf_mscoree_0000_00040005: *mut ::core::ffi::c_void)>;
-pub type RuntimeLoadedCallbackFnPtr = ::core::option::Option<unsafe extern "system" fn(pruntimeinfo: *mut ::core::ffi::c_void, pfncallbackthreadset: CallbackThreadSetFnPtr, pfncallbackthreadunset: CallbackThreadUnsetFnPtr)>;
+pub const TypeNameFactory: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb81ff171_20f3_11d2_8dcc_00a0c9b00525);
+pub type CLRCreateInstanceFnPtr = Option<unsafe extern "system" fn(clsid: *const windows_sys::core::GUID, riid: *const windows_sys::core::GUID, ppinterface: *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
+pub type CallbackThreadSetFnPtr = Option<unsafe extern "system" fn() -> windows_sys::core::HRESULT>;
+pub type CallbackThreadUnsetFnPtr = Option<unsafe extern "system" fn() -> windows_sys::core::HRESULT>;
+pub type CreateInterfaceFnPtr = Option<unsafe extern "system" fn(clsid: *const windows_sys::core::GUID, riid: *const windows_sys::core::GUID, ppinterface: *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
+pub type FExecuteInAppDomainCallback = Option<unsafe extern "system" fn(cookie: *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
+pub type FLockClrVersionCallback = Option<unsafe extern "system" fn() -> windows_sys::core::HRESULT>;
+pub type PTLS_CALLBACK_FUNCTION = Option<unsafe extern "system" fn(__midl____midl_itf_mscoree_0000_00040005: *mut core::ffi::c_void)>;
+pub type RuntimeLoadedCallbackFnPtr = Option<unsafe extern "system" fn(pruntimeinfo: *mut core::ffi::c_void, pfncallbackthreadset: CallbackThreadSetFnPtr, pfncallbackthreadunset: CallbackThreadUnsetFnPtr)>;

@@ -19,7 +19,7 @@
 ::windows_targets::link!("opengl32.dll" "system" fn glBitmap(width : i32, height : i32, xorig : f32, yorig : f32, xmove : f32, ymove : f32, bitmap : *const u8));
 ::windows_targets::link!("opengl32.dll" "system" fn glBlendFunc(sfactor : u32, dfactor : u32));
 ::windows_targets::link!("opengl32.dll" "system" fn glCallList(list : u32));
-::windows_targets::link!("opengl32.dll" "system" fn glCallLists(n : i32, r#type : u32, lists : *const ::core::ffi::c_void));
+::windows_targets::link!("opengl32.dll" "system" fn glCallLists(n : i32, r#type : u32, lists : *const core::ffi::c_void));
 ::windows_targets::link!("opengl32.dll" "system" fn glClear(mask : u32));
 ::windows_targets::link!("opengl32.dll" "system" fn glClearAccum(red : f32, green : f32, blue : f32, alpha : f32));
 ::windows_targets::link!("opengl32.dll" "system" fn glClearColor(red : f32, green : f32, blue : f32, alpha : f32));
@@ -61,7 +61,7 @@
 ::windows_targets::link!("opengl32.dll" "system" fn glColor4usv(v : *const u16));
 ::windows_targets::link!("opengl32.dll" "system" fn glColorMask(red : u8, green : u8, blue : u8, alpha : u8));
 ::windows_targets::link!("opengl32.dll" "system" fn glColorMaterial(face : u32, mode : u32));
-::windows_targets::link!("opengl32.dll" "system" fn glColorPointer(size : i32, r#type : u32, stride : i32, pointer : *const ::core::ffi::c_void));
+::windows_targets::link!("opengl32.dll" "system" fn glColorPointer(size : i32, r#type : u32, stride : i32, pointer : *const core::ffi::c_void));
 ::windows_targets::link!("opengl32.dll" "system" fn glCopyPixels(x : i32, y : i32, width : i32, height : i32, r#type : u32));
 ::windows_targets::link!("opengl32.dll" "system" fn glCopyTexImage1D(target : u32, level : i32, internalformat : u32, x : i32, y : i32, width : i32, border : i32));
 ::windows_targets::link!("opengl32.dll" "system" fn glCopyTexImage2D(target : u32, level : i32, internalformat : u32, x : i32, y : i32, width : i32, height : i32, border : i32));
@@ -77,10 +77,10 @@
 ::windows_targets::link!("opengl32.dll" "system" fn glDisableClientState(array : u32));
 ::windows_targets::link!("opengl32.dll" "system" fn glDrawArrays(mode : u32, first : i32, count : i32));
 ::windows_targets::link!("opengl32.dll" "system" fn glDrawBuffer(mode : u32));
-::windows_targets::link!("opengl32.dll" "system" fn glDrawElements(mode : u32, count : i32, r#type : u32, indices : *const ::core::ffi::c_void));
-::windows_targets::link!("opengl32.dll" "system" fn glDrawPixels(width : i32, height : i32, format : u32, r#type : u32, pixels : *const ::core::ffi::c_void));
+::windows_targets::link!("opengl32.dll" "system" fn glDrawElements(mode : u32, count : i32, r#type : u32, indices : *const core::ffi::c_void));
+::windows_targets::link!("opengl32.dll" "system" fn glDrawPixels(width : i32, height : i32, format : u32, r#type : u32, pixels : *const core::ffi::c_void));
 ::windows_targets::link!("opengl32.dll" "system" fn glEdgeFlag(flag : u8));
-::windows_targets::link!("opengl32.dll" "system" fn glEdgeFlagPointer(stride : i32, pointer : *const ::core::ffi::c_void));
+::windows_targets::link!("opengl32.dll" "system" fn glEdgeFlagPointer(stride : i32, pointer : *const core::ffi::c_void));
 ::windows_targets::link!("opengl32.dll" "system" fn glEdgeFlagv(flag : *const u8));
 ::windows_targets::link!("opengl32.dll" "system" fn glEnable(cap : u32));
 ::windows_targets::link!("opengl32.dll" "system" fn glEnableClientState(array : u32));
@@ -125,7 +125,7 @@
 ::windows_targets::link!("opengl32.dll" "system" fn glGetPixelMapfv(map : u32, values : *mut f32));
 ::windows_targets::link!("opengl32.dll" "system" fn glGetPixelMapuiv(map : u32, values : *mut u32));
 ::windows_targets::link!("opengl32.dll" "system" fn glGetPixelMapusv(map : u32, values : *mut u16));
-::windows_targets::link!("opengl32.dll" "system" fn glGetPointerv(pname : u32, params : *mut *mut ::core::ffi::c_void));
+::windows_targets::link!("opengl32.dll" "system" fn glGetPointerv(pname : u32, params : *mut *mut core::ffi::c_void));
 ::windows_targets::link!("opengl32.dll" "system" fn glGetPolygonStipple(mask : *mut u8));
 ::windows_targets::link!("opengl32.dll" "system" fn glGetString(name : u32) -> *mut u8);
 ::windows_targets::link!("opengl32.dll" "system" fn glGetTexEnvfv(target : u32, pname : u32, params : *mut f32));
@@ -133,14 +133,14 @@
 ::windows_targets::link!("opengl32.dll" "system" fn glGetTexGendv(coord : u32, pname : u32, params : *mut f64));
 ::windows_targets::link!("opengl32.dll" "system" fn glGetTexGenfv(coord : u32, pname : u32, params : *mut f32));
 ::windows_targets::link!("opengl32.dll" "system" fn glGetTexGeniv(coord : u32, pname : u32, params : *mut i32));
-::windows_targets::link!("opengl32.dll" "system" fn glGetTexImage(target : u32, level : i32, format : u32, r#type : u32, pixels : *mut ::core::ffi::c_void));
+::windows_targets::link!("opengl32.dll" "system" fn glGetTexImage(target : u32, level : i32, format : u32, r#type : u32, pixels : *mut core::ffi::c_void));
 ::windows_targets::link!("opengl32.dll" "system" fn glGetTexLevelParameterfv(target : u32, level : i32, pname : u32, params : *mut f32));
 ::windows_targets::link!("opengl32.dll" "system" fn glGetTexLevelParameteriv(target : u32, level : i32, pname : u32, params : *mut i32));
 ::windows_targets::link!("opengl32.dll" "system" fn glGetTexParameterfv(target : u32, pname : u32, params : *mut f32));
 ::windows_targets::link!("opengl32.dll" "system" fn glGetTexParameteriv(target : u32, pname : u32, params : *mut i32));
 ::windows_targets::link!("opengl32.dll" "system" fn glHint(target : u32, mode : u32));
 ::windows_targets::link!("opengl32.dll" "system" fn glIndexMask(mask : u32));
-::windows_targets::link!("opengl32.dll" "system" fn glIndexPointer(r#type : u32, stride : i32, pointer : *const ::core::ffi::c_void));
+::windows_targets::link!("opengl32.dll" "system" fn glIndexPointer(r#type : u32, stride : i32, pointer : *const core::ffi::c_void));
 ::windows_targets::link!("opengl32.dll" "system" fn glIndexd(c : f64));
 ::windows_targets::link!("opengl32.dll" "system" fn glIndexdv(c : *const f64));
 ::windows_targets::link!("opengl32.dll" "system" fn glIndexf(c : f32));
@@ -152,7 +152,7 @@
 ::windows_targets::link!("opengl32.dll" "system" fn glIndexub(c : u8));
 ::windows_targets::link!("opengl32.dll" "system" fn glIndexubv(c : *const u8));
 ::windows_targets::link!("opengl32.dll" "system" fn glInitNames());
-::windows_targets::link!("opengl32.dll" "system" fn glInterleavedArrays(format : u32, stride : i32, pointer : *const ::core::ffi::c_void));
+::windows_targets::link!("opengl32.dll" "system" fn glInterleavedArrays(format : u32, stride : i32, pointer : *const core::ffi::c_void));
 ::windows_targets::link!("opengl32.dll" "system" fn glIsEnabled(cap : u32) -> u8);
 ::windows_targets::link!("opengl32.dll" "system" fn glIsList(list : u32) -> u8);
 ::windows_targets::link!("opengl32.dll" "system" fn glIsTexture(texture : u32) -> u8);
@@ -198,7 +198,7 @@
 ::windows_targets::link!("opengl32.dll" "system" fn glNormal3iv(v : *const i32));
 ::windows_targets::link!("opengl32.dll" "system" fn glNormal3s(nx : i16, ny : i16, nz : i16));
 ::windows_targets::link!("opengl32.dll" "system" fn glNormal3sv(v : *const i16));
-::windows_targets::link!("opengl32.dll" "system" fn glNormalPointer(r#type : u32, stride : i32, pointer : *const ::core::ffi::c_void));
+::windows_targets::link!("opengl32.dll" "system" fn glNormalPointer(r#type : u32, stride : i32, pointer : *const core::ffi::c_void));
 ::windows_targets::link!("opengl32.dll" "system" fn glOrtho(left : f64, right : f64, bottom : f64, top : f64, znear : f64, zfar : f64));
 ::windows_targets::link!("opengl32.dll" "system" fn glPassThrough(token : f32));
 ::windows_targets::link!("opengl32.dll" "system" fn glPixelMapfv(map : u32, mapsize : i32, values : *const f32));
@@ -247,7 +247,7 @@
 ::windows_targets::link!("opengl32.dll" "system" fn glRasterPos4s(x : i16, y : i16, z : i16, w : i16));
 ::windows_targets::link!("opengl32.dll" "system" fn glRasterPos4sv(v : *const i16));
 ::windows_targets::link!("opengl32.dll" "system" fn glReadBuffer(mode : u32));
-::windows_targets::link!("opengl32.dll" "system" fn glReadPixels(x : i32, y : i32, width : i32, height : i32, format : u32, r#type : u32, pixels : *mut ::core::ffi::c_void));
+::windows_targets::link!("opengl32.dll" "system" fn glReadPixels(x : i32, y : i32, width : i32, height : i32, format : u32, r#type : u32, pixels : *mut core::ffi::c_void));
 ::windows_targets::link!("opengl32.dll" "system" fn glRectd(x1 : f64, y1 : f64, x2 : f64, y2 : f64));
 ::windows_targets::link!("opengl32.dll" "system" fn glRectdv(v1 : *const f64, v2 : *const f64));
 ::windows_targets::link!("opengl32.dll" "system" fn glRectf(x1 : f32, y1 : f32, x2 : f32, y2 : f32));
@@ -299,7 +299,7 @@
 ::windows_targets::link!("opengl32.dll" "system" fn glTexCoord4iv(v : *const i32));
 ::windows_targets::link!("opengl32.dll" "system" fn glTexCoord4s(s : i16, t : i16, r : i16, q : i16));
 ::windows_targets::link!("opengl32.dll" "system" fn glTexCoord4sv(v : *const i16));
-::windows_targets::link!("opengl32.dll" "system" fn glTexCoordPointer(size : i32, r#type : u32, stride : i32, pointer : *const ::core::ffi::c_void));
+::windows_targets::link!("opengl32.dll" "system" fn glTexCoordPointer(size : i32, r#type : u32, stride : i32, pointer : *const core::ffi::c_void));
 ::windows_targets::link!("opengl32.dll" "system" fn glTexEnvf(target : u32, pname : u32, param2 : f32));
 ::windows_targets::link!("opengl32.dll" "system" fn glTexEnvfv(target : u32, pname : u32, params : *const f32));
 ::windows_targets::link!("opengl32.dll" "system" fn glTexEnvi(target : u32, pname : u32, param2 : i32));
@@ -310,14 +310,14 @@
 ::windows_targets::link!("opengl32.dll" "system" fn glTexGenfv(coord : u32, pname : u32, params : *const f32));
 ::windows_targets::link!("opengl32.dll" "system" fn glTexGeni(coord : u32, pname : u32, param2 : i32));
 ::windows_targets::link!("opengl32.dll" "system" fn glTexGeniv(coord : u32, pname : u32, params : *const i32));
-::windows_targets::link!("opengl32.dll" "system" fn glTexImage1D(target : u32, level : i32, internalformat : i32, width : i32, border : i32, format : u32, r#type : u32, pixels : *const ::core::ffi::c_void));
-::windows_targets::link!("opengl32.dll" "system" fn glTexImage2D(target : u32, level : i32, internalformat : i32, width : i32, height : i32, border : i32, format : u32, r#type : u32, pixels : *const ::core::ffi::c_void));
+::windows_targets::link!("opengl32.dll" "system" fn glTexImage1D(target : u32, level : i32, internalformat : i32, width : i32, border : i32, format : u32, r#type : u32, pixels : *const core::ffi::c_void));
+::windows_targets::link!("opengl32.dll" "system" fn glTexImage2D(target : u32, level : i32, internalformat : i32, width : i32, height : i32, border : i32, format : u32, r#type : u32, pixels : *const core::ffi::c_void));
 ::windows_targets::link!("opengl32.dll" "system" fn glTexParameterf(target : u32, pname : u32, param2 : f32));
 ::windows_targets::link!("opengl32.dll" "system" fn glTexParameterfv(target : u32, pname : u32, params : *const f32));
 ::windows_targets::link!("opengl32.dll" "system" fn glTexParameteri(target : u32, pname : u32, param2 : i32));
 ::windows_targets::link!("opengl32.dll" "system" fn glTexParameteriv(target : u32, pname : u32, params : *const i32));
-::windows_targets::link!("opengl32.dll" "system" fn glTexSubImage1D(target : u32, level : i32, xoffset : i32, width : i32, format : u32, r#type : u32, pixels : *const ::core::ffi::c_void));
-::windows_targets::link!("opengl32.dll" "system" fn glTexSubImage2D(target : u32, level : i32, xoffset : i32, yoffset : i32, width : i32, height : i32, format : u32, r#type : u32, pixels : *const ::core::ffi::c_void));
+::windows_targets::link!("opengl32.dll" "system" fn glTexSubImage1D(target : u32, level : i32, xoffset : i32, width : i32, format : u32, r#type : u32, pixels : *const core::ffi::c_void));
+::windows_targets::link!("opengl32.dll" "system" fn glTexSubImage2D(target : u32, level : i32, xoffset : i32, yoffset : i32, width : i32, height : i32, format : u32, r#type : u32, pixels : *const core::ffi::c_void));
 ::windows_targets::link!("opengl32.dll" "system" fn glTranslated(x : f64, y : f64, z : f64));
 ::windows_targets::link!("opengl32.dll" "system" fn glTranslatef(x : f32, y : f32, z : f32));
 ::windows_targets::link!("opengl32.dll" "system" fn glVertex2d(x : f64, y : f64));
@@ -344,14 +344,14 @@
 ::windows_targets::link!("opengl32.dll" "system" fn glVertex4iv(v : *const i32));
 ::windows_targets::link!("opengl32.dll" "system" fn glVertex4s(x : i16, y : i16, z : i16, w : i16));
 ::windows_targets::link!("opengl32.dll" "system" fn glVertex4sv(v : *const i16));
-::windows_targets::link!("opengl32.dll" "system" fn glVertexPointer(size : i32, r#type : u32, stride : i32, pointer : *const ::core::ffi::c_void));
+::windows_targets::link!("opengl32.dll" "system" fn glVertexPointer(size : i32, r#type : u32, stride : i32, pointer : *const core::ffi::c_void));
 ::windows_targets::link!("opengl32.dll" "system" fn glViewport(x : i32, y : i32, width : i32, height : i32));
 ::windows_targets::link!("glu32.dll" "system" fn gluBeginCurve(nobj : *mut GLUnurbs));
 ::windows_targets::link!("glu32.dll" "system" fn gluBeginPolygon(tess : *mut GLUtesselator));
 ::windows_targets::link!("glu32.dll" "system" fn gluBeginSurface(nobj : *mut GLUnurbs));
 ::windows_targets::link!("glu32.dll" "system" fn gluBeginTrim(nobj : *mut GLUnurbs));
-::windows_targets::link!("glu32.dll" "system" fn gluBuild1DMipmaps(target : u32, components : i32, width : i32, format : u32, r#type : u32, data : *const ::core::ffi::c_void) -> i32);
-::windows_targets::link!("glu32.dll" "system" fn gluBuild2DMipmaps(target : u32, components : i32, width : i32, height : i32, format : u32, r#type : u32, data : *const ::core::ffi::c_void) -> i32);
+::windows_targets::link!("glu32.dll" "system" fn gluBuild1DMipmaps(target : u32, components : i32, width : i32, format : u32, r#type : u32, data : *const core::ffi::c_void) -> i32);
+::windows_targets::link!("glu32.dll" "system" fn gluBuild2DMipmaps(target : u32, components : i32, width : i32, height : i32, format : u32, r#type : u32, data : *const core::ffi::c_void) -> i32);
 ::windows_targets::link!("glu32.dll" "system" fn gluCylinder(qobj : *mut GLUquadric, baseradius : f64, topradius : f64, height : f64, slices : i32, stacks : i32));
 ::windows_targets::link!("glu32.dll" "system" fn gluDeleteNurbsRenderer(nobj : *mut GLUnurbs));
 ::windows_targets::link!("glu32.dll" "system" fn gluDeleteQuadric(state : *mut GLUquadric));
@@ -362,7 +362,7 @@
 ::windows_targets::link!("glu32.dll" "system" fn gluEndSurface(nobj : *mut GLUnurbs));
 ::windows_targets::link!("glu32.dll" "system" fn gluEndTrim(nobj : *mut GLUnurbs));
 ::windows_targets::link!("glu32.dll" "system" fn gluErrorString(errcode : u32) -> *mut u8);
-::windows_targets::link!("glu32.dll" "system" fn gluErrorUnicodeStringEXT(errcode : u32) -> ::windows_sys::core::PCWSTR);
+::windows_targets::link!("glu32.dll" "system" fn gluErrorUnicodeStringEXT(errcode : u32) -> windows_sys::core::PCWSTR);
 ::windows_targets::link!("glu32.dll" "system" fn gluGetNurbsProperty(nobj : *mut GLUnurbs, property : u32, value : *mut f32));
 ::windows_targets::link!("glu32.dll" "system" fn gluGetString(name : u32) -> *mut u8);
 ::windows_targets::link!("glu32.dll" "system" fn gluGetTessProperty(tess : *mut GLUtesselator, which : u32, value : *mut f64));
@@ -387,16 +387,16 @@
 ::windows_targets::link!("glu32.dll" "system" fn gluQuadricNormals(quadobject : *mut GLUquadric, normals : u32));
 ::windows_targets::link!("glu32.dll" "system" fn gluQuadricOrientation(quadobject : *mut GLUquadric, orientation : u32));
 ::windows_targets::link!("glu32.dll" "system" fn gluQuadricTexture(quadobject : *mut GLUquadric, texturecoords : u8));
-::windows_targets::link!("glu32.dll" "system" fn gluScaleImage(format : u32, widthin : i32, heightin : i32, typein : u32, datain : *const ::core::ffi::c_void, widthout : i32, heightout : i32, typeout : u32, dataout : *mut ::core::ffi::c_void) -> i32);
+::windows_targets::link!("glu32.dll" "system" fn gluScaleImage(format : u32, widthin : i32, heightin : i32, typein : u32, datain : *const core::ffi::c_void, widthout : i32, heightout : i32, typeout : u32, dataout : *mut core::ffi::c_void) -> i32);
 ::windows_targets::link!("glu32.dll" "system" fn gluSphere(qobj : *mut GLUquadric, radius : f64, slices : i32, stacks : i32));
 ::windows_targets::link!("glu32.dll" "system" fn gluTessBeginContour(tess : *mut GLUtesselator));
-::windows_targets::link!("glu32.dll" "system" fn gluTessBeginPolygon(tess : *mut GLUtesselator, polygon_data : *mut ::core::ffi::c_void));
+::windows_targets::link!("glu32.dll" "system" fn gluTessBeginPolygon(tess : *mut GLUtesselator, polygon_data : *mut core::ffi::c_void));
 ::windows_targets::link!("glu32.dll" "system" fn gluTessCallback(tess : *mut GLUtesselator, which : u32, r#fn : isize));
 ::windows_targets::link!("glu32.dll" "system" fn gluTessEndContour(tess : *mut GLUtesselator));
 ::windows_targets::link!("glu32.dll" "system" fn gluTessEndPolygon(tess : *mut GLUtesselator));
 ::windows_targets::link!("glu32.dll" "system" fn gluTessNormal(tess : *mut GLUtesselator, x : f64, y : f64, z : f64));
 ::windows_targets::link!("glu32.dll" "system" fn gluTessProperty(tess : *mut GLUtesselator, which : u32, value : f64));
-::windows_targets::link!("glu32.dll" "system" fn gluTessVertex(tess : *mut GLUtesselator, coords : *mut f64, data : *mut ::core::ffi::c_void));
+::windows_targets::link!("glu32.dll" "system" fn gluTessVertex(tess : *mut GLUtesselator, coords : *mut f64, data : *mut core::ffi::c_void));
 ::windows_targets::link!("glu32.dll" "system" fn gluUnProject(winx : f64, winy : f64, winz : f64, modelmatrix : *const f64, projmatrix : *const f64, viewport : *const i32, objx : *mut f64, objy : *mut f64, objz : *mut f64) -> i32);
 ::windows_targets::link!("opengl32.dll" "system" fn wglCopyContext(param0 : HGLRC, param1 : HGLRC, param2 : u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -411,7 +411,7 @@
 ::windows_targets::link!("opengl32.dll" "system" fn wglGetCurrentDC() -> super::Gdi:: HDC);
 #[cfg(feature = "Win32_Graphics_Gdi")]
 ::windows_targets::link!("opengl32.dll" "system" fn wglGetLayerPaletteEntries(param0 : super::Gdi:: HDC, param1 : i32, param2 : i32, param3 : i32, param4 : *mut super::super::Foundation:: COLORREF) -> i32);
-::windows_targets::link!("opengl32.dll" "system" fn wglGetProcAddress(param0 : ::windows_sys::core::PCSTR) -> super::super::Foundation:: PROC);
+::windows_targets::link!("opengl32.dll" "system" fn wglGetProcAddress(param0 : windows_sys::core::PCSTR) -> super::super::Foundation:: PROC);
 #[cfg(feature = "Win32_Graphics_Gdi")]
 ::windows_targets::link!("opengl32.dll" "system" fn wglMakeCurrent(param0 : super::Gdi:: HDC, param1 : HGLRC) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -1166,9 +1166,9 @@ pub struct EMRPIXELFORMAT {
     pub pfd: PIXELFORMATDESCRIPTOR,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::marker::Copy for EMRPIXELFORMAT {}
+impl Copy for EMRPIXELFORMAT {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::clone::Clone for EMRPIXELFORMAT {
+impl Clone for EMRPIXELFORMAT {
     fn clone(&self) -> Self {
         *self
     }
@@ -1184,8 +1184,8 @@ pub struct GLYPHMETRICSFLOAT {
     pub gmfCellIncX: f32,
     pub gmfCellIncY: f32,
 }
-impl ::core::marker::Copy for GLYPHMETRICSFLOAT {}
-impl ::core::clone::Clone for GLYPHMETRICSFLOAT {
+impl Copy for GLYPHMETRICSFLOAT {}
+impl Clone for GLYPHMETRICSFLOAT {
     fn clone(&self) -> Self {
         *self
     }
@@ -1218,8 +1218,8 @@ pub struct LAYERPLANEDESCRIPTOR {
     pub bReserved: u8,
     pub crTransparent: super::super::Foundation::COLORREF,
 }
-impl ::core::marker::Copy for LAYERPLANEDESCRIPTOR {}
-impl ::core::clone::Clone for LAYERPLANEDESCRIPTOR {
+impl Copy for LAYERPLANEDESCRIPTOR {}
+impl Clone for LAYERPLANEDESCRIPTOR {
     fn clone(&self) -> Self {
         *self
     }
@@ -1253,8 +1253,8 @@ pub struct PIXELFORMATDESCRIPTOR {
     pub dwVisibleMask: u32,
     pub dwDamageMask: u32,
 }
-impl ::core::marker::Copy for PIXELFORMATDESCRIPTOR {}
-impl ::core::clone::Clone for PIXELFORMATDESCRIPTOR {
+impl Copy for PIXELFORMATDESCRIPTOR {}
+impl Clone for PIXELFORMATDESCRIPTOR {
     fn clone(&self) -> Self {
         *self
     }
@@ -1264,40 +1264,40 @@ pub struct POINTFLOAT {
     pub x: f32,
     pub y: f32,
 }
-impl ::core::marker::Copy for POINTFLOAT {}
-impl ::core::clone::Clone for POINTFLOAT {
+impl Copy for POINTFLOAT {}
+impl Clone for POINTFLOAT {
     fn clone(&self) -> Self {
         *self
     }
 }
-pub type GLUnurbsErrorProc = ::core::option::Option<unsafe extern "system" fn(param0: u32)>;
-pub type GLUquadricErrorProc = ::core::option::Option<unsafe extern "system" fn(param0: u32)>;
-pub type GLUtessBeginDataProc = ::core::option::Option<unsafe extern "system" fn(param0: u32, param1: *mut ::core::ffi::c_void)>;
-pub type GLUtessBeginProc = ::core::option::Option<unsafe extern "system" fn(param0: u32)>;
-pub type GLUtessCombineDataProc = ::core::option::Option<unsafe extern "system" fn(param0: *mut f64, param1: *mut *mut ::core::ffi::c_void, param2: *mut f32, param3: *mut *mut ::core::ffi::c_void, param4: *mut ::core::ffi::c_void)>;
-pub type GLUtessCombineProc = ::core::option::Option<unsafe extern "system" fn(param0: *mut f64, param1: *mut *mut ::core::ffi::c_void, param2: *mut f32, param3: *mut *mut ::core::ffi::c_void)>;
-pub type GLUtessEdgeFlagDataProc = ::core::option::Option<unsafe extern "system" fn(param0: u8, param1: *mut ::core::ffi::c_void)>;
-pub type GLUtessEdgeFlagProc = ::core::option::Option<unsafe extern "system" fn(param0: u8)>;
-pub type GLUtessEndDataProc = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void)>;
-pub type GLUtessEndProc = ::core::option::Option<unsafe extern "system" fn()>;
-pub type GLUtessErrorDataProc = ::core::option::Option<unsafe extern "system" fn(param0: u32, param1: *mut ::core::ffi::c_void)>;
-pub type GLUtessErrorProc = ::core::option::Option<unsafe extern "system" fn(param0: u32)>;
-pub type GLUtessVertexDataProc = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: *mut ::core::ffi::c_void)>;
-pub type GLUtessVertexProc = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void)>;
-pub type PFNGLADDSWAPHINTRECTWINPROC = ::core::option::Option<unsafe extern "system" fn(x: i32, y: i32, width: i32, height: i32)>;
-pub type PFNGLARRAYELEMENTARRAYEXTPROC = ::core::option::Option<unsafe extern "system" fn(mode: u32, count: i32, pi: *const ::core::ffi::c_void)>;
-pub type PFNGLARRAYELEMENTEXTPROC = ::core::option::Option<unsafe extern "system" fn(i: i32)>;
-pub type PFNGLCOLORPOINTEREXTPROC = ::core::option::Option<unsafe extern "system" fn(size: i32, r#type: u32, stride: i32, count: i32, pointer: *const ::core::ffi::c_void)>;
-pub type PFNGLCOLORSUBTABLEEXTPROC = ::core::option::Option<unsafe extern "system" fn(target: u32, start: i32, count: i32, format: u32, r#type: u32, data: *const ::core::ffi::c_void)>;
-pub type PFNGLCOLORTABLEEXTPROC = ::core::option::Option<unsafe extern "system" fn(target: u32, internalformat: u32, width: i32, format: u32, r#type: u32, data: *const ::core::ffi::c_void)>;
-pub type PFNGLDRAWARRAYSEXTPROC = ::core::option::Option<unsafe extern "system" fn(mode: u32, first: i32, count: i32)>;
-pub type PFNGLDRAWRANGEELEMENTSWINPROC = ::core::option::Option<unsafe extern "system" fn(mode: u32, start: u32, end: u32, count: i32, r#type: u32, indices: *const ::core::ffi::c_void)>;
-pub type PFNGLEDGEFLAGPOINTEREXTPROC = ::core::option::Option<unsafe extern "system" fn(stride: i32, count: i32, pointer: *const u8)>;
-pub type PFNGLGETCOLORTABLEEXTPROC = ::core::option::Option<unsafe extern "system" fn(target: u32, format: u32, r#type: u32, data: *mut ::core::ffi::c_void)>;
-pub type PFNGLGETCOLORTABLEPARAMETERFVEXTPROC = ::core::option::Option<unsafe extern "system" fn(target: u32, pname: u32, params: *mut f32)>;
-pub type PFNGLGETCOLORTABLEPARAMETERIVEXTPROC = ::core::option::Option<unsafe extern "system" fn(target: u32, pname: u32, params: *mut i32)>;
-pub type PFNGLGETPOINTERVEXTPROC = ::core::option::Option<unsafe extern "system" fn(pname: u32, params: *mut *mut ::core::ffi::c_void)>;
-pub type PFNGLINDEXPOINTEREXTPROC = ::core::option::Option<unsafe extern "system" fn(r#type: u32, stride: i32, count: i32, pointer: *const ::core::ffi::c_void)>;
-pub type PFNGLNORMALPOINTEREXTPROC = ::core::option::Option<unsafe extern "system" fn(r#type: u32, stride: i32, count: i32, pointer: *const ::core::ffi::c_void)>;
-pub type PFNGLTEXCOORDPOINTEREXTPROC = ::core::option::Option<unsafe extern "system" fn(size: i32, r#type: u32, stride: i32, count: i32, pointer: *const ::core::ffi::c_void)>;
-pub type PFNGLVERTEXPOINTEREXTPROC = ::core::option::Option<unsafe extern "system" fn(size: i32, r#type: u32, stride: i32, count: i32, pointer: *const ::core::ffi::c_void)>;
+pub type GLUnurbsErrorProc = Option<unsafe extern "system" fn(param0: u32)>;
+pub type GLUquadricErrorProc = Option<unsafe extern "system" fn(param0: u32)>;
+pub type GLUtessBeginDataProc = Option<unsafe extern "system" fn(param0: u32, param1: *mut core::ffi::c_void)>;
+pub type GLUtessBeginProc = Option<unsafe extern "system" fn(param0: u32)>;
+pub type GLUtessCombineDataProc = Option<unsafe extern "system" fn(param0: *mut f64, param1: *mut *mut core::ffi::c_void, param2: *mut f32, param3: *mut *mut core::ffi::c_void, param4: *mut core::ffi::c_void)>;
+pub type GLUtessCombineProc = Option<unsafe extern "system" fn(param0: *mut f64, param1: *mut *mut core::ffi::c_void, param2: *mut f32, param3: *mut *mut core::ffi::c_void)>;
+pub type GLUtessEdgeFlagDataProc = Option<unsafe extern "system" fn(param0: u8, param1: *mut core::ffi::c_void)>;
+pub type GLUtessEdgeFlagProc = Option<unsafe extern "system" fn(param0: u8)>;
+pub type GLUtessEndDataProc = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void)>;
+pub type GLUtessEndProc = Option<unsafe extern "system" fn()>;
+pub type GLUtessErrorDataProc = Option<unsafe extern "system" fn(param0: u32, param1: *mut core::ffi::c_void)>;
+pub type GLUtessErrorProc = Option<unsafe extern "system" fn(param0: u32)>;
+pub type GLUtessVertexDataProc = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void, param1: *mut core::ffi::c_void)>;
+pub type GLUtessVertexProc = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void)>;
+pub type PFNGLADDSWAPHINTRECTWINPROC = Option<unsafe extern "system" fn(x: i32, y: i32, width: i32, height: i32)>;
+pub type PFNGLARRAYELEMENTARRAYEXTPROC = Option<unsafe extern "system" fn(mode: u32, count: i32, pi: *const core::ffi::c_void)>;
+pub type PFNGLARRAYELEMENTEXTPROC = Option<unsafe extern "system" fn(i: i32)>;
+pub type PFNGLCOLORPOINTEREXTPROC = Option<unsafe extern "system" fn(size: i32, r#type: u32, stride: i32, count: i32, pointer: *const core::ffi::c_void)>;
+pub type PFNGLCOLORSUBTABLEEXTPROC = Option<unsafe extern "system" fn(target: u32, start: i32, count: i32, format: u32, r#type: u32, data: *const core::ffi::c_void)>;
+pub type PFNGLCOLORTABLEEXTPROC = Option<unsafe extern "system" fn(target: u32, internalformat: u32, width: i32, format: u32, r#type: u32, data: *const core::ffi::c_void)>;
+pub type PFNGLDRAWARRAYSEXTPROC = Option<unsafe extern "system" fn(mode: u32, first: i32, count: i32)>;
+pub type PFNGLDRAWRANGEELEMENTSWINPROC = Option<unsafe extern "system" fn(mode: u32, start: u32, end: u32, count: i32, r#type: u32, indices: *const core::ffi::c_void)>;
+pub type PFNGLEDGEFLAGPOINTEREXTPROC = Option<unsafe extern "system" fn(stride: i32, count: i32, pointer: *const u8)>;
+pub type PFNGLGETCOLORTABLEEXTPROC = Option<unsafe extern "system" fn(target: u32, format: u32, r#type: u32, data: *mut core::ffi::c_void)>;
+pub type PFNGLGETCOLORTABLEPARAMETERFVEXTPROC = Option<unsafe extern "system" fn(target: u32, pname: u32, params: *mut f32)>;
+pub type PFNGLGETCOLORTABLEPARAMETERIVEXTPROC = Option<unsafe extern "system" fn(target: u32, pname: u32, params: *mut i32)>;
+pub type PFNGLGETPOINTERVEXTPROC = Option<unsafe extern "system" fn(pname: u32, params: *mut *mut core::ffi::c_void)>;
+pub type PFNGLINDEXPOINTEREXTPROC = Option<unsafe extern "system" fn(r#type: u32, stride: i32, count: i32, pointer: *const core::ffi::c_void)>;
+pub type PFNGLNORMALPOINTEREXTPROC = Option<unsafe extern "system" fn(r#type: u32, stride: i32, count: i32, pointer: *const core::ffi::c_void)>;
+pub type PFNGLTEXCOORDPOINTEREXTPROC = Option<unsafe extern "system" fn(size: i32, r#type: u32, stride: i32, count: i32, pointer: *const core::ffi::c_void)>;
+pub type PFNGLVERTEXPOINTEREXTPROC = Option<unsafe extern "system" fn(size: i32, r#type: u32, stride: i32, count: i32, pointer: *const core::ffi::c_void)>;

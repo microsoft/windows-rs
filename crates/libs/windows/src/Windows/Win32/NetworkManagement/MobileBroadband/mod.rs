@@ -1,7 +1,7 @@
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(IDummyMBNUCMExt, IDummyMBNUCMExt_Vtbl, 0xdcbbbab6_ffff_4bbb_aaee_338e368af6fa);
+windows_core::imp::com_interface!(IDummyMBNUCMExt, IDummyMBNUCMExt_Vtbl, 0xdcbbbab6_ffff_4bbb_aaee_338e368af6fa);
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(IDummyMBNUCMExt, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
+windows_core::imp::interface_hierarchy!(IDummyMBNUCMExt, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IDummyMBNUCMExt {}
 #[cfg(feature = "Win32_System_Com")]
@@ -9,1515 +9,1515 @@ impl IDummyMBNUCMExt {}
 pub struct IDummyMBNUCMExt_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
 }
-::windows_core::imp::com_interface!(IMbnConnection, IMbnConnection_Vtbl, 0xdcbbbab6_200d_4bbb_aaee_338e368af6fa);
-::windows_core::imp::interface_hierarchy!(IMbnConnection, ::windows_core::IUnknown);
+windows_core::imp::com_interface!(IMbnConnection, IMbnConnection_Vtbl, 0xdcbbbab6_200d_4bbb_aaee_338e368af6fa);
+windows_core::imp::interface_hierarchy!(IMbnConnection, windows_core::IUnknown);
 impl IMbnConnection {
-    pub unsafe fn ConnectionID(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).ConnectionID)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
+    pub unsafe fn ConnectionID(&self) -> windows_core::Result<windows_core::BSTR> {
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).ConnectionID)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn InterfaceID(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).InterfaceID)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
+    pub unsafe fn InterfaceID(&self) -> windows_core::Result<windows_core::BSTR> {
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).InterfaceID)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn Connect<P0>(&self, connectionmode: MBN_CONNECTION_MODE, strprofile: P0) -> ::windows_core::Result<u32>
+    pub unsafe fn Connect<P0>(&self, connectionmode: MBN_CONNECTION_MODE, strprofile: P0) -> windows_core::Result<u32>
     where
-        P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+        P0: windows_core::IntoParam<windows_core::PCWSTR>,
     {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Connect)(::windows_core::Interface::as_raw(self), connectionmode, strprofile.into_param().abi(), &mut result__).map(|| result__)
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).Connect)(windows_core::Interface::as_raw(self), connectionmode, strprofile.into_param().abi(), &mut result__).map(|| result__)
     }
-    pub unsafe fn Disconnect(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Disconnect)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+    pub unsafe fn Disconnect(&self) -> windows_core::Result<u32> {
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).Disconnect)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn GetConnectionState(&self, connectionstate: *mut MBN_ACTIVATION_STATE, profilename: *mut ::windows_core::BSTR) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).GetConnectionState)(::windows_core::Interface::as_raw(self), connectionstate, ::core::mem::transmute(profilename)).ok()
+    pub unsafe fn GetConnectionState(&self, connectionstate: *mut MBN_ACTIVATION_STATE, profilename: *mut windows_core::BSTR) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).GetConnectionState)(windows_core::Interface::as_raw(self), connectionstate, core::mem::transmute(profilename)).ok()
     }
-    pub unsafe fn GetVoiceCallState(&self) -> ::windows_core::Result<MBN_VOICE_CALL_STATE> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetVoiceCallState)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+    pub unsafe fn GetVoiceCallState(&self) -> windows_core::Result<MBN_VOICE_CALL_STATE> {
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).GetVoiceCallState)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn GetActivationNetworkError(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetActivationNetworkError)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+    pub unsafe fn GetActivationNetworkError(&self) -> windows_core::Result<u32> {
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).GetActivationNetworkError)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
 #[repr(C)]
 pub struct IMbnConnection_Vtbl {
-    pub base__: ::windows_core::IUnknown_Vtbl,
-    pub ConnectionID: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub InterfaceID: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub Connect: unsafe extern "system" fn(*mut ::core::ffi::c_void, MBN_CONNECTION_MODE, ::windows_core::PCWSTR, *mut u32) -> ::windows_core::HRESULT,
-    pub Disconnect: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
-    pub GetConnectionState: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut MBN_ACTIVATION_STATE, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub GetVoiceCallState: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut MBN_VOICE_CALL_STATE) -> ::windows_core::HRESULT,
-    pub GetActivationNetworkError: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub ConnectionID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub InterfaceID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub Connect: unsafe extern "system" fn(*mut core::ffi::c_void, MBN_CONNECTION_MODE, windows_core::PCWSTR, *mut u32) -> windows_core::HRESULT,
+    pub Disconnect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    pub GetConnectionState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MBN_ACTIVATION_STATE, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub GetVoiceCallState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MBN_VOICE_CALL_STATE) -> windows_core::HRESULT,
+    pub GetActivationNetworkError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-::windows_core::imp::com_interface!(IMbnConnectionContext, IMbnConnectionContext_Vtbl, 0xdcbbbab6_200b_4bbb_aaee_338e368af6fa);
-::windows_core::imp::interface_hierarchy!(IMbnConnectionContext, ::windows_core::IUnknown);
+windows_core::imp::com_interface!(IMbnConnectionContext, IMbnConnectionContext_Vtbl, 0xdcbbbab6_200b_4bbb_aaee_338e368af6fa);
+windows_core::imp::interface_hierarchy!(IMbnConnectionContext, windows_core::IUnknown);
 impl IMbnConnectionContext {
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetProvisionedContexts(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetProvisionedContexts)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+    pub unsafe fn GetProvisionedContexts(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).GetProvisionedContexts)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetProvisionedContext<P0>(&self, provisionedcontexts: MBN_CONTEXT, providerid: P0) -> ::windows_core::Result<u32>
+    pub unsafe fn SetProvisionedContext<P0>(&self, provisionedcontexts: MBN_CONTEXT, providerid: P0) -> windows_core::Result<u32>
     where
-        P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+        P0: windows_core::IntoParam<windows_core::PCWSTR>,
     {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).SetProvisionedContext)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(provisionedcontexts), providerid.into_param().abi(), &mut result__).map(|| result__)
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).SetProvisionedContext)(windows_core::Interface::as_raw(self), core::mem::transmute(provisionedcontexts), providerid.into_param().abi(), &mut result__).map(|| result__)
     }
 }
 #[repr(C)]
 pub struct IMbnConnectionContext_Vtbl {
-    pub base__: ::windows_core::IUnknown_Vtbl,
+    pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
-    pub GetProvisionedContexts: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows_core::HRESULT,
+    pub GetProvisionedContexts: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetProvisionedContexts: usize,
-    pub SetProvisionedContext: unsafe extern "system" fn(*mut ::core::ffi::c_void, MBN_CONTEXT, ::windows_core::PCWSTR, *mut u32) -> ::windows_core::HRESULT,
+    pub SetProvisionedContext: unsafe extern "system" fn(*mut core::ffi::c_void, MBN_CONTEXT, windows_core::PCWSTR, *mut u32) -> windows_core::HRESULT,
 }
-::windows_core::imp::com_interface!(IMbnConnectionContextEvents, IMbnConnectionContextEvents_Vtbl, 0xdcbbbab6_200c_4bbb_aaee_338e368af6fa);
-::windows_core::imp::interface_hierarchy!(IMbnConnectionContextEvents, ::windows_core::IUnknown);
+windows_core::imp::com_interface!(IMbnConnectionContextEvents, IMbnConnectionContextEvents_Vtbl, 0xdcbbbab6_200c_4bbb_aaee_338e368af6fa);
+windows_core::imp::interface_hierarchy!(IMbnConnectionContextEvents, windows_core::IUnknown);
 impl IMbnConnectionContextEvents {
-    pub unsafe fn OnProvisionedContextListChange<P0>(&self, newinterface: P0) -> ::windows_core::Result<()>
+    pub unsafe fn OnProvisionedContextListChange<P0>(&self, newinterface: P0) -> windows_core::Result<()>
     where
-        P0: ::windows_core::IntoParam<IMbnConnectionContext>,
+        P0: windows_core::IntoParam<IMbnConnectionContext>,
     {
-        (::windows_core::Interface::vtable(self).OnProvisionedContextListChange)(::windows_core::Interface::as_raw(self), newinterface.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnProvisionedContextListChange)(windows_core::Interface::as_raw(self), newinterface.into_param().abi()).ok()
     }
-    pub unsafe fn OnSetProvisionedContextComplete<P0>(&self, newinterface: P0, requestid: u32, status: ::windows_core::HRESULT) -> ::windows_core::Result<()>
+    pub unsafe fn OnSetProvisionedContextComplete<P0>(&self, newinterface: P0, requestid: u32, status: windows_core::HRESULT) -> windows_core::Result<()>
     where
-        P0: ::windows_core::IntoParam<IMbnConnectionContext>,
+        P0: windows_core::IntoParam<IMbnConnectionContext>,
     {
-        (::windows_core::Interface::vtable(self).OnSetProvisionedContextComplete)(::windows_core::Interface::as_raw(self), newinterface.into_param().abi(), requestid, status).ok()
+        (windows_core::Interface::vtable(self).OnSetProvisionedContextComplete)(windows_core::Interface::as_raw(self), newinterface.into_param().abi(), requestid, status).ok()
     }
 }
 #[repr(C)]
 pub struct IMbnConnectionContextEvents_Vtbl {
-    pub base__: ::windows_core::IUnknown_Vtbl,
-    pub OnProvisionedContextListChange: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub OnSetProvisionedContextComplete: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, ::windows_core::HRESULT) -> ::windows_core::HRESULT,
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub OnProvisionedContextListChange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub OnSetProvisionedContextComplete: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, windows_core::HRESULT) -> windows_core::HRESULT,
 }
-::windows_core::imp::com_interface!(IMbnConnectionEvents, IMbnConnectionEvents_Vtbl, 0xdcbbbab6_200e_4bbb_aaee_338e368af6fa);
-::windows_core::imp::interface_hierarchy!(IMbnConnectionEvents, ::windows_core::IUnknown);
+windows_core::imp::com_interface!(IMbnConnectionEvents, IMbnConnectionEvents_Vtbl, 0xdcbbbab6_200e_4bbb_aaee_338e368af6fa);
+windows_core::imp::interface_hierarchy!(IMbnConnectionEvents, windows_core::IUnknown);
 impl IMbnConnectionEvents {
-    pub unsafe fn OnConnectComplete<P0>(&self, newconnection: P0, requestid: u32, status: ::windows_core::HRESULT) -> ::windows_core::Result<()>
+    pub unsafe fn OnConnectComplete<P0>(&self, newconnection: P0, requestid: u32, status: windows_core::HRESULT) -> windows_core::Result<()>
     where
-        P0: ::windows_core::IntoParam<IMbnConnection>,
+        P0: windows_core::IntoParam<IMbnConnection>,
     {
-        (::windows_core::Interface::vtable(self).OnConnectComplete)(::windows_core::Interface::as_raw(self), newconnection.into_param().abi(), requestid, status).ok()
+        (windows_core::Interface::vtable(self).OnConnectComplete)(windows_core::Interface::as_raw(self), newconnection.into_param().abi(), requestid, status).ok()
     }
-    pub unsafe fn OnDisconnectComplete<P0>(&self, newconnection: P0, requestid: u32, status: ::windows_core::HRESULT) -> ::windows_core::Result<()>
+    pub unsafe fn OnDisconnectComplete<P0>(&self, newconnection: P0, requestid: u32, status: windows_core::HRESULT) -> windows_core::Result<()>
     where
-        P0: ::windows_core::IntoParam<IMbnConnection>,
+        P0: windows_core::IntoParam<IMbnConnection>,
     {
-        (::windows_core::Interface::vtable(self).OnDisconnectComplete)(::windows_core::Interface::as_raw(self), newconnection.into_param().abi(), requestid, status).ok()
+        (windows_core::Interface::vtable(self).OnDisconnectComplete)(windows_core::Interface::as_raw(self), newconnection.into_param().abi(), requestid, status).ok()
     }
-    pub unsafe fn OnConnectStateChange<P0>(&self, newconnection: P0) -> ::windows_core::Result<()>
+    pub unsafe fn OnConnectStateChange<P0>(&self, newconnection: P0) -> windows_core::Result<()>
     where
-        P0: ::windows_core::IntoParam<IMbnConnection>,
+        P0: windows_core::IntoParam<IMbnConnection>,
     {
-        (::windows_core::Interface::vtable(self).OnConnectStateChange)(::windows_core::Interface::as_raw(self), newconnection.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnConnectStateChange)(windows_core::Interface::as_raw(self), newconnection.into_param().abi()).ok()
     }
-    pub unsafe fn OnVoiceCallStateChange<P0>(&self, newconnection: P0) -> ::windows_core::Result<()>
+    pub unsafe fn OnVoiceCallStateChange<P0>(&self, newconnection: P0) -> windows_core::Result<()>
     where
-        P0: ::windows_core::IntoParam<IMbnConnection>,
+        P0: windows_core::IntoParam<IMbnConnection>,
     {
-        (::windows_core::Interface::vtable(self).OnVoiceCallStateChange)(::windows_core::Interface::as_raw(self), newconnection.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnVoiceCallStateChange)(windows_core::Interface::as_raw(self), newconnection.into_param().abi()).ok()
     }
 }
 #[repr(C)]
 pub struct IMbnConnectionEvents_Vtbl {
-    pub base__: ::windows_core::IUnknown_Vtbl,
-    pub OnConnectComplete: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, ::windows_core::HRESULT) -> ::windows_core::HRESULT,
-    pub OnDisconnectComplete: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, ::windows_core::HRESULT) -> ::windows_core::HRESULT,
-    pub OnConnectStateChange: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub OnVoiceCallStateChange: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub OnConnectComplete: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, windows_core::HRESULT) -> windows_core::HRESULT,
+    pub OnDisconnectComplete: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, windows_core::HRESULT) -> windows_core::HRESULT,
+    pub OnConnectStateChange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub OnVoiceCallStateChange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-::windows_core::imp::com_interface!(IMbnConnectionManager, IMbnConnectionManager_Vtbl, 0xdcbbbab6_201d_4bbb_aaee_338e368af6fa);
-::windows_core::imp::interface_hierarchy!(IMbnConnectionManager, ::windows_core::IUnknown);
+windows_core::imp::com_interface!(IMbnConnectionManager, IMbnConnectionManager_Vtbl, 0xdcbbbab6_201d_4bbb_aaee_338e368af6fa);
+windows_core::imp::interface_hierarchy!(IMbnConnectionManager, windows_core::IUnknown);
 impl IMbnConnectionManager {
-    pub unsafe fn GetConnection<P0>(&self, connectionid: P0) -> ::windows_core::Result<IMbnConnection>
+    pub unsafe fn GetConnection<P0>(&self, connectionid: P0) -> windows_core::Result<IMbnConnection>
     where
-        P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+        P0: windows_core::IntoParam<windows_core::PCWSTR>,
     {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetConnection)(::windows_core::Interface::as_raw(self), connectionid.into_param().abi(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).GetConnection)(windows_core::Interface::as_raw(self), connectionid.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetConnections(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetConnections)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+    pub unsafe fn GetConnections(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).GetConnections)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
 #[repr(C)]
 pub struct IMbnConnectionManager_Vtbl {
-    pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetConnection: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub GetConnection: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub GetConnections: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows_core::HRESULT,
+    pub GetConnections: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetConnections: usize,
 }
-::windows_core::imp::com_interface!(IMbnConnectionManagerEvents, IMbnConnectionManagerEvents_Vtbl, 0xdcbbbab6_201e_4bbb_aaee_338e368af6fa);
-::windows_core::imp::interface_hierarchy!(IMbnConnectionManagerEvents, ::windows_core::IUnknown);
+windows_core::imp::com_interface!(IMbnConnectionManagerEvents, IMbnConnectionManagerEvents_Vtbl, 0xdcbbbab6_201e_4bbb_aaee_338e368af6fa);
+windows_core::imp::interface_hierarchy!(IMbnConnectionManagerEvents, windows_core::IUnknown);
 impl IMbnConnectionManagerEvents {
-    pub unsafe fn OnConnectionArrival<P0>(&self, newconnection: P0) -> ::windows_core::Result<()>
+    pub unsafe fn OnConnectionArrival<P0>(&self, newconnection: P0) -> windows_core::Result<()>
     where
-        P0: ::windows_core::IntoParam<IMbnConnection>,
+        P0: windows_core::IntoParam<IMbnConnection>,
     {
-        (::windows_core::Interface::vtable(self).OnConnectionArrival)(::windows_core::Interface::as_raw(self), newconnection.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnConnectionArrival)(windows_core::Interface::as_raw(self), newconnection.into_param().abi()).ok()
     }
-    pub unsafe fn OnConnectionRemoval<P0>(&self, oldconnection: P0) -> ::windows_core::Result<()>
+    pub unsafe fn OnConnectionRemoval<P0>(&self, oldconnection: P0) -> windows_core::Result<()>
     where
-        P0: ::windows_core::IntoParam<IMbnConnection>,
+        P0: windows_core::IntoParam<IMbnConnection>,
     {
-        (::windows_core::Interface::vtable(self).OnConnectionRemoval)(::windows_core::Interface::as_raw(self), oldconnection.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnConnectionRemoval)(windows_core::Interface::as_raw(self), oldconnection.into_param().abi()).ok()
     }
 }
 #[repr(C)]
 pub struct IMbnConnectionManagerEvents_Vtbl {
-    pub base__: ::windows_core::IUnknown_Vtbl,
-    pub OnConnectionArrival: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub OnConnectionRemoval: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub OnConnectionArrival: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub OnConnectionRemoval: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-::windows_core::imp::com_interface!(IMbnConnectionProfile, IMbnConnectionProfile_Vtbl, 0xdcbbbab6_2010_4bbb_aaee_338e368af6fa);
-::windows_core::imp::interface_hierarchy!(IMbnConnectionProfile, ::windows_core::IUnknown);
+windows_core::imp::com_interface!(IMbnConnectionProfile, IMbnConnectionProfile_Vtbl, 0xdcbbbab6_2010_4bbb_aaee_338e368af6fa);
+windows_core::imp::interface_hierarchy!(IMbnConnectionProfile, windows_core::IUnknown);
 impl IMbnConnectionProfile {
-    pub unsafe fn GetProfileXmlData(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetProfileXmlData)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
+    pub unsafe fn GetProfileXmlData(&self) -> windows_core::Result<windows_core::BSTR> {
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).GetProfileXmlData)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn UpdateProfile<P0>(&self, strprofile: P0) -> ::windows_core::Result<()>
+    pub unsafe fn UpdateProfile<P0>(&self, strprofile: P0) -> windows_core::Result<()>
     where
-        P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+        P0: windows_core::IntoParam<windows_core::PCWSTR>,
     {
-        (::windows_core::Interface::vtable(self).UpdateProfile)(::windows_core::Interface::as_raw(self), strprofile.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).UpdateProfile)(windows_core::Interface::as_raw(self), strprofile.into_param().abi()).ok()
     }
-    pub unsafe fn Delete(&self) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Delete)(::windows_core::Interface::as_raw(self)).ok()
+    pub unsafe fn Delete(&self) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self)).ok()
     }
 }
 #[repr(C)]
 pub struct IMbnConnectionProfile_Vtbl {
-    pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetProfileXmlData: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub UpdateProfile: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub Delete: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub GetProfileXmlData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub UpdateProfile: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
+    pub Delete: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-::windows_core::imp::com_interface!(IMbnConnectionProfileEvents, IMbnConnectionProfileEvents_Vtbl, 0xdcbbbab6_2011_4bbb_aaee_338e368af6fa);
-::windows_core::imp::interface_hierarchy!(IMbnConnectionProfileEvents, ::windows_core::IUnknown);
+windows_core::imp::com_interface!(IMbnConnectionProfileEvents, IMbnConnectionProfileEvents_Vtbl, 0xdcbbbab6_2011_4bbb_aaee_338e368af6fa);
+windows_core::imp::interface_hierarchy!(IMbnConnectionProfileEvents, windows_core::IUnknown);
 impl IMbnConnectionProfileEvents {
-    pub unsafe fn OnProfileUpdate<P0>(&self, newprofile: P0) -> ::windows_core::Result<()>
+    pub unsafe fn OnProfileUpdate<P0>(&self, newprofile: P0) -> windows_core::Result<()>
     where
-        P0: ::windows_core::IntoParam<IMbnConnectionProfile>,
+        P0: windows_core::IntoParam<IMbnConnectionProfile>,
     {
-        (::windows_core::Interface::vtable(self).OnProfileUpdate)(::windows_core::Interface::as_raw(self), newprofile.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnProfileUpdate)(windows_core::Interface::as_raw(self), newprofile.into_param().abi()).ok()
     }
 }
 #[repr(C)]
 pub struct IMbnConnectionProfileEvents_Vtbl {
-    pub base__: ::windows_core::IUnknown_Vtbl,
-    pub OnProfileUpdate: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub OnProfileUpdate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-::windows_core::imp::com_interface!(IMbnConnectionProfileManager, IMbnConnectionProfileManager_Vtbl, 0xdcbbbab6_200f_4bbb_aaee_338e368af6fa);
-::windows_core::imp::interface_hierarchy!(IMbnConnectionProfileManager, ::windows_core::IUnknown);
+windows_core::imp::com_interface!(IMbnConnectionProfileManager, IMbnConnectionProfileManager_Vtbl, 0xdcbbbab6_200f_4bbb_aaee_338e368af6fa);
+windows_core::imp::interface_hierarchy!(IMbnConnectionProfileManager, windows_core::IUnknown);
 impl IMbnConnectionProfileManager {
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetConnectionProfiles<P0>(&self, mbninterface: P0) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY>
+    pub unsafe fn GetConnectionProfiles<P0>(&self, mbninterface: P0) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>
     where
-        P0: ::windows_core::IntoParam<IMbnInterface>,
+        P0: windows_core::IntoParam<IMbnInterface>,
     {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetConnectionProfiles)(::windows_core::Interface::as_raw(self), mbninterface.into_param().abi(), &mut result__).map(|| result__)
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).GetConnectionProfiles)(windows_core::Interface::as_raw(self), mbninterface.into_param().abi(), &mut result__).map(|| result__)
     }
-    pub unsafe fn GetConnectionProfile<P0, P1>(&self, mbninterface: P0, profilename: P1) -> ::windows_core::Result<IMbnConnectionProfile>
+    pub unsafe fn GetConnectionProfile<P0, P1>(&self, mbninterface: P0, profilename: P1) -> windows_core::Result<IMbnConnectionProfile>
     where
-        P0: ::windows_core::IntoParam<IMbnInterface>,
-        P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+        P0: windows_core::IntoParam<IMbnInterface>,
+        P1: windows_core::IntoParam<windows_core::PCWSTR>,
     {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetConnectionProfile)(::windows_core::Interface::as_raw(self), mbninterface.into_param().abi(), profilename.into_param().abi(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).GetConnectionProfile)(windows_core::Interface::as_raw(self), mbninterface.into_param().abi(), profilename.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn CreateConnectionProfile<P0>(&self, xmlprofile: P0) -> ::windows_core::Result<()>
+    pub unsafe fn CreateConnectionProfile<P0>(&self, xmlprofile: P0) -> windows_core::Result<()>
     where
-        P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+        P0: windows_core::IntoParam<windows_core::PCWSTR>,
     {
-        (::windows_core::Interface::vtable(self).CreateConnectionProfile)(::windows_core::Interface::as_raw(self), xmlprofile.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).CreateConnectionProfile)(windows_core::Interface::as_raw(self), xmlprofile.into_param().abi()).ok()
     }
 }
 #[repr(C)]
 pub struct IMbnConnectionProfileManager_Vtbl {
-    pub base__: ::windows_core::IUnknown_Vtbl,
+    pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
-    pub GetConnectionProfiles: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows_core::HRESULT,
+    pub GetConnectionProfiles: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetConnectionProfiles: usize,
-    pub GetConnectionProfile: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, ::windows_core::PCWSTR, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateConnectionProfile: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub GetConnectionProfile: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreateConnectionProfile: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
-::windows_core::imp::com_interface!(IMbnConnectionProfileManagerEvents, IMbnConnectionProfileManagerEvents_Vtbl, 0xdcbbbab6_201f_4bbb_aaee_338e368af6fa);
-::windows_core::imp::interface_hierarchy!(IMbnConnectionProfileManagerEvents, ::windows_core::IUnknown);
+windows_core::imp::com_interface!(IMbnConnectionProfileManagerEvents, IMbnConnectionProfileManagerEvents_Vtbl, 0xdcbbbab6_201f_4bbb_aaee_338e368af6fa);
+windows_core::imp::interface_hierarchy!(IMbnConnectionProfileManagerEvents, windows_core::IUnknown);
 impl IMbnConnectionProfileManagerEvents {
-    pub unsafe fn OnConnectionProfileArrival<P0>(&self, newconnectionprofile: P0) -> ::windows_core::Result<()>
+    pub unsafe fn OnConnectionProfileArrival<P0>(&self, newconnectionprofile: P0) -> windows_core::Result<()>
     where
-        P0: ::windows_core::IntoParam<IMbnConnectionProfile>,
+        P0: windows_core::IntoParam<IMbnConnectionProfile>,
     {
-        (::windows_core::Interface::vtable(self).OnConnectionProfileArrival)(::windows_core::Interface::as_raw(self), newconnectionprofile.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnConnectionProfileArrival)(windows_core::Interface::as_raw(self), newconnectionprofile.into_param().abi()).ok()
     }
-    pub unsafe fn OnConnectionProfileRemoval<P0>(&self, oldconnectionprofile: P0) -> ::windows_core::Result<()>
+    pub unsafe fn OnConnectionProfileRemoval<P0>(&self, oldconnectionprofile: P0) -> windows_core::Result<()>
     where
-        P0: ::windows_core::IntoParam<IMbnConnectionProfile>,
+        P0: windows_core::IntoParam<IMbnConnectionProfile>,
     {
-        (::windows_core::Interface::vtable(self).OnConnectionProfileRemoval)(::windows_core::Interface::as_raw(self), oldconnectionprofile.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnConnectionProfileRemoval)(windows_core::Interface::as_raw(self), oldconnectionprofile.into_param().abi()).ok()
     }
 }
 #[repr(C)]
 pub struct IMbnConnectionProfileManagerEvents_Vtbl {
-    pub base__: ::windows_core::IUnknown_Vtbl,
-    pub OnConnectionProfileArrival: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub OnConnectionProfileRemoval: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub OnConnectionProfileArrival: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub OnConnectionProfileRemoval: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-::windows_core::imp::com_interface!(IMbnDeviceService, IMbnDeviceService_Vtbl, 0xb3bb9a71_dc70_4be9_a4da_7886ae8b191b);
-::windows_core::imp::interface_hierarchy!(IMbnDeviceService, ::windows_core::IUnknown);
+windows_core::imp::com_interface!(IMbnDeviceService, IMbnDeviceService_Vtbl, 0xb3bb9a71_dc70_4be9_a4da_7886ae8b191b);
+windows_core::imp::interface_hierarchy!(IMbnDeviceService, windows_core::IUnknown);
 impl IMbnDeviceService {
-    pub unsafe fn QuerySupportedCommands(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).QuerySupportedCommands)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+    pub unsafe fn QuerySupportedCommands(&self) -> windows_core::Result<u32> {
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).QuerySupportedCommands)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn OpenCommandSession(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).OpenCommandSession)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+    pub unsafe fn OpenCommandSession(&self) -> windows_core::Result<u32> {
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).OpenCommandSession)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn CloseCommandSession(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).CloseCommandSession)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetCommand(&self, commandid: u32, deviceservicedata: *const super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<u32> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).SetCommand)(::windows_core::Interface::as_raw(self), commandid, deviceservicedata, &mut result__).map(|| result__)
+    pub unsafe fn CloseCommandSession(&self) -> windows_core::Result<u32> {
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).CloseCommandSession)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn QueryCommand(&self, commandid: u32, deviceservicedata: *const super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<u32> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).QueryCommand)(::windows_core::Interface::as_raw(self), commandid, deviceservicedata, &mut result__).map(|| result__)
-    }
-    pub unsafe fn OpenDataSession(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).OpenDataSession)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn CloseDataSession(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).CloseDataSession)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+    pub unsafe fn SetCommand(&self, commandid: u32, deviceservicedata: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<u32> {
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).SetCommand)(windows_core::Interface::as_raw(self), commandid, deviceservicedata, &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn WriteData(&self, deviceservicedata: *const super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<u32> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).WriteData)(::windows_core::Interface::as_raw(self), deviceservicedata, &mut result__).map(|| result__)
+    pub unsafe fn QueryCommand(&self, commandid: u32, deviceservicedata: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<u32> {
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).QueryCommand)(windows_core::Interface::as_raw(self), commandid, deviceservicedata, &mut result__).map(|| result__)
     }
-    pub unsafe fn InterfaceID(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).InterfaceID)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
+    pub unsafe fn OpenDataSession(&self) -> windows_core::Result<u32> {
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).OpenDataSession)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn DeviceServiceID(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).DeviceServiceID)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
+    pub unsafe fn CloseDataSession(&self) -> windows_core::Result<u32> {
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).CloseDataSession)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn IsCommandSessionOpen(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).IsCommandSessionOpen)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn WriteData(&self, deviceservicedata: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<u32> {
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).WriteData)(windows_core::Interface::as_raw(self), deviceservicedata, &mut result__).map(|| result__)
     }
-    pub unsafe fn IsDataSessionOpen(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).IsDataSessionOpen)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+    pub unsafe fn InterfaceID(&self) -> windows_core::Result<windows_core::BSTR> {
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).InterfaceID)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+    }
+    pub unsafe fn DeviceServiceID(&self) -> windows_core::Result<windows_core::BSTR> {
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).DeviceServiceID)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+    }
+    pub unsafe fn IsCommandSessionOpen(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).IsCommandSessionOpen)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+    }
+    pub unsafe fn IsDataSessionOpen(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).IsDataSessionOpen)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
 #[repr(C)]
 pub struct IMbnDeviceService_Vtbl {
-    pub base__: ::windows_core::IUnknown_Vtbl,
-    pub QuerySupportedCommands: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
-    pub OpenCommandSession: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
-    pub CloseCommandSession: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub QuerySupportedCommands: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    pub OpenCommandSession: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    pub CloseCommandSession: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub SetCommand: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const super::super::System::Com::SAFEARRAY, *mut u32) -> ::windows_core::HRESULT,
+    pub SetCommand: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const super::super::System::Com::SAFEARRAY, *mut u32) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     SetCommand: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub QueryCommand: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const super::super::System::Com::SAFEARRAY, *mut u32) -> ::windows_core::HRESULT,
+    pub QueryCommand: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const super::super::System::Com::SAFEARRAY, *mut u32) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     QueryCommand: usize,
-    pub OpenDataSession: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
-    pub CloseDataSession: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub OpenDataSession: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    pub CloseDataSession: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub WriteData: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const super::super::System::Com::SAFEARRAY, *mut u32) -> ::windows_core::HRESULT,
+    pub WriteData: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::super::System::Com::SAFEARRAY, *mut u32) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     WriteData: usize,
-    pub InterfaceID: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub DeviceServiceID: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub IsCommandSessionOpen: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub IsDataSessionOpen: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub InterfaceID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub DeviceServiceID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub IsCommandSessionOpen: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub IsDataSessionOpen: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
-::windows_core::imp::com_interface!(IMbnDeviceServiceStateEvents, IMbnDeviceServiceStateEvents_Vtbl, 0x5d3ff196_89ee_49d8_8b60_33ffddffc58d);
-::windows_core::imp::interface_hierarchy!(IMbnDeviceServiceStateEvents, ::windows_core::IUnknown);
+windows_core::imp::com_interface!(IMbnDeviceServiceStateEvents, IMbnDeviceServiceStateEvents_Vtbl, 0x5d3ff196_89ee_49d8_8b60_33ffddffc58d);
+windows_core::imp::interface_hierarchy!(IMbnDeviceServiceStateEvents, windows_core::IUnknown);
 impl IMbnDeviceServiceStateEvents {
-    pub unsafe fn OnSessionsStateChange<P0>(&self, interfaceid: P0, statechange: MBN_DEVICE_SERVICE_SESSIONS_STATE) -> ::windows_core::Result<()>
+    pub unsafe fn OnSessionsStateChange<P0>(&self, interfaceid: P0, statechange: MBN_DEVICE_SERVICE_SESSIONS_STATE) -> windows_core::Result<()>
     where
-        P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P0: windows_core::IntoParam<windows_core::BSTR>,
     {
-        (::windows_core::Interface::vtable(self).OnSessionsStateChange)(::windows_core::Interface::as_raw(self), interfaceid.into_param().abi(), statechange).ok()
+        (windows_core::Interface::vtable(self).OnSessionsStateChange)(windows_core::Interface::as_raw(self), interfaceid.into_param().abi(), statechange).ok()
     }
 }
 #[repr(C)]
 pub struct IMbnDeviceServiceStateEvents_Vtbl {
-    pub base__: ::windows_core::IUnknown_Vtbl,
-    pub OnSessionsStateChange: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, MBN_DEVICE_SERVICE_SESSIONS_STATE) -> ::windows_core::HRESULT,
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub OnSessionsStateChange: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>, MBN_DEVICE_SERVICE_SESSIONS_STATE) -> windows_core::HRESULT,
 }
-::windows_core::imp::com_interface!(IMbnDeviceServicesContext, IMbnDeviceServicesContext_Vtbl, 0xfc5ac347_1592_4068_80bb_6a57580150d8);
-::windows_core::imp::interface_hierarchy!(IMbnDeviceServicesContext, ::windows_core::IUnknown);
+windows_core::imp::com_interface!(IMbnDeviceServicesContext, IMbnDeviceServicesContext_Vtbl, 0xfc5ac347_1592_4068_80bb_6a57580150d8);
+windows_core::imp::interface_hierarchy!(IMbnDeviceServicesContext, windows_core::IUnknown);
 impl IMbnDeviceServicesContext {
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn EnumerateDeviceServices(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).EnumerateDeviceServices)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+    pub unsafe fn EnumerateDeviceServices(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).EnumerateDeviceServices)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn GetDeviceService<P0>(&self, deviceserviceid: P0) -> ::windows_core::Result<IMbnDeviceService>
+    pub unsafe fn GetDeviceService<P0>(&self, deviceserviceid: P0) -> windows_core::Result<IMbnDeviceService>
     where
-        P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P0: windows_core::IntoParam<windows_core::BSTR>,
     {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetDeviceService)(::windows_core::Interface::as_raw(self), deviceserviceid.into_param().abi(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).GetDeviceService)(windows_core::Interface::as_raw(self), deviceserviceid.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn MaxCommandSize(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).MaxCommandSize)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+    pub unsafe fn MaxCommandSize(&self) -> windows_core::Result<u32> {
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).MaxCommandSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn MaxDataSize(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).MaxDataSize)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+    pub unsafe fn MaxDataSize(&self) -> windows_core::Result<u32> {
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).MaxDataSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
 #[repr(C)]
 pub struct IMbnDeviceServicesContext_Vtbl {
-    pub base__: ::windows_core::IUnknown_Vtbl,
+    pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
-    pub EnumerateDeviceServices: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows_core::HRESULT,
+    pub EnumerateDeviceServices: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     EnumerateDeviceServices: usize,
-    pub GetDeviceService: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub MaxCommandSize: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
-    pub MaxDataSize: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub GetDeviceService: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub MaxCommandSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    pub MaxDataSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-::windows_core::imp::com_interface!(IMbnDeviceServicesEvents, IMbnDeviceServicesEvents_Vtbl, 0x0a900c19_6824_4e97_b76e_cf239d0ca642);
-::windows_core::imp::interface_hierarchy!(IMbnDeviceServicesEvents, ::windows_core::IUnknown);
+windows_core::imp::com_interface!(IMbnDeviceServicesEvents, IMbnDeviceServicesEvents_Vtbl, 0x0a900c19_6824_4e97_b76e_cf239d0ca642);
+windows_core::imp::interface_hierarchy!(IMbnDeviceServicesEvents, windows_core::IUnknown);
 impl IMbnDeviceServicesEvents {
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn OnQuerySupportedCommandsComplete<P0>(&self, deviceservice: P0, commandidlist: *const super::super::System::Com::SAFEARRAY, status: ::windows_core::HRESULT, requestid: u32) -> ::windows_core::Result<()>
+    pub unsafe fn OnQuerySupportedCommandsComplete<P0>(&self, deviceservice: P0, commandidlist: *const super::super::System::Com::SAFEARRAY, status: windows_core::HRESULT, requestid: u32) -> windows_core::Result<()>
     where
-        P0: ::windows_core::IntoParam<IMbnDeviceService>,
+        P0: windows_core::IntoParam<IMbnDeviceService>,
     {
-        (::windows_core::Interface::vtable(self).OnQuerySupportedCommandsComplete)(::windows_core::Interface::as_raw(self), deviceservice.into_param().abi(), commandidlist, status, requestid).ok()
+        (windows_core::Interface::vtable(self).OnQuerySupportedCommandsComplete)(windows_core::Interface::as_raw(self), deviceservice.into_param().abi(), commandidlist, status, requestid).ok()
     }
-    pub unsafe fn OnOpenCommandSessionComplete<P0>(&self, deviceservice: P0, status: ::windows_core::HRESULT, requestid: u32) -> ::windows_core::Result<()>
+    pub unsafe fn OnOpenCommandSessionComplete<P0>(&self, deviceservice: P0, status: windows_core::HRESULT, requestid: u32) -> windows_core::Result<()>
     where
-        P0: ::windows_core::IntoParam<IMbnDeviceService>,
+        P0: windows_core::IntoParam<IMbnDeviceService>,
     {
-        (::windows_core::Interface::vtable(self).OnOpenCommandSessionComplete)(::windows_core::Interface::as_raw(self), deviceservice.into_param().abi(), status, requestid).ok()
+        (windows_core::Interface::vtable(self).OnOpenCommandSessionComplete)(windows_core::Interface::as_raw(self), deviceservice.into_param().abi(), status, requestid).ok()
     }
-    pub unsafe fn OnCloseCommandSessionComplete<P0>(&self, deviceservice: P0, status: ::windows_core::HRESULT, requestid: u32) -> ::windows_core::Result<()>
+    pub unsafe fn OnCloseCommandSessionComplete<P0>(&self, deviceservice: P0, status: windows_core::HRESULT, requestid: u32) -> windows_core::Result<()>
     where
-        P0: ::windows_core::IntoParam<IMbnDeviceService>,
+        P0: windows_core::IntoParam<IMbnDeviceService>,
     {
-        (::windows_core::Interface::vtable(self).OnCloseCommandSessionComplete)(::windows_core::Interface::as_raw(self), deviceservice.into_param().abi(), status, requestid).ok()
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn OnSetCommandComplete<P0>(&self, deviceservice: P0, responseid: u32, deviceservicedata: *const super::super::System::Com::SAFEARRAY, status: ::windows_core::HRESULT, requestid: u32) -> ::windows_core::Result<()>
-    where
-        P0: ::windows_core::IntoParam<IMbnDeviceService>,
-    {
-        (::windows_core::Interface::vtable(self).OnSetCommandComplete)(::windows_core::Interface::as_raw(self), deviceservice.into_param().abi(), responseid, deviceservicedata, status, requestid).ok()
+        (windows_core::Interface::vtable(self).OnCloseCommandSessionComplete)(windows_core::Interface::as_raw(self), deviceservice.into_param().abi(), status, requestid).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn OnQueryCommandComplete<P0>(&self, deviceservice: P0, responseid: u32, deviceservicedata: *const super::super::System::Com::SAFEARRAY, status: ::windows_core::HRESULT, requestid: u32) -> ::windows_core::Result<()>
+    pub unsafe fn OnSetCommandComplete<P0>(&self, deviceservice: P0, responseid: u32, deviceservicedata: *const super::super::System::Com::SAFEARRAY, status: windows_core::HRESULT, requestid: u32) -> windows_core::Result<()>
     where
-        P0: ::windows_core::IntoParam<IMbnDeviceService>,
+        P0: windows_core::IntoParam<IMbnDeviceService>,
     {
-        (::windows_core::Interface::vtable(self).OnQueryCommandComplete)(::windows_core::Interface::as_raw(self), deviceservice.into_param().abi(), responseid, deviceservicedata, status, requestid).ok()
+        (windows_core::Interface::vtable(self).OnSetCommandComplete)(windows_core::Interface::as_raw(self), deviceservice.into_param().abi(), responseid, deviceservicedata, status, requestid).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn OnEventNotification<P0>(&self, deviceservice: P0, eventid: u32, deviceservicedata: *const super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<()>
+    pub unsafe fn OnQueryCommandComplete<P0>(&self, deviceservice: P0, responseid: u32, deviceservicedata: *const super::super::System::Com::SAFEARRAY, status: windows_core::HRESULT, requestid: u32) -> windows_core::Result<()>
     where
-        P0: ::windows_core::IntoParam<IMbnDeviceService>,
+        P0: windows_core::IntoParam<IMbnDeviceService>,
     {
-        (::windows_core::Interface::vtable(self).OnEventNotification)(::windows_core::Interface::as_raw(self), deviceservice.into_param().abi(), eventid, deviceservicedata).ok()
-    }
-    pub unsafe fn OnOpenDataSessionComplete<P0>(&self, deviceservice: P0, status: ::windows_core::HRESULT, requestid: u32) -> ::windows_core::Result<()>
-    where
-        P0: ::windows_core::IntoParam<IMbnDeviceService>,
-    {
-        (::windows_core::Interface::vtable(self).OnOpenDataSessionComplete)(::windows_core::Interface::as_raw(self), deviceservice.into_param().abi(), status, requestid).ok()
-    }
-    pub unsafe fn OnCloseDataSessionComplete<P0>(&self, deviceservice: P0, status: ::windows_core::HRESULT, requestid: u32) -> ::windows_core::Result<()>
-    where
-        P0: ::windows_core::IntoParam<IMbnDeviceService>,
-    {
-        (::windows_core::Interface::vtable(self).OnCloseDataSessionComplete)(::windows_core::Interface::as_raw(self), deviceservice.into_param().abi(), status, requestid).ok()
-    }
-    pub unsafe fn OnWriteDataComplete<P0>(&self, deviceservice: P0, status: ::windows_core::HRESULT, requestid: u32) -> ::windows_core::Result<()>
-    where
-        P0: ::windows_core::IntoParam<IMbnDeviceService>,
-    {
-        (::windows_core::Interface::vtable(self).OnWriteDataComplete)(::windows_core::Interface::as_raw(self), deviceservice.into_param().abi(), status, requestid).ok()
+        (windows_core::Interface::vtable(self).OnQueryCommandComplete)(windows_core::Interface::as_raw(self), deviceservice.into_param().abi(), responseid, deviceservicedata, status, requestid).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn OnReadData<P0>(&self, deviceservice: P0, deviceservicedata: *const super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<()>
+    pub unsafe fn OnEventNotification<P0>(&self, deviceservice: P0, eventid: u32, deviceservicedata: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>
     where
-        P0: ::windows_core::IntoParam<IMbnDeviceService>,
+        P0: windows_core::IntoParam<IMbnDeviceService>,
     {
-        (::windows_core::Interface::vtable(self).OnReadData)(::windows_core::Interface::as_raw(self), deviceservice.into_param().abi(), deviceservicedata).ok()
+        (windows_core::Interface::vtable(self).OnEventNotification)(windows_core::Interface::as_raw(self), deviceservice.into_param().abi(), eventid, deviceservicedata).ok()
     }
-    pub unsafe fn OnInterfaceStateChange<P0>(&self, interfaceid: P0, statechange: MBN_DEVICE_SERVICES_INTERFACE_STATE) -> ::windows_core::Result<()>
+    pub unsafe fn OnOpenDataSessionComplete<P0>(&self, deviceservice: P0, status: windows_core::HRESULT, requestid: u32) -> windows_core::Result<()>
     where
-        P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P0: windows_core::IntoParam<IMbnDeviceService>,
     {
-        (::windows_core::Interface::vtable(self).OnInterfaceStateChange)(::windows_core::Interface::as_raw(self), interfaceid.into_param().abi(), statechange).ok()
+        (windows_core::Interface::vtable(self).OnOpenDataSessionComplete)(windows_core::Interface::as_raw(self), deviceservice.into_param().abi(), status, requestid).ok()
+    }
+    pub unsafe fn OnCloseDataSessionComplete<P0>(&self, deviceservice: P0, status: windows_core::HRESULT, requestid: u32) -> windows_core::Result<()>
+    where
+        P0: windows_core::IntoParam<IMbnDeviceService>,
+    {
+        (windows_core::Interface::vtable(self).OnCloseDataSessionComplete)(windows_core::Interface::as_raw(self), deviceservice.into_param().abi(), status, requestid).ok()
+    }
+    pub unsafe fn OnWriteDataComplete<P0>(&self, deviceservice: P0, status: windows_core::HRESULT, requestid: u32) -> windows_core::Result<()>
+    where
+        P0: windows_core::IntoParam<IMbnDeviceService>,
+    {
+        (windows_core::Interface::vtable(self).OnWriteDataComplete)(windows_core::Interface::as_raw(self), deviceservice.into_param().abi(), status, requestid).ok()
+    }
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn OnReadData<P0>(&self, deviceservice: P0, deviceservicedata: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>
+    where
+        P0: windows_core::IntoParam<IMbnDeviceService>,
+    {
+        (windows_core::Interface::vtable(self).OnReadData)(windows_core::Interface::as_raw(self), deviceservice.into_param().abi(), deviceservicedata).ok()
+    }
+    pub unsafe fn OnInterfaceStateChange<P0>(&self, interfaceid: P0, statechange: MBN_DEVICE_SERVICES_INTERFACE_STATE) -> windows_core::Result<()>
+    where
+        P0: windows_core::IntoParam<windows_core::BSTR>,
+    {
+        (windows_core::Interface::vtable(self).OnInterfaceStateChange)(windows_core::Interface::as_raw(self), interfaceid.into_param().abi(), statechange).ok()
     }
 }
 #[repr(C)]
 pub struct IMbnDeviceServicesEvents_Vtbl {
-    pub base__: ::windows_core::IUnknown_Vtbl,
+    pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
-    pub OnQuerySupportedCommandsComplete: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *const super::super::System::Com::SAFEARRAY, ::windows_core::HRESULT, u32) -> ::windows_core::HRESULT,
+    pub OnQuerySupportedCommandsComplete: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const super::super::System::Com::SAFEARRAY, windows_core::HRESULT, u32) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     OnQuerySupportedCommandsComplete: usize,
-    pub OnOpenCommandSessionComplete: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, ::windows_core::HRESULT, u32) -> ::windows_core::HRESULT,
-    pub OnCloseCommandSessionComplete: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, ::windows_core::HRESULT, u32) -> ::windows_core::HRESULT,
+    pub OnOpenCommandSessionComplete: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::HRESULT, u32) -> windows_core::HRESULT,
+    pub OnCloseCommandSessionComplete: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::HRESULT, u32) -> windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub OnSetCommandComplete: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, *const super::super::System::Com::SAFEARRAY, ::windows_core::HRESULT, u32) -> ::windows_core::HRESULT,
+    pub OnSetCommandComplete: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const super::super::System::Com::SAFEARRAY, windows_core::HRESULT, u32) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     OnSetCommandComplete: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub OnQueryCommandComplete: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, *const super::super::System::Com::SAFEARRAY, ::windows_core::HRESULT, u32) -> ::windows_core::HRESULT,
+    pub OnQueryCommandComplete: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const super::super::System::Com::SAFEARRAY, windows_core::HRESULT, u32) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     OnQueryCommandComplete: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub OnEventNotification: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, *const super::super::System::Com::SAFEARRAY) -> ::windows_core::HRESULT,
+    pub OnEventNotification: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     OnEventNotification: usize,
-    pub OnOpenDataSessionComplete: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, ::windows_core::HRESULT, u32) -> ::windows_core::HRESULT,
-    pub OnCloseDataSessionComplete: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, ::windows_core::HRESULT, u32) -> ::windows_core::HRESULT,
-    pub OnWriteDataComplete: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, ::windows_core::HRESULT, u32) -> ::windows_core::HRESULT,
+    pub OnOpenDataSessionComplete: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::HRESULT, u32) -> windows_core::HRESULT,
+    pub OnCloseDataSessionComplete: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::HRESULT, u32) -> windows_core::HRESULT,
+    pub OnWriteDataComplete: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::HRESULT, u32) -> windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub OnReadData: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *const super::super::System::Com::SAFEARRAY) -> ::windows_core::HRESULT,
+    pub OnReadData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     OnReadData: usize,
-    pub OnInterfaceStateChange: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, MBN_DEVICE_SERVICES_INTERFACE_STATE) -> ::windows_core::HRESULT,
+    pub OnInterfaceStateChange: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>, MBN_DEVICE_SERVICES_INTERFACE_STATE) -> windows_core::HRESULT,
 }
-::windows_core::imp::com_interface!(IMbnDeviceServicesManager, IMbnDeviceServicesManager_Vtbl, 0x20a26258_6811_4478_ac1d_13324e45e41c);
-::windows_core::imp::interface_hierarchy!(IMbnDeviceServicesManager, ::windows_core::IUnknown);
+windows_core::imp::com_interface!(IMbnDeviceServicesManager, IMbnDeviceServicesManager_Vtbl, 0x20a26258_6811_4478_ac1d_13324e45e41c);
+windows_core::imp::interface_hierarchy!(IMbnDeviceServicesManager, windows_core::IUnknown);
 impl IMbnDeviceServicesManager {
-    pub unsafe fn GetDeviceServicesContext<P0>(&self, networkinterfaceid: P0) -> ::windows_core::Result<IMbnDeviceServicesContext>
+    pub unsafe fn GetDeviceServicesContext<P0>(&self, networkinterfaceid: P0) -> windows_core::Result<IMbnDeviceServicesContext>
     where
-        P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P0: windows_core::IntoParam<windows_core::BSTR>,
     {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetDeviceServicesContext)(::windows_core::Interface::as_raw(self), networkinterfaceid.into_param().abi(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).GetDeviceServicesContext)(windows_core::Interface::as_raw(self), networkinterfaceid.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
 pub struct IMbnDeviceServicesManager_Vtbl {
-    pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetDeviceServicesContext: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub GetDeviceServicesContext: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-::windows_core::imp::com_interface!(IMbnInterface, IMbnInterface_Vtbl, 0xdcbbbab6_2001_4bbb_aaee_338e368af6fa);
-::windows_core::imp::interface_hierarchy!(IMbnInterface, ::windows_core::IUnknown);
+windows_core::imp::com_interface!(IMbnInterface, IMbnInterface_Vtbl, 0xdcbbbab6_2001_4bbb_aaee_338e368af6fa);
+windows_core::imp::interface_hierarchy!(IMbnInterface, windows_core::IUnknown);
 impl IMbnInterface {
-    pub unsafe fn InterfaceID(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).InterfaceID)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
+    pub unsafe fn InterfaceID(&self) -> windows_core::Result<windows_core::BSTR> {
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).InterfaceID)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn GetInterfaceCapability(&self, interfacecaps: *mut MBN_INTERFACE_CAPS) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).GetInterfaceCapability)(::windows_core::Interface::as_raw(self), interfacecaps).ok()
+    pub unsafe fn GetInterfaceCapability(&self, interfacecaps: *mut MBN_INTERFACE_CAPS) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).GetInterfaceCapability)(windows_core::Interface::as_raw(self), interfacecaps).ok()
     }
-    pub unsafe fn GetSubscriberInformation(&self) -> ::windows_core::Result<IMbnSubscriberInformation> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetSubscriberInformation)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
+    pub unsafe fn GetSubscriberInformation(&self) -> windows_core::Result<IMbnSubscriberInformation> {
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).GetSubscriberInformation)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn GetReadyState(&self) -> ::windows_core::Result<MBN_READY_STATE> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetReadyState)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+    pub unsafe fn GetReadyState(&self) -> windows_core::Result<MBN_READY_STATE> {
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).GetReadyState)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn InEmergencyMode(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).InEmergencyMode)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+    pub unsafe fn InEmergencyMode(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).InEmergencyMode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn GetHomeProvider(&self) -> ::windows_core::Result<MBN_PROVIDER> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetHomeProvider)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetPreferredProviders(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetPreferredProviders)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+    pub unsafe fn GetHomeProvider(&self) -> windows_core::Result<MBN_PROVIDER> {
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).GetHomeProvider)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetPreferredProviders(&self, preferredproviders: *const super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<u32> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).SetPreferredProviders)(::windows_core::Interface::as_raw(self), preferredproviders, &mut result__).map(|| result__)
+    pub unsafe fn GetPreferredProviders(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).GetPreferredProviders)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetVisibleProviders(&self, age: *mut u32) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetVisibleProviders)(::windows_core::Interface::as_raw(self), age, &mut result__).map(|| result__)
+    pub unsafe fn SetPreferredProviders(&self, preferredproviders: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<u32> {
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).SetPreferredProviders)(windows_core::Interface::as_raw(self), preferredproviders, &mut result__).map(|| result__)
     }
-    pub unsafe fn ScanNetwork(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).ScanNetwork)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetVisibleProviders(&self, age: *mut u32) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).GetVisibleProviders)(windows_core::Interface::as_raw(self), age, &mut result__).map(|| result__)
     }
-    pub unsafe fn GetConnection(&self) -> ::windows_core::Result<IMbnConnection> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetConnection)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
+    pub unsafe fn ScanNetwork(&self) -> windows_core::Result<u32> {
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).ScanNetwork)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+    }
+    pub unsafe fn GetConnection(&self) -> windows_core::Result<IMbnConnection> {
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).GetConnection)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
 pub struct IMbnInterface_Vtbl {
-    pub base__: ::windows_core::IUnknown_Vtbl,
-    pub InterfaceID: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub GetInterfaceCapability: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut MBN_INTERFACE_CAPS) -> ::windows_core::HRESULT,
-    pub GetSubscriberInformation: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetReadyState: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut MBN_READY_STATE) -> ::windows_core::HRESULT,
-    pub InEmergencyMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub GetHomeProvider: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut MBN_PROVIDER) -> ::windows_core::HRESULT,
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub InterfaceID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub GetInterfaceCapability: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MBN_INTERFACE_CAPS) -> windows_core::HRESULT,
+    pub GetSubscriberInformation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetReadyState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MBN_READY_STATE) -> windows_core::HRESULT,
+    pub InEmergencyMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
+    pub GetHomeProvider: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MBN_PROVIDER) -> windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub GetPreferredProviders: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows_core::HRESULT,
+    pub GetPreferredProviders: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetPreferredProviders: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub SetPreferredProviders: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const super::super::System::Com::SAFEARRAY, *mut u32) -> ::windows_core::HRESULT,
+    pub SetPreferredProviders: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::super::System::Com::SAFEARRAY, *mut u32) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     SetPreferredProviders: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub GetVisibleProviders: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32, *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows_core::HRESULT,
+    pub GetVisibleProviders: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetVisibleProviders: usize,
-    pub ScanNetwork: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
-    pub GetConnection: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ScanNetwork: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    pub GetConnection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-::windows_core::imp::com_interface!(IMbnInterfaceEvents, IMbnInterfaceEvents_Vtbl, 0xdcbbbab6_2002_4bbb_aaee_338e368af6fa);
-::windows_core::imp::interface_hierarchy!(IMbnInterfaceEvents, ::windows_core::IUnknown);
+windows_core::imp::com_interface!(IMbnInterfaceEvents, IMbnInterfaceEvents_Vtbl, 0xdcbbbab6_2002_4bbb_aaee_338e368af6fa);
+windows_core::imp::interface_hierarchy!(IMbnInterfaceEvents, windows_core::IUnknown);
 impl IMbnInterfaceEvents {
-    pub unsafe fn OnInterfaceCapabilityAvailable<P0>(&self, newinterface: P0) -> ::windows_core::Result<()>
+    pub unsafe fn OnInterfaceCapabilityAvailable<P0>(&self, newinterface: P0) -> windows_core::Result<()>
     where
-        P0: ::windows_core::IntoParam<IMbnInterface>,
+        P0: windows_core::IntoParam<IMbnInterface>,
     {
-        (::windows_core::Interface::vtable(self).OnInterfaceCapabilityAvailable)(::windows_core::Interface::as_raw(self), newinterface.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnInterfaceCapabilityAvailable)(windows_core::Interface::as_raw(self), newinterface.into_param().abi()).ok()
     }
-    pub unsafe fn OnSubscriberInformationChange<P0>(&self, newinterface: P0) -> ::windows_core::Result<()>
+    pub unsafe fn OnSubscriberInformationChange<P0>(&self, newinterface: P0) -> windows_core::Result<()>
     where
-        P0: ::windows_core::IntoParam<IMbnInterface>,
+        P0: windows_core::IntoParam<IMbnInterface>,
     {
-        (::windows_core::Interface::vtable(self).OnSubscriberInformationChange)(::windows_core::Interface::as_raw(self), newinterface.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnSubscriberInformationChange)(windows_core::Interface::as_raw(self), newinterface.into_param().abi()).ok()
     }
-    pub unsafe fn OnReadyStateChange<P0>(&self, newinterface: P0) -> ::windows_core::Result<()>
+    pub unsafe fn OnReadyStateChange<P0>(&self, newinterface: P0) -> windows_core::Result<()>
     where
-        P0: ::windows_core::IntoParam<IMbnInterface>,
+        P0: windows_core::IntoParam<IMbnInterface>,
     {
-        (::windows_core::Interface::vtable(self).OnReadyStateChange)(::windows_core::Interface::as_raw(self), newinterface.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnReadyStateChange)(windows_core::Interface::as_raw(self), newinterface.into_param().abi()).ok()
     }
-    pub unsafe fn OnEmergencyModeChange<P0>(&self, newinterface: P0) -> ::windows_core::Result<()>
+    pub unsafe fn OnEmergencyModeChange<P0>(&self, newinterface: P0) -> windows_core::Result<()>
     where
-        P0: ::windows_core::IntoParam<IMbnInterface>,
+        P0: windows_core::IntoParam<IMbnInterface>,
     {
-        (::windows_core::Interface::vtable(self).OnEmergencyModeChange)(::windows_core::Interface::as_raw(self), newinterface.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnEmergencyModeChange)(windows_core::Interface::as_raw(self), newinterface.into_param().abi()).ok()
     }
-    pub unsafe fn OnHomeProviderAvailable<P0>(&self, newinterface: P0) -> ::windows_core::Result<()>
+    pub unsafe fn OnHomeProviderAvailable<P0>(&self, newinterface: P0) -> windows_core::Result<()>
     where
-        P0: ::windows_core::IntoParam<IMbnInterface>,
+        P0: windows_core::IntoParam<IMbnInterface>,
     {
-        (::windows_core::Interface::vtable(self).OnHomeProviderAvailable)(::windows_core::Interface::as_raw(self), newinterface.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnHomeProviderAvailable)(windows_core::Interface::as_raw(self), newinterface.into_param().abi()).ok()
     }
-    pub unsafe fn OnPreferredProvidersChange<P0>(&self, newinterface: P0) -> ::windows_core::Result<()>
+    pub unsafe fn OnPreferredProvidersChange<P0>(&self, newinterface: P0) -> windows_core::Result<()>
     where
-        P0: ::windows_core::IntoParam<IMbnInterface>,
+        P0: windows_core::IntoParam<IMbnInterface>,
     {
-        (::windows_core::Interface::vtable(self).OnPreferredProvidersChange)(::windows_core::Interface::as_raw(self), newinterface.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnPreferredProvidersChange)(windows_core::Interface::as_raw(self), newinterface.into_param().abi()).ok()
     }
-    pub unsafe fn OnSetPreferredProvidersComplete<P0>(&self, newinterface: P0, requestid: u32, status: ::windows_core::HRESULT) -> ::windows_core::Result<()>
+    pub unsafe fn OnSetPreferredProvidersComplete<P0>(&self, newinterface: P0, requestid: u32, status: windows_core::HRESULT) -> windows_core::Result<()>
     where
-        P0: ::windows_core::IntoParam<IMbnInterface>,
+        P0: windows_core::IntoParam<IMbnInterface>,
     {
-        (::windows_core::Interface::vtable(self).OnSetPreferredProvidersComplete)(::windows_core::Interface::as_raw(self), newinterface.into_param().abi(), requestid, status).ok()
+        (windows_core::Interface::vtable(self).OnSetPreferredProvidersComplete)(windows_core::Interface::as_raw(self), newinterface.into_param().abi(), requestid, status).ok()
     }
-    pub unsafe fn OnScanNetworkComplete<P0>(&self, newinterface: P0, requestid: u32, status: ::windows_core::HRESULT) -> ::windows_core::Result<()>
+    pub unsafe fn OnScanNetworkComplete<P0>(&self, newinterface: P0, requestid: u32, status: windows_core::HRESULT) -> windows_core::Result<()>
     where
-        P0: ::windows_core::IntoParam<IMbnInterface>,
+        P0: windows_core::IntoParam<IMbnInterface>,
     {
-        (::windows_core::Interface::vtable(self).OnScanNetworkComplete)(::windows_core::Interface::as_raw(self), newinterface.into_param().abi(), requestid, status).ok()
+        (windows_core::Interface::vtable(self).OnScanNetworkComplete)(windows_core::Interface::as_raw(self), newinterface.into_param().abi(), requestid, status).ok()
     }
 }
 #[repr(C)]
 pub struct IMbnInterfaceEvents_Vtbl {
-    pub base__: ::windows_core::IUnknown_Vtbl,
-    pub OnInterfaceCapabilityAvailable: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub OnSubscriberInformationChange: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub OnReadyStateChange: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub OnEmergencyModeChange: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub OnHomeProviderAvailable: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub OnPreferredProvidersChange: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub OnSetPreferredProvidersComplete: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, ::windows_core::HRESULT) -> ::windows_core::HRESULT,
-    pub OnScanNetworkComplete: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, ::windows_core::HRESULT) -> ::windows_core::HRESULT,
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub OnInterfaceCapabilityAvailable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub OnSubscriberInformationChange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub OnReadyStateChange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub OnEmergencyModeChange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub OnHomeProviderAvailable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub OnPreferredProvidersChange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub OnSetPreferredProvidersComplete: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, windows_core::HRESULT) -> windows_core::HRESULT,
+    pub OnScanNetworkComplete: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, windows_core::HRESULT) -> windows_core::HRESULT,
 }
-::windows_core::imp::com_interface!(IMbnInterfaceManager, IMbnInterfaceManager_Vtbl, 0xdcbbbab6_201b_4bbb_aaee_338e368af6fa);
-::windows_core::imp::interface_hierarchy!(IMbnInterfaceManager, ::windows_core::IUnknown);
+windows_core::imp::com_interface!(IMbnInterfaceManager, IMbnInterfaceManager_Vtbl, 0xdcbbbab6_201b_4bbb_aaee_338e368af6fa);
+windows_core::imp::interface_hierarchy!(IMbnInterfaceManager, windows_core::IUnknown);
 impl IMbnInterfaceManager {
-    pub unsafe fn GetInterface<P0>(&self, interfaceid: P0) -> ::windows_core::Result<IMbnInterface>
+    pub unsafe fn GetInterface<P0>(&self, interfaceid: P0) -> windows_core::Result<IMbnInterface>
     where
-        P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+        P0: windows_core::IntoParam<windows_core::PCWSTR>,
     {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetInterface)(::windows_core::Interface::as_raw(self), interfaceid.into_param().abi(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).GetInterface)(windows_core::Interface::as_raw(self), interfaceid.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetInterfaces(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetInterfaces)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+    pub unsafe fn GetInterfaces(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).GetInterfaces)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
 #[repr(C)]
 pub struct IMbnInterfaceManager_Vtbl {
-    pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetInterface: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub GetInterface: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub GetInterfaces: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows_core::HRESULT,
+    pub GetInterfaces: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetInterfaces: usize,
 }
-::windows_core::imp::com_interface!(IMbnInterfaceManagerEvents, IMbnInterfaceManagerEvents_Vtbl, 0xdcbbbab6_201c_4bbb_aaee_338e368af6fa);
-::windows_core::imp::interface_hierarchy!(IMbnInterfaceManagerEvents, ::windows_core::IUnknown);
+windows_core::imp::com_interface!(IMbnInterfaceManagerEvents, IMbnInterfaceManagerEvents_Vtbl, 0xdcbbbab6_201c_4bbb_aaee_338e368af6fa);
+windows_core::imp::interface_hierarchy!(IMbnInterfaceManagerEvents, windows_core::IUnknown);
 impl IMbnInterfaceManagerEvents {
-    pub unsafe fn OnInterfaceArrival<P0>(&self, newinterface: P0) -> ::windows_core::Result<()>
+    pub unsafe fn OnInterfaceArrival<P0>(&self, newinterface: P0) -> windows_core::Result<()>
     where
-        P0: ::windows_core::IntoParam<IMbnInterface>,
+        P0: windows_core::IntoParam<IMbnInterface>,
     {
-        (::windows_core::Interface::vtable(self).OnInterfaceArrival)(::windows_core::Interface::as_raw(self), newinterface.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnInterfaceArrival)(windows_core::Interface::as_raw(self), newinterface.into_param().abi()).ok()
     }
-    pub unsafe fn OnInterfaceRemoval<P0>(&self, oldinterface: P0) -> ::windows_core::Result<()>
+    pub unsafe fn OnInterfaceRemoval<P0>(&self, oldinterface: P0) -> windows_core::Result<()>
     where
-        P0: ::windows_core::IntoParam<IMbnInterface>,
+        P0: windows_core::IntoParam<IMbnInterface>,
     {
-        (::windows_core::Interface::vtable(self).OnInterfaceRemoval)(::windows_core::Interface::as_raw(self), oldinterface.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnInterfaceRemoval)(windows_core::Interface::as_raw(self), oldinterface.into_param().abi()).ok()
     }
 }
 #[repr(C)]
 pub struct IMbnInterfaceManagerEvents_Vtbl {
-    pub base__: ::windows_core::IUnknown_Vtbl,
-    pub OnInterfaceArrival: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub OnInterfaceRemoval: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub OnInterfaceArrival: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub OnInterfaceRemoval: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-::windows_core::imp::com_interface!(IMbnMultiCarrier, IMbnMultiCarrier_Vtbl, 0xdcbbbab6_2020_4bbb_aaee_338e368af6fa);
-::windows_core::imp::interface_hierarchy!(IMbnMultiCarrier, ::windows_core::IUnknown);
+windows_core::imp::com_interface!(IMbnMultiCarrier, IMbnMultiCarrier_Vtbl, 0xdcbbbab6_2020_4bbb_aaee_338e368af6fa);
+windows_core::imp::interface_hierarchy!(IMbnMultiCarrier, windows_core::IUnknown);
 impl IMbnMultiCarrier {
-    pub unsafe fn SetHomeProvider(&self, homeprovider: *const MBN_PROVIDER2) -> ::windows_core::Result<u32> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).SetHomeProvider)(::windows_core::Interface::as_raw(self), homeprovider, &mut result__).map(|| result__)
+    pub unsafe fn SetHomeProvider(&self, homeprovider: *const MBN_PROVIDER2) -> windows_core::Result<u32> {
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).SetHomeProvider)(windows_core::Interface::as_raw(self), homeprovider, &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetPreferredProviders(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetPreferredProviders)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+    pub unsafe fn GetPreferredProviders(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).GetPreferredProviders)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetVisibleProviders(&self, age: *mut u32) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetVisibleProviders)(::windows_core::Interface::as_raw(self), age, &mut result__).map(|| result__)
+    pub unsafe fn GetVisibleProviders(&self, age: *mut u32) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).GetVisibleProviders)(windows_core::Interface::as_raw(self), age, &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetSupportedCellularClasses(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetSupportedCellularClasses)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+    pub unsafe fn GetSupportedCellularClasses(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).GetSupportedCellularClasses)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn GetCurrentCellularClass(&self) -> ::windows_core::Result<MBN_CELLULAR_CLASS> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetCurrentCellularClass)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+    pub unsafe fn GetCurrentCellularClass(&self) -> windows_core::Result<MBN_CELLULAR_CLASS> {
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).GetCurrentCellularClass)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn ScanNetwork(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).ScanNetwork)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+    pub unsafe fn ScanNetwork(&self) -> windows_core::Result<u32> {
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).ScanNetwork)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
 #[repr(C)]
 pub struct IMbnMultiCarrier_Vtbl {
-    pub base__: ::windows_core::IUnknown_Vtbl,
-    pub SetHomeProvider: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const MBN_PROVIDER2, *mut u32) -> ::windows_core::HRESULT,
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub SetHomeProvider: unsafe extern "system" fn(*mut core::ffi::c_void, *const MBN_PROVIDER2, *mut u32) -> windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub GetPreferredProviders: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows_core::HRESULT,
+    pub GetPreferredProviders: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetPreferredProviders: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub GetVisibleProviders: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32, *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows_core::HRESULT,
+    pub GetVisibleProviders: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetVisibleProviders: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub GetSupportedCellularClasses: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows_core::HRESULT,
+    pub GetSupportedCellularClasses: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetSupportedCellularClasses: usize,
-    pub GetCurrentCellularClass: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut MBN_CELLULAR_CLASS) -> ::windows_core::HRESULT,
-    pub ScanNetwork: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub GetCurrentCellularClass: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MBN_CELLULAR_CLASS) -> windows_core::HRESULT,
+    pub ScanNetwork: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-::windows_core::imp::com_interface!(IMbnMultiCarrierEvents, IMbnMultiCarrierEvents_Vtbl, 0xdcdddab6_2021_4bbb_aaee_338e368af6fa);
-::windows_core::imp::interface_hierarchy!(IMbnMultiCarrierEvents, ::windows_core::IUnknown);
+windows_core::imp::com_interface!(IMbnMultiCarrierEvents, IMbnMultiCarrierEvents_Vtbl, 0xdcdddab6_2021_4bbb_aaee_338e368af6fa);
+windows_core::imp::interface_hierarchy!(IMbnMultiCarrierEvents, windows_core::IUnknown);
 impl IMbnMultiCarrierEvents {
-    pub unsafe fn OnSetHomeProviderComplete<P0>(&self, mbninterface: P0, requestid: u32, status: ::windows_core::HRESULT) -> ::windows_core::Result<()>
+    pub unsafe fn OnSetHomeProviderComplete<P0>(&self, mbninterface: P0, requestid: u32, status: windows_core::HRESULT) -> windows_core::Result<()>
     where
-        P0: ::windows_core::IntoParam<IMbnMultiCarrier>,
+        P0: windows_core::IntoParam<IMbnMultiCarrier>,
     {
-        (::windows_core::Interface::vtable(self).OnSetHomeProviderComplete)(::windows_core::Interface::as_raw(self), mbninterface.into_param().abi(), requestid, status).ok()
+        (windows_core::Interface::vtable(self).OnSetHomeProviderComplete)(windows_core::Interface::as_raw(self), mbninterface.into_param().abi(), requestid, status).ok()
     }
-    pub unsafe fn OnCurrentCellularClassChange<P0>(&self, mbninterface: P0) -> ::windows_core::Result<()>
+    pub unsafe fn OnCurrentCellularClassChange<P0>(&self, mbninterface: P0) -> windows_core::Result<()>
     where
-        P0: ::windows_core::IntoParam<IMbnMultiCarrier>,
+        P0: windows_core::IntoParam<IMbnMultiCarrier>,
     {
-        (::windows_core::Interface::vtable(self).OnCurrentCellularClassChange)(::windows_core::Interface::as_raw(self), mbninterface.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnCurrentCellularClassChange)(windows_core::Interface::as_raw(self), mbninterface.into_param().abi()).ok()
     }
-    pub unsafe fn OnPreferredProvidersChange<P0>(&self, mbninterface: P0) -> ::windows_core::Result<()>
+    pub unsafe fn OnPreferredProvidersChange<P0>(&self, mbninterface: P0) -> windows_core::Result<()>
     where
-        P0: ::windows_core::IntoParam<IMbnMultiCarrier>,
+        P0: windows_core::IntoParam<IMbnMultiCarrier>,
     {
-        (::windows_core::Interface::vtable(self).OnPreferredProvidersChange)(::windows_core::Interface::as_raw(self), mbninterface.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnPreferredProvidersChange)(windows_core::Interface::as_raw(self), mbninterface.into_param().abi()).ok()
     }
-    pub unsafe fn OnScanNetworkComplete<P0>(&self, mbninterface: P0, requestid: u32, status: ::windows_core::HRESULT) -> ::windows_core::Result<()>
+    pub unsafe fn OnScanNetworkComplete<P0>(&self, mbninterface: P0, requestid: u32, status: windows_core::HRESULT) -> windows_core::Result<()>
     where
-        P0: ::windows_core::IntoParam<IMbnMultiCarrier>,
+        P0: windows_core::IntoParam<IMbnMultiCarrier>,
     {
-        (::windows_core::Interface::vtable(self).OnScanNetworkComplete)(::windows_core::Interface::as_raw(self), mbninterface.into_param().abi(), requestid, status).ok()
+        (windows_core::Interface::vtable(self).OnScanNetworkComplete)(windows_core::Interface::as_raw(self), mbninterface.into_param().abi(), requestid, status).ok()
     }
-    pub unsafe fn OnInterfaceCapabilityChange<P0>(&self, mbninterface: P0) -> ::windows_core::Result<()>
+    pub unsafe fn OnInterfaceCapabilityChange<P0>(&self, mbninterface: P0) -> windows_core::Result<()>
     where
-        P0: ::windows_core::IntoParam<IMbnMultiCarrier>,
+        P0: windows_core::IntoParam<IMbnMultiCarrier>,
     {
-        (::windows_core::Interface::vtable(self).OnInterfaceCapabilityChange)(::windows_core::Interface::as_raw(self), mbninterface.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnInterfaceCapabilityChange)(windows_core::Interface::as_raw(self), mbninterface.into_param().abi()).ok()
     }
 }
 #[repr(C)]
 pub struct IMbnMultiCarrierEvents_Vtbl {
-    pub base__: ::windows_core::IUnknown_Vtbl,
-    pub OnSetHomeProviderComplete: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, ::windows_core::HRESULT) -> ::windows_core::HRESULT,
-    pub OnCurrentCellularClassChange: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub OnPreferredProvidersChange: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub OnScanNetworkComplete: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, ::windows_core::HRESULT) -> ::windows_core::HRESULT,
-    pub OnInterfaceCapabilityChange: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub OnSetHomeProviderComplete: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, windows_core::HRESULT) -> windows_core::HRESULT,
+    pub OnCurrentCellularClassChange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub OnPreferredProvidersChange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub OnScanNetworkComplete: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, windows_core::HRESULT) -> windows_core::HRESULT,
+    pub OnInterfaceCapabilityChange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-::windows_core::imp::com_interface!(IMbnPin, IMbnPin_Vtbl, 0xdcbbbab6_2007_4bbb_aaee_338e368af6fa);
-::windows_core::imp::interface_hierarchy!(IMbnPin, ::windows_core::IUnknown);
+windows_core::imp::com_interface!(IMbnPin, IMbnPin_Vtbl, 0xdcbbbab6_2007_4bbb_aaee_338e368af6fa);
+windows_core::imp::interface_hierarchy!(IMbnPin, windows_core::IUnknown);
 impl IMbnPin {
-    pub unsafe fn PinType(&self) -> ::windows_core::Result<MBN_PIN_TYPE> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).PinType)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+    pub unsafe fn PinType(&self) -> windows_core::Result<MBN_PIN_TYPE> {
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).PinType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn PinFormat(&self) -> ::windows_core::Result<MBN_PIN_FORMAT> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).PinFormat)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+    pub unsafe fn PinFormat(&self) -> windows_core::Result<MBN_PIN_FORMAT> {
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).PinFormat)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn PinLengthMin(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).PinLengthMin)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+    pub unsafe fn PinLengthMin(&self) -> windows_core::Result<u32> {
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).PinLengthMin)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn PinLengthMax(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).PinLengthMax)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+    pub unsafe fn PinLengthMax(&self) -> windows_core::Result<u32> {
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).PinLengthMax)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn PinMode(&self) -> ::windows_core::Result<MBN_PIN_MODE> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).PinMode)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+    pub unsafe fn PinMode(&self) -> windows_core::Result<MBN_PIN_MODE> {
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).PinMode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn Enable<P0>(&self, pin: P0) -> ::windows_core::Result<u32>
+    pub unsafe fn Enable<P0>(&self, pin: P0) -> windows_core::Result<u32>
     where
-        P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+        P0: windows_core::IntoParam<windows_core::PCWSTR>,
     {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Enable)(::windows_core::Interface::as_raw(self), pin.into_param().abi(), &mut result__).map(|| result__)
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).Enable)(windows_core::Interface::as_raw(self), pin.into_param().abi(), &mut result__).map(|| result__)
     }
-    pub unsafe fn Disable<P0>(&self, pin: P0) -> ::windows_core::Result<u32>
+    pub unsafe fn Disable<P0>(&self, pin: P0) -> windows_core::Result<u32>
     where
-        P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+        P0: windows_core::IntoParam<windows_core::PCWSTR>,
     {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Disable)(::windows_core::Interface::as_raw(self), pin.into_param().abi(), &mut result__).map(|| result__)
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).Disable)(windows_core::Interface::as_raw(self), pin.into_param().abi(), &mut result__).map(|| result__)
     }
-    pub unsafe fn Enter<P0>(&self, pin: P0) -> ::windows_core::Result<u32>
+    pub unsafe fn Enter<P0>(&self, pin: P0) -> windows_core::Result<u32>
     where
-        P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+        P0: windows_core::IntoParam<windows_core::PCWSTR>,
     {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Enter)(::windows_core::Interface::as_raw(self), pin.into_param().abi(), &mut result__).map(|| result__)
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).Enter)(windows_core::Interface::as_raw(self), pin.into_param().abi(), &mut result__).map(|| result__)
     }
-    pub unsafe fn Change<P0, P1>(&self, pin: P0, newpin: P1) -> ::windows_core::Result<u32>
+    pub unsafe fn Change<P0, P1>(&self, pin: P0, newpin: P1) -> windows_core::Result<u32>
     where
-        P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
-        P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P1: windows_core::IntoParam<windows_core::PCWSTR>,
     {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Change)(::windows_core::Interface::as_raw(self), pin.into_param().abi(), newpin.into_param().abi(), &mut result__).map(|| result__)
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).Change)(windows_core::Interface::as_raw(self), pin.into_param().abi(), newpin.into_param().abi(), &mut result__).map(|| result__)
     }
-    pub unsafe fn Unblock<P0, P1>(&self, puk: P0, newpin: P1) -> ::windows_core::Result<u32>
+    pub unsafe fn Unblock<P0, P1>(&self, puk: P0, newpin: P1) -> windows_core::Result<u32>
     where
-        P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
-        P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P1: windows_core::IntoParam<windows_core::PCWSTR>,
     {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Unblock)(::windows_core::Interface::as_raw(self), puk.into_param().abi(), newpin.into_param().abi(), &mut result__).map(|| result__)
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).Unblock)(windows_core::Interface::as_raw(self), puk.into_param().abi(), newpin.into_param().abi(), &mut result__).map(|| result__)
     }
-    pub unsafe fn GetPinManager(&self) -> ::windows_core::Result<IMbnPinManager> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetPinManager)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
+    pub unsafe fn GetPinManager(&self) -> windows_core::Result<IMbnPinManager> {
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).GetPinManager)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
 pub struct IMbnPin_Vtbl {
-    pub base__: ::windows_core::IUnknown_Vtbl,
-    pub PinType: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut MBN_PIN_TYPE) -> ::windows_core::HRESULT,
-    pub PinFormat: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut MBN_PIN_FORMAT) -> ::windows_core::HRESULT,
-    pub PinLengthMin: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
-    pub PinLengthMax: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
-    pub PinMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut MBN_PIN_MODE) -> ::windows_core::HRESULT,
-    pub Enable: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *mut u32) -> ::windows_core::HRESULT,
-    pub Disable: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *mut u32) -> ::windows_core::HRESULT,
-    pub Enter: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *mut u32) -> ::windows_core::HRESULT,
-    pub Change: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, ::windows_core::PCWSTR, *mut u32) -> ::windows_core::HRESULT,
-    pub Unblock: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, ::windows_core::PCWSTR, *mut u32) -> ::windows_core::HRESULT,
-    pub GetPinManager: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub PinType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MBN_PIN_TYPE) -> windows_core::HRESULT,
+    pub PinFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MBN_PIN_FORMAT) -> windows_core::HRESULT,
+    pub PinLengthMin: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    pub PinLengthMax: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    pub PinMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MBN_PIN_MODE) -> windows_core::HRESULT,
+    pub Enable: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut u32) -> windows_core::HRESULT,
+    pub Disable: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut u32) -> windows_core::HRESULT,
+    pub Enter: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut u32) -> windows_core::HRESULT,
+    pub Change: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, *mut u32) -> windows_core::HRESULT,
+    pub Unblock: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, *mut u32) -> windows_core::HRESULT,
+    pub GetPinManager: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-::windows_core::imp::com_interface!(IMbnPinEvents, IMbnPinEvents_Vtbl, 0xdcbbbab6_2008_4bbb_aaee_338e368af6fa);
-::windows_core::imp::interface_hierarchy!(IMbnPinEvents, ::windows_core::IUnknown);
+windows_core::imp::com_interface!(IMbnPinEvents, IMbnPinEvents_Vtbl, 0xdcbbbab6_2008_4bbb_aaee_338e368af6fa);
+windows_core::imp::interface_hierarchy!(IMbnPinEvents, windows_core::IUnknown);
 impl IMbnPinEvents {
-    pub unsafe fn OnEnableComplete<P0>(&self, pin: P0, pininfo: *const MBN_PIN_INFO, requestid: u32, status: ::windows_core::HRESULT) -> ::windows_core::Result<()>
+    pub unsafe fn OnEnableComplete<P0>(&self, pin: P0, pininfo: *const MBN_PIN_INFO, requestid: u32, status: windows_core::HRESULT) -> windows_core::Result<()>
     where
-        P0: ::windows_core::IntoParam<IMbnPin>,
+        P0: windows_core::IntoParam<IMbnPin>,
     {
-        (::windows_core::Interface::vtable(self).OnEnableComplete)(::windows_core::Interface::as_raw(self), pin.into_param().abi(), pininfo, requestid, status).ok()
+        (windows_core::Interface::vtable(self).OnEnableComplete)(windows_core::Interface::as_raw(self), pin.into_param().abi(), pininfo, requestid, status).ok()
     }
-    pub unsafe fn OnDisableComplete<P0>(&self, pin: P0, pininfo: *const MBN_PIN_INFO, requestid: u32, status: ::windows_core::HRESULT) -> ::windows_core::Result<()>
+    pub unsafe fn OnDisableComplete<P0>(&self, pin: P0, pininfo: *const MBN_PIN_INFO, requestid: u32, status: windows_core::HRESULT) -> windows_core::Result<()>
     where
-        P0: ::windows_core::IntoParam<IMbnPin>,
+        P0: windows_core::IntoParam<IMbnPin>,
     {
-        (::windows_core::Interface::vtable(self).OnDisableComplete)(::windows_core::Interface::as_raw(self), pin.into_param().abi(), pininfo, requestid, status).ok()
+        (windows_core::Interface::vtable(self).OnDisableComplete)(windows_core::Interface::as_raw(self), pin.into_param().abi(), pininfo, requestid, status).ok()
     }
-    pub unsafe fn OnEnterComplete<P0>(&self, pin: P0, pininfo: *const MBN_PIN_INFO, requestid: u32, status: ::windows_core::HRESULT) -> ::windows_core::Result<()>
+    pub unsafe fn OnEnterComplete<P0>(&self, pin: P0, pininfo: *const MBN_PIN_INFO, requestid: u32, status: windows_core::HRESULT) -> windows_core::Result<()>
     where
-        P0: ::windows_core::IntoParam<IMbnPin>,
+        P0: windows_core::IntoParam<IMbnPin>,
     {
-        (::windows_core::Interface::vtable(self).OnEnterComplete)(::windows_core::Interface::as_raw(self), pin.into_param().abi(), pininfo, requestid, status).ok()
+        (windows_core::Interface::vtable(self).OnEnterComplete)(windows_core::Interface::as_raw(self), pin.into_param().abi(), pininfo, requestid, status).ok()
     }
-    pub unsafe fn OnChangeComplete<P0>(&self, pin: P0, pininfo: *const MBN_PIN_INFO, requestid: u32, status: ::windows_core::HRESULT) -> ::windows_core::Result<()>
+    pub unsafe fn OnChangeComplete<P0>(&self, pin: P0, pininfo: *const MBN_PIN_INFO, requestid: u32, status: windows_core::HRESULT) -> windows_core::Result<()>
     where
-        P0: ::windows_core::IntoParam<IMbnPin>,
+        P0: windows_core::IntoParam<IMbnPin>,
     {
-        (::windows_core::Interface::vtable(self).OnChangeComplete)(::windows_core::Interface::as_raw(self), pin.into_param().abi(), pininfo, requestid, status).ok()
+        (windows_core::Interface::vtable(self).OnChangeComplete)(windows_core::Interface::as_raw(self), pin.into_param().abi(), pininfo, requestid, status).ok()
     }
-    pub unsafe fn OnUnblockComplete<P0>(&self, pin: P0, pininfo: *const MBN_PIN_INFO, requestid: u32, status: ::windows_core::HRESULT) -> ::windows_core::Result<()>
+    pub unsafe fn OnUnblockComplete<P0>(&self, pin: P0, pininfo: *const MBN_PIN_INFO, requestid: u32, status: windows_core::HRESULT) -> windows_core::Result<()>
     where
-        P0: ::windows_core::IntoParam<IMbnPin>,
+        P0: windows_core::IntoParam<IMbnPin>,
     {
-        (::windows_core::Interface::vtable(self).OnUnblockComplete)(::windows_core::Interface::as_raw(self), pin.into_param().abi(), pininfo, requestid, status).ok()
+        (windows_core::Interface::vtable(self).OnUnblockComplete)(windows_core::Interface::as_raw(self), pin.into_param().abi(), pininfo, requestid, status).ok()
     }
 }
 #[repr(C)]
 pub struct IMbnPinEvents_Vtbl {
-    pub base__: ::windows_core::IUnknown_Vtbl,
-    pub OnEnableComplete: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *const MBN_PIN_INFO, u32, ::windows_core::HRESULT) -> ::windows_core::HRESULT,
-    pub OnDisableComplete: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *const MBN_PIN_INFO, u32, ::windows_core::HRESULT) -> ::windows_core::HRESULT,
-    pub OnEnterComplete: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *const MBN_PIN_INFO, u32, ::windows_core::HRESULT) -> ::windows_core::HRESULT,
-    pub OnChangeComplete: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *const MBN_PIN_INFO, u32, ::windows_core::HRESULT) -> ::windows_core::HRESULT,
-    pub OnUnblockComplete: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *const MBN_PIN_INFO, u32, ::windows_core::HRESULT) -> ::windows_core::HRESULT,
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub OnEnableComplete: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const MBN_PIN_INFO, u32, windows_core::HRESULT) -> windows_core::HRESULT,
+    pub OnDisableComplete: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const MBN_PIN_INFO, u32, windows_core::HRESULT) -> windows_core::HRESULT,
+    pub OnEnterComplete: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const MBN_PIN_INFO, u32, windows_core::HRESULT) -> windows_core::HRESULT,
+    pub OnChangeComplete: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const MBN_PIN_INFO, u32, windows_core::HRESULT) -> windows_core::HRESULT,
+    pub OnUnblockComplete: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const MBN_PIN_INFO, u32, windows_core::HRESULT) -> windows_core::HRESULT,
 }
-::windows_core::imp::com_interface!(IMbnPinManager, IMbnPinManager_Vtbl, 0xdcbbbab6_2005_4bbb_aaee_338e368af6fa);
-::windows_core::imp::interface_hierarchy!(IMbnPinManager, ::windows_core::IUnknown);
+windows_core::imp::com_interface!(IMbnPinManager, IMbnPinManager_Vtbl, 0xdcbbbab6_2005_4bbb_aaee_338e368af6fa);
+windows_core::imp::interface_hierarchy!(IMbnPinManager, windows_core::IUnknown);
 impl IMbnPinManager {
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetPinList(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetPinList)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+    pub unsafe fn GetPinList(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).GetPinList)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn GetPin(&self, pintype: MBN_PIN_TYPE) -> ::windows_core::Result<IMbnPin> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetPin)(::windows_core::Interface::as_raw(self), pintype, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
+    pub unsafe fn GetPin(&self, pintype: MBN_PIN_TYPE) -> windows_core::Result<IMbnPin> {
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).GetPin)(windows_core::Interface::as_raw(self), pintype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn GetPinState(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetPinState)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+    pub unsafe fn GetPinState(&self) -> windows_core::Result<u32> {
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).GetPinState)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
 #[repr(C)]
 pub struct IMbnPinManager_Vtbl {
-    pub base__: ::windows_core::IUnknown_Vtbl,
+    pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
-    pub GetPinList: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows_core::HRESULT,
+    pub GetPinList: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetPinList: usize,
-    pub GetPin: unsafe extern "system" fn(*mut ::core::ffi::c_void, MBN_PIN_TYPE, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetPinState: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub GetPin: unsafe extern "system" fn(*mut core::ffi::c_void, MBN_PIN_TYPE, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetPinState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-::windows_core::imp::com_interface!(IMbnPinManagerEvents, IMbnPinManagerEvents_Vtbl, 0xdcbbbab6_2006_4bbb_aaee_338e368af6fa);
-::windows_core::imp::interface_hierarchy!(IMbnPinManagerEvents, ::windows_core::IUnknown);
+windows_core::imp::com_interface!(IMbnPinManagerEvents, IMbnPinManagerEvents_Vtbl, 0xdcbbbab6_2006_4bbb_aaee_338e368af6fa);
+windows_core::imp::interface_hierarchy!(IMbnPinManagerEvents, windows_core::IUnknown);
 impl IMbnPinManagerEvents {
-    pub unsafe fn OnPinListAvailable<P0>(&self, pinmanager: P0) -> ::windows_core::Result<()>
+    pub unsafe fn OnPinListAvailable<P0>(&self, pinmanager: P0) -> windows_core::Result<()>
     where
-        P0: ::windows_core::IntoParam<IMbnPinManager>,
+        P0: windows_core::IntoParam<IMbnPinManager>,
     {
-        (::windows_core::Interface::vtable(self).OnPinListAvailable)(::windows_core::Interface::as_raw(self), pinmanager.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnPinListAvailable)(windows_core::Interface::as_raw(self), pinmanager.into_param().abi()).ok()
     }
-    pub unsafe fn OnGetPinStateComplete<P0>(&self, pinmanager: P0, pininfo: MBN_PIN_INFO, requestid: u32, status: ::windows_core::HRESULT) -> ::windows_core::Result<()>
+    pub unsafe fn OnGetPinStateComplete<P0>(&self, pinmanager: P0, pininfo: MBN_PIN_INFO, requestid: u32, status: windows_core::HRESULT) -> windows_core::Result<()>
     where
-        P0: ::windows_core::IntoParam<IMbnPinManager>,
+        P0: windows_core::IntoParam<IMbnPinManager>,
     {
-        (::windows_core::Interface::vtable(self).OnGetPinStateComplete)(::windows_core::Interface::as_raw(self), pinmanager.into_param().abi(), ::core::mem::transmute(pininfo), requestid, status).ok()
+        (windows_core::Interface::vtable(self).OnGetPinStateComplete)(windows_core::Interface::as_raw(self), pinmanager.into_param().abi(), core::mem::transmute(pininfo), requestid, status).ok()
     }
 }
 #[repr(C)]
 pub struct IMbnPinManagerEvents_Vtbl {
-    pub base__: ::windows_core::IUnknown_Vtbl,
-    pub OnPinListAvailable: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub OnGetPinStateComplete: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, MBN_PIN_INFO, u32, ::windows_core::HRESULT) -> ::windows_core::HRESULT,
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub OnPinListAvailable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub OnGetPinStateComplete: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, MBN_PIN_INFO, u32, windows_core::HRESULT) -> windows_core::HRESULT,
 }
-::windows_core::imp::com_interface!(IMbnRadio, IMbnRadio_Vtbl, 0xdccccab6_201f_4bbb_aaee_338e368af6fa);
-::windows_core::imp::interface_hierarchy!(IMbnRadio, ::windows_core::IUnknown);
+windows_core::imp::com_interface!(IMbnRadio, IMbnRadio_Vtbl, 0xdccccab6_201f_4bbb_aaee_338e368af6fa);
+windows_core::imp::interface_hierarchy!(IMbnRadio, windows_core::IUnknown);
 impl IMbnRadio {
-    pub unsafe fn SoftwareRadioState(&self) -> ::windows_core::Result<MBN_RADIO> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).SoftwareRadioState)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+    pub unsafe fn SoftwareRadioState(&self) -> windows_core::Result<MBN_RADIO> {
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).SoftwareRadioState)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn HardwareRadioState(&self) -> ::windows_core::Result<MBN_RADIO> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).HardwareRadioState)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+    pub unsafe fn HardwareRadioState(&self) -> windows_core::Result<MBN_RADIO> {
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).HardwareRadioState)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetSoftwareRadioState(&self, radiostate: MBN_RADIO) -> ::windows_core::Result<u32> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).SetSoftwareRadioState)(::windows_core::Interface::as_raw(self), radiostate, &mut result__).map(|| result__)
+    pub unsafe fn SetSoftwareRadioState(&self, radiostate: MBN_RADIO) -> windows_core::Result<u32> {
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).SetSoftwareRadioState)(windows_core::Interface::as_raw(self), radiostate, &mut result__).map(|| result__)
     }
 }
 #[repr(C)]
 pub struct IMbnRadio_Vtbl {
-    pub base__: ::windows_core::IUnknown_Vtbl,
-    pub SoftwareRadioState: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut MBN_RADIO) -> ::windows_core::HRESULT,
-    pub HardwareRadioState: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut MBN_RADIO) -> ::windows_core::HRESULT,
-    pub SetSoftwareRadioState: unsafe extern "system" fn(*mut ::core::ffi::c_void, MBN_RADIO, *mut u32) -> ::windows_core::HRESULT,
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub SoftwareRadioState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MBN_RADIO) -> windows_core::HRESULT,
+    pub HardwareRadioState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MBN_RADIO) -> windows_core::HRESULT,
+    pub SetSoftwareRadioState: unsafe extern "system" fn(*mut core::ffi::c_void, MBN_RADIO, *mut u32) -> windows_core::HRESULT,
 }
-::windows_core::imp::com_interface!(IMbnRadioEvents, IMbnRadioEvents_Vtbl, 0xdcdddab6_201f_4bbb_aaee_338e368af6fa);
-::windows_core::imp::interface_hierarchy!(IMbnRadioEvents, ::windows_core::IUnknown);
+windows_core::imp::com_interface!(IMbnRadioEvents, IMbnRadioEvents_Vtbl, 0xdcdddab6_201f_4bbb_aaee_338e368af6fa);
+windows_core::imp::interface_hierarchy!(IMbnRadioEvents, windows_core::IUnknown);
 impl IMbnRadioEvents {
-    pub unsafe fn OnRadioStateChange<P0>(&self, newinterface: P0) -> ::windows_core::Result<()>
+    pub unsafe fn OnRadioStateChange<P0>(&self, newinterface: P0) -> windows_core::Result<()>
     where
-        P0: ::windows_core::IntoParam<IMbnRadio>,
+        P0: windows_core::IntoParam<IMbnRadio>,
     {
-        (::windows_core::Interface::vtable(self).OnRadioStateChange)(::windows_core::Interface::as_raw(self), newinterface.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnRadioStateChange)(windows_core::Interface::as_raw(self), newinterface.into_param().abi()).ok()
     }
-    pub unsafe fn OnSetSoftwareRadioStateComplete<P0>(&self, newinterface: P0, requestid: u32, status: ::windows_core::HRESULT) -> ::windows_core::Result<()>
+    pub unsafe fn OnSetSoftwareRadioStateComplete<P0>(&self, newinterface: P0, requestid: u32, status: windows_core::HRESULT) -> windows_core::Result<()>
     where
-        P0: ::windows_core::IntoParam<IMbnRadio>,
+        P0: windows_core::IntoParam<IMbnRadio>,
     {
-        (::windows_core::Interface::vtable(self).OnSetSoftwareRadioStateComplete)(::windows_core::Interface::as_raw(self), newinterface.into_param().abi(), requestid, status).ok()
+        (windows_core::Interface::vtable(self).OnSetSoftwareRadioStateComplete)(windows_core::Interface::as_raw(self), newinterface.into_param().abi(), requestid, status).ok()
     }
 }
 #[repr(C)]
 pub struct IMbnRadioEvents_Vtbl {
-    pub base__: ::windows_core::IUnknown_Vtbl,
-    pub OnRadioStateChange: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub OnSetSoftwareRadioStateComplete: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, ::windows_core::HRESULT) -> ::windows_core::HRESULT,
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub OnRadioStateChange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub OnSetSoftwareRadioStateComplete: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, windows_core::HRESULT) -> windows_core::HRESULT,
 }
-::windows_core::imp::com_interface!(IMbnRegistration, IMbnRegistration_Vtbl, 0xdcbbbab6_2009_4bbb_aaee_338e368af6fa);
-::windows_core::imp::interface_hierarchy!(IMbnRegistration, ::windows_core::IUnknown);
+windows_core::imp::com_interface!(IMbnRegistration, IMbnRegistration_Vtbl, 0xdcbbbab6_2009_4bbb_aaee_338e368af6fa);
+windows_core::imp::interface_hierarchy!(IMbnRegistration, windows_core::IUnknown);
 impl IMbnRegistration {
-    pub unsafe fn GetRegisterState(&self) -> ::windows_core::Result<MBN_REGISTER_STATE> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetRegisterState)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+    pub unsafe fn GetRegisterState(&self) -> windows_core::Result<MBN_REGISTER_STATE> {
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).GetRegisterState)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn GetRegisterMode(&self) -> ::windows_core::Result<MBN_REGISTER_MODE> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetRegisterMode)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+    pub unsafe fn GetRegisterMode(&self) -> windows_core::Result<MBN_REGISTER_MODE> {
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).GetRegisterMode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn GetProviderID(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetProviderID)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
+    pub unsafe fn GetProviderID(&self) -> windows_core::Result<windows_core::BSTR> {
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).GetProviderID)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn GetProviderName(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetProviderName)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
+    pub unsafe fn GetProviderName(&self) -> windows_core::Result<windows_core::BSTR> {
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).GetProviderName)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn GetRoamingText(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetRoamingText)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
+    pub unsafe fn GetRoamingText(&self) -> windows_core::Result<windows_core::BSTR> {
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).GetRoamingText)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn GetAvailableDataClasses(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetAvailableDataClasses)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+    pub unsafe fn GetAvailableDataClasses(&self) -> windows_core::Result<u32> {
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).GetAvailableDataClasses)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn GetCurrentDataClass(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetCurrentDataClass)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+    pub unsafe fn GetCurrentDataClass(&self) -> windows_core::Result<u32> {
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).GetCurrentDataClass)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn GetRegistrationNetworkError(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetRegistrationNetworkError)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+    pub unsafe fn GetRegistrationNetworkError(&self) -> windows_core::Result<u32> {
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).GetRegistrationNetworkError)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn GetPacketAttachNetworkError(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetPacketAttachNetworkError)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+    pub unsafe fn GetPacketAttachNetworkError(&self) -> windows_core::Result<u32> {
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).GetPacketAttachNetworkError)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetRegisterMode<P0>(&self, registermode: MBN_REGISTER_MODE, providerid: P0, dataclass: u32) -> ::windows_core::Result<u32>
+    pub unsafe fn SetRegisterMode<P0>(&self, registermode: MBN_REGISTER_MODE, providerid: P0, dataclass: u32) -> windows_core::Result<u32>
     where
-        P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+        P0: windows_core::IntoParam<windows_core::PCWSTR>,
     {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).SetRegisterMode)(::windows_core::Interface::as_raw(self), registermode, providerid.into_param().abi(), dataclass, &mut result__).map(|| result__)
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).SetRegisterMode)(windows_core::Interface::as_raw(self), registermode, providerid.into_param().abi(), dataclass, &mut result__).map(|| result__)
     }
 }
 #[repr(C)]
 pub struct IMbnRegistration_Vtbl {
-    pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetRegisterState: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut MBN_REGISTER_STATE) -> ::windows_core::HRESULT,
-    pub GetRegisterMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut MBN_REGISTER_MODE) -> ::windows_core::HRESULT,
-    pub GetProviderID: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub GetProviderName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub GetRoamingText: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub GetAvailableDataClasses: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
-    pub GetCurrentDataClass: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
-    pub GetRegistrationNetworkError: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
-    pub GetPacketAttachNetworkError: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
-    pub SetRegisterMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, MBN_REGISTER_MODE, ::windows_core::PCWSTR, u32, *mut u32) -> ::windows_core::HRESULT,
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub GetRegisterState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MBN_REGISTER_STATE) -> windows_core::HRESULT,
+    pub GetRegisterMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MBN_REGISTER_MODE) -> windows_core::HRESULT,
+    pub GetProviderID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub GetProviderName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub GetRoamingText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub GetAvailableDataClasses: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    pub GetCurrentDataClass: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    pub GetRegistrationNetworkError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    pub GetPacketAttachNetworkError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    pub SetRegisterMode: unsafe extern "system" fn(*mut core::ffi::c_void, MBN_REGISTER_MODE, windows_core::PCWSTR, u32, *mut u32) -> windows_core::HRESULT,
 }
-::windows_core::imp::com_interface!(IMbnRegistrationEvents, IMbnRegistrationEvents_Vtbl, 0xdcbbbab6_200a_4bbb_aaee_338e368af6fa);
-::windows_core::imp::interface_hierarchy!(IMbnRegistrationEvents, ::windows_core::IUnknown);
+windows_core::imp::com_interface!(IMbnRegistrationEvents, IMbnRegistrationEvents_Vtbl, 0xdcbbbab6_200a_4bbb_aaee_338e368af6fa);
+windows_core::imp::interface_hierarchy!(IMbnRegistrationEvents, windows_core::IUnknown);
 impl IMbnRegistrationEvents {
-    pub unsafe fn OnRegisterModeAvailable<P0>(&self, newinterface: P0) -> ::windows_core::Result<()>
+    pub unsafe fn OnRegisterModeAvailable<P0>(&self, newinterface: P0) -> windows_core::Result<()>
     where
-        P0: ::windows_core::IntoParam<IMbnRegistration>,
+        P0: windows_core::IntoParam<IMbnRegistration>,
     {
-        (::windows_core::Interface::vtable(self).OnRegisterModeAvailable)(::windows_core::Interface::as_raw(self), newinterface.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnRegisterModeAvailable)(windows_core::Interface::as_raw(self), newinterface.into_param().abi()).ok()
     }
-    pub unsafe fn OnRegisterStateChange<P0>(&self, newinterface: P0) -> ::windows_core::Result<()>
+    pub unsafe fn OnRegisterStateChange<P0>(&self, newinterface: P0) -> windows_core::Result<()>
     where
-        P0: ::windows_core::IntoParam<IMbnRegistration>,
+        P0: windows_core::IntoParam<IMbnRegistration>,
     {
-        (::windows_core::Interface::vtable(self).OnRegisterStateChange)(::windows_core::Interface::as_raw(self), newinterface.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnRegisterStateChange)(windows_core::Interface::as_raw(self), newinterface.into_param().abi()).ok()
     }
-    pub unsafe fn OnPacketServiceStateChange<P0>(&self, newinterface: P0) -> ::windows_core::Result<()>
+    pub unsafe fn OnPacketServiceStateChange<P0>(&self, newinterface: P0) -> windows_core::Result<()>
     where
-        P0: ::windows_core::IntoParam<IMbnRegistration>,
+        P0: windows_core::IntoParam<IMbnRegistration>,
     {
-        (::windows_core::Interface::vtable(self).OnPacketServiceStateChange)(::windows_core::Interface::as_raw(self), newinterface.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnPacketServiceStateChange)(windows_core::Interface::as_raw(self), newinterface.into_param().abi()).ok()
     }
-    pub unsafe fn OnSetRegisterModeComplete<P0>(&self, newinterface: P0, requestid: u32, status: ::windows_core::HRESULT) -> ::windows_core::Result<()>
+    pub unsafe fn OnSetRegisterModeComplete<P0>(&self, newinterface: P0, requestid: u32, status: windows_core::HRESULT) -> windows_core::Result<()>
     where
-        P0: ::windows_core::IntoParam<IMbnRegistration>,
+        P0: windows_core::IntoParam<IMbnRegistration>,
     {
-        (::windows_core::Interface::vtable(self).OnSetRegisterModeComplete)(::windows_core::Interface::as_raw(self), newinterface.into_param().abi(), requestid, status).ok()
+        (windows_core::Interface::vtable(self).OnSetRegisterModeComplete)(windows_core::Interface::as_raw(self), newinterface.into_param().abi(), requestid, status).ok()
     }
 }
 #[repr(C)]
 pub struct IMbnRegistrationEvents_Vtbl {
-    pub base__: ::windows_core::IUnknown_Vtbl,
-    pub OnRegisterModeAvailable: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub OnRegisterStateChange: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub OnPacketServiceStateChange: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub OnSetRegisterModeComplete: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, ::windows_core::HRESULT) -> ::windows_core::HRESULT,
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub OnRegisterModeAvailable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub OnRegisterStateChange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub OnPacketServiceStateChange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub OnSetRegisterModeComplete: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, windows_core::HRESULT) -> windows_core::HRESULT,
 }
-::windows_core::imp::com_interface!(IMbnServiceActivation, IMbnServiceActivation_Vtbl, 0xdcbbbab6_2017_4bbb_aaee_338e368af6fa);
-::windows_core::imp::interface_hierarchy!(IMbnServiceActivation, ::windows_core::IUnknown);
+windows_core::imp::com_interface!(IMbnServiceActivation, IMbnServiceActivation_Vtbl, 0xdcbbbab6_2017_4bbb_aaee_338e368af6fa);
+windows_core::imp::interface_hierarchy!(IMbnServiceActivation, windows_core::IUnknown);
 impl IMbnServiceActivation {
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Activate(&self, vendorspecificdata: *const super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<u32> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Activate)(::windows_core::Interface::as_raw(self), vendorspecificdata, &mut result__).map(|| result__)
+    pub unsafe fn Activate(&self, vendorspecificdata: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<u32> {
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).Activate)(windows_core::Interface::as_raw(self), vendorspecificdata, &mut result__).map(|| result__)
     }
 }
 #[repr(C)]
 pub struct IMbnServiceActivation_Vtbl {
-    pub base__: ::windows_core::IUnknown_Vtbl,
+    pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
-    pub Activate: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const super::super::System::Com::SAFEARRAY, *mut u32) -> ::windows_core::HRESULT,
+    pub Activate: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::super::System::Com::SAFEARRAY, *mut u32) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Activate: usize,
 }
-::windows_core::imp::com_interface!(IMbnServiceActivationEvents, IMbnServiceActivationEvents_Vtbl, 0xdcbbbab6_2018_4bbb_aaee_338e368af6fa);
-::windows_core::imp::interface_hierarchy!(IMbnServiceActivationEvents, ::windows_core::IUnknown);
+windows_core::imp::com_interface!(IMbnServiceActivationEvents, IMbnServiceActivationEvents_Vtbl, 0xdcbbbab6_2018_4bbb_aaee_338e368af6fa);
+windows_core::imp::interface_hierarchy!(IMbnServiceActivationEvents, windows_core::IUnknown);
 impl IMbnServiceActivationEvents {
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn OnActivationComplete<P0>(&self, serviceactivation: P0, vendorspecificdata: *const super::super::System::Com::SAFEARRAY, requestid: u32, status: ::windows_core::HRESULT, networkerror: u32) -> ::windows_core::Result<()>
+    pub unsafe fn OnActivationComplete<P0>(&self, serviceactivation: P0, vendorspecificdata: *const super::super::System::Com::SAFEARRAY, requestid: u32, status: windows_core::HRESULT, networkerror: u32) -> windows_core::Result<()>
     where
-        P0: ::windows_core::IntoParam<IMbnServiceActivation>,
+        P0: windows_core::IntoParam<IMbnServiceActivation>,
     {
-        (::windows_core::Interface::vtable(self).OnActivationComplete)(::windows_core::Interface::as_raw(self), serviceactivation.into_param().abi(), vendorspecificdata, requestid, status, networkerror).ok()
+        (windows_core::Interface::vtable(self).OnActivationComplete)(windows_core::Interface::as_raw(self), serviceactivation.into_param().abi(), vendorspecificdata, requestid, status, networkerror).ok()
     }
 }
 #[repr(C)]
 pub struct IMbnServiceActivationEvents_Vtbl {
-    pub base__: ::windows_core::IUnknown_Vtbl,
+    pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
-    pub OnActivationComplete: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *const super::super::System::Com::SAFEARRAY, u32, ::windows_core::HRESULT, u32) -> ::windows_core::HRESULT,
+    pub OnActivationComplete: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const super::super::System::Com::SAFEARRAY, u32, windows_core::HRESULT, u32) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     OnActivationComplete: usize,
 }
-::windows_core::imp::com_interface!(IMbnSignal, IMbnSignal_Vtbl, 0xdcbbbab6_2003_4bbb_aaee_338e368af6fa);
-::windows_core::imp::interface_hierarchy!(IMbnSignal, ::windows_core::IUnknown);
+windows_core::imp::com_interface!(IMbnSignal, IMbnSignal_Vtbl, 0xdcbbbab6_2003_4bbb_aaee_338e368af6fa);
+windows_core::imp::interface_hierarchy!(IMbnSignal, windows_core::IUnknown);
 impl IMbnSignal {
-    pub unsafe fn GetSignalStrength(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetSignalStrength)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+    pub unsafe fn GetSignalStrength(&self) -> windows_core::Result<u32> {
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).GetSignalStrength)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn GetSignalError(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetSignalError)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+    pub unsafe fn GetSignalError(&self) -> windows_core::Result<u32> {
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).GetSignalError)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
 #[repr(C)]
 pub struct IMbnSignal_Vtbl {
-    pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetSignalStrength: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
-    pub GetSignalError: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub GetSignalStrength: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    pub GetSignalError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-::windows_core::imp::com_interface!(IMbnSignalEvents, IMbnSignalEvents_Vtbl, 0xdcbbbab6_2004_4bbb_aaee_338e368af6fa);
-::windows_core::imp::interface_hierarchy!(IMbnSignalEvents, ::windows_core::IUnknown);
+windows_core::imp::com_interface!(IMbnSignalEvents, IMbnSignalEvents_Vtbl, 0xdcbbbab6_2004_4bbb_aaee_338e368af6fa);
+windows_core::imp::interface_hierarchy!(IMbnSignalEvents, windows_core::IUnknown);
 impl IMbnSignalEvents {
-    pub unsafe fn OnSignalStateChange<P0>(&self, newinterface: P0) -> ::windows_core::Result<()>
+    pub unsafe fn OnSignalStateChange<P0>(&self, newinterface: P0) -> windows_core::Result<()>
     where
-        P0: ::windows_core::IntoParam<IMbnSignal>,
+        P0: windows_core::IntoParam<IMbnSignal>,
     {
-        (::windows_core::Interface::vtable(self).OnSignalStateChange)(::windows_core::Interface::as_raw(self), newinterface.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnSignalStateChange)(windows_core::Interface::as_raw(self), newinterface.into_param().abi()).ok()
     }
 }
 #[repr(C)]
 pub struct IMbnSignalEvents_Vtbl {
-    pub base__: ::windows_core::IUnknown_Vtbl,
-    pub OnSignalStateChange: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub OnSignalStateChange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-::windows_core::imp::com_interface!(IMbnSms, IMbnSms_Vtbl, 0xdcbbbab6_2015_4bbb_aaee_338e368af6fa);
-::windows_core::imp::interface_hierarchy!(IMbnSms, ::windows_core::IUnknown);
+windows_core::imp::com_interface!(IMbnSms, IMbnSms_Vtbl, 0xdcbbbab6_2015_4bbb_aaee_338e368af6fa);
+windows_core::imp::interface_hierarchy!(IMbnSms, windows_core::IUnknown);
 impl IMbnSms {
-    pub unsafe fn GetSmsConfiguration(&self) -> ::windows_core::Result<IMbnSmsConfiguration> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetSmsConfiguration)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
+    pub unsafe fn GetSmsConfiguration(&self) -> windows_core::Result<IMbnSmsConfiguration> {
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).GetSmsConfiguration)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn SetSmsConfiguration<P0>(&self, smsconfiguration: P0) -> ::windows_core::Result<u32>
+    pub unsafe fn SetSmsConfiguration<P0>(&self, smsconfiguration: P0) -> windows_core::Result<u32>
     where
-        P0: ::windows_core::IntoParam<IMbnSmsConfiguration>,
+        P0: windows_core::IntoParam<IMbnSmsConfiguration>,
     {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).SetSmsConfiguration)(::windows_core::Interface::as_raw(self), smsconfiguration.into_param().abi(), &mut result__).map(|| result__)
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).SetSmsConfiguration)(windows_core::Interface::as_raw(self), smsconfiguration.into_param().abi(), &mut result__).map(|| result__)
     }
-    pub unsafe fn SmsSendPdu<P0>(&self, pdudata: P0, size: u8) -> ::windows_core::Result<u32>
+    pub unsafe fn SmsSendPdu<P0>(&self, pdudata: P0, size: u8) -> windows_core::Result<u32>
     where
-        P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+        P0: windows_core::IntoParam<windows_core::PCWSTR>,
     {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).SmsSendPdu)(::windows_core::Interface::as_raw(self), pdudata.into_param().abi(), size, &mut result__).map(|| result__)
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).SmsSendPdu)(windows_core::Interface::as_raw(self), pdudata.into_param().abi(), size, &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SmsSendCdma<P0>(&self, address: P0, encoding: MBN_SMS_CDMA_ENCODING, language: MBN_SMS_CDMA_LANG, sizeincharacters: u32, message: *const super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<u32>
+    pub unsafe fn SmsSendCdma<P0>(&self, address: P0, encoding: MBN_SMS_CDMA_ENCODING, language: MBN_SMS_CDMA_LANG, sizeincharacters: u32, message: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<u32>
     where
-        P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+        P0: windows_core::IntoParam<windows_core::PCWSTR>,
     {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).SmsSendCdma)(::windows_core::Interface::as_raw(self), address.into_param().abi(), encoding, language, sizeincharacters, message, &mut result__).map(|| result__)
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).SmsSendCdma)(windows_core::Interface::as_raw(self), address.into_param().abi(), encoding, language, sizeincharacters, message, &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SmsSendCdmaPdu(&self, message: *const super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<u32> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).SmsSendCdmaPdu)(::windows_core::Interface::as_raw(self), message, &mut result__).map(|| result__)
+    pub unsafe fn SmsSendCdmaPdu(&self, message: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<u32> {
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).SmsSendCdmaPdu)(windows_core::Interface::as_raw(self), message, &mut result__).map(|| result__)
     }
-    pub unsafe fn SmsRead(&self, smsfilter: *const MBN_SMS_FILTER, smsformat: MBN_SMS_FORMAT) -> ::windows_core::Result<u32> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).SmsRead)(::windows_core::Interface::as_raw(self), smsfilter, smsformat, &mut result__).map(|| result__)
+    pub unsafe fn SmsRead(&self, smsfilter: *const MBN_SMS_FILTER, smsformat: MBN_SMS_FORMAT) -> windows_core::Result<u32> {
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).SmsRead)(windows_core::Interface::as_raw(self), smsfilter, smsformat, &mut result__).map(|| result__)
     }
-    pub unsafe fn SmsDelete(&self, smsfilter: *const MBN_SMS_FILTER) -> ::windows_core::Result<u32> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).SmsDelete)(::windows_core::Interface::as_raw(self), smsfilter, &mut result__).map(|| result__)
+    pub unsafe fn SmsDelete(&self, smsfilter: *const MBN_SMS_FILTER) -> windows_core::Result<u32> {
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).SmsDelete)(windows_core::Interface::as_raw(self), smsfilter, &mut result__).map(|| result__)
     }
-    pub unsafe fn GetSmsStatus(&self) -> ::windows_core::Result<MBN_SMS_STATUS_INFO> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetSmsStatus)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+    pub unsafe fn GetSmsStatus(&self) -> windows_core::Result<MBN_SMS_STATUS_INFO> {
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).GetSmsStatus)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
 #[repr(C)]
 pub struct IMbnSms_Vtbl {
-    pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetSmsConfiguration: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetSmsConfiguration: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
-    pub SmsSendPdu: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, u8, *mut u32) -> ::windows_core::HRESULT,
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub GetSmsConfiguration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetSmsConfiguration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    pub SmsSendPdu: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u8, *mut u32) -> windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub SmsSendCdma: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, MBN_SMS_CDMA_ENCODING, MBN_SMS_CDMA_LANG, u32, *const super::super::System::Com::SAFEARRAY, *mut u32) -> ::windows_core::HRESULT,
+    pub SmsSendCdma: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, MBN_SMS_CDMA_ENCODING, MBN_SMS_CDMA_LANG, u32, *const super::super::System::Com::SAFEARRAY, *mut u32) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     SmsSendCdma: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub SmsSendCdmaPdu: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const super::super::System::Com::SAFEARRAY, *mut u32) -> ::windows_core::HRESULT,
+    pub SmsSendCdmaPdu: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::super::System::Com::SAFEARRAY, *mut u32) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     SmsSendCdmaPdu: usize,
-    pub SmsRead: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const MBN_SMS_FILTER, MBN_SMS_FORMAT, *mut u32) -> ::windows_core::HRESULT,
-    pub SmsDelete: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const MBN_SMS_FILTER, *mut u32) -> ::windows_core::HRESULT,
-    pub GetSmsStatus: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut MBN_SMS_STATUS_INFO) -> ::windows_core::HRESULT,
+    pub SmsRead: unsafe extern "system" fn(*mut core::ffi::c_void, *const MBN_SMS_FILTER, MBN_SMS_FORMAT, *mut u32) -> windows_core::HRESULT,
+    pub SmsDelete: unsafe extern "system" fn(*mut core::ffi::c_void, *const MBN_SMS_FILTER, *mut u32) -> windows_core::HRESULT,
+    pub GetSmsStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MBN_SMS_STATUS_INFO) -> windows_core::HRESULT,
 }
-::windows_core::imp::com_interface!(IMbnSmsConfiguration, IMbnSmsConfiguration_Vtbl, 0xdcbbbab6_2012_4bbb_aaee_338e368af6fa);
-::windows_core::imp::interface_hierarchy!(IMbnSmsConfiguration, ::windows_core::IUnknown);
+windows_core::imp::com_interface!(IMbnSmsConfiguration, IMbnSmsConfiguration_Vtbl, 0xdcbbbab6_2012_4bbb_aaee_338e368af6fa);
+windows_core::imp::interface_hierarchy!(IMbnSmsConfiguration, windows_core::IUnknown);
 impl IMbnSmsConfiguration {
-    pub unsafe fn ServiceCenterAddress(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).ServiceCenterAddress)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
+    pub unsafe fn ServiceCenterAddress(&self) -> windows_core::Result<windows_core::BSTR> {
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).ServiceCenterAddress)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn SetServiceCenterAddress<P0>(&self, scaddress: P0) -> ::windows_core::Result<()>
+    pub unsafe fn SetServiceCenterAddress<P0>(&self, scaddress: P0) -> windows_core::Result<()>
     where
-        P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+        P0: windows_core::IntoParam<windows_core::PCWSTR>,
     {
-        (::windows_core::Interface::vtable(self).SetServiceCenterAddress)(::windows_core::Interface::as_raw(self), scaddress.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetServiceCenterAddress)(windows_core::Interface::as_raw(self), scaddress.into_param().abi()).ok()
     }
-    pub unsafe fn MaxMessageIndex(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).MaxMessageIndex)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+    pub unsafe fn MaxMessageIndex(&self) -> windows_core::Result<u32> {
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).MaxMessageIndex)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn CdmaShortMsgSize(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).CdmaShortMsgSize)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+    pub unsafe fn CdmaShortMsgSize(&self) -> windows_core::Result<u32> {
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).CdmaShortMsgSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SmsFormat(&self) -> ::windows_core::Result<MBN_SMS_FORMAT> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).SmsFormat)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+    pub unsafe fn SmsFormat(&self) -> windows_core::Result<MBN_SMS_FORMAT> {
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).SmsFormat)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetSmsFormat(&self, smsformat: MBN_SMS_FORMAT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).SetSmsFormat)(::windows_core::Interface::as_raw(self), smsformat).ok()
+    pub unsafe fn SetSmsFormat(&self, smsformat: MBN_SMS_FORMAT) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetSmsFormat)(windows_core::Interface::as_raw(self), smsformat).ok()
     }
 }
 #[repr(C)]
 pub struct IMbnSmsConfiguration_Vtbl {
-    pub base__: ::windows_core::IUnknown_Vtbl,
-    pub ServiceCenterAddress: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub SetServiceCenterAddress: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub MaxMessageIndex: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
-    pub CdmaShortMsgSize: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
-    pub SmsFormat: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut MBN_SMS_FORMAT) -> ::windows_core::HRESULT,
-    pub SetSmsFormat: unsafe extern "system" fn(*mut ::core::ffi::c_void, MBN_SMS_FORMAT) -> ::windows_core::HRESULT,
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub ServiceCenterAddress: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub SetServiceCenterAddress: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
+    pub MaxMessageIndex: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    pub CdmaShortMsgSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    pub SmsFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MBN_SMS_FORMAT) -> windows_core::HRESULT,
+    pub SetSmsFormat: unsafe extern "system" fn(*mut core::ffi::c_void, MBN_SMS_FORMAT) -> windows_core::HRESULT,
 }
-::windows_core::imp::com_interface!(IMbnSmsEvents, IMbnSmsEvents_Vtbl, 0xdcbbbab6_2016_4bbb_aaee_338e368af6fa);
-::windows_core::imp::interface_hierarchy!(IMbnSmsEvents, ::windows_core::IUnknown);
+windows_core::imp::com_interface!(IMbnSmsEvents, IMbnSmsEvents_Vtbl, 0xdcbbbab6_2016_4bbb_aaee_338e368af6fa);
+windows_core::imp::interface_hierarchy!(IMbnSmsEvents, windows_core::IUnknown);
 impl IMbnSmsEvents {
-    pub unsafe fn OnSmsConfigurationChange<P0>(&self, sms: P0) -> ::windows_core::Result<()>
+    pub unsafe fn OnSmsConfigurationChange<P0>(&self, sms: P0) -> windows_core::Result<()>
     where
-        P0: ::windows_core::IntoParam<IMbnSms>,
+        P0: windows_core::IntoParam<IMbnSms>,
     {
-        (::windows_core::Interface::vtable(self).OnSmsConfigurationChange)(::windows_core::Interface::as_raw(self), sms.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnSmsConfigurationChange)(windows_core::Interface::as_raw(self), sms.into_param().abi()).ok()
     }
-    pub unsafe fn OnSetSmsConfigurationComplete<P0>(&self, sms: P0, requestid: u32, status: ::windows_core::HRESULT) -> ::windows_core::Result<()>
+    pub unsafe fn OnSetSmsConfigurationComplete<P0>(&self, sms: P0, requestid: u32, status: windows_core::HRESULT) -> windows_core::Result<()>
     where
-        P0: ::windows_core::IntoParam<IMbnSms>,
+        P0: windows_core::IntoParam<IMbnSms>,
     {
-        (::windows_core::Interface::vtable(self).OnSetSmsConfigurationComplete)(::windows_core::Interface::as_raw(self), sms.into_param().abi(), requestid, status).ok()
+        (windows_core::Interface::vtable(self).OnSetSmsConfigurationComplete)(windows_core::Interface::as_raw(self), sms.into_param().abi(), requestid, status).ok()
     }
-    pub unsafe fn OnSmsSendComplete<P0>(&self, sms: P0, requestid: u32, status: ::windows_core::HRESULT) -> ::windows_core::Result<()>
+    pub unsafe fn OnSmsSendComplete<P0>(&self, sms: P0, requestid: u32, status: windows_core::HRESULT) -> windows_core::Result<()>
     where
-        P0: ::windows_core::IntoParam<IMbnSms>,
+        P0: windows_core::IntoParam<IMbnSms>,
     {
-        (::windows_core::Interface::vtable(self).OnSmsSendComplete)(::windows_core::Interface::as_raw(self), sms.into_param().abi(), requestid, status).ok()
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn OnSmsReadComplete<P0, P1>(&self, sms: P0, smsformat: MBN_SMS_FORMAT, readmsgs: *const super::super::System::Com::SAFEARRAY, moremsgs: P1, requestid: u32, status: ::windows_core::HRESULT) -> ::windows_core::Result<()>
-    where
-        P0: ::windows_core::IntoParam<IMbnSms>,
-        P1: ::windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (::windows_core::Interface::vtable(self).OnSmsReadComplete)(::windows_core::Interface::as_raw(self), sms.into_param().abi(), smsformat, readmsgs, moremsgs.into_param().abi(), requestid, status).ok()
+        (windows_core::Interface::vtable(self).OnSmsSendComplete)(windows_core::Interface::as_raw(self), sms.into_param().abi(), requestid, status).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn OnSmsNewClass0Message<P0>(&self, sms: P0, smsformat: MBN_SMS_FORMAT, readmsgs: *const super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<()>
+    pub unsafe fn OnSmsReadComplete<P0, P1>(&self, sms: P0, smsformat: MBN_SMS_FORMAT, readmsgs: *const super::super::System::Com::SAFEARRAY, moremsgs: P1, requestid: u32, status: windows_core::HRESULT) -> windows_core::Result<()>
     where
-        P0: ::windows_core::IntoParam<IMbnSms>,
+        P0: windows_core::IntoParam<IMbnSms>,
+        P1: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
     {
-        (::windows_core::Interface::vtable(self).OnSmsNewClass0Message)(::windows_core::Interface::as_raw(self), sms.into_param().abi(), smsformat, readmsgs).ok()
+        (windows_core::Interface::vtable(self).OnSmsReadComplete)(windows_core::Interface::as_raw(self), sms.into_param().abi(), smsformat, readmsgs, moremsgs.into_param().abi(), requestid, status).ok()
     }
-    pub unsafe fn OnSmsDeleteComplete<P0>(&self, sms: P0, requestid: u32, status: ::windows_core::HRESULT) -> ::windows_core::Result<()>
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn OnSmsNewClass0Message<P0>(&self, sms: P0, smsformat: MBN_SMS_FORMAT, readmsgs: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>
     where
-        P0: ::windows_core::IntoParam<IMbnSms>,
+        P0: windows_core::IntoParam<IMbnSms>,
     {
-        (::windows_core::Interface::vtable(self).OnSmsDeleteComplete)(::windows_core::Interface::as_raw(self), sms.into_param().abi(), requestid, status).ok()
+        (windows_core::Interface::vtable(self).OnSmsNewClass0Message)(windows_core::Interface::as_raw(self), sms.into_param().abi(), smsformat, readmsgs).ok()
     }
-    pub unsafe fn OnSmsStatusChange<P0>(&self, sms: P0) -> ::windows_core::Result<()>
+    pub unsafe fn OnSmsDeleteComplete<P0>(&self, sms: P0, requestid: u32, status: windows_core::HRESULT) -> windows_core::Result<()>
     where
-        P0: ::windows_core::IntoParam<IMbnSms>,
+        P0: windows_core::IntoParam<IMbnSms>,
     {
-        (::windows_core::Interface::vtable(self).OnSmsStatusChange)(::windows_core::Interface::as_raw(self), sms.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnSmsDeleteComplete)(windows_core::Interface::as_raw(self), sms.into_param().abi(), requestid, status).ok()
+    }
+    pub unsafe fn OnSmsStatusChange<P0>(&self, sms: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::IntoParam<IMbnSms>,
+    {
+        (windows_core::Interface::vtable(self).OnSmsStatusChange)(windows_core::Interface::as_raw(self), sms.into_param().abi()).ok()
     }
 }
 #[repr(C)]
 pub struct IMbnSmsEvents_Vtbl {
-    pub base__: ::windows_core::IUnknown_Vtbl,
-    pub OnSmsConfigurationChange: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub OnSetSmsConfigurationComplete: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, ::windows_core::HRESULT) -> ::windows_core::HRESULT,
-    pub OnSmsSendComplete: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, ::windows_core::HRESULT) -> ::windows_core::HRESULT,
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub OnSmsConfigurationChange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub OnSetSmsConfigurationComplete: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, windows_core::HRESULT) -> windows_core::HRESULT,
+    pub OnSmsSendComplete: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, windows_core::HRESULT) -> windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub OnSmsReadComplete: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, MBN_SMS_FORMAT, *const super::super::System::Com::SAFEARRAY, super::super::Foundation::VARIANT_BOOL, u32, ::windows_core::HRESULT) -> ::windows_core::HRESULT,
+    pub OnSmsReadComplete: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, MBN_SMS_FORMAT, *const super::super::System::Com::SAFEARRAY, super::super::Foundation::VARIANT_BOOL, u32, windows_core::HRESULT) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     OnSmsReadComplete: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub OnSmsNewClass0Message: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, MBN_SMS_FORMAT, *const super::super::System::Com::SAFEARRAY) -> ::windows_core::HRESULT,
+    pub OnSmsNewClass0Message: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, MBN_SMS_FORMAT, *const super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     OnSmsNewClass0Message: usize,
-    pub OnSmsDeleteComplete: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, ::windows_core::HRESULT) -> ::windows_core::HRESULT,
-    pub OnSmsStatusChange: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub OnSmsDeleteComplete: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, windows_core::HRESULT) -> windows_core::HRESULT,
+    pub OnSmsStatusChange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-::windows_core::imp::com_interface!(IMbnSmsReadMsgPdu, IMbnSmsReadMsgPdu_Vtbl, 0xdcbbbab6_2013_4bbb_aaee_338e368af6fa);
-::windows_core::imp::interface_hierarchy!(IMbnSmsReadMsgPdu, ::windows_core::IUnknown);
+windows_core::imp::com_interface!(IMbnSmsReadMsgPdu, IMbnSmsReadMsgPdu_Vtbl, 0xdcbbbab6_2013_4bbb_aaee_338e368af6fa);
+windows_core::imp::interface_hierarchy!(IMbnSmsReadMsgPdu, windows_core::IUnknown);
 impl IMbnSmsReadMsgPdu {
-    pub unsafe fn Index(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Index)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+    pub unsafe fn Index(&self) -> windows_core::Result<u32> {
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).Index)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn Status(&self) -> ::windows_core::Result<MBN_MSG_STATUS> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Status)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+    pub unsafe fn Status(&self) -> windows_core::Result<MBN_MSG_STATUS> {
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).Status)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn PduData(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).PduData)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
+    pub unsafe fn PduData(&self) -> windows_core::Result<windows_core::BSTR> {
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).PduData)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Message(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Message)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+    pub unsafe fn Message(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).Message)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
 #[repr(C)]
 pub struct IMbnSmsReadMsgPdu_Vtbl {
-    pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Index: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
-    pub Status: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut MBN_MSG_STATUS) -> ::windows_core::HRESULT,
-    pub PduData: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub Index: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MBN_MSG_STATUS) -> windows_core::HRESULT,
+    pub PduData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub Message: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows_core::HRESULT,
+    pub Message: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Message: usize,
 }
-::windows_core::imp::com_interface!(IMbnSmsReadMsgTextCdma, IMbnSmsReadMsgTextCdma_Vtbl, 0xdcbbbab6_2014_4bbb_aaee_338e368af6fa);
-::windows_core::imp::interface_hierarchy!(IMbnSmsReadMsgTextCdma, ::windows_core::IUnknown);
+windows_core::imp::com_interface!(IMbnSmsReadMsgTextCdma, IMbnSmsReadMsgTextCdma_Vtbl, 0xdcbbbab6_2014_4bbb_aaee_338e368af6fa);
+windows_core::imp::interface_hierarchy!(IMbnSmsReadMsgTextCdma, windows_core::IUnknown);
 impl IMbnSmsReadMsgTextCdma {
-    pub unsafe fn Index(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Index)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+    pub unsafe fn Index(&self) -> windows_core::Result<u32> {
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).Index)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn Status(&self) -> ::windows_core::Result<MBN_MSG_STATUS> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Status)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+    pub unsafe fn Status(&self) -> windows_core::Result<MBN_MSG_STATUS> {
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).Status)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn Address(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Address)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
+    pub unsafe fn Address(&self) -> windows_core::Result<windows_core::BSTR> {
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).Address)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn Timestamp(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Timestamp)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
+    pub unsafe fn Timestamp(&self) -> windows_core::Result<windows_core::BSTR> {
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).Timestamp)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn EncodingID(&self) -> ::windows_core::Result<MBN_SMS_CDMA_ENCODING> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).EncodingID)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+    pub unsafe fn EncodingID(&self) -> windows_core::Result<MBN_SMS_CDMA_ENCODING> {
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).EncodingID)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn LanguageID(&self) -> ::windows_core::Result<MBN_SMS_CDMA_LANG> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).LanguageID)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+    pub unsafe fn LanguageID(&self) -> windows_core::Result<MBN_SMS_CDMA_LANG> {
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).LanguageID)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SizeInCharacters(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).SizeInCharacters)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+    pub unsafe fn SizeInCharacters(&self) -> windows_core::Result<u32> {
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).SizeInCharacters)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Message(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Message)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+    pub unsafe fn Message(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).Message)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
 #[repr(C)]
 pub struct IMbnSmsReadMsgTextCdma_Vtbl {
-    pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Index: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
-    pub Status: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut MBN_MSG_STATUS) -> ::windows_core::HRESULT,
-    pub Address: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub Timestamp: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub EncodingID: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut MBN_SMS_CDMA_ENCODING) -> ::windows_core::HRESULT,
-    pub LanguageID: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut MBN_SMS_CDMA_LANG) -> ::windows_core::HRESULT,
-    pub SizeInCharacters: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub Index: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MBN_MSG_STATUS) -> windows_core::HRESULT,
+    pub Address: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub Timestamp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub EncodingID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MBN_SMS_CDMA_ENCODING) -> windows_core::HRESULT,
+    pub LanguageID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MBN_SMS_CDMA_LANG) -> windows_core::HRESULT,
+    pub SizeInCharacters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub Message: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows_core::HRESULT,
+    pub Message: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Message: usize,
 }
-::windows_core::imp::com_interface!(IMbnSubscriberInformation, IMbnSubscriberInformation_Vtbl, 0x459ecc43_bcf5_11dc_a8a8_001321f1405f);
-::windows_core::imp::interface_hierarchy!(IMbnSubscriberInformation, ::windows_core::IUnknown);
+windows_core::imp::com_interface!(IMbnSubscriberInformation, IMbnSubscriberInformation_Vtbl, 0x459ecc43_bcf5_11dc_a8a8_001321f1405f);
+windows_core::imp::interface_hierarchy!(IMbnSubscriberInformation, windows_core::IUnknown);
 impl IMbnSubscriberInformation {
-    pub unsafe fn SubscriberID(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).SubscriberID)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
+    pub unsafe fn SubscriberID(&self) -> windows_core::Result<windows_core::BSTR> {
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).SubscriberID)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn SimIccID(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).SimIccID)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
+    pub unsafe fn SimIccID(&self) -> windows_core::Result<windows_core::BSTR> {
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).SimIccID)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn TelephoneNumbers(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).TelephoneNumbers)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+    pub unsafe fn TelephoneNumbers(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).TelephoneNumbers)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
 #[repr(C)]
 pub struct IMbnSubscriberInformation_Vtbl {
-    pub base__: ::windows_core::IUnknown_Vtbl,
-    pub SubscriberID: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub SimIccID: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub SubscriberID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub SimIccID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub TelephoneNumbers: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows_core::HRESULT,
+    pub TelephoneNumbers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     TelephoneNumbers: usize,
 }
-::windows_core::imp::com_interface!(IMbnVendorSpecificEvents, IMbnVendorSpecificEvents_Vtbl, 0xdcbbbab6_201a_4bbb_aaee_338e368af6fa);
-::windows_core::imp::interface_hierarchy!(IMbnVendorSpecificEvents, ::windows_core::IUnknown);
+windows_core::imp::com_interface!(IMbnVendorSpecificEvents, IMbnVendorSpecificEvents_Vtbl, 0xdcbbbab6_201a_4bbb_aaee_338e368af6fa);
+windows_core::imp::interface_hierarchy!(IMbnVendorSpecificEvents, windows_core::IUnknown);
 impl IMbnVendorSpecificEvents {
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn OnEventNotification<P0>(&self, vendoroperation: P0, vendorspecificdata: *const super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<()>
+    pub unsafe fn OnEventNotification<P0>(&self, vendoroperation: P0, vendorspecificdata: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>
     where
-        P0: ::windows_core::IntoParam<IMbnVendorSpecificOperation>,
+        P0: windows_core::IntoParam<IMbnVendorSpecificOperation>,
     {
-        (::windows_core::Interface::vtable(self).OnEventNotification)(::windows_core::Interface::as_raw(self), vendoroperation.into_param().abi(), vendorspecificdata).ok()
+        (windows_core::Interface::vtable(self).OnEventNotification)(windows_core::Interface::as_raw(self), vendoroperation.into_param().abi(), vendorspecificdata).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn OnSetVendorSpecificComplete<P0>(&self, vendoroperation: P0, vendorspecificdata: *const super::super::System::Com::SAFEARRAY, requestid: u32) -> ::windows_core::Result<()>
+    pub unsafe fn OnSetVendorSpecificComplete<P0>(&self, vendoroperation: P0, vendorspecificdata: *const super::super::System::Com::SAFEARRAY, requestid: u32) -> windows_core::Result<()>
     where
-        P0: ::windows_core::IntoParam<IMbnVendorSpecificOperation>,
+        P0: windows_core::IntoParam<IMbnVendorSpecificOperation>,
     {
-        (::windows_core::Interface::vtable(self).OnSetVendorSpecificComplete)(::windows_core::Interface::as_raw(self), vendoroperation.into_param().abi(), vendorspecificdata, requestid).ok()
+        (windows_core::Interface::vtable(self).OnSetVendorSpecificComplete)(windows_core::Interface::as_raw(self), vendoroperation.into_param().abi(), vendorspecificdata, requestid).ok()
     }
 }
 #[repr(C)]
 pub struct IMbnVendorSpecificEvents_Vtbl {
-    pub base__: ::windows_core::IUnknown_Vtbl,
+    pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
-    pub OnEventNotification: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *const super::super::System::Com::SAFEARRAY) -> ::windows_core::HRESULT,
+    pub OnEventNotification: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     OnEventNotification: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub OnSetVendorSpecificComplete: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *const super::super::System::Com::SAFEARRAY, u32) -> ::windows_core::HRESULT,
+    pub OnSetVendorSpecificComplete: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const super::super::System::Com::SAFEARRAY, u32) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     OnSetVendorSpecificComplete: usize,
 }
-::windows_core::imp::com_interface!(IMbnVendorSpecificOperation, IMbnVendorSpecificOperation_Vtbl, 0xdcbbbab6_2019_4bbb_aaee_338e368af6fa);
-::windows_core::imp::interface_hierarchy!(IMbnVendorSpecificOperation, ::windows_core::IUnknown);
+windows_core::imp::com_interface!(IMbnVendorSpecificOperation, IMbnVendorSpecificOperation_Vtbl, 0xdcbbbab6_2019_4bbb_aaee_338e368af6fa);
+windows_core::imp::interface_hierarchy!(IMbnVendorSpecificOperation, windows_core::IUnknown);
 impl IMbnVendorSpecificOperation {
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetVendorSpecific(&self, vendorspecificdata: *const super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<u32> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).SetVendorSpecific)(::windows_core::Interface::as_raw(self), vendorspecificdata, &mut result__).map(|| result__)
+    pub unsafe fn SetVendorSpecific(&self, vendorspecificdata: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<u32> {
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).SetVendorSpecific)(windows_core::Interface::as_raw(self), vendorspecificdata, &mut result__).map(|| result__)
     }
 }
 #[repr(C)]
 pub struct IMbnVendorSpecificOperation_Vtbl {
-    pub base__: ::windows_core::IUnknown_Vtbl,
+    pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
-    pub SetVendorSpecific: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const super::super::System::Com::SAFEARRAY, *mut u32) -> ::windows_core::HRESULT,
+    pub SetVendorSpecific: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::super::System::Com::SAFEARRAY, *mut u32) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     SetVendorSpecific: usize,
 }
@@ -1708,398 +1708,398 @@ pub const MBN_VOICE_CLASS_NO_VOICE: MBN_VOICE_CLASS = MBN_VOICE_CLASS(1i32);
 pub const MBN_VOICE_CLASS_SEPARATE_VOICE_DATA: MBN_VOICE_CLASS = MBN_VOICE_CLASS(2i32);
 pub const MBN_VOICE_CLASS_SIMULTANEOUS_VOICE_DATA: MBN_VOICE_CLASS = MBN_VOICE_CLASS(3i32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct MBN_ACTIVATION_STATE(pub i32);
-impl ::windows_core::TypeKind for MBN_ACTIVATION_STATE {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for MBN_ACTIVATION_STATE {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for MBN_ACTIVATION_STATE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for MBN_ACTIVATION_STATE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("MBN_ACTIVATION_STATE").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct MBN_AUTH_PROTOCOL(pub i32);
-impl ::windows_core::TypeKind for MBN_AUTH_PROTOCOL {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for MBN_AUTH_PROTOCOL {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for MBN_AUTH_PROTOCOL {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for MBN_AUTH_PROTOCOL {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("MBN_AUTH_PROTOCOL").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct MBN_BAND_CLASS(pub i32);
-impl ::windows_core::TypeKind for MBN_BAND_CLASS {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for MBN_BAND_CLASS {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for MBN_BAND_CLASS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for MBN_BAND_CLASS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("MBN_BAND_CLASS").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct MBN_CELLULAR_CLASS(pub i32);
-impl ::windows_core::TypeKind for MBN_CELLULAR_CLASS {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for MBN_CELLULAR_CLASS {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for MBN_CELLULAR_CLASS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for MBN_CELLULAR_CLASS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("MBN_CELLULAR_CLASS").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct MBN_COMPRESSION(pub i32);
-impl ::windows_core::TypeKind for MBN_COMPRESSION {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for MBN_COMPRESSION {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for MBN_COMPRESSION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for MBN_COMPRESSION {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("MBN_COMPRESSION").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct MBN_CONNECTION_MODE(pub i32);
-impl ::windows_core::TypeKind for MBN_CONNECTION_MODE {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for MBN_CONNECTION_MODE {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for MBN_CONNECTION_MODE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for MBN_CONNECTION_MODE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("MBN_CONNECTION_MODE").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct MBN_CONTEXT_CONSTANTS(pub i32);
-impl ::windows_core::TypeKind for MBN_CONTEXT_CONSTANTS {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for MBN_CONTEXT_CONSTANTS {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for MBN_CONTEXT_CONSTANTS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for MBN_CONTEXT_CONSTANTS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("MBN_CONTEXT_CONSTANTS").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct MBN_CONTEXT_TYPE(pub i32);
-impl ::windows_core::TypeKind for MBN_CONTEXT_TYPE {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for MBN_CONTEXT_TYPE {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for MBN_CONTEXT_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for MBN_CONTEXT_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("MBN_CONTEXT_TYPE").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct MBN_CTRL_CAPS(pub i32);
-impl ::windows_core::TypeKind for MBN_CTRL_CAPS {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for MBN_CTRL_CAPS {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for MBN_CTRL_CAPS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for MBN_CTRL_CAPS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("MBN_CTRL_CAPS").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct MBN_DATA_CLASS(pub i32);
-impl ::windows_core::TypeKind for MBN_DATA_CLASS {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for MBN_DATA_CLASS {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for MBN_DATA_CLASS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for MBN_DATA_CLASS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("MBN_DATA_CLASS").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct MBN_DEVICE_SERVICES_INTERFACE_STATE(pub i32);
-impl ::windows_core::TypeKind for MBN_DEVICE_SERVICES_INTERFACE_STATE {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for MBN_DEVICE_SERVICES_INTERFACE_STATE {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for MBN_DEVICE_SERVICES_INTERFACE_STATE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for MBN_DEVICE_SERVICES_INTERFACE_STATE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("MBN_DEVICE_SERVICES_INTERFACE_STATE").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct MBN_DEVICE_SERVICE_SESSIONS_STATE(pub i32);
-impl ::windows_core::TypeKind for MBN_DEVICE_SERVICE_SESSIONS_STATE {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for MBN_DEVICE_SERVICE_SESSIONS_STATE {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for MBN_DEVICE_SERVICE_SESSIONS_STATE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for MBN_DEVICE_SERVICE_SESSIONS_STATE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("MBN_DEVICE_SERVICE_SESSIONS_STATE").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct MBN_INTERFACE_CAPS_CONSTANTS(pub i32);
-impl ::windows_core::TypeKind for MBN_INTERFACE_CAPS_CONSTANTS {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for MBN_INTERFACE_CAPS_CONSTANTS {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for MBN_INTERFACE_CAPS_CONSTANTS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for MBN_INTERFACE_CAPS_CONSTANTS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("MBN_INTERFACE_CAPS_CONSTANTS").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct MBN_MSG_STATUS(pub i32);
-impl ::windows_core::TypeKind for MBN_MSG_STATUS {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for MBN_MSG_STATUS {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for MBN_MSG_STATUS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for MBN_MSG_STATUS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("MBN_MSG_STATUS").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct MBN_PIN_CONSTANTS(pub i32);
-impl ::windows_core::TypeKind for MBN_PIN_CONSTANTS {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for MBN_PIN_CONSTANTS {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for MBN_PIN_CONSTANTS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for MBN_PIN_CONSTANTS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("MBN_PIN_CONSTANTS").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct MBN_PIN_FORMAT(pub i32);
-impl ::windows_core::TypeKind for MBN_PIN_FORMAT {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for MBN_PIN_FORMAT {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for MBN_PIN_FORMAT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for MBN_PIN_FORMAT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("MBN_PIN_FORMAT").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct MBN_PIN_MODE(pub i32);
-impl ::windows_core::TypeKind for MBN_PIN_MODE {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for MBN_PIN_MODE {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for MBN_PIN_MODE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for MBN_PIN_MODE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("MBN_PIN_MODE").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct MBN_PIN_STATE(pub i32);
-impl ::windows_core::TypeKind for MBN_PIN_STATE {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for MBN_PIN_STATE {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for MBN_PIN_STATE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for MBN_PIN_STATE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("MBN_PIN_STATE").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct MBN_PIN_TYPE(pub i32);
-impl ::windows_core::TypeKind for MBN_PIN_TYPE {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for MBN_PIN_TYPE {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for MBN_PIN_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for MBN_PIN_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("MBN_PIN_TYPE").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct MBN_PROVIDER_CONSTANTS(pub i32);
-impl ::windows_core::TypeKind for MBN_PROVIDER_CONSTANTS {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for MBN_PROVIDER_CONSTANTS {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for MBN_PROVIDER_CONSTANTS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for MBN_PROVIDER_CONSTANTS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("MBN_PROVIDER_CONSTANTS").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct MBN_PROVIDER_STATE(pub i32);
-impl ::windows_core::TypeKind for MBN_PROVIDER_STATE {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for MBN_PROVIDER_STATE {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for MBN_PROVIDER_STATE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for MBN_PROVIDER_STATE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("MBN_PROVIDER_STATE").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct MBN_RADIO(pub i32);
-impl ::windows_core::TypeKind for MBN_RADIO {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for MBN_RADIO {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for MBN_RADIO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for MBN_RADIO {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("MBN_RADIO").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct MBN_READY_STATE(pub i32);
-impl ::windows_core::TypeKind for MBN_READY_STATE {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for MBN_READY_STATE {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for MBN_READY_STATE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for MBN_READY_STATE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("MBN_READY_STATE").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct MBN_REGISTER_MODE(pub i32);
-impl ::windows_core::TypeKind for MBN_REGISTER_MODE {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for MBN_REGISTER_MODE {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for MBN_REGISTER_MODE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for MBN_REGISTER_MODE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("MBN_REGISTER_MODE").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct MBN_REGISTER_STATE(pub i32);
-impl ::windows_core::TypeKind for MBN_REGISTER_STATE {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for MBN_REGISTER_STATE {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for MBN_REGISTER_STATE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for MBN_REGISTER_STATE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("MBN_REGISTER_STATE").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct MBN_REGISTRATION_CONSTANTS(pub i32);
-impl ::windows_core::TypeKind for MBN_REGISTRATION_CONSTANTS {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for MBN_REGISTRATION_CONSTANTS {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for MBN_REGISTRATION_CONSTANTS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for MBN_REGISTRATION_CONSTANTS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("MBN_REGISTRATION_CONSTANTS").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct MBN_SIGNAL_CONSTANTS(pub i32);
-impl ::windows_core::TypeKind for MBN_SIGNAL_CONSTANTS {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for MBN_SIGNAL_CONSTANTS {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for MBN_SIGNAL_CONSTANTS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for MBN_SIGNAL_CONSTANTS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("MBN_SIGNAL_CONSTANTS").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct MBN_SMS_CAPS(pub i32);
-impl ::windows_core::TypeKind for MBN_SMS_CAPS {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for MBN_SMS_CAPS {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for MBN_SMS_CAPS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for MBN_SMS_CAPS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("MBN_SMS_CAPS").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct MBN_SMS_CDMA_ENCODING(pub i32);
-impl ::windows_core::TypeKind for MBN_SMS_CDMA_ENCODING {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for MBN_SMS_CDMA_ENCODING {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for MBN_SMS_CDMA_ENCODING {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for MBN_SMS_CDMA_ENCODING {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("MBN_SMS_CDMA_ENCODING").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct MBN_SMS_CDMA_LANG(pub i32);
-impl ::windows_core::TypeKind for MBN_SMS_CDMA_LANG {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for MBN_SMS_CDMA_LANG {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for MBN_SMS_CDMA_LANG {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for MBN_SMS_CDMA_LANG {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("MBN_SMS_CDMA_LANG").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct MBN_SMS_FLAG(pub i32);
-impl ::windows_core::TypeKind for MBN_SMS_FLAG {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for MBN_SMS_FLAG {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for MBN_SMS_FLAG {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for MBN_SMS_FLAG {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("MBN_SMS_FLAG").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct MBN_SMS_FORMAT(pub i32);
-impl ::windows_core::TypeKind for MBN_SMS_FORMAT {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for MBN_SMS_FORMAT {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for MBN_SMS_FORMAT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for MBN_SMS_FORMAT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("MBN_SMS_FORMAT").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct MBN_SMS_STATUS_FLAG(pub i32);
-impl ::windows_core::TypeKind for MBN_SMS_STATUS_FLAG {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for MBN_SMS_STATUS_FLAG {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for MBN_SMS_STATUS_FLAG {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for MBN_SMS_STATUS_FLAG {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("MBN_SMS_STATUS_FLAG").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct MBN_VOICE_CALL_STATE(pub i32);
-impl ::windows_core::TypeKind for MBN_VOICE_CALL_STATE {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for MBN_VOICE_CALL_STATE {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for MBN_VOICE_CALL_STATE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for MBN_VOICE_CALL_STATE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("MBN_VOICE_CALL_STATE").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct MBN_VOICE_CLASS(pub i32);
-impl ::windows_core::TypeKind for MBN_VOICE_CLASS {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for MBN_VOICE_CLASS {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for MBN_VOICE_CLASS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for MBN_VOICE_CLASS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("MBN_VOICE_CLASS").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct WWAEXT_SMS_CONSTANTS(pub i32);
-impl ::windows_core::TypeKind for WWAEXT_SMS_CONSTANTS {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for WWAEXT_SMS_CONSTANTS {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for WWAEXT_SMS_CONSTANTS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for WWAEXT_SMS_CONSTANTS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("WWAEXT_SMS_CONSTANTS").field(&self.0).finish()
     }
 }
@@ -2107,64 +2107,64 @@ impl ::core::fmt::Debug for WWAEXT_SMS_CONSTANTS {
 pub struct MBN_CONTEXT {
     pub contextID: u32,
     pub contextType: MBN_CONTEXT_TYPE,
-    pub accessString: ::std::mem::ManuallyDrop<::windows_core::BSTR>,
-    pub userName: ::std::mem::ManuallyDrop<::windows_core::BSTR>,
-    pub password: ::std::mem::ManuallyDrop<::windows_core::BSTR>,
+    pub accessString: std::mem::ManuallyDrop<windows_core::BSTR>,
+    pub userName: std::mem::ManuallyDrop<windows_core::BSTR>,
+    pub password: std::mem::ManuallyDrop<windows_core::BSTR>,
     pub compression: MBN_COMPRESSION,
     pub authType: MBN_AUTH_PROTOCOL,
 }
-impl ::core::clone::Clone for MBN_CONTEXT {
+impl Clone for MBN_CONTEXT {
     fn clone(&self) -> Self {
-        unsafe { ::core::mem::transmute_copy(self) }
+        unsafe { core::mem::transmute_copy(self) }
     }
 }
-impl ::core::fmt::Debug for MBN_CONTEXT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for MBN_CONTEXT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("MBN_CONTEXT").field("contextID", &self.contextID).field("contextType", &self.contextType).field("accessString", &self.accessString).field("userName", &self.userName).field("password", &self.password).field("compression", &self.compression).field("authType", &self.authType).finish()
     }
 }
-impl ::windows_core::TypeKind for MBN_CONTEXT {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for MBN_CONTEXT {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for MBN_CONTEXT {
+impl PartialEq for MBN_CONTEXT {
     fn eq(&self, other: &Self) -> bool {
         self.contextID == other.contextID && self.contextType == other.contextType && self.accessString == other.accessString && self.userName == other.userName && self.password == other.password && self.compression == other.compression && self.authType == other.authType
     }
 }
-impl ::core::cmp::Eq for MBN_CONTEXT {}
-impl ::core::default::Default for MBN_CONTEXT {
+impl Eq for MBN_CONTEXT {}
+impl Default for MBN_CONTEXT {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 pub struct MBN_DEVICE_SERVICE {
-    pub deviceServiceID: ::std::mem::ManuallyDrop<::windows_core::BSTR>,
+    pub deviceServiceID: std::mem::ManuallyDrop<windows_core::BSTR>,
     pub dataWriteSupported: super::super::Foundation::VARIANT_BOOL,
     pub dataReadSupported: super::super::Foundation::VARIANT_BOOL,
 }
-impl ::core::clone::Clone for MBN_DEVICE_SERVICE {
+impl Clone for MBN_DEVICE_SERVICE {
     fn clone(&self) -> Self {
-        unsafe { ::core::mem::transmute_copy(self) }
+        unsafe { core::mem::transmute_copy(self) }
     }
 }
-impl ::core::fmt::Debug for MBN_DEVICE_SERVICE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for MBN_DEVICE_SERVICE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("MBN_DEVICE_SERVICE").field("deviceServiceID", &self.deviceServiceID).field("dataWriteSupported", &self.dataWriteSupported).field("dataReadSupported", &self.dataReadSupported).finish()
     }
 }
-impl ::windows_core::TypeKind for MBN_DEVICE_SERVICE {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for MBN_DEVICE_SERVICE {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for MBN_DEVICE_SERVICE {
+impl PartialEq for MBN_DEVICE_SERVICE {
     fn eq(&self, other: &Self) -> bool {
         self.deviceServiceID == other.deviceServiceID && self.dataWriteSupported == other.dataWriteSupported && self.dataReadSupported == other.dataReadSupported
     }
 }
-impl ::core::cmp::Eq for MBN_DEVICE_SERVICE {}
-impl ::core::default::Default for MBN_DEVICE_SERVICE {
+impl Eq for MBN_DEVICE_SERVICE {}
+impl Default for MBN_DEVICE_SERVICE {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -2172,24 +2172,24 @@ pub struct MBN_INTERFACE_CAPS {
     pub cellularClass: MBN_CELLULAR_CLASS,
     pub voiceClass: MBN_VOICE_CLASS,
     pub dataClass: u32,
-    pub customDataClass: ::std::mem::ManuallyDrop<::windows_core::BSTR>,
+    pub customDataClass: std::mem::ManuallyDrop<windows_core::BSTR>,
     pub gsmBandClass: u32,
     pub cdmaBandClass: u32,
-    pub customBandClass: ::std::mem::ManuallyDrop<::windows_core::BSTR>,
+    pub customBandClass: std::mem::ManuallyDrop<windows_core::BSTR>,
     pub smsCaps: u32,
     pub controlCaps: u32,
-    pub deviceID: ::std::mem::ManuallyDrop<::windows_core::BSTR>,
-    pub manufacturer: ::std::mem::ManuallyDrop<::windows_core::BSTR>,
-    pub model: ::std::mem::ManuallyDrop<::windows_core::BSTR>,
-    pub firmwareInfo: ::std::mem::ManuallyDrop<::windows_core::BSTR>,
+    pub deviceID: std::mem::ManuallyDrop<windows_core::BSTR>,
+    pub manufacturer: std::mem::ManuallyDrop<windows_core::BSTR>,
+    pub model: std::mem::ManuallyDrop<windows_core::BSTR>,
+    pub firmwareInfo: std::mem::ManuallyDrop<windows_core::BSTR>,
 }
-impl ::core::clone::Clone for MBN_INTERFACE_CAPS {
+impl Clone for MBN_INTERFACE_CAPS {
     fn clone(&self) -> Self {
-        unsafe { ::core::mem::transmute_copy(self) }
+        unsafe { core::mem::transmute_copy(self) }
     }
 }
-impl ::core::fmt::Debug for MBN_INTERFACE_CAPS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for MBN_INTERFACE_CAPS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("MBN_INTERFACE_CAPS")
             .field("cellularClass", &self.cellularClass)
             .field("voiceClass", &self.voiceClass)
@@ -2207,18 +2207,18 @@ impl ::core::fmt::Debug for MBN_INTERFACE_CAPS {
             .finish()
     }
 }
-impl ::windows_core::TypeKind for MBN_INTERFACE_CAPS {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for MBN_INTERFACE_CAPS {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for MBN_INTERFACE_CAPS {
+impl PartialEq for MBN_INTERFACE_CAPS {
     fn eq(&self, other: &Self) -> bool {
         self.cellularClass == other.cellularClass && self.voiceClass == other.voiceClass && self.dataClass == other.dataClass && self.customDataClass == other.customDataClass && self.gsmBandClass == other.gsmBandClass && self.cdmaBandClass == other.cdmaBandClass && self.customBandClass == other.customBandClass && self.smsCaps == other.smsCaps && self.controlCaps == other.controlCaps && self.deviceID == other.deviceID && self.manufacturer == other.manufacturer && self.model == other.model && self.firmwareInfo == other.firmwareInfo
     }
 }
-impl ::core::cmp::Eq for MBN_INTERFACE_CAPS {}
-impl ::core::default::Default for MBN_INTERFACE_CAPS {
+impl Eq for MBN_INTERFACE_CAPS {}
+impl Default for MBN_INTERFACE_CAPS {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -2227,60 +2227,60 @@ pub struct MBN_PIN_INFO {
     pub pinType: MBN_PIN_TYPE,
     pub attemptsRemaining: u32,
 }
-impl ::core::marker::Copy for MBN_PIN_INFO {}
-impl ::core::clone::Clone for MBN_PIN_INFO {
+impl Copy for MBN_PIN_INFO {}
+impl Clone for MBN_PIN_INFO {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for MBN_PIN_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for MBN_PIN_INFO {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("MBN_PIN_INFO").field("pinState", &self.pinState).field("pinType", &self.pinType).field("attemptsRemaining", &self.attemptsRemaining).finish()
     }
 }
-impl ::windows_core::TypeKind for MBN_PIN_INFO {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for MBN_PIN_INFO {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for MBN_PIN_INFO {
+impl PartialEq for MBN_PIN_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.pinState == other.pinState && self.pinType == other.pinType && self.attemptsRemaining == other.attemptsRemaining
     }
 }
-impl ::core::cmp::Eq for MBN_PIN_INFO {}
-impl ::core::default::Default for MBN_PIN_INFO {
+impl Eq for MBN_PIN_INFO {}
+impl Default for MBN_PIN_INFO {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 pub struct MBN_PROVIDER {
-    pub providerID: ::std::mem::ManuallyDrop<::windows_core::BSTR>,
+    pub providerID: std::mem::ManuallyDrop<windows_core::BSTR>,
     pub providerState: u32,
-    pub providerName: ::std::mem::ManuallyDrop<::windows_core::BSTR>,
+    pub providerName: std::mem::ManuallyDrop<windows_core::BSTR>,
     pub dataClass: u32,
 }
-impl ::core::clone::Clone for MBN_PROVIDER {
+impl Clone for MBN_PROVIDER {
     fn clone(&self) -> Self {
-        unsafe { ::core::mem::transmute_copy(self) }
+        unsafe { core::mem::transmute_copy(self) }
     }
 }
-impl ::core::fmt::Debug for MBN_PROVIDER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for MBN_PROVIDER {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("MBN_PROVIDER").field("providerID", &self.providerID).field("providerState", &self.providerState).field("providerName", &self.providerName).field("dataClass", &self.dataClass).finish()
     }
 }
-impl ::windows_core::TypeKind for MBN_PROVIDER {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for MBN_PROVIDER {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for MBN_PROVIDER {
+impl PartialEq for MBN_PROVIDER {
     fn eq(&self, other: &Self) -> bool {
         self.providerID == other.providerID && self.providerState == other.providerState && self.providerName == other.providerName && self.dataClass == other.dataClass
     }
 }
-impl ::core::cmp::Eq for MBN_PROVIDER {}
-impl ::core::default::Default for MBN_PROVIDER {
+impl Eq for MBN_PROVIDER {}
+impl Default for MBN_PROVIDER {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -2290,28 +2290,28 @@ pub struct MBN_PROVIDER2 {
     pub signalStrength: u32,
     pub signalError: u32,
 }
-impl ::core::clone::Clone for MBN_PROVIDER2 {
+impl Clone for MBN_PROVIDER2 {
     fn clone(&self) -> Self {
-        unsafe { ::core::mem::transmute_copy(self) }
+        unsafe { core::mem::transmute_copy(self) }
     }
 }
-impl ::core::fmt::Debug for MBN_PROVIDER2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for MBN_PROVIDER2 {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("MBN_PROVIDER2").field("provider", &self.provider).field("cellularClass", &self.cellularClass).field("signalStrength", &self.signalStrength).field("signalError", &self.signalError).finish()
     }
 }
-impl ::windows_core::TypeKind for MBN_PROVIDER2 {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for MBN_PROVIDER2 {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for MBN_PROVIDER2 {
+impl PartialEq for MBN_PROVIDER2 {
     fn eq(&self, other: &Self) -> bool {
         self.provider == other.provider && self.cellularClass == other.cellularClass && self.signalStrength == other.signalStrength && self.signalError == other.signalError
     }
 }
-impl ::core::cmp::Eq for MBN_PROVIDER2 {}
-impl ::core::default::Default for MBN_PROVIDER2 {
+impl Eq for MBN_PROVIDER2 {}
+impl Default for MBN_PROVIDER2 {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -2319,29 +2319,29 @@ pub struct MBN_SMS_FILTER {
     pub flag: MBN_SMS_FLAG,
     pub messageIndex: u32,
 }
-impl ::core::marker::Copy for MBN_SMS_FILTER {}
-impl ::core::clone::Clone for MBN_SMS_FILTER {
+impl Copy for MBN_SMS_FILTER {}
+impl Clone for MBN_SMS_FILTER {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for MBN_SMS_FILTER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for MBN_SMS_FILTER {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("MBN_SMS_FILTER").field("flag", &self.flag).field("messageIndex", &self.messageIndex).finish()
     }
 }
-impl ::windows_core::TypeKind for MBN_SMS_FILTER {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for MBN_SMS_FILTER {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for MBN_SMS_FILTER {
+impl PartialEq for MBN_SMS_FILTER {
     fn eq(&self, other: &Self) -> bool {
         self.flag == other.flag && self.messageIndex == other.messageIndex
     }
 }
-impl ::core::cmp::Eq for MBN_SMS_FILTER {}
-impl ::core::default::Default for MBN_SMS_FILTER {
+impl Eq for MBN_SMS_FILTER {}
+impl Default for MBN_SMS_FILTER {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -2349,62 +2349,62 @@ pub struct MBN_SMS_STATUS_INFO {
     pub flag: u32,
     pub messageIndex: u32,
 }
-impl ::core::marker::Copy for MBN_SMS_STATUS_INFO {}
-impl ::core::clone::Clone for MBN_SMS_STATUS_INFO {
+impl Copy for MBN_SMS_STATUS_INFO {}
+impl Clone for MBN_SMS_STATUS_INFO {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for MBN_SMS_STATUS_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for MBN_SMS_STATUS_INFO {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("MBN_SMS_STATUS_INFO").field("flag", &self.flag).field("messageIndex", &self.messageIndex).finish()
     }
 }
-impl ::windows_core::TypeKind for MBN_SMS_STATUS_INFO {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for MBN_SMS_STATUS_INFO {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for MBN_SMS_STATUS_INFO {
+impl PartialEq for MBN_SMS_STATUS_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.flag == other.flag && self.messageIndex == other.messageIndex
     }
 }
-impl ::core::cmp::Eq for MBN_SMS_STATUS_INFO {}
-impl ::core::default::Default for MBN_SMS_STATUS_INFO {
+impl Eq for MBN_SMS_STATUS_INFO {}
+impl Default for MBN_SMS_STATUS_INFO {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
-pub const MbnConnectionManager: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbdfee05c_4418_11dd_90ed_001c257ccff1);
-pub const MbnConnectionProfileManager: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbdfee05a_4418_11dd_90ed_001c257ccff1);
-pub const MbnDeviceServicesManager: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2269daa3_2a9f_4165_a501_ce00a6f7a75b);
-pub const MbnInterfaceManager: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbdfee05b_4418_11dd_90ed_001c257ccff1);
+pub const MbnConnectionManager: windows_core::GUID = windows_core::GUID::from_u128(0xbdfee05c_4418_11dd_90ed_001c257ccff1);
+pub const MbnConnectionProfileManager: windows_core::GUID = windows_core::GUID::from_u128(0xbdfee05a_4418_11dd_90ed_001c257ccff1);
+pub const MbnDeviceServicesManager: windows_core::GUID = windows_core::GUID::from_u128(0x2269daa3_2a9f_4165_a501_ce00a6f7a75b);
+pub const MbnInterfaceManager: windows_core::GUID = windows_core::GUID::from_u128(0xbdfee05b_4418_11dd_90ed_001c257ccff1);
 #[repr(C)]
 pub struct __DummyPinType__ {
     pub pinType: u32,
 }
-impl ::core::marker::Copy for __DummyPinType__ {}
-impl ::core::clone::Clone for __DummyPinType__ {
+impl Copy for __DummyPinType__ {}
+impl Clone for __DummyPinType__ {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for __DummyPinType__ {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for __DummyPinType__ {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("__DummyPinType__").field("pinType", &self.pinType).finish()
     }
 }
-impl ::windows_core::TypeKind for __DummyPinType__ {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for __DummyPinType__ {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for __DummyPinType__ {
+impl PartialEq for __DummyPinType__ {
     fn eq(&self, other: &Self) -> bool {
         self.pinType == other.pinType
     }
 }
-impl ::core::cmp::Eq for __DummyPinType__ {}
-impl ::core::default::Default for __DummyPinType__ {
+impl Eq for __DummyPinType__ {}
+impl Default for __DummyPinType__ {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -2424,14 +2424,14 @@ pub struct __mbnapi_ReferenceRemainingTypes__ {
     pub wwaextSmsConstants: WWAEXT_SMS_CONSTANTS,
     pub smsStatusFlag: MBN_SMS_STATUS_FLAG,
 }
-impl ::core::marker::Copy for __mbnapi_ReferenceRemainingTypes__ {}
-impl ::core::clone::Clone for __mbnapi_ReferenceRemainingTypes__ {
+impl Copy for __mbnapi_ReferenceRemainingTypes__ {}
+impl Clone for __mbnapi_ReferenceRemainingTypes__ {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for __mbnapi_ReferenceRemainingTypes__ {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for __mbnapi_ReferenceRemainingTypes__ {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("__mbnapi_ReferenceRemainingTypes__")
             .field("bandClass", &self.bandClass)
             .field("contextConstants", &self.contextConstants)
@@ -2450,19 +2450,19 @@ impl ::core::fmt::Debug for __mbnapi_ReferenceRemainingTypes__ {
             .finish()
     }
 }
-impl ::windows_core::TypeKind for __mbnapi_ReferenceRemainingTypes__ {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for __mbnapi_ReferenceRemainingTypes__ {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for __mbnapi_ReferenceRemainingTypes__ {
+impl PartialEq for __mbnapi_ReferenceRemainingTypes__ {
     fn eq(&self, other: &Self) -> bool {
         self.bandClass == other.bandClass && self.contextConstants == other.contextConstants && self.ctrlCaps == other.ctrlCaps && self.dataClass == other.dataClass && self.interfaceCapsConstants == other.interfaceCapsConstants && self.pinConstants == other.pinConstants && self.providerConstants == other.providerConstants && self.providerState == other.providerState && self.registrationConstants == other.registrationConstants && self.signalConstants == other.signalConstants && self.smsCaps == other.smsCaps && self.smsConstants == other.smsConstants && self.wwaextSmsConstants == other.wwaextSmsConstants && self.smsStatusFlag == other.smsStatusFlag
     }
 }
-impl ::core::cmp::Eq for __mbnapi_ReferenceRemainingTypes__ {}
-impl ::core::default::Default for __mbnapi_ReferenceRemainingTypes__ {
+impl Eq for __mbnapi_ReferenceRemainingTypes__ {}
+impl Default for __mbnapi_ReferenceRemainingTypes__ {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[cfg(feature = "implement")]
-::core::include!("impl.rs");
+core::include!("impl.rs");

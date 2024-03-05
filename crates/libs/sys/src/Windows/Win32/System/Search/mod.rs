@@ -2,275 +2,275 @@
 pub mod Common;
 ::windows_targets::link!("odbc32.dll" "system" fn ODBCGetTryWaitValue() -> u32);
 ::windows_targets::link!("odbc32.dll" "system" fn ODBCSetTryWaitValue(dwvalue : u32) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("odbc32.dll" "system" fn SQLAllocConnect(environmenthandle : *mut ::core::ffi::c_void, connectionhandle : *mut *mut ::core::ffi::c_void) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLAllocEnv(environmenthandle : *mut *mut ::core::ffi::c_void) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLAllocHandle(handletype : i16, inputhandle : *mut ::core::ffi::c_void, outputhandle : *mut *mut ::core::ffi::c_void) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLAllocHandleStd(fhandletype : i16, hinput : *mut ::core::ffi::c_void, phoutput : *mut *mut ::core::ffi::c_void) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLAllocStmt(connectionhandle : *mut ::core::ffi::c_void, statementhandle : *mut *mut ::core::ffi::c_void) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLAllocConnect(environmenthandle : *mut core::ffi::c_void, connectionhandle : *mut *mut core::ffi::c_void) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLAllocEnv(environmenthandle : *mut *mut core::ffi::c_void) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLAllocHandle(handletype : i16, inputhandle : *mut core::ffi::c_void, outputhandle : *mut *mut core::ffi::c_void) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLAllocHandleStd(fhandletype : i16, hinput : *mut core::ffi::c_void, phoutput : *mut *mut core::ffi::c_void) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLAllocStmt(connectionhandle : *mut core::ffi::c_void, statementhandle : *mut *mut core::ffi::c_void) -> i16);
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-::windows_targets::link!("odbc32.dll" "system" fn SQLBindCol(statementhandle : *mut ::core::ffi::c_void, columnnumber : u16, targettype : i16, targetvalue : *mut ::core::ffi::c_void, bufferlength : i64, strlen_or_ind : *mut i64) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLBindCol(statementhandle : *mut core::ffi::c_void, columnnumber : u16, targettype : i16, targetvalue : *mut core::ffi::c_void, bufferlength : i64, strlen_or_ind : *mut i64) -> i16);
 #[cfg(target_arch = "x86")]
-::windows_targets::link!("odbc32.dll" "system" fn SQLBindCol(statementhandle : *mut ::core::ffi::c_void, columnnumber : u16, targettype : i16, targetvalue : *mut ::core::ffi::c_void, bufferlength : i32, strlen_or_ind : *mut i32) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLBindCol(statementhandle : *mut core::ffi::c_void, columnnumber : u16, targettype : i16, targetvalue : *mut core::ffi::c_void, bufferlength : i32, strlen_or_ind : *mut i32) -> i16);
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-::windows_targets::link!("odbc32.dll" "system" fn SQLBindParam(statementhandle : *mut ::core::ffi::c_void, parameternumber : u16, valuetype : i16, parametertype : i16, lengthprecision : u64, parameterscale : i16, parametervalue : *mut ::core::ffi::c_void, strlen_or_ind : *mut i64) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLBindParam(statementhandle : *mut core::ffi::c_void, parameternumber : u16, valuetype : i16, parametertype : i16, lengthprecision : u64, parameterscale : i16, parametervalue : *mut core::ffi::c_void, strlen_or_ind : *mut i64) -> i16);
 #[cfg(target_arch = "x86")]
-::windows_targets::link!("odbc32.dll" "system" fn SQLBindParam(statementhandle : *mut ::core::ffi::c_void, parameternumber : u16, valuetype : i16, parametertype : i16, lengthprecision : u32, parameterscale : i16, parametervalue : *mut ::core::ffi::c_void, strlen_or_ind : *mut i32) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLBindParam(statementhandle : *mut core::ffi::c_void, parameternumber : u16, valuetype : i16, parametertype : i16, lengthprecision : u32, parameterscale : i16, parametervalue : *mut core::ffi::c_void, strlen_or_ind : *mut i32) -> i16);
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-::windows_targets::link!("odbc32.dll" "system" fn SQLBindParameter(hstmt : *mut ::core::ffi::c_void, ipar : u16, fparamtype : i16, fctype : i16, fsqltype : i16, cbcoldef : u64, ibscale : i16, rgbvalue : *mut ::core::ffi::c_void, cbvaluemax : i64, pcbvalue : *mut i64) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLBindParameter(hstmt : *mut core::ffi::c_void, ipar : u16, fparamtype : i16, fctype : i16, fsqltype : i16, cbcoldef : u64, ibscale : i16, rgbvalue : *mut core::ffi::c_void, cbvaluemax : i64, pcbvalue : *mut i64) -> i16);
 #[cfg(target_arch = "x86")]
-::windows_targets::link!("odbc32.dll" "system" fn SQLBindParameter(hstmt : *mut ::core::ffi::c_void, ipar : u16, fparamtype : i16, fctype : i16, fsqltype : i16, cbcoldef : u32, ibscale : i16, rgbvalue : *mut ::core::ffi::c_void, cbvaluemax : i32, pcbvalue : *mut i32) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLBrowseConnect(hdbc : *mut ::core::ffi::c_void, szconnstrin : *const u8, cchconnstrin : i16, szconnstrout : *mut u8, cchconnstroutmax : i16, pcchconnstrout : *mut i16) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLBrowseConnectA(hdbc : *mut ::core::ffi::c_void, szconnstrin : *const u8, cbconnstrin : i16, szconnstrout : *mut u8, cbconnstroutmax : i16, pcbconnstrout : *mut i16) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLBrowseConnectW(hdbc : *mut ::core::ffi::c_void, szconnstrin : *const u16, cchconnstrin : i16, szconnstrout : *mut u16, cchconnstroutmax : i16, pcchconnstrout : *mut i16) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLBulkOperations(statementhandle : *mut ::core::ffi::c_void, operation : i16) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLCancel(statementhandle : *mut ::core::ffi::c_void) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLCancelHandle(handletype : i16, inputhandle : *mut ::core::ffi::c_void) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLCloseCursor(statementhandle : *mut ::core::ffi::c_void) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLBindParameter(hstmt : *mut core::ffi::c_void, ipar : u16, fparamtype : i16, fctype : i16, fsqltype : i16, cbcoldef : u32, ibscale : i16, rgbvalue : *mut core::ffi::c_void, cbvaluemax : i32, pcbvalue : *mut i32) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLBrowseConnect(hdbc : *mut core::ffi::c_void, szconnstrin : *const u8, cchconnstrin : i16, szconnstrout : *mut u8, cchconnstroutmax : i16, pcchconnstrout : *mut i16) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLBrowseConnectA(hdbc : *mut core::ffi::c_void, szconnstrin : *const u8, cbconnstrin : i16, szconnstrout : *mut u8, cbconnstroutmax : i16, pcbconnstrout : *mut i16) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLBrowseConnectW(hdbc : *mut core::ffi::c_void, szconnstrin : *const u16, cchconnstrin : i16, szconnstrout : *mut u16, cchconnstroutmax : i16, pcchconnstrout : *mut i16) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLBulkOperations(statementhandle : *mut core::ffi::c_void, operation : i16) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLCancel(statementhandle : *mut core::ffi::c_void) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLCancelHandle(handletype : i16, inputhandle : *mut core::ffi::c_void) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLCloseCursor(statementhandle : *mut core::ffi::c_void) -> i16);
 ::windows_targets::link!("odbcbcp.dll" "system" fn SQLCloseEnumServers(henumhandle : super::super::Foundation:: HANDLE) -> i16);
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-::windows_targets::link!("odbc32.dll" "system" fn SQLColAttribute(statementhandle : *mut ::core::ffi::c_void, columnnumber : u16, fieldidentifier : u16, characterattribute : *mut ::core::ffi::c_void, bufferlength : i16, stringlength : *mut i16, numericattribute : *mut i64) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLColAttribute(statementhandle : *mut core::ffi::c_void, columnnumber : u16, fieldidentifier : u16, characterattribute : *mut core::ffi::c_void, bufferlength : i16, stringlength : *mut i16, numericattribute : *mut i64) -> i16);
 #[cfg(target_arch = "x86")]
-::windows_targets::link!("odbc32.dll" "system" fn SQLColAttribute(statementhandle : *mut ::core::ffi::c_void, columnnumber : u16, fieldidentifier : u16, characterattribute : *mut ::core::ffi::c_void, bufferlength : i16, stringlength : *mut i16, numericattribute : *mut ::core::ffi::c_void) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLColAttribute(statementhandle : *mut core::ffi::c_void, columnnumber : u16, fieldidentifier : u16, characterattribute : *mut core::ffi::c_void, bufferlength : i16, stringlength : *mut i16, numericattribute : *mut core::ffi::c_void) -> i16);
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-::windows_targets::link!("odbc32.dll" "system" fn SQLColAttributeA(hstmt : *mut ::core::ffi::c_void, icol : i16, ifield : i16, pcharattr : *mut ::core::ffi::c_void, cbcharattrmax : i16, pcbcharattr : *mut i16, pnumattr : *mut i64) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLColAttributeA(hstmt : *mut core::ffi::c_void, icol : i16, ifield : i16, pcharattr : *mut core::ffi::c_void, cbcharattrmax : i16, pcbcharattr : *mut i16, pnumattr : *mut i64) -> i16);
 #[cfg(target_arch = "x86")]
-::windows_targets::link!("odbc32.dll" "system" fn SQLColAttributeA(hstmt : *mut ::core::ffi::c_void, icol : i16, ifield : i16, pcharattr : *mut ::core::ffi::c_void, cbcharattrmax : i16, pcbcharattr : *mut i16, pnumattr : *mut ::core::ffi::c_void) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLColAttributeA(hstmt : *mut core::ffi::c_void, icol : i16, ifield : i16, pcharattr : *mut core::ffi::c_void, cbcharattrmax : i16, pcbcharattr : *mut i16, pnumattr : *mut core::ffi::c_void) -> i16);
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-::windows_targets::link!("odbc32.dll" "system" fn SQLColAttributeW(hstmt : *mut ::core::ffi::c_void, icol : u16, ifield : u16, pcharattr : *mut ::core::ffi::c_void, cbdescmax : i16, pcbcharattr : *mut i16, pnumattr : *mut i64) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLColAttributeW(hstmt : *mut core::ffi::c_void, icol : u16, ifield : u16, pcharattr : *mut core::ffi::c_void, cbdescmax : i16, pcbcharattr : *mut i16, pnumattr : *mut i64) -> i16);
 #[cfg(target_arch = "x86")]
-::windows_targets::link!("odbc32.dll" "system" fn SQLColAttributeW(hstmt : *mut ::core::ffi::c_void, icol : u16, ifield : u16, pcharattr : *mut ::core::ffi::c_void, cbdescmax : i16, pcbcharattr : *mut i16, pnumattr : *mut ::core::ffi::c_void) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLColAttributeW(hstmt : *mut core::ffi::c_void, icol : u16, ifield : u16, pcharattr : *mut core::ffi::c_void, cbdescmax : i16, pcbcharattr : *mut i16, pnumattr : *mut core::ffi::c_void) -> i16);
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-::windows_targets::link!("odbc32.dll" "system" fn SQLColAttributes(hstmt : *mut ::core::ffi::c_void, icol : u16, fdesctype : u16, rgbdesc : *mut ::core::ffi::c_void, cbdescmax : i16, pcbdesc : *mut i16, pfdesc : *mut i64) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLColAttributes(hstmt : *mut core::ffi::c_void, icol : u16, fdesctype : u16, rgbdesc : *mut core::ffi::c_void, cbdescmax : i16, pcbdesc : *mut i16, pfdesc : *mut i64) -> i16);
 #[cfg(target_arch = "x86")]
-::windows_targets::link!("odbc32.dll" "system" fn SQLColAttributes(hstmt : *mut ::core::ffi::c_void, icol : u16, fdesctype : u16, rgbdesc : *mut ::core::ffi::c_void, cbdescmax : i16, pcbdesc : *mut i16, pfdesc : *mut i32) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLColAttributes(hstmt : *mut core::ffi::c_void, icol : u16, fdesctype : u16, rgbdesc : *mut core::ffi::c_void, cbdescmax : i16, pcbdesc : *mut i16, pfdesc : *mut i32) -> i16);
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-::windows_targets::link!("odbc32.dll" "system" fn SQLColAttributesA(hstmt : *mut ::core::ffi::c_void, icol : u16, fdesctype : u16, rgbdesc : *mut ::core::ffi::c_void, cbdescmax : i16, pcbdesc : *mut i16, pfdesc : *mut i64) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLColAttributesA(hstmt : *mut core::ffi::c_void, icol : u16, fdesctype : u16, rgbdesc : *mut core::ffi::c_void, cbdescmax : i16, pcbdesc : *mut i16, pfdesc : *mut i64) -> i16);
 #[cfg(target_arch = "x86")]
-::windows_targets::link!("odbc32.dll" "system" fn SQLColAttributesA(hstmt : *mut ::core::ffi::c_void, icol : u16, fdesctype : u16, rgbdesc : *mut ::core::ffi::c_void, cbdescmax : i16, pcbdesc : *mut i16, pfdesc : *mut i32) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLColAttributesA(hstmt : *mut core::ffi::c_void, icol : u16, fdesctype : u16, rgbdesc : *mut core::ffi::c_void, cbdescmax : i16, pcbdesc : *mut i16, pfdesc : *mut i32) -> i16);
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-::windows_targets::link!("odbc32.dll" "system" fn SQLColAttributesW(hstmt : *mut ::core::ffi::c_void, icol : u16, fdesctype : u16, rgbdesc : *mut ::core::ffi::c_void, cbdescmax : i16, pcbdesc : *mut i16, pfdesc : *mut i64) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLColAttributesW(hstmt : *mut core::ffi::c_void, icol : u16, fdesctype : u16, rgbdesc : *mut core::ffi::c_void, cbdescmax : i16, pcbdesc : *mut i16, pfdesc : *mut i64) -> i16);
 #[cfg(target_arch = "x86")]
-::windows_targets::link!("odbc32.dll" "system" fn SQLColAttributesW(hstmt : *mut ::core::ffi::c_void, icol : u16, fdesctype : u16, rgbdesc : *mut ::core::ffi::c_void, cbdescmax : i16, pcbdesc : *mut i16, pfdesc : *mut i32) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLColumnPrivileges(hstmt : *mut ::core::ffi::c_void, szcatalogname : *const u8, cchcatalogname : i16, szschemaname : *const u8, cchschemaname : i16, sztablename : *const u8, cchtablename : i16, szcolumnname : *const u8, cchcolumnname : i16) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLColumnPrivilegesA(hstmt : *mut ::core::ffi::c_void, szcatalogname : *const u8, cbcatalogname : i16, szschemaname : *const u8, cbschemaname : i16, sztablename : *const u8, cbtablename : i16, szcolumnname : *const u8, cbcolumnname : i16) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLColumnPrivilegesW(hstmt : *mut ::core::ffi::c_void, szcatalogname : *const u16, cchcatalogname : i16, szschemaname : *const u16, cchschemaname : i16, sztablename : *const u16, cchtablename : i16, szcolumnname : *const u16, cchcolumnname : i16) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLColumns(statementhandle : *mut ::core::ffi::c_void, catalogname : *const u8, namelength1 : i16, schemaname : *const u8, namelength2 : i16, tablename : *const u8, namelength3 : i16, columnname : *const u8, namelength4 : i16) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLColumnsA(hstmt : *mut ::core::ffi::c_void, szcatalogname : *const u8, cbcatalogname : i16, szschemaname : *const u8, cbschemaname : i16, sztablename : *const u8, cbtablename : i16, szcolumnname : *const u8, cbcolumnname : i16) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLColumnsW(hstmt : *mut ::core::ffi::c_void, szcatalogname : *const u16, cchcatalogname : i16, szschemaname : *const u16, cchschemaname : i16, sztablename : *const u16, cchtablename : i16, szcolumnname : *const u16, cchcolumnname : i16) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLCompleteAsync(handletype : i16, handle : *mut ::core::ffi::c_void, asyncretcodeptr : *mut i16) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLConnect(connectionhandle : *mut ::core::ffi::c_void, servername : *const u8, namelength1 : i16, username : *const u8, namelength2 : i16, authentication : *const u8, namelength3 : i16) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLConnectA(hdbc : *mut ::core::ffi::c_void, szdsn : *const u8, cbdsn : i16, szuid : *const u8, cbuid : i16, szauthstr : *const u8, cbauthstr : i16) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLConnectW(hdbc : *mut ::core::ffi::c_void, szdsn : *const u16, cchdsn : i16, szuid : *const u16, cchuid : i16, szauthstr : *const u16, cchauthstr : i16) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLCopyDesc(sourcedeschandle : *mut ::core::ffi::c_void, targetdeschandle : *mut ::core::ffi::c_void) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLDataSources(environmenthandle : *mut ::core::ffi::c_void, direction : u16, servername : *mut u8, bufferlength1 : i16, namelength1ptr : *mut i16, description : *mut u8, bufferlength2 : i16, namelength2ptr : *mut i16) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLDataSourcesA(henv : *mut ::core::ffi::c_void, fdirection : u16, szdsn : *mut u8, cbdsnmax : i16, pcbdsn : *mut i16, szdescription : *mut u8, cbdescriptionmax : i16, pcbdescription : *mut i16) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLDataSourcesW(henv : *mut ::core::ffi::c_void, fdirection : u16, szdsn : *mut u16, cchdsnmax : i16, pcchdsn : *mut i16, wszdescription : *mut u16, cchdescriptionmax : i16, pcchdescription : *mut i16) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLColAttributesW(hstmt : *mut core::ffi::c_void, icol : u16, fdesctype : u16, rgbdesc : *mut core::ffi::c_void, cbdescmax : i16, pcbdesc : *mut i16, pfdesc : *mut i32) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLColumnPrivileges(hstmt : *mut core::ffi::c_void, szcatalogname : *const u8, cchcatalogname : i16, szschemaname : *const u8, cchschemaname : i16, sztablename : *const u8, cchtablename : i16, szcolumnname : *const u8, cchcolumnname : i16) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLColumnPrivilegesA(hstmt : *mut core::ffi::c_void, szcatalogname : *const u8, cbcatalogname : i16, szschemaname : *const u8, cbschemaname : i16, sztablename : *const u8, cbtablename : i16, szcolumnname : *const u8, cbcolumnname : i16) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLColumnPrivilegesW(hstmt : *mut core::ffi::c_void, szcatalogname : *const u16, cchcatalogname : i16, szschemaname : *const u16, cchschemaname : i16, sztablename : *const u16, cchtablename : i16, szcolumnname : *const u16, cchcolumnname : i16) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLColumns(statementhandle : *mut core::ffi::c_void, catalogname : *const u8, namelength1 : i16, schemaname : *const u8, namelength2 : i16, tablename : *const u8, namelength3 : i16, columnname : *const u8, namelength4 : i16) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLColumnsA(hstmt : *mut core::ffi::c_void, szcatalogname : *const u8, cbcatalogname : i16, szschemaname : *const u8, cbschemaname : i16, sztablename : *const u8, cbtablename : i16, szcolumnname : *const u8, cbcolumnname : i16) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLColumnsW(hstmt : *mut core::ffi::c_void, szcatalogname : *const u16, cchcatalogname : i16, szschemaname : *const u16, cchschemaname : i16, sztablename : *const u16, cchtablename : i16, szcolumnname : *const u16, cchcolumnname : i16) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLCompleteAsync(handletype : i16, handle : *mut core::ffi::c_void, asyncretcodeptr : *mut i16) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLConnect(connectionhandle : *mut core::ffi::c_void, servername : *const u8, namelength1 : i16, username : *const u8, namelength2 : i16, authentication : *const u8, namelength3 : i16) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLConnectA(hdbc : *mut core::ffi::c_void, szdsn : *const u8, cbdsn : i16, szuid : *const u8, cbuid : i16, szauthstr : *const u8, cbauthstr : i16) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLConnectW(hdbc : *mut core::ffi::c_void, szdsn : *const u16, cchdsn : i16, szuid : *const u16, cchuid : i16, szauthstr : *const u16, cchauthstr : i16) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLCopyDesc(sourcedeschandle : *mut core::ffi::c_void, targetdeschandle : *mut core::ffi::c_void) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLDataSources(environmenthandle : *mut core::ffi::c_void, direction : u16, servername : *mut u8, bufferlength1 : i16, namelength1ptr : *mut i16, description : *mut u8, bufferlength2 : i16, namelength2ptr : *mut i16) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLDataSourcesA(henv : *mut core::ffi::c_void, fdirection : u16, szdsn : *mut u8, cbdsnmax : i16, pcbdsn : *mut i16, szdescription : *mut u8, cbdescriptionmax : i16, pcbdescription : *mut i16) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLDataSourcesW(henv : *mut core::ffi::c_void, fdirection : u16, szdsn : *mut u16, cchdsnmax : i16, pcchdsn : *mut i16, wszdescription : *mut u16, cchdescriptionmax : i16, pcchdescription : *mut i16) -> i16);
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-::windows_targets::link!("odbc32.dll" "system" fn SQLDescribeCol(statementhandle : *mut ::core::ffi::c_void, columnnumber : u16, columnname : *mut u8, bufferlength : i16, namelength : *mut i16, datatype : *mut i16, columnsize : *mut u64, decimaldigits : *mut i16, nullable : *mut i16) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLDescribeCol(statementhandle : *mut core::ffi::c_void, columnnumber : u16, columnname : *mut u8, bufferlength : i16, namelength : *mut i16, datatype : *mut i16, columnsize : *mut u64, decimaldigits : *mut i16, nullable : *mut i16) -> i16);
 #[cfg(target_arch = "x86")]
-::windows_targets::link!("odbc32.dll" "system" fn SQLDescribeCol(statementhandle : *mut ::core::ffi::c_void, columnnumber : u16, columnname : *mut u8, bufferlength : i16, namelength : *mut i16, datatype : *mut i16, columnsize : *mut u32, decimaldigits : *mut i16, nullable : *mut i16) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLDescribeCol(statementhandle : *mut core::ffi::c_void, columnnumber : u16, columnname : *mut u8, bufferlength : i16, namelength : *mut i16, datatype : *mut i16, columnsize : *mut u32, decimaldigits : *mut i16, nullable : *mut i16) -> i16);
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-::windows_targets::link!("odbc32.dll" "system" fn SQLDescribeColA(hstmt : *mut ::core::ffi::c_void, icol : u16, szcolname : *mut u8, cbcolnamemax : i16, pcbcolname : *mut i16, pfsqltype : *mut i16, pcbcoldef : *mut u64, pibscale : *mut i16, pfnullable : *mut i16) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLDescribeColA(hstmt : *mut core::ffi::c_void, icol : u16, szcolname : *mut u8, cbcolnamemax : i16, pcbcolname : *mut i16, pfsqltype : *mut i16, pcbcoldef : *mut u64, pibscale : *mut i16, pfnullable : *mut i16) -> i16);
 #[cfg(target_arch = "x86")]
-::windows_targets::link!("odbc32.dll" "system" fn SQLDescribeColA(hstmt : *mut ::core::ffi::c_void, icol : u16, szcolname : *mut u8, cbcolnamemax : i16, pcbcolname : *mut i16, pfsqltype : *mut i16, pcbcoldef : *mut u32, pibscale : *mut i16, pfnullable : *mut i16) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLDescribeColA(hstmt : *mut core::ffi::c_void, icol : u16, szcolname : *mut u8, cbcolnamemax : i16, pcbcolname : *mut i16, pfsqltype : *mut i16, pcbcoldef : *mut u32, pibscale : *mut i16, pfnullable : *mut i16) -> i16);
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-::windows_targets::link!("odbc32.dll" "system" fn SQLDescribeColW(hstmt : *mut ::core::ffi::c_void, icol : u16, szcolname : *mut u16, cchcolnamemax : i16, pcchcolname : *mut i16, pfsqltype : *mut i16, pcbcoldef : *mut u64, pibscale : *mut i16, pfnullable : *mut i16) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLDescribeColW(hstmt : *mut core::ffi::c_void, icol : u16, szcolname : *mut u16, cchcolnamemax : i16, pcchcolname : *mut i16, pfsqltype : *mut i16, pcbcoldef : *mut u64, pibscale : *mut i16, pfnullable : *mut i16) -> i16);
 #[cfg(target_arch = "x86")]
-::windows_targets::link!("odbc32.dll" "system" fn SQLDescribeColW(hstmt : *mut ::core::ffi::c_void, icol : u16, szcolname : *mut u16, cchcolnamemax : i16, pcchcolname : *mut i16, pfsqltype : *mut i16, pcbcoldef : *mut u32, pibscale : *mut i16, pfnullable : *mut i16) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLDescribeColW(hstmt : *mut core::ffi::c_void, icol : u16, szcolname : *mut u16, cchcolnamemax : i16, pcchcolname : *mut i16, pfsqltype : *mut i16, pcbcoldef : *mut u32, pibscale : *mut i16, pfnullable : *mut i16) -> i16);
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-::windows_targets::link!("odbc32.dll" "system" fn SQLDescribeParam(hstmt : *mut ::core::ffi::c_void, ipar : u16, pfsqltype : *mut i16, pcbparamdef : *mut u64, pibscale : *mut i16, pfnullable : *mut i16) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLDescribeParam(hstmt : *mut core::ffi::c_void, ipar : u16, pfsqltype : *mut i16, pcbparamdef : *mut u64, pibscale : *mut i16, pfnullable : *mut i16) -> i16);
 #[cfg(target_arch = "x86")]
-::windows_targets::link!("odbc32.dll" "system" fn SQLDescribeParam(hstmt : *mut ::core::ffi::c_void, ipar : u16, pfsqltype : *mut i16, pcbparamdef : *mut u32, pibscale : *mut i16, pfnullable : *mut i16) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLDisconnect(connectionhandle : *mut ::core::ffi::c_void) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLDriverConnect(hdbc : *mut ::core::ffi::c_void, hwnd : isize, szconnstrin : *const u8, cchconnstrin : i16, szconnstrout : *mut u8, cchconnstroutmax : i16, pcchconnstrout : *mut i16, fdrivercompletion : u16) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLDriverConnectA(hdbc : *mut ::core::ffi::c_void, hwnd : isize, szconnstrin : *const u8, cbconnstrin : i16, szconnstrout : *mut u8, cbconnstroutmax : i16, pcbconnstrout : *mut i16, fdrivercompletion : u16) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLDriverConnectW(hdbc : *mut ::core::ffi::c_void, hwnd : isize, szconnstrin : *const u16, cchconnstrin : i16, szconnstrout : *mut u16, cchconnstroutmax : i16, pcchconnstrout : *mut i16, fdrivercompletion : u16) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLDrivers(henv : *mut ::core::ffi::c_void, fdirection : u16, szdriverdesc : *mut u8, cchdriverdescmax : i16, pcchdriverdesc : *mut i16, szdriverattributes : *mut u8, cchdrvrattrmax : i16, pcchdrvrattr : *mut i16) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLDriversA(henv : *mut ::core::ffi::c_void, fdirection : u16, szdriverdesc : *mut u8, cbdriverdescmax : i16, pcbdriverdesc : *mut i16, szdriverattributes : *mut u8, cbdrvrattrmax : i16, pcbdrvrattr : *mut i16) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLDriversW(henv : *mut ::core::ffi::c_void, fdirection : u16, szdriverdesc : *mut u16, cchdriverdescmax : i16, pcchdriverdesc : *mut i16, szdriverattributes : *mut u16, cchdrvrattrmax : i16, pcchdrvrattr : *mut i16) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLEndTran(handletype : i16, handle : *mut ::core::ffi::c_void, completiontype : i16) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLError(environmenthandle : *mut ::core::ffi::c_void, connectionhandle : *mut ::core::ffi::c_void, statementhandle : *mut ::core::ffi::c_void, sqlstate : *mut u8, nativeerror : *mut i32, messagetext : *mut u8, bufferlength : i16, textlength : *mut i16) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLErrorA(henv : *mut ::core::ffi::c_void, hdbc : *mut ::core::ffi::c_void, hstmt : *mut ::core::ffi::c_void, szsqlstate : *mut u8, pfnativeerror : *mut i32, szerrormsg : *mut u8, cberrormsgmax : i16, pcberrormsg : *mut i16) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLErrorW(henv : *mut ::core::ffi::c_void, hdbc : *mut ::core::ffi::c_void, hstmt : *mut ::core::ffi::c_void, wszsqlstate : *mut u16, pfnativeerror : *mut i32, wszerrormsg : *mut u16, ccherrormsgmax : i16, pccherrormsg : *mut i16) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLExecDirect(statementhandle : *mut ::core::ffi::c_void, statementtext : *const u8, textlength : i32) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLExecDirectA(hstmt : *mut ::core::ffi::c_void, szsqlstr : *const u8, cbsqlstr : i32) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLExecDirectW(hstmt : *mut ::core::ffi::c_void, szsqlstr : *const u16, textlength : i32) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLExecute(statementhandle : *mut ::core::ffi::c_void) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLDescribeParam(hstmt : *mut core::ffi::c_void, ipar : u16, pfsqltype : *mut i16, pcbparamdef : *mut u32, pibscale : *mut i16, pfnullable : *mut i16) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLDisconnect(connectionhandle : *mut core::ffi::c_void) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLDriverConnect(hdbc : *mut core::ffi::c_void, hwnd : isize, szconnstrin : *const u8, cchconnstrin : i16, szconnstrout : *mut u8, cchconnstroutmax : i16, pcchconnstrout : *mut i16, fdrivercompletion : u16) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLDriverConnectA(hdbc : *mut core::ffi::c_void, hwnd : isize, szconnstrin : *const u8, cbconnstrin : i16, szconnstrout : *mut u8, cbconnstroutmax : i16, pcbconnstrout : *mut i16, fdrivercompletion : u16) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLDriverConnectW(hdbc : *mut core::ffi::c_void, hwnd : isize, szconnstrin : *const u16, cchconnstrin : i16, szconnstrout : *mut u16, cchconnstroutmax : i16, pcchconnstrout : *mut i16, fdrivercompletion : u16) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLDrivers(henv : *mut core::ffi::c_void, fdirection : u16, szdriverdesc : *mut u8, cchdriverdescmax : i16, pcchdriverdesc : *mut i16, szdriverattributes : *mut u8, cchdrvrattrmax : i16, pcchdrvrattr : *mut i16) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLDriversA(henv : *mut core::ffi::c_void, fdirection : u16, szdriverdesc : *mut u8, cbdriverdescmax : i16, pcbdriverdesc : *mut i16, szdriverattributes : *mut u8, cbdrvrattrmax : i16, pcbdrvrattr : *mut i16) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLDriversW(henv : *mut core::ffi::c_void, fdirection : u16, szdriverdesc : *mut u16, cchdriverdescmax : i16, pcchdriverdesc : *mut i16, szdriverattributes : *mut u16, cchdrvrattrmax : i16, pcchdrvrattr : *mut i16) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLEndTran(handletype : i16, handle : *mut core::ffi::c_void, completiontype : i16) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLError(environmenthandle : *mut core::ffi::c_void, connectionhandle : *mut core::ffi::c_void, statementhandle : *mut core::ffi::c_void, sqlstate : *mut u8, nativeerror : *mut i32, messagetext : *mut u8, bufferlength : i16, textlength : *mut i16) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLErrorA(henv : *mut core::ffi::c_void, hdbc : *mut core::ffi::c_void, hstmt : *mut core::ffi::c_void, szsqlstate : *mut u8, pfnativeerror : *mut i32, szerrormsg : *mut u8, cberrormsgmax : i16, pcberrormsg : *mut i16) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLErrorW(henv : *mut core::ffi::c_void, hdbc : *mut core::ffi::c_void, hstmt : *mut core::ffi::c_void, wszsqlstate : *mut u16, pfnativeerror : *mut i32, wszerrormsg : *mut u16, ccherrormsgmax : i16, pccherrormsg : *mut i16) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLExecDirect(statementhandle : *mut core::ffi::c_void, statementtext : *const u8, textlength : i32) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLExecDirectA(hstmt : *mut core::ffi::c_void, szsqlstr : *const u8, cbsqlstr : i32) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLExecDirectW(hstmt : *mut core::ffi::c_void, szsqlstr : *const u16, textlength : i32) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLExecute(statementhandle : *mut core::ffi::c_void) -> i16);
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-::windows_targets::link!("odbc32.dll" "system" fn SQLExtendedFetch(hstmt : *mut ::core::ffi::c_void, ffetchtype : u16, irow : i64, pcrow : *mut u64, rgfrowstatus : *mut u16) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLExtendedFetch(hstmt : *mut core::ffi::c_void, ffetchtype : u16, irow : i64, pcrow : *mut u64, rgfrowstatus : *mut u16) -> i16);
 #[cfg(target_arch = "x86")]
-::windows_targets::link!("odbc32.dll" "system" fn SQLExtendedFetch(hstmt : *mut ::core::ffi::c_void, ffetchtype : u16, irow : i32, pcrow : *mut u32, rgfrowstatus : *mut u16) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLFetch(statementhandle : *mut ::core::ffi::c_void) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLExtendedFetch(hstmt : *mut core::ffi::c_void, ffetchtype : u16, irow : i32, pcrow : *mut u32, rgfrowstatus : *mut u16) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLFetch(statementhandle : *mut core::ffi::c_void) -> i16);
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-::windows_targets::link!("odbc32.dll" "system" fn SQLFetchScroll(statementhandle : *mut ::core::ffi::c_void, fetchorientation : i16, fetchoffset : i64) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLFetchScroll(statementhandle : *mut core::ffi::c_void, fetchorientation : i16, fetchoffset : i64) -> i16);
 #[cfg(target_arch = "x86")]
-::windows_targets::link!("odbc32.dll" "system" fn SQLFetchScroll(statementhandle : *mut ::core::ffi::c_void, fetchorientation : i16, fetchoffset : i32) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLForeignKeys(hstmt : *mut ::core::ffi::c_void, szpkcatalogname : *const u8, cchpkcatalogname : i16, szpkschemaname : *const u8, cchpkschemaname : i16, szpktablename : *const u8, cchpktablename : i16, szfkcatalogname : *const u8, cchfkcatalogname : i16, szfkschemaname : *const u8, cchfkschemaname : i16, szfktablename : *const u8, cchfktablename : i16) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLForeignKeysA(hstmt : *mut ::core::ffi::c_void, szpkcatalogname : *const u8, cbpkcatalogname : i16, szpkschemaname : *const u8, cbpkschemaname : i16, szpktablename : *const u8, cbpktablename : i16, szfkcatalogname : *const u8, cbfkcatalogname : i16, szfkschemaname : *const u8, cbfkschemaname : i16, szfktablename : *const u8, cbfktablename : i16) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLForeignKeysW(hstmt : *mut ::core::ffi::c_void, szpkcatalogname : *const u16, cchpkcatalogname : i16, szpkschemaname : *const u16, cchpkschemaname : i16, szpktablename : *const u16, cchpktablename : i16, szfkcatalogname : *const u16, cchfkcatalogname : i16, szfkschemaname : *const u16, cchfkschemaname : i16, szfktablename : *const u16, cchfktablename : i16) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLFreeConnect(connectionhandle : *mut ::core::ffi::c_void) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLFreeEnv(environmenthandle : *mut ::core::ffi::c_void) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLFreeHandle(handletype : i16, handle : *mut ::core::ffi::c_void) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLFreeStmt(statementhandle : *mut ::core::ffi::c_void, option : u16) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLGetConnectAttr(connectionhandle : *mut ::core::ffi::c_void, attribute : i32, value : *mut ::core::ffi::c_void, bufferlength : i32, stringlengthptr : *mut i32) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLGetConnectAttrA(hdbc : *mut ::core::ffi::c_void, fattribute : i32, rgbvalue : *mut ::core::ffi::c_void, cbvaluemax : i32, pcbvalue : *mut i32) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLGetConnectAttrW(hdbc : *mut ::core::ffi::c_void, fattribute : i32, rgbvalue : *mut ::core::ffi::c_void, cbvaluemax : i32, pcbvalue : *mut i32) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLGetConnectOption(connectionhandle : *mut ::core::ffi::c_void, option : u16, value : *mut ::core::ffi::c_void) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLGetConnectOptionA(hdbc : *mut ::core::ffi::c_void, foption : u16, pvparam : *mut ::core::ffi::c_void) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLGetConnectOptionW(hdbc : *mut ::core::ffi::c_void, foption : u16, pvparam : *mut ::core::ffi::c_void) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLGetCursorName(statementhandle : *mut ::core::ffi::c_void, cursorname : *mut u8, bufferlength : i16, namelengthptr : *mut i16) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLGetCursorNameA(hstmt : *mut ::core::ffi::c_void, szcursor : *mut u8, cbcursormax : i16, pcbcursor : *mut i16) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLGetCursorNameW(hstmt : *mut ::core::ffi::c_void, szcursor : *mut u16, cchcursormax : i16, pcchcursor : *mut i16) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLFetchScroll(statementhandle : *mut core::ffi::c_void, fetchorientation : i16, fetchoffset : i32) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLForeignKeys(hstmt : *mut core::ffi::c_void, szpkcatalogname : *const u8, cchpkcatalogname : i16, szpkschemaname : *const u8, cchpkschemaname : i16, szpktablename : *const u8, cchpktablename : i16, szfkcatalogname : *const u8, cchfkcatalogname : i16, szfkschemaname : *const u8, cchfkschemaname : i16, szfktablename : *const u8, cchfktablename : i16) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLForeignKeysA(hstmt : *mut core::ffi::c_void, szpkcatalogname : *const u8, cbpkcatalogname : i16, szpkschemaname : *const u8, cbpkschemaname : i16, szpktablename : *const u8, cbpktablename : i16, szfkcatalogname : *const u8, cbfkcatalogname : i16, szfkschemaname : *const u8, cbfkschemaname : i16, szfktablename : *const u8, cbfktablename : i16) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLForeignKeysW(hstmt : *mut core::ffi::c_void, szpkcatalogname : *const u16, cchpkcatalogname : i16, szpkschemaname : *const u16, cchpkschemaname : i16, szpktablename : *const u16, cchpktablename : i16, szfkcatalogname : *const u16, cchfkcatalogname : i16, szfkschemaname : *const u16, cchfkschemaname : i16, szfktablename : *const u16, cchfktablename : i16) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLFreeConnect(connectionhandle : *mut core::ffi::c_void) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLFreeEnv(environmenthandle : *mut core::ffi::c_void) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLFreeHandle(handletype : i16, handle : *mut core::ffi::c_void) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLFreeStmt(statementhandle : *mut core::ffi::c_void, option : u16) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLGetConnectAttr(connectionhandle : *mut core::ffi::c_void, attribute : i32, value : *mut core::ffi::c_void, bufferlength : i32, stringlengthptr : *mut i32) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLGetConnectAttrA(hdbc : *mut core::ffi::c_void, fattribute : i32, rgbvalue : *mut core::ffi::c_void, cbvaluemax : i32, pcbvalue : *mut i32) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLGetConnectAttrW(hdbc : *mut core::ffi::c_void, fattribute : i32, rgbvalue : *mut core::ffi::c_void, cbvaluemax : i32, pcbvalue : *mut i32) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLGetConnectOption(connectionhandle : *mut core::ffi::c_void, option : u16, value : *mut core::ffi::c_void) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLGetConnectOptionA(hdbc : *mut core::ffi::c_void, foption : u16, pvparam : *mut core::ffi::c_void) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLGetConnectOptionW(hdbc : *mut core::ffi::c_void, foption : u16, pvparam : *mut core::ffi::c_void) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLGetCursorName(statementhandle : *mut core::ffi::c_void, cursorname : *mut u8, bufferlength : i16, namelengthptr : *mut i16) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLGetCursorNameA(hstmt : *mut core::ffi::c_void, szcursor : *mut u8, cbcursormax : i16, pcbcursor : *mut i16) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLGetCursorNameW(hstmt : *mut core::ffi::c_void, szcursor : *mut u16, cchcursormax : i16, pcchcursor : *mut i16) -> i16);
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-::windows_targets::link!("odbc32.dll" "system" fn SQLGetData(statementhandle : *mut ::core::ffi::c_void, columnnumber : u16, targettype : i16, targetvalue : *mut ::core::ffi::c_void, bufferlength : i64, strlen_or_indptr : *mut i64) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLGetData(statementhandle : *mut core::ffi::c_void, columnnumber : u16, targettype : i16, targetvalue : *mut core::ffi::c_void, bufferlength : i64, strlen_or_indptr : *mut i64) -> i16);
 #[cfg(target_arch = "x86")]
-::windows_targets::link!("odbc32.dll" "system" fn SQLGetData(statementhandle : *mut ::core::ffi::c_void, columnnumber : u16, targettype : i16, targetvalue : *mut ::core::ffi::c_void, bufferlength : i32, strlen_or_indptr : *mut i32) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLGetDescField(descriptorhandle : *mut ::core::ffi::c_void, recnumber : i16, fieldidentifier : i16, value : *mut ::core::ffi::c_void, bufferlength : i32, stringlength : *mut i32) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLGetDescFieldA(hdesc : *mut ::core::ffi::c_void, irecord : i16, ifield : i16, rgbvalue : *mut ::core::ffi::c_void, cbbufferlength : i32, stringlength : *mut i32) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLGetDescFieldW(hdesc : *mut ::core::ffi::c_void, irecord : i16, ifield : i16, rgbvalue : *mut ::core::ffi::c_void, cbbufferlength : i32, stringlength : *mut i32) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLGetData(statementhandle : *mut core::ffi::c_void, columnnumber : u16, targettype : i16, targetvalue : *mut core::ffi::c_void, bufferlength : i32, strlen_or_indptr : *mut i32) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLGetDescField(descriptorhandle : *mut core::ffi::c_void, recnumber : i16, fieldidentifier : i16, value : *mut core::ffi::c_void, bufferlength : i32, stringlength : *mut i32) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLGetDescFieldA(hdesc : *mut core::ffi::c_void, irecord : i16, ifield : i16, rgbvalue : *mut core::ffi::c_void, cbbufferlength : i32, stringlength : *mut i32) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLGetDescFieldW(hdesc : *mut core::ffi::c_void, irecord : i16, ifield : i16, rgbvalue : *mut core::ffi::c_void, cbbufferlength : i32, stringlength : *mut i32) -> i16);
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-::windows_targets::link!("odbc32.dll" "system" fn SQLGetDescRec(descriptorhandle : *mut ::core::ffi::c_void, recnumber : i16, name : *mut u8, bufferlength : i16, stringlengthptr : *mut i16, typeptr : *mut i16, subtypeptr : *mut i16, lengthptr : *mut i64, precisionptr : *mut i16, scaleptr : *mut i16, nullableptr : *mut i16) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLGetDescRec(descriptorhandle : *mut core::ffi::c_void, recnumber : i16, name : *mut u8, bufferlength : i16, stringlengthptr : *mut i16, typeptr : *mut i16, subtypeptr : *mut i16, lengthptr : *mut i64, precisionptr : *mut i16, scaleptr : *mut i16, nullableptr : *mut i16) -> i16);
 #[cfg(target_arch = "x86")]
-::windows_targets::link!("odbc32.dll" "system" fn SQLGetDescRec(descriptorhandle : *mut ::core::ffi::c_void, recnumber : i16, name : *mut u8, bufferlength : i16, stringlengthptr : *mut i16, typeptr : *mut i16, subtypeptr : *mut i16, lengthptr : *mut i32, precisionptr : *mut i16, scaleptr : *mut i16, nullableptr : *mut i16) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLGetDescRec(descriptorhandle : *mut core::ffi::c_void, recnumber : i16, name : *mut u8, bufferlength : i16, stringlengthptr : *mut i16, typeptr : *mut i16, subtypeptr : *mut i16, lengthptr : *mut i32, precisionptr : *mut i16, scaleptr : *mut i16, nullableptr : *mut i16) -> i16);
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-::windows_targets::link!("odbc32.dll" "system" fn SQLGetDescRecA(hdesc : *mut ::core::ffi::c_void, irecord : i16, szname : *mut u8, cbnamemax : i16, pcbname : *mut i16, pftype : *mut i16, pfsubtype : *mut i16, plength : *mut i64, pprecision : *mut i16, pscale : *mut i16, pnullable : *mut i16) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLGetDescRecA(hdesc : *mut core::ffi::c_void, irecord : i16, szname : *mut u8, cbnamemax : i16, pcbname : *mut i16, pftype : *mut i16, pfsubtype : *mut i16, plength : *mut i64, pprecision : *mut i16, pscale : *mut i16, pnullable : *mut i16) -> i16);
 #[cfg(target_arch = "x86")]
-::windows_targets::link!("odbc32.dll" "system" fn SQLGetDescRecA(hdesc : *mut ::core::ffi::c_void, irecord : i16, szname : *mut u8, cbnamemax : i16, pcbname : *mut i16, pftype : *mut i16, pfsubtype : *mut i16, plength : *mut i32, pprecision : *mut i16, pscale : *mut i16, pnullable : *mut i16) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLGetDescRecA(hdesc : *mut core::ffi::c_void, irecord : i16, szname : *mut u8, cbnamemax : i16, pcbname : *mut i16, pftype : *mut i16, pfsubtype : *mut i16, plength : *mut i32, pprecision : *mut i16, pscale : *mut i16, pnullable : *mut i16) -> i16);
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-::windows_targets::link!("odbc32.dll" "system" fn SQLGetDescRecW(hdesc : *mut ::core::ffi::c_void, irecord : i16, szname : *mut u16, cchnamemax : i16, pcchname : *mut i16, pftype : *mut i16, pfsubtype : *mut i16, plength : *mut i64, pprecision : *mut i16, pscale : *mut i16, pnullable : *mut i16) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLGetDescRecW(hdesc : *mut core::ffi::c_void, irecord : i16, szname : *mut u16, cchnamemax : i16, pcchname : *mut i16, pftype : *mut i16, pfsubtype : *mut i16, plength : *mut i64, pprecision : *mut i16, pscale : *mut i16, pnullable : *mut i16) -> i16);
 #[cfg(target_arch = "x86")]
-::windows_targets::link!("odbc32.dll" "system" fn SQLGetDescRecW(hdesc : *mut ::core::ffi::c_void, irecord : i16, szname : *mut u16, cchnamemax : i16, pcchname : *mut i16, pftype : *mut i16, pfsubtype : *mut i16, plength : *mut i32, pprecision : *mut i16, pscale : *mut i16, pnullable : *mut i16) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLGetDiagField(handletype : i16, handle : *mut ::core::ffi::c_void, recnumber : i16, diagidentifier : i16, diaginfo : *mut ::core::ffi::c_void, bufferlength : i16, stringlength : *mut i16) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLGetDiagFieldA(fhandletype : i16, handle : *mut ::core::ffi::c_void, irecord : i16, fdiagfield : i16, rgbdiaginfo : *mut ::core::ffi::c_void, cbdiaginfomax : i16, pcbdiaginfo : *mut i16) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLGetDiagFieldW(fhandletype : i16, handle : *mut ::core::ffi::c_void, irecord : i16, fdiagfield : i16, rgbdiaginfo : *mut ::core::ffi::c_void, cbbufferlength : i16, pcbstringlength : *mut i16) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLGetDiagRec(handletype : i16, handle : *mut ::core::ffi::c_void, recnumber : i16, sqlstate : *mut u8, nativeerror : *mut i32, messagetext : *mut u8, bufferlength : i16, textlength : *mut i16) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLGetDiagRecA(fhandletype : i16, handle : *mut ::core::ffi::c_void, irecord : i16, szsqlstate : *mut u8, pfnativeerror : *mut i32, szerrormsg : *mut u8, cberrormsgmax : i16, pcberrormsg : *mut i16) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLGetDiagRecW(fhandletype : i16, handle : *mut ::core::ffi::c_void, irecord : i16, szsqlstate : *mut u16, pfnativeerror : *mut i32, szerrormsg : *mut u16, ccherrormsgmax : i16, pccherrormsg : *mut i16) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLGetEnvAttr(environmenthandle : *mut ::core::ffi::c_void, attribute : i32, value : *mut ::core::ffi::c_void, bufferlength : i32, stringlength : *mut i32) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLGetFunctions(connectionhandle : *mut ::core::ffi::c_void, functionid : u16, supported : *mut u16) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLGetInfo(connectionhandle : *mut ::core::ffi::c_void, infotype : u16, infovalue : *mut ::core::ffi::c_void, bufferlength : i16, stringlengthptr : *mut i16) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLGetInfoA(hdbc : *mut ::core::ffi::c_void, finfotype : u16, rgbinfovalue : *mut ::core::ffi::c_void, cbinfovaluemax : i16, pcbinfovalue : *mut i16) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLGetInfoW(hdbc : *mut ::core::ffi::c_void, finfotype : u16, rgbinfovalue : *mut ::core::ffi::c_void, cbinfovaluemax : i16, pcbinfovalue : *mut i16) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLGetDescRecW(hdesc : *mut core::ffi::c_void, irecord : i16, szname : *mut u16, cchnamemax : i16, pcchname : *mut i16, pftype : *mut i16, pfsubtype : *mut i16, plength : *mut i32, pprecision : *mut i16, pscale : *mut i16, pnullable : *mut i16) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLGetDiagField(handletype : i16, handle : *mut core::ffi::c_void, recnumber : i16, diagidentifier : i16, diaginfo : *mut core::ffi::c_void, bufferlength : i16, stringlength : *mut i16) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLGetDiagFieldA(fhandletype : i16, handle : *mut core::ffi::c_void, irecord : i16, fdiagfield : i16, rgbdiaginfo : *mut core::ffi::c_void, cbdiaginfomax : i16, pcbdiaginfo : *mut i16) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLGetDiagFieldW(fhandletype : i16, handle : *mut core::ffi::c_void, irecord : i16, fdiagfield : i16, rgbdiaginfo : *mut core::ffi::c_void, cbbufferlength : i16, pcbstringlength : *mut i16) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLGetDiagRec(handletype : i16, handle : *mut core::ffi::c_void, recnumber : i16, sqlstate : *mut u8, nativeerror : *mut i32, messagetext : *mut u8, bufferlength : i16, textlength : *mut i16) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLGetDiagRecA(fhandletype : i16, handle : *mut core::ffi::c_void, irecord : i16, szsqlstate : *mut u8, pfnativeerror : *mut i32, szerrormsg : *mut u8, cberrormsgmax : i16, pcberrormsg : *mut i16) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLGetDiagRecW(fhandletype : i16, handle : *mut core::ffi::c_void, irecord : i16, szsqlstate : *mut u16, pfnativeerror : *mut i32, szerrormsg : *mut u16, ccherrormsgmax : i16, pccherrormsg : *mut i16) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLGetEnvAttr(environmenthandle : *mut core::ffi::c_void, attribute : i32, value : *mut core::ffi::c_void, bufferlength : i32, stringlength : *mut i32) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLGetFunctions(connectionhandle : *mut core::ffi::c_void, functionid : u16, supported : *mut u16) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLGetInfo(connectionhandle : *mut core::ffi::c_void, infotype : u16, infovalue : *mut core::ffi::c_void, bufferlength : i16, stringlengthptr : *mut i16) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLGetInfoA(hdbc : *mut core::ffi::c_void, finfotype : u16, rgbinfovalue : *mut core::ffi::c_void, cbinfovaluemax : i16, pcbinfovalue : *mut i16) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLGetInfoW(hdbc : *mut core::ffi::c_void, finfotype : u16, rgbinfovalue : *mut core::ffi::c_void, cbinfovaluemax : i16, pcbinfovalue : *mut i16) -> i16);
 ::windows_targets::link!("odbcbcp.dll" "system" fn SQLGetNextEnumeration(henumhandle : super::super::Foundation:: HANDLE, prgenumdata : *mut u8, pienumlength : *mut i32) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLGetStmtAttr(statementhandle : *mut ::core::ffi::c_void, attribute : i32, value : *mut ::core::ffi::c_void, bufferlength : i32, stringlength : *mut i32) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLGetStmtAttrA(hstmt : *mut ::core::ffi::c_void, fattribute : i32, rgbvalue : *mut ::core::ffi::c_void, cbvaluemax : i32, pcbvalue : *mut i32) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLGetStmtAttrW(hstmt : *mut ::core::ffi::c_void, fattribute : i32, rgbvalue : *mut ::core::ffi::c_void, cbvaluemax : i32, pcbvalue : *mut i32) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLGetStmtOption(statementhandle : *mut ::core::ffi::c_void, option : u16, value : *mut ::core::ffi::c_void) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLGetTypeInfo(statementhandle : *mut ::core::ffi::c_void, datatype : i16) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLGetTypeInfoA(statementhandle : *mut ::core::ffi::c_void, datatype : i16) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLGetTypeInfoW(statementhandle : *mut ::core::ffi::c_void, datatype : i16) -> i16);
-::windows_targets::link!("odbcbcp.dll" "system" fn SQLInitEnumServers(pwchservername : ::windows_sys::core::PCWSTR, pwchinstancename : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: HANDLE);
-::windows_targets::link!("odbcbcp.dll" "system" fn SQLLinkedCatalogsA(param0 : *mut ::core::ffi::c_void, param1 : ::windows_sys::core::PCSTR, param2 : i16) -> i16);
-::windows_targets::link!("odbcbcp.dll" "system" fn SQLLinkedCatalogsW(param0 : *mut ::core::ffi::c_void, param1 : ::windows_sys::core::PCWSTR, param2 : i16) -> i16);
-::windows_targets::link!("odbcbcp.dll" "system" fn SQLLinkedServers(param0 : *mut ::core::ffi::c_void) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLMoreResults(hstmt : *mut ::core::ffi::c_void) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLNativeSql(hdbc : *mut ::core::ffi::c_void, szsqlstrin : *const u8, cchsqlstrin : i32, szsqlstr : *mut u8, cchsqlstrmax : i32, pcbsqlstr : *mut i32) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLNativeSqlA(hdbc : *mut ::core::ffi::c_void, szsqlstrin : *const u8, cbsqlstrin : i32, szsqlstr : *mut u8, cbsqlstrmax : i32, pcbsqlstr : *mut i32) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLNativeSqlW(hdbc : *mut ::core::ffi::c_void, szsqlstrin : *const u16, cchsqlstrin : i32, szsqlstr : *mut u16, cchsqlstrmax : i32, pcchsqlstr : *mut i32) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLNumParams(hstmt : *mut ::core::ffi::c_void, pcpar : *mut i16) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLNumResultCols(statementhandle : *mut ::core::ffi::c_void, columncount : *mut i16) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLParamData(statementhandle : *mut ::core::ffi::c_void, value : *mut *mut ::core::ffi::c_void) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLGetStmtAttr(statementhandle : *mut core::ffi::c_void, attribute : i32, value : *mut core::ffi::c_void, bufferlength : i32, stringlength : *mut i32) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLGetStmtAttrA(hstmt : *mut core::ffi::c_void, fattribute : i32, rgbvalue : *mut core::ffi::c_void, cbvaluemax : i32, pcbvalue : *mut i32) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLGetStmtAttrW(hstmt : *mut core::ffi::c_void, fattribute : i32, rgbvalue : *mut core::ffi::c_void, cbvaluemax : i32, pcbvalue : *mut i32) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLGetStmtOption(statementhandle : *mut core::ffi::c_void, option : u16, value : *mut core::ffi::c_void) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLGetTypeInfo(statementhandle : *mut core::ffi::c_void, datatype : i16) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLGetTypeInfoA(statementhandle : *mut core::ffi::c_void, datatype : i16) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLGetTypeInfoW(statementhandle : *mut core::ffi::c_void, datatype : i16) -> i16);
+::windows_targets::link!("odbcbcp.dll" "system" fn SQLInitEnumServers(pwchservername : windows_sys::core::PCWSTR, pwchinstancename : windows_sys::core::PCWSTR) -> super::super::Foundation:: HANDLE);
+::windows_targets::link!("odbcbcp.dll" "system" fn SQLLinkedCatalogsA(param0 : *mut core::ffi::c_void, param1 : windows_sys::core::PCSTR, param2 : i16) -> i16);
+::windows_targets::link!("odbcbcp.dll" "system" fn SQLLinkedCatalogsW(param0 : *mut core::ffi::c_void, param1 : windows_sys::core::PCWSTR, param2 : i16) -> i16);
+::windows_targets::link!("odbcbcp.dll" "system" fn SQLLinkedServers(param0 : *mut core::ffi::c_void) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLMoreResults(hstmt : *mut core::ffi::c_void) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLNativeSql(hdbc : *mut core::ffi::c_void, szsqlstrin : *const u8, cchsqlstrin : i32, szsqlstr : *mut u8, cchsqlstrmax : i32, pcbsqlstr : *mut i32) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLNativeSqlA(hdbc : *mut core::ffi::c_void, szsqlstrin : *const u8, cbsqlstrin : i32, szsqlstr : *mut u8, cbsqlstrmax : i32, pcbsqlstr : *mut i32) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLNativeSqlW(hdbc : *mut core::ffi::c_void, szsqlstrin : *const u16, cchsqlstrin : i32, szsqlstr : *mut u16, cchsqlstrmax : i32, pcchsqlstr : *mut i32) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLNumParams(hstmt : *mut core::ffi::c_void, pcpar : *mut i16) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLNumResultCols(statementhandle : *mut core::ffi::c_void, columncount : *mut i16) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLParamData(statementhandle : *mut core::ffi::c_void, value : *mut *mut core::ffi::c_void) -> i16);
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-::windows_targets::link!("odbc32.dll" "system" fn SQLParamOptions(hstmt : *mut ::core::ffi::c_void, crow : u64, pirow : *mut u64) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLParamOptions(hstmt : *mut core::ffi::c_void, crow : u64, pirow : *mut u64) -> i16);
 #[cfg(target_arch = "x86")]
-::windows_targets::link!("odbc32.dll" "system" fn SQLParamOptions(hstmt : *mut ::core::ffi::c_void, crow : u32, pirow : *mut u32) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLPrepare(statementhandle : *mut ::core::ffi::c_void, statementtext : *const u8, textlength : i32) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLPrepareA(hstmt : *mut ::core::ffi::c_void, szsqlstr : *const u8, cbsqlstr : i32) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLPrepareW(hstmt : *mut ::core::ffi::c_void, szsqlstr : *const u16, cchsqlstr : i32) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLPrimaryKeys(hstmt : *mut ::core::ffi::c_void, szcatalogname : *const u8, cchcatalogname : i16, szschemaname : *const u8, cchschemaname : i16, sztablename : *const u8, cchtablename : i16) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLPrimaryKeysA(hstmt : *mut ::core::ffi::c_void, szcatalogname : *const u8, cbcatalogname : i16, szschemaname : *const u8, cbschemaname : i16, sztablename : *const u8, cbtablename : i16) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLPrimaryKeysW(hstmt : *mut ::core::ffi::c_void, szcatalogname : *const u16, cchcatalogname : i16, szschemaname : *const u16, cchschemaname : i16, sztablename : *const u16, cchtablename : i16) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLProcedureColumns(hstmt : *mut ::core::ffi::c_void, szcatalogname : *const u8, cchcatalogname : i16, szschemaname : *const u8, cchschemaname : i16, szprocname : *const u8, cchprocname : i16, szcolumnname : *const u8, cchcolumnname : i16) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLProcedureColumnsA(hstmt : *mut ::core::ffi::c_void, szcatalogname : *const u8, cbcatalogname : i16, szschemaname : *const u8, cbschemaname : i16, szprocname : *const u8, cbprocname : i16, szcolumnname : *const u8, cbcolumnname : i16) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLProcedureColumnsW(hstmt : *mut ::core::ffi::c_void, szcatalogname : *const u16, cchcatalogname : i16, szschemaname : *const u16, cchschemaname : i16, szprocname : *const u16, cchprocname : i16, szcolumnname : *const u16, cchcolumnname : i16) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLProcedures(hstmt : *mut ::core::ffi::c_void, szcatalogname : *const u8, cchcatalogname : i16, szschemaname : *const u8, cchschemaname : i16, szprocname : *const u8, cchprocname : i16) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLProceduresA(hstmt : *mut ::core::ffi::c_void, szcatalogname : *const u8, cbcatalogname : i16, szschemaname : *const u8, cbschemaname : i16, szprocname : *const u8, cbprocname : i16) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLProceduresW(hstmt : *mut ::core::ffi::c_void, szcatalogname : *const u16, cchcatalogname : i16, szschemaname : *const u16, cchschemaname : i16, szprocname : *const u16, cchprocname : i16) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLParamOptions(hstmt : *mut core::ffi::c_void, crow : u32, pirow : *mut u32) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLPrepare(statementhandle : *mut core::ffi::c_void, statementtext : *const u8, textlength : i32) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLPrepareA(hstmt : *mut core::ffi::c_void, szsqlstr : *const u8, cbsqlstr : i32) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLPrepareW(hstmt : *mut core::ffi::c_void, szsqlstr : *const u16, cchsqlstr : i32) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLPrimaryKeys(hstmt : *mut core::ffi::c_void, szcatalogname : *const u8, cchcatalogname : i16, szschemaname : *const u8, cchschemaname : i16, sztablename : *const u8, cchtablename : i16) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLPrimaryKeysA(hstmt : *mut core::ffi::c_void, szcatalogname : *const u8, cbcatalogname : i16, szschemaname : *const u8, cbschemaname : i16, sztablename : *const u8, cbtablename : i16) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLPrimaryKeysW(hstmt : *mut core::ffi::c_void, szcatalogname : *const u16, cchcatalogname : i16, szschemaname : *const u16, cchschemaname : i16, sztablename : *const u16, cchtablename : i16) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLProcedureColumns(hstmt : *mut core::ffi::c_void, szcatalogname : *const u8, cchcatalogname : i16, szschemaname : *const u8, cchschemaname : i16, szprocname : *const u8, cchprocname : i16, szcolumnname : *const u8, cchcolumnname : i16) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLProcedureColumnsA(hstmt : *mut core::ffi::c_void, szcatalogname : *const u8, cbcatalogname : i16, szschemaname : *const u8, cbschemaname : i16, szprocname : *const u8, cbprocname : i16, szcolumnname : *const u8, cbcolumnname : i16) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLProcedureColumnsW(hstmt : *mut core::ffi::c_void, szcatalogname : *const u16, cchcatalogname : i16, szschemaname : *const u16, cchschemaname : i16, szprocname : *const u16, cchprocname : i16, szcolumnname : *const u16, cchcolumnname : i16) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLProcedures(hstmt : *mut core::ffi::c_void, szcatalogname : *const u8, cchcatalogname : i16, szschemaname : *const u8, cchschemaname : i16, szprocname : *const u8, cchprocname : i16) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLProceduresA(hstmt : *mut core::ffi::c_void, szcatalogname : *const u8, cbcatalogname : i16, szschemaname : *const u8, cbschemaname : i16, szprocname : *const u8, cbprocname : i16) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLProceduresW(hstmt : *mut core::ffi::c_void, szcatalogname : *const u16, cchcatalogname : i16, szschemaname : *const u16, cchschemaname : i16, szprocname : *const u16, cchprocname : i16) -> i16);
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-::windows_targets::link!("odbc32.dll" "system" fn SQLPutData(statementhandle : *mut ::core::ffi::c_void, data : *const ::core::ffi::c_void, strlen_or_ind : i64) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLPutData(statementhandle : *mut core::ffi::c_void, data : *const core::ffi::c_void, strlen_or_ind : i64) -> i16);
 #[cfg(target_arch = "x86")]
-::windows_targets::link!("odbc32.dll" "system" fn SQLPutData(statementhandle : *mut ::core::ffi::c_void, data : *const ::core::ffi::c_void, strlen_or_ind : i32) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLPutData(statementhandle : *mut core::ffi::c_void, data : *const core::ffi::c_void, strlen_or_ind : i32) -> i16);
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-::windows_targets::link!("odbc32.dll" "system" fn SQLRowCount(statementhandle : *const ::core::ffi::c_void, rowcount : *mut i64) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLRowCount(statementhandle : *const core::ffi::c_void, rowcount : *mut i64) -> i16);
 #[cfg(target_arch = "x86")]
-::windows_targets::link!("odbc32.dll" "system" fn SQLRowCount(statementhandle : *const ::core::ffi::c_void, rowcount : *mut i32) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLSetConnectAttr(connectionhandle : *mut ::core::ffi::c_void, attribute : i32, value : *const ::core::ffi::c_void, stringlength : i32) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLSetConnectAttrA(hdbc : *mut ::core::ffi::c_void, fattribute : i32, rgbvalue : *const ::core::ffi::c_void, cbvalue : i32) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLSetConnectAttrW(hdbc : *mut ::core::ffi::c_void, fattribute : i32, rgbvalue : *const ::core::ffi::c_void, cbvalue : i32) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLRowCount(statementhandle : *const core::ffi::c_void, rowcount : *mut i32) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLSetConnectAttr(connectionhandle : *mut core::ffi::c_void, attribute : i32, value : *const core::ffi::c_void, stringlength : i32) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLSetConnectAttrA(hdbc : *mut core::ffi::c_void, fattribute : i32, rgbvalue : *const core::ffi::c_void, cbvalue : i32) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLSetConnectAttrW(hdbc : *mut core::ffi::c_void, fattribute : i32, rgbvalue : *const core::ffi::c_void, cbvalue : i32) -> i16);
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-::windows_targets::link!("odbc32.dll" "system" fn SQLSetConnectOption(connectionhandle : *mut ::core::ffi::c_void, option : u16, value : u64) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLSetConnectOption(connectionhandle : *mut core::ffi::c_void, option : u16, value : u64) -> i16);
 #[cfg(target_arch = "x86")]
-::windows_targets::link!("odbc32.dll" "system" fn SQLSetConnectOption(connectionhandle : *mut ::core::ffi::c_void, option : u16, value : u32) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLSetConnectOption(connectionhandle : *mut core::ffi::c_void, option : u16, value : u32) -> i16);
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-::windows_targets::link!("odbc32.dll" "system" fn SQLSetConnectOptionA(hdbc : *mut ::core::ffi::c_void, foption : u16, vparam : u64) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLSetConnectOptionA(hdbc : *mut core::ffi::c_void, foption : u16, vparam : u64) -> i16);
 #[cfg(target_arch = "x86")]
-::windows_targets::link!("odbc32.dll" "system" fn SQLSetConnectOptionA(hdbc : *mut ::core::ffi::c_void, foption : u16, vparam : u32) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLSetConnectOptionA(hdbc : *mut core::ffi::c_void, foption : u16, vparam : u32) -> i16);
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-::windows_targets::link!("odbc32.dll" "system" fn SQLSetConnectOptionW(hdbc : *mut ::core::ffi::c_void, foption : u16, vparam : u64) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLSetConnectOptionW(hdbc : *mut core::ffi::c_void, foption : u16, vparam : u64) -> i16);
 #[cfg(target_arch = "x86")]
-::windows_targets::link!("odbc32.dll" "system" fn SQLSetConnectOptionW(hdbc : *mut ::core::ffi::c_void, foption : u16, vparam : u32) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLSetCursorName(statementhandle : *mut ::core::ffi::c_void, cursorname : *const u8, namelength : i16) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLSetCursorNameA(hstmt : *mut ::core::ffi::c_void, szcursor : *const u8, cbcursor : i16) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLSetCursorNameW(hstmt : *mut ::core::ffi::c_void, szcursor : *const u16, cchcursor : i16) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLSetDescField(descriptorhandle : *mut ::core::ffi::c_void, recnumber : i16, fieldidentifier : i16, value : *const ::core::ffi::c_void, bufferlength : i32) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLSetDescFieldW(descriptorhandle : *mut ::core::ffi::c_void, recnumber : i16, fieldidentifier : i16, value : *mut ::core::ffi::c_void, bufferlength : i32) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLSetConnectOptionW(hdbc : *mut core::ffi::c_void, foption : u16, vparam : u32) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLSetCursorName(statementhandle : *mut core::ffi::c_void, cursorname : *const u8, namelength : i16) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLSetCursorNameA(hstmt : *mut core::ffi::c_void, szcursor : *const u8, cbcursor : i16) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLSetCursorNameW(hstmt : *mut core::ffi::c_void, szcursor : *const u16, cchcursor : i16) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLSetDescField(descriptorhandle : *mut core::ffi::c_void, recnumber : i16, fieldidentifier : i16, value : *const core::ffi::c_void, bufferlength : i32) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLSetDescFieldW(descriptorhandle : *mut core::ffi::c_void, recnumber : i16, fieldidentifier : i16, value : *mut core::ffi::c_void, bufferlength : i32) -> i16);
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-::windows_targets::link!("odbc32.dll" "system" fn SQLSetDescRec(descriptorhandle : *mut ::core::ffi::c_void, recnumber : i16, r#type : i16, subtype : i16, length : i64, precision : i16, scale : i16, data : *mut ::core::ffi::c_void, stringlength : *mut i64, indicator : *mut i64) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLSetDescRec(descriptorhandle : *mut core::ffi::c_void, recnumber : i16, r#type : i16, subtype : i16, length : i64, precision : i16, scale : i16, data : *mut core::ffi::c_void, stringlength : *mut i64, indicator : *mut i64) -> i16);
 #[cfg(target_arch = "x86")]
-::windows_targets::link!("odbc32.dll" "system" fn SQLSetDescRec(descriptorhandle : *mut ::core::ffi::c_void, recnumber : i16, r#type : i16, subtype : i16, length : i32, precision : i16, scale : i16, data : *mut ::core::ffi::c_void, stringlength : *mut i32, indicator : *mut i32) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLSetEnvAttr(environmenthandle : *mut ::core::ffi::c_void, attribute : i32, value : *const ::core::ffi::c_void, stringlength : i32) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLSetDescRec(descriptorhandle : *mut core::ffi::c_void, recnumber : i16, r#type : i16, subtype : i16, length : i32, precision : i16, scale : i16, data : *mut core::ffi::c_void, stringlength : *mut i32, indicator : *mut i32) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLSetEnvAttr(environmenthandle : *mut core::ffi::c_void, attribute : i32, value : *const core::ffi::c_void, stringlength : i32) -> i16);
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-::windows_targets::link!("odbc32.dll" "system" fn SQLSetParam(statementhandle : *mut ::core::ffi::c_void, parameternumber : u16, valuetype : i16, parametertype : i16, lengthprecision : u64, parameterscale : i16, parametervalue : *const ::core::ffi::c_void, strlen_or_ind : *mut i64) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLSetParam(statementhandle : *mut core::ffi::c_void, parameternumber : u16, valuetype : i16, parametertype : i16, lengthprecision : u64, parameterscale : i16, parametervalue : *const core::ffi::c_void, strlen_or_ind : *mut i64) -> i16);
 #[cfg(target_arch = "x86")]
-::windows_targets::link!("odbc32.dll" "system" fn SQLSetParam(statementhandle : *mut ::core::ffi::c_void, parameternumber : u16, valuetype : i16, parametertype : i16, lengthprecision : u32, parameterscale : i16, parametervalue : *const ::core::ffi::c_void, strlen_or_ind : *mut i32) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLSetParam(statementhandle : *mut core::ffi::c_void, parameternumber : u16, valuetype : i16, parametertype : i16, lengthprecision : u32, parameterscale : i16, parametervalue : *const core::ffi::c_void, strlen_or_ind : *mut i32) -> i16);
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-::windows_targets::link!("odbc32.dll" "system" fn SQLSetPos(hstmt : *mut ::core::ffi::c_void, irow : u64, foption : u16, flock : u16) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLSetPos(hstmt : *mut core::ffi::c_void, irow : u64, foption : u16, flock : u16) -> i16);
 #[cfg(target_arch = "x86")]
-::windows_targets::link!("odbc32.dll" "system" fn SQLSetPos(hstmt : *mut ::core::ffi::c_void, irow : u16, foption : u16, flock : u16) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLSetPos(hstmt : *mut core::ffi::c_void, irow : u16, foption : u16, flock : u16) -> i16);
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-::windows_targets::link!("odbc32.dll" "system" fn SQLSetScrollOptions(hstmt : *mut ::core::ffi::c_void, fconcurrency : u16, crowkeyset : i64, crowrowset : u16) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLSetScrollOptions(hstmt : *mut core::ffi::c_void, fconcurrency : u16, crowkeyset : i64, crowrowset : u16) -> i16);
 #[cfg(target_arch = "x86")]
-::windows_targets::link!("odbc32.dll" "system" fn SQLSetScrollOptions(hstmt : *mut ::core::ffi::c_void, fconcurrency : u16, crowkeyset : i32, crowrowset : u16) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLSetStmtAttr(statementhandle : *mut ::core::ffi::c_void, attribute : i32, value : *const ::core::ffi::c_void, stringlength : i32) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLSetStmtAttrW(hstmt : *mut ::core::ffi::c_void, fattribute : i32, rgbvalue : *mut ::core::ffi::c_void, cbvaluemax : i32) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLSetScrollOptions(hstmt : *mut core::ffi::c_void, fconcurrency : u16, crowkeyset : i32, crowrowset : u16) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLSetStmtAttr(statementhandle : *mut core::ffi::c_void, attribute : i32, value : *const core::ffi::c_void, stringlength : i32) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLSetStmtAttrW(hstmt : *mut core::ffi::c_void, fattribute : i32, rgbvalue : *mut core::ffi::c_void, cbvaluemax : i32) -> i16);
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-::windows_targets::link!("odbc32.dll" "system" fn SQLSetStmtOption(statementhandle : *mut ::core::ffi::c_void, option : u16, value : u64) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLSetStmtOption(statementhandle : *mut core::ffi::c_void, option : u16, value : u64) -> i16);
 #[cfg(target_arch = "x86")]
-::windows_targets::link!("odbc32.dll" "system" fn SQLSetStmtOption(statementhandle : *mut ::core::ffi::c_void, option : u16, value : u32) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLSpecialColumns(statementhandle : *mut ::core::ffi::c_void, identifiertype : u16, catalogname : *const u8, namelength1 : i16, schemaname : *const u8, namelength2 : i16, tablename : *const u8, namelength3 : i16, scope : u16, nullable : u16) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLSpecialColumnsA(hstmt : *mut ::core::ffi::c_void, fcoltype : u16, szcatalogname : *const u8, cbcatalogname : i16, szschemaname : *const u8, cbschemaname : i16, sztablename : *const u8, cbtablename : i16, fscope : u16, fnullable : u16) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLSpecialColumnsW(hstmt : *mut ::core::ffi::c_void, fcoltype : u16, szcatalogname : *const u16, cchcatalogname : i16, szschemaname : *const u16, cchschemaname : i16, sztablename : *const u16, cchtablename : i16, fscope : u16, fnullable : u16) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLStatistics(statementhandle : *mut ::core::ffi::c_void, catalogname : *const u8, namelength1 : i16, schemaname : *const u8, namelength2 : i16, tablename : *const u8, namelength3 : i16, unique : u16, reserved : u16) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLStatisticsA(hstmt : *mut ::core::ffi::c_void, szcatalogname : *const u8, cbcatalogname : i16, szschemaname : *const u8, cbschemaname : i16, sztablename : *const u8, cbtablename : i16, funique : u16, faccuracy : u16) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLStatisticsW(hstmt : *mut ::core::ffi::c_void, szcatalogname : *const u16, cchcatalogname : i16, szschemaname : *const u16, cchschemaname : i16, sztablename : *const u16, cchtablename : i16, funique : u16, faccuracy : u16) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLTablePrivileges(hstmt : *mut ::core::ffi::c_void, szcatalogname : *const u8, cchcatalogname : i16, szschemaname : *const u8, cchschemaname : i16, sztablename : *const u8, cchtablename : i16) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLTablePrivilegesA(hstmt : *mut ::core::ffi::c_void, szcatalogname : *const u8, cbcatalogname : i16, szschemaname : *const u8, cbschemaname : i16, sztablename : *const u8, cbtablename : i16) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLTablePrivilegesW(hstmt : *mut ::core::ffi::c_void, szcatalogname : *const u16, cchcatalogname : i16, szschemaname : *const u16, cchschemaname : i16, sztablename : *const u16, cchtablename : i16) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLTables(statementhandle : *mut ::core::ffi::c_void, catalogname : *const u8, namelength1 : i16, schemaname : *const u8, namelength2 : i16, tablename : *const u8, namelength3 : i16, tabletype : *const u8, namelength4 : i16) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLTablesA(hstmt : *mut ::core::ffi::c_void, szcatalogname : *const u8, cbcatalogname : i16, szschemaname : *const u8, cbschemaname : i16, sztablename : *const u8, cbtablename : i16, sztabletype : *const u8, cbtabletype : i16) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLTablesW(hstmt : *mut ::core::ffi::c_void, szcatalogname : *const u16, cchcatalogname : i16, szschemaname : *const u16, cchschemaname : i16, sztablename : *const u16, cchtablename : i16, sztabletype : *const u16, cchtabletype : i16) -> i16);
-::windows_targets::link!("odbc32.dll" "system" fn SQLTransact(environmenthandle : *mut ::core::ffi::c_void, connectionhandle : *mut ::core::ffi::c_void, completiontype : u16) -> i16);
-::windows_targets::link!("odbcbcp.dll" "system" fn bcp_batch(param0 : *mut ::core::ffi::c_void) -> i32);
-::windows_targets::link!("odbcbcp.dll" "system" fn bcp_bind(param0 : *mut ::core::ffi::c_void, param1 : *mut u8, param2 : i32, param3 : i32, param4 : *mut u8, param5 : i32, param6 : i32, param7 : i32) -> i16);
-::windows_targets::link!("odbcbcp.dll" "system" fn bcp_colfmt(param0 : *mut ::core::ffi::c_void, param1 : i32, param2 : u8, param3 : i32, param4 : i32, param5 : *mut u8, param6 : i32, param7 : i32) -> i16);
-::windows_targets::link!("odbcbcp.dll" "system" fn bcp_collen(param0 : *mut ::core::ffi::c_void, param1 : i32, param2 : i32) -> i16);
-::windows_targets::link!("odbcbcp.dll" "system" fn bcp_colptr(param0 : *mut ::core::ffi::c_void, param1 : *mut u8, param2 : i32) -> i16);
-::windows_targets::link!("odbcbcp.dll" "system" fn bcp_columns(param0 : *mut ::core::ffi::c_void, param1 : i32) -> i16);
-::windows_targets::link!("odbcbcp.dll" "system" fn bcp_control(param0 : *mut ::core::ffi::c_void, param1 : i32, param2 : *mut ::core::ffi::c_void) -> i16);
-::windows_targets::link!("odbcbcp.dll" "system" fn bcp_done(param0 : *mut ::core::ffi::c_void) -> i32);
-::windows_targets::link!("odbcbcp.dll" "system" fn bcp_exec(param0 : *mut ::core::ffi::c_void, param1 : *mut i32) -> i16);
-::windows_targets::link!("odbcbcp.dll" "system" fn bcp_getcolfmt(param0 : *mut ::core::ffi::c_void, param1 : i32, param2 : i32, param3 : *mut ::core::ffi::c_void, param4 : i32, param5 : *mut i32) -> i16);
-::windows_targets::link!("odbcbcp.dll" "system" fn bcp_initA(param0 : *mut ::core::ffi::c_void, param1 : ::windows_sys::core::PCSTR, param2 : ::windows_sys::core::PCSTR, param3 : ::windows_sys::core::PCSTR, param4 : i32) -> i16);
-::windows_targets::link!("odbcbcp.dll" "system" fn bcp_initW(param0 : *mut ::core::ffi::c_void, param1 : ::windows_sys::core::PCWSTR, param2 : ::windows_sys::core::PCWSTR, param3 : ::windows_sys::core::PCWSTR, param4 : i32) -> i16);
-::windows_targets::link!("odbcbcp.dll" "system" fn bcp_moretext(param0 : *mut ::core::ffi::c_void, param1 : i32, param2 : *mut u8) -> i16);
-::windows_targets::link!("odbcbcp.dll" "system" fn bcp_readfmtA(param0 : *mut ::core::ffi::c_void, param1 : ::windows_sys::core::PCSTR) -> i16);
-::windows_targets::link!("odbcbcp.dll" "system" fn bcp_readfmtW(param0 : *mut ::core::ffi::c_void, param1 : ::windows_sys::core::PCWSTR) -> i16);
-::windows_targets::link!("odbcbcp.dll" "system" fn bcp_sendrow(param0 : *mut ::core::ffi::c_void) -> i16);
-::windows_targets::link!("odbcbcp.dll" "system" fn bcp_setcolfmt(param0 : *mut ::core::ffi::c_void, param1 : i32, param2 : i32, param3 : *mut ::core::ffi::c_void, param4 : i32) -> i16);
-::windows_targets::link!("odbcbcp.dll" "system" fn bcp_writefmtA(param0 : *mut ::core::ffi::c_void, param1 : ::windows_sys::core::PCSTR) -> i16);
-::windows_targets::link!("odbcbcp.dll" "system" fn bcp_writefmtW(param0 : *mut ::core::ffi::c_void, param1 : ::windows_sys::core::PCWSTR) -> i16);
-::windows_targets::link!("odbcbcp.dll" "system" fn dbprtypeA(param0 : i32) -> ::windows_sys::core::PSTR);
-::windows_targets::link!("odbcbcp.dll" "system" fn dbprtypeW(param0 : i32) -> ::windows_sys::core::PWSTR);
+::windows_targets::link!("odbc32.dll" "system" fn SQLSetStmtOption(statementhandle : *mut core::ffi::c_void, option : u16, value : u32) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLSpecialColumns(statementhandle : *mut core::ffi::c_void, identifiertype : u16, catalogname : *const u8, namelength1 : i16, schemaname : *const u8, namelength2 : i16, tablename : *const u8, namelength3 : i16, scope : u16, nullable : u16) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLSpecialColumnsA(hstmt : *mut core::ffi::c_void, fcoltype : u16, szcatalogname : *const u8, cbcatalogname : i16, szschemaname : *const u8, cbschemaname : i16, sztablename : *const u8, cbtablename : i16, fscope : u16, fnullable : u16) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLSpecialColumnsW(hstmt : *mut core::ffi::c_void, fcoltype : u16, szcatalogname : *const u16, cchcatalogname : i16, szschemaname : *const u16, cchschemaname : i16, sztablename : *const u16, cchtablename : i16, fscope : u16, fnullable : u16) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLStatistics(statementhandle : *mut core::ffi::c_void, catalogname : *const u8, namelength1 : i16, schemaname : *const u8, namelength2 : i16, tablename : *const u8, namelength3 : i16, unique : u16, reserved : u16) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLStatisticsA(hstmt : *mut core::ffi::c_void, szcatalogname : *const u8, cbcatalogname : i16, szschemaname : *const u8, cbschemaname : i16, sztablename : *const u8, cbtablename : i16, funique : u16, faccuracy : u16) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLStatisticsW(hstmt : *mut core::ffi::c_void, szcatalogname : *const u16, cchcatalogname : i16, szschemaname : *const u16, cchschemaname : i16, sztablename : *const u16, cchtablename : i16, funique : u16, faccuracy : u16) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLTablePrivileges(hstmt : *mut core::ffi::c_void, szcatalogname : *const u8, cchcatalogname : i16, szschemaname : *const u8, cchschemaname : i16, sztablename : *const u8, cchtablename : i16) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLTablePrivilegesA(hstmt : *mut core::ffi::c_void, szcatalogname : *const u8, cbcatalogname : i16, szschemaname : *const u8, cbschemaname : i16, sztablename : *const u8, cbtablename : i16) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLTablePrivilegesW(hstmt : *mut core::ffi::c_void, szcatalogname : *const u16, cchcatalogname : i16, szschemaname : *const u16, cchschemaname : i16, sztablename : *const u16, cchtablename : i16) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLTables(statementhandle : *mut core::ffi::c_void, catalogname : *const u8, namelength1 : i16, schemaname : *const u8, namelength2 : i16, tablename : *const u8, namelength3 : i16, tabletype : *const u8, namelength4 : i16) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLTablesA(hstmt : *mut core::ffi::c_void, szcatalogname : *const u8, cbcatalogname : i16, szschemaname : *const u8, cbschemaname : i16, sztablename : *const u8, cbtablename : i16, sztabletype : *const u8, cbtabletype : i16) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLTablesW(hstmt : *mut core::ffi::c_void, szcatalogname : *const u16, cchcatalogname : i16, szschemaname : *const u16, cchschemaname : i16, sztablename : *const u16, cchtablename : i16, sztabletype : *const u16, cchtabletype : i16) -> i16);
+::windows_targets::link!("odbc32.dll" "system" fn SQLTransact(environmenthandle : *mut core::ffi::c_void, connectionhandle : *mut core::ffi::c_void, completiontype : u16) -> i16);
+::windows_targets::link!("odbcbcp.dll" "system" fn bcp_batch(param0 : *mut core::ffi::c_void) -> i32);
+::windows_targets::link!("odbcbcp.dll" "system" fn bcp_bind(param0 : *mut core::ffi::c_void, param1 : *mut u8, param2 : i32, param3 : i32, param4 : *mut u8, param5 : i32, param6 : i32, param7 : i32) -> i16);
+::windows_targets::link!("odbcbcp.dll" "system" fn bcp_colfmt(param0 : *mut core::ffi::c_void, param1 : i32, param2 : u8, param3 : i32, param4 : i32, param5 : *mut u8, param6 : i32, param7 : i32) -> i16);
+::windows_targets::link!("odbcbcp.dll" "system" fn bcp_collen(param0 : *mut core::ffi::c_void, param1 : i32, param2 : i32) -> i16);
+::windows_targets::link!("odbcbcp.dll" "system" fn bcp_colptr(param0 : *mut core::ffi::c_void, param1 : *mut u8, param2 : i32) -> i16);
+::windows_targets::link!("odbcbcp.dll" "system" fn bcp_columns(param0 : *mut core::ffi::c_void, param1 : i32) -> i16);
+::windows_targets::link!("odbcbcp.dll" "system" fn bcp_control(param0 : *mut core::ffi::c_void, param1 : i32, param2 : *mut core::ffi::c_void) -> i16);
+::windows_targets::link!("odbcbcp.dll" "system" fn bcp_done(param0 : *mut core::ffi::c_void) -> i32);
+::windows_targets::link!("odbcbcp.dll" "system" fn bcp_exec(param0 : *mut core::ffi::c_void, param1 : *mut i32) -> i16);
+::windows_targets::link!("odbcbcp.dll" "system" fn bcp_getcolfmt(param0 : *mut core::ffi::c_void, param1 : i32, param2 : i32, param3 : *mut core::ffi::c_void, param4 : i32, param5 : *mut i32) -> i16);
+::windows_targets::link!("odbcbcp.dll" "system" fn bcp_initA(param0 : *mut core::ffi::c_void, param1 : windows_sys::core::PCSTR, param2 : windows_sys::core::PCSTR, param3 : windows_sys::core::PCSTR, param4 : i32) -> i16);
+::windows_targets::link!("odbcbcp.dll" "system" fn bcp_initW(param0 : *mut core::ffi::c_void, param1 : windows_sys::core::PCWSTR, param2 : windows_sys::core::PCWSTR, param3 : windows_sys::core::PCWSTR, param4 : i32) -> i16);
+::windows_targets::link!("odbcbcp.dll" "system" fn bcp_moretext(param0 : *mut core::ffi::c_void, param1 : i32, param2 : *mut u8) -> i16);
+::windows_targets::link!("odbcbcp.dll" "system" fn bcp_readfmtA(param0 : *mut core::ffi::c_void, param1 : windows_sys::core::PCSTR) -> i16);
+::windows_targets::link!("odbcbcp.dll" "system" fn bcp_readfmtW(param0 : *mut core::ffi::c_void, param1 : windows_sys::core::PCWSTR) -> i16);
+::windows_targets::link!("odbcbcp.dll" "system" fn bcp_sendrow(param0 : *mut core::ffi::c_void) -> i16);
+::windows_targets::link!("odbcbcp.dll" "system" fn bcp_setcolfmt(param0 : *mut core::ffi::c_void, param1 : i32, param2 : i32, param3 : *mut core::ffi::c_void, param4 : i32) -> i16);
+::windows_targets::link!("odbcbcp.dll" "system" fn bcp_writefmtA(param0 : *mut core::ffi::c_void, param1 : windows_sys::core::PCSTR) -> i16);
+::windows_targets::link!("odbcbcp.dll" "system" fn bcp_writefmtW(param0 : *mut core::ffi::c_void, param1 : windows_sys::core::PCWSTR) -> i16);
+::windows_targets::link!("odbcbcp.dll" "system" fn dbprtypeA(param0 : i32) -> windows_sys::core::PSTR);
+::windows_targets::link!("odbcbcp.dll" "system" fn dbprtypeW(param0 : i32) -> windows_sys::core::PWSTR);
 pub const BCP6xFILEFMT: u32 = 9u32;
 pub const BCPABORT: u32 = 6u32;
 pub const BCPBATCH: u32 = 4u32;
@@ -340,29 +340,29 @@ pub const CHANNEL_AGENT_DYNAMIC_SCHEDULE: CHANNEL_AGENT_FLAGS = 1i32;
 pub const CHANNEL_AGENT_PRECACHE_ALL: CHANNEL_AGENT_FLAGS = 4i32;
 pub const CHANNEL_AGENT_PRECACHE_SCRNSAVER: CHANNEL_AGENT_FLAGS = 8i32;
 pub const CHANNEL_AGENT_PRECACHE_SOME: CHANNEL_AGENT_FLAGS = 2i32;
-pub const CI_E_CORRUPT_FWIDX: ::windows_sys::core::HRESULT = 0xC004182D_u32 as _;
-pub const CI_E_DIACRITIC_SETTINGS_DIFFER: ::windows_sys::core::HRESULT = 0xC004182E_u32 as _;
-pub const CI_E_INCONSISTENT_TRANSACTION: ::windows_sys::core::HRESULT = 0xC0041832_u32 as _;
-pub const CI_E_INVALID_CATALOG_LIST_VERSION: ::windows_sys::core::HRESULT = 0x8004182F_u32 as _;
-pub const CI_E_MULTIPLE_PROTECTED_USERS_UNSUPPORTED: ::windows_sys::core::HRESULT = 0xC0041835_u32 as _;
-pub const CI_E_NO_AUXMETADATA: ::windows_sys::core::HRESULT = 0x8004182A_u32 as _;
-pub const CI_E_NO_CATALOG_MANAGER: ::windows_sys::core::HRESULT = 0xC0041831_u32 as _;
-pub const CI_E_NO_PROTECTED_USER: ::windows_sys::core::HRESULT = 0xC0041834_u32 as _;
-pub const CI_E_PROTECTED_CATALOG_NON_INTERACTIVE_USER: ::windows_sys::core::HRESULT = 0xC0041837_u32 as _;
-pub const CI_E_PROTECTED_CATALOG_NOT_AVAILABLE: ::windows_sys::core::HRESULT = 0xC0041833_u32 as _;
-pub const CI_E_PROTECTED_CATALOG_SID_MISMATCH: ::windows_sys::core::HRESULT = 0xC0041836_u32 as _;
-pub const CI_S_CATALOG_RESET: ::windows_sys::core::HRESULT = 0x41830_u32 as _;
-pub const CI_S_CLIENT_REQUESTED_ABORT: ::windows_sys::core::HRESULT = 0x4182B_u32 as _;
-pub const CI_S_NEW_AUXMETADATA: ::windows_sys::core::HRESULT = 0x41829_u32 as _;
-pub const CI_S_RETRY_DOCUMENT: ::windows_sys::core::HRESULT = 0x4182C_u32 as _;
-pub const CLSID_CISimpleCommandCreator: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xc7b6c04a_cbb5_11d0_bb4c_00c04fc2f410);
-pub const CLSID_DataShapeProvider: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x3449a1c8_c56c_11d0_ad72_00c04fc29863);
-pub const CLSID_MSDASQL: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xc8b522cb_5cf3_11ce_ade5_00aa0044773d);
-pub const CLSID_MSDASQL_ENUMERATOR: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xc8b522cd_5cf3_11ce_ade5_00aa0044773d);
-pub const CLSID_MSPersist: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x7c07e0d0_4418_11d2_9212_00c04fbbbfb3);
-pub const CLSID_SQLOLEDB: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x0c7ff16c_38e3_11d0_97ab_00c04fc2ad98);
-pub const CLSID_SQLOLEDB_ENUMERATOR: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xdfa22b8e_e68d_11d0_97e4_00c04fc2ad98);
-pub const CLSID_SQLOLEDB_ERROR: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xc0932c62_38e5_11d0_97ab_00c04fc2ad98);
+pub const CI_E_CORRUPT_FWIDX: windows_sys::core::HRESULT = 0xC004182D_u32 as _;
+pub const CI_E_DIACRITIC_SETTINGS_DIFFER: windows_sys::core::HRESULT = 0xC004182E_u32 as _;
+pub const CI_E_INCONSISTENT_TRANSACTION: windows_sys::core::HRESULT = 0xC0041832_u32 as _;
+pub const CI_E_INVALID_CATALOG_LIST_VERSION: windows_sys::core::HRESULT = 0x8004182F_u32 as _;
+pub const CI_E_MULTIPLE_PROTECTED_USERS_UNSUPPORTED: windows_sys::core::HRESULT = 0xC0041835_u32 as _;
+pub const CI_E_NO_AUXMETADATA: windows_sys::core::HRESULT = 0x8004182A_u32 as _;
+pub const CI_E_NO_CATALOG_MANAGER: windows_sys::core::HRESULT = 0xC0041831_u32 as _;
+pub const CI_E_NO_PROTECTED_USER: windows_sys::core::HRESULT = 0xC0041834_u32 as _;
+pub const CI_E_PROTECTED_CATALOG_NON_INTERACTIVE_USER: windows_sys::core::HRESULT = 0xC0041837_u32 as _;
+pub const CI_E_PROTECTED_CATALOG_NOT_AVAILABLE: windows_sys::core::HRESULT = 0xC0041833_u32 as _;
+pub const CI_E_PROTECTED_CATALOG_SID_MISMATCH: windows_sys::core::HRESULT = 0xC0041836_u32 as _;
+pub const CI_S_CATALOG_RESET: windows_sys::core::HRESULT = 0x41830_u32 as _;
+pub const CI_S_CLIENT_REQUESTED_ABORT: windows_sys::core::HRESULT = 0x4182B_u32 as _;
+pub const CI_S_NEW_AUXMETADATA: windows_sys::core::HRESULT = 0x41829_u32 as _;
+pub const CI_S_RETRY_DOCUMENT: windows_sys::core::HRESULT = 0x4182C_u32 as _;
+pub const CLSID_CISimpleCommandCreator: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc7b6c04a_cbb5_11d0_bb4c_00c04fc2f410);
+pub const CLSID_DataShapeProvider: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3449a1c8_c56c_11d0_ad72_00c04fc29863);
+pub const CLSID_MSDASQL: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc8b522cb_5cf3_11ce_ade5_00aa0044773d);
+pub const CLSID_MSDASQL_ENUMERATOR: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc8b522cd_5cf3_11ce_ade5_00aa0044773d);
+pub const CLSID_MSPersist: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7c07e0d0_4418_11d2_9212_00c04fbbbfb3);
+pub const CLSID_SQLOLEDB: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0c7ff16c_38e3_11d0_97ab_00c04fc2ad98);
+pub const CLSID_SQLOLEDB_ENUMERATOR: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdfa22b8e_e68d_11d0_97e4_00c04fc2ad98);
+pub const CLSID_SQLOLEDB_ERROR: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc0932c62_38e5_11d0_97ab_00c04fc2ad98);
 pub const CLUSIONREASON_DEFAULT: CLUSION_REASON = 1i32;
 pub const CLUSIONREASON_GROUPPOLICY: CLUSION_REASON = 3i32;
 pub const CLUSIONREASON_UNKNOWNSCOPE: CLUSION_REASON = 0i32;
@@ -507,11 +507,11 @@ pub const DBBINDURLSTATUS_S_DENYNOTSUPPORTED: DBBINDURLSTATUSENUM = 1i32;
 pub const DBBINDURLSTATUS_S_DENYTYPENOTSUPPORTED: DBBINDURLSTATUSENUM = 4i32;
 pub const DBBINDURLSTATUS_S_OK: DBBINDURLSTATUSENUM = 0i32;
 pub const DBBINDURLSTATUS_S_REDIRECTED: DBBINDURLSTATUSENUM = 8i32;
-pub const DBBMKGUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xc8b52232_5cf3_11ce_ade5_00aa0044773d);
+pub const DBBMKGUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc8b52232_5cf3_11ce_ade5_00aa0044773d);
 pub const DBBMK_FIRST: DBBOOKMARK = 1i32;
 pub const DBBMK_INVALID: DBBOOKMARK = 0i32;
 pub const DBBMK_LAST: DBBOOKMARK = 2i32;
-pub const DBCIDGUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x0c733a81_2a1c_11ce_ade5_00aa0044773d);
+pub const DBCIDGUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0c733a81_2a1c_11ce_ade5_00aa0044773d);
 pub const DBCOLUMNDESCFLAGS_CLSID: DBCOLUMNDESCFLAGSENUM = 8i32;
 pub const DBCOLUMNDESCFLAGS_COLSIZE: DBCOLUMNDESCFLAGSENUM = 16i32;
 pub const DBCOLUMNDESCFLAGS_DBCID: DBCOLUMNDESCFLAGSENUM = 32i32;
@@ -599,10 +599,10 @@ pub const DBEVENTPHASE_SYNCHAFTER: DBEVENTPHASEENUM = 2i32;
 pub const DBEXECLIMITS_ABORT: DBEXECLIMITSENUM = 1i32;
 pub const DBEXECLIMITS_STOP: DBEXECLIMITSENUM = 2i32;
 pub const DBEXECLIMITS_SUSPEND: DBEXECLIMITSENUM = 3i32;
-pub const DBGUID_MSSQLXML: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x5d531cb2_e6ed_11d2_b252_00c04f681b71);
-pub const DBGUID_ROWDEFAULTSTREAM: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x0c733ab7_2a1c_11ce_ade5_00aa0044773d);
-pub const DBGUID_ROWURL: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x0c733ab6_2a1c_11ce_ade5_00aa0044773d);
-pub const DBGUID_XPATH: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xec2a4293_e898_11d2_b1b7_00c04f680c56);
+pub const DBGUID_MSSQLXML: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5d531cb2_e6ed_11d2_b252_00c04f681b71);
+pub const DBGUID_ROWDEFAULTSTREAM: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0c733ab7_2a1c_11ce_ade5_00aa0044773d);
+pub const DBGUID_ROWURL: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0c733ab6_2a1c_11ce_ade5_00aa0044773d);
+pub const DBGUID_XPATH: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xec2a4293_e898_11d2_b1b7_00c04f680c56);
 pub const DBINDEX_COL_ORDER_ASC: DBINDEX_COL_ORDERENUM = 0i32;
 pub const DBINDEX_COL_ORDER_DESC: DBINDEX_COL_ORDERENUM = 1i32;
 pub const DBLITERAL_BINARY_LITERAL: DBLITERALENUM = 1i32;
@@ -704,23 +704,23 @@ pub const DBPROPFLAGS_WRITE: DBPROPFLAGSENUM = 1024i32;
 pub const DBPROPOPTIONS_OPTIONAL: DBPROPOPTIONSENUM = 1i32;
 pub const DBPROPOPTIONS_REQUIRED: DBPROPOPTIONSENUM = 0i32;
 pub const DBPROPOPTIONS_SETIFCHEAP: DBPROPOPTIONSENUM = 1i32;
-pub const DBPROPSET_MSDAORA8_ROWSET: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x7f06a375_dd6a_43db_b4e0_1fc121e5e62b);
-pub const DBPROPSET_MSDAORA_ROWSET: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xe8cc4cbd_fdff_11d0_b865_00a0c9081c1d);
-pub const DBPROPSET_MSDSDBINIT: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x55cb91a8_5c7a_11d1_adad_00c04fc29863);
-pub const DBPROPSET_MSDSSESSION: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xedf17536_afbf_11d1_8847_0000f879f98c);
-pub const DBPROPSET_PERSIST: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x4d7839a0_5b8e_11d1_a6b3_00a0c9138c66);
-pub const DBPROPSET_PROVIDERCONNATTR: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x497c60e4_7123_11cf_b171_00aa0057599e);
-pub const DBPROPSET_PROVIDERDATASOURCEINFO: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x497c60e0_7123_11cf_b171_00aa0057599e);
-pub const DBPROPSET_PROVIDERDBINIT: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x497c60e2_7123_11cf_b171_00aa0057599e);
-pub const DBPROPSET_PROVIDERROWSET: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x497c60e1_7123_11cf_b171_00aa0057599e);
-pub const DBPROPSET_PROVIDERSTMTATTR: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x497c60e3_7123_11cf_b171_00aa0057599e);
-pub const DBPROPSET_SQLSERVERCOLUMN: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x3b63fb5e_3fbb_11d3_9f29_00c04f8ee9dc);
-pub const DBPROPSET_SQLSERVERDATASOURCE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x28efaee4_2d2c_11d1_9807_00c04fc2ad98);
-pub const DBPROPSET_SQLSERVERDATASOURCEINFO: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xdf10cb94_35f6_11d2_9c54_00c04f7971d3);
-pub const DBPROPSET_SQLSERVERDBINIT: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x5cf4ca10_ef21_11d0_97e7_00c04fc2ad98);
-pub const DBPROPSET_SQLSERVERROWSET: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x5cf4ca11_ef21_11d0_97e7_00c04fc2ad98);
-pub const DBPROPSET_SQLSERVERSESSION: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x28efaee5_2d2c_11d1_9807_00c04fc2ad98);
-pub const DBPROPSET_SQLSERVERSTREAM: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x9f79c073_8a6d_4bca_a8a8_c9b79a9b962d);
+pub const DBPROPSET_MSDAORA8_ROWSET: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7f06a375_dd6a_43db_b4e0_1fc121e5e62b);
+pub const DBPROPSET_MSDAORA_ROWSET: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe8cc4cbd_fdff_11d0_b865_00a0c9081c1d);
+pub const DBPROPSET_MSDSDBINIT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x55cb91a8_5c7a_11d1_adad_00c04fc29863);
+pub const DBPROPSET_MSDSSESSION: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xedf17536_afbf_11d1_8847_0000f879f98c);
+pub const DBPROPSET_PERSIST: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4d7839a0_5b8e_11d1_a6b3_00a0c9138c66);
+pub const DBPROPSET_PROVIDERCONNATTR: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x497c60e4_7123_11cf_b171_00aa0057599e);
+pub const DBPROPSET_PROVIDERDATASOURCEINFO: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x497c60e0_7123_11cf_b171_00aa0057599e);
+pub const DBPROPSET_PROVIDERDBINIT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x497c60e2_7123_11cf_b171_00aa0057599e);
+pub const DBPROPSET_PROVIDERROWSET: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x497c60e1_7123_11cf_b171_00aa0057599e);
+pub const DBPROPSET_PROVIDERSTMTATTR: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x497c60e3_7123_11cf_b171_00aa0057599e);
+pub const DBPROPSET_SQLSERVERCOLUMN: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3b63fb5e_3fbb_11d3_9f29_00c04f8ee9dc);
+pub const DBPROPSET_SQLSERVERDATASOURCE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x28efaee4_2d2c_11d1_9807_00c04fc2ad98);
+pub const DBPROPSET_SQLSERVERDATASOURCEINFO: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdf10cb94_35f6_11d2_9c54_00c04f7971d3);
+pub const DBPROPSET_SQLSERVERDBINIT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5cf4ca10_ef21_11d0_97e7_00c04fc2ad98);
+pub const DBPROPSET_SQLSERVERROWSET: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5cf4ca11_ef21_11d0_97e7_00c04fc2ad98);
+pub const DBPROPSET_SQLSERVERSESSION: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x28efaee5_2d2c_11d1_9807_00c04fc2ad98);
+pub const DBPROPSET_SQLSERVERSTREAM: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9f79c073_8a6d_4bca_a8a8_c9b79a9b962d);
 pub const DBPROPSTATUS_BADCOLUMN: DBPROPSTATUSENUM = 4i32;
 pub const DBPROPSTATUS_BADOPTION: DBPROPSTATUSENUM = 3i32;
 pub const DBPROPSTATUS_BADVALUE: DBPROPSTATUSENUM = 2i32;
@@ -1176,7 +1176,7 @@ pub const DBPROP_UNIQUEROWS: DBPROPENUM20 = 238i32;
 pub const DBPROP_UPDATABILITY: DBPROPENUM = 117i32;
 pub const DBPROP_USERNAME: DBPROPENUM = 118i32;
 pub const DBPROP_Unicode: u32 = 6u32;
-pub const DBQUERYGUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x49691c90_7e17_101a_a91c_08002b2ecda9);
+pub const DBQUERYGUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x49691c90_7e17_101a_a91c_08002b2ecda9);
 pub const DBRANGE_EXCLUDENULLS: DBRANGEENUM = 4i32;
 pub const DBRANGE_EXCLUSIVEEND: DBRANGEENUM = 2i32;
 pub const DBRANGE_EXCLUSIVESTART: DBRANGEENUM = 1i32;
@@ -1243,7 +1243,7 @@ pub const DBROWSTATUS_S_MULTIPLECHANGES: DBROWSTATUSENUM = 2i32;
 pub const DBROWSTATUS_S_NOCHANGE: DBROWSTATUSENUM20 = 20i32;
 pub const DBROWSTATUS_S_OK: DBROWSTATUSENUM = 0i32;
 pub const DBROWSTATUS_S_PENDINGCHANGES: DBROWSTATUSENUM = 3i32;
-pub const DBSCHEMA_LINKEDSERVERS: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x9093caf4_2eac_11d1_9809_00c04fc2ad98);
+pub const DBSCHEMA_LINKEDSERVERS: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9093caf4_2eac_11d1_9809_00c04fc2ad98);
 pub const DBSEEK_AFTER: DBSEEKENUM = 8i32;
 pub const DBSEEK_AFTEREQ: DBSEEKENUM = 4i32;
 pub const DBSEEK_BEFORE: DBSEEKENUM = 32i32;
@@ -1251,7 +1251,7 @@ pub const DBSEEK_BEFOREEQ: DBSEEKENUM = 16i32;
 pub const DBSEEK_FIRSTEQ: DBSEEKENUM = 1i32;
 pub const DBSEEK_INVALID: DBSEEKENUM = 0i32;
 pub const DBSEEK_LASTEQ: DBSEEKENUM = 2i32;
-pub const DBSELFGUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xc8b52231_5cf3_11ce_ade5_00aa0044773d);
+pub const DBSELFGUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc8b52231_5cf3_11ce_ade5_00aa0044773d);
 pub const DBSORT_ASCENDING: DBSORTENUM = 0i32;
 pub const DBSORT_DESCENDING: DBSORTENUM = 1i32;
 pub const DBSOURCETYPE_BINDER: DBSOURCETYPEENUM25 = 4i32;
@@ -1371,137 +1371,137 @@ pub const DB_BINDFLAGS_RECURSIVE: i32 = 4i32;
 pub const DB_COLLATION_ASC: u32 = 1u32;
 pub const DB_COLLATION_DESC: u32 = 2u32;
 pub const DB_COUNTUNAVAILABLE: i32 = -1i32;
-pub const DB_E_ABORTLIMITREACHED: ::windows_sys::core::HRESULT = 0x80040E31_u32 as _;
-pub const DB_E_ALREADYINITIALIZED: ::windows_sys::core::HRESULT = 0x80040E52_u32 as _;
-pub const DB_E_ALTERRESTRICTED: ::windows_sys::core::HRESULT = 0x80040E9D_u32 as _;
-pub const DB_E_ASYNCNOTSUPPORTED: ::windows_sys::core::HRESULT = 0x80040E95_u32 as _;
-pub const DB_E_BADACCESSORFLAGS: ::windows_sys::core::HRESULT = 0x80040E46_u32 as _;
-pub const DB_E_BADACCESSORHANDLE: ::windows_sys::core::HRESULT = 0x80040E00_u32 as _;
-pub const DB_E_BADACCESSORTYPE: ::windows_sys::core::HRESULT = 0x80040E4B_u32 as _;
-pub const DB_E_BADBINDINFO: ::windows_sys::core::HRESULT = 0x80040E08_u32 as _;
-pub const DB_E_BADBOOKMARK: ::windows_sys::core::HRESULT = 0x80040E0E_u32 as _;
-pub const DB_E_BADCHAPTER: ::windows_sys::core::HRESULT = 0x80040E06_u32 as _;
-pub const DB_E_BADCOLUMNID: ::windows_sys::core::HRESULT = 0x80040E11_u32 as _;
-pub const DB_E_BADCOMMANDFLAGS: ::windows_sys::core::HRESULT = 0x80040E8C_u32 as _;
-pub const DB_E_BADCOMMANDID: ::windows_sys::core::HRESULT = 0x80040E76_u32 as _;
-pub const DB_E_BADCOMPAREOP: ::windows_sys::core::HRESULT = 0x80040E27_u32 as _;
-pub const DB_E_BADCONSTRAINTFORM: ::windows_sys::core::HRESULT = 0x80040E78_u32 as _;
-pub const DB_E_BADCONSTRAINTID: ::windows_sys::core::HRESULT = 0x80040E8B_u32 as _;
-pub const DB_E_BADCONSTRAINTTYPE: ::windows_sys::core::HRESULT = 0x80040E77_u32 as _;
-pub const DB_E_BADCONVERTFLAG: ::windows_sys::core::HRESULT = 0x80040E5C_u32 as _;
-pub const DB_E_BADCOPY: ::windows_sys::core::HRESULT = 0x80040E39_u32 as _;
-pub const DB_E_BADDEFERRABILITY: ::windows_sys::core::HRESULT = 0x80040E79_u32 as _;
-pub const DB_E_BADDYNAMICERRORID: ::windows_sys::core::HRESULT = 0x80040E5A_u32 as _;
-pub const DB_E_BADHRESULT: ::windows_sys::core::HRESULT = 0x80040E58_u32 as _;
+pub const DB_E_ABORTLIMITREACHED: windows_sys::core::HRESULT = 0x80040E31_u32 as _;
+pub const DB_E_ALREADYINITIALIZED: windows_sys::core::HRESULT = 0x80040E52_u32 as _;
+pub const DB_E_ALTERRESTRICTED: windows_sys::core::HRESULT = 0x80040E9D_u32 as _;
+pub const DB_E_ASYNCNOTSUPPORTED: windows_sys::core::HRESULT = 0x80040E95_u32 as _;
+pub const DB_E_BADACCESSORFLAGS: windows_sys::core::HRESULT = 0x80040E46_u32 as _;
+pub const DB_E_BADACCESSORHANDLE: windows_sys::core::HRESULT = 0x80040E00_u32 as _;
+pub const DB_E_BADACCESSORTYPE: windows_sys::core::HRESULT = 0x80040E4B_u32 as _;
+pub const DB_E_BADBINDINFO: windows_sys::core::HRESULT = 0x80040E08_u32 as _;
+pub const DB_E_BADBOOKMARK: windows_sys::core::HRESULT = 0x80040E0E_u32 as _;
+pub const DB_E_BADCHAPTER: windows_sys::core::HRESULT = 0x80040E06_u32 as _;
+pub const DB_E_BADCOLUMNID: windows_sys::core::HRESULT = 0x80040E11_u32 as _;
+pub const DB_E_BADCOMMANDFLAGS: windows_sys::core::HRESULT = 0x80040E8C_u32 as _;
+pub const DB_E_BADCOMMANDID: windows_sys::core::HRESULT = 0x80040E76_u32 as _;
+pub const DB_E_BADCOMPAREOP: windows_sys::core::HRESULT = 0x80040E27_u32 as _;
+pub const DB_E_BADCONSTRAINTFORM: windows_sys::core::HRESULT = 0x80040E78_u32 as _;
+pub const DB_E_BADCONSTRAINTID: windows_sys::core::HRESULT = 0x80040E8B_u32 as _;
+pub const DB_E_BADCONSTRAINTTYPE: windows_sys::core::HRESULT = 0x80040E77_u32 as _;
+pub const DB_E_BADCONVERTFLAG: windows_sys::core::HRESULT = 0x80040E5C_u32 as _;
+pub const DB_E_BADCOPY: windows_sys::core::HRESULT = 0x80040E39_u32 as _;
+pub const DB_E_BADDEFERRABILITY: windows_sys::core::HRESULT = 0x80040E79_u32 as _;
+pub const DB_E_BADDYNAMICERRORID: windows_sys::core::HRESULT = 0x80040E5A_u32 as _;
+pub const DB_E_BADHRESULT: windows_sys::core::HRESULT = 0x80040E58_u32 as _;
 pub const DB_E_BADID: i32 = -2147217860i32;
-pub const DB_E_BADINDEXID: ::windows_sys::core::HRESULT = 0x80040E72_u32 as _;
-pub const DB_E_BADINITSTRING: ::windows_sys::core::HRESULT = 0x80040E73_u32 as _;
-pub const DB_E_BADLOCKMODE: ::windows_sys::core::HRESULT = 0x80040E0F_u32 as _;
-pub const DB_E_BADLOOKUPID: ::windows_sys::core::HRESULT = 0x80040E59_u32 as _;
-pub const DB_E_BADMATCHTYPE: ::windows_sys::core::HRESULT = 0x80040E80_u32 as _;
-pub const DB_E_BADORDINAL: ::windows_sys::core::HRESULT = 0x80040E55_u32 as _;
-pub const DB_E_BADPARAMETERNAME: ::windows_sys::core::HRESULT = 0x80040E5D_u32 as _;
-pub const DB_E_BADPRECISION: ::windows_sys::core::HRESULT = 0x80040E3A_u32 as _;
-pub const DB_E_BADPROPERTYVALUE: ::windows_sys::core::HRESULT = 0x80040E44_u32 as _;
-pub const DB_E_BADRATIO: ::windows_sys::core::HRESULT = 0x80040E12_u32 as _;
-pub const DB_E_BADRECORDNUM: ::windows_sys::core::HRESULT = 0x80040E42_u32 as _;
-pub const DB_E_BADREGIONHANDLE: ::windows_sys::core::HRESULT = 0x80040E2A_u32 as _;
-pub const DB_E_BADROWHANDLE: ::windows_sys::core::HRESULT = 0x80040E04_u32 as _;
-pub const DB_E_BADSCALE: ::windows_sys::core::HRESULT = 0x80040E3B_u32 as _;
-pub const DB_E_BADSOURCEHANDLE: ::windows_sys::core::HRESULT = 0x80040E50_u32 as _;
-pub const DB_E_BADSTARTPOSITION: ::windows_sys::core::HRESULT = 0x80040E1E_u32 as _;
-pub const DB_E_BADSTATUSVALUE: ::windows_sys::core::HRESULT = 0x80040E28_u32 as _;
-pub const DB_E_BADSTORAGEFLAG: ::windows_sys::core::HRESULT = 0x80040E26_u32 as _;
-pub const DB_E_BADSTORAGEFLAGS: ::windows_sys::core::HRESULT = 0x80040E47_u32 as _;
-pub const DB_E_BADTABLEID: ::windows_sys::core::HRESULT = 0x80040E3C_u32 as _;
-pub const DB_E_BADTYPE: ::windows_sys::core::HRESULT = 0x80040E3D_u32 as _;
-pub const DB_E_BADTYPENAME: ::windows_sys::core::HRESULT = 0x80040E30_u32 as _;
-pub const DB_E_BADUPDATEDELETERULE: ::windows_sys::core::HRESULT = 0x80040E8A_u32 as _;
-pub const DB_E_BADVALUES: ::windows_sys::core::HRESULT = 0x80040E13_u32 as _;
-pub const DB_E_BOGUS: ::windows_sys::core::HRESULT = 0x80040EFF_u32 as _;
-pub const DB_E_BOOKMARKSKIPPED: ::windows_sys::core::HRESULT = 0x80040E43_u32 as _;
-pub const DB_E_BYREFACCESSORNOTSUPPORTED: ::windows_sys::core::HRESULT = 0x80040E48_u32 as _;
-pub const DB_E_CANCELED: ::windows_sys::core::HRESULT = 0x80040E4E_u32 as _;
-pub const DB_E_CANNOTCONNECT: ::windows_sys::core::HRESULT = 0x80040E96_u32 as _;
-pub const DB_E_CANNOTFREE: ::windows_sys::core::HRESULT = 0x80040E1A_u32 as _;
-pub const DB_E_CANNOTRESTART: ::windows_sys::core::HRESULT = 0x80040E18_u32 as _;
-pub const DB_E_CANTCANCEL: ::windows_sys::core::HRESULT = 0x80040E15_u32 as _;
-pub const DB_E_CANTCONVERTVALUE: ::windows_sys::core::HRESULT = 0x80040E07_u32 as _;
-pub const DB_E_CANTFETCHBACKWARDS: ::windows_sys::core::HRESULT = 0x80040E24_u32 as _;
-pub const DB_E_CANTFILTER: ::windows_sys::core::HRESULT = 0x80040E5F_u32 as _;
-pub const DB_E_CANTORDER: ::windows_sys::core::HRESULT = 0x80040E60_u32 as _;
-pub const DB_E_CANTSCROLLBACKWARDS: ::windows_sys::core::HRESULT = 0x80040E29_u32 as _;
-pub const DB_E_CANTTRANSLATE: ::windows_sys::core::HRESULT = 0x80040E33_u32 as _;
-pub const DB_E_CHAPTERNOTRELEASED: ::windows_sys::core::HRESULT = 0x80040E4F_u32 as _;
-pub const DB_E_COLUMNUNAVAILABLE: ::windows_sys::core::HRESULT = 0x80040EA0_u32 as _;
-pub const DB_E_COMMANDNOTPERSISTED: ::windows_sys::core::HRESULT = 0x80040E67_u32 as _;
-pub const DB_E_CONCURRENCYVIOLATION: ::windows_sys::core::HRESULT = 0x80040E38_u32 as _;
-pub const DB_E_COSTLIMIT: ::windows_sys::core::HRESULT = 0x80040E0D_u32 as _;
-pub const DB_E_DATAOVERFLOW: ::windows_sys::core::HRESULT = 0x80040E57_u32 as _;
-pub const DB_E_DELETEDROW: ::windows_sys::core::HRESULT = 0x80040E23_u32 as _;
-pub const DB_E_DIALECTNOTSUPPORTED: ::windows_sys::core::HRESULT = 0x80040E16_u32 as _;
-pub const DB_E_DROPRESTRICTED: ::windows_sys::core::HRESULT = 0x80040E90_u32 as _;
-pub const DB_E_DUPLICATECOLUMNID: ::windows_sys::core::HRESULT = 0x80040E3E_u32 as _;
-pub const DB_E_DUPLICATECONSTRAINTID: ::windows_sys::core::HRESULT = 0x80040E99_u32 as _;
-pub const DB_E_DUPLICATEDATASOURCE: ::windows_sys::core::HRESULT = 0x80040E17_u32 as _;
-pub const DB_E_DUPLICATEID: ::windows_sys::core::HRESULT = 0x80040E68_u32 as _;
-pub const DB_E_DUPLICATEINDEXID: ::windows_sys::core::HRESULT = 0x80040E34_u32 as _;
-pub const DB_E_DUPLICATETABLEID: ::windows_sys::core::HRESULT = 0x80040E3F_u32 as _;
-pub const DB_E_ERRORSINCOMMAND: ::windows_sys::core::HRESULT = 0x80040E14_u32 as _;
-pub const DB_E_ERRORSOCCURRED: ::windows_sys::core::HRESULT = 0x80040E21_u32 as _;
-pub const DB_E_GOALREJECTED: ::windows_sys::core::HRESULT = 0x80040E1C_u32 as _;
-pub const DB_E_INDEXINUSE: ::windows_sys::core::HRESULT = 0x80040E36_u32 as _;
-pub const DB_E_INTEGRITYVIOLATION: ::windows_sys::core::HRESULT = 0x80040E2F_u32 as _;
-pub const DB_E_INVALID: ::windows_sys::core::HRESULT = 0x80040E45_u32 as _;
-pub const DB_E_INVALIDTRANSITION: ::windows_sys::core::HRESULT = 0x80040E2C_u32 as _;
-pub const DB_E_LIMITREJECTED: ::windows_sys::core::HRESULT = 0x80040E0B_u32 as _;
-pub const DB_E_MAXPENDCHANGESEXCEEDED: ::windows_sys::core::HRESULT = 0x80040E54_u32 as _;
-pub const DB_E_MISMATCHEDPROVIDER: ::windows_sys::core::HRESULT = 0x80040E75_u32 as _;
-pub const DB_E_MULTIPLESTATEMENTS: ::windows_sys::core::HRESULT = 0x80040E2E_u32 as _;
-pub const DB_E_MULTIPLESTORAGE: ::windows_sys::core::HRESULT = 0x80040E5E_u32 as _;
-pub const DB_E_NEWLYINSERTED: ::windows_sys::core::HRESULT = 0x80040E1B_u32 as _;
-pub const DB_E_NOAGGREGATION: ::windows_sys::core::HRESULT = 0x80040E22_u32 as _;
-pub const DB_E_NOCOLUMN: ::windows_sys::core::HRESULT = 0x80040E65_u32 as _;
-pub const DB_E_NOCOMMAND: ::windows_sys::core::HRESULT = 0x80040E0C_u32 as _;
-pub const DB_E_NOCONSTRAINT: ::windows_sys::core::HRESULT = 0x80040E9F_u32 as _;
-pub const DB_E_NOINDEX: ::windows_sys::core::HRESULT = 0x80040E35_u32 as _;
-pub const DB_E_NOLOCALE: ::windows_sys::core::HRESULT = 0x80040E41_u32 as _;
-pub const DB_E_NONCONTIGUOUSRANGE: ::windows_sys::core::HRESULT = 0x80040E2B_u32 as _;
-pub const DB_E_NOPROVIDERSREGISTERED: ::windows_sys::core::HRESULT = 0x80040E74_u32 as _;
-pub const DB_E_NOQUERY: ::windows_sys::core::HRESULT = 0x80040E1F_u32 as _;
-pub const DB_E_NOSOURCEOBJECT: ::windows_sys::core::HRESULT = 0x80040E91_u32 as _;
-pub const DB_E_NOSTATISTIC: ::windows_sys::core::HRESULT = 0x80040E9C_u32 as _;
-pub const DB_E_NOTABLE: ::windows_sys::core::HRESULT = 0x80040E37_u32 as _;
-pub const DB_E_NOTAREFERENCECOLUMN: ::windows_sys::core::HRESULT = 0x80040E0A_u32 as _;
-pub const DB_E_NOTASUBREGION: ::windows_sys::core::HRESULT = 0x80040E2D_u32 as _;
-pub const DB_E_NOTCOLLECTION: ::windows_sys::core::HRESULT = 0x80040E93_u32 as _;
-pub const DB_E_NOTFOUND: ::windows_sys::core::HRESULT = 0x80040E19_u32 as _;
-pub const DB_E_NOTPREPARED: ::windows_sys::core::HRESULT = 0x80040E4A_u32 as _;
-pub const DB_E_NOTREENTRANT: ::windows_sys::core::HRESULT = 0x80040E20_u32 as _;
-pub const DB_E_NOTSUPPORTED: ::windows_sys::core::HRESULT = 0x80040E53_u32 as _;
-pub const DB_E_NULLACCESSORNOTSUPPORTED: ::windows_sys::core::HRESULT = 0x80040E49_u32 as _;
-pub const DB_E_OBJECTCREATIONLIMITREACHED: ::windows_sys::core::HRESULT = 0x80040E69_u32 as _;
-pub const DB_E_OBJECTMISMATCH: ::windows_sys::core::HRESULT = 0x80040E8D_u32 as _;
-pub const DB_E_OBJECTOPEN: ::windows_sys::core::HRESULT = 0x80040E05_u32 as _;
-pub const DB_E_OUTOFSPACE: ::windows_sys::core::HRESULT = 0x80040E9A_u32 as _;
-pub const DB_E_PARAMNOTOPTIONAL: ::windows_sys::core::HRESULT = 0x80040E10_u32 as _;
-pub const DB_E_PARAMUNAVAILABLE: ::windows_sys::core::HRESULT = 0x80040E51_u32 as _;
-pub const DB_E_PENDINGCHANGES: ::windows_sys::core::HRESULT = 0x80040E56_u32 as _;
-pub const DB_E_PENDINGINSERT: ::windows_sys::core::HRESULT = 0x80040E5B_u32 as _;
-pub const DB_E_READONLY: ::windows_sys::core::HRESULT = 0x80040E94_u32 as _;
-pub const DB_E_READONLYACCESSOR: ::windows_sys::core::HRESULT = 0x80040E02_u32 as _;
-pub const DB_E_RESOURCEEXISTS: ::windows_sys::core::HRESULT = 0x80040E98_u32 as _;
-pub const DB_E_RESOURCELOCKED: ::windows_sys::core::HRESULT = 0x80040E92_u32 as _;
-pub const DB_E_RESOURCENOTSUPPORTED: ::windows_sys::core::HRESULT = 0x80040E9E_u32 as _;
-pub const DB_E_RESOURCEOUTOFSCOPE: ::windows_sys::core::HRESULT = 0x80040E8E_u32 as _;
-pub const DB_E_ROWLIMITEXCEEDED: ::windows_sys::core::HRESULT = 0x80040E01_u32 as _;
-pub const DB_E_ROWSETINCOMMAND: ::windows_sys::core::HRESULT = 0x80040E32_u32 as _;
-pub const DB_E_ROWSNOTRELEASED: ::windows_sys::core::HRESULT = 0x80040E25_u32 as _;
-pub const DB_E_SCHEMAVIOLATION: ::windows_sys::core::HRESULT = 0x80040E03_u32 as _;
-pub const DB_E_TABLEINUSE: ::windows_sys::core::HRESULT = 0x80040E40_u32 as _;
-pub const DB_E_TIMEOUT: ::windows_sys::core::HRESULT = 0x80040E97_u32 as _;
-pub const DB_E_UNSUPPORTEDCONVERSION: ::windows_sys::core::HRESULT = 0x80040E1D_u32 as _;
-pub const DB_E_WRITEONLYACCESSOR: ::windows_sys::core::HRESULT = 0x80040E4C_u32 as _;
+pub const DB_E_BADINDEXID: windows_sys::core::HRESULT = 0x80040E72_u32 as _;
+pub const DB_E_BADINITSTRING: windows_sys::core::HRESULT = 0x80040E73_u32 as _;
+pub const DB_E_BADLOCKMODE: windows_sys::core::HRESULT = 0x80040E0F_u32 as _;
+pub const DB_E_BADLOOKUPID: windows_sys::core::HRESULT = 0x80040E59_u32 as _;
+pub const DB_E_BADMATCHTYPE: windows_sys::core::HRESULT = 0x80040E80_u32 as _;
+pub const DB_E_BADORDINAL: windows_sys::core::HRESULT = 0x80040E55_u32 as _;
+pub const DB_E_BADPARAMETERNAME: windows_sys::core::HRESULT = 0x80040E5D_u32 as _;
+pub const DB_E_BADPRECISION: windows_sys::core::HRESULT = 0x80040E3A_u32 as _;
+pub const DB_E_BADPROPERTYVALUE: windows_sys::core::HRESULT = 0x80040E44_u32 as _;
+pub const DB_E_BADRATIO: windows_sys::core::HRESULT = 0x80040E12_u32 as _;
+pub const DB_E_BADRECORDNUM: windows_sys::core::HRESULT = 0x80040E42_u32 as _;
+pub const DB_E_BADREGIONHANDLE: windows_sys::core::HRESULT = 0x80040E2A_u32 as _;
+pub const DB_E_BADROWHANDLE: windows_sys::core::HRESULT = 0x80040E04_u32 as _;
+pub const DB_E_BADSCALE: windows_sys::core::HRESULT = 0x80040E3B_u32 as _;
+pub const DB_E_BADSOURCEHANDLE: windows_sys::core::HRESULT = 0x80040E50_u32 as _;
+pub const DB_E_BADSTARTPOSITION: windows_sys::core::HRESULT = 0x80040E1E_u32 as _;
+pub const DB_E_BADSTATUSVALUE: windows_sys::core::HRESULT = 0x80040E28_u32 as _;
+pub const DB_E_BADSTORAGEFLAG: windows_sys::core::HRESULT = 0x80040E26_u32 as _;
+pub const DB_E_BADSTORAGEFLAGS: windows_sys::core::HRESULT = 0x80040E47_u32 as _;
+pub const DB_E_BADTABLEID: windows_sys::core::HRESULT = 0x80040E3C_u32 as _;
+pub const DB_E_BADTYPE: windows_sys::core::HRESULT = 0x80040E3D_u32 as _;
+pub const DB_E_BADTYPENAME: windows_sys::core::HRESULT = 0x80040E30_u32 as _;
+pub const DB_E_BADUPDATEDELETERULE: windows_sys::core::HRESULT = 0x80040E8A_u32 as _;
+pub const DB_E_BADVALUES: windows_sys::core::HRESULT = 0x80040E13_u32 as _;
+pub const DB_E_BOGUS: windows_sys::core::HRESULT = 0x80040EFF_u32 as _;
+pub const DB_E_BOOKMARKSKIPPED: windows_sys::core::HRESULT = 0x80040E43_u32 as _;
+pub const DB_E_BYREFACCESSORNOTSUPPORTED: windows_sys::core::HRESULT = 0x80040E48_u32 as _;
+pub const DB_E_CANCELED: windows_sys::core::HRESULT = 0x80040E4E_u32 as _;
+pub const DB_E_CANNOTCONNECT: windows_sys::core::HRESULT = 0x80040E96_u32 as _;
+pub const DB_E_CANNOTFREE: windows_sys::core::HRESULT = 0x80040E1A_u32 as _;
+pub const DB_E_CANNOTRESTART: windows_sys::core::HRESULT = 0x80040E18_u32 as _;
+pub const DB_E_CANTCANCEL: windows_sys::core::HRESULT = 0x80040E15_u32 as _;
+pub const DB_E_CANTCONVERTVALUE: windows_sys::core::HRESULT = 0x80040E07_u32 as _;
+pub const DB_E_CANTFETCHBACKWARDS: windows_sys::core::HRESULT = 0x80040E24_u32 as _;
+pub const DB_E_CANTFILTER: windows_sys::core::HRESULT = 0x80040E5F_u32 as _;
+pub const DB_E_CANTORDER: windows_sys::core::HRESULT = 0x80040E60_u32 as _;
+pub const DB_E_CANTSCROLLBACKWARDS: windows_sys::core::HRESULT = 0x80040E29_u32 as _;
+pub const DB_E_CANTTRANSLATE: windows_sys::core::HRESULT = 0x80040E33_u32 as _;
+pub const DB_E_CHAPTERNOTRELEASED: windows_sys::core::HRESULT = 0x80040E4F_u32 as _;
+pub const DB_E_COLUMNUNAVAILABLE: windows_sys::core::HRESULT = 0x80040EA0_u32 as _;
+pub const DB_E_COMMANDNOTPERSISTED: windows_sys::core::HRESULT = 0x80040E67_u32 as _;
+pub const DB_E_CONCURRENCYVIOLATION: windows_sys::core::HRESULT = 0x80040E38_u32 as _;
+pub const DB_E_COSTLIMIT: windows_sys::core::HRESULT = 0x80040E0D_u32 as _;
+pub const DB_E_DATAOVERFLOW: windows_sys::core::HRESULT = 0x80040E57_u32 as _;
+pub const DB_E_DELETEDROW: windows_sys::core::HRESULT = 0x80040E23_u32 as _;
+pub const DB_E_DIALECTNOTSUPPORTED: windows_sys::core::HRESULT = 0x80040E16_u32 as _;
+pub const DB_E_DROPRESTRICTED: windows_sys::core::HRESULT = 0x80040E90_u32 as _;
+pub const DB_E_DUPLICATECOLUMNID: windows_sys::core::HRESULT = 0x80040E3E_u32 as _;
+pub const DB_E_DUPLICATECONSTRAINTID: windows_sys::core::HRESULT = 0x80040E99_u32 as _;
+pub const DB_E_DUPLICATEDATASOURCE: windows_sys::core::HRESULT = 0x80040E17_u32 as _;
+pub const DB_E_DUPLICATEID: windows_sys::core::HRESULT = 0x80040E68_u32 as _;
+pub const DB_E_DUPLICATEINDEXID: windows_sys::core::HRESULT = 0x80040E34_u32 as _;
+pub const DB_E_DUPLICATETABLEID: windows_sys::core::HRESULT = 0x80040E3F_u32 as _;
+pub const DB_E_ERRORSINCOMMAND: windows_sys::core::HRESULT = 0x80040E14_u32 as _;
+pub const DB_E_ERRORSOCCURRED: windows_sys::core::HRESULT = 0x80040E21_u32 as _;
+pub const DB_E_GOALREJECTED: windows_sys::core::HRESULT = 0x80040E1C_u32 as _;
+pub const DB_E_INDEXINUSE: windows_sys::core::HRESULT = 0x80040E36_u32 as _;
+pub const DB_E_INTEGRITYVIOLATION: windows_sys::core::HRESULT = 0x80040E2F_u32 as _;
+pub const DB_E_INVALID: windows_sys::core::HRESULT = 0x80040E45_u32 as _;
+pub const DB_E_INVALIDTRANSITION: windows_sys::core::HRESULT = 0x80040E2C_u32 as _;
+pub const DB_E_LIMITREJECTED: windows_sys::core::HRESULT = 0x80040E0B_u32 as _;
+pub const DB_E_MAXPENDCHANGESEXCEEDED: windows_sys::core::HRESULT = 0x80040E54_u32 as _;
+pub const DB_E_MISMATCHEDPROVIDER: windows_sys::core::HRESULT = 0x80040E75_u32 as _;
+pub const DB_E_MULTIPLESTATEMENTS: windows_sys::core::HRESULT = 0x80040E2E_u32 as _;
+pub const DB_E_MULTIPLESTORAGE: windows_sys::core::HRESULT = 0x80040E5E_u32 as _;
+pub const DB_E_NEWLYINSERTED: windows_sys::core::HRESULT = 0x80040E1B_u32 as _;
+pub const DB_E_NOAGGREGATION: windows_sys::core::HRESULT = 0x80040E22_u32 as _;
+pub const DB_E_NOCOLUMN: windows_sys::core::HRESULT = 0x80040E65_u32 as _;
+pub const DB_E_NOCOMMAND: windows_sys::core::HRESULT = 0x80040E0C_u32 as _;
+pub const DB_E_NOCONSTRAINT: windows_sys::core::HRESULT = 0x80040E9F_u32 as _;
+pub const DB_E_NOINDEX: windows_sys::core::HRESULT = 0x80040E35_u32 as _;
+pub const DB_E_NOLOCALE: windows_sys::core::HRESULT = 0x80040E41_u32 as _;
+pub const DB_E_NONCONTIGUOUSRANGE: windows_sys::core::HRESULT = 0x80040E2B_u32 as _;
+pub const DB_E_NOPROVIDERSREGISTERED: windows_sys::core::HRESULT = 0x80040E74_u32 as _;
+pub const DB_E_NOQUERY: windows_sys::core::HRESULT = 0x80040E1F_u32 as _;
+pub const DB_E_NOSOURCEOBJECT: windows_sys::core::HRESULT = 0x80040E91_u32 as _;
+pub const DB_E_NOSTATISTIC: windows_sys::core::HRESULT = 0x80040E9C_u32 as _;
+pub const DB_E_NOTABLE: windows_sys::core::HRESULT = 0x80040E37_u32 as _;
+pub const DB_E_NOTAREFERENCECOLUMN: windows_sys::core::HRESULT = 0x80040E0A_u32 as _;
+pub const DB_E_NOTASUBREGION: windows_sys::core::HRESULT = 0x80040E2D_u32 as _;
+pub const DB_E_NOTCOLLECTION: windows_sys::core::HRESULT = 0x80040E93_u32 as _;
+pub const DB_E_NOTFOUND: windows_sys::core::HRESULT = 0x80040E19_u32 as _;
+pub const DB_E_NOTPREPARED: windows_sys::core::HRESULT = 0x80040E4A_u32 as _;
+pub const DB_E_NOTREENTRANT: windows_sys::core::HRESULT = 0x80040E20_u32 as _;
+pub const DB_E_NOTSUPPORTED: windows_sys::core::HRESULT = 0x80040E53_u32 as _;
+pub const DB_E_NULLACCESSORNOTSUPPORTED: windows_sys::core::HRESULT = 0x80040E49_u32 as _;
+pub const DB_E_OBJECTCREATIONLIMITREACHED: windows_sys::core::HRESULT = 0x80040E69_u32 as _;
+pub const DB_E_OBJECTMISMATCH: windows_sys::core::HRESULT = 0x80040E8D_u32 as _;
+pub const DB_E_OBJECTOPEN: windows_sys::core::HRESULT = 0x80040E05_u32 as _;
+pub const DB_E_OUTOFSPACE: windows_sys::core::HRESULT = 0x80040E9A_u32 as _;
+pub const DB_E_PARAMNOTOPTIONAL: windows_sys::core::HRESULT = 0x80040E10_u32 as _;
+pub const DB_E_PARAMUNAVAILABLE: windows_sys::core::HRESULT = 0x80040E51_u32 as _;
+pub const DB_E_PENDINGCHANGES: windows_sys::core::HRESULT = 0x80040E56_u32 as _;
+pub const DB_E_PENDINGINSERT: windows_sys::core::HRESULT = 0x80040E5B_u32 as _;
+pub const DB_E_READONLY: windows_sys::core::HRESULT = 0x80040E94_u32 as _;
+pub const DB_E_READONLYACCESSOR: windows_sys::core::HRESULT = 0x80040E02_u32 as _;
+pub const DB_E_RESOURCEEXISTS: windows_sys::core::HRESULT = 0x80040E98_u32 as _;
+pub const DB_E_RESOURCELOCKED: windows_sys::core::HRESULT = 0x80040E92_u32 as _;
+pub const DB_E_RESOURCENOTSUPPORTED: windows_sys::core::HRESULT = 0x80040E9E_u32 as _;
+pub const DB_E_RESOURCEOUTOFSCOPE: windows_sys::core::HRESULT = 0x80040E8E_u32 as _;
+pub const DB_E_ROWLIMITEXCEEDED: windows_sys::core::HRESULT = 0x80040E01_u32 as _;
+pub const DB_E_ROWSETINCOMMAND: windows_sys::core::HRESULT = 0x80040E32_u32 as _;
+pub const DB_E_ROWSNOTRELEASED: windows_sys::core::HRESULT = 0x80040E25_u32 as _;
+pub const DB_E_SCHEMAVIOLATION: windows_sys::core::HRESULT = 0x80040E03_u32 as _;
+pub const DB_E_TABLEINUSE: windows_sys::core::HRESULT = 0x80040E40_u32 as _;
+pub const DB_E_TIMEOUT: windows_sys::core::HRESULT = 0x80040E97_u32 as _;
+pub const DB_E_UNSUPPORTEDCONVERSION: windows_sys::core::HRESULT = 0x80040E1D_u32 as _;
+pub const DB_E_WRITEONLYACCESSOR: windows_sys::core::HRESULT = 0x80040E4C_u32 as _;
 pub const DB_IMP_LEVEL_ANONYMOUS: u32 = 0u32;
 pub const DB_IMP_LEVEL_DELEGATE: u32 = 3u32;
 pub const DB_IMP_LEVEL_IDENTIFY: u32 = 1u32;
@@ -1519,7 +1519,7 @@ pub const DB_MODE_SHARE_DENY_READ: u32 = 4u32;
 pub const DB_MODE_SHARE_DENY_WRITE: u32 = 8u32;
 pub const DB_MODE_SHARE_EXCLUSIVE: u32 = 12u32;
 pub const DB_MODE_WRITE: u32 = 2u32;
-pub const DB_NULLGUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000000);
+pub const DB_NULLGUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000000);
 pub const DB_NULL_HACCESSOR: u32 = 0u32;
 pub const DB_NULL_HCHAPTER: u32 = 0u32;
 pub const DB_NULL_HROW: u32 = 0u32;
@@ -1535,38 +1535,38 @@ pub const DB_PT_PROCEDURE: u32 = 2u32;
 pub const DB_PT_UNKNOWN: u32 = 1u32;
 pub const DB_REMOTE: u32 = 1u32;
 pub const DB_SEARCHABLE: u32 = 4u32;
-pub const DB_SEC_E_AUTH_FAILED: ::windows_sys::core::HRESULT = 0x80040E4D_u32 as _;
-pub const DB_SEC_E_PERMISSIONDENIED: ::windows_sys::core::HRESULT = 0x80040E09_u32 as _;
-pub const DB_SEC_E_SAFEMODE_DENIED: ::windows_sys::core::HRESULT = 0x80040E9B_u32 as _;
-pub const DB_S_ASYNCHRONOUS: ::windows_sys::core::HRESULT = 0x40ED0_u32 as _;
-pub const DB_S_BADROWHANDLE: ::windows_sys::core::HRESULT = 0x40ED3_u32 as _;
-pub const DB_S_BOOKMARKSKIPPED: ::windows_sys::core::HRESULT = 0x40EC3_u32 as _;
-pub const DB_S_BUFFERFULL: ::windows_sys::core::HRESULT = 0x40EC8_u32 as _;
-pub const DB_S_CANTRELEASE: ::windows_sys::core::HRESULT = 0x40ECA_u32 as _;
-pub const DB_S_COLUMNSCHANGED: ::windows_sys::core::HRESULT = 0x40ED1_u32 as _;
-pub const DB_S_COLUMNTYPEMISMATCH: ::windows_sys::core::HRESULT = 0x40EC1_u32 as _;
-pub const DB_S_COMMANDREEXECUTED: ::windows_sys::core::HRESULT = 0x40EC7_u32 as _;
-pub const DB_S_DELETEDROW: ::windows_sys::core::HRESULT = 0x40ED4_u32 as _;
-pub const DB_S_DIALECTIGNORED: ::windows_sys::core::HRESULT = 0x40ECD_u32 as _;
-pub const DB_S_ENDOFROWSET: ::windows_sys::core::HRESULT = 0x40EC6_u32 as _;
-pub const DB_S_ERRORSOCCURRED: ::windows_sys::core::HRESULT = 0x40EDA_u32 as _;
-pub const DB_S_ERRORSRETURNED: ::windows_sys::core::HRESULT = 0x40ED2_u32 as _;
-pub const DB_S_GOALCHANGED: ::windows_sys::core::HRESULT = 0x40ECB_u32 as _;
-pub const DB_S_LOCKUPGRADED: ::windows_sys::core::HRESULT = 0x40ED8_u32 as _;
-pub const DB_S_MULTIPLECHANGES: ::windows_sys::core::HRESULT = 0x40EDC_u32 as _;
-pub const DB_S_NONEXTROWSET: ::windows_sys::core::HRESULT = 0x40EC5_u32 as _;
-pub const DB_S_NORESULT: ::windows_sys::core::HRESULT = 0x40EC9_u32 as _;
-pub const DB_S_NOROWSPECIFICCOLUMNS: ::windows_sys::core::HRESULT = 0x40EDD_u32 as _;
-pub const DB_S_NOTSINGLETON: ::windows_sys::core::HRESULT = 0x40ED7_u32 as _;
-pub const DB_S_PARAMUNAVAILABLE: ::windows_sys::core::HRESULT = 0x40EDB_u32 as _;
-pub const DB_S_PROPERTIESCHANGED: ::windows_sys::core::HRESULT = 0x40ED9_u32 as _;
-pub const DB_S_ROWLIMITEXCEEDED: ::windows_sys::core::HRESULT = 0x40EC0_u32 as _;
-pub const DB_S_STOPLIMITREACHED: ::windows_sys::core::HRESULT = 0x40ED6_u32 as _;
-pub const DB_S_TOOMANYCHANGES: ::windows_sys::core::HRESULT = 0x40ED5_u32 as _;
-pub const DB_S_TYPEINFOOVERRIDDEN: ::windows_sys::core::HRESULT = 0x40EC2_u32 as _;
-pub const DB_S_UNWANTEDOPERATION: ::windows_sys::core::HRESULT = 0x40ECC_u32 as _;
-pub const DB_S_UNWANTEDPHASE: ::windows_sys::core::HRESULT = 0x40ECE_u32 as _;
-pub const DB_S_UNWANTEDREASON: ::windows_sys::core::HRESULT = 0x40ECF_u32 as _;
+pub const DB_SEC_E_AUTH_FAILED: windows_sys::core::HRESULT = 0x80040E4D_u32 as _;
+pub const DB_SEC_E_PERMISSIONDENIED: windows_sys::core::HRESULT = 0x80040E09_u32 as _;
+pub const DB_SEC_E_SAFEMODE_DENIED: windows_sys::core::HRESULT = 0x80040E9B_u32 as _;
+pub const DB_S_ASYNCHRONOUS: windows_sys::core::HRESULT = 0x40ED0_u32 as _;
+pub const DB_S_BADROWHANDLE: windows_sys::core::HRESULT = 0x40ED3_u32 as _;
+pub const DB_S_BOOKMARKSKIPPED: windows_sys::core::HRESULT = 0x40EC3_u32 as _;
+pub const DB_S_BUFFERFULL: windows_sys::core::HRESULT = 0x40EC8_u32 as _;
+pub const DB_S_CANTRELEASE: windows_sys::core::HRESULT = 0x40ECA_u32 as _;
+pub const DB_S_COLUMNSCHANGED: windows_sys::core::HRESULT = 0x40ED1_u32 as _;
+pub const DB_S_COLUMNTYPEMISMATCH: windows_sys::core::HRESULT = 0x40EC1_u32 as _;
+pub const DB_S_COMMANDREEXECUTED: windows_sys::core::HRESULT = 0x40EC7_u32 as _;
+pub const DB_S_DELETEDROW: windows_sys::core::HRESULT = 0x40ED4_u32 as _;
+pub const DB_S_DIALECTIGNORED: windows_sys::core::HRESULT = 0x40ECD_u32 as _;
+pub const DB_S_ENDOFROWSET: windows_sys::core::HRESULT = 0x40EC6_u32 as _;
+pub const DB_S_ERRORSOCCURRED: windows_sys::core::HRESULT = 0x40EDA_u32 as _;
+pub const DB_S_ERRORSRETURNED: windows_sys::core::HRESULT = 0x40ED2_u32 as _;
+pub const DB_S_GOALCHANGED: windows_sys::core::HRESULT = 0x40ECB_u32 as _;
+pub const DB_S_LOCKUPGRADED: windows_sys::core::HRESULT = 0x40ED8_u32 as _;
+pub const DB_S_MULTIPLECHANGES: windows_sys::core::HRESULT = 0x40EDC_u32 as _;
+pub const DB_S_NONEXTROWSET: windows_sys::core::HRESULT = 0x40EC5_u32 as _;
+pub const DB_S_NORESULT: windows_sys::core::HRESULT = 0x40EC9_u32 as _;
+pub const DB_S_NOROWSPECIFICCOLUMNS: windows_sys::core::HRESULT = 0x40EDD_u32 as _;
+pub const DB_S_NOTSINGLETON: windows_sys::core::HRESULT = 0x40ED7_u32 as _;
+pub const DB_S_PARAMUNAVAILABLE: windows_sys::core::HRESULT = 0x40EDB_u32 as _;
+pub const DB_S_PROPERTIESCHANGED: windows_sys::core::HRESULT = 0x40ED9_u32 as _;
+pub const DB_S_ROWLIMITEXCEEDED: windows_sys::core::HRESULT = 0x40EC0_u32 as _;
+pub const DB_S_STOPLIMITREACHED: windows_sys::core::HRESULT = 0x40ED6_u32 as _;
+pub const DB_S_TOOMANYCHANGES: windows_sys::core::HRESULT = 0x40ED5_u32 as _;
+pub const DB_S_TYPEINFOOVERRIDDEN: windows_sys::core::HRESULT = 0x40EC2_u32 as _;
+pub const DB_S_UNWANTEDOPERATION: windows_sys::core::HRESULT = 0x40ECC_u32 as _;
+pub const DB_S_UNWANTEDPHASE: windows_sys::core::HRESULT = 0x40ECE_u32 as _;
+pub const DB_S_UNWANTEDREASON: windows_sys::core::HRESULT = 0x40ECF_u32 as _;
 pub const DB_UNSEARCHABLE: u32 = 1u32;
 pub const DCINFOTYPE_VERSION: DCINFOTYPEENUM = 1i32;
 pub const DELIVERY_AGENT_FLAG_NO_BROADCAST: DELIVERY_AGENT_FLAGS = 4i32;
@@ -2093,32 +2093,32 @@ pub const GTHR_S_TRANSACTION_IGNORED: i32 = 265577i32;
 pub const GTHR_S_USE_MIME_FILTER: i32 = 265639i32;
 pub const IDENTIFIER_SDK_ERROR: u32 = 268435456u32;
 pub const IDENTIFIER_SDK_MASK: u32 = 4026531840u32;
-pub const IDS_MON_BUILTIN_PROPERTY: ::windows_sys::core::HRESULT = 0x4093F_u32 as _;
-pub const IDS_MON_BUILTIN_VIEW: ::windows_sys::core::HRESULT = 0x40937_u32 as _;
-pub const IDS_MON_CANNOT_CAST: ::windows_sys::core::HRESULT = 0x40946_u32 as _;
-pub const IDS_MON_CANNOT_CONVERT: ::windows_sys::core::HRESULT = 0x4093B_u32 as _;
-pub const IDS_MON_COLUMN_NOT_DEFINED: ::windows_sys::core::HRESULT = 0x40936_u32 as _;
-pub const IDS_MON_DATE_OUT_OF_RANGE: ::windows_sys::core::HRESULT = 0x40947_u32 as _;
-pub const IDS_MON_DEFAULT_ERROR: ::windows_sys::core::HRESULT = 0x4092F_u32 as _;
-pub const IDS_MON_ILLEGAL_PASSTHROUGH: ::windows_sys::core::HRESULT = 0x40930_u32 as _;
-pub const IDS_MON_INVALIDSELECT_COALESCE: ::windows_sys::core::HRESULT = 0x40945_u32 as _;
-pub const IDS_MON_INVALID_CATALOG: ::windows_sys::core::HRESULT = 0x40944_u32 as _;
-pub const IDS_MON_INVALID_IN_GROUP_CLAUSE: ::windows_sys::core::HRESULT = 0x40948_u32 as _;
-pub const IDS_MON_MATCH_STRING: ::windows_sys::core::HRESULT = 0x40941_u32 as _;
-pub const IDS_MON_NOT_COLUMN_OF_VIEW: ::windows_sys::core::HRESULT = 0x4093E_u32 as _;
-pub const IDS_MON_ORDINAL_OUT_OF_RANGE: ::windows_sys::core::HRESULT = 0x40934_u32 as _;
-pub const IDS_MON_OR_NOT: ::windows_sys::core::HRESULT = 0x4093A_u32 as _;
-pub const IDS_MON_OUT_OF_MEMORY: ::windows_sys::core::HRESULT = 0x40938_u32 as _;
-pub const IDS_MON_OUT_OF_RANGE: ::windows_sys::core::HRESULT = 0x4093C_u32 as _;
-pub const IDS_MON_PARSE_ERR_1_PARAM: ::windows_sys::core::HRESULT = 0x40931_u32 as _;
-pub const IDS_MON_PARSE_ERR_2_PARAM: ::windows_sys::core::HRESULT = 0x40932_u32 as _;
-pub const IDS_MON_PROPERTY_NAME_IN_VIEW: ::windows_sys::core::HRESULT = 0x40942_u32 as _;
-pub const IDS_MON_RELATIVE_INTERVAL: ::windows_sys::core::HRESULT = 0x4093D_u32 as _;
-pub const IDS_MON_SELECT_STAR: ::windows_sys::core::HRESULT = 0x40939_u32 as _;
-pub const IDS_MON_SEMI_COLON: ::windows_sys::core::HRESULT = 0x40933_u32 as _;
-pub const IDS_MON_VIEW_ALREADY_DEFINED: ::windows_sys::core::HRESULT = 0x40943_u32 as _;
-pub const IDS_MON_VIEW_NOT_DEFINED: ::windows_sys::core::HRESULT = 0x40935_u32 as _;
-pub const IDS_MON_WEIGHT_OUT_OF_RANGE: ::windows_sys::core::HRESULT = 0x40940_u32 as _;
+pub const IDS_MON_BUILTIN_PROPERTY: windows_sys::core::HRESULT = 0x4093F_u32 as _;
+pub const IDS_MON_BUILTIN_VIEW: windows_sys::core::HRESULT = 0x40937_u32 as _;
+pub const IDS_MON_CANNOT_CAST: windows_sys::core::HRESULT = 0x40946_u32 as _;
+pub const IDS_MON_CANNOT_CONVERT: windows_sys::core::HRESULT = 0x4093B_u32 as _;
+pub const IDS_MON_COLUMN_NOT_DEFINED: windows_sys::core::HRESULT = 0x40936_u32 as _;
+pub const IDS_MON_DATE_OUT_OF_RANGE: windows_sys::core::HRESULT = 0x40947_u32 as _;
+pub const IDS_MON_DEFAULT_ERROR: windows_sys::core::HRESULT = 0x4092F_u32 as _;
+pub const IDS_MON_ILLEGAL_PASSTHROUGH: windows_sys::core::HRESULT = 0x40930_u32 as _;
+pub const IDS_MON_INVALIDSELECT_COALESCE: windows_sys::core::HRESULT = 0x40945_u32 as _;
+pub const IDS_MON_INVALID_CATALOG: windows_sys::core::HRESULT = 0x40944_u32 as _;
+pub const IDS_MON_INVALID_IN_GROUP_CLAUSE: windows_sys::core::HRESULT = 0x40948_u32 as _;
+pub const IDS_MON_MATCH_STRING: windows_sys::core::HRESULT = 0x40941_u32 as _;
+pub const IDS_MON_NOT_COLUMN_OF_VIEW: windows_sys::core::HRESULT = 0x4093E_u32 as _;
+pub const IDS_MON_ORDINAL_OUT_OF_RANGE: windows_sys::core::HRESULT = 0x40934_u32 as _;
+pub const IDS_MON_OR_NOT: windows_sys::core::HRESULT = 0x4093A_u32 as _;
+pub const IDS_MON_OUT_OF_MEMORY: windows_sys::core::HRESULT = 0x40938_u32 as _;
+pub const IDS_MON_OUT_OF_RANGE: windows_sys::core::HRESULT = 0x4093C_u32 as _;
+pub const IDS_MON_PARSE_ERR_1_PARAM: windows_sys::core::HRESULT = 0x40931_u32 as _;
+pub const IDS_MON_PARSE_ERR_2_PARAM: windows_sys::core::HRESULT = 0x40932_u32 as _;
+pub const IDS_MON_PROPERTY_NAME_IN_VIEW: windows_sys::core::HRESULT = 0x40942_u32 as _;
+pub const IDS_MON_RELATIVE_INTERVAL: windows_sys::core::HRESULT = 0x4093D_u32 as _;
+pub const IDS_MON_SELECT_STAR: windows_sys::core::HRESULT = 0x40939_u32 as _;
+pub const IDS_MON_SEMI_COLON: windows_sys::core::HRESULT = 0x40933_u32 as _;
+pub const IDS_MON_VIEW_ALREADY_DEFINED: windows_sys::core::HRESULT = 0x40943_u32 as _;
+pub const IDS_MON_VIEW_NOT_DEFINED: windows_sys::core::HRESULT = 0x40935_u32 as _;
+pub const IDS_MON_WEIGHT_OUT_OF_RANGE: windows_sys::core::HRESULT = 0x40940_u32 as _;
 pub const IDX_E_BUILD_IN_PROGRESS: i32 = -2147217147i32;
 pub const IDX_E_CATALOG_DISMOUNTED: i32 = -2147217124i32;
 pub const IDX_E_CORRUPT_INDEX: i32 = -2147217136i32;
@@ -2153,16 +2153,16 @@ pub const ILK_EXPLICIT_EXCLUDED: INTERVAL_LIMIT_KIND = 1i32;
 pub const ILK_EXPLICIT_INCLUDED: INTERVAL_LIMIT_KIND = 0i32;
 pub const ILK_NEGATIVE_INFINITY: INTERVAL_LIMIT_KIND = 2i32;
 pub const ILK_POSITIVE_INFINITY: INTERVAL_LIMIT_KIND = 3i32;
-pub const INET_E_AGENT_CACHE_SIZE_EXCEEDED: ::windows_sys::core::HRESULT = 0x800C0F82_u32 as _;
-pub const INET_E_AGENT_CONNECTION_FAILED: ::windows_sys::core::HRESULT = 0x800C0F83_u32 as _;
-pub const INET_E_AGENT_EXCEEDING_CACHE_SIZE: ::windows_sys::core::HRESULT = 0x800C0F90_u32 as _;
-pub const INET_E_AGENT_MAX_SIZE_EXCEEDED: ::windows_sys::core::HRESULT = 0x800C0F80_u32 as _;
-pub const INET_E_SCHEDULED_EXCLUDE_RANGE: ::windows_sys::core::HRESULT = 0x800C0F87_u32 as _;
-pub const INET_E_SCHEDULED_UPDATES_DISABLED: ::windows_sys::core::HRESULT = 0x800C0F84_u32 as _;
-pub const INET_E_SCHEDULED_UPDATES_RESTRICTED: ::windows_sys::core::HRESULT = 0x800C0F85_u32 as _;
-pub const INET_E_SCHEDULED_UPDATE_INTERVAL: ::windows_sys::core::HRESULT = 0x800C0F86_u32 as _;
-pub const INET_S_AGENT_INCREASED_CACHE_SIZE: ::windows_sys::core::HRESULT = 0xC0F90_u32 as _;
-pub const INET_S_AGENT_PART_FAIL: ::windows_sys::core::HRESULT = 0xC0F81_u32 as _;
+pub const INET_E_AGENT_CACHE_SIZE_EXCEEDED: windows_sys::core::HRESULT = 0x800C0F82_u32 as _;
+pub const INET_E_AGENT_CONNECTION_FAILED: windows_sys::core::HRESULT = 0x800C0F83_u32 as _;
+pub const INET_E_AGENT_EXCEEDING_CACHE_SIZE: windows_sys::core::HRESULT = 0x800C0F90_u32 as _;
+pub const INET_E_AGENT_MAX_SIZE_EXCEEDED: windows_sys::core::HRESULT = 0x800C0F80_u32 as _;
+pub const INET_E_SCHEDULED_EXCLUDE_RANGE: windows_sys::core::HRESULT = 0x800C0F87_u32 as _;
+pub const INET_E_SCHEDULED_UPDATES_DISABLED: windows_sys::core::HRESULT = 0x800C0F84_u32 as _;
+pub const INET_E_SCHEDULED_UPDATES_RESTRICTED: windows_sys::core::HRESULT = 0x800C0F85_u32 as _;
+pub const INET_E_SCHEDULED_UPDATE_INTERVAL: windows_sys::core::HRESULT = 0x800C0F86_u32 as _;
+pub const INET_S_AGENT_INCREASED_CACHE_SIZE: windows_sys::core::HRESULT = 0xC0F90_u32 as _;
+pub const INET_S_AGENT_PART_FAIL: windows_sys::core::HRESULT = 0xC0F81_u32 as _;
 pub const JET_GET_PROP_STORE_ERROR: i32 = -1073732822i32;
 pub const JET_INIT_ERROR: i32 = -1073732824i32;
 pub const JET_MULTIINSTANCE_DISABLED: i32 = -2147474645i32;
@@ -2398,25 +2398,25 @@ pub const MD_DIMTYPE_MEASURE: u32 = 2u32;
 pub const MD_DIMTYPE_OTHER: u32 = 3u32;
 pub const MD_DIMTYPE_TIME: u32 = 1u32;
 pub const MD_DIMTYPE_UNKNOWN: u32 = 0u32;
-pub const MD_E_BADCOORDINATE: ::windows_sys::core::HRESULT = 0x80040E62_u32 as _;
-pub const MD_E_BADTUPLE: ::windows_sys::core::HRESULT = 0x80040E61_u32 as _;
-pub const MD_E_INVALIDAXIS: ::windows_sys::core::HRESULT = 0x80040E63_u32 as _;
-pub const MD_E_INVALIDCELLRANGE: ::windows_sys::core::HRESULT = 0x80040E64_u32 as _;
+pub const MD_E_BADCOORDINATE: windows_sys::core::HRESULT = 0x80040E62_u32 as _;
+pub const MD_E_BADTUPLE: windows_sys::core::HRESULT = 0x80040E61_u32 as _;
+pub const MD_E_INVALIDAXIS: windows_sys::core::HRESULT = 0x80040E63_u32 as _;
+pub const MD_E_INVALIDCELLRANGE: windows_sys::core::HRESULT = 0x80040E64_u32 as _;
 pub const MINFATALERR: u32 = 20u32;
 pub const MIN_USER_DATATYPE: u32 = 256u32;
-pub const MSG_CI_CORRUPT_INDEX_COMPONENT: ::windows_sys::core::HRESULT = 0x4000102A_u32 as _;
-pub const MSG_CI_CREATE_SEVER_ITEM_FAILED: ::windows_sys::core::HRESULT = 0x80001048_u32 as _;
-pub const MSG_CI_MASTER_MERGE_ABORTED: ::windows_sys::core::HRESULT = 0x40001008_u32 as _;
-pub const MSG_CI_MASTER_MERGE_ABORTED_LOW_DISK: ::windows_sys::core::HRESULT = 0x40001043_u32 as _;
-pub const MSG_CI_MASTER_MERGE_CANT_RESTART: ::windows_sys::core::HRESULT = 0xC000100A_u32 as _;
-pub const MSG_CI_MASTER_MERGE_CANT_START: ::windows_sys::core::HRESULT = 0xC0001009_u32 as _;
-pub const MSG_CI_MASTER_MERGE_COMPLETED: ::windows_sys::core::HRESULT = 0x40001007_u32 as _;
-pub const MSG_CI_MASTER_MERGE_REASON_EXPECTED_DOCS: ::windows_sys::core::HRESULT = 0x40001046_u32 as _;
-pub const MSG_CI_MASTER_MERGE_REASON_EXTERNAL: ::windows_sys::core::HRESULT = 0x40001044_u32 as _;
-pub const MSG_CI_MASTER_MERGE_REASON_INDEX_LIMIT: ::windows_sys::core::HRESULT = 0x40001045_u32 as _;
-pub const MSG_CI_MASTER_MERGE_REASON_NUMBER: ::windows_sys::core::HRESULT = 0x40001047_u32 as _;
-pub const MSG_CI_MASTER_MERGE_RESTARTED: ::windows_sys::core::HRESULT = 0x40001019_u32 as _;
-pub const MSG_CI_MASTER_MERGE_STARTED: ::windows_sys::core::HRESULT = 0x40001006_u32 as _;
+pub const MSG_CI_CORRUPT_INDEX_COMPONENT: windows_sys::core::HRESULT = 0x4000102A_u32 as _;
+pub const MSG_CI_CREATE_SEVER_ITEM_FAILED: windows_sys::core::HRESULT = 0x80001048_u32 as _;
+pub const MSG_CI_MASTER_MERGE_ABORTED: windows_sys::core::HRESULT = 0x40001008_u32 as _;
+pub const MSG_CI_MASTER_MERGE_ABORTED_LOW_DISK: windows_sys::core::HRESULT = 0x40001043_u32 as _;
+pub const MSG_CI_MASTER_MERGE_CANT_RESTART: windows_sys::core::HRESULT = 0xC000100A_u32 as _;
+pub const MSG_CI_MASTER_MERGE_CANT_START: windows_sys::core::HRESULT = 0xC0001009_u32 as _;
+pub const MSG_CI_MASTER_MERGE_COMPLETED: windows_sys::core::HRESULT = 0x40001007_u32 as _;
+pub const MSG_CI_MASTER_MERGE_REASON_EXPECTED_DOCS: windows_sys::core::HRESULT = 0x40001046_u32 as _;
+pub const MSG_CI_MASTER_MERGE_REASON_EXTERNAL: windows_sys::core::HRESULT = 0x40001044_u32 as _;
+pub const MSG_CI_MASTER_MERGE_REASON_INDEX_LIMIT: windows_sys::core::HRESULT = 0x40001045_u32 as _;
+pub const MSG_CI_MASTER_MERGE_REASON_NUMBER: windows_sys::core::HRESULT = 0x40001047_u32 as _;
+pub const MSG_CI_MASTER_MERGE_RESTARTED: windows_sys::core::HRESULT = 0x40001019_u32 as _;
+pub const MSG_CI_MASTER_MERGE_STARTED: windows_sys::core::HRESULT = 0x40001006_u32 as _;
 pub const MSG_TEST_MESSAGE: i32 = 1074008064i32;
 pub const MSS_E_APPALREADYEXISTS: i32 = -2147213054i32;
 pub const MSS_E_APPNOTFOUND: i32 = -2147213055i32;
@@ -2425,7 +2425,7 @@ pub const MSS_E_CATALOGNOTFOUND: i32 = -2147213053i32;
 pub const MSS_E_CATALOGSTOPPING: i32 = -2147213052i32;
 pub const MSS_E_INVALIDAPPNAME: i32 = -2147213056i32;
 pub const MSS_E_UNICODEFILEHEADERMISSING: i32 = -2147213051i32;
-pub const MS_PERSIST_PROGID: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("MSPersist");
+pub const MS_PERSIST_PROGID: windows_sys::core::PCSTR = windows_sys::core::s!("MSPersist");
 pub const NEC_HIGH: NAMED_ENTITY_CERTAINTY = 2i32;
 pub const NEC_LOW: NAMED_ENTITY_CERTAINTY = 0i32;
 pub const NEC_MEDIUM: NAMED_ENTITY_CERTAINTY = 1i32;
@@ -2448,7 +2448,7 @@ pub const NOTESPH_E_UNEXPECTED_STATE: i32 = -2147211775i32;
 pub const NOTESPH_E_UNSUPPORTED_CONTENT_FIELD_TYPE: i32 = -2147211773i32;
 pub const NOTESPH_S_IGNORE_ID: i32 = 271874i32;
 pub const NOTESPH_S_LISTKNOWNFIELDS: i32 = 271888i32;
-pub const NOT_N_PARSE_ERROR: ::windows_sys::core::HRESULT = 0x8092E_u32 as _;
+pub const NOT_N_PARSE_ERROR: windows_sys::core::HRESULT = 0x8092E_u32 as _;
 pub const OCC_INVALID: u32 = 4294967295u32;
 pub const ODBCVER: u32 = 896u32;
 pub const ODBC_ADD_DSN: u32 = 1u32;
@@ -2564,8 +2564,8 @@ pub const PRIORITY_LEVEL_DEFAULT: PRIORITY_LEVEL = 3i32;
 pub const PRIORITY_LEVEL_FOREGROUND: PRIORITY_LEVEL = 0i32;
 pub const PRIORITY_LEVEL_HIGH: PRIORITY_LEVEL = 1i32;
 pub const PRIORITY_LEVEL_LOW: PRIORITY_LEVEL = 2i32;
-pub const PROGID_MSPersist_Version_W: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("MSPersist.1");
-pub const PROGID_MSPersist_W: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("MSPersist");
+pub const PROGID_MSPersist_Version_W: windows_sys::core::PCWSTR = windows_sys::core::w!("MSPersist.1");
+pub const PROGID_MSPersist_W: windows_sys::core::PCWSTR = windows_sys::core::w!("MSPersist");
 pub const PROPID_DBBMK_BOOKMARK: u32 = 2u32;
 pub const PROPID_DBBMK_CHAPTER: u32 = 3u32;
 pub const PROPID_DBSELF_SELF: u32 = 2u32;
@@ -2606,9 +2606,9 @@ pub const PRTH_S_NOT_ALL_PARTS: u32 = 266779u32;
 pub const PRTH_S_NOT_MODIFIED: u32 = 266755u32;
 pub const PRTH_S_TRY_IMPERSONATING: i32 = 266789i32;
 pub const PRTH_S_USE_ROSEBUD: i32 = 266772i32;
-pub const PSGUID_CHARACTERIZATION: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x560c36c0_503a_11cf_baa1_00004c752a9a);
-pub const PSGUID_QUERY_METADATA: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x624c9360_93d0_11cf_a787_00004c752752);
-pub const PSGUID_STORAGE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xb725f130_47ef_101a_a5f1_02608c9eebac);
+pub const PSGUID_CHARACTERIZATION: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x560c36c0_503a_11cf_baa1_00004c752a9a);
+pub const PSGUID_QUERY_METADATA: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x624c9360_93d0_11cf_a787_00004c752752);
+pub const PSGUID_STORAGE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb725f130_47ef_101a_a5f1_02608c9eebac);
 pub const PWPROP_OSPVALUE: u32 = 2u32;
 pub const QPMO_APPEND_LCID_TO_LOCALIZED_PATH: QUERY_PARSER_MANAGER_OPTION = 4i32;
 pub const QPMO_LOCALIZED_SCHEMA_BINARY_PATH: QUERY_PARSER_MANAGER_OPTION = 3i32;
@@ -2647,21 +2647,21 @@ pub const QRY_E_WILDCARDPREFIXLENGTH: i32 = -2147219695i32;
 pub const QRY_S_INEXACTRESULTS: i32 = 263958i32;
 pub const QRY_S_NOROWSFOUND: i32 = 263940i32;
 pub const QRY_S_TERMIGNORED: i32 = 263954i32;
-pub const QUERY_E_AGGREGATE_NOT_SUPPORTED: ::windows_sys::core::HRESULT = 0x80041619_u32 as _;
-pub const QUERY_E_ALLNOISE_AND_NO_RELDOC: ::windows_sys::core::HRESULT = 0x8004160D_u32 as _;
-pub const QUERY_E_ALLNOISE_AND_NO_RELPROP: ::windows_sys::core::HRESULT = 0x8004160F_u32 as _;
-pub const QUERY_E_DUPLICATE_RANGE_NAME: ::windows_sys::core::HRESULT = 0x8004161B_u32 as _;
-pub const QUERY_E_INCORRECT_VERSION: ::windows_sys::core::HRESULT = 0x80041614_u32 as _;
-pub const QUERY_E_INVALIDCOALESCE: ::windows_sys::core::HRESULT = 0x80041617_u32 as _;
-pub const QUERY_E_INVALIDSCOPE_COALESCE: ::windows_sys::core::HRESULT = 0x80041615_u32 as _;
-pub const QUERY_E_INVALIDSORT_COALESCE: ::windows_sys::core::HRESULT = 0x80041616_u32 as _;
-pub const QUERY_E_INVALID_DOCUMENT_IDENTIFIER: ::windows_sys::core::HRESULT = 0x80041613_u32 as _;
-pub const QUERY_E_NO_RELDOC: ::windows_sys::core::HRESULT = 0x8004160E_u32 as _;
-pub const QUERY_E_NO_RELPROP: ::windows_sys::core::HRESULT = 0x80041610_u32 as _;
-pub const QUERY_E_RELDOC_SYNTAX_NOT_SUPPORTED: ::windows_sys::core::HRESULT = 0x80041612_u32 as _;
-pub const QUERY_E_REPEATED_RELDOC: ::windows_sys::core::HRESULT = 0x80041611_u32 as _;
-pub const QUERY_E_TOP_LEVEL_IN_GROUP: ::windows_sys::core::HRESULT = 0x8004161A_u32 as _;
-pub const QUERY_E_UPGRADEINPROGRESS: ::windows_sys::core::HRESULT = 0x80041618_u32 as _;
+pub const QUERY_E_AGGREGATE_NOT_SUPPORTED: windows_sys::core::HRESULT = 0x80041619_u32 as _;
+pub const QUERY_E_ALLNOISE_AND_NO_RELDOC: windows_sys::core::HRESULT = 0x8004160D_u32 as _;
+pub const QUERY_E_ALLNOISE_AND_NO_RELPROP: windows_sys::core::HRESULT = 0x8004160F_u32 as _;
+pub const QUERY_E_DUPLICATE_RANGE_NAME: windows_sys::core::HRESULT = 0x8004161B_u32 as _;
+pub const QUERY_E_INCORRECT_VERSION: windows_sys::core::HRESULT = 0x80041614_u32 as _;
+pub const QUERY_E_INVALIDCOALESCE: windows_sys::core::HRESULT = 0x80041617_u32 as _;
+pub const QUERY_E_INVALIDSCOPE_COALESCE: windows_sys::core::HRESULT = 0x80041615_u32 as _;
+pub const QUERY_E_INVALIDSORT_COALESCE: windows_sys::core::HRESULT = 0x80041616_u32 as _;
+pub const QUERY_E_INVALID_DOCUMENT_IDENTIFIER: windows_sys::core::HRESULT = 0x80041613_u32 as _;
+pub const QUERY_E_NO_RELDOC: windows_sys::core::HRESULT = 0x8004160E_u32 as _;
+pub const QUERY_E_NO_RELPROP: windows_sys::core::HRESULT = 0x80041610_u32 as _;
+pub const QUERY_E_RELDOC_SYNTAX_NOT_SUPPORTED: windows_sys::core::HRESULT = 0x80041612_u32 as _;
+pub const QUERY_E_REPEATED_RELDOC: windows_sys::core::HRESULT = 0x80041611_u32 as _;
+pub const QUERY_E_TOP_LEVEL_IN_GROUP: windows_sys::core::HRESULT = 0x8004161A_u32 as _;
+pub const QUERY_E_UPGRADEINPROGRESS: windows_sys::core::HRESULT = 0x80041618_u32 as _;
 pub const QUERY_SORTDEFAULT: u32 = 4u32;
 pub const QUERY_SORTXASCEND: u32 = 2u32;
 pub const QUERY_SORTXDESCEND: u32 = 3u32;
@@ -2745,17 +2745,17 @@ pub const SEARCH_TERM_NO_EXPANSION: SEARCH_TERM_EXPANSION = 0i32;
 pub const SEARCH_TERM_PREFIX_ALL: SEARCH_TERM_EXPANSION = 1i32;
 pub const SEARCH_TERM_STEM_ALL: SEARCH_TERM_EXPANSION = 2i32;
 pub const SEC_E_ACCESSDENIED: i32 = -2147216129i32;
-pub const SEC_E_BADTRUSTEEID: ::windows_sys::core::HRESULT = 0x80040E6A_u32 as _;
+pub const SEC_E_BADTRUSTEEID: windows_sys::core::HRESULT = 0x80040E6A_u32 as _;
 pub const SEC_E_INITFAILED: i32 = -2147216383i32;
-pub const SEC_E_INVALIDACCESSENTRY: ::windows_sys::core::HRESULT = 0x80040E71_u32 as _;
-pub const SEC_E_INVALIDACCESSENTRYLIST: ::windows_sys::core::HRESULT = 0x80040E6F_u32 as _;
+pub const SEC_E_INVALIDACCESSENTRY: windows_sys::core::HRESULT = 0x80040E71_u32 as _;
+pub const SEC_E_INVALIDACCESSENTRYLIST: windows_sys::core::HRESULT = 0x80040E6F_u32 as _;
 pub const SEC_E_INVALIDCONTEXT: i32 = -2147216381i32;
-pub const SEC_E_INVALIDOBJECT: ::windows_sys::core::HRESULT = 0x80040E6D_u32 as _;
-pub const SEC_E_INVALIDOWNER: ::windows_sys::core::HRESULT = 0x80040E70_u32 as _;
-pub const SEC_E_NOMEMBERSHIPSUPPORT: ::windows_sys::core::HRESULT = 0x80040E6C_u32 as _;
-pub const SEC_E_NOOWNER: ::windows_sys::core::HRESULT = 0x80040E6E_u32 as _;
+pub const SEC_E_INVALIDOBJECT: windows_sys::core::HRESULT = 0x80040E6D_u32 as _;
+pub const SEC_E_INVALIDOWNER: windows_sys::core::HRESULT = 0x80040E70_u32 as _;
+pub const SEC_E_NOMEMBERSHIPSUPPORT: windows_sys::core::HRESULT = 0x80040E6C_u32 as _;
+pub const SEC_E_NOOWNER: windows_sys::core::HRESULT = 0x80040E6E_u32 as _;
 pub const SEC_E_NOTINITIALIZED: i32 = -2147216382i32;
-pub const SEC_E_NOTRUSTEEID: ::windows_sys::core::HRESULT = 0x80040E6B_u32 as _;
+pub const SEC_E_NOTRUSTEEID: windows_sys::core::HRESULT = 0x80040E6B_u32 as _;
 pub const SEC_E_PERMISSIONDENIED: i32 = -2147217911i32;
 pub const SI_TEMPORARY: u32 = 2147483648u32;
 pub const SPS_WS_ERROR: i32 = -2147211753i32;
@@ -2834,10 +2834,10 @@ pub const SQL_AF_MAX: i32 = 4i32;
 pub const SQL_AF_MIN: i32 = 8i32;
 pub const SQL_AF_SUM: i32 = 16i32;
 pub const SQL_AGGREGATE_FUNCTIONS: u32 = 169u32;
-pub const SQL_ALL_CATALOGS: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("%");
+pub const SQL_ALL_CATALOGS: windows_sys::core::PCSTR = windows_sys::core::s!("%");
 pub const SQL_ALL_EXCEPT_LIKE: u32 = 2u32;
-pub const SQL_ALL_SCHEMAS: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("%");
-pub const SQL_ALL_TABLE_TYPES: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("%");
+pub const SQL_ALL_SCHEMAS: windows_sys::core::PCSTR = windows_sys::core::s!("%");
+pub const SQL_ALL_TABLE_TYPES: windows_sys::core::PCSTR = windows_sys::core::s!("%");
 pub const SQL_ALL_TYPES: u32 = 0u32;
 pub const SQL_ALTER_DOMAIN: u32 = 117u32;
 pub const SQL_ALTER_TABLE: u32 = 86u32;
@@ -4021,7 +4021,7 @@ pub const SQL_OAC_NONE: u32 = 0u32;
 pub const SQL_ODBC_API_CONFORMANCE: u32 = 9u32;
 pub const SQL_ODBC_CURSORS: u32 = 110u32;
 pub const SQL_ODBC_INTERFACE_CONFORMANCE: u32 = 152u32;
-pub const SQL_ODBC_KEYWORDS : ::windows_sys::core::PCSTR = ::windows_sys::core::s ! ( "ABSOLUTE,ACTION,ADA,ADD,ALL,ALLOCATE,ALTER,AND,ANY,ARE,AS,ASC,ASSERTION,AT,AUTHORIZATION,AVG,BEGIN,BETWEEN,BIT,BIT_LENGTH,BOTH,BY,CASCADE,CASCADED,CASE,CAST,CATALOG,CHAR,CHAR_LENGTH,CHARACTER,CHARACTER_LENGTH,CHECK,CLOSE,COALESCE,COLLATE,COLLATION,COLUMN,COMMIT,CONNECT,CONNECTION,CONSTRAINT,CONSTRAINTS,CONTINUE,CONVERT,CORRESPONDING,COUNT,CREATE,CROSS,CURRENT,CURRENT_DATE,CURRENT_TIME,CURRENT_TIMESTAMP,CURRENT_USER,CURSOR,DATE,DAY,DEALLOCATE,DEC,DECIMAL,DECLARE,DEFAULT,DEFERRABLE,DEFERRED,DELETE,DESC,DESCRIBE,DESCRIPTOR,DIAGNOSTICS,DISCONNECT,DISTINCT,DOMAIN,DOUBLE,DROP,ELSE,END,END-EXEC,ESCAPE,EXCEPT,EXCEPTION,EXEC,EXECUTE,EXISTS,EXTERNAL,EXTRACT,FALSE,FETCH,FIRST,FLOAT,FOR,FOREIGN,FORTRAN,FOUND,FROM,FULL,GET,GLOBAL,GO,GOTO,GRANT,GROUP,HAVING,HOUR,IDENTITY,IMMEDIATE,IN,INCLUDE,INDEX,INDICATOR,INITIALLY,INNER,INPUT,INSENSITIVE,INSERT,INT,INTEGER,INTERSECT,INTERVAL,INTO,IS,ISOLATION,JOIN,KEY,LANGUAGE,LAST,LEADING,LEFT,LEVEL,LIKE,LOCAL,LOWER,MATCH,MAX,MIN,MINUTE,MODULE,MONTH,NAMES,NATIONAL,NATURAL,NCHAR,NEXT,NO,NONE,NOT,NULL,NULLIF,NUMERIC,OCTET_LENGTH,OF,ON,ONLY,OPEN,OPTION,OR,ORDER,OUTER,OUTPUT,OVERLAPS,PAD,PARTIAL,PASCAL,PLI,POSITION,PRECISION,PREPARE,PRESERVE,PRIMARY,PRIOR,PRIVILEGES,PROCEDURE,PUBLIC,READ,REAL,REFERENCES,RELATIVE,RESTRICT,REVOKE,RIGHT,ROLLBACK,ROWSSCHEMA,SCROLL,SECOND,SECTION,SELECT,SESSION,SESSION_USER,SET,SIZE,SMALLINT,SOME,SPACE,SQL,SQLCA,SQLCODE,SQLERROR,SQLSTATE,SQLWARNING,SUBSTRING,SUM,SYSTEM_USER,TABLE,TEMPORARY,THEN,TIME,TIMESTAMP,TIMEZONE_HOUR,TIMEZONE_MINUTE,TO,TRAILING,TRANSACTION,TRANSLATE,TRANSLATION,TRIM,TRUE,UNION,UNIQUE,UNKNOWN,UPDATE,UPPER,USAGE,USER,USING,VALUE,VALUES,VARCHAR,VARYING,VIEW,WHEN,WHENEVER,WHERE,WITH,WORK,WRITE,YEAR,ZONE" ) ;
+pub const SQL_ODBC_KEYWORDS : windows_sys::core::PCSTR = windows_sys::core::s ! ( "ABSOLUTE,ACTION,ADA,ADD,ALL,ALLOCATE,ALTER,AND,ANY,ARE,AS,ASC,ASSERTION,AT,AUTHORIZATION,AVG,BEGIN,BETWEEN,BIT,BIT_LENGTH,BOTH,BY,CASCADE,CASCADED,CASE,CAST,CATALOG,CHAR,CHAR_LENGTH,CHARACTER,CHARACTER_LENGTH,CHECK,CLOSE,COALESCE,COLLATE,COLLATION,COLUMN,COMMIT,CONNECT,CONNECTION,CONSTRAINT,CONSTRAINTS,CONTINUE,CONVERT,CORRESPONDING,COUNT,CREATE,CROSS,CURRENT,CURRENT_DATE,CURRENT_TIME,CURRENT_TIMESTAMP,CURRENT_USER,CURSOR,DATE,DAY,DEALLOCATE,DEC,DECIMAL,DECLARE,DEFAULT,DEFERRABLE,DEFERRED,DELETE,DESC,DESCRIBE,DESCRIPTOR,DIAGNOSTICS,DISCONNECT,DISTINCT,DOMAIN,DOUBLE,DROP,ELSE,END,END-EXEC,ESCAPE,EXCEPT,EXCEPTION,EXEC,EXECUTE,EXISTS,EXTERNAL,EXTRACT,FALSE,FETCH,FIRST,FLOAT,FOR,FOREIGN,FORTRAN,FOUND,FROM,FULL,GET,GLOBAL,GO,GOTO,GRANT,GROUP,HAVING,HOUR,IDENTITY,IMMEDIATE,IN,INCLUDE,INDEX,INDICATOR,INITIALLY,INNER,INPUT,INSENSITIVE,INSERT,INT,INTEGER,INTERSECT,INTERVAL,INTO,IS,ISOLATION,JOIN,KEY,LANGUAGE,LAST,LEADING,LEFT,LEVEL,LIKE,LOCAL,LOWER,MATCH,MAX,MIN,MINUTE,MODULE,MONTH,NAMES,NATIONAL,NATURAL,NCHAR,NEXT,NO,NONE,NOT,NULL,NULLIF,NUMERIC,OCTET_LENGTH,OF,ON,ONLY,OPEN,OPTION,OR,ORDER,OUTER,OUTPUT,OVERLAPS,PAD,PARTIAL,PASCAL,PLI,POSITION,PRECISION,PREPARE,PRESERVE,PRIMARY,PRIOR,PRIVILEGES,PROCEDURE,PUBLIC,READ,REAL,REFERENCES,RELATIVE,RESTRICT,REVOKE,RIGHT,ROLLBACK,ROWSSCHEMA,SCROLL,SECOND,SECTION,SELECT,SESSION,SESSION_USER,SET,SIZE,SMALLINT,SOME,SPACE,SQL,SQLCA,SQLCODE,SQLERROR,SQLSTATE,SQLWARNING,SUBSTRING,SUM,SYSTEM_USER,TABLE,TEMPORARY,THEN,TIME,TIMESTAMP,TIMEZONE_HOUR,TIMEZONE_MINUTE,TO,TRAILING,TRANSACTION,TRANSLATE,TRANSLATION,TRIM,TRUE,UNION,UNIQUE,UNKNOWN,UPDATE,UPPER,USAGE,USER,USING,VALUE,VALUES,VARCHAR,VARYING,VIEW,WHEN,WHENEVER,WHERE,WITH,WORK,WRITE,YEAR,ZONE" ) ;
 pub const SQL_ODBC_SAG_CLI_CONFORMANCE: u32 = 12u32;
 pub const SQL_ODBC_SQL_CONFORMANCE: u32 = 15u32;
 pub const SQL_ODBC_SQL_OPT_IEF: u32 = 73u32;
@@ -4040,7 +4040,7 @@ pub const SQL_OJ_RIGHT: i32 = 2i32;
 pub const SQL_OPT_TRACE: u32 = 104u32;
 pub const SQL_OPT_TRACEFILE: u32 = 105u32;
 pub const SQL_OPT_TRACE_DEFAULT: u32 = 0u32;
-pub const SQL_OPT_TRACE_FILE_DEFAULT: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("\\SQL.LOG");
+pub const SQL_OPT_TRACE_FILE_DEFAULT: windows_sys::core::PCSTR = windows_sys::core::s!("\\SQL.LOG");
 pub const SQL_OPT_TRACE_OFF: u32 = 0u32;
 pub const SQL_OPT_TRACE_ON: u32 = 1u32;
 pub const SQL_ORDER_BY_COLUMNS_IN_SELECT: u32 = 90u32;
@@ -4254,7 +4254,7 @@ pub const SQL_SO_STATIC: i32 = 16i32;
 pub const SQL_SPECIAL_CHARACTERS: u32 = 94u32;
 pub const SQL_SPEC_MAJOR: u32 = 3u32;
 pub const SQL_SPEC_MINOR: u32 = 80u32;
-pub const SQL_SPEC_STRING: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("03.80");
+pub const SQL_SPEC_STRING: windows_sys::core::PCSTR = windows_sys::core::s!("03.80");
 pub const SQL_SP_BETWEEN: i32 = 2048i32;
 pub const SQL_SP_COMPARISON: i32 = 4096i32;
 pub const SQL_SP_EXISTS: i32 = 1i32;
@@ -4327,9 +4327,9 @@ pub const SQL_SSF_TRIM_TRAILING: i32 = 128i32;
 pub const SQL_SSF_UPPER: i32 = 4i32;
 pub const SQL_SS_ADDITIONS: i32 = 1i32;
 pub const SQL_SS_DELETIONS: i32 = 2i32;
-pub const SQL_SS_DL_DEFAULT: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("STATS.LOG");
+pub const SQL_SS_DL_DEFAULT: windows_sys::core::PCWSTR = windows_sys::core::w!("STATS.LOG");
 pub const SQL_SS_QI_DEFAULT: u32 = 30000u32;
-pub const SQL_SS_QL_DEFAULT: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("QUERY.LOG");
+pub const SQL_SS_QL_DEFAULT: windows_sys::core::PCWSTR = windows_sys::core::w!("QUERY.LOG");
 pub const SQL_SS_UPDATES: i32 = 4i32;
 pub const SQL_SS_VARIANT: i32 = -150i32;
 pub const SQL_STANDARD_CLI_CONFORMANCE: u32 = 166u32;
@@ -4808,11 +4808,11 @@ pub type WEBCRAWL_RECURSEFLAGS = i32;
 pub struct AUTHENTICATION_INFO {
     pub dwSize: u32,
     pub atAuthenticationType: AUTH_TYPE,
-    pub pcwszUser: ::windows_sys::core::PCWSTR,
-    pub pcwszPassword: ::windows_sys::core::PCWSTR,
+    pub pcwszUser: windows_sys::core::PCWSTR,
+    pub pcwszPassword: windows_sys::core::PCWSTR,
 }
-impl ::core::marker::Copy for AUTHENTICATION_INFO {}
-impl ::core::clone::Clone for AUTHENTICATION_INFO {
+impl Copy for AUTHENTICATION_INFO {}
+impl Clone for AUTHENTICATION_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -4822,8 +4822,8 @@ pub struct BUCKETCATEGORIZE {
     pub cBuckets: u32,
     pub Distribution: u32,
 }
-impl ::core::marker::Copy for BUCKETCATEGORIZE {}
-impl ::core::clone::Clone for BUCKETCATEGORIZE {
+impl Copy for BUCKETCATEGORIZE {}
+impl Clone for BUCKETCATEGORIZE {
     fn clone(&self) -> Self {
         *self
     }
@@ -4836,9 +4836,9 @@ pub struct CATEGORIZATION {
     pub csColumns: COLUMNSET,
 }
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl ::core::marker::Copy for CATEGORIZATION {}
+impl Copy for CATEGORIZATION {}
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl ::core::clone::Clone for CATEGORIZATION {
+impl Clone for CATEGORIZATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -4851,9 +4851,9 @@ pub union CATEGORIZATION_0 {
     pub range: RANGECATEGORIZE,
 }
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl ::core::marker::Copy for CATEGORIZATION_0 {}
+impl Copy for CATEGORIZATION_0 {}
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl ::core::clone::Clone for CATEGORIZATION_0 {
+impl Clone for CATEGORIZATION_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4865,9 +4865,9 @@ pub struct CATEGORIZATIONSET {
     pub aCat: *mut CATEGORIZATION,
 }
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl ::core::marker::Copy for CATEGORIZATIONSET {}
+impl Copy for CATEGORIZATIONSET {}
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl ::core::clone::Clone for CATEGORIZATIONSET {
+impl Clone for CATEGORIZATIONSET {
     fn clone(&self) -> Self {
         *self
     }
@@ -4879,9 +4879,9 @@ pub struct COLUMNSET {
     pub aCol: *mut super::super::Storage::IndexServer::FULLPROPSPEC,
 }
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
-impl ::core::marker::Copy for COLUMNSET {}
+impl Copy for COLUMNSET {}
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
-impl ::core::clone::Clone for COLUMNSET {
+impl Clone for COLUMNSET {
     fn clone(&self) -> Self {
         *self
     }
@@ -4890,32 +4890,32 @@ impl ::core::clone::Clone for COLUMNSET {
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
 pub struct CONTENTRESTRICTION {
     pub prop: super::super::Storage::IndexServer::FULLPROPSPEC,
-    pub pwcsPhrase: ::windows_sys::core::PWSTR,
+    pub pwcsPhrase: windows_sys::core::PWSTR,
     pub lcid: u32,
     pub ulGenerateMethod: u32,
 }
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
-impl ::core::marker::Copy for CONTENTRESTRICTION {}
+impl Copy for CONTENTRESTRICTION {}
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
-impl ::core::clone::Clone for CONTENTRESTRICTION {
+impl Clone for CONTENTRESTRICTION {
     fn clone(&self) -> Self {
         *self
     }
 }
-pub const CSearchLanguageSupport: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x6a68cc80_4337_4dbc_bd27_fbfb1053820b);
-pub const CSearchManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x7d096c5f_ac08_4f1f_beb7_5c22c517ce39);
-pub const CSearchRoot: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x30766bd2_ea1c_4f28_bf27_0b44e2f68db7);
-pub const CSearchScopeRule: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xe63de750_3bd7_4be5_9c84_6b4281988c44);
-pub const CompoundCondition: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x116f8d13_101e_4fa5_84d4_ff8279381935);
-pub const ConditionFactory: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xe03e85b0_7be3_4000_ba98_6c13de9fa486);
+pub const CSearchLanguageSupport: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6a68cc80_4337_4dbc_bd27_fbfb1053820b);
+pub const CSearchManager: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7d096c5f_ac08_4f1f_beb7_5c22c517ce39);
+pub const CSearchRoot: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x30766bd2_ea1c_4f28_bf27_0b44e2f68db7);
+pub const CSearchScopeRule: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe63de750_3bd7_4be5_9c84_6b4281988c44);
+pub const CompoundCondition: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x116f8d13_101e_4fa5_84d4_ff8279381935);
+pub const ConditionFactory: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe03e85b0_7be3_4000_ba98_6c13de9fa486);
 #[repr(C)]
 pub struct DATE_STRUCT {
     pub year: i16,
     pub month: u16,
     pub day: u16,
 }
-impl ::core::marker::Copy for DATE_STRUCT {}
-impl ::core::clone::Clone for DATE_STRUCT {
+impl Copy for DATE_STRUCT {}
+impl Clone for DATE_STRUCT {
     fn clone(&self) -> Self {
         *self
     }
@@ -4927,9 +4927,9 @@ pub struct DBBINDEXT {
     pub ulExtension: usize,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::marker::Copy for DBBINDEXT {}
+impl Copy for DBBINDEXT {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::clone::Clone for DBBINDEXT {
+impl Clone for DBBINDEXT {
     fn clone(&self) -> Self {
         *self
     }
@@ -4941,9 +4941,9 @@ pub struct DBBINDEXT {
     pub ulExtension: usize,
 }
 #[cfg(target_arch = "x86")]
-impl ::core::marker::Copy for DBBINDEXT {}
+impl Copy for DBBINDEXT {}
 #[cfg(target_arch = "x86")]
-impl ::core::clone::Clone for DBBINDEXT {
+impl Clone for DBBINDEXT {
     fn clone(&self) -> Self {
         *self
     }
@@ -4955,7 +4955,7 @@ pub struct DBBINDING {
     pub obValue: usize,
     pub obLength: usize,
     pub obStatus: usize,
-    pub pTypeInfo: *mut ::core::ffi::c_void,
+    pub pTypeInfo: *mut core::ffi::c_void,
     pub pObject: *mut DBOBJECT,
     pub pBindExt: *mut DBBINDEXT,
     pub dwPart: u32,
@@ -4968,9 +4968,9 @@ pub struct DBBINDING {
     pub bScale: u8,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::marker::Copy for DBBINDING {}
+impl Copy for DBBINDING {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::clone::Clone for DBBINDING {
+impl Clone for DBBINDING {
     fn clone(&self) -> Self {
         *self
     }
@@ -4982,7 +4982,7 @@ pub struct DBBINDING {
     pub obValue: usize,
     pub obLength: usize,
     pub obStatus: usize,
-    pub pTypeInfo: *mut ::core::ffi::c_void,
+    pub pTypeInfo: *mut core::ffi::c_void,
     pub pObject: *mut DBOBJECT,
     pub pBindExt: *mut DBBINDEXT,
     pub dwPart: u32,
@@ -4995,9 +4995,9 @@ pub struct DBBINDING {
     pub bScale: u8,
 }
 #[cfg(target_arch = "x86")]
-impl ::core::marker::Copy for DBBINDING {}
+impl Copy for DBBINDING {}
 #[cfg(target_arch = "x86")]
-impl ::core::clone::Clone for DBBINDING {
+impl Clone for DBBINDING {
     fn clone(&self) -> Self {
         *self
     }
@@ -5006,7 +5006,7 @@ impl ::core::clone::Clone for DBBINDING {
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Storage_IndexServer")]
 pub struct DBCOLUMNACCESS {
-    pub pData: *mut ::core::ffi::c_void,
+    pub pData: *mut core::ffi::c_void,
     pub columnid: super::super::Storage::IndexServer::DBID,
     pub cbDataLen: usize,
     pub dwStatus: u32,
@@ -5018,10 +5018,10 @@ pub struct DBCOLUMNACCESS {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Storage_IndexServer")]
-impl ::core::marker::Copy for DBCOLUMNACCESS {}
+impl Copy for DBCOLUMNACCESS {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Storage_IndexServer")]
-impl ::core::clone::Clone for DBCOLUMNACCESS {
+impl Clone for DBCOLUMNACCESS {
     fn clone(&self) -> Self {
         *self
     }
@@ -5030,7 +5030,7 @@ impl ::core::clone::Clone for DBCOLUMNACCESS {
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Storage_IndexServer")]
 pub struct DBCOLUMNACCESS {
-    pub pData: *mut ::core::ffi::c_void,
+    pub pData: *mut core::ffi::c_void,
     pub columnid: super::super::Storage::IndexServer::DBID,
     pub cbDataLen: usize,
     pub dwStatus: u32,
@@ -5042,10 +5042,10 @@ pub struct DBCOLUMNACCESS {
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Storage_IndexServer")]
-impl ::core::marker::Copy for DBCOLUMNACCESS {}
+impl Copy for DBCOLUMNACCESS {}
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Storage_IndexServer")]
-impl ::core::clone::Clone for DBCOLUMNACCESS {
+impl Clone for DBCOLUMNACCESS {
     fn clone(&self) -> Self {
         *self
     }
@@ -5054,10 +5054,10 @@ impl ::core::clone::Clone for DBCOLUMNACCESS {
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 pub struct DBCOLUMNDESC {
-    pub pwszTypeName: ::windows_sys::core::PWSTR,
-    pub pTypeInfo: *mut ::core::ffi::c_void,
+    pub pwszTypeName: windows_sys::core::PWSTR,
+    pub pTypeInfo: *mut core::ffi::c_void,
     pub rgPropertySets: *mut DBPROPSET,
-    pub pclsid: *mut ::windows_sys::core::GUID,
+    pub pclsid: *mut windows_sys::core::GUID,
     pub cPropertySets: u32,
     pub ulColumnSize: usize,
     pub dbcid: super::super::Storage::IndexServer::DBID,
@@ -5067,10 +5067,10 @@ pub struct DBCOLUMNDESC {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-impl ::core::marker::Copy for DBCOLUMNDESC {}
+impl Copy for DBCOLUMNDESC {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-impl ::core::clone::Clone for DBCOLUMNDESC {
+impl Clone for DBCOLUMNDESC {
     fn clone(&self) -> Self {
         *self
     }
@@ -5079,10 +5079,10 @@ impl ::core::clone::Clone for DBCOLUMNDESC {
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 pub struct DBCOLUMNDESC {
-    pub pwszTypeName: ::windows_sys::core::PWSTR,
-    pub pTypeInfo: *mut ::core::ffi::c_void,
+    pub pwszTypeName: windows_sys::core::PWSTR,
+    pub pTypeInfo: *mut core::ffi::c_void,
     pub rgPropertySets: *mut DBPROPSET,
-    pub pclsid: *mut ::windows_sys::core::GUID,
+    pub pclsid: *mut windows_sys::core::GUID,
     pub cPropertySets: u32,
     pub ulColumnSize: usize,
     pub dbcid: super::super::Storage::IndexServer::DBID,
@@ -5092,10 +5092,10 @@ pub struct DBCOLUMNDESC {
 }
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-impl ::core::marker::Copy for DBCOLUMNDESC {}
+impl Copy for DBCOLUMNDESC {}
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-impl ::core::clone::Clone for DBCOLUMNDESC {
+impl Clone for DBCOLUMNDESC {
     fn clone(&self) -> Self {
         *self
     }
@@ -5104,8 +5104,8 @@ impl ::core::clone::Clone for DBCOLUMNDESC {
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Storage_IndexServer")]
 pub struct DBCOLUMNINFO {
-    pub pwszName: ::windows_sys::core::PWSTR,
-    pub pTypeInfo: *mut ::core::ffi::c_void,
+    pub pwszName: windows_sys::core::PWSTR,
+    pub pTypeInfo: *mut core::ffi::c_void,
     pub iOrdinal: usize,
     pub dwFlags: u32,
     pub ulColumnSize: usize,
@@ -5116,10 +5116,10 @@ pub struct DBCOLUMNINFO {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Storage_IndexServer")]
-impl ::core::marker::Copy for DBCOLUMNINFO {}
+impl Copy for DBCOLUMNINFO {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Storage_IndexServer")]
-impl ::core::clone::Clone for DBCOLUMNINFO {
+impl Clone for DBCOLUMNINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -5128,8 +5128,8 @@ impl ::core::clone::Clone for DBCOLUMNINFO {
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Storage_IndexServer")]
 pub struct DBCOLUMNINFO {
-    pub pwszName: ::windows_sys::core::PWSTR,
-    pub pTypeInfo: *mut ::core::ffi::c_void,
+    pub pwszName: windows_sys::core::PWSTR,
+    pub pTypeInfo: *mut core::ffi::c_void,
     pub iOrdinal: usize,
     pub dwFlags: u32,
     pub ulColumnSize: usize,
@@ -5140,10 +5140,10 @@ pub struct DBCOLUMNINFO {
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Storage_IndexServer")]
-impl ::core::marker::Copy for DBCOLUMNINFO {}
+impl Copy for DBCOLUMNINFO {}
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Storage_IndexServer")]
-impl ::core::clone::Clone for DBCOLUMNINFO {
+impl Clone for DBCOLUMNINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -5159,7 +5159,7 @@ pub struct DBCONSTRAINTDESC {
     pub pReferencedTableID: *mut super::super::Storage::IndexServer::DBID,
     pub cForeignKeyColumns: usize,
     pub rgForeignKeyColumnList: *mut super::super::Storage::IndexServer::DBID,
-    pub pwszConstraintText: ::windows_sys::core::PWSTR,
+    pub pwszConstraintText: windows_sys::core::PWSTR,
     pub UpdateRule: u32,
     pub DeleteRule: u32,
     pub MatchType: u32,
@@ -5169,10 +5169,10 @@ pub struct DBCONSTRAINTDESC {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-impl ::core::marker::Copy for DBCONSTRAINTDESC {}
+impl Copy for DBCONSTRAINTDESC {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-impl ::core::clone::Clone for DBCONSTRAINTDESC {
+impl Clone for DBCONSTRAINTDESC {
     fn clone(&self) -> Self {
         *self
     }
@@ -5188,7 +5188,7 @@ pub struct DBCONSTRAINTDESC {
     pub pReferencedTableID: *mut super::super::Storage::IndexServer::DBID,
     pub cForeignKeyColumns: usize,
     pub rgForeignKeyColumnList: *mut super::super::Storage::IndexServer::DBID,
-    pub pwszConstraintText: ::windows_sys::core::PWSTR,
+    pub pwszConstraintText: windows_sys::core::PWSTR,
     pub UpdateRule: u32,
     pub DeleteRule: u32,
     pub MatchType: u32,
@@ -5198,10 +5198,10 @@ pub struct DBCONSTRAINTDESC {
 }
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-impl ::core::marker::Copy for DBCONSTRAINTDESC {}
+impl Copy for DBCONSTRAINTDESC {}
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-impl ::core::clone::Clone for DBCONSTRAINTDESC {
+impl Clone for DBCONSTRAINTDESC {
     fn clone(&self) -> Self {
         *self
     }
@@ -5214,9 +5214,9 @@ pub struct DBCOST {
     pub lValue: i32,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::marker::Copy for DBCOST {}
+impl Copy for DBCOST {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::clone::Clone for DBCOST {
+impl Clone for DBCOST {
     fn clone(&self) -> Self {
         *self
     }
@@ -5229,9 +5229,9 @@ pub struct DBCOST {
     pub lValue: i32,
 }
 #[cfg(target_arch = "x86")]
-impl ::core::marker::Copy for DBCOST {}
+impl Copy for DBCOST {}
 #[cfg(target_arch = "x86")]
-impl ::core::clone::Clone for DBCOST {
+impl Clone for DBCOST {
     fn clone(&self) -> Self {
         *self
     }
@@ -5242,8 +5242,8 @@ pub struct DBDATE {
     pub month: u16,
     pub day: u16,
 }
-impl ::core::marker::Copy for DBDATE {}
-impl ::core::clone::Clone for DBDATE {
+impl Copy for DBDATE {}
+impl Clone for DBDATE {
     fn clone(&self) -> Self {
         *self
     }
@@ -5253,8 +5253,8 @@ pub struct DBDATETIM4 {
     pub numdays: u16,
     pub nummins: u16,
 }
-impl ::core::marker::Copy for DBDATETIM4 {}
-impl ::core::clone::Clone for DBDATETIM4 {
+impl Copy for DBDATETIM4 {}
+impl Clone for DBDATETIM4 {
     fn clone(&self) -> Self {
         *self
     }
@@ -5264,8 +5264,8 @@ pub struct DBDATETIME {
     pub dtdays: i32,
     pub dttime: u32,
 }
-impl ::core::marker::Copy for DBDATETIME {}
-impl ::core::clone::Clone for DBDATETIME {
+impl Copy for DBDATETIME {}
+impl Clone for DBDATETIME {
     fn clone(&self) -> Self {
         *self
     }
@@ -5275,12 +5275,12 @@ impl ::core::clone::Clone for DBDATETIME {
 pub struct DBFAILUREINFO {
     pub hRow: usize,
     pub iColumn: usize,
-    pub failure: ::windows_sys::core::HRESULT,
+    pub failure: windows_sys::core::HRESULT,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::marker::Copy for DBFAILUREINFO {}
+impl Copy for DBFAILUREINFO {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::clone::Clone for DBFAILUREINFO {
+impl Clone for DBFAILUREINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -5290,12 +5290,12 @@ impl ::core::clone::Clone for DBFAILUREINFO {
 pub struct DBFAILUREINFO {
     pub hRow: usize,
     pub iColumn: usize,
-    pub failure: ::windows_sys::core::HRESULT,
+    pub failure: windows_sys::core::HRESULT,
 }
 #[cfg(target_arch = "x86")]
-impl ::core::marker::Copy for DBFAILUREINFO {}
+impl Copy for DBFAILUREINFO {}
 #[cfg(target_arch = "x86")]
-impl ::core::clone::Clone for DBFAILUREINFO {
+impl Clone for DBFAILUREINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -5303,14 +5303,14 @@ impl ::core::clone::Clone for DBFAILUREINFO {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct DBIMPLICITSESSION {
-    pub pUnkOuter: *mut ::core::ffi::c_void,
-    pub piid: *mut ::windows_sys::core::GUID,
-    pub pSession: *mut ::core::ffi::c_void,
+    pub pUnkOuter: *mut core::ffi::c_void,
+    pub piid: *mut windows_sys::core::GUID,
+    pub pSession: *mut core::ffi::c_void,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::marker::Copy for DBIMPLICITSESSION {}
+impl Copy for DBIMPLICITSESSION {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::clone::Clone for DBIMPLICITSESSION {
+impl Clone for DBIMPLICITSESSION {
     fn clone(&self) -> Self {
         *self
     }
@@ -5318,14 +5318,14 @@ impl ::core::clone::Clone for DBIMPLICITSESSION {
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
 pub struct DBIMPLICITSESSION {
-    pub pUnkOuter: *mut ::core::ffi::c_void,
-    pub piid: *mut ::windows_sys::core::GUID,
-    pub pSession: *mut ::core::ffi::c_void,
+    pub pUnkOuter: *mut core::ffi::c_void,
+    pub piid: *mut windows_sys::core::GUID,
+    pub pSession: *mut core::ffi::c_void,
 }
 #[cfg(target_arch = "x86")]
-impl ::core::marker::Copy for DBIMPLICITSESSION {}
+impl Copy for DBIMPLICITSESSION {}
 #[cfg(target_arch = "x86")]
-impl ::core::clone::Clone for DBIMPLICITSESSION {
+impl Clone for DBIMPLICITSESSION {
     fn clone(&self) -> Self {
         *self
     }
@@ -5339,10 +5339,10 @@ pub struct DBINDEXCOLUMNDESC {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Storage_IndexServer")]
-impl ::core::marker::Copy for DBINDEXCOLUMNDESC {}
+impl Copy for DBINDEXCOLUMNDESC {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Storage_IndexServer")]
-impl ::core::clone::Clone for DBINDEXCOLUMNDESC {
+impl Clone for DBINDEXCOLUMNDESC {
     fn clone(&self) -> Self {
         *self
     }
@@ -5356,10 +5356,10 @@ pub struct DBINDEXCOLUMNDESC {
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Storage_IndexServer")]
-impl ::core::marker::Copy for DBINDEXCOLUMNDESC {}
+impl Copy for DBINDEXCOLUMNDESC {}
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Storage_IndexServer")]
-impl ::core::clone::Clone for DBINDEXCOLUMNDESC {
+impl Clone for DBINDEXCOLUMNDESC {
     fn clone(&self) -> Self {
         *self
     }
@@ -5367,17 +5367,17 @@ impl ::core::clone::Clone for DBINDEXCOLUMNDESC {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct DBLITERALINFO {
-    pub pwszLiteralValue: ::windows_sys::core::PWSTR,
-    pub pwszInvalidChars: ::windows_sys::core::PWSTR,
-    pub pwszInvalidStartingChars: ::windows_sys::core::PWSTR,
+    pub pwszLiteralValue: windows_sys::core::PWSTR,
+    pub pwszInvalidChars: windows_sys::core::PWSTR,
+    pub pwszInvalidStartingChars: windows_sys::core::PWSTR,
     pub lt: u32,
     pub fSupported: super::super::Foundation::BOOL,
     pub cchMaxLen: u32,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::marker::Copy for DBLITERALINFO {}
+impl Copy for DBLITERALINFO {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::clone::Clone for DBLITERALINFO {
+impl Clone for DBLITERALINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -5385,17 +5385,17 @@ impl ::core::clone::Clone for DBLITERALINFO {
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
 pub struct DBLITERALINFO {
-    pub pwszLiteralValue: ::windows_sys::core::PWSTR,
-    pub pwszInvalidChars: ::windows_sys::core::PWSTR,
-    pub pwszInvalidStartingChars: ::windows_sys::core::PWSTR,
+    pub pwszLiteralValue: windows_sys::core::PWSTR,
+    pub pwszInvalidChars: windows_sys::core::PWSTR,
+    pub pwszInvalidStartingChars: windows_sys::core::PWSTR,
     pub lt: u32,
     pub fSupported: super::super::Foundation::BOOL,
     pub cchMaxLen: u32,
 }
 #[cfg(target_arch = "x86")]
-impl ::core::marker::Copy for DBLITERALINFO {}
+impl Copy for DBLITERALINFO {}
 #[cfg(target_arch = "x86")]
-impl ::core::clone::Clone for DBLITERALINFO {
+impl Clone for DBLITERALINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -5405,8 +5405,8 @@ pub struct DBMONEY {
     pub mnyhigh: i32,
     pub mnylow: u32,
 }
-impl ::core::marker::Copy for DBMONEY {}
-impl ::core::clone::Clone for DBMONEY {
+impl Copy for DBMONEY {}
+impl Clone for DBMONEY {
     fn clone(&self) -> Self {
         *self
     }
@@ -5415,12 +5415,12 @@ impl ::core::clone::Clone for DBMONEY {
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct DBOBJECT {
     pub dwFlags: u32,
-    pub iid: ::windows_sys::core::GUID,
+    pub iid: windows_sys::core::GUID,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::marker::Copy for DBOBJECT {}
+impl Copy for DBOBJECT {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::clone::Clone for DBOBJECT {
+impl Clone for DBOBJECT {
     fn clone(&self) -> Self {
         *self
     }
@@ -5429,12 +5429,12 @@ impl ::core::clone::Clone for DBOBJECT {
 #[cfg(target_arch = "x86")]
 pub struct DBOBJECT {
     pub dwFlags: u32,
-    pub iid: ::windows_sys::core::GUID,
+    pub iid: windows_sys::core::GUID,
 }
 #[cfg(target_arch = "x86")]
-impl ::core::marker::Copy for DBOBJECT {}
+impl Copy for DBOBJECT {}
 #[cfg(target_arch = "x86")]
-impl ::core::clone::Clone for DBOBJECT {
+impl Clone for DBOBJECT {
     fn clone(&self) -> Self {
         *self
     }
@@ -5442,17 +5442,17 @@ impl ::core::clone::Clone for DBOBJECT {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct DBPARAMBINDINFO {
-    pub pwszDataSourceType: ::windows_sys::core::PWSTR,
-    pub pwszName: ::windows_sys::core::PWSTR,
+    pub pwszDataSourceType: windows_sys::core::PWSTR,
+    pub pwszName: windows_sys::core::PWSTR,
     pub ulParamSize: usize,
     pub dwFlags: u32,
     pub bPrecision: u8,
     pub bScale: u8,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::marker::Copy for DBPARAMBINDINFO {}
+impl Copy for DBPARAMBINDINFO {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::clone::Clone for DBPARAMBINDINFO {
+impl Clone for DBPARAMBINDINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -5460,17 +5460,17 @@ impl ::core::clone::Clone for DBPARAMBINDINFO {
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
 pub struct DBPARAMBINDINFO {
-    pub pwszDataSourceType: ::windows_sys::core::PWSTR,
-    pub pwszName: ::windows_sys::core::PWSTR,
+    pub pwszDataSourceType: windows_sys::core::PWSTR,
+    pub pwszName: windows_sys::core::PWSTR,
     pub ulParamSize: usize,
     pub dwFlags: u32,
     pub bPrecision: u8,
     pub bScale: u8,
 }
 #[cfg(target_arch = "x86")]
-impl ::core::marker::Copy for DBPARAMBINDINFO {}
+impl Copy for DBPARAMBINDINFO {}
 #[cfg(target_arch = "x86")]
-impl ::core::clone::Clone for DBPARAMBINDINFO {
+impl Clone for DBPARAMBINDINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -5480,17 +5480,17 @@ impl ::core::clone::Clone for DBPARAMBINDINFO {
 pub struct DBPARAMINFO {
     pub dwFlags: u32,
     pub iOrdinal: usize,
-    pub pwszName: ::windows_sys::core::PWSTR,
-    pub pTypeInfo: *mut ::core::ffi::c_void,
+    pub pwszName: windows_sys::core::PWSTR,
+    pub pTypeInfo: *mut core::ffi::c_void,
     pub ulParamSize: usize,
     pub wType: u16,
     pub bPrecision: u8,
     pub bScale: u8,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::marker::Copy for DBPARAMINFO {}
+impl Copy for DBPARAMINFO {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::clone::Clone for DBPARAMINFO {
+impl Clone for DBPARAMINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -5500,17 +5500,17 @@ impl ::core::clone::Clone for DBPARAMINFO {
 pub struct DBPARAMINFO {
     pub dwFlags: u32,
     pub iOrdinal: usize,
-    pub pwszName: ::windows_sys::core::PWSTR,
-    pub pTypeInfo: *mut ::core::ffi::c_void,
+    pub pwszName: windows_sys::core::PWSTR,
+    pub pTypeInfo: *mut core::ffi::c_void,
     pub ulParamSize: usize,
     pub wType: u16,
     pub bPrecision: u8,
     pub bScale: u8,
 }
 #[cfg(target_arch = "x86")]
-impl ::core::marker::Copy for DBPARAMINFO {}
+impl Copy for DBPARAMINFO {}
 #[cfg(target_arch = "x86")]
-impl ::core::clone::Clone for DBPARAMINFO {
+impl Clone for DBPARAMINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -5518,14 +5518,14 @@ impl ::core::clone::Clone for DBPARAMINFO {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct DBPARAMS {
-    pub pData: *mut ::core::ffi::c_void,
+    pub pData: *mut core::ffi::c_void,
     pub cParamSets: usize,
     pub hAccessor: HACCESSOR,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::marker::Copy for DBPARAMS {}
+impl Copy for DBPARAMS {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::clone::Clone for DBPARAMS {
+impl Clone for DBPARAMS {
     fn clone(&self) -> Self {
         *self
     }
@@ -5533,14 +5533,14 @@ impl ::core::clone::Clone for DBPARAMS {
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
 pub struct DBPARAMS {
-    pub pData: *mut ::core::ffi::c_void,
+    pub pData: *mut core::ffi::c_void,
     pub cParamSets: usize,
     pub hAccessor: HACCESSOR,
 }
 #[cfg(target_arch = "x86")]
-impl ::core::marker::Copy for DBPARAMS {}
+impl Copy for DBPARAMS {}
 #[cfg(target_arch = "x86")]
-impl ::core::clone::Clone for DBPARAMS {
+impl Clone for DBPARAMS {
     fn clone(&self) -> Self {
         *self
     }
@@ -5557,10 +5557,10 @@ pub struct DBPROP {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-impl ::core::marker::Copy for DBPROP {}
+impl Copy for DBPROP {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-impl ::core::clone::Clone for DBPROP {
+impl Clone for DBPROP {
     fn clone(&self) -> Self {
         *self
     }
@@ -5577,10 +5577,10 @@ pub struct DBPROP {
 }
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-impl ::core::marker::Copy for DBPROP {}
+impl Copy for DBPROP {}
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-impl ::core::clone::Clone for DBPROP {
+impl Clone for DBPROP {
     fn clone(&self) -> Self {
         *self
     }
@@ -5590,12 +5590,12 @@ impl ::core::clone::Clone for DBPROP {
 pub struct DBPROPIDSET {
     pub rgPropertyIDs: *mut u32,
     pub cPropertyIDs: u32,
-    pub guidPropertySet: ::windows_sys::core::GUID,
+    pub guidPropertySet: windows_sys::core::GUID,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::marker::Copy for DBPROPIDSET {}
+impl Copy for DBPROPIDSET {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::clone::Clone for DBPROPIDSET {
+impl Clone for DBPROPIDSET {
     fn clone(&self) -> Self {
         *self
     }
@@ -5605,12 +5605,12 @@ impl ::core::clone::Clone for DBPROPIDSET {
 pub struct DBPROPIDSET {
     pub rgPropertyIDs: *mut u32,
     pub cPropertyIDs: u32,
-    pub guidPropertySet: ::windows_sys::core::GUID,
+    pub guidPropertySet: windows_sys::core::GUID,
 }
 #[cfg(target_arch = "x86")]
-impl ::core::marker::Copy for DBPROPIDSET {}
+impl Copy for DBPROPIDSET {}
 #[cfg(target_arch = "x86")]
-impl ::core::clone::Clone for DBPROPIDSET {
+impl Clone for DBPROPIDSET {
     fn clone(&self) -> Self {
         *self
     }
@@ -5619,7 +5619,7 @@ impl ::core::clone::Clone for DBPROPIDSET {
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 pub struct DBPROPINFO {
-    pub pwszDescription: ::windows_sys::core::PWSTR,
+    pub pwszDescription: windows_sys::core::PWSTR,
     pub dwPropertyID: u32,
     pub dwFlags: u32,
     pub vtType: super::Variant::VARENUM,
@@ -5627,10 +5627,10 @@ pub struct DBPROPINFO {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-impl ::core::marker::Copy for DBPROPINFO {}
+impl Copy for DBPROPINFO {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-impl ::core::clone::Clone for DBPROPINFO {
+impl Clone for DBPROPINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -5639,7 +5639,7 @@ impl ::core::clone::Clone for DBPROPINFO {
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 pub struct DBPROPINFO {
-    pub pwszDescription: ::windows_sys::core::PWSTR,
+    pub pwszDescription: windows_sys::core::PWSTR,
     pub dwPropertyID: u32,
     pub dwFlags: u32,
     pub vtType: super::Variant::VARENUM,
@@ -5647,10 +5647,10 @@ pub struct DBPROPINFO {
 }
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-impl ::core::marker::Copy for DBPROPINFO {}
+impl Copy for DBPROPINFO {}
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-impl ::core::clone::Clone for DBPROPINFO {
+impl Clone for DBPROPINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -5661,14 +5661,14 @@ impl ::core::clone::Clone for DBPROPINFO {
 pub struct DBPROPINFOSET {
     pub rgPropertyInfos: *mut DBPROPINFO,
     pub cPropertyInfos: u32,
-    pub guidPropertySet: ::windows_sys::core::GUID,
+    pub guidPropertySet: windows_sys::core::GUID,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-impl ::core::marker::Copy for DBPROPINFOSET {}
+impl Copy for DBPROPINFOSET {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-impl ::core::clone::Clone for DBPROPINFOSET {
+impl Clone for DBPROPINFOSET {
     fn clone(&self) -> Self {
         *self
     }
@@ -5679,14 +5679,14 @@ impl ::core::clone::Clone for DBPROPINFOSET {
 pub struct DBPROPINFOSET {
     pub rgPropertyInfos: *mut DBPROPINFO,
     pub cPropertyInfos: u32,
-    pub guidPropertySet: ::windows_sys::core::GUID,
+    pub guidPropertySet: windows_sys::core::GUID,
 }
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-impl ::core::marker::Copy for DBPROPINFOSET {}
+impl Copy for DBPROPINFOSET {}
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-impl ::core::clone::Clone for DBPROPINFOSET {
+impl Clone for DBPROPINFOSET {
     fn clone(&self) -> Self {
         *self
     }
@@ -5697,14 +5697,14 @@ impl ::core::clone::Clone for DBPROPINFOSET {
 pub struct DBPROPSET {
     pub rgProperties: *mut DBPROP,
     pub cProperties: u32,
-    pub guidPropertySet: ::windows_sys::core::GUID,
+    pub guidPropertySet: windows_sys::core::GUID,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-impl ::core::marker::Copy for DBPROPSET {}
+impl Copy for DBPROPSET {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-impl ::core::clone::Clone for DBPROPSET {
+impl Clone for DBPROPSET {
     fn clone(&self) -> Self {
         *self
     }
@@ -5715,14 +5715,14 @@ impl ::core::clone::Clone for DBPROPSET {
 pub struct DBPROPSET {
     pub rgProperties: *mut DBPROP,
     pub cProperties: u32,
-    pub guidPropertySet: ::windows_sys::core::GUID,
+    pub guidPropertySet: windows_sys::core::GUID,
 }
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-impl ::core::marker::Copy for DBPROPSET {}
+impl Copy for DBPROPSET {}
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-impl ::core::clone::Clone for DBPROPSET {
+impl Clone for DBPROPSET {
     fn clone(&self) -> Self {
         *self
     }
@@ -5736,9 +5736,9 @@ pub struct DBROWWATCHCHANGE {
     pub iRow: usize,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::marker::Copy for DBROWWATCHCHANGE {}
+impl Copy for DBROWWATCHCHANGE {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::clone::Clone for DBROWWATCHCHANGE {
+impl Clone for DBROWWATCHCHANGE {
     fn clone(&self) -> Self {
         *self
     }
@@ -5752,9 +5752,9 @@ pub struct DBROWWATCHCHANGE {
     pub iRow: usize,
 }
 #[cfg(target_arch = "x86")]
-impl ::core::marker::Copy for DBROWWATCHCHANGE {}
+impl Copy for DBROWWATCHCHANGE {}
 #[cfg(target_arch = "x86")]
-impl ::core::clone::Clone for DBROWWATCHCHANGE {
+impl Clone for DBROWWATCHCHANGE {
     fn clone(&self) -> Self {
         *self
     }
@@ -5765,8 +5765,8 @@ pub struct DBTIME {
     pub minute: u16,
     pub second: u16,
 }
-impl ::core::marker::Copy for DBTIME {}
-impl ::core::clone::Clone for DBTIME {
+impl Copy for DBTIME {}
+impl Clone for DBTIME {
     fn clone(&self) -> Self {
         *self
     }
@@ -5783,9 +5783,9 @@ pub struct DBTIMESTAMP {
     pub fraction: u32,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::marker::Copy for DBTIMESTAMP {}
+impl Copy for DBTIMESTAMP {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::clone::Clone for DBTIMESTAMP {
+impl Clone for DBTIMESTAMP {
     fn clone(&self) -> Self {
         *self
     }
@@ -5802,9 +5802,9 @@ pub struct DBTIMESTAMP {
     pub fraction: u32,
 }
 #[cfg(target_arch = "x86")]
-impl ::core::marker::Copy for DBTIMESTAMP {}
+impl Copy for DBTIMESTAMP {}
 #[cfg(target_arch = "x86")]
-impl ::core::clone::Clone for DBTIMESTAMP {
+impl Clone for DBTIMESTAMP {
     fn clone(&self) -> Self {
         *self
     }
@@ -5814,8 +5814,8 @@ pub struct DBVARYBIN {
     pub len: i16,
     pub array: [u8; 8001],
 }
-impl ::core::marker::Copy for DBVARYBIN {}
-impl ::core::clone::Clone for DBVARYBIN {
+impl Copy for DBVARYBIN {}
+impl Clone for DBVARYBIN {
     fn clone(&self) -> Self {
         *self
     }
@@ -5825,8 +5825,8 @@ pub struct DBVARYCHAR {
     pub len: i16,
     pub str: [i8; 8001],
 }
-impl ::core::marker::Copy for DBVARYCHAR {}
-impl ::core::clone::Clone for DBVARYCHAR {
+impl Copy for DBVARYCHAR {}
+impl Clone for DBVARYCHAR {
     fn clone(&self) -> Self {
         *self
     }
@@ -5835,12 +5835,12 @@ impl ::core::clone::Clone for DBVARYCHAR {
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct DBVECTOR {
     pub size: usize,
-    pub ptr: *mut ::core::ffi::c_void,
+    pub ptr: *mut core::ffi::c_void,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::marker::Copy for DBVECTOR {}
+impl Copy for DBVECTOR {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::clone::Clone for DBVECTOR {
+impl Clone for DBVECTOR {
     fn clone(&self) -> Self {
         *self
     }
@@ -5849,12 +5849,12 @@ impl ::core::clone::Clone for DBVECTOR {
 #[cfg(target_arch = "x86")]
 pub struct DBVECTOR {
     pub size: usize,
-    pub ptr: *mut ::core::ffi::c_void,
+    pub ptr: *mut core::ffi::c_void,
 }
 #[cfg(target_arch = "x86")]
-impl ::core::marker::Copy for DBVECTOR {}
+impl Copy for DBVECTOR {}
 #[cfg(target_arch = "x86")]
-impl ::core::clone::Clone for DBVECTOR {
+impl Clone for DBVECTOR {
     fn clone(&self) -> Self {
         *self
     }
@@ -5866,8 +5866,8 @@ pub struct DB_NUMERIC {
     pub sign: u8,
     pub val: [u8; 16],
 }
-impl ::core::marker::Copy for DB_NUMERIC {}
-impl ::core::clone::Clone for DB_NUMERIC {
+impl Copy for DB_NUMERIC {}
+impl Clone for DB_NUMERIC {
     fn clone(&self) -> Self {
         *self
     }
@@ -5879,8 +5879,8 @@ pub struct DB_VARNUMERIC {
     pub sign: u8,
     pub val: [u8; 1],
 }
-impl ::core::marker::Copy for DB_VARNUMERIC {}
-impl ::core::clone::Clone for DB_VARNUMERIC {
+impl Copy for DB_VARNUMERIC {}
+impl Clone for DB_VARNUMERIC {
     fn clone(&self) -> Self {
         *self
     }
@@ -5892,27 +5892,27 @@ pub struct DCINFO {
     pub vData: super::Variant::VARIANT,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-impl ::core::marker::Copy for DCINFO {}
+impl Copy for DCINFO {}
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-impl ::core::clone::Clone for DCINFO {
+impl Clone for DCINFO {
     fn clone(&self) -> Self {
         *self
     }
 }
-pub const DataLinks: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x2206cdb2_19c1_11d1_89e0_00c04fd7a829);
+pub const DataLinks: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x2206cdb2_19c1_11d1_89e0_00c04fd7a829);
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct ERRORINFO {
-    pub hrError: ::windows_sys::core::HRESULT,
+    pub hrError: windows_sys::core::HRESULT,
     pub dwMinor: u32,
-    pub clsid: ::windows_sys::core::GUID,
-    pub iid: ::windows_sys::core::GUID,
+    pub clsid: windows_sys::core::GUID,
+    pub iid: windows_sys::core::GUID,
     pub dispid: i32,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::marker::Copy for ERRORINFO {}
+impl Copy for ERRORINFO {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::clone::Clone for ERRORINFO {
+impl Clone for ERRORINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -5920,42 +5920,42 @@ impl ::core::clone::Clone for ERRORINFO {
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
 pub struct ERRORINFO {
-    pub hrError: ::windows_sys::core::HRESULT,
+    pub hrError: windows_sys::core::HRESULT,
     pub dwMinor: u32,
-    pub clsid: ::windows_sys::core::GUID,
-    pub iid: ::windows_sys::core::GUID,
+    pub clsid: windows_sys::core::GUID,
+    pub iid: windows_sys::core::GUID,
     pub dispid: i32,
 }
 #[cfg(target_arch = "x86")]
-impl ::core::marker::Copy for ERRORINFO {}
+impl Copy for ERRORINFO {}
 #[cfg(target_arch = "x86")]
-impl ::core::clone::Clone for ERRORINFO {
+impl Clone for ERRORINFO {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct FILTERED_DATA_SOURCES {
-    pub pwcsExtension: ::windows_sys::core::PCWSTR,
-    pub pwcsMime: ::windows_sys::core::PCWSTR,
-    pub pClsid: *const ::windows_sys::core::GUID,
-    pub pwcsOverride: ::windows_sys::core::PCWSTR,
+    pub pwcsExtension: windows_sys::core::PCWSTR,
+    pub pwcsMime: windows_sys::core::PCWSTR,
+    pub pClsid: *const windows_sys::core::GUID,
+    pub pwcsOverride: windows_sys::core::PCWSTR,
 }
-impl ::core::marker::Copy for FILTERED_DATA_SOURCES {}
-impl ::core::clone::Clone for FILTERED_DATA_SOURCES {
+impl Copy for FILTERED_DATA_SOURCES {}
+impl Clone for FILTERED_DATA_SOURCES {
     fn clone(&self) -> Self {
         *self
     }
 }
-pub const FilterRegistration: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x9e175b8d_f52a_11d8_b9a5_505054503030);
+pub const FilterRegistration: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9e175b8d_f52a_11d8_b9a5_505054503030);
 pub type HACCESSOR = usize;
 #[repr(C)]
 pub struct HITRANGE {
     pub iPosition: u32,
     pub cLength: u32,
 }
-impl ::core::marker::Copy for HITRANGE {}
-impl ::core::clone::Clone for HITRANGE {
+impl Copy for HITRANGE {}
+impl Clone for HITRANGE {
     fn clone(&self) -> Self {
         *self
     }
@@ -5965,8 +5965,8 @@ pub struct INCREMENTAL_ACCESS_INFO {
     pub dwSize: u32,
     pub ftLastModifiedTime: super::super::Foundation::FILETIME,
 }
-impl ::core::marker::Copy for INCREMENTAL_ACCESS_INFO {}
-impl ::core::clone::Clone for INCREMENTAL_ACCESS_INFO {
+impl Copy for INCREMENTAL_ACCESS_INFO {}
+impl Clone for INCREMENTAL_ACCESS_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -5975,12 +5975,12 @@ impl ::core::clone::Clone for INCREMENTAL_ACCESS_INFO {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 pub struct ITEMPROP {
     pub variantValue: super::Variant::VARIANT,
-    pub pwszName: ::windows_sys::core::PWSTR,
+    pub pwszName: windows_sys::core::PWSTR,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-impl ::core::marker::Copy for ITEMPROP {}
+impl Copy for ITEMPROP {}
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-impl ::core::clone::Clone for ITEMPROP {
+impl Clone for ITEMPROP {
     fn clone(&self) -> Self {
         *self
     }
@@ -5988,18 +5988,18 @@ impl ::core::clone::Clone for ITEMPROP {
 #[repr(C)]
 pub struct ITEM_INFO {
     pub dwSize: u32,
-    pub pcwszFromEMail: ::windows_sys::core::PCWSTR,
-    pub pcwszApplicationName: ::windows_sys::core::PCWSTR,
-    pub pcwszCatalogName: ::windows_sys::core::PCWSTR,
-    pub pcwszContentClass: ::windows_sys::core::PCWSTR,
+    pub pcwszFromEMail: windows_sys::core::PCWSTR,
+    pub pcwszApplicationName: windows_sys::core::PCWSTR,
+    pub pcwszCatalogName: windows_sys::core::PCWSTR,
+    pub pcwszContentClass: windows_sys::core::PCWSTR,
 }
-impl ::core::marker::Copy for ITEM_INFO {}
-impl ::core::clone::Clone for ITEM_INFO {
+impl Copy for ITEM_INFO {}
+impl Clone for ITEM_INFO {
     fn clone(&self) -> Self {
         *self
     }
 }
-pub const Interval: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xd957171f_4bf9_4de2_bcd5_c70a7ca55836);
+pub const Interval: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd957171f_4bf9_4de2_bcd5_c70a7ca55836);
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 pub struct KAGGETDIAG {
@@ -6008,9 +6008,9 @@ pub struct KAGGETDIAG {
     pub sDiagField: i16,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-impl ::core::marker::Copy for KAGGETDIAG {}
+impl Copy for KAGGETDIAG {}
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-impl ::core::clone::Clone for KAGGETDIAG {
+impl Clone for KAGGETDIAG {
     fn clone(&self) -> Self {
         *self
     }
@@ -6023,14 +6023,14 @@ pub struct KAGREQDIAG {
     pub sDiagField: i16,
 }
 #[cfg(feature = "Win32_System_Variant")]
-impl ::core::marker::Copy for KAGREQDIAG {}
+impl Copy for KAGREQDIAG {}
 #[cfg(feature = "Win32_System_Variant")]
-impl ::core::clone::Clone for KAGREQDIAG {
+impl Clone for KAGREQDIAG {
     fn clone(&self) -> Self {
         *self
     }
 }
-pub const LeafCondition: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x52f15c89_5a17_48e1_bbcd_46a3f89c7cc2);
+pub const LeafCondition: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x52f15c89_5a17_48e1_bbcd_46a3f89c7cc2);
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct MDAXISINFO {
@@ -6039,12 +6039,12 @@ pub struct MDAXISINFO {
     pub cDimensions: usize,
     pub cCoordinates: usize,
     pub rgcColumns: *mut usize,
-    pub rgpwszDimensionNames: *mut ::windows_sys::core::PWSTR,
+    pub rgpwszDimensionNames: *mut windows_sys::core::PWSTR,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::marker::Copy for MDAXISINFO {}
+impl Copy for MDAXISINFO {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::clone::Clone for MDAXISINFO {
+impl Clone for MDAXISINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -6057,32 +6057,32 @@ pub struct MDAXISINFO {
     pub cDimensions: usize,
     pub cCoordinates: usize,
     pub rgcColumns: *mut usize,
-    pub rgpwszDimensionNames: *mut ::windows_sys::core::PWSTR,
+    pub rgpwszDimensionNames: *mut windows_sys::core::PWSTR,
 }
 #[cfg(target_arch = "x86")]
-impl ::core::marker::Copy for MDAXISINFO {}
+impl Copy for MDAXISINFO {}
 #[cfg(target_arch = "x86")]
-impl ::core::clone::Clone for MDAXISINFO {
+impl Clone for MDAXISINFO {
     fn clone(&self) -> Self {
         *self
     }
 }
-pub const MSDAINITIALIZE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x2206cdb0_19c1_11d1_89e0_00c04fd7a829);
-pub const MSDAORA: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xe8cc4cbe_fdff_11d0_b865_00a0c9081c1d);
-pub const MSDAORA8: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x7f06a373_dd6a_43db_b4e0_1fc121e5e62b);
-pub const MSDAORA8_ERROR: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x7f06a374_dd6a_43db_b4e0_1fc121e5e62b);
-pub const MSDAORA_ERROR: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xe8cc4cbf_fdff_11d0_b865_00a0c9081c1d);
+pub const MSDAINITIALIZE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x2206cdb0_19c1_11d1_89e0_00c04fd7a829);
+pub const MSDAORA: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe8cc4cbe_fdff_11d0_b865_00a0c9081c1d);
+pub const MSDAORA8: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7f06a373_dd6a_43db_b4e0_1fc121e5e62b);
+pub const MSDAORA8_ERROR: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7f06a374_dd6a_43db_b4e0_1fc121e5e62b);
+pub const MSDAORA_ERROR: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe8cc4cbf_fdff_11d0_b865_00a0c9081c1d);
 #[repr(C)]
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
 pub struct NATLANGUAGERESTRICTION {
     pub prop: super::super::Storage::IndexServer::FULLPROPSPEC,
-    pub pwcsPhrase: ::windows_sys::core::PWSTR,
+    pub pwcsPhrase: windows_sys::core::PWSTR,
     pub lcid: u32,
 }
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
-impl ::core::marker::Copy for NATLANGUAGERESTRICTION {}
+impl Copy for NATLANGUAGERESTRICTION {}
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
-impl ::core::clone::Clone for NATLANGUAGERESTRICTION {
+impl Clone for NATLANGUAGERESTRICTION {
     fn clone(&self) -> Self {
         *self
     }
@@ -6095,9 +6095,9 @@ pub struct NODERESTRICTION {
     pub reserved: u32,
 }
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl ::core::marker::Copy for NODERESTRICTION {}
+impl Copy for NODERESTRICTION {}
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl ::core::clone::Clone for NODERESTRICTION {
+impl Clone for NODERESTRICTION {
     fn clone(&self) -> Self {
         *self
     }
@@ -6108,51 +6108,51 @@ pub struct NOTRESTRICTION {
     pub pRes: *mut RESTRICTION,
 }
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl ::core::marker::Copy for NOTRESTRICTION {}
+impl Copy for NOTRESTRICTION {}
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl ::core::clone::Clone for NOTRESTRICTION {
+impl Clone for NOTRESTRICTION {
     fn clone(&self) -> Self {
         *self
     }
 }
-pub const NegationCondition: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x8de9c74c_605a_4acd_bee3_2b222aa2d23d);
+pub const NegationCondition: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8de9c74c_605a_4acd_bee3_2b222aa2d23d);
 #[repr(C)]
 pub struct ODBC_VS_ARGS {
-    pub pguidEvent: *const ::windows_sys::core::GUID,
+    pub pguidEvent: *const windows_sys::core::GUID,
     pub dwFlags: u32,
     pub Anonymous1: ODBC_VS_ARGS_0,
     pub Anonymous2: ODBC_VS_ARGS_1,
     pub RetCode: i16,
 }
-impl ::core::marker::Copy for ODBC_VS_ARGS {}
-impl ::core::clone::Clone for ODBC_VS_ARGS {
+impl Copy for ODBC_VS_ARGS {}
+impl Clone for ODBC_VS_ARGS {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub union ODBC_VS_ARGS_0 {
-    pub wszArg: ::windows_sys::core::PWSTR,
-    pub szArg: ::windows_sys::core::PSTR,
+    pub wszArg: windows_sys::core::PWSTR,
+    pub szArg: windows_sys::core::PSTR,
 }
-impl ::core::marker::Copy for ODBC_VS_ARGS_0 {}
-impl ::core::clone::Clone for ODBC_VS_ARGS_0 {
+impl Copy for ODBC_VS_ARGS_0 {}
+impl Clone for ODBC_VS_ARGS_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub union ODBC_VS_ARGS_1 {
-    pub wszCorrelation: ::windows_sys::core::PWSTR,
-    pub szCorrelation: ::windows_sys::core::PSTR,
+    pub wszCorrelation: windows_sys::core::PWSTR,
+    pub szCorrelation: windows_sys::core::PSTR,
 }
-impl ::core::marker::Copy for ODBC_VS_ARGS_1 {}
-impl ::core::clone::Clone for ODBC_VS_ARGS_1 {
+impl Copy for ODBC_VS_ARGS_1 {}
+impl Clone for ODBC_VS_ARGS_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
-pub const PDPO: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xccb4ec60_b9dc_11d1_ac80_00a0c9034873);
+pub const PDPO: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xccb4ec60_b9dc_11d1_ac80_00a0c9034873);
 #[repr(C)]
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub struct PROPERTYRESTRICTION {
@@ -6161,9 +6161,9 @@ pub struct PROPERTYRESTRICTION {
     pub prval: super::Com::StructuredStorage::PROPVARIANT,
 }
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl ::core::marker::Copy for PROPERTYRESTRICTION {}
+impl Copy for PROPERTYRESTRICTION {}
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl ::core::clone::Clone for PROPERTYRESTRICTION {
+impl Clone for PROPERTYRESTRICTION {
     fn clone(&self) -> Self {
         *self
     }
@@ -6171,21 +6171,21 @@ impl ::core::clone::Clone for PROPERTYRESTRICTION {
 #[repr(C)]
 pub struct PROXY_INFO {
     pub dwSize: u32,
-    pub pcwszUserAgent: ::windows_sys::core::PCWSTR,
+    pub pcwszUserAgent: windows_sys::core::PCWSTR,
     pub paUseProxy: PROXY_ACCESS,
     pub fLocalBypass: super::super::Foundation::BOOL,
     pub dwPortNumber: u32,
-    pub pcwszProxyName: ::windows_sys::core::PCWSTR,
-    pub pcwszBypassList: ::windows_sys::core::PCWSTR,
+    pub pcwszProxyName: windows_sys::core::PCWSTR,
+    pub pcwszBypassList: windows_sys::core::PCWSTR,
 }
-impl ::core::marker::Copy for PROXY_INFO {}
-impl ::core::clone::Clone for PROXY_INFO {
+impl Copy for PROXY_INFO {}
+impl Clone for PROXY_INFO {
     fn clone(&self) -> Self {
         *self
     }
 }
-pub const QueryParser: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xb72f8fd8_0fab_4dd9_bdbf_245a6ce1485b);
-pub const QueryParserManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x5088b39a_29b4_4d9d_8245_4ee289222f66);
+pub const QueryParser: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb72f8fd8_0fab_4dd9_bdbf_245a6ce1485b);
+pub const QueryParserManager: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5088b39a_29b4_4d9d_8245_4ee289222f66);
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub struct RANGECATEGORIZE {
@@ -6193,9 +6193,9 @@ pub struct RANGECATEGORIZE {
     pub aRangeBegin: *mut super::Com::StructuredStorage::PROPVARIANT,
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl ::core::marker::Copy for RANGECATEGORIZE {}
+impl Copy for RANGECATEGORIZE {}
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl ::core::clone::Clone for RANGECATEGORIZE {
+impl Clone for RANGECATEGORIZE {
     fn clone(&self) -> Self {
         *self
     }
@@ -6208,9 +6208,9 @@ pub struct RESTRICTION {
     pub res: RESTRICTION_0,
 }
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl ::core::marker::Copy for RESTRICTION {}
+impl Copy for RESTRICTION {}
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl ::core::clone::Clone for RESTRICTION {
+impl Clone for RESTRICTION {
     fn clone(&self) -> Self {
         *self
     }
@@ -6228,9 +6228,9 @@ pub union RESTRICTION_0 {
     pub pr: PROPERTYRESTRICTION,
 }
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl ::core::marker::Copy for RESTRICTION_0 {}
+impl Copy for RESTRICTION_0 {}
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl ::core::clone::Clone for RESTRICTION_0 {
+impl Clone for RESTRICTION_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -6239,16 +6239,16 @@ impl ::core::clone::Clone for RESTRICTION_0 {
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub struct RMTPACK {
-    pub pISeqStream: *mut ::core::ffi::c_void,
+    pub pISeqStream: *mut core::ffi::c_void,
     pub cbData: u32,
     pub cBSTR: u32,
-    pub rgBSTR: *mut ::windows_sys::core::BSTR,
+    pub rgBSTR: *mut windows_sys::core::BSTR,
     pub cVARIANT: u32,
     pub rgVARIANT: *mut super::Variant::VARIANT,
     pub cIDISPATCH: u32,
-    pub rgIDISPATCH: *mut *mut ::core::ffi::c_void,
+    pub rgIDISPATCH: *mut *mut core::ffi::c_void,
     pub cIUNKNOWN: u32,
-    pub rgIUNKNOWN: *mut *mut ::core::ffi::c_void,
+    pub rgIUNKNOWN: *mut *mut core::ffi::c_void,
     pub cPROPVARIANT: u32,
     pub rgPROPVARIANT: *mut super::Com::StructuredStorage::PROPVARIANT,
     pub cArray: u32,
@@ -6256,10 +6256,10 @@ pub struct RMTPACK {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl ::core::marker::Copy for RMTPACK {}
+impl Copy for RMTPACK {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl ::core::clone::Clone for RMTPACK {
+impl Clone for RMTPACK {
     fn clone(&self) -> Self {
         *self
     }
@@ -6268,16 +6268,16 @@ impl ::core::clone::Clone for RMTPACK {
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub struct RMTPACK {
-    pub pISeqStream: *mut ::core::ffi::c_void,
+    pub pISeqStream: *mut core::ffi::c_void,
     pub cbData: u32,
     pub cBSTR: u32,
-    pub rgBSTR: *mut ::windows_sys::core::BSTR,
+    pub rgBSTR: *mut windows_sys::core::BSTR,
     pub cVARIANT: u32,
     pub rgVARIANT: *mut super::Variant::VARIANT,
     pub cIDISPATCH: u32,
-    pub rgIDISPATCH: *mut *mut ::core::ffi::c_void,
+    pub rgIDISPATCH: *mut *mut core::ffi::c_void,
     pub cIUNKNOWN: u32,
-    pub rgIUNKNOWN: *mut *mut ::core::ffi::c_void,
+    pub rgIUNKNOWN: *mut *mut core::ffi::c_void,
     pub cPROPVARIANT: u32,
     pub rgPROPVARIANT: *mut super::Com::StructuredStorage::PROPVARIANT,
     pub cArray: u32,
@@ -6285,15 +6285,15 @@ pub struct RMTPACK {
 }
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl ::core::marker::Copy for RMTPACK {}
+impl Copy for RMTPACK {}
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl ::core::clone::Clone for RMTPACK {
+impl Clone for RMTPACK {
     fn clone(&self) -> Self {
         *self
     }
 }
-pub const RootBinder: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xff151822_b0bf_11d1_a80d_000000000000);
+pub const RootBinder: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xff151822_b0bf_11d1_a80d_000000000000);
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub struct SEARCH_COLUMN_PROPERTIES {
@@ -6301,9 +6301,9 @@ pub struct SEARCH_COLUMN_PROPERTIES {
     pub lcid: u32,
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl ::core::marker::Copy for SEARCH_COLUMN_PROPERTIES {}
+impl Copy for SEARCH_COLUMN_PROPERTIES {}
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl ::core::clone::Clone for SEARCH_COLUMN_PROPERTIES {
+impl Clone for SEARCH_COLUMN_PROPERTIES {
     fn clone(&self) -> Self {
         *self
     }
@@ -6314,13 +6314,13 @@ pub struct SEARCH_ITEM_CHANGE {
     pub Change: SEARCH_KIND_OF_CHANGE,
     pub Priority: SEARCH_NOTIFICATION_PRIORITY,
     pub pUserData: *mut super::Com::BLOB,
-    pub lpwszURL: ::windows_sys::core::PWSTR,
-    pub lpwszOldURL: ::windows_sys::core::PWSTR,
+    pub lpwszURL: windows_sys::core::PWSTR,
+    pub lpwszOldURL: windows_sys::core::PWSTR,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::marker::Copy for SEARCH_ITEM_CHANGE {}
+impl Copy for SEARCH_ITEM_CHANGE {}
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for SEARCH_ITEM_CHANGE {
+impl Clone for SEARCH_ITEM_CHANGE {
     fn clone(&self) -> Self {
         *self
     }
@@ -6328,10 +6328,10 @@ impl ::core::clone::Clone for SEARCH_ITEM_CHANGE {
 #[repr(C)]
 pub struct SEARCH_ITEM_INDEXING_STATUS {
     pub dwDocID: u32,
-    pub hrIndexingStatus: ::windows_sys::core::HRESULT,
+    pub hrIndexingStatus: windows_sys::core::HRESULT,
 }
-impl ::core::marker::Copy for SEARCH_ITEM_INDEXING_STATUS {}
-impl ::core::clone::Clone for SEARCH_ITEM_INDEXING_STATUS {
+impl Copy for SEARCH_ITEM_INDEXING_STATUS {}
+impl Clone for SEARCH_ITEM_INDEXING_STATUS {
     fn clone(&self) -> Self {
         *self
     }
@@ -6339,12 +6339,12 @@ impl ::core::clone::Clone for SEARCH_ITEM_INDEXING_STATUS {
 #[repr(C)]
 pub struct SEARCH_ITEM_PERSISTENT_CHANGE {
     pub Change: SEARCH_KIND_OF_CHANGE,
-    pub URL: ::windows_sys::core::PWSTR,
-    pub OldURL: ::windows_sys::core::PWSTR,
+    pub URL: windows_sys::core::PWSTR,
+    pub OldURL: windows_sys::core::PWSTR,
     pub Priority: SEARCH_NOTIFICATION_PRIORITY,
 }
-impl ::core::marker::Copy for SEARCH_ITEM_PERSISTENT_CHANGE {}
-impl ::core::clone::Clone for SEARCH_ITEM_PERSISTENT_CHANGE {
+impl Copy for SEARCH_ITEM_PERSISTENT_CHANGE {}
+impl Clone for SEARCH_ITEM_PERSISTENT_CHANGE {
     fn clone(&self) -> Self {
         *self
     }
@@ -6358,10 +6358,10 @@ pub struct SEC_OBJECT {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Storage_IndexServer")]
-impl ::core::marker::Copy for SEC_OBJECT {}
+impl Copy for SEC_OBJECT {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Storage_IndexServer")]
-impl ::core::clone::Clone for SEC_OBJECT {
+impl Clone for SEC_OBJECT {
     fn clone(&self) -> Self {
         *self
     }
@@ -6375,10 +6375,10 @@ pub struct SEC_OBJECT {
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Storage_IndexServer")]
-impl ::core::marker::Copy for SEC_OBJECT {}
+impl Copy for SEC_OBJECT {}
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Storage_IndexServer")]
-impl ::core::clone::Clone for SEC_OBJECT {
+impl Clone for SEC_OBJECT {
     fn clone(&self) -> Self {
         *self
     }
@@ -6387,15 +6387,15 @@ impl ::core::clone::Clone for SEC_OBJECT {
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Storage_IndexServer")]
 pub struct SEC_OBJECT_ELEMENT {
-    pub guidObjectType: ::windows_sys::core::GUID,
+    pub guidObjectType: windows_sys::core::GUID,
     pub ObjectID: super::super::Storage::IndexServer::DBID,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Storage_IndexServer")]
-impl ::core::marker::Copy for SEC_OBJECT_ELEMENT {}
+impl Copy for SEC_OBJECT_ELEMENT {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Storage_IndexServer")]
-impl ::core::clone::Clone for SEC_OBJECT_ELEMENT {
+impl Clone for SEC_OBJECT_ELEMENT {
     fn clone(&self) -> Self {
         *self
     }
@@ -6404,15 +6404,15 @@ impl ::core::clone::Clone for SEC_OBJECT_ELEMENT {
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Storage_IndexServer")]
 pub struct SEC_OBJECT_ELEMENT {
-    pub guidObjectType: ::windows_sys::core::GUID,
+    pub guidObjectType: windows_sys::core::GUID,
     pub ObjectID: super::super::Storage::IndexServer::DBID,
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Storage_IndexServer")]
-impl ::core::marker::Copy for SEC_OBJECT_ELEMENT {}
+impl Copy for SEC_OBJECT_ELEMENT {}
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Storage_IndexServer")]
-impl ::core::clone::Clone for SEC_OBJECT_ELEMENT {
+impl Clone for SEC_OBJECT_ELEMENT {
     fn clone(&self) -> Self {
         *self
     }
@@ -6425,9 +6425,9 @@ pub struct SORTKEY {
     pub locale: u32,
 }
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
-impl ::core::marker::Copy for SORTKEY {}
+impl Copy for SORTKEY {}
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
-impl ::core::clone::Clone for SORTKEY {
+impl Clone for SORTKEY {
     fn clone(&self) -> Self {
         *self
     }
@@ -6439,9 +6439,9 @@ pub struct SORTSET {
     pub aCol: *mut SORTKEY,
 }
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
-impl ::core::marker::Copy for SORTSET {}
+impl Copy for SORTSET {}
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
-impl ::core::clone::Clone for SORTSET {
+impl Clone for SORTSET {
     fn clone(&self) -> Self {
         *self
     }
@@ -6482,8 +6482,8 @@ pub struct SQLPERF {
     pub msExecutionTime: u32,
     pub msNetWorkServerTime: u32,
 }
-impl ::core::marker::Copy for SQLPERF {}
-impl ::core::clone::Clone for SQLPERF {
+impl Copy for SQLPERF {}
+impl Clone for SQLPERF {
     fn clone(&self) -> Self {
         *self
     }
@@ -6496,8 +6496,8 @@ pub struct SQL_DAY_SECOND_STRUCT {
     pub second: u32,
     pub fraction: u32,
 }
-impl ::core::marker::Copy for SQL_DAY_SECOND_STRUCT {}
-impl ::core::clone::Clone for SQL_DAY_SECOND_STRUCT {
+impl Copy for SQL_DAY_SECOND_STRUCT {}
+impl Clone for SQL_DAY_SECOND_STRUCT {
     fn clone(&self) -> Self {
         *self
     }
@@ -6508,8 +6508,8 @@ pub struct SQL_INTERVAL_STRUCT {
     pub interval_sign: i16,
     pub intval: SQL_INTERVAL_STRUCT_0,
 }
-impl ::core::marker::Copy for SQL_INTERVAL_STRUCT {}
-impl ::core::clone::Clone for SQL_INTERVAL_STRUCT {
+impl Copy for SQL_INTERVAL_STRUCT {}
+impl Clone for SQL_INTERVAL_STRUCT {
     fn clone(&self) -> Self {
         *self
     }
@@ -6519,8 +6519,8 @@ pub union SQL_INTERVAL_STRUCT_0 {
     pub year_month: SQL_YEAR_MONTH_STRUCT,
     pub day_second: SQL_DAY_SECOND_STRUCT,
 }
-impl ::core::marker::Copy for SQL_INTERVAL_STRUCT_0 {}
-impl ::core::clone::Clone for SQL_INTERVAL_STRUCT_0 {
+impl Copy for SQL_INTERVAL_STRUCT_0 {}
+impl Clone for SQL_INTERVAL_STRUCT_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -6532,8 +6532,8 @@ pub struct SQL_NUMERIC_STRUCT {
     pub sign: u8,
     pub val: [u8; 16],
 }
-impl ::core::marker::Copy for SQL_NUMERIC_STRUCT {}
-impl ::core::clone::Clone for SQL_NUMERIC_STRUCT {
+impl Copy for SQL_NUMERIC_STRUCT {}
+impl Clone for SQL_NUMERIC_STRUCT {
     fn clone(&self) -> Self {
         *self
     }
@@ -6543,24 +6543,24 @@ pub struct SQL_YEAR_MONTH_STRUCT {
     pub year: u32,
     pub month: u32,
 }
-impl ::core::marker::Copy for SQL_YEAR_MONTH_STRUCT {}
-impl ::core::clone::Clone for SQL_YEAR_MONTH_STRUCT {
+impl Copy for SQL_YEAR_MONTH_STRUCT {}
+impl Clone for SQL_YEAR_MONTH_STRUCT {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct SSERRORINFO {
-    pub pwszMessage: ::windows_sys::core::PWSTR,
-    pub pwszServer: ::windows_sys::core::PWSTR,
-    pub pwszProcedure: ::windows_sys::core::PWSTR,
+    pub pwszMessage: windows_sys::core::PWSTR,
+    pub pwszServer: windows_sys::core::PWSTR,
+    pub pwszProcedure: windows_sys::core::PWSTR,
     pub lNative: i32,
     pub bState: u8,
     pub bClass: u8,
     pub wLineNumber: u16,
 }
-impl ::core::marker::Copy for SSERRORINFO {}
-impl ::core::clone::Clone for SSERRORINFO {
+impl Copy for SSERRORINFO {}
+impl Clone for SSERRORINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -6574,9 +6574,9 @@ pub struct SSVARIANT {
     pub Anonymous: SSVARIANT_0,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::marker::Copy for SSVARIANT {}
+impl Copy for SSVARIANT {}
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for SSVARIANT {
+impl Clone for SSVARIANT {
     fn clone(&self) -> Self {
         *self
     }
@@ -6602,9 +6602,9 @@ pub union SSVARIANT_0 {
     pub BLOBType: SSVARIANT_0_0,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::marker::Copy for SSVARIANT_0 {}
+impl Copy for SSVARIANT_0 {}
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for SSVARIANT_0 {
+impl Clone for SSVARIANT_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -6613,12 +6613,12 @@ impl ::core::clone::Clone for SSVARIANT_0 {
 #[cfg(feature = "Win32_System_Com")]
 pub struct SSVARIANT_0_0 {
     pub dbobj: DBOBJECT,
-    pub pUnk: *mut ::core::ffi::c_void,
+    pub pUnk: *mut core::ffi::c_void,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::marker::Copy for SSVARIANT_0_0 {}
+impl Copy for SSVARIANT_0_0 {}
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for SSVARIANT_0_0 {
+impl Clone for SSVARIANT_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -6632,9 +6632,9 @@ pub struct SSVARIANT_0_1 {
     pub dwReserved: u32,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::marker::Copy for SSVARIANT_0_1 {}
+impl Copy for SSVARIANT_0_1 {}
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for SSVARIANT_0_1 {
+impl Clone for SSVARIANT_0_1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -6644,15 +6644,15 @@ impl ::core::clone::Clone for SSVARIANT_0_1 {
 pub struct SSVARIANT_0_2 {
     pub sActualLength: i16,
     pub sMaxLength: i16,
-    pub pchCharVal: ::windows_sys::core::PSTR,
+    pub pchCharVal: windows_sys::core::PSTR,
     pub rgbReserved: [u8; 5],
     pub dwReserved: u32,
-    pub pwchReserved: ::windows_sys::core::PWSTR,
+    pub pwchReserved: windows_sys::core::PWSTR,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::marker::Copy for SSVARIANT_0_2 {}
+impl Copy for SSVARIANT_0_2 {}
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for SSVARIANT_0_2 {
+impl Clone for SSVARIANT_0_2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -6662,15 +6662,15 @@ impl ::core::clone::Clone for SSVARIANT_0_2 {
 pub struct SSVARIANT_0_3 {
     pub sActualLength: i16,
     pub sMaxLength: i16,
-    pub pwchNCharVal: ::windows_sys::core::PWSTR,
+    pub pwchNCharVal: windows_sys::core::PWSTR,
     pub rgbReserved: [u8; 5],
     pub dwReserved: u32,
-    pub pwchReserved: ::windows_sys::core::PWSTR,
+    pub pwchReserved: windows_sys::core::PWSTR,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::marker::Copy for SSVARIANT_0_3 {}
+impl Copy for SSVARIANT_0_3 {}
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for SSVARIANT_0_3 {
+impl Clone for SSVARIANT_0_3 {
     fn clone(&self) -> Self {
         *self
     }
@@ -6683,9 +6683,9 @@ pub struct SSVARIANT_0_4 {
     pub pUnknownData: *mut u8,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::marker::Copy for SSVARIANT_0_4 {}
+impl Copy for SSVARIANT_0_4 {}
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for SSVARIANT_0_4 {
+impl Clone for SSVARIANT_0_4 {
     fn clone(&self) -> Self {
         *self
     }
@@ -6695,8 +6695,8 @@ pub struct SUBSCRIPTIONINFO {
     pub cbSize: u32,
     pub fUpdateFlags: u32,
     pub schedule: SUBSCRIPTIONSCHEDULE,
-    pub customGroupCookie: ::windows_sys::core::GUID,
-    pub pTrigger: *mut ::core::ffi::c_void,
+    pub customGroupCookie: windows_sys::core::GUID,
+    pub pTrigger: *mut core::ffi::c_void,
     pub dwRecurseLevels: u32,
     pub fWebcrawlerFlags: u32,
     pub bMailNotification: super::super::Foundation::BOOL,
@@ -6704,16 +6704,16 @@ pub struct SUBSCRIPTIONINFO {
     pub bChangesOnly: super::super::Foundation::BOOL,
     pub bNeedPassword: super::super::Foundation::BOOL,
     pub fChannelFlags: u32,
-    pub bstrUserName: ::windows_sys::core::BSTR,
-    pub bstrPassword: ::windows_sys::core::BSTR,
-    pub bstrFriendlyName: ::windows_sys::core::BSTR,
+    pub bstrUserName: windows_sys::core::BSTR,
+    pub bstrPassword: windows_sys::core::BSTR,
+    pub bstrFriendlyName: windows_sys::core::BSTR,
     pub dwMaxSizeKB: u32,
     pub subType: SUBSCRIPTIONTYPE,
     pub fTaskFlags: u32,
     pub dwReserved: u32,
 }
-impl ::core::marker::Copy for SUBSCRIPTIONINFO {}
-impl ::core::clone::Clone for SUBSCRIPTIONINFO {
+impl Copy for SUBSCRIPTIONINFO {}
+impl Clone for SUBSCRIPTIONINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -6723,25 +6723,25 @@ pub struct SUBSCRIPTIONITEMINFO {
     pub cbSize: u32,
     pub dwFlags: u32,
     pub dwPriority: u32,
-    pub ScheduleGroup: ::windows_sys::core::GUID,
-    pub clsidAgent: ::windows_sys::core::GUID,
+    pub ScheduleGroup: windows_sys::core::GUID,
+    pub clsidAgent: windows_sys::core::GUID,
 }
-impl ::core::marker::Copy for SUBSCRIPTIONITEMINFO {}
-impl ::core::clone::Clone for SUBSCRIPTIONITEMINFO {
+impl Copy for SUBSCRIPTIONITEMINFO {}
+impl Clone for SUBSCRIPTIONITEMINFO {
     fn clone(&self) -> Self {
         *self
     }
 }
-pub const SubscriptionMgr: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xabbe31d0_6dae_11d0_beca_00c04fd940be);
+pub const SubscriptionMgr: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xabbe31d0_6dae_11d0_beca_00c04fd940be);
 #[repr(C)]
 pub struct TEXT_SOURCE {
     pub pfnFillTextBuffer: PFNFILLTEXTBUFFER,
-    pub awcBuffer: ::windows_sys::core::PCWSTR,
+    pub awcBuffer: windows_sys::core::PCWSTR,
     pub iEnd: u32,
     pub iCur: u32,
 }
-impl ::core::marker::Copy for TEXT_SOURCE {}
-impl ::core::clone::Clone for TEXT_SOURCE {
+impl Copy for TEXT_SOURCE {}
+impl Clone for TEXT_SOURCE {
     fn clone(&self) -> Self {
         *self
     }
@@ -6752,8 +6752,8 @@ pub struct TIMEOUT_INFO {
     pub dwConnectTimeout: u32,
     pub dwDataTimeout: u32,
 }
-impl ::core::marker::Copy for TIMEOUT_INFO {}
-impl ::core::clone::Clone for TIMEOUT_INFO {
+impl Copy for TIMEOUT_INFO {}
+impl Clone for TIMEOUT_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -6768,8 +6768,8 @@ pub struct TIMESTAMP_STRUCT {
     pub second: u16,
     pub fraction: u32,
 }
-impl ::core::marker::Copy for TIMESTAMP_STRUCT {}
-impl ::core::clone::Clone for TIMESTAMP_STRUCT {
+impl Copy for TIMESTAMP_STRUCT {}
+impl Clone for TIMESTAMP_STRUCT {
     fn clone(&self) -> Self {
         *self
     }
@@ -6780,8 +6780,8 @@ pub struct TIME_STRUCT {
     pub minute: u16,
     pub second: u16,
 }
-impl ::core::marker::Copy for TIME_STRUCT {}
-impl ::core::clone::Clone for TIME_STRUCT {
+impl Copy for TIME_STRUCT {}
+impl Clone for TIME_STRUCT {
     fn clone(&self) -> Self {
         *self
     }
@@ -6793,12 +6793,12 @@ pub struct VECTORRESTRICTION {
     pub RankMethod: u32,
 }
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl ::core::marker::Copy for VECTORRESTRICTION {}
+impl Copy for VECTORRESTRICTION {}
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl ::core::clone::Clone for VECTORRESTRICTION {
+impl Clone for VECTORRESTRICTION {
     fn clone(&self) -> Self {
         *self
     }
 }
-pub type PFNFILLTEXTBUFFER = ::core::option::Option<unsafe extern "system" fn(ptextsource: *mut TEXT_SOURCE) -> ::windows_sys::core::HRESULT>;
-pub type SQL_ASYNC_NOTIFICATION_CALLBACK = ::core::option::Option<unsafe extern "system" fn(pcontext: *const ::core::ffi::c_void, flast: super::super::Foundation::BOOL) -> i16>;
+pub type PFNFILLTEXTBUFFER = Option<unsafe extern "system" fn(ptextsource: *mut TEXT_SOURCE) -> windows_sys::core::HRESULT>;
+pub type SQL_ASYNC_NOTIFICATION_CALLBACK = Option<unsafe extern "system" fn(pcontext: *const core::ffi::c_void, flast: super::super::Foundation::BOOL) -> i16>;

@@ -7,10 +7,10 @@ pub const ACCESS_DENIED_ACE_TYPE: u32 = 1u32;
 pub const ACCESS_DENIED_CALLBACK_ACE_TYPE: u32 = 10u32;
 pub const ACCESS_DENIED_CALLBACK_OBJECT_ACE_TYPE: u32 = 12u32;
 pub const ACCESS_DENIED_OBJECT_ACE_TYPE: u32 = 6u32;
-pub const ACCESS_DS_OBJECT_TYPE_NAME_A: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("Directory Service Object");
-pub const ACCESS_DS_OBJECT_TYPE_NAME_W: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Directory Service Object");
-pub const ACCESS_DS_SOURCE_A: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("DS");
-pub const ACCESS_DS_SOURCE_W: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("DS");
+pub const ACCESS_DS_OBJECT_TYPE_NAME_A: windows_sys::core::PCSTR = windows_sys::core::s!("Directory Service Object");
+pub const ACCESS_DS_OBJECT_TYPE_NAME_W: windows_sys::core::PCWSTR = windows_sys::core::w!("Directory Service Object");
+pub const ACCESS_DS_SOURCE_A: windows_sys::core::PCSTR = windows_sys::core::s!("DS");
+pub const ACCESS_DS_SOURCE_W: windows_sys::core::PCWSTR = windows_sys::core::w!("DS");
 pub const ACCESS_FILTER_SECURITY_INFORMATION: i32 = 256i32;
 pub const ACCESS_MAX_LEVEL: u32 = 4u32;
 pub const ACCESS_MAX_MS_ACE_TYPE: u32 = 8u32;
@@ -57,7 +57,7 @@ pub const ALERT_SYSTEM_ERROR: ALERT_SYSTEM_SEV = 3u32;
 pub const ALERT_SYSTEM_INFORMATIONAL: ALERT_SYSTEM_SEV = 1u32;
 pub const ALERT_SYSTEM_QUERY: ALERT_SYSTEM_SEV = 4u32;
 pub const ALERT_SYSTEM_WARNING: ALERT_SYSTEM_SEV = 2u32;
-pub const ALL_POWERSCHEMES_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x68a1e95e_13ea_41e1_8011_0c496ca490b0);
+pub const ALL_POWERSCHEMES_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x68a1e95e_13ea_41e1_8011_0c496ca490b0);
 pub const ANYSIZE_ARRAY: u32 = 1u32;
 pub const APPCOMMAND_BASS_BOOST: APPCOMMAND_ID = 20u32;
 pub const APPCOMMAND_BASS_DOWN: APPCOMMAND_ID = 19u32;
@@ -237,8 +237,8 @@ pub const CompatibilityInformationInActivationContext: ACTIVATION_CONTEXT_INFO_C
 pub const CriticalError: SERVICE_ERROR_TYPE = 3i32;
 pub const DECIMAL_NEG: u8 = 128u8;
 pub const DEDICATED_MEMORY_CACHE_ELIGIBLE: u32 = 1u32;
-pub const DEVICEFAMILYDEVICEFORM_KEY: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("\\Registry\\Machine\\Software\\Microsoft\\Windows NT\\CurrentVersion\\OEM");
-pub const DEVICEFAMILYDEVICEFORM_VALUE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("DeviceForm");
+pub const DEVICEFAMILYDEVICEFORM_KEY: windows_sys::core::PCWSTR = windows_sys::core::w!("\\Registry\\Machine\\Software\\Microsoft\\Windows NT\\CurrentVersion\\OEM");
+pub const DEVICEFAMILYDEVICEFORM_VALUE: windows_sys::core::PCWSTR = windows_sys::core::w!("DeviceForm");
 pub const DIAGNOSTIC_REASON_DETAILED_STRING: u32 = 2u32;
 pub const DIAGNOSTIC_REASON_NOT_SPECIFIED: u32 = 2147483648u32;
 pub const DIAGNOSTIC_REASON_SIMPLE_STRING: u32 = 1u32;
@@ -517,219 +517,219 @@ pub const GC_ROLLOVER: GESTURECONFIG_FLAGS = 1u32;
 pub const GC_ROTATE: GESTURECONFIG_FLAGS = 1u32;
 pub const GC_TWOFINGERTAP: GESTURECONFIG_FLAGS = 1u32;
 pub const GC_ZOOM: GESTURECONFIG_FLAGS = 1u32;
-pub const GUID_ACDC_POWER_SOURCE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x5d3e9a59_e9d5_4b00_a6bd_ff34ff516548);
-pub const GUID_ACTIVE_POWERSCHEME: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x31f9f286_5084_42fe_b720_2b0264993763);
-pub const GUID_ADAPTIVE_INPUT_CONTROLLER_STATE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x0e98fae9_f45a_4de1_a757_6031f197f6ea);
-pub const GUID_ADAPTIVE_POWER_BEHAVIOR_SUBGROUP: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x8619b916_e004_4dd8_9b66_dae86f806698);
-pub const GUID_ADVANCED_COLOR_QUALITY_BIAS: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x684c3e69_a4f7_4014_8754_d45179a56167);
-pub const GUID_ALLOW_AWAYMODE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x25dfa149_5dd1_4736_b5ab_e8a37b5b8187);
-pub const GUID_ALLOW_DISPLAY_REQUIRED: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xa9ceb8da_cd46_44fb_a98b_02af69de4623);
-pub const GUID_ALLOW_RTC_WAKE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xbd3b718a_0680_4d9d_8ab2_e1d2b4ac806d);
-pub const GUID_ALLOW_STANDBY_STATES: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xabfc2519_3608_4c2a_94ea_171b0ed546ab);
-pub const GUID_ALLOW_SYSTEM_REQUIRED: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xa4b195f5_8225_47d8_8012_9d41369786e2);
-pub const GUID_APPLAUNCH_BUTTON: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x1a689231_7399_4e9a_8f99_b71f999db3fa);
-pub const GUID_BACKGROUND_TASK_NOTIFICATION: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xcf23f240_2a54_48d8_b114_de1518ff052e);
-pub const GUID_BATTERY_COUNT: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x7d263f15_fca4_49e5_854b_a9f2bfbd5c24);
-pub const GUID_BATTERY_DISCHARGE_ACTION_0: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x637ea02f_bbcb_4015_8e2c_a1c7b9c0b546);
-pub const GUID_BATTERY_DISCHARGE_ACTION_1: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xd8742dcb_3e6a_4b3c_b3fe_374623cdcf06);
-pub const GUID_BATTERY_DISCHARGE_ACTION_2: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x421cba38_1a8e_4881_ac89_e33a8b04ece4);
-pub const GUID_BATTERY_DISCHARGE_ACTION_3: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x80472613_9780_455e_b308_72d3003cf2f8);
-pub const GUID_BATTERY_DISCHARGE_FLAGS_0: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x5dbb7c9f_38e9_40d2_9749_4f8a0e9f640f);
-pub const GUID_BATTERY_DISCHARGE_FLAGS_1: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xbcded951_187b_4d05_bccc_f7e51960c258);
-pub const GUID_BATTERY_DISCHARGE_FLAGS_2: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x7fd2f0c4_feb7_4da3_8117_e3fbedc46582);
-pub const GUID_BATTERY_DISCHARGE_FLAGS_3: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x73613ccf_dbfa_4279_8356_4935f6bf62f3);
-pub const GUID_BATTERY_DISCHARGE_LEVEL_0: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x9a66d8d7_4ff7_4ef9_b5a2_5a326ca2a469);
-pub const GUID_BATTERY_DISCHARGE_LEVEL_1: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x8183ba9a_e910_48da_8769_14ae6dc1170a);
-pub const GUID_BATTERY_DISCHARGE_LEVEL_2: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x07a07ca2_adaf_40d7_b077_533aaded1bfa);
-pub const GUID_BATTERY_DISCHARGE_LEVEL_3: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x58afd5a6_c2dd_47d2_9fbf_ef70cc5c5965);
-pub const GUID_BATTERY_PERCENTAGE_REMAINING: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xa7ad8041_b45a_4cae_87a3_eecbb468a9e1);
-pub const GUID_BATTERY_SUBGROUP: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xe73a048d_bf27_4f12_9731_8b2076e8891f);
-pub const GUID_CONNECTIVITY_IN_STANDBY: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xf15576e8_98b7_4186_b944_eafa664402d9);
-pub const GUID_CONSOLE_DISPLAY_STATE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x6fe69556_704a_47a0_8f24_c28d936fda47);
-pub const GUID_CRITICAL_POWER_TRANSITION: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xb7a27025_e569_46c2_a504_2b96cad225a1);
-pub const GUID_DEEP_SLEEP_ENABLED: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xd502f7ee_1dc7_4efd_a55d_f04b6f5c0545);
-pub const GUID_DEEP_SLEEP_PLATFORM_STATE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xd23f2fb8_9536_4038_9c94_1ce02e5c2152);
-pub const GUID_DEVICE_IDLE_POLICY: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x4faab71a_92e5_4726_b531_224559672d19);
-pub const GUID_DEVICE_POWER_POLICY_VIDEO_BRIGHTNESS: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xaded5e82_b909_4619_9949_f5d71dac0bcb);
-pub const GUID_DEVICE_POWER_POLICY_VIDEO_DIM_BRIGHTNESS: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xf1fbfde2_a960_4165_9f88_50667911ce96);
-pub const GUID_DISCONNECTED_STANDBY_MODE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x68afb2d9_ee95_47a8_8f50_4115088073b1);
-pub const GUID_DISK_ADAPTIVE_POWERDOWN: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x396a32e1_499a_40b2_9124_a96afe707667);
-pub const GUID_DISK_BURST_IGNORE_THRESHOLD: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x80e3c60e_bb94_4ad8_bbe0_0d3195efc663);
-pub const GUID_DISK_COALESCING_POWERDOWN_TIMEOUT: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xc36f0eb4_2988_4a70_8eee_0884fc2c2433);
-pub const GUID_DISK_IDLE_TIMEOUT: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x58e39ba8_b8e6_4ef6_90d0_89ae32b258d6);
-pub const GUID_DISK_MAX_POWER: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x51dea550_bb38_4bc4_991b_eacf37be5ec8);
-pub const GUID_DISK_NVME_NOPPME: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xfc7372b6_ab2d_43ee_8797_15e9841f2cca);
-pub const GUID_DISK_POWERDOWN_TIMEOUT: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x6738e2c4_e8a5_4a42_b16a_e040e769756e);
-pub const GUID_DISK_SUBGROUP: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x0012ee47_9041_4b5d_9b77_535fba8b1442);
-pub const GUID_ENABLE_SWITCH_FORCED_SHUTDOWN: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x833a6b62_dfa4_46d1_82f8_e09e34d029d6);
-pub const GUID_ENERGY_SAVER_BATTERY_THRESHOLD: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xe69653ca_cf7f_4f05_aa73_cb833fa90ad4);
-pub const GUID_ENERGY_SAVER_BRIGHTNESS: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x13d09884_f74e_474a_a852_b6bde8ad03a8);
-pub const GUID_ENERGY_SAVER_POLICY: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x5c5bb349_ad29_4ee2_9d0b_2b25270f7a81);
-pub const GUID_ENERGY_SAVER_SUBGROUP: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xde830923_a562_41af_a086_e3a2c6bad2da);
-pub const GUID_EXECUTION_REQUIRED_REQUEST_TIMEOUT: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x3166bc41_7e98_4e03_b34e_ec0f5f2b218e);
-pub const GUID_GLOBAL_USER_PRESENCE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x786e8a1d_b427_4344_9207_09e70bdcbea9);
-pub const GUID_GPU_PREFERENCE_POLICY: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xdd848b2a_8a5d_4451_9ae2_39cd41658f6c);
-pub const GUID_GRAPHICS_SUBGROUP: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x5fb4938d_1ee8_4b0f_9a3c_5036b0ab995c);
-pub const GUID_HIBERNATE_FASTS4_POLICY: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x94ac6d29_73ce_41a6_809f_6363ba21b47e);
-pub const GUID_HIBERNATE_TIMEOUT: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x9d7815a6_7ee4_497e_8888_515a05f02364);
-pub const GUID_HUPR_ADAPTIVE_AWAY_DIM_TIMEOUT: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xa79c8e0e_f271_482d_8f8a_5db9a18312de);
-pub const GUID_HUPR_ADAPTIVE_AWAY_DISPLAY_TIMEOUT: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x0a7d6ab6_ac83_4ad1_8282_eca5b58308f3);
-pub const GUID_HUPR_ADAPTIVE_INATTENTIVE_DIM_TIMEOUT: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xcf8c6097_12b8_4279_bbdd_44601ee5209d);
-pub const GUID_HUPR_ADAPTIVE_INATTENTIVE_DISPLAY_TIMEOUT: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xee16691e_6ab3_4619_bb48_1c77c9357e5a);
-pub const GUID_IDLE_BACKGROUND_TASK: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x515c31d8_f734_163d_a0fd_11a08c91e8f1);
-pub const GUID_IDLE_RESILIENCY_PERIOD: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xc42b79aa_aa3a_484b_a98f_2cf32aa90a28);
-pub const GUID_IDLE_RESILIENCY_SUBGROUP: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x2e601130_5351_4d9d_8e04_252966bad054);
-pub const GUID_INTSTEER_LOAD_PER_PROC_TRIGGER: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x73cde64d_d720_4bb2_a860_c755afe77ef2);
-pub const GUID_INTSTEER_MODE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x2bfc24f9_5ea2_4801_8213_3dbae01aa39d);
-pub const GUID_INTSTEER_SUBGROUP: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x48672f38_7a9a_4bb2_8bf8_3d85be19de4e);
-pub const GUID_INTSTEER_TIME_UNPARK_TRIGGER: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xd6ba4903_386f_4c2c_8adb_5c21b3328d25);
-pub const GUID_LEGACY_RTC_MITIGATION: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x1a34bdc3_7e6b_442e_a9d0_64b6ef378e84);
-pub const GUID_LIDCLOSE_ACTION: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x5ca83367_6e45_459f_a27b_476b1d01c936);
-pub const GUID_LIDOPEN_POWERSTATE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x99ff10e7_23b1_4c07_a9d1_5c3206d741b4);
-pub const GUID_LIDSWITCH_STATE_CHANGE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xba3e0f4d_b817_4094_a2d1_d56379e6a0f3);
-pub const GUID_LIDSWITCH_STATE_RELIABILITY: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xae4c4ff1_d361_43f4_80aa_bbb6eb03de94);
-pub const GUID_LOCK_CONSOLE_ON_WAKE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x0e796bdb_100d_47d6_a2d5_f7d2daa51f51);
-pub const GUID_MAX_POWER_SAVINGS: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xa1841308_3541_4fab_bc81_f71556f20b4a);
-pub const GUID_MIN_POWER_SAVINGS: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x8c5e7fda_e8bf_4a96_9a85_a6e23a8c635c);
-pub const GUID_MIXED_REALITY_MODE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x1e626b4e_cf04_4f8d_9cc7_c97c5b0f2391);
-pub const GUID_MONITOR_POWER_ON: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x02731015_4510_4526_99e6_e5a17ebd1aea);
-pub const GUID_NON_ADAPTIVE_INPUT_TIMEOUT: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x5adbbfbc_074e_4da1_ba38_db8b36b2c8f3);
-pub const GUID_PCIEXPRESS_ASPM_POLICY: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xee12f906_d277_404b_b6da_e5fa1a576df5);
-pub const GUID_PCIEXPRESS_SETTINGS_SUBGROUP: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x501a4d13_42af_4429_9fd1_a8218c268e20);
-pub const GUID_POWERBUTTON_ACTION: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x7648efa3_dd9c_4e3e_b566_50f929386280);
-pub const GUID_POWERSCHEME_PERSONALITY: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x245d8541_3943_4422_b025_13a784f679b7);
-pub const GUID_POWER_SAVING_STATUS: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xe00958c0_c213_4ace_ac77_fecced2eeea5);
-pub const GUID_PROCESSOR_ALLOW_THROTTLING: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x3b04d4fd_1cc7_4f23_ab1c_d1337819c4bb);
-pub const GUID_PROCESSOR_CLASS0_FLOOR_PERF: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xfddc842b_8364_4edc_94cf_c17f60de1c80);
-pub const GUID_PROCESSOR_CLASS1_INITIAL_PERF: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x1facfc65_a930_4bc5_9f38_504ec097bbc0);
-pub const GUID_PROCESSOR_COMPLEX_PARKING_POLICY: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xb669a5e9_7b1d_4132_baaa_49190abcfeb6);
-pub const GUID_PROCESSOR_CORE_PARKING_AFFINITY_HISTORY_DECREASE_FACTOR: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x8f7b45e3_c393_480a_878c_f67ac3d07082);
-pub const GUID_PROCESSOR_CORE_PARKING_AFFINITY_HISTORY_THRESHOLD: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x5b33697b_e89d_4d38_aa46_9e7dfb7cd2f9);
-pub const GUID_PROCESSOR_CORE_PARKING_AFFINITY_WEIGHTING: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xe70867f1_fa2f_4f4e_aea1_4d8a0ba23b20);
-pub const GUID_PROCESSOR_CORE_PARKING_DECREASE_POLICY: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x71021b41_c749_4d21_be74_a00f335d582b);
-pub const GUID_PROCESSOR_CORE_PARKING_DECREASE_THRESHOLD: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x68dd2f27_a4ce_4e11_8487_3794e4135dfa);
-pub const GUID_PROCESSOR_CORE_PARKING_DECREASE_TIME: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xdfd10d17_d5eb_45dd_877a_9a34ddd15c82);
-pub const GUID_PROCESSOR_CORE_PARKING_INCREASE_POLICY: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xc7be0679_2817_4d69_9d02_519a537ed0c6);
-pub const GUID_PROCESSOR_CORE_PARKING_INCREASE_THRESHOLD: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xdf142941_20f3_4edf_9a4a_9c83d3d717d1);
-pub const GUID_PROCESSOR_CORE_PARKING_INCREASE_TIME: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x2ddd5a84_5a71_437e_912a_db0b8c788732);
-pub const GUID_PROCESSOR_CORE_PARKING_MAX_CORES: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xea062031_0e34_4ff1_9b6d_eb1059334028);
-pub const GUID_PROCESSOR_CORE_PARKING_MAX_CORES_1: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xea062031_0e34_4ff1_9b6d_eb1059334029);
-pub const GUID_PROCESSOR_CORE_PARKING_MIN_CORES: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x0cc5b647_c1df_4637_891a_dec35c318583);
-pub const GUID_PROCESSOR_CORE_PARKING_MIN_CORES_1: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x0cc5b647_c1df_4637_891a_dec35c318584);
-pub const GUID_PROCESSOR_CORE_PARKING_OVER_UTILIZATION_HISTORY_DECREASE_FACTOR: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x1299023c_bc28_4f0a_81ec_d3295a8d815d);
-pub const GUID_PROCESSOR_CORE_PARKING_OVER_UTILIZATION_HISTORY_THRESHOLD: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x9ac18e92_aa3c_4e27_b307_01ae37307129);
-pub const GUID_PROCESSOR_CORE_PARKING_OVER_UTILIZATION_THRESHOLD: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x943c8cb6_6f93_4227_ad87_e9a3feec08d1);
-pub const GUID_PROCESSOR_CORE_PARKING_OVER_UTILIZATION_WEIGHTING: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x8809c2d8_b155_42d4_bcda_0d345651b1db);
-pub const GUID_PROCESSOR_DISTRIBUTE_UTILITY: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xe0007330_f589_42ed_a401_5ddb10e785d3);
-pub const GUID_PROCESSOR_DUTY_CYCLING: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x4e4450b3_6179_4e91_b8f1_5bb9938f81a1);
-pub const GUID_PROCESSOR_FREQUENCY_LIMIT: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x75b0ae3f_bce0_45a7_8c89_c9611c25e100);
-pub const GUID_PROCESSOR_FREQUENCY_LIMIT_1: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x75b0ae3f_bce0_45a7_8c89_c9611c25e101);
-pub const GUID_PROCESSOR_HETEROGENEOUS_POLICY: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x7f2f5cfa_f10c_4823_b5e1_e93ae85f46b5);
-pub const GUID_PROCESSOR_HETERO_DECREASE_THRESHOLD: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xf8861c27_95e7_475c_865b_13c0cb3f9d6b);
-pub const GUID_PROCESSOR_HETERO_DECREASE_THRESHOLD_1: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xf8861c27_95e7_475c_865b_13c0cb3f9d6c);
-pub const GUID_PROCESSOR_HETERO_DECREASE_TIME: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x7f2492b6_60b1_45e5_ae55_773f8cd5caec);
-pub const GUID_PROCESSOR_HETERO_INCREASE_THRESHOLD: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xb000397d_9b0b_483d_98c9_692a6060cfbf);
-pub const GUID_PROCESSOR_HETERO_INCREASE_THRESHOLD_1: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xb000397d_9b0b_483d_98c9_692a6060cfc0);
-pub const GUID_PROCESSOR_HETERO_INCREASE_TIME: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x4009efa7_e72d_4cba_9edf_91084ea8cbc3);
-pub const GUID_PROCESSOR_IDLESTATE_POLICY: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x68f262a7_f621_4069_b9a5_4874169be23c);
-pub const GUID_PROCESSOR_IDLE_ALLOW_SCALING: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x6c2993b0_8f48_481f_bcc6_00dd2742aa06);
-pub const GUID_PROCESSOR_IDLE_DEMOTE_THRESHOLD: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x4b92d758_5a24_4851_a470_815d78aee119);
-pub const GUID_PROCESSOR_IDLE_DISABLE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x5d76a2ca_e8c0_402f_a133_2158492d58ad);
-pub const GUID_PROCESSOR_IDLE_PROMOTE_THRESHOLD: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x7b224883_b3cc_4d79_819f_8374152cbe7c);
-pub const GUID_PROCESSOR_IDLE_STATE_MAXIMUM: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x9943e905_9a30_4ec1_9b99_44dd3b76f7a2);
-pub const GUID_PROCESSOR_IDLE_TIME_CHECK: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xc4581c31_89ab_4597_8e2b_9c9cab440e6b);
-pub const GUID_PROCESSOR_LATENCY_HINT_MIN_UNPARK: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x616cdaa5_695e_4545_97ad_97dc2d1bdd88);
-pub const GUID_PROCESSOR_LATENCY_HINT_MIN_UNPARK_1: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x616cdaa5_695e_4545_97ad_97dc2d1bdd89);
-pub const GUID_PROCESSOR_LONG_THREAD_ARCH_CLASS_LOWER_THRESHOLD: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x43f278bc_0f8a_46d0_8b31_9a23e615d713);
-pub const GUID_PROCESSOR_LONG_THREAD_ARCH_CLASS_UPPER_THRESHOLD: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xbf903d33_9d24_49d3_a468_e65e0325046a);
-pub const GUID_PROCESSOR_MODULE_PARKING_POLICY: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xb0deaf6b_59c0_4523_8a45_ca7f40244114);
-pub const GUID_PROCESSOR_PARKING_CONCURRENCY_THRESHOLD: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x2430ab6f_a520_44a2_9601_f7f23b5134b1);
-pub const GUID_PROCESSOR_PARKING_CORE_OVERRIDE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xa55612aa_f624_42c6_a443_7397d064c04f);
-pub const GUID_PROCESSOR_PARKING_DISTRIBUTION_THRESHOLD: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x4bdaf4e9_d103_46d7_a5f0_6280121616ef);
-pub const GUID_PROCESSOR_PARKING_HEADROOM_THRESHOLD: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xf735a673_2066_4f80_a0c5_ddee0cf1bf5d);
-pub const GUID_PROCESSOR_PARKING_PERF_STATE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x447235c7_6a8d_4cc0_8e24_9eaf70b96e2b);
-pub const GUID_PROCESSOR_PARKING_PERF_STATE_1: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x447235c7_6a8d_4cc0_8e24_9eaf70b96e2c);
-pub const GUID_PROCESSOR_PERFSTATE_POLICY: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xbbdc3814_18e9_4463_8a55_d197327c45c0);
-pub const GUID_PROCESSOR_PERF_AUTONOMOUS_ACTIVITY_WINDOW: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xcfeda3d0_7697_4566_a922_a9086cd49dfa);
-pub const GUID_PROCESSOR_PERF_AUTONOMOUS_MODE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x8baa4a8a_14c6_4451_8e8b_14bdbd197537);
-pub const GUID_PROCESSOR_PERF_BOOST_MODE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xbe337238_0d82_4146_a960_4f3749d470c7);
-pub const GUID_PROCESSOR_PERF_BOOST_POLICY: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x45bcc044_d885_43e2_8605_ee0ec6e96b59);
-pub const GUID_PROCESSOR_PERF_CORE_PARKING_HISTORY: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x77d7f282_8f1a_42cd_8537_45450a839be8);
-pub const GUID_PROCESSOR_PERF_DECREASE_HISTORY: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x0300f6f8_abd6_45a9_b74f_4908691a40b5);
-pub const GUID_PROCESSOR_PERF_DECREASE_POLICY: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x40fbefc7_2e9d_4d25_a185_0cfd8574bac6);
-pub const GUID_PROCESSOR_PERF_DECREASE_POLICY_1: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x40fbefc7_2e9d_4d25_a185_0cfd8574bac7);
-pub const GUID_PROCESSOR_PERF_DECREASE_THRESHOLD: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x12a0ab44_fe28_4fa9_b3bd_4b64f44960a6);
-pub const GUID_PROCESSOR_PERF_DECREASE_THRESHOLD_1: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x12a0ab44_fe28_4fa9_b3bd_4b64f44960a7);
-pub const GUID_PROCESSOR_PERF_DECREASE_TIME: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xd8edeb9b_95cf_4f95_a73c_b061973693c8);
-pub const GUID_PROCESSOR_PERF_DECREASE_TIME_1: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xd8edeb9b_95cf_4f95_a73c_b061973693c9);
-pub const GUID_PROCESSOR_PERF_ENERGY_PERFORMANCE_PREFERENCE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x36687f9e_e3a5_4dbf_b1dc_15eb381c6863);
-pub const GUID_PROCESSOR_PERF_ENERGY_PERFORMANCE_PREFERENCE_1: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x36687f9e_e3a5_4dbf_b1dc_15eb381c6864);
-pub const GUID_PROCESSOR_PERF_HISTORY: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x7d24baa7_0b84_480f_840c_1b0743c00f5f);
-pub const GUID_PROCESSOR_PERF_HISTORY_1: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x7d24baa7_0b84_480f_840c_1b0743c00f60);
-pub const GUID_PROCESSOR_PERF_INCREASE_HISTORY: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x99b3ef01_752f_46a1_80fb_7730011f2354);
-pub const GUID_PROCESSOR_PERF_INCREASE_POLICY: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x465e1f50_b610_473a_ab58_00d1077dc418);
-pub const GUID_PROCESSOR_PERF_INCREASE_POLICY_1: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x465e1f50_b610_473a_ab58_00d1077dc419);
-pub const GUID_PROCESSOR_PERF_INCREASE_THRESHOLD: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x06cadf0e_64ed_448a_8927_ce7bf90eb35d);
-pub const GUID_PROCESSOR_PERF_INCREASE_THRESHOLD_1: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x06cadf0e_64ed_448a_8927_ce7bf90eb35e);
-pub const GUID_PROCESSOR_PERF_INCREASE_TIME: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x984cf492_3bed_4488_a8f9_4286c97bf5aa);
-pub const GUID_PROCESSOR_PERF_INCREASE_TIME_1: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x984cf492_3bed_4488_a8f9_4286c97bf5ab);
-pub const GUID_PROCESSOR_PERF_LATENCY_HINT: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x0822df31_9c83_441c_a079_0de4cf009c7b);
-pub const GUID_PROCESSOR_PERF_LATENCY_HINT_PERF: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x619b7505_003b_4e82_b7a6_4dd29c300971);
-pub const GUID_PROCESSOR_PERF_LATENCY_HINT_PERF_1: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x619b7505_003b_4e82_b7a6_4dd29c300972);
-pub const GUID_PROCESSOR_PERF_TIME_CHECK: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x4d2b0152_7d5c_498b_88e2_34345392a2c5);
-pub const GUID_PROCESSOR_RESPONSIVENESS_DISABLE_THRESHOLD: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x38b8383d_cce0_4c79_9e3e_56a4f17cc480);
-pub const GUID_PROCESSOR_RESPONSIVENESS_DISABLE_THRESHOLD_1: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x38b8383d_cce0_4c79_9e3e_56a4f17cc481);
-pub const GUID_PROCESSOR_RESPONSIVENESS_DISABLE_TIME: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xf565999f_3fb0_411a_a226_3f0198dec130);
-pub const GUID_PROCESSOR_RESPONSIVENESS_DISABLE_TIME_1: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xf565999f_3fb0_411a_a226_3f0198dec131);
-pub const GUID_PROCESSOR_RESPONSIVENESS_ENABLE_THRESHOLD: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x3d44e256_7222_4415_a9ed_9c45fa3dd830);
-pub const GUID_PROCESSOR_RESPONSIVENESS_ENABLE_THRESHOLD_1: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x3d44e256_7222_4415_a9ed_9c45fa3dd831);
-pub const GUID_PROCESSOR_RESPONSIVENESS_ENABLE_TIME: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x3d915188_7830_49ae_a79a_0fb0a1e5a200);
-pub const GUID_PROCESSOR_RESPONSIVENESS_ENABLE_TIME_1: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x3d915188_7830_49ae_a79a_0fb0a1e5a201);
-pub const GUID_PROCESSOR_RESPONSIVENESS_EPP_CEILING: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x4427c73b_9756_4a5c_b84b_c7bda79c7320);
-pub const GUID_PROCESSOR_RESPONSIVENESS_EPP_CEILING_1: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x4427c73b_9756_4a5c_b84b_c7bda79c7321);
-pub const GUID_PROCESSOR_RESPONSIVENESS_PERF_FLOOR: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xce8e92ee_6a86_4572_bfe0_20c21d03cd40);
-pub const GUID_PROCESSOR_RESPONSIVENESS_PERF_FLOOR_1: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xce8e92ee_6a86_4572_bfe0_20c21d03cd41);
-pub const GUID_PROCESSOR_SETTINGS_SUBGROUP: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x54533251_82be_4824_96c1_47b60b740d00);
-pub const GUID_PROCESSOR_SHORT_THREAD_ARCH_CLASS_LOWER_THRESHOLD: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x53824d46_87bd_4739_aa1b_aa793fac36d6);
-pub const GUID_PROCESSOR_SHORT_THREAD_ARCH_CLASS_UPPER_THRESHOLD: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x828423eb_8662_4344_90f7_52bf15870f5a);
-pub const GUID_PROCESSOR_SHORT_THREAD_RUNTIME_THRESHOLD: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xd92998c2_6a48_49ca_85d4_8cceec294570);
-pub const GUID_PROCESSOR_SHORT_THREAD_SCHEDULING_POLICY: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xbae08b81_2d5e_4688_ad6a_13243356654b);
-pub const GUID_PROCESSOR_SMT_UNPARKING_POLICY: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xb28a6829_c5f7_444e_8f61_10e24e85c532);
-pub const GUID_PROCESSOR_SOFT_PARKING_LATENCY: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x97cfac41_2217_47eb_992d_618b1977c907);
-pub const GUID_PROCESSOR_THREAD_SCHEDULING_POLICY: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x93b8b6dc_0698_4d1c_9ee4_0644e900c85d);
-pub const GUID_PROCESSOR_THROTTLE_MAXIMUM: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xbc5038f7_23e0_4960_96da_33abaf5935ec);
-pub const GUID_PROCESSOR_THROTTLE_MAXIMUM_1: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xbc5038f7_23e0_4960_96da_33abaf5935ed);
-pub const GUID_PROCESSOR_THROTTLE_MINIMUM: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x893dee8e_2bef_41e0_89c6_b55d0929964c);
-pub const GUID_PROCESSOR_THROTTLE_MINIMUM_1: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x893dee8e_2bef_41e0_89c6_b55d0929964d);
-pub const GUID_PROCESSOR_THROTTLE_POLICY: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x57027304_4af6_4104_9260_e3d95248fc36);
-pub const GUID_SESSION_DISPLAY_STATUS: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x2b84c20e_ad23_4ddf_93db_05ffbd7efca5);
-pub const GUID_SESSION_USER_PRESENCE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x3c0f4548_c03f_4c4d_b9f2_237ede686376);
-pub const GUID_SLEEPBUTTON_ACTION: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x96996bc0_ad50_47ec_923b_6f41874dd9eb);
-pub const GUID_SLEEP_IDLE_THRESHOLD: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x81cd32e0_7833_44f3_8737_7081f38d1f70);
-pub const GUID_SLEEP_SUBGROUP: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x238c9fa8_0aad_41ed_83f4_97be242c8f20);
-pub const GUID_SPR_ACTIVE_SESSION_CHANGE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x0e24ce38_c393_4742_bdb1_744f4b9ee08e);
-pub const GUID_STANDBY_BUDGET_GRACE_PERIOD: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x60c07fe1_0556_45cf_9903_d56e32210242);
-pub const GUID_STANDBY_BUDGET_PERCENT: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x9fe527be_1b70_48da_930d_7bcf17b44990);
-pub const GUID_STANDBY_RESERVE_GRACE_PERIOD: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xc763ee92_71e8_4127_84eb_f6ed043a3e3d);
-pub const GUID_STANDBY_RESERVE_TIME: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x468fe7e5_1158_46ec_88bc_5b96c9e44fd0);
-pub const GUID_STANDBY_RESET_PERCENT: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x49cb11a5_56e2_4afb_9d38_3df47872e21b);
-pub const GUID_STANDBY_TIMEOUT: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x29f6c1db_86da_48c5_9fdb_f2b67b1f44da);
-pub const GUID_SYSTEM_AWAYMODE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x98a7f580_01f7_48aa_9c0f_44352c29e5c0);
-pub const GUID_SYSTEM_BUTTON_SUBGROUP: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x4f971e89_eebd_4455_a8de_9e59040e7347);
-pub const GUID_SYSTEM_COOLING_POLICY: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x94d3a615_a899_4ac5_ae2b_e4d8f634367f);
-pub const GUID_TYPICAL_POWER_SAVINGS: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x381b4222_f694_41f0_9685_ff5bb260df2e);
-pub const GUID_UNATTEND_SLEEP_TIMEOUT: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x7bc4a2f9_d8fc_4469_b07b_33eb785aaca0);
-pub const GUID_USERINTERFACEBUTTON_ACTION: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xa7066653_8d6c_40a8_910e_a1f54b84c7e5);
-pub const GUID_USER_PRESENCE_PREDICTION: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x82011705_fb95_4d46_8d35_4042b1d20def);
-pub const GUID_VIDEO_ADAPTIVE_DISPLAY_BRIGHTNESS: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xfbd9aa66_9553_4097_ba44_ed6e9d65eab8);
-pub const GUID_VIDEO_ADAPTIVE_PERCENT_INCREASE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xeed904df_b142_4183_b10b_5a1197a37864);
-pub const GUID_VIDEO_ADAPTIVE_POWERDOWN: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x90959d22_d6a1_49b9_af93_bce885ad335b);
-pub const GUID_VIDEO_ANNOYANCE_TIMEOUT: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x82dbcf2d_cd67_40c5_bfdc_9f1a5ccd4663);
-pub const GUID_VIDEO_CONSOLE_LOCK_TIMEOUT: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x8ec4b3a5_6868_48c2_be75_4f3044be88a7);
-pub const GUID_VIDEO_CURRENT_MONITOR_BRIGHTNESS: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x8ffee2c6_2d01_46be_adb9_398addc5b4ff);
-pub const GUID_VIDEO_DIM_TIMEOUT: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x17aaa29b_8b43_4b94_aafe_35f64daaf1ee);
-pub const GUID_VIDEO_POWERDOWN_TIMEOUT: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x3c0bc021_c8a8_4e07_a973_6b14cbcb2b7e);
-pub const GUID_VIDEO_SUBGROUP: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x7516b95f_f776_4464_8c53_06167f40cc99);
+pub const GUID_ACDC_POWER_SOURCE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5d3e9a59_e9d5_4b00_a6bd_ff34ff516548);
+pub const GUID_ACTIVE_POWERSCHEME: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x31f9f286_5084_42fe_b720_2b0264993763);
+pub const GUID_ADAPTIVE_INPUT_CONTROLLER_STATE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0e98fae9_f45a_4de1_a757_6031f197f6ea);
+pub const GUID_ADAPTIVE_POWER_BEHAVIOR_SUBGROUP: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8619b916_e004_4dd8_9b66_dae86f806698);
+pub const GUID_ADVANCED_COLOR_QUALITY_BIAS: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x684c3e69_a4f7_4014_8754_d45179a56167);
+pub const GUID_ALLOW_AWAYMODE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x25dfa149_5dd1_4736_b5ab_e8a37b5b8187);
+pub const GUID_ALLOW_DISPLAY_REQUIRED: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa9ceb8da_cd46_44fb_a98b_02af69de4623);
+pub const GUID_ALLOW_RTC_WAKE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xbd3b718a_0680_4d9d_8ab2_e1d2b4ac806d);
+pub const GUID_ALLOW_STANDBY_STATES: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xabfc2519_3608_4c2a_94ea_171b0ed546ab);
+pub const GUID_ALLOW_SYSTEM_REQUIRED: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa4b195f5_8225_47d8_8012_9d41369786e2);
+pub const GUID_APPLAUNCH_BUTTON: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1a689231_7399_4e9a_8f99_b71f999db3fa);
+pub const GUID_BACKGROUND_TASK_NOTIFICATION: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xcf23f240_2a54_48d8_b114_de1518ff052e);
+pub const GUID_BATTERY_COUNT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7d263f15_fca4_49e5_854b_a9f2bfbd5c24);
+pub const GUID_BATTERY_DISCHARGE_ACTION_0: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x637ea02f_bbcb_4015_8e2c_a1c7b9c0b546);
+pub const GUID_BATTERY_DISCHARGE_ACTION_1: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd8742dcb_3e6a_4b3c_b3fe_374623cdcf06);
+pub const GUID_BATTERY_DISCHARGE_ACTION_2: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x421cba38_1a8e_4881_ac89_e33a8b04ece4);
+pub const GUID_BATTERY_DISCHARGE_ACTION_3: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x80472613_9780_455e_b308_72d3003cf2f8);
+pub const GUID_BATTERY_DISCHARGE_FLAGS_0: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5dbb7c9f_38e9_40d2_9749_4f8a0e9f640f);
+pub const GUID_BATTERY_DISCHARGE_FLAGS_1: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xbcded951_187b_4d05_bccc_f7e51960c258);
+pub const GUID_BATTERY_DISCHARGE_FLAGS_2: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7fd2f0c4_feb7_4da3_8117_e3fbedc46582);
+pub const GUID_BATTERY_DISCHARGE_FLAGS_3: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x73613ccf_dbfa_4279_8356_4935f6bf62f3);
+pub const GUID_BATTERY_DISCHARGE_LEVEL_0: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9a66d8d7_4ff7_4ef9_b5a2_5a326ca2a469);
+pub const GUID_BATTERY_DISCHARGE_LEVEL_1: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8183ba9a_e910_48da_8769_14ae6dc1170a);
+pub const GUID_BATTERY_DISCHARGE_LEVEL_2: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x07a07ca2_adaf_40d7_b077_533aaded1bfa);
+pub const GUID_BATTERY_DISCHARGE_LEVEL_3: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x58afd5a6_c2dd_47d2_9fbf_ef70cc5c5965);
+pub const GUID_BATTERY_PERCENTAGE_REMAINING: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa7ad8041_b45a_4cae_87a3_eecbb468a9e1);
+pub const GUID_BATTERY_SUBGROUP: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe73a048d_bf27_4f12_9731_8b2076e8891f);
+pub const GUID_CONNECTIVITY_IN_STANDBY: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf15576e8_98b7_4186_b944_eafa664402d9);
+pub const GUID_CONSOLE_DISPLAY_STATE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6fe69556_704a_47a0_8f24_c28d936fda47);
+pub const GUID_CRITICAL_POWER_TRANSITION: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb7a27025_e569_46c2_a504_2b96cad225a1);
+pub const GUID_DEEP_SLEEP_ENABLED: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd502f7ee_1dc7_4efd_a55d_f04b6f5c0545);
+pub const GUID_DEEP_SLEEP_PLATFORM_STATE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd23f2fb8_9536_4038_9c94_1ce02e5c2152);
+pub const GUID_DEVICE_IDLE_POLICY: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4faab71a_92e5_4726_b531_224559672d19);
+pub const GUID_DEVICE_POWER_POLICY_VIDEO_BRIGHTNESS: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xaded5e82_b909_4619_9949_f5d71dac0bcb);
+pub const GUID_DEVICE_POWER_POLICY_VIDEO_DIM_BRIGHTNESS: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf1fbfde2_a960_4165_9f88_50667911ce96);
+pub const GUID_DISCONNECTED_STANDBY_MODE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x68afb2d9_ee95_47a8_8f50_4115088073b1);
+pub const GUID_DISK_ADAPTIVE_POWERDOWN: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x396a32e1_499a_40b2_9124_a96afe707667);
+pub const GUID_DISK_BURST_IGNORE_THRESHOLD: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x80e3c60e_bb94_4ad8_bbe0_0d3195efc663);
+pub const GUID_DISK_COALESCING_POWERDOWN_TIMEOUT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc36f0eb4_2988_4a70_8eee_0884fc2c2433);
+pub const GUID_DISK_IDLE_TIMEOUT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x58e39ba8_b8e6_4ef6_90d0_89ae32b258d6);
+pub const GUID_DISK_MAX_POWER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x51dea550_bb38_4bc4_991b_eacf37be5ec8);
+pub const GUID_DISK_NVME_NOPPME: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xfc7372b6_ab2d_43ee_8797_15e9841f2cca);
+pub const GUID_DISK_POWERDOWN_TIMEOUT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6738e2c4_e8a5_4a42_b16a_e040e769756e);
+pub const GUID_DISK_SUBGROUP: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0012ee47_9041_4b5d_9b77_535fba8b1442);
+pub const GUID_ENABLE_SWITCH_FORCED_SHUTDOWN: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x833a6b62_dfa4_46d1_82f8_e09e34d029d6);
+pub const GUID_ENERGY_SAVER_BATTERY_THRESHOLD: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe69653ca_cf7f_4f05_aa73_cb833fa90ad4);
+pub const GUID_ENERGY_SAVER_BRIGHTNESS: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x13d09884_f74e_474a_a852_b6bde8ad03a8);
+pub const GUID_ENERGY_SAVER_POLICY: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5c5bb349_ad29_4ee2_9d0b_2b25270f7a81);
+pub const GUID_ENERGY_SAVER_SUBGROUP: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xde830923_a562_41af_a086_e3a2c6bad2da);
+pub const GUID_EXECUTION_REQUIRED_REQUEST_TIMEOUT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3166bc41_7e98_4e03_b34e_ec0f5f2b218e);
+pub const GUID_GLOBAL_USER_PRESENCE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x786e8a1d_b427_4344_9207_09e70bdcbea9);
+pub const GUID_GPU_PREFERENCE_POLICY: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdd848b2a_8a5d_4451_9ae2_39cd41658f6c);
+pub const GUID_GRAPHICS_SUBGROUP: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5fb4938d_1ee8_4b0f_9a3c_5036b0ab995c);
+pub const GUID_HIBERNATE_FASTS4_POLICY: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x94ac6d29_73ce_41a6_809f_6363ba21b47e);
+pub const GUID_HIBERNATE_TIMEOUT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9d7815a6_7ee4_497e_8888_515a05f02364);
+pub const GUID_HUPR_ADAPTIVE_AWAY_DIM_TIMEOUT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa79c8e0e_f271_482d_8f8a_5db9a18312de);
+pub const GUID_HUPR_ADAPTIVE_AWAY_DISPLAY_TIMEOUT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0a7d6ab6_ac83_4ad1_8282_eca5b58308f3);
+pub const GUID_HUPR_ADAPTIVE_INATTENTIVE_DIM_TIMEOUT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xcf8c6097_12b8_4279_bbdd_44601ee5209d);
+pub const GUID_HUPR_ADAPTIVE_INATTENTIVE_DISPLAY_TIMEOUT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xee16691e_6ab3_4619_bb48_1c77c9357e5a);
+pub const GUID_IDLE_BACKGROUND_TASK: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x515c31d8_f734_163d_a0fd_11a08c91e8f1);
+pub const GUID_IDLE_RESILIENCY_PERIOD: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc42b79aa_aa3a_484b_a98f_2cf32aa90a28);
+pub const GUID_IDLE_RESILIENCY_SUBGROUP: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x2e601130_5351_4d9d_8e04_252966bad054);
+pub const GUID_INTSTEER_LOAD_PER_PROC_TRIGGER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x73cde64d_d720_4bb2_a860_c755afe77ef2);
+pub const GUID_INTSTEER_MODE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x2bfc24f9_5ea2_4801_8213_3dbae01aa39d);
+pub const GUID_INTSTEER_SUBGROUP: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x48672f38_7a9a_4bb2_8bf8_3d85be19de4e);
+pub const GUID_INTSTEER_TIME_UNPARK_TRIGGER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd6ba4903_386f_4c2c_8adb_5c21b3328d25);
+pub const GUID_LEGACY_RTC_MITIGATION: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1a34bdc3_7e6b_442e_a9d0_64b6ef378e84);
+pub const GUID_LIDCLOSE_ACTION: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5ca83367_6e45_459f_a27b_476b1d01c936);
+pub const GUID_LIDOPEN_POWERSTATE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x99ff10e7_23b1_4c07_a9d1_5c3206d741b4);
+pub const GUID_LIDSWITCH_STATE_CHANGE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xba3e0f4d_b817_4094_a2d1_d56379e6a0f3);
+pub const GUID_LIDSWITCH_STATE_RELIABILITY: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xae4c4ff1_d361_43f4_80aa_bbb6eb03de94);
+pub const GUID_LOCK_CONSOLE_ON_WAKE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0e796bdb_100d_47d6_a2d5_f7d2daa51f51);
+pub const GUID_MAX_POWER_SAVINGS: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa1841308_3541_4fab_bc81_f71556f20b4a);
+pub const GUID_MIN_POWER_SAVINGS: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8c5e7fda_e8bf_4a96_9a85_a6e23a8c635c);
+pub const GUID_MIXED_REALITY_MODE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1e626b4e_cf04_4f8d_9cc7_c97c5b0f2391);
+pub const GUID_MONITOR_POWER_ON: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x02731015_4510_4526_99e6_e5a17ebd1aea);
+pub const GUID_NON_ADAPTIVE_INPUT_TIMEOUT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5adbbfbc_074e_4da1_ba38_db8b36b2c8f3);
+pub const GUID_PCIEXPRESS_ASPM_POLICY: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xee12f906_d277_404b_b6da_e5fa1a576df5);
+pub const GUID_PCIEXPRESS_SETTINGS_SUBGROUP: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x501a4d13_42af_4429_9fd1_a8218c268e20);
+pub const GUID_POWERBUTTON_ACTION: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7648efa3_dd9c_4e3e_b566_50f929386280);
+pub const GUID_POWERSCHEME_PERSONALITY: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x245d8541_3943_4422_b025_13a784f679b7);
+pub const GUID_POWER_SAVING_STATUS: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe00958c0_c213_4ace_ac77_fecced2eeea5);
+pub const GUID_PROCESSOR_ALLOW_THROTTLING: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3b04d4fd_1cc7_4f23_ab1c_d1337819c4bb);
+pub const GUID_PROCESSOR_CLASS0_FLOOR_PERF: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xfddc842b_8364_4edc_94cf_c17f60de1c80);
+pub const GUID_PROCESSOR_CLASS1_INITIAL_PERF: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1facfc65_a930_4bc5_9f38_504ec097bbc0);
+pub const GUID_PROCESSOR_COMPLEX_PARKING_POLICY: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb669a5e9_7b1d_4132_baaa_49190abcfeb6);
+pub const GUID_PROCESSOR_CORE_PARKING_AFFINITY_HISTORY_DECREASE_FACTOR: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8f7b45e3_c393_480a_878c_f67ac3d07082);
+pub const GUID_PROCESSOR_CORE_PARKING_AFFINITY_HISTORY_THRESHOLD: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5b33697b_e89d_4d38_aa46_9e7dfb7cd2f9);
+pub const GUID_PROCESSOR_CORE_PARKING_AFFINITY_WEIGHTING: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe70867f1_fa2f_4f4e_aea1_4d8a0ba23b20);
+pub const GUID_PROCESSOR_CORE_PARKING_DECREASE_POLICY: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x71021b41_c749_4d21_be74_a00f335d582b);
+pub const GUID_PROCESSOR_CORE_PARKING_DECREASE_THRESHOLD: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x68dd2f27_a4ce_4e11_8487_3794e4135dfa);
+pub const GUID_PROCESSOR_CORE_PARKING_DECREASE_TIME: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdfd10d17_d5eb_45dd_877a_9a34ddd15c82);
+pub const GUID_PROCESSOR_CORE_PARKING_INCREASE_POLICY: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc7be0679_2817_4d69_9d02_519a537ed0c6);
+pub const GUID_PROCESSOR_CORE_PARKING_INCREASE_THRESHOLD: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdf142941_20f3_4edf_9a4a_9c83d3d717d1);
+pub const GUID_PROCESSOR_CORE_PARKING_INCREASE_TIME: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x2ddd5a84_5a71_437e_912a_db0b8c788732);
+pub const GUID_PROCESSOR_CORE_PARKING_MAX_CORES: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xea062031_0e34_4ff1_9b6d_eb1059334028);
+pub const GUID_PROCESSOR_CORE_PARKING_MAX_CORES_1: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xea062031_0e34_4ff1_9b6d_eb1059334029);
+pub const GUID_PROCESSOR_CORE_PARKING_MIN_CORES: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0cc5b647_c1df_4637_891a_dec35c318583);
+pub const GUID_PROCESSOR_CORE_PARKING_MIN_CORES_1: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0cc5b647_c1df_4637_891a_dec35c318584);
+pub const GUID_PROCESSOR_CORE_PARKING_OVER_UTILIZATION_HISTORY_DECREASE_FACTOR: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1299023c_bc28_4f0a_81ec_d3295a8d815d);
+pub const GUID_PROCESSOR_CORE_PARKING_OVER_UTILIZATION_HISTORY_THRESHOLD: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9ac18e92_aa3c_4e27_b307_01ae37307129);
+pub const GUID_PROCESSOR_CORE_PARKING_OVER_UTILIZATION_THRESHOLD: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x943c8cb6_6f93_4227_ad87_e9a3feec08d1);
+pub const GUID_PROCESSOR_CORE_PARKING_OVER_UTILIZATION_WEIGHTING: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8809c2d8_b155_42d4_bcda_0d345651b1db);
+pub const GUID_PROCESSOR_DISTRIBUTE_UTILITY: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe0007330_f589_42ed_a401_5ddb10e785d3);
+pub const GUID_PROCESSOR_DUTY_CYCLING: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4e4450b3_6179_4e91_b8f1_5bb9938f81a1);
+pub const GUID_PROCESSOR_FREQUENCY_LIMIT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x75b0ae3f_bce0_45a7_8c89_c9611c25e100);
+pub const GUID_PROCESSOR_FREQUENCY_LIMIT_1: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x75b0ae3f_bce0_45a7_8c89_c9611c25e101);
+pub const GUID_PROCESSOR_HETEROGENEOUS_POLICY: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7f2f5cfa_f10c_4823_b5e1_e93ae85f46b5);
+pub const GUID_PROCESSOR_HETERO_DECREASE_THRESHOLD: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf8861c27_95e7_475c_865b_13c0cb3f9d6b);
+pub const GUID_PROCESSOR_HETERO_DECREASE_THRESHOLD_1: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf8861c27_95e7_475c_865b_13c0cb3f9d6c);
+pub const GUID_PROCESSOR_HETERO_DECREASE_TIME: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7f2492b6_60b1_45e5_ae55_773f8cd5caec);
+pub const GUID_PROCESSOR_HETERO_INCREASE_THRESHOLD: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb000397d_9b0b_483d_98c9_692a6060cfbf);
+pub const GUID_PROCESSOR_HETERO_INCREASE_THRESHOLD_1: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb000397d_9b0b_483d_98c9_692a6060cfc0);
+pub const GUID_PROCESSOR_HETERO_INCREASE_TIME: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4009efa7_e72d_4cba_9edf_91084ea8cbc3);
+pub const GUID_PROCESSOR_IDLESTATE_POLICY: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x68f262a7_f621_4069_b9a5_4874169be23c);
+pub const GUID_PROCESSOR_IDLE_ALLOW_SCALING: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6c2993b0_8f48_481f_bcc6_00dd2742aa06);
+pub const GUID_PROCESSOR_IDLE_DEMOTE_THRESHOLD: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4b92d758_5a24_4851_a470_815d78aee119);
+pub const GUID_PROCESSOR_IDLE_DISABLE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5d76a2ca_e8c0_402f_a133_2158492d58ad);
+pub const GUID_PROCESSOR_IDLE_PROMOTE_THRESHOLD: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7b224883_b3cc_4d79_819f_8374152cbe7c);
+pub const GUID_PROCESSOR_IDLE_STATE_MAXIMUM: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9943e905_9a30_4ec1_9b99_44dd3b76f7a2);
+pub const GUID_PROCESSOR_IDLE_TIME_CHECK: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc4581c31_89ab_4597_8e2b_9c9cab440e6b);
+pub const GUID_PROCESSOR_LATENCY_HINT_MIN_UNPARK: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x616cdaa5_695e_4545_97ad_97dc2d1bdd88);
+pub const GUID_PROCESSOR_LATENCY_HINT_MIN_UNPARK_1: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x616cdaa5_695e_4545_97ad_97dc2d1bdd89);
+pub const GUID_PROCESSOR_LONG_THREAD_ARCH_CLASS_LOWER_THRESHOLD: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x43f278bc_0f8a_46d0_8b31_9a23e615d713);
+pub const GUID_PROCESSOR_LONG_THREAD_ARCH_CLASS_UPPER_THRESHOLD: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xbf903d33_9d24_49d3_a468_e65e0325046a);
+pub const GUID_PROCESSOR_MODULE_PARKING_POLICY: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb0deaf6b_59c0_4523_8a45_ca7f40244114);
+pub const GUID_PROCESSOR_PARKING_CONCURRENCY_THRESHOLD: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x2430ab6f_a520_44a2_9601_f7f23b5134b1);
+pub const GUID_PROCESSOR_PARKING_CORE_OVERRIDE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa55612aa_f624_42c6_a443_7397d064c04f);
+pub const GUID_PROCESSOR_PARKING_DISTRIBUTION_THRESHOLD: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4bdaf4e9_d103_46d7_a5f0_6280121616ef);
+pub const GUID_PROCESSOR_PARKING_HEADROOM_THRESHOLD: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf735a673_2066_4f80_a0c5_ddee0cf1bf5d);
+pub const GUID_PROCESSOR_PARKING_PERF_STATE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x447235c7_6a8d_4cc0_8e24_9eaf70b96e2b);
+pub const GUID_PROCESSOR_PARKING_PERF_STATE_1: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x447235c7_6a8d_4cc0_8e24_9eaf70b96e2c);
+pub const GUID_PROCESSOR_PERFSTATE_POLICY: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xbbdc3814_18e9_4463_8a55_d197327c45c0);
+pub const GUID_PROCESSOR_PERF_AUTONOMOUS_ACTIVITY_WINDOW: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xcfeda3d0_7697_4566_a922_a9086cd49dfa);
+pub const GUID_PROCESSOR_PERF_AUTONOMOUS_MODE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8baa4a8a_14c6_4451_8e8b_14bdbd197537);
+pub const GUID_PROCESSOR_PERF_BOOST_MODE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xbe337238_0d82_4146_a960_4f3749d470c7);
+pub const GUID_PROCESSOR_PERF_BOOST_POLICY: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x45bcc044_d885_43e2_8605_ee0ec6e96b59);
+pub const GUID_PROCESSOR_PERF_CORE_PARKING_HISTORY: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x77d7f282_8f1a_42cd_8537_45450a839be8);
+pub const GUID_PROCESSOR_PERF_DECREASE_HISTORY: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0300f6f8_abd6_45a9_b74f_4908691a40b5);
+pub const GUID_PROCESSOR_PERF_DECREASE_POLICY: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x40fbefc7_2e9d_4d25_a185_0cfd8574bac6);
+pub const GUID_PROCESSOR_PERF_DECREASE_POLICY_1: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x40fbefc7_2e9d_4d25_a185_0cfd8574bac7);
+pub const GUID_PROCESSOR_PERF_DECREASE_THRESHOLD: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x12a0ab44_fe28_4fa9_b3bd_4b64f44960a6);
+pub const GUID_PROCESSOR_PERF_DECREASE_THRESHOLD_1: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x12a0ab44_fe28_4fa9_b3bd_4b64f44960a7);
+pub const GUID_PROCESSOR_PERF_DECREASE_TIME: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd8edeb9b_95cf_4f95_a73c_b061973693c8);
+pub const GUID_PROCESSOR_PERF_DECREASE_TIME_1: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd8edeb9b_95cf_4f95_a73c_b061973693c9);
+pub const GUID_PROCESSOR_PERF_ENERGY_PERFORMANCE_PREFERENCE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x36687f9e_e3a5_4dbf_b1dc_15eb381c6863);
+pub const GUID_PROCESSOR_PERF_ENERGY_PERFORMANCE_PREFERENCE_1: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x36687f9e_e3a5_4dbf_b1dc_15eb381c6864);
+pub const GUID_PROCESSOR_PERF_HISTORY: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7d24baa7_0b84_480f_840c_1b0743c00f5f);
+pub const GUID_PROCESSOR_PERF_HISTORY_1: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7d24baa7_0b84_480f_840c_1b0743c00f60);
+pub const GUID_PROCESSOR_PERF_INCREASE_HISTORY: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x99b3ef01_752f_46a1_80fb_7730011f2354);
+pub const GUID_PROCESSOR_PERF_INCREASE_POLICY: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x465e1f50_b610_473a_ab58_00d1077dc418);
+pub const GUID_PROCESSOR_PERF_INCREASE_POLICY_1: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x465e1f50_b610_473a_ab58_00d1077dc419);
+pub const GUID_PROCESSOR_PERF_INCREASE_THRESHOLD: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x06cadf0e_64ed_448a_8927_ce7bf90eb35d);
+pub const GUID_PROCESSOR_PERF_INCREASE_THRESHOLD_1: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x06cadf0e_64ed_448a_8927_ce7bf90eb35e);
+pub const GUID_PROCESSOR_PERF_INCREASE_TIME: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x984cf492_3bed_4488_a8f9_4286c97bf5aa);
+pub const GUID_PROCESSOR_PERF_INCREASE_TIME_1: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x984cf492_3bed_4488_a8f9_4286c97bf5ab);
+pub const GUID_PROCESSOR_PERF_LATENCY_HINT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0822df31_9c83_441c_a079_0de4cf009c7b);
+pub const GUID_PROCESSOR_PERF_LATENCY_HINT_PERF: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x619b7505_003b_4e82_b7a6_4dd29c300971);
+pub const GUID_PROCESSOR_PERF_LATENCY_HINT_PERF_1: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x619b7505_003b_4e82_b7a6_4dd29c300972);
+pub const GUID_PROCESSOR_PERF_TIME_CHECK: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4d2b0152_7d5c_498b_88e2_34345392a2c5);
+pub const GUID_PROCESSOR_RESPONSIVENESS_DISABLE_THRESHOLD: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x38b8383d_cce0_4c79_9e3e_56a4f17cc480);
+pub const GUID_PROCESSOR_RESPONSIVENESS_DISABLE_THRESHOLD_1: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x38b8383d_cce0_4c79_9e3e_56a4f17cc481);
+pub const GUID_PROCESSOR_RESPONSIVENESS_DISABLE_TIME: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf565999f_3fb0_411a_a226_3f0198dec130);
+pub const GUID_PROCESSOR_RESPONSIVENESS_DISABLE_TIME_1: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf565999f_3fb0_411a_a226_3f0198dec131);
+pub const GUID_PROCESSOR_RESPONSIVENESS_ENABLE_THRESHOLD: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3d44e256_7222_4415_a9ed_9c45fa3dd830);
+pub const GUID_PROCESSOR_RESPONSIVENESS_ENABLE_THRESHOLD_1: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3d44e256_7222_4415_a9ed_9c45fa3dd831);
+pub const GUID_PROCESSOR_RESPONSIVENESS_ENABLE_TIME: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3d915188_7830_49ae_a79a_0fb0a1e5a200);
+pub const GUID_PROCESSOR_RESPONSIVENESS_ENABLE_TIME_1: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3d915188_7830_49ae_a79a_0fb0a1e5a201);
+pub const GUID_PROCESSOR_RESPONSIVENESS_EPP_CEILING: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4427c73b_9756_4a5c_b84b_c7bda79c7320);
+pub const GUID_PROCESSOR_RESPONSIVENESS_EPP_CEILING_1: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4427c73b_9756_4a5c_b84b_c7bda79c7321);
+pub const GUID_PROCESSOR_RESPONSIVENESS_PERF_FLOOR: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xce8e92ee_6a86_4572_bfe0_20c21d03cd40);
+pub const GUID_PROCESSOR_RESPONSIVENESS_PERF_FLOOR_1: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xce8e92ee_6a86_4572_bfe0_20c21d03cd41);
+pub const GUID_PROCESSOR_SETTINGS_SUBGROUP: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x54533251_82be_4824_96c1_47b60b740d00);
+pub const GUID_PROCESSOR_SHORT_THREAD_ARCH_CLASS_LOWER_THRESHOLD: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x53824d46_87bd_4739_aa1b_aa793fac36d6);
+pub const GUID_PROCESSOR_SHORT_THREAD_ARCH_CLASS_UPPER_THRESHOLD: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x828423eb_8662_4344_90f7_52bf15870f5a);
+pub const GUID_PROCESSOR_SHORT_THREAD_RUNTIME_THRESHOLD: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd92998c2_6a48_49ca_85d4_8cceec294570);
+pub const GUID_PROCESSOR_SHORT_THREAD_SCHEDULING_POLICY: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xbae08b81_2d5e_4688_ad6a_13243356654b);
+pub const GUID_PROCESSOR_SMT_UNPARKING_POLICY: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb28a6829_c5f7_444e_8f61_10e24e85c532);
+pub const GUID_PROCESSOR_SOFT_PARKING_LATENCY: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x97cfac41_2217_47eb_992d_618b1977c907);
+pub const GUID_PROCESSOR_THREAD_SCHEDULING_POLICY: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x93b8b6dc_0698_4d1c_9ee4_0644e900c85d);
+pub const GUID_PROCESSOR_THROTTLE_MAXIMUM: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xbc5038f7_23e0_4960_96da_33abaf5935ec);
+pub const GUID_PROCESSOR_THROTTLE_MAXIMUM_1: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xbc5038f7_23e0_4960_96da_33abaf5935ed);
+pub const GUID_PROCESSOR_THROTTLE_MINIMUM: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x893dee8e_2bef_41e0_89c6_b55d0929964c);
+pub const GUID_PROCESSOR_THROTTLE_MINIMUM_1: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x893dee8e_2bef_41e0_89c6_b55d0929964d);
+pub const GUID_PROCESSOR_THROTTLE_POLICY: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x57027304_4af6_4104_9260_e3d95248fc36);
+pub const GUID_SESSION_DISPLAY_STATUS: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x2b84c20e_ad23_4ddf_93db_05ffbd7efca5);
+pub const GUID_SESSION_USER_PRESENCE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3c0f4548_c03f_4c4d_b9f2_237ede686376);
+pub const GUID_SLEEPBUTTON_ACTION: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x96996bc0_ad50_47ec_923b_6f41874dd9eb);
+pub const GUID_SLEEP_IDLE_THRESHOLD: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x81cd32e0_7833_44f3_8737_7081f38d1f70);
+pub const GUID_SLEEP_SUBGROUP: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x238c9fa8_0aad_41ed_83f4_97be242c8f20);
+pub const GUID_SPR_ACTIVE_SESSION_CHANGE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0e24ce38_c393_4742_bdb1_744f4b9ee08e);
+pub const GUID_STANDBY_BUDGET_GRACE_PERIOD: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x60c07fe1_0556_45cf_9903_d56e32210242);
+pub const GUID_STANDBY_BUDGET_PERCENT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9fe527be_1b70_48da_930d_7bcf17b44990);
+pub const GUID_STANDBY_RESERVE_GRACE_PERIOD: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc763ee92_71e8_4127_84eb_f6ed043a3e3d);
+pub const GUID_STANDBY_RESERVE_TIME: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x468fe7e5_1158_46ec_88bc_5b96c9e44fd0);
+pub const GUID_STANDBY_RESET_PERCENT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x49cb11a5_56e2_4afb_9d38_3df47872e21b);
+pub const GUID_STANDBY_TIMEOUT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x29f6c1db_86da_48c5_9fdb_f2b67b1f44da);
+pub const GUID_SYSTEM_AWAYMODE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x98a7f580_01f7_48aa_9c0f_44352c29e5c0);
+pub const GUID_SYSTEM_BUTTON_SUBGROUP: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4f971e89_eebd_4455_a8de_9e59040e7347);
+pub const GUID_SYSTEM_COOLING_POLICY: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x94d3a615_a899_4ac5_ae2b_e4d8f634367f);
+pub const GUID_TYPICAL_POWER_SAVINGS: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x381b4222_f694_41f0_9685_ff5bb260df2e);
+pub const GUID_UNATTEND_SLEEP_TIMEOUT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7bc4a2f9_d8fc_4469_b07b_33eb785aaca0);
+pub const GUID_USERINTERFACEBUTTON_ACTION: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa7066653_8d6c_40a8_910e_a1f54b84c7e5);
+pub const GUID_USER_PRESENCE_PREDICTION: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x82011705_fb95_4d46_8d35_4042b1d20def);
+pub const GUID_VIDEO_ADAPTIVE_DISPLAY_BRIGHTNESS: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xfbd9aa66_9553_4097_ba44_ed6e9d65eab8);
+pub const GUID_VIDEO_ADAPTIVE_PERCENT_INCREASE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xeed904df_b142_4183_b10b_5a1197a37864);
+pub const GUID_VIDEO_ADAPTIVE_POWERDOWN: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x90959d22_d6a1_49b9_af93_bce885ad335b);
+pub const GUID_VIDEO_ANNOYANCE_TIMEOUT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x82dbcf2d_cd67_40c5_bfdc_9f1a5ccd4663);
+pub const GUID_VIDEO_CONSOLE_LOCK_TIMEOUT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8ec4b3a5_6868_48c2_be75_4f3044be88a7);
+pub const GUID_VIDEO_CURRENT_MONITOR_BRIGHTNESS: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8ffee2c6_2d01_46be_adb9_398addc5b4ff);
+pub const GUID_VIDEO_DIM_TIMEOUT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x17aaa29b_8b43_4b94_aafe_35f64daaf1ee);
+pub const GUID_VIDEO_POWERDOWN_TIMEOUT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3c0bc021_c8a8_4e07_a973_6b14cbcb2b7e);
+pub const GUID_VIDEO_SUBGROUP: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7516b95f_f776_4464_8c53_06167f40cc99);
 pub const HEAP_OPTIMIZE_RESOURCES_CURRENT_VERSION: u32 = 1u32;
 pub const HIBERFILE_TYPE_FULL: u32 = 2u32;
 pub const HIBERFILE_TYPE_MAX: u32 = 3u32;
@@ -750,12 +750,12 @@ pub const IGP_SELECT: IGP_ID = 24u32;
 pub const IGP_SENTENCE: IGP_ID = 12u32;
 pub const IGP_SETCOMPSTR: IGP_ID = 20u32;
 pub const IGP_UI: IGP_ID = 16u32;
-pub const IMAGE_ARCHIVE_END: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("`\n");
-pub const IMAGE_ARCHIVE_HYBRIDMAP_MEMBER: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("/<HYBRIDMAP>/   ");
-pub const IMAGE_ARCHIVE_LINKER_MEMBER: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("/               ");
-pub const IMAGE_ARCHIVE_LONGNAMES_MEMBER: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("//              ");
-pub const IMAGE_ARCHIVE_PAD: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("\n");
-pub const IMAGE_ARCHIVE_START: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("!<arch>\n");
+pub const IMAGE_ARCHIVE_END: windows_sys::core::PCSTR = windows_sys::core::s!("`\n");
+pub const IMAGE_ARCHIVE_HYBRIDMAP_MEMBER: windows_sys::core::PCSTR = windows_sys::core::s!("/<HYBRIDMAP>/   ");
+pub const IMAGE_ARCHIVE_LINKER_MEMBER: windows_sys::core::PCSTR = windows_sys::core::s!("/               ");
+pub const IMAGE_ARCHIVE_LONGNAMES_MEMBER: windows_sys::core::PCSTR = windows_sys::core::s!("//              ");
+pub const IMAGE_ARCHIVE_PAD: windows_sys::core::PCSTR = windows_sys::core::s!("\n");
+pub const IMAGE_ARCHIVE_START: windows_sys::core::PCSTR = windows_sys::core::s!("!<arch>\n");
 pub const IMAGE_ARCHIVE_START_SIZE: u32 = 8u32;
 pub const IMAGE_AUX_SYMBOL_TYPE_TOKEN_DEF: IMAGE_AUX_SYMBOL_TYPE = 1i32;
 pub const IMAGE_COMDAT_SELECT_ANY: u32 = 2u32;
@@ -849,7 +849,7 @@ pub const IMAGE_ORDINAL_FLAG64: u64 = 9223372036854775808u64;
 pub const IMAGE_OS2_SIGNATURE: u16 = 17742u16;
 pub const IMAGE_OS2_SIGNATURE_LE: u16 = 17740u16;
 pub const IMAGE_POLICY_METADATA_VERSION: u32 = 1u32;
-pub const IMAGE_POLICY_SECTION_NAME: ::windows_sys::core::PCSTR = ::windows_sys::core::s!(".tPolicy");
+pub const IMAGE_POLICY_SECTION_NAME: windows_sys::core::PCSTR = windows_sys::core::s!(".tPolicy");
 pub const IMAGE_REL_ALPHA_ABSOLUTE: u32 = 0u32;
 pub const IMAGE_REL_ALPHA_BRADDR: u32 = 7u32;
 pub const IMAGE_REL_ALPHA_GPDISP: u32 = 6u32;
@@ -1516,7 +1516,7 @@ pub const NLS_VALID_LOCALE_MASK: u32 = 1048575u32;
 pub const NONVOL_FP_NUMREG_ARM64: u32 = 8u32;
 pub const NONVOL_INT_NUMREG_ARM64: u32 = 11u32;
 pub const NON_PAGED_DEBUG_SIGNATURE: u32 = 18766u32;
-pub const NO_SUBGROUP_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xfea3413e_7e05_4911_9a71_700331f1c294);
+pub const NO_SUBGROUP_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xfea3413e_7e05_4911_9a71_700331f1c294);
 pub const NUMA_NO_PREFERRED_NODE: u32 = 4294967295u32;
 pub const NUM_DISCHARGE_POLICIES: u32 = 4u32;
 pub const N_BTMASK: u32 = 15u32;
@@ -1526,7 +1526,7 @@ pub const N_TMASK1: u32 = 192u32;
 pub const N_TMASK2: u32 = 240u32;
 pub const N_TSHIFT: u32 = 2u32;
 pub const NormalError: SERVICE_ERROR_TYPE = 1i32;
-pub const OUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK_EXPORT_NAME: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("OutOfProcessFunctionTableCallback");
+pub const OUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK_EXPORT_NAME: windows_sys::core::PCSTR = windows_sys::core::s!("OutOfProcessFunctionTableCallback");
 pub const PARKING_TOPOLOGY_POLICY_DISABLED: u32 = 0u32;
 pub const PARKING_TOPOLOGY_POLICY_ROUNDROBIN: u32 = 1u32;
 pub const PARKING_TOPOLOGY_POLICY_SEQUENTIAL: u32 = 2u32;
@@ -1942,13 +1942,13 @@ pub const SESSION_MODIFY_ACCESS: u32 = 2u32;
 pub const SESSION_QUERY_ACCESS: u32 = 1u32;
 pub const SE_ACCESS_CHECK_FLAG_NO_LEARNING_MODE_LOGGING: u32 = 8u32;
 pub const SE_ACCESS_CHECK_VALID_FLAGS: u32 = 8u32;
-pub const SE_ACTIVATE_AS_USER_CAPABILITY: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("activateAsUser");
-pub const SE_APP_SILO_PRINT_CAPABILITY: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("isolatedWin32-print");
-pub const SE_APP_SILO_PROFILES_ROOT_MINIMAL_CAPABILITY: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("isolatedWin32-profilesRootMinimal");
-pub const SE_APP_SILO_USER_PROFILE_MINIMAL_CAPABILITY: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("isolatedWin32-userProfileMinimal");
-pub const SE_APP_SILO_VOLUME_ROOT_MINIMAL_CAPABILITY: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("isolatedWin32-volumeRootMinimal");
-pub const SE_CONSTRAINED_IMPERSONATION_CAPABILITY: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("constrainedImpersonation");
-pub const SE_DEVELOPMENT_MODE_NETWORK_CAPABILITY: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("developmentModeNetwork");
+pub const SE_ACTIVATE_AS_USER_CAPABILITY: windows_sys::core::PCWSTR = windows_sys::core::w!("activateAsUser");
+pub const SE_APP_SILO_PRINT_CAPABILITY: windows_sys::core::PCWSTR = windows_sys::core::w!("isolatedWin32-print");
+pub const SE_APP_SILO_PROFILES_ROOT_MINIMAL_CAPABILITY: windows_sys::core::PCWSTR = windows_sys::core::w!("isolatedWin32-profilesRootMinimal");
+pub const SE_APP_SILO_USER_PROFILE_MINIMAL_CAPABILITY: windows_sys::core::PCWSTR = windows_sys::core::w!("isolatedWin32-userProfileMinimal");
+pub const SE_APP_SILO_VOLUME_ROOT_MINIMAL_CAPABILITY: windows_sys::core::PCWSTR = windows_sys::core::w!("isolatedWin32-volumeRootMinimal");
+pub const SE_CONSTRAINED_IMPERSONATION_CAPABILITY: windows_sys::core::PCWSTR = windows_sys::core::w!("constrainedImpersonation");
+pub const SE_DEVELOPMENT_MODE_NETWORK_CAPABILITY: windows_sys::core::PCWSTR = windows_sys::core::w!("developmentModeNetwork");
 pub const SE_GROUP_ENABLED: i32 = 4i32;
 pub const SE_GROUP_ENABLED_BY_DEFAULT: i32 = 2i32;
 pub const SE_GROUP_INTEGRITY: i32 = 32i32;
@@ -1958,14 +1958,14 @@ pub const SE_GROUP_MANDATORY: i32 = 1i32;
 pub const SE_GROUP_OWNER: i32 = 8i32;
 pub const SE_GROUP_RESOURCE: i32 = 536870912i32;
 pub const SE_GROUP_USE_FOR_DENY_ONLY: i32 = 16i32;
-pub const SE_LEARNING_MODE_LOGGING_CAPABILITY: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("learningModeLogging");
-pub const SE_MUMA_CAPABILITY: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("muma");
-pub const SE_PERMISSIVE_LEARNING_MODE_CAPABILITY: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("permissiveLearningMode");
+pub const SE_LEARNING_MODE_LOGGING_CAPABILITY: windows_sys::core::PCWSTR = windows_sys::core::w!("learningModeLogging");
+pub const SE_MUMA_CAPABILITY: windows_sys::core::PCWSTR = windows_sys::core::w!("muma");
+pub const SE_PERMISSIVE_LEARNING_MODE_CAPABILITY: windows_sys::core::PCWSTR = windows_sys::core::w!("permissiveLearningMode");
 pub const SE_SECURITY_DESCRIPTOR_FLAG_NO_ACCESS_FILTER_ACE: u32 = 4u32;
 pub const SE_SECURITY_DESCRIPTOR_FLAG_NO_LABEL_ACE: u32 = 2u32;
 pub const SE_SECURITY_DESCRIPTOR_FLAG_NO_OWNER_ACE: u32 = 1u32;
 pub const SE_SECURITY_DESCRIPTOR_VALID_FLAGS: u32 = 7u32;
-pub const SE_SESSION_IMPERSONATION_CAPABILITY: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("sessionImpersonation");
+pub const SE_SESSION_IMPERSONATION_CAPABILITY: windows_sys::core::PCWSTR = windows_sys::core::w!("sessionImpersonation");
 pub const SE_SIGNING_LEVEL_ANTIMALWARE: u32 = 7u32;
 pub const SE_SIGNING_LEVEL_AUTHENTICODE: u32 = 4u32;
 pub const SE_SIGNING_LEVEL_CUSTOM_1: u32 = 3u32;
@@ -2027,7 +2027,7 @@ pub const SID_RECOMMENDED_SUB_AUTHORITIES: u32 = 1u32;
 pub const SID_REVISION: u32 = 1u32;
 pub const SIZEOF_RFPO_DATA: u32 = 16u32;
 pub const SIZE_OF_80387_REGISTERS: u32 = 80u32;
-pub const SMB_CCF_APP_INSTANCE_EA_NAME: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("ClusteredApplicationInstance");
+pub const SMB_CCF_APP_INSTANCE_EA_NAME: windows_sys::core::PCSTR = windows_sys::core::s!("ClusteredApplicationInstance");
 pub const SMT_UNPARKING_POLICY_CORE: u32 = 0u32;
 pub const SMT_UNPARKING_POLICY_CORE_PER_THREAD: u32 = 1u32;
 pub const SMT_UNPARKING_POLICY_LP_ROUNDROBIN: u32 = 2u32;
@@ -2487,9 +2487,9 @@ pub const TransactionStateNormal: TRANSACTION_STATE = 1i32;
 pub const TransactionSuperiorEnlistmentInformation: TRANSACTION_INFORMATION_CLASS = 3i32;
 pub const UCSCHAR_INVALID_CHARACTER: u32 = 4294967295u32;
 pub const UNICODE_STRING_MAX_CHARS: u32 = 32767u32;
-pub const UNIFIEDBUILDREVISION_KEY: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("\\Registry\\Machine\\Software\\Microsoft\\Windows NT\\CurrentVersion");
+pub const UNIFIEDBUILDREVISION_KEY: windows_sys::core::PCWSTR = windows_sys::core::w!("\\Registry\\Machine\\Software\\Microsoft\\Windows NT\\CurrentVersion");
 pub const UNIFIEDBUILDREVISION_MIN: u32 = 0u32;
-pub const UNIFIEDBUILDREVISION_VALUE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("UBR");
+pub const UNIFIEDBUILDREVISION_VALUE: windows_sys::core::PCWSTR = windows_sys::core::w!("UBR");
 pub const UNWIND_CHAIN_LIMIT: u32 = 32u32;
 pub const UNWIND_HISTORY_TABLE_SIZE: u32 = 12u32;
 pub const UNW_FLAG_NO_EPILOGUE: u32 = 2147483648u32;
@@ -2662,11 +2662,11 @@ pub struct ANON_OBJECT_HEADER {
     pub Version: u16,
     pub Machine: u16,
     pub TimeDateStamp: u32,
-    pub ClassID: ::windows_sys::core::GUID,
+    pub ClassID: windows_sys::core::GUID,
     pub SizeOfData: u32,
 }
-impl ::core::marker::Copy for ANON_OBJECT_HEADER {}
-impl ::core::clone::Clone for ANON_OBJECT_HEADER {
+impl Copy for ANON_OBJECT_HEADER {}
+impl Clone for ANON_OBJECT_HEADER {
     fn clone(&self) -> Self {
         *self
     }
@@ -2678,7 +2678,7 @@ pub struct ANON_OBJECT_HEADER_BIGOBJ {
     pub Version: u16,
     pub Machine: u16,
     pub TimeDateStamp: u32,
-    pub ClassID: ::windows_sys::core::GUID,
+    pub ClassID: windows_sys::core::GUID,
     pub SizeOfData: u32,
     pub Flags: u32,
     pub MetaDataSize: u32,
@@ -2687,8 +2687,8 @@ pub struct ANON_OBJECT_HEADER_BIGOBJ {
     pub PointerToSymbolTable: u32,
     pub NumberOfSymbols: u32,
 }
-impl ::core::marker::Copy for ANON_OBJECT_HEADER_BIGOBJ {}
-impl ::core::clone::Clone for ANON_OBJECT_HEADER_BIGOBJ {
+impl Copy for ANON_OBJECT_HEADER_BIGOBJ {}
+impl Clone for ANON_OBJECT_HEADER_BIGOBJ {
     fn clone(&self) -> Self {
         *self
     }
@@ -2700,14 +2700,14 @@ pub struct ANON_OBJECT_HEADER_V2 {
     pub Version: u16,
     pub Machine: u16,
     pub TimeDateStamp: u32,
-    pub ClassID: ::windows_sys::core::GUID,
+    pub ClassID: windows_sys::core::GUID,
     pub SizeOfData: u32,
     pub Flags: u32,
     pub MetaDataSize: u32,
     pub MetaDataOffset: u32,
 }
-impl ::core::marker::Copy for ANON_OBJECT_HEADER_V2 {}
-impl ::core::clone::Clone for ANON_OBJECT_HEADER_V2 {
+impl Copy for ANON_OBJECT_HEADER_V2 {}
+impl Clone for ANON_OBJECT_HEADER_V2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -2718,8 +2718,8 @@ pub struct APPLICATIONLAUNCH_SETTING_VALUE {
     pub Flags: u32,
     pub ButtonInstanceID: u32,
 }
-impl ::core::marker::Copy for APPLICATIONLAUNCH_SETTING_VALUE {}
-impl ::core::clone::Clone for APPLICATIONLAUNCH_SETTING_VALUE {
+impl Copy for APPLICATIONLAUNCH_SETTING_VALUE {}
+impl Clone for APPLICATIONLAUNCH_SETTING_VALUE {
     fn clone(&self) -> Self {
         *self
     }
@@ -2728,8 +2728,8 @@ impl ::core::clone::Clone for APPLICATIONLAUNCH_SETTING_VALUE {
 pub struct COMPONENT_FILTER {
     pub ComponentFlags: u32,
 }
-impl ::core::marker::Copy for COMPONENT_FILTER {}
-impl ::core::clone::Clone for COMPONENT_FILTER {
+impl Copy for COMPONENT_FILTER {}
+impl Clone for COMPONENT_FILTER {
     fn clone(&self) -> Self {
         *self
     }
@@ -2739,8 +2739,8 @@ pub union DISPATCHER_CONTEXT_NONVOLREG_ARM64 {
     pub Buffer: [u8; 152],
     pub Anonymous: DISPATCHER_CONTEXT_NONVOLREG_ARM64_0,
 }
-impl ::core::marker::Copy for DISPATCHER_CONTEXT_NONVOLREG_ARM64 {}
-impl ::core::clone::Clone for DISPATCHER_CONTEXT_NONVOLREG_ARM64 {
+impl Copy for DISPATCHER_CONTEXT_NONVOLREG_ARM64 {}
+impl Clone for DISPATCHER_CONTEXT_NONVOLREG_ARM64 {
     fn clone(&self) -> Self {
         *self
     }
@@ -2750,32 +2750,32 @@ pub struct DISPATCHER_CONTEXT_NONVOLREG_ARM64_0 {
     pub GpNvRegs: [u64; 11],
     pub FpNvRegs: [f64; 8],
 }
-impl ::core::marker::Copy for DISPATCHER_CONTEXT_NONVOLREG_ARM64_0 {}
-impl ::core::clone::Clone for DISPATCHER_CONTEXT_NONVOLREG_ARM64_0 {
+impl Copy for DISPATCHER_CONTEXT_NONVOLREG_ARM64_0 {}
+impl Clone for DISPATCHER_CONTEXT_NONVOLREG_ARM64_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct ENLISTMENT_BASIC_INFORMATION {
-    pub EnlistmentId: ::windows_sys::core::GUID,
-    pub TransactionId: ::windows_sys::core::GUID,
-    pub ResourceManagerId: ::windows_sys::core::GUID,
+    pub EnlistmentId: windows_sys::core::GUID,
+    pub TransactionId: windows_sys::core::GUID,
+    pub ResourceManagerId: windows_sys::core::GUID,
 }
-impl ::core::marker::Copy for ENLISTMENT_BASIC_INFORMATION {}
-impl ::core::clone::Clone for ENLISTMENT_BASIC_INFORMATION {
+impl Copy for ENLISTMENT_BASIC_INFORMATION {}
+impl Clone for ENLISTMENT_BASIC_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct ENLISTMENT_CRM_INFORMATION {
-    pub CrmTransactionManagerId: ::windows_sys::core::GUID,
-    pub CrmResourceManagerId: ::windows_sys::core::GUID,
-    pub CrmEnlistmentId: ::windows_sys::core::GUID,
+    pub CrmTransactionManagerId: windows_sys::core::GUID,
+    pub CrmResourceManagerId: windows_sys::core::GUID,
+    pub CrmEnlistmentId: windows_sys::core::GUID,
 }
-impl ::core::marker::Copy for ENLISTMENT_CRM_INFORMATION {}
-impl ::core::clone::Clone for ENLISTMENT_CRM_INFORMATION {
+impl Copy for ENLISTMENT_CRM_INFORMATION {}
+impl Clone for ENLISTMENT_CRM_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -2799,8 +2799,8 @@ pub struct FILE_NOTIFY_FULL_INFORMATION {
     pub Reserved: u8,
     pub FileName: [u16; 1],
 }
-impl ::core::marker::Copy for FILE_NOTIFY_FULL_INFORMATION {}
-impl ::core::clone::Clone for FILE_NOTIFY_FULL_INFORMATION {
+impl Copy for FILE_NOTIFY_FULL_INFORMATION {}
+impl Clone for FILE_NOTIFY_FULL_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -2810,8 +2810,8 @@ pub union FILE_NOTIFY_FULL_INFORMATION_0 {
     pub ReparsePointTag: u32,
     pub EaSize: u32,
 }
-impl ::core::marker::Copy for FILE_NOTIFY_FULL_INFORMATION_0 {}
-impl ::core::clone::Clone for FILE_NOTIFY_FULL_INFORMATION_0 {
+impl Copy for FILE_NOTIFY_FULL_INFORMATION_0 {}
+impl Clone for FILE_NOTIFY_FULL_INFORMATION_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -2823,9 +2823,9 @@ pub struct GDI_NONREMOTE {
     pub u: GDI_NONREMOTE_0,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::marker::Copy for GDI_NONREMOTE {}
+impl Copy for GDI_NONREMOTE {}
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for GDI_NONREMOTE {
+impl Clone for GDI_NONREMOTE {
     fn clone(&self) -> Self {
         *self
     }
@@ -2837,9 +2837,9 @@ pub union GDI_NONREMOTE_0 {
     pub hRemote: *mut super::Com::DWORD_BLOB,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::marker::Copy for GDI_NONREMOTE_0 {}
+impl Copy for GDI_NONREMOTE_0 {}
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for GDI_NONREMOTE_0 {
+impl Clone for GDI_NONREMOTE_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -2849,8 +2849,8 @@ pub struct HEAP_OPTIMIZE_RESOURCES_INFORMATION {
     pub Version: u32,
     pub Flags: u32,
 }
-impl ::core::marker::Copy for HEAP_OPTIMIZE_RESOURCES_INFORMATION {}
-impl ::core::clone::Clone for HEAP_OPTIMIZE_RESOURCES_INFORMATION {
+impl Copy for HEAP_OPTIMIZE_RESOURCES_INFORMATION {}
+impl Clone for HEAP_OPTIMIZE_RESOURCES_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -2860,8 +2860,8 @@ pub struct HIBERFILE_BUCKET {
     pub MaxPhysicalMemory: u64,
     pub PhysicalMemoryPercent: [u32; 3],
 }
-impl ::core::marker::Copy for HIBERFILE_BUCKET {}
-impl ::core::clone::Clone for HIBERFILE_BUCKET {
+impl Copy for HIBERFILE_BUCKET {}
+impl Clone for HIBERFILE_BUCKET {
     fn clone(&self) -> Self {
         *self
     }
@@ -2874,8 +2874,8 @@ pub struct IMAGE_ALPHA64_RUNTIME_FUNCTION_ENTRY {
     pub HandlerData: u64,
     pub PrologEndAddress: u64,
 }
-impl ::core::marker::Copy for IMAGE_ALPHA64_RUNTIME_FUNCTION_ENTRY {}
-impl ::core::clone::Clone for IMAGE_ALPHA64_RUNTIME_FUNCTION_ENTRY {
+impl Copy for IMAGE_ALPHA64_RUNTIME_FUNCTION_ENTRY {}
+impl Clone for IMAGE_ALPHA64_RUNTIME_FUNCTION_ENTRY {
     fn clone(&self) -> Self {
         *self
     }
@@ -2888,8 +2888,8 @@ pub struct IMAGE_ALPHA_RUNTIME_FUNCTION_ENTRY {
     pub HandlerData: u32,
     pub PrologEndAddress: u32,
 }
-impl ::core::marker::Copy for IMAGE_ALPHA_RUNTIME_FUNCTION_ENTRY {}
-impl ::core::clone::Clone for IMAGE_ALPHA_RUNTIME_FUNCTION_ENTRY {
+impl Copy for IMAGE_ALPHA_RUNTIME_FUNCTION_ENTRY {}
+impl Clone for IMAGE_ALPHA_RUNTIME_FUNCTION_ENTRY {
     fn clone(&self) -> Self {
         *self
     }
@@ -2899,8 +2899,8 @@ pub struct IMAGE_ARCHITECTURE_ENTRY {
     pub FixupInstRVA: u32,
     pub NewInst: u32,
 }
-impl ::core::marker::Copy for IMAGE_ARCHITECTURE_ENTRY {}
-impl ::core::clone::Clone for IMAGE_ARCHITECTURE_ENTRY {
+impl Copy for IMAGE_ARCHITECTURE_ENTRY {}
+impl Clone for IMAGE_ARCHITECTURE_ENTRY {
     fn clone(&self) -> Self {
         *self
     }
@@ -2910,8 +2910,8 @@ pub struct IMAGE_ARCHITECTURE_HEADER {
     pub _bitfield: u32,
     pub FirstEntryRVA: u32,
 }
-impl ::core::marker::Copy for IMAGE_ARCHITECTURE_HEADER {}
-impl ::core::clone::Clone for IMAGE_ARCHITECTURE_HEADER {
+impl Copy for IMAGE_ARCHITECTURE_HEADER {}
+impl Clone for IMAGE_ARCHITECTURE_HEADER {
     fn clone(&self) -> Self {
         *self
     }
@@ -2926,8 +2926,8 @@ pub struct IMAGE_ARCHIVE_MEMBER_HEADER {
     pub Size: [u8; 10],
     pub EndHeader: [u8; 2],
 }
-impl ::core::marker::Copy for IMAGE_ARCHIVE_MEMBER_HEADER {}
-impl ::core::clone::Clone for IMAGE_ARCHIVE_MEMBER_HEADER {
+impl Copy for IMAGE_ARCHIVE_MEMBER_HEADER {}
+impl Clone for IMAGE_ARCHIVE_MEMBER_HEADER {
     fn clone(&self) -> Self {
         *self
     }
@@ -2937,8 +2937,8 @@ pub union IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA {
     pub HeaderData: u32,
     pub Anonymous: IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA_0,
 }
-impl ::core::marker::Copy for IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA {}
-impl ::core::clone::Clone for IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA {
+impl Copy for IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA {}
+impl Clone for IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -2947,8 +2947,8 @@ impl ::core::clone::Clone for IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA {
 pub struct IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA_0 {}
-impl ::core::clone::Clone for IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA_0 {
+impl Copy for IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA_0 {}
+impl Clone for IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -2958,8 +2958,8 @@ pub struct IMAGE_ARM_RUNTIME_FUNCTION_ENTRY {
     pub BeginAddress: u32,
     pub Anonymous: IMAGE_ARM_RUNTIME_FUNCTION_ENTRY_0,
 }
-impl ::core::marker::Copy for IMAGE_ARM_RUNTIME_FUNCTION_ENTRY {}
-impl ::core::clone::Clone for IMAGE_ARM_RUNTIME_FUNCTION_ENTRY {
+impl Copy for IMAGE_ARM_RUNTIME_FUNCTION_ENTRY {}
+impl Clone for IMAGE_ARM_RUNTIME_FUNCTION_ENTRY {
     fn clone(&self) -> Self {
         *self
     }
@@ -2969,8 +2969,8 @@ pub union IMAGE_ARM_RUNTIME_FUNCTION_ENTRY_0 {
     pub UnwindData: u32,
     pub Anonymous: IMAGE_ARM_RUNTIME_FUNCTION_ENTRY_0_0,
 }
-impl ::core::marker::Copy for IMAGE_ARM_RUNTIME_FUNCTION_ENTRY_0 {}
-impl ::core::clone::Clone for IMAGE_ARM_RUNTIME_FUNCTION_ENTRY_0 {
+impl Copy for IMAGE_ARM_RUNTIME_FUNCTION_ENTRY_0 {}
+impl Clone for IMAGE_ARM_RUNTIME_FUNCTION_ENTRY_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -2979,8 +2979,8 @@ impl ::core::clone::Clone for IMAGE_ARM_RUNTIME_FUNCTION_ENTRY_0 {
 pub struct IMAGE_ARM_RUNTIME_FUNCTION_ENTRY_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for IMAGE_ARM_RUNTIME_FUNCTION_ENTRY_0_0 {}
-impl ::core::clone::Clone for IMAGE_ARM_RUNTIME_FUNCTION_ENTRY_0_0 {
+impl Copy for IMAGE_ARM_RUNTIME_FUNCTION_ENTRY_0_0 {}
+impl Clone for IMAGE_ARM_RUNTIME_FUNCTION_ENTRY_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -2993,8 +2993,8 @@ pub union IMAGE_AUX_SYMBOL {
     pub TokenDef: IMAGE_AUX_SYMBOL_TOKEN_DEF,
     pub CRC: IMAGE_AUX_SYMBOL_0,
 }
-impl ::core::marker::Copy for IMAGE_AUX_SYMBOL {}
-impl ::core::clone::Clone for IMAGE_AUX_SYMBOL {
+impl Copy for IMAGE_AUX_SYMBOL {}
+impl Clone for IMAGE_AUX_SYMBOL {
     fn clone(&self) -> Self {
         *self
     }
@@ -3004,8 +3004,8 @@ pub struct IMAGE_AUX_SYMBOL_0 {
     pub crc: u32,
     pub rgbReserved: [u8; 14],
 }
-impl ::core::marker::Copy for IMAGE_AUX_SYMBOL_0 {}
-impl ::core::clone::Clone for IMAGE_AUX_SYMBOL_0 {
+impl Copy for IMAGE_AUX_SYMBOL_0 {}
+impl Clone for IMAGE_AUX_SYMBOL_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3014,8 +3014,8 @@ impl ::core::clone::Clone for IMAGE_AUX_SYMBOL_0 {
 pub struct IMAGE_AUX_SYMBOL_1 {
     pub Name: [u8; 18],
 }
-impl ::core::marker::Copy for IMAGE_AUX_SYMBOL_1 {}
-impl ::core::clone::Clone for IMAGE_AUX_SYMBOL_1 {
+impl Copy for IMAGE_AUX_SYMBOL_1 {}
+impl Clone for IMAGE_AUX_SYMBOL_1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3031,8 +3031,8 @@ pub struct IMAGE_AUX_SYMBOL_2 {
     pub bReserved: u8,
     pub HighNumber: i16,
 }
-impl ::core::marker::Copy for IMAGE_AUX_SYMBOL_2 {}
-impl ::core::clone::Clone for IMAGE_AUX_SYMBOL_2 {
+impl Copy for IMAGE_AUX_SYMBOL_2 {}
+impl Clone for IMAGE_AUX_SYMBOL_2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3044,8 +3044,8 @@ pub struct IMAGE_AUX_SYMBOL_3 {
     pub FcnAry: IMAGE_AUX_SYMBOL_3_0,
     pub TvIndex: u16,
 }
-impl ::core::marker::Copy for IMAGE_AUX_SYMBOL_3 {}
-impl ::core::clone::Clone for IMAGE_AUX_SYMBOL_3 {
+impl Copy for IMAGE_AUX_SYMBOL_3 {}
+impl Clone for IMAGE_AUX_SYMBOL_3 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3055,8 +3055,8 @@ pub union IMAGE_AUX_SYMBOL_3_0 {
     pub Function: IMAGE_AUX_SYMBOL_3_0_1,
     pub Array: IMAGE_AUX_SYMBOL_3_0_0,
 }
-impl ::core::marker::Copy for IMAGE_AUX_SYMBOL_3_0 {}
-impl ::core::clone::Clone for IMAGE_AUX_SYMBOL_3_0 {
+impl Copy for IMAGE_AUX_SYMBOL_3_0 {}
+impl Clone for IMAGE_AUX_SYMBOL_3_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3065,8 +3065,8 @@ impl ::core::clone::Clone for IMAGE_AUX_SYMBOL_3_0 {
 pub struct IMAGE_AUX_SYMBOL_3_0_0 {
     pub Dimension: [u16; 4],
 }
-impl ::core::marker::Copy for IMAGE_AUX_SYMBOL_3_0_0 {}
-impl ::core::clone::Clone for IMAGE_AUX_SYMBOL_3_0_0 {
+impl Copy for IMAGE_AUX_SYMBOL_3_0_0 {}
+impl Clone for IMAGE_AUX_SYMBOL_3_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3076,8 +3076,8 @@ pub struct IMAGE_AUX_SYMBOL_3_0_1 {
     pub PointerToLinenumber: u32,
     pub PointerToNextFunction: u32,
 }
-impl ::core::marker::Copy for IMAGE_AUX_SYMBOL_3_0_1 {}
-impl ::core::clone::Clone for IMAGE_AUX_SYMBOL_3_0_1 {
+impl Copy for IMAGE_AUX_SYMBOL_3_0_1 {}
+impl Clone for IMAGE_AUX_SYMBOL_3_0_1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3087,8 +3087,8 @@ pub union IMAGE_AUX_SYMBOL_3_1 {
     pub LnSz: IMAGE_AUX_SYMBOL_3_1_0,
     pub TotalSize: u32,
 }
-impl ::core::marker::Copy for IMAGE_AUX_SYMBOL_3_1 {}
-impl ::core::clone::Clone for IMAGE_AUX_SYMBOL_3_1 {
+impl Copy for IMAGE_AUX_SYMBOL_3_1 {}
+impl Clone for IMAGE_AUX_SYMBOL_3_1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3098,8 +3098,8 @@ pub struct IMAGE_AUX_SYMBOL_3_1_0 {
     pub Linenumber: u16,
     pub Size: u16,
 }
-impl ::core::marker::Copy for IMAGE_AUX_SYMBOL_3_1_0 {}
-impl ::core::clone::Clone for IMAGE_AUX_SYMBOL_3_1_0 {
+impl Copy for IMAGE_AUX_SYMBOL_3_1_0 {}
+impl Clone for IMAGE_AUX_SYMBOL_3_1_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3112,8 +3112,8 @@ pub union IMAGE_AUX_SYMBOL_EX {
     pub Anonymous: IMAGE_AUX_SYMBOL_EX_0,
     pub CRC: IMAGE_AUX_SYMBOL_EX_1,
 }
-impl ::core::marker::Copy for IMAGE_AUX_SYMBOL_EX {}
-impl ::core::clone::Clone for IMAGE_AUX_SYMBOL_EX {
+impl Copy for IMAGE_AUX_SYMBOL_EX {}
+impl Clone for IMAGE_AUX_SYMBOL_EX {
     fn clone(&self) -> Self {
         *self
     }
@@ -3123,8 +3123,8 @@ pub struct IMAGE_AUX_SYMBOL_EX_0 {
     pub TokenDef: IMAGE_AUX_SYMBOL_TOKEN_DEF,
     pub rgbReserved: [u8; 2],
 }
-impl ::core::marker::Copy for IMAGE_AUX_SYMBOL_EX_0 {}
-impl ::core::clone::Clone for IMAGE_AUX_SYMBOL_EX_0 {
+impl Copy for IMAGE_AUX_SYMBOL_EX_0 {}
+impl Clone for IMAGE_AUX_SYMBOL_EX_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3134,8 +3134,8 @@ pub struct IMAGE_AUX_SYMBOL_EX_1 {
     pub crc: u32,
     pub rgbReserved: [u8; 16],
 }
-impl ::core::marker::Copy for IMAGE_AUX_SYMBOL_EX_1 {}
-impl ::core::clone::Clone for IMAGE_AUX_SYMBOL_EX_1 {
+impl Copy for IMAGE_AUX_SYMBOL_EX_1 {}
+impl Clone for IMAGE_AUX_SYMBOL_EX_1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3144,8 +3144,8 @@ impl ::core::clone::Clone for IMAGE_AUX_SYMBOL_EX_1 {
 pub struct IMAGE_AUX_SYMBOL_EX_2 {
     pub Name: [u8; 20],
 }
-impl ::core::marker::Copy for IMAGE_AUX_SYMBOL_EX_2 {}
-impl ::core::clone::Clone for IMAGE_AUX_SYMBOL_EX_2 {
+impl Copy for IMAGE_AUX_SYMBOL_EX_2 {}
+impl Clone for IMAGE_AUX_SYMBOL_EX_2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3162,8 +3162,8 @@ pub struct IMAGE_AUX_SYMBOL_EX_3 {
     pub HighNumber: i16,
     pub rgbReserved: [u8; 2],
 }
-impl ::core::marker::Copy for IMAGE_AUX_SYMBOL_EX_3 {}
-impl ::core::clone::Clone for IMAGE_AUX_SYMBOL_EX_3 {
+impl Copy for IMAGE_AUX_SYMBOL_EX_3 {}
+impl Clone for IMAGE_AUX_SYMBOL_EX_3 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3174,8 +3174,8 @@ pub struct IMAGE_AUX_SYMBOL_EX_4 {
     pub WeakSearchType: u32,
     pub rgbReserved: [u8; 12],
 }
-impl ::core::marker::Copy for IMAGE_AUX_SYMBOL_EX_4 {}
-impl ::core::clone::Clone for IMAGE_AUX_SYMBOL_EX_4 {
+impl Copy for IMAGE_AUX_SYMBOL_EX_4 {}
+impl Clone for IMAGE_AUX_SYMBOL_EX_4 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3187,8 +3187,8 @@ pub struct IMAGE_AUX_SYMBOL_TOKEN_DEF {
     pub SymbolTableIndex: u32,
     pub rgbReserved: [u8; 12],
 }
-impl ::core::marker::Copy for IMAGE_AUX_SYMBOL_TOKEN_DEF {}
-impl ::core::clone::Clone for IMAGE_AUX_SYMBOL_TOKEN_DEF {
+impl Copy for IMAGE_AUX_SYMBOL_TOKEN_DEF {}
+impl Clone for IMAGE_AUX_SYMBOL_TOKEN_DEF {
     fn clone(&self) -> Self {
         *self
     }
@@ -3198,8 +3198,8 @@ pub struct IMAGE_BASE_RELOCATION {
     pub VirtualAddress: u32,
     pub SizeOfBlock: u32,
 }
-impl ::core::marker::Copy for IMAGE_BASE_RELOCATION {}
-impl ::core::clone::Clone for IMAGE_BASE_RELOCATION {
+impl Copy for IMAGE_BASE_RELOCATION {}
+impl Clone for IMAGE_BASE_RELOCATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -3210,8 +3210,8 @@ pub struct IMAGE_BDD_DYNAMIC_RELOCATION {
     pub Right: u16,
     pub Value: u32,
 }
-impl ::core::marker::Copy for IMAGE_BDD_DYNAMIC_RELOCATION {}
-impl ::core::clone::Clone for IMAGE_BDD_DYNAMIC_RELOCATION {
+impl Copy for IMAGE_BDD_DYNAMIC_RELOCATION {}
+impl Clone for IMAGE_BDD_DYNAMIC_RELOCATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -3221,8 +3221,8 @@ pub struct IMAGE_BDD_INFO {
     pub Version: u32,
     pub BDDSize: u32,
 }
-impl ::core::marker::Copy for IMAGE_BDD_INFO {}
-impl ::core::clone::Clone for IMAGE_BDD_INFO {
+impl Copy for IMAGE_BDD_INFO {}
+impl Clone for IMAGE_BDD_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -3233,8 +3233,8 @@ pub struct IMAGE_BOUND_FORWARDER_REF {
     pub OffsetModuleName: u16,
     pub Reserved: u16,
 }
-impl ::core::marker::Copy for IMAGE_BOUND_FORWARDER_REF {}
-impl ::core::clone::Clone for IMAGE_BOUND_FORWARDER_REF {
+impl Copy for IMAGE_BOUND_FORWARDER_REF {}
+impl Clone for IMAGE_BOUND_FORWARDER_REF {
     fn clone(&self) -> Self {
         *self
     }
@@ -3245,8 +3245,8 @@ pub struct IMAGE_BOUND_IMPORT_DESCRIPTOR {
     pub OffsetModuleName: u16,
     pub NumberOfModuleForwarderRefs: u16,
 }
-impl ::core::marker::Copy for IMAGE_BOUND_IMPORT_DESCRIPTOR {}
-impl ::core::clone::Clone for IMAGE_BOUND_IMPORT_DESCRIPTOR {
+impl Copy for IMAGE_BOUND_IMPORT_DESCRIPTOR {}
+impl Clone for IMAGE_BOUND_IMPORT_DESCRIPTOR {
     fn clone(&self) -> Self {
         *self
     }
@@ -3256,8 +3256,8 @@ pub struct IMAGE_CE_RUNTIME_FUNCTION_ENTRY {
     pub FuncStart: u32,
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for IMAGE_CE_RUNTIME_FUNCTION_ENTRY {}
-impl ::core::clone::Clone for IMAGE_CE_RUNTIME_FUNCTION_ENTRY {
+impl Copy for IMAGE_CE_RUNTIME_FUNCTION_ENTRY {}
+impl Clone for IMAGE_CE_RUNTIME_FUNCTION_ENTRY {
     fn clone(&self) -> Self {
         *self
     }
@@ -3270,8 +3270,8 @@ pub struct IMAGE_DEBUG_MISC {
     pub Reserved: [u8; 3],
     pub Data: [u8; 1],
 }
-impl ::core::marker::Copy for IMAGE_DEBUG_MISC {}
-impl ::core::clone::Clone for IMAGE_DEBUG_MISC {
+impl Copy for IMAGE_DEBUG_MISC {}
+impl Clone for IMAGE_DEBUG_MISC {
     fn clone(&self) -> Self {
         *self
     }
@@ -3298,8 +3298,8 @@ pub struct IMAGE_DOS_HEADER {
     pub e_res2: [u16; 10],
     pub e_lfanew: i32,
 }
-impl ::core::marker::Copy for IMAGE_DOS_HEADER {}
-impl ::core::clone::Clone for IMAGE_DOS_HEADER {
+impl Copy for IMAGE_DOS_HEADER {}
+impl Clone for IMAGE_DOS_HEADER {
     fn clone(&self) -> Self {
         *self
     }
@@ -3309,8 +3309,8 @@ pub struct IMAGE_DYNAMIC_RELOCATION32 {
     pub Symbol: u32,
     pub BaseRelocSize: u32,
 }
-impl ::core::marker::Copy for IMAGE_DYNAMIC_RELOCATION32 {}
-impl ::core::clone::Clone for IMAGE_DYNAMIC_RELOCATION32 {
+impl Copy for IMAGE_DYNAMIC_RELOCATION32 {}
+impl Clone for IMAGE_DYNAMIC_RELOCATION32 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3323,8 +3323,8 @@ pub struct IMAGE_DYNAMIC_RELOCATION32_V2 {
     pub SymbolGroup: u32,
     pub Flags: u32,
 }
-impl ::core::marker::Copy for IMAGE_DYNAMIC_RELOCATION32_V2 {}
-impl ::core::clone::Clone for IMAGE_DYNAMIC_RELOCATION32_V2 {
+impl Copy for IMAGE_DYNAMIC_RELOCATION32_V2 {}
+impl Clone for IMAGE_DYNAMIC_RELOCATION32_V2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3334,8 +3334,8 @@ pub struct IMAGE_DYNAMIC_RELOCATION64 {
     pub Symbol: u64,
     pub BaseRelocSize: u32,
 }
-impl ::core::marker::Copy for IMAGE_DYNAMIC_RELOCATION64 {}
-impl ::core::clone::Clone for IMAGE_DYNAMIC_RELOCATION64 {
+impl Copy for IMAGE_DYNAMIC_RELOCATION64 {}
+impl Clone for IMAGE_DYNAMIC_RELOCATION64 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3348,8 +3348,8 @@ pub struct IMAGE_DYNAMIC_RELOCATION64_V2 {
     pub SymbolGroup: u32,
     pub Flags: u32,
 }
-impl ::core::marker::Copy for IMAGE_DYNAMIC_RELOCATION64_V2 {}
-impl ::core::clone::Clone for IMAGE_DYNAMIC_RELOCATION64_V2 {
+impl Copy for IMAGE_DYNAMIC_RELOCATION64_V2 {}
+impl Clone for IMAGE_DYNAMIC_RELOCATION64_V2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3359,8 +3359,8 @@ pub struct IMAGE_DYNAMIC_RELOCATION_TABLE {
     pub Version: u32,
     pub Size: u32,
 }
-impl ::core::marker::Copy for IMAGE_DYNAMIC_RELOCATION_TABLE {}
-impl ::core::clone::Clone for IMAGE_DYNAMIC_RELOCATION_TABLE {
+impl Copy for IMAGE_DYNAMIC_RELOCATION_TABLE {}
+impl Clone for IMAGE_DYNAMIC_RELOCATION_TABLE {
     fn clone(&self) -> Self {
         *self
     }
@@ -3372,8 +3372,8 @@ pub struct IMAGE_EPILOGUE_DYNAMIC_RELOCATION_HEADER {
     pub BranchDescriptorElementSize: u8,
     pub BranchDescriptorCount: u16,
 }
-impl ::core::marker::Copy for IMAGE_EPILOGUE_DYNAMIC_RELOCATION_HEADER {}
-impl ::core::clone::Clone for IMAGE_EPILOGUE_DYNAMIC_RELOCATION_HEADER {
+impl Copy for IMAGE_EPILOGUE_DYNAMIC_RELOCATION_HEADER {}
+impl Clone for IMAGE_EPILOGUE_DYNAMIC_RELOCATION_HEADER {
     fn clone(&self) -> Self {
         *self
     }
@@ -3392,8 +3392,8 @@ pub struct IMAGE_EXPORT_DIRECTORY {
     pub AddressOfNames: u32,
     pub AddressOfNameOrdinals: u32,
 }
-impl ::core::marker::Copy for IMAGE_EXPORT_DIRECTORY {}
-impl ::core::clone::Clone for IMAGE_EXPORT_DIRECTORY {
+impl Copy for IMAGE_EXPORT_DIRECTORY {}
+impl Clone for IMAGE_EXPORT_DIRECTORY {
     fn clone(&self) -> Self {
         *self
     }
@@ -3405,8 +3405,8 @@ pub struct IMAGE_FUNCTION_OVERRIDE_DYNAMIC_RELOCATION {
     pub RvaSize: u32,
     pub BaseRelocSize: u32,
 }
-impl ::core::marker::Copy for IMAGE_FUNCTION_OVERRIDE_DYNAMIC_RELOCATION {}
-impl ::core::clone::Clone for IMAGE_FUNCTION_OVERRIDE_DYNAMIC_RELOCATION {
+impl Copy for IMAGE_FUNCTION_OVERRIDE_DYNAMIC_RELOCATION {}
+impl Clone for IMAGE_FUNCTION_OVERRIDE_DYNAMIC_RELOCATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -3415,8 +3415,8 @@ impl ::core::clone::Clone for IMAGE_FUNCTION_OVERRIDE_DYNAMIC_RELOCATION {
 pub struct IMAGE_FUNCTION_OVERRIDE_HEADER {
     pub FuncOverrideSize: u32,
 }
-impl ::core::marker::Copy for IMAGE_FUNCTION_OVERRIDE_HEADER {}
-impl ::core::clone::Clone for IMAGE_FUNCTION_OVERRIDE_HEADER {
+impl Copy for IMAGE_FUNCTION_OVERRIDE_HEADER {}
+impl Clone for IMAGE_FUNCTION_OVERRIDE_HEADER {
     fn clone(&self) -> Self {
         *self
     }
@@ -3432,8 +3432,8 @@ pub struct IMAGE_HOT_PATCH_BASE {
     pub PatchTable: u32,
     pub BufferOffset: u32,
 }
-impl ::core::marker::Copy for IMAGE_HOT_PATCH_BASE {}
-impl ::core::clone::Clone for IMAGE_HOT_PATCH_BASE {
+impl Copy for IMAGE_HOT_PATCH_BASE {}
+impl Clone for IMAGE_HOT_PATCH_BASE {
     fn clone(&self) -> Self {
         *self
     }
@@ -3443,8 +3443,8 @@ pub struct IMAGE_HOT_PATCH_HASHES {
     pub SHA256: [u8; 32],
     pub SHA1: [u8; 20],
 }
-impl ::core::marker::Copy for IMAGE_HOT_PATCH_HASHES {}
-impl ::core::clone::Clone for IMAGE_HOT_PATCH_HASHES {
+impl Copy for IMAGE_HOT_PATCH_HASHES {}
+impl Clone for IMAGE_HOT_PATCH_HASHES {
     fn clone(&self) -> Self {
         *self
     }
@@ -3459,8 +3459,8 @@ pub struct IMAGE_HOT_PATCH_INFO {
     pub BufferOffset: u32,
     pub ExtraPatchSize: u32,
 }
-impl ::core::marker::Copy for IMAGE_HOT_PATCH_INFO {}
-impl ::core::clone::Clone for IMAGE_HOT_PATCH_INFO {
+impl Copy for IMAGE_HOT_PATCH_INFO {}
+impl Clone for IMAGE_HOT_PATCH_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -3470,8 +3470,8 @@ pub struct IMAGE_IMPORT_BY_NAME {
     pub Hint: u16,
     pub Name: [i8; 1],
 }
-impl ::core::marker::Copy for IMAGE_IMPORT_BY_NAME {}
-impl ::core::clone::Clone for IMAGE_IMPORT_BY_NAME {
+impl Copy for IMAGE_IMPORT_BY_NAME {}
+impl Clone for IMAGE_IMPORT_BY_NAME {
     fn clone(&self) -> Self {
         *self
     }
@@ -3480,8 +3480,8 @@ impl ::core::clone::Clone for IMAGE_IMPORT_BY_NAME {
 pub struct IMAGE_IMPORT_CONTROL_TRANSFER_DYNAMIC_RELOCATION {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for IMAGE_IMPORT_CONTROL_TRANSFER_DYNAMIC_RELOCATION {}
-impl ::core::clone::Clone for IMAGE_IMPORT_CONTROL_TRANSFER_DYNAMIC_RELOCATION {
+impl Copy for IMAGE_IMPORT_CONTROL_TRANSFER_DYNAMIC_RELOCATION {}
+impl Clone for IMAGE_IMPORT_CONTROL_TRANSFER_DYNAMIC_RELOCATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -3494,8 +3494,8 @@ pub struct IMAGE_IMPORT_DESCRIPTOR {
     pub Name: u32,
     pub FirstThunk: u32,
 }
-impl ::core::marker::Copy for IMAGE_IMPORT_DESCRIPTOR {}
-impl ::core::clone::Clone for IMAGE_IMPORT_DESCRIPTOR {
+impl Copy for IMAGE_IMPORT_DESCRIPTOR {}
+impl Clone for IMAGE_IMPORT_DESCRIPTOR {
     fn clone(&self) -> Self {
         *self
     }
@@ -3505,8 +3505,8 @@ pub union IMAGE_IMPORT_DESCRIPTOR_0 {
     pub Characteristics: u32,
     pub OriginalFirstThunk: u32,
 }
-impl ::core::marker::Copy for IMAGE_IMPORT_DESCRIPTOR_0 {}
-impl ::core::clone::Clone for IMAGE_IMPORT_DESCRIPTOR_0 {
+impl Copy for IMAGE_IMPORT_DESCRIPTOR_0 {}
+impl Clone for IMAGE_IMPORT_DESCRIPTOR_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3515,8 +3515,8 @@ impl ::core::clone::Clone for IMAGE_IMPORT_DESCRIPTOR_0 {
 pub struct IMAGE_INDIR_CONTROL_TRANSFER_DYNAMIC_RELOCATION {
     pub _bitfield: u16,
 }
-impl ::core::marker::Copy for IMAGE_INDIR_CONTROL_TRANSFER_DYNAMIC_RELOCATION {}
-impl ::core::clone::Clone for IMAGE_INDIR_CONTROL_TRANSFER_DYNAMIC_RELOCATION {
+impl Copy for IMAGE_INDIR_CONTROL_TRANSFER_DYNAMIC_RELOCATION {}
+impl Clone for IMAGE_INDIR_CONTROL_TRANSFER_DYNAMIC_RELOCATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -3526,8 +3526,8 @@ pub struct IMAGE_LINENUMBER {
     pub Type: IMAGE_LINENUMBER_0,
     pub Linenumber: u16,
 }
-impl ::core::marker::Copy for IMAGE_LINENUMBER {}
-impl ::core::clone::Clone for IMAGE_LINENUMBER {
+impl Copy for IMAGE_LINENUMBER {}
+impl Clone for IMAGE_LINENUMBER {
     fn clone(&self) -> Self {
         *self
     }
@@ -3537,8 +3537,8 @@ pub union IMAGE_LINENUMBER_0 {
     pub SymbolTableIndex: u32,
     pub VirtualAddress: u32,
 }
-impl ::core::marker::Copy for IMAGE_LINENUMBER_0 {}
-impl ::core::clone::Clone for IMAGE_LINENUMBER_0 {
+impl Copy for IMAGE_LINENUMBER_0 {}
+impl Clone for IMAGE_LINENUMBER_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3576,8 +3576,8 @@ pub struct IMAGE_OS2_HEADER {
     pub ne_swaparea: u16,
     pub ne_expver: u16,
 }
-impl ::core::marker::Copy for IMAGE_OS2_HEADER {}
-impl ::core::clone::Clone for IMAGE_OS2_HEADER {
+impl Copy for IMAGE_OS2_HEADER {}
+impl Clone for IMAGE_OS2_HEADER {
     fn clone(&self) -> Self {
         *self
     }
@@ -3588,15 +3588,15 @@ pub struct IMAGE_POLICY_ENTRY {
     pub PolicyId: IMAGE_POLICY_ID,
     pub u: IMAGE_POLICY_ENTRY_0,
 }
-impl ::core::marker::Copy for IMAGE_POLICY_ENTRY {}
-impl ::core::clone::Clone for IMAGE_POLICY_ENTRY {
+impl Copy for IMAGE_POLICY_ENTRY {}
+impl Clone for IMAGE_POLICY_ENTRY {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub union IMAGE_POLICY_ENTRY_0 {
-    pub None: *const ::core::ffi::c_void,
+    pub None: *const core::ffi::c_void,
     pub BoolValue: super::super::Foundation::BOOLEAN,
     pub Int8Value: i8,
     pub UInt8Value: u8,
@@ -3606,11 +3606,11 @@ pub union IMAGE_POLICY_ENTRY_0 {
     pub UInt32Value: u32,
     pub Int64Value: i64,
     pub UInt64Value: u64,
-    pub AnsiStringValue: ::windows_sys::core::PCSTR,
-    pub UnicodeStringValue: ::windows_sys::core::PCWSTR,
+    pub AnsiStringValue: windows_sys::core::PCSTR,
+    pub UnicodeStringValue: windows_sys::core::PCWSTR,
 }
-impl ::core::marker::Copy for IMAGE_POLICY_ENTRY_0 {}
-impl ::core::clone::Clone for IMAGE_POLICY_ENTRY_0 {
+impl Copy for IMAGE_POLICY_ENTRY_0 {}
+impl Clone for IMAGE_POLICY_ENTRY_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3622,8 +3622,8 @@ pub struct IMAGE_POLICY_METADATA {
     pub ApplicationId: u64,
     pub Policies: [IMAGE_POLICY_ENTRY; 1],
 }
-impl ::core::marker::Copy for IMAGE_POLICY_METADATA {}
-impl ::core::clone::Clone for IMAGE_POLICY_METADATA {
+impl Copy for IMAGE_POLICY_METADATA {}
+impl Clone for IMAGE_POLICY_METADATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -3632,8 +3632,8 @@ impl ::core::clone::Clone for IMAGE_POLICY_METADATA {
 pub struct IMAGE_PROLOGUE_DYNAMIC_RELOCATION_HEADER {
     pub PrologueByteCount: u8,
 }
-impl ::core::marker::Copy for IMAGE_PROLOGUE_DYNAMIC_RELOCATION_HEADER {}
-impl ::core::clone::Clone for IMAGE_PROLOGUE_DYNAMIC_RELOCATION_HEADER {
+impl Copy for IMAGE_PROLOGUE_DYNAMIC_RELOCATION_HEADER {}
+impl Clone for IMAGE_PROLOGUE_DYNAMIC_RELOCATION_HEADER {
     fn clone(&self) -> Self {
         *self
     }
@@ -3644,8 +3644,8 @@ pub struct IMAGE_RELOCATION {
     pub SymbolTableIndex: u32,
     pub Type: u16,
 }
-impl ::core::marker::Copy for IMAGE_RELOCATION {}
-impl ::core::clone::Clone for IMAGE_RELOCATION {
+impl Copy for IMAGE_RELOCATION {}
+impl Clone for IMAGE_RELOCATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -3655,8 +3655,8 @@ pub union IMAGE_RELOCATION_0 {
     pub VirtualAddress: u32,
     pub RelocCount: u32,
 }
-impl ::core::marker::Copy for IMAGE_RELOCATION_0 {}
-impl ::core::clone::Clone for IMAGE_RELOCATION_0 {
+impl Copy for IMAGE_RELOCATION_0 {}
+impl Clone for IMAGE_RELOCATION_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3668,8 +3668,8 @@ pub struct IMAGE_RESOURCE_DATA_ENTRY {
     pub CodePage: u32,
     pub Reserved: u32,
 }
-impl ::core::marker::Copy for IMAGE_RESOURCE_DATA_ENTRY {}
-impl ::core::clone::Clone for IMAGE_RESOURCE_DATA_ENTRY {
+impl Copy for IMAGE_RESOURCE_DATA_ENTRY {}
+impl Clone for IMAGE_RESOURCE_DATA_ENTRY {
     fn clone(&self) -> Self {
         *self
     }
@@ -3683,8 +3683,8 @@ pub struct IMAGE_RESOURCE_DIRECTORY {
     pub NumberOfNamedEntries: u16,
     pub NumberOfIdEntries: u16,
 }
-impl ::core::marker::Copy for IMAGE_RESOURCE_DIRECTORY {}
-impl ::core::clone::Clone for IMAGE_RESOURCE_DIRECTORY {
+impl Copy for IMAGE_RESOURCE_DIRECTORY {}
+impl Clone for IMAGE_RESOURCE_DIRECTORY {
     fn clone(&self) -> Self {
         *self
     }
@@ -3694,8 +3694,8 @@ pub struct IMAGE_RESOURCE_DIRECTORY_ENTRY {
     pub Anonymous1: IMAGE_RESOURCE_DIRECTORY_ENTRY_0,
     pub Anonymous2: IMAGE_RESOURCE_DIRECTORY_ENTRY_1,
 }
-impl ::core::marker::Copy for IMAGE_RESOURCE_DIRECTORY_ENTRY {}
-impl ::core::clone::Clone for IMAGE_RESOURCE_DIRECTORY_ENTRY {
+impl Copy for IMAGE_RESOURCE_DIRECTORY_ENTRY {}
+impl Clone for IMAGE_RESOURCE_DIRECTORY_ENTRY {
     fn clone(&self) -> Self {
         *self
     }
@@ -3706,8 +3706,8 @@ pub union IMAGE_RESOURCE_DIRECTORY_ENTRY_0 {
     pub Name: u32,
     pub Id: u16,
 }
-impl ::core::marker::Copy for IMAGE_RESOURCE_DIRECTORY_ENTRY_0 {}
-impl ::core::clone::Clone for IMAGE_RESOURCE_DIRECTORY_ENTRY_0 {
+impl Copy for IMAGE_RESOURCE_DIRECTORY_ENTRY_0 {}
+impl Clone for IMAGE_RESOURCE_DIRECTORY_ENTRY_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3716,8 +3716,8 @@ impl ::core::clone::Clone for IMAGE_RESOURCE_DIRECTORY_ENTRY_0 {
 pub struct IMAGE_RESOURCE_DIRECTORY_ENTRY_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for IMAGE_RESOURCE_DIRECTORY_ENTRY_0_0 {}
-impl ::core::clone::Clone for IMAGE_RESOURCE_DIRECTORY_ENTRY_0_0 {
+impl Copy for IMAGE_RESOURCE_DIRECTORY_ENTRY_0_0 {}
+impl Clone for IMAGE_RESOURCE_DIRECTORY_ENTRY_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3727,8 +3727,8 @@ pub union IMAGE_RESOURCE_DIRECTORY_ENTRY_1 {
     pub OffsetToData: u32,
     pub Anonymous: IMAGE_RESOURCE_DIRECTORY_ENTRY_1_0,
 }
-impl ::core::marker::Copy for IMAGE_RESOURCE_DIRECTORY_ENTRY_1 {}
-impl ::core::clone::Clone for IMAGE_RESOURCE_DIRECTORY_ENTRY_1 {
+impl Copy for IMAGE_RESOURCE_DIRECTORY_ENTRY_1 {}
+impl Clone for IMAGE_RESOURCE_DIRECTORY_ENTRY_1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3737,8 +3737,8 @@ impl ::core::clone::Clone for IMAGE_RESOURCE_DIRECTORY_ENTRY_1 {
 pub struct IMAGE_RESOURCE_DIRECTORY_ENTRY_1_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for IMAGE_RESOURCE_DIRECTORY_ENTRY_1_0 {}
-impl ::core::clone::Clone for IMAGE_RESOURCE_DIRECTORY_ENTRY_1_0 {
+impl Copy for IMAGE_RESOURCE_DIRECTORY_ENTRY_1_0 {}
+impl Clone for IMAGE_RESOURCE_DIRECTORY_ENTRY_1_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3748,8 +3748,8 @@ pub struct IMAGE_RESOURCE_DIRECTORY_STRING {
     pub Length: u16,
     pub NameString: [i8; 1],
 }
-impl ::core::marker::Copy for IMAGE_RESOURCE_DIRECTORY_STRING {}
-impl ::core::clone::Clone for IMAGE_RESOURCE_DIRECTORY_STRING {
+impl Copy for IMAGE_RESOURCE_DIRECTORY_STRING {}
+impl Clone for IMAGE_RESOURCE_DIRECTORY_STRING {
     fn clone(&self) -> Self {
         *self
     }
@@ -3759,8 +3759,8 @@ pub struct IMAGE_RESOURCE_DIR_STRING_U {
     pub Length: u16,
     pub NameString: [u16; 1],
 }
-impl ::core::marker::Copy for IMAGE_RESOURCE_DIR_STRING_U {}
-impl ::core::clone::Clone for IMAGE_RESOURCE_DIR_STRING_U {
+impl Copy for IMAGE_RESOURCE_DIR_STRING_U {}
+impl Clone for IMAGE_RESOURCE_DIR_STRING_U {
     fn clone(&self) -> Self {
         *self
     }
@@ -3781,8 +3781,8 @@ pub struct IMAGE_SEPARATE_DEBUG_HEADER {
     pub SectionAlignment: u32,
     pub Reserved: [u32; 2],
 }
-impl ::core::marker::Copy for IMAGE_SEPARATE_DEBUG_HEADER {}
-impl ::core::clone::Clone for IMAGE_SEPARATE_DEBUG_HEADER {
+impl Copy for IMAGE_SEPARATE_DEBUG_HEADER {}
+impl Clone for IMAGE_SEPARATE_DEBUG_HEADER {
     fn clone(&self) -> Self {
         *self
     }
@@ -3791,8 +3791,8 @@ impl ::core::clone::Clone for IMAGE_SEPARATE_DEBUG_HEADER {
 pub struct IMAGE_SWITCHTABLE_BRANCH_DYNAMIC_RELOCATION {
     pub _bitfield: u16,
 }
-impl ::core::marker::Copy for IMAGE_SWITCHTABLE_BRANCH_DYNAMIC_RELOCATION {}
-impl ::core::clone::Clone for IMAGE_SWITCHTABLE_BRANCH_DYNAMIC_RELOCATION {
+impl Copy for IMAGE_SWITCHTABLE_BRANCH_DYNAMIC_RELOCATION {}
+impl Clone for IMAGE_SWITCHTABLE_BRANCH_DYNAMIC_RELOCATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -3806,8 +3806,8 @@ pub struct IMAGE_SYMBOL {
     pub StorageClass: u8,
     pub NumberOfAuxSymbols: u8,
 }
-impl ::core::marker::Copy for IMAGE_SYMBOL {}
-impl ::core::clone::Clone for IMAGE_SYMBOL {
+impl Copy for IMAGE_SYMBOL {}
+impl Clone for IMAGE_SYMBOL {
     fn clone(&self) -> Self {
         *self
     }
@@ -3818,8 +3818,8 @@ pub union IMAGE_SYMBOL_0 {
     pub Name: IMAGE_SYMBOL_0_0,
     pub LongName: [u32; 2],
 }
-impl ::core::marker::Copy for IMAGE_SYMBOL_0 {}
-impl ::core::clone::Clone for IMAGE_SYMBOL_0 {
+impl Copy for IMAGE_SYMBOL_0 {}
+impl Clone for IMAGE_SYMBOL_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3829,8 +3829,8 @@ pub struct IMAGE_SYMBOL_0_0 {
     pub Short: u32,
     pub Long: u32,
 }
-impl ::core::marker::Copy for IMAGE_SYMBOL_0_0 {}
-impl ::core::clone::Clone for IMAGE_SYMBOL_0_0 {
+impl Copy for IMAGE_SYMBOL_0_0 {}
+impl Clone for IMAGE_SYMBOL_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3844,8 +3844,8 @@ pub struct IMAGE_SYMBOL_EX {
     pub StorageClass: u8,
     pub NumberOfAuxSymbols: u8,
 }
-impl ::core::marker::Copy for IMAGE_SYMBOL_EX {}
-impl ::core::clone::Clone for IMAGE_SYMBOL_EX {
+impl Copy for IMAGE_SYMBOL_EX {}
+impl Clone for IMAGE_SYMBOL_EX {
     fn clone(&self) -> Self {
         *self
     }
@@ -3856,8 +3856,8 @@ pub union IMAGE_SYMBOL_EX_0 {
     pub Name: IMAGE_SYMBOL_EX_0_0,
     pub LongName: [u32; 2],
 }
-impl ::core::marker::Copy for IMAGE_SYMBOL_EX_0 {}
-impl ::core::clone::Clone for IMAGE_SYMBOL_EX_0 {
+impl Copy for IMAGE_SYMBOL_EX_0 {}
+impl Clone for IMAGE_SYMBOL_EX_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3867,8 +3867,8 @@ pub struct IMAGE_SYMBOL_EX_0_0 {
     pub Short: u32,
     pub Long: u32,
 }
-impl ::core::marker::Copy for IMAGE_SYMBOL_EX_0_0 {}
-impl ::core::clone::Clone for IMAGE_SYMBOL_EX_0_0 {
+impl Copy for IMAGE_SYMBOL_EX_0_0 {}
+impl Clone for IMAGE_SYMBOL_EX_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3882,8 +3882,8 @@ pub struct IMAGE_TLS_DIRECTORY32 {
     pub SizeOfZeroFill: u32,
     pub Anonymous: IMAGE_TLS_DIRECTORY32_0,
 }
-impl ::core::marker::Copy for IMAGE_TLS_DIRECTORY32 {}
-impl ::core::clone::Clone for IMAGE_TLS_DIRECTORY32 {
+impl Copy for IMAGE_TLS_DIRECTORY32 {}
+impl Clone for IMAGE_TLS_DIRECTORY32 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3893,8 +3893,8 @@ pub union IMAGE_TLS_DIRECTORY32_0 {
     pub Characteristics: u32,
     pub Anonymous: IMAGE_TLS_DIRECTORY32_0_0,
 }
-impl ::core::marker::Copy for IMAGE_TLS_DIRECTORY32_0 {}
-impl ::core::clone::Clone for IMAGE_TLS_DIRECTORY32_0 {
+impl Copy for IMAGE_TLS_DIRECTORY32_0 {}
+impl Clone for IMAGE_TLS_DIRECTORY32_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3903,8 +3903,8 @@ impl ::core::clone::Clone for IMAGE_TLS_DIRECTORY32_0 {
 pub struct IMAGE_TLS_DIRECTORY32_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for IMAGE_TLS_DIRECTORY32_0_0 {}
-impl ::core::clone::Clone for IMAGE_TLS_DIRECTORY32_0_0 {
+impl Copy for IMAGE_TLS_DIRECTORY32_0_0 {}
+impl Clone for IMAGE_TLS_DIRECTORY32_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3918,8 +3918,8 @@ pub struct IMAGE_TLS_DIRECTORY64 {
     pub SizeOfZeroFill: u32,
     pub Anonymous: IMAGE_TLS_DIRECTORY64_0,
 }
-impl ::core::marker::Copy for IMAGE_TLS_DIRECTORY64 {}
-impl ::core::clone::Clone for IMAGE_TLS_DIRECTORY64 {
+impl Copy for IMAGE_TLS_DIRECTORY64 {}
+impl Clone for IMAGE_TLS_DIRECTORY64 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3929,8 +3929,8 @@ pub union IMAGE_TLS_DIRECTORY64_0 {
     pub Characteristics: u32,
     pub Anonymous: IMAGE_TLS_DIRECTORY64_0_0,
 }
-impl ::core::marker::Copy for IMAGE_TLS_DIRECTORY64_0 {}
-impl ::core::clone::Clone for IMAGE_TLS_DIRECTORY64_0 {
+impl Copy for IMAGE_TLS_DIRECTORY64_0 {}
+impl Clone for IMAGE_TLS_DIRECTORY64_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3939,8 +3939,8 @@ impl ::core::clone::Clone for IMAGE_TLS_DIRECTORY64_0 {
 pub struct IMAGE_TLS_DIRECTORY64_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for IMAGE_TLS_DIRECTORY64_0_0 {}
-impl ::core::clone::Clone for IMAGE_TLS_DIRECTORY64_0_0 {
+impl Copy for IMAGE_TLS_DIRECTORY64_0_0 {}
+impl Clone for IMAGE_TLS_DIRECTORY64_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3999,8 +3999,8 @@ pub struct IMAGE_VXD_HEADER {
     pub e32_devid: u16,
     pub e32_ddkver: u16,
 }
-impl ::core::marker::Copy for IMAGE_VXD_HEADER {}
-impl ::core::clone::Clone for IMAGE_VXD_HEADER {
+impl Copy for IMAGE_VXD_HEADER {}
+impl Clone for IMAGE_VXD_HEADER {
     fn clone(&self) -> Self {
         *self
     }
@@ -4016,8 +4016,8 @@ pub struct IMPORT_OBJECT_HEADER {
     pub Anonymous: IMPORT_OBJECT_HEADER_0,
     pub _bitfield: u16,
 }
-impl ::core::marker::Copy for IMPORT_OBJECT_HEADER {}
-impl ::core::clone::Clone for IMPORT_OBJECT_HEADER {
+impl Copy for IMPORT_OBJECT_HEADER {}
+impl Clone for IMPORT_OBJECT_HEADER {
     fn clone(&self) -> Self {
         *self
     }
@@ -4027,8 +4027,8 @@ pub union IMPORT_OBJECT_HEADER_0 {
     pub Ordinal: u16,
     pub Hint: u16,
 }
-impl ::core::marker::Copy for IMPORT_OBJECT_HEADER_0 {}
-impl ::core::clone::Clone for IMPORT_OBJECT_HEADER_0 {
+impl Copy for IMPORT_OBJECT_HEADER_0 {}
+impl Clone for IMPORT_OBJECT_HEADER_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4041,8 +4041,8 @@ pub struct KERNEL_CET_CONTEXT {
     pub Anonymous: KERNEL_CET_CONTEXT_0,
     pub Fill: [u16; 2],
 }
-impl ::core::marker::Copy for KERNEL_CET_CONTEXT {}
-impl ::core::clone::Clone for KERNEL_CET_CONTEXT {
+impl Copy for KERNEL_CET_CONTEXT {}
+impl Clone for KERNEL_CET_CONTEXT {
     fn clone(&self) -> Self {
         *self
     }
@@ -4052,8 +4052,8 @@ pub union KERNEL_CET_CONTEXT_0 {
     pub AllFlags: u16,
     pub Anonymous: KERNEL_CET_CONTEXT_0_0,
 }
-impl ::core::marker::Copy for KERNEL_CET_CONTEXT_0 {}
-impl ::core::clone::Clone for KERNEL_CET_CONTEXT_0 {
+impl Copy for KERNEL_CET_CONTEXT_0 {}
+impl Clone for KERNEL_CET_CONTEXT_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4062,20 +4062,20 @@ impl ::core::clone::Clone for KERNEL_CET_CONTEXT_0 {
 pub struct KERNEL_CET_CONTEXT_0_0 {
     pub _bitfield: u16,
 }
-impl ::core::marker::Copy for KERNEL_CET_CONTEXT_0_0 {}
-impl ::core::clone::Clone for KERNEL_CET_CONTEXT_0_0 {
+impl Copy for KERNEL_CET_CONTEXT_0_0 {}
+impl Clone for KERNEL_CET_CONTEXT_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct KTMOBJECT_CURSOR {
-    pub LastQuery: ::windows_sys::core::GUID,
+    pub LastQuery: windows_sys::core::GUID,
     pub ObjectIdCount: u32,
-    pub ObjectIds: [::windows_sys::core::GUID; 1],
+    pub ObjectIds: [windows_sys::core::GUID; 1],
 }
-impl ::core::marker::Copy for KTMOBJECT_CURSOR {}
-impl ::core::clone::Clone for KTMOBJECT_CURSOR {
+impl Copy for KTMOBJECT_CURSOR {}
+impl Clone for KTMOBJECT_CURSOR {
     fn clone(&self) -> Self {
         *self
     }
@@ -4084,19 +4084,19 @@ impl ::core::clone::Clone for KTMOBJECT_CURSOR {
 pub struct MAXVERSIONTESTED_INFO {
     pub MaxVersionTested: u64,
 }
-impl ::core::marker::Copy for MAXVERSIONTESTED_INFO {}
-impl ::core::clone::Clone for MAXVERSIONTESTED_INFO {
+impl Copy for MAXVERSIONTESTED_INFO {}
+impl Clone for MAXVERSIONTESTED_INFO {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct NETWORK_APP_INSTANCE_EA {
-    pub AppInstanceID: ::windows_sys::core::GUID,
+    pub AppInstanceID: windows_sys::core::GUID,
     pub CsvFlags: u32,
 }
-impl ::core::marker::Copy for NETWORK_APP_INSTANCE_EA {}
-impl ::core::clone::Clone for NETWORK_APP_INSTANCE_EA {
+impl Copy for NETWORK_APP_INSTANCE_EA {}
+impl Clone for NETWORK_APP_INSTANCE_EA {
     fn clone(&self) -> Self {
         *self
     }
@@ -4113,18 +4113,18 @@ pub struct NON_PAGED_DEBUG_INFO {
     pub SizeOfImage: u32,
     pub ImageBase: u64,
 }
-impl ::core::marker::Copy for NON_PAGED_DEBUG_INFO {}
-impl ::core::clone::Clone for NON_PAGED_DEBUG_INFO {
+impl Copy for NON_PAGED_DEBUG_INFO {}
+impl Clone for NON_PAGED_DEBUG_INFO {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct NOTIFY_USER_POWER_SETTING {
-    pub Guid: ::windows_sys::core::GUID,
+    pub Guid: windows_sys::core::GUID,
 }
-impl ::core::marker::Copy for NOTIFY_USER_POWER_SETTING {}
-impl ::core::clone::Clone for NOTIFY_USER_POWER_SETTING {
+impl Copy for NOTIFY_USER_POWER_SETTING {}
+impl Clone for NOTIFY_USER_POWER_SETTING {
     fn clone(&self) -> Self {
         *self
     }
@@ -4139,8 +4139,8 @@ pub struct NT_TIB32 {
     pub ArbitraryUserPointer: u32,
     pub Self_: u32,
 }
-impl ::core::marker::Copy for NT_TIB32 {}
-impl ::core::clone::Clone for NT_TIB32 {
+impl Copy for NT_TIB32 {}
+impl Clone for NT_TIB32 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4150,8 +4150,8 @@ pub union NT_TIB32_0 {
     pub FiberData: u32,
     pub Version: u32,
 }
-impl ::core::marker::Copy for NT_TIB32_0 {}
-impl ::core::clone::Clone for NT_TIB32_0 {
+impl Copy for NT_TIB32_0 {}
+impl Clone for NT_TIB32_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4166,8 +4166,8 @@ pub struct NT_TIB64 {
     pub ArbitraryUserPointer: u64,
     pub Self_: u64,
 }
-impl ::core::marker::Copy for NT_TIB64 {}
-impl ::core::clone::Clone for NT_TIB64 {
+impl Copy for NT_TIB64 {}
+impl Clone for NT_TIB64 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4177,8 +4177,8 @@ pub union NT_TIB64_0 {
     pub FiberData: u64,
     pub Version: u32,
 }
-impl ::core::marker::Copy for NT_TIB64_0 {}
-impl ::core::clone::Clone for NT_TIB64_0 {
+impl Copy for NT_TIB64_0 {}
+impl Clone for NT_TIB64_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4189,8 +4189,8 @@ pub struct PACKEDEVENTINFO {
     pub ulNumEventsForLogFile: u32,
     pub ulOffsets: [u32; 1],
 }
-impl ::core::marker::Copy for PACKEDEVENTINFO {}
-impl ::core::clone::Clone for PACKEDEVENTINFO {
+impl Copy for PACKEDEVENTINFO {}
+impl Clone for PACKEDEVENTINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -4202,8 +4202,8 @@ pub struct PROCESSOR_IDLESTATE_INFO {
     pub PromotePercent: u8,
     pub Spare: [u8; 2],
 }
-impl ::core::marker::Copy for PROCESSOR_IDLESTATE_INFO {}
-impl ::core::clone::Clone for PROCESSOR_IDLESTATE_INFO {
+impl Copy for PROCESSOR_IDLESTATE_INFO {}
+impl Clone for PROCESSOR_IDLESTATE_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -4215,8 +4215,8 @@ pub struct PROCESSOR_IDLESTATE_POLICY {
     pub PolicyCount: u32,
     pub Policy: [PROCESSOR_IDLESTATE_INFO; 3],
 }
-impl ::core::marker::Copy for PROCESSOR_IDLESTATE_POLICY {}
-impl ::core::clone::Clone for PROCESSOR_IDLESTATE_POLICY {
+impl Copy for PROCESSOR_IDLESTATE_POLICY {}
+impl Clone for PROCESSOR_IDLESTATE_POLICY {
     fn clone(&self) -> Self {
         *self
     }
@@ -4226,8 +4226,8 @@ pub union PROCESSOR_IDLESTATE_POLICY_0 {
     pub AsWORD: u16,
     pub Anonymous: PROCESSOR_IDLESTATE_POLICY_0_0,
 }
-impl ::core::marker::Copy for PROCESSOR_IDLESTATE_POLICY_0 {}
-impl ::core::clone::Clone for PROCESSOR_IDLESTATE_POLICY_0 {
+impl Copy for PROCESSOR_IDLESTATE_POLICY_0 {}
+impl Clone for PROCESSOR_IDLESTATE_POLICY_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4236,8 +4236,8 @@ impl ::core::clone::Clone for PROCESSOR_IDLESTATE_POLICY_0 {
 pub struct PROCESSOR_IDLESTATE_POLICY_0_0 {
     pub _bitfield: u16,
 }
-impl ::core::marker::Copy for PROCESSOR_IDLESTATE_POLICY_0_0 {}
-impl ::core::clone::Clone for PROCESSOR_IDLESTATE_POLICY_0_0 {
+impl Copy for PROCESSOR_IDLESTATE_POLICY_0_0 {}
+impl Clone for PROCESSOR_IDLESTATE_POLICY_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4255,8 +4255,8 @@ pub struct PROCESSOR_PERFSTATE_POLICY {
     pub IncreasePercent: u32,
     pub DecreasePercent: u32,
 }
-impl ::core::marker::Copy for PROCESSOR_PERFSTATE_POLICY {}
-impl ::core::clone::Clone for PROCESSOR_PERFSTATE_POLICY {
+impl Copy for PROCESSOR_PERFSTATE_POLICY {}
+impl Clone for PROCESSOR_PERFSTATE_POLICY {
     fn clone(&self) -> Self {
         *self
     }
@@ -4266,8 +4266,8 @@ pub union PROCESSOR_PERFSTATE_POLICY_0 {
     pub Spare: u8,
     pub Flags: PROCESSOR_PERFSTATE_POLICY_0_0,
 }
-impl ::core::marker::Copy for PROCESSOR_PERFSTATE_POLICY_0 {}
-impl ::core::clone::Clone for PROCESSOR_PERFSTATE_POLICY_0 {
+impl Copy for PROCESSOR_PERFSTATE_POLICY_0 {}
+impl Clone for PROCESSOR_PERFSTATE_POLICY_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4277,8 +4277,8 @@ pub union PROCESSOR_PERFSTATE_POLICY_0_0 {
     pub AsBYTE: u8,
     pub Anonymous: PROCESSOR_PERFSTATE_POLICY_0_0_0,
 }
-impl ::core::marker::Copy for PROCESSOR_PERFSTATE_POLICY_0_0 {}
-impl ::core::clone::Clone for PROCESSOR_PERFSTATE_POLICY_0_0 {
+impl Copy for PROCESSOR_PERFSTATE_POLICY_0_0 {}
+impl Clone for PROCESSOR_PERFSTATE_POLICY_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4287,8 +4287,8 @@ impl ::core::clone::Clone for PROCESSOR_PERFSTATE_POLICY_0_0 {
 pub struct PROCESSOR_PERFSTATE_POLICY_0_0_0 {
     pub _bitfield: u8,
 }
-impl ::core::marker::Copy for PROCESSOR_PERFSTATE_POLICY_0_0_0 {}
-impl ::core::clone::Clone for PROCESSOR_PERFSTATE_POLICY_0_0_0 {
+impl Copy for PROCESSOR_PERFSTATE_POLICY_0_0_0 {}
+impl Clone for PROCESSOR_PERFSTATE_POLICY_0_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4297,8 +4297,8 @@ impl ::core::clone::Clone for PROCESSOR_PERFSTATE_POLICY_0_0_0 {
 pub struct PROCESS_MITIGATION_ACTIVATION_CONTEXT_TRUST_POLICY {
     pub Anonymous: PROCESS_MITIGATION_ACTIVATION_CONTEXT_TRUST_POLICY_0,
 }
-impl ::core::marker::Copy for PROCESS_MITIGATION_ACTIVATION_CONTEXT_TRUST_POLICY {}
-impl ::core::clone::Clone for PROCESS_MITIGATION_ACTIVATION_CONTEXT_TRUST_POLICY {
+impl Copy for PROCESS_MITIGATION_ACTIVATION_CONTEXT_TRUST_POLICY {}
+impl Clone for PROCESS_MITIGATION_ACTIVATION_CONTEXT_TRUST_POLICY {
     fn clone(&self) -> Self {
         *self
     }
@@ -4308,8 +4308,8 @@ pub union PROCESS_MITIGATION_ACTIVATION_CONTEXT_TRUST_POLICY_0 {
     pub Flags: u32,
     pub Anonymous: PROCESS_MITIGATION_ACTIVATION_CONTEXT_TRUST_POLICY_0_0,
 }
-impl ::core::marker::Copy for PROCESS_MITIGATION_ACTIVATION_CONTEXT_TRUST_POLICY_0 {}
-impl ::core::clone::Clone for PROCESS_MITIGATION_ACTIVATION_CONTEXT_TRUST_POLICY_0 {
+impl Copy for PROCESS_MITIGATION_ACTIVATION_CONTEXT_TRUST_POLICY_0 {}
+impl Clone for PROCESS_MITIGATION_ACTIVATION_CONTEXT_TRUST_POLICY_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4318,8 +4318,8 @@ impl ::core::clone::Clone for PROCESS_MITIGATION_ACTIVATION_CONTEXT_TRUST_POLICY
 pub struct PROCESS_MITIGATION_ACTIVATION_CONTEXT_TRUST_POLICY_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for PROCESS_MITIGATION_ACTIVATION_CONTEXT_TRUST_POLICY_0_0 {}
-impl ::core::clone::Clone for PROCESS_MITIGATION_ACTIVATION_CONTEXT_TRUST_POLICY_0_0 {
+impl Copy for PROCESS_MITIGATION_ACTIVATION_CONTEXT_TRUST_POLICY_0_0 {}
+impl Clone for PROCESS_MITIGATION_ACTIVATION_CONTEXT_TRUST_POLICY_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4328,8 +4328,8 @@ impl ::core::clone::Clone for PROCESS_MITIGATION_ACTIVATION_CONTEXT_TRUST_POLICY
 pub struct PROCESS_MITIGATION_ASLR_POLICY {
     pub Anonymous: PROCESS_MITIGATION_ASLR_POLICY_0,
 }
-impl ::core::marker::Copy for PROCESS_MITIGATION_ASLR_POLICY {}
-impl ::core::clone::Clone for PROCESS_MITIGATION_ASLR_POLICY {
+impl Copy for PROCESS_MITIGATION_ASLR_POLICY {}
+impl Clone for PROCESS_MITIGATION_ASLR_POLICY {
     fn clone(&self) -> Self {
         *self
     }
@@ -4339,8 +4339,8 @@ pub union PROCESS_MITIGATION_ASLR_POLICY_0 {
     pub Flags: u32,
     pub Anonymous: PROCESS_MITIGATION_ASLR_POLICY_0_0,
 }
-impl ::core::marker::Copy for PROCESS_MITIGATION_ASLR_POLICY_0 {}
-impl ::core::clone::Clone for PROCESS_MITIGATION_ASLR_POLICY_0 {
+impl Copy for PROCESS_MITIGATION_ASLR_POLICY_0 {}
+impl Clone for PROCESS_MITIGATION_ASLR_POLICY_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4349,8 +4349,8 @@ impl ::core::clone::Clone for PROCESS_MITIGATION_ASLR_POLICY_0 {
 pub struct PROCESS_MITIGATION_ASLR_POLICY_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for PROCESS_MITIGATION_ASLR_POLICY_0_0 {}
-impl ::core::clone::Clone for PROCESS_MITIGATION_ASLR_POLICY_0_0 {
+impl Copy for PROCESS_MITIGATION_ASLR_POLICY_0_0 {}
+impl Clone for PROCESS_MITIGATION_ASLR_POLICY_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4359,8 +4359,8 @@ impl ::core::clone::Clone for PROCESS_MITIGATION_ASLR_POLICY_0_0 {
 pub struct PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY {
     pub Anonymous: PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY_0,
 }
-impl ::core::marker::Copy for PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY {}
-impl ::core::clone::Clone for PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY {
+impl Copy for PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY {}
+impl Clone for PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY {
     fn clone(&self) -> Self {
         *self
     }
@@ -4370,8 +4370,8 @@ pub union PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY_0 {
     pub Flags: u32,
     pub Anonymous: PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY_0_0,
 }
-impl ::core::marker::Copy for PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY_0 {}
-impl ::core::clone::Clone for PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY_0 {
+impl Copy for PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY_0 {}
+impl Clone for PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4380,8 +4380,8 @@ impl ::core::clone::Clone for PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY_0 {
 pub struct PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY_0_0 {}
-impl ::core::clone::Clone for PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY_0_0 {
+impl Copy for PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY_0_0 {}
+impl Clone for PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4390,8 +4390,8 @@ impl ::core::clone::Clone for PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY_0_0 {
 pub struct PROCESS_MITIGATION_CHILD_PROCESS_POLICY {
     pub Anonymous: PROCESS_MITIGATION_CHILD_PROCESS_POLICY_0,
 }
-impl ::core::marker::Copy for PROCESS_MITIGATION_CHILD_PROCESS_POLICY {}
-impl ::core::clone::Clone for PROCESS_MITIGATION_CHILD_PROCESS_POLICY {
+impl Copy for PROCESS_MITIGATION_CHILD_PROCESS_POLICY {}
+impl Clone for PROCESS_MITIGATION_CHILD_PROCESS_POLICY {
     fn clone(&self) -> Self {
         *self
     }
@@ -4401,8 +4401,8 @@ pub union PROCESS_MITIGATION_CHILD_PROCESS_POLICY_0 {
     pub Flags: u32,
     pub Anonymous: PROCESS_MITIGATION_CHILD_PROCESS_POLICY_0_0,
 }
-impl ::core::marker::Copy for PROCESS_MITIGATION_CHILD_PROCESS_POLICY_0 {}
-impl ::core::clone::Clone for PROCESS_MITIGATION_CHILD_PROCESS_POLICY_0 {
+impl Copy for PROCESS_MITIGATION_CHILD_PROCESS_POLICY_0 {}
+impl Clone for PROCESS_MITIGATION_CHILD_PROCESS_POLICY_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4411,8 +4411,8 @@ impl ::core::clone::Clone for PROCESS_MITIGATION_CHILD_PROCESS_POLICY_0 {
 pub struct PROCESS_MITIGATION_CHILD_PROCESS_POLICY_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for PROCESS_MITIGATION_CHILD_PROCESS_POLICY_0_0 {}
-impl ::core::clone::Clone for PROCESS_MITIGATION_CHILD_PROCESS_POLICY_0_0 {
+impl Copy for PROCESS_MITIGATION_CHILD_PROCESS_POLICY_0_0 {}
+impl Clone for PROCESS_MITIGATION_CHILD_PROCESS_POLICY_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4421,8 +4421,8 @@ impl ::core::clone::Clone for PROCESS_MITIGATION_CHILD_PROCESS_POLICY_0_0 {
 pub struct PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY {
     pub Anonymous: PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY_0,
 }
-impl ::core::marker::Copy for PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY {}
-impl ::core::clone::Clone for PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY {
+impl Copy for PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY {}
+impl Clone for PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY {
     fn clone(&self) -> Self {
         *self
     }
@@ -4432,8 +4432,8 @@ pub union PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY_0 {
     pub Flags: u32,
     pub Anonymous: PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY_0_0,
 }
-impl ::core::marker::Copy for PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY_0 {}
-impl ::core::clone::Clone for PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY_0 {
+impl Copy for PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY_0 {}
+impl Clone for PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4442,8 +4442,8 @@ impl ::core::clone::Clone for PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY_0 {
 pub struct PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY_0_0 {}
-impl ::core::clone::Clone for PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY_0_0 {
+impl Copy for PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY_0_0 {}
+impl Clone for PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4453,8 +4453,8 @@ pub struct PROCESS_MITIGATION_DEP_POLICY {
     pub Anonymous: PROCESS_MITIGATION_DEP_POLICY_0,
     pub Permanent: super::super::Foundation::BOOLEAN,
 }
-impl ::core::marker::Copy for PROCESS_MITIGATION_DEP_POLICY {}
-impl ::core::clone::Clone for PROCESS_MITIGATION_DEP_POLICY {
+impl Copy for PROCESS_MITIGATION_DEP_POLICY {}
+impl Clone for PROCESS_MITIGATION_DEP_POLICY {
     fn clone(&self) -> Self {
         *self
     }
@@ -4464,8 +4464,8 @@ pub union PROCESS_MITIGATION_DEP_POLICY_0 {
     pub Flags: u32,
     pub Anonymous: PROCESS_MITIGATION_DEP_POLICY_0_0,
 }
-impl ::core::marker::Copy for PROCESS_MITIGATION_DEP_POLICY_0 {}
-impl ::core::clone::Clone for PROCESS_MITIGATION_DEP_POLICY_0 {
+impl Copy for PROCESS_MITIGATION_DEP_POLICY_0 {}
+impl Clone for PROCESS_MITIGATION_DEP_POLICY_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4474,8 +4474,8 @@ impl ::core::clone::Clone for PROCESS_MITIGATION_DEP_POLICY_0 {
 pub struct PROCESS_MITIGATION_DEP_POLICY_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for PROCESS_MITIGATION_DEP_POLICY_0_0 {}
-impl ::core::clone::Clone for PROCESS_MITIGATION_DEP_POLICY_0_0 {
+impl Copy for PROCESS_MITIGATION_DEP_POLICY_0_0 {}
+impl Clone for PROCESS_MITIGATION_DEP_POLICY_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4484,8 +4484,8 @@ impl ::core::clone::Clone for PROCESS_MITIGATION_DEP_POLICY_0_0 {
 pub struct PROCESS_MITIGATION_DYNAMIC_CODE_POLICY {
     pub Anonymous: PROCESS_MITIGATION_DYNAMIC_CODE_POLICY_0,
 }
-impl ::core::marker::Copy for PROCESS_MITIGATION_DYNAMIC_CODE_POLICY {}
-impl ::core::clone::Clone for PROCESS_MITIGATION_DYNAMIC_CODE_POLICY {
+impl Copy for PROCESS_MITIGATION_DYNAMIC_CODE_POLICY {}
+impl Clone for PROCESS_MITIGATION_DYNAMIC_CODE_POLICY {
     fn clone(&self) -> Self {
         *self
     }
@@ -4495,8 +4495,8 @@ pub union PROCESS_MITIGATION_DYNAMIC_CODE_POLICY_0 {
     pub Flags: u32,
     pub Anonymous: PROCESS_MITIGATION_DYNAMIC_CODE_POLICY_0_0,
 }
-impl ::core::marker::Copy for PROCESS_MITIGATION_DYNAMIC_CODE_POLICY_0 {}
-impl ::core::clone::Clone for PROCESS_MITIGATION_DYNAMIC_CODE_POLICY_0 {
+impl Copy for PROCESS_MITIGATION_DYNAMIC_CODE_POLICY_0 {}
+impl Clone for PROCESS_MITIGATION_DYNAMIC_CODE_POLICY_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4505,8 +4505,8 @@ impl ::core::clone::Clone for PROCESS_MITIGATION_DYNAMIC_CODE_POLICY_0 {
 pub struct PROCESS_MITIGATION_DYNAMIC_CODE_POLICY_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for PROCESS_MITIGATION_DYNAMIC_CODE_POLICY_0_0 {}
-impl ::core::clone::Clone for PROCESS_MITIGATION_DYNAMIC_CODE_POLICY_0_0 {
+impl Copy for PROCESS_MITIGATION_DYNAMIC_CODE_POLICY_0_0 {}
+impl Clone for PROCESS_MITIGATION_DYNAMIC_CODE_POLICY_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4515,8 +4515,8 @@ impl ::core::clone::Clone for PROCESS_MITIGATION_DYNAMIC_CODE_POLICY_0_0 {
 pub struct PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY {
     pub Anonymous: PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY_0,
 }
-impl ::core::marker::Copy for PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY {}
-impl ::core::clone::Clone for PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY {
+impl Copy for PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY {}
+impl Clone for PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY {
     fn clone(&self) -> Self {
         *self
     }
@@ -4526,8 +4526,8 @@ pub union PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY_0 {
     pub Flags: u32,
     pub Anonymous: PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY_0_0,
 }
-impl ::core::marker::Copy for PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY_0 {}
-impl ::core::clone::Clone for PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY_0 {
+impl Copy for PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY_0 {}
+impl Clone for PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4536,8 +4536,8 @@ impl ::core::clone::Clone for PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY_
 pub struct PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY_0_0 {}
-impl ::core::clone::Clone for PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY_0_0 {
+impl Copy for PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY_0_0 {}
+impl Clone for PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4546,8 +4546,8 @@ impl ::core::clone::Clone for PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY_
 pub struct PROCESS_MITIGATION_FONT_DISABLE_POLICY {
     pub Anonymous: PROCESS_MITIGATION_FONT_DISABLE_POLICY_0,
 }
-impl ::core::marker::Copy for PROCESS_MITIGATION_FONT_DISABLE_POLICY {}
-impl ::core::clone::Clone for PROCESS_MITIGATION_FONT_DISABLE_POLICY {
+impl Copy for PROCESS_MITIGATION_FONT_DISABLE_POLICY {}
+impl Clone for PROCESS_MITIGATION_FONT_DISABLE_POLICY {
     fn clone(&self) -> Self {
         *self
     }
@@ -4557,8 +4557,8 @@ pub union PROCESS_MITIGATION_FONT_DISABLE_POLICY_0 {
     pub Flags: u32,
     pub Anonymous: PROCESS_MITIGATION_FONT_DISABLE_POLICY_0_0,
 }
-impl ::core::marker::Copy for PROCESS_MITIGATION_FONT_DISABLE_POLICY_0 {}
-impl ::core::clone::Clone for PROCESS_MITIGATION_FONT_DISABLE_POLICY_0 {
+impl Copy for PROCESS_MITIGATION_FONT_DISABLE_POLICY_0 {}
+impl Clone for PROCESS_MITIGATION_FONT_DISABLE_POLICY_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4567,8 +4567,8 @@ impl ::core::clone::Clone for PROCESS_MITIGATION_FONT_DISABLE_POLICY_0 {
 pub struct PROCESS_MITIGATION_FONT_DISABLE_POLICY_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for PROCESS_MITIGATION_FONT_DISABLE_POLICY_0_0 {}
-impl ::core::clone::Clone for PROCESS_MITIGATION_FONT_DISABLE_POLICY_0_0 {
+impl Copy for PROCESS_MITIGATION_FONT_DISABLE_POLICY_0_0 {}
+impl Clone for PROCESS_MITIGATION_FONT_DISABLE_POLICY_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4577,8 +4577,8 @@ impl ::core::clone::Clone for PROCESS_MITIGATION_FONT_DISABLE_POLICY_0_0 {
 pub struct PROCESS_MITIGATION_IMAGE_LOAD_POLICY {
     pub Anonymous: PROCESS_MITIGATION_IMAGE_LOAD_POLICY_0,
 }
-impl ::core::marker::Copy for PROCESS_MITIGATION_IMAGE_LOAD_POLICY {}
-impl ::core::clone::Clone for PROCESS_MITIGATION_IMAGE_LOAD_POLICY {
+impl Copy for PROCESS_MITIGATION_IMAGE_LOAD_POLICY {}
+impl Clone for PROCESS_MITIGATION_IMAGE_LOAD_POLICY {
     fn clone(&self) -> Self {
         *self
     }
@@ -4588,8 +4588,8 @@ pub union PROCESS_MITIGATION_IMAGE_LOAD_POLICY_0 {
     pub Flags: u32,
     pub Anonymous: PROCESS_MITIGATION_IMAGE_LOAD_POLICY_0_0,
 }
-impl ::core::marker::Copy for PROCESS_MITIGATION_IMAGE_LOAD_POLICY_0 {}
-impl ::core::clone::Clone for PROCESS_MITIGATION_IMAGE_LOAD_POLICY_0 {
+impl Copy for PROCESS_MITIGATION_IMAGE_LOAD_POLICY_0 {}
+impl Clone for PROCESS_MITIGATION_IMAGE_LOAD_POLICY_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4598,8 +4598,8 @@ impl ::core::clone::Clone for PROCESS_MITIGATION_IMAGE_LOAD_POLICY_0 {
 pub struct PROCESS_MITIGATION_IMAGE_LOAD_POLICY_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for PROCESS_MITIGATION_IMAGE_LOAD_POLICY_0_0 {}
-impl ::core::clone::Clone for PROCESS_MITIGATION_IMAGE_LOAD_POLICY_0_0 {
+impl Copy for PROCESS_MITIGATION_IMAGE_LOAD_POLICY_0_0 {}
+impl Clone for PROCESS_MITIGATION_IMAGE_LOAD_POLICY_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4608,8 +4608,8 @@ impl ::core::clone::Clone for PROCESS_MITIGATION_IMAGE_LOAD_POLICY_0_0 {
 pub struct PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY {
     pub Anonymous: PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY_0,
 }
-impl ::core::marker::Copy for PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY {}
-impl ::core::clone::Clone for PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY {
+impl Copy for PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY {}
+impl Clone for PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY {
     fn clone(&self) -> Self {
         *self
     }
@@ -4619,8 +4619,8 @@ pub union PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY_0 {
     pub Flags: u32,
     pub Anonymous: PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY_0_0,
 }
-impl ::core::marker::Copy for PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY_0 {}
-impl ::core::clone::Clone for PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY_0 {
+impl Copy for PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY_0 {}
+impl Clone for PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4629,8 +4629,8 @@ impl ::core::clone::Clone for PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY_0 {
 pub struct PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY_0_0 {}
-impl ::core::clone::Clone for PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY_0_0 {
+impl Copy for PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY_0_0 {}
+impl Clone for PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4639,8 +4639,8 @@ impl ::core::clone::Clone for PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY_0_0 
 pub struct PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY {
     pub Anonymous: PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY_0,
 }
-impl ::core::marker::Copy for PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY {}
-impl ::core::clone::Clone for PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY {
+impl Copy for PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY {}
+impl Clone for PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY {
     fn clone(&self) -> Self {
         *self
     }
@@ -4650,8 +4650,8 @@ pub union PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY_0 {
     pub Flags: u32,
     pub Anonymous: PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY_0_0,
 }
-impl ::core::marker::Copy for PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY_0 {}
-impl ::core::clone::Clone for PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY_0 {
+impl Copy for PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY_0 {}
+impl Clone for PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4660,8 +4660,8 @@ impl ::core::clone::Clone for PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY_0 {
 pub struct PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY_0_0 {}
-impl ::core::clone::Clone for PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY_0_0 {
+impl Copy for PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY_0_0 {}
+impl Clone for PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4670,8 +4670,8 @@ impl ::core::clone::Clone for PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY_0_0 {
 pub struct PROCESS_MITIGATION_SEHOP_POLICY {
     pub Anonymous: PROCESS_MITIGATION_SEHOP_POLICY_0,
 }
-impl ::core::marker::Copy for PROCESS_MITIGATION_SEHOP_POLICY {}
-impl ::core::clone::Clone for PROCESS_MITIGATION_SEHOP_POLICY {
+impl Copy for PROCESS_MITIGATION_SEHOP_POLICY {}
+impl Clone for PROCESS_MITIGATION_SEHOP_POLICY {
     fn clone(&self) -> Self {
         *self
     }
@@ -4681,8 +4681,8 @@ pub union PROCESS_MITIGATION_SEHOP_POLICY_0 {
     pub Flags: u32,
     pub Anonymous: PROCESS_MITIGATION_SEHOP_POLICY_0_0,
 }
-impl ::core::marker::Copy for PROCESS_MITIGATION_SEHOP_POLICY_0 {}
-impl ::core::clone::Clone for PROCESS_MITIGATION_SEHOP_POLICY_0 {
+impl Copy for PROCESS_MITIGATION_SEHOP_POLICY_0 {}
+impl Clone for PROCESS_MITIGATION_SEHOP_POLICY_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4691,8 +4691,8 @@ impl ::core::clone::Clone for PROCESS_MITIGATION_SEHOP_POLICY_0 {
 pub struct PROCESS_MITIGATION_SEHOP_POLICY_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for PROCESS_MITIGATION_SEHOP_POLICY_0_0 {}
-impl ::core::clone::Clone for PROCESS_MITIGATION_SEHOP_POLICY_0_0 {
+impl Copy for PROCESS_MITIGATION_SEHOP_POLICY_0_0 {}
+impl Clone for PROCESS_MITIGATION_SEHOP_POLICY_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4701,8 +4701,8 @@ impl ::core::clone::Clone for PROCESS_MITIGATION_SEHOP_POLICY_0_0 {
 pub struct PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY {
     pub Anonymous: PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY_0,
 }
-impl ::core::marker::Copy for PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY {}
-impl ::core::clone::Clone for PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY {
+impl Copy for PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY {}
+impl Clone for PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY {
     fn clone(&self) -> Self {
         *self
     }
@@ -4712,8 +4712,8 @@ pub union PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY_0 {
     pub Flags: u32,
     pub Anonymous: PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY_0_0,
 }
-impl ::core::marker::Copy for PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY_0 {}
-impl ::core::clone::Clone for PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY_0 {
+impl Copy for PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY_0 {}
+impl Clone for PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4722,8 +4722,8 @@ impl ::core::clone::Clone for PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY_0
 pub struct PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY_0_0 {}
-impl ::core::clone::Clone for PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY_0_0 {
+impl Copy for PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY_0_0 {}
+impl Clone for PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4732,8 +4732,8 @@ impl ::core::clone::Clone for PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY_0
 pub struct PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY {
     pub Anonymous: PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY_0,
 }
-impl ::core::marker::Copy for PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY {}
-impl ::core::clone::Clone for PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY {
+impl Copy for PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY {}
+impl Clone for PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY {
     fn clone(&self) -> Self {
         *self
     }
@@ -4743,8 +4743,8 @@ pub union PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY_0 {
     pub Flags: u32,
     pub Anonymous: PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY_0_0,
 }
-impl ::core::marker::Copy for PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY_0 {}
-impl ::core::clone::Clone for PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY_0 {
+impl Copy for PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY_0 {}
+impl Clone for PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4753,8 +4753,8 @@ impl ::core::clone::Clone for PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY_0 {
 pub struct PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY_0_0 {}
-impl ::core::clone::Clone for PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY_0_0 {
+impl Copy for PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY_0_0 {}
+impl Clone for PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4763,8 +4763,8 @@ impl ::core::clone::Clone for PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY_0_0 
 pub struct PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY {
     pub Anonymous: PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY_0,
 }
-impl ::core::marker::Copy for PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY {}
-impl ::core::clone::Clone for PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY {
+impl Copy for PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY {}
+impl Clone for PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY {
     fn clone(&self) -> Self {
         *self
     }
@@ -4774,8 +4774,8 @@ pub union PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY_0 {
     pub Flags: u32,
     pub Anonymous: PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY_0_0,
 }
-impl ::core::marker::Copy for PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY_0 {}
-impl ::core::clone::Clone for PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY_0 {
+impl Copy for PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY_0 {}
+impl Clone for PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4784,8 +4784,8 @@ impl ::core::clone::Clone for PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY_0 {
 pub struct PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY_0_0 {}
-impl ::core::clone::Clone for PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY_0_0 {
+impl Copy for PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY_0_0 {}
+impl Clone for PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4794,8 +4794,8 @@ impl ::core::clone::Clone for PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY_0_0 
 pub struct PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY {
     pub Anonymous: PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY_0,
 }
-impl ::core::marker::Copy for PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY {}
-impl ::core::clone::Clone for PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY {
+impl Copy for PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY {}
+impl Clone for PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY {
     fn clone(&self) -> Self {
         *self
     }
@@ -4805,8 +4805,8 @@ pub union PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY_0 {
     pub Flags: u32,
     pub Anonymous: PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY_0_0,
 }
-impl ::core::marker::Copy for PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY_0 {}
-impl ::core::clone::Clone for PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY_0 {
+impl Copy for PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY_0 {}
+impl Clone for PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4815,8 +4815,8 @@ impl ::core::clone::Clone for PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY_0 {
 pub struct PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY_0_0 {}
-impl ::core::clone::Clone for PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY_0_0 {
+impl Copy for PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY_0_0 {}
+impl Clone for PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4825,8 +4825,8 @@ impl ::core::clone::Clone for PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY_0_0 {
 pub struct PROCESS_MITIGATION_USER_POINTER_AUTH_POLICY {
     pub Anonymous: PROCESS_MITIGATION_USER_POINTER_AUTH_POLICY_0,
 }
-impl ::core::marker::Copy for PROCESS_MITIGATION_USER_POINTER_AUTH_POLICY {}
-impl ::core::clone::Clone for PROCESS_MITIGATION_USER_POINTER_AUTH_POLICY {
+impl Copy for PROCESS_MITIGATION_USER_POINTER_AUTH_POLICY {}
+impl Clone for PROCESS_MITIGATION_USER_POINTER_AUTH_POLICY {
     fn clone(&self) -> Self {
         *self
     }
@@ -4836,8 +4836,8 @@ pub union PROCESS_MITIGATION_USER_POINTER_AUTH_POLICY_0 {
     pub Flags: u32,
     pub Anonymous: PROCESS_MITIGATION_USER_POINTER_AUTH_POLICY_0_0,
 }
-impl ::core::marker::Copy for PROCESS_MITIGATION_USER_POINTER_AUTH_POLICY_0 {}
-impl ::core::clone::Clone for PROCESS_MITIGATION_USER_POINTER_AUTH_POLICY_0 {
+impl Copy for PROCESS_MITIGATION_USER_POINTER_AUTH_POLICY_0 {}
+impl Clone for PROCESS_MITIGATION_USER_POINTER_AUTH_POLICY_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4846,8 +4846,8 @@ impl ::core::clone::Clone for PROCESS_MITIGATION_USER_POINTER_AUTH_POLICY_0 {
 pub struct PROCESS_MITIGATION_USER_POINTER_AUTH_POLICY_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for PROCESS_MITIGATION_USER_POINTER_AUTH_POLICY_0_0 {}
-impl ::core::clone::Clone for PROCESS_MITIGATION_USER_POINTER_AUTH_POLICY_0_0 {
+impl Copy for PROCESS_MITIGATION_USER_POINTER_AUTH_POLICY_0_0 {}
+impl Clone for PROCESS_MITIGATION_USER_POINTER_AUTH_POLICY_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4856,8 +4856,8 @@ impl ::core::clone::Clone for PROCESS_MITIGATION_USER_POINTER_AUTH_POLICY_0_0 {
 pub struct PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY {
     pub Anonymous: PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY_0,
 }
-impl ::core::marker::Copy for PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY {}
-impl ::core::clone::Clone for PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY {
+impl Copy for PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY {}
+impl Clone for PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY {
     fn clone(&self) -> Self {
         *self
     }
@@ -4867,8 +4867,8 @@ pub union PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY_0 {
     pub Flags: u32,
     pub Anonymous: PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY_0_0,
 }
-impl ::core::marker::Copy for PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY_0 {}
-impl ::core::clone::Clone for PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY_0 {
+impl Copy for PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY_0 {}
+impl Clone for PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4877,8 +4877,8 @@ impl ::core::clone::Clone for PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY_0 {
 pub struct PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY_0_0 {}
-impl ::core::clone::Clone for PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY_0_0 {
+impl Copy for PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY_0_0 {}
+impl Clone for PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4898,8 +4898,8 @@ pub struct QUOTA_LIMITS_EX {
     pub Flags: u32,
     pub CpuRateLimit: RATE_QUOTA_LIMIT,
 }
-impl ::core::marker::Copy for QUOTA_LIMITS_EX {}
-impl ::core::clone::Clone for QUOTA_LIMITS_EX {
+impl Copy for QUOTA_LIMITS_EX {}
+impl Clone for QUOTA_LIMITS_EX {
     fn clone(&self) -> Self {
         *self
     }
@@ -4909,8 +4909,8 @@ pub union RATE_QUOTA_LIMIT {
     pub RateData: u32,
     pub Anonymous: RATE_QUOTA_LIMIT_0,
 }
-impl ::core::marker::Copy for RATE_QUOTA_LIMIT {}
-impl ::core::clone::Clone for RATE_QUOTA_LIMIT {
+impl Copy for RATE_QUOTA_LIMIT {}
+impl Clone for RATE_QUOTA_LIMIT {
     fn clone(&self) -> Self {
         *self
     }
@@ -4919,8 +4919,8 @@ impl ::core::clone::Clone for RATE_QUOTA_LIMIT {
 pub struct RATE_QUOTA_LIMIT_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for RATE_QUOTA_LIMIT_0 {}
-impl ::core::clone::Clone for RATE_QUOTA_LIMIT_0 {
+impl Copy for RATE_QUOTA_LIMIT_0 {}
+impl Clone for RATE_QUOTA_LIMIT_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4933,8 +4933,8 @@ pub struct REARRANGE_FILE_DATA {
     pub Length: u32,
     pub Flags: u32,
 }
-impl ::core::marker::Copy for REARRANGE_FILE_DATA {}
-impl ::core::clone::Clone for REARRANGE_FILE_DATA {
+impl Copy for REARRANGE_FILE_DATA {}
+impl Clone for REARRANGE_FILE_DATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -4949,9 +4949,9 @@ pub struct REARRANGE_FILE_DATA32 {
     pub Flags: u32,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::marker::Copy for REARRANGE_FILE_DATA32 {}
+impl Copy for REARRANGE_FILE_DATA32 {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::clone::Clone for REARRANGE_FILE_DATA32 {
+impl Clone for REARRANGE_FILE_DATA32 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4963,20 +4963,20 @@ pub struct REDBOOK_DIGITAL_AUDIO_EXTRACTION_INFO {
     pub Supported: u32,
     pub AccurateMask0: u32,
 }
-impl ::core::marker::Copy for REDBOOK_DIGITAL_AUDIO_EXTRACTION_INFO {}
-impl ::core::clone::Clone for REDBOOK_DIGITAL_AUDIO_EXTRACTION_INFO {
+impl Copy for REDBOOK_DIGITAL_AUDIO_EXTRACTION_INFO {}
+impl Clone for REDBOOK_DIGITAL_AUDIO_EXTRACTION_INFO {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct RESOURCEMANAGER_BASIC_INFORMATION {
-    pub ResourceManagerId: ::windows_sys::core::GUID,
+    pub ResourceManagerId: windows_sys::core::GUID,
     pub DescriptionLength: u32,
     pub Description: [u16; 1],
 }
-impl ::core::marker::Copy for RESOURCEMANAGER_BASIC_INFORMATION {}
-impl ::core::clone::Clone for RESOURCEMANAGER_BASIC_INFORMATION {
+impl Copy for RESOURCEMANAGER_BASIC_INFORMATION {}
+impl Clone for RESOURCEMANAGER_BASIC_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -4986,8 +4986,8 @@ pub struct RESOURCEMANAGER_COMPLETION_INFORMATION {
     pub IoCompletionPortHandle: super::super::Foundation::HANDLE,
     pub CompletionKey: usize,
 }
-impl ::core::marker::Copy for RESOURCEMANAGER_COMPLETION_INFORMATION {}
-impl ::core::clone::Clone for RESOURCEMANAGER_COMPLETION_INFORMATION {
+impl Copy for RESOURCEMANAGER_COMPLETION_INFORMATION {}
+impl Clone for RESOURCEMANAGER_COMPLETION_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -4997,8 +4997,8 @@ pub struct RemHBITMAP {
     pub cbData: u32,
     pub data: [u8; 1],
 }
-impl ::core::marker::Copy for RemHBITMAP {}
-impl ::core::clone::Clone for RemHBITMAP {
+impl Copy for RemHBITMAP {}
+impl Clone for RemHBITMAP {
     fn clone(&self) -> Self {
         *self
     }
@@ -5008,8 +5008,8 @@ pub struct RemHBRUSH {
     pub cbData: u32,
     pub data: [u8; 1],
 }
-impl ::core::marker::Copy for RemHBRUSH {}
-impl ::core::clone::Clone for RemHBRUSH {
+impl Copy for RemHBRUSH {}
+impl Clone for RemHBRUSH {
     fn clone(&self) -> Self {
         *self
     }
@@ -5019,8 +5019,8 @@ pub struct RemHENHMETAFILE {
     pub cbData: u32,
     pub data: [u8; 1],
 }
-impl ::core::marker::Copy for RemHENHMETAFILE {}
-impl ::core::clone::Clone for RemHENHMETAFILE {
+impl Copy for RemHENHMETAFILE {}
+impl Clone for RemHENHMETAFILE {
     fn clone(&self) -> Self {
         *self
     }
@@ -5031,8 +5031,8 @@ pub struct RemHGLOBAL {
     pub cbData: u32,
     pub data: [u8; 1],
 }
-impl ::core::marker::Copy for RemHGLOBAL {}
-impl ::core::clone::Clone for RemHGLOBAL {
+impl Copy for RemHGLOBAL {}
+impl Clone for RemHGLOBAL {
     fn clone(&self) -> Self {
         *self
     }
@@ -5045,8 +5045,8 @@ pub struct RemHMETAFILEPICT {
     pub cbData: u32,
     pub data: [u8; 1],
 }
-impl ::core::marker::Copy for RemHMETAFILEPICT {}
-impl ::core::clone::Clone for RemHMETAFILEPICT {
+impl Copy for RemHMETAFILEPICT {}
+impl Clone for RemHMETAFILEPICT {
     fn clone(&self) -> Self {
         *self
     }
@@ -5056,8 +5056,8 @@ pub struct RemHPALETTE {
     pub cbData: u32,
     pub data: [u8; 1],
 }
-impl ::core::marker::Copy for RemHPALETTE {}
-impl ::core::clone::Clone for RemHPALETTE {
+impl Copy for RemHPALETTE {}
+impl Clone for RemHPALETTE {
     fn clone(&self) -> Self {
         *self
     }
@@ -5067,8 +5067,8 @@ pub struct RemotableHandle {
     pub fContext: i32,
     pub u: RemotableHandle_0,
 }
-impl ::core::marker::Copy for RemotableHandle {}
-impl ::core::clone::Clone for RemotableHandle {
+impl Copy for RemotableHandle {}
+impl Clone for RemotableHandle {
     fn clone(&self) -> Self {
         *self
     }
@@ -5078,8 +5078,8 @@ pub union RemotableHandle_0 {
     pub hInproc: i32,
     pub hRemote: i32,
 }
-impl ::core::marker::Copy for RemotableHandle_0 {}
-impl ::core::clone::Clone for RemotableHandle_0 {
+impl Copy for RemotableHandle_0 {}
+impl Clone for RemotableHandle_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -5089,8 +5089,8 @@ pub struct SCOPE_TABLE_AMD64 {
     pub Count: u32,
     pub ScopeRecord: [SCOPE_TABLE_AMD64_0; 1],
 }
-impl ::core::marker::Copy for SCOPE_TABLE_AMD64 {}
-impl ::core::clone::Clone for SCOPE_TABLE_AMD64 {
+impl Copy for SCOPE_TABLE_AMD64 {}
+impl Clone for SCOPE_TABLE_AMD64 {
     fn clone(&self) -> Self {
         *self
     }
@@ -5102,8 +5102,8 @@ pub struct SCOPE_TABLE_AMD64_0 {
     pub HandlerAddress: u32,
     pub JumpTarget: u32,
 }
-impl ::core::marker::Copy for SCOPE_TABLE_AMD64_0 {}
-impl ::core::clone::Clone for SCOPE_TABLE_AMD64_0 {
+impl Copy for SCOPE_TABLE_AMD64_0 {}
+impl Clone for SCOPE_TABLE_AMD64_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -5113,8 +5113,8 @@ pub struct SCOPE_TABLE_ARM {
     pub Count: u32,
     pub ScopeRecord: [SCOPE_TABLE_ARM_0; 1],
 }
-impl ::core::marker::Copy for SCOPE_TABLE_ARM {}
-impl ::core::clone::Clone for SCOPE_TABLE_ARM {
+impl Copy for SCOPE_TABLE_ARM {}
+impl Clone for SCOPE_TABLE_ARM {
     fn clone(&self) -> Self {
         *self
     }
@@ -5126,8 +5126,8 @@ pub struct SCOPE_TABLE_ARM_0 {
     pub HandlerAddress: u32,
     pub JumpTarget: u32,
 }
-impl ::core::marker::Copy for SCOPE_TABLE_ARM_0 {}
-impl ::core::clone::Clone for SCOPE_TABLE_ARM_0 {
+impl Copy for SCOPE_TABLE_ARM_0 {}
+impl Clone for SCOPE_TABLE_ARM_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -5137,8 +5137,8 @@ pub struct SCOPE_TABLE_ARM64 {
     pub Count: u32,
     pub ScopeRecord: [SCOPE_TABLE_ARM64_0; 1],
 }
-impl ::core::marker::Copy for SCOPE_TABLE_ARM64 {}
-impl ::core::clone::Clone for SCOPE_TABLE_ARM64 {
+impl Copy for SCOPE_TABLE_ARM64 {}
+impl Clone for SCOPE_TABLE_ARM64 {
     fn clone(&self) -> Self {
         *self
     }
@@ -5150,8 +5150,8 @@ pub struct SCOPE_TABLE_ARM64_0 {
     pub HandlerAddress: u32,
     pub JumpTarget: u32,
 }
-impl ::core::marker::Copy for SCOPE_TABLE_ARM64_0 {}
-impl ::core::clone::Clone for SCOPE_TABLE_ARM64_0 {
+impl Copy for SCOPE_TABLE_ARM64_0 {}
+impl Clone for SCOPE_TABLE_ARM64_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -5165,8 +5165,8 @@ pub struct SCRUB_DATA_INPUT {
     pub Reserved: [u32; 41],
     pub ResumeContext: [u8; 1040],
 }
-impl ::core::marker::Copy for SCRUB_DATA_INPUT {}
-impl ::core::clone::Clone for SCRUB_DATA_INPUT {
+impl Copy for SCRUB_DATA_INPUT {}
+impl Clone for SCRUB_DATA_INPUT {
     fn clone(&self) -> Self {
         *self
     }
@@ -5198,8 +5198,8 @@ pub struct SCRUB_DATA_OUTPUT {
     pub DataBytesScrubbed: u64,
     pub ResumeContext: [u8; 1040],
 }
-impl ::core::marker::Copy for SCRUB_DATA_OUTPUT {}
-impl ::core::clone::Clone for SCRUB_DATA_OUTPUT {
+impl Copy for SCRUB_DATA_OUTPUT {}
+impl Clone for SCRUB_DATA_OUTPUT {
     fn clone(&self) -> Self {
         *self
     }
@@ -5209,8 +5209,8 @@ pub struct SCRUB_PARITY_EXTENT {
     pub Offset: i64,
     pub Length: u64,
 }
-impl ::core::marker::Copy for SCRUB_PARITY_EXTENT {}
-impl ::core::clone::Clone for SCRUB_PARITY_EXTENT {
+impl Copy for SCRUB_PARITY_EXTENT {}
+impl Clone for SCRUB_PARITY_EXTENT {
     fn clone(&self) -> Self {
         *self
     }
@@ -5223,8 +5223,8 @@ pub struct SCRUB_PARITY_EXTENT_DATA {
     pub MaximumNumberOfParityExtents: u16,
     pub ParityExtents: [SCRUB_PARITY_EXTENT; 1],
 }
-impl ::core::marker::Copy for SCRUB_PARITY_EXTENT_DATA {}
-impl ::core::clone::Clone for SCRUB_PARITY_EXTENT_DATA {
+impl Copy for SCRUB_PARITY_EXTENT_DATA {}
+impl Clone for SCRUB_PARITY_EXTENT_DATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -5234,8 +5234,8 @@ pub struct SECURITY_OBJECT_AI_PARAMS {
     pub Size: u32,
     pub ConstraintMask: u32,
 }
-impl ::core::marker::Copy for SECURITY_OBJECT_AI_PARAMS {}
-impl ::core::clone::Clone for SECURITY_OBJECT_AI_PARAMS {
+impl Copy for SECURITY_OBJECT_AI_PARAMS {}
+impl Clone for SECURITY_OBJECT_AI_PARAMS {
     fn clone(&self) -> Self {
         *self
     }
@@ -5246,11 +5246,11 @@ pub struct SERVERSILO_BASIC_INFORMATION {
     pub State: SERVERSILO_STATE,
     pub ExitStatus: u32,
     pub IsDownlevelContainer: super::super::Foundation::BOOLEAN,
-    pub ApiSetSchema: *mut ::core::ffi::c_void,
-    pub HostApiSetSchema: *mut ::core::ffi::c_void,
+    pub ApiSetSchema: *mut core::ffi::c_void,
+    pub HostApiSetSchema: *mut core::ffi::c_void,
 }
-impl ::core::marker::Copy for SERVERSILO_BASIC_INFORMATION {}
-impl ::core::clone::Clone for SERVERSILO_BASIC_INFORMATION {
+impl Copy for SERVERSILO_BASIC_INFORMATION {}
+impl Clone for SERVERSILO_BASIC_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -5262,9 +5262,9 @@ pub struct SE_TOKEN_USER {
     pub Anonymous2: SE_TOKEN_USER_1,
 }
 #[cfg(feature = "Win32_Security")]
-impl ::core::marker::Copy for SE_TOKEN_USER {}
+impl Copy for SE_TOKEN_USER {}
 #[cfg(feature = "Win32_Security")]
-impl ::core::clone::Clone for SE_TOKEN_USER {
+impl Clone for SE_TOKEN_USER {
     fn clone(&self) -> Self {
         *self
     }
@@ -5276,9 +5276,9 @@ pub union SE_TOKEN_USER_0 {
     pub User: super::super::Security::SID_AND_ATTRIBUTES,
 }
 #[cfg(feature = "Win32_Security")]
-impl ::core::marker::Copy for SE_TOKEN_USER_0 {}
+impl Copy for SE_TOKEN_USER_0 {}
 #[cfg(feature = "Win32_Security")]
-impl ::core::clone::Clone for SE_TOKEN_USER_0 {
+impl Clone for SE_TOKEN_USER_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -5290,9 +5290,9 @@ pub union SE_TOKEN_USER_1 {
     pub Buffer: [u8; 68],
 }
 #[cfg(feature = "Win32_Security")]
-impl ::core::marker::Copy for SE_TOKEN_USER_1 {}
+impl Copy for SE_TOKEN_USER_1 {}
 #[cfg(feature = "Win32_Security")]
-impl ::core::clone::Clone for SE_TOKEN_USER_1 {
+impl Clone for SE_TOKEN_USER_1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -5302,8 +5302,8 @@ pub struct SHARED_VIRTUAL_DISK_SUPPORT {
     pub SharedVirtualDiskSupport: SharedVirtualDiskSupportType,
     pub HandleState: SharedVirtualDiskHandleState,
 }
-impl ::core::marker::Copy for SHARED_VIRTUAL_DISK_SUPPORT {}
-impl ::core::clone::Clone for SHARED_VIRTUAL_DISK_SUPPORT {
+impl Copy for SHARED_VIRTUAL_DISK_SUPPORT {}
+impl Clone for SHARED_VIRTUAL_DISK_SUPPORT {
     fn clone(&self) -> Self {
         *self
     }
@@ -5314,8 +5314,8 @@ pub struct SHUFFLE_FILE_DATA {
     pub Length: i64,
     pub Flags: u32,
 }
-impl ::core::marker::Copy for SHUFFLE_FILE_DATA {}
-impl ::core::clone::Clone for SHUFFLE_FILE_DATA {
+impl Copy for SHUFFLE_FILE_DATA {}
+impl Clone for SHUFFLE_FILE_DATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -5328,8 +5328,8 @@ pub struct SILOOBJECT_BASIC_INFORMATION {
     pub IsInServerSilo: super::super::Foundation::BOOLEAN,
     pub Reserved: [u8; 3],
 }
-impl ::core::marker::Copy for SILOOBJECT_BASIC_INFORMATION {}
-impl ::core::clone::Clone for SILOOBJECT_BASIC_INFORMATION {
+impl Copy for SILOOBJECT_BASIC_INFORMATION {}
+impl Clone for SILOOBJECT_BASIC_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -5339,8 +5339,8 @@ pub struct SUPPORTED_OS_INFO {
     pub MajorVersion: u16,
     pub MinorVersion: u16,
 }
-impl ::core::marker::Copy for SUPPORTED_OS_INFO {}
-impl ::core::clone::Clone for SUPPORTED_OS_INFO {
+impl Copy for SUPPORTED_OS_INFO {}
+impl Clone for SUPPORTED_OS_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -5351,8 +5351,8 @@ pub struct TAPE_CREATE_PARTITION {
     pub Count: u32,
     pub Size: u32,
 }
-impl ::core::marker::Copy for TAPE_CREATE_PARTITION {}
-impl ::core::clone::Clone for TAPE_CREATE_PARTITION {
+impl Copy for TAPE_CREATE_PARTITION {}
+impl Clone for TAPE_CREATE_PARTITION {
     fn clone(&self) -> Self {
         *self
     }
@@ -5371,8 +5371,8 @@ pub struct TAPE_GET_DRIVE_PARAMETERS {
     pub FeaturesHigh: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH,
     pub EOTWarningZoneSize: u32,
 }
-impl ::core::marker::Copy for TAPE_GET_DRIVE_PARAMETERS {}
-impl ::core::clone::Clone for TAPE_GET_DRIVE_PARAMETERS {
+impl Copy for TAPE_GET_DRIVE_PARAMETERS {}
+impl Clone for TAPE_GET_DRIVE_PARAMETERS {
     fn clone(&self) -> Self {
         *self
     }
@@ -5385,8 +5385,8 @@ pub struct TAPE_GET_MEDIA_PARAMETERS {
     pub PartitionCount: u32,
     pub WriteProtected: super::super::Foundation::BOOLEAN,
 }
-impl ::core::marker::Copy for TAPE_GET_MEDIA_PARAMETERS {}
-impl ::core::clone::Clone for TAPE_GET_MEDIA_PARAMETERS {
+impl Copy for TAPE_GET_MEDIA_PARAMETERS {}
+impl Clone for TAPE_GET_MEDIA_PARAMETERS {
     fn clone(&self) -> Self {
         *self
     }
@@ -5399,8 +5399,8 @@ pub struct TAPE_SET_DRIVE_PARAMETERS {
     pub ReportSetmarks: super::super::Foundation::BOOLEAN,
     pub EOTWarningZoneSize: u32,
 }
-impl ::core::marker::Copy for TAPE_SET_DRIVE_PARAMETERS {}
-impl ::core::clone::Clone for TAPE_SET_DRIVE_PARAMETERS {
+impl Copy for TAPE_SET_DRIVE_PARAMETERS {}
+impl Clone for TAPE_SET_DRIVE_PARAMETERS {
     fn clone(&self) -> Self {
         *self
     }
@@ -5409,8 +5409,8 @@ impl ::core::clone::Clone for TAPE_SET_DRIVE_PARAMETERS {
 pub struct TAPE_SET_MEDIA_PARAMETERS {
     pub BlockSize: u32,
 }
-impl ::core::marker::Copy for TAPE_SET_MEDIA_PARAMETERS {}
-impl ::core::clone::Clone for TAPE_SET_MEDIA_PARAMETERS {
+impl Copy for TAPE_SET_MEDIA_PARAMETERS {}
+impl Clone for TAPE_SET_MEDIA_PARAMETERS {
     fn clone(&self) -> Self {
         *self
     }
@@ -5419,21 +5419,21 @@ impl ::core::clone::Clone for TAPE_SET_MEDIA_PARAMETERS {
 pub struct TAPE_WMI_OPERATIONS {
     pub Method: u32,
     pub DataBufferSize: u32,
-    pub DataBuffer: *mut ::core::ffi::c_void,
+    pub DataBuffer: *mut core::ffi::c_void,
 }
-impl ::core::marker::Copy for TAPE_WMI_OPERATIONS {}
-impl ::core::clone::Clone for TAPE_WMI_OPERATIONS {
+impl Copy for TAPE_WMI_OPERATIONS {}
+impl Clone for TAPE_WMI_OPERATIONS {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct TOKEN_BNO_ISOLATION_INFORMATION {
-    pub IsolationPrefix: ::windows_sys::core::PWSTR,
+    pub IsolationPrefix: windows_sys::core::PWSTR,
     pub IsolationEnabled: super::super::Foundation::BOOLEAN,
 }
-impl ::core::marker::Copy for TOKEN_BNO_ISOLATION_INFORMATION {}
-impl ::core::clone::Clone for TOKEN_BNO_ISOLATION_INFORMATION {
+impl Copy for TOKEN_BNO_ISOLATION_INFORMATION {}
+impl Clone for TOKEN_BNO_ISOLATION_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -5442,19 +5442,19 @@ impl ::core::clone::Clone for TOKEN_BNO_ISOLATION_INFORMATION {
 pub struct TOKEN_SID_INFORMATION {
     pub Sid: super::super::Foundation::PSID,
 }
-impl ::core::marker::Copy for TOKEN_SID_INFORMATION {}
-impl ::core::clone::Clone for TOKEN_SID_INFORMATION {
+impl Copy for TOKEN_SID_INFORMATION {}
+impl Clone for TOKEN_SID_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct TRANSACTIONMANAGER_BASIC_INFORMATION {
-    pub TmIdentity: ::windows_sys::core::GUID,
+    pub TmIdentity: windows_sys::core::GUID,
     pub VirtualClock: i64,
 }
-impl ::core::marker::Copy for TRANSACTIONMANAGER_BASIC_INFORMATION {}
-impl ::core::clone::Clone for TRANSACTIONMANAGER_BASIC_INFORMATION {
+impl Copy for TRANSACTIONMANAGER_BASIC_INFORMATION {}
+impl Clone for TRANSACTIONMANAGER_BASIC_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -5464,28 +5464,28 @@ pub struct TRANSACTIONMANAGER_LOGPATH_INFORMATION {
     pub LogPathLength: u32,
     pub LogPath: [u16; 1],
 }
-impl ::core::marker::Copy for TRANSACTIONMANAGER_LOGPATH_INFORMATION {}
-impl ::core::clone::Clone for TRANSACTIONMANAGER_LOGPATH_INFORMATION {
+impl Copy for TRANSACTIONMANAGER_LOGPATH_INFORMATION {}
+impl Clone for TRANSACTIONMANAGER_LOGPATH_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct TRANSACTIONMANAGER_LOG_INFORMATION {
-    pub LogIdentity: ::windows_sys::core::GUID,
+    pub LogIdentity: windows_sys::core::GUID,
 }
-impl ::core::marker::Copy for TRANSACTIONMANAGER_LOG_INFORMATION {}
-impl ::core::clone::Clone for TRANSACTIONMANAGER_LOG_INFORMATION {
+impl Copy for TRANSACTIONMANAGER_LOG_INFORMATION {}
+impl Clone for TRANSACTIONMANAGER_LOG_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct TRANSACTIONMANAGER_OLDEST_INFORMATION {
-    pub OldestTransactionGuid: ::windows_sys::core::GUID,
+    pub OldestTransactionGuid: windows_sys::core::GUID,
 }
-impl ::core::marker::Copy for TRANSACTIONMANAGER_OLDEST_INFORMATION {}
-impl ::core::clone::Clone for TRANSACTIONMANAGER_OLDEST_INFORMATION {
+impl Copy for TRANSACTIONMANAGER_OLDEST_INFORMATION {}
+impl Clone for TRANSACTIONMANAGER_OLDEST_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -5494,20 +5494,20 @@ impl ::core::clone::Clone for TRANSACTIONMANAGER_OLDEST_INFORMATION {
 pub struct TRANSACTIONMANAGER_RECOVERY_INFORMATION {
     pub LastRecoveredLsn: u64,
 }
-impl ::core::marker::Copy for TRANSACTIONMANAGER_RECOVERY_INFORMATION {}
-impl ::core::clone::Clone for TRANSACTIONMANAGER_RECOVERY_INFORMATION {
+impl Copy for TRANSACTIONMANAGER_RECOVERY_INFORMATION {}
+impl Clone for TRANSACTIONMANAGER_RECOVERY_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct TRANSACTION_BASIC_INFORMATION {
-    pub TransactionId: ::windows_sys::core::GUID,
+    pub TransactionId: windows_sys::core::GUID,
     pub State: u32,
     pub Outcome: u32,
 }
-impl ::core::marker::Copy for TRANSACTION_BASIC_INFORMATION {}
-impl ::core::clone::Clone for TRANSACTION_BASIC_INFORMATION {
+impl Copy for TRANSACTION_BASIC_INFORMATION {}
+impl Clone for TRANSACTION_BASIC_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -5516,8 +5516,8 @@ impl ::core::clone::Clone for TRANSACTION_BASIC_INFORMATION {
 pub struct TRANSACTION_BIND_INFORMATION {
     pub TmHandle: super::super::Foundation::HANDLE,
 }
-impl ::core::marker::Copy for TRANSACTION_BIND_INFORMATION {}
-impl ::core::clone::Clone for TRANSACTION_BIND_INFORMATION {
+impl Copy for TRANSACTION_BIND_INFORMATION {}
+impl Clone for TRANSACTION_BIND_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -5527,29 +5527,29 @@ pub struct TRANSACTION_ENLISTMENTS_INFORMATION {
     pub NumberOfEnlistments: u32,
     pub EnlistmentPair: [TRANSACTION_ENLISTMENT_PAIR; 1],
 }
-impl ::core::marker::Copy for TRANSACTION_ENLISTMENTS_INFORMATION {}
-impl ::core::clone::Clone for TRANSACTION_ENLISTMENTS_INFORMATION {
+impl Copy for TRANSACTION_ENLISTMENTS_INFORMATION {}
+impl Clone for TRANSACTION_ENLISTMENTS_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct TRANSACTION_ENLISTMENT_PAIR {
-    pub EnlistmentId: ::windows_sys::core::GUID,
-    pub ResourceManagerId: ::windows_sys::core::GUID,
+    pub EnlistmentId: windows_sys::core::GUID,
+    pub ResourceManagerId: windows_sys::core::GUID,
 }
-impl ::core::marker::Copy for TRANSACTION_ENLISTMENT_PAIR {}
-impl ::core::clone::Clone for TRANSACTION_ENLISTMENT_PAIR {
+impl Copy for TRANSACTION_ENLISTMENT_PAIR {}
+impl Clone for TRANSACTION_ENLISTMENT_PAIR {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct TRANSACTION_LIST_ENTRY {
-    pub UOW: ::windows_sys::core::GUID,
+    pub UOW: windows_sys::core::GUID,
 }
-impl ::core::marker::Copy for TRANSACTION_LIST_ENTRY {}
-impl ::core::clone::Clone for TRANSACTION_LIST_ENTRY {
+impl Copy for TRANSACTION_LIST_ENTRY {}
+impl Clone for TRANSACTION_LIST_ENTRY {
     fn clone(&self) -> Self {
         *self
     }
@@ -5559,8 +5559,8 @@ pub struct TRANSACTION_LIST_INFORMATION {
     pub NumberOfTransactions: u32,
     pub TransactionInformation: [TRANSACTION_LIST_ENTRY; 1],
 }
-impl ::core::marker::Copy for TRANSACTION_LIST_INFORMATION {}
-impl ::core::clone::Clone for TRANSACTION_LIST_INFORMATION {
+impl Copy for TRANSACTION_LIST_INFORMATION {}
+impl Clone for TRANSACTION_LIST_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -5574,8 +5574,8 @@ pub struct TRANSACTION_PROPERTIES_INFORMATION {
     pub DescriptionLength: u32,
     pub Description: [u16; 1],
 }
-impl ::core::marker::Copy for TRANSACTION_PROPERTIES_INFORMATION {}
-impl ::core::clone::Clone for TRANSACTION_PROPERTIES_INFORMATION {
+impl Copy for TRANSACTION_PROPERTIES_INFORMATION {}
+impl Clone for TRANSACTION_PROPERTIES_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -5584,8 +5584,8 @@ impl ::core::clone::Clone for TRANSACTION_PROPERTIES_INFORMATION {
 pub struct TRANSACTION_SUPERIOR_ENLISTMENT_INFORMATION {
     pub SuperiorEnlistmentPair: TRANSACTION_ENLISTMENT_PAIR,
 }
-impl ::core::marker::Copy for TRANSACTION_SUPERIOR_ENLISTMENT_INFORMATION {}
-impl ::core::clone::Clone for TRANSACTION_SUPERIOR_ENLISTMENT_INFORMATION {
+impl Copy for TRANSACTION_SUPERIOR_ENLISTMENT_INFORMATION {}
+impl Clone for TRANSACTION_SUPERIOR_ENLISTMENT_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -5593,11 +5593,11 @@ impl ::core::clone::Clone for TRANSACTION_SUPERIOR_ENLISTMENT_INFORMATION {
 #[repr(C)]
 pub struct UMS_CREATE_THREAD_ATTRIBUTES {
     pub UmsVersion: u32,
-    pub UmsContext: *mut ::core::ffi::c_void,
-    pub UmsCompletionList: *mut ::core::ffi::c_void,
+    pub UmsContext: *mut core::ffi::c_void,
+    pub UmsCompletionList: *mut core::ffi::c_void,
 }
-impl ::core::marker::Copy for UMS_CREATE_THREAD_ATTRIBUTES {}
-impl ::core::clone::Clone for UMS_CREATE_THREAD_ATTRIBUTES {
+impl Copy for UMS_CREATE_THREAD_ATTRIBUTES {}
+impl Clone for UMS_CREATE_THREAD_ATTRIBUTES {
     fn clone(&self) -> Self {
         *self
     }
@@ -5607,8 +5607,8 @@ pub struct XSAVE_CET_U_FORMAT {
     pub Ia32CetUMsr: u64,
     pub Ia32Pl3SspMsr: u64,
 }
-impl ::core::marker::Copy for XSAVE_CET_U_FORMAT {}
-impl ::core::clone::Clone for XSAVE_CET_U_FORMAT {
+impl Copy for XSAVE_CET_U_FORMAT {}
+impl Clone for XSAVE_CET_U_FORMAT {
     fn clone(&self) -> Self {
         *self
     }
@@ -5622,9 +5622,9 @@ pub struct remoteMETAFILEPICT {
     pub hMF: *mut userHMETAFILE,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::marker::Copy for remoteMETAFILEPICT {}
+impl Copy for remoteMETAFILEPICT {}
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for remoteMETAFILEPICT {
+impl Clone for remoteMETAFILEPICT {
     fn clone(&self) -> Self {
         *self
     }
@@ -5640,8 +5640,8 @@ pub struct userBITMAP {
     pub cbSize: u32,
     pub pBuffer: [u8; 1],
 }
-impl ::core::marker::Copy for userBITMAP {}
-impl ::core::clone::Clone for userBITMAP {
+impl Copy for userBITMAP {}
+impl Clone for userBITMAP {
     fn clone(&self) -> Self {
         *self
     }
@@ -5651,8 +5651,8 @@ pub struct userCLIPFORMAT {
     pub fContext: i32,
     pub u: userCLIPFORMAT_0,
 }
-impl ::core::marker::Copy for userCLIPFORMAT {}
-impl ::core::clone::Clone for userCLIPFORMAT {
+impl Copy for userCLIPFORMAT {}
+impl Clone for userCLIPFORMAT {
     fn clone(&self) -> Self {
         *self
     }
@@ -5660,10 +5660,10 @@ impl ::core::clone::Clone for userCLIPFORMAT {
 #[repr(C)]
 pub union userCLIPFORMAT_0 {
     pub dwValue: u32,
-    pub pwszName: ::windows_sys::core::PWSTR,
+    pub pwszName: windows_sys::core::PWSTR,
 }
-impl ::core::marker::Copy for userCLIPFORMAT_0 {}
-impl ::core::clone::Clone for userCLIPFORMAT_0 {
+impl Copy for userCLIPFORMAT_0 {}
+impl Clone for userCLIPFORMAT_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -5673,8 +5673,8 @@ pub struct userHBITMAP {
     pub fContext: i32,
     pub u: userHBITMAP_0,
 }
-impl ::core::marker::Copy for userHBITMAP {}
-impl ::core::clone::Clone for userHBITMAP {
+impl Copy for userHBITMAP {}
+impl Clone for userHBITMAP {
     fn clone(&self) -> Self {
         *self
     }
@@ -5685,8 +5685,8 @@ pub union userHBITMAP_0 {
     pub hRemote: *mut userBITMAP,
     pub hInproc64: i64,
 }
-impl ::core::marker::Copy for userHBITMAP_0 {}
-impl ::core::clone::Clone for userHBITMAP_0 {
+impl Copy for userHBITMAP_0 {}
+impl Clone for userHBITMAP_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -5698,9 +5698,9 @@ pub struct userHENHMETAFILE {
     pub u: userHENHMETAFILE_0,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::marker::Copy for userHENHMETAFILE {}
+impl Copy for userHENHMETAFILE {}
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for userHENHMETAFILE {
+impl Clone for userHENHMETAFILE {
     fn clone(&self) -> Self {
         *self
     }
@@ -5713,9 +5713,9 @@ pub union userHENHMETAFILE_0 {
     pub hInproc64: i64,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::marker::Copy for userHENHMETAFILE_0 {}
+impl Copy for userHENHMETAFILE_0 {}
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for userHENHMETAFILE_0 {
+impl Clone for userHENHMETAFILE_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -5727,9 +5727,9 @@ pub struct userHGLOBAL {
     pub u: userHGLOBAL_0,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::marker::Copy for userHGLOBAL {}
+impl Copy for userHGLOBAL {}
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for userHGLOBAL {
+impl Clone for userHGLOBAL {
     fn clone(&self) -> Self {
         *self
     }
@@ -5742,9 +5742,9 @@ pub union userHGLOBAL_0 {
     pub hInproc64: i64,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::marker::Copy for userHGLOBAL_0 {}
+impl Copy for userHGLOBAL_0 {}
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for userHGLOBAL_0 {
+impl Clone for userHGLOBAL_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -5756,9 +5756,9 @@ pub struct userHMETAFILE {
     pub u: userHMETAFILE_0,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::marker::Copy for userHMETAFILE {}
+impl Copy for userHMETAFILE {}
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for userHMETAFILE {
+impl Clone for userHMETAFILE {
     fn clone(&self) -> Self {
         *self
     }
@@ -5771,9 +5771,9 @@ pub union userHMETAFILE_0 {
     pub hInproc64: i64,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::marker::Copy for userHMETAFILE_0 {}
+impl Copy for userHMETAFILE_0 {}
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for userHMETAFILE_0 {
+impl Clone for userHMETAFILE_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -5785,9 +5785,9 @@ pub struct userHMETAFILEPICT {
     pub u: userHMETAFILEPICT_0,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::marker::Copy for userHMETAFILEPICT {}
+impl Copy for userHMETAFILEPICT {}
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for userHMETAFILEPICT {
+impl Clone for userHMETAFILEPICT {
     fn clone(&self) -> Self {
         *self
     }
@@ -5800,9 +5800,9 @@ pub union userHMETAFILEPICT_0 {
     pub hInproc64: i64,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::marker::Copy for userHMETAFILEPICT_0 {}
+impl Copy for userHMETAFILEPICT_0 {}
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for userHMETAFILEPICT_0 {
+impl Clone for userHMETAFILEPICT_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -5814,9 +5814,9 @@ pub struct userHPALETTE {
     pub u: userHPALETTE_0,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::marker::Copy for userHPALETTE {}
+impl Copy for userHPALETTE {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::clone::Clone for userHPALETTE {
+impl Clone for userHPALETTE {
     fn clone(&self) -> Self {
         *self
     }
@@ -5829,25 +5829,25 @@ pub union userHPALETTE_0 {
     pub hInproc64: i64,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::marker::Copy for userHPALETTE_0 {}
+impl Copy for userHPALETTE_0 {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::clone::Clone for userHPALETTE_0 {
+impl Clone for userHPALETTE_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-pub type PEXCEPTION_FILTER = ::core::option::Option<unsafe extern "system" fn(exceptionpointers: *mut super::Diagnostics::Debug::EXCEPTION_POINTERS, establisherframe: *const ::core::ffi::c_void) -> i32>;
-pub type PIMAGE_TLS_CALLBACK = ::core::option::Option<unsafe extern "system" fn(dllhandle: *mut ::core::ffi::c_void, reason: u32, reserved: *mut ::core::ffi::c_void)>;
+pub type PEXCEPTION_FILTER = Option<unsafe extern "system" fn(exceptionpointers: *mut super::Diagnostics::Debug::EXCEPTION_POINTERS, establisherframe: *const core::ffi::c_void) -> i32>;
+pub type PIMAGE_TLS_CALLBACK = Option<unsafe extern "system" fn(dllhandle: *mut core::ffi::c_void, reason: u32, reserved: *mut core::ffi::c_void)>;
 #[cfg(target_arch = "aarch64")]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-pub type POUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(process: super::super::Foundation::HANDLE, tableaddress: *const ::core::ffi::c_void, entries: *mut u32, functions: *mut *mut super::Diagnostics::Debug::IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY) -> u32>;
+pub type POUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK = Option<unsafe extern "system" fn(process: super::super::Foundation::HANDLE, tableaddress: *const core::ffi::c_void, entries: *mut u32, functions: *mut *mut super::Diagnostics::Debug::IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY) -> u32>;
 #[cfg(target_arch = "x86_64")]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-pub type POUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(process: super::super::Foundation::HANDLE, tableaddress: *const ::core::ffi::c_void, entries: *mut u32, functions: *mut *mut super::Diagnostics::Debug::IMAGE_RUNTIME_FUNCTION_ENTRY) -> u32>;
+pub type POUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK = Option<unsafe extern "system" fn(process: super::super::Foundation::HANDLE, tableaddress: *const core::ffi::c_void, entries: *mut u32, functions: *mut *mut super::Diagnostics::Debug::IMAGE_RUNTIME_FUNCTION_ENTRY) -> u32>;
 #[cfg(target_arch = "aarch64")]
-pub type PTERMINATION_HANDLER = ::core::option::Option<unsafe extern "system" fn(_abnormal_termination: super::super::Foundation::BOOLEAN, establisherframe: u64)>;
+pub type PTERMINATION_HANDLER = Option<unsafe extern "system" fn(_abnormal_termination: super::super::Foundation::BOOLEAN, establisherframe: u64)>;
 #[cfg(target_arch = "x86_64")]
-pub type PTERMINATION_HANDLER = ::core::option::Option<unsafe extern "system" fn(_abnormal_termination: super::super::Foundation::BOOLEAN, establisherframe: *mut ::core::ffi::c_void)>;
-pub type PUMS_SCHEDULER_ENTRY_POINT = ::core::option::Option<unsafe extern "system" fn(reason: RTL_UMS_SCHEDULER_REASON, activationpayload: usize, schedulerparam: *const ::core::ffi::c_void)>;
+pub type PTERMINATION_HANDLER = Option<unsafe extern "system" fn(_abnormal_termination: super::super::Foundation::BOOLEAN, establisherframe: *mut core::ffi::c_void)>;
+pub type PUMS_SCHEDULER_ENTRY_POINT = Option<unsafe extern "system" fn(reason: RTL_UMS_SCHEDULER_REASON, activationpayload: usize, schedulerparam: *const core::ffi::c_void)>;

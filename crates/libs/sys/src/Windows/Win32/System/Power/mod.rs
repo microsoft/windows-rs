@@ -1,10 +1,10 @@
-::windows_targets::link!("powrprof.dll" "system" fn CallNtPowerInformation(informationlevel : POWER_INFORMATION_LEVEL, inputbuffer : *const ::core::ffi::c_void, inputbufferlength : u32, outputbuffer : *mut ::core::ffi::c_void, outputbufferlength : u32) -> super::super::Foundation:: NTSTATUS);
+::windows_targets::link!("powrprof.dll" "system" fn CallNtPowerInformation(informationlevel : POWER_INFORMATION_LEVEL, inputbuffer : *const core::ffi::c_void, inputbufferlength : u32, outputbuffer : *mut core::ffi::c_void, outputbufferlength : u32) -> super::super::Foundation:: NTSTATUS);
 ::windows_targets::link!("powrprof.dll" "system" fn CanUserWritePwrScheme() -> super::super::Foundation:: BOOLEAN);
 ::windows_targets::link!("powrprof.dll" "system" fn DeletePwrScheme(uiid : u32) -> super::super::Foundation:: BOOLEAN);
 ::windows_targets::link!("powrprof.dll" "system" fn DevicePowerClose() -> super::super::Foundation:: BOOLEAN);
 ::windows_targets::link!("powrprof.dll" "system" fn DevicePowerEnumDevices(queryindex : u32, queryinterpretationflags : u32, queryflags : u32, preturnbuffer : *mut u8, pbuffersize : *mut u32) -> super::super::Foundation:: BOOLEAN);
 ::windows_targets::link!("powrprof.dll" "system" fn DevicePowerOpen(debugmask : u32) -> super::super::Foundation:: BOOLEAN);
-::windows_targets::link!("powrprof.dll" "system" fn DevicePowerSetDeviceState(devicedescription : ::windows_sys::core::PCWSTR, setflags : u32, setdata : *const ::core::ffi::c_void) -> u32);
+::windows_targets::link!("powrprof.dll" "system" fn DevicePowerSetDeviceState(devicedescription : windows_sys::core::PCWSTR, setflags : u32, setdata : *const core::ffi::c_void) -> u32);
 ::windows_targets::link!("powrprof.dll" "system" fn EnumPwrSchemes(lpfn : PWRSCHEMESENUMPROC, lparam : super::super::Foundation:: LPARAM) -> super::super::Foundation:: BOOLEAN);
 ::windows_targets::link!("powrprof.dll" "system" fn GetActivePwrScheme(puiid : *mut u32) -> super::super::Foundation:: BOOLEAN);
 ::windows_targets::link!("powrprof.dll" "system" fn GetCurrentPowerPolicies(pglobalpowerpolicy : *mut GLOBAL_POWER_POLICY, ppowerpolicy : *mut POWER_POLICY) -> super::super::Foundation:: BOOLEAN);
@@ -17,117 +17,117 @@
 ::windows_targets::link!("powrprof.dll" "system" fn IsPwrShutdownAllowed() -> super::super::Foundation:: BOOLEAN);
 ::windows_targets::link!("powrprof.dll" "system" fn IsPwrSuspendAllowed() -> super::super::Foundation:: BOOLEAN);
 ::windows_targets::link!("kernel32.dll" "system" fn IsSystemResumeAutomatic() -> super::super::Foundation:: BOOL);
-::windows_targets::link!("powrprof.dll" "system" fn PowerCanRestoreIndividualDefaultPowerScheme(schemeguid : *const ::windows_sys::core::GUID) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("powrprof.dll" "system" fn PowerCanRestoreIndividualDefaultPowerScheme(schemeguid : *const windows_sys::core::GUID) -> super::super::Foundation:: WIN32_ERROR);
 ::windows_targets::link!("kernel32.dll" "system" fn PowerClearRequest(powerrequest : super::super::Foundation:: HANDLE, requesttype : POWER_REQUEST_TYPE) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_System_Registry")]
-::windows_targets::link!("powrprof.dll" "system" fn PowerCreatePossibleSetting(rootsystempowerkey : super::Registry:: HKEY, subgroupofpowersettingsguid : *const ::windows_sys::core::GUID, powersettingguid : *const ::windows_sys::core::GUID, possiblesettingindex : u32) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("powrprof.dll" "system" fn PowerCreatePossibleSetting(rootsystempowerkey : super::Registry:: HKEY, subgroupofpowersettingsguid : *const windows_sys::core::GUID, powersettingguid : *const windows_sys::core::GUID, possiblesettingindex : u32) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_System_Threading")]
 ::windows_targets::link!("kernel32.dll" "system" fn PowerCreateRequest(context : *const super::Threading:: REASON_CONTEXT) -> super::super::Foundation:: HANDLE);
 #[cfg(feature = "Win32_System_Registry")]
-::windows_targets::link!("powrprof.dll" "system" fn PowerCreateSetting(rootsystempowerkey : super::Registry:: HKEY, subgroupofpowersettingsguid : *const ::windows_sys::core::GUID, powersettingguid : *const ::windows_sys::core::GUID) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("powrprof.dll" "system" fn PowerCreateSetting(rootsystempowerkey : super::Registry:: HKEY, subgroupofpowersettingsguid : *const windows_sys::core::GUID, powersettingguid : *const windows_sys::core::GUID) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_System_Registry")]
-::windows_targets::link!("powrprof.dll" "system" fn PowerDeleteScheme(rootpowerkey : super::Registry:: HKEY, schemeguid : *const ::windows_sys::core::GUID) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("powrprof.dll" "system" fn PowerDeleteScheme(rootpowerkey : super::Registry:: HKEY, schemeguid : *const windows_sys::core::GUID) -> super::super::Foundation:: WIN32_ERROR);
 ::windows_targets::link!("powrprof.dll" "system" fn PowerDeterminePlatformRole() -> POWER_PLATFORM_ROLE);
 ::windows_targets::link!("powrprof.dll" "system" fn PowerDeterminePlatformRoleEx(version : POWER_PLATFORM_ROLE_VERSION) -> POWER_PLATFORM_ROLE);
 #[cfg(feature = "Win32_System_Registry")]
-::windows_targets::link!("powrprof.dll" "system" fn PowerDuplicateScheme(rootpowerkey : super::Registry:: HKEY, sourceschemeguid : *const ::windows_sys::core::GUID, destinationschemeguid : *mut *mut ::windows_sys::core::GUID) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("powrprof.dll" "system" fn PowerDuplicateScheme(rootpowerkey : super::Registry:: HKEY, sourceschemeguid : *const windows_sys::core::GUID, destinationschemeguid : *mut *mut windows_sys::core::GUID) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_System_Registry")]
-::windows_targets::link!("powrprof.dll" "system" fn PowerEnumerate(rootpowerkey : super::Registry:: HKEY, schemeguid : *const ::windows_sys::core::GUID, subgroupofpowersettingsguid : *const ::windows_sys::core::GUID, accessflags : POWER_DATA_ACCESSOR, index : u32, buffer : *mut u8, buffersize : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("powrprof.dll" "system" fn PowerEnumerate(rootpowerkey : super::Registry:: HKEY, schemeguid : *const windows_sys::core::GUID, subgroupofpowersettingsguid : *const windows_sys::core::GUID, accessflags : POWER_DATA_ACCESSOR, index : u32, buffer : *mut u8, buffersize : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_System_Registry")]
-::windows_targets::link!("powrprof.dll" "system" fn PowerGetActiveScheme(userrootpowerkey : super::Registry:: HKEY, activepolicyguid : *mut *mut ::windows_sys::core::GUID) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("powrprof.dll" "system" fn PowerGetActiveScheme(userrootpowerkey : super::Registry:: HKEY, activepolicyguid : *mut *mut windows_sys::core::GUID) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_System_Registry")]
-::windows_targets::link!("powrprof.dll" "system" fn PowerImportPowerScheme(rootpowerkey : super::Registry:: HKEY, importfilenamepath : ::windows_sys::core::PCWSTR, destinationschemeguid : *mut *mut ::windows_sys::core::GUID) -> super::super::Foundation:: WIN32_ERROR);
-::windows_targets::link!("powrprof.dll" "system" fn PowerIsSettingRangeDefined(subkeyguid : *const ::windows_sys::core::GUID, settingguid : *const ::windows_sys::core::GUID) -> super::super::Foundation:: BOOLEAN);
+::windows_targets::link!("powrprof.dll" "system" fn PowerImportPowerScheme(rootpowerkey : super::Registry:: HKEY, importfilenamepath : windows_sys::core::PCWSTR, destinationschemeguid : *mut *mut windows_sys::core::GUID) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("powrprof.dll" "system" fn PowerIsSettingRangeDefined(subkeyguid : *const windows_sys::core::GUID, settingguid : *const windows_sys::core::GUID) -> super::super::Foundation:: BOOLEAN);
 #[cfg(feature = "Win32_System_Registry")]
 ::windows_targets::link!("powrprof.dll" "system" fn PowerOpenSystemPowerKey(phsystempowerkey : *mut super::Registry:: HKEY, access : u32, openexisting : super::super::Foundation:: BOOL) -> u32);
 #[cfg(feature = "Win32_System_Registry")]
 ::windows_targets::link!("powrprof.dll" "system" fn PowerOpenUserPowerKey(phuserpowerkey : *mut super::Registry:: HKEY, access : u32, openexisting : super::super::Foundation:: BOOL) -> u32);
 #[cfg(feature = "Win32_System_Registry")]
-::windows_targets::link!("powrprof.dll" "system" fn PowerReadACDefaultIndex(rootpowerkey : super::Registry:: HKEY, schemepersonalityguid : *const ::windows_sys::core::GUID, subgroupofpowersettingsguid : *const ::windows_sys::core::GUID, powersettingguid : *const ::windows_sys::core::GUID, acdefaultindex : *mut u32) -> u32);
+::windows_targets::link!("powrprof.dll" "system" fn PowerReadACDefaultIndex(rootpowerkey : super::Registry:: HKEY, schemepersonalityguid : *const windows_sys::core::GUID, subgroupofpowersettingsguid : *const windows_sys::core::GUID, powersettingguid : *const windows_sys::core::GUID, acdefaultindex : *mut u32) -> u32);
 #[cfg(feature = "Win32_System_Registry")]
-::windows_targets::link!("powrprof.dll" "system" fn PowerReadACValue(rootpowerkey : super::Registry:: HKEY, schemeguid : *const ::windows_sys::core::GUID, subgroupofpowersettingsguid : *const ::windows_sys::core::GUID, powersettingguid : *const ::windows_sys::core::GUID, r#type : *mut u32, buffer : *mut u8, buffersize : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("powrprof.dll" "system" fn PowerReadACValue(rootpowerkey : super::Registry:: HKEY, schemeguid : *const windows_sys::core::GUID, subgroupofpowersettingsguid : *const windows_sys::core::GUID, powersettingguid : *const windows_sys::core::GUID, r#type : *mut u32, buffer : *mut u8, buffersize : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_System_Registry")]
-::windows_targets::link!("powrprof.dll" "system" fn PowerReadACValueIndex(rootpowerkey : super::Registry:: HKEY, schemeguid : *const ::windows_sys::core::GUID, subgroupofpowersettingsguid : *const ::windows_sys::core::GUID, powersettingguid : *const ::windows_sys::core::GUID, acvalueindex : *mut u32) -> u32);
+::windows_targets::link!("powrprof.dll" "system" fn PowerReadACValueIndex(rootpowerkey : super::Registry:: HKEY, schemeguid : *const windows_sys::core::GUID, subgroupofpowersettingsguid : *const windows_sys::core::GUID, powersettingguid : *const windows_sys::core::GUID, acvalueindex : *mut u32) -> u32);
 #[cfg(feature = "Win32_System_Registry")]
-::windows_targets::link!("powrprof.dll" "system" fn PowerReadDCDefaultIndex(rootpowerkey : super::Registry:: HKEY, schemepersonalityguid : *const ::windows_sys::core::GUID, subgroupofpowersettingsguid : *const ::windows_sys::core::GUID, powersettingguid : *const ::windows_sys::core::GUID, dcdefaultindex : *mut u32) -> u32);
+::windows_targets::link!("powrprof.dll" "system" fn PowerReadDCDefaultIndex(rootpowerkey : super::Registry:: HKEY, schemepersonalityguid : *const windows_sys::core::GUID, subgroupofpowersettingsguid : *const windows_sys::core::GUID, powersettingguid : *const windows_sys::core::GUID, dcdefaultindex : *mut u32) -> u32);
 #[cfg(feature = "Win32_System_Registry")]
-::windows_targets::link!("powrprof.dll" "system" fn PowerReadDCValue(rootpowerkey : super::Registry:: HKEY, schemeguid : *const ::windows_sys::core::GUID, subgroupofpowersettingsguid : *const ::windows_sys::core::GUID, powersettingguid : *const ::windows_sys::core::GUID, r#type : *mut u32, buffer : *mut u8, buffersize : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("powrprof.dll" "system" fn PowerReadDCValue(rootpowerkey : super::Registry:: HKEY, schemeguid : *const windows_sys::core::GUID, subgroupofpowersettingsguid : *const windows_sys::core::GUID, powersettingguid : *const windows_sys::core::GUID, r#type : *mut u32, buffer : *mut u8, buffersize : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_System_Registry")]
-::windows_targets::link!("powrprof.dll" "system" fn PowerReadDCValueIndex(rootpowerkey : super::Registry:: HKEY, schemeguid : *const ::windows_sys::core::GUID, subgroupofpowersettingsguid : *const ::windows_sys::core::GUID, powersettingguid : *const ::windows_sys::core::GUID, dcvalueindex : *mut u32) -> u32);
+::windows_targets::link!("powrprof.dll" "system" fn PowerReadDCValueIndex(rootpowerkey : super::Registry:: HKEY, schemeguid : *const windows_sys::core::GUID, subgroupofpowersettingsguid : *const windows_sys::core::GUID, powersettingguid : *const windows_sys::core::GUID, dcvalueindex : *mut u32) -> u32);
 #[cfg(feature = "Win32_System_Registry")]
-::windows_targets::link!("powrprof.dll" "system" fn PowerReadDescription(rootpowerkey : super::Registry:: HKEY, schemeguid : *const ::windows_sys::core::GUID, subgroupofpowersettingsguid : *const ::windows_sys::core::GUID, powersettingguid : *const ::windows_sys::core::GUID, buffer : *mut u8, buffersize : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("powrprof.dll" "system" fn PowerReadDescription(rootpowerkey : super::Registry:: HKEY, schemeguid : *const windows_sys::core::GUID, subgroupofpowersettingsguid : *const windows_sys::core::GUID, powersettingguid : *const windows_sys::core::GUID, buffer : *mut u8, buffersize : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_System_Registry")]
-::windows_targets::link!("powrprof.dll" "system" fn PowerReadFriendlyName(rootpowerkey : super::Registry:: HKEY, schemeguid : *const ::windows_sys::core::GUID, subgroupofpowersettingsguid : *const ::windows_sys::core::GUID, powersettingguid : *const ::windows_sys::core::GUID, buffer : *mut u8, buffersize : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("powrprof.dll" "system" fn PowerReadFriendlyName(rootpowerkey : super::Registry:: HKEY, schemeguid : *const windows_sys::core::GUID, subgroupofpowersettingsguid : *const windows_sys::core::GUID, powersettingguid : *const windows_sys::core::GUID, buffer : *mut u8, buffersize : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_System_Registry")]
-::windows_targets::link!("powrprof.dll" "system" fn PowerReadIconResourceSpecifier(rootpowerkey : super::Registry:: HKEY, schemeguid : *const ::windows_sys::core::GUID, subgroupofpowersettingsguid : *const ::windows_sys::core::GUID, powersettingguid : *const ::windows_sys::core::GUID, buffer : *mut u8, buffersize : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("powrprof.dll" "system" fn PowerReadIconResourceSpecifier(rootpowerkey : super::Registry:: HKEY, schemeguid : *const windows_sys::core::GUID, subgroupofpowersettingsguid : *const windows_sys::core::GUID, powersettingguid : *const windows_sys::core::GUID, buffer : *mut u8, buffersize : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_System_Registry")]
-::windows_targets::link!("powrprof.dll" "system" fn PowerReadPossibleDescription(rootpowerkey : super::Registry:: HKEY, subgroupofpowersettingsguid : *const ::windows_sys::core::GUID, powersettingguid : *const ::windows_sys::core::GUID, possiblesettingindex : u32, buffer : *mut u8, buffersize : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("powrprof.dll" "system" fn PowerReadPossibleDescription(rootpowerkey : super::Registry:: HKEY, subgroupofpowersettingsguid : *const windows_sys::core::GUID, powersettingguid : *const windows_sys::core::GUID, possiblesettingindex : u32, buffer : *mut u8, buffersize : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_System_Registry")]
-::windows_targets::link!("powrprof.dll" "system" fn PowerReadPossibleFriendlyName(rootpowerkey : super::Registry:: HKEY, subgroupofpowersettingsguid : *const ::windows_sys::core::GUID, powersettingguid : *const ::windows_sys::core::GUID, possiblesettingindex : u32, buffer : *mut u8, buffersize : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("powrprof.dll" "system" fn PowerReadPossibleFriendlyName(rootpowerkey : super::Registry:: HKEY, subgroupofpowersettingsguid : *const windows_sys::core::GUID, powersettingguid : *const windows_sys::core::GUID, possiblesettingindex : u32, buffer : *mut u8, buffersize : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_System_Registry")]
-::windows_targets::link!("powrprof.dll" "system" fn PowerReadPossibleValue(rootpowerkey : super::Registry:: HKEY, subgroupofpowersettingsguid : *const ::windows_sys::core::GUID, powersettingguid : *const ::windows_sys::core::GUID, r#type : *mut u32, possiblesettingindex : u32, buffer : *mut u8, buffersize : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
-::windows_targets::link!("powrprof.dll" "system" fn PowerReadSettingAttributes(subgroupguid : *const ::windows_sys::core::GUID, powersettingguid : *const ::windows_sys::core::GUID) -> u32);
+::windows_targets::link!("powrprof.dll" "system" fn PowerReadPossibleValue(rootpowerkey : super::Registry:: HKEY, subgroupofpowersettingsguid : *const windows_sys::core::GUID, powersettingguid : *const windows_sys::core::GUID, r#type : *mut u32, possiblesettingindex : u32, buffer : *mut u8, buffersize : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("powrprof.dll" "system" fn PowerReadSettingAttributes(subgroupguid : *const windows_sys::core::GUID, powersettingguid : *const windows_sys::core::GUID) -> u32);
 #[cfg(feature = "Win32_System_Registry")]
-::windows_targets::link!("powrprof.dll" "system" fn PowerReadValueIncrement(rootpowerkey : super::Registry:: HKEY, subgroupofpowersettingsguid : *const ::windows_sys::core::GUID, powersettingguid : *const ::windows_sys::core::GUID, valueincrement : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("powrprof.dll" "system" fn PowerReadValueIncrement(rootpowerkey : super::Registry:: HKEY, subgroupofpowersettingsguid : *const windows_sys::core::GUID, powersettingguid : *const windows_sys::core::GUID, valueincrement : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_System_Registry")]
-::windows_targets::link!("powrprof.dll" "system" fn PowerReadValueMax(rootpowerkey : super::Registry:: HKEY, subgroupofpowersettingsguid : *const ::windows_sys::core::GUID, powersettingguid : *const ::windows_sys::core::GUID, valuemaximum : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("powrprof.dll" "system" fn PowerReadValueMax(rootpowerkey : super::Registry:: HKEY, subgroupofpowersettingsguid : *const windows_sys::core::GUID, powersettingguid : *const windows_sys::core::GUID, valuemaximum : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_System_Registry")]
-::windows_targets::link!("powrprof.dll" "system" fn PowerReadValueMin(rootpowerkey : super::Registry:: HKEY, subgroupofpowersettingsguid : *const ::windows_sys::core::GUID, powersettingguid : *const ::windows_sys::core::GUID, valueminimum : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("powrprof.dll" "system" fn PowerReadValueMin(rootpowerkey : super::Registry:: HKEY, subgroupofpowersettingsguid : *const windows_sys::core::GUID, powersettingguid : *const windows_sys::core::GUID, valueminimum : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_System_Registry")]
-::windows_targets::link!("powrprof.dll" "system" fn PowerReadValueUnitsSpecifier(rootpowerkey : super::Registry:: HKEY, subgroupofpowersettingsguid : *const ::windows_sys::core::GUID, powersettingguid : *const ::windows_sys::core::GUID, buffer : *mut u8, buffersize : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
-::windows_targets::link!("powrprof.dll" "system" fn PowerRegisterForEffectivePowerModeNotifications(version : u32, callback : EFFECTIVE_POWER_MODE_CALLBACK, context : *const ::core::ffi::c_void, registrationhandle : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("powrprof.dll" "system" fn PowerReadValueUnitsSpecifier(rootpowerkey : super::Registry:: HKEY, subgroupofpowersettingsguid : *const windows_sys::core::GUID, powersettingguid : *const windows_sys::core::GUID, buffer : *mut u8, buffersize : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("powrprof.dll" "system" fn PowerRegisterForEffectivePowerModeNotifications(version : u32, callback : EFFECTIVE_POWER_MODE_CALLBACK, context : *const core::ffi::c_void, registrationhandle : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-::windows_targets::link!("powrprof.dll" "system" fn PowerRegisterSuspendResumeNotification(flags : super::super::UI::WindowsAndMessaging:: REGISTER_NOTIFICATION_FLAGS, recipient : super::super::Foundation:: HANDLE, registrationhandle : *mut *mut ::core::ffi::c_void) -> super::super::Foundation:: WIN32_ERROR);
-::windows_targets::link!("powrprof.dll" "system" fn PowerRemovePowerSetting(powersettingsubkeyguid : *const ::windows_sys::core::GUID, powersettingguid : *const ::windows_sys::core::GUID) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("powrprof.dll" "system" fn PowerRegisterSuspendResumeNotification(flags : super::super::UI::WindowsAndMessaging:: REGISTER_NOTIFICATION_FLAGS, recipient : super::super::Foundation:: HANDLE, registrationhandle : *mut *mut core::ffi::c_void) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("powrprof.dll" "system" fn PowerRemovePowerSetting(powersettingsubkeyguid : *const windows_sys::core::GUID, powersettingguid : *const windows_sys::core::GUID) -> super::super::Foundation:: WIN32_ERROR);
 ::windows_targets::link!("powrprof.dll" "system" fn PowerReplaceDefaultPowerSchemes() -> u32);
 ::windows_targets::link!("powrprof.dll" "system" fn PowerReportThermalEvent(event : *const THERMAL_EVENT) -> super::super::Foundation:: WIN32_ERROR);
 ::windows_targets::link!("powrprof.dll" "system" fn PowerRestoreDefaultPowerSchemes() -> super::super::Foundation:: WIN32_ERROR);
-::windows_targets::link!("powrprof.dll" "system" fn PowerRestoreIndividualDefaultPowerScheme(schemeguid : *const ::windows_sys::core::GUID) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("powrprof.dll" "system" fn PowerRestoreIndividualDefaultPowerScheme(schemeguid : *const windows_sys::core::GUID) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_System_Registry")]
-::windows_targets::link!("powrprof.dll" "system" fn PowerSetActiveScheme(userrootpowerkey : super::Registry:: HKEY, schemeguid : *const ::windows_sys::core::GUID) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("powrprof.dll" "system" fn PowerSetActiveScheme(userrootpowerkey : super::Registry:: HKEY, schemeguid : *const windows_sys::core::GUID) -> super::super::Foundation:: WIN32_ERROR);
 ::windows_targets::link!("kernel32.dll" "system" fn PowerSetRequest(powerrequest : super::super::Foundation:: HANDLE, requesttype : POWER_REQUEST_TYPE) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("powrprof.dll" "system" fn PowerSettingAccessCheck(accessflags : POWER_DATA_ACCESSOR, powerguid : *const ::windows_sys::core::GUID) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("powrprof.dll" "system" fn PowerSettingAccessCheck(accessflags : POWER_DATA_ACCESSOR, powerguid : *const windows_sys::core::GUID) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_System_Registry")]
-::windows_targets::link!("powrprof.dll" "system" fn PowerSettingAccessCheckEx(accessflags : POWER_DATA_ACCESSOR, powerguid : *const ::windows_sys::core::GUID, accesstype : super::Registry:: REG_SAM_FLAGS) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("powrprof.dll" "system" fn PowerSettingAccessCheckEx(accessflags : POWER_DATA_ACCESSOR, powerguid : *const windows_sys::core::GUID, accesstype : super::Registry:: REG_SAM_FLAGS) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-::windows_targets::link!("powrprof.dll" "system" fn PowerSettingRegisterNotification(settingguid : *const ::windows_sys::core::GUID, flags : super::super::UI::WindowsAndMessaging:: REGISTER_NOTIFICATION_FLAGS, recipient : super::super::Foundation:: HANDLE, registrationhandle : *mut *mut ::core::ffi::c_void) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("powrprof.dll" "system" fn PowerSettingRegisterNotification(settingguid : *const windows_sys::core::GUID, flags : super::super::UI::WindowsAndMessaging:: REGISTER_NOTIFICATION_FLAGS, recipient : super::super::Foundation:: HANDLE, registrationhandle : *mut *mut core::ffi::c_void) -> super::super::Foundation:: WIN32_ERROR);
 ::windows_targets::link!("powrprof.dll" "system" fn PowerSettingUnregisterNotification(registrationhandle : HPOWERNOTIFY) -> super::super::Foundation:: WIN32_ERROR);
-::windows_targets::link!("powrprof.dll" "system" fn PowerUnregisterFromEffectivePowerModeNotifications(registrationhandle : *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("powrprof.dll" "system" fn PowerUnregisterFromEffectivePowerModeNotifications(registrationhandle : *const core::ffi::c_void) -> windows_sys::core::HRESULT);
 ::windows_targets::link!("powrprof.dll" "system" fn PowerUnregisterSuspendResumeNotification(registrationhandle : HPOWERNOTIFY) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_System_Registry")]
-::windows_targets::link!("powrprof.dll" "system" fn PowerWriteACDefaultIndex(rootsystempowerkey : super::Registry:: HKEY, schemepersonalityguid : *const ::windows_sys::core::GUID, subgroupofpowersettingsguid : *const ::windows_sys::core::GUID, powersettingguid : *const ::windows_sys::core::GUID, defaultacindex : u32) -> u32);
+::windows_targets::link!("powrprof.dll" "system" fn PowerWriteACDefaultIndex(rootsystempowerkey : super::Registry:: HKEY, schemepersonalityguid : *const windows_sys::core::GUID, subgroupofpowersettingsguid : *const windows_sys::core::GUID, powersettingguid : *const windows_sys::core::GUID, defaultacindex : u32) -> u32);
 #[cfg(feature = "Win32_System_Registry")]
-::windows_targets::link!("powrprof.dll" "system" fn PowerWriteACValueIndex(rootpowerkey : super::Registry:: HKEY, schemeguid : *const ::windows_sys::core::GUID, subgroupofpowersettingsguid : *const ::windows_sys::core::GUID, powersettingguid : *const ::windows_sys::core::GUID, acvalueindex : u32) -> u32);
+::windows_targets::link!("powrprof.dll" "system" fn PowerWriteACValueIndex(rootpowerkey : super::Registry:: HKEY, schemeguid : *const windows_sys::core::GUID, subgroupofpowersettingsguid : *const windows_sys::core::GUID, powersettingguid : *const windows_sys::core::GUID, acvalueindex : u32) -> u32);
 #[cfg(feature = "Win32_System_Registry")]
-::windows_targets::link!("powrprof.dll" "system" fn PowerWriteDCDefaultIndex(rootsystempowerkey : super::Registry:: HKEY, schemepersonalityguid : *const ::windows_sys::core::GUID, subgroupofpowersettingsguid : *const ::windows_sys::core::GUID, powersettingguid : *const ::windows_sys::core::GUID, defaultdcindex : u32) -> u32);
+::windows_targets::link!("powrprof.dll" "system" fn PowerWriteDCDefaultIndex(rootsystempowerkey : super::Registry:: HKEY, schemepersonalityguid : *const windows_sys::core::GUID, subgroupofpowersettingsguid : *const windows_sys::core::GUID, powersettingguid : *const windows_sys::core::GUID, defaultdcindex : u32) -> u32);
 #[cfg(feature = "Win32_System_Registry")]
-::windows_targets::link!("powrprof.dll" "system" fn PowerWriteDCValueIndex(rootpowerkey : super::Registry:: HKEY, schemeguid : *const ::windows_sys::core::GUID, subgroupofpowersettingsguid : *const ::windows_sys::core::GUID, powersettingguid : *const ::windows_sys::core::GUID, dcvalueindex : u32) -> u32);
+::windows_targets::link!("powrprof.dll" "system" fn PowerWriteDCValueIndex(rootpowerkey : super::Registry:: HKEY, schemeguid : *const windows_sys::core::GUID, subgroupofpowersettingsguid : *const windows_sys::core::GUID, powersettingguid : *const windows_sys::core::GUID, dcvalueindex : u32) -> u32);
 #[cfg(feature = "Win32_System_Registry")]
-::windows_targets::link!("powrprof.dll" "system" fn PowerWriteDescription(rootpowerkey : super::Registry:: HKEY, schemeguid : *const ::windows_sys::core::GUID, subgroupofpowersettingsguid : *const ::windows_sys::core::GUID, powersettingguid : *const ::windows_sys::core::GUID, buffer : *const u8, buffersize : u32) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("powrprof.dll" "system" fn PowerWriteDescription(rootpowerkey : super::Registry:: HKEY, schemeguid : *const windows_sys::core::GUID, subgroupofpowersettingsguid : *const windows_sys::core::GUID, powersettingguid : *const windows_sys::core::GUID, buffer : *const u8, buffersize : u32) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_System_Registry")]
-::windows_targets::link!("powrprof.dll" "system" fn PowerWriteFriendlyName(rootpowerkey : super::Registry:: HKEY, schemeguid : *const ::windows_sys::core::GUID, subgroupofpowersettingsguid : *const ::windows_sys::core::GUID, powersettingguid : *const ::windows_sys::core::GUID, buffer : *const u8, buffersize : u32) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("powrprof.dll" "system" fn PowerWriteFriendlyName(rootpowerkey : super::Registry:: HKEY, schemeguid : *const windows_sys::core::GUID, subgroupofpowersettingsguid : *const windows_sys::core::GUID, powersettingguid : *const windows_sys::core::GUID, buffer : *const u8, buffersize : u32) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_System_Registry")]
-::windows_targets::link!("powrprof.dll" "system" fn PowerWriteIconResourceSpecifier(rootpowerkey : super::Registry:: HKEY, schemeguid : *const ::windows_sys::core::GUID, subgroupofpowersettingsguid : *const ::windows_sys::core::GUID, powersettingguid : *const ::windows_sys::core::GUID, buffer : *const u8, buffersize : u32) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("powrprof.dll" "system" fn PowerWriteIconResourceSpecifier(rootpowerkey : super::Registry:: HKEY, schemeguid : *const windows_sys::core::GUID, subgroupofpowersettingsguid : *const windows_sys::core::GUID, powersettingguid : *const windows_sys::core::GUID, buffer : *const u8, buffersize : u32) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_System_Registry")]
-::windows_targets::link!("powrprof.dll" "system" fn PowerWritePossibleDescription(rootpowerkey : super::Registry:: HKEY, subgroupofpowersettingsguid : *const ::windows_sys::core::GUID, powersettingguid : *const ::windows_sys::core::GUID, possiblesettingindex : u32, buffer : *const u8, buffersize : u32) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("powrprof.dll" "system" fn PowerWritePossibleDescription(rootpowerkey : super::Registry:: HKEY, subgroupofpowersettingsguid : *const windows_sys::core::GUID, powersettingguid : *const windows_sys::core::GUID, possiblesettingindex : u32, buffer : *const u8, buffersize : u32) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_System_Registry")]
-::windows_targets::link!("powrprof.dll" "system" fn PowerWritePossibleFriendlyName(rootpowerkey : super::Registry:: HKEY, subgroupofpowersettingsguid : *const ::windows_sys::core::GUID, powersettingguid : *const ::windows_sys::core::GUID, possiblesettingindex : u32, buffer : *const u8, buffersize : u32) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("powrprof.dll" "system" fn PowerWritePossibleFriendlyName(rootpowerkey : super::Registry:: HKEY, subgroupofpowersettingsguid : *const windows_sys::core::GUID, powersettingguid : *const windows_sys::core::GUID, possiblesettingindex : u32, buffer : *const u8, buffersize : u32) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_System_Registry")]
-::windows_targets::link!("powrprof.dll" "system" fn PowerWritePossibleValue(rootpowerkey : super::Registry:: HKEY, subgroupofpowersettingsguid : *const ::windows_sys::core::GUID, powersettingguid : *const ::windows_sys::core::GUID, r#type : u32, possiblesettingindex : u32, buffer : *const u8, buffersize : u32) -> super::super::Foundation:: WIN32_ERROR);
-::windows_targets::link!("powrprof.dll" "system" fn PowerWriteSettingAttributes(subgroupguid : *const ::windows_sys::core::GUID, powersettingguid : *const ::windows_sys::core::GUID, attributes : u32) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("powrprof.dll" "system" fn PowerWritePossibleValue(rootpowerkey : super::Registry:: HKEY, subgroupofpowersettingsguid : *const windows_sys::core::GUID, powersettingguid : *const windows_sys::core::GUID, r#type : u32, possiblesettingindex : u32, buffer : *const u8, buffersize : u32) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("powrprof.dll" "system" fn PowerWriteSettingAttributes(subgroupguid : *const windows_sys::core::GUID, powersettingguid : *const windows_sys::core::GUID, attributes : u32) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_System_Registry")]
-::windows_targets::link!("powrprof.dll" "system" fn PowerWriteValueIncrement(rootpowerkey : super::Registry:: HKEY, subgroupofpowersettingsguid : *const ::windows_sys::core::GUID, powersettingguid : *const ::windows_sys::core::GUID, valueincrement : u32) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("powrprof.dll" "system" fn PowerWriteValueIncrement(rootpowerkey : super::Registry:: HKEY, subgroupofpowersettingsguid : *const windows_sys::core::GUID, powersettingguid : *const windows_sys::core::GUID, valueincrement : u32) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_System_Registry")]
-::windows_targets::link!("powrprof.dll" "system" fn PowerWriteValueMax(rootpowerkey : super::Registry:: HKEY, subgroupofpowersettingsguid : *const ::windows_sys::core::GUID, powersettingguid : *const ::windows_sys::core::GUID, valuemaximum : u32) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("powrprof.dll" "system" fn PowerWriteValueMax(rootpowerkey : super::Registry:: HKEY, subgroupofpowersettingsguid : *const windows_sys::core::GUID, powersettingguid : *const windows_sys::core::GUID, valuemaximum : u32) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_System_Registry")]
-::windows_targets::link!("powrprof.dll" "system" fn PowerWriteValueMin(rootpowerkey : super::Registry:: HKEY, subgroupofpowersettingsguid : *const ::windows_sys::core::GUID, powersettingguid : *const ::windows_sys::core::GUID, valueminimum : u32) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("powrprof.dll" "system" fn PowerWriteValueMin(rootpowerkey : super::Registry:: HKEY, subgroupofpowersettingsguid : *const windows_sys::core::GUID, powersettingguid : *const windows_sys::core::GUID, valueminimum : u32) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_System_Registry")]
-::windows_targets::link!("powrprof.dll" "system" fn PowerWriteValueUnitsSpecifier(rootpowerkey : super::Registry:: HKEY, subgroupofpowersettingsguid : *const ::windows_sys::core::GUID, powersettingguid : *const ::windows_sys::core::GUID, buffer : *const u8, buffersize : u32) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("powrprof.dll" "system" fn PowerWriteValueUnitsSpecifier(rootpowerkey : super::Registry:: HKEY, subgroupofpowersettingsguid : *const windows_sys::core::GUID, powersettingguid : *const windows_sys::core::GUID, buffer : *const u8, buffersize : u32) -> super::super::Foundation:: WIN32_ERROR);
 ::windows_targets::link!("powrprof.dll" "system" fn ReadGlobalPwrPolicy(pglobalpowerpolicy : *const GLOBAL_POWER_POLICY) -> super::super::Foundation:: BOOLEAN);
 ::windows_targets::link!("powrprof.dll" "system" fn ReadProcessorPwrScheme(uiid : u32, pmachineprocessorpowerpolicy : *mut MACHINE_PROCESSOR_POWER_POLICY) -> super::super::Foundation:: BOOLEAN);
 ::windows_targets::link!("powrprof.dll" "system" fn ReadPwrScheme(uiid : u32, ppowerpolicy : *mut POWER_POLICY) -> super::super::Foundation:: BOOLEAN);
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-::windows_targets::link!("user32.dll" "system" fn RegisterPowerSettingNotification(hrecipient : super::super::Foundation:: HANDLE, powersettingguid : *const ::windows_sys::core::GUID, flags : super::super::UI::WindowsAndMessaging:: REGISTER_NOTIFICATION_FLAGS) -> HPOWERNOTIFY);
+::windows_targets::link!("user32.dll" "system" fn RegisterPowerSettingNotification(hrecipient : super::super::Foundation:: HANDLE, powersettingguid : *const windows_sys::core::GUID, flags : super::super::UI::WindowsAndMessaging:: REGISTER_NOTIFICATION_FLAGS) -> HPOWERNOTIFY);
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 ::windows_targets::link!("user32.dll" "system" fn RegisterSuspendResumeNotification(hrecipient : super::super::Foundation:: HANDLE, flags : super::super::UI::WindowsAndMessaging:: REGISTER_NOTIFICATION_FLAGS) -> HPOWERNOTIFY);
 ::windows_targets::link!("kernel32.dll" "system" fn RequestWakeupLatency(latency : LATENCY_TIME) -> super::super::Foundation:: BOOL);
@@ -140,7 +140,7 @@
 ::windows_targets::link!("powrprof.dll" "system" fn ValidatePowerPolicies(pglobalpowerpolicy : *mut GLOBAL_POWER_POLICY, ppowerpolicy : *mut POWER_POLICY) -> super::super::Foundation:: BOOLEAN);
 ::windows_targets::link!("powrprof.dll" "system" fn WriteGlobalPwrPolicy(pglobalpowerpolicy : *const GLOBAL_POWER_POLICY) -> super::super::Foundation:: BOOLEAN);
 ::windows_targets::link!("powrprof.dll" "system" fn WriteProcessorPwrScheme(uiid : u32, pmachineprocessorpowerpolicy : *const MACHINE_PROCESSOR_POWER_POLICY) -> super::super::Foundation:: BOOLEAN);
-::windows_targets::link!("powrprof.dll" "system" fn WritePwrScheme(puiid : *const u32, lpszschemename : ::windows_sys::core::PCWSTR, lpszdescription : ::windows_sys::core::PCWSTR, lpscheme : *const POWER_POLICY) -> super::super::Foundation:: BOOLEAN);
+::windows_targets::link!("powrprof.dll" "system" fn WritePwrScheme(puiid : *const u32, lpszschemename : windows_sys::core::PCWSTR, lpszdescription : windows_sys::core::PCWSTR, lpscheme : *const POWER_POLICY) -> super::super::Foundation:: BOOLEAN);
 pub const ACCESS_ACTIVE_OVERLAY_SCHEME: POWER_DATA_ACCESSOR = 27i32;
 pub const ACCESS_ACTIVE_SCHEME: POWER_DATA_ACCESSOR = 19i32;
 pub const ACCESS_AC_POWER_SETTING_INDEX: POWER_DATA_ACCESSOR = 0i32;
@@ -190,26 +190,26 @@ pub const BATTERY_CLASS_MAJOR_VERSION: u32 = 1u32;
 pub const BATTERY_CLASS_MINOR_VERSION: u32 = 0u32;
 pub const BATTERY_CLASS_MINOR_VERSION_1: u32 = 1u32;
 pub const BATTERY_CRITICAL: u32 = 8u32;
-pub const BATTERY_CYCLE_COUNT_WMI_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xef98db24_0014_4c25_a50b_c724ae5cd371);
+pub const BATTERY_CYCLE_COUNT_WMI_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xef98db24_0014_4c25_a50b_c724ae5cd371);
 pub const BATTERY_DISCHARGING: u32 = 2u32;
-pub const BATTERY_FULL_CHARGED_CAPACITY_WMI_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x40b40565_96f7_4435_8694_97e0e4395905);
+pub const BATTERY_FULL_CHARGED_CAPACITY_WMI_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x40b40565_96f7_4435_8694_97e0e4395905);
 pub const BATTERY_IS_SHORT_TERM: u32 = 536870912u32;
 pub const BATTERY_MINIPORT_UPDATE_DATA_VER_1: u32 = 1u32;
 pub const BATTERY_MINIPORT_UPDATE_DATA_VER_2: u32 = 2u32;
 pub const BATTERY_POWER_ON_LINE: u32 = 1u32;
-pub const BATTERY_RUNTIME_WMI_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x535a3767_1ac2_49bc_a077_3f7a02e40aec);
+pub const BATTERY_RUNTIME_WMI_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x535a3767_1ac2_49bc_a077_3f7a02e40aec);
 pub const BATTERY_SEALED: u32 = 268435456u32;
 pub const BATTERY_SET_CHARGER_ID_SUPPORTED: u32 = 8u32;
 pub const BATTERY_SET_CHARGE_SUPPORTED: u32 = 1u32;
 pub const BATTERY_SET_CHARGINGSOURCE_SUPPORTED: u32 = 4u32;
 pub const BATTERY_SET_DISCHARGE_SUPPORTED: u32 = 2u32;
-pub const BATTERY_STATIC_DATA_WMI_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x05e1e463_e4e2_4ea9_80cb_9bd4b3ca0655);
-pub const BATTERY_STATUS_CHANGE_WMI_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xcddfa0c3_7c5b_4e43_a034_059fa5b84364);
-pub const BATTERY_STATUS_WMI_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xfc4670d1_ebbf_416e_87ce_374a4ebc111a);
+pub const BATTERY_STATIC_DATA_WMI_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x05e1e463_e4e2_4ea9_80cb_9bd4b3ca0655);
+pub const BATTERY_STATUS_CHANGE_WMI_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xcddfa0c3_7c5b_4e43_a034_059fa5b84364);
+pub const BATTERY_STATUS_WMI_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xfc4670d1_ebbf_416e_87ce_374a4ebc111a);
 pub const BATTERY_SYSTEM_BATTERY: u32 = 2147483648u32;
-pub const BATTERY_TAG_CHANGE_WMI_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x5e1f6e19_8786_4d23_94fc_9e746bd5d888);
+pub const BATTERY_TAG_CHANGE_WMI_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5e1f6e19_8786_4d23_94fc_9e746bd5d888);
 pub const BATTERY_TAG_INVALID: u32 = 0u32;
-pub const BATTERY_TEMPERATURE_WMI_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x1a52a14d_adce_4a44_9a3e_c8d8f15ff2c2);
+pub const BATTERY_TEMPERATURE_WMI_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1a52a14d_adce_4a44_9a3e_c8d8f15ff2c2);
 pub const BATTERY_UNKNOWN_CAPACITY: u32 = 4294967295u32;
 pub const BATTERY_UNKNOWN_CURRENT: u32 = 4294967295u32;
 pub const BATTERY_UNKNOWN_RATE: u32 = 2147483648u32;
@@ -276,20 +276,20 @@ pub const EnergyTrackerCreate: POWER_INFORMATION_LEVEL = 92i32;
 pub const EnergyTrackerQuery: POWER_INFORMATION_LEVEL = 93i32;
 pub const ExitLatencySamplingPercentage: POWER_INFORMATION_LEVEL = 78i32;
 pub const FirmwareTableInformationRegistered: POWER_INFORMATION_LEVEL = 69i32;
-pub const GUID_CLASS_INPUT: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x4d1e55b2_f16f_11cf_88cb_001111000030);
-pub const GUID_DEVICE_ACPI_TIME: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x97f99bf6_4497_4f18_bb22_4b9fb2fbef9c);
-pub const GUID_DEVICE_APPLICATIONLAUNCH_BUTTON: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x629758ee_986e_4d9e_8e47_de27f8ab054d);
-pub const GUID_DEVICE_BATTERY: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x72631e54_78a4_11d0_bcf7_00aa00b7b32a);
-pub const GUID_DEVICE_ENERGY_METER: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x45bd8344_7ed6_49cf_a440_c276c933b053);
-pub const GUID_DEVICE_FAN: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x05ecd13d_81da_4a2a_8a4c_524f23dd4dc9);
-pub const GUID_DEVICE_LID: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x4afa3d52_74a7_11d0_be5e_00a0c9062857);
-pub const GUID_DEVICE_MEMORY: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x3fd0f03d_92e0_45fb_b75c_5ed8ffb01021);
-pub const GUID_DEVICE_MESSAGE_INDICATOR: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xcd48a365_fa94_4ce2_a232_a1b764e5d8b4);
-pub const GUID_DEVICE_PROCESSOR: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x97fadb10_4e33_40ae_359c_8bef029dbdd0);
-pub const GUID_DEVICE_SYS_BUTTON: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x4afa3d53_74a7_11d0_be5e_00a0c9062857);
-pub const GUID_DEVICE_THERMAL_ZONE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x4afa3d51_74a7_11d0_be5e_00a0c9062857);
-pub const GUID_DEVINTERFACE_THERMAL_COOLING: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xdbe4373d_3c81_40cb_ace4_e0e5d05f0c9f);
-pub const GUID_DEVINTERFACE_THERMAL_MANAGER: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x927ec093_69a4_4bc0_bd02_711664714463);
+pub const GUID_CLASS_INPUT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4d1e55b2_f16f_11cf_88cb_001111000030);
+pub const GUID_DEVICE_ACPI_TIME: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x97f99bf6_4497_4f18_bb22_4b9fb2fbef9c);
+pub const GUID_DEVICE_APPLICATIONLAUNCH_BUTTON: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x629758ee_986e_4d9e_8e47_de27f8ab054d);
+pub const GUID_DEVICE_BATTERY: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x72631e54_78a4_11d0_bcf7_00aa00b7b32a);
+pub const GUID_DEVICE_ENERGY_METER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x45bd8344_7ed6_49cf_a440_c276c933b053);
+pub const GUID_DEVICE_FAN: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x05ecd13d_81da_4a2a_8a4c_524f23dd4dc9);
+pub const GUID_DEVICE_LID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4afa3d52_74a7_11d0_be5e_00a0c9062857);
+pub const GUID_DEVICE_MEMORY: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3fd0f03d_92e0_45fb_b75c_5ed8ffb01021);
+pub const GUID_DEVICE_MESSAGE_INDICATOR: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xcd48a365_fa94_4ce2_a232_a1b764e5d8b4);
+pub const GUID_DEVICE_PROCESSOR: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x97fadb10_4e33_40ae_359c_8bef029dbdd0);
+pub const GUID_DEVICE_SYS_BUTTON: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4afa3d53_74a7_11d0_be5e_00a0c9062857);
+pub const GUID_DEVICE_THERMAL_ZONE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4afa3d51_74a7_11d0_be5e_00a0c9062857);
+pub const GUID_DEVINTERFACE_THERMAL_COOLING: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdbe4373d_3c81_40cb_ace4_e0e5d05f0c9f);
+pub const GUID_DEVINTERFACE_THERMAL_MANAGER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x927ec093_69a4_4bc0_bd02_711664714463);
 pub const GetPowerRequestList: POWER_INFORMATION_LEVEL = 45i32;
 pub const GetPowerSettingValue: POWER_INFORMATION_LEVEL = 59i32;
 pub const GroupPark: POWER_INFORMATION_LEVEL = 48i32;
@@ -438,28 +438,28 @@ pub const PPM_FIRMWARE_TPC: u32 = 4096u32;
 pub const PPM_FIRMWARE_TSD: u32 = 8192u32;
 pub const PPM_FIRMWARE_TSS: u32 = 2048u32;
 pub const PPM_FIRMWARE_XPSS: u32 = 128u32;
-pub const PPM_IDLESTATES_DATA_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xba138e10_e250_4ad7_8616_cf1a7ad410e7);
-pub const PPM_IDLESTATE_CHANGE_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x4838fe4f_f71c_4e51_9ecc_8430a7ac4c6c);
-pub const PPM_IDLE_ACCOUNTING_EX_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xd67abd39_81f8_4a5e_8152_72e31ec912ee);
-pub const PPM_IDLE_ACCOUNTING_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xe2a26f78_ae07_4ee0_a30f_ce54f55a94cd);
+pub const PPM_IDLESTATES_DATA_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xba138e10_e250_4ad7_8616_cf1a7ad410e7);
+pub const PPM_IDLESTATE_CHANGE_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4838fe4f_f71c_4e51_9ecc_8430a7ac4c6c);
+pub const PPM_IDLE_ACCOUNTING_EX_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd67abd39_81f8_4a5e_8152_72e31ec912ee);
+pub const PPM_IDLE_ACCOUNTING_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe2a26f78_ae07_4ee0_a30f_ce54f55a94cd);
 pub const PPM_IDLE_IMPLEMENTATION_CSTATES: u32 = 1u32;
 pub const PPM_IDLE_IMPLEMENTATION_LPISTATES: u32 = 4u32;
 pub const PPM_IDLE_IMPLEMENTATION_MICROPEP: u32 = 3u32;
 pub const PPM_IDLE_IMPLEMENTATION_NONE: u32 = 0u32;
 pub const PPM_IDLE_IMPLEMENTATION_PEP: u32 = 2u32;
-pub const PPM_PERFMON_PERFSTATE_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x7fd18652_0cfe_40d2_b0a1_0b066a87759e);
+pub const PPM_PERFMON_PERFSTATE_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7fd18652_0cfe_40d2_b0a1_0b066a87759e);
 pub const PPM_PERFORMANCE_IMPLEMENTATION_CPPC: u32 = 3u32;
 pub const PPM_PERFORMANCE_IMPLEMENTATION_NONE: u32 = 0u32;
 pub const PPM_PERFORMANCE_IMPLEMENTATION_PCCV1: u32 = 2u32;
 pub const PPM_PERFORMANCE_IMPLEMENTATION_PEP: u32 = 4u32;
 pub const PPM_PERFORMANCE_IMPLEMENTATION_PSTATES: u32 = 1u32;
-pub const PPM_PERFSTATES_DATA_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x5708cc20_7d40_4bf4_b4aa_2b01338d0126);
-pub const PPM_PERFSTATE_CHANGE_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xa5b32ddd_7f39_4abc_b892_900e43b59ebb);
-pub const PPM_PERFSTATE_DOMAIN_CHANGE_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x995e6b7f_d653_497a_b978_36a30c29bf01);
-pub const PPM_THERMALCONSTRAINT_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xa852c2c8_1a4c_423b_8c2c_f30d82931a88);
-pub const PPM_THERMAL_POLICY_CHANGE_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x48f377b8_6880_4c7b_8bdc_380176c6654d);
+pub const PPM_PERFSTATES_DATA_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5708cc20_7d40_4bf4_b4aa_2b01338d0126);
+pub const PPM_PERFSTATE_CHANGE_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa5b32ddd_7f39_4abc_b892_900e43b59ebb);
+pub const PPM_PERFSTATE_DOMAIN_CHANGE_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x995e6b7f_d653_497a_b978_36a30c29bf01);
+pub const PPM_THERMALCONSTRAINT_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa852c2c8_1a4c_423b_8c2c_f30d82931a88);
+pub const PPM_THERMAL_POLICY_CHANGE_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x48f377b8_6880_4c7b_8bdc_380176c6654d);
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const PROCESSOR_NUMBER_PKEY: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0x5724c81d_d5af_4c1f_a103_a06e28f204c6), pid: 1 };
+pub const PROCESSOR_NUMBER_PKEY: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x5724c81d_d5af_4c1f_a103_a06e28f204c6), pid: 1 };
 pub const PdcInvocation: POWER_INFORMATION_LEVEL = 67i32;
 pub const PhysicalPowerButtonPress: POWER_INFORMATION_LEVEL = 90i32;
 pub const PlatformIdleStates: POWER_INFORMATION_LEVEL = 80i32;
@@ -649,8 +649,8 @@ pub struct ACPI_REAL_TIME {
     pub DayLight: u8,
     pub Reserved1: [u8; 3],
 }
-impl ::core::marker::Copy for ACPI_REAL_TIME {}
-impl ::core::clone::Clone for ACPI_REAL_TIME {
+impl Copy for ACPI_REAL_TIME {}
+impl Clone for ACPI_REAL_TIME {
     fn clone(&self) -> Self {
         *self
     }
@@ -668,8 +668,8 @@ pub struct ACPI_TIME_AND_ALARM_CAPABILITIES {
     pub RealTimeFeaturesSupported: super::super::Foundation::BOOLEAN,
     pub RealTimeResolution: ACPI_TIME_RESOLUTION,
 }
-impl ::core::marker::Copy for ACPI_TIME_AND_ALARM_CAPABILITIES {}
-impl ::core::clone::Clone for ACPI_TIME_AND_ALARM_CAPABILITIES {
+impl Copy for ACPI_TIME_AND_ALARM_CAPABILITIES {}
+impl Clone for ACPI_TIME_AND_ALARM_CAPABILITIES {
     fn clone(&self) -> Self {
         *self
     }
@@ -683,8 +683,8 @@ pub struct ADMINISTRATOR_POWER_POLICY {
     pub MinSpindownTimeout: u32,
     pub MaxSpindownTimeout: u32,
 }
-impl ::core::marker::Copy for ADMINISTRATOR_POWER_POLICY {}
-impl ::core::clone::Clone for ADMINISTRATOR_POWER_POLICY {
+impl Copy for ADMINISTRATOR_POWER_POLICY {}
+impl Clone for ADMINISTRATOR_POWER_POLICY {
     fn clone(&self) -> Self {
         *self
     }
@@ -694,8 +694,8 @@ pub struct BATTERY_CHARGER_STATUS {
     pub Type: BATTERY_CHARGING_SOURCE_TYPE,
     pub VaData: [u32; 1],
 }
-impl ::core::marker::Copy for BATTERY_CHARGER_STATUS {}
-impl ::core::clone::Clone for BATTERY_CHARGER_STATUS {
+impl Copy for BATTERY_CHARGER_STATUS {}
+impl Clone for BATTERY_CHARGER_STATUS {
     fn clone(&self) -> Self {
         *self
     }
@@ -705,8 +705,8 @@ pub struct BATTERY_CHARGING_SOURCE {
     pub Type: BATTERY_CHARGING_SOURCE_TYPE,
     pub MaxCurrent: u32,
 }
-impl ::core::marker::Copy for BATTERY_CHARGING_SOURCE {}
-impl ::core::clone::Clone for BATTERY_CHARGING_SOURCE {
+impl Copy for BATTERY_CHARGING_SOURCE {}
+impl Clone for BATTERY_CHARGING_SOURCE {
     fn clone(&self) -> Self {
         *self
     }
@@ -716,8 +716,8 @@ pub struct BATTERY_CHARGING_SOURCE_INFORMATION {
     pub Type: BATTERY_CHARGING_SOURCE_TYPE,
     pub SourceOnline: super::super::Foundation::BOOLEAN,
 }
-impl ::core::marker::Copy for BATTERY_CHARGING_SOURCE_INFORMATION {}
-impl ::core::clone::Clone for BATTERY_CHARGING_SOURCE_INFORMATION {
+impl Copy for BATTERY_CHARGING_SOURCE_INFORMATION {}
+impl Clone for BATTERY_CHARGING_SOURCE_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -735,8 +735,8 @@ pub struct BATTERY_INFORMATION {
     pub CriticalBias: u32,
     pub CycleCount: u32,
 }
-impl ::core::marker::Copy for BATTERY_INFORMATION {}
-impl ::core::clone::Clone for BATTERY_INFORMATION {
+impl Copy for BATTERY_INFORMATION {}
+impl Clone for BATTERY_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -747,8 +747,8 @@ pub struct BATTERY_MANUFACTURE_DATE {
     pub Month: u8,
     pub Year: u16,
 }
-impl ::core::marker::Copy for BATTERY_MANUFACTURE_DATE {}
-impl ::core::clone::Clone for BATTERY_MANUFACTURE_DATE {
+impl Copy for BATTERY_MANUFACTURE_DATE {}
+impl Clone for BATTERY_MANUFACTURE_DATE {
     fn clone(&self) -> Self {
         *self
     }
@@ -759,8 +759,8 @@ pub struct BATTERY_QUERY_INFORMATION {
     pub InformationLevel: BATTERY_QUERY_INFORMATION_LEVEL,
     pub AtRate: u32,
 }
-impl ::core::marker::Copy for BATTERY_QUERY_INFORMATION {}
-impl ::core::clone::Clone for BATTERY_QUERY_INFORMATION {
+impl Copy for BATTERY_QUERY_INFORMATION {}
+impl Clone for BATTERY_QUERY_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -770,8 +770,8 @@ pub struct BATTERY_REPORTING_SCALE {
     pub Granularity: u32,
     pub Capacity: u32,
 }
-impl ::core::marker::Copy for BATTERY_REPORTING_SCALE {}
-impl ::core::clone::Clone for BATTERY_REPORTING_SCALE {
+impl Copy for BATTERY_REPORTING_SCALE {}
+impl Clone for BATTERY_REPORTING_SCALE {
     fn clone(&self) -> Self {
         *self
     }
@@ -782,8 +782,8 @@ pub struct BATTERY_SET_INFORMATION {
     pub InformationLevel: BATTERY_SET_INFORMATION_LEVEL,
     pub Buffer: [u8; 1],
 }
-impl ::core::marker::Copy for BATTERY_SET_INFORMATION {}
-impl ::core::clone::Clone for BATTERY_SET_INFORMATION {
+impl Copy for BATTERY_SET_INFORMATION {}
+impl Clone for BATTERY_SET_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -795,8 +795,8 @@ pub struct BATTERY_STATUS {
     pub Voltage: u32,
     pub Rate: i32,
 }
-impl ::core::marker::Copy for BATTERY_STATUS {}
-impl ::core::clone::Clone for BATTERY_STATUS {
+impl Copy for BATTERY_STATUS {}
+impl Clone for BATTERY_STATUS {
     fn clone(&self) -> Self {
         *self
     }
@@ -810,11 +810,11 @@ pub struct BATTERY_USB_CHARGER_STATUS {
     pub Voltage: u32,
     pub PortType: USB_CHARGER_PORT,
     pub PortId: u64,
-    pub PowerSourceInformation: *mut ::core::ffi::c_void,
-    pub OemCharger: ::windows_sys::core::GUID,
+    pub PowerSourceInformation: *mut core::ffi::c_void,
+    pub OemCharger: windows_sys::core::GUID,
 }
-impl ::core::marker::Copy for BATTERY_USB_CHARGER_STATUS {}
-impl ::core::clone::Clone for BATTERY_USB_CHARGER_STATUS {
+impl Copy for BATTERY_USB_CHARGER_STATUS {}
+impl Clone for BATTERY_USB_CHARGER_STATUS {
     fn clone(&self) -> Self {
         *self
     }
@@ -827,8 +827,8 @@ pub struct BATTERY_WAIT_STATUS {
     pub LowCapacity: u32,
     pub HighCapacity: u32,
 }
-impl ::core::marker::Copy for BATTERY_WAIT_STATUS {}
-impl ::core::clone::Clone for BATTERY_WAIT_STATUS {
+impl Copy for BATTERY_WAIT_STATUS {}
+impl Clone for BATTERY_WAIT_STATUS {
     fn clone(&self) -> Self {
         *self
     }
@@ -844,8 +844,8 @@ pub struct CM_POWER_DATA {
     pub PD_PowerStateMapping: [DEVICE_POWER_STATE; 7],
     pub PD_DeepestSystemWake: SYSTEM_POWER_STATE,
 }
-impl ::core::marker::Copy for CM_POWER_DATA {}
-impl ::core::clone::Clone for CM_POWER_DATA {
+impl Copy for CM_POWER_DATA {}
+impl Clone for CM_POWER_DATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -853,10 +853,10 @@ impl ::core::clone::Clone for CM_POWER_DATA {
 #[repr(C)]
 pub struct DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS {
     pub Callback: PDEVICE_NOTIFY_CALLBACK_ROUTINE,
-    pub Context: *mut ::core::ffi::c_void,
+    pub Context: *mut core::ffi::c_void,
 }
-impl ::core::marker::Copy for DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS {}
-impl ::core::clone::Clone for DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS {
+impl Copy for DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS {}
+impl Clone for DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS {
     fn clone(&self) -> Self {
         *self
     }
@@ -866,8 +866,8 @@ pub struct EMI_CHANNEL_MEASUREMENT_DATA {
     pub AbsoluteEnergy: u64,
     pub AbsoluteTime: u64,
 }
-impl ::core::marker::Copy for EMI_CHANNEL_MEASUREMENT_DATA {}
-impl ::core::clone::Clone for EMI_CHANNEL_MEASUREMENT_DATA {
+impl Copy for EMI_CHANNEL_MEASUREMENT_DATA {}
+impl Clone for EMI_CHANNEL_MEASUREMENT_DATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -878,8 +878,8 @@ pub struct EMI_CHANNEL_V2 {
     pub ChannelNameSize: u16,
     pub ChannelName: [u16; 1],
 }
-impl ::core::marker::Copy for EMI_CHANNEL_V2 {}
-impl ::core::clone::Clone for EMI_CHANNEL_V2 {
+impl Copy for EMI_CHANNEL_V2 {}
+impl Clone for EMI_CHANNEL_V2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -888,8 +888,8 @@ impl ::core::clone::Clone for EMI_CHANNEL_V2 {
 pub struct EMI_MEASUREMENT_DATA_V2 {
     pub ChannelData: [EMI_CHANNEL_MEASUREMENT_DATA; 1],
 }
-impl ::core::marker::Copy for EMI_MEASUREMENT_DATA_V2 {}
-impl ::core::clone::Clone for EMI_MEASUREMENT_DATA_V2 {
+impl Copy for EMI_MEASUREMENT_DATA_V2 {}
+impl Clone for EMI_MEASUREMENT_DATA_V2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -898,8 +898,8 @@ impl ::core::clone::Clone for EMI_MEASUREMENT_DATA_V2 {
 pub struct EMI_METADATA_SIZE {
     pub MetadataSize: u32,
 }
-impl ::core::marker::Copy for EMI_METADATA_SIZE {}
-impl ::core::clone::Clone for EMI_METADATA_SIZE {
+impl Copy for EMI_METADATA_SIZE {}
+impl Clone for EMI_METADATA_SIZE {
     fn clone(&self) -> Self {
         *self
     }
@@ -913,8 +913,8 @@ pub struct EMI_METADATA_V1 {
     pub MeteredHardwareNameSize: u16,
     pub MeteredHardwareName: [u16; 1],
 }
-impl ::core::marker::Copy for EMI_METADATA_V1 {}
-impl ::core::clone::Clone for EMI_METADATA_V1 {
+impl Copy for EMI_METADATA_V1 {}
+impl Clone for EMI_METADATA_V1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -927,8 +927,8 @@ pub struct EMI_METADATA_V2 {
     pub ChannelCount: u16,
     pub Channels: [EMI_CHANNEL_V2; 1],
 }
-impl ::core::marker::Copy for EMI_METADATA_V2 {}
-impl ::core::clone::Clone for EMI_METADATA_V2 {
+impl Copy for EMI_METADATA_V2 {}
+impl Clone for EMI_METADATA_V2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -937,8 +937,8 @@ impl ::core::clone::Clone for EMI_METADATA_V2 {
 pub struct EMI_VERSION {
     pub EmiVersion: u16,
 }
-impl ::core::marker::Copy for EMI_VERSION {}
-impl ::core::clone::Clone for EMI_VERSION {
+impl Copy for EMI_VERSION {}
+impl Clone for EMI_VERSION {
     fn clone(&self) -> Self {
         *self
     }
@@ -950,8 +950,8 @@ pub struct GLOBAL_MACHINE_POWER_POLICY {
     pub LidOpenWakeDc: SYSTEM_POWER_STATE,
     pub BroadcastCapacityResolution: u32,
 }
-impl ::core::marker::Copy for GLOBAL_MACHINE_POWER_POLICY {}
-impl ::core::clone::Clone for GLOBAL_MACHINE_POWER_POLICY {
+impl Copy for GLOBAL_MACHINE_POWER_POLICY {}
+impl Clone for GLOBAL_MACHINE_POWER_POLICY {
     fn clone(&self) -> Self {
         *self
     }
@@ -961,8 +961,8 @@ pub struct GLOBAL_POWER_POLICY {
     pub user: GLOBAL_USER_POWER_POLICY,
     pub mach: GLOBAL_MACHINE_POWER_POLICY,
 }
-impl ::core::marker::Copy for GLOBAL_POWER_POLICY {}
-impl ::core::clone::Clone for GLOBAL_POWER_POLICY {
+impl Copy for GLOBAL_POWER_POLICY {}
+impl Clone for GLOBAL_POWER_POLICY {
     fn clone(&self) -> Self {
         *self
     }
@@ -979,8 +979,8 @@ pub struct GLOBAL_USER_POWER_POLICY {
     pub DischargePolicy: [SYSTEM_POWER_LEVEL; 4],
     pub GlobalFlags: u32,
 }
-impl ::core::marker::Copy for GLOBAL_USER_POWER_POLICY {}
-impl ::core::clone::Clone for GLOBAL_USER_POWER_POLICY {
+impl Copy for GLOBAL_USER_POWER_POLICY {}
+impl Clone for GLOBAL_USER_POWER_POLICY {
     fn clone(&self) -> Self {
         *self
     }
@@ -1003,8 +1003,8 @@ pub struct MACHINE_POWER_POLICY {
     pub OverThrottledAc: POWER_ACTION_POLICY,
     pub OverThrottledDc: POWER_ACTION_POLICY,
 }
-impl ::core::marker::Copy for MACHINE_POWER_POLICY {}
-impl ::core::clone::Clone for MACHINE_POWER_POLICY {
+impl Copy for MACHINE_POWER_POLICY {}
+impl Clone for MACHINE_POWER_POLICY {
     fn clone(&self) -> Self {
         *self
     }
@@ -1015,20 +1015,20 @@ pub struct MACHINE_PROCESSOR_POWER_POLICY {
     pub ProcessorPolicyAc: PROCESSOR_POWER_POLICY,
     pub ProcessorPolicyDc: PROCESSOR_POWER_POLICY,
 }
-impl ::core::marker::Copy for MACHINE_PROCESSOR_POWER_POLICY {}
-impl ::core::clone::Clone for MACHINE_PROCESSOR_POWER_POLICY {
+impl Copy for MACHINE_PROCESSOR_POWER_POLICY {}
+impl Clone for MACHINE_PROCESSOR_POWER_POLICY {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct POWERBROADCAST_SETTING {
-    pub PowerSetting: ::windows_sys::core::GUID,
+    pub PowerSetting: windows_sys::core::GUID,
     pub DataLength: u32,
     pub Data: [u8; 1],
 }
-impl ::core::marker::Copy for POWERBROADCAST_SETTING {}
-impl ::core::clone::Clone for POWERBROADCAST_SETTING {
+impl Copy for POWERBROADCAST_SETTING {}
+impl Clone for POWERBROADCAST_SETTING {
     fn clone(&self) -> Self {
         *self
     }
@@ -1039,8 +1039,8 @@ pub struct POWER_ACTION_POLICY {
     pub Flags: u32,
     pub EventCode: POWER_ACTION_POLICY_EVENT_CODE,
 }
-impl ::core::marker::Copy for POWER_ACTION_POLICY {}
-impl ::core::clone::Clone for POWER_ACTION_POLICY {
+impl Copy for POWER_ACTION_POLICY {}
+impl Clone for POWER_ACTION_POLICY {
     fn clone(&self) -> Self {
         *self
     }
@@ -1050,8 +1050,8 @@ pub struct POWER_IDLE_RESILIENCY {
     pub CoalescingTimeout: u32,
     pub IdleResiliencyPeriod: u32,
 }
-impl ::core::marker::Copy for POWER_IDLE_RESILIENCY {}
-impl ::core::clone::Clone for POWER_IDLE_RESILIENCY {
+impl Copy for POWER_IDLE_RESILIENCY {}
+impl Clone for POWER_IDLE_RESILIENCY {
     fn clone(&self) -> Self {
         *self
     }
@@ -1061,8 +1061,8 @@ pub struct POWER_MONITOR_INVOCATION {
     pub Console: super::super::Foundation::BOOLEAN,
     pub RequestReason: POWER_MONITOR_REQUEST_REASON,
 }
-impl ::core::marker::Copy for POWER_MONITOR_INVOCATION {}
-impl ::core::clone::Clone for POWER_MONITOR_INVOCATION {
+impl Copy for POWER_MONITOR_INVOCATION {}
+impl Clone for POWER_MONITOR_INVOCATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -1071,8 +1071,8 @@ impl ::core::clone::Clone for POWER_MONITOR_INVOCATION {
 pub struct POWER_PLATFORM_INFORMATION {
     pub AoAc: super::super::Foundation::BOOLEAN,
 }
-impl ::core::marker::Copy for POWER_PLATFORM_INFORMATION {}
-impl ::core::clone::Clone for POWER_PLATFORM_INFORMATION {
+impl Copy for POWER_PLATFORM_INFORMATION {}
+impl Clone for POWER_PLATFORM_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -1082,8 +1082,8 @@ pub struct POWER_POLICY {
     pub user: USER_POWER_POLICY,
     pub mach: MACHINE_POWER_POLICY,
 }
-impl ::core::marker::Copy for POWER_POLICY {}
-impl ::core::clone::Clone for POWER_POLICY {
+impl Copy for POWER_POLICY {}
+impl Clone for POWER_POLICY {
     fn clone(&self) -> Self {
         *self
     }
@@ -1092,8 +1092,8 @@ impl ::core::clone::Clone for POWER_POLICY {
 pub struct POWER_SESSION_ALLOW_EXTERNAL_DMA_DEVICES {
     pub IsAllowed: super::super::Foundation::BOOLEAN,
 }
-impl ::core::marker::Copy for POWER_SESSION_ALLOW_EXTERNAL_DMA_DEVICES {}
-impl ::core::clone::Clone for POWER_SESSION_ALLOW_EXTERNAL_DMA_DEVICES {
+impl Copy for POWER_SESSION_ALLOW_EXTERNAL_DMA_DEVICES {}
+impl Clone for POWER_SESSION_ALLOW_EXTERNAL_DMA_DEVICES {
     fn clone(&self) -> Self {
         *self
     }
@@ -1103,8 +1103,8 @@ pub struct POWER_SESSION_CONNECT {
     pub Connected: super::super::Foundation::BOOLEAN,
     pub Console: super::super::Foundation::BOOLEAN,
 }
-impl ::core::marker::Copy for POWER_SESSION_CONNECT {}
-impl ::core::clone::Clone for POWER_SESSION_CONNECT {
+impl Copy for POWER_SESSION_CONNECT {}
+impl Clone for POWER_SESSION_CONNECT {
     fn clone(&self) -> Self {
         *self
     }
@@ -1114,8 +1114,8 @@ pub struct POWER_SESSION_RIT_STATE {
     pub Active: super::super::Foundation::BOOLEAN,
     pub LastInputTime: u64,
 }
-impl ::core::marker::Copy for POWER_SESSION_RIT_STATE {}
-impl ::core::clone::Clone for POWER_SESSION_RIT_STATE {
+impl Copy for POWER_SESSION_RIT_STATE {}
+impl Clone for POWER_SESSION_RIT_STATE {
     fn clone(&self) -> Self {
         *self
     }
@@ -1125,8 +1125,8 @@ pub struct POWER_SESSION_TIMEOUTS {
     pub InputTimeout: u32,
     pub DisplayTimeout: u32,
 }
-impl ::core::marker::Copy for POWER_SESSION_TIMEOUTS {}
-impl ::core::clone::Clone for POWER_SESSION_TIMEOUTS {
+impl Copy for POWER_SESSION_TIMEOUTS {}
+impl Clone for POWER_SESSION_TIMEOUTS {
     fn clone(&self) -> Self {
         *self
     }
@@ -1137,8 +1137,8 @@ pub struct POWER_SESSION_WINLOGON {
     pub Console: super::super::Foundation::BOOLEAN,
     pub Locked: super::super::Foundation::BOOLEAN,
 }
-impl ::core::marker::Copy for POWER_SESSION_WINLOGON {}
-impl ::core::clone::Clone for POWER_SESSION_WINLOGON {
+impl Copy for POWER_SESSION_WINLOGON {}
+impl Clone for POWER_SESSION_WINLOGON {
     fn clone(&self) -> Self {
         *self
     }
@@ -1147,8 +1147,8 @@ impl ::core::clone::Clone for POWER_SESSION_WINLOGON {
 pub struct POWER_USER_PRESENCE {
     pub UserPresence: POWER_USER_PRESENCE_TYPE,
 }
-impl ::core::marker::Copy for POWER_USER_PRESENCE {}
-impl ::core::clone::Clone for POWER_USER_PRESENCE {
+impl Copy for POWER_USER_PRESENCE {}
+impl Clone for POWER_USER_PRESENCE {
     fn clone(&self) -> Self {
         *self
     }
@@ -1159,8 +1159,8 @@ pub struct PPM_IDLESTATE_EVENT {
     pub OldState: u32,
     pub Processors: u64,
 }
-impl ::core::marker::Copy for PPM_IDLESTATE_EVENT {}
-impl ::core::clone::Clone for PPM_IDLESTATE_EVENT {
+impl Copy for PPM_IDLESTATE_EVENT {}
+impl Clone for PPM_IDLESTATE_EVENT {
     fn clone(&self) -> Self {
         *self
     }
@@ -1173,8 +1173,8 @@ pub struct PPM_IDLE_ACCOUNTING {
     pub StartTime: u64,
     pub State: [PPM_IDLE_STATE_ACCOUNTING; 1],
 }
-impl ::core::marker::Copy for PPM_IDLE_ACCOUNTING {}
-impl ::core::clone::Clone for PPM_IDLE_ACCOUNTING {
+impl Copy for PPM_IDLE_ACCOUNTING {}
+impl Clone for PPM_IDLE_ACCOUNTING {
     fn clone(&self) -> Self {
         *self
     }
@@ -1188,8 +1188,8 @@ pub struct PPM_IDLE_ACCOUNTING_EX {
     pub StartTime: u64,
     pub State: [PPM_IDLE_STATE_ACCOUNTING_EX; 1],
 }
-impl ::core::marker::Copy for PPM_IDLE_ACCOUNTING_EX {}
-impl ::core::clone::Clone for PPM_IDLE_ACCOUNTING_EX {
+impl Copy for PPM_IDLE_ACCOUNTING_EX {}
+impl Clone for PPM_IDLE_ACCOUNTING_EX {
     fn clone(&self) -> Self {
         *self
     }
@@ -1202,8 +1202,8 @@ pub struct PPM_IDLE_STATE_ACCOUNTING {
     pub TotalTime: u64,
     pub IdleTimeBuckets: [u32; 6],
 }
-impl ::core::marker::Copy for PPM_IDLE_STATE_ACCOUNTING {}
-impl ::core::clone::Clone for PPM_IDLE_STATE_ACCOUNTING {
+impl Copy for PPM_IDLE_STATE_ACCOUNTING {}
+impl Clone for PPM_IDLE_STATE_ACCOUNTING {
     fn clone(&self) -> Self {
         *self
     }
@@ -1219,8 +1219,8 @@ pub struct PPM_IDLE_STATE_ACCOUNTING_EX {
     pub CancelledTransitions: u32,
     pub IdleTimeBuckets: [PPM_IDLE_STATE_BUCKET_EX; 16],
 }
-impl ::core::marker::Copy for PPM_IDLE_STATE_ACCOUNTING_EX {}
-impl ::core::clone::Clone for PPM_IDLE_STATE_ACCOUNTING_EX {
+impl Copy for PPM_IDLE_STATE_ACCOUNTING_EX {}
+impl Clone for PPM_IDLE_STATE_ACCOUNTING_EX {
     fn clone(&self) -> Self {
         *self
     }
@@ -1232,8 +1232,8 @@ pub struct PPM_IDLE_STATE_BUCKET_EX {
     pub MaxTimeUs: u32,
     pub Count: u32,
 }
-impl ::core::marker::Copy for PPM_IDLE_STATE_BUCKET_EX {}
-impl ::core::clone::Clone for PPM_IDLE_STATE_BUCKET_EX {
+impl Copy for PPM_IDLE_STATE_BUCKET_EX {}
+impl Clone for PPM_IDLE_STATE_BUCKET_EX {
     fn clone(&self) -> Self {
         *self
     }
@@ -1245,8 +1245,8 @@ pub struct PPM_PERFSTATE_DOMAIN_EVENT {
     pub Speed: u32,
     pub Processors: u64,
 }
-impl ::core::marker::Copy for PPM_PERFSTATE_DOMAIN_EVENT {}
-impl ::core::clone::Clone for PPM_PERFSTATE_DOMAIN_EVENT {
+impl Copy for PPM_PERFSTATE_DOMAIN_EVENT {}
+impl Clone for PPM_PERFSTATE_DOMAIN_EVENT {
     fn clone(&self) -> Self {
         *self
     }
@@ -1259,8 +1259,8 @@ pub struct PPM_PERFSTATE_EVENT {
     pub Speed: u32,
     pub Processor: u32,
 }
-impl ::core::marker::Copy for PPM_PERFSTATE_EVENT {}
-impl ::core::clone::Clone for PPM_PERFSTATE_EVENT {
+impl Copy for PPM_PERFSTATE_EVENT {}
+impl Clone for PPM_PERFSTATE_EVENT {
     fn clone(&self) -> Self {
         *self
     }
@@ -1270,8 +1270,8 @@ pub struct PPM_THERMALCHANGE_EVENT {
     pub ThermalConstraint: u32,
     pub Processors: u64,
 }
-impl ::core::marker::Copy for PPM_THERMALCHANGE_EVENT {}
-impl ::core::clone::Clone for PPM_THERMALCHANGE_EVENT {
+impl Copy for PPM_THERMALCHANGE_EVENT {}
+impl Clone for PPM_THERMALCHANGE_EVENT {
     fn clone(&self) -> Self {
         *self
     }
@@ -1281,8 +1281,8 @@ pub struct PPM_THERMAL_POLICY_EVENT {
     pub Mode: u8,
     pub Processors: u64,
 }
-impl ::core::marker::Copy for PPM_THERMAL_POLICY_EVENT {}
-impl ::core::clone::Clone for PPM_THERMAL_POLICY_EVENT {
+impl Copy for PPM_THERMAL_POLICY_EVENT {}
+impl Clone for PPM_THERMAL_POLICY_EVENT {
     fn clone(&self) -> Self {
         *self
     }
@@ -1301,8 +1301,8 @@ pub struct PPM_WMI_IDLE_STATE {
     pub IdleHandler: u32,
     pub Reserved1: u32,
 }
-impl ::core::marker::Copy for PPM_WMI_IDLE_STATE {}
-impl ::core::clone::Clone for PPM_WMI_IDLE_STATE {
+impl Copy for PPM_WMI_IDLE_STATE {}
+impl Clone for PPM_WMI_IDLE_STATE {
     fn clone(&self) -> Self {
         *self
     }
@@ -1316,8 +1316,8 @@ pub struct PPM_WMI_IDLE_STATES {
     pub TargetProcessors: u64,
     pub State: [PPM_WMI_IDLE_STATE; 1],
 }
-impl ::core::marker::Copy for PPM_WMI_IDLE_STATES {}
-impl ::core::clone::Clone for PPM_WMI_IDLE_STATES {
+impl Copy for PPM_WMI_IDLE_STATES {}
+impl Clone for PPM_WMI_IDLE_STATES {
     fn clone(&self) -> Self {
         *self
     }
@@ -1328,11 +1328,11 @@ pub struct PPM_WMI_IDLE_STATES_EX {
     pub Count: u32,
     pub TargetState: u32,
     pub OldState: u32,
-    pub TargetProcessors: *mut ::core::ffi::c_void,
+    pub TargetProcessors: *mut core::ffi::c_void,
     pub State: [PPM_WMI_IDLE_STATE; 1],
 }
-impl ::core::marker::Copy for PPM_WMI_IDLE_STATES_EX {}
-impl ::core::clone::Clone for PPM_WMI_IDLE_STATES_EX {
+impl Copy for PPM_WMI_IDLE_STATES_EX {}
+impl Clone for PPM_WMI_IDLE_STATES_EX {
     fn clone(&self) -> Self {
         *self
     }
@@ -1343,8 +1343,8 @@ pub struct PPM_WMI_LEGACY_PERFSTATE {
     pub Flags: u32,
     pub PercentFrequency: u32,
 }
-impl ::core::marker::Copy for PPM_WMI_LEGACY_PERFSTATE {}
-impl ::core::clone::Clone for PPM_WMI_LEGACY_PERFSTATE {
+impl Copy for PPM_WMI_LEGACY_PERFSTATE {}
+impl Clone for PPM_WMI_LEGACY_PERFSTATE {
     fn clone(&self) -> Self {
         *self
     }
@@ -1366,8 +1366,8 @@ pub struct PPM_WMI_PERF_STATE {
     pub Reserved2: u64,
     pub Reserved3: u64,
 }
-impl ::core::marker::Copy for PPM_WMI_PERF_STATE {}
-impl ::core::clone::Clone for PPM_WMI_PERF_STATE {
+impl Copy for PPM_WMI_PERF_STATE {}
+impl Clone for PPM_WMI_PERF_STATE {
     fn clone(&self) -> Self {
         *self
     }
@@ -1396,8 +1396,8 @@ pub struct PPM_WMI_PERF_STATES {
     pub Reserved2: u64,
     pub State: [PPM_WMI_PERF_STATE; 1],
 }
-impl ::core::marker::Copy for PPM_WMI_PERF_STATES {}
-impl ::core::clone::Clone for PPM_WMI_PERF_STATES {
+impl Copy for PPM_WMI_PERF_STATES {}
+impl Clone for PPM_WMI_PERF_STATES {
     fn clone(&self) -> Self {
         *self
     }
@@ -1416,7 +1416,7 @@ pub struct PPM_WMI_PERF_STATES_EX {
     pub Type: u8,
     pub Reserved: u8,
     pub TimerInterval: u32,
-    pub TargetProcessors: *mut ::core::ffi::c_void,
+    pub TargetProcessors: *mut core::ffi::c_void,
     pub PStateHandler: u32,
     pub PStateContext: u32,
     pub TStateHandler: u32,
@@ -1426,8 +1426,8 @@ pub struct PPM_WMI_PERF_STATES_EX {
     pub Reserved2: u64,
     pub State: [PPM_WMI_PERF_STATE; 1],
 }
-impl ::core::marker::Copy for PPM_WMI_PERF_STATES_EX {}
-impl ::core::clone::Clone for PPM_WMI_PERF_STATES_EX {
+impl Copy for PPM_WMI_PERF_STATES_EX {}
+impl Clone for PPM_WMI_PERF_STATES_EX {
     fn clone(&self) -> Self {
         *self
     }
@@ -1438,8 +1438,8 @@ pub struct PROCESSOR_OBJECT_INFO {
     pub PBlkAddress: u32,
     pub PBlkLength: u8,
 }
-impl ::core::marker::Copy for PROCESSOR_OBJECT_INFO {}
-impl ::core::clone::Clone for PROCESSOR_OBJECT_INFO {
+impl Copy for PROCESSOR_OBJECT_INFO {}
+impl Clone for PROCESSOR_OBJECT_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -1451,8 +1451,8 @@ pub struct PROCESSOR_OBJECT_INFO_EX {
     pub PBlkLength: u8,
     pub InitialApicId: u32,
 }
-impl ::core::marker::Copy for PROCESSOR_OBJECT_INFO_EX {}
-impl ::core::clone::Clone for PROCESSOR_OBJECT_INFO_EX {
+impl Copy for PROCESSOR_OBJECT_INFO_EX {}
+impl Clone for PROCESSOR_OBJECT_INFO_EX {
     fn clone(&self) -> Self {
         *self
     }
@@ -1466,8 +1466,8 @@ pub struct PROCESSOR_POWER_INFORMATION {
     pub MaxIdleState: u32,
     pub CurrentIdleState: u32,
 }
-impl ::core::marker::Copy for PROCESSOR_POWER_INFORMATION {}
-impl ::core::clone::Clone for PROCESSOR_POWER_INFORMATION {
+impl Copy for PROCESSOR_POWER_INFORMATION {}
+impl Clone for PROCESSOR_POWER_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -1481,8 +1481,8 @@ pub struct PROCESSOR_POWER_POLICY {
     pub PolicyCount: u32,
     pub Policy: [PROCESSOR_POWER_POLICY_INFO; 3],
 }
-impl ::core::marker::Copy for PROCESSOR_POWER_POLICY {}
-impl ::core::clone::Clone for PROCESSOR_POWER_POLICY {
+impl Copy for PROCESSOR_POWER_POLICY {}
+impl Clone for PROCESSOR_POWER_POLICY {
     fn clone(&self) -> Self {
         *self
     }
@@ -1497,8 +1497,8 @@ pub struct PROCESSOR_POWER_POLICY_INFO {
     pub Spare: [u8; 2],
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for PROCESSOR_POWER_POLICY_INFO {}
-impl ::core::clone::Clone for PROCESSOR_POWER_POLICY_INFO {
+impl Copy for PROCESSOR_POWER_POLICY_INFO {}
+impl Clone for PROCESSOR_POWER_POLICY_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -1509,8 +1509,8 @@ pub struct RESUME_PERFORMANCE {
     pub TotalResumeTimeMs: u64,
     pub ResumeCompleteTimestamp: u64,
 }
-impl ::core::marker::Copy for RESUME_PERFORMANCE {}
-impl ::core::clone::Clone for RESUME_PERFORMANCE {
+impl Copy for RESUME_PERFORMANCE {}
+impl Clone for RESUME_PERFORMANCE {
     fn clone(&self) -> Self {
         *self
     }
@@ -1518,13 +1518,13 @@ impl ::core::clone::Clone for RESUME_PERFORMANCE {
 #[repr(C)]
 pub struct SET_POWER_SETTING_VALUE {
     pub Version: u32,
-    pub Guid: ::windows_sys::core::GUID,
+    pub Guid: windows_sys::core::GUID,
     pub PowerCondition: SYSTEM_POWER_CONDITION,
     pub DataLength: u32,
     pub Data: [u8; 1],
 }
-impl ::core::marker::Copy for SET_POWER_SETTING_VALUE {}
-impl ::core::clone::Clone for SET_POWER_SETTING_VALUE {
+impl Copy for SET_POWER_SETTING_VALUE {}
+impl Clone for SET_POWER_SETTING_VALUE {
     fn clone(&self) -> Self {
         *self
     }
@@ -1544,8 +1544,8 @@ pub struct SYSTEM_BATTERY_STATE {
     pub DefaultAlert1: u32,
     pub DefaultAlert2: u32,
 }
-impl ::core::marker::Copy for SYSTEM_BATTERY_STATE {}
-impl ::core::clone::Clone for SYSTEM_BATTERY_STATE {
+impl Copy for SYSTEM_BATTERY_STATE {}
+impl Clone for SYSTEM_BATTERY_STATE {
     fn clone(&self) -> Self {
         *self
     }
@@ -1586,8 +1586,8 @@ pub struct SYSTEM_POWER_CAPABILITIES {
     pub MinDeviceWakeState: SYSTEM_POWER_STATE,
     pub DefaultLowLatencyWake: SYSTEM_POWER_STATE,
 }
-impl ::core::marker::Copy for SYSTEM_POWER_CAPABILITIES {}
-impl ::core::clone::Clone for SYSTEM_POWER_CAPABILITIES {
+impl Copy for SYSTEM_POWER_CAPABILITIES {}
+impl Clone for SYSTEM_POWER_CAPABILITIES {
     fn clone(&self) -> Self {
         *self
     }
@@ -1599,8 +1599,8 @@ pub struct SYSTEM_POWER_INFORMATION {
     pub TimeRemaining: u32,
     pub CoolingMode: POWER_COOLING_MODE,
 }
-impl ::core::marker::Copy for SYSTEM_POWER_INFORMATION {}
-impl ::core::clone::Clone for SYSTEM_POWER_INFORMATION {
+impl Copy for SYSTEM_POWER_INFORMATION {}
+impl Clone for SYSTEM_POWER_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -1613,8 +1613,8 @@ pub struct SYSTEM_POWER_LEVEL {
     pub PowerPolicy: POWER_ACTION_POLICY,
     pub MinSystemState: SYSTEM_POWER_STATE,
 }
-impl ::core::marker::Copy for SYSTEM_POWER_LEVEL {}
-impl ::core::clone::Clone for SYSTEM_POWER_LEVEL {
+impl Copy for SYSTEM_POWER_LEVEL {}
+impl Clone for SYSTEM_POWER_LEVEL {
     fn clone(&self) -> Self {
         *self
     }
@@ -1650,8 +1650,8 @@ pub struct SYSTEM_POWER_POLICY {
     pub MinThrottle: u8,
     pub OverThrottled: POWER_ACTION_POLICY,
 }
-impl ::core::marker::Copy for SYSTEM_POWER_POLICY {}
-impl ::core::clone::Clone for SYSTEM_POWER_POLICY {
+impl Copy for SYSTEM_POWER_POLICY {}
+impl Clone for SYSTEM_POWER_POLICY {
     fn clone(&self) -> Self {
         *self
     }
@@ -1665,8 +1665,8 @@ pub struct SYSTEM_POWER_STATUS {
     pub BatteryLifeTime: u32,
     pub BatteryFullLifeTime: u32,
 }
-impl ::core::marker::Copy for SYSTEM_POWER_STATUS {}
-impl ::core::clone::Clone for SYSTEM_POWER_STATUS {
+impl Copy for SYSTEM_POWER_STATUS {}
+impl Clone for SYSTEM_POWER_STATUS {
     fn clone(&self) -> Self {
         *self
     }
@@ -1678,10 +1678,10 @@ pub struct THERMAL_EVENT {
     pub Type: u32,
     pub Temperature: u32,
     pub TripPointTemperature: u32,
-    pub Initiator: ::windows_sys::core::PWSTR,
+    pub Initiator: windows_sys::core::PWSTR,
 }
-impl ::core::marker::Copy for THERMAL_EVENT {}
-impl ::core::clone::Clone for THERMAL_EVENT {
+impl Copy for THERMAL_EVENT {}
+impl Clone for THERMAL_EVENT {
     fn clone(&self) -> Self {
         *self
     }
@@ -1699,8 +1699,8 @@ pub struct THERMAL_INFORMATION {
     pub ActiveTripPointCount: u8,
     pub ActiveTripPoint: [u32; 10],
 }
-impl ::core::marker::Copy for THERMAL_INFORMATION {}
-impl ::core::clone::Clone for THERMAL_INFORMATION {
+impl Copy for THERMAL_INFORMATION {}
+impl Clone for THERMAL_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -1717,8 +1717,8 @@ pub struct THERMAL_POLICY {
     pub ActiveLevel: u32,
     pub OverThrottled: super::super::Foundation::BOOLEAN,
 }
-impl ::core::marker::Copy for THERMAL_POLICY {}
-impl ::core::clone::Clone for THERMAL_POLICY {
+impl Copy for THERMAL_POLICY {}
+impl Clone for THERMAL_POLICY {
     fn clone(&self) -> Self {
         *self
     }
@@ -1729,8 +1729,8 @@ pub struct THERMAL_WAIT_READ {
     pub LowTemperature: u32,
     pub HighTemperature: u32,
 }
-impl ::core::marker::Copy for THERMAL_WAIT_READ {}
-impl ::core::clone::Clone for THERMAL_WAIT_READ {
+impl Copy for THERMAL_WAIT_READ {}
+impl Clone for THERMAL_WAIT_READ {
     fn clone(&self) -> Self {
         *self
     }
@@ -1760,8 +1760,8 @@ pub struct USER_POWER_POLICY {
     pub ForcedThrottleAc: u8,
     pub ForcedThrottleDc: u8,
 }
-impl ::core::marker::Copy for USER_POWER_POLICY {}
-impl ::core::clone::Clone for USER_POWER_POLICY {
+impl Copy for USER_POWER_POLICY {}
+impl Clone for USER_POWER_POLICY {
     fn clone(&self) -> Self {
         *self
     }
@@ -1771,13 +1771,13 @@ pub struct WAKE_ALARM_INFORMATION {
     pub TimerIdentifier: u32,
     pub Timeout: u32,
 }
-impl ::core::marker::Copy for WAKE_ALARM_INFORMATION {}
-impl ::core::clone::Clone for WAKE_ALARM_INFORMATION {
+impl Copy for WAKE_ALARM_INFORMATION {}
+impl Clone for WAKE_ALARM_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
 }
-pub type EFFECTIVE_POWER_MODE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(mode: EFFECTIVE_POWER_MODE, context: *const ::core::ffi::c_void)>;
-pub type PDEVICE_NOTIFY_CALLBACK_ROUTINE = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, r#type: u32, setting: *const ::core::ffi::c_void) -> u32>;
-pub type PWRSCHEMESENUMPROC = ::core::option::Option<unsafe extern "system" fn(index: u32, namesize: u32, name: ::windows_sys::core::PCWSTR, descriptionsize: u32, description: ::windows_sys::core::PCWSTR, policy: *const POWER_POLICY, context: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOLEAN>;
-pub type PWRSCHEMESENUMPROC_V1 = ::core::option::Option<unsafe extern "system" fn(index: u32, namesize: u32, name: *const i8, descriptionsize: u32, description: *const i8, policy: *const POWER_POLICY, context: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOLEAN>;
+pub type EFFECTIVE_POWER_MODE_CALLBACK = Option<unsafe extern "system" fn(mode: EFFECTIVE_POWER_MODE, context: *const core::ffi::c_void)>;
+pub type PDEVICE_NOTIFY_CALLBACK_ROUTINE = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, r#type: u32, setting: *const core::ffi::c_void) -> u32>;
+pub type PWRSCHEMESENUMPROC = Option<unsafe extern "system" fn(index: u32, namesize: u32, name: windows_sys::core::PCWSTR, descriptionsize: u32, description: windows_sys::core::PCWSTR, policy: *const POWER_POLICY, context: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOLEAN>;
+pub type PWRSCHEMESENUMPROC_V1 = Option<unsafe extern "system" fn(index: u32, namesize: u32, name: *const i8, descriptionsize: u32, description: *const i8, policy: *const POWER_POLICY, context: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOLEAN>;

@@ -89,8 +89,8 @@ pub struct INPUT_INJECTION_VALUE {
     pub value: i32,
     pub index: u16,
 }
-impl ::core::marker::Copy for INPUT_INJECTION_VALUE {}
-impl ::core::clone::Clone for INPUT_INJECTION_VALUE {
+impl Copy for INPUT_INJECTION_VALUE {}
+impl Clone for INPUT_INJECTION_VALUE {
     fn clone(&self) -> Self {
         *self
     }
@@ -99,8 +99,8 @@ impl ::core::clone::Clone for INPUT_INJECTION_VALUE {
 pub struct INPUT_TRANSFORM {
     pub Anonymous: INPUT_TRANSFORM_0,
 }
-impl ::core::marker::Copy for INPUT_TRANSFORM {}
-impl ::core::clone::Clone for INPUT_TRANSFORM {
+impl Copy for INPUT_TRANSFORM {}
+impl Clone for INPUT_TRANSFORM {
     fn clone(&self) -> Self {
         *self
     }
@@ -110,8 +110,8 @@ pub union INPUT_TRANSFORM_0 {
     pub Anonymous: INPUT_TRANSFORM_0_0,
     pub m: [f32; 16],
 }
-impl ::core::marker::Copy for INPUT_TRANSFORM_0 {}
-impl ::core::clone::Clone for INPUT_TRANSFORM_0 {
+impl Copy for INPUT_TRANSFORM_0 {}
+impl Clone for INPUT_TRANSFORM_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -135,8 +135,8 @@ pub struct INPUT_TRANSFORM_0_0 {
     pub _43: f32,
     pub _44: f32,
 }
-impl ::core::marker::Copy for INPUT_TRANSFORM_0_0 {}
-impl ::core::clone::Clone for INPUT_TRANSFORM_0_0 {
+impl Copy for INPUT_TRANSFORM_0_0 {}
+impl Clone for INPUT_TRANSFORM_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -162,9 +162,9 @@ pub struct POINTER_INFO {
     pub ButtonChangeType: POINTER_BUTTON_CHANGE_TYPE,
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ::core::marker::Copy for POINTER_INFO {}
+impl Copy for POINTER_INFO {}
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ::core::clone::Clone for POINTER_INFO {
+impl Clone for POINTER_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -181,9 +181,9 @@ pub struct POINTER_PEN_INFO {
     pub tiltY: i32,
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ::core::marker::Copy for POINTER_PEN_INFO {}
+impl Copy for POINTER_PEN_INFO {}
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ::core::clone::Clone for POINTER_PEN_INFO {
+impl Clone for POINTER_PEN_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -200,9 +200,9 @@ pub struct POINTER_TOUCH_INFO {
     pub pressure: u32,
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ::core::marker::Copy for POINTER_TOUCH_INFO {}
+impl Copy for POINTER_TOUCH_INFO {}
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ::core::clone::Clone for POINTER_TOUCH_INFO {
+impl Clone for POINTER_TOUCH_INFO {
     fn clone(&self) -> Self {
         *self
     }

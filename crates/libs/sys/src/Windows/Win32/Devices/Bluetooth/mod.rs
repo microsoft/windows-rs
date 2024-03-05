@@ -1,48 +1,48 @@
-::windows_targets::link!("bthprops.cpl" "system" fn BluetoothAuthenticateDevice(hwndparent : super::super::Foundation:: HWND, hradio : super::super::Foundation:: HANDLE, pbtbi : *mut BLUETOOTH_DEVICE_INFO, pszpasskey : ::windows_sys::core::PCWSTR, ulpasskeylength : u32) -> u32);
+::windows_targets::link!("bthprops.cpl" "system" fn BluetoothAuthenticateDevice(hwndparent : super::super::Foundation:: HWND, hradio : super::super::Foundation:: HANDLE, pbtbi : *mut BLUETOOTH_DEVICE_INFO, pszpasskey : windows_sys::core::PCWSTR, ulpasskeylength : u32) -> u32);
 ::windows_targets::link!("bthprops.cpl" "system" fn BluetoothAuthenticateDeviceEx(hwndparentin : super::super::Foundation:: HWND, hradioin : super::super::Foundation:: HANDLE, pbtdiinout : *mut BLUETOOTH_DEVICE_INFO, pbtoobdata : *const BLUETOOTH_OOB_DATA_INFO, authenticationrequirement : AUTHENTICATION_REQUIREMENTS) -> u32);
 ::windows_targets::link!("bthprops.cpl" "system" fn BluetoothAuthenticateMultipleDevices(hwndparent : super::super::Foundation:: HWND, hradio : super::super::Foundation:: HANDLE, cdevices : u32, rgbtdi : *mut BLUETOOTH_DEVICE_INFO) -> u32);
 ::windows_targets::link!("bthprops.cpl" "system" fn BluetoothDisplayDeviceProperties(hwndparent : super::super::Foundation:: HWND, pbtdi : *mut BLUETOOTH_DEVICE_INFO) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("bluetoothapis.dll" "system" fn BluetoothEnableDiscovery(hradio : super::super::Foundation:: HANDLE, fenabled : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("bluetoothapis.dll" "system" fn BluetoothEnableIncomingConnections(hradio : super::super::Foundation:: HANDLE, fenabled : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("bluetoothapis.dll" "system" fn BluetoothEnumerateInstalledServices(hradio : super::super::Foundation:: HANDLE, pbtdi : *const BLUETOOTH_DEVICE_INFO, pcserviceinout : *mut u32, pguidservices : *mut ::windows_sys::core::GUID) -> u32);
+::windows_targets::link!("bluetoothapis.dll" "system" fn BluetoothEnumerateInstalledServices(hradio : super::super::Foundation:: HANDLE, pbtdi : *const BLUETOOTH_DEVICE_INFO, pcserviceinout : *mut u32, pguidservices : *mut windows_sys::core::GUID) -> u32);
 ::windows_targets::link!("bluetoothapis.dll" "system" fn BluetoothFindDeviceClose(hfind : HBLUETOOTH_DEVICE_FIND) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("bluetoothapis.dll" "system" fn BluetoothFindFirstDevice(pbtsp : *const BLUETOOTH_DEVICE_SEARCH_PARAMS, pbtdi : *mut BLUETOOTH_DEVICE_INFO) -> HBLUETOOTH_DEVICE_FIND);
 ::windows_targets::link!("bluetoothapis.dll" "system" fn BluetoothFindFirstRadio(pbtfrp : *const BLUETOOTH_FIND_RADIO_PARAMS, phradio : *mut super::super::Foundation:: HANDLE) -> HBLUETOOTH_RADIO_FIND);
 ::windows_targets::link!("bluetoothapis.dll" "system" fn BluetoothFindNextDevice(hfind : HBLUETOOTH_DEVICE_FIND, pbtdi : *mut BLUETOOTH_DEVICE_INFO) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("bluetoothapis.dll" "system" fn BluetoothFindNextRadio(hfind : HBLUETOOTH_RADIO_FIND, phradio : *mut super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("bluetoothapis.dll" "system" fn BluetoothFindRadioClose(hfind : HBLUETOOTH_RADIO_FIND) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("bluetoothapis.dll" "system" fn BluetoothGATTAbortReliableWrite(hdevice : super::super::Foundation:: HANDLE, reliablewritecontext : u64, flags : u32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("bluetoothapis.dll" "system" fn BluetoothGATTBeginReliableWrite(hdevice : super::super::Foundation:: HANDLE, reliablewritecontext : *mut u64, flags : u32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("bluetoothapis.dll" "system" fn BluetoothGATTEndReliableWrite(hdevice : super::super::Foundation:: HANDLE, reliablewritecontext : u64, flags : u32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("bluetoothapis.dll" "system" fn BluetoothGATTGetCharacteristicValue(hdevice : super::super::Foundation:: HANDLE, characteristic : *const BTH_LE_GATT_CHARACTERISTIC, characteristicvaluedatasize : u32, characteristicvalue : *mut BTH_LE_GATT_CHARACTERISTIC_VALUE, characteristicvaluesizerequired : *mut u16, flags : u32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("bluetoothapis.dll" "system" fn BluetoothGATTGetCharacteristics(hdevice : super::super::Foundation:: HANDLE, service : *const BTH_LE_GATT_SERVICE, characteristicsbuffercount : u16, characteristicsbuffer : *mut BTH_LE_GATT_CHARACTERISTIC, characteristicsbufferactual : *mut u16, flags : u32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("bluetoothapis.dll" "system" fn BluetoothGATTGetDescriptorValue(hdevice : super::super::Foundation:: HANDLE, descriptor : *const BTH_LE_GATT_DESCRIPTOR, descriptorvaluedatasize : u32, descriptorvalue : *mut BTH_LE_GATT_DESCRIPTOR_VALUE, descriptorvaluesizerequired : *mut u16, flags : u32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("bluetoothapis.dll" "system" fn BluetoothGATTGetDescriptors(hdevice : super::super::Foundation:: HANDLE, characteristic : *const BTH_LE_GATT_CHARACTERISTIC, descriptorsbuffercount : u16, descriptorsbuffer : *mut BTH_LE_GATT_DESCRIPTOR, descriptorsbufferactual : *mut u16, flags : u32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("bluetoothapis.dll" "system" fn BluetoothGATTGetIncludedServices(hdevice : super::super::Foundation:: HANDLE, parentservice : *const BTH_LE_GATT_SERVICE, includedservicesbuffercount : u16, includedservicesbuffer : *mut BTH_LE_GATT_SERVICE, includedservicesbufferactual : *mut u16, flags : u32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("bluetoothapis.dll" "system" fn BluetoothGATTGetServices(hdevice : super::super::Foundation:: HANDLE, servicesbuffercount : u16, servicesbuffer : *mut BTH_LE_GATT_SERVICE, servicesbufferactual : *mut u16, flags : u32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("bluetoothapis.dll" "system" fn BluetoothGATTRegisterEvent(hservice : super::super::Foundation:: HANDLE, eventtype : BTH_LE_GATT_EVENT_TYPE, eventparameterin : *const ::core::ffi::c_void, callback : PFNBLUETOOTH_GATT_EVENT_CALLBACK, callbackcontext : *const ::core::ffi::c_void, peventhandle : *mut isize, flags : u32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("bluetoothapis.dll" "system" fn BluetoothGATTSetCharacteristicValue(hdevice : super::super::Foundation:: HANDLE, characteristic : *const BTH_LE_GATT_CHARACTERISTIC, characteristicvalue : *const BTH_LE_GATT_CHARACTERISTIC_VALUE, reliablewritecontext : u64, flags : u32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("bluetoothapis.dll" "system" fn BluetoothGATTSetDescriptorValue(hdevice : super::super::Foundation:: HANDLE, descriptor : *const BTH_LE_GATT_DESCRIPTOR, descriptorvalue : *const BTH_LE_GATT_DESCRIPTOR_VALUE, flags : u32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("bluetoothapis.dll" "system" fn BluetoothGATTUnregisterEvent(eventhandle : isize, flags : u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("bluetoothapis.dll" "system" fn BluetoothGATTAbortReliableWrite(hdevice : super::super::Foundation:: HANDLE, reliablewritecontext : u64, flags : u32) -> windows_sys::core::HRESULT);
+::windows_targets::link!("bluetoothapis.dll" "system" fn BluetoothGATTBeginReliableWrite(hdevice : super::super::Foundation:: HANDLE, reliablewritecontext : *mut u64, flags : u32) -> windows_sys::core::HRESULT);
+::windows_targets::link!("bluetoothapis.dll" "system" fn BluetoothGATTEndReliableWrite(hdevice : super::super::Foundation:: HANDLE, reliablewritecontext : u64, flags : u32) -> windows_sys::core::HRESULT);
+::windows_targets::link!("bluetoothapis.dll" "system" fn BluetoothGATTGetCharacteristicValue(hdevice : super::super::Foundation:: HANDLE, characteristic : *const BTH_LE_GATT_CHARACTERISTIC, characteristicvaluedatasize : u32, characteristicvalue : *mut BTH_LE_GATT_CHARACTERISTIC_VALUE, characteristicvaluesizerequired : *mut u16, flags : u32) -> windows_sys::core::HRESULT);
+::windows_targets::link!("bluetoothapis.dll" "system" fn BluetoothGATTGetCharacteristics(hdevice : super::super::Foundation:: HANDLE, service : *const BTH_LE_GATT_SERVICE, characteristicsbuffercount : u16, characteristicsbuffer : *mut BTH_LE_GATT_CHARACTERISTIC, characteristicsbufferactual : *mut u16, flags : u32) -> windows_sys::core::HRESULT);
+::windows_targets::link!("bluetoothapis.dll" "system" fn BluetoothGATTGetDescriptorValue(hdevice : super::super::Foundation:: HANDLE, descriptor : *const BTH_LE_GATT_DESCRIPTOR, descriptorvaluedatasize : u32, descriptorvalue : *mut BTH_LE_GATT_DESCRIPTOR_VALUE, descriptorvaluesizerequired : *mut u16, flags : u32) -> windows_sys::core::HRESULT);
+::windows_targets::link!("bluetoothapis.dll" "system" fn BluetoothGATTGetDescriptors(hdevice : super::super::Foundation:: HANDLE, characteristic : *const BTH_LE_GATT_CHARACTERISTIC, descriptorsbuffercount : u16, descriptorsbuffer : *mut BTH_LE_GATT_DESCRIPTOR, descriptorsbufferactual : *mut u16, flags : u32) -> windows_sys::core::HRESULT);
+::windows_targets::link!("bluetoothapis.dll" "system" fn BluetoothGATTGetIncludedServices(hdevice : super::super::Foundation:: HANDLE, parentservice : *const BTH_LE_GATT_SERVICE, includedservicesbuffercount : u16, includedservicesbuffer : *mut BTH_LE_GATT_SERVICE, includedservicesbufferactual : *mut u16, flags : u32) -> windows_sys::core::HRESULT);
+::windows_targets::link!("bluetoothapis.dll" "system" fn BluetoothGATTGetServices(hdevice : super::super::Foundation:: HANDLE, servicesbuffercount : u16, servicesbuffer : *mut BTH_LE_GATT_SERVICE, servicesbufferactual : *mut u16, flags : u32) -> windows_sys::core::HRESULT);
+::windows_targets::link!("bluetoothapis.dll" "system" fn BluetoothGATTRegisterEvent(hservice : super::super::Foundation:: HANDLE, eventtype : BTH_LE_GATT_EVENT_TYPE, eventparameterin : *const core::ffi::c_void, callback : PFNBLUETOOTH_GATT_EVENT_CALLBACK, callbackcontext : *const core::ffi::c_void, peventhandle : *mut isize, flags : u32) -> windows_sys::core::HRESULT);
+::windows_targets::link!("bluetoothapis.dll" "system" fn BluetoothGATTSetCharacteristicValue(hdevice : super::super::Foundation:: HANDLE, characteristic : *const BTH_LE_GATT_CHARACTERISTIC, characteristicvalue : *const BTH_LE_GATT_CHARACTERISTIC_VALUE, reliablewritecontext : u64, flags : u32) -> windows_sys::core::HRESULT);
+::windows_targets::link!("bluetoothapis.dll" "system" fn BluetoothGATTSetDescriptorValue(hdevice : super::super::Foundation:: HANDLE, descriptor : *const BTH_LE_GATT_DESCRIPTOR, descriptorvalue : *const BTH_LE_GATT_DESCRIPTOR_VALUE, flags : u32) -> windows_sys::core::HRESULT);
+::windows_targets::link!("bluetoothapis.dll" "system" fn BluetoothGATTUnregisterEvent(eventhandle : isize, flags : u32) -> windows_sys::core::HRESULT);
 ::windows_targets::link!("bluetoothapis.dll" "system" fn BluetoothGetDeviceInfo(hradio : super::super::Foundation:: HANDLE, pbtdi : *mut BLUETOOTH_DEVICE_INFO) -> u32);
 ::windows_targets::link!("bluetoothapis.dll" "system" fn BluetoothGetRadioInfo(hradio : super::super::Foundation:: HANDLE, pradioinfo : *mut BLUETOOTH_RADIO_INFO) -> u32);
 ::windows_targets::link!("bluetoothapis.dll" "system" fn BluetoothIsConnectable(hradio : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("bluetoothapis.dll" "system" fn BluetoothIsDiscoverable(hradio : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("bluetoothapis.dll" "system" fn BluetoothIsVersionAvailable(majorversion : u8, minorversion : u8) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("bluetoothapis.dll" "system" fn BluetoothRegisterForAuthentication(pbtdi : *const BLUETOOTH_DEVICE_INFO, phreghandle : *mut isize, pfncallback : PFN_AUTHENTICATION_CALLBACK, pvparam : *const ::core::ffi::c_void) -> u32);
-::windows_targets::link!("bluetoothapis.dll" "system" fn BluetoothRegisterForAuthenticationEx(pbtdiin : *const BLUETOOTH_DEVICE_INFO, phreghandleout : *mut isize, pfncallbackin : PFN_AUTHENTICATION_CALLBACK_EX, pvparam : *const ::core::ffi::c_void) -> u32);
+::windows_targets::link!("bluetoothapis.dll" "system" fn BluetoothRegisterForAuthentication(pbtdi : *const BLUETOOTH_DEVICE_INFO, phreghandle : *mut isize, pfncallback : PFN_AUTHENTICATION_CALLBACK, pvparam : *const core::ffi::c_void) -> u32);
+::windows_targets::link!("bluetoothapis.dll" "system" fn BluetoothRegisterForAuthenticationEx(pbtdiin : *const BLUETOOTH_DEVICE_INFO, phreghandleout : *mut isize, pfncallbackin : PFN_AUTHENTICATION_CALLBACK_EX, pvparam : *const core::ffi::c_void) -> u32);
 ::windows_targets::link!("bluetoothapis.dll" "system" fn BluetoothRemoveDevice(paddress : *const BLUETOOTH_ADDRESS) -> u32);
-::windows_targets::link!("bluetoothapis.dll" "system" fn BluetoothSdpEnumAttributes(psdpstream : *const u8, cbstreamsize : u32, pfncallback : PFN_BLUETOOTH_ENUM_ATTRIBUTES_CALLBACK, pvparam : *const ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("bluetoothapis.dll" "system" fn BluetoothSdpEnumAttributes(psdpstream : *const u8, cbstreamsize : u32, pfncallback : PFN_BLUETOOTH_ENUM_ATTRIBUTES_CALLBACK, pvparam : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("bluetoothapis.dll" "system" fn BluetoothSdpGetAttributeValue(precordstream : *const u8, cbrecordlength : u32, usattributeid : u16, pattributedata : *mut SDP_ELEMENT_DATA) -> u32);
 ::windows_targets::link!("bluetoothapis.dll" "system" fn BluetoothSdpGetContainerElementData(pcontainerstream : *const u8, cbcontainerlength : u32, pelement : *mut isize, pdata : *mut SDP_ELEMENT_DATA) -> u32);
 ::windows_targets::link!("bluetoothapis.dll" "system" fn BluetoothSdpGetElementData(psdpstream : *const u8, cbsdpstreamlength : u32, pdata : *mut SDP_ELEMENT_DATA) -> u32);
-::windows_targets::link!("bluetoothapis.dll" "system" fn BluetoothSdpGetString(precordstream : *const u8, cbrecordlength : u32, pstringdata : *const SDP_STRING_TYPE_DATA, usstringoffset : u16, pszstring : ::windows_sys::core::PWSTR, pcchstringlength : *mut u32) -> u32);
+::windows_targets::link!("bluetoothapis.dll" "system" fn BluetoothSdpGetString(precordstream : *const u8, cbrecordlength : u32, pstringdata : *const SDP_STRING_TYPE_DATA, usstringoffset : u16, pszstring : windows_sys::core::PWSTR, pcchstringlength : *mut u32) -> u32);
 ::windows_targets::link!("bthprops.cpl" "system" fn BluetoothSelectDevices(pbtsdp : *mut BLUETOOTH_SELECT_DEVICE_PARAMS) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("bthprops.cpl" "system" fn BluetoothSelectDevicesFree(pbtsdp : *mut BLUETOOTH_SELECT_DEVICE_PARAMS) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("bluetoothapis.dll" "system" fn BluetoothSendAuthenticationResponse(hradio : super::super::Foundation:: HANDLE, pbtdi : *const BLUETOOTH_DEVICE_INFO, pszpasskey : ::windows_sys::core::PCWSTR) -> u32);
+::windows_targets::link!("bluetoothapis.dll" "system" fn BluetoothSendAuthenticationResponse(hradio : super::super::Foundation:: HANDLE, pbtdi : *const BLUETOOTH_DEVICE_INFO, pszpasskey : windows_sys::core::PCWSTR) -> u32);
 ::windows_targets::link!("bluetoothapis.dll" "system" fn BluetoothSendAuthenticationResponseEx(hradioin : super::super::Foundation:: HANDLE, pauthresponse : *const BLUETOOTH_AUTHENTICATE_RESPONSE) -> u32);
-::windows_targets::link!("bluetoothapis.dll" "system" fn BluetoothSetLocalServiceInfo(hradioin : super::super::Foundation:: HANDLE, pclassguid : *const ::windows_sys::core::GUID, ulinstance : u32, pserviceinfoin : *const BLUETOOTH_LOCAL_SERVICE_INFO) -> u32);
-::windows_targets::link!("bluetoothapis.dll" "system" fn BluetoothSetServiceState(hradio : super::super::Foundation:: HANDLE, pbtdi : *const BLUETOOTH_DEVICE_INFO, pguidservice : *const ::windows_sys::core::GUID, dwserviceflags : u32) -> u32);
+::windows_targets::link!("bluetoothapis.dll" "system" fn BluetoothSetLocalServiceInfo(hradioin : super::super::Foundation:: HANDLE, pclassguid : *const windows_sys::core::GUID, ulinstance : u32, pserviceinfoin : *const BLUETOOTH_LOCAL_SERVICE_INFO) -> u32);
+::windows_targets::link!("bluetoothapis.dll" "system" fn BluetoothSetServiceState(hradio : super::super::Foundation:: HANDLE, pbtdi : *const BLUETOOTH_DEVICE_INFO, pguidservice : *const windows_sys::core::GUID, dwserviceflags : u32) -> u32);
 ::windows_targets::link!("bluetoothapis.dll" "system" fn BluetoothUnregisterAuthentication(hreghandle : isize) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("bluetoothapis.dll" "system" fn BluetoothUpdateDeviceRecord(pbtdi : *const BLUETOOTH_DEVICE_INFO) -> u32);
 pub const A2DP_SINK_SUPPORTED_FEATURES_AMPLIFIER: u32 = 8u32;
@@ -248,7 +248,7 @@ pub const BTH_HOST_FEATURE_SCO_HCI: u64 = 8u64;
 pub const BTH_HOST_FEATURE_SCO_HCIBYPASS: u64 = 16u64;
 pub const BTH_HOST_FEATURE_STREAMING_MODE: u64 = 2u64;
 pub const BTH_IOCTL_BASE: u32 = 0u32;
-pub const BTH_LE_ATT_BLUETOOTH_BASE_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x00000000_0000_1000_8000_00805f9b34fb);
+pub const BTH_LE_ATT_BLUETOOTH_BASE_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x00000000_0000_1000_8000_00805f9b34fb);
 pub const BTH_LE_ATT_CID: u32 = 4u32;
 pub const BTH_LE_ATT_MAX_VALUE_SIZE: u32 = 512u32;
 pub const BTH_LE_ATT_TRANSACTION_TIMEOUT: u32 = 30u32;
@@ -455,7 +455,7 @@ pub const BT_PORT_MAX: u32 = 65535u32;
 pub const BT_PORT_MIN: u32 = 1u32;
 pub const BasicPrintingProfileID_UUID16: u32 = 4386u32;
 pub const BasicPrintingServiceClassID_UUID16: u32 = 4386u32;
-pub const Bluetooth_Base_UUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x00000000_0000_1000_8000_00805f9b34fb);
+pub const Bluetooth_Base_UUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x00000000_0000_1000_8000_00805f9b34fb);
 pub const BrowseGroupDescriptorServiceClassID_UUID16: u32 = 4097u32;
 pub const CMPT_PROTOCOL_UUID16: u32 = 27u32;
 pub const COD_AUDIO_MINOR_CAMCORDER: u32 = 13u32;
@@ -593,17 +593,17 @@ pub const FaxServiceClassID_UUID16: u32 = 4369u32;
 pub const GNSSProfileID_UUID16: u32 = 4405u32;
 pub const GNSSServerServiceClassID_UUID16: u32 = 4406u32;
 pub const GNServiceClassID_UUID16: u32 = 4375u32;
-pub const GUID_BLUETOOTHLE_DEVICE_INTERFACE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x781aee18_7733_4ce4_add0_91f41c67b592);
-pub const GUID_BLUETOOTH_AUTHENTICATION_REQUEST: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x5dc9136d_996c_46db_84f5_32c0a3f47352);
-pub const GUID_BLUETOOTH_GATT_SERVICE_DEVICE_INTERFACE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x6e3bb679_4372_40c8_9eaa_4509df260cd8);
-pub const GUID_BLUETOOTH_HCI_EVENT: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xfc240062_1541_49be_b463_84c4dcd7bf7f);
-pub const GUID_BLUETOOTH_HCI_VENDOR_EVENT: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x547247e6_45bb_4c33_af8c_c00efe15a71d);
-pub const GUID_BLUETOOTH_KEYPRESS_EVENT: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xd668dfcd_0f4e_4efc_bfe0_392eeec5109c);
-pub const GUID_BLUETOOTH_L2CAP_EVENT: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x7eae4030_b709_4aa8_ac55_e953829c9daa);
-pub const GUID_BLUETOOTH_RADIO_IN_RANGE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xea3b5b82_26ee_450e_b0d8_d26fe30a3869);
-pub const GUID_BLUETOOTH_RADIO_OUT_OF_RANGE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xe28867c9_c2aa_4ced_b969_4570866037c4);
-pub const GUID_BTHPORT_DEVICE_INTERFACE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x0850302a_b344_4fda_9be9_90576b8d46f0);
-pub const GUID_BTH_RFCOMM_SERVICE_DEVICE_INTERFACE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xb142fc3e_fa4e_460b_8abc_072b628b3c70);
+pub const GUID_BLUETOOTHLE_DEVICE_INTERFACE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x781aee18_7733_4ce4_add0_91f41c67b592);
+pub const GUID_BLUETOOTH_AUTHENTICATION_REQUEST: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5dc9136d_996c_46db_84f5_32c0a3f47352);
+pub const GUID_BLUETOOTH_GATT_SERVICE_DEVICE_INTERFACE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6e3bb679_4372_40c8_9eaa_4509df260cd8);
+pub const GUID_BLUETOOTH_HCI_EVENT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xfc240062_1541_49be_b463_84c4dcd7bf7f);
+pub const GUID_BLUETOOTH_HCI_VENDOR_EVENT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x547247e6_45bb_4c33_af8c_c00efe15a71d);
+pub const GUID_BLUETOOTH_KEYPRESS_EVENT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd668dfcd_0f4e_4efc_bfe0_392eeec5109c);
+pub const GUID_BLUETOOTH_L2CAP_EVENT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7eae4030_b709_4aa8_ac55_e953829c9daa);
+pub const GUID_BLUETOOTH_RADIO_IN_RANGE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xea3b5b82_26ee_450e_b0d8_d26fe30a3869);
+pub const GUID_BLUETOOTH_RADIO_OUT_OF_RANGE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe28867c9_c2aa_4ced_b969_4570866037c4);
+pub const GUID_BTHPORT_DEVICE_INTERFACE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0850302a_b344_4fda_9be9_90576b8d46f0);
+pub const GUID_BTH_RFCOMM_SERVICE_DEVICE_INTERFACE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb142fc3e_fa4e_460b_8abc_072b628b3c70);
 pub const GenericAudioServiceClassID_UUID16: u32 = 4611u32;
 pub const GenericFileTransferServiceClassID_UUID16: u32 = 4610u32;
 pub const GenericNetworkingServiceClassID_UUID16: u32 = 4609u32;
@@ -895,16 +895,16 @@ pub const SO_BTH_MTU_MIN: u32 = 2147483658u32;
 pub const STRING_DESCRIPTION_OFFSET: u32 = 1u32;
 pub const STRING_NAME_OFFSET: u32 = 0u32;
 pub const STRING_PROVIDER_NAME_OFFSET: u32 = 2u32;
-pub const STR_ADDR_FMT: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("(%02x:%02x:%02x:%02x:%02x:%02x)");
-pub const STR_ADDR_FMTA: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("(%02x:%02x:%02x:%02x:%02x:%02x)");
-pub const STR_ADDR_FMTW: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("(%02x:%02x:%02x:%02x:%02x:%02x)");
-pub const STR_ADDR_SHORT_FMT: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("%04x%08x");
-pub const STR_ADDR_SHORT_FMTA: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("%04x%08x");
-pub const STR_ADDR_SHORT_FMTW: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("%04x%08x");
-pub const STR_USBHCI_CLASS_HARDWAREID: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("USB\\Class_E0&SubClass_01&Prot_01");
-pub const STR_USBHCI_CLASS_HARDWAREIDA: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("USB\\Class_E0&SubClass_01&Prot_01");
-pub const STR_USBHCI_CLASS_HARDWAREIDW: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("USB\\Class_E0&SubClass_01&Prot_01");
-pub const SVCID_BTH_PROVIDER: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x06aa63e0_7d60_41ff_afb2_3ee6d2d9392d);
+pub const STR_ADDR_FMT: windows_sys::core::PCWSTR = windows_sys::core::w!("(%02x:%02x:%02x:%02x:%02x:%02x)");
+pub const STR_ADDR_FMTA: windows_sys::core::PCSTR = windows_sys::core::s!("(%02x:%02x:%02x:%02x:%02x:%02x)");
+pub const STR_ADDR_FMTW: windows_sys::core::PCWSTR = windows_sys::core::w!("(%02x:%02x:%02x:%02x:%02x:%02x)");
+pub const STR_ADDR_SHORT_FMT: windows_sys::core::PCWSTR = windows_sys::core::w!("%04x%08x");
+pub const STR_ADDR_SHORT_FMTA: windows_sys::core::PCSTR = windows_sys::core::s!("%04x%08x");
+pub const STR_ADDR_SHORT_FMTW: windows_sys::core::PCWSTR = windows_sys::core::w!("%04x%08x");
+pub const STR_USBHCI_CLASS_HARDWAREID: windows_sys::core::PCWSTR = windows_sys::core::w!("USB\\Class_E0&SubClass_01&Prot_01");
+pub const STR_USBHCI_CLASS_HARDWAREIDA: windows_sys::core::PCSTR = windows_sys::core::s!("USB\\Class_E0&SubClass_01&Prot_01");
+pub const STR_USBHCI_CLASS_HARDWAREIDW: windows_sys::core::PCWSTR = windows_sys::core::w!("USB\\Class_E0&SubClass_01&Prot_01");
+pub const SVCID_BTH_PROVIDER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x06aa63e0_7d60_41ff_afb2_3ee6d2d9392d);
 pub const SYNCH_DATA_STORE_CALENDAR: u32 = 3u32;
 pub const SYNCH_DATA_STORE_MESSAGES: u32 = 6u32;
 pub const SYNCH_DATA_STORE_NOTES: u32 = 5u32;
@@ -951,8 +951,8 @@ pub type SDP_TYPE = i32;
 pub struct BLUETOOTH_ADDRESS {
     pub Anonymous: BLUETOOTH_ADDRESS_0,
 }
-impl ::core::marker::Copy for BLUETOOTH_ADDRESS {}
-impl ::core::clone::Clone for BLUETOOTH_ADDRESS {
+impl Copy for BLUETOOTH_ADDRESS {}
+impl Clone for BLUETOOTH_ADDRESS {
     fn clone(&self) -> Self {
         *self
     }
@@ -962,8 +962,8 @@ pub union BLUETOOTH_ADDRESS_0 {
     pub ullLong: u64,
     pub rgBytes: [u8; 6],
 }
-impl ::core::marker::Copy for BLUETOOTH_ADDRESS_0 {}
-impl ::core::clone::Clone for BLUETOOTH_ADDRESS_0 {
+impl Copy for BLUETOOTH_ADDRESS_0 {}
+impl Clone for BLUETOOTH_ADDRESS_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -975,8 +975,8 @@ pub struct BLUETOOTH_AUTHENTICATE_RESPONSE {
     pub Anonymous: BLUETOOTH_AUTHENTICATE_RESPONSE_0,
     pub negativeResponse: u8,
 }
-impl ::core::marker::Copy for BLUETOOTH_AUTHENTICATE_RESPONSE {}
-impl ::core::clone::Clone for BLUETOOTH_AUTHENTICATE_RESPONSE {
+impl Copy for BLUETOOTH_AUTHENTICATE_RESPONSE {}
+impl Clone for BLUETOOTH_AUTHENTICATE_RESPONSE {
     fn clone(&self) -> Self {
         *self
     }
@@ -988,8 +988,8 @@ pub union BLUETOOTH_AUTHENTICATE_RESPONSE_0 {
     pub numericCompInfo: BLUETOOTH_NUMERIC_COMPARISON_INFO,
     pub passkeyInfo: BLUETOOTH_PASSKEY_INFO,
 }
-impl ::core::marker::Copy for BLUETOOTH_AUTHENTICATE_RESPONSE_0 {}
-impl ::core::clone::Clone for BLUETOOTH_AUTHENTICATE_RESPONSE_0 {
+impl Copy for BLUETOOTH_AUTHENTICATE_RESPONSE_0 {}
+impl Clone for BLUETOOTH_AUTHENTICATE_RESPONSE_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -1002,8 +1002,8 @@ pub struct BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS {
     pub authenticationRequirements: BLUETOOTH_AUTHENTICATION_REQUIREMENTS,
     pub Anonymous: BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS_0,
 }
-impl ::core::marker::Copy for BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS {}
-impl ::core::clone::Clone for BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS {
+impl Copy for BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS {}
+impl Clone for BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS {
     fn clone(&self) -> Self {
         *self
     }
@@ -1013,8 +1013,8 @@ pub union BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS_0 {
     pub Numeric_Value: u32,
     pub Passkey: u32,
 }
-impl ::core::marker::Copy for BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS_0 {}
-impl ::core::clone::Clone for BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS_0 {
+impl Copy for BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS_0 {}
+impl Clone for BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -1022,10 +1022,10 @@ impl ::core::clone::Clone for BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS_0 {
 #[repr(C)]
 pub struct BLUETOOTH_COD_PAIRS {
     pub ulCODMask: u32,
-    pub pcszDescription: ::windows_sys::core::PCWSTR,
+    pub pcszDescription: windows_sys::core::PCWSTR,
 }
-impl ::core::marker::Copy for BLUETOOTH_COD_PAIRS {}
-impl ::core::clone::Clone for BLUETOOTH_COD_PAIRS {
+impl Copy for BLUETOOTH_COD_PAIRS {}
+impl Clone for BLUETOOTH_COD_PAIRS {
     fn clone(&self) -> Self {
         *self
     }
@@ -1042,8 +1042,8 @@ pub struct BLUETOOTH_DEVICE_INFO {
     pub stLastUsed: super::super::Foundation::SYSTEMTIME,
     pub szName: [u16; 248],
 }
-impl ::core::marker::Copy for BLUETOOTH_DEVICE_INFO {}
-impl ::core::clone::Clone for BLUETOOTH_DEVICE_INFO {
+impl Copy for BLUETOOTH_DEVICE_INFO {}
+impl Clone for BLUETOOTH_DEVICE_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -1059,8 +1059,8 @@ pub struct BLUETOOTH_DEVICE_SEARCH_PARAMS {
     pub cTimeoutMultiplier: u8,
     pub hRadio: super::super::Foundation::HANDLE,
 }
-impl ::core::marker::Copy for BLUETOOTH_DEVICE_SEARCH_PARAMS {}
-impl ::core::clone::Clone for BLUETOOTH_DEVICE_SEARCH_PARAMS {
+impl Copy for BLUETOOTH_DEVICE_SEARCH_PARAMS {}
+impl Clone for BLUETOOTH_DEVICE_SEARCH_PARAMS {
     fn clone(&self) -> Self {
         *self
     }
@@ -1069,8 +1069,8 @@ impl ::core::clone::Clone for BLUETOOTH_DEVICE_SEARCH_PARAMS {
 pub struct BLUETOOTH_FIND_RADIO_PARAMS {
     pub dwSize: u32,
 }
-impl ::core::marker::Copy for BLUETOOTH_FIND_RADIO_PARAMS {}
-impl ::core::clone::Clone for BLUETOOTH_FIND_RADIO_PARAMS {
+impl Copy for BLUETOOTH_FIND_RADIO_PARAMS {}
+impl Clone for BLUETOOTH_FIND_RADIO_PARAMS {
     fn clone(&self) -> Self {
         *self
     }
@@ -1081,8 +1081,8 @@ pub struct BLUETOOTH_GATT_VALUE_CHANGED_EVENT {
     pub CharacteristicValueDataSize: usize,
     pub CharacteristicValue: *mut BTH_LE_GATT_CHARACTERISTIC_VALUE,
 }
-impl ::core::marker::Copy for BLUETOOTH_GATT_VALUE_CHANGED_EVENT {}
-impl ::core::clone::Clone for BLUETOOTH_GATT_VALUE_CHANGED_EVENT {
+impl Copy for BLUETOOTH_GATT_VALUE_CHANGED_EVENT {}
+impl Clone for BLUETOOTH_GATT_VALUE_CHANGED_EVENT {
     fn clone(&self) -> Self {
         *self
     }
@@ -1092,8 +1092,8 @@ pub struct BLUETOOTH_GATT_VALUE_CHANGED_EVENT_REGISTRATION {
     pub NumCharacteristics: u16,
     pub Characteristics: [BTH_LE_GATT_CHARACTERISTIC; 1],
 }
-impl ::core::marker::Copy for BLUETOOTH_GATT_VALUE_CHANGED_EVENT_REGISTRATION {}
-impl ::core::clone::Clone for BLUETOOTH_GATT_VALUE_CHANGED_EVENT_REGISTRATION {
+impl Copy for BLUETOOTH_GATT_VALUE_CHANGED_EVENT_REGISTRATION {}
+impl Clone for BLUETOOTH_GATT_VALUE_CHANGED_EVENT_REGISTRATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -1105,8 +1105,8 @@ pub struct BLUETOOTH_LOCAL_SERVICE_INFO {
     pub szName: [u16; 256],
     pub szDeviceString: [u16; 256],
 }
-impl ::core::marker::Copy for BLUETOOTH_LOCAL_SERVICE_INFO {}
-impl ::core::clone::Clone for BLUETOOTH_LOCAL_SERVICE_INFO {
+impl Copy for BLUETOOTH_LOCAL_SERVICE_INFO {}
+impl Clone for BLUETOOTH_LOCAL_SERVICE_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -1115,8 +1115,8 @@ impl ::core::clone::Clone for BLUETOOTH_LOCAL_SERVICE_INFO {
 pub struct BLUETOOTH_NUMERIC_COMPARISON_INFO {
     pub NumericValue: u32,
 }
-impl ::core::marker::Copy for BLUETOOTH_NUMERIC_COMPARISON_INFO {}
-impl ::core::clone::Clone for BLUETOOTH_NUMERIC_COMPARISON_INFO {
+impl Copy for BLUETOOTH_NUMERIC_COMPARISON_INFO {}
+impl Clone for BLUETOOTH_NUMERIC_COMPARISON_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -1126,8 +1126,8 @@ pub struct BLUETOOTH_OOB_DATA_INFO {
     pub C: [u8; 16],
     pub R: [u8; 16],
 }
-impl ::core::marker::Copy for BLUETOOTH_OOB_DATA_INFO {}
-impl ::core::clone::Clone for BLUETOOTH_OOB_DATA_INFO {
+impl Copy for BLUETOOTH_OOB_DATA_INFO {}
+impl Clone for BLUETOOTH_OOB_DATA_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -1136,8 +1136,8 @@ impl ::core::clone::Clone for BLUETOOTH_OOB_DATA_INFO {
 pub struct BLUETOOTH_PASSKEY_INFO {
     pub passkey: u32,
 }
-impl ::core::marker::Copy for BLUETOOTH_PASSKEY_INFO {}
-impl ::core::clone::Clone for BLUETOOTH_PASSKEY_INFO {
+impl Copy for BLUETOOTH_PASSKEY_INFO {}
+impl Clone for BLUETOOTH_PASSKEY_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -1147,8 +1147,8 @@ pub struct BLUETOOTH_PIN_INFO {
     pub pin: [u8; 16],
     pub pinLength: u8,
 }
-impl ::core::marker::Copy for BLUETOOTH_PIN_INFO {}
-impl ::core::clone::Clone for BLUETOOTH_PIN_INFO {
+impl Copy for BLUETOOTH_PIN_INFO {}
+impl Clone for BLUETOOTH_PIN_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -1162,8 +1162,8 @@ pub struct BLUETOOTH_RADIO_INFO {
     pub lmpSubversion: u16,
     pub manufacturer: u16,
 }
-impl ::core::marker::Copy for BLUETOOTH_RADIO_INFO {}
-impl ::core::clone::Clone for BLUETOOTH_RADIO_INFO {
+impl Copy for BLUETOOTH_RADIO_INFO {}
+impl Clone for BLUETOOTH_RADIO_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -1173,7 +1173,7 @@ pub struct BLUETOOTH_SELECT_DEVICE_PARAMS {
     pub dwSize: u32,
     pub cNumOfClasses: u32,
     pub prgClassOfDevices: *mut BLUETOOTH_COD_PAIRS,
-    pub pszInfo: ::windows_sys::core::PWSTR,
+    pub pszInfo: windows_sys::core::PWSTR,
     pub hwndParent: super::super::Foundation::HWND,
     pub fForceAuthentication: super::super::Foundation::BOOL,
     pub fShowAuthenticated: super::super::Foundation::BOOL,
@@ -1182,12 +1182,12 @@ pub struct BLUETOOTH_SELECT_DEVICE_PARAMS {
     pub fAddNewDeviceWizard: super::super::Foundation::BOOL,
     pub fSkipServicesPage: super::super::Foundation::BOOL,
     pub pfnDeviceCallback: PFN_DEVICE_CALLBACK,
-    pub pvParam: *mut ::core::ffi::c_void,
+    pub pvParam: *mut core::ffi::c_void,
     pub cNumDevices: u32,
     pub pDevices: *mut BLUETOOTH_DEVICE_INFO,
 }
-impl ::core::marker::Copy for BLUETOOTH_SELECT_DEVICE_PARAMS {}
-impl ::core::clone::Clone for BLUETOOTH_SELECT_DEVICE_PARAMS {
+impl Copy for BLUETOOTH_SELECT_DEVICE_PARAMS {}
+impl Clone for BLUETOOTH_SELECT_DEVICE_PARAMS {
     fn clone(&self) -> Self {
         *self
     }
@@ -1199,8 +1199,8 @@ pub struct BTH_DEVICE_INFO {
     pub classOfDevice: u32,
     pub name: [i8; 248],
 }
-impl ::core::marker::Copy for BTH_DEVICE_INFO {}
-impl ::core::clone::Clone for BTH_DEVICE_INFO {
+impl Copy for BTH_DEVICE_INFO {}
+impl Clone for BTH_DEVICE_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -1211,8 +1211,8 @@ pub struct BTH_HCI_EVENT_INFO {
     pub connectionType: u8,
     pub connected: u8,
 }
-impl ::core::marker::Copy for BTH_HCI_EVENT_INFO {}
-impl ::core::clone::Clone for BTH_HCI_EVENT_INFO {
+impl Copy for BTH_HCI_EVENT_INFO {}
+impl Clone for BTH_HCI_EVENT_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -1222,8 +1222,8 @@ pub struct BTH_INFO_REQ {
     pub btAddr: u64,
     pub infoType: u16,
 }
-impl ::core::marker::Copy for BTH_INFO_REQ {}
-impl ::core::clone::Clone for BTH_INFO_REQ {
+impl Copy for BTH_INFO_REQ {}
+impl Clone for BTH_INFO_REQ {
     fn clone(&self) -> Self {
         *self
     }
@@ -1234,8 +1234,8 @@ pub struct BTH_INFO_RSP {
     pub dataLen: u8,
     pub Anonymous: BTH_INFO_RSP_0,
 }
-impl ::core::marker::Copy for BTH_INFO_RSP {}
-impl ::core::clone::Clone for BTH_INFO_RSP {
+impl Copy for BTH_INFO_RSP {}
+impl Clone for BTH_INFO_RSP {
     fn clone(&self) -> Self {
         *self
     }
@@ -1245,8 +1245,8 @@ pub union BTH_INFO_RSP_0 {
     pub connectionlessMTU: u16,
     pub data: [u8; 44],
 }
-impl ::core::marker::Copy for BTH_INFO_RSP_0 {}
-impl ::core::clone::Clone for BTH_INFO_RSP_0 {
+impl Copy for BTH_INFO_RSP_0 {}
+impl Clone for BTH_INFO_RSP_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -1258,8 +1258,8 @@ pub struct BTH_L2CAP_EVENT_INFO {
     pub connected: u8,
     pub initiated: u8,
 }
-impl ::core::marker::Copy for BTH_L2CAP_EVENT_INFO {}
-impl ::core::clone::Clone for BTH_L2CAP_EVENT_INFO {
+impl Copy for BTH_L2CAP_EVENT_INFO {}
+impl Clone for BTH_L2CAP_EVENT_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -1279,8 +1279,8 @@ pub struct BTH_LE_GATT_CHARACTERISTIC {
     pub IsIndicatable: super::super::Foundation::BOOLEAN,
     pub HasExtendedProperties: super::super::Foundation::BOOLEAN,
 }
-impl ::core::marker::Copy for BTH_LE_GATT_CHARACTERISTIC {}
-impl ::core::clone::Clone for BTH_LE_GATT_CHARACTERISTIC {
+impl Copy for BTH_LE_GATT_CHARACTERISTIC {}
+impl Clone for BTH_LE_GATT_CHARACTERISTIC {
     fn clone(&self) -> Self {
         *self
     }
@@ -1290,8 +1290,8 @@ pub struct BTH_LE_GATT_CHARACTERISTIC_VALUE {
     pub DataSize: u32,
     pub Data: [u8; 1],
 }
-impl ::core::marker::Copy for BTH_LE_GATT_CHARACTERISTIC_VALUE {}
-impl ::core::clone::Clone for BTH_LE_GATT_CHARACTERISTIC_VALUE {
+impl Copy for BTH_LE_GATT_CHARACTERISTIC_VALUE {}
+impl Clone for BTH_LE_GATT_CHARACTERISTIC_VALUE {
     fn clone(&self) -> Self {
         *self
     }
@@ -1304,8 +1304,8 @@ pub struct BTH_LE_GATT_DESCRIPTOR {
     pub DescriptorUuid: BTH_LE_UUID,
     pub AttributeHandle: u16,
 }
-impl ::core::marker::Copy for BTH_LE_GATT_DESCRIPTOR {}
-impl ::core::clone::Clone for BTH_LE_GATT_DESCRIPTOR {
+impl Copy for BTH_LE_GATT_DESCRIPTOR {}
+impl Clone for BTH_LE_GATT_DESCRIPTOR {
     fn clone(&self) -> Self {
         *self
     }
@@ -1318,8 +1318,8 @@ pub struct BTH_LE_GATT_DESCRIPTOR_VALUE {
     pub DataSize: u32,
     pub Data: [u8; 1],
 }
-impl ::core::marker::Copy for BTH_LE_GATT_DESCRIPTOR_VALUE {}
-impl ::core::clone::Clone for BTH_LE_GATT_DESCRIPTOR_VALUE {
+impl Copy for BTH_LE_GATT_DESCRIPTOR_VALUE {}
+impl Clone for BTH_LE_GATT_DESCRIPTOR_VALUE {
     fn clone(&self) -> Self {
         *self
     }
@@ -1331,8 +1331,8 @@ pub union BTH_LE_GATT_DESCRIPTOR_VALUE_0 {
     pub ServerCharacteristicConfiguration: BTH_LE_GATT_DESCRIPTOR_VALUE_0_3,
     pub CharacteristicFormat: BTH_LE_GATT_DESCRIPTOR_VALUE_0_1,
 }
-impl ::core::marker::Copy for BTH_LE_GATT_DESCRIPTOR_VALUE_0 {}
-impl ::core::clone::Clone for BTH_LE_GATT_DESCRIPTOR_VALUE_0 {
+impl Copy for BTH_LE_GATT_DESCRIPTOR_VALUE_0 {}
+impl Clone for BTH_LE_GATT_DESCRIPTOR_VALUE_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -1342,8 +1342,8 @@ pub struct BTH_LE_GATT_DESCRIPTOR_VALUE_0_0 {
     pub IsReliableWriteEnabled: super::super::Foundation::BOOLEAN,
     pub IsAuxiliariesWritable: super::super::Foundation::BOOLEAN,
 }
-impl ::core::marker::Copy for BTH_LE_GATT_DESCRIPTOR_VALUE_0_0 {}
-impl ::core::clone::Clone for BTH_LE_GATT_DESCRIPTOR_VALUE_0_0 {
+impl Copy for BTH_LE_GATT_DESCRIPTOR_VALUE_0_0 {}
+impl Clone for BTH_LE_GATT_DESCRIPTOR_VALUE_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -1356,8 +1356,8 @@ pub struct BTH_LE_GATT_DESCRIPTOR_VALUE_0_1 {
     pub NameSpace: u8,
     pub Description: BTH_LE_UUID,
 }
-impl ::core::marker::Copy for BTH_LE_GATT_DESCRIPTOR_VALUE_0_1 {}
-impl ::core::clone::Clone for BTH_LE_GATT_DESCRIPTOR_VALUE_0_1 {
+impl Copy for BTH_LE_GATT_DESCRIPTOR_VALUE_0_1 {}
+impl Clone for BTH_LE_GATT_DESCRIPTOR_VALUE_0_1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -1367,8 +1367,8 @@ pub struct BTH_LE_GATT_DESCRIPTOR_VALUE_0_2 {
     pub IsSubscribeToNotification: super::super::Foundation::BOOLEAN,
     pub IsSubscribeToIndication: super::super::Foundation::BOOLEAN,
 }
-impl ::core::marker::Copy for BTH_LE_GATT_DESCRIPTOR_VALUE_0_2 {}
-impl ::core::clone::Clone for BTH_LE_GATT_DESCRIPTOR_VALUE_0_2 {
+impl Copy for BTH_LE_GATT_DESCRIPTOR_VALUE_0_2 {}
+impl Clone for BTH_LE_GATT_DESCRIPTOR_VALUE_0_2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -1377,8 +1377,8 @@ impl ::core::clone::Clone for BTH_LE_GATT_DESCRIPTOR_VALUE_0_2 {
 pub struct BTH_LE_GATT_DESCRIPTOR_VALUE_0_3 {
     pub IsBroadcast: super::super::Foundation::BOOLEAN,
 }
-impl ::core::marker::Copy for BTH_LE_GATT_DESCRIPTOR_VALUE_0_3 {}
-impl ::core::clone::Clone for BTH_LE_GATT_DESCRIPTOR_VALUE_0_3 {
+impl Copy for BTH_LE_GATT_DESCRIPTOR_VALUE_0_3 {}
+impl Clone for BTH_LE_GATT_DESCRIPTOR_VALUE_0_3 {
     fn clone(&self) -> Self {
         *self
     }
@@ -1388,8 +1388,8 @@ pub struct BTH_LE_GATT_SERVICE {
     pub ServiceUuid: BTH_LE_UUID,
     pub AttributeHandle: u16,
 }
-impl ::core::marker::Copy for BTH_LE_GATT_SERVICE {}
-impl ::core::clone::Clone for BTH_LE_GATT_SERVICE {
+impl Copy for BTH_LE_GATT_SERVICE {}
+impl Clone for BTH_LE_GATT_SERVICE {
     fn clone(&self) -> Self {
         *self
     }
@@ -1399,8 +1399,8 @@ pub struct BTH_LE_UUID {
     pub IsShortUuid: super::super::Foundation::BOOLEAN,
     pub Value: BTH_LE_UUID_0,
 }
-impl ::core::marker::Copy for BTH_LE_UUID {}
-impl ::core::clone::Clone for BTH_LE_UUID {
+impl Copy for BTH_LE_UUID {}
+impl Clone for BTH_LE_UUID {
     fn clone(&self) -> Self {
         *self
     }
@@ -1408,10 +1408,10 @@ impl ::core::clone::Clone for BTH_LE_UUID {
 #[repr(C)]
 pub union BTH_LE_UUID_0 {
     pub ShortUuid: u16,
-    pub LongUuid: ::windows_sys::core::GUID,
+    pub LongUuid: windows_sys::core::GUID,
 }
-impl ::core::marker::Copy for BTH_LE_UUID_0 {}
-impl ::core::clone::Clone for BTH_LE_UUID_0 {
+impl Copy for BTH_LE_UUID_0 {}
+impl Clone for BTH_LE_UUID_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -1422,8 +1422,8 @@ pub struct BTH_PING_REQ {
     pub dataLen: u8,
     pub data: [u8; 44],
 }
-impl ::core::marker::Copy for BTH_PING_REQ {}
-impl ::core::clone::Clone for BTH_PING_REQ {
+impl Copy for BTH_PING_REQ {}
+impl Clone for BTH_PING_REQ {
     fn clone(&self) -> Self {
         *self
     }
@@ -1433,8 +1433,8 @@ pub struct BTH_PING_RSP {
     pub dataLen: u8,
     pub data: [u8; 44],
 }
-impl ::core::marker::Copy for BTH_PING_RSP {}
-impl ::core::clone::Clone for BTH_PING_RSP {
+impl Copy for BTH_PING_RSP {}
+impl Clone for BTH_PING_RSP {
     fn clone(&self) -> Self {
         *self
     }
@@ -1444,8 +1444,8 @@ pub struct BTH_QUERY_DEVICE {
     pub LAP: u32,
     pub length: u8,
 }
-impl ::core::marker::Copy for BTH_QUERY_DEVICE {}
-impl ::core::clone::Clone for BTH_QUERY_DEVICE {
+impl Copy for BTH_QUERY_DEVICE {}
+impl Clone for BTH_QUERY_DEVICE {
     fn clone(&self) -> Self {
         *self
     }
@@ -1458,8 +1458,8 @@ pub struct BTH_QUERY_SERVICE {
     pub numRange: u32,
     pub pRange: [SdpAttributeRange; 1],
 }
-impl ::core::marker::Copy for BTH_QUERY_SERVICE {}
-impl ::core::clone::Clone for BTH_QUERY_SERVICE {
+impl Copy for BTH_QUERY_SERVICE {}
+impl Clone for BTH_QUERY_SERVICE {
     fn clone(&self) -> Self {
         *self
     }
@@ -1469,8 +1469,8 @@ pub struct BTH_RADIO_IN_RANGE {
     pub deviceInfo: BTH_DEVICE_INFO,
     pub previousDeviceFlags: u32,
 }
-impl ::core::marker::Copy for BTH_RADIO_IN_RANGE {}
-impl ::core::clone::Clone for BTH_RADIO_IN_RANGE {
+impl Copy for BTH_RADIO_IN_RANGE {}
+impl Clone for BTH_RADIO_IN_RANGE {
     fn clone(&self) -> Self {
         *self
     }
@@ -1484,8 +1484,8 @@ pub struct BTH_SET_SERVICE {
     pub ulRecordLength: u32,
     pub pRecord: [u8; 1],
 }
-impl ::core::marker::Copy for BTH_SET_SERVICE {}
-impl ::core::clone::Clone for BTH_SET_SERVICE {
+impl Copy for BTH_SET_SERVICE {}
+impl Clone for BTH_SET_SERVICE {
     fn clone(&self) -> Self {
         *self
     }
@@ -1498,8 +1498,8 @@ pub struct RFCOMM_COMMAND {
     pub CmdType: u32,
     pub Data: RFCOMM_COMMAND_0,
 }
-impl ::core::marker::Copy for RFCOMM_COMMAND {}
-impl ::core::clone::Clone for RFCOMM_COMMAND {
+impl Copy for RFCOMM_COMMAND {}
+impl Clone for RFCOMM_COMMAND {
     fn clone(&self) -> Self {
         *self
     }
@@ -1510,8 +1510,8 @@ pub union RFCOMM_COMMAND_0 {
     pub RLS: RFCOMM_RLS_DATA,
     pub RPN: RFCOMM_RPN_DATA,
 }
-impl ::core::marker::Copy for RFCOMM_COMMAND_0 {}
-impl ::core::clone::Clone for RFCOMM_COMMAND_0 {
+impl Copy for RFCOMM_COMMAND_0 {}
+impl Clone for RFCOMM_COMMAND_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -1521,8 +1521,8 @@ pub struct RFCOMM_MSC_DATA {
     pub Signals: u8,
     pub Break: u8,
 }
-impl ::core::marker::Copy for RFCOMM_MSC_DATA {}
-impl ::core::clone::Clone for RFCOMM_MSC_DATA {
+impl Copy for RFCOMM_MSC_DATA {}
+impl Clone for RFCOMM_MSC_DATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -1531,8 +1531,8 @@ impl ::core::clone::Clone for RFCOMM_MSC_DATA {
 pub struct RFCOMM_RLS_DATA {
     pub LineStatus: u8,
 }
-impl ::core::marker::Copy for RFCOMM_RLS_DATA {}
-impl ::core::clone::Clone for RFCOMM_RLS_DATA {
+impl Copy for RFCOMM_RLS_DATA {}
+impl Clone for RFCOMM_RLS_DATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -1547,8 +1547,8 @@ pub struct RFCOMM_RPN_DATA {
     pub ParameterMask1: u8,
     pub ParameterMask2: u8,
 }
-impl ::core::marker::Copy for RFCOMM_RPN_DATA {}
-impl ::core::clone::Clone for RFCOMM_RPN_DATA {
+impl Copy for RFCOMM_RPN_DATA {}
+impl Clone for RFCOMM_RPN_DATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -1559,8 +1559,8 @@ pub struct SDP_ELEMENT_DATA {
     pub specificType: SDP_SPECIFICTYPE,
     pub data: SDP_ELEMENT_DATA_0,
 }
-impl ::core::marker::Copy for SDP_ELEMENT_DATA {}
-impl ::core::clone::Clone for SDP_ELEMENT_DATA {
+impl Copy for SDP_ELEMENT_DATA {}
+impl Clone for SDP_ELEMENT_DATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -1578,7 +1578,7 @@ pub union SDP_ELEMENT_DATA_0 {
     pub uint16: u16,
     pub uint8: u8,
     pub booleanVal: u8,
-    pub uuid128: ::windows_sys::core::GUID,
+    pub uuid128: windows_sys::core::GUID,
     pub uuid32: u32,
     pub uuid16: u16,
     pub string: SDP_ELEMENT_DATA_0_2,
@@ -1586,8 +1586,8 @@ pub union SDP_ELEMENT_DATA_0 {
     pub sequence: SDP_ELEMENT_DATA_0_1,
     pub alternative: SDP_ELEMENT_DATA_0_0,
 }
-impl ::core::marker::Copy for SDP_ELEMENT_DATA_0 {}
-impl ::core::clone::Clone for SDP_ELEMENT_DATA_0 {
+impl Copy for SDP_ELEMENT_DATA_0 {}
+impl Clone for SDP_ELEMENT_DATA_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -1597,8 +1597,8 @@ pub struct SDP_ELEMENT_DATA_0_0 {
     pub value: *mut u8,
     pub length: u32,
 }
-impl ::core::marker::Copy for SDP_ELEMENT_DATA_0_0 {}
-impl ::core::clone::Clone for SDP_ELEMENT_DATA_0_0 {
+impl Copy for SDP_ELEMENT_DATA_0_0 {}
+impl Clone for SDP_ELEMENT_DATA_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -1608,8 +1608,8 @@ pub struct SDP_ELEMENT_DATA_0_1 {
     pub value: *mut u8,
     pub length: u32,
 }
-impl ::core::marker::Copy for SDP_ELEMENT_DATA_0_1 {}
-impl ::core::clone::Clone for SDP_ELEMENT_DATA_0_1 {
+impl Copy for SDP_ELEMENT_DATA_0_1 {}
+impl Clone for SDP_ELEMENT_DATA_0_1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -1619,8 +1619,8 @@ pub struct SDP_ELEMENT_DATA_0_2 {
     pub value: *mut u8,
     pub length: u32,
 }
-impl ::core::marker::Copy for SDP_ELEMENT_DATA_0_2 {}
-impl ::core::clone::Clone for SDP_ELEMENT_DATA_0_2 {
+impl Copy for SDP_ELEMENT_DATA_0_2 {}
+impl Clone for SDP_ELEMENT_DATA_0_2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -1630,8 +1630,8 @@ pub struct SDP_ELEMENT_DATA_0_3 {
     pub value: *mut u8,
     pub length: u32,
 }
-impl ::core::marker::Copy for SDP_ELEMENT_DATA_0_3 {}
-impl ::core::clone::Clone for SDP_ELEMENT_DATA_0_3 {
+impl Copy for SDP_ELEMENT_DATA_0_3 {}
+impl Clone for SDP_ELEMENT_DATA_0_3 {
     fn clone(&self) -> Self {
         *self
     }
@@ -1641,8 +1641,8 @@ pub struct SDP_LARGE_INTEGER_16 {
     pub LowPart: u64,
     pub HighPart: i64,
 }
-impl ::core::marker::Copy for SDP_LARGE_INTEGER_16 {}
-impl ::core::clone::Clone for SDP_LARGE_INTEGER_16 {
+impl Copy for SDP_LARGE_INTEGER_16 {}
+impl Clone for SDP_LARGE_INTEGER_16 {
     fn clone(&self) -> Self {
         *self
     }
@@ -1653,8 +1653,8 @@ pub struct SDP_STRING_TYPE_DATA {
     pub mibeNum: u16,
     pub attributeId: u16,
 }
-impl ::core::marker::Copy for SDP_STRING_TYPE_DATA {}
-impl ::core::clone::Clone for SDP_STRING_TYPE_DATA {
+impl Copy for SDP_STRING_TYPE_DATA {}
+impl Clone for SDP_STRING_TYPE_DATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -1664,8 +1664,8 @@ pub struct SDP_ULARGE_INTEGER_16 {
     pub LowPart: u64,
     pub HighPart: u64,
 }
-impl ::core::marker::Copy for SDP_ULARGE_INTEGER_16 {}
-impl ::core::clone::Clone for SDP_ULARGE_INTEGER_16 {
+impl Copy for SDP_ULARGE_INTEGER_16 {}
+impl Clone for SDP_ULARGE_INTEGER_16 {
     fn clone(&self) -> Self {
         *self
     }
@@ -1674,11 +1674,11 @@ impl ::core::clone::Clone for SDP_ULARGE_INTEGER_16 {
 pub struct SOCKADDR_BTH {
     pub addressFamily: u16,
     pub btAddr: u64,
-    pub serviceClassId: ::windows_sys::core::GUID,
+    pub serviceClassId: windows_sys::core::GUID,
     pub port: u32,
 }
-impl ::core::marker::Copy for SOCKADDR_BTH {}
-impl ::core::clone::Clone for SOCKADDR_BTH {
+impl Copy for SOCKADDR_BTH {}
+impl Clone for SOCKADDR_BTH {
     fn clone(&self) -> Self {
         *self
     }
@@ -1688,8 +1688,8 @@ pub struct SdpAttributeRange {
     pub minAttribute: u16,
     pub maxAttribute: u16,
 }
-impl ::core::marker::Copy for SdpAttributeRange {}
-impl ::core::clone::Clone for SdpAttributeRange {
+impl Copy for SdpAttributeRange {}
+impl Clone for SdpAttributeRange {
     fn clone(&self) -> Self {
         *self
     }
@@ -1699,26 +1699,26 @@ pub struct SdpQueryUuid {
     pub u: SdpQueryUuidUnion,
     pub uuidType: u16,
 }
-impl ::core::marker::Copy for SdpQueryUuid {}
-impl ::core::clone::Clone for SdpQueryUuid {
+impl Copy for SdpQueryUuid {}
+impl Clone for SdpQueryUuid {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub union SdpQueryUuidUnion {
-    pub uuid128: ::windows_sys::core::GUID,
+    pub uuid128: windows_sys::core::GUID,
     pub uuid32: u32,
     pub uuid16: u16,
 }
-impl ::core::marker::Copy for SdpQueryUuidUnion {}
-impl ::core::clone::Clone for SdpQueryUuidUnion {
+impl Copy for SdpQueryUuidUnion {}
+impl Clone for SdpQueryUuidUnion {
     fn clone(&self) -> Self {
         *self
     }
 }
-pub type PFNBLUETOOTH_GATT_EVENT_CALLBACK = ::core::option::Option<unsafe extern "system" fn(eventtype: BTH_LE_GATT_EVENT_TYPE, eventoutparameter: *const ::core::ffi::c_void, context: *const ::core::ffi::c_void)>;
-pub type PFN_AUTHENTICATION_CALLBACK = ::core::option::Option<unsafe extern "system" fn(pvparam: *mut ::core::ffi::c_void, pdevice: *mut BLUETOOTH_DEVICE_INFO) -> super::super::Foundation::BOOL>;
-pub type PFN_AUTHENTICATION_CALLBACK_EX = ::core::option::Option<unsafe extern "system" fn(pvparam: *const ::core::ffi::c_void, pauthcallbackparams: *const BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS) -> super::super::Foundation::BOOL>;
-pub type PFN_BLUETOOTH_ENUM_ATTRIBUTES_CALLBACK = ::core::option::Option<unsafe extern "system" fn(uattribid: u32, pvaluestream: *const u8, cbstreamsize: u32, pvparam: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
-pub type PFN_DEVICE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(pvparam: *mut ::core::ffi::c_void, pdevice: *const BLUETOOTH_DEVICE_INFO) -> super::super::Foundation::BOOL>;
+pub type PFNBLUETOOTH_GATT_EVENT_CALLBACK = Option<unsafe extern "system" fn(eventtype: BTH_LE_GATT_EVENT_TYPE, eventoutparameter: *const core::ffi::c_void, context: *const core::ffi::c_void)>;
+pub type PFN_AUTHENTICATION_CALLBACK = Option<unsafe extern "system" fn(pvparam: *mut core::ffi::c_void, pdevice: *mut BLUETOOTH_DEVICE_INFO) -> super::super::Foundation::BOOL>;
+pub type PFN_AUTHENTICATION_CALLBACK_EX = Option<unsafe extern "system" fn(pvparam: *const core::ffi::c_void, pauthcallbackparams: *const BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS) -> super::super::Foundation::BOOL>;
+pub type PFN_BLUETOOTH_ENUM_ATTRIBUTES_CALLBACK = Option<unsafe extern "system" fn(uattribid: u32, pvaluestream: *const u8, cbstreamsize: u32, pvparam: *const core::ffi::c_void) -> super::super::Foundation::BOOL>;
+pub type PFN_DEVICE_CALLBACK = Option<unsafe extern "system" fn(pvparam: *mut core::ffi::c_void, pdevice: *const BLUETOOTH_DEVICE_INFO) -> super::super::Foundation::BOOL>;

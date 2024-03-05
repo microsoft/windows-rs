@@ -13,8 +13,8 @@ pub struct GUID {
     pub data3: u16,
     pub data4: [u8; 8],
 }
-impl ::core::marker::Copy for GUID {}
-impl ::core::clone::Clone for GUID {
+impl Copy for GUID {}
+impl Clone for GUID {
     fn clone(&self) -> Self {
         *self
     }

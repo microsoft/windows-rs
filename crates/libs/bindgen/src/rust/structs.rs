@@ -29,8 +29,8 @@ fn gen_struct_with_name(writer: &Writer, def: metadata::TypeDef, struct_name: &s
         let mut tokens = quote! {
             #[repr(C)]
             pub struct #name(pub u8);
-            impl ::core::marker::Copy for #name {}
-            impl ::core::clone::Clone for #name {
+            impl Copy for #name {}
+            impl Clone for #name {
                 fn clone(&self) -> Self {
                     *self
                 }
@@ -38,8 +38,8 @@ fn gen_struct_with_name(writer: &Writer, def: metadata::TypeDef, struct_name: &s
         };
         if !writer.sys {
             tokens.combine(&quote! {
-                impl ::windows_core::TypeKind for #name {
-                    type TypeKind = ::windows_core::CopyType;
+                impl windows_core::TypeKind for #name {
+                    type TypeKind = windows_core::CopyType;
                 }
             });
         }
@@ -64,14 +64,14 @@ fn gen_struct_with_name(writer: &Writer, def: metadata::TypeDef, struct_name: &s
             quote! {}
         } else if !writer.sys && flags.contains(metadata::TypeAttributes::ExplicitLayout) && !metadata::field_is_copyable(f, def) {
             let ty = writer.type_default_name(&ty);
-            quote! { pub #name: ::std::mem::ManuallyDrop<#ty>, }
+            quote! { pub #name: std::mem::ManuallyDrop<#ty>, }
         } else if !writer.sys && !flags.contains(metadata::TypeAttributes::WindowsRuntime) && !metadata::field_is_blittable(f, def) {
             if let metadata::Type::Win32Array(ty, len) = ty {
                 let ty = writer.type_default_name(&ty);
-                quote! { pub #name: [::std::mem::ManuallyDrop<#ty>; #len], }
+                quote! { pub #name: [std::mem::ManuallyDrop<#ty>; #len], }
             } else {
                 let ty = writer.type_default_name(&ty);
-                quote! { pub #name: ::std::mem::ManuallyDrop<#ty>, }
+                quote! { pub #name: std::mem::ManuallyDrop<#ty>, }
             }
         } else {
             let ty = writer.type_default_name(&ty);
@@ -102,9 +102,9 @@ fn gen_struct_with_name(writer: &Writer, def: metadata::TypeDef, struct_name: &s
     if !writer.sys {
         tokens.combine(&quote! {
             #features
-            impl ::core::default::Default for #name {
+            impl Default for #name {
                 fn default() -> Self {
-                    unsafe { ::core::mem::zeroed() }
+                    unsafe { core::mem::zeroed() }
                 }
             }
         });
@@ -133,8 +133,8 @@ fn gen_windows_traits(writer: &Writer, def: metadata::TypeDef, name: &TokenStrea
 
         let mut tokens = quote! {
             #features
-            impl ::windows_core::TypeKind for #name {
-                type TypeKind = ::windows_core::#type_kind;
+            impl windows_core::TypeKind for #name {
+                type TypeKind = windows_core::#type_kind;
             }
         };
 
@@ -143,8 +143,8 @@ fn gen_windows_traits(writer: &Writer, def: metadata::TypeDef, name: &TokenStrea
 
             tokens.combine(&quote! {
                 #features
-                impl ::windows_core::RuntimeType for #name {
-                    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(#signature);
+                impl windows_core::RuntimeType for #name {
+                    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(#signature);
                 }
             });
         }
@@ -170,13 +170,13 @@ fn gen_compare_traits(writer: &Writer, def: metadata::TypeDef, name: &TokenStrea
 
         quote! {
             #features
-            impl ::core::cmp::PartialEq for #name {
+            impl PartialEq for #name {
                 fn eq(&self, other: &Self) -> bool {
                     #(#fields)&&*
                 }
             }
             #features
-            impl ::core::cmp::Eq for #name {}
+            impl Eq for #name {}
         }
     }
 }
@@ -205,8 +205,8 @@ fn gen_debug(writer: &Writer, def: metadata::TypeDef, ident: &TokenStream, cfg: 
 
         quote! {
             #features
-            impl ::core::fmt::Debug for #ident {
-                fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+            impl core::fmt::Debug for #ident {
+                fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
                     f.debug_struct(#name) #(#fields)* .finish()
                 }
             }
@@ -220,9 +220,9 @@ fn gen_copy_clone(writer: &Writer, def: metadata::TypeDef, name: &TokenStream, c
     if writer.sys || metadata::type_def_is_copyable(def) {
         quote! {
             #features
-            impl ::core::marker::Copy for #name {}
+            impl Copy for #name {}
             #features
-            impl ::core::clone::Clone for #name {
+            impl Clone for #name {
                 fn clone(&self) -> Self {
                     *self
                 }
@@ -234,9 +234,9 @@ fn gen_copy_clone(writer: &Writer, def: metadata::TypeDef, name: &TokenStream, c
     } else if !def.flags().contains(metadata::TypeAttributes::WindowsRuntime) {
         quote! {
             #features
-            impl ::core::clone::Clone for #name {
+            impl Clone for #name {
                 fn clone(&self) -> Self {
-                    unsafe { ::core::mem::transmute_copy(self) }
+                    unsafe { core::mem::transmute_copy(self) }
                 }
             }
         }
@@ -254,7 +254,7 @@ fn gen_copy_clone(writer: &Writer, def: metadata::TypeDef, name: &TokenStream, c
 
         quote! {
             #features
-            impl ::core::clone::Clone for #name {
+            impl Clone for #name {
                 fn clone(&self) -> Self {
                     Self { #(#fields),* }
                 }

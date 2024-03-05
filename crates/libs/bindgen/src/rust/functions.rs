@@ -45,15 +45,15 @@ fn gen_win_function(writer: &Writer, namespace: &str, def: metadata::MethodDef) 
             let args = writer.win32_args(&signature.params, kind);
             let params = writer.win32_params(&signature.params, kind);
             let generics = expand_generics(generics, quote!(T));
-            let where_clause = expand_where_clause(where_clause, quote!(T: ::windows_core::Interface));
+            let where_clause = expand_where_clause(where_clause, quote!(T: windows_core::Interface));
 
             quote! {
                 #features
                 #[inline]
-                pub unsafe fn #name<#generics>(#params) -> ::windows_core::Result<T> #where_clause {
+                pub unsafe fn #name<#generics>(#params) -> windows_core::Result<T> #where_clause {
                     #link
-                    let mut result__ = ::std::ptr::null_mut();
-                    #name(#args).and_then(||::windows_core::Type::from_abi(result__))
+                    let mut result__ = std::ptr::null_mut();
+                    #name(#args).and_then(||windows_core::Type::from_abi(result__))
                 }
             }
         }
@@ -61,12 +61,12 @@ fn gen_win_function(writer: &Writer, namespace: &str, def: metadata::MethodDef) 
             let args = writer.win32_args(&signature.params, kind);
             let params = writer.win32_params(&signature.params, kind);
             let generics = expand_generics(generics, quote!(T));
-            let where_clause = expand_where_clause(where_clause, quote!(T: ::windows_core::Interface));
+            let where_clause = expand_where_clause(where_clause, quote!(T: windows_core::Interface));
 
             quote! {
                 #features
                 #[inline]
-                pub unsafe fn #name<#generics>(#params result__: *mut ::core::option::Option<T>) -> ::windows_core::Result<()> #where_clause {
+                pub unsafe fn #name<#generics>(#params result__: *mut Option<T>) -> windows_core::Result<()> #where_clause {
                     #link
                     #name(#args).ok()
                 }
@@ -80,7 +80,7 @@ fn gen_win_function(writer: &Writer, namespace: &str, def: metadata::MethodDef) 
             let map = if metadata::type_is_blittable(&return_type) {
                 quote! { map(||result__) }
             } else {
-                quote! { and_then(||::windows_core::Type::from_abi(result__)) }
+                quote! { and_then(||windows_core::Type::from_abi(result__)) }
             };
 
             let return_type = writer.type_name(&return_type);
@@ -88,9 +88,9 @@ fn gen_win_function(writer: &Writer, namespace: &str, def: metadata::MethodDef) 
             quote! {
                 #features
                 #[inline]
-                pub unsafe fn #name<#generics>(#params) -> ::windows_core::Result<#return_type> #where_clause {
+                pub unsafe fn #name<#generics>(#params) -> windows_core::Result<#return_type> #where_clause {
                     #link
-                    let mut result__ = ::std::mem::zeroed();
+                    let mut result__ = std::mem::zeroed();
                     #name(#args).#map
                 }
             }
@@ -102,7 +102,7 @@ fn gen_win_function(writer: &Writer, namespace: &str, def: metadata::MethodDef) 
             quote! {
                 #features
                 #[inline]
-                pub unsafe fn #name<#generics>(#params) -> ::windows_core::Result<()> #where_clause {
+                pub unsafe fn #name<#generics>(#params) -> windows_core::Result<()> #where_clause {
                     #link
                     #name(#args).ok()
                 }
@@ -120,18 +120,18 @@ fn gen_win_function(writer: &Writer, namespace: &str, def: metadata::MethodDef) 
                 quote! {
                     #features
                     #[inline]
-                    pub unsafe fn #name<#generics>(#params) -> ::windows_core::Result<#return_type> #where_clause {
+                    pub unsafe fn #name<#generics>(#params) -> windows_core::Result<#return_type> #where_clause {
                         #link
-                        let mut result__ = ::std::mem::zeroed();
+                        let mut result__ = std::mem::zeroed();
                         #name(#args);
-                        ::windows_core::Type::from_abi(result__.assume_init())
+                        windows_core::Type::from_abi(result__.assume_init())
                     }
                 }
             } else {
                 let map = if metadata::type_is_blittable(&return_type) {
                     quote! { result__ }
                 } else {
-                    quote! { ::std::mem::transmute(result__) }
+                    quote! { std::mem::transmute(result__) }
                 };
 
                 let return_type = writer.type_name(&return_type);
@@ -141,7 +141,7 @@ fn gen_win_function(writer: &Writer, namespace: &str, def: metadata::MethodDef) 
                     #[inline]
                     pub unsafe fn #name<#generics>(#params) -> #return_type #where_clause {
                         #link
-                        let mut result__ = ::std::mem::zeroed();
+                        let mut result__ = std::mem::zeroed();
                         #name(#args);
                         #map
                     }
@@ -157,10 +157,10 @@ fn gen_win_function(writer: &Writer, namespace: &str, def: metadata::MethodDef) 
                 quote! {
                     #features
                     #[inline]
-                    pub unsafe fn #name<#generics>(#params) -> ::windows_core::Result<#return_type> #where_clause {
+                    pub unsafe fn #name<#generics>(#params) -> windows_core::Result<#return_type> #where_clause {
                         #link
                         let result__ = #name(#args);
-                        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
+                        (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
                     }
                 }
             } else {

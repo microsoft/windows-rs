@@ -42,8 +42,8 @@ pub struct IMAGE_COR20_HEADER {
     pub ExportAddressTableJumps: IMAGE_DATA_DIRECTORY,
     pub ManagedNativeHeader: IMAGE_DATA_DIRECTORY,
 }
-impl ::core::marker::Copy for IMAGE_COR20_HEADER {}
-impl ::core::clone::Clone for IMAGE_COR20_HEADER {
+impl Copy for IMAGE_COR20_HEADER {}
+impl Clone for IMAGE_COR20_HEADER {
     fn clone(&self) -> Self {
         *self
     }
@@ -53,8 +53,8 @@ pub union IMAGE_COR20_HEADER_0 {
     pub EntryPointToken: u32,
     pub EntryPointRVA: u32,
 }
-impl ::core::marker::Copy for IMAGE_COR20_HEADER_0 {}
-impl ::core::clone::Clone for IMAGE_COR20_HEADER_0 {
+impl Copy for IMAGE_COR20_HEADER_0 {}
+impl Clone for IMAGE_COR20_HEADER_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -64,8 +64,8 @@ pub struct IMAGE_DATA_DIRECTORY {
     pub VirtualAddress: u32,
     pub Size: u32,
 }
-impl ::core::marker::Copy for IMAGE_DATA_DIRECTORY {}
-impl ::core::clone::Clone for IMAGE_DATA_DIRECTORY {
+impl Copy for IMAGE_DATA_DIRECTORY {}
+impl Clone for IMAGE_DATA_DIRECTORY {
     fn clone(&self) -> Self {
         *self
     }
@@ -98,8 +98,8 @@ pub struct IMAGE_DOS_HEADER {
     pub e_res2: [u16; 10],
     pub e_lfanew: i32,
 }
-impl ::core::marker::Copy for IMAGE_DOS_HEADER {}
-impl ::core::clone::Clone for IMAGE_DOS_HEADER {
+impl Copy for IMAGE_DOS_HEADER {}
+impl Clone for IMAGE_DOS_HEADER {
     fn clone(&self) -> Self {
         *self
     }
@@ -119,8 +119,8 @@ pub struct IMAGE_FILE_HEADER {
     pub SizeOfOptionalHeader: u16,
     pub Characteristics: IMAGE_FILE_CHARACTERISTICS,
 }
-impl ::core::marker::Copy for IMAGE_FILE_HEADER {}
-impl ::core::clone::Clone for IMAGE_FILE_HEADER {
+impl Copy for IMAGE_FILE_HEADER {}
+impl Clone for IMAGE_FILE_HEADER {
     fn clone(&self) -> Self {
         *self
     }
@@ -164,8 +164,8 @@ pub struct IMAGE_OPTIONAL_HEADER32 {
     pub NumberOfRvaAndSizes: u32,
     pub DataDirectory: [IMAGE_DATA_DIRECTORY; 16],
 }
-impl ::core::marker::Copy for IMAGE_OPTIONAL_HEADER32 {}
-impl ::core::clone::Clone for IMAGE_OPTIONAL_HEADER32 {
+impl Copy for IMAGE_OPTIONAL_HEADER32 {}
+impl Clone for IMAGE_OPTIONAL_HEADER32 {
     fn clone(&self) -> Self {
         *self
     }
@@ -203,8 +203,8 @@ pub struct IMAGE_OPTIONAL_HEADER64 {
     pub NumberOfRvaAndSizes: u32,
     pub DataDirectory: [IMAGE_DATA_DIRECTORY; 16],
 }
-impl ::core::marker::Copy for IMAGE_OPTIONAL_HEADER64 {}
-impl ::core::clone::Clone for IMAGE_OPTIONAL_HEADER64 {
+impl Copy for IMAGE_OPTIONAL_HEADER64 {}
+impl Clone for IMAGE_OPTIONAL_HEADER64 {
     fn clone(&self) -> Self {
         *self
     }
@@ -224,8 +224,8 @@ pub struct IMAGE_SECTION_HEADER {
     pub NumberOfLinenumbers: u16,
     pub Characteristics: IMAGE_SECTION_CHARACTERISTICS,
 }
-impl ::core::marker::Copy for IMAGE_SECTION_HEADER {}
-impl ::core::clone::Clone for IMAGE_SECTION_HEADER {
+impl Copy for IMAGE_SECTION_HEADER {}
+impl Clone for IMAGE_SECTION_HEADER {
     fn clone(&self) -> Self {
         *self
     }
@@ -235,8 +235,8 @@ pub union IMAGE_SECTION_HEADER_0 {
     pub PhysicalAddress: u32,
     pub VirtualSize: u32,
 }
-impl ::core::marker::Copy for IMAGE_SECTION_HEADER_0 {}
-impl ::core::clone::Clone for IMAGE_SECTION_HEADER_0 {
+impl Copy for IMAGE_SECTION_HEADER_0 {}
+impl Clone for IMAGE_SECTION_HEADER_0 {
     fn clone(&self) -> Self {
         *self
     }

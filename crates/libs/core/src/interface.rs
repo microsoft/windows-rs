@@ -85,12 +85,12 @@ pub unsafe trait Interface: Sized + Clone {
         // to `T` which the implementor of `Interface` has guaranteed is correct
         unsafe { _ = self.query(&T::IID, &mut result as *mut _ as _) };
 
-        result.ok_or_else(|| Error::from_hresult(crate::imp::E_NOINTERFACE))
+        result.ok_or_else(|| Error::from_hresult(imp::E_NOINTERFACE))
     }
 
     /// Attempts to create a [`Weak`] reference to this object.
     fn downgrade(&self) -> Result<Weak<Self>> {
-        self.cast::<crate::imp::IWeakReferenceSource>().and_then(|source| Weak::downgrade(&source))
+        self.cast::<imp::IWeakReferenceSource>().and_then(|source| Weak::downgrade(&source))
     }
 
     /// Call `QueryInterface` on this interface

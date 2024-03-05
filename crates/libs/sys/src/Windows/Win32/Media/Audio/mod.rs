@@ -1,16 +1,16 @@
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-::windows_targets::link!("mmdevapi.dll" "system" fn ActivateAudioInterfaceAsync(deviceinterfacepath : ::windows_sys::core::PCWSTR, riid : *const ::windows_sys::core::GUID, activationparams : *const super::super::System::Com::StructuredStorage:: PROPVARIANT, completionhandler : * mut::core::ffi::c_void, activationoperation : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("ole32.dll" "system" fn CoRegisterMessageFilter(lpmessagefilter : * mut::core::ffi::c_void, lplpmessagefilter : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("windows.media.mediacontrol.dll" "system" fn CreateCaptureAudioStateMonitor(audiostatemonitor : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("windows.media.mediacontrol.dll" "system" fn CreateCaptureAudioStateMonitorForCategory(category : AUDIO_STREAM_CATEGORY, audiostatemonitor : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("windows.media.mediacontrol.dll" "system" fn CreateCaptureAudioStateMonitorForCategoryAndDeviceId(category : AUDIO_STREAM_CATEGORY, deviceid : ::windows_sys::core::PCWSTR, audiostatemonitor : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("windows.media.mediacontrol.dll" "system" fn CreateCaptureAudioStateMonitorForCategoryAndDeviceRole(category : AUDIO_STREAM_CATEGORY, role : ERole, audiostatemonitor : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("windows.media.mediacontrol.dll" "system" fn CreateRenderAudioStateMonitor(audiostatemonitor : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("windows.media.mediacontrol.dll" "system" fn CreateRenderAudioStateMonitorForCategory(category : AUDIO_STREAM_CATEGORY, audiostatemonitor : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("windows.media.mediacontrol.dll" "system" fn CreateRenderAudioStateMonitorForCategoryAndDeviceId(category : AUDIO_STREAM_CATEGORY, deviceid : ::windows_sys::core::PCWSTR, audiostatemonitor : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("windows.media.mediacontrol.dll" "system" fn CreateRenderAudioStateMonitorForCategoryAndDeviceRole(category : AUDIO_STREAM_CATEGORY, role : ERole, audiostatemonitor : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("winmm.dll" "system" fn PlaySoundA(pszsound : ::windows_sys::core::PCSTR, hmod : super::super::Foundation:: HMODULE, fdwsound : SND_FLAGS) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("winmm.dll" "system" fn PlaySoundW(pszsound : ::windows_sys::core::PCWSTR, hmod : super::super::Foundation:: HMODULE, fdwsound : SND_FLAGS) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("mmdevapi.dll" "system" fn ActivateAudioInterfaceAsync(deviceinterfacepath : windows_sys::core::PCWSTR, riid : *const windows_sys::core::GUID, activationparams : *const super::super::System::Com::StructuredStorage:: PROPVARIANT, completionhandler : * mut core::ffi::c_void, activationoperation : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+::windows_targets::link!("ole32.dll" "system" fn CoRegisterMessageFilter(lpmessagefilter : * mut core::ffi::c_void, lplpmessagefilter : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+::windows_targets::link!("windows.media.mediacontrol.dll" "system" fn CreateCaptureAudioStateMonitor(audiostatemonitor : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+::windows_targets::link!("windows.media.mediacontrol.dll" "system" fn CreateCaptureAudioStateMonitorForCategory(category : AUDIO_STREAM_CATEGORY, audiostatemonitor : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+::windows_targets::link!("windows.media.mediacontrol.dll" "system" fn CreateCaptureAudioStateMonitorForCategoryAndDeviceId(category : AUDIO_STREAM_CATEGORY, deviceid : windows_sys::core::PCWSTR, audiostatemonitor : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+::windows_targets::link!("windows.media.mediacontrol.dll" "system" fn CreateCaptureAudioStateMonitorForCategoryAndDeviceRole(category : AUDIO_STREAM_CATEGORY, role : ERole, audiostatemonitor : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+::windows_targets::link!("windows.media.mediacontrol.dll" "system" fn CreateRenderAudioStateMonitor(audiostatemonitor : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+::windows_targets::link!("windows.media.mediacontrol.dll" "system" fn CreateRenderAudioStateMonitorForCategory(category : AUDIO_STREAM_CATEGORY, audiostatemonitor : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+::windows_targets::link!("windows.media.mediacontrol.dll" "system" fn CreateRenderAudioStateMonitorForCategoryAndDeviceId(category : AUDIO_STREAM_CATEGORY, deviceid : windows_sys::core::PCWSTR, audiostatemonitor : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+::windows_targets::link!("windows.media.mediacontrol.dll" "system" fn CreateRenderAudioStateMonitorForCategoryAndDeviceRole(category : AUDIO_STREAM_CATEGORY, role : ERole, audiostatemonitor : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+::windows_targets::link!("winmm.dll" "system" fn PlaySoundA(pszsound : windows_sys::core::PCSTR, hmod : super::super::Foundation:: HMODULE, fdwsound : SND_FLAGS) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("winmm.dll" "system" fn PlaySoundW(pszsound : windows_sys::core::PCWSTR, hmod : super::super::Foundation:: HMODULE, fdwsound : SND_FLAGS) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("msacm32.dll" "system" fn acmDriverAddA(phadid : *mut HACMDRIVERID, hinstmodule : super::super::Foundation:: HINSTANCE, lparam : super::super::Foundation:: LPARAM, dwpriority : u32, fdwadd : u32) -> u32);
 ::windows_targets::link!("msacm32.dll" "system" fn acmDriverAddW(phadid : *mut HACMDRIVERID, hinstmodule : super::super::Foundation:: HINSTANCE, lparam : super::super::Foundation:: LPARAM, dwpriority : u32, fdwadd : u32) -> u32);
 ::windows_targets::link!("msacm32.dll" "system" fn acmDriverClose(had : HACMDRIVER, fdwclose : u32) -> u32);
@@ -46,7 +46,7 @@
 ::windows_targets::link!("msacm32.dll" "system" fn acmFormatTagEnumA(had : HACMDRIVER, paftd : *mut ACMFORMATTAGDETAILSA, fncallback : ACMFORMATTAGENUMCBA, dwinstance : usize, fdwenum : u32) -> u32);
 ::windows_targets::link!("msacm32.dll" "system" fn acmFormatTagEnumW(had : HACMDRIVER, paftd : *mut ACMFORMATTAGDETAILSW, fncallback : ACMFORMATTAGENUMCBW, dwinstance : usize, fdwenum : u32) -> u32);
 ::windows_targets::link!("msacm32.dll" "system" fn acmGetVersion() -> u32);
-::windows_targets::link!("msacm32.dll" "system" fn acmMetrics(hao : HACMOBJ, umetric : u32, pmetric : *mut ::core::ffi::c_void) -> u32);
+::windows_targets::link!("msacm32.dll" "system" fn acmMetrics(hao : HACMOBJ, umetric : u32, pmetric : *mut core::ffi::c_void) -> u32);
 ::windows_targets::link!("msacm32.dll" "system" fn acmStreamClose(has : HACMSTREAM, fdwclose : u32) -> u32);
 ::windows_targets::link!("msacm32.dll" "system" fn acmStreamConvert(has : HACMSTREAM, pash : *mut ACMSTREAMHEADER, fdwconvert : u32) -> u32);
 ::windows_targets::link!("msacm32.dll" "system" fn acmStreamMessage(has : HACMSTREAM, umsg : u32, lparam1 : super::super::Foundation:: LPARAM, lparam2 : super::super::Foundation:: LPARAM) -> u32);
@@ -61,14 +61,14 @@
 ::windows_targets::link!("winmm.dll" "system" fn auxGetVolume(udeviceid : u32, pdwvolume : *mut u32) -> u32);
 ::windows_targets::link!("winmm.dll" "system" fn auxOutMessage(udeviceid : u32, umsg : u32, dw1 : usize, dw2 : usize) -> u32);
 ::windows_targets::link!("winmm.dll" "system" fn auxSetVolume(udeviceid : u32, dwvolume : u32) -> u32);
-::windows_targets::link!("winmm.dll" "system" fn midiConnect(hmi : HMIDI, hmo : HMIDIOUT, preserved : *const ::core::ffi::c_void) -> u32);
-::windows_targets::link!("winmm.dll" "system" fn midiDisconnect(hmi : HMIDI, hmo : HMIDIOUT, preserved : *const ::core::ffi::c_void) -> u32);
+::windows_targets::link!("winmm.dll" "system" fn midiConnect(hmi : HMIDI, hmo : HMIDIOUT, preserved : *const core::ffi::c_void) -> u32);
+::windows_targets::link!("winmm.dll" "system" fn midiDisconnect(hmi : HMIDI, hmo : HMIDIOUT, preserved : *const core::ffi::c_void) -> u32);
 ::windows_targets::link!("winmm.dll" "system" fn midiInAddBuffer(hmi : HMIDIIN, pmh : *mut MIDIHDR, cbmh : u32) -> u32);
 ::windows_targets::link!("winmm.dll" "system" fn midiInClose(hmi : HMIDIIN) -> u32);
 ::windows_targets::link!("winmm.dll" "system" fn midiInGetDevCapsA(udeviceid : usize, pmic : *mut MIDIINCAPSA, cbmic : u32) -> u32);
 ::windows_targets::link!("winmm.dll" "system" fn midiInGetDevCapsW(udeviceid : usize, pmic : *mut MIDIINCAPSW, cbmic : u32) -> u32);
-::windows_targets::link!("winmm.dll" "system" fn midiInGetErrorTextA(mmrerror : u32, psztext : ::windows_sys::core::PSTR, cchtext : u32) -> u32);
-::windows_targets::link!("winmm.dll" "system" fn midiInGetErrorTextW(mmrerror : u32, psztext : ::windows_sys::core::PWSTR, cchtext : u32) -> u32);
+::windows_targets::link!("winmm.dll" "system" fn midiInGetErrorTextA(mmrerror : u32, psztext : windows_sys::core::PSTR, cchtext : u32) -> u32);
+::windows_targets::link!("winmm.dll" "system" fn midiInGetErrorTextW(mmrerror : u32, psztext : windows_sys::core::PWSTR, cchtext : u32) -> u32);
 ::windows_targets::link!("winmm.dll" "system" fn midiInGetID(hmi : HMIDIIN, pudeviceid : *mut u32) -> u32);
 ::windows_targets::link!("winmm.dll" "system" fn midiInGetNumDevs() -> u32);
 ::windows_targets::link!("winmm.dll" "system" fn midiInMessage(hmi : HMIDIIN, umsg : u32, dw1 : usize, dw2 : usize) -> u32);
@@ -83,8 +83,8 @@
 ::windows_targets::link!("winmm.dll" "system" fn midiOutClose(hmo : HMIDIOUT) -> u32);
 ::windows_targets::link!("winmm.dll" "system" fn midiOutGetDevCapsA(udeviceid : usize, pmoc : *mut MIDIOUTCAPSA, cbmoc : u32) -> u32);
 ::windows_targets::link!("winmm.dll" "system" fn midiOutGetDevCapsW(udeviceid : usize, pmoc : *mut MIDIOUTCAPSW, cbmoc : u32) -> u32);
-::windows_targets::link!("winmm.dll" "system" fn midiOutGetErrorTextA(mmrerror : u32, psztext : ::windows_sys::core::PSTR, cchtext : u32) -> u32);
-::windows_targets::link!("winmm.dll" "system" fn midiOutGetErrorTextW(mmrerror : u32, psztext : ::windows_sys::core::PWSTR, cchtext : u32) -> u32);
+::windows_targets::link!("winmm.dll" "system" fn midiOutGetErrorTextA(mmrerror : u32, psztext : windows_sys::core::PSTR, cchtext : u32) -> u32);
+::windows_targets::link!("winmm.dll" "system" fn midiOutGetErrorTextW(mmrerror : u32, psztext : windows_sys::core::PWSTR, cchtext : u32) -> u32);
 ::windows_targets::link!("winmm.dll" "system" fn midiOutGetID(hmo : HMIDIOUT, pudeviceid : *mut u32) -> u32);
 ::windows_targets::link!("winmm.dll" "system" fn midiOutGetNumDevs() -> u32);
 ::windows_targets::link!("winmm.dll" "system" fn midiOutGetVolume(hmo : HMIDIOUT, pdwvolume : *mut u32) -> u32);
@@ -118,14 +118,14 @@
 ::windows_targets::link!("winmm.dll" "system" fn mixerMessage(hmx : HMIXER, umsg : u32, dwparam1 : usize, dwparam2 : usize) -> u32);
 ::windows_targets::link!("winmm.dll" "system" fn mixerOpen(phmx : *mut HMIXER, umxid : u32, dwcallback : usize, dwinstance : usize, fdwopen : u32) -> u32);
 ::windows_targets::link!("winmm.dll" "system" fn mixerSetControlDetails(hmxobj : HMIXEROBJ, pmxcd : *const MIXERCONTROLDETAILS, fdwdetails : u32) -> u32);
-::windows_targets::link!("winmm.dll" "system" fn sndPlaySoundA(pszsound : ::windows_sys::core::PCSTR, fusound : u32) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("winmm.dll" "system" fn sndPlaySoundW(pszsound : ::windows_sys::core::PCWSTR, fusound : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("winmm.dll" "system" fn sndPlaySoundA(pszsound : windows_sys::core::PCSTR, fusound : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("winmm.dll" "system" fn sndPlaySoundW(pszsound : windows_sys::core::PCWSTR, fusound : u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("winmm.dll" "system" fn waveInAddBuffer(hwi : HWAVEIN, pwh : *mut WAVEHDR, cbwh : u32) -> u32);
 ::windows_targets::link!("winmm.dll" "system" fn waveInClose(hwi : HWAVEIN) -> u32);
 ::windows_targets::link!("winmm.dll" "system" fn waveInGetDevCapsA(udeviceid : usize, pwic : *mut WAVEINCAPSA, cbwic : u32) -> u32);
 ::windows_targets::link!("winmm.dll" "system" fn waveInGetDevCapsW(udeviceid : usize, pwic : *mut WAVEINCAPSW, cbwic : u32) -> u32);
-::windows_targets::link!("winmm.dll" "system" fn waveInGetErrorTextA(mmrerror : u32, psztext : ::windows_sys::core::PSTR, cchtext : u32) -> u32);
-::windows_targets::link!("winmm.dll" "system" fn waveInGetErrorTextW(mmrerror : u32, psztext : ::windows_sys::core::PWSTR, cchtext : u32) -> u32);
+::windows_targets::link!("winmm.dll" "system" fn waveInGetErrorTextA(mmrerror : u32, psztext : windows_sys::core::PSTR, cchtext : u32) -> u32);
+::windows_targets::link!("winmm.dll" "system" fn waveInGetErrorTextW(mmrerror : u32, psztext : windows_sys::core::PWSTR, cchtext : u32) -> u32);
 ::windows_targets::link!("winmm.dll" "system" fn waveInGetID(hwi : HWAVEIN, pudeviceid : *const u32) -> u32);
 ::windows_targets::link!("winmm.dll" "system" fn waveInGetNumDevs() -> u32);
 ::windows_targets::link!("winmm.dll" "system" fn waveInGetPosition(hwi : HWAVEIN, pmmt : *mut super:: MMTIME, cbmmt : u32) -> u32);
@@ -140,8 +140,8 @@
 ::windows_targets::link!("winmm.dll" "system" fn waveOutClose(hwo : HWAVEOUT) -> u32);
 ::windows_targets::link!("winmm.dll" "system" fn waveOutGetDevCapsA(udeviceid : usize, pwoc : *mut WAVEOUTCAPSA, cbwoc : u32) -> u32);
 ::windows_targets::link!("winmm.dll" "system" fn waveOutGetDevCapsW(udeviceid : usize, pwoc : *mut WAVEOUTCAPSW, cbwoc : u32) -> u32);
-::windows_targets::link!("winmm.dll" "system" fn waveOutGetErrorTextA(mmrerror : u32, psztext : ::windows_sys::core::PSTR, cchtext : u32) -> u32);
-::windows_targets::link!("winmm.dll" "system" fn waveOutGetErrorTextW(mmrerror : u32, psztext : ::windows_sys::core::PWSTR, cchtext : u32) -> u32);
+::windows_targets::link!("winmm.dll" "system" fn waveOutGetErrorTextA(mmrerror : u32, psztext : windows_sys::core::PSTR, cchtext : u32) -> u32);
+::windows_targets::link!("winmm.dll" "system" fn waveOutGetErrorTextW(mmrerror : u32, psztext : windows_sys::core::PWSTR, cchtext : u32) -> u32);
 ::windows_targets::link!("winmm.dll" "system" fn waveOutGetID(hwo : HWAVEOUT, pudeviceid : *mut u32) -> u32);
 ::windows_targets::link!("winmm.dll" "system" fn waveOutGetNumDevs() -> u32);
 ::windows_targets::link!("winmm.dll" "system" fn waveOutGetPitch(hwo : HWAVEOUT, pdwpitch : *mut u32) -> u32);
@@ -213,15 +213,15 @@ pub const ACMFORMATCHOOSE_STYLEF_INITTOWFXSTRUCT: i32 = 64i32;
 pub const ACMFORMATCHOOSE_STYLEF_SHOWHELP: i32 = 4i32;
 pub const ACMFORMATDETAILS_FORMAT_CHARS: u32 = 128u32;
 pub const ACMFORMATTAGDETAILS_FORMATTAG_CHARS: u32 = 48u32;
-pub const ACMHELPMSGCONTEXTHELP: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("acmchoose_contexthelp");
-pub const ACMHELPMSGCONTEXTHELPA: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("acmchoose_contexthelp");
-pub const ACMHELPMSGCONTEXTHELPW: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("acmchoose_contexthelp");
-pub const ACMHELPMSGCONTEXTMENU: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("acmchoose_contextmenu");
-pub const ACMHELPMSGCONTEXTMENUA: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("acmchoose_contextmenu");
-pub const ACMHELPMSGCONTEXTMENUW: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("acmchoose_contextmenu");
-pub const ACMHELPMSGSTRING: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("acmchoose_help");
-pub const ACMHELPMSGSTRINGA: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("acmchoose_help");
-pub const ACMHELPMSGSTRINGW: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("acmchoose_help");
+pub const ACMHELPMSGCONTEXTHELP: windows_sys::core::PCWSTR = windows_sys::core::w!("acmchoose_contexthelp");
+pub const ACMHELPMSGCONTEXTHELPA: windows_sys::core::PCSTR = windows_sys::core::s!("acmchoose_contexthelp");
+pub const ACMHELPMSGCONTEXTHELPW: windows_sys::core::PCWSTR = windows_sys::core::w!("acmchoose_contexthelp");
+pub const ACMHELPMSGCONTEXTMENU: windows_sys::core::PCWSTR = windows_sys::core::w!("acmchoose_contextmenu");
+pub const ACMHELPMSGCONTEXTMENUA: windows_sys::core::PCSTR = windows_sys::core::s!("acmchoose_contextmenu");
+pub const ACMHELPMSGCONTEXTMENUW: windows_sys::core::PCWSTR = windows_sys::core::w!("acmchoose_contextmenu");
+pub const ACMHELPMSGSTRING: windows_sys::core::PCWSTR = windows_sys::core::w!("acmchoose_help");
+pub const ACMHELPMSGSTRINGA: windows_sys::core::PCSTR = windows_sys::core::s!("acmchoose_help");
+pub const ACMHELPMSGSTRINGW: windows_sys::core::PCWSTR = windows_sys::core::w!("acmchoose_help");
 pub const ACMSTREAMHEADER_STATUSF_DONE: i32 = 65536i32;
 pub const ACMSTREAMHEADER_STATUSF_INQUEUE: i32 = 1048576i32;
 pub const ACMSTREAMHEADER_STATUSF_PREPARED: i32 = 131072i32;
@@ -302,44 +302,44 @@ pub const AMBISONICS_TYPE_FULL3D: AMBISONICS_TYPE = 0i32;
 pub const AUDCLNT_BUFFERFLAGS_DATA_DISCONTINUITY: _AUDCLNT_BUFFERFLAGS = 1i32;
 pub const AUDCLNT_BUFFERFLAGS_SILENT: _AUDCLNT_BUFFERFLAGS = 2i32;
 pub const AUDCLNT_BUFFERFLAGS_TIMESTAMP_ERROR: _AUDCLNT_BUFFERFLAGS = 4i32;
-pub const AUDCLNT_E_ALREADY_INITIALIZED: ::windows_sys::core::HRESULT = 0x88890002_u32 as _;
-pub const AUDCLNT_E_BUFDURATION_PERIOD_NOT_EQUAL: ::windows_sys::core::HRESULT = 0x88890013_u32 as _;
-pub const AUDCLNT_E_BUFFER_ERROR: ::windows_sys::core::HRESULT = 0x88890018_u32 as _;
-pub const AUDCLNT_E_BUFFER_OPERATION_PENDING: ::windows_sys::core::HRESULT = 0x8889000B_u32 as _;
-pub const AUDCLNT_E_BUFFER_SIZE_ERROR: ::windows_sys::core::HRESULT = 0x88890016_u32 as _;
-pub const AUDCLNT_E_BUFFER_SIZE_NOT_ALIGNED: ::windows_sys::core::HRESULT = 0x88890019_u32 as _;
-pub const AUDCLNT_E_BUFFER_TOO_LARGE: ::windows_sys::core::HRESULT = 0x88890006_u32 as _;
-pub const AUDCLNT_E_CPUUSAGE_EXCEEDED: ::windows_sys::core::HRESULT = 0x88890017_u32 as _;
-pub const AUDCLNT_E_DEVICE_INVALIDATED: ::windows_sys::core::HRESULT = 0x88890004_u32 as _;
-pub const AUDCLNT_E_DEVICE_IN_USE: ::windows_sys::core::HRESULT = 0x8889000A_u32 as _;
-pub const AUDCLNT_E_EFFECT_NOT_AVAILABLE: ::windows_sys::core::HRESULT = 0x88890041_u32 as _;
-pub const AUDCLNT_E_EFFECT_STATE_READ_ONLY: ::windows_sys::core::HRESULT = 0x88890042_u32 as _;
-pub const AUDCLNT_E_ENDPOINT_CREATE_FAILED: ::windows_sys::core::HRESULT = 0x8889000F_u32 as _;
-pub const AUDCLNT_E_ENDPOINT_OFFLOAD_NOT_CAPABLE: ::windows_sys::core::HRESULT = 0x88890022_u32 as _;
-pub const AUDCLNT_E_ENGINE_FORMAT_LOCKED: ::windows_sys::core::HRESULT = 0x88890029_u32 as _;
-pub const AUDCLNT_E_ENGINE_PERIODICITY_LOCKED: ::windows_sys::core::HRESULT = 0x88890028_u32 as _;
-pub const AUDCLNT_E_EVENTHANDLE_NOT_EXPECTED: ::windows_sys::core::HRESULT = 0x88890011_u32 as _;
-pub const AUDCLNT_E_EVENTHANDLE_NOT_SET: ::windows_sys::core::HRESULT = 0x88890014_u32 as _;
-pub const AUDCLNT_E_EXCLUSIVE_MODE_NOT_ALLOWED: ::windows_sys::core::HRESULT = 0x8889000E_u32 as _;
-pub const AUDCLNT_E_EXCLUSIVE_MODE_ONLY: ::windows_sys::core::HRESULT = 0x88890012_u32 as _;
-pub const AUDCLNT_E_HEADTRACKING_ENABLED: ::windows_sys::core::HRESULT = 0x88890030_u32 as _;
-pub const AUDCLNT_E_HEADTRACKING_UNSUPPORTED: ::windows_sys::core::HRESULT = 0x88890040_u32 as _;
-pub const AUDCLNT_E_INCORRECT_BUFFER_SIZE: ::windows_sys::core::HRESULT = 0x88890015_u32 as _;
-pub const AUDCLNT_E_INVALID_DEVICE_PERIOD: ::windows_sys::core::HRESULT = 0x88890020_u32 as _;
-pub const AUDCLNT_E_INVALID_SIZE: ::windows_sys::core::HRESULT = 0x88890009_u32 as _;
-pub const AUDCLNT_E_INVALID_STREAM_FLAG: ::windows_sys::core::HRESULT = 0x88890021_u32 as _;
-pub const AUDCLNT_E_NONOFFLOAD_MODE_ONLY: ::windows_sys::core::HRESULT = 0x88890025_u32 as _;
-pub const AUDCLNT_E_NOT_INITIALIZED: ::windows_sys::core::HRESULT = 0x88890001_u32 as _;
-pub const AUDCLNT_E_NOT_STOPPED: ::windows_sys::core::HRESULT = 0x88890005_u32 as _;
-pub const AUDCLNT_E_OFFLOAD_MODE_ONLY: ::windows_sys::core::HRESULT = 0x88890024_u32 as _;
-pub const AUDCLNT_E_OUT_OF_OFFLOAD_RESOURCES: ::windows_sys::core::HRESULT = 0x88890023_u32 as _;
-pub const AUDCLNT_E_OUT_OF_ORDER: ::windows_sys::core::HRESULT = 0x88890007_u32 as _;
-pub const AUDCLNT_E_RAW_MODE_UNSUPPORTED: ::windows_sys::core::HRESULT = 0x88890027_u32 as _;
-pub const AUDCLNT_E_RESOURCES_INVALIDATED: ::windows_sys::core::HRESULT = 0x88890026_u32 as _;
-pub const AUDCLNT_E_SERVICE_NOT_RUNNING: ::windows_sys::core::HRESULT = 0x88890010_u32 as _;
-pub const AUDCLNT_E_THREAD_NOT_REGISTERED: ::windows_sys::core::HRESULT = 0x8889000C_u32 as _;
-pub const AUDCLNT_E_UNSUPPORTED_FORMAT: ::windows_sys::core::HRESULT = 0x88890008_u32 as _;
-pub const AUDCLNT_E_WRONG_ENDPOINT_TYPE: ::windows_sys::core::HRESULT = 0x88890003_u32 as _;
+pub const AUDCLNT_E_ALREADY_INITIALIZED: windows_sys::core::HRESULT = 0x88890002_u32 as _;
+pub const AUDCLNT_E_BUFDURATION_PERIOD_NOT_EQUAL: windows_sys::core::HRESULT = 0x88890013_u32 as _;
+pub const AUDCLNT_E_BUFFER_ERROR: windows_sys::core::HRESULT = 0x88890018_u32 as _;
+pub const AUDCLNT_E_BUFFER_OPERATION_PENDING: windows_sys::core::HRESULT = 0x8889000B_u32 as _;
+pub const AUDCLNT_E_BUFFER_SIZE_ERROR: windows_sys::core::HRESULT = 0x88890016_u32 as _;
+pub const AUDCLNT_E_BUFFER_SIZE_NOT_ALIGNED: windows_sys::core::HRESULT = 0x88890019_u32 as _;
+pub const AUDCLNT_E_BUFFER_TOO_LARGE: windows_sys::core::HRESULT = 0x88890006_u32 as _;
+pub const AUDCLNT_E_CPUUSAGE_EXCEEDED: windows_sys::core::HRESULT = 0x88890017_u32 as _;
+pub const AUDCLNT_E_DEVICE_INVALIDATED: windows_sys::core::HRESULT = 0x88890004_u32 as _;
+pub const AUDCLNT_E_DEVICE_IN_USE: windows_sys::core::HRESULT = 0x8889000A_u32 as _;
+pub const AUDCLNT_E_EFFECT_NOT_AVAILABLE: windows_sys::core::HRESULT = 0x88890041_u32 as _;
+pub const AUDCLNT_E_EFFECT_STATE_READ_ONLY: windows_sys::core::HRESULT = 0x88890042_u32 as _;
+pub const AUDCLNT_E_ENDPOINT_CREATE_FAILED: windows_sys::core::HRESULT = 0x8889000F_u32 as _;
+pub const AUDCLNT_E_ENDPOINT_OFFLOAD_NOT_CAPABLE: windows_sys::core::HRESULT = 0x88890022_u32 as _;
+pub const AUDCLNT_E_ENGINE_FORMAT_LOCKED: windows_sys::core::HRESULT = 0x88890029_u32 as _;
+pub const AUDCLNT_E_ENGINE_PERIODICITY_LOCKED: windows_sys::core::HRESULT = 0x88890028_u32 as _;
+pub const AUDCLNT_E_EVENTHANDLE_NOT_EXPECTED: windows_sys::core::HRESULT = 0x88890011_u32 as _;
+pub const AUDCLNT_E_EVENTHANDLE_NOT_SET: windows_sys::core::HRESULT = 0x88890014_u32 as _;
+pub const AUDCLNT_E_EXCLUSIVE_MODE_NOT_ALLOWED: windows_sys::core::HRESULT = 0x8889000E_u32 as _;
+pub const AUDCLNT_E_EXCLUSIVE_MODE_ONLY: windows_sys::core::HRESULT = 0x88890012_u32 as _;
+pub const AUDCLNT_E_HEADTRACKING_ENABLED: windows_sys::core::HRESULT = 0x88890030_u32 as _;
+pub const AUDCLNT_E_HEADTRACKING_UNSUPPORTED: windows_sys::core::HRESULT = 0x88890040_u32 as _;
+pub const AUDCLNT_E_INCORRECT_BUFFER_SIZE: windows_sys::core::HRESULT = 0x88890015_u32 as _;
+pub const AUDCLNT_E_INVALID_DEVICE_PERIOD: windows_sys::core::HRESULT = 0x88890020_u32 as _;
+pub const AUDCLNT_E_INVALID_SIZE: windows_sys::core::HRESULT = 0x88890009_u32 as _;
+pub const AUDCLNT_E_INVALID_STREAM_FLAG: windows_sys::core::HRESULT = 0x88890021_u32 as _;
+pub const AUDCLNT_E_NONOFFLOAD_MODE_ONLY: windows_sys::core::HRESULT = 0x88890025_u32 as _;
+pub const AUDCLNT_E_NOT_INITIALIZED: windows_sys::core::HRESULT = 0x88890001_u32 as _;
+pub const AUDCLNT_E_NOT_STOPPED: windows_sys::core::HRESULT = 0x88890005_u32 as _;
+pub const AUDCLNT_E_OFFLOAD_MODE_ONLY: windows_sys::core::HRESULT = 0x88890024_u32 as _;
+pub const AUDCLNT_E_OUT_OF_OFFLOAD_RESOURCES: windows_sys::core::HRESULT = 0x88890023_u32 as _;
+pub const AUDCLNT_E_OUT_OF_ORDER: windows_sys::core::HRESULT = 0x88890007_u32 as _;
+pub const AUDCLNT_E_RAW_MODE_UNSUPPORTED: windows_sys::core::HRESULT = 0x88890027_u32 as _;
+pub const AUDCLNT_E_RESOURCES_INVALIDATED: windows_sys::core::HRESULT = 0x88890026_u32 as _;
+pub const AUDCLNT_E_SERVICE_NOT_RUNNING: windows_sys::core::HRESULT = 0x88890010_u32 as _;
+pub const AUDCLNT_E_THREAD_NOT_REGISTERED: windows_sys::core::HRESULT = 0x8889000C_u32 as _;
+pub const AUDCLNT_E_UNSUPPORTED_FORMAT: windows_sys::core::HRESULT = 0x88890008_u32 as _;
+pub const AUDCLNT_E_WRONG_ENDPOINT_TYPE: windows_sys::core::HRESULT = 0x88890003_u32 as _;
 pub const AUDCLNT_SESSIONFLAGS_DISPLAY_HIDE: u32 = 536870912u32;
 pub const AUDCLNT_SESSIONFLAGS_DISPLAY_HIDEWHENEXPIRED: u32 = 1073741824u32;
 pub const AUDCLNT_SESSIONFLAGS_EXPIREWHENUNOWNED: u32 = 268435456u32;
@@ -356,9 +356,9 @@ pub const AUDCLNT_STREAMOPTIONS_AMBISONICS: AUDCLNT_STREAMOPTIONS = 4i32;
 pub const AUDCLNT_STREAMOPTIONS_MATCH_FORMAT: AUDCLNT_STREAMOPTIONS = 2i32;
 pub const AUDCLNT_STREAMOPTIONS_NONE: AUDCLNT_STREAMOPTIONS = 0i32;
 pub const AUDCLNT_STREAMOPTIONS_RAW: AUDCLNT_STREAMOPTIONS = 1i32;
-pub const AUDCLNT_S_BUFFER_EMPTY: ::windows_sys::core::HRESULT = 0x8890001_u32 as _;
-pub const AUDCLNT_S_POSITION_STALLED: ::windows_sys::core::HRESULT = 0x8890003_u32 as _;
-pub const AUDCLNT_S_THREAD_ALREADY_REGISTERED: ::windows_sys::core::HRESULT = 0x8890002_u32 as _;
+pub const AUDCLNT_S_BUFFER_EMPTY: windows_sys::core::HRESULT = 0x8890001_u32 as _;
+pub const AUDCLNT_S_POSITION_STALLED: windows_sys::core::HRESULT = 0x8890003_u32 as _;
+pub const AUDCLNT_S_THREAD_ALREADY_REGISTERED: windows_sys::core::HRESULT = 0x8890002_u32 as _;
 pub const AUDIOCLIENT_ACTIVATION_TYPE_DEFAULT: AUDIOCLIENT_ACTIVATION_TYPE = 0i32;
 pub const AUDIOCLIENT_ACTIVATION_TYPE_PROCESS_LOOPBACK: AUDIOCLIENT_ACTIVATION_TYPE = 1i32;
 pub const AUDIOCLOCK_CHARACTERISTIC_FIXED_FREQ: u32 = 1u32;
@@ -423,10 +423,10 @@ pub const DEVICE_STATE_ACTIVE: DEVICE_STATE = 1u32;
 pub const DEVICE_STATE_DISABLED: DEVICE_STATE = 2u32;
 pub const DEVICE_STATE_NOTPRESENT: DEVICE_STATE = 4u32;
 pub const DEVICE_STATE_UNPLUGGED: DEVICE_STATE = 8u32;
-pub const DEVINTERFACE_AUDIO_CAPTURE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x2eef81be_33fa_4800_9670_1cd474972c3f);
-pub const DEVINTERFACE_AUDIO_RENDER: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xe6327cad_dcec_4949_ae8a_991e976a79d2);
-pub const DEVINTERFACE_MIDI_INPUT: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x504be32c_ccf6_4d2c_b73f_6f8b3747e22b);
-pub const DEVINTERFACE_MIDI_OUTPUT: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x6dc23320_ab33_4ce4_80d4_bbb3ebbf2814);
+pub const DEVINTERFACE_AUDIO_CAPTURE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x2eef81be_33fa_4800_9670_1cd474972c3f);
+pub const DEVINTERFACE_AUDIO_RENDER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe6327cad_dcec_4949_ae8a_991e976a79d2);
+pub const DEVINTERFACE_MIDI_INPUT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x504be32c_ccf6_4d2c_b73f_6f8b3747e22b);
+pub const DEVINTERFACE_MIDI_OUTPUT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6dc23320_ab33_4ce4_80d4_bbb3ebbf2814);
 pub const DRVM_MAPPER: u32 = 8192u32;
 pub const DRVM_MAPPER_STATUS: u32 = 8192u32;
 pub const DRV_MAPPER_PREFERRED_INPUT_GET: u32 = 16384u32;
@@ -446,7 +446,7 @@ pub const ENDPOINT_HARDWARE_SUPPORT_VOLUME: u32 = 1u32;
 pub const ENDPOINT_SYSFX_DISABLED: u32 = 1u32;
 pub const ENDPOINT_SYSFX_ENABLED: u32 = 0u32;
 pub const ERole_enum_count: ERole = 3i32;
-pub const EVENTCONTEXT_VOLUMESLIDER: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xe2c2e9de_09b1_4b04_84e5_07931225ee04);
+pub const EVENTCONTEXT_VOLUMESLIDER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe2c2e9de_09b1_4b04_84e5_07931225ee04);
 pub const EndpointFormFactor_enum_count: EndpointFormFactor = 11i32;
 pub const FILTERCHOOSE_CUSTOM_VERIFY: u32 = 2u32;
 pub const FILTERCHOOSE_FILTERTAG_VERIFY: u32 = 0u32;
@@ -633,37 +633,37 @@ pub const Microphone: EndpointFormFactor = 4i32;
 pub const Muted: AudioStateMonitorSoundLevel = 0i32;
 pub const Out: DataFlow = 1i32;
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const PKEY_AudioEndpointLogo_IconEffects: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID::from_u128(0xf1ab780d_2010_4ed3_a3a6_8b87f0f0c476), pid: 0 };
+pub const PKEY_AudioEndpointLogo_IconEffects: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xf1ab780d_2010_4ed3_a3a6_8b87f0f0c476), pid: 0 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const PKEY_AudioEndpointLogo_IconPath: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID::from_u128(0xf1ab780d_2010_4ed3_a3a6_8b87f0f0c476), pid: 1 };
+pub const PKEY_AudioEndpointLogo_IconPath: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xf1ab780d_2010_4ed3_a3a6_8b87f0f0c476), pid: 1 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const PKEY_AudioEndpointSettings_LaunchContract: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID::from_u128(0x14242002_0320_4de4_9555_a7d82b73c286), pid: 1 };
+pub const PKEY_AudioEndpointSettings_LaunchContract: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x14242002_0320_4de4_9555_a7d82b73c286), pid: 1 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const PKEY_AudioEndpointSettings_MenuText: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID::from_u128(0x14242002_0320_4de4_9555_a7d82b73c286), pid: 0 };
+pub const PKEY_AudioEndpointSettings_MenuText: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x14242002_0320_4de4_9555_a7d82b73c286), pid: 0 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const PKEY_AudioEndpoint_Association: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID::from_u128(0x1da5d803_d492_4edd_8c23_e0c0ffee7f0e), pid: 2 };
+pub const PKEY_AudioEndpoint_Association: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x1da5d803_d492_4edd_8c23_e0c0ffee7f0e), pid: 2 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const PKEY_AudioEndpoint_ControlPanelPageProvider: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID::from_u128(0x1da5d803_d492_4edd_8c23_e0c0ffee7f0e), pid: 1 };
+pub const PKEY_AudioEndpoint_ControlPanelPageProvider: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x1da5d803_d492_4edd_8c23_e0c0ffee7f0e), pid: 1 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const PKEY_AudioEndpoint_Default_VolumeInDb: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID::from_u128(0x1da5d803_d492_4edd_8c23_e0c0ffee7f0e), pid: 9 };
+pub const PKEY_AudioEndpoint_Default_VolumeInDb: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x1da5d803_d492_4edd_8c23_e0c0ffee7f0e), pid: 9 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const PKEY_AudioEndpoint_Disable_SysFx: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID::from_u128(0x1da5d803_d492_4edd_8c23_e0c0ffee7f0e), pid: 5 };
+pub const PKEY_AudioEndpoint_Disable_SysFx: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x1da5d803_d492_4edd_8c23_e0c0ffee7f0e), pid: 5 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const PKEY_AudioEndpoint_FormFactor: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID::from_u128(0x1da5d803_d492_4edd_8c23_e0c0ffee7f0e), pid: 0 };
+pub const PKEY_AudioEndpoint_FormFactor: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x1da5d803_d492_4edd_8c23_e0c0ffee7f0e), pid: 0 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const PKEY_AudioEndpoint_FullRangeSpeakers: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID::from_u128(0x1da5d803_d492_4edd_8c23_e0c0ffee7f0e), pid: 6 };
+pub const PKEY_AudioEndpoint_FullRangeSpeakers: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x1da5d803_d492_4edd_8c23_e0c0ffee7f0e), pid: 6 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const PKEY_AudioEndpoint_GUID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID::from_u128(0x1da5d803_d492_4edd_8c23_e0c0ffee7f0e), pid: 4 };
+pub const PKEY_AudioEndpoint_GUID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x1da5d803_d492_4edd_8c23_e0c0ffee7f0e), pid: 4 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const PKEY_AudioEndpoint_JackSubType: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID::from_u128(0x1da5d803_d492_4edd_8c23_e0c0ffee7f0e), pid: 8 };
+pub const PKEY_AudioEndpoint_JackSubType: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x1da5d803_d492_4edd_8c23_e0c0ffee7f0e), pid: 8 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const PKEY_AudioEndpoint_PhysicalSpeakers: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID::from_u128(0x1da5d803_d492_4edd_8c23_e0c0ffee7f0e), pid: 3 };
+pub const PKEY_AudioEndpoint_PhysicalSpeakers: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x1da5d803_d492_4edd_8c23_e0c0ffee7f0e), pid: 3 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const PKEY_AudioEndpoint_Supports_EventDriven_Mode: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID::from_u128(0x1da5d803_d492_4edd_8c23_e0c0ffee7f0e), pid: 7 };
+pub const PKEY_AudioEndpoint_Supports_EventDriven_Mode: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x1da5d803_d492_4edd_8c23_e0c0ffee7f0e), pid: 7 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const PKEY_AudioEngine_DeviceFormat: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID::from_u128(0xf19f064d_082c_4e27_bc73_6882a1bb8e4c), pid: 0 };
+pub const PKEY_AudioEngine_DeviceFormat: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xf19f064d_082c_4e27_bc73_6882a1bb8e4c), pid: 0 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const PKEY_AudioEngine_OEMFormat: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID::from_u128(0xe4870e26_3cc5_4cd2_ba46_ca0a9a70ed04), pid: 3 };
+pub const PKEY_AudioEngine_OEMFormat: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xe4870e26_3cc5_4cd2_ba46_ca0a9a70ed04), pid: 3 };
 pub const PROCESS_LOOPBACK_MODE_EXCLUDE_TARGET_PROCESS_TREE: PROCESS_LOOPBACK_MODE = 1i32;
 pub const PROCESS_LOOPBACK_MODE_INCLUDE_TARGET_PROCESS_TREE: PROCESS_LOOPBACK_MODE = 0i32;
 pub const RemoteNetworkDevice: EndpointFormFactor = 0i32;
@@ -689,45 +689,45 @@ pub const SPATIAL_AUDIO_STANDARD_COMMANDS_START: u32 = 200u32;
 pub const SPATIAL_AUDIO_STREAM_OPTIONS_NONE: SPATIAL_AUDIO_STREAM_OPTIONS = 0i32;
 pub const SPATIAL_AUDIO_STREAM_OPTIONS_OFFLOAD: SPATIAL_AUDIO_STREAM_OPTIONS = 1i32;
 pub const SPDIF: EndpointFormFactor = 8i32;
-pub const SPTLAUDCLNT_E_DESTROYED: ::windows_sys::core::HRESULT = 0x88890100_u32 as _;
-pub const SPTLAUDCLNT_E_ERRORS_IN_OBJECT_CALLS: ::windows_sys::core::HRESULT = 0x88890105_u32 as _;
-pub const SPTLAUDCLNT_E_INTERNAL: ::windows_sys::core::HRESULT = 0x8889010D_u32 as _;
-pub const SPTLAUDCLNT_E_INVALID_LICENSE: ::windows_sys::core::HRESULT = 0x88890108_u32 as _;
-pub const SPTLAUDCLNT_E_METADATA_FORMAT_NOT_SUPPORTED: ::windows_sys::core::HRESULT = 0x88890106_u32 as _;
-pub const SPTLAUDCLNT_E_NO_MORE_OBJECTS: ::windows_sys::core::HRESULT = 0x88890103_u32 as _;
-pub const SPTLAUDCLNT_E_OBJECT_ALREADY_ACTIVE: ::windows_sys::core::HRESULT = 0x8889010C_u32 as _;
-pub const SPTLAUDCLNT_E_OUT_OF_ORDER: ::windows_sys::core::HRESULT = 0x88890101_u32 as _;
-pub const SPTLAUDCLNT_E_PROPERTY_NOT_SUPPORTED: ::windows_sys::core::HRESULT = 0x88890104_u32 as _;
-pub const SPTLAUDCLNT_E_RESOURCES_INVALIDATED: ::windows_sys::core::HRESULT = 0x88890102_u32 as _;
-pub const SPTLAUDCLNT_E_STATIC_OBJECT_NOT_AVAILABLE: ::windows_sys::core::HRESULT = 0x8889010B_u32 as _;
-pub const SPTLAUDCLNT_E_STREAM_NOT_AVAILABLE: ::windows_sys::core::HRESULT = 0x88890107_u32 as _;
-pub const SPTLAUDCLNT_E_STREAM_NOT_STOPPED: ::windows_sys::core::HRESULT = 0x8889010A_u32 as _;
-pub const SPTLAUD_MD_CLNT_E_ATTACH_FAILED_INTERNAL_BUFFER: ::windows_sys::core::HRESULT = 0x88890214_u32 as _;
-pub const SPTLAUD_MD_CLNT_E_BUFFER_ALREADY_ATTACHED: ::windows_sys::core::HRESULT = 0x88890207_u32 as _;
-pub const SPTLAUD_MD_CLNT_E_BUFFER_NOT_ATTACHED: ::windows_sys::core::HRESULT = 0x88890208_u32 as _;
-pub const SPTLAUD_MD_CLNT_E_BUFFER_STILL_ATTACHED: ::windows_sys::core::HRESULT = 0x88890224_u32 as _;
-pub const SPTLAUD_MD_CLNT_E_COMMAND_ALREADY_WRITTEN: ::windows_sys::core::HRESULT = 0x88890222_u32 as _;
-pub const SPTLAUD_MD_CLNT_E_COMMAND_NOT_FOUND: ::windows_sys::core::HRESULT = 0x88890200_u32 as _;
-pub const SPTLAUD_MD_CLNT_E_DETACH_FAILED_INTERNAL_BUFFER: ::windows_sys::core::HRESULT = 0x88890215_u32 as _;
-pub const SPTLAUD_MD_CLNT_E_FORMAT_MISMATCH: ::windows_sys::core::HRESULT = 0x88890223_u32 as _;
-pub const SPTLAUD_MD_CLNT_E_FRAMECOUNT_OUT_OF_RANGE: ::windows_sys::core::HRESULT = 0x88890209_u32 as _;
-pub const SPTLAUD_MD_CLNT_E_FRAMEOFFSET_OUT_OF_RANGE: ::windows_sys::core::HRESULT = 0x88890218_u32 as _;
-pub const SPTLAUD_MD_CLNT_E_INVALID_ARGS: ::windows_sys::core::HRESULT = 0x88890202_u32 as _;
-pub const SPTLAUD_MD_CLNT_E_ITEMS_ALREADY_OPEN: ::windows_sys::core::HRESULT = 0x88890213_u32 as _;
-pub const SPTLAUD_MD_CLNT_E_ITEMS_LOCKED_FOR_WRITING: ::windows_sys::core::HRESULT = 0x88890225_u32 as _;
-pub const SPTLAUD_MD_CLNT_E_ITEM_COPY_OVERFLOW: ::windows_sys::core::HRESULT = 0x88890211_u32 as _;
-pub const SPTLAUD_MD_CLNT_E_ITEM_MUST_HAVE_COMMANDS: ::windows_sys::core::HRESULT = 0x88890219_u32 as _;
-pub const SPTLAUD_MD_CLNT_E_MEMORY_BOUNDS: ::windows_sys::core::HRESULT = 0x88890205_u32 as _;
-pub const SPTLAUD_MD_CLNT_E_METADATA_FORMAT_NOT_FOUND: ::windows_sys::core::HRESULT = 0x88890203_u32 as _;
-pub const SPTLAUD_MD_CLNT_E_NO_BUFFER_ATTACHED: ::windows_sys::core::HRESULT = 0x88890216_u32 as _;
-pub const SPTLAUD_MD_CLNT_E_NO_ITEMOFFSET_WRITTEN: ::windows_sys::core::HRESULT = 0x88890220_u32 as _;
-pub const SPTLAUD_MD_CLNT_E_NO_ITEMS_FOUND: ::windows_sys::core::HRESULT = 0x88890210_u32 as _;
-pub const SPTLAUD_MD_CLNT_E_NO_ITEMS_OPEN: ::windows_sys::core::HRESULT = 0x88890212_u32 as _;
-pub const SPTLAUD_MD_CLNT_E_NO_ITEMS_WRITTEN: ::windows_sys::core::HRESULT = 0x88890221_u32 as _;
-pub const SPTLAUD_MD_CLNT_E_NO_MORE_COMMANDS: ::windows_sys::core::HRESULT = 0x88890206_u32 as _;
-pub const SPTLAUD_MD_CLNT_E_NO_MORE_ITEMS: ::windows_sys::core::HRESULT = 0x88890217_u32 as _;
-pub const SPTLAUD_MD_CLNT_E_OBJECT_NOT_INITIALIZED: ::windows_sys::core::HRESULT = 0x88890201_u32 as _;
-pub const SPTLAUD_MD_CLNT_E_VALUE_BUFFER_INCORRECT_SIZE: ::windows_sys::core::HRESULT = 0x88890204_u32 as _;
+pub const SPTLAUDCLNT_E_DESTROYED: windows_sys::core::HRESULT = 0x88890100_u32 as _;
+pub const SPTLAUDCLNT_E_ERRORS_IN_OBJECT_CALLS: windows_sys::core::HRESULT = 0x88890105_u32 as _;
+pub const SPTLAUDCLNT_E_INTERNAL: windows_sys::core::HRESULT = 0x8889010D_u32 as _;
+pub const SPTLAUDCLNT_E_INVALID_LICENSE: windows_sys::core::HRESULT = 0x88890108_u32 as _;
+pub const SPTLAUDCLNT_E_METADATA_FORMAT_NOT_SUPPORTED: windows_sys::core::HRESULT = 0x88890106_u32 as _;
+pub const SPTLAUDCLNT_E_NO_MORE_OBJECTS: windows_sys::core::HRESULT = 0x88890103_u32 as _;
+pub const SPTLAUDCLNT_E_OBJECT_ALREADY_ACTIVE: windows_sys::core::HRESULT = 0x8889010C_u32 as _;
+pub const SPTLAUDCLNT_E_OUT_OF_ORDER: windows_sys::core::HRESULT = 0x88890101_u32 as _;
+pub const SPTLAUDCLNT_E_PROPERTY_NOT_SUPPORTED: windows_sys::core::HRESULT = 0x88890104_u32 as _;
+pub const SPTLAUDCLNT_E_RESOURCES_INVALIDATED: windows_sys::core::HRESULT = 0x88890102_u32 as _;
+pub const SPTLAUDCLNT_E_STATIC_OBJECT_NOT_AVAILABLE: windows_sys::core::HRESULT = 0x8889010B_u32 as _;
+pub const SPTLAUDCLNT_E_STREAM_NOT_AVAILABLE: windows_sys::core::HRESULT = 0x88890107_u32 as _;
+pub const SPTLAUDCLNT_E_STREAM_NOT_STOPPED: windows_sys::core::HRESULT = 0x8889010A_u32 as _;
+pub const SPTLAUD_MD_CLNT_E_ATTACH_FAILED_INTERNAL_BUFFER: windows_sys::core::HRESULT = 0x88890214_u32 as _;
+pub const SPTLAUD_MD_CLNT_E_BUFFER_ALREADY_ATTACHED: windows_sys::core::HRESULT = 0x88890207_u32 as _;
+pub const SPTLAUD_MD_CLNT_E_BUFFER_NOT_ATTACHED: windows_sys::core::HRESULT = 0x88890208_u32 as _;
+pub const SPTLAUD_MD_CLNT_E_BUFFER_STILL_ATTACHED: windows_sys::core::HRESULT = 0x88890224_u32 as _;
+pub const SPTLAUD_MD_CLNT_E_COMMAND_ALREADY_WRITTEN: windows_sys::core::HRESULT = 0x88890222_u32 as _;
+pub const SPTLAUD_MD_CLNT_E_COMMAND_NOT_FOUND: windows_sys::core::HRESULT = 0x88890200_u32 as _;
+pub const SPTLAUD_MD_CLNT_E_DETACH_FAILED_INTERNAL_BUFFER: windows_sys::core::HRESULT = 0x88890215_u32 as _;
+pub const SPTLAUD_MD_CLNT_E_FORMAT_MISMATCH: windows_sys::core::HRESULT = 0x88890223_u32 as _;
+pub const SPTLAUD_MD_CLNT_E_FRAMECOUNT_OUT_OF_RANGE: windows_sys::core::HRESULT = 0x88890209_u32 as _;
+pub const SPTLAUD_MD_CLNT_E_FRAMEOFFSET_OUT_OF_RANGE: windows_sys::core::HRESULT = 0x88890218_u32 as _;
+pub const SPTLAUD_MD_CLNT_E_INVALID_ARGS: windows_sys::core::HRESULT = 0x88890202_u32 as _;
+pub const SPTLAUD_MD_CLNT_E_ITEMS_ALREADY_OPEN: windows_sys::core::HRESULT = 0x88890213_u32 as _;
+pub const SPTLAUD_MD_CLNT_E_ITEMS_LOCKED_FOR_WRITING: windows_sys::core::HRESULT = 0x88890225_u32 as _;
+pub const SPTLAUD_MD_CLNT_E_ITEM_COPY_OVERFLOW: windows_sys::core::HRESULT = 0x88890211_u32 as _;
+pub const SPTLAUD_MD_CLNT_E_ITEM_MUST_HAVE_COMMANDS: windows_sys::core::HRESULT = 0x88890219_u32 as _;
+pub const SPTLAUD_MD_CLNT_E_MEMORY_BOUNDS: windows_sys::core::HRESULT = 0x88890205_u32 as _;
+pub const SPTLAUD_MD_CLNT_E_METADATA_FORMAT_NOT_FOUND: windows_sys::core::HRESULT = 0x88890203_u32 as _;
+pub const SPTLAUD_MD_CLNT_E_NO_BUFFER_ATTACHED: windows_sys::core::HRESULT = 0x88890216_u32 as _;
+pub const SPTLAUD_MD_CLNT_E_NO_ITEMOFFSET_WRITTEN: windows_sys::core::HRESULT = 0x88890220_u32 as _;
+pub const SPTLAUD_MD_CLNT_E_NO_ITEMS_FOUND: windows_sys::core::HRESULT = 0x88890210_u32 as _;
+pub const SPTLAUD_MD_CLNT_E_NO_ITEMS_OPEN: windows_sys::core::HRESULT = 0x88890212_u32 as _;
+pub const SPTLAUD_MD_CLNT_E_NO_ITEMS_WRITTEN: windows_sys::core::HRESULT = 0x88890221_u32 as _;
+pub const SPTLAUD_MD_CLNT_E_NO_MORE_COMMANDS: windows_sys::core::HRESULT = 0x88890206_u32 as _;
+pub const SPTLAUD_MD_CLNT_E_NO_MORE_ITEMS: windows_sys::core::HRESULT = 0x88890217_u32 as _;
+pub const SPTLAUD_MD_CLNT_E_OBJECT_NOT_INITIALIZED: windows_sys::core::HRESULT = 0x88890201_u32 as _;
+pub const SPTLAUD_MD_CLNT_E_VALUE_BUFFER_INCORRECT_SIZE: windows_sys::core::HRESULT = 0x88890204_u32 as _;
 pub const SpatialAudioHrtfDirectivity_Cardioid: SpatialAudioHrtfDirectivityType = 1i32;
 pub const SpatialAudioHrtfDirectivity_Cone: SpatialAudioHrtfDirectivityType = 2i32;
 pub const SpatialAudioHrtfDirectivity_OmniDirectional: SpatialAudioHrtfDirectivityType = 0i32;
@@ -749,7 +749,7 @@ pub const Speakers: EndpointFormFactor = 1i32;
 pub const Subunit: PartType = 1i32;
 pub const UnknownDigitalPassthrough: EndpointFormFactor = 7i32;
 pub const UnknownFormFactor: EndpointFormFactor = 10i32;
-pub const VIRTUAL_AUDIO_DEVICE_PROCESS_LOOPBACK: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("VAD\\Process_Loopback");
+pub const VIRTUAL_AUDIO_DEVICE_PROCESS_LOOPBACK: windows_sys::core::PCWSTR = windows_sys::core::w!("VAD\\Process_Loopback");
 pub const WAVECAPS_LRVOLUME: u32 = 8u32;
 pub const WAVECAPS_PITCH: u32 = 1u32;
 pub const WAVECAPS_PLAYBACKRATE: u32 = 2u32;
@@ -828,7 +828,7 @@ pub type AudioSessionDisconnectReason = i32;
 pub type AudioSessionState = i32;
 pub type AudioStateMonitorSoundLevel = i32;
 #[repr(transparent)]
-#[derive(::core::marker::Copy, ::core::clone::Clone)]
+#[derive(Copy, Clone)]
 pub struct ConnectorType(pub i32);
 impl ConnectorType {
     pub const Unknown_Connector: Self = Self(0i32);
@@ -876,9 +876,9 @@ pub struct ACMDRIVERDETAILSA {
     pub szFeatures: [i8; 512],
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ::core::marker::Copy for ACMDRIVERDETAILSA {}
+impl Copy for ACMDRIVERDETAILSA {}
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ::core::clone::Clone for ACMDRIVERDETAILSA {
+impl Clone for ACMDRIVERDETAILSA {
     fn clone(&self) -> Self {
         *self
     }
@@ -904,9 +904,9 @@ pub struct ACMDRIVERDETAILSW {
     pub szFeatures: [u16; 512],
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ::core::marker::Copy for ACMDRIVERDETAILSW {}
+impl Copy for ACMDRIVERDETAILSW {}
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ::core::clone::Clone for ACMDRIVERDETAILSW {
+impl Clone for ACMDRIVERDETAILSW {
     fn clone(&self) -> Self {
         *self
     }
@@ -920,8 +920,8 @@ pub struct ACMDRVFORMATSUGGEST {
     pub pwfxDst: *mut WAVEFORMATEX,
     pub cbwfxDst: u32,
 }
-impl ::core::marker::Copy for ACMDRVFORMATSUGGEST {}
-impl ::core::clone::Clone for ACMDRVFORMATSUGGEST {
+impl Copy for ACMDRVFORMATSUGGEST {}
+impl Clone for ACMDRVFORMATSUGGEST {
     fn clone(&self) -> Self {
         *self
     }
@@ -934,12 +934,12 @@ pub struct ACMDRVOPENDESCA {
     pub dwVersion: u32,
     pub dwFlags: u32,
     pub dwError: u32,
-    pub pszSectionName: ::windows_sys::core::PCSTR,
-    pub pszAliasName: ::windows_sys::core::PCSTR,
+    pub pszSectionName: windows_sys::core::PCSTR,
+    pub pszAliasName: windows_sys::core::PCSTR,
     pub dnDevNode: u32,
 }
-impl ::core::marker::Copy for ACMDRVOPENDESCA {}
-impl ::core::clone::Clone for ACMDRVOPENDESCA {
+impl Copy for ACMDRVOPENDESCA {}
+impl Clone for ACMDRVOPENDESCA {
     fn clone(&self) -> Self {
         *self
     }
@@ -952,12 +952,12 @@ pub struct ACMDRVOPENDESCW {
     pub dwVersion: u32,
     pub dwFlags: u32,
     pub dwError: u32,
-    pub pszSectionName: ::windows_sys::core::PCWSTR,
-    pub pszAliasName: ::windows_sys::core::PCWSTR,
+    pub pszSectionName: windows_sys::core::PCWSTR,
+    pub pszAliasName: windows_sys::core::PCWSTR,
     pub dnDevNode: u32,
 }
-impl ::core::marker::Copy for ACMDRVOPENDESCW {}
-impl ::core::clone::Clone for ACMDRVOPENDESCW {
+impl Copy for ACMDRVOPENDESCW {}
+impl Clone for ACMDRVOPENDESCW {
     fn clone(&self) -> Self {
         *self
     }
@@ -986,8 +986,8 @@ pub struct ACMDRVSTREAMHEADER {
     pub pbPreparedDst: *mut u8,
     pub cbPreparedDstLength: u32,
 }
-impl ::core::marker::Copy for ACMDRVSTREAMHEADER {}
-impl ::core::clone::Clone for ACMDRVSTREAMHEADER {
+impl Copy for ACMDRVSTREAMHEADER {}
+impl Clone for ACMDRVSTREAMHEADER {
     fn clone(&self) -> Self {
         *self
     }
@@ -1005,8 +1005,8 @@ pub struct ACMDRVSTREAMINSTANCE {
     pub dwDriver: usize,
     pub has: HACMSTREAM,
 }
-impl ::core::marker::Copy for ACMDRVSTREAMINSTANCE {}
-impl ::core::clone::Clone for ACMDRVSTREAMINSTANCE {
+impl Copy for ACMDRVSTREAMINSTANCE {}
+impl Clone for ACMDRVSTREAMINSTANCE {
     fn clone(&self) -> Self {
         *self
     }
@@ -1018,8 +1018,8 @@ pub struct ACMDRVSTREAMSIZE {
     pub cbSrcLength: u32,
     pub cbDstLength: u32,
 }
-impl ::core::marker::Copy for ACMDRVSTREAMSIZE {}
-impl ::core::clone::Clone for ACMDRVSTREAMSIZE {
+impl Copy for ACMDRVSTREAMSIZE {}
+impl Clone for ACMDRVSTREAMSIZE {
     fn clone(&self) -> Self {
         *self
     }
@@ -1031,20 +1031,20 @@ pub struct ACMFILTERCHOOSEA {
     pub hwndOwner: super::super::Foundation::HWND,
     pub pwfltr: *mut WAVEFILTER,
     pub cbwfltr: u32,
-    pub pszTitle: ::windows_sys::core::PCSTR,
+    pub pszTitle: windows_sys::core::PCSTR,
     pub szFilterTag: [i8; 48],
     pub szFilter: [i8; 128],
-    pub pszName: ::windows_sys::core::PSTR,
+    pub pszName: windows_sys::core::PSTR,
     pub cchName: u32,
     pub fdwEnum: u32,
     pub pwfltrEnum: *mut WAVEFILTER,
     pub hInstance: super::super::Foundation::HINSTANCE,
-    pub pszTemplateName: ::windows_sys::core::PCSTR,
+    pub pszTemplateName: windows_sys::core::PCSTR,
     pub lCustData: super::super::Foundation::LPARAM,
     pub pfnHook: ACMFILTERCHOOSEHOOKPROCA,
 }
-impl ::core::marker::Copy for ACMFILTERCHOOSEA {}
-impl ::core::clone::Clone for ACMFILTERCHOOSEA {
+impl Copy for ACMFILTERCHOOSEA {}
+impl Clone for ACMFILTERCHOOSEA {
     fn clone(&self) -> Self {
         *self
     }
@@ -1056,20 +1056,20 @@ pub struct ACMFILTERCHOOSEW {
     pub hwndOwner: super::super::Foundation::HWND,
     pub pwfltr: *mut WAVEFILTER,
     pub cbwfltr: u32,
-    pub pszTitle: ::windows_sys::core::PCWSTR,
+    pub pszTitle: windows_sys::core::PCWSTR,
     pub szFilterTag: [u16; 48],
     pub szFilter: [u16; 128],
-    pub pszName: ::windows_sys::core::PWSTR,
+    pub pszName: windows_sys::core::PWSTR,
     pub cchName: u32,
     pub fdwEnum: u32,
     pub pwfltrEnum: *mut WAVEFILTER,
     pub hInstance: super::super::Foundation::HINSTANCE,
-    pub pszTemplateName: ::windows_sys::core::PCWSTR,
+    pub pszTemplateName: windows_sys::core::PCWSTR,
     pub lCustData: super::super::Foundation::LPARAM,
     pub pfnHook: ACMFILTERCHOOSEHOOKPROCW,
 }
-impl ::core::marker::Copy for ACMFILTERCHOOSEW {}
-impl ::core::clone::Clone for ACMFILTERCHOOSEW {
+impl Copy for ACMFILTERCHOOSEW {}
+impl Clone for ACMFILTERCHOOSEW {
     fn clone(&self) -> Self {
         *self
     }
@@ -1084,8 +1084,8 @@ pub struct ACMFILTERDETAILSA {
     pub cbwfltr: u32,
     pub szFilter: [i8; 128],
 }
-impl ::core::marker::Copy for ACMFILTERDETAILSA {}
-impl ::core::clone::Clone for ACMFILTERDETAILSA {
+impl Copy for ACMFILTERDETAILSA {}
+impl Clone for ACMFILTERDETAILSA {
     fn clone(&self) -> Self {
         *self
     }
@@ -1100,8 +1100,8 @@ pub struct ACMFILTERDETAILSW {
     pub cbwfltr: u32,
     pub szFilter: [u16; 128],
 }
-impl ::core::marker::Copy for ACMFILTERDETAILSW {}
-impl ::core::clone::Clone for ACMFILTERDETAILSW {
+impl Copy for ACMFILTERDETAILSW {}
+impl Clone for ACMFILTERDETAILSW {
     fn clone(&self) -> Self {
         *self
     }
@@ -1116,8 +1116,8 @@ pub struct ACMFILTERTAGDETAILSA {
     pub cStandardFilters: u32,
     pub szFilterTag: [i8; 48],
 }
-impl ::core::marker::Copy for ACMFILTERTAGDETAILSA {}
-impl ::core::clone::Clone for ACMFILTERTAGDETAILSA {
+impl Copy for ACMFILTERTAGDETAILSA {}
+impl Clone for ACMFILTERTAGDETAILSA {
     fn clone(&self) -> Self {
         *self
     }
@@ -1132,8 +1132,8 @@ pub struct ACMFILTERTAGDETAILSW {
     pub cStandardFilters: u32,
     pub szFilterTag: [u16; 48],
 }
-impl ::core::marker::Copy for ACMFILTERTAGDETAILSW {}
-impl ::core::clone::Clone for ACMFILTERTAGDETAILSW {
+impl Copy for ACMFILTERTAGDETAILSW {}
+impl Clone for ACMFILTERTAGDETAILSW {
     fn clone(&self) -> Self {
         *self
     }
@@ -1145,20 +1145,20 @@ pub struct ACMFORMATCHOOSEA {
     pub hwndOwner: super::super::Foundation::HWND,
     pub pwfx: *mut WAVEFORMATEX,
     pub cbwfx: u32,
-    pub pszTitle: ::windows_sys::core::PCSTR,
+    pub pszTitle: windows_sys::core::PCSTR,
     pub szFormatTag: [i8; 48],
     pub szFormat: [i8; 128],
-    pub pszName: ::windows_sys::core::PSTR,
+    pub pszName: windows_sys::core::PSTR,
     pub cchName: u32,
     pub fdwEnum: u32,
     pub pwfxEnum: *mut WAVEFORMATEX,
     pub hInstance: super::super::Foundation::HINSTANCE,
-    pub pszTemplateName: ::windows_sys::core::PCSTR,
+    pub pszTemplateName: windows_sys::core::PCSTR,
     pub lCustData: super::super::Foundation::LPARAM,
     pub pfnHook: ACMFORMATCHOOSEHOOKPROCA,
 }
-impl ::core::marker::Copy for ACMFORMATCHOOSEA {}
-impl ::core::clone::Clone for ACMFORMATCHOOSEA {
+impl Copy for ACMFORMATCHOOSEA {}
+impl Clone for ACMFORMATCHOOSEA {
     fn clone(&self) -> Self {
         *self
     }
@@ -1170,20 +1170,20 @@ pub struct ACMFORMATCHOOSEW {
     pub hwndOwner: super::super::Foundation::HWND,
     pub pwfx: *mut WAVEFORMATEX,
     pub cbwfx: u32,
-    pub pszTitle: ::windows_sys::core::PCWSTR,
+    pub pszTitle: windows_sys::core::PCWSTR,
     pub szFormatTag: [u16; 48],
     pub szFormat: [u16; 128],
-    pub pszName: ::windows_sys::core::PWSTR,
+    pub pszName: windows_sys::core::PWSTR,
     pub cchName: u32,
     pub fdwEnum: u32,
     pub pwfxEnum: *mut WAVEFORMATEX,
     pub hInstance: super::super::Foundation::HINSTANCE,
-    pub pszTemplateName: ::windows_sys::core::PCWSTR,
+    pub pszTemplateName: windows_sys::core::PCWSTR,
     pub lCustData: super::super::Foundation::LPARAM,
     pub pfnHook: ACMFORMATCHOOSEHOOKPROCW,
 }
-impl ::core::marker::Copy for ACMFORMATCHOOSEW {}
-impl ::core::clone::Clone for ACMFORMATCHOOSEW {
+impl Copy for ACMFORMATCHOOSEW {}
+impl Clone for ACMFORMATCHOOSEW {
     fn clone(&self) -> Self {
         *self
     }
@@ -1198,8 +1198,8 @@ pub struct ACMFORMATDETAILSA {
     pub cbwfx: u32,
     pub szFormat: [i8; 128],
 }
-impl ::core::marker::Copy for ACMFORMATDETAILSA {}
-impl ::core::clone::Clone for ACMFORMATDETAILSA {
+impl Copy for ACMFORMATDETAILSA {}
+impl Clone for ACMFORMATDETAILSA {
     fn clone(&self) -> Self {
         *self
     }
@@ -1214,8 +1214,8 @@ pub struct ACMFORMATTAGDETAILSA {
     pub cStandardFormats: u32,
     pub szFormatTag: [i8; 48],
 }
-impl ::core::marker::Copy for ACMFORMATTAGDETAILSA {}
-impl ::core::clone::Clone for ACMFORMATTAGDETAILSA {
+impl Copy for ACMFORMATTAGDETAILSA {}
+impl Clone for ACMFORMATTAGDETAILSA {
     fn clone(&self) -> Self {
         *self
     }
@@ -1230,8 +1230,8 @@ pub struct ACMFORMATTAGDETAILSW {
     pub cStandardFormats: u32,
     pub szFormatTag: [u16; 48],
 }
-impl ::core::marker::Copy for ACMFORMATTAGDETAILSW {}
-impl ::core::clone::Clone for ACMFORMATTAGDETAILSW {
+impl Copy for ACMFORMATTAGDETAILSW {}
+impl Clone for ACMFORMATTAGDETAILSW {
     fn clone(&self) -> Self {
         *self
     }
@@ -1253,9 +1253,9 @@ pub struct ACMSTREAMHEADER {
     pub dwReservedDriver: [u32; 15],
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::marker::Copy for ACMSTREAMHEADER {}
+impl Copy for ACMSTREAMHEADER {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::clone::Clone for ACMSTREAMHEADER {
+impl Clone for ACMSTREAMHEADER {
     fn clone(&self) -> Self {
         *self
     }
@@ -1277,9 +1277,9 @@ pub struct ACMSTREAMHEADER {
     pub dwReservedDriver: [u32; 10],
 }
 #[cfg(target_arch = "x86")]
-impl ::core::marker::Copy for ACMSTREAMHEADER {}
+impl Copy for ACMSTREAMHEADER {}
 #[cfg(target_arch = "x86")]
-impl ::core::clone::Clone for ACMSTREAMHEADER {
+impl Clone for ACMSTREAMHEADER {
     fn clone(&self) -> Self {
         *self
     }
@@ -1295,8 +1295,8 @@ pub struct AMBISONICS_PARAMS {
     pub u32NumChannels: u32,
     pub pu32ChannelMap: *mut u32,
 }
-impl ::core::marker::Copy for AMBISONICS_PARAMS {}
-impl ::core::clone::Clone for AMBISONICS_PARAMS {
+impl Copy for AMBISONICS_PARAMS {}
+impl Clone for AMBISONICS_PARAMS {
     fn clone(&self) -> Self {
         *self
     }
@@ -1306,8 +1306,8 @@ pub struct AUDIOCLIENT_ACTIVATION_PARAMS {
     pub ActivationType: AUDIOCLIENT_ACTIVATION_TYPE,
     pub Anonymous: AUDIOCLIENT_ACTIVATION_PARAMS_0,
 }
-impl ::core::marker::Copy for AUDIOCLIENT_ACTIVATION_PARAMS {}
-impl ::core::clone::Clone for AUDIOCLIENT_ACTIVATION_PARAMS {
+impl Copy for AUDIOCLIENT_ACTIVATION_PARAMS {}
+impl Clone for AUDIOCLIENT_ACTIVATION_PARAMS {
     fn clone(&self) -> Self {
         *self
     }
@@ -1316,8 +1316,8 @@ impl ::core::clone::Clone for AUDIOCLIENT_ACTIVATION_PARAMS {
 pub union AUDIOCLIENT_ACTIVATION_PARAMS_0 {
     pub ProcessLoopbackParams: AUDIOCLIENT_PROCESS_LOOPBACK_PARAMS,
 }
-impl ::core::marker::Copy for AUDIOCLIENT_ACTIVATION_PARAMS_0 {}
-impl ::core::clone::Clone for AUDIOCLIENT_ACTIVATION_PARAMS_0 {
+impl Copy for AUDIOCLIENT_ACTIVATION_PARAMS_0 {}
+impl Clone for AUDIOCLIENT_ACTIVATION_PARAMS_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -1327,34 +1327,34 @@ pub struct AUDIOCLIENT_PROCESS_LOOPBACK_PARAMS {
     pub TargetProcessId: u32,
     pub ProcessLoopbackMode: PROCESS_LOOPBACK_MODE,
 }
-impl ::core::marker::Copy for AUDIOCLIENT_PROCESS_LOOPBACK_PARAMS {}
-impl ::core::clone::Clone for AUDIOCLIENT_PROCESS_LOOPBACK_PARAMS {
+impl Copy for AUDIOCLIENT_PROCESS_LOOPBACK_PARAMS {}
+impl Clone for AUDIOCLIENT_PROCESS_LOOPBACK_PARAMS {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct AUDIO_EFFECT {
-    pub id: ::windows_sys::core::GUID,
+    pub id: windows_sys::core::GUID,
     pub canSetState: super::super::Foundation::BOOL,
     pub state: AUDIO_EFFECT_STATE,
 }
-impl ::core::marker::Copy for AUDIO_EFFECT {}
-impl ::core::clone::Clone for AUDIO_EFFECT {
+impl Copy for AUDIO_EFFECT {}
+impl Clone for AUDIO_EFFECT {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct AUDIO_VOLUME_NOTIFICATION_DATA {
-    pub guidEventContext: ::windows_sys::core::GUID,
+    pub guidEventContext: windows_sys::core::GUID,
     pub bMuted: super::super::Foundation::BOOL,
     pub fMasterVolume: f32,
     pub nChannels: u32,
     pub afChannelVolumes: [f32; 1],
 }
-impl ::core::marker::Copy for AUDIO_VOLUME_NOTIFICATION_DATA {}
-impl ::core::clone::Clone for AUDIO_VOLUME_NOTIFICATION_DATA {
+impl Copy for AUDIO_VOLUME_NOTIFICATION_DATA {}
+impl Clone for AUDIO_VOLUME_NOTIFICATION_DATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -1368,12 +1368,12 @@ pub struct AUXCAPS2A {
     pub wTechnology: u16,
     pub wReserved1: u16,
     pub dwSupport: u32,
-    pub ManufacturerGuid: ::windows_sys::core::GUID,
-    pub ProductGuid: ::windows_sys::core::GUID,
-    pub NameGuid: ::windows_sys::core::GUID,
+    pub ManufacturerGuid: windows_sys::core::GUID,
+    pub ProductGuid: windows_sys::core::GUID,
+    pub NameGuid: windows_sys::core::GUID,
 }
-impl ::core::marker::Copy for AUXCAPS2A {}
-impl ::core::clone::Clone for AUXCAPS2A {
+impl Copy for AUXCAPS2A {}
+impl Clone for AUXCAPS2A {
     fn clone(&self) -> Self {
         *self
     }
@@ -1387,12 +1387,12 @@ pub struct AUXCAPS2W {
     pub wTechnology: u16,
     pub wReserved1: u16,
     pub dwSupport: u32,
-    pub ManufacturerGuid: ::windows_sys::core::GUID,
-    pub ProductGuid: ::windows_sys::core::GUID,
-    pub NameGuid: ::windows_sys::core::GUID,
+    pub ManufacturerGuid: windows_sys::core::GUID,
+    pub ProductGuid: windows_sys::core::GUID,
+    pub NameGuid: windows_sys::core::GUID,
 }
-impl ::core::marker::Copy for AUXCAPS2W {}
-impl ::core::clone::Clone for AUXCAPS2W {
+impl Copy for AUXCAPS2W {}
+impl Clone for AUXCAPS2W {
     fn clone(&self) -> Self {
         *self
     }
@@ -1407,8 +1407,8 @@ pub struct AUXCAPSA {
     pub wReserved1: u16,
     pub dwSupport: u32,
 }
-impl ::core::marker::Copy for AUXCAPSA {}
-impl ::core::clone::Clone for AUXCAPSA {
+impl Copy for AUXCAPSA {}
+impl Clone for AUXCAPSA {
     fn clone(&self) -> Self {
         *self
     }
@@ -1423,18 +1423,18 @@ pub struct AUXCAPSW {
     pub wReserved1: u16,
     pub dwSupport: u32,
 }
-impl ::core::marker::Copy for AUXCAPSW {}
-impl ::core::clone::Clone for AUXCAPSW {
+impl Copy for AUXCAPSW {}
+impl Clone for AUXCAPSW {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct AudioClient3ActivationParams {
-    pub tracingContextId: ::windows_sys::core::GUID,
+    pub tracingContextId: windows_sys::core::GUID,
 }
-impl ::core::marker::Copy for AudioClient3ActivationParams {}
-impl ::core::clone::Clone for AudioClient3ActivationParams {
+impl Copy for AudioClient3ActivationParams {}
+impl Clone for AudioClient3ActivationParams {
     fn clone(&self) -> Self {
         *self
     }
@@ -1446,8 +1446,8 @@ pub struct AudioClientProperties {
     pub eCategory: AUDIO_STREAM_CATEGORY,
     pub Options: AUDCLNT_STREAMOPTIONS,
 }
-impl ::core::marker::Copy for AudioClientProperties {}
-impl ::core::clone::Clone for AudioClientProperties {
+impl Copy for AudioClientProperties {}
+impl Clone for AudioClientProperties {
     fn clone(&self) -> Self {
         *self
     }
@@ -1455,12 +1455,12 @@ impl ::core::clone::Clone for AudioClientProperties {
 #[repr(C)]
 pub struct AudioExtensionParams {
     pub AddPageParam: super::super::Foundation::LPARAM,
-    pub pEndpoint: *mut ::core::ffi::c_void,
-    pub pPnpInterface: *mut ::core::ffi::c_void,
-    pub pPnpDevnode: *mut ::core::ffi::c_void,
+    pub pEndpoint: *mut core::ffi::c_void,
+    pub pPnpInterface: *mut core::ffi::c_void,
+    pub pPnpDevnode: *mut core::ffi::c_void,
 }
-impl ::core::marker::Copy for AudioExtensionParams {}
-impl ::core::clone::Clone for AudioExtensionParams {
+impl Copy for AudioExtensionParams {}
+impl Clone for AudioExtensionParams {
     fn clone(&self) -> Self {
         *self
     }
@@ -1468,24 +1468,24 @@ impl ::core::clone::Clone for AudioExtensionParams {
 #[repr(C)]
 pub struct DIRECTX_AUDIO_ACTIVATION_PARAMS {
     pub cbDirectXAudioActivationParams: u32,
-    pub guidAudioSession: ::windows_sys::core::GUID,
+    pub guidAudioSession: windows_sys::core::GUID,
     pub dwAudioStreamFlags: u32,
 }
-impl ::core::marker::Copy for DIRECTX_AUDIO_ACTIVATION_PARAMS {}
-impl ::core::clone::Clone for DIRECTX_AUDIO_ACTIVATION_PARAMS {
+impl Copy for DIRECTX_AUDIO_ACTIVATION_PARAMS {}
+impl Clone for DIRECTX_AUDIO_ACTIVATION_PARAMS {
     fn clone(&self) -> Self {
         *self
     }
 }
-pub const DeviceTopology: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x1df639d0_5ec1_47aa_9379_828dc1aa8c59);
+pub const DeviceTopology: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1df639d0_5ec1_47aa_9379_828dc1aa8c59);
 #[repr(C, packed(1))]
 pub struct ECHOWAVEFILTER {
     pub wfltr: WAVEFILTER,
     pub dwVolume: u32,
     pub dwDelay: u32,
 }
-impl ::core::marker::Copy for ECHOWAVEFILTER {}
-impl ::core::clone::Clone for ECHOWAVEFILTER {
+impl Copy for ECHOWAVEFILTER {}
+impl Clone for ECHOWAVEFILTER {
     fn clone(&self) -> Self {
         *self
     }
@@ -1510,15 +1510,15 @@ pub struct MIDIEVENT {
     pub dwEvent: u32,
     pub dwParms: [u32; 1],
 }
-impl ::core::marker::Copy for MIDIEVENT {}
-impl ::core::clone::Clone for MIDIEVENT {
+impl Copy for MIDIEVENT {}
+impl Clone for MIDIEVENT {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C, packed(1))]
 pub struct MIDIHDR {
-    pub lpData: ::windows_sys::core::PSTR,
+    pub lpData: windows_sys::core::PSTR,
     pub dwBufferLength: u32,
     pub dwBytesRecorded: u32,
     pub dwUser: usize,
@@ -1528,8 +1528,8 @@ pub struct MIDIHDR {
     pub dwOffset: u32,
     pub dwReserved: [usize; 8],
 }
-impl ::core::marker::Copy for MIDIHDR {}
-impl ::core::clone::Clone for MIDIHDR {
+impl Copy for MIDIHDR {}
+impl Clone for MIDIHDR {
     fn clone(&self) -> Self {
         *self
     }
@@ -1541,12 +1541,12 @@ pub struct MIDIINCAPS2A {
     pub vDriverVersion: u32,
     pub szPname: [i8; 32],
     pub dwSupport: u32,
-    pub ManufacturerGuid: ::windows_sys::core::GUID,
-    pub ProductGuid: ::windows_sys::core::GUID,
-    pub NameGuid: ::windows_sys::core::GUID,
+    pub ManufacturerGuid: windows_sys::core::GUID,
+    pub ProductGuid: windows_sys::core::GUID,
+    pub NameGuid: windows_sys::core::GUID,
 }
-impl ::core::marker::Copy for MIDIINCAPS2A {}
-impl ::core::clone::Clone for MIDIINCAPS2A {
+impl Copy for MIDIINCAPS2A {}
+impl Clone for MIDIINCAPS2A {
     fn clone(&self) -> Self {
         *self
     }
@@ -1558,12 +1558,12 @@ pub struct MIDIINCAPS2W {
     pub vDriverVersion: u32,
     pub szPname: [u16; 32],
     pub dwSupport: u32,
-    pub ManufacturerGuid: ::windows_sys::core::GUID,
-    pub ProductGuid: ::windows_sys::core::GUID,
-    pub NameGuid: ::windows_sys::core::GUID,
+    pub ManufacturerGuid: windows_sys::core::GUID,
+    pub ProductGuid: windows_sys::core::GUID,
+    pub NameGuid: windows_sys::core::GUID,
 }
-impl ::core::marker::Copy for MIDIINCAPS2W {}
-impl ::core::clone::Clone for MIDIINCAPS2W {
+impl Copy for MIDIINCAPS2W {}
+impl Clone for MIDIINCAPS2W {
     fn clone(&self) -> Self {
         *self
     }
@@ -1576,8 +1576,8 @@ pub struct MIDIINCAPSA {
     pub szPname: [i8; 32],
     pub dwSupport: u32,
 }
-impl ::core::marker::Copy for MIDIINCAPSA {}
-impl ::core::clone::Clone for MIDIINCAPSA {
+impl Copy for MIDIINCAPSA {}
+impl Clone for MIDIINCAPSA {
     fn clone(&self) -> Self {
         *self
     }
@@ -1590,8 +1590,8 @@ pub struct MIDIINCAPSW {
     pub szPname: [u16; 32],
     pub dwSupport: u32,
 }
-impl ::core::marker::Copy for MIDIINCAPSW {}
-impl ::core::clone::Clone for MIDIINCAPSW {
+impl Copy for MIDIINCAPSW {}
+impl Clone for MIDIINCAPSW {
     fn clone(&self) -> Self {
         *self
     }
@@ -1607,12 +1607,12 @@ pub struct MIDIOUTCAPS2A {
     pub wNotes: u16,
     pub wChannelMask: u16,
     pub dwSupport: u32,
-    pub ManufacturerGuid: ::windows_sys::core::GUID,
-    pub ProductGuid: ::windows_sys::core::GUID,
-    pub NameGuid: ::windows_sys::core::GUID,
+    pub ManufacturerGuid: windows_sys::core::GUID,
+    pub ProductGuid: windows_sys::core::GUID,
+    pub NameGuid: windows_sys::core::GUID,
 }
-impl ::core::marker::Copy for MIDIOUTCAPS2A {}
-impl ::core::clone::Clone for MIDIOUTCAPS2A {
+impl Copy for MIDIOUTCAPS2A {}
+impl Clone for MIDIOUTCAPS2A {
     fn clone(&self) -> Self {
         *self
     }
@@ -1628,12 +1628,12 @@ pub struct MIDIOUTCAPS2W {
     pub wNotes: u16,
     pub wChannelMask: u16,
     pub dwSupport: u32,
-    pub ManufacturerGuid: ::windows_sys::core::GUID,
-    pub ProductGuid: ::windows_sys::core::GUID,
-    pub NameGuid: ::windows_sys::core::GUID,
+    pub ManufacturerGuid: windows_sys::core::GUID,
+    pub ProductGuid: windows_sys::core::GUID,
+    pub NameGuid: windows_sys::core::GUID,
 }
-impl ::core::marker::Copy for MIDIOUTCAPS2W {}
-impl ::core::clone::Clone for MIDIOUTCAPS2W {
+impl Copy for MIDIOUTCAPS2W {}
+impl Clone for MIDIOUTCAPS2W {
     fn clone(&self) -> Self {
         *self
     }
@@ -1650,8 +1650,8 @@ pub struct MIDIOUTCAPSA {
     pub wChannelMask: u16,
     pub dwSupport: u32,
 }
-impl ::core::marker::Copy for MIDIOUTCAPSA {}
-impl ::core::clone::Clone for MIDIOUTCAPSA {
+impl Copy for MIDIOUTCAPSA {}
+impl Clone for MIDIOUTCAPSA {
     fn clone(&self) -> Self {
         *self
     }
@@ -1668,8 +1668,8 @@ pub struct MIDIOUTCAPSW {
     pub wChannelMask: u16,
     pub dwSupport: u32,
 }
-impl ::core::marker::Copy for MIDIOUTCAPSW {}
-impl ::core::clone::Clone for MIDIOUTCAPSW {
+impl Copy for MIDIOUTCAPSW {}
+impl Clone for MIDIOUTCAPSW {
     fn clone(&self) -> Self {
         *self
     }
@@ -1679,8 +1679,8 @@ pub struct MIDIPROPTEMPO {
     pub cbStruct: u32,
     pub dwTempo: u32,
 }
-impl ::core::marker::Copy for MIDIPROPTEMPO {}
-impl ::core::clone::Clone for MIDIPROPTEMPO {
+impl Copy for MIDIPROPTEMPO {}
+impl Clone for MIDIPROPTEMPO {
     fn clone(&self) -> Self {
         *self
     }
@@ -1690,8 +1690,8 @@ pub struct MIDIPROPTIMEDIV {
     pub cbStruct: u32,
     pub dwTimeDiv: u32,
 }
-impl ::core::marker::Copy for MIDIPROPTIMEDIV {}
-impl ::core::clone::Clone for MIDIPROPTIMEDIV {
+impl Copy for MIDIPROPTIMEDIV {}
+impl Clone for MIDIPROPTIMEDIV {
     fn clone(&self) -> Self {
         *self
     }
@@ -1702,8 +1702,8 @@ pub struct MIDISTRMBUFFVER {
     pub dwMid: u32,
     pub dwOEMVersion: u32,
 }
-impl ::core::marker::Copy for MIDISTRMBUFFVER {}
-impl ::core::clone::Clone for MIDISTRMBUFFVER {
+impl Copy for MIDISTRMBUFFVER {}
+impl Clone for MIDISTRMBUFFVER {
     fn clone(&self) -> Self {
         *self
     }
@@ -1716,12 +1716,12 @@ pub struct MIXERCAPS2A {
     pub szPname: [i8; 32],
     pub fdwSupport: u32,
     pub cDestinations: u32,
-    pub ManufacturerGuid: ::windows_sys::core::GUID,
-    pub ProductGuid: ::windows_sys::core::GUID,
-    pub NameGuid: ::windows_sys::core::GUID,
+    pub ManufacturerGuid: windows_sys::core::GUID,
+    pub ProductGuid: windows_sys::core::GUID,
+    pub NameGuid: windows_sys::core::GUID,
 }
-impl ::core::marker::Copy for MIXERCAPS2A {}
-impl ::core::clone::Clone for MIXERCAPS2A {
+impl Copy for MIXERCAPS2A {}
+impl Clone for MIXERCAPS2A {
     fn clone(&self) -> Self {
         *self
     }
@@ -1734,12 +1734,12 @@ pub struct MIXERCAPS2W {
     pub szPname: [u16; 32],
     pub fdwSupport: u32,
     pub cDestinations: u32,
-    pub ManufacturerGuid: ::windows_sys::core::GUID,
-    pub ProductGuid: ::windows_sys::core::GUID,
-    pub NameGuid: ::windows_sys::core::GUID,
+    pub ManufacturerGuid: windows_sys::core::GUID,
+    pub ProductGuid: windows_sys::core::GUID,
+    pub NameGuid: windows_sys::core::GUID,
 }
-impl ::core::marker::Copy for MIXERCAPS2W {}
-impl ::core::clone::Clone for MIXERCAPS2W {
+impl Copy for MIXERCAPS2W {}
+impl Clone for MIXERCAPS2W {
     fn clone(&self) -> Self {
         *self
     }
@@ -1753,8 +1753,8 @@ pub struct MIXERCAPSA {
     pub fdwSupport: u32,
     pub cDestinations: u32,
 }
-impl ::core::marker::Copy for MIXERCAPSA {}
-impl ::core::clone::Clone for MIXERCAPSA {
+impl Copy for MIXERCAPSA {}
+impl Clone for MIXERCAPSA {
     fn clone(&self) -> Self {
         *self
     }
@@ -1768,8 +1768,8 @@ pub struct MIXERCAPSW {
     pub fdwSupport: u32,
     pub cDestinations: u32,
 }
-impl ::core::marker::Copy for MIXERCAPSW {}
-impl ::core::clone::Clone for MIXERCAPSW {
+impl Copy for MIXERCAPSW {}
+impl Clone for MIXERCAPSW {
     fn clone(&self) -> Self {
         *self
     }
@@ -1786,8 +1786,8 @@ pub struct MIXERCONTROLA {
     pub Bounds: MIXERCONTROLA_0,
     pub Metrics: MIXERCONTROLA_1,
 }
-impl ::core::marker::Copy for MIXERCONTROLA {}
-impl ::core::clone::Clone for MIXERCONTROLA {
+impl Copy for MIXERCONTROLA {}
+impl Clone for MIXERCONTROLA {
     fn clone(&self) -> Self {
         *self
     }
@@ -1798,8 +1798,8 @@ pub union MIXERCONTROLA_0 {
     pub Anonymous2: MIXERCONTROLA_0_1,
     pub dwReserved: [u32; 6],
 }
-impl ::core::marker::Copy for MIXERCONTROLA_0 {}
-impl ::core::clone::Clone for MIXERCONTROLA_0 {
+impl Copy for MIXERCONTROLA_0 {}
+impl Clone for MIXERCONTROLA_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -1809,8 +1809,8 @@ pub struct MIXERCONTROLA_0_0 {
     pub lMinimum: i32,
     pub lMaximum: i32,
 }
-impl ::core::marker::Copy for MIXERCONTROLA_0_0 {}
-impl ::core::clone::Clone for MIXERCONTROLA_0_0 {
+impl Copy for MIXERCONTROLA_0_0 {}
+impl Clone for MIXERCONTROLA_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -1820,8 +1820,8 @@ pub struct MIXERCONTROLA_0_1 {
     pub dwMinimum: u32,
     pub dwMaximum: u32,
 }
-impl ::core::marker::Copy for MIXERCONTROLA_0_1 {}
-impl ::core::clone::Clone for MIXERCONTROLA_0_1 {
+impl Copy for MIXERCONTROLA_0_1 {}
+impl Clone for MIXERCONTROLA_0_1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -1832,8 +1832,8 @@ pub union MIXERCONTROLA_1 {
     pub cbCustomData: u32,
     pub dwReserved: [u32; 6],
 }
-impl ::core::marker::Copy for MIXERCONTROLA_1 {}
-impl ::core::clone::Clone for MIXERCONTROLA_1 {
+impl Copy for MIXERCONTROLA_1 {}
+impl Clone for MIXERCONTROLA_1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -1845,10 +1845,10 @@ pub struct MIXERCONTROLDETAILS {
     pub cChannels: u32,
     pub Anonymous: MIXERCONTROLDETAILS_0,
     pub cbDetails: u32,
-    pub paDetails: *mut ::core::ffi::c_void,
+    pub paDetails: *mut core::ffi::c_void,
 }
-impl ::core::marker::Copy for MIXERCONTROLDETAILS {}
-impl ::core::clone::Clone for MIXERCONTROLDETAILS {
+impl Copy for MIXERCONTROLDETAILS {}
+impl Clone for MIXERCONTROLDETAILS {
     fn clone(&self) -> Self {
         *self
     }
@@ -1858,8 +1858,8 @@ pub union MIXERCONTROLDETAILS_0 {
     pub hwndOwner: super::super::Foundation::HWND,
     pub cMultipleItems: u32,
 }
-impl ::core::marker::Copy for MIXERCONTROLDETAILS_0 {}
-impl ::core::clone::Clone for MIXERCONTROLDETAILS_0 {
+impl Copy for MIXERCONTROLDETAILS_0 {}
+impl Clone for MIXERCONTROLDETAILS_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -1868,8 +1868,8 @@ impl ::core::clone::Clone for MIXERCONTROLDETAILS_0 {
 pub struct MIXERCONTROLDETAILS_BOOLEAN {
     pub fValue: i32,
 }
-impl ::core::marker::Copy for MIXERCONTROLDETAILS_BOOLEAN {}
-impl ::core::clone::Clone for MIXERCONTROLDETAILS_BOOLEAN {
+impl Copy for MIXERCONTROLDETAILS_BOOLEAN {}
+impl Clone for MIXERCONTROLDETAILS_BOOLEAN {
     fn clone(&self) -> Self {
         *self
     }
@@ -1880,8 +1880,8 @@ pub struct MIXERCONTROLDETAILS_LISTTEXTA {
     pub dwParam2: u32,
     pub szName: [i8; 64],
 }
-impl ::core::marker::Copy for MIXERCONTROLDETAILS_LISTTEXTA {}
-impl ::core::clone::Clone for MIXERCONTROLDETAILS_LISTTEXTA {
+impl Copy for MIXERCONTROLDETAILS_LISTTEXTA {}
+impl Clone for MIXERCONTROLDETAILS_LISTTEXTA {
     fn clone(&self) -> Self {
         *self
     }
@@ -1892,8 +1892,8 @@ pub struct MIXERCONTROLDETAILS_LISTTEXTW {
     pub dwParam2: u32,
     pub szName: [u16; 64],
 }
-impl ::core::marker::Copy for MIXERCONTROLDETAILS_LISTTEXTW {}
-impl ::core::clone::Clone for MIXERCONTROLDETAILS_LISTTEXTW {
+impl Copy for MIXERCONTROLDETAILS_LISTTEXTW {}
+impl Clone for MIXERCONTROLDETAILS_LISTTEXTW {
     fn clone(&self) -> Self {
         *self
     }
@@ -1902,8 +1902,8 @@ impl ::core::clone::Clone for MIXERCONTROLDETAILS_LISTTEXTW {
 pub struct MIXERCONTROLDETAILS_SIGNED {
     pub lValue: i32,
 }
-impl ::core::marker::Copy for MIXERCONTROLDETAILS_SIGNED {}
-impl ::core::clone::Clone for MIXERCONTROLDETAILS_SIGNED {
+impl Copy for MIXERCONTROLDETAILS_SIGNED {}
+impl Clone for MIXERCONTROLDETAILS_SIGNED {
     fn clone(&self) -> Self {
         *self
     }
@@ -1912,8 +1912,8 @@ impl ::core::clone::Clone for MIXERCONTROLDETAILS_SIGNED {
 pub struct MIXERCONTROLDETAILS_UNSIGNED {
     pub dwValue: u32,
 }
-impl ::core::marker::Copy for MIXERCONTROLDETAILS_UNSIGNED {}
-impl ::core::clone::Clone for MIXERCONTROLDETAILS_UNSIGNED {
+impl Copy for MIXERCONTROLDETAILS_UNSIGNED {}
+impl Clone for MIXERCONTROLDETAILS_UNSIGNED {
     fn clone(&self) -> Self {
         *self
     }
@@ -1930,8 +1930,8 @@ pub struct MIXERCONTROLW {
     pub Bounds: MIXERCONTROLW_0,
     pub Metrics: MIXERCONTROLW_1,
 }
-impl ::core::marker::Copy for MIXERCONTROLW {}
-impl ::core::clone::Clone for MIXERCONTROLW {
+impl Copy for MIXERCONTROLW {}
+impl Clone for MIXERCONTROLW {
     fn clone(&self) -> Self {
         *self
     }
@@ -1942,8 +1942,8 @@ pub union MIXERCONTROLW_0 {
     pub Anonymous2: MIXERCONTROLW_0_1,
     pub dwReserved: [u32; 6],
 }
-impl ::core::marker::Copy for MIXERCONTROLW_0 {}
-impl ::core::clone::Clone for MIXERCONTROLW_0 {
+impl Copy for MIXERCONTROLW_0 {}
+impl Clone for MIXERCONTROLW_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -1953,8 +1953,8 @@ pub struct MIXERCONTROLW_0_0 {
     pub lMinimum: i32,
     pub lMaximum: i32,
 }
-impl ::core::marker::Copy for MIXERCONTROLW_0_0 {}
-impl ::core::clone::Clone for MIXERCONTROLW_0_0 {
+impl Copy for MIXERCONTROLW_0_0 {}
+impl Clone for MIXERCONTROLW_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -1964,8 +1964,8 @@ pub struct MIXERCONTROLW_0_1 {
     pub dwMinimum: u32,
     pub dwMaximum: u32,
 }
-impl ::core::marker::Copy for MIXERCONTROLW_0_1 {}
-impl ::core::clone::Clone for MIXERCONTROLW_0_1 {
+impl Copy for MIXERCONTROLW_0_1 {}
+impl Clone for MIXERCONTROLW_0_1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -1976,8 +1976,8 @@ pub union MIXERCONTROLW_1 {
     pub cbCustomData: u32,
     pub dwReserved: [u32; 6],
 }
-impl ::core::marker::Copy for MIXERCONTROLW_1 {}
-impl ::core::clone::Clone for MIXERCONTROLW_1 {
+impl Copy for MIXERCONTROLW_1 {}
+impl Clone for MIXERCONTROLW_1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -1998,8 +1998,8 @@ pub struct MIXERLINEA {
     pub szName: [i8; 64],
     pub Target: MIXERLINEA_0,
 }
-impl ::core::marker::Copy for MIXERLINEA {}
-impl ::core::clone::Clone for MIXERLINEA {
+impl Copy for MIXERLINEA {}
+impl Clone for MIXERLINEA {
     fn clone(&self) -> Self {
         *self
     }
@@ -2013,8 +2013,8 @@ pub struct MIXERLINEA_0 {
     pub vDriverVersion: u32,
     pub szPname: [i8; 32],
 }
-impl ::core::marker::Copy for MIXERLINEA_0 {}
-impl ::core::clone::Clone for MIXERLINEA_0 {
+impl Copy for MIXERLINEA_0 {}
+impl Clone for MIXERLINEA_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -2028,8 +2028,8 @@ pub struct MIXERLINECONTROLSA {
     pub cbmxctrl: u32,
     pub pamxctrl: *mut MIXERCONTROLA,
 }
-impl ::core::marker::Copy for MIXERLINECONTROLSA {}
-impl ::core::clone::Clone for MIXERLINECONTROLSA {
+impl Copy for MIXERLINECONTROLSA {}
+impl Clone for MIXERLINECONTROLSA {
     fn clone(&self) -> Self {
         *self
     }
@@ -2039,8 +2039,8 @@ pub union MIXERLINECONTROLSA_0 {
     pub dwControlID: u32,
     pub dwControlType: u32,
 }
-impl ::core::marker::Copy for MIXERLINECONTROLSA_0 {}
-impl ::core::clone::Clone for MIXERLINECONTROLSA_0 {
+impl Copy for MIXERLINECONTROLSA_0 {}
+impl Clone for MIXERLINECONTROLSA_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -2054,8 +2054,8 @@ pub struct MIXERLINECONTROLSW {
     pub cbmxctrl: u32,
     pub pamxctrl: *mut MIXERCONTROLW,
 }
-impl ::core::marker::Copy for MIXERLINECONTROLSW {}
-impl ::core::clone::Clone for MIXERLINECONTROLSW {
+impl Copy for MIXERLINECONTROLSW {}
+impl Clone for MIXERLINECONTROLSW {
     fn clone(&self) -> Self {
         *self
     }
@@ -2065,8 +2065,8 @@ pub union MIXERLINECONTROLSW_0 {
     pub dwControlID: u32,
     pub dwControlType: u32,
 }
-impl ::core::marker::Copy for MIXERLINECONTROLSW_0 {}
-impl ::core::clone::Clone for MIXERLINECONTROLSW_0 {
+impl Copy for MIXERLINECONTROLSW_0 {}
+impl Clone for MIXERLINECONTROLSW_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -2087,8 +2087,8 @@ pub struct MIXERLINEW {
     pub szName: [u16; 64],
     pub Target: MIXERLINEW_0,
 }
-impl ::core::marker::Copy for MIXERLINEW {}
-impl ::core::clone::Clone for MIXERLINEW {
+impl Copy for MIXERLINEW {}
+impl Clone for MIXERLINEW {
     fn clone(&self) -> Self {
         *self
     }
@@ -2102,35 +2102,35 @@ pub struct MIXERLINEW_0 {
     pub vDriverVersion: u32,
     pub szPname: [u16; 32],
 }
-impl ::core::marker::Copy for MIXERLINEW_0 {}
-impl ::core::clone::Clone for MIXERLINEW_0 {
+impl Copy for MIXERLINEW_0 {}
+impl Clone for MIXERLINEW_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-pub const MMDeviceEnumerator: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xbcde0395_e52f_467c_8e3d_c4579291692e);
+pub const MMDeviceEnumerator: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xbcde0395_e52f_467c_8e3d_c4579291692e);
 #[repr(C, packed(1))]
 pub struct PCMWAVEFORMAT {
     pub wf: WAVEFORMAT,
     pub wBitsPerSample: u16,
 }
-impl ::core::marker::Copy for PCMWAVEFORMAT {}
-impl ::core::clone::Clone for PCMWAVEFORMAT {
+impl Copy for PCMWAVEFORMAT {}
+impl Clone for PCMWAVEFORMAT {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct SpatialAudioClientActivationParams {
-    pub tracingContextId: ::windows_sys::core::GUID,
-    pub appId: ::windows_sys::core::GUID,
+    pub tracingContextId: windows_sys::core::GUID,
+    pub appId: windows_sys::core::GUID,
     pub majorVersion: i32,
     pub minorVersion1: i32,
     pub minorVersion2: i32,
     pub minorVersion3: i32,
 }
-impl ::core::marker::Copy for SpatialAudioClientActivationParams {}
-impl ::core::clone::Clone for SpatialAudioClientActivationParams {
+impl Copy for SpatialAudioClientActivationParams {}
+impl Clone for SpatialAudioClientActivationParams {
     fn clone(&self) -> Self {
         *self
     }
@@ -2143,14 +2143,14 @@ pub struct SpatialAudioHrtfActivationParams {
     pub MaxDynamicObjectCount: u32,
     pub Category: AUDIO_STREAM_CATEGORY,
     pub EventHandle: super::super::Foundation::HANDLE,
-    pub NotifyObject: *mut ::core::ffi::c_void,
+    pub NotifyObject: *mut core::ffi::c_void,
     pub DistanceDecay: *mut SpatialAudioHrtfDistanceDecay,
     pub Directivity: *mut SpatialAudioHrtfDirectivityUnion,
     pub Environment: *mut SpatialAudioHrtfEnvironmentType,
     pub Orientation: *mut f32,
 }
-impl ::core::marker::Copy for SpatialAudioHrtfActivationParams {}
-impl ::core::clone::Clone for SpatialAudioHrtfActivationParams {
+impl Copy for SpatialAudioHrtfActivationParams {}
+impl Clone for SpatialAudioHrtfActivationParams {
     fn clone(&self) -> Self {
         *self
     }
@@ -2163,15 +2163,15 @@ pub struct SpatialAudioHrtfActivationParams2 {
     pub MaxDynamicObjectCount: u32,
     pub Category: AUDIO_STREAM_CATEGORY,
     pub EventHandle: super::super::Foundation::HANDLE,
-    pub NotifyObject: *mut ::core::ffi::c_void,
+    pub NotifyObject: *mut core::ffi::c_void,
     pub DistanceDecay: *mut SpatialAudioHrtfDistanceDecay,
     pub Directivity: *mut SpatialAudioHrtfDirectivityUnion,
     pub Environment: *mut SpatialAudioHrtfEnvironmentType,
     pub Orientation: *mut f32,
     pub Options: SPATIAL_AUDIO_STREAM_OPTIONS,
 }
-impl ::core::marker::Copy for SpatialAudioHrtfActivationParams2 {}
-impl ::core::clone::Clone for SpatialAudioHrtfActivationParams2 {
+impl Copy for SpatialAudioHrtfActivationParams2 {}
+impl Clone for SpatialAudioHrtfActivationParams2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -2181,8 +2181,8 @@ pub struct SpatialAudioHrtfDirectivity {
     pub Type: SpatialAudioHrtfDirectivityType,
     pub Scaling: f32,
 }
-impl ::core::marker::Copy for SpatialAudioHrtfDirectivity {}
-impl ::core::clone::Clone for SpatialAudioHrtfDirectivity {
+impl Copy for SpatialAudioHrtfDirectivity {}
+impl Clone for SpatialAudioHrtfDirectivity {
     fn clone(&self) -> Self {
         *self
     }
@@ -2192,8 +2192,8 @@ pub struct SpatialAudioHrtfDirectivityCardioid {
     pub directivity: SpatialAudioHrtfDirectivity,
     pub Order: f32,
 }
-impl ::core::marker::Copy for SpatialAudioHrtfDirectivityCardioid {}
-impl ::core::clone::Clone for SpatialAudioHrtfDirectivityCardioid {
+impl Copy for SpatialAudioHrtfDirectivityCardioid {}
+impl Clone for SpatialAudioHrtfDirectivityCardioid {
     fn clone(&self) -> Self {
         *self
     }
@@ -2204,8 +2204,8 @@ pub struct SpatialAudioHrtfDirectivityCone {
     pub InnerAngle: f32,
     pub OuterAngle: f32,
 }
-impl ::core::marker::Copy for SpatialAudioHrtfDirectivityCone {}
-impl ::core::clone::Clone for SpatialAudioHrtfDirectivityCone {
+impl Copy for SpatialAudioHrtfDirectivityCone {}
+impl Clone for SpatialAudioHrtfDirectivityCone {
     fn clone(&self) -> Self {
         *self
     }
@@ -2216,8 +2216,8 @@ pub union SpatialAudioHrtfDirectivityUnion {
     pub Cardiod: SpatialAudioHrtfDirectivityCardioid,
     pub Omni: SpatialAudioHrtfDirectivity,
 }
-impl ::core::marker::Copy for SpatialAudioHrtfDirectivityUnion {}
-impl ::core::clone::Clone for SpatialAudioHrtfDirectivityUnion {
+impl Copy for SpatialAudioHrtfDirectivityUnion {}
+impl Clone for SpatialAudioHrtfDirectivityUnion {
     fn clone(&self) -> Self {
         *self
     }
@@ -2230,8 +2230,8 @@ pub struct SpatialAudioHrtfDistanceDecay {
     pub UnityGainDistance: f32,
     pub CutoffDistance: f32,
 }
-impl ::core::marker::Copy for SpatialAudioHrtfDistanceDecay {}
-impl ::core::clone::Clone for SpatialAudioHrtfDistanceDecay {
+impl Copy for SpatialAudioHrtfDistanceDecay {}
+impl Clone for SpatialAudioHrtfDistanceDecay {
     fn clone(&self) -> Self {
         *self
     }
@@ -2243,8 +2243,8 @@ pub struct SpatialAudioMetadataItemsInfo {
     pub MaxItemCount: u16,
     pub MaxValueBufferLength: u32,
 }
-impl ::core::marker::Copy for SpatialAudioMetadataItemsInfo {}
-impl ::core::clone::Clone for SpatialAudioMetadataItemsInfo {
+impl Copy for SpatialAudioMetadataItemsInfo {}
+impl Clone for SpatialAudioMetadataItemsInfo {
     fn clone(&self) -> Self {
         *self
     }
@@ -2257,10 +2257,10 @@ pub struct SpatialAudioObjectRenderStreamActivationParams {
     pub MaxDynamicObjectCount: u32,
     pub Category: AUDIO_STREAM_CATEGORY,
     pub EventHandle: super::super::Foundation::HANDLE,
-    pub NotifyObject: *mut ::core::ffi::c_void,
+    pub NotifyObject: *mut core::ffi::c_void,
 }
-impl ::core::marker::Copy for SpatialAudioObjectRenderStreamActivationParams {}
-impl ::core::clone::Clone for SpatialAudioObjectRenderStreamActivationParams {
+impl Copy for SpatialAudioObjectRenderStreamActivationParams {}
+impl Clone for SpatialAudioObjectRenderStreamActivationParams {
     fn clone(&self) -> Self {
         *self
     }
@@ -2273,11 +2273,11 @@ pub struct SpatialAudioObjectRenderStreamActivationParams2 {
     pub MaxDynamicObjectCount: u32,
     pub Category: AUDIO_STREAM_CATEGORY,
     pub EventHandle: super::super::Foundation::HANDLE,
-    pub NotifyObject: *mut ::core::ffi::c_void,
+    pub NotifyObject: *mut core::ffi::c_void,
     pub Options: SPATIAL_AUDIO_STREAM_OPTIONS,
 }
-impl ::core::marker::Copy for SpatialAudioObjectRenderStreamActivationParams2 {}
-impl ::core::clone::Clone for SpatialAudioObjectRenderStreamActivationParams2 {
+impl Copy for SpatialAudioObjectRenderStreamActivationParams2 {}
+impl Clone for SpatialAudioObjectRenderStreamActivationParams2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -2291,15 +2291,15 @@ pub struct SpatialAudioObjectRenderStreamForMetadataActivationParams {
     pub MaxDynamicObjectCount: u32,
     pub Category: AUDIO_STREAM_CATEGORY,
     pub EventHandle: super::super::Foundation::HANDLE,
-    pub MetadataFormatId: ::windows_sys::core::GUID,
+    pub MetadataFormatId: windows_sys::core::GUID,
     pub MaxMetadataItemCount: u16,
     pub MetadataActivationParams: *const super::super::System::Com::StructuredStorage::PROPVARIANT,
-    pub NotifyObject: *mut ::core::ffi::c_void,
+    pub NotifyObject: *mut core::ffi::c_void,
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl ::core::marker::Copy for SpatialAudioObjectRenderStreamForMetadataActivationParams {}
+impl Copy for SpatialAudioObjectRenderStreamForMetadataActivationParams {}
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl ::core::clone::Clone for SpatialAudioObjectRenderStreamForMetadataActivationParams {
+impl Clone for SpatialAudioObjectRenderStreamForMetadataActivationParams {
     fn clone(&self) -> Self {
         *self
     }
@@ -2313,16 +2313,16 @@ pub struct SpatialAudioObjectRenderStreamForMetadataActivationParams2 {
     pub MaxDynamicObjectCount: u32,
     pub Category: AUDIO_STREAM_CATEGORY,
     pub EventHandle: super::super::Foundation::HANDLE,
-    pub MetadataFormatId: ::windows_sys::core::GUID,
+    pub MetadataFormatId: windows_sys::core::GUID,
     pub MaxMetadataItemCount: u32,
     pub MetadataActivationParams: *const super::super::System::Com::StructuredStorage::PROPVARIANT,
-    pub NotifyObject: *mut ::core::ffi::c_void,
+    pub NotifyObject: *mut core::ffi::c_void,
     pub Options: SPATIAL_AUDIO_STREAM_OPTIONS,
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl ::core::marker::Copy for SpatialAudioObjectRenderStreamForMetadataActivationParams2 {}
+impl Copy for SpatialAudioObjectRenderStreamForMetadataActivationParams2 {}
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl ::core::clone::Clone for SpatialAudioObjectRenderStreamForMetadataActivationParams2 {
+impl Clone for SpatialAudioObjectRenderStreamForMetadataActivationParams2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -2332,8 +2332,8 @@ pub struct VOLUMEWAVEFILTER {
     pub wfltr: WAVEFILTER,
     pub dwVolume: u32,
 }
-impl ::core::marker::Copy for VOLUMEWAVEFILTER {}
-impl ::core::clone::Clone for VOLUMEWAVEFILTER {
+impl Copy for VOLUMEWAVEFILTER {}
+impl Clone for VOLUMEWAVEFILTER {
     fn clone(&self) -> Self {
         *self
     }
@@ -2345,8 +2345,8 @@ pub struct WAVEFILTER {
     pub fdwFilter: u32,
     pub dwReserved: [u32; 5],
 }
-impl ::core::marker::Copy for WAVEFILTER {}
-impl ::core::clone::Clone for WAVEFILTER {
+impl Copy for WAVEFILTER {}
+impl Clone for WAVEFILTER {
     fn clone(&self) -> Self {
         *self
     }
@@ -2359,8 +2359,8 @@ pub struct WAVEFORMAT {
     pub nAvgBytesPerSec: u32,
     pub nBlockAlign: u16,
 }
-impl ::core::marker::Copy for WAVEFORMAT {}
-impl ::core::clone::Clone for WAVEFORMAT {
+impl Copy for WAVEFORMAT {}
+impl Clone for WAVEFORMAT {
     fn clone(&self) -> Self {
         *self
     }
@@ -2375,8 +2375,8 @@ pub struct WAVEFORMATEX {
     pub wBitsPerSample: u16,
     pub cbSize: u16,
 }
-impl ::core::marker::Copy for WAVEFORMATEX {}
-impl ::core::clone::Clone for WAVEFORMATEX {
+impl Copy for WAVEFORMATEX {}
+impl Clone for WAVEFORMATEX {
     fn clone(&self) -> Self {
         *self
     }
@@ -2386,10 +2386,10 @@ pub struct WAVEFORMATEXTENSIBLE {
     pub Format: WAVEFORMATEX,
     pub Samples: WAVEFORMATEXTENSIBLE_0,
     pub dwChannelMask: u32,
-    pub SubFormat: ::windows_sys::core::GUID,
+    pub SubFormat: windows_sys::core::GUID,
 }
-impl ::core::marker::Copy for WAVEFORMATEXTENSIBLE {}
-impl ::core::clone::Clone for WAVEFORMATEXTENSIBLE {
+impl Copy for WAVEFORMATEXTENSIBLE {}
+impl Clone for WAVEFORMATEXTENSIBLE {
     fn clone(&self) -> Self {
         *self
     }
@@ -2400,15 +2400,15 @@ pub union WAVEFORMATEXTENSIBLE_0 {
     pub wSamplesPerBlock: u16,
     pub wReserved: u16,
 }
-impl ::core::marker::Copy for WAVEFORMATEXTENSIBLE_0 {}
-impl ::core::clone::Clone for WAVEFORMATEXTENSIBLE_0 {
+impl Copy for WAVEFORMATEXTENSIBLE_0 {}
+impl Clone for WAVEFORMATEXTENSIBLE_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C, packed(1))]
 pub struct WAVEHDR {
-    pub lpData: ::windows_sys::core::PSTR,
+    pub lpData: windows_sys::core::PSTR,
     pub dwBufferLength: u32,
     pub dwBytesRecorded: u32,
     pub dwUser: usize,
@@ -2417,8 +2417,8 @@ pub struct WAVEHDR {
     pub lpNext: *mut WAVEHDR,
     pub reserved: usize,
 }
-impl ::core::marker::Copy for WAVEHDR {}
-impl ::core::clone::Clone for WAVEHDR {
+impl Copy for WAVEHDR {}
+impl Clone for WAVEHDR {
     fn clone(&self) -> Self {
         *self
     }
@@ -2432,12 +2432,12 @@ pub struct WAVEINCAPS2A {
     pub dwFormats: u32,
     pub wChannels: u16,
     pub wReserved1: u16,
-    pub ManufacturerGuid: ::windows_sys::core::GUID,
-    pub ProductGuid: ::windows_sys::core::GUID,
-    pub NameGuid: ::windows_sys::core::GUID,
+    pub ManufacturerGuid: windows_sys::core::GUID,
+    pub ProductGuid: windows_sys::core::GUID,
+    pub NameGuid: windows_sys::core::GUID,
 }
-impl ::core::marker::Copy for WAVEINCAPS2A {}
-impl ::core::clone::Clone for WAVEINCAPS2A {
+impl Copy for WAVEINCAPS2A {}
+impl Clone for WAVEINCAPS2A {
     fn clone(&self) -> Self {
         *self
     }
@@ -2451,12 +2451,12 @@ pub struct WAVEINCAPS2W {
     pub dwFormats: u32,
     pub wChannels: u16,
     pub wReserved1: u16,
-    pub ManufacturerGuid: ::windows_sys::core::GUID,
-    pub ProductGuid: ::windows_sys::core::GUID,
-    pub NameGuid: ::windows_sys::core::GUID,
+    pub ManufacturerGuid: windows_sys::core::GUID,
+    pub ProductGuid: windows_sys::core::GUID,
+    pub NameGuid: windows_sys::core::GUID,
 }
-impl ::core::marker::Copy for WAVEINCAPS2W {}
-impl ::core::clone::Clone for WAVEINCAPS2W {
+impl Copy for WAVEINCAPS2W {}
+impl Clone for WAVEINCAPS2W {
     fn clone(&self) -> Self {
         *self
     }
@@ -2471,8 +2471,8 @@ pub struct WAVEINCAPSA {
     pub wChannels: u16,
     pub wReserved1: u16,
 }
-impl ::core::marker::Copy for WAVEINCAPSA {}
-impl ::core::clone::Clone for WAVEINCAPSA {
+impl Copy for WAVEINCAPSA {}
+impl Clone for WAVEINCAPSA {
     fn clone(&self) -> Self {
         *self
     }
@@ -2487,8 +2487,8 @@ pub struct WAVEINCAPSW {
     pub wChannels: u16,
     pub wReserved1: u16,
 }
-impl ::core::marker::Copy for WAVEINCAPSW {}
-impl ::core::clone::Clone for WAVEINCAPSW {
+impl Copy for WAVEINCAPSW {}
+impl Clone for WAVEINCAPSW {
     fn clone(&self) -> Self {
         *self
     }
@@ -2503,12 +2503,12 @@ pub struct WAVEOUTCAPS2A {
     pub wChannels: u16,
     pub wReserved1: u16,
     pub dwSupport: u32,
-    pub ManufacturerGuid: ::windows_sys::core::GUID,
-    pub ProductGuid: ::windows_sys::core::GUID,
-    pub NameGuid: ::windows_sys::core::GUID,
+    pub ManufacturerGuid: windows_sys::core::GUID,
+    pub ProductGuid: windows_sys::core::GUID,
+    pub NameGuid: windows_sys::core::GUID,
 }
-impl ::core::marker::Copy for WAVEOUTCAPS2A {}
-impl ::core::clone::Clone for WAVEOUTCAPS2A {
+impl Copy for WAVEOUTCAPS2A {}
+impl Clone for WAVEOUTCAPS2A {
     fn clone(&self) -> Self {
         *self
     }
@@ -2523,12 +2523,12 @@ pub struct WAVEOUTCAPS2W {
     pub wChannels: u16,
     pub wReserved1: u16,
     pub dwSupport: u32,
-    pub ManufacturerGuid: ::windows_sys::core::GUID,
-    pub ProductGuid: ::windows_sys::core::GUID,
-    pub NameGuid: ::windows_sys::core::GUID,
+    pub ManufacturerGuid: windows_sys::core::GUID,
+    pub ProductGuid: windows_sys::core::GUID,
+    pub NameGuid: windows_sys::core::GUID,
 }
-impl ::core::marker::Copy for WAVEOUTCAPS2W {}
-impl ::core::clone::Clone for WAVEOUTCAPS2W {
+impl Copy for WAVEOUTCAPS2W {}
+impl Clone for WAVEOUTCAPS2W {
     fn clone(&self) -> Self {
         *self
     }
@@ -2544,8 +2544,8 @@ pub struct WAVEOUTCAPSA {
     pub wReserved1: u16,
     pub dwSupport: u32,
 }
-impl ::core::marker::Copy for WAVEOUTCAPSA {}
-impl ::core::clone::Clone for WAVEOUTCAPSA {
+impl Copy for WAVEOUTCAPSA {}
+impl Clone for WAVEOUTCAPSA {
     fn clone(&self) -> Self {
         *self
     }
@@ -2561,8 +2561,8 @@ pub struct WAVEOUTCAPSW {
     pub wReserved1: u16,
     pub dwSupport: u32,
 }
-impl ::core::marker::Copy for WAVEOUTCAPSW {}
-impl ::core::clone::Clone for WAVEOUTCAPSW {
+impl Copy for WAVEOUTCAPSW {}
+impl Clone for WAVEOUTCAPSW {
     fn clone(&self) -> Self {
         *self
     }
@@ -2577,28 +2577,28 @@ pub struct tACMFORMATDETAILSW {
     pub cbwfx: u32,
     pub szFormat: [u16; 128],
 }
-impl ::core::marker::Copy for tACMFORMATDETAILSW {}
-impl ::core::clone::Clone for tACMFORMATDETAILSW {
+impl Copy for tACMFORMATDETAILSW {}
+impl Clone for tACMFORMATDETAILSW {
     fn clone(&self) -> Self {
         *self
     }
 }
-pub type ACMDRIVERENUMCB = ::core::option::Option<unsafe extern "system" fn(hadid: HACMDRIVERID, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL>;
-pub type ACMFILTERCHOOSEHOOKPROCA = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> u32>;
-pub type ACMFILTERCHOOSEHOOKPROCW = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> u32>;
-pub type ACMFILTERENUMCBA = ::core::option::Option<unsafe extern "system" fn(hadid: HACMDRIVERID, pafd: *mut ACMFILTERDETAILSA, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL>;
-pub type ACMFILTERENUMCBW = ::core::option::Option<unsafe extern "system" fn(hadid: HACMDRIVERID, pafd: *mut ACMFILTERDETAILSW, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL>;
-pub type ACMFILTERTAGENUMCBA = ::core::option::Option<unsafe extern "system" fn(hadid: HACMDRIVERID, paftd: *mut ACMFILTERTAGDETAILSA, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL>;
-pub type ACMFILTERTAGENUMCBW = ::core::option::Option<unsafe extern "system" fn(hadid: HACMDRIVERID, paftd: *mut ACMFILTERTAGDETAILSW, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL>;
-pub type ACMFORMATCHOOSEHOOKPROCA = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> u32>;
-pub type ACMFORMATCHOOSEHOOKPROCW = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> u32>;
-pub type ACMFORMATENUMCBA = ::core::option::Option<unsafe extern "system" fn(hadid: HACMDRIVERID, pafd: *mut ACMFORMATDETAILSA, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL>;
-pub type ACMFORMATENUMCBW = ::core::option::Option<unsafe extern "system" fn(hadid: HACMDRIVERID, pafd: *mut tACMFORMATDETAILSW, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL>;
-pub type ACMFORMATTAGENUMCBA = ::core::option::Option<unsafe extern "system" fn(hadid: HACMDRIVERID, paftd: *mut ACMFORMATTAGDETAILSA, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL>;
-pub type ACMFORMATTAGENUMCBW = ::core::option::Option<unsafe extern "system" fn(hadid: HACMDRIVERID, paftd: *mut ACMFORMATTAGDETAILSW, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL>;
-pub type LPACMDRIVERPROC = ::core::option::Option<unsafe extern "system" fn(param0: usize, param1: HACMDRIVERID, param2: u32, param3: super::super::Foundation::LPARAM, param4: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT>;
+pub type ACMDRIVERENUMCB = Option<unsafe extern "system" fn(hadid: HACMDRIVERID, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL>;
+pub type ACMFILTERCHOOSEHOOKPROCA = Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> u32>;
+pub type ACMFILTERCHOOSEHOOKPROCW = Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> u32>;
+pub type ACMFILTERENUMCBA = Option<unsafe extern "system" fn(hadid: HACMDRIVERID, pafd: *mut ACMFILTERDETAILSA, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL>;
+pub type ACMFILTERENUMCBW = Option<unsafe extern "system" fn(hadid: HACMDRIVERID, pafd: *mut ACMFILTERDETAILSW, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL>;
+pub type ACMFILTERTAGENUMCBA = Option<unsafe extern "system" fn(hadid: HACMDRIVERID, paftd: *mut ACMFILTERTAGDETAILSA, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL>;
+pub type ACMFILTERTAGENUMCBW = Option<unsafe extern "system" fn(hadid: HACMDRIVERID, paftd: *mut ACMFILTERTAGDETAILSW, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL>;
+pub type ACMFORMATCHOOSEHOOKPROCA = Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> u32>;
+pub type ACMFORMATCHOOSEHOOKPROCW = Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> u32>;
+pub type ACMFORMATENUMCBA = Option<unsafe extern "system" fn(hadid: HACMDRIVERID, pafd: *mut ACMFORMATDETAILSA, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL>;
+pub type ACMFORMATENUMCBW = Option<unsafe extern "system" fn(hadid: HACMDRIVERID, pafd: *mut tACMFORMATDETAILSW, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL>;
+pub type ACMFORMATTAGENUMCBA = Option<unsafe extern "system" fn(hadid: HACMDRIVERID, paftd: *mut ACMFORMATTAGDETAILSA, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL>;
+pub type ACMFORMATTAGENUMCBW = Option<unsafe extern "system" fn(hadid: HACMDRIVERID, paftd: *mut ACMFORMATTAGDETAILSW, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL>;
+pub type LPACMDRIVERPROC = Option<unsafe extern "system" fn(param0: usize, param1: HACMDRIVERID, param2: u32, param3: super::super::Foundation::LPARAM, param4: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT>;
 #[cfg(feature = "Win32_Media_Multimedia")]
-pub type LPMIDICALLBACK = ::core::option::Option<unsafe extern "system" fn(hdrvr: super::Multimedia::HDRVR, umsg: u32, dwuser: usize, dw1: usize, dw2: usize)>;
+pub type LPMIDICALLBACK = Option<unsafe extern "system" fn(hdrvr: super::Multimedia::HDRVR, umsg: u32, dwuser: usize, dw1: usize, dw2: usize)>;
 #[cfg(feature = "Win32_Media_Multimedia")]
-pub type LPWAVECALLBACK = ::core::option::Option<unsafe extern "system" fn(hdrvr: super::Multimedia::HDRVR, umsg: u32, dwuser: usize, dw1: usize, dw2: usize)>;
-pub type PAudioStateMonitorCallback = ::core::option::Option<unsafe extern "system" fn(audiostatemonitor: *mut ::core::ffi::c_void, context: *const ::core::ffi::c_void)>;
+pub type LPWAVECALLBACK = Option<unsafe extern "system" fn(hdrvr: super::Multimedia::HDRVR, umsg: u32, dwuser: usize, dw1: usize, dw2: usize)>;
+pub type PAudioStateMonitorCallback = Option<unsafe extern "system" fn(audiostatemonitor: *mut core::ffi::c_void, context: *const core::ffi::c_void)>;

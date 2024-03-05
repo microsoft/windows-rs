@@ -3,7 +3,7 @@ pub unsafe fn Netbios(pncb: *mut NCB) -> u8 {
     ::windows_targets::link!("netapi32.dll" "system" fn Netbios(pncb : *mut NCB) -> u8);
     Netbios(pncb)
 }
-pub const ALL_TRANSPORTS: ::windows_core::PCSTR = ::windows_core::s!("M\u{0}\u{0}\u{0}");
+pub const ALL_TRANSPORTS: windows_core::PCSTR = windows_core::s!("M\u{0}\u{0}\u{0}");
 pub const ASYNCH: u32 = 128u32;
 pub const CALL_PENDING: u32 = 2u32;
 pub const DEREGISTERED: u32 = 5u32;
@@ -14,7 +14,7 @@ pub const HANGUP_COMPLETE: u32 = 5u32;
 pub const HANGUP_PENDING: u32 = 4u32;
 pub const LISTEN_OUTSTANDING: u32 = 1u32;
 pub const MAX_LANA: u32 = 254u32;
-pub const MS_NBF: ::windows_core::PCSTR = ::windows_core::s!("MNBF");
+pub const MS_NBF: windows_core::PCSTR = windows_core::s!("MNBF");
 pub const NAME_FLAGS_MASK: u32 = 135u32;
 pub const NCBACTION: u32 = 119u32;
 pub const NCBADDGRNAME: u32 = 54u32;
@@ -93,29 +93,29 @@ pub struct ACTION_HEADER {
     pub action_code: u16,
     pub reserved: u16,
 }
-impl ::core::marker::Copy for ACTION_HEADER {}
-impl ::core::clone::Clone for ACTION_HEADER {
+impl Copy for ACTION_HEADER {}
+impl Clone for ACTION_HEADER {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for ACTION_HEADER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for ACTION_HEADER {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("ACTION_HEADER").field("transport_id", &self.transport_id).field("action_code", &self.action_code).field("reserved", &self.reserved).finish()
     }
 }
-impl ::windows_core::TypeKind for ACTION_HEADER {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for ACTION_HEADER {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for ACTION_HEADER {
+impl PartialEq for ACTION_HEADER {
     fn eq(&self, other: &Self) -> bool {
         self.transport_id == other.transport_id && self.action_code == other.action_code && self.reserved == other.reserved
     }
 }
-impl ::core::cmp::Eq for ACTION_HEADER {}
-impl ::core::default::Default for ACTION_HEADER {
+impl Eq for ACTION_HEADER {}
+impl Default for ACTION_HEADER {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -148,14 +148,14 @@ pub struct ADAPTER_STATUS {
     pub max_sess_pkt_size: u16,
     pub name_count: u16,
 }
-impl ::core::marker::Copy for ADAPTER_STATUS {}
-impl ::core::clone::Clone for ADAPTER_STATUS {
+impl Copy for ADAPTER_STATUS {}
+impl Clone for ADAPTER_STATUS {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for ADAPTER_STATUS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for ADAPTER_STATUS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("ADAPTER_STATUS")
             .field("adapter_address", &self.adapter_address)
             .field("rev_major", &self.rev_major)
@@ -187,10 +187,10 @@ impl ::core::fmt::Debug for ADAPTER_STATUS {
             .finish()
     }
 }
-impl ::windows_core::TypeKind for ADAPTER_STATUS {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for ADAPTER_STATUS {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for ADAPTER_STATUS {
+impl PartialEq for ADAPTER_STATUS {
     fn eq(&self, other: &Self) -> bool {
         self.adapter_address == other.adapter_address
             && self.rev_major == other.rev_major
@@ -221,10 +221,10 @@ impl ::core::cmp::PartialEq for ADAPTER_STATUS {
             && self.name_count == other.name_count
     }
 }
-impl ::core::cmp::Eq for ADAPTER_STATUS {}
-impl ::core::default::Default for ADAPTER_STATUS {
+impl Eq for ADAPTER_STATUS {}
+impl Default for ADAPTER_STATUS {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -236,29 +236,29 @@ pub struct FIND_NAME_BUFFER {
     pub source_addr: [u8; 6],
     pub routing_info: [u8; 18],
 }
-impl ::core::marker::Copy for FIND_NAME_BUFFER {}
-impl ::core::clone::Clone for FIND_NAME_BUFFER {
+impl Copy for FIND_NAME_BUFFER {}
+impl Clone for FIND_NAME_BUFFER {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for FIND_NAME_BUFFER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for FIND_NAME_BUFFER {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("FIND_NAME_BUFFER").field("length", &self.length).field("access_control", &self.access_control).field("frame_control", &self.frame_control).field("destination_addr", &self.destination_addr).field("source_addr", &self.source_addr).field("routing_info", &self.routing_info).finish()
     }
 }
-impl ::windows_core::TypeKind for FIND_NAME_BUFFER {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for FIND_NAME_BUFFER {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for FIND_NAME_BUFFER {
+impl PartialEq for FIND_NAME_BUFFER {
     fn eq(&self, other: &Self) -> bool {
         self.length == other.length && self.access_control == other.access_control && self.frame_control == other.frame_control && self.destination_addr == other.destination_addr && self.source_addr == other.source_addr && self.routing_info == other.routing_info
     }
 }
-impl ::core::cmp::Eq for FIND_NAME_BUFFER {}
-impl ::core::default::Default for FIND_NAME_BUFFER {
+impl Eq for FIND_NAME_BUFFER {}
+impl Default for FIND_NAME_BUFFER {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -267,29 +267,29 @@ pub struct FIND_NAME_HEADER {
     pub reserved: u8,
     pub unique_group: u8,
 }
-impl ::core::marker::Copy for FIND_NAME_HEADER {}
-impl ::core::clone::Clone for FIND_NAME_HEADER {
+impl Copy for FIND_NAME_HEADER {}
+impl Clone for FIND_NAME_HEADER {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for FIND_NAME_HEADER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for FIND_NAME_HEADER {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("FIND_NAME_HEADER").field("node_count", &self.node_count).field("reserved", &self.reserved).field("unique_group", &self.unique_group).finish()
     }
 }
-impl ::windows_core::TypeKind for FIND_NAME_HEADER {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for FIND_NAME_HEADER {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for FIND_NAME_HEADER {
+impl PartialEq for FIND_NAME_HEADER {
     fn eq(&self, other: &Self) -> bool {
         self.node_count == other.node_count && self.reserved == other.reserved && self.unique_group == other.unique_group
     }
 }
-impl ::core::cmp::Eq for FIND_NAME_HEADER {}
-impl ::core::default::Default for FIND_NAME_HEADER {
+impl Eq for FIND_NAME_HEADER {}
+impl Default for FIND_NAME_HEADER {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -297,29 +297,29 @@ pub struct LANA_ENUM {
     pub length: u8,
     pub lana: [u8; 255],
 }
-impl ::core::marker::Copy for LANA_ENUM {}
-impl ::core::clone::Clone for LANA_ENUM {
+impl Copy for LANA_ENUM {}
+impl Clone for LANA_ENUM {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for LANA_ENUM {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for LANA_ENUM {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("LANA_ENUM").field("length", &self.length).field("lana", &self.lana).finish()
     }
 }
-impl ::windows_core::TypeKind for LANA_ENUM {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for LANA_ENUM {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for LANA_ENUM {
+impl PartialEq for LANA_ENUM {
     fn eq(&self, other: &Self) -> bool {
         self.length == other.length && self.lana == other.lana
     }
 }
-impl ::core::cmp::Eq for LANA_ENUM {}
-impl ::core::default::Default for LANA_ENUM {
+impl Eq for LANA_ENUM {}
+impl Default for LANA_ENUM {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -328,29 +328,29 @@ pub struct NAME_BUFFER {
     pub name_num: u8,
     pub name_flags: u8,
 }
-impl ::core::marker::Copy for NAME_BUFFER {}
-impl ::core::clone::Clone for NAME_BUFFER {
+impl Copy for NAME_BUFFER {}
+impl Clone for NAME_BUFFER {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for NAME_BUFFER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for NAME_BUFFER {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("NAME_BUFFER").field("name", &self.name).field("name_num", &self.name_num).field("name_flags", &self.name_flags).finish()
     }
 }
-impl ::windows_core::TypeKind for NAME_BUFFER {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for NAME_BUFFER {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for NAME_BUFFER {
+impl PartialEq for NAME_BUFFER {
     fn eq(&self, other: &Self) -> bool {
         self.name == other.name && self.name_num == other.name_num && self.name_flags == other.name_flags
     }
 }
-impl ::core::cmp::Eq for NAME_BUFFER {}
-impl ::core::default::Default for NAME_BUFFER {
+impl Eq for NAME_BUFFER {}
+impl Default for NAME_BUFFER {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -373,16 +373,16 @@ pub struct NCB {
     pub ncb_event: super::super::Foundation::HANDLE,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::marker::Copy for NCB {}
+impl Copy for NCB {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::clone::Clone for NCB {
+impl Clone for NCB {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::fmt::Debug for NCB {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for NCB {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("NCB")
             .field("ncb_command", &self.ncb_command)
             .field("ncb_retcode", &self.ncb_retcode)
@@ -403,21 +403,21 @@ impl ::core::fmt::Debug for NCB {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::windows_core::TypeKind for NCB {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for NCB {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::cmp::PartialEq for NCB {
+impl PartialEq for NCB {
     fn eq(&self, other: &Self) -> bool {
         self.ncb_command == other.ncb_command && self.ncb_retcode == other.ncb_retcode && self.ncb_lsn == other.ncb_lsn && self.ncb_num == other.ncb_num && self.ncb_buffer == other.ncb_buffer && self.ncb_length == other.ncb_length && self.ncb_callname == other.ncb_callname && self.ncb_name == other.ncb_name && self.ncb_rto == other.ncb_rto && self.ncb_sto == other.ncb_sto && self.ncb_post == other.ncb_post && self.ncb_lana_num == other.ncb_lana_num && self.ncb_cmd_cplt == other.ncb_cmd_cplt && self.ncb_reserve == other.ncb_reserve && self.ncb_event == other.ncb_event
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::cmp::Eq for NCB {}
+impl Eq for NCB {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::default::Default for NCB {
+impl Default for NCB {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -440,16 +440,16 @@ pub struct NCB {
     pub ncb_event: super::super::Foundation::HANDLE,
 }
 #[cfg(target_arch = "x86")]
-impl ::core::marker::Copy for NCB {}
+impl Copy for NCB {}
 #[cfg(target_arch = "x86")]
-impl ::core::clone::Clone for NCB {
+impl Clone for NCB {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[cfg(target_arch = "x86")]
-impl ::core::fmt::Debug for NCB {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for NCB {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("NCB")
             .field("ncb_command", &self.ncb_command)
             .field("ncb_retcode", &self.ncb_retcode)
@@ -470,21 +470,21 @@ impl ::core::fmt::Debug for NCB {
     }
 }
 #[cfg(target_arch = "x86")]
-impl ::windows_core::TypeKind for NCB {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for NCB {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(target_arch = "x86")]
-impl ::core::cmp::PartialEq for NCB {
+impl PartialEq for NCB {
     fn eq(&self, other: &Self) -> bool {
         self.ncb_command == other.ncb_command && self.ncb_retcode == other.ncb_retcode && self.ncb_lsn == other.ncb_lsn && self.ncb_num == other.ncb_num && self.ncb_buffer == other.ncb_buffer && self.ncb_length == other.ncb_length && self.ncb_callname == other.ncb_callname && self.ncb_name == other.ncb_name && self.ncb_rto == other.ncb_rto && self.ncb_sto == other.ncb_sto && self.ncb_post == other.ncb_post && self.ncb_lana_num == other.ncb_lana_num && self.ncb_cmd_cplt == other.ncb_cmd_cplt && self.ncb_reserve == other.ncb_reserve && self.ncb_event == other.ncb_event
     }
 }
 #[cfg(target_arch = "x86")]
-impl ::core::cmp::Eq for NCB {}
+impl Eq for NCB {}
 #[cfg(target_arch = "x86")]
-impl ::core::default::Default for NCB {
+impl Default for NCB {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -496,29 +496,29 @@ pub struct SESSION_BUFFER {
     pub rcvs_outstanding: u8,
     pub sends_outstanding: u8,
 }
-impl ::core::marker::Copy for SESSION_BUFFER {}
-impl ::core::clone::Clone for SESSION_BUFFER {
+impl Copy for SESSION_BUFFER {}
+impl Clone for SESSION_BUFFER {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for SESSION_BUFFER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for SESSION_BUFFER {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("SESSION_BUFFER").field("lsn", &self.lsn).field("state", &self.state).field("local_name", &self.local_name).field("remote_name", &self.remote_name).field("rcvs_outstanding", &self.rcvs_outstanding).field("sends_outstanding", &self.sends_outstanding).finish()
     }
 }
-impl ::windows_core::TypeKind for SESSION_BUFFER {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for SESSION_BUFFER {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for SESSION_BUFFER {
+impl PartialEq for SESSION_BUFFER {
     fn eq(&self, other: &Self) -> bool {
         self.lsn == other.lsn && self.state == other.state && self.local_name == other.local_name && self.remote_name == other.remote_name && self.rcvs_outstanding == other.rcvs_outstanding && self.sends_outstanding == other.sends_outstanding
     }
 }
-impl ::core::cmp::Eq for SESSION_BUFFER {}
-impl ::core::default::Default for SESSION_BUFFER {
+impl Eq for SESSION_BUFFER {}
+impl Default for SESSION_BUFFER {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -528,28 +528,28 @@ pub struct SESSION_HEADER {
     pub rcv_dg_outstanding: u8,
     pub rcv_any_outstanding: u8,
 }
-impl ::core::marker::Copy for SESSION_HEADER {}
-impl ::core::clone::Clone for SESSION_HEADER {
+impl Copy for SESSION_HEADER {}
+impl Clone for SESSION_HEADER {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for SESSION_HEADER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for SESSION_HEADER {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("SESSION_HEADER").field("sess_name", &self.sess_name).field("num_sess", &self.num_sess).field("rcv_dg_outstanding", &self.rcv_dg_outstanding).field("rcv_any_outstanding", &self.rcv_any_outstanding).finish()
     }
 }
-impl ::windows_core::TypeKind for SESSION_HEADER {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for SESSION_HEADER {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for SESSION_HEADER {
+impl PartialEq for SESSION_HEADER {
     fn eq(&self, other: &Self) -> bool {
         self.sess_name == other.sess_name && self.num_sess == other.num_sess && self.rcv_dg_outstanding == other.rcv_dg_outstanding && self.rcv_any_outstanding == other.rcv_any_outstanding
     }
 }
-impl ::core::cmp::Eq for SESSION_HEADER {}
-impl ::core::default::Default for SESSION_HEADER {
+impl Eq for SESSION_HEADER {}
+impl Default for SESSION_HEADER {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }

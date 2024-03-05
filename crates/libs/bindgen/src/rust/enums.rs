@@ -31,14 +31,14 @@ pub fn writer(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
     let derive = if writer.sys {
         if is_scoped {
             quote! {
-                #[derive(::core::marker::Copy, ::core::clone::Clone)]
+                #[derive(Copy, Clone)]
             }
         } else {
             quote! {}
         }
     } else {
         quote! {
-            #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+            #[derive(PartialEq, Eq, Copy, Clone, Default)]
         }
     };
 
@@ -75,12 +75,12 @@ pub fn writer(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
         let name = type_name.name;
         tokens.combine(&quote! {
             #features
-            impl ::windows_core::TypeKind for #ident {
-                type TypeKind = ::windows_core::CopyType;
+            impl windows_core::TypeKind for #ident {
+                type TypeKind = windows_core::CopyType;
             }
             #features
-            impl ::core::fmt::Debug for #ident {
-                fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+            impl core::fmt::Debug for #ident {
+                fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
                     f.debug_tuple(#name).field(&self.0).finish()
                 }
             }
@@ -100,7 +100,7 @@ pub fn writer(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
                     }
                 }
                 #features
-                impl ::core::ops::BitOr for #ident {
+                impl core::ops::BitOr for #ident {
                     type Output = Self;
 
                     fn bitor(self, other: Self) -> Self {
@@ -108,7 +108,7 @@ pub fn writer(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
                     }
                 }
                 #features
-                impl ::core::ops::BitAnd for #ident {
+                impl core::ops::BitAnd for #ident {
                     type Output = Self;
 
                     fn bitand(self, other: Self) -> Self {
@@ -116,19 +116,19 @@ pub fn writer(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
                     }
                 }
                 #features
-                impl ::core::ops::BitOrAssign for #ident {
+                impl core::ops::BitOrAssign for #ident {
                     fn bitor_assign(&mut self, other: Self) {
                         self.0.bitor_assign(other.0)
                     }
                 }
                 #features
-                impl ::core::ops::BitAndAssign for #ident {
+                impl core::ops::BitAndAssign for #ident {
                     fn bitand_assign(&mut self, other: Self) {
                         self.0.bitand_assign(other.0)
                     }
                 }
                 #features
-                impl ::core::ops::Not for #ident {
+                impl core::ops::Not for #ident {
                     type Output = Self;
 
                     fn not(self) -> Self {
@@ -143,8 +143,8 @@ pub fn writer(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
 
             tokens.combine(&quote! {
                 #features
-                impl ::windows_core::RuntimeType for #ident {
-                    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(#signature);
+                impl windows_core::RuntimeType for #ident {
+                    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(#signature);
                 }
             });
         }

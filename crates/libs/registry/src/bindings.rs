@@ -23,8 +23,8 @@ pub struct FILETIME {
     pub dwLowDateTime: u32,
     pub dwHighDateTime: u32,
 }
-impl ::core::marker::Copy for FILETIME {}
-impl ::core::clone::Clone for FILETIME {
+impl Copy for FILETIME {}
+impl Clone for FILETIME {
     fn clone(&self) -> Self {
         *self
     }
@@ -53,11 +53,11 @@ pub type REG_VALUE_TYPE = u32;
 #[repr(C)]
 pub struct SECURITY_ATTRIBUTES {
     pub nLength: u32,
-    pub lpSecurityDescriptor: *mut ::core::ffi::c_void,
+    pub lpSecurityDescriptor: *mut core::ffi::c_void,
     pub bInheritHandle: BOOL,
 }
-impl ::core::marker::Copy for SECURITY_ATTRIBUTES {}
-impl ::core::clone::Clone for SECURITY_ATTRIBUTES {
+impl Copy for SECURITY_ATTRIBUTES {}
+impl Clone for SECURITY_ATTRIBUTES {
     fn clone(&self) -> Self {
         *self
     }

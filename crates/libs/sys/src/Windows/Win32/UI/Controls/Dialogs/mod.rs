@@ -7,8 +7,8 @@
 ::windows_targets::link!("comdlg32.dll" "system" fn CommDlgExtendedError() -> COMMON_DLG_ERRORS);
 ::windows_targets::link!("comdlg32.dll" "system" fn FindTextA(param0 : *mut FINDREPLACEA) -> super::super::super::Foundation:: HWND);
 ::windows_targets::link!("comdlg32.dll" "system" fn FindTextW(param0 : *mut FINDREPLACEW) -> super::super::super::Foundation:: HWND);
-::windows_targets::link!("comdlg32.dll" "system" fn GetFileTitleA(param0 : ::windows_sys::core::PCSTR, buf : ::windows_sys::core::PSTR, cchsize : u16) -> i16);
-::windows_targets::link!("comdlg32.dll" "system" fn GetFileTitleW(param0 : ::windows_sys::core::PCWSTR, buf : ::windows_sys::core::PWSTR, cchsize : u16) -> i16);
+::windows_targets::link!("comdlg32.dll" "system" fn GetFileTitleA(param0 : windows_sys::core::PCSTR, buf : windows_sys::core::PSTR, cchsize : u16) -> i16);
+::windows_targets::link!("comdlg32.dll" "system" fn GetFileTitleW(param0 : windows_sys::core::PCWSTR, buf : windows_sys::core::PWSTR, cchsize : u16) -> i16);
 ::windows_targets::link!("comdlg32.dll" "system" fn GetOpenFileNameA(param0 : *mut OPENFILENAMEA) -> super::super::super::Foundation:: BOOL);
 ::windows_targets::link!("comdlg32.dll" "system" fn GetOpenFileNameW(param0 : *mut OPENFILENAMEW) -> super::super::super::Foundation:: BOOL);
 ::windows_targets::link!("comdlg32.dll" "system" fn GetSaveFileNameA(param0 : *mut OPENFILENAMEA) -> super::super::super::Foundation:: BOOL);
@@ -18,9 +18,9 @@
 #[cfg(feature = "Win32_Graphics_Gdi")]
 ::windows_targets::link!("comdlg32.dll" "system" fn PrintDlgA(ppd : *mut PRINTDLGA) -> super::super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("comdlg32.dll" "system" fn PrintDlgExA(ppd : *mut PRINTDLGEXA) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("comdlg32.dll" "system" fn PrintDlgExA(ppd : *mut PRINTDLGEXA) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("comdlg32.dll" "system" fn PrintDlgExW(ppd : *mut PRINTDLGEXW) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("comdlg32.dll" "system" fn PrintDlgExW(ppd : *mut PRINTDLGEXW) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Graphics_Gdi")]
 ::windows_targets::link!("comdlg32.dll" "system" fn PrintDlgW(ppd : *mut PRINTDLGW) -> super::super::super::Foundation:: BOOL);
 ::windows_targets::link!("comdlg32.dll" "system" fn ReplaceTextA(param0 : *mut FINDREPLACEA) -> super::super::super::Foundation:: HWND);
@@ -103,9 +103,9 @@ pub const CF_SHOWHELP: CHOOSEFONT_FLAGS = 4u32;
 pub const CF_TTONLY: CHOOSEFONT_FLAGS = 262144u32;
 pub const CF_USESTYLE: CHOOSEFONT_FLAGS = 128u32;
 pub const CF_WYSIWYG: CHOOSEFONT_FLAGS = 32768u32;
-pub const COLOROKSTRING: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("commdlg_ColorOK");
-pub const COLOROKSTRINGA: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("commdlg_ColorOK");
-pub const COLOROKSTRINGW: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("commdlg_ColorOK");
+pub const COLOROKSTRING: windows_sys::core::PCWSTR = windows_sys::core::w!("commdlg_ColorOK");
+pub const COLOROKSTRINGA: windows_sys::core::PCSTR = windows_sys::core::s!("commdlg_ColorOK");
+pub const COLOROKSTRINGW: windows_sys::core::PCWSTR = windows_sys::core::w!("commdlg_ColorOK");
 pub const COLOR_ADD: u32 = 712u32;
 pub const COLOR_BLUE: u32 = 708u32;
 pub const COLOR_BLUEACCEL: u32 = 728u32;
@@ -138,12 +138,12 @@ pub const COLOR_SOLID_RIGHT: u32 = 731u32;
 pub const COLOR_TUNE: u32 = 714u32;
 pub const DLG_COLOR: u32 = 10u32;
 pub const DN_DEFAULTPRN: u32 = 1u32;
-pub const FILEOKSTRING: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("commdlg_FileNameOK");
-pub const FILEOKSTRINGA: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("commdlg_FileNameOK");
-pub const FILEOKSTRINGW: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("commdlg_FileNameOK");
-pub const FINDMSGSTRING: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("commdlg_FindReplace");
-pub const FINDMSGSTRINGA: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("commdlg_FindReplace");
-pub const FINDMSGSTRINGW: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("commdlg_FindReplace");
+pub const FILEOKSTRING: windows_sys::core::PCWSTR = windows_sys::core::w!("commdlg_FileNameOK");
+pub const FILEOKSTRINGA: windows_sys::core::PCSTR = windows_sys::core::s!("commdlg_FileNameOK");
+pub const FILEOKSTRINGW: windows_sys::core::PCWSTR = windows_sys::core::w!("commdlg_FileNameOK");
+pub const FINDMSGSTRING: windows_sys::core::PCWSTR = windows_sys::core::w!("commdlg_FindReplace");
+pub const FINDMSGSTRINGA: windows_sys::core::PCSTR = windows_sys::core::s!("commdlg_FindReplace");
+pub const FINDMSGSTRINGW: windows_sys::core::PCWSTR = windows_sys::core::w!("commdlg_FindReplace");
 pub const FNERR_BUFFERTOOSMALL: COMMON_DLG_ERRORS = 12291u32;
 pub const FNERR_FILENAMECODES: COMMON_DLG_ERRORS = 12288u32;
 pub const FNERR_INVALIDFILENAME: COMMON_DLG_ERRORS = 12290u32;
@@ -178,13 +178,13 @@ pub const FR_SHOWHELP: FINDREPLACE_FLAGS = 128u32;
 pub const FR_SHOWWRAPAROUND: FINDREPLACE_FLAGS = 262144u32;
 pub const FR_WHOLEWORD: FINDREPLACE_FLAGS = 2u32;
 pub const FR_WRAPAROUND: FINDREPLACE_FLAGS = 1048576u32;
-pub const HELPMSGSTRING: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("commdlg_help");
-pub const HELPMSGSTRINGA: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("commdlg_help");
-pub const HELPMSGSTRINGW: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("commdlg_help");
+pub const HELPMSGSTRING: windows_sys::core::PCWSTR = windows_sys::core::w!("commdlg_help");
+pub const HELPMSGSTRINGA: windows_sys::core::PCSTR = windows_sys::core::s!("commdlg_help");
+pub const HELPMSGSTRINGW: windows_sys::core::PCWSTR = windows_sys::core::w!("commdlg_help");
 pub const ITALIC_FONTTYPE: CHOOSEFONT_FONT_TYPE = 512u16;
-pub const LBSELCHSTRING: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("commdlg_LBSelChangedNotify");
-pub const LBSELCHSTRINGA: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("commdlg_LBSelChangedNotify");
-pub const LBSELCHSTRINGW: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("commdlg_LBSelChangedNotify");
+pub const LBSELCHSTRING: windows_sys::core::PCWSTR = windows_sys::core::w!("commdlg_LBSelChangedNotify");
+pub const LBSELCHSTRINGA: windows_sys::core::PCSTR = windows_sys::core::s!("commdlg_LBSelChangedNotify");
+pub const LBSELCHSTRINGW: windows_sys::core::PCWSTR = windows_sys::core::w!("commdlg_LBSelChangedNotify");
 pub const NUM_BASIC_COLORS: u32 = 48u32;
 pub const NUM_CUSTOM_COLORS: u32 = 16u32;
 pub const OFN_ALLOWMULTISELECT: OPEN_FILENAME_FLAGS = 512u32;
@@ -285,12 +285,12 @@ pub const PSD_SHOWHELP: PAGESETUPDLG_FLAGS = 2048u32;
 pub const PS_OPENTYPE_FONTTYPE: u32 = 65536u32;
 pub const REGULAR_FONTTYPE: CHOOSEFONT_FONT_TYPE = 1024u16;
 pub const SCREEN_FONTTYPE: CHOOSEFONT_FONT_TYPE = 8192u16;
-pub const SETRGBSTRING: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("commdlg_SetRGBColor");
-pub const SETRGBSTRINGA: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("commdlg_SetRGBColor");
-pub const SETRGBSTRINGW: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("commdlg_SetRGBColor");
-pub const SHAREVISTRING: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("commdlg_ShareViolation");
-pub const SHAREVISTRINGA: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("commdlg_ShareViolation");
-pub const SHAREVISTRINGW: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("commdlg_ShareViolation");
+pub const SETRGBSTRING: windows_sys::core::PCWSTR = windows_sys::core::w!("commdlg_SetRGBColor");
+pub const SETRGBSTRINGA: windows_sys::core::PCSTR = windows_sys::core::s!("commdlg_SetRGBColor");
+pub const SETRGBSTRINGW: windows_sys::core::PCWSTR = windows_sys::core::w!("commdlg_SetRGBColor");
+pub const SHAREVISTRING: windows_sys::core::PCWSTR = windows_sys::core::w!("commdlg_ShareViolation");
+pub const SHAREVISTRINGA: windows_sys::core::PCSTR = windows_sys::core::s!("commdlg_ShareViolation");
+pub const SHAREVISTRINGW: windows_sys::core::PCWSTR = windows_sys::core::w!("commdlg_ShareViolation");
 pub const SIMULATED_FONTTYPE: CHOOSEFONT_FONT_TYPE = 32768u16;
 pub const START_PAGE_GENERAL: u32 = 4294967295u32;
 pub const SYMBOL_FONTTYPE: u32 = 524288u32;
@@ -325,12 +325,12 @@ pub struct CHOOSECOLORA {
     pub Flags: CHOOSECOLOR_FLAGS,
     pub lCustData: super::super::super::Foundation::LPARAM,
     pub lpfnHook: LPCCHOOKPROC,
-    pub lpTemplateName: ::windows_sys::core::PCSTR,
+    pub lpTemplateName: windows_sys::core::PCSTR,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::marker::Copy for CHOOSECOLORA {}
+impl Copy for CHOOSECOLORA {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::clone::Clone for CHOOSECOLORA {
+impl Clone for CHOOSECOLORA {
     fn clone(&self) -> Self {
         *self
     }
@@ -346,12 +346,12 @@ pub struct CHOOSECOLORA {
     pub Flags: CHOOSECOLOR_FLAGS,
     pub lCustData: super::super::super::Foundation::LPARAM,
     pub lpfnHook: LPCCHOOKPROC,
-    pub lpTemplateName: ::windows_sys::core::PCSTR,
+    pub lpTemplateName: windows_sys::core::PCSTR,
 }
 #[cfg(target_arch = "x86")]
-impl ::core::marker::Copy for CHOOSECOLORA {}
+impl Copy for CHOOSECOLORA {}
 #[cfg(target_arch = "x86")]
-impl ::core::clone::Clone for CHOOSECOLORA {
+impl Clone for CHOOSECOLORA {
     fn clone(&self) -> Self {
         *self
     }
@@ -367,12 +367,12 @@ pub struct CHOOSECOLORW {
     pub Flags: CHOOSECOLOR_FLAGS,
     pub lCustData: super::super::super::Foundation::LPARAM,
     pub lpfnHook: LPCCHOOKPROC,
-    pub lpTemplateName: ::windows_sys::core::PCWSTR,
+    pub lpTemplateName: windows_sys::core::PCWSTR,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::marker::Copy for CHOOSECOLORW {}
+impl Copy for CHOOSECOLORW {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::clone::Clone for CHOOSECOLORW {
+impl Clone for CHOOSECOLORW {
     fn clone(&self) -> Self {
         *self
     }
@@ -388,12 +388,12 @@ pub struct CHOOSECOLORW {
     pub Flags: CHOOSECOLOR_FLAGS,
     pub lCustData: super::super::super::Foundation::LPARAM,
     pub lpfnHook: LPCCHOOKPROC,
-    pub lpTemplateName: ::windows_sys::core::PCWSTR,
+    pub lpTemplateName: windows_sys::core::PCWSTR,
 }
 #[cfg(target_arch = "x86")]
-impl ::core::marker::Copy for CHOOSECOLORW {}
+impl Copy for CHOOSECOLORW {}
 #[cfg(target_arch = "x86")]
-impl ::core::clone::Clone for CHOOSECOLORW {
+impl Clone for CHOOSECOLORW {
     fn clone(&self) -> Self {
         *self
     }
@@ -411,9 +411,9 @@ pub struct CHOOSEFONTA {
     pub rgbColors: super::super::super::Foundation::COLORREF,
     pub lCustData: super::super::super::Foundation::LPARAM,
     pub lpfnHook: LPCFHOOKPROC,
-    pub lpTemplateName: ::windows_sys::core::PCSTR,
+    pub lpTemplateName: windows_sys::core::PCSTR,
     pub hInstance: super::super::super::Foundation::HINSTANCE,
-    pub lpszStyle: ::windows_sys::core::PSTR,
+    pub lpszStyle: windows_sys::core::PSTR,
     pub nFontType: CHOOSEFONT_FONT_TYPE,
     pub ___MISSING_ALIGNMENT__: u16,
     pub nSizeMin: i32,
@@ -421,10 +421,10 @@ pub struct CHOOSEFONTA {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::marker::Copy for CHOOSEFONTA {}
+impl Copy for CHOOSEFONTA {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::clone::Clone for CHOOSEFONTA {
+impl Clone for CHOOSEFONTA {
     fn clone(&self) -> Self {
         *self
     }
@@ -442,9 +442,9 @@ pub struct CHOOSEFONTA {
     pub rgbColors: super::super::super::Foundation::COLORREF,
     pub lCustData: super::super::super::Foundation::LPARAM,
     pub lpfnHook: LPCFHOOKPROC,
-    pub lpTemplateName: ::windows_sys::core::PCSTR,
+    pub lpTemplateName: windows_sys::core::PCSTR,
     pub hInstance: super::super::super::Foundation::HINSTANCE,
-    pub lpszStyle: ::windows_sys::core::PSTR,
+    pub lpszStyle: windows_sys::core::PSTR,
     pub nFontType: CHOOSEFONT_FONT_TYPE,
     pub ___MISSING_ALIGNMENT__: u16,
     pub nSizeMin: i32,
@@ -452,10 +452,10 @@ pub struct CHOOSEFONTA {
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::marker::Copy for CHOOSEFONTA {}
+impl Copy for CHOOSEFONTA {}
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::clone::Clone for CHOOSEFONTA {
+impl Clone for CHOOSEFONTA {
     fn clone(&self) -> Self {
         *self
     }
@@ -473,9 +473,9 @@ pub struct CHOOSEFONTW {
     pub rgbColors: super::super::super::Foundation::COLORREF,
     pub lCustData: super::super::super::Foundation::LPARAM,
     pub lpfnHook: LPCFHOOKPROC,
-    pub lpTemplateName: ::windows_sys::core::PCWSTR,
+    pub lpTemplateName: windows_sys::core::PCWSTR,
     pub hInstance: super::super::super::Foundation::HINSTANCE,
-    pub lpszStyle: ::windows_sys::core::PWSTR,
+    pub lpszStyle: windows_sys::core::PWSTR,
     pub nFontType: CHOOSEFONT_FONT_TYPE,
     pub ___MISSING_ALIGNMENT__: u16,
     pub nSizeMin: i32,
@@ -483,10 +483,10 @@ pub struct CHOOSEFONTW {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::marker::Copy for CHOOSEFONTW {}
+impl Copy for CHOOSEFONTW {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::clone::Clone for CHOOSEFONTW {
+impl Clone for CHOOSEFONTW {
     fn clone(&self) -> Self {
         *self
     }
@@ -504,9 +504,9 @@ pub struct CHOOSEFONTW {
     pub rgbColors: super::super::super::Foundation::COLORREF,
     pub lCustData: super::super::super::Foundation::LPARAM,
     pub lpfnHook: LPCFHOOKPROC,
-    pub lpTemplateName: ::windows_sys::core::PCWSTR,
+    pub lpTemplateName: windows_sys::core::PCWSTR,
     pub hInstance: super::super::super::Foundation::HINSTANCE,
-    pub lpszStyle: ::windows_sys::core::PWSTR,
+    pub lpszStyle: windows_sys::core::PWSTR,
     pub nFontType: CHOOSEFONT_FONT_TYPE,
     pub ___MISSING_ALIGNMENT__: u16,
     pub nSizeMin: i32,
@@ -514,10 +514,10 @@ pub struct CHOOSEFONTW {
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::marker::Copy for CHOOSEFONTW {}
+impl Copy for CHOOSEFONTW {}
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::clone::Clone for CHOOSEFONTW {
+impl Clone for CHOOSEFONTW {
     fn clone(&self) -> Self {
         *self
     }
@@ -531,9 +531,9 @@ pub struct DEVNAMES {
     pub wDefault: u16,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::marker::Copy for DEVNAMES {}
+impl Copy for DEVNAMES {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::clone::Clone for DEVNAMES {
+impl Clone for DEVNAMES {
     fn clone(&self) -> Self {
         *self
     }
@@ -547,9 +547,9 @@ pub struct DEVNAMES {
     pub wDefault: u16,
 }
 #[cfg(target_arch = "x86")]
-impl ::core::marker::Copy for DEVNAMES {}
+impl Copy for DEVNAMES {}
 #[cfg(target_arch = "x86")]
-impl ::core::clone::Clone for DEVNAMES {
+impl Clone for DEVNAMES {
     fn clone(&self) -> Self {
         *self
     }
@@ -561,18 +561,18 @@ pub struct FINDREPLACEA {
     pub hwndOwner: super::super::super::Foundation::HWND,
     pub hInstance: super::super::super::Foundation::HINSTANCE,
     pub Flags: FINDREPLACE_FLAGS,
-    pub lpstrFindWhat: ::windows_sys::core::PSTR,
-    pub lpstrReplaceWith: ::windows_sys::core::PSTR,
+    pub lpstrFindWhat: windows_sys::core::PSTR,
+    pub lpstrReplaceWith: windows_sys::core::PSTR,
     pub wFindWhatLen: u16,
     pub wReplaceWithLen: u16,
     pub lCustData: super::super::super::Foundation::LPARAM,
     pub lpfnHook: LPFRHOOKPROC,
-    pub lpTemplateName: ::windows_sys::core::PCSTR,
+    pub lpTemplateName: windows_sys::core::PCSTR,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::marker::Copy for FINDREPLACEA {}
+impl Copy for FINDREPLACEA {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::clone::Clone for FINDREPLACEA {
+impl Clone for FINDREPLACEA {
     fn clone(&self) -> Self {
         *self
     }
@@ -584,18 +584,18 @@ pub struct FINDREPLACEA {
     pub hwndOwner: super::super::super::Foundation::HWND,
     pub hInstance: super::super::super::Foundation::HINSTANCE,
     pub Flags: FINDREPLACE_FLAGS,
-    pub lpstrFindWhat: ::windows_sys::core::PSTR,
-    pub lpstrReplaceWith: ::windows_sys::core::PSTR,
+    pub lpstrFindWhat: windows_sys::core::PSTR,
+    pub lpstrReplaceWith: windows_sys::core::PSTR,
     pub wFindWhatLen: u16,
     pub wReplaceWithLen: u16,
     pub lCustData: super::super::super::Foundation::LPARAM,
     pub lpfnHook: LPFRHOOKPROC,
-    pub lpTemplateName: ::windows_sys::core::PCSTR,
+    pub lpTemplateName: windows_sys::core::PCSTR,
 }
 #[cfg(target_arch = "x86")]
-impl ::core::marker::Copy for FINDREPLACEA {}
+impl Copy for FINDREPLACEA {}
 #[cfg(target_arch = "x86")]
-impl ::core::clone::Clone for FINDREPLACEA {
+impl Clone for FINDREPLACEA {
     fn clone(&self) -> Self {
         *self
     }
@@ -607,18 +607,18 @@ pub struct FINDREPLACEW {
     pub hwndOwner: super::super::super::Foundation::HWND,
     pub hInstance: super::super::super::Foundation::HINSTANCE,
     pub Flags: FINDREPLACE_FLAGS,
-    pub lpstrFindWhat: ::windows_sys::core::PWSTR,
-    pub lpstrReplaceWith: ::windows_sys::core::PWSTR,
+    pub lpstrFindWhat: windows_sys::core::PWSTR,
+    pub lpstrReplaceWith: windows_sys::core::PWSTR,
     pub wFindWhatLen: u16,
     pub wReplaceWithLen: u16,
     pub lCustData: super::super::super::Foundation::LPARAM,
     pub lpfnHook: LPFRHOOKPROC,
-    pub lpTemplateName: ::windows_sys::core::PCWSTR,
+    pub lpTemplateName: windows_sys::core::PCWSTR,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::marker::Copy for FINDREPLACEW {}
+impl Copy for FINDREPLACEW {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::clone::Clone for FINDREPLACEW {
+impl Clone for FINDREPLACEW {
     fn clone(&self) -> Self {
         *self
     }
@@ -630,18 +630,18 @@ pub struct FINDREPLACEW {
     pub hwndOwner: super::super::super::Foundation::HWND,
     pub hInstance: super::super::super::Foundation::HINSTANCE,
     pub Flags: FINDREPLACE_FLAGS,
-    pub lpstrFindWhat: ::windows_sys::core::PWSTR,
-    pub lpstrReplaceWith: ::windows_sys::core::PWSTR,
+    pub lpstrFindWhat: windows_sys::core::PWSTR,
+    pub lpstrReplaceWith: windows_sys::core::PWSTR,
     pub wFindWhatLen: u16,
     pub wReplaceWithLen: u16,
     pub lCustData: super::super::super::Foundation::LPARAM,
     pub lpfnHook: LPFRHOOKPROC,
-    pub lpTemplateName: ::windows_sys::core::PCWSTR,
+    pub lpTemplateName: windows_sys::core::PCWSTR,
 }
 #[cfg(target_arch = "x86")]
-impl ::core::marker::Copy for FINDREPLACEW {}
+impl Copy for FINDREPLACEW {}
 #[cfg(target_arch = "x86")]
-impl ::core::clone::Clone for FINDREPLACEW {
+impl Clone for FINDREPLACEW {
     fn clone(&self) -> Self {
         *self
     }
@@ -651,12 +651,12 @@ impl ::core::clone::Clone for FINDREPLACEW {
 pub struct OFNOTIFYA {
     pub hdr: super::NMHDR,
     pub lpOFN: *mut OPENFILENAMEA,
-    pub pszFile: ::windows_sys::core::PSTR,
+    pub pszFile: windows_sys::core::PSTR,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::marker::Copy for OFNOTIFYA {}
+impl Copy for OFNOTIFYA {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::clone::Clone for OFNOTIFYA {
+impl Clone for OFNOTIFYA {
     fn clone(&self) -> Self {
         *self
     }
@@ -666,12 +666,12 @@ impl ::core::clone::Clone for OFNOTIFYA {
 pub struct OFNOTIFYA {
     pub hdr: super::NMHDR,
     pub lpOFN: *mut OPENFILENAMEA,
-    pub pszFile: ::windows_sys::core::PSTR,
+    pub pszFile: windows_sys::core::PSTR,
 }
 #[cfg(target_arch = "x86")]
-impl ::core::marker::Copy for OFNOTIFYA {}
+impl Copy for OFNOTIFYA {}
 #[cfg(target_arch = "x86")]
-impl ::core::clone::Clone for OFNOTIFYA {
+impl Clone for OFNOTIFYA {
     fn clone(&self) -> Self {
         *self
     }
@@ -681,13 +681,13 @@ impl ::core::clone::Clone for OFNOTIFYA {
 pub struct OFNOTIFYEXA {
     pub hdr: super::NMHDR,
     pub lpOFN: *mut OPENFILENAMEA,
-    pub psf: *mut ::core::ffi::c_void,
-    pub pidl: *mut ::core::ffi::c_void,
+    pub psf: *mut core::ffi::c_void,
+    pub pidl: *mut core::ffi::c_void,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::marker::Copy for OFNOTIFYEXA {}
+impl Copy for OFNOTIFYEXA {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::clone::Clone for OFNOTIFYEXA {
+impl Clone for OFNOTIFYEXA {
     fn clone(&self) -> Self {
         *self
     }
@@ -697,13 +697,13 @@ impl ::core::clone::Clone for OFNOTIFYEXA {
 pub struct OFNOTIFYEXA {
     pub hdr: super::NMHDR,
     pub lpOFN: *mut OPENFILENAMEA,
-    pub psf: *mut ::core::ffi::c_void,
-    pub pidl: *mut ::core::ffi::c_void,
+    pub psf: *mut core::ffi::c_void,
+    pub pidl: *mut core::ffi::c_void,
 }
 #[cfg(target_arch = "x86")]
-impl ::core::marker::Copy for OFNOTIFYEXA {}
+impl Copy for OFNOTIFYEXA {}
 #[cfg(target_arch = "x86")]
-impl ::core::clone::Clone for OFNOTIFYEXA {
+impl Clone for OFNOTIFYEXA {
     fn clone(&self) -> Self {
         *self
     }
@@ -713,13 +713,13 @@ impl ::core::clone::Clone for OFNOTIFYEXA {
 pub struct OFNOTIFYEXW {
     pub hdr: super::NMHDR,
     pub lpOFN: *mut OPENFILENAMEW,
-    pub psf: *mut ::core::ffi::c_void,
-    pub pidl: *mut ::core::ffi::c_void,
+    pub psf: *mut core::ffi::c_void,
+    pub pidl: *mut core::ffi::c_void,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::marker::Copy for OFNOTIFYEXW {}
+impl Copy for OFNOTIFYEXW {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::clone::Clone for OFNOTIFYEXW {
+impl Clone for OFNOTIFYEXW {
     fn clone(&self) -> Self {
         *self
     }
@@ -729,13 +729,13 @@ impl ::core::clone::Clone for OFNOTIFYEXW {
 pub struct OFNOTIFYEXW {
     pub hdr: super::NMHDR,
     pub lpOFN: *mut OPENFILENAMEW,
-    pub psf: *mut ::core::ffi::c_void,
-    pub pidl: *mut ::core::ffi::c_void,
+    pub psf: *mut core::ffi::c_void,
+    pub pidl: *mut core::ffi::c_void,
 }
 #[cfg(target_arch = "x86")]
-impl ::core::marker::Copy for OFNOTIFYEXW {}
+impl Copy for OFNOTIFYEXW {}
 #[cfg(target_arch = "x86")]
-impl ::core::clone::Clone for OFNOTIFYEXW {
+impl Clone for OFNOTIFYEXW {
     fn clone(&self) -> Self {
         *self
     }
@@ -745,12 +745,12 @@ impl ::core::clone::Clone for OFNOTIFYEXW {
 pub struct OFNOTIFYW {
     pub hdr: super::NMHDR,
     pub lpOFN: *mut OPENFILENAMEW,
-    pub pszFile: ::windows_sys::core::PWSTR,
+    pub pszFile: windows_sys::core::PWSTR,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::marker::Copy for OFNOTIFYW {}
+impl Copy for OFNOTIFYW {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::clone::Clone for OFNOTIFYW {
+impl Clone for OFNOTIFYW {
     fn clone(&self) -> Self {
         *self
     }
@@ -760,12 +760,12 @@ impl ::core::clone::Clone for OFNOTIFYW {
 pub struct OFNOTIFYW {
     pub hdr: super::NMHDR,
     pub lpOFN: *mut OPENFILENAMEW,
-    pub pszFile: ::windows_sys::core::PWSTR,
+    pub pszFile: windows_sys::core::PWSTR,
 }
 #[cfg(target_arch = "x86")]
-impl ::core::marker::Copy for OFNOTIFYW {}
+impl Copy for OFNOTIFYW {}
 #[cfg(target_arch = "x86")]
-impl ::core::clone::Clone for OFNOTIFYW {
+impl Clone for OFNOTIFYW {
     fn clone(&self) -> Self {
         *self
     }
@@ -776,31 +776,31 @@ pub struct OPENFILENAMEA {
     pub lStructSize: u32,
     pub hwndOwner: super::super::super::Foundation::HWND,
     pub hInstance: super::super::super::Foundation::HINSTANCE,
-    pub lpstrFilter: ::windows_sys::core::PCSTR,
-    pub lpstrCustomFilter: ::windows_sys::core::PSTR,
+    pub lpstrFilter: windows_sys::core::PCSTR,
+    pub lpstrCustomFilter: windows_sys::core::PSTR,
     pub nMaxCustFilter: u32,
     pub nFilterIndex: u32,
-    pub lpstrFile: ::windows_sys::core::PSTR,
+    pub lpstrFile: windows_sys::core::PSTR,
     pub nMaxFile: u32,
-    pub lpstrFileTitle: ::windows_sys::core::PSTR,
+    pub lpstrFileTitle: windows_sys::core::PSTR,
     pub nMaxFileTitle: u32,
-    pub lpstrInitialDir: ::windows_sys::core::PCSTR,
-    pub lpstrTitle: ::windows_sys::core::PCSTR,
+    pub lpstrInitialDir: windows_sys::core::PCSTR,
+    pub lpstrTitle: windows_sys::core::PCSTR,
     pub Flags: OPEN_FILENAME_FLAGS,
     pub nFileOffset: u16,
     pub nFileExtension: u16,
-    pub lpstrDefExt: ::windows_sys::core::PCSTR,
+    pub lpstrDefExt: windows_sys::core::PCSTR,
     pub lCustData: super::super::super::Foundation::LPARAM,
     pub lpfnHook: LPOFNHOOKPROC,
-    pub lpTemplateName: ::windows_sys::core::PCSTR,
-    pub pvReserved: *mut ::core::ffi::c_void,
+    pub lpTemplateName: windows_sys::core::PCSTR,
+    pub pvReserved: *mut core::ffi::c_void,
     pub dwReserved: u32,
     pub FlagsEx: OPEN_FILENAME_FLAGS_EX,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::marker::Copy for OPENFILENAMEA {}
+impl Copy for OPENFILENAMEA {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::clone::Clone for OPENFILENAMEA {
+impl Clone for OPENFILENAMEA {
     fn clone(&self) -> Self {
         *self
     }
@@ -811,31 +811,31 @@ pub struct OPENFILENAMEA {
     pub lStructSize: u32,
     pub hwndOwner: super::super::super::Foundation::HWND,
     pub hInstance: super::super::super::Foundation::HINSTANCE,
-    pub lpstrFilter: ::windows_sys::core::PCSTR,
-    pub lpstrCustomFilter: ::windows_sys::core::PSTR,
+    pub lpstrFilter: windows_sys::core::PCSTR,
+    pub lpstrCustomFilter: windows_sys::core::PSTR,
     pub nMaxCustFilter: u32,
     pub nFilterIndex: u32,
-    pub lpstrFile: ::windows_sys::core::PSTR,
+    pub lpstrFile: windows_sys::core::PSTR,
     pub nMaxFile: u32,
-    pub lpstrFileTitle: ::windows_sys::core::PSTR,
+    pub lpstrFileTitle: windows_sys::core::PSTR,
     pub nMaxFileTitle: u32,
-    pub lpstrInitialDir: ::windows_sys::core::PCSTR,
-    pub lpstrTitle: ::windows_sys::core::PCSTR,
+    pub lpstrInitialDir: windows_sys::core::PCSTR,
+    pub lpstrTitle: windows_sys::core::PCSTR,
     pub Flags: OPEN_FILENAME_FLAGS,
     pub nFileOffset: u16,
     pub nFileExtension: u16,
-    pub lpstrDefExt: ::windows_sys::core::PCSTR,
+    pub lpstrDefExt: windows_sys::core::PCSTR,
     pub lCustData: super::super::super::Foundation::LPARAM,
     pub lpfnHook: LPOFNHOOKPROC,
-    pub lpTemplateName: ::windows_sys::core::PCSTR,
-    pub pvReserved: *mut ::core::ffi::c_void,
+    pub lpTemplateName: windows_sys::core::PCSTR,
+    pub pvReserved: *mut core::ffi::c_void,
     pub dwReserved: u32,
     pub FlagsEx: OPEN_FILENAME_FLAGS_EX,
 }
 #[cfg(target_arch = "x86")]
-impl ::core::marker::Copy for OPENFILENAMEA {}
+impl Copy for OPENFILENAMEA {}
 #[cfg(target_arch = "x86")]
-impl ::core::clone::Clone for OPENFILENAMEA {
+impl Clone for OPENFILENAMEA {
     fn clone(&self) -> Self {
         *self
     }
@@ -846,31 +846,31 @@ pub struct OPENFILENAMEW {
     pub lStructSize: u32,
     pub hwndOwner: super::super::super::Foundation::HWND,
     pub hInstance: super::super::super::Foundation::HINSTANCE,
-    pub lpstrFilter: ::windows_sys::core::PCWSTR,
-    pub lpstrCustomFilter: ::windows_sys::core::PWSTR,
+    pub lpstrFilter: windows_sys::core::PCWSTR,
+    pub lpstrCustomFilter: windows_sys::core::PWSTR,
     pub nMaxCustFilter: u32,
     pub nFilterIndex: u32,
-    pub lpstrFile: ::windows_sys::core::PWSTR,
+    pub lpstrFile: windows_sys::core::PWSTR,
     pub nMaxFile: u32,
-    pub lpstrFileTitle: ::windows_sys::core::PWSTR,
+    pub lpstrFileTitle: windows_sys::core::PWSTR,
     pub nMaxFileTitle: u32,
-    pub lpstrInitialDir: ::windows_sys::core::PCWSTR,
-    pub lpstrTitle: ::windows_sys::core::PCWSTR,
+    pub lpstrInitialDir: windows_sys::core::PCWSTR,
+    pub lpstrTitle: windows_sys::core::PCWSTR,
     pub Flags: OPEN_FILENAME_FLAGS,
     pub nFileOffset: u16,
     pub nFileExtension: u16,
-    pub lpstrDefExt: ::windows_sys::core::PCWSTR,
+    pub lpstrDefExt: windows_sys::core::PCWSTR,
     pub lCustData: super::super::super::Foundation::LPARAM,
     pub lpfnHook: LPOFNHOOKPROC,
-    pub lpTemplateName: ::windows_sys::core::PCWSTR,
-    pub pvReserved: *mut ::core::ffi::c_void,
+    pub lpTemplateName: windows_sys::core::PCWSTR,
+    pub pvReserved: *mut core::ffi::c_void,
     pub dwReserved: u32,
     pub FlagsEx: OPEN_FILENAME_FLAGS_EX,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::marker::Copy for OPENFILENAMEW {}
+impl Copy for OPENFILENAMEW {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::clone::Clone for OPENFILENAMEW {
+impl Clone for OPENFILENAMEW {
     fn clone(&self) -> Self {
         *self
     }
@@ -881,31 +881,31 @@ pub struct OPENFILENAMEW {
     pub lStructSize: u32,
     pub hwndOwner: super::super::super::Foundation::HWND,
     pub hInstance: super::super::super::Foundation::HINSTANCE,
-    pub lpstrFilter: ::windows_sys::core::PCWSTR,
-    pub lpstrCustomFilter: ::windows_sys::core::PWSTR,
+    pub lpstrFilter: windows_sys::core::PCWSTR,
+    pub lpstrCustomFilter: windows_sys::core::PWSTR,
     pub nMaxCustFilter: u32,
     pub nFilterIndex: u32,
-    pub lpstrFile: ::windows_sys::core::PWSTR,
+    pub lpstrFile: windows_sys::core::PWSTR,
     pub nMaxFile: u32,
-    pub lpstrFileTitle: ::windows_sys::core::PWSTR,
+    pub lpstrFileTitle: windows_sys::core::PWSTR,
     pub nMaxFileTitle: u32,
-    pub lpstrInitialDir: ::windows_sys::core::PCWSTR,
-    pub lpstrTitle: ::windows_sys::core::PCWSTR,
+    pub lpstrInitialDir: windows_sys::core::PCWSTR,
+    pub lpstrTitle: windows_sys::core::PCWSTR,
     pub Flags: OPEN_FILENAME_FLAGS,
     pub nFileOffset: u16,
     pub nFileExtension: u16,
-    pub lpstrDefExt: ::windows_sys::core::PCWSTR,
+    pub lpstrDefExt: windows_sys::core::PCWSTR,
     pub lCustData: super::super::super::Foundation::LPARAM,
     pub lpfnHook: LPOFNHOOKPROC,
-    pub lpTemplateName: ::windows_sys::core::PCWSTR,
-    pub pvReserved: *mut ::core::ffi::c_void,
+    pub lpTemplateName: windows_sys::core::PCWSTR,
+    pub pvReserved: *mut core::ffi::c_void,
     pub dwReserved: u32,
     pub FlagsEx: OPEN_FILENAME_FLAGS_EX,
 }
 #[cfg(target_arch = "x86")]
-impl ::core::marker::Copy for OPENFILENAMEW {}
+impl Copy for OPENFILENAMEW {}
 #[cfg(target_arch = "x86")]
-impl ::core::clone::Clone for OPENFILENAMEW {
+impl Clone for OPENFILENAMEW {
     fn clone(&self) -> Self {
         *self
     }
@@ -916,28 +916,28 @@ pub struct OPENFILENAME_NT4A {
     pub lStructSize: u32,
     pub hwndOwner: super::super::super::Foundation::HWND,
     pub hInstance: super::super::super::Foundation::HINSTANCE,
-    pub lpstrFilter: ::windows_sys::core::PCSTR,
-    pub lpstrCustomFilter: ::windows_sys::core::PSTR,
+    pub lpstrFilter: windows_sys::core::PCSTR,
+    pub lpstrCustomFilter: windows_sys::core::PSTR,
     pub nMaxCustFilter: u32,
     pub nFilterIndex: u32,
-    pub lpstrFile: ::windows_sys::core::PSTR,
+    pub lpstrFile: windows_sys::core::PSTR,
     pub nMaxFile: u32,
-    pub lpstrFileTitle: ::windows_sys::core::PSTR,
+    pub lpstrFileTitle: windows_sys::core::PSTR,
     pub nMaxFileTitle: u32,
-    pub lpstrInitialDir: ::windows_sys::core::PCSTR,
-    pub lpstrTitle: ::windows_sys::core::PCSTR,
+    pub lpstrInitialDir: windows_sys::core::PCSTR,
+    pub lpstrTitle: windows_sys::core::PCSTR,
     pub Flags: u32,
     pub nFileOffset: u16,
     pub nFileExtension: u16,
-    pub lpstrDefExt: ::windows_sys::core::PCSTR,
+    pub lpstrDefExt: windows_sys::core::PCSTR,
     pub lCustData: super::super::super::Foundation::LPARAM,
     pub lpfnHook: LPOFNHOOKPROC,
-    pub lpTemplateName: ::windows_sys::core::PCSTR,
+    pub lpTemplateName: windows_sys::core::PCSTR,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::marker::Copy for OPENFILENAME_NT4A {}
+impl Copy for OPENFILENAME_NT4A {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::clone::Clone for OPENFILENAME_NT4A {
+impl Clone for OPENFILENAME_NT4A {
     fn clone(&self) -> Self {
         *self
     }
@@ -948,28 +948,28 @@ pub struct OPENFILENAME_NT4A {
     pub lStructSize: u32,
     pub hwndOwner: super::super::super::Foundation::HWND,
     pub hInstance: super::super::super::Foundation::HINSTANCE,
-    pub lpstrFilter: ::windows_sys::core::PCSTR,
-    pub lpstrCustomFilter: ::windows_sys::core::PSTR,
+    pub lpstrFilter: windows_sys::core::PCSTR,
+    pub lpstrCustomFilter: windows_sys::core::PSTR,
     pub nMaxCustFilter: u32,
     pub nFilterIndex: u32,
-    pub lpstrFile: ::windows_sys::core::PSTR,
+    pub lpstrFile: windows_sys::core::PSTR,
     pub nMaxFile: u32,
-    pub lpstrFileTitle: ::windows_sys::core::PSTR,
+    pub lpstrFileTitle: windows_sys::core::PSTR,
     pub nMaxFileTitle: u32,
-    pub lpstrInitialDir: ::windows_sys::core::PCSTR,
-    pub lpstrTitle: ::windows_sys::core::PCSTR,
+    pub lpstrInitialDir: windows_sys::core::PCSTR,
+    pub lpstrTitle: windows_sys::core::PCSTR,
     pub Flags: u32,
     pub nFileOffset: u16,
     pub nFileExtension: u16,
-    pub lpstrDefExt: ::windows_sys::core::PCSTR,
+    pub lpstrDefExt: windows_sys::core::PCSTR,
     pub lCustData: super::super::super::Foundation::LPARAM,
     pub lpfnHook: LPOFNHOOKPROC,
-    pub lpTemplateName: ::windows_sys::core::PCSTR,
+    pub lpTemplateName: windows_sys::core::PCSTR,
 }
 #[cfg(target_arch = "x86")]
-impl ::core::marker::Copy for OPENFILENAME_NT4A {}
+impl Copy for OPENFILENAME_NT4A {}
 #[cfg(target_arch = "x86")]
-impl ::core::clone::Clone for OPENFILENAME_NT4A {
+impl Clone for OPENFILENAME_NT4A {
     fn clone(&self) -> Self {
         *self
     }
@@ -980,28 +980,28 @@ pub struct OPENFILENAME_NT4W {
     pub lStructSize: u32,
     pub hwndOwner: super::super::super::Foundation::HWND,
     pub hInstance: super::super::super::Foundation::HINSTANCE,
-    pub lpstrFilter: ::windows_sys::core::PCWSTR,
-    pub lpstrCustomFilter: ::windows_sys::core::PWSTR,
+    pub lpstrFilter: windows_sys::core::PCWSTR,
+    pub lpstrCustomFilter: windows_sys::core::PWSTR,
     pub nMaxCustFilter: u32,
     pub nFilterIndex: u32,
-    pub lpstrFile: ::windows_sys::core::PWSTR,
+    pub lpstrFile: windows_sys::core::PWSTR,
     pub nMaxFile: u32,
-    pub lpstrFileTitle: ::windows_sys::core::PWSTR,
+    pub lpstrFileTitle: windows_sys::core::PWSTR,
     pub nMaxFileTitle: u32,
-    pub lpstrInitialDir: ::windows_sys::core::PCWSTR,
-    pub lpstrTitle: ::windows_sys::core::PCWSTR,
+    pub lpstrInitialDir: windows_sys::core::PCWSTR,
+    pub lpstrTitle: windows_sys::core::PCWSTR,
     pub Flags: u32,
     pub nFileOffset: u16,
     pub nFileExtension: u16,
-    pub lpstrDefExt: ::windows_sys::core::PCWSTR,
+    pub lpstrDefExt: windows_sys::core::PCWSTR,
     pub lCustData: super::super::super::Foundation::LPARAM,
     pub lpfnHook: LPOFNHOOKPROC,
-    pub lpTemplateName: ::windows_sys::core::PCWSTR,
+    pub lpTemplateName: windows_sys::core::PCWSTR,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::marker::Copy for OPENFILENAME_NT4W {}
+impl Copy for OPENFILENAME_NT4W {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::clone::Clone for OPENFILENAME_NT4W {
+impl Clone for OPENFILENAME_NT4W {
     fn clone(&self) -> Self {
         *self
     }
@@ -1012,28 +1012,28 @@ pub struct OPENFILENAME_NT4W {
     pub lStructSize: u32,
     pub hwndOwner: super::super::super::Foundation::HWND,
     pub hInstance: super::super::super::Foundation::HINSTANCE,
-    pub lpstrFilter: ::windows_sys::core::PCWSTR,
-    pub lpstrCustomFilter: ::windows_sys::core::PWSTR,
+    pub lpstrFilter: windows_sys::core::PCWSTR,
+    pub lpstrCustomFilter: windows_sys::core::PWSTR,
     pub nMaxCustFilter: u32,
     pub nFilterIndex: u32,
-    pub lpstrFile: ::windows_sys::core::PWSTR,
+    pub lpstrFile: windows_sys::core::PWSTR,
     pub nMaxFile: u32,
-    pub lpstrFileTitle: ::windows_sys::core::PWSTR,
+    pub lpstrFileTitle: windows_sys::core::PWSTR,
     pub nMaxFileTitle: u32,
-    pub lpstrInitialDir: ::windows_sys::core::PCWSTR,
-    pub lpstrTitle: ::windows_sys::core::PCWSTR,
+    pub lpstrInitialDir: windows_sys::core::PCWSTR,
+    pub lpstrTitle: windows_sys::core::PCWSTR,
     pub Flags: u32,
     pub nFileOffset: u16,
     pub nFileExtension: u16,
-    pub lpstrDefExt: ::windows_sys::core::PCWSTR,
+    pub lpstrDefExt: windows_sys::core::PCWSTR,
     pub lCustData: super::super::super::Foundation::LPARAM,
     pub lpfnHook: LPOFNHOOKPROC,
-    pub lpTemplateName: ::windows_sys::core::PCWSTR,
+    pub lpTemplateName: windows_sys::core::PCWSTR,
 }
 #[cfg(target_arch = "x86")]
-impl ::core::marker::Copy for OPENFILENAME_NT4W {}
+impl Copy for OPENFILENAME_NT4W {}
 #[cfg(target_arch = "x86")]
-impl ::core::clone::Clone for OPENFILENAME_NT4W {
+impl Clone for OPENFILENAME_NT4W {
     fn clone(&self) -> Self {
         *self
     }
@@ -1053,13 +1053,13 @@ pub struct PAGESETUPDLGA {
     pub lCustData: super::super::super::Foundation::LPARAM,
     pub lpfnPageSetupHook: LPPAGESETUPHOOK,
     pub lpfnPagePaintHook: LPPAGEPAINTHOOK,
-    pub lpPageSetupTemplateName: ::windows_sys::core::PCSTR,
+    pub lpPageSetupTemplateName: windows_sys::core::PCSTR,
     pub hPageSetupTemplate: super::super::super::Foundation::HGLOBAL,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::marker::Copy for PAGESETUPDLGA {}
+impl Copy for PAGESETUPDLGA {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::clone::Clone for PAGESETUPDLGA {
+impl Clone for PAGESETUPDLGA {
     fn clone(&self) -> Self {
         *self
     }
@@ -1079,13 +1079,13 @@ pub struct PAGESETUPDLGA {
     pub lCustData: super::super::super::Foundation::LPARAM,
     pub lpfnPageSetupHook: LPPAGESETUPHOOK,
     pub lpfnPagePaintHook: LPPAGEPAINTHOOK,
-    pub lpPageSetupTemplateName: ::windows_sys::core::PCSTR,
+    pub lpPageSetupTemplateName: windows_sys::core::PCSTR,
     pub hPageSetupTemplate: super::super::super::Foundation::HGLOBAL,
 }
 #[cfg(target_arch = "x86")]
-impl ::core::marker::Copy for PAGESETUPDLGA {}
+impl Copy for PAGESETUPDLGA {}
 #[cfg(target_arch = "x86")]
-impl ::core::clone::Clone for PAGESETUPDLGA {
+impl Clone for PAGESETUPDLGA {
     fn clone(&self) -> Self {
         *self
     }
@@ -1105,13 +1105,13 @@ pub struct PAGESETUPDLGW {
     pub lCustData: super::super::super::Foundation::LPARAM,
     pub lpfnPageSetupHook: LPPAGESETUPHOOK,
     pub lpfnPagePaintHook: LPPAGEPAINTHOOK,
-    pub lpPageSetupTemplateName: ::windows_sys::core::PCWSTR,
+    pub lpPageSetupTemplateName: windows_sys::core::PCWSTR,
     pub hPageSetupTemplate: super::super::super::Foundation::HGLOBAL,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::marker::Copy for PAGESETUPDLGW {}
+impl Copy for PAGESETUPDLGW {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::clone::Clone for PAGESETUPDLGW {
+impl Clone for PAGESETUPDLGW {
     fn clone(&self) -> Self {
         *self
     }
@@ -1131,13 +1131,13 @@ pub struct PAGESETUPDLGW {
     pub lCustData: super::super::super::Foundation::LPARAM,
     pub lpfnPageSetupHook: LPPAGESETUPHOOK,
     pub lpfnPagePaintHook: LPPAGEPAINTHOOK,
-    pub lpPageSetupTemplateName: ::windows_sys::core::PCWSTR,
+    pub lpPageSetupTemplateName: windows_sys::core::PCWSTR,
     pub hPageSetupTemplate: super::super::super::Foundation::HGLOBAL,
 }
 #[cfg(target_arch = "x86")]
-impl ::core::marker::Copy for PAGESETUPDLGW {}
+impl Copy for PAGESETUPDLGW {}
 #[cfg(target_arch = "x86")]
-impl ::core::clone::Clone for PAGESETUPDLGW {
+impl Clone for PAGESETUPDLGW {
     fn clone(&self) -> Self {
         *self
     }
@@ -1161,17 +1161,17 @@ pub struct PRINTDLGA {
     pub lCustData: super::super::super::Foundation::LPARAM,
     pub lpfnPrintHook: LPPRINTHOOKPROC,
     pub lpfnSetupHook: LPSETUPHOOKPROC,
-    pub lpPrintTemplateName: ::windows_sys::core::PCSTR,
-    pub lpSetupTemplateName: ::windows_sys::core::PCSTR,
+    pub lpPrintTemplateName: windows_sys::core::PCSTR,
+    pub lpSetupTemplateName: windows_sys::core::PCSTR,
     pub hPrintTemplate: super::super::super::Foundation::HGLOBAL,
     pub hSetupTemplate: super::super::super::Foundation::HGLOBAL,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::marker::Copy for PRINTDLGA {}
+impl Copy for PRINTDLGA {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::clone::Clone for PRINTDLGA {
+impl Clone for PRINTDLGA {
     fn clone(&self) -> Self {
         *self
     }
@@ -1195,17 +1195,17 @@ pub struct PRINTDLGA {
     pub lCustData: super::super::super::Foundation::LPARAM,
     pub lpfnPrintHook: LPPRINTHOOKPROC,
     pub lpfnSetupHook: LPSETUPHOOKPROC,
-    pub lpPrintTemplateName: ::windows_sys::core::PCSTR,
-    pub lpSetupTemplateName: ::windows_sys::core::PCSTR,
+    pub lpPrintTemplateName: windows_sys::core::PCSTR,
+    pub lpSetupTemplateName: windows_sys::core::PCSTR,
     pub hPrintTemplate: super::super::super::Foundation::HGLOBAL,
     pub hSetupTemplate: super::super::super::Foundation::HGLOBAL,
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::marker::Copy for PRINTDLGA {}
+impl Copy for PRINTDLGA {}
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::clone::Clone for PRINTDLGA {
+impl Clone for PRINTDLGA {
     fn clone(&self) -> Self {
         *self
     }
@@ -1229,8 +1229,8 @@ pub struct PRINTDLGEXA {
     pub nMaxPage: u32,
     pub nCopies: u32,
     pub hInstance: super::super::super::Foundation::HINSTANCE,
-    pub lpPrintTemplateName: ::windows_sys::core::PCSTR,
-    pub lpCallback: *mut ::core::ffi::c_void,
+    pub lpPrintTemplateName: windows_sys::core::PCSTR,
+    pub lpCallback: *mut core::ffi::c_void,
     pub nPropertyPages: u32,
     pub lphPropertyPages: *mut super::HPROPSHEETPAGE,
     pub nStartPage: u32,
@@ -1238,10 +1238,10 @@ pub struct PRINTDLGEXA {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::marker::Copy for PRINTDLGEXA {}
+impl Copy for PRINTDLGEXA {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::clone::Clone for PRINTDLGEXA {
+impl Clone for PRINTDLGEXA {
     fn clone(&self) -> Self {
         *self
     }
@@ -1265,8 +1265,8 @@ pub struct PRINTDLGEXA {
     pub nMaxPage: u32,
     pub nCopies: u32,
     pub hInstance: super::super::super::Foundation::HINSTANCE,
-    pub lpPrintTemplateName: ::windows_sys::core::PCSTR,
-    pub lpCallback: *mut ::core::ffi::c_void,
+    pub lpPrintTemplateName: windows_sys::core::PCSTR,
+    pub lpCallback: *mut core::ffi::c_void,
     pub nPropertyPages: u32,
     pub lphPropertyPages: *mut super::HPROPSHEETPAGE,
     pub nStartPage: u32,
@@ -1274,10 +1274,10 @@ pub struct PRINTDLGEXA {
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::marker::Copy for PRINTDLGEXA {}
+impl Copy for PRINTDLGEXA {}
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::clone::Clone for PRINTDLGEXA {
+impl Clone for PRINTDLGEXA {
     fn clone(&self) -> Self {
         *self
     }
@@ -1301,8 +1301,8 @@ pub struct PRINTDLGEXW {
     pub nMaxPage: u32,
     pub nCopies: u32,
     pub hInstance: super::super::super::Foundation::HINSTANCE,
-    pub lpPrintTemplateName: ::windows_sys::core::PCWSTR,
-    pub lpCallback: *mut ::core::ffi::c_void,
+    pub lpPrintTemplateName: windows_sys::core::PCWSTR,
+    pub lpCallback: *mut core::ffi::c_void,
     pub nPropertyPages: u32,
     pub lphPropertyPages: *mut super::HPROPSHEETPAGE,
     pub nStartPage: u32,
@@ -1310,10 +1310,10 @@ pub struct PRINTDLGEXW {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::marker::Copy for PRINTDLGEXW {}
+impl Copy for PRINTDLGEXW {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::clone::Clone for PRINTDLGEXW {
+impl Clone for PRINTDLGEXW {
     fn clone(&self) -> Self {
         *self
     }
@@ -1337,8 +1337,8 @@ pub struct PRINTDLGEXW {
     pub nMaxPage: u32,
     pub nCopies: u32,
     pub hInstance: super::super::super::Foundation::HINSTANCE,
-    pub lpPrintTemplateName: ::windows_sys::core::PCWSTR,
-    pub lpCallback: *mut ::core::ffi::c_void,
+    pub lpPrintTemplateName: windows_sys::core::PCWSTR,
+    pub lpCallback: *mut core::ffi::c_void,
     pub nPropertyPages: u32,
     pub lphPropertyPages: *mut super::HPROPSHEETPAGE,
     pub nStartPage: u32,
@@ -1346,10 +1346,10 @@ pub struct PRINTDLGEXW {
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::marker::Copy for PRINTDLGEXW {}
+impl Copy for PRINTDLGEXW {}
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::clone::Clone for PRINTDLGEXW {
+impl Clone for PRINTDLGEXW {
     fn clone(&self) -> Self {
         *self
     }
@@ -1373,17 +1373,17 @@ pub struct PRINTDLGW {
     pub lCustData: super::super::super::Foundation::LPARAM,
     pub lpfnPrintHook: LPPRINTHOOKPROC,
     pub lpfnSetupHook: LPSETUPHOOKPROC,
-    pub lpPrintTemplateName: ::windows_sys::core::PCWSTR,
-    pub lpSetupTemplateName: ::windows_sys::core::PCWSTR,
+    pub lpPrintTemplateName: windows_sys::core::PCWSTR,
+    pub lpSetupTemplateName: windows_sys::core::PCWSTR,
     pub hPrintTemplate: super::super::super::Foundation::HGLOBAL,
     pub hSetupTemplate: super::super::super::Foundation::HGLOBAL,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::marker::Copy for PRINTDLGW {}
+impl Copy for PRINTDLGW {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::clone::Clone for PRINTDLGW {
+impl Clone for PRINTDLGW {
     fn clone(&self) -> Self {
         *self
     }
@@ -1407,17 +1407,17 @@ pub struct PRINTDLGW {
     pub lCustData: super::super::super::Foundation::LPARAM,
     pub lpfnPrintHook: LPPRINTHOOKPROC,
     pub lpfnSetupHook: LPSETUPHOOKPROC,
-    pub lpPrintTemplateName: ::windows_sys::core::PCWSTR,
-    pub lpSetupTemplateName: ::windows_sys::core::PCWSTR,
+    pub lpPrintTemplateName: windows_sys::core::PCWSTR,
+    pub lpSetupTemplateName: windows_sys::core::PCWSTR,
     pub hPrintTemplate: super::super::super::Foundation::HGLOBAL,
     pub hSetupTemplate: super::super::super::Foundation::HGLOBAL,
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::marker::Copy for PRINTDLGW {}
+impl Copy for PRINTDLGW {}
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::clone::Clone for PRINTDLGW {
+impl Clone for PRINTDLGW {
     fn clone(&self) -> Self {
         *self
     }
@@ -1429,9 +1429,9 @@ pub struct PRINTPAGERANGE {
     pub nToPage: u32,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::marker::Copy for PRINTPAGERANGE {}
+impl Copy for PRINTPAGERANGE {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::clone::Clone for PRINTPAGERANGE {
+impl Clone for PRINTPAGERANGE {
     fn clone(&self) -> Self {
         *self
     }
@@ -1443,18 +1443,18 @@ pub struct PRINTPAGERANGE {
     pub nToPage: u32,
 }
 #[cfg(target_arch = "x86")]
-impl ::core::marker::Copy for PRINTPAGERANGE {}
+impl Copy for PRINTPAGERANGE {}
 #[cfg(target_arch = "x86")]
-impl ::core::clone::Clone for PRINTPAGERANGE {
+impl Clone for PRINTPAGERANGE {
     fn clone(&self) -> Self {
         *self
     }
 }
-pub type LPCCHOOKPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> usize>;
-pub type LPCFHOOKPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> usize>;
-pub type LPFRHOOKPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> usize>;
-pub type LPOFNHOOKPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> usize>;
-pub type LPPAGEPAINTHOOK = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> usize>;
-pub type LPPAGESETUPHOOK = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> usize>;
-pub type LPPRINTHOOKPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> usize>;
-pub type LPSETUPHOOKPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> usize>;
+pub type LPCCHOOKPROC = Option<unsafe extern "system" fn(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> usize>;
+pub type LPCFHOOKPROC = Option<unsafe extern "system" fn(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> usize>;
+pub type LPFRHOOKPROC = Option<unsafe extern "system" fn(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> usize>;
+pub type LPOFNHOOKPROC = Option<unsafe extern "system" fn(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> usize>;
+pub type LPPAGEPAINTHOOK = Option<unsafe extern "system" fn(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> usize>;
+pub type LPPAGESETUPHOOK = Option<unsafe extern "system" fn(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> usize>;
+pub type LPPRINTHOOKPROC = Option<unsafe extern "system" fn(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> usize>;
+pub type LPSETUPHOOKPROC = Option<unsafe extern "system" fn(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> usize>;

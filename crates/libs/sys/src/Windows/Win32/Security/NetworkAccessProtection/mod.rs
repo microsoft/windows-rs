@@ -47,11 +47,11 @@ pub type NapTracingLevel = i32;
 pub type RemoteConfigurationType = i32;
 #[repr(C)]
 pub struct CorrelationId {
-    pub connId: ::windows_sys::core::GUID,
+    pub connId: windows_sys::core::GUID,
     pub timeStamp: super::super::Foundation::FILETIME,
 }
-impl ::core::marker::Copy for CorrelationId {}
-impl ::core::clone::Clone for CorrelationId {
+impl Copy for CorrelationId {}
+impl Clone for CorrelationId {
     fn clone(&self) -> Self {
         *self
     }
@@ -59,10 +59,10 @@ impl ::core::clone::Clone for CorrelationId {
 #[repr(C)]
 pub struct CountedString {
     pub length: u16,
-    pub string: ::windows_sys::core::PWSTR,
+    pub string: windows_sys::core::PWSTR,
 }
-impl ::core::marker::Copy for CountedString {}
-impl ::core::clone::Clone for CountedString {
+impl Copy for CountedString {}
+impl Clone for CountedString {
     fn clone(&self) -> Self {
         *self
     }
@@ -71,8 +71,8 @@ impl ::core::clone::Clone for CountedString {
 pub struct FailureCategoryMapping {
     pub mappingCompliance: [super::super::Foundation::BOOL; 5],
 }
-impl ::core::marker::Copy for FailureCategoryMapping {}
-impl ::core::clone::Clone for FailureCategoryMapping {
+impl Copy for FailureCategoryMapping {}
+impl Clone for FailureCategoryMapping {
     fn clone(&self) -> Self {
         *self
     }
@@ -84,8 +84,8 @@ pub struct FixupInfo {
     pub resultCodes: ResultCodes,
     pub fixupMsgId: u32,
 }
-impl ::core::marker::Copy for FixupInfo {}
-impl ::core::clone::Clone for FixupInfo {
+impl Copy for FixupInfo {}
+impl Clone for FixupInfo {
     fn clone(&self) -> Self {
         *self
     }
@@ -94,8 +94,8 @@ impl ::core::clone::Clone for FixupInfo {
 pub struct Ipv4Address {
     pub addr: [u8; 4],
 }
-impl ::core::marker::Copy for Ipv4Address {}
-impl ::core::clone::Clone for Ipv4Address {
+impl Copy for Ipv4Address {}
+impl Clone for Ipv4Address {
     fn clone(&self) -> Self {
         *self
     }
@@ -104,8 +104,8 @@ impl ::core::clone::Clone for Ipv4Address {
 pub struct Ipv6Address {
     pub addr: [u8; 16],
 }
-impl ::core::marker::Copy for Ipv6Address {}
-impl ::core::clone::Clone for Ipv6Address {
+impl Copy for Ipv6Address {}
+impl Clone for Ipv6Address {
     fn clone(&self) -> Self {
         *self
     }
@@ -116,8 +116,8 @@ pub struct IsolationInfo {
     pub probEndTime: super::super::Foundation::FILETIME,
     pub failureUrl: CountedString,
 }
-impl ::core::marker::Copy for IsolationInfo {}
-impl ::core::clone::Clone for IsolationInfo {
+impl Copy for IsolationInfo {}
+impl Clone for IsolationInfo {
     fn clone(&self) -> Self {
         *self
     }
@@ -129,8 +129,8 @@ pub struct IsolationInfoEx {
     pub probEndTime: super::super::Foundation::FILETIME,
     pub failureUrl: CountedString,
 }
-impl ::core::marker::Copy for IsolationInfoEx {}
-impl ::core::clone::Clone for IsolationInfoEx {
+impl Copy for IsolationInfoEx {}
+impl Clone for IsolationInfoEx {
     fn clone(&self) -> Self {
         *self
     }
@@ -142,13 +142,13 @@ pub struct NapComponentRegistrationInfo {
     pub description: CountedString,
     pub version: CountedString,
     pub vendorName: CountedString,
-    pub infoClsid: ::windows_sys::core::GUID,
-    pub configClsid: ::windows_sys::core::GUID,
+    pub infoClsid: windows_sys::core::GUID,
+    pub configClsid: windows_sys::core::GUID,
     pub registrationDate: super::super::Foundation::FILETIME,
     pub componentType: u32,
 }
-impl ::core::marker::Copy for NapComponentRegistrationInfo {}
-impl ::core::clone::Clone for NapComponentRegistrationInfo {
+impl Copy for NapComponentRegistrationInfo {}
+impl Clone for NapComponentRegistrationInfo {
     fn clone(&self) -> Self {
         *self
     }
@@ -158,8 +158,8 @@ pub struct NetworkSoH {
     pub size: u16,
     pub data: *mut u8,
 }
-impl ::core::marker::Copy for NetworkSoH {}
-impl ::core::clone::Clone for NetworkSoH {
+impl Copy for NetworkSoH {}
+impl Clone for NetworkSoH {
     fn clone(&self) -> Self {
         *self
     }
@@ -169,8 +169,8 @@ pub struct PrivateData {
     pub size: u16,
     pub data: *mut u8,
 }
-impl ::core::marker::Copy for PrivateData {}
-impl ::core::clone::Clone for PrivateData {
+impl Copy for PrivateData {}
+impl Clone for PrivateData {
     fn clone(&self) -> Self {
         *self
     }
@@ -178,10 +178,10 @@ impl ::core::clone::Clone for PrivateData {
 #[repr(C)]
 pub struct ResultCodes {
     pub count: u16,
-    pub results: *mut ::windows_sys::core::HRESULT,
+    pub results: *mut windows_sys::core::HRESULT,
 }
-impl ::core::marker::Copy for ResultCodes {}
-impl ::core::clone::Clone for ResultCodes {
+impl Copy for ResultCodes {}
+impl Clone for ResultCodes {
     fn clone(&self) -> Self {
         *self
     }
@@ -191,8 +191,8 @@ pub struct SoH {
     pub count: u16,
     pub attributes: *mut SoHAttribute,
 }
-impl ::core::marker::Copy for SoH {}
-impl ::core::clone::Clone for SoH {
+impl Copy for SoH {}
+impl Clone for SoH {
     fn clone(&self) -> Self {
         *self
     }
@@ -203,8 +203,8 @@ pub struct SoHAttribute {
     pub size: u16,
     pub value: *mut u8,
 }
-impl ::core::marker::Copy for SoHAttribute {}
-impl ::core::clone::Clone for SoHAttribute {
+impl Copy for SoHAttribute {}
+impl Clone for SoHAttribute {
     fn clone(&self) -> Self {
         *self
     }
@@ -216,8 +216,8 @@ pub struct SystemHealthAgentState {
     pub failureCategory: FailureCategory,
     pub fixupInfo: FixupInfo,
 }
-impl ::core::marker::Copy for SystemHealthAgentState {}
-impl ::core::clone::Clone for SystemHealthAgentState {
+impl Copy for SystemHealthAgentState {}
+impl Clone for SystemHealthAgentState {
     fn clone(&self) -> Self {
         *self
     }

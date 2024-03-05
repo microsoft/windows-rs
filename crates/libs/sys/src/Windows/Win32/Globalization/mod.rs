@@ -1,19 +1,19 @@
 ::windows_targets::link!("kernel32.dll" "system" fn AdjustCalendarDate(lpcaldatetime : *mut CALDATETIME, calunit : CALDATETIME_DATEUNIT, amount : i32) -> super::Foundation:: BOOL);
 ::windows_targets::link!("kernel32.dll" "system" fn CompareStringA(locale : u32, dwcmpflags : u32, lpstring1 : *const i8, cchcount1 : i32, lpstring2 : *const i8, cchcount2 : i32) -> COMPARESTRING_RESULT);
-::windows_targets::link!("kernel32.dll" "system" fn CompareStringEx(lplocalename : ::windows_sys::core::PCWSTR, dwcmpflags : COMPARE_STRING_FLAGS, lpstring1 : ::windows_sys::core::PCWSTR, cchcount1 : i32, lpstring2 : ::windows_sys::core::PCWSTR, cchcount2 : i32, lpversioninformation : *const NLSVERSIONINFO, lpreserved : *const ::core::ffi::c_void, lparam : super::Foundation:: LPARAM) -> COMPARESTRING_RESULT);
-::windows_targets::link!("kernel32.dll" "system" fn CompareStringOrdinal(lpstring1 : ::windows_sys::core::PCWSTR, cchcount1 : i32, lpstring2 : ::windows_sys::core::PCWSTR, cchcount2 : i32, bignorecase : super::Foundation:: BOOL) -> COMPARESTRING_RESULT);
-::windows_targets::link!("kernel32.dll" "system" fn CompareStringW(locale : u32, dwcmpflags : u32, lpstring1 : ::windows_sys::core::PCWSTR, cchcount1 : i32, lpstring2 : ::windows_sys::core::PCWSTR, cchcount2 : i32) -> COMPARESTRING_RESULT);
+::windows_targets::link!("kernel32.dll" "system" fn CompareStringEx(lplocalename : windows_sys::core::PCWSTR, dwcmpflags : COMPARE_STRING_FLAGS, lpstring1 : windows_sys::core::PCWSTR, cchcount1 : i32, lpstring2 : windows_sys::core::PCWSTR, cchcount2 : i32, lpversioninformation : *const NLSVERSIONINFO, lpreserved : *const core::ffi::c_void, lparam : super::Foundation:: LPARAM) -> COMPARESTRING_RESULT);
+::windows_targets::link!("kernel32.dll" "system" fn CompareStringOrdinal(lpstring1 : windows_sys::core::PCWSTR, cchcount1 : i32, lpstring2 : windows_sys::core::PCWSTR, cchcount2 : i32, bignorecase : super::Foundation:: BOOL) -> COMPARESTRING_RESULT);
+::windows_targets::link!("kernel32.dll" "system" fn CompareStringW(locale : u32, dwcmpflags : u32, lpstring1 : windows_sys::core::PCWSTR, cchcount1 : i32, lpstring2 : windows_sys::core::PCWSTR, cchcount2 : i32) -> COMPARESTRING_RESULT);
 ::windows_targets::link!("kernel32.dll" "system" fn ConvertCalDateTimeToSystemTime(lpcaldatetime : *const CALDATETIME, lpsystime : *mut super::Foundation:: SYSTEMTIME) -> super::Foundation:: BOOL);
 ::windows_targets::link!("kernel32.dll" "system" fn ConvertDefaultLocale(locale : u32) -> u32);
 ::windows_targets::link!("kernel32.dll" "system" fn ConvertSystemTimeToCalDateTime(lpsystime : *const super::Foundation:: SYSTEMTIME, calid : u32, lpcaldatetime : *mut CALDATETIME) -> super::Foundation:: BOOL);
 ::windows_targets::link!("kernel32.dll" "system" fn EnumCalendarInfoA(lpcalinfoenumproc : CALINFO_ENUMPROCA, locale : u32, calendar : u32, caltype : u32) -> super::Foundation:: BOOL);
 ::windows_targets::link!("kernel32.dll" "system" fn EnumCalendarInfoExA(lpcalinfoenumprocex : CALINFO_ENUMPROCEXA, locale : u32, calendar : u32, caltype : u32) -> super::Foundation:: BOOL);
-::windows_targets::link!("kernel32.dll" "system" fn EnumCalendarInfoExEx(pcalinfoenumprocexex : CALINFO_ENUMPROCEXEX, lplocalename : ::windows_sys::core::PCWSTR, calendar : u32, lpreserved : ::windows_sys::core::PCWSTR, caltype : u32, lparam : super::Foundation:: LPARAM) -> super::Foundation:: BOOL);
+::windows_targets::link!("kernel32.dll" "system" fn EnumCalendarInfoExEx(pcalinfoenumprocexex : CALINFO_ENUMPROCEXEX, lplocalename : windows_sys::core::PCWSTR, calendar : u32, lpreserved : windows_sys::core::PCWSTR, caltype : u32, lparam : super::Foundation:: LPARAM) -> super::Foundation:: BOOL);
 ::windows_targets::link!("kernel32.dll" "system" fn EnumCalendarInfoExW(lpcalinfoenumprocex : CALINFO_ENUMPROCEXW, locale : u32, calendar : u32, caltype : u32) -> super::Foundation:: BOOL);
 ::windows_targets::link!("kernel32.dll" "system" fn EnumCalendarInfoW(lpcalinfoenumproc : CALINFO_ENUMPROCW, locale : u32, calendar : u32, caltype : u32) -> super::Foundation:: BOOL);
 ::windows_targets::link!("kernel32.dll" "system" fn EnumDateFormatsA(lpdatefmtenumproc : DATEFMT_ENUMPROCA, locale : u32, dwflags : u32) -> super::Foundation:: BOOL);
 ::windows_targets::link!("kernel32.dll" "system" fn EnumDateFormatsExA(lpdatefmtenumprocex : DATEFMT_ENUMPROCEXA, locale : u32, dwflags : u32) -> super::Foundation:: BOOL);
-::windows_targets::link!("kernel32.dll" "system" fn EnumDateFormatsExEx(lpdatefmtenumprocexex : DATEFMT_ENUMPROCEXEX, lplocalename : ::windows_sys::core::PCWSTR, dwflags : ENUM_DATE_FORMATS_FLAGS, lparam : super::Foundation:: LPARAM) -> super::Foundation:: BOOL);
+::windows_targets::link!("kernel32.dll" "system" fn EnumDateFormatsExEx(lpdatefmtenumprocexex : DATEFMT_ENUMPROCEXEX, lplocalename : windows_sys::core::PCWSTR, dwflags : ENUM_DATE_FORMATS_FLAGS, lparam : super::Foundation:: LPARAM) -> super::Foundation:: BOOL);
 ::windows_targets::link!("kernel32.dll" "system" fn EnumDateFormatsExW(lpdatefmtenumprocex : DATEFMT_ENUMPROCEXW, locale : u32, dwflags : u32) -> super::Foundation:: BOOL);
 ::windows_targets::link!("kernel32.dll" "system" fn EnumDateFormatsW(lpdatefmtenumproc : DATEFMT_ENUMPROCW, locale : u32, dwflags : u32) -> super::Foundation:: BOOL);
 ::windows_targets::link!("kernel32.dll" "system" fn EnumLanguageGroupLocalesA(lplanggrouplocaleenumproc : LANGGROUPLOCALE_ENUMPROCA, languagegroup : u32, dwflags : u32, lparam : isize) -> super::Foundation:: BOOL);
@@ -25,226 +25,226 @@
 ::windows_targets::link!("kernel32.dll" "system" fn EnumSystemLanguageGroupsA(lplanguagegroupenumproc : LANGUAGEGROUP_ENUMPROCA, dwflags : ENUM_SYSTEM_LANGUAGE_GROUPS_FLAGS, lparam : isize) -> super::Foundation:: BOOL);
 ::windows_targets::link!("kernel32.dll" "system" fn EnumSystemLanguageGroupsW(lplanguagegroupenumproc : LANGUAGEGROUP_ENUMPROCW, dwflags : ENUM_SYSTEM_LANGUAGE_GROUPS_FLAGS, lparam : isize) -> super::Foundation:: BOOL);
 ::windows_targets::link!("kernel32.dll" "system" fn EnumSystemLocalesA(lplocaleenumproc : LOCALE_ENUMPROCA, dwflags : u32) -> super::Foundation:: BOOL);
-::windows_targets::link!("kernel32.dll" "system" fn EnumSystemLocalesEx(lplocaleenumprocex : LOCALE_ENUMPROCEX, dwflags : u32, lparam : super::Foundation:: LPARAM, lpreserved : *const ::core::ffi::c_void) -> super::Foundation:: BOOL);
+::windows_targets::link!("kernel32.dll" "system" fn EnumSystemLocalesEx(lplocaleenumprocex : LOCALE_ENUMPROCEX, dwflags : u32, lparam : super::Foundation:: LPARAM, lpreserved : *const core::ffi::c_void) -> super::Foundation:: BOOL);
 ::windows_targets::link!("kernel32.dll" "system" fn EnumSystemLocalesW(lplocaleenumproc : LOCALE_ENUMPROCW, dwflags : u32) -> super::Foundation:: BOOL);
 ::windows_targets::link!("kernel32.dll" "system" fn EnumTimeFormatsA(lptimefmtenumproc : TIMEFMT_ENUMPROCA, locale : u32, dwflags : TIME_FORMAT_FLAGS) -> super::Foundation:: BOOL);
-::windows_targets::link!("kernel32.dll" "system" fn EnumTimeFormatsEx(lptimefmtenumprocex : TIMEFMT_ENUMPROCEX, lplocalename : ::windows_sys::core::PCWSTR, dwflags : u32, lparam : super::Foundation:: LPARAM) -> super::Foundation:: BOOL);
+::windows_targets::link!("kernel32.dll" "system" fn EnumTimeFormatsEx(lptimefmtenumprocex : TIMEFMT_ENUMPROCEX, lplocalename : windows_sys::core::PCWSTR, dwflags : u32, lparam : super::Foundation:: LPARAM) -> super::Foundation:: BOOL);
 ::windows_targets::link!("kernel32.dll" "system" fn EnumTimeFormatsW(lptimefmtenumproc : TIMEFMT_ENUMPROCW, locale : u32, dwflags : TIME_FORMAT_FLAGS) -> super::Foundation:: BOOL);
 ::windows_targets::link!("kernel32.dll" "system" fn EnumUILanguagesA(lpuilanguageenumproc : UILANGUAGE_ENUMPROCA, dwflags : u32, lparam : isize) -> super::Foundation:: BOOL);
 ::windows_targets::link!("kernel32.dll" "system" fn EnumUILanguagesW(lpuilanguageenumproc : UILANGUAGE_ENUMPROCW, dwflags : u32, lparam : isize) -> super::Foundation:: BOOL);
-::windows_targets::link!("kernel32.dll" "system" fn FindNLSString(locale : u32, dwfindnlsstringflags : u32, lpstringsource : ::windows_sys::core::PCWSTR, cchsource : i32, lpstringvalue : ::windows_sys::core::PCWSTR, cchvalue : i32, pcchfound : *mut i32) -> i32);
-::windows_targets::link!("kernel32.dll" "system" fn FindNLSStringEx(lplocalename : ::windows_sys::core::PCWSTR, dwfindnlsstringflags : u32, lpstringsource : ::windows_sys::core::PCWSTR, cchsource : i32, lpstringvalue : ::windows_sys::core::PCWSTR, cchvalue : i32, pcchfound : *mut i32, lpversioninformation : *const NLSVERSIONINFO, lpreserved : *const ::core::ffi::c_void, sorthandle : super::Foundation:: LPARAM) -> i32);
-::windows_targets::link!("kernel32.dll" "system" fn FindStringOrdinal(dwfindstringordinalflags : u32, lpstringsource : ::windows_sys::core::PCWSTR, cchsource : i32, lpstringvalue : ::windows_sys::core::PCWSTR, cchvalue : i32, bignorecase : super::Foundation:: BOOL) -> i32);
-::windows_targets::link!("kernel32.dll" "system" fn FoldStringA(dwmapflags : FOLD_STRING_MAP_FLAGS, lpsrcstr : ::windows_sys::core::PCSTR, cchsrc : i32, lpdeststr : ::windows_sys::core::PSTR, cchdest : i32) -> i32);
-::windows_targets::link!("kernel32.dll" "system" fn FoldStringW(dwmapflags : FOLD_STRING_MAP_FLAGS, lpsrcstr : ::windows_sys::core::PCWSTR, cchsrc : i32, lpdeststr : ::windows_sys::core::PWSTR, cchdest : i32) -> i32);
+::windows_targets::link!("kernel32.dll" "system" fn FindNLSString(locale : u32, dwfindnlsstringflags : u32, lpstringsource : windows_sys::core::PCWSTR, cchsource : i32, lpstringvalue : windows_sys::core::PCWSTR, cchvalue : i32, pcchfound : *mut i32) -> i32);
+::windows_targets::link!("kernel32.dll" "system" fn FindNLSStringEx(lplocalename : windows_sys::core::PCWSTR, dwfindnlsstringflags : u32, lpstringsource : windows_sys::core::PCWSTR, cchsource : i32, lpstringvalue : windows_sys::core::PCWSTR, cchvalue : i32, pcchfound : *mut i32, lpversioninformation : *const NLSVERSIONINFO, lpreserved : *const core::ffi::c_void, sorthandle : super::Foundation:: LPARAM) -> i32);
+::windows_targets::link!("kernel32.dll" "system" fn FindStringOrdinal(dwfindstringordinalflags : u32, lpstringsource : windows_sys::core::PCWSTR, cchsource : i32, lpstringvalue : windows_sys::core::PCWSTR, cchvalue : i32, bignorecase : super::Foundation:: BOOL) -> i32);
+::windows_targets::link!("kernel32.dll" "system" fn FoldStringA(dwmapflags : FOLD_STRING_MAP_FLAGS, lpsrcstr : windows_sys::core::PCSTR, cchsrc : i32, lpdeststr : windows_sys::core::PSTR, cchdest : i32) -> i32);
+::windows_targets::link!("kernel32.dll" "system" fn FoldStringW(dwmapflags : FOLD_STRING_MAP_FLAGS, lpsrcstr : windows_sys::core::PCWSTR, cchsrc : i32, lpdeststr : windows_sys::core::PWSTR, cchdest : i32) -> i32);
 ::windows_targets::link!("kernel32.dll" "system" fn GetACP() -> u32);
 ::windows_targets::link!("kernel32.dll" "system" fn GetCPInfo(codepage : u32, lpcpinfo : *mut CPINFO) -> super::Foundation:: BOOL);
 ::windows_targets::link!("kernel32.dll" "system" fn GetCPInfoExA(codepage : u32, dwflags : u32, lpcpinfoex : *mut CPINFOEXA) -> super::Foundation:: BOOL);
 ::windows_targets::link!("kernel32.dll" "system" fn GetCPInfoExW(codepage : u32, dwflags : u32, lpcpinfoex : *mut CPINFOEXW) -> super::Foundation:: BOOL);
-::windows_targets::link!("kernel32.dll" "system" fn GetCalendarDateFormatEx(lpszlocale : ::windows_sys::core::PCWSTR, dwflags : u32, lpcaldatetime : *const CALDATETIME, lpformat : ::windows_sys::core::PCWSTR, lpdatestr : ::windows_sys::core::PWSTR, cchdate : i32) -> super::Foundation:: BOOL);
-::windows_targets::link!("kernel32.dll" "system" fn GetCalendarInfoA(locale : u32, calendar : u32, caltype : u32, lpcaldata : ::windows_sys::core::PSTR, cchdata : i32, lpvalue : *mut u32) -> i32);
-::windows_targets::link!("kernel32.dll" "system" fn GetCalendarInfoEx(lplocalename : ::windows_sys::core::PCWSTR, calendar : u32, lpreserved : ::windows_sys::core::PCWSTR, caltype : u32, lpcaldata : ::windows_sys::core::PWSTR, cchdata : i32, lpvalue : *mut u32) -> i32);
-::windows_targets::link!("kernel32.dll" "system" fn GetCalendarInfoW(locale : u32, calendar : u32, caltype : u32, lpcaldata : ::windows_sys::core::PWSTR, cchdata : i32, lpvalue : *mut u32) -> i32);
+::windows_targets::link!("kernel32.dll" "system" fn GetCalendarDateFormatEx(lpszlocale : windows_sys::core::PCWSTR, dwflags : u32, lpcaldatetime : *const CALDATETIME, lpformat : windows_sys::core::PCWSTR, lpdatestr : windows_sys::core::PWSTR, cchdate : i32) -> super::Foundation:: BOOL);
+::windows_targets::link!("kernel32.dll" "system" fn GetCalendarInfoA(locale : u32, calendar : u32, caltype : u32, lpcaldata : windows_sys::core::PSTR, cchdata : i32, lpvalue : *mut u32) -> i32);
+::windows_targets::link!("kernel32.dll" "system" fn GetCalendarInfoEx(lplocalename : windows_sys::core::PCWSTR, calendar : u32, lpreserved : windows_sys::core::PCWSTR, caltype : u32, lpcaldata : windows_sys::core::PWSTR, cchdata : i32, lpvalue : *mut u32) -> i32);
+::windows_targets::link!("kernel32.dll" "system" fn GetCalendarInfoW(locale : u32, calendar : u32, caltype : u32, lpcaldata : windows_sys::core::PWSTR, cchdata : i32, lpvalue : *mut u32) -> i32);
 ::windows_targets::link!("kernel32.dll" "system" fn GetCalendarSupportedDateRange(calendar : u32, lpcalmindatetime : *mut CALDATETIME, lpcalmaxdatetime : *mut CALDATETIME) -> super::Foundation:: BOOL);
-::windows_targets::link!("kernel32.dll" "system" fn GetCurrencyFormatA(locale : u32, dwflags : u32, lpvalue : ::windows_sys::core::PCSTR, lpformat : *const CURRENCYFMTA, lpcurrencystr : ::windows_sys::core::PSTR, cchcurrency : i32) -> i32);
-::windows_targets::link!("kernel32.dll" "system" fn GetCurrencyFormatEx(lplocalename : ::windows_sys::core::PCWSTR, dwflags : u32, lpvalue : ::windows_sys::core::PCWSTR, lpformat : *const CURRENCYFMTW, lpcurrencystr : ::windows_sys::core::PWSTR, cchcurrency : i32) -> i32);
-::windows_targets::link!("kernel32.dll" "system" fn GetCurrencyFormatW(locale : u32, dwflags : u32, lpvalue : ::windows_sys::core::PCWSTR, lpformat : *const CURRENCYFMTW, lpcurrencystr : ::windows_sys::core::PWSTR, cchcurrency : i32) -> i32);
-::windows_targets::link!("kernel32.dll" "system" fn GetDateFormatA(locale : u32, dwflags : u32, lpdate : *const super::Foundation:: SYSTEMTIME, lpformat : ::windows_sys::core::PCSTR, lpdatestr : ::windows_sys::core::PSTR, cchdate : i32) -> i32);
-::windows_targets::link!("kernel32.dll" "system" fn GetDateFormatEx(lplocalename : ::windows_sys::core::PCWSTR, dwflags : ENUM_DATE_FORMATS_FLAGS, lpdate : *const super::Foundation:: SYSTEMTIME, lpformat : ::windows_sys::core::PCWSTR, lpdatestr : ::windows_sys::core::PWSTR, cchdate : i32, lpcalendar : ::windows_sys::core::PCWSTR) -> i32);
-::windows_targets::link!("kernel32.dll" "system" fn GetDateFormatW(locale : u32, dwflags : u32, lpdate : *const super::Foundation:: SYSTEMTIME, lpformat : ::windows_sys::core::PCWSTR, lpdatestr : ::windows_sys::core::PWSTR, cchdate : i32) -> i32);
-::windows_targets::link!("bcp47mrm.dll" "system" fn GetDistanceOfClosestLanguageInList(pszlanguage : ::windows_sys::core::PCWSTR, pszlanguageslist : ::windows_sys::core::PCWSTR, wchlistdelimiter : u16, pclosestdistance : *mut f64) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("kernel32.dll" "system" fn GetDurationFormat(locale : u32, dwflags : u32, lpduration : *const super::Foundation:: SYSTEMTIME, ullduration : u64, lpformat : ::windows_sys::core::PCWSTR, lpdurationstr : ::windows_sys::core::PWSTR, cchduration : i32) -> i32);
-::windows_targets::link!("kernel32.dll" "system" fn GetDurationFormatEx(lplocalename : ::windows_sys::core::PCWSTR, dwflags : u32, lpduration : *const super::Foundation:: SYSTEMTIME, ullduration : u64, lpformat : ::windows_sys::core::PCWSTR, lpdurationstr : ::windows_sys::core::PWSTR, cchduration : i32) -> i32);
-::windows_targets::link!("kernel32.dll" "system" fn GetFileMUIInfo(dwflags : u32, pcwszfilepath : ::windows_sys::core::PCWSTR, pfilemuiinfo : *mut FILEMUIINFO, pcbfilemuiinfo : *mut u32) -> super::Foundation:: BOOL);
-::windows_targets::link!("kernel32.dll" "system" fn GetFileMUIPath(dwflags : u32, pcwszfilepath : ::windows_sys::core::PCWSTR, pwszlanguage : ::windows_sys::core::PWSTR, pcchlanguage : *mut u32, pwszfilemuipath : ::windows_sys::core::PWSTR, pcchfilemuipath : *mut u32, pululenumerator : *mut u64) -> super::Foundation:: BOOL);
-::windows_targets::link!("kernel32.dll" "system" fn GetGeoInfoA(location : i32, geotype : SYSGEOTYPE, lpgeodata : ::windows_sys::core::PSTR, cchdata : i32, langid : u16) -> i32);
-::windows_targets::link!("kernel32.dll" "system" fn GetGeoInfoEx(location : ::windows_sys::core::PCWSTR, geotype : SYSGEOTYPE, geodata : ::windows_sys::core::PWSTR, geodatacount : i32) -> i32);
-::windows_targets::link!("kernel32.dll" "system" fn GetGeoInfoW(location : i32, geotype : SYSGEOTYPE, lpgeodata : ::windows_sys::core::PWSTR, cchdata : i32, langid : u16) -> i32);
-::windows_targets::link!("kernel32.dll" "system" fn GetLocaleInfoA(locale : u32, lctype : u32, lplcdata : ::windows_sys::core::PSTR, cchdata : i32) -> i32);
-::windows_targets::link!("kernel32.dll" "system" fn GetLocaleInfoEx(lplocalename : ::windows_sys::core::PCWSTR, lctype : u32, lplcdata : ::windows_sys::core::PWSTR, cchdata : i32) -> i32);
-::windows_targets::link!("kernel32.dll" "system" fn GetLocaleInfoW(locale : u32, lctype : u32, lplcdata : ::windows_sys::core::PWSTR, cchdata : i32) -> i32);
+::windows_targets::link!("kernel32.dll" "system" fn GetCurrencyFormatA(locale : u32, dwflags : u32, lpvalue : windows_sys::core::PCSTR, lpformat : *const CURRENCYFMTA, lpcurrencystr : windows_sys::core::PSTR, cchcurrency : i32) -> i32);
+::windows_targets::link!("kernel32.dll" "system" fn GetCurrencyFormatEx(lplocalename : windows_sys::core::PCWSTR, dwflags : u32, lpvalue : windows_sys::core::PCWSTR, lpformat : *const CURRENCYFMTW, lpcurrencystr : windows_sys::core::PWSTR, cchcurrency : i32) -> i32);
+::windows_targets::link!("kernel32.dll" "system" fn GetCurrencyFormatW(locale : u32, dwflags : u32, lpvalue : windows_sys::core::PCWSTR, lpformat : *const CURRENCYFMTW, lpcurrencystr : windows_sys::core::PWSTR, cchcurrency : i32) -> i32);
+::windows_targets::link!("kernel32.dll" "system" fn GetDateFormatA(locale : u32, dwflags : u32, lpdate : *const super::Foundation:: SYSTEMTIME, lpformat : windows_sys::core::PCSTR, lpdatestr : windows_sys::core::PSTR, cchdate : i32) -> i32);
+::windows_targets::link!("kernel32.dll" "system" fn GetDateFormatEx(lplocalename : windows_sys::core::PCWSTR, dwflags : ENUM_DATE_FORMATS_FLAGS, lpdate : *const super::Foundation:: SYSTEMTIME, lpformat : windows_sys::core::PCWSTR, lpdatestr : windows_sys::core::PWSTR, cchdate : i32, lpcalendar : windows_sys::core::PCWSTR) -> i32);
+::windows_targets::link!("kernel32.dll" "system" fn GetDateFormatW(locale : u32, dwflags : u32, lpdate : *const super::Foundation:: SYSTEMTIME, lpformat : windows_sys::core::PCWSTR, lpdatestr : windows_sys::core::PWSTR, cchdate : i32) -> i32);
+::windows_targets::link!("bcp47mrm.dll" "system" fn GetDistanceOfClosestLanguageInList(pszlanguage : windows_sys::core::PCWSTR, pszlanguageslist : windows_sys::core::PCWSTR, wchlistdelimiter : u16, pclosestdistance : *mut f64) -> windows_sys::core::HRESULT);
+::windows_targets::link!("kernel32.dll" "system" fn GetDurationFormat(locale : u32, dwflags : u32, lpduration : *const super::Foundation:: SYSTEMTIME, ullduration : u64, lpformat : windows_sys::core::PCWSTR, lpdurationstr : windows_sys::core::PWSTR, cchduration : i32) -> i32);
+::windows_targets::link!("kernel32.dll" "system" fn GetDurationFormatEx(lplocalename : windows_sys::core::PCWSTR, dwflags : u32, lpduration : *const super::Foundation:: SYSTEMTIME, ullduration : u64, lpformat : windows_sys::core::PCWSTR, lpdurationstr : windows_sys::core::PWSTR, cchduration : i32) -> i32);
+::windows_targets::link!("kernel32.dll" "system" fn GetFileMUIInfo(dwflags : u32, pcwszfilepath : windows_sys::core::PCWSTR, pfilemuiinfo : *mut FILEMUIINFO, pcbfilemuiinfo : *mut u32) -> super::Foundation:: BOOL);
+::windows_targets::link!("kernel32.dll" "system" fn GetFileMUIPath(dwflags : u32, pcwszfilepath : windows_sys::core::PCWSTR, pwszlanguage : windows_sys::core::PWSTR, pcchlanguage : *mut u32, pwszfilemuipath : windows_sys::core::PWSTR, pcchfilemuipath : *mut u32, pululenumerator : *mut u64) -> super::Foundation:: BOOL);
+::windows_targets::link!("kernel32.dll" "system" fn GetGeoInfoA(location : i32, geotype : SYSGEOTYPE, lpgeodata : windows_sys::core::PSTR, cchdata : i32, langid : u16) -> i32);
+::windows_targets::link!("kernel32.dll" "system" fn GetGeoInfoEx(location : windows_sys::core::PCWSTR, geotype : SYSGEOTYPE, geodata : windows_sys::core::PWSTR, geodatacount : i32) -> i32);
+::windows_targets::link!("kernel32.dll" "system" fn GetGeoInfoW(location : i32, geotype : SYSGEOTYPE, lpgeodata : windows_sys::core::PWSTR, cchdata : i32, langid : u16) -> i32);
+::windows_targets::link!("kernel32.dll" "system" fn GetLocaleInfoA(locale : u32, lctype : u32, lplcdata : windows_sys::core::PSTR, cchdata : i32) -> i32);
+::windows_targets::link!("kernel32.dll" "system" fn GetLocaleInfoEx(lplocalename : windows_sys::core::PCWSTR, lctype : u32, lplcdata : windows_sys::core::PWSTR, cchdata : i32) -> i32);
+::windows_targets::link!("kernel32.dll" "system" fn GetLocaleInfoW(locale : u32, lctype : u32, lplcdata : windows_sys::core::PWSTR, cchdata : i32) -> i32);
 ::windows_targets::link!("kernel32.dll" "system" fn GetNLSVersion(function : u32, locale : u32, lpversioninformation : *mut NLSVERSIONINFO) -> super::Foundation:: BOOL);
-::windows_targets::link!("kernel32.dll" "system" fn GetNLSVersionEx(function : u32, lplocalename : ::windows_sys::core::PCWSTR, lpversioninformation : *mut NLSVERSIONINFOEX) -> super::Foundation:: BOOL);
-::windows_targets::link!("kernel32.dll" "system" fn GetNumberFormatA(locale : u32, dwflags : u32, lpvalue : ::windows_sys::core::PCSTR, lpformat : *const NUMBERFMTA, lpnumberstr : ::windows_sys::core::PSTR, cchnumber : i32) -> i32);
-::windows_targets::link!("kernel32.dll" "system" fn GetNumberFormatEx(lplocalename : ::windows_sys::core::PCWSTR, dwflags : u32, lpvalue : ::windows_sys::core::PCWSTR, lpformat : *const NUMBERFMTW, lpnumberstr : ::windows_sys::core::PWSTR, cchnumber : i32) -> i32);
-::windows_targets::link!("kernel32.dll" "system" fn GetNumberFormatW(locale : u32, dwflags : u32, lpvalue : ::windows_sys::core::PCWSTR, lpformat : *const NUMBERFMTW, lpnumberstr : ::windows_sys::core::PWSTR, cchnumber : i32) -> i32);
+::windows_targets::link!("kernel32.dll" "system" fn GetNLSVersionEx(function : u32, lplocalename : windows_sys::core::PCWSTR, lpversioninformation : *mut NLSVERSIONINFOEX) -> super::Foundation:: BOOL);
+::windows_targets::link!("kernel32.dll" "system" fn GetNumberFormatA(locale : u32, dwflags : u32, lpvalue : windows_sys::core::PCSTR, lpformat : *const NUMBERFMTA, lpnumberstr : windows_sys::core::PSTR, cchnumber : i32) -> i32);
+::windows_targets::link!("kernel32.dll" "system" fn GetNumberFormatEx(lplocalename : windows_sys::core::PCWSTR, dwflags : u32, lpvalue : windows_sys::core::PCWSTR, lpformat : *const NUMBERFMTW, lpnumberstr : windows_sys::core::PWSTR, cchnumber : i32) -> i32);
+::windows_targets::link!("kernel32.dll" "system" fn GetNumberFormatW(locale : u32, dwflags : u32, lpvalue : windows_sys::core::PCWSTR, lpformat : *const NUMBERFMTW, lpnumberstr : windows_sys::core::PWSTR, cchnumber : i32) -> i32);
 ::windows_targets::link!("kernel32.dll" "system" fn GetOEMCP() -> u32);
-::windows_targets::link!("kernel32.dll" "system" fn GetProcessPreferredUILanguages(dwflags : u32, pulnumlanguages : *mut u32, pwszlanguagesbuffer : ::windows_sys::core::PWSTR, pcchlanguagesbuffer : *mut u32) -> super::Foundation:: BOOL);
-::windows_targets::link!("kernel32.dll" "system" fn GetStringScripts(dwflags : u32, lpstring : ::windows_sys::core::PCWSTR, cchstring : i32, lpscripts : ::windows_sys::core::PWSTR, cchscripts : i32) -> i32);
-::windows_targets::link!("kernel32.dll" "system" fn GetStringTypeA(locale : u32, dwinfotype : u32, lpsrcstr : ::windows_sys::core::PCSTR, cchsrc : i32, lpchartype : *mut u16) -> super::Foundation:: BOOL);
-::windows_targets::link!("kernel32.dll" "system" fn GetStringTypeExA(locale : u32, dwinfotype : u32, lpsrcstr : ::windows_sys::core::PCSTR, cchsrc : i32, lpchartype : *mut u16) -> super::Foundation:: BOOL);
-::windows_targets::link!("kernel32.dll" "system" fn GetStringTypeExW(locale : u32, dwinfotype : u32, lpsrcstr : ::windows_sys::core::PCWSTR, cchsrc : i32, lpchartype : *mut u16) -> super::Foundation:: BOOL);
-::windows_targets::link!("kernel32.dll" "system" fn GetStringTypeW(dwinfotype : u32, lpsrcstr : ::windows_sys::core::PCWSTR, cchsrc : i32, lpchartype : *mut u16) -> super::Foundation:: BOOL);
+::windows_targets::link!("kernel32.dll" "system" fn GetProcessPreferredUILanguages(dwflags : u32, pulnumlanguages : *mut u32, pwszlanguagesbuffer : windows_sys::core::PWSTR, pcchlanguagesbuffer : *mut u32) -> super::Foundation:: BOOL);
+::windows_targets::link!("kernel32.dll" "system" fn GetStringScripts(dwflags : u32, lpstring : windows_sys::core::PCWSTR, cchstring : i32, lpscripts : windows_sys::core::PWSTR, cchscripts : i32) -> i32);
+::windows_targets::link!("kernel32.dll" "system" fn GetStringTypeA(locale : u32, dwinfotype : u32, lpsrcstr : windows_sys::core::PCSTR, cchsrc : i32, lpchartype : *mut u16) -> super::Foundation:: BOOL);
+::windows_targets::link!("kernel32.dll" "system" fn GetStringTypeExA(locale : u32, dwinfotype : u32, lpsrcstr : windows_sys::core::PCSTR, cchsrc : i32, lpchartype : *mut u16) -> super::Foundation:: BOOL);
+::windows_targets::link!("kernel32.dll" "system" fn GetStringTypeExW(locale : u32, dwinfotype : u32, lpsrcstr : windows_sys::core::PCWSTR, cchsrc : i32, lpchartype : *mut u16) -> super::Foundation:: BOOL);
+::windows_targets::link!("kernel32.dll" "system" fn GetStringTypeW(dwinfotype : u32, lpsrcstr : windows_sys::core::PCWSTR, cchsrc : i32, lpchartype : *mut u16) -> super::Foundation:: BOOL);
 ::windows_targets::link!("kernel32.dll" "system" fn GetSystemDefaultLCID() -> u32);
 ::windows_targets::link!("kernel32.dll" "system" fn GetSystemDefaultLangID() -> u16);
-::windows_targets::link!("kernel32.dll" "system" fn GetSystemDefaultLocaleName(lplocalename : ::windows_sys::core::PWSTR, cchlocalename : i32) -> i32);
+::windows_targets::link!("kernel32.dll" "system" fn GetSystemDefaultLocaleName(lplocalename : windows_sys::core::PWSTR, cchlocalename : i32) -> i32);
 ::windows_targets::link!("kernel32.dll" "system" fn GetSystemDefaultUILanguage() -> u16);
-::windows_targets::link!("kernel32.dll" "system" fn GetSystemPreferredUILanguages(dwflags : u32, pulnumlanguages : *mut u32, pwszlanguagesbuffer : ::windows_sys::core::PWSTR, pcchlanguagesbuffer : *mut u32) -> super::Foundation:: BOOL);
+::windows_targets::link!("kernel32.dll" "system" fn GetSystemPreferredUILanguages(dwflags : u32, pulnumlanguages : *mut u32, pwszlanguagesbuffer : windows_sys::core::PWSTR, pcchlanguagesbuffer : *mut u32) -> super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Graphics_Gdi")]
 ::windows_targets::link!("gdi32.dll" "system" fn GetTextCharset(hdc : super::Graphics::Gdi:: HDC) -> i32);
 #[cfg(feature = "Win32_Graphics_Gdi")]
 ::windows_targets::link!("gdi32.dll" "system" fn GetTextCharsetInfo(hdc : super::Graphics::Gdi:: HDC, lpsig : *mut FONTSIGNATURE, dwflags : u32) -> i32);
 ::windows_targets::link!("kernel32.dll" "system" fn GetThreadLocale() -> u32);
-::windows_targets::link!("kernel32.dll" "system" fn GetThreadPreferredUILanguages(dwflags : u32, pulnumlanguages : *mut u32, pwszlanguagesbuffer : ::windows_sys::core::PWSTR, pcchlanguagesbuffer : *mut u32) -> super::Foundation:: BOOL);
+::windows_targets::link!("kernel32.dll" "system" fn GetThreadPreferredUILanguages(dwflags : u32, pulnumlanguages : *mut u32, pwszlanguagesbuffer : windows_sys::core::PWSTR, pcchlanguagesbuffer : *mut u32) -> super::Foundation:: BOOL);
 ::windows_targets::link!("kernel32.dll" "system" fn GetThreadUILanguage() -> u16);
-::windows_targets::link!("kernel32.dll" "system" fn GetTimeFormatA(locale : u32, dwflags : u32, lptime : *const super::Foundation:: SYSTEMTIME, lpformat : ::windows_sys::core::PCSTR, lptimestr : ::windows_sys::core::PSTR, cchtime : i32) -> i32);
-::windows_targets::link!("kernel32.dll" "system" fn GetTimeFormatEx(lplocalename : ::windows_sys::core::PCWSTR, dwflags : TIME_FORMAT_FLAGS, lptime : *const super::Foundation:: SYSTEMTIME, lpformat : ::windows_sys::core::PCWSTR, lptimestr : ::windows_sys::core::PWSTR, cchtime : i32) -> i32);
-::windows_targets::link!("kernel32.dll" "system" fn GetTimeFormatW(locale : u32, dwflags : u32, lptime : *const super::Foundation:: SYSTEMTIME, lpformat : ::windows_sys::core::PCWSTR, lptimestr : ::windows_sys::core::PWSTR, cchtime : i32) -> i32);
-::windows_targets::link!("kernel32.dll" "system" fn GetUILanguageInfo(dwflags : u32, pwmszlanguage : ::windows_sys::core::PCWSTR, pwszfallbacklanguages : ::windows_sys::core::PWSTR, pcchfallbacklanguages : *mut u32, pattributes : *mut u32) -> super::Foundation:: BOOL);
-::windows_targets::link!("kernel32.dll" "system" fn GetUserDefaultGeoName(geoname : ::windows_sys::core::PWSTR, geonamecount : i32) -> i32);
+::windows_targets::link!("kernel32.dll" "system" fn GetTimeFormatA(locale : u32, dwflags : u32, lptime : *const super::Foundation:: SYSTEMTIME, lpformat : windows_sys::core::PCSTR, lptimestr : windows_sys::core::PSTR, cchtime : i32) -> i32);
+::windows_targets::link!("kernel32.dll" "system" fn GetTimeFormatEx(lplocalename : windows_sys::core::PCWSTR, dwflags : TIME_FORMAT_FLAGS, lptime : *const super::Foundation:: SYSTEMTIME, lpformat : windows_sys::core::PCWSTR, lptimestr : windows_sys::core::PWSTR, cchtime : i32) -> i32);
+::windows_targets::link!("kernel32.dll" "system" fn GetTimeFormatW(locale : u32, dwflags : u32, lptime : *const super::Foundation:: SYSTEMTIME, lpformat : windows_sys::core::PCWSTR, lptimestr : windows_sys::core::PWSTR, cchtime : i32) -> i32);
+::windows_targets::link!("kernel32.dll" "system" fn GetUILanguageInfo(dwflags : u32, pwmszlanguage : windows_sys::core::PCWSTR, pwszfallbacklanguages : windows_sys::core::PWSTR, pcchfallbacklanguages : *mut u32, pattributes : *mut u32) -> super::Foundation:: BOOL);
+::windows_targets::link!("kernel32.dll" "system" fn GetUserDefaultGeoName(geoname : windows_sys::core::PWSTR, geonamecount : i32) -> i32);
 ::windows_targets::link!("kernel32.dll" "system" fn GetUserDefaultLCID() -> u32);
 ::windows_targets::link!("kernel32.dll" "system" fn GetUserDefaultLangID() -> u16);
-::windows_targets::link!("kernel32.dll" "system" fn GetUserDefaultLocaleName(lplocalename : ::windows_sys::core::PWSTR, cchlocalename : i32) -> i32);
+::windows_targets::link!("kernel32.dll" "system" fn GetUserDefaultLocaleName(lplocalename : windows_sys::core::PWSTR, cchlocalename : i32) -> i32);
 ::windows_targets::link!("kernel32.dll" "system" fn GetUserDefaultUILanguage() -> u16);
 ::windows_targets::link!("kernel32.dll" "system" fn GetUserGeoID(geoclass : SYSGEOCLASS) -> i32);
-::windows_targets::link!("kernel32.dll" "system" fn GetUserPreferredUILanguages(dwflags : u32, pulnumlanguages : *mut u32, pwszlanguagesbuffer : ::windows_sys::core::PWSTR, pcchlanguagesbuffer : *mut u32) -> super::Foundation:: BOOL);
-::windows_targets::link!("normaliz.dll" "system" fn IdnToAscii(dwflags : u32, lpunicodecharstr : ::windows_sys::core::PCWSTR, cchunicodechar : i32, lpasciicharstr : ::windows_sys::core::PWSTR, cchasciichar : i32) -> i32);
-::windows_targets::link!("kernel32.dll" "system" fn IdnToNameprepUnicode(dwflags : u32, lpunicodecharstr : ::windows_sys::core::PCWSTR, cchunicodechar : i32, lpnameprepcharstr : ::windows_sys::core::PWSTR, cchnameprepchar : i32) -> i32);
-::windows_targets::link!("normaliz.dll" "system" fn IdnToUnicode(dwflags : u32, lpasciicharstr : ::windows_sys::core::PCWSTR, cchasciichar : i32, lpunicodecharstr : ::windows_sys::core::PWSTR, cchunicodechar : i32) -> i32);
+::windows_targets::link!("kernel32.dll" "system" fn GetUserPreferredUILanguages(dwflags : u32, pulnumlanguages : *mut u32, pwszlanguagesbuffer : windows_sys::core::PWSTR, pcchlanguagesbuffer : *mut u32) -> super::Foundation:: BOOL);
+::windows_targets::link!("normaliz.dll" "system" fn IdnToAscii(dwflags : u32, lpunicodecharstr : windows_sys::core::PCWSTR, cchunicodechar : i32, lpasciicharstr : windows_sys::core::PWSTR, cchasciichar : i32) -> i32);
+::windows_targets::link!("kernel32.dll" "system" fn IdnToNameprepUnicode(dwflags : u32, lpunicodecharstr : windows_sys::core::PCWSTR, cchunicodechar : i32, lpnameprepcharstr : windows_sys::core::PWSTR, cchnameprepchar : i32) -> i32);
+::windows_targets::link!("normaliz.dll" "system" fn IdnToUnicode(dwflags : u32, lpasciicharstr : windows_sys::core::PCWSTR, cchasciichar : i32, lpunicodecharstr : windows_sys::core::PWSTR, cchunicodechar : i32) -> i32);
 ::windows_targets::link!("kernel32.dll" "system" fn IsCalendarLeapYear(calid : u32, year : u32, era : u32) -> super::Foundation:: BOOL);
 ::windows_targets::link!("kernel32.dll" "system" fn IsDBCSLeadByte(testchar : u8) -> super::Foundation:: BOOL);
 ::windows_targets::link!("kernel32.dll" "system" fn IsDBCSLeadByteEx(codepage : u32, testchar : u8) -> super::Foundation:: BOOL);
-::windows_targets::link!("kernel32.dll" "system" fn IsNLSDefinedString(function : u32, dwflags : u32, lpversioninformation : *const NLSVERSIONINFO, lpstring : ::windows_sys::core::PCWSTR, cchstr : i32) -> super::Foundation:: BOOL);
-::windows_targets::link!("kernel32.dll" "system" fn IsNormalizedString(normform : NORM_FORM, lpstring : ::windows_sys::core::PCWSTR, cwlength : i32) -> super::Foundation:: BOOL);
-::windows_targets::link!("advapi32.dll" "system" fn IsTextUnicode(lpv : *const ::core::ffi::c_void, isize : i32, lpiresult : *mut IS_TEXT_UNICODE_RESULT) -> super::Foundation:: BOOL);
+::windows_targets::link!("kernel32.dll" "system" fn IsNLSDefinedString(function : u32, dwflags : u32, lpversioninformation : *const NLSVERSIONINFO, lpstring : windows_sys::core::PCWSTR, cchstr : i32) -> super::Foundation:: BOOL);
+::windows_targets::link!("kernel32.dll" "system" fn IsNormalizedString(normform : NORM_FORM, lpstring : windows_sys::core::PCWSTR, cwlength : i32) -> super::Foundation:: BOOL);
+::windows_targets::link!("advapi32.dll" "system" fn IsTextUnicode(lpv : *const core::ffi::c_void, isize : i32, lpiresult : *mut IS_TEXT_UNICODE_RESULT) -> super::Foundation:: BOOL);
 ::windows_targets::link!("kernel32.dll" "system" fn IsValidCodePage(codepage : u32) -> super::Foundation:: BOOL);
 ::windows_targets::link!("kernel32.dll" "system" fn IsValidLanguageGroup(languagegroup : u32, dwflags : ENUM_SYSTEM_LANGUAGE_GROUPS_FLAGS) -> super::Foundation:: BOOL);
 ::windows_targets::link!("kernel32.dll" "system" fn IsValidLocale(locale : u32, dwflags : IS_VALID_LOCALE_FLAGS) -> super::Foundation:: BOOL);
-::windows_targets::link!("kernel32.dll" "system" fn IsValidLocaleName(lplocalename : ::windows_sys::core::PCWSTR) -> super::Foundation:: BOOL);
-::windows_targets::link!("kernel32.dll" "system" fn IsValidNLSVersion(function : u32, lplocalename : ::windows_sys::core::PCWSTR, lpversioninformation : *const NLSVERSIONINFOEX) -> u32);
-::windows_targets::link!("bcp47mrm.dll" "system" fn IsWellFormedTag(psztag : ::windows_sys::core::PCWSTR) -> u8);
-::windows_targets::link!("kernel32.dll" "system" fn LCIDToLocaleName(locale : u32, lpname : ::windows_sys::core::PWSTR, cchname : i32, dwflags : u32) -> i32);
-::windows_targets::link!("kernel32.dll" "system" fn LCMapStringA(locale : u32, dwmapflags : u32, lpsrcstr : ::windows_sys::core::PCSTR, cchsrc : i32, lpdeststr : ::windows_sys::core::PSTR, cchdest : i32) -> i32);
-::windows_targets::link!("kernel32.dll" "system" fn LCMapStringEx(lplocalename : ::windows_sys::core::PCWSTR, dwmapflags : u32, lpsrcstr : ::windows_sys::core::PCWSTR, cchsrc : i32, lpdeststr : ::windows_sys::core::PWSTR, cchdest : i32, lpversioninformation : *const NLSVERSIONINFO, lpreserved : *const ::core::ffi::c_void, sorthandle : super::Foundation:: LPARAM) -> i32);
-::windows_targets::link!("kernel32.dll" "system" fn LCMapStringW(locale : u32, dwmapflags : u32, lpsrcstr : ::windows_sys::core::PCWSTR, cchsrc : i32, lpdeststr : ::windows_sys::core::PWSTR, cchdest : i32) -> i32);
-::windows_targets::link!("kernel32.dll" "system" fn LocaleNameToLCID(lpname : ::windows_sys::core::PCWSTR, dwflags : u32) -> u32);
-::windows_targets::link!("elscore.dll" "system" fn MappingDoAction(pbag : *mut MAPPING_PROPERTY_BAG, dwrangeindex : u32, pszactionid : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("elscore.dll" "system" fn MappingFreePropertyBag(pbag : *const MAPPING_PROPERTY_BAG) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("elscore.dll" "system" fn MappingFreeServices(pserviceinfo : *const MAPPING_SERVICE_INFO) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("elscore.dll" "system" fn MappingGetServices(poptions : *const MAPPING_ENUM_OPTIONS, prgservices : *mut *mut MAPPING_SERVICE_INFO, pdwservicescount : *mut u32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("elscore.dll" "system" fn MappingRecognizeText(pserviceinfo : *const MAPPING_SERVICE_INFO, psztext : ::windows_sys::core::PCWSTR, dwlength : u32, dwindex : u32, poptions : *const MAPPING_OPTIONS, pbag : *mut MAPPING_PROPERTY_BAG) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("kernel32.dll" "system" fn MultiByteToWideChar(codepage : u32, dwflags : MULTI_BYTE_TO_WIDE_CHAR_FLAGS, lpmultibytestr : ::windows_sys::core::PCSTR, cbmultibyte : i32, lpwidecharstr : ::windows_sys::core::PWSTR, cchwidechar : i32) -> i32);
-::windows_targets::link!("kernel32.dll" "system" fn NormalizeString(normform : NORM_FORM, lpsrcstring : ::windows_sys::core::PCWSTR, cwsrclength : i32, lpdststring : ::windows_sys::core::PWSTR, cwdstlength : i32) -> i32);
-::windows_targets::link!("kernel32.dll" "system" fn NotifyUILanguageChange(dwflags : u32, pcwstrnewlanguage : ::windows_sys::core::PCWSTR, pcwstrpreviouslanguage : ::windows_sys::core::PCWSTR, dwreserved : u32, pdwstatusrtrn : *mut u32) -> super::Foundation:: BOOL);
-::windows_targets::link!("kernel32.dll" "system" fn ResolveLocaleName(lpnametoresolve : ::windows_sys::core::PCWSTR, lplocalename : ::windows_sys::core::PWSTR, cchlocalename : i32) -> i32);
+::windows_targets::link!("kernel32.dll" "system" fn IsValidLocaleName(lplocalename : windows_sys::core::PCWSTR) -> super::Foundation:: BOOL);
+::windows_targets::link!("kernel32.dll" "system" fn IsValidNLSVersion(function : u32, lplocalename : windows_sys::core::PCWSTR, lpversioninformation : *const NLSVERSIONINFOEX) -> u32);
+::windows_targets::link!("bcp47mrm.dll" "system" fn IsWellFormedTag(psztag : windows_sys::core::PCWSTR) -> u8);
+::windows_targets::link!("kernel32.dll" "system" fn LCIDToLocaleName(locale : u32, lpname : windows_sys::core::PWSTR, cchname : i32, dwflags : u32) -> i32);
+::windows_targets::link!("kernel32.dll" "system" fn LCMapStringA(locale : u32, dwmapflags : u32, lpsrcstr : windows_sys::core::PCSTR, cchsrc : i32, lpdeststr : windows_sys::core::PSTR, cchdest : i32) -> i32);
+::windows_targets::link!("kernel32.dll" "system" fn LCMapStringEx(lplocalename : windows_sys::core::PCWSTR, dwmapflags : u32, lpsrcstr : windows_sys::core::PCWSTR, cchsrc : i32, lpdeststr : windows_sys::core::PWSTR, cchdest : i32, lpversioninformation : *const NLSVERSIONINFO, lpreserved : *const core::ffi::c_void, sorthandle : super::Foundation:: LPARAM) -> i32);
+::windows_targets::link!("kernel32.dll" "system" fn LCMapStringW(locale : u32, dwmapflags : u32, lpsrcstr : windows_sys::core::PCWSTR, cchsrc : i32, lpdeststr : windows_sys::core::PWSTR, cchdest : i32) -> i32);
+::windows_targets::link!("kernel32.dll" "system" fn LocaleNameToLCID(lpname : windows_sys::core::PCWSTR, dwflags : u32) -> u32);
+::windows_targets::link!("elscore.dll" "system" fn MappingDoAction(pbag : *mut MAPPING_PROPERTY_BAG, dwrangeindex : u32, pszactionid : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
+::windows_targets::link!("elscore.dll" "system" fn MappingFreePropertyBag(pbag : *const MAPPING_PROPERTY_BAG) -> windows_sys::core::HRESULT);
+::windows_targets::link!("elscore.dll" "system" fn MappingFreeServices(pserviceinfo : *const MAPPING_SERVICE_INFO) -> windows_sys::core::HRESULT);
+::windows_targets::link!("elscore.dll" "system" fn MappingGetServices(poptions : *const MAPPING_ENUM_OPTIONS, prgservices : *mut *mut MAPPING_SERVICE_INFO, pdwservicescount : *mut u32) -> windows_sys::core::HRESULT);
+::windows_targets::link!("elscore.dll" "system" fn MappingRecognizeText(pserviceinfo : *const MAPPING_SERVICE_INFO, psztext : windows_sys::core::PCWSTR, dwlength : u32, dwindex : u32, poptions : *const MAPPING_OPTIONS, pbag : *mut MAPPING_PROPERTY_BAG) -> windows_sys::core::HRESULT);
+::windows_targets::link!("kernel32.dll" "system" fn MultiByteToWideChar(codepage : u32, dwflags : MULTI_BYTE_TO_WIDE_CHAR_FLAGS, lpmultibytestr : windows_sys::core::PCSTR, cbmultibyte : i32, lpwidecharstr : windows_sys::core::PWSTR, cchwidechar : i32) -> i32);
+::windows_targets::link!("kernel32.dll" "system" fn NormalizeString(normform : NORM_FORM, lpsrcstring : windows_sys::core::PCWSTR, cwsrclength : i32, lpdststring : windows_sys::core::PWSTR, cwdstlength : i32) -> i32);
+::windows_targets::link!("kernel32.dll" "system" fn NotifyUILanguageChange(dwflags : u32, pcwstrnewlanguage : windows_sys::core::PCWSTR, pcwstrpreviouslanguage : windows_sys::core::PCWSTR, dwreserved : u32, pdwstatusrtrn : *mut u32) -> super::Foundation:: BOOL);
+::windows_targets::link!("kernel32.dll" "system" fn ResolveLocaleName(lpnametoresolve : windows_sys::core::PCWSTR, lplocalename : windows_sys::core::PWSTR, cchlocalename : i32) -> i32);
 ::windows_targets::link!("kernel32.dll" "system" fn RestoreThreadPreferredUILanguages(snapshot : HSAVEDUILANGUAGES));
-::windows_targets::link!("usp10.dll" "system" fn ScriptApplyDigitSubstitution(psds : *const SCRIPT_DIGITSUBSTITUTE, psc : *mut SCRIPT_CONTROL, pss : *mut SCRIPT_STATE) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("usp10.dll" "system" fn ScriptApplyDigitSubstitution(psds : *const SCRIPT_DIGITSUBSTITUTE, psc : *mut SCRIPT_CONTROL, pss : *mut SCRIPT_STATE) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("usp10.dll" "system" fn ScriptApplyLogicalWidth(pidx : *const i32, cchars : i32, cglyphs : i32, pwlogclust : *const u16, psva : *const SCRIPT_VISATTR, piadvance : *const i32, psa : *const SCRIPT_ANALYSIS, pabc : *mut super::Graphics::Gdi:: ABC, pijustify : *mut i32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("usp10.dll" "system" fn ScriptBreak(pwcchars : ::windows_sys::core::PCWSTR, cchars : i32, psa : *const SCRIPT_ANALYSIS, psla : *mut SCRIPT_LOGATTR) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("usp10.dll" "system" fn ScriptCPtoX(icp : i32, ftrailing : super::Foundation:: BOOL, cchars : i32, cglyphs : i32, pwlogclust : *const u16, psva : *const SCRIPT_VISATTR, piadvance : *const i32, psa : *const SCRIPT_ANALYSIS, pix : *mut i32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("usp10.dll" "system" fn ScriptApplyLogicalWidth(pidx : *const i32, cchars : i32, cglyphs : i32, pwlogclust : *const u16, psva : *const SCRIPT_VISATTR, piadvance : *const i32, psa : *const SCRIPT_ANALYSIS, pabc : *mut super::Graphics::Gdi:: ABC, pijustify : *mut i32) -> windows_sys::core::HRESULT);
+::windows_targets::link!("usp10.dll" "system" fn ScriptBreak(pwcchars : windows_sys::core::PCWSTR, cchars : i32, psa : *const SCRIPT_ANALYSIS, psla : *mut SCRIPT_LOGATTR) -> windows_sys::core::HRESULT);
+::windows_targets::link!("usp10.dll" "system" fn ScriptCPtoX(icp : i32, ftrailing : super::Foundation:: BOOL, cchars : i32, cglyphs : i32, pwlogclust : *const u16, psva : *const SCRIPT_VISATTR, piadvance : *const i32, psa : *const SCRIPT_ANALYSIS, pix : *mut i32) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("usp10.dll" "system" fn ScriptCacheGetHeight(hdc : super::Graphics::Gdi:: HDC, psc : *mut *mut ::core::ffi::c_void, tmheight : *mut i32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("usp10.dll" "system" fn ScriptFreeCache(psc : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("usp10.dll" "system" fn ScriptCacheGetHeight(hdc : super::Graphics::Gdi:: HDC, psc : *mut *mut core::ffi::c_void, tmheight : *mut i32) -> windows_sys::core::HRESULT);
+::windows_targets::link!("usp10.dll" "system" fn ScriptFreeCache(psc : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("usp10.dll" "system" fn ScriptGetCMap(hdc : super::Graphics::Gdi:: HDC, psc : *mut *mut ::core::ffi::c_void, pwcinchars : ::windows_sys::core::PCWSTR, cchars : i32, dwflags : u32, pwoutglyphs : *mut u16) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("usp10.dll" "system" fn ScriptGetCMap(hdc : super::Graphics::Gdi:: HDC, psc : *mut *mut core::ffi::c_void, pwcinchars : windows_sys::core::PCWSTR, cchars : i32, dwflags : u32, pwoutglyphs : *mut u16) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("usp10.dll" "system" fn ScriptGetFontAlternateGlyphs(hdc : super::Graphics::Gdi:: HDC, psc : *mut *mut ::core::ffi::c_void, psa : *const SCRIPT_ANALYSIS, tagscript : u32, taglangsys : u32, tagfeature : u32, wglyphid : u16, cmaxalternates : i32, palternateglyphs : *mut u16, pcalternates : *mut i32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("usp10.dll" "system" fn ScriptGetFontAlternateGlyphs(hdc : super::Graphics::Gdi:: HDC, psc : *mut *mut core::ffi::c_void, psa : *const SCRIPT_ANALYSIS, tagscript : u32, taglangsys : u32, tagfeature : u32, wglyphid : u16, cmaxalternates : i32, palternateglyphs : *mut u16, pcalternates : *mut i32) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("usp10.dll" "system" fn ScriptGetFontFeatureTags(hdc : super::Graphics::Gdi:: HDC, psc : *mut *mut ::core::ffi::c_void, psa : *const SCRIPT_ANALYSIS, tagscript : u32, taglangsys : u32, cmaxtags : i32, pfeaturetags : *mut u32, pctags : *mut i32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("usp10.dll" "system" fn ScriptGetFontFeatureTags(hdc : super::Graphics::Gdi:: HDC, psc : *mut *mut core::ffi::c_void, psa : *const SCRIPT_ANALYSIS, tagscript : u32, taglangsys : u32, cmaxtags : i32, pfeaturetags : *mut u32, pctags : *mut i32) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("usp10.dll" "system" fn ScriptGetFontLanguageTags(hdc : super::Graphics::Gdi:: HDC, psc : *mut *mut ::core::ffi::c_void, psa : *const SCRIPT_ANALYSIS, tagscript : u32, cmaxtags : i32, plangsystags : *mut u32, pctags : *mut i32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("usp10.dll" "system" fn ScriptGetFontLanguageTags(hdc : super::Graphics::Gdi:: HDC, psc : *mut *mut core::ffi::c_void, psa : *const SCRIPT_ANALYSIS, tagscript : u32, cmaxtags : i32, plangsystags : *mut u32, pctags : *mut i32) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("usp10.dll" "system" fn ScriptGetFontProperties(hdc : super::Graphics::Gdi:: HDC, psc : *mut *mut ::core::ffi::c_void, sfp : *mut SCRIPT_FONTPROPERTIES) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("usp10.dll" "system" fn ScriptGetFontProperties(hdc : super::Graphics::Gdi:: HDC, psc : *mut *mut core::ffi::c_void, sfp : *mut SCRIPT_FONTPROPERTIES) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("usp10.dll" "system" fn ScriptGetFontScriptTags(hdc : super::Graphics::Gdi:: HDC, psc : *mut *mut ::core::ffi::c_void, psa : *const SCRIPT_ANALYSIS, cmaxtags : i32, pscripttags : *mut u32, pctags : *mut i32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("usp10.dll" "system" fn ScriptGetFontScriptTags(hdc : super::Graphics::Gdi:: HDC, psc : *mut *mut core::ffi::c_void, psa : *const SCRIPT_ANALYSIS, cmaxtags : i32, pscripttags : *mut u32, pctags : *mut i32) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("usp10.dll" "system" fn ScriptGetGlyphABCWidth(hdc : super::Graphics::Gdi:: HDC, psc : *mut *mut ::core::ffi::c_void, wglyph : u16, pabc : *mut super::Graphics::Gdi:: ABC) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("usp10.dll" "system" fn ScriptGetLogicalWidths(psa : *const SCRIPT_ANALYSIS, cchars : i32, cglyphs : i32, piglyphwidth : *const i32, pwlogclust : *const u16, psva : *const SCRIPT_VISATTR, pidx : *const i32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("usp10.dll" "system" fn ScriptGetProperties(ppsp : *mut *mut *mut SCRIPT_PROPERTIES, pinumscripts : *mut i32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("usp10.dll" "system" fn ScriptIsComplex(pwcinchars : ::windows_sys::core::PCWSTR, cinchars : i32, dwflags : SCRIPT_IS_COMPLEX_FLAGS) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("usp10.dll" "system" fn ScriptItemize(pwcinchars : ::windows_sys::core::PCWSTR, cinchars : i32, cmaxitems : i32, pscontrol : *const SCRIPT_CONTROL, psstate : *const SCRIPT_STATE, pitems : *mut SCRIPT_ITEM, pcitems : *mut i32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("usp10.dll" "system" fn ScriptItemizeOpenType(pwcinchars : ::windows_sys::core::PCWSTR, cinchars : i32, cmaxitems : i32, pscontrol : *const SCRIPT_CONTROL, psstate : *const SCRIPT_STATE, pitems : *mut SCRIPT_ITEM, pscripttags : *mut u32, pcitems : *mut i32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("usp10.dll" "system" fn ScriptJustify(psva : *const SCRIPT_VISATTR, piadvance : *const i32, cglyphs : i32, idx : i32, iminkashida : i32, pijustify : *mut i32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("usp10.dll" "system" fn ScriptLayout(cruns : i32, pblevel : *const u8, pivisualtological : *mut i32, pilogicaltovisual : *mut i32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("usp10.dll" "system" fn ScriptGetGlyphABCWidth(hdc : super::Graphics::Gdi:: HDC, psc : *mut *mut core::ffi::c_void, wglyph : u16, pabc : *mut super::Graphics::Gdi:: ABC) -> windows_sys::core::HRESULT);
+::windows_targets::link!("usp10.dll" "system" fn ScriptGetLogicalWidths(psa : *const SCRIPT_ANALYSIS, cchars : i32, cglyphs : i32, piglyphwidth : *const i32, pwlogclust : *const u16, psva : *const SCRIPT_VISATTR, pidx : *const i32) -> windows_sys::core::HRESULT);
+::windows_targets::link!("usp10.dll" "system" fn ScriptGetProperties(ppsp : *mut *mut *mut SCRIPT_PROPERTIES, pinumscripts : *mut i32) -> windows_sys::core::HRESULT);
+::windows_targets::link!("usp10.dll" "system" fn ScriptIsComplex(pwcinchars : windows_sys::core::PCWSTR, cinchars : i32, dwflags : SCRIPT_IS_COMPLEX_FLAGS) -> windows_sys::core::HRESULT);
+::windows_targets::link!("usp10.dll" "system" fn ScriptItemize(pwcinchars : windows_sys::core::PCWSTR, cinchars : i32, cmaxitems : i32, pscontrol : *const SCRIPT_CONTROL, psstate : *const SCRIPT_STATE, pitems : *mut SCRIPT_ITEM, pcitems : *mut i32) -> windows_sys::core::HRESULT);
+::windows_targets::link!("usp10.dll" "system" fn ScriptItemizeOpenType(pwcinchars : windows_sys::core::PCWSTR, cinchars : i32, cmaxitems : i32, pscontrol : *const SCRIPT_CONTROL, psstate : *const SCRIPT_STATE, pitems : *mut SCRIPT_ITEM, pscripttags : *mut u32, pcitems : *mut i32) -> windows_sys::core::HRESULT);
+::windows_targets::link!("usp10.dll" "system" fn ScriptJustify(psva : *const SCRIPT_VISATTR, piadvance : *const i32, cglyphs : i32, idx : i32, iminkashida : i32, pijustify : *mut i32) -> windows_sys::core::HRESULT);
+::windows_targets::link!("usp10.dll" "system" fn ScriptLayout(cruns : i32, pblevel : *const u8, pivisualtological : *mut i32, pilogicaltovisual : *mut i32) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("usp10.dll" "system" fn ScriptPlace(hdc : super::Graphics::Gdi:: HDC, psc : *mut *mut ::core::ffi::c_void, pwglyphs : *const u16, cglyphs : i32, psva : *const SCRIPT_VISATTR, psa : *mut SCRIPT_ANALYSIS, piadvance : *mut i32, pgoffset : *mut GOFFSET, pabc : *mut super::Graphics::Gdi:: ABC) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("usp10.dll" "system" fn ScriptPlace(hdc : super::Graphics::Gdi:: HDC, psc : *mut *mut core::ffi::c_void, pwglyphs : *const u16, cglyphs : i32, psva : *const SCRIPT_VISATTR, psa : *mut SCRIPT_ANALYSIS, piadvance : *mut i32, pgoffset : *mut GOFFSET, pabc : *mut super::Graphics::Gdi:: ABC) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("usp10.dll" "system" fn ScriptPlaceOpenType(hdc : super::Graphics::Gdi:: HDC, psc : *mut *mut ::core::ffi::c_void, psa : *mut SCRIPT_ANALYSIS, tagscript : u32, taglangsys : u32, rcrangechars : *const i32, rprangeproperties : *const *const TEXTRANGE_PROPERTIES, cranges : i32, pwcchars : ::windows_sys::core::PCWSTR, pwlogclust : *const u16, pcharprops : *const SCRIPT_CHARPROP, cchars : i32, pwglyphs : *const u16, pglyphprops : *const SCRIPT_GLYPHPROP, cglyphs : i32, piadvance : *mut i32, pgoffset : *mut GOFFSET, pabc : *mut super::Graphics::Gdi:: ABC) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("usp10.dll" "system" fn ScriptPlaceOpenType(hdc : super::Graphics::Gdi:: HDC, psc : *mut *mut core::ffi::c_void, psa : *mut SCRIPT_ANALYSIS, tagscript : u32, taglangsys : u32, rcrangechars : *const i32, rprangeproperties : *const *const TEXTRANGE_PROPERTIES, cranges : i32, pwcchars : windows_sys::core::PCWSTR, pwlogclust : *const u16, pcharprops : *const SCRIPT_CHARPROP, cchars : i32, pwglyphs : *const u16, pglyphprops : *const SCRIPT_GLYPHPROP, cglyphs : i32, piadvance : *mut i32, pgoffset : *mut GOFFSET, pabc : *mut super::Graphics::Gdi:: ABC) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("usp10.dll" "system" fn ScriptPositionSingleGlyph(hdc : super::Graphics::Gdi:: HDC, psc : *mut *mut ::core::ffi::c_void, psa : *const SCRIPT_ANALYSIS, tagscript : u32, taglangsys : u32, tagfeature : u32, lparameter : i32, wglyphid : u16, iadvance : i32, goffset : GOFFSET, pioutadvance : *mut i32, poutgoffset : *mut GOFFSET) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("usp10.dll" "system" fn ScriptRecordDigitSubstitution(locale : u32, psds : *mut SCRIPT_DIGITSUBSTITUTE) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("usp10.dll" "system" fn ScriptPositionSingleGlyph(hdc : super::Graphics::Gdi:: HDC, psc : *mut *mut core::ffi::c_void, psa : *const SCRIPT_ANALYSIS, tagscript : u32, taglangsys : u32, tagfeature : u32, lparameter : i32, wglyphid : u16, iadvance : i32, goffset : GOFFSET, pioutadvance : *mut i32, poutgoffset : *mut GOFFSET) -> windows_sys::core::HRESULT);
+::windows_targets::link!("usp10.dll" "system" fn ScriptRecordDigitSubstitution(locale : u32, psds : *mut SCRIPT_DIGITSUBSTITUTE) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("usp10.dll" "system" fn ScriptShape(hdc : super::Graphics::Gdi:: HDC, psc : *mut *mut ::core::ffi::c_void, pwcchars : ::windows_sys::core::PCWSTR, cchars : i32, cmaxglyphs : i32, psa : *mut SCRIPT_ANALYSIS, pwoutglyphs : *mut u16, pwlogclust : *mut u16, psva : *mut SCRIPT_VISATTR, pcglyphs : *mut i32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("usp10.dll" "system" fn ScriptShape(hdc : super::Graphics::Gdi:: HDC, psc : *mut *mut core::ffi::c_void, pwcchars : windows_sys::core::PCWSTR, cchars : i32, cmaxglyphs : i32, psa : *mut SCRIPT_ANALYSIS, pwoutglyphs : *mut u16, pwlogclust : *mut u16, psva : *mut SCRIPT_VISATTR, pcglyphs : *mut i32) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("usp10.dll" "system" fn ScriptShapeOpenType(hdc : super::Graphics::Gdi:: HDC, psc : *mut *mut ::core::ffi::c_void, psa : *mut SCRIPT_ANALYSIS, tagscript : u32, taglangsys : u32, rcrangechars : *const i32, rprangeproperties : *const *const TEXTRANGE_PROPERTIES, cranges : i32, pwcchars : ::windows_sys::core::PCWSTR, cchars : i32, cmaxglyphs : i32, pwlogclust : *mut u16, pcharprops : *mut SCRIPT_CHARPROP, pwoutglyphs : *mut u16, poutglyphprops : *mut SCRIPT_GLYPHPROP, pcglyphs : *mut i32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("usp10.dll" "system" fn ScriptShapeOpenType(hdc : super::Graphics::Gdi:: HDC, psc : *mut *mut core::ffi::c_void, psa : *mut SCRIPT_ANALYSIS, tagscript : u32, taglangsys : u32, rcrangechars : *const i32, rprangeproperties : *const *const TEXTRANGE_PROPERTIES, cranges : i32, pwcchars : windows_sys::core::PCWSTR, cchars : i32, cmaxglyphs : i32, pwlogclust : *mut u16, pcharprops : *mut SCRIPT_CHARPROP, pwoutglyphs : *mut u16, poutglyphprops : *mut SCRIPT_GLYPHPROP, pcglyphs : *mut i32) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("usp10.dll" "system" fn ScriptStringAnalyse(hdc : super::Graphics::Gdi:: HDC, pstring : *const ::core::ffi::c_void, cstring : i32, cglyphs : i32, icharset : i32, dwflags : u32, ireqwidth : i32, pscontrol : *const SCRIPT_CONTROL, psstate : *const SCRIPT_STATE, pidx : *const i32, ptabdef : *const SCRIPT_TABDEF, pbinclass : *const u8, pssa : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("usp10.dll" "system" fn ScriptStringCPtoX(ssa : *const ::core::ffi::c_void, icp : i32, ftrailing : super::Foundation:: BOOL, px : *mut i32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("usp10.dll" "system" fn ScriptStringFree(pssa : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("usp10.dll" "system" fn ScriptStringGetLogicalWidths(ssa : *const ::core::ffi::c_void, pidx : *mut i32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("usp10.dll" "system" fn ScriptStringGetOrder(ssa : *const ::core::ffi::c_void, puorder : *mut u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("usp10.dll" "system" fn ScriptStringAnalyse(hdc : super::Graphics::Gdi:: HDC, pstring : *const core::ffi::c_void, cstring : i32, cglyphs : i32, icharset : i32, dwflags : u32, ireqwidth : i32, pscontrol : *const SCRIPT_CONTROL, psstate : *const SCRIPT_STATE, pidx : *const i32, ptabdef : *const SCRIPT_TABDEF, pbinclass : *const u8, pssa : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+::windows_targets::link!("usp10.dll" "system" fn ScriptStringCPtoX(ssa : *const core::ffi::c_void, icp : i32, ftrailing : super::Foundation:: BOOL, px : *mut i32) -> windows_sys::core::HRESULT);
+::windows_targets::link!("usp10.dll" "system" fn ScriptStringFree(pssa : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+::windows_targets::link!("usp10.dll" "system" fn ScriptStringGetLogicalWidths(ssa : *const core::ffi::c_void, pidx : *mut i32) -> windows_sys::core::HRESULT);
+::windows_targets::link!("usp10.dll" "system" fn ScriptStringGetOrder(ssa : *const core::ffi::c_void, puorder : *mut u32) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("usp10.dll" "system" fn ScriptStringOut(ssa : *const ::core::ffi::c_void, ix : i32, iy : i32, uoptions : super::Graphics::Gdi:: ETO_OPTIONS, prc : *const super::Foundation:: RECT, iminsel : i32, imaxsel : i32, fdisabled : super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("usp10.dll" "system" fn ScriptStringValidate(ssa : *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("usp10.dll" "system" fn ScriptStringXtoCP(ssa : *const ::core::ffi::c_void, ix : i32, pich : *mut i32, pitrailing : *mut i32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("usp10.dll" "system" fn ScriptString_pLogAttr(ssa : *const ::core::ffi::c_void) -> *mut SCRIPT_LOGATTR);
-::windows_targets::link!("usp10.dll" "system" fn ScriptString_pSize(ssa : *const ::core::ffi::c_void) -> *mut super::Foundation:: SIZE);
-::windows_targets::link!("usp10.dll" "system" fn ScriptString_pcOutChars(ssa : *const ::core::ffi::c_void) -> *mut i32);
+::windows_targets::link!("usp10.dll" "system" fn ScriptStringOut(ssa : *const core::ffi::c_void, ix : i32, iy : i32, uoptions : super::Graphics::Gdi:: ETO_OPTIONS, prc : *const super::Foundation:: RECT, iminsel : i32, imaxsel : i32, fdisabled : super::Foundation:: BOOL) -> windows_sys::core::HRESULT);
+::windows_targets::link!("usp10.dll" "system" fn ScriptStringValidate(ssa : *const core::ffi::c_void) -> windows_sys::core::HRESULT);
+::windows_targets::link!("usp10.dll" "system" fn ScriptStringXtoCP(ssa : *const core::ffi::c_void, ix : i32, pich : *mut i32, pitrailing : *mut i32) -> windows_sys::core::HRESULT);
+::windows_targets::link!("usp10.dll" "system" fn ScriptString_pLogAttr(ssa : *const core::ffi::c_void) -> *mut SCRIPT_LOGATTR);
+::windows_targets::link!("usp10.dll" "system" fn ScriptString_pSize(ssa : *const core::ffi::c_void) -> *mut super::Foundation:: SIZE);
+::windows_targets::link!("usp10.dll" "system" fn ScriptString_pcOutChars(ssa : *const core::ffi::c_void) -> *mut i32);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("usp10.dll" "system" fn ScriptSubstituteSingleGlyph(hdc : super::Graphics::Gdi:: HDC, psc : *mut *mut ::core::ffi::c_void, psa : *const SCRIPT_ANALYSIS, tagscript : u32, taglangsys : u32, tagfeature : u32, lparameter : i32, wglyphid : u16, pwoutglyphid : *mut u16) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("usp10.dll" "system" fn ScriptSubstituteSingleGlyph(hdc : super::Graphics::Gdi:: HDC, psc : *mut *mut core::ffi::c_void, psa : *const SCRIPT_ANALYSIS, tagscript : u32, taglangsys : u32, tagfeature : u32, lparameter : i32, wglyphid : u16, pwoutglyphid : *mut u16) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("usp10.dll" "system" fn ScriptTextOut(hdc : super::Graphics::Gdi:: HDC, psc : *mut *mut ::core::ffi::c_void, x : i32, y : i32, fuoptions : u32, lprc : *const super::Foundation:: RECT, psa : *const SCRIPT_ANALYSIS, pwcreserved : ::windows_sys::core::PCWSTR, ireserved : i32, pwglyphs : *const u16, cglyphs : i32, piadvance : *const i32, pijustify : *const i32, pgoffset : *const GOFFSET) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("usp10.dll" "system" fn ScriptXtoCP(ix : i32, cchars : i32, cglyphs : i32, pwlogclust : *const u16, psva : *const SCRIPT_VISATTR, piadvance : *const i32, psa : *const SCRIPT_ANALYSIS, picp : *mut i32, pitrailing : *mut i32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("kernel32.dll" "system" fn SetCalendarInfoA(locale : u32, calendar : u32, caltype : u32, lpcaldata : ::windows_sys::core::PCSTR) -> super::Foundation:: BOOL);
-::windows_targets::link!("kernel32.dll" "system" fn SetCalendarInfoW(locale : u32, calendar : u32, caltype : u32, lpcaldata : ::windows_sys::core::PCWSTR) -> super::Foundation:: BOOL);
-::windows_targets::link!("kernel32.dll" "system" fn SetLocaleInfoA(locale : u32, lctype : u32, lplcdata : ::windows_sys::core::PCSTR) -> super::Foundation:: BOOL);
-::windows_targets::link!("kernel32.dll" "system" fn SetLocaleInfoW(locale : u32, lctype : u32, lplcdata : ::windows_sys::core::PCWSTR) -> super::Foundation:: BOOL);
-::windows_targets::link!("kernel32.dll" "system" fn SetProcessPreferredUILanguages(dwflags : u32, pwszlanguagesbuffer : ::windows_sys::core::PCWSTR, pulnumlanguages : *mut u32) -> super::Foundation:: BOOL);
+::windows_targets::link!("usp10.dll" "system" fn ScriptTextOut(hdc : super::Graphics::Gdi:: HDC, psc : *mut *mut core::ffi::c_void, x : i32, y : i32, fuoptions : u32, lprc : *const super::Foundation:: RECT, psa : *const SCRIPT_ANALYSIS, pwcreserved : windows_sys::core::PCWSTR, ireserved : i32, pwglyphs : *const u16, cglyphs : i32, piadvance : *const i32, pijustify : *const i32, pgoffset : *const GOFFSET) -> windows_sys::core::HRESULT);
+::windows_targets::link!("usp10.dll" "system" fn ScriptXtoCP(ix : i32, cchars : i32, cglyphs : i32, pwlogclust : *const u16, psva : *const SCRIPT_VISATTR, piadvance : *const i32, psa : *const SCRIPT_ANALYSIS, picp : *mut i32, pitrailing : *mut i32) -> windows_sys::core::HRESULT);
+::windows_targets::link!("kernel32.dll" "system" fn SetCalendarInfoA(locale : u32, calendar : u32, caltype : u32, lpcaldata : windows_sys::core::PCSTR) -> super::Foundation:: BOOL);
+::windows_targets::link!("kernel32.dll" "system" fn SetCalendarInfoW(locale : u32, calendar : u32, caltype : u32, lpcaldata : windows_sys::core::PCWSTR) -> super::Foundation:: BOOL);
+::windows_targets::link!("kernel32.dll" "system" fn SetLocaleInfoA(locale : u32, lctype : u32, lplcdata : windows_sys::core::PCSTR) -> super::Foundation:: BOOL);
+::windows_targets::link!("kernel32.dll" "system" fn SetLocaleInfoW(locale : u32, lctype : u32, lplcdata : windows_sys::core::PCWSTR) -> super::Foundation:: BOOL);
+::windows_targets::link!("kernel32.dll" "system" fn SetProcessPreferredUILanguages(dwflags : u32, pwszlanguagesbuffer : windows_sys::core::PCWSTR, pulnumlanguages : *mut u32) -> super::Foundation:: BOOL);
 ::windows_targets::link!("kernel32.dll" "system" fn SetThreadLocale(locale : u32) -> super::Foundation:: BOOL);
-::windows_targets::link!("kernel32.dll" "system" fn SetThreadPreferredUILanguages(dwflags : u32, pwszlanguagesbuffer : ::windows_sys::core::PCWSTR, pulnumlanguages : *mut u32) -> super::Foundation:: BOOL);
-::windows_targets::link!("kernel32.dll" "system" fn SetThreadPreferredUILanguages2(flags : u32, languages : ::windows_sys::core::PCWSTR, numlanguagesset : *mut u32, snapshot : *mut HSAVEDUILANGUAGES) -> super::Foundation:: BOOL);
+::windows_targets::link!("kernel32.dll" "system" fn SetThreadPreferredUILanguages(dwflags : u32, pwszlanguagesbuffer : windows_sys::core::PCWSTR, pulnumlanguages : *mut u32) -> super::Foundation:: BOOL);
+::windows_targets::link!("kernel32.dll" "system" fn SetThreadPreferredUILanguages2(flags : u32, languages : windows_sys::core::PCWSTR, numlanguagesset : *mut u32, snapshot : *mut HSAVEDUILANGUAGES) -> super::Foundation:: BOOL);
 ::windows_targets::link!("kernel32.dll" "system" fn SetThreadUILanguage(langid : u16) -> u16);
 ::windows_targets::link!("kernel32.dll" "system" fn SetUserGeoID(geoid : i32) -> super::Foundation:: BOOL);
-::windows_targets::link!("kernel32.dll" "system" fn SetUserGeoName(geoname : ::windows_sys::core::PCWSTR) -> super::Foundation:: BOOL);
+::windows_targets::link!("kernel32.dll" "system" fn SetUserGeoName(geoname : windows_sys::core::PCWSTR) -> super::Foundation:: BOOL);
 ::windows_targets::link!("gdi32.dll" "system" fn TranslateCharsetInfo(lpsrc : *mut u32, lpcs : *mut CHARSETINFO, dwflags : TRANSLATE_CHARSET_INFO_FLAGS) -> super::Foundation:: BOOL);
-::windows_targets::link!("icu.dll" "cdecl" fn UCNV_FROM_U_CALLBACK_ESCAPE(context : *const ::core::ffi::c_void, fromuargs : *mut UConverterFromUnicodeArgs, codeunits : *const u16, length : i32, codepoint : i32, reason : UConverterCallbackReason, err : *mut UErrorCode));
-::windows_targets::link!("icu.dll" "cdecl" fn UCNV_FROM_U_CALLBACK_SKIP(context : *const ::core::ffi::c_void, fromuargs : *mut UConverterFromUnicodeArgs, codeunits : *const u16, length : i32, codepoint : i32, reason : UConverterCallbackReason, err : *mut UErrorCode));
-::windows_targets::link!("icu.dll" "cdecl" fn UCNV_FROM_U_CALLBACK_STOP(context : *const ::core::ffi::c_void, fromuargs : *mut UConverterFromUnicodeArgs, codeunits : *const u16, length : i32, codepoint : i32, reason : UConverterCallbackReason, err : *mut UErrorCode));
-::windows_targets::link!("icu.dll" "cdecl" fn UCNV_FROM_U_CALLBACK_SUBSTITUTE(context : *const ::core::ffi::c_void, fromuargs : *mut UConverterFromUnicodeArgs, codeunits : *const u16, length : i32, codepoint : i32, reason : UConverterCallbackReason, err : *mut UErrorCode));
-::windows_targets::link!("icu.dll" "cdecl" fn UCNV_TO_U_CALLBACK_ESCAPE(context : *const ::core::ffi::c_void, touargs : *mut UConverterToUnicodeArgs, codeunits : ::windows_sys::core::PCSTR, length : i32, reason : UConverterCallbackReason, err : *mut UErrorCode));
-::windows_targets::link!("icu.dll" "cdecl" fn UCNV_TO_U_CALLBACK_SKIP(context : *const ::core::ffi::c_void, touargs : *mut UConverterToUnicodeArgs, codeunits : ::windows_sys::core::PCSTR, length : i32, reason : UConverterCallbackReason, err : *mut UErrorCode));
-::windows_targets::link!("icu.dll" "cdecl" fn UCNV_TO_U_CALLBACK_STOP(context : *const ::core::ffi::c_void, touargs : *mut UConverterToUnicodeArgs, codeunits : ::windows_sys::core::PCSTR, length : i32, reason : UConverterCallbackReason, err : *mut UErrorCode));
-::windows_targets::link!("icu.dll" "cdecl" fn UCNV_TO_U_CALLBACK_SUBSTITUTE(context : *const ::core::ffi::c_void, touargs : *mut UConverterToUnicodeArgs, codeunits : ::windows_sys::core::PCSTR, length : i32, reason : UConverterCallbackReason, err : *mut UErrorCode));
+::windows_targets::link!("icu.dll" "cdecl" fn UCNV_FROM_U_CALLBACK_ESCAPE(context : *const core::ffi::c_void, fromuargs : *mut UConverterFromUnicodeArgs, codeunits : *const u16, length : i32, codepoint : i32, reason : UConverterCallbackReason, err : *mut UErrorCode));
+::windows_targets::link!("icu.dll" "cdecl" fn UCNV_FROM_U_CALLBACK_SKIP(context : *const core::ffi::c_void, fromuargs : *mut UConverterFromUnicodeArgs, codeunits : *const u16, length : i32, codepoint : i32, reason : UConverterCallbackReason, err : *mut UErrorCode));
+::windows_targets::link!("icu.dll" "cdecl" fn UCNV_FROM_U_CALLBACK_STOP(context : *const core::ffi::c_void, fromuargs : *mut UConverterFromUnicodeArgs, codeunits : *const u16, length : i32, codepoint : i32, reason : UConverterCallbackReason, err : *mut UErrorCode));
+::windows_targets::link!("icu.dll" "cdecl" fn UCNV_FROM_U_CALLBACK_SUBSTITUTE(context : *const core::ffi::c_void, fromuargs : *mut UConverterFromUnicodeArgs, codeunits : *const u16, length : i32, codepoint : i32, reason : UConverterCallbackReason, err : *mut UErrorCode));
+::windows_targets::link!("icu.dll" "cdecl" fn UCNV_TO_U_CALLBACK_ESCAPE(context : *const core::ffi::c_void, touargs : *mut UConverterToUnicodeArgs, codeunits : windows_sys::core::PCSTR, length : i32, reason : UConverterCallbackReason, err : *mut UErrorCode));
+::windows_targets::link!("icu.dll" "cdecl" fn UCNV_TO_U_CALLBACK_SKIP(context : *const core::ffi::c_void, touargs : *mut UConverterToUnicodeArgs, codeunits : windows_sys::core::PCSTR, length : i32, reason : UConverterCallbackReason, err : *mut UErrorCode));
+::windows_targets::link!("icu.dll" "cdecl" fn UCNV_TO_U_CALLBACK_STOP(context : *const core::ffi::c_void, touargs : *mut UConverterToUnicodeArgs, codeunits : windows_sys::core::PCSTR, length : i32, reason : UConverterCallbackReason, err : *mut UErrorCode));
+::windows_targets::link!("icu.dll" "cdecl" fn UCNV_TO_U_CALLBACK_SUBSTITUTE(context : *const core::ffi::c_void, touargs : *mut UConverterToUnicodeArgs, codeunits : windows_sys::core::PCSTR, length : i32, reason : UConverterCallbackReason, err : *mut UErrorCode));
 ::windows_targets::link!("kernel32.dll" "system" fn UpdateCalendarDayOfWeek(lpcaldatetime : *mut CALDATETIME) -> super::Foundation:: BOOL);
-::windows_targets::link!("kernel32.dll" "system" fn VerifyScripts(dwflags : u32, lplocalescripts : ::windows_sys::core::PCWSTR, cchlocalescripts : i32, lptestscripts : ::windows_sys::core::PCWSTR, cchtestscripts : i32) -> super::Foundation:: BOOL);
-::windows_targets::link!("kernel32.dll" "system" fn WideCharToMultiByte(codepage : u32, dwflags : u32, lpwidecharstr : ::windows_sys::core::PCWSTR, cchwidechar : i32, lpmultibytestr : ::windows_sys::core::PSTR, cbmultibyte : i32, lpdefaultchar : ::windows_sys::core::PCSTR, lpuseddefaultchar : *mut super::Foundation:: BOOL) -> i32);
-::windows_targets::link!("kernel32.dll" "system" fn lstrcatA(lpstring1 : ::windows_sys::core::PSTR, lpstring2 : ::windows_sys::core::PCSTR) -> ::windows_sys::core::PSTR);
-::windows_targets::link!("kernel32.dll" "system" fn lstrcatW(lpstring1 : ::windows_sys::core::PWSTR, lpstring2 : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::PWSTR);
-::windows_targets::link!("kernel32.dll" "system" fn lstrcmpA(lpstring1 : ::windows_sys::core::PCSTR, lpstring2 : ::windows_sys::core::PCSTR) -> i32);
-::windows_targets::link!("kernel32.dll" "system" fn lstrcmpW(lpstring1 : ::windows_sys::core::PCWSTR, lpstring2 : ::windows_sys::core::PCWSTR) -> i32);
-::windows_targets::link!("kernel32.dll" "system" fn lstrcmpiA(lpstring1 : ::windows_sys::core::PCSTR, lpstring2 : ::windows_sys::core::PCSTR) -> i32);
-::windows_targets::link!("kernel32.dll" "system" fn lstrcmpiW(lpstring1 : ::windows_sys::core::PCWSTR, lpstring2 : ::windows_sys::core::PCWSTR) -> i32);
-::windows_targets::link!("kernel32.dll" "system" fn lstrcpyA(lpstring1 : ::windows_sys::core::PSTR, lpstring2 : ::windows_sys::core::PCSTR) -> ::windows_sys::core::PSTR);
-::windows_targets::link!("kernel32.dll" "system" fn lstrcpyW(lpstring1 : ::windows_sys::core::PWSTR, lpstring2 : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::PWSTR);
-::windows_targets::link!("kernel32.dll" "system" fn lstrcpynA(lpstring1 : ::windows_sys::core::PSTR, lpstring2 : ::windows_sys::core::PCSTR, imaxlength : i32) -> ::windows_sys::core::PSTR);
-::windows_targets::link!("kernel32.dll" "system" fn lstrcpynW(lpstring1 : ::windows_sys::core::PWSTR, lpstring2 : ::windows_sys::core::PCWSTR, imaxlength : i32) -> ::windows_sys::core::PWSTR);
-::windows_targets::link!("kernel32.dll" "system" fn lstrlenA(lpstring : ::windows_sys::core::PCSTR) -> i32);
-::windows_targets::link!("kernel32.dll" "system" fn lstrlenW(lpstring : ::windows_sys::core::PCWSTR) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn u_UCharsToChars(us : *const u16, cs : ::windows_sys::core::PCSTR, length : i32));
-::windows_targets::link!("icu.dll" "cdecl" fn u_austrcpy(dst : ::windows_sys::core::PCSTR, src : *const u16) -> ::windows_sys::core::PSTR);
-::windows_targets::link!("icu.dll" "cdecl" fn u_austrncpy(dst : ::windows_sys::core::PCSTR, src : *const u16, n : i32) -> ::windows_sys::core::PSTR);
+::windows_targets::link!("kernel32.dll" "system" fn VerifyScripts(dwflags : u32, lplocalescripts : windows_sys::core::PCWSTR, cchlocalescripts : i32, lptestscripts : windows_sys::core::PCWSTR, cchtestscripts : i32) -> super::Foundation:: BOOL);
+::windows_targets::link!("kernel32.dll" "system" fn WideCharToMultiByte(codepage : u32, dwflags : u32, lpwidecharstr : windows_sys::core::PCWSTR, cchwidechar : i32, lpmultibytestr : windows_sys::core::PSTR, cbmultibyte : i32, lpdefaultchar : windows_sys::core::PCSTR, lpuseddefaultchar : *mut super::Foundation:: BOOL) -> i32);
+::windows_targets::link!("kernel32.dll" "system" fn lstrcatA(lpstring1 : windows_sys::core::PSTR, lpstring2 : windows_sys::core::PCSTR) -> windows_sys::core::PSTR);
+::windows_targets::link!("kernel32.dll" "system" fn lstrcatW(lpstring1 : windows_sys::core::PWSTR, lpstring2 : windows_sys::core::PCWSTR) -> windows_sys::core::PWSTR);
+::windows_targets::link!("kernel32.dll" "system" fn lstrcmpA(lpstring1 : windows_sys::core::PCSTR, lpstring2 : windows_sys::core::PCSTR) -> i32);
+::windows_targets::link!("kernel32.dll" "system" fn lstrcmpW(lpstring1 : windows_sys::core::PCWSTR, lpstring2 : windows_sys::core::PCWSTR) -> i32);
+::windows_targets::link!("kernel32.dll" "system" fn lstrcmpiA(lpstring1 : windows_sys::core::PCSTR, lpstring2 : windows_sys::core::PCSTR) -> i32);
+::windows_targets::link!("kernel32.dll" "system" fn lstrcmpiW(lpstring1 : windows_sys::core::PCWSTR, lpstring2 : windows_sys::core::PCWSTR) -> i32);
+::windows_targets::link!("kernel32.dll" "system" fn lstrcpyA(lpstring1 : windows_sys::core::PSTR, lpstring2 : windows_sys::core::PCSTR) -> windows_sys::core::PSTR);
+::windows_targets::link!("kernel32.dll" "system" fn lstrcpyW(lpstring1 : windows_sys::core::PWSTR, lpstring2 : windows_sys::core::PCWSTR) -> windows_sys::core::PWSTR);
+::windows_targets::link!("kernel32.dll" "system" fn lstrcpynA(lpstring1 : windows_sys::core::PSTR, lpstring2 : windows_sys::core::PCSTR, imaxlength : i32) -> windows_sys::core::PSTR);
+::windows_targets::link!("kernel32.dll" "system" fn lstrcpynW(lpstring1 : windows_sys::core::PWSTR, lpstring2 : windows_sys::core::PCWSTR, imaxlength : i32) -> windows_sys::core::PWSTR);
+::windows_targets::link!("kernel32.dll" "system" fn lstrlenA(lpstring : windows_sys::core::PCSTR) -> i32);
+::windows_targets::link!("kernel32.dll" "system" fn lstrlenW(lpstring : windows_sys::core::PCWSTR) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn u_UCharsToChars(us : *const u16, cs : windows_sys::core::PCSTR, length : i32));
+::windows_targets::link!("icu.dll" "cdecl" fn u_austrcpy(dst : windows_sys::core::PCSTR, src : *const u16) -> windows_sys::core::PSTR);
+::windows_targets::link!("icu.dll" "cdecl" fn u_austrncpy(dst : windows_sys::core::PCSTR, src : *const u16, n : i32) -> windows_sys::core::PSTR);
 ::windows_targets::link!("icu.dll" "cdecl" fn u_catclose(catd : *mut UResourceBundle));
 ::windows_targets::link!("icu.dll" "cdecl" fn u_catgets(catd : *mut UResourceBundle, set_num : i32, msg_num : i32, s : *const u16, len : *mut i32, ec : *mut UErrorCode) -> *mut u16);
-::windows_targets::link!("icu.dll" "cdecl" fn u_catopen(name : ::windows_sys::core::PCSTR, locale : ::windows_sys::core::PCSTR, ec : *mut UErrorCode) -> *mut UResourceBundle);
+::windows_targets::link!("icu.dll" "cdecl" fn u_catopen(name : windows_sys::core::PCSTR, locale : windows_sys::core::PCSTR, ec : *mut UErrorCode) -> *mut UResourceBundle);
 ::windows_targets::link!("icu.dll" "cdecl" fn u_charAge(c : i32, versionarray : *mut u8));
 ::windows_targets::link!("icu.dll" "cdecl" fn u_charDigitValue(c : i32) -> i32);
 ::windows_targets::link!("icu.dll" "cdecl" fn u_charDirection(c : i32) -> UCharDirection);
-::windows_targets::link!("icu.dll" "cdecl" fn u_charFromName(namechoice : UCharNameChoice, name : ::windows_sys::core::PCSTR, perrorcode : *mut UErrorCode) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn u_charFromName(namechoice : UCharNameChoice, name : windows_sys::core::PCSTR, perrorcode : *mut UErrorCode) -> i32);
 ::windows_targets::link!("icu.dll" "cdecl" fn u_charMirror(c : i32) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn u_charName(code : i32, namechoice : UCharNameChoice, buffer : ::windows_sys::core::PCSTR, bufferlength : i32, perrorcode : *mut UErrorCode) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn u_charName(code : i32, namechoice : UCharNameChoice, buffer : windows_sys::core::PCSTR, bufferlength : i32, perrorcode : *mut UErrorCode) -> i32);
 ::windows_targets::link!("icu.dll" "cdecl" fn u_charType(c : i32) -> i8);
-::windows_targets::link!("icu.dll" "cdecl" fn u_charsToUChars(cs : ::windows_sys::core::PCSTR, us : *mut u16, length : i32));
+::windows_targets::link!("icu.dll" "cdecl" fn u_charsToUChars(cs : windows_sys::core::PCSTR, us : *mut u16, length : i32));
 ::windows_targets::link!("icu.dll" "cdecl" fn u_cleanup());
 ::windows_targets::link!("icu.dll" "cdecl" fn u_countChar32(s : *const u16, length : i32) -> i32);
 ::windows_targets::link!("icu.dll" "cdecl" fn u_digit(ch : i32, radix : i8) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn u_enumCharNames(start : i32, limit : i32, r#fn : *mut UEnumCharNamesFn, context : *mut ::core::ffi::c_void, namechoice : UCharNameChoice, perrorcode : *mut UErrorCode));
-::windows_targets::link!("icu.dll" "cdecl" fn u_enumCharTypes(enumrange : *mut UCharEnumTypeRange, context : *const ::core::ffi::c_void));
-::windows_targets::link!("icu.dll" "cdecl" fn u_errorName(code : UErrorCode) -> ::windows_sys::core::PCSTR);
+::windows_targets::link!("icu.dll" "cdecl" fn u_enumCharNames(start : i32, limit : i32, r#fn : *mut UEnumCharNamesFn, context : *mut core::ffi::c_void, namechoice : UCharNameChoice, perrorcode : *mut UErrorCode));
+::windows_targets::link!("icu.dll" "cdecl" fn u_enumCharTypes(enumrange : *mut UCharEnumTypeRange, context : *const core::ffi::c_void));
+::windows_targets::link!("icu.dll" "cdecl" fn u_errorName(code : UErrorCode) -> windows_sys::core::PCSTR);
 ::windows_targets::link!("icu.dll" "cdecl" fn u_foldCase(c : i32, options : u32) -> i32);
 ::windows_targets::link!("icu.dll" "cdecl" fn u_forDigit(digit : i32, radix : i8) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn u_formatMessage(locale : ::windows_sys::core::PCSTR, pattern : *const u16, patternlength : i32, result : *mut u16, resultlength : i32, status : *mut UErrorCode, ...) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn u_formatMessageWithError(locale : ::windows_sys::core::PCSTR, pattern : *const u16, patternlength : i32, result : *mut u16, resultlength : i32, parseerror : *mut UParseError, status : *mut UErrorCode, ...) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn u_formatMessage(locale : windows_sys::core::PCSTR, pattern : *const u16, patternlength : i32, result : *mut u16, resultlength : i32, status : *mut UErrorCode, ...) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn u_formatMessageWithError(locale : windows_sys::core::PCSTR, pattern : *const u16, patternlength : i32, result : *mut u16, resultlength : i32, parseerror : *mut UParseError, status : *mut UErrorCode, ...) -> i32);
 ::windows_targets::link!("icu.dll" "cdecl" fn u_getBidiPairedBracket(c : i32) -> i32);
 ::windows_targets::link!("icu.dll" "cdecl" fn u_getBinaryPropertySet(property : UProperty, perrorcode : *mut UErrorCode) -> *mut USet);
 ::windows_targets::link!("icu.dll" "cdecl" fn u_getCombiningClass(c : i32) -> u8);
@@ -255,10 +255,10 @@
 ::windows_targets::link!("icu.dll" "cdecl" fn u_getIntPropertyMinValue(which : UProperty) -> i32);
 ::windows_targets::link!("icu.dll" "cdecl" fn u_getIntPropertyValue(c : i32, which : UProperty) -> i32);
 ::windows_targets::link!("icu.dll" "cdecl" fn u_getNumericValue(c : i32) -> f64);
-::windows_targets::link!("icu.dll" "cdecl" fn u_getPropertyEnum(alias : ::windows_sys::core::PCSTR) -> UProperty);
-::windows_targets::link!("icu.dll" "cdecl" fn u_getPropertyName(property : UProperty, namechoice : UPropertyNameChoice) -> ::windows_sys::core::PCSTR);
-::windows_targets::link!("icu.dll" "cdecl" fn u_getPropertyValueEnum(property : UProperty, alias : ::windows_sys::core::PCSTR) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn u_getPropertyValueName(property : UProperty, value : i32, namechoice : UPropertyNameChoice) -> ::windows_sys::core::PCSTR);
+::windows_targets::link!("icu.dll" "cdecl" fn u_getPropertyEnum(alias : windows_sys::core::PCSTR) -> UProperty);
+::windows_targets::link!("icu.dll" "cdecl" fn u_getPropertyName(property : UProperty, namechoice : UPropertyNameChoice) -> windows_sys::core::PCSTR);
+::windows_targets::link!("icu.dll" "cdecl" fn u_getPropertyValueEnum(property : UProperty, alias : windows_sys::core::PCSTR) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn u_getPropertyValueName(property : UProperty, value : i32, namechoice : UPropertyNameChoice) -> windows_sys::core::PCSTR);
 ::windows_targets::link!("icu.dll" "cdecl" fn u_getUnicodeVersion(versionarray : *mut u8));
 ::windows_targets::link!("icu.dll" "cdecl" fn u_getVersion(versionarray : *mut u8));
 ::windows_targets::link!("icu.dll" "cdecl" fn u_hasBinaryProperty(c : i32, which : UProperty) -> i8);
@@ -301,9 +301,9 @@
 ::windows_targets::link!("icu.dll" "cdecl" fn u_memrchr(s : *const u16, c : u16, count : i32) -> *mut u16);
 ::windows_targets::link!("icu.dll" "cdecl" fn u_memrchr32(s : *const u16, c : i32, count : i32) -> *mut u16);
 ::windows_targets::link!("icu.dll" "cdecl" fn u_memset(dest : *mut u16, c : u16, count : i32) -> *mut u16);
-::windows_targets::link!("icu.dll" "cdecl" fn u_parseMessage(locale : ::windows_sys::core::PCSTR, pattern : *const u16, patternlength : i32, source : *const u16, sourcelength : i32, status : *mut UErrorCode, ...));
-::windows_targets::link!("icu.dll" "cdecl" fn u_parseMessageWithError(locale : ::windows_sys::core::PCSTR, pattern : *const u16, patternlength : i32, source : *const u16, sourcelength : i32, parseerror : *mut UParseError, status : *mut UErrorCode, ...));
-::windows_targets::link!("icu.dll" "cdecl" fn u_setMemoryFunctions(context : *const ::core::ffi::c_void, a : *mut UMemAllocFn, r : *mut UMemReallocFn, f : *mut UMemFreeFn, status : *mut UErrorCode));
+::windows_targets::link!("icu.dll" "cdecl" fn u_parseMessage(locale : windows_sys::core::PCSTR, pattern : *const u16, patternlength : i32, source : *const u16, sourcelength : i32, status : *mut UErrorCode, ...));
+::windows_targets::link!("icu.dll" "cdecl" fn u_parseMessageWithError(locale : windows_sys::core::PCSTR, pattern : *const u16, patternlength : i32, source : *const u16, sourcelength : i32, parseerror : *mut UParseError, status : *mut UErrorCode, ...));
+::windows_targets::link!("icu.dll" "cdecl" fn u_setMemoryFunctions(context : *const core::ffi::c_void, a : *mut UMemAllocFn, r : *mut UMemReallocFn, f : *mut UMemFreeFn, status : *mut UErrorCode));
 ::windows_targets::link!("icu.dll" "cdecl" fn u_shapeArabic(source : *const u16, sourcelength : i32, dest : *mut u16, destsize : i32, options : u32, perrorcode : *mut UErrorCode) -> i32);
 ::windows_targets::link!("icu.dll" "cdecl" fn u_strCaseCompare(s1 : *const u16, length1 : i32, s2 : *const u16, length2 : i32, options : u32, perrorcode : *mut UErrorCode) -> i32);
 ::windows_targets::link!("icu.dll" "cdecl" fn u_strCompare(s1 : *const u16, length1 : i32, s2 : *const u16, length2 : i32, codepointorder : i8) -> i32);
@@ -311,23 +311,23 @@
 ::windows_targets::link!("icu.dll" "cdecl" fn u_strFindFirst(s : *const u16, length : i32, substring : *const u16, sublength : i32) -> *mut u16);
 ::windows_targets::link!("icu.dll" "cdecl" fn u_strFindLast(s : *const u16, length : i32, substring : *const u16, sublength : i32) -> *mut u16);
 ::windows_targets::link!("icu.dll" "cdecl" fn u_strFoldCase(dest : *mut u16, destcapacity : i32, src : *const u16, srclength : i32, options : u32, perrorcode : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn u_strFromJavaModifiedUTF8WithSub(dest : *mut u16, destcapacity : i32, pdestlength : *mut i32, src : ::windows_sys::core::PCSTR, srclength : i32, subchar : i32, pnumsubstitutions : *mut i32, perrorcode : *mut UErrorCode) -> *mut u16);
+::windows_targets::link!("icu.dll" "cdecl" fn u_strFromJavaModifiedUTF8WithSub(dest : *mut u16, destcapacity : i32, pdestlength : *mut i32, src : windows_sys::core::PCSTR, srclength : i32, subchar : i32, pnumsubstitutions : *mut i32, perrorcode : *mut UErrorCode) -> *mut u16);
 ::windows_targets::link!("icu.dll" "cdecl" fn u_strFromUTF32(dest : *mut u16, destcapacity : i32, pdestlength : *mut i32, src : *const i32, srclength : i32, perrorcode : *mut UErrorCode) -> *mut u16);
 ::windows_targets::link!("icu.dll" "cdecl" fn u_strFromUTF32WithSub(dest : *mut u16, destcapacity : i32, pdestlength : *mut i32, src : *const i32, srclength : i32, subchar : i32, pnumsubstitutions : *mut i32, perrorcode : *mut UErrorCode) -> *mut u16);
-::windows_targets::link!("icu.dll" "cdecl" fn u_strFromUTF8(dest : *mut u16, destcapacity : i32, pdestlength : *mut i32, src : ::windows_sys::core::PCSTR, srclength : i32, perrorcode : *mut UErrorCode) -> *mut u16);
-::windows_targets::link!("icu.dll" "cdecl" fn u_strFromUTF8Lenient(dest : *mut u16, destcapacity : i32, pdestlength : *mut i32, src : ::windows_sys::core::PCSTR, srclength : i32, perrorcode : *mut UErrorCode) -> *mut u16);
-::windows_targets::link!("icu.dll" "cdecl" fn u_strFromUTF8WithSub(dest : *mut u16, destcapacity : i32, pdestlength : *mut i32, src : ::windows_sys::core::PCSTR, srclength : i32, subchar : i32, pnumsubstitutions : *mut i32, perrorcode : *mut UErrorCode) -> *mut u16);
-::windows_targets::link!("icu.dll" "cdecl" fn u_strFromWCS(dest : *mut u16, destcapacity : i32, pdestlength : *mut i32, src : ::windows_sys::core::PCWSTR, srclength : i32, perrorcode : *mut UErrorCode) -> *mut u16);
+::windows_targets::link!("icu.dll" "cdecl" fn u_strFromUTF8(dest : *mut u16, destcapacity : i32, pdestlength : *mut i32, src : windows_sys::core::PCSTR, srclength : i32, perrorcode : *mut UErrorCode) -> *mut u16);
+::windows_targets::link!("icu.dll" "cdecl" fn u_strFromUTF8Lenient(dest : *mut u16, destcapacity : i32, pdestlength : *mut i32, src : windows_sys::core::PCSTR, srclength : i32, perrorcode : *mut UErrorCode) -> *mut u16);
+::windows_targets::link!("icu.dll" "cdecl" fn u_strFromUTF8WithSub(dest : *mut u16, destcapacity : i32, pdestlength : *mut i32, src : windows_sys::core::PCSTR, srclength : i32, subchar : i32, pnumsubstitutions : *mut i32, perrorcode : *mut UErrorCode) -> *mut u16);
+::windows_targets::link!("icu.dll" "cdecl" fn u_strFromWCS(dest : *mut u16, destcapacity : i32, pdestlength : *mut i32, src : windows_sys::core::PCWSTR, srclength : i32, perrorcode : *mut UErrorCode) -> *mut u16);
 ::windows_targets::link!("icu.dll" "cdecl" fn u_strHasMoreChar32Than(s : *const u16, length : i32, number : i32) -> i8);
-::windows_targets::link!("icu.dll" "cdecl" fn u_strToJavaModifiedUTF8(dest : ::windows_sys::core::PCSTR, destcapacity : i32, pdestlength : *mut i32, src : *const u16, srclength : i32, perrorcode : *mut UErrorCode) -> ::windows_sys::core::PSTR);
-::windows_targets::link!("icu.dll" "cdecl" fn u_strToLower(dest : *mut u16, destcapacity : i32, src : *const u16, srclength : i32, locale : ::windows_sys::core::PCSTR, perrorcode : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn u_strToTitle(dest : *mut u16, destcapacity : i32, src : *const u16, srclength : i32, titleiter : *mut UBreakIterator, locale : ::windows_sys::core::PCSTR, perrorcode : *mut UErrorCode) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn u_strToJavaModifiedUTF8(dest : windows_sys::core::PCSTR, destcapacity : i32, pdestlength : *mut i32, src : *const u16, srclength : i32, perrorcode : *mut UErrorCode) -> windows_sys::core::PSTR);
+::windows_targets::link!("icu.dll" "cdecl" fn u_strToLower(dest : *mut u16, destcapacity : i32, src : *const u16, srclength : i32, locale : windows_sys::core::PCSTR, perrorcode : *mut UErrorCode) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn u_strToTitle(dest : *mut u16, destcapacity : i32, src : *const u16, srclength : i32, titleiter : *mut UBreakIterator, locale : windows_sys::core::PCSTR, perrorcode : *mut UErrorCode) -> i32);
 ::windows_targets::link!("icu.dll" "cdecl" fn u_strToUTF32(dest : *mut i32, destcapacity : i32, pdestlength : *mut i32, src : *const u16, srclength : i32, perrorcode : *mut UErrorCode) -> *mut i32);
 ::windows_targets::link!("icu.dll" "cdecl" fn u_strToUTF32WithSub(dest : *mut i32, destcapacity : i32, pdestlength : *mut i32, src : *const u16, srclength : i32, subchar : i32, pnumsubstitutions : *mut i32, perrorcode : *mut UErrorCode) -> *mut i32);
-::windows_targets::link!("icu.dll" "cdecl" fn u_strToUTF8(dest : ::windows_sys::core::PCSTR, destcapacity : i32, pdestlength : *mut i32, src : *const u16, srclength : i32, perrorcode : *mut UErrorCode) -> ::windows_sys::core::PSTR);
-::windows_targets::link!("icu.dll" "cdecl" fn u_strToUTF8WithSub(dest : ::windows_sys::core::PCSTR, destcapacity : i32, pdestlength : *mut i32, src : *const u16, srclength : i32, subchar : i32, pnumsubstitutions : *mut i32, perrorcode : *mut UErrorCode) -> ::windows_sys::core::PSTR);
-::windows_targets::link!("icu.dll" "cdecl" fn u_strToUpper(dest : *mut u16, destcapacity : i32, src : *const u16, srclength : i32, locale : ::windows_sys::core::PCSTR, perrorcode : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn u_strToWCS(dest : ::windows_sys::core::PCWSTR, destcapacity : i32, pdestlength : *mut i32, src : *const u16, srclength : i32, perrorcode : *mut UErrorCode) -> ::windows_sys::core::PWSTR);
+::windows_targets::link!("icu.dll" "cdecl" fn u_strToUTF8(dest : windows_sys::core::PCSTR, destcapacity : i32, pdestlength : *mut i32, src : *const u16, srclength : i32, perrorcode : *mut UErrorCode) -> windows_sys::core::PSTR);
+::windows_targets::link!("icu.dll" "cdecl" fn u_strToUTF8WithSub(dest : windows_sys::core::PCSTR, destcapacity : i32, pdestlength : *mut i32, src : *const u16, srclength : i32, subchar : i32, pnumsubstitutions : *mut i32, perrorcode : *mut UErrorCode) -> windows_sys::core::PSTR);
+::windows_targets::link!("icu.dll" "cdecl" fn u_strToUpper(dest : *mut u16, destcapacity : i32, src : *const u16, srclength : i32, locale : windows_sys::core::PCSTR, perrorcode : *mut UErrorCode) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn u_strToWCS(dest : windows_sys::core::PCWSTR, destcapacity : i32, pdestlength : *mut i32, src : *const u16, srclength : i32, perrorcode : *mut UErrorCode) -> windows_sys::core::PWSTR);
 ::windows_targets::link!("icu.dll" "cdecl" fn u_strcasecmp(s1 : *const u16, s2 : *const u16, options : u32) -> i32);
 ::windows_targets::link!("icu.dll" "cdecl" fn u_strcat(dst : *mut u16, src : *const u16) -> *mut u16);
 ::windows_targets::link!("icu.dll" "cdecl" fn u_strchr(s : *const u16, c : u16) -> *mut u16);
@@ -352,22 +352,22 @@
 ::windows_targets::link!("icu.dll" "cdecl" fn u_tolower(c : i32) -> i32);
 ::windows_targets::link!("icu.dll" "cdecl" fn u_totitle(c : i32) -> i32);
 ::windows_targets::link!("icu.dll" "cdecl" fn u_toupper(c : i32) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn u_uastrcpy(dst : *mut u16, src : ::windows_sys::core::PCSTR) -> *mut u16);
-::windows_targets::link!("icu.dll" "cdecl" fn u_uastrncpy(dst : *mut u16, src : ::windows_sys::core::PCSTR, n : i32) -> *mut u16);
-::windows_targets::link!("icu.dll" "cdecl" fn u_unescape(src : ::windows_sys::core::PCSTR, dest : *mut u16, destcapacity : i32) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn u_unescapeAt(charat : UNESCAPE_CHAR_AT, offset : *mut i32, length : i32, context : *mut ::core::ffi::c_void) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn u_versionFromString(versionarray : *mut u8, versionstring : ::windows_sys::core::PCSTR));
+::windows_targets::link!("icu.dll" "cdecl" fn u_uastrcpy(dst : *mut u16, src : windows_sys::core::PCSTR) -> *mut u16);
+::windows_targets::link!("icu.dll" "cdecl" fn u_uastrncpy(dst : *mut u16, src : windows_sys::core::PCSTR, n : i32) -> *mut u16);
+::windows_targets::link!("icu.dll" "cdecl" fn u_unescape(src : windows_sys::core::PCSTR, dest : *mut u16, destcapacity : i32) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn u_unescapeAt(charat : UNESCAPE_CHAR_AT, offset : *mut i32, length : i32, context : *mut core::ffi::c_void) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn u_versionFromString(versionarray : *mut u8, versionstring : windows_sys::core::PCSTR));
 ::windows_targets::link!("icu.dll" "cdecl" fn u_versionFromUString(versionarray : *mut u8, versionstring : *const u16));
-::windows_targets::link!("icu.dll" "cdecl" fn u_versionToString(versionarray : *const u8, versionstring : ::windows_sys::core::PCSTR));
-::windows_targets::link!("icu.dll" "cdecl" fn u_vformatMessage(locale : ::windows_sys::core::PCSTR, pattern : *const u16, patternlength : i32, result : *mut u16, resultlength : i32, ap : *mut i8, status : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn u_vformatMessageWithError(locale : ::windows_sys::core::PCSTR, pattern : *const u16, patternlength : i32, result : *mut u16, resultlength : i32, parseerror : *mut UParseError, ap : *mut i8, status : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn u_vparseMessage(locale : ::windows_sys::core::PCSTR, pattern : *const u16, patternlength : i32, source : *const u16, sourcelength : i32, ap : *mut i8, status : *mut UErrorCode));
-::windows_targets::link!("icu.dll" "cdecl" fn u_vparseMessageWithError(locale : ::windows_sys::core::PCSTR, pattern : *const u16, patternlength : i32, source : *const u16, sourcelength : i32, ap : *mut i8, parseerror : *mut UParseError, status : *mut UErrorCode));
+::windows_targets::link!("icu.dll" "cdecl" fn u_versionToString(versionarray : *const u8, versionstring : windows_sys::core::PCSTR));
+::windows_targets::link!("icu.dll" "cdecl" fn u_vformatMessage(locale : windows_sys::core::PCSTR, pattern : *const u16, patternlength : i32, result : *mut u16, resultlength : i32, ap : *mut i8, status : *mut UErrorCode) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn u_vformatMessageWithError(locale : windows_sys::core::PCSTR, pattern : *const u16, patternlength : i32, result : *mut u16, resultlength : i32, parseerror : *mut UParseError, ap : *mut i8, status : *mut UErrorCode) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn u_vparseMessage(locale : windows_sys::core::PCSTR, pattern : *const u16, patternlength : i32, source : *const u16, sourcelength : i32, ap : *mut i8, status : *mut UErrorCode));
+::windows_targets::link!("icu.dll" "cdecl" fn u_vparseMessageWithError(locale : windows_sys::core::PCSTR, pattern : *const u16, patternlength : i32, source : *const u16, sourcelength : i32, ap : *mut i8, parseerror : *mut UParseError, status : *mut UErrorCode));
 ::windows_targets::link!("icu.dll" "cdecl" fn ubidi_close(pbidi : *mut UBiDi));
 ::windows_targets::link!("icu.dll" "cdecl" fn ubidi_countParagraphs(pbidi : *mut UBiDi) -> i32);
 ::windows_targets::link!("icu.dll" "cdecl" fn ubidi_countRuns(pbidi : *mut UBiDi, perrorcode : *mut UErrorCode) -> i32);
 ::windows_targets::link!("icu.dll" "cdecl" fn ubidi_getBaseDirection(text : *const u16, length : i32) -> UBiDiDirection);
-::windows_targets::link!("icu.dll" "cdecl" fn ubidi_getClassCallback(pbidi : *mut UBiDi, r#fn : *mut UBiDiClassCallback, context : *const *const ::core::ffi::c_void));
+::windows_targets::link!("icu.dll" "cdecl" fn ubidi_getClassCallback(pbidi : *mut UBiDi, r#fn : *mut UBiDiClassCallback, context : *const *const core::ffi::c_void));
 ::windows_targets::link!("icu.dll" "cdecl" fn ubidi_getCustomizedClass(pbidi : *mut UBiDi, c : i32) -> UCharDirection);
 ::windows_targets::link!("icu.dll" "cdecl" fn ubidi_getDirection(pbidi : *const UBiDi) -> UBiDiDirection);
 ::windows_targets::link!("icu.dll" "cdecl" fn ubidi_getLength(pbidi : *const UBiDi) -> i32);
@@ -395,7 +395,7 @@
 ::windows_targets::link!("icu.dll" "cdecl" fn ubidi_orderParagraphsLTR(pbidi : *mut UBiDi, orderparagraphsltr : i8));
 ::windows_targets::link!("icu.dll" "cdecl" fn ubidi_reorderLogical(levels : *const u8, length : i32, indexmap : *mut i32));
 ::windows_targets::link!("icu.dll" "cdecl" fn ubidi_reorderVisual(levels : *const u8, length : i32, indexmap : *mut i32));
-::windows_targets::link!("icu.dll" "cdecl" fn ubidi_setClassCallback(pbidi : *mut UBiDi, newfn : UBiDiClassCallback, newcontext : *const ::core::ffi::c_void, oldfn : *mut UBiDiClassCallback, oldcontext : *const *const ::core::ffi::c_void, perrorcode : *mut UErrorCode));
+::windows_targets::link!("icu.dll" "cdecl" fn ubidi_setClassCallback(pbidi : *mut UBiDi, newfn : UBiDiClassCallback, newcontext : *const core::ffi::c_void, oldfn : *mut UBiDiClassCallback, oldcontext : *const *const core::ffi::c_void, perrorcode : *mut UErrorCode));
 ::windows_targets::link!("icu.dll" "cdecl" fn ubidi_setContext(pbidi : *mut UBiDi, prologue : *const u16, prolength : i32, epilogue : *const u16, epilength : i32, perrorcode : *mut UErrorCode));
 ::windows_targets::link!("icu.dll" "cdecl" fn ubidi_setInverse(pbidi : *mut UBiDi, isinverse : i8));
 ::windows_targets::link!("icu.dll" "cdecl" fn ubidi_setLine(pparabidi : *const UBiDi, start : i32, limit : i32, plinebidi : *mut UBiDi, perrorcode : *mut UErrorCode));
@@ -413,82 +413,82 @@
 ::windows_targets::link!("icu.dll" "cdecl" fn ubrk_current(bi : *const UBreakIterator) -> i32);
 ::windows_targets::link!("icu.dll" "cdecl" fn ubrk_first(bi : *mut UBreakIterator) -> i32);
 ::windows_targets::link!("icu.dll" "cdecl" fn ubrk_following(bi : *mut UBreakIterator, offset : i32) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn ubrk_getAvailable(index : i32) -> ::windows_sys::core::PCSTR);
+::windows_targets::link!("icu.dll" "cdecl" fn ubrk_getAvailable(index : i32) -> windows_sys::core::PCSTR);
 ::windows_targets::link!("icu.dll" "cdecl" fn ubrk_getBinaryRules(bi : *mut UBreakIterator, binaryrules : *mut u8, rulescapacity : i32, status : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn ubrk_getLocaleByType(bi : *const UBreakIterator, r#type : ULocDataLocaleType, status : *mut UErrorCode) -> ::windows_sys::core::PCSTR);
+::windows_targets::link!("icu.dll" "cdecl" fn ubrk_getLocaleByType(bi : *const UBreakIterator, r#type : ULocDataLocaleType, status : *mut UErrorCode) -> windows_sys::core::PCSTR);
 ::windows_targets::link!("icu.dll" "cdecl" fn ubrk_getRuleStatus(bi : *mut UBreakIterator) -> i32);
 ::windows_targets::link!("icu.dll" "cdecl" fn ubrk_getRuleStatusVec(bi : *mut UBreakIterator, fillinvec : *mut i32, capacity : i32, status : *mut UErrorCode) -> i32);
 ::windows_targets::link!("icu.dll" "cdecl" fn ubrk_isBoundary(bi : *mut UBreakIterator, offset : i32) -> i8);
 ::windows_targets::link!("icu.dll" "cdecl" fn ubrk_last(bi : *mut UBreakIterator) -> i32);
 ::windows_targets::link!("icu.dll" "cdecl" fn ubrk_next(bi : *mut UBreakIterator) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn ubrk_open(r#type : UBreakIteratorType, locale : ::windows_sys::core::PCSTR, text : *const u16, textlength : i32, status : *mut UErrorCode) -> *mut UBreakIterator);
+::windows_targets::link!("icu.dll" "cdecl" fn ubrk_open(r#type : UBreakIteratorType, locale : windows_sys::core::PCSTR, text : *const u16, textlength : i32, status : *mut UErrorCode) -> *mut UBreakIterator);
 ::windows_targets::link!("icu.dll" "cdecl" fn ubrk_openBinaryRules(binaryrules : *const u8, ruleslength : i32, text : *const u16, textlength : i32, status : *mut UErrorCode) -> *mut UBreakIterator);
 ::windows_targets::link!("icu.dll" "cdecl" fn ubrk_openRules(rules : *const u16, ruleslength : i32, text : *const u16, textlength : i32, parseerr : *mut UParseError, status : *mut UErrorCode) -> *mut UBreakIterator);
 ::windows_targets::link!("icu.dll" "cdecl" fn ubrk_preceding(bi : *mut UBreakIterator, offset : i32) -> i32);
 ::windows_targets::link!("icu.dll" "cdecl" fn ubrk_previous(bi : *mut UBreakIterator) -> i32);
 ::windows_targets::link!("icu.dll" "cdecl" fn ubrk_refreshUText(bi : *mut UBreakIterator, text : *mut UText, status : *mut UErrorCode));
-::windows_targets::link!("icu.dll" "cdecl" fn ubrk_safeClone(bi : *const UBreakIterator, stackbuffer : *mut ::core::ffi::c_void, pbuffersize : *mut i32, status : *mut UErrorCode) -> *mut UBreakIterator);
+::windows_targets::link!("icu.dll" "cdecl" fn ubrk_safeClone(bi : *const UBreakIterator, stackbuffer : *mut core::ffi::c_void, pbuffersize : *mut i32, status : *mut UErrorCode) -> *mut UBreakIterator);
 ::windows_targets::link!("icu.dll" "cdecl" fn ubrk_setText(bi : *mut UBreakIterator, text : *const u16, textlength : i32, status : *mut UErrorCode));
 ::windows_targets::link!("icu.dll" "cdecl" fn ubrk_setUText(bi : *mut UBreakIterator, text : *mut UText, status : *mut UErrorCode));
-::windows_targets::link!("icu.dll" "cdecl" fn ucal_add(cal : *mut *mut ::core::ffi::c_void, field : UCalendarDateFields, amount : i32, status : *mut UErrorCode));
-::windows_targets::link!("icu.dll" "cdecl" fn ucal_clear(calendar : *mut *mut ::core::ffi::c_void));
-::windows_targets::link!("icu.dll" "cdecl" fn ucal_clearField(cal : *mut *mut ::core::ffi::c_void, field : UCalendarDateFields));
-::windows_targets::link!("icu.dll" "cdecl" fn ucal_clone(cal : *const *const ::core::ffi::c_void, status : *mut UErrorCode) -> *mut *mut ::core::ffi::c_void);
-::windows_targets::link!("icu.dll" "cdecl" fn ucal_close(cal : *mut *mut ::core::ffi::c_void));
+::windows_targets::link!("icu.dll" "cdecl" fn ucal_add(cal : *mut *mut core::ffi::c_void, field : UCalendarDateFields, amount : i32, status : *mut UErrorCode));
+::windows_targets::link!("icu.dll" "cdecl" fn ucal_clear(calendar : *mut *mut core::ffi::c_void));
+::windows_targets::link!("icu.dll" "cdecl" fn ucal_clearField(cal : *mut *mut core::ffi::c_void, field : UCalendarDateFields));
+::windows_targets::link!("icu.dll" "cdecl" fn ucal_clone(cal : *const *const core::ffi::c_void, status : *mut UErrorCode) -> *mut *mut core::ffi::c_void);
+::windows_targets::link!("icu.dll" "cdecl" fn ucal_close(cal : *mut *mut core::ffi::c_void));
 ::windows_targets::link!("icu.dll" "cdecl" fn ucal_countAvailable() -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn ucal_equivalentTo(cal1 : *const *const ::core::ffi::c_void, cal2 : *const *const ::core::ffi::c_void) -> i8);
-::windows_targets::link!("icu.dll" "cdecl" fn ucal_get(cal : *const *const ::core::ffi::c_void, field : UCalendarDateFields, status : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn ucal_getAttribute(cal : *const *const ::core::ffi::c_void, attr : UCalendarAttribute) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn ucal_getAvailable(localeindex : i32) -> ::windows_sys::core::PCSTR);
+::windows_targets::link!("icu.dll" "cdecl" fn ucal_equivalentTo(cal1 : *const *const core::ffi::c_void, cal2 : *const *const core::ffi::c_void) -> i8);
+::windows_targets::link!("icu.dll" "cdecl" fn ucal_get(cal : *const *const core::ffi::c_void, field : UCalendarDateFields, status : *mut UErrorCode) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn ucal_getAttribute(cal : *const *const core::ffi::c_void, attr : UCalendarAttribute) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn ucal_getAvailable(localeindex : i32) -> windows_sys::core::PCSTR);
 ::windows_targets::link!("icu.dll" "cdecl" fn ucal_getCanonicalTimeZoneID(id : *const u16, len : i32, result : *mut u16, resultcapacity : i32, issystemid : *mut i8, status : *mut UErrorCode) -> i32);
 ::windows_targets::link!("icu.dll" "cdecl" fn ucal_getDSTSavings(zoneid : *const u16, ec : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn ucal_getDayOfWeekType(cal : *const *const ::core::ffi::c_void, dayofweek : UCalendarDaysOfWeek, status : *mut UErrorCode) -> UCalendarWeekdayType);
+::windows_targets::link!("icu.dll" "cdecl" fn ucal_getDayOfWeekType(cal : *const *const core::ffi::c_void, dayofweek : UCalendarDaysOfWeek, status : *mut UErrorCode) -> UCalendarWeekdayType);
 ::windows_targets::link!("icu.dll" "cdecl" fn ucal_getDefaultTimeZone(result : *mut u16, resultcapacity : i32, ec : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn ucal_getFieldDifference(cal : *mut *mut ::core::ffi::c_void, target : f64, field : UCalendarDateFields, status : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn ucal_getGregorianChange(cal : *const *const ::core::ffi::c_void, perrorcode : *mut UErrorCode) -> f64);
+::windows_targets::link!("icu.dll" "cdecl" fn ucal_getFieldDifference(cal : *mut *mut core::ffi::c_void, target : f64, field : UCalendarDateFields, status : *mut UErrorCode) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn ucal_getGregorianChange(cal : *const *const core::ffi::c_void, perrorcode : *mut UErrorCode) -> f64);
 ::windows_targets::link!("icu.dll" "cdecl" fn ucal_getHostTimeZone(result : *mut u16, resultcapacity : i32, ec : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn ucal_getKeywordValuesForLocale(key : ::windows_sys::core::PCSTR, locale : ::windows_sys::core::PCSTR, commonlyused : i8, status : *mut UErrorCode) -> *mut UEnumeration);
-::windows_targets::link!("icu.dll" "cdecl" fn ucal_getLimit(cal : *const *const ::core::ffi::c_void, field : UCalendarDateFields, r#type : UCalendarLimitType, status : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn ucal_getLocaleByType(cal : *const *const ::core::ffi::c_void, r#type : ULocDataLocaleType, status : *mut UErrorCode) -> ::windows_sys::core::PCSTR);
-::windows_targets::link!("icu.dll" "cdecl" fn ucal_getMillis(cal : *const *const ::core::ffi::c_void, status : *mut UErrorCode) -> f64);
+::windows_targets::link!("icu.dll" "cdecl" fn ucal_getKeywordValuesForLocale(key : windows_sys::core::PCSTR, locale : windows_sys::core::PCSTR, commonlyused : i8, status : *mut UErrorCode) -> *mut UEnumeration);
+::windows_targets::link!("icu.dll" "cdecl" fn ucal_getLimit(cal : *const *const core::ffi::c_void, field : UCalendarDateFields, r#type : UCalendarLimitType, status : *mut UErrorCode) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn ucal_getLocaleByType(cal : *const *const core::ffi::c_void, r#type : ULocDataLocaleType, status : *mut UErrorCode) -> windows_sys::core::PCSTR);
+::windows_targets::link!("icu.dll" "cdecl" fn ucal_getMillis(cal : *const *const core::ffi::c_void, status : *mut UErrorCode) -> f64);
 ::windows_targets::link!("icu.dll" "cdecl" fn ucal_getNow() -> f64);
-::windows_targets::link!("icu.dll" "cdecl" fn ucal_getTZDataVersion(status : *mut UErrorCode) -> ::windows_sys::core::PCSTR);
-::windows_targets::link!("icu.dll" "cdecl" fn ucal_getTimeZoneDisplayName(cal : *const *const ::core::ffi::c_void, r#type : UCalendarDisplayNameType, locale : ::windows_sys::core::PCSTR, result : *mut u16, resultlength : i32, status : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn ucal_getTimeZoneID(cal : *const *const ::core::ffi::c_void, result : *mut u16, resultlength : i32, status : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn ucal_getTimeZoneIDForWindowsID(winid : *const u16, len : i32, region : ::windows_sys::core::PCSTR, id : *mut u16, idcapacity : i32, status : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn ucal_getTimeZoneTransitionDate(cal : *const *const ::core::ffi::c_void, r#type : UTimeZoneTransitionType, transition : *mut f64, status : *mut UErrorCode) -> i8);
-::windows_targets::link!("icu.dll" "cdecl" fn ucal_getType(cal : *const *const ::core::ffi::c_void, status : *mut UErrorCode) -> ::windows_sys::core::PCSTR);
-::windows_targets::link!("icu.dll" "cdecl" fn ucal_getWeekendTransition(cal : *const *const ::core::ffi::c_void, dayofweek : UCalendarDaysOfWeek, status : *mut UErrorCode) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn ucal_getTZDataVersion(status : *mut UErrorCode) -> windows_sys::core::PCSTR);
+::windows_targets::link!("icu.dll" "cdecl" fn ucal_getTimeZoneDisplayName(cal : *const *const core::ffi::c_void, r#type : UCalendarDisplayNameType, locale : windows_sys::core::PCSTR, result : *mut u16, resultlength : i32, status : *mut UErrorCode) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn ucal_getTimeZoneID(cal : *const *const core::ffi::c_void, result : *mut u16, resultlength : i32, status : *mut UErrorCode) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn ucal_getTimeZoneIDForWindowsID(winid : *const u16, len : i32, region : windows_sys::core::PCSTR, id : *mut u16, idcapacity : i32, status : *mut UErrorCode) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn ucal_getTimeZoneTransitionDate(cal : *const *const core::ffi::c_void, r#type : UTimeZoneTransitionType, transition : *mut f64, status : *mut UErrorCode) -> i8);
+::windows_targets::link!("icu.dll" "cdecl" fn ucal_getType(cal : *const *const core::ffi::c_void, status : *mut UErrorCode) -> windows_sys::core::PCSTR);
+::windows_targets::link!("icu.dll" "cdecl" fn ucal_getWeekendTransition(cal : *const *const core::ffi::c_void, dayofweek : UCalendarDaysOfWeek, status : *mut UErrorCode) -> i32);
 ::windows_targets::link!("icu.dll" "cdecl" fn ucal_getWindowsTimeZoneID(id : *const u16, len : i32, winid : *mut u16, winidcapacity : i32, status : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn ucal_inDaylightTime(cal : *const *const ::core::ffi::c_void, status : *mut UErrorCode) -> i8);
-::windows_targets::link!("icu.dll" "cdecl" fn ucal_isSet(cal : *const *const ::core::ffi::c_void, field : UCalendarDateFields) -> i8);
-::windows_targets::link!("icu.dll" "cdecl" fn ucal_isWeekend(cal : *const *const ::core::ffi::c_void, date : f64, status : *mut UErrorCode) -> i8);
-::windows_targets::link!("icu.dll" "cdecl" fn ucal_open(zoneid : *const u16, len : i32, locale : ::windows_sys::core::PCSTR, r#type : UCalendarType, status : *mut UErrorCode) -> *mut *mut ::core::ffi::c_void);
-::windows_targets::link!("icu.dll" "cdecl" fn ucal_openCountryTimeZones(country : ::windows_sys::core::PCSTR, ec : *mut UErrorCode) -> *mut UEnumeration);
-::windows_targets::link!("icu.dll" "cdecl" fn ucal_openTimeZoneIDEnumeration(zonetype : USystemTimeZoneType, region : ::windows_sys::core::PCSTR, rawoffset : *const i32, ec : *mut UErrorCode) -> *mut UEnumeration);
+::windows_targets::link!("icu.dll" "cdecl" fn ucal_inDaylightTime(cal : *const *const core::ffi::c_void, status : *mut UErrorCode) -> i8);
+::windows_targets::link!("icu.dll" "cdecl" fn ucal_isSet(cal : *const *const core::ffi::c_void, field : UCalendarDateFields) -> i8);
+::windows_targets::link!("icu.dll" "cdecl" fn ucal_isWeekend(cal : *const *const core::ffi::c_void, date : f64, status : *mut UErrorCode) -> i8);
+::windows_targets::link!("icu.dll" "cdecl" fn ucal_open(zoneid : *const u16, len : i32, locale : windows_sys::core::PCSTR, r#type : UCalendarType, status : *mut UErrorCode) -> *mut *mut core::ffi::c_void);
+::windows_targets::link!("icu.dll" "cdecl" fn ucal_openCountryTimeZones(country : windows_sys::core::PCSTR, ec : *mut UErrorCode) -> *mut UEnumeration);
+::windows_targets::link!("icu.dll" "cdecl" fn ucal_openTimeZoneIDEnumeration(zonetype : USystemTimeZoneType, region : windows_sys::core::PCSTR, rawoffset : *const i32, ec : *mut UErrorCode) -> *mut UEnumeration);
 ::windows_targets::link!("icu.dll" "cdecl" fn ucal_openTimeZones(ec : *mut UErrorCode) -> *mut UEnumeration);
-::windows_targets::link!("icu.dll" "cdecl" fn ucal_roll(cal : *mut *mut ::core::ffi::c_void, field : UCalendarDateFields, amount : i32, status : *mut UErrorCode));
-::windows_targets::link!("icu.dll" "cdecl" fn ucal_set(cal : *mut *mut ::core::ffi::c_void, field : UCalendarDateFields, value : i32));
-::windows_targets::link!("icu.dll" "cdecl" fn ucal_setAttribute(cal : *mut *mut ::core::ffi::c_void, attr : UCalendarAttribute, newvalue : i32));
-::windows_targets::link!("icu.dll" "cdecl" fn ucal_setDate(cal : *mut *mut ::core::ffi::c_void, year : i32, month : i32, date : i32, status : *mut UErrorCode));
-::windows_targets::link!("icu.dll" "cdecl" fn ucal_setDateTime(cal : *mut *mut ::core::ffi::c_void, year : i32, month : i32, date : i32, hour : i32, minute : i32, second : i32, status : *mut UErrorCode));
+::windows_targets::link!("icu.dll" "cdecl" fn ucal_roll(cal : *mut *mut core::ffi::c_void, field : UCalendarDateFields, amount : i32, status : *mut UErrorCode));
+::windows_targets::link!("icu.dll" "cdecl" fn ucal_set(cal : *mut *mut core::ffi::c_void, field : UCalendarDateFields, value : i32));
+::windows_targets::link!("icu.dll" "cdecl" fn ucal_setAttribute(cal : *mut *mut core::ffi::c_void, attr : UCalendarAttribute, newvalue : i32));
+::windows_targets::link!("icu.dll" "cdecl" fn ucal_setDate(cal : *mut *mut core::ffi::c_void, year : i32, month : i32, date : i32, status : *mut UErrorCode));
+::windows_targets::link!("icu.dll" "cdecl" fn ucal_setDateTime(cal : *mut *mut core::ffi::c_void, year : i32, month : i32, date : i32, hour : i32, minute : i32, second : i32, status : *mut UErrorCode));
 ::windows_targets::link!("icu.dll" "cdecl" fn ucal_setDefaultTimeZone(zoneid : *const u16, ec : *mut UErrorCode));
-::windows_targets::link!("icu.dll" "cdecl" fn ucal_setGregorianChange(cal : *mut *mut ::core::ffi::c_void, date : f64, perrorcode : *mut UErrorCode));
-::windows_targets::link!("icu.dll" "cdecl" fn ucal_setMillis(cal : *mut *mut ::core::ffi::c_void, datetime : f64, status : *mut UErrorCode));
-::windows_targets::link!("icu.dll" "cdecl" fn ucal_setTimeZone(cal : *mut *mut ::core::ffi::c_void, zoneid : *const u16, len : i32, status : *mut UErrorCode));
+::windows_targets::link!("icu.dll" "cdecl" fn ucal_setGregorianChange(cal : *mut *mut core::ffi::c_void, date : f64, perrorcode : *mut UErrorCode));
+::windows_targets::link!("icu.dll" "cdecl" fn ucal_setMillis(cal : *mut *mut core::ffi::c_void, datetime : f64, status : *mut UErrorCode));
+::windows_targets::link!("icu.dll" "cdecl" fn ucal_setTimeZone(cal : *mut *mut core::ffi::c_void, zoneid : *const u16, len : i32, status : *mut UErrorCode));
 ::windows_targets::link!("icu.dll" "cdecl" fn ucasemap_close(csm : *mut UCaseMap));
 ::windows_targets::link!("icu.dll" "cdecl" fn ucasemap_getBreakIterator(csm : *const UCaseMap) -> *mut UBreakIterator);
-::windows_targets::link!("icu.dll" "cdecl" fn ucasemap_getLocale(csm : *const UCaseMap) -> ::windows_sys::core::PCSTR);
+::windows_targets::link!("icu.dll" "cdecl" fn ucasemap_getLocale(csm : *const UCaseMap) -> windows_sys::core::PCSTR);
 ::windows_targets::link!("icu.dll" "cdecl" fn ucasemap_getOptions(csm : *const UCaseMap) -> u32);
-::windows_targets::link!("icu.dll" "cdecl" fn ucasemap_open(locale : ::windows_sys::core::PCSTR, options : u32, perrorcode : *mut UErrorCode) -> *mut UCaseMap);
+::windows_targets::link!("icu.dll" "cdecl" fn ucasemap_open(locale : windows_sys::core::PCSTR, options : u32, perrorcode : *mut UErrorCode) -> *mut UCaseMap);
 ::windows_targets::link!("icu.dll" "cdecl" fn ucasemap_setBreakIterator(csm : *mut UCaseMap, itertoadopt : *mut UBreakIterator, perrorcode : *mut UErrorCode));
-::windows_targets::link!("icu.dll" "cdecl" fn ucasemap_setLocale(csm : *mut UCaseMap, locale : ::windows_sys::core::PCSTR, perrorcode : *mut UErrorCode));
+::windows_targets::link!("icu.dll" "cdecl" fn ucasemap_setLocale(csm : *mut UCaseMap, locale : windows_sys::core::PCSTR, perrorcode : *mut UErrorCode));
 ::windows_targets::link!("icu.dll" "cdecl" fn ucasemap_setOptions(csm : *mut UCaseMap, options : u32, perrorcode : *mut UErrorCode));
 ::windows_targets::link!("icu.dll" "cdecl" fn ucasemap_toTitle(csm : *mut UCaseMap, dest : *mut u16, destcapacity : i32, src : *const u16, srclength : i32, perrorcode : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn ucasemap_utf8FoldCase(csm : *const UCaseMap, dest : ::windows_sys::core::PCSTR, destcapacity : i32, src : ::windows_sys::core::PCSTR, srclength : i32, perrorcode : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn ucasemap_utf8ToLower(csm : *const UCaseMap, dest : ::windows_sys::core::PCSTR, destcapacity : i32, src : ::windows_sys::core::PCSTR, srclength : i32, perrorcode : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn ucasemap_utf8ToTitle(csm : *mut UCaseMap, dest : ::windows_sys::core::PCSTR, destcapacity : i32, src : ::windows_sys::core::PCSTR, srclength : i32, perrorcode : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn ucasemap_utf8ToUpper(csm : *const UCaseMap, dest : ::windows_sys::core::PCSTR, destcapacity : i32, src : ::windows_sys::core::PCSTR, srclength : i32, perrorcode : *mut UErrorCode) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn ucasemap_utf8FoldCase(csm : *const UCaseMap, dest : windows_sys::core::PCSTR, destcapacity : i32, src : windows_sys::core::PCSTR, srclength : i32, perrorcode : *mut UErrorCode) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn ucasemap_utf8ToLower(csm : *const UCaseMap, dest : windows_sys::core::PCSTR, destcapacity : i32, src : windows_sys::core::PCSTR, srclength : i32, perrorcode : *mut UErrorCode) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn ucasemap_utf8ToTitle(csm : *mut UCaseMap, dest : windows_sys::core::PCSTR, destcapacity : i32, src : windows_sys::core::PCSTR, srclength : i32, perrorcode : *mut UErrorCode) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn ucasemap_utf8ToUpper(csm : *const UCaseMap, dest : windows_sys::core::PCSTR, destcapacity : i32, src : windows_sys::core::PCSTR, srclength : i32, perrorcode : *mut UErrorCode) -> i32);
 ::windows_targets::link!("icu.dll" "cdecl" fn ucfpos_close(ucfpos : *mut UConstrainedFieldPosition));
 ::windows_targets::link!("icu.dll" "cdecl" fn ucfpos_constrainCategory(ucfpos : *mut UConstrainedFieldPosition, category : i32, ec : *mut UErrorCode));
 ::windows_targets::link!("icu.dll" "cdecl" fn ucfpos_constrainField(ucfpos : *mut UConstrainedFieldPosition, category : i32, field : i32, ec : *mut UErrorCode));
@@ -501,92 +501,92 @@
 ::windows_targets::link!("icu.dll" "cdecl" fn ucfpos_reset(ucfpos : *mut UConstrainedFieldPosition, ec : *mut UErrorCode));
 ::windows_targets::link!("icu.dll" "cdecl" fn ucfpos_setInt64IterationContext(ucfpos : *mut UConstrainedFieldPosition, context : i64, ec : *mut UErrorCode));
 ::windows_targets::link!("icu.dll" "cdecl" fn ucfpos_setState(ucfpos : *mut UConstrainedFieldPosition, category : i32, field : i32, start : i32, limit : i32, ec : *mut UErrorCode));
-::windows_targets::link!("icu.dll" "cdecl" fn ucnv_cbFromUWriteBytes(args : *mut UConverterFromUnicodeArgs, source : ::windows_sys::core::PCSTR, length : i32, offsetindex : i32, err : *mut UErrorCode));
+::windows_targets::link!("icu.dll" "cdecl" fn ucnv_cbFromUWriteBytes(args : *mut UConverterFromUnicodeArgs, source : windows_sys::core::PCSTR, length : i32, offsetindex : i32, err : *mut UErrorCode));
 ::windows_targets::link!("icu.dll" "cdecl" fn ucnv_cbFromUWriteSub(args : *mut UConverterFromUnicodeArgs, offsetindex : i32, err : *mut UErrorCode));
 ::windows_targets::link!("icu.dll" "cdecl" fn ucnv_cbFromUWriteUChars(args : *mut UConverterFromUnicodeArgs, source : *const *const u16, sourcelimit : *const u16, offsetindex : i32, err : *mut UErrorCode));
 ::windows_targets::link!("icu.dll" "cdecl" fn ucnv_cbToUWriteSub(args : *mut UConverterToUnicodeArgs, offsetindex : i32, err : *mut UErrorCode));
 ::windows_targets::link!("icu.dll" "cdecl" fn ucnv_cbToUWriteUChars(args : *mut UConverterToUnicodeArgs, source : *const u16, length : i32, offsetindex : i32, err : *mut UErrorCode));
 ::windows_targets::link!("icu.dll" "cdecl" fn ucnv_close(converter : *mut UConverter));
-::windows_targets::link!("icu.dll" "cdecl" fn ucnv_compareNames(name1 : ::windows_sys::core::PCSTR, name2 : ::windows_sys::core::PCSTR) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn ucnv_convert(toconvertername : ::windows_sys::core::PCSTR, fromconvertername : ::windows_sys::core::PCSTR, target : ::windows_sys::core::PCSTR, targetcapacity : i32, source : ::windows_sys::core::PCSTR, sourcelength : i32, perrorcode : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn ucnv_convertEx(targetcnv : *mut UConverter, sourcecnv : *mut UConverter, target : *mut *mut i8, targetlimit : ::windows_sys::core::PCSTR, source : *const *const i8, sourcelimit : ::windows_sys::core::PCSTR, pivotstart : *mut u16, pivotsource : *mut *mut u16, pivottarget : *mut *mut u16, pivotlimit : *const u16, reset : i8, flush : i8, perrorcode : *mut UErrorCode));
-::windows_targets::link!("icu.dll" "cdecl" fn ucnv_countAliases(alias : ::windows_sys::core::PCSTR, perrorcode : *mut UErrorCode) -> u16);
+::windows_targets::link!("icu.dll" "cdecl" fn ucnv_compareNames(name1 : windows_sys::core::PCSTR, name2 : windows_sys::core::PCSTR) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn ucnv_convert(toconvertername : windows_sys::core::PCSTR, fromconvertername : windows_sys::core::PCSTR, target : windows_sys::core::PCSTR, targetcapacity : i32, source : windows_sys::core::PCSTR, sourcelength : i32, perrorcode : *mut UErrorCode) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn ucnv_convertEx(targetcnv : *mut UConverter, sourcecnv : *mut UConverter, target : *mut *mut i8, targetlimit : windows_sys::core::PCSTR, source : *const *const i8, sourcelimit : windows_sys::core::PCSTR, pivotstart : *mut u16, pivotsource : *mut *mut u16, pivottarget : *mut *mut u16, pivotlimit : *const u16, reset : i8, flush : i8, perrorcode : *mut UErrorCode));
+::windows_targets::link!("icu.dll" "cdecl" fn ucnv_countAliases(alias : windows_sys::core::PCSTR, perrorcode : *mut UErrorCode) -> u16);
 ::windows_targets::link!("icu.dll" "cdecl" fn ucnv_countAvailable() -> i32);
 ::windows_targets::link!("icu.dll" "cdecl" fn ucnv_countStandards() -> u16);
-::windows_targets::link!("icu.dll" "cdecl" fn ucnv_detectUnicodeSignature(source : ::windows_sys::core::PCSTR, sourcelength : i32, signaturelength : *mut i32, perrorcode : *mut UErrorCode) -> ::windows_sys::core::PCSTR);
+::windows_targets::link!("icu.dll" "cdecl" fn ucnv_detectUnicodeSignature(source : windows_sys::core::PCSTR, sourcelength : i32, signaturelength : *mut i32, perrorcode : *mut UErrorCode) -> windows_sys::core::PCSTR);
 ::windows_targets::link!("icu.dll" "cdecl" fn ucnv_fixFileSeparator(cnv : *const UConverter, source : *mut u16, sourcelen : i32));
 ::windows_targets::link!("icu.dll" "cdecl" fn ucnv_flushCache() -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn ucnv_fromAlgorithmic(cnv : *mut UConverter, algorithmictype : UConverterType, target : ::windows_sys::core::PCSTR, targetcapacity : i32, source : ::windows_sys::core::PCSTR, sourcelength : i32, perrorcode : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn ucnv_fromUChars(cnv : *mut UConverter, dest : ::windows_sys::core::PCSTR, destcapacity : i32, src : *const u16, srclength : i32, perrorcode : *mut UErrorCode) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn ucnv_fromAlgorithmic(cnv : *mut UConverter, algorithmictype : UConverterType, target : windows_sys::core::PCSTR, targetcapacity : i32, source : windows_sys::core::PCSTR, sourcelength : i32, perrorcode : *mut UErrorCode) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn ucnv_fromUChars(cnv : *mut UConverter, dest : windows_sys::core::PCSTR, destcapacity : i32, src : *const u16, srclength : i32, perrorcode : *mut UErrorCode) -> i32);
 ::windows_targets::link!("icu.dll" "cdecl" fn ucnv_fromUCountPending(cnv : *const UConverter, status : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn ucnv_fromUnicode(converter : *mut UConverter, target : *mut *mut i8, targetlimit : ::windows_sys::core::PCSTR, source : *const *const u16, sourcelimit : *const u16, offsets : *mut i32, flush : i8, err : *mut UErrorCode));
-::windows_targets::link!("icu.dll" "cdecl" fn ucnv_getAlias(alias : ::windows_sys::core::PCSTR, n : u16, perrorcode : *mut UErrorCode) -> ::windows_sys::core::PCSTR);
-::windows_targets::link!("icu.dll" "cdecl" fn ucnv_getAliases(alias : ::windows_sys::core::PCSTR, aliases : *const *const i8, perrorcode : *mut UErrorCode));
-::windows_targets::link!("icu.dll" "cdecl" fn ucnv_getAvailableName(n : i32) -> ::windows_sys::core::PCSTR);
+::windows_targets::link!("icu.dll" "cdecl" fn ucnv_fromUnicode(converter : *mut UConverter, target : *mut *mut i8, targetlimit : windows_sys::core::PCSTR, source : *const *const u16, sourcelimit : *const u16, offsets : *mut i32, flush : i8, err : *mut UErrorCode));
+::windows_targets::link!("icu.dll" "cdecl" fn ucnv_getAlias(alias : windows_sys::core::PCSTR, n : u16, perrorcode : *mut UErrorCode) -> windows_sys::core::PCSTR);
+::windows_targets::link!("icu.dll" "cdecl" fn ucnv_getAliases(alias : windows_sys::core::PCSTR, aliases : *const *const i8, perrorcode : *mut UErrorCode));
+::windows_targets::link!("icu.dll" "cdecl" fn ucnv_getAvailableName(n : i32) -> windows_sys::core::PCSTR);
 ::windows_targets::link!("icu.dll" "cdecl" fn ucnv_getCCSID(converter : *const UConverter, err : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn ucnv_getCanonicalName(alias : ::windows_sys::core::PCSTR, standard : ::windows_sys::core::PCSTR, perrorcode : *mut UErrorCode) -> ::windows_sys::core::PCSTR);
-::windows_targets::link!("icu.dll" "cdecl" fn ucnv_getDefaultName() -> ::windows_sys::core::PCSTR);
-::windows_targets::link!("icu.dll" "cdecl" fn ucnv_getDisplayName(converter : *const UConverter, displaylocale : ::windows_sys::core::PCSTR, displayname : *mut u16, displaynamecapacity : i32, err : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn ucnv_getFromUCallBack(converter : *const UConverter, action : *mut UConverterFromUCallback, context : *const *const ::core::ffi::c_void));
-::windows_targets::link!("icu.dll" "cdecl" fn ucnv_getInvalidChars(converter : *const UConverter, errbytes : ::windows_sys::core::PCSTR, len : *mut i8, err : *mut UErrorCode));
+::windows_targets::link!("icu.dll" "cdecl" fn ucnv_getCanonicalName(alias : windows_sys::core::PCSTR, standard : windows_sys::core::PCSTR, perrorcode : *mut UErrorCode) -> windows_sys::core::PCSTR);
+::windows_targets::link!("icu.dll" "cdecl" fn ucnv_getDefaultName() -> windows_sys::core::PCSTR);
+::windows_targets::link!("icu.dll" "cdecl" fn ucnv_getDisplayName(converter : *const UConverter, displaylocale : windows_sys::core::PCSTR, displayname : *mut u16, displaynamecapacity : i32, err : *mut UErrorCode) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn ucnv_getFromUCallBack(converter : *const UConverter, action : *mut UConverterFromUCallback, context : *const *const core::ffi::c_void));
+::windows_targets::link!("icu.dll" "cdecl" fn ucnv_getInvalidChars(converter : *const UConverter, errbytes : windows_sys::core::PCSTR, len : *mut i8, err : *mut UErrorCode));
 ::windows_targets::link!("icu.dll" "cdecl" fn ucnv_getInvalidUChars(converter : *const UConverter, erruchars : *mut u16, len : *mut i8, err : *mut UErrorCode));
 ::windows_targets::link!("icu.dll" "cdecl" fn ucnv_getMaxCharSize(converter : *const UConverter) -> i8);
 ::windows_targets::link!("icu.dll" "cdecl" fn ucnv_getMinCharSize(converter : *const UConverter) -> i8);
-::windows_targets::link!("icu.dll" "cdecl" fn ucnv_getName(converter : *const UConverter, err : *mut UErrorCode) -> ::windows_sys::core::PCSTR);
-::windows_targets::link!("icu.dll" "cdecl" fn ucnv_getNextUChar(converter : *mut UConverter, source : *const *const i8, sourcelimit : ::windows_sys::core::PCSTR, err : *mut UErrorCode) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn ucnv_getName(converter : *const UConverter, err : *mut UErrorCode) -> windows_sys::core::PCSTR);
+::windows_targets::link!("icu.dll" "cdecl" fn ucnv_getNextUChar(converter : *mut UConverter, source : *const *const i8, sourcelimit : windows_sys::core::PCSTR, err : *mut UErrorCode) -> i32);
 ::windows_targets::link!("icu.dll" "cdecl" fn ucnv_getPlatform(converter : *const UConverter, err : *mut UErrorCode) -> UConverterPlatform);
-::windows_targets::link!("icu.dll" "cdecl" fn ucnv_getStandard(n : u16, perrorcode : *mut UErrorCode) -> ::windows_sys::core::PCSTR);
-::windows_targets::link!("icu.dll" "cdecl" fn ucnv_getStandardName(name : ::windows_sys::core::PCSTR, standard : ::windows_sys::core::PCSTR, perrorcode : *mut UErrorCode) -> ::windows_sys::core::PCSTR);
+::windows_targets::link!("icu.dll" "cdecl" fn ucnv_getStandard(n : u16, perrorcode : *mut UErrorCode) -> windows_sys::core::PCSTR);
+::windows_targets::link!("icu.dll" "cdecl" fn ucnv_getStandardName(name : windows_sys::core::PCSTR, standard : windows_sys::core::PCSTR, perrorcode : *mut UErrorCode) -> windows_sys::core::PCSTR);
 ::windows_targets::link!("icu.dll" "cdecl" fn ucnv_getStarters(converter : *const UConverter, starters : *mut i8, err : *mut UErrorCode));
-::windows_targets::link!("icu.dll" "cdecl" fn ucnv_getSubstChars(converter : *const UConverter, subchars : ::windows_sys::core::PCSTR, len : *mut i8, err : *mut UErrorCode));
-::windows_targets::link!("icu.dll" "cdecl" fn ucnv_getToUCallBack(converter : *const UConverter, action : *mut UConverterToUCallback, context : *const *const ::core::ffi::c_void));
+::windows_targets::link!("icu.dll" "cdecl" fn ucnv_getSubstChars(converter : *const UConverter, subchars : windows_sys::core::PCSTR, len : *mut i8, err : *mut UErrorCode));
+::windows_targets::link!("icu.dll" "cdecl" fn ucnv_getToUCallBack(converter : *const UConverter, action : *mut UConverterToUCallback, context : *const *const core::ffi::c_void));
 ::windows_targets::link!("icu.dll" "cdecl" fn ucnv_getType(converter : *const UConverter) -> UConverterType);
 ::windows_targets::link!("icu.dll" "cdecl" fn ucnv_getUnicodeSet(cnv : *const UConverter, setfillin : *mut USet, whichset : UConverterUnicodeSet, perrorcode : *mut UErrorCode));
 ::windows_targets::link!("icu.dll" "cdecl" fn ucnv_isAmbiguous(cnv : *const UConverter) -> i8);
 ::windows_targets::link!("icu.dll" "cdecl" fn ucnv_isFixedWidth(cnv : *mut UConverter, status : *mut UErrorCode) -> i8);
-::windows_targets::link!("icu.dll" "cdecl" fn ucnv_open(convertername : ::windows_sys::core::PCSTR, err : *mut UErrorCode) -> *mut UConverter);
+::windows_targets::link!("icu.dll" "cdecl" fn ucnv_open(convertername : windows_sys::core::PCSTR, err : *mut UErrorCode) -> *mut UConverter);
 ::windows_targets::link!("icu.dll" "cdecl" fn ucnv_openAllNames(perrorcode : *mut UErrorCode) -> *mut UEnumeration);
 ::windows_targets::link!("icu.dll" "cdecl" fn ucnv_openCCSID(codepage : i32, platform : UConverterPlatform, err : *mut UErrorCode) -> *mut UConverter);
-::windows_targets::link!("icu.dll" "cdecl" fn ucnv_openPackage(packagename : ::windows_sys::core::PCSTR, convertername : ::windows_sys::core::PCSTR, err : *mut UErrorCode) -> *mut UConverter);
-::windows_targets::link!("icu.dll" "cdecl" fn ucnv_openStandardNames(convname : ::windows_sys::core::PCSTR, standard : ::windows_sys::core::PCSTR, perrorcode : *mut UErrorCode) -> *mut UEnumeration);
+::windows_targets::link!("icu.dll" "cdecl" fn ucnv_openPackage(packagename : windows_sys::core::PCSTR, convertername : windows_sys::core::PCSTR, err : *mut UErrorCode) -> *mut UConverter);
+::windows_targets::link!("icu.dll" "cdecl" fn ucnv_openStandardNames(convname : windows_sys::core::PCSTR, standard : windows_sys::core::PCSTR, perrorcode : *mut UErrorCode) -> *mut UEnumeration);
 ::windows_targets::link!("icu.dll" "cdecl" fn ucnv_openU(name : *const u16, err : *mut UErrorCode) -> *mut UConverter);
 ::windows_targets::link!("icu.dll" "cdecl" fn ucnv_reset(converter : *mut UConverter));
 ::windows_targets::link!("icu.dll" "cdecl" fn ucnv_resetFromUnicode(converter : *mut UConverter));
 ::windows_targets::link!("icu.dll" "cdecl" fn ucnv_resetToUnicode(converter : *mut UConverter));
-::windows_targets::link!("icu.dll" "cdecl" fn ucnv_safeClone(cnv : *const UConverter, stackbuffer : *mut ::core::ffi::c_void, pbuffersize : *mut i32, status : *mut UErrorCode) -> *mut UConverter);
-::windows_targets::link!("icu.dll" "cdecl" fn ucnv_setDefaultName(name : ::windows_sys::core::PCSTR));
+::windows_targets::link!("icu.dll" "cdecl" fn ucnv_safeClone(cnv : *const UConverter, stackbuffer : *mut core::ffi::c_void, pbuffersize : *mut i32, status : *mut UErrorCode) -> *mut UConverter);
+::windows_targets::link!("icu.dll" "cdecl" fn ucnv_setDefaultName(name : windows_sys::core::PCSTR));
 ::windows_targets::link!("icu.dll" "cdecl" fn ucnv_setFallback(cnv : *mut UConverter, usesfallback : i8));
-::windows_targets::link!("icu.dll" "cdecl" fn ucnv_setFromUCallBack(converter : *mut UConverter, newaction : UConverterFromUCallback, newcontext : *const ::core::ffi::c_void, oldaction : *mut UConverterFromUCallback, oldcontext : *const *const ::core::ffi::c_void, err : *mut UErrorCode));
-::windows_targets::link!("icu.dll" "cdecl" fn ucnv_setSubstChars(converter : *mut UConverter, subchars : ::windows_sys::core::PCSTR, len : i8, err : *mut UErrorCode));
+::windows_targets::link!("icu.dll" "cdecl" fn ucnv_setFromUCallBack(converter : *mut UConverter, newaction : UConverterFromUCallback, newcontext : *const core::ffi::c_void, oldaction : *mut UConverterFromUCallback, oldcontext : *const *const core::ffi::c_void, err : *mut UErrorCode));
+::windows_targets::link!("icu.dll" "cdecl" fn ucnv_setSubstChars(converter : *mut UConverter, subchars : windows_sys::core::PCSTR, len : i8, err : *mut UErrorCode));
 ::windows_targets::link!("icu.dll" "cdecl" fn ucnv_setSubstString(cnv : *mut UConverter, s : *const u16, length : i32, err : *mut UErrorCode));
-::windows_targets::link!("icu.dll" "cdecl" fn ucnv_setToUCallBack(converter : *mut UConverter, newaction : UConverterToUCallback, newcontext : *const ::core::ffi::c_void, oldaction : *mut UConverterToUCallback, oldcontext : *const *const ::core::ffi::c_void, err : *mut UErrorCode));
-::windows_targets::link!("icu.dll" "cdecl" fn ucnv_toAlgorithmic(algorithmictype : UConverterType, cnv : *mut UConverter, target : ::windows_sys::core::PCSTR, targetcapacity : i32, source : ::windows_sys::core::PCSTR, sourcelength : i32, perrorcode : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn ucnv_toUChars(cnv : *mut UConverter, dest : *mut u16, destcapacity : i32, src : ::windows_sys::core::PCSTR, srclength : i32, perrorcode : *mut UErrorCode) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn ucnv_setToUCallBack(converter : *mut UConverter, newaction : UConverterToUCallback, newcontext : *const core::ffi::c_void, oldaction : *mut UConverterToUCallback, oldcontext : *const *const core::ffi::c_void, err : *mut UErrorCode));
+::windows_targets::link!("icu.dll" "cdecl" fn ucnv_toAlgorithmic(algorithmictype : UConverterType, cnv : *mut UConverter, target : windows_sys::core::PCSTR, targetcapacity : i32, source : windows_sys::core::PCSTR, sourcelength : i32, perrorcode : *mut UErrorCode) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn ucnv_toUChars(cnv : *mut UConverter, dest : *mut u16, destcapacity : i32, src : windows_sys::core::PCSTR, srclength : i32, perrorcode : *mut UErrorCode) -> i32);
 ::windows_targets::link!("icu.dll" "cdecl" fn ucnv_toUCountPending(cnv : *const UConverter, status : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn ucnv_toUnicode(converter : *mut UConverter, target : *mut *mut u16, targetlimit : *const u16, source : *const *const i8, sourcelimit : ::windows_sys::core::PCSTR, offsets : *mut i32, flush : i8, err : *mut UErrorCode));
+::windows_targets::link!("icu.dll" "cdecl" fn ucnv_toUnicode(converter : *mut UConverter, target : *mut *mut u16, targetlimit : *const u16, source : *const *const i8, sourcelimit : windows_sys::core::PCSTR, offsets : *mut i32, flush : i8, err : *mut UErrorCode));
 ::windows_targets::link!("icu.dll" "cdecl" fn ucnv_usesFallback(cnv : *const UConverter) -> i8);
 ::windows_targets::link!("icu.dll" "cdecl" fn ucnvsel_close(sel : *mut UConverterSelector));
 ::windows_targets::link!("icu.dll" "cdecl" fn ucnvsel_open(converterlist : *const *const i8, converterlistsize : i32, excludedcodepoints : *const USet, whichset : UConverterUnicodeSet, status : *mut UErrorCode) -> *mut UConverterSelector);
-::windows_targets::link!("icu.dll" "cdecl" fn ucnvsel_openFromSerialized(buffer : *const ::core::ffi::c_void, length : i32, status : *mut UErrorCode) -> *mut UConverterSelector);
+::windows_targets::link!("icu.dll" "cdecl" fn ucnvsel_openFromSerialized(buffer : *const core::ffi::c_void, length : i32, status : *mut UErrorCode) -> *mut UConverterSelector);
 ::windows_targets::link!("icu.dll" "cdecl" fn ucnvsel_selectForString(sel : *const UConverterSelector, s : *const u16, length : i32, status : *mut UErrorCode) -> *mut UEnumeration);
-::windows_targets::link!("icu.dll" "cdecl" fn ucnvsel_selectForUTF8(sel : *const UConverterSelector, s : ::windows_sys::core::PCSTR, length : i32, status : *mut UErrorCode) -> *mut UEnumeration);
-::windows_targets::link!("icu.dll" "cdecl" fn ucnvsel_serialize(sel : *const UConverterSelector, buffer : *mut ::core::ffi::c_void, buffercapacity : i32, status : *mut UErrorCode) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn ucnvsel_selectForUTF8(sel : *const UConverterSelector, s : windows_sys::core::PCSTR, length : i32, status : *mut UErrorCode) -> *mut UEnumeration);
+::windows_targets::link!("icu.dll" "cdecl" fn ucnvsel_serialize(sel : *const UConverterSelector, buffer : *mut core::ffi::c_void, buffercapacity : i32, status : *mut UErrorCode) -> i32);
 ::windows_targets::link!("icu.dll" "cdecl" fn ucol_cloneBinary(coll : *const UCollator, buffer : *mut u8, capacity : i32, status : *mut UErrorCode) -> i32);
 ::windows_targets::link!("icu.dll" "cdecl" fn ucol_close(coll : *mut UCollator));
 ::windows_targets::link!("icu.dll" "cdecl" fn ucol_closeElements(elems : *mut UCollationElements));
 ::windows_targets::link!("icu.dll" "cdecl" fn ucol_countAvailable() -> i32);
 ::windows_targets::link!("icu.dll" "cdecl" fn ucol_equal(coll : *const UCollator, source : *const u16, sourcelength : i32, target : *const u16, targetlength : i32) -> i8);
 ::windows_targets::link!("icu.dll" "cdecl" fn ucol_getAttribute(coll : *const UCollator, attr : UColAttribute, status : *mut UErrorCode) -> UColAttributeValue);
-::windows_targets::link!("icu.dll" "cdecl" fn ucol_getAvailable(localeindex : i32) -> ::windows_sys::core::PCSTR);
+::windows_targets::link!("icu.dll" "cdecl" fn ucol_getAvailable(localeindex : i32) -> windows_sys::core::PCSTR);
 ::windows_targets::link!("icu.dll" "cdecl" fn ucol_getBound(source : *const u8, sourcelength : i32, boundtype : UColBoundMode, nooflevels : u32, result : *mut u8, resultlength : i32, status : *mut UErrorCode) -> i32);
 ::windows_targets::link!("icu.dll" "cdecl" fn ucol_getContractionsAndExpansions(coll : *const UCollator, contractions : *mut USet, expansions : *mut USet, addprefixes : i8, status : *mut UErrorCode));
-::windows_targets::link!("icu.dll" "cdecl" fn ucol_getDisplayName(objloc : ::windows_sys::core::PCSTR, disploc : ::windows_sys::core::PCSTR, result : *mut u16, resultlength : i32, status : *mut UErrorCode) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn ucol_getDisplayName(objloc : windows_sys::core::PCSTR, disploc : windows_sys::core::PCSTR, result : *mut u16, resultlength : i32, status : *mut UErrorCode) -> i32);
 ::windows_targets::link!("icu.dll" "cdecl" fn ucol_getEquivalentReorderCodes(reordercode : i32, dest : *mut i32, destcapacity : i32, perrorcode : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn ucol_getFunctionalEquivalent(result : ::windows_sys::core::PCSTR, resultcapacity : i32, keyword : ::windows_sys::core::PCSTR, locale : ::windows_sys::core::PCSTR, isavailable : *mut i8, status : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn ucol_getKeywordValues(keyword : ::windows_sys::core::PCSTR, status : *mut UErrorCode) -> *mut UEnumeration);
-::windows_targets::link!("icu.dll" "cdecl" fn ucol_getKeywordValuesForLocale(key : ::windows_sys::core::PCSTR, locale : ::windows_sys::core::PCSTR, commonlyused : i8, status : *mut UErrorCode) -> *mut UEnumeration);
+::windows_targets::link!("icu.dll" "cdecl" fn ucol_getFunctionalEquivalent(result : windows_sys::core::PCSTR, resultcapacity : i32, keyword : windows_sys::core::PCSTR, locale : windows_sys::core::PCSTR, isavailable : *mut i8, status : *mut UErrorCode) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn ucol_getKeywordValues(keyword : windows_sys::core::PCSTR, status : *mut UErrorCode) -> *mut UEnumeration);
+::windows_targets::link!("icu.dll" "cdecl" fn ucol_getKeywordValuesForLocale(key : windows_sys::core::PCSTR, locale : windows_sys::core::PCSTR, commonlyused : i8, status : *mut UErrorCode) -> *mut UEnumeration);
 ::windows_targets::link!("icu.dll" "cdecl" fn ucol_getKeywords(status : *mut UErrorCode) -> *mut UEnumeration);
-::windows_targets::link!("icu.dll" "cdecl" fn ucol_getLocaleByType(coll : *const UCollator, r#type : ULocDataLocaleType, status : *mut UErrorCode) -> ::windows_sys::core::PCSTR);
+::windows_targets::link!("icu.dll" "cdecl" fn ucol_getLocaleByType(coll : *const UCollator, r#type : ULocDataLocaleType, status : *mut UErrorCode) -> windows_sys::core::PCSTR);
 ::windows_targets::link!("icu.dll" "cdecl" fn ucol_getMaxExpansion(elems : *const UCollationElements, order : i32) -> i32);
 ::windows_targets::link!("icu.dll" "cdecl" fn ucol_getMaxVariable(coll : *const UCollator) -> UColReorderCode);
 ::windows_targets::link!("icu.dll" "cdecl" fn ucol_getOffset(elems : *const UCollationElements) -> i32);
@@ -605,7 +605,7 @@
 ::windows_targets::link!("icu.dll" "cdecl" fn ucol_mergeSortkeys(src1 : *const u8, src1length : i32, src2 : *const u8, src2length : i32, dest : *mut u8, destcapacity : i32) -> i32);
 ::windows_targets::link!("icu.dll" "cdecl" fn ucol_next(elems : *mut UCollationElements, status : *mut UErrorCode) -> i32);
 ::windows_targets::link!("icu.dll" "cdecl" fn ucol_nextSortKeyPart(coll : *const UCollator, iter : *mut UCharIterator, state : *mut u32, dest : *mut u8, count : i32, status : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn ucol_open(loc : ::windows_sys::core::PCSTR, status : *mut UErrorCode) -> *mut UCollator);
+::windows_targets::link!("icu.dll" "cdecl" fn ucol_open(loc : windows_sys::core::PCSTR, status : *mut UErrorCode) -> *mut UCollator);
 ::windows_targets::link!("icu.dll" "cdecl" fn ucol_openAvailableLocales(status : *mut UErrorCode) -> *mut UEnumeration);
 ::windows_targets::link!("icu.dll" "cdecl" fn ucol_openBinary(bin : *const u8, length : i32, base : *const UCollator, status : *mut UErrorCode) -> *mut UCollator);
 ::windows_targets::link!("icu.dll" "cdecl" fn ucol_openElements(coll : *const UCollator, text : *const u16, textlength : i32, status : *mut UErrorCode) -> *mut UCollationElements);
@@ -613,7 +613,7 @@
 ::windows_targets::link!("icu.dll" "cdecl" fn ucol_previous(elems : *mut UCollationElements, status : *mut UErrorCode) -> i32);
 ::windows_targets::link!("icu.dll" "cdecl" fn ucol_primaryOrder(order : i32) -> i32);
 ::windows_targets::link!("icu.dll" "cdecl" fn ucol_reset(elems : *mut UCollationElements));
-::windows_targets::link!("icu.dll" "cdecl" fn ucol_safeClone(coll : *const UCollator, stackbuffer : *mut ::core::ffi::c_void, pbuffersize : *mut i32, status : *mut UErrorCode) -> *mut UCollator);
+::windows_targets::link!("icu.dll" "cdecl" fn ucol_safeClone(coll : *const UCollator, stackbuffer : *mut core::ffi::c_void, pbuffersize : *mut i32, status : *mut UErrorCode) -> *mut UCollator);
 ::windows_targets::link!("icu.dll" "cdecl" fn ucol_secondaryOrder(order : i32) -> i32);
 ::windows_targets::link!("icu.dll" "cdecl" fn ucol_setAttribute(coll : *mut UCollator, attr : UColAttribute, value : UColAttributeValue, status : *mut UErrorCode));
 ::windows_targets::link!("icu.dll" "cdecl" fn ucol_setMaxVariable(coll : *mut UCollator, group : UColReorderCode, perrorcode : *mut UErrorCode));
@@ -623,113 +623,113 @@
 ::windows_targets::link!("icu.dll" "cdecl" fn ucol_setText(elems : *mut UCollationElements, text : *const u16, textlength : i32, status : *mut UErrorCode));
 ::windows_targets::link!("icu.dll" "cdecl" fn ucol_strcoll(coll : *const UCollator, source : *const u16, sourcelength : i32, target : *const u16, targetlength : i32) -> UCollationResult);
 ::windows_targets::link!("icu.dll" "cdecl" fn ucol_strcollIter(coll : *const UCollator, siter : *mut UCharIterator, titer : *mut UCharIterator, status : *mut UErrorCode) -> UCollationResult);
-::windows_targets::link!("icu.dll" "cdecl" fn ucol_strcollUTF8(coll : *const UCollator, source : ::windows_sys::core::PCSTR, sourcelength : i32, target : ::windows_sys::core::PCSTR, targetlength : i32, status : *mut UErrorCode) -> UCollationResult);
+::windows_targets::link!("icu.dll" "cdecl" fn ucol_strcollUTF8(coll : *const UCollator, source : windows_sys::core::PCSTR, sourcelength : i32, target : windows_sys::core::PCSTR, targetlength : i32, status : *mut UErrorCode) -> UCollationResult);
 ::windows_targets::link!("icu.dll" "cdecl" fn ucol_tertiaryOrder(order : i32) -> i32);
 ::windows_targets::link!("icu.dll" "cdecl" fn ucpmap_get(map : *const UCPMap, c : i32) -> u32);
-::windows_targets::link!("icu.dll" "cdecl" fn ucpmap_getRange(map : *const UCPMap, start : i32, option : UCPMapRangeOption, surrogatevalue : u32, filter : *mut UCPMapValueFilter, context : *const ::core::ffi::c_void, pvalue : *mut u32) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn ucpmap_getRange(map : *const UCPMap, start : i32, option : UCPMapRangeOption, surrogatevalue : u32, filter : *mut UCPMapValueFilter, context : *const core::ffi::c_void, pvalue : *mut u32) -> i32);
 ::windows_targets::link!("icu.dll" "cdecl" fn ucptrie_close(trie : *mut UCPTrie));
 ::windows_targets::link!("icu.dll" "cdecl" fn ucptrie_get(trie : *const UCPTrie, c : i32) -> u32);
-::windows_targets::link!("icu.dll" "cdecl" fn ucptrie_getRange(trie : *const UCPTrie, start : i32, option : UCPMapRangeOption, surrogatevalue : u32, filter : *mut UCPMapValueFilter, context : *const ::core::ffi::c_void, pvalue : *mut u32) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn ucptrie_getRange(trie : *const UCPTrie, start : i32, option : UCPMapRangeOption, surrogatevalue : u32, filter : *mut UCPMapValueFilter, context : *const core::ffi::c_void, pvalue : *mut u32) -> i32);
 ::windows_targets::link!("icu.dll" "cdecl" fn ucptrie_getType(trie : *const UCPTrie) -> UCPTrieType);
 ::windows_targets::link!("icu.dll" "cdecl" fn ucptrie_getValueWidth(trie : *const UCPTrie) -> UCPTrieValueWidth);
 ::windows_targets::link!("icu.dll" "cdecl" fn ucptrie_internalSmallIndex(trie : *const UCPTrie, c : i32) -> i32);
 ::windows_targets::link!("icu.dll" "cdecl" fn ucptrie_internalSmallU8Index(trie : *const UCPTrie, lt1 : i32, t2 : u8, t3 : u8) -> i32);
 ::windows_targets::link!("icu.dll" "cdecl" fn ucptrie_internalU8PrevIndex(trie : *const UCPTrie, c : i32, start : *const u8, src : *const u8) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn ucptrie_openFromBinary(r#type : UCPTrieType, valuewidth : UCPTrieValueWidth, data : *const ::core::ffi::c_void, length : i32, pactuallength : *mut i32, perrorcode : *mut UErrorCode) -> *mut UCPTrie);
-::windows_targets::link!("icu.dll" "cdecl" fn ucptrie_toBinary(trie : *const UCPTrie, data : *mut ::core::ffi::c_void, capacity : i32, perrorcode : *mut UErrorCode) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn ucptrie_openFromBinary(r#type : UCPTrieType, valuewidth : UCPTrieValueWidth, data : *const core::ffi::c_void, length : i32, pactuallength : *mut i32, perrorcode : *mut UErrorCode) -> *mut UCPTrie);
+::windows_targets::link!("icu.dll" "cdecl" fn ucptrie_toBinary(trie : *const UCPTrie, data : *mut core::ffi::c_void, capacity : i32, perrorcode : *mut UErrorCode) -> i32);
 ::windows_targets::link!("icu.dll" "cdecl" fn ucsdet_close(ucsd : *mut UCharsetDetector));
 ::windows_targets::link!("icu.dll" "cdecl" fn ucsdet_detect(ucsd : *mut UCharsetDetector, status : *mut UErrorCode) -> *mut UCharsetMatch);
 ::windows_targets::link!("icu.dll" "cdecl" fn ucsdet_detectAll(ucsd : *mut UCharsetDetector, matchesfound : *mut i32, status : *mut UErrorCode) -> *mut *mut UCharsetMatch);
 ::windows_targets::link!("icu.dll" "cdecl" fn ucsdet_enableInputFilter(ucsd : *mut UCharsetDetector, filter : i8) -> i8);
 ::windows_targets::link!("icu.dll" "cdecl" fn ucsdet_getAllDetectableCharsets(ucsd : *const UCharsetDetector, status : *mut UErrorCode) -> *mut UEnumeration);
 ::windows_targets::link!("icu.dll" "cdecl" fn ucsdet_getConfidence(ucsm : *const UCharsetMatch, status : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn ucsdet_getLanguage(ucsm : *const UCharsetMatch, status : *mut UErrorCode) -> ::windows_sys::core::PCSTR);
-::windows_targets::link!("icu.dll" "cdecl" fn ucsdet_getName(ucsm : *const UCharsetMatch, status : *mut UErrorCode) -> ::windows_sys::core::PCSTR);
+::windows_targets::link!("icu.dll" "cdecl" fn ucsdet_getLanguage(ucsm : *const UCharsetMatch, status : *mut UErrorCode) -> windows_sys::core::PCSTR);
+::windows_targets::link!("icu.dll" "cdecl" fn ucsdet_getName(ucsm : *const UCharsetMatch, status : *mut UErrorCode) -> windows_sys::core::PCSTR);
 ::windows_targets::link!("icu.dll" "cdecl" fn ucsdet_getUChars(ucsm : *const UCharsetMatch, buf : *mut u16, cap : i32, status : *mut UErrorCode) -> i32);
 ::windows_targets::link!("icu.dll" "cdecl" fn ucsdet_isInputFilterEnabled(ucsd : *const UCharsetDetector) -> i8);
 ::windows_targets::link!("icu.dll" "cdecl" fn ucsdet_open(status : *mut UErrorCode) -> *mut UCharsetDetector);
-::windows_targets::link!("icu.dll" "cdecl" fn ucsdet_setDeclaredEncoding(ucsd : *mut UCharsetDetector, encoding : ::windows_sys::core::PCSTR, length : i32, status : *mut UErrorCode));
-::windows_targets::link!("icu.dll" "cdecl" fn ucsdet_setText(ucsd : *mut UCharsetDetector, textin : ::windows_sys::core::PCSTR, len : i32, status : *mut UErrorCode));
-::windows_targets::link!("icu.dll" "cdecl" fn ucurr_countCurrencies(locale : ::windows_sys::core::PCSTR, date : f64, ec : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn ucurr_forLocale(locale : ::windows_sys::core::PCSTR, buff : *mut u16, buffcapacity : i32, ec : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn ucurr_forLocaleAndDate(locale : ::windows_sys::core::PCSTR, date : f64, index : i32, buff : *mut u16, buffcapacity : i32, ec : *mut UErrorCode) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn ucsdet_setDeclaredEncoding(ucsd : *mut UCharsetDetector, encoding : windows_sys::core::PCSTR, length : i32, status : *mut UErrorCode));
+::windows_targets::link!("icu.dll" "cdecl" fn ucsdet_setText(ucsd : *mut UCharsetDetector, textin : windows_sys::core::PCSTR, len : i32, status : *mut UErrorCode));
+::windows_targets::link!("icu.dll" "cdecl" fn ucurr_countCurrencies(locale : windows_sys::core::PCSTR, date : f64, ec : *mut UErrorCode) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn ucurr_forLocale(locale : windows_sys::core::PCSTR, buff : *mut u16, buffcapacity : i32, ec : *mut UErrorCode) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn ucurr_forLocaleAndDate(locale : windows_sys::core::PCSTR, date : f64, index : i32, buff : *mut u16, buffcapacity : i32, ec : *mut UErrorCode) -> i32);
 ::windows_targets::link!("icu.dll" "cdecl" fn ucurr_getDefaultFractionDigits(currency : *const u16, ec : *mut UErrorCode) -> i32);
 ::windows_targets::link!("icu.dll" "cdecl" fn ucurr_getDefaultFractionDigitsForUsage(currency : *const u16, usage : UCurrencyUsage, ec : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn ucurr_getKeywordValuesForLocale(key : ::windows_sys::core::PCSTR, locale : ::windows_sys::core::PCSTR, commonlyused : i8, status : *mut UErrorCode) -> *mut UEnumeration);
-::windows_targets::link!("icu.dll" "cdecl" fn ucurr_getName(currency : *const u16, locale : ::windows_sys::core::PCSTR, namestyle : UCurrNameStyle, ischoiceformat : *mut i8, len : *mut i32, ec : *mut UErrorCode) -> *mut u16);
+::windows_targets::link!("icu.dll" "cdecl" fn ucurr_getKeywordValuesForLocale(key : windows_sys::core::PCSTR, locale : windows_sys::core::PCSTR, commonlyused : i8, status : *mut UErrorCode) -> *mut UEnumeration);
+::windows_targets::link!("icu.dll" "cdecl" fn ucurr_getName(currency : *const u16, locale : windows_sys::core::PCSTR, namestyle : UCurrNameStyle, ischoiceformat : *mut i8, len : *mut i32, ec : *mut UErrorCode) -> *mut u16);
 ::windows_targets::link!("icu.dll" "cdecl" fn ucurr_getNumericCode(currency : *const u16) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn ucurr_getPluralName(currency : *const u16, locale : ::windows_sys::core::PCSTR, ischoiceformat : *mut i8, pluralcount : ::windows_sys::core::PCSTR, len : *mut i32, ec : *mut UErrorCode) -> *mut u16);
+::windows_targets::link!("icu.dll" "cdecl" fn ucurr_getPluralName(currency : *const u16, locale : windows_sys::core::PCSTR, ischoiceformat : *mut i8, pluralcount : windows_sys::core::PCSTR, len : *mut i32, ec : *mut UErrorCode) -> *mut u16);
 ::windows_targets::link!("icu.dll" "cdecl" fn ucurr_getRoundingIncrement(currency : *const u16, ec : *mut UErrorCode) -> f64);
 ::windows_targets::link!("icu.dll" "cdecl" fn ucurr_getRoundingIncrementForUsage(currency : *const u16, usage : UCurrencyUsage, ec : *mut UErrorCode) -> f64);
 ::windows_targets::link!("icu.dll" "cdecl" fn ucurr_isAvailable(isocode : *const u16, from : f64, to : f64, errorcode : *mut UErrorCode) -> i8);
 ::windows_targets::link!("icu.dll" "cdecl" fn ucurr_openISOCurrencies(currtype : u32, perrorcode : *mut UErrorCode) -> *mut UEnumeration);
-::windows_targets::link!("icu.dll" "cdecl" fn ucurr_register(isocode : *const u16, locale : ::windows_sys::core::PCSTR, status : *mut UErrorCode) -> *mut ::core::ffi::c_void);
-::windows_targets::link!("icu.dll" "cdecl" fn ucurr_unregister(key : *mut ::core::ffi::c_void, status : *mut UErrorCode) -> i8);
-::windows_targets::link!("icu.dll" "cdecl" fn udat_adoptNumberFormat(fmt : *mut *mut ::core::ffi::c_void, numberformattoadopt : *mut *mut ::core::ffi::c_void));
-::windows_targets::link!("icu.dll" "cdecl" fn udat_adoptNumberFormatForFields(fmt : *mut *mut ::core::ffi::c_void, fields : *const u16, numberformattoset : *mut *mut ::core::ffi::c_void, status : *mut UErrorCode));
-::windows_targets::link!("icu.dll" "cdecl" fn udat_applyPattern(format : *mut *mut ::core::ffi::c_void, localized : i8, pattern : *const u16, patternlength : i32));
-::windows_targets::link!("icu.dll" "cdecl" fn udat_clone(fmt : *const *const ::core::ffi::c_void, status : *mut UErrorCode) -> *mut *mut ::core::ffi::c_void);
-::windows_targets::link!("icu.dll" "cdecl" fn udat_close(format : *mut *mut ::core::ffi::c_void));
+::windows_targets::link!("icu.dll" "cdecl" fn ucurr_register(isocode : *const u16, locale : windows_sys::core::PCSTR, status : *mut UErrorCode) -> *mut core::ffi::c_void);
+::windows_targets::link!("icu.dll" "cdecl" fn ucurr_unregister(key : *mut core::ffi::c_void, status : *mut UErrorCode) -> i8);
+::windows_targets::link!("icu.dll" "cdecl" fn udat_adoptNumberFormat(fmt : *mut *mut core::ffi::c_void, numberformattoadopt : *mut *mut core::ffi::c_void));
+::windows_targets::link!("icu.dll" "cdecl" fn udat_adoptNumberFormatForFields(fmt : *mut *mut core::ffi::c_void, fields : *const u16, numberformattoset : *mut *mut core::ffi::c_void, status : *mut UErrorCode));
+::windows_targets::link!("icu.dll" "cdecl" fn udat_applyPattern(format : *mut *mut core::ffi::c_void, localized : i8, pattern : *const u16, patternlength : i32));
+::windows_targets::link!("icu.dll" "cdecl" fn udat_clone(fmt : *const *const core::ffi::c_void, status : *mut UErrorCode) -> *mut *mut core::ffi::c_void);
+::windows_targets::link!("icu.dll" "cdecl" fn udat_close(format : *mut *mut core::ffi::c_void));
 ::windows_targets::link!("icu.dll" "cdecl" fn udat_countAvailable() -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn udat_countSymbols(fmt : *const *const ::core::ffi::c_void, r#type : UDateFormatSymbolType) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn udat_format(format : *const *const ::core::ffi::c_void, datetoformat : f64, result : *mut u16, resultlength : i32, position : *mut UFieldPosition, status : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn udat_formatCalendar(format : *const *const ::core::ffi::c_void, calendar : *mut *mut ::core::ffi::c_void, result : *mut u16, capacity : i32, position : *mut UFieldPosition, status : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn udat_formatCalendarForFields(format : *const *const ::core::ffi::c_void, calendar : *mut *mut ::core::ffi::c_void, result : *mut u16, capacity : i32, fpositer : *mut UFieldPositionIterator, status : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn udat_formatForFields(format : *const *const ::core::ffi::c_void, datetoformat : f64, result : *mut u16, resultlength : i32, fpositer : *mut UFieldPositionIterator, status : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn udat_get2DigitYearStart(fmt : *const *const ::core::ffi::c_void, status : *mut UErrorCode) -> f64);
-::windows_targets::link!("icu.dll" "cdecl" fn udat_getAvailable(localeindex : i32) -> ::windows_sys::core::PCSTR);
-::windows_targets::link!("icu.dll" "cdecl" fn udat_getBooleanAttribute(fmt : *const *const ::core::ffi::c_void, attr : UDateFormatBooleanAttribute, status : *mut UErrorCode) -> i8);
-::windows_targets::link!("icu.dll" "cdecl" fn udat_getCalendar(fmt : *const *const ::core::ffi::c_void) -> *mut *mut ::core::ffi::c_void);
-::windows_targets::link!("icu.dll" "cdecl" fn udat_getContext(fmt : *const *const ::core::ffi::c_void, r#type : UDisplayContextType, status : *mut UErrorCode) -> UDisplayContext);
-::windows_targets::link!("icu.dll" "cdecl" fn udat_getLocaleByType(fmt : *const *const ::core::ffi::c_void, r#type : ULocDataLocaleType, status : *mut UErrorCode) -> ::windows_sys::core::PCSTR);
-::windows_targets::link!("icu.dll" "cdecl" fn udat_getNumberFormat(fmt : *const *const ::core::ffi::c_void) -> *mut *mut ::core::ffi::c_void);
-::windows_targets::link!("icu.dll" "cdecl" fn udat_getNumberFormatForField(fmt : *const *const ::core::ffi::c_void, field : u16) -> *mut *mut ::core::ffi::c_void);
-::windows_targets::link!("icu.dll" "cdecl" fn udat_getSymbols(fmt : *const *const ::core::ffi::c_void, r#type : UDateFormatSymbolType, symbolindex : i32, result : *mut u16, resultlength : i32, status : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn udat_isLenient(fmt : *const *const ::core::ffi::c_void) -> i8);
-::windows_targets::link!("icu.dll" "cdecl" fn udat_open(timestyle : UDateFormatStyle, datestyle : UDateFormatStyle, locale : ::windows_sys::core::PCSTR, tzid : *const u16, tzidlength : i32, pattern : *const u16, patternlength : i32, status : *mut UErrorCode) -> *mut *mut ::core::ffi::c_void);
-::windows_targets::link!("icu.dll" "cdecl" fn udat_parse(format : *const *const ::core::ffi::c_void, text : *const u16, textlength : i32, parsepos : *mut i32, status : *mut UErrorCode) -> f64);
-::windows_targets::link!("icu.dll" "cdecl" fn udat_parseCalendar(format : *const *const ::core::ffi::c_void, calendar : *mut *mut ::core::ffi::c_void, text : *const u16, textlength : i32, parsepos : *mut i32, status : *mut UErrorCode));
-::windows_targets::link!("icu.dll" "cdecl" fn udat_set2DigitYearStart(fmt : *mut *mut ::core::ffi::c_void, d : f64, status : *mut UErrorCode));
-::windows_targets::link!("icu.dll" "cdecl" fn udat_setBooleanAttribute(fmt : *mut *mut ::core::ffi::c_void, attr : UDateFormatBooleanAttribute, newvalue : i8, status : *mut UErrorCode));
-::windows_targets::link!("icu.dll" "cdecl" fn udat_setCalendar(fmt : *mut *mut ::core::ffi::c_void, calendartoset : *const *const ::core::ffi::c_void));
-::windows_targets::link!("icu.dll" "cdecl" fn udat_setContext(fmt : *mut *mut ::core::ffi::c_void, value : UDisplayContext, status : *mut UErrorCode));
-::windows_targets::link!("icu.dll" "cdecl" fn udat_setLenient(fmt : *mut *mut ::core::ffi::c_void, islenient : i8));
-::windows_targets::link!("icu.dll" "cdecl" fn udat_setNumberFormat(fmt : *mut *mut ::core::ffi::c_void, numberformattoset : *const *const ::core::ffi::c_void));
-::windows_targets::link!("icu.dll" "cdecl" fn udat_setSymbols(format : *mut *mut ::core::ffi::c_void, r#type : UDateFormatSymbolType, symbolindex : i32, value : *mut u16, valuelength : i32, status : *mut UErrorCode));
+::windows_targets::link!("icu.dll" "cdecl" fn udat_countSymbols(fmt : *const *const core::ffi::c_void, r#type : UDateFormatSymbolType) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn udat_format(format : *const *const core::ffi::c_void, datetoformat : f64, result : *mut u16, resultlength : i32, position : *mut UFieldPosition, status : *mut UErrorCode) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn udat_formatCalendar(format : *const *const core::ffi::c_void, calendar : *mut *mut core::ffi::c_void, result : *mut u16, capacity : i32, position : *mut UFieldPosition, status : *mut UErrorCode) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn udat_formatCalendarForFields(format : *const *const core::ffi::c_void, calendar : *mut *mut core::ffi::c_void, result : *mut u16, capacity : i32, fpositer : *mut UFieldPositionIterator, status : *mut UErrorCode) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn udat_formatForFields(format : *const *const core::ffi::c_void, datetoformat : f64, result : *mut u16, resultlength : i32, fpositer : *mut UFieldPositionIterator, status : *mut UErrorCode) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn udat_get2DigitYearStart(fmt : *const *const core::ffi::c_void, status : *mut UErrorCode) -> f64);
+::windows_targets::link!("icu.dll" "cdecl" fn udat_getAvailable(localeindex : i32) -> windows_sys::core::PCSTR);
+::windows_targets::link!("icu.dll" "cdecl" fn udat_getBooleanAttribute(fmt : *const *const core::ffi::c_void, attr : UDateFormatBooleanAttribute, status : *mut UErrorCode) -> i8);
+::windows_targets::link!("icu.dll" "cdecl" fn udat_getCalendar(fmt : *const *const core::ffi::c_void) -> *mut *mut core::ffi::c_void);
+::windows_targets::link!("icu.dll" "cdecl" fn udat_getContext(fmt : *const *const core::ffi::c_void, r#type : UDisplayContextType, status : *mut UErrorCode) -> UDisplayContext);
+::windows_targets::link!("icu.dll" "cdecl" fn udat_getLocaleByType(fmt : *const *const core::ffi::c_void, r#type : ULocDataLocaleType, status : *mut UErrorCode) -> windows_sys::core::PCSTR);
+::windows_targets::link!("icu.dll" "cdecl" fn udat_getNumberFormat(fmt : *const *const core::ffi::c_void) -> *mut *mut core::ffi::c_void);
+::windows_targets::link!("icu.dll" "cdecl" fn udat_getNumberFormatForField(fmt : *const *const core::ffi::c_void, field : u16) -> *mut *mut core::ffi::c_void);
+::windows_targets::link!("icu.dll" "cdecl" fn udat_getSymbols(fmt : *const *const core::ffi::c_void, r#type : UDateFormatSymbolType, symbolindex : i32, result : *mut u16, resultlength : i32, status : *mut UErrorCode) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn udat_isLenient(fmt : *const *const core::ffi::c_void) -> i8);
+::windows_targets::link!("icu.dll" "cdecl" fn udat_open(timestyle : UDateFormatStyle, datestyle : UDateFormatStyle, locale : windows_sys::core::PCSTR, tzid : *const u16, tzidlength : i32, pattern : *const u16, patternlength : i32, status : *mut UErrorCode) -> *mut *mut core::ffi::c_void);
+::windows_targets::link!("icu.dll" "cdecl" fn udat_parse(format : *const *const core::ffi::c_void, text : *const u16, textlength : i32, parsepos : *mut i32, status : *mut UErrorCode) -> f64);
+::windows_targets::link!("icu.dll" "cdecl" fn udat_parseCalendar(format : *const *const core::ffi::c_void, calendar : *mut *mut core::ffi::c_void, text : *const u16, textlength : i32, parsepos : *mut i32, status : *mut UErrorCode));
+::windows_targets::link!("icu.dll" "cdecl" fn udat_set2DigitYearStart(fmt : *mut *mut core::ffi::c_void, d : f64, status : *mut UErrorCode));
+::windows_targets::link!("icu.dll" "cdecl" fn udat_setBooleanAttribute(fmt : *mut *mut core::ffi::c_void, attr : UDateFormatBooleanAttribute, newvalue : i8, status : *mut UErrorCode));
+::windows_targets::link!("icu.dll" "cdecl" fn udat_setCalendar(fmt : *mut *mut core::ffi::c_void, calendartoset : *const *const core::ffi::c_void));
+::windows_targets::link!("icu.dll" "cdecl" fn udat_setContext(fmt : *mut *mut core::ffi::c_void, value : UDisplayContext, status : *mut UErrorCode));
+::windows_targets::link!("icu.dll" "cdecl" fn udat_setLenient(fmt : *mut *mut core::ffi::c_void, islenient : i8));
+::windows_targets::link!("icu.dll" "cdecl" fn udat_setNumberFormat(fmt : *mut *mut core::ffi::c_void, numberformattoset : *const *const core::ffi::c_void));
+::windows_targets::link!("icu.dll" "cdecl" fn udat_setSymbols(format : *mut *mut core::ffi::c_void, r#type : UDateFormatSymbolType, symbolindex : i32, value : *mut u16, valuelength : i32, status : *mut UErrorCode));
 ::windows_targets::link!("icu.dll" "cdecl" fn udat_toCalendarDateField(field : UDateFormatField) -> UCalendarDateFields);
-::windows_targets::link!("icu.dll" "cdecl" fn udat_toPattern(fmt : *const *const ::core::ffi::c_void, localized : i8, result : *mut u16, resultlength : i32, status : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn udatpg_addPattern(dtpg : *mut *mut ::core::ffi::c_void, pattern : *const u16, patternlength : i32, r#override : i8, conflictingpattern : *mut u16, capacity : i32, plength : *mut i32, perrorcode : *mut UErrorCode) -> UDateTimePatternConflict);
-::windows_targets::link!("icu.dll" "cdecl" fn udatpg_clone(dtpg : *const *const ::core::ffi::c_void, perrorcode : *mut UErrorCode) -> *mut *mut ::core::ffi::c_void);
-::windows_targets::link!("icu.dll" "cdecl" fn udatpg_close(dtpg : *mut *mut ::core::ffi::c_void));
-::windows_targets::link!("icu.dll" "cdecl" fn udatpg_getAppendItemFormat(dtpg : *const *const ::core::ffi::c_void, field : UDateTimePatternField, plength : *mut i32) -> *mut u16);
-::windows_targets::link!("icu.dll" "cdecl" fn udatpg_getAppendItemName(dtpg : *const *const ::core::ffi::c_void, field : UDateTimePatternField, plength : *mut i32) -> *mut u16);
-::windows_targets::link!("icu.dll" "cdecl" fn udatpg_getBaseSkeleton(unuseddtpg : *mut *mut ::core::ffi::c_void, pattern : *const u16, length : i32, baseskeleton : *mut u16, capacity : i32, perrorcode : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn udatpg_getBestPattern(dtpg : *mut *mut ::core::ffi::c_void, skeleton : *const u16, length : i32, bestpattern : *mut u16, capacity : i32, perrorcode : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn udatpg_getBestPatternWithOptions(dtpg : *mut *mut ::core::ffi::c_void, skeleton : *const u16, length : i32, options : UDateTimePatternMatchOptions, bestpattern : *mut u16, capacity : i32, perrorcode : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn udatpg_getDateTimeFormat(dtpg : *const *const ::core::ffi::c_void, plength : *mut i32) -> *mut u16);
-::windows_targets::link!("icu.dll" "cdecl" fn udatpg_getDecimal(dtpg : *const *const ::core::ffi::c_void, plength : *mut i32) -> *mut u16);
-::windows_targets::link!("icu.dll" "cdecl" fn udatpg_getFieldDisplayName(dtpg : *const *const ::core::ffi::c_void, field : UDateTimePatternField, width : UDateTimePGDisplayWidth, fieldname : *mut u16, capacity : i32, perrorcode : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn udatpg_getPatternForSkeleton(dtpg : *const *const ::core::ffi::c_void, skeleton : *const u16, skeletonlength : i32, plength : *mut i32) -> *mut u16);
-::windows_targets::link!("icu.dll" "cdecl" fn udatpg_getSkeleton(unuseddtpg : *mut *mut ::core::ffi::c_void, pattern : *const u16, length : i32, skeleton : *mut u16, capacity : i32, perrorcode : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn udatpg_open(locale : ::windows_sys::core::PCSTR, perrorcode : *mut UErrorCode) -> *mut *mut ::core::ffi::c_void);
-::windows_targets::link!("icu.dll" "cdecl" fn udatpg_openBaseSkeletons(dtpg : *const *const ::core::ffi::c_void, perrorcode : *mut UErrorCode) -> *mut UEnumeration);
-::windows_targets::link!("icu.dll" "cdecl" fn udatpg_openEmpty(perrorcode : *mut UErrorCode) -> *mut *mut ::core::ffi::c_void);
-::windows_targets::link!("icu.dll" "cdecl" fn udatpg_openSkeletons(dtpg : *const *const ::core::ffi::c_void, perrorcode : *mut UErrorCode) -> *mut UEnumeration);
-::windows_targets::link!("icu.dll" "cdecl" fn udatpg_replaceFieldTypes(dtpg : *mut *mut ::core::ffi::c_void, pattern : *const u16, patternlength : i32, skeleton : *const u16, skeletonlength : i32, dest : *mut u16, destcapacity : i32, perrorcode : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn udatpg_replaceFieldTypesWithOptions(dtpg : *mut *mut ::core::ffi::c_void, pattern : *const u16, patternlength : i32, skeleton : *const u16, skeletonlength : i32, options : UDateTimePatternMatchOptions, dest : *mut u16, destcapacity : i32, perrorcode : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn udatpg_setAppendItemFormat(dtpg : *mut *mut ::core::ffi::c_void, field : UDateTimePatternField, value : *const u16, length : i32));
-::windows_targets::link!("icu.dll" "cdecl" fn udatpg_setAppendItemName(dtpg : *mut *mut ::core::ffi::c_void, field : UDateTimePatternField, value : *const u16, length : i32));
-::windows_targets::link!("icu.dll" "cdecl" fn udatpg_setDateTimeFormat(dtpg : *const *const ::core::ffi::c_void, dtformat : *const u16, length : i32));
-::windows_targets::link!("icu.dll" "cdecl" fn udatpg_setDecimal(dtpg : *mut *mut ::core::ffi::c_void, decimal : *const u16, length : i32));
+::windows_targets::link!("icu.dll" "cdecl" fn udat_toPattern(fmt : *const *const core::ffi::c_void, localized : i8, result : *mut u16, resultlength : i32, status : *mut UErrorCode) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn udatpg_addPattern(dtpg : *mut *mut core::ffi::c_void, pattern : *const u16, patternlength : i32, r#override : i8, conflictingpattern : *mut u16, capacity : i32, plength : *mut i32, perrorcode : *mut UErrorCode) -> UDateTimePatternConflict);
+::windows_targets::link!("icu.dll" "cdecl" fn udatpg_clone(dtpg : *const *const core::ffi::c_void, perrorcode : *mut UErrorCode) -> *mut *mut core::ffi::c_void);
+::windows_targets::link!("icu.dll" "cdecl" fn udatpg_close(dtpg : *mut *mut core::ffi::c_void));
+::windows_targets::link!("icu.dll" "cdecl" fn udatpg_getAppendItemFormat(dtpg : *const *const core::ffi::c_void, field : UDateTimePatternField, plength : *mut i32) -> *mut u16);
+::windows_targets::link!("icu.dll" "cdecl" fn udatpg_getAppendItemName(dtpg : *const *const core::ffi::c_void, field : UDateTimePatternField, plength : *mut i32) -> *mut u16);
+::windows_targets::link!("icu.dll" "cdecl" fn udatpg_getBaseSkeleton(unuseddtpg : *mut *mut core::ffi::c_void, pattern : *const u16, length : i32, baseskeleton : *mut u16, capacity : i32, perrorcode : *mut UErrorCode) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn udatpg_getBestPattern(dtpg : *mut *mut core::ffi::c_void, skeleton : *const u16, length : i32, bestpattern : *mut u16, capacity : i32, perrorcode : *mut UErrorCode) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn udatpg_getBestPatternWithOptions(dtpg : *mut *mut core::ffi::c_void, skeleton : *const u16, length : i32, options : UDateTimePatternMatchOptions, bestpattern : *mut u16, capacity : i32, perrorcode : *mut UErrorCode) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn udatpg_getDateTimeFormat(dtpg : *const *const core::ffi::c_void, plength : *mut i32) -> *mut u16);
+::windows_targets::link!("icu.dll" "cdecl" fn udatpg_getDecimal(dtpg : *const *const core::ffi::c_void, plength : *mut i32) -> *mut u16);
+::windows_targets::link!("icu.dll" "cdecl" fn udatpg_getFieldDisplayName(dtpg : *const *const core::ffi::c_void, field : UDateTimePatternField, width : UDateTimePGDisplayWidth, fieldname : *mut u16, capacity : i32, perrorcode : *mut UErrorCode) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn udatpg_getPatternForSkeleton(dtpg : *const *const core::ffi::c_void, skeleton : *const u16, skeletonlength : i32, plength : *mut i32) -> *mut u16);
+::windows_targets::link!("icu.dll" "cdecl" fn udatpg_getSkeleton(unuseddtpg : *mut *mut core::ffi::c_void, pattern : *const u16, length : i32, skeleton : *mut u16, capacity : i32, perrorcode : *mut UErrorCode) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn udatpg_open(locale : windows_sys::core::PCSTR, perrorcode : *mut UErrorCode) -> *mut *mut core::ffi::c_void);
+::windows_targets::link!("icu.dll" "cdecl" fn udatpg_openBaseSkeletons(dtpg : *const *const core::ffi::c_void, perrorcode : *mut UErrorCode) -> *mut UEnumeration);
+::windows_targets::link!("icu.dll" "cdecl" fn udatpg_openEmpty(perrorcode : *mut UErrorCode) -> *mut *mut core::ffi::c_void);
+::windows_targets::link!("icu.dll" "cdecl" fn udatpg_openSkeletons(dtpg : *const *const core::ffi::c_void, perrorcode : *mut UErrorCode) -> *mut UEnumeration);
+::windows_targets::link!("icu.dll" "cdecl" fn udatpg_replaceFieldTypes(dtpg : *mut *mut core::ffi::c_void, pattern : *const u16, patternlength : i32, skeleton : *const u16, skeletonlength : i32, dest : *mut u16, destcapacity : i32, perrorcode : *mut UErrorCode) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn udatpg_replaceFieldTypesWithOptions(dtpg : *mut *mut core::ffi::c_void, pattern : *const u16, patternlength : i32, skeleton : *const u16, skeletonlength : i32, options : UDateTimePatternMatchOptions, dest : *mut u16, destcapacity : i32, perrorcode : *mut UErrorCode) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn udatpg_setAppendItemFormat(dtpg : *mut *mut core::ffi::c_void, field : UDateTimePatternField, value : *const u16, length : i32));
+::windows_targets::link!("icu.dll" "cdecl" fn udatpg_setAppendItemName(dtpg : *mut *mut core::ffi::c_void, field : UDateTimePatternField, value : *const u16, length : i32));
+::windows_targets::link!("icu.dll" "cdecl" fn udatpg_setDateTimeFormat(dtpg : *const *const core::ffi::c_void, dtformat : *const u16, length : i32));
+::windows_targets::link!("icu.dll" "cdecl" fn udatpg_setDecimal(dtpg : *mut *mut core::ffi::c_void, decimal : *const u16, length : i32));
 ::windows_targets::link!("icu.dll" "cdecl" fn udtitvfmt_close(formatter : *mut UDateIntervalFormat));
 ::windows_targets::link!("icu.dll" "cdecl" fn udtitvfmt_closeResult(uresult : *mut UFormattedDateInterval));
 ::windows_targets::link!("icu.dll" "cdecl" fn udtitvfmt_format(formatter : *const UDateIntervalFormat, fromdate : f64, todate : f64, result : *mut u16, resultcapacity : i32, position : *mut UFieldPosition, status : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn udtitvfmt_open(locale : ::windows_sys::core::PCSTR, skeleton : *const u16, skeletonlength : i32, tzid : *const u16, tzidlength : i32, status : *mut UErrorCode) -> *mut UDateIntervalFormat);
+::windows_targets::link!("icu.dll" "cdecl" fn udtitvfmt_open(locale : windows_sys::core::PCSTR, skeleton : *const u16, skeletonlength : i32, tzid : *const u16, tzidlength : i32, status : *mut UErrorCode) -> *mut UDateIntervalFormat);
 ::windows_targets::link!("icu.dll" "cdecl" fn udtitvfmt_openResult(ec : *mut UErrorCode) -> *mut UFormattedDateInterval);
 ::windows_targets::link!("icu.dll" "cdecl" fn udtitvfmt_resultAsValue(uresult : *const UFormattedDateInterval, ec : *mut UErrorCode) -> *mut UFormattedValue);
 ::windows_targets::link!("icu.dll" "cdecl" fn uenum_close(en : *mut UEnumeration));
 ::windows_targets::link!("icu.dll" "cdecl" fn uenum_count(en : *mut UEnumeration, status : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn uenum_next(en : *mut UEnumeration, resultlength : *mut i32, status : *mut UErrorCode) -> ::windows_sys::core::PCSTR);
+::windows_targets::link!("icu.dll" "cdecl" fn uenum_next(en : *mut UEnumeration, resultlength : *mut i32, status : *mut UErrorCode) -> windows_sys::core::PCSTR);
 ::windows_targets::link!("icu.dll" "cdecl" fn uenum_openCharStringsEnumeration(strings : *const *const i8, count : i32, ec : *mut UErrorCode) -> *mut UEnumeration);
 ::windows_targets::link!("icu.dll" "cdecl" fn uenum_openUCharStringsEnumeration(strings : *const *const u16, count : i32, ec : *mut UErrorCode) -> *mut UEnumeration);
 ::windows_targets::link!("icu.dll" "cdecl" fn uenum_reset(en : *mut UEnumeration, status : *mut UErrorCode));
@@ -737,32 +737,32 @@
 ::windows_targets::link!("icu.dll" "cdecl" fn ufieldpositer_close(fpositer : *mut UFieldPositionIterator));
 ::windows_targets::link!("icu.dll" "cdecl" fn ufieldpositer_next(fpositer : *mut UFieldPositionIterator, beginindex : *mut i32, endindex : *mut i32) -> i32);
 ::windows_targets::link!("icu.dll" "cdecl" fn ufieldpositer_open(status : *mut UErrorCode) -> *mut UFieldPositionIterator);
-::windows_targets::link!("icu.dll" "cdecl" fn ufmt_close(fmt : *mut *mut ::core::ffi::c_void));
-::windows_targets::link!("icu.dll" "cdecl" fn ufmt_getArrayItemByIndex(fmt : *mut *mut ::core::ffi::c_void, n : i32, status : *mut UErrorCode) -> *mut *mut ::core::ffi::c_void);
-::windows_targets::link!("icu.dll" "cdecl" fn ufmt_getArrayLength(fmt : *const *const ::core::ffi::c_void, status : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn ufmt_getDate(fmt : *const *const ::core::ffi::c_void, status : *mut UErrorCode) -> f64);
-::windows_targets::link!("icu.dll" "cdecl" fn ufmt_getDecNumChars(fmt : *mut *mut ::core::ffi::c_void, len : *mut i32, status : *mut UErrorCode) -> ::windows_sys::core::PCSTR);
-::windows_targets::link!("icu.dll" "cdecl" fn ufmt_getDouble(fmt : *mut *mut ::core::ffi::c_void, status : *mut UErrorCode) -> f64);
-::windows_targets::link!("icu.dll" "cdecl" fn ufmt_getInt64(fmt : *mut *mut ::core::ffi::c_void, status : *mut UErrorCode) -> i64);
-::windows_targets::link!("icu.dll" "cdecl" fn ufmt_getLong(fmt : *mut *mut ::core::ffi::c_void, status : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn ufmt_getObject(fmt : *const *const ::core::ffi::c_void, status : *mut UErrorCode) -> *mut ::core::ffi::c_void);
-::windows_targets::link!("icu.dll" "cdecl" fn ufmt_getType(fmt : *const *const ::core::ffi::c_void, status : *mut UErrorCode) -> UFormattableType);
-::windows_targets::link!("icu.dll" "cdecl" fn ufmt_getUChars(fmt : *mut *mut ::core::ffi::c_void, len : *mut i32, status : *mut UErrorCode) -> *mut u16);
-::windows_targets::link!("icu.dll" "cdecl" fn ufmt_isNumeric(fmt : *const *const ::core::ffi::c_void) -> i8);
-::windows_targets::link!("icu.dll" "cdecl" fn ufmt_open(status : *mut UErrorCode) -> *mut *mut ::core::ffi::c_void);
+::windows_targets::link!("icu.dll" "cdecl" fn ufmt_close(fmt : *mut *mut core::ffi::c_void));
+::windows_targets::link!("icu.dll" "cdecl" fn ufmt_getArrayItemByIndex(fmt : *mut *mut core::ffi::c_void, n : i32, status : *mut UErrorCode) -> *mut *mut core::ffi::c_void);
+::windows_targets::link!("icu.dll" "cdecl" fn ufmt_getArrayLength(fmt : *const *const core::ffi::c_void, status : *mut UErrorCode) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn ufmt_getDate(fmt : *const *const core::ffi::c_void, status : *mut UErrorCode) -> f64);
+::windows_targets::link!("icu.dll" "cdecl" fn ufmt_getDecNumChars(fmt : *mut *mut core::ffi::c_void, len : *mut i32, status : *mut UErrorCode) -> windows_sys::core::PCSTR);
+::windows_targets::link!("icu.dll" "cdecl" fn ufmt_getDouble(fmt : *mut *mut core::ffi::c_void, status : *mut UErrorCode) -> f64);
+::windows_targets::link!("icu.dll" "cdecl" fn ufmt_getInt64(fmt : *mut *mut core::ffi::c_void, status : *mut UErrorCode) -> i64);
+::windows_targets::link!("icu.dll" "cdecl" fn ufmt_getLong(fmt : *mut *mut core::ffi::c_void, status : *mut UErrorCode) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn ufmt_getObject(fmt : *const *const core::ffi::c_void, status : *mut UErrorCode) -> *mut core::ffi::c_void);
+::windows_targets::link!("icu.dll" "cdecl" fn ufmt_getType(fmt : *const *const core::ffi::c_void, status : *mut UErrorCode) -> UFormattableType);
+::windows_targets::link!("icu.dll" "cdecl" fn ufmt_getUChars(fmt : *mut *mut core::ffi::c_void, len : *mut i32, status : *mut UErrorCode) -> *mut u16);
+::windows_targets::link!("icu.dll" "cdecl" fn ufmt_isNumeric(fmt : *const *const core::ffi::c_void) -> i8);
+::windows_targets::link!("icu.dll" "cdecl" fn ufmt_open(status : *mut UErrorCode) -> *mut *mut core::ffi::c_void);
 ::windows_targets::link!("icu.dll" "cdecl" fn ufmtval_getString(ufmtval : *const UFormattedValue, plength : *mut i32, ec : *mut UErrorCode) -> *mut u16);
 ::windows_targets::link!("icu.dll" "cdecl" fn ufmtval_nextPosition(ufmtval : *const UFormattedValue, ucfpos : *mut UConstrainedFieldPosition, ec : *mut UErrorCode) -> i8);
-::windows_targets::link!("icu.dll" "cdecl" fn ugender_getInstance(locale : ::windows_sys::core::PCSTR, status : *mut UErrorCode) -> *mut UGenderInfo);
+::windows_targets::link!("icu.dll" "cdecl" fn ugender_getInstance(locale : windows_sys::core::PCSTR, status : *mut UErrorCode) -> *mut UGenderInfo);
 ::windows_targets::link!("icu.dll" "cdecl" fn ugender_getListGender(genderinfo : *const UGenderInfo, genders : *const UGender, size : i32, status : *mut UErrorCode) -> UGender);
 ::windows_targets::link!("icu.dll" "cdecl" fn uidna_close(idna : *mut UIDNA));
 ::windows_targets::link!("icu.dll" "cdecl" fn uidna_labelToASCII(idna : *const UIDNA, label : *const u16, length : i32, dest : *mut u16, capacity : i32, pinfo : *mut UIDNAInfo, perrorcode : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn uidna_labelToASCII_UTF8(idna : *const UIDNA, label : ::windows_sys::core::PCSTR, length : i32, dest : ::windows_sys::core::PCSTR, capacity : i32, pinfo : *mut UIDNAInfo, perrorcode : *mut UErrorCode) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn uidna_labelToASCII_UTF8(idna : *const UIDNA, label : windows_sys::core::PCSTR, length : i32, dest : windows_sys::core::PCSTR, capacity : i32, pinfo : *mut UIDNAInfo, perrorcode : *mut UErrorCode) -> i32);
 ::windows_targets::link!("icu.dll" "cdecl" fn uidna_labelToUnicode(idna : *const UIDNA, label : *const u16, length : i32, dest : *mut u16, capacity : i32, pinfo : *mut UIDNAInfo, perrorcode : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn uidna_labelToUnicodeUTF8(idna : *const UIDNA, label : ::windows_sys::core::PCSTR, length : i32, dest : ::windows_sys::core::PCSTR, capacity : i32, pinfo : *mut UIDNAInfo, perrorcode : *mut UErrorCode) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn uidna_labelToUnicodeUTF8(idna : *const UIDNA, label : windows_sys::core::PCSTR, length : i32, dest : windows_sys::core::PCSTR, capacity : i32, pinfo : *mut UIDNAInfo, perrorcode : *mut UErrorCode) -> i32);
 ::windows_targets::link!("icu.dll" "cdecl" fn uidna_nameToASCII(idna : *const UIDNA, name : *const u16, length : i32, dest : *mut u16, capacity : i32, pinfo : *mut UIDNAInfo, perrorcode : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn uidna_nameToASCII_UTF8(idna : *const UIDNA, name : ::windows_sys::core::PCSTR, length : i32, dest : ::windows_sys::core::PCSTR, capacity : i32, pinfo : *mut UIDNAInfo, perrorcode : *mut UErrorCode) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn uidna_nameToASCII_UTF8(idna : *const UIDNA, name : windows_sys::core::PCSTR, length : i32, dest : windows_sys::core::PCSTR, capacity : i32, pinfo : *mut UIDNAInfo, perrorcode : *mut UErrorCode) -> i32);
 ::windows_targets::link!("icu.dll" "cdecl" fn uidna_nameToUnicode(idna : *const UIDNA, name : *const u16, length : i32, dest : *mut u16, capacity : i32, pinfo : *mut UIDNAInfo, perrorcode : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn uidna_nameToUnicodeUTF8(idna : *const UIDNA, name : ::windows_sys::core::PCSTR, length : i32, dest : ::windows_sys::core::PCSTR, capacity : i32, pinfo : *mut UIDNAInfo, perrorcode : *mut UErrorCode) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn uidna_nameToUnicodeUTF8(idna : *const UIDNA, name : windows_sys::core::PCSTR, length : i32, dest : windows_sys::core::PCSTR, capacity : i32, pinfo : *mut UIDNAInfo, perrorcode : *mut UErrorCode) -> i32);
 ::windows_targets::link!("icu.dll" "cdecl" fn uidna_openUTS46(options : u32, perrorcode : *mut UErrorCode) -> *mut UIDNA);
 ::windows_targets::link!("icu.dll" "cdecl" fn uiter_current32(iter : *mut UCharIterator) -> i32);
 ::windows_targets::link!("icu.dll" "cdecl" fn uiter_getState(iter : *const UCharIterator) -> u32);
@@ -770,102 +770,102 @@
 ::windows_targets::link!("icu.dll" "cdecl" fn uiter_previous32(iter : *mut UCharIterator) -> i32);
 ::windows_targets::link!("icu.dll" "cdecl" fn uiter_setState(iter : *mut UCharIterator, state : u32, perrorcode : *mut UErrorCode));
 ::windows_targets::link!("icu.dll" "cdecl" fn uiter_setString(iter : *mut UCharIterator, s : *const u16, length : i32));
-::windows_targets::link!("icu.dll" "cdecl" fn uiter_setUTF16BE(iter : *mut UCharIterator, s : ::windows_sys::core::PCSTR, length : i32));
-::windows_targets::link!("icu.dll" "cdecl" fn uiter_setUTF8(iter : *mut UCharIterator, s : ::windows_sys::core::PCSTR, length : i32));
+::windows_targets::link!("icu.dll" "cdecl" fn uiter_setUTF16BE(iter : *mut UCharIterator, s : windows_sys::core::PCSTR, length : i32));
+::windows_targets::link!("icu.dll" "cdecl" fn uiter_setUTF8(iter : *mut UCharIterator, s : windows_sys::core::PCSTR, length : i32));
 ::windows_targets::link!("icu.dll" "cdecl" fn uldn_close(ldn : *mut ULocaleDisplayNames));
 ::windows_targets::link!("icu.dll" "cdecl" fn uldn_getContext(ldn : *const ULocaleDisplayNames, r#type : UDisplayContextType, perrorcode : *mut UErrorCode) -> UDisplayContext);
 ::windows_targets::link!("icu.dll" "cdecl" fn uldn_getDialectHandling(ldn : *const ULocaleDisplayNames) -> UDialectHandling);
-::windows_targets::link!("icu.dll" "cdecl" fn uldn_getLocale(ldn : *const ULocaleDisplayNames) -> ::windows_sys::core::PCSTR);
-::windows_targets::link!("icu.dll" "cdecl" fn uldn_keyDisplayName(ldn : *const ULocaleDisplayNames, key : ::windows_sys::core::PCSTR, result : *mut u16, maxresultsize : i32, perrorcode : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn uldn_keyValueDisplayName(ldn : *const ULocaleDisplayNames, key : ::windows_sys::core::PCSTR, value : ::windows_sys::core::PCSTR, result : *mut u16, maxresultsize : i32, perrorcode : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn uldn_languageDisplayName(ldn : *const ULocaleDisplayNames, lang : ::windows_sys::core::PCSTR, result : *mut u16, maxresultsize : i32, perrorcode : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn uldn_localeDisplayName(ldn : *const ULocaleDisplayNames, locale : ::windows_sys::core::PCSTR, result : *mut u16, maxresultsize : i32, perrorcode : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn uldn_open(locale : ::windows_sys::core::PCSTR, dialecthandling : UDialectHandling, perrorcode : *mut UErrorCode) -> *mut ULocaleDisplayNames);
-::windows_targets::link!("icu.dll" "cdecl" fn uldn_openForContext(locale : ::windows_sys::core::PCSTR, contexts : *mut UDisplayContext, length : i32, perrorcode : *mut UErrorCode) -> *mut ULocaleDisplayNames);
-::windows_targets::link!("icu.dll" "cdecl" fn uldn_regionDisplayName(ldn : *const ULocaleDisplayNames, region : ::windows_sys::core::PCSTR, result : *mut u16, maxresultsize : i32, perrorcode : *mut UErrorCode) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn uldn_getLocale(ldn : *const ULocaleDisplayNames) -> windows_sys::core::PCSTR);
+::windows_targets::link!("icu.dll" "cdecl" fn uldn_keyDisplayName(ldn : *const ULocaleDisplayNames, key : windows_sys::core::PCSTR, result : *mut u16, maxresultsize : i32, perrorcode : *mut UErrorCode) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn uldn_keyValueDisplayName(ldn : *const ULocaleDisplayNames, key : windows_sys::core::PCSTR, value : windows_sys::core::PCSTR, result : *mut u16, maxresultsize : i32, perrorcode : *mut UErrorCode) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn uldn_languageDisplayName(ldn : *const ULocaleDisplayNames, lang : windows_sys::core::PCSTR, result : *mut u16, maxresultsize : i32, perrorcode : *mut UErrorCode) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn uldn_localeDisplayName(ldn : *const ULocaleDisplayNames, locale : windows_sys::core::PCSTR, result : *mut u16, maxresultsize : i32, perrorcode : *mut UErrorCode) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn uldn_open(locale : windows_sys::core::PCSTR, dialecthandling : UDialectHandling, perrorcode : *mut UErrorCode) -> *mut ULocaleDisplayNames);
+::windows_targets::link!("icu.dll" "cdecl" fn uldn_openForContext(locale : windows_sys::core::PCSTR, contexts : *mut UDisplayContext, length : i32, perrorcode : *mut UErrorCode) -> *mut ULocaleDisplayNames);
+::windows_targets::link!("icu.dll" "cdecl" fn uldn_regionDisplayName(ldn : *const ULocaleDisplayNames, region : windows_sys::core::PCSTR, result : *mut u16, maxresultsize : i32, perrorcode : *mut UErrorCode) -> i32);
 ::windows_targets::link!("icu.dll" "cdecl" fn uldn_scriptCodeDisplayName(ldn : *const ULocaleDisplayNames, scriptcode : UScriptCode, result : *mut u16, maxresultsize : i32, perrorcode : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn uldn_scriptDisplayName(ldn : *const ULocaleDisplayNames, script : ::windows_sys::core::PCSTR, result : *mut u16, maxresultsize : i32, perrorcode : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn uldn_variantDisplayName(ldn : *const ULocaleDisplayNames, variant : ::windows_sys::core::PCSTR, result : *mut u16, maxresultsize : i32, perrorcode : *mut UErrorCode) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn uldn_scriptDisplayName(ldn : *const ULocaleDisplayNames, script : windows_sys::core::PCSTR, result : *mut u16, maxresultsize : i32, perrorcode : *mut UErrorCode) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn uldn_variantDisplayName(ldn : *const ULocaleDisplayNames, variant : windows_sys::core::PCSTR, result : *mut u16, maxresultsize : i32, perrorcode : *mut UErrorCode) -> i32);
 ::windows_targets::link!("icu.dll" "cdecl" fn ulistfmt_close(listfmt : *mut UListFormatter));
 ::windows_targets::link!("icu.dll" "cdecl" fn ulistfmt_closeResult(uresult : *mut UFormattedList));
 ::windows_targets::link!("icu.dll" "cdecl" fn ulistfmt_format(listfmt : *const UListFormatter, strings : *const *const u16, stringlengths : *const i32, stringcount : i32, result : *mut u16, resultcapacity : i32, status : *mut UErrorCode) -> i32);
 ::windows_targets::link!("icu.dll" "cdecl" fn ulistfmt_formatStringsToResult(listfmt : *const UListFormatter, strings : *const *const u16, stringlengths : *const i32, stringcount : i32, uresult : *mut UFormattedList, status : *mut UErrorCode));
-::windows_targets::link!("icu.dll" "cdecl" fn ulistfmt_open(locale : ::windows_sys::core::PCSTR, status : *mut UErrorCode) -> *mut UListFormatter);
-::windows_targets::link!("icu.dll" "cdecl" fn ulistfmt_openForType(locale : ::windows_sys::core::PCSTR, r#type : UListFormatterType, width : UListFormatterWidth, status : *mut UErrorCode) -> *mut UListFormatter);
+::windows_targets::link!("icu.dll" "cdecl" fn ulistfmt_open(locale : windows_sys::core::PCSTR, status : *mut UErrorCode) -> *mut UListFormatter);
+::windows_targets::link!("icu.dll" "cdecl" fn ulistfmt_openForType(locale : windows_sys::core::PCSTR, r#type : UListFormatterType, width : UListFormatterWidth, status : *mut UErrorCode) -> *mut UListFormatter);
 ::windows_targets::link!("icu.dll" "cdecl" fn ulistfmt_openResult(ec : *mut UErrorCode) -> *mut UFormattedList);
 ::windows_targets::link!("icu.dll" "cdecl" fn ulistfmt_resultAsValue(uresult : *const UFormattedList, ec : *mut UErrorCode) -> *mut UFormattedValue);
-::windows_targets::link!("icu.dll" "cdecl" fn uloc_acceptLanguage(result : ::windows_sys::core::PCSTR, resultavailable : i32, outresult : *mut UAcceptResult, acceptlist : *const *const i8, acceptlistcount : i32, availablelocales : *mut UEnumeration, status : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn uloc_acceptLanguageFromHTTP(result : ::windows_sys::core::PCSTR, resultavailable : i32, outresult : *mut UAcceptResult, httpacceptlanguage : ::windows_sys::core::PCSTR, availablelocales : *mut UEnumeration, status : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn uloc_addLikelySubtags(localeid : ::windows_sys::core::PCSTR, maximizedlocaleid : ::windows_sys::core::PCSTR, maximizedlocaleidcapacity : i32, err : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn uloc_canonicalize(localeid : ::windows_sys::core::PCSTR, name : ::windows_sys::core::PCSTR, namecapacity : i32, err : *mut UErrorCode) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn uloc_acceptLanguage(result : windows_sys::core::PCSTR, resultavailable : i32, outresult : *mut UAcceptResult, acceptlist : *const *const i8, acceptlistcount : i32, availablelocales : *mut UEnumeration, status : *mut UErrorCode) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn uloc_acceptLanguageFromHTTP(result : windows_sys::core::PCSTR, resultavailable : i32, outresult : *mut UAcceptResult, httpacceptlanguage : windows_sys::core::PCSTR, availablelocales : *mut UEnumeration, status : *mut UErrorCode) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn uloc_addLikelySubtags(localeid : windows_sys::core::PCSTR, maximizedlocaleid : windows_sys::core::PCSTR, maximizedlocaleidcapacity : i32, err : *mut UErrorCode) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn uloc_canonicalize(localeid : windows_sys::core::PCSTR, name : windows_sys::core::PCSTR, namecapacity : i32, err : *mut UErrorCode) -> i32);
 ::windows_targets::link!("icu.dll" "cdecl" fn uloc_countAvailable() -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn uloc_forLanguageTag(langtag : ::windows_sys::core::PCSTR, localeid : ::windows_sys::core::PCSTR, localeidcapacity : i32, parsedlength : *mut i32, err : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn uloc_getAvailable(n : i32) -> ::windows_sys::core::PCSTR);
-::windows_targets::link!("icu.dll" "cdecl" fn uloc_getBaseName(localeid : ::windows_sys::core::PCSTR, name : ::windows_sys::core::PCSTR, namecapacity : i32, err : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn uloc_getCharacterOrientation(localeid : ::windows_sys::core::PCSTR, status : *mut UErrorCode) -> ULayoutType);
-::windows_targets::link!("icu.dll" "cdecl" fn uloc_getCountry(localeid : ::windows_sys::core::PCSTR, country : ::windows_sys::core::PCSTR, countrycapacity : i32, err : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn uloc_getDefault() -> ::windows_sys::core::PCSTR);
-::windows_targets::link!("icu.dll" "cdecl" fn uloc_getDisplayCountry(locale : ::windows_sys::core::PCSTR, displaylocale : ::windows_sys::core::PCSTR, country : *mut u16, countrycapacity : i32, status : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn uloc_getDisplayKeyword(keyword : ::windows_sys::core::PCSTR, displaylocale : ::windows_sys::core::PCSTR, dest : *mut u16, destcapacity : i32, status : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn uloc_getDisplayKeywordValue(locale : ::windows_sys::core::PCSTR, keyword : ::windows_sys::core::PCSTR, displaylocale : ::windows_sys::core::PCSTR, dest : *mut u16, destcapacity : i32, status : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn uloc_getDisplayLanguage(locale : ::windows_sys::core::PCSTR, displaylocale : ::windows_sys::core::PCSTR, language : *mut u16, languagecapacity : i32, status : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn uloc_getDisplayName(localeid : ::windows_sys::core::PCSTR, inlocaleid : ::windows_sys::core::PCSTR, result : *mut u16, maxresultsize : i32, err : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn uloc_getDisplayScript(locale : ::windows_sys::core::PCSTR, displaylocale : ::windows_sys::core::PCSTR, script : *mut u16, scriptcapacity : i32, status : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn uloc_getDisplayVariant(locale : ::windows_sys::core::PCSTR, displaylocale : ::windows_sys::core::PCSTR, variant : *mut u16, variantcapacity : i32, status : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn uloc_getISO3Country(localeid : ::windows_sys::core::PCSTR) -> ::windows_sys::core::PCSTR);
-::windows_targets::link!("icu.dll" "cdecl" fn uloc_getISO3Language(localeid : ::windows_sys::core::PCSTR) -> ::windows_sys::core::PCSTR);
+::windows_targets::link!("icu.dll" "cdecl" fn uloc_forLanguageTag(langtag : windows_sys::core::PCSTR, localeid : windows_sys::core::PCSTR, localeidcapacity : i32, parsedlength : *mut i32, err : *mut UErrorCode) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn uloc_getAvailable(n : i32) -> windows_sys::core::PCSTR);
+::windows_targets::link!("icu.dll" "cdecl" fn uloc_getBaseName(localeid : windows_sys::core::PCSTR, name : windows_sys::core::PCSTR, namecapacity : i32, err : *mut UErrorCode) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn uloc_getCharacterOrientation(localeid : windows_sys::core::PCSTR, status : *mut UErrorCode) -> ULayoutType);
+::windows_targets::link!("icu.dll" "cdecl" fn uloc_getCountry(localeid : windows_sys::core::PCSTR, country : windows_sys::core::PCSTR, countrycapacity : i32, err : *mut UErrorCode) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn uloc_getDefault() -> windows_sys::core::PCSTR);
+::windows_targets::link!("icu.dll" "cdecl" fn uloc_getDisplayCountry(locale : windows_sys::core::PCSTR, displaylocale : windows_sys::core::PCSTR, country : *mut u16, countrycapacity : i32, status : *mut UErrorCode) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn uloc_getDisplayKeyword(keyword : windows_sys::core::PCSTR, displaylocale : windows_sys::core::PCSTR, dest : *mut u16, destcapacity : i32, status : *mut UErrorCode) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn uloc_getDisplayKeywordValue(locale : windows_sys::core::PCSTR, keyword : windows_sys::core::PCSTR, displaylocale : windows_sys::core::PCSTR, dest : *mut u16, destcapacity : i32, status : *mut UErrorCode) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn uloc_getDisplayLanguage(locale : windows_sys::core::PCSTR, displaylocale : windows_sys::core::PCSTR, language : *mut u16, languagecapacity : i32, status : *mut UErrorCode) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn uloc_getDisplayName(localeid : windows_sys::core::PCSTR, inlocaleid : windows_sys::core::PCSTR, result : *mut u16, maxresultsize : i32, err : *mut UErrorCode) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn uloc_getDisplayScript(locale : windows_sys::core::PCSTR, displaylocale : windows_sys::core::PCSTR, script : *mut u16, scriptcapacity : i32, status : *mut UErrorCode) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn uloc_getDisplayVariant(locale : windows_sys::core::PCSTR, displaylocale : windows_sys::core::PCSTR, variant : *mut u16, variantcapacity : i32, status : *mut UErrorCode) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn uloc_getISO3Country(localeid : windows_sys::core::PCSTR) -> windows_sys::core::PCSTR);
+::windows_targets::link!("icu.dll" "cdecl" fn uloc_getISO3Language(localeid : windows_sys::core::PCSTR) -> windows_sys::core::PCSTR);
 ::windows_targets::link!("icu.dll" "cdecl" fn uloc_getISOCountries() -> *mut *mut i8);
 ::windows_targets::link!("icu.dll" "cdecl" fn uloc_getISOLanguages() -> *mut *mut i8);
-::windows_targets::link!("icu.dll" "cdecl" fn uloc_getKeywordValue(localeid : ::windows_sys::core::PCSTR, keywordname : ::windows_sys::core::PCSTR, buffer : ::windows_sys::core::PCSTR, buffercapacity : i32, status : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn uloc_getLCID(localeid : ::windows_sys::core::PCSTR) -> u32);
-::windows_targets::link!("icu.dll" "cdecl" fn uloc_getLanguage(localeid : ::windows_sys::core::PCSTR, language : ::windows_sys::core::PCSTR, languagecapacity : i32, err : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn uloc_getLineOrientation(localeid : ::windows_sys::core::PCSTR, status : *mut UErrorCode) -> ULayoutType);
-::windows_targets::link!("icu.dll" "cdecl" fn uloc_getLocaleForLCID(hostid : u32, locale : ::windows_sys::core::PCSTR, localecapacity : i32, status : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn uloc_getName(localeid : ::windows_sys::core::PCSTR, name : ::windows_sys::core::PCSTR, namecapacity : i32, err : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn uloc_getParent(localeid : ::windows_sys::core::PCSTR, parent : ::windows_sys::core::PCSTR, parentcapacity : i32, err : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn uloc_getScript(localeid : ::windows_sys::core::PCSTR, script : ::windows_sys::core::PCSTR, scriptcapacity : i32, err : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn uloc_getVariant(localeid : ::windows_sys::core::PCSTR, variant : ::windows_sys::core::PCSTR, variantcapacity : i32, err : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn uloc_isRightToLeft(locale : ::windows_sys::core::PCSTR) -> i8);
-::windows_targets::link!("icu.dll" "cdecl" fn uloc_minimizeSubtags(localeid : ::windows_sys::core::PCSTR, minimizedlocaleid : ::windows_sys::core::PCSTR, minimizedlocaleidcapacity : i32, err : *mut UErrorCode) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn uloc_getKeywordValue(localeid : windows_sys::core::PCSTR, keywordname : windows_sys::core::PCSTR, buffer : windows_sys::core::PCSTR, buffercapacity : i32, status : *mut UErrorCode) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn uloc_getLCID(localeid : windows_sys::core::PCSTR) -> u32);
+::windows_targets::link!("icu.dll" "cdecl" fn uloc_getLanguage(localeid : windows_sys::core::PCSTR, language : windows_sys::core::PCSTR, languagecapacity : i32, err : *mut UErrorCode) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn uloc_getLineOrientation(localeid : windows_sys::core::PCSTR, status : *mut UErrorCode) -> ULayoutType);
+::windows_targets::link!("icu.dll" "cdecl" fn uloc_getLocaleForLCID(hostid : u32, locale : windows_sys::core::PCSTR, localecapacity : i32, status : *mut UErrorCode) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn uloc_getName(localeid : windows_sys::core::PCSTR, name : windows_sys::core::PCSTR, namecapacity : i32, err : *mut UErrorCode) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn uloc_getParent(localeid : windows_sys::core::PCSTR, parent : windows_sys::core::PCSTR, parentcapacity : i32, err : *mut UErrorCode) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn uloc_getScript(localeid : windows_sys::core::PCSTR, script : windows_sys::core::PCSTR, scriptcapacity : i32, err : *mut UErrorCode) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn uloc_getVariant(localeid : windows_sys::core::PCSTR, variant : windows_sys::core::PCSTR, variantcapacity : i32, err : *mut UErrorCode) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn uloc_isRightToLeft(locale : windows_sys::core::PCSTR) -> i8);
+::windows_targets::link!("icu.dll" "cdecl" fn uloc_minimizeSubtags(localeid : windows_sys::core::PCSTR, minimizedlocaleid : windows_sys::core::PCSTR, minimizedlocaleidcapacity : i32, err : *mut UErrorCode) -> i32);
 ::windows_targets::link!("icu.dll" "cdecl" fn uloc_openAvailableByType(r#type : ULocAvailableType, status : *mut UErrorCode) -> *mut UEnumeration);
-::windows_targets::link!("icu.dll" "cdecl" fn uloc_openKeywords(localeid : ::windows_sys::core::PCSTR, status : *mut UErrorCode) -> *mut UEnumeration);
-::windows_targets::link!("icu.dll" "cdecl" fn uloc_setDefault(localeid : ::windows_sys::core::PCSTR, status : *mut UErrorCode));
-::windows_targets::link!("icu.dll" "cdecl" fn uloc_setKeywordValue(keywordname : ::windows_sys::core::PCSTR, keywordvalue : ::windows_sys::core::PCSTR, buffer : ::windows_sys::core::PCSTR, buffercapacity : i32, status : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn uloc_toLanguageTag(localeid : ::windows_sys::core::PCSTR, langtag : ::windows_sys::core::PCSTR, langtagcapacity : i32, strict : i8, err : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn uloc_toLegacyKey(keyword : ::windows_sys::core::PCSTR) -> ::windows_sys::core::PCSTR);
-::windows_targets::link!("icu.dll" "cdecl" fn uloc_toLegacyType(keyword : ::windows_sys::core::PCSTR, value : ::windows_sys::core::PCSTR) -> ::windows_sys::core::PCSTR);
-::windows_targets::link!("icu.dll" "cdecl" fn uloc_toUnicodeLocaleKey(keyword : ::windows_sys::core::PCSTR) -> ::windows_sys::core::PCSTR);
-::windows_targets::link!("icu.dll" "cdecl" fn uloc_toUnicodeLocaleType(keyword : ::windows_sys::core::PCSTR, value : ::windows_sys::core::PCSTR) -> ::windows_sys::core::PCSTR);
+::windows_targets::link!("icu.dll" "cdecl" fn uloc_openKeywords(localeid : windows_sys::core::PCSTR, status : *mut UErrorCode) -> *mut UEnumeration);
+::windows_targets::link!("icu.dll" "cdecl" fn uloc_setDefault(localeid : windows_sys::core::PCSTR, status : *mut UErrorCode));
+::windows_targets::link!("icu.dll" "cdecl" fn uloc_setKeywordValue(keywordname : windows_sys::core::PCSTR, keywordvalue : windows_sys::core::PCSTR, buffer : windows_sys::core::PCSTR, buffercapacity : i32, status : *mut UErrorCode) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn uloc_toLanguageTag(localeid : windows_sys::core::PCSTR, langtag : windows_sys::core::PCSTR, langtagcapacity : i32, strict : i8, err : *mut UErrorCode) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn uloc_toLegacyKey(keyword : windows_sys::core::PCSTR) -> windows_sys::core::PCSTR);
+::windows_targets::link!("icu.dll" "cdecl" fn uloc_toLegacyType(keyword : windows_sys::core::PCSTR, value : windows_sys::core::PCSTR) -> windows_sys::core::PCSTR);
+::windows_targets::link!("icu.dll" "cdecl" fn uloc_toUnicodeLocaleKey(keyword : windows_sys::core::PCSTR) -> windows_sys::core::PCSTR);
+::windows_targets::link!("icu.dll" "cdecl" fn uloc_toUnicodeLocaleType(keyword : windows_sys::core::PCSTR, value : windows_sys::core::PCSTR) -> windows_sys::core::PCSTR);
 ::windows_targets::link!("icu.dll" "cdecl" fn ulocdata_close(uld : *mut ULocaleData));
 ::windows_targets::link!("icu.dll" "cdecl" fn ulocdata_getCLDRVersion(versionarray : *mut u8, status : *mut UErrorCode));
 ::windows_targets::link!("icu.dll" "cdecl" fn ulocdata_getDelimiter(uld : *mut ULocaleData, r#type : ULocaleDataDelimiterType, result : *mut u16, resultlength : i32, status : *mut UErrorCode) -> i32);
 ::windows_targets::link!("icu.dll" "cdecl" fn ulocdata_getExemplarSet(uld : *mut ULocaleData, fillin : *mut USet, options : u32, extype : ULocaleDataExemplarSetType, status : *mut UErrorCode) -> *mut USet);
 ::windows_targets::link!("icu.dll" "cdecl" fn ulocdata_getLocaleDisplayPattern(uld : *mut ULocaleData, pattern : *mut u16, patterncapacity : i32, status : *mut UErrorCode) -> i32);
 ::windows_targets::link!("icu.dll" "cdecl" fn ulocdata_getLocaleSeparator(uld : *mut ULocaleData, separator : *mut u16, separatorcapacity : i32, status : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn ulocdata_getMeasurementSystem(localeid : ::windows_sys::core::PCSTR, status : *mut UErrorCode) -> UMeasurementSystem);
+::windows_targets::link!("icu.dll" "cdecl" fn ulocdata_getMeasurementSystem(localeid : windows_sys::core::PCSTR, status : *mut UErrorCode) -> UMeasurementSystem);
 ::windows_targets::link!("icu.dll" "cdecl" fn ulocdata_getNoSubstitute(uld : *mut ULocaleData) -> i8);
-::windows_targets::link!("icu.dll" "cdecl" fn ulocdata_getPaperSize(localeid : ::windows_sys::core::PCSTR, height : *mut i32, width : *mut i32, status : *mut UErrorCode));
-::windows_targets::link!("icu.dll" "cdecl" fn ulocdata_open(localeid : ::windows_sys::core::PCSTR, status : *mut UErrorCode) -> *mut ULocaleData);
+::windows_targets::link!("icu.dll" "cdecl" fn ulocdata_getPaperSize(localeid : windows_sys::core::PCSTR, height : *mut i32, width : *mut i32, status : *mut UErrorCode));
+::windows_targets::link!("icu.dll" "cdecl" fn ulocdata_open(localeid : windows_sys::core::PCSTR, status : *mut UErrorCode) -> *mut ULocaleData);
 ::windows_targets::link!("icu.dll" "cdecl" fn ulocdata_setNoSubstitute(uld : *mut ULocaleData, setting : i8));
-::windows_targets::link!("icu.dll" "cdecl" fn umsg_applyPattern(fmt : *mut *mut ::core::ffi::c_void, pattern : *const u16, patternlength : i32, parseerror : *mut UParseError, status : *mut UErrorCode));
+::windows_targets::link!("icu.dll" "cdecl" fn umsg_applyPattern(fmt : *mut *mut core::ffi::c_void, pattern : *const u16, patternlength : i32, parseerror : *mut UParseError, status : *mut UErrorCode));
 ::windows_targets::link!("icu.dll" "cdecl" fn umsg_autoQuoteApostrophe(pattern : *const u16, patternlength : i32, dest : *mut u16, destcapacity : i32, ec : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn umsg_clone(fmt : *const *const ::core::ffi::c_void, status : *mut UErrorCode) -> *mut ::core::ffi::c_void);
-::windows_targets::link!("icu.dll" "cdecl" fn umsg_close(format : *mut *mut ::core::ffi::c_void));
-::windows_targets::link!("icu.dll" "cdecl" fn umsg_format(fmt : *const *const ::core::ffi::c_void, result : *mut u16, resultlength : i32, status : *mut UErrorCode, ...) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn umsg_getLocale(fmt : *const *const ::core::ffi::c_void) -> ::windows_sys::core::PCSTR);
-::windows_targets::link!("icu.dll" "cdecl" fn umsg_open(pattern : *const u16, patternlength : i32, locale : ::windows_sys::core::PCSTR, parseerror : *mut UParseError, status : *mut UErrorCode) -> *mut *mut ::core::ffi::c_void);
-::windows_targets::link!("icu.dll" "cdecl" fn umsg_parse(fmt : *const *const ::core::ffi::c_void, source : *const u16, sourcelength : i32, count : *mut i32, status : *mut UErrorCode, ...));
-::windows_targets::link!("icu.dll" "cdecl" fn umsg_setLocale(fmt : *mut *mut ::core::ffi::c_void, locale : ::windows_sys::core::PCSTR));
-::windows_targets::link!("icu.dll" "cdecl" fn umsg_toPattern(fmt : *const *const ::core::ffi::c_void, result : *mut u16, resultlength : i32, status : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn umsg_vformat(fmt : *const *const ::core::ffi::c_void, result : *mut u16, resultlength : i32, ap : *mut i8, status : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn umsg_vparse(fmt : *const *const ::core::ffi::c_void, source : *const u16, sourcelength : i32, count : *mut i32, ap : *mut i8, status : *mut UErrorCode));
+::windows_targets::link!("icu.dll" "cdecl" fn umsg_clone(fmt : *const *const core::ffi::c_void, status : *mut UErrorCode) -> *mut core::ffi::c_void);
+::windows_targets::link!("icu.dll" "cdecl" fn umsg_close(format : *mut *mut core::ffi::c_void));
+::windows_targets::link!("icu.dll" "cdecl" fn umsg_format(fmt : *const *const core::ffi::c_void, result : *mut u16, resultlength : i32, status : *mut UErrorCode, ...) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn umsg_getLocale(fmt : *const *const core::ffi::c_void) -> windows_sys::core::PCSTR);
+::windows_targets::link!("icu.dll" "cdecl" fn umsg_open(pattern : *const u16, patternlength : i32, locale : windows_sys::core::PCSTR, parseerror : *mut UParseError, status : *mut UErrorCode) -> *mut *mut core::ffi::c_void);
+::windows_targets::link!("icu.dll" "cdecl" fn umsg_parse(fmt : *const *const core::ffi::c_void, source : *const u16, sourcelength : i32, count : *mut i32, status : *mut UErrorCode, ...));
+::windows_targets::link!("icu.dll" "cdecl" fn umsg_setLocale(fmt : *mut *mut core::ffi::c_void, locale : windows_sys::core::PCSTR));
+::windows_targets::link!("icu.dll" "cdecl" fn umsg_toPattern(fmt : *const *const core::ffi::c_void, result : *mut u16, resultlength : i32, status : *mut UErrorCode) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn umsg_vformat(fmt : *const *const core::ffi::c_void, result : *mut u16, resultlength : i32, ap : *mut i8, status : *mut UErrorCode) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn umsg_vparse(fmt : *const *const core::ffi::c_void, source : *const u16, sourcelength : i32, count : *mut i32, ap : *mut i8, status : *mut UErrorCode));
 ::windows_targets::link!("icu.dll" "cdecl" fn umutablecptrie_buildImmutable(trie : *mut UMutableCPTrie, r#type : UCPTrieType, valuewidth : UCPTrieValueWidth, perrorcode : *mut UErrorCode) -> *mut UCPTrie);
 ::windows_targets::link!("icu.dll" "cdecl" fn umutablecptrie_clone(other : *const UMutableCPTrie, perrorcode : *mut UErrorCode) -> *mut UMutableCPTrie);
 ::windows_targets::link!("icu.dll" "cdecl" fn umutablecptrie_close(trie : *mut UMutableCPTrie));
 ::windows_targets::link!("icu.dll" "cdecl" fn umutablecptrie_fromUCPMap(map : *const UCPMap, perrorcode : *mut UErrorCode) -> *mut UMutableCPTrie);
 ::windows_targets::link!("icu.dll" "cdecl" fn umutablecptrie_fromUCPTrie(trie : *const UCPTrie, perrorcode : *mut UErrorCode) -> *mut UMutableCPTrie);
 ::windows_targets::link!("icu.dll" "cdecl" fn umutablecptrie_get(trie : *const UMutableCPTrie, c : i32) -> u32);
-::windows_targets::link!("icu.dll" "cdecl" fn umutablecptrie_getRange(trie : *const UMutableCPTrie, start : i32, option : UCPMapRangeOption, surrogatevalue : u32, filter : *mut UCPMapValueFilter, context : *const ::core::ffi::c_void, pvalue : *mut u32) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn umutablecptrie_getRange(trie : *const UMutableCPTrie, start : i32, option : UCPMapRangeOption, surrogatevalue : u32, filter : *mut UCPMapValueFilter, context : *const core::ffi::c_void, pvalue : *mut u32) -> i32);
 ::windows_targets::link!("icu.dll" "cdecl" fn umutablecptrie_open(initialvalue : u32, errorvalue : u32, perrorcode : *mut UErrorCode) -> *mut UMutableCPTrie);
 ::windows_targets::link!("icu.dll" "cdecl" fn umutablecptrie_set(trie : *mut UMutableCPTrie, c : i32, value : u32, perrorcode : *mut UErrorCode));
 ::windows_targets::link!("icu.dll" "cdecl" fn umutablecptrie_setRange(trie : *mut UMutableCPTrie, start : i32, end : i32, value : u32, perrorcode : *mut UErrorCode));
@@ -874,7 +874,7 @@
 ::windows_targets::link!("icu.dll" "cdecl" fn unorm2_composePair(norm2 : *const UNormalizer2, a : i32, b : i32) -> i32);
 ::windows_targets::link!("icu.dll" "cdecl" fn unorm2_getCombiningClass(norm2 : *const UNormalizer2, c : i32) -> u8);
 ::windows_targets::link!("icu.dll" "cdecl" fn unorm2_getDecomposition(norm2 : *const UNormalizer2, c : i32, decomposition : *mut u16, capacity : i32, perrorcode : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn unorm2_getInstance(packagename : ::windows_sys::core::PCSTR, name : ::windows_sys::core::PCSTR, mode : UNormalization2Mode, perrorcode : *mut UErrorCode) -> *mut UNormalizer2);
+::windows_targets::link!("icu.dll" "cdecl" fn unorm2_getInstance(packagename : windows_sys::core::PCSTR, name : windows_sys::core::PCSTR, mode : UNormalization2Mode, perrorcode : *mut UErrorCode) -> *mut UNormalizer2);
 ::windows_targets::link!("icu.dll" "cdecl" fn unorm2_getNFCInstance(perrorcode : *mut UErrorCode) -> *mut UNormalizer2);
 ::windows_targets::link!("icu.dll" "cdecl" fn unorm2_getNFDInstance(perrorcode : *mut UErrorCode) -> *mut UNormalizer2);
 ::windows_targets::link!("icu.dll" "cdecl" fn unorm2_getNFKCCasefoldInstance(perrorcode : *mut UErrorCode) -> *mut UNormalizer2);
@@ -891,44 +891,44 @@
 ::windows_targets::link!("icu.dll" "cdecl" fn unorm2_quickCheck(norm2 : *const UNormalizer2, s : *const u16, length : i32, perrorcode : *mut UErrorCode) -> UNormalizationCheckResult);
 ::windows_targets::link!("icu.dll" "cdecl" fn unorm2_spanQuickCheckYes(norm2 : *const UNormalizer2, s : *const u16, length : i32, perrorcode : *mut UErrorCode) -> i32);
 ::windows_targets::link!("icu.dll" "cdecl" fn unorm_compare(s1 : *const u16, length1 : i32, s2 : *const u16, length2 : i32, options : u32, perrorcode : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn unum_applyPattern(format : *mut *mut ::core::ffi::c_void, localized : i8, pattern : *const u16, patternlength : i32, parseerror : *mut UParseError, status : *mut UErrorCode));
-::windows_targets::link!("icu.dll" "cdecl" fn unum_clone(fmt : *const *const ::core::ffi::c_void, status : *mut UErrorCode) -> *mut *mut ::core::ffi::c_void);
-::windows_targets::link!("icu.dll" "cdecl" fn unum_close(fmt : *mut *mut ::core::ffi::c_void));
+::windows_targets::link!("icu.dll" "cdecl" fn unum_applyPattern(format : *mut *mut core::ffi::c_void, localized : i8, pattern : *const u16, patternlength : i32, parseerror : *mut UParseError, status : *mut UErrorCode));
+::windows_targets::link!("icu.dll" "cdecl" fn unum_clone(fmt : *const *const core::ffi::c_void, status : *mut UErrorCode) -> *mut *mut core::ffi::c_void);
+::windows_targets::link!("icu.dll" "cdecl" fn unum_close(fmt : *mut *mut core::ffi::c_void));
 ::windows_targets::link!("icu.dll" "cdecl" fn unum_countAvailable() -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn unum_format(fmt : *const *const ::core::ffi::c_void, number : i32, result : *mut u16, resultlength : i32, pos : *mut UFieldPosition, status : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn unum_formatDecimal(fmt : *const *const ::core::ffi::c_void, number : ::windows_sys::core::PCSTR, length : i32, result : *mut u16, resultlength : i32, pos : *mut UFieldPosition, status : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn unum_formatDouble(fmt : *const *const ::core::ffi::c_void, number : f64, result : *mut u16, resultlength : i32, pos : *mut UFieldPosition, status : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn unum_formatDoubleCurrency(fmt : *const *const ::core::ffi::c_void, number : f64, currency : *mut u16, result : *mut u16, resultlength : i32, pos : *mut UFieldPosition, status : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn unum_formatDoubleForFields(format : *const *const ::core::ffi::c_void, number : f64, result : *mut u16, resultlength : i32, fpositer : *mut UFieldPositionIterator, status : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn unum_formatInt64(fmt : *const *const ::core::ffi::c_void, number : i64, result : *mut u16, resultlength : i32, pos : *mut UFieldPosition, status : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn unum_formatUFormattable(fmt : *const *const ::core::ffi::c_void, number : *const *const ::core::ffi::c_void, result : *mut u16, resultlength : i32, pos : *mut UFieldPosition, status : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn unum_getAttribute(fmt : *const *const ::core::ffi::c_void, attr : UNumberFormatAttribute) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn unum_getAvailable(localeindex : i32) -> ::windows_sys::core::PCSTR);
-::windows_targets::link!("icu.dll" "cdecl" fn unum_getContext(fmt : *const *const ::core::ffi::c_void, r#type : UDisplayContextType, status : *mut UErrorCode) -> UDisplayContext);
-::windows_targets::link!("icu.dll" "cdecl" fn unum_getDoubleAttribute(fmt : *const *const ::core::ffi::c_void, attr : UNumberFormatAttribute) -> f64);
-::windows_targets::link!("icu.dll" "cdecl" fn unum_getLocaleByType(fmt : *const *const ::core::ffi::c_void, r#type : ULocDataLocaleType, status : *mut UErrorCode) -> ::windows_sys::core::PCSTR);
-::windows_targets::link!("icu.dll" "cdecl" fn unum_getSymbol(fmt : *const *const ::core::ffi::c_void, symbol : UNumberFormatSymbol, buffer : *mut u16, size : i32, status : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn unum_getTextAttribute(fmt : *const *const ::core::ffi::c_void, tag : UNumberFormatTextAttribute, result : *mut u16, resultlength : i32, status : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn unum_open(style : UNumberFormatStyle, pattern : *const u16, patternlength : i32, locale : ::windows_sys::core::PCSTR, parseerr : *mut UParseError, status : *mut UErrorCode) -> *mut *mut ::core::ffi::c_void);
-::windows_targets::link!("icu.dll" "cdecl" fn unum_parse(fmt : *const *const ::core::ffi::c_void, text : *const u16, textlength : i32, parsepos : *mut i32, status : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn unum_parseDecimal(fmt : *const *const ::core::ffi::c_void, text : *const u16, textlength : i32, parsepos : *mut i32, outbuf : ::windows_sys::core::PCSTR, outbuflength : i32, status : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn unum_parseDouble(fmt : *const *const ::core::ffi::c_void, text : *const u16, textlength : i32, parsepos : *mut i32, status : *mut UErrorCode) -> f64);
-::windows_targets::link!("icu.dll" "cdecl" fn unum_parseDoubleCurrency(fmt : *const *const ::core::ffi::c_void, text : *const u16, textlength : i32, parsepos : *mut i32, currency : *mut u16, status : *mut UErrorCode) -> f64);
-::windows_targets::link!("icu.dll" "cdecl" fn unum_parseInt64(fmt : *const *const ::core::ffi::c_void, text : *const u16, textlength : i32, parsepos : *mut i32, status : *mut UErrorCode) -> i64);
-::windows_targets::link!("icu.dll" "cdecl" fn unum_parseToUFormattable(fmt : *const *const ::core::ffi::c_void, result : *mut *mut ::core::ffi::c_void, text : *const u16, textlength : i32, parsepos : *mut i32, status : *mut UErrorCode) -> *mut *mut ::core::ffi::c_void);
-::windows_targets::link!("icu.dll" "cdecl" fn unum_setAttribute(fmt : *mut *mut ::core::ffi::c_void, attr : UNumberFormatAttribute, newvalue : i32));
-::windows_targets::link!("icu.dll" "cdecl" fn unum_setContext(fmt : *mut *mut ::core::ffi::c_void, value : UDisplayContext, status : *mut UErrorCode));
-::windows_targets::link!("icu.dll" "cdecl" fn unum_setDoubleAttribute(fmt : *mut *mut ::core::ffi::c_void, attr : UNumberFormatAttribute, newvalue : f64));
-::windows_targets::link!("icu.dll" "cdecl" fn unum_setSymbol(fmt : *mut *mut ::core::ffi::c_void, symbol : UNumberFormatSymbol, value : *const u16, length : i32, status : *mut UErrorCode));
-::windows_targets::link!("icu.dll" "cdecl" fn unum_setTextAttribute(fmt : *mut *mut ::core::ffi::c_void, tag : UNumberFormatTextAttribute, newvalue : *const u16, newvaluelength : i32, status : *mut UErrorCode));
-::windows_targets::link!("icu.dll" "cdecl" fn unum_toPattern(fmt : *const *const ::core::ffi::c_void, ispatternlocalized : i8, result : *mut u16, resultlength : i32, status : *mut UErrorCode) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn unum_format(fmt : *const *const core::ffi::c_void, number : i32, result : *mut u16, resultlength : i32, pos : *mut UFieldPosition, status : *mut UErrorCode) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn unum_formatDecimal(fmt : *const *const core::ffi::c_void, number : windows_sys::core::PCSTR, length : i32, result : *mut u16, resultlength : i32, pos : *mut UFieldPosition, status : *mut UErrorCode) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn unum_formatDouble(fmt : *const *const core::ffi::c_void, number : f64, result : *mut u16, resultlength : i32, pos : *mut UFieldPosition, status : *mut UErrorCode) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn unum_formatDoubleCurrency(fmt : *const *const core::ffi::c_void, number : f64, currency : *mut u16, result : *mut u16, resultlength : i32, pos : *mut UFieldPosition, status : *mut UErrorCode) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn unum_formatDoubleForFields(format : *const *const core::ffi::c_void, number : f64, result : *mut u16, resultlength : i32, fpositer : *mut UFieldPositionIterator, status : *mut UErrorCode) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn unum_formatInt64(fmt : *const *const core::ffi::c_void, number : i64, result : *mut u16, resultlength : i32, pos : *mut UFieldPosition, status : *mut UErrorCode) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn unum_formatUFormattable(fmt : *const *const core::ffi::c_void, number : *const *const core::ffi::c_void, result : *mut u16, resultlength : i32, pos : *mut UFieldPosition, status : *mut UErrorCode) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn unum_getAttribute(fmt : *const *const core::ffi::c_void, attr : UNumberFormatAttribute) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn unum_getAvailable(localeindex : i32) -> windows_sys::core::PCSTR);
+::windows_targets::link!("icu.dll" "cdecl" fn unum_getContext(fmt : *const *const core::ffi::c_void, r#type : UDisplayContextType, status : *mut UErrorCode) -> UDisplayContext);
+::windows_targets::link!("icu.dll" "cdecl" fn unum_getDoubleAttribute(fmt : *const *const core::ffi::c_void, attr : UNumberFormatAttribute) -> f64);
+::windows_targets::link!("icu.dll" "cdecl" fn unum_getLocaleByType(fmt : *const *const core::ffi::c_void, r#type : ULocDataLocaleType, status : *mut UErrorCode) -> windows_sys::core::PCSTR);
+::windows_targets::link!("icu.dll" "cdecl" fn unum_getSymbol(fmt : *const *const core::ffi::c_void, symbol : UNumberFormatSymbol, buffer : *mut u16, size : i32, status : *mut UErrorCode) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn unum_getTextAttribute(fmt : *const *const core::ffi::c_void, tag : UNumberFormatTextAttribute, result : *mut u16, resultlength : i32, status : *mut UErrorCode) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn unum_open(style : UNumberFormatStyle, pattern : *const u16, patternlength : i32, locale : windows_sys::core::PCSTR, parseerr : *mut UParseError, status : *mut UErrorCode) -> *mut *mut core::ffi::c_void);
+::windows_targets::link!("icu.dll" "cdecl" fn unum_parse(fmt : *const *const core::ffi::c_void, text : *const u16, textlength : i32, parsepos : *mut i32, status : *mut UErrorCode) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn unum_parseDecimal(fmt : *const *const core::ffi::c_void, text : *const u16, textlength : i32, parsepos : *mut i32, outbuf : windows_sys::core::PCSTR, outbuflength : i32, status : *mut UErrorCode) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn unum_parseDouble(fmt : *const *const core::ffi::c_void, text : *const u16, textlength : i32, parsepos : *mut i32, status : *mut UErrorCode) -> f64);
+::windows_targets::link!("icu.dll" "cdecl" fn unum_parseDoubleCurrency(fmt : *const *const core::ffi::c_void, text : *const u16, textlength : i32, parsepos : *mut i32, currency : *mut u16, status : *mut UErrorCode) -> f64);
+::windows_targets::link!("icu.dll" "cdecl" fn unum_parseInt64(fmt : *const *const core::ffi::c_void, text : *const u16, textlength : i32, parsepos : *mut i32, status : *mut UErrorCode) -> i64);
+::windows_targets::link!("icu.dll" "cdecl" fn unum_parseToUFormattable(fmt : *const *const core::ffi::c_void, result : *mut *mut core::ffi::c_void, text : *const u16, textlength : i32, parsepos : *mut i32, status : *mut UErrorCode) -> *mut *mut core::ffi::c_void);
+::windows_targets::link!("icu.dll" "cdecl" fn unum_setAttribute(fmt : *mut *mut core::ffi::c_void, attr : UNumberFormatAttribute, newvalue : i32));
+::windows_targets::link!("icu.dll" "cdecl" fn unum_setContext(fmt : *mut *mut core::ffi::c_void, value : UDisplayContext, status : *mut UErrorCode));
+::windows_targets::link!("icu.dll" "cdecl" fn unum_setDoubleAttribute(fmt : *mut *mut core::ffi::c_void, attr : UNumberFormatAttribute, newvalue : f64));
+::windows_targets::link!("icu.dll" "cdecl" fn unum_setSymbol(fmt : *mut *mut core::ffi::c_void, symbol : UNumberFormatSymbol, value : *const u16, length : i32, status : *mut UErrorCode));
+::windows_targets::link!("icu.dll" "cdecl" fn unum_setTextAttribute(fmt : *mut *mut core::ffi::c_void, tag : UNumberFormatTextAttribute, newvalue : *const u16, newvaluelength : i32, status : *mut UErrorCode));
+::windows_targets::link!("icu.dll" "cdecl" fn unum_toPattern(fmt : *const *const core::ffi::c_void, ispatternlocalized : i8, result : *mut u16, resultlength : i32, status : *mut UErrorCode) -> i32);
 ::windows_targets::link!("icu.dll" "cdecl" fn unumf_close(uformatter : *mut UNumberFormatter));
 ::windows_targets::link!("icu.dll" "cdecl" fn unumf_closeResult(uresult : *mut UFormattedNumber));
-::windows_targets::link!("icu.dll" "cdecl" fn unumf_formatDecimal(uformatter : *const UNumberFormatter, value : ::windows_sys::core::PCSTR, valuelen : i32, uresult : *mut UFormattedNumber, ec : *mut UErrorCode));
+::windows_targets::link!("icu.dll" "cdecl" fn unumf_formatDecimal(uformatter : *const UNumberFormatter, value : windows_sys::core::PCSTR, valuelen : i32, uresult : *mut UFormattedNumber, ec : *mut UErrorCode));
 ::windows_targets::link!("icu.dll" "cdecl" fn unumf_formatDouble(uformatter : *const UNumberFormatter, value : f64, uresult : *mut UFormattedNumber, ec : *mut UErrorCode));
 ::windows_targets::link!("icu.dll" "cdecl" fn unumf_formatInt(uformatter : *const UNumberFormatter, value : i64, uresult : *mut UFormattedNumber, ec : *mut UErrorCode));
-::windows_targets::link!("icu.dll" "cdecl" fn unumf_openForSkeletonAndLocale(skeleton : *const u16, skeletonlen : i32, locale : ::windows_sys::core::PCSTR, ec : *mut UErrorCode) -> *mut UNumberFormatter);
-::windows_targets::link!("icu.dll" "cdecl" fn unumf_openForSkeletonAndLocaleWithError(skeleton : *const u16, skeletonlen : i32, locale : ::windows_sys::core::PCSTR, perror : *mut UParseError, ec : *mut UErrorCode) -> *mut UNumberFormatter);
+::windows_targets::link!("icu.dll" "cdecl" fn unumf_openForSkeletonAndLocale(skeleton : *const u16, skeletonlen : i32, locale : windows_sys::core::PCSTR, ec : *mut UErrorCode) -> *mut UNumberFormatter);
+::windows_targets::link!("icu.dll" "cdecl" fn unumf_openForSkeletonAndLocaleWithError(skeleton : *const u16, skeletonlen : i32, locale : windows_sys::core::PCSTR, perror : *mut UParseError, ec : *mut UErrorCode) -> *mut UNumberFormatter);
 ::windows_targets::link!("icu.dll" "cdecl" fn unumf_openResult(ec : *mut UErrorCode) -> *mut UFormattedNumber);
 ::windows_targets::link!("icu.dll" "cdecl" fn unumf_resultAsValue(uresult : *const UFormattedNumber, ec : *mut UErrorCode) -> *mut UFormattedValue);
 ::windows_targets::link!("icu.dll" "cdecl" fn unumf_resultGetAllFieldPositions(uresult : *const UFormattedNumber, ufpositer : *mut UFieldPositionIterator, ec : *mut UErrorCode));
@@ -936,16 +936,16 @@
 ::windows_targets::link!("icu.dll" "cdecl" fn unumf_resultToString(uresult : *const UFormattedNumber, buffer : *mut u16, buffercapacity : i32, ec : *mut UErrorCode) -> i32);
 ::windows_targets::link!("icu.dll" "cdecl" fn unumsys_close(unumsys : *mut UNumberingSystem));
 ::windows_targets::link!("icu.dll" "cdecl" fn unumsys_getDescription(unumsys : *const UNumberingSystem, result : *mut u16, resultlength : i32, status : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn unumsys_getName(unumsys : *const UNumberingSystem) -> ::windows_sys::core::PCSTR);
+::windows_targets::link!("icu.dll" "cdecl" fn unumsys_getName(unumsys : *const UNumberingSystem) -> windows_sys::core::PCSTR);
 ::windows_targets::link!("icu.dll" "cdecl" fn unumsys_getRadix(unumsys : *const UNumberingSystem) -> i32);
 ::windows_targets::link!("icu.dll" "cdecl" fn unumsys_isAlgorithmic(unumsys : *const UNumberingSystem) -> i8);
-::windows_targets::link!("icu.dll" "cdecl" fn unumsys_open(locale : ::windows_sys::core::PCSTR, status : *mut UErrorCode) -> *mut UNumberingSystem);
+::windows_targets::link!("icu.dll" "cdecl" fn unumsys_open(locale : windows_sys::core::PCSTR, status : *mut UErrorCode) -> *mut UNumberingSystem);
 ::windows_targets::link!("icu.dll" "cdecl" fn unumsys_openAvailableNames(status : *mut UErrorCode) -> *mut UEnumeration);
-::windows_targets::link!("icu.dll" "cdecl" fn unumsys_openByName(name : ::windows_sys::core::PCSTR, status : *mut UErrorCode) -> *mut UNumberingSystem);
+::windows_targets::link!("icu.dll" "cdecl" fn unumsys_openByName(name : windows_sys::core::PCSTR, status : *mut UErrorCode) -> *mut UNumberingSystem);
 ::windows_targets::link!("icu.dll" "cdecl" fn uplrules_close(uplrules : *mut UPluralRules));
 ::windows_targets::link!("icu.dll" "cdecl" fn uplrules_getKeywords(uplrules : *const UPluralRules, status : *mut UErrorCode) -> *mut UEnumeration);
-::windows_targets::link!("icu.dll" "cdecl" fn uplrules_open(locale : ::windows_sys::core::PCSTR, status : *mut UErrorCode) -> *mut UPluralRules);
-::windows_targets::link!("icu.dll" "cdecl" fn uplrules_openForType(locale : ::windows_sys::core::PCSTR, r#type : UPluralType, status : *mut UErrorCode) -> *mut UPluralRules);
+::windows_targets::link!("icu.dll" "cdecl" fn uplrules_open(locale : windows_sys::core::PCSTR, status : *mut UErrorCode) -> *mut UPluralRules);
+::windows_targets::link!("icu.dll" "cdecl" fn uplrules_openForType(locale : windows_sys::core::PCSTR, r#type : UPluralType, status : *mut UErrorCode) -> *mut UPluralRules);
 ::windows_targets::link!("icu.dll" "cdecl" fn uplrules_select(uplrules : *const UPluralRules, number : f64, keyword : *mut u16, capacity : i32, status : *mut UErrorCode) -> i32);
 ::windows_targets::link!("icu.dll" "cdecl" fn uplrules_selectFormatted(uplrules : *const UPluralRules, number : *const UFormattedNumber, keyword : *mut u16, capacity : i32, status : *mut UErrorCode) -> i32);
 ::windows_targets::link!("icu.dll" "cdecl" fn uregex_appendReplacement(regexp : *mut URegularExpression, replacementtext : *const u16, replacementlength : i32, destbuf : *mut *mut u16, destcapacity : *mut i32, status : *mut UErrorCode) -> i32);
@@ -960,15 +960,15 @@
 ::windows_targets::link!("icu.dll" "cdecl" fn uregex_find64(regexp : *mut URegularExpression, startindex : i64, status : *mut UErrorCode) -> i8);
 ::windows_targets::link!("icu.dll" "cdecl" fn uregex_findNext(regexp : *mut URegularExpression, status : *mut UErrorCode) -> i8);
 ::windows_targets::link!("icu.dll" "cdecl" fn uregex_flags(regexp : *const URegularExpression, status : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn uregex_getFindProgressCallback(regexp : *const URegularExpression, callback : *mut URegexFindProgressCallback, context : *const *const ::core::ffi::c_void, status : *mut UErrorCode));
-::windows_targets::link!("icu.dll" "cdecl" fn uregex_getMatchCallback(regexp : *const URegularExpression, callback : *mut URegexMatchCallback, context : *const *const ::core::ffi::c_void, status : *mut UErrorCode));
+::windows_targets::link!("icu.dll" "cdecl" fn uregex_getFindProgressCallback(regexp : *const URegularExpression, callback : *mut URegexFindProgressCallback, context : *const *const core::ffi::c_void, status : *mut UErrorCode));
+::windows_targets::link!("icu.dll" "cdecl" fn uregex_getMatchCallback(regexp : *const URegularExpression, callback : *mut URegexMatchCallback, context : *const *const core::ffi::c_void, status : *mut UErrorCode));
 ::windows_targets::link!("icu.dll" "cdecl" fn uregex_getStackLimit(regexp : *const URegularExpression, status : *mut UErrorCode) -> i32);
 ::windows_targets::link!("icu.dll" "cdecl" fn uregex_getText(regexp : *mut URegularExpression, textlength : *mut i32, status : *mut UErrorCode) -> *mut u16);
 ::windows_targets::link!("icu.dll" "cdecl" fn uregex_getTimeLimit(regexp : *const URegularExpression, status : *mut UErrorCode) -> i32);
 ::windows_targets::link!("icu.dll" "cdecl" fn uregex_getUText(regexp : *mut URegularExpression, dest : *mut UText, status : *mut UErrorCode) -> *mut UText);
 ::windows_targets::link!("icu.dll" "cdecl" fn uregex_group(regexp : *mut URegularExpression, groupnum : i32, dest : *mut u16, destcapacity : i32, status : *mut UErrorCode) -> i32);
 ::windows_targets::link!("icu.dll" "cdecl" fn uregex_groupCount(regexp : *mut URegularExpression, status : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn uregex_groupNumberFromCName(regexp : *mut URegularExpression, groupname : ::windows_sys::core::PCSTR, namelength : i32, status : *mut UErrorCode) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn uregex_groupNumberFromCName(regexp : *mut URegularExpression, groupname : windows_sys::core::PCSTR, namelength : i32, status : *mut UErrorCode) -> i32);
 ::windows_targets::link!("icu.dll" "cdecl" fn uregex_groupNumberFromName(regexp : *mut URegularExpression, groupname : *const u16, namelength : i32, status : *mut UErrorCode) -> i32);
 ::windows_targets::link!("icu.dll" "cdecl" fn uregex_groupUText(regexp : *mut URegularExpression, groupnum : i32, dest : *mut UText, grouplength : *mut i64, status : *mut UErrorCode) -> *mut UText);
 ::windows_targets::link!("icu.dll" "cdecl" fn uregex_hasAnchoringBounds(regexp : *const URegularExpression, status : *mut UErrorCode) -> i8);
@@ -979,7 +979,7 @@
 ::windows_targets::link!("icu.dll" "cdecl" fn uregex_matches(regexp : *mut URegularExpression, startindex : i32, status : *mut UErrorCode) -> i8);
 ::windows_targets::link!("icu.dll" "cdecl" fn uregex_matches64(regexp : *mut URegularExpression, startindex : i64, status : *mut UErrorCode) -> i8);
 ::windows_targets::link!("icu.dll" "cdecl" fn uregex_open(pattern : *const u16, patternlength : i32, flags : u32, pe : *mut UParseError, status : *mut UErrorCode) -> *mut URegularExpression);
-::windows_targets::link!("icu.dll" "cdecl" fn uregex_openC(pattern : ::windows_sys::core::PCSTR, flags : u32, pe : *mut UParseError, status : *mut UErrorCode) -> *mut URegularExpression);
+::windows_targets::link!("icu.dll" "cdecl" fn uregex_openC(pattern : windows_sys::core::PCSTR, flags : u32, pe : *mut UParseError, status : *mut UErrorCode) -> *mut URegularExpression);
 ::windows_targets::link!("icu.dll" "cdecl" fn uregex_openUText(pattern : *mut UText, flags : u32, pe : *mut UParseError, status : *mut UErrorCode) -> *mut URegularExpression);
 ::windows_targets::link!("icu.dll" "cdecl" fn uregex_pattern(regexp : *const URegularExpression, patlength : *mut i32, status : *mut UErrorCode) -> *mut u16);
 ::windows_targets::link!("icu.dll" "cdecl" fn uregex_patternUText(regexp : *const URegularExpression, status : *mut UErrorCode) -> *mut UText);
@@ -995,8 +995,8 @@
 ::windows_targets::link!("icu.dll" "cdecl" fn uregex_requireEnd(regexp : *const URegularExpression, status : *mut UErrorCode) -> i8);
 ::windows_targets::link!("icu.dll" "cdecl" fn uregex_reset(regexp : *mut URegularExpression, index : i32, status : *mut UErrorCode));
 ::windows_targets::link!("icu.dll" "cdecl" fn uregex_reset64(regexp : *mut URegularExpression, index : i64, status : *mut UErrorCode));
-::windows_targets::link!("icu.dll" "cdecl" fn uregex_setFindProgressCallback(regexp : *mut URegularExpression, callback : URegexFindProgressCallback, context : *const ::core::ffi::c_void, status : *mut UErrorCode));
-::windows_targets::link!("icu.dll" "cdecl" fn uregex_setMatchCallback(regexp : *mut URegularExpression, callback : URegexMatchCallback, context : *const ::core::ffi::c_void, status : *mut UErrorCode));
+::windows_targets::link!("icu.dll" "cdecl" fn uregex_setFindProgressCallback(regexp : *mut URegularExpression, callback : URegexFindProgressCallback, context : *const core::ffi::c_void, status : *mut UErrorCode));
+::windows_targets::link!("icu.dll" "cdecl" fn uregex_setMatchCallback(regexp : *mut URegularExpression, callback : URegexMatchCallback, context : *const core::ffi::c_void, status : *mut UErrorCode));
 ::windows_targets::link!("icu.dll" "cdecl" fn uregex_setRegion(regexp : *mut URegularExpression, regionstart : i32, regionlimit : i32, status : *mut UErrorCode));
 ::windows_targets::link!("icu.dll" "cdecl" fn uregex_setRegion64(regexp : *mut URegularExpression, regionstart : i64, regionlimit : i64, status : *mut UErrorCode));
 ::windows_targets::link!("icu.dll" "cdecl" fn uregex_setRegionAndStart(regexp : *mut URegularExpression, regionstart : i64, regionlimit : i64, startindex : i64, status : *mut UErrorCode));
@@ -1019,8 +1019,8 @@
 ::windows_targets::link!("icu.dll" "cdecl" fn uregion_getContainingRegionOfType(uregion : *const URegion, r#type : URegionType) -> *mut URegion);
 ::windows_targets::link!("icu.dll" "cdecl" fn uregion_getNumericCode(uregion : *const URegion) -> i32);
 ::windows_targets::link!("icu.dll" "cdecl" fn uregion_getPreferredValues(uregion : *const URegion, status : *mut UErrorCode) -> *mut UEnumeration);
-::windows_targets::link!("icu.dll" "cdecl" fn uregion_getRegionCode(uregion : *const URegion) -> ::windows_sys::core::PCSTR);
-::windows_targets::link!("icu.dll" "cdecl" fn uregion_getRegionFromCode(regioncode : ::windows_sys::core::PCSTR, status : *mut UErrorCode) -> *mut URegion);
+::windows_targets::link!("icu.dll" "cdecl" fn uregion_getRegionCode(uregion : *const URegion) -> windows_sys::core::PCSTR);
+::windows_targets::link!("icu.dll" "cdecl" fn uregion_getRegionFromCode(regioncode : windows_sys::core::PCSTR, status : *mut UErrorCode) -> *mut URegion);
 ::windows_targets::link!("icu.dll" "cdecl" fn uregion_getRegionFromNumericCode(code : i32, status : *mut UErrorCode) -> *mut URegion);
 ::windows_targets::link!("icu.dll" "cdecl" fn uregion_getType(uregion : *const URegion) -> URegionType);
 ::windows_targets::link!("icu.dll" "cdecl" fn ureldatefmt_close(reldatefmt : *mut URelativeDateTimeFormatter));
@@ -1030,42 +1030,42 @@
 ::windows_targets::link!("icu.dll" "cdecl" fn ureldatefmt_formatNumeric(reldatefmt : *const URelativeDateTimeFormatter, offset : f64, unit : URelativeDateTimeUnit, result : *mut u16, resultcapacity : i32, status : *mut UErrorCode) -> i32);
 ::windows_targets::link!("icu.dll" "cdecl" fn ureldatefmt_formatNumericToResult(reldatefmt : *const URelativeDateTimeFormatter, offset : f64, unit : URelativeDateTimeUnit, result : *mut UFormattedRelativeDateTime, status : *mut UErrorCode));
 ::windows_targets::link!("icu.dll" "cdecl" fn ureldatefmt_formatToResult(reldatefmt : *const URelativeDateTimeFormatter, offset : f64, unit : URelativeDateTimeUnit, result : *mut UFormattedRelativeDateTime, status : *mut UErrorCode));
-::windows_targets::link!("icu.dll" "cdecl" fn ureldatefmt_open(locale : ::windows_sys::core::PCSTR, nftoadopt : *mut *mut ::core::ffi::c_void, width : UDateRelativeDateTimeFormatterStyle, capitalizationcontext : UDisplayContext, status : *mut UErrorCode) -> *mut URelativeDateTimeFormatter);
+::windows_targets::link!("icu.dll" "cdecl" fn ureldatefmt_open(locale : windows_sys::core::PCSTR, nftoadopt : *mut *mut core::ffi::c_void, width : UDateRelativeDateTimeFormatterStyle, capitalizationcontext : UDisplayContext, status : *mut UErrorCode) -> *mut URelativeDateTimeFormatter);
 ::windows_targets::link!("icu.dll" "cdecl" fn ureldatefmt_openResult(ec : *mut UErrorCode) -> *mut UFormattedRelativeDateTime);
 ::windows_targets::link!("icu.dll" "cdecl" fn ureldatefmt_resultAsValue(ufrdt : *const UFormattedRelativeDateTime, ec : *mut UErrorCode) -> *mut UFormattedValue);
 ::windows_targets::link!("icu.dll" "cdecl" fn ures_close(resourcebundle : *mut UResourceBundle));
 ::windows_targets::link!("icu.dll" "cdecl" fn ures_getBinary(resourcebundle : *const UResourceBundle, len : *mut i32, status : *mut UErrorCode) -> *mut u8);
 ::windows_targets::link!("icu.dll" "cdecl" fn ures_getByIndex(resourcebundle : *const UResourceBundle, indexr : i32, fillin : *mut UResourceBundle, status : *mut UErrorCode) -> *mut UResourceBundle);
-::windows_targets::link!("icu.dll" "cdecl" fn ures_getByKey(resourcebundle : *const UResourceBundle, key : ::windows_sys::core::PCSTR, fillin : *mut UResourceBundle, status : *mut UErrorCode) -> *mut UResourceBundle);
+::windows_targets::link!("icu.dll" "cdecl" fn ures_getByKey(resourcebundle : *const UResourceBundle, key : windows_sys::core::PCSTR, fillin : *mut UResourceBundle, status : *mut UErrorCode) -> *mut UResourceBundle);
 ::windows_targets::link!("icu.dll" "cdecl" fn ures_getInt(resourcebundle : *const UResourceBundle, status : *mut UErrorCode) -> i32);
 ::windows_targets::link!("icu.dll" "cdecl" fn ures_getIntVector(resourcebundle : *const UResourceBundle, len : *mut i32, status : *mut UErrorCode) -> *mut i32);
-::windows_targets::link!("icu.dll" "cdecl" fn ures_getKey(resourcebundle : *const UResourceBundle) -> ::windows_sys::core::PCSTR);
-::windows_targets::link!("icu.dll" "cdecl" fn ures_getLocaleByType(resourcebundle : *const UResourceBundle, r#type : ULocDataLocaleType, status : *mut UErrorCode) -> ::windows_sys::core::PCSTR);
+::windows_targets::link!("icu.dll" "cdecl" fn ures_getKey(resourcebundle : *const UResourceBundle) -> windows_sys::core::PCSTR);
+::windows_targets::link!("icu.dll" "cdecl" fn ures_getLocaleByType(resourcebundle : *const UResourceBundle, r#type : ULocDataLocaleType, status : *mut UErrorCode) -> windows_sys::core::PCSTR);
 ::windows_targets::link!("icu.dll" "cdecl" fn ures_getNextResource(resourcebundle : *mut UResourceBundle, fillin : *mut UResourceBundle, status : *mut UErrorCode) -> *mut UResourceBundle);
 ::windows_targets::link!("icu.dll" "cdecl" fn ures_getNextString(resourcebundle : *mut UResourceBundle, len : *mut i32, key : *const *const i8, status : *mut UErrorCode) -> *mut u16);
 ::windows_targets::link!("icu.dll" "cdecl" fn ures_getSize(resourcebundle : *const UResourceBundle) -> i32);
 ::windows_targets::link!("icu.dll" "cdecl" fn ures_getString(resourcebundle : *const UResourceBundle, len : *mut i32, status : *mut UErrorCode) -> *mut u16);
 ::windows_targets::link!("icu.dll" "cdecl" fn ures_getStringByIndex(resourcebundle : *const UResourceBundle, indexs : i32, len : *mut i32, status : *mut UErrorCode) -> *mut u16);
-::windows_targets::link!("icu.dll" "cdecl" fn ures_getStringByKey(resb : *const UResourceBundle, key : ::windows_sys::core::PCSTR, len : *mut i32, status : *mut UErrorCode) -> *mut u16);
+::windows_targets::link!("icu.dll" "cdecl" fn ures_getStringByKey(resb : *const UResourceBundle, key : windows_sys::core::PCSTR, len : *mut i32, status : *mut UErrorCode) -> *mut u16);
 ::windows_targets::link!("icu.dll" "cdecl" fn ures_getType(resourcebundle : *const UResourceBundle) -> UResType);
 ::windows_targets::link!("icu.dll" "cdecl" fn ures_getUInt(resourcebundle : *const UResourceBundle, status : *mut UErrorCode) -> u32);
-::windows_targets::link!("icu.dll" "cdecl" fn ures_getUTF8String(resb : *const UResourceBundle, dest : ::windows_sys::core::PCSTR, length : *mut i32, forcecopy : i8, status : *mut UErrorCode) -> ::windows_sys::core::PCSTR);
-::windows_targets::link!("icu.dll" "cdecl" fn ures_getUTF8StringByIndex(resb : *const UResourceBundle, stringindex : i32, dest : ::windows_sys::core::PCSTR, plength : *mut i32, forcecopy : i8, status : *mut UErrorCode) -> ::windows_sys::core::PCSTR);
-::windows_targets::link!("icu.dll" "cdecl" fn ures_getUTF8StringByKey(resb : *const UResourceBundle, key : ::windows_sys::core::PCSTR, dest : ::windows_sys::core::PCSTR, plength : *mut i32, forcecopy : i8, status : *mut UErrorCode) -> ::windows_sys::core::PCSTR);
+::windows_targets::link!("icu.dll" "cdecl" fn ures_getUTF8String(resb : *const UResourceBundle, dest : windows_sys::core::PCSTR, length : *mut i32, forcecopy : i8, status : *mut UErrorCode) -> windows_sys::core::PCSTR);
+::windows_targets::link!("icu.dll" "cdecl" fn ures_getUTF8StringByIndex(resb : *const UResourceBundle, stringindex : i32, dest : windows_sys::core::PCSTR, plength : *mut i32, forcecopy : i8, status : *mut UErrorCode) -> windows_sys::core::PCSTR);
+::windows_targets::link!("icu.dll" "cdecl" fn ures_getUTF8StringByKey(resb : *const UResourceBundle, key : windows_sys::core::PCSTR, dest : windows_sys::core::PCSTR, plength : *mut i32, forcecopy : i8, status : *mut UErrorCode) -> windows_sys::core::PCSTR);
 ::windows_targets::link!("icu.dll" "cdecl" fn ures_getVersion(resb : *const UResourceBundle, versioninfo : *mut u8));
 ::windows_targets::link!("icu.dll" "cdecl" fn ures_hasNext(resourcebundle : *const UResourceBundle) -> i8);
-::windows_targets::link!("icu.dll" "cdecl" fn ures_open(packagename : ::windows_sys::core::PCSTR, locale : ::windows_sys::core::PCSTR, status : *mut UErrorCode) -> *mut UResourceBundle);
-::windows_targets::link!("icu.dll" "cdecl" fn ures_openAvailableLocales(packagename : ::windows_sys::core::PCSTR, status : *mut UErrorCode) -> *mut UEnumeration);
-::windows_targets::link!("icu.dll" "cdecl" fn ures_openDirect(packagename : ::windows_sys::core::PCSTR, locale : ::windows_sys::core::PCSTR, status : *mut UErrorCode) -> *mut UResourceBundle);
-::windows_targets::link!("icu.dll" "cdecl" fn ures_openU(packagename : *const u16, locale : ::windows_sys::core::PCSTR, status : *mut UErrorCode) -> *mut UResourceBundle);
+::windows_targets::link!("icu.dll" "cdecl" fn ures_open(packagename : windows_sys::core::PCSTR, locale : windows_sys::core::PCSTR, status : *mut UErrorCode) -> *mut UResourceBundle);
+::windows_targets::link!("icu.dll" "cdecl" fn ures_openAvailableLocales(packagename : windows_sys::core::PCSTR, status : *mut UErrorCode) -> *mut UEnumeration);
+::windows_targets::link!("icu.dll" "cdecl" fn ures_openDirect(packagename : windows_sys::core::PCSTR, locale : windows_sys::core::PCSTR, status : *mut UErrorCode) -> *mut UResourceBundle);
+::windows_targets::link!("icu.dll" "cdecl" fn ures_openU(packagename : *const u16, locale : windows_sys::core::PCSTR, status : *mut UErrorCode) -> *mut UResourceBundle);
 ::windows_targets::link!("icu.dll" "cdecl" fn ures_resetIterator(resourcebundle : *mut UResourceBundle));
 ::windows_targets::link!("icu.dll" "cdecl" fn uscript_breaksBetweenLetters(script : UScriptCode) -> i8);
-::windows_targets::link!("icu.dll" "cdecl" fn uscript_getCode(nameorabbrorlocale : ::windows_sys::core::PCSTR, fillin : *mut UScriptCode, capacity : i32, err : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn uscript_getName(scriptcode : UScriptCode) -> ::windows_sys::core::PCSTR);
+::windows_targets::link!("icu.dll" "cdecl" fn uscript_getCode(nameorabbrorlocale : windows_sys::core::PCSTR, fillin : *mut UScriptCode, capacity : i32, err : *mut UErrorCode) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn uscript_getName(scriptcode : UScriptCode) -> windows_sys::core::PCSTR);
 ::windows_targets::link!("icu.dll" "cdecl" fn uscript_getSampleString(script : UScriptCode, dest : *mut u16, capacity : i32, perrorcode : *mut UErrorCode) -> i32);
 ::windows_targets::link!("icu.dll" "cdecl" fn uscript_getScript(codepoint : i32, err : *mut UErrorCode) -> UScriptCode);
 ::windows_targets::link!("icu.dll" "cdecl" fn uscript_getScriptExtensions(c : i32, scripts : *mut UScriptCode, capacity : i32, errorcode : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn uscript_getShortName(scriptcode : UScriptCode) -> ::windows_sys::core::PCSTR);
+::windows_targets::link!("icu.dll" "cdecl" fn uscript_getShortName(scriptcode : UScriptCode) -> windows_sys::core::PCSTR);
 ::windows_targets::link!("icu.dll" "cdecl" fn uscript_getUsage(script : UScriptCode) -> UScriptUsage);
 ::windows_targets::link!("icu.dll" "cdecl" fn uscript_hasScript(c : i32, sc : UScriptCode) -> i8);
 ::windows_targets::link!("icu.dll" "cdecl" fn uscript_isCased(script : UScriptCode) -> i8);
@@ -1084,7 +1084,7 @@
 ::windows_targets::link!("icu.dll" "cdecl" fn usearch_getText(strsrch : *const UStringSearch, length : *mut i32) -> *mut u16);
 ::windows_targets::link!("icu.dll" "cdecl" fn usearch_last(strsrch : *mut UStringSearch, status : *mut UErrorCode) -> i32);
 ::windows_targets::link!("icu.dll" "cdecl" fn usearch_next(strsrch : *mut UStringSearch, status : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn usearch_open(pattern : *const u16, patternlength : i32, text : *const u16, textlength : i32, locale : ::windows_sys::core::PCSTR, breakiter : *mut UBreakIterator, status : *mut UErrorCode) -> *mut UStringSearch);
+::windows_targets::link!("icu.dll" "cdecl" fn usearch_open(pattern : *const u16, patternlength : i32, text : *const u16, textlength : i32, locale : windows_sys::core::PCSTR, breakiter : *mut UBreakIterator, status : *mut UErrorCode) -> *mut UStringSearch);
 ::windows_targets::link!("icu.dll" "cdecl" fn usearch_openFromCollator(pattern : *const u16, patternlength : i32, text : *const u16, textlength : i32, collator : *const UCollator, breakiter : *mut UBreakIterator, status : *mut UErrorCode) -> *mut UStringSearch);
 ::windows_targets::link!("icu.dll" "cdecl" fn usearch_preceding(strsrch : *mut UStringSearch, position : i32, status : *mut UErrorCode) -> i32);
 ::windows_targets::link!("icu.dll" "cdecl" fn usearch_previous(strsrch : *mut UStringSearch, status : *mut UErrorCode) -> i32);
@@ -1148,20 +1148,20 @@
 ::windows_targets::link!("icu.dll" "cdecl" fn uset_size(set : *const USet) -> i32);
 ::windows_targets::link!("icu.dll" "cdecl" fn uset_span(set : *const USet, s : *const u16, length : i32, spancondition : USetSpanCondition) -> i32);
 ::windows_targets::link!("icu.dll" "cdecl" fn uset_spanBack(set : *const USet, s : *const u16, length : i32, spancondition : USetSpanCondition) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn uset_spanBackUTF8(set : *const USet, s : ::windows_sys::core::PCSTR, length : i32, spancondition : USetSpanCondition) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn uset_spanUTF8(set : *const USet, s : ::windows_sys::core::PCSTR, length : i32, spancondition : USetSpanCondition) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn uset_spanBackUTF8(set : *const USet, s : windows_sys::core::PCSTR, length : i32, spancondition : USetSpanCondition) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn uset_spanUTF8(set : *const USet, s : windows_sys::core::PCSTR, length : i32, spancondition : USetSpanCondition) -> i32);
 ::windows_targets::link!("icu.dll" "cdecl" fn uset_toPattern(set : *const USet, result : *mut u16, resultcapacity : i32, escapeunprintable : i8, ec : *mut UErrorCode) -> i32);
 ::windows_targets::link!("icu.dll" "cdecl" fn uspoof_areConfusable(sc : *const USpoofChecker, id1 : *const u16, length1 : i32, id2 : *const u16, length2 : i32, status : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn uspoof_areConfusableUTF8(sc : *const USpoofChecker, id1 : ::windows_sys::core::PCSTR, length1 : i32, id2 : ::windows_sys::core::PCSTR, length2 : i32, status : *mut UErrorCode) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn uspoof_areConfusableUTF8(sc : *const USpoofChecker, id1 : windows_sys::core::PCSTR, length1 : i32, id2 : windows_sys::core::PCSTR, length2 : i32, status : *mut UErrorCode) -> i32);
 ::windows_targets::link!("icu.dll" "cdecl" fn uspoof_check(sc : *const USpoofChecker, id : *const u16, length : i32, position : *mut i32, status : *mut UErrorCode) -> i32);
 ::windows_targets::link!("icu.dll" "cdecl" fn uspoof_check2(sc : *const USpoofChecker, id : *const u16, length : i32, checkresult : *mut USpoofCheckResult, status : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn uspoof_check2UTF8(sc : *const USpoofChecker, id : ::windows_sys::core::PCSTR, length : i32, checkresult : *mut USpoofCheckResult, status : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn uspoof_checkUTF8(sc : *const USpoofChecker, id : ::windows_sys::core::PCSTR, length : i32, position : *mut i32, status : *mut UErrorCode) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn uspoof_check2UTF8(sc : *const USpoofChecker, id : windows_sys::core::PCSTR, length : i32, checkresult : *mut USpoofCheckResult, status : *mut UErrorCode) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn uspoof_checkUTF8(sc : *const USpoofChecker, id : windows_sys::core::PCSTR, length : i32, position : *mut i32, status : *mut UErrorCode) -> i32);
 ::windows_targets::link!("icu.dll" "cdecl" fn uspoof_clone(sc : *const USpoofChecker, status : *mut UErrorCode) -> *mut USpoofChecker);
 ::windows_targets::link!("icu.dll" "cdecl" fn uspoof_close(sc : *mut USpoofChecker));
 ::windows_targets::link!("icu.dll" "cdecl" fn uspoof_closeCheckResult(checkresult : *mut USpoofCheckResult));
 ::windows_targets::link!("icu.dll" "cdecl" fn uspoof_getAllowedChars(sc : *const USpoofChecker, status : *mut UErrorCode) -> *mut USet);
-::windows_targets::link!("icu.dll" "cdecl" fn uspoof_getAllowedLocales(sc : *mut USpoofChecker, status : *mut UErrorCode) -> ::windows_sys::core::PCSTR);
+::windows_targets::link!("icu.dll" "cdecl" fn uspoof_getAllowedLocales(sc : *mut USpoofChecker, status : *mut UErrorCode) -> windows_sys::core::PCSTR);
 ::windows_targets::link!("icu.dll" "cdecl" fn uspoof_getCheckResultChecks(checkresult : *const USpoofCheckResult, status : *mut UErrorCode) -> i32);
 ::windows_targets::link!("icu.dll" "cdecl" fn uspoof_getCheckResultNumerics(checkresult : *const USpoofCheckResult, status : *mut UErrorCode) -> *mut USet);
 ::windows_targets::link!("icu.dll" "cdecl" fn uspoof_getCheckResultRestrictionLevel(checkresult : *const USpoofCheckResult, status : *mut UErrorCode) -> URestrictionLevel);
@@ -1170,18 +1170,18 @@
 ::windows_targets::link!("icu.dll" "cdecl" fn uspoof_getRecommendedSet(status : *mut UErrorCode) -> *mut USet);
 ::windows_targets::link!("icu.dll" "cdecl" fn uspoof_getRestrictionLevel(sc : *const USpoofChecker) -> URestrictionLevel);
 ::windows_targets::link!("icu.dll" "cdecl" fn uspoof_getSkeleton(sc : *const USpoofChecker, r#type : u32, id : *const u16, length : i32, dest : *mut u16, destcapacity : i32, status : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn uspoof_getSkeletonUTF8(sc : *const USpoofChecker, r#type : u32, id : ::windows_sys::core::PCSTR, length : i32, dest : ::windows_sys::core::PCSTR, destcapacity : i32, status : *mut UErrorCode) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn uspoof_getSkeletonUTF8(sc : *const USpoofChecker, r#type : u32, id : windows_sys::core::PCSTR, length : i32, dest : windows_sys::core::PCSTR, destcapacity : i32, status : *mut UErrorCode) -> i32);
 ::windows_targets::link!("icu.dll" "cdecl" fn uspoof_open(status : *mut UErrorCode) -> *mut USpoofChecker);
 ::windows_targets::link!("icu.dll" "cdecl" fn uspoof_openCheckResult(status : *mut UErrorCode) -> *mut USpoofCheckResult);
-::windows_targets::link!("icu.dll" "cdecl" fn uspoof_openFromSerialized(data : *const ::core::ffi::c_void, length : i32, pactuallength : *mut i32, perrorcode : *mut UErrorCode) -> *mut USpoofChecker);
-::windows_targets::link!("icu.dll" "cdecl" fn uspoof_openFromSource(confusables : ::windows_sys::core::PCSTR, confusableslen : i32, confusableswholescript : ::windows_sys::core::PCSTR, confusableswholescriptlen : i32, errtype : *mut i32, pe : *mut UParseError, status : *mut UErrorCode) -> *mut USpoofChecker);
-::windows_targets::link!("icu.dll" "cdecl" fn uspoof_serialize(sc : *mut USpoofChecker, data : *mut ::core::ffi::c_void, capacity : i32, status : *mut UErrorCode) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn uspoof_openFromSerialized(data : *const core::ffi::c_void, length : i32, pactuallength : *mut i32, perrorcode : *mut UErrorCode) -> *mut USpoofChecker);
+::windows_targets::link!("icu.dll" "cdecl" fn uspoof_openFromSource(confusables : windows_sys::core::PCSTR, confusableslen : i32, confusableswholescript : windows_sys::core::PCSTR, confusableswholescriptlen : i32, errtype : *mut i32, pe : *mut UParseError, status : *mut UErrorCode) -> *mut USpoofChecker);
+::windows_targets::link!("icu.dll" "cdecl" fn uspoof_serialize(sc : *mut USpoofChecker, data : *mut core::ffi::c_void, capacity : i32, status : *mut UErrorCode) -> i32);
 ::windows_targets::link!("icu.dll" "cdecl" fn uspoof_setAllowedChars(sc : *mut USpoofChecker, chars : *const USet, status : *mut UErrorCode));
-::windows_targets::link!("icu.dll" "cdecl" fn uspoof_setAllowedLocales(sc : *mut USpoofChecker, localeslist : ::windows_sys::core::PCSTR, status : *mut UErrorCode));
+::windows_targets::link!("icu.dll" "cdecl" fn uspoof_setAllowedLocales(sc : *mut USpoofChecker, localeslist : windows_sys::core::PCSTR, status : *mut UErrorCode));
 ::windows_targets::link!("icu.dll" "cdecl" fn uspoof_setChecks(sc : *mut USpoofChecker, checks : i32, status : *mut UErrorCode));
 ::windows_targets::link!("icu.dll" "cdecl" fn uspoof_setRestrictionLevel(sc : *mut USpoofChecker, restrictionlevel : URestrictionLevel));
 ::windows_targets::link!("icu.dll" "cdecl" fn usprep_close(profile : *mut UStringPrepProfile));
-::windows_targets::link!("icu.dll" "cdecl" fn usprep_open(path : ::windows_sys::core::PCSTR, filename : ::windows_sys::core::PCSTR, status : *mut UErrorCode) -> *mut UStringPrepProfile);
+::windows_targets::link!("icu.dll" "cdecl" fn usprep_open(path : windows_sys::core::PCSTR, filename : windows_sys::core::PCSTR, status : *mut UErrorCode) -> *mut UStringPrepProfile);
 ::windows_targets::link!("icu.dll" "cdecl" fn usprep_openByType(r#type : UStringPrepProfileType, status : *mut UErrorCode) -> *mut UStringPrepProfile);
 ::windows_targets::link!("icu.dll" "cdecl" fn usprep_prepare(prep : *const UStringPrepProfile, src : *const u16, srclength : i32, dest : *mut u16, destcapacity : i32, options : i32, parseerror : *mut UParseError, status : *mut UErrorCode) -> i32);
 ::windows_targets::link!("icu.dll" "cdecl" fn utext_char32At(ut : *mut UText, nativeindex : i64) -> i32);
@@ -1202,7 +1202,7 @@
 ::windows_targets::link!("icu.dll" "cdecl" fn utext_next32(ut : *mut UText) -> i32);
 ::windows_targets::link!("icu.dll" "cdecl" fn utext_next32From(ut : *mut UText, nativeindex : i64) -> i32);
 ::windows_targets::link!("icu.dll" "cdecl" fn utext_openUChars(ut : *mut UText, s : *const u16, length : i64, status : *mut UErrorCode) -> *mut UText);
-::windows_targets::link!("icu.dll" "cdecl" fn utext_openUTF8(ut : *mut UText, s : ::windows_sys::core::PCSTR, length : i64, status : *mut UErrorCode) -> *mut UText);
+::windows_targets::link!("icu.dll" "cdecl" fn utext_openUTF8(ut : *mut UText, s : windows_sys::core::PCSTR, length : i64, status : *mut UErrorCode) -> *mut UText);
 ::windows_targets::link!("icu.dll" "cdecl" fn utext_previous32(ut : *mut UText) -> i32);
 ::windows_targets::link!("icu.dll" "cdecl" fn utext_previous32From(ut : *mut UText, nativeindex : i64) -> i32);
 ::windows_targets::link!("icu.dll" "cdecl" fn utext_replace(ut : *mut UText, nativestart : i64, nativelimit : i64, replacementtext : *const u16, replacementlength : i32, status : *mut UErrorCode) -> i32);
@@ -1215,28 +1215,28 @@
 ::windows_targets::link!("icu.dll" "cdecl" fn utmscale_fromInt64(othertime : i64, timescale : UDateTimeScale, status : *mut UErrorCode) -> i64);
 ::windows_targets::link!("icu.dll" "cdecl" fn utmscale_getTimeScaleValue(timescale : UDateTimeScale, value : UTimeScaleValue, status : *mut UErrorCode) -> i64);
 ::windows_targets::link!("icu.dll" "cdecl" fn utmscale_toInt64(universaltime : i64, timescale : UDateTimeScale, status : *mut UErrorCode) -> i64);
-::windows_targets::link!("icu.dll" "cdecl" fn utrace_format(outbuf : ::windows_sys::core::PCSTR, capacity : i32, indent : i32, fmt : ::windows_sys::core::PCSTR, ...) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn utrace_functionName(fnnumber : i32) -> ::windows_sys::core::PCSTR);
-::windows_targets::link!("icu.dll" "cdecl" fn utrace_getFunctions(context : *const *const ::core::ffi::c_void, e : *mut UTraceEntry, x : *mut UTraceExit, d : *mut UTraceData));
+::windows_targets::link!("icu.dll" "cdecl" fn utrace_format(outbuf : windows_sys::core::PCSTR, capacity : i32, indent : i32, fmt : windows_sys::core::PCSTR, ...) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn utrace_functionName(fnnumber : i32) -> windows_sys::core::PCSTR);
+::windows_targets::link!("icu.dll" "cdecl" fn utrace_getFunctions(context : *const *const core::ffi::c_void, e : *mut UTraceEntry, x : *mut UTraceExit, d : *mut UTraceData));
 ::windows_targets::link!("icu.dll" "cdecl" fn utrace_getLevel() -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn utrace_setFunctions(context : *const ::core::ffi::c_void, e : UTraceEntry, x : UTraceExit, d : UTraceData));
+::windows_targets::link!("icu.dll" "cdecl" fn utrace_setFunctions(context : *const core::ffi::c_void, e : UTraceEntry, x : UTraceExit, d : UTraceData));
 ::windows_targets::link!("icu.dll" "cdecl" fn utrace_setLevel(tracelevel : i32));
-::windows_targets::link!("icu.dll" "cdecl" fn utrace_vformat(outbuf : ::windows_sys::core::PCSTR, capacity : i32, indent : i32, fmt : ::windows_sys::core::PCSTR, args : *mut i8) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn utrans_clone(trans : *const *const ::core::ffi::c_void, status : *mut UErrorCode) -> *mut *mut ::core::ffi::c_void);
-::windows_targets::link!("icu.dll" "cdecl" fn utrans_close(trans : *mut *mut ::core::ffi::c_void));
+::windows_targets::link!("icu.dll" "cdecl" fn utrace_vformat(outbuf : windows_sys::core::PCSTR, capacity : i32, indent : i32, fmt : windows_sys::core::PCSTR, args : *mut i8) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn utrans_clone(trans : *const *const core::ffi::c_void, status : *mut UErrorCode) -> *mut *mut core::ffi::c_void);
+::windows_targets::link!("icu.dll" "cdecl" fn utrans_close(trans : *mut *mut core::ffi::c_void));
 ::windows_targets::link!("icu.dll" "cdecl" fn utrans_countAvailableIDs() -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn utrans_getSourceSet(trans : *const *const ::core::ffi::c_void, ignorefilter : i8, fillin : *mut USet, status : *mut UErrorCode) -> *mut USet);
-::windows_targets::link!("icu.dll" "cdecl" fn utrans_getUnicodeID(trans : *const *const ::core::ffi::c_void, resultlength : *mut i32) -> *mut u16);
+::windows_targets::link!("icu.dll" "cdecl" fn utrans_getSourceSet(trans : *const *const core::ffi::c_void, ignorefilter : i8, fillin : *mut USet, status : *mut UErrorCode) -> *mut USet);
+::windows_targets::link!("icu.dll" "cdecl" fn utrans_getUnicodeID(trans : *const *const core::ffi::c_void, resultlength : *mut i32) -> *mut u16);
 ::windows_targets::link!("icu.dll" "cdecl" fn utrans_openIDs(perrorcode : *mut UErrorCode) -> *mut UEnumeration);
-::windows_targets::link!("icu.dll" "cdecl" fn utrans_openInverse(trans : *const *const ::core::ffi::c_void, status : *mut UErrorCode) -> *mut *mut ::core::ffi::c_void);
-::windows_targets::link!("icu.dll" "cdecl" fn utrans_openU(id : *const u16, idlength : i32, dir : UTransDirection, rules : *const u16, ruleslength : i32, parseerror : *mut UParseError, perrorcode : *mut UErrorCode) -> *mut *mut ::core::ffi::c_void);
-::windows_targets::link!("icu.dll" "cdecl" fn utrans_register(adoptedtrans : *mut *mut ::core::ffi::c_void, status : *mut UErrorCode));
-::windows_targets::link!("icu.dll" "cdecl" fn utrans_setFilter(trans : *mut *mut ::core::ffi::c_void, filterpattern : *const u16, filterpatternlen : i32, status : *mut UErrorCode));
-::windows_targets::link!("icu.dll" "cdecl" fn utrans_toRules(trans : *const *const ::core::ffi::c_void, escapeunprintable : i8, result : *mut u16, resultlength : i32, status : *mut UErrorCode) -> i32);
-::windows_targets::link!("icu.dll" "cdecl" fn utrans_trans(trans : *const *const ::core::ffi::c_void, rep : *mut *mut ::core::ffi::c_void, repfunc : *const UReplaceableCallbacks, start : i32, limit : *mut i32, status : *mut UErrorCode));
-::windows_targets::link!("icu.dll" "cdecl" fn utrans_transIncremental(trans : *const *const ::core::ffi::c_void, rep : *mut *mut ::core::ffi::c_void, repfunc : *const UReplaceableCallbacks, pos : *mut UTransPosition, status : *mut UErrorCode));
-::windows_targets::link!("icu.dll" "cdecl" fn utrans_transIncrementalUChars(trans : *const *const ::core::ffi::c_void, text : *mut u16, textlength : *mut i32, textcapacity : i32, pos : *mut UTransPosition, status : *mut UErrorCode));
-::windows_targets::link!("icu.dll" "cdecl" fn utrans_transUChars(trans : *const *const ::core::ffi::c_void, text : *mut u16, textlength : *mut i32, textcapacity : i32, start : i32, limit : *mut i32, status : *mut UErrorCode));
+::windows_targets::link!("icu.dll" "cdecl" fn utrans_openInverse(trans : *const *const core::ffi::c_void, status : *mut UErrorCode) -> *mut *mut core::ffi::c_void);
+::windows_targets::link!("icu.dll" "cdecl" fn utrans_openU(id : *const u16, idlength : i32, dir : UTransDirection, rules : *const u16, ruleslength : i32, parseerror : *mut UParseError, perrorcode : *mut UErrorCode) -> *mut *mut core::ffi::c_void);
+::windows_targets::link!("icu.dll" "cdecl" fn utrans_register(adoptedtrans : *mut *mut core::ffi::c_void, status : *mut UErrorCode));
+::windows_targets::link!("icu.dll" "cdecl" fn utrans_setFilter(trans : *mut *mut core::ffi::c_void, filterpattern : *const u16, filterpatternlen : i32, status : *mut UErrorCode));
+::windows_targets::link!("icu.dll" "cdecl" fn utrans_toRules(trans : *const *const core::ffi::c_void, escapeunprintable : i8, result : *mut u16, resultlength : i32, status : *mut UErrorCode) -> i32);
+::windows_targets::link!("icu.dll" "cdecl" fn utrans_trans(trans : *const *const core::ffi::c_void, rep : *mut *mut core::ffi::c_void, repfunc : *const UReplaceableCallbacks, start : i32, limit : *mut i32, status : *mut UErrorCode));
+::windows_targets::link!("icu.dll" "cdecl" fn utrans_transIncremental(trans : *const *const core::ffi::c_void, rep : *mut *mut core::ffi::c_void, repfunc : *const UReplaceableCallbacks, pos : *mut UTransPosition, status : *mut UErrorCode));
+::windows_targets::link!("icu.dll" "cdecl" fn utrans_transIncrementalUChars(trans : *const *const core::ffi::c_void, text : *mut u16, textlength : *mut i32, textcapacity : i32, pos : *mut UTransPosition, status : *mut UErrorCode));
+::windows_targets::link!("icu.dll" "cdecl" fn utrans_transUChars(trans : *const *const core::ffi::c_void, text : *mut u16, textlength : *mut i32, textcapacity : i32, start : i32, limit : *mut i32, status : *mut UErrorCode));
 ::windows_targets::link!("icu.dll" "cdecl" fn utrans_unregisterID(id : *const u16, idlength : i32));
 pub const ALL_SERVICES: u32 = 0u32;
 pub const ALL_SERVICE_TYPES: u32 = 0u32;
@@ -1500,15 +1500,15 @@ pub const DATE_SHORTDATE: ENUM_DATE_FORMATS_FLAGS = 1u32;
 pub const DATE_USE_ALT_CALENDAR: ENUM_DATE_FORMATS_FLAGS = 4u32;
 pub const DATE_YEARMONTH: ENUM_DATE_FORMATS_FLAGS = 8u32;
 pub const DayUnit: CALDATETIME_DATEUNIT = 4i32;
-pub const ELS_GUID_LANGUAGE_DETECTION: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xcf7e00b1_909b_4d95_a8f4_611f7c377702);
-pub const ELS_GUID_SCRIPT_DETECTION: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x2d64b439_6caf_4f6b_b688_e5d0f4faa7d7);
-pub const ELS_GUID_TRANSLITERATION_BENGALI_TO_LATIN: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xf4dfd825_91a4_489f_855e_9ad9bee55727);
-pub const ELS_GUID_TRANSLITERATION_CYRILLIC_TO_LATIN: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x3dd12a98_5afd_4903_a13f_e17e6c0bfe01);
-pub const ELS_GUID_TRANSLITERATION_DEVANAGARI_TO_LATIN: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xc4a4dcfe_2661_4d02_9835_f48187109803);
-pub const ELS_GUID_TRANSLITERATION_HANGUL_DECOMPOSITION: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x4ba2a721_e43d_41b7_b330_536ae1e48863);
-pub const ELS_GUID_TRANSLITERATION_HANS_TO_HANT: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x3caccdc8_5590_42dc_9a7b_b5a6b5b3b63b);
-pub const ELS_GUID_TRANSLITERATION_HANT_TO_HANS: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xa3a8333b_f4fc_42f6_a0c4_0462fe7317cb);
-pub const ELS_GUID_TRANSLITERATION_MALAYALAM_TO_LATIN: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xd8b983b1_f8bf_4a2b_bcd5_5b5ea20613e1);
+pub const ELS_GUID_LANGUAGE_DETECTION: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xcf7e00b1_909b_4d95_a8f4_611f7c377702);
+pub const ELS_GUID_SCRIPT_DETECTION: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x2d64b439_6caf_4f6b_b688_e5d0f4faa7d7);
+pub const ELS_GUID_TRANSLITERATION_BENGALI_TO_LATIN: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf4dfd825_91a4_489f_855e_9ad9bee55727);
+pub const ELS_GUID_TRANSLITERATION_CYRILLIC_TO_LATIN: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3dd12a98_5afd_4903_a13f_e17e6c0bfe01);
+pub const ELS_GUID_TRANSLITERATION_DEVANAGARI_TO_LATIN: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc4a4dcfe_2661_4d02_9835_f48187109803);
+pub const ELS_GUID_TRANSLITERATION_HANGUL_DECOMPOSITION: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4ba2a721_e43d_41b7_b330_536ae1e48863);
+pub const ELS_GUID_TRANSLITERATION_HANS_TO_HANT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3caccdc8_5590_42dc_9a7b_b5a6b5b3b63b);
+pub const ELS_GUID_TRANSLITERATION_HANT_TO_HANS: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa3a8333b_f4fc_42f6_a0c4_0462fe7317cb);
+pub const ELS_GUID_TRANSLITERATION_MALAYALAM_TO_LATIN: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd8b983b1_f8bf_4a2b_bcd5_5b5ea20613e1);
 pub const ENUM_ALL_CALENDARS: u32 = 4294967295u32;
 pub const EraUnit: CALDATETIME_DATEUNIT = 0i32;
 pub const FIND_ENDSWITH: u32 = 2097152u32;
@@ -1649,8 +1649,8 @@ pub const LOCALE_ITIMEMARKPOSN: u32 = 4101u32;
 pub const LOCALE_ITLZERO: u32 = 37u32;
 pub const LOCALE_IUSEUTF8LEGACYACP: u32 = 1638u32;
 pub const LOCALE_IUSEUTF8LEGACYOEMCP: u32 = 2457u32;
-pub const LOCALE_NAME_INVARIANT: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("");
-pub const LOCALE_NAME_SYSTEM_DEFAULT: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("!x-sys-default-locale");
+pub const LOCALE_NAME_INVARIANT: windows_sys::core::PCWSTR = windows_sys::core::w!("");
+pub const LOCALE_NAME_SYSTEM_DEFAULT: windows_sys::core::PCWSTR = windows_sys::core::w!("!x-sys-default-locale");
 pub const LOCALE_NEUTRALDATA: u32 = 16u32;
 pub const LOCALE_NOUSEROVERRIDE: u32 = 2147483648u32;
 pub const LOCALE_REPLACEMENT: u32 = 8u32;
@@ -1948,8 +1948,8 @@ pub const TIME_NOSECONDS: TIME_FORMAT_FLAGS = 2u32;
 pub const TIME_NOTIMEMARKER: TIME_FORMAT_FLAGS = 4u32;
 pub const TickUnit: CALDATETIME_DATEUNIT = 8i32;
 pub const U16_MAX_LENGTH: u32 = 2u32;
-pub const U8_LEAD3_T1_BITS: ::windows_sys::core::PCSTR = ::windows_sys::core::s!(" 000000000000\u{10}00");
-pub const U8_LEAD4_T1_BITS: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("\u{0}\u{0}\u{0}\u{0}\u{0}\u{0}\u{0}\u{0}\u{1e}\u{f}\u{f}\u{f}\u{0}\u{0}\u{0}\u{0}");
+pub const U8_LEAD3_T1_BITS: windows_sys::core::PCSTR = windows_sys::core::s!(" 000000000000\u{10}00");
+pub const U8_LEAD4_T1_BITS: windows_sys::core::PCSTR = windows_sys::core::s!("\u{0}\u{0}\u{0}\u{0}\u{0}\u{0}\u{0}\u{0}\u{1e}\u{f}\u{f}\u{f}\u{0}\u{0}\u{0}\u{0}");
 pub const U8_MAX_LENGTH: u32 = 4u32;
 pub const UBIDI_DEFAULT_LTR: u32 = 254u32;
 pub const UBIDI_DEFAULT_RTL: u32 = 255u32;
@@ -2377,7 +2377,7 @@ pub const UCAL_TZ_TRANSITION_NEXT_INCLUSIVE: UTimeZoneTransitionType = 1i32;
 pub const UCAL_TZ_TRANSITION_PREVIOUS: UTimeZoneTransitionType = 2i32;
 pub const UCAL_TZ_TRANSITION_PREVIOUS_INCLUSIVE: UTimeZoneTransitionType = 3i32;
 pub const UCAL_UNDECIMBER: UCalendarMonths = 12i32;
-pub const UCAL_UNKNOWN_ZONE_ID: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("Etc/Unknown");
+pub const UCAL_UNKNOWN_ZONE_ID: windows_sys::core::PCSTR = windows_sys::core::s!("Etc/Unknown");
 pub const UCAL_WALLTIME_FIRST: UCalendarWallTimeOption = 1i32;
 pub const UCAL_WALLTIME_LAST: UCalendarWallTimeOption = 0i32;
 pub const UCAL_WALLTIME_NEXT_VALID: UCalendarWallTimeOption = 2i32;
@@ -2516,12 +2516,12 @@ pub const UCNV_CLOSE: UConverterCallbackReason = 4i32;
 pub const UCNV_COMPOUND_TEXT: UConverterType = 33i32;
 pub const UCNV_DBCS: UConverterType = 1i32;
 pub const UCNV_EBCDIC_STATEFUL: UConverterType = 9i32;
-pub const UCNV_ESCAPE_C: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("C");
-pub const UCNV_ESCAPE_CSS2: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("S");
-pub const UCNV_ESCAPE_JAVA: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("J");
-pub const UCNV_ESCAPE_UNICODE: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("U");
-pub const UCNV_ESCAPE_XML_DEC: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("D");
-pub const UCNV_ESCAPE_XML_HEX: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("X");
+pub const UCNV_ESCAPE_C: windows_sys::core::PCSTR = windows_sys::core::s!("C");
+pub const UCNV_ESCAPE_CSS2: windows_sys::core::PCSTR = windows_sys::core::s!("S");
+pub const UCNV_ESCAPE_JAVA: windows_sys::core::PCSTR = windows_sys::core::s!("J");
+pub const UCNV_ESCAPE_UNICODE: windows_sys::core::PCSTR = windows_sys::core::s!("U");
+pub const UCNV_ESCAPE_XML_DEC: windows_sys::core::PCSTR = windows_sys::core::s!("D");
+pub const UCNV_ESCAPE_XML_HEX: windows_sys::core::PCSTR = windows_sys::core::s!("X");
 pub const UCNV_HZ: UConverterType = 23i32;
 pub const UCNV_IBM: UConverterPlatform = 0i32;
 pub const UCNV_ILLEGAL: UConverterCallbackReason = 1i32;
@@ -2543,21 +2543,21 @@ pub const UCNV_LMBCS_5: UConverterType = 15i32;
 pub const UCNV_LMBCS_6: UConverterType = 16i32;
 pub const UCNV_LMBCS_8: UConverterType = 17i32;
 pub const UCNV_LMBCS_LAST: UConverterType = 22i32;
-pub const UCNV_LOCALE_OPTION_STRING: ::windows_sys::core::PCSTR = ::windows_sys::core::s!(",locale=");
+pub const UCNV_LOCALE_OPTION_STRING: windows_sys::core::PCSTR = windows_sys::core::s!(",locale=");
 pub const UCNV_MAX_CONVERTER_NAME_LENGTH: u32 = 60u32;
 pub const UCNV_MBCS: UConverterType = 2i32;
 pub const UCNV_NUMBER_OF_SUPPORTED_CONVERTER_TYPES: UConverterType = 34i32;
-pub const UCNV_OPTION_SEP_STRING: ::windows_sys::core::PCSTR = ::windows_sys::core::s!(",");
+pub const UCNV_OPTION_SEP_STRING: windows_sys::core::PCSTR = windows_sys::core::s!(",");
 pub const UCNV_RESET: UConverterCallbackReason = 3i32;
 pub const UCNV_ROUNDTRIP_AND_FALLBACK_SET: UConverterUnicodeSet = 1i32;
 pub const UCNV_ROUNDTRIP_SET: UConverterUnicodeSet = 0i32;
 pub const UCNV_SBCS: UConverterType = 0i32;
 pub const UCNV_SCSU: UConverterType = 24i32;
 pub const UCNV_SI: u32 = 15u32;
-pub const UCNV_SKIP_STOP_ON_ILLEGAL: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("i");
+pub const UCNV_SKIP_STOP_ON_ILLEGAL: windows_sys::core::PCSTR = windows_sys::core::s!("i");
 pub const UCNV_SO: u32 = 14u32;
-pub const UCNV_SUB_STOP_ON_ILLEGAL: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("i");
-pub const UCNV_SWAP_LFNL_OPTION_STRING: ::windows_sys::core::PCSTR = ::windows_sys::core::s!(",swaplfnl");
+pub const UCNV_SUB_STOP_ON_ILLEGAL: windows_sys::core::PCSTR = windows_sys::core::s!("i");
+pub const UCNV_SWAP_LFNL_OPTION_STRING: windows_sys::core::PCSTR = windows_sys::core::s!(",swaplfnl");
 pub const UCNV_UNASSIGNED: UConverterCallbackReason = 0i32;
 pub const UCNV_UNKNOWN: UConverterPlatform = -1i32;
 pub const UCNV_UNSUPPORTED_CONVERTER: UConverterType = -1i32;
@@ -2570,8 +2570,8 @@ pub const UCNV_UTF32_BigEndian: UConverterType = 7i32;
 pub const UCNV_UTF32_LittleEndian: UConverterType = 8i32;
 pub const UCNV_UTF7: UConverterType = 27i32;
 pub const UCNV_UTF8: UConverterType = 4i32;
-pub const UCNV_VALUE_SEP_STRING: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("=");
-pub const UCNV_VERSION_OPTION_STRING: ::windows_sys::core::PCSTR = ::windows_sys::core::s!(",version=");
+pub const UCNV_VALUE_SEP_STRING: windows_sys::core::PCSTR = windows_sys::core::s!("=");
+pub const UCNV_VERSION_OPTION_STRING: windows_sys::core::PCSTR = windows_sys::core::s!(",version=");
 pub const UCOL_ALTERNATE_HANDLING: UColAttribute = 1i32;
 pub const UCOL_ATTRIBUTE_COUNT: UColAttribute = 8i32;
 pub const UCOL_BOUND_LOWER: UColBoundMode = 0i32;
@@ -2682,14 +2682,14 @@ pub const UDATPG_WEEK_OF_YEAR_FIELD: UDateTimePatternField = 4i32;
 pub const UDATPG_WIDE: UDateTimePGDisplayWidth = 0i32;
 pub const UDATPG_YEAR_FIELD: UDateTimePatternField = 1i32;
 pub const UDATPG_ZONE_FIELD: UDateTimePatternField = 15i32;
-pub const UDAT_ABBR_GENERIC_TZ: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("v");
-pub const UDAT_ABBR_MONTH: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("MMM");
-pub const UDAT_ABBR_MONTH_DAY: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("MMMd");
-pub const UDAT_ABBR_MONTH_WEEKDAY_DAY: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("MMMEd");
-pub const UDAT_ABBR_QUARTER: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("QQQ");
-pub const UDAT_ABBR_SPECIFIC_TZ: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("z");
-pub const UDAT_ABBR_UTC_TZ: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("ZZZZ");
-pub const UDAT_ABBR_WEEKDAY: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("E");
+pub const UDAT_ABBR_GENERIC_TZ: windows_sys::core::PCSTR = windows_sys::core::s!("v");
+pub const UDAT_ABBR_MONTH: windows_sys::core::PCSTR = windows_sys::core::s!("MMM");
+pub const UDAT_ABBR_MONTH_DAY: windows_sys::core::PCSTR = windows_sys::core::s!("MMMd");
+pub const UDAT_ABBR_MONTH_WEEKDAY_DAY: windows_sys::core::PCSTR = windows_sys::core::s!("MMMEd");
+pub const UDAT_ABBR_QUARTER: windows_sys::core::PCSTR = windows_sys::core::s!("QQQ");
+pub const UDAT_ABBR_SPECIFIC_TZ: windows_sys::core::PCSTR = windows_sys::core::s!("z");
+pub const UDAT_ABBR_UTC_TZ: windows_sys::core::PCSTR = windows_sys::core::s!("ZZZZ");
+pub const UDAT_ABBR_WEEKDAY: windows_sys::core::PCSTR = windows_sys::core::s!("E");
 pub const UDAT_ABSOLUTE_DAY: UDateAbsoluteUnit = 7i32;
 pub const UDAT_ABSOLUTE_FRIDAY: UDateAbsoluteUnit = 5i32;
 pub const UDAT_ABSOLUTE_MONDAY: UDateAbsoluteUnit = 1i32;
@@ -2711,7 +2711,7 @@ pub const UDAT_CYCLIC_YEARS_ABBREVIATED: UDateFormatSymbolType = 23i32;
 pub const UDAT_CYCLIC_YEARS_NARROW: UDateFormatSymbolType = 24i32;
 pub const UDAT_CYCLIC_YEARS_WIDE: UDateFormatSymbolType = 22i32;
 pub const UDAT_DATE_FIELD: UDateFormatField = 3i32;
-pub const UDAT_DAY: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("d");
+pub const UDAT_DAY: windows_sys::core::PCSTR = windows_sys::core::s!("d");
 pub const UDAT_DAY_OF_WEEK_FIELD: UDateFormatField = 9i32;
 pub const UDAT_DAY_OF_WEEK_IN_MONTH_FIELD: UDateFormatField = 11i32;
 pub const UDAT_DAY_OF_YEAR_FIELD: UDateFormatField = 10i32;
@@ -2732,45 +2732,45 @@ pub const UDAT_FLEXIBLE_DAY_PERIOD_FIELD: UDateFormatField = 36i32;
 pub const UDAT_FRACTIONAL_SECOND_FIELD: UDateFormatField = 8i32;
 pub const UDAT_FULL: UDateFormatStyle = 0i32;
 pub const UDAT_FULL_RELATIVE: UDateFormatStyle = 128i32;
-pub const UDAT_GENERIC_TZ: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("vvvv");
-pub const UDAT_HOUR: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("j");
+pub const UDAT_GENERIC_TZ: windows_sys::core::PCSTR = windows_sys::core::s!("vvvv");
+pub const UDAT_HOUR: windows_sys::core::PCSTR = windows_sys::core::s!("j");
 pub const UDAT_HOUR0_FIELD: UDateFormatField = 16i32;
 pub const UDAT_HOUR1_FIELD: UDateFormatField = 15i32;
-pub const UDAT_HOUR24: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("H");
-pub const UDAT_HOUR24_MINUTE: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("Hm");
-pub const UDAT_HOUR24_MINUTE_SECOND: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("Hms");
-pub const UDAT_HOUR_MINUTE: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("jm");
-pub const UDAT_HOUR_MINUTE_SECOND: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("jms");
+pub const UDAT_HOUR24: windows_sys::core::PCSTR = windows_sys::core::s!("H");
+pub const UDAT_HOUR24_MINUTE: windows_sys::core::PCSTR = windows_sys::core::s!("Hm");
+pub const UDAT_HOUR24_MINUTE_SECOND: windows_sys::core::PCSTR = windows_sys::core::s!("Hms");
+pub const UDAT_HOUR_MINUTE: windows_sys::core::PCSTR = windows_sys::core::s!("jm");
+pub const UDAT_HOUR_MINUTE_SECOND: windows_sys::core::PCSTR = windows_sys::core::s!("jms");
 pub const UDAT_HOUR_OF_DAY0_FIELD: UDateFormatField = 5i32;
 pub const UDAT_HOUR_OF_DAY1_FIELD: UDateFormatField = 4i32;
 pub const UDAT_JULIAN_DAY_FIELD: UDateFormatField = 21i32;
 pub const UDAT_LOCALIZED_CHARS: UDateFormatSymbolType = 6i32;
-pub const UDAT_LOCATION_TZ: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("VVVV");
+pub const UDAT_LOCATION_TZ: windows_sys::core::PCSTR = windows_sys::core::s!("VVVV");
 pub const UDAT_LONG: UDateFormatStyle = 1i32;
 pub const UDAT_LONG_RELATIVE: UDateFormatStyle = 129i32;
 pub const UDAT_MEDIUM: UDateFormatStyle = 2i32;
 pub const UDAT_MEDIUM_RELATIVE: UDateFormatStyle = 130i32;
 pub const UDAT_MILLISECONDS_IN_DAY_FIELD: UDateFormatField = 22i32;
-pub const UDAT_MINUTE: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("m");
+pub const UDAT_MINUTE: windows_sys::core::PCSTR = windows_sys::core::s!("m");
 pub const UDAT_MINUTE_FIELD: UDateFormatField = 6i32;
-pub const UDAT_MINUTE_SECOND: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("ms");
-pub const UDAT_MONTH: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("MMMM");
+pub const UDAT_MINUTE_SECOND: windows_sys::core::PCSTR = windows_sys::core::s!("ms");
+pub const UDAT_MONTH: windows_sys::core::PCSTR = windows_sys::core::s!("MMMM");
 pub const UDAT_MONTHS: UDateFormatSymbolType = 1i32;
-pub const UDAT_MONTH_DAY: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("MMMMd");
+pub const UDAT_MONTH_DAY: windows_sys::core::PCSTR = windows_sys::core::s!("MMMMd");
 pub const UDAT_MONTH_FIELD: UDateFormatField = 2i32;
-pub const UDAT_MONTH_WEEKDAY_DAY: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("MMMMEEEEd");
+pub const UDAT_MONTH_WEEKDAY_DAY: windows_sys::core::PCSTR = windows_sys::core::s!("MMMMEEEEd");
 pub const UDAT_NARROW_MONTHS: UDateFormatSymbolType = 8i32;
 pub const UDAT_NARROW_WEEKDAYS: UDateFormatSymbolType = 9i32;
 pub const UDAT_NONE: UDateFormatStyle = -1i32;
-pub const UDAT_NUM_MONTH: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("M");
-pub const UDAT_NUM_MONTH_DAY: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("Md");
-pub const UDAT_NUM_MONTH_WEEKDAY_DAY: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("MEd");
+pub const UDAT_NUM_MONTH: windows_sys::core::PCSTR = windows_sys::core::s!("M");
+pub const UDAT_NUM_MONTH_DAY: windows_sys::core::PCSTR = windows_sys::core::s!("Md");
+pub const UDAT_NUM_MONTH_WEEKDAY_DAY: windows_sys::core::PCSTR = windows_sys::core::s!("MEd");
 pub const UDAT_PARSE_ALLOW_NUMERIC: UDateFormatBooleanAttribute = 1i32;
 pub const UDAT_PARSE_ALLOW_WHITESPACE: UDateFormatBooleanAttribute = 0i32;
 pub const UDAT_PARSE_MULTIPLE_PATTERNS_FOR_MATCH: UDateFormatBooleanAttribute = 3i32;
 pub const UDAT_PARSE_PARTIAL_LITERAL_MATCH: UDateFormatBooleanAttribute = 2i32;
 pub const UDAT_PATTERN: UDateFormatStyle = -2i32;
-pub const UDAT_QUARTER: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("QQQQ");
+pub const UDAT_QUARTER: windows_sys::core::PCSTR = windows_sys::core::s!("QQQQ");
 pub const UDAT_QUARTERS: UDateFormatSymbolType = 16i32;
 pub const UDAT_QUARTER_FIELD: UDateFormatField = 27i32;
 pub const UDAT_RELATIVE: UDateFormatStyle = 128i32;
@@ -2799,7 +2799,7 @@ pub const UDAT_REL_UNIT_TUESDAY: URelativeDateTimeUnit = 10i32;
 pub const UDAT_REL_UNIT_WEDNESDAY: URelativeDateTimeUnit = 11i32;
 pub const UDAT_REL_UNIT_WEEK: URelativeDateTimeUnit = 3i32;
 pub const UDAT_REL_UNIT_YEAR: URelativeDateTimeUnit = 0i32;
-pub const UDAT_SECOND: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("s");
+pub const UDAT_SECOND: windows_sys::core::PCSTR = windows_sys::core::s!("s");
 pub const UDAT_SECOND_FIELD: UDateFormatField = 7i32;
 pub const UDAT_SHORT: UDateFormatStyle = 3i32;
 pub const UDAT_SHORTER_WEEKDAYS: UDateFormatSymbolType = 20i32;
@@ -2807,7 +2807,7 @@ pub const UDAT_SHORT_MONTHS: UDateFormatSymbolType = 2i32;
 pub const UDAT_SHORT_QUARTERS: UDateFormatSymbolType = 17i32;
 pub const UDAT_SHORT_RELATIVE: UDateFormatStyle = 131i32;
 pub const UDAT_SHORT_WEEKDAYS: UDateFormatSymbolType = 4i32;
-pub const UDAT_SPECIFIC_TZ: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("zzzz");
+pub const UDAT_SPECIFIC_TZ: windows_sys::core::PCSTR = windows_sys::core::s!("zzzz");
 pub const UDAT_STANDALONE_DAY_FIELD: UDateFormatField = 25i32;
 pub const UDAT_STANDALONE_MONTHS: UDateFormatSymbolType = 10i32;
 pub const UDAT_STANDALONE_MONTH_FIELD: UDateFormatField = 26i32;
@@ -2830,24 +2830,24 @@ pub const UDAT_TIMEZONE_ISO_LOCAL_FIELD: UDateFormatField = 33i32;
 pub const UDAT_TIMEZONE_LOCALIZED_GMT_OFFSET_FIELD: UDateFormatField = 31i32;
 pub const UDAT_TIMEZONE_RFC_FIELD: UDateFormatField = 23i32;
 pub const UDAT_TIMEZONE_SPECIAL_FIELD: UDateFormatField = 29i32;
-pub const UDAT_WEEKDAY: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("EEEE");
+pub const UDAT_WEEKDAY: windows_sys::core::PCSTR = windows_sys::core::s!("EEEE");
 pub const UDAT_WEEKDAYS: UDateFormatSymbolType = 3i32;
 pub const UDAT_WEEK_OF_MONTH_FIELD: UDateFormatField = 13i32;
 pub const UDAT_WEEK_OF_YEAR_FIELD: UDateFormatField = 12i32;
-pub const UDAT_YEAR: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("y");
-pub const UDAT_YEAR_ABBR_MONTH: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("yMMM");
-pub const UDAT_YEAR_ABBR_MONTH_DAY: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("yMMMd");
-pub const UDAT_YEAR_ABBR_MONTH_WEEKDAY_DAY: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("yMMMEd");
-pub const UDAT_YEAR_ABBR_QUARTER: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("yQQQ");
+pub const UDAT_YEAR: windows_sys::core::PCSTR = windows_sys::core::s!("y");
+pub const UDAT_YEAR_ABBR_MONTH: windows_sys::core::PCSTR = windows_sys::core::s!("yMMM");
+pub const UDAT_YEAR_ABBR_MONTH_DAY: windows_sys::core::PCSTR = windows_sys::core::s!("yMMMd");
+pub const UDAT_YEAR_ABBR_MONTH_WEEKDAY_DAY: windows_sys::core::PCSTR = windows_sys::core::s!("yMMMEd");
+pub const UDAT_YEAR_ABBR_QUARTER: windows_sys::core::PCSTR = windows_sys::core::s!("yQQQ");
 pub const UDAT_YEAR_FIELD: UDateFormatField = 1i32;
-pub const UDAT_YEAR_MONTH: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("yMMMM");
-pub const UDAT_YEAR_MONTH_DAY: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("yMMMMd");
-pub const UDAT_YEAR_MONTH_WEEKDAY_DAY: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("yMMMMEEEEd");
+pub const UDAT_YEAR_MONTH: windows_sys::core::PCSTR = windows_sys::core::s!("yMMMM");
+pub const UDAT_YEAR_MONTH_DAY: windows_sys::core::PCSTR = windows_sys::core::s!("yMMMMd");
+pub const UDAT_YEAR_MONTH_WEEKDAY_DAY: windows_sys::core::PCSTR = windows_sys::core::s!("yMMMMEEEEd");
 pub const UDAT_YEAR_NAME_FIELD: UDateFormatField = 30i32;
-pub const UDAT_YEAR_NUM_MONTH: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("yM");
-pub const UDAT_YEAR_NUM_MONTH_DAY: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("yMd");
-pub const UDAT_YEAR_NUM_MONTH_WEEKDAY_DAY: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("yMEd");
-pub const UDAT_YEAR_QUARTER: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("yQQQQ");
+pub const UDAT_YEAR_NUM_MONTH: windows_sys::core::PCSTR = windows_sys::core::s!("yM");
+pub const UDAT_YEAR_NUM_MONTH_DAY: windows_sys::core::PCSTR = windows_sys::core::s!("yMd");
+pub const UDAT_YEAR_NUM_MONTH_WEEKDAY_DAY: windows_sys::core::PCSTR = windows_sys::core::s!("yMEd");
+pub const UDAT_YEAR_QUARTER: windows_sys::core::PCSTR = windows_sys::core::s!("yQQQQ");
 pub const UDAT_YEAR_WOY_FIELD: UDateFormatField = 18i32;
 pub const UDAT_ZODIAC_NAMES_ABBREVIATED: UDateFormatSymbolType = 26i32;
 pub const UDAT_ZODIAC_NAMES_NARROW: UDateFormatSymbolType = 27i32;
@@ -2948,41 +2948,41 @@ pub const ULOC_ACTUAL_LOCALE: ULocDataLocaleType = 0i32;
 pub const ULOC_AVAILABLE_DEFAULT: ULocAvailableType = 0i32;
 pub const ULOC_AVAILABLE_ONLY_LEGACY_ALIASES: ULocAvailableType = 1i32;
 pub const ULOC_AVAILABLE_WITH_LEGACY_ALIASES: ULocAvailableType = 2i32;
-pub const ULOC_CANADA: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("en_CA");
-pub const ULOC_CANADA_FRENCH: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("fr_CA");
-pub const ULOC_CHINA: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("zh_CN");
-pub const ULOC_CHINESE: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("zh");
+pub const ULOC_CANADA: windows_sys::core::PCSTR = windows_sys::core::s!("en_CA");
+pub const ULOC_CANADA_FRENCH: windows_sys::core::PCSTR = windows_sys::core::s!("fr_CA");
+pub const ULOC_CHINA: windows_sys::core::PCSTR = windows_sys::core::s!("zh_CN");
+pub const ULOC_CHINESE: windows_sys::core::PCSTR = windows_sys::core::s!("zh");
 pub const ULOC_COUNTRY_CAPACITY: u32 = 4u32;
-pub const ULOC_ENGLISH: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("en");
-pub const ULOC_FRANCE: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("fr_FR");
-pub const ULOC_FRENCH: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("fr");
+pub const ULOC_ENGLISH: windows_sys::core::PCSTR = windows_sys::core::s!("en");
+pub const ULOC_FRANCE: windows_sys::core::PCSTR = windows_sys::core::s!("fr_FR");
+pub const ULOC_FRENCH: windows_sys::core::PCSTR = windows_sys::core::s!("fr");
 pub const ULOC_FULLNAME_CAPACITY: u32 = 157u32;
-pub const ULOC_GERMAN: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("de");
-pub const ULOC_GERMANY: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("de_DE");
-pub const ULOC_ITALIAN: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("it");
-pub const ULOC_ITALY: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("it_IT");
-pub const ULOC_JAPAN: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("ja_JP");
-pub const ULOC_JAPANESE: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("ja");
+pub const ULOC_GERMAN: windows_sys::core::PCSTR = windows_sys::core::s!("de");
+pub const ULOC_GERMANY: windows_sys::core::PCSTR = windows_sys::core::s!("de_DE");
+pub const ULOC_ITALIAN: windows_sys::core::PCSTR = windows_sys::core::s!("it");
+pub const ULOC_ITALY: windows_sys::core::PCSTR = windows_sys::core::s!("it_IT");
+pub const ULOC_JAPAN: windows_sys::core::PCSTR = windows_sys::core::s!("ja_JP");
+pub const ULOC_JAPANESE: windows_sys::core::PCSTR = windows_sys::core::s!("ja");
 pub const ULOC_KEYWORDS_CAPACITY: u32 = 96u32;
 pub const ULOC_KEYWORD_AND_VALUES_CAPACITY: u32 = 100u32;
 pub const ULOC_KEYWORD_ASSIGN_UNICODE: u32 = 61u32;
 pub const ULOC_KEYWORD_ITEM_SEPARATOR_UNICODE: u32 = 59u32;
 pub const ULOC_KEYWORD_SEPARATOR_UNICODE: u32 = 64u32;
-pub const ULOC_KOREA: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("ko_KR");
-pub const ULOC_KOREAN: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("ko");
+pub const ULOC_KOREA: windows_sys::core::PCSTR = windows_sys::core::s!("ko_KR");
+pub const ULOC_KOREAN: windows_sys::core::PCSTR = windows_sys::core::s!("ko");
 pub const ULOC_LANG_CAPACITY: u32 = 12u32;
 pub const ULOC_LAYOUT_BTT: ULayoutType = 3i32;
 pub const ULOC_LAYOUT_LTR: ULayoutType = 0i32;
 pub const ULOC_LAYOUT_RTL: ULayoutType = 1i32;
 pub const ULOC_LAYOUT_TTB: ULayoutType = 2i32;
 pub const ULOC_LAYOUT_UNKNOWN: ULayoutType = 4i32;
-pub const ULOC_PRC: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("zh_CN");
+pub const ULOC_PRC: windows_sys::core::PCSTR = windows_sys::core::s!("zh_CN");
 pub const ULOC_SCRIPT_CAPACITY: u32 = 6u32;
-pub const ULOC_SIMPLIFIED_CHINESE: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("zh_CN");
-pub const ULOC_TAIWAN: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("zh_TW");
-pub const ULOC_TRADITIONAL_CHINESE: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("zh_TW");
-pub const ULOC_UK: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("en_GB");
-pub const ULOC_US: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("en_US");
+pub const ULOC_SIMPLIFIED_CHINESE: windows_sys::core::PCSTR = windows_sys::core::s!("zh_CN");
+pub const ULOC_TAIWAN: windows_sys::core::PCSTR = windows_sys::core::s!("zh_TW");
+pub const ULOC_TRADITIONAL_CHINESE: windows_sys::core::PCSTR = windows_sys::core::s!("zh_TW");
+pub const ULOC_UK: windows_sys::core::PCSTR = windows_sys::core::s!("en_GB");
+pub const ULOC_US: windows_sys::core::PCSTR = windows_sys::core::s!("en_US");
 pub const ULOC_VALID_LOCALE: ULocDataLocaleType = 1i32;
 pub const UMEASFMT_WIDTH_COUNT: UMeasureFormatWidth = 4i32;
 pub const UMEASFMT_WIDTH_NARROW: UMeasureFormatWidth = 2i32;
@@ -3462,7 +3462,7 @@ pub const USPREP_RFC4013_SASLPREP: UStringPrepProfileType = 10i32;
 pub const USPREP_RFC4505_TRACE: UStringPrepProfileType = 11i32;
 pub const USPREP_RFC4518_LDAP: UStringPrepProfileType = 12i32;
 pub const USPREP_RFC4518_LDAP_CI: UStringPrepProfileType = 13i32;
-pub const USP_E_SCRIPT_NOT_IN_FONT: ::windows_sys::core::HRESULT = 0x80040200_u32 as _;
+pub const USP_E_SCRIPT_NOT_IN_FONT: windows_sys::core::HRESULT = 0x80040200_u32 as _;
 pub const USTRINGTRIE_BUILD_FAST: UStringTrieBuildOption = 0i32;
 pub const USTRINGTRIE_BUILD_SMALL: UStringTrieBuildOption = 1i32;
 pub const USTRINGTRIE_FINAL_VALUE: UStringTrieResult = 2i32;
@@ -3710,9 +3710,9 @@ pub const U_HST_LV_SYLLABLE: UHangulSyllableType = 4i32;
 pub const U_HST_NOT_APPLICABLE: UHangulSyllableType = 0i32;
 pub const U_HST_TRAILING_JAMO: UHangulSyllableType = 3i32;
 pub const U_HST_VOWEL_JAMO: UHangulSyllableType = 2i32;
-pub const U_ICUDATA_TYPE_LETTER: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("e");
-pub const U_ICU_DATA_KEY: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("DataVersion");
-pub const U_ICU_VERSION_BUNDLE: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("icuver");
+pub const U_ICUDATA_TYPE_LETTER: windows_sys::core::PCSTR = windows_sys::core::s!("e");
+pub const U_ICU_DATA_KEY: windows_sys::core::PCSTR = windows_sys::core::s!("DataVersion");
+pub const U_ICU_VERSION_BUNDLE: windows_sys::core::PCSTR = windows_sys::core::s!("icuver");
 pub const U_IDNA_ACE_PREFIX_ERROR: UErrorCode = 66564i32;
 pub const U_IDNA_CHECK_BIDI_ERROR: UErrorCode = 66562i32;
 pub const U_IDNA_DOMAIN_NAME_TOO_LONG_ERROR: UErrorCode = 66568i32;
@@ -3955,7 +3955,7 @@ pub const U_LEFT_TO_RIGHT_EMBEDDING: UCharDirection = 11i32;
 pub const U_LEFT_TO_RIGHT_ISOLATE: UCharDirection = 20i32;
 pub const U_LEFT_TO_RIGHT_OVERRIDE: UCharDirection = 12i32;
 pub const U_LETTER_NUMBER: UCharCategory = 10i32;
-pub const U_LIB_SUFFIX_C_NAME_STRING: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("");
+pub const U_LIB_SUFFIX_C_NAME_STRING: windows_sys::core::PCSTR = windows_sys::core::s!("");
 pub const U_LINE_SEPARATOR: UCharCategory = 13i32;
 pub const U_LONG_PROPERTY_NAME: UPropertyNameChoice = 1i32;
 pub const U_LOWERCASE_LETTER: UCharCategory = 2i32;
@@ -4179,7 +4179,7 @@ pub const U_UNDEFINED_SEGMENT_REFERENCE: UErrorCode = 65553i32;
 pub const U_UNDEFINED_VARIABLE: UErrorCode = 65554i32;
 pub const U_UNEXPECTED_TOKEN: UErrorCode = 65792i32;
 pub const U_UNICODE_CHAR_NAME: UCharNameChoice = 0i32;
-pub const U_UNICODE_VERSION: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("8.0");
+pub const U_UNICODE_VERSION: windows_sys::core::PCSTR = windows_sys::core::s!("8.0");
 pub const U_UNMATCHED_BRACES: UErrorCode = 65801i32;
 pub const U_UNQUOTED_SPECIAL: UErrorCode = 65555i32;
 pub const U_UNSUPPORTED_ATTRIBUTE: UErrorCode = 65803i32;
@@ -4458,8 +4458,8 @@ pub struct CALDATETIME {
     pub Second: u32,
     pub Tick: u32,
 }
-impl ::core::marker::Copy for CALDATETIME {}
-impl ::core::clone::Clone for CALDATETIME {
+impl Copy for CALDATETIME {}
+impl Clone for CALDATETIME {
     fn clone(&self) -> Self {
         *self
     }
@@ -4470,23 +4470,23 @@ pub struct CHARSETINFO {
     pub ciACP: u32,
     pub fs: FONTSIGNATURE,
 }
-impl ::core::marker::Copy for CHARSETINFO {}
-impl ::core::clone::Clone for CHARSETINFO {
+impl Copy for CHARSETINFO {}
+impl Clone for CHARSETINFO {
     fn clone(&self) -> Self {
         *self
     }
 }
-pub const CMLangConvertCharset: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xd66d6f99_cdaa_11d0_b822_00c04fc9b31f);
-pub const CMLangString: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xc04d65cf_b70d_11d0_b188_00aa0038c969);
-pub const CMultiLanguage: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x275c23e2_3747_11d0_9fea_00aa003f8646);
+pub const CMLangConvertCharset: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd66d6f99_cdaa_11d0_b822_00c04fc9b31f);
+pub const CMLangString: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc04d65cf_b70d_11d0_b188_00aa0038c969);
+pub const CMultiLanguage: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x275c23e2_3747_11d0_9fea_00aa003f8646);
 #[repr(C)]
 pub struct CPINFO {
     pub MaxCharSize: u32,
     pub DefaultChar: [u8; 2],
     pub LeadByte: [u8; 12],
 }
-impl ::core::marker::Copy for CPINFO {}
-impl ::core::clone::Clone for CPINFO {
+impl Copy for CPINFO {}
+impl Clone for CPINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -4500,8 +4500,8 @@ pub struct CPINFOEXA {
     pub CodePage: u32,
     pub CodePageName: [i8; 260],
 }
-impl ::core::marker::Copy for CPINFOEXA {}
-impl ::core::clone::Clone for CPINFOEXA {
+impl Copy for CPINFOEXA {}
+impl Clone for CPINFOEXA {
     fn clone(&self) -> Self {
         *self
     }
@@ -4515,8 +4515,8 @@ pub struct CPINFOEXW {
     pub CodePage: u32,
     pub CodePageName: [u16; 260],
 }
-impl ::core::marker::Copy for CPINFOEXW {}
-impl ::core::clone::Clone for CPINFOEXW {
+impl Copy for CPINFOEXW {}
+impl Clone for CPINFOEXW {
     fn clone(&self) -> Self {
         *self
     }
@@ -4526,14 +4526,14 @@ pub struct CURRENCYFMTA {
     pub NumDigits: u32,
     pub LeadingZero: u32,
     pub Grouping: u32,
-    pub lpDecimalSep: ::windows_sys::core::PSTR,
-    pub lpThousandSep: ::windows_sys::core::PSTR,
+    pub lpDecimalSep: windows_sys::core::PSTR,
+    pub lpThousandSep: windows_sys::core::PSTR,
     pub NegativeOrder: u32,
     pub PositiveOrder: u32,
-    pub lpCurrencySymbol: ::windows_sys::core::PSTR,
+    pub lpCurrencySymbol: windows_sys::core::PSTR,
 }
-impl ::core::marker::Copy for CURRENCYFMTA {}
-impl ::core::clone::Clone for CURRENCYFMTA {
+impl Copy for CURRENCYFMTA {}
+impl Clone for CURRENCYFMTA {
     fn clone(&self) -> Self {
         *self
     }
@@ -4543,14 +4543,14 @@ pub struct CURRENCYFMTW {
     pub NumDigits: u32,
     pub LeadingZero: u32,
     pub Grouping: u32,
-    pub lpDecimalSep: ::windows_sys::core::PWSTR,
-    pub lpThousandSep: ::windows_sys::core::PWSTR,
+    pub lpDecimalSep: windows_sys::core::PWSTR,
+    pub lpThousandSep: windows_sys::core::PWSTR,
     pub NegativeOrder: u32,
     pub PositiveOrder: u32,
-    pub lpCurrencySymbol: ::windows_sys::core::PWSTR,
+    pub lpCurrencySymbol: windows_sys::core::PWSTR,
 }
-impl ::core::marker::Copy for CURRENCYFMTW {}
-impl ::core::clone::Clone for CURRENCYFMTW {
+impl Copy for CURRENCYFMTW {}
+impl Clone for CURRENCYFMTW {
     fn clone(&self) -> Self {
         *self
     }
@@ -4562,8 +4562,8 @@ pub struct DetectEncodingInfo {
     pub nDocPercent: i32,
     pub nConfidence: i32,
 }
-impl ::core::marker::Copy for DetectEncodingInfo {}
-impl ::core::clone::Clone for DetectEncodingInfo {
+impl Copy for DetectEncodingInfo {}
+impl Clone for DetectEncodingInfo {
     fn clone(&self) -> Self {
         *self
     }
@@ -4575,9 +4575,9 @@ pub struct ENUMTEXTMETRICA {
     pub etmAxesList: super::Graphics::Gdi::AXESLISTA,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::marker::Copy for ENUMTEXTMETRICA {}
+impl Copy for ENUMTEXTMETRICA {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::clone::Clone for ENUMTEXTMETRICA {
+impl Clone for ENUMTEXTMETRICA {
     fn clone(&self) -> Self {
         *self
     }
@@ -4589,9 +4589,9 @@ pub struct ENUMTEXTMETRICW {
     pub etmAxesList: super::Graphics::Gdi::AXESLISTW,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::marker::Copy for ENUMTEXTMETRICW {}
+impl Copy for ENUMTEXTMETRICW {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::clone::Clone for ENUMTEXTMETRICW {
+impl Clone for ENUMTEXTMETRICW {
     fn clone(&self) -> Self {
         *self
     }
@@ -4612,8 +4612,8 @@ pub struct FILEMUIINFO {
     pub dwTypeNameMUIOffset: u32,
     pub abBuffer: [u8; 8],
 }
-impl ::core::marker::Copy for FILEMUIINFO {}
-impl ::core::clone::Clone for FILEMUIINFO {
+impl Copy for FILEMUIINFO {}
+impl Clone for FILEMUIINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -4623,8 +4623,8 @@ pub struct FONTSIGNATURE {
     pub fsUsb: [u32; 4],
     pub fsCsb: [u32; 2],
 }
-impl ::core::marker::Copy for FONTSIGNATURE {}
-impl ::core::clone::Clone for FONTSIGNATURE {
+impl Copy for FONTSIGNATURE {}
+impl Clone for FONTSIGNATURE {
     fn clone(&self) -> Self {
         *self
     }
@@ -4634,8 +4634,8 @@ pub struct GOFFSET {
     pub du: i32,
     pub dv: i32,
 }
-impl ::core::marker::Copy for GOFFSET {}
-impl ::core::clone::Clone for GOFFSET {
+impl Copy for GOFFSET {}
+impl Clone for GOFFSET {
     fn clone(&self) -> Self {
         *self
     }
@@ -4649,8 +4649,8 @@ pub struct LOCALESIGNATURE {
     pub lsCsbDefault: [u32; 2],
     pub lsCsbSupported: [u32; 2],
 }
-impl ::core::marker::Copy for LOCALESIGNATURE {}
-impl ::core::clone::Clone for LOCALESIGNATURE {
+impl Copy for LOCALESIGNATURE {}
+impl Clone for LOCALESIGNATURE {
     fn clone(&self) -> Self {
         *self
     }
@@ -4659,17 +4659,17 @@ impl ::core::clone::Clone for LOCALESIGNATURE {
 pub struct MAPPING_DATA_RANGE {
     pub dwStartIndex: u32,
     pub dwEndIndex: u32,
-    pub pszDescription: ::windows_sys::core::PWSTR,
+    pub pszDescription: windows_sys::core::PWSTR,
     pub dwDescriptionLength: u32,
-    pub pData: *mut ::core::ffi::c_void,
+    pub pData: *mut core::ffi::c_void,
     pub dwDataSize: u32,
-    pub pszContentType: ::windows_sys::core::PWSTR,
-    pub prgActionIds: *mut ::windows_sys::core::PWSTR,
+    pub pszContentType: windows_sys::core::PWSTR,
+    pub prgActionIds: *mut windows_sys::core::PWSTR,
     pub dwActionsCount: u32,
-    pub prgActionDisplayNames: *mut ::windows_sys::core::PWSTR,
+    pub prgActionDisplayNames: *mut windows_sys::core::PWSTR,
 }
-impl ::core::marker::Copy for MAPPING_DATA_RANGE {}
-impl ::core::clone::Clone for MAPPING_DATA_RANGE {
+impl Copy for MAPPING_DATA_RANGE {}
+impl Clone for MAPPING_DATA_RANGE {
     fn clone(&self) -> Self {
         *self
     }
@@ -4677,18 +4677,18 @@ impl ::core::clone::Clone for MAPPING_DATA_RANGE {
 #[repr(C)]
 pub struct MAPPING_ENUM_OPTIONS {
     pub Size: usize,
-    pub pszCategory: ::windows_sys::core::PWSTR,
-    pub pszInputLanguage: ::windows_sys::core::PWSTR,
-    pub pszOutputLanguage: ::windows_sys::core::PWSTR,
-    pub pszInputScript: ::windows_sys::core::PWSTR,
-    pub pszOutputScript: ::windows_sys::core::PWSTR,
-    pub pszInputContentType: ::windows_sys::core::PWSTR,
-    pub pszOutputContentType: ::windows_sys::core::PWSTR,
-    pub pGuid: *mut ::windows_sys::core::GUID,
+    pub pszCategory: windows_sys::core::PWSTR,
+    pub pszInputLanguage: windows_sys::core::PWSTR,
+    pub pszOutputLanguage: windows_sys::core::PWSTR,
+    pub pszInputScript: windows_sys::core::PWSTR,
+    pub pszOutputScript: windows_sys::core::PWSTR,
+    pub pszInputContentType: windows_sys::core::PWSTR,
+    pub pszOutputContentType: windows_sys::core::PWSTR,
+    pub pGuid: *mut windows_sys::core::GUID,
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for MAPPING_ENUM_OPTIONS {}
-impl ::core::clone::Clone for MAPPING_ENUM_OPTIONS {
+impl Copy for MAPPING_ENUM_OPTIONS {}
+impl Clone for MAPPING_ENUM_OPTIONS {
     fn clone(&self) -> Self {
         *self
     }
@@ -4696,24 +4696,24 @@ impl ::core::clone::Clone for MAPPING_ENUM_OPTIONS {
 #[repr(C)]
 pub struct MAPPING_OPTIONS {
     pub Size: usize,
-    pub pszInputLanguage: ::windows_sys::core::PWSTR,
-    pub pszOutputLanguage: ::windows_sys::core::PWSTR,
-    pub pszInputScript: ::windows_sys::core::PWSTR,
-    pub pszOutputScript: ::windows_sys::core::PWSTR,
-    pub pszInputContentType: ::windows_sys::core::PWSTR,
-    pub pszOutputContentType: ::windows_sys::core::PWSTR,
-    pub pszUILanguage: ::windows_sys::core::PWSTR,
+    pub pszInputLanguage: windows_sys::core::PWSTR,
+    pub pszOutputLanguage: windows_sys::core::PWSTR,
+    pub pszInputScript: windows_sys::core::PWSTR,
+    pub pszOutputScript: windows_sys::core::PWSTR,
+    pub pszInputContentType: windows_sys::core::PWSTR,
+    pub pszOutputContentType: windows_sys::core::PWSTR,
+    pub pszUILanguage: windows_sys::core::PWSTR,
     pub pfnRecognizeCallback: PFN_MAPPINGCALLBACKPROC,
-    pub pRecognizeCallerData: *mut ::core::ffi::c_void,
+    pub pRecognizeCallerData: *mut core::ffi::c_void,
     pub dwRecognizeCallerDataSize: u32,
     pub pfnActionCallback: PFN_MAPPINGCALLBACKPROC,
-    pub pActionCallerData: *mut ::core::ffi::c_void,
+    pub pActionCallerData: *mut core::ffi::c_void,
     pub dwActionCallerDataSize: u32,
     pub dwServiceFlag: u32,
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for MAPPING_OPTIONS {}
-impl ::core::clone::Clone for MAPPING_OPTIONS {
+impl Copy for MAPPING_OPTIONS {}
+impl Clone for MAPPING_OPTIONS {
     fn clone(&self) -> Self {
         *self
     }
@@ -4723,14 +4723,14 @@ pub struct MAPPING_PROPERTY_BAG {
     pub Size: usize,
     pub prgResultRanges: *mut MAPPING_DATA_RANGE,
     pub dwRangesCount: u32,
-    pub pServiceData: *mut ::core::ffi::c_void,
+    pub pServiceData: *mut core::ffi::c_void,
     pub dwServiceDataSize: u32,
-    pub pCallerData: *mut ::core::ffi::c_void,
+    pub pCallerData: *mut core::ffi::c_void,
     pub dwCallerDataSize: u32,
-    pub pContext: *mut ::core::ffi::c_void,
+    pub pContext: *mut core::ffi::c_void,
 }
-impl ::core::marker::Copy for MAPPING_PROPERTY_BAG {}
-impl ::core::clone::Clone for MAPPING_PROPERTY_BAG {
+impl Copy for MAPPING_PROPERTY_BAG {}
+impl Clone for MAPPING_PROPERTY_BAG {
     fn clone(&self) -> Self {
         *self
     }
@@ -4738,33 +4738,33 @@ impl ::core::clone::Clone for MAPPING_PROPERTY_BAG {
 #[repr(C)]
 pub struct MAPPING_SERVICE_INFO {
     pub Size: usize,
-    pub pszCopyright: ::windows_sys::core::PWSTR,
+    pub pszCopyright: windows_sys::core::PWSTR,
     pub wMajorVersion: u16,
     pub wMinorVersion: u16,
     pub wBuildVersion: u16,
     pub wStepVersion: u16,
     pub dwInputContentTypesCount: u32,
-    pub prgInputContentTypes: *mut ::windows_sys::core::PWSTR,
+    pub prgInputContentTypes: *mut windows_sys::core::PWSTR,
     pub dwOutputContentTypesCount: u32,
-    pub prgOutputContentTypes: *mut ::windows_sys::core::PWSTR,
+    pub prgOutputContentTypes: *mut windows_sys::core::PWSTR,
     pub dwInputLanguagesCount: u32,
-    pub prgInputLanguages: *mut ::windows_sys::core::PWSTR,
+    pub prgInputLanguages: *mut windows_sys::core::PWSTR,
     pub dwOutputLanguagesCount: u32,
-    pub prgOutputLanguages: *mut ::windows_sys::core::PWSTR,
+    pub prgOutputLanguages: *mut windows_sys::core::PWSTR,
     pub dwInputScriptsCount: u32,
-    pub prgInputScripts: *mut ::windows_sys::core::PWSTR,
+    pub prgInputScripts: *mut windows_sys::core::PWSTR,
     pub dwOutputScriptsCount: u32,
-    pub prgOutputScripts: *mut ::windows_sys::core::PWSTR,
-    pub guid: ::windows_sys::core::GUID,
-    pub pszCategory: ::windows_sys::core::PWSTR,
-    pub pszDescription: ::windows_sys::core::PWSTR,
+    pub prgOutputScripts: *mut windows_sys::core::PWSTR,
+    pub guid: windows_sys::core::GUID,
+    pub pszCategory: windows_sys::core::PWSTR,
+    pub pszDescription: windows_sys::core::PWSTR,
     pub dwPrivateDataSize: u32,
-    pub pPrivateData: *mut ::core::ffi::c_void,
-    pub pContext: *mut ::core::ffi::c_void,
+    pub pPrivateData: *mut core::ffi::c_void,
+    pub pContext: *mut core::ffi::c_void,
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for MAPPING_SERVICE_INFO {}
-impl ::core::clone::Clone for MAPPING_SERVICE_INFO {
+impl Copy for MAPPING_SERVICE_INFO {}
+impl Clone for MAPPING_SERVICE_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -4782,8 +4782,8 @@ pub struct MIMECPINFO {
     pub wszProportionalFont: [u16; 32],
     pub bGDICharset: u8,
 }
-impl ::core::marker::Copy for MIMECPINFO {}
-impl ::core::clone::Clone for MIMECPINFO {
+impl Copy for MIMECPINFO {}
+impl Clone for MIMECPINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -4794,8 +4794,8 @@ pub struct MIMECSETINFO {
     pub uiInternetEncoding: u32,
     pub wszCharset: [u16; 50],
 }
-impl ::core::marker::Copy for MIMECSETINFO {}
-impl ::core::clone::Clone for MIMECSETINFO {
+impl Copy for MIMECSETINFO {}
+impl Clone for MIMECSETINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -4807,9 +4807,9 @@ pub struct NEWTEXTMETRICEXA {
     pub ntmFontSig: FONTSIGNATURE,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::marker::Copy for NEWTEXTMETRICEXA {}
+impl Copy for NEWTEXTMETRICEXA {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::clone::Clone for NEWTEXTMETRICEXA {
+impl Clone for NEWTEXTMETRICEXA {
     fn clone(&self) -> Self {
         *self
     }
@@ -4821,9 +4821,9 @@ pub struct NEWTEXTMETRICEXW {
     pub ntmFontSig: FONTSIGNATURE,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::marker::Copy for NEWTEXTMETRICEXW {}
+impl Copy for NEWTEXTMETRICEXW {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::clone::Clone for NEWTEXTMETRICEXW {
+impl Clone for NEWTEXTMETRICEXW {
     fn clone(&self) -> Self {
         *self
     }
@@ -4834,10 +4834,10 @@ pub struct NLSVERSIONINFO {
     pub dwNLSVersion: u32,
     pub dwDefinedVersion: u32,
     pub dwEffectiveId: u32,
-    pub guidCustomVersion: ::windows_sys::core::GUID,
+    pub guidCustomVersion: windows_sys::core::GUID,
 }
-impl ::core::marker::Copy for NLSVERSIONINFO {}
-impl ::core::clone::Clone for NLSVERSIONINFO {
+impl Copy for NLSVERSIONINFO {}
+impl Clone for NLSVERSIONINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -4848,10 +4848,10 @@ pub struct NLSVERSIONINFOEX {
     pub dwNLSVersion: u32,
     pub dwDefinedVersion: u32,
     pub dwEffectiveId: u32,
-    pub guidCustomVersion: ::windows_sys::core::GUID,
+    pub guidCustomVersion: windows_sys::core::GUID,
 }
-impl ::core::marker::Copy for NLSVERSIONINFOEX {}
-impl ::core::clone::Clone for NLSVERSIONINFOEX {
+impl Copy for NLSVERSIONINFOEX {}
+impl Clone for NLSVERSIONINFOEX {
     fn clone(&self) -> Self {
         *self
     }
@@ -4861,12 +4861,12 @@ pub struct NUMBERFMTA {
     pub NumDigits: u32,
     pub LeadingZero: u32,
     pub Grouping: u32,
-    pub lpDecimalSep: ::windows_sys::core::PSTR,
-    pub lpThousandSep: ::windows_sys::core::PSTR,
+    pub lpDecimalSep: windows_sys::core::PSTR,
+    pub lpThousandSep: windows_sys::core::PSTR,
     pub NegativeOrder: u32,
 }
-impl ::core::marker::Copy for NUMBERFMTA {}
-impl ::core::clone::Clone for NUMBERFMTA {
+impl Copy for NUMBERFMTA {}
+impl Clone for NUMBERFMTA {
     fn clone(&self) -> Self {
         *self
     }
@@ -4876,12 +4876,12 @@ pub struct NUMBERFMTW {
     pub NumDigits: u32,
     pub LeadingZero: u32,
     pub Grouping: u32,
-    pub lpDecimalSep: ::windows_sys::core::PWSTR,
-    pub lpThousandSep: ::windows_sys::core::PWSTR,
+    pub lpDecimalSep: windows_sys::core::PWSTR,
+    pub lpThousandSep: windows_sys::core::PWSTR,
     pub NegativeOrder: u32,
 }
-impl ::core::marker::Copy for NUMBERFMTW {}
-impl ::core::clone::Clone for NUMBERFMTW {
+impl Copy for NUMBERFMTW {}
+impl Clone for NUMBERFMTW {
     fn clone(&self) -> Self {
         *self
     }
@@ -4891,8 +4891,8 @@ pub struct OPENTYPE_FEATURE_RECORD {
     pub tagFeature: u32,
     pub lParameter: i32,
 }
-impl ::core::marker::Copy for OPENTYPE_FEATURE_RECORD {}
-impl ::core::clone::Clone for OPENTYPE_FEATURE_RECORD {
+impl Copy for OPENTYPE_FEATURE_RECORD {}
+impl Clone for OPENTYPE_FEATURE_RECORD {
     fn clone(&self) -> Self {
         *self
     }
@@ -4903,8 +4903,8 @@ pub struct RFC1766INFO {
     pub wszRfc1766: [u16; 6],
     pub wszLocaleName: [u16; 32],
 }
-impl ::core::marker::Copy for RFC1766INFO {}
-impl ::core::clone::Clone for RFC1766INFO {
+impl Copy for RFC1766INFO {}
+impl Clone for RFC1766INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -4914,8 +4914,8 @@ pub struct SCRIPTFONTINFO {
     pub scripts: i64,
     pub wszFont: [u16; 32],
 }
-impl ::core::marker::Copy for SCRIPTFONTINFO {}
-impl ::core::clone::Clone for SCRIPTFONTINFO {
+impl Copy for SCRIPTFONTINFO {}
+impl Clone for SCRIPTFONTINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -4928,8 +4928,8 @@ pub struct SCRIPTINFO {
     pub wszFixedWidthFont: [u16; 32],
     pub wszProportionalFont: [u16; 32],
 }
-impl ::core::marker::Copy for SCRIPTINFO {}
-impl ::core::clone::Clone for SCRIPTINFO {
+impl Copy for SCRIPTINFO {}
+impl Clone for SCRIPTINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -4939,8 +4939,8 @@ pub struct SCRIPT_ANALYSIS {
     pub _bitfield: u16,
     pub s: SCRIPT_STATE,
 }
-impl ::core::marker::Copy for SCRIPT_ANALYSIS {}
-impl ::core::clone::Clone for SCRIPT_ANALYSIS {
+impl Copy for SCRIPT_ANALYSIS {}
+impl Clone for SCRIPT_ANALYSIS {
     fn clone(&self) -> Self {
         *self
     }
@@ -4949,8 +4949,8 @@ impl ::core::clone::Clone for SCRIPT_ANALYSIS {
 pub struct SCRIPT_CHARPROP {
     pub _bitfield: u16,
 }
-impl ::core::marker::Copy for SCRIPT_CHARPROP {}
-impl ::core::clone::Clone for SCRIPT_CHARPROP {
+impl Copy for SCRIPT_CHARPROP {}
+impl Clone for SCRIPT_CHARPROP {
     fn clone(&self) -> Self {
         *self
     }
@@ -4959,8 +4959,8 @@ impl ::core::clone::Clone for SCRIPT_CHARPROP {
 pub struct SCRIPT_CONTROL {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for SCRIPT_CONTROL {}
-impl ::core::clone::Clone for SCRIPT_CONTROL {
+impl Copy for SCRIPT_CONTROL {}
+impl Clone for SCRIPT_CONTROL {
     fn clone(&self) -> Self {
         *self
     }
@@ -4971,8 +4971,8 @@ pub struct SCRIPT_DIGITSUBSTITUTE {
     pub _bitfield2: u32,
     pub dwReserved: u32,
 }
-impl ::core::marker::Copy for SCRIPT_DIGITSUBSTITUTE {}
-impl ::core::clone::Clone for SCRIPT_DIGITSUBSTITUTE {
+impl Copy for SCRIPT_DIGITSUBSTITUTE {}
+impl Clone for SCRIPT_DIGITSUBSTITUTE {
     fn clone(&self) -> Self {
         *self
     }
@@ -4986,8 +4986,8 @@ pub struct SCRIPT_FONTPROPERTIES {
     pub wgKashida: u16,
     pub iKashidaWidth: i32,
 }
-impl ::core::marker::Copy for SCRIPT_FONTPROPERTIES {}
-impl ::core::clone::Clone for SCRIPT_FONTPROPERTIES {
+impl Copy for SCRIPT_FONTPROPERTIES {}
+impl Clone for SCRIPT_FONTPROPERTIES {
     fn clone(&self) -> Self {
         *self
     }
@@ -4997,8 +4997,8 @@ pub struct SCRIPT_GLYPHPROP {
     pub sva: SCRIPT_VISATTR,
     pub reserved: u16,
 }
-impl ::core::marker::Copy for SCRIPT_GLYPHPROP {}
-impl ::core::clone::Clone for SCRIPT_GLYPHPROP {
+impl Copy for SCRIPT_GLYPHPROP {}
+impl Clone for SCRIPT_GLYPHPROP {
     fn clone(&self) -> Self {
         *self
     }
@@ -5008,8 +5008,8 @@ pub struct SCRIPT_ITEM {
     pub iCharPos: i32,
     pub a: SCRIPT_ANALYSIS,
 }
-impl ::core::marker::Copy for SCRIPT_ITEM {}
-impl ::core::clone::Clone for SCRIPT_ITEM {
+impl Copy for SCRIPT_ITEM {}
+impl Clone for SCRIPT_ITEM {
     fn clone(&self) -> Self {
         *self
     }
@@ -5018,8 +5018,8 @@ impl ::core::clone::Clone for SCRIPT_ITEM {
 pub struct SCRIPT_LOGATTR {
     pub _bitfield: u8,
 }
-impl ::core::marker::Copy for SCRIPT_LOGATTR {}
-impl ::core::clone::Clone for SCRIPT_LOGATTR {
+impl Copy for SCRIPT_LOGATTR {}
+impl Clone for SCRIPT_LOGATTR {
     fn clone(&self) -> Self {
         *self
     }
@@ -5029,8 +5029,8 @@ pub struct SCRIPT_PROPERTIES {
     pub _bitfield1: u32,
     pub _bitfield2: u32,
 }
-impl ::core::marker::Copy for SCRIPT_PROPERTIES {}
-impl ::core::clone::Clone for SCRIPT_PROPERTIES {
+impl Copy for SCRIPT_PROPERTIES {}
+impl Clone for SCRIPT_PROPERTIES {
     fn clone(&self) -> Self {
         *self
     }
@@ -5039,8 +5039,8 @@ impl ::core::clone::Clone for SCRIPT_PROPERTIES {
 pub struct SCRIPT_STATE {
     pub _bitfield: u16,
 }
-impl ::core::marker::Copy for SCRIPT_STATE {}
-impl ::core::clone::Clone for SCRIPT_STATE {
+impl Copy for SCRIPT_STATE {}
+impl Clone for SCRIPT_STATE {
     fn clone(&self) -> Self {
         *self
     }
@@ -5052,8 +5052,8 @@ pub struct SCRIPT_TABDEF {
     pub pTabStops: *mut i32,
     pub iTabOrigin: i32,
 }
-impl ::core::marker::Copy for SCRIPT_TABDEF {}
-impl ::core::clone::Clone for SCRIPT_TABDEF {
+impl Copy for SCRIPT_TABDEF {}
+impl Clone for SCRIPT_TABDEF {
     fn clone(&self) -> Self {
         *self
     }
@@ -5062,20 +5062,20 @@ impl ::core::clone::Clone for SCRIPT_TABDEF {
 pub struct SCRIPT_VISATTR {
     pub _bitfield: u16,
 }
-impl ::core::marker::Copy for SCRIPT_VISATTR {}
-impl ::core::clone::Clone for SCRIPT_VISATTR {
+impl Copy for SCRIPT_VISATTR {}
+impl Clone for SCRIPT_VISATTR {
     fn clone(&self) -> Self {
         *self
     }
 }
-pub const SpellCheckerFactory: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x7ab36653_1796_484b_bdfa_e74f1db7c1dc);
+pub const SpellCheckerFactory: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7ab36653_1796_484b_bdfa_e74f1db7c1dc);
 #[repr(C)]
 pub struct TEXTRANGE_PROPERTIES {
     pub potfRecords: *mut OPENTYPE_FEATURE_RECORD,
     pub cotfRecords: i32,
 }
-impl ::core::marker::Copy for TEXTRANGE_PROPERTIES {}
-impl ::core::clone::Clone for TEXTRANGE_PROPERTIES {
+impl Copy for TEXTRANGE_PROPERTIES {}
+impl Clone for TEXTRANGE_PROPERTIES {
     fn clone(&self) -> Self {
         *self
     }
@@ -5100,21 +5100,21 @@ pub struct UCPTrie {
     pub dataNullOffset: i32,
     pub nullValue: u32,
 }
-impl ::core::marker::Copy for UCPTrie {}
-impl ::core::clone::Clone for UCPTrie {
+impl Copy for UCPTrie {}
+impl Clone for UCPTrie {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub union UCPTrieData {
-    pub ptr0: *const ::core::ffi::c_void,
+    pub ptr0: *const core::ffi::c_void,
     pub ptr16: *const u16,
     pub ptr32: *const u32,
     pub ptr8: *const u8,
 }
-impl ::core::marker::Copy for UCPTrieData {}
-impl ::core::clone::Clone for UCPTrieData {
+impl Copy for UCPTrieData {}
+impl Clone for UCPTrieData {
     fn clone(&self) -> Self {
         *self
     }
@@ -5122,7 +5122,7 @@ impl ::core::clone::Clone for UCPTrieData {
 pub type UCaseMap = isize;
 #[repr(C)]
 pub struct UCharIterator {
-    pub context: *const ::core::ffi::c_void,
+    pub context: *const core::ffi::c_void,
     pub length: i32,
     pub start: i32,
     pub index: i32,
@@ -5139,8 +5139,8 @@ pub struct UCharIterator {
     pub getState: UCharIteratorGetState,
     pub setState: UCharIteratorSetState,
 }
-impl ::core::marker::Copy for UCharIterator {}
-impl ::core::clone::Clone for UCharIterator {
+impl Copy for UCharIterator {}
+impl Clone for UCharIterator {
     fn clone(&self) -> Self {
         *self
     }
@@ -5158,12 +5158,12 @@ pub struct UConverterFromUnicodeArgs {
     pub converter: *mut UConverter,
     pub source: *const u16,
     pub sourceLimit: *const u16,
-    pub target: ::windows_sys::core::PSTR,
-    pub targetLimit: ::windows_sys::core::PCSTR,
+    pub target: windows_sys::core::PSTR,
+    pub targetLimit: windows_sys::core::PCSTR,
     pub offsets: *mut i32,
 }
-impl ::core::marker::Copy for UConverterFromUnicodeArgs {}
-impl ::core::clone::Clone for UConverterFromUnicodeArgs {
+impl Copy for UConverterFromUnicodeArgs {}
+impl Clone for UConverterFromUnicodeArgs {
     fn clone(&self) -> Self {
         *self
     }
@@ -5174,14 +5174,14 @@ pub struct UConverterToUnicodeArgs {
     pub size: u16,
     pub flush: i8,
     pub converter: *mut UConverter,
-    pub source: ::windows_sys::core::PCSTR,
-    pub sourceLimit: ::windows_sys::core::PCSTR,
+    pub source: windows_sys::core::PCSTR,
+    pub sourceLimit: windows_sys::core::PCSTR,
     pub target: *mut u16,
     pub targetLimit: *const u16,
     pub offsets: *mut i32,
 }
-impl ::core::marker::Copy for UConverterToUnicodeArgs {}
-impl ::core::clone::Clone for UConverterToUnicodeArgs {
+impl Copy for UConverterToUnicodeArgs {}
+impl Clone for UConverterToUnicodeArgs {
     fn clone(&self) -> Self {
         *self
     }
@@ -5195,8 +5195,8 @@ pub struct UFieldPosition {
     pub beginIndex: i32,
     pub endIndex: i32,
 }
-impl ::core::marker::Copy for UFieldPosition {}
-impl ::core::clone::Clone for UFieldPosition {
+impl Copy for UFieldPosition {}
+impl Clone for UFieldPosition {
     fn clone(&self) -> Self {
         *self
     }
@@ -5220,8 +5220,8 @@ pub struct UIDNAInfo {
     pub reservedI2: i32,
     pub reservedI3: i32,
 }
-impl ::core::marker::Copy for UIDNAInfo {}
-impl ::core::clone::Clone for UIDNAInfo {
+impl Copy for UIDNAInfo {}
+impl Clone for UIDNAInfo {
     fn clone(&self) -> Self {
         *self
     }
@@ -5235,8 +5235,8 @@ pub struct UNICODERANGE {
     pub wcFrom: u16,
     pub wcTo: u16,
 }
-impl ::core::marker::Copy for UNICODERANGE {}
-impl ::core::clone::Clone for UNICODERANGE {
+impl Copy for UNICODERANGE {}
+impl Clone for UNICODERANGE {
     fn clone(&self) -> Self {
         *self
     }
@@ -5251,8 +5251,8 @@ pub struct UParseError {
     pub preContext: [u16; 16],
     pub postContext: [u16; 16],
 }
-impl ::core::marker::Copy for UParseError {}
-impl ::core::clone::Clone for UParseError {
+impl Copy for UParseError {}
+impl Clone for UParseError {
     fn clone(&self) -> Self {
         *self
     }
@@ -5270,8 +5270,8 @@ pub struct UReplaceableCallbacks {
     pub extract: isize,
     pub copy: isize,
 }
-impl ::core::marker::Copy for UReplaceableCallbacks {}
-impl ::core::clone::Clone for UReplaceableCallbacks {
+impl Copy for UReplaceableCallbacks {}
+impl Clone for UReplaceableCallbacks {
     fn clone(&self) -> Self {
         *self
     }
@@ -5285,8 +5285,8 @@ pub struct USerializedSet {
     pub length: i32,
     pub staticArray: [u16; 8],
 }
-impl ::core::marker::Copy for USerializedSet {}
-impl ::core::clone::Clone for USerializedSet {
+impl Copy for USerializedSet {}
+impl Clone for USerializedSet {
     fn clone(&self) -> Self {
         *self
     }
@@ -5310,12 +5310,12 @@ pub struct UText {
     pub chunkLength: i32,
     pub chunkContents: *const u16,
     pub pFuncs: *const UTextFuncs,
-    pub pExtra: *mut ::core::ffi::c_void,
-    pub context: *const ::core::ffi::c_void,
-    pub p: *const ::core::ffi::c_void,
-    pub q: *const ::core::ffi::c_void,
-    pub r: *const ::core::ffi::c_void,
-    pub privP: *mut ::core::ffi::c_void,
+    pub pExtra: *mut core::ffi::c_void,
+    pub context: *const core::ffi::c_void,
+    pub p: *const core::ffi::c_void,
+    pub q: *const core::ffi::c_void,
+    pub r: *const core::ffi::c_void,
+    pub privP: *mut core::ffi::c_void,
     pub a: i64,
     pub b: i32,
     pub c: i32,
@@ -5323,8 +5323,8 @@ pub struct UText {
     pub privB: i32,
     pub privC: i32,
 }
-impl ::core::marker::Copy for UText {}
-impl ::core::clone::Clone for UText {
+impl Copy for UText {}
+impl Clone for UText {
     fn clone(&self) -> Self {
         *self
     }
@@ -5348,8 +5348,8 @@ pub struct UTextFuncs {
     pub spare2: UTextClose,
     pub spare3: UTextClose,
 }
-impl ::core::marker::Copy for UTextFuncs {}
-impl ::core::clone::Clone for UTextFuncs {
+impl Copy for UTextFuncs {}
+impl Clone for UTextFuncs {
     fn clone(&self) -> Self {
         *self
     }
@@ -5361,71 +5361,71 @@ pub struct UTransPosition {
     pub start: i32,
     pub limit: i32,
 }
-impl ::core::marker::Copy for UTransPosition {}
-impl ::core::clone::Clone for UTransPosition {
+impl Copy for UTransPosition {}
+impl Clone for UTransPosition {
     fn clone(&self) -> Self {
         *self
     }
 }
-pub type CALINFO_ENUMPROCA = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_sys::core::PCSTR) -> super::Foundation::BOOL>;
-pub type CALINFO_ENUMPROCEXA = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_sys::core::PCSTR, param1: u32) -> super::Foundation::BOOL>;
-pub type CALINFO_ENUMPROCEXEX = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_sys::core::PCWSTR, param1: u32, param2: ::windows_sys::core::PCWSTR, param3: super::Foundation::LPARAM) -> super::Foundation::BOOL>;
-pub type CALINFO_ENUMPROCEXW = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_sys::core::PCWSTR, param1: u32) -> super::Foundation::BOOL>;
-pub type CALINFO_ENUMPROCW = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_sys::core::PCWSTR) -> super::Foundation::BOOL>;
-pub type CODEPAGE_ENUMPROCA = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_sys::core::PCSTR) -> super::Foundation::BOOL>;
-pub type CODEPAGE_ENUMPROCW = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_sys::core::PCWSTR) -> super::Foundation::BOOL>;
-pub type DATEFMT_ENUMPROCA = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_sys::core::PCSTR) -> super::Foundation::BOOL>;
-pub type DATEFMT_ENUMPROCEXA = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_sys::core::PCSTR, param1: u32) -> super::Foundation::BOOL>;
-pub type DATEFMT_ENUMPROCEXEX = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_sys::core::PCWSTR, param1: u32, param2: super::Foundation::LPARAM) -> super::Foundation::BOOL>;
-pub type DATEFMT_ENUMPROCEXW = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_sys::core::PCWSTR, param1: u32) -> super::Foundation::BOOL>;
-pub type DATEFMT_ENUMPROCW = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_sys::core::PCWSTR) -> super::Foundation::BOOL>;
-pub type GEO_ENUMNAMEPROC = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_sys::core::PCWSTR, param1: super::Foundation::LPARAM) -> super::Foundation::BOOL>;
-pub type GEO_ENUMPROC = ::core::option::Option<unsafe extern "system" fn(param0: i32) -> super::Foundation::BOOL>;
-pub type LANGGROUPLOCALE_ENUMPROCA = ::core::option::Option<unsafe extern "system" fn(param0: u32, param1: u32, param2: ::windows_sys::core::PCSTR, param3: isize) -> super::Foundation::BOOL>;
-pub type LANGGROUPLOCALE_ENUMPROCW = ::core::option::Option<unsafe extern "system" fn(param0: u32, param1: u32, param2: ::windows_sys::core::PCWSTR, param3: isize) -> super::Foundation::BOOL>;
-pub type LANGUAGEGROUP_ENUMPROCA = ::core::option::Option<unsafe extern "system" fn(param0: u32, param1: ::windows_sys::core::PCSTR, param2: ::windows_sys::core::PCSTR, param3: u32, param4: isize) -> super::Foundation::BOOL>;
-pub type LANGUAGEGROUP_ENUMPROCW = ::core::option::Option<unsafe extern "system" fn(param0: u32, param1: ::windows_sys::core::PCWSTR, param2: ::windows_sys::core::PCWSTR, param3: u32, param4: isize) -> super::Foundation::BOOL>;
-pub type LOCALE_ENUMPROCA = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_sys::core::PCSTR) -> super::Foundation::BOOL>;
-pub type LOCALE_ENUMPROCEX = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_sys::core::PCWSTR, param1: u32, param2: super::Foundation::LPARAM) -> super::Foundation::BOOL>;
-pub type LOCALE_ENUMPROCW = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_sys::core::PCWSTR) -> super::Foundation::BOOL>;
-pub type PFN_MAPPINGCALLBACKPROC = ::core::option::Option<unsafe extern "system" fn(pbag: *mut MAPPING_PROPERTY_BAG, data: *mut ::core::ffi::c_void, dwdatasize: u32, result: ::windows_sys::core::HRESULT)>;
-pub type TIMEFMT_ENUMPROCA = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_sys::core::PCSTR) -> super::Foundation::BOOL>;
-pub type TIMEFMT_ENUMPROCEX = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_sys::core::PCWSTR, param1: super::Foundation::LPARAM) -> super::Foundation::BOOL>;
-pub type TIMEFMT_ENUMPROCW = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_sys::core::PCWSTR) -> super::Foundation::BOOL>;
-pub type UBiDiClassCallback = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, c: i32) -> UCharDirection>;
-pub type UCPMapValueFilter = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, value: u32) -> u32>;
-pub type UCharEnumTypeRange = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, start: i32, limit: i32, r#type: UCharCategory) -> i8>;
-pub type UCharIteratorCurrent = ::core::option::Option<unsafe extern "system" fn(iter: *mut UCharIterator) -> i32>;
-pub type UCharIteratorGetIndex = ::core::option::Option<unsafe extern "system" fn(iter: *mut UCharIterator, origin: UCharIteratorOrigin) -> i32>;
-pub type UCharIteratorGetState = ::core::option::Option<unsafe extern "system" fn(iter: *const UCharIterator) -> u32>;
-pub type UCharIteratorHasNext = ::core::option::Option<unsafe extern "system" fn(iter: *mut UCharIterator) -> i8>;
-pub type UCharIteratorHasPrevious = ::core::option::Option<unsafe extern "system" fn(iter: *mut UCharIterator) -> i8>;
-pub type UCharIteratorMove = ::core::option::Option<unsafe extern "system" fn(iter: *mut UCharIterator, delta: i32, origin: UCharIteratorOrigin) -> i32>;
-pub type UCharIteratorNext = ::core::option::Option<unsafe extern "system" fn(iter: *mut UCharIterator) -> i32>;
-pub type UCharIteratorPrevious = ::core::option::Option<unsafe extern "system" fn(iter: *mut UCharIterator) -> i32>;
-pub type UCharIteratorReserved = ::core::option::Option<unsafe extern "system" fn(iter: *mut UCharIterator, something: i32) -> i32>;
-pub type UCharIteratorSetState = ::core::option::Option<unsafe extern "system" fn(iter: *mut UCharIterator, state: u32, perrorcode: *mut UErrorCode)>;
-pub type UConverterFromUCallback = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, args: *mut UConverterFromUnicodeArgs, codeunits: *const u16, length: i32, codepoint: i32, reason: UConverterCallbackReason, perrorcode: *mut UErrorCode)>;
-pub type UConverterToUCallback = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, args: *mut UConverterToUnicodeArgs, codeunits: ::windows_sys::core::PCSTR, length: i32, reason: UConverterCallbackReason, perrorcode: *mut UErrorCode)>;
-pub type UEnumCharNamesFn = ::core::option::Option<unsafe extern "system" fn(context: *mut ::core::ffi::c_void, code: i32, namechoice: UCharNameChoice, name: ::windows_sys::core::PCSTR, length: i32) -> i8>;
-pub type UILANGUAGE_ENUMPROCA = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_sys::core::PCSTR, param1: isize) -> super::Foundation::BOOL>;
-pub type UILANGUAGE_ENUMPROCW = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_sys::core::PCWSTR, param1: isize) -> super::Foundation::BOOL>;
-pub type UMemAllocFn = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, size: usize) -> *mut ::core::ffi::c_void>;
-pub type UMemFreeFn = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, mem: *mut ::core::ffi::c_void)>;
-pub type UMemReallocFn = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, mem: *mut ::core::ffi::c_void, size: usize) -> *mut ::core::ffi::c_void>;
-pub type UNESCAPE_CHAR_AT = ::core::option::Option<unsafe extern "system" fn(offset: i32, context: *mut ::core::ffi::c_void) -> u16>;
-pub type URegexFindProgressCallback = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, matchindex: i64) -> i8>;
-pub type URegexMatchCallback = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, steps: i32) -> i8>;
-pub type UStringCaseMapper = ::core::option::Option<unsafe extern "system" fn(csm: *const UCaseMap, dest: *mut u16, destcapacity: i32, src: *const u16, srclength: i32, perrorcode: *mut UErrorCode) -> i32>;
-pub type UTextAccess = ::core::option::Option<unsafe extern "system" fn(ut: *mut UText, nativeindex: i64, forward: i8) -> i8>;
-pub type UTextClone = ::core::option::Option<unsafe extern "system" fn(dest: *mut UText, src: *const UText, deep: i8, status: *mut UErrorCode) -> *mut UText>;
-pub type UTextClose = ::core::option::Option<unsafe extern "system" fn(ut: *mut UText)>;
-pub type UTextCopy = ::core::option::Option<unsafe extern "system" fn(ut: *mut UText, nativestart: i64, nativelimit: i64, nativedest: i64, r#move: i8, status: *mut UErrorCode)>;
-pub type UTextExtract = ::core::option::Option<unsafe extern "system" fn(ut: *mut UText, nativestart: i64, nativelimit: i64, dest: *mut u16, destcapacity: i32, status: *mut UErrorCode) -> i32>;
-pub type UTextMapNativeIndexToUTF16 = ::core::option::Option<unsafe extern "system" fn(ut: *const UText, nativeindex: i64) -> i32>;
-pub type UTextMapOffsetToNative = ::core::option::Option<unsafe extern "system" fn(ut: *const UText) -> i64>;
-pub type UTextNativeLength = ::core::option::Option<unsafe extern "system" fn(ut: *mut UText) -> i64>;
-pub type UTextReplace = ::core::option::Option<unsafe extern "system" fn(ut: *mut UText, nativestart: i64, nativelimit: i64, replacementtext: *const u16, replacmentlength: i32, status: *mut UErrorCode) -> i32>;
-pub type UTraceData = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, fnnumber: i32, level: i32, fmt: ::windows_sys::core::PCSTR, args: *mut i8)>;
-pub type UTraceEntry = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, fnnumber: i32)>;
-pub type UTraceExit = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, fnnumber: i32, fmt: ::windows_sys::core::PCSTR, args: *mut i8)>;
+pub type CALINFO_ENUMPROCA = Option<unsafe extern "system" fn(param0: windows_sys::core::PCSTR) -> super::Foundation::BOOL>;
+pub type CALINFO_ENUMPROCEXA = Option<unsafe extern "system" fn(param0: windows_sys::core::PCSTR, param1: u32) -> super::Foundation::BOOL>;
+pub type CALINFO_ENUMPROCEXEX = Option<unsafe extern "system" fn(param0: windows_sys::core::PCWSTR, param1: u32, param2: windows_sys::core::PCWSTR, param3: super::Foundation::LPARAM) -> super::Foundation::BOOL>;
+pub type CALINFO_ENUMPROCEXW = Option<unsafe extern "system" fn(param0: windows_sys::core::PCWSTR, param1: u32) -> super::Foundation::BOOL>;
+pub type CALINFO_ENUMPROCW = Option<unsafe extern "system" fn(param0: windows_sys::core::PCWSTR) -> super::Foundation::BOOL>;
+pub type CODEPAGE_ENUMPROCA = Option<unsafe extern "system" fn(param0: windows_sys::core::PCSTR) -> super::Foundation::BOOL>;
+pub type CODEPAGE_ENUMPROCW = Option<unsafe extern "system" fn(param0: windows_sys::core::PCWSTR) -> super::Foundation::BOOL>;
+pub type DATEFMT_ENUMPROCA = Option<unsafe extern "system" fn(param0: windows_sys::core::PCSTR) -> super::Foundation::BOOL>;
+pub type DATEFMT_ENUMPROCEXA = Option<unsafe extern "system" fn(param0: windows_sys::core::PCSTR, param1: u32) -> super::Foundation::BOOL>;
+pub type DATEFMT_ENUMPROCEXEX = Option<unsafe extern "system" fn(param0: windows_sys::core::PCWSTR, param1: u32, param2: super::Foundation::LPARAM) -> super::Foundation::BOOL>;
+pub type DATEFMT_ENUMPROCEXW = Option<unsafe extern "system" fn(param0: windows_sys::core::PCWSTR, param1: u32) -> super::Foundation::BOOL>;
+pub type DATEFMT_ENUMPROCW = Option<unsafe extern "system" fn(param0: windows_sys::core::PCWSTR) -> super::Foundation::BOOL>;
+pub type GEO_ENUMNAMEPROC = Option<unsafe extern "system" fn(param0: windows_sys::core::PCWSTR, param1: super::Foundation::LPARAM) -> super::Foundation::BOOL>;
+pub type GEO_ENUMPROC = Option<unsafe extern "system" fn(param0: i32) -> super::Foundation::BOOL>;
+pub type LANGGROUPLOCALE_ENUMPROCA = Option<unsafe extern "system" fn(param0: u32, param1: u32, param2: windows_sys::core::PCSTR, param3: isize) -> super::Foundation::BOOL>;
+pub type LANGGROUPLOCALE_ENUMPROCW = Option<unsafe extern "system" fn(param0: u32, param1: u32, param2: windows_sys::core::PCWSTR, param3: isize) -> super::Foundation::BOOL>;
+pub type LANGUAGEGROUP_ENUMPROCA = Option<unsafe extern "system" fn(param0: u32, param1: windows_sys::core::PCSTR, param2: windows_sys::core::PCSTR, param3: u32, param4: isize) -> super::Foundation::BOOL>;
+pub type LANGUAGEGROUP_ENUMPROCW = Option<unsafe extern "system" fn(param0: u32, param1: windows_sys::core::PCWSTR, param2: windows_sys::core::PCWSTR, param3: u32, param4: isize) -> super::Foundation::BOOL>;
+pub type LOCALE_ENUMPROCA = Option<unsafe extern "system" fn(param0: windows_sys::core::PCSTR) -> super::Foundation::BOOL>;
+pub type LOCALE_ENUMPROCEX = Option<unsafe extern "system" fn(param0: windows_sys::core::PCWSTR, param1: u32, param2: super::Foundation::LPARAM) -> super::Foundation::BOOL>;
+pub type LOCALE_ENUMPROCW = Option<unsafe extern "system" fn(param0: windows_sys::core::PCWSTR) -> super::Foundation::BOOL>;
+pub type PFN_MAPPINGCALLBACKPROC = Option<unsafe extern "system" fn(pbag: *mut MAPPING_PROPERTY_BAG, data: *mut core::ffi::c_void, dwdatasize: u32, result: windows_sys::core::HRESULT)>;
+pub type TIMEFMT_ENUMPROCA = Option<unsafe extern "system" fn(param0: windows_sys::core::PCSTR) -> super::Foundation::BOOL>;
+pub type TIMEFMT_ENUMPROCEX = Option<unsafe extern "system" fn(param0: windows_sys::core::PCWSTR, param1: super::Foundation::LPARAM) -> super::Foundation::BOOL>;
+pub type TIMEFMT_ENUMPROCW = Option<unsafe extern "system" fn(param0: windows_sys::core::PCWSTR) -> super::Foundation::BOOL>;
+pub type UBiDiClassCallback = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, c: i32) -> UCharDirection>;
+pub type UCPMapValueFilter = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, value: u32) -> u32>;
+pub type UCharEnumTypeRange = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, start: i32, limit: i32, r#type: UCharCategory) -> i8>;
+pub type UCharIteratorCurrent = Option<unsafe extern "system" fn(iter: *mut UCharIterator) -> i32>;
+pub type UCharIteratorGetIndex = Option<unsafe extern "system" fn(iter: *mut UCharIterator, origin: UCharIteratorOrigin) -> i32>;
+pub type UCharIteratorGetState = Option<unsafe extern "system" fn(iter: *const UCharIterator) -> u32>;
+pub type UCharIteratorHasNext = Option<unsafe extern "system" fn(iter: *mut UCharIterator) -> i8>;
+pub type UCharIteratorHasPrevious = Option<unsafe extern "system" fn(iter: *mut UCharIterator) -> i8>;
+pub type UCharIteratorMove = Option<unsafe extern "system" fn(iter: *mut UCharIterator, delta: i32, origin: UCharIteratorOrigin) -> i32>;
+pub type UCharIteratorNext = Option<unsafe extern "system" fn(iter: *mut UCharIterator) -> i32>;
+pub type UCharIteratorPrevious = Option<unsafe extern "system" fn(iter: *mut UCharIterator) -> i32>;
+pub type UCharIteratorReserved = Option<unsafe extern "system" fn(iter: *mut UCharIterator, something: i32) -> i32>;
+pub type UCharIteratorSetState = Option<unsafe extern "system" fn(iter: *mut UCharIterator, state: u32, perrorcode: *mut UErrorCode)>;
+pub type UConverterFromUCallback = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, args: *mut UConverterFromUnicodeArgs, codeunits: *const u16, length: i32, codepoint: i32, reason: UConverterCallbackReason, perrorcode: *mut UErrorCode)>;
+pub type UConverterToUCallback = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, args: *mut UConverterToUnicodeArgs, codeunits: windows_sys::core::PCSTR, length: i32, reason: UConverterCallbackReason, perrorcode: *mut UErrorCode)>;
+pub type UEnumCharNamesFn = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, code: i32, namechoice: UCharNameChoice, name: windows_sys::core::PCSTR, length: i32) -> i8>;
+pub type UILANGUAGE_ENUMPROCA = Option<unsafe extern "system" fn(param0: windows_sys::core::PCSTR, param1: isize) -> super::Foundation::BOOL>;
+pub type UILANGUAGE_ENUMPROCW = Option<unsafe extern "system" fn(param0: windows_sys::core::PCWSTR, param1: isize) -> super::Foundation::BOOL>;
+pub type UMemAllocFn = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, size: usize) -> *mut core::ffi::c_void>;
+pub type UMemFreeFn = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, mem: *mut core::ffi::c_void)>;
+pub type UMemReallocFn = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, mem: *mut core::ffi::c_void, size: usize) -> *mut core::ffi::c_void>;
+pub type UNESCAPE_CHAR_AT = Option<unsafe extern "system" fn(offset: i32, context: *mut core::ffi::c_void) -> u16>;
+pub type URegexFindProgressCallback = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, matchindex: i64) -> i8>;
+pub type URegexMatchCallback = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, steps: i32) -> i8>;
+pub type UStringCaseMapper = Option<unsafe extern "system" fn(csm: *const UCaseMap, dest: *mut u16, destcapacity: i32, src: *const u16, srclength: i32, perrorcode: *mut UErrorCode) -> i32>;
+pub type UTextAccess = Option<unsafe extern "system" fn(ut: *mut UText, nativeindex: i64, forward: i8) -> i8>;
+pub type UTextClone = Option<unsafe extern "system" fn(dest: *mut UText, src: *const UText, deep: i8, status: *mut UErrorCode) -> *mut UText>;
+pub type UTextClose = Option<unsafe extern "system" fn(ut: *mut UText)>;
+pub type UTextCopy = Option<unsafe extern "system" fn(ut: *mut UText, nativestart: i64, nativelimit: i64, nativedest: i64, r#move: i8, status: *mut UErrorCode)>;
+pub type UTextExtract = Option<unsafe extern "system" fn(ut: *mut UText, nativestart: i64, nativelimit: i64, dest: *mut u16, destcapacity: i32, status: *mut UErrorCode) -> i32>;
+pub type UTextMapNativeIndexToUTF16 = Option<unsafe extern "system" fn(ut: *const UText, nativeindex: i64) -> i32>;
+pub type UTextMapOffsetToNative = Option<unsafe extern "system" fn(ut: *const UText) -> i64>;
+pub type UTextNativeLength = Option<unsafe extern "system" fn(ut: *mut UText) -> i64>;
+pub type UTextReplace = Option<unsafe extern "system" fn(ut: *mut UText, nativestart: i64, nativelimit: i64, replacementtext: *const u16, replacmentlength: i32, status: *mut UErrorCode) -> i32>;
+pub type UTraceData = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, fnnumber: i32, level: i32, fmt: windows_sys::core::PCSTR, args: *mut i8)>;
+pub type UTraceEntry = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, fnnumber: i32)>;
+pub type UTraceExit = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, fnnumber: i32, fmt: windows_sys::core::PCSTR, args: *mut i8)>;

@@ -59,84 +59,84 @@ pub unsafe fn timeSetEvent(udelay: u32, uresolution: u32, fptc: LPTIMECALLBACK, 
     ::windows_targets::link!("winmm.dll" "system" fn timeSetEvent(udelay : u32, uresolution : u32, fptc : LPTIMECALLBACK, dwuser : usize, fuevent : u32) -> u32);
     timeSetEvent(udelay, uresolution, fptc, dwuser, fuevent)
 }
-::windows_core::imp::com_interface!(IReferenceClock, IReferenceClock_Vtbl, 0x56a86897_0ad4_11ce_b03a_0020af0ba770);
-::windows_core::imp::interface_hierarchy!(IReferenceClock, ::windows_core::IUnknown);
+windows_core::imp::com_interface!(IReferenceClock, IReferenceClock_Vtbl, 0x56a86897_0ad4_11ce_b03a_0020af0ba770);
+windows_core::imp::interface_hierarchy!(IReferenceClock, windows_core::IUnknown);
 impl IReferenceClock {
-    pub unsafe fn GetTime(&self) -> ::windows_core::Result<i64> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetTime)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+    pub unsafe fn GetTime(&self) -> windows_core::Result<i64> {
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).GetTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn AdviseTime<P0>(&self, basetime: i64, streamtime: i64, hevent: P0) -> ::windows_core::Result<usize>
+    pub unsafe fn AdviseTime<P0>(&self, basetime: i64, streamtime: i64, hevent: P0) -> windows_core::Result<usize>
     where
-        P0: ::windows_core::IntoParam<super::Foundation::HANDLE>,
+        P0: windows_core::IntoParam<super::Foundation::HANDLE>,
     {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).AdviseTime)(::windows_core::Interface::as_raw(self), basetime, streamtime, hevent.into_param().abi(), &mut result__).map(|| result__)
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).AdviseTime)(windows_core::Interface::as_raw(self), basetime, streamtime, hevent.into_param().abi(), &mut result__).map(|| result__)
     }
-    pub unsafe fn AdvisePeriodic<P0>(&self, starttime: i64, periodtime: i64, hsemaphore: P0) -> ::windows_core::Result<usize>
+    pub unsafe fn AdvisePeriodic<P0>(&self, starttime: i64, periodtime: i64, hsemaphore: P0) -> windows_core::Result<usize>
     where
-        P0: ::windows_core::IntoParam<super::Foundation::HANDLE>,
+        P0: windows_core::IntoParam<super::Foundation::HANDLE>,
     {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).AdvisePeriodic)(::windows_core::Interface::as_raw(self), starttime, periodtime, hsemaphore.into_param().abi(), &mut result__).map(|| result__)
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).AdvisePeriodic)(windows_core::Interface::as_raw(self), starttime, periodtime, hsemaphore.into_param().abi(), &mut result__).map(|| result__)
     }
-    pub unsafe fn Unadvise(&self, dwadvisecookie: usize) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Unadvise)(::windows_core::Interface::as_raw(self), dwadvisecookie).ok()
+    pub unsafe fn Unadvise(&self, dwadvisecookie: usize) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).Unadvise)(windows_core::Interface::as_raw(self), dwadvisecookie).ok()
     }
 }
 #[repr(C)]
 pub struct IReferenceClock_Vtbl {
-    pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetTime: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i64) -> ::windows_core::HRESULT,
-    pub AdviseTime: unsafe extern "system" fn(*mut ::core::ffi::c_void, i64, i64, super::Foundation::HANDLE, *mut usize) -> ::windows_core::HRESULT,
-    pub AdvisePeriodic: unsafe extern "system" fn(*mut ::core::ffi::c_void, i64, i64, super::Foundation::HANDLE, *mut usize) -> ::windows_core::HRESULT,
-    pub Unadvise: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize) -> ::windows_core::HRESULT,
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub GetTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
+    pub AdviseTime: unsafe extern "system" fn(*mut core::ffi::c_void, i64, i64, super::Foundation::HANDLE, *mut usize) -> windows_core::HRESULT,
+    pub AdvisePeriodic: unsafe extern "system" fn(*mut core::ffi::c_void, i64, i64, super::Foundation::HANDLE, *mut usize) -> windows_core::HRESULT,
+    pub Unadvise: unsafe extern "system" fn(*mut core::ffi::c_void, usize) -> windows_core::HRESULT,
 }
-::windows_core::imp::com_interface!(IReferenceClock2, IReferenceClock2_Vtbl, 0x36b73885_c2c8_11cf_8b46_00805f6cef60);
-::windows_core::imp::interface_hierarchy!(IReferenceClock2, ::windows_core::IUnknown, IReferenceClock);
+windows_core::imp::com_interface!(IReferenceClock2, IReferenceClock2_Vtbl, 0x36b73885_c2c8_11cf_8b46_00805f6cef60);
+windows_core::imp::interface_hierarchy!(IReferenceClock2, windows_core::IUnknown, IReferenceClock);
 impl IReferenceClock2 {
-    pub unsafe fn GetTime(&self) -> ::windows_core::Result<i64> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.GetTime)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+    pub unsafe fn GetTime(&self) -> windows_core::Result<i64> {
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).base__.GetTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn AdviseTime<P0>(&self, basetime: i64, streamtime: i64, hevent: P0) -> ::windows_core::Result<usize>
+    pub unsafe fn AdviseTime<P0>(&self, basetime: i64, streamtime: i64, hevent: P0) -> windows_core::Result<usize>
     where
-        P0: ::windows_core::IntoParam<super::Foundation::HANDLE>,
+        P0: windows_core::IntoParam<super::Foundation::HANDLE>,
     {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.AdviseTime)(::windows_core::Interface::as_raw(self), basetime, streamtime, hevent.into_param().abi(), &mut result__).map(|| result__)
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).base__.AdviseTime)(windows_core::Interface::as_raw(self), basetime, streamtime, hevent.into_param().abi(), &mut result__).map(|| result__)
     }
-    pub unsafe fn AdvisePeriodic<P0>(&self, starttime: i64, periodtime: i64, hsemaphore: P0) -> ::windows_core::Result<usize>
+    pub unsafe fn AdvisePeriodic<P0>(&self, starttime: i64, periodtime: i64, hsemaphore: P0) -> windows_core::Result<usize>
     where
-        P0: ::windows_core::IntoParam<super::Foundation::HANDLE>,
+        P0: windows_core::IntoParam<super::Foundation::HANDLE>,
     {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.AdvisePeriodic)(::windows_core::Interface::as_raw(self), starttime, periodtime, hsemaphore.into_param().abi(), &mut result__).map(|| result__)
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).base__.AdvisePeriodic)(windows_core::Interface::as_raw(self), starttime, periodtime, hsemaphore.into_param().abi(), &mut result__).map(|| result__)
     }
-    pub unsafe fn Unadvise(&self, dwadvisecookie: usize) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.Unadvise)(::windows_core::Interface::as_raw(self), dwadvisecookie).ok()
+    pub unsafe fn Unadvise(&self, dwadvisecookie: usize) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).base__.Unadvise)(windows_core::Interface::as_raw(self), dwadvisecookie).ok()
     }
 }
 #[repr(C)]
 pub struct IReferenceClock2_Vtbl {
     pub base__: IReferenceClock_Vtbl,
 }
-::windows_core::imp::com_interface!(IReferenceClockTimerControl, IReferenceClockTimerControl_Vtbl, 0xebec459c_2eca_4d42_a8af_30df557614b8);
-::windows_core::imp::interface_hierarchy!(IReferenceClockTimerControl, ::windows_core::IUnknown);
+windows_core::imp::com_interface!(IReferenceClockTimerControl, IReferenceClockTimerControl_Vtbl, 0xebec459c_2eca_4d42_a8af_30df557614b8);
+windows_core::imp::interface_hierarchy!(IReferenceClockTimerControl, windows_core::IUnknown);
 impl IReferenceClockTimerControl {
-    pub unsafe fn SetDefaultTimerResolution(&self, timerresolution: i64) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).SetDefaultTimerResolution)(::windows_core::Interface::as_raw(self), timerresolution).ok()
+    pub unsafe fn SetDefaultTimerResolution(&self, timerresolution: i64) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetDefaultTimerResolution)(windows_core::Interface::as_raw(self), timerresolution).ok()
     }
-    pub unsafe fn GetDefaultTimerResolution(&self) -> ::windows_core::Result<i64> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetDefaultTimerResolution)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+    pub unsafe fn GetDefaultTimerResolution(&self) -> windows_core::Result<i64> {
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).GetDefaultTimerResolution)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
 #[repr(C)]
 pub struct IReferenceClockTimerControl_Vtbl {
-    pub base__: ::windows_core::IUnknown_Vtbl,
-    pub SetDefaultTimerResolution: unsafe extern "system" fn(*mut ::core::ffi::c_void, i64) -> ::windows_core::HRESULT,
-    pub GetDefaultTimerResolution: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i64) -> ::windows_core::HRESULT,
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub SetDefaultTimerResolution: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
+    pub GetDefaultTimerResolution: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
 }
 pub const ED_DEVCAP_ATN_READ: TIMECODE_SAMPLE_FLAGS = TIMECODE_SAMPLE_FLAGS(5047u32);
 pub const ED_DEVCAP_RTC_READ: TIMECODE_SAMPLE_FLAGS = TIMECODE_SAMPLE_FLAGS(5050u32);
@@ -243,13 +243,13 @@ pub const TIME_SMPTE: u32 = 8u32;
 pub const TIME_TICKS: u32 = 32u32;
 pub const WAVERR_BASE: u32 = 32u32;
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct TIMECODE_SAMPLE_FLAGS(pub u32);
-impl ::windows_core::TypeKind for TIMECODE_SAMPLE_FLAGS {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for TIMECODE_SAMPLE_FLAGS {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for TIMECODE_SAMPLE_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for TIMECODE_SAMPLE_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("TIMECODE_SAMPLE_FLAGS").field(&self.0).finish()
     }
 }
@@ -258,78 +258,78 @@ impl TIMECODE_SAMPLE_FLAGS {
         self.0 & other.0 == other.0
     }
 }
-impl ::core::ops::BitOr for TIMECODE_SAMPLE_FLAGS {
+impl core::ops::BitOr for TIMECODE_SAMPLE_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
         Self(self.0 | other.0)
     }
 }
-impl ::core::ops::BitAnd for TIMECODE_SAMPLE_FLAGS {
+impl core::ops::BitAnd for TIMECODE_SAMPLE_FLAGS {
     type Output = Self;
     fn bitand(self, other: Self) -> Self {
         Self(self.0 & other.0)
     }
 }
-impl ::core::ops::BitOrAssign for TIMECODE_SAMPLE_FLAGS {
+impl core::ops::BitOrAssign for TIMECODE_SAMPLE_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
         self.0.bitor_assign(other.0)
     }
 }
-impl ::core::ops::BitAndAssign for TIMECODE_SAMPLE_FLAGS {
+impl core::ops::BitAndAssign for TIMECODE_SAMPLE_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
         self.0.bitand_assign(other.0)
     }
 }
-impl ::core::ops::Not for TIMECODE_SAMPLE_FLAGS {
+impl core::ops::Not for TIMECODE_SAMPLE_FLAGS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(PartialEq, Eq)]
 pub struct HTASK(pub isize);
 impl HTASK {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 || self.0 == 0
     }
 }
-impl ::core::default::Default for HTASK {
+impl Default for HTASK {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
-impl ::core::clone::Clone for HTASK {
+impl Clone for HTASK {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::marker::Copy for HTASK {}
-impl ::core::fmt::Debug for HTASK {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl Copy for HTASK {}
+impl core::fmt::Debug for HTASK {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("HTASK").field(&self.0).finish()
     }
 }
-impl ::windows_core::TypeKind for HTASK {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for HTASK {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 pub struct MMTIME {
     pub wType: u32,
     pub u: MMTIME_0,
 }
-impl ::core::marker::Copy for MMTIME {}
-impl ::core::clone::Clone for MMTIME {
+impl Copy for MMTIME {}
+impl Clone for MMTIME {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::windows_core::TypeKind for MMTIME {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for MMTIME {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::default::Default for MMTIME {
+impl Default for MMTIME {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
@@ -341,36 +341,36 @@ pub union MMTIME_0 {
     pub smpte: MMTIME_0_1,
     pub midi: MMTIME_0_0,
 }
-impl ::core::marker::Copy for MMTIME_0 {}
-impl ::core::clone::Clone for MMTIME_0 {
+impl Copy for MMTIME_0 {}
+impl Clone for MMTIME_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::windows_core::TypeKind for MMTIME_0 {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for MMTIME_0 {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::default::Default for MMTIME_0 {
+impl Default for MMTIME_0 {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
 pub struct MMTIME_0_0 {
     pub songptrpos: u32,
 }
-impl ::core::marker::Copy for MMTIME_0_0 {}
-impl ::core::clone::Clone for MMTIME_0_0 {
+impl Copy for MMTIME_0_0 {}
+impl Clone for MMTIME_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::windows_core::TypeKind for MMTIME_0_0 {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for MMTIME_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::default::Default for MMTIME_0_0 {
+impl Default for MMTIME_0_0 {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -383,29 +383,29 @@ pub struct MMTIME_0_1 {
     pub dummy: u8,
     pub pad: [u8; 2],
 }
-impl ::core::marker::Copy for MMTIME_0_1 {}
-impl ::core::clone::Clone for MMTIME_0_1 {
+impl Copy for MMTIME_0_1 {}
+impl Clone for MMTIME_0_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for MMTIME_0_1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for MMTIME_0_1 {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("MMTIME_0_1").field("hour", &self.hour).field("min", &self.min).field("sec", &self.sec).field("frame", &self.frame).field("fps", &self.fps).field("dummy", &self.dummy).field("pad", &self.pad).finish()
     }
 }
-impl ::windows_core::TypeKind for MMTIME_0_1 {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for MMTIME_0_1 {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for MMTIME_0_1 {
+impl PartialEq for MMTIME_0_1 {
     fn eq(&self, other: &Self) -> bool {
         self.hour == other.hour && self.min == other.min && self.sec == other.sec && self.frame == other.frame && self.fps == other.fps && self.dummy == other.dummy && self.pad == other.pad
     }
 }
-impl ::core::cmp::Eq for MMTIME_0_1 {}
-impl ::core::default::Default for MMTIME_0_1 {
+impl Eq for MMTIME_0_1 {}
+impl Default for MMTIME_0_1 {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -413,29 +413,29 @@ pub struct TIMECAPS {
     pub wPeriodMin: u32,
     pub wPeriodMax: u32,
 }
-impl ::core::marker::Copy for TIMECAPS {}
-impl ::core::clone::Clone for TIMECAPS {
+impl Copy for TIMECAPS {}
+impl Clone for TIMECAPS {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for TIMECAPS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for TIMECAPS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("TIMECAPS").field("wPeriodMin", &self.wPeriodMin).field("wPeriodMax", &self.wPeriodMax).finish()
     }
 }
-impl ::windows_core::TypeKind for TIMECAPS {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for TIMECAPS {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for TIMECAPS {
+impl PartialEq for TIMECAPS {
     fn eq(&self, other: &Self) -> bool {
         self.wPeriodMin == other.wPeriodMin && self.wPeriodMax == other.wPeriodMax
     }
 }
-impl ::core::cmp::Eq for TIMECAPS {}
-impl ::core::default::Default for TIMECAPS {
+impl Eq for TIMECAPS {}
+impl Default for TIMECAPS {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -443,18 +443,18 @@ pub union TIMECODE {
     pub Anonymous: TIMECODE_0,
     pub qw: u64,
 }
-impl ::core::marker::Copy for TIMECODE {}
-impl ::core::clone::Clone for TIMECODE {
+impl Copy for TIMECODE {}
+impl Clone for TIMECODE {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::windows_core::TypeKind for TIMECODE {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for TIMECODE {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::default::Default for TIMECODE {
+impl Default for TIMECODE {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -463,29 +463,29 @@ pub struct TIMECODE_0 {
     pub wFrameFract: u16,
     pub dwFrames: u32,
 }
-impl ::core::marker::Copy for TIMECODE_0 {}
-impl ::core::clone::Clone for TIMECODE_0 {
+impl Copy for TIMECODE_0 {}
+impl Clone for TIMECODE_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for TIMECODE_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for TIMECODE_0 {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("TIMECODE_0").field("wFrameRate", &self.wFrameRate).field("wFrameFract", &self.wFrameFract).field("dwFrames", &self.dwFrames).finish()
     }
 }
-impl ::windows_core::TypeKind for TIMECODE_0 {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for TIMECODE_0 {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for TIMECODE_0 {
+impl PartialEq for TIMECODE_0 {
     fn eq(&self, other: &Self) -> bool {
         self.wFrameRate == other.wFrameRate && self.wFrameFract == other.wFrameFract && self.dwFrames == other.dwFrames
     }
 }
-impl ::core::cmp::Eq for TIMECODE_0 {}
-impl ::core::default::Default for TIMECODE_0 {
+impl Eq for TIMECODE_0 {}
+impl Default for TIMECODE_0 {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -495,22 +495,22 @@ pub struct TIMECODE_SAMPLE {
     pub dwUser: u32,
     pub dwFlags: TIMECODE_SAMPLE_FLAGS,
 }
-impl ::core::marker::Copy for TIMECODE_SAMPLE {}
-impl ::core::clone::Clone for TIMECODE_SAMPLE {
+impl Copy for TIMECODE_SAMPLE {}
+impl Clone for TIMECODE_SAMPLE {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::windows_core::TypeKind for TIMECODE_SAMPLE {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for TIMECODE_SAMPLE {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::default::Default for TIMECODE_SAMPLE {
+impl Default for TIMECODE_SAMPLE {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Media_Multimedia")]
-pub type LPDRVCALLBACK = ::core::option::Option<unsafe extern "system" fn(hdrvr: Multimedia::HDRVR, umsg: u32, dwuser: usize, dw1: usize, dw2: usize)>;
-pub type LPTIMECALLBACK = ::core::option::Option<unsafe extern "system" fn(utimerid: u32, umsg: u32, dwuser: usize, dw1: usize, dw2: usize)>;
+pub type LPDRVCALLBACK = Option<unsafe extern "system" fn(hdrvr: Multimedia::HDRVR, umsg: u32, dwuser: usize, dw1: usize, dw2: usize)>;
+pub type LPTIMECALLBACK = Option<unsafe extern "system" fn(utimerid: u32, umsg: u32, dwuser: usize, dw1: usize, dw2: usize)>;
 #[cfg(feature = "implement")]
-::core::include!("impl.rs");
+core::include!("impl.rs");

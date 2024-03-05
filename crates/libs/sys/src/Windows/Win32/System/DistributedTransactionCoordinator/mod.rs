@@ -1,9 +1,9 @@
-::windows_targets::link!("xolehlp.dll" "cdecl" fn DtcGetTransactionManager(i_pszhost : ::windows_sys::core::PCSTR, i_psztmname : ::windows_sys::core::PCSTR, i_riid : *const ::windows_sys::core::GUID, i_dwreserved1 : u32, i_wcbreserved2 : u16, i_pvreserved2 : *const ::core::ffi::c_void, o_ppvobject : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("xolehlp.dll" "cdecl" fn DtcGetTransactionManagerC(i_pszhost : ::windows_sys::core::PCSTR, i_psztmname : ::windows_sys::core::PCSTR, i_riid : *const ::windows_sys::core::GUID, i_dwreserved1 : u32, i_wcbreserved2 : u16, i_pvreserved2 : *const ::core::ffi::c_void, o_ppvobject : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("xolehlp.dll" "cdecl" fn DtcGetTransactionManagerExA(i_pszhost : ::windows_sys::core::PCSTR, i_psztmname : ::windows_sys::core::PCSTR, i_riid : *const ::windows_sys::core::GUID, i_grfoptions : u32, i_pvconfigparams : *mut ::core::ffi::c_void, o_ppvobject : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("xolehlp.dll" "cdecl" fn DtcGetTransactionManagerExW(i_pwszhost : ::windows_sys::core::PCWSTR, i_pwsztmname : ::windows_sys::core::PCWSTR, i_riid : *const ::windows_sys::core::GUID, i_grfoptions : u32, i_pvconfigparams : *mut ::core::ffi::c_void, o_ppvobject : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-pub const CLSID_MSDtcTransaction: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x39f8d76b_0928_11d1_97df_00c04fb9618a);
-pub const CLSID_MSDtcTransactionManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x5b18ab61_091d_11d1_97df_00c04fb9618a);
+::windows_targets::link!("xolehlp.dll" "cdecl" fn DtcGetTransactionManager(i_pszhost : windows_sys::core::PCSTR, i_psztmname : windows_sys::core::PCSTR, i_riid : *const windows_sys::core::GUID, i_dwreserved1 : u32, i_wcbreserved2 : u16, i_pvreserved2 : *const core::ffi::c_void, o_ppvobject : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+::windows_targets::link!("xolehlp.dll" "cdecl" fn DtcGetTransactionManagerC(i_pszhost : windows_sys::core::PCSTR, i_psztmname : windows_sys::core::PCSTR, i_riid : *const windows_sys::core::GUID, i_dwreserved1 : u32, i_wcbreserved2 : u16, i_pvreserved2 : *const core::ffi::c_void, o_ppvobject : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+::windows_targets::link!("xolehlp.dll" "cdecl" fn DtcGetTransactionManagerExA(i_pszhost : windows_sys::core::PCSTR, i_psztmname : windows_sys::core::PCSTR, i_riid : *const windows_sys::core::GUID, i_grfoptions : u32, i_pvconfigparams : *mut core::ffi::c_void, o_ppvobject : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+::windows_targets::link!("xolehlp.dll" "cdecl" fn DtcGetTransactionManagerExW(i_pwszhost : windows_sys::core::PCWSTR, i_pwsztmname : windows_sys::core::PCWSTR, i_riid : *const windows_sys::core::GUID, i_grfoptions : u32, i_pvconfigparams : *mut core::ffi::c_void, o_ppvobject : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+pub const CLSID_MSDtcTransaction: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x39f8d76b_0928_11d1_97df_00c04fb9618a);
+pub const CLSID_MSDtcTransactionManager: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5b18ab61_091d_11d1_97df_00c04fb9618a);
 pub const CLUSTERRESOURCE_APPLICATIONTYPE: APPLICATIONTYPE = 1i32;
 pub const DTCINITIATEDRECOVERYWORK_CHECKLUSTATUS: DTCINITIATEDRECOVERYWORK = 1i32;
 pub const DTCINITIATEDRECOVERYWORK_TMDOWN: DTCINITIATEDRECOVERYWORK = 3i32;
@@ -218,8 +218,8 @@ pub type XACT_DTC_CONSTANTS = i32;
 pub struct BOID {
     pub rgb: [u8; 16],
 }
-impl ::core::marker::Copy for BOID {}
-impl ::core::clone::Clone for BOID {
+impl Copy for BOID {}
+impl Clone for BOID {
     fn clone(&self) -> Self {
         *self
     }
@@ -229,8 +229,8 @@ pub struct OLE_TM_CONFIG_PARAMS_V1 {
     pub dwVersion: u32,
     pub dwcConcurrencyHint: u32,
 }
-impl ::core::marker::Copy for OLE_TM_CONFIG_PARAMS_V1 {}
-impl ::core::clone::Clone for OLE_TM_CONFIG_PARAMS_V1 {
+impl Copy for OLE_TM_CONFIG_PARAMS_V1 {}
+impl Clone for OLE_TM_CONFIG_PARAMS_V1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -240,10 +240,10 @@ pub struct OLE_TM_CONFIG_PARAMS_V2 {
     pub dwVersion: u32,
     pub dwcConcurrencyHint: u32,
     pub applicationType: APPLICATIONTYPE,
-    pub clusterResourceId: ::windows_sys::core::GUID,
+    pub clusterResourceId: windows_sys::core::GUID,
 }
-impl ::core::marker::Copy for OLE_TM_CONFIG_PARAMS_V2 {}
-impl ::core::clone::Clone for OLE_TM_CONFIG_PARAMS_V2 {
+impl Copy for OLE_TM_CONFIG_PARAMS_V2 {}
+impl Clone for OLE_TM_CONFIG_PARAMS_V2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -252,8 +252,8 @@ impl ::core::clone::Clone for OLE_TM_CONFIG_PARAMS_V2 {
 pub struct PROXY_CONFIG_PARAMS {
     pub wcThreadsMax: u16,
 }
-impl ::core::marker::Copy for PROXY_CONFIG_PARAMS {}
-impl ::core::clone::Clone for PROXY_CONFIG_PARAMS {
+impl Copy for PROXY_CONFIG_PARAMS {}
+impl Clone for PROXY_CONFIG_PARAMS {
     fn clone(&self) -> Self {
         *self
     }
@@ -263,8 +263,8 @@ pub struct XACTOPT {
     pub ulTimeout: u32,
     pub szDescription: [u8; 40],
 }
-impl ::core::marker::Copy for XACTOPT {}
-impl ::core::clone::Clone for XACTOPT {
+impl Copy for XACTOPT {}
+impl Clone for XACTOPT {
     fn clone(&self) -> Self {
         *self
     }
@@ -280,8 +280,8 @@ pub struct XACTSTATS {
     pub cHeuristicDecision: u32,
     pub timeTransactionsUp: super::super::Foundation::FILETIME,
 }
-impl ::core::marker::Copy for XACTSTATS {}
-impl ::core::clone::Clone for XACTSTATS {
+impl Copy for XACTSTATS {}
+impl Clone for XACTSTATS {
     fn clone(&self) -> Self {
         *self
     }
@@ -296,8 +296,8 @@ pub struct XACTTRANSINFO {
     pub grfTCSupportedRetaining: u32,
     pub grfRMSupportedRetaining: u32,
 }
-impl ::core::marker::Copy for XACTTRANSINFO {}
-impl ::core::clone::Clone for XACTTRANSINFO {
+impl Copy for XACTTRANSINFO {}
+impl Clone for XACTTRANSINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -309,8 +309,8 @@ pub struct XID {
     pub bqual_length: i32,
     pub data: [i8; 128],
 }
-impl ::core::marker::Copy for XID {}
-impl ::core::clone::Clone for XID {
+impl Copy for XID {}
+impl Clone for XID {
     fn clone(&self) -> Self {
         *self
     }
@@ -331,23 +331,23 @@ pub struct xa_switch_t {
     pub xa_forget_entry: isize,
     pub xa_complete_entry: isize,
 }
-impl ::core::marker::Copy for xa_switch_t {}
-impl ::core::clone::Clone for xa_switch_t {
+impl Copy for xa_switch_t {}
+impl Clone for xa_switch_t {
     fn clone(&self) -> Self {
         *self
     }
 }
-pub type DTC_GET_TRANSACTION_MANAGER = ::core::option::Option<unsafe extern "system" fn(pszhost: ::windows_sys::core::PCSTR, psztmname: ::windows_sys::core::PCSTR, rid: *const ::windows_sys::core::GUID, dwreserved1: u32, wcbreserved2: u16, pvreserved2: *mut ::core::ffi::c_void, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT>;
-pub type DTC_GET_TRANSACTION_MANAGER_EX_A = ::core::option::Option<unsafe extern "system" fn(i_pszhost: ::windows_sys::core::PCSTR, i_psztmname: ::windows_sys::core::PCSTR, i_riid: *const ::windows_sys::core::GUID, i_grfoptions: u32, i_pvconfigparams: *mut ::core::ffi::c_void, o_ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT>;
-pub type DTC_GET_TRANSACTION_MANAGER_EX_W = ::core::option::Option<unsafe extern "system" fn(i_pwszhost: ::windows_sys::core::PCWSTR, i_pwsztmname: ::windows_sys::core::PCWSTR, i_riid: *const ::windows_sys::core::GUID, i_grfoptions: u32, i_pvconfigparams: *mut ::core::ffi::c_void, o_ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT>;
-pub type DTC_INSTALL_CLIENT = ::core::option::Option<unsafe extern "system" fn(i_pszremotetmhostname: *mut i8, i_dwprotocol: u32, i_dwoverwrite: u32) -> ::windows_sys::core::HRESULT>;
-pub type XA_CLOSE_EPT = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_sys::core::PCSTR, param1: i32, param2: i32) -> i32>;
-pub type XA_COMMIT_EPT = ::core::option::Option<unsafe extern "system" fn(param0: *mut XID, param1: i32, param2: i32) -> i32>;
-pub type XA_COMPLETE_EPT = ::core::option::Option<unsafe extern "system" fn(param0: *mut i32, param1: *mut i32, param2: i32, param3: i32) -> i32>;
-pub type XA_END_EPT = ::core::option::Option<unsafe extern "system" fn(param0: *mut XID, param1: i32, param2: i32) -> i32>;
-pub type XA_FORGET_EPT = ::core::option::Option<unsafe extern "system" fn(param0: *mut XID, param1: i32, param2: i32) -> i32>;
-pub type XA_OPEN_EPT = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_sys::core::PCSTR, param1: i32, param2: i32) -> i32>;
-pub type XA_PREPARE_EPT = ::core::option::Option<unsafe extern "system" fn(param0: *mut XID, param1: i32, param2: i32) -> i32>;
-pub type XA_RECOVER_EPT = ::core::option::Option<unsafe extern "system" fn(param0: *mut XID, param1: i32, param2: i32, param3: i32) -> i32>;
-pub type XA_ROLLBACK_EPT = ::core::option::Option<unsafe extern "system" fn(param0: *mut XID, param1: i32, param2: i32) -> i32>;
-pub type XA_START_EPT = ::core::option::Option<unsafe extern "system" fn(param0: *mut XID, param1: i32, param2: i32) -> i32>;
+pub type DTC_GET_TRANSACTION_MANAGER = Option<unsafe extern "system" fn(pszhost: windows_sys::core::PCSTR, psztmname: windows_sys::core::PCSTR, rid: *const windows_sys::core::GUID, dwreserved1: u32, wcbreserved2: u16, pvreserved2: *mut core::ffi::c_void, ppvobject: *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
+pub type DTC_GET_TRANSACTION_MANAGER_EX_A = Option<unsafe extern "system" fn(i_pszhost: windows_sys::core::PCSTR, i_psztmname: windows_sys::core::PCSTR, i_riid: *const windows_sys::core::GUID, i_grfoptions: u32, i_pvconfigparams: *mut core::ffi::c_void, o_ppvobject: *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
+pub type DTC_GET_TRANSACTION_MANAGER_EX_W = Option<unsafe extern "system" fn(i_pwszhost: windows_sys::core::PCWSTR, i_pwsztmname: windows_sys::core::PCWSTR, i_riid: *const windows_sys::core::GUID, i_grfoptions: u32, i_pvconfigparams: *mut core::ffi::c_void, o_ppvobject: *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
+pub type DTC_INSTALL_CLIENT = Option<unsafe extern "system" fn(i_pszremotetmhostname: *mut i8, i_dwprotocol: u32, i_dwoverwrite: u32) -> windows_sys::core::HRESULT>;
+pub type XA_CLOSE_EPT = Option<unsafe extern "system" fn(param0: windows_sys::core::PCSTR, param1: i32, param2: i32) -> i32>;
+pub type XA_COMMIT_EPT = Option<unsafe extern "system" fn(param0: *mut XID, param1: i32, param2: i32) -> i32>;
+pub type XA_COMPLETE_EPT = Option<unsafe extern "system" fn(param0: *mut i32, param1: *mut i32, param2: i32, param3: i32) -> i32>;
+pub type XA_END_EPT = Option<unsafe extern "system" fn(param0: *mut XID, param1: i32, param2: i32) -> i32>;
+pub type XA_FORGET_EPT = Option<unsafe extern "system" fn(param0: *mut XID, param1: i32, param2: i32) -> i32>;
+pub type XA_OPEN_EPT = Option<unsafe extern "system" fn(param0: windows_sys::core::PCSTR, param1: i32, param2: i32) -> i32>;
+pub type XA_PREPARE_EPT = Option<unsafe extern "system" fn(param0: *mut XID, param1: i32, param2: i32) -> i32>;
+pub type XA_RECOVER_EPT = Option<unsafe extern "system" fn(param0: *mut XID, param1: i32, param2: i32, param3: i32) -> i32>;
+pub type XA_ROLLBACK_EPT = Option<unsafe extern "system" fn(param0: *mut XID, param1: i32, param2: i32) -> i32>;
+pub type XA_START_EPT = Option<unsafe extern "system" fn(param0: *mut XID, param1: i32, param2: i32) -> i32>;

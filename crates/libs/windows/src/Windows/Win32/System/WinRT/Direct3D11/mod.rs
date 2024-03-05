@@ -1,38 +1,38 @@
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 #[inline]
-pub unsafe fn CreateDirect3D11DeviceFromDXGIDevice<P0>(dxgidevice: P0) -> ::windows_core::Result<::windows_core::IInspectable>
+pub unsafe fn CreateDirect3D11DeviceFromDXGIDevice<P0>(dxgidevice: P0) -> windows_core::Result<windows_core::IInspectable>
 where
-    P0: ::windows_core::IntoParam<super::super::super::Graphics::Dxgi::IDXGIDevice>,
+    P0: windows_core::IntoParam<super::super::super::Graphics::Dxgi::IDXGIDevice>,
 {
-    ::windows_targets::link!("d3d11.dll" "system" fn CreateDirect3D11DeviceFromDXGIDevice(dxgidevice : * mut::core::ffi::c_void, graphicsdevice : *mut * mut::core::ffi::c_void) -> ::windows_core::HRESULT);
-    let mut result__ = ::std::mem::zeroed();
-    CreateDirect3D11DeviceFromDXGIDevice(dxgidevice.into_param().abi(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
+    ::windows_targets::link!("d3d11.dll" "system" fn CreateDirect3D11DeviceFromDXGIDevice(dxgidevice : * mut core::ffi::c_void, graphicsdevice : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    let mut result__ = std::mem::zeroed();
+    CreateDirect3D11DeviceFromDXGIDevice(dxgidevice.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 #[inline]
-pub unsafe fn CreateDirect3D11SurfaceFromDXGISurface<P0>(dgxisurface: P0) -> ::windows_core::Result<::windows_core::IInspectable>
+pub unsafe fn CreateDirect3D11SurfaceFromDXGISurface<P0>(dgxisurface: P0) -> windows_core::Result<windows_core::IInspectable>
 where
-    P0: ::windows_core::IntoParam<super::super::super::Graphics::Dxgi::IDXGISurface>,
+    P0: windows_core::IntoParam<super::super::super::Graphics::Dxgi::IDXGISurface>,
 {
-    ::windows_targets::link!("d3d11.dll" "system" fn CreateDirect3D11SurfaceFromDXGISurface(dgxisurface : * mut::core::ffi::c_void, graphicssurface : *mut * mut::core::ffi::c_void) -> ::windows_core::HRESULT);
-    let mut result__ = ::std::mem::zeroed();
-    CreateDirect3D11SurfaceFromDXGISurface(dgxisurface.into_param().abi(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
+    ::windows_targets::link!("d3d11.dll" "system" fn CreateDirect3D11SurfaceFromDXGISurface(dgxisurface : * mut core::ffi::c_void, graphicssurface : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    let mut result__ = std::mem::zeroed();
+    CreateDirect3D11SurfaceFromDXGISurface(dgxisurface.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
-::windows_core::imp::com_interface!(IDirect3DDxgiInterfaceAccess, IDirect3DDxgiInterfaceAccess_Vtbl, 0xa9b3d012_3df2_4ee3_b8d1_8695f457d3c1);
-::windows_core::imp::interface_hierarchy!(IDirect3DDxgiInterfaceAccess, ::windows_core::IUnknown);
+windows_core::imp::com_interface!(IDirect3DDxgiInterfaceAccess, IDirect3DDxgiInterfaceAccess_Vtbl, 0xa9b3d012_3df2_4ee3_b8d1_8695f457d3c1);
+windows_core::imp::interface_hierarchy!(IDirect3DDxgiInterfaceAccess, windows_core::IUnknown);
 impl IDirect3DDxgiInterfaceAccess {
-    pub unsafe fn GetInterface<T>(&self) -> ::windows_core::Result<T>
+    pub unsafe fn GetInterface<T>(&self) -> windows_core::Result<T>
     where
-        T: ::windows_core::Interface,
+        T: windows_core::Interface,
     {
-        let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).GetInterface)(::windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
+        let mut result__ = std::ptr::null_mut();
+        (windows_core::Interface::vtable(self).GetInterface)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
 pub struct IDirect3DDxgiInterfaceAccess_Vtbl {
-    pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetInterface: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub GetInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(feature = "implement")]
-::core::include!("impl.rs");
+core::include!("impl.rs");

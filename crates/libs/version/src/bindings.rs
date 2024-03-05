@@ -21,8 +21,8 @@ pub struct OSVERSIONINFOEXW {
     pub wProductType: u8,
     pub wReserved: u8,
 }
-impl ::core::marker::Copy for OSVERSIONINFOEXW {}
-impl ::core::clone::Clone for OSVERSIONINFOEXW {
+impl Copy for OSVERSIONINFOEXW {}
+impl Clone for OSVERSIONINFOEXW {
     fn clone(&self) -> Self {
         *self
     }
@@ -36,8 +36,8 @@ pub struct OSVERSIONINFOW {
     pub dwPlatformId: u32,
     pub szCSDVersion: [u16; 128],
 }
-impl ::core::marker::Copy for OSVERSIONINFOW {}
-impl ::core::clone::Clone for OSVERSIONINFOW {
+impl Copy for OSVERSIONINFOW {}
+impl Clone for OSVERSIONINFOW {
     fn clone(&self) -> Self {
         *self
     }

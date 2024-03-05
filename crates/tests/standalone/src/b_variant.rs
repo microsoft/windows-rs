@@ -12,8 +12,8 @@ pub struct ARRAYDESC {
     pub cDims: u16,
     pub rgbounds: [SAFEARRAYBOUND; 1],
 }
-impl ::core::marker::Copy for ARRAYDESC {}
-impl ::core::clone::Clone for ARRAYDESC {
+impl Copy for ARRAYDESC {}
+impl Clone for ARRAYDESC {
     fn clone(&self) -> Self {
         *self
     }
@@ -22,10 +22,10 @@ impl ::core::clone::Clone for ARRAYDESC {
 pub union BINDPTR {
     pub lpfuncdesc: *mut FUNCDESC,
     pub lpvardesc: *mut VARDESC,
-    pub lptcomp: *mut ::core::ffi::c_void,
+    pub lptcomp: *mut core::ffi::c_void,
 }
-impl ::core::marker::Copy for BINDPTR {}
-impl ::core::clone::Clone for BINDPTR {
+impl Copy for BINDPTR {}
+impl Clone for BINDPTR {
     fn clone(&self) -> Self {
         *self
     }
@@ -38,8 +38,8 @@ pub union CY {
     pub Anonymous: CY_0,
     pub int64: i64,
 }
-impl ::core::marker::Copy for CY {}
-impl ::core::clone::Clone for CY {
+impl Copy for CY {}
+impl Clone for CY {
     fn clone(&self) -> Self {
         *self
     }
@@ -49,8 +49,8 @@ pub struct CY_0 {
     pub Lo: u32,
     pub Hi: i32,
 }
-impl ::core::marker::Copy for CY_0 {}
-impl ::core::clone::Clone for CY_0 {
+impl Copy for CY_0 {}
+impl Clone for CY_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -62,8 +62,8 @@ pub struct DECIMAL {
     pub Hi32: u32,
     pub Anonymous2: DECIMAL_1,
 }
-impl ::core::marker::Copy for DECIMAL {}
-impl ::core::clone::Clone for DECIMAL {
+impl Copy for DECIMAL {}
+impl Clone for DECIMAL {
     fn clone(&self) -> Self {
         *self
     }
@@ -73,8 +73,8 @@ pub union DECIMAL_0 {
     pub Anonymous: DECIMAL_0_0,
     pub signscale: u16,
 }
-impl ::core::marker::Copy for DECIMAL_0 {}
-impl ::core::clone::Clone for DECIMAL_0 {
+impl Copy for DECIMAL_0 {}
+impl Clone for DECIMAL_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -84,8 +84,8 @@ pub struct DECIMAL_0_0 {
     pub scale: u8,
     pub sign: u8,
 }
-impl ::core::marker::Copy for DECIMAL_0_0 {}
-impl ::core::clone::Clone for DECIMAL_0_0 {
+impl Copy for DECIMAL_0_0 {}
+impl Clone for DECIMAL_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -95,8 +95,8 @@ pub union DECIMAL_1 {
     pub Anonymous: DECIMAL_1_0,
     pub Lo64: u64,
 }
-impl ::core::marker::Copy for DECIMAL_1 {}
-impl ::core::clone::Clone for DECIMAL_1 {
+impl Copy for DECIMAL_1 {}
+impl Clone for DECIMAL_1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -106,8 +106,8 @@ pub struct DECIMAL_1_0 {
     pub Lo32: u32,
     pub Mid32: u32,
 }
-impl ::core::marker::Copy for DECIMAL_1_0 {}
-impl ::core::clone::Clone for DECIMAL_1_0 {
+impl Copy for DECIMAL_1_0 {}
+impl Clone for DECIMAL_1_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -121,8 +121,8 @@ pub struct DISPPARAMS {
     pub cArgs: u32,
     pub cNamedArgs: u32,
 }
-impl ::core::marker::Copy for DISPPARAMS {}
-impl ::core::clone::Clone for DISPPARAMS {
+impl Copy for DISPPARAMS {}
+impl Clone for DISPPARAMS {
     fn clone(&self) -> Self {
         *self
     }
@@ -132,8 +132,8 @@ pub struct ELEMDESC {
     pub tdesc: TYPEDESC,
     pub Anonymous: ELEMDESC_0,
 }
-impl ::core::marker::Copy for ELEMDESC {}
-impl ::core::clone::Clone for ELEMDESC {
+impl Copy for ELEMDESC {}
+impl Clone for ELEMDESC {
     fn clone(&self) -> Self {
         *self
     }
@@ -143,8 +143,8 @@ pub union ELEMDESC_0 {
     pub idldesc: IDLDESC,
     pub paramdesc: PARAMDESC,
 }
-impl ::core::marker::Copy for ELEMDESC_0 {}
-impl ::core::clone::Clone for ELEMDESC_0 {
+impl Copy for ELEMDESC_0 {}
+impl Clone for ELEMDESC_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -157,12 +157,12 @@ pub struct EXCEPINFO {
     pub bstrDescription: BSTR,
     pub bstrHelpFile: BSTR,
     pub dwHelpContext: u32,
-    pub pvReserved: *mut ::core::ffi::c_void,
+    pub pvReserved: *mut core::ffi::c_void,
     pub pfnDeferredFillIn: LPEXCEPFINO_DEFERRED_FILLIN,
     pub scode: i32,
 }
-impl ::core::marker::Copy for EXCEPINFO {}
-impl ::core::clone::Clone for EXCEPINFO {
+impl Copy for EXCEPINFO {}
+impl Clone for EXCEPINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -182,8 +182,8 @@ pub struct FUNCDESC {
     pub elemdescFunc: ELEMDESC,
     pub wFuncFlags: FUNCFLAGS,
 }
-impl ::core::marker::Copy for FUNCDESC {}
-impl ::core::clone::Clone for FUNCDESC {
+impl Copy for FUNCDESC {}
+impl Clone for FUNCDESC {
     fn clone(&self) -> Self {
         *self
     }
@@ -197,8 +197,8 @@ pub struct GUID {
     pub data3: u16,
     pub data4: [u8; 8],
 }
-impl ::core::marker::Copy for GUID {}
-impl ::core::clone::Clone for GUID {
+impl Copy for GUID {}
+impl Clone for GUID {
     fn clone(&self) -> Self {
         *self
     }
@@ -219,8 +219,8 @@ pub struct IDLDESC {
     pub dwReserved: usize,
     pub wIDLFlags: IDLFLAGS,
 }
-impl ::core::marker::Copy for IDLDESC {}
-impl ::core::clone::Clone for IDLDESC {
+impl Copy for IDLDESC {}
+impl Clone for IDLDESC {
     fn clone(&self) -> Self {
         *self
     }
@@ -229,14 +229,14 @@ pub type IDLFLAGS = u16;
 pub type IMPLTYPEFLAGS = i32;
 pub type INVOKEKIND = i32;
 pub type LPEXCEPFINO_DEFERRED_FILLIN =
-    ::core::option::Option<unsafe extern "system" fn(pexcepinfo: *mut EXCEPINFO) -> HRESULT>;
+    Option<unsafe extern "system" fn(pexcepinfo: *mut EXCEPINFO) -> HRESULT>;
 #[repr(C)]
 pub struct PARAMDESC {
     pub pparamdescex: *mut PARAMDESCEX,
     pub wParamFlags: PARAMFLAGS,
 }
-impl ::core::marker::Copy for PARAMDESC {}
-impl ::core::clone::Clone for PARAMDESC {
+impl Copy for PARAMDESC {}
+impl Clone for PARAMDESC {
     fn clone(&self) -> Self {
         *self
     }
@@ -246,8 +246,8 @@ pub struct PARAMDESCEX {
     pub cBytes: u32,
     pub varDefaultValue: VARIANT,
 }
-impl ::core::marker::Copy for PARAMDESCEX {}
-impl ::core::clone::Clone for PARAMDESCEX {
+impl Copy for PARAMDESCEX {}
+impl Clone for PARAMDESCEX {
     fn clone(&self) -> Self {
         *self
     }
@@ -262,11 +262,11 @@ pub struct SAFEARRAY {
     pub fFeatures: ADVANCED_FEATURE_FLAGS,
     pub cbElements: u32,
     pub cLocks: u32,
-    pub pvData: *mut ::core::ffi::c_void,
+    pub pvData: *mut core::ffi::c_void,
     pub rgsabound: [SAFEARRAYBOUND; 1],
 }
-impl ::core::marker::Copy for SAFEARRAY {}
-impl ::core::clone::Clone for SAFEARRAY {
+impl Copy for SAFEARRAY {}
+impl Clone for SAFEARRAY {
     fn clone(&self) -> Self {
         *self
     }
@@ -276,8 +276,8 @@ pub struct SAFEARRAYBOUND {
     pub cElements: u32,
     pub lLbound: i32,
 }
-impl ::core::marker::Copy for SAFEARRAYBOUND {}
-impl ::core::clone::Clone for SAFEARRAYBOUND {
+impl Copy for SAFEARRAYBOUND {}
+impl Clone for SAFEARRAYBOUND {
     fn clone(&self) -> Self {
         *self
     }
@@ -292,8 +292,8 @@ pub struct TLIBATTR {
     pub wMinorVerNum: u16,
     pub wLibFlags: u16,
 }
-impl ::core::marker::Copy for TLIBATTR {}
-impl ::core::clone::Clone for TLIBATTR {
+impl Copy for TLIBATTR {}
+impl Clone for TLIBATTR {
     fn clone(&self) -> Self {
         *self
     }
@@ -319,8 +319,8 @@ pub struct TYPEATTR {
     pub tdescAlias: TYPEDESC,
     pub idldescType: IDLDESC,
 }
-impl ::core::marker::Copy for TYPEATTR {}
-impl ::core::clone::Clone for TYPEATTR {
+impl Copy for TYPEATTR {}
+impl Clone for TYPEATTR {
     fn clone(&self) -> Self {
         *self
     }
@@ -330,8 +330,8 @@ pub struct TYPEDESC {
     pub Anonymous: TYPEDESC_0,
     pub vt: VARENUM,
 }
-impl ::core::marker::Copy for TYPEDESC {}
-impl ::core::clone::Clone for TYPEDESC {
+impl Copy for TYPEDESC {}
+impl Clone for TYPEDESC {
     fn clone(&self) -> Self {
         *self
     }
@@ -342,8 +342,8 @@ pub union TYPEDESC_0 {
     pub lpadesc: *mut ARRAYDESC,
     pub hreftype: u32,
 }
-impl ::core::marker::Copy for TYPEDESC_0 {}
-impl ::core::clone::Clone for TYPEDESC_0 {
+impl Copy for TYPEDESC_0 {}
+impl Clone for TYPEDESC_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -358,8 +358,8 @@ pub struct VARDESC {
     pub wVarFlags: VARFLAGS,
     pub varkind: VARKIND,
 }
-impl ::core::marker::Copy for VARDESC {}
-impl ::core::clone::Clone for VARDESC {
+impl Copy for VARDESC {}
+impl Clone for VARDESC {
     fn clone(&self) -> Self {
         *self
     }
@@ -369,8 +369,8 @@ pub union VARDESC_0 {
     pub oInst: u32,
     pub lpvarValue: *mut VARIANT,
 }
-impl ::core::marker::Copy for VARDESC_0 {}
-impl ::core::clone::Clone for VARDESC_0 {
+impl Copy for VARDESC_0 {}
+impl Clone for VARDESC_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -381,8 +381,8 @@ pub type VARFLAGS = u16;
 pub struct VARIANT {
     pub Anonymous: VARIANT_0,
 }
-impl ::core::marker::Copy for VARIANT {}
-impl ::core::clone::Clone for VARIANT {
+impl Copy for VARIANT {}
+impl Clone for VARIANT {
     fn clone(&self) -> Self {
         *self
     }
@@ -392,8 +392,8 @@ pub union VARIANT_0 {
     pub Anonymous: VARIANT_0_0,
     pub decVal: DECIMAL,
 }
-impl ::core::marker::Copy for VARIANT_0 {}
-impl ::core::clone::Clone for VARIANT_0 {
+impl Copy for VARIANT_0 {}
+impl Clone for VARIANT_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -406,8 +406,8 @@ pub struct VARIANT_0_0 {
     pub wReserved3: u16,
     pub Anonymous: VARIANT_0_0_0,
 }
-impl ::core::marker::Copy for VARIANT_0_0 {}
-impl ::core::clone::Clone for VARIANT_0_0 {
+impl Copy for VARIANT_0_0 {}
+impl Clone for VARIANT_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -426,8 +426,8 @@ pub union VARIANT_0_0_0 {
     pub cyVal: CY,
     pub date: f64,
     pub bstrVal: BSTR,
-    pub punkVal: *mut ::core::ffi::c_void,
-    pub pdispVal: *mut ::core::ffi::c_void,
+    pub punkVal: *mut core::ffi::c_void,
+    pub pdispVal: *mut core::ffi::c_void,
     pub parray: *mut SAFEARRAY,
     pub pbVal: *mut u8,
     pub piVal: *mut i16,
@@ -441,11 +441,11 @@ pub union VARIANT_0_0_0 {
     pub pcyVal: *mut CY,
     pub pdate: *mut f64,
     pub pbstrVal: *mut BSTR,
-    pub ppunkVal: *mut *mut ::core::ffi::c_void,
-    pub ppdispVal: *mut *mut ::core::ffi::c_void,
+    pub ppunkVal: *mut *mut core::ffi::c_void,
+    pub ppdispVal: *mut *mut core::ffi::c_void,
     pub pparray: *mut *mut SAFEARRAY,
     pub pvarVal: *mut VARIANT,
-    pub byref: *mut ::core::ffi::c_void,
+    pub byref: *mut core::ffi::c_void,
     pub cVal: i8,
     pub uiVal: u16,
     pub ulVal: u32,
@@ -461,19 +461,19 @@ pub union VARIANT_0_0_0 {
     pub puintVal: *mut u32,
     pub Anonymous: VARIANT_0_0_0_0,
 }
-impl ::core::marker::Copy for VARIANT_0_0_0 {}
-impl ::core::clone::Clone for VARIANT_0_0_0 {
+impl Copy for VARIANT_0_0_0 {}
+impl Clone for VARIANT_0_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct VARIANT_0_0_0_0 {
-    pub pvRecord: *mut ::core::ffi::c_void,
-    pub pRecInfo: *mut ::core::ffi::c_void,
+    pub pvRecord: *mut core::ffi::c_void,
+    pub pRecInfo: *mut core::ffi::c_void,
 }
-impl ::core::marker::Copy for VARIANT_0_0_0_0 {}
-impl ::core::clone::Clone for VARIANT_0_0_0_0 {
+impl Copy for VARIANT_0_0_0_0 {}
+impl Clone for VARIANT_0_0_0_0 {
     fn clone(&self) -> Self {
         *self
     }

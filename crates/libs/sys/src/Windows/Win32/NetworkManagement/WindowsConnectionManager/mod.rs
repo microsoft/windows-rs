@@ -1,13 +1,13 @@
 ::windows_targets::link!("ondemandconnroutehelper.dll" "system" fn FreeInterfaceContextTable(interfacecontexttable : *const NET_INTERFACE_CONTEXT_TABLE));
-::windows_targets::link!("ondemandconnroutehelper.dll" "system" fn GetInterfaceContextTableForHostName(hostname : ::windows_sys::core::PCWSTR, proxyname : ::windows_sys::core::PCWSTR, flags : u32, connectionprofilefilterrawdata : *const u8, connectionprofilefilterrawdatasize : u32, interfacecontexttable : *mut *mut NET_INTERFACE_CONTEXT_TABLE) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("ondemandconnroutehelper.dll" "system" fn OnDemandGetRoutingHint(destinationhostname : ::windows_sys::core::PCWSTR, interfaceindex : *mut u32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("ondemandconnroutehelper.dll" "system" fn OnDemandRegisterNotification(callback : ONDEMAND_NOTIFICATION_CALLBACK, callbackcontext : *const ::core::ffi::c_void, registrationhandle : *mut super::super::Foundation:: HANDLE) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("ondemandconnroutehelper.dll" "system" fn OnDemandUnRegisterNotification(registrationhandle : super::super::Foundation:: HANDLE) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("wcmapi.dll" "system" fn WcmFreeMemory(pmemory : *mut ::core::ffi::c_void));
-::windows_targets::link!("wcmapi.dll" "system" fn WcmGetProfileList(preserved : *const ::core::ffi::c_void, ppprofilelist : *mut *mut WCM_PROFILE_INFO_LIST) -> u32);
-::windows_targets::link!("wcmapi.dll" "system" fn WcmQueryProperty(pinterface : *const ::windows_sys::core::GUID, strprofilename : ::windows_sys::core::PCWSTR, property : WCM_PROPERTY, preserved : *const ::core::ffi::c_void, pdwdatasize : *mut u32, ppdata : *mut *mut u8) -> u32);
-::windows_targets::link!("wcmapi.dll" "system" fn WcmSetProfileList(pprofilelist : *const WCM_PROFILE_INFO_LIST, dwposition : u32, fignoreunknownprofiles : super::super::Foundation:: BOOL, preserved : *const ::core::ffi::c_void) -> u32);
-::windows_targets::link!("wcmapi.dll" "system" fn WcmSetProperty(pinterface : *const ::windows_sys::core::GUID, strprofilename : ::windows_sys::core::PCWSTR, property : WCM_PROPERTY, preserved : *const ::core::ffi::c_void, dwdatasize : u32, pbdata : *const u8) -> u32);
+::windows_targets::link!("ondemandconnroutehelper.dll" "system" fn GetInterfaceContextTableForHostName(hostname : windows_sys::core::PCWSTR, proxyname : windows_sys::core::PCWSTR, flags : u32, connectionprofilefilterrawdata : *const u8, connectionprofilefilterrawdatasize : u32, interfacecontexttable : *mut *mut NET_INTERFACE_CONTEXT_TABLE) -> windows_sys::core::HRESULT);
+::windows_targets::link!("ondemandconnroutehelper.dll" "system" fn OnDemandGetRoutingHint(destinationhostname : windows_sys::core::PCWSTR, interfaceindex : *mut u32) -> windows_sys::core::HRESULT);
+::windows_targets::link!("ondemandconnroutehelper.dll" "system" fn OnDemandRegisterNotification(callback : ONDEMAND_NOTIFICATION_CALLBACK, callbackcontext : *const core::ffi::c_void, registrationhandle : *mut super::super::Foundation:: HANDLE) -> windows_sys::core::HRESULT);
+::windows_targets::link!("ondemandconnroutehelper.dll" "system" fn OnDemandUnRegisterNotification(registrationhandle : super::super::Foundation:: HANDLE) -> windows_sys::core::HRESULT);
+::windows_targets::link!("wcmapi.dll" "system" fn WcmFreeMemory(pmemory : *mut core::ffi::c_void));
+::windows_targets::link!("wcmapi.dll" "system" fn WcmGetProfileList(preserved : *const core::ffi::c_void, ppprofilelist : *mut *mut WCM_PROFILE_INFO_LIST) -> u32);
+::windows_targets::link!("wcmapi.dll" "system" fn WcmQueryProperty(pinterface : *const windows_sys::core::GUID, strprofilename : windows_sys::core::PCWSTR, property : WCM_PROPERTY, preserved : *const core::ffi::c_void, pdwdatasize : *mut u32, ppdata : *mut *mut u8) -> u32);
+::windows_targets::link!("wcmapi.dll" "system" fn WcmSetProfileList(pprofilelist : *const WCM_PROFILE_INFO_LIST, dwposition : u32, fignoreunknownprofiles : super::super::Foundation:: BOOL, preserved : *const core::ffi::c_void) -> u32);
+::windows_targets::link!("wcmapi.dll" "system" fn WcmSetProperty(pinterface : *const windows_sys::core::GUID, strprofilename : windows_sys::core::PCWSTR, property : WCM_PROPERTY, preserved : *const core::ffi::c_void, dwdatasize : u32, pbdata : *const u8) -> u32);
 pub const NET_INTERFACE_FLAG_CONNECT_IF_NEEDED: u32 = 1u32;
 pub const NET_INTERFACE_FLAG_NONE: u32 = 0u32;
 pub const WCM_API_VERSION: u32 = 1u32;
@@ -46,10 +46,10 @@ pub type WCM_PROPERTY = i32;
 #[repr(C)]
 pub struct NET_INTERFACE_CONTEXT {
     pub InterfaceIndex: u32,
-    pub ConfigurationName: ::windows_sys::core::PWSTR,
+    pub ConfigurationName: windows_sys::core::PWSTR,
 }
-impl ::core::marker::Copy for NET_INTERFACE_CONTEXT {}
-impl ::core::clone::Clone for NET_INTERFACE_CONTEXT {
+impl Copy for NET_INTERFACE_CONTEXT {}
+impl Clone for NET_INTERFACE_CONTEXT {
     fn clone(&self) -> Self {
         *self
     }
@@ -60,8 +60,8 @@ pub struct NET_INTERFACE_CONTEXT_TABLE {
     pub NumberOfEntries: u32,
     pub InterfaceContextArray: *mut NET_INTERFACE_CONTEXT,
 }
-impl ::core::marker::Copy for NET_INTERFACE_CONTEXT_TABLE {}
-impl ::core::clone::Clone for NET_INTERFACE_CONTEXT_TABLE {
+impl Copy for NET_INTERFACE_CONTEXT_TABLE {}
+impl Clone for NET_INTERFACE_CONTEXT_TABLE {
     fn clone(&self) -> Self {
         *self
     }
@@ -72,8 +72,8 @@ pub struct WCM_BILLING_CYCLE_INFO {
     pub Duration: WCM_TIME_INTERVAL,
     pub Reset: super::super::Foundation::BOOL,
 }
-impl ::core::marker::Copy for WCM_BILLING_CYCLE_INFO {}
-impl ::core::clone::Clone for WCM_BILLING_CYCLE_INFO {
+impl Copy for WCM_BILLING_CYCLE_INFO {}
+impl Clone for WCM_BILLING_CYCLE_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -83,8 +83,8 @@ pub struct WCM_CONNECTION_COST_DATA {
     pub ConnectionCost: u32,
     pub CostSource: WCM_CONNECTION_COST_SOURCE,
 }
-impl ::core::marker::Copy for WCM_CONNECTION_COST_DATA {}
-impl ::core::clone::Clone for WCM_CONNECTION_COST_DATA {
+impl Copy for WCM_CONNECTION_COST_DATA {}
+impl Clone for WCM_CONNECTION_COST_DATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -99,8 +99,8 @@ pub struct WCM_DATAPLAN_STATUS {
     pub MaxTransferSizeInMegabytes: u32,
     pub Reserved: u32,
 }
-impl ::core::marker::Copy for WCM_DATAPLAN_STATUS {}
-impl ::core::clone::Clone for WCM_DATAPLAN_STATUS {
+impl Copy for WCM_DATAPLAN_STATUS {}
+impl Clone for WCM_DATAPLAN_STATUS {
     fn clone(&self) -> Self {
         *self
     }
@@ -110,8 +110,8 @@ pub struct WCM_POLICY_VALUE {
     pub fValue: super::super::Foundation::BOOL,
     pub fIsGroupPolicy: super::super::Foundation::BOOL,
 }
-impl ::core::marker::Copy for WCM_POLICY_VALUE {}
-impl ::core::clone::Clone for WCM_POLICY_VALUE {
+impl Copy for WCM_POLICY_VALUE {}
+impl Clone for WCM_POLICY_VALUE {
     fn clone(&self) -> Self {
         *self
     }
@@ -119,11 +119,11 @@ impl ::core::clone::Clone for WCM_POLICY_VALUE {
 #[repr(C)]
 pub struct WCM_PROFILE_INFO {
     pub strProfileName: [u16; 256],
-    pub AdapterGUID: ::windows_sys::core::GUID,
+    pub AdapterGUID: windows_sys::core::GUID,
     pub Media: WCM_MEDIA_TYPE,
 }
-impl ::core::marker::Copy for WCM_PROFILE_INFO {}
-impl ::core::clone::Clone for WCM_PROFILE_INFO {
+impl Copy for WCM_PROFILE_INFO {}
+impl Clone for WCM_PROFILE_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -133,8 +133,8 @@ pub struct WCM_PROFILE_INFO_LIST {
     pub dwNumberOfItems: u32,
     pub ProfileInfo: [WCM_PROFILE_INFO; 1],
 }
-impl ::core::marker::Copy for WCM_PROFILE_INFO_LIST {}
-impl ::core::clone::Clone for WCM_PROFILE_INFO_LIST {
+impl Copy for WCM_PROFILE_INFO_LIST {}
+impl Clone for WCM_PROFILE_INFO_LIST {
     fn clone(&self) -> Self {
         *self
     }
@@ -149,8 +149,8 @@ pub struct WCM_TIME_INTERVAL {
     pub wSecond: u16,
     pub wMilliseconds: u16,
 }
-impl ::core::marker::Copy for WCM_TIME_INTERVAL {}
-impl ::core::clone::Clone for WCM_TIME_INTERVAL {
+impl Copy for WCM_TIME_INTERVAL {}
+impl Clone for WCM_TIME_INTERVAL {
     fn clone(&self) -> Self {
         *self
     }
@@ -160,10 +160,10 @@ pub struct WCM_USAGE_DATA {
     pub UsageInMegabytes: u32,
     pub LastSyncTime: super::super::Foundation::FILETIME,
 }
-impl ::core::marker::Copy for WCM_USAGE_DATA {}
-impl ::core::clone::Clone for WCM_USAGE_DATA {
+impl Copy for WCM_USAGE_DATA {}
+impl Clone for WCM_USAGE_DATA {
     fn clone(&self) -> Self {
         *self
     }
 }
-pub type ONDEMAND_NOTIFICATION_CALLBACK = ::core::option::Option<unsafe extern "system" fn(param0: *const ::core::ffi::c_void)>;
+pub type ONDEMAND_NOTIFICATION_CALLBACK = Option<unsafe extern "system" fn(param0: *const core::ffi::c_void)>;

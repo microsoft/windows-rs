@@ -35,8 +35,8 @@ pub struct DEVMODEW {
     pub dmPanningWidth: u32,
     pub dmPanningHeight: u32,
 }
-impl ::core::marker::Copy for DEVMODEW {}
-impl ::core::clone::Clone for DEVMODEW {
+impl Copy for DEVMODEW {}
+impl Clone for DEVMODEW {
     fn clone(&self) -> Self {
         *self
     }
@@ -46,8 +46,8 @@ pub union DEVMODEW_0 {
     pub Anonymous1: DEVMODEW_0_0,
     pub Anonymous2: DEVMODEW_0_1,
 }
-impl ::core::marker::Copy for DEVMODEW_0 {}
-impl ::core::clone::Clone for DEVMODEW_0 {
+impl Copy for DEVMODEW_0 {}
+impl Clone for DEVMODEW_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -63,8 +63,8 @@ pub struct DEVMODEW_0_0 {
     pub dmDefaultSource: i16,
     pub dmPrintQuality: i16,
 }
-impl ::core::marker::Copy for DEVMODEW_0_0 {}
-impl ::core::clone::Clone for DEVMODEW_0_0 {
+impl Copy for DEVMODEW_0_0 {}
+impl Clone for DEVMODEW_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -75,8 +75,8 @@ pub struct DEVMODEW_0_1 {
     pub dmDisplayOrientation: DEVMODE_DISPLAY_ORIENTATION,
     pub dmDisplayFixedOutput: DEVMODE_DISPLAY_FIXED_OUTPUT,
 }
-impl ::core::marker::Copy for DEVMODEW_0_1 {}
-impl ::core::clone::Clone for DEVMODEW_0_1 {
+impl Copy for DEVMODEW_0_1 {}
+impl Clone for DEVMODEW_0_1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -86,8 +86,8 @@ pub union DEVMODEW_1 {
     pub dmDisplayFlags: u32,
     pub dmNup: u32,
 }
-impl ::core::marker::Copy for DEVMODEW_1 {}
-impl ::core::clone::Clone for DEVMODEW_1 {
+impl Copy for DEVMODEW_1 {}
+impl Clone for DEVMODEW_1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -104,8 +104,8 @@ pub struct FILETIME {
     pub dwLowDateTime: u32,
     pub dwHighDateTime: u32,
 }
-impl ::core::marker::Copy for FILETIME {}
-impl ::core::clone::Clone for FILETIME {
+impl Copy for FILETIME {}
+impl Clone for FILETIME {
     fn clone(&self) -> Self {
         *self
     }
@@ -117,8 +117,8 @@ pub struct GUID {
     pub data3: u16,
     pub data4: [u8; 8],
 }
-impl ::core::marker::Copy for GUID {}
-impl ::core::clone::Clone for GUID {
+impl Copy for GUID {}
+impl Clone for GUID {
     fn clone(&self) -> Self {
         *self
     }
@@ -135,7 +135,7 @@ impl GUID {
 }
 pub type HBITMAP = isize;
 pub type HENHMETAFILE = isize;
-pub type HGLOBAL = *mut ::core::ffi::c_void;
+pub type HGLOBAL = *mut core::ffi::c_void;
 pub type HRESULT = i32;
 pub type PCWSTR = *const u16;
 #[repr(C)]
@@ -143,8 +143,8 @@ pub struct POINTL {
     pub x: i32,
     pub y: i32,
 }
-impl ::core::marker::Copy for POINTL {}
-impl ::core::clone::Clone for POINTL {
+impl Copy for POINTL {}
+impl Clone for POINTL {
     fn clone(&self) -> Self {
         *self
     }
@@ -164,8 +164,8 @@ pub struct STATSTG {
     pub grfStateBits: u32,
     pub reserved: u32,
 }
-impl ::core::marker::Copy for STATSTG {}
-impl ::core::clone::Clone for STATSTG {
+impl Copy for STATSTG {}
+impl Clone for STATSTG {
     fn clone(&self) -> Self {
         *self
     }
@@ -175,10 +175,10 @@ pub type STGM = u32;
 pub struct STGMEDIUM {
     pub tymed: u32,
     pub u: STGMEDIUM_0,
-    pub pUnkForRelease: *mut ::core::ffi::c_void,
+    pub pUnkForRelease: *mut core::ffi::c_void,
 }
-impl ::core::marker::Copy for STGMEDIUM {}
-impl ::core::clone::Clone for STGMEDIUM {
+impl Copy for STGMEDIUM {}
+impl Clone for STGMEDIUM {
     fn clone(&self) -> Self {
         *self
     }
@@ -186,15 +186,15 @@ impl ::core::clone::Clone for STGMEDIUM {
 #[repr(C)]
 pub union STGMEDIUM_0 {
     pub hBitmap: HBITMAP,
-    pub hMetaFilePict: *mut ::core::ffi::c_void,
+    pub hMetaFilePict: *mut core::ffi::c_void,
     pub hEnhMetaFile: HENHMETAFILE,
     pub hGlobal: HGLOBAL,
     pub lpszFileName: PWSTR,
-    pub pstm: *mut ::core::ffi::c_void,
-    pub pstg: *mut ::core::ffi::c_void,
+    pub pstm: *mut core::ffi::c_void,
+    pub pstg: *mut core::ffi::c_void,
 }
-impl ::core::marker::Copy for STGMEDIUM_0 {}
-impl ::core::clone::Clone for STGMEDIUM_0 {
+impl Copy for STGMEDIUM_0 {}
+impl Clone for STGMEDIUM_0 {
     fn clone(&self) -> Self {
         *self
     }

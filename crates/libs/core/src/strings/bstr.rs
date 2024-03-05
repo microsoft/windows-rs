@@ -23,7 +23,7 @@ impl BSTR {
         if self.0.is_null() {
             0
         } else {
-            unsafe { crate::imp::SysStringLen(self.0) as usize }
+            unsafe { imp::SysStringLen(self.0) as usize }
         }
     }
 
@@ -48,10 +48,10 @@ impl BSTR {
             return Ok(Self::new());
         }
 
-        let result = unsafe { Self(crate::imp::SysAllocStringLen(value.as_ptr(), value.len().try_into()?)) };
+        let result = unsafe { Self(imp::SysAllocStringLen(value.as_ptr(), value.len().try_into()?)) };
 
         if result.is_empty() {
-            Err(crate::imp::E_OUTOFMEMORY.into())
+            Err(imp::E_OUTOFMEMORY.into())
         } else {
             Ok(result)
         }
@@ -158,7 +158,7 @@ impl<T: AsRef<str> + ?Sized> PartialEq<T> for BSTR {
 impl Drop for BSTR {
     fn drop(&mut self) {
         if !self.0.is_null() {
-            unsafe { crate::imp::SysFreeString(self.0) }
+            unsafe { imp::SysFreeString(self.0) }
         }
     }
 }
