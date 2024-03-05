@@ -4,7 +4,7 @@ pub unsafe fn CreateDirect3D11DeviceFromDXGIDevice<P0>(dxgidevice: P0) -> window
 where
     P0: windows_core::IntoParam<super::super::super::Graphics::Dxgi::IDXGIDevice>,
 {
-    ::windows_targets::link!("d3d11.dll" "system" fn CreateDirect3D11DeviceFromDXGIDevice(dxgidevice : * mut core::ffi::c_void, graphicsdevice : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_targets::link!("d3d11.dll" "system" fn CreateDirect3D11DeviceFromDXGIDevice(dxgidevice : * mut core::ffi::c_void, graphicsdevice : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = std::mem::zeroed();
     CreateDirect3D11DeviceFromDXGIDevice(dxgidevice.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
@@ -14,7 +14,7 @@ pub unsafe fn CreateDirect3D11SurfaceFromDXGISurface<P0>(dgxisurface: P0) -> win
 where
     P0: windows_core::IntoParam<super::super::super::Graphics::Dxgi::IDXGISurface>,
 {
-    ::windows_targets::link!("d3d11.dll" "system" fn CreateDirect3D11SurfaceFromDXGISurface(dgxisurface : * mut core::ffi::c_void, graphicssurface : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_targets::link!("d3d11.dll" "system" fn CreateDirect3D11SurfaceFromDXGISurface(dgxisurface : * mut core::ffi::c_void, graphicssurface : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = std::mem::zeroed();
     CreateDirect3D11SurfaceFromDXGISurface(dgxisurface.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }

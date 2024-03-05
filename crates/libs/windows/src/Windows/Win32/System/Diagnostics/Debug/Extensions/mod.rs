@@ -3,7 +3,7 @@ pub unsafe fn CreateDataModelManager<P0>(debughost: P0) -> windows_core::Result<
 where
     P0: windows_core::IntoParam<IDebugHost>,
 {
-    ::windows_targets::link!("dbgmodel.dll" "system" fn CreateDataModelManager(debughost : * mut core::ffi::c_void, manager : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_targets::link!("dbgmodel.dll" "system" fn CreateDataModelManager(debughost : * mut core::ffi::c_void, manager : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = std::mem::zeroed();
     CreateDataModelManager(debughost.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
@@ -12,7 +12,7 @@ pub unsafe fn DebugConnect<P0>(remoteoptions: P0, interfaceid: *const windows_co
 where
     P0: windows_core::IntoParam<windows_core::PCSTR>,
 {
-    ::windows_targets::link!("dbgeng.dll" "system" fn DebugConnect(remoteoptions : windows_core::PCSTR, interfaceid : *const windows_core::GUID, interface : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_targets::link!("dbgeng.dll" "system" fn DebugConnect(remoteoptions : windows_core::PCSTR, interfaceid : *const windows_core::GUID, interface : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     DebugConnect(remoteoptions.into_param().abi(), interfaceid, interface).ok()
 }
 #[inline]
@@ -20,7 +20,7 @@ pub unsafe fn DebugConnectWide<P0>(remoteoptions: P0, interfaceid: *const window
 where
     P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("dbgeng.dll" "system" fn DebugConnectWide(remoteoptions : windows_core::PCWSTR, interfaceid : *const windows_core::GUID, interface : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_targets::link!("dbgeng.dll" "system" fn DebugConnectWide(remoteoptions : windows_core::PCWSTR, interfaceid : *const windows_core::GUID, interface : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     DebugConnectWide(remoteoptions.into_param().abi(), interfaceid, interface).ok()
 }
 #[inline]
@@ -28,7 +28,7 @@ pub unsafe fn DebugCreate<T>() -> windows_core::Result<T>
 where
     T: windows_core::Interface,
 {
-    ::windows_targets::link!("dbgeng.dll" "system" fn DebugCreate(interfaceid : *const windows_core::GUID, interface : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_targets::link!("dbgeng.dll" "system" fn DebugCreate(interfaceid : *const windows_core::GUID, interface : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = std::ptr::null_mut();
     DebugCreate(&T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
@@ -37,7 +37,7 @@ pub unsafe fn DebugCreateEx<T>(dbgengoptions: u32) -> windows_core::Result<T>
 where
     T: windows_core::Interface,
 {
-    ::windows_targets::link!("dbgeng.dll" "system" fn DebugCreateEx(interfaceid : *const windows_core::GUID, dbgengoptions : u32, interface : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_targets::link!("dbgeng.dll" "system" fn DebugCreateEx(interfaceid : *const windows_core::GUID, dbgengoptions : u32, interface : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = std::ptr::null_mut();
     DebugCreateEx(&T::IID, dbgengoptions, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }

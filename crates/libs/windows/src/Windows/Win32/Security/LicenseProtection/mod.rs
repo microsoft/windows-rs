@@ -3,7 +3,7 @@ pub unsafe fn RegisterLicenseKeyWithExpiration<P0>(licensekey: P0, validityinday
 where
     P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("licenseprotection.dll" "system" fn RegisterLicenseKeyWithExpiration(licensekey : windows_core::PCWSTR, validityindays : u32, status : *mut LicenseProtectionStatus) -> windows_core::HRESULT);
+    windows_targets::link!("licenseprotection.dll" "system" fn RegisterLicenseKeyWithExpiration(licensekey : windows_core::PCWSTR, validityindays : u32, status : *mut LicenseProtectionStatus) -> windows_core::HRESULT);
     let mut result__ = std::mem::zeroed();
     RegisterLicenseKeyWithExpiration(licensekey.into_param().abi(), validityindays, &mut result__).map(|| result__)
 }
@@ -12,7 +12,7 @@ pub unsafe fn ValidateLicenseKeyProtection<P0>(licensekey: P0, notvalidbefore: *
 where
     P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("licenseprotection.dll" "system" fn ValidateLicenseKeyProtection(licensekey : windows_core::PCWSTR, notvalidbefore : *mut super::super::Foundation:: FILETIME, notvalidafter : *mut super::super::Foundation:: FILETIME, status : *mut LicenseProtectionStatus) -> windows_core::HRESULT);
+    windows_targets::link!("licenseprotection.dll" "system" fn ValidateLicenseKeyProtection(licensekey : windows_core::PCWSTR, notvalidbefore : *mut super::super::Foundation:: FILETIME, notvalidafter : *mut super::super::Foundation:: FILETIME, status : *mut LicenseProtectionStatus) -> windows_core::HRESULT);
     ValidateLicenseKeyProtection(licensekey.into_param().abi(), notvalidbefore, notvalidafter, status).ok()
 }
 pub const LicenseKeyAlreadyExists: LicenseProtectionStatus = LicenseProtectionStatus(4i32);

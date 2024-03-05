@@ -6,7 +6,7 @@ where
     P2: windows_core::IntoParam<windows_core::PCWSTR>,
     P3: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("netapi32.dll" "system" fn NetDfsAdd(dfsentrypath : windows_core::PCWSTR, servername : windows_core::PCWSTR, sharename : windows_core::PCWSTR, comment : windows_core::PCWSTR, flags : u32) -> u32);
+    windows_targets::link!("netapi32.dll" "system" fn NetDfsAdd(dfsentrypath : windows_core::PCWSTR, servername : windows_core::PCWSTR, sharename : windows_core::PCWSTR, comment : windows_core::PCWSTR, flags : u32) -> u32);
     NetDfsAdd(dfsentrypath.into_param().abi(), servername.into_param().abi(), sharename.into_param().abi(), comment.into_param().abi(), flags)
 }
 #[inline]
@@ -17,7 +17,7 @@ where
     P2: windows_core::IntoParam<windows_core::PCWSTR>,
     P3: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("netapi32.dll" "system" fn NetDfsAddFtRoot(servername : windows_core::PCWSTR, rootshare : windows_core::PCWSTR, ftdfsname : windows_core::PCWSTR, comment : windows_core::PCWSTR, flags : u32) -> u32);
+    windows_targets::link!("netapi32.dll" "system" fn NetDfsAddFtRoot(servername : windows_core::PCWSTR, rootshare : windows_core::PCWSTR, ftdfsname : windows_core::PCWSTR, comment : windows_core::PCWSTR, flags : u32) -> u32);
     NetDfsAddFtRoot(servername.into_param().abi(), rootshare.into_param().abi(), ftdfsname.into_param().abi(), comment.into_param().abi(), flags)
 }
 #[inline]
@@ -27,7 +27,7 @@ where
     P1: windows_core::IntoParam<windows_core::PCWSTR>,
     P2: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("netapi32.dll" "system" fn NetDfsAddRootTarget(pdfspath : windows_core::PCWSTR, ptargetpath : windows_core::PCWSTR, majorversion : u32, pcomment : windows_core::PCWSTR, flags : u32) -> u32);
+    windows_targets::link!("netapi32.dll" "system" fn NetDfsAddRootTarget(pdfspath : windows_core::PCWSTR, ptargetpath : windows_core::PCWSTR, majorversion : u32, pcomment : windows_core::PCWSTR, flags : u32) -> u32);
     NetDfsAddRootTarget(pdfspath.into_param().abi(), ptargetpath.into_param().abi(), majorversion, pcomment.into_param().abi(), flags)
 }
 #[inline]
@@ -37,7 +37,7 @@ where
     P1: windows_core::IntoParam<windows_core::PCWSTR>,
     P2: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("netapi32.dll" "system" fn NetDfsAddStdRoot(servername : windows_core::PCWSTR, rootshare : windows_core::PCWSTR, comment : windows_core::PCWSTR, flags : u32) -> u32);
+    windows_targets::link!("netapi32.dll" "system" fn NetDfsAddStdRoot(servername : windows_core::PCWSTR, rootshare : windows_core::PCWSTR, comment : windows_core::PCWSTR, flags : u32) -> u32);
     NetDfsAddStdRoot(servername.into_param().abi(), rootshare.into_param().abi(), comment.into_param().abi(), flags)
 }
 #[inline]
@@ -45,7 +45,7 @@ pub unsafe fn NetDfsEnum<P0>(dfsname: P0, level: u32, prefmaxlen: u32, buffer: *
 where
     P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("netapi32.dll" "system" fn NetDfsEnum(dfsname : windows_core::PCWSTR, level : u32, prefmaxlen : u32, buffer : *mut *mut u8, entriesread : *mut u32, resumehandle : *mut u32) -> u32);
+    windows_targets::link!("netapi32.dll" "system" fn NetDfsEnum(dfsname : windows_core::PCWSTR, level : u32, prefmaxlen : u32, buffer : *mut *mut u8, entriesread : *mut u32, resumehandle : *mut u32) -> u32);
     NetDfsEnum(dfsname.into_param().abi(), level, prefmaxlen, buffer, entriesread, resumehandle)
 }
 #[inline]
@@ -55,7 +55,7 @@ where
     P1: windows_core::IntoParam<windows_core::PCWSTR>,
     P2: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("netapi32.dll" "system" fn NetDfsGetClientInfo(dfsentrypath : windows_core::PCWSTR, servername : windows_core::PCWSTR, sharename : windows_core::PCWSTR, level : u32, buffer : *mut *mut u8) -> u32);
+    windows_targets::link!("netapi32.dll" "system" fn NetDfsGetClientInfo(dfsentrypath : windows_core::PCWSTR, servername : windows_core::PCWSTR, sharename : windows_core::PCWSTR, level : u32, buffer : *mut *mut u8) -> u32);
     NetDfsGetClientInfo(dfsentrypath.into_param().abi(), servername.into_param().abi(), sharename.into_param().abi(), level, buffer)
 }
 #[cfg(feature = "Win32_Security")]
@@ -64,7 +64,7 @@ pub unsafe fn NetDfsGetFtContainerSecurity<P0>(domainname: P0, securityinformati
 where
     P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("netapi32.dll" "system" fn NetDfsGetFtContainerSecurity(domainname : windows_core::PCWSTR, securityinformation : u32, ppsecuritydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR, lpcbsecuritydescriptor : *mut u32) -> u32);
+    windows_targets::link!("netapi32.dll" "system" fn NetDfsGetFtContainerSecurity(domainname : windows_core::PCWSTR, securityinformation : u32, ppsecuritydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR, lpcbsecuritydescriptor : *mut u32) -> u32);
     NetDfsGetFtContainerSecurity(domainname.into_param().abi(), securityinformation, ppsecuritydescriptor, lpcbsecuritydescriptor)
 }
 #[inline]
@@ -74,7 +74,7 @@ where
     P1: windows_core::IntoParam<windows_core::PCWSTR>,
     P2: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("netapi32.dll" "system" fn NetDfsGetInfo(dfsentrypath : windows_core::PCWSTR, servername : windows_core::PCWSTR, sharename : windows_core::PCWSTR, level : u32, buffer : *mut *mut u8) -> u32);
+    windows_targets::link!("netapi32.dll" "system" fn NetDfsGetInfo(dfsentrypath : windows_core::PCWSTR, servername : windows_core::PCWSTR, sharename : windows_core::PCWSTR, level : u32, buffer : *mut *mut u8) -> u32);
     NetDfsGetInfo(dfsentrypath.into_param().abi(), servername.into_param().abi(), sharename.into_param().abi(), level, buffer)
 }
 #[cfg(feature = "Win32_Security")]
@@ -83,7 +83,7 @@ pub unsafe fn NetDfsGetSecurity<P0>(dfsentrypath: P0, securityinformation: u32, 
 where
     P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("netapi32.dll" "system" fn NetDfsGetSecurity(dfsentrypath : windows_core::PCWSTR, securityinformation : u32, ppsecuritydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR, lpcbsecuritydescriptor : *mut u32) -> u32);
+    windows_targets::link!("netapi32.dll" "system" fn NetDfsGetSecurity(dfsentrypath : windows_core::PCWSTR, securityinformation : u32, ppsecuritydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR, lpcbsecuritydescriptor : *mut u32) -> u32);
     NetDfsGetSecurity(dfsentrypath.into_param().abi(), securityinformation, ppsecuritydescriptor, lpcbsecuritydescriptor)
 }
 #[cfg(feature = "Win32_Security")]
@@ -92,7 +92,7 @@ pub unsafe fn NetDfsGetStdContainerSecurity<P0>(machinename: P0, securityinforma
 where
     P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("netapi32.dll" "system" fn NetDfsGetStdContainerSecurity(machinename : windows_core::PCWSTR, securityinformation : u32, ppsecuritydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR, lpcbsecuritydescriptor : *mut u32) -> u32);
+    windows_targets::link!("netapi32.dll" "system" fn NetDfsGetStdContainerSecurity(machinename : windows_core::PCWSTR, securityinformation : u32, ppsecuritydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR, lpcbsecuritydescriptor : *mut u32) -> u32);
     NetDfsGetStdContainerSecurity(machinename.into_param().abi(), securityinformation, ppsecuritydescriptor, lpcbsecuritydescriptor)
 }
 #[inline]
@@ -100,7 +100,7 @@ pub unsafe fn NetDfsGetSupportedNamespaceVersion<P0>(origin: DFS_NAMESPACE_VERSI
 where
     P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("netapi32.dll" "system" fn NetDfsGetSupportedNamespaceVersion(origin : DFS_NAMESPACE_VERSION_ORIGIN, pname : windows_core::PCWSTR, ppversioninfo : *mut *mut DFS_SUPPORTED_NAMESPACE_VERSION_INFO) -> u32);
+    windows_targets::link!("netapi32.dll" "system" fn NetDfsGetSupportedNamespaceVersion(origin : DFS_NAMESPACE_VERSION_ORIGIN, pname : windows_core::PCWSTR, ppversioninfo : *mut *mut DFS_SUPPORTED_NAMESPACE_VERSION_INFO) -> u32);
     NetDfsGetSupportedNamespaceVersion(origin, pname.into_param().abi(), ppversioninfo)
 }
 #[inline]
@@ -109,7 +109,7 @@ where
     P0: windows_core::IntoParam<windows_core::PCWSTR>,
     P1: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("netapi32.dll" "system" fn NetDfsMove(olddfsentrypath : windows_core::PCWSTR, newdfsentrypath : windows_core::PCWSTR, flags : u32) -> u32);
+    windows_targets::link!("netapi32.dll" "system" fn NetDfsMove(olddfsentrypath : windows_core::PCWSTR, newdfsentrypath : windows_core::PCWSTR, flags : u32) -> u32);
     NetDfsMove(olddfsentrypath.into_param().abi(), newdfsentrypath.into_param().abi(), flags)
 }
 #[inline]
@@ -119,7 +119,7 @@ where
     P1: windows_core::IntoParam<windows_core::PCWSTR>,
     P2: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("netapi32.dll" "system" fn NetDfsRemove(dfsentrypath : windows_core::PCWSTR, servername : windows_core::PCWSTR, sharename : windows_core::PCWSTR) -> u32);
+    windows_targets::link!("netapi32.dll" "system" fn NetDfsRemove(dfsentrypath : windows_core::PCWSTR, servername : windows_core::PCWSTR, sharename : windows_core::PCWSTR) -> u32);
     NetDfsRemove(dfsentrypath.into_param().abi(), servername.into_param().abi(), sharename.into_param().abi())
 }
 #[inline]
@@ -129,7 +129,7 @@ where
     P1: windows_core::IntoParam<windows_core::PCWSTR>,
     P2: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("netapi32.dll" "system" fn NetDfsRemoveFtRoot(servername : windows_core::PCWSTR, rootshare : windows_core::PCWSTR, ftdfsname : windows_core::PCWSTR, flags : u32) -> u32);
+    windows_targets::link!("netapi32.dll" "system" fn NetDfsRemoveFtRoot(servername : windows_core::PCWSTR, rootshare : windows_core::PCWSTR, ftdfsname : windows_core::PCWSTR, flags : u32) -> u32);
     NetDfsRemoveFtRoot(servername.into_param().abi(), rootshare.into_param().abi(), ftdfsname.into_param().abi(), flags)
 }
 #[inline]
@@ -140,7 +140,7 @@ where
     P2: windows_core::IntoParam<windows_core::PCWSTR>,
     P3: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("netapi32.dll" "system" fn NetDfsRemoveFtRootForced(domainname : windows_core::PCWSTR, servername : windows_core::PCWSTR, rootshare : windows_core::PCWSTR, ftdfsname : windows_core::PCWSTR, flags : u32) -> u32);
+    windows_targets::link!("netapi32.dll" "system" fn NetDfsRemoveFtRootForced(domainname : windows_core::PCWSTR, servername : windows_core::PCWSTR, rootshare : windows_core::PCWSTR, ftdfsname : windows_core::PCWSTR, flags : u32) -> u32);
     NetDfsRemoveFtRootForced(domainname.into_param().abi(), servername.into_param().abi(), rootshare.into_param().abi(), ftdfsname.into_param().abi(), flags)
 }
 #[inline]
@@ -149,7 +149,7 @@ where
     P0: windows_core::IntoParam<windows_core::PCWSTR>,
     P1: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("netapi32.dll" "system" fn NetDfsRemoveRootTarget(pdfspath : windows_core::PCWSTR, ptargetpath : windows_core::PCWSTR, flags : u32) -> u32);
+    windows_targets::link!("netapi32.dll" "system" fn NetDfsRemoveRootTarget(pdfspath : windows_core::PCWSTR, ptargetpath : windows_core::PCWSTR, flags : u32) -> u32);
     NetDfsRemoveRootTarget(pdfspath.into_param().abi(), ptargetpath.into_param().abi(), flags)
 }
 #[inline]
@@ -158,7 +158,7 @@ where
     P0: windows_core::IntoParam<windows_core::PCWSTR>,
     P1: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("netapi32.dll" "system" fn NetDfsRemoveStdRoot(servername : windows_core::PCWSTR, rootshare : windows_core::PCWSTR, flags : u32) -> u32);
+    windows_targets::link!("netapi32.dll" "system" fn NetDfsRemoveStdRoot(servername : windows_core::PCWSTR, rootshare : windows_core::PCWSTR, flags : u32) -> u32);
     NetDfsRemoveStdRoot(servername.into_param().abi(), rootshare.into_param().abi(), flags)
 }
 #[inline]
@@ -168,7 +168,7 @@ where
     P1: windows_core::IntoParam<windows_core::PCWSTR>,
     P2: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("netapi32.dll" "system" fn NetDfsSetClientInfo(dfsentrypath : windows_core::PCWSTR, servername : windows_core::PCWSTR, sharename : windows_core::PCWSTR, level : u32, buffer : *const u8) -> u32);
+    windows_targets::link!("netapi32.dll" "system" fn NetDfsSetClientInfo(dfsentrypath : windows_core::PCWSTR, servername : windows_core::PCWSTR, sharename : windows_core::PCWSTR, level : u32, buffer : *const u8) -> u32);
     NetDfsSetClientInfo(dfsentrypath.into_param().abi(), servername.into_param().abi(), sharename.into_param().abi(), level, buffer)
 }
 #[cfg(feature = "Win32_Security")]
@@ -178,7 +178,7 @@ where
     P0: windows_core::IntoParam<windows_core::PCWSTR>,
     P1: windows_core::IntoParam<super::super::Security::PSECURITY_DESCRIPTOR>,
 {
-    ::windows_targets::link!("netapi32.dll" "system" fn NetDfsSetFtContainerSecurity(domainname : windows_core::PCWSTR, securityinformation : u32, psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR) -> u32);
+    windows_targets::link!("netapi32.dll" "system" fn NetDfsSetFtContainerSecurity(domainname : windows_core::PCWSTR, securityinformation : u32, psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR) -> u32);
     NetDfsSetFtContainerSecurity(domainname.into_param().abi(), securityinformation, psecuritydescriptor.into_param().abi())
 }
 #[inline]
@@ -188,7 +188,7 @@ where
     P1: windows_core::IntoParam<windows_core::PCWSTR>,
     P2: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("netapi32.dll" "system" fn NetDfsSetInfo(dfsentrypath : windows_core::PCWSTR, servername : windows_core::PCWSTR, sharename : windows_core::PCWSTR, level : u32, buffer : *const u8) -> u32);
+    windows_targets::link!("netapi32.dll" "system" fn NetDfsSetInfo(dfsentrypath : windows_core::PCWSTR, servername : windows_core::PCWSTR, sharename : windows_core::PCWSTR, level : u32, buffer : *const u8) -> u32);
     NetDfsSetInfo(dfsentrypath.into_param().abi(), servername.into_param().abi(), sharename.into_param().abi(), level, buffer)
 }
 #[cfg(feature = "Win32_Security")]
@@ -198,7 +198,7 @@ where
     P0: windows_core::IntoParam<windows_core::PCWSTR>,
     P1: windows_core::IntoParam<super::super::Security::PSECURITY_DESCRIPTOR>,
 {
-    ::windows_targets::link!("netapi32.dll" "system" fn NetDfsSetSecurity(dfsentrypath : windows_core::PCWSTR, securityinformation : u32, psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR) -> u32);
+    windows_targets::link!("netapi32.dll" "system" fn NetDfsSetSecurity(dfsentrypath : windows_core::PCWSTR, securityinformation : u32, psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR) -> u32);
     NetDfsSetSecurity(dfsentrypath.into_param().abi(), securityinformation, psecuritydescriptor.into_param().abi())
 }
 #[cfg(feature = "Win32_Security")]
@@ -208,7 +208,7 @@ where
     P0: windows_core::IntoParam<windows_core::PCWSTR>,
     P1: windows_core::IntoParam<super::super::Security::PSECURITY_DESCRIPTOR>,
 {
-    ::windows_targets::link!("netapi32.dll" "system" fn NetDfsSetStdContainerSecurity(machinename : windows_core::PCWSTR, securityinformation : u32, psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR) -> u32);
+    windows_targets::link!("netapi32.dll" "system" fn NetDfsSetStdContainerSecurity(machinename : windows_core::PCWSTR, securityinformation : u32, psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR) -> u32);
     NetDfsSetStdContainerSecurity(machinename.into_param().abi(), securityinformation, psecuritydescriptor.into_param().abi())
 }
 pub const DFS_ADD_VOLUME: u32 = 1u32;

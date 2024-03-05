@@ -5,7 +5,7 @@
     dead_code,
     clippy::all
 )]
-::windows_targets::link!("kernel32.dll" "system" fn RtlCaptureContext(contextrecord : *mut CONTEXT));
+windows_targets::link!("kernel32.dll" "system" fn RtlCaptureContext(contextrecord : *mut CONTEXT));
 #[repr(C)]
 pub union ARM64_NT_NEON128 {
     pub Anonymous: ARM64_NT_NEON128_0,

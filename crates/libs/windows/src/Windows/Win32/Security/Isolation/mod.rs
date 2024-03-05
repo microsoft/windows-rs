@@ -5,7 +5,7 @@ where
     P1: windows_core::IntoParam<windows_core::PCWSTR>,
     P2: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("userenv.dll" "system" fn CreateAppContainerProfile(pszappcontainername : windows_core::PCWSTR, pszdisplayname : windows_core::PCWSTR, pszdescription : windows_core::PCWSTR, pcapabilities : *const super:: SID_AND_ATTRIBUTES, dwcapabilitycount : u32, ppsidappcontainersid : *mut super::super::Foundation:: PSID) -> windows_core::HRESULT);
+    windows_targets::link!("userenv.dll" "system" fn CreateAppContainerProfile(pszappcontainername : windows_core::PCWSTR, pszdisplayname : windows_core::PCWSTR, pszdescription : windows_core::PCWSTR, pcapabilities : *const super:: SID_AND_ATTRIBUTES, dwcapabilitycount : u32, ppsidappcontainersid : *mut super::super::Foundation:: PSID) -> windows_core::HRESULT);
     let mut result__ = std::mem::zeroed();
     CreateAppContainerProfile(pszappcontainername.into_param().abi(), pszdisplayname.into_param().abi(), pszdescription.into_param().abi(), core::mem::transmute(pcapabilities.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pcapabilities.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).map(|| result__)
 }
@@ -14,7 +14,7 @@ pub unsafe fn DeleteAppContainerProfile<P0>(pszappcontainername: P0) -> windows_
 where
     P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("userenv.dll" "system" fn DeleteAppContainerProfile(pszappcontainername : windows_core::PCWSTR) -> windows_core::HRESULT);
+    windows_targets::link!("userenv.dll" "system" fn DeleteAppContainerProfile(pszappcontainername : windows_core::PCWSTR) -> windows_core::HRESULT);
     DeleteAppContainerProfile(pszappcontainername.into_param().abi()).ok()
 }
 #[inline]
@@ -22,7 +22,7 @@ pub unsafe fn DeriveAppContainerSidFromAppContainerName<P0>(pszappcontainername:
 where
     P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("userenv.dll" "system" fn DeriveAppContainerSidFromAppContainerName(pszappcontainername : windows_core::PCWSTR, ppsidappcontainersid : *mut super::super::Foundation:: PSID) -> windows_core::HRESULT);
+    windows_targets::link!("userenv.dll" "system" fn DeriveAppContainerSidFromAppContainerName(pszappcontainername : windows_core::PCWSTR, ppsidappcontainersid : *mut super::super::Foundation:: PSID) -> windows_core::HRESULT);
     let mut result__ = std::mem::zeroed();
     DeriveAppContainerSidFromAppContainerName(pszappcontainername.into_param().abi(), &mut result__).map(|| result__)
 }
@@ -32,7 +32,7 @@ where
     P0: windows_core::IntoParam<super::super::Foundation::PSID>,
     P1: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("userenv.dll" "system" fn DeriveRestrictedAppContainerSidFromAppContainerSidAndRestrictedName(psidappcontainersid : super::super::Foundation:: PSID, pszrestrictedappcontainername : windows_core::PCWSTR, ppsidrestrictedappcontainersid : *mut super::super::Foundation:: PSID) -> windows_core::HRESULT);
+    windows_targets::link!("userenv.dll" "system" fn DeriveRestrictedAppContainerSidFromAppContainerSidAndRestrictedName(psidappcontainersid : super::super::Foundation:: PSID, pszrestrictedappcontainername : windows_core::PCWSTR, ppsidrestrictedappcontainersid : *mut super::super::Foundation:: PSID) -> windows_core::HRESULT);
     let mut result__ = std::mem::zeroed();
     DeriveRestrictedAppContainerSidFromAppContainerSidAndRestrictedName(psidappcontainersid.into_param().abi(), pszrestrictedappcontainername.into_param().abi(), &mut result__).map(|| result__)
 }
@@ -41,7 +41,7 @@ pub unsafe fn GetAppContainerFolderPath<P0>(pszappcontainersid: P0) -> windows_c
 where
     P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("userenv.dll" "system" fn GetAppContainerFolderPath(pszappcontainersid : windows_core::PCWSTR, ppszpath : *mut windows_core::PWSTR) -> windows_core::HRESULT);
+    windows_targets::link!("userenv.dll" "system" fn GetAppContainerFolderPath(pszappcontainersid : windows_core::PCWSTR, ppszpath : *mut windows_core::PWSTR) -> windows_core::HRESULT);
     let mut result__ = std::mem::zeroed();
     GetAppContainerFolderPath(pszappcontainersid.into_param().abi(), &mut result__).map(|| result__)
 }
@@ -51,37 +51,37 @@ where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
     P1: windows_core::IntoParam<super::super::Foundation::PSID>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn GetAppContainerNamedObjectPath(token : super::super::Foundation:: HANDLE, appcontainersid : super::super::Foundation:: PSID, objectpathlength : u32, objectpath : windows_core::PWSTR, returnlength : *mut u32) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn GetAppContainerNamedObjectPath(token : super::super::Foundation:: HANDLE, appcontainersid : super::super::Foundation:: PSID, objectpathlength : u32, objectpath : windows_core::PWSTR, returnlength : *mut u32) -> super::super::Foundation:: BOOL);
     GetAppContainerNamedObjectPath(token.into_param().abi(), appcontainersid.into_param().abi(), objectpath.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(objectpath.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), returnlength).ok()
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn GetAppContainerRegistryLocation(desiredaccess: u32) -> windows_core::Result<super::super::System::Registry::HKEY> {
-    ::windows_targets::link!("userenv.dll" "system" fn GetAppContainerRegistryLocation(desiredaccess : u32, phappcontainerkey : *mut super::super::System::Registry:: HKEY) -> windows_core::HRESULT);
+    windows_targets::link!("userenv.dll" "system" fn GetAppContainerRegistryLocation(desiredaccess : u32, phappcontainerkey : *mut super::super::System::Registry:: HKEY) -> windows_core::HRESULT);
     let mut result__ = std::mem::zeroed();
     GetAppContainerRegistryLocation(desiredaccess, &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn IsCrossIsolatedEnvironmentClipboardContent() -> windows_core::Result<super::super::Foundation::BOOL> {
-    ::windows_targets::link!("isolatedwindowsenvironmentutils.dll" "system" fn IsCrossIsolatedEnvironmentClipboardContent(iscrossisolatedenvironmentclipboardcontent : *mut super::super::Foundation:: BOOL) -> windows_core::HRESULT);
+    windows_targets::link!("isolatedwindowsenvironmentutils.dll" "system" fn IsCrossIsolatedEnvironmentClipboardContent(iscrossisolatedenvironmentclipboardcontent : *mut super::super::Foundation:: BOOL) -> windows_core::HRESULT);
     let mut result__ = std::mem::zeroed();
     IsCrossIsolatedEnvironmentClipboardContent(&mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn IsProcessInIsolatedContainer() -> windows_core::Result<super::super::Foundation::BOOL> {
-    ::windows_targets::link!("api-ms-win-security-isolatedcontainer-l1-1-0.dll" "system" fn IsProcessInIsolatedContainer(isprocessinisolatedcontainer : *mut super::super::Foundation:: BOOL) -> windows_core::HRESULT);
+    windows_targets::link!("api-ms-win-security-isolatedcontainer-l1-1-0.dll" "system" fn IsProcessInIsolatedContainer(isprocessinisolatedcontainer : *mut super::super::Foundation:: BOOL) -> windows_core::HRESULT);
     let mut result__ = std::mem::zeroed();
     IsProcessInIsolatedContainer(&mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn IsProcessInIsolatedWindowsEnvironment() -> windows_core::Result<super::super::Foundation::BOOL> {
-    ::windows_targets::link!("isolatedwindowsenvironmentutils.dll" "system" fn IsProcessInIsolatedWindowsEnvironment(isprocessinisolatedwindowsenvironment : *mut super::super::Foundation:: BOOL) -> windows_core::HRESULT);
+    windows_targets::link!("isolatedwindowsenvironmentutils.dll" "system" fn IsProcessInIsolatedWindowsEnvironment(isprocessinisolatedwindowsenvironment : *mut super::super::Foundation:: BOOL) -> windows_core::HRESULT);
     let mut result__ = std::mem::zeroed();
     IsProcessInIsolatedWindowsEnvironment(&mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn IsProcessInWDAGContainer(reserved: *const core::ffi::c_void) -> windows_core::Result<super::super::Foundation::BOOL> {
-    ::windows_targets::link!("api-ms-win-security-isolatedcontainer-l1-1-1.dll" "system" fn IsProcessInWDAGContainer(reserved : *const core::ffi::c_void, isprocessinwdagcontainer : *mut super::super::Foundation:: BOOL) -> windows_core::HRESULT);
+    windows_targets::link!("api-ms-win-security-isolatedcontainer-l1-1-1.dll" "system" fn IsProcessInWDAGContainer(reserved : *const core::ffi::c_void, isprocessinwdagcontainer : *mut super::super::Foundation:: BOOL) -> windows_core::HRESULT);
     let mut result__ = std::mem::zeroed();
     IsProcessInWDAGContainer(reserved, &mut result__).map(|| result__)
 }

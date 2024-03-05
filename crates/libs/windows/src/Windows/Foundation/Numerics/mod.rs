@@ -298,7 +298,7 @@ impl Matrix3x2 {
             pub x: f32,
             pub y: f32,
         }
-        ::windows_targets::link!("d2d1.dll" "system" fn D2D1MakeRotateMatrix(angle: f32, center: D2D_POINT_2F, matrix: *mut Matrix3x2) -> ());
+        windows_targets::link!("d2d1.dll" "system" fn D2D1MakeRotateMatrix(angle: f32, center: D2D_POINT_2F, matrix: *mut Matrix3x2));
         let mut matrix = Self::default();
         unsafe {
             D2D1MakeRotateMatrix(angle, D2D_POINT_2F { x, y }, &mut matrix);
@@ -446,7 +446,7 @@ impl Matrix4x4 {
         }
     }
     pub fn rotation_y(degree: f32) -> Self {
-        ::windows_targets::link!("d2d1.dll" "system" fn D2D1SinCos(angle: f32, sin: *mut f32, cos: *mut f32) -> ());
+        windows_targets::link!("d2d1.dll" "system" fn D2D1SinCos(angle: f32, sin: *mut f32, cos: *mut f32));
         let angle = degree * (3.141592654 / 180.0);
         let mut sin = 0.0;
         let mut cos = 0.0;

@@ -4,7 +4,7 @@ pub unsafe fn AddStroke<P0>(hrc: P0, ppacketdesc: *const PACKET_DESCRIPTION, cbp
 where
     P0: windows_core::IntoParam<HRECOCONTEXT>,
 {
-    ::windows_targets::link!("inkobjcore.dll" "system" fn AddStroke(hrc : HRECOCONTEXT, ppacketdesc : *const PACKET_DESCRIPTION, cbpacket : u32, ppacket : *const u8, pxform : *const super::super::Graphics::Gdi:: XFORM) -> windows_core::HRESULT);
+    windows_targets::link!("inkobjcore.dll" "system" fn AddStroke(hrc : HRECOCONTEXT, ppacketdesc : *const PACKET_DESCRIPTION, cbpacket : u32, ppacket : *const u8, pxform : *const super::super::Graphics::Gdi:: XFORM) -> windows_core::HRESULT);
     AddStroke(hrc.into_param().abi(), ppacketdesc, cbpacket, ppacket, pxform).ok()
 }
 #[inline]
@@ -13,7 +13,7 @@ where
     P0: windows_core::IntoParam<HRECOWORDLIST>,
     P1: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("inkobjcore.dll" "system" fn AddWordsToWordList(hwl : HRECOWORDLIST, pwcwords : windows_core::PCWSTR) -> windows_core::HRESULT);
+    windows_targets::link!("inkobjcore.dll" "system" fn AddWordsToWordList(hwl : HRECOWORDLIST, pwcwords : windows_core::PCWSTR) -> windows_core::HRESULT);
     AddWordsToWordList(hwl.into_param().abi(), pwcwords.into_param().abi()).ok()
 }
 #[inline]
@@ -22,7 +22,7 @@ where
     P0: windows_core::IntoParam<HRECOCONTEXT>,
     P1: windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("inkobjcore.dll" "system" fn AdviseInkChange(hrc : HRECOCONTEXT, bnewstroke : super::super::Foundation:: BOOL) -> windows_core::HRESULT);
+    windows_targets::link!("inkobjcore.dll" "system" fn AdviseInkChange(hrc : HRECOCONTEXT, bnewstroke : super::super::Foundation:: BOOL) -> windows_core::HRESULT);
     AdviseInkChange(hrc.into_param().abi(), bnewstroke.into_param().abi()).ok()
 }
 #[inline]
@@ -30,12 +30,12 @@ pub unsafe fn CreateContext<P0>(hrec: P0, phrc: *mut HRECOCONTEXT) -> windows_co
 where
     P0: windows_core::IntoParam<HRECOGNIZER>,
 {
-    ::windows_targets::link!("inkobjcore.dll" "system" fn CreateContext(hrec : HRECOGNIZER, phrc : *mut HRECOCONTEXT) -> windows_core::HRESULT);
+    windows_targets::link!("inkobjcore.dll" "system" fn CreateContext(hrec : HRECOGNIZER, phrc : *mut HRECOCONTEXT) -> windows_core::HRESULT);
     CreateContext(hrec.into_param().abi(), phrc).ok()
 }
 #[inline]
 pub unsafe fn CreateRecognizer(pclsid: *mut windows_core::GUID, phrec: *mut HRECOGNIZER) -> windows_core::Result<()> {
-    ::windows_targets::link!("inkobjcore.dll" "system" fn CreateRecognizer(pclsid : *mut windows_core::GUID, phrec : *mut HRECOGNIZER) -> windows_core::HRESULT);
+    windows_targets::link!("inkobjcore.dll" "system" fn CreateRecognizer(pclsid : *mut windows_core::GUID, phrec : *mut HRECOGNIZER) -> windows_core::HRESULT);
     CreateRecognizer(pclsid, phrec).ok()
 }
 #[inline]
@@ -43,7 +43,7 @@ pub unsafe fn DestroyContext<P0>(hrc: P0) -> windows_core::Result<()>
 where
     P0: windows_core::IntoParam<HRECOCONTEXT>,
 {
-    ::windows_targets::link!("inkobjcore.dll" "system" fn DestroyContext(hrc : HRECOCONTEXT) -> windows_core::HRESULT);
+    windows_targets::link!("inkobjcore.dll" "system" fn DestroyContext(hrc : HRECOCONTEXT) -> windows_core::HRESULT);
     DestroyContext(hrc.into_param().abi()).ok()
 }
 #[inline]
@@ -51,7 +51,7 @@ pub unsafe fn DestroyRecognizer<P0>(hrec: P0) -> windows_core::Result<()>
 where
     P0: windows_core::IntoParam<HRECOGNIZER>,
 {
-    ::windows_targets::link!("inkobjcore.dll" "system" fn DestroyRecognizer(hrec : HRECOGNIZER) -> windows_core::HRESULT);
+    windows_targets::link!("inkobjcore.dll" "system" fn DestroyRecognizer(hrec : HRECOGNIZER) -> windows_core::HRESULT);
     DestroyRecognizer(hrec.into_param().abi()).ok()
 }
 #[inline]
@@ -59,7 +59,7 @@ pub unsafe fn DestroyWordList<P0>(hwl: P0) -> windows_core::Result<()>
 where
     P0: windows_core::IntoParam<HRECOWORDLIST>,
 {
-    ::windows_targets::link!("inkobjcore.dll" "system" fn DestroyWordList(hwl : HRECOWORDLIST) -> windows_core::HRESULT);
+    windows_targets::link!("inkobjcore.dll" "system" fn DestroyWordList(hwl : HRECOWORDLIST) -> windows_core::HRESULT);
     DestroyWordList(hwl.into_param().abi()).ok()
 }
 #[inline]
@@ -67,12 +67,12 @@ pub unsafe fn EndInkInput<P0>(hrc: P0) -> windows_core::Result<()>
 where
     P0: windows_core::IntoParam<HRECOCONTEXT>,
 {
-    ::windows_targets::link!("inkobjcore.dll" "system" fn EndInkInput(hrc : HRECOCONTEXT) -> windows_core::HRESULT);
+    windows_targets::link!("inkobjcore.dll" "system" fn EndInkInput(hrc : HRECOCONTEXT) -> windows_core::HRESULT);
     EndInkInput(hrc.into_param().abi()).ok()
 }
 #[inline]
 pub unsafe fn GetAllRecognizers(recognizerclsids: *mut *mut windows_core::GUID, count: *mut u32) -> windows_core::Result<()> {
-    ::windows_targets::link!("inkobjcore.dll" "system" fn GetAllRecognizers(recognizerclsids : *mut *mut windows_core::GUID, count : *mut u32) -> windows_core::HRESULT);
+    windows_targets::link!("inkobjcore.dll" "system" fn GetAllRecognizers(recognizerclsids : *mut *mut windows_core::GUID, count : *mut u32) -> windows_core::HRESULT);
     GetAllRecognizers(recognizerclsids, count).ok()
 }
 #[inline]
@@ -80,7 +80,7 @@ pub unsafe fn GetBestResultString<P0>(hrc: P0, pcsize: *mut u32, pwcbestresult: 
 where
     P0: windows_core::IntoParam<HRECOCONTEXT>,
 {
-    ::windows_targets::link!("inkobjcore.dll" "system" fn GetBestResultString(hrc : HRECOCONTEXT, pcsize : *mut u32, pwcbestresult : windows_core::PWSTR) -> windows_core::HRESULT);
+    windows_targets::link!("inkobjcore.dll" "system" fn GetBestResultString(hrc : HRECOCONTEXT, pcsize : *mut u32, pwcbestresult : windows_core::PWSTR) -> windows_core::HRESULT);
     GetBestResultString(hrc.into_param().abi(), pcsize, core::mem::transmute(pwcbestresult)).ok()
 }
 #[inline]
@@ -88,7 +88,7 @@ pub unsafe fn GetLatticePtr<P0>(hrc: P0, pplattice: *mut *mut RECO_LATTICE) -> w
 where
     P0: windows_core::IntoParam<HRECOCONTEXT>,
 {
-    ::windows_targets::link!("inkobjcore.dll" "system" fn GetLatticePtr(hrc : HRECOCONTEXT, pplattice : *mut *mut RECO_LATTICE) -> windows_core::HRESULT);
+    windows_targets::link!("inkobjcore.dll" "system" fn GetLatticePtr(hrc : HRECOCONTEXT, pplattice : *mut *mut RECO_LATTICE) -> windows_core::HRESULT);
     GetLatticePtr(hrc.into_param().abi(), pplattice).ok()
 }
 #[inline]
@@ -96,7 +96,7 @@ pub unsafe fn GetLeftSeparator<P0>(hrc: P0, pcsize: *mut u32, pwcleftseparator: 
 where
     P0: windows_core::IntoParam<HRECOCONTEXT>,
 {
-    ::windows_targets::link!("inkobjcore.dll" "system" fn GetLeftSeparator(hrc : HRECOCONTEXT, pcsize : *mut u32, pwcleftseparator : windows_core::PWSTR) -> windows_core::HRESULT);
+    windows_targets::link!("inkobjcore.dll" "system" fn GetLeftSeparator(hrc : HRECOCONTEXT, pcsize : *mut u32, pwcleftseparator : windows_core::PWSTR) -> windows_core::HRESULT);
     GetLeftSeparator(hrc.into_param().abi(), pcsize, core::mem::transmute(pwcleftseparator)).ok()
 }
 #[inline]
@@ -104,7 +104,7 @@ pub unsafe fn GetRecoAttributes<P0>(hrec: P0, precoattrs: *mut RECO_ATTRS) -> wi
 where
     P0: windows_core::IntoParam<HRECOGNIZER>,
 {
-    ::windows_targets::link!("inkobjcore.dll" "system" fn GetRecoAttributes(hrec : HRECOGNIZER, precoattrs : *mut RECO_ATTRS) -> windows_core::HRESULT);
+    windows_targets::link!("inkobjcore.dll" "system" fn GetRecoAttributes(hrec : HRECOGNIZER, precoattrs : *mut RECO_ATTRS) -> windows_core::HRESULT);
     GetRecoAttributes(hrec.into_param().abi(), precoattrs).ok()
 }
 #[inline]
@@ -112,7 +112,7 @@ pub unsafe fn GetResultPropertyList<P0>(hrec: P0, ppropertycount: *mut u32, ppro
 where
     P0: windows_core::IntoParam<HRECOGNIZER>,
 {
-    ::windows_targets::link!("inkobjcore.dll" "system" fn GetResultPropertyList(hrec : HRECOGNIZER, ppropertycount : *mut u32, ppropertyguid : *mut windows_core::GUID) -> windows_core::HRESULT);
+    windows_targets::link!("inkobjcore.dll" "system" fn GetResultPropertyList(hrec : HRECOGNIZER, ppropertycount : *mut u32, ppropertyguid : *mut windows_core::GUID) -> windows_core::HRESULT);
     GetResultPropertyList(hrec.into_param().abi(), ppropertycount, ppropertyguid).ok()
 }
 #[inline]
@@ -120,7 +120,7 @@ pub unsafe fn GetRightSeparator<P0>(hrc: P0, pcsize: *mut u32, pwcrightseparator
 where
     P0: windows_core::IntoParam<HRECOCONTEXT>,
 {
-    ::windows_targets::link!("inkobjcore.dll" "system" fn GetRightSeparator(hrc : HRECOCONTEXT, pcsize : *mut u32, pwcrightseparator : windows_core::PWSTR) -> windows_core::HRESULT);
+    windows_targets::link!("inkobjcore.dll" "system" fn GetRightSeparator(hrc : HRECOCONTEXT, pcsize : *mut u32, pwcrightseparator : windows_core::PWSTR) -> windows_core::HRESULT);
     GetRightSeparator(hrc.into_param().abi(), pcsize, core::mem::transmute(pwcrightseparator)).ok()
 }
 #[inline]
@@ -128,7 +128,7 @@ pub unsafe fn GetUnicodeRanges<P0>(hrec: P0, pcranges: *mut u32, pcr: *mut CHARA
 where
     P0: windows_core::IntoParam<HRECOGNIZER>,
 {
-    ::windows_targets::link!("inkobjcore.dll" "system" fn GetUnicodeRanges(hrec : HRECOGNIZER, pcranges : *mut u32, pcr : *mut CHARACTER_RANGE) -> windows_core::HRESULT);
+    windows_targets::link!("inkobjcore.dll" "system" fn GetUnicodeRanges(hrec : HRECOGNIZER, pcranges : *mut u32, pcr : *mut CHARACTER_RANGE) -> windows_core::HRESULT);
     GetUnicodeRanges(hrec.into_param().abi(), pcranges, pcr).ok()
 }
 #[inline]
@@ -137,12 +137,12 @@ where
     P0: windows_core::IntoParam<HRECOCONTEXT>,
     P1: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("inkobjcore.dll" "system" fn IsStringSupported(hrc : HRECOCONTEXT, wcstring : u32, pwcstring : windows_core::PCWSTR) -> windows_core::HRESULT);
+    windows_targets::link!("inkobjcore.dll" "system" fn IsStringSupported(hrc : HRECOCONTEXT, wcstring : u32, pwcstring : windows_core::PCWSTR) -> windows_core::HRESULT);
     IsStringSupported(hrc.into_param().abi(), wcstring, pwcstring.into_param().abi()).ok()
 }
 #[inline]
 pub unsafe fn LoadCachedAttributes(clsid: windows_core::GUID, precoattributes: *mut RECO_ATTRS) -> windows_core::Result<()> {
-    ::windows_targets::link!("inkobjcore.dll" "system" fn LoadCachedAttributes(clsid : windows_core::GUID, precoattributes : *mut RECO_ATTRS) -> windows_core::HRESULT);
+    windows_targets::link!("inkobjcore.dll" "system" fn LoadCachedAttributes(clsid : windows_core::GUID, precoattributes : *mut RECO_ATTRS) -> windows_core::HRESULT);
     LoadCachedAttributes(core::mem::transmute(clsid), precoattributes).ok()
 }
 #[inline]
@@ -151,7 +151,7 @@ where
     P0: windows_core::IntoParam<HRECOGNIZER>,
     P1: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("inkobjcore.dll" "system" fn MakeWordList(hrec : HRECOGNIZER, pbuffer : windows_core::PCWSTR, phwl : *mut HRECOWORDLIST) -> windows_core::HRESULT);
+    windows_targets::link!("inkobjcore.dll" "system" fn MakeWordList(hrec : HRECOGNIZER, pbuffer : windows_core::PCWSTR, phwl : *mut HRECOWORDLIST) -> windows_core::HRESULT);
     MakeWordList(hrec.into_param().abi(), pbuffer.into_param().abi(), phwl).ok()
 }
 #[inline]
@@ -159,7 +159,7 @@ pub unsafe fn Process<P0>(hrc: P0, pbpartialprocessing: *mut super::super::Found
 where
     P0: windows_core::IntoParam<HRECOCONTEXT>,
 {
-    ::windows_targets::link!("inkobjcore.dll" "system" fn Process(hrc : HRECOCONTEXT, pbpartialprocessing : *mut super::super::Foundation:: BOOL) -> windows_core::HRESULT);
+    windows_targets::link!("inkobjcore.dll" "system" fn Process(hrc : HRECOCONTEXT, pbpartialprocessing : *mut super::super::Foundation:: BOOL) -> windows_core::HRESULT);
     Process(hrc.into_param().abi(), pbpartialprocessing).ok()
 }
 #[inline]
@@ -167,7 +167,7 @@ pub unsafe fn SetEnabledUnicodeRanges<P0>(hrc: P0, cranges: u32, pcr: *mut CHARA
 where
     P0: windows_core::IntoParam<HRECOCONTEXT>,
 {
-    ::windows_targets::link!("inkobjcore.dll" "system" fn SetEnabledUnicodeRanges(hrc : HRECOCONTEXT, cranges : u32, pcr : *mut CHARACTER_RANGE) -> windows_core::HRESULT);
+    windows_targets::link!("inkobjcore.dll" "system" fn SetEnabledUnicodeRanges(hrc : HRECOCONTEXT, cranges : u32, pcr : *mut CHARACTER_RANGE) -> windows_core::HRESULT);
     SetEnabledUnicodeRanges(hrc.into_param().abi(), cranges, pcr).ok()
 }
 #[inline]
@@ -176,7 +176,7 @@ where
     P0: windows_core::IntoParam<HRECOCONTEXT>,
     P1: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("inkobjcore.dll" "system" fn SetFactoid(hrc : HRECOCONTEXT, cwcfactoid : u32, pwcfactoid : windows_core::PCWSTR) -> windows_core::HRESULT);
+    windows_targets::link!("inkobjcore.dll" "system" fn SetFactoid(hrc : HRECOCONTEXT, cwcfactoid : u32, pwcfactoid : windows_core::PCWSTR) -> windows_core::HRESULT);
     SetFactoid(hrc.into_param().abi(), cwcfactoid, pwcfactoid.into_param().abi()).ok()
 }
 #[inline]
@@ -184,7 +184,7 @@ pub unsafe fn SetFlags<P0>(hrc: P0, dwflags: u32) -> windows_core::Result<()>
 where
     P0: windows_core::IntoParam<HRECOCONTEXT>,
 {
-    ::windows_targets::link!("inkobjcore.dll" "system" fn SetFlags(hrc : HRECOCONTEXT, dwflags : u32) -> windows_core::HRESULT);
+    windows_targets::link!("inkobjcore.dll" "system" fn SetFlags(hrc : HRECOCONTEXT, dwflags : u32) -> windows_core::HRESULT);
     SetFlags(hrc.into_param().abi(), dwflags).ok()
 }
 #[inline]
@@ -192,7 +192,7 @@ pub unsafe fn SetGuide<P0>(hrc: P0, pguide: *const RECO_GUIDE, iindex: u32) -> w
 where
     P0: windows_core::IntoParam<HRECOCONTEXT>,
 {
-    ::windows_targets::link!("inkobjcore.dll" "system" fn SetGuide(hrc : HRECOCONTEXT, pguide : *const RECO_GUIDE, iindex : u32) -> windows_core::HRESULT);
+    windows_targets::link!("inkobjcore.dll" "system" fn SetGuide(hrc : HRECOCONTEXT, pguide : *const RECO_GUIDE, iindex : u32) -> windows_core::HRESULT);
     SetGuide(hrc.into_param().abi(), pguide, iindex).ok()
 }
 #[inline]
@@ -200,7 +200,7 @@ pub unsafe fn SetTextContext<P0>(hrc: P0, pwcbefore: &[u16], pwcafter: &[u16]) -
 where
     P0: windows_core::IntoParam<HRECOCONTEXT>,
 {
-    ::windows_targets::link!("inkobjcore.dll" "system" fn SetTextContext(hrc : HRECOCONTEXT, cwcbefore : u32, pwcbefore : windows_core::PCWSTR, cwcafter : u32, pwcafter : windows_core::PCWSTR) -> windows_core::HRESULT);
+    windows_targets::link!("inkobjcore.dll" "system" fn SetTextContext(hrc : HRECOCONTEXT, cwcbefore : u32, pwcbefore : windows_core::PCWSTR, cwcafter : u32, pwcafter : windows_core::PCWSTR) -> windows_core::HRESULT);
     SetTextContext(hrc.into_param().abi(), pwcbefore.len().try_into().unwrap(), core::mem::transmute(pwcbefore.as_ptr()), pwcafter.len().try_into().unwrap(), core::mem::transmute(pwcafter.as_ptr())).ok()
 }
 #[inline]
@@ -209,7 +209,7 @@ where
     P0: windows_core::IntoParam<HRECOCONTEXT>,
     P1: windows_core::IntoParam<HRECOWORDLIST>,
 {
-    ::windows_targets::link!("inkobjcore.dll" "system" fn SetWordList(hrc : HRECOCONTEXT, hwl : HRECOWORDLIST) -> windows_core::HRESULT);
+    windows_targets::link!("inkobjcore.dll" "system" fn SetWordList(hrc : HRECOCONTEXT, hwl : HRECOWORDLIST) -> windows_core::HRESULT);
     SetWordList(hrc.into_param().abi(), hwl.into_param().abi()).ok()
 }
 windows_core::imp::com_interface!(IDynamicRenderer, IDynamicRenderer_Vtbl, 0xa079468e_7165_46f9_b7af_98ad01a93009);

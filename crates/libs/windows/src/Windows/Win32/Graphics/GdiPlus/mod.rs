@@ -1,111 +1,111 @@
 #[inline]
 pub unsafe fn GdipAddPathArc(path: *mut GpPath, x: f32, y: f32, width: f32, height: f32, startangle: f32, sweepangle: f32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipAddPathArc(path : *mut GpPath, x : f32, y : f32, width : f32, height : f32, startangle : f32, sweepangle : f32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipAddPathArc(path : *mut GpPath, x : f32, y : f32, width : f32, height : f32, startangle : f32, sweepangle : f32) -> Status);
     GdipAddPathArc(path, x, y, width, height, startangle, sweepangle)
 }
 #[inline]
 pub unsafe fn GdipAddPathArcI(path: *mut GpPath, x: i32, y: i32, width: i32, height: i32, startangle: f32, sweepangle: f32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipAddPathArcI(path : *mut GpPath, x : i32, y : i32, width : i32, height : i32, startangle : f32, sweepangle : f32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipAddPathArcI(path : *mut GpPath, x : i32, y : i32, width : i32, height : i32, startangle : f32, sweepangle : f32) -> Status);
     GdipAddPathArcI(path, x, y, width, height, startangle, sweepangle)
 }
 #[inline]
 pub unsafe fn GdipAddPathBezier(path: *mut GpPath, x1: f32, y1: f32, x2: f32, y2: f32, x3: f32, y3: f32, x4: f32, y4: f32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipAddPathBezier(path : *mut GpPath, x1 : f32, y1 : f32, x2 : f32, y2 : f32, x3 : f32, y3 : f32, x4 : f32, y4 : f32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipAddPathBezier(path : *mut GpPath, x1 : f32, y1 : f32, x2 : f32, y2 : f32, x3 : f32, y3 : f32, x4 : f32, y4 : f32) -> Status);
     GdipAddPathBezier(path, x1, y1, x2, y2, x3, y3, x4, y4)
 }
 #[inline]
 pub unsafe fn GdipAddPathBezierI(path: *mut GpPath, x1: i32, y1: i32, x2: i32, y2: i32, x3: i32, y3: i32, x4: i32, y4: i32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipAddPathBezierI(path : *mut GpPath, x1 : i32, y1 : i32, x2 : i32, y2 : i32, x3 : i32, y3 : i32, x4 : i32, y4 : i32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipAddPathBezierI(path : *mut GpPath, x1 : i32, y1 : i32, x2 : i32, y2 : i32, x3 : i32, y3 : i32, x4 : i32, y4 : i32) -> Status);
     GdipAddPathBezierI(path, x1, y1, x2, y2, x3, y3, x4, y4)
 }
 #[inline]
 pub unsafe fn GdipAddPathBeziers(path: *mut GpPath, points: *const PointF, count: i32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipAddPathBeziers(path : *mut GpPath, points : *const PointF, count : i32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipAddPathBeziers(path : *mut GpPath, points : *const PointF, count : i32) -> Status);
     GdipAddPathBeziers(path, points, count)
 }
 #[inline]
 pub unsafe fn GdipAddPathBeziersI(path: *mut GpPath, points: *const Point, count: i32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipAddPathBeziersI(path : *mut GpPath, points : *const Point, count : i32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipAddPathBeziersI(path : *mut GpPath, points : *const Point, count : i32) -> Status);
     GdipAddPathBeziersI(path, points, count)
 }
 #[inline]
 pub unsafe fn GdipAddPathClosedCurve(path: *mut GpPath, points: *const PointF, count: i32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipAddPathClosedCurve(path : *mut GpPath, points : *const PointF, count : i32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipAddPathClosedCurve(path : *mut GpPath, points : *const PointF, count : i32) -> Status);
     GdipAddPathClosedCurve(path, points, count)
 }
 #[inline]
 pub unsafe fn GdipAddPathClosedCurve2(path: *mut GpPath, points: *const PointF, count: i32, tension: f32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipAddPathClosedCurve2(path : *mut GpPath, points : *const PointF, count : i32, tension : f32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipAddPathClosedCurve2(path : *mut GpPath, points : *const PointF, count : i32, tension : f32) -> Status);
     GdipAddPathClosedCurve2(path, points, count, tension)
 }
 #[inline]
 pub unsafe fn GdipAddPathClosedCurve2I(path: *mut GpPath, points: *const Point, count: i32, tension: f32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipAddPathClosedCurve2I(path : *mut GpPath, points : *const Point, count : i32, tension : f32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipAddPathClosedCurve2I(path : *mut GpPath, points : *const Point, count : i32, tension : f32) -> Status);
     GdipAddPathClosedCurve2I(path, points, count, tension)
 }
 #[inline]
 pub unsafe fn GdipAddPathClosedCurveI(path: *mut GpPath, points: *const Point, count: i32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipAddPathClosedCurveI(path : *mut GpPath, points : *const Point, count : i32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipAddPathClosedCurveI(path : *mut GpPath, points : *const Point, count : i32) -> Status);
     GdipAddPathClosedCurveI(path, points, count)
 }
 #[inline]
 pub unsafe fn GdipAddPathCurve(path: *mut GpPath, points: *const PointF, count: i32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipAddPathCurve(path : *mut GpPath, points : *const PointF, count : i32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipAddPathCurve(path : *mut GpPath, points : *const PointF, count : i32) -> Status);
     GdipAddPathCurve(path, points, count)
 }
 #[inline]
 pub unsafe fn GdipAddPathCurve2(path: *mut GpPath, points: *const PointF, count: i32, tension: f32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipAddPathCurve2(path : *mut GpPath, points : *const PointF, count : i32, tension : f32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipAddPathCurve2(path : *mut GpPath, points : *const PointF, count : i32, tension : f32) -> Status);
     GdipAddPathCurve2(path, points, count, tension)
 }
 #[inline]
 pub unsafe fn GdipAddPathCurve2I(path: *mut GpPath, points: *const Point, count: i32, tension: f32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipAddPathCurve2I(path : *mut GpPath, points : *const Point, count : i32, tension : f32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipAddPathCurve2I(path : *mut GpPath, points : *const Point, count : i32, tension : f32) -> Status);
     GdipAddPathCurve2I(path, points, count, tension)
 }
 #[inline]
 pub unsafe fn GdipAddPathCurve3(path: *mut GpPath, points: *const PointF, count: i32, offset: i32, numberofsegments: i32, tension: f32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipAddPathCurve3(path : *mut GpPath, points : *const PointF, count : i32, offset : i32, numberofsegments : i32, tension : f32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipAddPathCurve3(path : *mut GpPath, points : *const PointF, count : i32, offset : i32, numberofsegments : i32, tension : f32) -> Status);
     GdipAddPathCurve3(path, points, count, offset, numberofsegments, tension)
 }
 #[inline]
 pub unsafe fn GdipAddPathCurve3I(path: *mut GpPath, points: *const Point, count: i32, offset: i32, numberofsegments: i32, tension: f32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipAddPathCurve3I(path : *mut GpPath, points : *const Point, count : i32, offset : i32, numberofsegments : i32, tension : f32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipAddPathCurve3I(path : *mut GpPath, points : *const Point, count : i32, offset : i32, numberofsegments : i32, tension : f32) -> Status);
     GdipAddPathCurve3I(path, points, count, offset, numberofsegments, tension)
 }
 #[inline]
 pub unsafe fn GdipAddPathCurveI(path: *mut GpPath, points: *const Point, count: i32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipAddPathCurveI(path : *mut GpPath, points : *const Point, count : i32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipAddPathCurveI(path : *mut GpPath, points : *const Point, count : i32) -> Status);
     GdipAddPathCurveI(path, points, count)
 }
 #[inline]
 pub unsafe fn GdipAddPathEllipse(path: *mut GpPath, x: f32, y: f32, width: f32, height: f32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipAddPathEllipse(path : *mut GpPath, x : f32, y : f32, width : f32, height : f32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipAddPathEllipse(path : *mut GpPath, x : f32, y : f32, width : f32, height : f32) -> Status);
     GdipAddPathEllipse(path, x, y, width, height)
 }
 #[inline]
 pub unsafe fn GdipAddPathEllipseI(path: *mut GpPath, x: i32, y: i32, width: i32, height: i32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipAddPathEllipseI(path : *mut GpPath, x : i32, y : i32, width : i32, height : i32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipAddPathEllipseI(path : *mut GpPath, x : i32, y : i32, width : i32, height : i32) -> Status);
     GdipAddPathEllipseI(path, x, y, width, height)
 }
 #[inline]
 pub unsafe fn GdipAddPathLine(path: *mut GpPath, x1: f32, y1: f32, x2: f32, y2: f32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipAddPathLine(path : *mut GpPath, x1 : f32, y1 : f32, x2 : f32, y2 : f32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipAddPathLine(path : *mut GpPath, x1 : f32, y1 : f32, x2 : f32, y2 : f32) -> Status);
     GdipAddPathLine(path, x1, y1, x2, y2)
 }
 #[inline]
 pub unsafe fn GdipAddPathLine2(path: *mut GpPath, points: *const PointF, count: i32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipAddPathLine2(path : *mut GpPath, points : *const PointF, count : i32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipAddPathLine2(path : *mut GpPath, points : *const PointF, count : i32) -> Status);
     GdipAddPathLine2(path, points, count)
 }
 #[inline]
 pub unsafe fn GdipAddPathLine2I(path: *mut GpPath, points: *const Point, count: i32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipAddPathLine2I(path : *mut GpPath, points : *const Point, count : i32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipAddPathLine2I(path : *mut GpPath, points : *const Point, count : i32) -> Status);
     GdipAddPathLine2I(path, points, count)
 }
 #[inline]
 pub unsafe fn GdipAddPathLineI(path: *mut GpPath, x1: i32, y1: i32, x2: i32, y2: i32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipAddPathLineI(path : *mut GpPath, x1 : i32, y1 : i32, x2 : i32, y2 : i32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipAddPathLineI(path : *mut GpPath, x1 : i32, y1 : i32, x2 : i32, y2 : i32) -> Status);
     GdipAddPathLineI(path, x1, y1, x2, y2)
 }
 #[inline]
@@ -113,47 +113,47 @@ pub unsafe fn GdipAddPathPath<P0>(path: *mut GpPath, addingpath: *const GpPath, 
 where
     P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipAddPathPath(path : *mut GpPath, addingpath : *const GpPath, connect : super::super::Foundation:: BOOL) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipAddPathPath(path : *mut GpPath, addingpath : *const GpPath, connect : super::super::Foundation:: BOOL) -> Status);
     GdipAddPathPath(path, addingpath, connect.into_param().abi())
 }
 #[inline]
 pub unsafe fn GdipAddPathPie(path: *mut GpPath, x: f32, y: f32, width: f32, height: f32, startangle: f32, sweepangle: f32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipAddPathPie(path : *mut GpPath, x : f32, y : f32, width : f32, height : f32, startangle : f32, sweepangle : f32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipAddPathPie(path : *mut GpPath, x : f32, y : f32, width : f32, height : f32, startangle : f32, sweepangle : f32) -> Status);
     GdipAddPathPie(path, x, y, width, height, startangle, sweepangle)
 }
 #[inline]
 pub unsafe fn GdipAddPathPieI(path: *mut GpPath, x: i32, y: i32, width: i32, height: i32, startangle: f32, sweepangle: f32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipAddPathPieI(path : *mut GpPath, x : i32, y : i32, width : i32, height : i32, startangle : f32, sweepangle : f32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipAddPathPieI(path : *mut GpPath, x : i32, y : i32, width : i32, height : i32, startangle : f32, sweepangle : f32) -> Status);
     GdipAddPathPieI(path, x, y, width, height, startangle, sweepangle)
 }
 #[inline]
 pub unsafe fn GdipAddPathPolygon(path: *mut GpPath, points: *const PointF, count: i32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipAddPathPolygon(path : *mut GpPath, points : *const PointF, count : i32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipAddPathPolygon(path : *mut GpPath, points : *const PointF, count : i32) -> Status);
     GdipAddPathPolygon(path, points, count)
 }
 #[inline]
 pub unsafe fn GdipAddPathPolygonI(path: *mut GpPath, points: *const Point, count: i32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipAddPathPolygonI(path : *mut GpPath, points : *const Point, count : i32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipAddPathPolygonI(path : *mut GpPath, points : *const Point, count : i32) -> Status);
     GdipAddPathPolygonI(path, points, count)
 }
 #[inline]
 pub unsafe fn GdipAddPathRectangle(path: *mut GpPath, x: f32, y: f32, width: f32, height: f32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipAddPathRectangle(path : *mut GpPath, x : f32, y : f32, width : f32, height : f32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipAddPathRectangle(path : *mut GpPath, x : f32, y : f32, width : f32, height : f32) -> Status);
     GdipAddPathRectangle(path, x, y, width, height)
 }
 #[inline]
 pub unsafe fn GdipAddPathRectangleI(path: *mut GpPath, x: i32, y: i32, width: i32, height: i32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipAddPathRectangleI(path : *mut GpPath, x : i32, y : i32, width : i32, height : i32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipAddPathRectangleI(path : *mut GpPath, x : i32, y : i32, width : i32, height : i32) -> Status);
     GdipAddPathRectangleI(path, x, y, width, height)
 }
 #[inline]
 pub unsafe fn GdipAddPathRectangles(path: *mut GpPath, rects: *const RectF, count: i32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipAddPathRectangles(path : *mut GpPath, rects : *const RectF, count : i32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipAddPathRectangles(path : *mut GpPath, rects : *const RectF, count : i32) -> Status);
     GdipAddPathRectangles(path, rects, count)
 }
 #[inline]
 pub unsafe fn GdipAddPathRectanglesI(path: *mut GpPath, rects: *const Rect, count: i32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipAddPathRectanglesI(path : *mut GpPath, rects : *const Rect, count : i32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipAddPathRectanglesI(path : *mut GpPath, rects : *const Rect, count : i32) -> Status);
     GdipAddPathRectanglesI(path, rects, count)
 }
 #[inline]
@@ -161,7 +161,7 @@ pub unsafe fn GdipAddPathString<P0>(path: *mut GpPath, string: P0, length: i32, 
 where
     P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipAddPathString(path : *mut GpPath, string : windows_core::PCWSTR, length : i32, family : *const GpFontFamily, style : i32, emsize : f32, layoutrect : *const RectF, format : *const GpStringFormat) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipAddPathString(path : *mut GpPath, string : windows_core::PCWSTR, length : i32, family : *const GpFontFamily, style : i32, emsize : f32, layoutrect : *const RectF, format : *const GpStringFormat) -> Status);
     GdipAddPathString(path, string.into_param().abi(), length, family, style, emsize, layoutrect, format)
 }
 #[inline]
@@ -169,27 +169,27 @@ pub unsafe fn GdipAddPathStringI<P0>(path: *mut GpPath, string: P0, length: i32,
 where
     P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipAddPathStringI(path : *mut GpPath, string : windows_core::PCWSTR, length : i32, family : *const GpFontFamily, style : i32, emsize : f32, layoutrect : *const Rect, format : *const GpStringFormat) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipAddPathStringI(path : *mut GpPath, string : windows_core::PCWSTR, length : i32, family : *const GpFontFamily, style : i32, emsize : f32, layoutrect : *const Rect, format : *const GpStringFormat) -> Status);
     GdipAddPathStringI(path, string.into_param().abi(), length, family, style, emsize, layoutrect, format)
 }
 #[inline]
 pub unsafe fn GdipAlloc(size: usize) -> *mut core::ffi::c_void {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipAlloc(size : usize) -> *mut core::ffi::c_void);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipAlloc(size : usize) -> *mut core::ffi::c_void);
     GdipAlloc(size)
 }
 #[inline]
 pub unsafe fn GdipBeginContainer(graphics: *mut GpGraphics, dstrect: *const RectF, srcrect: *const RectF, unit: Unit, state: *mut u32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipBeginContainer(graphics : *mut GpGraphics, dstrect : *const RectF, srcrect : *const RectF, unit : Unit, state : *mut u32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipBeginContainer(graphics : *mut GpGraphics, dstrect : *const RectF, srcrect : *const RectF, unit : Unit, state : *mut u32) -> Status);
     GdipBeginContainer(graphics, dstrect, srcrect, unit, state)
 }
 #[inline]
 pub unsafe fn GdipBeginContainer2(graphics: *mut GpGraphics, state: *mut u32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipBeginContainer2(graphics : *mut GpGraphics, state : *mut u32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipBeginContainer2(graphics : *mut GpGraphics, state : *mut u32) -> Status);
     GdipBeginContainer2(graphics, state)
 }
 #[inline]
 pub unsafe fn GdipBeginContainerI(graphics: *mut GpGraphics, dstrect: *const Rect, srcrect: *const Rect, unit: Unit, state: *mut u32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipBeginContainerI(graphics : *mut GpGraphics, dstrect : *const Rect, srcrect : *const Rect, unit : Unit, state : *mut u32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipBeginContainerI(graphics : *mut GpGraphics, dstrect : *const Rect, srcrect : *const Rect, unit : Unit, state : *mut u32) -> Status);
     GdipBeginContainerI(graphics, dstrect, srcrect, unit, state)
 }
 #[inline]
@@ -197,12 +197,12 @@ pub unsafe fn GdipBitmapApplyEffect<P0>(bitmap: *mut GpBitmap, effect: *mut CGpE
 where
     P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipBitmapApplyEffect(bitmap : *mut GpBitmap, effect : *mut CGpEffect, roi : *mut super::super::Foundation:: RECT, useauxdata : super::super::Foundation:: BOOL, auxdata : *mut *mut core::ffi::c_void, auxdatasize : *mut i32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipBitmapApplyEffect(bitmap : *mut GpBitmap, effect : *mut CGpEffect, roi : *mut super::super::Foundation:: RECT, useauxdata : super::super::Foundation:: BOOL, auxdata : *mut *mut core::ffi::c_void, auxdatasize : *mut i32) -> Status);
     GdipBitmapApplyEffect(bitmap, effect, roi, useauxdata.into_param().abi(), auxdata, auxdatasize)
 }
 #[inline]
 pub unsafe fn GdipBitmapConvertFormat(pinputbitmap: *mut GpBitmap, format: i32, dithertype: DitherType, palettetype: PaletteType, palette: *mut ColorPalette, alphathresholdpercent: f32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipBitmapConvertFormat(pinputbitmap : *mut GpBitmap, format : i32, dithertype : DitherType, palettetype : PaletteType, palette : *mut ColorPalette, alphathresholdpercent : f32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipBitmapConvertFormat(pinputbitmap : *mut GpBitmap, format : i32, dithertype : DitherType, palettetype : PaletteType, palette : *mut ColorPalette, alphathresholdpercent : f32) -> Status);
     GdipBitmapConvertFormat(pinputbitmap, format, dithertype, palettetype, palette, alphathresholdpercent)
 }
 #[inline]
@@ -210,147 +210,147 @@ pub unsafe fn GdipBitmapCreateApplyEffect<P0>(inputbitmaps: *mut *mut GpBitmap, 
 where
     P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipBitmapCreateApplyEffect(inputbitmaps : *mut *mut GpBitmap, numinputs : i32, effect : *mut CGpEffect, roi : *mut super::super::Foundation:: RECT, outputrect : *mut super::super::Foundation:: RECT, outputbitmap : *mut *mut GpBitmap, useauxdata : super::super::Foundation:: BOOL, auxdata : *mut *mut core::ffi::c_void, auxdatasize : *mut i32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipBitmapCreateApplyEffect(inputbitmaps : *mut *mut GpBitmap, numinputs : i32, effect : *mut CGpEffect, roi : *mut super::super::Foundation:: RECT, outputrect : *mut super::super::Foundation:: RECT, outputbitmap : *mut *mut GpBitmap, useauxdata : super::super::Foundation:: BOOL, auxdata : *mut *mut core::ffi::c_void, auxdatasize : *mut i32) -> Status);
     GdipBitmapCreateApplyEffect(inputbitmaps, numinputs, effect, roi, outputrect, outputbitmap, useauxdata.into_param().abi(), auxdata, auxdatasize)
 }
 #[inline]
 pub unsafe fn GdipBitmapGetHistogram(bitmap: *mut GpBitmap, format: HistogramFormat, numberofentries: u32, channel0: *mut u32, channel1: *mut u32, channel2: *mut u32, channel3: *mut u32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipBitmapGetHistogram(bitmap : *mut GpBitmap, format : HistogramFormat, numberofentries : u32, channel0 : *mut u32, channel1 : *mut u32, channel2 : *mut u32, channel3 : *mut u32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipBitmapGetHistogram(bitmap : *mut GpBitmap, format : HistogramFormat, numberofentries : u32, channel0 : *mut u32, channel1 : *mut u32, channel2 : *mut u32, channel3 : *mut u32) -> Status);
     GdipBitmapGetHistogram(bitmap, format, numberofentries, channel0, channel1, channel2, channel3)
 }
 #[inline]
 pub unsafe fn GdipBitmapGetHistogramSize(format: HistogramFormat, numberofentries: *mut u32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipBitmapGetHistogramSize(format : HistogramFormat, numberofentries : *mut u32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipBitmapGetHistogramSize(format : HistogramFormat, numberofentries : *mut u32) -> Status);
     GdipBitmapGetHistogramSize(format, numberofentries)
 }
 #[inline]
 pub unsafe fn GdipBitmapGetPixel(bitmap: *mut GpBitmap, x: i32, y: i32, color: *mut u32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipBitmapGetPixel(bitmap : *mut GpBitmap, x : i32, y : i32, color : *mut u32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipBitmapGetPixel(bitmap : *mut GpBitmap, x : i32, y : i32, color : *mut u32) -> Status);
     GdipBitmapGetPixel(bitmap, x, y, color)
 }
 #[inline]
 pub unsafe fn GdipBitmapLockBits(bitmap: *mut GpBitmap, rect: *const Rect, flags: u32, format: i32, lockedbitmapdata: *mut BitmapData) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipBitmapLockBits(bitmap : *mut GpBitmap, rect : *const Rect, flags : u32, format : i32, lockedbitmapdata : *mut BitmapData) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipBitmapLockBits(bitmap : *mut GpBitmap, rect : *const Rect, flags : u32, format : i32, lockedbitmapdata : *mut BitmapData) -> Status);
     GdipBitmapLockBits(bitmap, rect, flags, format, lockedbitmapdata)
 }
 #[inline]
 pub unsafe fn GdipBitmapSetPixel(bitmap: *mut GpBitmap, x: i32, y: i32, color: u32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipBitmapSetPixel(bitmap : *mut GpBitmap, x : i32, y : i32, color : u32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipBitmapSetPixel(bitmap : *mut GpBitmap, x : i32, y : i32, color : u32) -> Status);
     GdipBitmapSetPixel(bitmap, x, y, color)
 }
 #[inline]
 pub unsafe fn GdipBitmapSetResolution(bitmap: *mut GpBitmap, xdpi: f32, ydpi: f32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipBitmapSetResolution(bitmap : *mut GpBitmap, xdpi : f32, ydpi : f32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipBitmapSetResolution(bitmap : *mut GpBitmap, xdpi : f32, ydpi : f32) -> Status);
     GdipBitmapSetResolution(bitmap, xdpi, ydpi)
 }
 #[inline]
 pub unsafe fn GdipBitmapUnlockBits(bitmap: *mut GpBitmap, lockedbitmapdata: *mut BitmapData) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipBitmapUnlockBits(bitmap : *mut GpBitmap, lockedbitmapdata : *mut BitmapData) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipBitmapUnlockBits(bitmap : *mut GpBitmap, lockedbitmapdata : *mut BitmapData) -> Status);
     GdipBitmapUnlockBits(bitmap, lockedbitmapdata)
 }
 #[inline]
 pub unsafe fn GdipClearPathMarkers(path: *mut GpPath) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipClearPathMarkers(path : *mut GpPath) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipClearPathMarkers(path : *mut GpPath) -> Status);
     GdipClearPathMarkers(path)
 }
 #[inline]
 pub unsafe fn GdipCloneBitmapArea(x: f32, y: f32, width: f32, height: f32, format: i32, srcbitmap: *mut GpBitmap, dstbitmap: *mut *mut GpBitmap) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipCloneBitmapArea(x : f32, y : f32, width : f32, height : f32, format : i32, srcbitmap : *mut GpBitmap, dstbitmap : *mut *mut GpBitmap) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipCloneBitmapArea(x : f32, y : f32, width : f32, height : f32, format : i32, srcbitmap : *mut GpBitmap, dstbitmap : *mut *mut GpBitmap) -> Status);
     GdipCloneBitmapArea(x, y, width, height, format, srcbitmap, dstbitmap)
 }
 #[inline]
 pub unsafe fn GdipCloneBitmapAreaI(x: i32, y: i32, width: i32, height: i32, format: i32, srcbitmap: *mut GpBitmap, dstbitmap: *mut *mut GpBitmap) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipCloneBitmapAreaI(x : i32, y : i32, width : i32, height : i32, format : i32, srcbitmap : *mut GpBitmap, dstbitmap : *mut *mut GpBitmap) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipCloneBitmapAreaI(x : i32, y : i32, width : i32, height : i32, format : i32, srcbitmap : *mut GpBitmap, dstbitmap : *mut *mut GpBitmap) -> Status);
     GdipCloneBitmapAreaI(x, y, width, height, format, srcbitmap, dstbitmap)
 }
 #[inline]
 pub unsafe fn GdipCloneBrush(brush: *mut GpBrush, clonebrush: *mut *mut GpBrush) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipCloneBrush(brush : *mut GpBrush, clonebrush : *mut *mut GpBrush) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipCloneBrush(brush : *mut GpBrush, clonebrush : *mut *mut GpBrush) -> Status);
     GdipCloneBrush(brush, clonebrush)
 }
 #[inline]
 pub unsafe fn GdipCloneCustomLineCap(customcap: *mut GpCustomLineCap, clonedcap: *mut *mut GpCustomLineCap) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipCloneCustomLineCap(customcap : *mut GpCustomLineCap, clonedcap : *mut *mut GpCustomLineCap) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipCloneCustomLineCap(customcap : *mut GpCustomLineCap, clonedcap : *mut *mut GpCustomLineCap) -> Status);
     GdipCloneCustomLineCap(customcap, clonedcap)
 }
 #[inline]
 pub unsafe fn GdipCloneFont(font: *mut GpFont, clonefont: *mut *mut GpFont) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipCloneFont(font : *mut GpFont, clonefont : *mut *mut GpFont) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipCloneFont(font : *mut GpFont, clonefont : *mut *mut GpFont) -> Status);
     GdipCloneFont(font, clonefont)
 }
 #[inline]
 pub unsafe fn GdipCloneFontFamily(fontfamily: *mut GpFontFamily, clonedfontfamily: *mut *mut GpFontFamily) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipCloneFontFamily(fontfamily : *mut GpFontFamily, clonedfontfamily : *mut *mut GpFontFamily) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipCloneFontFamily(fontfamily : *mut GpFontFamily, clonedfontfamily : *mut *mut GpFontFamily) -> Status);
     GdipCloneFontFamily(fontfamily, clonedfontfamily)
 }
 #[inline]
 pub unsafe fn GdipCloneImage(image: *mut GpImage, cloneimage: *mut *mut GpImage) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipCloneImage(image : *mut GpImage, cloneimage : *mut *mut GpImage) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipCloneImage(image : *mut GpImage, cloneimage : *mut *mut GpImage) -> Status);
     GdipCloneImage(image, cloneimage)
 }
 #[inline]
 pub unsafe fn GdipCloneImageAttributes(imageattr: *const GpImageAttributes, cloneimageattr: *mut *mut GpImageAttributes) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipCloneImageAttributes(imageattr : *const GpImageAttributes, cloneimageattr : *mut *mut GpImageAttributes) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipCloneImageAttributes(imageattr : *const GpImageAttributes, cloneimageattr : *mut *mut GpImageAttributes) -> Status);
     GdipCloneImageAttributes(imageattr, cloneimageattr)
 }
 #[inline]
 pub unsafe fn GdipCloneMatrix(matrix: *mut Matrix, clonematrix: *mut *mut Matrix) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipCloneMatrix(matrix : *mut Matrix, clonematrix : *mut *mut Matrix) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipCloneMatrix(matrix : *mut Matrix, clonematrix : *mut *mut Matrix) -> Status);
     GdipCloneMatrix(matrix, clonematrix)
 }
 #[inline]
 pub unsafe fn GdipClonePath(path: *mut GpPath, clonepath: *mut *mut GpPath) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipClonePath(path : *mut GpPath, clonepath : *mut *mut GpPath) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipClonePath(path : *mut GpPath, clonepath : *mut *mut GpPath) -> Status);
     GdipClonePath(path, clonepath)
 }
 #[inline]
 pub unsafe fn GdipClonePen(pen: *mut GpPen, clonepen: *mut *mut GpPen) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipClonePen(pen : *mut GpPen, clonepen : *mut *mut GpPen) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipClonePen(pen : *mut GpPen, clonepen : *mut *mut GpPen) -> Status);
     GdipClonePen(pen, clonepen)
 }
 #[inline]
 pub unsafe fn GdipCloneRegion(region: *mut GpRegion, cloneregion: *mut *mut GpRegion) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipCloneRegion(region : *mut GpRegion, cloneregion : *mut *mut GpRegion) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipCloneRegion(region : *mut GpRegion, cloneregion : *mut *mut GpRegion) -> Status);
     GdipCloneRegion(region, cloneregion)
 }
 #[inline]
 pub unsafe fn GdipCloneStringFormat(format: *const GpStringFormat, newformat: *mut *mut GpStringFormat) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipCloneStringFormat(format : *const GpStringFormat, newformat : *mut *mut GpStringFormat) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipCloneStringFormat(format : *const GpStringFormat, newformat : *mut *mut GpStringFormat) -> Status);
     GdipCloneStringFormat(format, newformat)
 }
 #[inline]
 pub unsafe fn GdipClosePathFigure(path: *mut GpPath) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipClosePathFigure(path : *mut GpPath) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipClosePathFigure(path : *mut GpPath) -> Status);
     GdipClosePathFigure(path)
 }
 #[inline]
 pub unsafe fn GdipClosePathFigures(path: *mut GpPath) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipClosePathFigures(path : *mut GpPath) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipClosePathFigures(path : *mut GpPath) -> Status);
     GdipClosePathFigures(path)
 }
 #[inline]
 pub unsafe fn GdipCombineRegionPath(region: *mut GpRegion, path: *mut GpPath, combinemode: CombineMode) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipCombineRegionPath(region : *mut GpRegion, path : *mut GpPath, combinemode : CombineMode) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipCombineRegionPath(region : *mut GpRegion, path : *mut GpPath, combinemode : CombineMode) -> Status);
     GdipCombineRegionPath(region, path, combinemode)
 }
 #[inline]
 pub unsafe fn GdipCombineRegionRect(region: *mut GpRegion, rect: *const RectF, combinemode: CombineMode) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipCombineRegionRect(region : *mut GpRegion, rect : *const RectF, combinemode : CombineMode) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipCombineRegionRect(region : *mut GpRegion, rect : *const RectF, combinemode : CombineMode) -> Status);
     GdipCombineRegionRect(region, rect, combinemode)
 }
 #[inline]
 pub unsafe fn GdipCombineRegionRectI(region: *mut GpRegion, rect: *const Rect, combinemode: CombineMode) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipCombineRegionRectI(region : *mut GpRegion, rect : *const Rect, combinemode : CombineMode) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipCombineRegionRectI(region : *mut GpRegion, rect : *const Rect, combinemode : CombineMode) -> Status);
     GdipCombineRegionRectI(region, rect, combinemode)
 }
 #[inline]
 pub unsafe fn GdipCombineRegionRegion(region: *mut GpRegion, region2: *mut GpRegion, combinemode: CombineMode) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipCombineRegionRegion(region : *mut GpRegion, region2 : *mut GpRegion, combinemode : CombineMode) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipCombineRegionRegion(region : *mut GpRegion, region2 : *mut GpRegion, combinemode : CombineMode) -> Status);
     GdipCombineRegionRegion(region, region2, combinemode)
 }
 #[inline]
 pub unsafe fn GdipComment(graphics: *mut GpGraphics, sizedata: u32, data: *const u8) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipComment(graphics : *mut GpGraphics, sizedata : u32, data : *const u8) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipComment(graphics : *mut GpGraphics, sizedata : u32, data : *const u8) -> Status);
     GdipComment(graphics, sizedata, data)
 }
 #[inline]
@@ -358,7 +358,7 @@ pub unsafe fn GdipConvertToEmfPlus<P0>(refgraphics: *const GpGraphics, metafile:
 where
     P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipConvertToEmfPlus(refgraphics : *const GpGraphics, metafile : *mut GpMetafile, conversionfailureflag : *mut i32, emftype : EmfType, description : windows_core::PCWSTR, out_metafile : *mut *mut GpMetafile) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipConvertToEmfPlus(refgraphics : *const GpGraphics, metafile : *mut GpMetafile, conversionfailureflag : *mut i32, emftype : EmfType, description : windows_core::PCWSTR, out_metafile : *mut *mut GpMetafile) -> Status);
     GdipConvertToEmfPlus(refgraphics, metafile, conversionfailureflag, emftype, description.into_param().abi(), out_metafile)
 }
 #[inline]
@@ -367,7 +367,7 @@ where
     P0: windows_core::IntoParam<windows_core::PCWSTR>,
     P1: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipConvertToEmfPlusToFile(refgraphics : *const GpGraphics, metafile : *mut GpMetafile, conversionfailureflag : *mut i32, filename : windows_core::PCWSTR, emftype : EmfType, description : windows_core::PCWSTR, out_metafile : *mut *mut GpMetafile) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipConvertToEmfPlusToFile(refgraphics : *const GpGraphics, metafile : *mut GpMetafile, conversionfailureflag : *mut i32, filename : windows_core::PCWSTR, emftype : EmfType, description : windows_core::PCWSTR, out_metafile : *mut *mut GpMetafile) -> Status);
     GdipConvertToEmfPlusToFile(refgraphics, metafile, conversionfailureflag, filename.into_param().abi(), emftype, description.into_param().abi(), out_metafile)
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -377,7 +377,7 @@ where
     P0: windows_core::IntoParam<super::super::System::Com::IStream>,
     P1: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipConvertToEmfPlusToStream(refgraphics : *const GpGraphics, metafile : *mut GpMetafile, conversionfailureflag : *mut i32, stream : * mut core::ffi::c_void, emftype : EmfType, description : windows_core::PCWSTR, out_metafile : *mut *mut GpMetafile) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipConvertToEmfPlusToStream(refgraphics : *const GpGraphics, metafile : *mut GpMetafile, conversionfailureflag : *mut i32, stream : * mut core::ffi::c_void, emftype : EmfType, description : windows_core::PCWSTR, out_metafile : *mut *mut GpMetafile) -> Status);
     GdipConvertToEmfPlusToStream(refgraphics, metafile, conversionfailureflag, stream.into_param().abi(), emftype, description.into_param().abi(), out_metafile)
 }
 #[inline]
@@ -385,7 +385,7 @@ pub unsafe fn GdipCreateAdjustableArrowCap<P0>(height: f32, width: f32, isfilled
 where
     P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateAdjustableArrowCap(height : f32, width : f32, isfilled : super::super::Foundation:: BOOL, cap : *mut *mut GpAdjustableArrowCap) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipCreateAdjustableArrowCap(height : f32, width : f32, isfilled : super::super::Foundation:: BOOL, cap : *mut *mut GpAdjustableArrowCap) -> Status);
     GdipCreateAdjustableArrowCap(height, width, isfilled.into_param().abi(), cap)
 }
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
@@ -394,7 +394,7 @@ pub unsafe fn GdipCreateBitmapFromDirectDrawSurface<P0>(surface: P0, bitmap: *mu
 where
     P0: windows_core::IntoParam<super::DirectDraw::IDirectDrawSurface7>,
 {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateBitmapFromDirectDrawSurface(surface : * mut core::ffi::c_void, bitmap : *mut *mut GpBitmap) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipCreateBitmapFromDirectDrawSurface(surface : * mut core::ffi::c_void, bitmap : *mut *mut GpBitmap) -> Status);
     GdipCreateBitmapFromDirectDrawSurface(surface.into_param().abi(), bitmap)
 }
 #[inline]
@@ -402,7 +402,7 @@ pub unsafe fn GdipCreateBitmapFromFile<P0>(filename: P0, bitmap: *mut *mut GpBit
 where
     P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateBitmapFromFile(filename : windows_core::PCWSTR, bitmap : *mut *mut GpBitmap) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipCreateBitmapFromFile(filename : windows_core::PCWSTR, bitmap : *mut *mut GpBitmap) -> Status);
     GdipCreateBitmapFromFile(filename.into_param().abi(), bitmap)
 }
 #[inline]
@@ -410,18 +410,18 @@ pub unsafe fn GdipCreateBitmapFromFileICM<P0>(filename: P0, bitmap: *mut *mut Gp
 where
     P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateBitmapFromFileICM(filename : windows_core::PCWSTR, bitmap : *mut *mut GpBitmap) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipCreateBitmapFromFileICM(filename : windows_core::PCWSTR, bitmap : *mut *mut GpBitmap) -> Status);
     GdipCreateBitmapFromFileICM(filename.into_param().abi(), bitmap)
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn GdipCreateBitmapFromGdiDib(gdibitmapinfo: *const super::Gdi::BITMAPINFO, gdibitmapdata: *mut core::ffi::c_void, bitmap: *mut *mut GpBitmap) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateBitmapFromGdiDib(gdibitmapinfo : *const super::Gdi:: BITMAPINFO, gdibitmapdata : *mut core::ffi::c_void, bitmap : *mut *mut GpBitmap) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipCreateBitmapFromGdiDib(gdibitmapinfo : *const super::Gdi:: BITMAPINFO, gdibitmapdata : *mut core::ffi::c_void, bitmap : *mut *mut GpBitmap) -> Status);
     GdipCreateBitmapFromGdiDib(gdibitmapinfo, gdibitmapdata, bitmap)
 }
 #[inline]
 pub unsafe fn GdipCreateBitmapFromGraphics(width: i32, height: i32, target: *mut GpGraphics, bitmap: *mut *mut GpBitmap) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateBitmapFromGraphics(width : i32, height : i32, target : *mut GpGraphics, bitmap : *mut *mut GpBitmap) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipCreateBitmapFromGraphics(width : i32, height : i32, target : *mut GpGraphics, bitmap : *mut *mut GpBitmap) -> Status);
     GdipCreateBitmapFromGraphics(width, height, target, bitmap)
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -431,7 +431,7 @@ where
     P0: windows_core::IntoParam<super::Gdi::HBITMAP>,
     P1: windows_core::IntoParam<super::Gdi::HPALETTE>,
 {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateBitmapFromHBITMAP(hbm : super::Gdi:: HBITMAP, hpal : super::Gdi:: HPALETTE, bitmap : *mut *mut GpBitmap) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipCreateBitmapFromHBITMAP(hbm : super::Gdi:: HBITMAP, hpal : super::Gdi:: HPALETTE, bitmap : *mut *mut GpBitmap) -> Status);
     GdipCreateBitmapFromHBITMAP(hbm.into_param().abi(), hpal.into_param().abi(), bitmap)
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
@@ -440,7 +440,7 @@ pub unsafe fn GdipCreateBitmapFromHICON<P0>(hicon: P0, bitmap: *mut *mut GpBitma
 where
     P0: windows_core::IntoParam<super::super::UI::WindowsAndMessaging::HICON>,
 {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateBitmapFromHICON(hicon : super::super::UI::WindowsAndMessaging:: HICON, bitmap : *mut *mut GpBitmap) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipCreateBitmapFromHICON(hicon : super::super::UI::WindowsAndMessaging:: HICON, bitmap : *mut *mut GpBitmap) -> Status);
     GdipCreateBitmapFromHICON(hicon.into_param().abi(), bitmap)
 }
 #[inline]
@@ -449,12 +449,12 @@ where
     P0: windows_core::IntoParam<super::super::Foundation::HINSTANCE>,
     P1: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateBitmapFromResource(hinstance : super::super::Foundation:: HINSTANCE, lpbitmapname : windows_core::PCWSTR, bitmap : *mut *mut GpBitmap) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipCreateBitmapFromResource(hinstance : super::super::Foundation:: HINSTANCE, lpbitmapname : windows_core::PCWSTR, bitmap : *mut *mut GpBitmap) -> Status);
     GdipCreateBitmapFromResource(hinstance.into_param().abi(), lpbitmapname.into_param().abi(), bitmap)
 }
 #[inline]
 pub unsafe fn GdipCreateBitmapFromScan0(width: i32, height: i32, stride: i32, format: i32, scan0: Option<*const u8>, bitmap: *mut *mut GpBitmap) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateBitmapFromScan0(width : i32, height : i32, stride : i32, format : i32, scan0 : *const u8, bitmap : *mut *mut GpBitmap) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipCreateBitmapFromScan0(width : i32, height : i32, stride : i32, format : i32, scan0 : *const u8, bitmap : *mut *mut GpBitmap) -> Status);
     GdipCreateBitmapFromScan0(width, height, stride, format, core::mem::transmute(scan0.unwrap_or(std::ptr::null())), bitmap)
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -463,7 +463,7 @@ pub unsafe fn GdipCreateBitmapFromStream<P0>(stream: P0, bitmap: *mut *mut GpBit
 where
     P0: windows_core::IntoParam<super::super::System::Com::IStream>,
 {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateBitmapFromStream(stream : * mut core::ffi::c_void, bitmap : *mut *mut GpBitmap) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipCreateBitmapFromStream(stream : * mut core::ffi::c_void, bitmap : *mut *mut GpBitmap) -> Status);
     GdipCreateBitmapFromStream(stream.into_param().abi(), bitmap)
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -472,27 +472,27 @@ pub unsafe fn GdipCreateBitmapFromStreamICM<P0>(stream: P0, bitmap: *mut *mut Gp
 where
     P0: windows_core::IntoParam<super::super::System::Com::IStream>,
 {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateBitmapFromStreamICM(stream : * mut core::ffi::c_void, bitmap : *mut *mut GpBitmap) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipCreateBitmapFromStreamICM(stream : * mut core::ffi::c_void, bitmap : *mut *mut GpBitmap) -> Status);
     GdipCreateBitmapFromStreamICM(stream.into_param().abi(), bitmap)
 }
 #[inline]
 pub unsafe fn GdipCreateCachedBitmap(bitmap: *mut GpBitmap, graphics: *mut GpGraphics, cachedbitmap: *mut *mut GpCachedBitmap) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateCachedBitmap(bitmap : *mut GpBitmap, graphics : *mut GpGraphics, cachedbitmap : *mut *mut GpCachedBitmap) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipCreateCachedBitmap(bitmap : *mut GpBitmap, graphics : *mut GpGraphics, cachedbitmap : *mut *mut GpCachedBitmap) -> Status);
     GdipCreateCachedBitmap(bitmap, graphics, cachedbitmap)
 }
 #[inline]
 pub unsafe fn GdipCreateCustomLineCap(fillpath: *mut GpPath, strokepath: *mut GpPath, basecap: LineCap, baseinset: f32, customcap: *mut *mut GpCustomLineCap) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateCustomLineCap(fillpath : *mut GpPath, strokepath : *mut GpPath, basecap : LineCap, baseinset : f32, customcap : *mut *mut GpCustomLineCap) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipCreateCustomLineCap(fillpath : *mut GpPath, strokepath : *mut GpPath, basecap : LineCap, baseinset : f32, customcap : *mut *mut GpCustomLineCap) -> Status);
     GdipCreateCustomLineCap(fillpath, strokepath, basecap, baseinset, customcap)
 }
 #[inline]
 pub unsafe fn GdipCreateEffect(guid: windows_core::GUID, effect: *mut *mut CGpEffect) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateEffect(guid : windows_core::GUID, effect : *mut *mut CGpEffect) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipCreateEffect(guid : windows_core::GUID, effect : *mut *mut CGpEffect) -> Status);
     GdipCreateEffect(core::mem::transmute(guid), effect)
 }
 #[inline]
 pub unsafe fn GdipCreateFont(fontfamily: *const GpFontFamily, emsize: f32, style: i32, unit: Unit, font: *mut *mut GpFont) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateFont(fontfamily : *const GpFontFamily, emsize : f32, style : i32, unit : Unit, font : *mut *mut GpFont) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipCreateFont(fontfamily : *const GpFontFamily, emsize : f32, style : i32, unit : Unit, font : *mut *mut GpFont) -> Status);
     GdipCreateFont(fontfamily, emsize, style, unit, font)
 }
 #[inline]
@@ -500,7 +500,7 @@ pub unsafe fn GdipCreateFontFamilyFromName<P0>(name: P0, fontcollection: *mut Gp
 where
     P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateFontFamilyFromName(name : windows_core::PCWSTR, fontcollection : *mut GpFontCollection, fontfamily : *mut *mut GpFontFamily) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipCreateFontFamilyFromName(name : windows_core::PCWSTR, fontcollection : *mut GpFontCollection, fontfamily : *mut *mut GpFontFamily) -> Status);
     GdipCreateFontFamilyFromName(name.into_param().abi(), fontcollection, fontfamily)
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -509,7 +509,7 @@ pub unsafe fn GdipCreateFontFromDC<P0>(hdc: P0, font: *mut *mut GpFont) -> Statu
 where
     P0: windows_core::IntoParam<super::Gdi::HDC>,
 {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateFontFromDC(hdc : super::Gdi:: HDC, font : *mut *mut GpFont) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipCreateFontFromDC(hdc : super::Gdi:: HDC, font : *mut *mut GpFont) -> Status);
     GdipCreateFontFromDC(hdc.into_param().abi(), font)
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -518,7 +518,7 @@ pub unsafe fn GdipCreateFontFromLogfontA<P0>(hdc: P0, logfont: *const super::Gdi
 where
     P0: windows_core::IntoParam<super::Gdi::HDC>,
 {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateFontFromLogfontA(hdc : super::Gdi:: HDC, logfont : *const super::Gdi:: LOGFONTA, font : *mut *mut GpFont) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipCreateFontFromLogfontA(hdc : super::Gdi:: HDC, logfont : *const super::Gdi:: LOGFONTA, font : *mut *mut GpFont) -> Status);
     GdipCreateFontFromLogfontA(hdc.into_param().abi(), logfont, font)
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -527,7 +527,7 @@ pub unsafe fn GdipCreateFontFromLogfontW<P0>(hdc: P0, logfont: *const super::Gdi
 where
     P0: windows_core::IntoParam<super::Gdi::HDC>,
 {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateFontFromLogfontW(hdc : super::Gdi:: HDC, logfont : *const super::Gdi:: LOGFONTW, font : *mut *mut GpFont) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipCreateFontFromLogfontW(hdc : super::Gdi:: HDC, logfont : *const super::Gdi:: LOGFONTW, font : *mut *mut GpFont) -> Status);
     GdipCreateFontFromLogfontW(hdc.into_param().abi(), logfont, font)
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -536,7 +536,7 @@ pub unsafe fn GdipCreateFromHDC<P0>(hdc: P0, graphics: *mut *mut GpGraphics) -> 
 where
     P0: windows_core::IntoParam<super::Gdi::HDC>,
 {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateFromHDC(hdc : super::Gdi:: HDC, graphics : *mut *mut GpGraphics) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipCreateFromHDC(hdc : super::Gdi:: HDC, graphics : *mut *mut GpGraphics) -> Status);
     GdipCreateFromHDC(hdc.into_param().abi(), graphics)
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -546,7 +546,7 @@ where
     P0: windows_core::IntoParam<super::Gdi::HDC>,
     P1: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateFromHDC2(hdc : super::Gdi:: HDC, hdevice : super::super::Foundation:: HANDLE, graphics : *mut *mut GpGraphics) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipCreateFromHDC2(hdc : super::Gdi:: HDC, hdevice : super::super::Foundation:: HANDLE, graphics : *mut *mut GpGraphics) -> Status);
     GdipCreateFromHDC2(hdc.into_param().abi(), hdevice.into_param().abi(), graphics)
 }
 #[inline]
@@ -554,7 +554,7 @@ pub unsafe fn GdipCreateFromHWND<P0>(hwnd: P0, graphics: *mut *mut GpGraphics) -
 where
     P0: windows_core::IntoParam<super::super::Foundation::HWND>,
 {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateFromHWND(hwnd : super::super::Foundation:: HWND, graphics : *mut *mut GpGraphics) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipCreateFromHWND(hwnd : super::super::Foundation:: HWND, graphics : *mut *mut GpGraphics) -> Status);
     GdipCreateFromHWND(hwnd.into_param().abi(), graphics)
 }
 #[inline]
@@ -562,50 +562,50 @@ pub unsafe fn GdipCreateFromHWNDICM<P0>(hwnd: P0, graphics: *mut *mut GpGraphics
 where
     P0: windows_core::IntoParam<super::super::Foundation::HWND>,
 {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateFromHWNDICM(hwnd : super::super::Foundation:: HWND, graphics : *mut *mut GpGraphics) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipCreateFromHWNDICM(hwnd : super::super::Foundation:: HWND, graphics : *mut *mut GpGraphics) -> Status);
     GdipCreateFromHWNDICM(hwnd.into_param().abi(), graphics)
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn GdipCreateHBITMAPFromBitmap(bitmap: *mut GpBitmap, hbmreturn: *mut super::Gdi::HBITMAP, background: u32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateHBITMAPFromBitmap(bitmap : *mut GpBitmap, hbmreturn : *mut super::Gdi:: HBITMAP, background : u32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipCreateHBITMAPFromBitmap(bitmap : *mut GpBitmap, hbmreturn : *mut super::Gdi:: HBITMAP, background : u32) -> Status);
     GdipCreateHBITMAPFromBitmap(bitmap, hbmreturn, background)
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
 pub unsafe fn GdipCreateHICONFromBitmap(bitmap: *mut GpBitmap, hbmreturn: *mut super::super::UI::WindowsAndMessaging::HICON) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateHICONFromBitmap(bitmap : *mut GpBitmap, hbmreturn : *mut super::super::UI::WindowsAndMessaging:: HICON) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipCreateHICONFromBitmap(bitmap : *mut GpBitmap, hbmreturn : *mut super::super::UI::WindowsAndMessaging:: HICON) -> Status);
     GdipCreateHICONFromBitmap(bitmap, hbmreturn)
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn GdipCreateHalftonePalette() -> super::Gdi::HPALETTE {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateHalftonePalette() -> super::Gdi:: HPALETTE);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipCreateHalftonePalette() -> super::Gdi:: HPALETTE);
     GdipCreateHalftonePalette()
 }
 #[inline]
 pub unsafe fn GdipCreateHatchBrush(hatchstyle: HatchStyle, forecol: u32, backcol: u32, brush: *mut *mut GpHatch) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateHatchBrush(hatchstyle : HatchStyle, forecol : u32, backcol : u32, brush : *mut *mut GpHatch) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipCreateHatchBrush(hatchstyle : HatchStyle, forecol : u32, backcol : u32, brush : *mut *mut GpHatch) -> Status);
     GdipCreateHatchBrush(hatchstyle, forecol, backcol, brush)
 }
 #[inline]
 pub unsafe fn GdipCreateImageAttributes(imageattr: *mut *mut GpImageAttributes) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateImageAttributes(imageattr : *mut *mut GpImageAttributes) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipCreateImageAttributes(imageattr : *mut *mut GpImageAttributes) -> Status);
     GdipCreateImageAttributes(imageattr)
 }
 #[inline]
 pub unsafe fn GdipCreateLineBrush(point1: *const PointF, point2: *const PointF, color1: u32, color2: u32, wrapmode: WrapMode, linegradient: *mut *mut GpLineGradient) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateLineBrush(point1 : *const PointF, point2 : *const PointF, color1 : u32, color2 : u32, wrapmode : WrapMode, linegradient : *mut *mut GpLineGradient) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipCreateLineBrush(point1 : *const PointF, point2 : *const PointF, color1 : u32, color2 : u32, wrapmode : WrapMode, linegradient : *mut *mut GpLineGradient) -> Status);
     GdipCreateLineBrush(point1, point2, color1, color2, wrapmode, linegradient)
 }
 #[inline]
 pub unsafe fn GdipCreateLineBrushFromRect(rect: *const RectF, color1: u32, color2: u32, mode: LinearGradientMode, wrapmode: WrapMode, linegradient: *mut *mut GpLineGradient) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateLineBrushFromRect(rect : *const RectF, color1 : u32, color2 : u32, mode : LinearGradientMode, wrapmode : WrapMode, linegradient : *mut *mut GpLineGradient) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipCreateLineBrushFromRect(rect : *const RectF, color1 : u32, color2 : u32, mode : LinearGradientMode, wrapmode : WrapMode, linegradient : *mut *mut GpLineGradient) -> Status);
     GdipCreateLineBrushFromRect(rect, color1, color2, mode, wrapmode, linegradient)
 }
 #[inline]
 pub unsafe fn GdipCreateLineBrushFromRectI(rect: *const Rect, color1: u32, color2: u32, mode: LinearGradientMode, wrapmode: WrapMode, linegradient: *mut *mut GpLineGradient) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateLineBrushFromRectI(rect : *const Rect, color1 : u32, color2 : u32, mode : LinearGradientMode, wrapmode : WrapMode, linegradient : *mut *mut GpLineGradient) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipCreateLineBrushFromRectI(rect : *const Rect, color1 : u32, color2 : u32, mode : LinearGradientMode, wrapmode : WrapMode, linegradient : *mut *mut GpLineGradient) -> Status);
     GdipCreateLineBrushFromRectI(rect, color1, color2, mode, wrapmode, linegradient)
 }
 #[inline]
@@ -613,7 +613,7 @@ pub unsafe fn GdipCreateLineBrushFromRectWithAngle<P0>(rect: *const RectF, color
 where
     P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateLineBrushFromRectWithAngle(rect : *const RectF, color1 : u32, color2 : u32, angle : f32, isanglescalable : super::super::Foundation:: BOOL, wrapmode : WrapMode, linegradient : *mut *mut GpLineGradient) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipCreateLineBrushFromRectWithAngle(rect : *const RectF, color1 : u32, color2 : u32, angle : f32, isanglescalable : super::super::Foundation:: BOOL, wrapmode : WrapMode, linegradient : *mut *mut GpLineGradient) -> Status);
     GdipCreateLineBrushFromRectWithAngle(rect, color1, color2, angle, isanglescalable.into_param().abi(), wrapmode, linegradient)
 }
 #[inline]
@@ -621,32 +621,32 @@ pub unsafe fn GdipCreateLineBrushFromRectWithAngleI<P0>(rect: *const Rect, color
 where
     P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateLineBrushFromRectWithAngleI(rect : *const Rect, color1 : u32, color2 : u32, angle : f32, isanglescalable : super::super::Foundation:: BOOL, wrapmode : WrapMode, linegradient : *mut *mut GpLineGradient) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipCreateLineBrushFromRectWithAngleI(rect : *const Rect, color1 : u32, color2 : u32, angle : f32, isanglescalable : super::super::Foundation:: BOOL, wrapmode : WrapMode, linegradient : *mut *mut GpLineGradient) -> Status);
     GdipCreateLineBrushFromRectWithAngleI(rect, color1, color2, angle, isanglescalable.into_param().abi(), wrapmode, linegradient)
 }
 #[inline]
 pub unsafe fn GdipCreateLineBrushI(point1: *const Point, point2: *const Point, color1: u32, color2: u32, wrapmode: WrapMode, linegradient: *mut *mut GpLineGradient) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateLineBrushI(point1 : *const Point, point2 : *const Point, color1 : u32, color2 : u32, wrapmode : WrapMode, linegradient : *mut *mut GpLineGradient) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipCreateLineBrushI(point1 : *const Point, point2 : *const Point, color1 : u32, color2 : u32, wrapmode : WrapMode, linegradient : *mut *mut GpLineGradient) -> Status);
     GdipCreateLineBrushI(point1, point2, color1, color2, wrapmode, linegradient)
 }
 #[inline]
 pub unsafe fn GdipCreateMatrix(matrix: *mut *mut Matrix) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateMatrix(matrix : *mut *mut Matrix) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipCreateMatrix(matrix : *mut *mut Matrix) -> Status);
     GdipCreateMatrix(matrix)
 }
 #[inline]
 pub unsafe fn GdipCreateMatrix2(m11: f32, m12: f32, m21: f32, m22: f32, dx: f32, dy: f32, matrix: *mut *mut Matrix) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateMatrix2(m11 : f32, m12 : f32, m21 : f32, m22 : f32, dx : f32, dy : f32, matrix : *mut *mut Matrix) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipCreateMatrix2(m11 : f32, m12 : f32, m21 : f32, m22 : f32, dx : f32, dy : f32, matrix : *mut *mut Matrix) -> Status);
     GdipCreateMatrix2(m11, m12, m21, m22, dx, dy, matrix)
 }
 #[inline]
 pub unsafe fn GdipCreateMatrix3(rect: *const RectF, dstplg: *const PointF, matrix: *mut *mut Matrix) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateMatrix3(rect : *const RectF, dstplg : *const PointF, matrix : *mut *mut Matrix) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipCreateMatrix3(rect : *const RectF, dstplg : *const PointF, matrix : *mut *mut Matrix) -> Status);
     GdipCreateMatrix3(rect, dstplg, matrix)
 }
 #[inline]
 pub unsafe fn GdipCreateMatrix3I(rect: *const Rect, dstplg: *const Point, matrix: *mut *mut Matrix) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateMatrix3I(rect : *const Rect, dstplg : *const Point, matrix : *mut *mut Matrix) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipCreateMatrix3I(rect : *const Rect, dstplg : *const Point, matrix : *mut *mut Matrix) -> Status);
     GdipCreateMatrix3I(rect, dstplg, matrix)
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -656,7 +656,7 @@ where
     P0: windows_core::IntoParam<super::Gdi::HENHMETAFILE>,
     P1: windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateMetafileFromEmf(hemf : super::Gdi:: HENHMETAFILE, deleteemf : super::super::Foundation:: BOOL, metafile : *mut *mut GpMetafile) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipCreateMetafileFromEmf(hemf : super::Gdi:: HENHMETAFILE, deleteemf : super::super::Foundation:: BOOL, metafile : *mut *mut GpMetafile) -> Status);
     GdipCreateMetafileFromEmf(hemf.into_param().abi(), deleteemf.into_param().abi(), metafile)
 }
 #[inline]
@@ -664,7 +664,7 @@ pub unsafe fn GdipCreateMetafileFromFile<P0>(file: P0, metafile: *mut *mut GpMet
 where
     P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateMetafileFromFile(file : windows_core::PCWSTR, metafile : *mut *mut GpMetafile) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipCreateMetafileFromFile(file : windows_core::PCWSTR, metafile : *mut *mut GpMetafile) -> Status);
     GdipCreateMetafileFromFile(file.into_param().abi(), metafile)
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -673,7 +673,7 @@ pub unsafe fn GdipCreateMetafileFromStream<P0>(stream: P0, metafile: *mut *mut G
 where
     P0: windows_core::IntoParam<super::super::System::Com::IStream>,
 {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateMetafileFromStream(stream : * mut core::ffi::c_void, metafile : *mut *mut GpMetafile) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipCreateMetafileFromStream(stream : * mut core::ffi::c_void, metafile : *mut *mut GpMetafile) -> Status);
     GdipCreateMetafileFromStream(stream.into_param().abi(), metafile)
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -683,7 +683,7 @@ where
     P0: windows_core::IntoParam<super::Gdi::HMETAFILE>,
     P1: windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateMetafileFromWmf(hwmf : super::Gdi:: HMETAFILE, deletewmf : super::super::Foundation:: BOOL, wmfplaceablefileheader : *const WmfPlaceableFileHeader, metafile : *mut *mut GpMetafile) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipCreateMetafileFromWmf(hwmf : super::Gdi:: HMETAFILE, deletewmf : super::super::Foundation:: BOOL, wmfplaceablefileheader : *const WmfPlaceableFileHeader, metafile : *mut *mut GpMetafile) -> Status);
     GdipCreateMetafileFromWmf(hwmf.into_param().abi(), deletewmf.into_param().abi(), wmfplaceablefileheader, metafile)
 }
 #[inline]
@@ -691,57 +691,57 @@ pub unsafe fn GdipCreateMetafileFromWmfFile<P0>(file: P0, wmfplaceablefileheader
 where
     P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateMetafileFromWmfFile(file : windows_core::PCWSTR, wmfplaceablefileheader : *const WmfPlaceableFileHeader, metafile : *mut *mut GpMetafile) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipCreateMetafileFromWmfFile(file : windows_core::PCWSTR, wmfplaceablefileheader : *const WmfPlaceableFileHeader, metafile : *mut *mut GpMetafile) -> Status);
     GdipCreateMetafileFromWmfFile(file.into_param().abi(), wmfplaceablefileheader, metafile)
 }
 #[inline]
 pub unsafe fn GdipCreatePath(brushmode: FillMode, path: *mut *mut GpPath) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreatePath(brushmode : FillMode, path : *mut *mut GpPath) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipCreatePath(brushmode : FillMode, path : *mut *mut GpPath) -> Status);
     GdipCreatePath(brushmode, path)
 }
 #[inline]
 pub unsafe fn GdipCreatePath2(param0: *const PointF, param1: *const u8, param2: i32, param3: FillMode, path: *mut *mut GpPath) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreatePath2(param0 : *const PointF, param1 : *const u8, param2 : i32, param3 : FillMode, path : *mut *mut GpPath) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipCreatePath2(param0 : *const PointF, param1 : *const u8, param2 : i32, param3 : FillMode, path : *mut *mut GpPath) -> Status);
     GdipCreatePath2(param0, param1, param2, param3, path)
 }
 #[inline]
 pub unsafe fn GdipCreatePath2I(param0: *const Point, param1: *const u8, param2: i32, param3: FillMode, path: *mut *mut GpPath) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreatePath2I(param0 : *const Point, param1 : *const u8, param2 : i32, param3 : FillMode, path : *mut *mut GpPath) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipCreatePath2I(param0 : *const Point, param1 : *const u8, param2 : i32, param3 : FillMode, path : *mut *mut GpPath) -> Status);
     GdipCreatePath2I(param0, param1, param2, param3, path)
 }
 #[inline]
 pub unsafe fn GdipCreatePathGradient(points: *const PointF, count: i32, wrapmode: WrapMode, polygradient: *mut *mut GpPathGradient) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreatePathGradient(points : *const PointF, count : i32, wrapmode : WrapMode, polygradient : *mut *mut GpPathGradient) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipCreatePathGradient(points : *const PointF, count : i32, wrapmode : WrapMode, polygradient : *mut *mut GpPathGradient) -> Status);
     GdipCreatePathGradient(points, count, wrapmode, polygradient)
 }
 #[inline]
 pub unsafe fn GdipCreatePathGradientFromPath(path: *const GpPath, polygradient: *mut *mut GpPathGradient) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreatePathGradientFromPath(path : *const GpPath, polygradient : *mut *mut GpPathGradient) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipCreatePathGradientFromPath(path : *const GpPath, polygradient : *mut *mut GpPathGradient) -> Status);
     GdipCreatePathGradientFromPath(path, polygradient)
 }
 #[inline]
 pub unsafe fn GdipCreatePathGradientI(points: *const Point, count: i32, wrapmode: WrapMode, polygradient: *mut *mut GpPathGradient) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreatePathGradientI(points : *const Point, count : i32, wrapmode : WrapMode, polygradient : *mut *mut GpPathGradient) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipCreatePathGradientI(points : *const Point, count : i32, wrapmode : WrapMode, polygradient : *mut *mut GpPathGradient) -> Status);
     GdipCreatePathGradientI(points, count, wrapmode, polygradient)
 }
 #[inline]
 pub unsafe fn GdipCreatePathIter(iterator: *mut *mut GpPathIterator, path: *mut GpPath) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreatePathIter(iterator : *mut *mut GpPathIterator, path : *mut GpPath) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipCreatePathIter(iterator : *mut *mut GpPathIterator, path : *mut GpPath) -> Status);
     GdipCreatePathIter(iterator, path)
 }
 #[inline]
 pub unsafe fn GdipCreatePen1(color: u32, width: f32, unit: Unit, pen: *mut *mut GpPen) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreatePen1(color : u32, width : f32, unit : Unit, pen : *mut *mut GpPen) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipCreatePen1(color : u32, width : f32, unit : Unit, pen : *mut *mut GpPen) -> Status);
     GdipCreatePen1(color, width, unit, pen)
 }
 #[inline]
 pub unsafe fn GdipCreatePen2(brush: *mut GpBrush, width: f32, unit: Unit, pen: *mut *mut GpPen) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreatePen2(brush : *mut GpBrush, width : f32, unit : Unit, pen : *mut *mut GpPen) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipCreatePen2(brush : *mut GpBrush, width : f32, unit : Unit, pen : *mut *mut GpPen) -> Status);
     GdipCreatePen2(brush, width, unit, pen)
 }
 #[inline]
 pub unsafe fn GdipCreateRegion(region: *mut *mut GpRegion) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateRegion(region : *mut *mut GpRegion) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipCreateRegion(region : *mut *mut GpRegion) -> Status);
     GdipCreateRegion(region)
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -750,32 +750,32 @@ pub unsafe fn GdipCreateRegionHrgn<P0>(hrgn: P0, region: *mut *mut GpRegion) -> 
 where
     P0: windows_core::IntoParam<super::Gdi::HRGN>,
 {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateRegionHrgn(hrgn : super::Gdi:: HRGN, region : *mut *mut GpRegion) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipCreateRegionHrgn(hrgn : super::Gdi:: HRGN, region : *mut *mut GpRegion) -> Status);
     GdipCreateRegionHrgn(hrgn.into_param().abi(), region)
 }
 #[inline]
 pub unsafe fn GdipCreateRegionPath(path: *mut GpPath, region: *mut *mut GpRegion) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateRegionPath(path : *mut GpPath, region : *mut *mut GpRegion) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipCreateRegionPath(path : *mut GpPath, region : *mut *mut GpRegion) -> Status);
     GdipCreateRegionPath(path, region)
 }
 #[inline]
 pub unsafe fn GdipCreateRegionRect(rect: *const RectF, region: *mut *mut GpRegion) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateRegionRect(rect : *const RectF, region : *mut *mut GpRegion) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipCreateRegionRect(rect : *const RectF, region : *mut *mut GpRegion) -> Status);
     GdipCreateRegionRect(rect, region)
 }
 #[inline]
 pub unsafe fn GdipCreateRegionRectI(rect: *const Rect, region: *mut *mut GpRegion) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateRegionRectI(rect : *const Rect, region : *mut *mut GpRegion) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipCreateRegionRectI(rect : *const Rect, region : *mut *mut GpRegion) -> Status);
     GdipCreateRegionRectI(rect, region)
 }
 #[inline]
 pub unsafe fn GdipCreateRegionRgnData(regiondata: *const u8, size: i32, region: *mut *mut GpRegion) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateRegionRgnData(regiondata : *const u8, size : i32, region : *mut *mut GpRegion) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipCreateRegionRgnData(regiondata : *const u8, size : i32, region : *mut *mut GpRegion) -> Status);
     GdipCreateRegionRgnData(regiondata, size, region)
 }
 #[inline]
 pub unsafe fn GdipCreateSolidFill(color: u32, brush: *mut *mut GpSolidFill) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateSolidFill(color : u32, brush : *mut *mut GpSolidFill) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipCreateSolidFill(color : u32, brush : *mut *mut GpSolidFill) -> Status);
     GdipCreateSolidFill(color, brush)
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -784,347 +784,347 @@ pub unsafe fn GdipCreateStreamOnFile<P0>(filename: P0, access: u32, stream: *mut
 where
     P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateStreamOnFile(filename : windows_core::PCWSTR, access : u32, stream : *mut * mut core::ffi::c_void) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipCreateStreamOnFile(filename : windows_core::PCWSTR, access : u32, stream : *mut * mut core::ffi::c_void) -> Status);
     GdipCreateStreamOnFile(filename.into_param().abi(), access, core::mem::transmute(stream))
 }
 #[inline]
 pub unsafe fn GdipCreateStringFormat(formatattributes: i32, language: u16, format: *mut *mut GpStringFormat) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateStringFormat(formatattributes : i32, language : u16, format : *mut *mut GpStringFormat) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipCreateStringFormat(formatattributes : i32, language : u16, format : *mut *mut GpStringFormat) -> Status);
     GdipCreateStringFormat(formatattributes, language, format)
 }
 #[inline]
 pub unsafe fn GdipCreateTexture(image: *mut GpImage, wrapmode: WrapMode, texture: *mut *mut GpTexture) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateTexture(image : *mut GpImage, wrapmode : WrapMode, texture : *mut *mut GpTexture) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipCreateTexture(image : *mut GpImage, wrapmode : WrapMode, texture : *mut *mut GpTexture) -> Status);
     GdipCreateTexture(image, wrapmode, texture)
 }
 #[inline]
 pub unsafe fn GdipCreateTexture2(image: *mut GpImage, wrapmode: WrapMode, x: f32, y: f32, width: f32, height: f32, texture: *mut *mut GpTexture) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateTexture2(image : *mut GpImage, wrapmode : WrapMode, x : f32, y : f32, width : f32, height : f32, texture : *mut *mut GpTexture) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipCreateTexture2(image : *mut GpImage, wrapmode : WrapMode, x : f32, y : f32, width : f32, height : f32, texture : *mut *mut GpTexture) -> Status);
     GdipCreateTexture2(image, wrapmode, x, y, width, height, texture)
 }
 #[inline]
 pub unsafe fn GdipCreateTexture2I(image: *mut GpImage, wrapmode: WrapMode, x: i32, y: i32, width: i32, height: i32, texture: *mut *mut GpTexture) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateTexture2I(image : *mut GpImage, wrapmode : WrapMode, x : i32, y : i32, width : i32, height : i32, texture : *mut *mut GpTexture) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipCreateTexture2I(image : *mut GpImage, wrapmode : WrapMode, x : i32, y : i32, width : i32, height : i32, texture : *mut *mut GpTexture) -> Status);
     GdipCreateTexture2I(image, wrapmode, x, y, width, height, texture)
 }
 #[inline]
 pub unsafe fn GdipCreateTextureIA(image: *mut GpImage, imageattributes: *const GpImageAttributes, x: f32, y: f32, width: f32, height: f32, texture: *mut *mut GpTexture) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateTextureIA(image : *mut GpImage, imageattributes : *const GpImageAttributes, x : f32, y : f32, width : f32, height : f32, texture : *mut *mut GpTexture) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipCreateTextureIA(image : *mut GpImage, imageattributes : *const GpImageAttributes, x : f32, y : f32, width : f32, height : f32, texture : *mut *mut GpTexture) -> Status);
     GdipCreateTextureIA(image, imageattributes, x, y, width, height, texture)
 }
 #[inline]
 pub unsafe fn GdipCreateTextureIAI(image: *mut GpImage, imageattributes: *const GpImageAttributes, x: i32, y: i32, width: i32, height: i32, texture: *mut *mut GpTexture) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateTextureIAI(image : *mut GpImage, imageattributes : *const GpImageAttributes, x : i32, y : i32, width : i32, height : i32, texture : *mut *mut GpTexture) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipCreateTextureIAI(image : *mut GpImage, imageattributes : *const GpImageAttributes, x : i32, y : i32, width : i32, height : i32, texture : *mut *mut GpTexture) -> Status);
     GdipCreateTextureIAI(image, imageattributes, x, y, width, height, texture)
 }
 #[inline]
 pub unsafe fn GdipDeleteBrush(brush: *mut GpBrush) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipDeleteBrush(brush : *mut GpBrush) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipDeleteBrush(brush : *mut GpBrush) -> Status);
     GdipDeleteBrush(brush)
 }
 #[inline]
 pub unsafe fn GdipDeleteCachedBitmap(cachedbitmap: *mut GpCachedBitmap) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipDeleteCachedBitmap(cachedbitmap : *mut GpCachedBitmap) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipDeleteCachedBitmap(cachedbitmap : *mut GpCachedBitmap) -> Status);
     GdipDeleteCachedBitmap(cachedbitmap)
 }
 #[inline]
 pub unsafe fn GdipDeleteCustomLineCap(customcap: *mut GpCustomLineCap) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipDeleteCustomLineCap(customcap : *mut GpCustomLineCap) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipDeleteCustomLineCap(customcap : *mut GpCustomLineCap) -> Status);
     GdipDeleteCustomLineCap(customcap)
 }
 #[inline]
 pub unsafe fn GdipDeleteEffect(effect: *mut CGpEffect) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipDeleteEffect(effect : *mut CGpEffect) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipDeleteEffect(effect : *mut CGpEffect) -> Status);
     GdipDeleteEffect(effect)
 }
 #[inline]
 pub unsafe fn GdipDeleteFont(font: *mut GpFont) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipDeleteFont(font : *mut GpFont) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipDeleteFont(font : *mut GpFont) -> Status);
     GdipDeleteFont(font)
 }
 #[inline]
 pub unsafe fn GdipDeleteFontFamily(fontfamily: *mut GpFontFamily) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipDeleteFontFamily(fontfamily : *mut GpFontFamily) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipDeleteFontFamily(fontfamily : *mut GpFontFamily) -> Status);
     GdipDeleteFontFamily(fontfamily)
 }
 #[inline]
 pub unsafe fn GdipDeleteGraphics(graphics: *mut GpGraphics) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipDeleteGraphics(graphics : *mut GpGraphics) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipDeleteGraphics(graphics : *mut GpGraphics) -> Status);
     GdipDeleteGraphics(graphics)
 }
 #[inline]
 pub unsafe fn GdipDeleteMatrix(matrix: *mut Matrix) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipDeleteMatrix(matrix : *mut Matrix) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipDeleteMatrix(matrix : *mut Matrix) -> Status);
     GdipDeleteMatrix(matrix)
 }
 #[inline]
 pub unsafe fn GdipDeletePath(path: *mut GpPath) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipDeletePath(path : *mut GpPath) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipDeletePath(path : *mut GpPath) -> Status);
     GdipDeletePath(path)
 }
 #[inline]
 pub unsafe fn GdipDeletePathIter(iterator: *mut GpPathIterator) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipDeletePathIter(iterator : *mut GpPathIterator) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipDeletePathIter(iterator : *mut GpPathIterator) -> Status);
     GdipDeletePathIter(iterator)
 }
 #[inline]
 pub unsafe fn GdipDeletePen(pen: *mut GpPen) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipDeletePen(pen : *mut GpPen) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipDeletePen(pen : *mut GpPen) -> Status);
     GdipDeletePen(pen)
 }
 #[inline]
 pub unsafe fn GdipDeletePrivateFontCollection(fontcollection: *mut *mut GpFontCollection) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipDeletePrivateFontCollection(fontcollection : *mut *mut GpFontCollection) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipDeletePrivateFontCollection(fontcollection : *mut *mut GpFontCollection) -> Status);
     GdipDeletePrivateFontCollection(fontcollection)
 }
 #[inline]
 pub unsafe fn GdipDeleteRegion(region: *mut GpRegion) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipDeleteRegion(region : *mut GpRegion) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipDeleteRegion(region : *mut GpRegion) -> Status);
     GdipDeleteRegion(region)
 }
 #[inline]
 pub unsafe fn GdipDeleteStringFormat(format: *mut GpStringFormat) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipDeleteStringFormat(format : *mut GpStringFormat) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipDeleteStringFormat(format : *mut GpStringFormat) -> Status);
     GdipDeleteStringFormat(format)
 }
 #[inline]
 pub unsafe fn GdipDisposeImage(image: *mut GpImage) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipDisposeImage(image : *mut GpImage) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipDisposeImage(image : *mut GpImage) -> Status);
     GdipDisposeImage(image)
 }
 #[inline]
 pub unsafe fn GdipDisposeImageAttributes(imageattr: *mut GpImageAttributes) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipDisposeImageAttributes(imageattr : *mut GpImageAttributes) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipDisposeImageAttributes(imageattr : *mut GpImageAttributes) -> Status);
     GdipDisposeImageAttributes(imageattr)
 }
 #[inline]
 pub unsafe fn GdipDrawArc(graphics: *mut GpGraphics, pen: *mut GpPen, x: f32, y: f32, width: f32, height: f32, startangle: f32, sweepangle: f32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipDrawArc(graphics : *mut GpGraphics, pen : *mut GpPen, x : f32, y : f32, width : f32, height : f32, startangle : f32, sweepangle : f32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipDrawArc(graphics : *mut GpGraphics, pen : *mut GpPen, x : f32, y : f32, width : f32, height : f32, startangle : f32, sweepangle : f32) -> Status);
     GdipDrawArc(graphics, pen, x, y, width, height, startangle, sweepangle)
 }
 #[inline]
 pub unsafe fn GdipDrawArcI(graphics: *mut GpGraphics, pen: *mut GpPen, x: i32, y: i32, width: i32, height: i32, startangle: f32, sweepangle: f32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipDrawArcI(graphics : *mut GpGraphics, pen : *mut GpPen, x : i32, y : i32, width : i32, height : i32, startangle : f32, sweepangle : f32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipDrawArcI(graphics : *mut GpGraphics, pen : *mut GpPen, x : i32, y : i32, width : i32, height : i32, startangle : f32, sweepangle : f32) -> Status);
     GdipDrawArcI(graphics, pen, x, y, width, height, startangle, sweepangle)
 }
 #[inline]
 pub unsafe fn GdipDrawBezier(graphics: *mut GpGraphics, pen: *mut GpPen, x1: f32, y1: f32, x2: f32, y2: f32, x3: f32, y3: f32, x4: f32, y4: f32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipDrawBezier(graphics : *mut GpGraphics, pen : *mut GpPen, x1 : f32, y1 : f32, x2 : f32, y2 : f32, x3 : f32, y3 : f32, x4 : f32, y4 : f32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipDrawBezier(graphics : *mut GpGraphics, pen : *mut GpPen, x1 : f32, y1 : f32, x2 : f32, y2 : f32, x3 : f32, y3 : f32, x4 : f32, y4 : f32) -> Status);
     GdipDrawBezier(graphics, pen, x1, y1, x2, y2, x3, y3, x4, y4)
 }
 #[inline]
 pub unsafe fn GdipDrawBezierI(graphics: *mut GpGraphics, pen: *mut GpPen, x1: i32, y1: i32, x2: i32, y2: i32, x3: i32, y3: i32, x4: i32, y4: i32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipDrawBezierI(graphics : *mut GpGraphics, pen : *mut GpPen, x1 : i32, y1 : i32, x2 : i32, y2 : i32, x3 : i32, y3 : i32, x4 : i32, y4 : i32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipDrawBezierI(graphics : *mut GpGraphics, pen : *mut GpPen, x1 : i32, y1 : i32, x2 : i32, y2 : i32, x3 : i32, y3 : i32, x4 : i32, y4 : i32) -> Status);
     GdipDrawBezierI(graphics, pen, x1, y1, x2, y2, x3, y3, x4, y4)
 }
 #[inline]
 pub unsafe fn GdipDrawBeziers(graphics: *mut GpGraphics, pen: *mut GpPen, points: *const PointF, count: i32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipDrawBeziers(graphics : *mut GpGraphics, pen : *mut GpPen, points : *const PointF, count : i32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipDrawBeziers(graphics : *mut GpGraphics, pen : *mut GpPen, points : *const PointF, count : i32) -> Status);
     GdipDrawBeziers(graphics, pen, points, count)
 }
 #[inline]
 pub unsafe fn GdipDrawBeziersI(graphics: *mut GpGraphics, pen: *mut GpPen, points: *const Point, count: i32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipDrawBeziersI(graphics : *mut GpGraphics, pen : *mut GpPen, points : *const Point, count : i32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipDrawBeziersI(graphics : *mut GpGraphics, pen : *mut GpPen, points : *const Point, count : i32) -> Status);
     GdipDrawBeziersI(graphics, pen, points, count)
 }
 #[inline]
 pub unsafe fn GdipDrawCachedBitmap(graphics: *mut GpGraphics, cachedbitmap: *mut GpCachedBitmap, x: i32, y: i32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipDrawCachedBitmap(graphics : *mut GpGraphics, cachedbitmap : *mut GpCachedBitmap, x : i32, y : i32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipDrawCachedBitmap(graphics : *mut GpGraphics, cachedbitmap : *mut GpCachedBitmap, x : i32, y : i32) -> Status);
     GdipDrawCachedBitmap(graphics, cachedbitmap, x, y)
 }
 #[inline]
 pub unsafe fn GdipDrawClosedCurve(graphics: *mut GpGraphics, pen: *mut GpPen, points: *const PointF, count: i32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipDrawClosedCurve(graphics : *mut GpGraphics, pen : *mut GpPen, points : *const PointF, count : i32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipDrawClosedCurve(graphics : *mut GpGraphics, pen : *mut GpPen, points : *const PointF, count : i32) -> Status);
     GdipDrawClosedCurve(graphics, pen, points, count)
 }
 #[inline]
 pub unsafe fn GdipDrawClosedCurve2(graphics: *mut GpGraphics, pen: *mut GpPen, points: *const PointF, count: i32, tension: f32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipDrawClosedCurve2(graphics : *mut GpGraphics, pen : *mut GpPen, points : *const PointF, count : i32, tension : f32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipDrawClosedCurve2(graphics : *mut GpGraphics, pen : *mut GpPen, points : *const PointF, count : i32, tension : f32) -> Status);
     GdipDrawClosedCurve2(graphics, pen, points, count, tension)
 }
 #[inline]
 pub unsafe fn GdipDrawClosedCurve2I(graphics: *mut GpGraphics, pen: *mut GpPen, points: *const Point, count: i32, tension: f32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipDrawClosedCurve2I(graphics : *mut GpGraphics, pen : *mut GpPen, points : *const Point, count : i32, tension : f32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipDrawClosedCurve2I(graphics : *mut GpGraphics, pen : *mut GpPen, points : *const Point, count : i32, tension : f32) -> Status);
     GdipDrawClosedCurve2I(graphics, pen, points, count, tension)
 }
 #[inline]
 pub unsafe fn GdipDrawClosedCurveI(graphics: *mut GpGraphics, pen: *mut GpPen, points: *const Point, count: i32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipDrawClosedCurveI(graphics : *mut GpGraphics, pen : *mut GpPen, points : *const Point, count : i32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipDrawClosedCurveI(graphics : *mut GpGraphics, pen : *mut GpPen, points : *const Point, count : i32) -> Status);
     GdipDrawClosedCurveI(graphics, pen, points, count)
 }
 #[inline]
 pub unsafe fn GdipDrawCurve(graphics: *mut GpGraphics, pen: *mut GpPen, points: *const PointF, count: i32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipDrawCurve(graphics : *mut GpGraphics, pen : *mut GpPen, points : *const PointF, count : i32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipDrawCurve(graphics : *mut GpGraphics, pen : *mut GpPen, points : *const PointF, count : i32) -> Status);
     GdipDrawCurve(graphics, pen, points, count)
 }
 #[inline]
 pub unsafe fn GdipDrawCurve2(graphics: *mut GpGraphics, pen: *mut GpPen, points: *const PointF, count: i32, tension: f32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipDrawCurve2(graphics : *mut GpGraphics, pen : *mut GpPen, points : *const PointF, count : i32, tension : f32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipDrawCurve2(graphics : *mut GpGraphics, pen : *mut GpPen, points : *const PointF, count : i32, tension : f32) -> Status);
     GdipDrawCurve2(graphics, pen, points, count, tension)
 }
 #[inline]
 pub unsafe fn GdipDrawCurve2I(graphics: *mut GpGraphics, pen: *mut GpPen, points: *const Point, count: i32, tension: f32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipDrawCurve2I(graphics : *mut GpGraphics, pen : *mut GpPen, points : *const Point, count : i32, tension : f32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipDrawCurve2I(graphics : *mut GpGraphics, pen : *mut GpPen, points : *const Point, count : i32, tension : f32) -> Status);
     GdipDrawCurve2I(graphics, pen, points, count, tension)
 }
 #[inline]
 pub unsafe fn GdipDrawCurve3(graphics: *mut GpGraphics, pen: *mut GpPen, points: *const PointF, count: i32, offset: i32, numberofsegments: i32, tension: f32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipDrawCurve3(graphics : *mut GpGraphics, pen : *mut GpPen, points : *const PointF, count : i32, offset : i32, numberofsegments : i32, tension : f32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipDrawCurve3(graphics : *mut GpGraphics, pen : *mut GpPen, points : *const PointF, count : i32, offset : i32, numberofsegments : i32, tension : f32) -> Status);
     GdipDrawCurve3(graphics, pen, points, count, offset, numberofsegments, tension)
 }
 #[inline]
 pub unsafe fn GdipDrawCurve3I(graphics: *mut GpGraphics, pen: *mut GpPen, points: *const Point, count: i32, offset: i32, numberofsegments: i32, tension: f32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipDrawCurve3I(graphics : *mut GpGraphics, pen : *mut GpPen, points : *const Point, count : i32, offset : i32, numberofsegments : i32, tension : f32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipDrawCurve3I(graphics : *mut GpGraphics, pen : *mut GpPen, points : *const Point, count : i32, offset : i32, numberofsegments : i32, tension : f32) -> Status);
     GdipDrawCurve3I(graphics, pen, points, count, offset, numberofsegments, tension)
 }
 #[inline]
 pub unsafe fn GdipDrawCurveI(graphics: *mut GpGraphics, pen: *mut GpPen, points: *const Point, count: i32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipDrawCurveI(graphics : *mut GpGraphics, pen : *mut GpPen, points : *const Point, count : i32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipDrawCurveI(graphics : *mut GpGraphics, pen : *mut GpPen, points : *const Point, count : i32) -> Status);
     GdipDrawCurveI(graphics, pen, points, count)
 }
 #[inline]
 pub unsafe fn GdipDrawDriverString(graphics: *mut GpGraphics, text: *const u16, length: i32, font: *const GpFont, brush: *const GpBrush, positions: *const PointF, flags: i32, matrix: *const Matrix) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipDrawDriverString(graphics : *mut GpGraphics, text : *const u16, length : i32, font : *const GpFont, brush : *const GpBrush, positions : *const PointF, flags : i32, matrix : *const Matrix) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipDrawDriverString(graphics : *mut GpGraphics, text : *const u16, length : i32, font : *const GpFont, brush : *const GpBrush, positions : *const PointF, flags : i32, matrix : *const Matrix) -> Status);
     GdipDrawDriverString(graphics, text, length, font, brush, positions, flags, matrix)
 }
 #[inline]
 pub unsafe fn GdipDrawEllipse(graphics: *mut GpGraphics, pen: *mut GpPen, x: f32, y: f32, width: f32, height: f32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipDrawEllipse(graphics : *mut GpGraphics, pen : *mut GpPen, x : f32, y : f32, width : f32, height : f32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipDrawEllipse(graphics : *mut GpGraphics, pen : *mut GpPen, x : f32, y : f32, width : f32, height : f32) -> Status);
     GdipDrawEllipse(graphics, pen, x, y, width, height)
 }
 #[inline]
 pub unsafe fn GdipDrawEllipseI(graphics: *mut GpGraphics, pen: *mut GpPen, x: i32, y: i32, width: i32, height: i32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipDrawEllipseI(graphics : *mut GpGraphics, pen : *mut GpPen, x : i32, y : i32, width : i32, height : i32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipDrawEllipseI(graphics : *mut GpGraphics, pen : *mut GpPen, x : i32, y : i32, width : i32, height : i32) -> Status);
     GdipDrawEllipseI(graphics, pen, x, y, width, height)
 }
 #[inline]
 pub unsafe fn GdipDrawImage(graphics: *mut GpGraphics, image: *mut GpImage, x: f32, y: f32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipDrawImage(graphics : *mut GpGraphics, image : *mut GpImage, x : f32, y : f32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipDrawImage(graphics : *mut GpGraphics, image : *mut GpImage, x : f32, y : f32) -> Status);
     GdipDrawImage(graphics, image, x, y)
 }
 #[inline]
 pub unsafe fn GdipDrawImageFX(graphics: *mut GpGraphics, image: *mut GpImage, source: *mut RectF, xform: *mut Matrix, effect: *mut CGpEffect, imageattributes: *mut GpImageAttributes, srcunit: Unit) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipDrawImageFX(graphics : *mut GpGraphics, image : *mut GpImage, source : *mut RectF, xform : *mut Matrix, effect : *mut CGpEffect, imageattributes : *mut GpImageAttributes, srcunit : Unit) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipDrawImageFX(graphics : *mut GpGraphics, image : *mut GpImage, source : *mut RectF, xform : *mut Matrix, effect : *mut CGpEffect, imageattributes : *mut GpImageAttributes, srcunit : Unit) -> Status);
     GdipDrawImageFX(graphics, image, source, xform, effect, imageattributes, srcunit)
 }
 #[inline]
 pub unsafe fn GdipDrawImageI(graphics: *mut GpGraphics, image: *mut GpImage, x: i32, y: i32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipDrawImageI(graphics : *mut GpGraphics, image : *mut GpImage, x : i32, y : i32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipDrawImageI(graphics : *mut GpGraphics, image : *mut GpImage, x : i32, y : i32) -> Status);
     GdipDrawImageI(graphics, image, x, y)
 }
 #[inline]
 pub unsafe fn GdipDrawImagePointRect(graphics: *mut GpGraphics, image: *mut GpImage, x: f32, y: f32, srcx: f32, srcy: f32, srcwidth: f32, srcheight: f32, srcunit: Unit) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipDrawImagePointRect(graphics : *mut GpGraphics, image : *mut GpImage, x : f32, y : f32, srcx : f32, srcy : f32, srcwidth : f32, srcheight : f32, srcunit : Unit) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipDrawImagePointRect(graphics : *mut GpGraphics, image : *mut GpImage, x : f32, y : f32, srcx : f32, srcy : f32, srcwidth : f32, srcheight : f32, srcunit : Unit) -> Status);
     GdipDrawImagePointRect(graphics, image, x, y, srcx, srcy, srcwidth, srcheight, srcunit)
 }
 #[inline]
 pub unsafe fn GdipDrawImagePointRectI(graphics: *mut GpGraphics, image: *mut GpImage, x: i32, y: i32, srcx: i32, srcy: i32, srcwidth: i32, srcheight: i32, srcunit: Unit) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipDrawImagePointRectI(graphics : *mut GpGraphics, image : *mut GpImage, x : i32, y : i32, srcx : i32, srcy : i32, srcwidth : i32, srcheight : i32, srcunit : Unit) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipDrawImagePointRectI(graphics : *mut GpGraphics, image : *mut GpImage, x : i32, y : i32, srcx : i32, srcy : i32, srcwidth : i32, srcheight : i32, srcunit : Unit) -> Status);
     GdipDrawImagePointRectI(graphics, image, x, y, srcx, srcy, srcwidth, srcheight, srcunit)
 }
 #[inline]
 pub unsafe fn GdipDrawImagePoints(graphics: *mut GpGraphics, image: *mut GpImage, dstpoints: *const PointF, count: i32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipDrawImagePoints(graphics : *mut GpGraphics, image : *mut GpImage, dstpoints : *const PointF, count : i32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipDrawImagePoints(graphics : *mut GpGraphics, image : *mut GpImage, dstpoints : *const PointF, count : i32) -> Status);
     GdipDrawImagePoints(graphics, image, dstpoints, count)
 }
 #[inline]
 pub unsafe fn GdipDrawImagePointsI(graphics: *mut GpGraphics, image: *mut GpImage, dstpoints: *const Point, count: i32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipDrawImagePointsI(graphics : *mut GpGraphics, image : *mut GpImage, dstpoints : *const Point, count : i32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipDrawImagePointsI(graphics : *mut GpGraphics, image : *mut GpImage, dstpoints : *const Point, count : i32) -> Status);
     GdipDrawImagePointsI(graphics, image, dstpoints, count)
 }
 #[inline]
 pub unsafe fn GdipDrawImagePointsRect(graphics: *mut GpGraphics, image: *mut GpImage, points: *const PointF, count: i32, srcx: f32, srcy: f32, srcwidth: f32, srcheight: f32, srcunit: Unit, imageattributes: *const GpImageAttributes, callback: isize, callbackdata: *mut core::ffi::c_void) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipDrawImagePointsRect(graphics : *mut GpGraphics, image : *mut GpImage, points : *const PointF, count : i32, srcx : f32, srcy : f32, srcwidth : f32, srcheight : f32, srcunit : Unit, imageattributes : *const GpImageAttributes, callback : isize, callbackdata : *mut core::ffi::c_void) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipDrawImagePointsRect(graphics : *mut GpGraphics, image : *mut GpImage, points : *const PointF, count : i32, srcx : f32, srcy : f32, srcwidth : f32, srcheight : f32, srcunit : Unit, imageattributes : *const GpImageAttributes, callback : isize, callbackdata : *mut core::ffi::c_void) -> Status);
     GdipDrawImagePointsRect(graphics, image, points, count, srcx, srcy, srcwidth, srcheight, srcunit, imageattributes, callback, callbackdata)
 }
 #[inline]
 pub unsafe fn GdipDrawImagePointsRectI(graphics: *mut GpGraphics, image: *mut GpImage, points: *const Point, count: i32, srcx: i32, srcy: i32, srcwidth: i32, srcheight: i32, srcunit: Unit, imageattributes: *const GpImageAttributes, callback: isize, callbackdata: *mut core::ffi::c_void) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipDrawImagePointsRectI(graphics : *mut GpGraphics, image : *mut GpImage, points : *const Point, count : i32, srcx : i32, srcy : i32, srcwidth : i32, srcheight : i32, srcunit : Unit, imageattributes : *const GpImageAttributes, callback : isize, callbackdata : *mut core::ffi::c_void) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipDrawImagePointsRectI(graphics : *mut GpGraphics, image : *mut GpImage, points : *const Point, count : i32, srcx : i32, srcy : i32, srcwidth : i32, srcheight : i32, srcunit : Unit, imageattributes : *const GpImageAttributes, callback : isize, callbackdata : *mut core::ffi::c_void) -> Status);
     GdipDrawImagePointsRectI(graphics, image, points, count, srcx, srcy, srcwidth, srcheight, srcunit, imageattributes, callback, callbackdata)
 }
 #[inline]
 pub unsafe fn GdipDrawImageRect(graphics: *mut GpGraphics, image: *mut GpImage, x: f32, y: f32, width: f32, height: f32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipDrawImageRect(graphics : *mut GpGraphics, image : *mut GpImage, x : f32, y : f32, width : f32, height : f32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipDrawImageRect(graphics : *mut GpGraphics, image : *mut GpImage, x : f32, y : f32, width : f32, height : f32) -> Status);
     GdipDrawImageRect(graphics, image, x, y, width, height)
 }
 #[inline]
 pub unsafe fn GdipDrawImageRectI(graphics: *mut GpGraphics, image: *mut GpImage, x: i32, y: i32, width: i32, height: i32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipDrawImageRectI(graphics : *mut GpGraphics, image : *mut GpImage, x : i32, y : i32, width : i32, height : i32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipDrawImageRectI(graphics : *mut GpGraphics, image : *mut GpImage, x : i32, y : i32, width : i32, height : i32) -> Status);
     GdipDrawImageRectI(graphics, image, x, y, width, height)
 }
 #[inline]
 pub unsafe fn GdipDrawImageRectRect(graphics: *mut GpGraphics, image: *mut GpImage, dstx: f32, dsty: f32, dstwidth: f32, dstheight: f32, srcx: f32, srcy: f32, srcwidth: f32, srcheight: f32, srcunit: Unit, imageattributes: *const GpImageAttributes, callback: isize, callbackdata: *mut core::ffi::c_void) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipDrawImageRectRect(graphics : *mut GpGraphics, image : *mut GpImage, dstx : f32, dsty : f32, dstwidth : f32, dstheight : f32, srcx : f32, srcy : f32, srcwidth : f32, srcheight : f32, srcunit : Unit, imageattributes : *const GpImageAttributes, callback : isize, callbackdata : *mut core::ffi::c_void) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipDrawImageRectRect(graphics : *mut GpGraphics, image : *mut GpImage, dstx : f32, dsty : f32, dstwidth : f32, dstheight : f32, srcx : f32, srcy : f32, srcwidth : f32, srcheight : f32, srcunit : Unit, imageattributes : *const GpImageAttributes, callback : isize, callbackdata : *mut core::ffi::c_void) -> Status);
     GdipDrawImageRectRect(graphics, image, dstx, dsty, dstwidth, dstheight, srcx, srcy, srcwidth, srcheight, srcunit, imageattributes, callback, callbackdata)
 }
 #[inline]
 pub unsafe fn GdipDrawImageRectRectI(graphics: *mut GpGraphics, image: *mut GpImage, dstx: i32, dsty: i32, dstwidth: i32, dstheight: i32, srcx: i32, srcy: i32, srcwidth: i32, srcheight: i32, srcunit: Unit, imageattributes: *const GpImageAttributes, callback: isize, callbackdata: *mut core::ffi::c_void) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipDrawImageRectRectI(graphics : *mut GpGraphics, image : *mut GpImage, dstx : i32, dsty : i32, dstwidth : i32, dstheight : i32, srcx : i32, srcy : i32, srcwidth : i32, srcheight : i32, srcunit : Unit, imageattributes : *const GpImageAttributes, callback : isize, callbackdata : *mut core::ffi::c_void) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipDrawImageRectRectI(graphics : *mut GpGraphics, image : *mut GpImage, dstx : i32, dsty : i32, dstwidth : i32, dstheight : i32, srcx : i32, srcy : i32, srcwidth : i32, srcheight : i32, srcunit : Unit, imageattributes : *const GpImageAttributes, callback : isize, callbackdata : *mut core::ffi::c_void) -> Status);
     GdipDrawImageRectRectI(graphics, image, dstx, dsty, dstwidth, dstheight, srcx, srcy, srcwidth, srcheight, srcunit, imageattributes, callback, callbackdata)
 }
 #[inline]
 pub unsafe fn GdipDrawLine(graphics: *mut GpGraphics, pen: *mut GpPen, x1: f32, y1: f32, x2: f32, y2: f32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipDrawLine(graphics : *mut GpGraphics, pen : *mut GpPen, x1 : f32, y1 : f32, x2 : f32, y2 : f32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipDrawLine(graphics : *mut GpGraphics, pen : *mut GpPen, x1 : f32, y1 : f32, x2 : f32, y2 : f32) -> Status);
     GdipDrawLine(graphics, pen, x1, y1, x2, y2)
 }
 #[inline]
 pub unsafe fn GdipDrawLineI(graphics: *mut GpGraphics, pen: *mut GpPen, x1: i32, y1: i32, x2: i32, y2: i32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipDrawLineI(graphics : *mut GpGraphics, pen : *mut GpPen, x1 : i32, y1 : i32, x2 : i32, y2 : i32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipDrawLineI(graphics : *mut GpGraphics, pen : *mut GpPen, x1 : i32, y1 : i32, x2 : i32, y2 : i32) -> Status);
     GdipDrawLineI(graphics, pen, x1, y1, x2, y2)
 }
 #[inline]
 pub unsafe fn GdipDrawLines(graphics: *mut GpGraphics, pen: *mut GpPen, points: *const PointF, count: i32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipDrawLines(graphics : *mut GpGraphics, pen : *mut GpPen, points : *const PointF, count : i32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipDrawLines(graphics : *mut GpGraphics, pen : *mut GpPen, points : *const PointF, count : i32) -> Status);
     GdipDrawLines(graphics, pen, points, count)
 }
 #[inline]
 pub unsafe fn GdipDrawLinesI(graphics: *mut GpGraphics, pen: *mut GpPen, points: *const Point, count: i32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipDrawLinesI(graphics : *mut GpGraphics, pen : *mut GpPen, points : *const Point, count : i32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipDrawLinesI(graphics : *mut GpGraphics, pen : *mut GpPen, points : *const Point, count : i32) -> Status);
     GdipDrawLinesI(graphics, pen, points, count)
 }
 #[inline]
 pub unsafe fn GdipDrawPath(graphics: *mut GpGraphics, pen: *mut GpPen, path: *mut GpPath) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipDrawPath(graphics : *mut GpGraphics, pen : *mut GpPen, path : *mut GpPath) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipDrawPath(graphics : *mut GpGraphics, pen : *mut GpPen, path : *mut GpPath) -> Status);
     GdipDrawPath(graphics, pen, path)
 }
 #[inline]
 pub unsafe fn GdipDrawPie(graphics: *mut GpGraphics, pen: *mut GpPen, x: f32, y: f32, width: f32, height: f32, startangle: f32, sweepangle: f32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipDrawPie(graphics : *mut GpGraphics, pen : *mut GpPen, x : f32, y : f32, width : f32, height : f32, startangle : f32, sweepangle : f32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipDrawPie(graphics : *mut GpGraphics, pen : *mut GpPen, x : f32, y : f32, width : f32, height : f32, startangle : f32, sweepangle : f32) -> Status);
     GdipDrawPie(graphics, pen, x, y, width, height, startangle, sweepangle)
 }
 #[inline]
 pub unsafe fn GdipDrawPieI(graphics: *mut GpGraphics, pen: *mut GpPen, x: i32, y: i32, width: i32, height: i32, startangle: f32, sweepangle: f32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipDrawPieI(graphics : *mut GpGraphics, pen : *mut GpPen, x : i32, y : i32, width : i32, height : i32, startangle : f32, sweepangle : f32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipDrawPieI(graphics : *mut GpGraphics, pen : *mut GpPen, x : i32, y : i32, width : i32, height : i32, startangle : f32, sweepangle : f32) -> Status);
     GdipDrawPieI(graphics, pen, x, y, width, height, startangle, sweepangle)
 }
 #[inline]
 pub unsafe fn GdipDrawPolygon(graphics: *mut GpGraphics, pen: *mut GpPen, points: *const PointF, count: i32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipDrawPolygon(graphics : *mut GpGraphics, pen : *mut GpPen, points : *const PointF, count : i32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipDrawPolygon(graphics : *mut GpGraphics, pen : *mut GpPen, points : *const PointF, count : i32) -> Status);
     GdipDrawPolygon(graphics, pen, points, count)
 }
 #[inline]
 pub unsafe fn GdipDrawPolygonI(graphics: *mut GpGraphics, pen: *mut GpPen, points: *const Point, count: i32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipDrawPolygonI(graphics : *mut GpGraphics, pen : *mut GpPen, points : *const Point, count : i32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipDrawPolygonI(graphics : *mut GpGraphics, pen : *mut GpPen, points : *const Point, count : i32) -> Status);
     GdipDrawPolygonI(graphics, pen, points, count)
 }
 #[inline]
 pub unsafe fn GdipDrawRectangle(graphics: *mut GpGraphics, pen: *mut GpPen, x: f32, y: f32, width: f32, height: f32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipDrawRectangle(graphics : *mut GpGraphics, pen : *mut GpPen, x : f32, y : f32, width : f32, height : f32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipDrawRectangle(graphics : *mut GpGraphics, pen : *mut GpPen, x : f32, y : f32, width : f32, height : f32) -> Status);
     GdipDrawRectangle(graphics, pen, x, y, width, height)
 }
 #[inline]
 pub unsafe fn GdipDrawRectangleI(graphics: *mut GpGraphics, pen: *mut GpPen, x: i32, y: i32, width: i32, height: i32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipDrawRectangleI(graphics : *mut GpGraphics, pen : *mut GpPen, x : i32, y : i32, width : i32, height : i32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipDrawRectangleI(graphics : *mut GpGraphics, pen : *mut GpPen, x : i32, y : i32, width : i32, height : i32) -> Status);
     GdipDrawRectangleI(graphics, pen, x, y, width, height)
 }
 #[inline]
 pub unsafe fn GdipDrawRectangles(graphics: *mut GpGraphics, pen: *mut GpPen, rects: *const RectF, count: i32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipDrawRectangles(graphics : *mut GpGraphics, pen : *mut GpPen, rects : *const RectF, count : i32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipDrawRectangles(graphics : *mut GpGraphics, pen : *mut GpPen, rects : *const RectF, count : i32) -> Status);
     GdipDrawRectangles(graphics, pen, rects, count)
 }
 #[inline]
 pub unsafe fn GdipDrawRectanglesI(graphics: *mut GpGraphics, pen: *mut GpPen, rects: *const Rect, count: i32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipDrawRectanglesI(graphics : *mut GpGraphics, pen : *mut GpPen, rects : *const Rect, count : i32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipDrawRectanglesI(graphics : *mut GpGraphics, pen : *mut GpPen, rects : *const Rect, count : i32) -> Status);
     GdipDrawRectanglesI(graphics, pen, rects, count)
 }
 #[inline]
@@ -1132,7 +1132,7 @@ pub unsafe fn GdipDrawString<P0>(graphics: *mut GpGraphics, string: P0, length: 
 where
     P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipDrawString(graphics : *mut GpGraphics, string : windows_core::PCWSTR, length : i32, font : *const GpFont, layoutrect : *const RectF, stringformat : *const GpStringFormat, brush : *const GpBrush) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipDrawString(graphics : *mut GpGraphics, string : windows_core::PCWSTR, length : i32, font : *const GpFont, layoutrect : *const RectF, stringformat : *const GpStringFormat, brush : *const GpBrush) -> Status);
     GdipDrawString(graphics, string.into_param().abi(), length, font, layoutrect, stringformat, brush)
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -1141,586 +1141,586 @@ pub unsafe fn GdipEmfToWmfBits<P0>(hemf: P0, pdata16: Option<&mut [u8]>, imapmod
 where
     P0: windows_core::IntoParam<super::Gdi::HENHMETAFILE>,
 {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipEmfToWmfBits(hemf : super::Gdi:: HENHMETAFILE, cbdata16 : u32, pdata16 : *mut u8, imapmode : i32, eflags : i32) -> u32);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipEmfToWmfBits(hemf : super::Gdi:: HENHMETAFILE, cbdata16 : u32, pdata16 : *mut u8, imapmode : i32, eflags : i32) -> u32);
     GdipEmfToWmfBits(hemf.into_param().abi(), pdata16.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pdata16.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), imapmode, eflags)
 }
 #[inline]
 pub unsafe fn GdipEndContainer(graphics: *mut GpGraphics, state: u32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipEndContainer(graphics : *mut GpGraphics, state : u32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipEndContainer(graphics : *mut GpGraphics, state : u32) -> Status);
     GdipEndContainer(graphics, state)
 }
 #[inline]
 pub unsafe fn GdipEnumerateMetafileDestPoint(graphics: *mut GpGraphics, metafile: *const GpMetafile, destpoint: *const PointF, callback: isize, callbackdata: *mut core::ffi::c_void, imageattributes: *const GpImageAttributes) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipEnumerateMetafileDestPoint(graphics : *mut GpGraphics, metafile : *const GpMetafile, destpoint : *const PointF, callback : isize, callbackdata : *mut core::ffi::c_void, imageattributes : *const GpImageAttributes) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipEnumerateMetafileDestPoint(graphics : *mut GpGraphics, metafile : *const GpMetafile, destpoint : *const PointF, callback : isize, callbackdata : *mut core::ffi::c_void, imageattributes : *const GpImageAttributes) -> Status);
     GdipEnumerateMetafileDestPoint(graphics, metafile, destpoint, callback, callbackdata, imageattributes)
 }
 #[inline]
 pub unsafe fn GdipEnumerateMetafileDestPointI(graphics: *mut GpGraphics, metafile: *const GpMetafile, destpoint: *const Point, callback: isize, callbackdata: *mut core::ffi::c_void, imageattributes: *const GpImageAttributes) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipEnumerateMetafileDestPointI(graphics : *mut GpGraphics, metafile : *const GpMetafile, destpoint : *const Point, callback : isize, callbackdata : *mut core::ffi::c_void, imageattributes : *const GpImageAttributes) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipEnumerateMetafileDestPointI(graphics : *mut GpGraphics, metafile : *const GpMetafile, destpoint : *const Point, callback : isize, callbackdata : *mut core::ffi::c_void, imageattributes : *const GpImageAttributes) -> Status);
     GdipEnumerateMetafileDestPointI(graphics, metafile, destpoint, callback, callbackdata, imageattributes)
 }
 #[inline]
 pub unsafe fn GdipEnumerateMetafileDestPoints(graphics: *mut GpGraphics, metafile: *const GpMetafile, destpoints: *const PointF, count: i32, callback: isize, callbackdata: *mut core::ffi::c_void, imageattributes: *const GpImageAttributes) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipEnumerateMetafileDestPoints(graphics : *mut GpGraphics, metafile : *const GpMetafile, destpoints : *const PointF, count : i32, callback : isize, callbackdata : *mut core::ffi::c_void, imageattributes : *const GpImageAttributes) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipEnumerateMetafileDestPoints(graphics : *mut GpGraphics, metafile : *const GpMetafile, destpoints : *const PointF, count : i32, callback : isize, callbackdata : *mut core::ffi::c_void, imageattributes : *const GpImageAttributes) -> Status);
     GdipEnumerateMetafileDestPoints(graphics, metafile, destpoints, count, callback, callbackdata, imageattributes)
 }
 #[inline]
 pub unsafe fn GdipEnumerateMetafileDestPointsI(graphics: *mut GpGraphics, metafile: *const GpMetafile, destpoints: *const Point, count: i32, callback: isize, callbackdata: *mut core::ffi::c_void, imageattributes: *const GpImageAttributes) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipEnumerateMetafileDestPointsI(graphics : *mut GpGraphics, metafile : *const GpMetafile, destpoints : *const Point, count : i32, callback : isize, callbackdata : *mut core::ffi::c_void, imageattributes : *const GpImageAttributes) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipEnumerateMetafileDestPointsI(graphics : *mut GpGraphics, metafile : *const GpMetafile, destpoints : *const Point, count : i32, callback : isize, callbackdata : *mut core::ffi::c_void, imageattributes : *const GpImageAttributes) -> Status);
     GdipEnumerateMetafileDestPointsI(graphics, metafile, destpoints, count, callback, callbackdata, imageattributes)
 }
 #[inline]
 pub unsafe fn GdipEnumerateMetafileDestRect(graphics: *mut GpGraphics, metafile: *const GpMetafile, destrect: *const RectF, callback: isize, callbackdata: *mut core::ffi::c_void, imageattributes: *const GpImageAttributes) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipEnumerateMetafileDestRect(graphics : *mut GpGraphics, metafile : *const GpMetafile, destrect : *const RectF, callback : isize, callbackdata : *mut core::ffi::c_void, imageattributes : *const GpImageAttributes) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipEnumerateMetafileDestRect(graphics : *mut GpGraphics, metafile : *const GpMetafile, destrect : *const RectF, callback : isize, callbackdata : *mut core::ffi::c_void, imageattributes : *const GpImageAttributes) -> Status);
     GdipEnumerateMetafileDestRect(graphics, metafile, destrect, callback, callbackdata, imageattributes)
 }
 #[inline]
 pub unsafe fn GdipEnumerateMetafileDestRectI(graphics: *mut GpGraphics, metafile: *const GpMetafile, destrect: *const Rect, callback: isize, callbackdata: *mut core::ffi::c_void, imageattributes: *const GpImageAttributes) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipEnumerateMetafileDestRectI(graphics : *mut GpGraphics, metafile : *const GpMetafile, destrect : *const Rect, callback : isize, callbackdata : *mut core::ffi::c_void, imageattributes : *const GpImageAttributes) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipEnumerateMetafileDestRectI(graphics : *mut GpGraphics, metafile : *const GpMetafile, destrect : *const Rect, callback : isize, callbackdata : *mut core::ffi::c_void, imageattributes : *const GpImageAttributes) -> Status);
     GdipEnumerateMetafileDestRectI(graphics, metafile, destrect, callback, callbackdata, imageattributes)
 }
 #[inline]
 pub unsafe fn GdipEnumerateMetafileSrcRectDestPoint(graphics: *mut GpGraphics, metafile: *const GpMetafile, destpoint: *const PointF, srcrect: *const RectF, srcunit: Unit, callback: isize, callbackdata: *mut core::ffi::c_void, imageattributes: *const GpImageAttributes) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipEnumerateMetafileSrcRectDestPoint(graphics : *mut GpGraphics, metafile : *const GpMetafile, destpoint : *const PointF, srcrect : *const RectF, srcunit : Unit, callback : isize, callbackdata : *mut core::ffi::c_void, imageattributes : *const GpImageAttributes) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipEnumerateMetafileSrcRectDestPoint(graphics : *mut GpGraphics, metafile : *const GpMetafile, destpoint : *const PointF, srcrect : *const RectF, srcunit : Unit, callback : isize, callbackdata : *mut core::ffi::c_void, imageattributes : *const GpImageAttributes) -> Status);
     GdipEnumerateMetafileSrcRectDestPoint(graphics, metafile, destpoint, srcrect, srcunit, callback, callbackdata, imageattributes)
 }
 #[inline]
 pub unsafe fn GdipEnumerateMetafileSrcRectDestPointI(graphics: *mut GpGraphics, metafile: *const GpMetafile, destpoint: *const Point, srcrect: *const Rect, srcunit: Unit, callback: isize, callbackdata: *mut core::ffi::c_void, imageattributes: *const GpImageAttributes) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipEnumerateMetafileSrcRectDestPointI(graphics : *mut GpGraphics, metafile : *const GpMetafile, destpoint : *const Point, srcrect : *const Rect, srcunit : Unit, callback : isize, callbackdata : *mut core::ffi::c_void, imageattributes : *const GpImageAttributes) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipEnumerateMetafileSrcRectDestPointI(graphics : *mut GpGraphics, metafile : *const GpMetafile, destpoint : *const Point, srcrect : *const Rect, srcunit : Unit, callback : isize, callbackdata : *mut core::ffi::c_void, imageattributes : *const GpImageAttributes) -> Status);
     GdipEnumerateMetafileSrcRectDestPointI(graphics, metafile, destpoint, srcrect, srcunit, callback, callbackdata, imageattributes)
 }
 #[inline]
 pub unsafe fn GdipEnumerateMetafileSrcRectDestPoints(graphics: *mut GpGraphics, metafile: *const GpMetafile, destpoints: *const PointF, count: i32, srcrect: *const RectF, srcunit: Unit, callback: isize, callbackdata: *mut core::ffi::c_void, imageattributes: *const GpImageAttributes) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipEnumerateMetafileSrcRectDestPoints(graphics : *mut GpGraphics, metafile : *const GpMetafile, destpoints : *const PointF, count : i32, srcrect : *const RectF, srcunit : Unit, callback : isize, callbackdata : *mut core::ffi::c_void, imageattributes : *const GpImageAttributes) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipEnumerateMetafileSrcRectDestPoints(graphics : *mut GpGraphics, metafile : *const GpMetafile, destpoints : *const PointF, count : i32, srcrect : *const RectF, srcunit : Unit, callback : isize, callbackdata : *mut core::ffi::c_void, imageattributes : *const GpImageAttributes) -> Status);
     GdipEnumerateMetafileSrcRectDestPoints(graphics, metafile, destpoints, count, srcrect, srcunit, callback, callbackdata, imageattributes)
 }
 #[inline]
 pub unsafe fn GdipEnumerateMetafileSrcRectDestPointsI(graphics: *mut GpGraphics, metafile: *const GpMetafile, destpoints: *const Point, count: i32, srcrect: *const Rect, srcunit: Unit, callback: isize, callbackdata: *mut core::ffi::c_void, imageattributes: *const GpImageAttributes) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipEnumerateMetafileSrcRectDestPointsI(graphics : *mut GpGraphics, metafile : *const GpMetafile, destpoints : *const Point, count : i32, srcrect : *const Rect, srcunit : Unit, callback : isize, callbackdata : *mut core::ffi::c_void, imageattributes : *const GpImageAttributes) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipEnumerateMetafileSrcRectDestPointsI(graphics : *mut GpGraphics, metafile : *const GpMetafile, destpoints : *const Point, count : i32, srcrect : *const Rect, srcunit : Unit, callback : isize, callbackdata : *mut core::ffi::c_void, imageattributes : *const GpImageAttributes) -> Status);
     GdipEnumerateMetafileSrcRectDestPointsI(graphics, metafile, destpoints, count, srcrect, srcunit, callback, callbackdata, imageattributes)
 }
 #[inline]
 pub unsafe fn GdipEnumerateMetafileSrcRectDestRect(graphics: *mut GpGraphics, metafile: *const GpMetafile, destrect: *const RectF, srcrect: *const RectF, srcunit: Unit, callback: isize, callbackdata: *mut core::ffi::c_void, imageattributes: *const GpImageAttributes) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipEnumerateMetafileSrcRectDestRect(graphics : *mut GpGraphics, metafile : *const GpMetafile, destrect : *const RectF, srcrect : *const RectF, srcunit : Unit, callback : isize, callbackdata : *mut core::ffi::c_void, imageattributes : *const GpImageAttributes) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipEnumerateMetafileSrcRectDestRect(graphics : *mut GpGraphics, metafile : *const GpMetafile, destrect : *const RectF, srcrect : *const RectF, srcunit : Unit, callback : isize, callbackdata : *mut core::ffi::c_void, imageattributes : *const GpImageAttributes) -> Status);
     GdipEnumerateMetafileSrcRectDestRect(graphics, metafile, destrect, srcrect, srcunit, callback, callbackdata, imageattributes)
 }
 #[inline]
 pub unsafe fn GdipEnumerateMetafileSrcRectDestRectI(graphics: *mut GpGraphics, metafile: *const GpMetafile, destrect: *const Rect, srcrect: *const Rect, srcunit: Unit, callback: isize, callbackdata: *mut core::ffi::c_void, imageattributes: *const GpImageAttributes) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipEnumerateMetafileSrcRectDestRectI(graphics : *mut GpGraphics, metafile : *const GpMetafile, destrect : *const Rect, srcrect : *const Rect, srcunit : Unit, callback : isize, callbackdata : *mut core::ffi::c_void, imageattributes : *const GpImageAttributes) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipEnumerateMetafileSrcRectDestRectI(graphics : *mut GpGraphics, metafile : *const GpMetafile, destrect : *const Rect, srcrect : *const Rect, srcunit : Unit, callback : isize, callbackdata : *mut core::ffi::c_void, imageattributes : *const GpImageAttributes) -> Status);
     GdipEnumerateMetafileSrcRectDestRectI(graphics, metafile, destrect, srcrect, srcunit, callback, callbackdata, imageattributes)
 }
 #[inline]
 pub unsafe fn GdipFillClosedCurve(graphics: *mut GpGraphics, brush: *mut GpBrush, points: *const PointF, count: i32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipFillClosedCurve(graphics : *mut GpGraphics, brush : *mut GpBrush, points : *const PointF, count : i32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipFillClosedCurve(graphics : *mut GpGraphics, brush : *mut GpBrush, points : *const PointF, count : i32) -> Status);
     GdipFillClosedCurve(graphics, brush, points, count)
 }
 #[inline]
 pub unsafe fn GdipFillClosedCurve2(graphics: *mut GpGraphics, brush: *mut GpBrush, points: *const PointF, count: i32, tension: f32, fillmode: FillMode) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipFillClosedCurve2(graphics : *mut GpGraphics, brush : *mut GpBrush, points : *const PointF, count : i32, tension : f32, fillmode : FillMode) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipFillClosedCurve2(graphics : *mut GpGraphics, brush : *mut GpBrush, points : *const PointF, count : i32, tension : f32, fillmode : FillMode) -> Status);
     GdipFillClosedCurve2(graphics, brush, points, count, tension, fillmode)
 }
 #[inline]
 pub unsafe fn GdipFillClosedCurve2I(graphics: *mut GpGraphics, brush: *mut GpBrush, points: *const Point, count: i32, tension: f32, fillmode: FillMode) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipFillClosedCurve2I(graphics : *mut GpGraphics, brush : *mut GpBrush, points : *const Point, count : i32, tension : f32, fillmode : FillMode) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipFillClosedCurve2I(graphics : *mut GpGraphics, brush : *mut GpBrush, points : *const Point, count : i32, tension : f32, fillmode : FillMode) -> Status);
     GdipFillClosedCurve2I(graphics, brush, points, count, tension, fillmode)
 }
 #[inline]
 pub unsafe fn GdipFillClosedCurveI(graphics: *mut GpGraphics, brush: *mut GpBrush, points: *const Point, count: i32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipFillClosedCurveI(graphics : *mut GpGraphics, brush : *mut GpBrush, points : *const Point, count : i32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipFillClosedCurveI(graphics : *mut GpGraphics, brush : *mut GpBrush, points : *const Point, count : i32) -> Status);
     GdipFillClosedCurveI(graphics, brush, points, count)
 }
 #[inline]
 pub unsafe fn GdipFillEllipse(graphics: *mut GpGraphics, brush: *mut GpBrush, x: f32, y: f32, width: f32, height: f32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipFillEllipse(graphics : *mut GpGraphics, brush : *mut GpBrush, x : f32, y : f32, width : f32, height : f32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipFillEllipse(graphics : *mut GpGraphics, brush : *mut GpBrush, x : f32, y : f32, width : f32, height : f32) -> Status);
     GdipFillEllipse(graphics, brush, x, y, width, height)
 }
 #[inline]
 pub unsafe fn GdipFillEllipseI(graphics: *mut GpGraphics, brush: *mut GpBrush, x: i32, y: i32, width: i32, height: i32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipFillEllipseI(graphics : *mut GpGraphics, brush : *mut GpBrush, x : i32, y : i32, width : i32, height : i32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipFillEllipseI(graphics : *mut GpGraphics, brush : *mut GpBrush, x : i32, y : i32, width : i32, height : i32) -> Status);
     GdipFillEllipseI(graphics, brush, x, y, width, height)
 }
 #[inline]
 pub unsafe fn GdipFillPath(graphics: *mut GpGraphics, brush: *mut GpBrush, path: *mut GpPath) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipFillPath(graphics : *mut GpGraphics, brush : *mut GpBrush, path : *mut GpPath) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipFillPath(graphics : *mut GpGraphics, brush : *mut GpBrush, path : *mut GpPath) -> Status);
     GdipFillPath(graphics, brush, path)
 }
 #[inline]
 pub unsafe fn GdipFillPie(graphics: *mut GpGraphics, brush: *mut GpBrush, x: f32, y: f32, width: f32, height: f32, startangle: f32, sweepangle: f32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipFillPie(graphics : *mut GpGraphics, brush : *mut GpBrush, x : f32, y : f32, width : f32, height : f32, startangle : f32, sweepangle : f32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipFillPie(graphics : *mut GpGraphics, brush : *mut GpBrush, x : f32, y : f32, width : f32, height : f32, startangle : f32, sweepangle : f32) -> Status);
     GdipFillPie(graphics, brush, x, y, width, height, startangle, sweepangle)
 }
 #[inline]
 pub unsafe fn GdipFillPieI(graphics: *mut GpGraphics, brush: *mut GpBrush, x: i32, y: i32, width: i32, height: i32, startangle: f32, sweepangle: f32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipFillPieI(graphics : *mut GpGraphics, brush : *mut GpBrush, x : i32, y : i32, width : i32, height : i32, startangle : f32, sweepangle : f32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipFillPieI(graphics : *mut GpGraphics, brush : *mut GpBrush, x : i32, y : i32, width : i32, height : i32, startangle : f32, sweepangle : f32) -> Status);
     GdipFillPieI(graphics, brush, x, y, width, height, startangle, sweepangle)
 }
 #[inline]
 pub unsafe fn GdipFillPolygon(graphics: *mut GpGraphics, brush: *mut GpBrush, points: *const PointF, count: i32, fillmode: FillMode) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipFillPolygon(graphics : *mut GpGraphics, brush : *mut GpBrush, points : *const PointF, count : i32, fillmode : FillMode) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipFillPolygon(graphics : *mut GpGraphics, brush : *mut GpBrush, points : *const PointF, count : i32, fillmode : FillMode) -> Status);
     GdipFillPolygon(graphics, brush, points, count, fillmode)
 }
 #[inline]
 pub unsafe fn GdipFillPolygon2(graphics: *mut GpGraphics, brush: *mut GpBrush, points: *const PointF, count: i32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipFillPolygon2(graphics : *mut GpGraphics, brush : *mut GpBrush, points : *const PointF, count : i32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipFillPolygon2(graphics : *mut GpGraphics, brush : *mut GpBrush, points : *const PointF, count : i32) -> Status);
     GdipFillPolygon2(graphics, brush, points, count)
 }
 #[inline]
 pub unsafe fn GdipFillPolygon2I(graphics: *mut GpGraphics, brush: *mut GpBrush, points: *const Point, count: i32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipFillPolygon2I(graphics : *mut GpGraphics, brush : *mut GpBrush, points : *const Point, count : i32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipFillPolygon2I(graphics : *mut GpGraphics, brush : *mut GpBrush, points : *const Point, count : i32) -> Status);
     GdipFillPolygon2I(graphics, brush, points, count)
 }
 #[inline]
 pub unsafe fn GdipFillPolygonI(graphics: *mut GpGraphics, brush: *mut GpBrush, points: *const Point, count: i32, fillmode: FillMode) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipFillPolygonI(graphics : *mut GpGraphics, brush : *mut GpBrush, points : *const Point, count : i32, fillmode : FillMode) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipFillPolygonI(graphics : *mut GpGraphics, brush : *mut GpBrush, points : *const Point, count : i32, fillmode : FillMode) -> Status);
     GdipFillPolygonI(graphics, brush, points, count, fillmode)
 }
 #[inline]
 pub unsafe fn GdipFillRectangle(graphics: *mut GpGraphics, brush: *mut GpBrush, x: f32, y: f32, width: f32, height: f32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipFillRectangle(graphics : *mut GpGraphics, brush : *mut GpBrush, x : f32, y : f32, width : f32, height : f32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipFillRectangle(graphics : *mut GpGraphics, brush : *mut GpBrush, x : f32, y : f32, width : f32, height : f32) -> Status);
     GdipFillRectangle(graphics, brush, x, y, width, height)
 }
 #[inline]
 pub unsafe fn GdipFillRectangleI(graphics: *mut GpGraphics, brush: *mut GpBrush, x: i32, y: i32, width: i32, height: i32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipFillRectangleI(graphics : *mut GpGraphics, brush : *mut GpBrush, x : i32, y : i32, width : i32, height : i32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipFillRectangleI(graphics : *mut GpGraphics, brush : *mut GpBrush, x : i32, y : i32, width : i32, height : i32) -> Status);
     GdipFillRectangleI(graphics, brush, x, y, width, height)
 }
 #[inline]
 pub unsafe fn GdipFillRectangles(graphics: *mut GpGraphics, brush: *mut GpBrush, rects: *const RectF, count: i32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipFillRectangles(graphics : *mut GpGraphics, brush : *mut GpBrush, rects : *const RectF, count : i32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipFillRectangles(graphics : *mut GpGraphics, brush : *mut GpBrush, rects : *const RectF, count : i32) -> Status);
     GdipFillRectangles(graphics, brush, rects, count)
 }
 #[inline]
 pub unsafe fn GdipFillRectanglesI(graphics: *mut GpGraphics, brush: *mut GpBrush, rects: *const Rect, count: i32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipFillRectanglesI(graphics : *mut GpGraphics, brush : *mut GpBrush, rects : *const Rect, count : i32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipFillRectanglesI(graphics : *mut GpGraphics, brush : *mut GpBrush, rects : *const Rect, count : i32) -> Status);
     GdipFillRectanglesI(graphics, brush, rects, count)
 }
 #[inline]
 pub unsafe fn GdipFillRegion(graphics: *mut GpGraphics, brush: *mut GpBrush, region: *mut GpRegion) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipFillRegion(graphics : *mut GpGraphics, brush : *mut GpBrush, region : *mut GpRegion) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipFillRegion(graphics : *mut GpGraphics, brush : *mut GpBrush, region : *mut GpRegion) -> Status);
     GdipFillRegion(graphics, brush, region)
 }
 #[inline]
 pub unsafe fn GdipFindFirstImageItem(image: *mut GpImage, item: *mut ImageItemData) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipFindFirstImageItem(image : *mut GpImage, item : *mut ImageItemData) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipFindFirstImageItem(image : *mut GpImage, item : *mut ImageItemData) -> Status);
     GdipFindFirstImageItem(image, item)
 }
 #[inline]
 pub unsafe fn GdipFindNextImageItem(image: *mut GpImage, item: *mut ImageItemData) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipFindNextImageItem(image : *mut GpImage, item : *mut ImageItemData) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipFindNextImageItem(image : *mut GpImage, item : *mut ImageItemData) -> Status);
     GdipFindNextImageItem(image, item)
 }
 #[inline]
 pub unsafe fn GdipFlattenPath(path: *mut GpPath, matrix: *mut Matrix, flatness: f32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipFlattenPath(path : *mut GpPath, matrix : *mut Matrix, flatness : f32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipFlattenPath(path : *mut GpPath, matrix : *mut Matrix, flatness : f32) -> Status);
     GdipFlattenPath(path, matrix, flatness)
 }
 #[inline]
 pub unsafe fn GdipFlush(graphics: *mut GpGraphics, intention: FlushIntention) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipFlush(graphics : *mut GpGraphics, intention : FlushIntention) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipFlush(graphics : *mut GpGraphics, intention : FlushIntention) -> Status);
     GdipFlush(graphics, intention)
 }
 #[inline]
 pub unsafe fn GdipFree(ptr: *mut core::ffi::c_void) {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipFree(ptr : *mut core::ffi::c_void));
+    windows_targets::link!("gdiplus.dll" "system" fn GdipFree(ptr : *mut core::ffi::c_void));
     GdipFree(ptr)
 }
 #[inline]
 pub unsafe fn GdipGetAdjustableArrowCapFillState(cap: *mut GpAdjustableArrowCap, fillstate: *mut super::super::Foundation::BOOL) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetAdjustableArrowCapFillState(cap : *mut GpAdjustableArrowCap, fillstate : *mut super::super::Foundation:: BOOL) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetAdjustableArrowCapFillState(cap : *mut GpAdjustableArrowCap, fillstate : *mut super::super::Foundation:: BOOL) -> Status);
     GdipGetAdjustableArrowCapFillState(cap, fillstate)
 }
 #[inline]
 pub unsafe fn GdipGetAdjustableArrowCapHeight(cap: *mut GpAdjustableArrowCap, height: *mut f32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetAdjustableArrowCapHeight(cap : *mut GpAdjustableArrowCap, height : *mut f32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetAdjustableArrowCapHeight(cap : *mut GpAdjustableArrowCap, height : *mut f32) -> Status);
     GdipGetAdjustableArrowCapHeight(cap, height)
 }
 #[inline]
 pub unsafe fn GdipGetAdjustableArrowCapMiddleInset(cap: *mut GpAdjustableArrowCap, middleinset: *mut f32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetAdjustableArrowCapMiddleInset(cap : *mut GpAdjustableArrowCap, middleinset : *mut f32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetAdjustableArrowCapMiddleInset(cap : *mut GpAdjustableArrowCap, middleinset : *mut f32) -> Status);
     GdipGetAdjustableArrowCapMiddleInset(cap, middleinset)
 }
 #[inline]
 pub unsafe fn GdipGetAdjustableArrowCapWidth(cap: *mut GpAdjustableArrowCap, width: *mut f32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetAdjustableArrowCapWidth(cap : *mut GpAdjustableArrowCap, width : *mut f32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetAdjustableArrowCapWidth(cap : *mut GpAdjustableArrowCap, width : *mut f32) -> Status);
     GdipGetAdjustableArrowCapWidth(cap, width)
 }
 #[inline]
 pub unsafe fn GdipGetAllPropertyItems(image: *mut GpImage, totalbuffersize: u32, numproperties: u32, allitems: *mut PropertyItem) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetAllPropertyItems(image : *mut GpImage, totalbuffersize : u32, numproperties : u32, allitems : *mut PropertyItem) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetAllPropertyItems(image : *mut GpImage, totalbuffersize : u32, numproperties : u32, allitems : *mut PropertyItem) -> Status);
     GdipGetAllPropertyItems(image, totalbuffersize, numproperties, allitems)
 }
 #[inline]
 pub unsafe fn GdipGetBrushType(brush: *mut GpBrush, r#type: *mut BrushType) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetBrushType(brush : *mut GpBrush, r#type : *mut BrushType) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetBrushType(brush : *mut GpBrush, r#type : *mut BrushType) -> Status);
     GdipGetBrushType(brush, r#type)
 }
 #[inline]
 pub unsafe fn GdipGetCellAscent(family: *const GpFontFamily, style: i32, cellascent: *mut u16) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetCellAscent(family : *const GpFontFamily, style : i32, cellascent : *mut u16) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetCellAscent(family : *const GpFontFamily, style : i32, cellascent : *mut u16) -> Status);
     GdipGetCellAscent(family, style, cellascent)
 }
 #[inline]
 pub unsafe fn GdipGetCellDescent(family: *const GpFontFamily, style: i32, celldescent: *mut u16) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetCellDescent(family : *const GpFontFamily, style : i32, celldescent : *mut u16) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetCellDescent(family : *const GpFontFamily, style : i32, celldescent : *mut u16) -> Status);
     GdipGetCellDescent(family, style, celldescent)
 }
 #[inline]
 pub unsafe fn GdipGetClip(graphics: *mut GpGraphics, region: *mut GpRegion) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetClip(graphics : *mut GpGraphics, region : *mut GpRegion) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetClip(graphics : *mut GpGraphics, region : *mut GpRegion) -> Status);
     GdipGetClip(graphics, region)
 }
 #[inline]
 pub unsafe fn GdipGetClipBounds(graphics: *mut GpGraphics, rect: *mut RectF) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetClipBounds(graphics : *mut GpGraphics, rect : *mut RectF) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetClipBounds(graphics : *mut GpGraphics, rect : *mut RectF) -> Status);
     GdipGetClipBounds(graphics, rect)
 }
 #[inline]
 pub unsafe fn GdipGetClipBoundsI(graphics: *mut GpGraphics, rect: *mut Rect) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetClipBoundsI(graphics : *mut GpGraphics, rect : *mut Rect) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetClipBoundsI(graphics : *mut GpGraphics, rect : *mut Rect) -> Status);
     GdipGetClipBoundsI(graphics, rect)
 }
 #[inline]
 pub unsafe fn GdipGetCompositingMode(graphics: *mut GpGraphics, compositingmode: *mut CompositingMode) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetCompositingMode(graphics : *mut GpGraphics, compositingmode : *mut CompositingMode) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetCompositingMode(graphics : *mut GpGraphics, compositingmode : *mut CompositingMode) -> Status);
     GdipGetCompositingMode(graphics, compositingmode)
 }
 #[inline]
 pub unsafe fn GdipGetCompositingQuality(graphics: *mut GpGraphics, compositingquality: *mut CompositingQuality) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetCompositingQuality(graphics : *mut GpGraphics, compositingquality : *mut CompositingQuality) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetCompositingQuality(graphics : *mut GpGraphics, compositingquality : *mut CompositingQuality) -> Status);
     GdipGetCompositingQuality(graphics, compositingquality)
 }
 #[inline]
 pub unsafe fn GdipGetCustomLineCapBaseCap(customcap: *mut GpCustomLineCap, basecap: *mut LineCap) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetCustomLineCapBaseCap(customcap : *mut GpCustomLineCap, basecap : *mut LineCap) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetCustomLineCapBaseCap(customcap : *mut GpCustomLineCap, basecap : *mut LineCap) -> Status);
     GdipGetCustomLineCapBaseCap(customcap, basecap)
 }
 #[inline]
 pub unsafe fn GdipGetCustomLineCapBaseInset(customcap: *mut GpCustomLineCap, inset: *mut f32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetCustomLineCapBaseInset(customcap : *mut GpCustomLineCap, inset : *mut f32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetCustomLineCapBaseInset(customcap : *mut GpCustomLineCap, inset : *mut f32) -> Status);
     GdipGetCustomLineCapBaseInset(customcap, inset)
 }
 #[inline]
 pub unsafe fn GdipGetCustomLineCapStrokeCaps(customcap: *mut GpCustomLineCap, startcap: *mut LineCap, endcap: *mut LineCap) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetCustomLineCapStrokeCaps(customcap : *mut GpCustomLineCap, startcap : *mut LineCap, endcap : *mut LineCap) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetCustomLineCapStrokeCaps(customcap : *mut GpCustomLineCap, startcap : *mut LineCap, endcap : *mut LineCap) -> Status);
     GdipGetCustomLineCapStrokeCaps(customcap, startcap, endcap)
 }
 #[inline]
 pub unsafe fn GdipGetCustomLineCapStrokeJoin(customcap: *mut GpCustomLineCap, linejoin: *mut LineJoin) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetCustomLineCapStrokeJoin(customcap : *mut GpCustomLineCap, linejoin : *mut LineJoin) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetCustomLineCapStrokeJoin(customcap : *mut GpCustomLineCap, linejoin : *mut LineJoin) -> Status);
     GdipGetCustomLineCapStrokeJoin(customcap, linejoin)
 }
 #[inline]
 pub unsafe fn GdipGetCustomLineCapType(customcap: *mut GpCustomLineCap, captype: *mut CustomLineCapType) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetCustomLineCapType(customcap : *mut GpCustomLineCap, captype : *mut CustomLineCapType) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetCustomLineCapType(customcap : *mut GpCustomLineCap, captype : *mut CustomLineCapType) -> Status);
     GdipGetCustomLineCapType(customcap, captype)
 }
 #[inline]
 pub unsafe fn GdipGetCustomLineCapWidthScale(customcap: *mut GpCustomLineCap, widthscale: *mut f32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetCustomLineCapWidthScale(customcap : *mut GpCustomLineCap, widthscale : *mut f32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetCustomLineCapWidthScale(customcap : *mut GpCustomLineCap, widthscale : *mut f32) -> Status);
     GdipGetCustomLineCapWidthScale(customcap, widthscale)
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn GdipGetDC(graphics: *mut GpGraphics, hdc: *mut super::Gdi::HDC) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetDC(graphics : *mut GpGraphics, hdc : *mut super::Gdi:: HDC) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetDC(graphics : *mut GpGraphics, hdc : *mut super::Gdi:: HDC) -> Status);
     GdipGetDC(graphics, hdc)
 }
 #[inline]
 pub unsafe fn GdipGetDpiX(graphics: *mut GpGraphics, dpi: *mut f32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetDpiX(graphics : *mut GpGraphics, dpi : *mut f32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetDpiX(graphics : *mut GpGraphics, dpi : *mut f32) -> Status);
     GdipGetDpiX(graphics, dpi)
 }
 #[inline]
 pub unsafe fn GdipGetDpiY(graphics: *mut GpGraphics, dpi: *mut f32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetDpiY(graphics : *mut GpGraphics, dpi : *mut f32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetDpiY(graphics : *mut GpGraphics, dpi : *mut f32) -> Status);
     GdipGetDpiY(graphics, dpi)
 }
 #[inline]
 pub unsafe fn GdipGetEffectParameterSize(effect: *mut CGpEffect, size: *mut u32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetEffectParameterSize(effect : *mut CGpEffect, size : *mut u32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetEffectParameterSize(effect : *mut CGpEffect, size : *mut u32) -> Status);
     GdipGetEffectParameterSize(effect, size)
 }
 #[inline]
 pub unsafe fn GdipGetEffectParameters(effect: *mut CGpEffect, size: *mut u32, params: *mut core::ffi::c_void) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetEffectParameters(effect : *mut CGpEffect, size : *mut u32, params : *mut core::ffi::c_void) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetEffectParameters(effect : *mut CGpEffect, size : *mut u32, params : *mut core::ffi::c_void) -> Status);
     GdipGetEffectParameters(effect, size, params)
 }
 #[inline]
 pub unsafe fn GdipGetEmHeight(family: *const GpFontFamily, style: i32, emheight: *mut u16) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetEmHeight(family : *const GpFontFamily, style : i32, emheight : *mut u16) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetEmHeight(family : *const GpFontFamily, style : i32, emheight : *mut u16) -> Status);
     GdipGetEmHeight(family, style, emheight)
 }
 #[inline]
 pub unsafe fn GdipGetEncoderParameterList(image: *mut GpImage, clsidencoder: *const windows_core::GUID, size: u32, buffer: *mut EncoderParameters) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetEncoderParameterList(image : *mut GpImage, clsidencoder : *const windows_core::GUID, size : u32, buffer : *mut EncoderParameters) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetEncoderParameterList(image : *mut GpImage, clsidencoder : *const windows_core::GUID, size : u32, buffer : *mut EncoderParameters) -> Status);
     GdipGetEncoderParameterList(image, clsidencoder, size, buffer)
 }
 #[inline]
 pub unsafe fn GdipGetEncoderParameterListSize(image: *mut GpImage, clsidencoder: *const windows_core::GUID, size: *mut u32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetEncoderParameterListSize(image : *mut GpImage, clsidencoder : *const windows_core::GUID, size : *mut u32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetEncoderParameterListSize(image : *mut GpImage, clsidencoder : *const windows_core::GUID, size : *mut u32) -> Status);
     GdipGetEncoderParameterListSize(image, clsidencoder, size)
 }
 #[inline]
 pub unsafe fn GdipGetFamily(font: *mut GpFont, family: *mut *mut GpFontFamily) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetFamily(font : *mut GpFont, family : *mut *mut GpFontFamily) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetFamily(font : *mut GpFont, family : *mut *mut GpFontFamily) -> Status);
     GdipGetFamily(font, family)
 }
 #[inline]
 pub unsafe fn GdipGetFamilyName(family: *const GpFontFamily, name: &mut [u16; 32], language: u16) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetFamilyName(family : *const GpFontFamily, name : windows_core::PWSTR, language : u16) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetFamilyName(family : *const GpFontFamily, name : windows_core::PWSTR, language : u16) -> Status);
     GdipGetFamilyName(family, core::mem::transmute(name.as_ptr()), language)
 }
 #[inline]
 pub unsafe fn GdipGetFontCollectionFamilyCount(fontcollection: *mut GpFontCollection, numfound: *mut i32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetFontCollectionFamilyCount(fontcollection : *mut GpFontCollection, numfound : *mut i32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetFontCollectionFamilyCount(fontcollection : *mut GpFontCollection, numfound : *mut i32) -> Status);
     GdipGetFontCollectionFamilyCount(fontcollection, numfound)
 }
 #[inline]
 pub unsafe fn GdipGetFontCollectionFamilyList(fontcollection: *const GpFontCollection, gpfamilies: &mut [*mut GpFontFamily], numfound: *mut i32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetFontCollectionFamilyList(fontcollection : *const GpFontCollection, numsought : i32, gpfamilies : *mut *mut GpFontFamily, numfound : *mut i32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetFontCollectionFamilyList(fontcollection : *const GpFontCollection, numsought : i32, gpfamilies : *mut *mut GpFontFamily, numfound : *mut i32) -> Status);
     GdipGetFontCollectionFamilyList(fontcollection, gpfamilies.len().try_into().unwrap(), core::mem::transmute(gpfamilies.as_ptr()), numfound)
 }
 #[inline]
 pub unsafe fn GdipGetFontHeight(font: *const GpFont, graphics: *const GpGraphics, height: *mut f32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetFontHeight(font : *const GpFont, graphics : *const GpGraphics, height : *mut f32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetFontHeight(font : *const GpFont, graphics : *const GpGraphics, height : *mut f32) -> Status);
     GdipGetFontHeight(font, graphics, height)
 }
 #[inline]
 pub unsafe fn GdipGetFontHeightGivenDPI(font: *const GpFont, dpi: f32, height: *mut f32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetFontHeightGivenDPI(font : *const GpFont, dpi : f32, height : *mut f32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetFontHeightGivenDPI(font : *const GpFont, dpi : f32, height : *mut f32) -> Status);
     GdipGetFontHeightGivenDPI(font, dpi, height)
 }
 #[inline]
 pub unsafe fn GdipGetFontSize(font: *mut GpFont, size: *mut f32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetFontSize(font : *mut GpFont, size : *mut f32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetFontSize(font : *mut GpFont, size : *mut f32) -> Status);
     GdipGetFontSize(font, size)
 }
 #[inline]
 pub unsafe fn GdipGetFontStyle(font: *mut GpFont, style: *mut i32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetFontStyle(font : *mut GpFont, style : *mut i32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetFontStyle(font : *mut GpFont, style : *mut i32) -> Status);
     GdipGetFontStyle(font, style)
 }
 #[inline]
 pub unsafe fn GdipGetFontUnit(font: *mut GpFont, unit: *mut Unit) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetFontUnit(font : *mut GpFont, unit : *mut Unit) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetFontUnit(font : *mut GpFont, unit : *mut Unit) -> Status);
     GdipGetFontUnit(font, unit)
 }
 #[inline]
 pub unsafe fn GdipGetGenericFontFamilyMonospace(nativefamily: *mut *mut GpFontFamily) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetGenericFontFamilyMonospace(nativefamily : *mut *mut GpFontFamily) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetGenericFontFamilyMonospace(nativefamily : *mut *mut GpFontFamily) -> Status);
     GdipGetGenericFontFamilyMonospace(nativefamily)
 }
 #[inline]
 pub unsafe fn GdipGetGenericFontFamilySansSerif(nativefamily: *mut *mut GpFontFamily) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetGenericFontFamilySansSerif(nativefamily : *mut *mut GpFontFamily) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetGenericFontFamilySansSerif(nativefamily : *mut *mut GpFontFamily) -> Status);
     GdipGetGenericFontFamilySansSerif(nativefamily)
 }
 #[inline]
 pub unsafe fn GdipGetGenericFontFamilySerif(nativefamily: *mut *mut GpFontFamily) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetGenericFontFamilySerif(nativefamily : *mut *mut GpFontFamily) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetGenericFontFamilySerif(nativefamily : *mut *mut GpFontFamily) -> Status);
     GdipGetGenericFontFamilySerif(nativefamily)
 }
 #[inline]
 pub unsafe fn GdipGetHatchBackgroundColor(brush: *mut GpHatch, backcol: *mut u32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetHatchBackgroundColor(brush : *mut GpHatch, backcol : *mut u32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetHatchBackgroundColor(brush : *mut GpHatch, backcol : *mut u32) -> Status);
     GdipGetHatchBackgroundColor(brush, backcol)
 }
 #[inline]
 pub unsafe fn GdipGetHatchForegroundColor(brush: *mut GpHatch, forecol: *mut u32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetHatchForegroundColor(brush : *mut GpHatch, forecol : *mut u32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetHatchForegroundColor(brush : *mut GpHatch, forecol : *mut u32) -> Status);
     GdipGetHatchForegroundColor(brush, forecol)
 }
 #[inline]
 pub unsafe fn GdipGetHatchStyle(brush: *mut GpHatch, hatchstyle: *mut HatchStyle) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetHatchStyle(brush : *mut GpHatch, hatchstyle : *mut HatchStyle) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetHatchStyle(brush : *mut GpHatch, hatchstyle : *mut HatchStyle) -> Status);
     GdipGetHatchStyle(brush, hatchstyle)
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn GdipGetHemfFromMetafile(metafile: *mut GpMetafile, hemf: *mut super::Gdi::HENHMETAFILE) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetHemfFromMetafile(metafile : *mut GpMetafile, hemf : *mut super::Gdi:: HENHMETAFILE) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetHemfFromMetafile(metafile : *mut GpMetafile, hemf : *mut super::Gdi:: HENHMETAFILE) -> Status);
     GdipGetHemfFromMetafile(metafile, hemf)
 }
 #[inline]
 pub unsafe fn GdipGetImageAttributesAdjustedPalette(imageattr: *mut GpImageAttributes, colorpalette: *mut ColorPalette, coloradjusttype: ColorAdjustType) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetImageAttributesAdjustedPalette(imageattr : *mut GpImageAttributes, colorpalette : *mut ColorPalette, coloradjusttype : ColorAdjustType) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetImageAttributesAdjustedPalette(imageattr : *mut GpImageAttributes, colorpalette : *mut ColorPalette, coloradjusttype : ColorAdjustType) -> Status);
     GdipGetImageAttributesAdjustedPalette(imageattr, colorpalette, coloradjusttype)
 }
 #[inline]
 pub unsafe fn GdipGetImageBounds(image: *mut GpImage, srcrect: *mut RectF, srcunit: *mut Unit) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetImageBounds(image : *mut GpImage, srcrect : *mut RectF, srcunit : *mut Unit) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetImageBounds(image : *mut GpImage, srcrect : *mut RectF, srcunit : *mut Unit) -> Status);
     GdipGetImageBounds(image, srcrect, srcunit)
 }
 #[inline]
 pub unsafe fn GdipGetImageDecoders(numdecoders: u32, size: u32, decoders: *mut ImageCodecInfo) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetImageDecoders(numdecoders : u32, size : u32, decoders : *mut ImageCodecInfo) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetImageDecoders(numdecoders : u32, size : u32, decoders : *mut ImageCodecInfo) -> Status);
     GdipGetImageDecoders(numdecoders, size, decoders)
 }
 #[inline]
 pub unsafe fn GdipGetImageDecodersSize(numdecoders: *mut u32, size: *mut u32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetImageDecodersSize(numdecoders : *mut u32, size : *mut u32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetImageDecodersSize(numdecoders : *mut u32, size : *mut u32) -> Status);
     GdipGetImageDecodersSize(numdecoders, size)
 }
 #[inline]
 pub unsafe fn GdipGetImageDimension(image: *mut GpImage, width: *mut f32, height: *mut f32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetImageDimension(image : *mut GpImage, width : *mut f32, height : *mut f32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetImageDimension(image : *mut GpImage, width : *mut f32, height : *mut f32) -> Status);
     GdipGetImageDimension(image, width, height)
 }
 #[inline]
 pub unsafe fn GdipGetImageEncoders(numencoders: u32, size: u32, encoders: *mut ImageCodecInfo) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetImageEncoders(numencoders : u32, size : u32, encoders : *mut ImageCodecInfo) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetImageEncoders(numencoders : u32, size : u32, encoders : *mut ImageCodecInfo) -> Status);
     GdipGetImageEncoders(numencoders, size, encoders)
 }
 #[inline]
 pub unsafe fn GdipGetImageEncodersSize(numencoders: *mut u32, size: *mut u32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetImageEncodersSize(numencoders : *mut u32, size : *mut u32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetImageEncodersSize(numencoders : *mut u32, size : *mut u32) -> Status);
     GdipGetImageEncodersSize(numencoders, size)
 }
 #[inline]
 pub unsafe fn GdipGetImageFlags(image: *mut GpImage, flags: *mut u32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetImageFlags(image : *mut GpImage, flags : *mut u32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetImageFlags(image : *mut GpImage, flags : *mut u32) -> Status);
     GdipGetImageFlags(image, flags)
 }
 #[inline]
 pub unsafe fn GdipGetImageGraphicsContext(image: *mut GpImage, graphics: *mut *mut GpGraphics) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetImageGraphicsContext(image : *mut GpImage, graphics : *mut *mut GpGraphics) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetImageGraphicsContext(image : *mut GpImage, graphics : *mut *mut GpGraphics) -> Status);
     GdipGetImageGraphicsContext(image, graphics)
 }
 #[inline]
 pub unsafe fn GdipGetImageHeight(image: *mut GpImage, height: *mut u32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetImageHeight(image : *mut GpImage, height : *mut u32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetImageHeight(image : *mut GpImage, height : *mut u32) -> Status);
     GdipGetImageHeight(image, height)
 }
 #[inline]
 pub unsafe fn GdipGetImageHorizontalResolution(image: *mut GpImage, resolution: *mut f32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetImageHorizontalResolution(image : *mut GpImage, resolution : *mut f32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetImageHorizontalResolution(image : *mut GpImage, resolution : *mut f32) -> Status);
     GdipGetImageHorizontalResolution(image, resolution)
 }
 #[inline]
 pub unsafe fn GdipGetImageItemData(image: *mut GpImage, item: *mut ImageItemData) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetImageItemData(image : *mut GpImage, item : *mut ImageItemData) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetImageItemData(image : *mut GpImage, item : *mut ImageItemData) -> Status);
     GdipGetImageItemData(image, item)
 }
 #[inline]
 pub unsafe fn GdipGetImagePalette(image: *mut GpImage, palette: *mut ColorPalette, size: i32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetImagePalette(image : *mut GpImage, palette : *mut ColorPalette, size : i32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetImagePalette(image : *mut GpImage, palette : *mut ColorPalette, size : i32) -> Status);
     GdipGetImagePalette(image, palette, size)
 }
 #[inline]
 pub unsafe fn GdipGetImagePaletteSize(image: *mut GpImage, size: *mut i32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetImagePaletteSize(image : *mut GpImage, size : *mut i32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetImagePaletteSize(image : *mut GpImage, size : *mut i32) -> Status);
     GdipGetImagePaletteSize(image, size)
 }
 #[inline]
 pub unsafe fn GdipGetImagePixelFormat(image: *mut GpImage, format: *mut i32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetImagePixelFormat(image : *mut GpImage, format : *mut i32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetImagePixelFormat(image : *mut GpImage, format : *mut i32) -> Status);
     GdipGetImagePixelFormat(image, format)
 }
 #[inline]
 pub unsafe fn GdipGetImageRawFormat(image: *mut GpImage, format: *mut windows_core::GUID) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetImageRawFormat(image : *mut GpImage, format : *mut windows_core::GUID) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetImageRawFormat(image : *mut GpImage, format : *mut windows_core::GUID) -> Status);
     GdipGetImageRawFormat(image, format)
 }
 #[inline]
 pub unsafe fn GdipGetImageThumbnail(image: *mut GpImage, thumbwidth: u32, thumbheight: u32, thumbimage: *mut *mut GpImage, callback: isize, callbackdata: *mut core::ffi::c_void) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetImageThumbnail(image : *mut GpImage, thumbwidth : u32, thumbheight : u32, thumbimage : *mut *mut GpImage, callback : isize, callbackdata : *mut core::ffi::c_void) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetImageThumbnail(image : *mut GpImage, thumbwidth : u32, thumbheight : u32, thumbimage : *mut *mut GpImage, callback : isize, callbackdata : *mut core::ffi::c_void) -> Status);
     GdipGetImageThumbnail(image, thumbwidth, thumbheight, thumbimage, callback, callbackdata)
 }
 #[inline]
 pub unsafe fn GdipGetImageType(image: *mut GpImage, r#type: *mut ImageType) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetImageType(image : *mut GpImage, r#type : *mut ImageType) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetImageType(image : *mut GpImage, r#type : *mut ImageType) -> Status);
     GdipGetImageType(image, r#type)
 }
 #[inline]
 pub unsafe fn GdipGetImageVerticalResolution(image: *mut GpImage, resolution: *mut f32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetImageVerticalResolution(image : *mut GpImage, resolution : *mut f32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetImageVerticalResolution(image : *mut GpImage, resolution : *mut f32) -> Status);
     GdipGetImageVerticalResolution(image, resolution)
 }
 #[inline]
 pub unsafe fn GdipGetImageWidth(image: *mut GpImage, width: *mut u32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetImageWidth(image : *mut GpImage, width : *mut u32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetImageWidth(image : *mut GpImage, width : *mut u32) -> Status);
     GdipGetImageWidth(image, width)
 }
 #[inline]
 pub unsafe fn GdipGetInterpolationMode(graphics: *mut GpGraphics, interpolationmode: *mut InterpolationMode) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetInterpolationMode(graphics : *mut GpGraphics, interpolationmode : *mut InterpolationMode) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetInterpolationMode(graphics : *mut GpGraphics, interpolationmode : *mut InterpolationMode) -> Status);
     GdipGetInterpolationMode(graphics, interpolationmode)
 }
 #[inline]
 pub unsafe fn GdipGetLineBlend(brush: *mut GpLineGradient, blend: *mut f32, positions: *mut f32, count: i32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetLineBlend(brush : *mut GpLineGradient, blend : *mut f32, positions : *mut f32, count : i32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetLineBlend(brush : *mut GpLineGradient, blend : *mut f32, positions : *mut f32, count : i32) -> Status);
     GdipGetLineBlend(brush, blend, positions, count)
 }
 #[inline]
 pub unsafe fn GdipGetLineBlendCount(brush: *mut GpLineGradient, count: *mut i32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetLineBlendCount(brush : *mut GpLineGradient, count : *mut i32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetLineBlendCount(brush : *mut GpLineGradient, count : *mut i32) -> Status);
     GdipGetLineBlendCount(brush, count)
 }
 #[inline]
 pub unsafe fn GdipGetLineColors(brush: *mut GpLineGradient, colors: *mut u32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetLineColors(brush : *mut GpLineGradient, colors : *mut u32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetLineColors(brush : *mut GpLineGradient, colors : *mut u32) -> Status);
     GdipGetLineColors(brush, colors)
 }
 #[inline]
 pub unsafe fn GdipGetLineGammaCorrection(brush: *mut GpLineGradient, usegammacorrection: *mut super::super::Foundation::BOOL) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetLineGammaCorrection(brush : *mut GpLineGradient, usegammacorrection : *mut super::super::Foundation:: BOOL) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetLineGammaCorrection(brush : *mut GpLineGradient, usegammacorrection : *mut super::super::Foundation:: BOOL) -> Status);
     GdipGetLineGammaCorrection(brush, usegammacorrection)
 }
 #[inline]
 pub unsafe fn GdipGetLinePresetBlend(brush: *mut GpLineGradient, blend: *mut u32, positions: *mut f32, count: i32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetLinePresetBlend(brush : *mut GpLineGradient, blend : *mut u32, positions : *mut f32, count : i32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetLinePresetBlend(brush : *mut GpLineGradient, blend : *mut u32, positions : *mut f32, count : i32) -> Status);
     GdipGetLinePresetBlend(brush, blend, positions, count)
 }
 #[inline]
 pub unsafe fn GdipGetLinePresetBlendCount(brush: *mut GpLineGradient, count: *mut i32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetLinePresetBlendCount(brush : *mut GpLineGradient, count : *mut i32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetLinePresetBlendCount(brush : *mut GpLineGradient, count : *mut i32) -> Status);
     GdipGetLinePresetBlendCount(brush, count)
 }
 #[inline]
 pub unsafe fn GdipGetLineRect(brush: *mut GpLineGradient, rect: *mut RectF) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetLineRect(brush : *mut GpLineGradient, rect : *mut RectF) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetLineRect(brush : *mut GpLineGradient, rect : *mut RectF) -> Status);
     GdipGetLineRect(brush, rect)
 }
 #[inline]
 pub unsafe fn GdipGetLineRectI(brush: *mut GpLineGradient, rect: *mut Rect) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetLineRectI(brush : *mut GpLineGradient, rect : *mut Rect) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetLineRectI(brush : *mut GpLineGradient, rect : *mut Rect) -> Status);
     GdipGetLineRectI(brush, rect)
 }
 #[inline]
 pub unsafe fn GdipGetLineSpacing(family: *const GpFontFamily, style: i32, linespacing: *mut u16) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetLineSpacing(family : *const GpFontFamily, style : i32, linespacing : *mut u16) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetLineSpacing(family : *const GpFontFamily, style : i32, linespacing : *mut u16) -> Status);
     GdipGetLineSpacing(family, style, linespacing)
 }
 #[inline]
 pub unsafe fn GdipGetLineTransform(brush: *mut GpLineGradient, matrix: *mut Matrix) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetLineTransform(brush : *mut GpLineGradient, matrix : *mut Matrix) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetLineTransform(brush : *mut GpLineGradient, matrix : *mut Matrix) -> Status);
     GdipGetLineTransform(brush, matrix)
 }
 #[inline]
 pub unsafe fn GdipGetLineWrapMode(brush: *mut GpLineGradient, wrapmode: *mut WrapMode) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetLineWrapMode(brush : *mut GpLineGradient, wrapmode : *mut WrapMode) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetLineWrapMode(brush : *mut GpLineGradient, wrapmode : *mut WrapMode) -> Status);
     GdipGetLineWrapMode(brush, wrapmode)
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn GdipGetLogFontA(font: *mut GpFont, graphics: *mut GpGraphics, logfonta: *mut super::Gdi::LOGFONTA) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetLogFontA(font : *mut GpFont, graphics : *mut GpGraphics, logfonta : *mut super::Gdi:: LOGFONTA) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetLogFontA(font : *mut GpFont, graphics : *mut GpGraphics, logfonta : *mut super::Gdi:: LOGFONTA) -> Status);
     GdipGetLogFontA(font, graphics, logfonta)
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn GdipGetLogFontW(font: *mut GpFont, graphics: *mut GpGraphics, logfontw: *mut super::Gdi::LOGFONTW) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetLogFontW(font : *mut GpFont, graphics : *mut GpGraphics, logfontw : *mut super::Gdi:: LOGFONTW) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetLogFontW(font : *mut GpFont, graphics : *mut GpGraphics, logfontw : *mut super::Gdi:: LOGFONTW) -> Status);
     GdipGetLogFontW(font, graphics, logfontw)
 }
 #[inline]
 pub unsafe fn GdipGetMatrixElements(matrix: *const Matrix, matrixout: *mut f32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetMatrixElements(matrix : *const Matrix, matrixout : *mut f32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetMatrixElements(matrix : *const Matrix, matrixout : *mut f32) -> Status);
     GdipGetMatrixElements(matrix, matrixout)
 }
 #[inline]
 pub unsafe fn GdipGetMetafileDownLevelRasterizationLimit(metafile: *const GpMetafile, metafilerasterizationlimitdpi: *mut u32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetMetafileDownLevelRasterizationLimit(metafile : *const GpMetafile, metafilerasterizationlimitdpi : *mut u32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetMetafileDownLevelRasterizationLimit(metafile : *const GpMetafile, metafilerasterizationlimitdpi : *mut u32) -> Status);
     GdipGetMetafileDownLevelRasterizationLimit(metafile, metafilerasterizationlimitdpi)
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -1729,7 +1729,7 @@ pub unsafe fn GdipGetMetafileHeaderFromEmf<P0>(hemf: P0, header: *mut MetafileHe
 where
     P0: windows_core::IntoParam<super::Gdi::HENHMETAFILE>,
 {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetMetafileHeaderFromEmf(hemf : super::Gdi:: HENHMETAFILE, header : *mut MetafileHeader) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetMetafileHeaderFromEmf(hemf : super::Gdi:: HENHMETAFILE, header : *mut MetafileHeader) -> Status);
     GdipGetMetafileHeaderFromEmf(hemf.into_param().abi(), header)
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -1738,13 +1738,13 @@ pub unsafe fn GdipGetMetafileHeaderFromFile<P0>(filename: P0, header: *mut Metaf
 where
     P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetMetafileHeaderFromFile(filename : windows_core::PCWSTR, header : *mut MetafileHeader) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetMetafileHeaderFromFile(filename : windows_core::PCWSTR, header : *mut MetafileHeader) -> Status);
     GdipGetMetafileHeaderFromFile(filename.into_param().abi(), header)
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn GdipGetMetafileHeaderFromMetafile(metafile: *mut GpMetafile, header: *mut MetafileHeader) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetMetafileHeaderFromMetafile(metafile : *mut GpMetafile, header : *mut MetafileHeader) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetMetafileHeaderFromMetafile(metafile : *mut GpMetafile, header : *mut MetafileHeader) -> Status);
     GdipGetMetafileHeaderFromMetafile(metafile, header)
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
@@ -1753,7 +1753,7 @@ pub unsafe fn GdipGetMetafileHeaderFromStream<P0>(stream: P0, header: *mut Metaf
 where
     P0: windows_core::IntoParam<super::super::System::Com::IStream>,
 {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetMetafileHeaderFromStream(stream : * mut core::ffi::c_void, header : *mut MetafileHeader) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetMetafileHeaderFromStream(stream : * mut core::ffi::c_void, header : *mut MetafileHeader) -> Status);
     GdipGetMetafileHeaderFromStream(stream.into_param().abi(), header)
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -1762,428 +1762,428 @@ pub unsafe fn GdipGetMetafileHeaderFromWmf<P0>(hwmf: P0, wmfplaceablefileheader:
 where
     P0: windows_core::IntoParam<super::Gdi::HMETAFILE>,
 {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetMetafileHeaderFromWmf(hwmf : super::Gdi:: HMETAFILE, wmfplaceablefileheader : *const WmfPlaceableFileHeader, header : *mut MetafileHeader) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetMetafileHeaderFromWmf(hwmf : super::Gdi:: HMETAFILE, wmfplaceablefileheader : *const WmfPlaceableFileHeader, header : *mut MetafileHeader) -> Status);
     GdipGetMetafileHeaderFromWmf(hwmf.into_param().abi(), wmfplaceablefileheader, header)
 }
 #[inline]
 pub unsafe fn GdipGetNearestColor(graphics: *mut GpGraphics, argb: *mut u32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetNearestColor(graphics : *mut GpGraphics, argb : *mut u32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetNearestColor(graphics : *mut GpGraphics, argb : *mut u32) -> Status);
     GdipGetNearestColor(graphics, argb)
 }
 #[inline]
 pub unsafe fn GdipGetPageScale(graphics: *mut GpGraphics, scale: *mut f32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetPageScale(graphics : *mut GpGraphics, scale : *mut f32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetPageScale(graphics : *mut GpGraphics, scale : *mut f32) -> Status);
     GdipGetPageScale(graphics, scale)
 }
 #[inline]
 pub unsafe fn GdipGetPageUnit(graphics: *mut GpGraphics, unit: *mut Unit) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetPageUnit(graphics : *mut GpGraphics, unit : *mut Unit) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetPageUnit(graphics : *mut GpGraphics, unit : *mut Unit) -> Status);
     GdipGetPageUnit(graphics, unit)
 }
 #[inline]
 pub unsafe fn GdipGetPathData(path: *mut GpPath, pathdata: *mut PathData) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetPathData(path : *mut GpPath, pathdata : *mut PathData) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetPathData(path : *mut GpPath, pathdata : *mut PathData) -> Status);
     GdipGetPathData(path, pathdata)
 }
 #[inline]
 pub unsafe fn GdipGetPathFillMode(path: *mut GpPath, fillmode: *mut FillMode) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetPathFillMode(path : *mut GpPath, fillmode : *mut FillMode) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetPathFillMode(path : *mut GpPath, fillmode : *mut FillMode) -> Status);
     GdipGetPathFillMode(path, fillmode)
 }
 #[inline]
 pub unsafe fn GdipGetPathGradientBlend(brush: *mut GpPathGradient, blend: *mut f32, positions: *mut f32, count: i32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetPathGradientBlend(brush : *mut GpPathGradient, blend : *mut f32, positions : *mut f32, count : i32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetPathGradientBlend(brush : *mut GpPathGradient, blend : *mut f32, positions : *mut f32, count : i32) -> Status);
     GdipGetPathGradientBlend(brush, blend, positions, count)
 }
 #[inline]
 pub unsafe fn GdipGetPathGradientBlendCount(brush: *mut GpPathGradient, count: *mut i32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetPathGradientBlendCount(brush : *mut GpPathGradient, count : *mut i32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetPathGradientBlendCount(brush : *mut GpPathGradient, count : *mut i32) -> Status);
     GdipGetPathGradientBlendCount(brush, count)
 }
 #[inline]
 pub unsafe fn GdipGetPathGradientCenterColor(brush: *mut GpPathGradient, colors: *mut u32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetPathGradientCenterColor(brush : *mut GpPathGradient, colors : *mut u32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetPathGradientCenterColor(brush : *mut GpPathGradient, colors : *mut u32) -> Status);
     GdipGetPathGradientCenterColor(brush, colors)
 }
 #[inline]
 pub unsafe fn GdipGetPathGradientCenterPoint(brush: *mut GpPathGradient, points: *mut PointF) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetPathGradientCenterPoint(brush : *mut GpPathGradient, points : *mut PointF) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetPathGradientCenterPoint(brush : *mut GpPathGradient, points : *mut PointF) -> Status);
     GdipGetPathGradientCenterPoint(brush, points)
 }
 #[inline]
 pub unsafe fn GdipGetPathGradientCenterPointI(brush: *mut GpPathGradient, points: *mut Point) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetPathGradientCenterPointI(brush : *mut GpPathGradient, points : *mut Point) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetPathGradientCenterPointI(brush : *mut GpPathGradient, points : *mut Point) -> Status);
     GdipGetPathGradientCenterPointI(brush, points)
 }
 #[inline]
 pub unsafe fn GdipGetPathGradientFocusScales(brush: *mut GpPathGradient, xscale: *mut f32, yscale: *mut f32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetPathGradientFocusScales(brush : *mut GpPathGradient, xscale : *mut f32, yscale : *mut f32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetPathGradientFocusScales(brush : *mut GpPathGradient, xscale : *mut f32, yscale : *mut f32) -> Status);
     GdipGetPathGradientFocusScales(brush, xscale, yscale)
 }
 #[inline]
 pub unsafe fn GdipGetPathGradientGammaCorrection(brush: *mut GpPathGradient, usegammacorrection: *mut super::super::Foundation::BOOL) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetPathGradientGammaCorrection(brush : *mut GpPathGradient, usegammacorrection : *mut super::super::Foundation:: BOOL) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetPathGradientGammaCorrection(brush : *mut GpPathGradient, usegammacorrection : *mut super::super::Foundation:: BOOL) -> Status);
     GdipGetPathGradientGammaCorrection(brush, usegammacorrection)
 }
 #[inline]
 pub unsafe fn GdipGetPathGradientPath(brush: *mut GpPathGradient, path: *mut GpPath) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetPathGradientPath(brush : *mut GpPathGradient, path : *mut GpPath) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetPathGradientPath(brush : *mut GpPathGradient, path : *mut GpPath) -> Status);
     GdipGetPathGradientPath(brush, path)
 }
 #[inline]
 pub unsafe fn GdipGetPathGradientPointCount(brush: *mut GpPathGradient, count: *mut i32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetPathGradientPointCount(brush : *mut GpPathGradient, count : *mut i32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetPathGradientPointCount(brush : *mut GpPathGradient, count : *mut i32) -> Status);
     GdipGetPathGradientPointCount(brush, count)
 }
 #[inline]
 pub unsafe fn GdipGetPathGradientPresetBlend(brush: *mut GpPathGradient, blend: *mut u32, positions: *mut f32, count: i32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetPathGradientPresetBlend(brush : *mut GpPathGradient, blend : *mut u32, positions : *mut f32, count : i32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetPathGradientPresetBlend(brush : *mut GpPathGradient, blend : *mut u32, positions : *mut f32, count : i32) -> Status);
     GdipGetPathGradientPresetBlend(brush, blend, positions, count)
 }
 #[inline]
 pub unsafe fn GdipGetPathGradientPresetBlendCount(brush: *mut GpPathGradient, count: *mut i32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetPathGradientPresetBlendCount(brush : *mut GpPathGradient, count : *mut i32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetPathGradientPresetBlendCount(brush : *mut GpPathGradient, count : *mut i32) -> Status);
     GdipGetPathGradientPresetBlendCount(brush, count)
 }
 #[inline]
 pub unsafe fn GdipGetPathGradientRect(brush: *mut GpPathGradient, rect: *mut RectF) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetPathGradientRect(brush : *mut GpPathGradient, rect : *mut RectF) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetPathGradientRect(brush : *mut GpPathGradient, rect : *mut RectF) -> Status);
     GdipGetPathGradientRect(brush, rect)
 }
 #[inline]
 pub unsafe fn GdipGetPathGradientRectI(brush: *mut GpPathGradient, rect: *mut Rect) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetPathGradientRectI(brush : *mut GpPathGradient, rect : *mut Rect) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetPathGradientRectI(brush : *mut GpPathGradient, rect : *mut Rect) -> Status);
     GdipGetPathGradientRectI(brush, rect)
 }
 #[inline]
 pub unsafe fn GdipGetPathGradientSurroundColorCount(brush: *mut GpPathGradient, count: *mut i32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetPathGradientSurroundColorCount(brush : *mut GpPathGradient, count : *mut i32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetPathGradientSurroundColorCount(brush : *mut GpPathGradient, count : *mut i32) -> Status);
     GdipGetPathGradientSurroundColorCount(brush, count)
 }
 #[inline]
 pub unsafe fn GdipGetPathGradientSurroundColorsWithCount(brush: *const GpPathGradient, color: *mut u32, count: *mut i32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetPathGradientSurroundColorsWithCount(brush : *const GpPathGradient, color : *mut u32, count : *mut i32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetPathGradientSurroundColorsWithCount(brush : *const GpPathGradient, color : *mut u32, count : *mut i32) -> Status);
     GdipGetPathGradientSurroundColorsWithCount(brush, color, count)
 }
 #[inline]
 pub unsafe fn GdipGetPathGradientTransform(brush: *mut GpPathGradient, matrix: *mut Matrix) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetPathGradientTransform(brush : *mut GpPathGradient, matrix : *mut Matrix) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetPathGradientTransform(brush : *mut GpPathGradient, matrix : *mut Matrix) -> Status);
     GdipGetPathGradientTransform(brush, matrix)
 }
 #[inline]
 pub unsafe fn GdipGetPathGradientWrapMode(brush: *mut GpPathGradient, wrapmode: *mut WrapMode) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetPathGradientWrapMode(brush : *mut GpPathGradient, wrapmode : *mut WrapMode) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetPathGradientWrapMode(brush : *mut GpPathGradient, wrapmode : *mut WrapMode) -> Status);
     GdipGetPathGradientWrapMode(brush, wrapmode)
 }
 #[inline]
 pub unsafe fn GdipGetPathLastPoint(path: *mut GpPath, lastpoint: *mut PointF) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetPathLastPoint(path : *mut GpPath, lastpoint : *mut PointF) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetPathLastPoint(path : *mut GpPath, lastpoint : *mut PointF) -> Status);
     GdipGetPathLastPoint(path, lastpoint)
 }
 #[inline]
 pub unsafe fn GdipGetPathPoints(param0: *mut GpPath, points: *mut PointF, count: i32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetPathPoints(param0 : *mut GpPath, points : *mut PointF, count : i32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetPathPoints(param0 : *mut GpPath, points : *mut PointF, count : i32) -> Status);
     GdipGetPathPoints(param0, points, count)
 }
 #[inline]
 pub unsafe fn GdipGetPathPointsI(param0: *mut GpPath, points: *mut Point, count: i32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetPathPointsI(param0 : *mut GpPath, points : *mut Point, count : i32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetPathPointsI(param0 : *mut GpPath, points : *mut Point, count : i32) -> Status);
     GdipGetPathPointsI(param0, points, count)
 }
 #[inline]
 pub unsafe fn GdipGetPathTypes(path: *const GpPath, types: &mut [u8]) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetPathTypes(path : *const GpPath, types : *mut u8, count : i32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetPathTypes(path : *const GpPath, types : *mut u8, count : i32) -> Status);
     GdipGetPathTypes(path, core::mem::transmute(types.as_ptr()), types.len().try_into().unwrap())
 }
 #[inline]
 pub unsafe fn GdipGetPathWorldBounds(path: *mut GpPath, bounds: *mut RectF, matrix: *const Matrix, pen: *const GpPen) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetPathWorldBounds(path : *mut GpPath, bounds : *mut RectF, matrix : *const Matrix, pen : *const GpPen) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetPathWorldBounds(path : *mut GpPath, bounds : *mut RectF, matrix : *const Matrix, pen : *const GpPen) -> Status);
     GdipGetPathWorldBounds(path, bounds, matrix, pen)
 }
 #[inline]
 pub unsafe fn GdipGetPathWorldBoundsI(path: *mut GpPath, bounds: *mut Rect, matrix: *const Matrix, pen: *const GpPen) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetPathWorldBoundsI(path : *mut GpPath, bounds : *mut Rect, matrix : *const Matrix, pen : *const GpPen) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetPathWorldBoundsI(path : *mut GpPath, bounds : *mut Rect, matrix : *const Matrix, pen : *const GpPen) -> Status);
     GdipGetPathWorldBoundsI(path, bounds, matrix, pen)
 }
 #[inline]
 pub unsafe fn GdipGetPenBrushFill(pen: *mut GpPen, brush: *mut *mut GpBrush) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetPenBrushFill(pen : *mut GpPen, brush : *mut *mut GpBrush) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetPenBrushFill(pen : *mut GpPen, brush : *mut *mut GpBrush) -> Status);
     GdipGetPenBrushFill(pen, brush)
 }
 #[inline]
 pub unsafe fn GdipGetPenColor(pen: *mut GpPen, argb: *mut u32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetPenColor(pen : *mut GpPen, argb : *mut u32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetPenColor(pen : *mut GpPen, argb : *mut u32) -> Status);
     GdipGetPenColor(pen, argb)
 }
 #[inline]
 pub unsafe fn GdipGetPenCompoundArray(pen: *mut GpPen, dash: *mut f32, count: i32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetPenCompoundArray(pen : *mut GpPen, dash : *mut f32, count : i32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetPenCompoundArray(pen : *mut GpPen, dash : *mut f32, count : i32) -> Status);
     GdipGetPenCompoundArray(pen, dash, count)
 }
 #[inline]
 pub unsafe fn GdipGetPenCompoundCount(pen: *mut GpPen, count: *mut i32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetPenCompoundCount(pen : *mut GpPen, count : *mut i32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetPenCompoundCount(pen : *mut GpPen, count : *mut i32) -> Status);
     GdipGetPenCompoundCount(pen, count)
 }
 #[inline]
 pub unsafe fn GdipGetPenCustomEndCap(pen: *mut GpPen, customcap: *mut *mut GpCustomLineCap) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetPenCustomEndCap(pen : *mut GpPen, customcap : *mut *mut GpCustomLineCap) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetPenCustomEndCap(pen : *mut GpPen, customcap : *mut *mut GpCustomLineCap) -> Status);
     GdipGetPenCustomEndCap(pen, customcap)
 }
 #[inline]
 pub unsafe fn GdipGetPenCustomStartCap(pen: *mut GpPen, customcap: *mut *mut GpCustomLineCap) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetPenCustomStartCap(pen : *mut GpPen, customcap : *mut *mut GpCustomLineCap) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetPenCustomStartCap(pen : *mut GpPen, customcap : *mut *mut GpCustomLineCap) -> Status);
     GdipGetPenCustomStartCap(pen, customcap)
 }
 #[inline]
 pub unsafe fn GdipGetPenDashArray(pen: *mut GpPen, dash: *mut f32, count: i32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetPenDashArray(pen : *mut GpPen, dash : *mut f32, count : i32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetPenDashArray(pen : *mut GpPen, dash : *mut f32, count : i32) -> Status);
     GdipGetPenDashArray(pen, dash, count)
 }
 #[inline]
 pub unsafe fn GdipGetPenDashCap197819(pen: *mut GpPen, dashcap: *mut DashCap) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetPenDashCap197819(pen : *mut GpPen, dashcap : *mut DashCap) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetPenDashCap197819(pen : *mut GpPen, dashcap : *mut DashCap) -> Status);
     GdipGetPenDashCap197819(pen, dashcap)
 }
 #[inline]
 pub unsafe fn GdipGetPenDashCount(pen: *mut GpPen, count: *mut i32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetPenDashCount(pen : *mut GpPen, count : *mut i32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetPenDashCount(pen : *mut GpPen, count : *mut i32) -> Status);
     GdipGetPenDashCount(pen, count)
 }
 #[inline]
 pub unsafe fn GdipGetPenDashOffset(pen: *mut GpPen, offset: *mut f32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetPenDashOffset(pen : *mut GpPen, offset : *mut f32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetPenDashOffset(pen : *mut GpPen, offset : *mut f32) -> Status);
     GdipGetPenDashOffset(pen, offset)
 }
 #[inline]
 pub unsafe fn GdipGetPenDashStyle(pen: *mut GpPen, dashstyle: *mut DashStyle) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetPenDashStyle(pen : *mut GpPen, dashstyle : *mut DashStyle) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetPenDashStyle(pen : *mut GpPen, dashstyle : *mut DashStyle) -> Status);
     GdipGetPenDashStyle(pen, dashstyle)
 }
 #[inline]
 pub unsafe fn GdipGetPenEndCap(pen: *mut GpPen, endcap: *mut LineCap) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetPenEndCap(pen : *mut GpPen, endcap : *mut LineCap) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetPenEndCap(pen : *mut GpPen, endcap : *mut LineCap) -> Status);
     GdipGetPenEndCap(pen, endcap)
 }
 #[inline]
 pub unsafe fn GdipGetPenFillType(pen: *mut GpPen, r#type: *mut PenType) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetPenFillType(pen : *mut GpPen, r#type : *mut PenType) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetPenFillType(pen : *mut GpPen, r#type : *mut PenType) -> Status);
     GdipGetPenFillType(pen, r#type)
 }
 #[inline]
 pub unsafe fn GdipGetPenLineJoin(pen: *mut GpPen, linejoin: *mut LineJoin) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetPenLineJoin(pen : *mut GpPen, linejoin : *mut LineJoin) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetPenLineJoin(pen : *mut GpPen, linejoin : *mut LineJoin) -> Status);
     GdipGetPenLineJoin(pen, linejoin)
 }
 #[inline]
 pub unsafe fn GdipGetPenMiterLimit(pen: *mut GpPen, miterlimit: *mut f32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetPenMiterLimit(pen : *mut GpPen, miterlimit : *mut f32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetPenMiterLimit(pen : *mut GpPen, miterlimit : *mut f32) -> Status);
     GdipGetPenMiterLimit(pen, miterlimit)
 }
 #[inline]
 pub unsafe fn GdipGetPenMode(pen: *mut GpPen, penmode: *mut PenAlignment) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetPenMode(pen : *mut GpPen, penmode : *mut PenAlignment) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetPenMode(pen : *mut GpPen, penmode : *mut PenAlignment) -> Status);
     GdipGetPenMode(pen, penmode)
 }
 #[inline]
 pub unsafe fn GdipGetPenStartCap(pen: *mut GpPen, startcap: *mut LineCap) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetPenStartCap(pen : *mut GpPen, startcap : *mut LineCap) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetPenStartCap(pen : *mut GpPen, startcap : *mut LineCap) -> Status);
     GdipGetPenStartCap(pen, startcap)
 }
 #[inline]
 pub unsafe fn GdipGetPenTransform(pen: *mut GpPen, matrix: *mut Matrix) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetPenTransform(pen : *mut GpPen, matrix : *mut Matrix) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetPenTransform(pen : *mut GpPen, matrix : *mut Matrix) -> Status);
     GdipGetPenTransform(pen, matrix)
 }
 #[inline]
 pub unsafe fn GdipGetPenUnit(pen: *mut GpPen, unit: *mut Unit) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetPenUnit(pen : *mut GpPen, unit : *mut Unit) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetPenUnit(pen : *mut GpPen, unit : *mut Unit) -> Status);
     GdipGetPenUnit(pen, unit)
 }
 #[inline]
 pub unsafe fn GdipGetPenWidth(pen: *mut GpPen, width: *mut f32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetPenWidth(pen : *mut GpPen, width : *mut f32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetPenWidth(pen : *mut GpPen, width : *mut f32) -> Status);
     GdipGetPenWidth(pen, width)
 }
 #[inline]
 pub unsafe fn GdipGetPixelOffsetMode(graphics: *mut GpGraphics, pixeloffsetmode: *mut PixelOffsetMode) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetPixelOffsetMode(graphics : *mut GpGraphics, pixeloffsetmode : *mut PixelOffsetMode) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetPixelOffsetMode(graphics : *mut GpGraphics, pixeloffsetmode : *mut PixelOffsetMode) -> Status);
     GdipGetPixelOffsetMode(graphics, pixeloffsetmode)
 }
 #[inline]
 pub unsafe fn GdipGetPointCount(path: *mut GpPath, count: *mut i32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetPointCount(path : *mut GpPath, count : *mut i32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetPointCount(path : *mut GpPath, count : *mut i32) -> Status);
     GdipGetPointCount(path, count)
 }
 #[inline]
 pub unsafe fn GdipGetPropertyCount(image: *mut GpImage, numofproperty: *mut u32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetPropertyCount(image : *mut GpImage, numofproperty : *mut u32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetPropertyCount(image : *mut GpImage, numofproperty : *mut u32) -> Status);
     GdipGetPropertyCount(image, numofproperty)
 }
 #[inline]
 pub unsafe fn GdipGetPropertyIdList(image: *mut GpImage, numofproperty: u32, list: *mut u32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetPropertyIdList(image : *mut GpImage, numofproperty : u32, list : *mut u32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetPropertyIdList(image : *mut GpImage, numofproperty : u32, list : *mut u32) -> Status);
     GdipGetPropertyIdList(image, numofproperty, list)
 }
 #[inline]
 pub unsafe fn GdipGetPropertyItem(image: *mut GpImage, propid: u32, propsize: u32, buffer: *mut PropertyItem) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetPropertyItem(image : *mut GpImage, propid : u32, propsize : u32, buffer : *mut PropertyItem) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetPropertyItem(image : *mut GpImage, propid : u32, propsize : u32, buffer : *mut PropertyItem) -> Status);
     GdipGetPropertyItem(image, propid, propsize, buffer)
 }
 #[inline]
 pub unsafe fn GdipGetPropertyItemSize(image: *mut GpImage, propid: u32, size: *mut u32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetPropertyItemSize(image : *mut GpImage, propid : u32, size : *mut u32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetPropertyItemSize(image : *mut GpImage, propid : u32, size : *mut u32) -> Status);
     GdipGetPropertyItemSize(image, propid, size)
 }
 #[inline]
 pub unsafe fn GdipGetPropertySize(image: *mut GpImage, totalbuffersize: *mut u32, numproperties: *mut u32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetPropertySize(image : *mut GpImage, totalbuffersize : *mut u32, numproperties : *mut u32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetPropertySize(image : *mut GpImage, totalbuffersize : *mut u32, numproperties : *mut u32) -> Status);
     GdipGetPropertySize(image, totalbuffersize, numproperties)
 }
 #[inline]
 pub unsafe fn GdipGetRegionBounds(region: *mut GpRegion, graphics: *mut GpGraphics, rect: *mut RectF) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetRegionBounds(region : *mut GpRegion, graphics : *mut GpGraphics, rect : *mut RectF) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetRegionBounds(region : *mut GpRegion, graphics : *mut GpGraphics, rect : *mut RectF) -> Status);
     GdipGetRegionBounds(region, graphics, rect)
 }
 #[inline]
 pub unsafe fn GdipGetRegionBoundsI(region: *mut GpRegion, graphics: *mut GpGraphics, rect: *mut Rect) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetRegionBoundsI(region : *mut GpRegion, graphics : *mut GpGraphics, rect : *mut Rect) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetRegionBoundsI(region : *mut GpRegion, graphics : *mut GpGraphics, rect : *mut Rect) -> Status);
     GdipGetRegionBoundsI(region, graphics, rect)
 }
 #[inline]
 pub unsafe fn GdipGetRegionData(region: *mut GpRegion, buffer: &mut [u8], sizefilled: Option<*mut u32>) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetRegionData(region : *mut GpRegion, buffer : *mut u8, buffersize : u32, sizefilled : *mut u32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetRegionData(region : *mut GpRegion, buffer : *mut u8, buffersize : u32, sizefilled : *mut u32) -> Status);
     GdipGetRegionData(region, core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap(), core::mem::transmute(sizefilled.unwrap_or(std::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn GdipGetRegionDataSize(region: *mut GpRegion, buffersize: *mut u32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetRegionDataSize(region : *mut GpRegion, buffersize : *mut u32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetRegionDataSize(region : *mut GpRegion, buffersize : *mut u32) -> Status);
     GdipGetRegionDataSize(region, buffersize)
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn GdipGetRegionHRgn(region: *mut GpRegion, graphics: *mut GpGraphics, hrgn: *mut super::Gdi::HRGN) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetRegionHRgn(region : *mut GpRegion, graphics : *mut GpGraphics, hrgn : *mut super::Gdi:: HRGN) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetRegionHRgn(region : *mut GpRegion, graphics : *mut GpGraphics, hrgn : *mut super::Gdi:: HRGN) -> Status);
     GdipGetRegionHRgn(region, graphics, hrgn)
 }
 #[inline]
 pub unsafe fn GdipGetRegionScans(region: *mut GpRegion, rects: *mut RectF, count: *mut i32, matrix: *mut Matrix) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetRegionScans(region : *mut GpRegion, rects : *mut RectF, count : *mut i32, matrix : *mut Matrix) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetRegionScans(region : *mut GpRegion, rects : *mut RectF, count : *mut i32, matrix : *mut Matrix) -> Status);
     GdipGetRegionScans(region, rects, count, matrix)
 }
 #[inline]
 pub unsafe fn GdipGetRegionScansCount(region: *mut GpRegion, count: *mut u32, matrix: *mut Matrix) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetRegionScansCount(region : *mut GpRegion, count : *mut u32, matrix : *mut Matrix) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetRegionScansCount(region : *mut GpRegion, count : *mut u32, matrix : *mut Matrix) -> Status);
     GdipGetRegionScansCount(region, count, matrix)
 }
 #[inline]
 pub unsafe fn GdipGetRegionScansI(region: *mut GpRegion, rects: *mut Rect, count: *mut i32, matrix: *mut Matrix) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetRegionScansI(region : *mut GpRegion, rects : *mut Rect, count : *mut i32, matrix : *mut Matrix) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetRegionScansI(region : *mut GpRegion, rects : *mut Rect, count : *mut i32, matrix : *mut Matrix) -> Status);
     GdipGetRegionScansI(region, rects, count, matrix)
 }
 #[inline]
 pub unsafe fn GdipGetRenderingOrigin(graphics: *mut GpGraphics, x: *mut i32, y: *mut i32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetRenderingOrigin(graphics : *mut GpGraphics, x : *mut i32, y : *mut i32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetRenderingOrigin(graphics : *mut GpGraphics, x : *mut i32, y : *mut i32) -> Status);
     GdipGetRenderingOrigin(graphics, x, y)
 }
 #[inline]
 pub unsafe fn GdipGetSmoothingMode(graphics: *mut GpGraphics, smoothingmode: *mut SmoothingMode) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetSmoothingMode(graphics : *mut GpGraphics, smoothingmode : *mut SmoothingMode) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetSmoothingMode(graphics : *mut GpGraphics, smoothingmode : *mut SmoothingMode) -> Status);
     GdipGetSmoothingMode(graphics, smoothingmode)
 }
 #[inline]
 pub unsafe fn GdipGetSolidFillColor(brush: *mut GpSolidFill, color: *mut u32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetSolidFillColor(brush : *mut GpSolidFill, color : *mut u32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetSolidFillColor(brush : *mut GpSolidFill, color : *mut u32) -> Status);
     GdipGetSolidFillColor(brush, color)
 }
 #[inline]
 pub unsafe fn GdipGetStringFormatAlign(format: *const GpStringFormat, align: *mut StringAlignment) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetStringFormatAlign(format : *const GpStringFormat, align : *mut StringAlignment) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetStringFormatAlign(format : *const GpStringFormat, align : *mut StringAlignment) -> Status);
     GdipGetStringFormatAlign(format, align)
 }
 #[inline]
 pub unsafe fn GdipGetStringFormatDigitSubstitution(format: *const GpStringFormat, language: *mut u16, substitute: *mut StringDigitSubstitute) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetStringFormatDigitSubstitution(format : *const GpStringFormat, language : *mut u16, substitute : *mut StringDigitSubstitute) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetStringFormatDigitSubstitution(format : *const GpStringFormat, language : *mut u16, substitute : *mut StringDigitSubstitute) -> Status);
     GdipGetStringFormatDigitSubstitution(format, language, substitute)
 }
 #[inline]
 pub unsafe fn GdipGetStringFormatFlags(format: *const GpStringFormat, flags: *mut i32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetStringFormatFlags(format : *const GpStringFormat, flags : *mut i32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetStringFormatFlags(format : *const GpStringFormat, flags : *mut i32) -> Status);
     GdipGetStringFormatFlags(format, flags)
 }
 #[inline]
 pub unsafe fn GdipGetStringFormatHotkeyPrefix(format: *const GpStringFormat, hotkeyprefix: *mut i32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetStringFormatHotkeyPrefix(format : *const GpStringFormat, hotkeyprefix : *mut i32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetStringFormatHotkeyPrefix(format : *const GpStringFormat, hotkeyprefix : *mut i32) -> Status);
     GdipGetStringFormatHotkeyPrefix(format, hotkeyprefix)
 }
 #[inline]
 pub unsafe fn GdipGetStringFormatLineAlign(format: *const GpStringFormat, align: *mut StringAlignment) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetStringFormatLineAlign(format : *const GpStringFormat, align : *mut StringAlignment) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetStringFormatLineAlign(format : *const GpStringFormat, align : *mut StringAlignment) -> Status);
     GdipGetStringFormatLineAlign(format, align)
 }
 #[inline]
 pub unsafe fn GdipGetStringFormatMeasurableCharacterRangeCount(format: *const GpStringFormat, count: *mut i32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetStringFormatMeasurableCharacterRangeCount(format : *const GpStringFormat, count : *mut i32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetStringFormatMeasurableCharacterRangeCount(format : *const GpStringFormat, count : *mut i32) -> Status);
     GdipGetStringFormatMeasurableCharacterRangeCount(format, count)
 }
 #[inline]
 pub unsafe fn GdipGetStringFormatTabStopCount(format: *const GpStringFormat, count: *mut i32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetStringFormatTabStopCount(format : *const GpStringFormat, count : *mut i32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetStringFormatTabStopCount(format : *const GpStringFormat, count : *mut i32) -> Status);
     GdipGetStringFormatTabStopCount(format, count)
 }
 #[inline]
 pub unsafe fn GdipGetStringFormatTabStops(format: *const GpStringFormat, count: i32, firsttaboffset: *mut f32, tabstops: *mut f32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetStringFormatTabStops(format : *const GpStringFormat, count : i32, firsttaboffset : *mut f32, tabstops : *mut f32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetStringFormatTabStops(format : *const GpStringFormat, count : i32, firsttaboffset : *mut f32, tabstops : *mut f32) -> Status);
     GdipGetStringFormatTabStops(format, count, firsttaboffset, tabstops)
 }
 #[inline]
 pub unsafe fn GdipGetStringFormatTrimming(format: *const GpStringFormat, trimming: *mut StringTrimming) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetStringFormatTrimming(format : *const GpStringFormat, trimming : *mut StringTrimming) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetStringFormatTrimming(format : *const GpStringFormat, trimming : *mut StringTrimming) -> Status);
     GdipGetStringFormatTrimming(format, trimming)
 }
 #[inline]
 pub unsafe fn GdipGetTextContrast(graphics: *mut GpGraphics, contrast: *mut u32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetTextContrast(graphics : *mut GpGraphics, contrast : *mut u32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetTextContrast(graphics : *mut GpGraphics, contrast : *mut u32) -> Status);
     GdipGetTextContrast(graphics, contrast)
 }
 #[inline]
 pub unsafe fn GdipGetTextRenderingHint(graphics: *mut GpGraphics, mode: *mut TextRenderingHint) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetTextRenderingHint(graphics : *mut GpGraphics, mode : *mut TextRenderingHint) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetTextRenderingHint(graphics : *mut GpGraphics, mode : *mut TextRenderingHint) -> Status);
     GdipGetTextRenderingHint(graphics, mode)
 }
 #[inline]
 pub unsafe fn GdipGetTextureImage(brush: *mut GpTexture, image: *mut *mut GpImage) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetTextureImage(brush : *mut GpTexture, image : *mut *mut GpImage) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetTextureImage(brush : *mut GpTexture, image : *mut *mut GpImage) -> Status);
     GdipGetTextureImage(brush, image)
 }
 #[inline]
 pub unsafe fn GdipGetTextureTransform(brush: *mut GpTexture, matrix: *mut Matrix) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetTextureTransform(brush : *mut GpTexture, matrix : *mut Matrix) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetTextureTransform(brush : *mut GpTexture, matrix : *mut Matrix) -> Status);
     GdipGetTextureTransform(brush, matrix)
 }
 #[inline]
 pub unsafe fn GdipGetTextureWrapMode(brush: *mut GpTexture, wrapmode: *mut WrapMode) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetTextureWrapMode(brush : *mut GpTexture, wrapmode : *mut WrapMode) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetTextureWrapMode(brush : *mut GpTexture, wrapmode : *mut WrapMode) -> Status);
     GdipGetTextureWrapMode(brush, wrapmode)
 }
 #[inline]
 pub unsafe fn GdipGetVisibleClipBounds(graphics: *mut GpGraphics, rect: *mut RectF) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetVisibleClipBounds(graphics : *mut GpGraphics, rect : *mut RectF) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetVisibleClipBounds(graphics : *mut GpGraphics, rect : *mut RectF) -> Status);
     GdipGetVisibleClipBounds(graphics, rect)
 }
 #[inline]
 pub unsafe fn GdipGetVisibleClipBoundsI(graphics: *mut GpGraphics, rect: *mut Rect) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetVisibleClipBoundsI(graphics : *mut GpGraphics, rect : *mut Rect) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetVisibleClipBoundsI(graphics : *mut GpGraphics, rect : *mut Rect) -> Status);
     GdipGetVisibleClipBoundsI(graphics, rect)
 }
 #[inline]
 pub unsafe fn GdipGetWorldTransform(graphics: *mut GpGraphics, matrix: *mut Matrix) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetWorldTransform(graphics : *mut GpGraphics, matrix : *mut Matrix) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGetWorldTransform(graphics : *mut GpGraphics, matrix : *mut Matrix) -> Status);
     GdipGetWorldTransform(graphics, matrix)
 }
 #[inline]
 pub unsafe fn GdipGraphicsClear(graphics: *mut GpGraphics, color: u32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGraphicsClear(graphics : *mut GpGraphics, color : u32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGraphicsClear(graphics : *mut GpGraphics, color : u32) -> Status);
     GdipGraphicsClear(graphics, color)
 }
 #[inline]
@@ -2191,37 +2191,37 @@ pub unsafe fn GdipGraphicsSetAbort<P0>(pgraphics: *mut GpGraphics, piabort: P0) 
 where
     P0: windows_core::IntoParam<GdiplusAbort>,
 {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipGraphicsSetAbort(pgraphics : *mut GpGraphics, piabort : * mut core::ffi::c_void) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipGraphicsSetAbort(pgraphics : *mut GpGraphics, piabort : * mut core::ffi::c_void) -> Status);
     GdipGraphicsSetAbort(pgraphics, piabort.into_param().abi())
 }
 #[inline]
 pub unsafe fn GdipImageForceValidation(image: *mut GpImage) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipImageForceValidation(image : *mut GpImage) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipImageForceValidation(image : *mut GpImage) -> Status);
     GdipImageForceValidation(image)
 }
 #[inline]
 pub unsafe fn GdipImageGetFrameCount(image: *mut GpImage, dimensionid: *const windows_core::GUID, count: *mut u32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipImageGetFrameCount(image : *mut GpImage, dimensionid : *const windows_core::GUID, count : *mut u32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipImageGetFrameCount(image : *mut GpImage, dimensionid : *const windows_core::GUID, count : *mut u32) -> Status);
     GdipImageGetFrameCount(image, dimensionid, count)
 }
 #[inline]
 pub unsafe fn GdipImageGetFrameDimensionsCount(image: *mut GpImage, count: *mut u32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipImageGetFrameDimensionsCount(image : *mut GpImage, count : *mut u32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipImageGetFrameDimensionsCount(image : *mut GpImage, count : *mut u32) -> Status);
     GdipImageGetFrameDimensionsCount(image, count)
 }
 #[inline]
 pub unsafe fn GdipImageGetFrameDimensionsList(image: *mut GpImage, dimensionids: *mut windows_core::GUID, count: u32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipImageGetFrameDimensionsList(image : *mut GpImage, dimensionids : *mut windows_core::GUID, count : u32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipImageGetFrameDimensionsList(image : *mut GpImage, dimensionids : *mut windows_core::GUID, count : u32) -> Status);
     GdipImageGetFrameDimensionsList(image, dimensionids, count)
 }
 #[inline]
 pub unsafe fn GdipImageRotateFlip(image: *mut GpImage, rftype: RotateFlipType) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipImageRotateFlip(image : *mut GpImage, rftype : RotateFlipType) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipImageRotateFlip(image : *mut GpImage, rftype : RotateFlipType) -> Status);
     GdipImageRotateFlip(image, rftype)
 }
 #[inline]
 pub unsafe fn GdipImageSelectActiveFrame(image: *mut GpImage, dimensionid: *const windows_core::GUID, frameindex: u32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipImageSelectActiveFrame(image : *mut GpImage, dimensionid : *const windows_core::GUID, frameindex : u32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipImageSelectActiveFrame(image : *mut GpImage, dimensionid : *const windows_core::GUID, frameindex : u32) -> Status);
     GdipImageSelectActiveFrame(image, dimensionid, frameindex)
 }
 #[inline]
@@ -2229,7 +2229,7 @@ pub unsafe fn GdipImageSetAbort<P0>(pimage: *mut GpImage, piabort: P0) -> Status
 where
     P0: windows_core::IntoParam<GdiplusAbort>,
 {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipImageSetAbort(pimage : *mut GpImage, piabort : * mut core::ffi::c_void) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipImageSetAbort(pimage : *mut GpImage, piabort : * mut core::ffi::c_void) -> Status);
     GdipImageSetAbort(pimage, piabort.into_param().abi())
 }
 #[inline]
@@ -2237,117 +2237,117 @@ pub unsafe fn GdipInitializePalette<P0>(palette: *mut ColorPalette, palettetype:
 where
     P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipInitializePalette(palette : *mut ColorPalette, palettetype : PaletteType, optimalcolors : i32, usetransparentcolor : super::super::Foundation:: BOOL, bitmap : *mut GpBitmap) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipInitializePalette(palette : *mut ColorPalette, palettetype : PaletteType, optimalcolors : i32, usetransparentcolor : super::super::Foundation:: BOOL, bitmap : *mut GpBitmap) -> Status);
     GdipInitializePalette(palette, palettetype, optimalcolors, usetransparentcolor.into_param().abi(), bitmap)
 }
 #[inline]
 pub unsafe fn GdipInvertMatrix(matrix: *mut Matrix) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipInvertMatrix(matrix : *mut Matrix) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipInvertMatrix(matrix : *mut Matrix) -> Status);
     GdipInvertMatrix(matrix)
 }
 #[inline]
 pub unsafe fn GdipIsClipEmpty(graphics: *mut GpGraphics, result: *mut super::super::Foundation::BOOL) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipIsClipEmpty(graphics : *mut GpGraphics, result : *mut super::super::Foundation:: BOOL) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipIsClipEmpty(graphics : *mut GpGraphics, result : *mut super::super::Foundation:: BOOL) -> Status);
     GdipIsClipEmpty(graphics, result)
 }
 #[inline]
 pub unsafe fn GdipIsEmptyRegion(region: *mut GpRegion, graphics: *mut GpGraphics, result: *mut super::super::Foundation::BOOL) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipIsEmptyRegion(region : *mut GpRegion, graphics : *mut GpGraphics, result : *mut super::super::Foundation:: BOOL) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipIsEmptyRegion(region : *mut GpRegion, graphics : *mut GpGraphics, result : *mut super::super::Foundation:: BOOL) -> Status);
     GdipIsEmptyRegion(region, graphics, result)
 }
 #[inline]
 pub unsafe fn GdipIsEqualRegion(region: *mut GpRegion, region2: *mut GpRegion, graphics: *mut GpGraphics, result: *mut super::super::Foundation::BOOL) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipIsEqualRegion(region : *mut GpRegion, region2 : *mut GpRegion, graphics : *mut GpGraphics, result : *mut super::super::Foundation:: BOOL) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipIsEqualRegion(region : *mut GpRegion, region2 : *mut GpRegion, graphics : *mut GpGraphics, result : *mut super::super::Foundation:: BOOL) -> Status);
     GdipIsEqualRegion(region, region2, graphics, result)
 }
 #[inline]
 pub unsafe fn GdipIsInfiniteRegion(region: *mut GpRegion, graphics: *mut GpGraphics, result: *mut super::super::Foundation::BOOL) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipIsInfiniteRegion(region : *mut GpRegion, graphics : *mut GpGraphics, result : *mut super::super::Foundation:: BOOL) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipIsInfiniteRegion(region : *mut GpRegion, graphics : *mut GpGraphics, result : *mut super::super::Foundation:: BOOL) -> Status);
     GdipIsInfiniteRegion(region, graphics, result)
 }
 #[inline]
 pub unsafe fn GdipIsMatrixEqual(matrix: *const Matrix, matrix2: *const Matrix, result: *mut super::super::Foundation::BOOL) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipIsMatrixEqual(matrix : *const Matrix, matrix2 : *const Matrix, result : *mut super::super::Foundation:: BOOL) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipIsMatrixEqual(matrix : *const Matrix, matrix2 : *const Matrix, result : *mut super::super::Foundation:: BOOL) -> Status);
     GdipIsMatrixEqual(matrix, matrix2, result)
 }
 #[inline]
 pub unsafe fn GdipIsMatrixIdentity(matrix: *const Matrix, result: *mut super::super::Foundation::BOOL) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipIsMatrixIdentity(matrix : *const Matrix, result : *mut super::super::Foundation:: BOOL) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipIsMatrixIdentity(matrix : *const Matrix, result : *mut super::super::Foundation:: BOOL) -> Status);
     GdipIsMatrixIdentity(matrix, result)
 }
 #[inline]
 pub unsafe fn GdipIsMatrixInvertible(matrix: *const Matrix, result: *mut super::super::Foundation::BOOL) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipIsMatrixInvertible(matrix : *const Matrix, result : *mut super::super::Foundation:: BOOL) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipIsMatrixInvertible(matrix : *const Matrix, result : *mut super::super::Foundation:: BOOL) -> Status);
     GdipIsMatrixInvertible(matrix, result)
 }
 #[inline]
 pub unsafe fn GdipIsOutlineVisiblePathPoint(path: *mut GpPath, x: f32, y: f32, pen: *mut GpPen, graphics: *mut GpGraphics, result: *mut super::super::Foundation::BOOL) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipIsOutlineVisiblePathPoint(path : *mut GpPath, x : f32, y : f32, pen : *mut GpPen, graphics : *mut GpGraphics, result : *mut super::super::Foundation:: BOOL) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipIsOutlineVisiblePathPoint(path : *mut GpPath, x : f32, y : f32, pen : *mut GpPen, graphics : *mut GpGraphics, result : *mut super::super::Foundation:: BOOL) -> Status);
     GdipIsOutlineVisiblePathPoint(path, x, y, pen, graphics, result)
 }
 #[inline]
 pub unsafe fn GdipIsOutlineVisiblePathPointI(path: *mut GpPath, x: i32, y: i32, pen: *mut GpPen, graphics: *mut GpGraphics, result: *mut super::super::Foundation::BOOL) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipIsOutlineVisiblePathPointI(path : *mut GpPath, x : i32, y : i32, pen : *mut GpPen, graphics : *mut GpGraphics, result : *mut super::super::Foundation:: BOOL) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipIsOutlineVisiblePathPointI(path : *mut GpPath, x : i32, y : i32, pen : *mut GpPen, graphics : *mut GpGraphics, result : *mut super::super::Foundation:: BOOL) -> Status);
     GdipIsOutlineVisiblePathPointI(path, x, y, pen, graphics, result)
 }
 #[inline]
 pub unsafe fn GdipIsStyleAvailable(family: *const GpFontFamily, style: i32, isstyleavailable: *mut super::super::Foundation::BOOL) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipIsStyleAvailable(family : *const GpFontFamily, style : i32, isstyleavailable : *mut super::super::Foundation:: BOOL) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipIsStyleAvailable(family : *const GpFontFamily, style : i32, isstyleavailable : *mut super::super::Foundation:: BOOL) -> Status);
     GdipIsStyleAvailable(family, style, isstyleavailable)
 }
 #[inline]
 pub unsafe fn GdipIsVisibleClipEmpty(graphics: *mut GpGraphics, result: *mut super::super::Foundation::BOOL) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipIsVisibleClipEmpty(graphics : *mut GpGraphics, result : *mut super::super::Foundation:: BOOL) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipIsVisibleClipEmpty(graphics : *mut GpGraphics, result : *mut super::super::Foundation:: BOOL) -> Status);
     GdipIsVisibleClipEmpty(graphics, result)
 }
 #[inline]
 pub unsafe fn GdipIsVisiblePathPoint(path: *mut GpPath, x: f32, y: f32, graphics: *mut GpGraphics, result: *mut super::super::Foundation::BOOL) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipIsVisiblePathPoint(path : *mut GpPath, x : f32, y : f32, graphics : *mut GpGraphics, result : *mut super::super::Foundation:: BOOL) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipIsVisiblePathPoint(path : *mut GpPath, x : f32, y : f32, graphics : *mut GpGraphics, result : *mut super::super::Foundation:: BOOL) -> Status);
     GdipIsVisiblePathPoint(path, x, y, graphics, result)
 }
 #[inline]
 pub unsafe fn GdipIsVisiblePathPointI(path: *mut GpPath, x: i32, y: i32, graphics: *mut GpGraphics, result: *mut super::super::Foundation::BOOL) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipIsVisiblePathPointI(path : *mut GpPath, x : i32, y : i32, graphics : *mut GpGraphics, result : *mut super::super::Foundation:: BOOL) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipIsVisiblePathPointI(path : *mut GpPath, x : i32, y : i32, graphics : *mut GpGraphics, result : *mut super::super::Foundation:: BOOL) -> Status);
     GdipIsVisiblePathPointI(path, x, y, graphics, result)
 }
 #[inline]
 pub unsafe fn GdipIsVisiblePoint(graphics: *mut GpGraphics, x: f32, y: f32, result: *mut super::super::Foundation::BOOL) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipIsVisiblePoint(graphics : *mut GpGraphics, x : f32, y : f32, result : *mut super::super::Foundation:: BOOL) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipIsVisiblePoint(graphics : *mut GpGraphics, x : f32, y : f32, result : *mut super::super::Foundation:: BOOL) -> Status);
     GdipIsVisiblePoint(graphics, x, y, result)
 }
 #[inline]
 pub unsafe fn GdipIsVisiblePointI(graphics: *mut GpGraphics, x: i32, y: i32, result: *mut super::super::Foundation::BOOL) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipIsVisiblePointI(graphics : *mut GpGraphics, x : i32, y : i32, result : *mut super::super::Foundation:: BOOL) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipIsVisiblePointI(graphics : *mut GpGraphics, x : i32, y : i32, result : *mut super::super::Foundation:: BOOL) -> Status);
     GdipIsVisiblePointI(graphics, x, y, result)
 }
 #[inline]
 pub unsafe fn GdipIsVisibleRect(graphics: *mut GpGraphics, x: f32, y: f32, width: f32, height: f32, result: *mut super::super::Foundation::BOOL) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipIsVisibleRect(graphics : *mut GpGraphics, x : f32, y : f32, width : f32, height : f32, result : *mut super::super::Foundation:: BOOL) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipIsVisibleRect(graphics : *mut GpGraphics, x : f32, y : f32, width : f32, height : f32, result : *mut super::super::Foundation:: BOOL) -> Status);
     GdipIsVisibleRect(graphics, x, y, width, height, result)
 }
 #[inline]
 pub unsafe fn GdipIsVisibleRectI(graphics: *mut GpGraphics, x: i32, y: i32, width: i32, height: i32, result: *mut super::super::Foundation::BOOL) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipIsVisibleRectI(graphics : *mut GpGraphics, x : i32, y : i32, width : i32, height : i32, result : *mut super::super::Foundation:: BOOL) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipIsVisibleRectI(graphics : *mut GpGraphics, x : i32, y : i32, width : i32, height : i32, result : *mut super::super::Foundation:: BOOL) -> Status);
     GdipIsVisibleRectI(graphics, x, y, width, height, result)
 }
 #[inline]
 pub unsafe fn GdipIsVisibleRegionPoint(region: *mut GpRegion, x: f32, y: f32, graphics: *mut GpGraphics, result: *mut super::super::Foundation::BOOL) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipIsVisibleRegionPoint(region : *mut GpRegion, x : f32, y : f32, graphics : *mut GpGraphics, result : *mut super::super::Foundation:: BOOL) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipIsVisibleRegionPoint(region : *mut GpRegion, x : f32, y : f32, graphics : *mut GpGraphics, result : *mut super::super::Foundation:: BOOL) -> Status);
     GdipIsVisibleRegionPoint(region, x, y, graphics, result)
 }
 #[inline]
 pub unsafe fn GdipIsVisibleRegionPointI(region: *mut GpRegion, x: i32, y: i32, graphics: *mut GpGraphics, result: *mut super::super::Foundation::BOOL) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipIsVisibleRegionPointI(region : *mut GpRegion, x : i32, y : i32, graphics : *mut GpGraphics, result : *mut super::super::Foundation:: BOOL) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipIsVisibleRegionPointI(region : *mut GpRegion, x : i32, y : i32, graphics : *mut GpGraphics, result : *mut super::super::Foundation:: BOOL) -> Status);
     GdipIsVisibleRegionPointI(region, x, y, graphics, result)
 }
 #[inline]
 pub unsafe fn GdipIsVisibleRegionRect(region: *mut GpRegion, x: f32, y: f32, width: f32, height: f32, graphics: *mut GpGraphics, result: *mut super::super::Foundation::BOOL) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipIsVisibleRegionRect(region : *mut GpRegion, x : f32, y : f32, width : f32, height : f32, graphics : *mut GpGraphics, result : *mut super::super::Foundation:: BOOL) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipIsVisibleRegionRect(region : *mut GpRegion, x : f32, y : f32, width : f32, height : f32, graphics : *mut GpGraphics, result : *mut super::super::Foundation:: BOOL) -> Status);
     GdipIsVisibleRegionRect(region, x, y, width, height, graphics, result)
 }
 #[inline]
 pub unsafe fn GdipIsVisibleRegionRectI(region: *mut GpRegion, x: i32, y: i32, width: i32, height: i32, graphics: *mut GpGraphics, result: *mut super::super::Foundation::BOOL) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipIsVisibleRegionRectI(region : *mut GpRegion, x : i32, y : i32, width : i32, height : i32, graphics : *mut GpGraphics, result : *mut super::super::Foundation:: BOOL) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipIsVisibleRegionRectI(region : *mut GpRegion, x : i32, y : i32, width : i32, height : i32, graphics : *mut GpGraphics, result : *mut super::super::Foundation:: BOOL) -> Status);
     GdipIsVisibleRegionRectI(region, x, y, width, height, graphics, result)
 }
 #[inline]
@@ -2355,7 +2355,7 @@ pub unsafe fn GdipLoadImageFromFile<P0>(filename: P0, image: *mut *mut GpImage) 
 where
     P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipLoadImageFromFile(filename : windows_core::PCWSTR, image : *mut *mut GpImage) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipLoadImageFromFile(filename : windows_core::PCWSTR, image : *mut *mut GpImage) -> Status);
     GdipLoadImageFromFile(filename.into_param().abi(), image)
 }
 #[inline]
@@ -2363,7 +2363,7 @@ pub unsafe fn GdipLoadImageFromFileICM<P0>(filename: P0, image: *mut *mut GpImag
 where
     P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipLoadImageFromFileICM(filename : windows_core::PCWSTR, image : *mut *mut GpImage) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipLoadImageFromFileICM(filename : windows_core::PCWSTR, image : *mut *mut GpImage) -> Status);
     GdipLoadImageFromFileICM(filename.into_param().abi(), image)
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2372,7 +2372,7 @@ pub unsafe fn GdipLoadImageFromStream<P0>(stream: P0, image: *mut *mut GpImage) 
 where
     P0: windows_core::IntoParam<super::super::System::Com::IStream>,
 {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipLoadImageFromStream(stream : * mut core::ffi::c_void, image : *mut *mut GpImage) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipLoadImageFromStream(stream : * mut core::ffi::c_void, image : *mut *mut GpImage) -> Status);
     GdipLoadImageFromStream(stream.into_param().abi(), image)
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2381,7 +2381,7 @@ pub unsafe fn GdipLoadImageFromStreamICM<P0>(stream: P0, image: *mut *mut GpImag
 where
     P0: windows_core::IntoParam<super::super::System::Com::IStream>,
 {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipLoadImageFromStreamICM(stream : * mut core::ffi::c_void, image : *mut *mut GpImage) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipLoadImageFromStreamICM(stream : * mut core::ffi::c_void, image : *mut *mut GpImage) -> Status);
     GdipLoadImageFromStreamICM(stream.into_param().abi(), image)
 }
 #[inline]
@@ -2389,12 +2389,12 @@ pub unsafe fn GdipMeasureCharacterRanges<P0>(graphics: *mut GpGraphics, string: 
 where
     P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipMeasureCharacterRanges(graphics : *mut GpGraphics, string : windows_core::PCWSTR, length : i32, font : *const GpFont, layoutrect : *const RectF, stringformat : *const GpStringFormat, regioncount : i32, regions : *mut *mut GpRegion) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipMeasureCharacterRanges(graphics : *mut GpGraphics, string : windows_core::PCWSTR, length : i32, font : *const GpFont, layoutrect : *const RectF, stringformat : *const GpStringFormat, regioncount : i32, regions : *mut *mut GpRegion) -> Status);
     GdipMeasureCharacterRanges(graphics, string.into_param().abi(), length, font, layoutrect, stringformat, regioncount, regions)
 }
 #[inline]
 pub unsafe fn GdipMeasureDriverString(graphics: *mut GpGraphics, text: *const u16, length: i32, font: *const GpFont, positions: *const PointF, flags: i32, matrix: *const Matrix, boundingbox: *mut RectF) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipMeasureDriverString(graphics : *mut GpGraphics, text : *const u16, length : i32, font : *const GpFont, positions : *const PointF, flags : i32, matrix : *const Matrix, boundingbox : *mut RectF) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipMeasureDriverString(graphics : *mut GpGraphics, text : *const u16, length : i32, font : *const GpFont, positions : *const PointF, flags : i32, matrix : *const Matrix, boundingbox : *mut RectF) -> Status);
     GdipMeasureDriverString(graphics, text, length, font, positions, flags, matrix, boundingbox)
 }
 #[inline]
@@ -2402,112 +2402,112 @@ pub unsafe fn GdipMeasureString<P0>(graphics: *mut GpGraphics, string: P0, lengt
 where
     P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipMeasureString(graphics : *mut GpGraphics, string : windows_core::PCWSTR, length : i32, font : *const GpFont, layoutrect : *const RectF, stringformat : *const GpStringFormat, boundingbox : *mut RectF, codepointsfitted : *mut i32, linesfilled : *mut i32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipMeasureString(graphics : *mut GpGraphics, string : windows_core::PCWSTR, length : i32, font : *const GpFont, layoutrect : *const RectF, stringformat : *const GpStringFormat, boundingbox : *mut RectF, codepointsfitted : *mut i32, linesfilled : *mut i32) -> Status);
     GdipMeasureString(graphics, string.into_param().abi(), length, font, layoutrect, stringformat, boundingbox, codepointsfitted, linesfilled)
 }
 #[inline]
 pub unsafe fn GdipMultiplyLineTransform(brush: *mut GpLineGradient, matrix: *const Matrix, order: MatrixOrder) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipMultiplyLineTransform(brush : *mut GpLineGradient, matrix : *const Matrix, order : MatrixOrder) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipMultiplyLineTransform(brush : *mut GpLineGradient, matrix : *const Matrix, order : MatrixOrder) -> Status);
     GdipMultiplyLineTransform(brush, matrix, order)
 }
 #[inline]
 pub unsafe fn GdipMultiplyMatrix(matrix: *mut Matrix, matrix2: *mut Matrix, order: MatrixOrder) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipMultiplyMatrix(matrix : *mut Matrix, matrix2 : *mut Matrix, order : MatrixOrder) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipMultiplyMatrix(matrix : *mut Matrix, matrix2 : *mut Matrix, order : MatrixOrder) -> Status);
     GdipMultiplyMatrix(matrix, matrix2, order)
 }
 #[inline]
 pub unsafe fn GdipMultiplyPathGradientTransform(brush: *mut GpPathGradient, matrix: *const Matrix, order: MatrixOrder) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipMultiplyPathGradientTransform(brush : *mut GpPathGradient, matrix : *const Matrix, order : MatrixOrder) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipMultiplyPathGradientTransform(brush : *mut GpPathGradient, matrix : *const Matrix, order : MatrixOrder) -> Status);
     GdipMultiplyPathGradientTransform(brush, matrix, order)
 }
 #[inline]
 pub unsafe fn GdipMultiplyPenTransform(pen: *mut GpPen, matrix: *const Matrix, order: MatrixOrder) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipMultiplyPenTransform(pen : *mut GpPen, matrix : *const Matrix, order : MatrixOrder) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipMultiplyPenTransform(pen : *mut GpPen, matrix : *const Matrix, order : MatrixOrder) -> Status);
     GdipMultiplyPenTransform(pen, matrix, order)
 }
 #[inline]
 pub unsafe fn GdipMultiplyTextureTransform(brush: *mut GpTexture, matrix: *const Matrix, order: MatrixOrder) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipMultiplyTextureTransform(brush : *mut GpTexture, matrix : *const Matrix, order : MatrixOrder) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipMultiplyTextureTransform(brush : *mut GpTexture, matrix : *const Matrix, order : MatrixOrder) -> Status);
     GdipMultiplyTextureTransform(brush, matrix, order)
 }
 #[inline]
 pub unsafe fn GdipMultiplyWorldTransform(graphics: *mut GpGraphics, matrix: *const Matrix, order: MatrixOrder) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipMultiplyWorldTransform(graphics : *mut GpGraphics, matrix : *const Matrix, order : MatrixOrder) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipMultiplyWorldTransform(graphics : *mut GpGraphics, matrix : *const Matrix, order : MatrixOrder) -> Status);
     GdipMultiplyWorldTransform(graphics, matrix, order)
 }
 #[inline]
 pub unsafe fn GdipNewInstalledFontCollection(fontcollection: *mut *mut GpFontCollection) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipNewInstalledFontCollection(fontcollection : *mut *mut GpFontCollection) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipNewInstalledFontCollection(fontcollection : *mut *mut GpFontCollection) -> Status);
     GdipNewInstalledFontCollection(fontcollection)
 }
 #[inline]
 pub unsafe fn GdipNewPrivateFontCollection(fontcollection: *mut *mut GpFontCollection) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipNewPrivateFontCollection(fontcollection : *mut *mut GpFontCollection) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipNewPrivateFontCollection(fontcollection : *mut *mut GpFontCollection) -> Status);
     GdipNewPrivateFontCollection(fontcollection)
 }
 #[inline]
 pub unsafe fn GdipPathIterCopyData(iterator: *mut GpPathIterator, resultcount: *mut i32, points: *mut PointF, types: *mut u8, startindex: i32, endindex: i32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipPathIterCopyData(iterator : *mut GpPathIterator, resultcount : *mut i32, points : *mut PointF, types : *mut u8, startindex : i32, endindex : i32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipPathIterCopyData(iterator : *mut GpPathIterator, resultcount : *mut i32, points : *mut PointF, types : *mut u8, startindex : i32, endindex : i32) -> Status);
     GdipPathIterCopyData(iterator, resultcount, points, types, startindex, endindex)
 }
 #[inline]
 pub unsafe fn GdipPathIterEnumerate(iterator: *mut GpPathIterator, resultcount: *mut i32, points: *mut PointF, types: *mut u8, count: i32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipPathIterEnumerate(iterator : *mut GpPathIterator, resultcount : *mut i32, points : *mut PointF, types : *mut u8, count : i32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipPathIterEnumerate(iterator : *mut GpPathIterator, resultcount : *mut i32, points : *mut PointF, types : *mut u8, count : i32) -> Status);
     GdipPathIterEnumerate(iterator, resultcount, points, types, count)
 }
 #[inline]
 pub unsafe fn GdipPathIterGetCount(iterator: *mut GpPathIterator, count: *mut i32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipPathIterGetCount(iterator : *mut GpPathIterator, count : *mut i32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipPathIterGetCount(iterator : *mut GpPathIterator, count : *mut i32) -> Status);
     GdipPathIterGetCount(iterator, count)
 }
 #[inline]
 pub unsafe fn GdipPathIterGetSubpathCount(iterator: *mut GpPathIterator, count: *mut i32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipPathIterGetSubpathCount(iterator : *mut GpPathIterator, count : *mut i32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipPathIterGetSubpathCount(iterator : *mut GpPathIterator, count : *mut i32) -> Status);
     GdipPathIterGetSubpathCount(iterator, count)
 }
 #[inline]
 pub unsafe fn GdipPathIterHasCurve(iterator: *mut GpPathIterator, hascurve: *mut super::super::Foundation::BOOL) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipPathIterHasCurve(iterator : *mut GpPathIterator, hascurve : *mut super::super::Foundation:: BOOL) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipPathIterHasCurve(iterator : *mut GpPathIterator, hascurve : *mut super::super::Foundation:: BOOL) -> Status);
     GdipPathIterHasCurve(iterator, hascurve)
 }
 #[inline]
 pub unsafe fn GdipPathIterIsValid(iterator: *mut GpPathIterator, valid: *mut super::super::Foundation::BOOL) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipPathIterIsValid(iterator : *mut GpPathIterator, valid : *mut super::super::Foundation:: BOOL) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipPathIterIsValid(iterator : *mut GpPathIterator, valid : *mut super::super::Foundation:: BOOL) -> Status);
     GdipPathIterIsValid(iterator, valid)
 }
 #[inline]
 pub unsafe fn GdipPathIterNextMarker(iterator: *mut GpPathIterator, resultcount: *mut i32, startindex: *mut i32, endindex: *mut i32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipPathIterNextMarker(iterator : *mut GpPathIterator, resultcount : *mut i32, startindex : *mut i32, endindex : *mut i32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipPathIterNextMarker(iterator : *mut GpPathIterator, resultcount : *mut i32, startindex : *mut i32, endindex : *mut i32) -> Status);
     GdipPathIterNextMarker(iterator, resultcount, startindex, endindex)
 }
 #[inline]
 pub unsafe fn GdipPathIterNextMarkerPath(iterator: *mut GpPathIterator, resultcount: *mut i32, path: *mut GpPath) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipPathIterNextMarkerPath(iterator : *mut GpPathIterator, resultcount : *mut i32, path : *mut GpPath) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipPathIterNextMarkerPath(iterator : *mut GpPathIterator, resultcount : *mut i32, path : *mut GpPath) -> Status);
     GdipPathIterNextMarkerPath(iterator, resultcount, path)
 }
 #[inline]
 pub unsafe fn GdipPathIterNextPathType(iterator: *mut GpPathIterator, resultcount: *mut i32, pathtype: *mut u8, startindex: *mut i32, endindex: *mut i32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipPathIterNextPathType(iterator : *mut GpPathIterator, resultcount : *mut i32, pathtype : *mut u8, startindex : *mut i32, endindex : *mut i32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipPathIterNextPathType(iterator : *mut GpPathIterator, resultcount : *mut i32, pathtype : *mut u8, startindex : *mut i32, endindex : *mut i32) -> Status);
     GdipPathIterNextPathType(iterator, resultcount, pathtype, startindex, endindex)
 }
 #[inline]
 pub unsafe fn GdipPathIterNextSubpath(iterator: *mut GpPathIterator, resultcount: *mut i32, startindex: *mut i32, endindex: *mut i32, isclosed: *mut super::super::Foundation::BOOL) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipPathIterNextSubpath(iterator : *mut GpPathIterator, resultcount : *mut i32, startindex : *mut i32, endindex : *mut i32, isclosed : *mut super::super::Foundation:: BOOL) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipPathIterNextSubpath(iterator : *mut GpPathIterator, resultcount : *mut i32, startindex : *mut i32, endindex : *mut i32, isclosed : *mut super::super::Foundation:: BOOL) -> Status);
     GdipPathIterNextSubpath(iterator, resultcount, startindex, endindex, isclosed)
 }
 #[inline]
 pub unsafe fn GdipPathIterNextSubpathPath(iterator: *mut GpPathIterator, resultcount: *mut i32, path: *mut GpPath, isclosed: *mut super::super::Foundation::BOOL) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipPathIterNextSubpathPath(iterator : *mut GpPathIterator, resultcount : *mut i32, path : *mut GpPath, isclosed : *mut super::super::Foundation:: BOOL) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipPathIterNextSubpathPath(iterator : *mut GpPathIterator, resultcount : *mut i32, path : *mut GpPath, isclosed : *mut super::super::Foundation:: BOOL) -> Status);
     GdipPathIterNextSubpathPath(iterator, resultcount, path, isclosed)
 }
 #[inline]
 pub unsafe fn GdipPathIterRewind(iterator: *mut GpPathIterator) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipPathIterRewind(iterator : *mut GpPathIterator) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipPathIterRewind(iterator : *mut GpPathIterator) -> Status);
     GdipPathIterRewind(iterator)
 }
 #[inline]
 pub unsafe fn GdipPlayMetafileRecord(metafile: *const GpMetafile, recordtype: EmfPlusRecordType, flags: u32, datasize: u32, data: *const u8) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipPlayMetafileRecord(metafile : *const GpMetafile, recordtype : EmfPlusRecordType, flags : u32, datasize : u32, data : *const u8) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipPlayMetafileRecord(metafile : *const GpMetafile, recordtype : EmfPlusRecordType, flags : u32, datasize : u32, data : *const u8) -> Status);
     GdipPlayMetafileRecord(metafile, recordtype, flags, datasize, data)
 }
 #[inline]
@@ -2515,12 +2515,12 @@ pub unsafe fn GdipPrivateAddFontFile<P0>(fontcollection: *mut GpFontCollection, 
 where
     P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipPrivateAddFontFile(fontcollection : *mut GpFontCollection, filename : windows_core::PCWSTR) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipPrivateAddFontFile(fontcollection : *mut GpFontCollection, filename : windows_core::PCWSTR) -> Status);
     GdipPrivateAddFontFile(fontcollection, filename.into_param().abi())
 }
 #[inline]
 pub unsafe fn GdipPrivateAddMemoryFont(fontcollection: *mut GpFontCollection, memory: *const core::ffi::c_void, length: i32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipPrivateAddMemoryFont(fontcollection : *mut GpFontCollection, memory : *const core::ffi::c_void, length : i32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipPrivateAddMemoryFont(fontcollection : *mut GpFontCollection, memory : *const core::ffi::c_void, length : i32) -> Status);
     GdipPrivateAddMemoryFont(fontcollection, memory, length)
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -2530,7 +2530,7 @@ where
     P0: windows_core::IntoParam<super::Gdi::HDC>,
     P1: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipRecordMetafile(referencehdc : super::Gdi:: HDC, r#type : EmfType, framerect : *const RectF, frameunit : MetafileFrameUnit, description : windows_core::PCWSTR, metafile : *mut *mut GpMetafile) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipRecordMetafile(referencehdc : super::Gdi:: HDC, r#type : EmfType, framerect : *const RectF, frameunit : MetafileFrameUnit, description : windows_core::PCWSTR, metafile : *mut *mut GpMetafile) -> Status);
     GdipRecordMetafile(referencehdc.into_param().abi(), r#type, framerect, frameunit, description.into_param().abi(), metafile)
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -2541,7 +2541,7 @@ where
     P1: windows_core::IntoParam<super::Gdi::HDC>,
     P2: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipRecordMetafileFileName(filename : windows_core::PCWSTR, referencehdc : super::Gdi:: HDC, r#type : EmfType, framerect : *const RectF, frameunit : MetafileFrameUnit, description : windows_core::PCWSTR, metafile : *mut *mut GpMetafile) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipRecordMetafileFileName(filename : windows_core::PCWSTR, referencehdc : super::Gdi:: HDC, r#type : EmfType, framerect : *const RectF, frameunit : MetafileFrameUnit, description : windows_core::PCWSTR, metafile : *mut *mut GpMetafile) -> Status);
     GdipRecordMetafileFileName(filename.into_param().abi(), referencehdc.into_param().abi(), r#type, framerect, frameunit, description.into_param().abi(), metafile)
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -2552,7 +2552,7 @@ where
     P1: windows_core::IntoParam<super::Gdi::HDC>,
     P2: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipRecordMetafileFileNameI(filename : windows_core::PCWSTR, referencehdc : super::Gdi:: HDC, r#type : EmfType, framerect : *const Rect, frameunit : MetafileFrameUnit, description : windows_core::PCWSTR, metafile : *mut *mut GpMetafile) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipRecordMetafileFileNameI(filename : windows_core::PCWSTR, referencehdc : super::Gdi:: HDC, r#type : EmfType, framerect : *const Rect, frameunit : MetafileFrameUnit, description : windows_core::PCWSTR, metafile : *mut *mut GpMetafile) -> Status);
     GdipRecordMetafileFileNameI(filename.into_param().abi(), referencehdc.into_param().abi(), r#type, framerect, frameunit, description.into_param().abi(), metafile)
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -2562,7 +2562,7 @@ where
     P0: windows_core::IntoParam<super::Gdi::HDC>,
     P1: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipRecordMetafileI(referencehdc : super::Gdi:: HDC, r#type : EmfType, framerect : *const Rect, frameunit : MetafileFrameUnit, description : windows_core::PCWSTR, metafile : *mut *mut GpMetafile) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipRecordMetafileI(referencehdc : super::Gdi:: HDC, r#type : EmfType, framerect : *const Rect, frameunit : MetafileFrameUnit, description : windows_core::PCWSTR, metafile : *mut *mut GpMetafile) -> Status);
     GdipRecordMetafileI(referencehdc.into_param().abi(), r#type, framerect, frameunit, description.into_param().abi(), metafile)
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
@@ -2573,7 +2573,7 @@ where
     P1: windows_core::IntoParam<super::Gdi::HDC>,
     P2: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipRecordMetafileStream(stream : * mut core::ffi::c_void, referencehdc : super::Gdi:: HDC, r#type : EmfType, framerect : *const RectF, frameunit : MetafileFrameUnit, description : windows_core::PCWSTR, metafile : *mut *mut GpMetafile) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipRecordMetafileStream(stream : * mut core::ffi::c_void, referencehdc : super::Gdi:: HDC, r#type : EmfType, framerect : *const RectF, frameunit : MetafileFrameUnit, description : windows_core::PCWSTR, metafile : *mut *mut GpMetafile) -> Status);
     GdipRecordMetafileStream(stream.into_param().abi(), referencehdc.into_param().abi(), r#type, framerect, frameunit, description.into_param().abi(), metafile)
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
@@ -2584,7 +2584,7 @@ where
     P1: windows_core::IntoParam<super::Gdi::HDC>,
     P2: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipRecordMetafileStreamI(stream : * mut core::ffi::c_void, referencehdc : super::Gdi:: HDC, r#type : EmfType, framerect : *const Rect, frameunit : MetafileFrameUnit, description : windows_core::PCWSTR, metafile : *mut *mut GpMetafile) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipRecordMetafileStreamI(stream : * mut core::ffi::c_void, referencehdc : super::Gdi:: HDC, r#type : EmfType, framerect : *const Rect, frameunit : MetafileFrameUnit, description : windows_core::PCWSTR, metafile : *mut *mut GpMetafile) -> Status);
     GdipRecordMetafileStreamI(stream.into_param().abi(), referencehdc.into_param().abi(), r#type, framerect, frameunit, description.into_param().abi(), metafile)
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -2593,112 +2593,112 @@ pub unsafe fn GdipReleaseDC<P0>(graphics: *mut GpGraphics, hdc: P0) -> Status
 where
     P0: windows_core::IntoParam<super::Gdi::HDC>,
 {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipReleaseDC(graphics : *mut GpGraphics, hdc : super::Gdi:: HDC) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipReleaseDC(graphics : *mut GpGraphics, hdc : super::Gdi:: HDC) -> Status);
     GdipReleaseDC(graphics, hdc.into_param().abi())
 }
 #[inline]
 pub unsafe fn GdipRemovePropertyItem(image: *mut GpImage, propid: u32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipRemovePropertyItem(image : *mut GpImage, propid : u32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipRemovePropertyItem(image : *mut GpImage, propid : u32) -> Status);
     GdipRemovePropertyItem(image, propid)
 }
 #[inline]
 pub unsafe fn GdipResetClip(graphics: *mut GpGraphics) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipResetClip(graphics : *mut GpGraphics) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipResetClip(graphics : *mut GpGraphics) -> Status);
     GdipResetClip(graphics)
 }
 #[inline]
 pub unsafe fn GdipResetImageAttributes(imageattr: *mut GpImageAttributes, r#type: ColorAdjustType) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipResetImageAttributes(imageattr : *mut GpImageAttributes, r#type : ColorAdjustType) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipResetImageAttributes(imageattr : *mut GpImageAttributes, r#type : ColorAdjustType) -> Status);
     GdipResetImageAttributes(imageattr, r#type)
 }
 #[inline]
 pub unsafe fn GdipResetLineTransform(brush: *mut GpLineGradient) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipResetLineTransform(brush : *mut GpLineGradient) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipResetLineTransform(brush : *mut GpLineGradient) -> Status);
     GdipResetLineTransform(brush)
 }
 #[inline]
 pub unsafe fn GdipResetPageTransform(graphics: *mut GpGraphics) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipResetPageTransform(graphics : *mut GpGraphics) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipResetPageTransform(graphics : *mut GpGraphics) -> Status);
     GdipResetPageTransform(graphics)
 }
 #[inline]
 pub unsafe fn GdipResetPath(path: *mut GpPath) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipResetPath(path : *mut GpPath) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipResetPath(path : *mut GpPath) -> Status);
     GdipResetPath(path)
 }
 #[inline]
 pub unsafe fn GdipResetPathGradientTransform(brush: *mut GpPathGradient) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipResetPathGradientTransform(brush : *mut GpPathGradient) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipResetPathGradientTransform(brush : *mut GpPathGradient) -> Status);
     GdipResetPathGradientTransform(brush)
 }
 #[inline]
 pub unsafe fn GdipResetPenTransform(pen: *mut GpPen) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipResetPenTransform(pen : *mut GpPen) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipResetPenTransform(pen : *mut GpPen) -> Status);
     GdipResetPenTransform(pen)
 }
 #[inline]
 pub unsafe fn GdipResetTextureTransform(brush: *mut GpTexture) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipResetTextureTransform(brush : *mut GpTexture) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipResetTextureTransform(brush : *mut GpTexture) -> Status);
     GdipResetTextureTransform(brush)
 }
 #[inline]
 pub unsafe fn GdipResetWorldTransform(graphics: *mut GpGraphics) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipResetWorldTransform(graphics : *mut GpGraphics) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipResetWorldTransform(graphics : *mut GpGraphics) -> Status);
     GdipResetWorldTransform(graphics)
 }
 #[inline]
 pub unsafe fn GdipRestoreGraphics(graphics: *mut GpGraphics, state: u32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipRestoreGraphics(graphics : *mut GpGraphics, state : u32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipRestoreGraphics(graphics : *mut GpGraphics, state : u32) -> Status);
     GdipRestoreGraphics(graphics, state)
 }
 #[inline]
 pub unsafe fn GdipReversePath(path: *mut GpPath) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipReversePath(path : *mut GpPath) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipReversePath(path : *mut GpPath) -> Status);
     GdipReversePath(path)
 }
 #[inline]
 pub unsafe fn GdipRotateLineTransform(brush: *mut GpLineGradient, angle: f32, order: MatrixOrder) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipRotateLineTransform(brush : *mut GpLineGradient, angle : f32, order : MatrixOrder) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipRotateLineTransform(brush : *mut GpLineGradient, angle : f32, order : MatrixOrder) -> Status);
     GdipRotateLineTransform(brush, angle, order)
 }
 #[inline]
 pub unsafe fn GdipRotateMatrix(matrix: *mut Matrix, angle: f32, order: MatrixOrder) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipRotateMatrix(matrix : *mut Matrix, angle : f32, order : MatrixOrder) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipRotateMatrix(matrix : *mut Matrix, angle : f32, order : MatrixOrder) -> Status);
     GdipRotateMatrix(matrix, angle, order)
 }
 #[inline]
 pub unsafe fn GdipRotatePathGradientTransform(brush: *mut GpPathGradient, angle: f32, order: MatrixOrder) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipRotatePathGradientTransform(brush : *mut GpPathGradient, angle : f32, order : MatrixOrder) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipRotatePathGradientTransform(brush : *mut GpPathGradient, angle : f32, order : MatrixOrder) -> Status);
     GdipRotatePathGradientTransform(brush, angle, order)
 }
 #[inline]
 pub unsafe fn GdipRotatePenTransform(pen: *mut GpPen, angle: f32, order: MatrixOrder) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipRotatePenTransform(pen : *mut GpPen, angle : f32, order : MatrixOrder) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipRotatePenTransform(pen : *mut GpPen, angle : f32, order : MatrixOrder) -> Status);
     GdipRotatePenTransform(pen, angle, order)
 }
 #[inline]
 pub unsafe fn GdipRotateTextureTransform(brush: *mut GpTexture, angle: f32, order: MatrixOrder) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipRotateTextureTransform(brush : *mut GpTexture, angle : f32, order : MatrixOrder) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipRotateTextureTransform(brush : *mut GpTexture, angle : f32, order : MatrixOrder) -> Status);
     GdipRotateTextureTransform(brush, angle, order)
 }
 #[inline]
 pub unsafe fn GdipRotateWorldTransform(graphics: *mut GpGraphics, angle: f32, order: MatrixOrder) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipRotateWorldTransform(graphics : *mut GpGraphics, angle : f32, order : MatrixOrder) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipRotateWorldTransform(graphics : *mut GpGraphics, angle : f32, order : MatrixOrder) -> Status);
     GdipRotateWorldTransform(graphics, angle, order)
 }
 #[inline]
 pub unsafe fn GdipSaveAdd(image: *mut GpImage, encoderparams: *const EncoderParameters) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipSaveAdd(image : *mut GpImage, encoderparams : *const EncoderParameters) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipSaveAdd(image : *mut GpImage, encoderparams : *const EncoderParameters) -> Status);
     GdipSaveAdd(image, encoderparams)
 }
 #[inline]
 pub unsafe fn GdipSaveAddImage(image: *mut GpImage, newimage: *mut GpImage, encoderparams: *const EncoderParameters) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipSaveAddImage(image : *mut GpImage, newimage : *mut GpImage, encoderparams : *const EncoderParameters) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipSaveAddImage(image : *mut GpImage, newimage : *mut GpImage, encoderparams : *const EncoderParameters) -> Status);
     GdipSaveAddImage(image, newimage, encoderparams)
 }
 #[inline]
 pub unsafe fn GdipSaveGraphics(graphics: *mut GpGraphics, state: *mut u32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipSaveGraphics(graphics : *mut GpGraphics, state : *mut u32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipSaveGraphics(graphics : *mut GpGraphics, state : *mut u32) -> Status);
     GdipSaveGraphics(graphics, state)
 }
 #[inline]
@@ -2706,7 +2706,7 @@ pub unsafe fn GdipSaveImageToFile<P0>(image: *mut GpImage, filename: P0, clsiden
 where
     P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipSaveImageToFile(image : *mut GpImage, filename : windows_core::PCWSTR, clsidencoder : *const windows_core::GUID, encoderparams : *const EncoderParameters) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipSaveImageToFile(image : *mut GpImage, filename : windows_core::PCWSTR, clsidencoder : *const windows_core::GUID, encoderparams : *const EncoderParameters) -> Status);
     GdipSaveImageToFile(image, filename.into_param().abi(), clsidencoder, encoderparams)
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2715,37 +2715,37 @@ pub unsafe fn GdipSaveImageToStream<P0>(image: *mut GpImage, stream: P0, clsiden
 where
     P0: windows_core::IntoParam<super::super::System::Com::IStream>,
 {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipSaveImageToStream(image : *mut GpImage, stream : * mut core::ffi::c_void, clsidencoder : *const windows_core::GUID, encoderparams : *const EncoderParameters) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipSaveImageToStream(image : *mut GpImage, stream : * mut core::ffi::c_void, clsidencoder : *const windows_core::GUID, encoderparams : *const EncoderParameters) -> Status);
     GdipSaveImageToStream(image, stream.into_param().abi(), clsidencoder, encoderparams)
 }
 #[inline]
 pub unsafe fn GdipScaleLineTransform(brush: *mut GpLineGradient, sx: f32, sy: f32, order: MatrixOrder) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipScaleLineTransform(brush : *mut GpLineGradient, sx : f32, sy : f32, order : MatrixOrder) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipScaleLineTransform(brush : *mut GpLineGradient, sx : f32, sy : f32, order : MatrixOrder) -> Status);
     GdipScaleLineTransform(brush, sx, sy, order)
 }
 #[inline]
 pub unsafe fn GdipScaleMatrix(matrix: *mut Matrix, scalex: f32, scaley: f32, order: MatrixOrder) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipScaleMatrix(matrix : *mut Matrix, scalex : f32, scaley : f32, order : MatrixOrder) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipScaleMatrix(matrix : *mut Matrix, scalex : f32, scaley : f32, order : MatrixOrder) -> Status);
     GdipScaleMatrix(matrix, scalex, scaley, order)
 }
 #[inline]
 pub unsafe fn GdipScalePathGradientTransform(brush: *mut GpPathGradient, sx: f32, sy: f32, order: MatrixOrder) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipScalePathGradientTransform(brush : *mut GpPathGradient, sx : f32, sy : f32, order : MatrixOrder) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipScalePathGradientTransform(brush : *mut GpPathGradient, sx : f32, sy : f32, order : MatrixOrder) -> Status);
     GdipScalePathGradientTransform(brush, sx, sy, order)
 }
 #[inline]
 pub unsafe fn GdipScalePenTransform(pen: *mut GpPen, sx: f32, sy: f32, order: MatrixOrder) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipScalePenTransform(pen : *mut GpPen, sx : f32, sy : f32, order : MatrixOrder) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipScalePenTransform(pen : *mut GpPen, sx : f32, sy : f32, order : MatrixOrder) -> Status);
     GdipScalePenTransform(pen, sx, sy, order)
 }
 #[inline]
 pub unsafe fn GdipScaleTextureTransform(brush: *mut GpTexture, sx: f32, sy: f32, order: MatrixOrder) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipScaleTextureTransform(brush : *mut GpTexture, sx : f32, sy : f32, order : MatrixOrder) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipScaleTextureTransform(brush : *mut GpTexture, sx : f32, sy : f32, order : MatrixOrder) -> Status);
     GdipScaleTextureTransform(brush, sx, sy, order)
 }
 #[inline]
 pub unsafe fn GdipScaleWorldTransform(graphics: *mut GpGraphics, sx: f32, sy: f32, order: MatrixOrder) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipScaleWorldTransform(graphics : *mut GpGraphics, sx : f32, sy : f32, order : MatrixOrder) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipScaleWorldTransform(graphics : *mut GpGraphics, sx : f32, sy : f32, order : MatrixOrder) -> Status);
     GdipScaleWorldTransform(graphics, sx, sy, order)
 }
 #[inline]
@@ -2753,27 +2753,27 @@ pub unsafe fn GdipSetAdjustableArrowCapFillState<P0>(cap: *mut GpAdjustableArrow
 where
     P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetAdjustableArrowCapFillState(cap : *mut GpAdjustableArrowCap, fillstate : super::super::Foundation:: BOOL) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipSetAdjustableArrowCapFillState(cap : *mut GpAdjustableArrowCap, fillstate : super::super::Foundation:: BOOL) -> Status);
     GdipSetAdjustableArrowCapFillState(cap, fillstate.into_param().abi())
 }
 #[inline]
 pub unsafe fn GdipSetAdjustableArrowCapHeight(cap: *mut GpAdjustableArrowCap, height: f32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetAdjustableArrowCapHeight(cap : *mut GpAdjustableArrowCap, height : f32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipSetAdjustableArrowCapHeight(cap : *mut GpAdjustableArrowCap, height : f32) -> Status);
     GdipSetAdjustableArrowCapHeight(cap, height)
 }
 #[inline]
 pub unsafe fn GdipSetAdjustableArrowCapMiddleInset(cap: *mut GpAdjustableArrowCap, middleinset: f32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetAdjustableArrowCapMiddleInset(cap : *mut GpAdjustableArrowCap, middleinset : f32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipSetAdjustableArrowCapMiddleInset(cap : *mut GpAdjustableArrowCap, middleinset : f32) -> Status);
     GdipSetAdjustableArrowCapMiddleInset(cap, middleinset)
 }
 #[inline]
 pub unsafe fn GdipSetAdjustableArrowCapWidth(cap: *mut GpAdjustableArrowCap, width: f32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetAdjustableArrowCapWidth(cap : *mut GpAdjustableArrowCap, width : f32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipSetAdjustableArrowCapWidth(cap : *mut GpAdjustableArrowCap, width : f32) -> Status);
     GdipSetAdjustableArrowCapWidth(cap, width)
 }
 #[inline]
 pub unsafe fn GdipSetClipGraphics(graphics: *mut GpGraphics, srcgraphics: *mut GpGraphics, combinemode: CombineMode) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetClipGraphics(graphics : *mut GpGraphics, srcgraphics : *mut GpGraphics, combinemode : CombineMode) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipSetClipGraphics(graphics : *mut GpGraphics, srcgraphics : *mut GpGraphics, combinemode : CombineMode) -> Status);
     GdipSetClipGraphics(graphics, srcgraphics, combinemode)
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -2782,72 +2782,72 @@ pub unsafe fn GdipSetClipHrgn<P0>(graphics: *mut GpGraphics, hrgn: P0, combinemo
 where
     P0: windows_core::IntoParam<super::Gdi::HRGN>,
 {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetClipHrgn(graphics : *mut GpGraphics, hrgn : super::Gdi:: HRGN, combinemode : CombineMode) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipSetClipHrgn(graphics : *mut GpGraphics, hrgn : super::Gdi:: HRGN, combinemode : CombineMode) -> Status);
     GdipSetClipHrgn(graphics, hrgn.into_param().abi(), combinemode)
 }
 #[inline]
 pub unsafe fn GdipSetClipPath(graphics: *mut GpGraphics, path: *mut GpPath, combinemode: CombineMode) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetClipPath(graphics : *mut GpGraphics, path : *mut GpPath, combinemode : CombineMode) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipSetClipPath(graphics : *mut GpGraphics, path : *mut GpPath, combinemode : CombineMode) -> Status);
     GdipSetClipPath(graphics, path, combinemode)
 }
 #[inline]
 pub unsafe fn GdipSetClipRect(graphics: *mut GpGraphics, x: f32, y: f32, width: f32, height: f32, combinemode: CombineMode) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetClipRect(graphics : *mut GpGraphics, x : f32, y : f32, width : f32, height : f32, combinemode : CombineMode) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipSetClipRect(graphics : *mut GpGraphics, x : f32, y : f32, width : f32, height : f32, combinemode : CombineMode) -> Status);
     GdipSetClipRect(graphics, x, y, width, height, combinemode)
 }
 #[inline]
 pub unsafe fn GdipSetClipRectI(graphics: *mut GpGraphics, x: i32, y: i32, width: i32, height: i32, combinemode: CombineMode) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetClipRectI(graphics : *mut GpGraphics, x : i32, y : i32, width : i32, height : i32, combinemode : CombineMode) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipSetClipRectI(graphics : *mut GpGraphics, x : i32, y : i32, width : i32, height : i32, combinemode : CombineMode) -> Status);
     GdipSetClipRectI(graphics, x, y, width, height, combinemode)
 }
 #[inline]
 pub unsafe fn GdipSetClipRegion(graphics: *mut GpGraphics, region: *mut GpRegion, combinemode: CombineMode) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetClipRegion(graphics : *mut GpGraphics, region : *mut GpRegion, combinemode : CombineMode) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipSetClipRegion(graphics : *mut GpGraphics, region : *mut GpRegion, combinemode : CombineMode) -> Status);
     GdipSetClipRegion(graphics, region, combinemode)
 }
 #[inline]
 pub unsafe fn GdipSetCompositingMode(graphics: *mut GpGraphics, compositingmode: CompositingMode) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetCompositingMode(graphics : *mut GpGraphics, compositingmode : CompositingMode) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipSetCompositingMode(graphics : *mut GpGraphics, compositingmode : CompositingMode) -> Status);
     GdipSetCompositingMode(graphics, compositingmode)
 }
 #[inline]
 pub unsafe fn GdipSetCompositingQuality(graphics: *mut GpGraphics, compositingquality: CompositingQuality) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetCompositingQuality(graphics : *mut GpGraphics, compositingquality : CompositingQuality) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipSetCompositingQuality(graphics : *mut GpGraphics, compositingquality : CompositingQuality) -> Status);
     GdipSetCompositingQuality(graphics, compositingquality)
 }
 #[inline]
 pub unsafe fn GdipSetCustomLineCapBaseCap(customcap: *mut GpCustomLineCap, basecap: LineCap) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetCustomLineCapBaseCap(customcap : *mut GpCustomLineCap, basecap : LineCap) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipSetCustomLineCapBaseCap(customcap : *mut GpCustomLineCap, basecap : LineCap) -> Status);
     GdipSetCustomLineCapBaseCap(customcap, basecap)
 }
 #[inline]
 pub unsafe fn GdipSetCustomLineCapBaseInset(customcap: *mut GpCustomLineCap, inset: f32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetCustomLineCapBaseInset(customcap : *mut GpCustomLineCap, inset : f32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipSetCustomLineCapBaseInset(customcap : *mut GpCustomLineCap, inset : f32) -> Status);
     GdipSetCustomLineCapBaseInset(customcap, inset)
 }
 #[inline]
 pub unsafe fn GdipSetCustomLineCapStrokeCaps(customcap: *mut GpCustomLineCap, startcap: LineCap, endcap: LineCap) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetCustomLineCapStrokeCaps(customcap : *mut GpCustomLineCap, startcap : LineCap, endcap : LineCap) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipSetCustomLineCapStrokeCaps(customcap : *mut GpCustomLineCap, startcap : LineCap, endcap : LineCap) -> Status);
     GdipSetCustomLineCapStrokeCaps(customcap, startcap, endcap)
 }
 #[inline]
 pub unsafe fn GdipSetCustomLineCapStrokeJoin(customcap: *mut GpCustomLineCap, linejoin: LineJoin) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetCustomLineCapStrokeJoin(customcap : *mut GpCustomLineCap, linejoin : LineJoin) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipSetCustomLineCapStrokeJoin(customcap : *mut GpCustomLineCap, linejoin : LineJoin) -> Status);
     GdipSetCustomLineCapStrokeJoin(customcap, linejoin)
 }
 #[inline]
 pub unsafe fn GdipSetCustomLineCapWidthScale(customcap: *mut GpCustomLineCap, widthscale: f32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetCustomLineCapWidthScale(customcap : *mut GpCustomLineCap, widthscale : f32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipSetCustomLineCapWidthScale(customcap : *mut GpCustomLineCap, widthscale : f32) -> Status);
     GdipSetCustomLineCapWidthScale(customcap, widthscale)
 }
 #[inline]
 pub unsafe fn GdipSetEffectParameters(effect: *mut CGpEffect, params: *const core::ffi::c_void, size: u32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetEffectParameters(effect : *mut CGpEffect, params : *const core::ffi::c_void, size : u32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipSetEffectParameters(effect : *mut CGpEffect, params : *const core::ffi::c_void, size : u32) -> Status);
     GdipSetEffectParameters(effect, params, size)
 }
 #[inline]
 pub unsafe fn GdipSetEmpty(region: *mut GpRegion) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetEmpty(region : *mut GpRegion) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipSetEmpty(region : *mut GpRegion) -> Status);
     GdipSetEmpty(region)
 }
 #[inline]
@@ -2855,7 +2855,7 @@ pub unsafe fn GdipSetImageAttributesCachedBackground<P0>(imageattr: *mut GpImage
 where
     P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetImageAttributesCachedBackground(imageattr : *mut GpImageAttributes, enableflag : super::super::Foundation:: BOOL) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipSetImageAttributesCachedBackground(imageattr : *mut GpImageAttributes, enableflag : super::super::Foundation:: BOOL) -> Status);
     GdipSetImageAttributesCachedBackground(imageattr, enableflag.into_param().abi())
 }
 #[inline]
@@ -2863,7 +2863,7 @@ pub unsafe fn GdipSetImageAttributesColorKeys<P0>(imageattr: *mut GpImageAttribu
 where
     P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetImageAttributesColorKeys(imageattr : *mut GpImageAttributes, r#type : ColorAdjustType, enableflag : super::super::Foundation:: BOOL, colorlow : u32, colorhigh : u32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipSetImageAttributesColorKeys(imageattr : *mut GpImageAttributes, r#type : ColorAdjustType, enableflag : super::super::Foundation:: BOOL, colorlow : u32, colorhigh : u32) -> Status);
     GdipSetImageAttributesColorKeys(imageattr, r#type, enableflag.into_param().abi(), colorlow, colorhigh)
 }
 #[inline]
@@ -2871,7 +2871,7 @@ pub unsafe fn GdipSetImageAttributesColorMatrix<P0>(imageattr: *mut GpImageAttri
 where
     P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetImageAttributesColorMatrix(imageattr : *mut GpImageAttributes, r#type : ColorAdjustType, enableflag : super::super::Foundation:: BOOL, colormatrix : *const ColorMatrix, graymatrix : *const ColorMatrix, flags : ColorMatrixFlags) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipSetImageAttributesColorMatrix(imageattr : *mut GpImageAttributes, r#type : ColorAdjustType, enableflag : super::super::Foundation:: BOOL, colormatrix : *const ColorMatrix, graymatrix : *const ColorMatrix, flags : ColorMatrixFlags) -> Status);
     GdipSetImageAttributesColorMatrix(imageattr, r#type, enableflag.into_param().abi(), colormatrix, graymatrix, flags)
 }
 #[inline]
@@ -2879,7 +2879,7 @@ pub unsafe fn GdipSetImageAttributesGamma<P0>(imageattr: *mut GpImageAttributes,
 where
     P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetImageAttributesGamma(imageattr : *mut GpImageAttributes, r#type : ColorAdjustType, enableflag : super::super::Foundation:: BOOL, gamma : f32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipSetImageAttributesGamma(imageattr : *mut GpImageAttributes, r#type : ColorAdjustType, enableflag : super::super::Foundation:: BOOL, gamma : f32) -> Status);
     GdipSetImageAttributesGamma(imageattr, r#type, enableflag.into_param().abi(), gamma)
 }
 #[inline]
@@ -2887,7 +2887,7 @@ pub unsafe fn GdipSetImageAttributesNoOp<P0>(imageattr: *mut GpImageAttributes, 
 where
     P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetImageAttributesNoOp(imageattr : *mut GpImageAttributes, r#type : ColorAdjustType, enableflag : super::super::Foundation:: BOOL) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipSetImageAttributesNoOp(imageattr : *mut GpImageAttributes, r#type : ColorAdjustType, enableflag : super::super::Foundation:: BOOL) -> Status);
     GdipSetImageAttributesNoOp(imageattr, r#type, enableflag.into_param().abi())
 }
 #[inline]
@@ -2895,7 +2895,7 @@ pub unsafe fn GdipSetImageAttributesOutputChannel<P0>(imageattr: *mut GpImageAtt
 where
     P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetImageAttributesOutputChannel(imageattr : *mut GpImageAttributes, r#type : ColorAdjustType, enableflag : super::super::Foundation:: BOOL, channelflags : ColorChannelFlags) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipSetImageAttributesOutputChannel(imageattr : *mut GpImageAttributes, r#type : ColorAdjustType, enableflag : super::super::Foundation:: BOOL, channelflags : ColorChannelFlags) -> Status);
     GdipSetImageAttributesOutputChannel(imageattr, r#type, enableflag.into_param().abi(), channelflags)
 }
 #[inline]
@@ -2904,7 +2904,7 @@ where
     P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
     P1: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetImageAttributesOutputChannelColorProfile(imageattr : *mut GpImageAttributes, r#type : ColorAdjustType, enableflag : super::super::Foundation:: BOOL, colorprofilefilename : windows_core::PCWSTR) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipSetImageAttributesOutputChannelColorProfile(imageattr : *mut GpImageAttributes, r#type : ColorAdjustType, enableflag : super::super::Foundation:: BOOL, colorprofilefilename : windows_core::PCWSTR) -> Status);
     GdipSetImageAttributesOutputChannelColorProfile(imageattr, r#type, enableflag.into_param().abi(), colorprofilefilename.into_param().abi())
 }
 #[inline]
@@ -2912,7 +2912,7 @@ pub unsafe fn GdipSetImageAttributesRemapTable<P0>(imageattr: *mut GpImageAttrib
 where
     P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetImageAttributesRemapTable(imageattr : *mut GpImageAttributes, r#type : ColorAdjustType, enableflag : super::super::Foundation:: BOOL, mapsize : u32, map : *const ColorMap) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipSetImageAttributesRemapTable(imageattr : *mut GpImageAttributes, r#type : ColorAdjustType, enableflag : super::super::Foundation:: BOOL, mapsize : u32, map : *const ColorMap) -> Status);
     GdipSetImageAttributesRemapTable(imageattr, r#type, enableflag.into_param().abi(), mapsize, map)
 }
 #[inline]
@@ -2920,12 +2920,12 @@ pub unsafe fn GdipSetImageAttributesThreshold<P0>(imageattr: *mut GpImageAttribu
 where
     P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetImageAttributesThreshold(imageattr : *mut GpImageAttributes, r#type : ColorAdjustType, enableflag : super::super::Foundation:: BOOL, threshold : f32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipSetImageAttributesThreshold(imageattr : *mut GpImageAttributes, r#type : ColorAdjustType, enableflag : super::super::Foundation:: BOOL, threshold : f32) -> Status);
     GdipSetImageAttributesThreshold(imageattr, r#type, enableflag.into_param().abi(), threshold)
 }
 #[inline]
 pub unsafe fn GdipSetImageAttributesToIdentity(imageattr: *mut GpImageAttributes, r#type: ColorAdjustType) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetImageAttributesToIdentity(imageattr : *mut GpImageAttributes, r#type : ColorAdjustType) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipSetImageAttributesToIdentity(imageattr : *mut GpImageAttributes, r#type : ColorAdjustType) -> Status);
     GdipSetImageAttributesToIdentity(imageattr, r#type)
 }
 #[inline]
@@ -2933,32 +2933,32 @@ pub unsafe fn GdipSetImageAttributesWrapMode<P0>(imageattr: *mut GpImageAttribut
 where
     P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetImageAttributesWrapMode(imageattr : *mut GpImageAttributes, wrap : WrapMode, argb : u32, clamp : super::super::Foundation:: BOOL) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipSetImageAttributesWrapMode(imageattr : *mut GpImageAttributes, wrap : WrapMode, argb : u32, clamp : super::super::Foundation:: BOOL) -> Status);
     GdipSetImageAttributesWrapMode(imageattr, wrap, argb, clamp.into_param().abi())
 }
 #[inline]
 pub unsafe fn GdipSetImagePalette(image: *mut GpImage, palette: *const ColorPalette) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetImagePalette(image : *mut GpImage, palette : *const ColorPalette) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipSetImagePalette(image : *mut GpImage, palette : *const ColorPalette) -> Status);
     GdipSetImagePalette(image, palette)
 }
 #[inline]
 pub unsafe fn GdipSetInfinite(region: *mut GpRegion) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetInfinite(region : *mut GpRegion) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipSetInfinite(region : *mut GpRegion) -> Status);
     GdipSetInfinite(region)
 }
 #[inline]
 pub unsafe fn GdipSetInterpolationMode(graphics: *mut GpGraphics, interpolationmode: InterpolationMode) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetInterpolationMode(graphics : *mut GpGraphics, interpolationmode : InterpolationMode) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipSetInterpolationMode(graphics : *mut GpGraphics, interpolationmode : InterpolationMode) -> Status);
     GdipSetInterpolationMode(graphics, interpolationmode)
 }
 #[inline]
 pub unsafe fn GdipSetLineBlend(brush: *mut GpLineGradient, blend: *const f32, positions: *const f32, count: i32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetLineBlend(brush : *mut GpLineGradient, blend : *const f32, positions : *const f32, count : i32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipSetLineBlend(brush : *mut GpLineGradient, blend : *const f32, positions : *const f32, count : i32) -> Status);
     GdipSetLineBlend(brush, blend, positions, count)
 }
 #[inline]
 pub unsafe fn GdipSetLineColors(brush: *mut GpLineGradient, color1: u32, color2: u32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetLineColors(brush : *mut GpLineGradient, color1 : u32, color2 : u32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipSetLineColors(brush : *mut GpLineGradient, color1 : u32, color2 : u32) -> Status);
     GdipSetLineColors(brush, color1, color2)
 }
 #[inline]
@@ -2966,82 +2966,82 @@ pub unsafe fn GdipSetLineGammaCorrection<P0>(brush: *mut GpLineGradient, usegamm
 where
     P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetLineGammaCorrection(brush : *mut GpLineGradient, usegammacorrection : super::super::Foundation:: BOOL) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipSetLineGammaCorrection(brush : *mut GpLineGradient, usegammacorrection : super::super::Foundation:: BOOL) -> Status);
     GdipSetLineGammaCorrection(brush, usegammacorrection.into_param().abi())
 }
 #[inline]
 pub unsafe fn GdipSetLineLinearBlend(brush: *mut GpLineGradient, focus: f32, scale: f32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetLineLinearBlend(brush : *mut GpLineGradient, focus : f32, scale : f32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipSetLineLinearBlend(brush : *mut GpLineGradient, focus : f32, scale : f32) -> Status);
     GdipSetLineLinearBlend(brush, focus, scale)
 }
 #[inline]
 pub unsafe fn GdipSetLinePresetBlend(brush: *mut GpLineGradient, blend: *const u32, positions: *const f32, count: i32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetLinePresetBlend(brush : *mut GpLineGradient, blend : *const u32, positions : *const f32, count : i32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipSetLinePresetBlend(brush : *mut GpLineGradient, blend : *const u32, positions : *const f32, count : i32) -> Status);
     GdipSetLinePresetBlend(brush, blend, positions, count)
 }
 #[inline]
 pub unsafe fn GdipSetLineSigmaBlend(brush: *mut GpLineGradient, focus: f32, scale: f32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetLineSigmaBlend(brush : *mut GpLineGradient, focus : f32, scale : f32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipSetLineSigmaBlend(brush : *mut GpLineGradient, focus : f32, scale : f32) -> Status);
     GdipSetLineSigmaBlend(brush, focus, scale)
 }
 #[inline]
 pub unsafe fn GdipSetLineTransform(brush: *mut GpLineGradient, matrix: *const Matrix) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetLineTransform(brush : *mut GpLineGradient, matrix : *const Matrix) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipSetLineTransform(brush : *mut GpLineGradient, matrix : *const Matrix) -> Status);
     GdipSetLineTransform(brush, matrix)
 }
 #[inline]
 pub unsafe fn GdipSetLineWrapMode(brush: *mut GpLineGradient, wrapmode: WrapMode) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetLineWrapMode(brush : *mut GpLineGradient, wrapmode : WrapMode) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipSetLineWrapMode(brush : *mut GpLineGradient, wrapmode : WrapMode) -> Status);
     GdipSetLineWrapMode(brush, wrapmode)
 }
 #[inline]
 pub unsafe fn GdipSetMatrixElements(matrix: *mut Matrix, m11: f32, m12: f32, m21: f32, m22: f32, dx: f32, dy: f32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetMatrixElements(matrix : *mut Matrix, m11 : f32, m12 : f32, m21 : f32, m22 : f32, dx : f32, dy : f32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipSetMatrixElements(matrix : *mut Matrix, m11 : f32, m12 : f32, m21 : f32, m22 : f32, dx : f32, dy : f32) -> Status);
     GdipSetMatrixElements(matrix, m11, m12, m21, m22, dx, dy)
 }
 #[inline]
 pub unsafe fn GdipSetMetafileDownLevelRasterizationLimit(metafile: *mut GpMetafile, metafilerasterizationlimitdpi: u32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetMetafileDownLevelRasterizationLimit(metafile : *mut GpMetafile, metafilerasterizationlimitdpi : u32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipSetMetafileDownLevelRasterizationLimit(metafile : *mut GpMetafile, metafilerasterizationlimitdpi : u32) -> Status);
     GdipSetMetafileDownLevelRasterizationLimit(metafile, metafilerasterizationlimitdpi)
 }
 #[inline]
 pub unsafe fn GdipSetPageScale(graphics: *mut GpGraphics, scale: f32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetPageScale(graphics : *mut GpGraphics, scale : f32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipSetPageScale(graphics : *mut GpGraphics, scale : f32) -> Status);
     GdipSetPageScale(graphics, scale)
 }
 #[inline]
 pub unsafe fn GdipSetPageUnit(graphics: *mut GpGraphics, unit: Unit) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetPageUnit(graphics : *mut GpGraphics, unit : Unit) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipSetPageUnit(graphics : *mut GpGraphics, unit : Unit) -> Status);
     GdipSetPageUnit(graphics, unit)
 }
 #[inline]
 pub unsafe fn GdipSetPathFillMode(path: *mut GpPath, fillmode: FillMode) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetPathFillMode(path : *mut GpPath, fillmode : FillMode) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipSetPathFillMode(path : *mut GpPath, fillmode : FillMode) -> Status);
     GdipSetPathFillMode(path, fillmode)
 }
 #[inline]
 pub unsafe fn GdipSetPathGradientBlend(brush: *mut GpPathGradient, blend: *const f32, positions: *const f32, count: i32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetPathGradientBlend(brush : *mut GpPathGradient, blend : *const f32, positions : *const f32, count : i32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipSetPathGradientBlend(brush : *mut GpPathGradient, blend : *const f32, positions : *const f32, count : i32) -> Status);
     GdipSetPathGradientBlend(brush, blend, positions, count)
 }
 #[inline]
 pub unsafe fn GdipSetPathGradientCenterColor(brush: *mut GpPathGradient, colors: u32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetPathGradientCenterColor(brush : *mut GpPathGradient, colors : u32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipSetPathGradientCenterColor(brush : *mut GpPathGradient, colors : u32) -> Status);
     GdipSetPathGradientCenterColor(brush, colors)
 }
 #[inline]
 pub unsafe fn GdipSetPathGradientCenterPoint(brush: *mut GpPathGradient, points: *const PointF) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetPathGradientCenterPoint(brush : *mut GpPathGradient, points : *const PointF) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipSetPathGradientCenterPoint(brush : *mut GpPathGradient, points : *const PointF) -> Status);
     GdipSetPathGradientCenterPoint(brush, points)
 }
 #[inline]
 pub unsafe fn GdipSetPathGradientCenterPointI(brush: *mut GpPathGradient, points: *const Point) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetPathGradientCenterPointI(brush : *mut GpPathGradient, points : *const Point) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipSetPathGradientCenterPointI(brush : *mut GpPathGradient, points : *const Point) -> Status);
     GdipSetPathGradientCenterPointI(brush, points)
 }
 #[inline]
 pub unsafe fn GdipSetPathGradientFocusScales(brush: *mut GpPathGradient, xscale: f32, yscale: f32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetPathGradientFocusScales(brush : *mut GpPathGradient, xscale : f32, yscale : f32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipSetPathGradientFocusScales(brush : *mut GpPathGradient, xscale : f32, yscale : f32) -> Status);
     GdipSetPathGradientFocusScales(brush, xscale, yscale)
 }
 #[inline]
@@ -3049,377 +3049,377 @@ pub unsafe fn GdipSetPathGradientGammaCorrection<P0>(brush: *mut GpPathGradient,
 where
     P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetPathGradientGammaCorrection(brush : *mut GpPathGradient, usegammacorrection : super::super::Foundation:: BOOL) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipSetPathGradientGammaCorrection(brush : *mut GpPathGradient, usegammacorrection : super::super::Foundation:: BOOL) -> Status);
     GdipSetPathGradientGammaCorrection(brush, usegammacorrection.into_param().abi())
 }
 #[inline]
 pub unsafe fn GdipSetPathGradientLinearBlend(brush: *mut GpPathGradient, focus: f32, scale: f32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetPathGradientLinearBlend(brush : *mut GpPathGradient, focus : f32, scale : f32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipSetPathGradientLinearBlend(brush : *mut GpPathGradient, focus : f32, scale : f32) -> Status);
     GdipSetPathGradientLinearBlend(brush, focus, scale)
 }
 #[inline]
 pub unsafe fn GdipSetPathGradientPath(brush: *mut GpPathGradient, path: *const GpPath) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetPathGradientPath(brush : *mut GpPathGradient, path : *const GpPath) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipSetPathGradientPath(brush : *mut GpPathGradient, path : *const GpPath) -> Status);
     GdipSetPathGradientPath(brush, path)
 }
 #[inline]
 pub unsafe fn GdipSetPathGradientPresetBlend(brush: *mut GpPathGradient, blend: *const u32, positions: *const f32, count: i32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetPathGradientPresetBlend(brush : *mut GpPathGradient, blend : *const u32, positions : *const f32, count : i32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipSetPathGradientPresetBlend(brush : *mut GpPathGradient, blend : *const u32, positions : *const f32, count : i32) -> Status);
     GdipSetPathGradientPresetBlend(brush, blend, positions, count)
 }
 #[inline]
 pub unsafe fn GdipSetPathGradientSigmaBlend(brush: *mut GpPathGradient, focus: f32, scale: f32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetPathGradientSigmaBlend(brush : *mut GpPathGradient, focus : f32, scale : f32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipSetPathGradientSigmaBlend(brush : *mut GpPathGradient, focus : f32, scale : f32) -> Status);
     GdipSetPathGradientSigmaBlend(brush, focus, scale)
 }
 #[inline]
 pub unsafe fn GdipSetPathGradientSurroundColorsWithCount(brush: *mut GpPathGradient, color: *const u32, count: *mut i32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetPathGradientSurroundColorsWithCount(brush : *mut GpPathGradient, color : *const u32, count : *mut i32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipSetPathGradientSurroundColorsWithCount(brush : *mut GpPathGradient, color : *const u32, count : *mut i32) -> Status);
     GdipSetPathGradientSurroundColorsWithCount(brush, color, count)
 }
 #[inline]
 pub unsafe fn GdipSetPathGradientTransform(brush: *mut GpPathGradient, matrix: *mut Matrix) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetPathGradientTransform(brush : *mut GpPathGradient, matrix : *mut Matrix) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipSetPathGradientTransform(brush : *mut GpPathGradient, matrix : *mut Matrix) -> Status);
     GdipSetPathGradientTransform(brush, matrix)
 }
 #[inline]
 pub unsafe fn GdipSetPathGradientWrapMode(brush: *mut GpPathGradient, wrapmode: WrapMode) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetPathGradientWrapMode(brush : *mut GpPathGradient, wrapmode : WrapMode) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipSetPathGradientWrapMode(brush : *mut GpPathGradient, wrapmode : WrapMode) -> Status);
     GdipSetPathGradientWrapMode(brush, wrapmode)
 }
 #[inline]
 pub unsafe fn GdipSetPathMarker(path: *mut GpPath) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetPathMarker(path : *mut GpPath) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipSetPathMarker(path : *mut GpPath) -> Status);
     GdipSetPathMarker(path)
 }
 #[inline]
 pub unsafe fn GdipSetPenBrushFill(pen: *mut GpPen, brush: *mut GpBrush) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetPenBrushFill(pen : *mut GpPen, brush : *mut GpBrush) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipSetPenBrushFill(pen : *mut GpPen, brush : *mut GpBrush) -> Status);
     GdipSetPenBrushFill(pen, brush)
 }
 #[inline]
 pub unsafe fn GdipSetPenColor(pen: *mut GpPen, argb: u32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetPenColor(pen : *mut GpPen, argb : u32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipSetPenColor(pen : *mut GpPen, argb : u32) -> Status);
     GdipSetPenColor(pen, argb)
 }
 #[inline]
 pub unsafe fn GdipSetPenCompoundArray(pen: *mut GpPen, dash: *const f32, count: i32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetPenCompoundArray(pen : *mut GpPen, dash : *const f32, count : i32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipSetPenCompoundArray(pen : *mut GpPen, dash : *const f32, count : i32) -> Status);
     GdipSetPenCompoundArray(pen, dash, count)
 }
 #[inline]
 pub unsafe fn GdipSetPenCustomEndCap(pen: *mut GpPen, customcap: *mut GpCustomLineCap) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetPenCustomEndCap(pen : *mut GpPen, customcap : *mut GpCustomLineCap) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipSetPenCustomEndCap(pen : *mut GpPen, customcap : *mut GpCustomLineCap) -> Status);
     GdipSetPenCustomEndCap(pen, customcap)
 }
 #[inline]
 pub unsafe fn GdipSetPenCustomStartCap(pen: *mut GpPen, customcap: *mut GpCustomLineCap) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetPenCustomStartCap(pen : *mut GpPen, customcap : *mut GpCustomLineCap) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipSetPenCustomStartCap(pen : *mut GpPen, customcap : *mut GpCustomLineCap) -> Status);
     GdipSetPenCustomStartCap(pen, customcap)
 }
 #[inline]
 pub unsafe fn GdipSetPenDashArray(pen: *mut GpPen, dash: *const f32, count: i32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetPenDashArray(pen : *mut GpPen, dash : *const f32, count : i32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipSetPenDashArray(pen : *mut GpPen, dash : *const f32, count : i32) -> Status);
     GdipSetPenDashArray(pen, dash, count)
 }
 #[inline]
 pub unsafe fn GdipSetPenDashCap197819(pen: *mut GpPen, dashcap: DashCap) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetPenDashCap197819(pen : *mut GpPen, dashcap : DashCap) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipSetPenDashCap197819(pen : *mut GpPen, dashcap : DashCap) -> Status);
     GdipSetPenDashCap197819(pen, dashcap)
 }
 #[inline]
 pub unsafe fn GdipSetPenDashOffset(pen: *mut GpPen, offset: f32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetPenDashOffset(pen : *mut GpPen, offset : f32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipSetPenDashOffset(pen : *mut GpPen, offset : f32) -> Status);
     GdipSetPenDashOffset(pen, offset)
 }
 #[inline]
 pub unsafe fn GdipSetPenDashStyle(pen: *mut GpPen, dashstyle: DashStyle) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetPenDashStyle(pen : *mut GpPen, dashstyle : DashStyle) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipSetPenDashStyle(pen : *mut GpPen, dashstyle : DashStyle) -> Status);
     GdipSetPenDashStyle(pen, dashstyle)
 }
 #[inline]
 pub unsafe fn GdipSetPenEndCap(pen: *mut GpPen, endcap: LineCap) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetPenEndCap(pen : *mut GpPen, endcap : LineCap) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipSetPenEndCap(pen : *mut GpPen, endcap : LineCap) -> Status);
     GdipSetPenEndCap(pen, endcap)
 }
 #[inline]
 pub unsafe fn GdipSetPenLineCap197819(pen: *mut GpPen, startcap: LineCap, endcap: LineCap, dashcap: DashCap) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetPenLineCap197819(pen : *mut GpPen, startcap : LineCap, endcap : LineCap, dashcap : DashCap) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipSetPenLineCap197819(pen : *mut GpPen, startcap : LineCap, endcap : LineCap, dashcap : DashCap) -> Status);
     GdipSetPenLineCap197819(pen, startcap, endcap, dashcap)
 }
 #[inline]
 pub unsafe fn GdipSetPenLineJoin(pen: *mut GpPen, linejoin: LineJoin) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetPenLineJoin(pen : *mut GpPen, linejoin : LineJoin) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipSetPenLineJoin(pen : *mut GpPen, linejoin : LineJoin) -> Status);
     GdipSetPenLineJoin(pen, linejoin)
 }
 #[inline]
 pub unsafe fn GdipSetPenMiterLimit(pen: *mut GpPen, miterlimit: f32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetPenMiterLimit(pen : *mut GpPen, miterlimit : f32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipSetPenMiterLimit(pen : *mut GpPen, miterlimit : f32) -> Status);
     GdipSetPenMiterLimit(pen, miterlimit)
 }
 #[inline]
 pub unsafe fn GdipSetPenMode(pen: *mut GpPen, penmode: PenAlignment) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetPenMode(pen : *mut GpPen, penmode : PenAlignment) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipSetPenMode(pen : *mut GpPen, penmode : PenAlignment) -> Status);
     GdipSetPenMode(pen, penmode)
 }
 #[inline]
 pub unsafe fn GdipSetPenStartCap(pen: *mut GpPen, startcap: LineCap) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetPenStartCap(pen : *mut GpPen, startcap : LineCap) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipSetPenStartCap(pen : *mut GpPen, startcap : LineCap) -> Status);
     GdipSetPenStartCap(pen, startcap)
 }
 #[inline]
 pub unsafe fn GdipSetPenTransform(pen: *mut GpPen, matrix: *mut Matrix) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetPenTransform(pen : *mut GpPen, matrix : *mut Matrix) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipSetPenTransform(pen : *mut GpPen, matrix : *mut Matrix) -> Status);
     GdipSetPenTransform(pen, matrix)
 }
 #[inline]
 pub unsafe fn GdipSetPenUnit(pen: *mut GpPen, unit: Unit) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetPenUnit(pen : *mut GpPen, unit : Unit) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipSetPenUnit(pen : *mut GpPen, unit : Unit) -> Status);
     GdipSetPenUnit(pen, unit)
 }
 #[inline]
 pub unsafe fn GdipSetPenWidth(pen: *mut GpPen, width: f32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetPenWidth(pen : *mut GpPen, width : f32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipSetPenWidth(pen : *mut GpPen, width : f32) -> Status);
     GdipSetPenWidth(pen, width)
 }
 #[inline]
 pub unsafe fn GdipSetPixelOffsetMode(graphics: *mut GpGraphics, pixeloffsetmode: PixelOffsetMode) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetPixelOffsetMode(graphics : *mut GpGraphics, pixeloffsetmode : PixelOffsetMode) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipSetPixelOffsetMode(graphics : *mut GpGraphics, pixeloffsetmode : PixelOffsetMode) -> Status);
     GdipSetPixelOffsetMode(graphics, pixeloffsetmode)
 }
 #[inline]
 pub unsafe fn GdipSetPropertyItem(image: *mut GpImage, item: *const PropertyItem) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetPropertyItem(image : *mut GpImage, item : *const PropertyItem) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipSetPropertyItem(image : *mut GpImage, item : *const PropertyItem) -> Status);
     GdipSetPropertyItem(image, item)
 }
 #[inline]
 pub unsafe fn GdipSetRenderingOrigin(graphics: *mut GpGraphics, x: i32, y: i32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetRenderingOrigin(graphics : *mut GpGraphics, x : i32, y : i32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipSetRenderingOrigin(graphics : *mut GpGraphics, x : i32, y : i32) -> Status);
     GdipSetRenderingOrigin(graphics, x, y)
 }
 #[inline]
 pub unsafe fn GdipSetSmoothingMode(graphics: *mut GpGraphics, smoothingmode: SmoothingMode) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetSmoothingMode(graphics : *mut GpGraphics, smoothingmode : SmoothingMode) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipSetSmoothingMode(graphics : *mut GpGraphics, smoothingmode : SmoothingMode) -> Status);
     GdipSetSmoothingMode(graphics, smoothingmode)
 }
 #[inline]
 pub unsafe fn GdipSetSolidFillColor(brush: *mut GpSolidFill, color: u32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetSolidFillColor(brush : *mut GpSolidFill, color : u32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipSetSolidFillColor(brush : *mut GpSolidFill, color : u32) -> Status);
     GdipSetSolidFillColor(brush, color)
 }
 #[inline]
 pub unsafe fn GdipSetStringFormatAlign(format: *mut GpStringFormat, align: StringAlignment) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetStringFormatAlign(format : *mut GpStringFormat, align : StringAlignment) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipSetStringFormatAlign(format : *mut GpStringFormat, align : StringAlignment) -> Status);
     GdipSetStringFormatAlign(format, align)
 }
 #[inline]
 pub unsafe fn GdipSetStringFormatDigitSubstitution(format: *mut GpStringFormat, language: u16, substitute: StringDigitSubstitute) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetStringFormatDigitSubstitution(format : *mut GpStringFormat, language : u16, substitute : StringDigitSubstitute) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipSetStringFormatDigitSubstitution(format : *mut GpStringFormat, language : u16, substitute : StringDigitSubstitute) -> Status);
     GdipSetStringFormatDigitSubstitution(format, language, substitute)
 }
 #[inline]
 pub unsafe fn GdipSetStringFormatFlags(format: *mut GpStringFormat, flags: i32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetStringFormatFlags(format : *mut GpStringFormat, flags : i32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipSetStringFormatFlags(format : *mut GpStringFormat, flags : i32) -> Status);
     GdipSetStringFormatFlags(format, flags)
 }
 #[inline]
 pub unsafe fn GdipSetStringFormatHotkeyPrefix(format: *mut GpStringFormat, hotkeyprefix: i32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetStringFormatHotkeyPrefix(format : *mut GpStringFormat, hotkeyprefix : i32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipSetStringFormatHotkeyPrefix(format : *mut GpStringFormat, hotkeyprefix : i32) -> Status);
     GdipSetStringFormatHotkeyPrefix(format, hotkeyprefix)
 }
 #[inline]
 pub unsafe fn GdipSetStringFormatLineAlign(format: *mut GpStringFormat, align: StringAlignment) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetStringFormatLineAlign(format : *mut GpStringFormat, align : StringAlignment) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipSetStringFormatLineAlign(format : *mut GpStringFormat, align : StringAlignment) -> Status);
     GdipSetStringFormatLineAlign(format, align)
 }
 #[inline]
 pub unsafe fn GdipSetStringFormatMeasurableCharacterRanges(format: *mut GpStringFormat, rangecount: i32, ranges: *const CharacterRange) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetStringFormatMeasurableCharacterRanges(format : *mut GpStringFormat, rangecount : i32, ranges : *const CharacterRange) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipSetStringFormatMeasurableCharacterRanges(format : *mut GpStringFormat, rangecount : i32, ranges : *const CharacterRange) -> Status);
     GdipSetStringFormatMeasurableCharacterRanges(format, rangecount, ranges)
 }
 #[inline]
 pub unsafe fn GdipSetStringFormatTabStops(format: *mut GpStringFormat, firsttaboffset: f32, count: i32, tabstops: *const f32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetStringFormatTabStops(format : *mut GpStringFormat, firsttaboffset : f32, count : i32, tabstops : *const f32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipSetStringFormatTabStops(format : *mut GpStringFormat, firsttaboffset : f32, count : i32, tabstops : *const f32) -> Status);
     GdipSetStringFormatTabStops(format, firsttaboffset, count, tabstops)
 }
 #[inline]
 pub unsafe fn GdipSetStringFormatTrimming(format: *mut GpStringFormat, trimming: StringTrimming) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetStringFormatTrimming(format : *mut GpStringFormat, trimming : StringTrimming) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipSetStringFormatTrimming(format : *mut GpStringFormat, trimming : StringTrimming) -> Status);
     GdipSetStringFormatTrimming(format, trimming)
 }
 #[inline]
 pub unsafe fn GdipSetTextContrast(graphics: *mut GpGraphics, contrast: u32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetTextContrast(graphics : *mut GpGraphics, contrast : u32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipSetTextContrast(graphics : *mut GpGraphics, contrast : u32) -> Status);
     GdipSetTextContrast(graphics, contrast)
 }
 #[inline]
 pub unsafe fn GdipSetTextRenderingHint(graphics: *mut GpGraphics, mode: TextRenderingHint) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetTextRenderingHint(graphics : *mut GpGraphics, mode : TextRenderingHint) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipSetTextRenderingHint(graphics : *mut GpGraphics, mode : TextRenderingHint) -> Status);
     GdipSetTextRenderingHint(graphics, mode)
 }
 #[inline]
 pub unsafe fn GdipSetTextureTransform(brush: *mut GpTexture, matrix: *const Matrix) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetTextureTransform(brush : *mut GpTexture, matrix : *const Matrix) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipSetTextureTransform(brush : *mut GpTexture, matrix : *const Matrix) -> Status);
     GdipSetTextureTransform(brush, matrix)
 }
 #[inline]
 pub unsafe fn GdipSetTextureWrapMode(brush: *mut GpTexture, wrapmode: WrapMode) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetTextureWrapMode(brush : *mut GpTexture, wrapmode : WrapMode) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipSetTextureWrapMode(brush : *mut GpTexture, wrapmode : WrapMode) -> Status);
     GdipSetTextureWrapMode(brush, wrapmode)
 }
 #[inline]
 pub unsafe fn GdipSetWorldTransform(graphics: *mut GpGraphics, matrix: *mut Matrix) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipSetWorldTransform(graphics : *mut GpGraphics, matrix : *mut Matrix) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipSetWorldTransform(graphics : *mut GpGraphics, matrix : *mut Matrix) -> Status);
     GdipSetWorldTransform(graphics, matrix)
 }
 #[inline]
 pub unsafe fn GdipShearMatrix(matrix: *mut Matrix, shearx: f32, sheary: f32, order: MatrixOrder) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipShearMatrix(matrix : *mut Matrix, shearx : f32, sheary : f32, order : MatrixOrder) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipShearMatrix(matrix : *mut Matrix, shearx : f32, sheary : f32, order : MatrixOrder) -> Status);
     GdipShearMatrix(matrix, shearx, sheary, order)
 }
 #[inline]
 pub unsafe fn GdipStartPathFigure(path: *mut GpPath) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipStartPathFigure(path : *mut GpPath) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipStartPathFigure(path : *mut GpPath) -> Status);
     GdipStartPathFigure(path)
 }
 #[inline]
 pub unsafe fn GdipStringFormatGetGenericDefault(format: *mut *mut GpStringFormat) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipStringFormatGetGenericDefault(format : *mut *mut GpStringFormat) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipStringFormatGetGenericDefault(format : *mut *mut GpStringFormat) -> Status);
     GdipStringFormatGetGenericDefault(format)
 }
 #[inline]
 pub unsafe fn GdipStringFormatGetGenericTypographic(format: *mut *mut GpStringFormat) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipStringFormatGetGenericTypographic(format : *mut *mut GpStringFormat) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipStringFormatGetGenericTypographic(format : *mut *mut GpStringFormat) -> Status);
     GdipStringFormatGetGenericTypographic(format)
 }
 #[inline]
 pub unsafe fn GdipTestControl(control: GpTestControlEnum, param1: *mut core::ffi::c_void) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipTestControl(control : GpTestControlEnum, param1 : *mut core::ffi::c_void) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipTestControl(control : GpTestControlEnum, param1 : *mut core::ffi::c_void) -> Status);
     GdipTestControl(control, param1)
 }
 #[inline]
 pub unsafe fn GdipTransformMatrixPoints(matrix: *mut Matrix, pts: *mut PointF, count: i32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipTransformMatrixPoints(matrix : *mut Matrix, pts : *mut PointF, count : i32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipTransformMatrixPoints(matrix : *mut Matrix, pts : *mut PointF, count : i32) -> Status);
     GdipTransformMatrixPoints(matrix, pts, count)
 }
 #[inline]
 pub unsafe fn GdipTransformMatrixPointsI(matrix: *mut Matrix, pts: *mut Point, count: i32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipTransformMatrixPointsI(matrix : *mut Matrix, pts : *mut Point, count : i32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipTransformMatrixPointsI(matrix : *mut Matrix, pts : *mut Point, count : i32) -> Status);
     GdipTransformMatrixPointsI(matrix, pts, count)
 }
 #[inline]
 pub unsafe fn GdipTransformPath(path: *mut GpPath, matrix: *mut Matrix) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipTransformPath(path : *mut GpPath, matrix : *mut Matrix) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipTransformPath(path : *mut GpPath, matrix : *mut Matrix) -> Status);
     GdipTransformPath(path, matrix)
 }
 #[inline]
 pub unsafe fn GdipTransformPoints(graphics: *mut GpGraphics, destspace: CoordinateSpace, srcspace: CoordinateSpace, points: *mut PointF, count: i32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipTransformPoints(graphics : *mut GpGraphics, destspace : CoordinateSpace, srcspace : CoordinateSpace, points : *mut PointF, count : i32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipTransformPoints(graphics : *mut GpGraphics, destspace : CoordinateSpace, srcspace : CoordinateSpace, points : *mut PointF, count : i32) -> Status);
     GdipTransformPoints(graphics, destspace, srcspace, points, count)
 }
 #[inline]
 pub unsafe fn GdipTransformPointsI(graphics: *mut GpGraphics, destspace: CoordinateSpace, srcspace: CoordinateSpace, points: *mut Point, count: i32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipTransformPointsI(graphics : *mut GpGraphics, destspace : CoordinateSpace, srcspace : CoordinateSpace, points : *mut Point, count : i32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipTransformPointsI(graphics : *mut GpGraphics, destspace : CoordinateSpace, srcspace : CoordinateSpace, points : *mut Point, count : i32) -> Status);
     GdipTransformPointsI(graphics, destspace, srcspace, points, count)
 }
 #[inline]
 pub unsafe fn GdipTransformRegion(region: *mut GpRegion, matrix: *mut Matrix) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipTransformRegion(region : *mut GpRegion, matrix : *mut Matrix) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipTransformRegion(region : *mut GpRegion, matrix : *mut Matrix) -> Status);
     GdipTransformRegion(region, matrix)
 }
 #[inline]
 pub unsafe fn GdipTranslateClip(graphics: *mut GpGraphics, dx: f32, dy: f32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipTranslateClip(graphics : *mut GpGraphics, dx : f32, dy : f32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipTranslateClip(graphics : *mut GpGraphics, dx : f32, dy : f32) -> Status);
     GdipTranslateClip(graphics, dx, dy)
 }
 #[inline]
 pub unsafe fn GdipTranslateClipI(graphics: *mut GpGraphics, dx: i32, dy: i32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipTranslateClipI(graphics : *mut GpGraphics, dx : i32, dy : i32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipTranslateClipI(graphics : *mut GpGraphics, dx : i32, dy : i32) -> Status);
     GdipTranslateClipI(graphics, dx, dy)
 }
 #[inline]
 pub unsafe fn GdipTranslateLineTransform(brush: *mut GpLineGradient, dx: f32, dy: f32, order: MatrixOrder) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipTranslateLineTransform(brush : *mut GpLineGradient, dx : f32, dy : f32, order : MatrixOrder) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipTranslateLineTransform(brush : *mut GpLineGradient, dx : f32, dy : f32, order : MatrixOrder) -> Status);
     GdipTranslateLineTransform(brush, dx, dy, order)
 }
 #[inline]
 pub unsafe fn GdipTranslateMatrix(matrix: *mut Matrix, offsetx: f32, offsety: f32, order: MatrixOrder) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipTranslateMatrix(matrix : *mut Matrix, offsetx : f32, offsety : f32, order : MatrixOrder) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipTranslateMatrix(matrix : *mut Matrix, offsetx : f32, offsety : f32, order : MatrixOrder) -> Status);
     GdipTranslateMatrix(matrix, offsetx, offsety, order)
 }
 #[inline]
 pub unsafe fn GdipTranslatePathGradientTransform(brush: *mut GpPathGradient, dx: f32, dy: f32, order: MatrixOrder) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipTranslatePathGradientTransform(brush : *mut GpPathGradient, dx : f32, dy : f32, order : MatrixOrder) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipTranslatePathGradientTransform(brush : *mut GpPathGradient, dx : f32, dy : f32, order : MatrixOrder) -> Status);
     GdipTranslatePathGradientTransform(brush, dx, dy, order)
 }
 #[inline]
 pub unsafe fn GdipTranslatePenTransform(pen: *mut GpPen, dx: f32, dy: f32, order: MatrixOrder) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipTranslatePenTransform(pen : *mut GpPen, dx : f32, dy : f32, order : MatrixOrder) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipTranslatePenTransform(pen : *mut GpPen, dx : f32, dy : f32, order : MatrixOrder) -> Status);
     GdipTranslatePenTransform(pen, dx, dy, order)
 }
 #[inline]
 pub unsafe fn GdipTranslateRegion(region: *mut GpRegion, dx: f32, dy: f32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipTranslateRegion(region : *mut GpRegion, dx : f32, dy : f32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipTranslateRegion(region : *mut GpRegion, dx : f32, dy : f32) -> Status);
     GdipTranslateRegion(region, dx, dy)
 }
 #[inline]
 pub unsafe fn GdipTranslateRegionI(region: *mut GpRegion, dx: i32, dy: i32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipTranslateRegionI(region : *mut GpRegion, dx : i32, dy : i32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipTranslateRegionI(region : *mut GpRegion, dx : i32, dy : i32) -> Status);
     GdipTranslateRegionI(region, dx, dy)
 }
 #[inline]
 pub unsafe fn GdipTranslateTextureTransform(brush: *mut GpTexture, dx: f32, dy: f32, order: MatrixOrder) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipTranslateTextureTransform(brush : *mut GpTexture, dx : f32, dy : f32, order : MatrixOrder) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipTranslateTextureTransform(brush : *mut GpTexture, dx : f32, dy : f32, order : MatrixOrder) -> Status);
     GdipTranslateTextureTransform(brush, dx, dy, order)
 }
 #[inline]
 pub unsafe fn GdipTranslateWorldTransform(graphics: *mut GpGraphics, dx: f32, dy: f32, order: MatrixOrder) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipTranslateWorldTransform(graphics : *mut GpGraphics, dx : f32, dy : f32, order : MatrixOrder) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipTranslateWorldTransform(graphics : *mut GpGraphics, dx : f32, dy : f32, order : MatrixOrder) -> Status);
     GdipTranslateWorldTransform(graphics, dx, dy, order)
 }
 #[inline]
 pub unsafe fn GdipVectorTransformMatrixPoints(matrix: *mut Matrix, pts: *mut PointF, count: i32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipVectorTransformMatrixPoints(matrix : *mut Matrix, pts : *mut PointF, count : i32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipVectorTransformMatrixPoints(matrix : *mut Matrix, pts : *mut PointF, count : i32) -> Status);
     GdipVectorTransformMatrixPoints(matrix, pts, count)
 }
 #[inline]
 pub unsafe fn GdipVectorTransformMatrixPointsI(matrix: *mut Matrix, pts: *mut Point, count: i32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipVectorTransformMatrixPointsI(matrix : *mut Matrix, pts : *mut Point, count : i32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipVectorTransformMatrixPointsI(matrix : *mut Matrix, pts : *mut Point, count : i32) -> Status);
     GdipVectorTransformMatrixPointsI(matrix, pts, count)
 }
 #[inline]
 pub unsafe fn GdipWarpPath(path: *mut GpPath, matrix: *mut Matrix, points: *const PointF, count: i32, srcx: f32, srcy: f32, srcwidth: f32, srcheight: f32, warpmode: WarpMode, flatness: f32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipWarpPath(path : *mut GpPath, matrix : *mut Matrix, points : *const PointF, count : i32, srcx : f32, srcy : f32, srcwidth : f32, srcheight : f32, warpmode : WarpMode, flatness : f32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipWarpPath(path : *mut GpPath, matrix : *mut Matrix, points : *const PointF, count : i32, srcx : f32, srcy : f32, srcwidth : f32, srcheight : f32, warpmode : WarpMode, flatness : f32) -> Status);
     GdipWarpPath(path, matrix, points, count, srcx, srcy, srcwidth, srcheight, warpmode, flatness)
 }
 #[inline]
 pub unsafe fn GdipWidenPath(nativepath: *mut GpPath, pen: *mut GpPen, matrix: *mut Matrix, flatness: f32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipWidenPath(nativepath : *mut GpPath, pen : *mut GpPen, matrix : *mut Matrix, flatness : f32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipWidenPath(nativepath : *mut GpPath, pen : *mut GpPen, matrix : *mut Matrix, flatness : f32) -> Status);
     GdipWidenPath(nativepath, pen, matrix, flatness)
 }
 #[inline]
 pub unsafe fn GdipWindingModeOutline(path: *mut GpPath, matrix: *mut Matrix, flatness: f32) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdipWindingModeOutline(path : *mut GpPath, matrix : *mut Matrix, flatness : f32) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdipWindingModeOutline(path : *mut GpPath, matrix : *mut Matrix, flatness : f32) -> Status);
     GdipWindingModeOutline(path, matrix, flatness)
 }
 #[inline]
 pub unsafe fn GdiplusNotificationHook(token: *mut usize) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdiplusNotificationHook(token : *mut usize) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdiplusNotificationHook(token : *mut usize) -> Status);
     GdiplusNotificationHook(token)
 }
 #[inline]
 pub unsafe fn GdiplusNotificationUnhook(token: usize) {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdiplusNotificationUnhook(token : usize));
+    windows_targets::link!("gdiplus.dll" "system" fn GdiplusNotificationUnhook(token : usize));
     GdiplusNotificationUnhook(token)
 }
 #[inline]
 pub unsafe fn GdiplusShutdown(token: usize) {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdiplusShutdown(token : usize));
+    windows_targets::link!("gdiplus.dll" "system" fn GdiplusShutdown(token : usize));
     GdiplusShutdown(token)
 }
 #[inline]
 pub unsafe fn GdiplusStartup(token: *mut usize, input: *const GdiplusStartupInput, output: *mut GdiplusStartupOutput) -> Status {
-    ::windows_targets::link!("gdiplus.dll" "system" fn GdiplusStartup(token : *mut usize, input : *const GdiplusStartupInput, output : *mut GdiplusStartupOutput) -> Status);
+    windows_targets::link!("gdiplus.dll" "system" fn GdiplusStartup(token : *mut usize, input : *const GdiplusStartupInput, output : *mut GdiplusStartupOutput) -> Status);
     GdiplusStartup(token, input, output)
 }
 windows_core::imp::interface!(GdiplusAbort, GdiplusAbort_Vtbl);

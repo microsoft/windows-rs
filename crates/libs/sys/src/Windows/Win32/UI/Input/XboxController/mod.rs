@@ -1,10 +1,10 @@
-::windows_targets::link!("xinput1_4.dll" "system" fn XInputEnable(enable : super::super::super::Foundation:: BOOL));
-::windows_targets::link!("xinput1_4.dll" "system" fn XInputGetAudioDeviceIds(dwuserindex : u32, prenderdeviceid : windows_sys::core::PWSTR, prendercount : *mut u32, pcapturedeviceid : windows_sys::core::PWSTR, pcapturecount : *mut u32) -> u32);
-::windows_targets::link!("xinput1_4.dll" "system" fn XInputGetBatteryInformation(dwuserindex : u32, devtype : BATTERY_DEVTYPE, pbatteryinformation : *mut XINPUT_BATTERY_INFORMATION) -> u32);
-::windows_targets::link!("xinput1_4.dll" "system" fn XInputGetCapabilities(dwuserindex : u32, dwflags : XINPUT_FLAG, pcapabilities : *mut XINPUT_CAPABILITIES) -> u32);
-::windows_targets::link!("xinput1_4.dll" "system" fn XInputGetKeystroke(dwuserindex : u32, dwreserved : u32, pkeystroke : *mut XINPUT_KEYSTROKE) -> u32);
-::windows_targets::link!("xinput1_4.dll" "system" fn XInputGetState(dwuserindex : u32, pstate : *mut XINPUT_STATE) -> u32);
-::windows_targets::link!("xinput1_4.dll" "system" fn XInputSetState(dwuserindex : u32, pvibration : *const XINPUT_VIBRATION) -> u32);
+windows_targets::link!("xinput1_4.dll" "system" fn XInputEnable(enable : super::super::super::Foundation:: BOOL));
+windows_targets::link!("xinput1_4.dll" "system" fn XInputGetAudioDeviceIds(dwuserindex : u32, prenderdeviceid : windows_sys::core::PWSTR, prendercount : *mut u32, pcapturedeviceid : windows_sys::core::PWSTR, pcapturecount : *mut u32) -> u32);
+windows_targets::link!("xinput1_4.dll" "system" fn XInputGetBatteryInformation(dwuserindex : u32, devtype : BATTERY_DEVTYPE, pbatteryinformation : *mut XINPUT_BATTERY_INFORMATION) -> u32);
+windows_targets::link!("xinput1_4.dll" "system" fn XInputGetCapabilities(dwuserindex : u32, dwflags : XINPUT_FLAG, pcapabilities : *mut XINPUT_CAPABILITIES) -> u32);
+windows_targets::link!("xinput1_4.dll" "system" fn XInputGetKeystroke(dwuserindex : u32, dwreserved : u32, pkeystroke : *mut XINPUT_KEYSTROKE) -> u32);
+windows_targets::link!("xinput1_4.dll" "system" fn XInputGetState(dwuserindex : u32, pstate : *mut XINPUT_STATE) -> u32);
+windows_targets::link!("xinput1_4.dll" "system" fn XInputSetState(dwuserindex : u32, pvibration : *const XINPUT_VIBRATION) -> u32);
 pub const BATTERY_DEVTYPE_GAMEPAD: BATTERY_DEVTYPE = 0u8;
 pub const BATTERY_DEVTYPE_HEADSET: BATTERY_DEVTYPE = 1u8;
 pub const BATTERY_LEVEL_EMPTY: BATTERY_LEVEL = 0u8;

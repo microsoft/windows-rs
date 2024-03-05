@@ -4,12 +4,12 @@ pub mod Tv;
 pub mod Xml;
 #[inline]
 pub unsafe fn AMGetErrorTextA(hr: windows_core::HRESULT, pbuffer: &mut [u8]) -> u32 {
-    ::windows_targets::link!("quartz.dll" "system" fn AMGetErrorTextA(hr : windows_core::HRESULT, pbuffer : windows_core::PSTR, maxlen : u32) -> u32);
+    windows_targets::link!("quartz.dll" "system" fn AMGetErrorTextA(hr : windows_core::HRESULT, pbuffer : windows_core::PSTR, maxlen : u32) -> u32);
     AMGetErrorTextA(hr, core::mem::transmute(pbuffer.as_ptr()), pbuffer.len().try_into().unwrap())
 }
 #[inline]
 pub unsafe fn AMGetErrorTextW(hr: windows_core::HRESULT, pbuffer: &mut [u16]) -> u32 {
-    ::windows_targets::link!("quartz.dll" "system" fn AMGetErrorTextW(hr : windows_core::HRESULT, pbuffer : windows_core::PWSTR, maxlen : u32) -> u32);
+    windows_targets::link!("quartz.dll" "system" fn AMGetErrorTextW(hr : windows_core::HRESULT, pbuffer : windows_core::PWSTR, maxlen : u32) -> u32);
     AMGetErrorTextW(hr, core::mem::transmute(pbuffer.as_ptr()), pbuffer.len().try_into().unwrap())
 }
 windows_core::imp::com_interface!(IAMAnalogVideoDecoder, IAMAnalogVideoDecoder_Vtbl, 0xc6e13350_30ac_11d0_a18c_00a0c9118956);

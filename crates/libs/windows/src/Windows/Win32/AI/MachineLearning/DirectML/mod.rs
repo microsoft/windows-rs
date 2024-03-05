@@ -5,7 +5,7 @@ where
     P0: windows_core::IntoParam<super::super::super::Graphics::Direct3D12::ID3D12Device>,
     T: windows_core::Interface,
 {
-    ::windows_targets::link!("directml.dll" "system" fn DMLCreateDevice(d3d12device : * mut core::ffi::c_void, flags : DML_CREATE_DEVICE_FLAGS, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_targets::link!("directml.dll" "system" fn DMLCreateDevice(d3d12device : * mut core::ffi::c_void, flags : DML_CREATE_DEVICE_FLAGS, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     DMLCreateDevice(d3d12device.into_param().abi(), flags, &T::IID, result__ as *mut _ as *mut _).ok()
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -15,7 +15,7 @@ where
     P0: windows_core::IntoParam<super::super::super::Graphics::Direct3D12::ID3D12Device>,
     T: windows_core::Interface,
 {
-    ::windows_targets::link!("directml.dll" "system" fn DMLCreateDevice1(d3d12device : * mut core::ffi::c_void, flags : DML_CREATE_DEVICE_FLAGS, minimumfeaturelevel : DML_FEATURE_LEVEL, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_targets::link!("directml.dll" "system" fn DMLCreateDevice1(d3d12device : * mut core::ffi::c_void, flags : DML_CREATE_DEVICE_FLAGS, minimumfeaturelevel : DML_FEATURE_LEVEL, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     DMLCreateDevice1(d3d12device.into_param().abi(), flags, minimumfeaturelevel, &T::IID, result__ as *mut _ as *mut _).ok()
 }
 windows_core::imp::com_interface!(IDMLBindingTable, IDMLBindingTable_Vtbl, 0x29c687dc_de74_4e3b_ab00_1168f2fc3cfc);

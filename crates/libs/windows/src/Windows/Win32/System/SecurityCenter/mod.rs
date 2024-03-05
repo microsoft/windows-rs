@@ -1,28 +1,28 @@
 #[inline]
 pub unsafe fn WscGetAntiMalwareUri() -> windows_core::Result<windows_core::PWSTR> {
-    ::windows_targets::link!("wscapi.dll" "system" fn WscGetAntiMalwareUri(ppszuri : *mut windows_core::PWSTR) -> windows_core::HRESULT);
+    windows_targets::link!("wscapi.dll" "system" fn WscGetAntiMalwareUri(ppszuri : *mut windows_core::PWSTR) -> windows_core::HRESULT);
     let mut result__ = std::mem::zeroed();
     WscGetAntiMalwareUri(&mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn WscGetSecurityProviderHealth(providers: u32, phealth: *mut WSC_SECURITY_PROVIDER_HEALTH) -> windows_core::Result<()> {
-    ::windows_targets::link!("wscapi.dll" "system" fn WscGetSecurityProviderHealth(providers : u32, phealth : *mut WSC_SECURITY_PROVIDER_HEALTH) -> windows_core::HRESULT);
+    windows_targets::link!("wscapi.dll" "system" fn WscGetSecurityProviderHealth(providers : u32, phealth : *mut WSC_SECURITY_PROVIDER_HEALTH) -> windows_core::HRESULT);
     WscGetSecurityProviderHealth(providers, phealth).ok()
 }
 #[inline]
 pub unsafe fn WscQueryAntiMalwareUri() -> windows_core::Result<()> {
-    ::windows_targets::link!("wscapi.dll" "system" fn WscQueryAntiMalwareUri() -> windows_core::HRESULT);
+    windows_targets::link!("wscapi.dll" "system" fn WscQueryAntiMalwareUri() -> windows_core::HRESULT);
     WscQueryAntiMalwareUri().ok()
 }
 #[cfg(feature = "Win32_System_Threading")]
 #[inline]
 pub unsafe fn WscRegisterForChanges(reserved: *mut core::ffi::c_void, phcallbackregistration: *mut super::super::Foundation::HANDLE, lpcallbackaddress: super::Threading::LPTHREAD_START_ROUTINE, pcontext: *mut core::ffi::c_void) -> windows_core::Result<()> {
-    ::windows_targets::link!("wscapi.dll" "system" fn WscRegisterForChanges(reserved : *mut core::ffi::c_void, phcallbackregistration : *mut super::super::Foundation:: HANDLE, lpcallbackaddress : super::Threading:: LPTHREAD_START_ROUTINE, pcontext : *mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_targets::link!("wscapi.dll" "system" fn WscRegisterForChanges(reserved : *mut core::ffi::c_void, phcallbackregistration : *mut super::super::Foundation:: HANDLE, lpcallbackaddress : super::Threading:: LPTHREAD_START_ROUTINE, pcontext : *mut core::ffi::c_void) -> windows_core::HRESULT);
     WscRegisterForChanges(reserved, phcallbackregistration, lpcallbackaddress, pcontext).ok()
 }
 #[inline]
 pub unsafe fn WscRegisterForUserNotifications() -> windows_core::Result<()> {
-    ::windows_targets::link!("wscapi.dll" "system" fn WscRegisterForUserNotifications() -> windows_core::HRESULT);
+    windows_targets::link!("wscapi.dll" "system" fn WscRegisterForUserNotifications() -> windows_core::HRESULT);
     WscRegisterForUserNotifications().ok()
 }
 #[inline]
@@ -30,7 +30,7 @@ pub unsafe fn WscUnRegisterChanges<P0>(hregistrationhandle: P0) -> windows_core:
 where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("wscapi.dll" "system" fn WscUnRegisterChanges(hregistrationhandle : super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
+    windows_targets::link!("wscapi.dll" "system" fn WscUnRegisterChanges(hregistrationhandle : super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
     WscUnRegisterChanges(hregistrationhandle.into_param().abi()).ok()
 }
 #[cfg(feature = "Win32_System_Com")]

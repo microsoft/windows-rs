@@ -4,7 +4,7 @@ pub unsafe fn CreateSecurityPage<P0>(psi: P0) -> windows_core::Result<super::sup
 where
     P0: windows_core::IntoParam<ISecurityInformation>,
 {
-    ::windows_targets::link!("aclui.dll" "system" fn CreateSecurityPage(psi : * mut core::ffi::c_void) -> super::super::super::UI::Controls:: HPROPSHEETPAGE);
+    windows_targets::link!("aclui.dll" "system" fn CreateSecurityPage(psi : * mut core::ffi::c_void) -> super::super::super::UI::Controls:: HPROPSHEETPAGE);
     let result__ = CreateSecurityPage(psi.into_param().abi());
     (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
 }
@@ -14,7 +14,7 @@ where
     P0: windows_core::IntoParam<super::super::super::Foundation::HWND>,
     P1: windows_core::IntoParam<ISecurityInformation>,
 {
-    ::windows_targets::link!("aclui.dll" "system" fn EditSecurity(hwndowner : super::super::super::Foundation:: HWND, psi : * mut core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
+    windows_targets::link!("aclui.dll" "system" fn EditSecurity(hwndowner : super::super::super::Foundation:: HWND, psi : * mut core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
     EditSecurity(hwndowner.into_param().abi(), psi.into_param().abi()).ok()
 }
 #[inline]
@@ -23,7 +23,7 @@ where
     P0: windows_core::IntoParam<super::super::super::Foundation::HWND>,
     P1: windows_core::IntoParam<ISecurityInformation>,
 {
-    ::windows_targets::link!("aclui.dll" "system" fn EditSecurityAdvanced(hwndowner : super::super::super::Foundation:: HWND, psi : * mut core::ffi::c_void, usipage : SI_PAGE_TYPE) -> windows_core::HRESULT);
+    windows_targets::link!("aclui.dll" "system" fn EditSecurityAdvanced(hwndowner : super::super::super::Foundation:: HWND, psi : * mut core::ffi::c_void, usipage : SI_PAGE_TYPE) -> windows_core::HRESULT);
     EditSecurityAdvanced(hwndowner.into_param().abi(), psi.into_param().abi(), usipage).ok()
 }
 windows_core::imp::com_interface!(IEffectivePermission, IEffectivePermission_Vtbl, 0x3853dc76_9f35_407c_88a1_d19344365fbc);

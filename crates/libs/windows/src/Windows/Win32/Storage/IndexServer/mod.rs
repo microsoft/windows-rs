@@ -5,7 +5,7 @@ where
     P0: windows_core::IntoParam<super::super::System::Com::StructuredStorage::IStorage>,
     P1: windows_core::IntoParam<windows_core::IUnknown>,
 {
-    ::windows_targets::link!("query.dll" "system" fn BindIFilterFromStorage(pstg : * mut core::ffi::c_void, punkouter : * mut core::ffi::c_void, ppiunk : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_targets::link!("query.dll" "system" fn BindIFilterFromStorage(pstg : * mut core::ffi::c_void, punkouter : * mut core::ffi::c_void, ppiunk : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     BindIFilterFromStorage(pstg.into_param().abi(), punkouter.into_param().abi(), ppiunk).ok()
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -15,7 +15,7 @@ where
     P0: windows_core::IntoParam<super::super::System::Com::IStream>,
     P1: windows_core::IntoParam<windows_core::IUnknown>,
 {
-    ::windows_targets::link!("query.dll" "system" fn BindIFilterFromStream(pstm : * mut core::ffi::c_void, punkouter : * mut core::ffi::c_void, ppiunk : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_targets::link!("query.dll" "system" fn BindIFilterFromStream(pstm : * mut core::ffi::c_void, punkouter : * mut core::ffi::c_void, ppiunk : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     BindIFilterFromStream(pstm.into_param().abi(), punkouter.into_param().abi(), ppiunk).ok()
 }
 #[inline]
@@ -24,7 +24,7 @@ where
     P0: windows_core::IntoParam<windows_core::PCWSTR>,
     P1: windows_core::IntoParam<windows_core::IUnknown>,
 {
-    ::windows_targets::link!("query.dll" "system" fn LoadIFilter(pwcspath : windows_core::PCWSTR, punkouter : * mut core::ffi::c_void, ppiunk : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_targets::link!("query.dll" "system" fn LoadIFilter(pwcspath : windows_core::PCWSTR, punkouter : * mut core::ffi::c_void, ppiunk : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     LoadIFilter(pwcspath.into_param().abi(), punkouter.into_param().abi(), ppiunk).ok()
 }
 #[inline]
@@ -32,7 +32,7 @@ pub unsafe fn LoadIFilterEx<P0>(pwcspath: P0, dwflags: u32, riid: *const windows
 where
     P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("query.dll" "system" fn LoadIFilterEx(pwcspath : windows_core::PCWSTR, dwflags : u32, riid : *const windows_core::GUID, ppiunk : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_targets::link!("query.dll" "system" fn LoadIFilterEx(pwcspath : windows_core::PCWSTR, dwflags : u32, riid : *const windows_core::GUID, ppiunk : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     LoadIFilterEx(pwcspath.into_param().abi(), dwflags, riid, ppiunk).ok()
 }
 windows_core::imp::com_interface!(IFilter, IFilter_Vtbl, 0x89bcb740_6119_101a_bcb7_00dd010655af);

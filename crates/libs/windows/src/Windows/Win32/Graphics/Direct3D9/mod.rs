@@ -3,22 +3,22 @@ pub unsafe fn D3DPERF_BeginEvent<P0>(col: u32, wszname: P0) -> i32
 where
     P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("d3d9.dll" "system" fn D3DPERF_BeginEvent(col : u32, wszname : windows_core::PCWSTR) -> i32);
+    windows_targets::link!("d3d9.dll" "system" fn D3DPERF_BeginEvent(col : u32, wszname : windows_core::PCWSTR) -> i32);
     D3DPERF_BeginEvent(col, wszname.into_param().abi())
 }
 #[inline]
 pub unsafe fn D3DPERF_EndEvent() -> i32 {
-    ::windows_targets::link!("d3d9.dll" "system" fn D3DPERF_EndEvent() -> i32);
+    windows_targets::link!("d3d9.dll" "system" fn D3DPERF_EndEvent() -> i32);
     D3DPERF_EndEvent()
 }
 #[inline]
 pub unsafe fn D3DPERF_GetStatus() -> u32 {
-    ::windows_targets::link!("d3d9.dll" "system" fn D3DPERF_GetStatus() -> u32);
+    windows_targets::link!("d3d9.dll" "system" fn D3DPERF_GetStatus() -> u32);
     D3DPERF_GetStatus()
 }
 #[inline]
 pub unsafe fn D3DPERF_QueryRepeatFrame() -> super::super::Foundation::BOOL {
-    ::windows_targets::link!("d3d9.dll" "system" fn D3DPERF_QueryRepeatFrame() -> super::super::Foundation:: BOOL);
+    windows_targets::link!("d3d9.dll" "system" fn D3DPERF_QueryRepeatFrame() -> super::super::Foundation:: BOOL);
     D3DPERF_QueryRepeatFrame()
 }
 #[inline]
@@ -26,12 +26,12 @@ pub unsafe fn D3DPERF_SetMarker<P0>(col: u32, wszname: P0)
 where
     P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("d3d9.dll" "system" fn D3DPERF_SetMarker(col : u32, wszname : windows_core::PCWSTR));
+    windows_targets::link!("d3d9.dll" "system" fn D3DPERF_SetMarker(col : u32, wszname : windows_core::PCWSTR));
     D3DPERF_SetMarker(col, wszname.into_param().abi())
 }
 #[inline]
 pub unsafe fn D3DPERF_SetOptions(dwoptions: u32) {
-    ::windows_targets::link!("d3d9.dll" "system" fn D3DPERF_SetOptions(dwoptions : u32));
+    windows_targets::link!("d3d9.dll" "system" fn D3DPERF_SetOptions(dwoptions : u32));
     D3DPERF_SetOptions(dwoptions)
 }
 #[inline]
@@ -39,17 +39,17 @@ pub unsafe fn D3DPERF_SetRegion<P0>(col: u32, wszname: P0)
 where
     P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("d3d9.dll" "system" fn D3DPERF_SetRegion(col : u32, wszname : windows_core::PCWSTR));
+    windows_targets::link!("d3d9.dll" "system" fn D3DPERF_SetRegion(col : u32, wszname : windows_core::PCWSTR));
     D3DPERF_SetRegion(col, wszname.into_param().abi())
 }
 #[inline]
 pub unsafe fn Direct3DCreate9(sdkversion: u32) -> Option<IDirect3D9> {
-    ::windows_targets::link!("d3d9.dll" "system" fn Direct3DCreate9(sdkversion : u32) -> Option < IDirect3D9 >);
+    windows_targets::link!("d3d9.dll" "system" fn Direct3DCreate9(sdkversion : u32) -> Option < IDirect3D9 >);
     Direct3DCreate9(sdkversion)
 }
 #[inline]
 pub unsafe fn Direct3DCreate9Ex(sdkversion: u32) -> windows_core::Result<IDirect3D9Ex> {
-    ::windows_targets::link!("d3d9.dll" "system" fn Direct3DCreate9Ex(sdkversion : u32, param1 : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_targets::link!("d3d9.dll" "system" fn Direct3DCreate9Ex(sdkversion : u32, param1 : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = std::mem::zeroed();
     Direct3DCreate9Ex(sdkversion, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }

@@ -4,7 +4,7 @@ where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
     P1: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("netsh.dll" "system" fn MatchEnumTag(hmodule : super::super::Foundation:: HANDLE, pwcarg : windows_core::PCWSTR, dwnumarg : u32, penumtable : *const TOKEN_VALUE, pdwvalue : *mut u32) -> u32);
+    windows_targets::link!("netsh.dll" "system" fn MatchEnumTag(hmodule : super::super::Foundation:: HANDLE, pwcarg : windows_core::PCWSTR, dwnumarg : u32, penumtable : *const TOKEN_VALUE, pdwvalue : *mut u32) -> u32);
     MatchEnumTag(hmodule.into_param().abi(), pwcarg.into_param().abi(), dwnumarg, penumtable, pdwvalue)
 }
 #[inline]
@@ -13,7 +13,7 @@ where
     P0: windows_core::IntoParam<windows_core::PCWSTR>,
     P1: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("netsh.dll" "system" fn MatchToken(pwszusertoken : windows_core::PCWSTR, pwszcmdtoken : windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("netsh.dll" "system" fn MatchToken(pwszusertoken : windows_core::PCWSTR, pwszcmdtoken : windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
     MatchToken(pwszusertoken.into_param().abi(), pwszcmdtoken.into_param().abi())
 }
 #[inline]
@@ -21,7 +21,7 @@ pub unsafe fn PreprocessCommand<P0>(hmodule: P0, ppwcarguments: &mut [windows_co
 where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("netsh.dll" "system" fn PreprocessCommand(hmodule : super::super::Foundation:: HANDLE, ppwcarguments : *mut windows_core::PWSTR, dwcurrentindex : u32, dwargcount : u32, ptttags : *mut TAG_TYPE, dwtagcount : u32, dwminargs : u32, dwmaxargs : u32, pdwtagtype : *mut u32) -> u32);
+    windows_targets::link!("netsh.dll" "system" fn PreprocessCommand(hmodule : super::super::Foundation:: HANDLE, ppwcarguments : *mut windows_core::PWSTR, dwcurrentindex : u32, dwargcount : u32, ptttags : *mut TAG_TYPE, dwtagcount : u32, dwminargs : u32, dwmaxargs : u32, pdwtagtype : *mut u32) -> u32);
     PreprocessCommand(hmodule.into_param().abi(), core::mem::transmute(ppwcarguments.as_ptr()), dwcurrentindex, ppwcarguments.len().try_into().unwrap(), core::mem::transmute(ptttags.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), ptttags.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), dwminargs, dwmaxargs, core::mem::transmute(pdwtagtype.unwrap_or(std::ptr::null_mut())))
 }
 #[inline]
@@ -29,7 +29,7 @@ pub unsafe fn PrintError<P0>(hmodule: P0, dwerrid: u32) -> u32
 where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("netsh.dll" "cdecl" fn PrintError(hmodule : super::super::Foundation:: HANDLE, dwerrid : u32) -> u32);
+    windows_targets::link!("netsh.dll" "cdecl" fn PrintError(hmodule : super::super::Foundation:: HANDLE, dwerrid : u32) -> u32);
     PrintError(hmodule.into_param().abi(), dwerrid)
 }
 #[inline]
@@ -37,7 +37,7 @@ pub unsafe fn PrintMessage<P0>(pwszformat: P0) -> u32
 where
     P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("netsh.dll" "cdecl" fn PrintMessage(pwszformat : windows_core::PCWSTR) -> u32);
+    windows_targets::link!("netsh.dll" "cdecl" fn PrintMessage(pwszformat : windows_core::PCWSTR) -> u32);
     PrintMessage(pwszformat.into_param().abi())
 }
 #[inline]
@@ -45,17 +45,17 @@ pub unsafe fn PrintMessageFromModule<P0>(hmodule: P0, dwmsgid: u32) -> u32
 where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("netsh.dll" "cdecl" fn PrintMessageFromModule(hmodule : super::super::Foundation:: HANDLE, dwmsgid : u32) -> u32);
+    windows_targets::link!("netsh.dll" "cdecl" fn PrintMessageFromModule(hmodule : super::super::Foundation:: HANDLE, dwmsgid : u32) -> u32);
     PrintMessageFromModule(hmodule.into_param().abi(), dwmsgid)
 }
 #[inline]
 pub unsafe fn RegisterContext(pchildcontext: *const NS_CONTEXT_ATTRIBUTES) -> u32 {
-    ::windows_targets::link!("netsh.dll" "system" fn RegisterContext(pchildcontext : *const NS_CONTEXT_ATTRIBUTES) -> u32);
+    windows_targets::link!("netsh.dll" "system" fn RegisterContext(pchildcontext : *const NS_CONTEXT_ATTRIBUTES) -> u32);
     RegisterContext(pchildcontext)
 }
 #[inline]
 pub unsafe fn RegisterHelper(pguidparentcontext: *const windows_core::GUID, pfnregistersubcontext: *const NS_HELPER_ATTRIBUTES) -> u32 {
-    ::windows_targets::link!("netsh.dll" "system" fn RegisterHelper(pguidparentcontext : *const windows_core::GUID, pfnregistersubcontext : *const NS_HELPER_ATTRIBUTES) -> u32);
+    windows_targets::link!("netsh.dll" "system" fn RegisterHelper(pguidparentcontext : *const windows_core::GUID, pfnregistersubcontext : *const NS_HELPER_ATTRIBUTES) -> u32);
     RegisterHelper(pguidparentcontext, pfnregistersubcontext)
 }
 pub const CMD_FLAG_HIDDEN: NS_CMD_FLAGS = NS_CMD_FLAGS(32i32);

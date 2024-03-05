@@ -1,12 +1,12 @@
-::windows_targets::link!("mapi32.dll" "system" fn CloseIMsgSession(lpmsgsess : LPMSGSESS));
+windows_targets::link!("mapi32.dll" "system" fn CloseIMsgSession(lpmsgsess : LPMSGSESS));
 #[cfg(feature = "Win32_System_AddressBook")]
-::windows_targets::link!("mapi32.dll" "system" fn GetAttribIMsgOnIStg(lpobject : *mut core::ffi::c_void, lpproptagarray : *mut super::super::System::AddressBook:: SPropTagArray, lpppropattrarray : *mut *mut SPropAttrArray) -> windows_sys::core::HRESULT);
-::windows_targets::link!("mapi32.dll" "system" fn MapStorageSCode(stgscode : i32) -> i32);
+windows_targets::link!("mapi32.dll" "system" fn GetAttribIMsgOnIStg(lpobject : *mut core::ffi::c_void, lpproptagarray : *mut super::super::System::AddressBook:: SPropTagArray, lpppropattrarray : *mut *mut SPropAttrArray) -> windows_sys::core::HRESULT);
+windows_targets::link!("mapi32.dll" "system" fn MapStorageSCode(stgscode : i32) -> i32);
 #[cfg(feature = "Win32_System_AddressBook")]
-::windows_targets::link!("mapi32.dll" "system" fn OpenIMsgOnIStg(lpmsgsess : LPMSGSESS, lpallocatebuffer : super::super::System::AddressBook:: LPALLOCATEBUFFER, lpallocatemore : super::super::System::AddressBook:: LPALLOCATEMORE, lpfreebuffer : super::super::System::AddressBook:: LPFREEBUFFER, lpmalloc : * mut core::ffi::c_void, lpmapisup : *mut core::ffi::c_void, lpstg : * mut core::ffi::c_void, lpfmsgcallrelease : *mut MSGCALLRELEASE, ulcallerdata : u32, ulflags : u32, lppmsg : *mut * mut core::ffi::c_void) -> i32);
-::windows_targets::link!("mapi32.dll" "system" fn OpenIMsgSession(lpmalloc : * mut core::ffi::c_void, ulflags : u32, lppmsgsess : *mut LPMSGSESS) -> i32);
+windows_targets::link!("mapi32.dll" "system" fn OpenIMsgOnIStg(lpmsgsess : LPMSGSESS, lpallocatebuffer : super::super::System::AddressBook:: LPALLOCATEBUFFER, lpallocatemore : super::super::System::AddressBook:: LPALLOCATEMORE, lpfreebuffer : super::super::System::AddressBook:: LPFREEBUFFER, lpmalloc : * mut core::ffi::c_void, lpmapisup : *mut core::ffi::c_void, lpstg : * mut core::ffi::c_void, lpfmsgcallrelease : *mut MSGCALLRELEASE, ulcallerdata : u32, ulflags : u32, lppmsg : *mut * mut core::ffi::c_void) -> i32);
+windows_targets::link!("mapi32.dll" "system" fn OpenIMsgSession(lpmalloc : * mut core::ffi::c_void, ulflags : u32, lppmsgsess : *mut LPMSGSESS) -> i32);
 #[cfg(feature = "Win32_System_AddressBook")]
-::windows_targets::link!("mapi32.dll" "system" fn SetAttribIMsgOnIStg(lpobject : *mut core::ffi::c_void, lpproptags : *mut super::super::System::AddressBook:: SPropTagArray, lppropattrs : *mut SPropAttrArray, lpppropproblems : *mut *mut super::super::System::AddressBook:: SPropProblemArray) -> windows_sys::core::HRESULT);
+windows_targets::link!("mapi32.dll" "system" fn SetAttribIMsgOnIStg(lpobject : *mut core::ffi::c_void, lpproptags : *mut super::super::System::AddressBook:: SPropTagArray, lppropattrs : *mut SPropAttrArray, lpppropproblems : *mut *mut super::super::System::AddressBook:: SPropProblemArray) -> windows_sys::core::HRESULT);
 pub const CATID_SMTP_DNSRESOLVERRECORDSINK: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xbd0b4366_8e03_11d2_94f6_00c04f79f1d6);
 pub const CATID_SMTP_DSN: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x22b55731_f5f8_4d23_bd8f_87b52371a73a);
 pub const CATID_SMTP_GET_AUX_DOMAIN_INFO_FLAGS: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x84ff368a_fab3_43d7_bcdf_692c5b46e6b1);

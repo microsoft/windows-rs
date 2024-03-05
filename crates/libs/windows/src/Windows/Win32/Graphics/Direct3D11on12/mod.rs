@@ -4,7 +4,7 @@ pub unsafe fn D3D11On12CreateDevice<P0>(pdevice: P0, flags: u32, pfeaturelevels:
 where
     P0: windows_core::IntoParam<windows_core::IUnknown>,
 {
-    ::windows_targets::link!("d3d11.dll" "system" fn D3D11On12CreateDevice(pdevice : * mut core::ffi::c_void, flags : u32, pfeaturelevels : *const super::Direct3D:: D3D_FEATURE_LEVEL, featurelevels : u32, ppcommandqueues : *const * mut core::ffi::c_void, numqueues : u32, nodemask : u32, ppdevice : *mut * mut core::ffi::c_void, ppimmediatecontext : *mut * mut core::ffi::c_void, pchosenfeaturelevel : *mut super::Direct3D:: D3D_FEATURE_LEVEL) -> windows_core::HRESULT);
+    windows_targets::link!("d3d11.dll" "system" fn D3D11On12CreateDevice(pdevice : * mut core::ffi::c_void, flags : u32, pfeaturelevels : *const super::Direct3D:: D3D_FEATURE_LEVEL, featurelevels : u32, ppcommandqueues : *const * mut core::ffi::c_void, numqueues : u32, nodemask : u32, ppdevice : *mut * mut core::ffi::c_void, ppimmediatecontext : *mut * mut core::ffi::c_void, pchosenfeaturelevel : *mut super::Direct3D:: D3D_FEATURE_LEVEL) -> windows_core::HRESULT);
     D3D11On12CreateDevice(
         pdevice.into_param().abi(),
         flags,

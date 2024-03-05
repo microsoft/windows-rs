@@ -3,18 +3,18 @@ pub unsafe fn CloseIMsgSession<P0>(lpmsgsess: P0)
 where
     P0: windows_core::IntoParam<LPMSGSESS>,
 {
-    ::windows_targets::link!("mapi32.dll" "system" fn CloseIMsgSession(lpmsgsess : LPMSGSESS));
+    windows_targets::link!("mapi32.dll" "system" fn CloseIMsgSession(lpmsgsess : LPMSGSESS));
     CloseIMsgSession(lpmsgsess.into_param().abi())
 }
 #[cfg(feature = "Win32_System_AddressBook")]
 #[inline]
 pub unsafe fn GetAttribIMsgOnIStg(lpobject: *mut core::ffi::c_void, lpproptagarray: *mut super::super::System::AddressBook::SPropTagArray, lpppropattrarray: *mut *mut SPropAttrArray) -> windows_core::Result<()> {
-    ::windows_targets::link!("mapi32.dll" "system" fn GetAttribIMsgOnIStg(lpobject : *mut core::ffi::c_void, lpproptagarray : *mut super::super::System::AddressBook:: SPropTagArray, lpppropattrarray : *mut *mut SPropAttrArray) -> windows_core::HRESULT);
+    windows_targets::link!("mapi32.dll" "system" fn GetAttribIMsgOnIStg(lpobject : *mut core::ffi::c_void, lpproptagarray : *mut super::super::System::AddressBook:: SPropTagArray, lpppropattrarray : *mut *mut SPropAttrArray) -> windows_core::HRESULT);
     GetAttribIMsgOnIStg(lpobject, lpproptagarray, lpppropattrarray).ok()
 }
 #[inline]
 pub unsafe fn MapStorageSCode(stgscode: i32) -> i32 {
-    ::windows_targets::link!("mapi32.dll" "system" fn MapStorageSCode(stgscode : i32) -> i32);
+    windows_targets::link!("mapi32.dll" "system" fn MapStorageSCode(stgscode : i32) -> i32);
     MapStorageSCode(stgscode)
 }
 #[cfg(all(feature = "Win32_System_AddressBook", feature = "Win32_System_Com_StructuredStorage"))]
@@ -25,7 +25,7 @@ where
     P1: windows_core::IntoParam<super::super::System::Com::IMalloc>,
     P2: windows_core::IntoParam<super::super::System::Com::StructuredStorage::IStorage>,
 {
-    ::windows_targets::link!("mapi32.dll" "system" fn OpenIMsgOnIStg(lpmsgsess : LPMSGSESS, lpallocatebuffer : super::super::System::AddressBook:: LPALLOCATEBUFFER, lpallocatemore : super::super::System::AddressBook:: LPALLOCATEMORE, lpfreebuffer : super::super::System::AddressBook:: LPFREEBUFFER, lpmalloc : * mut core::ffi::c_void, lpmapisup : *mut core::ffi::c_void, lpstg : * mut core::ffi::c_void, lpfmsgcallrelease : *mut MSGCALLRELEASE, ulcallerdata : u32, ulflags : u32, lppmsg : *mut * mut core::ffi::c_void) -> i32);
+    windows_targets::link!("mapi32.dll" "system" fn OpenIMsgOnIStg(lpmsgsess : LPMSGSESS, lpallocatebuffer : super::super::System::AddressBook:: LPALLOCATEBUFFER, lpallocatemore : super::super::System::AddressBook:: LPALLOCATEMORE, lpfreebuffer : super::super::System::AddressBook:: LPFREEBUFFER, lpmalloc : * mut core::ffi::c_void, lpmapisup : *mut core::ffi::c_void, lpstg : * mut core::ffi::c_void, lpfmsgcallrelease : *mut MSGCALLRELEASE, ulcallerdata : u32, ulflags : u32, lppmsg : *mut * mut core::ffi::c_void) -> i32);
     OpenIMsgOnIStg(lpmsgsess.into_param().abi(), lpallocatebuffer, lpallocatemore, lpfreebuffer, lpmalloc.into_param().abi(), lpmapisup, lpstg.into_param().abi(), lpfmsgcallrelease, ulcallerdata, ulflags, core::mem::transmute(lppmsg))
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -34,13 +34,13 @@ pub unsafe fn OpenIMsgSession<P0>(lpmalloc: P0, ulflags: u32, lppmsgsess: *mut L
 where
     P0: windows_core::IntoParam<super::super::System::Com::IMalloc>,
 {
-    ::windows_targets::link!("mapi32.dll" "system" fn OpenIMsgSession(lpmalloc : * mut core::ffi::c_void, ulflags : u32, lppmsgsess : *mut LPMSGSESS) -> i32);
+    windows_targets::link!("mapi32.dll" "system" fn OpenIMsgSession(lpmalloc : * mut core::ffi::c_void, ulflags : u32, lppmsgsess : *mut LPMSGSESS) -> i32);
     OpenIMsgSession(lpmalloc.into_param().abi(), ulflags, lppmsgsess)
 }
 #[cfg(feature = "Win32_System_AddressBook")]
 #[inline]
 pub unsafe fn SetAttribIMsgOnIStg(lpobject: *mut core::ffi::c_void, lpproptags: *mut super::super::System::AddressBook::SPropTagArray, lppropattrs: *mut SPropAttrArray, lpppropproblems: *mut *mut super::super::System::AddressBook::SPropProblemArray) -> windows_core::Result<()> {
-    ::windows_targets::link!("mapi32.dll" "system" fn SetAttribIMsgOnIStg(lpobject : *mut core::ffi::c_void, lpproptags : *mut super::super::System::AddressBook:: SPropTagArray, lppropattrs : *mut SPropAttrArray, lpppropproblems : *mut *mut super::super::System::AddressBook:: SPropProblemArray) -> windows_core::HRESULT);
+    windows_targets::link!("mapi32.dll" "system" fn SetAttribIMsgOnIStg(lpobject : *mut core::ffi::c_void, lpproptags : *mut super::super::System::AddressBook:: SPropTagArray, lppropattrs : *mut SPropAttrArray, lpppropproblems : *mut *mut super::super::System::AddressBook:: SPropProblemArray) -> windows_core::HRESULT);
     SetAttribIMsgOnIStg(lpobject, lpproptags, lppropattrs, lpppropproblems).ok()
 }
 #[cfg(feature = "Win32_System_Com")]

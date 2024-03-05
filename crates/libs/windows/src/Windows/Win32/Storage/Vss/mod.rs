@@ -1,6 +1,6 @@
 #[inline]
 pub unsafe fn CreateVssExpressWriterInternal() -> windows_core::Result<IVssExpressWriter> {
-    ::windows_targets::link!("vssapi.dll" "system" fn CreateVssExpressWriterInternal(ppwriter : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_targets::link!("vssapi.dll" "system" fn CreateVssExpressWriterInternal(ppwriter : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = std::mem::zeroed();
     CreateVssExpressWriterInternal(&mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }

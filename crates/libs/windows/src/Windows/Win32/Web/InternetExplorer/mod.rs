@@ -1,7 +1,7 @@
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn ComputeInvCMAP(prgbcolors: *const super::super::Graphics::Gdi::RGBQUAD, ncolors: u32, pinvtable: *mut u8, cbtable: u32) -> windows_core::Result<()> {
-    ::windows_targets::link!("imgutil.dll" "system" fn ComputeInvCMAP(prgbcolors : *const super::super::Graphics::Gdi:: RGBQUAD, ncolors : u32, pinvtable : *mut u8, cbtable : u32) -> windows_core::HRESULT);
+    windows_targets::link!("imgutil.dll" "system" fn ComputeInvCMAP(prgbcolors : *const super::super::Graphics::Gdi:: RGBQUAD, ncolors : u32, pinvtable : *mut u8, cbtable : u32) -> windows_core::HRESULT);
     ComputeInvCMAP(prgbcolors, ncolors, pinvtable, cbtable).ok()
 }
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
@@ -10,13 +10,13 @@ pub unsafe fn CreateDDrawSurfaceOnDIB<P0>(hbmdib: P0) -> windows_core::Result<su
 where
     P0: windows_core::IntoParam<super::super::Graphics::Gdi::HBITMAP>,
 {
-    ::windows_targets::link!("imgutil.dll" "system" fn CreateDDrawSurfaceOnDIB(hbmdib : super::super::Graphics::Gdi:: HBITMAP, ppsurface : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_targets::link!("imgutil.dll" "system" fn CreateDDrawSurfaceOnDIB(hbmdib : super::super::Graphics::Gdi:: HBITMAP, ppsurface : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = std::mem::zeroed();
     CreateDDrawSurfaceOnDIB(hbmdib.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[inline]
 pub unsafe fn CreateMIMEMap() -> windows_core::Result<IMapMIMEToCLSID> {
-    ::windows_targets::link!("imgutil.dll" "system" fn CreateMIMEMap(ppmap : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_targets::link!("imgutil.dll" "system" fn CreateMIMEMap(ppmap : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = std::mem::zeroed();
     CreateMIMEMap(&mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
@@ -28,7 +28,7 @@ where
     P1: windows_core::IntoParam<IMapMIMEToCLSID>,
     P2: windows_core::IntoParam<windows_core::IUnknown>,
 {
-    ::windows_targets::link!("imgutil.dll" "system" fn DecodeImage(pstream : * mut core::ffi::c_void, pmap : * mut core::ffi::c_void, peventsink : * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_targets::link!("imgutil.dll" "system" fn DecodeImage(pstream : * mut core::ffi::c_void, pmap : * mut core::ffi::c_void, peventsink : * mut core::ffi::c_void) -> windows_core::HRESULT);
     DecodeImage(pstream.into_param().abi(), pmap.into_param().abi(), peventsink.into_param().abi()).ok()
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -40,23 +40,23 @@ where
     P2: windows_core::IntoParam<windows_core::IUnknown>,
     P3: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("imgutil.dll" "system" fn DecodeImageEx(pstream : * mut core::ffi::c_void, pmap : * mut core::ffi::c_void, peventsink : * mut core::ffi::c_void, pszmimetypeparam : windows_core::PCWSTR) -> windows_core::HRESULT);
+    windows_targets::link!("imgutil.dll" "system" fn DecodeImageEx(pstream : * mut core::ffi::c_void, pmap : * mut core::ffi::c_void, peventsink : * mut core::ffi::c_void, pszmimetypeparam : windows_core::PCWSTR) -> windows_core::HRESULT);
     DecodeImageEx(pstream.into_param().abi(), pmap.into_param().abi(), peventsink.into_param().abi(), pszmimetypeparam.into_param().abi()).ok()
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn DitherTo8(pdestbits: *mut u8, ndestpitch: i32, psrcbits: *mut u8, nsrcpitch: i32, bfidsrc: *const windows_core::GUID, prgbdestcolors: *mut super::super::Graphics::Gdi::RGBQUAD, prgbsrccolors: *mut super::super::Graphics::Gdi::RGBQUAD, pbdestinvmap: *mut u8, x: i32, y: i32, cx: i32, cy: i32, ldesttrans: i32, lsrctrans: i32) -> windows_core::Result<()> {
-    ::windows_targets::link!("imgutil.dll" "system" fn DitherTo8(pdestbits : *mut u8, ndestpitch : i32, psrcbits : *mut u8, nsrcpitch : i32, bfidsrc : *const windows_core::GUID, prgbdestcolors : *mut super::super::Graphics::Gdi:: RGBQUAD, prgbsrccolors : *mut super::super::Graphics::Gdi:: RGBQUAD, pbdestinvmap : *mut u8, x : i32, y : i32, cx : i32, cy : i32, ldesttrans : i32, lsrctrans : i32) -> windows_core::HRESULT);
+    windows_targets::link!("imgutil.dll" "system" fn DitherTo8(pdestbits : *mut u8, ndestpitch : i32, psrcbits : *mut u8, nsrcpitch : i32, bfidsrc : *const windows_core::GUID, prgbdestcolors : *mut super::super::Graphics::Gdi:: RGBQUAD, prgbsrccolors : *mut super::super::Graphics::Gdi:: RGBQUAD, pbdestinvmap : *mut u8, x : i32, y : i32, cx : i32, cy : i32, ldesttrans : i32, lsrctrans : i32) -> windows_core::HRESULT);
     DitherTo8(pdestbits, ndestpitch, psrcbits, nsrcpitch, bfidsrc, prgbdestcolors, prgbsrccolors, pbdestinvmap, x, y, cx, cy, ldesttrans, lsrctrans).ok()
 }
 #[inline]
 pub unsafe fn GetMaxMIMEIDBytes(pnmaxbytes: *mut u32) -> windows_core::Result<()> {
-    ::windows_targets::link!("imgutil.dll" "system" fn GetMaxMIMEIDBytes(pnmaxbytes : *mut u32) -> windows_core::HRESULT);
+    windows_targets::link!("imgutil.dll" "system" fn GetMaxMIMEIDBytes(pnmaxbytes : *mut u32) -> windows_core::HRESULT);
     GetMaxMIMEIDBytes(pnmaxbytes).ok()
 }
 #[inline]
 pub unsafe fn IEAssociateThreadWithTab(dwtabthreadid: u32, dwassociatedthreadid: u32) -> windows_core::Result<()> {
-    ::windows_targets::link!("ieframe.dll" "system" fn IEAssociateThreadWithTab(dwtabthreadid : u32, dwassociatedthreadid : u32) -> windows_core::HRESULT);
+    windows_targets::link!("ieframe.dll" "system" fn IEAssociateThreadWithTab(dwtabthreadid : u32, dwassociatedthreadid : u32) -> windows_core::HRESULT);
     IEAssociateThreadWithTab(dwtabthreadid, dwassociatedthreadid).ok()
 }
 #[inline]
@@ -64,7 +64,7 @@ pub unsafe fn IECancelSaveFile<P0>(hstate: P0) -> windows_core::Result<()>
 where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("ieframe.dll" "system" fn IECancelSaveFile(hstate : super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
+    windows_targets::link!("ieframe.dll" "system" fn IECancelSaveFile(hstate : super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
     IECancelSaveFile(hstate.into_param().abi()).ok()
 }
 #[cfg(feature = "Win32_Security")]
@@ -73,7 +73,7 @@ pub unsafe fn IECreateDirectory<P0>(lppathname: P0, lpsecurityattributes: *const
 where
     P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("ieframe.dll" "system" fn IECreateDirectory(lppathname : windows_core::PCWSTR, lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("ieframe.dll" "system" fn IECreateDirectory(lppathname : windows_core::PCWSTR, lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES) -> super::super::Foundation:: BOOL);
     IECreateDirectory(lppathname.into_param().abi(), lpsecurityattributes)
 }
 #[cfg(feature = "Win32_Security")]
@@ -83,7 +83,7 @@ where
     P0: windows_core::IntoParam<windows_core::PCWSTR>,
     P1: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("ieframe.dll" "system" fn IECreateFile(lpfilename : windows_core::PCWSTR, dwdesiredaccess : u32, dwsharemode : u32, lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, dwcreationdisposition : u32, dwflagsandattributes : u32, htemplatefile : super::super::Foundation:: HANDLE) -> super::super::Foundation:: HANDLE);
+    windows_targets::link!("ieframe.dll" "system" fn IECreateFile(lpfilename : windows_core::PCWSTR, dwdesiredaccess : u32, dwsharemode : u32, lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, dwcreationdisposition : u32, dwflagsandattributes : u32, htemplatefile : super::super::Foundation:: HANDLE) -> super::super::Foundation:: HANDLE);
     IECreateFile(lpfilename.into_param().abi(), dwdesiredaccess, dwsharemode, lpsecurityattributes, dwcreationdisposition, dwflagsandattributes, htemplatefile.into_param().abi())
 }
 #[inline]
@@ -91,12 +91,12 @@ pub unsafe fn IEDeleteFile<P0>(lpfilename: P0) -> super::super::Foundation::BOOL
 where
     P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("ieframe.dll" "system" fn IEDeleteFile(lpfilename : windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("ieframe.dll" "system" fn IEDeleteFile(lpfilename : windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
     IEDeleteFile(lpfilename.into_param().abi())
 }
 #[inline]
 pub unsafe fn IEDisassociateThreadWithTab(dwtabthreadid: u32, dwassociatedthreadid: u32) -> windows_core::Result<()> {
-    ::windows_targets::link!("ieframe.dll" "system" fn IEDisassociateThreadWithTab(dwtabthreadid : u32, dwassociatedthreadid : u32) -> windows_core::HRESULT);
+    windows_targets::link!("ieframe.dll" "system" fn IEDisassociateThreadWithTab(dwtabthreadid : u32, dwassociatedthreadid : u32) -> windows_core::HRESULT);
     IEDisassociateThreadWithTab(dwtabthreadid, dwassociatedthreadid).ok()
 }
 #[cfg(feature = "Win32_Storage_FileSystem")]
@@ -105,7 +105,7 @@ pub unsafe fn IEFindFirstFile<P0>(lpfilename: P0, lpfindfiledata: *const super::
 where
     P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("ieframe.dll" "system" fn IEFindFirstFile(lpfilename : windows_core::PCWSTR, lpfindfiledata : *const super::super::Storage::FileSystem:: WIN32_FIND_DATAA) -> super::super::Foundation:: HANDLE);
+    windows_targets::link!("ieframe.dll" "system" fn IEFindFirstFile(lpfilename : windows_core::PCWSTR, lpfindfiledata : *const super::super::Storage::FileSystem:: WIN32_FIND_DATAA) -> super::super::Foundation:: HANDLE);
     IEFindFirstFile(lpfilename.into_param().abi(), lpfindfiledata)
 }
 #[cfg(feature = "Win32_Storage_FileSystem")]
@@ -114,7 +114,7 @@ pub unsafe fn IEGetFileAttributesEx<P0>(lpfilename: P0, finfolevelid: super::sup
 where
     P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("ieframe.dll" "system" fn IEGetFileAttributesEx(lpfilename : windows_core::PCWSTR, finfolevelid : super::super::Storage::FileSystem:: GET_FILEEX_INFO_LEVELS, lpfileinformation : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("ieframe.dll" "system" fn IEGetFileAttributesEx(lpfilename : windows_core::PCWSTR, finfolevelid : super::super::Storage::FileSystem:: GET_FILEEX_INFO_LEVELS, lpfileinformation : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
     IEGetFileAttributesEx(lpfilename.into_param().abi(), finfolevelid, lpfileinformation)
 }
 #[inline]
@@ -123,35 +123,35 @@ where
     P0: windows_core::IntoParam<windows_core::PCWSTR>,
     P1: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("ieframe.dll" "system" fn IEGetProtectedModeCookie(lpszurl : windows_core::PCWSTR, lpszcookiename : windows_core::PCWSTR, lpszcookiedata : windows_core::PWSTR, pcchcookiedata : *mut u32, dwflags : u32) -> windows_core::HRESULT);
+    windows_targets::link!("ieframe.dll" "system" fn IEGetProtectedModeCookie(lpszurl : windows_core::PCWSTR, lpszcookiename : windows_core::PCWSTR, lpszcookiedata : windows_core::PWSTR, pcchcookiedata : *mut u32, dwflags : u32) -> windows_core::HRESULT);
     IEGetProtectedModeCookie(lpszurl.into_param().abi(), lpszcookiename.into_param().abi(), core::mem::transmute(lpszcookiedata), pcchcookiedata, dwflags).ok()
 }
 #[inline]
 pub unsafe fn IEGetWriteableFolderPath(clsidfolderid: *const windows_core::GUID) -> windows_core::Result<windows_core::PWSTR> {
-    ::windows_targets::link!("ieframe.dll" "system" fn IEGetWriteableFolderPath(clsidfolderid : *const windows_core::GUID, lppwstrpath : *mut windows_core::PWSTR) -> windows_core::HRESULT);
+    windows_targets::link!("ieframe.dll" "system" fn IEGetWriteableFolderPath(clsidfolderid : *const windows_core::GUID, lppwstrpath : *mut windows_core::PWSTR) -> windows_core::HRESULT);
     let mut result__ = std::mem::zeroed();
     IEGetWriteableFolderPath(clsidfolderid, &mut result__).map(|| result__)
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn IEGetWriteableLowHKCU() -> windows_core::Result<super::super::System::Registry::HKEY> {
-    ::windows_targets::link!("ieframe.dll" "system" fn IEGetWriteableLowHKCU(phkey : *mut super::super::System::Registry:: HKEY) -> windows_core::HRESULT);
+    windows_targets::link!("ieframe.dll" "system" fn IEGetWriteableLowHKCU(phkey : *mut super::super::System::Registry:: HKEY) -> windows_core::HRESULT);
     let mut result__ = std::mem::zeroed();
     IEGetWriteableLowHKCU(&mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn IEInPrivateFilteringEnabled() -> super::super::Foundation::BOOL {
-    ::windows_targets::link!("ieframe.dll" "system" fn IEInPrivateFilteringEnabled() -> super::super::Foundation:: BOOL);
+    windows_targets::link!("ieframe.dll" "system" fn IEInPrivateFilteringEnabled() -> super::super::Foundation:: BOOL);
     IEInPrivateFilteringEnabled()
 }
 #[inline]
 pub unsafe fn IEIsInPrivateBrowsing() -> super::super::Foundation::BOOL {
-    ::windows_targets::link!("ieframe.dll" "system" fn IEIsInPrivateBrowsing() -> super::super::Foundation:: BOOL);
+    windows_targets::link!("ieframe.dll" "system" fn IEIsInPrivateBrowsing() -> super::super::Foundation:: BOOL);
     IEIsInPrivateBrowsing()
 }
 #[inline]
 pub unsafe fn IEIsProtectedModeProcess() -> windows_core::Result<super::super::Foundation::BOOL> {
-    ::windows_targets::link!("ieframe.dll" "system" fn IEIsProtectedModeProcess(pbresult : *mut super::super::Foundation:: BOOL) -> windows_core::HRESULT);
+    windows_targets::link!("ieframe.dll" "system" fn IEIsProtectedModeProcess(pbresult : *mut super::super::Foundation:: BOOL) -> windows_core::HRESULT);
     let mut result__ = std::mem::zeroed();
     IEIsProtectedModeProcess(&mut result__).map(|| result__)
 }
@@ -160,7 +160,7 @@ pub unsafe fn IEIsProtectedModeURL<P0>(lpwstrurl: P0) -> windows_core::Result<()
 where
     P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("ieframe.dll" "system" fn IEIsProtectedModeURL(lpwstrurl : windows_core::PCWSTR) -> windows_core::HRESULT);
+    windows_targets::link!("ieframe.dll" "system" fn IEIsProtectedModeURL(lpwstrurl : windows_core::PCWSTR) -> windows_core::HRESULT);
     IEIsProtectedModeURL(lpwstrurl.into_param().abi()).ok()
 }
 #[cfg(feature = "Win32_System_Threading")]
@@ -169,7 +169,7 @@ pub unsafe fn IELaunchURL<P0>(lpwstrurl: P0, lpprocinfo: *mut super::super::Syst
 where
     P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("ieframe.dll" "system" fn IELaunchURL(lpwstrurl : windows_core::PCWSTR, lpprocinfo : *mut super::super::System::Threading:: PROCESS_INFORMATION, lpinfo : *const core::ffi::c_void) -> windows_core::HRESULT);
+    windows_targets::link!("ieframe.dll" "system" fn IELaunchURL(lpwstrurl : windows_core::PCWSTR, lpprocinfo : *mut super::super::System::Threading:: PROCESS_INFORMATION, lpinfo : *const core::ffi::c_void) -> windows_core::HRESULT);
     IELaunchURL(lpwstrurl.into_param().abi(), lpprocinfo, core::mem::transmute(lpinfo.unwrap_or(std::ptr::null()))).ok()
 }
 #[inline]
@@ -178,12 +178,12 @@ where
     P0: windows_core::IntoParam<windows_core::PCWSTR>,
     P1: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("ieframe.dll" "system" fn IEMoveFileEx(lpexistingfilename : windows_core::PCWSTR, lpnewfilename : windows_core::PCWSTR, dwflags : u32) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("ieframe.dll" "system" fn IEMoveFileEx(lpexistingfilename : windows_core::PCWSTR, lpnewfilename : windows_core::PCWSTR, dwflags : u32) -> super::super::Foundation:: BOOL);
     IEMoveFileEx(lpexistingfilename.into_param().abi(), lpnewfilename.into_param().abi(), dwflags)
 }
 #[inline]
 pub unsafe fn IERefreshElevationPolicy() -> windows_core::Result<()> {
-    ::windows_targets::link!("ieframe.dll" "system" fn IERefreshElevationPolicy() -> windows_core::HRESULT);
+    windows_targets::link!("ieframe.dll" "system" fn IERefreshElevationPolicy() -> windows_core::HRESULT);
     IERefreshElevationPolicy().ok()
 }
 #[cfg(all(feature = "Win32_Security", feature = "Win32_System_Registry"))]
@@ -193,7 +193,7 @@ where
     P0: windows_core::IntoParam<windows_core::PCWSTR>,
     P1: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("ieframe.dll" "system" fn IERegCreateKeyEx(lpsubkey : windows_core::PCWSTR, reserved : u32, lpclass : windows_core::PCWSTR, dwoptions : u32, samdesired : u32, lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, phkresult : *mut super::super::System::Registry:: HKEY, lpdwdisposition : *mut u32) -> windows_core::HRESULT);
+    windows_targets::link!("ieframe.dll" "system" fn IERegCreateKeyEx(lpsubkey : windows_core::PCWSTR, reserved : u32, lpclass : windows_core::PCWSTR, dwoptions : u32, samdesired : u32, lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, phkresult : *mut super::super::System::Registry:: HKEY, lpdwdisposition : *mut u32) -> windows_core::HRESULT);
     IERegCreateKeyEx(lpsubkey.into_param().abi(), reserved, lpclass.into_param().abi(), dwoptions, samdesired, core::mem::transmute(lpsecurityattributes.unwrap_or(std::ptr::null())), phkresult, lpdwdisposition).ok()
 }
 #[inline]
@@ -202,7 +202,7 @@ where
     P0: windows_core::IntoParam<windows_core::PCWSTR>,
     P1: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("ieframe.dll" "system" fn IERegSetValueEx(lpsubkey : windows_core::PCWSTR, lpvaluename : windows_core::PCWSTR, reserved : u32, dwtype : u32, lpdata : *const u8, cbdata : u32) -> windows_core::HRESULT);
+    windows_targets::link!("ieframe.dll" "system" fn IERegSetValueEx(lpsubkey : windows_core::PCWSTR, lpvaluename : windows_core::PCWSTR, reserved : u32, dwtype : u32, lpdata : *const u8, cbdata : u32) -> windows_core::HRESULT);
     IERegSetValueEx(lpsubkey.into_param().abi(), lpvaluename.into_param().abi(), reserved, dwtype, core::mem::transmute(lpdata.as_ptr()), lpdata.len().try_into().unwrap()).ok()
 }
 #[inline]
@@ -211,7 +211,7 @@ where
     P0: windows_core::IntoParam<windows_core::PCWSTR>,
     P1: windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("ieframe.dll" "system" fn IERegisterWritableRegistryKey(guid : windows_core::GUID, lpsubkey : windows_core::PCWSTR, fsubkeyallowed : super::super::Foundation:: BOOL) -> windows_core::HRESULT);
+    windows_targets::link!("ieframe.dll" "system" fn IERegisterWritableRegistryKey(guid : windows_core::GUID, lpsubkey : windows_core::PCWSTR, fsubkeyallowed : super::super::Foundation:: BOOL) -> windows_core::HRESULT);
     IERegisterWritableRegistryKey(core::mem::transmute(guid), lpsubkey.into_param().abi(), fsubkeyallowed.into_param().abi()).ok()
 }
 #[inline]
@@ -220,7 +220,7 @@ where
     P0: windows_core::IntoParam<windows_core::PCWSTR>,
     P1: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("ieframe.dll" "system" fn IERegisterWritableRegistryValue(guid : windows_core::GUID, lppath : windows_core::PCWSTR, lpvaluename : windows_core::PCWSTR, dwtype : u32, lpdata : *const u8, cbmaxdata : u32) -> windows_core::HRESULT);
+    windows_targets::link!("ieframe.dll" "system" fn IERegisterWritableRegistryValue(guid : windows_core::GUID, lppath : windows_core::PCWSTR, lpvaluename : windows_core::PCWSTR, dwtype : u32, lpdata : *const u8, cbmaxdata : u32) -> windows_core::HRESULT);
     IERegisterWritableRegistryValue(core::mem::transmute(guid), lppath.into_param().abi(), lpvaluename.into_param().abi(), dwtype, core::mem::transmute(lpdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())).ok()
 }
 #[inline]
@@ -228,7 +228,7 @@ pub unsafe fn IERemoveDirectory<P0>(lppathname: P0) -> super::super::Foundation:
 where
     P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("ieframe.dll" "system" fn IERemoveDirectory(lppathname : windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("ieframe.dll" "system" fn IERemoveDirectory(lppathname : windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
     IERemoveDirectory(lppathname.into_param().abi())
 }
 #[inline]
@@ -237,7 +237,7 @@ where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
     P1: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("ieframe.dll" "system" fn IESaveFile(hstate : super::super::Foundation:: HANDLE, lpwstrsourcefile : windows_core::PCWSTR) -> windows_core::HRESULT);
+    windows_targets::link!("ieframe.dll" "system" fn IESaveFile(hstate : super::super::Foundation:: HANDLE, lpwstrsourcefile : windows_core::PCWSTR) -> windows_core::HRESULT);
     IESaveFile(hstate.into_param().abi(), lpwstrsourcefile.into_param().abi()).ok()
 }
 #[inline]
@@ -247,7 +247,7 @@ where
     P1: windows_core::IntoParam<windows_core::PCWSTR>,
     P2: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("ieframe.dll" "system" fn IESetProtectedModeCookie(lpszurl : windows_core::PCWSTR, lpszcookiename : windows_core::PCWSTR, lpszcookiedata : windows_core::PCWSTR, dwflags : u32) -> windows_core::HRESULT);
+    windows_targets::link!("ieframe.dll" "system" fn IESetProtectedModeCookie(lpszurl : windows_core::PCWSTR, lpszcookiename : windows_core::PCWSTR, lpszcookiedata : windows_core::PCWSTR, dwflags : u32) -> windows_core::HRESULT);
     IESetProtectedModeCookie(lpszurl.into_param().abi(), lpszcookiename.into_param().abi(), lpszcookiedata.into_param().abi(), dwflags).ok()
 }
 #[inline]
@@ -258,7 +258,7 @@ where
     P2: windows_core::IntoParam<windows_core::PCWSTR>,
     P3: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("ieframe.dll" "system" fn IEShowOpenFileDialog(hwnd : super::super::Foundation:: HWND, lpwstrfilename : windows_core::PWSTR, cchmaxfilename : u32, lpwstrinitialdir : windows_core::PCWSTR, lpwstrfilter : windows_core::PCWSTR, lpwstrdefext : windows_core::PCWSTR, dwfilterindex : u32, dwflags : u32, phfile : *mut super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
+    windows_targets::link!("ieframe.dll" "system" fn IEShowOpenFileDialog(hwnd : super::super::Foundation:: HWND, lpwstrfilename : windows_core::PWSTR, cchmaxfilename : u32, lpwstrinitialdir : windows_core::PCWSTR, lpwstrfilter : windows_core::PCWSTR, lpwstrdefext : windows_core::PCWSTR, dwfilterindex : u32, dwflags : u32, phfile : *mut super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
     IEShowOpenFileDialog(hwnd.into_param().abi(), core::mem::transmute(lpwstrfilename.as_ptr()), lpwstrfilename.len().try_into().unwrap(), lpwstrinitialdir.into_param().abi(), lpwstrfilter.into_param().abi(), lpwstrdefext.into_param().abi(), dwfilterindex, dwflags, phfile).ok()
 }
 #[inline]
@@ -270,22 +270,22 @@ where
     P3: windows_core::IntoParam<windows_core::PCWSTR>,
     P4: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("ieframe.dll" "system" fn IEShowSaveFileDialog(hwnd : super::super::Foundation:: HWND, lpwstrinitialfilename : windows_core::PCWSTR, lpwstrinitialdir : windows_core::PCWSTR, lpwstrfilter : windows_core::PCWSTR, lpwstrdefext : windows_core::PCWSTR, dwfilterindex : u32, dwflags : u32, lppwstrdestinationfilepath : *mut windows_core::PWSTR, phstate : *mut super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
+    windows_targets::link!("ieframe.dll" "system" fn IEShowSaveFileDialog(hwnd : super::super::Foundation:: HWND, lpwstrinitialfilename : windows_core::PCWSTR, lpwstrinitialdir : windows_core::PCWSTR, lpwstrfilter : windows_core::PCWSTR, lpwstrdefext : windows_core::PCWSTR, dwfilterindex : u32, dwflags : u32, lppwstrdestinationfilepath : *mut windows_core::PWSTR, phstate : *mut super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
     IEShowSaveFileDialog(hwnd.into_param().abi(), lpwstrinitialfilename.into_param().abi(), lpwstrinitialdir.into_param().abi(), lpwstrfilter.into_param().abi(), lpwstrdefext.into_param().abi(), dwfilterindex, dwflags, lppwstrdestinationfilepath, phstate).ok()
 }
 #[inline]
 pub unsafe fn IETrackingProtectionEnabled() -> super::super::Foundation::BOOL {
-    ::windows_targets::link!("ieframe.dll" "system" fn IETrackingProtectionEnabled() -> super::super::Foundation:: BOOL);
+    windows_targets::link!("ieframe.dll" "system" fn IETrackingProtectionEnabled() -> super::super::Foundation:: BOOL);
     IETrackingProtectionEnabled()
 }
 #[inline]
 pub unsafe fn IEUnregisterWritableRegistry(guid: windows_core::GUID) -> windows_core::Result<()> {
-    ::windows_targets::link!("ieframe.dll" "system" fn IEUnregisterWritableRegistry(guid : windows_core::GUID) -> windows_core::HRESULT);
+    windows_targets::link!("ieframe.dll" "system" fn IEUnregisterWritableRegistry(guid : windows_core::GUID) -> windows_core::HRESULT);
     IEUnregisterWritableRegistry(core::mem::transmute(guid)).ok()
 }
 #[inline]
 pub unsafe fn IdentifyMIMEType(pbbytes: *const u8, nbytes: u32, pnformat: *mut u32) -> windows_core::Result<()> {
-    ::windows_targets::link!("imgutil.dll" "system" fn IdentifyMIMEType(pbbytes : *const u8, nbytes : u32, pnformat : *mut u32) -> windows_core::HRESULT);
+    windows_targets::link!("imgutil.dll" "system" fn IdentifyMIMEType(pbbytes : *const u8, nbytes : u32, pnformat : *mut u32) -> windows_core::HRESULT);
     IdentifyMIMEType(pbbytes, nbytes, pnformat).ok()
 }
 #[inline]
@@ -295,7 +295,7 @@ where
     P1: windows_core::IntoParam<windows_core::PCSTR>,
     P2: windows_core::IntoParam<windows_core::PCSTR>,
 {
-    ::windows_targets::link!("msrating.dll" "system" fn RatingAccessDeniedDialog(hdlg : super::super::Foundation:: HWND, pszusername : windows_core::PCSTR, pszcontentdescription : windows_core::PCSTR, pratingdetails : *mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_targets::link!("msrating.dll" "system" fn RatingAccessDeniedDialog(hdlg : super::super::Foundation:: HWND, pszusername : windows_core::PCSTR, pszcontentdescription : windows_core::PCSTR, pratingdetails : *mut core::ffi::c_void) -> windows_core::HRESULT);
     RatingAccessDeniedDialog(hdlg.into_param().abi(), pszusername.into_param().abi(), pszcontentdescription.into_param().abi(), pratingdetails).ok()
 }
 #[inline]
@@ -304,7 +304,7 @@ where
     P0: windows_core::IntoParam<super::super::Foundation::HWND>,
     P1: windows_core::IntoParam<windows_core::PCSTR>,
 {
-    ::windows_targets::link!("msrating.dll" "system" fn RatingAccessDeniedDialog2(hdlg : super::super::Foundation:: HWND, pszusername : windows_core::PCSTR, pratingdetails : *mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_targets::link!("msrating.dll" "system" fn RatingAccessDeniedDialog2(hdlg : super::super::Foundation:: HWND, pszusername : windows_core::PCSTR, pratingdetails : *mut core::ffi::c_void) -> windows_core::HRESULT);
     RatingAccessDeniedDialog2(hdlg.into_param().abi(), pszusername.into_param().abi(), pratingdetails).ok()
 }
 #[inline]
@@ -313,7 +313,7 @@ where
     P0: windows_core::IntoParam<super::super::Foundation::HWND>,
     P1: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("msrating.dll" "system" fn RatingAccessDeniedDialog2W(hdlg : super::super::Foundation:: HWND, pszusername : windows_core::PCWSTR, pratingdetails : *mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_targets::link!("msrating.dll" "system" fn RatingAccessDeniedDialog2W(hdlg : super::super::Foundation:: HWND, pszusername : windows_core::PCWSTR, pratingdetails : *mut core::ffi::c_void) -> windows_core::HRESULT);
     RatingAccessDeniedDialog2W(hdlg.into_param().abi(), pszusername.into_param().abi(), pratingdetails).ok()
 }
 #[inline]
@@ -323,7 +323,7 @@ where
     P1: windows_core::IntoParam<windows_core::PCWSTR>,
     P2: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("msrating.dll" "system" fn RatingAccessDeniedDialogW(hdlg : super::super::Foundation:: HWND, pszusername : windows_core::PCWSTR, pszcontentdescription : windows_core::PCWSTR, pratingdetails : *mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_targets::link!("msrating.dll" "system" fn RatingAccessDeniedDialogW(hdlg : super::super::Foundation:: HWND, pszusername : windows_core::PCWSTR, pszcontentdescription : windows_core::PCWSTR, pratingdetails : *mut core::ffi::c_void) -> windows_core::HRESULT);
     RatingAccessDeniedDialogW(hdlg.into_param().abi(), pszusername.into_param().abi(), pszcontentdescription.into_param().abi(), pratingdetails).ok()
 }
 #[inline]
@@ -335,7 +335,7 @@ where
     P3: windows_core::IntoParam<super::super::Foundation::BOOL>,
     P4: windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("msrating.dll" "system" fn RatingAddToApprovedSites(hdlg : super::super::Foundation:: HWND, cbpasswordblob : u32, pbpasswordblob : *mut u8, lpszurl : windows_core::PCWSTR, falwaysnever : super::super::Foundation:: BOOL, fsitepage : super::super::Foundation:: BOOL, fapprovedsitesenforced : super::super::Foundation:: BOOL) -> windows_core::HRESULT);
+    windows_targets::link!("msrating.dll" "system" fn RatingAddToApprovedSites(hdlg : super::super::Foundation:: HWND, cbpasswordblob : u32, pbpasswordblob : *mut u8, lpszurl : windows_core::PCWSTR, falwaysnever : super::super::Foundation:: BOOL, fsitepage : super::super::Foundation:: BOOL, fapprovedsitesenforced : super::super::Foundation:: BOOL) -> windows_core::HRESULT);
     RatingAddToApprovedSites(hdlg.into_param().abi(), pbpasswordblob.len().try_into().unwrap(), core::mem::transmute(pbpasswordblob.as_ptr()), lpszurl.into_param().abi(), falwaysnever.into_param().abi(), fsitepage.into_param().abi(), fapprovedsitesenforced.into_param().abi()).ok()
 }
 #[inline]
@@ -345,7 +345,7 @@ where
     P1: windows_core::IntoParam<windows_core::PCSTR>,
     P2: windows_core::IntoParam<windows_core::PCSTR>,
 {
-    ::windows_targets::link!("msrating.dll" "system" fn RatingCheckUserAccess(pszusername : windows_core::PCSTR, pszurl : windows_core::PCSTR, pszratinginfo : windows_core::PCSTR, pdata : *const u8, cbdata : u32, ppratingdetails : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_targets::link!("msrating.dll" "system" fn RatingCheckUserAccess(pszusername : windows_core::PCSTR, pszurl : windows_core::PCSTR, pszratinginfo : windows_core::PCSTR, pdata : *const u8, cbdata : u32, ppratingdetails : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     RatingCheckUserAccess(pszusername.into_param().abi(), pszurl.into_param().abi(), pszratinginfo.into_param().abi(), core::mem::transmute(pdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ppratingdetails.unwrap_or(std::ptr::null_mut()))).ok()
 }
 #[inline]
@@ -355,7 +355,7 @@ where
     P1: windows_core::IntoParam<windows_core::PCWSTR>,
     P2: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("msrating.dll" "system" fn RatingCheckUserAccessW(pszusername : windows_core::PCWSTR, pszurl : windows_core::PCWSTR, pszratinginfo : windows_core::PCWSTR, pdata : *const u8, cbdata : u32, ppratingdetails : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_targets::link!("msrating.dll" "system" fn RatingCheckUserAccessW(pszusername : windows_core::PCWSTR, pszurl : windows_core::PCWSTR, pszratinginfo : windows_core::PCWSTR, pdata : *const u8, cbdata : u32, ppratingdetails : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     RatingCheckUserAccessW(pszusername.into_param().abi(), pszurl.into_param().abi(), pszratinginfo.into_param().abi(), core::mem::transmute(pdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ppratingdetails.unwrap_or(std::ptr::null_mut()))).ok()
 }
 #[inline]
@@ -365,7 +365,7 @@ where
     P1: windows_core::IntoParam<super::super::Foundation::HINSTANCE>,
     P2: windows_core::IntoParam<windows_core::PCSTR>,
 {
-    ::windows_targets::link!("msrating.dll" "system" fn RatingClickedOnPRFInternal(hwndowner : super::super::Foundation:: HWND, param1 : super::super::Foundation:: HINSTANCE, lpszfilename : windows_core::PCSTR, nshow : i32) -> windows_core::HRESULT);
+    windows_targets::link!("msrating.dll" "system" fn RatingClickedOnPRFInternal(hwndowner : super::super::Foundation:: HWND, param1 : super::super::Foundation:: HINSTANCE, lpszfilename : windows_core::PCSTR, nshow : i32) -> windows_core::HRESULT);
     RatingClickedOnPRFInternal(hwndowner.into_param().abi(), param1.into_param().abi(), lpszfilename.into_param().abi(), nshow).ok()
 }
 #[inline]
@@ -375,7 +375,7 @@ where
     P1: windows_core::IntoParam<super::super::Foundation::HINSTANCE>,
     P2: windows_core::IntoParam<windows_core::PCSTR>,
 {
-    ::windows_targets::link!("msrating.dll" "system" fn RatingClickedOnRATInternal(hwndowner : super::super::Foundation:: HWND, param1 : super::super::Foundation:: HINSTANCE, lpszfilename : windows_core::PCSTR, nshow : i32) -> windows_core::HRESULT);
+    windows_targets::link!("msrating.dll" "system" fn RatingClickedOnRATInternal(hwndowner : super::super::Foundation:: HWND, param1 : super::super::Foundation:: HINSTANCE, lpszfilename : windows_core::PCSTR, nshow : i32) -> windows_core::HRESULT);
     RatingClickedOnRATInternal(hwndowner.into_param().abi(), param1.into_param().abi(), lpszfilename.into_param().abi(), nshow).ok()
 }
 #[inline]
@@ -385,7 +385,7 @@ where
     P1: windows_core::IntoParam<windows_core::PCSTR>,
     P2: windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("msrating.dll" "system" fn RatingEnable(hwndparent : super::super::Foundation:: HWND, pszusername : windows_core::PCSTR, fenable : super::super::Foundation:: BOOL) -> windows_core::HRESULT);
+    windows_targets::link!("msrating.dll" "system" fn RatingEnable(hwndparent : super::super::Foundation:: HWND, pszusername : windows_core::PCSTR, fenable : super::super::Foundation:: BOOL) -> windows_core::HRESULT);
     RatingEnable(hwndparent.into_param().abi(), pszusername.into_param().abi(), fenable.into_param().abi()).ok()
 }
 #[inline]
@@ -395,22 +395,22 @@ where
     P1: windows_core::IntoParam<windows_core::PCWSTR>,
     P2: windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("msrating.dll" "system" fn RatingEnableW(hwndparent : super::super::Foundation:: HWND, pszusername : windows_core::PCWSTR, fenable : super::super::Foundation:: BOOL) -> windows_core::HRESULT);
+    windows_targets::link!("msrating.dll" "system" fn RatingEnableW(hwndparent : super::super::Foundation:: HWND, pszusername : windows_core::PCWSTR, fenable : super::super::Foundation:: BOOL) -> windows_core::HRESULT);
     RatingEnableW(hwndparent.into_param().abi(), pszusername.into_param().abi(), fenable.into_param().abi()).ok()
 }
 #[inline]
 pub unsafe fn RatingEnabledQuery() -> windows_core::Result<()> {
-    ::windows_targets::link!("msrating.dll" "system" fn RatingEnabledQuery() -> windows_core::HRESULT);
+    windows_targets::link!("msrating.dll" "system" fn RatingEnabledQuery() -> windows_core::HRESULT);
     RatingEnabledQuery().ok()
 }
 #[inline]
 pub unsafe fn RatingFreeDetails(pratingdetails: Option<*const core::ffi::c_void>) -> windows_core::Result<()> {
-    ::windows_targets::link!("msrating.dll" "system" fn RatingFreeDetails(pratingdetails : *const core::ffi::c_void) -> windows_core::HRESULT);
+    windows_targets::link!("msrating.dll" "system" fn RatingFreeDetails(pratingdetails : *const core::ffi::c_void) -> windows_core::HRESULT);
     RatingFreeDetails(core::mem::transmute(pratingdetails.unwrap_or(std::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn RatingInit() -> windows_core::Result<()> {
-    ::windows_targets::link!("msrating.dll" "system" fn RatingInit() -> windows_core::HRESULT);
+    windows_targets::link!("msrating.dll" "system" fn RatingInit() -> windows_core::HRESULT);
     RatingInit().ok()
 }
 #[inline]
@@ -418,7 +418,7 @@ pub unsafe fn RatingObtainCancel<P0>(hratingobtainquery: P0) -> windows_core::Re
 where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("msrating.dll" "system" fn RatingObtainCancel(hratingobtainquery : super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
+    windows_targets::link!("msrating.dll" "system" fn RatingObtainCancel(hratingobtainquery : super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
     RatingObtainCancel(hratingobtainquery.into_param().abi()).ok()
 }
 #[inline]
@@ -426,7 +426,7 @@ pub unsafe fn RatingObtainQuery<P0>(psztargeturl: P0, dwuserdata: u32, fcallback
 where
     P0: windows_core::IntoParam<windows_core::PCSTR>,
 {
-    ::windows_targets::link!("msrating.dll" "system" fn RatingObtainQuery(psztargeturl : windows_core::PCSTR, dwuserdata : u32, fcallback : isize, phratingobtainquery : *mut super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
+    windows_targets::link!("msrating.dll" "system" fn RatingObtainQuery(psztargeturl : windows_core::PCSTR, dwuserdata : u32, fcallback : isize, phratingobtainquery : *mut super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
     RatingObtainQuery(psztargeturl.into_param().abi(), dwuserdata, fcallback, core::mem::transmute(phratingobtainquery.unwrap_or(std::ptr::null_mut()))).ok()
 }
 #[inline]
@@ -434,7 +434,7 @@ pub unsafe fn RatingObtainQueryW<P0>(psztargeturl: P0, dwuserdata: u32, fcallbac
 where
     P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("msrating.dll" "system" fn RatingObtainQueryW(psztargeturl : windows_core::PCWSTR, dwuserdata : u32, fcallback : isize, phratingobtainquery : *mut super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
+    windows_targets::link!("msrating.dll" "system" fn RatingObtainQueryW(psztargeturl : windows_core::PCWSTR, dwuserdata : u32, fcallback : isize, phratingobtainquery : *mut super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
     RatingObtainQueryW(psztargeturl.into_param().abi(), dwuserdata, fcallback, core::mem::transmute(phratingobtainquery.unwrap_or(std::ptr::null_mut()))).ok()
 }
 #[inline]
@@ -443,7 +443,7 @@ where
     P0: windows_core::IntoParam<super::super::Foundation::HWND>,
     P1: windows_core::IntoParam<windows_core::PCSTR>,
 {
-    ::windows_targets::link!("msrating.dll" "system" fn RatingSetupUI(hdlg : super::super::Foundation:: HWND, pszusername : windows_core::PCSTR) -> windows_core::HRESULT);
+    windows_targets::link!("msrating.dll" "system" fn RatingSetupUI(hdlg : super::super::Foundation:: HWND, pszusername : windows_core::PCSTR) -> windows_core::HRESULT);
     RatingSetupUI(hdlg.into_param().abi(), pszusername.into_param().abi()).ok()
 }
 #[inline]
@@ -452,7 +452,7 @@ where
     P0: windows_core::IntoParam<super::super::Foundation::HWND>,
     P1: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("msrating.dll" "system" fn RatingSetupUIW(hdlg : super::super::Foundation:: HWND, pszusername : windows_core::PCWSTR) -> windows_core::HRESULT);
+    windows_targets::link!("msrating.dll" "system" fn RatingSetupUIW(hdlg : super::super::Foundation:: HWND, pszusername : windows_core::PCWSTR) -> windows_core::HRESULT);
     RatingSetupUIW(hdlg.into_param().abi(), pszusername.into_param().abi()).ok()
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -461,7 +461,7 @@ pub unsafe fn SniffStream<P0>(pinstream: P0, pnformat: *mut u32, ppoutstream: *m
 where
     P0: windows_core::IntoParam<super::super::System::Com::IStream>,
 {
-    ::windows_targets::link!("imgutil.dll" "system" fn SniffStream(pinstream : * mut core::ffi::c_void, pnformat : *mut u32, ppoutstream : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_targets::link!("imgutil.dll" "system" fn SniffStream(pinstream : * mut core::ffi::c_void, pnformat : *mut u32, ppoutstream : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     SniffStream(pinstream.into_param().abi(), pnformat, core::mem::transmute(ppoutstream)).ok()
 }
 windows_core::imp::com_interface!(IActiveXUIHandlerSite, IActiveXUIHandlerSite_Vtbl, 0x30510853_98b5_11cf_bb82_00aa00bdce0b);

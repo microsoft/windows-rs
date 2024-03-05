@@ -1,4 +1,4 @@
-::windows_targets::link!("mapi32.dll" "system" fn MAPIFreeBuffer(pv : *mut core::ffi::c_void) -> u32);
+windows_targets::link!("mapi32.dll" "system" fn MAPIFreeBuffer(pv : *mut core::ffi::c_void) -> u32);
 pub const MAPI_AB_NOMODIFY: u32 = 1024u32;
 pub const MAPI_BCC: u32 = 3u32;
 pub const MAPI_BODY_AS_FILE: u32 = 512u32;

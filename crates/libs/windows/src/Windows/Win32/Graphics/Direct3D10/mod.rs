@@ -5,7 +5,7 @@ where
     P0: windows_core::IntoParam<windows_core::PCSTR>,
     P1: windows_core::IntoParam<super::Direct3D::ID3DInclude>,
 {
-    ::windows_targets::link!("d3d10.dll" "system" fn D3D10CompileEffectFromMemory(pdata : *const core::ffi::c_void, datalength : usize, psrcfilename : windows_core::PCSTR, pdefines : *const super::Direct3D:: D3D_SHADER_MACRO, pinclude : * mut core::ffi::c_void, hlslflags : u32, fxflags : u32, ppcompiledeffect : *mut * mut core::ffi::c_void, pperrors : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_targets::link!("d3d10.dll" "system" fn D3D10CompileEffectFromMemory(pdata : *const core::ffi::c_void, datalength : usize, psrcfilename : windows_core::PCSTR, pdefines : *const super::Direct3D:: D3D_SHADER_MACRO, pinclude : * mut core::ffi::c_void, hlslflags : u32, fxflags : u32, ppcompiledeffect : *mut * mut core::ffi::c_void, pperrors : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     D3D10CompileEffectFromMemory(pdata, datalength, psrcfilename.into_param().abi(), core::mem::transmute(pdefines.unwrap_or(std::ptr::null())), pinclude.into_param().abi(), hlslflags, fxflags, core::mem::transmute(ppcompiledeffect), core::mem::transmute(pperrors.unwrap_or(std::ptr::null_mut()))).ok()
 }
 #[cfg(feature = "Win32_Graphics_Direct3D")]
@@ -17,13 +17,13 @@ where
     P2: windows_core::IntoParam<windows_core::PCSTR>,
     P3: windows_core::IntoParam<windows_core::PCSTR>,
 {
-    ::windows_targets::link!("d3d10.dll" "system" fn D3D10CompileShader(psrcdata : windows_core::PCSTR, srcdatasize : usize, pfilename : windows_core::PCSTR, pdefines : *const super::Direct3D:: D3D_SHADER_MACRO, pinclude : * mut core::ffi::c_void, pfunctionname : windows_core::PCSTR, pprofile : windows_core::PCSTR, flags : u32, ppshader : *mut * mut core::ffi::c_void, pperrormsgs : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_targets::link!("d3d10.dll" "system" fn D3D10CompileShader(psrcdata : windows_core::PCSTR, srcdatasize : usize, pfilename : windows_core::PCSTR, pdefines : *const super::Direct3D:: D3D_SHADER_MACRO, pinclude : * mut core::ffi::c_void, pfunctionname : windows_core::PCSTR, pprofile : windows_core::PCSTR, flags : u32, ppshader : *mut * mut core::ffi::c_void, pperrormsgs : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     D3D10CompileShader(core::mem::transmute(psrcdata.as_ptr()), psrcdata.len().try_into().unwrap(), pfilename.into_param().abi(), core::mem::transmute(pdefines.unwrap_or(std::ptr::null())), pinclude.into_param().abi(), pfunctionname.into_param().abi(), pprofile.into_param().abi(), flags, core::mem::transmute(ppshader), core::mem::transmute(pperrormsgs.unwrap_or(std::ptr::null_mut()))).ok()
 }
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 #[inline]
 pub unsafe fn D3D10CreateBlob(numbytes: usize) -> windows_core::Result<super::Direct3D::ID3DBlob> {
-    ::windows_targets::link!("d3d10.dll" "system" fn D3D10CreateBlob(numbytes : usize, ppbuffer : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_targets::link!("d3d10.dll" "system" fn D3D10CreateBlob(numbytes : usize, ppbuffer : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = std::mem::zeroed();
     D3D10CreateBlob(numbytes, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
@@ -34,7 +34,7 @@ where
     P0: windows_core::IntoParam<super::Dxgi::IDXGIAdapter>,
     P1: windows_core::IntoParam<super::super::Foundation::HMODULE>,
 {
-    ::windows_targets::link!("d3d10.dll" "system" fn D3D10CreateDevice(padapter : * mut core::ffi::c_void, drivertype : D3D10_DRIVER_TYPE, software : super::super::Foundation:: HMODULE, flags : u32, sdkversion : u32, ppdevice : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_targets::link!("d3d10.dll" "system" fn D3D10CreateDevice(padapter : * mut core::ffi::c_void, drivertype : D3D10_DRIVER_TYPE, software : super::super::Foundation:: HMODULE, flags : u32, sdkversion : u32, ppdevice : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     D3D10CreateDevice(padapter.into_param().abi(), drivertype, software.into_param().abi(), flags, sdkversion, core::mem::transmute(ppdevice.unwrap_or(std::ptr::null_mut()))).ok()
 }
 #[cfg(feature = "Win32_Graphics_Dxgi")]
@@ -44,7 +44,7 @@ where
     P0: windows_core::IntoParam<super::Dxgi::IDXGIAdapter>,
     P1: windows_core::IntoParam<super::super::Foundation::HMODULE>,
 {
-    ::windows_targets::link!("d3d10_1.dll" "system" fn D3D10CreateDevice1(padapter : * mut core::ffi::c_void, drivertype : D3D10_DRIVER_TYPE, software : super::super::Foundation:: HMODULE, flags : u32, hardwarelevel : D3D10_FEATURE_LEVEL1, sdkversion : u32, ppdevice : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_targets::link!("d3d10_1.dll" "system" fn D3D10CreateDevice1(padapter : * mut core::ffi::c_void, drivertype : D3D10_DRIVER_TYPE, software : super::super::Foundation:: HMODULE, flags : u32, hardwarelevel : D3D10_FEATURE_LEVEL1, sdkversion : u32, ppdevice : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     D3D10CreateDevice1(padapter.into_param().abi(), drivertype, software.into_param().abi(), flags, hardwarelevel, sdkversion, core::mem::transmute(ppdevice.unwrap_or(std::ptr::null_mut()))).ok()
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -54,7 +54,7 @@ where
     P0: windows_core::IntoParam<super::Dxgi::IDXGIAdapter>,
     P1: windows_core::IntoParam<super::super::Foundation::HMODULE>,
 {
-    ::windows_targets::link!("d3d10.dll" "system" fn D3D10CreateDeviceAndSwapChain(padapter : * mut core::ffi::c_void, drivertype : D3D10_DRIVER_TYPE, software : super::super::Foundation:: HMODULE, flags : u32, sdkversion : u32, pswapchaindesc : *const super::Dxgi:: DXGI_SWAP_CHAIN_DESC, ppswapchain : *mut * mut core::ffi::c_void, ppdevice : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_targets::link!("d3d10.dll" "system" fn D3D10CreateDeviceAndSwapChain(padapter : * mut core::ffi::c_void, drivertype : D3D10_DRIVER_TYPE, software : super::super::Foundation:: HMODULE, flags : u32, sdkversion : u32, pswapchaindesc : *const super::Dxgi:: DXGI_SWAP_CHAIN_DESC, ppswapchain : *mut * mut core::ffi::c_void, ppdevice : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     D3D10CreateDeviceAndSwapChain(padapter.into_param().abi(), drivertype, software.into_param().abi(), flags, sdkversion, core::mem::transmute(pswapchaindesc.unwrap_or(std::ptr::null())), core::mem::transmute(ppswapchain.unwrap_or(std::ptr::null_mut())), core::mem::transmute(ppdevice.unwrap_or(std::ptr::null_mut()))).ok()
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -64,7 +64,7 @@ where
     P0: windows_core::IntoParam<super::Dxgi::IDXGIAdapter>,
     P1: windows_core::IntoParam<super::super::Foundation::HMODULE>,
 {
-    ::windows_targets::link!("d3d10_1.dll" "system" fn D3D10CreateDeviceAndSwapChain1(padapter : * mut core::ffi::c_void, drivertype : D3D10_DRIVER_TYPE, software : super::super::Foundation:: HMODULE, flags : u32, hardwarelevel : D3D10_FEATURE_LEVEL1, sdkversion : u32, pswapchaindesc : *const super::Dxgi:: DXGI_SWAP_CHAIN_DESC, ppswapchain : *mut * mut core::ffi::c_void, ppdevice : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_targets::link!("d3d10_1.dll" "system" fn D3D10CreateDeviceAndSwapChain1(padapter : * mut core::ffi::c_void, drivertype : D3D10_DRIVER_TYPE, software : super::super::Foundation:: HMODULE, flags : u32, hardwarelevel : D3D10_FEATURE_LEVEL1, sdkversion : u32, pswapchaindesc : *const super::Dxgi:: DXGI_SWAP_CHAIN_DESC, ppswapchain : *mut * mut core::ffi::c_void, ppdevice : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     D3D10CreateDeviceAndSwapChain1(padapter.into_param().abi(), drivertype, software.into_param().abi(), flags, hardwarelevel, sdkversion, core::mem::transmute(pswapchaindesc.unwrap_or(std::ptr::null())), core::mem::transmute(ppswapchain.unwrap_or(std::ptr::null_mut())), core::mem::transmute(ppdevice.unwrap_or(std::ptr::null_mut()))).ok()
 }
 #[inline]
@@ -73,7 +73,7 @@ where
     P0: windows_core::IntoParam<ID3D10Device>,
     P1: windows_core::IntoParam<ID3D10EffectPool>,
 {
-    ::windows_targets::link!("d3d10.dll" "system" fn D3D10CreateEffectFromMemory(pdata : *const core::ffi::c_void, datalength : usize, fxflags : u32, pdevice : * mut core::ffi::c_void, peffectpool : * mut core::ffi::c_void, ppeffect : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_targets::link!("d3d10.dll" "system" fn D3D10CreateEffectFromMemory(pdata : *const core::ffi::c_void, datalength : usize, fxflags : u32, pdevice : * mut core::ffi::c_void, peffectpool : * mut core::ffi::c_void, ppeffect : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = std::mem::zeroed();
     D3D10CreateEffectFromMemory(pdata, datalength, fxflags, pdevice.into_param().abi(), peffectpool.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
@@ -82,7 +82,7 @@ pub unsafe fn D3D10CreateEffectPoolFromMemory<P0>(pdata: *const core::ffi::c_voi
 where
     P0: windows_core::IntoParam<ID3D10Device>,
 {
-    ::windows_targets::link!("d3d10.dll" "system" fn D3D10CreateEffectPoolFromMemory(pdata : *const core::ffi::c_void, datalength : usize, fxflags : u32, pdevice : * mut core::ffi::c_void, ppeffectpool : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_targets::link!("d3d10.dll" "system" fn D3D10CreateEffectPoolFromMemory(pdata : *const core::ffi::c_void, datalength : usize, fxflags : u32, pdevice : * mut core::ffi::c_void, ppeffectpool : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = std::mem::zeroed();
     D3D10CreateEffectPoolFromMemory(pdata, datalength, fxflags, pdevice.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
@@ -91,7 +91,7 @@ pub unsafe fn D3D10CreateStateBlock<P0>(pdevice: P0, pstateblockmask: *const D3D
 where
     P0: windows_core::IntoParam<ID3D10Device>,
 {
-    ::windows_targets::link!("d3d10.dll" "system" fn D3D10CreateStateBlock(pdevice : * mut core::ffi::c_void, pstateblockmask : *const D3D10_STATE_BLOCK_MASK, ppstateblock : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_targets::link!("d3d10.dll" "system" fn D3D10CreateStateBlock(pdevice : * mut core::ffi::c_void, pstateblockmask : *const D3D10_STATE_BLOCK_MASK, ppstateblock : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = std::mem::zeroed();
     D3D10CreateStateBlock(pdevice.into_param().abi(), pstateblockmask, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
@@ -102,7 +102,7 @@ where
     P0: windows_core::IntoParam<ID3D10Effect>,
     P1: windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("d3d10.dll" "system" fn D3D10DisassembleEffect(peffect : * mut core::ffi::c_void, enablecolorcode : super::super::Foundation:: BOOL, ppdisassembly : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_targets::link!("d3d10.dll" "system" fn D3D10DisassembleEffect(peffect : * mut core::ffi::c_void, enablecolorcode : super::super::Foundation:: BOOL, ppdisassembly : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = std::mem::zeroed();
     D3D10DisassembleEffect(peffect.into_param().abi(), enablecolorcode.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
@@ -113,7 +113,7 @@ where
     P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
     P1: windows_core::IntoParam<windows_core::PCSTR>,
 {
-    ::windows_targets::link!("d3d10.dll" "system" fn D3D10DisassembleShader(pshader : *const core::ffi::c_void, bytecodelength : usize, enablecolorcode : super::super::Foundation:: BOOL, pcomments : windows_core::PCSTR, ppdisassembly : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_targets::link!("d3d10.dll" "system" fn D3D10DisassembleShader(pshader : *const core::ffi::c_void, bytecodelength : usize, enablecolorcode : super::super::Foundation:: BOOL, pcomments : windows_core::PCSTR, ppdisassembly : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = std::mem::zeroed();
     D3D10DisassembleShader(pshader, bytecodelength, enablecolorcode.into_param().abi(), pcomments.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
@@ -122,27 +122,27 @@ pub unsafe fn D3D10GetGeometryShaderProfile<P0>(pdevice: P0) -> windows_core::PC
 where
     P0: windows_core::IntoParam<ID3D10Device>,
 {
-    ::windows_targets::link!("d3d10.dll" "system" fn D3D10GetGeometryShaderProfile(pdevice : * mut core::ffi::c_void) -> windows_core::PCSTR);
+    windows_targets::link!("d3d10.dll" "system" fn D3D10GetGeometryShaderProfile(pdevice : * mut core::ffi::c_void) -> windows_core::PCSTR);
     D3D10GetGeometryShaderProfile(pdevice.into_param().abi())
 }
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 #[inline]
 pub unsafe fn D3D10GetInputAndOutputSignatureBlob(pshaderbytecode: *const core::ffi::c_void, bytecodelength: usize) -> windows_core::Result<super::Direct3D::ID3DBlob> {
-    ::windows_targets::link!("d3d10.dll" "system" fn D3D10GetInputAndOutputSignatureBlob(pshaderbytecode : *const core::ffi::c_void, bytecodelength : usize, ppsignatureblob : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_targets::link!("d3d10.dll" "system" fn D3D10GetInputAndOutputSignatureBlob(pshaderbytecode : *const core::ffi::c_void, bytecodelength : usize, ppsignatureblob : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = std::mem::zeroed();
     D3D10GetInputAndOutputSignatureBlob(pshaderbytecode, bytecodelength, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 #[inline]
 pub unsafe fn D3D10GetInputSignatureBlob(pshaderbytecode: *const core::ffi::c_void, bytecodelength: usize) -> windows_core::Result<super::Direct3D::ID3DBlob> {
-    ::windows_targets::link!("d3d10.dll" "system" fn D3D10GetInputSignatureBlob(pshaderbytecode : *const core::ffi::c_void, bytecodelength : usize, ppsignatureblob : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_targets::link!("d3d10.dll" "system" fn D3D10GetInputSignatureBlob(pshaderbytecode : *const core::ffi::c_void, bytecodelength : usize, ppsignatureblob : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = std::mem::zeroed();
     D3D10GetInputSignatureBlob(pshaderbytecode, bytecodelength, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 #[inline]
 pub unsafe fn D3D10GetOutputSignatureBlob(pshaderbytecode: *const core::ffi::c_void, bytecodelength: usize) -> windows_core::Result<super::Direct3D::ID3DBlob> {
-    ::windows_targets::link!("d3d10.dll" "system" fn D3D10GetOutputSignatureBlob(pshaderbytecode : *const core::ffi::c_void, bytecodelength : usize, ppsignatureblob : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_targets::link!("d3d10.dll" "system" fn D3D10GetOutputSignatureBlob(pshaderbytecode : *const core::ffi::c_void, bytecodelength : usize, ppsignatureblob : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = std::mem::zeroed();
     D3D10GetOutputSignatureBlob(pshaderbytecode, bytecodelength, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
@@ -151,13 +151,13 @@ pub unsafe fn D3D10GetPixelShaderProfile<P0>(pdevice: P0) -> windows_core::PCSTR
 where
     P0: windows_core::IntoParam<ID3D10Device>,
 {
-    ::windows_targets::link!("d3d10.dll" "system" fn D3D10GetPixelShaderProfile(pdevice : * mut core::ffi::c_void) -> windows_core::PCSTR);
+    windows_targets::link!("d3d10.dll" "system" fn D3D10GetPixelShaderProfile(pdevice : * mut core::ffi::c_void) -> windows_core::PCSTR);
     D3D10GetPixelShaderProfile(pdevice.into_param().abi())
 }
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 #[inline]
 pub unsafe fn D3D10GetShaderDebugInfo(pshaderbytecode: *const core::ffi::c_void, bytecodelength: usize) -> windows_core::Result<super::Direct3D::ID3DBlob> {
-    ::windows_targets::link!("d3d10.dll" "system" fn D3D10GetShaderDebugInfo(pshaderbytecode : *const core::ffi::c_void, bytecodelength : usize, ppdebuginfo : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_targets::link!("d3d10.dll" "system" fn D3D10GetShaderDebugInfo(pshaderbytecode : *const core::ffi::c_void, bytecodelength : usize, ppdebuginfo : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = std::mem::zeroed();
     D3D10GetShaderDebugInfo(pshaderbytecode, bytecodelength, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
@@ -166,7 +166,7 @@ pub unsafe fn D3D10GetVertexShaderProfile<P0>(pdevice: P0) -> windows_core::PCST
 where
     P0: windows_core::IntoParam<ID3D10Device>,
 {
-    ::windows_targets::link!("d3d10.dll" "system" fn D3D10GetVertexShaderProfile(pdevice : * mut core::ffi::c_void) -> windows_core::PCSTR);
+    windows_targets::link!("d3d10.dll" "system" fn D3D10GetVertexShaderProfile(pdevice : * mut core::ffi::c_void) -> windows_core::PCSTR);
     D3D10GetVertexShaderProfile(pdevice.into_param().abi())
 }
 #[cfg(feature = "Win32_Graphics_Direct3D")]
@@ -176,53 +176,53 @@ where
     P0: windows_core::IntoParam<windows_core::PCSTR>,
     P1: windows_core::IntoParam<super::Direct3D::ID3DInclude>,
 {
-    ::windows_targets::link!("d3d10.dll" "system" fn D3D10PreprocessShader(psrcdata : windows_core::PCSTR, srcdatasize : usize, pfilename : windows_core::PCSTR, pdefines : *const super::Direct3D:: D3D_SHADER_MACRO, pinclude : * mut core::ffi::c_void, ppshadertext : *mut * mut core::ffi::c_void, pperrormsgs : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_targets::link!("d3d10.dll" "system" fn D3D10PreprocessShader(psrcdata : windows_core::PCSTR, srcdatasize : usize, pfilename : windows_core::PCSTR, pdefines : *const super::Direct3D:: D3D_SHADER_MACRO, pinclude : * mut core::ffi::c_void, ppshadertext : *mut * mut core::ffi::c_void, pperrormsgs : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     D3D10PreprocessShader(core::mem::transmute(psrcdata.as_ptr()), psrcdata.len().try_into().unwrap(), pfilename.into_param().abi(), core::mem::transmute(pdefines.unwrap_or(std::ptr::null())), pinclude.into_param().abi(), core::mem::transmute(ppshadertext), core::mem::transmute(pperrormsgs.unwrap_or(std::ptr::null_mut()))).ok()
 }
 #[inline]
 pub unsafe fn D3D10ReflectShader(pshaderbytecode: *const core::ffi::c_void, bytecodelength: usize) -> windows_core::Result<ID3D10ShaderReflection> {
-    ::windows_targets::link!("d3d10.dll" "system" fn D3D10ReflectShader(pshaderbytecode : *const core::ffi::c_void, bytecodelength : usize, ppreflector : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_targets::link!("d3d10.dll" "system" fn D3D10ReflectShader(pshaderbytecode : *const core::ffi::c_void, bytecodelength : usize, ppreflector : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = std::mem::zeroed();
     D3D10ReflectShader(pshaderbytecode, bytecodelength, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[inline]
 pub unsafe fn D3D10StateBlockMaskDifference(pa: *const D3D10_STATE_BLOCK_MASK, pb: *const D3D10_STATE_BLOCK_MASK, presult: *mut D3D10_STATE_BLOCK_MASK) -> windows_core::Result<()> {
-    ::windows_targets::link!("d3d10.dll" "system" fn D3D10StateBlockMaskDifference(pa : *const D3D10_STATE_BLOCK_MASK, pb : *const D3D10_STATE_BLOCK_MASK, presult : *mut D3D10_STATE_BLOCK_MASK) -> windows_core::HRESULT);
+    windows_targets::link!("d3d10.dll" "system" fn D3D10StateBlockMaskDifference(pa : *const D3D10_STATE_BLOCK_MASK, pb : *const D3D10_STATE_BLOCK_MASK, presult : *mut D3D10_STATE_BLOCK_MASK) -> windows_core::HRESULT);
     D3D10StateBlockMaskDifference(pa, pb, presult).ok()
 }
 #[inline]
 pub unsafe fn D3D10StateBlockMaskDisableAll(pmask: *mut D3D10_STATE_BLOCK_MASK) -> windows_core::Result<()> {
-    ::windows_targets::link!("d3d10.dll" "system" fn D3D10StateBlockMaskDisableAll(pmask : *mut D3D10_STATE_BLOCK_MASK) -> windows_core::HRESULT);
+    windows_targets::link!("d3d10.dll" "system" fn D3D10StateBlockMaskDisableAll(pmask : *mut D3D10_STATE_BLOCK_MASK) -> windows_core::HRESULT);
     D3D10StateBlockMaskDisableAll(pmask).ok()
 }
 #[inline]
 pub unsafe fn D3D10StateBlockMaskDisableCapture(pmask: *mut D3D10_STATE_BLOCK_MASK, statetype: D3D10_DEVICE_STATE_TYPES, rangestart: u32, rangelength: u32) -> windows_core::Result<()> {
-    ::windows_targets::link!("d3d10.dll" "system" fn D3D10StateBlockMaskDisableCapture(pmask : *mut D3D10_STATE_BLOCK_MASK, statetype : D3D10_DEVICE_STATE_TYPES, rangestart : u32, rangelength : u32) -> windows_core::HRESULT);
+    windows_targets::link!("d3d10.dll" "system" fn D3D10StateBlockMaskDisableCapture(pmask : *mut D3D10_STATE_BLOCK_MASK, statetype : D3D10_DEVICE_STATE_TYPES, rangestart : u32, rangelength : u32) -> windows_core::HRESULT);
     D3D10StateBlockMaskDisableCapture(pmask, statetype, rangestart, rangelength).ok()
 }
 #[inline]
 pub unsafe fn D3D10StateBlockMaskEnableAll(pmask: *mut D3D10_STATE_BLOCK_MASK) -> windows_core::Result<()> {
-    ::windows_targets::link!("d3d10.dll" "system" fn D3D10StateBlockMaskEnableAll(pmask : *mut D3D10_STATE_BLOCK_MASK) -> windows_core::HRESULT);
+    windows_targets::link!("d3d10.dll" "system" fn D3D10StateBlockMaskEnableAll(pmask : *mut D3D10_STATE_BLOCK_MASK) -> windows_core::HRESULT);
     D3D10StateBlockMaskEnableAll(pmask).ok()
 }
 #[inline]
 pub unsafe fn D3D10StateBlockMaskEnableCapture(pmask: *mut D3D10_STATE_BLOCK_MASK, statetype: D3D10_DEVICE_STATE_TYPES, rangestart: u32, rangelength: u32) -> windows_core::Result<()> {
-    ::windows_targets::link!("d3d10.dll" "system" fn D3D10StateBlockMaskEnableCapture(pmask : *mut D3D10_STATE_BLOCK_MASK, statetype : D3D10_DEVICE_STATE_TYPES, rangestart : u32, rangelength : u32) -> windows_core::HRESULT);
+    windows_targets::link!("d3d10.dll" "system" fn D3D10StateBlockMaskEnableCapture(pmask : *mut D3D10_STATE_BLOCK_MASK, statetype : D3D10_DEVICE_STATE_TYPES, rangestart : u32, rangelength : u32) -> windows_core::HRESULT);
     D3D10StateBlockMaskEnableCapture(pmask, statetype, rangestart, rangelength).ok()
 }
 #[inline]
 pub unsafe fn D3D10StateBlockMaskGetSetting(pmask: *const D3D10_STATE_BLOCK_MASK, statetype: D3D10_DEVICE_STATE_TYPES, entry: u32) -> super::super::Foundation::BOOL {
-    ::windows_targets::link!("d3d10.dll" "system" fn D3D10StateBlockMaskGetSetting(pmask : *const D3D10_STATE_BLOCK_MASK, statetype : D3D10_DEVICE_STATE_TYPES, entry : u32) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("d3d10.dll" "system" fn D3D10StateBlockMaskGetSetting(pmask : *const D3D10_STATE_BLOCK_MASK, statetype : D3D10_DEVICE_STATE_TYPES, entry : u32) -> super::super::Foundation:: BOOL);
     D3D10StateBlockMaskGetSetting(pmask, statetype, entry)
 }
 #[inline]
 pub unsafe fn D3D10StateBlockMaskIntersect(pa: *const D3D10_STATE_BLOCK_MASK, pb: *const D3D10_STATE_BLOCK_MASK, presult: *mut D3D10_STATE_BLOCK_MASK) -> windows_core::Result<()> {
-    ::windows_targets::link!("d3d10.dll" "system" fn D3D10StateBlockMaskIntersect(pa : *const D3D10_STATE_BLOCK_MASK, pb : *const D3D10_STATE_BLOCK_MASK, presult : *mut D3D10_STATE_BLOCK_MASK) -> windows_core::HRESULT);
+    windows_targets::link!("d3d10.dll" "system" fn D3D10StateBlockMaskIntersect(pa : *const D3D10_STATE_BLOCK_MASK, pb : *const D3D10_STATE_BLOCK_MASK, presult : *mut D3D10_STATE_BLOCK_MASK) -> windows_core::HRESULT);
     D3D10StateBlockMaskIntersect(pa, pb, presult).ok()
 }
 #[inline]
 pub unsafe fn D3D10StateBlockMaskUnion(pa: *const D3D10_STATE_BLOCK_MASK, pb: *const D3D10_STATE_BLOCK_MASK, presult: *mut D3D10_STATE_BLOCK_MASK) -> windows_core::Result<()> {
-    ::windows_targets::link!("d3d10.dll" "system" fn D3D10StateBlockMaskUnion(pa : *const D3D10_STATE_BLOCK_MASK, pb : *const D3D10_STATE_BLOCK_MASK, presult : *mut D3D10_STATE_BLOCK_MASK) -> windows_core::HRESULT);
+    windows_targets::link!("d3d10.dll" "system" fn D3D10StateBlockMaskUnion(pa : *const D3D10_STATE_BLOCK_MASK, pb : *const D3D10_STATE_BLOCK_MASK, presult : *mut D3D10_STATE_BLOCK_MASK) -> windows_core::HRESULT);
     D3D10StateBlockMaskUnion(pa, pb, presult).ok()
 }
 windows_core::imp::com_interface!(ID3D10Asynchronous, ID3D10Asynchronous_Vtbl, 0x9b7e4c0d_342c_4106_a19f_4f2704f689f0);

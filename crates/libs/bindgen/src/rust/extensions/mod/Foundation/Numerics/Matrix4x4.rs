@@ -20,7 +20,7 @@ impl Matrix4x4 {
         }
     }
     pub fn rotation_y(degree: f32) -> Self {
-        ::windows_targets::link!("d2d1.dll" "system" fn D2D1SinCos(angle: f32, sin: *mut f32, cos: *mut f32) -> ());
+        windows_targets::link!("d2d1.dll" "system" fn D2D1SinCos(angle: f32, sin: *mut f32, cos: *mut f32));
         let angle = degree * (3.141592654 / 180.0);
         let mut sin = 0.0;
         let mut cos = 0.0;

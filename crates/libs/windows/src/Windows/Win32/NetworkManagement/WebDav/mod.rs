@@ -5,7 +5,7 @@ where
     P1: windows_core::IntoParam<windows_core::PCWSTR>,
     P2: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("netapi32.dll" "system" fn DavAddConnection(connectionhandle : *mut super::super::Foundation:: HANDLE, remotename : windows_core::PCWSTR, username : windows_core::PCWSTR, password : windows_core::PCWSTR, clientcert : *const u8, certsize : u32) -> u32);
+    windows_targets::link!("netapi32.dll" "system" fn DavAddConnection(connectionhandle : *mut super::super::Foundation:: HANDLE, remotename : windows_core::PCWSTR, username : windows_core::PCWSTR, password : windows_core::PCWSTR, clientcert : *const u8, certsize : u32) -> u32);
     DavAddConnection(connectionhandle, remotename.into_param().abi(), username.into_param().abi(), password.into_param().abi(), core::mem::transmute(clientcert.as_ptr()), clientcert.len().try_into().unwrap())
 }
 #[inline]
@@ -14,7 +14,7 @@ where
     P0: windows_core::IntoParam<windows_core::PCWSTR>,
     P1: windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("davclnt.dll" "system" fn DavCancelConnectionsToServer(lpname : windows_core::PCWSTR, fforce : super::super::Foundation:: BOOL) -> u32);
+    windows_targets::link!("davclnt.dll" "system" fn DavCancelConnectionsToServer(lpname : windows_core::PCWSTR, fforce : super::super::Foundation:: BOOL) -> u32);
     DavCancelConnectionsToServer(lpname.into_param().abi(), fforce.into_param().abi())
 }
 #[inline]
@@ -22,7 +22,7 @@ pub unsafe fn DavDeleteConnection<P0>(connectionhandle: P0) -> u32
 where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("netapi32.dll" "system" fn DavDeleteConnection(connectionhandle : super::super::Foundation:: HANDLE) -> u32);
+    windows_targets::link!("netapi32.dll" "system" fn DavDeleteConnection(connectionhandle : super::super::Foundation:: HANDLE) -> u32);
     DavDeleteConnection(connectionhandle.into_param().abi())
 }
 #[inline]
@@ -30,7 +30,7 @@ pub unsafe fn DavFlushFile<P0>(hfile: P0) -> u32
 where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("netapi32.dll" "system" fn DavFlushFile(hfile : super::super::Foundation:: HANDLE) -> u32);
+    windows_targets::link!("netapi32.dll" "system" fn DavFlushFile(hfile : super::super::Foundation:: HANDLE) -> u32);
     DavFlushFile(hfile.into_param().abi())
 }
 #[inline]
@@ -38,7 +38,7 @@ pub unsafe fn DavGetExtendedError<P0>(hfile: P0, exterror: *mut u32, exterrorstr
 where
     P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("netapi32.dll" "system" fn DavGetExtendedError(hfile : super::super::Foundation:: HANDLE, exterror : *mut u32, exterrorstring : windows_core::PWSTR, cchsize : *mut u32) -> u32);
+    windows_targets::link!("netapi32.dll" "system" fn DavGetExtendedError(hfile : super::super::Foundation:: HANDLE, exterror : *mut u32, exterrorstring : windows_core::PWSTR, cchsize : *mut u32) -> u32);
     DavGetExtendedError(hfile.into_param().abi(), exterror, core::mem::transmute(exterrorstring), cchsize)
 }
 #[inline]
@@ -46,7 +46,7 @@ pub unsafe fn DavGetHTTPFromUNCPath<P0>(uncpath: P0, url: windows_core::PWSTR, l
 where
     P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("netapi32.dll" "system" fn DavGetHTTPFromUNCPath(uncpath : windows_core::PCWSTR, url : windows_core::PWSTR, lpsize : *mut u32) -> u32);
+    windows_targets::link!("netapi32.dll" "system" fn DavGetHTTPFromUNCPath(uncpath : windows_core::PCWSTR, url : windows_core::PWSTR, lpsize : *mut u32) -> u32);
     DavGetHTTPFromUNCPath(uncpath.into_param().abi(), core::mem::transmute(url), lpsize)
 }
 #[inline]
@@ -54,7 +54,7 @@ pub unsafe fn DavGetTheLockOwnerOfTheFile<P0>(filename: P0, lockownername: windo
 where
     P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("davclnt.dll" "system" fn DavGetTheLockOwnerOfTheFile(filename : windows_core::PCWSTR, lockownername : windows_core::PWSTR, lockownernamelengthinbytes : *mut u32) -> u32);
+    windows_targets::link!("davclnt.dll" "system" fn DavGetTheLockOwnerOfTheFile(filename : windows_core::PCWSTR, lockownername : windows_core::PWSTR, lockownernamelengthinbytes : *mut u32) -> u32);
     DavGetTheLockOwnerOfTheFile(filename.into_param().abi(), core::mem::transmute(lockownername), lockownernamelengthinbytes)
 }
 #[inline]
@@ -62,7 +62,7 @@ pub unsafe fn DavGetUNCFromHTTPPath<P0>(url: P0, uncpath: windows_core::PWSTR, l
 where
     P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("netapi32.dll" "system" fn DavGetUNCFromHTTPPath(url : windows_core::PCWSTR, uncpath : windows_core::PWSTR, lpsize : *mut u32) -> u32);
+    windows_targets::link!("netapi32.dll" "system" fn DavGetUNCFromHTTPPath(url : windows_core::PCWSTR, uncpath : windows_core::PWSTR, lpsize : *mut u32) -> u32);
     DavGetUNCFromHTTPPath(url.into_param().abi(), core::mem::transmute(uncpath), lpsize)
 }
 #[inline]
@@ -70,17 +70,17 @@ pub unsafe fn DavInvalidateCache<P0>(urlname: P0) -> u32
 where
     P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("davclnt.dll" "system" fn DavInvalidateCache(urlname : windows_core::PCWSTR) -> u32);
+    windows_targets::link!("davclnt.dll" "system" fn DavInvalidateCache(urlname : windows_core::PCWSTR) -> u32);
     DavInvalidateCache(urlname.into_param().abi())
 }
 #[inline]
 pub unsafe fn DavRegisterAuthCallback(callback: PFNDAVAUTHCALLBACK, version: u32) -> u32 {
-    ::windows_targets::link!("davclnt.dll" "system" fn DavRegisterAuthCallback(callback : PFNDAVAUTHCALLBACK, version : u32) -> u32);
+    windows_targets::link!("davclnt.dll" "system" fn DavRegisterAuthCallback(callback : PFNDAVAUTHCALLBACK, version : u32) -> u32);
     DavRegisterAuthCallback(callback, version)
 }
 #[inline]
 pub unsafe fn DavUnregisterAuthCallback(hcallback: u32) {
-    ::windows_targets::link!("davclnt.dll" "system" fn DavUnregisterAuthCallback(hcallback : u32));
+    windows_targets::link!("davclnt.dll" "system" fn DavUnregisterAuthCallback(hcallback : u32));
     DavUnregisterAuthCallback(hcallback)
 }
 pub const CancelRequest: AUTHNEXTSTEP = AUTHNEXTSTEP(2i32);

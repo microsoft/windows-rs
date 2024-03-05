@@ -3,7 +3,7 @@ pub unsafe fn CoGetInterceptor<P0>(iidintercepted: *const windows_core::GUID, pu
 where
     P0: windows_core::IntoParam<windows_core::IUnknown>,
 {
-    ::windows_targets::link!("ole32.dll" "system" fn CoGetInterceptor(iidintercepted : *const windows_core::GUID, punkouter : * mut core::ffi::c_void, iid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_targets::link!("ole32.dll" "system" fn CoGetInterceptor(iidintercepted : *const windows_core::GUID, punkouter : * mut core::ffi::c_void, iid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     CoGetInterceptor(iidintercepted, punkouter.into_param().abi(), iid, ppv).ok()
 }
 #[inline]
@@ -12,7 +12,7 @@ where
     P0: windows_core::IntoParam<windows_core::IUnknown>,
     P1: windows_core::IntoParam<super::ITypeInfo>,
 {
-    ::windows_targets::link!("ole32.dll" "system" fn CoGetInterceptorFromTypeInfo(iidintercepted : *const windows_core::GUID, punkouter : * mut core::ffi::c_void, typeinfo : * mut core::ffi::c_void, iid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_targets::link!("ole32.dll" "system" fn CoGetInterceptorFromTypeInfo(iidintercepted : *const windows_core::GUID, punkouter : * mut core::ffi::c_void, typeinfo : * mut core::ffi::c_void, iid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     CoGetInterceptorFromTypeInfo(iidintercepted, punkouter.into_param().abi(), typeinfo.into_param().abi(), iid, ppv).ok()
 }
 windows_core::imp::com_interface!(ICallFrame, ICallFrame_Vtbl, 0xd573b4b0_894e_11d2_b8b6_00c04fb9618a);

@@ -3,12 +3,12 @@ pub unsafe fn VhfAsyncOperationComplete<P0>(vhfoperationhandle: *const core::ffi
 where
     P0: windows_core::IntoParam<super::super::super::Win32::Foundation::NTSTATUS>,
 {
-    ::windows_targets::link!("vhfum.dll" "system" fn VhfAsyncOperationComplete(vhfoperationhandle : *const core::ffi::c_void, completionstatus : super::super::super::Win32::Foundation:: NTSTATUS) -> super::super::super::Win32::Foundation:: NTSTATUS);
+    windows_targets::link!("vhfum.dll" "system" fn VhfAsyncOperationComplete(vhfoperationhandle : *const core::ffi::c_void, completionstatus : super::super::super::Win32::Foundation:: NTSTATUS) -> super::super::super::Win32::Foundation:: NTSTATUS);
     VhfAsyncOperationComplete(vhfoperationhandle, completionstatus.into_param().abi())
 }
 #[inline]
 pub unsafe fn VhfCreate(vhfconfig: *const VHF_CONFIG, vhfhandle: *mut *mut core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS {
-    ::windows_targets::link!("vhfum.dll" "system" fn VhfCreate(vhfconfig : *const VHF_CONFIG, vhfhandle : *mut *mut core::ffi::c_void) -> super::super::super::Win32::Foundation:: NTSTATUS);
+    windows_targets::link!("vhfum.dll" "system" fn VhfCreate(vhfconfig : *const VHF_CONFIG, vhfhandle : *mut *mut core::ffi::c_void) -> super::super::super::Win32::Foundation:: NTSTATUS);
     VhfCreate(vhfconfig, vhfhandle)
 }
 #[inline]
@@ -16,17 +16,17 @@ pub unsafe fn VhfDelete<P0>(vhfhandle: *const core::ffi::c_void, wait: P0)
 where
     P0: windows_core::IntoParam<super::super::super::Win32::Foundation::BOOLEAN>,
 {
-    ::windows_targets::link!("vhfum.dll" "system" fn VhfDelete(vhfhandle : *const core::ffi::c_void, wait : super::super::super::Win32::Foundation:: BOOLEAN));
+    windows_targets::link!("vhfum.dll" "system" fn VhfDelete(vhfhandle : *const core::ffi::c_void, wait : super::super::super::Win32::Foundation:: BOOLEAN));
     VhfDelete(vhfhandle, wait.into_param().abi())
 }
 #[inline]
 pub unsafe fn VhfReadReportSubmit(vhfhandle: *const core::ffi::c_void, hidtransferpacket: *const HID_XFER_PACKET) -> super::super::super::Win32::Foundation::NTSTATUS {
-    ::windows_targets::link!("vhfum.dll" "system" fn VhfReadReportSubmit(vhfhandle : *const core::ffi::c_void, hidtransferpacket : *const HID_XFER_PACKET) -> super::super::super::Win32::Foundation:: NTSTATUS);
+    windows_targets::link!("vhfum.dll" "system" fn VhfReadReportSubmit(vhfhandle : *const core::ffi::c_void, hidtransferpacket : *const HID_XFER_PACKET) -> super::super::super::Win32::Foundation:: NTSTATUS);
     VhfReadReportSubmit(vhfhandle, hidtransferpacket)
 }
 #[inline]
 pub unsafe fn VhfStart(vhfhandle: *const core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS {
-    ::windows_targets::link!("vhfum.dll" "system" fn VhfStart(vhfhandle : *const core::ffi::c_void) -> super::super::super::Win32::Foundation:: NTSTATUS);
+    windows_targets::link!("vhfum.dll" "system" fn VhfStart(vhfhandle : *const core::ffi::c_void) -> super::super::super::Win32::Foundation:: NTSTATUS);
     VhfStart(vhfhandle)
 }
 #[repr(C)]
